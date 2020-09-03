@@ -617,7 +617,7 @@
                 "FlowStep_C": "When the data migration is complete, update the table that stores the cutoff times."
             },
             "sample_code": true,
-            "github_url": "https://github.com/mspnp/reference-architectures/blob/master/data/enterprise_bi_sqldw_advanced/azure/sqldw_scripts/citypopulation/%5BIntegration%5D.%5BMigrateExternalCityPopulationData%5D.sql",
+            "github_url":  "https://github.com/mspnp/azure-data-factory-sqldw-elt-pipeline/blob/master/azure/sqldw_scripts/citypopulation/%5BIntegration%5D.%5BMigrateExternalCityPopulationData%5D.sql",
             "code_languages": [
                 "sql"
             ],
