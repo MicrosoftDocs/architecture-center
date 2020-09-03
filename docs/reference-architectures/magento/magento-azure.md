@@ -1,5 +1,5 @@
 ---
-title: Magento e-commerce platform in Azure
+title: Magento e-commerce platform in Azure Kubernetes Service (AKS)
 titleSuffix: Azure Reference Architectures
 description: See a reference architecture for deploying Magento e-commerce platform to Azure Kubernetes Service (AKS), and considerations for hosting Magento on Azure.
 author: doodlemania2
@@ -10,7 +10,7 @@ ms.subservice: reference-architecture
 ms.custom: fcp
 ---
 
-# Magento in Azure
+# Magento e-commerce in AKS
 
 Magento is an open-source e-commerce platform written in PHP. This reference architecture shows Magento deployed to Azure Kubernetes Service (AKS), and describes common best practices for hosting Magento on Azure.
 
@@ -20,9 +20,9 @@ Magento is an open-source e-commerce platform written in PHP. This reference arc
 
 - [Azure Kubernetes Service (AKS)](https://azure.microsoft.com/services/kubernetes-service/) deploys the Kubernetes cluster of Varnish, Magento, and [Elasticsearch](https://www.elastic.co/elasticsearch/) in different pods.
 - AKS creates a [virtual network](https://azure.microsoft.com/services/virtual-network/) to deploy the agent nodes. Create the virtual network in advance to set up subnet configuration, private link, and egress restriction.
-- [Varnish HTTP Cache](https://varnish-cache.org/intro/index.html#intro) installs in front of the HTTP server to act as a full-page cache.
+- [Varnish HTTP Cache](https://varnish-cache.org/intro/index.html#intro) installs in front of the HTTP servers to act as a full-page cache.
 - [Azure Database for MySQL](https://azure.microsoft.com/services/mysql/) stores transaction data like orders and catalogs. Version 8.0 is recommended.
-- [Azure Files Premium](https://azure.microsoft.com/services/storage/files/) or an equivalent *network-attached storage (NAS)* system stores media files like product images, Magento needs a Kubernetes-compatible file system that can mount a volume in *ReadWriteMany* mode, like Azure Files Premium, SoftNAS, [Azure NetApp Files](https://azure.microsoft.com/services/netapp/), or GlusterFS. The current solution uses SoftNAS.
+- [Azure Files Premium SKU](https://azure.microsoft.com/services/storage/files/) or an equivalent *network-attached storage (NAS)* system stores media files like product images, Magento needs a Kubernetes-compatible file system that can mount a volume in *ReadWriteMany* mode, like Azure Files Premium, SoftNAS, [Azure NetApp Files](https://azure.microsoft.com/services/netapp/), or GlusterFS. The current solution uses SoftNAS.
 - A [content delivery network (CDN)](https://azure.microsoft.com/services/cdn/) serves static content like CSS, JavaScript, and images. Serving content through a CDN minimizes network latency between users and the datacenter. A CDN can remove significant load from NAS by caching and serving static content.
 - [Azure Cache for Redis](https://azure.microsoft.com/services/cache/) stores session data. Premium SKU allows placing caches into the same virtual network with other components, to improve performance and restrict access through topology and access policies.
 - AKS uses [Azure Active Directory (Azure AD)](https://azure.microsoft.com/services/active-directory/) identity to create and manage other Azure resources like Azure load balancers, user authentication, role-based access control, and managed identity.
@@ -45,7 +45,7 @@ Kubernetes and Azure both have mechanisms for *role-based access control (RBAC)*
 
 - Kubernetes RBAC controls permissions to the Kubernetes API. For example, creating pods and listing pods are actions that RBAC can authorize to users.
 
-AKS integrates the Azure and Kubernetes RBAC mechanisms. When you create an AKS cluster, you can configure it to use Azure AD for user authentication. For details on how to set up Azure AD integration, see [Integrate Azure Active Directory with Azure Kubernetes Service](/azure/aks/aad-integration).
+AKS integrates the Azure and Kubernetes RBAC mechanisms. When you create an AKS cluster, you can configure it to use Azure AD for user authentication. For details on how to set up Azure AD integration, see [AKS-managed Azure Active Directory integration](/azure/aks/managed-aad).
 
 To assign Kubernetes permissions to users, create *roles* and *role bindings*:
 
@@ -59,7 +59,7 @@ Here are some ways to optimize scalability for this architecture:
 
 ### Media and static files
 
-- Adequately provision Azure Files or another NAS system. Magento can store thousands of media files such as product images. Be sure to provision the Azure Files or other NAS product with sufficient *input/output operations per second (IOPS)* capacity to handle the load.
+- Adequately provision Azure Files or another NAS system. Magento can store thousands of media files such as product images. Be sure to provision the Azure Files or other NAS product with sufficient *input/output operations per second (IOPS)* to handle capacity.
 
 - Minimize the size of static content such as HTML, CSS, and JavaScript. [Minification](https://devdocs.magento.com/cloud/deploy/static-content-deployment.html#minify-content) can reduce bandwidth costs and provide a more responsive experience for users.
 
@@ -69,13 +69,13 @@ Here are some ways to optimize scalability for this architecture:
   
   `'persistent' => '1'`
 
-- If MySQL consumes too much CPU, reduce the utilization by turning off *product count* from layered navigation in Magento [configuration](https://devdocs.magento.com/guides/v2.4/config-guide/cli/config-cli-subcommands.html#config-cli-summary):
+- If MySQL consumes too much CPU, reduce the utilization by turning off *product count* from layered navigation in [Magento configuration](https://devdocs.magento.com/guides/v2.4/config-guide/prod/config-reference-most.html):
   
   `magento config:set -vvv catalog/layered_navigation/display_product_count 0`
 
 ### Caching
 
-- Configure [OPcache](https://www.php.net/manual/opcache.configuration.php) for PHP code caching and optimization.
+- Configure [OPcache](https://www.php.net/manual/book.opcache.php) for PHP code caching and optimization.
   
   Make sure the following directives are set and uncommented in *php.ini*:
   
@@ -85,7 +85,7 @@ Here are some ways to optimize scalability for this architecture:
   
 - To avoid unnecessary performance degradation, disable the Azure Cache for Redis option to persist stored data. For more information, see [How to configure data persistence for a Premium Azure Cache for Redis](/azure/azure-cache-for-redis/cache-how-to-premium-persistence).
 
-- Load balance the Varnish cache by running multiple instances on pods so that it can scale.
+- Load balance the [Varnish cache](https://devdocs.magento.com/guides/v2.4/config-guide/varnish/config-varnish.html) by running multiple instances on pods so that it can scale.
 
 ### Logging
 
@@ -152,11 +152,7 @@ Another monitoring option is to use [Grafana](https://grafana.com/) dashboard:
 
 Use [Magento Performance Toolkit](https://github.com/magento/magento2/tree/2.4/setup/performance-toolkit) for performance testing. The toolkit uses [Apache JMeter](https://jmeter.apache.org/) to simulate customer behaviors like signing in, browsing products, and checking out.
 
-## Deploy the solution
-
-To deploy the reference implementation for this architecture, follow the steps in the GitHub repo.
-
 ## Related resources
-- [Magento 2 code repo](https://github.com/magento/magento2)
+- [Magento 2 GitHub code repo](https://github.com/magento/magento2)
 - [Magento Developer Documentation](https://devdocs.magento.com/)
 - [Varnish HTTP Cache](https://varnish-cache.org/)
