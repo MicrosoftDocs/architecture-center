@@ -212,6 +212,8 @@ items:
           href: framework/cost/provision-compute.md
         - name: Data stores
           href: framework/cost/provision-datastores.md
+        - name: Messaging
+          href: framework/cost/provision-messaging.md  
         - name: Networking
           href: framework/cost/provision-networking.md
           items:
