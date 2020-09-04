@@ -12,18 +12,24 @@ ms.subservice: well-architected
 
 ## Tailwind case study
 
-As part of the Tailwindtrader's efforts to reduce unnecessary toil, the Tailwind operations team has identified significant effort spent building or re-setting the tailwindtraders.com test environments before each release. Much of this effort is spent performing the following manual tasks:
+As part of the Tailwindtrader's effort to release more often, increase reliability, while reducing effort, the Tailwind operations team has identified significant effort spent building or re-setting the tailwindtraders.com test environments before each release. Furthermore, confidence is low in that the test environments provide the proper amount of production likeness to effectively raise awareness of potential issues. 
 
-- Evaluating the tailwind production environment for current operating systems, data systems, os and patch levels, and other configuration items.
+Much of this effort is spent performing the following manual tasks:
+
+- Evaluating the tailwind production environment for current operating systems, data systems, patch levels, and other configuration items.
 - Procuring and configuring virtual machines to match production as close as possible.
 - Deploying the current version of taiwindtraders.com application.
-- Testing, documentation, etc..
+- Manually observing things like load performance, failover, and other common run time considerations. 
 
-While the Tailwind team does use scripting technology as much as possible during these activities, the level of provided automation is relatively isolated to a single activity like basic operating system configurations, which does not result in a significant reduction of toil. Furthermore, the risk is high that a miss-configuration has been introduced, resulting in miss-matched test and production environments.
+While the Tailwind team does use tooling and scripting during these activities, the level of provided automation is relatively isolated to a single activity like basic operating system configurations, which and do not result in a significant reduction of toil. Furthermore, the risk remains high that a miss-configuration has been introduced, resulting in miss-matched test and production environments.
 
-## Deploying repeatable infrastructure
+## Repeatable infrastructure
+
+< Fill this out >
 
 ## Declarative Tools
+
+A declarative automation framework is characterized for handling some of the details about the resource creation on behalf of the user. The user needs to define what should be created, and the declarative framework will figure out how. You can use many declarative infrastructure deployment technologies with Azure, here we detail two of the most common.
 
 ### Azure Resource Manager Templates
 
@@ -37,17 +43,24 @@ Azure Resource Manager (ARM) Templates provide an Azure native infrastructure as
 - Deployment scopes
 - Tooling
 
-For more information about Azure Resource Manager Templates, see [What are ARM templates](https://docs.microsoft.com/azure/azure-resource-manager/templates/overview).
+For more information about Azure Resource Manager Templates, see [Docs: What are ARM templates](https://docs.microsoft.com/azure/azure-resource-manager/templates/overview).
+To take a guided learning experience with Azure Resource Manager Template, see [Learn: Deploy consistent infrastructure with ARM Templates](https://docs.microsoft.com/learn/modules/create-azure-resource-manager-template-vs-code/).
+To see a sample Azure Resource Manager Template, see [Code Samples: ARM Tempalte](https://docs.microsoft.com/samples/browse/?terms=arm%20templates).
 
 ### Terraform
 
-## Imperative Tools
+Terraform is a cloud-agnostic declarative framework that supports many private and public clouds, Azure being one of them. It has the main advantage of offering a cloud-agnostic framework: while Terraform configurations are specific to each cloud, the framework itself is the same for all of them. Additional benefits of using Terraform for infrastructure deployments include:
 
-### The Azure Command Line Interface
+- Multi-cloud and endpoint support
+- Full feature state tracking solution
+- Modular deployments
+- Extensibility
+- Testing, validation, and change preview
 
-### The Azure PowerShell Module
+Take note, the Terraform provider for Azure is an abstraction on top of Azure APIs. This is beneficial because some of the API surface complexities can be obfuscated, however comes at a cost in that the Terraform provider for Azure does not always provide parity with the capabilities of the Azure APIs.
 
-### Azure Cloud Shell
+For more information about Terraform on Azure, see [Docs: Using Terraform on Azure](https://docs.microsoft.com/azure/developer/terraform/overview).
+To see a sample Azure Resource Manager Template, see [Code Samples: Terraform](https://docs.microsoft.com/samples/browse/?terms=Terraform).
 
 #### Next steps
 
