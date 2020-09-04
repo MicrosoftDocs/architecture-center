@@ -1,7 +1,7 @@
 ---
 title: Magento e-commerce platform in Azure Kubernetes Service (AKS)
 titleSuffix: Azure Reference Architectures
-description: See a reference architecture for deploying Magento e-commerce platform to Azure Kubernetes Service (AKS), and considerations for hosting Magento on Azure.
+description: Deploy Magento e-commerce platform to Azure Kubernetes Service (AKS), and learn about considerations for hosting Magento on Azure.
 author: doodlemania2
 ms.date: 09/01/2020
 ms.topic: reference-architecture
@@ -20,7 +20,7 @@ Magento is an open-source e-commerce platform written in PHP. This reference arc
 
 - [Azure Kubernetes Service (AKS)](https://azure.microsoft.com/services/kubernetes-service/) deploys the Kubernetes cluster of Varnish, Magento, and [Elasticsearch](https://www.elastic.co/elasticsearch/) in different pods.
 - AKS creates a [virtual network](https://azure.microsoft.com/services/virtual-network/) to deploy the agent nodes. Create the virtual network in advance to set up subnet configuration, private link, and egress restriction.
-- [Varnish HTTP Cache](https://varnish-cache.org/intro/index.html#intro) installs in front of the HTTP servers to act as a full-page cache.
+- [Varnish](https://varnish-cache.org/intro/index.html#intro) installs in front of the HTTP servers to act as a full-page cache.
 - [Azure Database for MySQL](https://azure.microsoft.com/services/mysql/) stores transaction data like orders and catalogs. Version 8.0 is recommended.
 - [Azure Files Premium](https://azure.microsoft.com/services/storage/files/) or an equivalent *network-attached storage (NAS)* system stores media files like product images, Magento needs a Kubernetes-compatible file system that can mount a volume in *ReadWriteMany* mode, like Azure Files Premium, SoftNAS, [Azure NetApp Files](https://azure.microsoft.com/services/netapp/), or GlusterFS. The current solution uses SoftNAS.
 - A [content delivery network (CDN)](https://azure.microsoft.com/services/cdn/) serves static content like CSS, JavaScript, and images. Serving content through a CDN minimizes network latency between users and the datacenter. A CDN can remove significant load from NAS by caching and serving static content.
@@ -65,7 +65,7 @@ Here are some ways to optimize scalability for this architecture:
 
 ### Media and static files
 
-- Adequately provision Azure Files or another NAS system. Magento can store thousands of media files such as product images. Be sure to provision the Azure Files or other NAS product with sufficient *input/output operations per second (IOPS)* to handle demand.
+- Adequately provision Azure Files or another NAS system. Magento can store thousands of media files such as product images. Be sure to provision Azure Files or other NAS products with sufficient *input/output operations per second (IOPS)* to handle demand.
 
 - Minimize the size of static content such as HTML, CSS, and JavaScript. [Minification](https://devdocs.magento.com/cloud/deploy/static-content-deployment.html#minify-content) can reduce bandwidth costs and provide a more responsive experience for users.
 
@@ -103,7 +103,7 @@ Limit access logging, to avoid performance issues and prevent exposing sensitive
   
   `varnishd -s malloc,1G -a :80 -f /etc/varnish/magento.vcl && varnishlog -q "RespStatus >= 400 or BerespStatus >= 400"`
 
-- If you use Apache web server for ingress, limit Apache logging to error-level by adding the following line to the Magento `VirtualHost` entry in Apache server configuration:
+- If you use Apache web server for ingress, limit Apache logging to error-level by adding the following line to the Magento `VirtualHost` entry in the Apache server configuration:
   
   `CustomLog /dev/null common`
 
@@ -129,7 +129,7 @@ Consider deploying the app to multiple regions or zones for higher availability.
 
 Resource contention can affect service availability. Define container resource constraints so that no single container can overwhelm the cluster memory and CPU resources. For non-container resources like threads or network connections, consider using the [Bulkhead pattern](/azure/architecture/patterns/bulkhead) to isolate resources.
 
-Use resource quotas to limit the total resources allowed for a namespace, so the front end can't starve the backend services for resources or vice-versa.
+Use resource quotas to limit the total resources allowed for a namespace, so the front end can't starve the back-end services for resources or vice-versa.
 
 ## Cost considerations
 
@@ -163,4 +163,3 @@ Use [Magento Performance Toolkit](https://github.com/magento/magento2/tree/2.4/s
 ## Related resources
 - [Magento 2 GitHub code repo](https://github.com/magento/magento2)
 - [Magento Developer Documentation](https://devdocs.magento.com/)
-- [Varnish HTTP Cache](https://varnish-cache.org/)
