@@ -55,7 +55,7 @@ GitHub DevSecOps installations cover many security scenarios. Possibilities incl
 
 ## Components
 
-- [Azure AD][Azure AD] is a multi-tenant, cloud-based identity service that controls access to Azure and other cloud apps like [Microsoft 365][Microsoft 365]and GitHub.
+- [Azure AD][Azure AD] is a multi-tenant, cloud-based identity service that controls access to Azure and other cloud apps like [Microsoft 365][Microsoft 365] and GitHub.
 - [GitHub][GitHub] provides a code-hosting platform that developers can use for collaborating on both open-source and [inner-source][Inner source] projects.
 - [Codespaces][Codespaces] is an online development environment. Hosted by GitHub and powered by [Visual Studio Code][Visual Studio Code], this tool provides a complete development solution in the cloud.
 - [GitHub Security][GitHub Security] works to eliminate threats in a number of ways. Agents and services identify vulnerabilities in repositories and in dependent packages. They also upgrade dependencies to up-to-date, secure versions.
@@ -82,7 +82,7 @@ GitHub DevSecOps installations cover many security scenarios. Possibilities incl
     - [GitHub security advisories][GitHub security advisories]: Information about vulnerabilities that development teams make public on GitHub.
     - [PHP Security Advisories Database][PHP Security Advisories Database]: References to known security vulnerabilities in PHP projects and libraries.  
 
-When GitHub identifies a *vulnerability*, it takes the steps illustrated in the following diagram.
+When GitHub identifies a vulnerability, it takes the steps illustrated in the following diagram.
 :::image type="complex" source="../media/devsecops-in-github-vulnerability-management-data-flow.png" alt-text="Architecture diagram illustrating the chain of events that the identification of a vulnerability triggers, including alerts, upgrades, and deployment." border="false":::
     Architecture diagram illustrating a chain of events in a GitHub DevSecOps implementation. At the outset, GitHub identifies a vulnerability and sends an email alert. Dependabot then creates a branch, updates the vulnerability source, and creates a PR. The branch merges. In the final step, GitHub Actions deploy the new app.
 :::image-end:::
