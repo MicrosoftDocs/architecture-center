@@ -21,11 +21,7 @@ Much of this effort is spent performing the following manual tasks:
 
 While the Tailwind team does use tooling and scripting during these activities, the level of provided automation is relatively isolated to a single activity like basic operating system configurations, which and do not result in a significant reduction of toil. Furthermore, the risk remains high that a miss-configuration has been introduced, resulting in miss-matched test and production environments.
 
-## Repeatable infrastructure
-
-< Fill this out >
-
-## Declarative Tools
+## Infrastructure as code
 
 A declarative automation framework is characterized for handling some of the details about the resource creation on behalf of the user. The user needs to define what should be created, and the declarative framework will figure out how. You can use many declarative infrastructure deployment technologies with Azure, here we detail two of the most common.
 
