@@ -29,7 +29,7 @@ While the Tailwind team does use tooling and scripting during these activities, 
 
 A declarative automation framework is characterized for handling some of the details about the resource creation on behalf of the user. The user needs to define what should be created, and the declarative framework will figure out how. You can use many declarative infrastructure deployment technologies with Azure, here we detail two of the most common.
 
-### Azure Resource Manager Templates
+## ARM Templates
 
 Azure Resource Manager (ARM) Templates provide an Azure native infrastructure as code solution. ARM Templates are written in a language derived from JavaScript Object Notation (JSON) and they define the infrastructure and configurations for Azure deployments. An ARM template is declarative, you state what intend to deploy, provide configuration values, and the ARM engine takes care of making the necessary Azure REST API put requests. Additional benefits of using ARM templates for infrastructure deployments include:
 
@@ -47,7 +47,7 @@ To take a guided learning experience with Azure Resource Manager Template, see [
 
 To see a sample Azure Resource Manager Template, see [Code Samples: ARM Tempalte](https://docs.microsoft.com/samples/browse/?terms=arm%20templates).
 
-### Terraform
+## Terraform
 
 Terraform is a cloud-agnostic declarative framework that supports many private and public clouds, Azure being one of them. It has the main advantage of offering a cloud-agnostic framework: while Terraform configurations are specific to each cloud, the framework itself is the same for all of them. Additional benefits of using Terraform for infrastructure deployments include:
 
