@@ -13,9 +13,7 @@ ms.custom:
 
 The messaging services in this article have no up-front cost or termination fees, and you pay only for what you use. In some cases, it's advantageous to combine two messaging services to increase the efficiency of your messaging system. See [Crossover scenarios](https://docs.microsoft.com/azure/architecture/guide/technology-choices/messaging#crossover-scenarios) for examples.
 
-Cost is based on the number of operations or throughput units (TUs) used depending on the message service.
-
-For details, see [Technology choices for a message broker](https://docs.microsoft.com/azure/architecture/guide/technology-choices/messaging#technology-choices-for-a-message-broker).
+Cost is based on the number of operations or throughput units used depending on the message service. Using the wrong messaging service for the intent can lead to higher costs. Before choosing a service, first, determine the intent and requirements of the messages. Then, consider the tradeoffs between cost and operations/throughput units. For tradeoff examples, see [Technology choices for a message broker](https://docs.microsoft.com/azure/architecture/guide/technology-choices/messaging#technology-choices-for-a-message-broker).
 
 Use the [Azure Pricing calculator](https://azure.microsoft.com/pricing/calculator/) for help creating various cost scenarios.
 
@@ -33,7 +31,7 @@ For pricing details, see [Event Grid pricing](https://azure.microsoft.com/pricin
 
 ## Event Hubs
 
-Stream millions of events per second from any source to build dynamic data pipelines and immediately respond to business challenges using Event Hubs. Cost is based on TUs. A key difference between Event Grid and Event Hubs is in the way event data is made available to subscribers. For more information, see [Pull model](https://docs.microsoft.com/azure/architecture/guide/technology-choices/messaging#pull-model-1).
+Stream millions of events per second from any source to build dynamic data pipelines and immediately respond to business challenges using Event Hubs. Cost is based on throughput units. A key difference between Event Grid and Event Hubs is in the way event data is made available to subscribers. For more information, see [Pull model](https://docs.microsoft.com/azure/architecture/guide/technology-choices/messaging#pull-model-1).
 
 For questions and answers on pricing, see [Pricing](https://docs.microsoft.com/azure/event-hubs/event-hubs-faq#pricing).
 
