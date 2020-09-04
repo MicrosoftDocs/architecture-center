@@ -1,8 +1,8 @@
 ---
 title: What's New in the Azure Architecture Center
 description: New and updated articles in the Azure Architecture Center
-author: adamboeglin
-ms.date: 08/24/2020
+author: doodlemania2
+ms.date: 09/04/2020
 ms.topic: article
 ms.service: architecture-center
 ms.subservice: meta
@@ -18,10 +18,26 @@ ms.subservice: meta
 
 New and updated articles in the Azure Architecture Center
 
+## September 2020
+
+### New Articles
+
+- [Web application cost estimates](https://docs.microsoft.com/azure/architecture/framework/cost/provision-webapps)
+
+
 ## August 2020
 
 ### New Articles
 
+- [Multiple forests with AD DS, Azure AD, and Azure AD DS](https://docs.microsoft.com/azure/architecture/example-scenario/wvd/multi-forest-azure-managed)
+- [Multiple forests with AD DS and Azure AD](https://docs.microsoft.com/azure/architecture/example-scenario/wvd/multi-forest)
+- [Virtual network integrated serverless microservices](https://docs.microsoft.com/azure/architecture/example-scenario/integrated-multiservices/virtual-network-integration)
+- [Automated Kubernetes deployments with Bedrock](https://docs.microsoft.com/azure/architecture/example-scenario/bedrock/bedrock-automated-deployments)
+- [Big data analytics with Azure Data Explorer](https://docs.microsoft.com/azure/architecture/solution-ideas/articles/big-data-azure-data-explorer)
+- [Content Delivery Network analytics](https://docs.microsoft.com/azure/architecture/solution-ideas/articles/content-delivery-network-azure-data-explorer)
+- [Azure Data Explorer interactive analytics](https://docs.microsoft.com/azure/architecture/solution-ideas/articles/interactive-azure-data-explorer)
+- [IoT analytics with Azure Data Explorer](https://docs.microsoft.com/azure/architecture/solution-ideas/articles/iot-azure-data-explorer)
+- [Azure Data Explorer monitoring](https://docs.microsoft.com/azure/architecture/solution-ideas/articles/monitor-azure-data-explorer)
 - [Custom Business Processes](https://docs.microsoft.com/azure/architecture/solution-ideas/articles/custom-business-processes)
 - [Web and Mobile Front Ends](https://docs.microsoft.com/azure/architecture/solution-ideas/articles/front-end)
 - [Line of Business Extension](https://docs.microsoft.com/azure/architecture/solution-ideas/articles/lob)
@@ -45,11 +61,14 @@ New and updated articles in the Azure Architecture Center
 
 ### Updated Articles
 
-- [Chaos engineering](https://docs.microsoft.com/azure/architecture/framework/resiliency/chaos-engineering)  ([#f742721a](https://github.com/MicrosoftDocs/architecture-center/commit/f742721a))
-- [Understand data store models](https://docs.microsoft.com/azure/architecture/guide/technology-choices/data-store-overview)  ([#4fbdd828](https://github.com/MicrosoftDocs/architecture-center/commit/4fbdd828))
-- [Cost governance for an Azure workload](https://docs.microsoft.com/azure/architecture/framework/cost/design-governance)  ([#a3452805](https://github.com/MicrosoftDocs/architecture-center/commit/a3452805))
-- [Event-based cloud automation](https://docs.microsoft.com/azure/architecture/reference-architectures/serverless/cloud-automation)  ([#d2cca201](https://github.com/MicrosoftDocs/architecture-center/commit/d2cca201))
-- [Serverless event processing](https://docs.microsoft.com/azure/architecture/reference-architectures/serverless/event-processing)  ([#d2cca201](https://github.com/MicrosoftDocs/architecture-center/commit/d2cca201))
+- [Network security and containment in Azure | Microsoft Docs](https://docs.microsoft.com/azure/architecture/framework/security/network-security-containment)  ([#75626e3a7](https://github.com/MicrosoftDocs/architecture-center/commit/75626e3a7))
+- [Data store cost estimates](https://docs.microsoft.com/azure/architecture/framework/cost/provision-datastores)  ([#2b0e692f9](https://github.com/MicrosoftDocs/architecture-center/commit/2b0e692f9))
+- [Retry guidance for Azure services](https://docs.microsoft.com/azure/architecture/best-practices/retry-service-specific)  ([#6c8a169c9](https://github.com/MicrosoftDocs/architecture-center/commit/6c8a169c9))
+- [Chaos engineering](https://docs.microsoft.com/azure/architecture/framework/resiliency/chaos-engineering)  ([#f742721a9](https://github.com/MicrosoftDocs/architecture-center/commit/f742721a9))
+- [Understand data store models](https://docs.microsoft.com/azure/architecture/guide/technology-choices/data-store-overview)  ([#4fbdd828a](https://github.com/MicrosoftDocs/architecture-center/commit/4fbdd828a))
+- [Cost governance for an Azure workload](https://docs.microsoft.com/azure/architecture/framework/cost/design-governance)  ([#a3452805a](https://github.com/MicrosoftDocs/architecture-center/commit/a3452805a))
+- [Event-based cloud automation](https://docs.microsoft.com/azure/architecture/reference-architectures/serverless/cloud-automation)  ([#d2cca2011](https://github.com/MicrosoftDocs/architecture-center/commit/d2cca2011))
+- [Serverless event processing](https://docs.microsoft.com/azure/architecture/reference-architectures/serverless/event-processing)  ([#d2cca2011](https://github.com/MicrosoftDocs/architecture-center/commit/d2cca2011))
 
 ## July 2020
 
@@ -62,7 +81,7 @@ New and updated articles in the Azure Architecture Center
 - [Secure OAuth 2.0 On-Behalf-Of refresh tokens for web services](https://docs.microsoft.com/azure/architecture/example-scenario/secrets/secure-refresh-tokens)
 - [Baseline architecture for an Azure Kubernetes Service (AKS) cluster](https://docs.microsoft.com/azure/architecture/reference-architectures/containers/aks/secure-baseline-aks)
 - [Azure Icons](https://docs.microsoft.com/azure/architecture/icons)
-- [Windows Virtual Desktop at enterprise scale](https://docs.microsoft.com/azure/architecture/example-scenario/wvd/windows-virtual-desktop)
+- [Windows Virtual Desktop for the enterprise](https://docs.microsoft.com/azure/architecture/example-scenario/wvd/windows-virtual-desktop)
 - [UVEN smart and secure disinfection and lighting](https://docs.microsoft.com/azure/architecture/solution-ideas/articles/uven-disinfection)
 - [Azure Industrial IoT guidance](https://docs.microsoft.com/azure/architecture/guide/iiot-guidance/iiot-architecture)
 - [Considerations in Azure Industrial IoT solution](https://docs.microsoft.com/azure/architecture/guide/iiot-guidance/iiot-considerations)
@@ -80,13 +99,13 @@ New and updated articles in the Azure Architecture Center
 
 ### Updated Articles
 
-- [Choosing a machine learning technology](https://docs.microsoft.com/azure/architecture/data-guide/technology-choices/data-science-and-machine-learning)  ([#84a5aab4](https://github.com/MicrosoftDocs/architecture-center/commit/84a5aab4))
-- [Autoscaling guidance](https://docs.microsoft.com/azure/architecture/best-practices/auto-scaling)  ([#16d331c4](https://github.com/MicrosoftDocs/architecture-center/commit/16d331c4))
-- [Storage, data, and encryption in Azure | Microsoft Docs](https://docs.microsoft.com/azure/architecture/framework/security/storage-data-encryption)  ([#bf81a3ea](https://github.com/MicrosoftDocs/architecture-center/commit/bf81a3ea))
-- [Monitoring application health for reliability in Azure](https://docs.microsoft.com/azure/architecture/framework/resiliency/monitoring)  ([#f7d49635](https://github.com/MicrosoftDocs/architecture-center/commit/f7d49635))
-- [Failure mode analysis](https://docs.microsoft.com/azure/architecture/resiliency/failure-mode-analysis)  ([#f7d49635](https://github.com/MicrosoftDocs/architecture-center/commit/f7d49635))
-- [Azure IoT reference architecture](https://docs.microsoft.com/azure/architecture/reference-architectures/iot)  ([#68284412](https://github.com/MicrosoftDocs/architecture-center/commit/68284412))
-- [Run a highly available SharePoint Server 2016 farm in Azure](https://docs.microsoft.com/azure/architecture/reference-architectures/sharepoint)  ([#fefe37ee](https://github.com/MicrosoftDocs/architecture-center/commit/fefe37ee))
+- [Compare machine learning products from Microsoft](https://docs.microsoft.com/azure/architecture/data-guide/technology-choices/data-science-and-machine-learning)  ([#84a5aab4e](https://github.com/MicrosoftDocs/architecture-center/commit/84a5aab4e))
+- [Autoscaling guidance](https://docs.microsoft.com/azure/architecture/best-practices/auto-scaling)  ([#16d331c41](https://github.com/MicrosoftDocs/architecture-center/commit/16d331c41))
+- [Storage, data, and encryption in Azure | Microsoft Docs](https://docs.microsoft.com/azure/architecture/framework/security/storage-data-encryption)  ([#bf81a3ea4](https://github.com/MicrosoftDocs/architecture-center/commit/bf81a3ea4))
+- [Monitoring application health for reliability in Azure](https://docs.microsoft.com/azure/architecture/framework/resiliency/monitoring)  ([#f7d496352](https://github.com/MicrosoftDocs/architecture-center/commit/f7d496352))
+- [Failure mode analysis](https://docs.microsoft.com/azure/architecture/resiliency/failure-mode-analysis)  ([#f7d496352](https://github.com/MicrosoftDocs/architecture-center/commit/f7d496352))
+- [Azure IoT reference architecture](https://docs.microsoft.com/azure/architecture/reference-architectures/iot)  ([#682844123](https://github.com/MicrosoftDocs/architecture-center/commit/682844123))
+- [Run a highly available SharePoint Server 2016 farm in Azure](https://docs.microsoft.com/azure/architecture/reference-architectures/sharepoint)  ([#fefe37ee4](https://github.com/MicrosoftDocs/architecture-center/commit/fefe37ee4))
 
 ## June 2020
 
@@ -129,12 +148,12 @@ New and updated articles in the Azure Architecture Center
 
 ### Updated Articles
 
-- [Governance, risk, and compliance in Azure | Microsoft Docs](https://docs.microsoft.com/azure/architecture/framework/security/governance)  ([#5d970b84](https://github.com/MicrosoftDocs/architecture-center/commit/5d970b84))
-- [Serverless Functions code walkthrough](https://docs.microsoft.com/azure/architecture/serverless/code)  ([#af5443d4](https://github.com/MicrosoftDocs/architecture-center/commit/af5443d4))
-- [Azure IoT reference architecture](https://docs.microsoft.com/azure/architecture/reference-architectures/iot)  ([#8294ec86](https://github.com/MicrosoftDocs/architecture-center/commit/8294ec86))
-- [Microservices architecture on Azure Service Fabric](https://docs.microsoft.com/azure/architecture/reference-architectures/microservices/service-fabric)  ([#8294ec86](https://github.com/MicrosoftDocs/architecture-center/commit/8294ec86))
-- [Extend an on-premises network using ExpressRoute](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/expressroute)  ([#1b14c3c9](https://github.com/MicrosoftDocs/architecture-center/commit/1b14c3c9))
-- [Extend an on-premises network using VPN](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/vpn)  ([#1b14c3c9](https://github.com/MicrosoftDocs/architecture-center/commit/1b14c3c9))
+- [Governance, risk, and compliance in Azure | Microsoft Docs](https://docs.microsoft.com/azure/architecture/framework/security/governance)  ([#5d970b847](https://github.com/MicrosoftDocs/architecture-center/commit/5d970b847))
+- [Serverless Functions code walkthrough](https://docs.microsoft.com/azure/architecture/serverless/code)  ([#af5443d42](https://github.com/MicrosoftDocs/architecture-center/commit/af5443d42))
+- [Azure IoT reference architecture](https://docs.microsoft.com/azure/architecture/reference-architectures/iot)  ([#8294ec869](https://github.com/MicrosoftDocs/architecture-center/commit/8294ec869))
+- [Microservices architecture on Azure Service Fabric](https://docs.microsoft.com/azure/architecture/reference-architectures/microservices/service-fabric)  ([#8294ec869](https://github.com/MicrosoftDocs/architecture-center/commit/8294ec869))
+- [Extend an on-premises network using ExpressRoute](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/expressroute)  ([#1b14c3c9c](https://github.com/MicrosoftDocs/architecture-center/commit/1b14c3c9c))
+- [Extend an on-premises network using VPN](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/vpn)  ([#1b14c3c9c](https://github.com/MicrosoftDocs/architecture-center/commit/1b14c3c9c))
 
 ## May 2020
 
@@ -161,7 +180,7 @@ New and updated articles in the Azure Architecture Center
 - [Checklist - Optimize cost](https://docs.microsoft.com/azure/architecture/framework/cost/optimize-checklist)
 - [Reserved instances](https://docs.microsoft.com/azure/architecture/framework/cost/optimize-reserved)
 - [Virtual machine instances](https://docs.microsoft.com/azure/architecture/framework/cost/optimize-vm)
-- [Cost considerations for data store resources](https://docs.microsoft.com/azure/architecture/framework/cost/provision-datastores)
+- [Data store cost estimates](https://docs.microsoft.com/azure/architecture/framework/cost/provision-datastores)
 - [Networking resources provisioning](https://docs.microsoft.com/azure/architecture/framework/cost/provision-networking-services)
 - [Cost considerations for networking resources](https://docs.microsoft.com/azure/architecture/framework/cost/provision-networking)
 - [Capture cost requirements for an Azure](https://docs.microsoft.com/azure/architecture/framework/cost/design-capture-requirements)
@@ -174,7 +193,7 @@ New and updated articles in the Azure Architecture Center
 - [Cost impact of Azure regions](https://docs.microsoft.com/azure/architecture/framework/cost/design-regions)
 - [Measure usage to determine cost of Azure resources](https://docs.microsoft.com/azure/architecture/framework/cost/design-resources)
 - [Cost for AI + Machine Learning services](https://docs.microsoft.com/azure/architecture/framework/cost/provision-ai-ml)
-- [Cost drivers for big data architectures](https://docs.microsoft.com/azure/architecture/framework/cost/provision-analytics)
+- [Big data cost estimates](https://docs.microsoft.com/azure/architecture/framework/cost/provision-analytics)
 - [Centralized app configuration and security](https://docs.microsoft.com/azure/architecture/solution-ideas/articles/appconfig-key-vault)
 - [Set budgets and alerts](https://docs.microsoft.com/azure/architecture/framework/cost/monitor-alert)
 - [Checklist - Monitor cost](https://docs.microsoft.com/azure/architecture/framework/cost/monitor-checklist)
@@ -195,58 +214,24 @@ New and updated articles in the Azure Architecture Center
 
 ### Updated Articles
 
-- [Choosing a search data store](https://docs.microsoft.com/azure/architecture/data-guide/technology-choices/search-options)  ([#5c2bcc6a](https://github.com/MicrosoftDocs/architecture-center/commit/5c2bcc6a))
-- [Run a Linux VM on Azure](https://docs.microsoft.com/azure/architecture/reference-architectures/n-tier/linux-vm)  ([#720f2bbb](https://github.com/MicrosoftDocs/architecture-center/commit/720f2bbb))
-- [Multi-region N-tier application](https://docs.microsoft.com/azure/architecture/reference-architectures/n-tier/multi-region-sql-server)  ([#720f2bbb](https://github.com/MicrosoftDocs/architecture-center/commit/720f2bbb))
-- [N-tier application with Apache Cassandra](https://docs.microsoft.com/azure/architecture/reference-architectures/n-tier/n-tier-cassandra)  ([#720f2bbb](https://github.com/MicrosoftDocs/architecture-center/commit/720f2bbb))
-- [Windows N-tier application on Azure](https://docs.microsoft.com/azure/architecture/reference-architectures/n-tier/n-tier-sql-server)  ([#720f2bbb](https://github.com/MicrosoftDocs/architecture-center/commit/720f2bbb))
-- [Run a Windows VM on Azure](https://docs.microsoft.com/azure/architecture/reference-architectures/n-tier/windows-vm)  ([#720f2bbb](https://github.com/MicrosoftDocs/architecture-center/commit/720f2bbb))
-- [Web application monitoring on Azure](https://docs.microsoft.com/azure/architecture/reference-architectures/app-service-web-app/app-monitoring)  ([#5d9404c3](https://github.com/MicrosoftDocs/architecture-center/commit/5d9404c3))
-- [Basic web application](https://docs.microsoft.com/azure/architecture/reference-architectures/app-service-web-app/basic-web-app)  ([#5d9404c3](https://github.com/MicrosoftDocs/architecture-center/commit/5d9404c3))
-- [Highly available multi-region web application](https://docs.microsoft.com/azure/architecture/reference-architectures/app-service-web-app/multi-region)  ([#5d9404c3](https://github.com/MicrosoftDocs/architecture-center/commit/5d9404c3))
-- [Scalable web application](https://docs.microsoft.com/azure/architecture/reference-architectures/app-service-web-app/scalable-web-app)  ([#5d9404c3](https://github.com/MicrosoftDocs/architecture-center/commit/5d9404c3))
-- [Hub-spoke network topology in Azure](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke)  ([#5a43e49c](https://github.com/MicrosoftDocs/architecture-center/commit/5a43e49c))
-- [Implement a hub-spoke network topology](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/shared-services)  ([#5a43e49c](https://github.com/MicrosoftDocs/architecture-center/commit/5a43e49c))
-- [Basic enterprise integration on Azure](https://docs.microsoft.com/azure/architecture/reference-architectures/enterprise-integration/basic-enterprise-integration)  ([#25ef4b6d](https://github.com/MicrosoftDocs/architecture-center/commit/25ef4b6d))
-- [Real-time scoring of Python models](https://docs.microsoft.com/azure/architecture/reference-architectures/ai/realtime-scoring-python)  ([#c7c58c77](https://github.com/MicrosoftDocs/architecture-center/commit/c7c58c77))
-- [Tradeoffs for costs](https://docs.microsoft.com/azure/architecture/framework/cost/tradeoffs)  ([#2d761833](https://github.com/MicrosoftDocs/architecture-center/commit/2d761833))
-- [AWS to Azure services comparison](https://docs.microsoft.com/azure/architecture/aws-professional/services)  ([#0ba04579](https://github.com/MicrosoftDocs/architecture-center/commit/0ba04579))
-- [Business Process Management](https://docs.microsoft.com/azure/architecture/solution-ideas/articles/business-process-management)  ([#0ba04579](https://github.com/MicrosoftDocs/architecture-center/commit/0ba04579))
-- [Build a CI/CD pipeline for chatbots with ARM templates](https://docs.microsoft.com/azure/architecture/example-scenario/apps/devops-cicd-chatbot)  ([#20d88b45](https://github.com/MicrosoftDocs/architecture-center/commit/20d88b45))
-- [Overview of the reliability pillar](https://docs.microsoft.com/azure/architecture/framework/resiliency/overview)  ([#20d88b45](https://github.com/MicrosoftDocs/architecture-center/commit/20d88b45))
-- [Choosing an Azure compute service](https://docs.microsoft.com/azure/architecture/guide/technology-choices/compute-decision-tree)  ([#20d88b45](https://github.com/MicrosoftDocs/architecture-center/commit/20d88b45))
-
-## April 2020
-
-### New Articles
-
-- [Artificial intelligence (AI)](https://docs.microsoft.com/azure/architecture/data-guide/big-data/ai-overview)
-- [Threat indicators for cyber threat intelligence in Azure Sentinel](https://docs.microsoft.com/azure/architecture/example-scenario/data/sentinel-threat-intelligence)
-- [Building solutions for high availability using Availability Zones](https://docs.microsoft.com/azure/architecture/high-availability/building-solutions-for-high-availability)
-- [Auditing, risk, and compliance management](https://docs.microsoft.com/azure/architecture/solution-ideas/articles/auditing-and-risk-compliance)
-- [Business Process Management](https://docs.microsoft.com/azure/architecture/solution-ideas/articles/business-process-management)
-- [Content Research](https://docs.microsoft.com/azure/architecture/solution-ideas/articles/content-research)
-- [Contract Management](https://docs.microsoft.com/azure/architecture/solution-ideas/articles/contract-management)
-- [Customer Feedback and Analytics](https://docs.microsoft.com/azure/architecture/solution-ideas/articles/customer-feedback-and-analytics)
-- [DevOps in a hybrid environment](https://docs.microsoft.com/azure/architecture/solution-ideas/articles/devops-in-a-hybrid-environment)
-- [DevSecOps in Azure](https://docs.microsoft.com/azure/architecture/solution-ideas/articles/devsecops-in-azure)
-- [Digital Asset Management](https://docs.microsoft.com/azure/architecture/solution-ideas/articles/digital-asset-management)
-- [High availability and disaster recovery scenarios for IaaS apps.](https://docs.microsoft.com/azure/architecture/example-scenario/infrastructure/iaas-high-availability-disaster-recovery)
-
-### Updated Articles
-
-- [IoT using Cosmos DB](https://docs.microsoft.com/azure/architecture/solution-ideas/articles/iot-using-cosmos-db)  ([#5fe5ece0](https://github.com/MicrosoftDocs/architecture-center/commit/5fe5ece0))
-- [AWS to Azure services comparison](https://docs.microsoft.com/azure/architecture/aws-professional/services)  ([#8ec934a7](https://github.com/MicrosoftDocs/architecture-center/commit/8ec934a7))
-- [Error handling for resilient applications in Azure](https://docs.microsoft.com/azure/architecture/framework/resiliency/app-design-error-handling)  ([#8ec934a7](https://github.com/MicrosoftDocs/architecture-center/commit/8ec934a7))
-- [Data Management for Reliability](https://docs.microsoft.com/azure/architecture/framework/resiliency/data-management)  ([#8ec934a7](https://github.com/MicrosoftDocs/architecture-center/commit/8ec934a7))
-- [Run SAP HANA on Azure (Large Instances)](https://docs.microsoft.com/azure/architecture/reference-architectures/sap/hana-large-instances)  ([#ab5cc058](https://github.com/MicrosoftDocs/architecture-center/commit/ab5cc058))
-- [CI/CD for Azure Web Apps](https://docs.microsoft.com/azure/architecture/solution-ideas/articles/azure-devops-continuous-integration-and-continuous-deployment-for-azure-web-apps)  ([#c5e4913c](https://github.com/MicrosoftDocs/architecture-center/commit/c5e4913c))
-- [Campaign Optimization with Azure HDInsight Spark Clusters](https://docs.microsoft.com/azure/architecture/solution-ideas/articles/campaign-optimization-with-azure-hdinsight-spark-clusters)  ([#c5e4913c](https://github.com/MicrosoftDocs/architecture-center/commit/c5e4913c))
-- [CI/CD for Azure VMs](https://docs.microsoft.com/azure/architecture/solution-ideas/articles/cicd-for-azure-vms)  ([#c5e4913c](https://github.com/MicrosoftDocs/architecture-center/commit/c5e4913c))
-- [Custom Mobile Workforce App](https://docs.microsoft.com/azure/architecture/solution-ideas/articles/custom-mobile-workforce-app)  ([#c5e4913c](https://github.com/MicrosoftDocs/architecture-center/commit/c5e4913c))
-- [DevTest Image Factory](https://docs.microsoft.com/azure/architecture/solution-ideas/articles/dev-test-image-factory)  ([#c5e4913c](https://github.com/MicrosoftDocs/architecture-center/commit/c5e4913c))
-- [Dev-Test deployment for testing PaaS solutions](https://docs.microsoft.com/azure/architecture/solution-ideas/articles/dev-test-paas)  ([#c5e4913c](https://github.com/MicrosoftDocs/architecture-center/commit/c5e4913c))
-- [HPC Risk Analysis Template – Solution Architecture](https://docs.microsoft.com/azure/architecture/solution-ideas/articles/hpc-risk-analysis)  ([#c5e4913c](https://github.com/MicrosoftDocs/architecture-center/commit/c5e4913c))
-- [Java CI/CD using Jenkins and Azure Web Apps](https://docs.microsoft.com/azure/architecture/solution-ideas/articles/java-cicd-using-jenkins-and-azure-web-apps)  ([#c5e4913c](https://github.com/MicrosoftDocs/architecture-center/commit/c5e4913c))
-- [Modernize enterprise applications - Azure Service Fabric](https://docs.microsoft.com/azure/architecture/service-fabric/modernize-app-azure-service-fabric)  ([#7cf6d680](https://github.com/MicrosoftDocs/architecture-center/commit/7cf6d680))
+- [Choosing a search data store](https://docs.microsoft.com/azure/architecture/data-guide/technology-choices/search-options)  ([#5c2bcc6a4](https://github.com/MicrosoftDocs/architecture-center/commit/5c2bcc6a4))
+- [Run a Linux VM on Azure](https://docs.microsoft.com/azure/architecture/reference-architectures/n-tier/linux-vm)  ([#720f2bbb0](https://github.com/MicrosoftDocs/architecture-center/commit/720f2bbb0))
+- [Multi-region N-tier application](https://docs.microsoft.com/azure/architecture/reference-architectures/n-tier/multi-region-sql-server)  ([#720f2bbb0](https://github.com/MicrosoftDocs/architecture-center/commit/720f2bbb0))
+- [N-tier application with Apache Cassandra](https://docs.microsoft.com/azure/architecture/reference-architectures/n-tier/n-tier-cassandra)  ([#720f2bbb0](https://github.com/MicrosoftDocs/architecture-center/commit/720f2bbb0))
+- [Windows N-tier application on Azure](https://docs.microsoft.com/azure/architecture/reference-architectures/n-tier/n-tier-sql-server)  ([#720f2bbb0](https://github.com/MicrosoftDocs/architecture-center/commit/720f2bbb0))
+- [Run a Windows VM on Azure](https://docs.microsoft.com/azure/architecture/reference-architectures/n-tier/windows-vm)  ([#720f2bbb0](https://github.com/MicrosoftDocs/architecture-center/commit/720f2bbb0))
+- [Web application monitoring on Azure](https://docs.microsoft.com/azure/architecture/reference-architectures/app-service-web-app/app-monitoring)  ([#5d9404c30](https://github.com/MicrosoftDocs/architecture-center/commit/5d9404c30))
+- [Basic web application](https://docs.microsoft.com/azure/architecture/reference-architectures/app-service-web-app/basic-web-app)  ([#5d9404c30](https://github.com/MicrosoftDocs/architecture-center/commit/5d9404c30))
+- [Highly available multi-region web application](https://docs.microsoft.com/azure/architecture/reference-architectures/app-service-web-app/multi-region)  ([#5d9404c30](https://github.com/MicrosoftDocs/architecture-center/commit/5d9404c30))
+- [Scalable web application](https://docs.microsoft.com/azure/architecture/reference-architectures/app-service-web-app/scalable-web-app)  ([#5d9404c30](https://github.com/MicrosoftDocs/architecture-center/commit/5d9404c30))
+- [Hub-spoke network topology in Azure](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke)  ([#5a43e49c7](https://github.com/MicrosoftDocs/architecture-center/commit/5a43e49c7))
+- [Implement a hub-spoke network topology](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/shared-services)  ([#5a43e49c7](https://github.com/MicrosoftDocs/architecture-center/commit/5a43e49c7))
+- [Basic enterprise integration on Azure](https://docs.microsoft.com/azure/architecture/reference-architectures/enterprise-integration/basic-enterprise-integration)  ([#25ef4b6d6](https://github.com/MicrosoftDocs/architecture-center/commit/25ef4b6d6))
+- [Real-time scoring of Python models](https://docs.microsoft.com/azure/architecture/reference-architectures/ai/realtime-scoring-python)  ([#c7c58c777](https://github.com/MicrosoftDocs/architecture-center/commit/c7c58c777))
+- [Tradeoffs for costs](https://docs.microsoft.com/azure/architecture/framework/cost/tradeoffs)  ([#2d7618339](https://github.com/MicrosoftDocs/architecture-center/commit/2d7618339))
+- [AWS to Azure services comparison](https://docs.microsoft.com/azure/architecture/aws-professional/services)  ([#0ba045797](https://github.com/MicrosoftDocs/architecture-center/commit/0ba045797))
+- [Business Process Management](https://docs.microsoft.com/azure/architecture/solution-ideas/articles/business-process-management)  ([#0ba045797](https://github.com/MicrosoftDocs/architecture-center/commit/0ba045797))
+- [Build a CI/CD pipeline for chatbots with ARM templates](https://docs.microsoft.com/azure/architecture/example-scenario/apps/devops-cicd-chatbot)  ([#20d88b45a](https://github.com/MicrosoftDocs/architecture-center/commit/20d88b45a))
+- [Overview of the reliability pillar](https://docs.microsoft.com/azure/architecture/framework/resiliency/overview)  ([#20d88b45a](https://github.com/MicrosoftDocs/architecture-center/commit/20d88b45a))
+- [Choosing an Azure compute service](https://docs.microsoft.com/azure/architecture/guide/technology-choices/compute-decision-tree)  ([#20d88b45a](https://github.com/MicrosoftDocs/architecture-center/commit/20d88b45a))
 
