@@ -1,7 +1,7 @@
 ---
 title: FSLogix at enterprise scale
 titleSuffix: Azure Architecture Guide
-description: Explore Windows Virtual Desktop, and learn to build virtual desktop infrastructure solutions at enterprise scale.
+description: Learn to build virtual desktop infrastructure solutions at enterprise scale using Microsoft FSLogix.
 author: GitHubAlias
 ms.date: 07/16/2020
 ms.topic: guide
@@ -179,7 +179,7 @@ The following settings are commonly used by our customers in their desktop virtu
 
 ## Using Cloud Cache
 
-[Cloud Cache](https://docs.microsoft.com/en-us/fslogix/configure-cloud-cache-tutorial) is an add-on to FSLogix. It uses a local cache to service all reads from a redirected Profile or Office Container, after the first read. Cloud Cache also allows the use of multiple remote locations, which are all continuously updated during the user session, creating true real-time profile replication. Using Cloud Cache can insulate users from short-term loss of connectivity to remote profile containers as the local cache is able to service many profile operations. In case of a provider failure, Cloud Cache provides business continuity.
+[Cloud Cache](https://docs.microsoft.com/fslogix/configure-cloud-cache-tutorial) is an add-on to FSLogix. It uses a local cache to service all reads from a redirected Profile or Office Container, after the first read. Cloud Cache also allows the use of multiple remote locations, which are all continuously updated during the user session, creating true real-time profile replication. Using Cloud Cache can insulate users from short-term loss of connectivity to remote profile containers as the local cache is able to service many profile operations. In case of a provider failure, Cloud Cache provides business continuity.
 
 Because the local cache file will service most IO requests, the performance of the local cache file will determine the user experience. It is critical that the storage used for this file be high-performing and highly available. Any storage used for the local cache file should either be a physically attached storage, or have reliability and performance characteristics that meet or exceed a high-performing physically attached storage.
 
