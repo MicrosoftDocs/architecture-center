@@ -259,8 +259,6 @@ items:
         href: framework/devops/app-design.md
     - name: Automation
       items:
-      - name: Checklist
-        href: framework/operational-excilence/automation-checklist.md
       - name: Overview
         href: framework/operational-excilence/automation-overview.md
       - name: Repeatable infrastructure
