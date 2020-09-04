@@ -31,7 +31,7 @@ For pricing details, see [Event Grid pricing](https://azure.microsoft.com/pricin
 
 ## Event Hubs
 
-Stream millions of events per second from any source to build dynamic data pipelines and immediately respond to business challenges using Event Hubs. A key difference between Event Grid and Event Hubs is in the way event data is made available to the subscribers. For more information, see [Pull model](https://docs.microsoft.com/en-us/azure/architecture/guide/technology-choices/messaging#pull-model-1).
+Stream millions of events per second from any source to build dynamic data pipelines and immediately respond to business challenges using Event Hubs. A key difference between Event Grid and Event Hubs is in the way event data is made available to the subscribers. For more information, see [Pull model](https://docs.microsoft.com/azure/architecture/guide/technology-choices/messaging#pull-model-1).
 
 For questions and answers on pricing, see [Pricing](https://docs.microsoft.com/azure/event-hubs/event-hubs-faq#pricing).
 
