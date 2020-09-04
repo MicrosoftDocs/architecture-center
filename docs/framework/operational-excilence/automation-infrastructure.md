@@ -10,18 +10,30 @@ ms.subservice: well-architected
 
 # Repeatable Infrastructure
 
-Whether your application is running on Azure Virtual Machines, on Azure Web App Services, or on Kubernetes, you need to deploy those services before actually being able to put your application on them. Creating VMs is a task performed daily in most organizations, however you should leverage automation so that the infrastructure deployment is consistent across different environments.
+As part of the Tailwindtrader's effort to release more often, increase reliability, while reducing effort, the Tailwind operations team has identified significant effort spent building or re-setting the tailwindtraders.com test environments before each release. Furthermore, confidence is low in that the test environments provide the proper amount of production likeness to effectively raise awareness of potential issues. 
 
-Consistency of infrastructure deployments will give you multiple benefits:
+Much of this effort is spent performing the following manual tasks:
 
-- The platform where developers test their applications will be identical to the platform where the applications will run in production, thus preventing the "but it runs on my machine" type of situation, where production systems differ from testing systems.
-- If any of the stages (development, testing, staging, production) have an issue, it might be quicker to just redeploy the whole platform, instead of trying to fix the existing one.
-- Automated deployments is a possible strategy to enable Business Continuity and Disaster Recovery, since you can deploy both the infrastructure and the application code quickly and reliably in any Azure region.
-- By automating the creation of the application platform, you eliminate human errors from the equation. Every environment is created exactly the same without the risk of human administrators forgetting to set a property or tick a checkbox.
+- Evaluating the tailwind production environment for current operating systems, data systems, patch levels, and other configuration items.
+- Procuring and configuring virtual machines to match production as close as possible.
+- Deploying the current version of taiwindtraders.com application.
+- Manually observing things like load performance, failover, and other common run time considerations. 
 
-## Declaritive Tools
+While the Tailwind team does use tooling and scripting during these activities, the level of provided automation is relatively isolated to a single activity like basic operating system configurations, which and do not result in a significant reduction of toil. Furthermore, the risk remains high that a miss-configuration has been introduced, resulting in miss-matched test and production environments.
 
-### Azure Resource Manager Templates
+## Infrastructure as code
+
+Cloud computing changes so much about deploying and provisioning infrastructure. Not only can we procure compute, data, and so many other service types on demand, we have APIs for doing so. Because of the API driven nature of cloud service, deploying and configuring these services programmatically just makes sense. The concept knows as infrastructure as code involves using a declarative framework to describe the service configure that you desire. The infrastructure as code solutions translates the requested configuration into the proper cloud provider API requests, which results in usable cloud services. Benefits of using infrastructure as code include:
+
+- Deploy similarily configured infrastructure across multiple environments (test and production).
+- Deploy all required components as a single unit (infrastructure, monitoring solutions, and configured alerts).
+- Version control infrastructure in a source control solution.
+- Use continuous integration solutions to manage and test infrastructure deployments
+- Recover from failure more quickly
+
+You can use many declarative infrastructure deployment technologies with Azure, here we detail two of the most common.
+
+## ARM Templates
 
 Azure Resource Manager (ARM) Templates provide an Azure native infrastructure as code solution. ARM Templates are written in a language derived from JavaScript Object Notation (JSON) and they define the infrastructure and configurations for Azure deployments. An ARM template is declarative, you state what intend to deploy, provide configuration values, and the ARM engine takes care of making the necessary Azure REST API put requests. Additional benefits of using ARM templates for infrastructure deployments include:
 
@@ -33,13 +45,27 @@ Azure Resource Manager (ARM) Templates provide an Azure native infrastructure as
 - Deployment scopes
 - Tooling
 
-For more information about Azure Resource Manager Templates, see [What are ARM templates](https://docs.microsoft.com/en-us/azure/azure-resource-manager/templates/overview).
+For more information about Azure Resource Manager Templates, see [Docs: What are ARM templates](https://docs.microsoft.com/azure/azure-resource-manager/templates/overview).
 
-**Authoring ARM Templates**
+To take a guided learning experience with Azure Resource Manager Template, see [Learn: Deploy consistent infrastructure with ARM Templates](https://docs.microsoft.com/learn/modules/create-azure-resource-manager-template-vs-code/).
 
-Any code or text editor can be used to author an ARM template. We recommend Visual Studio Code and the ARM Tools extension as it is the most feature-rich tooling and is under active development. The ARM Tools extension not only helps ensure that an ARM template is syntactically correct but also uses Azure resource schemas to provide validation that Azure resources have been correctly defined.
+To see a sample Azure Resource Manager Template, see [Code Samples: ARM Tempalte](https://docs.microsoft.com/samples/browse/?terms=arm%20templates).
 
-## Imperitive Tools
+## Terraform
+
+Terraform is a cloud-agnostic declarative framework that supports many private and public clouds, Azure being one of them. It has the main advantage of offering a cloud-agnostic framework: while Terraform configurations are specific to each cloud, the framework itself is the same for all of them. Additional benefits of using Terraform for infrastructure deployments include:
+
+- Multi-cloud and endpoint support
+- Full feature state tracking solution
+- Modular deployments
+- Extensibility
+- Testing, validation, and change preview
+
+Take note, the Terraform provider for Azure is an abstraction on top of Azure APIs. This is beneficial because some of the API surface complexities can be obfuscated, however comes at a cost in that the Terraform provider for Azure does not always provide parity with the capabilities of the Azure APIs.
+
+For more information about Terraform on Azure, see [Docs: Using Terraform on Azure](https://docs.microsoft.com/azure/developer/terraform/overview).
+
+To see a sample Azure Resource Manager Template, see [Code Samples: Terraform](https://docs.microsoft.com/samples/browse/?terms=Terraform).
 
 #### Next steps
 
