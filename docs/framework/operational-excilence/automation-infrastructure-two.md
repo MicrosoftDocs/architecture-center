@@ -10,8 +10,6 @@ ms.subservice: well-architected
 
 # Repeatable Infrastructure
 
-## Tailwind case study
-
 As part of the Tailwindtrader's effort to release more often, increase reliability, while reducing effort, the Tailwind operations team has identified significant effort spent building or re-setting the tailwindtraders.com test environments before each release. Furthermore, confidence is low in that the test environments provide the proper amount of production likeness to effectively raise awareness of potential issues. 
 
 Much of this effort is spent performing the following manual tasks:
@@ -44,7 +42,9 @@ Azure Resource Manager (ARM) Templates provide an Azure native infrastructure as
 - Tooling
 
 For more information about Azure Resource Manager Templates, see [Docs: What are ARM templates](https://docs.microsoft.com/azure/azure-resource-manager/templates/overview).
+
 To take a guided learning experience with Azure Resource Manager Template, see [Learn: Deploy consistent infrastructure with ARM Templates](https://docs.microsoft.com/learn/modules/create-azure-resource-manager-template-vs-code/).
+
 To see a sample Azure Resource Manager Template, see [Code Samples: ARM Tempalte](https://docs.microsoft.com/samples/browse/?terms=arm%20templates).
 
 ### Terraform
@@ -60,6 +60,7 @@ Terraform is a cloud-agnostic declarative framework that supports many private a
 Take note, the Terraform provider for Azure is an abstraction on top of Azure APIs. This is beneficial because some of the API surface complexities can be obfuscated, however comes at a cost in that the Terraform provider for Azure does not always provide parity with the capabilities of the Azure APIs.
 
 For more information about Terraform on Azure, see [Docs: Using Terraform on Azure](https://docs.microsoft.com/azure/developer/terraform/overview).
+
 To see a sample Azure Resource Manager Template, see [Code Samples: Terraform](https://docs.microsoft.com/samples/browse/?terms=Terraform).
 
 #### Next steps
