@@ -25,9 +25,7 @@ It's common to copy a profile to and from the network, when a user signs in and 
 
 The conceptual architecture diagram below shows how FSLogix works within the operating system. The agent needs to be installed in the VDI image. After you are done that, two filter-drivers inject into the operating system. By setting various registry (or ADMX) entries, you will be able to place a VHDx container on a file system/SMB share location.
 
-<!---
-Add the png here.
-!--->
+![FSLogix conceptual architecture](./images/fslogix-concept.png)
 
 ## When to use Profile Container and Office Container
 
@@ -99,9 +97,7 @@ Azure Files sync can be used to replicate existing Profile Containers into Azure
 - With the FSLogix [ObjectSpecific](https://docs.microsoft.com/en-us/fslogix/configure-per-user-per-group-ht) – per group setting, you can filter different Azure Files storage accounts to accommodate more users. The maximum limit of IOPs per storage account doesn't mean you cannot stack them. This applies to both personal and pooled host pool scenarios. The architecture drawing below explains it in more detail. 
 - You are able to use multiple storage accounts in one Azure vNET. It's possible to e.g. assign via AD groups different network shares to specific groups of users in your environment. 
 
-<!--
-Insert png here
--->
+![Files scenario](./images/fslogix-files.png)
 
 You can leverage the guidance below and further optimize for your WVD scenario. Detailed information of Azure Files on performance targets ([Standard](https://docs.microsoft.com/en-us/azure/storage/files/storage-files-scale-targets#file-share-and-file-scale-targets), [Premium](https://docs.microsoft.com/en-us/azure/storage/files/storage-files-planning#understanding-provisioning-for-premium-file-shares)) and [pricing](https://azure.microsoft.com/en-us/pricing/details/storage/files/) is available to help you further fine tune the file share solution.
 
@@ -121,9 +117,7 @@ Currently, there's an IP connection limitation of 1000 IP connections per vNET a
 
 If the WVD Windows 10 Multi-session user per vCPU [recommendations](https://docs.microsoft.com/en-us/windows-server/remote/remote-desktop-services/virtual-machine-recs) holds true for the D32as_v4 VM size, more than 120,000 users would fit within 1,000 virtual machines before broaching the 1,000 IP limit, as shown in the following figure.
 
-<!--
-Third picture
--->
+![NetApp Files pooled scenario](./images/fslogix-netapp-files-pooled.png)
 
 #### Personal scenarios
 
