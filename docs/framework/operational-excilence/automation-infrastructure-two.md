@@ -23,7 +23,15 @@ While the Tailwind team does use tooling and scripting during these activities, 
 
 ## Infrastructure as code
 
-A declarative automation framework is characterized for handling some of the details about the resource creation on behalf of the user. The user needs to define what should be created, and the declarative framework will figure out how. You can use many declarative infrastructure deployment technologies with Azure, here we detail two of the most common.
+Cloud computing changes so much about deploying and provisioning infrastructure. Not only can we procure compute, data, and so many other service types on demand, we have APIs for doing so. Because of the API driven nature of cloud service, deploying and configuring these services programmatically just makes sense. The concept knows as infrastructure as code involves using a declarative framework to describe the service configure that you desire. The infrastructure as code solutions translates the requested configuration into the proper cloud provider API requests, which results in usable cloud services. Benefits of using infrastructure as code include:
+
+- Deploy similarily configured infrastructure across multiple environments (test and production).
+- Deploy all required components as a single unit (infrastructure, monitoring solutions, and configured alerts).
+- Version control infrastructure in a source control solution.
+- Use continuous integration solutions to manage and test infrastructure deployments
+- Recover from failure more quickly
+
+You can use many declarative infrastructure deployment technologies with Azure, here we detail two of the most common.
 
 ## ARM Templates
 
