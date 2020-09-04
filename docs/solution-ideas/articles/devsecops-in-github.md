@@ -40,11 +40,11 @@ GitHub DevSecOps installations cover many security scenarios. Possibilities incl
 ## Architecture
 
 :::image type="complex" source="../media/devsecops-in-github-data-flow.png" alt-text="Architecture diagram highlighting the security checks that run in various GitHub and Azure components in a GitHub DevSecOps environment." border="false":::
-   Architecture diagram highlighting security checks that run in a GitHub DevSecOps environment. Azure AD authenticates developers; Codespaces run security scans; GitHub Actions test security and encrypt sensitive data; Azure Policy, Azure Security Center, and Azure Monitor evaluate deployed software for risks.
+   Architecture diagram highlighting security checks that run in a GitHub DevSecOps environment. After Azure AD authenticates developers, Codespaces run security scans. GitHub Actions then test security and encrypt sensitive data. In production, Azure Policy, Azure Security Center, and Azure Monitor evaluate deployed software for risks.
 :::image-end:::
 *Download an [.svg][DevSecOps in GitHub svg] of this architecture.*
 
-1. When developers access GitHub resources, GitHub redirects them to Azure Active Directory (Azure AD) for SAML authentication. In a single sign-on (SSO) procedure, the [Microsoft Authenticator app][Microsoft Authenticator] then uses [FIDO2 security keys][FIDO2 security keys] for strong, passwordless authentication aligned with the latest specifications of the [Fast Identity Online (FIDO) Alliance][FIDO Alliance].
+1. When developers access GitHub resources, GitHub redirects them to Azure Active Directory (Azure AD) for SAML authentication. In a single sign-on (SSO) procedure, the [Microsoft Authenticator app][Microsoft Authenticator] then uses FIDO2 strong authentication. The passwordless [FIDO2 security keys][FIDO2 security keys] align with the latest [Fast Identity Online (FIDO) Alliance][FIDO Alliance] specifications.
 1. Developers begin working on tasks in Codespaces. Organized into containers, these pre-built development environments provide correctly configured IDEs that are equipped with required security scanning extensions.
 1. When developers commit new code, GitHub Actions automatically scan the code to quickly find vulnerabilities and coding errors.
 1. Pull requests (PRs) trigger code builds and automated testing through GitHub Actions. GitHub encrypts secrets and credentials at rest and obfuscates these entries in logs.
@@ -55,8 +55,8 @@ GitHub DevSecOps installations cover many security scenarios. Possibilities incl
 
 ## Components
 
-- [Azure AD][Azure AD] is a multi-tenant, cloud-based identity service that controls access to Azure and other cloud apps like M365 and GitHub.
-- [GitHub][GitHub] provides a code-hosting platform that developers can use for collaborating on both open-source and inner-source projects.
+- [Azure AD][Azure AD] is a multi-tenant, cloud-based identity service that controls access to Azure and other cloud apps like [Microsoft 365][Microsoft 365]and GitHub.
+- [GitHub][GitHub] provides a code-hosting platform that developers can use for collaborating on both open-source and [inner-source][Inner source] projects.
 - [Codespaces][Codespaces] is an online development environment. Hosted by GitHub and powered by [Visual Studio Code][Visual Studio Code], this tool provides a complete development solution in the cloud.
 - [GitHub Security][GitHub Security] works to eliminate threats in a number of ways. Agents and services identify vulnerabilities in repositories and in dependent packages. They also upgrade dependencies to up-to-date, secure versions.
 - [GitHub Actions][GitHub Actions] are custom workflows that provide continuous integration (CI) and continuous deployment (CD) capabilities directly in repositories. Computers called *runners* host these CI/CD jobs.
@@ -84,12 +84,12 @@ GitHub DevSecOps installations cover many security scenarios. Possibilities incl
 
 When GitHub identifies a *vulnerability*, it takes the steps illustrated in the following diagram.
 :::image type="complex" source="../media/devsecops-in-github-vulnerability-management-data-flow.png" alt-text="Architecture diagram illustrating the chain of events that the identification of a vulnerability triggers, including alerts, upgrades, and deployment." border="false":::
-    Architecture diagram illustrating the following chain of events in a GitHub DevSecOps implementation. GitHub identifies a vulnerability and sends an email alert. Dependabot creates a branch, updates the vulnerability source, and creates a PR. The branch merges. GitHub Actions deploy the new app.
+    Architecture diagram illustrating a chain of events in a GitHub DevSecOps implementation. At the outset, GitHub identifies a vulnerability and sends an email alert. Dependabot then creates a branch, updates the vulnerability source, and creates a PR. The branch merges. In the final step, GitHub Actions deploy the new app.
 :::image-end:::
 *Download an [.svg][Vulnerability management in GitHub svg] of this diagram.*
 
 1. GitHub sends an email alert to the organization owners and repository administrators.
-1. GitHub Dependabot, a DevOps bot agent, automatically performs the following three tasks:
+1. GitHub Dependabot, a DevOps bot agent, automatically completes the following three tasks:
     1. Creates a new branch in the repository.
     1. Upgrades the necessary dependencies to the minimum possible secure version needed to eliminate the vulnerability.
     1. Creates a PR with the upgraded dependency.
@@ -125,7 +125,7 @@ To keep GitHub DevSecOps solutions aligned with the tenets of the [Azure Well-Ar
 
 ### Performance efficiency
 
-For long-running or complex Actions, consider hosting your own runners for CI/CD jobs. With this approach, you can choose computers with powerful processing capabilities and ample memory. See [About self-hosted runners][About self-hosted runners].
+For long-running or complex Actions, host your own runners for CI/CD jobs. You can then choose computers with powerful processing capabilities and ample memory. See [About self-hosted runners][About self-hosted runners].
 
 ### Reliability
 
@@ -146,7 +146,6 @@ For long-running or complex Actions, consider hosting your own runners for CI/CD
 - [Fail fast][Fail fast]
 - [Training materials, tools, and other resources on GitHub DevSecOps][GitHub DevSecOps training materials]
 - [Tips for getting started with GitHub DevSecOps][GitHub DevSecOps getting started tips]
-- [CodeQL][CodeQL]
 - [SARIF files][SARIF]
 
 [Shift left]: https://devops.com/devops-shift-left-avoid-failure/
@@ -156,7 +155,9 @@ For long-running or complex Actions, consider hosting your own runners for CI/CD
 [FIDO2 security keys]: /azure/active-directory/authentication/concept-authentication-passwordless#fido2-security-keys
 [FIDO Alliance]: https://fidoalliance.org/
 [Azure AD]: /azure/active-directory/fundamentals/active-directory-whatis
+[Microsoft 365]: https://www.microsoft.com/microsoft-365/what-is-microsoft-365
 [GitHub]: https://docs.github.com/en/github
+[Inner source]: https://resources.github.com/whitepapers/introduction-to-innersource/
 [Codespaces]: https://docs.github.com/en/github/developing-online-with-codespaces/about-codespaces
 [Visual Studio Code]: https://code.visualstudio.com/
 [GitHub Security]: https://github.com/features/security
