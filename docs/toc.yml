@@ -309,32 +309,56 @@ items:
       href: checklist/resiliency-per-service.md
   - name: Security
     items:
-    - name: Overview
+    - name: About
       href: framework/security/overview.md
-    - name: Role of security
-      href: framework/security/role-of-security.md
-    - name: Security design principles
-      href: framework/security/security-principles.md
-    - name: Types of attacks to resist
-      href: framework/security/architecture-type.md
-    - name: Regulatory compliance
-      href: framework/security/law-authority.md
-    - name: Reduce organizational risk
-      href: framework/security/resilience.md
-    - name: Governance, risk, and compliance
-      href: framework/security/governance.md
-    - name: Identity and access management
-      href: framework/security/identity.md
-    - name: Network security and containment
-      href: framework/security/network-security-containment.md
-    - name: Storage, data, and encryption
-      href: framework/security/storage-data-encryption.md
-    - name: Applications and services
-      href: framework/security/applications-services.md
-    - name: Administration
-      href: framework/security/critical-impact-accounts.md
-    - name: Security operations
-      href: framework/security/security-operations.md
+    - name: Principles
+      href: framework/security/security-principles.md      
+    - name: Design
+      items:
+      - name: Gather the security requirements
+        href: framework/security/architecture-type.md
+      - name: Key security strategies
+        href: framework/security/resilience.md
+      - name: Governance and administration
+        href: framework/security/governance.md
+      - name: Regulatory compliance
+        href: framework/security/law-authority.md
+      - name: Administration
+        href: framework/security/critical-impact-accounts.md        
+      - name: Identity and access management
+        href: framework/security/design-identity.md
+      - name: Networking
+        items: 
+          - name: Containment strategies for organizations
+            href: framework/security/network-security-containment.md
+          - name: Workload best practices
+            href: /azure/security/fundamentals/network-best-practices?bc=%2fazure%2farchitecture%2fbread%2ftoc.json&toc=%2fazure%2farchitecture%2ftoc.json
+      - name: Storage
+        href: framework/security/storage-data-encryption.md
+      - name: Applications and services
+        href: framework/security/applications-services.md
+    - name: Test
+      items:
+        - name: Penetration testing
+        - name: Threat modeling
+        - name: Simulate attacks
+        - name: Test your CI/CD pipelines
+    - name: Monitor
+      items:
+      - name: Security operations
+        href: framework/security/security-operations.md
+      - name: Review and audit
+        href: framework/security/governance.md
+      - name: Tools
+      - name: Network access
+      - name: DDoS attacks
+    - name: Optimize
+      items:
+        - name: Automate 
+        - name: Replace insecure protocols
+        - name: Elevate security gaps
+    - name: Tradeoffs
+    - name: Checklist
 - name: Design Patterns
   items:
   - name: Overview
