@@ -45,9 +45,7 @@ Azure Resource Manager (ARM) Templates provide an Azure native infrastructure as
 - Deployment scopes
 - Tooling
 
-**Learn More**
-
-| Content | Link |
+| Learn more |  |
 |---|---|
 | More information about Azure Resource Manager Templates | [Docs: What are ARM templates](https://docs.microsoft.com/azure/azure-resource-manager/templates/overview) |
 | Guided learning experience with Azure Resource Manager Templates | [Learn: Deploy consistent infrastructure with ARM Templates](https://docs.microsoft.com/learn/modules/create-azure-resource-manager-template-vs-code/) |
@@ -65,9 +63,8 @@ Terraform is a cloud-agnostic declarative framework that supports many private a
 
 Take note, the Terraform provider for Azure is an abstraction on top of Azure APIs. This abstraction is beneficial because the API complexities are obfuscated. This abstraction comes at a cost; the Terraform provider for Azure does not always provide parity with the Azure APIs' capabilities.
 
-**Learn More**
 
-| Content | Link |
+| Learn more |  |
 |---|---|
 | More information about Terraform on Azure | [Docs: Using Terraform on Azure](https://docs.microsoft.com/azure/developer/terraform/overview) |
 | Sample Terraform configurations for Azure | [Code Samples: Terraform](https://docs.microsoft.com/samples/browse/?terms=Terraform) |
