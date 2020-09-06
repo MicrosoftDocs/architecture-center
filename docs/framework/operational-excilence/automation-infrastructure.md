@@ -19,7 +19,7 @@ Much of this effort spent performing the following manual tasks:
 - Deploying the updated version of taiwindtraders.com application.
 - Manually observing things like load performance, failover, and other typical run time considerations. 
 
-While the Tailwind team uses tooling and scripting, the automation is ad-hock, isolated to single actions, and does not result in a significant reduction in toil. Furthermore, the risk remains high that a miss-configuration has been introduced, resulting in miss-matched test and production environments.
+While the Tailwind team uses tooling and scripting, the automation is ad-hock, isolated to single actions, and does not significantly reduce toil. Furthermore, the risk remains high that a miss-configuration has been introduced, resulting in miss-matched test and production environments.
 
 ## Infrastructure as code
 
@@ -45,17 +45,11 @@ Azure Resource Manager (ARM) Templates provide an Azure native infrastructure as
 - Deployment scopes
 - Tooling
 
-| Content| Link |
+| Content | Link |
 |---|---|
-| Docs: What are ARM templates | [link](https://docs.microsoft.com/azure/azure-resource-manager/templates/overview) |
-| Learn: Deploy consistent infrastructure with ARM Templates | [link](https://docs.microsoft.com/learn/modules/create-azure-resource-manager-template-vs-code/) |
-| Code Samples: ARM Tempalte | [link](https://docs.microsoft.com/samples/browse/?terms=arm%20templates) |
-
-For more information about Azure Resource Manager Templates, see [Docs: What are ARM templates](https://docs.microsoft.com/azure/azure-resource-manager/templates/overview).
-
-To take a guided learning experience with Azure Resource Manager Template, see [Learn: Deploy consistent infrastructure with ARM Templates](https://docs.microsoft.com/learn/modules/create-azure-resource-manager-template-vs-code/).
-
-To see a sample Azure Resource Manager Template, see [Code Samples: ARM Tempalte](https://docs.microsoft.com/samples/browse/?terms=arm%20templates).
+| More information about Azure Resource Manager Templates | [Docs: What are ARM templates](https://docs.microsoft.com/azure/azure-resource-manager/templates/overview) |
+| Guided learning experience with Azure Resource Manager Templates | [Learn: Deploy consistent infrastructure with ARM Templates](https://docs.microsoft.com/learn/modules/create-azure-resource-manager-template-vs-code/) |
+| Sample Azure Resource Manager Templates | [link](https://docs.microsoft.com/samples/browse/?terms=arm%20templates) |
 
 ## Terraform
 
@@ -67,11 +61,12 @@ Terraform is a cloud-agnostic declarative framework that supports many private a
 - Extensibility
 - Testing, validation, and change preview
 
-Take note, the Terraform provider for Azure is an abstraction on top of Azure APIs. This is beneficial because some of the API surface complexities can be obfuscated, however comes at a cost in that the Terraform provider for Azure does not always provide parity with the capabilities of the Azure APIs.
+Take note, the Terraform provider for Azure is an abstraction on top of Azure APIs. This abstraction is beneficial because the API complexities are obfuscated. This abstraction comes at a cost; the Terraform provider for Azure does not always provide parity with the Azure APIs' capabilities.
 
-For more information about Terraform on Azure, see [Docs: Using Terraform on Azure](https://docs.microsoft.com/azure/developer/terraform/overview).
-
-To see a sample Azure Resource Manager Template, see [Code Samples: Terraform](https://docs.microsoft.com/samples/browse/?terms=Terraform).
+| Content | Link |
+|---|---|
+| More information about Terraform on Azure | [Docs: Using Terraform on Azure](https://docs.microsoft.com/azure/developer/terraform/overview) |
+| Sample Terraform configurations for Azure | [Code Samples: Terraform](https://docs.microsoft.com/samples/browse/?terms=Terraform) |
 
 #### Next steps
 
