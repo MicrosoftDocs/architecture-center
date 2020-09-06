@@ -45,6 +45,7 @@ Azure Resource Manager (ARM) Templates provide an Azure native infrastructure as
 - Deployment scopes
 - Tooling
 
+| Content| Link |
 |---|---|
 | Docs: What are ARM templates | [link](https://docs.microsoft.com/azure/azure-resource-manager/templates/overview) |
 | Learn: Deploy consistent infrastructure with ARM Templates | [link](https://docs.microsoft.com/learn/modules/create-azure-resource-manager-template-vs-code/) |
