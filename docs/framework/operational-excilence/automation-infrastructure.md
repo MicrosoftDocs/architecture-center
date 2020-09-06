@@ -10,20 +10,20 @@ ms.subservice: well-architected
 
 # Repeatable Infrastructure
 
-As part of the Tailwindtrader's effort to release more often, increase reliability, while reducing effort, the Tailwind operations team has identified significant effort spent building or re-setting the tailwindtraders.com test environments before each release. Furthermore, confidence is low in that the test environments provide the proper amount of production likeness to effectively raise awareness of potential issues. 
+As part of the Tailwindtrader's effort to release more often, increase reliability, while reducing effort, the Tailwind operations team has identified significant effort spent building or re-setting tailwindtraders.com test environments before each release. Furthermore, confidence is low in that the test environments provide the proper amount of production likeness to identify potential issues effectively. For example, monitoring and observability systems are not replicated in the test environments. Where a new release may deploy and function fine, can the tailwind team have confidence when going to production that the application will...
 
-Much of this effort is spent performing the following manual tasks:
+Much of this effort spent performing the following manual tasks:
 
 - Evaluating the tailwind production environment for current operating systems, data systems, patch levels, and other configuration items.
-- Procuring and configuring virtual machines to match production as close as possible.
-- Deploying the current version of taiwindtraders.com application.
-- Manually observing things like load performance, failover, and other common run time considerations. 
+- Procuring and configuring virtual machines, data stores, and other components to match production as close as possible.
+- Deploying the updated version of taiwindtraders.com application.
+- Manually observing things like load performance, failover, and other typical run time considerations. 
 
-While the Tailwind team does use tooling and scripting during these activities, the level of provided automation is relatively isolated to a single activity like basic operating system configurations, which and do not result in a significant reduction of toil. Furthermore, the risk remains high that a miss-configuration has been introduced, resulting in miss-matched test and production environments.
+While the Tailwind team uses tooling and scripting, the automation is ad-hock, isolated to single actions, and does not result in a significant reduction in toil. Furthermore, the risk remains high that a miss-configuration has been introduced, resulting in miss-matched test and production environments.
 
 ## Infrastructure as code
 
-Cloud computing changes so much about deploying and provisioning infrastructure. Not only can we procure compute, data, and so many other service types on demand, we have APIs for doing so. Because of the API driven nature of cloud service, deploying and configuring these services programmatically just makes sense. The concept knows as infrastructure as code involves using a declarative framework to describe the service configure that you desire. The infrastructure as code solutions translates the requested configuration into the proper cloud provider API requests, which results in usable cloud services. Benefits of using infrastructure as code include:
+Cloud computing changes so much about deploying and provisioning infrastructure. Not only can we procure compute, data, and so many other service types on demand, we have APIs for doing so. Because of cloud service's API-driven nature, programmatically deploying and configuring cloud services makes sense. The concept known as infrastructure as code involves using a declarative framework to describe the service configure that you desire. Infrastructure as code solutions translates the requested configuration into the proper cloud provider API requests, which results in usable cloud services. Benefits of using infrastructure as code include:
 
 - Deploy similarily configured infrastructure across multiple environments (test and production).
 - Deploy all required components as a single unit (infrastructure, monitoring solutions, and configured alerts).
