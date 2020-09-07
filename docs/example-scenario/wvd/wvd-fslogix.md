@@ -1,5 +1,5 @@
 ---
-title: FSLogix at enterprise scale
+title: FSLogix for the enterprise
 titleSuffix: Azure Architecture Guide
 description: Learn to build virtual desktop infrastructure solutions at enterprise scale using Microsoft FSLogix.
 author: GitHubAlias
@@ -10,7 +10,7 @@ ms.custom:
 - fcp
 ---
 
-# Microsoft FSLogix at enterprise scale
+# Microsoft FSLogix for the enterprise
 
 This design guide provides insights on the design, sizing, and implementation of Microsoft FSLogix profiles for large enterprises, as well as shows how to avoid performance problems in production. This article is an extension of the [Windows Virtual Desktop at enterprise scale](./windows-virtual-desktop.md) article.
 
