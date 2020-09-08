@@ -8,6 +8,7 @@ ms.custom: acom-architecture, hybrid-infrastructure, cross cloud architecture, c
 ms.service: architecture-center
 ms.category:
   - hybrid
+  - web
 ms.subservice: solution-idea
 social_image_url: /azure/architecture/solution-ideas/articles/media/cross-cloud-scaling.png
 ---
