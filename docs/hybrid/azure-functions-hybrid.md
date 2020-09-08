@@ -119,7 +119,7 @@ Additionally, each virtual network in Azure should also use [virtual network pee
 [azure-functions-scale]: https://docs.microsoft.com/azure/azure-functions/functions-scale
 [azure-kubernetes-service]: https://docs.microsoft.com/azure/aks/
 [azure-pricing-calculator]: https://azure.microsoft.com/pricing/calculator/
-[azure-storage]: http://docs.microsoft.com/azure/storage
+[azure-storage]: https://docs.microsoft.com/azure/storage
 [azure-traffic-manager]: https://docs.microsoft.com/azure/traffic-manager
 [azure-virtual-network]: https://docs.microsoft.com/azure/virtual-network/
 [azure-virtual-network-cross]: https://docs.microsoft.com/azure/expressroute/cross-network-connectivity
