@@ -167,7 +167,7 @@ For the Azure AD Connect sync server, determine how many objects you are likely 
 The Azure AD service is geo-distributed and runs in multiple datacenters spread around the world with automated failover. If a datacenter becomes unavailable, Azure AD ensures that your directory data is available for instance access in at least two more regionally dispersed datacenters.
 
 > [!NOTE]
-> The service level agreement (SLA) for the Office 365 Apps AD tier and Premium services guarantees at least 99.9% availability. There is no SLA for the Free tier of Azure AD. For more information, see [SLA for Azure Active Directory][sla-aad].
+> The service level agreement (SLA) for the Microsoft 365 Apps AD tier and Premium services guarantees at least 99.9% availability. There is no SLA for the Free tier of Azure AD. For more information, see [SLA for Azure Active Directory][sla-aad].
 >
 
 Consider provisioning a second instance of Azure AD Connect sync server in staging mode to increase availability, as discussed in the topology recommendations section.

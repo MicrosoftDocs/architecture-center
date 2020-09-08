@@ -51,7 +51,7 @@ Event-based automation scenarios are best implemented using Azure Functions. The
   - restarting a service in a VM when it is erroneously stopped, and
   - sending notifications if a function is failing.
 
-- **Orchestrate with external systems**. This pattern enables integration with external systems, using [Logic Apps](/azure/logic-apps/) to orchestrate the workflow. [Logic Apps connectors](/azure/connectors/apis-list) can easily integrate with several third-party services as well as Microsoft services such as Office 365. Azure Functions can be used for the actual automation. The cost center tagging implementation demonstrates this pattern. Other common scenarios include:
+- **Orchestrate with external systems**. This pattern enables integration with external systems, using [Logic Apps](/azure/logic-apps/) to orchestrate the workflow. [Logic Apps connectors](/azure/connectors/apis-list) can easily integrate with several third-party services as well as Microsoft services such as Microsoft 365. Azure Functions can be used for the actual automation. The cost center tagging implementation demonstrates this pattern. Other common scenarios include:
 
   - monitoring IT processes such as change requests or approvals, and
   - sending email notification when automation task is completed.

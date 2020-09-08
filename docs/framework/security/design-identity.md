@@ -59,7 +59,7 @@ Avoid hosting non-employee accounts in a corporate directory.
 
 Use cloud identity services that are designed to host third-party accounts. Grant the appropriate level of access to those external entities instead of the default permissions that are given to full-time employees. This differentiation can prevent and detect attacks from these vectors. Also, you reduce the onus of managing these identities internally.
 
-For example, these capabilities natively integrate into the same Azure AD identity and permission model used by Azure and Office 365.
+For example, these capabilities natively integrate into the same Azure AD identity and permission model used by Azure and Microsoft 365.
 
 - [Azure AD](/azure/active-directory/) – Employees and Enterprise Resources
 - [Azure AD B2B](/azure/active-directory/b2b/) – Partners
@@ -96,7 +96,7 @@ For more information, see:
 
 ## Use cross-platform credential management
 
-Use a common identity provider, such as Azure Active Directory (AD), for authenticating all platforms (Windows, Linux, and others) and cloud services. Azure AD can authenticate on Windows, [Linux](/azure/virtual-machines/linux/login-using-aad), Azure, Office 365, [Amazon Web Services (AWS)](/azure/active-directory/saas-apps/amazon-web-service-tutorial), [Google Services](/azure/active-directory/saas-apps/google-apps-tutorial), (remote access to) [legacy on-premises applications](/azure/active-directory/manage-apps/application-proxy), and third-party [Software as a Service providers](/azure/active-directory/saas-apps/tutorial-list).
+Use a common identity provider, such as Azure Active Directory (AD), for authenticating all platforms (Windows, Linux, and others) and cloud services. Azure AD can authenticate on Windows, [Linux](/azure/virtual-machines/linux/login-using-aad), Azure, Microsoft 365, [Amazon Web Services (AWS)](/azure/active-directory/saas-apps/amazon-web-service-tutorial), [Google Services](/azure/active-directory/saas-apps/google-apps-tutorial), (remote access to) [legacy on-premises applications](/azure/active-directory/manage-apps/application-proxy), and third-party [Software as a Service providers](/azure/active-directory/saas-apps/tutorial-list).
 
 ## Related Links
 [Five steps to securing your identity infrastructure](/azure/security/fundamentals/steps-secure-identity)

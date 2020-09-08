@@ -43,7 +43,7 @@ The architecture shown here uses the following Azure services. Your own bot may 
 The bot will rely on raw data that must be ingested and prepared. Consider any of the following options to orchestrate this process:
 
 - **[Azure Data Factory][data-factory]**. Data Factory orchestrates and automates data movement and data transformation.
-- **[Logic Apps][logic-apps]**. Logic Apps is a serverless platform for building workflows that integrate applications, data, and services. Logic Apps provides data connectors for many applications, including Office 365.
+- **[Logic Apps][logic-apps]**. Logic Apps is a serverless platform for building workflows that integrate applications, data, and services. Logic Apps provides data connectors for many applications, including Microsoft 365.
 - **[Azure Functions][functions]**. You can use Azure Functions to write custom serverless code that is invoked by a [trigger][functions-triggers] &mdash; for example, whenever a document is added to blob storage or Cosmos DB.
 
 ### Logging and monitoring

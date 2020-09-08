@@ -3951,18 +3951,18 @@
             "word_count": 137,
             "read_time": "1 min read",
             "Title": "Enterprise Productivity Chatbot",
-            "MetaDescription": "Azure Bot Service can be easily combined with Language Understanding to build powerful enterprise productivity bots, allowing organizations to streamline common work activities by integrating external systems, such as Office 365 calendar, customer cases stored in Dynamics CRM and much more.",
+            "MetaDescription": "Azure Bot Service can be easily combined with Language Understanding to build powerful enterprise productivity bots, allowing organizations to streamline common work activities by integrating external systems, such as Microsoft 365 calendar, customer cases stored in Dynamics CRM and much more.",
             "category": [
                 "ai-machine-learning"
             ],
             "image": "/azure/architecture/solution-ideas/media/enterprise-productivity-chatbot.png",
             "imagepath": "C:\\jvPnpRepos\\architecture-center-pr\\docs\\solution-ideas\\media\\enterprise-productivity-chatbot.png",
             "publish_date": "12/16/2019",
-            "Summary": "<p>Azure Bot Service can be easily combined with Language Understanding to build powerful enterprise productivity bots, allowing organizations to streamline common work activities by integrating external systems, such as Office 365 calendar, customer cases stored in Dynamics CRM and much more.</p>",
+            "Summary": "<p>Azure Bot Service can be easily combined with Language Understanding to build powerful enterprise productivity bots, allowing organizations to streamline common work activities by integrating external systems, such as Microsoft 365 calendar, customer cases stored in Dynamics CRM and much more.</p>",
             "Flow": {
                 "FlowStep_A": "Employee access Enterprise Productivity Bot",
                 "FlowStep_B": "Azure Active Directory validates the employee's identity",
-                "FlowStep_C": "The Bot is able to query the employee's Office 365 calendar via the Azure Graph",
+                "FlowStep_C": "The Bot is able to query the employee's Microsoft 365 calendar via the Azure Graph",
                 "FlowStep_D": "Using data gathered from the calendar, the Bot access case information in Dynamics CRM",
                 "FlowStep_E": "Information is returned to the employee who can filter down the data without leaving the Bot"
             },

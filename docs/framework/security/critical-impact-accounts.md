@@ -94,7 +94,7 @@ compromise accounts, including administrative accounts.
 
 Create a separate administrative account for all users that have a role
 requiring critical privileges. For these administrative accounts, block
-productivity tools like Office 365 email (remove license). If possible, block
+productivity tools like Microsoft 365 email (remove license). If possible, block
 arbitrary web browsing (with proxy and/or application controls) while allowing
 exceptions for browsing to the Azure portal and other sites required for
 administrative tasks.
