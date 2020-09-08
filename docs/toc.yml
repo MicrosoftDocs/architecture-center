@@ -328,10 +328,12 @@ items:
       - name: Identity and access management
         href: framework/security/design-identity.md
       - name: Networking
-        items: 
+        items:
+          - name: Network security review 
+            href: framework/security/design-network-review.md
           - name: Containment strategies for organizations
-            href: framework/security/network-security-containment.md
-          - name: Workload best practices
+            href: framework/security/design-network.md
+          - name:  Best practices
             href: /azure/security/fundamentals/network-best-practices?bc=%2fazure%2farchitecture%2fbread%2ftoc.json&toc=%2fazure%2farchitecture%2ftoc.json
       - name: Storage
         href: framework/security/storage-data-encryption.md
