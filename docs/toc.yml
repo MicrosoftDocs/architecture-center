@@ -3,7 +3,7 @@ items:
   href: /azure/architecture/
 - name: Architecture icons
   href: icons/index.md
-- name: Browse Azure Architectures
+- name: Browse all Architectures
   href: browse/index.md
 - name: Browse Hybrid Cloud Architectures
   href: browse/hybrid_index.md
