@@ -7,6 +7,8 @@ ms.date: 07/13/2020
 ms.topic: example-scenario
 ms.service: architecture-center
 ms.subservice: example-scenario
+ms.category: 
+    - devops
 ms.custom:
   - fcp
 ---
@@ -31,7 +33,7 @@ Logging, tracing, and monitoring can provide the answers to these questions, as 
 
 For traditional on-premises or monolithic applications, logging, tracing, and monitoring happen within a single process domain. The application consists of a single executable and its dependencies. The executable runs under the single process space on a single virtual machine (VM), or across multiple VMs to increase performance.
 
-Cloud-native development differs from on-premises methodology. Many cloud-native applications consist of platform-as-a-service (PaaS) services built around the [microservices](https://docs.microsoft.com/azure/architecture/microservices/) architectural paradigm. Microservices architectures involve discrete, loosely coupled services that work within their own process boundaries. Microservices architectures:
+Cloud-native development differs from on-premises methodology. Many cloud-native applications consist of platform-as-a-service (PaaS) services built around the [microservices](../../microservices/index.md) architectural paradigm. Microservices architectures involve discrete, loosely coupled services that work within their own process boundaries. Microservices architectures:
 
 - Consist of discrete services that are easier to build and simpler to maintain.
 - Focus on business capabilities.
@@ -47,7 +49,7 @@ Several Azure services and strategies can help automate and manage effective log
 
 The following architecture uses Azure services to build a unified logging and monitoring system.
 
-![Diagram of Azure architecture for PaaS microservices applications](paas-tracing-logging.png)
+![Diagram of Azure architecture for PaaS microservices applications](./media/paas-tracing-logging.png)
 
 1. The application emits events from both the API and the user interface to Event Hubs and Application Insights.
 1. Application Insights queries short-term logging, tracing, and monitoring data.
@@ -58,7 +60,7 @@ The following architecture uses Azure services to build a unified logging and mo
 
 For applications that use Azure VMs, the following infrastructure-as-a-service (IaaS) architecture includes Azure Monitor to monitor the performance and health of the VMs that run the application.
 
-![Diagram of Azure architecture for Iaas applications that use VMs](iaas-tracing-logging.png)
+![Diagram of Azure architecture for Iaas applications that use VMs](./media/iaas-tracing-logging.png)
 
 ## Components
 
@@ -70,7 +72,7 @@ When building a cloud-native distributed microservices architecture, teams can u
 
 ### Blob Storage
 
-[Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs/) is a cloud scalable storage layer for storing unstructured text or binary object data. Event Hubs can store events as Avro files within Blob Storage. Azure [Log Analytics](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview) can then query the log data for insights.
+[Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs/) is a cloud scalable storage layer for storing unstructured text or binary object data. Event Hubs can store events as Avro files within Blob Storage. Azure [Log Analytics](/azure/azure-monitor/log-query/log-query-overview) can then query the log data for insights.
 
 ### Azure Data Lake Storage
 
@@ -86,20 +88,20 @@ When building a cloud-native distributed microservices architecture, teams can u
 
 ### Azure Monitor
 
-[Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview) is a service that maximizes availability and performance by collecting, analyzing, and acting on telemetry from cloud-native applications. With Azure Monitor, teams can create operational dashboards that detect issues and alert teams of critical situations.
+[Azure Monitor](/azure/azure-monitor/overview) is a service that maximizes availability and performance by collecting, analyzing, and acting on telemetry from cloud-native applications. With Azure Monitor, teams can create operational dashboards that detect issues and alert teams of critical situations.
 
-If the team uses an ITSM system, Logic Apps can call the REST endpoint of the system and create an issue with the appropriate severity level. This process provides quick notification to all relevant teams and ensures that triaging is immediate and useful. For more information, see [Stream Analytics and Azure Logic Apps](https://docs.microsoft.com/archive/blogs/vinaysin/consuming-azure-stream-analytics-output-in-azure-logic-apps). 
+If the team uses an ITSM system, Logic Apps can call the REST endpoint of the system and create an issue with the appropriate severity level. This process provides quick notification to all relevant teams and ensures that triaging is immediate and useful. For more information, see [Stream Analytics and Azure Logic Apps](/archive/blogs/vinaysin/consuming-azure-stream-analytics-output-in-azure-logic-apps). 
 
 ### Application Insights
 
-[Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview), a feature of Azure Monitor, is an extensible Application Performance Management (APM) service for developers and DevOps teams. Application Insights can monitor live services, detect anomalies in performance and analytics tools, diagnose and trace problems, and query log data. You can use Application Insights to do [distributed tracing](https://docs.microsoft.com/azure/azure-monitor/app/distributed-tracing#enabling-via-application-insights-through-auto-instrumentation-or-sdks) through the Application Insights SDK. You can also use Application Insights from [within Visual Studio](https://docs.microsoft.com/azure/azure-monitor/app/visual-studio).
+[Application Insights](/azure/azure-monitor/app/app-insights-overview), a feature of Azure Monitor, is an extensible Application Performance Management (APM) service for developers and DevOps teams. Application Insights can monitor live services, detect anomalies in performance and analytics tools, diagnose and trace problems, and query log data. You can use Application Insights to do [distributed tracing](/azure/azure-monitor/app/distributed-tracing#enabling-via-application-insights-through-auto-instrumentation-or-sdks) through the Application Insights SDK. You can also use Application Insights from [within Visual Studio](/azure/azure-monitor/app/visual-studio).
 
 ### Azure Sentinel
 
 [Azure Sentinel](https://azure.microsoft.com/services/azure-sentinel/) is a Security Information and Event Management (SIEM) and Security Orchestration, Automation, and Response (SOAR) service. Sentinel provides a unified overview of the cloud estate through native integration of Azure services. Sentinel can collect information from the cloud as well as from downstream dependent systems in customers' data centers.
 
-Azure Sentinel provides a dashboard view of the current security posture and allows administrators a global view on potentially malicious events such as failed logins, suspicious credentials, and the relevant connections from these events. Site reliability engineering (SRE) teams can use [Log Analytics](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview) to query the data.
-You can also designate automation to trigger when Sentinel rules generate security alerts. Automation in Azure Sentinel uses Playbooks powered by Azure Logic Apps. For more information, see [Tutorial: Investigate incidents with Azure Sentinel](https://docs.microsoft.com/azure/sentinel/tutorial-investigate-cases).
+Azure Sentinel provides a dashboard view of the current security posture and allows administrators a global view on potentially malicious events such as failed logins, suspicious credentials, and the relevant connections from these events. Site reliability engineering (SRE) teams can use [Log Analytics](/azure/azure-monitor/log-query/log-query-overview) to query the data.
+You can also designate automation to trigger when Sentinel rules generate security alerts. Automation in Azure Sentinel uses Playbooks powered by Azure Logic Apps. For more information, see [Tutorial: Investigate incidents with Azure Sentinel](/azure/sentinel/tutorial-investigate-cases).
 
 ## Issues and considerations
 
@@ -114,7 +116,7 @@ The following practices help microservices architectures perform unified logging
 
 ### Logging levels
 
-During application development and after deployment, make sure to use the common [logging levels](https://docs.microsoft.com/dotnet/api/microsoft.extensions.logging.loglevel) appropriately:
+During application development and after deployment, make sure to use the common [logging levels](/dotnet/api/microsoft.extensions.logging.loglevel) appropriately:
 
 - **Trace** is the most detailed and most verbose log level. The Trace level outputs detailed, possibly sensitive data about application state during program execution. Tracing can affect application performance, so don't use it in pre-production or production environments. Enable this level sparingly and locally, and only during development.
 - **Debug** is for debugging code locally during software development. This level tends to have no long-term value.
@@ -127,7 +129,7 @@ During application development and after deployment, make sure to use the common
 
 Most application traffic is variable, and so are the generated logs. Applications that don't generate high traffic may not generate enough logs to test and diagnose issues. Synthetic logging uses automation to emulate user behavior and generate logs for the application's monitoring systems.
 
-Using an automation tool like [Selenium](https://docs.microsoft.com/azure/devops/pipelines/test/continuous-test-selenium), developers can create a test suite of user interactions. Microservices and API-first services can use [Apache JMeter](https://jmeter.apache.org/) to test the functional behavior of a service and understand performance.
+Using an automation tool like [Selenium](/azure/devops/pipelines/test/continuous-test-selenium), developers can create a test suite of user interactions. Microservices and API-first services can use [Apache JMeter](https://jmeter.apache.org/) to test the functional behavior of a service and understand performance.
 
 For testing and development, [Postman](https://www.postman.com/) can test APIs locally and integrate with the CI/CD pipeline to automate API testing.
 
@@ -171,4 +173,3 @@ The following code shows examples of the structured logging objects:
 ```
 
 Incorporating the preceding changes into a distributed application allows team members to retrieve logs from the complete lifecycle of the request by using the correlation ID. Structured logging makes it easier to search through logs when issues occur, as well as allowing automated alerting.
-

@@ -1,7 +1,7 @@
 ---
 title: Machine Learning model training with AKS
 titleSuffix: Azure Solution Ideas
-author: adamboeglin
+author: doodlemania2
 ms.date: 12/16/2019
 description: Machine Learning with AKS
 ms.custom: acom-architecture, chat, signalr service, interactive-diagram, devops, microservices, ai-ml, 'https://azure.microsoft.com/solutions/architecture/machine-learning-with-aks/'

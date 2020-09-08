@@ -9,7 +9,7 @@ ms.subservice: well-architected
 ms.custom: 
 ---
 
-# Networking cost estimates
+# Networking resources provisioning
 
 For design considerations, see [Networking resource choices](provision-networking.md).
 
@@ -21,7 +21,7 @@ Another consideration is Web Application Firewall (WAF) settings. Adding policie
 For more information, see [Azure Front Door Pricing](https://azure.microsoft.com/pricing/details/frontdoor/).
 
 ### Reference architecture
-[Highly available multi-region web application](/azure/architecture/reference-architectures/app-service-web-app/multi-region) uses Front Door to route incoming requests to the primary region. If the application running that region becomes unavailable, Front Door fails over to the secondary region.
+[Highly available multi-region web application](../../reference-architectures/app-service-web-app/multi-region.md) uses Front Door to route incoming requests to the primary region. If the application running that region becomes unavailable, Front Door fails over to the secondary region.
 
 ## Azure Application Gateway
 
@@ -40,9 +40,9 @@ For more information, see:
 -  [Application Gateway pricing](https://azure.microsoft.com/pricing/details/application-gateway/)
 
 ### Reference architecture
-- [Microservices architecture on Azure Kubernetes Service (AKS)](https://docs.microsoft.com/azure/architecture/reference-architectures/containers/aks-microservices/aks-microservices) uses Application Gateway as the ingress controller.
+- [Microservices architecture on Azure Kubernetes Service (AKS)](../../reference-architectures/containers/aks-microservices/aks-microservices.md) uses Application Gateway as the ingress controller.
 
-- [Securely managed web applications](/azure/architecture/example-scenario/apps/fully-managed-secure-apps) uses Application Gateway as a web traffic load balancer operating at Layer 7 that manages traffic to the web application. Web Application Firewall (WAF) is enabled to  enhance security. 
+- [Securely managed web applications](../../example-scenario/apps/fully-managed-secure-apps.md) uses Application Gateway as a web traffic load balancer operating at Layer 7 that manages traffic to the web application. Web Application Firewall (WAF) is enabled to  enhance security. 
 
 ## Azure ExpressRoute
 There are two main pricing models:
@@ -63,7 +63,7 @@ Calculate your utilization and choose a billing plan. The **Unlimited Data plan*
 For more information, see [Azure ExpressRoute pricing](https://azure.microsoft.com/pricing/details/expressroute).
 
 ### Reference architecture
-[Connect an on-premises network to Azure using ExpressRoute](/azure/architecture/reference-architectures/hybrid-networking/expressroute-vpn-failover) connects an Azure virtual network and an on-premises network connected using with VPN gateway failover.
+[Connect an on-premises network to Azure using ExpressRoute](../../reference-architectures/hybrid-networking/expressroute-vpn-failover.md) connects an Azure virtual network and an on-premises network connected using with VPN gateway failover.
 
 ## Azure Firewall
  
@@ -75,9 +75,9 @@ When compared to network virtual appliances (NVAs), with Azure Firewall you can 
 
 
 ### Reference architecture
-- [Hub-spoke network topology in Azure](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke)
-- [Implement a hub-spoke network topology](/azure/architecture/reference-architectures/hybrid-networking/shared-services)
-- [Deploy highly available NVAs](/azure/architecture/reference-architectures/dmz/nva-ha)
+- [Hub-spoke network topology in Azure](../../reference-architectures/hybrid-networking/hub-spoke.md)
+- [Implement a hub-spoke network topology](../../reference-architectures/hybrid-networking/shared-services.md)
+- [Deploy highly available NVAs](../../reference-architectures/dmz/nva-ha.md)
 
 
 ## Azure Load Balancer
@@ -92,11 +92,11 @@ For the **Standard** tier, you are charged only for the number of configured loa
 See [Azure Load Balancer Pricing](https://azure.microsoft.com/pricing/details/load-balancer/) for more information.
 
 ### Reference architecture
-- [Connect an on-premises network to Azure using ExpressRoute](/azure/architecture/reference-architectures/hybrid-networking/expressroute-vpn-failover): Multiple subnets are connected through Azure load balancers. 
+- [Connect an on-premises network to Azure using ExpressRoute](../../reference-architectures/hybrid-networking/expressroute-vpn-failover.md): Multiple subnets are connected through Azure load balancers. 
 
-- [SAP S/4HANA in Linux on Azure](/azure/architecture/reference-architectures/sap/sap-s4hana): Distribute traffic to virtual machines in the application-tier subnet.
+- [SAP S/4HANA in Linux on Azure](../../reference-architectures/sap/sap-s4hana.md): Distribute traffic to virtual machines in the application-tier subnet.
 
-- [Extend an on-premises network using VPN](/azure/architecture/reference-architectures/hybrid-networking/vpn) Internal load balancer. Network traffic from the VPN gateway is routed to the cloud application through an internal load balancer. The load balancer is located in the front-end subnet of the application.
+- [Extend an on-premises network using VPN](../../reference-architectures/hybrid-networking/vpn.md) Internal load balancer. Network traffic from the VPN gateway is routed to the cloud application through an internal load balancer. The load balancer is located in the front-end subnet of the application.
 
 ## Azure VPN Gateway
 
@@ -113,13 +113,13 @@ VPN gateway can be the cost driver in a workload because charges are based on th
 All inbound traffic is free, all outbound traffic is charged as per the bandwidth of the VPN type. Bandwidth also varies depending on the billing zone.
 
 For more information, see
-- [Hybrid connectivity](/azure/architecture/framework/cost/provision-networking#hybrid-connectivity)
+- [Hybrid connectivity](./provision-networking.md#hybrid-connectivity)
 - [VPN Gateway Pricing](https://azure.microsoft.com/pricing/details/vpn-gateway/).
-- [Traffic across zones](/azure/architecture/framework/cost/design-regions#traffic-across-billing-zones-and-regions)
+- [Traffic across zones](./design-regions.md#traffic-across-billing-zones-and-regions)
 - [Bandwidth Pricing Details](https://azure.microsoft.com/pricing/details/bandwidth/).
 
 ### Reference architecture
-- [Extend an on-premises network using VPN](/azure/architecture/reference-architectures/hybrid-networking/vpn) connects the virtual network to the on-premises network through a VPN device.
+- [Extend an on-premises network using VPN](../../reference-architectures/hybrid-networking/vpn.md) connects the virtual network to the on-premises network through a VPN device.
 
 ## Traffic Manager
 Traffic manager uses DNS to route and load balance traffic to service endpoints in different Azure regions. So, an important use case is disaster recovery. In a workload, you can use Traffic Manager to route incoming requests to the primary region. If that region becomes unavailable, Traffic Manager fails over to the secondary region.
@@ -131,7 +131,7 @@ Traffic Manager isn't charged for bandwidth consumption. Billing is based on the
 
 ### Reference architecture
 
-[Multi-region N-tier application](/azure/architecture/reference-architectures/n-tier/multi-region-sql-server) uses Traffic Manager to route incoming requests to the primary region. If that region becomes unavailable, Traffic Manager fails over to the secondary region. For more information, see the section [Traffic Manager configuration](/azure/architecture/reference-architectures/n-tier/multi-region-sql-server#traffic-manager-configuration).
+[Multi-region N-tier application](../../reference-architectures/n-tier/multi-region-sql-server.md) uses Traffic Manager to route incoming requests to the primary region. If that region becomes unavailable, Traffic Manager fails over to the secondary region. For more information, see the section [Traffic Manager configuration](../../reference-architectures/n-tier/multi-region-sql-server.md#traffic-manager-configuration).
 
 ### DNS query charges
 Traffic Manager uses DNS to direct clients to specific service. 
@@ -158,9 +158,9 @@ By using Traffic View, you can get insight into the traffic patterns where you h
 Azure Virtual Network is free. You can create up to 50 virtual networks across all regions within a subscription. Here are a few considerations:
 
 - Inbound and outbound data transfers are charged per the billing zone. Traffic that moves across regions and billing zones are more expensive. For more information, see:
-    - [Traffic across zones](/azure/architecture/framework/cost/design-regions#traffic-across-billing-zones-and-regions)
+    - [Traffic across zones](./design-regions.md#traffic-across-billing-zones-and-regions)
     - [Bandwidth Pricing Details](https://azure.microsoft.com/pricing/details/bandwidth/).
 
-- VNET Peering has additional cost. Peering within the same region is cheaper than peering between regions or Global regions. Inbound and outbound traffic is charged at both ends of the peered networks. For more information, see [Peering](/azure/architecture/framework/cost/provision-networking#peering)
+- VNET Peering has additional cost. Peering within the same region is cheaper than peering between regions or Global regions. Inbound and outbound traffic is charged at both ends of the peered networks. For more information, see [Peering](./provision-networking.md#peering)
 
-- Managed services (PaaS) don't always need a virtual network. The cost of networking is included in the service cost. 
+- Managed services (PaaS) don't always need a virtual network. The cost of networking is included in the service cost.

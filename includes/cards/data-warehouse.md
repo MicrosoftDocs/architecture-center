@@ -17,7 +17,7 @@
             <li>11/20/2019</li>
             <li>5 min read</li>
         </ul>
-        <p class="card-content-description">Consolidate data from multiple sources and optimize data analytics.</p>
+        <p class="card-content-description">This example demonstrates a data pipeline that integrates large amounts of data from multiple sources into a unified analytics platform in Azure.</p>
         <div class="bottom-to-top-fade is-hidden-mobile"></div>
     </div>
 </article>

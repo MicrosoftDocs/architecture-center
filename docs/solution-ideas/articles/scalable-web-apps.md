@@ -1,7 +1,7 @@
 ---
 title: Scalable Web Apps
 titleSuffix: Azure Solution Ideas
-author: adamboeglin
+author: doodlemania2
 ms.date: 12/16/2019
 description: scalable web apps, azure redis cache, session data cache, user cookie cache, azure cache for redis
 ms.custom: acom-architecture, web-app, scalability, 'https://azure.microsoft.com/solutions/architecture/scalable-web-apps/'

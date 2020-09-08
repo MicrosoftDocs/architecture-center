@@ -1,7 +1,7 @@
 ---
 title: Predictive Aircraft Engine Monitoring
 titleSuffix: Azure Solution Ideas
-author: adamboeglin
+author: doodlemania2
 ms.date: 12/16/2019
 description: Microsoft Azure's Predictive Maintenance solution demonstrates how to combine real-time aircraft data with analytics to monitor aircraft health.
 ms.custom: acom-architecture, anomaly-detection, aircraft engine monitor, aircraft health monitoring systems, 'https://azure.microsoft.com/solutions/architecture/aircraft-engine-monitoring-for-predictive-maintenance-in-aerospace/'
@@ -38,10 +38,10 @@ This solution is built on the Azure managed services: [Azure Stream Analytics](h
 
 ## Next steps
 
-* [Learn more about Stream Analytics](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-introduction)
-* [Learn more about Event Hubs](https://docs.microsoft.com/azure/event-hubs/event-hubs-what-is-event-hubs)
+* [Learn more about Stream Analytics](/azure/stream-analytics/stream-analytics-introduction)
+* [Learn more about Event Hubs](/azure/event-hubs/event-hubs-what-is-event-hubs)
 * [Learn more about Machine Learning](/azure/machine-learning/overview-what-is-azure-ml)
-* [Learn more about HDInsight](https://docs.microsoft.com/azure/hdinsight)
-* [Learn more about SQL Database](https://docs.microsoft.com/azure/sql-database)
-* [Learn more about Azure Data Factory](https://docs.microsoft.com/azure/data-factory/data-factory-introduction)
+* [Learn more about HDInsight](/azure/hdinsight)
+* [Learn more about SQL Database](/azure/sql-database)
+* [Learn more about Azure Data Factory](/azure/data-factory/data-factory-introduction)
 * [Learn more about Power BI](https://powerbi.microsoft.com/documentation/powerbi-landing-page)

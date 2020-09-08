@@ -17,7 +17,7 @@ ms.category:
 
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-Create seamless conversational interfaces with all of your internet-accessible devices-from your connected television or fridge to devices in a connected power plant. By combining [Azure Speech Service](https://docs.microsoft.com/azure/cognitive-services/speech-service/overview), [Language Understanding Service](https://docs.microsoft.com/azure/cognitive-services/luis/) (LUIS) and [Azure Bot Framework](https://docs.microsoft.com/azure/bot-service/?view=azure-bot-service-4.0), developers can create natural, human-like conversational interfaces to control smart devices using [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/).
+Create seamless conversational interfaces with all of your internet-accessible devices-from your connected television or fridge to devices in a connected power plant. By combining [Azure Speech Service](/azure/cognitive-services/speech-service/overview), [Language Understanding Service](/azure/cognitive-services/luis/) (LUIS) and [Azure Bot Framework](/azure/bot-service/?view=azure-bot-service-4.0), developers can create natural, human-like conversational interfaces to control smart devices using [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/).
 
 ## Architecture
 
@@ -38,12 +38,12 @@ Create seamless conversational interfaces with all of your internet-accessible d
 
 ## Components
 
-1. [Voice assistants documentation](https://docs.microsoft.com/azure/cognitive-services/speech-service/index-voice-assistants)
-1. [Tutorial: Voice-enable your bot using the Speech SDK](https://docs.microsoft.com/azure/cognitive-services/speech-service/tutorial-voice-enable-your-bot-speech-sdk)
-1. [What is Direct Line Speech](https://docs.microsoft.com/azure/cognitive-services/speech-service/direct-line-speech)
-1. [Azure Bot Service](https://docs.microsoft.com/azure/bot-service/?view=azure-bot-service-4.0)
-1. [Speech to Text](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-to-text)
-1. [Text to Speech](https://docs.microsoft.com/azure/cognitive-services/speech-service/text-to-speech)
-1. [Custom Keywords](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-devices-sdk-create-kws)
-1. [Language Understanding Service (LUIS)](https://docs.microsoft.com/azure/cognitive-services/luis/)
+1. [Voice assistants documentation](/azure/cognitive-services/speech-service/index-voice-assistants)
+1. [Tutorial: Voice-enable your bot using the Speech SDK](/azure/cognitive-services/speech-service/tutorial-voice-enable-your-bot-speech-sdk)
+1. [What is Direct Line Speech](/azure/cognitive-services/speech-service/direct-line-speech)
+1. [Azure Bot Service](/azure/bot-service/?view=azure-bot-service-4.0)
+1. [Speech to Text](/azure/cognitive-services/speech-service/speech-to-text)
+1. [Text to Speech](/azure/cognitive-services/speech-service/text-to-speech)
+1. [Custom Keywords](/azure/cognitive-services/speech-service/speech-devices-sdk-create-kws)
+1. [Language Understanding Service (LUIS)](/azure/cognitive-services/luis/)
 1. [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/)

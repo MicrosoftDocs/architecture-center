@@ -1,7 +1,7 @@
 ---
 title: Task-Based Consumer Mobile App
 titleSuffix: Azure Solution Ideas
-author: adamboeglin
+author: doodlemania2
 ms.date: 12/16/2019
 description: Learn how the task-based consumer mobile app architecture is created with a step-by-step flow chart that shows the integration with Azure App Service Mobile Apps, Visual Studio, and Xamarin to simplify the build process.
 ms.custom: acom-architecture, Consumer Mobile App, Offline Mobile App, Mobile App Authentication, app-dev, interactive-diagram, 'https://azure.microsoft.com/solutions/architecture/task-based-consumer-mobile-app/'
@@ -60,16 +60,16 @@ The links to the right provide documentation on deploying and managing the Azure
 * [App Service](https://azure.microsoft.com/services/app-service): The client app uses one of the mobile client SDKs to connect to an Azure Mobile App backend. The client SDKs have built-in support for offline sync and authentication, making it much easier to build a full-featured app.
 * Application Insights: Detect issues, diagnose crashes, and track usage in your web app with Application Insights. Make informed decisions throughout the development lifecycle.
 * [Azure SQL Database](https://azure.microsoft.com/services/sql-database): Structured data is stored in SQL Database, a cloud relational database service, which supports transactions and efficient querying.
-* [Offline sync](https://docs.microsoft.com/azure/app-service-mobile/app-service-mobile-offline-data-sync): Use the offline data sync feature of the Azure Mobile App client SDKs to create responsive and robust apps that remain useful even when there are network issues.
-* [Identity Provider](https://docs.microsoft.com/azure/app-service/app-service-authentication-overview): Use App Service authentication/authorization to integrate with a social or enterprise identity provider.
+* [Offline sync](/azure/app-service-mobile/app-service-mobile-offline-data-sync): Use the offline data sync feature of the Azure Mobile App client SDKs to create responsive and robust apps that remain useful even when there are network issues.
+* [Identity Provider](/azure/app-service/app-service-authentication-overview): Use App Service authentication/authorization to integrate with a social or enterprise identity provider.
 
 ## Next steps
 
-* [Visual Studio Documentation](https://docs.microsoft.com/visualstudio)
-* [Xamarin Documentation](https://docs.microsoft.com/xamarin)
-* [Visual Studio App Center Documentation](https://docs.microsoft.com/appcenter)
+* [Visual Studio Documentation](/visualstudio)
+* [Xamarin Documentation](/xamarin)
+* [Visual Studio App Center Documentation](/appcenter)
 * [Azure App Service Overview](https://azure.microsoft.com/services/app-service)
-* [Application Insights Documentation](https://docs.microsoft.com/azure/application-insights)
-* [Azure SQL Database Documentation](https://docs.microsoft.com/azure/sql-database)
-* [Offline sync Documentation](https://docs.microsoft.com/azure/app-service-mobile/app-service-mobile-offline-data-sync)
-* [Identity Provider Documentation](https://docs.microsoft.com/azure/app-service/app-service-authentication-overview)
+* [Application Insights Documentation](/azure/application-insights)
+* [Azure SQL Database Documentation](/azure/sql-database)
+* [Offline sync Documentation](/azure/app-service-mobile/app-service-mobile-offline-data-sync)
+* [Identity Provider Documentation](/azure/app-service/app-service-authentication-overview)

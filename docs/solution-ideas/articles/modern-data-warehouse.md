@@ -1,7 +1,7 @@
 ---
 title: Modern Data Warehouse Architecture
 titleSuffix: Azure Solution Ideas
-author: adamboeglin
+author: doodlemania2
 ms.date: 12/16/2019
 description: Explore a cloud data warehouse that uses big data. Modern data warehouse brings together all your data and scales easily as your data grows.
 ms.custom: acom-architecture, Modern data warehouse, modern data warehouse architecture, Cloud data warehouse, Big Data warehouse, interactive-diagram, pricing-calculator, 'https://azure.microsoft.com/solutions/architecture/modern-data-warehouse/'
@@ -42,12 +42,12 @@ A modern data warehouse lets you bring together all your data at any scale easil
 
 ## Next steps
 
-* [Synapse Analytics Documentation](https://docs.microsoft.com/azure/sql-data-warehouse)
-* [Azure Data Factory V2 Preview Documentation](https://docs.microsoft.com/azure/data-factory)
-* [Introduction to object storage in Azure](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-introduction)
-* [Azure Databricks Documentation](https://docs.microsoft.com/azure/azure-databricks)
-* [Analysis Services Documentation](https://docs.microsoft.com/azure/analysis-services)
-* [Power BI Documentation](https://docs.microsoft.com/power-bi)
+* [Synapse Analytics Documentation](/azure/sql-data-warehouse)
+* [Azure Data Factory V2 Preview Documentation](/azure/data-factory)
+* [Introduction to object storage in Azure](/azure/storage/blobs/storage-blobs-introduction)
+* [Azure Databricks Documentation](/azure/azure-databricks)
+* [Analysis Services Documentation](/azure/analysis-services)
+* [Power BI Documentation](/power-bi)
 
 ## Pricing Calculator
 

@@ -4,6 +4,8 @@ titleSuffix: Azure Example Scenarios
 author: jocontr
 ms.date: 07/13/2020
 description: Learn about homomorphic encryption, and get an overview and example of how to use the Microsoft SEAL encryption library.
+ms.category: 
+    - security
 ms.custom: encryption, homomorphic encryption, Microsoft SEAL, security, 'https://azure.microsoft.com/solutions/architecture/homomorphic-encryption-lab/'
   - fcp
 ---

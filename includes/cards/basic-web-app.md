@@ -17,7 +17,7 @@
             <li>12/12/2017</li>
             <li>11 min read</li>
         </ul>
-        <p class="card-content-description">Recommended architecture for a basic web application running in Azure.</p>
+        <p class="card-content-description">Learn about proven practices for a web application that uses Azure App Service and Azure SQL Database by using this reference architecture.</p>
         <div class="bottom-to-top-fade is-hidden-mobile"></div>
     </div>
 </article>

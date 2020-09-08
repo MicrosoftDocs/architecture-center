@@ -1,7 +1,7 @@
 ---
 title: Dev-Test deployment for testing IaaS solutions
 titleSuffix: Azure Solution Ideas
-author: adamboeglin
+author: doodlemania2
 ms.date: 12/16/2019
 description: This architecture represents how to configure your infrastructure for development and testing of a standard IaaS-based SaaS system.
 ms.custom: acom-architecture, devops, 'https://azure.microsoft.com/solutions/architecture/dev-test-iaas/'
@@ -40,6 +40,6 @@ This solution is built on the Azure managed services: [Azure DevOps](https://azu
 * [Set up Azure DevOps](https://www.visualstudio.com/docs/setup-admin/get-started)
 * [Configure Microsoft Release Management agents](https://www.visualstudio.com/docs/release/getting-started/configure-agents)
 * [Deploy using Azure Resource Groups](https://github.com/microsoft/azure-pipelines-tasks/tree/master/Tasks/AzureResourceGroupDeploymentV2)
-* [Create a lab in Azure DevTest Labs](https://docs.microsoft.com/azure/lab-services/tutorial-create-custom-lab)
-* [Create your first Windows virtual machine in the Azure portal](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal)
-* [Set up Application Insights for ASP.NET](https://docs.microsoft.com/azure/azure-monitor/app/asp-net)
+* [Create a lab in Azure DevTest Labs](/azure/lab-services/tutorial-create-custom-lab)
+* [Create your first Windows virtual machine in the Azure portal](/azure/virtual-machines/windows/quick-create-portal)
+* [Set up Application Insights for ASP.NET](/azure/azure-monitor/app/asp-net)

@@ -1,7 +1,7 @@
 ---
 title: Microservices with AKS
 titleSuffix: Azure Solution Ideas
-author: adamboeglin
+author: doodlemania2
 ms.date: 12/16/2019
 description: Microservices with AKS
 ms.custom: acom-architecture, microservices, devops, kubernetes, interactive-diagram, 'https://azure.microsoft.com/solutions/architecture/microservices-with-aks/'

@@ -17,7 +17,7 @@
             <li>9/20/2018</li>
             <li>6 min read</li>
         </ul>
-        <p class="card-content-description">Decompose a large monolithic application into microservices.</p>
+        <p class="card-content-description">Learn about Azure Service Fabric as a platform for decomposing an unwieldy monolithic application into multiple, manageable microservices.</p>
         <div class="bottom-to-top-fade is-hidden-mobile"></div>
     </div>
 </article>

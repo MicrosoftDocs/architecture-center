@@ -17,7 +17,7 @@
             <li>7/13/2018</li>
             <li>6 min read</li>
         </ul>
-        <p class="card-content-description">Host an e-commerce site on Azure.</p>
+        <p class="card-content-description">This example scenario implements an e-commerce front end using Azure platform as a service tools, which allow you to handle increases in transactions.</p>
         <div class="bottom-to-top-fade is-hidden-mobile"></div>
     </div>
 </article>

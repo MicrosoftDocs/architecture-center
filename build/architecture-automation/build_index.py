@@ -312,12 +312,14 @@ for file in all_architectures_list:
         image = i[0]
     else:
         # No image in the article, look for one on the filesystem
-        file_glob = "*/" + str(file_path.name)[:-4] + "*.svg"
-        i = list(main_dir.glob(file_glob))
-        if len(i) != 0:
-            image = i[0]
-        else:
-            image = ""
+        image= str(file_path)[:-3] + ".png"
+        if not path.isfile(image):
+            file_glob = "*/" + str(file_path.name)[:-3] + "*.svg"
+            i = list(main_dir.glob(file_glob))
+            if len(i) != 0:
+                image = i[0]
+            else:
+                image = ""
 
     logging.debug("Setting the image path")
     # Set the path
@@ -498,8 +500,8 @@ for article in parsed_articles:
             imagefile = article['imagepath']
           
         #TODO: Check if thumbnail exists before making one
-        image = Image.open(imagefile)
         if not path.isfile(path.join(doc_directory, "browse", "thumbs", article['name'] + ".png")):
+            image = Image.open(imagefile)
             image_thumb = expand2square(image, (255, 255, 255))
             image_thumb.thumbnail((200,200), Image.ANTIALIAS)
             image_thumb.save(path.join(doc_directory, "browse", "thumbs", article['name'] + ".png"))

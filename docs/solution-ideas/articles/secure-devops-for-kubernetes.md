@@ -1,7 +1,7 @@
 ---
 title: Secure DevOps for AKS
 titleSuffix: Azure Solution Ideas
-author: adamboeglin
+author: doodlemania2
 ms.date: 12/16/2019
 description: Implementing secure DevOps with Kubernetes on Azure, you can achieve the balance between speed and security and deliver code faster at scale.
 ms.custom: acom-architecture, devops, signalr service, interactive-diagram, 'https://azure.microsoft.com/solutions/architecture/secure-devops-for-kubernetes/'
@@ -57,3 +57,5 @@ DevOps and Kubernetes are better together. Implementing secure DevOps together w
 1. Policy enforcement and auditing is added to CI/CD pipeline using Azure Policy
 1. App telemetry, container health monitoring, and real-time log analytics are obtained using Azure Monitor
 1. Insights used to address issues and fed into next sprint plans
+
+[Build and deploy to Azure Kubernetes Service](/azure/devops/pipelines/ecosystems/kubernetes/aks-template?view=azure-devops)

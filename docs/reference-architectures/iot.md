@@ -2,7 +2,7 @@
 title: Azure IoT reference architecture
 description: Recommended architecture for IoT applications on Azure using PaaS (platform-as-a-service) components
 titleSuffix: Azure Reference Architectures
-author: adamboeglin
+author: doodlemania2
 ms.date: 01/09/2019
 ms.service: architecture-center
 ms.category:
@@ -21,7 +21,7 @@ IoT applications can be described as **things** (devices) sending data that gene
 
 This reference architecture uses Azure PaaS (platform-as-a-service) components. Other options for building IoT solutions on Azure include:
 
-- [Azure IoT Central](https://docs.microsoft.com/azure/iot-central/). IoT Central is a fully managed SaaS (software-as-a-service) solution. It abstracts the technical choices and lets you focus on your solution exclusively. This simplicity comes with a tradeoff in being less customizable than a PaaS-based solution.
+- [Azure IoT Central](/azure/iot-central/). IoT Central is a fully managed SaaS (software-as-a-service) solution. It abstracts the technical choices and lets you focus on your solution exclusively. This simplicity comes with a tradeoff in being less customizable than a PaaS-based solution.
 - Using OSS components such as the SMACK stack (Spark, Mesos, Akka, Cassandra, Kafka) deployed on Azure VMs. This approach offers a great deal of control but is more complex.
 
 At a high level, there are two ways to process telemetry data, hot path and cold path. The difference has to do with requirements for latency and data access.
@@ -33,25 +33,25 @@ At a high level, there are two ways to process telemetry data, hot path and cold
 
 This architecture consists of the following components. Some applications may not require every component listed here.
 
-**IoT devices**. Devices can securely register with the cloud, and can connect to the cloud to send and receive data. Some devices may be **edge devices** that perform some data processing on the device itself or in a field gateway. We recommend [Azure IoT Edge](https://docs.microsoft.com/azure/iot-edge/) for edge processing.
+**IoT devices**. Devices can securely register with the cloud, and can connect to the cloud to send and receive data. Some devices may be **edge devices** that perform some data processing on the device itself or in a field gateway. We recommend [Azure IoT Edge](/azure/iot-edge/) for edge processing.
 
-**Cloud gateway**. A cloud gateway provides a cloud hub for devices to connect securely to the cloud and send data. It also provides device management, capabilities, including command and control of devices. For the cloud gateway, we recommend [IoT Hub](https://docs.microsoft.com/azure/iot-hub/). IoT Hub is a hosted cloud service that ingests events from devices, acting as a message broker between devices and backend services. IoT Hub provides secure connectivity, event ingestion, bidirectional communication, and device management.
+**Cloud gateway**. A cloud gateway provides a cloud hub for devices to connect securely to the cloud and send data. It also provides device management, capabilities, including command and control of devices. For the cloud gateway, we recommend [IoT Hub](/azure/iot-hub/). IoT Hub is a hosted cloud service that ingests events from devices, acting as a message broker between devices and backend services. IoT Hub provides secure connectivity, event ingestion, bidirectional communication, and device management.
 
-**Device provisioning.** For registering and connecting large sets of devices, we recommend using the [IoT Hub Device Provisioning Service](https://docs.microsoft.com/azure/iot-dps/) (DPS). DPS lets you assign and register devices to specific Azure IoT Hub endpoints at scale.
+**Device provisioning.** For registering and connecting large sets of devices, we recommend using the [IoT Hub Device Provisioning Service](/azure/iot-dps/) (DPS). DPS lets you assign and register devices to specific Azure IoT Hub endpoints at scale.
 
-**Stream processing**. Stream processing analyzes large streams of data records and evaluates rules for those streams. For stream processing, we recommend [Azure Stream Analytics](https://docs.microsoft.com/azure/stream-analytics/). Stream Analytics can execute complex analysis at scale, using time windowing functions, stream aggregations, and external data source joins. Another option is Apache Spark on [Azure Databricks](https://docs.microsoft.com/azure/azure-databricks/).
+**Stream processing**. Stream processing analyzes large streams of data records and evaluates rules for those streams. For stream processing, we recommend [Azure Stream Analytics](/azure/stream-analytics/). Stream Analytics can execute complex analysis at scale, using time windowing functions, stream aggregations, and external data source joins. Another option is Apache Spark on [Azure Databricks](/azure/azure-databricks/).
 
-**Machine learning** allows predictive algorithms to be executed over historical telemetry data, enabling scenarios such as predictive maintenance. For machine learning, we recommend [Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/service/).
+**Machine learning** allows predictive algorithms to be executed over historical telemetry data, enabling scenarios such as predictive maintenance. For machine learning, we recommend [Azure Machine Learning](/azure/machine-learning/service/).
 
-**Warm path storage** holds data that must be available immediately from device for reporting and visualization. For warm path storage, we recommend [Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/introduction) or [Azure SQL Database](https://docs.microsoft.com/azure/azure-sql/azure-sql-iaas-vs-paas-what-is-overview). Cosmos DB is a globally distributed, multi-model database. Azure SQL Database is a relational database-as-a-service (DBaaS) based on the latest stable version of Microsoft SQL Server. Depending on your specific workload and data processing requirements, these two options will cover all your warm path storage needs.
+**Warm path storage** holds data that must be available immediately from device for reporting and visualization. For warm path storage, we recommend [Cosmos DB](/azure/cosmos-db/introduction) or [Azure SQL Database](/azure/azure-sql/azure-sql-iaas-vs-paas-what-is-overview). Cosmos DB is a globally distributed, multi-model database. Azure SQL Database is a relational database-as-a-service (DBaaS) based on the latest stable version of Microsoft SQL Server. Depending on your specific workload and data processing requirements, these two options will cover all your warm path storage needs.
 
-**Cold path storage** holds data that is kept longer-term and is used for batch processing. For cold path storage, we recommend [Azure Blob Storage](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-introduction). Data can be archived in Blob storage indefinitely at low cost, and is easily accessible for batch processing.
+**Cold path storage** holds data that is kept longer-term and is used for batch processing. For cold path storage, we recommend [Azure Blob Storage](/azure/storage/blobs/storage-blobs-introduction). Data can be archived in Blob storage indefinitely at low cost, and is easily accessible for batch processing.
 
-**Data transformation** manipulates or aggregates the telemetry stream. Examples include protocol transformation, such as converting binary data to JSON, or combining data points. If the data must be transformed before reaching IoT Hub, we recommend using a [protocol gateway](https://docs.microsoft.com/azure/iot-hub/iot-hub-protocol-gateway) (not shown). Otherwise, data can be transformed after it reaches IoT Hub. In that case, we recommend using [Azure Functions](https://docs.microsoft.com/azure/azure-functions/), which has built-in integration with IoT Hub, Cosmos DB, and Blob Storage.
+**Data transformation** manipulates or aggregates the telemetry stream. Examples include protocol transformation, such as converting binary data to JSON, or combining data points. If the data must be transformed before reaching IoT Hub, we recommend using a [protocol gateway](/azure/iot-hub/iot-hub-protocol-gateway) (not shown). Otherwise, data can be transformed after it reaches IoT Hub. In that case, we recommend using [Azure Functions](/azure/azure-functions/), which has built-in integration with IoT Hub, Cosmos DB, and Blob Storage.
 
-**Business process integration** performs actions based on insights from the device data. This could include storing informational messages, raising alarms, sending email or SMS messages, or integrating with CRM. We recommend using [Azure Logic Apps](https://docs.microsoft.com/azure/logic-apps/logic-apps-overview) for business process integration.
+**Business process integration** performs actions based on insights from the device data. This could include storing informational messages, raising alarms, sending email or SMS messages, or integrating with CRM. We recommend using [Azure Logic Apps](/azure/logic-apps/logic-apps-overview) for business process integration.
 
-**User management** restricts which users or groups can perform actions on devices, such as upgrading firmware. It also defines capabilities for users in applications. We recommend using [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/) to authenticate and authorize users.
+**User management** restricts which users or groups can perform actions on devices, such as upgrading firmware. It also defines capabilities for users in applications. We recommend using [Azure Active Directory](/azure/active-directory/) to authenticate and authorize users.
 
 ## Scalability considerations
 
@@ -59,33 +59,33 @@ An IoT application should be built as discrete services that can scale independe
 
 **IoTHub**. For IoT Hub, consider the following scale factors:
 
-- The maximum [daily quota](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-quotas-throttling) of messages into IoT Hub.
+- The maximum [daily quota](/azure/iot-hub/iot-hub-devguide-quotas-throttling) of messages into IoT Hub.
 - The quota of connected devices in an IoT Hub instance.
 - Ingestion throughput &mdash; how quickly IoT Hub can ingest messages.
 - Processing throughput &mdash; how quickly the incoming messages are processed.
 
 Each IoT hub is provisioned with a certain number of units in a specific tier. The tier and number of units determine the maximum daily quota of messages that devices can send to the hub. For more information, see IoT Hub quotas and throttling. You can scale up a hub without interrupting existing operations.
 
-**Stream Analytics**. Stream Analytics jobs scale best if they are parallel at all points in the Stream Analytics pipeline, from input to query to output. A fully parallel job allows Stream Analytics to split the work across multiple compute nodes. Otherwise, Stream Analytics has to combine the stream data into one place. For more information, see [Leverage query parallelization in Azure Stream Analytics](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-parallelization).
+**Stream Analytics**. Stream Analytics jobs scale best if they are parallel at all points in the Stream Analytics pipeline, from input to query to output. A fully parallel job allows Stream Analytics to split the work across multiple compute nodes. Otherwise, Stream Analytics has to combine the stream data into one place. For more information, see [Leverage query parallelization in Azure Stream Analytics](/azure/stream-analytics/stream-analytics-parallelization).
 
 IoT Hub automatically partitions device messages based on the device ID. All of the messages from a particular device will always arrive on the same partition, but a single partition will have messages from multiple devices. Therefore, the unit of parallelization is the partition ID.
 
 **Functions**. When reading from the Event Hubs endpoint, there is a maximum of function instance per event hub partition. The maximum processing rate is determined by how fast one function instance can process the events from a single partition. The function should process messages in batches.
 
-**Cosmos DB**. To scale out a Cosmos DB collection, create the collection with a partition key and include the partition key in each document that you write. For more information, see [Best practices when choosing a partition key](https://docs.microsoft.com/azure/cosmos-db/partitioning-overview#choose-partitionkey).
+**Cosmos DB**. To scale out a Cosmos DB collection, create the collection with a partition key and include the partition key in each document that you write. For more information, see [Best practices when choosing a partition key](/azure/cosmos-db/partitioning-overview#choose-partitionkey).
 
 - If you store and update a single document per device, the device ID is a good partition key. Writes are evenly distributed across the keys. The size of each partition is strictly bounded, because there is a single document for each key value.
 - If you store a separate document for every device message, using the device ID as a partition key would quickly exceed the 10-GB limit per partition. Message ID is a better partition key in that case. Typically you would still include device ID in the document for indexing and querying.
 
-**Azure SQL Database**. You have multiple options to scale an Azure SQL Database instance, depending on your workload and requirements, see [Azure SQL Database Scalability](https://docs.microsoft.com/azure/sql-database/sql-database-scalability-index). Both single databases and managed instances can be scaled up (for compute or storage, independently) or scaled out, through read scale-out replicas or database sharding. Some of the features you may find relevant while designing IoT solutions with Azure SQL Database are:
+**Azure SQL Database**. You have multiple options to scale an Azure SQL Database instance, depending on your workload and requirements, see [Azure SQL Database Scalability](/azure/sql-database/sql-database-scalability-index). Both single databases and managed instances can be scaled up (for compute or storage, independently) or scaled out, through read scale-out replicas or database sharding. Some of the features you may find relevant while designing IoT solutions with Azure SQL Database are:
 
 - A single instance can scale up to 128 vCores (with M-Series hardware configuration) or 100s of TBs (with Hyperscale service tier). This means ingesting 100Ks messages/sec and storing trillions of them in a single database instance, simplifying your data management operations. 
 - Multiple secondary replicas can be added to scale out read workloads and support 10Ks of concurrent queries on ingested data.
-- Where additional scalability is required, Azure SQL Database provides Elastic Database tools to partition messages (e.g. using device or message ID sharding keys) across multiple database instances, providing linear scale for compute and storage, see [database sharding](https://docs.microsoft.com/azure/sql-database/sql-database-elastic-scale-introduction).
-- When ingesting messages from 100Ks devices, Azure SQL Database provides the ability to batch multiple requests into a single database interaction, increasing overall scalability and maximizing resource utilization. See [batching](https://docs.microsoft.com/azure/sql-database/sql-database-use-batching-to-improve-performance) best practices for more details.
-- In-Memory technologies in Azure SQL Database let you achieve significant performance improvements with various workloads, including transactional, analytical and hybrid (HTAP). In-memory OLTP optimized tables help increasing number of transactions per second and reduce latency for scenarios like large data ingestion from IoT devices. Clustered ColumnStore indexes help reduce storage footprint through compression (up to 10 times) and improve performance for reporting and analytics queries on ingested messages. See [In-memory technologies](https://docs.microsoft.com/azure/sql-database/sql-database-in-memory) for additional details.
-- Azure SQL Database scales well on both relational and non-relational data structures. Multi-model databases enable you to store and work with data represented in multiple data formats such as relational data, graphs, JSON/XML documents, key-value pairs, etc and still benefit from all capabilities described before, like In-memory technologies. See more on [multi-model](https://docs.microsoft.com/azure/sql-database/sql-database-multi-model-features).
-- In many IoT scenarios, historical analysis of ingested data is an important part of database workload. Temporal Tables are a feature of Azure SQL Database that allows to track and analyze full history of your data points, without the need for custom coding. By keeping data closely related to time context, stored data points can be interpreted as valid only within the specific period. This property of Temporal Tables allows for efficient time-based analysis and getting insights from data evolution. See more information on [temporal tables](https://docs.microsoft.com/azure/sql-database/sql-database-temporal-tables).
+- Where additional scalability is required, Azure SQL Database provides Elastic Database tools to partition messages (e.g. using device or message ID sharding keys) across multiple database instances, providing linear scale for compute and storage, see [database sharding](/azure/sql-database/sql-database-elastic-scale-introduction).
+- When ingesting messages from 100Ks devices, Azure SQL Database provides the ability to batch multiple requests into a single database interaction, increasing overall scalability and maximizing resource utilization. See [batching](/azure/sql-database/sql-database-use-batching-to-improve-performance) best practices for more details.
+- In-Memory technologies in Azure SQL Database let you achieve significant performance improvements with various workloads, including transactional, analytical and hybrid (HTAP). In-memory OLTP optimized tables help increasing number of transactions per second and reduce latency for scenarios like large data ingestion from IoT devices. Clustered ColumnStore indexes help reduce storage footprint through compression (up to 10 times) and improve performance for reporting and analytics queries on ingested messages. See [In-memory technologies](/azure/sql-database/sql-database-in-memory) for additional details.
+- Azure SQL Database scales well on both relational and non-relational data structures. Multi-model databases enable you to store and work with data represented in multiple data formats such as relational data, graphs, JSON/XML documents, key-value pairs, etc and still benefit from all capabilities described before, like In-memory technologies. See more on [multi-model](/azure/sql-database/sql-database-multi-model-features).
+- In many IoT scenarios, historical analysis of ingested data is an important part of database workload. Temporal Tables are a feature of Azure SQL Database that allows to track and analyze full history of your data points, without the need for custom coding. By keeping data closely related to time context, stored data points can be interpreted as valid only within the specific period. This property of Temporal Tables allows for efficient time-based analysis and getting insights from data evolution. See more information on [temporal tables](/azure/sql-database/sql-database-temporal-tables).
 
 ## Security considerations
 
@@ -111,7 +111,7 @@ For example:
 - Secure boot loader and secure software loading, anchored in the TPM.
 - Use sensors to detect intrusion attempts and attempts to manipulate the device environment with alerting and potentially "digital self-destruction" of the device.
 
-For additional security considerations, see [Internet of Things (IoT) security architecture](https://docs.microsoft.com/azure/iot-fundamentals/iot-security-architecture).
+For additional security considerations, see [Internet of Things (IoT) security architecture](/azure/iot-fundamentals/iot-security-architecture).
 
 ### Monitoring and logging
 
@@ -142,7 +142,7 @@ Visualization of monitoring metrics alert operators to system instabilities and 
 
 ### Tracing telemetry
 
-Tracing telemetry allows an operator to follow the journey of a piece of telemetry from creation through the system. Tracing is important for debugging and troubleshooting. For IoT solutions that use Azure IoT Hub and the [IoT Hub Device SDKs](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-sdks), tracing datagrams can be originated as Cloud-to-Device messages and included in the telemetry stream.
+Tracing telemetry allows an operator to follow the journey of a piece of telemetry from creation through the system. Tracing is important for debugging and troubleshooting. For IoT solutions that use Azure IoT Hub and the [IoT Hub Device SDKs](/azure/iot-hub/iot-hub-devguide-sdks), tracing datagrams can be originated as Cloud-to-Device messages and included in the telemetry stream.
 
 ### Logging
 
@@ -181,7 +181,7 @@ Consider using the **Standard** tier if your IoT architecture uses bi-directiona
 
 If you only need uni-directional communication from devices to the cloud, use the **Basic** tier, which is cheaper.
 
-For more information, see [IoT Hub Pricing](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-pricing). 
+For more information, see [IoT Hub Pricing](/azure/iot-hub/iot-hub-devguide-pricing). 
 
 ### Azure Stream Analytics
 
@@ -214,16 +214,16 @@ For warm path storage, consider using Azure Cosmos DB or Azure SQL Database. For
 
 - For a more detailed discussion of the recommended architecture and implementation choices, see [Microsoft Azure IoT Reference Architecture](https://aka.ms/iotrefarchitecture) (PDF).
 
-- For detailed documentation of the various Azure IoT services, see [Azure IoT Fundamentals](https://docs.microsoft.com/azure/iot-fundamentals/).
+- For detailed documentation of the various Azure IoT services, see [Azure IoT Fundamentals](/azure/iot-fundamentals/).
 
 - A sample IoT implementation is available on [GitHub](https://github.com/mspnp/iot-guidance).
 
-[AAF-devops]: /azure/architecture/framework/devops/overview
-[az-devops]: https://docs.microsoft.com/azure/devops/index?view=azure-devops
+[AAF-devops]: ../framework/devops/overview.md
+[az-devops]: /azure/devops/index?view=azure-devops
 [az-monitor]: https://azure.microsoft.com/services/monitor/
 [blue-green-dep]: https://martinfowler.com/bliki/BlueGreenDeployment.html
 [cannary-releases]: https://martinfowler.com/bliki/CanaryRelease.html
-[pipelines]: https://docs.microsoft.com/azure/devops/pipelines/?view=azure-devops
+[pipelines]: /azure/devops/pipelines/?view=azure-devops
 [arm-template]: /azure/azure-resource-manager/resource-group-overview#resource-groups
 [aaf-cost]: ../framework/cost/overview.md
 [azure-pricing-calculator]: https://azure.microsoft.com/pricing/calculator
