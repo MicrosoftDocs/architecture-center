@@ -1004,6 +1004,8 @@ items:
           href: solution-ideas/articles/container-cicd-using-jenkins-and-kubernetes-on-azure-container-service.md
         - name: DevSecOps in Azure
           href: solution-ideas/articles/devsecops-in-azure.md
+        - name: DevSecOps in GitHub
+          href: solution-ideas/articles/devsecops-in-github.md
         - name: Dev-Test for IaaS
           href: solution-ideas/articles/dev-test-iaas.md
         - name: Dev-Test for PaaS
