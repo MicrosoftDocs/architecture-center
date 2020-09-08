@@ -6,18 +6,18 @@
 <article class="card">
     <div class="card-header has-margin-bottom-none" aria-hidden="true">
         <figure class="image diagram has-height-175 has-overflow-hidden level">
-            <a href="/azure/architecture/solution-ideas/articles/cross-platform-chat"><img src="/azure/architecture/browse/thumbs/cross-platform-chat.png" class="diagram" alt="Architecture Diagram" data-linktype="relative-path"></a>
+            <a href="/azure/architecture/hybrid/azure-functions-hybrid"><img src="/azure/architecture/browse/thumbs/azure-functions-hybrid.png" class="diagram" alt="Architecture Diagram" data-linktype="relative-path"></a>
         </figure>
     </div>
     <div class="card-content">
-        <a class="card-content-title has-margin-top-none" href="/azure/architecture/solution-ideas/articles/cross-platform-chat">
-            <p>Cross-platform Chat</p>
+        <a class="card-content-title has-margin-top-none" href="/azure/architecture/hybrid/azure-functions-hybrid">
+            <p>Azure Functions in a hybrid environment</p>
         </a>
         <ul class="card-content-metadata">
-            <li>12/16/2019</li>
-            <li>1 min read</li>
+            <li>6/29/2020</li>
+            <li>5 min read</li>
         </ul>
-        <p class="card-content-description">Accelerate development of reliable, high-performing chat applications</p>
+        <p class="card-content-description">Azure Functions being utilized from on-premises virtual machines</p>
         <div class="bottom-to-top-fade is-hidden-mobile"></div>
     </div>
 </article>
