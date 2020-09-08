@@ -137,16 +137,16 @@ Azure Arc agents require the following protocols/ports/outbound URLs to function
 [Azure Policy]: https://docs.microsoft.com/azure/governance/policy/
 [Azure Monitor]: https://docs.microsoft.com/azure/azure-monitor/
 [Connect an Azure Arc-enabled Kubernetes cluster]: https://docs.microsoft.com/azure/azure-arc/kubernetes/connect-cluster
-[Use Azure RBAC for Kubernetes Authorization]: https://docs.microsoft.com/en-us/azure/aks/manage-azure-rbac
+[Use Azure RBAC for Kubernetes Authorization]: https://docs.microsoft.com/azure/aks/manage-azure-rbac
 [Create an Azure Arc-enabled onboarding Service Principal]: https://docs.microsoft.com/azure/azure-arc/kubernetes/create-onboarding-service-principal
 [Azure Monitor for containers overview]: https://docs.microsoft.com/azure/azure-monitor/insights/container-insights-overview
 [Enable monitoring of Azure Arc enabled Kubernetes cluster]: https://docs.microsoft.com/azure/azure-monitor/insights/container-insights-enable-arc-enabled-clusters?toc=/azure/azure-arc/toc.json
 [Azure Policy built-in definitions for Azure Arc enabled Kubernetes]: https://docs.microsoft.com/azure/azure-arc/kubernetes/policy-samples
 [Use Azure Policy to apply cluster configurations at scale]: https://docs.microsoft.com/azure/azure-arc/kubernetes/use-azure-policy
-[Deploy configurations using GitOps on Arc enabled Kubernetes cluster]: https://docs.microsoft.com/en-us/azure/azure-arc/kubernetes/use-gitops-connected-cluster
+[Deploy configurations using GitOps on Arc enabled Kubernetes cluster]: https://docs.microsoft.com/azure/azure-arc/kubernetes/use-gitops-connected-cluster
 [Supported regions]: https://docs.microsoft.com/azure/azure-arc/kubernetes/overview#supported-regions
 [Subscription limits]: https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#subscription-limits
 [resource group limits]: https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#resource-group-limits
-[Deploy Helm Charts using GitOps on Arc enabled Kubernetes cluster]: https://docs.microsoft.com/en-us/azure/azure-arc/kubernetes/use-gitops-with-helm
+[Deploy Helm Charts using GitOps on Arc enabled Kubernetes cluster]: https://docs.microsoft.com/azure/azure-arc/kubernetes/use-gitops-with-helm
 [Use managed identities in Azure Kubernetes Service]: https://docs.microsoft.com/azure/aks/use-managed-identity
 [Principles of cost optimization]: https://docs.microsoft.com/azure/architecture/framework/cost/overview

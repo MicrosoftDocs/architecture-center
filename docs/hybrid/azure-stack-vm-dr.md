@@ -130,7 +130,7 @@ Implementing the recommended solution is contingent on satisfying the following 
 - An Azure Stack Hub Windows Server VM that will host the configuration server and a process server. The VM must belong to the same subscription and be attached to the same virtual network as the Azure Stack Hub VMs that need to be protected. In addition, the VM needs to:
 
    - comply with [Site Recovery configuration server software and hardware requirements](https://docs.microsoft.com/azure/site-recovery/vmware-physical-azure-support-matrix#site-recovery-configuration-server) 
-   - satisfy external connectivity [network requirements](https://docs.microsoft.com/en-us/azure/site-recovery/vmware-azure-deploy-configuration-server#network-requirements) documentation.
+   - satisfy external connectivity [network requirements](https://docs.microsoft.com/azure/site-recovery/vmware-azure-deploy-configuration-server#network-requirements) documentation.
 
    >[!Note] Additional storage and performance considerations for the configuration and process servers are described in more detail later in this architecture.
 
@@ -141,7 +141,7 @@ Implementing the recommended solution is contingent on satisfying the following 
 
    >[!Note] You can change the port used by the process server for both external and internal connectivity as part of its configuration when running Azure Site Recovery Unified Setup.
 
-- Azure Stack Hub VMs to be protected, running any of the [supported operating systems](https://docs.microsoft.com/en-us/azure/site-recovery/azure-stack-site-- To protect Azure Stack Hub VMs that are running Windows Server operating systems, you must:
+- Azure Stack Hub VMs to be protected, running any of the [supported operating systems](https://docs.microsoft.com/azure/site-recovery/azure-stack-site-- To protect Azure Stack Hub VMs that are running Windows Server operating systems, you must:
   - Create a Windows account with administrative rights. You can specify this account when you enable Azure Site Recovery on these VMs. The process server uses this account to install the Azure Site Recovery Mobility service. In a workgroup environment, make sure to disable Remote User Access control on target Windows Server operating systems by setting the value of the **LocalAccountTokenFilterPolicy** **DWORD** registry entry in the **HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\System** key to 1.
   - Enable File and Printer Sharing and Windows Management Instrumentation rules in Windows Defender firewall.
 - To protect Azure Stack Hub VMs that are running Linux operating systems, you must:

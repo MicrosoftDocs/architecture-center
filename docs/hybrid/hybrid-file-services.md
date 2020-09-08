@@ -150,9 +150,9 @@ For more information on how to configure Azure File Sync with a proxy server, re
 
 [Architecture diagram]: ./images/hybrid-file-services.png
 [Visio diagram]: https://archcenter.blob.core.windows.net/cdn/hybrid-file-services.vsdx
-[Storage Account]: https://docs.microsoft.com/en-us/azure/storage/common/storage-account-overview
+[Storage Account]: https://docs.microsoft.com/azure/storage/common/storage-account-overview
 [Azure Files]: https://docs.microsoft.com/azure/storage/files/storage-files-planning
-[Azure Active Directory]: https://docs.microsoft.com/en-us/azure/active-directory/fundamentals/active-directory-whatis
+[Azure Active Directory]: https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis
 [Planning for an Azure File Sync deployment - Azure file sync region availability]: https://docs.microsoft.com/azure/storage/files/storage-sync-files-planning#regional-availability
 [Azure File Sync proxy and firewall settings]: https://docs.microsoft.com/azure/storage/files/storage-sync-files-firewall-and-proxy
 [Windows file server considerations]: https://docs.microsoft.com/azure/storage/files/storage-sync-files-planning#windows-file-server-considerations
