@@ -53,7 +53,10 @@ Security is a prime concern for businesses that store any sort of custom or clie
 * Using [Azure Monitor](/azure/azure-monitor/overview) lets you get insights on the availability and performance of your application and infrastructure. It also gives you access to signals to monitor your solution's health and spot abnormal activity early.
 * Using [Azure AD B2C](/azure/active-directory-b2c/overview) you can provide identity services to consumers (end-users) of your application, even if they're not part of your organization.
 
+## Next steps
+
+* [DevSecOps in GitHub](/azure/architecture/solution-ideas/articles/devsecops-in-github)
+
 ## Related resources
 
 * Using [Azure Security Center](/azure/security-center/container-security) you can supply threat and vulnerability management for your deployed container-based solution.
-* [DevSecOps in GitHub](/azure/architecture/solution-ideas/articles/devsecops-in-github).

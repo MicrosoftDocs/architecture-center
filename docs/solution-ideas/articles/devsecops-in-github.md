@@ -139,13 +139,16 @@ For long-running or complex Actions, host your own runners for CI/CD jobs. You c
 - Make sure to [configure Dependabot security updates][Configure Dependabot security updates], which can remove known threats from projects.
 - You can augment the code-scanning capabilities of GitHub by adding [GitHub third-party code-scanning tools][GitHub code scanning] that produce Static Analysis Results Interchange Format (SARIF) files. GitHub then creates alerts when those tools identify potential security issues.
 
+## Next steps
+
+- [Training materials, tools, and other resources on GitHub DevSecOps][GitHub DevSecOps training materials]
+- [Tips for getting started with GitHub DevSecOps][GitHub DevSecOps getting started tips]
+
 ## Related resources
 
 - [DevSecOps in Azure][DevSecOps in Azure]
 - [Shift left][Shift left]
 - [Fail fast][Fail fast]
-- [Training materials, tools, and other resources on GitHub DevSecOps][GitHub DevSecOps training materials]
-- [Tips for getting started with GitHub DevSecOps][GitHub DevSecOps getting started tips]
 - [SARIF files][SARIF]
 
 [Shift left]: https://devops.com/devops-shift-left-avoid-failure/
