@@ -1994,6 +1994,11 @@
       "source_path": "framework/security/identity.md",
       "redirect_url": "/azure/architecture/framework/security/design-identity",
       "redirect_document_id": false       
-     }     
+     },     
+     {
+      "source_path": "docs/solution-ideas/articles/sharepoint-farm-office-365.md",
+      "redirect_url": "/azure/architecture/solution-ideas/articles/sharepoint-farm-microsoft-365",
+      "redirect_document_id": true
+     }
   ]
 }
