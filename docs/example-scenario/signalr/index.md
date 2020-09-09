@@ -8,6 +8,7 @@ ms.category:
   - devops
   - integration
   - developer-tools
+  - hybrid
 ms.topic: example-scenario
 ms.service: architecture-center
 ms.subservice: example-scenario

@@ -21,6 +21,9 @@ from urllib.parse import urljoin
 from PIL import Image
 import tempfile
 
+#hardcoded options 
+include_hybrid_in_all_architectures= True
+
 def find_all(iterable, searchtext, returned="key"):
     
     """Returns an iterator that returns all keys or values
@@ -167,6 +170,22 @@ def expand2square(pil_img, background_color):
         result.paste(pil_img, ((height - width) // 2, 0))
         return result
 
+# Returns the value associated with the first key found in descriptionsDict. 
+def get_first_description_found(keys, descriptionsDict, keysToIgnore=[]):
+    for key in keys:
+        if key in keysToIgnore:
+            continue
+        if key in descriptionsDict:
+            return descriptionsDict[key]
+    if keys[0] in descriptionsDict:
+        return descriptionsDict[keys[0]]
+    else:
+        return ""
+
+def should_generate_hybrid_index():
+    #generate the hybrid index page only when the template has been added to the branch
+    return path.exists(path.join(root, ".\\templates\\hybrid_architecture_index.md"))
+
 logging.basicConfig(level=logging.INFO)
 
 root = path.dirname(path.abspath(__file__))
@@ -174,6 +193,7 @@ doc_directory = path.normpath(path.join(root, "..", ".." , "docs"))
 includes_dir = path.normpath(path.join(root, "..", ".." , "includes"))
 ew_dir=path.join(doc_directory, "example-scenario")
 ra_dir=path.join(doc_directory, "reference-architectures")
+hybrid_ra_dir=path.join(doc_directory, "hybrid")
 acom_dir=path.join(doc_directory, "solution-ideas", "articles")
 index_dir=path.join(doc_directory, "solution-ideas")
 
@@ -191,15 +211,24 @@ env = Environment (
 
 category_file = open(path.join(root, "categories.json"), "r")
 categories=json.load(category_file)['categories']
+if should_generate_hybrid_index():
+    category_file.seek(0,0)
+    hybrid_categories=json.load(category_file)['hybrid-categories']
+category_file.close()
 
 acom_diagrams = Path(acom_dir).glob('**/*.md')
 example_workloads = Path(ew_dir).glob('**/*.md')
 reference_architectures = Path(ra_dir).glob('**/*.md')
+hybrid_reference_architectures= Path(hybrid_ra_dir).glob('**/*.md')
 
 all_architectures_list = []
 
 ra_list=[]
 for ra in reference_architectures:
+    ra_list.append(str(ra))
+    all_architectures_list.append(ra)
+
+for ra in hybrid_reference_architectures:
     ra_list.append(str(ra))
     all_architectures_list.append(ra)
 
@@ -302,6 +331,7 @@ for file in all_architectures_list:
     except:
         print("Unable to get category for "+ str_path)
         bad_articles.append(str_path)
+        article_meta['ms.category']= []
         continue
 
     logging.debug("Finding images")
@@ -459,8 +489,6 @@ all_langs = []
 with open( path.join(doc_directory, "toc.yml"), 'r') as stream:
     main_toc = yaml.safe_load(stream)
 
-all_topics = defaultdict(list)
-
 for article in parsed_articles:  
     # toc_link=list(find_all(main_toc,article['file_url'],'item'))
     # if len(toc_link) == 0:
@@ -469,11 +497,9 @@ for article in parsed_articles:
     # Sort the tags
     article['tags'] = sorted(article['tags'])
 
-    # Define the primnary topic for the article
-    article['topic'] = categories[article['category'][0]]
+    # Define the primary topic for the article
+    article['topic'] = get_first_description_found(article['category'], categories, ['hybrid'])
 
-    # Build topic array
-    all_topics[article['topic']].append(article)
 
     # Build tag list
     all_tags.extend(article['tags'])
@@ -529,10 +555,36 @@ articles={"articles": parsed_articles}
 # article_file.write(article_template.render(articles=articles, azure_categories=azure_categories).encode('utf-8'))
 # article_file.close()
 
-hub_template = env.get_template('architecture_index.md')
+#render template to generate the architecture_index page
+
+if should_generate_hybrid_index() and not include_hybrid_in_all_architectures:
+    azure_articles= { "articles": list(filter(lambda a: ( 'hybrid' not in a['category']), parsed_articles)) }
+else:
+    azure_articles= { "articles": parsed_articles }
+
+azure_topics = defaultdict(list)
+for article in azure_articles['articles']:
+    azure_topics[article['topic']].append(article)
+
 hub_file = open(path.join(doc_directory, "browse", "index.md"), "wb")
-hub_file.write(hub_template.render(articles=articles, topics=all_topics.items(), categories=categories).encode('utf-8'))
+hub_template = env.get_template('architecture_index.md')
+hub_file.write(hub_template.render(articles=azure_topics, topics=azure_topics.items(), categories=categories).encode('utf-8'))
 hub_file.close()
+
+# generate the hybrid browse index page - following the same pattern currently used for the all architetures browse page
+if should_generate_hybrid_index():
+    hybrid_articles= {"articles": list(filter(lambda a: ( 'hybrid' in a['category']), parsed_articles)) }
+    for article in hybrid_articles['articles']:
+        article['hybrid-topic']= get_first_description_found(article['category'], hybrid_categories)
+
+    hybrid_topics= defaultdict(list)
+    for article in hybrid_articles['articles']:
+        hybrid_topics[article['hybrid-topic']].append(article)
+
+    hybrid_hub_file = open(path.join(doc_directory, "browse", "hybrid_index.md"), "wb")
+    hybrid_hub_template = env.get_template('hybrid_architecture_index.md')
+    hybrid_hub_file.write(hybrid_hub_template.render(articles=hybrid_articles, topics=hybrid_topics.items(), categories=hybrid_categories).encode('utf-8'))
+    hybrid_hub_file.close()
 
 # toc_template = env.get_template('topic_toc.yaml')
 # toc_file = open(path.join(root_dir, "toc_stub.yaml"), "wb")

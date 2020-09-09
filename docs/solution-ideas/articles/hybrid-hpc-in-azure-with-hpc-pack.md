@@ -9,6 +9,7 @@ ms.service: architecture-center
 ms.category:
   - compute
   - hybrid
+  - management-and-governance
 ms.subservice: solution-idea
 social_image_url: /azure/architecture/solution-ideas/articles/media/hybrid-hpc-in-azure-with-hpc-pack.png
 ---
