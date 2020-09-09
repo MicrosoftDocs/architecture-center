@@ -9,9 +9,9 @@ ms.custom: fcp
 
 # Charon-SSP Solaris emulator on Azure VMs
 
-This reference architecture shows how an emulator called Charon-SSP from the Microsoft partner, Stromasys, can run a SPARC processor-based Solaris virtual machine (VM) in Azure. Charon-SSP is a member of the Charon cross-platform hardware virtualization product family. The emulator can create virtual replicas of Sun-4m, Sun-4u, or Sun-4v SPARC family members on standard x86-64 Linux physical computers or hypervisors.
+This reference architecture shows how an emulator called Charon-SSP from the Microsoft partner, Stromasys, can run SPARC processor-based Solaris virtual machines (VMs) in Azure. Charon-SSP is a member of the Charon cross-platform hardware virtualization product family. The emulator can create virtual replicas of Sun-4m, Sun-4u, or Sun-4v SPARC family members on standard x86-64 Linux physical computers or hypervisors.
 
-Running applications in an emulator on Azure has several benefits, such as reduced operational costs and energy consumption. You can also run multiple application instances on a single x86-64 standard host or existing virtualization infrastructure, giving you the added advantages of consolidation while easing legacy system management and maintenance.
+Running applications in an emulator on Azure has several benefits, such as reduced operational costs and energy consumption. You can also run multiple application instances on a single x86-64 standard host or existing virtualization infrastructure, giving you the advantages of consolidation while easing legacy system management and maintenance.
 
 ## Use cases
 
@@ -24,9 +24,9 @@ Running applications in an emulator on Azure has several benefits, such as reduc
 
 ![Cognitive Search architecture to convert unstructured into structured data](../media/solaris.png)
 
-1. The Stromasys Charon-SSP Director allows managing multiple server hosts, each potentially running one or more child Solaris VMs. This allows a single place of management as you scale out your farm of host VMs and their Solaris child VMs.
-2. The Stromasys Charon-SSP Agent runs on Linux distributions on Azure VMs. This component runs the child Solaris VMs and emulates the SPARC processor architecture.
-3. The Solaris VMs are based on the SPARC processor architecture.
+1. The Charon-SSP Director allows managing multiple server hosts, each potentially running one or more child Solaris VMs. This setup provides a single place of management as you scale out your farm of host VMs and their Solaris child VMs. Charon-SSP Manager provides an easy-to-use and intuitive graphical management interface.
+2. The Charon-SSP Agent runs on Linux distributions on Azure VMs. This component runs the child Solaris VMs and emulates the SPARC processor architecture.
+3. The child Solaris VMs are based on the SPARC processor architecture.
 4. The child Solaris VMs each get their own Azure network interface, and therefore have their own dedicated private IP addresses. Optionally, you can easily set up Azure public IP addresses on the same network interfaces.
 5. The Solaris VM images can reside on the solid-state drive (SSD) managed disk of the host Azure VM. Azure Ultra SSD managed disks are also a potential option for even higher input/output operations per second (IOPS).
 6. Azure Storage Account file shares mounted on the Linux VM allow mapping the Charon-SSP Virtual Tape Manager to a locally mounted device, which is backed by an Azure Files storage account in the cloud. This mapping allows for low-cost storage for archived tapes for regulatory and compliance purposes.
