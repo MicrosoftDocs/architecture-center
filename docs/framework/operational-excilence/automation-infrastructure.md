@@ -10,7 +10,7 @@ ms.subservice: well-architected
 
 # Repeatable Infrastructure
 
-Historically, deploying a new service or application involves manual work such as procuring and preparing hardware, configuring operating environments, and enabling monitoring solutions. Ideally, an organization would have multiple environments in which to test deployments. These test environments should be similar enough to production that deployment and run time issues are detected before production use. This manual work not only takes time but is error-prone, and if not done well, can produce inconsistencies between the environments.
+Historically, deploying a new service or application involves manual work such as procuring and preparing hardware, configuring operating environments, and enabling monitoring solutions. Ideally, an organization would have multiple environments in which to test deployments. These test environments should be similar enough to production that deployment and run time issues are detected before deployment to production. This manual work not only takes time but is error-prone, and if not done well, can produce inconsistencies between the environments.
 
 Cloud computing changes the way we procure infrastructure. No longer are we unboxing, racking, and cabling physical infrastructure, we have internet accessible management portals and REST interfaces to help us. We can now provision virtual machines and databases on demand and globally. When we no longer need cloud services, they can be easily deleted. However, cloud computing alone does not remove the effort and risk in provisioning infrastructure. When using a cloud portal to build systems, much of the same manual configuration tasks remain. Application servers require configuration, databases need networking, and firewalls need firewalling. 
 
@@ -20,11 +20,10 @@ To fully realize deployment optimization, reduce configuration effort, and autom
 
 Cloud computing changes so much about deploying and provisioning infrastructure. Not only can we procure compute, data, and so many other service types on demand, we have APIs for doing so. Because of cloud service's API-driven nature, programmatically deploying and configuring cloud services makes sense. The concept known as infrastructure as code involves using a declarative framework to describe your desired service configuration. Infrastructure as code solutions translates the requested configuration into the proper cloud provider API requests, which results in usable cloud services. Benefits of using infrastructure as code include:
 
-- Deploy similarily configured infrastructure across multiple environments (test and production).
-- Deploy all required components as a single unit (infrastructure, monitoring solutions, and configured alerts).
-- Version control infrastructure in a source control solution.
+- Deploy similarily configured infrastructure across multiple environments (test and production)
+- Deploy all required components as a single unit (infrastructure, monitoring solutions, and configured alerts)
+- Version control infrastructure in a source control solution
 - Use continuous integration solutions to manage and test infrastructure deployments
-- Recover from failure more quickly
 
 You can use many declarative infrastructure deployment technologies with Azure, here we detail two of the most common.
 
@@ -64,7 +63,7 @@ Take note, the Terraform provider for Azure is an abstraction on top of Azure AP
 
 ## Tailwind case study
 
-As part of a Tailwindtrader's effort to release more often, increase reliability, while reducing effort, the Tailwind operations team has identified significant effort spent building or re-setting tailwindtraders.com test environments before each release. Furthermore, confidence is low in that the test environments provide the proper amount of production likeness to identify potential issues effectively. For example, monitoring and observability systems are not replicated in the test environments. 
+As part of a Tailwind Trader's cloud effort to release more often, increase reliability, while reducing effort, the Tailwind operations team has identified significant effort spent building or re-setting tailwindtraders.com test environments before each release. Furthermore, confidence is low in that the test environments provide the proper amount of production likeness to identify potential issues effectively. For example, monitoring and observability systems are not replicated to the test environments. 
 
 Much of this effort spent performing the following manual tasks:
 
