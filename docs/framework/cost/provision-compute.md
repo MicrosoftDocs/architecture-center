@@ -2,14 +2,14 @@
 title: Compute
 description: Describes cost tradeoffs for compute services
 author:  v-aangie
-ms.date: 08/13/2020
+ms.date: 08/26/2020
 ms.topic: article
 ms.service: architecture-center
 ms.subservice: well-architected
 ms.custom: 
 ---
 
-# Compute
+# Compute cost estimates
 
 *Compute* refers to the hosting model for the computing resources that your application runs on. Whether you’re hosting model is Infrastructure as a Service (IaaS), Platform as a Service (PaaS), or Function as a service (FaaS), each resource requires your evaluation to understand the tradeoffs that can be made that impact your cost. To learn more about hosting models, read [Understand the hosting models](../../guide/technology-choices/compute-decision-tree.md#understand-the-hosting-models).
 

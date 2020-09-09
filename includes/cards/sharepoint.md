@@ -15,7 +15,7 @@
         </a>
         <ul class="card-content-metadata">
             <li>7/26/2018</li>
-            <li>12 min read</li>
+            <li>13 min read</li>
         </ul>
         <p class="card-content-description">Recommended architecture for deploying a high availability SharePoint Server 2016 farm in Azure.</p>
         <div class="bottom-to-top-fade is-hidden-mobile"></div>

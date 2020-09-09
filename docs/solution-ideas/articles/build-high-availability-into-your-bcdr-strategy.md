@@ -9,6 +9,7 @@ ms.service: architecture-center
 ms.category:
   - management-and-governance
   - networking
+  - hybrid
 ms.subservice: solution-idea
 social_image_url: /azure/architecture/solution-ideas/articles/media/build-high-availability-into-your-bcdr-strategy.png
 ---

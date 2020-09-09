@@ -5,7 +5,8 @@ author: maggsl
 ms.date: 06/16/2020
 ms.topic: article
 ms.service: architecture-center
-ms.category: solutions
+ms.category: 
+    - solutions
 ms.subservice: reference-architecture
 ms.custom: high-availability, fcp
 ---
@@ -53,7 +54,7 @@ The architecture has the following components.
 
 - **Azure Application Gateway**. Azure [Application Gateway](/azure/application-gateway/) is a layer 7 load balancer. In this architecture, a zone-redundant application gateway routes HTTP requests to the web front end. Application Gateway also provides a [Web Application Firewall](/azure/application-gateway/waf-overview) (WAF) that protects the application from common exploits and vulnerabilities. The v2 SKU of Application Gateway supports cross-zone redundancy. A single Application Gateway deployment can run multiple instances of the gateway. For production workloads, run at least two instances. For more information, see [Autoscaling and Zone-redundant Application Gateway v2](/azure/application-gateway/application-gateway-autoscaling-zone-redundant) and [How does Application Gateway support high availability and scalability?](/azure/application-gateway/application-gateway-faq#how-does-application-gateway-support-high-availability-and-scalability).
 
-- **Azure Load Balancer**. Azure Load Balancer is a layer 5 load balancer. In this architecture, a zone-redundant [Azure Standard Load Balancer](/azure/load-balancer/load-balancer-standard-overview) directs network traffic from the web tier to SQL Server. Because a zone-redundant load balancer is not pinned to a specific zone, the application will continue to distribute the network traffic in the case of a zonal failure. A zone-redundant load balancer is used to provide availability in the case the active SQL Server becomes unavailable. The Standard SKU of Azure Load Balancer supports cross-zone redundancy. For more information, see [Standard Load Balancer and Availability Zones](/azure/load-balancer/load-balancer-standard-availability-zones).
+- **Azure Load Balancer**. Azure Load Balancer is a layer 4 load balancer. In this architecture, a zone-redundant [Azure Standard Load Balancer](/azure/load-balancer/load-balancer-standard-overview) directs network traffic from the web tier to SQL Server. Because a zone-redundant load balancer is not pinned to a specific zone, the application will continue to distribute the network traffic in the case of a zonal failure. A zone-redundant load balancer is used to provide availability in the case the active SQL Server becomes unavailable. The Standard SKU of Azure Load Balancer supports cross-zone redundancy. For more information, see [Standard Load Balancer and Availability Zones](/azure/load-balancer/load-balancer-standard-availability-zones).
 
 - **Network security groups (NSGs)**. A [network security group](/azure/virtual-network/virtual-networks-nsg) is used to restrict network traffic within the virtual network. In this architecture, the web tier only accepts traffic from the public IP endpoint. Additionally, the database tier does not accept traffic from any subnet other than the web-tier subnet.
 

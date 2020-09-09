@@ -14,7 +14,7 @@ ms.custom: seojan19
 
 ## Design your application to be self healing when failures occur
 
-In a distributed system, failures happen. Hardware can fail. The network can have transient failures. Rarely, an entire service or region may experience a disruption, but even those must be planned for.
+In a distributed system, failures can happen. Hardware can fail. The network can have transient failures. Rarely, an entire service or region may experience a disruption, but even those must be planned for.
 
 Therefore, design an application to be self healing when failures occur. This requires a three-pronged approach:
 

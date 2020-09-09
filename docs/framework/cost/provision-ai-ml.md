@@ -2,14 +2,14 @@
 title: Cost for AI + Machine Learning services
 description: Describes cost strategies for serverless technologies
 author:  PageWriter-MSFT
-ms.date: 05/14/2020
+ms.date: 09/02/2020
 ms.topic: article
 ms.service: architecture-center
 ms.subservice: well-architected
 ms.custom: 
 ---
 
-# AI + Machine Learning
+# AI + Machine Learning cost estimates
 
 The main cost driver for machine learning workloads is the compute cost. Those resources are needed to run the training model and host the deployment. For information about choosing a compute target, see [What are compute targets in Azure Machine Learning?](/azure/machine-learning/concept-compute-target).
 

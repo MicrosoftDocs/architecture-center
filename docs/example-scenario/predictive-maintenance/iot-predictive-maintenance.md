@@ -6,7 +6,11 @@ ms.date: 07/28/2020
 ms.topic: example-scenario
 ms.service: architecture-center
 ms.subservice: example-scenario
-ms.custom: fcp
+ms.category: 
+    - iot
+ms.custom: 
+    - fcp
+    - cse
 ---
 
 # Predictive maintenance with the intelligent IoT Edge
