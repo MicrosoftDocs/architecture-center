@@ -10,20 +10,15 @@ ms.subservice: well-architected
 
 # Repeatable Infrastructure
 
-As part of the Tailwindtrader's effort to release more often, increase reliability, while reducing effort, the Tailwind operations team has identified significant effort spent building or re-setting tailwindtraders.com test environments before each release. Furthermore, confidence is low in that the test environments provide the proper amount of production likeness to identify potential issues effectively. For example, monitoring and observability systems are not replicated in the test environments. Where a new release may deploy and function fine, can the tailwind team have confidence when going to production that the application will...
+Historically, deploying a new service or application involves manual work such as procuring and preparing hardware, configuring operating environments, and enabling monitoring solutions. Ideally, an organization would have multiple environments in which to test deployments. These test environments should be similar enough to production that deployment and run time issues are detected before production use. This manual work not only takes time but is error-prone, and if not done well, can produce inconsistencies between the environments.
 
-Much of this effort spent performing the following manual tasks:
+Cloud computing changes the way we procure infrastructure. No longer are we unboxing, racking, and cabling physical infrastructure, we have internet accessible management portals and REST interfaces to help us. We can now provision virtual machines and databases on demand and globally. When we no longer need cloud services, they can be easily deleted. However, cloud computing alone does not remove the effort and risk in provisioning infrastructure. When using a cloud portal to build systems, much of the same manual configuration tasks remain. Application servers require configuration, databases need networking, and firewalls need firewalling. 
 
-- Evaluating the tailwind production environment for current operating systems, data systems, patch levels, and other configuration items.
-- Procuring and configuring virtual machines, data stores, and other components to match production as close as possible.
-- Deploying the updated version of taiwindtraders.com application.
-- Manually observing things like load performance, failover, and other typical run time considerations. 
-
-While the Tailwind team uses tooling and scripting, the automation is ad-hock, isolated to single actions, and does not significantly reduce toil. Furthermore, the risk remains high that a miss-configuration has been introduced, resulting in miss-matched test and production environments.
+To fully realize deployment optimization, reduce configuration effort, and automate full environments' deployment, something more is required. One option is referred to as infrastructure as code.
 
 ## Infrastructure as code
 
-Cloud computing changes so much about deploying and provisioning infrastructure. Not only can we procure compute, data, and so many other service types on demand, we have APIs for doing so. Because of cloud service's API-driven nature, programmatically deploying and configuring cloud services makes sense. The concept known as infrastructure as code involves using a declarative framework to describe the service configure that you desire. Infrastructure as code solutions translates the requested configuration into the proper cloud provider API requests, which results in usable cloud services. Benefits of using infrastructure as code include:
+Cloud computing changes so much about deploying and provisioning infrastructure. Not only can we procure compute, data, and so many other service types on demand, we have APIs for doing so. Because of cloud service's API-driven nature, programmatically deploying and configuring cloud services makes sense. The concept known as infrastructure as code involves using a declarative framework to describe your desired service configuration. Infrastructure as code solutions translates the requested configuration into the proper cloud provider API requests, which results in usable cloud services. Benefits of using infrastructure as code include:
 
 - Deploy similarily configured infrastructure across multiple environments (test and production).
 - Deploy all required components as a single unit (infrastructure, monitoring solutions, and configured alerts).
@@ -35,7 +30,7 @@ You can use many declarative infrastructure deployment technologies with Azure, 
 
 ## ARM Templates
 
-Azure Resource Manager (ARM) Templates provide an Azure native infrastructure as code solution. ARM Templates are written in a language derived from JavaScript Object Notation (JSON) and they define the infrastructure and configurations for Azure deployments. An ARM template is declarative, you state what intend to deploy, provide configuration values, and the ARM engine takes care of making the necessary Azure REST API put requests. Additional benefits of using ARM templates for infrastructure deployments include:
+Azure Resource Manager (ARM) Templates provide an Azure native infrastructure as code solution. ARM Templates are written in a language derived from JavaScript Object Notation (JSON), and they define the infrastructure and configurations for Azure deployments. An ARM template is declarative, you state what intend to deploy, provide configuration values, and the ARM engine takes care of making the necessary Azure REST API put requests. Additional benefits of using ARM templates for infrastructure deployments include:
 
 - Parallele resource deployment
 - Modular deployments
@@ -45,11 +40,11 @@ Azure Resource Manager (ARM) Templates provide an Azure native infrastructure as
 - Deployment scopes
 - Tooling
 
-| Learn more |  |
-|---|---|
-| More information about Azure Resource Manager Templates | [Docs: What are ARM templates](https://docs.microsoft.com/azure/azure-resource-manager/templates/overview) |
-| Guided learning experience with Azure Resource Manager Templates | [Learn: Deploy consistent infrastructure with ARM Templates](https://docs.microsoft.com/learn/modules/create-azure-resource-manager-template-vs-code/) |
-| Sample Azure Resource Manager Templates | [Code Samples: ARM templates](https://docs.microsoft.com/samples/browse/?terms=arm%20templates) |
+### Learn more
+
+- More information about Azure Resource Manager Templates: [Docs: What are ARM templates](https://docs.microsoft.com/azure/azure-resource-manager/templates/overview)
+- Guided learning experience with Azure Resource Manager Templates: [Learn: Deploy consistent infrastructure with ARM Templates](https://docs.microsoft.com/learn/modules/create-azure-resource-manager-template-vs-code/)
+- Sample Azure Resource Manager Templates: [Code Samples: ARM templates](https://docs.microsoft.com/samples/browse/?terms=arm%20templates)
 
 ## Terraform
 
@@ -63,11 +58,28 @@ Terraform is a cloud-agnostic declarative framework that supports many private a
 
 Take note, the Terraform provider for Azure is an abstraction on top of Azure APIs. This abstraction is beneficial because the API complexities are obfuscated. This abstraction comes at a cost; the Terraform provider for Azure does not always provide parity with the Azure APIs' capabilities.
 
+### Learn more
 
-| Learn more |  |
-|---|---|
-| More information about Terraform on Azure | [Docs: Using Terraform on Azure](https://docs.microsoft.com/azure/developer/terraform/overview) |
-| Sample Terraform configurations for Azure | [Code Samples: Terraform](https://docs.microsoft.com/samples/browse/?terms=Terraform) |
+- More information about Terraform on Azure: [Docs: Using Terraform on Azure](https://docs.microsoft.com/azure/developer/terraform/overview)
+- Sample Terraform configurations for Azure: [Code Samples: Terraform](https://docs.microsoft.com/samples/browse/?terms=Terraform)
+
+## Tailwind case study
+
+As part of the Tailwindtrader's effort to release more often, increase reliability, while reducing effort, the Tailwind operations team has identified significant effort spent building or re-setting tailwindtraders.com test environments before each release. Furthermore, confidence is low in that the test environments provide the proper amount of production likeness to identify potential issues effectively. For example, monitoring and observability systems are not replicated in the test environments. Where a new release may deploy and function fine, can the tailwind team have confidence when going to production that the application will...
+
+Much of this effort spent performing the following manual tasks:
+
+- Evaluating the tailwind production environment for current operating systems, data systems, patch levels, and other configuration items.
+- Procuring and configuring virtual machines, data stores, and other components to match production as close as possible.
+- Deploying the updated version of taiwindtraders.com application.
+- Manually observing things like load performance, failover, and other typical run time considerations. 
+
+While the Tailwind team uses tooling and scripting, the automation is ad-hock, isolated to single actions, and does not significantly reduce toil. Furthermore, the risk remains high that a miss-configuration has been introduced, resulting in miss-matched test and production environments.
+
+### Tailwind examples
+
+- Tailwind ARM Template: [Code Samples: Tailwind ARM](https://docs.microsoft.com/azure/developer/terraform/overview)
+- Tailwind Terraform Configuration: [Code Samples: Tailwind Terraform](https://docs.microsoft.com/samples/browse/?terms=Terraform)
 
 #### Next steps
 
