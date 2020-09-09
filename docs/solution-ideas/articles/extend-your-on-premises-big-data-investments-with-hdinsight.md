@@ -8,6 +8,7 @@ ms.custom: acom-architecture, data, HDInsight, ExpressRoute, 'https://azure.micr
 ms.service: architecture-center
 ms.category:
   - analytics
+  - hybrid
 ms.subservice: solution-idea
 social_image_url: /azure/architecture/solution-ideas/articles/media/extend-your-on-premises-big-data-investments-with-hdinsight.png
 ---

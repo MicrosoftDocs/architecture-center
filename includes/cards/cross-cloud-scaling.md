@@ -2,7 +2,7 @@
 
 <!-- markdownlint-disable MD033 -->
 
-<li class="grid-item item-column" data-categories="Hybrid ">
+<li class="grid-item item-column" data-categories="Hybrid Web ">
 <article class="card">
     <div class="card-header has-margin-bottom-none" aria-hidden="true">
         <figure class="image diagram has-height-175 has-overflow-hidden level">
