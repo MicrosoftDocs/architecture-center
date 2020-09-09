@@ -37,13 +37,12 @@ Azure Resource Manager (ARM) Templates provide an Azure native infrastructure as
 - Day one resource support
 - Extensibility
 - Testing, validation, and change preview
-- Deployment scopes
 - Tooling
 
 ### Learn more
 
 - More information about Azure Resource Manager Templates: [Docs: What are ARM templates](https://docs.microsoft.com/azure/azure-resource-manager/templates/overview)
-- Guided learning experience with Azure Resource Manager Templates: [Learn: Deploy consistent infrastructure with ARM Templates](https://docs.microsoft.com/learn/modules/create-azure-resource-manager-template-vs-code/)
+- Guided learning experience: [Learn: Deploy consistent infrastructure with ARM Templates](https://docs.microsoft.com/learn/modules/create-azure-resource-manager-template-vs-code/)
 - Sample Azure Resource Manager Templates: [Code Samples: ARM templates](https://docs.microsoft.com/samples/browse/?terms=arm%20templates)
 
 ## Terraform
@@ -65,7 +64,7 @@ Take note, the Terraform provider for Azure is an abstraction on top of Azure AP
 
 ## Tailwind case study
 
-As part of the Tailwindtrader's effort to release more often, increase reliability, while reducing effort, the Tailwind operations team has identified significant effort spent building or re-setting tailwindtraders.com test environments before each release. Furthermore, confidence is low in that the test environments provide the proper amount of production likeness to identify potential issues effectively. For example, monitoring and observability systems are not replicated in the test environments. Where a new release may deploy and function fine, can the tailwind team have confidence when going to production that the application will...
+As part of a Tailwindtrader's effort to release more often, increase reliability, while reducing effort, the Tailwind operations team has identified significant effort spent building or re-setting tailwindtraders.com test environments before each release. Furthermore, confidence is low in that the test environments provide the proper amount of production likeness to identify potential issues effectively. For example, monitoring and observability systems are not replicated in the test environments. 
 
 Much of this effort spent performing the following manual tasks:
 
@@ -76,7 +75,17 @@ Much of this effort spent performing the following manual tasks:
 
 While the Tailwind team uses tooling and scripting, the automation is ad-hock, isolated to single actions, and does not significantly reduce toil. Furthermore, the risk remains high that a miss-configuration has been introduced, resulting in miss-matched test and production environments.
 
+In support of the modernization effort, Tailwind Traders has adopted an infrastructure as code approach for all cloud deployments. Using a single deployment template, the Tailwind team can deploy the following resources to multiple environments.
+
+- An Azure App Service to hose the tailwindtraders.com site
+- Azure Kubernetes Service for running the tailwindtraders.com backend services
+- Azure Container Registry for storing container images
+- Several database storage solutions
+- Azure Application Insights for application performance monitoring
+
 ### Tailwind examples
+
+Take a look at the tailwindtraders.com infrastructure as code configuration at the following links.
 
 - Tailwind ARM Template: [Code Samples: Tailwind ARM](https://docs.microsoft.com/azure/developer/terraform/overview)
 - Tailwind Terraform Configuration: [Code Samples: Tailwind Terraform](https://docs.microsoft.com/samples/browse/?terms=Terraform)
