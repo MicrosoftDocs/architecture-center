@@ -8,6 +8,7 @@ ms.custom: acom-architecture, bcdr, 'https://azure.microsoft.com/solutions/archi
 ms.service: architecture-center
 ms.category:
   - management-and-governance
+  - hybrid
 ms.subservice: solution-idea
 social_image_url: /azure/architecture/solution-ideas/articles/media/disaster-recovery-smb-azure-site-recovery.png
 ---

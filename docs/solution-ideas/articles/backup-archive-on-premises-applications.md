@@ -7,7 +7,7 @@ description: Back up on-premises applications and data with Azure Backup and Blo
 ms.custom: acom-architecture, bcdr, 'https://azure.microsoft.com/solutions/architecture/backup-archive-on-premises-applications/'
 ms.service: architecture-center
 ms.category:
-  - management-and-governance
+  - storage
   - hybrid
 ms.subservice: solution-idea
 ---

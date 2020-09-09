@@ -8,6 +8,7 @@ ms.custom: acom-architecture, chat, signalr service, interactive-diagram, 'https
 ms.service: architecture-center
 ms.category:
   - hybrid
+  - web
 ms.subservice: solution-idea
 social_image_url: /azure/architecture/solution-ideas/articles/media/cross-platform-chat.png
 ---

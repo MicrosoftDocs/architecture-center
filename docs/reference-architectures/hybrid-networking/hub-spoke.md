@@ -9,6 +9,7 @@ ms.service: architecture-center
 ms.category:
   - networking
   - management-and-governance
+  - hybrid
 ms.subservice: reference-architecture
 ms.custom: seodec18, networking, fcp
 ---
