@@ -11,7 +11,7 @@
     </div>
     <div class="card-content">
         <a class="card-content-title has-margin-top-none" href="/azure/architecture/example-scenario/wvd/windows-virtual-desktop">
-            <p>Windows Virtual Desktop at enterprise scale</p>
+            <p>Windows Virtual Desktop for the enterprise</p>
         </a>
         <ul class="card-content-metadata">
             <li>7/16/2020</li>

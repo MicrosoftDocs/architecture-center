@@ -52,7 +52,7 @@ The deployed solution requires an Azure subscription with permission to add serv
 - IoT Edge ML modules support [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/), third-party ML models, or custom code. The current solution uses a third-party open-source ML model called [Cogniac](https://cogniac.co/) to score train wheel data and recognize potential defects. The ML software uses historical samples of high- and low-confidence failure images to retrain its ML model.
 - [Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs/) is Microsoft's object storage solution for the cloud. Blob storage is optimized for storing massive amounts of unstructured data like the image data in this example.
 - [Azure Cosmos DB](/azure/cosmos-db/introduction) is a fully-managed, NoSQL database service with low response times and high availability and scalability.
-- An [Azure Pipelines](/azure/iot-edge/how-to-ci-cd) workflow builds, tests, deploys, and archives the IoT Edge solution through built-in Azure IoT Edge tasks.
+- An [Azure Pipelines](/azure/iot-edge/how-to-continuous-integration-continuous-deployment) workflow builds, tests, deploys, and archives the IoT Edge solution through built-in Azure IoT Edge tasks.
 
 ## Considerations
 
@@ -90,7 +90,7 @@ Building and deploying the solution also uses:
 - [Azure IoT Edge documentation](/azure/iot-edge/)
 - [Build IoT Edge modules](/azure/iot-edge/how-to-vs-code-develop-module)
 - [End-to-end solution using Azure Machine Learning and IoT Edge](/azure/iot-edge/tutorial-machine-learning-edge-01-intro)
-- [Continuous integration and continuous deployment to Azure IoT Edge](/azure/iot-edge/how-to-ci-cd)
+- [Continuous integration and continuous deployment to Azure IoT Edge](/azure/iot-edge/how-to-continuous-integration-continuous-deployment)
 - [Deploy Azure IoT Edge modules from the Azure portal](/azure/iot-edge/how-to-deploy-modules-portal)
 
 ## Related resources

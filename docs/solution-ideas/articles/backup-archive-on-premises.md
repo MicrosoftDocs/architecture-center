@@ -7,7 +7,7 @@ description: Archive your on-premises data to Azure Blob storage.
 ms.custom: acom-architecture, bcdr, 'https://azure.microsoft.com/solutions/architecture/backup-archive-on-premises/'
 ms.service: architecture-center
 ms.category:
-  - management-and-governance
+  - storage
   - hybrid
 ms.subservice: solution-idea
 social_image_url: /azure/architecture/solution-ideas/articles/media/backup-archive-cloud-application.png
