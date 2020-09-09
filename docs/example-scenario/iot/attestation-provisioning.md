@@ -43,6 +43,6 @@ Consider the combinations of [Azure IoT Hub supported authentication protocols](
 ![A diagram showing authentication flows for various topologies connecting to Azure IoT Hub.](media/authentication-matrix.png) 
 
 - SAS tokens are always registered as symmetric keys with IoT Hub.
-- Revoking certificates through DPS doesn't prevent currently provisioned devices from continuing to authenticate with IoT Hub. After revoking a certificate in DPS, also remove the device from the IoT Hub, either manually through the portal dashboard or programmatically using [Registry Manager APIs](/rest/api/iothub/service/registrymanager).
+- Revoking certificates through DPS doesn't prevent currently provisioned devices from continuing to authenticate with IoT Hub. After revoking a certificate in DPS, also remove the device from the IoT Hub, either manually through the portal dashboard or programmatically using [Registry Manager APIs](/dotnet/api/microsoft.azure.devices.registrymanager?view=azure-dotnet).
 - Although IoT Hub supports X.509 CA authentication, provisioning devices with X.509 CA through DPS provisions them to the IoT Hub as X.509 thumbprint.
 - Web socket variants of AMQP and MQTT aren't supported with X.509 CA certificates in IoT Hub.
