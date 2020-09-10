@@ -32,7 +32,7 @@ FSLogix [Profile Container](https://docs.microsoft.com/fslogix/configure-profile
 
 The Office Container is a subset of Profile Container. Although all of the benefits of the Office Container are also available in the Profile Container, there are times when it may be beneficial to use them together. It's important to completely understand the configuration process, especially when using them together.
 
-Profile Container is used to redirect the full user profile. Profile Container is used in non-persistent, virtual environments, such as Virtual Desktops. When using Profile Container, the entire user profile, except for data, is [excluded](https://docs.microsoft.com/fslogix/manage-profile-content-cncpt).
+Profile Container is used to redirect the full user profile. Profile Container is used in non-persistent, virtual environments, such as Virtual Desktops. When using Profile Container, the entire user profile is captured, except for data that is [excluded](https://docs.microsoft.com/fslogix/manage-profile-content-cncpt).
 
 There are several reasons why Profile Container and Office Container may be used together. For more information, read the comparison of [Profile Container vs. Office Container](https://docs.microsoft.com/fslogix/profile-container-office-container-cncpt).
 
