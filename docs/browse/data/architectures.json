@@ -3721,6 +3721,46 @@
         },
         {
             "tags": [
+                "all-items",
+                "example-code",
+                "fcp",
+                "github",
+                "solution-idea"
+            ],
+            "type": "solution-idea",
+            "file_url": "solution-ideas/articles/devsecops-in-github.md",
+            "http_url": "/azure/architecture/solution-ideas/articles/devsecops-in-github",
+            "word_count": 2089,
+            "read_time": "8 min read",
+            "Title": "DevSecOps in GitHub",
+            "MetaDescription": "Learn how GitHub tools make security practices an integral part of DevOps while maintaining efficiency. See how to use these tools within an Azure framework.",
+            "category": [
+                "devops",
+                "security"
+            ],
+            "image": "/azure/architecture/solution-ideas/media/devsecops-in-github-data-flow.png",
+            "imagepath": "C:\\jvPnpRepos\\architecture-center-pr\\docs\\solution-ideas\\media\\devsecops-in-github-data-flow.png",
+            "publish_date": "9/01/2020",
+            "components": [
+                "<p><a href=\"https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis\">Azure AD</a> is a multi-tenant, cloud-based identity service that controls access to Azure and other cloud apps like <a href=\"https://www.microsoft.com/microsoft-365/what-is-microsoft-365\">Microsoft 365</a> and GitHub.</p>",
+                "<p><a href=\"https://docs.github.com/en/github\">GitHub</a> provides a code-hosting platform that developers can use for collaborating on both open-source and <a href=\"https://resources.github.com/whitepapers/introduction-to-innersource/\">inner-source</a> projects.</p>",
+                "<p><a href=\"https://docs.github.com/en/github/developing-online-with-codespaces/about-codespaces\">Codespaces</a> is an online development environment. Hosted by GitHub and powered by <a href=\"https://code.visualstudio.com/\">Visual Studio Code</a>, this tool provides a complete development solution in the cloud.</p>",
+                "<p><a href=\"https://github.com/features/security\">GitHub Security</a> works to eliminate threats in a number of ways. Agents and services identify vulnerabilities in repositories and in dependent packages. They also upgrade dependencies to up-to-date, secure versions.</p>",
+                "<p><a href=\"https://docs.github.com/en/actions/getting-started-with-github-actions/about-github-actions\">GitHub Actions</a> are custom workflows that provide continuous integration (CI) and continuous deployment (CD) capabilities directly in repositories. Computers called <em>runners</em> host these CI/CD jobs.</p>",
+                "<p><a href=\"https://azure.microsoft.com/services/app-service/\">App Service</a> provides a framework for building, deploying, and scaling web apps. This platform offers built-in infrastructure maintenance, security patching, and scaling.</p>",
+                "<p><a href=\"https://docs.microsoft.com/azure/governance/policy/overview\">Azure Policy</a> helps teams manage and prevent IT issues through policy definitions that can enforce rules for cloud resources. For instance, if your project is about to deploy a virtual machine with an unrecognized SKU, Azure Policy alerts you to the problem and stops the deployment.</p>",
+                "<p><a href=\"https://docs.microsoft.com/azure/security-center/security-center-intro\">Azure Security Center</a> provides unified security management and advanced threat protection across hybrid cloud workloads.</p>",
+                "<p><a href=\"https://docs.microsoft.com/azure/azure-monitor/overview\">Azure Monitor</a> collects and analyzes app telemetry, such as performance metrics and activity logs. When this service identifies irregular conditions, it alerts apps and personnel.</p>"
+            ],
+            "Summary": "<p>Starting with the first steps of development, DevSecOps adheres to security best practices. By using a <a href=\"https://devops.com/devops-shift-left-avoid-failure/\">shift-left</a> strategy, DevSecOps redirects the security focus. Instead of pointing toward auditing at the end, it shifts to development in the beginning. Besides producing robust code, this <a href=\"https://whatis.techtarget.com/definition/fail-fast\">fail fast</a> approach helps to resolve problems early on, when they're easy to fix.</p>\n<p>With many security capabilities, GitHub offers tools that support every part of a DevSecOps workflow:</p>\n<ul>\n<li>Browser-based IDEs with built-in security extensions.</li>\n<li>Agents that continuously monitor security advisories and replace vulnerable and out-of-date dependencies.</li>\n<li>Search capabilities that scan source code for vulnerabilities.</li>\n<li>Action-based workflows that automate every step of development, testing, and deployment.</li>\n<li>Spaces that provide a way to privately discuss and resolve security threats and then publish the information.</li>\n</ul>\n<p>Combined with the monitoring and evaluation power of Azure, these features provide a superb service for building secure cloud solutions.</p>",
+            "sample_code": true,
+            "github_url": "https://github.com/features/security",
+            "name": "devsecops-in-github",
+            "popularity": 0,
+            "topic": "DevOps"
+        },
+        {
+            "tags": [
                 "'https:--azure.microsoft.com-solutions-architecture-dev-test-image-factory-'",
                 "acom-architecture",
                 "all-items",
