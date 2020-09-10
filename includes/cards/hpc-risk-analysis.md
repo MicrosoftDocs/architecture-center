@@ -17,7 +17,7 @@
             <li>12/16/2019</li>
             <li>3 min read</li>
         </ul>
-        <p class="card-content-description">Build an HPC risk analysis solution architecture with a step-by-step flowchart from Microsoft Azure that combines CycleCloud, Avere vFXT and Tibco Gridserver.</p>
+        <p class="card-content-description">Build an HPC risk analysis solution architecture with a step-by-step flowchart from Microsoft Azure that combines CycleCloud, Avere vFXT and TIBCO GridServer.</p>
         <div class="bottom-to-top-fade is-hidden-mobile"></div>
     </div>
 </article>
