@@ -224,7 +224,7 @@ The following settings are commonly used by our customers in their desktop virtu
 
 Read the following articles for more information:
 
+- [Windows Virtual Desktop documentation](https://docs.microsoft.com/azure/virtual-desktop/overview).
 - [FSLogix documentation](https://docs.microsoft.com/fslogix/overview).
 - [Storage options for FSLogix profile containers in Windows Virtual Desktop](https://docs.microsoft.com/azure/virtual-desktop/store-fslogix-profile).
-- [Windows Virtual Desktop general documentation](https://docs.microsoft.com/azure/virtual-desktop/overview)
-- [Windows Virtual Desktop for the enterprise](https://docs.microsoft.com/azure/architecture/example-scenario/wvd/windows-virtual-desktop)
+- [Windows Virtual Desktop for the enterprise](https://docs.microsoft.com/azure/architecture/example-scenario/wvd/windows-virtual-desktop).
