@@ -12,7 +12,7 @@ ms.custom: fcp
 
 # Analyze and optimize loops
 
-The Internet-of-Things (IoT) *analyze and optimize loop* enables the generation and application of business optimization insights to one or more deployments of physical systems controlled by software, based on the entire enterprise business context. The analyze and optimize loop sources telemetry, typically from [monitor and manage loop](monitor-and-manage-loop.md) processes, refines it, and combines it with enterprise data sources to generate insights.
+The Internet-of-Things (IoT) *analyze and optimize loop* enables the generation and application of business optimization insights to one or more deployments of physical systems controlled by software, based on the entire enterprise business context. The analyze and optimize loop sources telemetry, typically from [monitor and manage loop](monitor-manage-loop.md) processes, refines it, and combines it with enterprise data sources to generate insights.
 
 This article provides an overview of analyze and optimize process loop architecture, characteristics, and components.
 
@@ -33,7 +33,7 @@ The following diagram shows the schematic of a typical analyze and optimize loop
 
 ![Diagram showing an analyze and optimize loop in context with measure and control and monitor and manage loops.](./media/analyze-and-optimize.svg)
 
-In an analyze and optimize loop, data from various IoT, enterprise, private, and public sources flows into cloud data lakes. Offline analytics consume the data lakes to discover hidden trends and business optimization insights. The optimization insights from the offline analytics processes flow back to IoT installations through [monitor and manage loops](monitor-and-manage-loop.md) and [measure and control loops](measure-and-control-loop.md).
+In an analyze and optimize loop, data from various IoT, enterprise, private, and public sources flows into cloud data lakes. Offline analytics consume the data lakes to discover hidden trends and business optimization insights. The optimization insights from the offline analytics processes flow back to IoT installations through [monitor and manage loops](monitor-manage-loop.md) and [measure and control loops](measure-control-loop.md).
 
 ## Characteristics
 
@@ -50,5 +50,5 @@ The important components of business optimization control are:
 - **Offline analytics** to process big data in batch mode. Spark jobs and Hadoop map-reduce processing are a couple of examples. Monitor and manage loop and measure and control loop processes then apply the insights obtained from analyze and optimize loops to IoT devices.
 
 ## See also
-- [Monitor and manage loops](monitor-and-manage-loop.md)
-- [Measure and control loops](measure-and-control-loop.md)
+- [Monitor and manage loops](monitor-manage-loop.md)
+- [Measure and control loops](measure-control-loop.md)

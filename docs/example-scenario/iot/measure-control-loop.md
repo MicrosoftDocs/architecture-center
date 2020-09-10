@@ -2,7 +2,7 @@
 title: IoT measure and control loops
 titleSuffix: Azure Example Scenarios
 description: Learn about measure and control loops, an IoT process pattern to keep IoT devices within tolerable ranges.
-author: mcosner
+author: hanuk
 ms.date: 08/10/2020
 ms.topic: example-scenario
 ms.service: architecture-center
@@ -30,7 +30,7 @@ Examples of measure and control loops in action include:
 ## Architecture
 ![Measure and control loop in the context of a regulatory control.](./media/measure-and-control.svg)
 
-A measure and control loop is scoped as a single device abstraction composed of sensors, actuators, and a controller. These loops may integrate with [analyze and optimize loops](analyze-and-optimize-loop.md) and [monitor and manage loops](monitor-and-manage-loop.md) that operate in a much larger context.
+A measure and control loop is scoped as a single device abstraction composed of sensors, actuators, and a controller. These loops may integrate with [analyze and optimize loops](analyze-optimize-loop.md) and [monitor and manage loops](monitor-manage-loop.md) that operate in a much larger context.
 
 ## Characteristics
 A measure and control loop has the following characteristics:
@@ -54,5 +54,5 @@ An IoT *thing* (device) is composed of sensors, actuators, and a controller. All
 - **Control logic** keeps device state within the tolerable desired range. The current state is computed from sensor measurements. If the current state deviates from the desired state, the controller  takes corrective action by sending commands to the actuators. Examples of corrective actions include closing the valve of a natural gas tank, turning on a home heater, or applying brakes to a wind turbine rotor. The controller can also emit telemetry and receive external commands from monitor and manage loops as needed.
 
 ## See also
-- [Analyze and optimize loops](analyze-and-optimize-loop.md)
-- [Monitor and manage loops](monitor-and-manage-loop.md)
+- [Analyze and optimize loops](analyze-optimize-loop.md)
+- [Monitor and manage loops](monitor-manage-loop.md)
