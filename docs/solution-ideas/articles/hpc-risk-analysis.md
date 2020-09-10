@@ -1,5 +1,5 @@
 ---
-title: HPC Risk Analysis Template – Solution Architecture
+title: HPC Risk Analysis Template - Solution Architecture
 titleSuffix: Azure Solution Ideas
 author: doodlemania2
 ms.date: 12/16/2019

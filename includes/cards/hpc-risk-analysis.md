@@ -11,7 +11,7 @@
     </div>
     <div class="card-content">
         <a class="card-content-title has-margin-top-none" href="/azure/architecture/solution-ideas/articles/hpc-risk-analysis">
-            <p>HPC Risk Analysis Template – Solution Architecture</p>
+            <p>HPC Risk Analysis Template - Solution Architecture</p>
         </a>
         <ul class="card-content-metadata">
             <li>12/16/2019</li>
