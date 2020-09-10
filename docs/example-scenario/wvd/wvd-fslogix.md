@@ -32,7 +32,7 @@ FSLogix [Profile Container](https://docs.microsoft.com/fslogix/configure-profile
 
 The Office Container is a subset of Profile Container. Although all of the benefits of the Office Container are also available in the Profile Container, there are times when it may be beneficial to use them together. It's important to completely understand the configuration process, especially when using them together.
 
-Profile Container is used to redirect the full user profile. Profile Container is used in non-persistent, virtual environments, such as Virtual Desktops. When using Profile Container, the entire user profile, except for data that is [excluded](https://docs.microsoft.com/fslogix/manage-profile-content-cncpt) is TBD.
+Profile Container is used to redirect the full user profile. Profile Container is used in non-persistent, virtual environments, such as Virtual Desktops. When using Profile Container, the entire user profile, except for data, is [excluded](https://docs.microsoft.com/fslogix/manage-profile-content-cncpt).
 
 There are several reasons why Profile Container and Office Container may be used together. For more information, read the comparison of [Profile Container vs. Office Container](https://docs.microsoft.com/fslogix/profile-container-office-container-cncpt).
 
@@ -68,7 +68,7 @@ The following table gives an example of how many resources an FSLogix profile ne
 
 Azure offers multiple storage solutions that you can use to store your FSLogix profile container. We recommend storing FSLogix profile containers on Azure Files or Azure NetApp Files for most customer scenarios. The article [Storage options for FSLogix profile containers in Windows Virtual Desktop](https://docs.microsoft.com/azure/virtual-desktop/store-fslogix-profile) compares the different managed storage solutions Azure offers for Windows Virtual Desktop FSLogix user profile containers.
 
-[Storage spaces direct (S2D)](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/rds-storage-spaces-direct-deployment) is supported in this scenario (TBD which?) as well. It is a self-managed storage solution that is out of scope for this article. Customers can get most value out of either Azure Files or Azure NetApp Files while simplifying management of Windows Virtual Desktop.
+[Storage spaces direct (S2D)](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/rds-storage-spaces-direct-deployment) is supported in conjunction with FSLogix and Windows Virtual Desktop as well. It is a self-managed storage solution that is out of scope for this article. Customers can get most value out of either Azure Files or Azure NetApp Files while simplifying management of Windows Virtual Desktop.
 
 ## Best practices
 
@@ -112,7 +112,7 @@ Currently, there's an IP connection limitation of 1000 IP connections per active
 
 #### Pooled scenarios
 
-If the WVD Windows 10 Multi-session user per vCPU [recommendations](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/virtual-machine-recs) holds true for the D32as_v4 VM size (TBD: need more clarity on this sentence), more than 120,000 users would fit within 1,000 virtual machines before approaching the 1,000 IP limit, as shown in the following figure.
+If the WVD Windows 10 Multi-session user per vCPU [recommendations](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/virtual-machine-recs) sizing for the D32as_v4 VM is calculated based on the light or medium workload, more than 120,000 users would fit within 1,000 virtual machines before approaching the 1,000 IP limit, as shown in the following figure.
 
 ![NetApp Files pooled scenario](./images/fslogix-netapp-files-pooled.png)
 
@@ -165,18 +165,6 @@ Make sure to configure the following antivirus exclusions for FSLogix Profile Co
   - %ProgramFiles%\FSLogix\Apps\frxccds.exe
   - %ProgramFiles%\FSLogix\Apps\frxsvc.exe
 
-## Best practice settings for enterprises
-
-(TBD this section feels out of place here. Can we move this to the end of the article? )
-The following settings are commonly used by our customers in their desktop virtualization environments.
-
-|Setting    |Value    |Reason    |
-|-----------|---------|----------|
-|DeleteLocalProfileWhenVHDShouldApply |1    |This setting avoids errors while logging in with an existing local profile. It removes the profile first, if any already exists.    |
-|SizeInMBs    |3000    |Specifies the size of newly created VHD(X) in number of MB. Default value is 30000 MB or 30 GB.   |
-|VolumeType   |VHDx    |More capabilities for PowerShell and maintenance.    |
-|FlipFlopProfileDirectoryName |1    |Makes it easier to search for the specific profile container user folder on the network share.    |
-
 ## Using Cloud Cache
 
 [Cloud Cache](https://docs.microsoft.com/fslogix/configure-cloud-cache-tutorial) is an add-on to FSLogix. It uses a local cache to service all reads from a redirected Profile or Office Container, after the first read. Cloud Cache also allows the use of multiple remote locations, which are all continuously updated during the user session, creating true real-time profile replication. Using Cloud Cache can insulate users from short-term loss of connectivity to remote profile containers as the local cache is able to service many profile operations. In case of a provider failure, Cloud Cache provides business continuity.
@@ -201,14 +189,14 @@ Because of the resource utilization, it may be more cost effective to consider a
 
 Large multi-national Windows Virtual Desktop deployments could require availability of the users profile across different regions. So it's important to have the same profile available in the Azure region of the host pool.
 
-1. Azure Files offers the option to do storage account fail-over against the other region (TBD: which other region?) as replication mechanism. This is only supported for the standard storage account type using Geo-Redundent Storage (GRS). Other options to use are AzCopy or any other file copy mechanism such as *RoboCopy*.
+1. Azure Files offers the replication option of a storage account fail-over against the other region configured in your storage account redundancy plan. This is only supported for the standard storage account type using Geo-Redundent Storage (GRS). Other options to use are AzCopy or any other file copy mechanism such as *RoboCopy*.
 1. Azure NetApp Files offers cross-region replication. With this feature, you are able to replicate your FSLogix file share to another region over the Azure backbone.
 
 ## Backup and restore
 
 Making regular backups of your Windows profiles could be beneficial in different situations. Scenarios where a user accidentally removes data and wants to restore, or profile and/or data corruption due to malware infections, could be an indicator to have your data safely stored on Azure.
 
-Azure Files Premium tier integrates with Azure Backup and is supported (TBD: by FSLogix?). Azure NetApp Files offers a similar snapshot mechanism to make copies of your FSLogix profile containers.
+Azure Files Premium tier integrates with Azure Backup and is supported in conjunction with FSLogix. Azure NetApp Files offers a similar snapshot mechanism to make copies of your FSLogix profile containers.
 
 ## Maintenance
 
@@ -221,6 +209,22 @@ Download the tool [here](https://github.com/FSLogix/Invoke-FslShrinkDisk).
 > [!NOTE]
 > This script is not supported by the Microsoft product group. It is community driven. This script does not support reducing the size of a Fixed file format.
 
+## Best practice settings for enterprises
+
+The following settings are commonly used by our customers in their desktop virtualization environments.
+
+|Setting    |Value    |Reason    |
+|-----------|---------|----------|
+|DeleteLocalProfileWhenVHDShouldApply |1    |This setting avoids errors while logging in with an existing local profile. It removes the profile first, if any already exists.    |
+|SizeInMBs    |3000    |Specifies the size of newly created VHD(X) in number of MB. Default value is 30000 MB or 30 GB.   |
+|VolumeType   |VHDx    |More capabilities for PowerShell and maintenance.    |
+|FlipFlopProfileDirectoryName |1    |Makes it easier to search for the specific profile container user folder on the network share.    |
+
 ## Next steps
 
-TBD: Where can the reader go after knowing this info?
+Read the following articles for more information:
+
+- [FSLogix documentation](aka.ms/fslogix).
+- [Storage options for FSLogix profile containers in Windows Virtual Desktop](https://docs.microsoft.com/azure/virtual-desktop/store-fslogix-profile).
+- [Windows Virtual Desktop general documentation](http://aka.ms/wvddocs)
+- [Windows Virtual Desktop for the enterprise](https://docs.microsoft.com/azure/architecture/example-scenario/wvd/windows-virtual-desktop)
