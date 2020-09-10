@@ -294,5 +294,5 @@ access to critical impact accounts. Ensuring these users (and ideally all users)
 have the knowledge and skills to avoid and resist attacks will reduce your
 overall organizational risk.
 
-You can use [Microsoft 365 Attack Simulation](/office365/securitycompliance/attack-simulator)
+You can use [Office 365 Attack Simulation](/microsoft-365/security/office-365-security/attack-simulator)
 capabilities or any number of third party offerings.

@@ -225,11 +225,11 @@ In some instances, you will want your IIoT analytics solution to perform actions
 
 - Dynamics 365
 - SharePoint Online
-- Microsoft 365 Outlook
+- Office 365 Outlook
 - Salesforce
 - SAP
 
-For example, an error code from a pump is detected by an Azure Stream Analytics job. The job sends a message to Azure Service Bus and triggers a Logic App to run. The Logic App sends an email notification to the Plant Manager using the [Microsoft 365 Outlook connector](/azure/connectors/connectors-create-api-office365-outlook). It then sends a message to your SAP *S/4 HANA* system using the [SAP connector](/azure/logic-apps/logic-apps-using-sap-connector), which creates a Service Order in SAP.
+For example, an error code from a pump is detected by an Azure Stream Analytics job. The job sends a message to Azure Service Bus and triggers a Logic App to run. The Logic App sends an email notification to the Plant Manager using the [Office 365 Outlook connector](/azure/connectors/connectors-create-api-office365-outlook). It then sends a message to your SAP *S/4 HANA* system using the [SAP connector](/azure/logic-apps/logic-apps-using-sap-connector), which creates a Service Order in SAP.
 
 ## User Management
 
