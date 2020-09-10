@@ -15,7 +15,7 @@
         </a>
         <ul class="card-content-metadata">
             <li>12/16/2019</li>
-            <li>3 min read</li>
+            <li>4 min read</li>
         </ul>
         <p class="card-content-description">DevSecOps involves utilizing security best practices from the beginning of development, shifting the focus on security away from auditing at the end and towards development in the beginning</p>
         <div class="bottom-to-top-fade is-hidden-mobile"></div>

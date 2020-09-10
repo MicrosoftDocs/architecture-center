@@ -131,7 +131,7 @@ Architecture diagrams, reference architectures, example scenarios, and solutions
 [!INCLUDE [A computer-aided engineering service](../../includes/cards/hpc-saas.md)]
 [!INCLUDE [Digital image-based modeling on Azure](../../includes/cards/image-modeling.md)]
 [!INCLUDE [Dynamics Business Central as a Service on Azure](../../includes/cards/business-central.md)]
-[!INCLUDE [HPC Risk Analysis Template – Solution Architecture](../../includes/cards/hpc-risk-analysis.md)]
+[!INCLUDE [HPC Risk Analysis Template - Solution Architecture](../../includes/cards/hpc-risk-analysis.md)]
 [!INCLUDE [HPC System and Big Compute Solutions](../../includes/cards/big-compute-with-azure-batch.md)]
 [!INCLUDE [HPC cluster deployed in the cloud](../../includes/cards/hpc-cluster.md)]
 [!INCLUDE [Hybrid HPC in Azure with HPC Pack](../../includes/cards/hybrid-hpc-in-azure-with-hpc-pack.md)]
@@ -243,6 +243,7 @@ Architecture diagrams, reference architectures, example scenarios, and solutions
 [!INCLUDE [Dev-Test deployment for testing microservice solutions](../../includes/cards/dev-test-microservice.md)]
 [!INCLUDE [DevOps in a hybrid environment](../../includes/cards/devops-in-a-hybrid-environment.md)]
 [!INCLUDE [DevSecOps in Azure](../../includes/cards/devsecops-in-azure.md)]
+[!INCLUDE [DevSecOps in GitHub](../../includes/cards/devsecops-in-github.md)]
 [!INCLUDE [DevTest Image Factory](../../includes/cards/dev-test-image-factory.md)]
 [!INCLUDE [Immutable Infrastructure CI/CD using Jenkins and Terraform on Azure Virtual Architecture overview](../../includes/cards/immutable-infrastructure-cicd-using-jenkins-and-terraform-on-azure-virtual-architecture-overview.md)]
 [!INCLUDE [JMeter implementation reference for load testing pipeline solution](../../includes/cards/jmeter-load-testing-pipeline-implementation-reference.md)]
@@ -529,7 +530,7 @@ Architecture diagrams, reference architectures, example scenarios, and solutions
 ## Windows Virtual Desktop
 <ul class="grid">
 
-[!INCLUDE [Windows Virtual Desktop at enterprise scale](../../includes/cards/windows-virtual-desktop.md)]
+[!INCLUDE [Windows Virtual Desktop for the enterprise](../../includes/cards/windows-virtual-desktop.md)]
 
 </ul>
 
