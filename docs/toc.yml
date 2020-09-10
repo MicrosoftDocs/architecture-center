@@ -978,6 +978,10 @@ items:
         href: high-availability/ref-arch-iaas-web-and-db.md     
   - name: Hybrid
     items:
+    - name: Guides
+      items:
+      - name: FSLogix for the enterprise
+        href: example-scenario/wvd/wvd-fslogix.md
     - name: Architectures
       items:
       - name: Connect an on-premises network to Azure
