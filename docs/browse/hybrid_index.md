@@ -27,7 +27,7 @@ Architecture diagrams, reference architectures, example scenarios, and solutions
 [!INCLUDE [DevSecOps in Azure](../../includes/cards/devsecops-in-azure.md)]
 [!INCLUDE [HPC Risk Analysis Template – Solution Architecture](../../includes/cards/hpc-risk-analysis.md)]
 [!INCLUDE [Hybrid HPC in Azure with HPC Pack](../../includes/cards/hybrid-hpc-in-azure-with-hpc-pack.md)]
-[!INCLUDE [Hybrid SharePoint Farm with Office 365](../../includes/cards/sharepoint-farm-office-365.md)]
+[!INCLUDE [Hybrid SharePoint Farm with Microsoft 365](../../includes/cards/sharepoint-farm-microsoft-365.md)]
 [!INCLUDE [Machine Learning Operations maturity model](../../includes/cards/mlops-maturity-model.md)]
 [!INCLUDE [Machine learning operations (MLOps) framework to upscale machine learning Lifecycle with Azure Machine Learning](../../includes/cards/mlops-technical-paper.md)]
 [!INCLUDE [Modern Customer Support Portal](../../includes/cards/modern-customer-support-portal-powered-by-an-agile-business-process.md)]
