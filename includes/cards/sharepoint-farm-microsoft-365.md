@@ -17,7 +17,7 @@
             <li>12/16/2019</li>
             <li>2 min read</li>
         </ul>
-        <p class="card-content-description">Deliver highly available intranet capability by deploying SharePoint and sharing hybrid workloads with Microsoft 365. Setup this solution with step-by-step instructions.</p>
+        <p class="card-content-description">Deliver highly available intranet capability by deploying SharePoint and sharing hybrid workloads with Microsoft 365. Set up this solution with step-by-step instructions.</p>
         <div class="bottom-to-top-fade is-hidden-mobile"></div>
     </div>
 </article>
