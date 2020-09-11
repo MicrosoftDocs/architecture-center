@@ -11,14 +11,13 @@ ms.custom:
 
 # Move Azure resources across regions
 
-This architecture guidance document shows best practices on how to plan and move Azure Resource across regions.
- 
-With the growth of Azure and its evolving set of regions worldwide, customers have a need to move deployments from one region to another. Moving applications across regions is an activity that demands a well thought out plan, to ensure that all resources are moved seamlessly and applications are up and running in the new region with minimal downtime.
+This reference architecture provides guidance for how to plan and move Azure Resources across regions.
+
+With the growth of Microsoft Azure and its evolving set of regions worldwide, customers have a need to move deployments from one region to another. Moving applications across regions is an activity that demands a well thought out plan, to ensure that all resources are moved seamlessly, and that applications are up and running in the new region with minimal downtime.
 
 ## Use cases
 
-A cross-region move can provide a variety of benefits.  [Moving Azure resources across regions](https://docs.microsoft.com/azure/azure-resource-manager/management/move-region)
-After deploying resources in specific Azure region, there are a number of reasons that you might want to move resources to a different region.
+The following are some of the top reasons for moving resources to a different region:
 
 * Align to a region launch: Move your resources to a newly introduced Azure region that wasn't previously available.
 * Align for services/features: Move resources to take advantage of services or features that are available in a specific region.
@@ -48,11 +47,18 @@ Let’s take an example of hypothetical customer with the following architecture
    * **Data tier**: Stores the application data. In this case, we have a SQL DB to store the data.
 
 9. **Internal load balancer**: Network traffic from the VPN gateway is routed to the cloud application through an internal load balancer. There is a load balancer located in the subnet of application tiers.
-10. **PaaS resources**: In this example environment, there are a few PaaS services such as IoT hub, Azure Key Vault, App Service, etc.
+10. **Platform as a Service (PaaS) resources**: In this example environment, there are a few PaaS services such as IoT hub, Azure Key Vault, App Service, etc.
 
 ## Components
 
-?
+[Azure ExpressRoute](https://azure.microsoft.com/services/expressroute/)
+[Azure VPN Gateway](https://azure.microsoft.com/services/vpn-gateway/)
+[Azure Active Directory Domain Services](https://azure.microsoft.com/services/active-directory-ds/)
+[Azure App Service](https://azure.microsoft.com/free/apps/search/)
+[Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/)
+[Azure Key Vault](https://azure.microsoft.com/services/key-vault/)
+[Azure Cognitive Services](https://azure.microsoft.com/services/cognitive-services/)
+[Azure Automation Service](https://azure.microsoft.com/services/automation/)
 
 ## Steps to move resources across regions
 
@@ -77,37 +83,30 @@ Your requirements might differ from the architecture described here. Use the rec
 
 3.	Move the app components
 
-   * VM resources: VMs would need ASR as the replication engine underneath to move the resource across regions. To understand more about the VM move using ASR, see [Move Azure VMs to another region](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-migrate).
+   * Virtual Machine (VM) resources: VMs would need ASR as the replication engine underneath to move the resource across regions. To understand more about the VM move using ASR, see [Move Azure VMs to another region](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-migrate).
    * SQL resources: SQL DBs make use of the SQL Failover Group mechanism to move across regions. To learn more about the moving SQL DBs, see [Move resources to new region - Azure SQL Database & Azure SQL Managed Instance](https://docs.microsoft.com/azure/azure-sql/database/move-resources-across-regions).
 
 4. Move of PaaS services: Many of the PaaS services have their own specific steps for orchestrating the move. To find the latest information on the list of supported services, see [Support for moving Azure resources across regions](https://docs.microsoft.com/azure/azure-resource-manager/management/region-move-support).
 
-5. Move of the On-prem infrastructure: To ensure you have the full source region recreated on the target region, please re-establish and configure on-prem components as before and connect them to the Azure network.
+5. Move of the on-premises infrastructure: To ensure you have the full source region recreated on the target region, please re-establish and configure on-premises components as before and connect them to the Azure network.
 
 ## Considerations
 
-Considerations for a Cross-Region move:
+The following are some of the considerations for making a cross-regional move:
 
-As Customers have businesses that serve a diverse set of industries and customer segments, key considerations need to be thought through to ensure a smooth cross-regional move. Some of them are listed below:
-
-* Complex infrastructure needs: Today’s customers have a complex infrastructure environment that spans across On-prem to the Cloud, while some have an additional level of complexity with a multi-cloud strategy with private or public deployments. A move across regions must factor in this complexity and provide a seamless path to migrate into a new region.
-* Resource Patterns: Customers are not only looking for the move of similar resources together (For example, a set of VMs or SQL DB resources), but also a group of resources that form an application.
-* Ensure Capacity needs are met: Ability to verify capacity or quota is available in the target region to support current and potential business growth before the actual move.
-* No impact to the existing source region: While the move is in-progress, customers are looking for no/minimal impact to their current business critical applications or infrastructure on the source region. 
-* Minimal downtime to ensure business continuity: Customers are looking for a functional environment up and running on the target region with the least possible downtime, so it has minimal impact to the business.
-* Validation prior to final move: Capability to validate the migration before the final cut over or commit on the target side is also critical for many customers supporting Tier 0 , Tier 1 workloads in FSI, or HealthCare verticals.
-
-Some best practices to consider:
-
-* Move patterns: Some common patterns observed to move resources are mentioned below.
-
-   * Move resource types together: You can combine the move of similar resources together. This helps to plan the prepare step of move journey and ensure all the long running operations complete together and help reduce the downtime window. For example, the move of 50 VMs or 20 SQL DBs together.
-
-   * Move of all resources within an application: When you are moving an application across regions, you can select the resources of that application and try to move them together in a set, to ensure you are able to bring up the app on the target region in a seamless orchestrated manner.
-
+* Today’s customers have a complex infrastructure environment that spans across their on-premises infrastructure to the Cloud. Some even have an additional level of complexity, with a multi-cloud strategy containing private or public deployments. A move across regions must factor in this complexity and provide a seamless path to migrate into a new region.
+* Customers are expecting to move similar resources together. To allow for this, consider the following common *move patterns* for moving resources:  
+  * Move resource types together. You can combine the move of similar resources together. This helps to plan the prepare step of move journey and ensure all the long running operations complete together and help reduce the downtime window. For example, the move of 50 VMs or 20 SQL DBs together.
+  * Move of all resources within an application. When you are moving an application across regions, you can select the resources of that application and try to move them together in a set, to ensure you are able to bring up the app on the target region in a seamless orchestrated manner.
+* Ensure that capacity needs are met. The ability to verify capacity or quota is available in the target region to support current and potential business growth before the actual move.
+* There should be no impact to the existing source region while the move is in-progress. Customers are looking for minimal or no impact to their current business critical applications or infrastructure on the source region.
+* Customers are looking for a functional environment up and running on the target region with the least possible downtime to ensure business continuity.
+* The capability to validate the migration before the final cut over or commit on the target side is also critical for many customers supporting Tier 0, Tier 1 workloads in FSI, or HealthCare verticals.
 * Validation prior to Commit: Ensure due diligence is done by testing and validating the original configurations, connectivity, proper security configuration, policies, data replication, and database connections, before you commit the move to the target region.
-
-* Post Move: Once the resources are moved to the target, make final changes to ensure the final configuration is up and running. This may include and not be limited to, changing the DNS configuration to point to a new IP etc. Also, delete resources in the source region to avoid double billing and to prevent split brain issues due to the existence of two separate data sets that overlap in scope and configuration etc. Ensure the deletion of any auxiliary resources created for the move (Vault, storage account for intermediate transfer).
+* Once the resources are moved to the target, make final changes to ensure the final configuration is up and running. This may include and not be limited to:
+  * Changing the DNS configuration to point to a new IP. 
+  * Deleting resources in the source region to avoid double billing and to prevent split brain issues due to the existence of two separate data sets that overlap in scope and configuration.
+  * Ensuring the deletion of any auxiliary resources created for the move. For example, any storage accounts used for intermediate transfer.
 
 ## Next steps
 
