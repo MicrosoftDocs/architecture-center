@@ -2,7 +2,7 @@
 title: What's New in the Azure Architecture Center
 description: New and updated articles in the Azure Architecture Center
 author: doodlemania2
-ms.date: 09/04/2020
+ms.date: 09/13/2020
 ms.topic: article
 ms.service: architecture-center
 ms.subservice: meta
@@ -22,8 +22,39 @@ New and updated articles in the Azure Architecture Center
 
 ### New Articles
 
+- [Stromasys Charon-SSP Solaris emulator on Azure VMs](https://docs.microsoft.com/azure/architecture/solution-ideas/articles/solaris-azure)
+- [Azure Kubernetes Service (AKS) solution journey](https://docs.microsoft.com/azure/architecture/reference-architectures/containers/aks-start-here)
+- [IoT analyze and optimize loops](https://docs.microsoft.com/azure/architecture/example-scenario/iot/analyze-optimize-loop)
+- [IoT measure and control loops](https://docs.microsoft.com/azure/architecture/example-scenario/iot/measure-control-loop)
+- [IoT monitor and manage loops](https://docs.microsoft.com/azure/architecture/example-scenario/iot/monitor-manage-loop)
+- [Hybrid Architectures](https://docs.microsoft.com/azure/architecture/browse/hybrid_index)
+- [Azure Arc hybrid management and deployment for Kubernetes clusters](https://docs.microsoft.com/azure/architecture/hybrid/arc-hybrid-kubernetes)
+- [Manage configurations for Azure Arc enabled servers](https://docs.microsoft.com/azure/architecture/hybrid/azure-arc-hybrid-config)
+- [Azure Automation in a hybrid environment](https://docs.microsoft.com/azure/architecture/hybrid/azure-automation-hybrid)
+- [Using Azure file shares in a hybrid environment](https://docs.microsoft.com/azure/architecture/hybrid/azure-file-share)
+- [Azure Functions in a hybrid environment](https://docs.microsoft.com/azure/architecture/hybrid/azure-functions-hybrid)
+- [Connect standalone servers by using Azure Network Adapter](https://docs.microsoft.com/azure/architecture/hybrid/azure-network-adapter)
+- [Back up files and applications on Azure Stack Hub](https://docs.microsoft.com/azure/architecture/hybrid/azure-stack-backup)
+- [Disaster Recovery for Azure Stack Hub virtual machines](https://docs.microsoft.com/azure/architecture/hybrid/azure-stack-vm-dr)
+- [Azure Automation Update Management](https://docs.microsoft.com/azure/architecture/hybrid/azure-update-mgmt)
+- [Deploy AI and machine learning at the edge by using Azure Stack Edge](https://docs.microsoft.com/azure/architecture/hybrid/deploy-ai-ml-azure-stack-edge)
+- [On-premises data gateway for Azure Logic Apps](https://docs.microsoft.com/azure/architecture/hybrid/gateway-logic-apps)
+- [Run containers in a hybrid environment](https://docs.microsoft.com/azure/architecture/hybrid/hybrid-containers)
+- [Design a hybrid Domain Name System solution with Azure](https://docs.microsoft.com/azure/architecture/hybrid/hybrid-dns-infra)
+- [Hybrid file services](https://docs.microsoft.com/azure/architecture/hybrid/hybrid-file-services)
+- [Hybrid availability and performance monitoring](https://docs.microsoft.com/azure/architecture/hybrid/hybrid-perf-monitoring)
+- [Hybrid Security Monitoring using Azure Security Center and Azure Sentinel](https://docs.microsoft.com/azure/architecture/hybrid/hybrid-security-monitoring)
+- [Manage hybrid Azure workloads using Windows Admin Center](https://docs.microsoft.com/azure/architecture/hybrid/hybrid-server-os-mgmt)
+- [DevSecOps in GitHub](https://docs.microsoft.com/azure/architecture/solution-ideas/articles/devsecops-in-github)
+- [Network security review](https://docs.microsoft.com/azure/architecture/framework/security/design-network-review)
+- [Network security strategies](https://docs.microsoft.com/azure/architecture/framework/security/design-network)
+- [Security with identity and access management (IAM) in Azure](https://docs.microsoft.com/azure/architecture/framework/security/design-identity)
+- [Azure Messaging cost estimates](https://docs.microsoft.com/azure/architecture/framework/cost/provision-messaging)
 - [Web application cost estimates](https://docs.microsoft.com/azure/architecture/framework/cost/provision-webapps)
 
+### Updated Articles
+
+- [DevSecOps in Azure](https://docs.microsoft.com/azure/architecture/solution-ideas/articles/devsecops-in-azure)  ([#511e6ee92](https://github.com/MicrosoftDocs/architecture-center/commit/511e6ee92))
 
 ## August 2020
 
