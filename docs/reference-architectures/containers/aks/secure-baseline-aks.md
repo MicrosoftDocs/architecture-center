@@ -86,7 +86,7 @@ Some advantages of this topology are:
 
 -   Certain resources, such as a firewall and DNS can be shared across networks.
 
-![Network Topology](images/secure-baseline-architecture.svg)
+![hub-spoke network topology](images/secure-baseline-architecture.svg)
 
 #### Hub
 
@@ -124,7 +124,7 @@ For additional information, [Hub-spoke network topology in Azure](../../hybrid-n
 
 ### Plan the IP addresses
 
-![Network Topology](images/baseline-network-topology.png)
+![Network topology of the AKS cluster](images/baseline-network-topology.png)
 
 The address space of the virtual network should be large enough to hold all subnets. Account for all entities that will receive traffic. IP addresses for those entities will be allocated from the subnet address space. Consider these points.
 
@@ -178,7 +178,7 @@ Choose an idempotent declarative method over an imperative approach, where possi
 
 Make sure as you provision resources as per the governing policies. For example, when selecting the right VM sizes, stay within the cost constraints and availability zone options to match the requirements of your application.
 
-If you do need to write a sequence of commands, use [Azure CLI](/cli/azure/what-is-azure-cli?view=azure-cli-latest). These commands cover a range of Azure services and can be automated through scripting. Azure CLI is supported on Windows and Linux. Another cross-platform option is Azure PowerShell. Your choice will depend on your scripting language and tooling preference.
+If you do need to write a sequence of commands, use [Azure CLI](/cli/azure/what-is-azure-cli). These commands cover a range of Azure services and can be automated through scripting. Azure CLI is supported on Windows and Linux. Another cross-platform option is Azure PowerShell. Your choice will depend on your scripting language and tooling preference.
 
 Store and version scripts and template files in your source control system.
 
@@ -403,11 +403,15 @@ Keep the Kubernetes version up to date with the [supported N-2 versions](/azure/
 
 For more information, see [Regularly update to the latest version of Kubernetes](/azure/aks/operator-best-practices-cluster-security#regularly-update-to-the-latest-version-of-kubernetes) and [Upgrade an Azure Kubernetes Service (AKS) cluster](/azure/aks/upgrade-cluster).
 
+##### Weekly node image updates
+
 AKS provides new node images on a weekly basis. These images have the latest OS and runtime updates. These new images will not automatically be applied for you; you are in control of their deployment. It is recommended that you have a process to upgrade your node pools' base image weekly.
 
 For more information, see [Azure Kubernetes Service (AKS) node image upgrade](/azure/aks/node-image-upgrade) the [AKS Release Notes](https://github.com/Azure/AKS/releases).
 
-Between image upgrades, AKS nodes download and install OS and runtime patches once a day. Occasionally an update may require the node to be rebooted to fully apply. AKS will not reboot nodes for you due to p. Have a process that monitors nodes for applied updates that require a reboot and perform the reboot of those nodes in a controlled manner. An open-source option is [Kured](https://github.com/weaveworks/kured) (Kubernetes reboot daemon). Keeping your node images in sync with the latest weekly release will minimize these occasional reboot requests.
+##### Daily updates
+
+Between weekly image updates, AKS nodes download and install OS and runtime patches once a day. Occasionally an update may require the node to be rebooted to fully apply. AKS will not reboot nodes for you due to pending updates. Have a process that monitors nodes for applied updates that require a reboot and perform the reboot of those nodes in a controlled manner. An open-source option is [Kured](https://github.com/weaveworks/kured) (Kubernetes reboot daemon). Keeping your node images in sync with the latest weekly release will minimize these occasional reboot requests.
 
 #### Security monitoring
 
