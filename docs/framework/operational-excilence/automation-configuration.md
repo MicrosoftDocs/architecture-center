@@ -1,6 +1,6 @@
 ---
-title: Configure Infrastructure
-description: Configure Infrastructure
+title: Configure infrastructure
+description: Configure infrastructure
 author: neilpeterson
 ms.date: 09/02/2020
 ms.topic: article
@@ -12,9 +12,9 @@ ms.subservice: well-architected
 
 When working with Azure, many services can be created and configured programmatically using automation or infrastructure as code tooling. These tools access Azure through the exposed REST APIs or what we refer to as the [Azure control plane](https://docs.microsoft.com/azure/azure-resource-manager/management/control-plane-and-data-plane#control-plane). For example, an Azure Network Security Group can be deployed, and security group rules created using an Azure Resource Manager template. The Network Security Group and its configuration are exposed through the Azure control plane, and natively accessible.
 
-Other configurations, such as installing software on a virtual machine, adding data to a database, or starting pods in an Azure Kubernetes Service cluster can not be accessed through the Azure control plane and require a different set of configuration tools. We consider these configurations as being on the [Azure data plane](https://docs.microsoft.com/azure/azure-resource-manager/management/control-plane-and-data-plane#data-plane) side, or not exposed through Azure REST APIs. These data plane enabled tools use agents, networking, or other access methods to provide resource-specific configuration options. For example, when deploying a set of virtual machined to Azure, you may also want to install and configure a web server, stage content, and then make the content available on the internet. Furthermore, if the configuration of the virtual machine changes and no longer aligns with the configuration definition, you may want a configuration management system to remediate the configuration.
+Other configurations, such as installing software on a virtual machine, adding data to a database, or starting pods in an Azure Kubernetes Service cluster can not be accessed through the Azure control plane and require a different set of configuration tools. We consider these configurations as being on the [Azure data plane](https://docs.microsoft.com/azure/azure-resource-manager/management/control-plane-and-data-plane#data-plane) side, or not exposed through Azure REST APIs. These data plane enabled tools use agents, networking, or other access methods to provide resource-specific configuration options. 
 
-Many options are available for these data plane configuration options, this document details several and provides links for in-depth information. Many of the topics in this document are specific to configuring virtual machines; however, they can be extended to other Azure resource types in many cases.
+For example, when deploying a set of virtual machined to Azure, you may also want to install and configure a web server, stage content, and then make the content available on the internet. Furthermore, if the configuration of the virtual machine changes and no longer aligns with the configuration definition, you may want a configuration management system to remediate the configuration. Many options are available for these data plane configurations; this document details several and provides links for in-depth information.
 
 ## Bottstrap Virtula Machines
 
@@ -34,16 +34,48 @@ az vm extension set \
   --settings '{"commandToExecute": "apt-get install -y nginx"}'
 ```
 
-Take note, using an extension is a one-time operation. Once run, Azure extensions do not monitor the targeted resource or detect configuration change. If you need ongoing configuration management, consider the technology discussed under 'Configuration management' found in this document..
+Take note, using an extension is a one-time operation. Once run, Azure extensions do not monitor the targeted resource or detect configuration change. If you need ongoing configuration management, consider the technology discussed under 'Configuration management' found in this document.
 
 **Learn more**
 
 - More information about Azure VM extension: [Docs: Azure virtual machine extensions](https://docs.microsoft.com/azure/virtual-machines/extensions/overview)
-- Sample Azure Resource Manager Templates: [Code Samples: Configure VM during ARM deployent](https://docs.microsoft.com/samples/browse/?terms=arm%20templates)
+- Sample Azure Resource Manager Templates: [Code Samples: Configure VM with script extension during ARM deployent](https://docs.microsoft.com/samples/browse/?terms=arm%20templates)
 
-### Cloudinit
+### cloud-init
+
+cloud-init is an industry used tool for configuring Linux virtual machines on first boot. Much like the Azure custom script extension, cloud-init allows you to bootstrap Linux virtual machines with software installation, configurations, and content staging. Azure included many cloud-init enable marketplace images across many of the most well known Linux distributions. For a full list, see [cloud-init support for virtual machines in Azure](https://docs.microsoft.com/azure/virtual-machines/linux/using-cloud-init#canonical).
+
+To use cloud-init, create a text file named *cloud-init.txt* and enter your cloud-init configuration. In this example, the nginx package is added to the configuration.
+
+```yaml
+#cloud-config
+package_upgrade: true
+packages:
+  - nginx
+```
+
+Create a resource group for the virtual machine.
+
+```
+az group create --name myResourceGroupAutomate --location eastus
+```
+
+Create the virtual machine, specifying the *--custom-data* property with the cloud-inti configuration name.
+
+```
+az vm create \
+    --resource-group myResourceGroupAutomate \
+    --name myAutomatedVM \
+    --image UbuntuLTS \
+    --admin-username azureuser \
+    --generate-ssh-keys \
+    --custom-data cloud-init.txt
+```
 
 **Learn more**
+
+- More information about cloud-init: [Docs: cloud-init support for virtual machines in Azure](https://docs.microsoft.com/azure/virtual-machines/linux/using-cloud-init#canonical)
+- Sample Azure Resource Manager Templates: [Code Samples: Configure VM with cloud-inti during ARM deployent](https://docs.microsoft.com/samples/browse/?terms=arm%20templates)
 
 ## Configuration Management
 
