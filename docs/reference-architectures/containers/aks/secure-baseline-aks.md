@@ -399,11 +399,15 @@ The CSI driver has many providers to support various managed stores. In this imp
 
 #### Security updates
 
-Keep the Kubernetes version up to date with the supported N-2 versions. Upgrading to the latest version of Kubernetes is critical because new versions are released frequently. For more information, see [Supported Kubernetes version](/azure/aks/supported-kubernetes-versions).
-
-AKS downloads and installs OS patches frequently, and some may require the node VMs to be rebooted. Have a process that monitors the updates and reboots the nodes seamlessly. An open-source option is [Kured](https://github.com/weaveworks/kured) (Kubernetes reboot daemon).
+Keep the Kubernetes version up to date with the [supported N-2 versions](/azure/aks/supported-kubernetes-versions). Upgrading to the latest version of Kubernetes is critical because new versions are released frequently.
 
 For more information, see [Regularly update to the latest version of Kubernetes](/azure/aks/operator-best-practices-cluster-security#regularly-update-to-the-latest-version-of-kubernetes) and [Upgrade an Azure Kubernetes Service (AKS) cluster](/azure/aks/upgrade-cluster).
+
+AKS provides new node images on a weekly basis. These images have the latest OS and runtime updates. These new images will not automatically be applied for you; you are in control of their deployment. It is recommended that you have a process to upgrade your node pools' base image weekly.
+
+For more information, see [Azure Kubernetes Service (AKS) node image upgrade](/azure/aks/node-image-upgrade) the [AKS Release Notes](https://github.com/Azure/AKS/releases).
+
+Between image upgrades, AKS nodes download and install OS and runtime patches once a day. Occasionally an update may require the node to be rebooted to fully apply. AKS will not reboot nodes for you due to p. Have a process that monitors nodes for applied updates that require a reboot and perform the reboot of those nodes in a controlled manner. An open-source option is [Kured](https://github.com/weaveworks/kured) (Kubernetes reboot daemon). Keeping your node images in sync with the latest weekly release will minimize these occasional reboot requests.
 
 #### Security monitoring
 
