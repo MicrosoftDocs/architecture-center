@@ -411,7 +411,9 @@ For more information, see [Azure Kubernetes Service (AKS) node image upgrade](/a
 
 ##### Daily updates
 
-Between weekly image updates, AKS nodes individually download and install OS and runtime patches once a day. Occasionally an update may require the node to be rebooted to fully apply. AKS will not reboot nodes for you due to pending updates. Have a process that monitors nodes for applied updates that require a reboot and perform the reboot of those nodes in a controlled manner. An open-source option is [Kured](https://github.com/weaveworks/kured) (Kubernetes reboot daemon). Keeping your node images in sync with the latest weekly release will minimize these occasional reboot requests.
+Between weekly image updates, AKS nodes individually download and install OS and runtime patches once a day. Occasionally an update may require the node to be rebooted to fully apply. AKS will not reboot nodes for you due to pending updates. Have a process that monitors nodes for applied updates that require a reboot and perform the reboot of those nodes in a safe manner. An open-source option is [Kured](https://github.com/weaveworks/kured) (Kubernetes reboot daemon).
+
+Keeping your node images in sync with the latest weekly release will minimize these occasional reboot requests while still maintaining a heightened security posture. Relying just on node image upgrades will ensure AKS compatibility and weekly security patching. Whereas applying daily updates are generally safe and might close newly found security issues sooner, they haven't necessarily been tested in AKS. Where possible, use node image upgrade as your primary weekly security patching mechanism.
 
 #### Security monitoring
 
