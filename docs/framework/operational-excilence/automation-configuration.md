@@ -20,6 +20,8 @@ For example, when deploying a set of virtual machined to Azure, you may also wan
 
 When deploying a virtual machine, you may want to run a one-time command or script on the VM at deployment time or shortly after. Azure provides this capability with both Azure VM extensions and cloud-init.
 
+Take note, using an extensions and cloud-inti are 'one-time' operations. Once run, this tech does not monitor the targeted resource or detect configuration change. If you need ongoing configuration management, consider the technology discussed under 'Configuration management' found in this document.
+
 ### Azure VM extensions
 
 Azure virtual machine extensions are small packages that run post-deployment configuration and automation on Azure virtual machines. Several extensions are available for many different configuration tasks, such as running scripts, configuring antimalware solutions, and configuring logging solutions. These extensions can be installed and run on virtual machines using an ARM template, the Azure CLI, Azure PowerShell module, or the Azure portal. Each Azure VM has a VM Agent installed, and this agent manages the lifecycle of the extension.
@@ -36,12 +38,11 @@ az vm extension set \
   --settings '{"commandToExecute": "apt-get install -y nginx"}'
 ```
 
-Take note, using an extension is a one-time operation. Once run, Azure extensions do not monitor the targeted resource or detect configuration change. If you need ongoing configuration management, consider the technology discussed under 'Configuration management' found in this document.
-
 **Learn more**
 
-- [Docs: Azure virtual machine extensions](https://docs.microsoft.com/azure/virtual-machines/extensions/overview)
-- [Code Samples: Configure VM with script extension during ARM deployent](https://docs.microsoft.com/samples/browse/?terms=arm%20templates)
+[Docs: Azure virtual machine extensions](https://docs.microsoft.com/azure/virtual-machines/extensions/overview)
+
+[Code Samples: Configure VM with script extension during ARM deployent](https://docs.microsoft.com/samples/browse/?terms=arm%20templates)
 
 ### cloud-init
 
@@ -76,12 +77,11 @@ az vm create \
 
 **Learn more**
 
-- [Docs: cloud-init support for virtual machines in Azure](https://docs.microsoft.com/azure/virtual-machines/linux/using-cloud-init#canonical)
-- [Code Samples: Configure VM with cloud-inti during ARM deployent](https://docs.microsoft.com/samples/browse/?terms=arm%20templates)
+[Docs: cloud-init support for virtual machines in Azure](https://docs.microsoft.com/azure/virtual-machines/linux/using-cloud-init#canonical)
+
+[Code Samples: Configure VM with cloud-inti during ARM deployent](https://docs.microsoft.com/samples/browse/?terms=arm%20templates)
 
 ## Configuration Management
-
-**Learn more**
 
 ### Azure Automation State Configuration
 
@@ -109,8 +109,9 @@ Once imported into Azure State Configuration and assigned to nodes, the state co
 
 **Learn more**
 
-- [Docs: Get started with Azure Automation State Configuration](https://docs.microsoft.com/azure/virtual-machines/extensions/overview)
-- [Code Samples: Deploy DSC and VMs with an ARM tempalte](https://docs.microsoft.com/samples/browse/?terms=arm%20templates)
+[Docs: Get started with Azure Automation State Configuration](https://docs.microsoft.com/azure/virtual-machines/extensions/overview)
+
+[Code Samples: Deploy DSC and VMs with an ARM tempalte](https://docs.microsoft.com/samples/browse/?terms=arm%20templates)
 
 ### Chef
 
@@ -121,10 +122,6 @@ Once imported into Azure State Configuration and assigned to nodes, the state co
 **Learn more**
 
 ## Other automation
-
-### Azure CLI
-
-### Azure PowerShell module
 
 ### Azure deployment script resource
 
