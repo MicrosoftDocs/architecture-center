@@ -981,7 +981,7 @@ items:
     - name: Guides
       items:
       - name: FSLogix for the enterprise
-        href: example-scenario/wvd/wvd-fslogix.md
+        href: example-scenario/wvd/windows-virtual-desktop-fslogix.md
     - name: Architectures
       items:
       - name: Connect an on-premises network to Azure

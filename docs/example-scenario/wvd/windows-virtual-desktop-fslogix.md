@@ -190,8 +190,9 @@ Because of the resource utilization, it may be more cost effective to consider a
 
 Large multi-national Windows Virtual Desktop deployments could require availability of the users profile across different regions. So it's important to have the same profile available in the Azure region of the host pool.
 
-1. Azure Files offers the replication option of a storage account fail-over against the other region configured in your storage account redundancy plan. This is only supported for the standard storage account type using Geo-Redundent Storage (GRS). Other options to use are AzCopy or any other file copy mechanism such as *RoboCopy*.
-1. Azure NetApp Files offers cross-region replication. With this feature, you are able to replicate your FSLogix file share to another region over the Azure backbone.
+- Azure Files offers the replication option of a storage account fail-over against the other region configured in your storage account redundancy plan. This is only supported for the standard storage account type using Geo-Redundent Storage (GRS). Other options to use are AzCopy or any other file copy mechanism such as *RoboCopy*.
+
+- Azure NetApp Files offers cross-region replication. With this feature, you are able to replicate your FSLogix file share to another region over the Azure backbone.
 
 ## Backup and restore
 
