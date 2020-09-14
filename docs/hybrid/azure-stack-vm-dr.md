@@ -36,15 +36,9 @@ The cloud components of the proposed solution include the following services:
 
   >[!Note] The choice of the Azure region which is closest to the on-premises datacenter is specific to the sample scenario included in this reference architecture document. From a disaster recovery standpoint, it would be preferable to select an Azure region further away from the location hosting the production environment. The decision, however, might depend on additional factors, such as the need to minimize latency of regional data feeds or to satisfy data residency requirements.
 
-<<<<<<< HEAD
-- An Azure ExpressRoute circuit connecting the on-premises datacenters to the Azure region hosting the Azure Recovery Services vault, configured with private and Microsoft peering. The former ensures that the latency requirements following a failover during disaster recovery scenarios are satisfied. The purpose of the latter is to minimize the amount of time it takes to replicate changes between the on-premises workloads and the failover site in Azure.
-- An Azure Storage account that hosts blobs containing VHD files created by replication of operating system and data volumes of protected Azure Stack Hub VMs. These VHD files serve as the source for managed disks of Azure VMs which are automatically provisioned following a failover.
-- An Azure virtual network that will host the disaster recovery environment, configured in the manner that mirrors the virtual network environment in Azure Stack Hub hosting the production workloads, including such components as load balancers and network security groups. This virtual network is typically connected to the Azure Stack Hub virtual networks via an ExpressRoute connection to facilitate workload-level recovery.
-=======
 - An Azure ExpressRoute circuit connecting the on-premises datacenters to the Azure region hosting the Azure Recovery Services vault, configured with private peering and Microsoft peering. The former ensures that the latency requirements following a failover during disaster recovery scenarios are satisfied. The purpose of the latter is to minimize the amount of time it takes to replicate changes between the on-premises workloads and the failover site in Azure.
 - An Azure Storage account that hosts blobs containing VHD files created by replication of the operating system and data volumes of protected Azure Stack Hub VMs. These VHD files serve as the source for managed disks of Azure VMs which are automatically provisioned following a failover.
 - An Azure virtual network that will host the disaster recovery environment, configured in a manner that mirrors the virtual network environment in Azure Stack Hub hosting the production workloads, including components such as load balancers and network security groups. This virtual network is typically connected to the Azure Stack Hub virtual network via an ExpressRoute connection to facilitate workload-level recovery.
->>>>>>> d8bd24d0a29233c5196180478db7d7cb9ab5da54
 
   >[!Note] A site-to-site VPN connection might be sufficient in scenarios where Recovery Point Objectives (RPOs) requirements are less stringent.
 
@@ -141,7 +135,7 @@ Implementing the recommended solution is contingent on satisfying the following 
 
    >[!Note] You can change the port used by the process server for both external and internal connectivity as part of its configuration when running Azure Site Recovery Unified Setup.
 
-- Azure Stack Hub VMs to be protected, running any of the [supported operating systems](https://docs.microsoft.com/azure/site-recovery/azure-stack-site-- To protect Azure Stack Hub VMs that are running Windows Server operating systems, you must:
+- Azure Stack Hub VMs to be protected, running any of the [supported operating systems](https://docs.microsoft.com/azure/site-recovery/azure-stack-site-recovery) To protect Azure Stack Hub VMs that are running Windows Server operating systems, you must:
   - Create a Windows account with administrative rights. You can specify this account when you enable Azure Site Recovery on these VMs. The process server uses this account to install the Azure Site Recovery Mobility service. In a workgroup environment, make sure to disable Remote User Access control on target Windows Server operating systems by setting the value of the **LocalAccountTokenFilterPolicy** **DWORD** registry entry in the **HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\System** key to 1.
   - Enable File and Printer Sharing and Windows Management Instrumentation rules in Windows Defender firewall.
 - To protect Azure Stack Hub VMs that are running Linux operating systems, you must:
@@ -254,9 +248,6 @@ Alternatively, you have the option to use workload-specific replication mechanis
 
 When planning to deploy Azure Site Recovery on Azure Stack Hub, you need to consider the amount of processing, storage, and network resources allocated to the configuration and process servers. You might need to adjust the estimated sizing of the Azure Stack Hub VM hosting the Azure Site Recovery components post deployment to accommodate changes in processing or storage requirements. You have three basic options to adjust the sizing:
 
-<<<<<<< HEAD
-- Implement vertical scaling. This involves modifying the amount and type of processor, memory, and disk resources of the Azure Stack Hub VM hosting the configuration server including the process server. For details, refer to [Sizing and capacity requirements](https://docs.microsoft.com/azure/site-recovery/vmware-azure-configuration-server-requirements#sizing-and-capacity-requirements).
-=======
 - Implement vertical scaling. This involves modifying the amount and type of processor, memory, and disk resources of the Azure Stack Hub VM hosting the configuration server including the process server. To estimate resource requirements, you can use the information in the following table:
 
   *Table 1: Configuration and process server sizing requirements*
@@ -265,7 +256,6 @@ When planning to deploy Azure Site Recovery on Azure Stack Hub, you need to cons
    |8 vCPUs 2 sockets * 4 cores @ 2.5 GHz|16GB|300 GB|500 GB or less|< 100 machines|
    |12 vCPUs 2 sockets * 6 cores @ 2.5 GHz|18 GB|600 GB|500 GB-1 TB|100 to 150 machines|
    |16 vCPUs 2 sockets * 8 cores @ 2.5 GHz|32 GB|1 TB|1-2 TB|150-200 machines|
->>>>>>> d8bd24d0a29233c5196180478db7d7cb9ab5da54
 
 - Implement horizontal scaling. This involves provisioning or deprovisioning Azure Stack Hub VMs with the process server installed to match processing demands of protected Azure Stack Hub VMs. In general, if you have to scale your deployment to more than 200 source machines, or you have a total daily churn rate of more than two terabytes (TB), you need additional process servers to handle replication traffic. To estimate the number and configuration of additional process servers, refer to [Size recommendations for the process server](https://docs.microsoft.com/azure/site-recovery/site-recovery-plan-capacity-vmware#size-recommendations-for-the-process-server).
 
