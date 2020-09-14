@@ -8,7 +8,7 @@ ms.service: architecture-center
 ms.subservice: well-architected
 ---
 
-# Configure Infrastructure
+# Configure infrastructure
 
 When working with Azure, many services can be created and configured programmatically using automation or infrastructure as code tooling. These tools access Azure through the exposed REST APIs or what we refer to as the [Azure control plane](https://docs.microsoft.com/azure/azure-resource-manager/management/control-plane-and-data-plane#control-plane). For example, an Azure Network Security Group can be deployed, and security group rules created using an Azure Resource Manager template. The Network Security Group and its configuration are exposed through the Azure control plane, and natively accessible.
 
@@ -16,7 +16,9 @@ Other configurations, such as installing software on a virtual machine, adding d
 
 For example, when deploying a set of virtual machined to Azure, you may also want to install and configure a web server, stage content, and then make the content available on the internet. Furthermore, if the configuration of the virtual machine changes and no longer aligns with the configuration definition, you may want a configuration management system to remediate the configuration. Many options are available for these data plane configurations; this document details several and provides links for in-depth information.
 
-## Bottstrap Virtula Machines
+## Bootstrap virtual machines
+
+When deploying a virtual machine, you may want to run a one-time command or script on the VM at deployment time or shortly after. Azure provides this capability with both Azure VM extensions and cloud-init.
 
 ### Azure VM extensions
 
@@ -38,8 +40,8 @@ Take note, using an extension is a one-time operation. Once run, Azure extension
 
 **Learn more**
 
-- More information about Azure VM extension: [Docs: Azure virtual machine extensions](https://docs.microsoft.com/azure/virtual-machines/extensions/overview)
-- Sample Azure Resource Manager Templates: [Code Samples: Configure VM with script extension during ARM deployent](https://docs.microsoft.com/samples/browse/?terms=arm%20templates)
+- [Docs: Azure virtual machine extensions](https://docs.microsoft.com/azure/virtual-machines/extensions/overview)
+- [Code Samples: Configure VM with script extension during ARM deployent](https://docs.microsoft.com/samples/browse/?terms=arm%20templates)
 
 ### cloud-init
 
@@ -56,13 +58,13 @@ packages:
 
 Create a resource group for the virtual machine.
 
-```
+```azurecli
 az group create --name myResourceGroupAutomate --location eastus
 ```
 
 Create the virtual machine, specifying the *--custom-data* property with the cloud-inti configuration name.
 
-```
+```azurecli
 az vm create \
     --resource-group myResourceGroupAutomate \
     --name myAutomatedVM \
@@ -74,20 +76,41 @@ az vm create \
 
 **Learn more**
 
-- More information about cloud-init: [Docs: cloud-init support for virtual machines in Azure](https://docs.microsoft.com/azure/virtual-machines/linux/using-cloud-init#canonical)
-- Sample Azure Resource Manager Templates: [Code Samples: Configure VM with cloud-inti during ARM deployent](https://docs.microsoft.com/samples/browse/?terms=arm%20templates)
+- [Docs: cloud-init support for virtual machines in Azure](https://docs.microsoft.com/azure/virtual-machines/linux/using-cloud-init#canonical)
+- [Code Samples: Configure VM with cloud-inti during ARM deployent](https://docs.microsoft.com/samples/browse/?terms=arm%20templates)
 
 ## Configuration Management
 
 **Learn more**
 
-### Desired State Configuration
+### Azure Automation State Configuration
 
-Example DSC configuration status, as seen in an Azure Automation account.
+Azure Automation State Configuration is a configuration management solution built on top of PowerShell Desired State Configuration (DSC). State configuration works with Azure virtual machines, on-premises machines, and machiens in a cloud other than Azure. Using state configuration, you can import PowerShell DSC resources and assign them to many virtual from a central location. Once each endpoint has evaluated and / or applied the desired state, state compliance is reported back to Azure and can be seen on a built-in dashboard.
+
+The following example uses PowerShell DSC to ensure the NGINX has been installed on Linux systems.
+
+```powershell
+configuration linuxpackage {
+
+    Import-DSCResource -Module nx
+
+    Node "localhost" {
+        nxPackage nginx {
+            Name = "nginx"
+            Ensure = "Present"
+        }
+    }
+}
+```
+
+Once imported into Azure State Configuration and assigned to nodes, the state configuration dasboard provides compliance results.
 
 ![](./images/azure-dsc.png)
 
 **Learn more**
+
+- [Docs: Get started with Azure Automation State Configuration](https://docs.microsoft.com/azure/virtual-machines/extensions/overview)
+- [Code Samples: Deploy DSC and VMs with an ARM tempalte](https://docs.microsoft.com/samples/browse/?terms=arm%20templates)
 
 ### Chef
 
