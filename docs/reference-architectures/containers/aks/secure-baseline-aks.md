@@ -405,13 +405,13 @@ For more information, see [Regularly update to the latest version of Kubernetes]
 
 ##### Weekly node image updates
 
-AKS provides new node images on a weekly basis. These images have the latest OS and runtime updates. These new images will not automatically be applied for you; you are in control of their deployment. It is recommended that you have a process to upgrade your node pools' base image weekly.
+AKS provides [new node images every week](https://github.com/Azure/AKS/releases) which have the latest OS and runtime updates. These new images will not be automatically applied for you; you are in control of their deployment. Have a process to upgrade your node pools' base images weekly.
 
-For more information, see [Azure Kubernetes Service (AKS) node image upgrade](/azure/aks/node-image-upgrade) the [AKS Release Notes](https://github.com/Azure/AKS/releases).
+For more information, see [Azure Kubernetes Service (AKS) node image upgrade](/azure/aks/node-image-upgrade).
 
 ##### Daily updates
 
-Between weekly image updates, AKS nodes download and install OS and runtime patches once a day. Occasionally an update may require the node to be rebooted to fully apply. AKS will not reboot nodes for you due to pending updates. Have a process that monitors nodes for applied updates that require a reboot and perform the reboot of those nodes in a controlled manner. An open-source option is [Kured](https://github.com/weaveworks/kured) (Kubernetes reboot daemon). Keeping your node images in sync with the latest weekly release will minimize these occasional reboot requests.
+Between weekly image updates, AKS nodes individually download and install OS and runtime patches once a day. Occasionally an update may require the node to be rebooted to fully apply. AKS will not reboot nodes for you due to pending updates. Have a process that monitors nodes for applied updates that require a reboot and perform the reboot of those nodes in a controlled manner. An open-source option is [Kured](https://github.com/weaveworks/kured) (Kubernetes reboot daemon). Keeping your node images in sync with the latest weekly release will minimize these occasional reboot requests.
 
 #### Security monitoring
 
