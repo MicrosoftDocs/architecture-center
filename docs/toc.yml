@@ -702,6 +702,8 @@ items:
         href: reference-architectures/n-tier/linux-vm.md
       - name: Run a Windows VM on Azure
         href: reference-architectures/n-tier/windows-vm.md
+      - name: Solaris emulator on Azure VMs
+        href: solution-ideas/articles/solaris-azure.md
       - name: Reservoir simulations
         href: example-scenario/infrastructure/reservoir-simulation.md
       - name: CFD simulations
