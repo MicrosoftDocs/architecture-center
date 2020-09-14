@@ -12,7 +12,7 @@ ms.custom:
 
 # Microsoft FSLogix for the enterprise
 
-This design guide provides insights on the design, sizing, and implementation of Microsoft FSLogix profiles for large enterprises, as well as shows how to avoid performance problems in production. This article is an extension of the [Windows Virtual Desktop at enterprise scale](./windows-virtual-desktop.md) article.
+This article provides insights on designing, sizing, and implementing a Microsoft FSLogix Profile Container solution for large enterprises, as well as shows how to avoid performance problems in production. This article is an extension of the [Windows Virtual Desktop at enterprise scale](./windows-virtual-desktop.md) article.
 
 [FSLogix](https://docs.microsoft.com/fslogix/) is a set of solutions that enhance, enable, and simplify non-persistent Windows computing environments. FSLogix solutions are appropriate for virtual environments in both public and private clouds. These solutions may also be used to create more portable computing sessions when using physical devices.
 
@@ -22,13 +22,13 @@ For combining FSLogix with Windows Virtual Desktop as a desktop virtualization s
 
 It's common to copy a profile to and from the network, when a user signs in and out of a remote environment. Because user profiles can often be large, sign in and sign out times often became unacceptable. FSLogix Containers redirect user profiles to a network location. Profiles are placed in VHDx files and mounted at run time. Mounting and using a profile on the network eliminates delays often associated with solutions that copy files.
 
-The conceptual architecture diagram below shows how FSLogix works within the operating system. The agent needs to be installed in the VDI image. Once the installation is completed, two filter drivers are injected into the operating system. Thereafter, you can set appropriate registry (or [ADMX](https://docs.microsoft.com/microsoft-edge/deploy/managing-group-policy-admx-files)) entries, to place a VHDx container on a file system or [SMB](https://en.wikipedia.org/wiki/Server_Message_Block) share location.
+The conceptual architecture diagram below shows how FSLogix works within the operating system. The Windows Service agent needs to be installed in the VDI image. Once the installation is completed, two filter drivers are injected into the operating system. Thereafter, you can set appropriate registry (or [ADMX](https://docs.microsoft.com/microsoft-edge/deploy/managing-group-policy-admx-files)) entries, to place a VHDx container on a file system or [SMB](https://en.wikipedia.org/wiki/Server_Message_Block) share location (Azure Storage as shown in the diagram below).
 
 ![FSLogix conceptual architecture](./images/fslogix-concept.png)
 
 ## Profile Container and Office Container
 
-FSLogix [Profile Container](https://docs.microsoft.com/fslogix/configure-profile-container-tutorial) and [Office Container](https://docs.microsoft.com/fslogix/configure-office-container-tutorial) are the tools provided by Micrososft to store *roaming* user profiles in Windows Virtual Desktop.
+FSLogix [Profile Container](https://docs.microsoft.com/fslogix/configure-profile-container-tutorial) and [Office Container](https://docs.microsoft.com/fslogix/configure-office-container-tutorial) are the solutions provided by Microsoft to store *roaming* user profiles in Windows Virtual Desktop.
 
 The Office Container is a subset of Profile Container. Although all of the benefits of the Office Container are also available in the Profile Container, there are times when it may be beneficial to use them together. It's important to completely understand the configuration process, especially when using them together.
 
@@ -44,7 +44,7 @@ There are several reasons why Profile Container and Office Container may be used
 [Concurrent or multiple connections](https://docs.microsoft.com/fslogix/configure-concurrent-multiple-connections-ht) refers to a user connected to multiple sessions, in either multiple hosts or the same host, concurrently using the same profile. This should not be confused with the term *multi-session*, which refers to an operating system that supports multiple users to connect simultaneously.
 
 > [!NOTE]
-> Concurrent or multiple connections are always discouraged in Windows Virtual Desktop. The best practice is to create a different profile location for each session (as a host pool).
+> Concurrent or multiple connections are discouraged in Windows Virtual Desktop. The best practice is to create a different profile location for each session (as a host pool).
 
 Be aware of the following limitations of a multiple connection deployment:
 
@@ -57,7 +57,9 @@ Be aware of the following limitations of a multiple connection deployment:
 
 In terms of overall profile size, limitations or quotas for FSLogix depend on the storage type used for the user profile VHDx files, as well as the size limitations of the VHD/VHDx format.
 
-The following table gives an example of how many resources an FSLogix profile needs to support each user. Requirements can vary widely depending on the user, applications, and activity on each profile, so your actual usage may vary significantly from what is listed here. The table uses an example a single user. Use this to estimate requirements for the total number of users in your environment. For example, you may need around 1,000 IOPS (input/output operations per second) for 100 users, and around 5,000 IOPS during sign-in and sign-out, if a large number of users login during a short period of time creating a *login storm*.
+For network bandwidth, depending on the type of utilization, it is recommended to plan between 5 and 15 GB per user. Heavy Outlook users are often on the upper end.
+
+Additionally, the following table gives an example of how many resources an FSLogix profile needs to support each user. Requirements can vary widely depending on the user, applications, and activity on each profile, so your actual usage may vary significantly from what is listed here. The table uses an example a single user. Use this to estimate requirements for the total number of users in your environment. For example, you may need around 1,000 IOPS (input/output operations per second) for 100 users, and around 5,000 IOPS during sign-in and sign-out, if a large number of users login during a short period of time creating a *login storm*.
 
 |Resource              |Requirement|
 |----------------------|-----------|
@@ -75,18 +77,17 @@ Azure offers multiple storage solutions that you can use to store your FSLogix p
 The following are general best practices for FSLogix profile containers.
 
 - For optimal performance, the storage solution and the FSLogix profile container should be in the same data-center location.
-- Exclude the VHD(X) files for profile containers from antivirus scanning.
-- We recommend to use separate profile containers per host pool.
+- Exclude the VHD(X) files for profile containers from antivirus scanning, to avoid performance bottlenecks.
+- We recommend to use a separate profile container per host pool, while having two active sessions.
 
 ### Azure Files best practices
 
 The following list describes some important things to keep in mind when using Azure Files.
 
 - Azure Files storage account name cannot be larger than 15 characters.
-- The storage account must be in the same region as the session host virtual machines (VMs).
 - Azure Files permissions should match permissions described in [Requirements - Profile Containers](https://docs.microsoft.com/fslogix/fslogix-storage-config-ht).
-- The storage account containing the master image must be in the same region and subscription as the VMs being provisioned.
-- Private link for Azure storage could be used to improve the network latency from your session hosts to your storage account. This is also beneficial in hybrid scenarios with ExpressRoute connectivity.
+- The storage account containing the master image must be in the same region and subscription as the virtual machines (VMs) being provisioned.
+- Private link for Azure storage could be used to enable a more secure data access as well as to improve the network latency from your session hosts to your storage account. This is also beneficial in hybrid scenarios with ExpressRoute connectivity.
 - You can pre-provision space to your Azure Files Premium share to accommodate more IOPs for your users proactively. This allows you to use more IOPs during the initial user-logins.
 - Azure Files Premium tier has a built-in bursting mechanism that gives you thrice more IOPs for the first 60 minutes of a session.
 - Azure Files sync can be used to replicate existing profile containers into Azure Files easily.
@@ -108,7 +109,7 @@ The table below shows you how you can further optimize your WVD environment. Det
 
 Azure NetApp Files has been proven to be a great managed storage solution for FSLogix Profiles and Windows Virtual Desktop. The low latency and the high amount of IOPs is a great mixture for enterprises at scale.
 
-Currently, there's an IP connection limitation of 1000 IP connections per active VNet. This is applicable per VM and not per session. The following subsections can help you to proactively design your environment. Read [Benefits of using Azure NetApp Files with Windows Virtual Desktop](https://docs.microsoft.com/azure/azure-netapp-files/solutions-windows-virtual-desktop) for more information.
+Currently, up to 1000 IP connections per active VNet are possible. These are the open connections per VM over the VNet to the Azure Files; that is, this limitation is applicable per VM and not per session. The following subsections can help you to proactively design your environment. Read [Benefits of using Azure NetApp Files with Windows Virtual Desktop](https://docs.microsoft.com/azure/azure-netapp-files/solutions-windows-virtual-desktop) for more information.
 
 #### Pooled scenarios
 
