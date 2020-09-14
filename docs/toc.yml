@@ -702,13 +702,17 @@ items:
         href: reference-architectures/n-tier/linux-vm.md
       - name: Run a Windows VM on Azure
         href: reference-architectures/n-tier/windows-vm.md
+      - name: Solaris emulator on Azure VMs
+        href: solution-ideas/articles/solaris-azure.md
       - name: Reservoir simulations
         href: example-scenario/infrastructure/reservoir-simulation.md
       - name: CFD simulations
         href: example-scenario/infrastructure/hpc-cfd.md
   - name: Containers
     items:
-    - name: AKS Production Baseline
+    - name: AKS Solution Journey
+      href: reference-architectures/containers/aks-start-here.md
+    - name: AKS Baseline Cluster
       items:
       - name: Overview
         href: reference-architectures/containers/aks/secure-baseline-aks.md
@@ -722,12 +726,14 @@ items:
         href: reference-architectures/containers/aks/secure-baseline-aks.md#performance-efficiency
       - name: Cost Optimization
         href: reference-architectures/containers/aks/secure-baseline-aks.md#cost-optimization
-    - name: Microservices on AKS
+    - name: AKS Cluster Best Practices
+      href: /Azure/aks/best-practices
+    - name: AKS Workload Best Practices
+      href: /Azure/aks/best-practices#developer-best-practices
+    - name: AKS Example Solutions
       items:
-      - name: Microservices architecture on AKS
-        href: reference-architectures/containers/aks-microservices/aks-microservices.md
-    - name: Architectures 
-      items:
+        - name: Microservices architecture on AKS
+          href: reference-architectures/containers/aks-microservices/aks-microservices.md
         - name: Microservices with AKS and Azure DevOps
           href: solution-ideas/articles/microservices-with-aks.md
         - name: Secure DevOps for AKS
@@ -1228,6 +1234,14 @@ items:
         href: example-scenario/iot/cloud-to-device.md
       - name: Builders, developers, and operators
         href: example-scenario/iot/builders-developers-operators.md
+    - name: IoT patterns
+      items:        
+      - name: Measure and control loop
+        href: example-scenario/iot/measure-control-loop.md
+      - name: Monitor and manage loop
+        href: example-scenario/iot/monitor-manage-loop.md
+      - name: Analyze and optimize loop
+        href: example-scenario/iot/analyze-optimize-loop.md
       - name: Solution scaling with application stamps
         href: example-scenario/iot/application-stamps.md
   - name: Management and Governance
