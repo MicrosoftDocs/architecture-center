@@ -47,6 +47,10 @@ az vm extension set \
 
 ### Desired State Configuration
 
+Example DSC configuration status, as seen in an Azure Automation account.
+
+![](./images/azure-dsc.png)
+
 **Learn more**
 
 ### Chef
