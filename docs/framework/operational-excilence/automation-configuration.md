@@ -16,7 +16,7 @@ Other configurations, such as installing software on a virtual machine, adding d
 
 For example, when deploying a set of virtual machined to Azure, you may also want to install and configure a web server, stage content, and then make the content available on the internet. Furthermore, if the configuration of the virtual machine changes and no longer aligns with the configuration definition, you may want a configuration management system to remediate the configuration. Many options are available for these data plane configurations; this document details several and provides links for in-depth information.
 
-## Bootstrap automation in Azure
+## Bootstrap automation
 
 When deploying virtual machines, you may want to run a one-time command or script on the VM at deployment time or shortly after. Azure provides this capability with both Azure VM extensions and cloud-init. Take note, using extensions and cloud-inti are 'one-time' operations. Once run, this tech does not monitor the targeted resource or detect configuration change. If you need ongoing configuration management, consider the technology discussed under 'Configuration management' found in this document.
 
