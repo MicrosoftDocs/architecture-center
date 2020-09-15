@@ -26,7 +26,7 @@ Provide security assurance through _identity management_: the process of authent
 
 The recommendations in this article can be implemented through the use of Azure AD. 
 
-## Use a dingle enterprise directory
+## Use a single enterprise directory
 
 Have a single enterprise directory for managing identities of full-time employees and enterprise resources. For example, a single Azure AD directory instance can serve as the authoritative source for corporate and organizational accounts.
 
