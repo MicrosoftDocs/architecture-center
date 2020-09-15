@@ -1,10 +1,11 @@
 ---
 title: Move Azure resources across regions
-titleSuffix: Azure Example Scenarios
+titleSuffix: Azure Solution Ideas
 description: Learn the key steps, considerations, and strategies for moving Azure resources across regions by examining an example scenario.
 author: doodlemania2
-ms.date: 09/08/2020
-ms.topic: example-scenario
+ms.date: 09/15/2020
+ms.service: architecture-center
+ms.subservice: solution-idea
 ms.custom:
 - fcp
 ---
@@ -26,7 +27,7 @@ Some of the top reasons for moving resources to a different region include the f
 
 ## Architecture
 
-![Diagram architecture configuration.](./media/move-azure-resources-architecture-diagram.png)
+![Diagram architecture configuration.](../media/move-azure-resources-architecture-diagram.png)
 
 1. **On-premises data center network**: A private local-area network running within an organization to support the on-premises resources.
 2. **ExpressRoute circuit**: ExpressRoute connections use a private, dedicated connection through a third-party connectivity provider. The private connection extends an on-premises network into Azure.
