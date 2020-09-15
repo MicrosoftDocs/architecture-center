@@ -704,6 +704,8 @@ items:
         href: solution-ideas/articles/hybrid-hpc-in-azure-with-hpc-pack.md
       - name: Linux virtual desktops with Citrix
         href: example-scenario/infrastructure/linux-vdi-citrix.md
+      - name: Move Azure resources across regions
+        href: solution-ideas/articles/move-azure-resources-across-regions.md
       - name: Run a Linux VM on Azure
         href: reference-architectures/n-tier/linux-vm.md
       - name: Run a Windows VM on Azure
@@ -1326,8 +1328,6 @@ items:
         href: solution-ideas/articles/modern-customer-support-portal-powered-by-an-agile-business-process.md
       - name: Lift and shift with AKS
         href: solution-ideas/articles/modern-customer-support-portal-powered-by-an-agile-business-process.md
-      - name: Move Azure resources across regions
-        href: solution-ideas/articles/move-azure-resources-across-regions.md
       - name: Oracle database migration
         items:
         - name: Migration decision process
