@@ -1056,6 +1056,10 @@ items:
         href: high-availability/ref-arch-iaas-web-and-db.md     
   - name: Hybrid
     items:
+    - name: Guides
+      items:
+      - name: FSLogix for the enterprise
+        href: example-scenario/wvd/windows-virtual-desktop-fslogix.md
     - name: Architectures
       items:
       - name: Manage configurations for Azure Arc enabled servers
