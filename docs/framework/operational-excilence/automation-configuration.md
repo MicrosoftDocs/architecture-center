@@ -40,9 +40,8 @@ az vm extension set \
 
 **Learn more**
 
-[Docs: Azure virtual machine extensions](https://docs.microsoft.com/azure/virtual-machines/extensions/overview)
-
-[Code Samples: Configure VM with script extension during ARM deployent](https://docs.microsoft.com/samples/browse/?terms=arm%20templates)
+- [Docs: Azure virtual machine extensions](https://docs.microsoft.com/azure/virtual-machines/extensions/overview)
+- [Code Samples: Configure VM with script extension during ARM deployent](https://docs.microsoft.com/samples/browse/?terms=arm%20templates)
 
 ### cloud-init
 
@@ -77,9 +76,51 @@ az vm create \
 
 **Learn more**
 
-[Docs: cloud-init support for virtual machines in Azure](https://docs.microsoft.com/azure/virtual-machines/linux/using-cloud-init#canonical)
+- [Docs: cloud-init support for virtual machines in Azure](https://docs.microsoft.com/azure/virtual-machines/linux/using-cloud-init#canonical)
+- [Code Samples: Configure VM with cloud-inti during ARM deployent](https://docs.microsoft.com/samples/browse/?terms=arm%20templates)
 
-[Code Samples: Configure VM with cloud-inti during ARM deployent](https://docs.microsoft.com/samples/browse/?terms=arm%20templates)
+### Azure deployment script resource
+
+When performing Azure deployments, you may need to run arbitrary code for bootstrapping things like user accounts, Kubernetes pods, or querying data from a non-Azure system. Because none of these operations are accessible through the Azure control plane, some other mechanism is required for performing this automation. To run arbitrary code, with an Azure deployment, check out the `Microsoft.Resources/deploymentScripts` Azure resource.
+
+The deployment script resource behaves similar to any other Azure resource: 
+
+- Can be used in an ARM template 
+- Contain ARM template dependencies on other resources
+- Consume input, produce output
+- Use a user-assigned managed identity for authentication
+
+When deployed, the deployment script runs PowerShell or Azure CLI commands and scripts. Script execution and logging can be observed in the Azure portal or with the Azure CLI and PowerShell module. Many options can be configured like environment variables for the execution environment, timeout options, and what to do with the resource after a script failure.
+
+The following exmaple shows a deployment script resource configured to to run a PowerShell script that takes on one parameter value.
+
+```
+{
+    "type": "Microsoft.Resources/deploymentScripts",
+    "apiVersion": "2019-10-01-preview",
+    "name": "runPowerShellScript",
+    "location": "[resourceGroup().location]",
+    "kind": "AzurePowerShell",
+    "identity": {
+        "type": "UserAssigned",
+        "userAssignedIdentities": {"[parameters('identity')]": {}}
+    },
+    "properties": {
+        "forceUpdateTag": "1",
+        "azPowerShellVersion": "3.0",
+        "arguments": "[concat('-sqlServer ', parameters('sqlServer'))]",
+        "primaryScriptUri": "[variables('script')]",
+        "timeout": "PT30M",
+        "cleanupPreference": "OnSuccess",
+        "retentionInterval": "P1D"
+    }
+}
+```
+
+**Learn more**
+
+- [Docs: Use deployment scripts in templates](https://docs.microsoft.com/azure/virtual-machines/linux/using-cloud-init#canonical)
+- [Code Samples: Deployment script create and add key to Key Vult](https://docs.microsoft.com/samples/browse/?terms=arm%20templates)
 
 ## Configuration Management
 
@@ -109,9 +150,8 @@ Once imported into Azure State Configuration and assigned to nodes, the state co
 
 **Learn more**
 
-[Docs: Get started with Azure Automation State Configuration](https://docs.microsoft.com/azure/virtual-machines/extensions/overview)
-
-[Code Samples: Deploy DSC and VMs with an ARM tempalte](https://docs.microsoft.com/samples/browse/?terms=arm%20templates)
+- [Docs: Get started with Azure Automation State Configuration](https://docs.microsoft.com/azure/virtual-machines/extensions/overview)
+- [Code Samples: Deploy DSC and VMs with an ARM tempalte](https://docs.microsoft.com/samples/browse/?terms=arm%20templates)
 
 ### Chef
 
@@ -120,10 +160,6 @@ Once imported into Azure State Configuration and assigned to nodes, the state co
 ### Puppet
 
 **Learn more**
-
-## Other automation
-
-### Azure deployment script resource
 
 #### Next steps
 
