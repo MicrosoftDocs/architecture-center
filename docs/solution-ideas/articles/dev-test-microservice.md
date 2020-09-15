@@ -56,3 +56,5 @@ Microservices introduce complexities in the development cycle that aren't presen
 - [DevSecOps in Azure](/azure/architecture/solution-ideas/articles/devsecops-in-azure)
 - [DevTest and DevOps for IaaS solutions](dev-test-iaas.md)
 - [DevTest and DevOps for PaaS solutions](dev-test-paas.md)
+- [Set up AzureDevOps](https://www.visualstudio.com/docs/setup-admin/get-started)
+- [Create a lab in Azure DevTest Labs](/azure/lab-services/tutorial-create-custom-lab)

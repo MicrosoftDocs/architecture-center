@@ -61,3 +61,7 @@ Software solution development based on Azure Platform resources and services rem
 - [DevSecOps in Azure](/azure/architecture/solution-ideas/articles/devsecops-in-azure)
 - [DevTest and DevOps for IaaS solutions](dev-test-iaas.md)
 - [DevTest and DevOps for microservices](dev-test-microservice.md)
+- [Set up Azure DevOps](/azure/devops/get-started/?view=azure-devops)
+- [Create a lab in Azure DevTest Labs](/azure/lab-services/tutorial-create-custom-lab)
+- [Create a SQL database in minutes by using the Azure portal](/azure/sql-database/sql-database-single-database-get-started)
+- [How to create a web app with Azure Cache for Redis](/azure/azure-cache-for-redis/cache-web-app-howto)

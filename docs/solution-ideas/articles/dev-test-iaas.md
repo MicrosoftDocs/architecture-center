@@ -51,3 +51,6 @@ This solution shows the configuration of DevTest operations in an IaaS applicati
 - [DevSecOps in Azure](/azure/architecture/solution-ideas/articles/devsecops-in-azure)
 - [DevTest and DevOps for PaaS solutions](dev-test-paas.md)
 - [DevTest and DevOps for microservices](dev-test-microservice.md)
+- [Set up Azure DevOps](https://www.visualstudio.com/docs/setup-admin/get-started)
+- [Create a lab in Azure DevTest Labs](/azure/lab-services/tutorial-create-custom-lab)
+- [Create your first Windows virtual machine in the Azure portal](/azure/virtual-machines/windows/quick-create-portal)
