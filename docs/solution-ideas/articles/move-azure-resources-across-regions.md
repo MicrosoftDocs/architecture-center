@@ -29,21 +29,21 @@ Some of the top reasons for moving resources to a different region include the f
 
 ![Diagram architecture configuration.](../media/move-azure-resources-architecture-diagram.png)
 
-1. **On-premises data center network**: A private local-area network running within an organization to support the on-premises resources.
-2. **ExpressRoute circuit**: ExpressRoute connections use a private, dedicated connection through a third-party connectivity provider. The private connection extends an on-premises network into Azure.
-3. **Local edge routers**: Routers that connect the on-premises network to the circuit managed by the third-party provider. Depending on how you've provisioned your connection, you may need to provide the public IP addresses that the routers use.
-4. **Microsoft edge routers**: Two routers in an active-active highly available configuration. These routers enable a third-party connectivity provider to connect their circuits directly to their datacenter. Depending on how you've provisioned your connection, you may need to provide the public IP addresses that the routers use.
-5. **VPN Gateway**: By using the VPN gateway service, you can connect the virtual network to the on-premises network.
-6. **Active Directory subnet**: Most enterprise organizations have an Active Directory Domain Services (AD DS) environment in their on-premises datacenter. To facilitate management of assets moved to Azure from your on-premises network that depends on AD DS, consider hosting AD DS domain controllers in Azure in a central Virtual Network (VNET) hub that dependent workloads can access.
-7. **VNET Peering**: Multiple VNETs with peering between them. VNET peering allows for group applications in respective virtual networks, and provides a low latency high-bandwidth connection.
-8. **Multitiered web applications running in the cloud environment**: This example architecture is applicable to many industries that need to deploy resilient multitier applications in the cloud. In this scenario, the application consists of three layers:
+- **On-premises data center network**: A private local-area network running within an organization to support the on-premises resources.
+- **ExpressRoute circuit**: ExpressRoute connections use a private, dedicated connection through a third-party connectivity provider. The private connection extends an on-premises network into Azure.
+- **Local edge routers**: Routers that connect the on-premises network to the circuit managed by the third-party provider. Depending on how you've provisioned your connection, you may need to provide the public IP addresses that the routers use.
+- **Microsoft edge routers**: Two routers in an active-active highly available configuration. These routers enable a third-party connectivity provider to connect their circuits directly to their datacenter. Depending on how you've provisioned your connection, you may need to provide the public IP addresses that the routers use.
+- **VPN Gateway**: By using the VPN gateway service, you can connect the virtual network to the on-premises network.
+- **Active Directory subnet**: Most enterprise organizations have an Active Directory Domain Services (AD DS) environment in their on-premises datacenter. To facilitate management of assets moved to Azure from your on-premises network that depends on AD DS, consider hosting AD DS domain controllers in Azure in a central Virtual Network (VNET) hub that dependent workloads can access.
+- **VNET Peering**: Multiple VNETs with peering between them. VNET peering allows for group applications in respective virtual networks, and provides a low latency high-bandwidth connection.
+- **Multitiered web applications running in the cloud environment**: This example architecture is applicable to many industries that need to deploy resilient multitier applications in the cloud. In this scenario, the application consists of three layers:
 
    * **Web tier**: The top layer, including the user interface. This layer parses user interactions and passes the actions to the next layer for processing.
    * **Business or App tier**: Processes the user interactions and makes logical decisions about the next steps. This layer connects the web tier and the data tier.
    * **Data tier**: Stores the application data. In this case, a SQL database stores the data.
 
-9. **Internal load balancer**: Network traffic from the VPN gateway is routed to the cloud application through an [internal load balancer (ILB) endpoint](https://docs.microsoft.com/azure/application-gateway/configure-application-gateway-with-private-frontend-ip) located in the subnet of application tiers.
-10. **Platform as a Service (PaaS) resources**: In this example environment, there are a few PaaS services such as Azure IoT hub, Azure Key Vault, and Azure App Service.
+- **Internal load balancer**: Network traffic from the VPN gateway is routed to the cloud application through an [internal load balancer (ILB) endpoint](https://docs.microsoft.com/azure/application-gateway/configure-application-gateway-with-private-frontend-ip) located in the subnet of application tiers.
+- **Platform as a Service (PaaS) resources**: In this example environment, there are a few PaaS services such as Azure IoT hub, Azure Key Vault, and Azure App Service.
 
 ## Components
 
