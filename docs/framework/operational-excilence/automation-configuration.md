@@ -16,11 +16,11 @@ Other configurations, such as installing software on a virtual machine, adding d
 
 For example, when deploying a set of virtual machined to Azure, you may also want to install and configure a web server, stage content, and then make the content available on the internet. Furthermore, if the configuration of the virtual machine changes and no longer aligns with the configuration definition, you may want a configuration management system to remediate the configuration. Many options are available for these data plane configurations; this document details several and provides links for in-depth information.
 
-## Bootstrap virtual machines
+## Bootstrap automation in Azure
 
-When deploying a virtual machine, you may want to run a one-time command or script on the VM at deployment time or shortly after. Azure provides this capability with both Azure VM extensions and cloud-init.
+When deploying virtual machines, you may want to run a one-time command or script on the VM at deployment time or shortly after. Azure provides this capability with both Azure VM extensions and cloud-init. Take note, using extensions and cloud-inti are 'one-time' operations. Once run, this tech does not monitor the targeted resource or detect configuration change. If you need ongoing configuration management, consider the technology discussed under 'Configuration management' found in this document.
 
-Take note, using an extensions and cloud-inti are 'one-time' operations. Once run, this tech does not monitor the targeted resource or detect configuration change. If you need ongoing configuration management, consider the technology discussed under 'Configuration management' found in this document.
+When working with any Azure deployment, you may want to run arbitrary PowerShell, or Azure CLI commands with the deployment. Azure provides this capability using a deployment script resource.
 
 ### Azure VM extensions
 
@@ -123,6 +123,8 @@ The following exmaple shows a deployment script resource configured to to run a 
 - [Code Samples: Deployment script create and add key to Key Vult](https://docs.microsoft.com/samples/browse/?terms=arm%20templates)
 
 ## Configuration Management
+
+Configuration management tools can be used to configure and manage the configuration and state of Azure virtual machines. Three popular options are Azure Automation State Configuration, Chef, and Puppet.
 
 ### Azure Automation State Configuration
 
