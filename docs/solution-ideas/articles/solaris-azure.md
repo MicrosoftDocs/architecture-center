@@ -22,7 +22,7 @@ Running applications in an emulator on Azure has several benefits, such as reduc
 
 ## Architecture
 
-![Cognitive Search architecture to convert unstructured into structured data](../media/solaris.png)
+![Diagram showing the Charon-SSP and Solaris architecture.](../media/solaris.png)
 
 1. The Charon-SSP Director allows managing multiple server hosts, each potentially running one or more child Solaris VMs. This setup provides a single place of management as you scale out your farm of host VMs and their Solaris child VMs. Charon-SSP Manager provides an easy-to-use and intuitive graphical management interface.
 2. The Charon-SSP Agent runs on Linux distributions on Azure VMs. This component runs the child Solaris VMs and emulates the SPARC processor architecture.
