@@ -58,8 +58,8 @@ Take note, the Terraform provider for Azure is an abstraction on top of Azure AP
 
 ### Learn more
 
-- More information about Terraform on Azure: [Docs: Using Terraform on Azure](https://docs.microsoft.com/azure/developer/terraform/overview)
-- Sample Terraform configurations for Azure: [Code Samples: Terraform](https://docs.microsoft.com/samples/browse/?terms=Terraform)
+- [Docs: Using Terraform on Azure](https://docs.microsoft.com/azure/developer/terraform/overview)
+- [Code Samples: Terraform](https://docs.microsoft.com/samples/browse/?terms=Terraform)
 
 ## Tailwind case study
 
@@ -86,8 +86,8 @@ In support of the modernization effort, Tailwind Traders has adopted an infrastr
 
 Take a look at the tailwindtraders.com infrastructure as code configuration at the following links.
 
-- Tailwind ARM Template: [Code Samples: Tailwind ARM](https://docs.microsoft.com/azure/developer/terraform/overview)
-- Tailwind Terraform Configuration: [Code Samples: Tailwind Terraform](https://docs.microsoft.com/samples/browse/?terms=Terraform)
+- [Code Samples: Tailwind ARM](https://docs.microsoft.com/azure/developer/terraform/overview)
+- [Code Samples: Tailwind Terraform](https://docs.microsoft.com/samples/browse/?terms=Terraform)
 
 #### Next steps
 
