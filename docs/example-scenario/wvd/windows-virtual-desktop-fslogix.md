@@ -63,7 +63,7 @@ Additionally, the following table gives an example of how many resources an FSLo
 
 |Resource              |Requirement|
 |----------------------|-----------|
-|Steady state IOPS     |data       |
+|Steady state IOPS     |10         |
 |Sign-in/sign-out IOPS |50         |
 
 ### Storage options for FSLogix profile containers
@@ -213,7 +213,7 @@ Download the tool [here](https://github.com/FSLogix/Invoke-FslShrinkDisk).
 
 ## Best practice settings for enterprises
 
-The following settings are commonly used by our customers in their desktop virtualization environments.
+The following settings are commonly used by our customers in their desktop virtualization environments, above the mandatory registy settings such as Enabled and VHDLocations.
 
 |Setting    |Value    |Reason    |
 |-----------|---------|----------|
