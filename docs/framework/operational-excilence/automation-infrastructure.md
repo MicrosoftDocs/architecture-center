@@ -38,7 +38,7 @@ Azure Resource Manager (ARM) Templates provide an Azure native infrastructure as
 - Testing, validation, and change preview
 - Tooling
 
-### Learn more
+**Learn more**
 
 - [Docs: What are ARM templates](https://docs.microsoft.com/azure/azure-resource-manager/templates/overview)
 - [Learn: Deploy consistent infrastructure with ARM Templates](https://docs.microsoft.com/learn/modules/create-azure-resource-manager-template-vs-code/)
@@ -56,7 +56,7 @@ Terraform is a cloud-agnostic declarative framework that supports many private a
 
 Take note, the Terraform provider for Azure is an abstraction on top of Azure APIs. This abstraction is beneficial because the API complexities are obfuscated. This abstraction comes at a cost; the Terraform provider for Azure does not always provide parity with the Azure APIs' capabilities.
 
-### Learn more
+**Learn more**
 
 - [Docs: Using Terraform on Azure](https://docs.microsoft.com/azure/developer/terraform/overview)
 - [Code Samples: Terraform](https://docs.microsoft.com/samples/browse/?terms=Terraform)
@@ -82,7 +82,7 @@ In support of the modernization effort, Tailwind Traders has adopted an infrastr
 - Several database storage solutions
 - Azure Application Insights for application performance monitoring
 
-### Tailwind examples
+**Tailwind examples**
 
 Take a look at the tailwindtraders.com infrastructure as code configuration at the following links.
 
