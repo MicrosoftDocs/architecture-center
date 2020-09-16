@@ -55,7 +55,7 @@ This solution architecture combines reduced overhead and a DevOps toolchain to s
   - [GitHub Actions](https://github.com/features/actions) provide a suite of build and release workflows, covering continuous integration (CI), automated testing, and [Azure Resource Manager (ARM) template](/azure/azure-resource-manager/templates/overview) or container deployments.
   - [GitHub Packages](https://docs.github.com/packages/publishing-and-managing-packages/about-github-packages) package hosting service allows hosting software packages and using them as dependencies in projects.
   
-- [Azure Boards] is a service for managing work for software projects. Azure Boards brings a rich set of capabilities including native support for Scrum and Kanban, customizable dashboards, and integrated reporting.
+- [Azure Boards](https://azure.microsoft.com/services/devops/boards/) is a service for managing work for software projects. Azure Boards brings a rich set of capabilities including native support for Scrum and Kanban, customizable dashboards, and integrated reporting.
   
 - [Azure Pipelines](https://azure.microsoft.com/services/devops/pipelines/) deploys the VM application images. Pipelines can also deploy the VM resources themselves, through [Azure Resource Manager (ARM) templates](/azure/azure-resource-manager/templates/overview). This [infrastructure-as-code](/azure/devops/learn/what-is-infrastructure-as-code) can be source controlled and configured for CI/CD, ensuring that the infrastructure remains up to date.
   

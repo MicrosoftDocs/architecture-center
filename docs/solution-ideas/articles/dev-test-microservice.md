@@ -17,7 +17,7 @@ ms.subservice: solution-idea
 
 Microservice architectures design applications as collections of loosely coupled services. In a microservices architecture, services are fine-grained and protocols are lightweight. Microservices offer benefits such as clear separation of concerns and decoupling of dependencies.
 
-Microservices introduce complexities in the development cycle that aren't present in traditional monolithic applications. Traditional development occurs in a local or virtual replica of the application stack, which configures and runs compute and storage components locally in isolation. In a microservice model, developers must test their services against the existing architecture, catch integration issues early to save on build and deployment time, and keep integrated builds clean over the lifecycle of the application.
+Microservices introduce complexities in the development cycle compared to traditional monolithic applications. Traditionally, development occurs in a local or virtual replica of the application stack, which configures and runs compute and storage components locally in isolation. In a microservice model, developers need to test their services against the existing architecture, catch integration issues early to save on build and deployment time, and keep integrated builds clean over the lifecycle of the application.
 
 *Development testing (DevTest)* is a software development approach that integrates testing early in the development phase to speed development. *DevOps* is a set of practices that combine software development and IT operations to shorten the development cycle and provide high-quality continuous delivery (CD). [Kubernetes](https://kubernetes.io/) is an open-source container orchestration system for automating application deployments.
 
@@ -31,13 +31,13 @@ This solution architecture models a development and deployment environment that 
    
 2. Each microservice codebase uses a separate [GitHub](https://azure.microsoft.com/en-us/products/github) code repository for source control.
    
-3. [GitHub Actions](https://docs.github.com/en/actions/creating-actions/creating-a-docker-container-action) build the microservice container images and push them to [Azure Container Registries](/azure/container-registry/container-registry-intro). GitHub Actions also update the *latest* tag of repositories for continuous integration (CI), or tag repositories for release.
+3. [GitHub Actions](https://docs.github.com/en/actions/creating-actions/creating-a-docker-container-action) builds the microservice container images and pushes them to [Azure Container Registries](/azure/container-registry/container-registry-intro). GitHub Actions also updates the *latest* tag of repositories for continuous integration (CI), or tags repositories for release.
    
 4. GitHub Actions automated testing generates work items for [Azure Boards](https://github.com/marketplace/azure-boards), making all work items manageable in one place.
    
 5. [Visual Studio Code](https://code.visualstudio.com/) extensions integrate Azure Boards and GitHub. Associating Azure Boards work items with GitHub repos ties requirements to code, driving the development loop forward.
    
-6. Commits merged into the integration branch trigger GitHub Actions CI builds and [Docker](https://www.docker.com/) pushes to the DevTest container registries. Each microservice has its own repository in Container Registries, paralleling the GitHub repositories. CI builds are usually tagged with *latest*, representing the most recent successful microservice builds.
+6. Commits merged into the integration branch trigger GitHub Actions builds and [Docker](https://www.docker.com/) pushes to the DevTest container registries. Each microservice has its own repository in Container Registries, paralleling the GitHub repositories. CI builds are usually tagged with *latest*, representing the most recent successful microservice builds.
    
 7. [Azure Pipelines](/azure/devops/pipelines/ecosystems/kubernetes/aks-template) runs the Kubernetes `apply` command to trigger deployment of the updated Container Registry images to the DevTest Kubernetes clusters. Azure can authenticate AKS to run unattended Container Registry pulls, simplifying the CD process.
    
@@ -52,11 +52,11 @@ This solution architecture models a development and deployment environment that 
   
 - [GitHub](https://docs.github.com/github/creating-cloning-and-archiving-repositories/about-repositories) is a code hosting platform for version control and collaboration. A GitHub source-control [repository](https://docs.github.com/github/creating-cloning-and-archiving-repositories/about-repositories) contains all project files and their revision history. Developers can work together to contribute, discuss, and manage code in the repository.
   
-- [GitHub Actions](https://github.com/features/actions) provide a suite of build and release workflows, covering continuous integration (CI), automated testing, and container deployments.
+- [GitHub Actions](https://github.com/features/actions) provides a suite of build and release workflows, covering CI, automated testing, and container deployments.
   
-- [Azure Boards] is a service for managing work for software projects. Azure Boards brings a rich set of capabilities including native support for Scrum and Kanban, customizable dashboards, and integrated reporting.
+- [Azure Boards](https://azure.microsoft.com/services/devops/boards/) is a service for managing work for software projects. Azure Boards brings a rich set of capabilities including native support for Scrum and Kanban, customizable dashboards, and integrated reporting.
   
-- [Azure Pipelines](https://azure.microsoft.com/services/devops/pipelines/) is a fully-featured CI/CD service that can automatically deploy updated Container Registry images to Kubernetes clusters.
+- [Azure Pipelines](https://azure.microsoft.com/services/devops/pipelines/) is a fully featured CI/CD service that can automatically deploy updated Container Registry images to Kubernetes clusters.
   
 - Azure Pipelines uses [Azure Key Vault](/azure/devops/pipelines/release/azure-key-vault) to securely consume secrets like credentials and connections strings required for release and deployment configurations. For more information, see [DevSecOps in Azure](/azure/architecture/solution-ideas/articles/devsecops-in-azure).
   
@@ -68,10 +68,10 @@ This solution architecture models a development and deployment environment that 
   
 - [Azure Cosmos DB](/azure/cosmos-db/optimize-dev-test) is a fully managed, widely distributed database-as-a-service that supports high availability, multi-region applications, and both SQL and NoSQL APIs. Azure Cosmos DB includes DevTest features like a local Cosmos DB emulator that integrates with Azure DevOps, and low-cost tiers for managing costs in DevTest sandboxes.
   
-- [Azure Monitor](/azure/devtest-labs/security-baseline) can monitor VMs in both Production and DevTest environments. Azure Monitor can collect log data from VM operating systems as well as crash dump files, and aggregate them for viewing in [Azure Security Center](/azure/security-center/security-center-enable-data-collection).
+- [Azure Monitor](/azure/devtest-labs/security-baseline) can monitor both Production and DevTest environments. Azure Monitor collects log data from VM operating systems as well as crash dump files, and aggregates them for viewing in [Azure Security Center](/azure/security-center/security-center-enable-data-collection).
 
 ## Alternatives
-- [Azure Repos](https://azure.microsoft.com/services/devops/repos/) is an alternative to GitHub for Git repository hosting. With Azure Repos, Azure Boards, and Azure Pipelines, all Azure DevOps services are hosted in the same portal and user interface, consolidating the services developers need for DevOps activities.
+- [Azure Repos](https://azure.microsoft.com/services/devops/repos/) is an alternative to GitHub for Git repository hosting. With Azure Repos, Azure Boards, and Azure Pipelines, all Azure DevOps services use the same portal and user interface, consolidating the services developers need for DevOps activities.
   
 - Some integrations available in Azure Pipelines, such as service connection or authentication directly into the Azure backbone, don't currently exist in GitHub Actions. For these needs, consider using Azure Pipelines instead of GitHub Actions for CI and build activities.
   
