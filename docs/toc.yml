@@ -327,8 +327,12 @@ items:
         href: framework/security/law-authority.md
       - name: Administration
         href: framework/security/critical-impact-accounts.md        
-      - name: Identity and access management
-        href: framework/security/design-identity.md
+      - name: Identity
+        items:
+          - name: Identity and access management
+            href: framework/security/design-identity.md
+          - name: Best practices
+            href: /azure/security/fundamentals/identity-management-best-practices?bc=%2fazure%2farchitecture%2fbread%2ftoc.json&toc=%2fazure%2farchitecture%2ftoc.json
       - name: Networking
         items:
           - name: Network security review 
@@ -356,6 +360,8 @@ items:
       - name: Tools
       - name: Network access
         href: framework/security/monitor-network.md
+      - name: Monitor identity risk
+        href: framework/security/monitor-identity.md
       - name: DDoS attacks
     - name: Optimize
       items:
