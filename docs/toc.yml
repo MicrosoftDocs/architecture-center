@@ -345,12 +345,6 @@ items:
         href: framework/security/storage-data-encryption.md
       - name: Applications and services
         href: framework/security/applications-services.md
-    - name: Test
-      items:
-        - name: Penetration testing
-        - name: Threat modeling
-        - name: Simulate attacks
-        - name: Test your CI/CD pipelines
     - name: Monitor
       items:
       - name: Security operations
@@ -370,11 +364,7 @@ items:
         - name: Replace insecure protocols
           href: framework/security/governance.md
         - name: Elevate security capabilities
-          href: framework/security/governance.md        
-    - name: Tradeoffs
-      href: framework/security/role-of-security.md
-    - name: Checklist
-      href: framework/security/security-operations.md
+          href: framework/security/governance.md
 - name: Design Patterns
   items:
   - name: Overview
