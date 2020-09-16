@@ -18,6 +18,8 @@ For example, when deploying a set of virtual machined to Azure, you may also wan
 
 ## Bootstrap automation
 
+When deploying to Azure, you may need to run post-deployment virtual machine configuration or run other arbitrary code to bootstrap the resulting Azure resources. Several options are available for these bootstrapping tasks and are detailed in the following section of this document.
+
 ### Azure VM extensions
 
 Azure virtual machine extensions are small packages that run post-deployment configuration and automation on Azure virtual machines. Several extensions are available for many different configuration tasks, such as running scripts, configuring antimalware solutions, and configuring logging solutions. These extensions can be installed and run on virtual machines using an ARM template, the Azure CLI, Azure PowerShell module, or the Azure portal. Each Azure VM has a VM Agent installed, and this agent manages the lifecycle of the extension.
@@ -122,7 +124,7 @@ The following exmaple shows an ARM template snippet with the deployment script r
 
 ## Configuration Management
 
-Configuration management tools can be used to configure and manage the configuration and state of Azure virtual machines. Three popular options are Azure Automation State Configuration, Chef, and Puppet.
+Configuration management tools can be used to configure and manage the ongoing configuration and state of Azure virtual machines. Three popular options are Azure Automation State Configuration, Chef, and Puppet.
 
 ### Azure Automation State Configuration
 
@@ -155,11 +157,11 @@ Once imported into Azure State Configuration and assigned to nodes, the state co
 
 ### Chef
 
-**Learn more**
+Chef is an automation platform that helps define how your infrastructure is configured, deployed, and managed. Additional components included Chef Habitat for application lifecycle automation rather than the infrastructure, and Chef InSpec that helps automate compliance with security and policy requirements. Chef Clients are installed on target machines, with one or more central Chef Servers that store and manage the configurations. For more information, see [An Overview of Chef](https://docs.chef.io/chef_overview.html).
 
 ### Puppet
 
-**Learn more**
+Puppet is an enterprise-ready automation platform that handles the application delivery and deployment process. Agents are installed on target machines to allow Puppet Master to run manifests that define the desired configuration of the Azure infrastructure and VMs. Puppet can integrate with other solutions such as Jenkins and GitHub for an improved devops workflow. For more information, see [How Puppet works](https://puppet.com/products/how-puppet-works).
 
 #### Next steps
 

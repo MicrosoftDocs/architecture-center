@@ -40,9 +40,9 @@ Azure Resource Manager (ARM) Templates provide an Azure native infrastructure as
 
 ### Learn more
 
-- More information about Azure Resource Manager Templates: [Docs: What are ARM templates](https://docs.microsoft.com/azure/azure-resource-manager/templates/overview)
-- Guided learning experience: [Learn: Deploy consistent infrastructure with ARM Templates](https://docs.microsoft.com/learn/modules/create-azure-resource-manager-template-vs-code/)
-- Sample Azure Resource Manager Templates: [Code Samples: ARM templates](https://docs.microsoft.com/samples/browse/?terms=arm%20templates)
+- [Docs: What are ARM templates](https://docs.microsoft.com/azure/azure-resource-manager/templates/overview)
+- [Learn: Deploy consistent infrastructure with ARM Templates](https://docs.microsoft.com/learn/modules/create-azure-resource-manager-template-vs-code/)
+- [Code Samples: ARM templates](https://docs.microsoft.com/samples/browse/?terms=arm%20templates)
 
 ## Terraform
 
