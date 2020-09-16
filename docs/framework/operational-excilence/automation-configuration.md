@@ -18,17 +18,13 @@ For example, when deploying a set of virtual machined to Azure, you may also wan
 
 ## Bootstrap automation
 
-When deploying virtual machines, you may want to run a one-time command or script on the VM at deployment time or shortly after. Azure provides this capability with both Azure VM extensions and cloud-init. Take note, using extensions and cloud-inti are 'one-time' operations. Once run, this tech does not monitor the targeted resource or detect configuration change. If you need ongoing configuration management, consider the technology discussed under 'Configuration management' found in this document.
-
-When working with any Azure deployment, you may want to run arbitrary PowerShell, or Azure CLI commands with the deployment. Azure provides this capability using a deployment script resource.
-
 ### Azure VM extensions
 
 Azure virtual machine extensions are small packages that run post-deployment configuration and automation on Azure virtual machines. Several extensions are available for many different configuration tasks, such as running scripts, configuring antimalware solutions, and configuring logging solutions. These extensions can be installed and run on virtual machines using an ARM template, the Azure CLI, Azure PowerShell module, or the Azure portal. Each Azure VM has a VM Agent installed, and this agent manages the lifecycle of the extension.
 
 A typical VM extension use case would be to use a custom script extension to install software, run commands, and perform configurations on a virtual machine or virtual machine scale set. The custom script extension uses the Azure virtual machine agent to download and execute a script. The custom script extensions can be configured to run as part of infrastructure as code deployments such that the VM is created, and then the script extension is run on the VM. Extensions can also be run outside of an Azure deployment using the Azure CLI, PowerShell module, or the Azure portal.
 
-In the following example, the Azure CLI is used to run a command on a virtual machine.
+In the following example, the Azure CLI is used to deploy a custom script extension to a virtual machine. The script then installs Nginx.
 
 ```
 az vm extension set \
@@ -45,9 +41,9 @@ az vm extension set \
 
 ### cloud-init
 
-cloud-init is an industry used tool for configuring Linux virtual machines on first boot. Much like the Azure custom script extension, cloud-init allows you to bootstrap Linux virtual machines with software installation, configurations, and content staging. Azure included many cloud-init enable marketplace images across many of the most well known Linux distributions. For a full list, see [cloud-init support for virtual machines in Azure](https://docs.microsoft.com/azure/virtual-machines/linux/using-cloud-init#canonical).
+cloud-init is an known industry tool for configuring Linux virtual machines on first boot. Much like the Azure custom script extension, cloud-init allows you to install packages and run commands on Linux virtual machines. cloud-inint can be used for things like software installation, system configurations, and content staging. Azure includes many cloud-init enable marketplace virtual machine images across many of the most well known Linux distributions. For a full list, see [cloud-init support for virtual machines in Azure](https://docs.microsoft.com/azure/virtual-machines/linux/using-cloud-init#canonical).
 
-To use cloud-init, create a text file named *cloud-init.txt* and enter your cloud-init configuration. In this example, the nginx package is added to the configuration.
+To use cloud-init, create a text file named *cloud-init.txt* and enter your cloud-init configuration. In this example, the Nginx package is added to the cloud-init configuration.
 
 ```yaml
 #cloud-config
@@ -74,6 +70,8 @@ az vm create \
     --custom-data cloud-init.txt
 ```
 
+ On boot, cloud-init will use the systems native package management tool to install Nginx. 
+
 **Learn more**
 
 - [Docs: cloud-init support for virtual machines in Azure](https://docs.microsoft.com/azure/virtual-machines/linux/using-cloud-init#canonical)
@@ -92,7 +90,7 @@ The deployment script resource behaves similar to any other Azure resource:
 
 When deployed, the deployment script runs PowerShell or Azure CLI commands and scripts. Script execution and logging can be observed in the Azure portal or with the Azure CLI and PowerShell module. Many options can be configured like environment variables for the execution environment, timeout options, and what to do with the resource after a script failure.
 
-The following exmaple shows a deployment script resource configured to to run a PowerShell script that takes on one parameter value.
+The following exmaple shows an ARM template snippet with the deployment script resource configured to to run a PowerShell script.
 
 ```
 {
