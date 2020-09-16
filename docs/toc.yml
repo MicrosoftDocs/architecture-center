@@ -354,6 +354,7 @@ items:
       - name: Review and audit
         href: framework/security/governance.md
       - name: Tools
+        href: framework/security/monitor.md
       - name: Network access
         href: framework/security/monitor-network.md
       - name: DDoS attacks
