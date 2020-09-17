@@ -2,7 +2,7 @@
 title: Monitor tools in Azure | Microsoft Docs
 description: Monitor your data in Azure
 author: v-aangie
-ms.date: 09/17/2020
+ms.date: 09/20/2020
 ms.topic: article
 ms.service: architecture-center
 ms.subservice: well-architected
@@ -12,32 +12,29 @@ ms.subservice: well-architected
 
 Security provides confidentiality, integrity, and availability assurances against deliberate attacks and abuse of your valuable data and systems. Losing these assurances can negatively impact your business operations and revenue, as well as your organization’s reputation in the marketplace.
 
-This article describes some Azure tools that help monitor combat and monitor threats.
+Use this article to learn how to strengthen your security posture using the following monitor tools:
 
-- [**Azure Security Center**](#Prevent-detect-and-respond-to-threats) - Prevent, detect, and respond to threats with increased visibility into and control over the security of your resources.
-- [**Azure Sentinel**](#Detect-threats-early) - Receive intelligent security analytics and threat intelligence across the enterprise.
-- [**Azure DDoS protection**](#Protect-resources-against-DDoS-attacks) - Defend against DDoS attacks.
-- [**Azure rights management (RMS)**](#Protect-files-and-emails-across-multiple-devices) - Protect files and emails across multiple devices.
-- [**Azure information protection**](#Protect-sensitive-information) - Secure email, documents, and sensitive data that you share outside your company.
+- [**Azure Security Center**](https://docs.microsoft.com/azure/security-center/security-center-intro) - Prevent, detect, and respond to threats with increased visibility and control over the security of your resources.
+- [**Azure Sentinel**](https://docs.microsoft.com/azure/sentinel/overview) - Receive intelligent security analytics and threat intelligence across the enterprise.
+- [**Azure DDoS Protection**](https://docs.microsoft.com/azure/virtual-network/ddos-protection-overview) - Defend against DDoS attacks.
+- [**Azure Rights Management (RMS)**](https://docs.microsoft.com/azure/information-protection/what-is-azure-rms) - Protect files and emails across multiple devices.
+- [**Azure Information Protection**](https://docs.microsoft.com/azure/information-protection/what-is-information-protection) - Secure email, documents, and sensitive data that you share outside your company.
 
 ## Prevent, detect, and respond to threats
 
-[Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro) helps you prevent, detect, and respond to threats with increased visibility into and control over the security of your resources. It provides integrated security monitoring and policy management across your subscriptions, helps detect threats that might otherwise go unnoticed, and works with a broad ecosystem of security solutions. Azure Security Center also strengthens the security posture of your data centers.
+If your business has hybrid workloads, you may be experiencing weak security posture. For example, if you are deploying new resources across workloads, they may not be configured according to [security best practices](https://azure.microsoft.com/mediahandler/files/resourcefiles/security-best-practices-for-azure-solutions/Azure%20Security%20Best%20Practices.pdf). You may also need to continuously monitor the security status of the network in order to block unwanted connections that could potentially make it easier for an attacker to creep along your network.
 
-To strengthen security posture, you need to:
+[Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro) strengthens the security posture of your data centers, and provides advanced threat protection across your hybrid workloads in the cloud (whether they're in Azure or not) as well as on-premises.
 
-- Manage organization security policy and compliance.
-- Continuously assess if new resources that are being deployed across your workloads are configured according to [security best practices](https://azure.microsoft.com/mediahandler/files/resourcefiles/security-best-practices-for-azure-solutions/Azure%20Security%20Best%20Practices.pdf).
-- Continuously monitor the security status of your network.
-- Optimize and improve security by configuring recommended controls.
-
-For information on the Azure Security Center tools that will help to meet these requirements, see [Strengthen security posture](https://docs.microsoft.com/azure/security-center/security-center-intro#strengthen-security-posture).
+For information on the Azure Security Center tools, see [Strengthen security posture](https://docs.microsoft.com/azure/security-center/security-center-intro#strengthen-security-posture).
 
 For frequently asked questions on Azure Security Center, see [FAQ - General Questions](https://docs.microsoft.com/azure/security-center/faq-general).
 
 ## Detect threats early
 
-Azure Sentinel delivers intelligent security analytics and threat intelligence across the enterprise, providing a single solution for alert detection, threat visibility, proactive hunting, and threat response.
+Your business may be experiencing increasingly sophisticated attacks, increasing volumes of alerts, and long resolution timeframes.
+
+To combat these issues, [Azure Sentinel](https://docs.microsoft.com/azure/sentinel/overview) uses intelligent security analytics and threat intelligence to provide a single solution for alert detection, threat visibility, [proactive hunting](https://techcommunity.microsoft.com/t5/microsoft-security-and/threat-hunting-simplified-with-microsoft-threat-protection/ba-p/1216909), and threat response.
 
 Azure Sentinel's "birds-eye view" across the enterprise allows you to:
 
@@ -52,7 +49,7 @@ For information on the Azure Sentinel tools that will help to meet these require
 
 A Distributed Denial of Service (DDoS) attack attempts to exhaust an application's resources, making the application unavailable to legitimate users. DDoS attacks can be targeted at any endpoint that is publicly reachable through the internet.
 
-Azure DDoS protection, combined with application design best practices, provide defense against DDoS attacks. The service tier that is used (Basic or Standard) determines the available features.
+[Azure DDoS Protection](https://docs.microsoft.com/azure/virtual-network/ddos-protection-overview), combined with application design best practices, provide defense against DDoS attacks. The service tier that is used (Basic or Standard) determines the available features.
 
 DDos attack protection features include:
 
@@ -64,12 +61,18 @@ For types of DDoS attacks that DDoS Protection Standard mitigates as well as mor
 
 ## Protect files and emails across multiple devices
 
-Azure rights management (RMS) is a cloud-based protection service that uses encryption, identity, and authorization policies to help secure files and emails across multiple devices, including phones, tablets, and PCs.
+Your business may encounter challenges with protecting documents and emails. For example, file protection, collaboration, and sharing may be issues. You also might be experiencing problems regarding platform support or infrastructure.
 
-Identify business requirements or problems that your organization might have in protecting documents and emails. For example, file protection, collaboration, and sharing may be issues. You also might be experiencing issues regarding platform support or infrastructure.
+[Azure Rights Management (RMS)](https://docs.microsoft.com/azure/information-protection/what-is-azure-rms) is a cloud-based protection service that uses encryption, identity, and authorization policies to help secure files and emails across multiple devices, including phones, tablets, and PCs.
 
 To learn more about how RMS can address these issues, see [Business problems solved by Azure Rights Management](https://docs.microsoft.com/azure/information-protection/what-is-azure-rms#business-problems-solved-by-azure-rights-management).
 
-## Protect sensitive information
+## Classify and protect documents and emails
 
-see [WWhat is Azure Information Protection?](https://docs.microsoft.com/azure/information-protection/what-is-information-protection)
+Organizations that are weak on [*data classification*](https://docs.microsoft.com/azure/cloud-adoption-framework/govern/policy-compliance/data-classification) and *file protection* might be more susceptible to data leakage or data misuse.
+
+[Azure Information Protection (AIP)]((https://docs.microsoft.com/azure/information-protection/what-is-information-protection)) is a cloud-based solution that enables organizations to classify and protect documents and emails by applying labels.
+
+The *data classification* process categorizes data by sensitivity and business impact in order to identify risks. When data is classified, you can manage it in ways that protect sensitive or important data from theft or loss.
+
+With proper *file protection*, you can analyze data flows to gain insight into your business, detect risky behaviors and take corrective measures, track access to documents, and more. The protection technology in AIP uses encryption, identity, and authorization policies. Protection stays with the documents and emails, independently of the location, regardless of whether they are inside or outside your organization, networks, file servers, and applications.
