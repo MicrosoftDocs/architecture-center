@@ -57,7 +57,7 @@ Be aware of the following limitations of a multiple connection deployment:
 
 In terms of overall profile size, limitations or quotas for FSLogix depend on the storage type used for the user profile VHDx files, as well as the size limitations of the VHD/VHDx format.
 
-For network bandwidth, depending on the type of utilization, it is recommended to plan between 5 and 15 GB per user. Heavy Outlook users are often on the upper end.
+For network bandwidth, depending on the type of utilization it is recommended to plan between 5 and 30 MbPS per user. 
 
 Additionally, the following table gives an example of how many resources an FSLogix profile needs to support each user. Requirements can vary widely depending on the user, applications, and activity on each profile, so your actual usage may vary significantly from what is listed here. The table uses an example a single user. Use this to estimate requirements for the total number of users in your environment. For example, you may need around 1,000 IOPS (input/output operations per second) for 100 users, and around 5,000 IOPS during sign-in and sign-out, if a large number of users login during a short period of time creating a *login storm*.
 
