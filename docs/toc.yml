@@ -717,19 +717,7 @@ items:
     - name: AKS Solution Journey
       href: reference-architectures/containers/aks-start-here.md
     - name: AKS Baseline Cluster
-      items:
-      - name: Overview
-        href: reference-architectures/containers/aks/secure-baseline-aks.md
-      - name: Operational Excellence
-        href: reference-architectures/containers/aks/secure-baseline-aks.md#operational-excellence
-      - name: Security
-        href: reference-architectures/containers/aks/secure-baseline-aks.md#security
-      - name: Reliability
-        href: reference-architectures/containers/aks/secure-baseline-aks.md#reliability
-      - name: Performance Efficiency
-        href: reference-architectures/containers/aks/secure-baseline-aks.md#performance-efficiency
-      - name: Cost Optimization
-        href: reference-architectures/containers/aks/secure-baseline-aks.md#cost-optimization
+      href: reference-architectures/containers/aks/secure-baseline-aks.md
     - name: AKS Cluster Best Practices
       href: /Azure/aks/best-practices
     - name: AKS Workload Best Practices
