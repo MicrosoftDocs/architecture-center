@@ -345,12 +345,6 @@ items:
         href: framework/security/storage-data-encryption.md
       - name: Applications and services
         href: framework/security/applications-services.md
-    - name: Provision
-      items:
-      - name: Applications and services
-        href: framework/security/provision-app-services.md
-      - name: Storage
-        href: framework/security/provision-storage.md    
     - name: Monitor
       items:
       - name: Security operations
