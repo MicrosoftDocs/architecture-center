@@ -271,11 +271,11 @@ When planning to deploy Azure Site Recovery on Azure Stack Hub, you need to cons
 - Implement vertical scaling. This involves modifying the amount and type of processor, memory, and disk resources of the Azure Stack Hub VM hosting the configuration server including the process server. To estimate resource requirements, you can use the information in the following table:
 
   *Table 1: Configuration and process server sizing requirements*
-   |CPU|Memory|Cache disk|Data change rate|Protected machines|
-   |--|--|--|--|--|
-   |8 vCPUs 2 sockets * 4 cores @ 2.5 GHz|16GB|300 GB|500 GB or less|< 100 machines|
-   |12 vCPUs 2 sockets * 6 cores @ 2.5 GHz|18 GB|600 GB|500 GB-1 TB|100 to 150 machines|
-   |16 vCPUs 2 sockets * 8 cores @ 2.5 GHz|32 GB|1 TB|1-2 TB|150-200 machines|
+| CPU                                      | Memory | Cache disk | Data change rate | Protected machines  |
+|------------------------------------------|--------|------------|------------------|---------------------|
+| 8 vCPUs 2 sockets \* 4 cores @ 2\.5 GHz  | 16GB   | 300 GB     | 500 GB or less   | < 100 machines      |
+| 12 vCPUs 2 sockets \* 6 cores @ 2\.5 GHz | 18 GB  | 600 GB     | 500 GB\-1 TB     | 100 to 150 machines |
+| 16 vCPUs 2 sockets \* 8 cores @ 2\.5 GHz | 32 GB  | 1 TB       | 1\-2 TB          | 150\-200 machines   |
 
 - Implement horizontal scaling. This involves provisioning or deprovisioning Azure Stack Hub VMs with the process server installed to match processing demands of protected Azure Stack Hub VMs. In general, if you have to scale your deployment to more than 200 source machines, or you have a total daily churn rate of more than two terabytes (TB), you need additional process servers to handle replication traffic. To estimate the number and configuration of additional process servers, refer to [Size recommendations for the process server](https://docs.microsoft.com/azure/site-recovery/site-recovery-plan-capacity-vmware#size-recommendations-for-the-process-server).
 
@@ -295,7 +295,7 @@ From the networking standpoint, there are several different methods to adjust ba
   > For details regarding implementing Azure ExpressRoute in Azure Stack Hub scenarios, refer to [Connect Azure Stack Hub to Azure using Azure ExpressRoute](https://docs.microsoft.com/azure-stack/operator/azure-stack-connect-expressroute?view=azs-2002).
 
 - Modify throttling of replication traffic on the process server. You can control how much bandwidth is used by the replication traffic on the VMs that are hosting process servers from the graphical interface of the Microsoft Azure Recovery Services agent. The supported capabilities include setting the limits for work and non-work hours, with the bandwidth values ranging from 512 kilobits per second to 1,023 Mbps. Alternatively, you can apply the same configuration by using the **Set-OBMachineSetting** PowerShell cmdlet.
-- Modify network bandwidth allocated per protected VM on the process server. To accomplish this, modify the value of **UploadThreadsPerVM** entry within the **HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows Azure Backup\\Replication** key. By default, the value is set to 4, but you can increase it to 32 if there'senough network bandwidth available.
+- Modify network bandwidth allocated per protected VM on the process server. To accomplish this, modify the value of **UploadThreadsPerVM** entry within the **HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows Azure Backup\\Replication** key. By default, the value is set to 4, but you can increase it to 32 if there's enough network bandwidth available.
 
 ## Manageability considerations
 
