@@ -94,7 +94,7 @@ network-level controls?**
 
 **Risk**: Inability to enable security for other OSI model layers other than network and transport layer.
  
-Use [Azure Marketplace](/marketplace/apps/category/networking?page=1&subcategories=appliances) to provision devices for higher levels of network security than with network-level access controls.
+Use [Azure Marketplace](/azure/marketplace/) to provision devices for higher levels of network security than with network-level access controls.
 
 
 **How do you establish cross premises connectivity?**
