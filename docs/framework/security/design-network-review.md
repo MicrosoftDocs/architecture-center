@@ -62,7 +62,7 @@ Use [Azure Virtual Network User Defined Routes (UDR)](/azure/virtual-network/vir
 ***
 **Risk**: Possibility of not being able to select comprehensive solutions for secure network boundaries.
 
-Use [Network Appliances](https://azure.microsoft.com/en-us/solutions/network-appliances/) from Azure Marketplace to deploy a variety of preconfigured network virtual appliances. 
+Use [Network Appliances](https://azure.microsoft.com/solutions/network-appliances/) from Azure Marketplace to deploy a variety of preconfigured network virtual appliances. 
 
 Utilize [Application Gateway WAF](/azure/application-gateway/) to detect and protect against common web attacks.
 
