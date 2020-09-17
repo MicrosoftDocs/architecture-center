@@ -127,7 +127,7 @@ Employ [Azure Security Center](/azure/security-center/security-center-intro) for
 ***
 **Risk**: Inability to understand, diagnose, and gain insights to the network in Azure. 
 
-Use [Network Watcher](/network-watcher/network-watcher-monitoring-overview) to understand, diagnose, and gain insights to the network in Azure. 
+Use [Network Watcher](/azure/network-watcher/network-watcher-monitoring-overview) to understand, diagnose, and gain insights to the network in Azure. 
 
 **How do you gain access to real time performance information at the packet level?** 
 ***
