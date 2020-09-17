@@ -80,7 +80,7 @@ This solution architecture combines reduced overhead and a DevOps toolchain to s
 ## Considerations
 Developing an Azure SQL Database design that adequately supports the web app is an important consideration. Source control and versioning are as important for data schemas as for code and builds.
 
-Tools like [Entity Framework](/ef/) can source control schema changes via migrations. Migrations codify changes to the database structure and provide methods to both advance forward and roll back changes if issues occur.
+Tools like [Entity Framework](/ef/) can provide source control for schema changes via migrations. Migrations codify changes to the database structure and provide methods to both advance forward and roll back changes if issues occur.
 
 ## Alternatives
 - While this architecture uses Azure Pipelines for deployments, GitHub Actions can also perform PaaS deployments.
