@@ -71,7 +71,7 @@ To learn more about how RMS can address these issues, see [Business problems sol
 
 Organizations that are weak on [*data classification*](https://docs.microsoft.com/azure/cloud-adoption-framework/govern/policy-compliance/data-classification) and *file protection* might be more susceptible to data leakage or data misuse.
 
-[Azure Information Protection (AIP)]((https://docs.microsoft.com/azure/information-protection/what-is-information-protection)) is a cloud-based solution that enables organizations to classify and protect documents and emails by applying labels.
+[Azure Information Protection (AIP)](https://docs.microsoft.com/azure/information-protection/what-is-information-protection) is a cloud-based solution that enables organizations to classify and protect documents and emails by applying labels.
 
 The *data classification* process categorizes data by sensitivity and business impact in order to identify risks. When data is classified, you can manage it in ways that protect sensitive or important data from theft or loss.
 
