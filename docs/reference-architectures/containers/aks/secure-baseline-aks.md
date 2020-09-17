@@ -27,9 +27,6 @@ starting point and configure it as per your needs.
 >[!div class="box has-box-shadow-medium has-margin-none has-margin-small-desktop"]
 > #### Company profile
 > This architecture is built for a fictitious company, Contoso Bicycle. The company is a small and fast-growing startup that provides online web services to its clientele in the west coast, North America. The web services are already running on Azure. The IT teams need guidance about architectural recommendations for running their web services in an AKS cluster.
-> - [Organization structure](case-study-contoso.md#organization-structure)
-> - [Business requirements](case-study-contoso.md#business-requirements)
-> - [Design and technology choices](case-study-contoso.md#design-and-technology-choices)
 
 ### Recommended content
 
@@ -232,7 +229,7 @@ For the user node pool, here are some considerations:
     count without recreating the cluster.
 
 -   Actual node sizes for your workload will depend on the requirements
-    determined by the design team. Based on the [requirements of the Contoso Bicycle company](case-study-contoso.md#business-requirements), we chose DS4_v2 for the production workload. To lower costs
+    determined by the design team. Based on the requirements of the Contoso Bicycle company], we chose DS4_v2 for the production workload. To lower costs
     one could drop the size to DS3_v2, which is the minimum recommendation.
 
 -   When planning capacity for your cluster, assume that your workload can
