@@ -17,7 +17,7 @@ ms.subservice: solution-idea
 
 In *platform as a service (PaaS)* cloud computing, a service provider delivers a platform for clients to develop, run, and manage applications without having to build and maintain infrastructure. Solution development based on Azure Platform resources and services removes the overhead of managing virtual machines, virtual networks, disks, and related configurations.
 
-*Development testing (DevTest)* is a software development approach that integrates testing early in the development phase. *DevOps* is a set of practices that combine software development and IT operations, to shorten the development cycle and provide continuous delivery (CD) with high quality.
+*Development testing (DevTest)* is a software development approach that integrates testing early in the development phase. *DevOps* is a set of practices that combine software development and IT operations, to shorten the development cycle and provide continuous delivery with high quality.
 
 This solution architecture combines reduced overhead and a DevOps toolchain to support rapid DevTest iteration cycles and a fast development environment with PaaS resources.
 
@@ -35,7 +35,7 @@ This solution architecture combines reduced overhead and a DevOps toolchain to s
    
 5. Developers create feature or fix branches that associate work items with development sprints or cycles, tracking all code with tasks and requirements. With this approach, developers maintain an active development loop velocity that is critical to agile software development.
    
-6. [Azure Pipelines](/azure/devops/pipelines/get-started/pipelines-get-started) is the solution for Azure PaaS deployments. Azure Pipelines handles CD and release tasks, which consume the package versions exposed by GitHub Actions builds. Azure Pipelines uses [Azure Key Vault](/azure/devops/pipelines/release/azure-key-vault) to securely consume secrets like credentials and connection strings required for release and deployment configurations.
+6. [Azure Pipelines](/azure/devops/pipelines/get-started/pipelines-get-started) is the solution for Azure PaaS deployments. Azure Pipelines handles continuous deployment (CD) and release tasks, which consume the package versions exposed by GitHub Actions builds. Azure Pipelines uses [Azure Key Vault](/azure/devops/pipelines/release/azure-key-vault) to securely consume secrets like credentials and connection strings required for release and deployment configurations.
    
 7. Azure Pipelines deployment tasks specifically support Azure PaaS resources, including web application deployments:
    1. In conjunction with the continuous builds from GitHub Actions, a continuous release deploys the latest application build to a Development environment.
@@ -64,7 +64,7 @@ In this solution, a single [Azure Active Directory (Azure AD)](https://azure.mic
   - [GitHub Actions](https://github.com/features/actions) provide a suite of build and release workflows, covering continuous integration (CI), automated testing, and [Azure Resource Manager (ARM) template](/azure/azure-resource-manager/templates/overview) or container deployments.
   - [GitHub Packages](https://docs.github.com/packages/publishing-and-managing-packages/about-github-packages) package hosting service allows hosting software packages and using them as dependencies in projects.
   
-- [Azure Boards](https://azure.microsoft.com/services/devops/boards/) is a service for managing work for software projects. Azure Boards brings a rich set of capabilities including native support for Scrum and Kanban, customizable dashboards, and integrated reporting.
+- [Azure Boards](https://azure.microsoft.com/services/devops/boards/) is a service for managing work for software projects. Azure Boards brings a rich set of capabilities including native support for Scrum and Kanban methodologies, customizable dashboards, and integrated reporting.
   
 - [Azure Pipelines](https://azure.microsoft.com/services/devops/pipelines/) deploys the VM application images. Pipelines can also deploy the VM resources themselves, through [Azure Resource Manager (ARM) templates](/azure/azure-resource-manager/templates/overview). This [infrastructure-as-code](/azure/devops/learn/what-is-infrastructure-as-code) can be source controlled and configured for CI/CD, ensuring that the infrastructure remains up to date.
   
@@ -74,7 +74,7 @@ In this solution, a single [Azure Active Directory (Azure AD)](https://azure.mic
   
 - [Terraform](https://www.terraform.io/) is a third-party tool that provisions and modifies resources per environment. The current solution provisions an environment stack of Azure App Service, Azure Cache for Redis, and Azure SQL Database.
   
-  Terraform also allows cross-platform [infrastructure-as-code](/azure/devops/learn/what-is-infrastructure-as-code) configuration and deployment across Azure and other cloud providers. Infrastructure-as-code lets developers validate infrastructure changes the same way they validate code changes.
+  Terraform also supports cross-platform [infrastructure-as-code](/azure/devops/learn/what-is-infrastructure-as-code) configuration and deployment across Azure and other cloud providers. Infrastructure-as-code lets developers validate infrastructure changes the same way they validate code changes.
   
 - [Azure App Service](/azure/app-service/overview) is a fully managed web hosting service for building web apps. App Service supports DevOps capabilities like CD, package management, staging environments, custom domains, and TLS/SSL certificates.
   
@@ -89,7 +89,7 @@ In this solution, a single [Azure Active Directory (Azure AD)](https://azure.mic
 ## Considerations
 Developing an Azure SQL Database design that adequately supports the web app is an important consideration. Source control and versioning are as important for data schemas as for code and builds.
 
-Tools like [Entity Framework](/ef/) can provide source control for schema changes via migrations. Migrations codify changes to the database structure and provide methods to both advance forward and roll back changes if issues occur.
+Tools like [Entity Framework](/ef/) can provide source control for database schema changes via migrations. Migrations codify changes to the database structure and provide methods to both advance forward and roll back changes if issues occur.
 
 ## Alternatives
 - While this architecture uses Azure Pipelines for deployments, GitHub Actions can also perform PaaS deployments.

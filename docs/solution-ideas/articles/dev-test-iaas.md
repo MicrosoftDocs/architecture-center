@@ -33,7 +33,7 @@ ms.subservice: solution-idea
    
 5. Azure Boards work items come from automated testing, manual QA testing, and added features. Developers create feature branches and associate them with work items to track development, creating more iterations of the development loop.
    
-6. Azure Pipelines deploys builds to the low-cost [Azure DevTest Labs](https://azure.microsoft.com/pricing/dev-test/) environments, where developers and testers can rapidly provision VMs. [Azure Policy](/azure/governance/policy/concepts/recommended-policies) regulates and limits DevTest VM numbers and costs, and audits VM usage to provide insight and tracking.
+6. Azure Pipelines deploys builds to the low-cost [Azure DevTest Labs](https://azure.microsoft.com/pricing/dev-test/) subscription environments, where developers and testers can rapidly provision VMs. [Azure Policy](/azure/governance/policy/concepts/recommended-policies) regulates and limits DevTest VM numbers and costs, and audits VM usage to provide insight and tracking.
    
    Developers can deploy VMs as quickly as needed within the lab, while staying within resource and cost parameters set by managers and administrators. The flexibility of low-cost labs provides developers with all the environments they need for rapid iterative progress.
    
@@ -41,9 +41,9 @@ ms.subservice: solution-idea
    
 7. As the developed VM images reach a release state, Azure Pipelines triggers releases, which generalize the targeted images for destinations like [virtual machine scale sets](https://azure.microsoft.com/services/virtual-machine-scale-sets/), and promotes them out of DevTest and into a Production environment.
    
-   - [User Acceptance Testing (UAT)](https://wikipedia.org/wiki/Acceptance_testing#User_acceptance_testing) validates a staged VM or virtual machine scale set before deployment to Production.
+   [User Acceptance Testing (UAT)](https://wikipedia.org/wiki/Acceptance_testing#User_acceptance_testing) validates a staged VM or virtual machine scale set before deployment to Production.
    
-   - Approvals are usually required for releases to higher-cost, client-facing Production destinations. Production remains isolated and protected from inadvertent or unapproved deployments.
+   Approvals are usually required for releases to higher-cost, client-facing Production destinations. Production remains isolated and protected from inadvertent or unapproved deployments.
 
 This scenario uses a separate DevTest and Production [Azure Active Directory (Azure AD)](https://azure.microsoft.com/services/active-directory/) per subscription to create a distinct separation of concerns. To meet compliance requirements, the Production subscription's Azure AD might need to include a smaller cross section of users than the DevTest Azure AD.
 
@@ -63,7 +63,7 @@ This scenario uses a separate DevTest and Production [Azure Active Directory (Az
   
 - [Azure Key Vault](/azure/key-vault/general/basic-concepts) securely stores and tightly controls access to secrets like API keys, passwords, and certificates. For more information about Key Vault in DevOps scenarios, see [DevSecOps in Azure](devsecops-in-azure.md).
   
-- [Azure Boards](https://azure.microsoft.com/services/devops/boards/) is a service for managing work for software projects. Azure Boards brings a rich set of capabilities, including native support for Scrum and Kanban, customizable dashboards, and integrated reporting.
+- [Azure Boards](https://azure.microsoft.com/services/devops/boards/) is a service for managing work for software projects. Azure Boards brings a rich set of capabilities, including native support for Scrum and Kanban methodologies, customizable dashboards, and integrated reporting.
   
 - [Azure Active Directory (Azure AD)](/azure/active-directory/fundamentals/active-directory-whatis) enterprise identity platform provides single sign-on and multifactor authentication to govern user access to resources. In this scenario, a separate Azure AD per subscription creates a distinct separation of concerns between Azure users.
   

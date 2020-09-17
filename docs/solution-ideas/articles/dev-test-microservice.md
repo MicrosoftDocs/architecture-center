@@ -19,7 +19,7 @@ Microservice architectures design applications as collections of loosely coupled
 
 Microservices introduce complexities in the development cycle compared to traditional monolithic applications. Traditionally, development occurs in a local or virtual replica of the application stack, which configures and runs compute and storage components locally in isolation. In a microservice model, developers need to test their services against the existing architecture, catch integration issues early to save on build and deployment time, and keep integrated builds clean over the lifecycle of the application.
 
-*Development testing (DevTest)* is a software development approach that integrates testing early in the development phase to speed development. *DevOps* is a set of practices that combine software development and IT operations to shorten the development cycle and provide high-quality continuous delivery (CD). [Kubernetes](https://kubernetes.io/) is an open-source container orchestration system for automating application deployments.
+*Development testing (DevTest)* is a software development approach that integrates testing early in the development phase to speed development. *DevOps* is a set of practices that combine software development and IT operations to shorten the development cycle and provide high-quality continuous delivery. [Kubernetes](https://kubernetes.io/) is an open-source container orchestration system for automating application deployments.
 
 This solution architecture models a development and deployment environment that uses DevOps in DevTest for rapid iterative development of an [Azure Kubernetes Service (AKS)](https://azure.microsoft.com/services/kubernetes-service/) microservice application. 
 
@@ -39,7 +39,7 @@ This solution architecture models a development and deployment environment that 
    
 6. Commits merged into the integration branch trigger GitHub Actions builds and [Docker](https://www.docker.com/) pushes to the DevTest container registries. Each microservice has its own repository in Container Registries, paralleling the GitHub repositories. CI builds are usually tagged with *latest*, representing the most recent successful microservice builds.
    
-7. [Azure Pipelines](/azure/devops/pipelines/ecosystems/kubernetes/aks-template) runs the Kubernetes `apply` command to trigger deployment of the updated Container Registry images to the DevTest Kubernetes clusters. Azure can authenticate AKS to run unattended Container Registry pulls, simplifying the CD process.
+7. [Azure Pipelines](/azure/devops/pipelines/ecosystems/kubernetes/aks-template) runs the Kubernetes `apply` command to trigger deployment of the updated Container Registry images to the DevTest Kubernetes clusters. Azure can authenticate AKS to run unattended Container Registry pulls, simplifying the continuous deployment (CD) process.
    
    Azure Pipelines uses [Azure Key Vault](/azure/devops/pipelines/release/azure-key-vault) to securely consume secrets like credentials and connection strings required for release and deployment configurations.
    
@@ -49,9 +49,11 @@ This solution architecture models a development and deployment environment that 
    
 10. Azure Pipelines creates a release to Production. The pipeline imposes approval gates and pre-stage and post-stage conditions to protect the Production environment from inadvertent or incorrect deployment.
 
-In this solution, a single [Azure Active Directory (Azure AD)](https://azure.microsoft.com/services/active-directory/) manages identity for both the DevTest and Production subscriptions. [Role-based access control (RBAC)](/azure/role-based-access-control/overview) restricts access to protected resources, preventing unauthorized or inadvertent modification of Production resources. Developers don't have the same access control levels in Production as in their DevTest sandboxes.
+The application uses [Azure Cosmos DB] for its globally distributed database tier.
 
-[Azure Monitor](/azure/devtest-labs/security-baseline) works across subscriptions to monitor all environments and collect logs and crash dump reports.
+All services and environments report metrics to [Azure Monitor](/azure/devtest-labs/security-baseline).
+
+In this solution, a single [Azure Active Directory (Azure AD)](https://azure.microsoft.com/services/active-directory/) manages identity for both the DevTest and Production subscriptions. [Role-based access control (RBAC)](/azure/role-based-access-control/overview) restricts access to protected resources, preventing unauthorized or inadvertent modification of Production resources. Developers don't have the same access control levels in Production as in their DevTest sandboxes.
 
 ## Components
 
@@ -61,7 +63,7 @@ In this solution, a single [Azure Active Directory (Azure AD)](https://azure.mic
   
 - [GitHub Actions](https://github.com/features/actions) provides a suite of build and release workflows, covering CI, automated testing, and container deployments.
   
-- [Azure Boards](https://azure.microsoft.com/services/devops/boards/) is a service for managing work for software projects. Azure Boards brings a rich set of capabilities including native support for Scrum and Kanban, customizable dashboards, and integrated reporting.
+- [Azure Boards](https://azure.microsoft.com/services/devops/boards/) is a service for managing work for software projects. Azure Boards brings a rich set of capabilities including native support for Scrum and Kanban methodologies, customizable dashboards, and integrated reporting.
   
 - [Azure Pipelines](https://azure.microsoft.com/services/devops/pipelines/) is a fully featured CI/CD service that can automatically deploy updated Container Registry images to Kubernetes clusters.
   
