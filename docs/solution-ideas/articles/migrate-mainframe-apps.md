@@ -18,7 +18,7 @@ social_image_url: /azure/architecture/solution-ideas/media/migrate-mainframe-app
 
 TmaxSoft OpenFrame is a popular mainframe rehosting solution that makes it easy to lift existing IBM zSeries mainframe assets and shift them to Microsoft Azure. This lift-and-shift operation uses a no-code approach. It takes an existing application, as is. It then quickly migrates the app to a zSeries mainframe emulation environment on Azure.
 
-This reference architecture illustrates how the TmaxSoft OpenFrame solution runs on Azure. The approach consists of two virtual machines (VMs) running Linux in an active-active configuration. An Azure Load Balancer distributes incoming traffic between the VMs. These VMs then run OpenFrame emulation software to provide the zSeries facilities and application emulation runtime. An Azure SQL Database works with the OpenFrame software, providing a modernized database layer that includes built-in business continuity features.
+This reference architecture illustrates how the TmaxSoft OpenFrame solution runs on Azure. The approach consists of two virtual machines (VMs) running Linux in an active-active configuration. An Azure Load Balancer distributes incoming traffic between the VMs. OpenFrame emulation software runs on the VMs to provide the zSeries facilities and application emulation runtime. An Azure SQL Database works with the OpenFrame software, providing a modernized database layer that includes built-in business continuity features.
 
 ## Potential use cases
 
@@ -36,7 +36,7 @@ Many scenarios can benefit from lift-and-shift. Possibilities include the follow
    Architecture diagram highlighting security checks that run in a GitHub DevSecOps environment. After Azure AD authenticates developers, Codespaces run security scans. GitHub Actions then test security and encrypt sensitive data. In production, Azure Policy, Azure Security Center, and Azure Monitor evaluate deployed software for risks.
 :::image-end:::
 
-1. On-premises users interact with OpenFrame applications by using 3270 WebTerminal, OFManager, and OFStudio:
+1. On-premises users interact with [OpenFrame][Information about TmaxSoft OpenFrame on the Microsoft commercial marketplace] applications by using 3270 WebTerminal, OFManager, and OFStudio:
 
    - The web application 3270 WebTerminal runs in browsers like Edge or Internet Explorer. This app provides a way to access 3270 terminal online screens, or Customer Information Control System (CICS) Information Management System - Data Communications (IMS-DC) screens. The 3270 WebTerminal app eliminates the need for TN3270 terminal emulation software.
    - OFManager provides tools for executing, monitoring, and managing batch workloads. This web application also monitors and manages datasets and security systems.
@@ -44,16 +44,16 @@ Many scenarios can benefit from lift-and-shift. Possibilities include the follow
 
    Azure ExpressRoute creates private connections between Azure and the on-premises infrastructure.
 
-1. Azure system users access OpenFrame web-based applications through TLS connections that use port 443:
+1. Azure system users access OpenFrame web-based applications through Transport Layer Security (TLS) connections that use port 443:
    - After migration, the web application presentation layer remains virtually unchanged. As a result, end users require minimal retraining. Alternatively, the web application presentation layer can be outfitted with modern UX frameworks if user requirements necessitate updates.
-   - Azure virtual machine Bastion hosts can maximize security by minimizing open ports when giving administrators access to virtual machines.
-   - OpenFrame provides middleware integration, for use with Web Services and message queues (MQs), for example.
+   - [Azure virtual machine Bastion hosts][What is Azure Bastion] can maximize security by minimizing open ports when giving administrators access to virtual machines.
+   - OpenFrame provides middleware integration, for use with web services and [message queues (MQs)][Message queues], for example.
 
 1. The TmaxSoft solution uses two virtual machines, with each one running an application server. An Azure Load Balancer manages traffic approaching the virtual machines. OpenFrame supports both active-active and active-passive configurations.
 1. OpenFrame language compilers migrate COBOL, Assembler, PL/I, Easytrieve, and other mainframe applications to Azure by recompiling the source.
 1. OpenFrame Online provides tools and commands that replace CICS, IMS-DC, Application Development and Maintenance (ADM), and Application Infrastructure and Middleware (AIM) technologies.
 1. OpenFrame Batch provides tools for managing batch programs that replace the job entry subsystem (JES). By supporting native Job Control Language (JCL) syntax and batch utilities, OpenFrame Batch minimizes the need to update code.
-1. Tivoli Access Control Facility (TACF) Security provides authentication and authorization features in OpenFrame by extracting and migrating mainframe security rules.
+1. [Tivoli Access Control Facility (TACF)][TACF] Security provides authentication and authorization features in OpenFrame by extracting and migrating mainframe security rules.
 1. UnixODBC (Open Database Connectivity) connection drivers establish connectivity and communication with relational database management systems (RDBMSs), such as Azure SQL Database, Microsoft SQL Server, Oracle, Db2 LUW, Tibero, Postgres, and MySQL.
 1. Azure File Share is mounted on the Linux server VMs. As a result, COBOL programs have easy access to the Azure Files repository for file processing. Load modules and various log files also use Azure File Share.
 1. OpenFrame can integrate with any RDBMS. Examples include Azure SQL Database, SQL Server, Oracle, Db2 LUW, Tibero, Postgres, and MySQL. OpenFrame uses ODBC connection drivers to communicate with the installed database.
@@ -72,8 +72,8 @@ Many scenarios can benefit from lift-and-shift. Possibilities include the follow
 ## Next steps
 
 - Contact legacy2azure@microsoft.com for more information.
-- Go to the Microsoft commercial marketplace for more information about [TmaxSoft OpenFrame][Information about TmaxSoft OpenFrame on the Microsoft commercial marketplace].
-- Read how to [install TmaxSoft OpenFrame on Azure][Install TmaxSoft OpenFrame on Azure article].
+- See [TmaxSoft OpenFrame][Information about TmaxSoft OpenFrame on the Microsoft commercial marketplace] on the Azure marketplace.
+- Read how to install [TmaxSoft OpenFrame on Azure][Install TmaxSoft OpenFrame on Azure article].
 
 ## Related resources
 - [Mainframe rehosting on Azure virtual machines][Mainframe rehosting on Azure virtual machines]
@@ -92,3 +92,6 @@ Many scenarios can benefit from lift-and-shift. Possibilities include the follow
 [Lift-and-Shift Me Up: The Benefits of Mainframe Rehosting]: https://www.tmaxsoft.com/lift-and-shift-me-up-the-benefits-of-mainframe-rehosting/
 [Lift and shift]: https://www.tmaxsoft.com/wp-content/uploads/TmaSof_eBook_OpenFrame.pdf
 [Mainframe rehosting on Azure virtual machines]: https://docs.microsoft.com/azure/virtual-machines/workloads/mainframe-rehosting/overview
+[Message queues]: https://www.ibm.com/cloud/learn/message-queues
+[TACF]: http://ps-2.kev009.com/rs6000/redbook-cd/sg245140.pdf
+[What is Azure Bastion]: https://docs.microsoft.com/azure/bastion/bastion-overview
