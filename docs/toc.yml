@@ -342,15 +342,9 @@ items:
           - name:  Best practices
             href: /azure/security/fundamentals/network-best-practices?bc=%2fazure%2farchitecture%2fbread%2ftoc.json&toc=%2fazure%2farchitecture%2ftoc.json
       - name: Storage
-        href: framework/security/storage-data-encryption.md
+        href: framework/security/design-storage.md
       - name: Applications and services
-        href: framework/security/applications-services.md
-    - name: Provision
-      items:
-      - name: Applications and services
-        href: framework/security/provision-app-services.md
-      - name: Storage
-        href: framework/security/provision-storage.md    
+        href: framework/security/design-apps-services.md
     - name: Monitor
       items:
       - name: Security operations
