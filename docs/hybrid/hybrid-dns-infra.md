@@ -115,7 +115,7 @@ For [Linux VMs in Azure][16], use an automated process.
 
 ## Scalability considerations
 
-- Consider using at least two DNS servers per Azure region and on-premises datacenters.
+- Per Azure region or on-premises datacenters, consider using at least two DNS servers each.
 - Notice how that's done in the previous scenario, with DNS servers on-premises and in the hub virtual network.
 
 ## Availability considerations
