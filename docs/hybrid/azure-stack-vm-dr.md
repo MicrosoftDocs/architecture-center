@@ -136,7 +136,7 @@ Implementing the recommended solution is contingent on satisfying the following 
    - satisfy external connectivity [network requirements](https://docs.microsoft.com/azure/site-recovery/vmware-azure-deploy-configuration-server#network-requirements) documentation.
 
    >[!Note] 
-  > Additional storage and performance considerations for the configuration and process servers are described in more detail later in this architecture.
+   > Additional storage and performance considerations for the configuration and process servers are described in more detail later in this architecture.
 
    - satisfy internal connectivity requirements. In particular, Azure Stack Hub VMs that you want to protect need to be able to communicate with:
 
@@ -164,7 +164,7 @@ At a high level, the implementation of Azure Site Recovery-based disaster recove
 1. Set up the source replication environment. Provision an Azure Site Recovery configuration server and process server by installing Azure Site Recovery Unified Setup binaries and register it with the vault.
 
    >[!Note] 
-  > You can rerun the Azure Site Recovery Unified Setup to implement additional process servers on Azure Stack Hub VMs.
+   > You can rerun the Azure Site Recovery Unified Setup to implement additional process servers on Azure Stack Hub VMs.
 
 1. Set up the target replication environment. Create or select an existing Azure storage account and an Azure virtual network in the Azure region that will host the disaster recovery site. During replication, the content of the disks for the protected Azure Stack Hub VMs is copied to the Azure Storage account. During failover, Azure Site Recovery automatically provisions Azure VMs serving as replicas of protected Azure Stack Hub VMs and connects them to the Azure virtual network.
 1. Enable replication. Configure replication setting and enable replication for Azure Stack Hub VMs. The mobility service is installed automatically on each Azure Stack Hub VM for which replication is enabled. Azure Site Recovery initiates replication of each Azure Stack Hub VM, according to the policy settings you defined.
