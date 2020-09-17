@@ -64,7 +64,7 @@ Use [Azure Virtual Network User Defined Routes (UDR)](/azure/virtual-network/vir
 
 Use [Network Appliances](/solutions/network-appliances/) from Azure Marketplace to deploy a variety of preconfigured network virtual appliances. 
 
-Utilize [Application Gateway WAF](/services/application-gateway/) to detect and protect against common web attacks.
+Utilize [Application Gateway WAF](/azure/application-gateway/) to detect and protect against common web attacks.
 
 **How do you segment the larger address space into subnets?**
 ***
