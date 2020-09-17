@@ -155,7 +155,7 @@ Azure](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke).
 ## Plan the IP addresses
 
 -------------------------------------------------
-![Network Topology](images/baseline-network-topology.png)
+![Network Topology - IP](images/baseline-network-topology.png)
 
 The address space of the virtual network should be large enough to hold all
 subnets. Account for all entities that will receive traffic. IP addresses for
