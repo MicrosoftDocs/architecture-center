@@ -49,7 +49,7 @@ This solution architecture models a development and deployment environment that 
    
 10. Azure Pipelines creates a release to Production. The pipeline imposes approval gates and pre-stage and post-stage conditions to protect the Production environment from inadvertent or incorrect deployment.
 
-The application uses [Azure Cosmos DB] for its globally distributed database tier.
+The application uses [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) for its globally distributed database tier.
 
 All services and environments report metrics to [Azure Monitor](/azure/devtest-labs/security-baseline).
 
@@ -88,6 +88,7 @@ In this solution, a single [Azure Active Directory (Azure AD)](https://azure.mic
 
 ## Next steps
 - [Design a microservice-oriented application](/dotnet/architecture/microservices/multi-container-microservice-net-applications/microservice-application-design)
+- [CI/CD pipeline for container-based workloads](../../example-scenario/apps/devops-with-aks.md)
 - [DevSecOps in Azure](/azure/architecture/solution-ideas/articles/devsecops-in-azure)
 - [DevTest and DevOps for IaaS solutions](dev-test-iaas.md)
 - [DevTest and DevOps for PaaS solutions](dev-test-paas.md)
