@@ -86,8 +86,8 @@ In support of the modernization effort, Tailwind Traders has adopted an infrastr
 
 Take a look at the tailwindtraders.com infrastructure as code configuration at the following links.
 
-- [Code Samples: Tailwind ARM](https://docs.microsoft.com/azure/developer/terraform/overview)
-- [Code Samples: Tailwind Terraform](https://docs.microsoft.com/samples/browse/?terms=Terraform)
+- [Code Sample: Tailwind ARM](https://docs.microsoft.com/azure/developer/terraform/overview)
+- [Code Sample: Tailwind Terraform](https://docs.microsoft.com/samples/browse/?terms=Terraform)
 
 #### Next steps
 

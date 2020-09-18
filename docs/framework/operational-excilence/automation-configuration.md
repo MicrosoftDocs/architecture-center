@@ -76,6 +76,8 @@ az vm create \
 
 **Learn more**
 
+Use the included code sample (ARM template) to deploy and configure an Azure virtual machine using an ARM template.
+
 - [Docs: cloud-init support for virtual machines in Azure](https://docs.microsoft.com/azure/virtual-machines/linux/using-cloud-init#canonical)
 - [Code Samples: Configure VM with cloud-inti during ARM deployent](https://docs.microsoft.com/samples/browse/?terms=arm%20templates)
 
@@ -119,8 +121,10 @@ The following exmaple shows an ARM template snippet with the deployment script r
 
 **Learn more**
 
+Use the included code sample (ARM template) to explore and deploy an instance of the deploymetn script resource for yourself.
+
 - [Docs: Use deployment scripts in templates](https://docs.microsoft.com/azure/virtual-machines/linux/using-cloud-init#canonical)
-- [Code Samples: Deployment script create and add key to Key Vult](https://docs.microsoft.com/samples/browse/?terms=arm%20templates)
+- [Code Sample: Deployment script create and add key to Key Vult](https://docs.microsoft.com/samples/browse/?terms=arm%20templates)
 
 ## Configuration Management
 
@@ -152,8 +156,10 @@ Once imported into Azure State Configuration and assigned to nodes, the state co
 
 **Learn more**
 
+Use the included code sample to deploy Azure Automation State Configuration, several Azure virtual machines, all of which are onboarded to the soluton and configured (web server) with state configuration.
+
 - [Docs: Get started with Azure Automation State Configuration](https://docs.microsoft.com/azure/virtual-machines/extensions/overview)
-- [Code Samples: Deploy DSC and VMs with an ARM tempalte](https://docs.microsoft.com/samples/browse/?terms=arm%20templates)
+- [Code Sample: Deploy DSC and VMs with an ARM tempalte](https://docs.microsoft.com/samples/browse/?terms=arm%20templates)
 
 ### Chef
 
