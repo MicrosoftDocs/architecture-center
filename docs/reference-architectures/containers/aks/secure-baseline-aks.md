@@ -18,7 +18,7 @@ ms.custom: seojul20, containers
 In this reference architecture, we’ll build a baseline infrastructure that
 deploys an Azure Kubernetes Service (AKS) cluster. This
 article includes recommendations for networking, security, identity, management,
-and monitoring of the cluster based on an organization’s business requirements. The requirements are assessed by using [Azure Well-Architected Framework](../../../framework).
+and monitoring of the cluster based on an organization’s business requirements. The requirements are assessed by using [Azure Well-Architected Framework](../../../framework/index.md).
 
 ![GitHub logo](../../../_images/github.png) An implementation of this architecture is available
 on [GitHub: Azure Kubernetes Service (AKS) Secure Baseline Reference Implementation](https://github.com/mspnp/aks-secure-baseline). You can use it as a
@@ -895,12 +895,12 @@ Upgrading to the latest version of Kubernetes is critical because new versions
 are released frequently.
 
 #### Weekly updates
-AKS provides new node images that have the latest OS and runtime updates. These new images are not automatically applied. You need to decide how often the images should get updated. It's recommended that you have a process to upgrade your node pools' base image weekly. For more information, see [Azure Kubernetes Service (AKS) node image upgrade](/azure/aks/node-image-upgrade) the [AKS Release Notes](https://github.com/Azure/AKS/releases).
+AKS provides new node images that have the latest OS and runtime updates. These new images are not automatically applied. You are responsible for deciding how often the images should get updated. It's recommended that you have a process to upgrade your node pools' base image weekly. For more information, see [Azure Kubernetes Service (AKS) node image upgrade](/azure/aks/node-image-upgrade) the [AKS Release Notes](https://github.com/Azure/AKS/releases).
 
 #### Daily updates
 Between image upgrades, AKS nodes download and install OS and runtime patches, individually. An installation might require the node VMs to be rebooted. AKS will not reboot nodes due to pending updates. Have a process that monitors nodes for the applied updates that require a reboot and performs the reboot of those nodes in a controlled manner. An open-source option is [Kured](https://github.com/weaveworks/kured) (Kubernetes reboot daemon). 
 
-Keeping your node images in sync with the latest weekly release will minimize these occasional reboot requests while maintaining an enhanced security posture. Relying just on node image upgrades will only ensure AKS compatibility and weekly security patching. Whereas applying daily updates will fix security issues faster. Where possible, use node image upgrade as your primary weekly security patching strategy.
+Keeping your node images in sync with the latest weekly release will minimize these occasional reboot requests while maintaining an enhanced security posture. Relying just on node image upgrades will only ensure AKS compatibility and weekly security patching. Whereas, applying daily updates will fix security issues faster. Where possible, use node image upgrade as your primary weekly security patching strategy.
 
 For more information, see [Regularly update to the latest version of Kubernetes](/azure/aks/operator-best-practices-cluster-security#regularly-update-to-the-latest-version-of-kubernetes) and [Upgrade an Azure Kubernetes Service (AKS) cluster](/azure/aks/upgrade-cluster).
 
@@ -1120,5 +1120,5 @@ For other cost-related information, see [AKS pricing](https://azure.microsoft.co
 
 ## Next Steps
 
-- To learn about hosting Microservices on AKS, see [Microservices architecture on Azure Kubernetes Service (AKS)](../reference-architectures/containers/aks-microservices/aks-microservices.md).
+- To learn about hosting Microservices on AKS, see [Microservices architecture on Azure Kubernetes Service (AKS)](../aks-microservices/aks-microservices.md).
 - The see the AKS product roadmap, see [Azure Kubernetes Service Roadmap on GitHub](https://github.com/Azure/AKS/projects/1).
