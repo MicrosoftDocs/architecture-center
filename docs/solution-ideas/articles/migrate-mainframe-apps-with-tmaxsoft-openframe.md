@@ -1,7 +1,7 @@
 ---
 title: Migrate mainframe applications to Azure with TmaxSoft OpenFrame
 titleSuffix: Azure Solution Ideas
-author: JKirsch1
+author: doodlemania2
 ms.date: 09/18/2020
 description: Find out how to migrate IBM zSeries mainframe applications to Azure. Learn how to use TmaxSoft OpenFrame for this task. Understand the lift and shift approach.
 ms.custom: fcp
@@ -10,7 +10,6 @@ ms.category:
   - mainframe
   - migration
 ms.subservice: solution-idea
-ms.author: v-jenkir
 social_image_url: /azure/architecture/solution-ideas/media/migrate-mainframe-application-to-azure.png
 ---
 
@@ -25,7 +24,7 @@ This reference architecture illustrates how the TmaxSoft OpenFrame solution runs
 Many scenarios can benefit from lift and shift. Possibilities include the following cases:
 
 - Businesses seeking to modernize infrastructure and escape the high costs, limitations, and rigidness associated with mainframes.
-- Organizations opting to move mainframe workloads to the cloud without the side-effects of a complete redevelopment.
+- Organizations opting to move mainframe workloads to the cloud without the side effects of a complete redevelopment.
 - Mainframe customers who need to migrate mission-critical applications while maintaining continuity with existing applications.
 - Teams looking for the horizontal and vertical scalability that Azure offers.
 - Businesses that favor solutions offering disaster recovery options.
