@@ -80,7 +80,7 @@ In this solution, a single [Azure Active Directory (Azure AD)](https://azure.mic
 - [Azure Monitor](/azure/devtest-labs/security-baseline) can monitor both Production and DevTest environments. Azure Monitor collects log data from VM operating systems and crash dump files, and aggregates them for viewing in [Azure Security Center](/azure/security-center/security-center-enable-data-collection).
 
 ## Alternatives
-- [Azure Repos](https://azure.microsoft.com/services/devops/repos/) is an alternative to GitHub for Git repository hosting. With Azure Repos, Azure Boards, and Azure Pipelines, all Azure DevOps services use the same portal and user interface, consolidating the services developers need for DevOps activities.
+- [Azure Repos](https://azure.microsoft.com/services/devops/repos/) is an alternative to GitHub for Git repository hosting. With Azure Repos, Azure Boards, and Azure Pipelines, all Azure DevOps Services use the same portal and user interface, consolidating the services developers need for DevOps activities.
   
 - Some integrations available in Azure Pipelines, such as service connection or authentication directly into the Azure backbone, don't currently exist in GitHub Actions. For these needs, consider using Azure Pipelines instead of GitHub Actions for CI and build activities.
   
