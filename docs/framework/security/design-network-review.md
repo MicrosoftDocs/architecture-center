@@ -62,9 +62,9 @@ Use [Azure Virtual Network User Defined Routes (UDR)](/azure/virtual-network/vir
 ***
 **Risk**: Possibility of not being able to select comprehensive solutions for secure network boundaries.
 
-Use [Network Appliances](/solutions/network-appliances/) from Azure Marketplace to deploy a variety of preconfigured network virtual appliances. 
+Use [Network Appliances](https://azure.microsoft.com/solutions/network-appliances/) from Azure Marketplace to deploy a variety of preconfigured network virtual appliances. 
 
-Utilize [Application Gateway WAF](/services/application-gateway/) to detect and protect against common web attacks.
+Utilize [Application Gateway WAF](/azure/application-gateway/) to detect and protect against common web attacks.
 
 **How do you segment the larger address space into subnets?**
 ***
@@ -94,7 +94,7 @@ network-level controls?**
 
 **Risk**: Inability to enable security for other OSI model layers other than network and transport layer.
  
-Use [Azure Marketplace](/marketplace/apps/category/networking?page=1&subcategories=appliances) to provision devices for higher levels of network security than with network-level access controls.
+Use [Azure Marketplace](/azure/marketplace/) to provision devices for higher levels of network security than with network-level access controls.
 
 
 **How do you establish cross premises connectivity?**
@@ -127,7 +127,7 @@ Employ [Azure Security Center](/azure/security-center/security-center-intro) for
 ***
 **Risk**: Inability to understand, diagnose, and gain insights to the network in Azure. 
 
-Use [Network Watcher](/network-watcher/network-watcher-monitoring-overview) to understand, diagnose, and gain insights to the network in Azure. 
+Use [Network Watcher](/azure/network-watcher/network-watcher-monitoring-overview) to understand, diagnose, and gain insights to the network in Azure. 
 
 **How do you gain access to real time performance information at the packet level?** 
 ***
