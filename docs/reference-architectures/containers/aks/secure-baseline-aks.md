@@ -1,6 +1,6 @@
 ---
 title: Baseline architecture for an Azure Kubernetes Service (AKS) cluster
-description: Reference architecture for a baseline infrastructure that deploys an Azure Kubernetes Service (AKS) cluster with focus on security.
+description: Reference architecture for a baseline infrastructure that deploys an Azure Kubernetes Service (AKS) cluster.
 author: PageWriter-MSFT
 ms.date: 07/19/2020
 ms.topic: reference-architecture
@@ -13,12 +13,12 @@ ms.subservice: reference-architecture
 ms.custom: seojul20, containers
 ---
 
-# Baseline architecture for an Azure Kubernetes Service (AKS) cluster
+# Azure Kubernetes Service (AKS) production baseline
 
 In this reference architecture, we’ll build a baseline infrastructure that
-deploys an Azure Kubernetes Service (AKS) cluster with focus on security. This
+deploys an Azure Kubernetes Service (AKS) cluster. This
 article includes recommendations for networking, security, identity, management,
-and monitoring of the cluster based on an organization’s business requirements.
+and monitoring of the cluster based on an organization’s business requirements. The requirements are assessed by using [Azure Well-Architected Framework](../../../framework).
 
 ![GitHub logo](../../../_images/github.png) An implementation of this architecture is available
 on [GitHub: Azure Kubernetes Service (AKS) Secure Baseline Reference Implementation](https://github.com/mspnp/aks-secure-baseline). You can use it as a
@@ -36,7 +36,6 @@ starting point and configure it as per your needs.
 
 ### Architecture choices
 
---------------------------------
 :::row:::
     :::column:::
       #### Networking configuration
@@ -57,7 +56,7 @@ starting point and configure it as per your needs.
 
 :::row:::
    :::column:::
-    #### Security
+    #### Secure data flow
       [Secure the network flow](#secure-the-network-flow)\
       [Add secret management](#add-secret-management)
     :::column-end:::
@@ -77,25 +76,22 @@ starting point and configure it as per your needs.
 
 ## Network topology
 
--------------------------------------------------
 This architecture uses a hub-spoke network topology. The hub and spoke(s) are
 deployed in separate virtual networks connected through
-[peering](/azure/virtual-network/virtual-network-peering-overview).
-Some advantages of this topology are:
+[peering](/azure/virtual-network/virtual-network-peering-overview). It's common for organizations to operate with regional hub-spoke topologies. The network can be expanded and isolate workloads. 
+Other advantages are:
 
 -   Segregated management. It allows for a way to apply governance and control
     the blast radius. It also supports the concept of landing zone with
     separation of duties.
 
--   A natural choice for workloads that span multiple subscriptions.
+-   Minimizes direct exposure of Azure resources to the public internet.
 
--   It makes the architecture extensible. To accommodate new features or
-    workloads, new spokes can be added instead of redesigning the network
-    topology.
+-   It makes the architecture extensible. To accommodate new features or workloads, new spokes can be added instead of redesigning the network topology.
 
 -   Certain resources, such as a firewall and DNS can be shared across networks.
 
-![Network Topology](images/secure-baseline-architecture.svg)
+![Hub-spoke network topology](images/secure-baseline-architecture.svg)
 
 ### Hub
 
@@ -154,8 +150,7 @@ Azure](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke).
 
 ## Plan the IP addresses
 
--------------------------------------------------
-![Network Topology - IP](images/baseline-network-topology.png)
+![Network topology of the AKS cluster](images/baseline-network-topology.png)
 
 The address space of the virtual network should be large enough to hold all
 subnets. Account for all entities that will receive traffic. IP addresses for
@@ -211,7 +206,6 @@ cluster](/azure/aks/configure-azure-cni#plan-ip-addressing-for-your-cluster).
 
 ## Configure compute for the base cluster
 
--------------------------------------------------
 In AKS, each node pool maps to a virtual machine scale set. Nodes are VMs in
 each node pool. Consider using a smaller VM size for the system node pool to
 minimize costs. This reference implementation deploys the system node pool with
@@ -242,8 +236,6 @@ For the user node pool, here are some considerations:
 
 ## Integrate Azure Active Directory for the cluster
 
-------------------------------------------------
-
 Securing access to and from the cluster is critical. Think from the cluster’s
 perspective when you're making security choices:
 
@@ -253,15 +245,15 @@ perspective when you're making security choices:
 -   *Inside-out access*. Authorize only those resources that the cluster is
     allowed access.
 
-There are two ways to manage access: Service Principals or Managed Identities
+There are two ways to manage access: **service principals** or **managed identities**
 for Azure resources.
 
-Of the two ways, Azure Managed Identities is recommended. With Service
-Principals there's an overhead for managing and rotating secrets without which
+Of the two ways, Azure managed identities is recommended. With Service
+principals there's an overhead for managing and rotating secrets without which
 the cluster will not be accessible. With managed identities, Azure Active
 Directory (Azure AD) handles the authentication and timely rotation of secrets.
 
-It’s recommended that Managed Identities is enabled so that the cluster can interact with external Azure resources through Azure AD. You can enable this setting only during cluster creation. Even if Azure AD isn't used immediately, you can incorporate it later.
+It’s recommended that managed identities is enabled so that the cluster can interact with external Azure resources through Azure AD. You can enable this setting only during cluster creation. Even if Azure AD isn't used immediately, you can incorporate it later.
 
 As an example for the inside-out case, let’s study the use of managed identities
 when the cluster needs to pull images from a container registry. This action requires the
@@ -321,9 +313,7 @@ roles](/azure/aks/manage-azure-rbac).
 
 ## Integrate Azure Active Directory for the workload
 
--------------------------------------------------
-
-Similar to having Azure Managed Identities for the entire cluster, you can
+Similar to having Azure managed identities for the entire cluster, you can
 assign managed identities at the pod level. A pod managed identity allows the
 hosted workload to access resources through Azure Active Directory. For example,
 the workload stores files in the Azure Storage. When it needs to access those
@@ -333,8 +323,6 @@ In this reference implementation, managed pod identities is facilitated through
 [aad-pod-identity](https://github.com/Azure/aad-pod-identity).
 
 ## Deploy Ingress resources
-
-------------------------
 
 Kubernetes Ingress resources route and distribute incoming traffic to the
 cluster. There are two portions of Ingress resources:
@@ -424,8 +412,6 @@ spec:
 
 ## Secure the network flow
 
------------------------
-
 Network flow, in this context, can be categorized as:
 
 -   **Ingress traffic**. From the client to the workload running in the cluster.
@@ -485,7 +471,7 @@ Gateway by using two different TLS certificates, as shown in this image.
 
 You can implement end-to-end TLS traffic all at every hop the way through to the
 workload pod. Be sure to measure the performance, latency, and operational
-impact when making the decision to secure pod-to-pod traffic.
+impact when making the decision to secure pod-to-pod traffic. For most single-tenant clusters, with proper control plane RBAC and mature Software Development Lifecycle practices, it's sufficient to TLS encrypt up to the ingress controller and protect with Web Application Firewall (WAF). That will minimize overhead in workload management and network performance impacts. Your workload and compliance requirements will dictate where you perform [TLS termination](/azure/application-gateway/ssl-overview#tls-termination).
 
 ### Egress traffic flow
 
@@ -577,7 +563,7 @@ For more information, see [Define API server authorized IP ranges](/azure/aks/ap
 
 ## Add secret management
 
----------------------
+
 
 Store secrets in a managed key store, such as Azure Key Vault. The advantage is
 that the managed store handles rotation of secrets, offers strong encryption,
@@ -604,8 +590,6 @@ implementation, we’ve chosen the [Azure Key Vault with Secrets Store CSI Drive
 
 ## Workload storage
 
------------------
-
 The workload used in this architecture is stateless. If you need to store state,
 persisting it outside the cluster is recommended. Guidance for workload state is
 outside the scope of this article.
@@ -614,7 +598,6 @@ To learn more about storage options, see [Storage options for applications in Az
 
 ## Node and pod scalability
 
-------------------------
 
 With increasing demand, Kubernetes can scale out by adding more pods to existing
 nodes, through horizontal pod autoscaling (HPA). When additional pods can no
@@ -697,11 +680,9 @@ For the system node pool, the recommended minimum value is 3.
 
 ## Business continuity decisions
 
------------------------------
-
 To maintain business continuity, define the Service Level Agreement for the
 infrastructure and your application. For information about monthly uptime
-calculation, see [SLA for Azure Kubernetes Service (AKS)](https:/azure.microsoft.com/support/legal/sla/kubernetes-service/v1_1/).
+calculation, see [SLA for Azure Kubernetes Service (AKS)](https://azure.microsoft.com/support/legal/sla/kubernetes-service/v1_1/).
 
 ### Cluster nodes
 
@@ -870,8 +851,6 @@ simulate a zonal failure, or bringing down an external dependency.
 
 ## Monitor and collect metrics
 
----------------------------
-
 The Azure Monitor for containers feature is the recommended tool for monitoring
 and logging because you can view events in real time. It captures container logs
 from the running pods and aggregates them for viewing. It also collects
@@ -911,19 +890,20 @@ requests/traffic.
 
 ### Security updates
 
-Keep the Kubernetes version up to date with the supported N-2 versions.
+Keep the Kubernetes version up to date with the [supported N-2 versions](/azure/aks/supported-kubernetes-versions).
 Upgrading to the latest version of Kubernetes is critical because new versions
-are released frequently. For more information, see [Supported Kubernetes version](/azure/aks/supported-kubernetes-versions).
+are released frequently.
 
-AKS downloads and installs OS patches frequently, and some may require the node
-VMs to be rebooted. Have a process that monitors the updates and reboots the
-nodes seamlessly. An open-source option is
-[Kured](https://github.com/weaveworks/kured) (Kubernetes reboot daemon).
+#### Weekly updates
+AKS provides new node images that have the latest OS and runtime updates. These new images are not automatically applied. You need to decide how often the images should get updated. It's recommended that you have a process to upgrade your node pools' base image weekly. For more information, see [Azure Kubernetes Service (AKS) node image upgrade](/azure/aks/node-image-upgrade) the [AKS Release Notes](https://github.com/Azure/AKS/releases).
 
-For more information, see [Regularly update to the latest version of
-Kubernetes](/azure/aks/operator-best-practices-cluster-security#regularly-update-to-the-latest-version-of-kubernetes)
-and [Upgrade an Azure Kubernetes Service (AKS)
-cluster](/azure/aks/upgrade-cluster).
+#### Daily updates
+Between image upgrades, AKS nodes download and install OS and runtime patches, individually. An installation might require the node VMs to be rebooted. AKS will not reboot nodes due to pending updates. Have a process that monitors nodes for the applied updates that require a reboot and performs the reboot of those nodes in a controlled manner. An open-source option is [Kured](https://github.com/weaveworks/kured) (Kubernetes reboot daemon). 
+
+Keeping your node images in sync with the latest weekly release will minimize these occasional reboot requests while maintaining an enhanced security posture. Relying just on node image upgrades will only ensure AKS compatibility and weekly security patching. Whereas applying daily updates will fix security issues faster. Where possible, use node image upgrade as your primary weekly security patching strategy.
+
+For more information, see [Regularly update to the latest version of Kubernetes](/azure/aks/operator-best-practices-cluster-security#regularly-update-to-the-latest-version-of-kubernetes) and [Upgrade an Azure Kubernetes Service (AKS) cluster](/azure/aks/upgrade-cluster).
+
 
 ### Security monitoring
 
@@ -934,8 +914,6 @@ For information about security hardening applied to AKS virtual machine hosts,
 see [Security Hardening in host OS](/azure/aks/security-hardened-vm-host-image).
 
 ## Cluster and workload operations (DevOps)
-
-----------------------------------------
 
 Here are some considerations. For more information, see the [Operational Excellence](/azure/architecture/framework/devops/deployment) pillar.
 
@@ -964,7 +942,7 @@ Make sure as you provision resources as per the governing policies. For example,
 when selecting the right VM sizes, stay within the cost constraints,
 availability zone options to match the requirements of your application.
 
-If you do need to write a sequence of commands, use [Azure CLI](/cli/azure/what-is-azure-cli?view=azure-cli-latest).
+If you need to write a sequence of commands, use [Azure CLI](/cli/azure/what-is-azure-cli).
 These commands cover a range of Azure services and can be automated through
 scripting. Azure CLI is supported on Windows and Linux. Another cross-platform
 option is Azure PowerShell. Your choice will depend on preferred skillset.
@@ -1044,8 +1022,6 @@ additional process and potentially tooling.
 solution to help solve for your advanced deployment scenarios.
 
 ## Cost management
-
----------------
 
 Use the [Azure pricing
 calculator](https://azure.microsoft.com/pricing/calculator) to estimate costs
@@ -1142,6 +1118,7 @@ There are other ways to optimize:
 
 For other cost-related information, see [AKS pricing](https://azure.microsoft.com/pricing/details/kubernetes-service/).
 
-## Next steps
+## Next Steps
 
-For details about the best practices discussed in this architecture, see [Azure Kubernetes Service (AKS) concepts](/azure/aks/concepts-clusters-workloads).
+- To learn about hosting Microservices on AKS, see [Microservices architecture on Azure Kubernetes Service (AKS)](../reference-architectures/containers/aks-microservices/aks-microservices.md).
+- The see the AKS product roadmap, see [Azure Kubernetes Service Roadmap on GitHub](https://github.com/Azure/AKS/projects/1).
