@@ -218,7 +218,7 @@ The following settings are commonly used by our customers in their desktop virtu
 |Setting    |Value    |Reason    |
 |-----------|---------|----------|
 |DeleteLocalProfileWhenVHDShouldApply |1    |This setting avoids errors while logging in with an existing local profile. It removes the profile first, if any already exists.    |
-|SizeInMBs    |3000    |Specifies the size of newly created VHD(X) in number of MB. Default value is 30000 MB or 30 GB.   |
+|SizeInMBs    |30000    |Specifies the size of newly created VHD(X) in number of MB. Default value is 30000 MB or 30 GB.   |
 |VolumeType   |VHDx    |More capabilities for PowerShell and maintenance.    |
 |FlipFlopProfileDirectoryName |1    |Makes it easier to search for the specific profile container user folder on the network share.    |
 
