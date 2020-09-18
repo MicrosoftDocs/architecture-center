@@ -51,7 +51,7 @@ A Distributed Denial of Service (DDoS) attack attempts to exhaust an application
 
 [Azure DDoS Protection](https://docs.microsoft.com/azure/virtual-network/ddos-protection-overview), combined with application design best practices, provide defense against DDoS attacks. The service tier that is used (Basic or Standard) determines the available features.
 
-DDos attack protection features include:
+DDoS attack protection features include:
 
 - Always-on traffic monitoring which provides near real-time detection of a DDoS attack.
 - Automatic configuration and tuning of your DDoS Protection settings using  intelligent traffic-profiling.
