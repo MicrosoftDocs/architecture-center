@@ -342,15 +342,9 @@ items:
           - name:  Best practices
             href: /azure/security/fundamentals/network-best-practices?bc=%2fazure%2farchitecture%2fbread%2ftoc.json&toc=%2fazure%2farchitecture%2ftoc.json
       - name: Storage
-        href: framework/security/storage-data-encryption.md
+        href: framework/security/design-storage.md
       - name: Applications and services
-        href: framework/security/applications-services.md
-    - name: Test
-      items:
-        - name: Penetration testing
-        - name: Threat modeling
-        - name: Simulate attacks
-        - name: Test your CI/CD pipelines
+        href: framework/security/design-apps-services.md
     - name: Monitor
       items:
       - name: Security operations
@@ -358,7 +352,7 @@ items:
       - name: Review and audit
         href: framework/security/governance.md
       - name: Tools
-        href: framework/security/monitor.md
+        href: framework/security/monitor-tools.md
       - name: Network access
         href: framework/security/monitor-network.md
       - name: Monitor identity risk
@@ -371,11 +365,7 @@ items:
         - name: Replace insecure protocols
           href: framework/security/governance.md
         - name: Elevate security capabilities
-          href: framework/security/governance.md        
-    - name: Tradeoffs
-      href: framework/security/role-of-security.md
-    - name: Checklist
-      href: framework/security/security-operations.md
+          href: framework/security/governance.md
 - name: Design Patterns
   items:
   - name: Overview
@@ -711,6 +701,8 @@ items:
         href: solution-ideas/articles/hybrid-hpc-in-azure-with-hpc-pack.md
       - name: Linux virtual desktops with Citrix
         href: example-scenario/infrastructure/linux-vdi-citrix.md
+      - name: Move Azure resources across regions
+        href: solution-ideas/articles/move-azure-resources-across-regions.md
       - name: Run a Linux VM on Azure
         href: reference-architectures/n-tier/linux-vm.md
       - name: Run a Windows VM on Azure
@@ -1332,7 +1324,7 @@ items:
       - name: Lift and shift LOB apps
         href: solution-ideas/articles/modern-customer-support-portal-powered-by-an-agile-business-process.md
       - name: Lift and shift with AKS
-        href: solution-ideas/articles/migrate-existing-applications-with-aks.md
+        href: solution-ideas/articles/modern-customer-support-portal-powered-by-an-agile-business-process.md
       - name: Oracle database migration
         items:
         - name: Migration decision process
