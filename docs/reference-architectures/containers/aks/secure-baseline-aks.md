@@ -21,12 +21,7 @@ article includes recommendations for networking, security, identity, management,
 and monitoring of the cluster based on an organization’s business requirements. The requirements are assessed by using [Azure Well-Architected Framework](../../../framework/index.md).
 
 ![GitHub logo](../../../_images/github.png) An implementation of this architecture is available
-on [GitHub: Azure Kubernetes Service (AKS) Secure Baseline Reference Implementation](https://github.com/mspnp/aks-secure-baseline). You can use it as a
-starting point and configure it as per your needs.
-
->[!div class="box has-box-shadow-medium has-margin-none has-margin-small-desktop"]
-> #### Company profile
-> This architecture is built for a fictitious company, Contoso Bicycle. The company is a small and fast-growing startup that provides online web services to its clientele in the west coast, North America. The web services are already running on Azure. The IT teams need guidance about architectural recommendations for running their web services in an AKS cluster.
+on [GitHub: Azure Kubernetes Service (AKS) Secure Baseline Reference Implementation](https://github.com/mspnp/aks-secure-baseline). You can use it as a starting point and configure it as per your needs.
 
 ### Recommended content
 
@@ -223,7 +218,7 @@ For the user node pool, here are some considerations:
     count without recreating the cluster.
 
 -   Actual node sizes for your workload will depend on the requirements
-    determined by the design team. Based on the requirements of the Contoso Bicycle company], we chose DS4_v2 for the production workload. To lower costs
+    determined by the design team. Based on the requirements of the Contoso Bicycle company, we chose DS4_v2 for the production workload. To lower costs
     one could drop the size to DS3_v2, which is the minimum recommendation.
 
 -   When planning capacity for your cluster, assume that your workload can
