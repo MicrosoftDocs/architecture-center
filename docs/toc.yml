@@ -1022,13 +1022,13 @@ items:
           href: solution-ideas/articles/devsecops-in-azure.md
         - name: DevSecOps in GitHub
           href: solution-ideas/articles/devsecops-in-github.md
-        - name: Dev-Test for IaaS
+        - name: DevTest and DevOps for IaaS
           href: solution-ideas/articles/dev-test-iaas.md
-        - name: Dev-Test for PaaS
+        - name: DevTest and DevOps for PaaS
           href: solution-ideas/articles/dev-test-paas.md
-        - name: Dev-Test for microservices
+        - name: DevTest and DevOps for microservices
           href: solution-ideas/articles/dev-test-microservice.md
-        - name: Dev-Test Image Factory
+        - name: DevTest Image Factory
           href: solution-ideas/articles/dev-test-image-factory.md
         - name: CI/CD using Jenkins and Terraform
           href: solution-ideas/articles/immutable-infrastructure-cicd-using-jenkins-and-terraform-on-azure-virtual-architecture-overview.md
