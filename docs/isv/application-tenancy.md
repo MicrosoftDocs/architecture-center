@@ -1,8 +1,8 @@
 ---
-title: Title
+title: Tenancy model for SaaS applications
 titleSuffix: Azure Example Scenarios
-description: Description
-author: GitHubAlias
+description: This article describes the application tenancy models available to Software as a Service (SaaS) application builders.
+author: fredderf204 
 ms.date: 07/01/2020
 ms.topic: example-scenario
 ms.service: architecture-center
@@ -10,3 +10,62 @@ ms.subservice: example-scenario
 ms.custom:
 - fcp
 ---
+
+# Tenancy models for SaaS applications
+
+This article describes the application tenancy models available to Software as a Service (SaaS) application builders.
+
+When designing a SaaS application, you must choose the application tenancy model that best fits the needs of your customers and your business. In general, the application tenancy model doesn't impact the functionality of an application. But it likely impacts other aspects of the overall solution including scale, tenant isolation, cost per tenant and operation complexity.
+
+## What are application tenancy models
+
+The sections below explore the concepts of single, mixed and multi-tenant application models.
+
+### Single tenant
+
+![Image of Single Tenant application model](./images/single-tenant.JPG)
+
+In the single tenant model, a single dedicated instance of an application is deployed for each customer. For example, with a N-tier architecture style application, all customers get a new dedicated instance of the web, middle, and data tiers. These tiers are not shared between these customers.
+
+### Mixed tenant
+
+![Image of Mixed Tenant application model](./images/mixed-tenant.JPG)
+
+In this model, one or more parts of an application are deployed as dedicated for each customer, and the rest is shared between all customers. For example, with a N-tier architecture style application the web and middle tiers are shared between all customers. However, a dedicated data tier and database is provisioned for each customer.
+
+### Multi tenant
+
+![Image of Multi Tenant application model](./images/multi-tenant.JPG)
+
+In this model, a single instance of the application is deployed for all customers and shared amongts them. For example, with a N-tier architecture style application, the web, middle and data tiers are shared between all customers.
+
+A combination of these models can be provided for customers with different needs. For example, your basic tier of service would run on a shared multi-tenant instance of your application. As a baseline, your customers can access your app with lower performance or limited functionality for a lower cost. On top of this baseline, a dedicate service tier could run on a single tenant model. For customers that need higher performance or additional functionality, you can provide an isolated instance of your application for a higher cost.
+
+## Compare application tenancy models
+
+In general, the tenancy model doesn't impact the functionality of an application, but it likely impacts other aspects of the overall solution. The following table summarizes the differences between the application tenancy models:
+
+x | Single Tenant | Mixed | Multi-Tenant
+| ------------ | ------------ | ------------- | ------------
+Scale | Medium | High | Very High
+Tenant isolation | Very High | High | Low
+Cost per tenant | High | Medium | Low
+Operational complexity | *Low-High* - Individually simple, complex at scale. | *Low-Medium* - Need to address complexity at scale. | *Low-High* - Individual tenant management is complex.
+
+**Scale:** The number of concurrent customers (or tenants) your application can service.
+
+**Tenant isolation:** The degree in which customers' data and performance is separated from other customers.
+
+**Cost per tenant:** The relative amount it costs to run a single customer's tenant.
+
+**Operational complexity:**  How complex it is to achieve operational tasks like automation, security, monitoring, maintenance, metering, application deployments, disaster recovery/BCP.
+
+In general, the single tenancy application model and a small number of tenants, are simpler to manage. With a large number of tenants, it can become highly complex without strong operational excellence practices. Conversely, in the multi-tenancy application model, it is easier to manage the system as a whole, but highly complex when you want to manage an individual customer tenant by itself, without strong operational excellence practices.
+
+## Additional considerations
+
+So if we take into consideration our customer needs and business goals, we can start to ask ourselves these questions:
+
+- Do I operate in a highly regulated industry that requires customers data to be isolated from other customers?
+- Am I looking to rapidly scale my application to many thousands of clients?
+- Am I concerned about how much it costs to run each tenant/customer instance?
