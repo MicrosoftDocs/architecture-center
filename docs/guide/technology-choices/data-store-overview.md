@@ -72,7 +72,7 @@ A single key/value store can be extremely scalable, as the data store can easily
 
 ### Azure services
 
-- [Azure Cosmos DB Table API][cosmos-table], [etcd API][cosmos-etcd], and [SQL API][cosmos-sql-key-value]
+- [Azure Cosmos DB Table API][cosmos-table], [etcd API (preview)][cosmos-etcd], and [SQL API][cosmos-sql-key-value]
 - [Azure Cache for Redis][redis]
 - [Azure Table Storage][table-storage-classic]
 
