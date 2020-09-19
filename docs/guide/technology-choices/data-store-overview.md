@@ -365,7 +365,7 @@ Aided with this understanding of different data storage models, the next step is
 [sql-db]: https://azure.microsoft.com/services/sql-database
 [sql-dw]: https://azure.microsoft.com/services/sql-data-warehouse/
 [time-series]: https://azure.microsoft.com/services/time-series-insights/
-[sqlserver]: /sql/relational-databases/graphs/sql-graph-overview?view=sql-server-ver15
+[sqlserver]: /sql/relational-databases/graphs/sql-graph-overview
 [hdinsight]: https://azure.microsoft.com/services/hdinsight/
 [databricks]: https://azure.microsoft.com/free/databricks/
 [analysissvc]: /azure/analysis-services/analysis-services-overview
