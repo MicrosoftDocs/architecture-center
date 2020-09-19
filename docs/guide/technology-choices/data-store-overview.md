@@ -166,7 +166,7 @@ This structure makes it straightforward to perform queries such as "Find all emp
 
 ## Data analytics
 
-Data analytics stores provide massively parallel solutions for ingesting, storing, and analyzing data. The data is distributed across multiple servers to maximize scalability. Large data file formats such as delimiter files (CSV), [parquet][prq], and [ORC][orc] are widely used in data analytics. Historical data is typically stored in data stores such as blob storage or [Azure Data Lake Storage Gen2][datalakegen2], which are then accessed by Azure Synapse, Databricks, or HDInsights as external tables. A typical scenario using data stored as parquet files for performance, is described in the article [Use external tables with Synapse SQL][synapseexternal].
+Data analytics stores provide massively parallel solutions for ingesting, storing, and analyzing data. The data is distributed across multiple servers to maximize scalability. Large data file formats such as delimiter files (CSV), [parquet][prq], and [ORC][orc] are widely used in data analytics. Historical data is typically stored in data stores such as blob storage or [Azure Data Lake Storage Gen2][datalakegen2], which are then accessed by Azure Synapse, Databricks, or HDInsight as external tables. A typical scenario using data stored as parquet files for performance, is described in the article [Use external tables with Synapse SQL][synapseexternal].
 
 ### Azure services
 
