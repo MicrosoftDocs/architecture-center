@@ -2,11 +2,115 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id/>
     <title>the Azure Architecture Center</title>
-    <updated>2020-09-13T17:49:11.271Z</updated>
+    <updated>2020-09-20T15:42:00.425Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <subtitle>Updated articles for the Azure Architecture Center</subtitle>
     <category term="new"/>
     <category term="updated"/>
+    <entry>
+        <title type="html"><![CDATA[Monitor tools in Azure | Microsoft Docs]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/framework/security/monitor-tools</id>
+        <link href="https://docs.microsoft.com/azure/architecture/framework/security/monitor-tools"/>
+        <updated>2020-09-18T20:01:16.000Z</updated>
+        <summary type="html"><![CDATA[Monitor your data in Azure]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Applications and services in Azure | Microsoft Docs]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/framework/security/design-apps-services</id>
+        <link href="https://docs.microsoft.com/azure/architecture/framework/security/design-apps-services"/>
+        <updated>2020-09-17T18:03:46.000Z</updated>
+        <summary type="html"><![CDATA[Secure your applications and services in Azure]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Security storage in Azure | Microsoft Docs]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/framework/security/design-storage</id>
+        <link href="https://docs.microsoft.com/azure/architecture/framework/security/design-storage"/>
+        <updated>2020-09-17T18:03:46.000Z</updated>
+        <summary type="html"><![CDATA[Secure data storage in Azure]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Azure Active Directory IDaaS in Security Operations]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/example-scenario/aadsec/azure-ad-security</id>
+        <link href="https://docs.microsoft.com/azure/architecture/example-scenario/aadsec/azure-ad-security"/>
+        <updated>2020-09-16T23:02:17.000Z</updated>
+        <summary type="html"><![CDATA[Learn how security operations teams can use Azure Active Directory identity and access features in an adaptive, integrated zero-trust security architecture.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Capture cost requirements for an Azure]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/framework/cost/design-capture-requirements</id>
+        <link href="https://docs.microsoft.com/azure/architecture/framework/cost/design-capture-requirements"/>
+        <updated>2020-09-16T23:02:17.000Z</updated>
+        <summary type="html"><![CDATA[Describes strategies to model your cloud costs]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Tradeoffs for costs]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/framework/cost/tradeoffs</id>
+        <link href="https://docs.microsoft.com/azure/architecture/framework/cost/tradeoffs"/>
+        <updated>2020-09-16T23:02:17.000Z</updated>
+        <summary type="html"><![CDATA[Describes some of the trade-offs you may decide to make when optimizing a workload for cost.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Microsoft Azure Well-Architected Framework]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/framework</id>
+        <link href="https://docs.microsoft.com/azure/architecture/framework"/>
+        <updated>2020-09-16T23:02:17.000Z</updated>
+        <summary type="html"><![CDATA[Describes five pillars of software quality, scalability, devops, resiliency, cost, and security.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Overview of the security pillar]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/framework/security/overview</id>
+        <link href="https://docs.microsoft.com/azure/architecture/framework/security/overview"/>
+        <updated>2020-09-16T23:02:17.000Z</updated>
+        <summary type="html"><![CDATA[Describes the security pillar]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Storage, data, and encryption in Azure | Microsoft Docs]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/framework/security/storage-data-encryption</id>
+        <link href="https://docs.microsoft.com/azure/architecture/framework/security/storage-data-encryption"/>
+        <updated>2020-09-16T23:02:17.000Z</updated>
+        <summary type="html"><![CDATA[How to secure data storage in Azure.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Move Azure resources across regions]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/solution-ideas/articles/move-azure-resources-across-regions</id>
+        <link href="https://docs.microsoft.com/azure/architecture/solution-ideas/articles/move-azure-resources-across-regions"/>
+        <updated>2020-09-16T18:51:06.000Z</updated>
+        <summary type="html"><![CDATA[Learn the key steps, considerations, and strategies for moving Azure resources across regions by examining an example scenario.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Monitor identity risk]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/framework/security/monitor-identity</id>
+        <link href="https://docs.microsoft.com/azure/architecture/framework/security/monitor-identity"/>
+        <updated>2020-09-15T22:13:03.000Z</updated>
+        <summary type="html"><![CDATA[Monitor identity-related risk events for warning on potentially compromised identities and remediate those risks.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[FSLogix for the enterprise]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/example-scenario/wvd/windows-virtual-desktop-fslogix</id>
+        <link href="https://docs.microsoft.com/azure/architecture/example-scenario/wvd/windows-virtual-desktop-fslogix"/>
+        <updated>2020-09-15T16:01:47.000Z</updated>
+        <summary type="html"><![CDATA[Learn to build virtual desktop infrastructure solutions at enterprise scale using Microsoft FSLogix.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Network monitoring]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/framework/security/monitor-network</id>
+        <link href="https://docs.microsoft.com/azure/architecture/framework/security/monitor-network"/>
+        <updated>2020-09-14T20:43:03.000Z</updated>
+        <summary type="html"><![CDATA[Use networking logging and track traffic in real time to detect threats.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Stromasys Charon-SSP Solaris emulator on Azure VMs]]></title>
         <id>https://docs.microsoft.com/azure/architecture/solution-ideas/articles/solaris-azure</id>
@@ -238,6 +342,38 @@
         <updated>2020-09-02T16:27:39.000Z</updated>
         <summary type="html"><![CDATA[Describes cost strategies for web apps]]></summary>
         <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[DevTest and DevOps for IaaS solutions]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/solution-ideas/articles/dev-test-iaas</id>
+        <link href="https://docs.microsoft.com/azure/architecture/solution-ideas/articles/dev-test-iaas"/>
+        <updated>2020-09-18T16:00:49.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to configure a DevTest and DevOps infrastructure for development, testing, and deploying IaaS-based software.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[DevTest and DevOps for microservice solutions]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/solution-ideas/articles/dev-test-microservice</id>
+        <link href="https://docs.microsoft.com/azure/architecture/solution-ideas/articles/dev-test-microservice"/>
+        <updated>2020-09-18T16:00:49.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to configure a DevTest and DevOps infrastructure for development, testing, and deploying microservice-based software.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[DevTest and DevOps for PaaS solutions]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/solution-ideas/articles/dev-test-paas</id>
+        <link href="https://docs.microsoft.com/azure/architecture/solution-ideas/articles/dev-test-paas"/>
+        <updated>2020-09-18T16:00:49.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to configure a DevTest and DevOps infrastructure for development, testing, and deploying PaaS-based software.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Baseline architecture for an Azure Kubernetes Service (AKS) cluster]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/reference-architectures/containers/aks/secure-baseline-aks</id>
+        <link href="https://docs.microsoft.com/azure/architecture/reference-architectures/containers/aks/secure-baseline-aks"/>
+        <updated>2020-09-14T17:00:42.000Z</updated>
+        <summary type="html"><![CDATA[Reference architecture for a baseline infrastructure that deploys an Azure Kubernetes Service (AKS) cluster with focus on security.]]></summary>
+        <category label="updated" term="updated"/>
     </entry>
     <entry>
         <title type="html"><![CDATA[DevSecOps in Azure]]></title>
