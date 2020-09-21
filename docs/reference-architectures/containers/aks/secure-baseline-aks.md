@@ -37,7 +37,7 @@ on [GitHub: Azure Kubernetes Service (AKS) Secure Baseline Reference Implementa
       [Network topology](#network-topology)\
       [Plan the IP addresses](#plan-the-ip-addresses)\
       [Deploy Ingress resources](#deploy-ingress-resources)
-    :::column-end:::  
+    :::column-end:::
     :::column:::
       #### Cluster compute
       [Compute for the base cluster](#configure-compute-for-the-base-cluster)
@@ -46,17 +46,17 @@ on [GitHub: Azure Kubernetes Service (AKS) Secure Baseline Reference Implementa
       #### Identity management
       [Integrate Azure AD for the cluster](#integrate-azure-active-directory-for-the-cluster)\
       [Integrate Azure AD for the workload](#integrate-azure-active-directory-for-the-workload)
-    :::column-end:::  
+    :::column-end:::
 :::row-end:::  
 
 :::row:::
    :::column:::
-    #### Secure data flow
+      #### Secure data flow
       [Secure the network flow](#secure-the-network-flow)\
       [Add secret management](#add-secret-management)
     :::column-end:::
    :::column:::
-    #### Business continuity
+      #### Business continuity
       [Scalability](#node-and-pod-scalability)\
       [Cluster and node availability](#business-continuity-decisions)\
       [Availability and multi-region support](#availability-zones-and-multi-region-support)
