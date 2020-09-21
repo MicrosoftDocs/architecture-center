@@ -162,7 +162,7 @@ For the user node pool, here are some considerations:
 
 -   Deploy at least two nodes. That way, the workload will have a high availability pattern with two replicas. With AKS, you can change the node count without recreating the cluster.
 
--   Actual node sizes for your workload will depend on the requirements determined by the design team. Based on the requirements of the Contoso Bicycle company, we chose DS4_v2 for the production workload. To lower costs one could drop the size to DS3_v2, which is the minimum recommendation.
+-   Actual node sizes for your workload will depend on the requirements determined by the design team. Based on the business requirements, we've chosen DS4_v2 for the production workload. To lower costs one could drop the size to DS3_v2, which is the minimum recommendation.
 
 -   When planning capacity for your cluster, assume that your workload can consume up to 80% of each node; the remaining 20% is reserved for AKS services.
 
