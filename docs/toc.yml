@@ -342,9 +342,9 @@ items:
           - name:  Best practices
             href: /azure/security/fundamentals/network-best-practices?bc=%2fazure%2farchitecture%2fbread%2ftoc.json&toc=%2fazure%2farchitecture%2ftoc.json
       - name: Storage
-        href: framework/security/storage-data-encryption.md
+        href: framework/security/design-storage.md
       - name: Applications and services
-        href: framework/security/applications-services.md
+        href: framework/security/design-apps-services.md
     - name: Monitor
       items:
       - name: Security operations
@@ -352,6 +352,7 @@ items:
       - name: Review and audit
         href: framework/security/governance.md
       - name: Tools
+        href: framework/security/monitor-tools.md
       - name: Network access
         href: framework/security/monitor-network.md
       - name: Monitor identity risk
@@ -1010,13 +1011,13 @@ items:
           href: solution-ideas/articles/devsecops-in-azure.md
         - name: DevSecOps in GitHub
           href: solution-ideas/articles/devsecops-in-github.md
-        - name: Dev-Test for IaaS
+        - name: DevTest and DevOps for IaaS
           href: solution-ideas/articles/dev-test-iaas.md
-        - name: Dev-Test for PaaS
+        - name: DevTest and DevOps for PaaS
           href: solution-ideas/articles/dev-test-paas.md
-        - name: Dev-Test for microservices
+        - name: DevTest and DevOps for microservices
           href: solution-ideas/articles/dev-test-microservice.md
-        - name: Dev-Test Image Factory
+        - name: DevTest Image Factory
           href: solution-ideas/articles/dev-test-image-factory.md
         - name: CI/CD using Jenkins and Terraform
           href: solution-ideas/articles/immutable-infrastructure-cicd-using-jenkins-and-terraform-on-azure-virtual-architecture-overview.md

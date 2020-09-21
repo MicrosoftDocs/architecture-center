@@ -139,10 +139,13 @@ We recommend keeping native profile folder locations in the FSLogix profile cont
 
 ### Teams exclusions
 
-Using Microsoft Teams with a non-persistent setup also requires a profile caching manager for an efficient runtime data sync. This ensures that the appropriate user-specific information (for example, user data, profile, and settings) is cached during the user session. Make sure data in these two folders are synced:
+Exclude the following from the Teams caching folder, %appdata%/Microsoft/Teams. Excluding [these items](https://docs.microsoft.com/en-us/microsoftteams/teams-for-vdi#teams-cached-content-exclusion-list-for-non-persistent-setup) helps reduce the user caching size to further optimize your non-persistent setup.
 
-- C:\Users\username\AppData\Local\Microsoft\IdentityCache (%localAppdata%\Microsoft\IdentityCache)
-- C:\Users\username\AppData\Roaming\Microsoft\Teams (%appdata%\Microsoft\Teams)
+- .txt files
+- Media-stack folder
+- meeting-addin\Cache (%appdata%\Microsoft\Teams\meeting-addin\Cache)
+
+Check the [FSLogix exclusions](https://docs.microsoft.com/en-us/fslogix/manage-profile-content-cncpt) documentation to learn how to configure the Teams specific exclusions above within FSLogix Profile Container.
 
 ### Antivirus exclusions
 
@@ -218,7 +221,7 @@ The following settings are commonly used by our customers in their desktop virtu
 |Setting    |Value    |Reason    |
 |-----------|---------|----------|
 |DeleteLocalProfileWhenVHDShouldApply |1    |This setting avoids errors while logging in with an existing local profile. It removes the profile first, if any already exists.    |
-|SizeInMBs    |3000    |Specifies the size of newly created VHD(X) in number of MB. Default value is 30000 MB or 30 GB.   |
+|SizeInMBs    |30000    |Specifies the size of newly created VHD(X) in number of MB. Default value is 30000 MB or 30 GB.   |
 |VolumeType   |VHDx    |More capabilities for PowerShell and maintenance.    |
 |FlipFlopProfileDirectoryName |1    |Makes it easier to search for the specific profile container user folder on the network share.    |
 
