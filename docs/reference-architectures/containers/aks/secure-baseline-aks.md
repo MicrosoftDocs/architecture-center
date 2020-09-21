@@ -125,6 +125,7 @@ For additional information, [Hub-spoke network topology in Azure](../../hybrid-n
 ![Network topology of the AKS cluster](images/baseline-network-topology.png)
 
 The address space of the virtual network should be large enough to hold all subnets. Account for all entities that will receive traffic. IP addresses for those entities will be allocated from the subnet address space. Consider these points.
+
 - Upgrade
 
     AKS updates nodes regularly to make sure the underlying virtual machines are up to date on security features and other system patches. During an upgrade process, AKS creates a node that temporarily hosts the pods, while the upgrade node is cordoned and drained. That temporary node is assigned an IP address from the cluster subnet.
@@ -183,7 +184,7 @@ It’s recommended that managed identities is enabled so that the cluster can in
 
 As an example for the inside-out case, let’s study the use of managed identities when the cluster needs to pull images from a container registry. This action requires the cluster to get the credentials of the registry. One way is to store that information in the form of Kubernetes Secrets object and use `imagePullSecrets` to retrieve the secret. That approach isn't recommended because of security complexities. Not only do you need prior knowledge of the secret but also disclosure of that secret through the DevOps pipeline. Another reason is the operational overhead of managing the rotation of the secret. Instead, grant `acrPull` access to the managed identity of the cluster to your registry. This approach addresses those concerns.
 
-In this architecture, the cluster accesses Azure resources that are secured by Azure AD and do operations that support managed identities. Assign role-based access control (RBAC) and permissions to the cluster’s managed identities, depending on the operations that the cluster intends to do. The cluster will authenticate itself against the resource and consequently be allowed or denied access. Here are some examples from this reference implementation where Azure RBAC built-in roles have been assigned to the cluster.
+In this architecture, the cluster accesses Azure resources that are secured by Azure AD and perform operations that support managed identities. Assign role-based access control (RBAC) and permissions to the cluster’s managed identities, depending on the operations that the cluster intends to do. The cluster will authenticate itself to Azure AD and then be allowed or denied access based on the roles it has been assigned. Here are some examples from this reference implementation where Azure RBAC built-in roles have been assigned to the cluster:
 
 -   [Network Contributor](/azure/role-based-access-control/built-in-roles#network-contributor). The cluster’s ability to control the spoke virtual network. This role assignment allows AKS cluster system assigned identity to work with the dedicated subnet for the Internal Ingress Controller services.
 
@@ -233,7 +234,7 @@ Kubernetes Ingress resources route and distribute incoming traffic to the cluste
 
 - Ingress controller should send signals that indicate the health of pods. Configure `readinessProbe` and `livenessProbe` settings that will monitor the health of the pods at the specified interval.
 
-- Consider restricting the ingress controller’s access to specific resources and the ability to perform certain actions. That restriction can be implemented through     Kubernetes RBAC permissions. For example, in this architecture, Traefik has been granted permissions to watch, get, and list services and endpoints by using rules in the Kubernetes `ClusterRole` object.
+- Consider restricting the ingress controller’s access to specific resources and the ability to perform certain actions. That restriction can be implemented through Kubernetes RBAC permissions. For example, in this architecture, Traefik has been granted permissions to watch, get, and list services and endpoints by using rules in the Kubernetes `ClusterRole` object.
 
 ### Router settings
 
@@ -410,7 +411,7 @@ Configure multiple replicas in the deployment to handle disruptions such as hard
 **Set resource quotas on the workload namespaces**. The resource quota on a namespace will ensure pod requests and limits are properly set on a deployment. For more information, see [Enforce resource quotas](/azure/aks/operator-best-practices-scheduler#enforce-resource-quotas).
 
 > [!NOTE]
->Setting resources quotas at the cluster level can cause problem when deploying third-party workloads that do not have proper requests and limits.
+> Setting resources quotas at the cluster level can cause problem when deploying third-party workloads that do not have proper requests and limits.
 
 **Set pod requests and limits**. Setting these limits allows Kubernetes to efficiently allocate CPU and, or memory resources to the pods and have higher container density on a node. Limits can also increase reliability with reduced costs because of better hardware utilization.
 
@@ -579,7 +580,7 @@ Advanced deployment techniques such as [Blue-green deployment](https://martinfow
 
 ## Cost management
 
-Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate costs for the services used in the architecture. Other best practices are described in the [Cost Optimization](../../../framework/cost/overview.md) section in [Microsoft Azure Well-Architected Framework](../../../framework/cost/overview.md).
+Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate costs for the services used in the architecture. Other best practices are described in the [Cost Optimization](../../../framework/cost/overview.md) section in [Microsoft Azure Well-Architected Framework](../../../framework/cost/overview.md).
 
 ### Provision
 
