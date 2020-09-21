@@ -882,7 +882,7 @@ namespace RetryCodeSamples
                 {
                     Retry = {
                     Delay = TimeSpan.FromSeconds(2),     //The delay between retry attempts for a fixed approach or the delay on which to base 
-                                                         //calculaions for a backoff-based approach
+                                                         //calculations for a backoff-based approach
                     MaxRetries = 5,                      //The maximum number of retry attempts before giving up
                     Mode = RetryMode.Exponential,        //The approach to use for calculating retry delays
                     MaxDelay = TimeSpan.FromSeconds(10)  //The maximum permissible delay between retry attempts
