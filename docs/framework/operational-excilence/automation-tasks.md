@@ -12,13 +12,28 @@ ms.subservice: well-architected
 
 ## Azure Functions 
 
-Azure Functions allow you to run code without having to manage the underlying infrastructure on where the code is run. Azure functions provide a cost-effective, scalable, and event-driven platform for building applications and running operational tasks. Azure functions support running code written in C#, Java, JavaScript, Python, and PowerShell.
+Azure Functions allow you to run code without managing the underlying infrastructure on where the code is run. Azure functions provide a cost-effective, scalable, and event-driven platform for building applications and running operational tasks. Azure functions support running code written in C#, Java, JavaScript, Python, and PowerShell.
 
-< add content on architectural aspects>
+When creating an Azure Function, a hosting plan is selected. These hosting plans control how a function app is scaled, resource availability, and availability of advanced features such as virtual network connectivity and start up time. The hosting plan also influences the cost. 
 
-< add content around how functions facilitate operational tasks >
+- Consumption - default hosting plan, pay only function execution time, configurable timeout period, automatic scale
+- Premium - faster start, VNet connectivity, unlimited execution duration, premium instance sizes, more predictable pricing
+- App Service Plan - functions run on dedicated virtual machines and can use custom images
 
-< add example screenshot and code >
+For full details on consumption plans, see [Azure Functions scale and hosting](https://docs.microsoft.com/azure/azure-functions/functions-scale).
+
+Azure Functions provide event-driven automation; each function has a trigger associated with it. These triggers are what run the functions. Common triggers include:
+
+- HTTP / Webhook - function is run when an HTTP request is received
+- Queue - function is run when a new message arrives in a message queue
+- Blob storage - function is run when a new blob is created in a storage container
+- Timer - function is run on a schedule
+
+Example triggers seen in the Azure portal when creating a new function.
+
+![](./images/function-triggers.png)
+
+Once an event has occurred to run a function, you may also want to capture data from this event; this can be achieved using an input binding. 
 
 **Learn more**
 
