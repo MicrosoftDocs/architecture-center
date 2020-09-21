@@ -61,34 +61,6 @@ Take note, the Terraform provider for Azure is an abstraction on top of Azure AP
 - [Docs: Using Terraform on Azure](https://docs.microsoft.com/azure/developer/terraform/overview)
 - [Code Samples: Terraform](https://docs.microsoft.com/samples/browse/?terms=Terraform)
 
-## Tailwind case study
-
-As part of a Tailwind Trader's cloud effort to release more often, increase reliability, while reducing effort, the Tailwind operations team has identified significant effort spent building or re-setting tailwindtraders.com test environments before each release. Furthermore, confidence is low in that the test environments provide the proper amount of production likeness to identify potential issues effectively. For example, monitoring and observability systems are not replicated to the test environments. 
-
-Much of this effort spent performing the following manual tasks:
-
-- Evaluating the tailwind production environment for current operating systems, data systems, patch levels, and other configuration items.
-- Procuring and configuring virtual machines, data stores, and other components to match production as close as possible.
-- Deploying the updated version of taiwindtraders.com application.
-- Manually observing things like load performance, failover, and other typical run time considerations. 
-
-While the Tailwind team uses tooling and scripting, the automation is ad-hock, isolated to single actions, and does not significantly reduce toil. Furthermore, the risk remains high that a miss-configuration has been introduced, resulting in miss-matched test and production environments.
-
-In support of the modernization effort, Tailwind Traders has adopted an infrastructure as code approach for all cloud deployments. Using a single deployment template, the Tailwind team can deploy the following resources to multiple environments.
-
-- An Azure App Service to hose the tailwindtraders.com site
-- Azure Kubernetes Service for running the tailwindtraders.com backend services
-- Azure Container Registry for storing container images
-- Several database storage solutions
-- Azure Application Insights for application performance monitoring
-
-**Tailwind examples**
-
-Take a look at the tailwindtraders.com infrastructure as code configuration at the following links.
-
-- [Code Sample: Tailwind ARM](https://docs.microsoft.com/azure/developer/terraform/overview)
-- [Code Sample: Tailwind Terraform](https://docs.microsoft.com/samples/browse/?terms=Terraform)
-
 #### Next steps
 
 > [!div class="nextstepaction"]
