@@ -570,9 +570,9 @@ There are some third-party utilities integrated with Kubernetes. Take advantage 
 
 With AKS, Azure manages some core Kubernetes services. Logs from those services should only be enabled per request from customer support. However, it is recommended that you enable these log sources as they can help you troubleshoot cluster issues:
 
--   Logging on the ClusterAutoscaler to gain observability into the scaling operations. For more information, see [Retrieve cluster autoscaler logs and status](/azure/aks/cluster-autoscaler#retrieve-cluster-autoscaler-logs-and-status).
-
--   KubeControllerManager to have observability into pod scheduler.
+- Logging on the ClusterAutoscaler to gain observability into the scaling operations. For more information, see [Retrieve cluster autoscaler logs and status](/azure/aks/cluster-autoscaler#retrieve-cluster-autoscaler-logs-and-status).
+- KubeControllerManager to have observability into pod scheduler.
+- KubeAuditAdmin to have observability into activities that modify your cluster.
 
 #### Enable self-healing
 
