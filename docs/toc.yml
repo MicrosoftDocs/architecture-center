@@ -352,6 +352,7 @@ items:
       - name: Review and audit
         href: framework/security/governance.md
       - name: Tools
+        href: framework/security/monitor-tools.md
       - name: Network access
         href: framework/security/monitor-network.md
       - name: Monitor identity risk
