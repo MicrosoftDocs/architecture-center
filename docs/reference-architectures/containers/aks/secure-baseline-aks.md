@@ -494,20 +494,19 @@ Monitor the health of pods by setting [Liveness and Readiness probes](https://ku
 
 ### Security updates
 
-Keep the Kubernetes version up to date with the [supported N-2 versions](/azure/aks/supported-kubernetes-versions).
-Upgrading to the latest version of Kubernetes is critical because new versions
-are released frequently.
-
-#### Weekly updates
-AKS provides new node images that have the latest OS and runtime updates. These new images are not automatically applied. You are responsible for deciding how often the images should get updated. It's recommended that you have a process to upgrade your node pools' base image weekly. For more information, see [Azure Kubernetes Service (AKS) node image upgrade](/azure/aks/node-image-upgrade) the [AKS Release Notes](https://github.com/Azure/AKS/releases).
-
-#### Daily updates
-Between image upgrades, AKS nodes download and install OS and runtime patches, individually. An installation might require the node VMs to be rebooted. AKS will not reboot nodes due to pending updates. Have a process that monitors nodes for the applied updates that require a reboot and performs the reboot of those nodes in a controlled manner. An open-source option is [Kured](https://github.com/weaveworks/kured) (Kubernetes reboot daemon). 
-
-Keeping your node images in sync with the latest weekly release will minimize these occasional reboot requests while maintaining an enhanced security posture. Relying just on node image upgrades will only ensure AKS compatibility and weekly security patching. Whereas, applying daily updates will fix security issues faster. Where possible, use node image upgrade as your primary weekly security patching strategy.
+Keep the Kubernetes version up to date with the [supported N-2 versions](/azure/aks/supported-kubernetes-versions). Upgrading to the latest version of Kubernetes is critical because new versions are released frequently.
 
 For more information, see [Regularly update to the latest version of Kubernetes](/azure/aks/operator-best-practices-cluster-security#regularly-update-to-the-latest-version-of-kubernetes) and [Upgrade an Azure Kubernetes Service (AKS) cluster](/azure/aks/upgrade-cluster).
 
+#### Weekly updates
+
+AKS provides new node images that have the latest OS and runtime updates. These new images are not automatically applied. You are responsible for deciding how often the images should get updated. It's recommended that you have a process to upgrade your node pools' base image weekly. For more information, see [Azure Kubernetes Service (AKS) node image upgrade](/azure/aks/node-image-upgrade) the [AKS Release Notes](https://github.com/Azure/AKS/releases).
+
+#### Daily updates
+
+Between image upgrades, AKS nodes download and install OS and runtime patches, individually. An installation might require the node VMs to be rebooted. AKS will not reboot nodes due to pending updates. Have a process that monitors nodes for the applied updates that require a reboot and performs the reboot of those nodes in a controlled manner. An open-source option is [Kured](https://github.com/weaveworks/kured) (Kubernetes reboot daemon).
+
+Keeping your node images in sync with the latest weekly release will minimize these occasional reboot requests while maintaining an enhanced security posture. Relying just on node image upgrades will ensure AKS compatibility and weekly security patching. Whereas, applying daily updates will fix security issues faster, they haven't necessarily been tested in AKS. Where possible, use node image upgrade as your primary weekly security patching strategy.
 
 ### Security monitoring
 
@@ -517,7 +516,7 @@ For information about security hardening applied to AKS virtual machine hosts, s
 
 ## Cluster and workload operations (DevOps)
 
-Here are some considerations. For more information, see the [Operational Excellence](/azure/architecture/framework/devops/deployment) pillar.
+Here are some considerations. For more information, see the [Operational Excellence](../../../framework/devops/deployment.md) pillar.
 
 ### Isolate workload responsibilities
 
@@ -568,7 +567,7 @@ Here’s an example from the reference implementation that shows how to automate
 
 3.  flux recognizes changes in configuration and applies those changes using kubectl commands.
 
-Developers do not have direct access to the Kubernetes API through kubectl. Have branch policies on your git server. That way, multiple developers can approve a change before it’s applied to production.
+4.  Developers do not have direct access to the Kubernetes API through kubectl. Have branch policies on your git server. That way, multiple developers can approve a change before it’s applied to production.
 
 ### Workload and cluster deployment strategies
 
