@@ -13,7 +13,7 @@ ms.custom:
 
 A cost-effective workload is driven by business goals and the return on investment (ROI) while staying within a given budget. The principles of cost optimization are a series of important considerations that can help achieve both business objectives and cost justification.
 
-To assess your workload using the tenets found in the Azure Well-Architected Framework, see the [Microsoft Azure Well-Architected Review](https://docs.microsoft.com/assessments/?mode=pre-assessment&id=azure-architecture-review).
+To assess your workload using the tenets found in the Azure Well-Architected Framework, see the [Microsoft Azure Well-Architected Review](/assessments/?id=azure-architecture-review&mode=pre-assessment).
 
 
 **Keep within the cost constraints**
@@ -32,14 +32,12 @@ Also, choose pay-as-you-go over fixed pricing. That way, as a consumer, you're c
 
 **Right resources, right size**
 
-Choose the right resources that are aligned with business goals and can handle the performance of the workload. An inappropriate or misconfigured service can impact cost. For example, a choosing service suitable for multi-region when the service levels don't require high availability or geo-distribution will increase cost. 
+Choose the right resources that are aligned with business goals and can handle the performance of the workload. An inappropriate or misconfigured service can impact cost. For example, building a multi-region service when the service levels don't require high-availability or geo-redundancy will increase cost without any reasonable business justification.
 
 Certain infrastructure resources are delivered as fix-sized building blocks. Ensure that these blocks are adequately sized to meet capacity demand, deliver expected performance without wasting resources. 
 
 **Monitor and optimize**
 
-Treat cost monitoring and optimization as a process, rather than a point-in-time activity. Conduct regular cost reviews and measure and forecast the capacity needs so that you can provision resources dynamically and scale with demand.Review the cost management recommendations and take action. 
+Treat cost monitoring and optimization as a process, rather than a point-in-time activity. Conduct regular cost reviews and measure and forecast the capacity needs so that you can provision resources dynamically and scale with demand. Review the cost management recommendations and take action. 
 
-If you're just starting in this process review [enable success during a cloud adoption journey ](https://docs.microsoft.com/azure/cloud-adoption-framework/getting-started/enable).
-
-
+If you're just starting in this process review [enable success during a cloud adoption journey ](/azure/cloud-adoption-framework/getting-started/enable).

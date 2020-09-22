@@ -1,7 +1,7 @@
 ---
 title: Demand Forecasting + Price Optimization
 titleSuffix: Azure Solution Ideas
-author: adamboeglin
+author: doodlemania2
 ms.date: 12/16/2019
 description: Predict future customer demand and optimize pricing to maximize profitability using big-data and advanced-analytics services from Microsoft Azure.
 ms.custom: acom-architecture, demand forecasting, price optimization, 'https://azure.microsoft.com/solutions/architecture/demand-forecasting-price-optimization-marketing/'
@@ -37,7 +37,7 @@ By using this solution to ingest historical transaction data, predict future dem
 
 ## Next steps
 
-* [Learn more about Data Lake Store](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-overview)
-* [Get started with HDInsight using a Spark cluster with R Server](https://docs.microsoft.com/azure/hdinsight/hdinsight-apache-spark-overview)
-* [Learn more about Data Factory](https://docs.microsoft.com/azure/data-factory/data-factory-introduction)
+* [Learn more about Data Lake Store](/azure/data-lake-store/data-lake-store-overview)
+* [Get started with HDInsight using a Spark cluster with R Server](/azure/hdinsight/hdinsight-apache-spark-overview)
+* [Learn more about Data Factory](/azure/data-factory/data-factory-introduction)
 * [Learn more about Power BI](https://powerbi.microsoft.com/documentation/powerbi-landing-page)

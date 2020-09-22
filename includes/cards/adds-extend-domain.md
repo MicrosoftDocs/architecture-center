@@ -17,7 +17,7 @@
             <li>5/02/2018</li>
             <li>8 min read</li>
         </ul>
-        <p class="card-content-description">Deploy Active Directory Domain Services (AD DS) in an Azure virtual network.</p>
+        <p class="card-content-description">Use this reference architecture to extend an on-premises Active Directory domain to Azure to provide distributed authentication services.</p>
         <div class="bottom-to-top-fade is-hidden-mobile"></div>
     </div>
 </article>

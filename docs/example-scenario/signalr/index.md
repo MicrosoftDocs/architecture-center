@@ -8,6 +8,7 @@ ms.category:
   - devops
   - integration
   - developer-tools
+  - hybrid
 ms.topic: example-scenario
 ms.service: architecture-center
 ms.subservice: example-scenario
@@ -65,7 +66,7 @@ Each Azure region is paired with another region within the same geography. In ge
 - If there is a broad outage, recovery of at least one region out of every pair is prioritized.
 - Planned Azure system updates are rolled out to paired regions sequentially to minimize possible downtime.
 - In most cases, regional pairs reside within the same geography to meet data residency requirements.
-- However, make sure that both regions support all of the Azure services needed for your application. See [Services by region](https://azure.microsoft.com/regions/#services). For more information about regional pairs, see [Business continuity and disaster recovery (BCDR): Azure Paired Regions](https://docs.microsoft.com/azure/best-practices-availability-paired-regions).
+- However, make sure that both regions support all of the Azure services needed for your application. See [Services by region](https://azure.microsoft.com/regions/#services). For more information about regional pairs, see [Business continuity and disaster recovery (BCDR): Azure Paired Regions](/azure/best-practices-availability-paired-regions).
 
 #### Azure Front Door
 
@@ -101,7 +102,7 @@ This is a function app that creates an Azure Function with Service Bus trigger w
 
 #### Negotiate.cs
 
-This function is triggered by an HTTP request. It is used by client applications to get a token from the SignalR service which clients can use to subscribe to a hub. This should be named "negotiate." For more information [read this guide](https://docs.microsoft.com/azure/azure-signalr/signalr-concept-serverless-development-config)
+This function is triggered by an HTTP request. It is used by client applications to get a token from the SignalR service which clients can use to subscribe to a hub. This should be named "negotiate." For more information [read this guide](/azure/azure-signalr/signalr-concept-serverless-development-config)
 
 #### Message.cs
 
@@ -112,7 +113,7 @@ This function is triggered by a Service Bus Trigger. It has a binding with Signa
 1. Make sure you have a Service Bus Queue provisioned on Azure.
 2. Make sure you have a SignalR service provisioned in serverless mode on Azure.
 3. Enter your connection strings (Service Bus & SignalR) in the **local.settings.json file.**
-4. Enter the URL of client application (SignalR client) in CORS. [This guide](https://docs.microsoft.com/azure/azure-signalr/signalr-concept-serverless-development-config) provides the most recent syntax.
+4. Enter the URL of client application (SignalR client) in CORS. [This guide](/azure/azure-signalr/signalr-concept-serverless-development-config) provides the most recent syntax.
 5. Enter your Service Bus Queue name in the Service Bus Trigger inside **Message.cs file**.
 
 Now, let's configure the client application to test. First, grab the example sources from [here](https://github.com/mspnp/solution-architectures/tree/master/signalr)
@@ -159,6 +160,6 @@ No doubt that Pusher and PubNub are the widely adopted platforms for real-time m
 
 ## Related resources
 
-[This article explains](https://docs.microsoft.com/azure/azure-functions/functions-bindings-service-bus) how to work with Azure Service Bus bindings in Azure Functions. Azure Functions supports trigger and output bindings for Service Bus queues and topics.
+[This article explains](/azure/azure-functions/functions-bindings-service-bus) how to work with Azure Service Bus bindings in Azure Functions. Azure Functions supports trigger and output bindings for Service Bus queues and topics.
 
-[This article explains](https://docs.microsoft.com/azure/azure-functions/functions-bindings-signalr-service) how to authenticate and send real-time messages to clients connected to Azure SignalR Service by using SignalR Service bindings in Azure Functions. Azure Functions supports input and output bindings for SignalR Service.
+[This article explains](/azure/azure-functions/functions-bindings-signalr-service) how to authenticate and send real-time messages to clients connected to Azure SignalR Service by using SignalR Service bindings in Azure Functions. Azure Functions supports input and output bindings for SignalR Service.

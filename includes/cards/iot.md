@@ -15,7 +15,7 @@
         </a>
         <ul class="card-content-metadata">
             <li>1/09/2019</li>
-            <li>11 min read</li>
+            <li>12 min read</li>
         </ul>
         <p class="card-content-description">Recommended architecture for IoT applications on Azure using PaaS (platform-as-a-service) components</p>
         <div class="bottom-to-top-fade is-hidden-mobile"></div>

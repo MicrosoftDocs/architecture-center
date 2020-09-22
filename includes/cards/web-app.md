@@ -17,7 +17,7 @@
             <li>5/28/2019</li>
             <li>16 min read</li>
         </ul>
-        <p class="card-content-description">Recommended architecture for a serverless web application and web API.</p>
+        <p class="card-content-description">This reference architecture shows a serverless web application, which serves static content from Azure Blob Storage and implements an API using Azure Functions.</p>
         <div class="bottom-to-top-fade is-hidden-mobile"></div>
     </div>
 </article>

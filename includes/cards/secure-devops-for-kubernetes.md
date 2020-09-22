@@ -14,7 +14,7 @@
             <p>Secure DevOps for AKS</p>
         </a>
         <ul class="card-content-metadata">
-            <li>12/16/2019</li>
+            <li>9/10/2020</li>
             <li>2 min read</li>
         </ul>
         <p class="card-content-description">Implementing secure DevOps with Kubernetes on Azure, you can achieve the balance between speed and security and deliver code faster at scale.</p>

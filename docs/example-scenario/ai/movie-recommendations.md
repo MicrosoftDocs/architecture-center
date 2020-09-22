@@ -87,7 +87,7 @@ This scenario can use Azure Active Directory to authenticate users for [access t
 
 All the code for this scenario is available in the [Microsoft Recommenders repository][github].
 
-Follow these steps to run the [ALS quickstart notebook][notebook]:
+Follow these steps to run the [ALS quickstart notebook](https://github.com/microsoft/recommenders/blob/master/examples/00_quick_start/als_movielens.ipynb):
 
 1. [Create a DSVM][dsvm-ubuntu] from the Azure portal.
 
@@ -109,22 +109,22 @@ Follow these steps to run the [ALS quickstart notebook][notebook]:
 For an in-depth guide to building and scaling a recommender service, see [Build a real-time recommendation API on Azure][ref-arch]. For tutorials and examples of recommendation systems, see [Microsoft Recommenders repository][github].
 
 [architecture]: ./media/architecture-movie-recommender.png
-[aci]: https://docs.microsoft.com/azure/container-instances/container-instances-overview
-[aks]: https://docs.microsoft.com/azure/aks/intro-kubernetes
+[aci]: /azure/container-instances/container-instances-overview
+[aks]: /azure/aks/intro-kubernetes
 [als]: https://spark.apache.org/docs/latest/ml-collaborative-filtering.html
 [autoscale]: https://docs.azuredatabricks.net/user-guide/clusters/sizing.html#autoscaling
-[blob]: https://docs.microsoft.com/azure/storage/blobs/storage-blobs-introduction
+[blob]: /azure/storage/blobs/storage-blobs-introduction
 [clusters]: https://docs.azuredatabricks.net/user-guide/clusters/configure.html
-[cosmos-db]: https://docs.microsoft.com/azure/cosmos-db/introduction
-[databricks]: https://docs.microsoft.com/azure/azure-databricks/what-is-azure-databricks
-[dsvm]: https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/overview
-[dsvm-id]: https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/dsvm-common-identity
-[dsvm-ubuntu]: https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro
+[cosmos-db]: /azure/cosmos-db/introduction
+[databricks]: /azure/azure-databricks/what-is-azure-databricks
+[dsvm]: /azure/machine-learning/data-science-virtual-machine/overview
+[dsvm-id]: /azure/machine-learning/data-science-virtual-machine/dsvm-common-identity
+[dsvm-ubuntu]: /azure/machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro
 [free]: https://azure.microsoft.com/free/?WT.mc_id=A261C142F
 [github]: https://github.com/Microsoft/Recommenders
-[ha]: https://docs.microsoft.com/azure/aks/container-service-quotas
+[ha]: /azure/aks/container-service-quotas
 [map]: https://en.wikipedia.org/wiki/Evaluation_measures_(information_retrieval)
-[mls]: https://docs.microsoft.com/azure/machine-learning/service
+[mls]: /azure/machine-learning/service
 [ndcg]: https://en.wikipedia.org/wiki/Discounted_cumulative_gain
 [notebook]: https://github.com/microsoft/recommenders/blob/master/notebooks/00_quick_start/als_movielens.ipynb
 [ref-arch]: ../../reference-architectures/ai/real-time-recommendation.md
@@ -132,5 +132,5 @@ For an in-depth guide to building and scaling a recommender service, see [Build 
 [setup]: https://github.com/Microsoft/Recommenders/blob/master/SETUP.md
 [sla]: https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_8
 [sla-aks]: https://azure.microsoft.com/support/legal/sla/kubernetes-service/v1_0
-[storage-security]: https://docs.microsoft.com/azure/storage/common/storage-service-encryption
-[vm-size]: https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-change-vm-size
+[storage-security]: /azure/storage/common/storage-service-encryption
+[vm-size]: /azure/virtual-machines/linux/change-vm-size

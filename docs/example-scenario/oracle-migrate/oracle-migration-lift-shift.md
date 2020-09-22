@@ -9,6 +9,9 @@ ms.topic: example-scenario
 ms.service: architecture-center
 ms.subservice: example-scenario
 ms.custom: fcp
+ms.category:
+    - databases
+    - migration
 ---
 
 # Oracle database migration - Lift and Shift
@@ -47,7 +50,7 @@ For business continuity and disaster recovery, consider  deploying the following
 
 * Oracle Data Guard [Far Sync](https://docs.oracle.com/database/121/SBYDB/create_fs.htm) for zero data loss protection.
 
-* Oracle [GoldenGate](https://www.oracle.com/middleware/technologies/goldengate.html) for multi-master or active-active mode on Azure availability set or availability zone depends on SLA requirements.
+* Oracle [GoldenGate](https://www.oracle.com/middleware/technologies/goldengate.html) for multi-primary or active-active mode on Azure availability set or availability zone depends on SLA requirements.
 
 Refer to these articles for supporting info:
 
@@ -64,7 +67,7 @@ You can't use Oracle Real Application Cluster (RAC) by itself in Azure. If you u
 
 ## Next steps
 
-To begin migrating your Oracle database to Azure VMs, see [Oracle VM images and their deployment on Microsoft Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/oracle/oracle-vm-solutions).
+To begin migrating your Oracle database to Azure VMs, see [Oracle VM images and their deployment on Microsoft Azure](/azure/virtual-machines/workloads/oracle/oracle-vm-solutions).
 
 > [!NOTE]
 > If this migration path doesn't seem like the right one for your business needs, refer back to the [Migration decision tree](oracle-migration-overview.md#migration-decision-tree).

@@ -1,7 +1,7 @@
 ---
 title: Predict Length of Stay and Patient Flow
 titleSuffix: Azure Solution Ideas
-author: adamboeglin
+author: doodlemania2
 ms.date: 12/16/2019
 description: Learn how to predict capacity and patient flow for your hospital or healthcare facility to enhance the quality of care and improve operational efficiency.
 ms.custom: acom-architecture, ai-ml, hospital length of stay, patient flow, length of stay, healthcare analytics, healthcare machine learning, 'https://azure.microsoft.com/solutions/architecture/predict-length-of-stay-and-patient-flow-with-healthcare-analytics/'
@@ -30,12 +30,12 @@ Being able to predict length of stay at the time of admission helps hospitals pr
 
 ## Components
 
-* [SQL Server R Services](https://www.microsoft.com/sql-server/sql-server-r-services): Stores the patient and hospital data. Provides training and predicted models and predicted results for consumption using R.
+* [SQL Server R Services](/sql/machine-learning/r/sql-server-r-services?view=sql-server-2016): Stores the patient and hospital data. Provides training and predicted models and predicted results for consumption using R.
 * [Power BI](https://powerbi.microsoft.com) provides an interactive dashboard with visualization that uses data stored in SQL Server to drive decisions on the predictions.
 * [Machine Learning Studio](https://azure.microsoft.com/services/machine-learning-studio): Machine Learning helps you easily design, test, operationalize, and manage predictive analytics solutions in the cloud.
 
 ## Next steps
 
-* [Learn more about SQL Server](https://www.microsoft.com/sql-server/sql-server-r-services)
+* [Learn more about SQL Server](/sql/machine-learning/r/sql-server-r-services?view=sql-server-2016)
 * [Learn more about Power BI](https://powerbi.microsoft.com/documentation/powerbi-landing-page)
 * [Learn more about Machine Learning](/azure/machine-learning/overview-what-is-azure-ml)

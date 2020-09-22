@@ -1,7 +1,7 @@
 ---
 title: Blockchain Workflow Application
 titleSuffix: Azure Solution Ideas
-author: adamboeglin
+author: doodlemania2
 ms.date: 12/16/2019
 description: Explore how blockchain is used to digitize workflows and supply chains across organizations with the Blockchain Workflow Application from Microsoft Azure.
 ms.custom: acom-architecture, blockchain, Blockchain Workflow Application, Azure Blockchain, Azure Blockchain Service, interactive-diagram, 'https://azure.microsoft.com/solutions/architecture/blockchain-workflow-application/'
@@ -49,15 +49,15 @@ Businesses use blockchain to digitize workflows they share with other organizati
 
 ## Next steps
 
-* [Azure Blockchain documentation](https://docs.microsoft.com/azure/blockchain/service)
-* [Service Bus documentation](https://docs.microsoft.com/azure/service-bus)
-* [Azure IoT Central documentation](https://docs.microsoft.com/azure/iot-central)
-* [Application Insights documentation](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-runtime-exceptions)
-* [Event Grid Documentation](https://docs.microsoft.com/azure/event-grid)
-* [Logic Apps Documentation](https://docs.microsoft.com/azure/logic-apps)
-* [Azure SQL Database Documentation](https://docs.microsoft.com/azure/sql-database)
-* [Azure Active Directory Documentation](https://docs.microsoft.com/azure/active-directory)
-* [Key Vault documentation](https://docs.microsoft.com/azure/key-vault)
-* [App Service Documentation](https://docs.microsoft.com/azure/app-service)
-* [Virtual Network Documentation](https://docs.microsoft.com/azure/virtual-network)
-* [Power BI Documentation](https://docs.microsoft.com/azure/power-bi-embedded)
+* [Azure Blockchain documentation](/azure/blockchain/service)
+* [Service Bus documentation](/azure/service-bus)
+* [Azure IoT Central documentation](/azure/iot-central)
+* [Application Insights documentation](/azure/azure-monitor/learn/tutorial-runtime-exceptions)
+* [Event Grid Documentation](/azure/event-grid)
+* [Logic Apps Documentation](/azure/logic-apps)
+* [Azure SQL Database Documentation](/azure/sql-database)
+* [Azure Active Directory Documentation](/azure/active-directory)
+* [Key Vault documentation](/azure/key-vault)
+* [App Service Documentation](/azure/app-service)
+* [Virtual Network Documentation](/azure/virtual-network)
+* [Power BI Documentation](/azure/power-bi-embedded)

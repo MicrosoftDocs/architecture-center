@@ -1,8 +1,8 @@
 ---
 title: Implement a hub-spoke network topology
 titleSuffix: Azure Reference Architectures
-description: Implement a hub-spoke network topology with shared services in Azure.
-author: adamboeglin
+description: Learn how to implement shared services in a hub-spoke topology in Azure, building on another reference architecture for hub-spoke topology.
+author: doodlemania2
 ms.date: 08/19/2019
 ms.topic: reference-architecture
 ms.service: architecture-center
@@ -18,7 +18,7 @@ ms.custom: seodec18, networking, fcp
 
 This reference architecture builds on the [hub-spoke][guidance-hub-spoke] reference architecture to include shared services in the hub that can be consumed by all spokes.
 
-As a first step toward migrating a datacenter to the cloud, the first services that need to be shared are identity and security. This reference architecture shows how to extend Active Directory services from your on-premises datacenter to Azure, and how to add a network virtual appliance (NVA) that can act as a firewall. The firewall functionality can also be accomplished using [Azure Firewall](https://docs.microsoft.com/azure/firewall/), a cloud-based network security service.
+As a first step toward migrating a datacenter to the cloud, the first services that need to be shared are identity and security. This reference architecture shows how to extend Active Directory services from your on-premises datacenter to Azure, and how to add a network virtual appliance (NVA) that can act as a firewall. The firewall functionality can also be accomplished using [Azure Firewall](/azure/firewall/), a cloud-based network security service.
 
 ![Shared services topology in Azure](./images/shared-services.png)
 
@@ -62,7 +62,7 @@ The architecture consists of the following components.
 - **VNet peering**. Two VNets can be connected using a [peering connection][vnet-peering]. Peering connections are non-transitive, low latency connections between VNets. Once peered, the VNets exchange traffic by using the Azure backbone, without the need for a router. In a hub-spoke network topology, you use VNet peering to connect the hub to each spoke. You can peer virtual networks in the same region, or different regions (Global VNet Peering). For more information, see [Requirements and constraints][vnet-peering-requirements].
 
 > [!NOTE]
-> This article only covers [Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) deployments, but you can also connect a classic VNet to a Resource Manager VNet in the same subscription. That way, your spokes can host classic deployments and still benefit from services shared in the hub.
+> This article only covers [Resource Manager](/azure/azure-resource-manager/resource-group-overview) deployments, but you can also connect a classic VNet to a Resource Manager VNet in the same subscription. That way, your spokes can host classic deployments and still benefit from services shared in the hub.
 
 ## Recommendations
 
@@ -179,15 +179,15 @@ Test-NetConnection 10.2.0.36 -CommonTCPPort RDP
 
 [ADDS-pricing]: https://azure.microsoft.com/pricing/details/active-directory-ds
 [azure-vpn-gateway]: /azure/vpn-gateway/vpn-gateway-about-vpngateways
-[connect-to-an-Azure-vnet]: https://technet.microsoft.com/library/dn786406.aspx
+[connect-to-an-Azure-vnet]: /microsoft-365/enterprise/connect-an-on-premises-network-to-a-microsoft-azure-virtual-network?view=o365-worldwide
 [guidance-hub-spoke]: ./hub-spoke.md
 [guidance-hub-spoke-DevOps]: ./hub-spoke.md#devops-considerations
 [linux-vm-ra]: ../n-tier/n-tier-cassandra.md
-[naming conventions]: https://docs.microsoft.com/azure/guidance/guidance-naming-conventions
+[naming conventions]: /azure/guidance/guidance-naming-conventions
 [virtual datacenter]: https://aka.ms/vdc
-[vnet-peering]: https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview
-[vnet-peering-requirements]: https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview#requirements-and-constraints
-[vpn-appliance]: https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpn-devices
+[vnet-peering]: /azure/virtual-network/virtual-network-peering-overview
+[vnet-peering-requirements]: /azure/virtual-network/virtual-network-peering-overview#requirements-and-constraints
+[vpn-appliance]: /azure/vpn-gateway/vpn-gateway-about-vpn-devices
 [windows-vm-ra]: ../n-tier/n-tier-sql-server.md
 
 [visio-download]: https://archcenter.blob.core.windows.net/cdn/hybrid-network-hub-spoke.vsdx

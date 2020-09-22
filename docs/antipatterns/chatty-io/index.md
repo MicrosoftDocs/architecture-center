@@ -1,7 +1,7 @@
 ---
 title: Chatty I/O antipattern
 titleSuffix: Performance antipatterns for cloud apps
-description: A large number of I/O requests can hurt performance and responsiveness.
+description: Learn about the cumulative effect of many I/O requests, which can have a significant impact on performance and responsiveness.
 author: dragon119
 ms.date: 06/05/2017
 ms.topic: article
@@ -310,7 +310,7 @@ Tracing the SQL statement shows that all the data is fetched in a single SELECT 
 [caching-guidance]: ../../best-practices/caching.md
 [code-sample]: https://github.com/mspnp/performance-optimization/tree/master/ChattyIO
 [data-consistency-guidance]: https://aka.ms/data-consistency-primer
-[ef]: https://docs.microsoft.com/ef
+[ef]: /ef
 [extraneous-fetching]: ../extraneous-fetching/index.md
 [new-relic]: https://newrelic.com/products/application-monitoring
 [no-cache]: ../no-caching/index.md

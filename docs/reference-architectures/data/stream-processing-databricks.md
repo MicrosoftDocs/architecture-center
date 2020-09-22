@@ -31,13 +31,13 @@ The architecture consists of the following components.
 
 **Data sources**. In this architecture, there are two data sources that generate data streams in real time. The first stream contains ride information, and the second contains fare information. The reference architecture includes a simulated data generator that reads from a set of static files and pushes the data to Event Hubs. The data sources in a real application would be devices installed in the taxi cabs.
 
-**Azure Event Hubs**. [Event Hubs](https://docs.microsoft.com/azure/event-hubs) is an event ingestion service. This architecture uses two event hub instances, one for each data source. Each data source sends a stream of data to the associated event hub.
+**Azure Event Hubs**. [Event Hubs](/azure/event-hubs) is an event ingestion service. This architecture uses two event hub instances, one for each data source. Each data source sends a stream of data to the associated event hub.
 
-**Azure Databricks**. [Databricks](https://docs.microsoft.com/azure/azure-databricks) is an Apache Spark-based analytics platform optimized for the Microsoft Azure cloud services platform. Databricks is used to correlate of the taxi ride and fare data, and also to enrich the correlated data with neighborhood data stored in the Databricks file system.
+**Azure Databricks**. [Databricks](/azure/azure-databricks) is an Apache Spark-based analytics platform optimized for the Microsoft Azure cloud services platform. Databricks is used to correlate of the taxi ride and fare data, and also to enrich the correlated data with neighborhood data stored in the Databricks file system.
 
-**Cosmos DB**. The output from Azure Databricks job is a series of records, which are written to [Cosmos DB](https://docs.microsoft.com/azure/cosmos-db) using the Cassandra API. The Cassandra API is used because it supports time series data modeling.
+**Cosmos DB**. The output from Azure Databricks job is a series of records, which are written to [Cosmos DB](/azure/cosmos-db) using the Cassandra API. The Cassandra API is used because it supports time series data modeling.
 
-**Azure Log Analytics**. Application log data collected by [Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics) is stored in a [Log Analytics workspace](https://docs.microsoft.com/azure/log-analytics). Log Analytics queries can be used to analyze and visualize metrics and inspect log messages to identify issues within the application.
+**Azure Log Analytics**. Application log data collected by [Azure Monitor](/azure/monitoring-and-diagnostics) is stored in a [Log Analytics workspace](/azure/log-analytics). Log Analytics queries can be used to analyze and visualize metrics and inspect log messages to identify issues within the application.
 
 ## Data ingestion
 
@@ -51,7 +51,7 @@ To simulate a data source, this reference architecture uses the [New York City T
 
 The data generator is a .NET Core application that reads the records and sends them to Azure Event Hubs. The generator sends ride data in JSON format and fare data in CSV format.
 
-Event Hubs uses [partitions](https://docs.microsoft.com/azure/event-hubs/event-hubs-features#partitions) to segment the data. Partitions allow a consumer to read each partition in parallel. When you send data to Event Hubs, you can specify the partition key explicitly. Otherwise, records are assigned to partitions in round-robin fashion.
+Event Hubs uses [partitions](/azure/event-hubs/event-hubs-features#partitions) to segment the data. Partitions allow a consumer to read each partition in parallel. When you send data to Event Hubs, you can specify the partition key explicitly. Otherwise, records are assigned to partitions in round-robin fashion.
 
 In this scenario, ride data and fare data should end up with the same partition ID for a given taxi cab. This enables Databricks to apply a degree of parallelism when it correlates the two streams. A record in partition *n* of the ride data will match a record in partition *n* of the fare data.
 
@@ -97,7 +97,7 @@ using (var client = pool.GetObject())
 
 ### Event Hubs
 
-The throughput capacity of Event Hubs is measured in [throughput units](https://docs.microsoft.com/azure/event-hubs/event-hubs-scalability#throughput-units). You can autoscale an event hub by enabling [auto-inflate](https://docs.microsoft.com/azure/event-hubs/event-hubs-auto-inflate), which automatically scales the throughput units based on traffic, up to a configured maximum.
+The throughput capacity of Event Hubs is measured in [throughput units](/azure/event-hubs/event-hubs-scalability#throughput-units). You can autoscale an event hub by enabling [auto-inflate](/azure/event-hubs/event-hubs-auto-inflate), which automatically scales the throughput units based on traffic, up to a configured maximum.
 
 ## Stream processing
 
@@ -215,7 +215,7 @@ maxAvgFarePerNeighborhood
 
 ## Security considerations
 
-Access to the Azure Database workspace is controlled using the [administrator console](https://docs.databricks.com/administration-guide/admin-settings/index.html). The administrator console includes functionality to add users, manage user permissions, and set up single sign-on. Access control for workspaces, clusters, jobs, and tables can also be set through the administrator console.
+Access to the Azure Databricks workspace is controlled using the [administrator console](https://docs.databricks.com/administration-guide/admin-settings/index.html). The administrator console includes functionality to add users, manage user permissions, and set up single sign-on. Access control for workspaces, clusters, jobs, and tables can also be set through the administrator console.
 
 ### Managing secrets
 
@@ -238,7 +238,7 @@ In code, secrets are accessed via the Azure Databricks [secrets utilities](https
 
 ## Monitoring considerations
 
-Azure Databricks is based on Apache Spark, and both use [log4j](https://logging.apache.org/log4j/2.x) as the standard library for logging. In addition to the default logging provided by Apache Spark, this reference architecture sends logs and metrics to [Azure Log Analytics](https://docs.microsoft.com/azure/log-analytics).
+Azure Databricks is based on Apache Spark, and both use [log4j](https://logging.apache.org/log4j/2.x) as the standard library for logging. In addition to the default logging provided by Apache Spark, this reference architecture sends logs and metrics to [Azure Log Analytics](/azure/log-analytics).
 
 The **com.microsoft.pnp.TaxiCabReader** class configures the Apache Spark logging system to send its logs to Azure Log Analytics using the values in the **log4j.properties** file. While the Apache Spark logger messages are strings, Azure Log Analytics requires log messages to be formatted as JSON. The **com.microsoft.pnp.log4j.LogAnalyticsAppender** class transforms these messages to JSON:
 
@@ -407,8 +407,8 @@ To the deploy and run the reference implementation, follow the steps in the [Git
 <!-- links -->
 
 [AAF-devops]: ../../framework/devops/overview.md
-[arm-template]: https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#resource-groups
-[az-devops]: https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-automation#azure-devops-services
+[arm-template]: /azure/azure-resource-manager/resource-group-overview#resource-groups
+[az-devops]: /azure/virtual-machines/windows/infrastructure-automation#azure-devops-services
 [azure-monitor]: https://azure.microsoft.com/services/monitor
 [databricks-monitoring]: ../../databricks-monitoring/index.md
 [aaf-cost]: ../../framework/cost/overview.md

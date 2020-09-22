@@ -1,7 +1,7 @@
 ---
 title: Multi-region N-tier application
 description: Deploy an application on Azure virtual machines in multiple regions for high availability and resiliency.
-author: MikeWasson
+author: doodlemania2
 ms.date: 06/18/2019
 ms.topic: reference-architecture
 ms.service: architecture-center
@@ -39,7 +39,7 @@ This architecture builds on the one shown in [N-tier application with SQL Server
     > Also consider [Azure SQL Database][azure-sql-db], which provides a relational database as a cloud service. With SQL Database, you don't need to configure an availability group or manage failover.
     >
 
-- **Virtual network peering**. Peer the two virtual networks to allow data replication from the primary region to the secondary region. For more information, see [Virtual network peering](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview).
+- **Virtual network peering**. Peer the two virtual networks to allow data replication from the primary region to the secondary region. For more information, see [Virtual network peering](/azure/virtual-network/virtual-network-peering-overview).
 
 ## Recommendations
 
@@ -134,7 +134,7 @@ Traffic Manager is a possible failure point in the system. If the Traffic Manage
 
 For the SQL Server cluster, there are two failover scenarios to consider:
 
-- All of the SQL Server database replicas in the primary region fail. For example, this could happen during a regional outage. In that case, you must manually fail over the availability group, even though Traffic Manager automatically fails over on the front end. Follow the steps in [Perform a Forced Manual Failover of a SQL Server Availability Group](https://msdn.microsoft.com/library/ff877957.aspx), which describes how to perform a forced failover by using SQL Server Management Studio, Transact-SQL, or PowerShell in SQL Server 2016.
+- All of the SQL Server database replicas in the primary region fail. For example, this could happen during a regional outage. In that case, you must manually fail over the availability group, even though Traffic Manager automatically fails over on the front end. Follow the steps in [Perform a Forced Manual Failover of a SQL Server Availability Group](/sql/database-engine/availability-groups/windows/perform-a-forced-manual-failover-of-an-availability-group-sql-server?view=sql-server-ver15), which describes how to perform a forced failover by using SQL Server Management Studio, Transact-SQL, or PowerShell in SQL Server 2016.
 
    > [!WARNING]
    > With forced failover, there is a risk of data loss. Once the primary region is back online, take a snapshot of the database and use [tablediff] to find the differences.
@@ -218,27 +218,27 @@ The following architecture uses some of the same technologies:
 
 [arm-template]: /azure/azure-resource-manager/resource-group-overview#resource-groups
 [azure-monitor]: https://azure.microsoft.com/services/monitor/
-[az-devops]: https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-automation#azure-devops-services
+[az-devops]: /azure/virtual-machines/windows/infrastructure-automation#azure-devops-services
 [Sql-vm-pricing]: https://azure.microsoft.com/pricing/details/virtual-machines/sql-server-enterprise/
 [Windows-vm-pricing]: https://azure.microsoft.com/pricing/details/virtual-machines/windows
 [Managed-Sql-pricing]: https://azure.microsoft.com/pricing/details/sql-database/managed
-[azure-sql-db]: https://docs.microsoft.com/azure/sql-database
+[azure-sql-db]: /azure/sql-database
 [health-endpoint-monitoring-pattern]: ../../patterns/health-endpoint-monitoring.md
-[azure-cli]: https://docs.microsoft.com/cli/azure
+[azure-cli]: /cli/azure
 [azure-pricing-calculator]: https://azure.microsoft.com/pricing/calculator
-[regional-pairs]: https://docs.microsoft.com/azure/best-practices-availability-paired-regions
-[resource groups]: https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview
-[resource-group-links]: https://docs.microsoft.com/azure/resource-group-link-resources
+[regional-pairs]: /azure/best-practices-availability-paired-regions
+[resource groups]: /azure/azure-resource-manager/resource-group-overview
+[resource-group-links]: /azure/resource-group-link-resources
 [services-by-region]: https://azure.microsoft.com/regions/#services
-[sql-always-on]: https://msdn.microsoft.com/library/hh510230.aspx
-[tablediff]: https://msdn.microsoft.com/library/ms162843.aspx
-[tm-configure-failover]: https://docs.microsoft.com/azure/traffic-manager/traffic-manager-configure-failover-routing-method
-[tm-monitoring]: https://docs.microsoft.com/azure/traffic-manager/traffic-manager-monitoring
-[tm-routing]: https://docs.microsoft.com/azure/traffic-manager/traffic-manager-routing-methods
+[sql-always-on]: /sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server?view=sql-server-ver15
+[tablediff]: /sql/tools/tablediff-utility?view=sql-server-ver15
+[tm-configure-failover]: /azure/traffic-manager/traffic-manager-configure-failover-routing-method
+[tm-monitoring]: /azure/traffic-manager/traffic-manager-monitoring
+[tm-routing]: /azure/traffic-manager/traffic-manager-routing-methods
 [tm-sla]: https://azure.microsoft.com/support/legal/sla/traffic-manager
 [traffic-manager]: https://azure.microsoft.com/services/traffic-manager
 [visio-download]: https://archcenter.blob.core.windows.net/cdn/vm-reference-architectures.vsdx
-[vnet-dns]: https://docs.microsoft.com/azure/virtual-network/manage-virtual-network#change-dns-servers
-[wsfc]: https://msdn.microsoft.com/library/hh270278.aspx
+[vnet-dns]: /azure/virtual-network/manage-virtual-network#change-dns-servers
+[wsfc]: /sql/sql-server/failover-clusters/windows/windows-server-failover-clustering-wsfc-with-sql-server?view=sql-server-ver15
 [WAF-cost]: ../../framework/cost/overview.md
-[WAF-devops]: /azure/architecture/framework/devops/overview
+[WAF-devops]: ../../framework/devops/overview.md

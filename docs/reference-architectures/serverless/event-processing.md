@@ -1,7 +1,7 @@
 ---
 title: Serverless event processing
 description: Reference architecture for serverless event ingestion and processing using Azure Functions.
-author: MikeWasson
+author: doodlemania2
 ms.date: 10/16/2018
 ms.topic: reference-architecture
 ms.service: architecture-center
@@ -126,7 +126,7 @@ The deployment shown here resides in a single Azure region. For a more resilient
 
 - **Function App**. Deploy a second function app that is waiting to read from the secondary Event Hubs namespace. This function writes to a secondary storage account for dead letter queue.
 
-- **Cosmos DB**. Cosmos DB supports [multiple master regions][cosmosdb-geo], which enables writes to any region that you add to your Cosmos DB account. If you don’t enable multi-master, you can still fail over the primary write region. The Cosmos DB client SDKs and the Azure Function bindings automatically handle the failover, so you don’t need to update any application configuration settings.
+- **Cosmos DB**. Cosmos DB supports [multiple write regions][cosmosdb-geo], which enables writes to any region that you add to your Cosmos DB account. If you don’t enable multi-write, you can still fail over the primary write region. The Cosmos DB client SDKs and the Azure Function bindings automatically handle the failover, so you don’t need to update any application configuration settings.
 
 - **Azure Storage**. Use [RA-GRS][ra-grs] storage for the dead letter queue. This creates a read-only replica in another region. If the primary region becomes unavailable, you can read the items currently in the queue. In addition, provision another storage account in the secondary region that the function can write to after a fail-over.
 
@@ -161,6 +161,21 @@ Use the [Cosmos DB capacity calculator][Cosmos-Calculator] to get a quick estima
 
 For more information, see the Cost section in [Microsoft Azure Well-Architected Framework][aaf-cost].
 
+
+## DevOps considerations
+
+Use Infrastructure as code (IaC) when possible. IaC manages the infrastructure, application, and storage resources with a declarative approach like [Azure Resource Manager][arm-template]. That will help in automating deployment using DevOps as a continuous integration and continuous delivery (CI/CD) solution. Templates should be versioned and included as part of the release pipeline. 
+
+When creating templates, group resources as a way to organize and isolate them per workload. A common way to think about workload is a single serveless application or a virtual network. The goal of workload isolation is to associate the resources to a team, so that the DevOps team can independently manage all aspects of those resources and perform CI/CD.
+
+This architecture includes steps to configure the Drone Status Function App using Azure Pipelines with YAML and Azure Functions Slots. 
+
+As you deploy your services you will need to monitor them. Consider using [Application Insights][app-insights] to enable the developers to monitor performance and detect issues.
+
+
+For more information, see the DevOps section in [Microsoft Azure Well-Architected Framework][AAF-devops].
+
+
 ## Deploy the solution
 
 To deploy this reference architecture, view the [GitHub readme][readme].
@@ -171,29 +186,55 @@ To learn more about the reference implementation, read [Code walkthrough: Server
 
 <!-- links -->
 
-[aaf-cost]: ../../framework/cost/overview.md
-[Cosmos-Calculator]: https://cosmos.azure.com/capacitycalculator
-[cosmosdb]: https://docs.microsoft.com/azure/cosmos-db/introduction
-[cosmosdb-geo]: https://docs.microsoft.com/azure/cosmos-db/distribute-data-globally
-[cosmosdb-scale]: https://docs.microsoft.com/azure/cosmos-db/partition-data
+
+
+[AAF-cost]: ../../framework/cost/overview.md
+[AAF-devops]: ../../framework/devops/overview.md
+[app-insights]: /azure/azure-monitor/app/app-insights-overview
+[arm-template]: /azure/azure-resource-manager/resource-group-overview#resource-groups
+[Cosmos-Calculator]: https://cosmos.azure.com/capacitycalculator/
+[cosmosdb]: /azure/cosmos-db/introduction
+[cosmosdb-geo]: /azure/cosmos-db/distribute-data-globally
+[cosmosdb-scale]: /azure/cosmos-db/partition-data
+[cosmosdb-pricing]: https://azure.microsoft.com/pricing/details/cosmos-db/
+[cosmosdb-sql]: /azure/cosmos-db/sql-api-introduction
+[Cost-Calculator]: https://azure.microsoft.com/pricing/calculator/
+[eh]: /azure/event-hubs/
+[eh-autoscale]: /azure/event-hubs/event-hubs-auto-inflate
+[eh-dr]: /azure/event-hubs/event-hubs-geo-dr
+[eh-throughput]: /azure/event-hubs/event-hubs-scalability#throughput-units
+[eh-trigger]: /azure/azure-functions/functions-bindings-event-hubs
+[functions]: /azure/azure-functions/functions-overview
+[iot]: /azure/iot-hub/iot-hub-compare-event-hubs
+[log-analytics]: /azure/log-analytics/log-analytics-queries
+[monitor]: /azure/azure-monitor/overview
+[partition-key]: /azure/cosmos-db/partition-data
+[pipelines]: /azure/devops/pipelines/index
+[queue]: /azure/storage/queues/storage-queues-introduction
+[queue-binding]: /azure/azure-functions/functions-bindings-storage-queue-output
+[ra-grs]: /azure/storage/common/storage-redundancy-grs
+[ru]: /azure/cosmos-db/request-units
+
+[cosmosdb-geo]: /azure/cosmos-db/distribute-data-globally
+[cosmosdb-scale]: /azure/cosmos-db/partition-data
 [cosmosdb-pricing]: https://azure.microsoft.com/pricing/details/cosmos-db
-[cosmosdb-sql]: https://docs.microsoft.com/azure/cosmos-db/sql-api-introduction
+[cosmosdb-sql]: /azure/cosmos-db/sql-api-introduction
 [azure-pricing-calculator]: https://azure.microsoft.com/pricing/calculator
-[eh]: https://docs.microsoft.com/azure/event-hubs
-[eh-autoscale]: https://docs.microsoft.com/azure/event-hubs/event-hubs-auto-inflate
-[eh-dr]: https://docs.microsoft.com/azure/event-hubs/event-hubs-geo-dr
-[eh-throughput]: https://docs.microsoft.com/azure/event-hubs/event-hubs-scalability#throughput-units
-[eh-trigger]: https://docs.microsoft.com/azure/azure-functions/functions-bindings-event-hubs
-[functions]: https://docs.microsoft.com/azure/azure-functions/functions-overview
-[iot]: https://docs.microsoft.com/azure/iot-hub/iot-hub-compare-event-hubs
-[log-analytics]: https://docs.microsoft.com/azure/log-analytics/log-analytics-queries
-[monitor]: https://docs.microsoft.com/azure/azure-monitor/overview
-[partition-key]: https://docs.microsoft.com/azure/cosmos-db/partition-data
-[pipelines]: https://docs.microsoft.com/azure/devops/pipelines/index
-[queue]: https://docs.microsoft.com/azure/storage/queues/storage-queues-introduction
-[queue-binding]: https://docs.microsoft.com/azure/azure-functions/functions-bindings-storage-queue-output
-[ra-grs]: https://docs.microsoft.com/azure/storage/common/storage-redundancy-grs
-[ru]: https://docs.microsoft.com/azure/cosmos-db/request-units
+[eh]: /azure/event-hubs
+[eh-autoscale]: /azure/event-hubs/event-hubs-auto-inflate
+[eh-dr]: /azure/event-hubs/event-hubs-geo-dr
+[eh-throughput]: /azure/event-hubs/event-hubs-scalability#throughput-units
+[eh-trigger]: /azure/azure-functions/functions-bindings-event-hubs
+[functions]: /azure/azure-functions/functions-overview
+[iot]: /azure/iot-hub/iot-hub-compare-event-hubs
+[log-analytics]: /azure/log-analytics/log-analytics-queries
+[monitor]: /azure/azure-monitor/overview
+[partition-key]: /azure/cosmos-db/partition-data
+[pipelines]: /azure/devops/pipelines/index
+[queue]: /azure/storage/queues/storage-queues-introduction
+[queue-binding]: /azure/azure-functions/functions-bindings-storage-queue-output
+[ra-grs]: /azure/storage/common/storage-redundancy-grs
+[ru]: /azure/cosmos-db/request-units
 
 [github]: https://github.com/mspnp/serverless-reference-implementation/tree/v0.1.0
 [readme]: https://github.com/mspnp/serverless-reference-implementation/blob/v0.1.0/README.md

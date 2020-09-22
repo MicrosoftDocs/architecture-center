@@ -23,7 +23,7 @@ This scenario shows how to deploy and operate a scalable, enterprise-grade Jenki
 
 *Download a [Visio file](https://archcenter.blob.core.windows.net/cdn/Jenkins-architecture.vsdx) that contains this architecture diagram.*
 
-This architecture supports disaster recovery with Azure services but does not cover more advanced scale-out scenarios involving multiple masters or high availability (HA) with no downtime. For general insights about the various Azure components, including a step-by-step tutorial about building out a CI/CD pipeline on Azure, see [Jenkins on Azure][jenkins-on-azure].
+This architecture supports disaster recovery with Azure services but does not cover more advanced scale-out scenarios involving multiple primaries or high availability (HA) with no downtime. For general insights about the various Azure components, including a step-by-step tutorial about building out a CI/CD pipeline on Azure, see [Jenkins on Azure][jenkins-on-azure].
 
 The focus of this document is on the core Azure operations needed to support Jenkins, including the use of Azure Storage to maintain build artifacts, the security items needed for SSO, other services that can be integrated, and scalability for the pipeline. The architecture is designed to work with an existing source control repository. For example, a common scenario is to start Jenkins jobs based on GitHub commits.
 
@@ -33,7 +33,7 @@ The architecture consists of the following components:
 
 - **Resource group.** A [resource group][rg] is used to group Azure assets so they can be managed by lifetime, owner, and other criteria. Use resource groups to deploy and monitor Azure assets as a group and track billing costs by resource group. You can also delete resources as a set, which is very useful for test deployments.
 
-- **Jenkins server.** A virtual machine is deployed to run [Jenkins][azure-market] as an automation server and serves as Jenkins Master. To deploy this VM, use the [solution template for Jenkins on Azure][solution]. Other Jenkins offerings are available in the Azure Marketplace.
+- **Jenkins server.** A virtual machine is deployed to run [Jenkins][azure-market] as an automation server and serves as Jenkins Primary. To deploy this VM, use the [solution template for Jenkins on Azure][solution]. Other Jenkins offerings are available in the Azure Marketplace.
 
   > [!NOTE]
   > Nginx is installed on the VM to act as a reverse proxy to Jenkins. You can configure Nginx to enable SSL for the Jenkins server.
@@ -75,7 +75,7 @@ Use the Jenkins [Windows Azure Storage plugin][storage-plugin], which is install
 
 ### Jenkins Azure plugins
 
-The solution template for Jenkins on Azure installs several Azure plugins. The Azure DevOps Team builds and maintains the solution template and the following plugins, which work with other Jenkins offerings in Azure Marketplace as well as any Jenkins master set up on premises:
+The solution template for Jenkins on Azure installs several Azure plugins. The Azure DevOps Team builds and maintains the solution template and the following plugins, which work with other Jenkins offerings in Azure Marketplace as well as any Jenkins primary set up on premises:
 
 - [Azure AD plugin][configure-azure-ad] allows the Jenkins server to support SSO for users based on Azure AD.
 
@@ -99,11 +99,11 @@ We also recommend reviewing the growing list of all available Azure plugins that
 
 ## Scalability considerations
 
-Jenkins can scale to support very large workloads. For elastic builds, do not run builds on the Jenkins master server. Instead, offload build tasks to Jenkins agents, which can be elastically scaled in and out as need. Consider two options for scaling agents:
+Jenkins can scale to support very large workloads. For elastic builds, do not run builds on the Jenkins primary server. Instead, offload build tasks to Jenkins agents, which can be elastically scaled in and out as need. Consider two options for scaling agents:
 
 - Use the [Azure VM Agents][vm-agent] plugin to create Jenkins agents that run in Azure VMs. This plugin enables elastic scale-out for agents and can use distinct types of virtual machines. You can select a different base image from Azure Marketplace or use a custom image. For details about how the Jenkins agents scale, see [Architecting for Scale][scale] in the Jenkins documentation.
 
-- Use the [Azure Container Agents][container-agents] plugin to run a container as an agent in either [Azure Container Service with Kubernetes](https://docs.microsoft.com/azure/container-service/kubernetes/), or [Azure Container Instances](https://docs.microsoft.com/azure/container-instances/).
+- Use the [Azure Container Agents][container-agents] plugin to run a container as an agent in either [Azure Container Service with Kubernetes](/azure/container-service/kubernetes/), or [Azure Container Instances](/azure/container-instances/).
 
 Virtual machines generally cost more to scale than containers. To use containers for scaling, however, your build process must run with containers.
 
@@ -113,7 +113,7 @@ Also, use Azure Storage to share build artifacts that may be used in the next st
 
 You can scale the Jenkins server VM up or down by changing the VM size. The [solution template for Jenkins on Azure][azure-market] specifies the DS2 v2 size (with two CPUs, 7 GB) by default. This size handles a small to medium team workload. Change the VM size by choosing a different option when building out the server.
 
-Selecting the correct server size depends on the size of the expected workload. The Jenkins community maintains a [selection guide][selection-guide] to help identify the configuration that best meets your requirements. Azure offers many [sizes for Linux VMs][sizes-linux] to meet any requirements. For more information about scaling the Jenkins master, refer to the Jenkins community of [best practices][best-practices], which also includes details about scaling Jenkins master.
+Selecting the correct server size depends on the size of the expected workload. The Jenkins community maintains a [selection guide][selection-guide] to help identify the configuration that best meets your requirements. Azure offers many [sizes for Linux VMs][sizes-linux] to meet any requirements. For more information about scaling the Jenkins primary, refer to the Jenkins community of [best practices][best-practices], which also includes details about scaling Jenkins.
 
 ## Availability considerations
 
@@ -123,7 +123,7 @@ Availability in the context of a Jenkins server means being able to recover any 
 
 - Recovery Point Objective (RPO) indicates how much data you can afford to lose if a disruption in service affects Jenkins.
 
-In practice, RTO and RPO imply redundancy and backup. Availability is not a question of hardware recovery &mdash; that is part of Azure &mdash; but rather ensuring you maintain the state of your Jenkins server. Microsoft offers a [service level agreement][sla] (SLA) for single VM instances. If this SLA doesn't meet your uptime requirements, make sure you have a plan for disaster recovery, or consider using a [multi-master Jenkins server][multi-master] deployment (not covered in this document).
+In practice, RTO and RPO imply redundancy and backup. Availability is not a question of hardware recovery &mdash; that is part of Azure &mdash; but rather ensuring you maintain the state of your Jenkins server. Microsoft offers a [service level agreement][sla] (SLA) for single VM instances. If this SLA doesn't meet your uptime requirements, make sure you have a plan for disaster recovery, or consider using a [multi-primary Jenkins server][multi-primary] deployment (not covered in this document).
 
 Consider using the disaster recovery [scripts][disaster] in step 7 of the deployment to create an Azure Storage account with managed disks to store the Jenkins server state. If Jenkins goes down, it can be restored to the state stored in this separate storage account.
 
@@ -225,48 +225,48 @@ You may wish to review the following [Azure example scenario](/azure/architectur
 <!-- links -->
 
 [acs]: https://aka.ms/azjenkinsacs
-[ad-sp]: https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications
+[ad-sp]: /azure/active-directory/develop/active-directory-integrating-applications
 [app-service]: https://plugins.jenkins.io/azure-app-service
-[azure-ad]: https://docs.microsoft.com/azure/active-directory
-[azure-market]: https://azuremarketplace.microsoft.com/marketplace/apps/azure-oss.jenkins?tab=Overview
+[azure-ad]: /azure/active-directory
+[azure-market]: /azure/developer/jenkins/deploy-to-azure-app-service-using-plugin
 [best-practices]: https://jenkins.io/doc/book/architecting-for-scale
-[blob]: https://docs.microsoft.com/azure/storage/common/storage-java-jenkins-continuous-integration-solution
+[blob]: /azure/storage/common/storage-java-jenkins-continuous-integration-solution
 [configure-azure-ad]: https://plugins.jenkins.io/azure-ad
 [configure-agent]: https://plugins.jenkins.io/azure-vm-agents
 [configure-credential]: https://plugins.jenkins.io/azure-credentials
 [configure-storage]: https://plugins.jenkins.io/windows-azure-storage
 [container-agents]: https://aka.ms/azcontaineragent
-[create-jenkins]: https://docs.microsoft.com/azure/jenkins/install-jenkins-solution-template
-[create-metric]: https://docs.microsoft.com/azure/monitoring-and-diagnostics/insights-alerts-portal
+[create-jenkins]: /azure/jenkins/install-jenkins-solution-template
+[create-metric]: /azure/monitoring-and-diagnostics/insights-alerts-portal
 [disaster]: https://github.com/Azure/jenkins/tree/master/disaster_recovery
 [functions]: https://aka.ms/azjenkinsfunctions
 [index]: https://plugins.jenkins.io
 [jenkins-best]: https://wiki.jenkins.io/display/JENKINS/Jenkins+Best+Practices
-[jenkins-on-azure]: https://docs.microsoft.com/azure/jenkins
-[key-vault]: https://docs.microsoft.com/azure/key-vault
-[managed-disk]: https://docs.microsoft.com/azure/virtual-machines/linux/managed-disks-overview
+[jenkins-on-azure]: /azure/jenkins
+[key-vault]: /azure/key-vault
+[managed-disk]: /azure/virtual-machines/linux/managed-disks-overview
 [matrix]: https://plugins.jenkins.io/matrix-auth
-[monitor]: https://docs.microsoft.com/azure/monitoring-and-diagnostics
+[monitor]: /azure/monitoring-and-diagnostics
 [monitoring-diag]: ../../best-practices/monitoring.md
-[multi-master]: https://jenkins.io/doc/book/architecting-for-scale
+[multi-primary]: https://jenkins.io/doc/book/architecting-for-scale
 [nginx]: https://www.digitalocean.com/community/tutorials/how-to-create-an-ssl-certificate-on-nginx-for-ubuntu-14-04
-[nsg]: https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg
-[quick-start]: https://docs.microsoft.com/azure/security-center/security-center-get-started
-[port443]: https://docs.microsoft.com/azure/virtual-machines/windows/nsg-quickstart-portal
-[premium]: https://docs.microsoft.com/azure/virtual-machines/linux/premium-storage
-[rbac]: https://docs.microsoft.com/azure/active-directory/role-based-access-control-what-is
-[rg]: https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview
+[nsg]: /azure/virtual-network/virtual-networks-nsg
+[quick-start]: /azure/security-center/security-center-get-started
+[port443]: /azure/virtual-machines/windows/nsg-quickstart-portal
+[premium]: /azure/virtual-machines/linux/premium-storage
+[rbac]: /azure/active-directory/role-based-access-control-what-is
+[rg]: /azure/azure-resource-manager/resource-group-overview
 [scale]: https://jenkins.io/doc/book/architecting-for-scale
-[scale-agent]: https://docs.microsoft.com/azure/jenkins/jenkins-azure-vm-agents
+[scale-agent]: /azure/jenkins/jenkins-azure-vm-agents
 [selection-guide]: https://jenkins.io/doc/book/hardware-recommendations
-[service-principal]: https://docs.microsoft.com/azure/active-directory/develop/active-directory-application-objects
+[service-principal]: /azure/active-directory/develop/active-directory-application-objects
 [secure-jenkins]: https://jenkins.io/blog/2017/04/20/secure-jenkins-on-azure
-[security-center]: https://docs.microsoft.com/azure/security-center/security-center-intro
-[sizes-linux]: https://docs.microsoft.com/azure/virtual-machines/linux/sizes?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+[security-center]: /azure/security-center/security-center-intro
+[sizes-linux]: /azure/virtual-machines/linux/sizes?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
 [solution]: https://azure.microsoft.com/blog/announcing-the-solution-template-for-jenkins-on-azure
 [sla]: https://azure.microsoft.com/support/legal/sla/virtual-machines
 [storage-plugin]: https://wiki.jenkins.io/display/JENKINS/Windows+Azure+Storage+Plugin
-[subnet]: https://docs.microsoft.com/azure/virtual-network/virtual-network-manage-subnet
+[subnet]: /azure/virtual-network/virtual-network-manage-subnet
 [vm-agent]: https://wiki.jenkins.io/display/JENKINS/Azure+VM+Agents+plugin
-[vnet]: https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview
+[vnet]: /azure/virtual-network/virtual-networks-overview
 [0]: ./media/architecture-jenkins.png

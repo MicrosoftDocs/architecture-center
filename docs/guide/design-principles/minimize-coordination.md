@@ -1,8 +1,8 @@
 ---
 title: Minimize coordination
 titleSuffix: Azure Application Architecture Guide
-description: Minimize coordination between application services to achieve scalability.
-author: MikeWasson
+description: Follow these recommendations to improve scalability by minimizing coordination between application services.
+author: doodlemania2
 ms.date: 08/30/2018
 ms.topic: guide
 ms.service: architecture-center
@@ -64,10 +64,10 @@ Azure SQL Database and SQL Server support optimistic concurrency through [snapsh
 [big-compute]: ../architecture-styles/big-compute.md
 [compensating-transaction]: ../../patterns/compensating-transaction.md
 [cqrs-pattern]: ../../patterns/cqrs.md
-[cosmos-db-faq]: https://docs.microsoft.com/azure/cosmos-db/faq
+[cosmos-db-faq]: /azure/cosmos-db/faq
 [domain-event]: https://martinfowler.com/eaaDev/DomainEvent.html
 [event-sourcing]: ../../patterns/event-sourcing.md
 [leader-election]: ../../patterns/leader-election.md
 [sas-pattern]: ../../patterns/scheduler-agent-supervisor.md
-[sql-snapshot-isolation]: https://docs.microsoft.com/sql/t-sql/statements/set-transaction-isolation-level-transact-sql
+[sql-snapshot-isolation]: /sql/t-sql/statements/set-transaction-isolation-level-transact-sql
 [storage-concurrency]: https://azure.microsoft.com/blog/managing-concurrency-in-microsoft-azure-storage-2

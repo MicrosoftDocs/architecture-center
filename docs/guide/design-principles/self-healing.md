@@ -2,7 +2,7 @@
 title: Design for self healing
 titleSuffix: Azure Application Architecture Guide
 description: Resilient applications can recover from failures without manual intervention.
-author: MikeWasson
+author: doodlemania2
 ms.date: 08/30/2018
 ms.topic: guide
 ms.service: architecture-center
@@ -14,7 +14,7 @@ ms.custom: seojan19
 
 ## Design your application to be self healing when failures occur
 
-In a distributed system, failures happen. Hardware can fail. The network can have transient failures. Rarely, an entire service or region may experience a disruption, but even those must be planned for.
+In a distributed system, failures can happen. Hardware can fail. The network can have transient failures. Rarely, an entire service or region may experience a disruption, but even those must be planned for.
 
 Therefore, design an application to be self healing when failures occur. This requires a three-pronged approach:
 

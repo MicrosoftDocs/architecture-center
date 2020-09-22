@@ -17,7 +17,7 @@
             <li>11/06/2018</li>
             <li>10 min read</li>
         </ul>
-        <p class="card-content-description">Create an end-to-end stream processing pipeline in Azure.</p>
+        <p class="card-content-description">This reference architecture shows an end-to-end stream processing pipeline, which ingests data, correlates records, and calculates a rolling average.</p>
         <div class="bottom-to-top-fade is-hidden-mobile"></div>
     </div>
 </article>

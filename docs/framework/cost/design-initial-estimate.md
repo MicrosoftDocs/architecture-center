@@ -1,5 +1,5 @@
 ---
-title: Estimate the initial cost
+title: Initial cost estimate
 description: Describes strategies to model your cloud costs
 author:  PageWriter-MSFT
 ms.date: 05/12/2020
@@ -43,7 +43,7 @@ Azure provides these tools to determine cost.
 
 Let's consider this [scenario](../../microservices/design/index.md#scenario) as an example. We'll use the [Azure Pricing calculator](https://azure.microsoft.com/pricing/calculator/) to estimate the initial cost before the workload is deployed. The cost is calculated per month or for 730 hours.
 
-In this example, we've chosen the microservices pattern. As the container orchestrator, one of the options could be [Azure Kubernetes Service](https://docs.microsoft.com/azure/aks/) (AKS) that manages a cluster of pods. We choose NGINX ingress controller because it's well-known controller for such workloads. 
+In this example, we've chosen the microservices pattern. As the container orchestrator, one of the options could be [Azure Kubernetes Service](/azure/aks/) (AKS) that manages a cluster of pods. We choose NGINX ingress controller because it's well-known controller for such workloads. 
 
 > The example is based on the current price and is subject to change. The calculation shown is for information purposes only.
 
@@ -72,7 +72,7 @@ NGINX ingress controller deploys a load balancer that routes internet traffic to
 
 ### Bandwidth
 
-We estimate 2-TB outbound traffic. The first 5 GB/month are free in Zone 1 (Zone 1 includes North America, Europe, and Australia). Between 5 GB - 10 TB 2/month is charged $0.087 per GB.
+We estimate 2-TB outbound traffic. The first 5 GB/month are free in Zone 1 (Zone 1 includes North America, Europe, and Australia). Between 5 GB - 10 TB /month is charged $0.087 per GB.
 
 **Estimated Total: $177.74 per month**
 
@@ -96,7 +96,7 @@ Now, we use those values in the [Azure Pricing calculator](https://azure.microso
 
 ![Azure Pricing calculator for Cosmos DB](../_images/cosmosdb-price.png)
 
-The average throughput based on these settings is 20,000 RU/s. which is the minimum throughput required for a **3-year reserved capacity** plan.
+The average throughput based on these settings is 20,000 RUs/sec which is the minimum throughput required for a **3-year reserved capacity** plan.
 
 Here is the total cost for three years using the reserved plan:
 
@@ -112,7 +112,7 @@ Basic plan license for five users is free.
 #### Additional services
 For Microsoft Hosted Pipelines, the **Free** tier includes one parallel CI/CD job with 1,800 minutes (30 hours) per month. However you can select the **Paid** tier and have one CI/CD parallel job ($40.00), in this tier, each parallel CI/CD job includes unlimited minutes.
 
-> For this stage of cost estimatation, there Self Hosted Pipelines is not required because the workload doesn't have custom software that runs in your build process isn't included in the Microsoft-hosted option.
+> For this stage of cost estimation, the Self Hosted Pipelines is not required because the workload doesn't have custom software that runs in your build process which isn't included in the Microsoft-hosted option.
 
 Azure Artifacts is a service where you can create package feeds to publish and consume Maven, npm, NuGet, Python, and universal packages. Azure Artifacts is billed on a consumption basis, and is free up until 2 GB of storage. For this scenario, we estimate 56 GB in artifacts ($56.00)
 

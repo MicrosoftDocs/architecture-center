@@ -17,7 +17,7 @@
             <li>7/13/2018</li>
             <li>5 min read</li>
         </ul>
-        <p class="card-content-description">Run native HPC workloads in Azure using the Azure Batch service.</p>
+        <p class="card-content-description">Use Azure Batch to manage existing Windows or Linux applications, including AutoDesk Maya and Blender, to run large-scale 3D video render jobs in Azure.</p>
         <div class="bottom-to-top-fade is-hidden-mobile"></div>
     </div>
 </article>

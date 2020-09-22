@@ -1,8 +1,8 @@
 ---
 title: Design for operations
 titleSuffix: Azure Application Architecture Guide
-description: Design an application so that the operations team has the tools they need.
-author: MikeWasson
+description: Learn about functions of the operations team for cloud-based applications, including deployment, monitoring, incident response, and security auditing.
+author: doodlemania2
 ms.date: 08/30/2018
 ms.topic: guide
 ms.service: architecture-center
@@ -22,7 +22,7 @@ The cloud has dramatically changed the role of the operations team. They are no 
 - Incident response
 - Security auditing
 
-Robust logging and tracing are particularly important in cloud applications. Involve the operations team in design and planning, to ensure the application gives them the data and insight thay need to be successful.  <!-- to do: Link to DevOps checklist -->
+Robust logging and tracing are particularly important in cloud applications. Involve the operations team in design and planning, to ensure the application gives them the data and insight they need to be successful.  <!-- to do: Link to DevOps checklist -->
 
 ## Recommendations
 

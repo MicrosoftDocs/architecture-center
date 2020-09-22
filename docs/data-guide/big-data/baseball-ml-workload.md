@@ -57,9 +57,9 @@ The processing sequence in this solution flows as follows:
 
 The following assets and technologies were used to craft the Baseball Machine Learning Workbench:
 
-- [Azure App Service](https://docs.microsoft.com/azure/app-service/) enables you to build and host web applications in the programming language of your choice without managing infrastructure.
+- [Azure App Service](/azure/app-service/) enables you to build and host web applications in the programming language of your choice without managing infrastructure.
 
-- [.NET Core 3.1](https://docs.microsoft.com/dotnet/core/) is an open-source, cross-platform, general-purpose development framework that runs on Windows, Linux, and macOS platforms.
+- [.NET Core 3.1](/dotnet/core/) is an open-source, cross-platform, general-purpose development framework that runs on Windows, Linux, and macOS platforms.
 
 - [ML.NET](https://dotnet.microsoft.com/apps/machinelearning-ai/ml-dotnet) is a cross-platform, open-source framework for creating machine learning and artificial intelligence models using .NET. It is used in the inference sections of this application.
 
@@ -69,23 +69,23 @@ The following assets and technologies were used to craft the Baseball Machine Le
 
 - [Visual Studio 2019](https://visualstudio.microsoft.com/vs/) is the software programming environment used for this project. This architecture uses cross-platform components, so either the Windows or Mac version can be used.
 
-- [Azure Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview)
-    (a feature of [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview)) can
+- [Azure Application Insights](/azure/azure-monitor/app/app-insights-overview)
+    (a feature of [Azure Monitor](/azure/azure-monitor/overview)) can
     be used for performance monitoring and analytics and to drive autoscaling.
 
 ## Considerations
 
 ### Scalability
 
-This solution uses the prediction engine functionality in ML.NET to scale the model response times. Object pooling allows the ML.NET models to be accessed by multiple requests in a thread-safe manner. Learn more about ML.NET object pooling in [Deploy a model in an ASP.NET Core Web API](https://docs.microsoft.com/dotnet/machine-learning/how-to-guides/serve-model-web-api-ml-net).
+This solution uses the prediction engine functionality in ML.NET to scale the model response times. Object pooling allows the ML.NET models to be accessed by multiple requests in a thread-safe manner. Learn more about ML.NET object pooling in [Deploy a model in an ASP.NET Core Web API](/dotnet/machine-learning/how-to-guides/serve-model-web-api-ml-net).
 
-Azure App Service is used for hosting the workbench in the cloud. With App Service you can automatically scale the number of instances that run your app, letting you keep up with customer demand. For more information on autoscale, refer to [Autoscaling best practices](https://docs.microsoft.com/azure/architecture/best-practices/auto-scaling) in the Azure Architecture Center.
+Azure App Service is used for hosting the workbench in the cloud. With App Service you can automatically scale the number of instances that run your app, letting you keep up with customer demand. For more information on autoscale, refer to [Autoscaling best practices](../../best-practices/auto-scaling.md) in the Azure Architecture Center.
 
 In Blazor Server, the state of many components might be maintained concurrently by the server. Because of this, memory exhaustion is a concern that must be addressed. For guidance on how to author a Blazor Server app to help ensure the best use of server memory, consult [Threat mitigation guidance for ASP.NET Core Blazor
-Server](https://docs.microsoft.com/aspnet/core/security/blazor/server/threat-mitigation). Applying these best practices allows a server-side Blazor application to scale
+Server](/aspnet/core/security/blazor/server/threat-mitigation). Applying these best practices allows a server-side Blazor application to scale
 to thousands of concurrent users—even on relatively small server hosts.
 
-General guidance on designing scalable solutions is provided in the Azure Architecture Center’s [Performance efficiency checklist](https://docs.microsoft.com/azure/architecture/checklist/performance-efficiency).
+General guidance on designing scalable solutions is provided in the Azure Architecture Center’s [Performance efficiency checklist](../../framework/scalability/performance-efficiency.md).
 
 ### Resiliency and support
 
@@ -123,7 +123,7 @@ Baseball data itself is public domain.
 
 This application is also available as a complete, ready-to-run [Docker container downloadable from Docker Hub](https://hub.docker.com/r/bartczernicki/baseballmachinelearningworkbench).
 
-The container can be run locally (offline) in your own environment. It can also be deployed online in an [Azure Container Instance](https://docs.microsoft.com/azure/container-instances/container-instances-overview). Instructions for getting started with either use case are provided in the main GitHub repo’s Get Started documentation:
+The container can be run locally (offline) in your own environment. It can also be deployed online in an [Azure Container Instance](/azure/container-instances/container-instances-overview). Instructions for getting started with either use case are provided in the main GitHub repo’s Get Started documentation:
 
 - [Run the Docker Container locally in your own environment](https://github.com/bartczernicki/MachineLearning-BaseballPrediction-BlazorApp/blob/master/GETSTARTED.md#2-run-the-docker-container-locally-in-your-own-environment)
 
@@ -135,11 +135,11 @@ The container can be run locally (offline) in your own environment. It can also 
 
 - [Baseball HOF prediction using R mlr and DALEX packages](https://github.com/bartczernicki/BaseballHOFPredictionWithMlrAndDALEX) is a GitHub repo using R and cutting edge “black box” model techniques to explain ML.NET models related to this workload
 
-- [Blazor documentation](https://docs.microsoft.com/aspnet/core/blazor)
+- [Blazor documentation](/aspnet/core/blazor)
 
-- [ML.NET documentation](https://docs.microsoft.com/dotnet/machine-learning)
+- [ML.NET documentation](/dotnet/machine-learning)
 
-- [ASP.NET Core Blazor hosting models](https://docs.microsoft.com/aspnet/core/blazor/hosting-models?view=aspnetcore-3.1)
+- [ASP.NET Core Blazor hosting models](/aspnet/core/blazor/hosting-models?view=aspnetcore-3.1)
 
 - [MLOps (DevOps for Machine Learning)](https://azure.microsoft.com/services/machine-learning/mlops/) helps data science teams deliver innovation faster, increasing the pace of ML model development
 

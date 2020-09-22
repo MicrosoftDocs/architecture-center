@@ -1,7 +1,7 @@
 ---
 title: Implement a secure hybrid network
-description: Implement a secure hybrid network architecture in Azure.
-author: MikeWasson
+description: See a secure hybrid network that extends an on-premises network to Azure with a perimeter network between the on-premises network and an Azure virtual network.
+author: doodlemania2
 ms.date: 01/07/2020
 ms.topic: reference-architecture
 ms.service: architecture-center
@@ -34,7 +34,7 @@ The architecture consists of the following components.
 - **On-premises network**. A private local-area network implemented in an organization.
 - **Azure virtual network**. The virtual network hosts the application and other resources running in Azure.
 - **Gateway**. The gateway provides connectivity between the routers in the on-premises network and the virtual network. The gateway is placed in its own subnet.
-- **Azure Firewall**. [Azure Firewall](https://docs.microsoft.com/azure/firewall/) is a managed firewall as a service. The Firewall instance is placed in its own subnet.
+- **Azure Firewall**. [Azure Firewall](/azure/firewall/) is a managed firewall as a service. The Firewall instance is placed in its own subnet.
 - **Virtual network routes**. [Virtual network routes][udr-overview] define the flow of IP traffic within the Azure virtual network. In the diagram shown above, there are two user-defined route tables.
 
   - In the gateway subnet, traffic sent to the web-tier subnet (10.0.1.0/24) is routed through the Azure Firewall instance.
@@ -45,7 +45,7 @@ The architecture consists of the following components.
 
 - **Network security groups**. Use [security groups][nsg] to restrict network traffic within the virtual network. For example, in the deployment provided with this reference architecture, the web tier subnet allows TCP traffic from the on-premises network and from within the virtual network; the business tier allows traffic from the web tier; and the data tier allows traffic from the business tier.
 
-- **Bastion**. [Azure Bastion](https://docs.microsoft.com/azure/bastion/) allows you to log into VMs in the virtual network through SSH or remote desktop protocol (RDP) without exposing the VMs directly to the internet. Use Bastion to manage the VMs in the virtual network.
+- **Bastion**. [Azure Bastion](/azure/bastion/) allows you to log into VMs in the virtual network through SSH or remote desktop protocol (RDP) without exposing the VMs directly to the internet. Use Bastion to manage the VMs in the virtual network.
 
 ## Recommendations
 
@@ -75,7 +75,7 @@ We recommend creating the following resource groups:
 
 ### Networking recommendations
 
-To accept inbound traffic from the internet, add a [Destination Network Address Translation](https://docs.microsoft.com/azure/firewall/tutorial-firewall-dnat) (DNAT) rule to Azure Firewall. 
+To accept inbound traffic from the internet, add a [Destination Network Address Translation](/azure/firewall/tutorial-firewall-dnat) (DNAT) rule to Azure Firewall. 
 
 - Destination address = Public IP address of the firewall instance.
 - Translated address = Private IP address within the virtual network.
@@ -92,7 +92,7 @@ Consider using Application Gateway or Azure Front Door for SSL termination.
 
 ## Scalability considerations
 
-For details about the bandwidth limits of VPN Gateway, see [Gateway SKUs](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways#gwsku). For higher bandwidths, consider upgrading to an ExpressRoute gateway. ExpressRoute provides up to 10 Gbps bandwidth with lower latency than a VPN connection.
+For details about the bandwidth limits of VPN Gateway, see [Gateway SKUs](/azure/vpn-gateway/vpn-gateway-about-vpngateways#gwsku). For higher bandwidths, consider upgrading to an ExpressRoute gateway. ExpressRoute provides up to 10 Gbps bandwidth with lower latency than a VPN connection.
 
 For more information about the scalability of Azure gateways, see the scalability consideration section in [Implementing a hybrid network architecture with Azure and on-premises VPN][guidance-vpn-gateway-scalability] and [Implementing a hybrid network architecture with Azure ExpressRoute][guidance-expressroute-scalability].
 
@@ -232,12 +232,12 @@ In this step, you will connect the two local network gateways.
 <!-- links -->
 
 [aaf-cost]: ../../framework/cost/overview.md
-[azure-forced-tunneling]: https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-forced-tunneling-rm
+[azure-forced-tunneling]: /azure/vpn-gateway/vpn-gateway-forced-tunneling-rm
 [azurect]: https://github.com/Azure/NetworkMonitoring/tree/master/AzureCT
-[cloud-services-network-security]: https://docs.microsoft.com/azure/best-practices-network-security
+[cloud-services-network-security]: /azure/best-practices-network-security
 [azure-pricing-calculator]: https://azure.microsoft.com/pricing/calculator
 [Firewall-NVA]: https://azure.microsoft.com/blog/azure-firewall-and-network-virtual-appliances
-[getting-started-with-azure-security]: https://docs.microsoft.com/azure/security/azure-security-getting-started
+[getting-started-with-azure-security]: /azure/security/azure-security-getting-started
 [github-folder]: https://github.com/mspnp/reference-architectures/tree/master/dmz/secure-vnet-hybrid
 [guidance-expressroute-availability]: ../hybrid-networking/expressroute.md#availability-considerations
 [guidance-expressroute-devops]: ../hybrid-networking/expressroute.md#devops-considerations
@@ -247,14 +247,14 @@ In this step, you will connect the two local network gateways.
 [guidance-vpn-gateway-devops]: ../hybrid-networking/vpn.md#devops-considerations
 [guidance-vpn-gateway-scalability]: ../hybrid-networking/vpn.md#scalability-considerations
 [guidance-vpn-gateway-security]: ../hybrid-networking/vpn.md#security-considerations
-[nsg]: https://docs.microsoft.com/azure/virtual-network/security-overview
+[nsg]: /azure/virtual-network/security-overview
 [ra-expressroute]: ../hybrid-networking/expressroute.md
 [ra-vpn-failover]: ../hybrid-networking/expressroute-vpn-failover.md
 [ra-vpn]: ../hybrid-networking/vpn.md
-[rbac-custom-roles]: https://docs.microsoft.com/azure/active-directory/role-based-access-control-custom-roles
-[rbac]: https://docs.microsoft.com/azure/active-directory/role-based-access-control-configure
-[routing-and-remote-access-service]: https://technet.microsoft.com/library/dd469790(v=ws.11).aspx
-[security-principle-of-least-privilege]: https://msdn.microsoft.com/library/hdb58b2f(v=vs.110).aspx#Anchor_1
-[udr-overview]: https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview
+[rbac-custom-roles]: /azure/active-directory/role-based-access-control-custom-roles
+[rbac]: /azure/active-directory/role-based-access-control-configure
+[routing-and-remote-access-service]: /previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd469790(v=ws.11)
+[security-principle-of-least-privilege]: /dotnet/framework/data/adonet/security-overview#Anchor_1
+[udr-overview]: /azure/virtual-network/virtual-networks-udr-overview
 [visio-download]: https://archcenter.blob.core.windows.net/cdn/dmz-reference-architectures.vsdx
 [wireshark]: https://www.wireshark.org

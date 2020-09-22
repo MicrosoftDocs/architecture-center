@@ -1,7 +1,7 @@
 ---
 title: DevOps in a hybrid environment
 titleSuffix: Azure Solution Ideas
-author: adamboeglin
+author: doodlemania2
 ms.date: 12/16/2019
 description: The tools provided in Azure allow for the implementation of a DevOps strategy that capably manages both cloud and on-premises environments in tandem.
 ms.custom: acom-architecture
