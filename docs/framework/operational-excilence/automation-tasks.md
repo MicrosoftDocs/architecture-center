@@ -76,6 +76,8 @@ As seen in the following image, Azure Automation provides a portal experience fo
 
 ## Logic apps
 
+< TODO >
+
 ## Scale operations
 
 So far, this document has detailed options for scripting operational tasks; however, many Azure services come with built-in automation, particularly in scale operations. As application demand increases (transactions, memory consumption, and compute availability), you may need to scale the application hosting platform so that requests continue to be served. As demand decreases, scaling back not only appropriately re-sizes your application but also reduces operational cost.

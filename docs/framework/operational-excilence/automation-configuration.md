@@ -167,7 +167,7 @@ Chef is an automation platform that helps define how your infrastructure is conf
 
 **Learn more**
 
-[Docs: An Overview of Chef](https://docs.chef.io/chef_overview.html)
+- [Docs: An Overview of Chef](https://docs.chef.io/chef_overview.html)
 
 ### Puppet
 
@@ -175,7 +175,7 @@ Puppet is an enterprise-ready automation platform that handles the application d
 
 **Learn more**
 
-[Docs: How Puppet works](https://puppet.com/products/how-puppet-works).
+- [Docs: How Puppet works](https://puppet.com/products/how-puppet-works).
 
 #### Next steps
 
