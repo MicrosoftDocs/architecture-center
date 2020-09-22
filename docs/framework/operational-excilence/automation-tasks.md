@@ -78,15 +78,27 @@ As seen in the following image, Azure Automation provides a portal experience fo
 
 ## Scale operations
 
-So far, this document has detailed options for scripting operational tasks; however, many Azure services come with built-in automation, particularly in scale operations. As application demand increases (transactions, memory consumption, and compute availability), you may need to scale the application hosting platform so that requests continue to be served. In cloud computing, scale activities are generally classified into two buckets:
+So far, this document has detailed options for scripting operational tasks; however, many Azure services come with built-in automation, particularly in scale operations. As application demand increases (transactions, memory consumption, and compute availability), you may need to scale the application hosting platform so that requests continue to be served. As demand decreases, scaling back not only appropriately re-sizes your application but also reduces operational cost.
+
+In cloud computing, scale activities are generally classified into two buckets:
 
 - **Scale-up:** Adding additional resources to an existing system to meet demand.
 - **Scale-out:** Adding additional infrastructure to meet demand.
 
-The remainder of this section focuses on using built-in Azure technology to perform scale operations.
+Many Azure services can be scaled up by changing the pricing tier of that service. Generally, this operation would need to be performed manually or using detection logic and custom automation. Some Azure services also support automatic scale-out, which is the focus of this section.
 
-### Azure App Service
+### Azure Monitor autoscale
+
+Azure Monitor autoscale can be used to autoscale Virtual Machine Scale Sets, Cloud Services, App Service Web Apps, and API Management service. To configure scale-out operations for these services from the Azure portal, select the service, and then the **Scaling** or **scale-out** under the resource settings. Select **Custom** To configure auto-scaling rules. Automatic scale operations can also be configured using an Azure Resouce Manager Template, the Azure PowerShell module, and the Azure CLI.
+
+![](./images/auto-scale.png)
+
+When creating the auto-scale rules, configure minimum and maximum instance counts. These settings prevent inadvertant costly scale operations. Next, configure autoscale rules, at minimum one to add more instances, and one to remove instances when no longer needed. Azure Monitor autoscale rules give you fine-grain control over when a scale operation is initiated. See the included documentation for more information on these rules.
+
+![](./images/scale-rules.png)
+
+**Learn more**
+
+- [Docs: Azure Monitor autoscale overview](https://docs.microsoft.com/azure/azure-monitor/platform/autoscale-overview)
 
 ### Azure Kubernetes Service
-
-### Azure Virtual Machines Scale Sets
