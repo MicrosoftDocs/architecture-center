@@ -28,6 +28,7 @@ The following are some relevant use cases for this architecture:
 ## Architecture
 
 ![WVD Multiple AD Forests architecture diagram](images/two-forest-hybrid.png)
+*Download a [Visio file][visio-download] of this architecture*
 
 ## Scenario
 
@@ -113,3 +114,6 @@ For more information, see these articles:
 - [Compare different Identity options: Self-managed Active Directory Domain Services (AD DS), Azure Active Directory (Azure AD), and Azure Active Directory Domain Services (Azure AD DS)](https://docs.microsoft.com/azure/active-directory-domain-services/compare-identity-solutions).
 - [Solution idea Multi forest with Azure AD DS](./multi-forest-azure-managed.md).
 - [Windows Virtual Desktop Documentation](https://docs.microsoft.com/azure/virtual-desktop/).
+
+<!-- links -->
+[visio-download]: https://archcenter.blob.core.windows.net/cdn/WVD-two-forest-hybrid-Azure.vsdx
