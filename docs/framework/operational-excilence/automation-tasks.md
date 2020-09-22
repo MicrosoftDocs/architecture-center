@@ -8,7 +8,18 @@ ms.service: architecture-center
 ms.subservice: well-architected
 ---
 
-# Automated Tasks
+# Automate operational tasks
+
+Operational tasks can include any action or activity you may perform while managing systems, system access, and processes. Some examples include rebooting servers, creating accounts, and shipping logs to a data store. These tasks may occur on a schedule, as a response to an event or monitoring alert, or ad-hock based on external factors. Like many other activities related to managing computer systems, these activities are often performed manually, which takes time, and is error-prone.
+
+Many of these operational tasks can and should be automated. Using scripting technologies and related solutions, you can shift effort from manually performing operational tasks towards building automation for these tasks. In doing so, you achieve so much:
+
+- Increase time to perform an action
+- Reduce risk in performing the action
+- Automated response to events and alerts
+- Increased human capacity for further innovation
+
+When working in Azure, you have many options for automating operational tasks; this document details some of the more popular.
 
 ## Azure Functions 
 
