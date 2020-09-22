@@ -102,3 +102,98 @@ When creating the auto-scale rules, configure minimum and maximum instance count
 - [Docs: Azure Monitor autoscale overview](https://docs.microsoft.com/azure/azure-monitor/platform/autoscale-overview)
 
 ### Azure Kubernetes Service
+
+Azure Kubernetes Service (AKS) offers an Azure managed Kubernetes cluster. When considering scale operations in Kubernetes there are two components:
+
+- **Pod scaling:** - increasde or decrease the ammount of load balanced pods to meet application demand.
+- **Node scaling:** - increase or decrease the ammount of cluster nodes to meet cluster demand.
+
+Azure Kubernetes Service include automation to facilite both of these scale types.
+
+#### Horizontal pod autoscaler
+
+Horizontal pod autoscaler (HPA) monitors resource demand and automatically scales pod replicas. When configuring horizontal pod autoscaling, you provide the minimum and maximum pod replicas that a cluster can run and the metrics and thresholds that initiate the scale operation. To use horiziontal pod autoscaling, each pod must be configured with resource requests and limits, and a **HorizontalPodAutoscaler** Kubernetes object must be created.
+
+The following Kubernetes manifest demonstrates resource requests on a Kubernetes pod and also the definition of a horizontal pod autoscaler object.
+
+```yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: azure-vote-back
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: azure-vote-back
+  template:
+    metadata:
+      labels:
+        app: azure-vote-back
+    spec:
+      nodeSelector:
+        "beta.kubernetes.io/os": linux
+      containers:
+      - name: azure-vote-back
+        image: redis
+        # Resource requests and limits
+        resources:
+          requests:
+            cpu: 100m
+            memory: 128Mi
+          limits:
+            cpu: 250m
+            memory: 256Mi
+        ports:
+        - containerPort: 6379
+          name: redis
+---
+apiVersion: autoscaling/v1
+kind: HorizontalPodAutoscaler
+metadata:
+  name: azure-vote-back-hpa
+spec:
+  maxReplicas: 10 # define max replica count
+  minReplicas: 3  # define min replica count
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: azure-vote-back
+  targetCPUUtilizationPercentage: 50 # target CPU utilization
+```
+
+#### Cluster autoscaler
+
+Where horizontal pod autoscaling is a response to demand on a specific application of service running in a Kubernetes cluster, cluster autoscaling is a response to demand on the Kubernetes cluster itself. If a Kubernetes cluster does not have enough compute resources or nodes to facilitate all requested pods' resource requests, some of these pods will enter a non-scheduled or pending state. In response to this situation, more nodes can be added to the cluster.
+
+Cluster autoscaler can be configured when creating an AKS cluster; the following example demonstrates this operation with the Azure CLI. This operation can also be completed with an Azure Resource Manager template.
+
+```azurecli
+az aks create \
+  --resource-group myResourceGroup \
+  --name myAKSCluster \
+  --node-count 1 \
+  --vm-set-type VirtualMachineScaleSets \
+  --load-balancer-sku standard \
+  --enable-cluster-autoscaler \
+  --min-count 1 \
+  --max-count 3
+```
+
+Cluster autoscaler can also be configured on an existing cluster using the following Azure CLI command.
+
+```azurecli
+az aks update \
+  --resource-group myResourceGroup \
+  --name myAKSCluster \
+  --enable-cluster-autoscaler \
+  --min-count 1 \
+  --max-count 3
+```
+
+See the included documentation for information on fine-grain control for cluster autoscale operations.
+
+**Learn more**
+
+- [Docs: Horiziontal pod autoscaling](https://docs.microsoft.com/azure/aks/tutorial-kubernetes-scale#autoscale-pods)
+- [Docs: AKS cluster autoscaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler)
