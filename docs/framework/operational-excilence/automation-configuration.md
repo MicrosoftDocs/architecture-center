@@ -96,7 +96,7 @@ When deployed, the deployment script runs PowerShell or Azure CLI commands and s
 
 The following exmaple shows an ARM template snippet with the deployment script resource configured to to run a PowerShell script.
 
-```
+```json
 {
     "type": "Microsoft.Resources/deploymentScripts",
     "apiVersion": "2019-10-01-preview",

@@ -76,4 +76,17 @@ As seen in the following image, Azure Automation provides a portal experience fo
 
 ## Logic apps
 
-#### Next steps
+## Scale operations
+
+So far, this document has detailed options for scripting operational tasks; however, many Azure services come with built-in automation, particularly in scale operations. As application demand increases (transactions, memory consumption, and compute availability), you may need to scale the application hosting platform so that requests continue to be served. In cloud computing, scale activities are generally classified into two buckets:
+
+- **Scale-up:** Adding additional resources to an existing system to meet demand.
+- **Scale-out:** Adding additional infrastructure to meet demand.
+
+The remainder of this section focuses on using built-in Azure technology to perform scale operations.
+
+### Azure App Service
+
+### Azure Kubernetes Service
+
+### Azure Virtual Machines Scale Sets
