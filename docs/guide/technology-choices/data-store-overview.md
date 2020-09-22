@@ -72,8 +72,9 @@ A single key/value store can be extremely scalable, as the data store can easily
 
 ### Azure services
 
-- [Azure Cosmos DB][cosmos-db]
+- [Azure Cosmos DB Table API][cosmos-table], [etcd API (preview)][cosmos-etcd], and [SQL API][cosmos-sql-key-value]
 - [Azure Cache for Redis][redis]
+- [Azure Table Storage][table-storage-classic]
 
 ### Workload
 
@@ -105,7 +106,7 @@ Typically, a document contains the data for single entity, such as a customer or
 
 ### Azure service
 
-- [Azure Cosmos DB][cosmos-db]
+- [Azure Cosmos DB SQL API][cosmos-db]
 
 ### Workload
 
@@ -165,7 +166,7 @@ This structure makes it straightforward to perform queries such as "Find all emp
 
 ## Data analytics
 
-Data analytics stores provide massively parallel solutions for ingesting, storing, and analyzing data. The data is distributed across multiple servers to maximize scalability. Large data file formats such as delimiter files (CSV), [parquet][prq], and [ORC][orc] are widely used in data analytics. Historical data is typically stored in data stores such as blob storage or [Azure Data Lake Storage Gen2][datalakegen2], which are then accessed by Azure Synapse, Databricks, or HDInsights as external tables. A typical scenario using data stored as parquet files for performance, is described in the article [Use external tables with Synapse SQL][synapseexternal].
+Data analytics stores provide massively parallel solutions for ingesting, storing, and analyzing data. The data is distributed across multiple servers to maximize scalability. Large data file formats such as delimiter files (CSV), [parquet][prq], and [ORC][orc] are widely used in data analytics. Historical data is typically stored in data stores such as blob storage or [Azure Data Lake Storage Gen2][datalakegen2], which are then accessed by Azure Synapse, Databricks, or HDInsight as external tables. A typical scenario using data stored as parquet files for performance, is described in the article [Use external tables with Synapse SQL][synapseexternal].
 
 ### Azure services
 
@@ -364,7 +365,7 @@ Aided with this understanding of different data storage models, the next step is
 [sql-db]: https://azure.microsoft.com/services/sql-database
 [sql-dw]: https://azure.microsoft.com/services/sql-data-warehouse/
 [time-series]: https://azure.microsoft.com/services/time-series-insights/
-[sqlserver]: /sql/relational-databases/graphs/sql-graph-overview?view=sql-server-ver15
+[sqlserver]: /sql/relational-databases/graphs/sql-graph-overview
 [hdinsight]: https://azure.microsoft.com/services/hdinsight/
 [databricks]: https://azure.microsoft.com/free/databricks/
 [analysissvc]: /azure/analysis-services/analysis-services-overview
@@ -372,5 +373,8 @@ Aided with this understanding of different data storage models, the next step is
 [prq]: https://parquet.apache.org/documentation/latest/
 [orc]: https://orc.apache.org/docs/
 [synapseexternal]: /azure/synapse-analytics/sql/develop-tables-external-tables?tabs=sql-pool
-[cassandra]: https://docs.microsoft.com/azure/cosmos-db/cassandra-introduction
-
+[cassandra]: /azure/cosmos-db/cassandra-introduction
+[table-storage-classic]: /azure/cosmos-db/table-storage-overview
+[cosmos-sql-key-value]: /azure/cosmos-db/sql-query-getting-started
+[cosmos-etcd]: /azure/cosmos-db/etcd-api-introduction
+[cosmos-table]: /azure/cosmos-db/table-introduction
