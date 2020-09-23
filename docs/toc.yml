@@ -793,6 +793,10 @@ items:
           href: data-guide/technology-choices/search-options.md
         - name: Stream processing
           href: data-guide/technology-choices/stream-processing.md
+      - name: Application tenancy in SaaS Databases
+        items:
+        - name: Tenancy models
+          href: isv/application-tenancy.md
       - name: Monitor Azure Databricks jobs
         items:
         - name: Overview
