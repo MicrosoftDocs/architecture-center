@@ -149,12 +149,15 @@ az group create --name hub-spoke-sample --location eastus
 Update the deployment values to suit your needs and deploy the template.
 
 ```azurecli
-TEMPLATE=https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-hub-and-spoke-sandbox/azuredeploy.json
 ADMIN_USER=adminuser
 ADMIN_PASSWORD=Password2020!
 VM_DNS_PREFIX=hubSpokeSample
 
-az deployment group create --resource-group hub-spoke-sample --template-uri $TEMPLATE --parameters winVmUser=$ADMIN_USER winVmPassword=$ADMIN_PASSWORD winVmDnsPrefix=$VM_DNS_PREFIX
+az deployment group create --resource-group hub-spoke-sample \
+    --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-hub-and-spoke-sandbox/azuredeploy.json \
+    --parameters winVmUser=$ADMIN_USER \
+    winVmPassword=$ADMIN_PASSWORD \
+    winVmDnsPrefix=$VM_DNS_PREFIX
 ```
 
 Once completed, the following resources have been created.
