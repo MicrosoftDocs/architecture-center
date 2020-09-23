@@ -13,7 +13,7 @@ ms.custom:
 
 # Tenancy models for SaaS applications
 
-In a Software as a Service (SaaS) model, your company does not sell licenses to your application. Instead, each of your customers are a *tenant* of your company. Each tenant can access your SaaS application and its data, in return for paying the rent. This article describes the application tenancy models available to SaaS application builders.
+In a Software as a Service (SaaS) model, your company does not sell licenses to your application. Instead, each of your customers is a *tenant* of your company. Each tenant can access your SaaS application and its data, in return for paying the rent. This article describes the application tenancy models available to SaaS application builders.
 
 When designing a SaaS application, you must choose the application tenancy model that best fits the needs of your customers and your business. In general, the application tenancy model doesn't impact the functionality of an application. But it likely impacts other aspects of the overall solution including scale, tenant isolation, cost per tenant and operation complexity.
 
@@ -66,11 +66,13 @@ In general, the single tenancy application model and a small number of tenants, 
 
 ## Additional considerations
 
-Once you know the customer's needs and business goals, start asking these questions to refine the tenancy requirement:
+Once you know the customer's needs and business goals, start asking these questions:
 
 - Do I operate in a highly regulated industry that requires customers data to be isolated from other customers?
 - Am I looking to rapidly scale my application to many thousands of clients?
 - Am I concerned about how much it costs to run each tenant/customer instance?
+
+The answers to these questions will help you refine your tenancy requirement.
 
 ## Next steps
 
