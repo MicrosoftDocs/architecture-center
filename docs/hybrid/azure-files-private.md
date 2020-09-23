@@ -12,7 +12,7 @@ ms.subservice: example-scenario
 ms.custom: fcp
 ---
 
-## Enterprise Level Cloud File Share Solution on Azure
+# Enterprise Level Cloud File Share Solution on Azure
 This reference architecture illustrates an enterprise level cloud file sharing solution by using Azure provided services including Azure Files, Azure File Sync, Azure Private DNS and Azure Private Endpoint, it gives you the possibility to access Azure file shares in a hybrid work environment over virtual private network between on-premises and Azure virtual network(through ExpressRoute private peering/VPN tunnels) without traversing the internet, you can also control and limit file access through AD DS authentication.
 
 This architecture can be generalized for any enterprise customer who is looking for saving the cost, outsourcing the management of file servers and infrastructure while remains the control of the data. 
@@ -154,21 +154,21 @@ Security Auditing is one of the most needed requirement to help maintain the sec
 
 [architectural-diagram]: ./images/azure-files-private.png
 [architectural-diagram-visio-source]: ./diagrams/azure-files-private.vsdx
-[storage-files-planning]: https://docs.microsoft.com/en-us/azure/storage/files/storage-files-planning
-[storage-files-deployment-guide]: https://docs.microsoft.com/en-us/azure/storage/files/storage-files-deployment-guide
-[storage-files-networking-endpoints]: https://docs.microsoft.com/en-us/azure/storage/files/storage-files-networking-endpoints
-[monitor-storage]: https://docs.microsoft.com/en-us/azure/storage/common/monitor-storage
-[plan-for-file-access-auditing]: https://docs.microsoft.com/en-us/windows-server/identity/solution-guides/plan-for-file-access-auditing
-[backup-afs]: https://docs.microsoft.com/en-us/azure/backup/backup-afs
-[storage-files-identity-auth-active-directory-enable]: https://docs.microsoft.com/en-us/azure/storage/files/storage-files-identity-auth-active-directory-enable
-[storage-sync-files-deployment-guide]: https://docs.microsoft.com/en-us/azure/storage/files/storage-sync-files-deployment-guide
-[storage-sync-files-networking-endpoints]: https://docs.microsoft.com/en-us/azure/storage/files/storage-sync-files-networking-endpoints
-[storage-sync-cloud-tiering]: https://docs.microsoft.com/en-us/azure/storage/files/storage-sync-cloud-tiering
-[vpn-gateway-howto-site-to-site-resource-manager-portal]: https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal
-[expressroute-circuit-peerings]: https://docs.microsoft.com/en-us/azure/expressroute/expressroute-circuit-peerings
-[expressroute-howto-routing-portal-resource-manager]: https://docs.microsoft.com/en-us/azure/expressroute/expressroute-howto-routing-portal-resource-manager
-[azure-file-share-backup-overview]: https://docs.microsoft.com/en-us/azure/backup/azure-file-share-backup-overview
-[storage-sync-files-deployment-guide-dfs]: https://docs.microsoft.com/en-us/azure/storage/files/storage-sync-files-deployment-guide?tabs=azure-portal%2Cproactive-portal#migrate-a-dfs-replication-dfs-r-deployment-to-azure-file-sync
-[storage-sync-files-planning]: https://docs.microsoft.com/en-us/azure/storage/files/storage-sync-files-planning
-[storage-sync-files-networking-overview]: https://docs.microsoft.com/en-us/azure/storage/files/storage-sync-files-networking-overview
-[storage-files-networking-overview]: https://docs.microsoft.com/en-us/azure/storage/files/storage-files-networking-overview
+[storage-files-planning]: https://docs.microsoft.com/azure/storage/files/storage-files-planning
+[storage-files-deployment-guide]: https://docs.microsoft.com/azure/storage/files/storage-files-deployment-guide
+[storage-files-networking-endpoints]: https://docs.microsoft.com/azure/storage/files/storage-files-networking-endpoints
+[monitor-storage]: https://docs.microsoft.com/azure/storage/common/monitor-storage
+[plan-for-file-access-auditing]: https://docs.microsoft.com/windows-server/identity/solution-guides/plan-for-file-access-auditing
+[backup-afs]: https://docs.microsoft.com/azure/backup/backup-afs
+[storage-files-identity-auth-active-directory-enable]: https://docs.microsoft.com/azure/storage/files/storage-files-identity-auth-active-directory-enable
+[storage-sync-files-deployment-guide]: https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide
+[storage-sync-files-networking-endpoints]: https://docs.microsoft.com/azure/storage/files/storage-sync-files-networking-endpoints
+[storage-sync-cloud-tiering]: https://docs.microsoft.com/azure/storage/files/storage-sync-cloud-tiering
+[vpn-gateway-howto-site-to-site-resource-manager-portal]: https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal
+[expressroute-circuit-peerings]: https://docs.microsoft.com/azure/expressroute/expressroute-circuit-peerings
+[expressroute-howto-routing-portal-resource-manager]: https://docs.microsoft.com/azure/expressroute/expressroute-howto-routing-portal-resource-manager
+[azure-file-share-backup-overview]: https://docs.microsoft.com/azure/backup/azure-file-share-backup-overview
+[storage-sync-files-deployment-guide-dfs]: https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide?tabs=azure-portal%2Cproactive-portal#migrate-a-dfs-replication-dfs-r-deployment-to-azure-file-sync
+[storage-sync-files-planning]: https://docs.microsoft.com/azure/storage/files/storage-sync-files-planning
+[storage-sync-files-networking-overview]: https://docs.microsoft.com/azure/storage/files/storage-sync-files-networking-overview
+[storage-files-networking-overview]: https://docs.microsoft.com/azure/storage/files/storage-files-networking-overview
