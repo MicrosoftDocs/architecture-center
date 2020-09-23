@@ -8,8 +8,8 @@ ms.topic: best-practice
 ms.service: architecture-center
 ms.subservice: cloud-fundamentals
 ms.custom: 
-        -fcp
-        -cse
+        - fcp
+        - cse
 ---
 
 <!-- cSpell:ignore arsenv arsenvlad DataStax mdadm -->
