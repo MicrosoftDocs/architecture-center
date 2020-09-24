@@ -8,7 +8,7 @@ ms.service: architecture-center
 ms.subservice: well-architected
 ---
 
-# Applications and services
+# Azure application security
 
 Applications and the data associated with them ultimately act as the primary
 store of business value on a cloud platform. While the platform components like
