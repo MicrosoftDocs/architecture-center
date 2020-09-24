@@ -139,13 +139,13 @@ We recommend keeping native profile folder locations in the FSLogix profile cont
 
 ### Teams exclusions
 
-Exclude the following from the Teams caching folder, %appdata%/Microsoft/Teams. Excluding [these items](https://docs.microsoft.com/en-us/microsoftteams/teams-for-vdi#teams-cached-content-exclusion-list-for-non-persistent-setup) helps reduce the user caching size to further optimize your non-persistent setup.
+Exclude the following from the Teams caching folder, %appdata%/Microsoft/Teams. Excluding [these items](/microsoftteams/teams-for-vdi#teams-cached-content-exclusion-list-for-non-persistent-setup) helps reduce the user caching size to further optimize your non-persistent setup.
 
 - .txt files
 - Media-stack folder
 - meeting-addin\Cache (%appdata%\Microsoft\Teams\meeting-addin\Cache)
 
-Check the [FSLogix exclusions](https://docs.microsoft.com/en-us/fslogix/manage-profile-content-cncpt) documentation to learn how to configure the Teams specific exclusions above within FSLogix Profile Container.
+Check the [FSLogix exclusions](/fslogix/manage-profile-content-cncpt) documentation to learn how to configure the Teams specific exclusions above within FSLogix Profile Container.
 
 ### Antivirus exclusions
 
