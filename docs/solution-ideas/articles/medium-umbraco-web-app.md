@@ -49,9 +49,5 @@ Use the following pre-built template to deploy this architecture to Azure
 * [Get started with Azure Blob storage using .NET](/api/Redirect/documentation/articles/storage-dotnet-how-to-use-blobs)
 * [Logs, exceptions and custom diagnostics for ASP.NET in Application Insights](/api/Redirect/documentation/articles/app-insights-search-diagnostic-logs)
 * [How to create a Web App with Azure Cache for Redis](/api/Redirect/documentation/articles/cache-web-app-howto)
-
 <!-- markdownlint-disable MD024 -->
-
-## Deploy to Azure
-
 * [Deploy to Azure](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fumbraco-cms-webapp-redis-cache%2Fazuredeploy.json)
