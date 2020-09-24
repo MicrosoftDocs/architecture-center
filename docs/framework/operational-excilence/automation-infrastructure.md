@@ -31,12 +31,42 @@ You can use many declarative infrastructure deployment technologies with Azure, 
 
 Azure Resource Manager (ARM) Templates provide an Azure native infrastructure as code solution. ARM Templates are written in a language derived from JavaScript Object Notation (JSON), and they define the infrastructure and configurations for Azure deployments. An ARM template is declarative, you state what intend to deploy, provide configuration values, and the ARM engine takes care of making the necessary Azure REST API put requests. Additional benefits of using ARM templates for infrastructure deployments include:
 
-- Parallele resource deployment
-- Modular deployments
-- Day one resource support
-- Extensibility
-- Testing, validation, and change preview
-- Tooling
+- **Parallele resource deployment** - the ARM deployment engine sequences resource deployments based on defined dependencies. If a dependency does not exist between two resources, they are deployed at the same time.
+- **Modular deployments** - ARM templates can be broken up into multiple template files for reusability and modularization.
+- **Day one resource support** - ARM templates support all Azure resources and resource properties as they are released.
+- **Extensibility** - Azure deployments can be extended using deployment scripts and other automation solutions.
+- **Validation** - ARM deployments are evaluated against a validation API to catch configuration mistakes. 
+- **Testing** - the ARM Template Toolkit provides a static code analysis framework for testing ARM templates.
+- **Change preview** - ARM What-IF allows you to see what will be changed before deploying an ARM template.
+- **Tooling** - Language service extensions are available for both Visual Studio Code and Visual Studio to assist in authoring ARM templates.
+
+The following example demonstrates a simple ARM template that deploys a single Azure Storage account. In this example, a single parameter is defined to take in a name for the storage account. Under the resources section, a storage account is defined, the parameter is used to provide a name, and the storage account details are defined. See the included documentation for an in-depth explanation of the different sections and configurations for ARM templates.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "storageName": {
+            "type": "string",
+            "defaultValue": "newStorageAccount"
+        }
+    },
+    "resources": [
+        {
+            "name": "[parameters('storageName')]",
+            "type": "Microsoft.Storage/storageAccounts",
+            "apiVersion": "2019-06-01",
+            "location": "[resourceGroup().location]",
+            "kind": "StorageV2",
+            "sku": {
+                "name": "Premium_LRS",
+                "tier": "Premium"
+            }
+        }
+    ]
+}
+```
 
 **Learn more**
 
@@ -53,6 +83,21 @@ Terraform is a cloud-agnostic declarative framework that supports many private a
 - Modular deployments
 - Extensibility
 - Testing, validation, and change preview
+
+```hcl
+resource "azurerm_resource_group" "example" {
+  name     = "newStorageAccount"
+  location = "eastus"
+}
+
+resource "azurerm_storage_account" "example" {
+  name                     = "storageaccountname"
+  resource_group_name      = azurerm_resource_group.example.name
+  location                 = azurerm_resource_group.example.location
+  account_tier             = "Standard"
+  account_replication_type = "GRS"
+}
+```
 
 Take note, the Terraform provider for Azure is an abstraction on top of Azure APIs. This abstraction is beneficial because the API complexities are obfuscated. This abstraction comes at a cost; the Terraform provider for Azure does not always provide parity with the Azure APIs' capabilities.
 
