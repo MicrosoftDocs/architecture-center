@@ -261,8 +261,6 @@ items:
       href: framework/devops/testing.md
     - name: Checklist
       href: checklist/dev-ops.md
-    - name: Overview
-      href: framework/operational-excilence/overview.md
     - name: Automation
       items:
       - name: Repeatable infrastructure
