@@ -70,9 +70,9 @@ The following example demonstrates a simple ARM template that deploys a single A
 
 **Learn more**
 
-- [Docs: What are ARM templates](./azure/azure-resource-manager/templates/overview)
-- [Learn: Deploy consistent infrastructure with ARM Templates](./learn/modules/create-azure-resource-manager-template-vs-code/)
-- [Code Samples: ARM templates](./samples/mspnp/samples/azure-well-architected-framework-sample-arm-template/)
+- [Docs: What are ARM templates](/azure/azure-resource-manager/templates/overview)
+- [Learn: Deploy consistent infrastructure with ARM Templates](/learn/modules/create-azure-resource-manager-template-vs-code/)
+- [Code Samples: ARM templates](/samples/mspnp/samples/azure-well-architected-framework-sample-arm-template/)
 
 ## Terraform
 
@@ -99,7 +99,7 @@ Take note, the Terraform provider for Azure is an abstraction on top of Azure AP
 
 **Learn more**
 
-- [Docs: Using Terraform on Azure](./azure/developer/terraform/overview)
+- [Docs: Using Terraform on Azure](/azure/developer/terraform/overview)
 
 #### Next steps
 
