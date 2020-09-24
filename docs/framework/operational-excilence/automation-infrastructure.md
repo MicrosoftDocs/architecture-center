@@ -70,19 +70,15 @@ The following example demonstrates a simple ARM template that deploys a single A
 
 **Learn more**
 
-- [Docs: What are ARM templates](https://docs.microsoft.com/azure/azure-resource-manager/templates/overview)
-- [Learn: Deploy consistent infrastructure with ARM Templates](https://docs.microsoft.com/learn/modules/create-azure-resource-manager-template-vs-code/)
-- [Code Samples: ARM templates](https://docs.microsoft.com/samples/browse/?terms=arm%20templates)
+- [Docs: What are ARM templates](./azure/azure-resource-manager/templates/overview)
+- [Learn: Deploy consistent infrastructure with ARM Templates](./learn/modules/create-azure-resource-manager-template-vs-code/)
+- [Code Samples: ARM templates](./samples/mspnp/samples/azure-well-architected-framework-sample-arm-template/)
 
 ## Terraform
 
-Terraform is a cloud-agnostic declarative framework that supports many private and public clouds, Azure being one of them. It has the main advantage of offering a cloud-agnostic framework: while Terraform configurations are specific to each cloud, the framework itself is the same for all of them. Additional benefits of using Terraform for infrastructure deployments include:
+Terraform is a declarative framework for deploying and configuring infrastructure that supports many private and public clouds, Azure being one of them. It has the main advantage of offering a cloud-agnostic framework. While Terraform configurations are specific to each cloud, the framework itself is the same for all of them. Terraform configurations are written in a domain-specific language (DSL) called Hashicopr Configuration Language.
 
-- Multi-cloud and endpoint support
-- Full feature state tracking solution
-- Modular deployments
-- Extensibility
-- Testing, validation, and change preview
+The following example demonstrates a simple Terraform configuration that deploys an Azure resource group and a single Azure Storage account. In this example, a single parameter is defined to take in a name for the storage account. See the included documentation for an in-depth explanation of using Terraform in Azure.c
 
 ```hcl
 resource "azurerm_resource_group" "example" {
@@ -103,8 +99,7 @@ Take note, the Terraform provider for Azure is an abstraction on top of Azure AP
 
 **Learn more**
 
-- [Docs: Using Terraform on Azure](https://docs.microsoft.com/azure/developer/terraform/overview)
-- [Code Samples: Terraform](https://docs.microsoft.com/samples/browse/?terms=Terraform)
+- [Docs: Using Terraform on Azure](./azure/developer/terraform/overview)
 
 #### Next steps
 
