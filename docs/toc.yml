@@ -327,8 +327,12 @@ items:
         href: framework/security/law-authority.md
       - name: Administration
         href: framework/security/critical-impact-accounts.md        
-      - name: Identity and access management
-        href: framework/security/design-identity.md
+      - name: Identity
+        items:
+          - name: Identity and access management
+            href: framework/security/design-identity.md
+          - name: Best practices
+            href: /azure/security/fundamentals/identity-management-best-practices?bc=%2fazure%2farchitecture%2fbread%2ftoc.json&toc=%2fazure%2farchitecture%2ftoc.json
       - name: Networking
         items:
           - name: Network security review 
@@ -338,15 +342,9 @@ items:
           - name:  Best practices
             href: /azure/security/fundamentals/network-best-practices?bc=%2fazure%2farchitecture%2fbread%2ftoc.json&toc=%2fazure%2farchitecture%2ftoc.json
       - name: Storage
-        href: framework/security/storage-data-encryption.md
+        href: framework/security/design-storage.md
       - name: Applications and services
-        href: framework/security/applications-services.md
-    - name: Test
-      items:
-        - name: Penetration testing
-        - name: Threat modeling
-        - name: Simulate attacks
-        - name: Test your CI/CD pipelines
+        href: framework/security/design-apps-services.md
     - name: Monitor
       items:
       - name: Security operations
@@ -354,15 +352,20 @@ items:
       - name: Review and audit
         href: framework/security/governance.md
       - name: Tools
+        href: framework/security/monitor-tools.md
       - name: Network access
+        href: framework/security/monitor-network.md
+      - name: Monitor identity risk
+        href: framework/security/monitor-identity.md
       - name: DDoS attacks
     - name: Optimize
       items:
         - name: Automate 
+          href: framework/security/governance.md
         - name: Replace insecure protocols
-        - name: Elevate security gaps
-    - name: Tradeoffs
-    - name: Checklist
+          href: framework/security/governance.md
+        - name: Elevate security capabilities
+          href: framework/security/governance.md
 - name: Design Patterns
   items:
   - name: Overview
@@ -698,12 +701,16 @@ items:
         href: solution-ideas/articles/hybrid-hpc-in-azure-with-hpc-pack.md
       - name: Linux virtual desktops with Citrix
         href: example-scenario/infrastructure/linux-vdi-citrix.md
+      - name: Move Azure resources across regions
+        href: solution-ideas/articles/move-azure-resources-across-regions.md
       - name: Run a Linux VM on Azure
         href: reference-architectures/n-tier/linux-vm.md
       - name: Run a Windows VM on Azure
         href: reference-architectures/n-tier/windows-vm.md
       - name: Solaris emulator on Azure VMs
         href: solution-ideas/articles/solaris-azure.md
+      - name: Migrate IBM applications with TmaxSoft OpenFrame
+        href: solution-ideas/articles/migrate-mainframe-apps-with-tmaxsoft-openframe.md
       - name: Reservoir simulations
         href: example-scenario/infrastructure/reservoir-simulation.md
       - name: CFD simulations
@@ -713,19 +720,7 @@ items:
     - name: AKS Solution Journey
       href: reference-architectures/containers/aks-start-here.md
     - name: AKS Baseline Cluster
-      items:
-      - name: Overview
-        href: reference-architectures/containers/aks/secure-baseline-aks.md
-      - name: Operational Excellence
-        href: reference-architectures/containers/aks/secure-baseline-aks.md#operational-excellence
-      - name: Security
-        href: reference-architectures/containers/aks/secure-baseline-aks.md#security
-      - name: Reliability
-        href: reference-architectures/containers/aks/secure-baseline-aks.md#reliability
-      - name: Performance Efficiency
-        href: reference-architectures/containers/aks/secure-baseline-aks.md#performance-efficiency
-      - name: Cost Optimization
-        href: reference-architectures/containers/aks/secure-baseline-aks.md#cost-optimization
+      href: reference-architectures/containers/aks/secure-baseline-aks.md
     - name: AKS Cluster Best Practices
       href: /Azure/aks/best-practices
     - name: AKS Workload Best Practices
@@ -798,6 +793,10 @@ items:
           href: data-guide/technology-choices/search-options.md
         - name: Stream processing
           href: data-guide/technology-choices/stream-processing.md
+      - name: Application tenancy in SaaS Databases
+        items:
+        - name: Tenancy models
+          href: isv/application-tenancy.md
       - name: Monitor Azure Databricks jobs
         items:
         - name: Overview
@@ -1018,13 +1017,13 @@ items:
           href: solution-ideas/articles/devsecops-in-azure.md
         - name: DevSecOps in GitHub
           href: solution-ideas/articles/devsecops-in-github.md
-        - name: Dev-Test for IaaS
+        - name: DevTest and DevOps for IaaS
           href: solution-ideas/articles/dev-test-iaas.md
-        - name: Dev-Test for PaaS
+        - name: DevTest and DevOps for PaaS
           href: solution-ideas/articles/dev-test-paas.md
-        - name: Dev-Test for microservices
+        - name: DevTest and DevOps for microservices
           href: solution-ideas/articles/dev-test-microservice.md
-        - name: Dev-Test Image Factory
+        - name: DevTest Image Factory
           href: solution-ideas/articles/dev-test-image-factory.md
         - name: CI/CD using Jenkins and Terraform
           href: solution-ideas/articles/immutable-infrastructure-cicd-using-jenkins-and-terraform-on-azure-virtual-architecture-overview.md
@@ -1050,6 +1049,10 @@ items:
         href: high-availability/ref-arch-iaas-web-and-db.md     
   - name: Hybrid
     items:
+    - name: Guides
+      items:
+      - name: FSLogix for the enterprise
+        href: example-scenario/wvd/windows-virtual-desktop-fslogix.md
     - name: Architectures
       items:
       - name: Manage configurations for Azure Arc enabled servers
@@ -1315,7 +1318,7 @@ items:
       - name: Lift and shift LOB apps
         href: solution-ideas/articles/modern-customer-support-portal-powered-by-an-agile-business-process.md
       - name: Lift and shift with AKS
-        href: solution-ideas/articles/migrate-existing-applications-with-aks.md
+        href: solution-ideas/articles/modern-customer-support-portal-powered-by-an-agile-business-process.md
       - name: Oracle database migration
         items:
         - name: Migration decision process

@@ -1,8 +1,8 @@
 ---
-title: Build cloud native apps
+title: Build cloud native applications
 titleSuffix: Azure Solution Ideas
 author: doodlemania2
-description: Build cloud native apps with Azure Cosmos DB, Azure Database for PostgreSQL and Azure Cache for Redis
+description: Build cloud native applications with Azure Cosmos DB, Azure Database for PostgreSQL and Azure Cache for Redis
 ms.date: 06/26/2020
 ms.custom: fcp
 ms.service: architecture-center
@@ -13,7 +13,7 @@ ms.category:
     - mobile
 ---
 
-# Build cloud native apps
+# Build cloud native applications
 
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 

@@ -15,7 +15,7 @@
         </a>
         <ul class="card-content-metadata">
             <li>8/06/2020</li>
-            <li>30 min read</li>
+            <li>29 min read</li>
         </ul>
         <p class="card-content-description">Optimized approach to disaster recovery of virtual machine (VM)-based user workloads hosted on Azure Stack Hub</p>
         <div class="bottom-to-top-fade is-hidden-mobile"></div>

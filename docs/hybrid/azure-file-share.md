@@ -94,7 +94,7 @@ For more information, refer to [Planning for an Azure File Sync deployment][Plan
   - **Geo-zone-redundant storage (GZRS)**. Data is copied synchronously across three Azure availability zones in the primary region using ZRS. Your data is then copied asynchronously to a single physical location in the secondary region.
 - Premium file shares can be stored in locally redundant storage (LRS) and zone redundant storage (ZRS) only. Standard file shares can be stored in LRS, ZRS, geo-redundant storage (GRS), and geo-zone-redundant storage (GZRS).
 For more information, refer to [Planning for an Azure Files deployment][Planning-for-Azure-Files] and [Azure Storage redundancy][Azure-Storage-redundancy].
-- Azure Files is a cloud service, and as with all cloud services, you must have internet connectivity to access Azure file shares. A redundant internet connection solution is highly recommended to  access disruptions.
+- Azure Files is a cloud service, and as with all cloud services, you must have internet connectivity to access Azure file shares. A redundant internet connection solution is highly recommended to avoid disruptions.
 
 ## Manageability considerations
 

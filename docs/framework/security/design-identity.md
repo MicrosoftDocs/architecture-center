@@ -26,7 +26,7 @@ Provide security assurance through _identity management_: the process of authent
 
 The recommendations in this article can be implemented through the use of Azure AD. 
 
-## Use a dingle enterprise directory
+## Use a single enterprise directory
 
 Have a single enterprise directory for managing identities of full-time employees and enterprise resources. For example, a single Azure AD directory instance can serve as the authoritative source for corporate and organizational accounts.
 
@@ -46,7 +46,7 @@ Keep your cloud identity synchronized with the existing identity systems to ensu
 Consider using [Azure AD connect](/azure/active-directory/connect/active-directory-aadconnect) for synchronizing Azure AD with your existing on-premises directory. For migration projects, have a requirement to complete this task before an Azure migration and development projects begin.
 
 > [!IMPORTANT]
-> Don’t synchronize high-privilege accounts to an on-premises directory. If an adversary gets full control of on-premises assets, they can compromise a cloud account.  This strategy will limit the scope of an incident. For more information, see [Critical impact account dependencies](./critical-impact-accounts.md#critical-impact-admin-dependencies--accountworkstation).
+> Don’t synchronize high-privilege accounts to an on-premises directory. If an attacker gets full control of on-premises assets, they can compromise a cloud account.  This strategy will limit the scope of an incident. For more information, see [Critical impact account dependencies](./critical-impact-accounts.md#critical-impact-admin-dependencies--accountworkstation).
 >
 >
 > Synchronization is blocked by default in the default Azure AD Connect configuration. Make sure that you haven’t customized this configuration. For information about filtering in Azure AD, see [Azure AD Connect sync: Configure filtering](/azure/active-directory/hybrid/how-to-connect-sync-configure-filtering)
