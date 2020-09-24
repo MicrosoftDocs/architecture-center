@@ -245,72 +245,14 @@ items:
     items:
     - name: Overview
       href: framework/operational-excilence/overview.md
-    - name: Contributing factors
-      items:
-      - name: Checklist
-        href: framework/scalability/performance-efficiency.md
-      - name: Overview
-        href: framework/devops/app-design.md
-      - name: Cloud computing capabilities
-        href: framework/devops/app-design.md
-      - name: Architectural components
-        href: framework/devops/app-design.md
-      - name: Culture
-        href: framework/devops/app-design.md
     - name: Automation
       items:
-      - name: Overview
-        href: framework/operational-excilence/automation-overview.md
       - name: Repeatable infrastructure
         href: framework/operational-excilence/automation-infrastructure.md
       - name: Configure infrastructure
         href: framework/operational-excilence/automation-configuration.md
       - name: Automate operational tasks
         href: framework/operational-excilence/automation-tasks.md
-    - name: Release engineering 
-      items:
-      - name: Checklist
-        href: framework/scalability/performance-efficiency.md
-      - name: Overview
-        href: framework/devops/app-design.md
-      - name: Application development
-        href: framework/devops/app-design.md
-      - name: Continuous integration
-        href: framework/devops/app-design.md
-      - name: Continuous deployment
-        href: framework/devops/app-design.md
-      - name: Rollback
-        href: framework/devops/app-design.md
-    - name: Observability
-      items:
-      - name: Checklist
-        href: framework/scalability/performance-efficiency.md
-      - name: Overview
-        href: framework/devops/app-design.md
-      - name: Monitoring Solutions
-        href: framework/devops/app-design.md
-      - name: What to monitor
-        href: framework/devops/app-design.md
-      - name: Distributed tracing
-        href: framework/devops/app-design.md
-      - name: Alerting
-        href: framework/devops/app-design.md
-      - name: Automated response
-        href: framework/devops/app-design.md
-    - name: Incident management
-      items:
-      - name: Checklist
-        href: framework/scalability/performance-efficiency.md
-      - name: Overview
-        href: framework/devops/app-design.md
-      - name: Service level objectives
-        href: framework/devops/app-design.md
-      - name: Roster management
-        href: framework/devops/app-design.md
-      - name: Post-incident review
-        href: framework/devops/app-design.md
-      - name: Reconciliation
-        href: framework/devops/app-design.md
   - name: Performance Efficiency
     items:
     - name: Overview
