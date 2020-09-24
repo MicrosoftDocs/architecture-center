@@ -12,7 +12,7 @@ ms.subservice: well-architected
 
 Historically, deploying a new service or application involves manual work such as procuring and preparing hardware, configuring operating environments, and enabling monitoring solutions. Ideally, an organization would have multiple environments in which to test deployments. These test environments should be similar enough to production that deployment and run time issues are detected before deployment to production. This manual work takes time, is error-prone, and can produce inconsistencies between the environments if not done well.
 
-Cloud computing changes the way we procure infrastructure. No longer are we unboxing, racking, and cabling physical infrastructure, we have internet accessible management portals and REST interfaces to help us. We can now provision virtual machines, databases, and other cloud services on demand and globally. When we no longer need cloud services, they can be easily deleted. However, cloud computing alone does not remove the effort and risk in provisioning infrastructure. When using a cloud portal to build systems, much of the same manual configuration tasks remain. Application servers require configuration, databases need networking, and firewalls need firewalling. 
+Cloud computing changes the way we procure infrastructure. No longer are we unboxing, racking, and cabling physical infrastructure, we have internet accessible management portals and REST interfaces to help us. We can now provision virtual machines, databases, and other cloud services on demand and globally. When we no longer need cloud services, they can be easily deleted. However, cloud computing alone does not remove the effort and risk in provisioning infrastructure. When using a cloud portal to build systems, many of the same manual configuration tasks remain. Application servers require configuration, databases need networking, and firewalls need firewalling. 
 
 To fully realize deployment optimization, reduce configuration effort, and automate full environments' deployment, something more is required. One option is referred to as infrastructure as code.
 
@@ -20,7 +20,7 @@ To fully realize deployment optimization, reduce configuration effort, and autom
 
 Cloud computing changes so much about deploying and provisioning infrastructure. Not only can we procure compute, data, and so many other service types on demand, we have APIs for doing so. Because of cloud service's API-driven nature, programmatically deploying and configuring cloud services makes sense. The concept known as infrastructure as code involves using a declarative framework to describe your desired service configuration. Infrastructure as code solutions translates the declared configuration into the proper cloud provider API requests, which, once deployed result in usable cloud services. Benefits of using infrastructure as code include:
 
-- Deploy similarily configured infrastructure across multiple environments (test and production)
+- Deploy similarly configured infrastructure across multiple environments (test and production)
 - Deploy all required components as a single unit (infrastructure, monitoring solutions, and configured alerts)
 - Version control infrastructure in a source control solution
 - Use continuous integration solutions to manage and test infrastructure deployments
@@ -31,7 +31,7 @@ You can use many declarative infrastructure deployment technologies with Azure, 
 
 Azure Resource Manager (ARM) Templates provide an Azure native infrastructure as code solution. ARM Templates are written in a language derived from JavaScript Object Notation (JSON), and they define the infrastructure and configurations for Azure deployments. An ARM template is declarative, you state what intend to deploy, provide configuration values, and the ARM engine takes care of making the necessary Azure REST API put requests. Additional benefits of using ARM templates for infrastructure deployments include:
 
-- **Parallele resource deployment** - the ARM deployment engine sequences resource deployments based on defined dependencies. If dependencies do not exist between two resources, they are deployed at the same time.
+- **Parallel resource deployment** - the ARM deployment engine sequences resource deployments based on defined dependencies. If dependencies do not exist between two resources, they are deployed at the same time.
 - **Modular deployments** - ARM templates can be broken up into multiple template files for reusability and modularization.
 - **Day one resource support** - ARM templates support all Azure resources and resource properties as they are released.
 - **Extensibility** - Azure deployments can be extended using deployment scripts and other automation solutions.
