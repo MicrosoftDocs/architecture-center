@@ -96,7 +96,7 @@ Azure Monitor autoscale can be used to autoscale Virtual Machine Scale Sets, Clo
 
 When creating the autoscale rules, configure minimum and maximum instance counts. These settings prevent inadvertent costly scale operations. Next, configure autoscale rules, at minimum one to add more instances, and one to remove instances when no longer needed. Azure Monitor autoscale rules give you fine-grain control over when a scale operation is initiated. See the included documentation for more information on configuring these rules.
 
-![Azure App Service scale configuration as seen in the Azure portal.](../_images/devops/scale-rules.png)
+![Azure App Service scale detailed configuration as seen in the Azure portal.](../_images/devops/scale-rules.png)
 
 **Learn more**
 
