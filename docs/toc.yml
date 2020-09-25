@@ -1471,8 +1471,8 @@ items:
         href: solution-ideas/articles/highly-available-sharepoint-farm.md
       - name: Highly available multi-region web application
         href: reference-architectures/app-service-web-app/multi-region.md
-      - name: Hybrid SharePoint farm with Office 365
-        href: solution-ideas/articles/sharepoint-farm-office-365.md
+      - name: Hybrid SharePoint farm with Microsoft 365
+        href: solution-ideas/articles/sharepoint-farm-microsoft-365.md
       - name: Intelligent product search engine for e-commerce
         href: example-scenario/apps/ecommerce-search.md
       - name: Migrate a web app using Azure APIM
