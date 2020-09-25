@@ -4290,18 +4290,18 @@
             "word_count": 137,
             "read_time": "1 min read",
             "Title": "Enterprise Productivity Chatbot",
-            "MetaDescription": "Azure Bot Service can be easily combined with Language Understanding to build powerful enterprise productivity bots, allowing organizations to streamline common work activities by integrating external systems, such as Office 365 calendar, customer cases stored in Dynamics CRM and much more.",
+            "MetaDescription": "Azure Bot Service can be easily combined with Language Understanding to build powerful enterprise productivity bots, allowing organizations to streamline common work activities by integrating external systems, such as Microsoft 365 calendar, customer cases stored in Dynamics CRM and much more.",
             "category": [
                 "ai-machine-learning"
             ],
             "image": "/azure/architecture/solution-ideas/media/enterprise-productivity-chatbot.png",
             "imagepath": "C:\\jvPnpRepos\\architecture-center-pr\\docs\\solution-ideas\\media\\enterprise-productivity-chatbot.png",
             "publish_date": "12/16/2019",
-            "Summary": "<p>Azure Bot Service can be easily combined with Language Understanding to build powerful enterprise productivity bots, allowing organizations to streamline common work activities by integrating external systems, such as Office 365 calendar, customer cases stored in Dynamics CRM and much more.</p>",
+            "Summary": "<p>Azure Bot Service can be easily combined with Language Understanding to build powerful enterprise productivity bots, allowing organizations to streamline common work activities by integrating external systems, such as Microsoft 365 calendar, customer cases stored in Dynamics CRM and much more.</p>",
             "Flow": {
                 "FlowStep_A": "Employee access Enterprise Productivity Bot",
                 "FlowStep_B": "Azure Active Directory validates the employee's identity",
-                "FlowStep_C": "The Bot is able to query the employee's Office 365 calendar via the Azure Graph",
+                "FlowStep_C": "The Bot is able to query the employee's Microsoft 365 calendar via the Azure Graph",
                 "FlowStep_D": "Using data gathered from the calendar, the Bot access case information in Dynamics CRM",
                 "FlowStep_E": "Information is returned to the employee who can filter down the data without leaving the Bot"
             },
@@ -5666,13 +5666,13 @@
         },
         {
             "tags": [
-                "'https:--azure.microsoft.com-solutions-architecture-sharepoint-farm-office-365-'",
+                "'https:--azure.microsoft.com-solutions-architecture-sharepoint-farm-microsoft-365-'",
                 "acom-architecture",
                 "all-items",
                 "data-flow",
                 "hybrid-infrastructure",
                 "interactive-diagram",
-                "office-365-sharepoint-hybrid",
+                "microsoft-365-sharepoint-hybrid",
                 "sharepoint-farm-solution",
                 "sharepoint-hybrid",
                 "sharepoint-hybrid-architecture",
@@ -5680,18 +5680,18 @@
                 "solution-idea"
             ],
             "type": "solution-idea",
-            "file_url": "solution-ideas/articles/sharepoint-farm-office-365.md",
-            "http_url": "/azure/architecture/solution-ideas/articles/sharepoint-farm-office-365",
+            "file_url": "solution-ideas/articles/sharepoint-farm-microsoft-365.md",
+            "http_url": "/azure/architecture/solution-ideas/articles/sharepoint-farm-microsoft-365",
             "word_count": 402,
             "read_time": "2 min read",
-            "Title": "Hybrid SharePoint Farm with Office 365",
-            "MetaDescription": "Deliver highly available intranet capability by deploying SharePoint and sharing hybrid workloads with Office 365. Setup this solution with step-by-step instructions.",
+            "Title": "Hybrid SharePoint Farm with Microsoft 365",
+            "MetaDescription": "Deliver highly available intranet capability by deploying SharePoint and sharing hybrid workloads with Microsoft 365. Setup this solution with step-by-step instructions.",
             "category": [
                 "web",
                 "hybrid"
             ],
-            "image": "/azure/architecture/solution-ideas/media/sharepoint-farm-office-365.png",
-            "imagepath": "C:\\jvPnpRepos\\architecture-center-pr\\docs\\solution-ideas\\media\\sharepoint-farm-office-365.png",
+            "image": "/azure/architecture/solution-ideas/media/sharepoint-farm-microsoft-365.png",
+            "imagepath": "C:\\jvPnpRepos\\architecture-center-pr\\docs\\solution-ideas\\media\\sharepoint-farm-microsoft-365.png",
             "publish_date": "12/16/2019",
             "components": [
                 "<p><a href=\"https://azure.microsoft.com/features/resource-manager\">Azure Resource Group</a>: Container that holds related resources for an Azure solution</p>",
@@ -5715,12 +5715,12 @@
                 "FlowStep_D": "Deploy SQL Server Always on for HA support for the SharePoint farm.",
                 "FlowStep_E": "Deploy SharePoint Severs. In this scenario we are using 2 Frontend with Distributed Cache and 2 Application with Search roles. This give us high availability.",
                 "FlowStep_F": "Install Azure AD Connect on an on-premises server to synchronize your identities to Azure Active Directory.",
-                "FlowStep_G": "Optionally configure Active Directory Federation Services on premises to support federated authentication to Office 365.",
+                "FlowStep_G": "Optionally configure Active Directory Federation Services on premises to support federated authentication to Microsoft 365.",
                 "FlowStep_H": "Deploy ExpressRoute or setup a site-to-site VPN link for administrative access to the servers hosted in Azure IaaS.",
                 "FlowStep_I": "Setup and provision external access to the Hybrid farm hosted in Azure IaaS",
-                "FlowStep_J": "Setup and configure Hybrid Workloads between Office 365 and the SharePoint farm."
+                "FlowStep_J": "Setup and configure Hybrid Workloads between Microsoft 365 and the SharePoint farm."
             },
-            "name": "sharepoint-farm-office-365",
+            "name": "sharepoint-farm-microsoft-365",
             "popularity": 104,
             "topic": "Web",
             "hybrid-topic": "Apps"
