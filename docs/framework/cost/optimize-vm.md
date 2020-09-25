@@ -1,6 +1,6 @@
 ---
 title: Virtual machine instances 
-description: Optimize by using Azure Reservations to lower cost
+description: Learn how to adequately size, optimize, and manage VMs to control costs, meet capacity demand, and reduce waste.
 author:  PageWriter-MSFT
 ms.date: 05/12/2020
 ms.topic: article

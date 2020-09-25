@@ -1,6 +1,6 @@
 ---
 title: Cost considerations for networking resources
-description: Describes cost strategies for networking design choices
+description: See networking cost considerations and examples for traffic routing, load balancing, peering, and hybrid connectivity.
 author:  PageWriter-MSFT
 ms.date: 05/14/2020
 ms.topic: article

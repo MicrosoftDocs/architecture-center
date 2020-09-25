@@ -43,15 +43,10 @@ Use the following pre-built template to deploy this architecture to Azure
 * Store session state and output cache on [Azure Cache for Redis](https://azure.microsoft.com/services/cache) to improve performance and reduce the load on your web front ends.
 
 ## Next steps
-
+<!-- markdownlint-disable MD024 -->
 * [Create a web app from the Azure Marketplace](/api/Redirect/documentation/articles/app-service-web-create-web-app-from-marketplace)
 * [SQL Database tutorial: Create a SQL database in minutes by using the Azure portal](/api/Redirect/documentation/articles/sql-database-get-started)
 * [Get started with Azure Blob storage using .NET](/api/Redirect/documentation/articles/storage-dotnet-how-to-use-blobs)
 * [Logs, exceptions and custom diagnostics for ASP.NET in Application Insights](/api/Redirect/documentation/articles/app-insights-search-diagnostic-logs)
 * [How to create a Web App with Azure Cache for Redis](/api/Redirect/documentation/articles/cache-web-app-howto)
-
-<!-- markdownlint-disable MD024 -->
-
-## Deploy to Azure
-
 * [Deploy to Azure](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fumbraco-cms-webapp-redis-cache%2Fazuredeploy.json)
