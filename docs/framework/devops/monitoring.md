@@ -44,7 +44,7 @@ Should your application run on Azure Kubernetes Service, Azure Monitor allows yo
 
 Additionally, for operators that prefer using the open-source Kubernetes monitoring tool Prometheus but still like the ease of use of Azure Monitor Container Insights, both solutions can integrate with each other.
 
-  ![GitHub](../../_images/github.png) The [Sidecar Pattern](https://github.com/mspnp/samples/blob/master/OperationalExcellence/Patterns/SidecarPattern/Sidecar-pattern.md) adds a separate container with responsibilities that are required by the main container. A common use case is for running logging utilities and monitoring agents.
+  :::image type="icon" source="../../_images/github.png" border="false"::: The [Sidecar Pattern](https://github.com/mspnp/samples/blob/master/OperationalExcellence/Patterns/SidecarPattern/Sidecar-pattern.md) adds a separate container with responsibilities that are required by the main container. A common use case is for running logging utilities and monitoring agents.
 
 
 ### Network monitoring

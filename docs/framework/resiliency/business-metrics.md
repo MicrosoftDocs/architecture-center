@@ -65,7 +65,7 @@ In Azure, the [Service Level Agreement](https://azure.microsoft.com/support/lega
 
 The Azure SLA also includes provisions for obtaining a service credit if the SLA is not met, along with specific definitions of *availability* for each service. That aspect of the SLA acts as an enforcement policy.
 
-![GitHub](../../_images/github.png) The [Service Level Agreement Estimator](https://github.com/mspnp/samples/tree/master/Reliability/SLAEstimator) sample shows how to calculate the SLA of your architecture. 
+:::image type="icon" source="../../_images/github.png" border="false"::: The [Service Level Agreement Estimator](https://github.com/mspnp/samples/tree/master/Reliability/SLAEstimator) sample shows how to calculate the SLA of your architecture. 
 
 ### Composite SLAs
 

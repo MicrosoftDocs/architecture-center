@@ -1,6 +1,6 @@
 ---
 title: Set budgets and alerts
-description: Describes ways to gather cost data for reporting purposes
+description: Use the Azure Cost Management alert feature to generate alerts when consumption reaches a threshold.
 author:  PageWriter-MSFT
 ms.date: 05/12/2020
 ms.topic: article
