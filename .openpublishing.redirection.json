@@ -2003,7 +2003,7 @@
      {
       "source_path": "docs/framework/security/applications-services.md",
       "redirect_url": "/azure/architecture/framework/security/design-apps-services",
-      "redirect_document_id": true
+      "redirect_document_id": false
      }     
   ]
 }
