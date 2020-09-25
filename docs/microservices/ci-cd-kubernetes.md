@@ -81,7 +81,7 @@ The goal is to keep build times short, so the developer can get quick feedback. 
 1. Build the runtime container image.
 1. Run vulnerability scans on the image.
 
-![CI/CD workflow](./images/aks-cicd-2.png)
+![Diagram showing ci-delivery-full in the Build pipeline.](./images/aks-cicd-2.png)
 
 > [!NOTE]
 > In Azure DevOps Repos, you can define [policies](/azure/devops/repos/git/branch-policies) to protect branches. For example, the policy could require a successful CI build plus a sign-off from an approver in order to merge into master.
@@ -90,7 +90,7 @@ The goal is to keep build times short, so the developer can get quick feedback. 
 
 At some point, the team is ready to deploy a new version of the Delivery service. The release manager creates a branch from master with this naming pattern: `release/<microservice name>/<semver>`. For example, `release/delivery/v1.0.2`.
 
-![CI/CD workflow](./images/aks-cicd-3.png)
+![Diagram showing ci-delivery-full in the Build pipeline and cd-delivery in the Release pipeline.](./images/aks-cicd-3.png)
 
 Creation of this branch triggers a full CI build that runs all of the previous steps plus:
 
