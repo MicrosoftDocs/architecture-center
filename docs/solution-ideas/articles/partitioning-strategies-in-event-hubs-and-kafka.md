@@ -131,10 +131,11 @@ Either remove bullet in this section or combine the next two sections and adjust
 ### Partition rebalancing
 
 - Each consumer reads event data from at least one partition of a topic. Whenever consumers join or leave a particular topic, the pipeline rebalances the partitions. Apache Kafka uses one of the following strategies when assigning partitions to consumers: 
-  - Static assignment: The pipeline assigns specific partitions to specific consumers statically by using partition ids. This approach does not trigger partition rebalances. The user is responsible for making sure that all partitions have subscribers.
+  
   - Round robin: By default, Kafka and Event Hubs use this assignment strategy. This approach distributes all partitions evenly across all members.
   - Range assignor: This strategy brings together partitions from different topics. It sorts partitions and consumers. It also identifies topics that use the same number of partitions and the same key-partitioning logic. Then it joins partitions from those topics when making assignments to consumers.
-  - Sticky assignor: This assignment is similar to round-robin in that it ensure a uniform distribution. However, it minimizes partition movement during rebalancing. 
+  - Sticky assignor: This assignment is similar to round-robin in that it ensure a uniform distribution. However, it minimizes partition movement during rebalancing.
+  - Static assignment: The pipeline assigns specific partitions to specific consumers statically by using partition ids. This approach does not trigger partition rebalances. The user is responsible for making sure that all partitions have subscribers.
 
 ## Deploy this scenario
 
