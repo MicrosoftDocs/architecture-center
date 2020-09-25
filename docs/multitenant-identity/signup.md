@@ -17,7 +17,7 @@ pnp.series.next: app-roles
 
 # Tenant sign-up and onboarding
 
-[![GitHub](../_images/github.png) Sample code][sample application]
+[:::image type="icon" source="../_images/github.png" border="false"::: Sample code][sample application]
 
 This article describes how to implement a *sign-up* process in a multitenant application, which allows a customer to sign up their organization for your application.
 

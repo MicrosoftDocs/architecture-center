@@ -15,7 +15,7 @@ pnp.series.next: web-api
 
 # Role-based and resource-based authorization
 
-[![GitHub](../_images/github.png) Sample code][sample application]
+[:::image type="icon" source="../_images/github.png" border="false"::: Sample code][sample application]
 
 Our [reference implementation] is an ASP.NET Core application. In this article we'll look at two general approaches to authorization, using the authorization APIs provided in ASP.NET Core.
 

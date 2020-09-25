@@ -77,7 +77,9 @@ There are also some operational advantages to using a serverless architecture:
 
 The following diagram shows the high-level architecture of the application:
 
-![Architecture](./images/architecture.png)
+:::image type="complex" source="./images/architecture.png" alt-text="Diagram showing the high-level architecture of the serverless Functions application.":::
+   In one data flow, arrows show messages going from Devices to Event Hubs and triggering the function app. From the app, one arrow shows dead-letter messages going to a storage queue, and another arrow shows writing to Azure Cosmos DB. In another data flow, arrows show the client web app getting static files from Blob storage static web hosting, through a CDN. Another arrow shows the client HTTP request going through API Management. From API Management, one arrow shows the function app triggering and reading data from Azure Cosmos DB. Another arrow shows authentication through Azure AD. A User also signs in to Azure AD.
+:::image-end:::
 
 Event ingestion:
 

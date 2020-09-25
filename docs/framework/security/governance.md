@@ -108,7 +108,7 @@ Set up a regular cadence (typically monthly) to review Azure secure score and pl
 **NOTE:** Note that in the DevOps model, some application teams may be responsible for their own application resources.
 
 
-![GitHub](../../_images/github.png) The [Azure Secure Score sample](https://github.com/mspnp/samples/tree/master/Security/AzureSecureScoreSample) shows how to get your Azure Secure Score for a subscription by calling the Azure Security Center REST API. The API methods provide the flexibility to query the data and build your own reporting mechanism of your secure scores over time.
+:::image type="icon" source="../../_images/github.png" border="false"::: The [Azure Secure Score sample](https://github.com/mspnp/samples/tree/master/Security/AzureSecureScoreSample) shows how to get your Azure Secure Score for a subscription by calling the Azure Security Center REST API. The API methods provide the flexibility to query the data and build your own reporting mechanism of your secure scores over time.
 
 ## Manage connected tenants
 
