@@ -1,6 +1,6 @@
 ---
-title: Enterprise level cloud file sync and share solution on Azure
-description: This reference architecture illustrates a enterprise level cloud file sharing solution with Azure provided services including Azure Files, Azure File Sync, Azure Private DNS and Azure Private Endpoint, secure file storage and sharing infrastructure with Azure private link as well as AD DS authentication.  
+title: Enterprise-level cloud file sync and share solution on Azure
+description: This reference architecture illustrates an enterprise-level cloud file sharing solution with Azure provided services including Azure Files, Azure File Sync, Azure Private DNS and Azure Private Endpoint, secure file storage and sharing infrastructure with Azure private link as well as AD DS authentication.  
 author: huangyingting
 ms.date: 09/19/2020
 ms.topic: example-scenario
@@ -12,8 +12,8 @@ ms.subservice: example-scenario
 ms.custom: fcp
 ---
 
-# Enterprise Level Cloud File Share Solution on Azure
-This reference architecture illustrates an enterprise level cloud file sharing solution by using Azure provided services including Azure Files, Azure File Sync, Azure Private DNS and Azure Private Endpoint, it gives you the possibility to access Azure file shares in a hybrid work environment over virtual private network between on-premises and Azure virtual network(through ExpressRoute private peering/VPN tunnels) without traversing the internet, you can also control and limit file access through AD DS authentication.
+# Enterprise-level Cloud File Share Solution on Azure
+This reference architecture illustrates an enterprise-level cloud file sharing solution by using Azure provided services including Azure Files, Azure File Sync, Azure Private DNS and Azure Private Endpoint, it gives you the possibility to access Azure file shares in a hybrid work environment over virtual private network between on-premises and Azure virtual network(through ExpressRoute private peering/VPN tunnels) without traversing the internet, you can also control and limit file access through AD DS authentication.
 
 This architecture can be generalized for any enterprise customer who is looking for saving the cost, outsourcing the management of file servers and infrastructure while remains the control of the data. 
 
@@ -41,14 +41,14 @@ It is important to correctly configure on-premise DNS settings to resolve privat
 - Private DNS zones (component 11 and 12) are created from Azure to provide private name resolution for Azure file sync and Azure files
 - Private DNS zones then get linked to Azure virtual network so a DNS server (component 8) deployed in virtual network can resolve private domain names.
 - Respectively, DNS A records will also need to be created for Azure files and Azure file sync in private DNS zones. Those steps can be found from [Configuring Azure Files network endpoints][storage-files-networking-endpoints] and [Configuring Azure File Sync network endpoints][storage-sync-files-networking-endpoints].
-- On-premises DNS server (component 3) needs to setup conditional forwarding to forward DNS query of domain afs.azure.net and file.core.windows.net to DNS server in Azure virtual network (componnet 8). 
+- On-premises DNS server (component 3) needs to set up conditional forwarding to forward DNS query of domain afs.azure.net and file.core.windows.net to DNS server in Azure virtual network (componnet 8). 
 - After receiving forwarded DNS query from on-premises DNS server, DNS server (component 8) in Azure virtual network uses Azure DNS recursive resolver to resolve private domain name and return private IP address to client.
 
 
 ## Components
 - **Client** - Is a client that can 'talk' to file server or Azure files through SMB protocol, usually it is a Windows, Linux, or Mac OSX desktop.
 
-- **DC & DNS Server** - Domain controller (DC) is a server that responds to authentication requests and verifies users on computer networks. DNS Server provide computer name-to-IP address mapping name resolution services to computers and users. DC and DC Server can be combined into one single server or can be separated into different servers.
+- **DC & DNS Server** - Domain controller (DC) is a server that responds to authentication requests and verifies users on computer networks. DNS Server provides computer name-to-IP address-mapping name resolution services to computers and users. DC and DC Server can be combined into one single server or can be separated into different servers.
 
 - **File Server** - Is a server hosts file share and provides file share service through SMB protocol.
 
@@ -58,7 +58,7 @@ It is important to correctly configure on-premise DNS settings to resolve privat
 
 - **Azure File Sync & Cloud Tiering** – Azure File Sync is a service offered by Azure to centralize your organization's file shares in Azure, while keeping the flexibility, performance, and compatibility of an on-premises file server. Cloud tiering is an optional feature of Azure File Sync in which frequently accessed files are cached locally on the server while all other files are tiered to Azure Files based on policy settings.
 
-- **Azure Files** - Is a fully managed service offers file shares in the cloud that are accessible via the industry standard Server Message Block (SMB) protocol. Azure files implement SMB v3 protocol and supports authentication through on-premises Active Directory Domain Services (AD DS) and Azure Active Directory Domain Services (Azure AD DS). File shares from Azure files can be mounted concurrently by cloud or on-premises deployments of Windows, Linux, and macOS. Additionally, Azure file shares can be cached on Windows Servers with Azure File Sync for fast access near where the data is being used.
+- **Azure Files** - Is a fully managed service offers file shares in the cloud that are accessible via the industry standard Server Message Block (SMB) protocol. Azure files implements SMB v3 protocol and supports authentication through on-premises Active Directory Domain Services (AD DS) and Azure Active Directory Domain Services (Azure AD DS). File shares from Azure files can be mounted concurrently by cloud or on-premises deployments of Windows, Linux, and macOS. Additionally, Azure file shares can be cached on Windows Servers with Azure File Sync for fast access near where the data is being used.
 
 - **Azure Private DNS** - An Azure offered DNS service to manage and resolve domain names in a virtual network without the need to add a custom DNS solution.
 
@@ -98,8 +98,8 @@ From Azure side,
 - If "bring your own DNS server" is used, the virtual network where your own DNS server deployed, needs to link to provisioned private DNS zones.
 
 From on-premises side, all it needs is to map private domain name to private IP address, 
-- This can be done through DNS forwarding to a DNS server deployed in Azure virtual network which is described in above architectural design.
-- Or, on-premises DNS server can setup zones for private domain \<region\>.privatelink.afs.azure.net and privatelink.file.core.windows.net, register Azure files and Azure file sync private endpoint's IP addresses as DNS A records into respective DNS zones, so on-premises client can resolve private domain name directly from local on-premises DNS server.
+- This can be done through DNS forwarding to a DNS server deployed in Azure virtual network, which is described in above architectural design.
+- Or, on-premises DNS server can set up zones for private domain \<region\>.privatelink.afs.azure.net and privatelink.file.core.windows.net, register Azure files and Azure file sync private endpoint's IP addresses as DNS A records into respective DNS zones, so on-premises client can resolve private domain name directly from local on-premises DNS server.
 
 ### DFS
 When it comes to an on-premises file sharing solution, many administrators choose to use a distributed file system (DFS) rather than a traditional standalone file server, DFS allows administrators to consolidate file shares that may exist on multiple servers to appear as though they all live in the same location so that users can access them from a single point on the network. While move to cloud file share solution, traditional DFS-R deployment can be replaced by Azure File Sync deployment. For more information, please refer to [Migrate a DFS Replication (DFS-R) deployment to Azure File Sync][storage-sync-files-deployment-guide-dfs].
@@ -116,9 +116,9 @@ Data loss is a serious problem for businesses of all sizes, Azure file share bac
 For more information, please refer to [About Azure file share backup][azure-file-share-backup-overview]
 
 ### Security and File Access Auditing
-Security Auditing is one of the most needed requirement to help maintain the security of an enterprise, industry standards require enterprises to follow a strict set of rules related to data security and privacy. File access auditing can be enabled locally and remotely
-- Locally, leverage Dynamic Access Control, for more information, refer to [Plan for File Access Auditing][plan-for-file-access-auditing].
-- Remotely, Azure Storage logs in Azure Monitor on Azure files contains StorageRead, StorageWrite, StorageDelete, and Transaction logs, Azure file access can be logged to storage account, log analytics workspace or stream to an event hub separately. For more information, please refer to [Monitoring Azure Storage][monitor-storage].
+Security Auditing is one of the most needed requirements to help maintain the security of an enterprise, industry standards require enterprises to follow a strict set of rules related to data security and privacy. File access auditing can be enabled locally and remotely
+- Locally, leverage Dynamic Access Control, for more information, see [Plan for File Access Auditing][plan-for-file-access-auditing].
+- Remotely, Azure Storage logs in Azure Monitor on Azure files contains StorageRead, StorageWrite, StorageDelete, and Transaction logs, Azure file access can be logged to storage account, log analytics workspace and stream to an event hub separately. For more information, see [Monitoring Azure Storage][monitor-storage].
 
 ## Related Resources
 [Planning for an Azure Files deployment][storage-files-planning]
