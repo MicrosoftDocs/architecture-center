@@ -17,7 +17,7 @@
             <li>12/16/2019</li>
             <li>1 min read</li>
         </ul>
-        <p class="card-content-description">Engage with customers around the world with rich, personalized digital marketing experiences. Quickly build and launch digital campaigns that automatically scale based on customer demand.</p>
+        <p class="card-content-description">Use Azure Database for PostgreSQL to engage with customers around the world with rich, personalized digital marketing experiences.</p>
         <div class="bottom-to-top-fade is-hidden-mobile"></div>
     </div>
 </article>

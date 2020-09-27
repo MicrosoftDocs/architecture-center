@@ -17,7 +17,7 @@
             <li>12/16/2019</li>
             <li>2 min read</li>
         </ul>
-        <p class="card-content-description">Store healthcare data effectively and affordably with cloud-based solutions from Azure. Manage medical records with the highest level of built-in security.</p>
+        <p class="card-content-description">Manage HIPAA and HITRUST compliant health data and medical records with the highest level of built-in security.</p>
         <div class="bottom-to-top-fade is-hidden-mobile"></div>
     </div>
 </article>

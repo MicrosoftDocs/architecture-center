@@ -17,7 +17,7 @@
             <li>9/17/2020</li>
             <li>5 min read</li>
         </ul>
-        <p class="card-content-description">Learn how to configure a DevTest and DevOps infrastructure to develop, test, and deploy microservice-based software.</p>
+        <p class="card-content-description">Learn how to configure a DevTest and DevOps infrastructure for development, testing, and deploying microservice-based software.</p>
         <div class="bottom-to-top-fade is-hidden-mobile"></div>
     </div>
 </article>

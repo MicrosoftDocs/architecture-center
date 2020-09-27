@@ -2,11 +2,27 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id/>
     <title>the Azure Architecture Center</title>
-    <updated>2020-09-20T15:42:00.425Z</updated>
+    <updated>2020-09-27T20:24:17.648Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <subtitle>Updated articles for the Azure Architecture Center</subtitle>
     <category term="new"/>
     <category term="updated"/>
+    <entry>
+        <title type="html"><![CDATA[Tenancy model for SaaS applications]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/isv/application-tenancy</id>
+        <link href="https://docs.microsoft.com/azure/architecture/isv/application-tenancy"/>
+        <updated>2020-09-23T21:30:43.000Z</updated>
+        <summary type="html"><![CDATA[This article describes the application tenancy models available to Software as a Service (SaaS) application builders.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Migrate IBM mainframe applications to Azure with TmaxSoft OpenFrame]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/solution-ideas/articles/migrate-mainframe-apps-with-tmaxsoft-openframe</id>
+        <link href="https://docs.microsoft.com/azure/architecture/solution-ideas/articles/migrate-mainframe-apps-with-tmaxsoft-openframe"/>
+        <updated>2020-09-22T05:19:08.000Z</updated>
+        <summary type="html"><![CDATA[Find out how to migrate IBM zSeries mainframe applications to Azure. Learn how to use TmaxSoft OpenFrame for this task. Understand the lift and shift approach.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Monitor tools in Azure | Microsoft Docs]]></title>
         <id>https://docs.microsoft.com/azure/architecture/framework/security/monitor-tools</id>
@@ -44,7 +60,7 @@
         <id>https://docs.microsoft.com/azure/architecture/framework/cost/design-capture-requirements</id>
         <link href="https://docs.microsoft.com/azure/architecture/framework/cost/design-capture-requirements"/>
         <updated>2020-09-16T23:02:17.000Z</updated>
-        <summary type="html"><![CDATA[Describes strategies to model your cloud costs]]></summary>
+        <summary type="html"><![CDATA[Learn to enumerate cost requirements and considerations, and how to align costs with business goals.]]></summary>
         <category label="new" term="new"/>
     </entry>
     <entry>
@@ -372,7 +388,7 @@
         <id>https://docs.microsoft.com/azure/architecture/reference-architectures/containers/aks/secure-baseline-aks</id>
         <link href="https://docs.microsoft.com/azure/architecture/reference-architectures/containers/aks/secure-baseline-aks"/>
         <updated>2020-09-14T17:00:42.000Z</updated>
-        <summary type="html"><![CDATA[Reference architecture for a baseline infrastructure that deploys an Azure Kubernetes Service (AKS) cluster with focus on security.]]></summary>
+        <summary type="html"><![CDATA[Reference architecture for a baseline infrastructure that deploys an Azure Kubernetes Service (AKS) cluster.]]></summary>
         <category label="updated" term="updated"/>
     </entry>
     <entry>
@@ -723,7 +739,7 @@
         <id>https://docs.microsoft.com/azure/architecture/reference-architectures/containers/aks/secure-baseline-aks</id>
         <link href="https://docs.microsoft.com/azure/architecture/reference-architectures/containers/aks/secure-baseline-aks"/>
         <updated>2020-07-17T20:08:29.000Z</updated>
-        <summary type="html"><![CDATA[Reference architecture for a baseline infrastructure that deploys an Azure Kubernetes Service (AKS) cluster with focus on security.]]></summary>
+        <summary type="html"><![CDATA[Reference architecture for a baseline infrastructure that deploys an Azure Kubernetes Service (AKS) cluster.]]></summary>
         <category label="new" term="new"/>
     </entry>
     <entry>
@@ -907,19 +923,19 @@
         <category label="updated" term="updated"/>
     </entry>
     <entry>
-        <title type="html"><![CDATA[Build cloud native apps]]></title>
+        <title type="html"><![CDATA[Build cloud native applications]]></title>
         <id>https://docs.microsoft.com/azure/architecture/solution-ideas/articles/cloud-native-apps</id>
         <link href="https://docs.microsoft.com/azure/architecture/solution-ideas/articles/cloud-native-apps"/>
         <updated>2020-06-26T21:21:01.000Z</updated>
-        <summary type="html"><![CDATA[Build cloud native apps with Azure Cosmos DB, Azure Database for PostgreSQL and Azure Cache for Redis]]></summary>
+        <summary type="html"><![CDATA[Build cloud native applications with Azure Cosmos DB, Azure Database for PostgreSQL and Azure Cache for Redis]]></summary>
         <category label="new" term="new"/>
     </entry>
     <entry>
-        <title type="html"><![CDATA[Deliver highly scalable customer service and ERP apps]]></title>
+        <title type="html"><![CDATA[Deliver highly scalable customer service and ERP applications]]></title>
         <id>https://docs.microsoft.com/azure/architecture/solution-ideas/articles/erp-customer-service</id>
         <link href="https://docs.microsoft.com/azure/architecture/solution-ideas/articles/erp-customer-service"/>
         <updated>2020-06-26T21:21:01.000Z</updated>
-        <summary type="html"><![CDATA[Deliver highly scalable customer service and ERP apps with Azure SQL and Azure Cosmos DB]]></summary>
+        <summary type="html"><![CDATA[Deliver highly scalable customer service and ERP applications with Azure SQL and Azure Cosmos DB]]></summary>
         <category label="new" term="new"/>
     </entry>
     <entry>
@@ -1375,7 +1391,7 @@
         <id>https://docs.microsoft.com/azure/architecture/framework/cost/optimize-checklist</id>
         <link href="https://docs.microsoft.com/azure/architecture/framework/cost/optimize-checklist"/>
         <updated>2020-05-16T00:22:08.000Z</updated>
-        <summary type="html"><![CDATA[Optimize by using Azure Reservations to lower cost]]></summary>
+        <summary type="html"><![CDATA[Use these checklist considerations to help monitor and optimize workloads by using the right resources and sizes.]]></summary>
         <category label="new" term="new"/>
     </entry>
     <entry>
@@ -1391,7 +1407,7 @@
         <id>https://docs.microsoft.com/azure/architecture/framework/cost/optimize-vm</id>
         <link href="https://docs.microsoft.com/azure/architecture/framework/cost/optimize-vm"/>
         <updated>2020-05-16T00:22:08.000Z</updated>
-        <summary type="html"><![CDATA[Optimize by using Azure Reservations to lower cost]]></summary>
+        <summary type="html"><![CDATA[Learn how to adequately size, optimize, and manage VMs to control costs, meet capacity demand, and reduce waste.]]></summary>
         <category label="new" term="new"/>
     </entry>
     <entry>
@@ -1415,7 +1431,7 @@
         <id>https://docs.microsoft.com/azure/architecture/framework/cost/provision-networking</id>
         <link href="https://docs.microsoft.com/azure/architecture/framework/cost/provision-networking"/>
         <updated>2020-05-15T23:34:44.000Z</updated>
-        <summary type="html"><![CDATA[Describes cost strategies for networking design choices]]></summary>
+        <summary type="html"><![CDATA[See networking cost considerations and examples for traffic routing, load balancing, peering, and hybrid connectivity.]]></summary>
         <category label="new" term="new"/>
     </entry>
     <entry>
@@ -1423,7 +1439,7 @@
         <id>https://docs.microsoft.com/azure/architecture/framework/cost/design-capture-requirements</id>
         <link href="https://docs.microsoft.com/azure/architecture/framework/cost/design-capture-requirements"/>
         <updated>2020-05-15T14:37:45.000Z</updated>
-        <summary type="html"><![CDATA[Describes strategies to model your cloud costs]]></summary>
+        <summary type="html"><![CDATA[Learn to enumerate cost requirements and considerations, and how to align costs with business goals.]]></summary>
         <category label="new" term="new"/>
     </entry>
     <entry>
@@ -1447,7 +1463,7 @@
         <id>https://docs.microsoft.com/azure/architecture/framework/cost/design-initial-estimate</id>
         <link href="https://docs.microsoft.com/azure/architecture/framework/cost/design-initial-estimate"/>
         <updated>2020-05-15T14:37:45.000Z</updated>
-        <summary type="html"><![CDATA[Describes strategies to model your cloud costs]]></summary>
+        <summary type="html"><![CDATA[Learn best practices and strategies for modeling workloads and estimating initial costs for cloud migrations.]]></summary>
         <category label="new" term="new"/>
     </entry>
     <entry>
@@ -1455,7 +1471,7 @@
         <id>https://docs.microsoft.com/azure/architecture/framework/cost/design-model</id>
         <link href="https://docs.microsoft.com/azure/architecture/framework/cost/design-model"/>
         <updated>2020-05-15T14:37:45.000Z</updated>
-        <summary type="html"><![CDATA[Describes strategies to model your cloud costs]]></summary>
+        <summary type="html"><![CDATA[Do cost modeling to map logical groups of cloud resources to an organization's hierarchy, and then estimate costs for those groups.]]></summary>
         <category label="new" term="new"/>
     </entry>
     <entry>
@@ -1519,7 +1535,7 @@
         <id>https://docs.microsoft.com/azure/architecture/framework/cost/monitor-alert</id>
         <link href="https://docs.microsoft.com/azure/architecture/framework/cost/monitor-alert"/>
         <updated>2020-05-14T07:15:39.000Z</updated>
-        <summary type="html"><![CDATA[Describes ways to gather cost data for reporting purposes]]></summary>
+        <summary type="html"><![CDATA[Use the Azure Cost Management alert feature to generate alerts when consumption reaches a threshold.]]></summary>
         <category label="new" term="new"/>
     </entry>
     <entry>
@@ -1543,7 +1559,7 @@
         <id>https://docs.microsoft.com/azure/architecture/framework/cost/monitor-reviews</id>
         <link href="https://docs.microsoft.com/azure/architecture/framework/cost/monitor-reviews"/>
         <updated>2020-05-14T07:15:39.000Z</updated>
-        <summary type="html"><![CDATA[Describes ways to gather cost data for reporting purposes]]></summary>
+        <summary type="html"><![CDATA[Implement cost monitoring to review cloud spend with the intent of establishing cost controls and preventing any misuse.]]></summary>
         <category label="new" term="new"/>
     </entry>
     <entry>

@@ -14,7 +14,7 @@
             <p>Windows N-tier application on Azure</p>
         </a>
         <ul class="card-content-metadata">
-            <li>8/21/2019</li>
+            <li>9/25/2019</li>
             <li>13 min read</li>
         </ul>
         <p class="card-content-description">Implement a multi-tier architecture on Azure for availability, security, scalability, and manageability.</p>

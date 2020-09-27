@@ -2,7 +2,7 @@
 title: What's New in the Azure Architecture Center
 description: New and updated articles in the Azure Architecture Center
 author: doodlemania2
-ms.date: 09/20/2020
+ms.date: 09/27/2020
 ms.topic: article
 ms.service: architecture-center
 ---
@@ -21,6 +21,8 @@ New and updated articles in the Azure Architecture Center
 
 ### New Articles
 
+- [Tenancy model for SaaS applications](https://docs.microsoft.com/azure/architecture/isv/application-tenancy)
+- [Migrate IBM mainframe applications to Azure with TmaxSoft OpenFrame](https://docs.microsoft.com/azure/architecture/solution-ideas/articles/migrate-mainframe-apps-with-tmaxsoft-openframe)
 - [Monitor tools in Azure | Microsoft Docs](https://docs.microsoft.com/azure/architecture/framework/security/monitor-tools)
 - [Applications and services in Azure | Microsoft Docs](https://docs.microsoft.com/azure/architecture/framework/security/design-apps-services)
 - [Security storage in Azure | Microsoft Docs](https://docs.microsoft.com/azure/architecture/framework/security/design-storage)
@@ -158,8 +160,8 @@ New and updated articles in the Azure Architecture Center
 
 ### New Articles
 
-- [Build cloud native apps](https://docs.microsoft.com/azure/architecture/solution-ideas/articles/cloud-native-apps)
-- [Deliver highly scalable customer service and ERP apps](https://docs.microsoft.com/azure/architecture/solution-ideas/articles/erp-customer-service)
+- [Build cloud native applications](https://docs.microsoft.com/azure/architecture/solution-ideas/articles/cloud-native-apps)
+- [Deliver highly scalable customer service and ERP applications](https://docs.microsoft.com/azure/architecture/solution-ideas/articles/erp-customer-service)
 - [Modernize .NET applications](https://docs.microsoft.com/azure/architecture/solution-ideas/articles/net-app-modernization)
 - [Firewall and Application Gateway for virtual networks](https://docs.microsoft.com/azure/architecture/example-scenario/gateway/firewall-application-gateway)
 - [Dynamics Business Central as a Service on Azure](https://docs.microsoft.com/azure/architecture/solution-ideas/articles/business-central)
