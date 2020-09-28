@@ -13,4 +13,4 @@ ms.subservice: well-architected
 #### Next steps
 
 > [!div class="nextstepaction"]
-> [Automate infrastructure configuration](./release-engineering-app-dev.md)
+> [Release Engineering: Application Development](./release-engineering-app-dev.md)
