@@ -12,7 +12,7 @@ ms.subservice: well-architected
 
 When working with Azure, many services can be created and configured programmatically using automation or infrastructure as code tooling. These tools access Azure through the exposed REST APIs or what we refer to as the [Azure control plane](https://docs.microsoft.com/azure/azure-resource-manager/management/control-plane-and-data-plane#control-plane). For example, an Azure Network Security Group can be deployed, and security group rules created using an Azure Resource Manager template. The Network Security Group and its configuration are exposed through the Azure control plane and natively accessible.
 
-Other configurations, such as installing software on a virtual machine, adding data to a database, or starting pods in an Azure Kubernetes Service cluster cannot be accessed through the Azure control plane and require a different set of configuration tools. We consider these configurations as being on the [Azure data plane](https://docs.microsoft.com/azure/azure-resource-manager/management/control-plane-and-data-plane#data-plane) side, or not exposed through Azure REST APIs. These data plane enabled tools to use agents, networking, or other access methods to provide resource-specific configuration options. 
+Other configurations, such as installing software on a virtual machine, adding data to a database, or starting pods in an Azure Kubernetes Service cluster cannot be accessed through the Azure control plane. These actions require a different set of configuration tools. We consider these configurations as being on the [Azure data plane](https://docs.microsoft.com/azure/azure-resource-manager/management/control-plane-and-data-plane#data-plane) side, or not exposed through Azure REST APIs. These data plane enabled tools to use agents, networking, or other access methods to provide resource-specific configuration options. 
 
 For example, when deploying a set of virtual machined to Azure, you may also want to install and configure a web server, stage content, and then make the content available on the internet. Furthermore, if the virtual machine configuration changes and no longer aligns with the configuration definition, you may want a configuration management system to remediate the configuration. Many options are available for these data plane configurations; this document details several and provides links for in-depth information.
 
@@ -120,7 +120,7 @@ The following example shows an ARM template snippet with the deployment script r
 
 **Learn more**
 
-- [Docs: Use deployment scripts in templates](https://docs.microsoft.com/azure/virtual-machines/linux/using-cloud-init#canonical)
+- [Docs: Use deployment scripts in templates](https://docs.microsoft.com/azure/azure-resource-manager/templates/deployment-script-template)
 
 ## Configuration Management
 
@@ -152,10 +152,10 @@ Once imported into Azure State Configuration and assigned to nodes, the state co
 
 **Learn more**
 
-Use the included code sample to deploy Azure Automation State Configuration, several Azure virtual machines, all of which are onboarded to the solution and configured (webserver) with state configuration.
+Use the included code sample to deploy Azure Automation State Configuration and several Azure virtual machines. The virtual machines are also onboarded to state configuration, and a configuration applied.
 
-- [Docs: Get started with Azure Automation State Configuration](https://docs.microsoft.com/azure/virtual-machines/extensions/overview)
-- [Code Sample: Deploy DSC and VMs with an ARM template](https://docs.microsoft.com/samples/browse/?terms=arm%20templates)
+- [Docs: Get started with Azure Automation State Configuration](https://docs.microsoft.com/azure/automation/automation-dsc-overview)
+- [Code Sample: Deploy DSC and VMs with an ARM template](https://docs.microsoft.com/samples/mspnp/samples/azure-well-architected-framework-sample-state-configuration/)
 
 ### Chef
 
