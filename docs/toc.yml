@@ -267,6 +267,18 @@ items:
       href: framework/devops/testing.md
     - name: Checklist
       href: checklist/dev-ops.md
+    - name: Release engineering
+      items:
+      - name: Release engineering overview
+        href: framework/devops/release-engineering-overview.md
+      - name: Application development
+        href: framework/devops/release-engineering-app-dev.md
+      - name: Continuous integration
+        href: framework/devops/release-engineering-ci.md
+      - name: Continuous deployment
+        href: framework/devops/release-engineering-cd.md
+      - name: Rollback and Rollforward 
+        href: framework/devops/release-engineering-rollback.md
   - name: Performance Efficiency
     items:
     - name: Overview
