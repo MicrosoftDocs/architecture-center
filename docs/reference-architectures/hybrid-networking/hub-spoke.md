@@ -155,9 +155,7 @@ VM_DNS_PREFIX=hubSpokeSample
 
 az deployment group create --resource-group hub-spoke-sample \
     --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-hub-and-spoke-sandbox/azuredeploy.json \
-    --parameters winVmUser=$ADMIN_USER \
-    winVmPassword=$ADMIN_PASSWORD \
-    winVmDnsPrefix=$VM_DNS_PREFIX
+    --parameters winVmUser=$ADMIN_USER winVmPassword=$ADMIN_PASSWORD winVmDnsPrefix=$VM_DNS_PREFIX
 ```
 
 Once completed, the following resources have been created.
