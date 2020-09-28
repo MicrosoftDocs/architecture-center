@@ -17,7 +17,7 @@
             <li>12/16/2019</li>
             <li>1 min read</li>
         </ul>
-        <p class="card-content-description">Rapidly build engaging, performant and scalable cross-platform and native apps for iOS, Android, Windows, or Mac.</p>
+        <p class="card-content-description">Use Azure Database for PostgreSQL to rapidly build engaging, performant, and scalable cross-platform and native apps for iOS, Android, Windows, or Mac.</p>
         <div class="bottom-to-top-fade is-hidden-mobile"></div>
     </div>
 </article>

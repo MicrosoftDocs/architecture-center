@@ -17,7 +17,7 @@
             <li>12/16/2019</li>
             <li>1 min read</li>
         </ul>
-        <p class="card-content-description">Securely store critical data and provide high-value analytics and insights over aggregated data to users, using in-built security and performance.</p>
+        <p class="card-content-description">Use Azure Database for MySQL to securely store critical data and provide high-value analytics and insights over aggregated data to users.</p>
         <div class="bottom-to-top-fade is-hidden-mobile"></div>
     </div>
 </article>

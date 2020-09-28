@@ -277,7 +277,7 @@ Service Fabric has a built-in reverse proxy but is limited in its feature set.  
 
 Here is the network flow for the example infrastructure.
 
-![Example infrastructure for containerizing apps](images/containersf-net.png)
+![Diagram of the example infrastructure showing a reverse proxy for inbound traffic.](images/containersf-net.png)
 The key aspect of the ingress reverse proxy is inspecting inbound traffic and rewriting that traffic to the destination container.
 
 For example, application A is registered with the Service Fabric DNS service with the domain name: appA.container.myorg.com. External users access the application with `https://appA.myorg.com`. Use public or organizational DNS and register appA.myorg.com to point to the public IP for the application node type.
@@ -441,7 +441,7 @@ Here are two approaches for getting application logs into Log Analytics.
 
 Application containerization ensures consistency. It makes sure all Service Fabric-hosted applications use the latest approved corporate image and provides an automatable image updating process that is consistent through DevOps. Azure Pipelines provides the automation process. For more information, see [Tutorial: Deploy an application with CI/CD to a Service Fabric cluster](/azure/service-fabric/service-fabric-tutorial-deploy-app-with-cicd-vsts).
 
-![Service Fabric scale set extensions](images/containersf-devops.png)
+![Diagram showing how containerized Service Fabric-hosted apps work with DevOps and CI/CD.](images/containersf-devops.png)
 
 - An enterprise may want to control the base container images in a centralized registry. The preceding workflow shows one image registry. There could be multiple registries that are used to share central IT-built enterprise images with application teams. One way to centralize control is for the central IT registry to allow application teams with read-only access to the enterprise base image repository. Application teams each have their own container registry with their Docker files and build off the central IT base image repository.
 - There are various third-party image scanning tools that can plug into this process on Docker push/pulls from the Azure Container Registry. Those solutions are available in Azure Marketplace and referenced in the Azure portal Container Registry blade. For example, Aqua and TwistLock.
@@ -451,11 +451,11 @@ After the source code is pushed to a git-based repository, set up CI/CD by creat
 
 The template sets up the build process and tasks for CI/CD by building and containerizing the application, pushing the container image to a Docker registry (Azure Container Registry is the default), and deploying the Service Fabric application with the containerized services to the cluster. Each application code change creates a version of the code and an updated containerized image. Service Fabric's rolling upgrade feature deploys service upgrades gracefully.
 
-![Azure Service Fabric Application and Docker Support template](images/containersf-devops-template2.png)
+![Screenshot showing Service Fabric's rolling upgrade feature for updating manifests.](images/containersf-devops-template2.png)
 
 Here is an example of a build starting the full DevOps process on an Azure-provided hosted build agent. Some enterprises may require the build agents to run internally within their private Azure virtual network corporate network. Set up a Windows build agent VM and instruct Azure DevOps to use the private VM for building and deploying code. For information about using custom build agents, see Self-hosted Windows agents.
 
-![Azure Service Fabric Application and Docker Support template](images/containersf-devops-process.png)
+![Example screenshot of a build starting the full DevOps process on an Azure-provided hosted build agent.](images/containersf-devops-process.png)
 
 ## Conclusion
 

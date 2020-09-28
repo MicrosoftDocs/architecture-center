@@ -69,11 +69,11 @@ You may notice that these calls to Redis don't appear in the Application Map. Th
 
 For the second load test, the development team increased the cache size in Azure Cache for Redis. (See [How to Scale Azure Cache for Redis](/azure/azure-cache-for-redis/cache-how-to-scale).) This change resolved the out-of-memory exceptions, and now the Application Map shows zero errors:
 
-![Screenshot of Application Map](./images/workflow/2-application-map.png)
+![Screenshot of Application Map showing that increasing the cache size resolved the out-of-memory exceptions.](./images/workflow/2-application-map.png)
 
 However, there is still a dramatic lag in processing messages. At the peak of the load test, the incoming message rate is more than 5&times; the outgoing rate:
 
-![Graph of incoming and outgoing messages](./images/workflow/2-event-hub.png)
+![Graph of incoming and outgoing messages showing the incoming message rate is more than 5x the outgoing rate.](./images/workflow/2-event-hub.png)
 
 The following graph measures throughput in terms of message completion &mdash; that is, the rate at which the Workflow service marks the Service Bus messages as completed. Each point on the graph represents 5 seconds of data, showing ~16/sec maximum throughput.
 
@@ -108,11 +108,11 @@ It appears the back end is the bottleneck. An easy next step is to scale out the
 
 Unfortunately this load test shows only modest improvement. Outgoing messages are still not keeping up with incoming messages:
 
-![Graph of incoming and outgoing messages](./images/workflow/3-event-hub.png)
+![Graph of incoming and outgoing messages showing that outgoing messages are still not keeping up with incoming messages.](./images/workflow/3-event-hub.png)
 
 Throughput is more consistent, but the maximum achieved is about the same as the previous test:
 
-![Graph of message throughput](./images/workflow/3-throughput.png)
+![Graph of message throughput showing that the maximum achieved is about the same as the previous test.](./images/workflow/3-throughput.png)
 
 Moreover, looking at [Azure Monitor for containers](/azure/azure-monitor/insights/container-insights-overview), it appears the problem is not caused by resource exhaustion within the cluster. First, the node-level metrics show that CPU utilization remains under 40% even at the 95th percentile, and memory utilization is about 20%.
 
@@ -168,7 +168,7 @@ For this test, the team focused on increasing parallelism. To do so, they adjust
 
 For more information about these settings, see [Best Practices for performance improvements using Service Bus Messaging](/azure/service-bus-messaging/service-bus-performance-improvements#concurrent-operations). Running the test with these settings produced the following graph: 
 
-![Graph of incoming and outgoing messages](./images/workflow/4-event-hub.png)
+![Graph of incoming and outgoing messages showing the number of outgoing messages actually exceeding the total number of incoming messages.](./images/workflow/4-event-hub.png)
 
 Recall that incoming messages are shown in light blue, and outgoing messages are shown in dark blue.
 
@@ -186,25 +186,25 @@ Remember that the Workflow service is prefetching large batches of messages &mda
 
 You can also see this behavior in the exceptions, where numerous `MessageLostLockException` exceptions are recorded:
 
-![Screenshot of Application Insights](./images/workflow/4-exceptions.png)
+![Screenshot of Application Insights exceptions showing numerous MessageLostLockException exceptions.](./images/workflow/4-exceptions.png)
 
 ## Test 5: Increase lock duration
 
 For this load test, the message lock duration was set to 5 minutes, to prevent lock timeouts. The graph of incoming and outgoing messages now shows that the system is keeping up with the rate of incoming messages:
 
-![Graph of incoming and outgoing messages](./images/workflow/5-event-hub.png)
+![Graph of incoming and outgoing messages showing that the system is keeping up with the rate of incoming messages.](./images/workflow/5-event-hub.png)
 
 Over the total duration of the 8-minute load test, the application completed 25 K operations, with a peak throughput of 72 operations/sec, representing a 400% increase in maximum throughput.
 
-![Graph of message throughput](./images/workflow/5-throughput.png)
+![Graph of message throughput showing a 400% increase in maximum throughput.](./images/workflow/5-throughput.png)
 
 However, running the same test with a longer duration showed that the application could not sustain this rate:
 
-![Graph of incoming and outgoing messages](./images/workflow/5b-event-hub.png)
+![Graph of incoming and outgoing messages showing that the application could not sustain this rate.](./images/workflow/5b-event-hub.png)
 
 The container metrics show that maximum CPU utilization was close to 100%. At this point, the application appears to be CPU-bound. Scaling the cluster might improve performance now, unlike the previous attempt at scaling out. 
 
-![Graph of AKS node utilization](./images/workflow/5-node-utilization.png)
+![Graph of AKS node utilization showing that maximum CPU utilization was close to 100%.](./images/workflow/5-node-utilization.png)
 
 ## Test 6: Scale out the backend services (again)
 
@@ -219,7 +219,7 @@ For the final load test in the series, the team scaled out the Kubernetes cluste
 
 This test resulted in a higher sustained throughput, with no significant lags in processing messages. Moreover, node CPU utilization stayed below 80%.
 
-![Graph of message throughput](./images/workflow/6-throughput.png)
+![Graph of message throughput showing higher sustained throughput, with no significant lags in processing messages.](./images/workflow/6-throughput.png)
 
 ## Summary
 
