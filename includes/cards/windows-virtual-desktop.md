@@ -15,7 +15,7 @@
         </a>
         <ul class="card-content-metadata">
             <li>7/16/2020</li>
-            <li>7 min read</li>
+            <li>8 min read</li>
         </ul>
         <p class="card-content-description">Explore Windows Virtual Desktop, and learn to build virtual desktop infrastructure solutions at enterprise scale.</p>
         <div class="bottom-to-top-fade is-hidden-mobile"></div>

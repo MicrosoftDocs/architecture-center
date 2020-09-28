@@ -74,7 +74,7 @@ The following graph shows a scheduler delay time (3.7 s) that exceeds the execut
 
 In this case, the problem was caused by having too many partitions, which caused a lot of overhead. Reducing the number of partitions lowered the scheduler delay time. The next graph shows that most of the time is spent executing the task.
 
-![Graph showing task metrics per stage](./_images/grafana-metrics-per-stage2.png)
+![Graph showing that reducing the number of partitions lowered the scheduler delay time.](./_images/grafana-metrics-per-stage2.png)
 
 ## Streaming throughput and latency
 
@@ -99,7 +99,7 @@ These metrics help to understand the work that each executor performs.
 
 These visualizations show how much each of these metrics contributes to overall executor processing.
 
-![Graph showing percentage metrics](./_images/grafana-percentage.png)
+![Visualizations showing how much each of these metrics contributes to overall executor processing.](./_images/grafana-percentage.png)
 
 **Shuffle metrics** are metrics related to data shuffling across the executors.
 
@@ -130,6 +130,6 @@ Use the resource consumption metrics to troubleshoot partition skewing and misal
 
 For example, the following graph shows that the memory used by shuffling on the first two executors is 90X bigger than the other executors:
 
-![Graph showing percentage metrics](./_images/grafana-shuffle-memory.png)
+![Graph showing that the memory used by shuffling on the first two executors is 90X bigger than the other executors.](./_images/grafana-shuffle-memory.png)
 
 [config-cluster]: https://github.com/mspnp/spark-monitoring/blob/master/README.md
