@@ -52,8 +52,8 @@ Both PowerShell and Python are common languages for automating everyday operatio
 
 **Learn more**
 
-- [Docs: Azure Functions PowerShell developer guide](https://docs.microsoft.com/azure/azure-functions/functions-reference-powershell)
-- [Docs: Azure Functions Python developer guide](https://docs.microsoft.com/azure/azure-functions/functions-reference-python)
+- [Documentation: Azure Functions PowerShell developer guide](https://docs.microsoft.com/azure/azure-functions/functions-reference-powershell)
+- [Documentation: Azure Functions Python developer guide](https://docs.microsoft.com/azure/azure-functions/functions-reference-python)
 
 
 ## Azure Automation
@@ -73,7 +73,7 @@ As seen in the following image, Azure Automation provides a portal experience fo
 
 **Learn more**
 
-- [Docs: What is Azure Automation](https://docs.microsoft.com/azure/automation/automation-intro)
+- [Documentation: What is Azure Automation](https://docs.microsoft.com/azure/automation/automation-intro)
 
 ## Scale operations
 
@@ -100,7 +100,7 @@ When creating the autoscale rules, configure minimum and maximum instance counts
 
 **Learn more**
 
-- [Docs: Azure Monitor autoscale overview](https://docs.microsoft.com/azure/azure-monitor/platform/autoscale-overview)
+- [Documentation: Azure Monitor autoscale overview](https://docs.microsoft.com/azure/azure-monitor/platform/autoscale-overview)
 
 ### Azure Kubernetes Service
 
@@ -196,5 +196,5 @@ See the included documentation for information on fine-grain control for cluster
 
 **Learn more**
 
-- [Docs: Horizontal pod autoscaling](https://docs.microsoft.com/azure/aks/tutorial-kubernetes-scale#autoscale-pods)
-- [Docs: AKS cluster autoscaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler)
+- [Documentation: Horizontal pod autoscaling](https://docs.microsoft.com/azure/aks/tutorial-kubernetes-scale#autoscale-pods)
+- [Documentation: AKS cluster autoscaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler)

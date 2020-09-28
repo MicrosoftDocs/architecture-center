@@ -40,7 +40,7 @@ az vm extension set \
 
 Use the included code sample to deploy a virtual machine and configure a web server on that machine with the custom script extension.
 
-- [Docs: Azure virtual machine extensions](https://docs.microsoft.com/azure/virtual-machines/extensions/overview)
+- [Documentation: Azure virtual machine extensions](https://docs.microsoft.com/azure/virtual-machines/extensions/overview)
 - [Code Samples: Configure VM with script extension during ARM deployment](https://docs.microsoft.com/samples/mspnp/samples/azure-well-architected-framework-sample-custom-script-extension/)
 
 ### cloud-init
@@ -78,7 +78,7 @@ az vm create \
 
 **Learn more**
 
-- [Docs: cloud-init support for virtual machines in Azure](https://docs.microsoft.com/azure/virtual-machines/linux/using-cloud-init#canonical)
+- [Documentation: cloud-init support for virtual machines in Azure](https://docs.microsoft.com/azure/virtual-machines/linux/using-cloud-init#canonical)
 
 ### Azure deployment script resource
 
@@ -120,7 +120,7 @@ The following example shows an ARM template snippet with the deployment script r
 
 **Learn more**
 
-- [Docs: Use deployment scripts in templates](https://docs.microsoft.com/azure/azure-resource-manager/templates/deployment-script-template)
+- [Documentation: Use deployment scripts in templates](https://docs.microsoft.com/azure/azure-resource-manager/templates/deployment-script-template)
 
 ## Configuration Management
 
@@ -154,7 +154,7 @@ Once imported into Azure State Configuration and assigned to nodes, the state co
 
 Use the included code sample to deploy Azure Automation State Configuration and several Azure virtual machines. The virtual machines are also onboarded to state configuration, and a configuration applied.
 
-- [Docs: Get started with Azure Automation State Configuration](https://docs.microsoft.com/azure/automation/automation-dsc-overview)
+- [Documentation: Get started with Azure Automation State Configuration](https://docs.microsoft.com/azure/automation/automation-dsc-overview)
 - [Code Sample: Deploy DSC and VMs with an ARM template](https://docs.microsoft.com/samples/mspnp/samples/azure-well-architected-framework-sample-state-configuration/)
 
 ### Chef
@@ -163,7 +163,7 @@ Chef is an automation platform that helps define how your infrastructure is conf
 
 **Learn more**
 
-- [Docs: An Overview of Chef](https://docs.chef.io/chef_overview.html)
+- [Documentation: An Overview of Chef](https://docs.chef.io/chef_overview.html)
 
 ### Puppet
 
@@ -171,7 +171,7 @@ Puppet is an enterprise-ready automation platform that handles the application d
 
 **Learn more**
 
-- [Docs: How Puppet works](https://puppet.com/products/how-puppet-works).
+- [Documentation: How Puppet works](https://puppet.com/products/how-puppet-works).
 
 #### Next steps
 

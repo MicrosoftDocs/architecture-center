@@ -14,20 +14,20 @@ Historically, deploying a new service or application involves manual work such a
 
 Cloud computing changes the way we procure infrastructure. No longer are we unboxing, racking, and cabling physical infrastructure, we have internet accessible management portals and REST interfaces to help us. We can now provision virtual machines, databases, and other cloud services on demand and globally. When we no longer need cloud services, they can be easily deleted. However, cloud computing alone does not remove the effort and risk in provisioning infrastructure. When using a cloud portal to build systems, many of the same manual configuration tasks remain. Application servers require configuration, databases need networking, and firewalls need firewalling. 
 
-To fully realize deployment optimization, reduce configuration effort, and automate full environments' deployment, something more is required. One option is referred to as infrastructure as code.
-
 ## Infrastructure as code
 
-Cloud computing changes so much about deploying and provisioning infrastructure. Not only can we procure compute, data, and so many other service types on demand, we have APIs for doing so. Because of cloud service's API-driven nature, programmatically deploying and configuring cloud services makes sense. The concept known as infrastructure as code involves using a declarative framework to describe your desired service configuration. Infrastructure as code solutions translates the declared configuration into the proper cloud provider API requests, which, once deployed result in usable cloud services. Benefits of using infrastructure as code include:
+To fully realize deployment optimization, reduce configuration effort, and automate full environments' deployment, something more is required. One option is referred to as infrastructure as code.
 
-- Deploy similarly configured infrastructure across multiple environments (test and production)
-- Deploy all required components as a single unit (infrastructure, monitoring solutions, and configured alerts)
-- Version control infrastructure in a source control solution
-- Use continuous integration solutions to manage and test infrastructure deployments
+Cloud computing changes so much about deploying and provisioning infrastructure. Not only can we procure compute, data, and so many other service types on demand, we have APIs for doing so. Because of cloud service's API-driven nature, programmatically deploying and configuring cloud services makes sense. The concept known as infrastructure as code involves using a declarative framework to describe your desired service configuration. Infrastructure as code solutions translate the declared configuration into the proper cloud provider API requests, which, once deployed result in usable cloud services. Benefits of using infrastructure as code include:
+
+- Deploy similarly configured infrastructure across multiple environments e.g., test and production.
+- Deploy all required components as a single unit (infrastructure, monitoring solutions, and configured alerts).
+- Version control infrastructure in a source control solution.
+- Use continuous integration solutions to manage and test infrastructure deployments.
 
 You can use many declarative infrastructure deployment technologies with Azure, here we detail two of the most common.
 
-## ARM Templates
+## Automate deployments with ARM Templates
 
 Azure Resource Manager (ARM) Templates provide an Azure native infrastructure as code solution. ARM Templates are written in a language derived from JavaScript Object Notation (JSON), and they define the infrastructure and configurations for Azure deployments. An ARM template is declarative, you state what intend to deploy, provide configuration values, and the ARM engine takes care of making the necessary Azure REST API put requests. Additional benefits of using ARM templates for infrastructure deployments include:
 
@@ -70,15 +70,15 @@ The following example demonstrates a simple ARM template that deploys a single A
 
 **Learn more**
 
-- [Docs: What are ARM templates](https://docs.microsoft.com/azure/azure-resource-manager/templates/overview)
-- [Learn: Deploy consistent infrastructure with ARM Templates](https://docs.microsoft.com/learn/modules/create-azure-resource-manager-template-vs-code/)
+- [Documentation: What are ARM templates](https://docs.microsoft.com/azure/azure-resource-manager/templates/overview)
+- [Learn module: Deploy consistent infrastructure with ARM Templates](https://docs.microsoft.com/learn/modules/create-azure-resource-manager-template-vs-code/)
 - [Code Samples: ARM templates](https://docs.microsoft.com/samples/mspnp/samples/azure-well-architected-framework-sample-arm-template/)
 
-## Terraform
+## Automate deployments with Terraform
 
 Terraform is a declarative framework for deploying and configuring infrastructure that supports many private and public clouds, Azure being one of them. It has the main advantage of offering a cloud-agnostic framework. While Terraform configurations are specific to each cloud, the framework itself is the same for all of them. Terraform configurations are written in a domain-specific language (DSL) called Hashicorp Configuration Language.
 
-The following example demonstrates a simple Terraform configuration that deploys an Azure resource group and a single Azure Storage account. See the included documentation for an in-depth explanation of using Terraform in Azure.c
+The following example demonstrates a simple Terraform configuration that deploys an Azure resource group and a single Azure Storage account.
 
 ```hcl
 resource "azurerm_resource_group" "example" {
@@ -99,7 +99,7 @@ Take note, the Terraform provider for Azure is an abstraction on top of Azure AP
 
 **Learn more**
 
-- [Docs: Using Terraform on Azure](https://docs.microsoft.com/azure/developer/terraform/overview)
+- [Documentation: Using Terraform on Azure](https://docs.microsoft.com/azure/developer/terraform/overview)
 
 #### Next steps
 
