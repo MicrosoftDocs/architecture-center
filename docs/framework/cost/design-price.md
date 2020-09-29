@@ -1,6 +1,6 @@
 ---
 title: Consumption and fixed cost models
-description: Describes cost strategies for serverless technologies
+description: Learn to compare and contrast the consumption-based and fixed-price cost models for Azure services. 
 author:  PageWriter-MSFT
 ms.date: 05/12/2020
 ms.topic: article
