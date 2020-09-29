@@ -32,26 +32,26 @@ These use cases have similar design patterns that are variations on the same und
 
 1. Using Azure App Service [regional VNet Integration](/azure/app-service/web-sites-integrate-with-vnet#regional-vnet-integration), the web app connects to Azure through the **AppSvcSubnet** delegated subnet in an Azure Virtual Network.
 2. Only a [private endpoint](/azure/azure-sql/database/private-endpoint-overview#how-to-set-up-private-link-for-azure-sql-database) in the **PrivateLinkSubnet** of the same Azure Virtual Network exposes the Azure SQL database.
-3. The database firewall allows only traffic coming from **PrivateLinkSubnet**, making the database inaccessible from the public internet.
+3. The database firewall allows only traffic coming from **PrivateLinkSubnet** to connect, making the database inaccessible from the public internet.
 4. The web app connects to the database's private endpoint through the Virtual Network.
    
 In this example, the Virtual Network is only required for routing the traffic and is otherwise empty, but other subnets and workloads could run in the Virtual Network.
 
-### DNS hostname resolution to the private IP address
+### Azure Private DNS Zone
 
-The app code can still use the public hostname, for example `contoso.database.windows.net`, for the SQL Database connection string. However, regional VNet Integration routes traffic from the web app only to private addresses in the Virtual Network, and the SQL Database hostname DNS resolution will still result in its public IP address. If the web app connects to the public IP address, the traffic won't pass through the Virtual Network, although the traffic remains within Azure.
+The app code can still use the public hostname, for example `contoso.database.windows.net`, for the SQL Database connection string. However, regional VNet Integration routes traffic from the web app only to private addresses in the Virtual Network, and the SQL Database hostname DNS resolution still results in its public IP address. If the web app connects to the public IP address, the traffic won't pass through the Virtual Network, although the traffic remains within Azure.
 
-Using the Private Link-specific hostname like `contoso.privatelink.database.windows.net` won't work either, because SQL Database doesn't accept this hostname. This hostname still resolves to the public IP address, due to [how DNS works for private endpoints](/azure/private-link/private-endpoint-dns).
+Using the Private Link-specific hostname like `contoso.privatelink.database.windows.net` won't work either, because SQL Database doesn't accept this hostname. The hostname still resolves to the public IP address, due to [how DNS works for private endpoints](/azure/private-link/private-endpoint-dns).
 
-To make DNS resolve the hostname to the SQL Database's private IP address, configure App Service to use the Azure Private DNS Zone. To set up this configuration during private endpoint creation, set the web app `WEBSITE_VNET_ROUTE_ALL` to `1` and `WEBSITE_DNS_SERVER` to `168.63.129.16`, the IP address of the Azure-provided DNS service. For more information, see [App Service Virtual Network integration with DNS Private Zones](/azure/app-service/web-sites-integrate-with-vnet#azure-dns-private-zones).
+To make DNS resolve the hostname to the SQL Database's private IP address, configure App Service to use the Azure Private DNS zone. During private endpoint creation, set the web app's `WEBSITE_VNET_ROUTE_ALL` to `1` and `WEBSITE_DNS_SERVER` to `168.63.129.16`, the IP address of the Azure-provided DNS service. For more information, see [App Service Virtual Network integration with DNS Private Zones](/azure/app-service/web-sites-integrate-with-vnet#azure-dns-private-zones).
 
 Now `contoso.database.windows.net` no longer resolves to the public IP address, but to the private IP address in the **PrivateLinkSubnet**, as defined in the Azure Private DNS Zone. Traffic flows privately over the Virtual Network.
 
-If you already have a Virtual Network with a custom DNS server that resolves the SQL Database hostname to its private IP address, the delegated **AppSvcSubnet** inherits the DNS settings from that Virtual Network. The App Service `WEBSITE_DNS_SERVER` configuration setting then isn't required. For more information, see [custom DNS server already configured on the Virtual Network](/azure/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances#name-resolution-that-uses-your-own-dns-server).
+If the Virtual Network already has a custom DNS server that resolves the SQL Database hostname to its private IP address, the delegated **AppSvcSubnet** inherits the DNS settings from that Virtual Network, and the `WEBSITE_DNS_SERVER` configuration setting then isn't required. For more information, see [custom DNS server already configured on the Virtual Network](/azure/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances#name-resolution-that-uses-your-own-dns-server).
 
 If you don't have a custom DNS server, you can still define DNS for the entire Virtual Network by setting the Virtual Network's DNS server IP address to `168.63.129.16`, so that the app inherits this DNS server address.
 
-The scope and possible impact of defining DNS for the entire Virtual Network is larger than setting it for the individual App Service, and affects all workloads running within that network. Regardless of whether the DNS configuration is set on the app or on the Virtual Network, the `WEBSITE_VNET_ROUTE_ALL` app setting is required to make this DNS resolution work.
+The scope and possible impact of defining DNS for the entire Virtual Network is larger than setting it for the individual App Service, and affects all workloads running within that network. Regardless of whether the DNS configuration is set on the app or on the Virtual Network, the `WEBSITE_VNET_ROUTE_ALL` app setting is required to make the DNS resolution work.
 
 ## Components
 
