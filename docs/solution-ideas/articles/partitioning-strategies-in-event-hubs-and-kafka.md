@@ -29,21 +29,33 @@ Many scenarios can benefit from TmaxSoft OpenFrame lift and shift. Possibilities
    At the center of the diagram are two virtual machines. Labeled boxes indicate that OpenFrame software runs on the machines, and each box represents a different type of software. These programs migrate applications to Azure and handle transaction processes. They also manage batch programs and provide security. A load balancer is pictured above the virtual machines. Arrows show that it distributes incoming traffic between the machines. Below the virtual machines, a file sharing system is pictured, and to the right is a database. From arrows, it's clear that the virtual machines communicate with the file share and the database. A dotted line surrounds all these components. Outside that line are on-premises users, Azure users, and disaster recovery services. Arrows show the users interacting with the system.
 :::image-end:::
 
-- add numbers to diagram: (but how to avoid repeating component defs here. maybe keep them brief and give more thorough defn in Components)
-1. Producers generate events/messages. Maybe mention buffering. Maybe mentino auth in EH.
-2. what happens in brokers/EH: messages go to partitions. Or do producers send directly to partitions? messages kept until expire. See steps in Amy Boyle's article: processing, etc. Also mention topic/event hub and cluster/namespace.
-3. Consumers subscribe. divided into consumer groups. mention auth.
-4. messages delivered.
+1. Producers, or event publishers, send data to the ingestion service, or *pipeline*. In Event Hubs, publishers use a [Shared Access Signature (SAS)][Shared Access Signatures] token to identify themselves. Producers can publish events individually, but they can also buffer events and publish them in batches.
+1. Servers in the namespace or cluster process incoming events and distribute them among partitions. These partitions reside within event hubs or topics. The pipeline servers also provide load balancing, rebalancing, and disaster recovery services.
+1. Consumers subscribe to topics. Multiple consumers can make up consumer groups, an approach that gives each consumer a separate view of the event stream. In Event Hubs, consumers connect via an [AMQP 1.0 session][AMQP 1.0], a state-aware bidirectional communication channel.
+1. Consumers listen to events they subscribe to and then process the feed of published events. Consumers also engage in *checkpointing*. Through this process, subscribers mark or commit their position within a partition event sequence.
 
 
 
 ### Components
 
-- Topic: A named stream of messages in Kafka. Event Hubs calls these logical entities *event hubs*.
-- Cluster: A unique scoping container that holds one or more Kafka topics.
-- Namespace: The Event Hubs equivalent of a cluster. Each namespace can hold event hubs.
-- Partition: Topics are further split into one or more Partitions. The messages sent to a topic are distributed across the different partitions in either a round-robin fashion, by sending to a specific partition or by using a key to process a hash to determine the destination partition Messages are stored in order within a partition but across partitions they are not in sequence.
+- [Azure Event Hubs][Azure Event Hubs]: A fully managed big data streaming platform and event ingestion service. Event Hubs receives and processes events and then distributes them to consumers. By sitting between event publishers and event consumers, Event Hubs decouples the production of an event stream from the consumption of the events.
+- [Apache Kafka][Apache Kafka]: An open-source stream-processing platform. Kafka provides a distributed solution for handling real-time data feeds.
+- Event hub: A logical entity that is a named stream of messages in Event Hubs.
+- Topic: The Kafka equivalent of an event hub.
+- Namespace: A unique scoping container that holds one or more event hubs.
+- Cluster: The Kafka equivalent of a namespace. Each cluster can hold topics.
+- Partition: A subdivision within an event hub or a topic. When the pipeline sends events to an event hub or a topic, it distributes them across the partitions in one of the following ways:
 
+  - Using a round-robin fashion.
+  - Sending to a specific partition.
+  - Using a key to process a hash that determines the destination partition.
+  
+  Within a partition, events remain in production order. Across partitions, messages do not remain in sequence.
+- Consumer: A processes or application that subscribes to a topic and processes the feed of published messages. Each consumer reads a specific subset of the message stream. That subset can include more than one partition. However, only one consumer can subscribe to each partition at a time.
+- Offset: A placeholder for a consumer. An offset works like a bookmark to identify the last message that the consumer read.
+- Consumer group: A group of consumers that the pipeline uses for load sharing. When a consumer group subscribes to events in a topic, each consumer in the group reads a different message. In this way, multiple consuming applications each have a separate view of the event stream. The applications work independently from each other, at their own pace and with their own offsets.
+- Throughput: The amount of data, or number of events, that pass through the system in a set period of time. Pipelines usually measure throughput in bits per second (bps), and sometimes in data packets per second (pps).
+- Broker: A Kafka server that hosts and manages topics.
 
 ### Determine the Number of Partitions
 
@@ -55,7 +67,7 @@ Deciding how many partitions to use is a complex process. Many factors influence
 - The slowest consumer determines the consumption throughput. However, sometimes no information is available about the downstream consumer applications. In this case, the following test can provide an estimate of the throughput:
 
   - Start with 1 partition as a baseline. (Use this recommendation only in testing environments, not in production systems).
-  - Event Hubs with Standard Tier pricing and one partition should produce a throughput between 1MB to 20MB.
+  - Event Hubs with Standard tier pricing and one partition should produce a throughput between 1MB to 20MB.
 
 - Usually, the number of partitions shouldn't be less than the number of consumers. Otherwise, starving of consumers results. For instance, suppose 8 partitions are assigned to 8 consumers. Any additional consumers that start subscribing will have to wait. However, another strategy involves having one or two consumers ready to receive events when an existing consumer fails. In this case, the consumers need to ensure that they pick up messages from the right offset.
 
@@ -127,7 +139,7 @@ Keep in mind the points in the following sections when determining a partitionin
 There are several disadvantages of using a large number of partitions:
 
 - In Apache Kafka, brokers store event data and offsets in files. If you use numerous partitions, you'll also have a large number of open file handles. The underlying operating system may limit the number of open files. If you're in danger of exceeding that limit, you'll need to reconfigure that setting.
-- In Azure Event Hubs, users don't face file system limitations. However, each partition manages its own Azure blob files and optimizes them in the background. With a large number of partitions, it can be expensive to maintain offset information, or *checkpoint* data. The reason is that I/O operations can be time-consuming, and the storage API calls are proportional to the number of partitions.
+- In Azure Event Hubs, users don't face file system limitations. However, each partition manages its own Azure blob files and optimizes them in the background. With a large number of partitions, it can be expensive to maintain offset information, or checkpoint data. The reason is that I/O operations can be time-consuming, and the storage API calls are proportional to the number of partitions.
 - Apache Kafka generally positions partitions on different brokers. When a broker fails, Kafka rebalances the partitions to avoid losing messages. The more partitions there are to rebalance, the longer the failover takes, increasing unavailability. It's best to limit the number of partitions to the low thousands.
 - With more partitions, the load balancing process has to work with more moving parts and more stress. Transient exceptions can result, especially during an upgrade or load balancing, when Event Hubs sometimes moves partitions to different nodes. Clients should handle transient behavior by incorporating retries to minimize failures. The EventProcessorClient in .NET and Java SDKs or the EventHubConsumerClient in Python and JavaScript SDKs can simplify this process.
 - Overall, using more partitions means that more physical resources are in operation. Depending on the client response, more failures can occur as a result.
@@ -139,7 +151,7 @@ There are several disadvantages of using a large number of partitions:
 Keep these points also in mind when implementing this architecture:
 
 - You should use more distinct keys than partitions. Otherwise, some partitions won't receive any messages, leading to unbalanced partition loads.
-- In both Apache Kafka and Azure Event Hubs at the Dedicated Tier level, you can change the number of partitions in an operating system. However, if you need to preserve message ordering or use key hashing, try to avoid changing the number of partitions. The reason involves the following facts:
+- In both Apache Kafka and Azure Event Hubs at the Dedicated tier level, you can change the number of partitions in an operating system. However, if you need to preserve message ordering or use key hashing, try to avoid changing the number of partitions. The reason involves the following facts:
   - The pipeline maps an event to a partition based on the hash of the key.
   - Messages with the same key always go to the same partition. Customers therefore rely on certain partitions and the order of the messages they contain.
   - When the number of partitions changes, the mapping can change. For instance, consider the following formula:  
@@ -149,9 +161,121 @@ Keep these points also in mind when implementing this architecture:
 
 ## Deploy this scenario
 
+### Maintain throughput
+
+Consider an example of log aggregation. The goal is not to process events in order, but rather, to maintain a specific throughput. In this case, use the default round-robin partition assignment instead of sending events to specific partitions.
+
+You can use a Kafka client for this scenario. The following code shows how to implement the producer and consumer methods:
+
+```csharp
+public static void RunProducer(string broker, string connectionString, string topic)
+{
+    // Set producer config
+    var producerConfig = new ProducerConfig
+    {
+        BootstrapServers = broker,
+        SecurityProtocol = SecurityProtocol.SaslSsl,
+        SaslMechanism = SaslMechanism.Plain,
+        SaslUsername = "$ConnectionString",
+        SaslPassword = connectionString,
+    };
+
+    // Key is set as Null since we are not using it
+    using (var p = new ProducerBuilder<Null, string>(producerConfig).Build())
+    {
+        try
+        {
+            // Sending fixed number of messages using Produce method to process 
+            // many messages in rapid succession instead of using ProduceAsync
+            for (int i=0; i < NumOfMessages; i++)
+            {
+                string value = "message-" + i;
+                Console.WriteLine($"Sending message with key: not-specified," +
+                    $"value: {value}, partition-id: not-specified");
+                p.Produce(topic, new Message<Null, string> { Value = value });
+            }
+
+            // Wait up to 10 seconds for any inflight messages to be sent
+            p.Flush(TimeSpan.FromSeconds(10));
+        }
+        catch (ProduceException<Null, string> e)
+        {
+            Console.WriteLine($"Delivery failed with error: {e.Error.Reason}");
+        }
+    }
+}
+
+
+public static void RunConsumer(string broker, string connectionString, string consumerGroup, string topic)
+{
+    var consumerConfig = new ConsumerConfig
+    {
+        BootstrapServers = broker,
+        SecurityProtocol = SecurityProtocol.SaslSsl,
+        SocketTimeoutMs = 60000,
+        SessionTimeoutMs = 30000,
+        SaslMechanism = SaslMechanism.Plain,
+        SaslUsername = "$ConnectionString",
+        SaslPassword = connectionString,
+        GroupId = consumerGroup,
+        AutoOffsetReset = AutoOffsetReset.Earliest
+    };
+
+    using (var c = new ConsumerBuilder<string, string>(consumerConfig).Build())
+    {
+        c.Subscribe(topic);
+
+        CancellationTokenSource cts = new CancellationTokenSource();
+        Console.CancelKeyPress += (_, e) =>
+        {
+            e.Cancel = true;
+            cts.Cancel();
+        };
+
+        try
+        {
+            while (true)
+            {
+                try
+                {
+                    var message = c.Consume(cts.Token);
+                    Console.WriteLine($"Consumed - key: {message.Message.Key}, "+
+                        $"value: {message.Message.Value}, " +
+                        $"partition-id: {message.Partition}," +
+                        $"offset: {message.Offset}");
+                }
+                catch (ConsumeException e)
+                {
+                    Console.WriteLine($"Error occured: {e.Error.Reason}");
+                }
+            }
+        }
+        catch(OperationCanceledException)
+        {
+            // This ensures the consumer leaves the group cleanly 
+            // and final offsets are committed
+            c.Close();
+        }
+    }
+}
+```
+
+In this case, the topic had 4 partitions. The following events took place:
+
+- The producer sent 10 messages, each without a partition key.
+- The messages arrived at partitions in a random order. 
+- A single consumer listened to all 4 partitions and received the messages out of order.
+
+If the code had used 2 instances of the consumer, each instance would have been allocated 2 of the 4 partitions.
+
+:::image type="content" source="../media/event-processing-results-maintain-throughput.png" alt-text="Architecture diagram showing a lift and shift implementation that migrates IBM zSeries mainframes to Azure." border="false":::
+
 ## Next steps
 
 
 ## Related resources
 
-
+[AMQP 1.0]: https://docs.microsoft.com/azure/service-bus-messaging/service-bus-amqp-protocol-guide
+[Apache Kafka]: https://www.confluent.io/what-is-apache-kafka/
+[Azure Event Hubs]: https://docs.microsoft.com/azure/event-hubs/event-hubs-about
+[Shared Access Signatures]: https://docs.microsoft.com/azure/event-hubs/authorize-access-shared-access-signature
