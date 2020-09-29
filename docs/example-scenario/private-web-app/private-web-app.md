@@ -64,13 +64,13 @@ This scenario uses the following Azure services:
 
 ## Alternatives
 
-- An alternative approach for private connectivity is an [App Service Environment](/azure/app-service/environment/intro) for hosting the web application within an isolated environment, and [Azure SQL Managed Instance](/azure/azure-sql/managed-instance/sql-managed-instance-paas-overview) as the database engine. Both of these services are natively deployed within a Virtual Network, so there is no need for Virtual Network integration or private endpoints. These offerings are typically more costly, because they provide single-tenant isolated deployment and other features.
+- An alternative approach for private connectivity is an [App Service Environment](/azure/app-service/environment/intro) for hosting the web application within an isolated environment, and [Azure SQL Managed Instance](/azure/azure-sql/managed-instance/sql-managed-instance-paas-overview) as the database engine. Both of these services are natively deployed within a Virtual Network, so there's no need for Virtual Network integration or private endpoints. These offerings are typically more costly, because they provide single-tenant isolated deployment and other features.
   
   If you have an App Service Environment but aren't using SQL Managed Instance, you can still use a private endpoint for private connectivity to a SQL Database. If you already have SQL Managed Instance but are using multi-tenant App Service, you can still use regional VNet Integration to connect to the SQL Managed Instance private address.
 
-- The App Service and Private Link subnets could be in separate peered Virtual Networks, for example as part of a hub-and-spoke network configuration. However, although App Service regional VNet Integration works across peered Virtual Networks, the peered Virtual Networks must be located in the same Azure region.
+- The App Service and Private Link subnets could be in separate peered Virtual Networks, for example as part of a hub-and-spoke network configuration. However, for regional VNet Integration, the peered Virtual Networks must be located in the same Azure region.
 
-- As an alternative to Private Endpoints, you can use [Service Endpoints](/azure/virtual-network/virtual-network-service-endpoints-overview) to secure the database. You still need to use regional VNet Integration to get incoming traffic to route through the Virtual Network. The private endpoint, **PrivateLinkSubnet**, and configuring the `WEBSITE_VNET_ROUTE_ALL` app setting, are unnecessary. A Service Endpoint accesses the database via its public endpoint, so the `WEBSITE_DNS_SERVER` app setting is also unnecessary.
+- As an alternative to Private Endpoints, you can use [Service Endpoints](/azure/virtual-network/virtual-network-service-endpoints-overview) to secure the database. The private endpoint, **PrivateLinkSubnet**, and configuring the `WEBSITE_VNET_ROUTE_ALL` app setting, are then unnecessary. A Service Endpoint accesses the database via its public endpoint, so the `WEBSITE_DNS_SERVER` app setting is also unnecessary. You still need to use regional VNet Integration to get incoming traffic to route through the Virtual Network.
   
   Compared to Service Endpoints, Private Endpoints provide a private, dedicated IP address toward a specific instance, for example a logical SQL Server, rather than an entire service. Private Endpoints can help prevent data exfiltration towards other database servers. For more information, see [Comparison between Service Endpoints and Private Endpoints](/azure/private-link/private-link-faq#what-is-the-difference-between-a-service-endpoints-and-a-private-endpoints).
 
@@ -80,9 +80,9 @@ The following considerations apply to this scenario.
 
 ### Security
 
-This scenario secures the outbound connection from an App Service web app to a downstream dependency like a database. Also secure the inbound connection to the web app, by fronting the app with a service like [Application Gateway](/azure/application-gateway/overview) or [Azure Front Door](/azure/frontdoor/front-door-overview), optionally with [Web Application Firewall](/azure/web-application-firewall/overview) capabilities.
+This scenario secures the outbound connection from an App Service web app to a downstream dependency like a database. You can secure the inbound connection to the web app by fronting the app with a service like [Application Gateway](/azure/application-gateway/overview) or [Azure Front Door](/azure/frontdoor/front-door-overview), optionally with [Web Application Firewall](/azure/web-application-firewall/overview) capabilities.
 
-Set [App Service access restrictions](/azure/app-service/app-service-ip-restrictions) like IP address rules or service endpoints to prevent users from bypassing the front-end service and accessing the web app directly. For an example scenario, see [Integrate App Service with Application Gateway through service endpoints](/azure/app-service/networking/app-gateway-with-service-endpoints#integration-with-app-service-multi-tenant).
+To prevent users from bypassing the front-end service and accessing the web app directly, set [App Service access restrictions](/azure/app-service/app-service-ip-restrictions) like IP address rules or service endpoints. For an example scenario, see [Application Gateway integration with App Service (multi-tenant)](/azure/app-service/networking/app-gateway-with-service-endpoints#integration-with-app-service-multi-tenant).
 
 #### SQL Database firewall options
 
@@ -98,9 +98,9 @@ Private connectivity through the Virtual Network provides the following firewall
   
 - Configuring the firewall to [Deny public network access](/azure/azure-sql/database/connectivity-settings#deny-public-network-access), which turns off all other firewall rules and makes the database accessible only through its private endpoint.
   
-The option of denying public network access is the most secure configuration, but means that database access is only possible by going through the Virtual Network that hosts the private endpoint. Anything other than the web app must have direct connectivity to the Virtual Network to connect to the database. For example, database deployments or urgent manual connections from SQL Server Management Studio (SSMS) on local machines can't reach the database except through VPN or ExpressRoute connectivity into the Virtual Network.
-  
-You could remote connect to a VM in the Virtual Network and use SSMS from there. For exceptional situations, you could also temporarily allow public network access, and reduce risk by using the other configuration options.
+The option of denying public network access is the most secure configuration, but means that database access is only possible by going through the Virtual Network that hosts the private endpoint. Anything other than the web app must have direct connectivity to the Virtual Network to connect to the database.
+
+For example, database deployments or urgent manual connections from SQL Server Management Studio (SSMS) on local machines couldn't reach the database except through VPN or ExpressRoute connectivity into the Virtual Network. You could also remote connect to a VM in the Virtual Network and use SSMS from there. For exceptional situations, you could temporarily allow public network access, and reduce risk by using the other configuration options.
 
 ### Availability
 
@@ -110,7 +110,7 @@ Private Link introduces an additional component and availability consideration i
 
 #### Global peering
 
-Any service in any Azure region that has connectivity through the Virtual Network can reach the database's private endpoint, for example through [Virtual Network peering](/azure/virtual-network/virtual-network-peering-overview). However, although App Service regional VNet Integration works across peered Virtual Networks, as in hub and spoke topologies, the peered Virtual Networks must be located in the same Azure region.
+Any service in any Azure region that can connect through the Virtual Network can reach the database's private endpoint, for example through [Virtual Network peering](/azure/virtual-network/virtual-network-peering-overview) in hub and spoke topologies. However, for App Service regional VNet Integration, the peered Virtual Networks must be located in the same Azure region.
 
 Lack of global peering support means you can't use this solution for cross-region connectivity from App Service to a database or other private endpoint in another Azure region. For example, this solution wouldn't work for a multi-regional deployment to support a partial failover, in which the web app remains active in one region but must connect to a failed-over database in another region, or vice versa.
 
@@ -122,7 +122,7 @@ The Azure Private Link service that enables the database's private endpoint has 
 
 To explore the cost of running this scenario, all the mentioned services are pre-configured in an [Azure pricing calculator estimate](https://azure.com/e/f25225ef92824212ae34f837c22d519c) with reasonable default values for a small scale application. To see how the pricing would change for your use case, change the appropriate variables to match your expected usage.
 
-### Logging and Monitoring
+### Logging and monitoring
 
 Azure Private Link is integrated with [Azure Monitor](/azure/azure-monitor/overview), which allows you to see if data is flowing and [troubleshoot connectivity problems](/azure/private-link/troubleshoot-private-endpoint-connectivity).
 
@@ -172,4 +172,4 @@ A slightly more advanced version of this scenario is available as an [Azure Reso
 
 ## Related resources
 
-For more details on inbound and outbound scenarios for App Service, and which features to use in which cases, see the [App Service networking features overview](/azure/app-service/networking-features).
+For more information on inbound and outbound scenarios for App Service, and which features to use in which cases, see the [App Service networking features overview](/azure/app-service/networking-features).
