@@ -6,7 +6,7 @@
 <article class="card">
     <div class="card-header has-margin-bottom-none" aria-hidden="true">
         <figure class="image diagram has-height-175 has-overflow-hidden level">
-            <a href="/azure/architecture/solution-ideas/articles/security-compliance-blueprint-hipaa-hitrust-health-data-ai"><img src="/azure/architecture/browse/thumbs/security-compliance-blueprint-hipaa-hitrust-health-data-ai.png" class="diagram" alt="Architecture Diagram" data-linktype="relative-path"></a>
+            <a href="/azure/architecture/solution-ideas/articles/security-compliance-blueprint-hipaa-hitrust-health-data-ai"><img src="/azure/architecture/browse/thumbs/security-compliance-blueprint-hipaa-hitrust-health-data-ai.png" class="diagram" alt="Thumbnail of HIPAA and HITRUST compliant health data AI Architectural Diagram." data-linktype="relative-path"></a>
         </figure>
     </div>
     <div class="card-content">

@@ -6,7 +6,7 @@
 <article class="card">
     <div class="card-header has-margin-bottom-none" aria-hidden="true">
         <figure class="image diagram has-height-175 has-overflow-hidden level">
-            <a href="/azure/architecture/reference-architectures/ai/mlops-python"><img src="/azure/architecture/browse/thumbs/mlops-python.png" class="diagram" alt="Architecture Diagram" data-linktype="relative-path"></a>
+            <a href="/azure/architecture/reference-architectures/ai/mlops-python"><img src="/azure/architecture/browse/thumbs/mlops-python.png" class="diagram" alt="Thumbnail of MLOps for Python models using Azure Machine Learning Architectural Diagram." data-linktype="relative-path"></a>
         </figure>
     </div>
     <div class="card-content">

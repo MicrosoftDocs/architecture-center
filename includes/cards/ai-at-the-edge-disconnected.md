@@ -6,7 +6,7 @@
 <article class="card">
     <div class="card-header has-margin-bottom-none" aria-hidden="true">
         <figure class="image diagram has-height-175 has-overflow-hidden level">
-            <a href="/azure/architecture/solution-ideas/articles/ai-at-the-edge-disconnected"><img src="/azure/architecture/browse/thumbs/ai-at-the-edge-disconnected.png" class="diagram" alt="Architecture Diagram" data-linktype="relative-path"></a>
+            <a href="/azure/architecture/solution-ideas/articles/ai-at-the-edge-disconnected"><img src="/azure/architecture/browse/thumbs/ai-at-the-edge-disconnected.png" class="diagram" alt="Thumbnail of AI at the Edge with Azure Stack - disconnected Architectural Diagram." data-linktype="relative-path"></a>
         </figure>
     </div>
     <div class="card-content">
