@@ -17,7 +17,7 @@
             <li>12/16/2019</li>
             <li>1 min read</li>
         </ul>
-        <p class="card-content-description">Develop sophisticated, transformational apps using state of the art machine learning algorithms and integrated visualization tools to get actionable insights and analytics.</p>
+        <p class="card-content-description">Use Azure Database for PostgreSQL to develop sophisticated machine learning and visualization apps for actionable insights and analytics.</p>
         <div class="bottom-to-top-fade is-hidden-mobile"></div>
     </div>
 </article>

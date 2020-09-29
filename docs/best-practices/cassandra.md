@@ -7,7 +7,9 @@ ms.date: 09/19/2019
 ms.topic: best-practice
 ms.service: architecture-center
 ms.subservice: cloud-fundamentals
-ms.custom: fcp
+ms.custom: 
+        - fcp
+        - cse
 ---
 
 <!-- cSpell:ignore arsenv arsenvlad DataStax mdadm -->

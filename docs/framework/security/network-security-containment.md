@@ -338,4 +338,4 @@ Examples of network logs that provide visibility include:
 
 - [Azure Network Watcher](/azure/network-watcher/network-watcher-monitoring-overview)
 
-![GitHub](../../_images/github.png) The [Azure Sentinel and WAF connector Sample](https://github.com/mspnp/samples/tree/master/Security/AzureSentinelSample) sample creates an Azure Log Analytics workspace to collect, analyze, and taking action on data, with Azure Sentinel.
+:::image type="icon" source="../../_images/github.png" border="false"::: The [Azure Sentinel and WAF connector Sample](https://github.com/mspnp/samples/tree/master/Security/AzureSentinelSample) sample creates an Azure Log Analytics workspace to collect, analyze, and taking action on data, with Azure Sentinel.

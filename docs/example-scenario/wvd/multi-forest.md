@@ -13,7 +13,7 @@ ms.custom:
 
 # Multiple AD forests architecture with Windows Virtual Desktop
 
-Many organizations desire to leverage Windows Virtual Desktop (WVD) and create environments with multiple on-premises Active Directory forests. This article expands on the architecture described in the [WVD at enterprise scale article](./windows-virtual-desktop.md) and helps understand how multiple domains and WVD can be integrated in a workload, using [Active Directory Domain Services (AD DS)](https://docs.microsoft.com/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview).
+Many organizations desire to leverage Windows Virtual Desktop (WVD) and create environments with multiple on-premises Active Directory forests. This article expands on the architecture described in the [WVD at enterprise scale article](./windows-virtual-desktop.md) and helps understand how multiple domains and WVD can be integrated using [Azure AD Connect](https://docs.microsoft.com/azure/active-directory/hybrid/whatis-hybrid-identity) to sync users from on-premises [Active Directory Domain Services (AD DS)](https://docs.microsoft.com/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview) to [Azure Active Directory (Azure AD)](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis).
 
 The following are some relevant use cases for this architecture:
 
@@ -28,6 +28,7 @@ The following are some relevant use cases for this architecture:
 ## Architecture
 
 ![WVD Multiple AD Forests architecture diagram](images/two-forest-hybrid.png)
+*Download a [Visio file][visio-download] of this architecture*
 
 ## Scenario
 
@@ -109,6 +110,10 @@ For more details, read the [Staging server section of Azure AD Connect topologie
 For more information, see these articles:
 
 - [Azure AD Connect topology](https://docs.microsoft.com/azure/active-directory/hybrid/plan-connect-topologies).
+- [Windows Virtual Desktop for the enterprise article](./windows-virtual-desktop.md)
 - [Compare different Identity options: Self-managed Active Directory Domain Services (AD DS), Azure Active Directory (Azure AD), and Azure Active Directory Domain Services (Azure AD DS)](https://docs.microsoft.com/azure/active-directory-domain-services/compare-identity-solutions).
 - [Solution idea Multi forest with Azure AD DS](./multi-forest-azure-managed.md).
 - [Windows Virtual Desktop Documentation](https://docs.microsoft.com/azure/virtual-desktop/).
+
+<!-- links -->
+[visio-download]: https://archcenter.blob.core.windows.net/cdn/WVD-two-forest-hybrid-Azure.vsdx

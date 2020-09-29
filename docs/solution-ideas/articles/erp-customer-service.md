@@ -1,8 +1,8 @@
 ---
-title: Deliver highly scalable customer service and ERP apps
+title: Deliver highly scalable customer service and ERP applications
 titleSuffix: Azure Solution Ideas
 author: doodlemania2
-description: Deliver highly scalable customer service and ERP apps with Azure SQL and Azure Cosmos DB 
+description: Deliver highly scalable customer service and ERP applications with Azure SQL and Azure Cosmos DB 
 ms.date: 06/26/2020
 ms.custom: fcp
 ms.service: architecture-center
@@ -11,11 +11,11 @@ ms.category:
   - databases
 ---
 
-# Deliver highly scalable customer service and ERP apps
+# Deliver highly scalable customer service and ERP applications
 
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-Today’s organizations are generating ever-increasing amounts of structured and unstructured data. With Azure managed databases and Azure Synapse Analytics, they can deliver insights to their employees via ERP apps and Power BI, as well as superior customer service through web and mobile apps, scaling without limits as data volumes and application users increase.
+Today’s organizations are generating ever-increasing amounts of structured and unstructured data. With Azure managed databases and Azure Synapse Analytics, they can deliver insights to their employees via ERP applications and Power BI, as well as superior customer service through web and mobile applications, scaling without limits as data volumes and application users increase.
 
 ## Architecture
 
@@ -33,7 +33,7 @@ From there, they use Azure SQL Database Hyperscale to run a highly scalable ERP 
 1. Ingest relational data using Azure Synapse Pipelines into Azure SQL Database. The company’s ERP system runs on Azure SQL Database and leverages the Hyperscale service tier to scale compute or storage up to 100 TB.
 2. This data is surfaced via ERP client applications to help the company manage their business processes.
 
-To improve service to their customers, they build highly scalable customer service apps that can scale to millions of users:
+To improve service to their customers, they build highly scalable customer service applications that can scale to millions of users:
 
 1. Provide near real-time analytics and insight into user interaction with applications by leveraging Azure Synapse Link for Azure Cosmos DB HTAP capabilities, no ETL needed.
 2. Power customer service applications with Azure Cosmos DB for automatic and instant scalability and SLA-backed speed, availability, throughput, and consistency.

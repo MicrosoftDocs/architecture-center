@@ -41,7 +41,7 @@ Monitoring for scalability should be part of your overall monitoring strategy th
 
 - For Container workloads, [container monitoring solution in Azure Monitor](/azure/azure-monitor/insights/containers) should be utilized.
 
-![GitHub](../../_images/github.png) The [AppServiceAutoscalingSample](https://github.com/mspnp/samples/tree/master/PerformanceEfficiency/AppServiceAutoscalingSample) sample shows autoscaling scenarios based on CPU utilization. 
+:::image type="icon" source="../../_images/github.png" border="false"::: The [AppServiceAutoscalingSample](https://github.com/mspnp/samples/tree/master/PerformanceEfficiency/AppServiceAutoscalingSample) sample shows autoscaling scenarios based on CPU utilization. 
 
 ## Monitoring best practices
 

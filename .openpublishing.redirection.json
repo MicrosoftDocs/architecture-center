@@ -402,11 +402,6 @@
       "redirect_document_id": true
     },
     {
-      "source_path": "docs/security/identity.md",
-      "redirect_url": "/azure/architecture/framework/security/identity",
-      "redirect_document_id": true
-    },
-    {
       "source_path": "docs/security/law-authority.md",
       "redirect_url": "/azure/architecture/framework/security/law-authority",
       "redirect_document_id": true
@@ -1989,6 +1984,26 @@
       "source_path": "docs/solution-ideas/articles/backup-archive-cloud-application.md",
       "redirect_url": "/azure/backup/guidance-best-practices",
       "redirect_document_id": false
-     }
+     },
+     {
+      "source_path": "framework/security/network-security-containment.md",
+      "redirect_url": "/azure/architecture/framework/security/design-network",
+      "redirect_document_id": true       
+     },
+     {
+      "source_path": "framework/security/identity.md",
+      "redirect_url": "/azure/architecture/framework/security/design-identity",
+      "redirect_document_id": false       
+     },     
+     {
+      "source_path": "docs/solution-ideas/articles/sharepoint-farm-office-365.md",
+      "redirect_url": "/azure/architecture/solution-ideas/articles/sharepoint-farm-microsoft-365",
+      "redirect_document_id": true
+     },
+     {
+      "source_path": "docs/framework/security/applications-services.md",
+      "redirect_url": "/azure/architecture/framework/security/design-apps-services",
+      "redirect_document_id": false
+     }     
   ]
 }

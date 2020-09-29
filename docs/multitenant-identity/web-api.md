@@ -18,7 +18,7 @@ pnp.series.next: token-cache
 
 # Secure a backend web API for multitenant applications
 
-[![GitHub](../_images/github.png) Sample code][sample application]
+[:::image type="icon" source="../_images/github.png" border="false"::: Sample code][sample application]
 
 The [Tailspin Surveys][surveys] application uses a backend web API to manage CRUD operations on surveys. For example, when a user clicks "My Surveys", the web application sends an HTTP request to the web API:
 

@@ -76,7 +76,7 @@ For the second load test, the team scaled out the Cosmos DB collection from 900 
 
 These aren't huge gains, but looking at the graph over time shows a more complete picture:
 
-![Graph of Visual Studio load test results](./images/backend-services//read-throughput-2.png)
+![Graph of Visual Studio load test results showing more consistent throughput.](./images/backend-services//read-throughput-2.png)
 
 Whereas the previous test showed an initial spike followed by a sharp drop, this test shows more consistent throughput. However, the maximum throughput is not significantly higher. 
 
@@ -86,7 +86,7 @@ All requests to Cosmos DB returned a 2xx status, and the HTTP 429 errors went aw
 
 The graph of RU consumption versus provisioned RUs shows there is plenty of headroom. There are about 275 RUs per physical partition, and the load test peaked at about 100 RUs consumed per second.
 
-![Graph of RU consumption per partition](./images/backend-services//read-consumed-2.png)
+![Graph of RU consumption versus provisioned RUs showing there is plenty of headroom.](./images/backend-services//read-consumed-2.png)
 
 Another interesting metric is the number of calls to Cosmos DB per successful operation:
 
@@ -124,7 +124,7 @@ dataset
 
 To summarize, the second load test shows improvement. However, the `GetDroneUtilization` operation still takes about an order of magnitude longer than the next-slowest operation. Looking at the end-to-end transactions helps to explain why:
 
-![Screenshot of end-to-end transaction view](./images/backend-services//read-e2e-2.png)
+![Screenshot of the second load test showing improvement.](./images/backend-services//read-e2e-2.png)
 
 As mentioned earlier, the `GetDroneUtilization` operation involves a cross-partition query to Cosmos DB. This means the Cosmos DB client has to fan out the query to each physical partition and collect the results. As the end-to-end transaction view shows, these queries are being performed in serial. The operation takes as long as the sum of all the queries &mdash; and this problem will only get worse as the size of the data grows and more physical partitions are added.
 
@@ -149,15 +149,15 @@ For the third load test, this setting was changed from 0 to -1. The following ta
 
 From the load test graph, not only is the overall throughput much higher (the orange line), but throughput also keeps pace with the load (the purple line). 
 
-![Graph of Visual Studio load test results](./images/backend-services//read-throughput-3.png)
+![Graph of Visual Studio load test results showing higher overall throughput that keeps pace with load.](./images/backend-services//read-throughput-3.png)
 
 We can verify that the Cosmos DB client is making queries in parallel by looking at the end-to-end transaction view:
 
-![Screenshot of end-to-end transaction view](./images/backend-services//read-e2e-3.png)
+![Screenshot of end-to-end transaction view showing that the Cosmos DB client is making queries in parallel.](./images/backend-services//read-e2e-3.png)
 
 Interestingly, a side effect of increasing the throughput is that the number of RUs consumed per second also increases. Although Cosmos DB did not throttle any requests during this test, the consumption was close to the provisioned RU limit:
 
-![Graph of RU consumption per partition](./images/backend-services//read-consumed-3.png)
+![Graph of RU consumption close to the provisioned RU limit.](./images/backend-services//read-consumed-3.png)
 
 This graph might be a signal to further scale out the database. However, it turns out that we can optimize the query instead.
 
@@ -187,7 +187,7 @@ After switching the collection to the new partition key, there was a dramatic im
 
 The end-to-end transaction view shows that as predicted, the query reads only one physical partition:
 
-![Screenshot of end-to-end transaction view](./images/backend-services//read-e2e-4.png)
+![Screenshot of end-to-end transaction view showing that the query reads only one physical partition.](./images/backend-services//read-e2e-4.png)
 
 The load test shows improved throughput and latency:
 
@@ -200,7 +200,7 @@ The load test shows improved throughput and latency:
 
 A consequence of the improved performance is that node CPU utilization becomes very high:
 
-![Graph of AKS node utilization](./images/backend-services//read-perf-4.png)
+![Graph showing high node CPU utilization.](./images/backend-services//read-perf-4.png)
 
 Toward the end of the load test, average CPU reached about 90%, and maximum CPU reached 100%. This metric indicates that CPU is the next bottleneck in the system. If higher throughput is needed, the next step might be scaling out the Delivery service to more instances.
 

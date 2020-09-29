@@ -36,6 +36,8 @@ This diagram shows a typical architectural setup for Windows Virtual Desktop.
 - The customer manages AD DS and Azure AD, Azure subscriptions, virtual networks, [Azure Files or Azure NetApp Files](/azure/virtual-desktop/store-fslogix-profile), and the Windows Virtual Desktop host pools and workspaces.
 - To increase capacity, the customer uses two Azure subscriptions in a hub-spoke architecture, and connects them via virtual network peering.
 
+For more information about FSLogix Profile Container - Azure Files and Azure NetApp Files best practices, see [FSLogix for the enterprise](./windows-virtual-desktop-fslogix.md)
+
 ## Components
 
 [Windows Virtual Desktop](/azure/virtual-desktop/overview) service architecture is similar to [Windows Server Remote Desktop Services](/windows-server/remote/remote-desktop-services/welcome-to-rds). Microsoft manages the infrastructure and brokering components, while enterprise customers manage their own desktop host virtual machines (VMs), data, and clients.
@@ -100,7 +102,7 @@ Also, note that:
 The Windows Virtual Desktop service is scalable to more than 10,000 session hosts per workspace. You can address some Azure platform and Windows Virtual Desktop control plane limitations in the design phase to avoid changes in the scaling phase.
 
 - We recommend to deploy not more than 5,000 VMs per Azure subscription per region, this recommendation applies to both personal and pooled host pools based on Windows 10 Enterprise single and multi-session. Most customers use Windows 10 Enterprise multi-session, which allows multiple users to log on to each VM. You can increase the resources of individual session host VMs to accommodate more user sessions.
-- For automated session host scaling tools, the limits are around 2,000 VMs per Azure subscription, because VM status interaction consumes more resources.
+- For automated session host scaling tools, the limits are around 1,200 VMs per Azure subscription per region, because VM status interaction consumes more resources.
 - To manage enterprise environments with more than 5,000 VMs per Azure subscription in the same region, you can create multiple Azure subscriptions in a hub-spoke architecture and connect them via virtual network peering, as in the preceding example architecture. You could also deploy VMs in a different region in the same subscription to increase the number of VMs.
 - Azure Resource Manager (ARM) subscription API throttling limits don't allow more than 600 Azure VM reboots per hour via the Azure portal. You can reboot all your machines at once via the operating system, which doesn't consume any Azure Resource Manager subscription API calls. For more information about counting and troubleshooting throttling limits based on your Azure subscription, see [Troubleshoot API throttling errors](/azure/virtual-machines/troubleshooting/troubleshooting-throttling-errors).
 - You can currently deploy 399 VMs per Windows Virtual Desktop ARM template deployment without [Availability Sets](/azure/virtual-machines/availability#availability-sets), or 200 VMs per Availability Set. You can increase the number of VMs per deployment by switching off Availability Sets in either the ARM template or the Azure portal host pool enrollment.
@@ -126,6 +128,7 @@ Architect your Windows Virtual Desktop solution to realize cost savings. Here ar
 
 ## Next steps
 
+- FSLogix for the enterprise - best practices [documentation](./windows-virtual-desktop-fslogix.md)
 - Use the new [ARM templates](https://github.com/Azure/RDS-Templates/tree/master/ARM-wvd-templates) to automate the deployment of your Windows Virtual Desktop environment. These ARM templates support only Azure Resource Manager Windows Virtual Desktop objects. These ARM templates don't support Windows Virtual Desktop (classic). 
 - For multiple AD forests architecture, read [Multiple AD Forests Architecture in Windows Virtual Desktop](./multi-forest.md).
 - [Windows Virtual Desktop partner integrations](https://aka.ms/wvdpartner) lists approved Windows Virtual Desktop partner providers and independent software vendors.

@@ -3,7 +3,7 @@ title: Retry guidance for Azure services
 titleSuffix: Best practices for cloud applications
 description: Learn about the retry mechanism features for many Azure services. Retry mechanisms differ because services have different characteristics and requirements.
 author: dragon119
-ms.date: 08/13/2018
+ms.date: 09/16/2020
 ms.topic: best-practice
 ms.service: architecture-center
 ms.subservice: cloud-fundamentals
@@ -58,14 +58,9 @@ Consider the following guidelines when using Azure Active Directory:
 
 - When possible, use the ADAL library and the built-in support for retries.
 - If you are using the REST API for Azure Active Directory, retry the operation if the result code is 429 (Too Many Requests) or an error in the 5xx range. Do not retry for any other errors.
-- An exponential back-off policy is recommended for use in batch scenarios with Azure Active Directory.
-
-Consider starting with the following settings for retrying operations. These settings are general purpose, and you should monitor the operations and fine-tune the values to suit your own scenario.
-
-| **Context** | **Sample target E2E<br />max latency** | **Retry strategy** | **Settings** | **Values** | **How it works** |
-| --- | --- | --- | --- | --- | --- |
-| Interactive, UI,<br />or foreground |2 sec |FixedInterval |Retry count<br />Retry interval<br />First fast retry |3<br />500 ms<br />true |Attempt 1 - delay 0 sec<br />Attempt 2 - delay 500 ms<br />Attempt 3 - delay 500 ms |
-| Background or<br />batch |60 sec |ExponentialBackoff |Retry count<br />Min back-off<br />Max back-off<br />Delta back-off<br />First fast retry |5<br />0 sec<br />60 sec<br />2 sec<br />false |Attempt 1 - delay 0 sec<br />Attempt 2 - delay ~2 sec<br />Attempt 3 - delay ~6 sec<br />Attempt 4 - delay ~14 sec<br />Attempt 5 - delay ~30 sec |
+- For 429 errors, only retry after the time indicated in the **Retry-After** header.  
+- For 5xx errors, use exponential back-off, with the first retry at least 5 seconds after the response. 
+- Do not retry on errors other than 429 and 5xx. 
 
 ### More information
 
@@ -887,7 +882,7 @@ namespace RetryCodeSamples
                 {
                     Retry = {
                     Delay = TimeSpan.FromSeconds(2),     //The delay between retry attempts for a fixed approach or the delay on which to base 
-                                                         //calculaions for a backoff-based approach
+                                                         //calculations for a backoff-based approach
                     MaxRetries = 5,                      //The maximum number of retry attempts before giving up
                     Mode = RetryMode.Exponential,        //The approach to use for calculating retry delays
                     MaxDelay = TimeSpan.FromSeconds(10)  //The maximum permissible delay between retry attempts

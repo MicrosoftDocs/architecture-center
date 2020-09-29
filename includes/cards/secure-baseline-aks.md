@@ -15,9 +15,9 @@
         </a>
         <ul class="card-content-metadata">
             <li>8/01/2020</li>
-            <li>31 min read</li>
+            <li>32 min read</li>
         </ul>
-        <p class="card-content-description">Reference architecture for a baseline infrastructure that deploys an Azure Kubernetes Service (AKS) cluster with focus on security.</p>
+        <p class="card-content-description">Reference architecture for a baseline infrastructure that deploys an Azure Kubernetes Service (AKS) cluster.</p>
         <div class="bottom-to-top-fade is-hidden-mobile"></div>
     </div>
 </article>

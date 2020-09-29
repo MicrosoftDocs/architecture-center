@@ -26,7 +26,7 @@ This pattern is already being used by Microsoft customers to track user activity
     * For interactive analytics, use [Azure Data Explorer Web UI](https://docs.microsoft.com/azure/data-explorer/web-query-data), web client for Azure Data Explorer, or [Kusto.Explorer](https://docs.microsoft.com/azure/data-explorer/kusto/tools/kusto-explorer), rich windows client for Azure Data Explorer.
     * To connect to your Azure Data Explorer cluster, use [Jupyter notebooks](https://docs.microsoft.com/azure/data-explorer/kqlmagic), [Spark connector](https://docs.microsoft.com/azure/data-explorer/spark-connector), any [TDS-compliant SQL client](https://docs.microsoft.com/azure/data-explorer/kusto/api/tds/clients/), as well as JDBC and ODBC connections.
     * To build new apps or integrate with existing apps or frameworks, use Azure Data Explorer [REST APIs and SDKs available in different languages](https://docs.microsoft.com/azure/data-explorer/kusto/api/client-libraries). 
-    * Build near real-time analytics dashboards using [Azure Data Explorer dashboards](https://docs.microsoft.com/azure/data-explorer/azure-data-explorer-dashboards), [Power BI](https://docs.microsoft.com/azure/data-exlorer/power-bi-best-practices), or [Grafana](https://docs.microsoft.com/azure/data-explorer/grafana).
+    * Build near real-time analytics dashboards using [Azure Data Explorer dashboards](https://docs.microsoft.com/azure/data-explorer/azure-data-explorer-dashboards), [Power BI](/power-bi/transform-model/service-dataflows-best-practices), or [Grafana](https://docs.microsoft.com/azure/data-explorer/grafana).
 1. Enrich data running federated queries by combining data from SQL database and Azure Cosmos DB using Azure Data Explorer plugins.
 
 ## Components

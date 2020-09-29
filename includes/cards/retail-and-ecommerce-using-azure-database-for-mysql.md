@@ -17,7 +17,7 @@
             <li>12/16/2019</li>
             <li>1 min read</li>
         </ul>
-        <p class="card-content-description">Build secure and scalable e-commerce solutions that meet the demands of both customers and business. Engage customers through customized products and offers, process transactions quickly and securely, and focus on fulfillment and customer service.</p>
+        <p class="card-content-description">Build secure and scalable e-commerce solutions that meet the demands of both customers and business using Azure Database for MySQL.</p>
         <div class="bottom-to-top-fade is-hidden-mobile"></div>
     </div>
 </article>

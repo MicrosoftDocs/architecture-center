@@ -19,7 +19,7 @@ Track the number of transient exceptions and retries over time to uncover issues
 
 Use the [Retry pattern](../../patterns/retry.md), paying particular attention to [issues and considerations](../../patterns/retry.md#issues-and-considerations). Avoid overwhelming dependent services by implementing the [Circuit Breaker pattern](../../patterns/circuit-breaker.md). Review and incorporate additional best practices guidance for [Transient fault handling](../../patterns/circuit-breaker.md). While calling systems that have [Throttling pattern](../../patterns/circuit-breaker.md) implemented, ensure that your retries are not counter productive.
 
-![GitHub](../../_images/github.png) A reference implementation is available [here](https://github.com/mspnp/microservices-reference-implementation/tree/master/src/shipping/workflow). It uses [Polly](https://github.com/App-vNext/Polly/wiki/Circuit-Breaker) and [IHttpClientBuilder](/dotnet/api/microsoft.extensions.dependencyinjection.ihttpclientbuilder) to implement the Circuit Breaker pattern.
+:::image type="icon" source="../../_images/github.png" border="false"::: A reference implementation is available [here](https://github.com/mspnp/microservices-reference-implementation/tree/master/src/shipping/workflow). It uses [Polly](https://github.com/App-vNext/Polly/wiki/Circuit-Breaker) and [IHttpClientBuilder](/dotnet/api/microsoft.extensions.dependencyinjection.ihttpclientbuilder) to implement the Circuit Breaker pattern.
 
 ## Request timeouts
 
@@ -27,7 +27,7 @@ When making a service call or a database call ensure that appropriate request ti
 
 Leverage design patterns that encapsulate robust timeout strategies like [Choreography pattern](../../patterns/choreography.md) or [Compensating Transaction pattern](../../patterns/choreography.md).
 
-![GitHub](../../_images/github.png) A reference implementation is available on [GitHub](https://github.com/mspnp/microservices-reference-implementation).
+:::image type="icon" source="../../_images/github.png" border="false"::: A reference implementation is available on [GitHub](https://github.com/mspnp/microservices-reference-implementation).
 
 ## Cascading Failures
 
@@ -37,7 +37,7 @@ The [Circuit Breaker pattern](../../patterns/circuit-breaker.md#related-patterns
 
 [Health Endpoint Monitoring pattern](../../patterns/health-endpoint-monitoring.md). A circuit breaker might be able to test the health of a service by sending a request to an endpoint exposed by the service. The service should return information indicating its status.
 
-![GitHub](../../_images/github.png) Samples related to this pattern are [here](https://github.com/mspnp/samples/tree/master/Reliability/RetryPatternSample). 
+:::image type="icon" source="../../_images/github.png" border="false"::: Samples related to this pattern are [here](https://github.com/mspnp/samples/tree/master/Reliability/RetryPatternSample). 
 
 ## Application Health Probes
 
@@ -48,7 +48,7 @@ Configure and test health probes for your load balancers and traffic managers. E
 
 For guidance on implementing health monitoring in your application, see [Health Endpoint Monitoring pattern](../../patterns/health-endpoint-monitoring.md).
 
-![GitHub](../../_images/github.png) Samples related to heath probes are [here](https://github.com/mspnp/samples/tree/master/Reliability/HealthProbesSample). 
+:::image type="icon" source="../../_images/github.png" border="false"::: Samples related to heath probes are [here](https://github.com/mspnp/samples/tree/master/Reliability/HealthProbesSample). 
 
 - ARM template that deploys an Azure Load Balancer and health probes that detect the  health of the sample service endpoint.
 

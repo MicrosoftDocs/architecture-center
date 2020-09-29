@@ -15,7 +15,7 @@ pnp.series.next: signup
 
 # Work with claims-based identities
 
-[![GitHub](../_images/github.png) Sample code][sample application]
+[:::image type="icon" source="../_images/github.png" border="false"::: Sample code][sample application]
 
 ## Claims in Azure AD
 

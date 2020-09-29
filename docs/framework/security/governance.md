@@ -108,7 +108,7 @@ Set up a regular cadence (typically monthly) to review Azure secure score and pl
 **NOTE:** Note that in the DevOps model, some application teams may be responsible for their own application resources.
 
 
-![GitHub](../../_images/github.png) The [Azure Secure Score sample](https://github.com/mspnp/samples/tree/master/Security/AzureSecureScoreSample) shows how to get your Azure Secure Score for a subscription by calling the Azure Security Center REST API. The API methods provide the flexibility to query the data and build your own reporting mechanism of your secure scores over time.
+:::image type="icon" source="../../_images/github.png" border="false"::: The [Azure Secure Score sample](https://github.com/mspnp/samples/tree/master/Security/AzureSecureScoreSample) shows how to get your Azure Secure Score for a subscription by calling the Azure Security Center REST API. The API methods provide the flexibility to query the data and build your own reporting mechanism of your secure scores over time.
 
 ## Manage connected tenants
 
@@ -213,7 +213,7 @@ A good enterprise segmentation strategy meets these criteria:
 - **Monitored** – Security Operations should monitor for potential violations
     of the integrity of the segments (account usage, unexpected traffic, etc.)
 
-![A screenshot of a cell phone Description automatically generated](images/enterprise-tenant.png)
+![Diagram showing enterprise segmentation strategy.](images/enterprise-tenant.png)
 
 ## Security team visibility
 
@@ -303,7 +303,7 @@ resources, you can assign these permissions to those roles.
 emergencies (and initial setup if required). Do not use this role for daily
 tasks. See [Emergency Access (‘Break Glass’ Accounts)](./critical-impact-accounts.md#emergency-access-or-break-glass-accounts) for more details.
 
-![A screenshot of a cell phone Description automatically generated](images/ref-segment.png)
+![Diagram showing Core Services Reference Permissions.](images/ref-segment.png)
 
 ### Segment reference permissions
 

@@ -96,7 +96,7 @@ After a new batch of data is loaded into the warehouse, refresh the Analysis Ser
 
 Data cleansing should be part of the ELT process. In this reference architecture, one source of bad data is the city population table, where some cities have zero population, perhaps because no data was available. During processing, the ELT pipeline removes those cities from the city population table. Perform data cleansing on staging tables, rather than external tables.
 
-Here is the stored procedure that removes the cities with zero population from the City Population table. (You can find the source file [here](https://github.com/mspnp/reference-architectures/blob/master/data/enterprise_bi_sqldw_advanced/azure/sqldw_scripts/citypopulation/%5BIntegration%5D.%5BMigrateExternalCityPopulationData%5D.sql).)
+Here is the stored procedure that removes the cities with zero population from the City Population table. (You can find the source file [here](https://github.com/mspnp/azure-data-factory-sqldw-elt-pipeline/blob/master/azure/sqldw_scripts/citypopulation/%5BIntegration%5D.%5BMigrateExternalCityPopulationData%5D.sql).)
 
 ```sql
 DELETE FROM [Integration].[CityPopulation_Staging]
@@ -293,7 +293,7 @@ You may want to review the following [Azure example scenarios](/azure/architectu
 [blue-green-dep]: https://martinfowler.com/bliki/BlueGreenDeployment.html
 [cannary-releases]: https://martinfowler.com/bliki/CanaryRelease.html
 [github]: https://github.com/mspnp/azure-data-factory-sqldw-elt-pipeline
-[MergeLocation]: https://github.com/mspnp/reference-architectures/blob/master/data/enterprise_bi_sqldw_advanced/azure/sqldw_scripts/city/%5BIntegration%5D.%5BMergeLocation%5D.sql
+[MergeLocation]: https://github.com/mspnp/azure-data-factory-sqldw-elt-pipeline/blob/master/azure/sqldw_scripts/city/%5BIntegration%5D.%5BMergeLocation%5D.sql
 [synapse-analytics]: /azure/sql-data-warehouse/sql-data-warehouse-concept-resource-utilization-query-activity
 [wwi]: /sql/sample/world-wide-importers/wide-world-importers-oltp-database
 [azure-pricing-calculator]: https://azure.microsoft.com/pricing/calculator
@@ -305,5 +305,5 @@ You may want to review the following [Azure example scenarios](/azure/architectu
 [az-synapse-pricing]: https://azure.microsoft.com/pricing/details/synapse-analytics
 [azure-pricing-calculator]: https://azure.microsoft.com/pricing/calculator
 [github]: https://github.com/mspnp/azure-data-factory-sqldw-elt-pipeline
-[MergeLocation]: https://github.com/mspnp/reference-architectures/blob/master/data/enterprise_bi_sqldw_advanced/azure/sqldw_scripts/city/%5BIntegration%5D.%5BMergeLocation%5D.sql
+[MergeLocation]: https://github.com/mspnp/azure-data-factory-sqldw-elt-pipeline/blob/master/azure/sqldw_scripts/city/%5BIntegration%5D.%5BMergeLocation%5D.sql
 [wwi]: /sql/sample/world-wide-importers/wide-world-importers-oltp-database

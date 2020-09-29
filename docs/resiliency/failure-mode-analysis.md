@@ -432,7 +432,7 @@ For more information, see [Overview of Service Bus dead-letter queues][sb-dead-l
 
 **Diagnostics**. Use [App Service diagnostic logging][app-service-logging]. Use a service such as [Azure Log Analytics][azure-log-analytics], [Application Insights][app-insights], or [New Relic][new-relic] to help understand the diagnostic logs.
 
-![GitHub](../_images/github.png) A sample is available [here](https://github.com/mspnp/samples/tree/master/Reliability/FailureModeAnalysisSample). It uses [Polly](https://github.com/App-vNext/Polly) for these exceptions: 
+:::image type="icon" source="../_images/github.png" border="false"::: A sample is available [here](https://github.com/mspnp/samples/tree/master/Reliability/FailureModeAnalysisSample). It uses [Polly](https://github.com/App-vNext/Polly) for these exceptions: 
 
 - 429 - Throttling 
 - 408 - Timeout 

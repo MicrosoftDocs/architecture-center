@@ -33,7 +33,7 @@ This section describes some common resiliency strategies. Most of these strategi
   - For many Azure services, the client software development kit (SDK) implements automatic retries in a way that is transparent to the caller. See [Retry guidance for specific services](../../best-practices/retry-service-specific.md).
   - Or implement the [Retry pattern](../../patterns/retry.md) to help the application handle anticipated, temporary failures transparently when it tries to connect to a service or network resource.
 
-  ![GitHub](../../_images/github.png) The [RetryPatternSample](https://github.com/mspnp/samples/tree/master/Reliability/RetryPatternSample) shows an implementation of the retry pattern.
+  :::image type="icon" source="../../_images/github.png" border="false"::: The [RetryPatternSample](https://github.com/mspnp/samples/tree/master/Reliability/RetryPatternSample) shows an implementation of the retry pattern.
 
 
 - **Use a circuit breaker** to handle faults that might take a variable amount of time to fix. The [Circuit Breaker pattern](../../patterns/circuit-breaker.md) can prevent an application from repeatedly trying an operation that is likely to fail. The circuit breaker wraps calls to a service and tracks the number of recent failures. If the failure count exceeds a threshold, the circuit breaker starts returning an error code without calling the service. This gives the service time to recover and helps avoid cascading failures.
@@ -118,7 +118,7 @@ Here are some examples of failure modes and detection strategies for a specific 
 
 For more information about the FMA process, with specific recommendations for Azure, see [Failure mode analysis][failure-mode-analysis].
 
-![GitHub](../../_images/github.png) Related samples are [here](https://github.com/mspnp/samples/tree/master/Reliability/FailureModeAnalysisSample). 
+:::image type="icon" source="../../_images/github.png" border="false"::: Related samples are [here](https://github.com/mspnp/samples/tree/master/Reliability/FailureModeAnalysisSample). 
 
 ## Operating in multiple regions
 

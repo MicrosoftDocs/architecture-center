@@ -13,7 +13,7 @@ ms.subservice: reference-architecture
 
 # Migrate an Azure Cloud Services application to Azure Service Fabric
 
-[![GitHub](../_images/github.png) Sample code][sample-code]
+[:::image type="icon" source="../_images/github.png" border="false"::: Sample code][sample-code]
 
 This article describes migrating an application from Azure Cloud Services to Azure Service Fabric. It focuses on architectural decisions and recommended practices.
 
