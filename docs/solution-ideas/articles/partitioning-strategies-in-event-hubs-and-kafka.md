@@ -15,7 +15,17 @@ social_image_url: /azure/architecture/solution-ideas/media/migrate-mainframe-app
 
 # Partitioning Strategies in Event Hubs and Kafka
 
-[intro]
+Azure Event Hubs and Apache Kafka are both event ingestion services that manage high-scale message streaming. To be efficient, such systems need to offer parallel processing. But at times, they also need to maintain the order of events that they process.
+
+Both services use partitions to achieve parallelism. Such an architecture makes load balancing possible. Partitioned consumers also make the architecture scalable since with more concurrent readers processing data, throughput improves. To preserve the order of events, Event Hubs and Kafka make use of partition keys and ids.
+
+This reference architecture illustrates different partitioning strategies that Event Hubs and Kafka use. In particular, the discussion addresses the following points:
+
+- The advantages and disadvantages of using more than a required number of partitions.
+- The effects of partitioning on downstream processing of data.
+- Strategies for identifying the number of partitions to use.
+- The differences between partitioning on Kafka on Event Hubs implementations and native Kafka systems.
+- Insights drawn from code samples.
 
 ## Potential use cases
 
@@ -163,7 +173,7 @@ Keep these points also in mind when implementing this architecture:
 
 ### Maintain throughput
 
-Consider an example of log aggregation. The goal is not to process events in order, but rather, to maintain a specific throughput. In this case, use the default round-robin partition assignment instead of sending events to specific partitions.
+Consider an example involving log aggregation. The goal is not to process events in order, but rather, to maintain a specific throughput. In this case, use the default partition assignment instead of sending events to specific partitions.
 
 You can use a Kafka client for this scenario. The following code shows how to implement the producer and consumer methods:
 
@@ -263,12 +273,57 @@ public static void RunConsumer(string broker, string connectionString, string co
 In this case, the topic had 4 partitions. The following events took place:
 
 - The producer sent 10 messages, each without a partition key.
-- The messages arrived at partitions in a random order. 
+- The messages arrived at partitions in a random order.
 - A single consumer listened to all 4 partitions and received the messages out of order.
 
 If the code had used 2 instances of the consumer, each instance would have been allocated 2 of the 4 partitions.
 
 :::image type="content" source="../media/event-processing-results-maintain-throughput.png" alt-text="Architecture diagram showing a lift and shift implementation that migrates IBM zSeries mainframes to Azure." border="false":::
+
+### Distribute to specific partition
+
+Consider an example involving error messages. Suppose certain applications need to process error messages, but all other messages can go to a common consumer. In this case, the producer sends error messages to a specific partition. Consumers who want to receive error messages listen to that partition. The following code implements this scenario:
+
+```csharp
+// Producer snippet
+var topicPartition = new TopicPartition(topic, partition);
+
+...
+
+p.Produce(topicPartition, new Message<Null, string> { Value = value });
+
+// Consumer snippet
+// Subscribing to one partition
+c.Assign(new TopicPartition(topic, partition));
+
+// Subscribing to list of partitions
+c.Assign(new List<TopicPartition> { 
+  new TopicPartition(topic, partition1), 
+  new TopicPartition(topic, partition2) 
+});
+```
+
+As the follow results show, the producer sent all messages to partition 2 in this case, and the consumer only read messages from partition 2:
+
+:::image type="content" source="../media/event-processing-results-specify-partition.png" alt-text="Architecture diagram showing a lift and shift implementation that migrates IBM zSeries mainframes to Azure." border="false":::
+
+In this scenario, if you add another consumer instance to listen to this topic, the pipeline won't assign any partitions to it. The new consumer will starve until the existing consumer shuts down. If the existing consumer shuts down, the pipeline will assign a different, active consumer to read from the partition. But the pipeline will only make that assignment if the new consumer is not dedicated to another partition.
+
+### Preserve event order
+
+Consider bank transactions that a consumer needs to process in order. In this case, use the customer id of each event as the key. For the event value, use the details of the transaction.
+
+```csharp
+Producer Snippet
+// Key is set to integer here. It can also be set to any other valid key value pair
+using (var p = new ProducerBuilder<int, string>(producerConfig).Build())
+..
+p.Produce(topic, new Message<int, string> { Key = i % 2, Value = value });
+```
+
+As the results show, the producer only used two unique keys. The messages then went to only 2 partitions instead of all 4. The pipeline guarantees that messages with the same key go to the same partition.
+
+:::image type="content" source="../media/event-processing-results-specify-key.png" alt-text="Architecture diagram showing a lift and shift implementation that migrates IBM zSeries mainframes to Azure." border="false":::
 
 ## Next steps
 
