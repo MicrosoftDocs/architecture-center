@@ -8,4 +8,12 @@ ms.service: architecture-center
 ms.subservice: well-architected
 ---
 
-# Release Engineering: Rollback and Rollforward 
+# Release Engineering: Rollback and Rollforward
+
+## Git
+
+## Web Apps
+
+## Azure Kubernetes Service
+
+## Others

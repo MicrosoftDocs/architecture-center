@@ -10,6 +10,14 @@ ms.subservice: well-architected
 
 # Release Engineering: Continuous integration
 
+## Continious integration
+
+## Continuous integration pipelines
+
+## Testing
+
+## Packaging
+
 #### Next steps
 
 > [!div class="nextstepaction"]

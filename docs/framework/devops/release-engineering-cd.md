@@ -10,6 +10,12 @@ ms.subservice: well-architected
 
 # Release Engineering: Continuous deployment
 
+## Continuous delivery pipeline
+
+## Environments
+
+## Release strategy
+
 #### Next steps
 
 > [!div class="nextstepaction"]
