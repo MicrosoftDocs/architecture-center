@@ -6,7 +6,7 @@
 <article class="card">
     <div class="card-header has-margin-bottom-none" aria-hidden="true">
         <figure class="image diagram has-height-175 has-overflow-hidden level">
-            <a href="/azure/architecture/reference-architectures/ai/realtime-scoring-r"><img src="/azure/architecture/browse/thumbs/realtime-scoring-r.png" class="diagram" alt="Architecture Diagram" data-linktype="relative-path"></a>
+            <a href="/azure/architecture/reference-architectures/ai/realtime-scoring-r"><img src="/azure/architecture/browse/thumbs/realtime-scoring-r.png" class="diagram" alt="Thumbnail of Real-time scoring of R machine learning models Architectural Diagram." data-linktype="relative-path"></a>
         </figure>
     </div>
     <div class="card-content">

@@ -6,7 +6,7 @@
 <article class="card">
     <div class="card-header has-margin-bottom-none" aria-hidden="true">
         <figure class="image diagram has-height-175 has-overflow-hidden level">
-            <a href="/azure/architecture/solution-ideas/articles/dev-test-microservice"><img src="/azure/architecture/browse/thumbs/dev-test-microservice.png" class="diagram" alt="Architecture Diagram" data-linktype="relative-path"></a>
+            <a href="/azure/architecture/solution-ideas/articles/dev-test-microservice"><img src="/azure/architecture/browse/thumbs/dev-test-microservice.png" class="diagram" alt="Thumbnail of DevTest and DevOps for microservice solutions Architectural Diagram." data-linktype="relative-path"></a>
         </figure>
     </div>
     <div class="card-content">

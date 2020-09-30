@@ -6,7 +6,7 @@
 <article class="card">
     <div class="card-header has-margin-bottom-none" aria-hidden="true">
         <figure class="image diagram has-height-175 has-overflow-hidden level">
-            <a href="/azure/architecture/example-scenario/wvd/windows-virtual-desktop"><img src="/azure/architecture/browse/thumbs/windows-virtual-desktop.png" class="diagram" alt="Architecture Diagram" data-linktype="relative-path"></a>
+            <a href="/azure/architecture/example-scenario/wvd/windows-virtual-desktop"><img src="/azure/architecture/browse/thumbs/windows-virtual-desktop.png" class="diagram" alt="Thumbnail of Windows Virtual Desktop for the enterprise Architectural Diagram." data-linktype="relative-path"></a>
         </figure>
     </div>
     <div class="card-content">

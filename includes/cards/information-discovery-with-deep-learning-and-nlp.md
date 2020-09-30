@@ -6,7 +6,7 @@
 <article class="card">
     <div class="card-header has-margin-bottom-none" aria-hidden="true">
         <figure class="image diagram has-height-175 has-overflow-hidden level">
-            <a href="/azure/architecture/solution-ideas/articles/information-discovery-with-deep-learning-and-nlp"><img src="/azure/architecture/browse/thumbs/information-discovery-with-deep-learning-and-nlp.png" class="diagram" alt="Architecture Diagram" data-linktype="relative-path"></a>
+            <a href="/azure/architecture/solution-ideas/articles/information-discovery-with-deep-learning-and-nlp"><img src="/azure/architecture/browse/thumbs/information-discovery-with-deep-learning-and-nlp.png" class="diagram" alt="Thumbnail of Information discovery with deep learning and NLP Architectural Diagram." data-linktype="relative-path"></a>
         </figure>
     </div>
     <div class="card-content">
