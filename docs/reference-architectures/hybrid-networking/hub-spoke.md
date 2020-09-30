@@ -138,7 +138,14 @@ For instance, data transfer from a virtual network in zone 1 to another virtual 
 
 ## Deploy the solution
 
-A sample hub and spoke deployment can be found [here](https://github.com/Azure/azure-quickstart-templates/tree/master/101-hub-and-spoke-sandbox). Visit this page to deploy the sample or use the following commands.
+A sample hub and spoke deployment can be found [here](https://github.com/Azure/azure-quickstart-templates/tree/master/101-hub-and-spoke-sandbox). This deployment creates the following resources:
+
+- Hub VNet with three subnets (DMZ, Management, and Shared).
+- Two spoke VNets (development and production).
+- A Windows virtual machine connected to the hub management subnet.
+- VNet peerings between the hub and spoke VNets.
+
+The following commands can be used to deploy the sample.
 
 Create a resource group for the deployment.
 
@@ -149,18 +156,18 @@ az group create --name hub-spoke-sample --location eastus
 Update the deployment values to suit your needs and deploy the template.
 
 ```azurecli
+# Virtual machine admin user name and password
 ADMIN_USER=adminuser
 ADMIN_PASSWORD=Password2020!
+
+# DNS prefix for the virtual machine
 VM_DNS_PREFIX=hubSpokeSample
 
-az deployment group create --resource-group hub-spoke-sample \
+az deployment group create \
+    --resource-group hub-spoke-sample \
     --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-hub-and-spoke-sandbox/azuredeploy.json \
     --parameters winVmUser=$ADMIN_USER winVmPassword=$ADMIN_PASSWORD winVmDnsPrefix=$VM_DNS_PREFIX
 ```
-
-Once completed, the following resources have been created.
-
-![[1]][1]
 
 ## Next steps
 
