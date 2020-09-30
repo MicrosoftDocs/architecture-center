@@ -50,7 +50,7 @@ Many scenarios can benefit from TmaxSoft OpenFrame lift and shift. Possibilities
 1. [OpenFrame language compilers][Tmax OpenFrame documentation] migrate COBOL, Assembler, PL/I, Easytrieve, and other mainframe applications to Azure by recompiling the source.
 1. [OpenFrame Online][Tmax OpenFrame documentation] provides tools and commands that replace CICS, IMS-DC, Application Development and Maintenance (ADM), and Application Infrastructure and Middleware (AIM) technologies.
 1. [OpenFrame Batch][Tmax OpenFrame documentation] provides tools for managing batch programs that replace the job entry subsystem (JES). By supporting native Job Control Language (JCL) syntax and batch utilities, OpenFrame Batch minimizes code updates.
-1. [Tmax Access Control Facility (TACF)][TACF] Security provides authentication and authorization features in OpenFrame by extracting and migrating mainframe security rules.
+1. Tmax Access Control Facility (TACF) Security provides authentication and authorization features in OpenFrame by extracting and migrating mainframe security rules.
 1. [UnixODBC (Open Database Connectivity)][UnixODBC] connection drivers communicate with relational database management systems (RDBMSs). Examples include Azure SQL Database, Microsoft SQL Server, Oracle, Db2 LUW, Tibero, Postgres, and MySQL.
 1. Azure File Share is mounted on the Linux server VMs. As a result, COBOL programs have easy access to the Azure Files repository for file processing. Load modules and various log files also use Azure File Share.
 1. OpenFrame can integrate with any RDBMS. Examples include Azure SQL Database, SQL Server, Oracle, Db2 LUW, Tibero, Postgres, and MySQL. OpenFrame uses ODBC connection drivers to communicate with installed databases.
@@ -107,7 +107,6 @@ Many scenarios can benefit from TmaxSoft OpenFrame lift and shift. Possibilities
 [RDP]: https://docs.microsoft.com/troubleshoot/windows-server/remote/understanding-remote-desktop-protocol
 [SSH]: https://www.ssh.com/ssh/
 [SMB protocol]: https://docs.microsoft.com/openspecs/windows_protocols/ms-smb/f210069c-7086-4dc2-885e-861d837df688
-[TACF]: http://ps-2.kev009.com/rs6000/redbook-cd/sg245140.pdf
 [Tmax OpenFrame documentation]: https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE36tt6
 [UnixODBC]: https://en.wikipedia.org/wiki/UnixODBC
 [What is Azure]: https://azure.microsoft.com/overview/what-is-azure/
