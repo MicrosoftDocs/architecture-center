@@ -85,7 +85,7 @@ You can also configure spokes to use the hub gateway to communicate with remote 
 - Configure the peering connection in each spoke to **use remote gateways**.
 - Configure all peering connections to **allow forwarded traffic**.
 
-for additional information on [Create a peering](/azure/virtual-network/virtual-network-manage-peering#create-a-peering)
+For additional information on creating virtual network peering, see [Create VNet peerings](/azure/virtual-network/virtual-network-manage-peering#create-a-peering).
 
 ## Considerations
 
@@ -105,13 +105,13 @@ Also consider what services are shared in the hub to ensure the hub scales for a
 
 In this architecture, the entire networking infrastructure is created by using an Azure Resource Manager template, so it follows the IaC process for deploying the resources. To automate infrastructure deployment, you can use Azure DevOps, GitHub Actions or other CI/CD solutions. The deployment process is also idempotent - that is, repeatable to produce the same results. 
 
-Templates are also good for dependency tracking since they allow to define dependencies for resources that are deployed in the same template. For a given resource, there can be other resources that must exist before the resource is deployed.
+Templates are also good for dependency tracking since they allow you to define dependencies for resources that are deployed in the same template. For a given resource, there can be other resources that must exist before the resource is deployed.
 
 ### Network monitoring
 
 Use Azure Network Watcher to monitor and troubleshoot the network components, tools like Traffic Analytics will show you the systems in your virtual networks that generate the most traffic so that you can visually identify bottlenecks before they degenerate into problems. Network Performance Manager is the right tool to monitor information about Microsoft ExpressRoute circuits. VPN diagnostics is another tool that can help troubleshoot site-to-site VPN connections connecting your applications to users on-premises.
 
-For more information, see [Azure Network Watcher][devops-monitoring] in the Azure Well-Architected Framework.
+For more information, see [Azure Network Watcher][azure-network-watcher] in the Azure Well-Architected Framework.
 
 ## Cost considerations
 
@@ -180,6 +180,7 @@ For a version of this architecture that deploys shared identity and security ser
 [azure-cli-2]: /azure/install-azure-cli
 [azure-pricing-calculator]: https://azure.microsoft.com/pricing/calculator
 [azbb]: https://github.com/mspnp/template-building-blocks/wiki/Install-Azure-Building-Blocks
+[azure-network-watcher]: /azure/network-watcher/network-watcher-monitoring-overview
 [azure-vpn-gateway]: /azure/vpn-gateway/vpn-gateway-about-vpngateways
 [connect-to-an-Azure-vnet]: /microsoft-365/enterprise/connect-an-on-premises-network-to-a-microsoft-azure-virtual-network?view=o365-worldwide
 [network-watcher]: /azure/network-watcher/network-watcher-monitoring-overview
