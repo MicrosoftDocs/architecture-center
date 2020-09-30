@@ -68,11 +68,11 @@ This scenario uses the following Azure services:
   
   If you have an App Service Environment but aren't using SQL Managed Instance, you can still use a private endpoint for private connectivity to a SQL Database. If you already have SQL Managed Instance but are using multi-tenant App Service, you can still use regional VNet Integration to connect to the SQL Managed Instance private address.
 
-- The App Service and Private Link subnets could be in separate peered Virtual Networks, for example as part of a hub-and-spoke network configuration. However, for regional VNet Integration, the peered Virtual Networks must be located in the same Azure region.
-
-- As an alternative to Private Endpoints, you can use [Service Endpoints](/azure/virtual-network/virtual-network-service-endpoints-overview) to secure the database. The private endpoint, **PrivateLinkSubnet**, and configuring the `WEBSITE_VNET_ROUTE_ALL` app setting, are then unnecessary. A Service Endpoint accesses the database via its public endpoint, so the `WEBSITE_DNS_SERVER` app setting is also unnecessary. You still need to use regional VNet Integration to get incoming traffic to route through the Virtual Network.
+- As an alternative to Private Endpoints, you can use [Service Endpoints](/azure/virtual-network/virtual-network-service-endpoints-overview) to secure the database. The private endpoint, **PrivateLinkSubnet**, and configuring the `WEBSITE_VNET_ROUTE_ALL` app setting, are then unnecessary. A Service Endpoint accesses the database via its public endpoint, so the `WEBSITE_DNS_SERVER` app setting is also unnecessary. You still need to use regional VNet Integration to route incoming traffic through the Virtual Network.
   
   Compared to Service Endpoints, Private Endpoints provide a private, dedicated IP address toward a specific instance, for example a logical SQL Server, rather than an entire service. Private Endpoints can help prevent data exfiltration towards other database servers. For more information, see [Comparison between Service Endpoints and Private Endpoints](/azure/private-link/private-link-faq#what-is-the-difference-between-a-service-endpoints-and-a-private-endpoints).
+
+- The App Service and Private Link subnets could be in separate peered Virtual Networks, for example as part of a hub-and-spoke network configuration. However, for regional VNet Integration, the peered Virtual Networks must be located in the same Azure region.
 
 ## Considerations
 
@@ -138,7 +138,9 @@ Azure Private Link is integrated with [Azure Monitor](/azure/azure-monitor/overv
    - **PrivateLinkSubnet**, address range `10.1.1.0/24`, to expose the private endpoint of the database.
    - **AppSvcSubnet**, address range `10.1.2.0/24`, for the web app's regional VNet Integration.
    
-1. On the Azure SQL Database, create the private endpoint in the **PrivateLinkSubnet** by following the instructions at [Create a private endpoint](/azure/private-link/create-private-endpoint-portal#create-a-private-endpoint).
+1. In the Azure SQL Server left navigation, under **Security**, select **Private endpoint connections**. 
+
+1. On the **Create a private endpoint** page, create the private endpoint in the **PrivateLinkSubnet** by following the instructions at [Create a private endpoint](/azure/private-link/create-private-endpoint-portal#create-a-private-endpoint).
    
    1. For **Resource type**, select **Microsoft.Sql/servers**, for **Resource**, select the logical SQL Server to expose, and for **Target sub-resource**, select **sqlServer**.
       
