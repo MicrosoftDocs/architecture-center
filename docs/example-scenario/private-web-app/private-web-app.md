@@ -36,9 +36,9 @@ These similar design patterns are variations on the same underlying principle:
    
 1. [Azure Private Link](/azure/azure-sql/database/private-endpoint-overview#how-to-set-up-private-link-for-azure-sql-database) sets up a [private endpoint](/azure/private-link/private-endpoint-overview) for the Azure SQL database in the **PrivateLinkSubnet** of the Virtual Network.
    
-1. The database firewall allows only traffic coming from the **PrivateLinkSubnet** to connect, making the database inaccessible from the public internet.
-   
 1. The web app connects to the SQL Database private endpoint through the **PrivateLinkSubnet** of the Virtual Network.
+   
+1. The database firewall allows only traffic coming from the **PrivateLinkSubnet** to connect, making the database inaccessible from the public internet.
 
 ### Azure Private DNS zone
 
