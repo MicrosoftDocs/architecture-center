@@ -1,10 +1,10 @@
 ---
-title: Web app with private connectivity to Azure SQL database
+title: Web app private connectivity to Azure SQL database
 titleSuffix: Azure Example Scenarios
-description: Lock down access to an Azure SQL Database through private connectivity from a multi-tenant Azure App Service.
+description: Lock down access to an Azure SQL Database with Azure Private Link connectivity from a multi-tenant Azure App Service through regional VNet Integration.
 author: jelledruyts
 ms.author: jelled
-ms.date: 09/01/2020
+ms.date: 09/30/2020
 ms.topic: example-scenario
 ms.service: architecture-center
 ms.subservice: example-scenario
@@ -16,7 +16,7 @@ ms.custom:
 
 This example scenario describes how to set up private connectivity from an Azure Web App to Azure Platform-as-a-Service (PaaS) services, or between Azure PaaS services that aren't natively deployed in isolated Azure Virtual Networks. The example shows a typical combination of hosting a web application in [Azure App Service](/azure/app-service/) and connecting to [Azure SQL Database](/azure/azure-sql/database/).
 
-The web app can securely connect to a backend database over a fully private connection. The database can't be reached through a public internet endpoint, eliminating a common attack vector.
+The web app can securely connect to a backend database over a fully private connection. The public internet can't reach the database, which eliminates a common attack vector.
 
 ## Potential use cases
 
@@ -28,11 +28,14 @@ These use cases have similar design patterns that are variations on the same und
 
 ## Architecture
 
-![Architecture diagram](./media/appsvc-private-sql-solution-architecture.png "Diagram showing an App Service web app connecting to a backend Azure SQL Database through a Virtual Network using Private Link to an Azure Private DNS zone.")
+![Architectural diagram showing an App Service web app connecting to a backend Azure SQL Database through a Virtual Network using Private Link to an Azure Private DNS zone.](./media/appsvc-private-sql-solution-architecture.png)
 
 1. Using Azure App Service [regional VNet Integration](/azure/app-service/web-sites-integrate-with-vnet#regional-vnet-integration), the web app connects to Azure through an **AppSvcSubnet** delegated subnet in an Azure Virtual Network. In this example, the Virtual Network only routes traffic and is otherwise empty, but other subnets and workloads could also run in the Virtual Network.
+   
 2. [Azure Private Link](/azure/azure-sql/database/private-endpoint-overview#how-to-set-up-private-link-for-azure-sql-database) sets up a [private endpoint](/azure/private-link/private-endpoint-overview) for the Azure SQL database in the **PrivateLinkSubnet** of the Virtual Network.
+   
 3. The database firewall allows only traffic coming from the **PrivateLinkSubnet** to connect, making the database inaccessible from the public internet.
+   
 4. The web app connects to the SQL Database private endpoint through the **PrivateLinkSubnet** of the Virtual Network.
 
 ### Azure Private DNS zone
@@ -41,23 +44,26 @@ The app code can still use the public hostname, for example `contoso.database.wi
 
 Using the Private Link-specific hostname like `contoso.privatelink.database.windows.net` won't work either, because SQL Database doesn't accept this hostname. The hostname still resolves to the public IP address, due to [how DNS works for private endpoints](/azure/private-link/private-endpoint-dns).
 
-To make DNS resolve the hostname to the SQL Database's private IP address, configure App Service to use an Azure Private DNS zone. In the web app's [configuration settings](/azure/app-service/configure-common#configure-app-settings), set **WEBSITE_VNET_ROUTE_ALL** to `1` and **WEBSITE_DNS_SERVER** to `168.63.129.16`, the IP address of the Azure DNS service. For more information, see [App Service Virtual Network integration with Private DNS zones](/azure/app-service/web-sites-integrate-with-vnet#azure-dns-private-zones).
+To make DNS resolve the hostname to the SQL Database's private IP address, [configure App Service to use an Azure Private DNS zone](/azure/app-service/configure-common#configure-app-settings). Add a `WEBSITE_VNET_ROUTE_ALL` setting with value `1` and a `WEBSITE_DNS_SERVER` setting with value `168.63.129.16`, the IP address of the Azure DNS service. For more information, see [App Service Virtual Network integration with Private DNS zones](/azure/app-service/web-sites-integrate-with-vnet#azure-dns-private-zones).
 
 Now `contoso.database.windows.net` no longer resolves to the public IP address, but to the private IP address in the **PrivateLinkSubnet**, as defined in the Azure Private DNS zone. Traffic flows privately over the Virtual Network.
 
-If the Virtual Network already has a custom DNS server that resolves the SQL Database hostname to its private IP address, the delegated **AppSvcSubnet** subnet inherits the Virtual Network DNS setting, and doesn't need the **WEBSITE_DNS_SERVER** configuration setting. For more information, see [Name resolution that uses your own DNS server](/azure/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances#name-resolution-that-uses-your-own-dns-server).
+If the Virtual Network already has a custom DNS server that resolves the SQL Database hostname to its private IP address, the delegated **AppSvcSubnet** subnet inherits the Virtual Network DNS setting, and doesn't need the `WEBSITE_DNS_SERVER` configuration setting. For more information, see [Name resolution that uses your own DNS server](/azure/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances#name-resolution-that-uses-your-own-dns-server).
 
 If you don't have a custom DNS server, you can define DNS for the entire Virtual Network by setting its DNS server IP address to `168.63.129.16`, the IP address of the Azure DNS service. The app then inherits this address.
 
-The scope and possible impact of defining DNS for the entire Virtual Network is larger than setting it for the individual App Service, and affects all workloads that run within that network. Regardless of whether the DNS configuration is set on the app or on the Virtual Network, the app's **WEBSITE_VNET_ROUTE_ALL** setting must be `1` to make the DNS resolution work.
+The scope and possible impact of defining DNS for the entire Virtual Network is larger than setting it for the individual App Service, and affects all workloads that run within that network. Regardless of whether the DNS configuration is set on the app or on the Virtual Network, the app needs the `WEBSITE_VNET_ROUTE_ALL` with value `1` to make the DNS resolution work.
 
 ## Components
 
 This scenario uses the following Azure services:
 
 - [Azure App Service](/azure/app-service/app-service-web-overview) hosts web applications, allowing autoscale and high availability without having to manage infrastructure.
+  
 - [Azure SQL Database](/azure/sql-database/sql-database-technical-overview) is a general-purpose relational database managed service that supports relational data, spatial data, JSON, and XML.
+  
 - [Azure Virtual Network](/azure/virtual-network/virtual-networks-overview) is the fundamental building block for private networks in Azure. Azure resources like virtual machines (VMs) can securely communicate with each other, the internet, and on-premises networks through Virtual Networks.
+  
 - [Azure Private Link](/azure/private-link/private-link-overview) provides a private endpoint in a Virtual Network for connectivity to Azure PaaS services like Azure Storage and SQL Database, or to customer or partner services.
 
 ## Alternatives
@@ -164,13 +170,11 @@ You can use the [Azure portal](#azure-portal) or an [Azure Resource Manager (ARM
    
    If you configure regional VNet Integration by using this **Networking** page, the required delegation of the subnet to `Microsoft.Web` happens automatically. If you don't use the **Networking** page, make sure to [delegate the subnet](/azure/virtual-network/manage-subnet-delegation#delegate-a-subnet-to-an-azure-service) to `Microsoft.Web` manually by following the instructions at [Delegate a subnet to an Azure service](/azure/virtual-network/manage-subnet-delegation#delegate-a-subnet-to-an-azure-service).
    
-1. In the web app's left navigation, under **Settings**, select **Configuration**, and on the **Application settings** page, select **New application setting**.
+1. [Configure App Service to use an Azure Private DNS zone](/azure/app-service/configure-common#configure-app-settings). In the web app's left navigation, under **Settings**, select **Configuration**, and select **New application setting**.
    
-1. [Add the configuration settings](/azure/app-service/configure-common#configure-app-settings) that make the regional VNet Integration work.
+1. On the **Add/Edit application setting** page, under **Name** enter `WEBSITE_VNET_ROUTE_ALL`, and under **Value** enter `1`. Select **OK**.
    
-   1. On the **Add/Edit application setting** page, under **Name** enter `WEBSITE_VNET_ROUTE_ALL`, and under **Value** enter `1`. Select **OK**.
-   
-   1. Select **New application setting** again, and on the **Add/Edit application setting** page, under **Name** enter `WEBSITE_DNS_SERVER`, and under **Value** enter `168.63.129.16`. Select **OK**.
+1. On the **Application settings** page, select **New application setting** again. On the **Add/Edit application setting** page, under **Name** enter `WEBSITE_DNS_SERVER`, and under **Value** enter `168.63.129.16`. Select **OK**.
    
 1. At the top of the **Application settings** page, select **Save**, and then select **Continue**.
    
@@ -186,7 +190,7 @@ If the web app can't connect, use **nameresolver.exe** to ensure that the hostna
 
 A slightly more advanced version of this scenario is available as an [Azure Resource Manager QuickStart Template](https://azure.microsoft.com/resources/templates/301-web-app-regional-vnet-private-endpoint-sql-storage/). In this scenario, a web app accesses both a SQL Database and a Storage Account over private endpoints. These endpoints are in a different Virtual Network from the App Service integrated Virtual Network, to demonstrate how this solution works across peered Virtual Networks.
 
-![Diagram showing the QuickStart Template solution architecture.](https://github.com/Azure/azure-quickstart-templates/raw/master/301-web-app-regional-vnet-private-endpoint-sql-storage/images/solution-architecture.png)
+![Architectural diagram showing the QuickStart Template solution architecture, where a web app in one Virtual Network accesses both a SQL Database and a Storage Account in a peered Virtual Network.](https://github.com/Azure/azure-quickstart-templates/raw/master/301-web-app-regional-vnet-private-endpoint-sql-storage/images/solution-architecture.png)
 
 ## Related resources
 

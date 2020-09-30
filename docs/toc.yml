@@ -1431,6 +1431,8 @@ items:
         href: example-scenario/secrets/secure-refresh-tokens.md
       - name: Securely managed web apps
         href: example-scenario/apps/fully-managed-secure-apps.md
+      - name: Web app private database connectivity
+        href: example-scenario/private-web-app/private-web-app.md
       - name: Virtual network integrated microservices
         href: example-scenario/integrated-multiservices/virtual-network-integration.md
       - name: Virtual Network security options
