@@ -317,16 +317,20 @@ items:
       href: framework/security/security-principles.md      
     - name: Design
       items:
-      - name: Gather the security requirements
-        href: framework/security/architecture-type.md
-      - name: Key security strategies
-        href: framework/security/resilience.md
-      - name: Governance and administration
-        href: framework/security/governance.md
-      - name: Regulatory compliance
-        href: framework/security/law-authority.md
-      - name: Administration
-        href: framework/security/critical-impact-accounts.md        
+      - name: Governance
+        items: 
+        - name: Overview
+          href: framework/security/design-governance.md
+        - name: Team roles and responsibilities
+          href: framework/security/design-role-definitions.md          
+        - name: Segmentation strategy
+          href: framework/security/design-segmentation.md
+        - name: Management groups 
+          href: framework/security/design-management-groups.md          
+        - name: Administration
+          href: framework/security/design-admins.md
+        - name: Regulatory compliance
+          href: framework/security/design-regulatory-compliance.md
       - name: Identity
         items:
           - name: Identity and access management

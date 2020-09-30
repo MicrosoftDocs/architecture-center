@@ -128,11 +128,6 @@ Adopt the advance protection for any services where downtime will negatively imp
 
 For an example of advanced DDoS protection, see [Azure DDoS Protection Service](/azure/virtual-network/ddos-protection-overview).
 
-The [Windows N-tier application on Azure with SQL Server](../../reference-architectures/n-tier/n-tier-sql-server.md) reference architecture uses DDoS Protection Standard because this option:
-- Uses adaptive tuning, based on the application's network traffic patterns, to detect threats. 
-- Guarantees 100% SLA. 
-- Can be cost effective. For example, during a DDoS attack, the first set of attacks cause  the provisioned resources to scale out. For a resource such as a virtual machine scale set, 10 machines can grow to 100, increasing overall costs. With Standard protection, you don't have to worry about the cost of the scaled resources because Azure will provide the cost credit. 
-
 ## Decide on an internet ingress/egress policy
 Decide whether to route traffic for the internet through on-premises security devices (also called forced tunneling) or allow internet connectivity through cloud-based network security devices.
 
@@ -140,16 +135,4 @@ For production enterprise, allow cloud resources to start and respond to interne
 
 Forced tunneling is achieved through a cross-premise WAN link. The goal is to provide the network security teams with greater security and visibility to internet traffic. Even when your resources in the cloud try to respond to incoming requests from the internet, the responses are force tunneled. Alternately, forced tunneling fits a datacenter expansion paradigm and can work well for a quick proof of concept, but scales poorly because of the increased traffic load, latency, and cost. For those reasons, we recommend that you avoid [forced tunneling](/azure/vpn-gateway/vpn-gateway-about-forced-tunneling).
 
-## Enable enhanced network visibility
 
-Integrate network logs into a security information and event management (SIEM) like Azure Sentinel or a partner solution such as  Splunk, QRadar, or  ArcSight ESM.
-
-Integrating logs (including raw traffic) from your network devices provides greater visibility over potential security threats flowing over the wire. Use advanced SIEM solutions or other analytics platforms to integrate logs. Machine learning analytics platforms support ingestion of large amounts of information and can analyze large datasets very quickly. Also, these solutions can be tuned to significantly reduce the false positive alerts. 
-
-
-Here are some examples of network logs that provide visibility:
-
-- Security group logs – [flow logs](/azure/network-watcher/network-watcher-nsg-flow-logging-portal) and diagnostic logs
-- [Web application firewall logs](/azure/application-gateway/application-gateway-diagnostics)
-- [Virtual network taps](/azure/virtual-network/virtual-network-tap-overview)
-- [Azure Network Watcher](/azure/network-watcher/network-watcher-monitoring-overview)
