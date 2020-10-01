@@ -6,7 +6,7 @@
 <article class="card">
     <div class="card-header has-margin-bottom-none" aria-hidden="true">
         <figure class="image diagram has-height-175 has-overflow-hidden level">
-            <a href="/azure/architecture/solution-ideas/articles/uven-disinfection"><img src="/azure/architecture/browse/thumbs/uven-disinfection.png" class="diagram" alt="Architecture Diagram" data-linktype="relative-path"></a>
+            <a href="/azure/architecture/solution-ideas/articles/uven-disinfection"><img src="/azure/architecture/browse/thumbs/uven-disinfection.png" class="diagram" alt="Thumbnail of UVEN smart and secure disinfection and lighting Architectural Diagram." data-linktype="relative-path"></a>
         </figure>
     </div>
     <div class="card-content">
