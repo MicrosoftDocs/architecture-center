@@ -6,7 +6,7 @@
 <article class="card">
     <div class="card-header has-margin-bottom-none" aria-hidden="true">
         <figure class="image diagram has-height-175 has-overflow-hidden level">
-            <a href="/azure/architecture/solution-ideas/articles/campaign-optimization-with-sql-server"><img src="/azure/architecture/browse/thumbs/campaign-optimization-with-sql-server.png" class="diagram" alt="Architecture Diagram" data-linktype="relative-path"></a>
+            <a href="/azure/architecture/solution-ideas/articles/campaign-optimization-with-sql-server"><img src="/azure/architecture/browse/thumbs/campaign-optimization-with-sql-server.png" class="diagram" alt="Thumbnail of Campaign Optimization with SQL Server Architectural Diagram." data-linktype="relative-path"></a>
         </figure>
     </div>
     <div class="card-content">

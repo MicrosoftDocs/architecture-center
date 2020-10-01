@@ -1,9 +1,9 @@
 ---
-title: HPC Risk Analysis Template – Solution Architecture
+title: HPC Risk Analysis Template - Solution Architecture
 titleSuffix: Azure Solution Ideas
 author: doodlemania2
 ms.date: 12/16/2019
-description: Build an HPC risk analysis solution architecture with a step-by-step flowchart from Microsoft Azure that combines CycleCloud, Avere vFXT and Tibco Gridserver.
+description: Build an HPC risk analysis solution architecture with a step-by-step flowchart from Microsoft Azure that combines CycleCloud, Avere vFXT and TIBCO GridServer.
 ms.custom: acom-architecture, risk analysis template, risk analysis solution, hpc risk analysis, hybrid risk analysis, interactive-diagram, hpc, finance, 'https://azure.microsoft.com/solutions/architecture/hpc-risk-analysis/'
 ms.service: architecture-center
 ms.category:
@@ -19,7 +19,7 @@ social_image_url: /azure/architecture/solution-ideas/articles/media/hpc-risk-ana
 
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-This templated risk analysis solution uses Azure HPC compute and GPU virtual machines (VMs) to expand on-premises Tibco GridServer compute to Azure using Azure CycleCloud for auto-scaling integration. The job executes both on-premises and in the cloud by using Avere vFXT fast caching and native NFS access to market data available on-premises.
+This templated risk analysis solution uses Azure HPC compute and GPU virtual machines (VMs) to expand on-premises TIBCO GridServer compute to Azure using Azure CycleCloud for auto-scaling integration. The job executes both on-premises and in the cloud by using Avere vFXT fast caching and native NFS access to market data available on-premises.
 
 ## Architecture
 
@@ -29,13 +29,13 @@ This templated risk analysis solution uses Azure HPC compute and GPU virtual mac
 ## Data Flow
 
 1. Operations team uses Azure CycleCloud to configure and launch risk analysis grid in Azure.
-1. Azure CycleCloud orchestrates VM creation and software configuration for Tibco Gridserver brokers and HPCCA, in-memory data cache, and Avere vFXT cache.
-1. Quant (or scheduled batch) submits a risk analysis template workflow to the on-premises Tibco GridServer director. Based on job policies and current on-premises use, the workflow is allowed to burst to Azure to expand on-premises grid capacity.
-1. The Tibco HPCCA detects the change in queue depth for each Tibco broker and requests additional Tibco engine capacity using the Azure CycleCloud Auto-Scaling API. Azure CycleCloud then autostarts engine nodes in Virtual Machine Scale Sets using the Azure H-series, HB-series, and HC-series VMs to optimize cost and performance and NC-series VMs to provide GPU capacity as required.
+1. Azure CycleCloud orchestrates VM creation and software configuration for TIBCO GridServer brokers and HPCCA, in-memory data cache, and Avere vFXT cache.
+1. Quant (or scheduled batch) submits a risk analysis template workflow to the on-premises TIBCO GridServer director. Based on job policies and current on-premises use, the workflow is allowed to burst to Azure to expand on-premises grid capacity.
+1. The TIBCO HPCCA detects the change in queue depth for each TIBCO broker and requests additional TIBCO engine capacity using the Azure CycleCloud Auto-Scaling API. Azure CycleCloud then autostarts engine nodes in Virtual Machine Scale Sets using the Azure H-series, HB-series, and HC-series VMs to optimize cost and performance and NC-series VMs to provide GPU capacity as required.
 1. As soon as engine VMs join the Azure Grid, the brokers begin executing tasks to the new nodes.
 1. Risk jobs pull artifacts from on-premises and Azure Blob storage as needed from NFS mounted Avere vFXT and/or via the fast in-memory cache.
 1. As each task completes, results are returned to the submitter or driver and data is written back to the in-memory cache, or to NFS storage through the Avere vFXT, as required. Cached data is persisted either on-premises or in Azure Blob storage.
-1. As task queues drain, the Tibco HPCCA uses the Azure CycleCloud Auto-Scaling API to shrink the compute grid and reduce cost.
+1. As task queues drain, the TIBCO HPCCA uses the Azure CycleCloud Auto-Scaling API to shrink the compute grid and reduce cost.
 
 ## Components
 

@@ -116,11 +116,11 @@ Here are the steps in more detail.
 1. Right-click the newly added claims provider trust, and select **Edit Claims Rules**.
 2. Click **Add Rule**.
 3. Select "Pass Through or Filter an Incoming Claim" and click **Next**.
-   ![Add Transform Claim Rule Wizard](./images/edit-claims-rule.png)
+   ![Screenshot of selecting Pass Through or Filter an Incoming Claim under Claim rule template.](./images/edit-claims-rule.png)
 4. Enter a name for the rule.
 5. Under "Incoming claim type", select **UPN**.
 6. Select "Pass through all claim values".
-   ![Add Transform Claim Rule Wizard](./images/edit-claims-rule2.png)
+   ![Screenshot of selecting Pass through all claim values.](./images/edit-claims-rule2.png)
 7. Click **Finish**.
 8. Repeat steps 2 - 7, and specify **Anchor Claim Type** for the incoming claim type.
 9. Click **OK** to complete the wizard.
@@ -153,7 +153,7 @@ The customer must do the following:
    ![Add Relying Party Trust Wizard](./images/add-rp-trust.png)
 5. On the **Specify Display Name** page, enter any name.
 6. On the **Choose Access Control Policy** page, choose a policy. You could permit everyone in the organization, or choose a specific security group.
-   ![Add Relying Party Trust Wizard](./images/add-rp-trust2.png)
+   ![Screenshot of the Choose Access Control Policy page.](./images/add-rp-trust2.png)
 7. Enter any parameters required in the **Policy** box.
 8. Click **Next** to complete the wizard.
 
@@ -168,7 +168,7 @@ The customer must do the following:
 6. In the **Mapping of LDAP attributes** section:
    * Under **LDAP Attribute**, select **User-Principal-Name**.
    * Under **Outgoing Claim Type**, select **UPN**.
-     ![Add Transform Claim Rule Wizard](./images/add-claims-rules2.png)
+     ![Screenshot of selecting User-Principal-Name and UPN under Mapping of LDAP attributes.](./images/add-claims-rules2.png)
 7. Click **Finish**.
 8. Click **Add Rule** again.
 9. Select "Send Claims Using a Custom Rule" and click **Next**.

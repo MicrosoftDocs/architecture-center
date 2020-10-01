@@ -2,11 +2,11 @@
 
 <!-- markdownlint-disable MD033 -->
 
-<li class="grid-item item-column" data-categories="Management and Governance ">
+<li class="grid-item item-column" data-categories="Management and Governance Hybrid ">
 <article class="card">
     <div class="card-header has-margin-bottom-none" aria-hidden="true">
         <figure class="image diagram has-height-175 has-overflow-hidden level">
-            <a href="/azure/architecture/solution-ideas/articles/disaster-recovery-smb-azure-site-recovery"><img src="/azure/architecture/browse/thumbs/disaster-recovery-smb-azure-site-recovery.png" class="diagram" alt="Architecture Diagram" data-linktype="relative-path"></a>
+            <a href="/azure/architecture/solution-ideas/articles/disaster-recovery-smb-azure-site-recovery"><img src="/azure/architecture/browse/thumbs/disaster-recovery-smb-azure-site-recovery.png" class="diagram" alt="Thumbnail of SMB disaster recovery with Azure Site Recovery Architectural Diagram." data-linktype="relative-path"></a>
         </figure>
     </div>
     <div class="card-content">

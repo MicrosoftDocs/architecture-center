@@ -13,7 +13,7 @@ ms.subservice: reference-architecture
 
 # Use client assertion to get access tokens from Azure AD
 
-[![GitHub](../_images/github.png) Sample code][sample application]
+[:::image type="icon" source="../_images/github.png" border="false"::: Sample code][sample application]
 
 This article describes how to add client assertion to the [Tailspin Surveys][Surveys] sample application.
 

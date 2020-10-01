@@ -6,7 +6,7 @@
 <article class="card">
     <div class="card-header has-margin-bottom-none" aria-hidden="true">
         <figure class="image diagram has-height-175 has-overflow-hidden level">
-            <a href="/azure/architecture/reference-architectures/data/stream-processing-stream-analytics"><img src="/azure/architecture/browse/thumbs/stream-processing-stream-analytics.png" class="diagram" alt="Architecture Diagram" data-linktype="relative-path"></a>
+            <a href="/azure/architecture/reference-architectures/data/stream-processing-stream-analytics"><img src="/azure/architecture/browse/thumbs/stream-processing-stream-analytics.png" class="diagram" alt="Thumbnail of Stream processing with Azure Stream Analytics Architectural Diagram." data-linktype="relative-path"></a>
         </figure>
     </div>
     <div class="card-content">
@@ -17,7 +17,7 @@
             <li>11/06/2018</li>
             <li>10 min read</li>
         </ul>
-        <p class="card-content-description">Create an end-to-end stream processing pipeline in Azure.</p>
+        <p class="card-content-description">This reference architecture shows an end-to-end stream processing pipeline, which ingests data, correlates records, and calculates a rolling average.</p>
         <div class="bottom-to-top-fade is-hidden-mobile"></div>
     </div>
 </article>

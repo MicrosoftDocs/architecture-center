@@ -6,7 +6,7 @@
 <article class="card">
     <div class="card-header has-margin-bottom-none" aria-hidden="true">
         <figure class="image diagram has-height-175 has-overflow-hidden level">
-            <a href="/azure/architecture/example-scenario/data/realtime-analytics-vehicle-iot"><img src="/azure/architecture/browse/thumbs/realtime-analytics-vehicle-iot.png" class="diagram" alt="Architecture Diagram" data-linktype="relative-path"></a>
+            <a href="/azure/architecture/example-scenario/data/realtime-analytics-vehicle-iot"><img src="/azure/architecture/browse/thumbs/realtime-analytics-vehicle-iot.png" class="diagram" alt="Thumbnail of Process real-time vehicle data using IoT Architectural Diagram." data-linktype="relative-path"></a>
         </figure>
     </div>
     <div class="card-content">
@@ -17,7 +17,7 @@
             <li>3/10/2020</li>
             <li>7 min read</li>
         </ul>
-        <p class="card-content-description">Ingest and process real-time vehicle data using IoT.</p>
+        <p class="card-content-description">This example builds a real-time data ingestion/processing pipeline to ingest and process messages from IoT devices into a big data analytic platform in Azure.</p>
         <div class="bottom-to-top-fade is-hidden-mobile"></div>
     </div>
 </article>

@@ -6,7 +6,7 @@
 <article class="card">
     <div class="card-header has-margin-bottom-none" aria-hidden="true">
         <figure class="image diagram has-height-175 has-overflow-hidden level">
-            <a href="/azure/architecture/example-scenario/ai/intelligent-apps-image-processing"><img src="/azure/architecture/browse/thumbs/intelligent-apps-image-processing.png" class="diagram" alt="Architecture Diagram" data-linktype="relative-path"></a>
+            <a href="/azure/architecture/example-scenario/ai/intelligent-apps-image-processing"><img src="/azure/architecture/browse/thumbs/intelligent-apps-image-processing.png" class="diagram" alt="Thumbnail of Image classification on Azure Architectural Diagram." data-linktype="relative-path"></a>
         </figure>
     </div>
     <div class="card-content">
@@ -17,7 +17,7 @@
             <li>7/05/2018</li>
             <li>4 min read</li>
         </ul>
-        <p class="card-content-description">Build image processing into your Azure applications.</p>
+        <p class="card-content-description">Learn how to build image processing into your applications by using Azure services such as the Computer Vision API and Azure Functions.</p>
         <div class="bottom-to-top-fade is-hidden-mobile"></div>
     </div>
 </article>

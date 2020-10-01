@@ -6,7 +6,7 @@
 <article class="card">
     <div class="card-header has-margin-bottom-none" aria-hidden="true">
         <figure class="image diagram has-height-175 has-overflow-hidden level">
-            <a href="/azure/architecture/example-scenario/apps/sap-production"><img src="/azure/architecture/browse/thumbs/sap-production.png" class="diagram" alt="Architecture Diagram" data-linktype="relative-path"></a>
+            <a href="/azure/architecture/example-scenario/apps/sap-production"><img src="/azure/architecture/browse/thumbs/sap-production.png" class="diagram" alt="Thumbnail of SAP deployment on Azure using an Oracle DB Architectural Diagram." data-linktype="relative-path"></a>
         </figure>
     </div>
     <div class="card-content">
@@ -17,7 +17,7 @@
             <li>9/12/2018</li>
             <li>5 min read</li>
         </ul>
-        <p class="card-content-description">Run an SAP production deployment in Azure using an Oracle database.</p>
+        <p class="card-content-description">This example demonstrates a SAP deployment on virtual machines on Azure, along with a High Availability Oracle database.</p>
         <div class="bottom-to-top-fade is-hidden-mobile"></div>
     </div>
 </article>

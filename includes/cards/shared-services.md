@@ -6,7 +6,7 @@
 <article class="card">
     <div class="card-header has-margin-bottom-none" aria-hidden="true">
         <figure class="image diagram has-height-175 has-overflow-hidden level">
-            <a href="/azure/architecture/reference-architectures/hybrid-networking/shared-services"><img src="/azure/architecture/browse/thumbs/shared-services.png" class="diagram" alt="Architecture Diagram" data-linktype="relative-path"></a>
+            <a href="/azure/architecture/reference-architectures/hybrid-networking/shared-services"><img src="/azure/architecture/browse/thumbs/shared-services.png" class="diagram" alt="Thumbnail of Implement a hub-spoke network topology Architectural Diagram." data-linktype="relative-path"></a>
         </figure>
     </div>
     <div class="card-content">
@@ -17,7 +17,7 @@
             <li>8/19/2019</li>
             <li>6 min read</li>
         </ul>
-        <p class="card-content-description">Implement a hub-spoke network topology with shared services in Azure.</p>
+        <p class="card-content-description">Learn how to implement shared services in a hub-spoke topology in Azure, building on another reference architecture for hub-spoke topology.</p>
         <div class="bottom-to-top-fade is-hidden-mobile"></div>
     </div>
 </article>

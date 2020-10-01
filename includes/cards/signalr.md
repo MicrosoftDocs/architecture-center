@@ -2,11 +2,11 @@
 
 <!-- markdownlint-disable MD033 -->
 
-<li class="grid-item item-column" data-categories="DevOps Integration Developer Tools ">
+<li class="grid-item item-column" data-categories="DevOps Integration Developer Tools Hybrid ">
 <article class="card">
     <div class="card-header has-margin-bottom-none" aria-hidden="true">
         <figure class="image diagram has-height-175 has-overflow-hidden level">
-            <a href="/azure/architecture/example-scenario/signalr"><img src="/azure/architecture/browse/thumbs/signalr.png" class="diagram" alt="Architecture Diagram" data-linktype="relative-path"></a>
+            <a href="/azure/architecture/example-scenario/signalr"><img src="/azure/architecture/browse/thumbs/signalr.png" class="diagram" alt="Thumbnail of Sharing location in real time using low-cost serverless Azure services Architectural Diagram." data-linktype="relative-path"></a>
         </figure>
     </div>
     <div class="card-content">
