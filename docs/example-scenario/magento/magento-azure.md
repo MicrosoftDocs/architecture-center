@@ -17,7 +17,7 @@ Magento is an open-source e-commerce platform written in PHP. This example scena
 
 ## Architecture
 
-![Diagram showing Magento deployed in Azure Kubernetes Service with other Azure components.](../media/magento-architecture.png)
+![Diagram showing Magento deployed in Azure Kubernetes Service with other Azure components.](media/magento-architecture.png)
 
 - [Azure Kubernetes Service (AKS)](https://azure.microsoft.com/services/kubernetes-service/) deploys the Kubernetes cluster of Varnish, Magento, and [Elasticsearch](https://www.elastic.co/elasticsearch/) in different pods.
 - AKS creates a [virtual network](https://azure.microsoft.com/services/virtual-network/) to deploy the agent nodes. Create the virtual network in advance to set up subnet configuration, private link, and egress restriction.
@@ -151,11 +151,11 @@ Here are some operational considerations for this architecture:
 
 Azure Monitor provides key metrics for all Azure services, including container metrics from AKS. Create a dashboard to show all metrics in one place.
 
-![Screenshot of an Azure Monitor monitoring dashboard.](../media/monitor-dashboard.png)
+![Screenshot of an Azure Monitor monitoring dashboard.](media/monitor-dashboard.png)
 
 Another monitoring option is to use [Grafana](https://grafana.com/) dashboard:
 
-![Screenshot of a Grafana dashboard.](../media/grafana.png)
+![Screenshot of a Grafana dashboard.](media/grafana.png)
 
 ### Performance testing
 
