@@ -17,7 +17,7 @@ social_image_url: /azure/architecture/solution-ideas/media/event-processing-serv
 
 Azure Event Hubs and Apache Kafka are both event ingestion services that manage high-scale event streaming. To be efficient, such systems need to offer parallel processing. But at times, they also need to maintain the order of events that they process.
 
-Both services use a [partitioning model][Partitions] to achieve parallelism. Besides improving efficiency, such an architecture makes load balancing possible. With more concurrent readers processing data, throughput increases. Partitioned consumers therefore also make the architecture scalable. To preserve the order of events, Event Hubs and Kafka make use of partition keys and IDs.
+Both services use a [partitioning model][Partitions] to achieve parallelism. Besides improving efficiency, such an architecture makes load balancing possible. With more concurrent readers processing data, throughput increases. As a result, partitioned consumers also make the solution scalable. To preserve event order, Event Hubs and Kafka make use of partition keys and IDs.
 
 This reference architecture illustrates different partitioning strategies that Event Hubs and Kafka use. In particular, the discussion addresses the following points:
 
@@ -43,7 +43,7 @@ Many organizations can benefit from event ingestion services. Possibilities incl
 
 1. Producers, or event publishers, send data to the ingestion service, or *pipeline*. In Event Hubs, publishers use a [Shared Access Signature (SAS)][Shared Access Signatures] token to identify themselves. Producers can publish events individually, but they can also buffer events and publish them in batches.
 1. Servers in the namespace, or cluster, process incoming events and distribute them among partitions. These partitions reside within event hubs, or topics. The pipeline servers also provide load balancing, rebalancing, and disaster recovery services.
-1. Consumers subscribe to topics. Multiple consumers can make up consumer groups. This approach gives each consumer a separate view of the event stream. In Event Hubs, consumers connect via an [AMQP 1.0 session][AMQP 1.0], a state-aware bidirectional communication channel.
+1. Consumers subscribe to topics. Multiple consumers can constitute consumer groups. This approach gives each consumer a separate view of the event stream. In Event Hubs, consumers connect via an [AMQP 1.0 session][AMQP 1.0], a state-aware bidirectional communication channel.
 1. Consumers listen to events they subscribe to and then process the feed of published events. Consumers also engage in *checkpointing*. Through this process, subscribers mark or commit their position within a partition event sequence.
 
 ### Components
@@ -71,9 +71,9 @@ Many organizations can benefit from event ingestion services. Possibilities incl
 
 The process of deciding how many partitions to use is complex. Many factors influence that decision:
 
-- A solution's degree of parallelism depends on the number of partitions that are available. Each consumer reads from its assigned partition. As a result, with more partitions, more consumers can receive events from a topic at the same time. More partitions therefore achieve more throughput.
+- A solution's degree of parallelism depends on the number of partitions that are available. Each consumer reads from its assigned partition. So with more partitions, more consumers can receive events from a topic at the same time. As a result, more partitions achieve more throughput.
 - Ideally, the number of partitions should equal or exceed the target throughput in megabytes.
-- The number of partitions should usually equal or exceed the number of consumers. Otherwise, starving of consumers results. For instance, suppose eight partitions are assigned to eight consumers. Any additional consumers that start subscribing will have to wait. However, a different strategy keeps one or two consumers ready to receive events when an existing consumer fails. In this case, the consumers need to ensure that they pick up events from the right offset.
+- The number of partitions should usually equal or exceed the number of consumers. Otherwise, starving of consumers results. For instance, suppose eight partitions are assigned to eight consumers. Any additional consumers that start subscribing will have to wait. However, a different strategy keeps one or two consumers ready to receive events when an existing consumer fails. In this case, the consumers need to ensure that they start listening to events from the right offset.
 
 A rough formula exists for determining the number of partitions. It uses the following throughput values:
 
@@ -102,7 +102,7 @@ When calculating the production and consumption throughput, keep these points in
   - Start with one partition as a baseline. (Use this recommendation only in testing environments, not in production systems).
   - Event Hubs with Standard tier pricing and one partition should produce throughput between 1 MBps and 20 MBps.
 
-- Consumers can consume events from an ingestion pipeline at a high rate only if producers send events at a comparable rate. It's therefore important to measure the producer's throughput, and not just the consumer's. The producer's throughput determines the total required capacity of the ingestion pipeline.
+- Consumers can consume events from an ingestion pipeline at a high rate only if producers send events at a comparable rate. It's important, then, to measure the producer's throughput, and not just the consumer's. The producer's throughput determines the total required capacity of the ingestion pipeline.
 
 ### Distribute events to partitions
 
@@ -110,7 +110,7 @@ Another aspect of the Event Hubs and Kafka architectures is the partitioning str
 
 Each event stores its content in its value. Besides the value, each event also contains a key, as the following diagram shows:
 
-:::image type="complex" source="../media/pipeline-event-parts.png" alt-text="Architecture diagram showing the parts of an event. Each event, or message, consists of a key and a value. Multiple events make up a stream." border="false":::
+:::image type="complex" source="../media/pipeline-event-parts.png" alt-text="Architecture diagram showing the parts of an event. Each event, or message, consists of a key and a value. Together, multiple events form a stream." border="false":::
    At the center of the diagram are multiple pairs of boxes. A label below the boxes indicates that each pair represents a message. Each message contains a blue box labeled Key and a black box labeled Value. The messages are arranged horizontally. Arrows between messages that point from left to right indicate that the messages form a sequence. Above the messages is the label Stream. Brackets indicate that the sequence forms a stream.
 :::image-end:::
 
@@ -148,10 +148,10 @@ Keep in mind the points in the following sections when determining a partitionin
 
 There are several disadvantages of using a large number of partitions:
 
-- In Apache Kafka, brokers store event data and offsets in files. If you use numerous partitions, you'll also have a large number of open file handles. The underlying operating system may limit the number of open files. If you're in danger of exceeding that limit, you'll need to reconfigure that setting.
+- In Apache Kafka, brokers store event data and offsets in files. If you use a significant number of partitions, you'll also have a large number of open file handles. The underlying operating system may limit the number of open files. If you're in danger of exceeding that limit, you'll need to reconfigure that setting.
 - In Azure Event Hubs, users don't face file system limitations. However, each partition manages its own Azure blob files and optimizes them in the background. With a large number of partitions, it can be expensive to maintain offset information, or checkpoint data. The reason is that I/O operations can be time-consuming, and the storage API calls are proportional to the number of partitions.
 - Apache Kafka generally positions partitions on different brokers. When a broker fails, Kafka rebalances the partitions to avoid losing events. The more partitions there are to rebalance, the longer the failover takes, increasing unavailability. For this reason, it's best to limit the number of partitions to the low thousands.
-- With more partitions, the load-balancing process has to work with more moving parts and more stress. *Transient exceptions* can result. These errors can occur when there are temporary disturbances, such as network issues or intermittent internet service. They can come up during an upgrade or load balancing, when Event Hubs sometimes moves partitions to different nodes. Clients should handle transient behavior by incorporating retries to minimize failures. The [EventProcessorClient in the .NET][Azure Event Hubs Event Processor client library for .NET] and [Java SDKs][Azure Event Hubs client library for Java] or the [EventHubConsumerClient in the Python][Azure Event Hubs client library for Python] and [JavaScript SDKs][Azure Event Hubs client library for Javascript] can simplify this process.
+- With more partitions, the load-balancing process has to work with more moving parts and more stress. *Transient exceptions* can result. These errors can occur when there are temporary disturbances, such as network issues or intermittent internet service. They can appear during an upgrade or load balancing, when Event Hubs sometimes moves partitions to different nodes. Clients should handle transient behavior by incorporating retries to minimize failures. The [EventProcessorClient in the .NET][Azure Event Hubs Event Processor client library for .NET] and [Java SDKs][Azure Event Hubs client library for Java] or the [EventHubConsumerClient in the Python][Azure Event Hubs client library for Python] and [JavaScript SDKs][Azure Event Hubs client library for Javascript] can simplify this process.
 - Overall, using more partitions means that more physical resources are in operation. Depending on the client response, more failures can occur as a result.
 - In Apache Kafka, events are *committed* after the pipeline has replicated them across all in-sync replicas. This approach ensures the high availability of events. Since consumers only receive committed events, the replication process adds to the *latency*. In ingestion pipelines, this term refers to the time between when a producer publishes an event and a consumer reads it. According to [experiments that Confluent ran][How to choose the number of topics/partitions in a Kafka cluster?], replicating 1,000 partitions from one broker to another can take about 20 milliseconds. The end-to-end latency is then at least 20 milliseconds. When the number of partitions increases further, the latency also grows. This drawback doesn't apply to Event Hubs.
 - Each producer for Kafka and Event Hubs stores events in a buffer until a sizeable batch is available or until a specific amount of time passes. Then the producer sends the events to the ingestion pipeline. The producer maintains a buffer for each partition. When the number of partitions increases, the memory requirement of the client also expands. If consumers receive events in batches, they may also face the same issue. The situation can become problematic when consumers subscribe to a large number of partitions but have limited memory available for buffering.
@@ -352,12 +352,12 @@ As these results show, the producer only used two unique keys. The messages then
 [Apache Kafka developer guide for Azure Event Hubs]: https://docs.microsoft.com/azure/event-hubs/apache-kafka-developer-guide
 [Availability and consistency in Event Hubs]: https://docs.microsoft.com/azure/event-hubs/event-hubs-availability-and-consistency?tabs=latest
 [Azure Event Hubs]: https://docs.microsoft.com/azure/event-hubs/event-hubs-about
-[Azure Event Hubs client library for Java]: https://docs.microsoft.com/java/api/overview/azure/messaging-eventhubs-readme?view=azure-java-stable
-[Azure Event Hubs client library for Javascript]: https://docs.microsoft.com/javascript/api/overview/azure/event-hubs-readme?view=azure-node-latest
-[Azure Event Hubs client library for Python]: https://docs.microsoft.com/python/api/overview/azure/eventhub-readme?view=azure-python
+[Azure Event Hubs client library for Java]: https://docs.microsoft.com/java/api/overview/azure/messaging-eventhubs-readme
+[Azure Event Hubs client library for Javascript]: https://docs.microsoft.com/javascript/api/overview/azure/event-hubs-readme
+[Azure Event Hubs client library for Python]: https://docs.microsoft.com/python/api/overview/azure/eventhub-readme
 [Azure Event Hubs Event Processor client library for .NET]: https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/eventhub/Azure.Messaging.EventHubs.Processor
 [Balance partition load across multiple instances of your application]: https://docs.microsoft.com/azure/event-hubs/event-processor-balance-partition-load
-[Dynamically add partitions to an event hub in Azure Event Hubs]: https://docs.microsoft.com/en-us/azure/event-hubs/dynamically-add-partitions
+[Dynamically add partitions to an event hub in Azure Event Hubs]: https://docs.microsoft.com/azure/event-hubs/dynamically-add-partitions
 [Effective strategies for Kafka topic partitioning]: https://blog.newrelic.com/engineering/effective-strategies-kafka-topic-partitioning/
 [How to choose the number of topics/partitions in a Kafka cluster?]: https://www.confluent.io/blog/how-choose-number-topics-partitions-kafka-cluster/
 [Partitions]: https://docs.microsoft.com/azure/event-hubs/event-hubs-scalability#partitions
