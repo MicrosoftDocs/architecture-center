@@ -6,7 +6,7 @@
 <article class="card">
     <div class="card-header has-margin-bottom-none" aria-hidden="true">
         <figure class="image diagram has-height-175 has-overflow-hidden level">
-            <a href="/azure/architecture/hybrid/hybrid-dns-infra"><img src="/azure/architecture/browse/thumbs/hybrid-dns-infra.png" class="diagram" alt="Architecture Diagram" data-linktype="relative-path"></a>
+            <a href="/azure/architecture/hybrid/hybrid-dns-infra"><img src="/azure/architecture/browse/thumbs/hybrid-dns-infra.png" class="diagram" alt="Thumbnail of Design a hybrid Domain Name System solution with Azure Architectural Diagram." data-linktype="relative-path"></a>
         </figure>
     </div>
     <div class="card-content">

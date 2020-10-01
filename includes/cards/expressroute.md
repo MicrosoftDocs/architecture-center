@@ -6,7 +6,7 @@
 <article class="card">
     <div class="card-header has-margin-bottom-none" aria-hidden="true">
         <figure class="image diagram has-height-175 has-overflow-hidden level">
-            <a href="/azure/architecture/reference-architectures/hybrid-networking/expressroute"><img src="/azure/architecture/browse/thumbs/expressroute.png" class="diagram" alt="Architecture Diagram" data-linktype="relative-path"></a>
+            <a href="/azure/architecture/reference-architectures/hybrid-networking/expressroute"><img src="/azure/architecture/browse/thumbs/expressroute.png" class="diagram" alt="Thumbnail of Extend an on-premises network using ExpressRoute Architectural Diagram." data-linktype="relative-path"></a>
         </figure>
     </div>
     <div class="card-content">

@@ -6,7 +6,7 @@
 <article class="card">
     <div class="card-header has-margin-bottom-none" aria-hidden="true">
         <figure class="image diagram has-height-175 has-overflow-hidden level">
-            <a href="/azure/architecture/solution-ideas/articles/retail-and-e-commerce-using-cosmos-db"><img src="/azure/architecture/browse/thumbs/retail-and-e-commerce-using-cosmos-db.png" class="diagram" alt="Architecture Diagram" data-linktype="relative-path"></a>
+            <a href="/azure/architecture/solution-ideas/articles/retail-and-e-commerce-using-cosmos-db"><img src="/azure/architecture/browse/thumbs/retail-and-e-commerce-using-cosmos-db.png" class="diagram" alt="Thumbnail of Retail and e-commerce using Cosmos DB Architectural Diagram." data-linktype="relative-path"></a>
         </figure>
     </div>
     <div class="card-content">

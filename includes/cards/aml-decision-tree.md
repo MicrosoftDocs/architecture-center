@@ -6,7 +6,7 @@
 <article class="card">
     <div class="card-header has-margin-bottom-none" aria-hidden="true">
         <figure class="image diagram has-height-175 has-overflow-hidden level">
-            <a href="/azure/architecture/example-scenario/mlops/aml-decision-tree"><img src="/azure/architecture/browse/thumbs/aml-decision-tree.png" class="diagram" alt="Architecture Diagram" data-linktype="relative-path"></a>
+            <a href="/azure/architecture/example-scenario/mlops/aml-decision-tree"><img src="/azure/architecture/browse/thumbs/aml-decision-tree.png" class="diagram" alt="Thumbnail of Azure Machine Learning decision guide for optimal tool selection Architectural Diagram." data-linktype="relative-path"></a>
         </figure>
     </div>
     <div class="card-content">

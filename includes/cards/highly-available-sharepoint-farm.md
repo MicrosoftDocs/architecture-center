@@ -6,7 +6,7 @@
 <article class="card">
     <div class="card-header has-margin-bottom-none" aria-hidden="true">
         <figure class="image diagram has-height-175 has-overflow-hidden level">
-            <a href="/azure/architecture/solution-ideas/articles/highly-available-sharepoint-farm"><img src="/azure/architecture/browse/thumbs/highly-available-sharepoint-farm.png" class="diagram" alt="Architecture Diagram" data-linktype="relative-path"></a>
+            <a href="/azure/architecture/solution-ideas/articles/highly-available-sharepoint-farm"><img src="/azure/architecture/browse/thumbs/highly-available-sharepoint-farm.png" class="diagram" alt="Thumbnail of Highly available SharePoint farm Architectural Diagram." data-linktype="relative-path"></a>
         </figure>
     </div>
     <div class="card-content">
