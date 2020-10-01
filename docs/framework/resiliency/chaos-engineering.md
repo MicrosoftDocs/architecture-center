@@ -14,7 +14,7 @@ ms.custom: How do you Chaos engineer your applications to ensure they're fault t
 Chaos engineering is a methodology used to enable developers to attain consistent reliability by hardening the services against failures in production. A common way to introduce chaos is by deliberately injecting fault that causes system components to fail. The goal is to observe, monitor, respond to, and improve your systems reliability under these circumstances.
 
 ## Context
-Characteristics of a service behavior are very difficult to simulate outside of production environment at scale.  Transient nature of cloud platform exasperates this problem.  Architecting services expecting failure is a core tenant of modern service.  Chaos engineering embraces the uncertainty of production and strives to precipitate rare, unpredictable, and disruptive outcomes early so customer impact is minimized.
+Characteristics of a service behavior are very difficult to simulate outside of production environment at scale.  Transient nature of cloud platform exacerbates this problem.  Architecting services expecting failure is a core tenant of modern service.  Chaos engineering embraces the uncertainty of production and strives to precipitate rare, unpredictable, and disruptive outcomes early so customer impact is minimized.
 
 
 ## Principles
