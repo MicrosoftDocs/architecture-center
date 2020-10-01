@@ -1,32 +1,33 @@
 ---
 title: Magento e-commerce platform in Azure Kubernetes Service (AKS)
-titleSuffix: Azure Reference Architectures
+titleSuffix: Azure Example Scenarios
 description: Deploy Magento e-commerce platform to Azure Kubernetes Service (AKS), and learn about considerations for hosting Magento on Azure.
 author: doodlemania2
-ms.date: 09/01/2020
-ms.topic: reference-architecture
+ms.author: pnp
+ms.date: 10/01/2020
+ms.topic: example-scenario
 ms.service: architecture-center
-ms.subservice: reference-architecture
+ms.subservice: example-scenario
 ms.custom: fcp
 ---
 
 # Magento e-commerce in AKS
 
-Magento is an open-source e-commerce platform written in PHP. This reference architecture shows Magento deployed to Azure Kubernetes Service (AKS), and describes common best practices for hosting Magento on Azure.
+Magento is an open-source e-commerce platform written in PHP. This example scenario shows Magento deployed to Azure Kubernetes Service (AKS), and describes common best practices for hosting Magento on Azure.
 
 ## Architecture
 
-![Diagram showing Magento deployed in Azure Kubernetes Service with other Azure components.](../_images/magento/magento-architecture.png)
+![Diagram showing Magento deployed in Azure Kubernetes Service with other Azure components.](../media/magento-architecture.png)
 
 - [Azure Kubernetes Service (AKS)](https://azure.microsoft.com/services/kubernetes-service/) deploys the Kubernetes cluster of Varnish, Magento, and [Elasticsearch](https://www.elastic.co/elasticsearch/) in different pods.
 - AKS creates a [virtual network](https://azure.microsoft.com/services/virtual-network/) to deploy the agent nodes. Create the virtual network in advance to set up subnet configuration, private link, and egress restriction.
 - [Varnish](https://varnish-cache.org/intro/index.html#intro) installs in front of the HTTP servers to act as a full-page cache.
 - [Azure Database for MySQL](https://azure.microsoft.com/services/mysql/) stores transaction data like orders and catalogs. Version 8.0 is recommended.
-- [Azure Files Premium](https://azure.microsoft.com/services/storage/files/) or an equivalent *network-attached storage (NAS)* system stores media files like product images, Magento needs a Kubernetes-compatible file system that can mount a volume in *ReadWriteMany* mode, like Azure Files Premium, SoftNAS, [Azure NetApp Files](https://azure.microsoft.com/services/netapp/), or GlusterFS. The current solution uses SoftNAS.
+- [Azure Files Premium](https://azure.microsoft.com/services/storage/files/) or an equivalent *network-attached storage (NAS)* system stores media files like product images. Magento needs a Kubernetes-compatible file system that can mount a volume in *ReadWriteMany* mode, like Azure Files Premium or [Azure NetApp Files](https://azure.microsoft.com/services/netapp/).
 - A [content delivery network (CDN)](https://azure.microsoft.com/services/cdn/) serves static content like CSS, JavaScript, and images. Serving content through a CDN minimizes network latency between users and the datacenter. A CDN can remove significant load from NAS by caching and serving static content.
 - [Azure Cache for Redis](https://azure.microsoft.com/services/cache/) stores session data. Premium SKU allows placing caches into the same virtual network with other components, to improve performance and restrict access through topology and access policies.
 - AKS uses an [Azure Active Directory (Azure AD)](https://azure.microsoft.com/services/active-directory/) identity to create and manage other Azure resources like Azure load balancers, user authentication, role-based access control, and managed identity.
-- [Azure Container Registry (ACR)](https://azure.microsoft.com/services/container-registry/) stores the private [Docker](https://www.docker.com/) images that are deployed to the AKS cluster. You can use other container registries like Docker Hub. Note that the default Magento install writes some secrets to the image.
+- [Azure Container Registry](https://azure.microsoft.com/services/container-registry/) stores the private [Docker](https://www.docker.com/) images that are deployed to the AKS cluster. You can use other container registries like Docker Hub. Note that the default Magento install writes some secrets to the image.
 - [Azure Monitor](https://azure.microsoft.com/services/monitor/) collects and stores metrics and logs, including Azure service platform metrics and application telemetry. Azure Monitor integrates with AKS to collect controller, node, and container metrics, and container and master node logs.
 
 ## Security considerations
@@ -61,7 +62,7 @@ When you create the AKS cluster, you can configure it to use Azure AD for user a
 
 ## Scalability considerations
 
-Here are some ways to optimize scalability for this architecture:
+There are several ways to optimize scalability for this architecture:
 
 ### Media and static files
 
@@ -144,17 +145,17 @@ Here are some operational considerations for this architecture:
 
 - In this architecture, MySQL doesn't expose a public endpoint. If the build server stores configuration settings to the backend MySQL database, deploy that server into the same virtual network subnet that MySQL connects to via service endpoint.
 
-- Use ACR or another container registry like Docker Hub to store the private Docker images that are deployed to the cluster. AKS can authenticate with ACR by using its Azure AD identity.
+- Use Azure Container Registry or another container registry like Docker Hub to store the private Docker images that are deployed to the cluster. AKS can authenticate with Azure Container Registry by using its Azure AD identity.
 
 ### Monitoring
 
 Azure Monitor provides key metrics for all Azure services, including container metrics from AKS. Create a dashboard to show all metrics in one place.
 
-![Screenshot of an Azure Monitor monitoring dashboard.](../_images/magento/monitor-dashboard.png)
+![Screenshot of an Azure Monitor monitoring dashboard.](../media/monitor-dashboard.png)
 
 Another monitoring option is to use [Grafana](https://grafana.com/) dashboard:
 
-![Screenshot of a Grafana dashboard.](../_images/magento/grafana.png)
+![Screenshot of a Grafana dashboard.](../media/grafana.png)
 
 ### Performance testing
 
