@@ -153,7 +153,7 @@ There are several disadvantages of using a large number of partitions:
 - Apache Kafka generally positions partitions on different brokers. When a broker fails, Kafka rebalances the partitions to avoid losing events. The more partitions there are to rebalance, the longer the failover takes, increasing unavailability. For this reason, it's best to limit the number of partitions to the low thousands.
 - With more partitions, the load-balancing process has to work with more moving parts and more stress. *Transient exceptions* can result. These errors can occur when there are temporary disturbances, such as network issues or intermittent internet service. They can appear during an upgrade or load balancing, when Event Hubs sometimes moves partitions to different nodes. Clients should handle transient behavior by incorporating retries to minimize failures. The [EventProcessorClient in the .NET][Azure Event Hubs Event Processor client library for .NET] and [Java SDKs][Azure Event Hubs client library for Java] or the [EventHubConsumerClient in the Python][Azure Event Hubs client library for Python] and [JavaScript SDKs][Azure Event Hubs client library for Javascript] can simplify this process.
 - Overall, using more partitions means that more physical resources are in operation. Depending on the client response, more failures can occur as a result.
-- In Apache Kafka, events are *committed* after the pipeline has replicated them across all in-sync replicas. This approach ensures the high availability of events. Since consumers only receive committed events, the replication process adds to the *latency*. In ingestion pipelines, this term refers to the time between when a producer publishes an event and a consumer reads it. According to [experiments that Confluent ran][How to choose the number of topics/partitions in a Kafka cluster?], replicating 1,000 partitions from one broker to another can take about 20 milliseconds. The end-to-end latency is then at least 20 milliseconds. When the number of partitions increases further, the latency also grows. This drawback doesn't apply to Event Hubs.
+- In Apache Kafka, events are *committed* after the pipeline has replicated them across all in-sync replicas. This approach ensures a high availability of events. Since consumers only receive committed events, the replication process adds to the *latency*. In ingestion pipelines, this term refers to the time between when a producer publishes an event and a consumer reads it. According to [experiments that Confluent ran][How to choose the number of topics/partitions in a Kafka cluster?], replicating 1,000 partitions from one broker to another can take about 20 milliseconds. The end-to-end latency is then at least 20 milliseconds. When the number of partitions increases further, the latency also grows. This drawback doesn't apply to Event Hubs.
 - Each producer for Kafka and Event Hubs stores events in a buffer until a sizeable batch is available or until a specific amount of time passes. Then the producer sends the events to the ingestion pipeline. The producer maintains a buffer for each partition. When the number of partitions increases, the memory requirement of the client also expands. If consumers receive events in batches, they may also face the same issue. The situation can become problematic when consumers subscribe to a large number of partitions but have limited memory available for buffering.
 
 ### Additional considerations
@@ -272,7 +272,7 @@ public static void RunConsumer(string broker, string connectionString, string co
 
 This code example produces the following results:
 
-:::image type="content" source="../media/event-processing-results-maintain-throughput.png" alt-text="Screenshot showing producer and consumer logs. Events arrived out of order, used a random pattern for partition assignment, and did not contain keys." border="false":::
+:::image type="content" source="../media/event-processing-results-maintain-throughput.png" alt-text="Screenshot showing producer and consumer logs. Events arrived out of order, used a random pattern for partition assignment, and contained no keys." border="false":::
 
 In this case, the topic has four partitions. The following events took place:
 
@@ -282,7 +282,7 @@ In this case, the topic has four partitions. The following events took place:
 
 If the code had used two instances of the consumer, each instance would have subscribed to two of the four partitions.
 
-### Distribute to specific partition
+### Distribute to a specific partition
 
 Consider an example involving error messages. Suppose certain applications need to process error messages, but all other messages can go to a common consumer. In this case, the producer sends error messages to a specific partition. Consumers who want to receive error messages listen to that partition. The following code shows how to implement this scenario:
 
@@ -309,11 +309,11 @@ As the following results show, the producer sent all messages to partition 2 in 
 
 :::image type="content" source="../media/event-processing-results-specify-partition.png" alt-text="Screenshot showing producer and consumer logs. All events went to partition 2. They arrived in production order, and none contained a key." border="false":::
 
-In this scenario, if you add another consumer instance to listen to this topic, the pipeline won't assign any partitions to it. The new consumer will starve until the existing consumer shuts down. If the existing consumer shuts down, the pipeline will assign a different, active consumer to read from the partition. But the pipeline will only make that assignment if the new consumer isn't dedicated to another partition.
+In this scenario, if you add another consumer instance to listen to this topic, the pipeline won't assign any partitions to it. The new consumer will starve until the existing consumer shuts down. The pipeline will then assign a different, active consumer to read from the partition. But the pipeline will only make that assignment if the new consumer isn't dedicated to another partition.
 
 ### Preserve event order
 
-Consider bank transactions that a consumer needs to process in order. In this scenario, you can use the customer ID of each event as the key. For the event value, use the details of the transaction. The following code shows how to implement this case:
+Consider bank transactions that a consumer needs to process in order. In this scenario, you can use the customer ID of each event as the key. For the event value, use the details of the transaction. The following code shows a simplified implementation of this case:
 
 ```csharp
 Producer code

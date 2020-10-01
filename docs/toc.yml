@@ -657,6 +657,8 @@ items:
         href: example-scenario/ai/newsfeed-ingestion.md
       - name: Oil and Gas tank level forecasting
         href: solution-ideas/articles/oil-and-gas-tank-level-forecasting.md
+      - name: Partitioning strategies in Event Hubs and Kafka
+        href: solution-ideas/articles/partitioning-strategies-in-event-hubs-and-kafka.md
       - name: Predicting length of stay in hospitals
         href: solution-ideas/articles/predicting-length-of-stay-in-hospitals.md
       - name: Predictive aircraft engine monitoring
