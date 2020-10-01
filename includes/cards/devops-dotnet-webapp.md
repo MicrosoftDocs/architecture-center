@@ -6,7 +6,7 @@
 <article class="card">
     <div class="card-header has-margin-bottom-none" aria-hidden="true">
         <figure class="image diagram has-height-175 has-overflow-hidden level">
-            <a href="/azure/architecture/example-scenario/apps/devops-dotnet-webapp"><img src="/azure/architecture/browse/thumbs/devops-dotnet-webapp.png" class="diagram" alt="Architecture Diagram" data-linktype="relative-path"></a>
+            <a href="/azure/architecture/example-scenario/apps/devops-dotnet-webapp"><img src="/azure/architecture/browse/thumbs/devops-dotnet-webapp.png" class="diagram" alt="Thumbnail of Design a CI/CD pipeline using Azure DevOps Architectural Diagram." data-linktype="relative-path"></a>
         </figure>
     </div>
     <div class="card-content">

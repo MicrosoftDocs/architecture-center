@@ -6,7 +6,7 @@
 <article class="card">
     <div class="card-header has-margin-bottom-none" aria-hidden="true">
         <figure class="image diagram has-height-175 has-overflow-hidden level">
-            <a href="/azure/architecture/solution-ideas/articles/predict-length-of-stay-and-patient-flow-with-healthcare-analytics"><img src="/azure/architecture/browse/thumbs/predict-length-of-stay-and-patient-flow-with-healthcare-analytics.png" class="diagram" alt="Architecture Diagram" data-linktype="relative-path"></a>
+            <a href="/azure/architecture/solution-ideas/articles/predict-length-of-stay-and-patient-flow-with-healthcare-analytics"><img src="/azure/architecture/browse/thumbs/predict-length-of-stay-and-patient-flow-with-healthcare-analytics.png" class="diagram" alt="Thumbnail of Predict Length of Stay and Patient Flow Architectural Diagram." data-linktype="relative-path"></a>
         </figure>
     </div>
     <div class="card-content">

@@ -6,7 +6,7 @@
 <article class="card">
     <div class="card-header has-margin-bottom-none" aria-hidden="true">
         <figure class="image diagram has-height-175 has-overflow-hidden level">
-            <a href="/azure/architecture/solution-ideas/articles/build-high-availability-into-your-bcdr-strategy"><img src="/azure/architecture/browse/thumbs/build-high-availability-into-your-bcdr-strategy.png" class="diagram" alt="Architecture Diagram" data-linktype="relative-path"></a>
+            <a href="/azure/architecture/solution-ideas/articles/build-high-availability-into-your-bcdr-strategy"><img src="/azure/architecture/browse/thumbs/build-high-availability-into-your-bcdr-strategy.png" class="diagram" alt="Thumbnail of Build high availability into your BCDR strategy Architectural Diagram." data-linktype="relative-path"></a>
         </figure>
     </div>
     <div class="card-content">

@@ -6,7 +6,7 @@
 <article class="card">
     <div class="card-header has-margin-bottom-none" aria-hidden="true">
         <figure class="image diagram has-height-175 has-overflow-hidden level">
-            <a href="/azure/architecture/solution-ideas/articles/intelligent-apps-using-azure-database-for-postgresql"><img src="/azure/architecture/browse/thumbs/intelligent-apps-using-azure-database-for-postgresql.png" class="diagram" alt="Architecture Diagram" data-linktype="relative-path"></a>
+            <a href="/azure/architecture/solution-ideas/articles/intelligent-apps-using-azure-database-for-postgresql"><img src="/azure/architecture/browse/thumbs/intelligent-apps-using-azure-database-for-postgresql.png" class="diagram" alt="Thumbnail of Intelligent apps using Azure Database for PostgreSQL Architectural Diagram." data-linktype="relative-path"></a>
         </figure>
     </div>
     <div class="card-content">
