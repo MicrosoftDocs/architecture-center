@@ -94,7 +94,7 @@ can be applied to real-world scenarios.
     running on the gateway. Azure Cognitive Service extracts only the
     license plate details and sends it to the cloud application.
 
-2.  IoT Central is used as it is a fully managed solution. It provides
+2.  Azure IoT Central is used as it is a fully managed solution. It provides
     device management and secure bi-directional communication.
 
 3.  License plate details are queued in Event hub and sent to an Azure
@@ -150,56 +150,59 @@ This provides additional accuracy on the estimated time of arrival.
 ## Components
 
 
--   IoT Edge -- Used to run analytics, applications on-premise to ensure
+-   [Azure IoT Edge](https://azure.microsoft.com/services/iot-edge/) -- Used to run analytics, applications on-premise to ensure
     low latency, lower bandwidth usage and privacy (i.e. extract only
     the license plate details).
 
--   Live Video Analytics -- Live Video Analytics on IoT Edge offers the
+-   [Live Video Analytics](https://azure.microsoft.com/services/media-services/live-video-analytics/) -- Live Video Analytics on IoT Edge offers the
     capability to capture, record, and analyze live video. This allows
     Contoso to focus on building features for the business rather than
     managing the video processing pipeline.
 
--   Azure Cognitive Services -- This allows the AI model to run on the
+-   [Azure Cognitive Services](https://azure.microsoft.com/services/cognitive-services/) -- This allows the AI model to run on the
     edge to adhere to privacy regulations and lower the bandwidth
     required. Contoso can leverage the service without spending
     engineering efforts for creating and training the model.
 
--   IoT Central -- As it is a fully managed application platform,
+-   [Azure IoT Central](https://azure.microsoft.com/services/iot-central/) -- As it is a fully managed application platform,
     Contoso spends less time building highly available and scalable
     infrastructure and lower the operation efforts.
 
--   Event Hubs -- Used to queue the events sent to the curb side pickup
+-   [Event Hubs](https://azure.microsoft.com/services/event-hubs/) -- Used to queue the events sent to the curb side pickup
     application. This is to create decoupling for consumption.
 
--   Azure Storage -- Storing raw data for analysis.
+-   [Azure Storage](https://azure.microsoft.com/services/storage/) -- Storing raw data for analysis.
 
--   Azure Functions -- Serverless application which takes the event
+-   [Azure Functions](https://azure.microsoft.com/services/functions/) -- Serverless application which takes the event
     received and send it to a REST API on the curb side pickup
     application.
 
--   Cosmos DB -- Provide low latency, guaranteed availability and
+-   [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) -- Provide low latency, guaranteed availability and
     automatic scalability database. Application can leverage this NoSQL
     database for fast writes and reads anywhere in the world with
     turnkey multi-master global distribution.
 
--   Azure Kubernetes Service -- The curb side pickup application is
+-   [Azure Kubernetes Service](https://azure.microsoft.com/services/kubernetes-service/) -- The curb side pickup application is
     built using a cluster of containers and managed a hosted Kubernetes
     service. The Kubernetes masters are managed by Azure. It handles
     critical tasks like health monitoring and maintenance.
 
--   Azure Synapse -- Provides insights on the usage and service levels
+-   [Azure Synapse](https://azure.microsoft.com/services/synapse-analytics/) -- Provides insights on the usage and service levels
     for BOPIS. The engineering team can leverage T-SQL to implement data
     warehousing. Azure Synapse provides a unified plane to manage
     analytics resources, monitor usage and activity, and enforce
     security which is critical to Contoso.
 
--   Azure Maps -- Provides geofencing as a service required to
+-   [Azure Maps](https://azure.microsoft.com/services/azure-maps/) -- Provides geofencing as a service required to
     gauge customer proximity.
 
 For more detailed discussions, see the IoT reference architecture
-document to understand and explore the various implementation choices
+[document](https://docs.microsoft.com/azure/architecture/reference-architectures/iot) to understand and explore the various implementation choices
 available.
 
 ## Next Steps
+
+For more details on solutions, take a look at the below retail partner solutions. 
+
 [Oneview Commerce](https://www.oneviewcommerce.com/)<br>
 [Ombori](https://ombori.com/)
