@@ -78,8 +78,8 @@ can be applied to real-world scenarios.
 
 | Use case | Solutions | Pattern
 |---|---|---|
-| Obtain license plate details and cross-reference that with the respective customer order when the vehicle turns into the parking lot. To alert store associate immediately to start packing and preparing the order. | Use video analytics to detect license plates when the vehicle turns into the parking lot.  This information is reconciled with order management system and a task is sent to Teams which alerts and schedules a store associate to start packing. | [Monitor and manage loop](./monitor-manage-loop.md) -- The video analytics is part of the monitoring layer and the insights are actioned by the store associates as part of the manage pattern. |
-| Notify customer that store has started packing and will deliver the order soon. | When store associate starts task, system will cross-check with geofence rule of the customer location. A notification will be sent to the customer to let them know that their delivery is on the way when the system detects that the customer is in the boundaries of the geofence. | [Monitor and manage loop](./monitor-manage-loop.md)  -- The geofence rule is monitoring the location of the customer and sending an alert when the customer is in the vicinity (manage) 
+| Obtain license plate details and cross-reference that with the respective customer order when the vehicle turns into the parking lot. To alert store associate immediately to start packing and preparing the order. | Use video analytics to detect license plates when the vehicle turns into the parking lot.  This information is reconciled with order management system and a task is sent to Teams which alerts and schedules a store associate to start packing. | [Monitor and manage loop](./monitor-manage-loop.md) - The video analytics is part of the monitoring layer and the insights are actioned by the store associates as part of the manage pattern. |
+| Notify customer that store has started packing and will deliver the order soon. | When store associate starts task, system will cross-check with geofence rule of the customer location. A notification will be sent to the customer to let them know that their delivery is on the way when the system detects that the customer is in the boundaries of the geofence. | [Monitor and manage loop](./monitor-manage-loop.md) - The geofence rule is monitoring the location of the customer and sending an alert when the customer is in the vicinity (manage) 
 
 ## Reference Architecture
 
@@ -198,7 +198,7 @@ available.
 
 ## Next Steps
 
-For more details on solutions, take a look at the below retail partner solutions. 
+For more details on implementations, take a look at some of the below retail partner solutions. 
 
 [Oneview Commerce](https://www.oneviewcommerce.com/)<br>
 [Ombori](https://ombori.com/)
