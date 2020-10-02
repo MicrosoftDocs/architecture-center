@@ -20,6 +20,8 @@ The primary goals of a secure serverless Azure Functions application environment
 
 The [OWASP Serverless Top 10](https://owasp.org/www-project-serverless-top-10/) describes the most common serverless application security vulnerabilities, and provides basic techniques to identify and protect against them.
 
+In many ways, planning for secure development, deployment, and operation of serverless functions is much the same as for any web-based or cloud hosted application. Azure App Service provides the hosting infrastructure for your function apps. [Securing Azure Functions](/azure/azure-functions/security-concepts) article provides security strategies for running your function code, and how App Service can help you secure your functions.
+
 For more information about Azure security, best practices, and shared responsibilities, see:
 
 - [Security in Azure App Service](/azure/app-service/overview-security)
@@ -28,8 +30,6 @@ For more information about Azure security, best practices, and shared responsibi
 - [Security best practices for Azure solutions (PDF report)](https://azure.microsoft.com/mediahandler/files/resourcefiles/security-best-practices-for-azure-solutions/Azure%20Security%20Best%20Practices.pdf)
 - [Shared responsibilities for cloud computing (PDF report)](https://gallery.technet.microsoft.com/Shared-Responsibilities-81d0ff91)
 
-General security strategies for running your function code, and how App Service can help you secure your functions, see [Securing Azure Functions](/azure/azure-functions/security-concepts) whitepaper.
-
 ## Deployment
 
 To prepare serverless Functions applications for production, security personnel should:
@@ -37,6 +37,8 @@ To prepare serverless Functions applications for production, security personnel 
 - Define resource permissions that Functions needs to execute.
 - Configure network security rules for inbound and outbound communication.
 - Identify and classify sensitive data access.
+
+The [Azure Security Baseline for Azure Functions](/azure/azure-functions/security-baseline) article contains more recommendations that will help you improve the security posture of your deployment.
 
 ### Keep code secure
 Find security vulnerabilities and errors in code and manage security vulnerabilities in projects and dependencies. 
