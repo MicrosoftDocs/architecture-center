@@ -29,10 +29,10 @@ This model is very useful when strong consistency guarantees are important &mdas
 
 ### Azure services
 
-- [Azure SQL Database][sql-db]
-- [Azure Database for MySQL][mysql]
-- [Azure Database for PostgreSQL][postgres]
-- [Azure Database for MariaDB][mariadb]
+- [Azure SQL Database][sql-db] | [(Security Baseline)](https://docs.microsoft.com/en-us/azure/azure-sql/database/security-baseline)
+- [Azure Database for MySQL][mysql] | [(Security Baseline)](https://docs.microsoft.com/en-us/azure/mysql/security-baseline)
+- [Azure Database for PostgreSQL][postgres] | [(Security Baseline)](https://docs.microsoft.com/en-us/azure/postgresql/security-baseline)
+- [Azure Database for MariaDB][mariadb] | [(Security Baseline)](https://docs.microsoft.com/en-us/azure/mariadb/security-baseline)
 
 ### Workload
 
@@ -72,9 +72,9 @@ A single key/value store can be extremely scalable, as the data store can easily
 
 ### Azure services
 
-- [Azure Cosmos DB Table API][cosmos-table], [etcd API (preview)][cosmos-etcd], and [SQL API][cosmos-sql-key-value]
-- [Azure Cache for Redis][redis]
-- [Azure Table Storage][table-storage-classic]
+- [Azure Cosmos DB Table API][cosmos-table], [etcd API (preview)][cosmos-etcd], and [SQL API][cosmos-sql-key-value] | [(Cosmos DB Security Baseline)](https://docs.microsoft.com/en-us/azure/cosmos-db/security-baseline)
+- [Azure Cache for Redis][redis] | [(Security Baseline)](https://docs.microsoft.com/en-us/azure/azure-cache-for-redis/security-baseline)
+- [Azure Table Storage][table-storage-classic] | [(Security Baseline)](https://docs.microsoft.com/en-us/azure/storage/common/security-baseline)
 
 ### Workload
 
@@ -106,7 +106,7 @@ Typically, a document contains the data for single entity, such as a customer or
 
 ### Azure service
 
-- [Azure Cosmos DB SQL API][cosmos-db]
+- [Azure Cosmos DB SQL API][cosmos-db] | [(Cosmos DB Security Baseline)](https://docs.microsoft.com/en-us/azure/cosmos-db/security-baseline)
 
 ### Workload
 
@@ -141,8 +141,8 @@ This structure makes it straightforward to perform queries such as "Find all emp
 
 ### Azure services
 
-- [Azure Cosmos DB Gremlin API][cosmos-gremlin]
-- [SQL Server][sqlserver]
+- [Azure Cosmos DB Gremlin API][cosmos-gremlin] | [(Security Baseline)](https://docs.microsoft.com/en-us/azure/cosmos-db/security-baseline)
+- [SQL Server][sqlserver] | [(Security Baseline)](https://docs.microsoft.com/en-us/azure/azure-sql/database/security-baseline)
 
 ### Workload
 
@@ -170,12 +170,12 @@ Data analytics stores provide massively parallel solutions for ingesting, storin
 
 ### Azure services
 
-- [Azure Synapse Analytics][sql-dw]
-- [Azure Data Lake][data-lake]
-- [Azure Data Explorer](https://azure.microsoft.com/services/data-explorer/)
+- [Azure Synapse Analytics][sql-dw] | [(Security Baseline)](https://docs.microsoft.com/en-us/azure/synapse-analytics/security-baseline)
+- [Azure Data Lake][data-lake] | [(Security Baseline)](https://docs.microsoft.com/en-us/azure/data-lake-analytics/security-baseline)
+- [Azure Data Explorer](https://azure.microsoft.com/services/data-explorer/) | [(Security Baseline)](https://docs.microsoft.com/en-us/azure/data-explorer/security-baseline)
 - [Azure Analysis Services][analysissvc]
-- [HDInsight][hdinsight]
-- [Azure Databricks][databricks]
+- [HDInsight][hdinsight] | [(Security Baseline)](https://docs.microsoft.com/en-us/azure/hdinsight/security-baseline)
+- [Azure Databricks][databricks] | [(Security Baseline)](https://docs.microsoft.com/en-us/azure/databricks/scenarios/security-baseline)
 
 ### Workload
 
@@ -209,8 +209,8 @@ Read and write operations for a row are usually atomic with a single column-fami
 
 ### Azure services
 
-- [Azure Cosmos DB Cassandra API][cassandra]
-- [HBase in HDInsight][hbase]
+- [Azure Cosmos DB Cassandra API][cassandra] | [(Security Baseline)](https://docs.microsoft.com/en-us/azure/cosmos-db/security-baseline)
+- [HBase in HDInsight][hbase] | [(Security Baseline)](https://docs.microsoft.com/en-us/azure/hdinsight/security-baseline)
 
 ### Workload
 
@@ -249,7 +249,7 @@ Searching can be exact or fuzzy. A fuzzy search finds documents that match a set
 
 ### Azure service
 
-- [Azure Search][search]
+- [Azure Search][search] | [(Security Baseline)](https://docs.microsoft.com/en-us/azure/search/security-baseline)
 
 ### Workload
 
@@ -301,8 +301,8 @@ Object storage is optimized for storing and retrieving large binary objects (ima
 
 ### Azure service
 
-- [Azure Blob Storage][blob]
-- [Azure Data Lake Storage Gen2][datalakegen2]
+- [Azure Blob Storage][blob] | [(Security Baseline)](https://docs.microsoft.com/en-us/azure/storage/common/security-baseline)
+- [Azure Data Lake Storage Gen2][datalakegen2] | [(Security Baseline)](https://docs.microsoft.com/en-us/azure/data-lake-analytics/security-baseline)
 
 ### Workload
 
@@ -328,7 +328,7 @@ Sometimes, using simple flat files can be the most effective means of storing an
 
 ### Azure service
 
-- [Azure Files][file-storage]
+- [Azure Files][file-storage] | [(Security Baseline)](https://docs.microsoft.com/en-us/azure/storage/common/security-baseline
 
 ### Workload
 
