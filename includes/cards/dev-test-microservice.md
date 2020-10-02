@@ -6,7 +6,7 @@
 <article class="card">
     <div class="card-header has-margin-bottom-none" aria-hidden="true">
         <figure class="image diagram has-height-175 has-overflow-hidden level">
-            <a href="/azure/architecture/solution-ideas/articles/dev-test-microservice"><img src="/azure/architecture/browse/thumbs/dev-test-microservice.png" class="diagram" alt="Architecture Diagram" data-linktype="relative-path"></a>
+            <a href="/azure/architecture/solution-ideas/articles/dev-test-microservice"><img src="/azure/architecture/browse/thumbs/dev-test-microservice.png" class="diagram" alt="Thumbnail of DevTest and DevOps for microservice solutions Architectural Diagram." data-linktype="relative-path"></a>
         </figure>
     </div>
     <div class="card-content">
@@ -17,7 +17,7 @@
             <li>9/17/2020</li>
             <li>5 min read</li>
         </ul>
-        <p class="card-content-description">Learn how to configure a DevTest and DevOps infrastructure to develop, test, and deploy microservice-based software.</p>
+        <p class="card-content-description">Learn how to configure a DevTest and DevOps infrastructure for development, testing, and deploying microservice-based software.</p>
         <div class="bottom-to-top-fade is-hidden-mobile"></div>
     </div>
 </article>

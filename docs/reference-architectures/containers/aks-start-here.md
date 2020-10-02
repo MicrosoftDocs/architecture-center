@@ -63,7 +63,7 @@ Kubernetes and AKS are both moving fast. The platform is evolving and just knowi
 
 The typical AKS solution journey depicted above ranges from learning about AKS to growing your existing clusters to meet new product and customer demands. However, you might also just be looking for additional reference and supporting material to help along the way for your specific situation.
 
-### Examples solutions
+### Example solutions
 
 If you're seeking additional reference material that use AKS as their foundation, here are a few to consider.
 

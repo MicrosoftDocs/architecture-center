@@ -215,7 +215,7 @@ The following screenshot shows the [application map](/azure/azure-monitor/app/ap
 
 The arrows from `fabrikam-workflow` and `fabrikam-ingestion` to a Service Bus queue show where the messages are sent and received. You can't tell from the diagram which service is sending messages and which is receiving &mdash; the arrows just show that both services are calling Service Bus &mdash; but this information is available in the details:
 
-![Application map](./images/monitoring/application-map-sb-ops.png)
+![Screenshot of Application map details.](./images/monitoring/application-map-sb-ops.png)
 
 Because every call includes an operation ID, you can also view the end-to-end steps in a single transaction, including timing information and the HTTP calls at each step. Here is the visualization of one such transaction:
 
@@ -229,7 +229,7 @@ Now here is an example when calls to a backend service were failing:
 
 This shows that a large fraction (36%) of calls to the Drone Scheduler service failed during the period being queried. In the end-to-end transaction view, it shows that an exception occurs when sending an HTTP PUT request to the service.
 
-![End-to-end transaction](./images/monitoring/transaction-errors.png)
+![Screenshot of the End-to-end transaction details showing that an exception occurs when sending an HTTP PUT request to the service.](./images/monitoring/transaction-errors.png)
 
 Further drilling in, the exception turns out to be a socket exception, "No such device or address."
 

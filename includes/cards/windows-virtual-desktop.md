@@ -6,7 +6,7 @@
 <article class="card">
     <div class="card-header has-margin-bottom-none" aria-hidden="true">
         <figure class="image diagram has-height-175 has-overflow-hidden level">
-            <a href="/azure/architecture/example-scenario/wvd/windows-virtual-desktop"><img src="/azure/architecture/browse/thumbs/windows-virtual-desktop.png" class="diagram" alt="Architecture Diagram" data-linktype="relative-path"></a>
+            <a href="/azure/architecture/example-scenario/wvd/windows-virtual-desktop"><img src="/azure/architecture/browse/thumbs/windows-virtual-desktop.png" class="diagram" alt="Thumbnail of Windows Virtual Desktop for the enterprise Architectural Diagram." data-linktype="relative-path"></a>
         </figure>
     </div>
     <div class="card-content">
@@ -15,7 +15,7 @@
         </a>
         <ul class="card-content-metadata">
             <li>7/16/2020</li>
-            <li>7 min read</li>
+            <li>8 min read</li>
         </ul>
         <p class="card-content-description">Explore Windows Virtual Desktop, and learn to build virtual desktop infrastructure solutions at enterprise scale.</p>
         <div class="bottom-to-top-fade is-hidden-mobile"></div>
