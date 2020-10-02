@@ -14,7 +14,7 @@ ms.custom: fcp
 
 # Scenario
 Contoso is a European retailer operating mid-sized supermarkets. They
-have grown through the years and is now one of the largest with more
+have grown through the years and are now one of the largest retailers, with more
 than 1000 stores located in both cities and suburbs.
 
 ## Challenges faced
@@ -30,8 +30,8 @@ seen an increase in the usage of buy online, pickup in store (BOPIS).
 This is also often known as curbside pickup.
 
 In order to ensure that their customers get the freshest quality
-produce, Contoso will only pack items that are temperature controlled
-when the customers arrive. Due to the rise in usage and time taken to
+produce, Contoso will only pack temperature-controlled items
+when their customers arrive. Due to the rise in usage and time taken to
 pack fresh produce, there is a longer than usual waiting time for
 curbside pickup. This has caused an increased amount of customer
 dissatisfaction and surveys have shown that customers are choosing to
@@ -45,21 +45,19 @@ use other retailers because of the long waiting times at Contoso.
 With [**59% of
 consumers**](https://retailwire.com/discussion/is-curbside-pickup-just-getting-started/) polled
 saying they\'re likely to continue choosing curbside pickup even after
-the pandemic, Contoso would like to improve the levels of efficiency in
-their curbside operations. For curbside pickups, Contoso would like to
-have information on how far away each customer is and when the customer
+the pandemic, Contoso wants to improve the efficiency of
+their curbside operations. For curbside pickups, Contoso needs information on how far away each customer is and when the customer
 arrives at the parking lot.
 
 The solution should provide alerts to the store associates and trigger a
 work order to start packing the fresh produce for customers that are
-near the outlet. This would decrease the waiting time, which would
-improve a key aspect of the curbside pickup experience.
+near the outlet. This decreases customer waiting time, improving a key aspect of the curbside pickup experience.
 
 ## Requirements
 
 -   *What are key technical and non-technical requirements?*
 
-In accessing data on their customers' movements, Contoso will need to
+In accessing data on their customers' movements, Contoso must
 ensure personal privacy protection for their customers as an essential
 prerequisite as part of corporate accountability and given that their
 brand is built on trust.
@@ -90,8 +88,8 @@ can be applied to real-world scenarios.
 1.  Video feed is obtained as cars come into the parking area. The IP
     camera hosting a Real-Time Streaming Protocol (RTSP) server send the
     feed to Live View Analytics (LVA) module. The LVA module processes
-    the frame rate and sends the image to Azure Cognitive Service
-    running on the gateway. Azure Cognitive Service extracts only the
+    the frame rate and sends the image to Azure Cognitive Services
+    running on the gateway. Azure Cognitive Services extracts only the
     license plate details and sends it to the cloud application.
 
 2.  Azure IoT Central is used as it is a fully managed solution. It provides
@@ -135,65 +133,63 @@ can be applied to real-world scenarios.
 
 Azure IoT Edge is selected as it is a runtime which allows
 container-based modules to be used and it helps to orchestrate these
-modules. The solution uses Azure Cognitive services running on the edge
+modules. The solution uses Azure Cognitive Services running on the edge
 device and only the license plate details are sent to the application.
-This ensures that no facial images or privacy data is sent to the
+This ensures that no facial images or privacy data are sent to 
 storage.
 
 **Geofence**
 
-The application uses Azure Maps to provide geofencing capabilities. The
-inbuilt feature allows Contoso to create geofence rules, which provides
-another data point that allows identification of a customer's location.
+The application uses Azure Maps, which allows Contoso to create geofence rules.  These rules provide
+another data point to confirm a customer's location.
 This provides additional accuracy on the estimated time of arrival.
 
 ## Components
 
 
--   [Azure IoT Edge](https://azure.microsoft.com/services/iot-edge/) -- Used to run analytics, applications on-premise to ensure
+-   [Azure IoT Edge](https://azure.microsoft.com/services/iot-edge/) runs analytics, applications on-premise to ensure
     low latency, lower bandwidth usage and privacy (i.e. extract only
     the license plate details).
 
--   [Live Video Analytics](https://azure.microsoft.com/services/media-services/live-video-analytics/) -- Live Video Analytics on IoT Edge offers the
+-   [Live Video Analytics](https://azure.microsoft.com/services/media-services/live-video-analytics/) on IoT Edge offers the
     capability to capture, record, and analyze live video. This allows
     Contoso to focus on building features for the business rather than
     managing the video processing pipeline.
 
--   [Azure Cognitive Services](https://azure.microsoft.com/services/cognitive-services/) -- This allows the AI model to run on the
+-   [Azure Cognitive Services](https://azure.microsoft.com/services/cognitive-services/) allows the AI model to run on the
     edge to adhere to privacy regulations and lower the bandwidth
     required. Contoso can leverage the service without spending
     engineering efforts for creating and training the model.
 
--   [Azure IoT Central](https://azure.microsoft.com/services/iot-central/) -- As it is a fully managed application platform,
-    Contoso spends less time building highly available and scalable
-    infrastructure and lower the operation efforts.
+-   [Azure IoT Central](https://azure.microsoft.com/services/iot-central/) is a fully managed application platform,
+    so Contoso spends less time building highly available and scalable
+    infrastructure and lowers the operation efforts.
 
--   [Event Hubs](https://azure.microsoft.com/services/event-hubs/) -- Used to queue the events sent to the curb side pickup
-    application. This is to create decoupling for consumption.
+-   [Event Hubs](https://azure.microsoft.com/services/event-hubs/) can be used to queue the events sent to the curbside pickup
+    application. This creates decoupling for consumption.
 
--   [Azure Storage](https://azure.microsoft.com/services/storage/) -- Storing raw data for analysis.
+-   [Azure Storage](https://azure.microsoft.com/services/storage/) is used to store raw data for analysis.
 
--   [Azure Functions](https://azure.microsoft.com/services/functions/) -- Serverless application which takes the event
-    received and send it to a REST API on the curb side pickup
+-   [Azure Functions](https://azure.microsoft.com/services/functions/) are a serverless application used to process the event
+    received and send it to a REST API on the curbside pickup
     application.
 
--   [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) -- Provide low latency, guaranteed availability and
-    automatic scalability database. Application can leverage this NoSQL
+-   [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) provides a low-latency database with guaranteed availability and automatic scalability. The application can leverage this NoSQL
     database for fast writes and reads anywhere in the world with
-    turnkey multi-master global distribution.
+     multi-master global distribution.
 
--   [Azure Kubernetes Service](https://azure.microsoft.com/services/kubernetes-service/) -- The curb side pickup application is
+-   [Azure Kubernetes Service](https://azure.microsoft.com/services/kubernetes-service/).  The curb side pickup application is
     built using a cluster of containers and managed a hosted Kubernetes
     service. The Kubernetes masters are managed by Azure. It handles
     critical tasks like health monitoring and maintenance.
 
--   [Azure Synapse](https://azure.microsoft.com/services/synapse-analytics/) -- Provides insights on the usage and service levels
+-   [Azure Synapse](https://azure.microsoft.com/services/synapse-analytics/) provides insights on the usage and service levels
     for BOPIS. The engineering team can leverage T-SQL to implement data
     warehousing. Azure Synapse provides a unified plane to manage
     analytics resources, monitor usage and activity, and enforce
     security which is critical to Contoso.
 
--   [Azure Maps](https://azure.microsoft.com/services/azure-maps/) -- Provides geofencing as a service required to
+-   [Azure Maps](https://azure.microsoft.com/services/azure-maps/) provides geofencing as a service required to
     gauge customer proximity.
 
 For more detailed discussions, see the IoT reference architecture
