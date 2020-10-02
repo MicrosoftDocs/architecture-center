@@ -153,7 +153,7 @@
     },
     {
       "source_path": "docs/framework/devops/iac.md",
-      "redirect_url": "./docs/framework/devops/automation-infrastructure.md",
+      "redirect_url": "/azure/architecture/framework/devops/automation-infrastructure.md",
       "redirect_document_id": true
     },
     {
