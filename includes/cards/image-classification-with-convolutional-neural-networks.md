@@ -6,7 +6,7 @@
 <article class="card">
     <div class="card-header has-margin-bottom-none" aria-hidden="true">
         <figure class="image diagram has-height-175 has-overflow-hidden level">
-            <a href="/azure/architecture/solution-ideas/articles/image-classification-with-convolutional-neural-networks"><img src="/azure/architecture/browse/thumbs/image-classification-with-convolutional-neural-networks.png" class="diagram" alt="Architecture Diagram" data-linktype="relative-path"></a>
+            <a href="/azure/architecture/solution-ideas/articles/image-classification-with-convolutional-neural-networks"><img src="/azure/architecture/browse/thumbs/image-classification-with-convolutional-neural-networks.png" class="diagram" alt="Thumbnail of Image classification with Convolutional Neural Networks Architectural Diagram." data-linktype="relative-path"></a>
         </figure>
     </div>
     <div class="card-content">
@@ -15,7 +15,7 @@
         </a>
         <ul class="card-content-metadata">
             <li>12/16/2019</li>
-            <li>3 min read</li>
+            <li>2 min read</li>
         </ul>
         <p class="card-content-description">Explore transfer learning, convolutional neural networks, and gradient-boosting decision tree algorithms.</p>
         <div class="bottom-to-top-fade is-hidden-mobile"></div>

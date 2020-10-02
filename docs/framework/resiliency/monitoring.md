@@ -48,7 +48,7 @@ Get a full-stack view of application state by using [Azure dashboards](/azure/a
 
 For more information about monitoring and diagnostics, see [Monitoring and diagnostics](../../best-practices/monitoring.md).
 
-![GitHub](../../_images/github.png) Here are some samples about creating and querying alerts:
+:::image type="icon" source="../../_images/github.png" border="false"::: Here are some samples about creating and querying alerts:
 
 - [HealthAlert](https://github.com/mspnp/samples/tree/master/Reliability/HealthAlerts). A sample about creating resource-level health activity log alerts. The sample uses Azure Resource Manager to create alerts.
 - [GraphAlertsPsSample](https://github.com/mspnp/samples/tree/master/Reliability/GraphAlertsPsSample). A set of PowerShell commands that queries for alerts generated against your subscription.
@@ -63,7 +63,7 @@ Azure subscriptions have limits on certain resource types, such as number of res
 
 Address the following subscription limits with alerts.
 
-![GitHub](../../_images/github.png) A reference implementation is available on [GitHub](https://github.com/mspnp/serverless-automation/blob/master/src/automation/throttling-responder/deployment.md).
+:::image type="icon" source="../../_images/github.png" border="false"::: A reference implementation is available on [GitHub](https://github.com/mspnp/serverless-automation/blob/master/src/automation/throttling-responder/deployment.md).
 
 For information about that implementation, see [Event-based cloud automation on Azure](../../reference-architectures/serverless/cloud-automation.md).
 
@@ -137,7 +137,7 @@ Implement probes or check functions, and run them regularly from outside the app
 
 Check functions can run processes to ensure that they produce valid results, measure latency and check availability, and extract information from the system.
 
-![GitHub](../../_images/github.png) The [HealthProbesSample](https://github.com/mspnp/samples/tree/master/Reliability/HealthProbesSample) sample shows how to set up health probes. It provides an ARM template to set up the infrastructure. A load balancer accepts public requests and load balance to a set of virtual machines. The health probe is set up so that it can check for service's path /Health.
+:::image type="icon" source="../../_images/github.png" border="false"::: The [HealthProbesSample](https://github.com/mspnp/samples/tree/master/Reliability/HealthProbesSample) sample shows how to set up health probes. It provides an ARM template to set up the infrastructure. A load balancer accepts public requests and load balance to a set of virtual machines. The health probe is set up so that it can check for service's path /Health.
 
 
 ## Application logs

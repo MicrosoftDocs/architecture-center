@@ -183,9 +183,9 @@ or,
 
 Operational alarms and events triggered on premise can also be ingested into Azure for reporting and to trigger work orders, SMS messages, and emails.
 
-## Office 365 (Microsoft 365)
+## Microsoft 365
 
-The IIoT analytics solution can also include [Office 365](/office365/) services to automate tasks and send notifications. The following are a few examples:
+The IIoT analytics solution can also include [Microsoft 365](/office365/) services to automate tasks and send notifications. The following are a few examples:
 
 - Receive email alerts in Microsoft Outlook or post a message to a Microsoft Teams channel when a condition is met in Azure Stream Analytics.
 - Receive notifications as part of an approval workflow triggered by a Power App or Microsoft Forms submission.

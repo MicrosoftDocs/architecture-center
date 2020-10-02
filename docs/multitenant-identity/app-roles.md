@@ -15,7 +15,7 @@ pnp.series.next: authorize
 
 # Application roles
 
-[![GitHub](../_images/github.png) Sample code][sample application]
+[:::image type="icon" source="../_images/github.png" border="false"::: Sample code][sample application]
 
 Application roles are used to assign permissions to users. For example, the [Tailspin Surveys][tailspin] application defines the following roles:
 

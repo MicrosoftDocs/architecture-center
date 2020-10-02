@@ -78,7 +78,7 @@ Notes
 4. <span id="note4">Can scale down to zero after job completes.</span>
 5. <span id="note5">Requires App Service Environment (ASE).</span>
 6. <span id="note6">Use [Azure App Service Hybrid Connections][app-service-hybrid].</span>
-7. <span id="note7">Requires App Service plan.</span>
+7. <span id="note7">Requires App Service plan or [Azure Functions Premium plan][func-premium].</span>
 
 ## DevOps
 
@@ -165,3 +165,4 @@ Perform a more detailed evaluation looking at the following aspects of the servi
 [big-compute]: ../architecture-styles/big-compute.md
 
 [app-service-hybrid]: /azure/app-service/app-service-hybrid-connections
+[func-premium]: /azure/azure-functions/functions-premium-plan#private-network-connectivity

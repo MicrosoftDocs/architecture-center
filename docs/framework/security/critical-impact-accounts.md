@@ -94,7 +94,7 @@ compromise accounts, including administrative accounts.
 
 Create a separate administrative account for all users that have a role
 requiring critical privileges. For these administrative accounts, block
-productivity tools like Office 365 email (remove license). If possible, block
+productivity tools like Microsoft 365 email (remove license). If possible, block
 arbitrary web browsing (with proxy and/or application controls) while allowing
 exceptions for browsing to the Azure portal and other sites required for
 administrative tasks.
@@ -183,7 +183,8 @@ security dependencies for critical impact accounts
     -   Native Azure AD Accounts -*Create Native Azure AD Accounts that are
         not synchronized with on-premises active directory
 
-    -   Synchronize from On Premises Active Directory (Not Recommended see [Don't synchronize on-premises admin accounts to cloud identity providers](./identity.md#dont-synchronize-on-premises-admin-accounts-to-cloud-identity-providers))- Use existing accounts hosted in the on premises active
+    -   Synchronize from On Premises Active Directory 
+    - Use existing accounts hosted in the on premises active
         directory.
 
 - **Workstations** – Choose how you will manage and secure the workstations
@@ -196,9 +197,6 @@ security dependencies for critical impact accounts
 
     -   Manage with Existing Systems: Join existing AD domain and use existing management/security.
 
-This is related to the [Don't synchronize on-premises admin accounts to cloud identity providers](./identity.md#dont-synchronize-on-premises-admin-accounts-to-cloud-identity-providers) to
-cloud identity providers guidance in the administration section that mitigates
-the inverse risk of pivoting from cloud assets to on-premises assets
 
 ## Passwordless or multi-factor authentication for admins
 
@@ -296,5 +294,5 @@ access to critical impact accounts. Ensuring these users (and ideally all users)
 have the knowledge and skills to avoid and resist attacks will reduce your
 overall organizational risk.
 
-You can use [Office 365 Attack Simulation](/office365/securitycompliance/attack-simulator)
+You can use [Office 365 Attack Simulation](/microsoft-365/security/office-365-security/attack-simulator)
 capabilities or any number of third party offerings.

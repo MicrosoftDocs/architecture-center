@@ -6,7 +6,7 @@
 <article class="card">
     <div class="card-header has-margin-bottom-none" aria-hidden="true">
         <figure class="image diagram has-height-175 has-overflow-hidden level">
-            <a href="/azure/architecture/example-scenario/infrastructure/linux-vdi-citrix"><img src="/azure/architecture/browse/thumbs/linux-vdi-citrix.png" class="diagram" alt="Architecture Diagram" data-linktype="relative-path"></a>
+            <a href="/azure/architecture/example-scenario/infrastructure/linux-vdi-citrix"><img src="/azure/architecture/browse/thumbs/linux-vdi-citrix.png" class="diagram" alt="Thumbnail of Linux virtual desktops with Citrix Architectural Diagram." data-linktype="relative-path"></a>
         </figure>
     </div>
     <div class="card-content">
@@ -17,7 +17,7 @@
             <li>9/12/2018</li>
             <li>5 min read</li>
         </ul>
-        <p class="card-content-description">Build a VDI environment for Linux Desktops using Citrix on Azure.</p>
+        <p class="card-content-description">Learn about Virtual Desktop Infrastructure. This example uses a Citrix-based solution for Linux desktops on Azure.</p>
         <div class="bottom-to-top-fade is-hidden-mobile"></div>
     </div>
 </article>

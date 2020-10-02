@@ -7,6 +7,8 @@ ms.date: 07/15/2020
 ms.topic: example-scenario
 ms.service: architecture-center
 ms.subservice: example-scenario
+ms.category: 
+    - security
 ms.custom:
 - fcp
 ---

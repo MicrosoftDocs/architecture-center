@@ -3,7 +3,7 @@ title: Retry guidance for Azure services
 titleSuffix: Best practices for cloud applications
 description: Learn about the retry mechanism features for many Azure services. Retry mechanisms differ because services have different characteristics and requirements.
 author: dragon119
-ms.date: 08/13/2018
+ms.date: 09/16/2020
 ms.topic: best-practice
 ms.service: architecture-center
 ms.subservice: cloud-fundamentals
@@ -58,14 +58,9 @@ Consider the following guidelines when using Azure Active Directory:
 
 - When possible, use the ADAL library and the built-in support for retries.
 - If you are using the REST API for Azure Active Directory, retry the operation if the result code is 429 (Too Many Requests) or an error in the 5xx range. Do not retry for any other errors.
-- An exponential back-off policy is recommended for use in batch scenarios with Azure Active Directory.
-
-Consider starting with the following settings for retrying operations. These settings are general purpose, and you should monitor the operations and fine-tune the values to suit your own scenario.
-
-| **Context** | **Sample target E2E<br />max latency** | **Retry strategy** | **Settings** | **Values** | **How it works** |
-| --- | --- | --- | --- | --- | --- |
-| Interactive, UI,<br />or foreground |2 sec |FixedInterval |Retry count<br />Retry interval<br />First fast retry |3<br />500 ms<br />true |Attempt 1 - delay 0 sec<br />Attempt 2 - delay 500 ms<br />Attempt 3 - delay 500 ms |
-| Background or<br />batch |60 sec |ExponentialBackoff |Retry count<br />Min back-off<br />Max back-off<br />Delta back-off<br />First fast retry |5<br />0 sec<br />60 sec<br />2 sec<br />false |Attempt 1 - delay 0 sec<br />Attempt 2 - delay ~2 sec<br />Attempt 3 - delay ~6 sec<br />Attempt 4 - delay ~14 sec<br />Attempt 5 - delay ~30 sec |
+- For 429 errors, only retry after the time indicated in the **Retry-After** header.  
+- For 5xx errors, use exponential back-off, with the first retry at least 5 seconds after the response. 
+- Do not retry on errors other than 429 and 5xx. 
 
 ### More information
 
@@ -93,7 +88,7 @@ The following table shows the default settings for the `RetryOptions` class.
 ### Example
 
 ```csharp
-DocumentClient client = new DocumentClient(new Uri(endpoint), authKey); ;
+DocumentClient client = new DocumentClient(new Uri(endpoint), authKey);
 var options = client.ConnectionPolicy.RetryOptions;
 options.MaxRetryAttemptsOnThrottledRequests = 5;
 options.MaxRetryWaitTimeInSeconds = 15;
@@ -859,13 +854,71 @@ using (var db = new BloggingContext())
 
 ## Azure Storage
 
-Azure Storage services include table and blob storage, files, and storage queues.
+Azure Storage services include blob storage, files, and storage queues.
+
+### Blobs, Queues and Files
+
+The ClientOptions Class is the base type for all client option types and exposes various common client options like Diagnostics, Retry, Transport. To provide the client configuration options for connecting to Azure Queue, Blob, and File Storage you must use the corresponding derived type.
+In the next example, you use the QueueClientOptions class (derived from ClientOptions) to configure a client to connect to Azure Queue Service. The Retry property is the set of options that can be specified to influence how retry attempts are made, and how a failure is eligible to be retried.
+
+
+```csharp
+using System;
+using System.Threading;
+using Azure.Core;
+using Azure.Identity;
+using Azure.Storage;
+using Azure.Storage.Queues;
+using Azure.Storage.Queues.Models;
+
+namespace RetryCodeSamples
+{
+    class AzureStorageCodeSamples {
+
+        public async static Task Samples() {
+
+               // Provide the client configuration options for connecting to Azure Queue Storage
+                QueueClientOptions queueClientOptions = new QueueClientOptions()
+                {
+                    Retry = {
+                    Delay = TimeSpan.FromSeconds(2),     //The delay between retry attempts for a fixed approach or the delay on which to base 
+                                                         //calculations for a backoff-based approach
+                    MaxRetries = 5,                      //The maximum number of retry attempts before giving up
+                    Mode = RetryMode.Exponential,        //The approach to use for calculating retry delays
+                    MaxDelay = TimeSpan.FromSeconds(10)  //The maximum permissible delay between retry attempts
+                    },
+
+                    GeoRedundantSecondaryUri = new Uri("https://...")
+                    // If the GeoRedundantSecondaryUri property is set, the secondary Uri will be used for GET or HEAD requests during retries.
+                    // If the status of the response from the secondary Uri is a 404, then subsequent retries for the request will not use the
+                    // secondary Uri again, as this indicates that the resource may not have propagated there yet.
+                    // Otherwise, subsequent retries will alternate back and forth between primary and secondary Uri.
+                };
+
+
+                Uri queueServiceUri = new Uri("https://storageaccount.queue.core.windows.net/");
+                string accountName = "Storage account name";
+                string accountKey = "storage account key";
+
+                // Create a client object for the Queue service, including QueueClientOptions.
+                QueueServiceClient serviceClient = new QueueServiceClient(queueServiceUri, new DefaultAzureCredential(), queueClientOptions);
+
+                CancellationTokenSource source = new CancellationTokenSource();
+                CancellationToken cancellationToken = source.Token;
+
+                // Return an async collection of queues in the storage account.
+                var queues = serviceClient.GetQueuesAsync(QueueTraits.None, null, cancellationToken);
+```
+
+
+### Table Support
+
+> [!NOTE]
+> WindowsAzure.Storage Nuget Package has been deprecated. For Azure table support, see [Microsoft.Azure.Cosmos.Table Nuget Package](https://www.nuget.org/packages/Microsoft.Azure.Cosmos.Table)
 
 ### Retry mechanism
 
 Retries occur at the individual REST operation level and are an integral part of the client API implementation. The client storage SDK uses classes that implement the [IExtendedRetryPolicy Interface](/dotnet/api/microsoft.azure.storage.retrypolicies.iextendedretrypolicy).
-
-There are different implementations of the interface. Storage clients can choose from policies designed for accessing tables, blobs, and queues. Each implementation uses a different retry strategy that essentially defines the retry interval and other details.
 
 The built-in classes provide support for linear (constant delay) and exponential with randomization retry intervals. There is also a no retry policy for use when another process is handling retries at a higher level. However, you can implement your own retry classes if you have specific requirements not provided by the built-in classes.
 
@@ -980,9 +1033,7 @@ The following code example shows how to create two **TableRequestOptions** insta
 ```csharp
 using System;
 using System.Threading.Tasks;
-using Microsoft.WindowsAzure.Storage;
-using Microsoft.WindowsAzure.Storage.RetryPolicies;
-using Microsoft.WindowsAzure.Storage.Table;
+using Microsoft.Azure.Cosmos.Table;
 
 namespace RetryCodeSamples
 {

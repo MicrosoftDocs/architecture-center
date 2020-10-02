@@ -6,7 +6,7 @@
 <article class="card">
     <div class="card-header has-margin-bottom-none" aria-hidden="true">
         <figure class="image diagram has-height-175 has-overflow-hidden level">
-            <a href="/azure/architecture/solution-ideas/articles/enterprise-productivity-chatbot"><img src="/azure/architecture/browse/thumbs/enterprise-productivity-chatbot.png" class="diagram" alt="Architecture Diagram" data-linktype="relative-path"></a>
+            <a href="/azure/architecture/solution-ideas/articles/enterprise-productivity-chatbot"><img src="/azure/architecture/browse/thumbs/enterprise-productivity-chatbot.png" class="diagram" alt="Thumbnail of Enterprise Productivity Chatbot Architectural Diagram." data-linktype="relative-path"></a>
         </figure>
     </div>
     <div class="card-content">
@@ -17,7 +17,7 @@
             <li>12/16/2019</li>
             <li>1 min read</li>
         </ul>
-        <p class="card-content-description">Azure Bot Service can be easily combined with Language Understanding to build powerful enterprise productivity bots, allowing organizations to streamline common work activities by integrating external systems, such as Office 365 calendar, customer cases stored in Dynamics CRM and much more.</p>
+        <p class="card-content-description">Azure Bot Service can be easily combined with Language Understanding to build powerful enterprise productivity bots, allowing organizations to streamline common work activities by integrating external systems, such as Microsoft 365 calendar, customer cases stored in Dynamics CRM and much more.</p>
         <div class="bottom-to-top-fade is-hidden-mobile"></div>
     </div>
 </article>

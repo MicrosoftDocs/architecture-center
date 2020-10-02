@@ -2,7 +2,7 @@
 title: Azure Architecture
 description: Architecture diagrams, reference architectures, example scenarios, and solutions for common workloads on Azure.
 author: doodlemania2
-ms.date: 07/13/2020
+ms.date: 10/18/2019
 layout: LandingPage
 ms.topic: landing-page
 ---
@@ -11,7 +11,7 @@ ms.topic: landing-page
 
 Architecture diagrams, reference architectures, example scenarios, and solutions for common workloads on Azure.
 
-<a href="#ai--machine-learning">AI + Machine Learning</a>  | <a href="#analytics">Analytics</a>  | <a href="#blockchain">Blockchain</a>  | <a href="#compute">Compute</a>  | <a href="#containers">Containers</a>  | <a href="#databases">Databases</a>  | <a href="#devops">DevOps</a>  | <a href="#developer-tools">Developer Tools</a>  | <a href="#hybrid">Hybrid</a>  | <a href="#identity">Identity</a>  | <a href="#integration">Integration</a>  | <a href="#internet-of-things">Internet of Things</a>  | <a href="#management-and-governance">Management and Governance</a>  | <a href="#media">Media</a>  | <a href="#migration">Migration</a>  | <a href="#mixed-reality">Mixed Reality</a>  | <a href="#mobile">Mobile</a>  | <a href="#networking">Networking</a>  | <a href="#security">Security</a>  | <a href="#storage">Storage</a>  | <a href="#web">Web</a> 
+<a href="#ai--machine-learning">AI + Machine Learning</a>  | <a href="#analytics">Analytics</a>  | <a href="#blockchain">Blockchain</a>  | <a href="#compute">Compute</a>  | <a href="#containers">Containers</a>  | <a href="#databases">Databases</a>  | <a href="#devops">DevOps</a>  | <a href="#developer-tools">Developer Tools</a>  | <a href="#identity">Identity</a>  | <a href="#integration">Integration</a>  | <a href="#internet-of-things">Internet of Things</a>  | <a href="#management-and-governance">Management and Governance</a>  | <a href="#media">Media</a>  | <a href="#migration">Migration</a>  | <a href="#mixed-reality">Mixed Reality</a>  | <a href="#mobile">Mobile</a>  | <a href="#networking">Networking</a>  | <a href="#security">Security</a>  | <a href="#storage">Storage</a>  | <a href="#web">Web</a>  | <a href="#windows-virtual-desktop">Windows Virtual Desktop</a> 
 
 ## AI + Machine Learning
 <ul class="grid">
@@ -27,7 +27,7 @@ Architecture diagrams, reference architectures, example scenarios, and solutions
 [!INCLUDE [Batch scoring with R Models on Azure](../../includes/cards/batch-scoring-R-models.md)]
 [!INCLUDE [Build a Real-time Recommendation API on Azure](../../includes/cards/real-time-recommendation.md)]
 [!INCLUDE [Build an enterprise-grade conversational bot](../../includes/cards/conversational-bot.md)]
-[!INCLUDE [Build web and mobile applications with Azure Database for MySQL, Azure Cosmos DB, and Azure Cache for Redis](../../includes/cards/webapps.md)]
+[!INCLUDE [Build web and mobile applications](../../includes/cards/webapps.md)]
 [!INCLUDE [Business Process Management](../../includes/cards/business-process-management.md)]
 [!INCLUDE [Chatbot for hotel reservations](../../includes/cards/commerce-chatbot.md)]
 [!INCLUDE [Commerce Chatbot](../../includes/cards/commerce-chatbot.md)]
@@ -36,6 +36,7 @@ Architecture diagrams, reference architectures, example scenarios, and solutions
 [!INCLUDE [Customer Churn Prediction](../../includes/cards/customer-churn-prediction.md)]
 [!INCLUDE [Customer Feedback and Analytics](../../includes/cards/customer-feedback-and-analytics.md)]
 [!INCLUDE [Defect prevention with predictive maintenance](../../includes/cards/defect-prevention-with-predictive-maintenance.md)]
+[!INCLUDE [Deploy AI and machine learning at the edge by using Azure Stack Edge](../../includes/cards/deploy-ai-ml-azure-stack-edge.md)]
 [!INCLUDE [Digital Asset Management](../../includes/cards/digital-asset-management.md)]
 [!INCLUDE [Distributed training of deep learning models on Azure](../../includes/cards/training-deep-learning.md)]
 [!INCLUDE [Energy Supply Optimization](../../includes/cards/energy-supply-optimization.md)]
@@ -131,7 +132,7 @@ Architecture diagrams, reference architectures, example scenarios, and solutions
 [!INCLUDE [A computer-aided engineering service](../../includes/cards/hpc-saas.md)]
 [!INCLUDE [Digital image-based modeling on Azure](../../includes/cards/image-modeling.md)]
 [!INCLUDE [Dynamics Business Central as a Service on Azure](../../includes/cards/business-central.md)]
-[!INCLUDE [HPC Risk Analysis Template – Solution Architecture](../../includes/cards/hpc-risk-analysis.md)]
+[!INCLUDE [HPC Risk Analysis Template - Solution Architecture](../../includes/cards/hpc-risk-analysis.md)]
 [!INCLUDE [HPC System and Big Compute Solutions](../../includes/cards/big-compute-with-azure-batch.md)]
 [!INCLUDE [HPC cluster deployed in the cloud](../../includes/cards/hpc-cluster.md)]
 [!INCLUDE [Hybrid HPC in Azure with HPC Pack](../../includes/cards/hybrid-hpc-in-azure-with-hpc-pack.md)]
@@ -151,13 +152,14 @@ Architecture diagrams, reference architectures, example scenarios, and solutions
 ## Containers
 <ul class="grid">
 
-[!INCLUDE [Orchestration with AKS](../../includes/cards/aks-baseline.md)]
 [!INCLUDE [API-first SaaS business model](../../includes/cards/aks-api-first.md)]
+[!INCLUDE [Baseline architecture for an Azure Kubernetes Service (AKS) cluster](../../includes/cards/secure-baseline-aks.md)]
 [!INCLUDE [Building a telehealth system on Azure](../../includes/cards/telehealth-system.md)]
 [!INCLUDE [Bursting from AKS with ACI](../../includes/cards/scale-using-aks-with-aci.md)]
 [!INCLUDE [CI/CD pipeline for container-based workloads](../../includes/cards/devops-with-aks.md)]
 [!INCLUDE [Elastic demand handling with AKS](../../includes/cards/aks-demand-spikes.md)]
-[!INCLUDE [Microservices architecture on Azure Kubernetes Service (AKS)](../../includes/cards/aks.md)]
+[!INCLUDE [Instant IoT data streaming with AKS](../../includes/cards/aks-iot-data-streaming.md)]
+[!INCLUDE [Microservices architecture on Azure Kubernetes Service (AKS)](../../includes/cards/aks-microservices.md)]
 [!INCLUDE [Microservices with AKS](../../includes/cards/microservices-with-aks.md)]
 [!INCLUDE [Secure DevOps for AKS](../../includes/cards/secure-devops-for-kubernetes.md)]
 
@@ -171,12 +173,13 @@ Architecture diagrams, reference architectures, example scenarios, and solutions
 <ul class="grid">
 
 [!INCLUDE [Azure data platform end-to-end](../../includes/cards/data-platform-end-to-end.md)]
-[!INCLUDE [Build cloud native apps with Azure Cosmos DB, Azure Database for PostgreSQL and Azure Cache for Redis](../../includes/cards/cloud-native-apps.md)]
+[!INCLUDE [Build cloud native applications](../../includes/cards/cloud-native-apps.md)]
 [!INCLUDE [Campaign Optimization with Azure HDInsight Spark Clusters](../../includes/cards/campaign-optimization-with-azure-hdinsight-spark-clusters.md)]
 [!INCLUDE [Campaign Optimization with SQL Server](../../includes/cards/campaign-optimization-with-sql-server.md)]
 [!INCLUDE [Data Streaming scenario](../../includes/cards/data-streaming-scenario.md)]
 [!INCLUDE [Data cache](../../includes/cards/data-cache-with-redis-cache.md)]
-[!INCLUDE [Deliver highly scalable customer service and ERP apps with Azure SQL and Azure Cosmos DB](../../includes/cards/erp-customer-service.md)]
+[!INCLUDE [DataOps for the modern data warehouse](../../includes/cards/dataops-mdw.md)]
+[!INCLUDE [Deliver highly scalable customer service and ERP applications](../../includes/cards/erp-customer-service.md)]
 [!INCLUDE [Development and test environments for SAP workloads on Azure](../../includes/cards/sap-dev-test.md)]
 [!INCLUDE [Digital Campaign Management](../../includes/cards/digital-marketing-using-azure-database-for-postgresql.md)]
 [!INCLUDE [Digital Marketing using Azure Database for MySQL](../../includes/cards/digital-marketing-using-azure-database-for-mysql.md)]
@@ -216,6 +219,7 @@ Architecture diagrams, reference architectures, example scenarios, and solutions
 [!INCLUDE [SAP S/4HANA in Linux on Azure](../../includes/cards/sap-s4hana.md)]
 [!INCLUDE [SAP deployment on Azure using an Oracle DB](../../includes/cards/sap-production.md)]
 [!INCLUDE [SAP on Azure Architecture Guide](../../includes/cards/sap-overview.md)]
+[!INCLUDE [Saga distributed transactions](../../includes/cards/saga.md)]
 [!INCLUDE [Serverless apps using Cosmos DB](../../includes/cards/serverless-apps-using-cosmos-db.md)]
 [!INCLUDE [Streaming using HDInsight](../../includes/cards/streaming-using-hdinsight.md)]
 [!INCLUDE [Windows N-tier application on Azure](../../includes/cards/n-tier-sql-server.md)]
@@ -229,22 +233,27 @@ Architecture diagrams, reference architectures, example scenarios, and solutions
 ## DevOps
 <ul class="grid">
 
+[!INCLUDE [Banking system cloud transformation on Azure](../../includes/cards/banking-system-cloud-transformation.md)]
 [!INCLUDE [Build a CI/CD pipeline for chatbots with ARM templates](../../includes/cards/devops-cicd-chatbot.md)]
 [!INCLUDE [CI/CD for Azure VMs](../../includes/cards/cicd-for-azure-vms.md)]
 [!INCLUDE [CI/CD for Azure Web Apps](../../includes/cards/azure-devops-continuous-integration-and-continuous-deployment-for-azure-web-apps.md)]
 [!INCLUDE [CI/CD for Containers](../../includes/cards/cicd-for-containers.md)]
 [!INCLUDE [Container CI/CD using Jenkins and Kubernetes on Azure Kubernetes Service (AKS)](../../includes/cards/container-cicd-using-jenkins-and-kubernetes-on-azure-container-service.md)]
-[!INCLUDE [Dev-Test deployment for testing IaaS solutions](../../includes/cards/dev-test-iaas.md)]
-[!INCLUDE [Dev-Test deployment for testing PaaS solutions](../../includes/cards/dev-test-paas.md)]
-[!INCLUDE [Dev-Test deployment for testing microservice solutions](../../includes/cards/dev-test-microservice.md)]
 [!INCLUDE [DevOps in a hybrid environment](../../includes/cards/devops-in-a-hybrid-environment.md)]
 [!INCLUDE [DevSecOps in Azure](../../includes/cards/devsecops-in-azure.md)]
+[!INCLUDE [DevSecOps in GitHub](../../includes/cards/devsecops-in-github.md)]
 [!INCLUDE [DevTest Image Factory](../../includes/cards/dev-test-image-factory.md)]
+[!INCLUDE [DevTest and DevOps for IaaS solutions](../../includes/cards/dev-test-iaas.md)]
+[!INCLUDE [DevTest and DevOps for PaaS solutions](../../includes/cards/dev-test-paas.md)]
+[!INCLUDE [DevTest and DevOps for microservice solutions](../../includes/cards/dev-test-microservice.md)]
 [!INCLUDE [Immutable Infrastructure CI/CD using Jenkins and Terraform on Azure Virtual Architecture overview](../../includes/cards/immutable-infrastructure-cicd-using-jenkins-and-terraform-on-azure-virtual-architecture-overview.md)]
+[!INCLUDE [JMeter implementation reference for load testing pipeline solution](../../includes/cards/jmeter-load-testing-pipeline-implementation-reference.md)]
 [!INCLUDE [Java CI/CD using Jenkins and Azure Web Apps](../../includes/cards/java-cicd-using-jenkins-and-azure-web-apps.md)]
 [!INCLUDE [Run a Jenkins server on Azure](../../includes/cards/jenkins.md)]
+[!INCLUDE [Run containers in a hybrid environment](../../includes/cards/hybrid-containers.md)]
 [!INCLUDE [SharePoint Farm for Development Testing](../../includes/cards/sharepoint-farm-devtest.md)]
 [!INCLUDE [Sharing location in real time using low-cost serverless Azure services](../../includes/cards/signalr.md)]
+[!INCLUDE [Unified logging for microservices applications](../../includes/cards/unified-logging.md)]
 
 </ul>
 
@@ -271,26 +280,6 @@ Architecture diagrams, reference architectures, example scenarios, and solutions
 |--:|
 |<a href="#">back to top</a>|
 
-## Hybrid
-<ul class="grid">
-
-[!INCLUDE [Connect an on-premises network to Azure](../../includes/cards/hybrid-networking.md)]
-[!INCLUDE [Connect an on-premises network to Azure using ExpressRoute](../../includes/cards/expressroute-vpn-failover.md)]
-[!INCLUDE [Cross Cloud Scaling Architecture](../../includes/cards/cross-cloud-scaling.md)]
-[!INCLUDE [Cross-platform Chat](../../includes/cards/cross-platform-chat.md)]
-[!INCLUDE [Extend an on-premises network using ExpressRoute](../../includes/cards/expressroute.md)]
-[!INCLUDE [Extend an on-premises network using VPN](../../includes/cards/vpn.md)]
-[!INCLUDE [Hybrid Connection](../../includes/cards/hybrid-connectivity.md)]
-[!INCLUDE [Implement a hub-spoke network topology](../../includes/cards/shared-services.md)]
-[!INCLUDE [Secure and govern workloads with network level segmentation](../../includes/cards/network-level-segmentation.md)]
-[!INCLUDE [Troubleshoot a hybrid VPN connection](../../includes/cards/troubleshoot-vpn.md)]
-
-</ul>
-
-||
-|--:|
-|<a href="#">back to top</a>|
-
 ## Identity
 <ul class="grid">
 
@@ -300,6 +289,7 @@ Architecture diagrams, reference architectures, example scenarios, and solutions
 [!INCLUDE [Hybrid Identity](../../includes/cards/hybrid-identity.md)]
 [!INCLUDE [Integrate on-premises AD domains with Azure AD](../../includes/cards/azure-ad.md)]
 [!INCLUDE [Integrate on-premises AD with Azure](../../includes/cards/identity.md)]
+[!INCLUDE [Multitenant SaaS on Azure](../../includes/cards/multitenant-saas.md)]
 
 </ul>
 
@@ -313,7 +303,9 @@ Architecture diagrams, reference architectures, example scenarios, and solutions
 [!INCLUDE [Basic enterprise integration on Azure](../../includes/cards/basic-enterprise-integration.md)]
 [!INCLUDE [Enterprise business intelligence](../../includes/cards/enterprise-bi-synapse.md)]
 [!INCLUDE [Enterprise integration using queues and events](../../includes/cards/queues-events.md)]
-[!INCLUDE [Modernize .NET applications with Azure SQL DB and Azure App Service](../../includes/cards/net-app-modernization.md)]
+[!INCLUDE [Modernize .NET applications](../../includes/cards/net-app-modernization.md)]
+[!INCLUDE [On-premises data gateway for Azure Logic Apps](../../includes/cards/gateway-logic-apps.md)]
+[!INCLUDE [Patterns and implementations](../../includes/cards/patterns-and-implementations.md)]
 [!INCLUDE [Publishing internal APIs to external users](../../includes/cards/publish-internal-apis-externally.md)]
 
 </ul>
@@ -325,16 +317,28 @@ Architecture diagrams, reference architectures, example scenarios, and solutions
 ## Internet of Things
 <ul class="grid">
 
+[!INCLUDE [Attestation, authentication, and provisioning](../../includes/cards/attestation-provisioning.md)]
 [!INCLUDE [Azure IoT reference architecture](../../includes/cards/iot.md)]
+[!INCLUDE [Builders, developers, and operators](../../includes/cards/builders-developers-operators.md)]
 [!INCLUDE [COVID-19 Safe Solutions with IoT Edge](../../includes/cards/cctv-mask-detection.md)]
 [!INCLUDE [Cognizant Safe Buildings with IoT and Azure](../../includes/cards/safe-buildings.md)]
+[!INCLUDE [Condition Monitoring for Industrial IoT](../../includes/cards/condition-monitoring.md)]
 [!INCLUDE [Contactless IoT interfaces with Azure intelligent edge](../../includes/cards/contactless-interfaces.md)]
-[!INCLUDE [Controlling IoT devices using a Voice Assistant](../../includes/cards/iot-devices.md)]
+[!INCLUDE [Controlling IoT devices using a Voice Assistant](../../includes/cards/iot-controlling-devices-with-voice-assistant.md)]
+[!INCLUDE [Field and cloud edge gateways](../../includes/cards/field-cloud-edge-gateways.md)]
 [!INCLUDE [IoT Connected Platform for COVID-19 detection and prevention](../../includes/cards/iot-connected-platform.md)]
 [!INCLUDE [IoT and data analytics](../../includes/cards/big-data-with-iot.md)]
+[!INCLUDE [IoT application-to-device commands](../../includes/cards/cloud-to-device.md)]
+[!INCLUDE [IoT connected light, power, and internet for emerging markets](../../includes/cards/iot-power-management.md)]
+[!INCLUDE [IoT solution architecture](../../includes/cards/devices-platform-application.md)]
+[!INCLUDE [IoT solutions conceptual overview](../../includes/cards/introduction-to-solutions.md)]
 [!INCLUDE [IoT using Cosmos DB](../../includes/cards/iot-using-cosmos-db.md)]
+[!INCLUDE [Predictive Maintenance for Industrial IoT](../../includes/cards/iot-predictive-maintenance.md)]
+[!INCLUDE [Predictive maintenance with the intelligent IoT Edge](../../includes/cards/iot-predictive-maintenance.md)]
 [!INCLUDE [Process real-time vehicle data using IoT](../../includes/cards/realtime-analytics-vehicle-iot.md)]
+[!INCLUDE [Scale IoT solutions with application stamps](../../includes/cards/application-stamps.md)]
 [!INCLUDE [Secure your IoT SaaS app with the Microsoft identity platform](../../includes/cards/iot-aad.md)]
+[!INCLUDE [UVEN smart and secure disinfection and lighting](../../includes/cards/uven-disinfection.md)]
 
 </ul>
 
@@ -345,18 +349,25 @@ Architecture diagrams, reference architectures, example scenarios, and solutions
 ## Management and Governance
 <ul class="grid">
 
-[!INCLUDE [Archive on-premises data to cloud](../../includes/cards/backup-archive-on-premises.md)]
-[!INCLUDE [Back up on-premises applications and data to cloud](../../includes/cards/backup-archive-on-premises-applications.md)]
+[!INCLUDE [Azure Arc hybrid management and deployment for Kubernetes clusters](../../includes/cards/arc-hybrid-kubernetes.md)]
+[!INCLUDE [Azure Automation Update Management](../../includes/cards/azure-update-mgmt.md)]
+[!INCLUDE [Azure Automation in a hybrid environment](../../includes/cards/azure-automation-hybrid.md)]
+[!INCLUDE [Back up files and applications on Azure Stack Hub](../../includes/cards/azure-stack-backup.md)]
 [!INCLUDE [Build high availability into your BCDR strategy](../../includes/cards/build-high-availability-into-your-bcdr-strategy.md)]
 [!INCLUDE [Custom Data Sovereignty & Data Gravity Requirements](../../includes/cards/data-sovereignty-and-gravity.md)]
+[!INCLUDE [Disaster Recovery for Azure Stack Hub virtual machines](../../includes/cards/azure-stack-vm-dr.md)]
 [!INCLUDE [Enterprise deployment using App Services Environment](../../includes/cards/ase-standard-deployment.md)]
 [!INCLUDE [Enterprise-scale disaster recovery](../../includes/cards/disaster-recovery-enterprise-scale-dr.md)]
 [!INCLUDE [High availability and disaster recovery scenarios for IaaS apps.](../../includes/cards/iaas-high-availability-disaster-recovery.md)]
 [!INCLUDE [High availability enterprise deployment using App Services Environment](../../includes/cards/ase-high-availability-deployment.md)]
+[!INCLUDE [Hybrid availability and performance monitoring](../../includes/cards/hybrid-perf-monitoring.md)]
+[!INCLUDE [Manage configurations for Azure Arc enabled servers](../../includes/cards/azure-arc-hybrid-config.md)]
+[!INCLUDE [Manage hybrid Azure workloads using Windows Admin Center](../../includes/cards/hybrid-server-os-mgmt.md)]
 [!INCLUDE [Plan deployment for updating Windows VMs in Azure](../../includes/cards/wsus.md)]
 [!INCLUDE [Run a highly available SharePoint Server 2016 farm in Azure](../../includes/cards/sharepoint.md)]
 [!INCLUDE [SMB disaster recovery with Azure Site Recovery](../../includes/cards/disaster-recovery-smb-azure-site-recovery.md)]
 [!INCLUDE [SMB disaster recovery with Double-Take DR](../../includes/cards/disaster-recovery-smb-double-take-dr.md)]
+[!INCLUDE [Use Cobalt to create an extensible cloud framework](../../includes/cards/cobalt-extensible-cloud-framework.md)]
 
 </ul>
 
@@ -382,6 +393,7 @@ Architecture diagrams, reference architectures, example scenarios, and solutions
 
 [!INCLUDE [Adding a mobile front-end to a legacy app](../../includes/cards/adding-a-modern-web-and-mobile-frontend-to-a-legacy-claims-processing-application.md)]
 [!INCLUDE [Lift and shift to containers with AKS](../../includes/cards/migrate-existing-applications-with-aks.md)]
+[!INCLUDE [Migrate IBM mainframe applications to Azure with TmaxSoft OpenFrame](../../includes/cards/migrate-mainframe-apps-with-tmaxsoft-openframe.md)]
 [!INCLUDE [Modern Customer Support Portal](../../includes/cards/modern-customer-support-portal-powered-by-an-agile-business-process.md)]
 [!INCLUDE [Serverless Computing Solution for LOB Apps](../../includes/cards/onboarding-customers-with-a-cloud-native-serverless-architecture.md)]
 [!INCLUDE [Unlock Legacy Data with Azure Stack](../../includes/cards/unlock-legacy-data.md)]
@@ -409,11 +421,14 @@ Architecture diagrams, reference architectures, example scenarios, and solutions
 ## Mobile
 <ul class="grid">
 
+[!INCLUDE [Custom Business Processes](../../includes/cards/custom-business-processes.md)]
 [!INCLUDE [Custom Mobile Workforce App](../../includes/cards/custom-mobile-workforce-app.md)]
+[!INCLUDE [Line of Business Extension](../../includes/cards/lob.md)]
 [!INCLUDE [Scalable web and mobile applications using Azure Database for MySQL](../../includes/cards/scalable-web-and-mobile-applications-using-azure-database-for-mysql.md)]
 [!INCLUDE [Scalable web and mobile applications using Azure Database for PostgreSQL](../../includes/cards/scalable-web-and-mobile-applications-using-azure-database-for-postgresql.md)]
 [!INCLUDE [Social App for Mobile and Web with Authentication](../../includes/cards/social-mobile-and-web-app-with-authentication.md)]
 [!INCLUDE [Task-Based Consumer Mobile App](../../includes/cards/task-based-consumer-mobile-app.md)]
+[!INCLUDE [Web and Mobile Front Ends](../../includes/cards/front-end.md)]
 
 </ul>
 
@@ -426,10 +441,20 @@ Architecture diagrams, reference architectures, example scenarios, and solutions
 
 [!INCLUDE [Azure Firewall Architecture Guide](../../includes/cards/firewalls.md)]
 [!INCLUDE [Choose between virtual network peering and VPN gateways](../../includes/cards/vnet-peering.md)]
+[!INCLUDE [Connect an on-premises network to Azure](../../includes/cards/hybrid-networking.md)]
+[!INCLUDE [Connect an on-premises network to Azure using ExpressRoute](../../includes/cards/expressroute-vpn-failover.md)]
+[!INCLUDE [Connect standalone servers by using Azure Network Adapter](../../includes/cards/azure-network-adapter.md)]
 [!INCLUDE [Deploy highly available NVAs](../../includes/cards/nva-ha.md)]
+[!INCLUDE [Design a hybrid Domain Name System solution with Azure](../../includes/cards/hybrid-dns-infra.md)]
+[!INCLUDE [Extend an on-premises network using ExpressRoute](../../includes/cards/expressroute.md)]
+[!INCLUDE [Extend an on-premises network using VPN](../../includes/cards/vpn.md)]
 [!INCLUDE [Firewall and Application Gateway for virtual networks](../../includes/cards/firewall-application-gateway.md)]
 [!INCLUDE [Hub-spoke network topology in Azure](../../includes/cards/hub-spoke.md)]
+[!INCLUDE [Hybrid Connection](../../includes/cards/hybrid-connectivity.md)]
+[!INCLUDE [Implement a hub-spoke network topology](../../includes/cards/shared-services.md)]
 [!INCLUDE [Implement a secure hybrid network](../../includes/cards/secure-vnet-dmz.md)]
+[!INCLUDE [Secure and govern workloads with network level segmentation](../../includes/cards/network-level-segmentation.md)]
+[!INCLUDE [Troubleshoot a hybrid VPN connection](../../includes/cards/troubleshoot-vpn.md)]
 
 </ul>
 
@@ -443,7 +468,10 @@ Architecture diagrams, reference architectures, example scenarios, and solutions
 [!INCLUDE [Azure Active Directory IDaaS in Security Operations](../../includes/cards/azure-ad-security.md)]
 [!INCLUDE [Centralized app configuration and security](../../includes/cards/appconfig-key-vault.md)]
 [!INCLUDE [Computer forensics Chain of Custody in Azure](../../includes/cards/forensics.md)]
+[!INCLUDE [Homomorphic encryption with SEAL](../../includes/cards/homomorphic-encryption-seal.md)]
+[!INCLUDE [Hybrid Security Monitoring using Azure Security Center and Azure Sentinel](../../includes/cards/hybrid-security-monitoring.md)]
 [!INCLUDE [Real-time fraud detection](../../includes/cards/fraud-detection.md)]
+[!INCLUDE [Secure OAuth 2.0 On-Behalf-Of refresh tokens for web services](../../includes/cards/secure-refresh-tokens.md)]
 [!INCLUDE [Securely managed web applications](../../includes/cards/fully-managed-secure-apps.md)]
 [!INCLUDE [Security considerations for highly sensitive IaaS apps in Azure](../../includes/cards/high-security-iaas.md)]
 [!INCLUDE [Threat indicators for cyber threat intelligence in Azure Sentinel](../../includes/cards/sentinel-threat-intelligence.md)]
@@ -457,9 +485,13 @@ Architecture diagrams, reference architectures, example scenarios, and solutions
 ## Storage
 <ul class="grid">
 
+[!INCLUDE [Archive on-premises data to cloud](../../includes/cards/backup-archive-on-premises.md)]
+[!INCLUDE [Back up on-premises applications and data to cloud](../../includes/cards/backup-archive-on-premises-applications.md)]
 [!INCLUDE [HIPAA and HITRUST compliant health data AI](../../includes/cards/security-compliance-blueprint-hipaa-hitrust-health-data-ai.md)]
 [!INCLUDE [HPC Media Rendering](../../includes/cards/azure-batch-rendering.md)]
+[!INCLUDE [Hybrid file services](../../includes/cards/hybrid-file-services.md)]
 [!INCLUDE [Medical Data Storage Solutions](../../includes/cards/medical-data-storage.md)]
+[!INCLUDE [Using Azure file shares in a hybrid environment](../../includes/cards/azure-file-share.md)]
 
 </ul>
 
@@ -471,12 +503,15 @@ Architecture diagrams, reference architectures, example scenarios, and solutions
 <ul class="grid">
 
 [!INCLUDE [Architect scalable e-commerce web app](../../includes/cards/scalable-ecommerce-web-app.md)]
+[!INCLUDE [Azure Functions in a hybrid environment](../../includes/cards/azure-functions-hybrid.md)]
 [!INCLUDE [Basic web application](../../includes/cards/basic-web-app.md)]
+[!INCLUDE [Cross Cloud Scaling Architecture](../../includes/cards/cross-cloud-scaling.md)]
+[!INCLUDE [Cross-platform Chat](../../includes/cards/cross-platform-chat.md)]
 [!INCLUDE [E-commerce front end](../../includes/cards/ecommerce-scenario.md)]
 [!INCLUDE [E-commerce website running in secured App Service Environment](../../includes/cards/ecommerce-website-running-in-secured-ase.md)]
 [!INCLUDE [Highly available SharePoint farm](../../includes/cards/highly-available-sharepoint-farm.md)]
 [!INCLUDE [Highly available multi-region web application](../../includes/cards/multi-region.md)]
-[!INCLUDE [Hybrid SharePoint Farm with Office 365](../../includes/cards/sharepoint-farm-office-365.md)]
+[!INCLUDE [Hybrid SharePoint Farm with Microsoft 365](../../includes/cards/sharepoint-farm-microsoft-365.md)]
 [!INCLUDE [Intelligent product search engine for e-commerce](../../includes/cards/ecommerce-search.md)]
 [!INCLUDE [Migrate a web app using Azure APIM](../../includes/cards/apim-api-scenario.md)]
 [!INCLUDE [Multi-region N-tier application](../../includes/cards/multi-region-sql-server.md)]
@@ -493,6 +528,17 @@ Architecture diagrams, reference architectures, example scenarios, and solutions
 [!INCLUDE [Simple branded website](../../includes/cards/simple-branded-website.md)]
 [!INCLUDE [Simple digital marketing website](../../includes/cards/digital-marketing-smb.md)]
 [!INCLUDE [Web application monitoring on Azure](../../includes/cards/app-monitoring.md)]
+
+</ul>
+
+||
+|--:|
+|<a href="#">back to top</a>|
+
+## Windows Virtual Desktop
+<ul class="grid">
+
+[!INCLUDE [Windows Virtual Desktop for the enterprise](../../includes/cards/windows-virtual-desktop.md)]
 
 </ul>
 

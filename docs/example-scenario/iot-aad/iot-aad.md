@@ -81,7 +81,7 @@ For multi-tenant apps, sign-in requests for AAD accounts should be sent to the [
 
 ### Obtain user (or admin) consent
 
-When a user (or admin) logs in to a multi-tenant application for the first time, the application must ask for consent to be registered in the user's directory and access directory data it needs to run. For example, if an application needs to read calendar information about a user from Office 365, that user is required to consent to this access before the app can do so.
+When a user (or admin) logs in to a multi-tenant application for the first time, the application must ask for consent to be registered in the user's directory and access directory data it needs to run. For example, if an application needs to read calendar information about a user from Microsoft 365, that user is required to consent to this access before the app can do so.
 
 Developers can use the Azure AD consent framework to obtain consent via interactive prompts as part of the first time log in experience. The prompts ensure that users and administrators know exactly what data the app is requesting access to, and they can be confident that it isn't behaving with malicious intent. The consent framework is built on OAuth 2.0 and its various flows, such as authorization code grant and client credentials grant, using public or confidential clients. An example of the consent process is available in the [Azure Active Directory consent framework](/azure/active-directory/develop/consent-framework) document, as well as this [example multi-tenant application](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/blob/master/2-WebApp-graph-user/2-3-Multi-Tenant/README.md).
 

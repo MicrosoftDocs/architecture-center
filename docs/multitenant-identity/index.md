@@ -14,7 +14,7 @@ ms.subservice: reference-architecture
 
 This series of articles describes best practices for multitenancy, when using Azure AD for authentication and identity management.
 
-[![GitHub](../_images/github.png) Sample code][sample-application]
+[:::image type="icon" source="../_images/github.png" border="false"::: Sample code][sample-application]
 
 When you're building a multitenant application, one of the first challenges is managing user identities, because now every user belongs to a tenant. For example:
 
@@ -30,7 +30,7 @@ To accompany this series of articles, we created a complete [end-to-end implemen
 
 Let's say you're writing an enterprise SaaS application to be hosted in the cloud. Of course, the application will have users:
 
-![Users](./images/users.png)
+![Diagram showing individual users.](./images/users.png)
 
 But those users belong to organizations:
 
@@ -53,7 +53,7 @@ A *tenant* is a group of users. In a SaaS application, the tenant is a subscribe
 
 Typically, application data is shared among the users within a tenant, but not with other tenants.
 
-![Multitenant](./images/multitenant.png)
+![Diagram showing a Multitenant application.](./images/multitenant.png)
 
 Compare this architecture with a single-tenant architecture, where each tenant has a dedicated physical instance. In a single-tenant architecture, you add tenants by spinning up new instances of the app.
 

@@ -2,11 +2,11 @@
 
 <!-- markdownlint-disable MD033 -->
 
-<li class="grid-item item-column" data-categories="Analytics ">
+<li class="grid-item item-column" data-categories="Analytics Hybrid ">
 <article class="card">
     <div class="card-header has-margin-bottom-none" aria-hidden="true">
         <figure class="image diagram has-height-175 has-overflow-hidden level">
-            <a href="/azure/architecture/solution-ideas/articles/extend-your-on-premises-big-data-investments-with-hdinsight"><img src="/azure/architecture/browse/thumbs/extend-your-on-premises-big-data-investments-with-hdinsight.png" class="diagram" alt="Architecture Diagram" data-linktype="relative-path"></a>
+            <a href="/azure/architecture/solution-ideas/articles/extend-your-on-premises-big-data-investments-with-hdinsight"><img src="/azure/architecture/browse/thumbs/extend-your-on-premises-big-data-investments-with-hdinsight.png" class="diagram" alt="Thumbnail of Extend your on-premises big data investments with HDInsight Architectural Diagram." data-linktype="relative-path"></a>
         </figure>
     </div>
     <div class="card-content">

@@ -6,7 +6,7 @@
 <article class="card">
     <div class="card-header has-margin-bottom-none" aria-hidden="true">
         <figure class="image diagram has-height-175 has-overflow-hidden level">
-            <a href="/azure/architecture/reference-architectures/n-tier/n-tier-sql-server"><img src="/azure/architecture/browse/thumbs/n-tier-sql-server.png" class="diagram" alt="Architecture Diagram" data-linktype="relative-path"></a>
+            <a href="/azure/architecture/reference-architectures/n-tier/n-tier-sql-server"><img src="/azure/architecture/browse/thumbs/n-tier-sql-server.png" class="diagram" alt="Thumbnail of Windows N-tier application on Azure Architectural Diagram." data-linktype="relative-path"></a>
         </figure>
     </div>
     <div class="card-content">
@@ -14,7 +14,7 @@
             <p>Windows N-tier application on Azure</p>
         </a>
         <ul class="card-content-metadata">
-            <li>8/21/2019</li>
+            <li>9/25/2020</li>
             <li>13 min read</li>
         </ul>
         <p class="card-content-description">Implement a multi-tier architecture on Azure for availability, security, scalability, and manageability.</p>

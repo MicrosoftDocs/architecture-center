@@ -22,7 +22,7 @@ Each pattern describes the problem that the pattern addresses, considerations fo
 <!-- markdownlint-disable MD033 -->
 <table>
 <tr>
-    <td style="width: 64px; vertical-align: middle;"><a href="./category/availability.md"><img src="_images/category/availability.svg" alt="Availability" /></a></td>
+    <td style="width: 64px; vertical-align: middle;"><a href="./category/availability.md"><img src="_images/category/availability.svg" alt="Availability icon" /></a></td>
     <td>
         <h3><a href="./category/availability.md">Availability</a></h3>
         <p>Availability is the proportion of time that the system is functional and working, usually measured as a percentage of uptime. It can be affected by system errors, infrastructure problems, malicious attacks, and system load.  Cloud applications typically provide users with a service level agreement (SLA), so applications must be designed to maximize availability.</p>
@@ -43,7 +43,7 @@ Each pattern describes the problem that the pattern addresses, considerations fo
     </td>
 </tr>
 <tr>
-    <td style="width: 64px; vertical-align: middle;"><a href="./category/messaging.md"><img src="_images/category/messaging.svg" alt="Messaging" /></a></td>
+    <td style="width: 64px; vertical-align: middle;"><a href="./category/messaging.md"><img src="_images/category/messaging.svg" alt="Messaging icon" /></a></td>
     <td>
         <h3><a href="./category/messaging.md">Messaging</a></h3>
         <p>The distributed nature of cloud applications requires a messaging infrastructure that connects the components and services, ideally in a loosely coupled manner in order to maximize scalability. Asynchronous messaging is widely used, and provides many benefits, but also brings challenges such as the ordering of messages, poison message management, idempotency, and more.</p>
@@ -64,14 +64,14 @@ Each pattern describes the problem that the pattern addresses, considerations fo
     </td>
 </tr>
 <tr>
-    <td style="width: 64px; vertical-align: middle;"><a href="./category/resiliency.md"><img src="_images/category/resiliency.svg" alt="Resiliency" /></a></td>
+    <td style="width: 64px; vertical-align: middle;"><a href="./category/resiliency.md"><img src="_images/category/resiliency.svg" alt="Resiliency icon" /></a></td>
     <td>
         <h3><a href="./category/resiliency.md">Resiliency</a></h3>
         <p>Resiliency is the ability of a system to gracefully handle and recover from failures. The nature of cloud hosting, where applications are often multitenant, use shared platform services, compete for resources and bandwidth, communicate over the Internet, and run on commodity hardware means there is an increased likelihood that both transient and more permanent faults will arise. Detecting failures, and recovering quickly and efficiently, is necessary to maintain resiliency.</p>
     </td>
 </tr>
 <tr>
-    <td style="width: 64px; vertical-align: middle;"><a href="./category/security.md"><img src="_images/category/security.svg" alt="Security" /></a></td>
+    <td style="width: 64px; vertical-align: middle;"><a href="./category/security.md"><img src="_images/category/security.svg" alt="Security icon" /></a></td>
     <td>
         <h3><a href="./category/security.md">Security</a></h3>
         <p>Security is the capability of a system to prevent malicious or accidental actions outside of the designed usage, and to prevent disclosure or loss of information. Cloud applications are exposed on the Internet outside trusted on-premises boundaries, are often open to the public, and may serve untrusted users. Applications must be designed and deployed in a way that protects them from malicious attacks, restricts access to only approved users, and protects sensitive data.</p>

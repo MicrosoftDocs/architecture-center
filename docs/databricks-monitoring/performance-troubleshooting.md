@@ -74,7 +74,7 @@ The following graph shows a scheduler delay time (3.7 s) that exceeds the execut
 
 In this case, the problem was caused by having too many partitions, which caused a lot of overhead. Reducing the number of partitions lowered the scheduler delay time. The next graph shows that most of the time is spent executing the task.
 
-![Graph showing task metrics per stage](./_images/grafana-metrics-per-stage2.png)
+![Graph showing that reducing the number of partitions lowered the scheduler delay time.](./_images/grafana-metrics-per-stage2.png)
 
 ## Streaming throughput and latency
 
@@ -99,7 +99,7 @@ These metrics help to understand the work that each executor performs.
 
 These visualizations show how much each of these metrics contributes to overall executor processing.
 
-![Graph showing percentage metrics](./_images/grafana-percentage.png)
+![Visualizations showing how much each of these metrics contributes to overall executor processing.](./_images/grafana-percentage.png)
 
 **Shuffle metrics** are metrics related to data shuffling across the executors.
 
@@ -118,7 +118,7 @@ The stages in a job are executed sequentially, with earlier stages blocking late
 
 1. A host or group of hosts are running slow. Symptoms: High task, stage, or job latency and low cluster throughput. The summation of tasks latencies per host won't be evenly distributed. However, resource consumption will be evenly distributed across executors.
 
-1. Tasks have an expensive aggregation to execute (data skewing). Symptoms: High task, stage, or job and low cluster throughput, but the summation of latencies per host is evenly distributed. Resource consumption will be evenly distributed across executors.
+1. Tasks have an expensive aggregation to execute (data skewing). Symptoms: High task latency, high stage latency, high job latency, or low cluster throughput, but the summation of latencies per host is evenly distributed. Resource consumption will be evenly distributed across executors.
 
 1. If partitions are of unequal size, a larger partition may cause unbalanced task execution (partition skewing). Symptoms: Executor resource consumption is high compared to other executors running on the cluster. All tasks running on that executor will run slow and hold the stage execution in the pipeline. Those stages are said to be *stage barriers*.
 
@@ -130,6 +130,6 @@ Use the resource consumption metrics to troubleshoot partition skewing and misal
 
 For example, the following graph shows that the memory used by shuffling on the first two executors is 90X bigger than the other executors:
 
-![Graph showing percentage metrics](./_images/grafana-shuffle-memory.png)
+![Graph showing that the memory used by shuffling on the first two executors is 90X bigger than the other executors.](./_images/grafana-shuffle-memory.png)
 
 [config-cluster]: https://github.com/mspnp/spark-monitoring/blob/master/README.md

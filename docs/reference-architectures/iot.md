@@ -3,7 +3,7 @@ title: Azure IoT reference architecture
 description: Recommended architecture for IoT applications on Azure using PaaS (platform-as-a-service) components
 titleSuffix: Azure Reference Architectures
 author: doodlemania2
-ms.date: 01/09/2019
+ms.date: 09/10/2020
 ms.service: architecture-center
 ms.category:
   - iot
@@ -15,14 +15,13 @@ ms.subservice: reference-architecture
 
 This reference architecture shows a recommended architecture for IoT applications on Azure using PaaS (platform-as-a-service) components.
 
-![Diagram of the architecture](./_images/iot.png)
+![Diagram of the architecture](./_images/iot-refarch.svg)
 
 IoT applications can be described as **things** (devices) sending data that generates **insights**. These insights generate **actions** to improve a business or process. An example is an engine (the thing) sending temperature data. This data is used to evaluate whether the engine is performing as expected (the insight). The insight is used to proactively prioritize the maintenance schedule for the engine (the action).
 
-This reference architecture uses Azure PaaS (platform-as-a-service) components. Other options for building IoT solutions on Azure include:
+This reference architecture uses Azure PaaS (platform-as-a-service) components. Another recommended option for building IoT solutions on Azure is:
 
 - [Azure IoT Central](/azure/iot-central/). IoT Central is a fully managed SaaS (software-as-a-service) solution. It abstracts the technical choices and lets you focus on your solution exclusively. This simplicity comes with a tradeoff in being less customizable than a PaaS-based solution.
-- Using OSS components such as the SMACK stack (Spark, Mesos, Akka, Cassandra, Kafka) deployed on Azure VMs. This approach offers a great deal of control but is more complex.
 
 At a high level, there are two ways to process telemetry data, hot path and cold path. The difference has to do with requirements for latency and data access.
 
@@ -43,7 +42,7 @@ This architecture consists of the following components. Some applications may no
 
 **Machine learning** allows predictive algorithms to be executed over historical telemetry data, enabling scenarios such as predictive maintenance. For machine learning, we recommend [Azure Machine Learning](/azure/machine-learning/service/).
 
-**Warm path storage** holds data that must be available immediately from device for reporting and visualization. For warm path storage, we recommend [Cosmos DB](/azure/cosmos-db/introduction) or [Azure SQL Database](/azure/azure-sql/azure-sql-iaas-vs-paas-what-is-overview). Cosmos DB is a globally distributed, multi-model database. Azure SQL Database is a relational database-as-a-service (DBaaS) based on the latest stable version of Microsoft SQL Server. Depending on your specific workload and data processing requirements, these two options will cover all your warm path storage needs.
+**Warm path storage** holds data that must be available immediately from device for reporting and visualization. For warm path storage, we recommend [Cosmos DB](/azure/cosmos-db/introduction). Cosmos DB is a globally distributed, multi-model database. 
 
 **Cold path storage** holds data that is kept longer-term and is used for batch processing. For cold path storage, we recommend [Azure Blob Storage](/azure/storage/blobs/storage-blobs-introduction). Data can be archived in Blob storage indefinitely at low cost, and is easily accessible for batch processing.
 
@@ -52,6 +51,8 @@ This architecture consists of the following components. Some applications may no
 **Business process integration** performs actions based on insights from the device data. This could include storing informational messages, raising alarms, sending email or SMS messages, or integrating with CRM. We recommend using [Azure Logic Apps](/azure/logic-apps/logic-apps-overview) for business process integration.
 
 **User management** restricts which users or groups can perform actions on devices, such as upgrading firmware. It also defines capabilities for users in applications. We recommend using [Azure Active Directory](/azure/active-directory/) to authenticate and authorize users.
+
+**Security monitoring** [Azure Security Center for IoT](/azure/asc-for-iot/overview) provides an end-to-end security solution for IoT workloads and simplifies their protection by delivering unified visibility and control, adaptive threat prevention, and intelligent threat detection and response across workloads from leaf devices through Edge as well as up through the clouds.
 
 ## Scalability considerations
 
@@ -77,15 +78,7 @@ IoT Hub automatically partitions device messages based on the device ID. All of 
 - If you store and update a single document per device, the device ID is a good partition key. Writes are evenly distributed across the keys. The size of each partition is strictly bounded, because there is a single document for each key value.
 - If you store a separate document for every device message, using the device ID as a partition key would quickly exceed the 10-GB limit per partition. Message ID is a better partition key in that case. Typically you would still include device ID in the document for indexing and querying.
 
-**Azure SQL Database**. You have multiple options to scale an Azure SQL Database instance, depending on your workload and requirements, see [Azure SQL Database Scalability](/azure/sql-database/sql-database-scalability-index). Both single databases and managed instances can be scaled up (for compute or storage, independently) or scaled out, through read scale-out replicas or database sharding. Some of the features you may find relevant while designing IoT solutions with Azure SQL Database are:
-
-- A single instance can scale up to 128 vCores (with M-Series hardware configuration) or 100s of TBs (with Hyperscale service tier). This means ingesting 100Ks messages/sec and storing trillions of them in a single database instance, simplifying your data management operations. 
-- Multiple secondary replicas can be added to scale out read workloads and support 10Ks of concurrent queries on ingested data.
-- Where additional scalability is required, Azure SQL Database provides Elastic Database tools to partition messages (e.g. using device or message ID sharding keys) across multiple database instances, providing linear scale for compute and storage, see [database sharding](/azure/sql-database/sql-database-elastic-scale-introduction).
-- When ingesting messages from 100Ks devices, Azure SQL Database provides the ability to batch multiple requests into a single database interaction, increasing overall scalability and maximizing resource utilization. See [batching](/azure/sql-database/sql-database-use-batching-to-improve-performance) best practices for more details.
-- In-Memory technologies in Azure SQL Database let you achieve significant performance improvements with various workloads, including transactional, analytical and hybrid (HTAP). In-memory OLTP optimized tables help increasing number of transactions per second and reduce latency for scenarios like large data ingestion from IoT devices. Clustered ColumnStore indexes help reduce storage footprint through compression (up to 10 times) and improve performance for reporting and analytics queries on ingested messages. See [In-memory technologies](/azure/sql-database/sql-database-in-memory) for additional details.
-- Azure SQL Database scales well on both relational and non-relational data structures. Multi-model databases enable you to store and work with data represented in multiple data formats such as relational data, graphs, JSON/XML documents, key-value pairs, etc and still benefit from all capabilities described before, like In-memory technologies. See more on [multi-model](/azure/sql-database/sql-database-multi-model-features).
-- In many IoT scenarios, historical analysis of ingested data is an important part of database workload. Temporal Tables are a feature of Azure SQL Database that allows to track and analyze full history of your data points, without the need for custom coding. By keeping data closely related to time context, stored data points can be interpreted as valid only within the specific period. This property of Temporal Tables allows for efficient time-based analysis and getting insights from data evolution. See more information on [temporal tables](/azure/sql-database/sql-database-temporal-tables).
+**Azure Time Series Insights (TSI)** is an analytics, storage and visualization service for time-series data, providing capabilities including SQL-like filtering and aggregation, alleviating the need for user-defined functions. [Time Series Insights](/azure/time-series-insights/overview-what-is-tsi) provides a data explorer to visualize and query data as well as REST Query APIs. In addition to time series data, TSI is also well-suited for solutions that need to query aggregates over large sets of data. With support for multi layered storage, rich APIs, model and it’s integration with Azure IoT ecosystem, explorer for visualizations, and extensibility through Power BI, etc. TSI is our recommendation for time series data storage and analytics.
 
 ## Security considerations
 
@@ -207,7 +200,7 @@ For more information, see [Logic Apps pricing](https://azure.microsoft.com/prici
 
 For cold path storage, Azure Blob Storage is the most cost-effective option.
 
-For warm path storage, consider using Azure Cosmos DB or Azure SQL Database. For more information, see [Cosmos DB pricing](https://azure.microsoft.com/pricing/details/cosmos-db/) or [Azure SQL Database pricing](https://azure.microsoft.com/pricing/details/sql-database/single/).
+For warm path storage, consider using Azure Cosmos DB. For more information, see [Cosmos DB pricing](https://azure.microsoft.com/pricing/details/cosmos-db/).
 
 
 ## Next steps

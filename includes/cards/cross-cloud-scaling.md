@@ -2,11 +2,11 @@
 
 <!-- markdownlint-disable MD033 -->
 
-<li class="grid-item item-column" data-categories="Hybrid ">
+<li class="grid-item item-column" data-categories="Hybrid Web ">
 <article class="card">
     <div class="card-header has-margin-bottom-none" aria-hidden="true">
         <figure class="image diagram has-height-175 has-overflow-hidden level">
-            <a href="/azure/architecture/solution-ideas/articles/cross-cloud-scaling"><img src="/azure/architecture/browse/thumbs/cross-cloud-scaling.png" class="diagram" alt="Architecture Diagram" data-linktype="relative-path"></a>
+            <a href="/azure/architecture/solution-ideas/articles/cross-cloud-scaling"><img src="/azure/architecture/browse/thumbs/cross-cloud-scaling.png" class="diagram" alt="Thumbnail of Cross Cloud Scaling Architecture Architectural Diagram." data-linktype="relative-path"></a>
         </figure>
     </div>
     <div class="card-content">

@@ -22,7 +22,7 @@ Azure Cosmos DB is Microsoft’s globally distributed, multi-model database. Azu
 
 Cosmos DB is ideally suited for IoT solutions. Cosmos DB can ingest device telemetry data at high rates and can serve indexed queries back with low latency and high availability.
 
-Cosmos DB is a multi-model database with wire protocol–compatible API endpoints for Cassandra, MongoDB, SQL, Gremlin, Etcd, and Table along with built-in support for Jupyter notebooks.
+Cosmos DB is a multi-model database with wire protocol–compatible API endpoints for Cassandra, MongoDB, SQL, Gremlin, Etcd, and Table along with built-in support for Jupyter Notebook files.
 
 ## Architecture
 

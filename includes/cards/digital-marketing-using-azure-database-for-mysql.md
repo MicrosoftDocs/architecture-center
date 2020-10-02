@@ -6,7 +6,7 @@
 <article class="card">
     <div class="card-header has-margin-bottom-none" aria-hidden="true">
         <figure class="image diagram has-height-175 has-overflow-hidden level">
-            <a href="/azure/architecture/solution-ideas/articles/digital-marketing-using-azure-database-for-mysql"><img src="/azure/architecture/browse/thumbs/digital-marketing-using-azure-database-for-mysql.png" class="diagram" alt="Architecture Diagram" data-linktype="relative-path"></a>
+            <a href="/azure/architecture/solution-ideas/articles/digital-marketing-using-azure-database-for-mysql"><img src="/azure/architecture/browse/thumbs/digital-marketing-using-azure-database-for-mysql.png" class="diagram" alt="Thumbnail of Digital Marketing using Azure Database for MySQL Architectural Diagram." data-linktype="relative-path"></a>
         </figure>
     </div>
     <div class="card-content">
@@ -17,7 +17,7 @@
             <li>12/16/2019</li>
             <li>1 min read</li>
         </ul>
-        <p class="card-content-description">Engage with customers around the world with rich, personalized digital marketing experiences. Quickly build and launch digital campaigns that automatically scale based on customer demand.</p>
+        <p class="card-content-description">Use Azure Database for MySQL to engage with customers around the world with rich, personalized digital marketing experiences.</p>
         <div class="bottom-to-top-fade is-hidden-mobile"></div>
     </div>
 </article>

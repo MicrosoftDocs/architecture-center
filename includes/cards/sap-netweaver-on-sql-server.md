@@ -6,7 +6,7 @@
 <article class="card">
     <div class="card-header has-margin-bottom-none" aria-hidden="true">
         <figure class="image diagram has-height-175 has-overflow-hidden level">
-            <a href="/azure/architecture/solution-ideas/articles/sap-netweaver-on-sql-server"><img src="/azure/architecture/browse/thumbs/sap-netweaver-on-sql-server.png" class="diagram" alt="Architecture Diagram" data-linktype="relative-path"></a>
+            <a href="/azure/architecture/solution-ideas/articles/sap-netweaver-on-sql-server"><img src="/azure/architecture/browse/thumbs/sap-netweaver-on-sql-server.png" class="diagram" alt="Thumbnail of SAP NetWeaver on SQL Server Architectural Diagram." data-linktype="relative-path"></a>
         </figure>
     </div>
     <div class="card-content">

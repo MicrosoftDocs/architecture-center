@@ -6,7 +6,7 @@
 <article class="card">
     <div class="card-header has-margin-bottom-none" aria-hidden="true">
         <figure class="image diagram has-height-175 has-overflow-hidden level">
-            <a href="/azure/architecture/reference-architectures/data/enterprise-bi-synapse"><img src="/azure/architecture/browse/thumbs/enterprise-bi-synapse.png" class="diagram" alt="Architecture Diagram" data-linktype="relative-path"></a>
+            <a href="/azure/architecture/reference-architectures/data/enterprise-bi-synapse"><img src="/azure/architecture/browse/thumbs/enterprise-bi-synapse.png" class="diagram" alt="Thumbnail of Enterprise business intelligence Architectural Diagram." data-linktype="relative-path"></a>
         </figure>
     </div>
     <div class="card-content">
@@ -17,7 +17,7 @@
             <li>11/20/2019</li>
             <li>12 min read</li>
         </ul>
-        <p class="card-content-description">Use Azure to gain business insights from relational data stored on-premises.</p>
+        <p class="card-content-description">See an extract, load, and transform pipeline that moves data from an on-premises SQL Server database into Azure Synapse and transforms the data for analysis.</p>
         <div class="bottom-to-top-fade is-hidden-mobile"></div>
     </div>
 </article>
