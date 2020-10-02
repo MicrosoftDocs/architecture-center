@@ -34,13 +34,13 @@ If you have already decided to use Apache Kafka and want to know what the option
 
 Here is what a typical Lambda architecture would look like with different Kafka on Azure options for the ingestion phase and an exhaustive list of services from the Azure ecosystem supporting them.
 
-![Typical Lambda Architecture with Kafka on Azure options.](../media/move-azure-resources-architecture-diagram.png)
+![Typical Lambda Architecture with Kafka on Azure options.](../media/kafka-on-azure-architecture-diagram.png)
 
 Let us look at the options for Kafka on Azure one by one. The following diagram summarizes these options using the IaaS-PaaS Continuum.
 
 Ideally you would want to consider the PaaS-first approach. What this means is, you should consider whether your design requirements are met using the PaaS offering. If you come across a limitation, then move on to the next offering in this list.
 
-![Diagram showing the steps in a PaaS first approach with Kafka on Azure.](../media/move-azure-resources-architecture-diagram.png)
+![Diagram showing the steps in a PaaS first approach with Kafka on Azure.](../media/kafka-on-azure-paas-first-approach.png)
 
 
 ## Components
@@ -199,6 +199,40 @@ Cons
 
 ### Kafka on Azure Decision Guidance Matrix
 
+The decision matrix uses the following key:
+
+| Symbol                                                 | Feature Support      |
+|--------------------------------------------------------|--------------------|
+|:::image type="icon" source="../media/empty-star.png":::| Not supported natively or Not applicable
+|:::image type="icon" source="../media/half-star.png"::: | Support with limitations or via extensions or via custom code
+|:::image type="icon" source="../media/full-star.png"::: | Full native support
+|:::image type="icon" source="../media/green-background.png":::| Common decision factor
+
+
+
+| Feature | Confluent Cloud | Event Hubs + Kafka Head | HDInsight Kafka | Confluent Enterprise on Marketplace | Kafka on AKS | Azure VMs |
+|------------------------------------|:--------------------:|:--------------------:|:--------------------:|:--------------------:|:--------------------:|:--------------------:|
+| Ease of configuration/deployment   | :::image type="icon" source="../media/full-star.png"::: | :::image type="icon" source="../media/full-star-green-background.png"::: | :::image type="icon" source="../media/half-star.png"::: | :::image type="icon" source="../media/empty-star.png"::: | :::image type="icon" source="../media/empty-star.png"::: | :::image type="icon" source="../media/empty-star.png"::: | 
+| Simplicity of maintenance          | :::image type="icon" source="../media/full-star.png"::: | :::image type="icon" source="../media/full-star-green-background.png"::: | :::image type="icon" source="../media/half-star.png"::: | :::image type="icon" source="../media/empty-star.png"::: | :::image type="icon" source="../media/empty-star.png"::: | :::image type="icon" source="../media/empty-star.png"::: | 
+| Kafka native support               | :::image type="icon" source="../media/full-star.png"::: | :::image type="icon" source="../media/half-star.png"::: | :::image type="icon" source="../media/full-star.png"::: | :::image type="icon" source="../media/full-star.png"::: | :::image type="icon" source="../media/full-star.png"::: | :::image type="icon" source="../media/full-star.png"::: |  
+| Java, .NET, Python clients         | :::image type="icon" source="../media/full-star.png"::: | :::image type="icon" source="../media/full-star.png"::: | :::image type="icon" source="../media/full-star.png"::: | :::image type="icon" source="../media/full-star.png"::: | :::image type="icon" source="../media/full-star.png"::: | :::image type="icon" source="../media/full-star.png"::: |  
+| 100% managed solution              | :::image type="icon" source="../media/full-star-green-background.png"::: | :::image type="icon" source="../media/full-star-green-background.png"::: | :::image type="icon" source="../media/half-star.png"::: | :::image type="icon" source="../media/half-star.png"::: | :::image type="icon" source="../media/half-star.png"::: | :::image type="icon" source="../media/empty-star.png"::: |
+| Stream processing support          | :::image type="icon" source="../media/full-star.png"::: | :::image type="icon" source="../media/half-star.png"::: | :::image type="icon" source="../media/full-star-green-background.png"::: | :::image type="icon" source="../media/full-star.png"::: | :::image type="icon" source="../media/full-star.png"::: | :::image type="icon" source="../media/full-star.png"::: | 
+| Portability to other clouds        | :::image type="icon" source="../media/empty-star.png"::: | :::image type="icon" source="../media/empty-star.png"::: | :::image type="icon" source="../media/full-star.png"::: | :::image type="icon" source="../media/empty-star.png"::: | :::image type="icon" source="../media/full-star-green-background.png"::: | :::image type="icon" source="../media/full-star-green-background.png"::: |
+| Failure recovery                   | :::image type="icon" source="../media/full-star.png"::: | :::image type="icon" source="../media/full-star.png"::: | :::image type="icon" source="../media/empty-star.png"::: | :::image type="icon" source="../media/empty-star.png"::: | :::image type="icon" source="../media/empty-star.png"::: | :::image type="icon" source="../media/empty-star.png"::: | 
+| Meets low latency requirements     | :::image type="icon" source="../media/full-star.png"::: | :::image type="icon" source="../media/full-star.png"::: | :::image type="icon" source="../media/full-star.png"::: | :::image type="icon" source="../media/half-star.png"::: | :::image type="icon" source="../media/half-star.png"::: | :::image type="icon" source="../media/half-star.png"::: |
+| Meets high throughput requirements | :::image type="icon" source="../media/full-star.png"::: | :::image type="icon" source="../media/full-star.png"::: | :::image type="icon" source="../media/full-star-green-background.png"::: | :::image type="icon" source="../media/half-star.png"::: | :::image type="icon" source="../media/half-star.png"::: | :::image type="icon" source="../media/half-star.png"::: | 
+| Ecosystem support                  | :::image type="icon" source="../media/full-star-green-background.png"::: | :::image type="icon" source="../media/half-star.png"::: | :::image type="icon" source="../media/full-star.png"::: | :::image type="icon" source="../media/full-star.png"::: | :::image type="icon" source="../media/full-star.png"::: | :::image type="icon" source="../media/full-star.png"::: |
+| Extensibility and Flexibility      | :::image type="icon" source="../media/half-star.png"::: | :::image type="icon" source="../media/half-star.png"::: | :::image type="icon" source="../media/half-star.png"::: | :::image type="icon" source="../media/half-star.png"::: | :::image type="icon" source="../media/full-star-green-background.png"::: | :::image type="icon" source="../media/full-star-green-background.png"::: |
+| Supportability                     | :::image type="icon" source="../media/full-star.png"::: | :::image type="icon" source="../media/full-star.png"::: | :::image type="icon" source="../media/full-star.png"::: | :::image type="icon" source="../media/full-star.png"::: | :::image type="icon" source="../media/half-star.png"::: | :::image type="icon" source="../media/half-star.png"::: | 
+| Full feature parity                | :::image type="icon" source="../media/full-star.png"::: | :::image type="icon" source="../media/half-star.png"::: | :::image type="icon" source="../media/full-star-green-background.png"::: | :::image type="icon" source="../media/full-star-green-background.png"::: | :::image type="icon" source="../media/full-star.png"::: | :::image type="icon" source="../media/full-star-green-background.png"::: | 
+| Geo-replication                    | :::image type="icon" source="../media/empty-star.png"::: | :::image type="icon" source="../media/full-star-green-background.png"::: | :::image type="icon" source="../media/full-star-green-background.png"::: | :::image type="icon" source="../media/half-star.png"::: | :::image type="icon" source="../media/half-star.png"::: | :::image type="icon" source="../media/half-star.png"::: | 
+| Data replication                   | :::image type="icon" source="../media/half-star.png"::: | :::image type="icon" source="../media/half-star.png"::: | :::image type="icon" source="../media/half-star.png"::: | :::image type="icon" source="../media/half-star.png"::: | :::image type="icon" source="../media/half-star.png"::: | :::image type="icon" source="../media/half-star.png"::: | 
+| Kafka version support              | :::image type="icon" source="../media/half-star.png"::: | :::image type="icon" source="../media/half-star.png"::: | :::image type="icon" source="../media/half-star.png"::: | :::image type="icon" source="../media/half-star.png"::: | :::image type="icon" source="../media/full-star-green-background.png"::: | :::image type="icon" source="../media/full-star-green-background.png"::: | 
+| Integrated logging and monitoring  | :::image type="icon" source="../media/full-star.png"::: | :::image type="icon" source="../media/full-star.png"::: | :::image type="icon" source="../media/full-star.png"::: | :::image type="icon" source="../media/full-star.png"::: | :::image type="icon" source="../media/half-star.png"::: | :::image type="icon" source="../media/half-star.png"::: | 
+| Confluent schema registry          | :::image type="icon" source="../media/full-star.png"::: | :::image type="icon" source="../media/half-star.png"::: | :::image type="icon" source="../media/half-star.png"::: | :::image type="icon" source="../media/full-star-green-background.png"::: | :::image type="icon" source="../media/half-star.png"::: | :::image type="icon" source="../media/half-star-green-background.png"::: | 
+| Configurable message retention     | :::image type="icon" source="../media/half-star.png"::: | :::image type="icon" source="../media/half-star.png"::: | :::image type="icon" source="../media/half-star.png"::: | :::image type="icon" source="../media/full-star.png"::: | :::image type="icon" source="../media/full-star.png"::: | :::image type="icon" source="../media/full-star.png"::: |
+| Non-disruptive upgrades            | :::image type="icon" source="../media/full-star.png"::: | :::image type="icon" source="../media/full-star-green-background.png"::: | :::image type="icon" source="../media/half-star.png"::: | :::image type="icon" source="../media/empty-star.png"::: | :::image type="icon" source="../media/empty-star.png"::: | :::image type="icon" source="../media/empty-star.png"::: | 
 
 
 ## Next steps
