@@ -1481,6 +1481,8 @@ items:
         href: solution-ideas/articles/sharepoint-farm-microsoft-365.md
       - name: Intelligent product search engine for e-commerce
         href: example-scenario/apps/ecommerce-search.md
+      - name: Magento e-commerce in AKS
+        href: example-scenario/magento/magento-azure.md
       - name: Migrate a web app using Azure APIM
         href: example-scenario/apps/apim-api-scenario.md
       - name: Multi-region N-tier application
