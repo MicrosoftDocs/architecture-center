@@ -32,7 +32,7 @@ Magento is an open-source e-commerce platform written in PHP. This example scena
 
 ## Security considerations
 
-Here are some security considerations for this architecture:
+Here are some security considerations for this scenario:
 
 - Configure a [private link](https://azure.microsoft.com/services/private-link/) for MySQL so that the traffic between clients and MySQL isn't exposed to the public internet. For more information, see [What is Azure Private Link](/azure/private-link/private-link-overview).
 
@@ -62,7 +62,7 @@ When you create the AKS cluster, you can configure it to use Azure AD for user a
 
 ## Scalability considerations
 
-There are several ways to optimize scalability for this architecture:
+There are several ways to optimize scalability for this scenario:
 
 ### Media and static files
 
@@ -112,7 +112,7 @@ Limit access logging, to avoid performance issues and prevent exposing sensitive
 
 ## Availability considerations
 
-Consider these ways to optimize availability for this architecture:
+Consider these ways to optimize availability for this scenario:
 
 ### Health probes
 
@@ -141,9 +141,9 @@ Use resource quotas to limit the total resources allowed for a namespace, so the
 
 ## DevOps considerations
 
-Here are some operational considerations for this architecture:
+Here are some operational considerations for this scenario:
 
-- In this architecture, MySQL doesn't expose a public endpoint. If the build server stores configuration settings to the backend MySQL database, deploy that server into the same virtual network subnet that MySQL connects to via service endpoint.
+- In this scenario, MySQL doesn't expose a public endpoint. If the build server stores configuration settings to the backend MySQL database, be sure to deploy that server into the same virtual network subnet that MySQL connects to via service endpoint.
 
 - Use Azure Container Registry or another container registry like Docker Hub to store the private Docker images that are deployed to the cluster. AKS can authenticate with Azure Container Registry by using its Azure AD identity.
 
