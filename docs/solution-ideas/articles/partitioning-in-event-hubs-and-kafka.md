@@ -1,6 +1,6 @@
 ---
 title: Partitioning in Event Hubs and Kafka
-author: JKirsch1
+author: doodlemania2
 ms.date: 10/02/2020
 description: Learn about partitioning in Kafka and Event Hubs with Kafka. See how many partitions to use in ingestion pipelines and how to assign events to partitions.
 ms.custom: fcp
@@ -44,10 +44,15 @@ This reference architecture covers the following points:
 :::image-end:::
 
 - *Producers* publish data to the ingestion service, or *pipeline*. Event Hubs pipelines consist of *namespaces*. The Kafka equivalent is a *cluster*.
+
 - The pipeline distributes incoming events among *partitions*. Within each partition, events remain in production order. Events don't remain in sequence across partitions, however. The number of partitions can affect *throughput*, or the amount of data that passes through the system in a set period of time. Pipelines usually measure throughput in bits per second (bps), and sometimes in data packets per second (pps).
+
 - Partitions reside within named streams of events. Event Hubs calls these streams *event hubs*. In Kafka, they are *topics*.
+
 - *Consumers* are processes or applications that subscribe to topics. Each consumer reads a specific subset of the event stream. That subset can include more than one partition. However, each partition can only be assigned to one consumer at a time.
-- Multiple consumers can make up *consumer groups*. When a group subscribes to a topic, each consumer in the group has a separate view of the event stream. The applications work independently from each other, at their own pace and with their own offsets. The pipeline can also use consumer groups for load sharing.
+
+- Multiple consumers can make up *consumer groups*. When a group subscribes to a topic, each consumer in the group has a separate view of the event stream. The applications work independently from each other, at their own pace. The pipeline can also use consumer groups for load sharing.
+
 - Consumers process the feed of published events that they subscribe to. Consumers also engage in *checkpointing*. Through this process, subscribers use *offsets* to mark their position within a partition event sequence. An offset is a placeholder that works like a bookmark to identify the last event that the consumer read.
 
 ## Recommendations
@@ -72,7 +77,7 @@ It uses the following values:
 - `c`: The consumption throughput on a single partition.
 - `t`: The target throughput.
 
-For example, consider the following situation:
+For example, consider this situation:
 
 - A producer sends events at a rate of 1,000 events per second. For the formula, `p` is equal to 1 MBps.
 - A consumer receives events at a rate of 500 events per second, making `c` 0.5 MBps.
@@ -92,7 +97,7 @@ When measuring throughput, keep these points in mind:
 
 Another aspect of the partitioning strategy is the assignment policy. An event that arrives at a processing service goes to a partition. The assignment policy determines that partition.
 
-Each event stores its content in its value. Besides the value, each event also contains a key, as the following diagram shows:
+Each event stores its content in its *value*. Besides the value, each event also contains a *key*, as the following diagram shows:
 
 :::image type="complex" source="../media/pipeline-event-parts.png" alt-text="Architecture diagram showing the parts of an event. Each event, or message, consists of a key and a value. Together, multiple events form a stream." border="false":::
    At the center of the diagram are multiple pairs of boxes. A label below the boxes indicates that each pair represents a message. Each message contains a blue box labeled Key and a black box labeled Value. The messages are arranged horizontally. Arrows between messages that point from left to right indicate that the messages form a sequence. Above the messages is the label Stream. Brackets indicate that the sequence forms a stream.
@@ -294,7 +299,7 @@ c.Assign(new List<TopicPartition> {
 });
 ```
 
-As the following results show, the producer sent all messages to partition 2 in this case, and the consumer only read messages from partition 2:
+As these results show, the producer sent all messages to partition 2 in this case, and the consumer only read messages from partition 2:
 
 :::image type="content" source="../media/event-processing-results-specify-partition.png" alt-text="Screenshot showing producer and consumer logs. All events went to partition 2. They arrived in production order, and none contained a key." border="false":::
 
