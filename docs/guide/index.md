@@ -95,7 +95,7 @@ Our [best practices](/azure/architecture/best-practices) articles cover various 
 
 ### Security best practices
 
-Our [security best practices](https://docs.microsoft.com/en-us/security/compass/applications-services) describe how to ensure that the confidentiality, integrity, and availability of your application aren't compromised by malicious actors. 
+Our [security best practices](/security/compass/applications-services) describe how to ensure that the confidentiality, integrity, and availability of your application aren't compromised by malicious actors. 
 
 ## Quality pillars
 
