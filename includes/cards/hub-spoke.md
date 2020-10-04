@@ -14,8 +14,8 @@
             <p>Hub-spoke network topology in Azure</p>
         </a>
         <ul class="card-content-metadata">
-            <li>5/21/2020</li>
-            <li>11 min read</li>
+            <li>9/30/2020</li>
+            <li>7 min read</li>
         </ul>
         <p class="card-content-description">Learn how to implement a hub-spoke topology in Azure, where the hub is a virtual network and the spokes are virtual networks that peer with the hub.</p>
         <div class="bottom-to-top-fade is-hidden-mobile"></div>
