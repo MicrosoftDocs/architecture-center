@@ -55,7 +55,7 @@ Security is a prime concern for businesses that store any sort of custom or clie
 
 ## Next steps
 
-* [DevSecOps in GitHub](/azure/architecture/solution-ideas/articles/devsecops-in-github)
+* [DevSecOps in GitHub](./devsecops-in-github.md)
 
 ## Related resources
 

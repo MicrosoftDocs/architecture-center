@@ -14,7 +14,7 @@
             <p>Azure IoT reference architecture</p>
         </a>
         <ul class="card-content-metadata">
-            <li>1/09/2019</li>
+            <li>9/10/2020</li>
             <li>12 min read</li>
         </ul>
         <p class="card-content-description">Recommended architecture for IoT applications on Azure using PaaS (platform-as-a-service) components</p>

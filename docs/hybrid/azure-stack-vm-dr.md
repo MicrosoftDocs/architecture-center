@@ -105,7 +105,7 @@ As part of Azure Site Recovery configuration, you define the intended disaster r
 - App-consistent snapshot frequency. This setting determines the frequency (in hours) in which Azure Site Recovery generates application-consistent snapshots. An app-consistent snapshot represents a point-in-time snapshot of applications running in a protected VM. There is a limit of 12 app-consistent snapshots. For VMs running Windows Server, Azure Site Recovery leverages Volume Shadow Copy Service (VSS). Azure Site Recovery also supports app-consistent snapshots for Linux, but that requires implementing custom scripts. The scripts are used by the mobility agent when applying an app-consistent snapshot.
 
   >[!Note] 
-  > For details regarding implementing app-consistent snapshots on Azure Stack Hub VMs running Linux, refer to [General questions about Azure Site Recovery.](https://docs.microsoft.com/azure/site-recovery/site-recovery-faq#can-i-enable-replication-with-app-consistency-in-linux-servers)
+  > For details regarding implementing app-consistent snapshots on Azure Stack Hub VMs running Linux, refer to [General questions about Azure Site Recovery.](/azure/site-recovery/site-recovery-faq#can-i-enable-replication-with-app-consistency-in-linux-servers)
 
 For each disk of a protected Azure Stack Hub VM that you designate, data are replicated to a corresponding managed disk in Azure Storage. The disk stores the copy of the source disk and all the recovery point crash-consistent and app-consistent snapshots. As part of a failover, you choose a recovery point crash-consistent or app-consistent snapshot that should be used when attaching the managed disk to the Azure VM, which serves as a replica of the protected Azure Stack Hub VM.
 
@@ -132,8 +132,8 @@ Implementing the recommended solution is contingent on satisfying the following 
 - An Azure Stack Hub virtual network. All protected VMs must have direct connectivity to the VMs hosting the process server component (by default this is the configuration server VM).
 - An Azure Stack Hub Windows Server VM that will host the configuration server and a process server. The VM must belong to the same subscription and be attached to the same virtual network as the Azure Stack Hub VMs that need to be protected. In addition, the VM needs to:
 
-   - comply with [Site Recovery configuration server software and hardware requirements](https://docs.microsoft.com/azure/site-recovery/vmware-physical-azure-support-matrix#site-recovery-configuration-server) 
-   - satisfy external connectivity [network requirements](https://docs.microsoft.com/azure/site-recovery/vmware-azure-deploy-configuration-server#network-requirements) documentation.
+   - comply with [Site Recovery configuration server software and hardware requirements](/azure/site-recovery/vmware-physical-azure-support-matrix#site-recovery-configuration-server) 
+   - satisfy external connectivity [network requirements](/azure/site-recovery/vmware-azure-deploy-configuration-server#network-requirements) documentation.
 
    >[!Note] 
    > Additional storage and performance considerations for the configuration and process servers are described in more detail later in this architecture.
@@ -146,7 +146,7 @@ Implementing the recommended solution is contingent on satisfying the following 
    >[!Note] 
   > You can change the port used by the process server for both external and internal connectivity as part of its configuration when running Azure Site Recovery Unified Setup.
 
-- Azure Stack Hub VMs to be protected, running any of the [supported operating systems](https://docs.microsoft.com/azure/site-recovery/azure-stack-site-recovery) To protect Azure Stack Hub VMs that are running Windows Server operating systems, you must:
+- Azure Stack Hub VMs to be protected, running any of the [supported operating systems](/azure/site-recovery/azure-stack-site-recovery) To protect Azure Stack Hub VMs that are running Windows Server operating systems, you must:
   - Create a Windows account with administrative rights. You can specify this account when you enable Azure Site Recovery on these VMs. The process server uses this account to install the Azure Site Recovery Mobility service. In a workgroup environment, make sure to disable Remote User Access control on target Windows Server operating systems by setting the value of the **LocalAccountTokenFilterPolicy** **DWORD** registry entry in the **HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\System** key to 1.
   - Enable File and Printer Sharing and Windows Management Instrumentation rules in Windows Defender firewall.
 - To protect Azure Stack Hub VMs that are running Linux operating systems, you must:
@@ -179,7 +179,7 @@ Azure Stack Hub helps increase workload availability through resiliency inherent
 Similarly, you have the option to leverage resiliency of cloud-based components of Azure Site Recovery infrastructure. By default, Azure Recovery Services is geo-redundant, which means that its configuration is automatically replicated to an Azure region that is part of a pre-defined region pair. You have the option to change the replication settings to locally redundant if that is sufficient for your resiliency needs. Note that you can't change this option if the vault contains any protected items. The same resiliency option is available for any Azure Storage accounts with the standard performance tier, although it's possible to change it at any point.
 
 >[!Note] 
-> For the listing of Azure region pairs, refer to [Business continuity and disaster recovery (BCDR): Azure Paired Regions](https://docs.microsoft.com/azure/best-practices-availability-paired-regions).
+> For the listing of Azure region pairs, refer to [Business continuity and disaster recovery (BCDR): Azure Paired Regions](/azure/best-practices-availability-paired-regions).
 
 You can further enhance the degree of this resiliency by designing and implementing solutions which purpose is to extend the scope of workload protection. This is the added value provided by Azure Site Recovery. In the context of Azure Site Recovery running on Azure Stack Hub, there are two main aspects of workload availability that need to be explored in more detail:
 
@@ -195,7 +195,7 @@ It's self-evident that failover to Azure is at the core of availability consider
 To minimize potential data loss, you might consider:
 
 - Maximizing throughput and minimizing latency of the replication traffic by following scalability and performance considerations. For more information, refer to the next section of this reference architecture document.
-- Increasing the frequency of app-consistent recovery points for database workloads (up to the maximum of one recovery point per hour). App-consistent recovery points are created from app-consistent snapshots. App-consistent snapshots capture app data on disk and in memory. While this approach minimizes potential data loss, it has one major drawback. App-consistent snapshots require the use of [Volume Shadow Copy Service](https://docs.microsoft.com/windows-server/storage/file-server/volume-shadow-copy-service) on Windows or custom scripts on Linux, to quiesce locally installed apps. The capture process can have negative impacts on performance, especially if resource utilization is high. We do not recommend that you use low frequency for app-consistent snapshots for non-database workloads.
+- Increasing the frequency of app-consistent recovery points for database workloads (up to the maximum of one recovery point per hour). App-consistent recovery points are created from app-consistent snapshots. App-consistent snapshots capture app data on disk and in memory. While this approach minimizes potential data loss, it has one major drawback. App-consistent snapshots require the use of [Volume Shadow Copy Service](/windows-server/storage/file-server/volume-shadow-copy-service) on Windows or custom scripts on Linux, to quiesce locally installed apps. The capture process can have negative impacts on performance, especially if resource utilization is high. We do not recommend that you use low frequency for app-consistent snapshots for non-database workloads.
 
 The primary method of minimizing failover time involves the use of Azure Site Recovery recovery plans. A recovery plan orchestrates a failover between the primary and secondary sites, defining the sequence in which protected servers fail over. You can customize a plan by adding manual instructions and automated tasks. Its purpose is to make the process consistent, accurate, repeatable, and automated.
 
@@ -243,10 +243,10 @@ In Azure Site Recovery-based scenarios, failback, if properly implemented, doesn
 The optimal approach to minimizing the failback time, is to automate it.
 
 >[!Note] 
-> For more information regarding automating the failback procedure described in this section, refer to [Create VM disk storage in Azure Stack Hub](https://docs.microsoft.com/azure-stack/user/azure-stack-manage-vm-disks?view=azs-2002#use-powershell-to-add-multiple-disks-to-a-vm).
+> For more information regarding automating the failback procedure described in this section, refer to [Create VM disk storage in Azure Stack Hub](/azure-stack/user/azure-stack-manage-vm-disks?view=azs-2002#use-powershell-to-add-multiple-disks-to-a-vm).
 
 >[!Note] 
-> For more information regarding identifying the URI parameter of managed disks, refer to [Download a Windows VHD from Azure](https://docs.microsoft.com/azure/virtual-machines/windows/download-vhd).
+> For more information regarding identifying the URI parameter of managed disks, refer to [Download a Windows VHD from Azure](/azure/virtual-machines/windows/download-vhd).
 
 ### Workload-specific considerations
 
@@ -262,7 +262,7 @@ Alternatively, you have the option to use workload-specific replication mechanis
 - Simplifies workload-level failover, accommodating scenarios in which site-level failover isn't  required
 
 >[!Note] 
-> For more information regarding Azure Site Recovery workload-specific considerations, refer to [About disaster recovery for on-premises apps.](https://docs.microsoft.com/azure/site-recovery/site-recovery-workload)
+> For more information regarding Azure Site Recovery workload-specific considerations, refer to [About disaster recovery for on-premises apps.](/azure/site-recovery/site-recovery-workload)
 
 ## Scalability and performance considerations
 
@@ -278,7 +278,7 @@ When planning to deploy Azure Site Recovery on Azure Stack Hub, you need to cons
 | 12 vCPUs 2 sockets \* 6 cores @ 2\.5 GHz | 18 GB  | 600 GB     | 500 GB\-1 TB     | 100 to 150 machines |
 | 16 vCPUs 2 sockets \* 8 cores @ 2\.5 GHz | 32 GB  | 1 TB       | 1\-2 TB          | 150\-200 machines   |
 
-- Implement horizontal scaling. This involves provisioning or deprovisioning Azure Stack Hub VMs with the process server installed to match processing demands of protected Azure Stack Hub VMs. In general, if you have to scale your deployment to more than 200 source machines, or you have a total daily churn rate of more than two terabytes (TB), you need additional process servers to handle replication traffic. To estimate the number and configuration of additional process servers, refer to [Size recommendations for the process server](https://docs.microsoft.com/azure/site-recovery/site-recovery-plan-capacity-vmware#size-recommendations-for-the-process-server).
+- Implement horizontal scaling. This involves provisioning or deprovisioning Azure Stack Hub VMs with the process server installed to match processing demands of protected Azure Stack Hub VMs. In general, if you have to scale your deployment to more than 200 source machines, or you have a total daily churn rate of more than two terabytes (TB), you need additional process servers to handle replication traffic. To estimate the number and configuration of additional process servers, refer to [Size recommendations for the process server](/azure/site-recovery/site-recovery-plan-capacity-vmware#size-recommendations-for-the-process-server).
 
 - Modify replication policy. This involves changing parameters of the replication policy, with focus on app-consistent snapshots.
 
@@ -293,7 +293,7 @@ From the networking standpoint, there are several different methods to adjust ba
 - Modify throughput of the network connection to Azure. To accommodate larger volumes of replication traffic, you might consider leveraging Azure ExpressRoute with Microsoft peering for connections between Azure Stack Hub virtual networks and Azure Storage. Azure ExpressRoute extends on-premises networks into the Microsoft cloud over a private connection supplied by a connectivity provider. You can buy ExpressRoute circuits for a wide range of bandwidths, from 50 megabits per second (Mbps) to 100 gigabits per second.
 
    >[!Note] 
-  > For details regarding implementing Azure ExpressRoute in Azure Stack Hub scenarios, refer to [Connect Azure Stack Hub to Azure using Azure ExpressRoute](https://docs.microsoft.com/azure-stack/operator/azure-stack-connect-expressroute?view=azs-2002).
+  > For details regarding implementing Azure ExpressRoute in Azure Stack Hub scenarios, refer to [Connect Azure Stack Hub to Azure using Azure ExpressRoute](/azure-stack/operator/azure-stack-connect-expressroute?view=azs-2002).
 
 - Modify throttling of replication traffic on the process server. You can control how much bandwidth is used by the replication traffic on the VMs that are hosting process servers from the graphical interface of the Microsoft Azure Recovery Services agent. The supported capabilities include setting the limits for work and non-work hours, with the bandwidth values ranging from 512 kilobits per second to 1,023 Mbps. Alternatively, you can apply the same configuration by using the **Set-OBMachineSetting** PowerShell cmdlet.
 - Modify network bandwidth allocated per protected VM on the process server. To accomplish this, modify the value of **UploadThreadsPerVM** entry within the **HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows Azure Backup\\Replication** key. By default, the value is set to 4, but you can increase it to 32 if there's enough network bandwidth available.
@@ -308,7 +308,7 @@ The primary considerations regarding manageability of Azure Site Recovery-based 
 
 ### Implementation of Azure Site Recovery on Azure Stack Hub
 
-To implement Azure Site Recovery on Azure Stack Hub in a small to medium sized single-tenant environment, you can follow the manual provisioning process driven by the graphical interface of Recovery Services Vault in the Azure portal. For multi-tenant implementations, you might want to consider automating parts of the implementation process, because you will typically need to set up a separate configuration server VM and a separate Recovery Services vault for each tenant. You also have the option to automate deployment of the mobility agent by following the procedure described in [Prepare source machine for push installation of mobility agent](https://docs.microsoft.com/azure/site-recovery/vmware-azure-install-mobility-service).
+To implement Azure Site Recovery on Azure Stack Hub in a small to medium sized single-tenant environment, you can follow the manual provisioning process driven by the graphical interface of Recovery Services Vault in the Azure portal. For multi-tenant implementations, you might want to consider automating parts of the implementation process, because you will typically need to set up a separate configuration server VM and a separate Recovery Services vault for each tenant. You also have the option to automate deployment of the mobility agent by following the procedure described in [Prepare source machine for push installation of mobility agent](/azure/site-recovery/vmware-azure-install-mobility-service).
 
 ### Failover and failback procedures
 
@@ -327,7 +327,7 @@ Planning for and implementing disaster recovery of Azure Stack Hub VM-based work
 Make sure there'sa clear understanding of the roles and responsibilities attributed to application owners and operators in the context of protection and recovery. Users are responsible for protecting VMs. Operators are responsible for the operational status of the Azure Stack Hub infrastructure.
 
 >[!Note] 
-> For guidance regarding fine-grained delegation of permissions in Azure Site Recovery scenarios, refer to [Manage Site Recovery access with role-based access control (RBAC).](https://docs.microsoft.com/azure/site-recovery/site-recovery-role-based-linked-access-control)
+> For guidance regarding fine-grained delegation of permissions in Azure Site Recovery scenarios, refer to [Manage Site Recovery access with role-based access control (RBAC).](/azure/site-recovery/site-recovery-role-based-linked-access-control)
 
 ## Security considerations
 
@@ -338,7 +338,7 @@ Managing disaster recovery of user VM-based workloads in hybrid scenarios warran
   - It's possible for communication from the configuration server to Azure and from the process server to Azure to use TLS 1.1 or 1.0. To increase the level of security for hybrid connectivity, you should consider enforcing the use of TLS 1.2.
 
    >[!Note] 
-  > For details regarding configuring TLS 1.2-based encryption, refer to [Transport Layer Security (TLS) registry settings](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings) and [Update to enable TLS 1.1 and TLS 1.2 as default secure protocols in WinHTTP in Windows](https://support.microsoft.com/help/3140245/update-to-enable-tls-1-1-and-tls-1-2-as-default-secure-protocols-in-wi)
+  > For details regarding configuring TLS 1.2-based encryption, refer to [Transport Layer Security (TLS) registry settings](/windows-server/security/tls/tls-registry-settings) and [Update to enable TLS 1.1 and TLS 1.2 as default secure protocols in WinHTTP in Windows](https://support.microsoft.com/help/3140245/update-to-enable-tls-1-1-and-tls-1-2-as-default-secure-protocols-in-wi)
 
 - Encryption at rest. This includes Azure Storage and Azure VMs in the disaster recovery site.
   - Azure Storage is encrypted at rest for all storage accounts using 256-bit Advanced Encryption Standard encryption and is Federal Information Processing Standard 140-2 compliant. Encryption is enabled automatically and can't be disabled. By default, encryption uses Microsoft-managed keys, but customers have the option to use their own keys stored in an Azure Key vault.
