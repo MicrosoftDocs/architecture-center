@@ -27,15 +27,15 @@ Due to the recent COVID-19 pandemic, fewer customers have been making
 physical trips to the supermarkets as many are concerned with health
 risks and are practicing safe distancing. As a result, Contoso has also
 seen an increase in the usage of buy online, pickup in store (BOPIS).
-This is also often known as curbside pickup.
+This sales model is also often known as curbside pickup.
 
 In order to ensure that their customers get the freshest quality
 produce, Contoso will only pack temperature-controlled items
 when their customers arrive. Due to the rise in usage and time taken to
 pack fresh produce, there is a longer than usual waiting time for
-curbside pickup. This has caused an increased amount of customer
-dissatisfaction and surveys have shown that customers are choosing to
-use other retailers because of the long waiting times at Contoso.
+curbside pickup. These increased waiting times have caused an increased amount of customer
+dissatisfaction, and surveys have shown that customers are choosing to
+use other retailers.
 
 ## Business Outcomes
 
@@ -72,13 +72,13 @@ of their customers.
 -   *How can technology like Internet of Things (IoT) help solve your
     business challenges?*
 
-The table below provides a summary of common use cases and corresponding
+The following table provides a summary of common use cases and corresponding
 IoT solutions. Each use case is an example of how an IoT process pattern
 can be applied to real-world scenarios. 
 
 | Use case | Solutions | Pattern
 |---|---|---|
-| Obtain license plate details and cross-reference that with the respective customer order when the vehicle turns into the parking lot. To alert store associate immediately to start packing and preparing the order. | Use video analytics to detect license plates when the vehicle turns into the parking lot.  This information is reconciled with order management system and a task is sent to Teams which alerts and schedules a store associate to start packing. | [Monitor and manage loop](./monitor-manage-loop.md) -- The video analytics is part of the monitoring layer and the insights are actioned by the store associates as part of the manage pattern. |
+| Obtain license plate details and cross-reference that with the respective customer order when the vehicle turns into the parking lot. Alerts store associate immediately to start packing and preparing the order. | Use video analytics to detect license plates when the vehicle turns into the parking lot.  This information is reconciled with order management system and a task is sent to Teams, which alerts and schedules a store associate to start packing. | [Monitor and manage loop](./monitor-manage-loop.md) -- The video analytics is part of the monitoring layer and the insights are actioned by the store associates as part of the manage pattern. |
 | Notify customer that store has started packing and will deliver the order soon. | When store associate starts task, system will cross-check with geofence rule of the customer location. A notification will be sent to the customer to let them know that their delivery is on the way when the system detects that the customer is in the boundaries of the geofence. | [Monitor and manage loop](./monitor-manage-loop.md)  -- The geofence rule is monitoring the location of the customer and sending an alert when the customer is in the vicinity (manage) 
 
 ## Reference Architecture
@@ -114,13 +114,13 @@ can be applied to real-world scenarios.
     previous point) or it can be a standalone function in the absence of
     license plate information.
 
-7. Once the store associate picks up the task, the application will
+7. Once the store associate begins on the task, the application will
     send a notification to the customer to inform them of the order
     progress. Contoso has found that providing feedback to the customer
     is appreciated as it completes the communication loop with the
     customer and presents accountability in the process.
 
-8. Order pickup details are written back into the storage so that
+8. Order pickup details are written back into storage so that
     Contoso can understand the time taken to work on the order.
 
 9. Business intelligence is done using Azure Synapse and Power Platform
@@ -131,11 +131,10 @@ can be applied to real-world scenarios.
 
 **Privacy**
 
-Azure IoT Edge is selected as it is a runtime which allows
-container-based modules to be used and it helps to orchestrate these
-modules. The solution uses Azure Cognitive Services running on the edge
+Azure IoT Edge is selected as it's a runtime that allows
+the use and orchestration of container-based modules. The solution uses Azure Cognitive Services running on the edge
 device and only the license plate details are sent to the application.
-This ensures that no facial images or privacy data are sent to 
+This process ensures that no facial images or privacy data are sent to 
 storage.
 
 **Geofence**
@@ -148,7 +147,7 @@ This provides additional accuracy on the estimated time of arrival.
 
 
 -   [Azure IoT Edge](https://azure.microsoft.com/services/iot-edge/) runs analytics, applications on-premise to ensure
-    low latency, lower bandwidth usage and privacy (i.e. extract only
+    low latency, lower bandwidth usage, and privacy (that is, extract only
     the license plate details).
 
 -   [Live Video Analytics](https://azure.microsoft.com/services/media-services/live-video-analytics/) on IoT Edge offers the
@@ -170,8 +169,8 @@ This provides additional accuracy on the estimated time of arrival.
 
 -   [Azure Storage](https://azure.microsoft.com/services/storage/) is used to store raw data for analysis.
 
--   [Azure Functions](https://azure.microsoft.com/services/functions/) are a serverless application used to process the event
-    received and send it to a REST API on the curbside pickup
+-   [Azure Functions](https://azure.microsoft.com/services/functions/) are serverless applications used to process the events
+    received and send them to a REST API on the curbside pickup
     application.
 
 -   [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) provides a low-latency database with guaranteed availability and automatic scalability. The application can leverage this NoSQL
@@ -187,7 +186,7 @@ This provides additional accuracy on the estimated time of arrival.
     for BOPIS. The engineering team can leverage T-SQL to implement data
     warehousing. Azure Synapse provides a unified plane to manage
     analytics resources, monitor usage and activity, and enforce
-    security which is critical to Contoso.
+    security critical to Contoso.
 
 -   [Azure Maps](https://azure.microsoft.com/services/azure-maps/) provides geofencing as a service required to
     gauge customer proximity.
