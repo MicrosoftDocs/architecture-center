@@ -19,23 +19,15 @@ Event ingestion services offer solutions for high-scale event streaming. Many te
 - [Apache Kafka][Apache Kafka]: An open-source stream-processing platform.
 - [Event Hubs with Kafka][Use Azure Event Hubs from Apache Kafka applications]: An alternative to running your own Kafka cluster. This Event Hubs feature provides an endpoint that is compatible with Kafka APIs.
 
-No matter which option you choose, your solution needs to:
+No matter which option you choose, your solution needs to process events in parallel and be able to maintain event order. It also needs to balance loads and offer scalability.
 
-- Process events in parallel.
-- Be able to maintain event order.
-- Balance loads.
-- Offer scalability.
+Services that use [partitioning models][Partitions] meet all of these requirements. Event Hubs, Kafka, and Event Hubs with Kafka all use partitioning models. With these systems, you need strategies for the following decisions:
 
-Services that use [partitioning models][Partitions] meet all of these requirements. Such systems need a strategy to determine how many partitions to use and how to assign events to partitions.
+- How many partitions to use.
+- How to assign events to partitions.
+- How to assign partitions to subscribers.
 
-This reference architecture covers the following points:
-
-- Strategies for identifying the number of partitions to use.
-- The advantages and disadvantages of using additional partitions.
-- Strategies for assigning events to partitions.
-- The effects of partitioning on downstream data processing.
-- Differences between partitioning in Event Hubs and Kafka.
-- Code examples that illustrate concepts.
+This reference architecture discusses such strategies. It also points out differences between partitioning in Event Hubs and Kafka.
 
 ## Architecture
 
@@ -43,13 +35,13 @@ This reference architecture covers the following points:
    At the center of the diagram is a box labeled Kafka Cluster or Event Hub Namespace. Three smaller boxes sit inside that box. Each is labeled Topic or Event Hub, and each contains multiple rectangles labeled Partition. Above the main box are rectangles labeled Producer. Arrows point from the producers to the main box. Below the main box are rectangles labeled Consumer. Arrows point from the main box to the consumers and are labeled with various offset values. A single blue frame labeled Consumer Group surrounds two of the consumers, grouping them together.
 :::image-end:::
 
-- *Producers* publish data to the ingestion service, or *pipeline*. Event Hubs pipelines consist of *namespaces*. The Kafka equivalent is a *cluster*.
+- *Producers* publish data to the ingestion service, or *pipeline*. Event Hubs pipelines consist of *namespaces*. The Kafka equivalents are *clusters*.
 
 - The pipeline distributes incoming events among *partitions*. Within each partition, events remain in production order. Events don't remain in sequence across partitions, however. The number of partitions can affect *throughput*, or the amount of data that passes through the system in a set period of time. Pipelines usually measure throughput in bits per second (bps), and sometimes in data packets per second (pps).
 
 - Partitions reside within named streams of events. Event Hubs calls these streams *event hubs*. In Kafka, they are *topics*.
 
-- *Consumers* are processes or applications that subscribe to topics. Each consumer reads a specific subset of the event stream. That subset can include more than one partition. However, each partition can only be assigned to one consumer at a time.
+- *Consumers* are processes or applications that subscribe to topics. Each consumer reads a specific subset of the event stream. That subset can include more than one partition. However, the pipeline can assign each partition to only one consumer at a time.
 
 - Multiple consumers can make up *consumer groups*. When a group subscribes to a topic, each consumer in the group has a separate view of the event stream. The applications work independently from each other, at their own pace. The pipeline can also use consumer groups for load sharing.
 
@@ -61,27 +53,28 @@ Keep the following recommendations in mind when developing a partitioning strate
 
 ### Determine the number of partitions
 
-Deciding how many partitions to use is complex. Many factors come into play:
+Use these guidelines to decide how many partitions to use:
 
-- A solution's degree of parallelism depends on the number of partitions that are available. Each consumer reads from its assigned partition. So with more partitions, more consumers can receive events from a topic at the same time. More partitions then achieve more throughput.
-- Ideally, the number of partitions should equal or exceed the target throughput in megabytes.
-- The number of partitions should usually equal or exceed the number of consumers. Otherwise, starving of consumers results. For instance, suppose eight partitions are assigned to eight consumers. Any additional consumers that start subscribing will have to wait. However, a different strategy keeps one or two consumers ready to receive events when an existing consumer fails.
+- Use more partitions to achieve more throughput. Each consumer reads from its assigned partition. So with more partitions, more consumers can receive events from a topic at the same time.
+- Use at least as many partitions as the value of your target throughput in megabytes.
+- To avoid starving consumers, use at least as many partitions as consumers. For instance, suppose eight partitions are assigned to eight consumers. Any additional consumers that subscribe will have to wait. Alternatively, you can keep one or two consumers ready to receive events when an existing consumer fails.
+- Use more keys than partitions. Otherwise, some partitions won't receive any events, leading to unbalanced partition loads.
 
-This rough formula determines the number of partitions:
+You can also use this rough formula to determine the number of partitions:
 
 `max(t/p, t/c)`
 
 It uses the following values:
 
+- `t`: The target throughput.
 - `p`: The production throughput on a single partition.
 - `c`: The consumption throughput on a single partition.
-- `t`: The target throughput.
 
 For example, consider this situation:
 
-- A producer sends events at a rate of 1,000 events per second. For the formula, `p` is equal to 1 MBps.
-- A consumer receives events at a rate of 500 events per second, making `c` 0.5 MBps.
-- The ideal throughput is 2 MBps, setting `t` to 2 MBps.
+- The ideal throughput is 2 MBps. For the formula, `t` is 2 MBps.
+- A producer sends events at a rate of 1,000 events per second, making `p` 1 MBps.
+- A consumer receives events at a rate of 500 events per second, setting `c` to 0.5 MBps.
 
 With these values, the number of partitions is 4:
 
@@ -91,11 +84,11 @@ When measuring throughput, keep these points in mind:
 
 - The slowest consumer determines the consumption throughput. However, sometimes no information is available about downstream consumer applications. In this case, estimate the throughput by starting with one partition as a baseline. (Use this setup only in testing environments, not in production systems). Event Hubs with Standard tier pricing and one partition should produce throughput between 1 MBps and 20 MBps.
 
-- Consumers can consume events from an ingestion pipeline at a high rate only if producers send events at a comparable rate. To determine the total required capacity of the ingestion pipeline, it's therefore important to measure the producer's throughput, not just the consumer's.
+- Consumers can consume events from an ingestion pipeline at a high rate only if producers send events at a comparable rate. To determine the total required capacity of the ingestion pipeline, measure the producer's throughput, not just the consumer's.
 
 ### Distribute events to partitions
 
-Another aspect of the partitioning strategy is the assignment policy. An event that arrives at a processing service goes to a partition. The assignment policy determines that partition.
+Another aspect of the partitioning strategy is the assignment policy. An event that arrives at an ingestion service goes to a partition. The assignment policy determines that partition.
 
 Each event stores its content in its *value*. Besides the value, each event also contains a *key*, as the following diagram shows:
 
@@ -108,25 +101,29 @@ The key contains data about the event and can also play a role in the assignment
 Multiple approaches exist for assigning events to partitions:
 
 - By default, services distribute events among partitions in a round-robin fashion.
-- Producers can specify a partition ID with an event. The event then goes to the partition with that ID. This approach is useful when consumers are only interested in certain events. When those events flow to a single partition, the consumer can easily receive them by subscribing to that partition.
-- Producers can provide a value for the event key. When they do, a hashing-based partitioner determines a hash value from the key. The event then goes to the partition associated with that hash value. All events with the same key always arrive at the same partition.
+- Producers can specify a partition ID with an event. The event then goes to the partition with that ID.
+- Producers can provide a value for the event key. When they do, a hashing-based partitioner determines a hash value from the key. The event then goes to the partition associated with that hash value.
 
-Keep the following recommendations in mind when choosing an approach:
+Keep these recommendations in mind when choosing an assignment policy:
 
-- Keys are useful when consumers need to receive events in production order. Since all events with the same key go to the same partition, events with key values can maintain their order during processing. Consumers then receive them in that order.
-- If event grouping or ordering isn't required, it's best to avoid the hashing-based assignment strategy. With Kafka, the producer doesn't know the status of the destination partition. If a key routes an event to a partition that is down, delays or lost events can result. In Event Hubs, events with keys first pass through a gateway before proceeding to a partition. This approach handles incoming traffic in a more reliable way since it prevents events from going to unavailable partitions.
-- The shape of the data can influence the partitioning approach. Considering how the downstream architecture will distribute the data can also affect the decision.
-- If consumers aggregate data on a certain attribute, it makes sense to partition on that attribute, too.
-- When storage efficiency is a concern, partitioning on an attribute that concentrates the data can help to speed up storage operations.
-- Ingestion pipelines sometimes shard data to get around problems with resource bottlenecks. In these environments, efficient solutions align the partitioning with how the shards are split in the database.
+- Use partition IDs when consumers are only interested in certain events. When those events flow to a single partition, the consumer can easily receive them by subscribing to that partition.
+- Use keys when consumers need to receive events in production order. Since all events with the same key go to the same partition, events with key values can maintain their order during processing. Consumers then receive them in that order.
+- With Kafka, if event grouping or ordering isn't required, avoid keys. The producer doesn't know the status of the destination partition in Kafka. If a key routes an event to a partition that's down, delays or lost events can result. In Event Hubs, events with keys first pass through a gateway before proceeding to a partition. This approach prevents events from going to unavailable partitions.
+- The shape of the data can influence the partitioning approach. Consider how the downstream architecture will distribute the data when deciding on assignments.
+- If consumers aggregate data on a certain attribute, you should partition on that attribute, too.
+- When storage efficiency is a concern, partition on an attribute that concentrates the data to help speed up storage operations.
+- Ingestion pipelines sometimes shard data to get around problems with resource bottlenecks. In these environments, align the partitioning with how the shards are split in the database.
 
-### Partition rebalancing
+### Rebalance partitions
 
-Each consumer subscribes to at least one partition of a topic. Whenever consumers join or leave a particular topic, the pipeline rebalances the partitions. By default, Event Hubs and Kafka use a round robin approach for rebalancing. This method distributes all partitions evenly across all members. Kafka also offers three other strategies for rebalancing, each with its own advantages:
+When consumers subscribe or unsubscribe, the pipeline rebalances the assignment of partitions to consumers. By default, Event Hubs and Kafka use a round robin approach for rebalancing. This method distributes partitions evenly across members.
 
-- Range assignor: This strategy brings together partitions from different topics. It identifies topics that use the same number of partitions and the same key-partitioning logic. Then it joins partitions from those topics when making assignments to consumers.
-- Sticky assignor: This assignment is similar to round robin in that it ensures a uniform distribution. However, it minimizes partition movement during rebalancing.
-- Static assignment: With this approach, the pipeline uses partition IDs to assign specific partitions to specific consumers. The assignments don't trigger partition rebalances. Instead, the user is responsible for making sure that all partitions have subscribers.
+With Kafka, if you don't want the pipeline to automatically rebalance assignments, you can statically assign partitions to consumers. But you need to make sure that all partitions have subscribers and that the loads are balanced.
+
+Besides the default round robin strategy, Kafka offers two other strategies for automatic rebalancing:
+
+- Range assignor: Use this approach to bring together partitions from different topics. This assignment identifies topics that use the same number of partitions and the same key-partitioning logic. Then it joins partitions from those topics when making assignments to consumers.
+- Sticky assignor: Use this assignment to minimize partition movement. Like round robin, this strategy ensures a uniform distribution. However, it also preserves existing assignments during rebalancing.
 
 ## Considerations
 
@@ -134,32 +131,28 @@ Keep these points in mind when using a partitioning model.
 
 ### Drawbacks of high partition count
 
-There are several disadvantages to a large number of partitions:
+A large number of partitions can have an adverse affect on performance, availability, and scalability:
 
-- **File system limits**: In Kafka, *brokers* store event data and offsets in files. If you use a significant number of partitions, you'll also have a large number of open file handles. The underlying operating system may limit the number of open files. If you're in danger of exceeding that limit, you'll need to reconfigure that setting.
+- **File system limits**: In Kafka, *brokers* store event data and offsets in files. The more partitions you use, the more open file handles you'll have. If the operating system limits the number of open files, you may need to reconfigure that setting.
 
-- **Expensive I/O operations**: In Event Hubs, users don't face file system limitations. However, each partition manages its own Azure blob files and optimizes them in the background. With a large number of partitions, it can be expensive to maintain checkpoint data. The reason is that I/O operations can be time-consuming, and the storage API calls are proportional to the number of partitions.
+- **Expensive I/O operations**: In Event Hubs, users don't face file system limitations. However, each partition manages its own Azure blob files and optimizes them in the background. A large number of partitions makes it expensive to maintain checkpoint data. The reason is that I/O operations can be time-consuming, and the storage API calls are proportional to the number of partitions.
 
-- **Longer unavailability**: Using more partitions means that more physical resources are in operation. Depending on the client response, more failures can then occur. Kafka generally positions partitions on different brokers. When a broker fails, Kafka rebalances the partitions to avoid losing events. The more partitions there are to rebalance, the longer the failover takes, increasing unavailability. For this reason, it's best to limit the number of partitions to the low thousands.
+- **Longer unavailability**: Using more partitions means that more physical resources are in operation. Depending on the client response, more failures can then occur. Kafka generally positions partitions on different brokers. When a broker fails, Kafka rebalances the partitions to avoid losing events. The more partitions there are to rebalance, the longer the failover takes, increasing unavailability. For this reason, limit the number of partitions to the low thousands.
 
-- **Transient exceptions**: With more partitions, the load-balancing process has to work with more moving parts and more stress. *Transient exceptions* can result. These errors can occur when there are temporary disturbances, such as network issues or intermittent internet service. They can appear during an upgrade or load balancing, when Event Hubs sometimes moves partitions to different nodes. Clients should handle transient behavior by incorporating retries to minimize failures. The [EventProcessorClient in the .NET][Azure Event Hubs Event Processor client library for .NET] and [Java SDKs][Azure Event Hubs client library for Java] or the [EventHubConsumerClient in the Python][Azure Event Hubs client library for Python] and [JavaScript SDKs][Azure Event Hubs client library for Javascript] can simplify this process.
+- **Transient exceptions**: With more partitions, the load-balancing process has to work with more moving parts and more stress. *Transient exceptions* can result. These errors can occur when there are temporary disturbances, such as network issues or intermittent internet service. They can appear during an upgrade or load balancing, when Event Hubs sometimes moves partitions to different nodes. Clients should handle transient behavior by incorporating retries to minimize failures. Use the [EventProcessorClient in the .NET][Azure Event Hubs Event Processor client library for .NET] and [Java SDKs][Azure Event Hubs client library for Java] or the [EventHubConsumerClient in the Python][Azure Event Hubs client library for Python] and [JavaScript SDKs][Azure Event Hubs client library for Javascript] to simplify this process.
 
 - **Longer latency**: In Kafka, events are *committed* after the pipeline has replicated them across all in-sync replicas. This approach ensures a high availability of events. Since consumers only receive committed events, the replication process adds to the *latency*. In ingestion pipelines, this term refers to the time between when a producer publishes an event and a consumer reads it. According to [experiments that Confluent ran][How to choose the number of topics/partitions in a Kafka cluster?], replicating 1,000 partitions from one broker to another can take about 20 milliseconds. The end-to-end latency is then at least 20 milliseconds. When the number of partitions increases further, the latency also grows. This drawback doesn't apply to Event Hubs.
 
-- **Memory restrictions**: Each producer for Kafka and Event Hubs stores events in a buffer until a sizeable batch is available or until a specific amount of time passes. Then the producer sends the events to the ingestion pipeline. The producer maintains a buffer for each partition. When the number of partitions increases, the memory requirement of the client also expands. If consumers receive events in batches, they may also face the same issue. The situation can become problematic when consumers subscribe to a large number of partitions but have limited memory available for buffering.
+- **Memory restrictions**: Each producer for Kafka and Event Hubs stores events in a buffer until a sizeable batch is available or until a specific amount of time passes. Then the producer sends the events to the ingestion pipeline. The producer maintains a buffer for each partition. When the number of partitions increases, the memory requirement of the client also expands. If consumers receive events in batches, they may also face the same issue. When consumers subscribe to a large number of partitions but have limited memory available for buffering, problems can arise.
 
-### Additional considerations
+### Drawbacks of changing partition count
 
-Consider these additional points when implementing this architecture:
+In both Kafka and Event Hubs at the Dedicated tier level, you can change the number of partitions in an operating system. However, avoid making that change if you use keys to preserve event ordering. The reason involves the following facts:
 
-- Use more distinct keys than partitions. Otherwise, some partitions won't receive any events, leading to unbalanced partition loads.
-- In both Kafka and Event Hubs at the Dedicated tier level, you can change the number of partitions in an operating system. However, if you need to preserve event ordering or use key hashing, try to avoid changing the number of partitions. The reason involves the following facts:
-  - The pipeline maps an event to a partition based on the hash of the key.
-  - Events with the same key always go to the same partition. Customers rely on certain partitions and the order of the events they contain.
-  - When the number of partitions changes, the mapping can change. For instance, consider the following formula:  
-    `partition assignment = hash key % number of partitions`  
-    With this formula, the partition assignment can change when the number of partitions changes.
-  - Kafka and Event Hubs don't attempt to redistribute events that arrived at partitions before the shuffle. As a result, the guarantee no longer holds that events arrive at a certain partition in publication order.
+- Customers rely on certain partitions and the order of the events they contain.
+- When the number of partitions changes, the mapping of events to partitions can change. For instance, when the partition count changes, this formula can produce a different assignment:
+  `partition assignment = hash key % number of partitions`  
+- Kafka and Event Hubs don't attempt to redistribute events that arrived at partitions before the shuffle. As a result, the guarantee no longer holds that events arrive at a certain partition in publication order.
 
 ## Deploy this scenario
 
@@ -167,9 +160,9 @@ The following code examples demonstrate how to maintain throughput, distribute t
 
 ### Maintain throughput
 
-This first example involves log aggregation. The goal isn't to process events in order, but rather, to maintain a specific throughput.
+This example involves log aggregation. The goal isn't to process events in order, but rather, to maintain a specific throughput.
 
-You can use a Kafka client to implement producer and consumer methods. Since order isn't important, you can use the default partitioning assignment. There's no need to send messages to specific partitions. The following code illustrates these concepts:
+A Kafka client implements the producer and consumer methods. Since order isn't important, the code doesn't send messages to specific partitions. Instead, it uses the default partitioning assignment:
 
 ```csharp
 public static void RunProducer(string broker, string connectionString, string topic)
@@ -299,7 +292,7 @@ c.Assign(new List<TopicPartition> {
 });
 ```
 
-As these results show, the producer sent all messages to partition 2 in this case, and the consumer only read messages from partition 2:
+As these results show, the producer sent all messages to partition 2, and the consumer only read messages from partition 2:
 
 :::image type="content" source="../media/event-processing-results-specify-partition.png" alt-text="Screenshot showing producer and consumer logs. All events went to partition 2. They arrived in production order, and none contained a key." border="false":::
 
@@ -307,7 +300,7 @@ In this scenario, if you add another consumer instance to listen to this topic, 
 
 ### Preserve event order
 
-This final example involves bank transactions that a consumer needs to process in order. In this scenario, you can use the customer ID of each event as the key. For the event value, use the details of the transaction. The following code shows a simplified implementation of this case:
+This example involves bank transactions that a consumer needs to process in order. In this scenario, you can use the customer ID of each event as the key. For the event value, use the details of the transaction. The following code shows a simplified implementation of this case:
 
 ```csharp
 Producer code
