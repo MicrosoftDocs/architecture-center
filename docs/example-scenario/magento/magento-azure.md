@@ -128,7 +128,7 @@ Consider deploying the app to multiple regions or zones for higher availability.
 
 ### Resource constraints
 
-Resource contention can affect service availability. Define container resource constraints so that no single container can overwhelm the cluster memory and CPU resources. For non-container resources like threads or network connections, consider using the [Bulkhead pattern](/azure/architecture/patterns/bulkhead) to isolate resources.
+Resource contention can affect service availability. Define container resource constraints so that no single container can overwhelm the cluster memory and CPU resources. For non-container resources like threads or network connections, consider using the [Bulkhead pattern](../../patterns/bulkhead.md) to isolate resources.
 
 Use resource quotas to limit the total resources allowed for a namespace, so the front end can't starve the back-end services for resources or vice-versa.
 
@@ -137,7 +137,7 @@ Use resource quotas to limit the total resources allowed for a namespace, so the
 - Do capacity planning based on performance testing.
 - Make sure to over-provision services to avoid unnecessary cost.
 - Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate costs.
-- See other cost considerations in [Principles of cost optimization](/azure/architecture/framework/cost/overview) in the Microsoft Azure Well-Architected Framework.
+- See other cost considerations in [Principles of cost optimization](../../framework/cost/overview.md) in the Microsoft Azure Well-Architected Framework.
 
 ## DevOps considerations
 

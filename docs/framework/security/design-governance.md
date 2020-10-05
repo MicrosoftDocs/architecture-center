@@ -22,7 +22,7 @@ Before defining the policies, consider:
 
 Designate group(s) (or individual roles) for central functions that affect shared services and applications. 
 
-After the policies are set, continuously improve those standards incrementally. Make sure that the security posture doesn’t degrade over time by having auditing and monitoring compliance. For information about managing security standards of an organization, see [governance, risk, and compliance (GRC)](/azure/architecture/cloud-adoption/migrate/expanded-scope/governance-or-compliance).
+After the policies are set, continuously improve those standards incrementally. Make sure that the security posture doesn’t degrade over time by having auditing and monitoring compliance. For information about managing security standards of an organization, see [governance, risk, and compliance (GRC)](/azure/cloud-adoption-framework/migrate/azure-best-practices/governance-or-compliance).
 
 ## In this section
 |Article|Description|
@@ -31,4 +31,3 @@ After the policies are set, continuously improve those standards incrementally. 
 |[Reference model: Segmentation](design-segmentation.md)|Reference model and strategies of how the functions and teams can be segmented.|
 |[Management groups and permissions](design-management-groups.md)|Strategies using management groups to manage resources across multiple subscriptions consistently and efficiently.|
 |[Regulatory compliance](design-regulatory-compliance.md)|Guidance on standards published by law, authorities, and regulators.|
-
