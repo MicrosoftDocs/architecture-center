@@ -1,6 +1,6 @@
 items:
 - name: Azure Architecture Center
-  href: /azure/architecture/
+  href: ./index.yml
 - name: Architecture icons
   href: icons/index.md
 - name: Browse all Architectures
@@ -788,7 +788,7 @@ items:
         - name: Data storage
           href: data-guide/technology-choices/data-storage.md
         - name: Data store comparison
-          href: guide/technology-choices/data-store-comparison.md
+          href: ./guide/technology-choices/data-store-overview.md
         - name: Pipeline orchestration
           href: data-guide/technology-choices/pipeline-orchestration-data-movement.md
         - name: Real-time message ingestion

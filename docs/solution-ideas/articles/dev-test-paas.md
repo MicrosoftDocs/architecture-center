@@ -99,7 +99,7 @@ Tools like [Entity Framework](/ef/) can provide source control for database sche
 - While Terraform is a powerful environment management tool, one of its main features is its cross-platform capabilities. For applications that exist solely in Azure, consider using ARM templates instead of Terraform for resource deployments. ARM templates have direct Microsoft support, have their own tasks in Azure Pipelines, and may be able to deploy features or properties that aren't immediately available in Terraform.
 
 ## Next steps
-- [DevSecOps in Azure](/azure/architecture/solution-ideas/articles/devsecops-in-azure)
+- [DevSecOps in Azure](./devsecops-in-azure.md)
 - [DevTest and DevOps for IaaS solutions](dev-test-iaas.md)
 - [DevTest and DevOps for microservices](dev-test-microservice.md)
 - [Set up Azure DevOps](/azure/devops/get-started/)
