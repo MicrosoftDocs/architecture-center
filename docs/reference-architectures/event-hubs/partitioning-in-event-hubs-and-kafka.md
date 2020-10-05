@@ -31,7 +31,7 @@ This reference architecture discusses such strategies. It also points out differ
 
 ## Architecture
 
-:::image type="complex" source="/images/event-processing-service.png" alt-text="Architecture diagram showing the flow of events in an ingestion pipeline. Events flow from producers to a cluster or namespace and then to consumers." border="false":::
+:::image type="complex" source="./images/event-processing-service.png" alt-text="Architecture diagram showing the flow of events in an ingestion pipeline. Events flow from producers to a cluster or namespace and then to consumers." border="false":::
    At the center of the diagram is a box labeled Kafka Cluster or Event Hub Namespace. Three smaller boxes sit inside that box. Each is labeled Topic or Event Hub, and each contains multiple rectangles labeled Partition. Above the main box are rectangles labeled Producer. Arrows point from the producers to the main box. Below the main box are rectangles labeled Consumer. Arrows point from the main box to the consumers and are labeled with various offset values. A single blue frame labeled Consumer Group surrounds two of the consumers, grouping them together.
 :::image-end:::
 
@@ -39,7 +39,7 @@ This reference architecture discusses such strategies. It also points out differ
 
 - The pipeline distributes incoming events among *partitions*. Within each partition, events remain in production order. Events don't remain in sequence across partitions, however. The number of partitions can affect *throughput*, or the amount of data that passes through the system in a set period of time. Pipelines usually measure throughput in bits per second (bps), and sometimes in data packets per second (pps).
 
-- Partitions reside within named streams of events. Event Hubs calls these streams *event hubs*. In Kafka, they are *topics*.
+- Partitions reside within named streams of events. Event Hubs calls these streams *event hubs*. In Kafka, they're *topics*.
 
 - *Consumers* are processes or applications that subscribe to topics. Each consumer reads a specific subset of the event stream. That subset can include more than one partition. However, the pipeline can assign each partition to only one consumer at a time.
 
@@ -92,7 +92,7 @@ Another aspect of the partitioning strategy is the assignment policy. An event t
 
 Each event stores its content in its *value*. Besides the value, each event also contains a *key*, as the following diagram shows:
 
-:::image type="complex" source="/images/pipeline-event-parts.png" alt-text="Architecture diagram showing the parts of an event. Each event, or message, consists of a key and a value. Together, multiple events form a stream." border="false":::
+:::image type="complex" source="./images/pipeline-event-parts.png" alt-text="Architecture diagram showing the parts of an event. Each event, or message, consists of a key and a value. Together, multiple events form a stream." border="false":::
    At the center of the diagram are multiple pairs of boxes. A label below the boxes indicates that each pair represents a message. Each message contains a blue box labeled Key and a black box labeled Value. The messages are arranged horizontally. Arrows between messages that point from left to right indicate that the messages form a sequence. Above the messages is the label Stream. Brackets indicate that the sequence forms a stream.
 :::image-end:::
 
@@ -259,7 +259,7 @@ public static void RunConsumer(string broker, string connectionString, string co
 
 This code example produces the following results:
 
-:::image type="content" source="/images/event-processing-results-maintain-throughput.png" alt-text="Screenshot showing producer and consumer logs. Events arrived out of order, used a random pattern for partition assignment, and contained no keys." border="false":::
+:::image type="content" source="./images/event-processing-results-maintain-throughput.png" alt-text="Screenshot showing producer and consumer logs. Events arrived out of order, used a random pattern for partition assignment, and contained no keys." border="false":::
 
 In this case, the topic has four partitions. The following events took place:
 
@@ -294,7 +294,7 @@ c.Assign(new List<TopicPartition> {
 
 As these results show, the producer sent all messages to partition 2, and the consumer only read messages from partition 2:
 
-:::image type="content" source="/images/event-processing-results-specify-partition.png" alt-text="Screenshot showing producer and consumer logs. All events went to partition 2. They arrived in production order, and none contained a key." border="false":::
+:::image type="content" source="./images/event-processing-results-specify-partition.png" alt-text="Screenshot showing producer and consumer logs. All events went to partition 2. They arrived in production order, and none contained a key." border="false":::
 
 In this scenario, if you add another consumer instance to listen to this topic, the pipeline won't assign any partitions to it. The new consumer will starve until the existing consumer shuts down. The pipeline will then assign a different, active consumer to read from the partition. But the pipeline will only make that assignment if the new consumer isn't dedicated to another partition.
 
@@ -312,7 +312,7 @@ p.Produce(topic, new Message<int, string> { Key = i % 2, Value = value });
 
 This code produces the following results:
 
-:::image type="content" source="/images/event-processing-results-specify-key.png" alt-text="Screenshot showing producer and consumer logs. Events had keys that determined the partition they went to. Within partitions, events arrived in order." border="false":::
+:::image type="content" source="./images/event-processing-results-specify-key.png" alt-text="Screenshot showing producer and consumer logs. Events had keys that determined the partition they went to. Within partitions, events arrived in order." border="false":::
 
 As these results show, the producer only used two unique keys. The messages then went to only two partitions instead of all four. The pipeline guarantees that messages with the same key go to the same partition.
 
