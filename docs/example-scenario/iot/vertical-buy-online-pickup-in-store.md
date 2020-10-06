@@ -23,19 +23,19 @@ than 1000 stores located in both cities and suburbs.
 -   *What is the estimated impact caused by these issues?*
 -   *What are current operations like?*
 
-Due to the recent COVID-19 pandemic, fewer customers have been making
+With the recent COVID-19 pandemic, fewer customers have been making
 physical trips to the supermarkets as many are concerned with health
 risks and are practicing safe distancing. As a result, Contoso has also
 seen an increase in the usage of buy online, pickup in store (BOPIS).
-This is also often known as curbside pickup.
+This sales model is also often known as curbside pickup.
 
 In order to ensure that their customers get the freshest quality
-produce, Contoso will only pack temperature-controlled items
+produce, Contoso starts packing temperature-controlled items
 when their customers arrive. Due to the rise in usage and time taken to
 pack fresh produce, there is a longer than usual waiting time for
-curbside pickup. This has caused an increased amount of customer
-dissatisfaction and surveys have shown that customers are choosing to
-use other retailers because of the long waiting times at Contoso.
+curbside pickup. These increased waiting times have caused an increased amount of customer
+dissatisfaction, and surveys have shown that customers are choosing to
+use other retailers.
 
 ## Business Outcomes
 
@@ -57,10 +57,9 @@ near the outlet. This decreases customer waiting time, improving a key aspect of
 
 -   *What are key technical and non-technical requirements?*
 
-In accessing data on their customers' movements, Contoso must
-ensure personal privacy protection for their customers as an essential
-prerequisite as part of corporate accountability and given that their
-brand is built on trust.
+When accessing data of customers' movements, Contoso must
+ensure personal privacy protection for their customers. This is an essential
+prerequisite as part of regulatory requirements.
 
 There are cases where the vehicles license details do not match the
 database or that information is non-existent. To mitigate such data
@@ -72,7 +71,7 @@ of their customers.
 -   *How can technology like Internet of Things (IoT) help solve your
     business challenges?*
 
-The table below provides a summary of common use cases and corresponding
+The following table provides a summary of common use cases and corresponding
 IoT solutions. Each use case is an example of how an IoT process pattern
 can be applied to real-world scenarios. 
 
@@ -92,7 +91,7 @@ can be applied to real-world scenarios.
     running on the gateway. Azure Cognitive Services extracts only the
     license plate details and sends it to the cloud application.
 
-2.  Azure IoT Central is used as it is a fully managed solution. It provides
+2.  Azure IoT Central is used because it is a fully managed application platform. It provides
     device management and secure bi-directional communication.
 
 3.  License plate details are queued in Event hub and sent to an Azure
@@ -102,25 +101,25 @@ can be applied to real-world scenarios.
     application via Azure Functions. The serverless design allows
     Contoso to lower their infrastructure management and cost.
 
-5.  The license plate details are cross-referenced with the respective
-    order and within the customer relationship management system. When a
+5.  The license plate details are cross-referenced with the
+    order management system. When a
     match is confirmed, the order packing task is sent to Microsoft
     Teams. A store associate will be notified to start preparing the
     order immediately and deliver it to the customer upon arrival.
 
 6.  The curbside pickup application also uses Azure Maps geofence
-    triggers based on rules to start the order packing. This can be used
+    triggers based on rules to start the order packing. The triggers can be used
     to reconcile the license plate notification (described in the
     previous point) or it can be a standalone function in the absence of
     license plate information.
 
-7. Once the store associate picks up the task, the application will
+7. Once the store associate begins on the task, the application will
     send a notification to the customer to inform them of the order
-    progress. Contoso has found that providing feedback to the customer
+    progress. Customers have mentioned that this
     is appreciated as it completes the communication loop with the
     customer and presents accountability in the process.
 
-8. Order pickup details are written back into the storage so that
+8. Order pickup details are written back into storage so that
     Contoso can understand the time taken to work on the order.
 
 9. Business intelligence is done using Azure Synapse and Power Platform
@@ -131,24 +130,23 @@ can be applied to real-world scenarios.
 
 **Privacy**
 
-Azure IoT Edge is selected as it is a runtime which allows
-container-based modules to be used and it helps to orchestrate these
-modules. The solution uses Azure Cognitive Services running on the edge
+Azure IoT Edge is selected as it's a runtime that allows
+the use and orchestration of container-based modules. The solution uses Azure Cognitive Services running on the edge
 device and only the license plate details are sent to the application.
-This ensures that no facial images or privacy data are sent to 
+This process ensures that no facial images or privacy data are sent to 
 storage.
 
 **Geofence**
 
 The application uses Azure Maps, which allows Contoso to create geofence rules.  These rules provide
 another data point to confirm a customer's location.
-This provides additional accuracy on the estimated time of arrival.
+The geofence triggers provides additional accuracy on the estimated time of arrival.
 
 ## Components
 
 
 -   [Azure IoT Edge](https://azure.microsoft.com/services/iot-edge/) runs analytics, applications on-premise to ensure
-    low latency, lower bandwidth usage and privacy (i.e. extract only
+    low latency, lower bandwidth usage, and privacy (that is, extract only
     the license plate details).
 
 -   [Live Video Analytics](https://azure.microsoft.com/services/media-services/live-video-analytics/) on IoT Edge offers the
@@ -158,23 +156,21 @@ This provides additional accuracy on the estimated time of arrival.
 
 -   [Azure Cognitive Services](https://azure.microsoft.com/services/cognitive-services/) allows the AI model to run on the
     edge to adhere to privacy regulations and lower the bandwidth
-    required. Contoso can leverage the service without spending
+    required. Contoso can utilize the service without spending
     engineering efforts for creating and training the model.
 
--   [Azure IoT Central](https://azure.microsoft.com/services/iot-central/) is a fully managed application platform,
-    so Contoso spends less time building highly available and scalable
-    infrastructure and lowers the operation efforts.
+-   [Azure IoT Central](https://azure.microsoft.com/services/iot-central/) is a fully managed application platform that reduces the burden and cost of developing, managing, and maintaining enterprise-grade IoT solutions.
 
 -   [Event Hubs](https://azure.microsoft.com/services/event-hubs/) can be used to queue the events sent to the curbside pickup
-    application. This creates decoupling for consumption.
+    application. Event Hubs creates decoupling for consumption in a distributed application.
 
 -   [Azure Storage](https://azure.microsoft.com/services/storage/) is used to store raw data for analysis.
 
--   [Azure Functions](https://azure.microsoft.com/services/functions/) are a serverless application used to process the event
-    received and send it to a REST API on the curbside pickup
+-   [Azure Functions](https://azure.microsoft.com/services/functions/) is a serverless service used to process the events
+    received and send them to a REST API on the curbside pickup
     application.
 
--   [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) provides a low-latency database with guaranteed availability and automatic scalability. The application can leverage this NoSQL
+-   [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) provides a low-latency database with guaranteed availability and automatic scalability. The application can use a NoSQL
     database for fast writes and reads anywhere in the world with
      multi-master global distribution.
 
@@ -187,7 +183,7 @@ This provides additional accuracy on the estimated time of arrival.
     for BOPIS. The engineering team can leverage T-SQL to implement data
     warehousing. Azure Synapse provides a unified plane to manage
     analytics resources, monitor usage and activity, and enforce
-    security which is critical to Contoso.
+    security critical to Contoso.
 
 -   [Azure Maps](https://azure.microsoft.com/services/azure-maps/) provides geofencing as a service required to
     gauge customer proximity.
