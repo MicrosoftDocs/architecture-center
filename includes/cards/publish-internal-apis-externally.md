@@ -6,7 +6,7 @@
 <article class="card">
     <div class="card-header has-margin-bottom-none" aria-hidden="true">
         <figure class="image diagram has-height-175 has-overflow-hidden level">
-            <a href="/azure/architecture/example-scenario/apps/publish-internal-apis-externally"><img src="/azure/architecture/browse/thumbs/publish-internal-apis-externally.png" class="diagram" alt="Architecture Diagram" data-linktype="relative-path"></a>
+            <a href="/azure/architecture/example-scenario/apps/publish-internal-apis-externally"><img src="/azure/architecture/browse/thumbs/publish-internal-apis-externally.png" class="diagram" alt="Thumbnail of Publishing internal APIs to external users Architectural Diagram." data-linktype="relative-path"></a>
         </figure>
     </div>
     <div class="card-content">

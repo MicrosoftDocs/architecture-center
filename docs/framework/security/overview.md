@@ -37,7 +37,7 @@ These are the topics we cover in the security pillar of the Microsoft Azure Well
 <!-- security links -->
 
 [role]: ./role-of-security.md
-[app]: ./applications-services.md
+[app]: ./design-apps-services.md
 [compliance]: ./governance.md
 [identity]: ./design-identity.md
 [network]: ./network-security-containment.md

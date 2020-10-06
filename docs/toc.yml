@@ -1,6 +1,6 @@
 items:
 - name: Azure Architecture Center
-  href: /azure/architecture/
+  href: ./index.yml
 - name: Architecture icons
   href: icons/index.md
 - name: Browse all Architectures
@@ -317,16 +317,20 @@ items:
       href: framework/security/security-principles.md      
     - name: Design
       items:
-      - name: Gather the security requirements
-        href: framework/security/architecture-type.md
-      - name: Key security strategies
-        href: framework/security/resilience.md
-      - name: Governance and administration
-        href: framework/security/governance.md
-      - name: Regulatory compliance
-        href: framework/security/law-authority.md
-      - name: Administration
-        href: framework/security/critical-impact-accounts.md        
+      - name: Governance
+        items: 
+        - name: Overview
+          href: framework/security/design-governance.md
+        - name: Team roles and responsibilities
+          href: framework/security/design-role-definitions.md          
+        - name: Segmentation strategy
+          href: framework/security/design-segmentation.md
+        - name: Management groups 
+          href: framework/security/design-management-groups.md          
+        - name: Administration
+          href: framework/security/design-admins.md
+        - name: Regulatory compliance
+          href: framework/security/design-regulatory-compliance.md
       - name: Identity
         items:
           - name: Identity and access management
@@ -784,7 +788,7 @@ items:
         - name: Data storage
           href: data-guide/technology-choices/data-storage.md
         - name: Data store comparison
-          href: guide/technology-choices/data-store-comparison.md
+          href: ./guide/technology-choices/data-store-overview.md
         - name: Pipeline orchestration
           href: data-guide/technology-choices/pipeline-orchestration-data-movement.md
         - name: Real-time message ingestion
@@ -1431,6 +1435,8 @@ items:
         href: example-scenario/secrets/secure-refresh-tokens.md
       - name: Securely managed web apps
         href: example-scenario/apps/fully-managed-secure-apps.md
+      - name: Web app private database connectivity
+        href: example-scenario/private-web-app/private-web-app.md
       - name: Virtual network integrated microservices
         href: example-scenario/integrated-multiservices/virtual-network-integration.md
       - name: Virtual Network security options
@@ -1471,10 +1477,12 @@ items:
         href: solution-ideas/articles/highly-available-sharepoint-farm.md
       - name: Highly available multi-region web application
         href: reference-architectures/app-service-web-app/multi-region.md
-      - name: Hybrid SharePoint farm with Office 365
-        href: solution-ideas/articles/sharepoint-farm-office-365.md
+      - name: Hybrid SharePoint farm with Microsoft 365
+        href: solution-ideas/articles/sharepoint-farm-microsoft-365.md
       - name: Intelligent product search engine for e-commerce
         href: example-scenario/apps/ecommerce-search.md
+      - name: Magento e-commerce in AKS
+        href: example-scenario/magento/magento-azure.md
       - name: Migrate a web app using Azure APIM
         href: example-scenario/apps/apim-api-scenario.md
       - name: Multi-region N-tier application

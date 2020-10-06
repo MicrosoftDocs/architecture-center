@@ -6,7 +6,7 @@
 <article class="card">
     <div class="card-header has-margin-bottom-none" aria-hidden="true">
         <figure class="image diagram has-height-175 has-overflow-hidden level">
-            <a href="/azure/architecture/example-scenario/dronerescue/vision-classifier-model-with-custom-vision"><img src="/azure/architecture/browse/thumbs/vision-classifier-model-with-custom-vision.png" class="diagram" alt="Architecture Diagram" data-linktype="relative-path"></a>
+            <a href="/azure/architecture/example-scenario/dronerescue/vision-classifier-model-with-custom-vision"><img src="/azure/architecture/browse/thumbs/vision-classifier-model-with-custom-vision.png" class="diagram" alt="Thumbnail of Vision classifier model with Azure Custom Vision Cognitive Service Architectural Diagram." data-linktype="relative-path"></a>
         </figure>
     </div>
     <div class="card-content">

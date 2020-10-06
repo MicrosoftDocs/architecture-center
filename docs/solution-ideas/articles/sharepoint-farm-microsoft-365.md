@@ -1,19 +1,19 @@
 ---
-title: Hybrid SharePoint Farm with Office 365
+title: Hybrid SharePoint Farm with Microsoft 365
 titleSuffix: Azure Solution Ideas
 author: doodlemania2
 ms.date: 12/16/2019
-description: Deliver highly available intranet capability by deploying SharePoint and sharing hybrid workloads with Office 365. Setup this solution with step-by-step instructions.
-ms.custom: acom-architecture, hybrid-infrastructure, sharepoint hybrid, sharepoint hybrid architecture, sharepoint farm solution, office 365 sharepoint hybrid, sharepoint hybrid solution, interactive-diagram, 'https://azure.microsoft.com/solutions/architecture/sharepoint-farm-office-365/'
+description: Deliver highly available intranet capability by deploying SharePoint and sharing hybrid workloads with Microsoft 365. Setup this solution with step-by-step instructions.
+ms.custom: acom-architecture, hybrid-infrastructure, sharepoint hybrid, sharepoint hybrid architecture, sharepoint farm solution, microsoft 365 sharepoint hybrid, sharepoint hybrid solution, interactive-diagram, 'https://azure.microsoft.com/solutions/architecture/sharepoint-farm-microsoft-365/'
 ms.service: architecture-center
 ms.category:
   - web
   - hybrid
 ms.subservice: solution-idea
-social_image_url: /azure/architecture/solution-ideas/articles/media/sharepoint-farm-office-365.png
+social_image_url: /azure/architecture/solution-ideas/articles/media/sharepoint-farm-microsoft-365.png
 ---
 
-# Hybrid SharePoint Farm with Office 365
+# Hybrid SharePoint Farm with Microsoft 365
 
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
@@ -21,8 +21,8 @@ This solution provides a highly available deployment of SharePoint using a load 
 
 ## Architecture
 
-![Architecture diagram](../media/sharepoint-farm-office-365.png)
-*Download an [SVG](../media/sharepoint-farm-office-365.svg) of this architecture.*
+![Architecture diagram](../media/sharepoint-farm-microsoft-365.png)
+*Download an [SVG](../media/sharepoint-farm-microsoft-365.svg) of this architecture.*
 
 ## Data Flow
 
@@ -32,10 +32,10 @@ This solution provides a highly available deployment of SharePoint using a load 
 1. Deploy SQL Server Always on for HA support for the SharePoint farm.
 1. Deploy SharePoint Severs. In this scenario we are using 2 Frontend with Distributed Cache and 2 Application with Search roles. This give us high availability.
 1. Install Azure AD Connect on an on-premises server to synchronize your identities to Azure Active Directory.
-1. Optionally configure Active Directory Federation Services on premises to support federated authentication to Office 365.
+1. Optionally configure Active Directory Federation Services on premises to support federated authentication to Microsoft 365.
 1. Deploy ExpressRoute or setup a site-to-site VPN link for administrative access to the servers hosted in Azure IaaS.
 1. Setup and provision external access to the Hybrid farm hosted in Azure IaaS
-1. Setup and configure Hybrid Workloads between Office 365 and the SharePoint farm.
+1. Setup and configure Hybrid Workloads between Microsoft 365 and the SharePoint farm.
 
 ## Components
 

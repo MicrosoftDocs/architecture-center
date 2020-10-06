@@ -17,7 +17,7 @@ Each Azure data store has a different billing model. To establish a total cost e
 
 Let's take an example of an e-commerce application. It needs to store data for transactions such as orders, payments, and billing. The data structure is predetermined and not expected to change frequently. Data integrity and consistency are crucial. There's a need to store product catalogs, social media posts, and product reviews. In some cases, the data is unstructured, and is likely to change over time. Media files must be stored and data must be stored for auditing purposes.
 
-Learn about data stores in [Understand data store models](https://docs.microsoft.com/azure/architecture/guide/technology-choices/data-store-overview).
+Learn about data stores in [Understand data store models](../../guide/technology-choices/data-store-overview.md).
 
 ## Guidelines: Identify the business transactions and their requirements
 
@@ -35,7 +35,7 @@ The following list of questions address the requirements that can have the great
 - How many instances will need to run to support your uptime and throughput requirements? (Consider operations costs in this calculation.)
 - Can you partition your data to store it more cost effectively (e.g., can you move large objects out of an expensive relational database into an object store)?
 
-There are other requirements that may not have as great of an impact on your cost. For example, the US East region is only slightly lower than Canada Central. See [Criteria for choosing a data store](https://docs.microsoft.com/azure/architecture/guide/technology-choices/data-store-considerations) for additional business requirements.
+There are other requirements that may not have as great of an impact on your cost. For example, the US East region is only slightly lower than Canada Central. See [Criteria for choosing a data store](../../guide/technology-choices/data-store-considerations.md) for additional business requirements.
 
 Use the [Pricing Calculator](https://azure.microsoft.com/pricing/calculator/) to determine different cost scenarios.
 
@@ -62,7 +62,7 @@ For example, one business transaction can be processed by these distinct operati
 - If your design requires SQL, store a lookup table in SQL Database and retrieve the document when needed to serve it to the user in your application middle tier. SQL Database is highly targeted for high-speed data lookups and set-based operations.
 - The hot access tier of Azure Block Blob Storage cost is cheaper than the equivalent size of the Premium SSD volume that has the database.
 
-Read this [decision chart](https://docs.microsoft.com/azure/architecture/guide/technology-choices/data-store-overview) to make your choices.
+Read this [decision chart](../../guide/technology-choices/data-store-overview.md) to make your choices.
 
 ## Guidelines: Identify a data store appropriate for the type of data
 

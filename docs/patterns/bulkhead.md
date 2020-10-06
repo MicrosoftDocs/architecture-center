@@ -41,7 +41,7 @@ The following diagram shows bulkheads structured around connection pools that ca
 
 The next diagram shows multiple clients calling a single service. Each client is assigned a separate service instance. Client 1 has made too many requests and overwhelmed its instance. Because each service instance is isolated from the others, the other clients can continue making calls.
 
-![First diagram of the Bulkhead pattern](./_images/bulkhead-2.png)
+![Diagram showing multiple clients calling a single service.](./_images/bulkhead-2.png)
 
 ## Issues and considerations
 

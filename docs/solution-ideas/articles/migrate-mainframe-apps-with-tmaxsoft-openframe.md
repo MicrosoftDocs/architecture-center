@@ -50,7 +50,7 @@ Many scenarios can benefit from TmaxSoft OpenFrame lift and shift. Possibilities
 1. [OpenFrame language compilers][Tmax OpenFrame documentation] migrate COBOL, Assembler, PL/I, Easytrieve, and other mainframe applications to Azure by recompiling the source.
 1. [OpenFrame Online][Tmax OpenFrame documentation] provides tools and commands that replace CICS, IMS-DC, Application Development and Maintenance (ADM), and Application Infrastructure and Middleware (AIM) technologies.
 1. [OpenFrame Batch][Tmax OpenFrame documentation] provides tools for managing batch programs that replace the job entry subsystem (JES). By supporting native Job Control Language (JCL) syntax and batch utilities, OpenFrame Batch minimizes code updates.
-1. [Tivoli Access Control Facility (TACF)][TACF] Security provides authentication and authorization features in OpenFrame by extracting and migrating mainframe security rules.
+1. Tmax Access Control Facility (TACF) Security provides authentication and authorization features in OpenFrame by extracting and migrating mainframe security rules.
 1. [UnixODBC (Open Database Connectivity)][UnixODBC] connection drivers communicate with relational database management systems (RDBMSs). Examples include Azure SQL Database, Microsoft SQL Server, Oracle, Db2 LUW, Tibero, Postgres, and MySQL.
 1. Azure File Share is mounted on the Linux server VMs. As a result, COBOL programs have easy access to the Azure Files repository for file processing. Load modules and various log files also use Azure File Share.
 1. OpenFrame can integrate with any RDBMS. Examples include Azure SQL Database, SQL Server, Oracle, Db2 LUW, Tibero, Postgres, and MySQL. OpenFrame uses ODBC connection drivers to communicate with installed databases.
@@ -87,29 +87,28 @@ Many scenarios can benefit from TmaxSoft OpenFrame lift and shift. Possibilities
 
 [Active-active definition]: https://www.webopedia.com/TERM/A/active_active.html
 [Active-passive definition]: https://www.jscape.com/blog/active-active-vs-active-passive-high-availability-cluster
-[Azure ExpressRoute]: https://docs.microsoft.com/azure/expressroute/expressroute-introduction
-[Azure Load Balancer]: https://docs.microsoft.com/azure/load-balancer/load-balancer-overview
-[Azure Files]: https://docs.microsoft.com/azure/storage/files/storage-files-introduction
+[Azure ExpressRoute]: /azure/expressroute/expressroute-introduction
+[Azure Load Balancer]: /azure/load-balancer/load-balancer-overview
+[Azure Files]: /azure/storage/files/storage-files-introduction
 [Azure Site Recovery]: https://azure.microsoft.com/services/site-recovery/
 [Azure SQL Database]: https://azure.microsoft.com/services/sql-database/
 [Azure Virtual Machines]: https://azure.microsoft.com/services/virtual-machines/
-[Azure Virtual Networks]: https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview
+[Azure Virtual Networks]: /azure/virtual-network/virtual-networks-overview
 [CICS]: https://www.ibm.com/support/knowledgecenter/zosbasics/com.ibm.zos.zmidtrmg/zmiddle_13.htm
 [Email address for information on migrating legacy systems to Azure]: mailto:legacy2azure@microsoft.com
 [IMS-DC]: https://www.sawaal.com/mainframe-interview-questions/what-is-ims-db-dc_9366
 [Information about TmaxSoft OpenFrame on the Microsoft commercial marketplace]: https://azuremarketplace.microsoft.com/marketplace/apps/tmaxsoft.openframe?tab=Overview
-[Install TmaxSoft OpenFrame on Azure article]: https://docs.microsoft.com/azure/virtual-machines/workloads/mainframe-rehosting/tmaxsoft/install-openframe-azure
+[Install TmaxSoft OpenFrame on Azure article]: /azure/virtual-machines/workloads/mainframe-rehosting/tmaxsoft/install-openframe-azure
 [Lift-and-Shift Me Up: The Benefits of Mainframe Rehosting]: https://www.tmaxsoft.com/lift-and-shift-me-up-the-benefits-of-mainframe-rehosting/
 [Lift and shift]: https://www.tmaxsoft.com/wp-content/uploads/TmaSof_eBook_OpenFrame.pdf
-[Mainframe rehosting on Azure virtual machines]: https://docs.microsoft.com/azure/virtual-machines/workloads/mainframe-rehosting/overview
+[Mainframe rehosting on Azure virtual machines]: /azure/virtual-machines/workloads/mainframe-rehosting/overview
 [Message queues]: https://www.ibm.com/cloud/learn/message-queues
 [OSI model]: https://www.networkworld.com/article/3239677/the-osi-model-explained-how-to-understand-and-remember-the-7-layer-network-model.html
-[RDP]: https://docs.microsoft.com/troubleshoot/windows-server/remote/understanding-remote-desktop-protocol
+[RDP]: /troubleshoot/windows-server/remote/understanding-remote-desktop-protocol
 [SSH]: https://www.ssh.com/ssh/
-[SMB protocol]: https://docs.microsoft.com/openspecs/windows_protocols/ms-smb/f210069c-7086-4dc2-885e-861d837df688
-[TACF]: http://ps-2.kev009.com/rs6000/redbook-cd/sg245140.pdf
+[SMB protocol]: /openspecs/windows_protocols/ms-smb/f210069c-7086-4dc2-885e-861d837df688
 [Tmax OpenFrame documentation]: https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE36tt6
 [UnixODBC]: https://en.wikipedia.org/wiki/UnixODBC
 [What is Azure]: https://azure.microsoft.com/overview/what-is-azure/
-[What is Azure Bastion]: https://docs.microsoft.com/azure/bastion/bastion-overview
+[What is Azure Bastion]: /azure/bastion/bastion-overview
 [What is Microsoft 365]: https://www.microsoft.com/microsoft-365/what-is-microsoft-365?rtc=1

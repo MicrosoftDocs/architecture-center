@@ -34,7 +34,7 @@ Azure Resource Manager (ARM) enforces limits and quotas on how many resources of
 
 [Azure subscription and service limits, quotas, and constraints](/azure/azure-subscription-service-limits#app-service-limits)
 
-![GitHub](../../_images/github.png) [This sample](https://github.com/mspnp/samples/tree/master/OperationalExcellence/ResourceLimits) shows how to query limit and quotas for commonly used networking resources, virtual machines, SQL database, and storage accounts.
+:::image type="icon" source="../../_images/github.png" border="false"::: [This sample](https://github.com/mspnp/samples/tree/master/OperationalExcellence/ResourceLimits) shows how to query limit and quotas for commonly used networking resources, virtual machines, SQL database, and storage accounts.
 
 ## Tagging and resource naming
 

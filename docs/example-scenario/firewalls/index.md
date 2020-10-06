@@ -72,7 +72,7 @@ For this to work though, the FW needs to have a route table (internally) pointin
 
 When deploying a reverse proxy service *Normally* this would be behind the FW, but it is also possible to put it *in-line* with the FW and actually route the traffic through the FW. The advantage of this is that the reverse proxy service would *see* the original IP of the connecting client:
 
-![NVA with single NICs and how traffic flows](./images/two-legged-revproxy.png)
+![Diagram showing reverse proxy service in-line with the NVA and routing the traffic through the firewall.](./images/two-legged-revproxy.png)
 
 For this, the route tables on Subnet-E need to point Subnet-B and Subnet-C through the internal load balancer. Some reverse proxy services have built in firewalls allowing you to remove the FW all together in this network flow and point from reverse proxy straight to Subnet-B/C servers.
 
@@ -82,7 +82,7 @@ In this scenario, SNAT will be required on the reverse proxy's as well to avoid 
 
 Azure provides BGP-enabled/highly-available VPN/ER services through the Azure Virtual Network Gateways. Most architects keep these for backend or non-internet facing connections. This means that the routing table needs to accommodate the subnets behind these connections too. While there is not a large difference to subnet-B/C connectivity, there is in the design of the return traffic; completing the picture:
 
-![NVA with single NICs and how traffic flows](./images/two-legged-revproxy-gw.png)
+![Diagram showing reverse proxy service supporting BGP-enabled/highly-available VPN/ER services through Azure Virtual Network Gateway.](./images/two-legged-revproxy-gw.png)
 
 In this architecture, traffic hitting the FW from, for example Subnet-B to Subnet-X would be sent to the iLB, which in turn sends it to either firewall. The internal route inside the FW will send the traffic back to the Subnet-GW (first available IP in Subnet-D). You don’t have to send the traffic straight to the Gateway appliance itself, as another route on Subnet-D will have a route for Subnet-X pointing it to the *Virtual Network Gateway*. Azure Networking will take care of the actual routing.
 

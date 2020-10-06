@@ -173,13 +173,13 @@ Architecture diagrams, reference architectures, example scenarios, and solutions
 <ul class="grid">
 
 [!INCLUDE [Azure data platform end-to-end](../../includes/cards/data-platform-end-to-end.md)]
-[!INCLUDE [Build cloud native apps](../../includes/cards/cloud-native-apps.md)]
+[!INCLUDE [Build cloud native applications](../../includes/cards/cloud-native-apps.md)]
 [!INCLUDE [Campaign Optimization with Azure HDInsight Spark Clusters](../../includes/cards/campaign-optimization-with-azure-hdinsight-spark-clusters.md)]
 [!INCLUDE [Campaign Optimization with SQL Server](../../includes/cards/campaign-optimization-with-sql-server.md)]
 [!INCLUDE [Data Streaming scenario](../../includes/cards/data-streaming-scenario.md)]
 [!INCLUDE [Data cache](../../includes/cards/data-cache-with-redis-cache.md)]
 [!INCLUDE [DataOps for the modern data warehouse](../../includes/cards/dataops-mdw.md)]
-[!INCLUDE [Deliver highly scalable customer service and ERP apps](../../includes/cards/erp-customer-service.md)]
+[!INCLUDE [Deliver highly scalable customer service and ERP applications](../../includes/cards/erp-customer-service.md)]
 [!INCLUDE [Development and test environments for SAP workloads on Azure](../../includes/cards/sap-dev-test.md)]
 [!INCLUDE [Digital Campaign Management](../../includes/cards/digital-marketing-using-azure-database-for-postgresql.md)]
 [!INCLUDE [Digital Marketing using Azure Database for MySQL](../../includes/cards/digital-marketing-using-azure-database-for-mysql.md)]
@@ -393,6 +393,7 @@ Architecture diagrams, reference architectures, example scenarios, and solutions
 
 [!INCLUDE [Adding a mobile front-end to a legacy app](../../includes/cards/adding-a-modern-web-and-mobile-frontend-to-a-legacy-claims-processing-application.md)]
 [!INCLUDE [Lift and shift to containers with AKS](../../includes/cards/migrate-existing-applications-with-aks.md)]
+[!INCLUDE [Migrate IBM mainframe applications to Azure with TmaxSoft OpenFrame](../../includes/cards/migrate-mainframe-apps-with-tmaxsoft-openframe.md)]
 [!INCLUDE [Modern Customer Support Portal](../../includes/cards/modern-customer-support-portal-powered-by-an-agile-business-process.md)]
 [!INCLUDE [Serverless Computing Solution for LOB Apps](../../includes/cards/onboarding-customers-with-a-cloud-native-serverless-architecture.md)]
 [!INCLUDE [Unlock Legacy Data with Azure Stack](../../includes/cards/unlock-legacy-data.md)]
@@ -510,7 +511,7 @@ Architecture diagrams, reference architectures, example scenarios, and solutions
 [!INCLUDE [E-commerce website running in secured App Service Environment](../../includes/cards/ecommerce-website-running-in-secured-ase.md)]
 [!INCLUDE [Highly available SharePoint farm](../../includes/cards/highly-available-sharepoint-farm.md)]
 [!INCLUDE [Highly available multi-region web application](../../includes/cards/multi-region.md)]
-[!INCLUDE [Hybrid SharePoint Farm with Office 365](../../includes/cards/sharepoint-farm-office-365.md)]
+[!INCLUDE [Hybrid SharePoint Farm with Microsoft 365](../../includes/cards/sharepoint-farm-microsoft-365.md)]
 [!INCLUDE [Intelligent product search engine for e-commerce](../../includes/cards/ecommerce-search.md)]
 [!INCLUDE [Migrate a web app using Azure APIM](../../includes/cards/apim-api-scenario.md)]
 [!INCLUDE [Multi-region N-tier application](../../includes/cards/multi-region-sql-server.md)]
