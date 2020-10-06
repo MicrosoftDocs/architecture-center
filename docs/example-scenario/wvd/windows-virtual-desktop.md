@@ -95,7 +95,10 @@ Numbers in the following sections are approximate. The numbers are based on a va
 Also, note that:
 
 - You can't create more than 50 application groups per single Azure AD tenant.
-- We recommend that you don't publish more than 50 applications per application group. 
+- We recommend that you don't publish more than 50 applications per application group.
+
+## Defender ATP
+-Microsoft Defender currently only supports 25 sessions per VM. Please keep this in mind when choosing VM Sizes for Windows 10 Multi-Session
 
 ### Azure limitations
 
@@ -106,7 +109,7 @@ The Windows Virtual Desktop service is scalable to more than 10,000 session host
 - To manage enterprise environments with more than 5,000 VMs per Azure subscription in the same region, you can create multiple Azure subscriptions in a hub-spoke architecture and connect them via virtual network peering, as in the preceding example architecture. You could also deploy VMs in a different region in the same subscription to increase the number of VMs.
 - Azure Resource Manager (ARM) subscription API throttling limits don't allow more than 600 Azure VM reboots per hour via the Azure portal. You can reboot all your machines at once via the operating system, which doesn't consume any Azure Resource Manager subscription API calls. For more information about counting and troubleshooting throttling limits based on your Azure subscription, see [Troubleshoot API throttling errors](/azure/virtual-machines/troubleshooting/troubleshooting-throttling-errors).
 - You can currently deploy 399 VMs per Windows Virtual Desktop ARM template deployment without [Availability Sets](/azure/virtual-machines/availability#availability-sets), or 200 VMs per Availability Set. You can increase the number of VMs per deployment by switching off Availability Sets in either the ARM template or the Azure portal host pool enrollment.
-- Azure VM session host name prefixes can't exceed 11 characters, due to auto-assigning of instance names and the NetBIOS limit of 15 characters per computer account.
+- Azure VM session host name prefixes can't exceed 11 characters, due to auto-assigning of instance names and the NetBIOS limit of 15 characters per computer account. Also currently auto-assignign does not backfill numbers of session hosts deleted.  So while you may intend to reserve 4 digits for a host pool never exceeding 999 VMs it is possible that Azure may need to go beyond this number.  (Exammple I create 999 hosts and have names myhosts-1 to myhosts-999, I delete myhost-2 and deploy an additonal host that fails because the next number in sequence is myhosts-1000 which exceed the NetBios limit of 11 characters.)
 - By default, you can deploy up to 800 instances of most resource types in a resource group. Azure Compute doesn't have this limit.
 
 For more information about Azure subscription limitations, see [Azure subscription and service limits, quotas, and constraints](/azure/azure-resource-manager/management/azure-subscription-service-limits).
