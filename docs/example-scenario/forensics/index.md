@@ -236,8 +236,6 @@ To unlock an Azure disk snapshot of a data disk locked by DM-Crypt and mount it 
    
    device=$(blkid -t TYPE=crypto_LUKS -o device)
    
-   echo "dispositivo cifrato: " $device
-   
    passphrase="$(base64 -d <<< $bekSecretbase64)"
    
    echo "Passphrase: " $passphrase
@@ -250,7 +248,7 @@ To unlock an Azure disk snapshot of a data disk locked by DM-Crypt and mount it 
    
    cryptsetup open $device $mountname
    ```
-
+   
    After executing the script, you’ll be prompted for the encryption passphrase. Copy it from the script output and use it to unlock and mount the partition.
 
 ## Next steps
