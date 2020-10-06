@@ -194,7 +194,7 @@ available.
 
 ## Next Steps
 
-For more details on implementations, take a look at some of the below retail partner solutions. 
+For more details on implementations, take a look at some of these retail partner solutions. 
 
 [Oneview Commerce](https://www.oneviewcommerce.com/)<br>
 [Ombori](https://ombori.com/)
