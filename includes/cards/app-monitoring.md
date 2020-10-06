@@ -6,7 +6,7 @@
 <article class="card">
     <div class="card-header has-margin-bottom-none" aria-hidden="true">
         <figure class="image diagram has-height-175 has-overflow-hidden level">
-            <a href="/azure/architecture/reference-architectures/app-service-web-app/app-monitoring"><img src="/azure/architecture/browse/thumbs/app-monitoring.png" class="diagram" alt="Architecture Diagram" data-linktype="relative-path"></a>
+            <a href="/azure/architecture/reference-architectures/app-service-web-app/app-monitoring"><img src="/azure/architecture/browse/thumbs/app-monitoring.png" class="diagram" alt="Thumbnail of Web application monitoring on Azure Architectural Diagram." data-linktype="relative-path"></a>
         </figure>
     </div>
     <div class="card-content">
@@ -17,7 +17,7 @@
             <li>12/12/2018</li>
             <li>7 min read</li>
         </ul>
-        <p class="card-content-description">Monitor a web application hosted in Azure App Service.</p>
+        <p class="card-content-description">Learn about the monitoring services and a dataflow model for use with multiple data sources. Many monitoring tools and services work with Azure deployments.</p>
         <div class="bottom-to-top-fade is-hidden-mobile"></div>
     </div>
 </article>

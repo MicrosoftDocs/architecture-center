@@ -1,7 +1,7 @@
 ---
 title: Migrate an Azure Cloud Services application to Azure Service Fabric
 description: How to migrate an application from Azure Cloud Services to Azure Service Fabric.
-author: adamboeglin
+author: doodlemania2
 ms.date: 05/29/2019
 ms.topic: guide
 ms.service: architecture-center
@@ -13,7 +13,7 @@ ms.subservice: reference-architecture
 
 # Migrate an Azure Cloud Services application to Azure Service Fabric
 
-[![GitHub](../_images/github.png) Sample code][sample-code]
+[:::image type="icon" source="../_images/github.png" border="false"::: Sample code][sample-code]
 
 This article describes migrating an application from Azure Cloud Services to Azure Service Fabric. It focuses on architectural decisions and recommended practices.
 
@@ -199,7 +199,7 @@ As mentioned, it's recommended to place the Kestrel web server behind a reverse 
 
 ### Layer 7 routing
 
-In the [original Surveys application](https://msdn.microsoft.com/library/hh534477.aspx#sec21), one web role listened on port 80, and the other web role listened on port 443.
+In the [original Surveys application](/previous-versions/msp-n-p/hh534477(v=pandp.10)#sec21), one web role listened on port 80, and the other web role listened on port 443.
 
 | Public site | Survey management site |
 |-------------|------------------------|
@@ -356,34 +356,34 @@ If you are just getting started with [Azure Service Fabric][service-fabric], fir
 
 <!-- links -->
 
-[application-gateway]: https://docs.microsoft.com/azure/application-gateway
+[application-gateway]: /azure/application-gateway
 [aspnet-webapi]: https://www.asp.net/web-api
-[aspnet-migration]: https://docs.microsoft.com/aspnet/core/migration/mvc
+[aspnet-migration]: /aspnet/core/migration/mvc
 [aspnet-webapi]: https://www.asp.net/web-api
-[azure-deployment-models]: https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-deployment-model
+[azure-deployment-models]: /azure/azure-resource-manager/resource-manager-deployment-model
 [azure-sdk]: https://azure.microsoft.com/downloads/archive-net-downloads
-[cloud-service-autoscale]: https://docs.microsoft.com/azure/cloud-services/cloud-services-how-to-scale-portal
-[cloud-service-config]: https://docs.microsoft.com/azure/cloud-services/cloud-services-model-and-package
-[cloud-service-endpoints]: https://docs.microsoft.com/azure/cloud-services/cloud-services-enable-communication-role-instances#worker-roles-vs-web-roles
-[kestrel]: https://docs.microsoft.com/aspnet/core/fundamentals/servers/kestrel
-[monitoring-diagnostics]: https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-overview
-[reliable-concurrent-queue]: https://docs.microsoft.com/azure/service-fabric/service-fabric-reliable-services-reliable-concurrent-queue
-[reverse-proxy]: https://docs.microsoft.com/azure/service-fabric/service-fabric-reverseproxy
+[cloud-service-autoscale]: /azure/cloud-services/cloud-services-how-to-scale-portal
+[cloud-service-config]: /azure/cloud-services/cloud-services-model-and-package
+[cloud-service-endpoints]: /azure/cloud-services/cloud-services-enable-communication-role-instances#worker-roles-vs-web-roles
+[kestrel]: /aspnet/core/fundamentals/servers/kestrel
+[monitoring-diagnostics]: /azure/service-fabric/service-fabric-diagnostics-overview
+[reliable-concurrent-queue]: /azure/service-fabric/service-fabric-reliable-services-reliable-concurrent-queue
+[reverse-proxy]: /azure/service-fabric/service-fabric-reverseproxy
 [sample-code]: https://github.com/mspnp/cloud-services-to-service-fabric
-[service-fabric]: https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started
-[sf-application-model]: https://docs.microsoft.com/azure/service-fabric/service-fabric-application-model
-[sf-aspnet-core]: https://docs.microsoft.com/azure/service-fabric/service-fabric-add-a-web-frontend
+[service-fabric]: /azure/service-fabric/service-fabric-get-started
+[sf-application-model]: /azure/service-fabric/service-fabric-application-model
+[sf-aspnet-core]: /azure/service-fabric/service-fabric-add-a-web-frontend
 [sf-auto-scale]: /azure/service-fabric/service-fabric-cluster-resource-manager-autoscaling
-[sf-compare-cloud-services]: https://docs.microsoft.com/azure/service-fabric/service-fabric-cloud-services-migration-differences
-[sf-logs]: https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-how-to-setup-wad
-[sf-manifest-resources]: https://docs.microsoft.com/azure/service-fabric/service-fabric-service-manifest-resources
-[sf-migration]: https://docs.microsoft.com/azure/service-fabric/service-fabric-cloud-services-migration-worker-role-stateless-service
-[sf-multiple-environments]: https://docs.microsoft.com/azure/service-fabric/service-fabric-manage-multiple-environment-app-configuration
-[sf-node-types]: https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-nodetypes
-[sf-overview]: https://docs.microsoft.com/azure/service-fabric/service-fabric-overview
-[sf-placement-constraints]: https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-resource-manager-cluster-description
-[sf-reliable-collections]: https://docs.microsoft.com/azure/service-fabric/service-fabric-reliable-services-reliable-collections
-[sf-reverse-proxy]: https://docs.microsoft.com/azure/service-fabric/service-fabric-reverseproxy
-[sf-security]: https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-security
-[tailspin-scenario]: https://msdn.microsoft.com/library/hh534482.aspx
-[vm-scale-sets]: https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-overview
+[sf-compare-cloud-services]: /azure/service-fabric/service-fabric-cloud-services-migration-differences
+[sf-logs]: /azure/service-fabric/service-fabric-diagnostics-how-to-setup-wad
+[sf-manifest-resources]: /azure/service-fabric/service-fabric-service-manifest-resources
+[sf-migration]: /azure/service-fabric/service-fabric-cloud-services-migration-worker-role-stateless-service
+[sf-multiple-environments]: /azure/service-fabric/service-fabric-manage-multiple-environment-app-configuration
+[sf-node-types]: /azure/service-fabric/service-fabric-cluster-nodetypes
+[sf-overview]: /azure/service-fabric/service-fabric-overview
+[sf-placement-constraints]: /azure/service-fabric/service-fabric-cluster-resource-manager-cluster-description
+[sf-reliable-collections]: /azure/service-fabric/service-fabric-reliable-services-reliable-collections
+[sf-reverse-proxy]: /azure/service-fabric/service-fabric-reverseproxy
+[sf-security]: /azure/service-fabric/service-fabric-cluster-security
+[tailspin-scenario]: /previous-versions/msp-n-p/hh534482(v=pandp.10)
+[vm-scale-sets]: /azure/virtual-machine-scale-sets/virtual-machine-scale-sets-overview

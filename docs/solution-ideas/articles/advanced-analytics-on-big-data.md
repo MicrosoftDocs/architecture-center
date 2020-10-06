@@ -1,7 +1,7 @@
 ---
 title: Advanced Analytics Architecture
 titleSuffix: Azure Solution Ideas
-author: adamboeglin
+author: doodlemania2
 ms.date: 12/16/2019
 description: Get near real-time data analytics on streaming services. This big data architecture allows you to combine any data at any scale with custom machine learning.
 ms.custom: acom-architecture, Big data architecture, Real time analytics, real time data analytics, interactive-diagram, pricing-calculator, 'https://azure.microsoft.com/solutions/architecture/advanced-analytics-on-big-data/'
@@ -46,13 +46,13 @@ Transform your data into actionable insights using the best-in-class machine lea
 
 ## Next steps
 
-* [Synapse Analytics Documentation](https://docs.microsoft.com/azure/sql-data-warehouse)
-* [Azure Data Factory V2 Preview Documentation](https://docs.microsoft.com/azure/data-factory)
-* [Introduction to object storage in Azure](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-introduction)
-* [Azure Databricks Documentation](https://docs.microsoft.com/azure/azure-databricks)
-* [Azure Cosmos DB Documentation](https://docs.microsoft.com/azure/cosmos-db)
-* [Analysis Services Documentation](https://docs.microsoft.com/azure/analysis-services)
-* [Power BI Documentation](https://docs.microsoft.com/power-bi)
+* [Synapse Analytics Documentation](/azure/sql-data-warehouse)
+* [Azure Data Factory V2 Preview Documentation](/azure/data-factory)
+* [Introduction to object storage in Azure](/azure/storage/blobs/storage-blobs-introduction)
+* [Azure Databricks Documentation](/azure/azure-databricks)
+* [Azure Cosmos DB Documentation](/azure/cosmos-db)
+* [Analysis Services Documentation](/azure/analysis-services)
+* [Power BI Documentation](/power-bi)
 
 ## Pricing Calculator
 

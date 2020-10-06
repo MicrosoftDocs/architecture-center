@@ -140,7 +140,7 @@ Azure Container Registry offers **Basic**, **Standard**, and **Premium**. Choose
 You only pay for the virtual machines instances, storage, and networking resources consumed by your Kubernetes cluster. To estimate the cost of the required resources, see the [Container Services calculator][aks-Calculator].
 
 
-For more information, see the Cost section in [Azure Architecture Framework][AAF-cost].
+For more information, see the Cost section in [Microsoft Azure Well-Architected Framework][AAF-cost].
 
 ## DevOps considerations
 
@@ -156,17 +156,17 @@ To deploy this reference architecture, follow the steps described in the GitHub 
 
 <!-- links -->
 
-[aad-auth]: https://docs.microsoft.com/azure/aks/aad-integration
+[aad-auth]: /azure/aks/aad-integration
 [aaf-cost]: ../../framework/cost/overview.md
-[acr]: https://docs.microsoft.com/azure/container-registry
-[aks]: https://docs.microsoft.com/azure/aks/intro-kubernetes
+[acr]: /azure/container-registry
+[aks]: /azure/aks/intro-kubernetes
 [aks-Calculator]: https://azure.microsoft.com/pricing/calculator/?service=kubernetes-service
-[autoscaler]: https://docs.microsoft.com/azure/aks/autoscaler
-[autoscale-pods]: https://docs.microsoft.com/azure/aks/tutorial-kubernetes-scale#autoscale-pods
+[autoscaler]: /azure/aks/autoscaler
+[autoscale-pods]: /azure/aks/tutorial-kubernetes-scale#autoscale-pods
 [az-container-registry-pricing]: https://azure.microsoft.com/pricing/details/container-registry
 [azure-pricing-calculator]: https://azure.microsoft.com/pricing/calculator
-[ddos]: https://docs.microsoft.com/azure/virtual-network/ddos-protection-overview
-[get-started]: https://docs.microsoft.com/azure/security-center/security-center-get-started
+[ddos]: /azure/virtual-network/ddos-protection-overview
+[get-started]: /azure/security-center/security-center-get-started
 [github-python]: https://github.com/Microsoft/MLAKSDeployAML
 [github-dl]: https://github.com/Microsoft/AKSDeploymentTutorial_AML
 [gpus-vs-cpus]: https://azure.microsoft.com/blog/gpus-vs-cpus-for-deployment-of-deep-learning-models/

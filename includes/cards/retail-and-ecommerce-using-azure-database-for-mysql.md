@@ -6,7 +6,7 @@
 <article class="card">
     <div class="card-header has-margin-bottom-none" aria-hidden="true">
         <figure class="image diagram has-height-175 has-overflow-hidden level">
-            <a href="/azure/architecture/solution-ideas/articles/retail-and-ecommerce-using-azure-database-for-mysql"><img src="/azure/architecture/browse/thumbs/retail-and-ecommerce-using-azure-database-for-mysql.png" class="diagram" alt="Architecture Diagram" data-linktype="relative-path"></a>
+            <a href="/azure/architecture/solution-ideas/articles/retail-and-ecommerce-using-azure-database-for-mysql"><img src="/azure/architecture/browse/thumbs/retail-and-ecommerce-using-azure-database-for-mysql.png" class="diagram" alt="Thumbnail of Retail and e-commerce using Azure MySQL Architectural Diagram." data-linktype="relative-path"></a>
         </figure>
     </div>
     <div class="card-content">
@@ -17,7 +17,7 @@
             <li>12/16/2019</li>
             <li>1 min read</li>
         </ul>
-        <p class="card-content-description">Build secure and scalable e-commerce solutions that meet the demands of both customers and business. Engage customers through customized products and offers, process transactions quickly and securely, and focus on fulfillment and customer service.</p>
+        <p class="card-content-description">Build secure and scalable e-commerce solutions that meet the demands of both customers and business using Azure Database for MySQL.</p>
         <div class="bottom-to-top-fade is-hidden-mobile"></div>
     </div>
 </article>

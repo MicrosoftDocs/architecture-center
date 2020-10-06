@@ -1,8 +1,8 @@
 ---
-title: Build cloud native apps
+title: Build cloud native applications
 titleSuffix: Azure Solution Ideas
 author: doodlemania2
-description: Build cloud native apps with Azure Cosmos DB, Azure Database for PostgreSQL and Azure Cache for Redis
+description: Build cloud native applications with Azure Cosmos DB, Azure Database for PostgreSQL and Azure Cache for Redis
 ms.date: 06/26/2020
 ms.custom: fcp
 ms.service: architecture-center
@@ -13,7 +13,7 @@ ms.category:
     - mobile
 ---
 
-# Build cloud native apps
+# Build cloud native applications
 
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
@@ -38,20 +38,20 @@ Web and mobile applications are a key part of a successful digital transformatio
 
 ## Components
 
-- [Azure Kubernetes Service](https://docs.microsoft.com/azure/aks/intro-kubernetes) allows you to quickly deploy a production ready Kubernetes cluster in Azure.
-- [Azure Database for PostgreSQL](https://docs.microsoft.com/azure/postgresql/overview) is a fully managed relational database service based on the community edition of the open-source PostgreSQL database engine.
-- [Azure Cache for Redis](https://docs.microsoft.com/azure/azure-cache-for-redis/cache-overview) is a secure data cache and messaging broker that provides high throughput and low-latency access to data for applications.
-- [Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/introduction) is a fully managed NoSQL database service for building and modernizing scalable, high performance applications.
-- [Azure Notification Hubs](https://docs.microsoft.com/azure/notification-hubs/notification-hubs-push-notification-overview) sends push notifications from any backend to any mobile device.
-- [Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-overview) is a serverless compute service that lets you run event-triggered code without having to explicitly provision or manage infrastructure.
-- [Azure Databricks](https://docs.microsoft.com/azure/databricks/scenarios/what-is-azure-databricks) is an Apache Spark-based analytics service for big data analytics and AI
-- [Azure Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview) is an extensible Application Performance Management service used to monitor live applications and continuously improve performance and usability.
-- [Azure Synapse Analytics](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is) is an analytics service that brings together enterprise data warehousing and Big Data analytics within a unified experience.
-- [Power BI](https://docs.microsoft.com/power-bi/fundamentals/power-bi-overview) is a suite of business tools for self-service and enterprise business intelligence (BI). Here, it’s used to analyze and visualize data.
+- [Azure Kubernetes Service](/azure/aks/intro-kubernetes) allows you to quickly deploy a production ready Kubernetes cluster in Azure.
+- [Azure Database for PostgreSQL](/azure/postgresql/overview) is a fully managed relational database service based on the community edition of the open-source PostgreSQL database engine.
+- [Azure Cache for Redis](/azure/azure-cache-for-redis/cache-overview) is a secure data cache and messaging broker that provides high throughput and low-latency access to data for applications.
+- [Azure Cosmos DB](/azure/cosmos-db/introduction) is a fully managed NoSQL database service for building and modernizing scalable, high performance applications.
+- [Azure Notification Hubs](/azure/notification-hubs/notification-hubs-push-notification-overview) sends push notifications from any backend to any mobile device.
+- [Azure Functions](/azure/azure-functions/functions-overview) is a serverless compute service that lets you run event-triggered code without having to explicitly provision or manage infrastructure.
+- [Azure Databricks](/azure/databricks/scenarios/what-is-azure-databricks) is an Apache Spark-based analytics service for big data analytics and AI
+- [Azure Application Insights](/azure/azure-monitor/app/app-insights-overview) is an extensible Application Performance Management service used to monitor live applications and continuously improve performance and usability.
+- [Azure Synapse Analytics](/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is) is an analytics service that brings together enterprise data warehousing and Big Data analytics within a unified experience.
+- [Power BI](/power-bi/fundamentals/power-bi-overview) is a suite of business tools for self-service and enterprise business intelligence (BI). Here, it’s used to analyze and visualize data.
 
 ## Next Steps
 
-- Learn more about [building a microservices architecture](https://docs.microsoft.com/azure/architecture/microservices/) on Azure
-- Learn more about [building serverless applications](https://docs.microsoft.com/azure/architecture/serverless/code) on Azure
+- Learn more about [building a microservices architecture](../../microservices/index.md) on Azure
+- Learn more about [building serverless applications](../../serverless/code.md) on Azure
 - Read about customers that are building cloud-native applications on Azure: [Mars Veterinary Health](https://customers.microsoft.com/story/815549-pet-care-leader-turns-monolith-app-into-a-global-distributed-solution-on-azure) and [Chipotle Mexican Grill](https://customers.microsoft.com/story/787157-chipotle-retailers-azure)
-- Learn more about how [Azure Synapse Link](https://docs.microsoft.com/azure/cosmos-db/synapse-link) can enable you to run near real-time analytics over operational data in Azure Cosmos DB, and [explore common use cases](https://docs.microsoft.com/azure/cosmos-db/synapse-link-use-cases) like real-time personalization, predictive maintenance and anomaly detection in IoT scenarios, and supply chain analytics, forecasting, and reporting.
+- Learn more about how [Azure Synapse Link](/azure/cosmos-db/synapse-link) can enable you to run near real-time analytics over operational data in Azure Cosmos DB, and [explore common use cases](/azure/cosmos-db/synapse-link-use-cases) like real-time personalization, predictive maintenance and anomaly detection in IoT scenarios, and supply chain analytics, forecasting, and reporting.

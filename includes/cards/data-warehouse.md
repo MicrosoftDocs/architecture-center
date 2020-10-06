@@ -6,7 +6,7 @@
 <article class="card">
     <div class="card-header has-margin-bottom-none" aria-hidden="true">
         <figure class="image diagram has-height-175 has-overflow-hidden level">
-            <a href="/azure/architecture/example-scenario/data/data-warehouse"><img src="/azure/architecture/browse/thumbs/data-warehouse.png" class="diagram" alt="Architecture Diagram" data-linktype="relative-path"></a>
+            <a href="/azure/architecture/example-scenario/data/data-warehouse"><img src="/azure/architecture/browse/thumbs/data-warehouse.png" class="diagram" alt="Thumbnail of Data warehousing and analytics Architectural Diagram." data-linktype="relative-path"></a>
         </figure>
     </div>
     <div class="card-content">
@@ -17,7 +17,7 @@
             <li>11/20/2019</li>
             <li>5 min read</li>
         </ul>
-        <p class="card-content-description">Consolidate data from multiple sources and optimize data analytics.</p>
+        <p class="card-content-description">This example demonstrates a data pipeline that integrates large amounts of data from multiple sources into a unified analytics platform in Azure.</p>
         <div class="bottom-to-top-fade is-hidden-mobile"></div>
     </div>
 </article>

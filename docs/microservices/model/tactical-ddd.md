@@ -1,7 +1,7 @@
 ---
 title: Using tactical DDD to design microservices
-description: Apply domain-driven design patterns to microservices architectures
-author: adamboeglin
+description: Use domain-driven design in a microservices architecture to identify the entity and aggregate patterns, which help identify natural boundaries for the services.
+author: doodlemania2
 ms.date: 02/25/2019
 ms.topic: guide
 ms.service: architecture-center

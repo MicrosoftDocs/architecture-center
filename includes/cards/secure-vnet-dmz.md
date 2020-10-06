@@ -6,7 +6,7 @@
 <article class="card">
     <div class="card-header has-margin-bottom-none" aria-hidden="true">
         <figure class="image diagram has-height-175 has-overflow-hidden level">
-            <a href="/azure/architecture/reference-architectures/dmz/secure-vnet-dmz"><img src="/azure/architecture/browse/thumbs/secure-vnet-dmz.png" class="diagram" alt="Architecture Diagram" data-linktype="relative-path"></a>
+            <a href="/azure/architecture/reference-architectures/dmz/secure-vnet-dmz"><img src="/azure/architecture/browse/thumbs/secure-vnet-dmz.png" class="diagram" alt="Thumbnail of Implement a secure hybrid network Architectural Diagram." data-linktype="relative-path"></a>
         </figure>
     </div>
     <div class="card-content">
@@ -17,7 +17,7 @@
             <li>1/07/2020</li>
             <li>9 min read</li>
         </ul>
-        <p class="card-content-description">Implement a secure hybrid network architecture in Azure.</p>
+        <p class="card-content-description">See a secure hybrid network that extends an on-premises network to Azure with a perimeter network between the on-premises network and an Azure virtual network.</p>
         <div class="bottom-to-top-fade is-hidden-mobile"></div>
     </div>
 </article>

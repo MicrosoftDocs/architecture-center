@@ -1,13 +1,14 @@
 ---
 title: Cross-platform Chat
 titleSuffix: Azure Solution Ideas
-author: adamboeglin
+author: doodlemania2
 ms.date: 12/16/2019
 description: Accelerate development of reliable, high-performing chat applications
 ms.custom: acom-architecture, chat, signalr service, interactive-diagram, 'https://azure.microsoft.com/solutions/architecture/cross-platform-chat/'
 ms.service: architecture-center
 ms.category:
   - hybrid
+  - web
 ms.subservice: solution-idea
 social_image_url: /azure/architecture/solution-ideas/articles/media/cross-platform-chat.png
 ---

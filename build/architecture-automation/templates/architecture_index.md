@@ -1,7 +1,7 @@
 ---
 title: Azure Architecture
 description: Architecture diagrams, reference architectures, example scenarios, and solutions for common workloads on Azure.
-author: adamboeglin
+author: doodlemania2
 ms.date: 10/18/2019
 layout: LandingPage
 ms.topic: landing-page

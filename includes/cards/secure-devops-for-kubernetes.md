@@ -6,7 +6,7 @@
 <article class="card">
     <div class="card-header has-margin-bottom-none" aria-hidden="true">
         <figure class="image diagram has-height-175 has-overflow-hidden level">
-            <a href="/azure/architecture/solution-ideas/articles/secure-devops-for-kubernetes"><img src="/azure/architecture/browse/thumbs/secure-devops-for-kubernetes.png" class="diagram" alt="Architecture Diagram" data-linktype="relative-path"></a>
+            <a href="/azure/architecture/solution-ideas/articles/secure-devops-for-kubernetes"><img src="/azure/architecture/browse/thumbs/secure-devops-for-kubernetes.png" class="diagram" alt="Thumbnail of Secure DevOps for AKS Architectural Diagram." data-linktype="relative-path"></a>
         </figure>
     </div>
     <div class="card-content">
@@ -14,7 +14,7 @@
             <p>Secure DevOps for AKS</p>
         </a>
         <ul class="card-content-metadata">
-            <li>12/16/2019</li>
+            <li>9/10/2020</li>
             <li>2 min read</li>
         </ul>
         <p class="card-content-description">Implementing secure DevOps with Kubernetes on Azure, you can achieve the balance between speed and security and deliver code faster at scale.</p>

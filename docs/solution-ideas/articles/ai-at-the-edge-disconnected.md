@@ -1,7 +1,7 @@
 ---
 title: AI at the Edge with Azure Stack - disconnected
 titleSuffix: Azure Solution Ideas
-author: adamboeglin
+author: doodlemania2
 ms.date: 12/16/2019
 description: Move AI models to the edge with a solution architecture that includes Azure Stack. A step-by-step workflow will help you harness the power of edge AI when disconnected from the internet.
 ms.custom: acom-architecture, ai at the edge, azure stack edge, edge ai, offline machine learning, interactive-diagram, 'https://azure.microsoft.com/solutions/architecture/ai-at-the-edge-disconnected/'
@@ -27,7 +27,7 @@ With the Azure AI tools and cloud platform, the next generation of AI-enabled hy
 ## Data Flow
 
 1. Data scientists train a model using Azure Machine Learning and an HDInsight cluster. The model is containerized and put in to an Azure Container Registry.
-1. The model is deployed via an offline installer to a Kubernetes cluster on Azure Stack.
+1. The model is deployed via steps not represented in the diagram to a Kubernetes cluster on Azure Stack.
 1. End users provide data that is scored against the model.
 1. Insights and anomalies from scoring are placed into storage for later upload.
 1. Globally-relevant and compliant insights are available in the global app.
@@ -44,9 +44,9 @@ With the Azure AI tools and cloud platform, the next generation of AI-enabled hy
 
 ## Next steps
 
-* [HDInsight documentation](https://docs.microsoft.com/azure/hdinsight)
-* [Machine Learning Studio documentation](https://docs.microsoft.com/azure/machine-learning/studio)
-* [Virtual Machines documentation](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/get-started?toc=%2Fazure%2Fvirtual-machines%2Fwindows%2Fclassic%2Ftoc.json)
-* [Azure Kubernetes Service (AKS) documentation](https://docs.microsoft.com/azure/aks)
-* [Storage documentation](https://docs.microsoft.com/azure/storage)
-* [Azure Stack documentation](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-solution-machine-learning)
+* [HDInsight documentation](/azure/hdinsight)
+* [Machine Learning Studio documentation](/azure/machine-learning/studio)
+* [Virtual Machines documentation](/azure/virtual-machines/workloads/sap/get-started?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
+* [Azure Kubernetes Service (AKS) documentation](/azure/aks)
+* [Storage documentation](/azure/storage)
+* [Azure Stack documentation](/azure/azure-stack/user/azure-stack-solution-machine-learning)

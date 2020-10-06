@@ -21,7 +21,7 @@ Serverless models abstract code from the underlying compute infrastructure, allo
 
 The serverless event-driven model fits situations where a certain event triggers a defined action. For example, receiving an incoming device message triggers storage for later use, or a database update triggers some further processing.
 
-To help you explore Azure serverless technologies in Azure, Microsoft developed and tested a serverless application that uses [Azure Functions](https://docs.microsoft.com/azure/azure-functions). This article walks through the code for the serverless Functions solution, and describes design decisions, implementation details, and some of the "gotchas" you might encounter.
+To help you explore Azure serverless technologies in Azure, Microsoft developed and tested a serverless application that uses [Azure Functions](/azure/azure-functions). This article walks through the code for the serverless Functions solution, and describes design decisions, implementation details, and some of the "gotchas" you might encounter.
 
 ## Explore the solution
 
@@ -31,14 +31,14 @@ You can download the code for this solution from [GitHub](https://github.com/msp
 
 This walkthrough assumes basic familiarity with the following technologies:
 
-- [Azure Functions](https://docs.microsoft.com/azure/azure-functions)
-- [Azure Event Hubs](https://docs.microsoft.com/azure/event-hubs)
-- [.NET Core](https://docs.microsoft.com/dotnet/core)
+- [Azure Functions](/azure/azure-functions)
+- [Azure Event Hubs](/azure/event-hubs)
+- [.NET Core](/dotnet/core)
 
 You don't need to be an expert in Functions or Event Hubs, but you should understand their features at a high level. Here are some good resources to get started:
 
-- [An introduction to Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-overview)
-- [Features and terminology in Azure Event Hubs](https://docs.microsoft.com/azure/event-hubs/event-hubs-features)
+- [An introduction to Azure Functions](/azure/azure-functions/functions-overview)
+- [Features and terminology in Azure Event Hubs](/azure/event-hubs/event-hubs-features)
 
 ## Understand the scenario
 
@@ -77,7 +77,9 @@ There are also some operational advantages to using a serverless architecture:
 
 The following diagram shows the high-level architecture of the application:
 
-![Architecture](./images/architecture.png)
+:::image type="complex" source="./images/architecture.png" alt-text="Diagram showing the high-level architecture of the serverless Functions application.":::
+   In one data flow, arrows show messages going from Devices to Event Hubs and triggering the function app. From the app, one arrow shows dead-letter messages going to a storage queue, and another arrow shows writing to Azure Cosmos DB. In another data flow, arrows show the client web app getting static files from Blob storage static web hosting, through a CDN. Another arrow shows the client HTTP request going through API Management. From API Management, one arrow shows the function app triggering and reading data from Azure Cosmos DB. Another arrow shows authentication through Azure AD. A User also signs in to Azure AD.
+:::image-end:::
 
 Event ingestion:
 
@@ -128,7 +130,7 @@ This class has several dependencies, which are injected into the constructor usi
 
 - The `ITelemetryProcessor` and `IStateChangeProcessor` interfaces define two helper objects. As we'll see, these objects do most of the work.
 
-- The [TelemetryClient](https://docs.microsoft.com/dotnet/api/microsoft.applicationinsights.telemetryclient?view=azure-dotnet) is part of the Application Insights SDK. It is used to send custom application metrics to Application Insights.
+- The [TelemetryClient](/dotnet/api/microsoft.applicationinsights.telemetryclient?view=azure-dotnet) is part of the Application Insights SDK. It is used to send custom application metrics to Application Insights.
 
 Later, we'll look at how to configure the dependency injection. For now, just assume these dependencies exist.
 
@@ -154,7 +156,7 @@ The method takes the following parameters:
 - `deadLetterMessages` is an Azure Storage Queue, used for storing dead letter messages.
 - `logging` provides a logging interface, for writing application logs. These logs are sent to Azure Monitor.
 
-The `EventHubTrigger` attribute on the `messages` parameter configures the trigger. The properties of the attribute specify an event hub name, a connection string, and a [consumer group](https://docs.microsoft.com/azure/event-hubs/event-hubs-features#event-consumers). (A *consumer group* is an isolated view of the Event Hubs event stream. This abstraction allows for multiple consumers of the same event hub.)
+The `EventHubTrigger` attribute on the `messages` parameter configures the trigger. The properties of the attribute specify an event hub name, a connection string, and a [consumer group](/azure/event-hubs/event-hubs-features#event-consumers). (A *consumer group* is an isolated view of the Event Hubs event stream. This abstraction allows for multiple consumers of the same event hub.)
 
 Notice the percent signs (%) in some of the attribute properties. These indicate that the property specifies the name of an app setting, and the actual value is taken from that app setting at run time. Otherwise, without percent signs, the property gives the literal value.
 
@@ -162,7 +164,7 @@ The `Connection` property is an exception. This property always specifies an app
 
 While the other two properties (event hub name and consumer group) are not sensitive data like a connection string, it's still better to put them into app settings, rather than hard coding. That way, they can be updated without recompiling the app.
 
-For more information about configuring this trigger, see [Azure Event Hubs bindings for Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-bindings-event-hubs-trigger#attributes-and-annotations).
+For more information about configuring this trigger, see [Azure Event Hubs bindings for Azure Functions](/azure/azure-functions/functions-bindings-event-hubs-trigger#attributes-and-annotations).
 
 ## Message processing logic
 
@@ -356,7 +358,7 @@ catch (Exception ex)
 }
  ```
 
-The dead-letter queue is defined using an [output binding](https://docs.microsoft.com/azure/azure-functions/functions-bindings-storage-queue-output) to a storage queue:
+The dead-letter queue is defined using an [output binding](/azure/azure-functions/functions-bindings-storage-queue-output) to a storage queue:
 
 ```csharp
 [FunctionName("RawTelemetryFunction")]
@@ -370,7 +372,7 @@ public async Task RunAsync(
 
 Here the `Queue` attribute specifies the output binding, and the `StorageAccount` attribute specifies the name of an app setting that holds the connection string for the storage account.
 
-**Deployment tip:** In the Resource Manager template that creates the storage account, you can automatically populate an app setting with the connection string. The trick is to use the [listKeys](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-functions-resource#listkeys) function.
+**Deployment tip:** In the Resource Manager template that creates the storage account, you can automatically populate an app setting with the connection string. The trick is to use the [listKeys](/azure/azure-resource-manager/resource-group-template-functions-resource#listkeys) function.
 
 Here is the section of the template that creates the storage account for the queue:
 
@@ -456,14 +458,14 @@ Azure Functions written for .NET can use the ASP.NET Core dependency injection f
 - *Scoped* objects are created once per function execution.
 - *Singleton* objects are reused across function executions, within the lifetime of the function host.
 
-In this example, the `TelemetryProcessor` and `StateChangeProcessor` objects are declared as transient. This is appropriate for lightweight, stateless services. The `DocumentClient` class, on the other hand, should be a singleton for best performance. For more information, see [Performance tips for Azure Cosmos DB and .NET](https://docs.microsoft.com/azure/cosmos-db/performance-tips#sdk-usage).
+In this example, the `TelemetryProcessor` and `StateChangeProcessor` objects are declared as transient. This is appropriate for lightweight, stateless services. The `DocumentClient` class, on the other hand, should be a singleton for best performance. For more information, see [Performance tips for Azure Cosmos DB and .NET](/azure/cosmos-db/performance-tips#sdk-usage).
 
 If you refer back to the code for the [RawTelemetryFunction](#drone-telemetry-function), you'll see there another dependency that doesn't appear in DI setup code, namely the `TelemetryClient` class that is used to log application metrics. The Functions runtime automatically registers this class into the DI container, so you don't need to register it explicitly.
 
 For more information about DI in Azure Functions, see the following articles:
 
-- [Use dependency injection in .NET Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-dotnet-dependency-injection)
-- [Dependency injection in ASP.NET Core](https://docs.microsoft.com/aspnet/core/fundamentals/dependency-injection)
+- [Use dependency injection in .NET Azure Functions](/azure/azure-functions/functions-dotnet-dependency-injection)
+- [Dependency injection in ASP.NET Core](/aspnet/core/fundamentals/dependency-injection)
 
 ### Passing configuration settings in DI
 
@@ -480,7 +482,7 @@ builder.Services.AddSingleton<IDocumentClient>(ctx => {
 });
 ```
 
-The second example is the `StateChangeProcessor` class. For this object, we use an approach called the [options pattern](https://docs.microsoft.com/aspnet/core/fundamentals/configuration/options). Here's how it works:
+The second example is the `StateChangeProcessor` class. For this object, we use an approach called the [options pattern](/aspnet/core/fundamentals/configuration/options). Here's how it works:
 
 1. Define a class `T` that contains your configuration settings. In this case, the Cosmos DB database name and collection name.
 
@@ -581,7 +583,7 @@ This function uses an HTTP trigger to process an HTTP GET request. The function 
 
 ## Authentication and authorization
 
-The web app uses Azure AD to authenticate users. Because the app is a single-page application (SPA) running in the browser, the [implicit grant flow](https://docs.microsoft.com/azure/active-directory/develop/v1-oauth2-implicit-grant-flow) is appropriate:
+The web app uses Azure AD to authenticate users. Because the app is a single-page application (SPA) running in the browser, the [implicit grant flow](/azure/active-directory/develop/v1-oauth2-implicit-grant-flow) is appropriate:
 
 1. The web app redirects the user to the identity provider (in this case, Azure AD).
 1. The user enters their credentials.
@@ -590,13 +592,13 @@ The web app uses Azure AD to authenticate users. Because the app is a single-pag
 
 ![Implicit flow diagram](./images/implicit-flow.png)
 
-A Function application can be configured to authenticate users with zero code. For more information, see [Authentication and authorization in Azure App Service](https://docs.microsoft.com/azure/app-service/overview-authentication-authorization).
+A Function application can be configured to authenticate users with zero code. For more information, see [Authentication and authorization in Azure App Service](/azure/app-service/overview-authentication-authorization).
 
 Authorization, on the other hand, generally requires some business logic. Azure AD supports *claims based authentication*. In this model, a user's identity is represented as a set of claims that come from the identity provider. A claim can be any piece of information about the user, such as their name or email address.
 
 The access token contains a subset of user claims. Among these are any application roles that the user is assigned to.
 
-The `principal` parameter of the function is a [ClaimsPrincipal](https://docs.microsoft.com/dotnet/api/system.security.claims.claimsprincipal) object that contains the claims from the access token. Each claim is a key/value pair of claim type and claim value. The application uses these to authorize the request.
+The `principal` parameter of the function is a [ClaimsPrincipal](/dotnet/api/system.security.claims.claimsprincipal) object that contains the claims from the access token. Each claim is a key/value pair of claim type and claim value. The application uses these to authorize the request.
 
 The following extension method tests whether a `ClaimsPrincipal` object contains a set of roles. It returns `false` if any of the specified roles is missing. If this method returns false, the function returns HTTP 401 (Unauthorized).
 
@@ -635,5 +637,5 @@ Once you get a feel for how this reference solution works, learn best practices 
 Azure Functions is just one Azure compute option. For help with choosing a compute technology, see [Choose an Azure compute service for your application](../guide/technology-choices/compute-decision-tree.md).
 
 ## Related resources
-- For in-depth discussion on developing serverless solutions on premises as well as in the cloud, read [Serverless apps: Architecture, patterns, and Azure implementation](https://docs.microsoft.com/dotnet/standard/serverless-architecture).
+- For in-depth discussion on developing serverless solutions on premises as well as in the cloud, read [Serverless apps: Architecture, patterns, and Azure implementation](/dotnet/standard/serverless-architecture).
 - Read more about the [Event-driven architecture style](../guide/architecture-styles/event-driven.md).

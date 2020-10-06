@@ -1,7 +1,7 @@
 ---
 title: Extend an on-premises network using VPN
 description: A secure site-to-site network architecture that spans an Azure virtual network and an on-premises network connected using a VPN.
-author: adamboeglin
+author: doodlemania2
 ms.date: 01/24/2020
 ms.topic: reference-architecture
 ms.service: architecture-center
@@ -47,7 +47,7 @@ The architecture consists of the following components.
 
 - **Internal load balancer**. Network traffic from the VPN gateway is routed to the cloud application through an internal load balancer. The load balancer is located in the front-end subnet of the application.
 
-- **Bastion**. [Azure Bastion](https://docs.microsoft.com/azure/bastion/) allows you to log into VMs in the virtual network through SSH or remote desktop protocol (RDP) without exposing the VMs directly to the internet. If you lose connectivity through the VPN, you can still use Bastion to manage the VMs in the virtual network.
+- **Bastion**. [Azure Bastion](/azure/bastion/) allows you to log into VMs in the virtual network through SSH or remote desktop protocol (RDP) without exposing the VMs directly to the internet. If you lose connectivity through the VPN, you can still use Bastion to manage the VMs in the virtual network.
 
 ## Recommendations
 
@@ -244,18 +244,18 @@ Although VPNs can be used to connect virtual networks within Azure, it's not alw
 
 [aaf-cost]: ../../framework/cost/overview.md
 [adds-extend-domain]: ../identity/adds-extend-domain.md
-[az-vpn]: https://docs.microsoft.com/azure/azure-stack/azure-stack-connect-vpn
+[az-vpn]: /azure/azure-stack/azure-stack-connect-vpn
 [azure-gateway-charges]: https://azure.microsoft.com/pricing/details/vpn-gateway
-[azure-gateway-skus]: https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways#gwsku
-[azure-virtual-network]: https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview
+[azure-gateway-skus]: /azure/vpn-gateway/vpn-gateway-about-vpngateways#gwsku
+[azure-virtual-network]: /azure/virtual-network/virtual-networks-overview
 [azure-vpn-gateway]: https://azure.microsoft.com/services/vpn-gateway
 [Bastion-pricing]: https://azure.microsoft.com/pricing/details/azure-bastion
 [changing-SKUs]: https://azure.microsoft.com/blog/azure-virtual-network-gateway-improvements
 [CIDR]: https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing
-[connect-to-an-Azure-vnet]: https://docs.microsoft.com/office365/enterprise/connect-an-on-premises-network-to-a-microsoft-azure-virtual-network
+[connect-to-an-Azure-vnet]: /office365/enterprise/connect-an-on-premises-network-to-a-microsoft-azure-virtual-network
 [azure-pricing-calculator]: https://azure.microsoft.com/pricing/calculator
-[forced-tunneling]: https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-forced-tunneling
-[gateway-diagnostic-logs]: https://blogs.technet.microsoft.com/keithmayer/2016/10/12/step-by-step-capturing-azure-resource-manager-arm-vnet-gateway-diagnostic-logs
+[forced-tunneling]: /azure/vpn-gateway/vpn-gateway-about-forced-tunneling
+[gateway-diagnostic-logs]: /archive/blogs/keithmayer/step-by-step-capturing-azure-resource-manager-arm-vnet-gateway-diagnostic-logs
 [linux-vm-ra]: ../n-tier/n-tier-cassandra.md
 [linux-vms-pricing]: https://azure.microsoft.com/pricing/details/virtual-machines/linux
 [nagios]: https://www.nagios.org
@@ -265,9 +265,9 @@ Although VPNs can be used to connect virtual networks within Azure, it's not alw
 [rras-logging]: https://www.petri.com/enable-diagnostic-logging-in-windows-server-2012-r2-routing-and-remote-access
 [sla-for-vpn-gateway]: https://azure.microsoft.com/support/legal/sla/vpn-gateway
 [visio-download]: https://archcenter.blob.core.windows.net/cdn/hybrid-network-architectures.vsdx
-[vpn-appliance-ipsec]: https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpn-devices#ipsec
-[vpn-appliance]: https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpn-devices
-[vpn-appliances]: https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpn-devices
-[vpn-gateway-multi-site]: https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-multi-site
+[vpn-appliance-ipsec]: /azure/vpn-gateway/vpn-gateway-about-vpn-devices#ipsec
+[vpn-appliance]: /azure/vpn-gateway/vpn-gateway-about-vpn-devices
+[vpn-appliances]: /azure/vpn-gateway/vpn-gateway-about-vpn-devices
+[vpn-gateway-multi-site]: /azure/vpn-gateway/vpn-gateway-multi-site
 [windows-vm-ra]: ../n-tier/n-tier-sql-server.md
 [azbb]: https://github.com/mspnp/template-building-blocks/wiki

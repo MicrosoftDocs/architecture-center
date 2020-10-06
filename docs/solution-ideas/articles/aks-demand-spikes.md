@@ -1,7 +1,7 @@
 ---
 title: Elastic demand handling with AKS
 titleSuffix: Azure Solution Ideas
-author: adamboeglin
+author: doodlemania2
 ms.date: 04/17/2020
 description: Achieve fast and reliable service quality during seasonal and other high-traffic demand periods
 ms.custom: acom-architecture

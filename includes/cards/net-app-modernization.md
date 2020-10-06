@@ -6,12 +6,12 @@
 <article class="card">
     <div class="card-header has-margin-bottom-none" aria-hidden="true">
         <figure class="image diagram has-height-175 has-overflow-hidden level">
-            <a href="/azure/architecture/solution-ideas/articles/net-app-modernization"><img src="/azure/architecture/browse/thumbs/net-app-modernization.png" class="diagram" alt="Architecture Diagram" data-linktype="relative-path"></a>
+            <a href="/azure/architecture/solution-ideas/articles/net-app-modernization"><img src="/azure/architecture/browse/thumbs/net-app-modernization.png" class="diagram" alt="Thumbnail of Modernize .NET applications Architectural Diagram." data-linktype="relative-path"></a>
         </figure>
     </div>
     <div class="card-content">
         <a class="card-content-title has-margin-top-none" href="/azure/architecture/solution-ideas/articles/net-app-modernization">
-            <p>Modernize .NET applications with Azure SQL DB and Azure App Service</p>
+            <p>Modernize .NET applications</p>
         </a>
         <ul class="card-content-metadata">
             <li>6/26/2020</li>

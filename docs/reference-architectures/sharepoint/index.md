@@ -23,7 +23,7 @@ This reference architecture shows proven practices for deploying a highly availa
 
 ## Architecture
 
-This architecture builds on the one shown in [Run Windows VMs for an N-tier application][windows-n-tier]. It deploys a SharePoint Server 2016 farm with high availability inside an Azure virtual network (VNet). This architecture is suitable for a test or production environment, a SharePoint hybrid infrastructure with Office 365, or as the basis for a disaster recovery scenario.
+This architecture builds on the one shown in [Run Windows VMs for an N-tier application][windows-n-tier]. It deploys a SharePoint Server 2016 farm with high availability inside an Azure virtual network (VNet). This architecture is suitable for a test or production environment, a SharePoint hybrid infrastructure with Microsoft 365, or as the basis for a disaster recovery scenario.
 
 The architecture consists of the following components:
 
@@ -43,7 +43,7 @@ The architecture consists of the following components:
 
 - **Windows Server Active Directory (AD) domain controllers**. This reference architecture deploys Windows Server AD domain controllers. These domain controllers run in the Azure VNet and have a trust relationship with the on-premises Windows Server AD forest. Client web requests for SharePoint farm resources are authenticated in the VNet rather than sending that authentication traffic across the gateway connection to the on-premises network. In DNS, intranet A or CNAME records are created so that intranet users can resolve the name of the SharePoint farm to the private IP address of the internal load balancer.
 
-  SharePoint Server 2016 also supports using [Azure Active Directory Domain Services](https://docs.microsoft.com/azure/active-directory-domain-services). Azure AD Domain Services provides managed domain services, so that you don't need to deploy and manage domain controllers in Azure.
+  SharePoint Server 2016 also supports using [Azure Active Directory Domain Services](/azure/active-directory-domain-services). Azure AD Domain Services provides managed domain services, so that you don't need to deploy and manage domain controllers in Azure.
 
 - **SQL Server Always On availability group**. For high availability of the SQL Server database, we recommend [SQL Server Always On availability groups][sql-always-on]. Two virtual machines are used for SQL Server. One contains the primary database replica and the other contains the secondary replica.
 
@@ -81,7 +81,7 @@ Make sure your Azure subscription has enough VM core quota for the deployment, o
 
 For all SharePoint roles except the Search Indexer, we recommended using the [Standard_DS3_v2][vm-sizes-general] VM size. The Search Indexer should be at least the [Standard_DS13_v2][vm-sizes-memory] size. For testing, the parameter files for this reference architecture specify the smaller DS3_v2 size for the Search Indexer role. For a production deployment, update the parameter files to use the DS13 size or larger. For more information, see [Hardware and software requirements for SharePoint Server 2016][sharepoint-reqs].
 
-For the SQL Server VMs, we recommend a minimum of 4 cores and 8 GB RAM. The parameter files for this reference architecture specify the DS3_v2 size. For a production deployment, you might need to specify a larger VM size. For more information, see [Storage and SQL Server capacity planning and configuration (SharePoint Server)](https://docs.microsoft.com/sharepoint/administration/storage-and-sql-server-capacity-planning-and-configuration#estimate-memory-requirements).
+For the SQL Server VMs, we recommend a minimum of 4 cores and 8 GB RAM. The parameter files for this reference architecture specify the DS3_v2 size. For a production deployment, you might need to specify a larger VM size. For more information, see [Storage and SQL Server capacity planning and configuration (SharePoint Server)](/sharepoint/administration/storage-and-sql-server-capacity-planning-and-configuration#estimate-memory-requirements).
 
 ### NSG recommendations
 
@@ -122,9 +122,9 @@ For more information about these recommendations, see [Initial deployment admini
 
 ### Hybrid workloads
 
-This reference architecture deploys a SharePoint Server 2016 farm that can be used as a [SharePoint hybrid environment][sharepoint-hybrid] &mdash; that is, extending SharePoint Server 2016 to Office 365 SharePoint Online. If you have Office Online Server, see [Office Web Apps and Office Online Server supportability in Azure][office-web-apps].
+This reference architecture deploys a SharePoint Server 2016 farm that can be used as a [SharePoint hybrid environment][sharepoint-hybrid] &mdash; that is, extending SharePoint Server 2016 to SharePoint Online. If you have Office Online Server, see [Office Web Apps and Office Online Server supportability in Azure][office-web-apps].
 
-The default service applications in this deployment are designed to support hybrid workloads. All SharePoint Server 2016 and Office 365 hybrid workloads can be deployed to this farm without changes to the SharePoint infrastructure, with one exception: The Cloud Hybrid Search Service Application must not be deployed onto servers hosting an existing search topology. Therefore, one or more search-role-based VMs must be added to the farm to support this hybrid scenario.
+The default service applications in this deployment are designed to support hybrid workloads. All SharePoint Server 2016 and Microsoft 365 hybrid workloads can be deployed to this farm without changes to the SharePoint infrastructure, with one exception: The Cloud Hybrid Search Service Application must not be deployed onto servers hosting an existing search topology. Therefore, one or more search-role-based VMs must be added to the farm to support this hybrid scenario.
 
 ### SQL Server Always On availability groups
 
@@ -322,54 +322,54 @@ This sign-in tunnels from the Fabrikam.com domain used by the on-premises networ
 
 
 
-[AAF-cost]: /azure/architecture/framework/cost/overview
-[AAF-devops]: /azure/architecture/framework/devops/overview
-[arm-template]: https://docs.microsoft.com/azure/azure-resource-manager/management/overview
+[AAF-cost]: ../../framework/cost/overview.md
+[AAF-devops]: ../../framework/devops/overview.md
+[arm-template]: /azure/azure-resource-manager/management/overview
 [Cost-Calculator]: https://azure.microsoft.com/pricing/calculator/
 [ADDS-pricing]: https://azure.microsoft.com/pricing/details/active-directory-ds/
 [availability-set]: /azure/virtual-machines/windows/manage-availability
-[az-devops]: https://docs.microsoft.com/azure/devops/index?view=azure-devops
+[az-devops]: /azure/devops/index?view=azure-devops
 [az-monitor]: https://azure.microsoft.com/services/monitor/
 [azbb]: https://github.com/mspnp/template-building-blocks/wiki/Install-Azure-Building-Blocks
 [azure-gateway-pricing]: https://azure.microsoft.com/pricing/details/vpn-gateway/
 [aaf-cost]: ../../framework/cost/overview.md
 [azure-pricing-calculator]: https://azure.microsoft.com/pricing/calculator
 [ADDS-pricing]: https://azure.microsoft.com/pricing/details/active-directory-ds
-[availability-set]: https://docs.microsoft.com/azure/virtual-machines/windows/manage-availability
+[availability-set]: /azure/virtual-machines/windows/manage-availability
 [azure-gateway-pricing]: https://azure.microsoft.com/pricing/details/vpn-gateway
 [azure-portal]: https://portal.azure.com
 [bastion-host]: https://en.wikipedia.org/wiki/Bastion_host
-[create-availability-group]: https://docs.microsoft.com/sharepoint/administration/sharepoint-intranet-farm-in-azure-phase-5-create-the-availability-group-and-add
-[connect-to-vm]: https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal#connect-to-virtual-machine
+[create-availability-group]: /sharepoint/administration/sharepoint-intranet-farm-in-azure-phase-5-create-the-availability-group-and-add
+[connect-to-vm]: /azure/virtual-machines/windows/quick-create-portal#connect-to-virtual-machine
 [github]: https://github.com/mspnp/reference-architectures
 [hybrid-ra]: ../hybrid-networking/index.md
 [hybrid-vpn-ra]: ../hybrid-networking/vpn.md
-[load-balancer]: https://docs.microsoft.com/azure/load-balancer/load-balancer-internal-overview
-[managed-disks]: https://docs.microsoft.com/azure/storage/storage-managed-disks-overview
-[minroles]: https://docs.microsoft.com/SharePoint/install/overview-of-minrole-server-roles-in-sharepoint-server
-[nsg]: https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg
+[load-balancer]: /azure/load-balancer/load-balancer-internal-overview
+[managed-disks]: /azure/storage/storage-managed-disks-overview
+[minroles]: /SharePoint/install/overview-of-minrole-server-roles-in-sharepoint-server
+[nsg]: /azure/virtual-network/virtual-networks-nsg
 [office-web-apps]: https://support.microsoft.com/help/3199955/office-web-apps-and-office-online-server-supportability-in-azure
 [paired-regions]: /azure/best-practices-availability-paired-regions
-[pipelines]: https://docs.microsoft.com/azure/devops/pipelines/?view=azure-devops
+[pipelines]: /azure/devops/pipelines/?view=azure-devops
 [readme]: https://github.com/mspnp/reference-architectures/tree/master/sharepoint/sharepoint-2016
 [resource-group]: /azure/azure-resource-manager/resource-group-overview
 [quotas]: /azure/azure-subscription-service-limits
-[sharepoint-accounts]: https://technet.microsoft.com/library/ee662513(v=office.16).aspx
-[sharepoint-crawling]: https://technet.microsoft.com/library/dn535606(v=office.16).aspx
-[sharepoint-dr]: https://technet.microsoft.com/library/ff628971(v=office.16).aspx
+[sharepoint-accounts]: /SharePoint/install/initial-deployment-administrative-and-service-accounts-in-sharepoint-server
+[sharepoint-crawling]: /SharePoint/search/best-practices-for-crawling
+[sharepoint-dr]: /SharePoint/administration/plan-for-disaster-recovery
 [sharepoint-hybrid]: https://aka.ms/sphybrid
-[sharepoint-minrole]: https://technet.microsoft.com/library/mt743705(v=office.16).aspx
-[sharepoint-ops]: https://technet.microsoft.com/library/cc262289(v=office.16).aspx
-[sharepoint-reqs]: https://technet.microsoft.com/library/cc262485(v=office.16).aspx
-[sharepoint-search]: https://technet.microsoft.com/library/dn342836.aspx
-[sql-always-on]: https://docs.microsoft.com/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server
-[sql-performance]: https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-performance
-[sql-server-capacity-planning]: https://technet.microsoft.com/library/cc298801(v=office.16).aspx
-[sql-quorum]: https://technet.microsoft.com/library/cc731739(v=ws.11).aspx
-[sql-sharepoint-best-practices]: https://technet.microsoft.com/library/hh292622(v=office.16).aspx
-[tempdb]: https://docs.microsoft.com/sql/relational-databases/databases/tempdb-database
-[virtual-networks-nsg]: https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg
+[sharepoint-minrole]: /SharePoint/administration/managing-a-minrole-server-farm-in-sharepoint-server-2016
+[sharepoint-ops]: /SharePoint/administration/administration
+[sharepoint-reqs]: /SharePoint/install/hardware-and-software-requirements
+[sharepoint-search]: /SharePoint/search/plan-enterprise-search-architecture
+[sql-always-on]: /sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server
+[sql-performance]: /azure/virtual-machines/windows/sql/virtual-machines-windows-sql-performance
+[sql-server-capacity-planning]: /SharePoint/administration/storage-and-sql-server-capacity-planning-and-configuration
+[sql-quorum]: /previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc731739(v=ws.11)
+[sql-sharepoint-best-practices]: /SharePoint/administration/best-practices-for-sql-server-in-a-sharepoint-server-farm
+[tempdb]: /sql/relational-databases/databases/tempdb-database
+[virtual-networks-nsg]: /azure/virtual-network/virtual-networks-nsg
 [visio-download]: https://archcenter.blob.core.windows.net/cdn/Sharepoint-2016.vsdx
-[vm-sizes-general]: https://docs.microsoft.com/azure/virtual-machines/windows/sizes-general
-[vm-sizes-memory]: https://docs.microsoft.com/azure/virtual-machines/windows/sizes-memory
+[vm-sizes-general]: /azure/virtual-machines/windows/sizes-general
+[vm-sizes-memory]: /azure/virtual-machines/windows/sizes-memory
 [windows-n-tier]: ../n-tier/n-tier-sql-server.md

@@ -6,7 +6,7 @@
 <article class="card">
     <div class="card-header has-margin-bottom-none" aria-hidden="true">
         <figure class="image diagram has-height-175 has-overflow-hidden level">
-            <a href="{{ article['http_url'] }}"><img src="/azure/architecture/browse/thumbs/{{ article['name'] }}.png" class="diagram" alt="Architecture Diagram" data-linktype="relative-path"></a>
+            <a href="{{ article['http_url'] }}"><img src="/azure/architecture/browse/thumbs/{{ article['name'] }}.png" class="diagram" alt="Thumbnail of {{ article['Title'] }} Architectural Diagram." data-linktype="relative-path"></a>
         </figure>
     </div>
     <div class="card-content">

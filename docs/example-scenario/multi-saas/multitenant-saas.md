@@ -6,6 +6,8 @@ ms.author: pnp
 ms.date: 07/16/2020
 ms.topic: example-scenario
 ms.service: architecture-center
+ms.category: 
+    - identity
 ms.custom: fcp
 ---
 
@@ -31,7 +33,7 @@ These use cases have design patterns that can benefit from a multitenant SaaS so
 
 ## Architecture
 
-![Diagram showing a multitenant SaaS architecture set up in Azure in two different regions.](multitenant-saas.png)
+![Diagram showing a multitenant SaaS architecture set up in Azure in two different regions.](./media/multitenant-saas.png)
 
 A suite of Azure technologies secure and load balance the traffic.
 
@@ -79,7 +81,7 @@ The primary components are the suggested components for the architecture in this
 
 * [Azure DNS](https://azure.microsoft.com/services/dns/): A hosting service in Azure for domain name resolution. In a multitenant solution, multiple clients will be accessing the solution via their own individual domains. Use Azure DNS to configure and resolve client requests to their correct application stack.
 
-* [Application Gateway](https://azure.microsoft.com/services/application-gateway/): Routes and load-balances traffic internally in the application to the various services that satisfy client business needs. While Azure Front Door balances load across high-level regions, it's Application Gateway that has awareness of the load on individual services within a group. Azure Front Door and Application Gateway combine to provide complex load-balancing at all levels in a multitenant solution. For more information on load-balancing options in Azure, visit this [overview on Azure load-balancing](/azure/architecture/guide/technology-choices/load-balancing-overview).
+* [Application Gateway](https://azure.microsoft.com/services/application-gateway/): Routes and load-balances traffic internally in the application to the various services that satisfy client business needs. While Azure Front Door balances load across high-level regions, it's Application Gateway that has awareness of the load on individual services within a group. Azure Front Door and Application Gateway combine to provide complex load-balancing at all levels in a multitenant solution. For more information on load-balancing options in Azure, visit this [overview on Azure load-balancing](../../guide/technology-choices/load-balancing-overview.md).
 
 * [App Service](https://azure.microsoft.com/services/app-service/): Azure's premier service for web applications and web-based APIs. Security integrates with services like Azure AD and [Azure Key Vault](https://azure.microsoft.com/services/key-vault/). You can configure scaling to happen automatically. Also, the amount of resources available to scale to is flexible between the various App Service plans that the app can run on. App Service can also leverage integrated DevOps capabilities for continuous integration and deployment to multiple environments. These and other supporting features of the Azure platform allow for developers to focus on the development of their applications.
 
@@ -167,8 +169,8 @@ The [pricing for Azure Cognitive Search](https://azure.microsoft.com/pricing/det
 
 * [Multitenant SaaS database tenancy patterns](/azure/azure-sql/database/saas-tenancy-app-design-patterns) covers implementing multitenancy patterns in SQL.
 
-* [Run a web application in multiple Azure regions for high availability](/azure/architecture/reference-architectures/app-service-web-app/multi-region) is a reference for the multiregion requirement of the solution.
+* [Run a web application in multiple Azure regions for high availability](../../reference-architectures/app-service-web-app/multi-region.md) is a reference for the multiregion requirement of the solution.
 
-* [Multitier web application built for high availability and disaster recovery on Azure](/azure/architecture/example-scenario/infrastructure/multi-tier-app-disaster-recovery) is a similar example workload scenario. It describes many of the considerations for a large-scale application on Azure.
+* [Multitier web application built for high availability and disaster recovery on Azure](../infrastructure/multi-tier-app-disaster-recovery.md) is a similar example workload scenario. It describes many of the considerations for a large-scale application on Azure.
 
 * [Tenancy in Azure Active Directory](/azure/active-directory/develop/single-and-multi-tenant-apps) is also about leveraging Azure Active Directory to implement multitenant apps.

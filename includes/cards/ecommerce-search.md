@@ -6,7 +6,7 @@
 <article class="card">
     <div class="card-header has-margin-bottom-none" aria-hidden="true">
         <figure class="image diagram has-height-175 has-overflow-hidden level">
-            <a href="/azure/architecture/example-scenario/apps/ecommerce-search"><img src="/azure/architecture/browse/thumbs/ecommerce-search.png" class="diagram" alt="Architecture Diagram" data-linktype="relative-path"></a>
+            <a href="/azure/architecture/example-scenario/apps/ecommerce-search"><img src="/azure/architecture/browse/thumbs/ecommerce-search.png" class="diagram" alt="Thumbnail of Intelligent product search engine for e-commerce Architectural Diagram." data-linktype="relative-path"></a>
         </figure>
     </div>
     <div class="card-content">
@@ -17,7 +17,7 @@
             <li>9/14/2018</li>
             <li>6 min read</li>
         </ul>
-        <p class="card-content-description">Provide a world-class search experience in an e-commerce application.</p>
+        <p class="card-content-description">This example scenario shows how using Azure Search can dramatically increase the relevance of search results for your e-commerce customers.</p>
         <div class="bottom-to-top-fade is-hidden-mobile"></div>
     </div>
 </article>

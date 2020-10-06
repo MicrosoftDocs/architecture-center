@@ -1,7 +1,7 @@
 ---
 title: Data Streaming scenario
 titleSuffix: Azure Solution Ideas
-author: adamboeglin
+author: doodlemania2
 ms.date: 12/16/2019
 description: Data Streaming scenario
 ms.custom: acom-architecture, data streaming scenario, interactive-diagram, data, 'https://azure.microsoft.com/solutions/architecture/data-streaming-scenario/'

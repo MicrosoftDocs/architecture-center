@@ -1,6 +1,6 @@
 ---
 title: Virtual machine instances 
-description: Optimize by using Azure Reservations to lower cost
+description: Learn how to adequately size, optimize, and manage VMs to control costs, meet capacity demand, and reduce waste.
 author:  PageWriter-MSFT
 ms.date: 05/12/2020
 ms.topic: article
@@ -32,7 +32,7 @@ You can identify underutilized machines by adjusting the CPU utilization rule on
 Resizing a virtual machine does require the machine to be shut down and restarted. There might be a period of time when it will be unavailable. Make sure you carefully time this action for minimal business impact.
 
 ## Shut down the under utilized instances
-Use the **Start/stop VMs during off-hours** feature of virtual machines to minimize waste. There are many configuration options to schedule start the stop times. The feature is suitable as a low-cost automation option. For information, see [Start/stop VMs during off-hours solution in Azure Automation](https://docs.microsoft.com/azure/automation/automation-solution-vm-management).
+Use the **Start/stop VMs during off-hours** feature of virtual machines to minimize waste. There are many configuration options to schedule start the stop times. The feature is suitable as a low-cost automation option. For information, see [Start/stop VMs during off-hours solution in Azure Automation](/azure/automation/automation-solution-vm-management).
 
 [Azure Advisor](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/CreateBlade/referrer/docs) evaluates virtual machines based on CPU and network utilization over a time period. Then, the recommended actions are shut down or resize instances and cost saving with both actions. 
 
@@ -56,6 +56,3 @@ With reserved instances, you need to determine the VM size to buy. Analyze usage
 Reservations also apply to dedicated hosts. The discount is applied to all running hosts that match the reservation scope and attributes. An important consideration is the SKU for the host. When selecting a SKU, choose the VM series and type eligible to be a dedicated host. For more information, see [Azure Dedicated Hosts pricing](https://aka.ms/ADHPricing).
 
 For information about discounts on virtual machines, see [How the Azure reservation discount is applied to virtual machines](/azure/cost-management-billing/manage/understand-vm-reservation-charges).
-
-
-

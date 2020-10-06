@@ -1,7 +1,7 @@
 ---
 title: Monitoring a microservices application in AKS
-description: Use metrics and logs in AKS to monitor a microservices architecture
-author: adamboeglin
+description: Learn about best practices for monitoring a microservices application that runs on Azure Kubernetes Service, by collecting telemetry from the application.
+author: doodlemania2
 ms.date: 04/06/2020
 ms.topic: guide
 ms.service: architecture-center
@@ -40,19 +40,19 @@ Use [Azure Monitor][azure-monitor] to monitor the overall health of your cluster
 
 From here, you can drill in further to find the issue. For example, if the pod status is `ImagePullBackoff`, it means that Kubernetes could not pull the container image from the registry. This could be caused by an invalid container tag or an authentication error trying to pull from the registry.
 
-Note that a container crashing will put the container state into `State` = `Waiting`,with `Reason` = `CrashLoopBackOff`. For a typical scenario where a pod is part of a replica set and the retry policy is `Always`, this won't show as an error in the cluster status. However, you can run queries or set up alerts for this condition. For more information, see [Understand AKS cluster performance with Azure Monitor for containers](https://docs.microsoft.com/azure/azure-monitor/insights/container-insights-analyze).
+Note that a container crashing will put the container state into `State` = `Waiting`,with `Reason` = `CrashLoopBackOff`. For a typical scenario where a pod is part of a replica set and the retry policy is `Always`, this won't show as an error in the cluster status. However, you can run queries or set up alerts for this condition. For more information, see [Understand AKS cluster performance with Azure Monitor for containers](/azure/azure-monitor/insights/container-insights-analyze).
 
 ## Metrics
 
 We recommend using [Azure Monitor][azure-monitor] to collect and view metrics for your AKS clusters and any other dependent Azure services.
 
-- For cluster and container metrics, enable [Azure Monitor for containers](https://docs.microsoft.com/azure/monitoring/monitoring-container-insights-overview). When this feature is enabled, Azure Monitor collects memory and processor metrics from controllers, nodes, and containers via the Kubernetes metrics API. For more information about the metrics that are available through Azure Monitor for containers, see [Understand AKS cluster performance with Azure Monitor for containers](https://docs.microsoft.com/azure/azure-monitor/insights/container-insights-analyze).
+- For cluster and container metrics, enable [Azure Monitor for containers](/azure/monitoring/monitoring-container-insights-overview). When this feature is enabled, Azure Monitor collects memory and processor metrics from controllers, nodes, and containers via the Kubernetes metrics API. For more information about the metrics that are available through Azure Monitor for containers, see [Understand AKS cluster performance with Azure Monitor for containers](/azure/azure-monitor/insights/container-insights-analyze).
 
-- Use [Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-overview) to collect application metrics. Application Insights is an extensible Application Performance Management (APM) service. To use it, you install an instrumentation package in your application. This package monitors the app and sends telemetry data to the Application Insights service. It can also pull telemetry data from the host environment. The data is then sent to Azure Monitor. Application Insights also provides built-in correlation and dependency tracking (see [Distributed tracing](#distributed-tracing), below).
+- Use [Application Insights](/azure/application-insights/app-insights-overview) to collect application metrics. Application Insights is an extensible Application Performance Management (APM) service. To use it, you install an instrumentation package in your application. This package monitors the app and sends telemetry data to the Application Insights service. It can also pull telemetry data from the host environment. The data is then sent to Azure Monitor. Application Insights also provides built-in correlation and dependency tracking (see [Distributed tracing](#distributed-tracing), below).
 
-Application Insights has a maximum throughput measured in events/second, and it throttles if the data rate exceeds the limit. For details, see [Application Insights limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-insights). Create different Application Insights instances per environment, so that dev/test environments don't compete against the production telemetry for quota.
+Application Insights has a maximum throughput measured in events/second, and it throttles if the data rate exceeds the limit. For details, see [Application Insights limits](/azure/azure-subscription-service-limits#application-insights). Create different Application Insights instances per environment, so that dev/test environments don't compete against the production telemetry for quota.
 
-A single operation may generate several telemetry events, so if the application experiences a high volume of traffic, it is likely to get throttled. To mitigate this problem, you can perform sampling to reduce the telemetry traffic. The tradeoff is that your metrics will be less precise. For more information, see [Sampling in Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-sampling). You can also reduce the data volume by pre-aggregating metrics &mdash; that is, calculating statistical values such as average and standard deviation, and sending those values instead of the raw telemetry. The following blog post describes an approach to using Application Insights at scale: [Azure Monitoring and Analytics at Scale](https://blogs.msdn.microsoft.com/azurecat/2017/05/11/azure-monitoring-and-analytics-at-scale/).
+A single operation may generate several telemetry events, so if the application experiences a high volume of traffic, it is likely to get throttled. To mitigate this problem, you can perform sampling to reduce the telemetry traffic. The tradeoff is that your metrics will be less precise. For more information, see [Sampling in Application Insights](/azure/application-insights/app-insights-sampling). You can also reduce the data volume by pre-aggregating metrics &mdash; that is, calculating statistical values such as average and standard deviation, and sending those values instead of the raw telemetry. The following blog post describes an approach to using Application Insights at scale: [Azure Monitoring and Analytics at Scale](/archive/blogs/azurecat/azure-monitoring-and-analytics-at-scale).
 
 If your data rate is high enough to trigger throttling, and sampling or aggregation are not acceptable, consider exporting metrics to a time-series database such as **Prometheus** or **InfluxDB** running in the cluster.
 
@@ -76,7 +76,7 @@ There are some additional challenges for a Kubernetes-based architecture:
 
 In Kubernetes, the standard approach to logging is for a container to write logs to stdout and stderr. The container engine redirects these streams to a logging driver. For ease of querying, and to prevent possible loss of log data if a node crashes, the usual approach is to collect the logs from each node and send them to a central storage location.
 
-Azure Monitor integrates with AKS to support this approach. Azure Monitor collects container logs and sends them to a Log Analytics workspace. From there, you can use the [Kusto query language](https://docs.microsoft.com/azure/kusto/query/) to write queries across the aggregated logs. For example, here is a Kusto query to show the container logs for a specified pod:
+Azure Monitor integrates with AKS to support this approach. Azure Monitor collects container logs and sends them to a Log Analytics workspace. From there, you can use the [Kusto query language](/azure/kusto/query/) to write queries across the aggregated logs. For example, here is a Kusto query to show the container logs for a specified pod:
 
 ```kusto
 let ContainerIdList = KubePodInventory
@@ -87,7 +87,7 @@ ContainerLog
 | where ContainerID in (ContainerIdList)
 ```
 
-Azure Monitor is a managed service, and configuring an AKS cluster to use Azure Monitor is a simple configuration switch in the CLI or Resource Manager template. (For more information, see [How to enable Azure Monitor for containers](https://docs.microsoft.com/azure/azure-monitor/insights/container-insights-onboard).) Another advantage of using Azure Monitoring is that it consolidates your AKS logs with other Azure platform logs, providing a unified monitoring experience.
+Azure Monitor is a managed service, and configuring an AKS cluster to use Azure Monitor is a simple configuration switch in the CLI or Resource Manager template. (For more information, see [How to enable Azure Monitor for containers](/azure/azure-monitor/insights/container-insights-onboard).) Another advantage of using Azure Monitoring is that it consolidates your AKS logs with other Azure platform logs, providing a unified monitoring experience.
 
 Azure Monitor is billed per gigabyte (GB) of data ingested into the service (see [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/)). At very high volumes, cost may become a consideration. There are many open-source alternatives available for the Kubernetes ecosystem. For example, many organizations use **Fluentd** with **Elasticsearch**. Fluentd is an open-source data collector, and Elasticsearch is a document database that is for search. A challenge with these options is that they require additional configuration and management of the cluster. For a production workload, you may need to experiment with configuration settings. You'll also need to monitor the performance of the logging infrastructure.
 
@@ -107,9 +107,9 @@ Advantages of this approach include:
 
 Considerations:
 
-- Application Insights throttles the telemetry if the data rate exceeds a maximum limit; for details, see [Application Insights limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-insights). A single operation may generate several telemetry events, so if the application experiences a high volume of traffic, it is likely to get throttled.
+- Application Insights throttles the telemetry if the data rate exceeds a maximum limit; for details, see [Application Insights limits](/azure/azure-subscription-service-limits#application-insights). A single operation may generate several telemetry events, so if the application experiences a high volume of traffic, it is likely to get throttled.
 - Because Application Insights batches data, it's possible to lose a batch if a process crashes with an unhandled exception.
-- Application Insights is billed based on data volume. For more information, see [Manage pricing and data volume in Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-pricing).
+- Application Insights is billed based on data volume. For more information, see [Manage pricing and data volume in Application Insights](/azure/application-insights/app-insights-pricing).
 
 ## Structured logging
 
@@ -130,7 +130,7 @@ Here, the call to `LogInformation` includes an `Id` parameter and `DeliveryInfo`
 {"@t":"2019-06-13T00:57:09.9932697Z","@mt":"In Put action with delivery {Id}: {@DeliveryInfo}","Id":"36585f2d-c1fa-4a3d-9e06-a7f40b7d04ef","DeliveryInfo":{...
 ```
 
-This is a JSON string, where the "@t" field is a timestamp, "@mt" is the message string, and the remaining key/value pairs are the parameters. Outputting JSON format makes it easier to query the data in a structured way. For example, the following Log Analytics query, written in the [Kusto query language](https://docs.microsoft.com/azure/kusto/query/), searches for instances of this particular message from all containers named `fabrikam-delivery`:
+This is a JSON string, where the "@t" field is a timestamp, "@mt" is the message string, and the remaining key/value pairs are the parameters. Outputting JSON format makes it easier to query the data in a structured way. For example, the following Log Analytics query, written in the [Kusto query language](/azure/kusto/query/), searches for instances of this particular message from all containers named `fabrikam-delivery`:
 
 ```kusto
 traces
@@ -185,13 +185,13 @@ The first service that receives a client request should generate the correlation
 
 When service calls are correlated, you can calculate operational metrics such as the end-to-end latency for a complete transaction, the number of successful transactions per second, and the percentage of failed transactions. Including correlation IDs in application logs makes it possible to perform root cause analysis. If an operation fails, you can find the log statements for all of the service calls that were part of the same operation.
 
-We recommend using Application Insights for distributed tracing. The Application Insights SDK automatically injects correlation context into HTTP headers, and includes the correlation ID in Application Insights logs. Some services may still need to explicitly propagate the correlation headers, depending on the frameworks and libraries being used. For more information, see [Telemetry correlation in Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/correlation).
+We recommend using Application Insights for distributed tracing. The Application Insights SDK automatically injects correlation context into HTTP headers, and includes the correlation ID in Application Insights logs. Some services may still need to explicitly propagate the correlation headers, depending on the frameworks and libraries being used. For more information, see [Telemetry correlation in Application Insights](/azure/azure-monitor/app/correlation).
 
 Some additional considerations when implementing distributed tracing:
 
 - There is now a standard HTTP header for correlation IDs, a [W3C proposal](https://w3c.github.io/trace-context/) has been accepted as an official recommendation recently. Your team should standardize on a custom header value. The choice may be decided by your logging framework, such as Application Insights, or choice of service mesh.
 
-- For asynchronous messages, if your messaging infrastructure supports adding metadata to messages, you should include the correlation ID as metadata. Otherwise, include it as part of the message schema. For example, see [Distributed tracing and correlation through Service Bus messaging](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-end-to-end-tracing).
+- For asynchronous messages, if your messaging infrastructure supports adding metadata to messages, you should include the correlation ID as metadata. Otherwise, include it as part of the message schema. For example, see [Distributed tracing and correlation through Service Bus messaging](/azure/service-bus-messaging/service-bus-end-to-end-tracing).
 
 - Rather than a single opaque identifier, you might send a *correlation context* that includes richer information, such as caller-callee relationships.
 
@@ -209,13 +209,13 @@ In this scenario, the distributed transaction has the following steps:
 1. The Workflow service pulls the message from the queue.
 1. The Workflow service calls three backend services to process the request (Drone Scheduler, Package, and Delivery).
 
-The following screenshot shows the [application map](https://docs.microsoft.com/azure/azure-monitor/app/app-map) for the Drone Delivery application. This map shows calls to the public API endpoint that result in a workflow that involves five microservices.
+The following screenshot shows the [application map](/azure/azure-monitor/app/app-map) for the Drone Delivery application. This map shows calls to the public API endpoint that result in a workflow that involves five microservices.
 
 ![Application map](./images/monitoring/application-map.png)
 
 The arrows from `fabrikam-workflow` and `fabrikam-ingestion` to a Service Bus queue show where the messages are sent and received. You can't tell from the diagram which service is sending messages and which is receiving &mdash; the arrows just show that both services are calling Service Bus &mdash; but this information is available in the details:
 
-![Application map](./images/monitoring/application-map-sb-ops.png)
+![Screenshot of Application map details.](./images/monitoring/application-map-sb-ops.png)
 
 Because every call includes an operation ID, you can also view the end-to-end steps in a single transaction, including timing information and the HTTP calls at each step. Here is the visualization of one such transaction:
 
@@ -229,7 +229,7 @@ Now here is an example when calls to a backend service were failing:
 
 This shows that a large fraction (36%) of calls to the Drone Scheduler service failed during the period being queried. In the end-to-end transaction view, it shows that an exception occurs when sending an HTTP PUT request to the service.
 
-![End-to-end transaction](./images/monitoring/transaction-errors.png)
+![Screenshot of the End-to-end transaction details showing that an exception occurs when sending an HTTP PUT request to the service.](./images/monitoring/transaction-errors.png)
 
 Further drilling in, the exception turns out to be a socket exception, "No such device or address."
 
@@ -256,13 +256,13 @@ Here are some common causes of errors:
 
 Learn more about features in Azure Monitor that support monitoring of applications on AKS:
 
-- [Azure Monitor for containers overview](https://docs.microsoft.com/azure/azure-monitor/insights/container-insights-overview)
-- [Understand AKS cluster performance with Azure Monitor for containers](https://docs.microsoft.com/azure/azure-monitor/insights/container-insights-analyze)
+- [Azure Monitor for containers overview](/azure/azure-monitor/insights/container-insights-overview)
+- [Understand AKS cluster performance with Azure Monitor for containers](/azure/azure-monitor/insights/container-insights-analyze)
 
 For more information about using metrics for performance tuning, see see [Performance tuning a distributed application](../performance/index.md).
 
 <!-- links -->
 
-[azure-monitor]: https://docs.microsoft.com/azure/azure-monitor
+[azure-monitor]: /azure/azure-monitor
 [Tick stack]: https://github.com/influxdata/kube-influxdb
 [kube-state-metrics]: https://github.com/kubernetes/kube-state-metrics

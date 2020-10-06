@@ -65,6 +65,8 @@ In Azure, the [Service Level Agreement](https://azure.microsoft.com/support/lega
 
 The Azure SLA also includes provisions for obtaining a service credit if the SLA is not met, along with specific definitions of *availability* for each service. That aspect of the SLA acts as an enforcement policy.
 
+:::image type="icon" source="../../_images/github.png" border="false"::: The [Service Level Agreement Estimator](https://github.com/mspnp/samples/tree/master/Reliability/SLAEstimator) sample shows how to calculate the SLA of your architecture. 
+
 ### Composite SLAs
 
 *Composite SLAs* involve multiple services supporting an application, each with differing levels of availability. For example, consider an App Service web app that writes to Azure SQL Database. At the time of this writing, these Azure services have the following SLAs:
@@ -102,4 +104,4 @@ The expected chance that the application fails in all regions at the same time i
 - The combined SLA for two regions = (1 − (1 − 0.9995) \^ 2) = 99.999975%
 - The combined SLA for four regions =  (1 − (1 − 0.9995) \^ 4)  = 99.999999%
 
-The [SLA for Traffic Manager](https://azure.microsoft.com/support/legal/sla/traffic-manager/v1_0/) is also a factor. Failing over is not instantaneous in active-passive configurations, which can result in downtime during a failover. See [Traffic Manager endpoint monitoring and failover](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-monitoring).
+The [SLA for Traffic Manager](https://azure.microsoft.com/support/legal/sla/traffic-manager/v1_0/) is also a factor. Failing over is not instantaneous in active-passive configurations, which can result in downtime during a failover. See [Traffic Manager endpoint monitoring and failover](/azure/traffic-manager/traffic-manager-monitoring).

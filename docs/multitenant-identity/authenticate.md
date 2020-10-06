@@ -1,7 +1,7 @@
 ---
 title: Authentication in multitenant applications
 description: How a multitenant application can authenticate users from Azure Active Directory.
-author: adamboeglin
+author: doodlemania2
 ms.date: 07/21/2017
 ms.topic: guide
 ms.service: architecture-center
@@ -17,7 +17,7 @@ pnp.series.next: claims
 
 # Authenticate using Azure AD and OpenID Connect
 
-[![GitHub](../_images/github.png) Sample code][sample application]
+[:::image type="icon" source="../_images/github.png" border="false"::: Sample code][sample application]
 
 The Surveys application uses the OpenID Connect (OIDC) protocol to authenticate users with Azure Active Directory (Azure AD). The Surveys application uses ASP.NET Core, which has built-in middleware for OIDC. The following diagram shows what happens when the user signs in, at a high level.
 
@@ -35,7 +35,7 @@ The Surveys application uses the OpenID Connect (OIDC) protocol to authenticate 
 
 To enable OpenID Connect, the SaaS provider registers the application inside their own Azure AD tenant.
 
-To register the application, follow the steps in [Quickstart: Register an application with the Microsoft identity platform](https://docs.microsoft.com/azure/active-directory/develop/quickstart-register-app).
+To register the application, follow the steps in [Quickstart: Register an application with the Microsoft identity platform](/azure/active-directory/develop/quickstart-register-app).
 
 To enable this functionality in the sample Surveys application, see the [GitHub readme](https://github.com/mspnp/multitenant-saas-guidance/blob/master/get-started.md). Note the following:
 
@@ -47,18 +47,18 @@ To enable this functionality in the sample Surveys application, see the [GitHub 
 
 This section describes how to configure the authentication middleware in ASP.NET Core for multitenant authentication with OpenID Connect.
 
-In your [startup class](https://docs.microsoft.com/aspnet/core/fundamentals/startup), add the OpenID Connect middleware:
+In your [startup class](/aspnet/core/fundamentals/startup), add the OpenID Connect middleware:
 
 ```csharp
-app.UseOpenIdConnectAuthentication(new OpenIdConnectOptions {
-    ClientId = configOptions.AzureAd.ClientId,
-    ClientSecret = configOptions.AzureAd.ClientSecret, // for code flow
-    Authority = Constants.AuthEndpointPrefix,
-    ResponseType = OpenIdConnectResponseType.CodeIdToken,
-    PostLogoutRedirectUri = configOptions.AzureAd.PostLogoutRedirectUri,
-    SignInScheme = CookieAuthenticationDefaults.AuthenticationScheme,
-    TokenValidationParameters = new TokenValidationParameters { ValidateIssuer = false },
-    Events = new SurveyAuthenticationEvents(configOptions.AzureAd, loggerFactory),
+app.AddAuthentication().AddOpenIdConnect(options => {
+    options.ClientId = configOptions.AzureAd.ClientId;
+    options.ClientSecret = configOptions.AzureAd.ClientSecret; // for code flow
+    options.Authority = Constants.AuthEndpointPrefix;
+    options.ResponseType = OpenIdConnectResponseType.CodeIdToken;
+    options.PostLogoutRedirectUri = configOptions.AzureAd.PostLogoutRedirectUri;
+    options.SignInScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+    options.TokenValidationParameters = new TokenValidationParameters { ValidateIssuer = false };
+    options.Events = new SurveyAuthenticationEvents(configOptions.AzureAd, loggerFactory);
 });
 ```
 
@@ -74,15 +74,15 @@ Notice that some of the settings are taken from runtime configuration options. H
 Also add the Cookie Authentication middleware to the pipeline. This middleware is responsible for writing the user claims to a cookie, and then reading the cookie during subsequent page loads.
 
 ```csharp
-app.UseCookieAuthentication(new CookieAuthenticationOptions {
-    AutomaticAuthenticate = true,
-    AutomaticChallenge = true,
-    AccessDeniedPath = "/Home/Forbidden",
-    CookieSecure = CookieSecurePolicy.Always,
+app.AddAuthentication().AddCookie(options => {
+    options.AutomaticAuthenticate = true;
+    options.AutomaticChallenge = true;
+    options.AccessDeniedPath = "/Home/Forbidden";
+    options.CookieSecure = CookieSecurePolicy.Always;
 
     // The default setting for cookie expiration is 14 days. SlidingExpiration is set to true by default
-    ExpireTimeSpan = TimeSpan.FromHours(1),
-    SlidingExpiration = true
+    options.ExpireTimeSpan = TimeSpan.FromHours(1);
+    options.SlidingExpiration = true;
 });
 ```
 
@@ -183,7 +183,7 @@ When the OIDC middleware redirects to the authorization endpoint, the redirect U
 To specify a different flow, set the **ResponseType** property on the options. For example:
 
 ```csharp
-app.UseOpenIdConnectAuthentication(options =>
+app.AddAuthentication().AddOpenIdConnect(options =>
 {
     options.ResponseType = "code"; // Authorization code flow
 
@@ -194,6 +194,6 @@ app.UseOpenIdConnectAuthentication(options =>
 [**Next**][claims]
 
 [claims]: ./claims.md
-[cookie-options]: https://docs.microsoft.com/aspnet/core/security/authentication/cookie#absolute-cookie-expiration
+[cookie-options]: /aspnet/core/security/authentication/cookie#absolute-cookie-expiration
 [session-cookie]: https://wikipedia.org/wiki/HTTP_cookie#Session_cookie
 [sample application]: https://github.com/mspnp/multitenant-saas-guidance

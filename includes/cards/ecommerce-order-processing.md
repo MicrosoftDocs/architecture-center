@@ -6,7 +6,7 @@
 <article class="card">
     <div class="card-header has-margin-bottom-none" aria-hidden="true">
         <figure class="image diagram has-height-175 has-overflow-hidden level">
-            <a href="/azure/architecture/example-scenario/data/ecommerce-order-processing"><img src="/azure/architecture/browse/thumbs/ecommerce-order-processing.png" class="diagram" alt="Architecture Diagram" data-linktype="relative-path"></a>
+            <a href="/azure/architecture/example-scenario/data/ecommerce-order-processing"><img src="/azure/architecture/browse/thumbs/ecommerce-order-processing.png" class="diagram" alt="Thumbnail of Scalable order processing Architectural Diagram." data-linktype="relative-path"></a>
         </figure>
     </div>
     <div class="card-content">
@@ -17,7 +17,7 @@
             <li>7/10/2018</li>
             <li>6 min read</li>
         </ul>
-        <p class="card-content-description">Build a highly scalable order processing pipeline using Azure Cosmos DB.</p>
+        <p class="card-content-description">This example demonstrates a highly scalable, resilient architecture for online order processing, using managed Azure services such as Cosmos DB and HDInsight.</p>
         <div class="bottom-to-top-fade is-hidden-mobile"></div>
     </div>
 </article>

@@ -1,7 +1,7 @@
 ---
 title: AI at the Edge with Azure Stack
 titleSuffix: Azure Solution Ideas
-author: adamboeglin
+author: doodlemania2
 ms.date: 12/16/2019
 description: Move AI models to the edge with a solution architecture that includes Azure Stack.
 ms.custom: ai-ml, acom-architecture, ai at the edge, azure stack edge, edge ai, machine learning, interactive-diagram, 'https://azure.microsoft.com/solutions/architecture/ai-at-the-edge/'
@@ -45,9 +45,9 @@ With the Azure AI tools and cloud platform, the next generation of AI-enabled hy
 
 ## Next steps
 
-* [Machine Learning Studio documentation](https://docs.microsoft.com/azure/machine-learning/service)
-* [HDInsight documentation](https://docs.microsoft.com/azure/hdinsight)
-* [Container Registry documentation](https://docs.microsoft.com/azure/container-registry)
-* [Azure Kubernetes Service (AKS) documentation](https://docs.microsoft.com/azure/aks)
-* [Storage documentation](https://docs.microsoft.com/azure/storage)
-* [Azure Stack documentation](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-solution-machine-learning)
+* [Machine Learning Studio documentation](/azure/machine-learning/service)
+* [HDInsight documentation](/azure/hdinsight)
+* [Container Registry documentation](/azure/container-registry)
+* [Azure Kubernetes Service (AKS) documentation](/azure/aks)
+* [Storage documentation](/azure/storage)
+* [Azure Stack documentation](/azure/azure-stack/user/azure-stack-solution-machine-learning)

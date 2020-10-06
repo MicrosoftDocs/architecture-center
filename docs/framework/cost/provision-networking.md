@@ -1,6 +1,6 @@
 ---
 title: Cost considerations for networking resources
-description: Describes cost strategies for networking design choices
+description: See networking cost considerations and examples for traffic routing, load balancing, peering, and hybrid connectivity.
 author:  PageWriter-MSFT
 ms.date: 05/14/2020
 ms.topic: article
@@ -47,7 +47,7 @@ By using the [Azure Pricing Calculator](https://azure.microsoft.com/pricing/calc
 ![Azure Front Door ](../_images/cost-net-lb.png)
 
 #### Application Gateway (West US)
-![Azure Front Door ](../_images/cost-net-ag.png)
+![Application Gateway (West US)](../_images/cost-net-ag.png)
 
 Consider a similar example where the type of traffic is changed. Instead the application is a UDP streaming service that is deployed across regions and traffic goes over the internet. 
 We can use a combination of Traffic Manager and Azure Load Balancer. Traffic Manager is a simple routing service that uses DNS to direct clients to specific service. Here are the cost estimates:
@@ -113,7 +113,7 @@ Another consideration is security. Unlike VPN Gateway traffic, ExpressRoute conn
 
 For both services, inbound transfers are free and outbound transfers are billed per the billing zone. 
 
-For more information, see [Choose a solution for connecting an on-premises network to Azure](/azure/architecture/reference-architectures/hybrid-networking/).
+For more information, see [Choose a solution for connecting an on-premises network to Azure](../../reference-architectures/hybrid-networking/index.md).
 
 This [blog post](https://azure.microsoft.com/blog/expressroute-or-virtual-network-vpn-whats-right-for-me/) provides a comparison of the two services.
 
@@ -147,5 +147,3 @@ The main cost driver is outbound data transfer. ExpressRoute is more cost-effect
 For pricing details, see:
 - [Azure VPN Gateway pricing](https://azure.microsoft.com/pricing/details/vpn-gateway/)
 - [Azure ExpressRoute pricing](https://azure.microsoft.com/pricing/details/expressroute/)
-
-

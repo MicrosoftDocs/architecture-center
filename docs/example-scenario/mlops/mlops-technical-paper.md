@@ -6,7 +6,9 @@ ms.author: pnp
 ms.date: 06/01/2020
 ms.service: architecture-center
 ms.subservice: example-scenario
-ms.custom: fcp
+ms.custom: 
+    - fcp
+    - cse
 ms.category:
     - developer-tools
     - hybrid
@@ -582,7 +584,7 @@ Here you'll find a list of considerations to explore. They're based on the lesso
 
 * [Azure Machine Learning CLI](https://aka.ms/azmlcli)
 
-* [Trigger applications, processes, or CI/CD workflows based on Azure Machine Learning events](https://docs.microsoft.com/azure/machine-learning/service/how-to-use-event-grid)
+* [Trigger applications, processes, or CI/CD workflows based on Azure Machine Learning events](/azure/machine-learning/service/how-to-use-event-grid)
 
 * [Set up model training and deployment with Azure DevOps](/azure/devops/pipelines/targets/azure-machine-learning?view=azure-devops)
 

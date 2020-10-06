@@ -6,7 +6,7 @@
 <article class="card">
     <div class="card-header has-margin-bottom-none" aria-hidden="true">
         <figure class="image diagram has-height-175 has-overflow-hidden level">
-            <a href="/azure/architecture/reference-architectures/sap/sap-overview"><img src="/azure/architecture/browse/thumbs/sap-overview.png" class="diagram" alt="Architecture Diagram" data-linktype="relative-path"></a>
+            <a href="/azure/architecture/reference-architectures/sap/sap-overview"><img src="/azure/architecture/browse/thumbs/sap-overview.png" class="diagram" alt="Thumbnail of SAP on Azure Architecture Guide Architectural Diagram." data-linktype="relative-path"></a>
         </figure>
     </div>
     <div class="card-content">
@@ -17,7 +17,7 @@
             <li>6/10/2020</li>
             <li>11 min read</li>
         </ul>
-        <p class="card-content-description">This guide is based on the Azure Architecture Framework, but the recommendations are specific to deployments of SAP solutions.</p>
+        <p class="card-content-description">This guide is based on the Microsoft Azure Well-Architected Framework, but the recommendations are specific to deployments of SAP solutions.</p>
         <div class="bottom-to-top-fade is-hidden-mobile"></div>
     </div>
 </article>

@@ -6,7 +6,7 @@
 <article class="card">
     <div class="card-header has-margin-bottom-none" aria-hidden="true">
         <figure class="image diagram has-height-175 has-overflow-hidden level">
-            <a href="/azure/architecture/solution-ideas/articles/contactless-interfaces"><img src="/azure/architecture/browse/thumbs/contactless-interfaces.png" class="diagram" alt="Architecture Diagram" data-linktype="relative-path"></a>
+            <a href="/azure/architecture/solution-ideas/articles/contactless-interfaces"><img src="/azure/architecture/browse/thumbs/contactless-interfaces.png" class="diagram" alt="Thumbnail of Contactless IoT interfaces with Azure intelligent edge Architectural Diagram." data-linktype="relative-path"></a>
         </figure>
     </div>
     <div class="card-content">

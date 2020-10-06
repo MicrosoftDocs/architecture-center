@@ -1,6 +1,6 @@
 ---
-title: Estimate the initial cost
-description: Describes strategies to model your cloud costs
+title: Initial cost estimate
+description: Learn best practices and strategies for modeling workloads and estimating initial costs for cloud migrations.
 author:  PageWriter-MSFT
 ms.date: 05/12/2020
 ms.topic: article
@@ -43,7 +43,7 @@ Azure provides these tools to determine cost.
 
 Let's consider this [scenario](../../microservices/design/index.md#scenario) as an example. We'll use the [Azure Pricing calculator](https://azure.microsoft.com/pricing/calculator/) to estimate the initial cost before the workload is deployed. The cost is calculated per month or for 730 hours.
 
-In this example, we've chosen the microservices pattern. As the container orchestrator, one of the options could be [Azure Kubernetes Service](https://docs.microsoft.com/azure/aks/) (AKS) that manages a cluster of pods. We choose NGINX ingress controller because it's well-known controller for such workloads. 
+In this example, we've chosen the microservices pattern. As the container orchestrator, one of the options could be [Azure Kubernetes Service](/azure/aks/) (AKS) that manages a cluster of pods. We choose NGINX ingress controller because it's well-known controller for such workloads. 
 
 > The example is based on the current price and is subject to change. The calculation shown is for information purposes only.
 

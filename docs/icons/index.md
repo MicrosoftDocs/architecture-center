@@ -1,7 +1,7 @@
 ---
 title: Azure Icons
 titleSuffix: Azure Architecture Center
-author: adamboeglin
+author: doodlemania2
 ms.date: 07/13/2020
 description: Icons for use in building architecture diagrams for Azure
 ms.service: architecture-center
@@ -26,7 +26,7 @@ Helping our customers design and architect new solutions is core to the Azure Ar
 
 ![Example architecture diagram showing multiple services connected together with numbered steps.](../solution-ideas/media/advanced-analytics-on-big-data.png)
 
-[Browse all Azure architectures](/azure/architecture/browse) to view other examples.
+[Browse all Azure architectures](../browse/index.md) to view other examples.
 
 ## Terms
 
@@ -37,4 +37,4 @@ I agree to the above terms
 </div>
 
  > [!div class="button"]
- > [Download SVG icons](https://arch-center.azureedge.net/icons/Azure_Public_Service_Icons_V1.zip)
+ > [Download SVG icons](https://arch-center.azureedge.net/icons/Azure_Public_Service_Icons_V2.zip)

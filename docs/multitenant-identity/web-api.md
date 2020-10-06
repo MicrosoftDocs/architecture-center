@@ -1,7 +1,7 @@
 ---
 title: Secure a backend web API in a multitenant application
 description: Learn how to secure a backend web API for multitenant applications by using the Tailspin Surveys app, which has a backend API to manage operations on surveys.
-author: adamboeglin
+author: doodlemania2
 ms.date: 07/21/2017
 ms.topic: guide
 ms.service: architecture-center
@@ -18,7 +18,7 @@ pnp.series.next: token-cache
 
 # Secure a backend web API for multitenant applications
 
-[![GitHub](../_images/github.png) Sample code][sample application]
+[:::image type="icon" source="../_images/github.png" border="false"::: Sample code][sample application]
 
 The [Tailspin Surveys][surveys] application uses a backend web API to manage CRUD operations on surveys. For example, when a user clicks "My Surveys", the web application sends an HTTP request to the web API:
 
@@ -310,15 +310,15 @@ At startup, the application reads settings from every registered configuration p
 <!-- links -->
 
 [Authorization]: ./authorize.md
-[ADAL]: https://docs.microsoft.com/azure/active-directory/develop/active-directory-authentication-libraries
+[ADAL]: /azure/active-directory/develop/active-directory-authentication-libraries
 [claims-transformation]: ./claims.md#claims-transformations
 [IdentityServer4]: https://github.com/IdentityServer/IdentityServer4
 [JwtBearer]: https://www.nuget.org/packages/Microsoft.AspNet.Authentication.JwtBearer
 [KeyVault]: https://azure.microsoft.com/services/key-vault
-[options]: https://docs.microsoft.com/aspnet/core/fundamentals/configuration/options
+[options]: /aspnet/core/fundamentals/configuration/options
 [tenant sign-up]: ./signup.md
 [Token caching]: ./token-cache.md
 [sample application]: https://github.com/mspnp/multitenant-saas-guidance
 [surveys]: ./tailspin.md
 [token-cache]: ./token-cache.md
-[user-secrets]: https://docs.microsoft.com/aspnet/core/security/app-secrets
+[user-secrets]: /aspnet/core/security/app-secrets

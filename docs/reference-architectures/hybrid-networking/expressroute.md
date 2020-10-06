@@ -1,7 +1,7 @@
 ---
 title: Extend an on-premises network using ExpressRoute
 description: Implement a secure site-to-site network architecture that spans an Azure virtual network and an on-premises network connected using Azure ExpressRoute.
-author: adamboeglin
+author: doodlemania2
 ms.date: 07/23/2019
 ms.topic: reference-architecture
 ms.service: architecture-center
@@ -36,7 +36,7 @@ The architecture consists of the following components.
 
 - **Azure public services**. Azure services that can be used within a hybrid application. These services are also available over the Internet, but accessing them using an ExpressRoute circuit provides low latency and more predictable performance, because traffic does not go through the Internet.
 
-- **Office 365 services**. The publicly available Office 365 applications and services provided by Microsoft. Connections are performed using [Microsoft peering][expressroute-peering], with addresses that are either owned by your organization or supplied by your connectivity provider. You can also connect directly to Microsoft CRM Online through Microsoft peering.
+- **Microsoft 365 services**. The publicly available Microsoft 365 applications and services provided by Microsoft. Connections are performed using [Microsoft peering][expressroute-peering], with addresses that are either owned by your organization or supplied by your connectivity provider. You can also connect directly to Microsoft CRM Online through Microsoft peering.
 
 - **Connectivity providers** (not shown). Companies that provide a connection either using layer 2 or layer 3 connectivity between your datacenter and an Azure datacenter.
 
@@ -148,7 +148,7 @@ ExpressRoute circuits provide a high bandwidth path between networks. Generally,
 
 ExpressRoute offers two [pricing plans][expressroute-pricing] to customers, a metered plan and an unlimited data plan. Charges vary according to circuit bandwidth. Available bandwidth will likely vary from provider to provider. Use the `Get-AzureRmExpressRouteServiceProvider` cmdlet to see the providers available in your region and the bandwidths that they offer.
 
-A single ExpressRoute circuit can support a certain number of peerings and VNet links. See [ExpressRoute limits](https://docs.microsoft.com/azure/azure-subscription-service-limits) for more information.
+A single ExpressRoute circuit can support a certain number of peerings and VNet links. See [ExpressRoute limits](/azure/azure-subscription-service-limits) for more information.
 
 For an extra charge, the ExpressRoute Premium add-on provides some additional capability:
 
@@ -195,7 +195,7 @@ Although some providers allow you to change your bandwidth, make sure you pick a
 
 ExpressRoute does not support router redundancy protocols such as hot standby routing protocol (HSRP) and virtual router redundancy protocol (VRRP) to implement high availability. Instead, it uses a redundant pair of BGP sessions per peering. To facilitate highly-available connections to your network, Azure provisions you with two redundant ports on two routers (part of the Microsoft edge) in an active-active configuration.
 
-By default, BGP sessions use an idle timeout value of 60 seconds. If a session times out three times (180 seconds total), the router is marked as unavailable, and all traffic is redirected to the remaining router. This 180-second timeout might be too long for critical applications. If so, you can change your BGP time-out settings on the on-premises router to a smaller value. ExpressRoute also supports [Bidirectional Forwarding Detection (BFD)](https://docs.microsoft.com/azure/expressroute/expressroute-bfd) over private peering. By enabling BFD over ExpressRoute, you can expedite link failure detection between Microsoft Enterprise edge (MSEE) devices and the routers on which you terminate the ExpressRoute circuit (PE). You can terminate ExpressRoute over Customer Edge routing devices or Partner Edge routing devices (if you went with managed Layer 3 connection service).
+By default, BGP sessions use an idle timeout value of 60 seconds. If a session times out three times (180 seconds total), the router is marked as unavailable, and all traffic is redirected to the remaining router. This 180-second timeout might be too long for critical applications. If so, you can change your BGP time-out settings on the on-premises router to a smaller value. ExpressRoute also supports [Bidirectional Forwarding Detection (BFD)](/azure/expressroute/expressroute-bfd) over private peering. By enabling BFD over ExpressRoute, you can expedite link failure detection between Microsoft Enterprise edge (MSEE) devices and the routers on which you terminate the ExpressRoute circuit (PE). You can terminate ExpressRoute over Customer Edge routing devices or Partner Edge routing devices (if you went with managed Layer 3 connection service).
 
 You can configure high availability for your Azure connection in different ways, depending on the type of provider you use, and the number of ExpressRoute circuits and virtual network gateway connections you're willing to configure. The following summarizes your availability options:
 
@@ -209,7 +209,7 @@ You can configure high availability for your Azure connection in different ways,
 
 - Connect the VNet to multiple ExpressRoute circuits, supplied by different service providers. This strategy provides additional high-availability and disaster recovery capabilities.
 
-- Configure a site-to-site VPN as a failover path for ExpressRoute. For more about this option, see [Connect an on-premises network to Azure using ExpressRoute with VPN failover][highly-available-network-architecture]. This option only applies to private peering. For Azure and Office 365 services, the Internet is the only failover path.
+- Configure a site-to-site VPN as a failover path for ExpressRoute. For more about this option, see [Connect an on-premises network to Azure using ExpressRoute with VPN failover][highly-available-network-architecture]. This option only applies to private peering. For Azure and Microsoft 365 services, the Internet is the only failover path.
 
 ## Security considerations
 
@@ -245,7 +245,7 @@ Use the Network Watcher to monitor and troubleshoot the network components, tool
 
 You also can use the [Azure Connectivity Toolkit (AzureCT)][azurect] to monitor connectivity between your on-premises datacenter and Azure.
 
-For more information, see the DevOps section in [Azure Architecture Framework][AAF-devops]. For information specific to monitoring, see [Monitoring For DevOps][devops-monitoring].
+For more information, see the DevOps section in [Microsoft Azure Well-Architected Framework][AAF-devops]. For information specific to monitoring, see [Monitoring For DevOps][devops-monitoring].
 
 
 ## Cost considerations
@@ -318,14 +318,14 @@ To deploy the solution, perform the following steps.
 [highly-available-network-architecture]: ./expressroute-vpn-failover.md
 
 
-[AAF-devops]: /azure/architecture/framework/devops/overview
+[AAF-devops]: ../../framework/devops/overview.md
 [azbb]: https://github.com/mspnp/template-building-blocks/wiki
 [expressroute-technical-overview]: /azure/expressroute/expressroute-introduction
 [expressroute-prereqs]: /azure/expressroute/expressroute-prerequisites
 [configure-expressroute-routing]: /azure/expressroute/expressroute-howto-routing-arm
 [sla-for-expressroute]: https://azure.microsoft.com/support/legal/sla/expressroute
 [link-vnet-to-expressroute]: /azure/expressroute/expressroute-howto-linkvnet-arm
-[devops-monitoring]: https://docs.microsoft.com/azure/architecture/framework/devops/monitoring
+[devops-monitoring]: ../../framework/devops/monitoring.md
 [ExpressRoute-provisioning]: /azure/expressroute/expressroute-workflows
 [expressroute-introduction]: /azure/expressroute/expressroute-introduction
 [expressroute-peering]: /azure/expressroute/expressroute-circuit-peerings
@@ -334,15 +334,15 @@ To deploy the solution, perform the following steps.
 
 [aaf-cost]: ../../framework/cost/overview.md
 [azure-pricing-calculator]: https://azure.microsoft.com/pricing/calculator
-[expressroute-prereqs]: https://docs.microsoft.com/azure/expressroute/expressroute-prerequisites
-[configure-expressroute-routing]: https://docs.microsoft.com/azure/expressroute/expressroute-howto-routing-arm
+[expressroute-prereqs]: /azure/expressroute/expressroute-prerequisites
+[configure-expressroute-routing]: /azure/expressroute/expressroute-howto-routing-arm
 [sla-for-expressroute]: https://azure.microsoft.com/support/legal/sla/expressroute
-[link-vnet-to-expressroute]: https://docs.microsoft.com/azure/expressroute/expressroute-howto-linkvnet-arm
+[link-vnet-to-expressroute]: /azure/expressroute/expressroute-howto-linkvnet-arm
 [linux-vms-pricing]: https://azure.microsoft.com/pricing/details/virtual-machines/linux
 [expressroute-pricing]: https://azure.microsoft.com/pricing/details/expressroute
-[ExpressRoute-provisioning]: https://docs.microsoft.com/azure/expressroute/expressroute-workflows
-[expressroute-introduction]: https://docs.microsoft.com/azure/expressroute/expressroute-introduction
-[expressroute-peering]: https://docs.microsoft.com/azure/expressroute/expressroute-circuit-peerings
+[ExpressRoute-provisioning]: /azure/expressroute/expressroute-workflows
+[expressroute-introduction]: /azure/expressroute/expressroute-introduction
+[expressroute-peering]: /azure/expressroute/expressroute-circuit-peerings
 [expressroute-pricing]: https://azure.microsoft.com/pricing/details/expressroute
 
 

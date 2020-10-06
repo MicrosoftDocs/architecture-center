@@ -6,7 +6,7 @@
 <article class="card">
     <div class="card-header has-margin-bottom-none" aria-hidden="true">
         <figure class="image diagram has-height-175 has-overflow-hidden level">
-            <a href="/azure/architecture/example-scenario/infrastructure/wordpress"><img src="/azure/architecture/browse/thumbs/wordpress.png" class="diagram" alt="Architecture Diagram" data-linktype="relative-path"></a>
+            <a href="/azure/architecture/example-scenario/infrastructure/wordpress"><img src="/azure/architecture/browse/thumbs/wordpress.png" class="diagram" alt="Thumbnail of Scalable and secure WordPress on Azure Architectural Diagram." data-linktype="relative-path"></a>
         </figure>
     </div>
     <div class="card-content">
@@ -17,7 +17,7 @@
             <li>9/18/2018</li>
             <li>5 min read</li>
         </ul>
-        <p class="card-content-description">Build a highly scalable and secure WordPress website for media events.</p>
+        <p class="card-content-description">This example shows a highly scalable and secure installation of WordPress. The scenario was used for a large convention and scaled to meet spike traffic.</p>
         <div class="bottom-to-top-fade is-hidden-mobile"></div>
     </div>
 </article>

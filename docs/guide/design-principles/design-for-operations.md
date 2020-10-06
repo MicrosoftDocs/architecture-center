@@ -2,7 +2,7 @@
 title: Design for operations
 titleSuffix: Azure Application Architecture Guide
 description: Learn about functions of the operations team for cloud-based applications, including deployment, monitoring, incident response, and security auditing.
-author: adamboeglin
+author: doodlemania2
 ms.date: 08/30/2018
 ms.topic: guide
 ms.service: architecture-center

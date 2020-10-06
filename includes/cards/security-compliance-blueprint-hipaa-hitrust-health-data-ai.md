@@ -6,7 +6,7 @@
 <article class="card">
     <div class="card-header has-margin-bottom-none" aria-hidden="true">
         <figure class="image diagram has-height-175 has-overflow-hidden level">
-            <a href="/azure/architecture/solution-ideas/articles/security-compliance-blueprint-hipaa-hitrust-health-data-ai"><img src="/azure/architecture/browse/thumbs/security-compliance-blueprint-hipaa-hitrust-health-data-ai.png" class="diagram" alt="Architecture Diagram" data-linktype="relative-path"></a>
+            <a href="/azure/architecture/solution-ideas/articles/security-compliance-blueprint-hipaa-hitrust-health-data-ai"><img src="/azure/architecture/browse/thumbs/security-compliance-blueprint-hipaa-hitrust-health-data-ai.png" class="diagram" alt="Thumbnail of HIPAA and HITRUST compliant health data AI Architectural Diagram." data-linktype="relative-path"></a>
         </figure>
     </div>
     <div class="card-content">
@@ -17,7 +17,7 @@
             <li>12/16/2019</li>
             <li>2 min read</li>
         </ul>
-        <p class="card-content-description">Store healthcare data effectively and affordably with cloud-based solutions from Azure. Manage medical records with the highest level of built-in security.</p>
+        <p class="card-content-description">Manage HIPAA and HITRUST compliant health data and medical records with the highest level of built-in security.</p>
         <div class="bottom-to-top-fade is-hidden-mobile"></div>
     </div>
 </article>

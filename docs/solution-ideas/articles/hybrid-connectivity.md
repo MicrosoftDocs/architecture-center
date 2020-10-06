@@ -1,7 +1,7 @@
 ---
 title: Hybrid Connection
 titleSuffix: Azure Solution Ideas
-author: adamboeglin
+author: doodlemania2
 ms.date: 12/16/2019
 description: Azure's Hybrid Connection is a foundational blueprint that is applicable to most Azure Stack solutions, allowing you to establish connectivity for any application that involves communications between the Azure public cloud and on-premises Azure Stack components.
 ms.custom: acom-architecture, Hybrid Connection, Azure Hybrid Connection, Hybrid Network, Azure Hybrid Network, hybrid-infrastructure, interactive-diagram, networking, 'https://azure.microsoft.com/solutions/architecture/hybrid-connectivity/'
@@ -44,7 +44,7 @@ Note: This doesn't apply to Azure Stack deployments that are disconnected from t
 
 ## Next steps
 
-* [Virtual Network](https://docs.microsoft.com/azure/virtual-network)
-* [VPN Gateway Documentation](https://docs.microsoft.com/azure/vpn-gateway)
+* [Virtual Network](/azure/virtual-network)
+* [VPN Gateway Documentation](/azure/vpn-gateway)
 * [Virtual Machines Overview](https://azure.microsoft.com/services/virtual-machines)
-* [Azure Stack User Documentation](https://docs.microsoft.com/azure/azure-stack/user)
+* [Azure Stack User Documentation](/azure/azure-stack/user)

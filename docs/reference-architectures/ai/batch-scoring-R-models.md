@@ -105,12 +105,12 @@ To deploy this reference architecture, follow the steps described in the [GitHub
 
 [0]: ./_images/batch-scoring-r-models.png
 [1]: ./_images/sales-forecasts.png
-[aci]: https://docs.microsoft.com/azure/container-instances/container-instances-overview
-[autoscale]: https://docs.microsoft.com/azure/batch/batch-automatic-scaling
-[batch]: https://docs.microsoft.com/azure/batch/batch-technical-overview
-[blob]: https://docs.microsoft.com/azure/storage/blobs/storage-blobs-introduction
+[aci]: /azure/container-instances/container-instances-overview
+[autoscale]: /azure/batch/batch-automatic-scaling
+[batch]: /azure/batch/batch-technical-overview
+[blob]: /azure/storage/blobs/storage-blobs-introduction
 [doAzureParallel]: https://github.com/Azure/doAzureParallel/blob/master/docs/32-autoscale.md
-[getJobFiles]: https://docs.microsoft.com/azure/machine-learning/service/how-to-train-ml-models
+[getJobFiles]: /azure/machine-learning/service/how-to-train-ml-models
 [github]: https://github.com/Azure/RBatchScoring
-[logic-apps]: https://docs.microsoft.com/azure/logic-apps/logic-apps-overview
-[storage-explorer]: https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows
+[logic-apps]: /azure/logic-apps/logic-apps-overview
+[storage-explorer]: /azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows

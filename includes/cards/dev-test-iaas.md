@@ -6,18 +6,18 @@
 <article class="card">
     <div class="card-header has-margin-bottom-none" aria-hidden="true">
         <figure class="image diagram has-height-175 has-overflow-hidden level">
-            <a href="/azure/architecture/solution-ideas/articles/dev-test-iaas"><img src="/azure/architecture/browse/thumbs/dev-test-iaas.png" class="diagram" alt="Architecture Diagram" data-linktype="relative-path"></a>
+            <a href="/azure/architecture/solution-ideas/articles/dev-test-iaas"><img src="/azure/architecture/browse/thumbs/dev-test-iaas.png" class="diagram" alt="Thumbnail of DevTest and DevOps for IaaS solutions Architectural Diagram." data-linktype="relative-path"></a>
         </figure>
     </div>
     <div class="card-content">
         <a class="card-content-title has-margin-top-none" href="/azure/architecture/solution-ideas/articles/dev-test-iaas">
-            <p>Dev-Test deployment for testing IaaS solutions</p>
+            <p>DevTest and DevOps for IaaS solutions</p>
         </a>
         <ul class="card-content-metadata">
-            <li>12/16/2019</li>
-            <li>2 min read</li>
+            <li>9/17/2020</li>
+            <li>5 min read</li>
         </ul>
-        <p class="card-content-description">This architecture represents how to configure your infrastructure for development and testing of a standard IaaS-based SaaS system.</p>
+        <p class="card-content-description">Learn how to configure a DevTest and DevOps infrastructure for development, testing, and deploying IaaS-based software.</p>
         <div class="bottom-to-top-fade is-hidden-mobile"></div>
     </div>
 </article>

@@ -39,22 +39,22 @@ The following table summarizes the Azure load balancing services by these catego
 | Azure Front Door | Global | HTTP(S) |
 | Traffic Manager | Global | non-HTTP(S) |
 | Application Gateway | Regional | HTTP(S) |
-| Azure Load Balancer | Regional | non-HTTP(S) |
+| Azure Load Balancer | Global | non-HTTP(S) |
 
 ## Azure load balancing services
 
 Here are the main load-balancing services currently available in Azure:
 
-[Front Door](https://docs.microsoft.com/azure/frontdoor/front-door-overview) is an application delivery network that provides global load balancing and site acceleration service for web applications. It offers Layer 7 capabilities for your application like SSL offload, path-based routing, fast failover, caching, etc. to improve performance and high-availability of your applications.
+[Front Door](/azure/frontdoor/front-door-overview) is an application delivery network that provides global load balancing and site acceleration service for web applications. It offers Layer 7 capabilities for your application like SSL offload, path-based routing, fast failover, caching, etc. to improve performance and high-availability of your applications.
 
 >[!NOTE]
 > At this time, Azure Front Door does not support Web Sockets.
 
-[Traffic Manager](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-overview) is a DNS-based traffic load balancer that enables you to distribute traffic optimally to services across global Azure regions, while providing high availability and responsiveness. Because Traffic Manager is a DNS-based load-balancing service, it load balances only at the domain level. For that reason, it can't fail over as quickly as Front Door, because of common challenges around DNS caching and systems not honoring DNS TTLs. 
+[Traffic Manager](/azure/traffic-manager/traffic-manager-overview) is a DNS-based traffic load balancer that enables you to distribute traffic optimally to services across global Azure regions, while providing high availability and responsiveness. Because Traffic Manager is a DNS-based load-balancing service, it load balances only at the domain level. For that reason, it can't fail over as quickly as Front Door, because of common challenges around DNS caching and systems not honoring DNS TTLs. 
 
-[Application Gateway](https://docs.microsoft.com/azure/application-gateway/overview) provides application delivery controller (ADC) as a service, offering various Layer 7 load-balancing capabilities. Use it to optimize web farm productivity by offloading CPU-intensive SSL termination to the gateway.
+[Application Gateway](/azure/application-gateway/overview) provides application delivery controller (ADC) as a service, offering various Layer 7 load-balancing capabilities. Use it to optimize web farm productivity by offloading CPU-intensive SSL termination to the gateway.
 
-[Azure Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview) is a high-performance, low-latency Layer 4 load-balancing service (inbound and outbound) for all UDP and TCP protocols. It is built to handle millions of requests per second while ensuring your solution is highly available. Azure Load Balancer is zone-redundant, ensuring high availability across Availability Zones.
+[Azure Load Balancer](/azure/load-balancer/load-balancer-overview) is a high-performance, ulta low-latency Layer 4 load-balancing service (inbound and outbound) for all UDP and TCP protocols. It is built to handle millions of requests per second while ensuring your solution is highly available. Azure Load Balancer is zone-redundant, ensuring high availability across Availability Zones.
 
 ## Decision tree for load balancing in Azure
 
@@ -64,7 +64,7 @@ When selecting the load-balancing options, here are some factors to consider:
 - **Global versus. regional**. Do you need to load balance VMs or containers within a virtual network, or load balance scale unit/deployments across regions, or both?
 - **Availability**. What is the service [SLA](https://azure.microsoft.com/support/legal/sla/)?
 - **Cost**. See [Azure pricing](https://azure.microsoft.com/pricing/). In addition to the cost of the service itself, consider the operations cost for managing a solution built on that service.
-- **Features and limits**. What are the overall limitations of each service? See [Service limits](https://docs.microsoft.com/azure/azure-subscription-service-limits).
+- **Features and limits**. What are the overall limitations of each service? See [Service limits](/azure/azure-subscription-service-limits).
 
 The following flowchart will help you to choose a load-balancing solution for your application. The flowchart guides you through a set of key decision criteria to reach a recommendation.
 
@@ -84,4 +84,4 @@ If your application consists of multiple workloads, evaluate each workload separ
 
 - **IaaS**. Infrastructure as a service (IaaS) is a computing option where you provision the VMs that you need, along with associated network and storage components. IaaS applications require internal load balancing within a virtual network, using Azure Load Balancer.
 
-- **Application-layer processing** refers to special routing within a virtual network. For example, path-based routing within the virtual network across VMs or virtual machine scale sets. For more information, see [When should we deploy an Application Gateway behind Front Door?](https://docs.microsoft.com/azure/frontdoor/front-door-faq#when-should-we-deploy-an-application-gateway-behind-front-door).
+- **Application-layer processing** refers to special routing within a virtual network. For example, path-based routing within the virtual network across VMs or virtual machine scale sets. For more information, see [When should we deploy an Application Gateway behind Front Door?](/azure/frontdoor/front-door-faq#when-should-we-deploy-an-application-gateway-behind-front-door).

@@ -1,7 +1,7 @@
 ---
 title: Building a CI/CD pipeline for microservices on Kubernetes
 description: Describes an example CI/CD pipeline for deploying microservices to Azure Kubernetes Service (AKS).
-author: adamboeglin
+author: doodlemania2
 ms.date: 04/11/2019
 ms.topic: guide
 ms.service: architecture-center
@@ -36,9 +36,9 @@ For purposes of this example, here are some assumptions about the development te
 
 - The code repository is a monorepo, with folders organized by microservice.
 - The team's branching strategy is based on [trunk-based development](https://trunkbaseddevelopment.com/).
-- The team uses [release branches](https://docs.microsoft.com/azure/devops/repos/git/git-branching-guidance?view=azure-devops#manage-releases) to manage releases. Separate releases are created for each microservice.
-- The CI/CD process uses [Azure Pipelines](https://docs.microsoft.com/azure/devops/pipelines/?view=azure-devops) to build, test, and deploy the microservices to AKS.
-- The container images for each microservice are stored in [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/).
+- The team uses [release branches](/azure/devops/repos/git/git-branching-guidance?view=azure-devops#manage-releases) to manage releases. Separate releases are created for each microservice.
+- The CI/CD process uses [Azure Pipelines](/azure/devops/pipelines/?view=azure-devops) to build, test, and deploy the microservices to AKS.
+- The container images for each microservice are stored in [Azure Container Registry](/azure/container-registry/).
 - The team uses Helm charts to package each microservice.
 
 These assumptions drive many of the specific details of the CI/CD pipeline. However, the basic approach described here be adapted for other processes, tools, and services, such as Jenkins or Docker Hub.
@@ -81,16 +81,16 @@ The goal is to keep build times short, so the developer can get quick feedback. 
 1. Build the runtime container image.
 1. Run vulnerability scans on the image.
 
-![CI/CD workflow](./images/aks-cicd-2.png)
+![Diagram showing ci-delivery-full in the Build pipeline.](./images/aks-cicd-2.png)
 
 > [!NOTE]
-> In Azure DevOps Repos, you can define [policies](https://docs.microsoft.com/azure/devops/repos/git/branch-policies) to protect branches. For example, the policy could require a successful CI build plus a sign-off from an approver in order to merge into master.
+> In Azure DevOps Repos, you can define [policies](/azure/devops/repos/git/branch-policies) to protect branches. For example, the policy could require a successful CI build plus a sign-off from an approver in order to merge into master.
 
 ## Full CI/CD build
 
 At some point, the team is ready to deploy a new version of the Delivery service. The release manager creates a branch from master with this naming pattern: `release/<microservice name>/<semver>`. For example, `release/delivery/v1.0.2`.
 
-![CI/CD workflow](./images/aks-cicd-3.png)
+![Diagram showing ci-delivery-full in the Build pipeline and cd-delivery in the Release pipeline.](./images/aks-cicd-3.png)
 
 Creation of this branch triggers a full CI build that runs all of the previous steps plus:
 
@@ -98,10 +98,10 @@ Creation of this branch triggers a full CI build that runs all of the previous s
 2. Run `helm package` to package the Helm chart for the service. The chart is also tagged with a version number.
 3. Push the Helm package to Container Registry.
 
-Assuming this build succeeds, it triggers a deployment (CD) process using an Azure Pipelines [release pipeline](https://docs.microsoft.com/azure/devops/pipelines/release/). This pipeline has the following steps:
+Assuming this build succeeds, it triggers a deployment (CD) process using an Azure Pipelines [release pipeline](/azure/devops/pipelines/release/). This pipeline has the following steps:
 
 1. Deploy the Helm chart to a QA environment.
-1. An approver signs off before the package moves to production. See [Release deployment control using approvals](https://docs.microsoft.com/azure/devops/pipelines/release/approvals/approvals).
+1. An approver signs off before the package moves to production. See [Release deployment control using approvals](/azure/devops/pipelines/release/approvals/approvals).
 1. Retag the Docker image for the production namespace in Azure Container Registry. For example, if the current tag is `myrepo.azurecr.io/delivery:v1.0.2`, the production tag is `myrepo.azurecr.io/prod/delivery:v1.0.2`.
 1. Deploy the Helm chart to the production environment.
 
@@ -185,7 +185,7 @@ Here are some other best practices to consider for containers:
 
 - Always deploy specific container version tags, not `latest`.
 
-- Use [namespaces](https://docs.microsoft.com/azure/container-registry/container-registry-best-practices#repository-namespaces) in Azure Container Registry to isolate images that are approved for production from images that are still being tested. Don't move an image into the production namespace until you're ready to deploy it into production. If you combine this practice with semantic versioning of container images, it can reduce the chance of accidentally deploying a version that wasn't approved for release.
+- Use [namespaces](/azure/container-registry/container-registry-best-practices#repository-namespaces) in Azure Container Registry to isolate images that are approved for production from images that are still being tested. Don't move an image into the production namespace until you're ready to deploy it into production. If you combine this practice with semantic versioning of container images, it can reduce the chance of accidentally deploying a version that wasn't approved for release.
 
 - Follow the principle of least privilege by running containers as a nonprivileged user. In Kubernetes, you can create a pod security policy that prevents containers from running as *root*. See [Prevent Pods From Running With Root Privileges](https://docs.bitnami.com/kubernetes/how-to/secure-kubernetes-cluster-psp/).
 
@@ -200,7 +200,7 @@ Consider using Helm to manage building and deploying services. Here are some of 
 - Helm can manage dependencies between charts.
 - Charts can be stored in a Helm repository, such as Azure Container Registry, and integrated into the build pipeline.
 
-For more information about using Container Registry as a Helm repository, see [Use Azure Container Registry as a Helm repository for your application charts](https://docs.microsoft.com/azure/container-registry/container-registry-helm-repos).
+For more information about using Container Registry as a Helm repository, see [Use Azure Container Registry as a Helm repository for your application charts](/azure/container-registry/container-registry-helm-repos).
 
 > [!IMPORTANT]
 > This feature is currently in preview. Previews are made available to you on the condition that you agree to the [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Some aspects of this feature may change prior to general availability (GA).
@@ -245,7 +245,7 @@ helm install $HELM_CHARTS/package/ \
      --name package-v0.1.0
 ```
 
-Although your CI/CD pipeline could install a chart directly to Kubernetes, we recommend creating a chart archive (.tgz file) and pushing the chart to a Helm repository such as Azure Container Registry. For more information, see [Package Docker-based apps in Helm charts in Azure Pipelines](https://docs.microsoft.com/azure/devops/pipelines/languages/helm?view=azure-devops).
+Although your CI/CD pipeline could install a chart directly to Kubernetes, we recommend creating a chart archive (.tgz file) and pushing the chart to a Helm repository such as Azure Container Registry. For more information, see [Package Docker-based apps in Helm charts in Azure Pipelines](/azure/devops/pipelines/languages/helm?view=azure-devops).
 
 Consider deploying Helm to its own namespace and using role-based access control (RBAC) to restrict which namespaces it can deploy to. For more information, see [Role-based Access Control](https://helm.sh/docs/using_helm/#helm-and-role-based-access-control) in the Helm documentation.
 
@@ -322,7 +322,7 @@ Based on the CI flow described earlier in this article, a build pipeline might c
         runInBackground: false
     ```
 
-1. Publish the test results. See [Build an image](https://docs.microsoft.com/azure/devops/pipelines/ecosystems/containers/build-image).
+1. Publish the test results. See [Build an image](/azure/devops/pipelines/ecosystems/containers/build-image).
 
     ```yaml
     - task: PublishTestResults@2
@@ -389,7 +389,7 @@ The output from the CI pipeline is a production-ready container image and an upd
 - Push the release tag to the container registry.
 - Upgrade the Helm chart in the production cluster.
 
-For more information about creating a release pipeline, see [Release pipelines, draft releases, and release options](https://docs.microsoft.com/azure/devops/pipelines/release/?view=azure-devops).
+For more information about creating a release pipeline, see [Release pipelines, draft releases, and release options](/azure/devops/pipelines/release/?view=azure-devops).
 
 The following diagram shows the end-to-end CI/CD process described in this article:
 

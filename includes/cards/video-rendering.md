@@ -6,7 +6,7 @@
 <article class="card">
     <div class="card-header has-margin-bottom-none" aria-hidden="true">
         <figure class="image diagram has-height-175 has-overflow-hidden level">
-            <a href="/azure/architecture/example-scenario/infrastructure/video-rendering"><img src="/azure/architecture/browse/thumbs/video-rendering.png" class="diagram" alt="Architecture Diagram" data-linktype="relative-path"></a>
+            <a href="/azure/architecture/example-scenario/infrastructure/video-rendering"><img src="/azure/architecture/browse/thumbs/video-rendering.png" class="diagram" alt="Thumbnail of 3D video rendering Architectural Diagram." data-linktype="relative-path"></a>
         </figure>
     </div>
     <div class="card-content">
@@ -17,7 +17,7 @@
             <li>7/13/2018</li>
             <li>5 min read</li>
         </ul>
-        <p class="card-content-description">Run native HPC workloads in Azure using the Azure Batch service.</p>
+        <p class="card-content-description">Use Azure Batch to manage existing Windows or Linux applications, including AutoDesk Maya and Blender, to run large-scale 3D video render jobs in Azure.</p>
         <div class="bottom-to-top-fade is-hidden-mobile"></div>
     </div>
 </article>
