@@ -70,6 +70,45 @@ The Hybrid Runbook Worker must have a managed identity or a Service Principal in
 
 An Azure [Log Analytics workspace](/azure/azure-monitor/platform/resource-logs-collect-workspace) in Azure Monitor stores activity logs to audit all the events on the SOC subscription.
 
+## Regulatory Compliance
+One of the requirements when validating a CoC solution is compliance with security standards and regulations.
+All the components included in the above architecture (Azure Virtual Machine, Azure Key Vault, Azure Storage Account, Azure Log Analytics) are Azure standard services, built upon a foundation of trust, security and [compliance](https://azure.microsoft.com/overview/trusted-cloud/compliance/). Azure has more than 90 compliance certifications, including over 50 specific to global regions and countries and more than 35 specific to the needs of key industries, including health, government, finance and education.
+
+The following table shows the main services adopted in this solution and the relative standards:
+
+| Azure Service | CSA   STAR Certification | CSA   STAR Attestation | ISO   20000-1:2011 | ISO   22301:2012 | ISO   27001:2013 | ISO   27017:2015 | ISO   27018:2014 | ISO27701:2019 | ISO   9001:2015 | SOC   1, 2, 3 | GxP   (FDA 21 CFR Part 11) | HIPAABAA | HITRUST | K-ISMS | PCI   DSS | Australia   IRAP | Germay   CS | Japan   CS Mark Gold | Singapore   MTCS Level 3 |
+| ----------------- | ------------------------ | ---------------------- | ---------------------- | -------------------- | -------------------- | -------------------- | -------------------- | ----------------- | ------------------- | ----------------- | ------------------------------ | ------------ | ----------- | ---------- | ------------- | -------------------- | --------------- | ------------------------ | ---------------------------- |
+| [Automation](https://azure.microsoft.com/services/automation/)[ ](https://azure.microsoft.com/services/automation/) | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** |
+| [Azure Active Directory (Premium P1 + P2)](https://azure.microsoft.com/services/active-directory/)[ ](https://azure.microsoft.com/services/active-directory/) | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** |
+| [Azure](https://azure.microsoft.com/services/functions/)[ ](https://azure.microsoft.com/services/functions/)[Functions](https://azure.microsoft.com/services/functions/)[ ](https://azure.microsoft.com/services/functions/) | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** |
+| [Azure   Import/Export](https://azure.microsoft.com/pricing/details/storage-import-export/)[ ](https://azure.microsoft.com/pricing/details/storage-import-export/) | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** |  | **✓** |
+| [Azure Monitor](https://azure.microsoft.com/services/monitor/)[ ](https://azure.microsoft.com/services/monitor/) | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** |  | **✓** |
+| [Azure Policy](https://azure.microsoft.com/services/azure-policy/)[ ](https://azure.microsoft.com/services/azure-policy/) | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** |  | **✓** | **✓** | **✓** | **✓** | **✓** |  | **✓** |
+| [Azure   Resource Manager](https://azure.microsoft.com/features/resource-manager/)[ ](https://azure.microsoft.com/features/resource-manager/) | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** |
+| [Azure   Security Center](https://azure.microsoft.com/services/security-center/)[ ](https://azure.microsoft.com/services/security-center/) | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** |  | **✓** |
+| [Event Hubs](https://azure.microsoft.com/services/event-hubs/)[ ](https://azure.microsoft.com/services/event-hubs/) | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** |
+| [Key Vault](https://azure.microsoft.com/services/key-vault/)[ ](https://azure.microsoft.com/services/key-vault/) | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** |
+| [Log Analytics](https://azure.microsoft.com/services/log-analytics/)[ ](https://azure.microsoft.com/services/log-analytics/) | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** |
+| [Microsoft   Azure Portal](https://azure.microsoft.com/features/azure-portal/)[ ](https://azure.microsoft.com/features/azure-portal/) | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** |
+| [Multi](https://azure.microsoft.com/services/multi-factor-authentication/)[-](https://azure.microsoft.com/services/multi-factor-authentication/)[Factor   Authentication](https://azure.microsoft.com/services/multi-factor-authentication/)[ ](https://azure.microsoft.com/services/multi-factor-authentication/) | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** |
+| [Storage: Archive](https://azure.microsoft.com/services/storage/archive/) | **✓**                    | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** |  | **✓** |
+| [Storage:   Blobs](https://azure.microsoft.com/services/storage/blobs/)[ ](https://azure.microsoft.com/services/storage/blobs/) | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** |
+| [Storage: Disks (incl. Managed Disks)](https://azure.microsoft.com/services/storage/disks/)[ ](https://azure.microsoft.com/services/storage/disks/) | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** |
+| [Storage:   Files](https://azure.microsoft.com/services/storage/files/)[ ](https://azure.microsoft.com/services/storage/files/) | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** |
+| [Storage:   Queues](https://azure.microsoft.com/services/storage/queues/)[ ](https://azure.microsoft.com/services/storage/queues/) | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** |
+| [Storage:   Tables](https://azure.microsoft.com/services/storage/tables/)[ ](https://azure.microsoft.com/services/storage/tables/) | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** |
+| [Virtual Machines (incl. Reserved Instances)](https://azure.microsoft.com/services/virtual-machines/)[ ](https://azure.microsoft.com/services/virtual-machines/) | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** |
+| [Virtual   Network](https://azure.microsoft.com/services/virtual-network/)[ ](https://azure.microsoft.com/services/virtual-network/) | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** |
+
+Updated audit reports, with information about technical compliance and control requirements can be found on [Ms Compliance Guide](https://servicetrust.microsoft.com/ViewPage/MSComplianceGuideV3).
+
+As an example, the report [Cohasset Assessment - Microsoft Azure WORM Storage](https://servicetrust.microsoft.com/ViewPage/MSComplianceGuide?command=Download&downloadType=Document&downloadId=19b08fd4-d276-43e8-9461-715981d0ea20&docTab=4ce99610-c9c0-11e7-8c2c-f908a777fa4d_GRC_Assessment_Reports) gives details about Microsoft Azure Storage and the compliance with the requirements specified in:
+
+- **Securities and Exchange Commission (SEC) in 17 CFR § 240.17a-4(f),** which regulates exchange members, brokers or dealers.
+- **Financial Industry Regulatory Authority (FINRA) Rule 4511(c)**, which defers to the format and media requirements of SEC Rule 17a-4(f).
+- **Commodity Futures Trading Commission (CFTC) in regulation 17 CFR § 1.31(c)-(d)**, which regulates commodity futures trading. It is Cohasset’s opinion that Microsoft Azure Storage, with the Immutable Storage for Azure Blobs feature and Policy Lock option, retains time-based Blobs (records) in a non-erasable and non-rewriteable format and meets relevant storage requirements of SEC Rule 17a-4(f), FINRA Rule 4511(c), and the principles-based requirements of CFTC Rule 1.31(c)-(d).
+
+
 ## Considerations
 
 Consider the following requirements when proving the validity of a CoC:
@@ -115,15 +154,21 @@ For compliance, some standards or regulations require evidence and all support i
 
 If necessary, you can grant time-limited read-only SOC Storage account access to IP addresses from outside, on-premises networks, for investigators to download the digital evidence. 
 
-You can also deploy a Hybrid Runbook Worker on on-premises or other cloud networks, which they can use to run the Copy-VmDigitalEvidence Azure Automation runbook on their resources. 
+You can also deploy a Hybrid Runbook Worker on on-premises or other cloud networks, which they can use to run the Copy‑VmDigitalEvidence Azure Automation runbook on their resources. 
 
 ## Implementation
 
-You can find the [Copy-VmDigitalEvidence runbook](https://github.com/mspnp/solution-architectures/blob/master/forensics/Copy-VmDigitalEvidence.ps1) complete PowerShell code sample in GitHub. The code example runs on a [Linux Hybrid Runbook Worker](/azure/automation/automation-linux-hrw-install#installing-a-linux-hybrid-runbook-worker). The Hybrid Runbook Worker must have PowerShell Core installed and the `sha256sum` program available, to calculate the disk snapshots' SHA-256 hash values.
+The following complete PowerShell code samples of the Copy-VmDigitalEvidence runbook are available in GitHub:
+
+- [Copy‑VmDigitalEvidenceWin](https://github.com/mspnp/solution-architectures/blob/master/forensics/Copy-VmDigitalEvidenceWin.ps1) runbook for [Windows Hybrid RunBook Worker](https://docs.microsoft.com/azure/automation/automation-windows-hrw-install). 
+
+- [Copy‑VmDigitalEvidence](https://github.com/mspnp/solution-architectures/blob/master/forensics/Copy-VmDigitalEvidence.ps1) runbook for [Linux Hybrid RunBook Worker](https://docs.microsoft.com/azure/automation/automation-linux-hrw-install#installing-a-linux-hybrid-runbook-worker). The Hybrid Runbook Worker must have PowerShell Core installed and the sha256sum program available, to calculate the disk snapshots’ SHA-256 hash values.
+
+The Hybrid Runbook Worker must map the Azure File share containing the disk, used to calculate its hash values. Further details for the mounting procedure are available for both [Windows](https://docs.microsoft.com/azure/storage/files/storage-how-to-use-files-windows) and [Linux](https://docs.microsoft.com/azure/storage/files/storage-files-how-to-mount-nfs-shares) systems.
 
 ### Capture workflow
 
-The SOC team has created the Copy-VmDigitalEvidence runbook and the dedicated [Hybrid Runbook Worker](/azure/automation/automation-hybrid-runbook-worker) VM in their Azure Automation account. 
+The SOC team has created the Copy‑VmDigitalEvidence runbook and the dedicated [Hybrid Runbook Worker](/azure/automation/automation-hybrid-runbook-worker) VM in their Azure Automation account. 
 
 When the team receives a request to capture digital evidence, an SOC team member follows this workflow:
 
@@ -135,6 +180,7 @@ When the team receives a request to capture digital evidence, an SOC team member
 1. Access the Hybrid Runbook Worker VM, which has a managed identity or service principal for the Azure tenant, and run the Copy-VmDigitalEvidence runbook.
 1. The Activity Logs register the runbook execution, and store the related data in Log Analytics for further analysis.
    
+
 The Copy-VmDigitalEvidence runbook performs the following actions:
 1. Signs in to the Azure SOC subscription.
 1. Signs in to the target VM and creates the OS disk snapshot
@@ -147,6 +193,9 @@ The Copy-VmDigitalEvidence runbook performs the following actions:
 1. Removes all the source snapshots generated during the process.
 
 ### Evidence retrieval
+
+#### Windows disks
+
 
 To unlock an Azure disk snapshot locked with BitLocker, and mount it under the G:\ volume of a computer:
 
@@ -168,7 +217,44 @@ To unlock an Azure disk snapshot locked with BitLocker, and mount it under the G
     manage-bde -unlock G: -rk $path
 ```
 
+#### Linux disks
+
+To unlock an Azure disk snapshot of a data disk locked by DM-Crypt and mount it under the directory “datadisk”:
+
+1. Open the SOC key vault, and search the secret containing the BEK of the disk. The secret is named with the thumbprint of the Copy-VmDigitalEvidence runbook execution.
+
+2. Copy the BEK string and paste it into the `bekSecretBase64` variable in the following bash script. 
+
+3. Run the script.
+
+   ```bash
+   #!/bin/bash
+   
+   bekSecretbase64=""
+   
+   mountname="datadisk"
+   
+   device=$(blkid -t TYPE=crypto_LUKS -o device)
+   
+   echo "dispositivo cifrato: " $device
+   
+   passphrase="$(base64 -d <<< $bekSecretbase64)"
+   
+   echo "Passphrase: " $passphrase
+   
+   if [ ! -d "${mountname:+$mountname/}" ]; then
+   
+   	mkdir $mountname
+   
+   fi
+   
+   cryptsetup open $device $mountname
+   ```
+
+   After executing the script, you’ll be prompted for the encryption passphrase. Copy it from the script output and use it to unlock and mount the partition.
+
 ## Next steps
+
 For more information about Azure data-protection features, see:
 - [Azure Storage encryption for data at rest](/azure/storage/common/storage-service-encryption)
 - [Azure Disk Encryption for VMs and virtual machine scale sets](/azure/security/fundamentals/azure-disk-encryption-vms-vmss)
@@ -178,3 +264,8 @@ For more information about Azure logging and auditing features, see:
 - [Azure security logging and auditing](/azure/security/fundamentals/log-audit)
 - [Azure Storage analytics logging](/azure/storage/common/storage-analytics-logging)
 - [Azure platform logs in a Log Analytics workspace in Azure Monitor](/azure/azure-monitor/platform/resource-logs-collect-workspace)
+
+For more information about Microsoft Azure Compliance, see:
+
+- [Azure Compliance](https://azure.microsoft.com/overview/trusted-cloud/compliance/)  
+- [Microsoft Azure Compliance Offerings](https://azure.microsoft.com/resources/microsoft-azure-compliance-offerings/) 
