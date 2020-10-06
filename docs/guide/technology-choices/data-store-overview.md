@@ -328,7 +328,7 @@ Sometimes, using simple flat files can be the most effective means of storing an
 
 ### Azure service
 
-- [Azure Files][file-storage] | [(Security Baseline)](/azure/storage/common/security-baseline
+- [Azure Files][file-storage] | [(Security Baseline)](/azure/storage/common/security-baseline)
 
 ### Workload
 
