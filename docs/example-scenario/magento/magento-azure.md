@@ -122,7 +122,7 @@ Customize the Kubernetes health probes and use them to tell if a pod is in good 
 
 ### Zones or regions
 
-Consider deploying the app to multiple regions or zones for higher availability. To avoid unnecessary latency between services, make sure all services and deployed components such as the AKS cluster and the Redis cache are colocated in the same region.
+Consider deploying the app to multiple regions or zones for higher availability. To avoid unnecessary latency between services, make sure all services and deployed components such as the AKS cluster and the Redis cache are colocated in the same region. For more information about deploying AKS to a particular zone, see [Create an AKS cluster that uses availability zones](/azure/aks/availability-zones).
 
 ### Resource constraints
 
