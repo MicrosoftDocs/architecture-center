@@ -20,14 +20,11 @@ than 1000 stores located in both cities and suburbs.
 ## Challenges faced
 
 -   *What are the business challenges?*
--   *What is the estimated impact caused by these issues?*
--   *What are current operations like?*
 
-With the recent COVID-19 pandemic, fewer customers have been making
-physical trips to the supermarkets as many are concerned with health
+With the recent COVID-19 pandemic, customers have been making
+fewer physical trips to the supermarkets as many are concerned with health
 risks and are practicing safe distancing. As a result, Contoso has also
-seen an increase in the usage of buy online, pickup in store (BOPIS).
-This sales model is also often known as curbside pickup.
+seen an increase in the usage of buy online, pickup in store (BOPIS) which is also known as curbside pickup.
 
 In order to ensure that their customers get the freshest quality
 produce, Contoso starts packing temperature-controlled items
@@ -37,10 +34,13 @@ curbside pickup. These increased waiting times have caused an increased amount o
 dissatisfaction, and surveys have shown that customers are choosing to
 use other retailers.
 
+Some questions to ask to help understand the challenges are: 
+-   *What is the estimated impact caused by these issues?*
+-   *What are current operations like?*
+
 ## Business Outcomes
 
 -   *What are the desired business outcomes?*
--   *What should the solution do for the business?*
 
 With [**59% of
 consumers**](https://retailwire.com/discussion/is-curbside-pickup-just-getting-started/) polled
@@ -48,6 +48,8 @@ saying they\'re likely to continue choosing curbside pickup even after
 the pandemic, Contoso wants to improve the efficiency of
 their curbside operations. For curbside pickups, Contoso needs information on how far away each customer is and when the customer
 arrives at the parking lot.
+
+-   *What should the solution do for the business?*
 
 The solution should provide alerts to the store associates and trigger a
 work order to start packing the fresh produce for customers that are
@@ -84,25 +86,25 @@ can be applied to real-world scenarios.
 
 ![Architecture diagram showing the data flow for the Buy online pick up in store IoT solution](media/bopis.png)
 
+
 1.  Video feed is obtained as cars come into the parking area. The IP
-    camera hosting a Real-Time Streaming Protocol (RTSP) server send the
+    camera hosting a Real-Time Streaming Protocol (RTSP) server sends the
     feed to Live View Analytics (LVA) module. The LVA module processes
     the frame rate and sends the image to Azure Cognitive Services
     running on the gateway. Azure Cognitive Services extracts only the
-    license plate details and sends it to the cloud application.
+    license plate details and sends it to the cloud application. 
 
-2.  Azure IoT Central is used because it is a fully managed application platform. It provides
-    device management and secure bi-directional communication.
+2.  Azure IoT Central is used because it is a fully managed application platform. It allows Contoso to extend it easily and focus on features that directly impacts business. 
 
-3.  License plate details are queued in Event hub and sent to an Azure
-    Storage for long-term storage.
+3.  License plate details are queued in Event hub which routes it to an Azure
+    Storage for long-term storage and allows other services to use it.
 
 4.  The license plate details are sent to the curbside pickup
     application via Azure Functions. The serverless design allows
     Contoso to lower their infrastructure management and cost.
 
 5.  The license plate details are cross-referenced with the
-    order management system. When a
+    order management system. The order management system is usually integrated with the Customer Relationship Management system to provide details of the license plate. When a
     match is confirmed, the order packing task is sent to Microsoft
     Teams. A store associate will be notified to start preparing the
     order immediately and deliver it to the customer upon arrival.
@@ -120,11 +122,7 @@ can be applied to real-world scenarios.
     customer and presents accountability in the process.
 
 8. Order pickup details are written back into storage so that
-    Contoso can understand the time taken to work on the order.
-
-9. Business intelligence is done using Azure Synapse and Power Platform
-    as it provides Contoso management team an easy way to understand the
-    performance of curbside pickup.
+    Contoso can understand the time taken to work on the order.  
 
 ## Architecture considerations
 
@@ -159,34 +157,27 @@ The geofence triggers provides additional accuracy on the estimated time of arri
     required. Contoso can utilize the service without spending
     engineering efforts for creating and training the model.
 
--   [Azure IoT Central](https://azure.microsoft.com/services/iot-central/) is a fully managed application platform that reduces the burden and cost of developing, managing, and maintaining enterprise-grade IoT solutions.
+-   [Azure IoT Central](https://azure.microsoft.com/services/iot-central/) is a fully managed application platform that reduces the burden and cost of developing, managing, and maintaining enterprise-grade IoT solutions. 
 
--   [Event Hubs](https://azure.microsoft.com/services/event-hubs/) can be used to queue the events sent to the curbside pickup
-    application. Event Hubs creates decoupling for consumption in a distributed application.
+-   [Event Hubs](https://azure.microsoft.com/services/event-hubs/) isused to queue the events sent to the curbside pickup
+    application. Event Hubs creates decoupling for consumption in a distributed application. 
 
--   [Azure Storage](https://azure.microsoft.com/services/storage/) is used to store raw data for analysis.
+-   [Azure Storage](https://azure.microsoft.com/services/storage/) is used to store raw data for analysis. Contoso has decided to use this service as they are storing the objects in flat namespace.
 
 -   [Azure Functions](https://azure.microsoft.com/services/functions/) is a serverless service used to process the events
-    received and send them to a REST API on the curbside pickup
-    application.
+    received. Without having to maintain the infrastructure, Contoso can write single function programs to send data from Event Hubs to the curbside pickup application API. It is also used to read the changefeed in Cosmos DB to write data into Azure Storage.  
 
--   [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) provides a low-latency database with guaranteed availability and automatic scalability. The application can use a NoSQL
-    database for fast writes and reads anywhere in the world with
-     multi-master global distribution.
+-   [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) provides a low-latency database with guaranteed availability and automatic scalability. Contoso requires low latency reads and write for seamless user experience. The curbside pickup application uses NoSQL document to store the data because of the variety in order SKU. As the application is available throughout Europe, Contoso wants a turn key database that provides multi-master read and write. 
 
--   [Azure Kubernetes Service](https://azure.microsoft.com/services/kubernetes-service/).  The curb side pickup application is
-    built using a cluster of containers and managed a hosted Kubernetes
+-   [Azure Kubernetes Service](https://azure.microsoft.com/services/kubernetes-service/).  The curbside pickup application is based on a microservice design. 
+    It is built using a cluster of containers and managed a hosted Kubernetes
     service. The Kubernetes masters are managed by Azure. It handles
     critical tasks like health monitoring and maintenance.
 
--   [Azure Synapse](https://azure.microsoft.com/services/synapse-analytics/) provides insights on the usage and service levels
-    for BOPIS. The engineering team can leverage T-SQL to implement data
-    warehousing. Azure Synapse provides a unified plane to manage
-    analytics resources, monitor usage and activity, and enforce
-    security critical to Contoso.
-
 -   [Azure Maps](https://azure.microsoft.com/services/azure-maps/) provides geofencing as a service required to
-    gauge customer proximity.
+    gauge customer proximity. Contoso is also using Azure Maps for Indoor mapping too. 
+
+-   [Azure Notification Hubs](https://azure.microsoft.com/en-us/services/notification-hubs/) is a massively scalable mobile push notification engine for quickly sending millions of notifications to iOS, Android, Windows. Using this service, Contoso can easily broadcast notifications to their customers. 
 
 For more detailed discussions, see the IoT reference architecture
 [document](https://docs.microsoft.com/azure/architecture/reference-architectures/iot) to understand and explore the various implementation choices
