@@ -48,10 +48,10 @@ The basic Connect device provides light, electricity, internet connectivity, and
 1. Application Gateway uses messaging protocols to interact with users and operators.
 1. The cloud app consists of containerized microservices that provide functions and interfaces like identity and access management, device upgrades, notifications, and commerce services.
    
-   The app uses Azure services and resources like [Azure Blob Storage](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-introduction) for unstructured data storage, [Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/introduction) for large structured databases, and [Azure Media Services](https://azure.microsoft.com/services/media-services/) to store and deliver entertainment content.
+   The app uses Azure services and resources like [Azure Blob Storage](/azure/storage/blobs/storage-blobs-introduction) for unstructured data storage, [Azure Cosmos DB](/azure/cosmos-db/introduction) for large structured databases, and [Azure Media Services](https://azure.microsoft.com/services/media-services/) to store and deliver entertainment content.
 
 The Connect devices also send streaming telemetry and user data to the cloud via Azure IoT Hub. In the business intelligence part of the process:
-1. [IoT Hub and Azure Event Hub](https://docs.microsoft.com/azure/iot-hub/iot-hub-compare-event-hubs) receive the streaming data and route events.
+1. [IoT Hub and Azure Event Hub](/azure/iot-hub/iot-hub-compare-event-hubs) receive the streaming data and route events.
 1. Azure Databricks *extracts, transforms, and loads (ETLs)* the event data.
 1. Azure Synapse, a SQL big-data warehouse, performs analytics and stores the transformed data.
 1. The analyzed data populates Power BI reports for system evaluation and future planning.
@@ -71,16 +71,16 @@ The system includes the following data analysis and control loop:
 1. IoT Hub sends the retrained models to the Connect devices, which adjust their behavior and schedules accordingly.
 
 ## Components
-- [Azure Application Gateway](https://docs.microsoft.com/azure/application-gateway/overview) manages and load balances traffic to and from cloud web apps.
-- [Azure Kubernetes Service (AKS)](https://docs.microsoft.com/azure/aks/intro-kubernetes) hosts and simplifies [Kubernetes](https://kubernetes.io/) orchestration of [Docker](https://www.docker.com/) containerized apps.
-- [Azure Container Registry (ACR)](https://docs.microsoft.com/azure/container-registry/container-registry-intro) is a managed, private registry service that supports AKS applications at scale.
-- [Azure IoT Hub](https://docs.microsoft.com/azure/iot-hub/about-iot-hub) is a central cloud message hub for bi-directional communications between IoT applications and devices.
-- [Azure Databricks](https://docs.microsoft.com/azure/databricks/scenarios/what-is-azure-databricks) is a fast, easy, and collaborative [Apache Spark](https://spark.apache.org/)-based analytics service for big data pipelines.
-- [Azure Synapse Analytics](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is), formerly SQL Data Warehouse, is an analytics service that brings together enterprise data warehousing and big data analytics.
-- [Power BI](https://docs.microsoft.com/power-bi/fundamentals/power-bi-overview) is a collection of software services, apps, and connectors that turn data into coherent, immersive, interactive visualizations and reports.
-- [Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/overview-what-is-azure-ml) is a cloud-based ML environment that uses existing data to forecast future behaviors, outcomes, and trends.
+- [Azure Application Gateway](/azure/application-gateway/overview) manages and load balances traffic to and from cloud web apps.
+- [Azure Kubernetes Service (AKS)](/azure/aks/intro-kubernetes) hosts and simplifies [Kubernetes](https://kubernetes.io/) orchestration of [Docker](https://www.docker.com/) containerized apps.
+- [Azure Container Registry (ACR)](/azure/container-registry/container-registry-intro) is a managed, private registry service that supports AKS applications at scale.
+- [Azure IoT Hub](/azure/iot-hub/about-iot-hub) is a central cloud message hub for bi-directional communications between IoT applications and devices.
+- [Azure Databricks](/azure/databricks/scenarios/what-is-azure-databricks) is a fast, easy, and collaborative [Apache Spark](https://spark.apache.org/)-based analytics service for big data pipelines.
+- [Azure Synapse Analytics](/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is), formerly SQL Data Warehouse, is an analytics service that brings together enterprise data warehousing and big data analytics.
+- [Power BI](/power-bi/fundamentals/power-bi-overview) is a collection of software services, apps, and connectors that turn data into coherent, immersive, interactive visualizations and reports.
+- [Azure Machine Learning](/azure/machine-learning/overview-what-is-azure-ml) is a cloud-based ML environment that uses existing data to forecast future behaviors, outcomes, and trends.
 
 ## See also
-- [Azure IoT documentation](https://docs.microsoft.com/azure/iot-fundamentals/)
+- [Azure IoT documentation](/azure/iot-fundamentals/)
 - [A solar-powered device will bring online entertainment, education to villages](https://www.thehindubusinessline.com/info-tech/soon-a-solar-powered-device-will-bring-online-entertainment-education-to-villages/article26945331.ece)
 - [Veriown website](https://veriown.com)
