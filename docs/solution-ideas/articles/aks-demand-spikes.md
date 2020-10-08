@@ -25,7 +25,7 @@ This example shows how to achieve fast and reliable service quality during seaso
 ## Architecture
 
 ![Architecture Diagram](../media/aks-demand-spikes.png)
-*Download an [SVG](../media/aks-demand-spikes.svg) or [PPTX](../media/aks-demand-spikes.pptx) of this architecture.*
+*Download an [SVG](../media/aks-demand-spikes.svg)*
 
 ## Data Flow
 
