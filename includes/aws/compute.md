@@ -28,13 +28,15 @@ ms.service: architecture-center
 
 <ul class="grid">
 
+[!INCLUDE [Azure Kubernetes Service (AKS) Baseline Cluster](../../includes/cards/aks-baseline.md)]
 [!INCLUDE [Microservices architecture on Azure Kubernetes Service (AKS)](../../includes/cards/aks.md)]
-[!INCLUDE [Elastic demand handling with AKS](../../includes/cards/aks-demand-spikes.md)]
 [!INCLUDE [CI/CD pipeline for container-based workloads](../../includes/cards/devops-with-aks.md)]
 
 </ul>
 
 [view all](/azure/architecture/browse/#containers)
+
+To start exploring Azure Kubernetes Service (AKS), see [Azure Kubernetes Service solution journey](../../reference-architectures/containers/aks-start-here.md)
 
 ### Serverless
 
