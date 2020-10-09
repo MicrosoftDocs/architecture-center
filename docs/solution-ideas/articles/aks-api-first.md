@@ -26,7 +26,7 @@ Adapt, evolve, and allow faster innovation to turn opportunities into strategic 
 ## Architecture
 
 ![Architecture Diagram](../media/aks-api-first.png)
-*Download an [SVG](../media/aks-api-first.svg) or [PPTX](../media/aks-api-first.pptx) of this architecture.*
+*Download an [SVG](../media/aks-api-first.svg)*
 
 ## Data Flow
 
