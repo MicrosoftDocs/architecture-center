@@ -12,7 +12,7 @@ ms.category:
 ms.custom: fcp
 ---
 
-# Scenario
+# Optimizing curbside pickup with Azure IoT
 Contoso is a European retailer operating mid-sized supermarkets. They
 have grown through the years and are now one of the largest retailers, with more
 than 1000 stores located in both cities and suburbs.
@@ -38,7 +38,7 @@ Some questions to ask to help understand the challenges are:
 -   *What is the estimated impact caused by these issues?*
 -   *What are current operations like?*
 
-## Business Outcomes
+## Business outcomes
 
 -   *What are the desired business outcomes?*
 
@@ -82,7 +82,7 @@ can be applied to real-world scenarios.
 | Obtain license plate details and cross-reference that with the respective customer order when the vehicle turns into the parking lot. To alert store associate immediately to start packing and preparing the order. | Use video analytics to detect license plates when the vehicle turns into the parking lot.  This information is reconciled with order management system and a task is sent to Teams which alerts and schedules a store associate to start packing. | [Monitor and manage loop](./monitor-manage-loop.md) - The video analytics is part of the monitoring layer and the insights are actioned by the store associates as part of the manage pattern. |
 | Notify customer that store has started packing and will deliver the order soon. | When store associate starts task, system will cross-check with geofence rule of the customer location. A notification will be sent to the customer to let them know that their delivery is on the way when the system detects that the customer is in the boundaries of the geofence. | [Monitor and manage loop](./monitor-manage-loop.md) - The geofence rule is monitoring the location of the customer and sending an alert when the customer is in the vicinity (manage) 
 
-## Reference Architecture
+## Reference architecture
 
 ![Architecture diagram showing the data flow for the Buy online pick up in store IoT solution](media/bopis.png)
 
@@ -159,7 +159,7 @@ The geofence triggers provides additional accuracy on the estimated time of arri
 
 -   [Azure IoT Central](https://azure.microsoft.com/services/iot-central/) is a fully managed application platform that reduces the burden and cost of developing, managing, and maintaining enterprise-grade IoT solutions. 
 
--   [Event Hubs](https://azure.microsoft.com/services/event-hubs/) isused to queue the events sent to the curbside pickup
+-   [Event Hubs](https://azure.microsoft.com/services/event-hubs/) are used to queue the events sent to the curbside pickup
     application. Event Hubs creates decoupling for consumption in a distributed application. 
 
 -   [Azure Storage](https://azure.microsoft.com/services/storage/) is used to store raw data for analysis. Contoso has decided to use this service as they are storing the objects in flat namespace.
@@ -183,7 +183,7 @@ For more detailed discussions, see the IoT reference architecture
 [document](https://docs.microsoft.com/azure/architecture/reference-architectures/iot) to understand and explore the various implementation choices
 available.
 
-## Next Steps
+## Next steps
 
 For more details on implementations, take a look at some of these retail partner solutions. 
 
