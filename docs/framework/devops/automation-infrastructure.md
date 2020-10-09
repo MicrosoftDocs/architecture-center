@@ -2,7 +2,7 @@
 title: Repeatable Infrastructure
 description: Repeatable Infrastructure 
 author: neilpeterson
-ms.date: 09/28/2020
+ms.date: 10/07/2020
 ms.topic: article
 ms.service: architecture-center
 ms.subservice: well-architected
@@ -12,9 +12,9 @@ ms.subservice: well-architected
 
 Historically, deploying a new service or application involves manual work such as procuring and preparing hardware, configuring operating environments, and enabling monitoring solutions. Ideally, an organization would have multiple environments in which to test deployments. These test environments should be similar enough to production that deployment and run time issues are detected before deployment to production. This manual work takes time, is error-prone, and can produce inconsistencies between the environments if not done well.
 
-Cloud computing changes the way we procure infrastructure. No longer are we unboxing, racking, and cabling physical infrastructure, we have internet accessible management portals and REST interfaces to help us. We can now provision virtual machines, databases, and other cloud services on demand and globally. When we no longer need cloud services, they can be easily deleted. However, cloud computing alone does not remove the effort and risk in provisioning infrastructure. When using a cloud portal to build systems, many of the same manual configuration tasks remain. Application servers require configuration, databases need networking, and firewalls need firewalling. 
+Cloud computing changes the way we procure infrastructure. No longer are we unboxing, racking, and cabling physical infrastructure. We have internet accessible management portals and REST interfaces to help us. We can now provision virtual machines, databases, and other cloud services on demand and globally. When we no longer need cloud services, they can be easily deleted. However, cloud computing alone does not remove the effort and risk in provisioning infrastructure. When using a cloud portal to build systems, many of the same manual configuration tasks remain. Application servers require configuration, databases need networking, and firewalls need firewalling. 
 
-## Infrastructure as code
+## Deploy infrastructure with code
 
 To fully realize deployment optimization, reduce configuration effort, and automate full environments' deployment, something more is required. One option is referred to as infrastructure as code.
 
