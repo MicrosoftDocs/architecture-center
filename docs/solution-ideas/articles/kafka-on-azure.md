@@ -34,7 +34,7 @@ Here is what a typical Lambda architecture would look like with different Kafka 
 
 ![Typical Lambda Architecture with Kafka on Azure options.](../media/kafka-on-azure-architecture-diagram.png)
 
-Let us look at the options for Kafka on Azure one by one. The following diagram summarizes these options using the IaaS-PaaS Continuum.
+Let us look at the options for Kafka on Azure one by one. The following diagram summarizes these options using the Infrastructure as a service (IaaS)-Platform-as-a-service (PaaS) Continuum.
 
 Ideally you would want to consider the PaaS-first approach. What this means is, you should consider whether your design requirements are met using the PaaS offering. If you come across a limitation, then move on to the next offering in this list.
 
@@ -58,6 +58,8 @@ The example architecture uses the following components:
 In addition to the options in the preceding diagram, Confluent provides a fully managed Apache Kafka on Azure. This implementation of Kafka abstracts the user from all the deployment, implementation and management details while providing pure service.
 
 Here is a link to the [Supported features for Confluent Cloud](https://docs.confluent.io/current/cloud/features.html).
+
+Here are some advantages and drawbacks of using Solution X
 
 Pros
 
