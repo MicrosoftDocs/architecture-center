@@ -122,7 +122,9 @@ Customize the Kubernetes health probes and use them to tell if a pod is in good 
 
 ### Availability Zones
 
-AKS clusters deployed across multiple Availability Zones provide a higher availability level to protect against hardware failures or planned maintenance events. Defining cluster node pools to span multiple zones lets nodes continue operating even if a single zone goes down. Applications can remain available even if there is a physical failure in a single datacenter. For more information about deploying AKS to Availability Zones, see [Create an AKS cluster that uses availability zones](/azure/aks/availability-zones).
+Availability Zones are unique physical locations within Azure regions that help protect applications and data from datacenter failures. Each zone is made up of one or more datacenters. Applications in zones can remain available even if there's a physical failure in a single datacenter.
+
+AKS clusters can be deployed across multiple Availability Zones, to provide a higher availability level and protect against hardware failures or planned maintenance events. Defining cluster node pools to span multiple zones lets nodes continue operating even if a single zone goes down. For more information about deploying AKS to Availability Zones, see [Create an AKS cluster that uses availability zones](/azure/aks/availability-zones).
 
 ### Resource constraints
 
