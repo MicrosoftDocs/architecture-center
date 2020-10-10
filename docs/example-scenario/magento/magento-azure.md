@@ -4,7 +4,7 @@ titleSuffix: Azure Example Scenarios
 description: Deploy Magento e-commerce platform to Azure Kubernetes Service (AKS), and learn about considerations for hosting Magento on Azure.
 author: doodlemania2
 ms.author: pnp
-ms.date: 10/07/2020
+ms.date: 10/12/2020
 ms.topic: example-scenario
 ms.service: architecture-center
 ms.subservice: example-scenario
@@ -25,7 +25,7 @@ Magento is an open-source e-commerce platform written in PHP. This example scena
 - [Azure Database for MySQL](https://azure.microsoft.com/services/mysql/) stores transaction data like orders and catalogs. Version 8.0 is recommended.
 - [Azure Files Premium](https://azure.microsoft.com/services/storage/files/) or an equivalent *network-attached storage (NAS)* system stores media files like product images. Magento needs a Kubernetes-compatible file system that can mount a volume in *ReadWriteMany* mode, like Azure Files Premium or [Azure NetApp Files](https://azure.microsoft.com/services/netapp/).
 - A [content delivery network (CDN)](https://azure.microsoft.com/services/cdn/) serves static content like CSS, JavaScript, and images. Serving content through a CDN minimizes network latency between users and the datacenter. A CDN can remove significant load from NAS by caching and serving static content.
-- [Redis](https://redis.io/) stores session data. Hosting Redis on containers is recommended for performance and security reasons.
+- [Redis](https://redis.io/) stores session data. Hosting Redis on containers is recommended for performance reasons.
 - AKS uses an [Azure Active Directory (Azure AD)](https://azure.microsoft.com/services/active-directory/) identity to create and manage other Azure resources like Azure load balancers, user authentication, role-based access control, and managed identity.
 - [Azure Container Registry](https://azure.microsoft.com/services/container-registry/) stores the private [Docker](https://www.docker.com/) images that are deployed to the AKS cluster. You can use other container registries like Docker Hub. Note that the default Magento install writes some secrets to the image.
 - [Azure Monitor](https://azure.microsoft.com/services/monitor/) collects and stores metrics and logs, including Azure service platform metrics and application telemetry. Azure Monitor integrates with AKS to collect controller, node, and container metrics, and container and master node logs.
@@ -120,17 +120,15 @@ Kubernetes defines two types of health probe:
 
 Customize the Kubernetes health probes and use them to tell if a pod is in good health.
 
-### Zones or regions
+### Availability Zones
 
-Consider deploying the app to multiple regions or zones for higher availability. To avoid unnecessary latency between services, make sure all services and deployed components such as the AKS cluster and the Redis cache are colocated in the same region. For more information about deploying AKS to a particular zone, see [Create an AKS cluster that uses availability zones](/azure/aks/availability-zones).
+AKS clusters deployed across multiple Availability Zones provide a higher availability level to protect against hardware failures or planned maintenance events. Defining cluster node pools to span multiple zones lets nodes continue operating even if a single zone goes down. Applications can remain available even if there is a physical failure in a single datacenter. For more information about deploying AKS to Availability Zones, see [Create an AKS cluster that uses availability zones](/azure/aks/availability-zones).
 
 ### Resource constraints
 
 - Resource contention can affect service availability. Define container resource constraints so that no single container can overwhelm the cluster memory and CPU resources. You can use AKS diagnostics to identify any issues in the cluster.
 
-- For non-container resources like threads or network connections, consider using the [Bulkhead pattern](../../patterns/bulkhead.md) to isolate resources.
-
-- Use resource quotas to limit the total resources allowed for a namespace, so the front end can't starve the back-end services for resources or vice-versa.
+- Use resource limit to restrict the total resources allowed for a container, so one particular container can't starve others.
 
 ## Cost considerations
 
