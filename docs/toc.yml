@@ -1216,7 +1216,9 @@ items:
       - name: Voice assistants and IoT devices
         href: solution-ideas/articles/iot-controlling-devices-with-voice-assistant.md
       - name: IoT using Azure Data Explorer
-        href: solution-ideas/articles/iot-azure-data-explorer.md
+        href: solution-ideas/articles/iot-azure-data-explorer.md      
+      - name: Buy online, pickup in store
+        href: example-scenario/iot/vertical-buy-online-pickup-in-store.md
     - name: Industrial IoT Analytics
       items:
       - name: Architecture
