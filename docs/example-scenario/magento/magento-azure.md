@@ -4,7 +4,7 @@ titleSuffix: Azure Example Scenarios
 description: Deploy Magento e-commerce platform to Azure Kubernetes Service (AKS), and learn about considerations for hosting Magento on Azure.
 author: doodlemania2
 ms.author: pnp
-ms.date: 10/01/2020
+ms.date: 10/12/2020
 ms.topic: example-scenario
 ms.service: architecture-center
 ms.subservice: example-scenario
@@ -19,13 +19,13 @@ Magento is an open-source e-commerce platform written in PHP. This example scena
 
 ![Diagram showing Magento deployed in Azure Kubernetes Service with other Azure components.](media/magento-architecture.png)
 
-- [Azure Kubernetes Service (AKS)](https://azure.microsoft.com/services/kubernetes-service/) deploys the Kubernetes cluster of Varnish, Magento, and [Elasticsearch](https://www.elastic.co/elasticsearch/) in different pods.
+- [Azure Kubernetes Service (AKS)](https://azure.microsoft.com/services/kubernetes-service/) deploys the Kubernetes cluster of Varnish, Magento, Redis, and [Elasticsearch](https://www.elastic.co/elasticsearch/) in different pods.
 - AKS creates a [virtual network](https://azure.microsoft.com/services/virtual-network/) to deploy the agent nodes. Create the virtual network in advance to set up subnet configuration, private link, and egress restriction.
 - [Varnish](https://varnish-cache.org/intro/index.html#intro) installs in front of the HTTP servers to act as a full-page cache.
 - [Azure Database for MySQL](https://azure.microsoft.com/services/mysql/) stores transaction data like orders and catalogs. Version 8.0 is recommended.
 - [Azure Files Premium](https://azure.microsoft.com/services/storage/files/) or an equivalent *network-attached storage (NAS)* system stores media files like product images. Magento needs a Kubernetes-compatible file system that can mount a volume in *ReadWriteMany* mode, like Azure Files Premium or [Azure NetApp Files](https://azure.microsoft.com/services/netapp/).
 - A [content delivery network (CDN)](https://azure.microsoft.com/services/cdn/) serves static content like CSS, JavaScript, and images. Serving content through a CDN minimizes network latency between users and the datacenter. A CDN can remove significant load from NAS by caching and serving static content.
-- [Azure Cache for Redis](https://azure.microsoft.com/services/cache/) stores session data. Premium SKU allows placing caches into the same virtual network with other components, to improve performance and restrict access through topology and access policies.
+- [Redis](https://redis.io/) stores session data. Hosting Redis on containers is recommended for performance reasons.
 - AKS uses an [Azure Active Directory (Azure AD)](https://azure.microsoft.com/services/active-directory/) identity to create and manage other Azure resources like Azure load balancers, user authentication, role-based access control, and managed identity.
 - [Azure Container Registry](https://azure.microsoft.com/services/container-registry/) stores the private [Docker](https://www.docker.com/) images that are deployed to the AKS cluster. You can use other container registries like Docker Hub. Note that the default Magento install writes some secrets to the image.
 - [Azure Monitor](https://azure.microsoft.com/services/monitor/) collects and stores metrics and logs, including Azure service platform metrics and application telemetry. Azure Monitor integrates with AKS to collect controller, node, and container metrics, and container and master node logs.
@@ -92,8 +92,6 @@ There are several ways to optimize scalability for this scenario:
   
   `opcache.validate_timestamps=0`
   
-- To avoid unnecessary performance degradation, disable the Azure Cache for Redis option to persist stored data. For more information, see [How to configure data persistence for a Premium Azure Cache for Redis](/azure/azure-cache-for-redis/cache-how-to-premium-persistence).
-
 - Load balance the [Varnish cache](https://devdocs.magento.com/guides/v2.4/config-guide/varnish/config-varnish.html) by running multiple instances on pods so that it can scale.
 
 ### Logging
@@ -122,21 +120,24 @@ Kubernetes defines two types of health probe:
 
 Customize the Kubernetes health probes and use them to tell if a pod is in good health.
 
-### Zones or regions
+### Availability Zones
 
-Consider deploying the app to multiple regions or zones for higher availability. To avoid unnecessary latency between services, make sure all services and deployed components such as the AKS cluster and the Redis cache are colocated in the same region.
+Availability Zones are unique physical locations within Azure regions that help protect applications and data from datacenter failures. Each zone is made up of one or more datacenters. Applications in zones can remain available even if there's a physical failure in a single datacenter.
+
+AKS clusters can be deployed across multiple Availability Zones, to provide a higher availability level and protect against hardware failures or planned maintenance events. Defining cluster node pools to span multiple zones lets nodes continue operating even if a single zone goes down. For more information about deploying AKS to Availability Zones, see [Create an AKS cluster that uses availability zones](/azure/aks/availability-zones).
 
 ### Resource constraints
 
-Resource contention can affect service availability. Define container resource constraints so that no single container can overwhelm the cluster memory and CPU resources. For non-container resources like threads or network connections, consider using the [Bulkhead pattern](../../patterns/bulkhead.md) to isolate resources.
+- Resource contention can affect service availability. Define container resource constraints so that no single container can overwhelm the cluster memory and CPU resources. You can use AKS diagnostics to identify any issues in the cluster.
 
-Use resource quotas to limit the total resources allowed for a namespace, so the front end can't starve the back-end services for resources or vice-versa.
+- Use resource limit to restrict the total resources allowed for a container, so one particular container can't starve others.
 
 ## Cost considerations
 
 - Do capacity planning based on performance testing.
-- Make sure to over-provision services to avoid unnecessary cost.
+
 - Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate costs.
+
 - See other cost considerations in [Principles of cost optimization](../../framework/cost/overview.md) in the Microsoft Azure Well-Architected Framework.
 
 ## DevOps considerations
