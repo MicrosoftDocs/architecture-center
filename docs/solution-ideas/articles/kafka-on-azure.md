@@ -20,7 +20,6 @@ Customers are also interested in implementing solutions with Apache Kafka for Gr
 
 The targeted audience for this document is Solution Architects looking to implement the scalable message ingestion platform, Apache Kafka on Azure. 
 
-
 ## Use cases
 
 If you have already decided to use Apache Kafka and want to know what the options are for implementing it on Azure, this document outlines the right information for you.
@@ -30,28 +29,24 @@ If you have already decided to use Apache Kafka and want to know what the option
 
 ## Architecture
 
-Here is what a typical Lambda architecture would look like with different Kafka on Azure options for the ingestion phase and an exhaustive list of services from the Azure ecosystem supporting them.
+The following diagram shows what a typical Lambda architecture would look like with different Kafka on Azure options for the ingestion phase and an exhaustive list of services from the Azure ecosystem supporting them.
 
 ![Typical Lambda Architecture with Kafka on Azure options.](../media/kafka-on-azure-architecture-diagram.png)
 
-Let us look at the options for Kafka on Azure one by one. The following diagram summarizes these options using the Infrastructure as a service (IaaS)-Platform-as-a-service (PaaS) Continuum.
+To help you evaluate the options for Kafka on Azure, we've placed them on a continuum between Infrastructure-as-a-service (IaaS) and Platform-as-a-service (PaaS). 
 
-Ideally you would want to consider the PaaS-first approach. What this means is, you should consider whether your design requirements are met using the PaaS offering. If you come across a limitation, then move on to the next offering in this list.
+We recommend that you evaluate them using a PaaS-first approach. This means that you consider whether your design requirements are met using the PaaS offering, and if you come across a limitation, move on to the next offering in the list.
+
+The following diagram summarizes the Kafka on Azure options using the IaaS-PaaS continuum.
 
 ![Diagram showing the steps in a PaaS first approach with Kafka on Azure.](../media/kafka-on-azure-paas-first-approach.png)
+
+In the following sections, we'll look at the options for Kafka on Azure one by one, presenting pros and cons for each. 
 
 ## Components
 
 The example architecture uses the following components:
 
-- [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute/)
-- [Azure VPN Gateway](https://azure.microsoft.com/services/vpn-gateway/)
-- [Azure Active Directory Domain Services](https://azure.microsoft.com/services/active-directory-ds/)
-- [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/)
-- [Azure Key Vault](https://azure.microsoft.com/services/key-vault/)
-- [Azure App Service](https://azure.microsoft.com/services/app-service/)
-- [Cognitive services](https://azure.microsoft.com/services/cognitive-services/)
-- [Azure Automation](https://azure.microsoft.com/services/automation/)
 
 ### Confluent Cloud - Platform-as-a-Service
 
@@ -192,6 +187,7 @@ Cons
 - Achieving the best performance demands knowledge of the ins and outs of Azure networking.
 
 ## Considerations
+
 
 ### Feature comparisons
 
