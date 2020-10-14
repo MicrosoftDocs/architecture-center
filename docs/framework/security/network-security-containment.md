@@ -277,7 +277,7 @@ The [Windows N-tier application on Azure with SQL Server](../../reference-archit
 - Guarantees 100% SLA. 
 - Can be cost effective. For example, during a DDoS attack, the first set of attacks cause  the provisioned resources to scale out. For a resource such as a virtual machine scale set, 10 machines can grow to 100, increasing overall costs. With Standard protection, you don't have to worry about the cost of the scaled resources because Azure will provide the cost credit. 
 
-The [Windows N-tier application on Azure with SQL Server](/azure/architecture/reference-architectures/n-tier/n-tier-sql-server) reference architecture uses DDoS Protection Standard because this option:
+The [Windows N-tier application on Azure with SQL Server](../../reference-architectures/n-tier/n-tier-sql-server.md) reference architecture uses DDoS Protection Standard because this option:
 - Uses adaptive tuning, based on the application's network traffic patterns, to detect threats. 
 - Guarantees 100% SLA. 
 - Can be cost effective. For example, during a DDoS attack, the first set of attacks cause  the provisioned resources to scale out. For a resource such as a virtual machine scale set, 10 machines can grow to 100, increasing overall costs. With Standard protection, you don't have to worry about the cost of the scaled resources because Azure will provide the cost credit. 
@@ -339,3 +339,4 @@ Examples of network logs that provide visibility include:
 - [Azure Network Watcher](/azure/network-watcher/network-watcher-monitoring-overview)
 
 :::image type="icon" source="../../_images/github.png" border="false"::: The [Azure Sentinel and WAF connector Sample](https://github.com/mspnp/samples/tree/master/Security/AzureSentinelSample) sample creates an Azure Log Analytics workspace to collect, analyze, and taking action on data, with Azure Sentinel.
+

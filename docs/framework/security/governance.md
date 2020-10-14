@@ -213,7 +213,7 @@ A good enterprise segmentation strategy meets these criteria:
 - **Monitored** – Security Operations should monitor for potential violations
     of the integrity of the segments (account usage, unexpected traffic, etc.)
 
-![A screenshot of a cell phone Description automatically generated](images/enterprise-tenant.png)
+![Diagram showing enterprise segmentation strategy.](images/enterprise-tenant.png)
 
 ## Security team visibility
 
@@ -303,7 +303,7 @@ resources, you can assign these permissions to those roles.
 emergencies (and initial setup if required). Do not use this role for daily
 tasks. See [Emergency Access (‘Break Glass’ Accounts)](./critical-impact-accounts.md#emergency-access-or-break-glass-accounts) for more details.
 
-![A screenshot of a cell phone Description automatically generated](images/ref-segment.png)
+![Diagram showing Core Services Reference Permissions.](images/ref-segment.png)
 
 ### Segment reference permissions
 

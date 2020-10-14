@@ -6,7 +6,7 @@
 <article class="card">
     <div class="card-header has-margin-bottom-none" aria-hidden="true">
         <figure class="image diagram has-height-175 has-overflow-hidden level">
-            <a href="/azure/architecture/solution-ideas/articles/scalable-web-and-mobile-applications-using-azure-database-for-postgresql"><img src="/azure/architecture/browse/thumbs/scalable-web-and-mobile-applications-using-azure-database-for-postgresql.png" class="diagram" alt="Architecture Diagram" data-linktype="relative-path"></a>
+            <a href="/azure/architecture/solution-ideas/articles/scalable-web-and-mobile-applications-using-azure-database-for-postgresql"><img src="/azure/architecture/browse/thumbs/scalable-web-and-mobile-applications-using-azure-database-for-postgresql.png" class="diagram" alt="Thumbnail of Scalable web and mobile applications using Azure Database for PostgreSQL Architectural Diagram." data-linktype="relative-path"></a>
         </figure>
     </div>
     <div class="card-content">
@@ -17,7 +17,7 @@
             <li>12/16/2019</li>
             <li>1 min read</li>
         </ul>
-        <p class="card-content-description">Rapidly build engaging, performant and scalable cross-platform and native apps for iOS, Android, Windows, or Mac.</p>
+        <p class="card-content-description">Use Azure Database for PostgreSQL to rapidly build engaging, performant, and scalable cross-platform and native apps for iOS, Android, Windows, or Mac.</p>
         <div class="bottom-to-top-fade is-hidden-mobile"></div>
     </div>
 </article>

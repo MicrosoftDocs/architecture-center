@@ -6,7 +6,7 @@
 <article class="card">
     <div class="card-header has-margin-bottom-none" aria-hidden="true">
         <figure class="image diagram has-height-175 has-overflow-hidden level">
-            <a href="/azure/architecture/reference-architectures/hybrid-networking/troubleshoot-vpn"><img src="/azure/architecture/browse/thumbs/troubleshoot-vpn.png" class="diagram" alt="Architecture Diagram" data-linktype="relative-path"></a>
+            <a href="/azure/architecture/reference-architectures/hybrid-networking/troubleshoot-vpn"><img src="/azure/architecture/browse/thumbs/troubleshoot-vpn.png" class="diagram" alt="Thumbnail of Troubleshoot a hybrid VPN connection Architectural Diagram." data-linktype="relative-path"></a>
         </figure>
     </div>
     <div class="card-content">

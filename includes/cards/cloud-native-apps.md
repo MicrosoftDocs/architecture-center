@@ -6,18 +6,18 @@
 <article class="card">
     <div class="card-header has-margin-bottom-none" aria-hidden="true">
         <figure class="image diagram has-height-175 has-overflow-hidden level">
-            <a href="/azure/architecture/solution-ideas/articles/cloud-native-apps"><img src="/azure/architecture/browse/thumbs/cloud-native-apps.png" class="diagram" alt="Architecture Diagram" data-linktype="relative-path"></a>
+            <a href="/azure/architecture/solution-ideas/articles/cloud-native-apps"><img src="/azure/architecture/browse/thumbs/cloud-native-apps.png" class="diagram" alt="Thumbnail of Build cloud native applications Architectural Diagram." data-linktype="relative-path"></a>
         </figure>
     </div>
     <div class="card-content">
         <a class="card-content-title has-margin-top-none" href="/azure/architecture/solution-ideas/articles/cloud-native-apps">
-            <p>Build cloud native apps</p>
+            <p>Build cloud native applications</p>
         </a>
         <ul class="card-content-metadata">
             <li>6/26/2020</li>
             <li>3 min read</li>
         </ul>
-        <p class="card-content-description">Build cloud native apps with Azure Cosmos DB, Azure Database for PostgreSQL and Azure Cache for Redis</p>
+        <p class="card-content-description">Build cloud native applications with Azure Cosmos DB, Azure Database for PostgreSQL and Azure Cache for Redis</p>
         <div class="bottom-to-top-fade is-hidden-mobile"></div>
     </div>
 </article>

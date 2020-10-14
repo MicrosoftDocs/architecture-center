@@ -6,18 +6,18 @@
 <article class="card">
     <div class="card-header has-margin-bottom-none" aria-hidden="true">
         <figure class="image diagram has-height-175 has-overflow-hidden level">
-            <a href="/azure/architecture/solution-ideas/articles/erp-customer-service"><img src="/azure/architecture/browse/thumbs/erp-customer-service.png" class="diagram" alt="Architecture Diagram" data-linktype="relative-path"></a>
+            <a href="/azure/architecture/solution-ideas/articles/erp-customer-service"><img src="/azure/architecture/browse/thumbs/erp-customer-service.png" class="diagram" alt="Thumbnail of Deliver highly scalable customer service and ERP applications Architectural Diagram." data-linktype="relative-path"></a>
         </figure>
     </div>
     <div class="card-content">
         <a class="card-content-title has-margin-top-none" href="/azure/architecture/solution-ideas/articles/erp-customer-service">
-            <p>Deliver highly scalable customer service and ERP apps</p>
+            <p>Deliver highly scalable customer service and ERP applications</p>
         </a>
         <ul class="card-content-metadata">
             <li>6/26/2020</li>
             <li>3 min read</li>
         </ul>
-        <p class="card-content-description">Deliver highly scalable customer service and ERP apps with Azure SQL and Azure Cosmos DB</p>
+        <p class="card-content-description">Deliver highly scalable customer service and ERP applications with Azure SQL and Azure Cosmos DB</p>
         <div class="bottom-to-top-fade is-hidden-mobile"></div>
     </div>
 </article>

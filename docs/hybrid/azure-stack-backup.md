@@ -361,13 +361,13 @@ It's important to note that the backup solution described here focuses exclusive
 
 [architectural-diagram]: ./images/azure-stack-backup.png
 [architectural-diagram-visio-source]: https://archcenter.blob.core.windows.net/cdn/azure-stack-backup.vsdx
-[azure-backup-azure-stack]: https://docs.microsoft.com/azure/backup/backup-mabs-install-azure-stack
-[azure-backup-dpmmabs-support]: https://docs.microsoft.com/azure/backup/backup-support-matrix-mabs-dpm#dpmmabs-networking-support
-[azure-backup-pricing]: https://docs.microsoft.com/azure/backup/azure-backup-pricing
-[azure-backup-server]: https://docs.microsoft.com/azure/backup/backup-azure-microsoft-azure-backup
-[azure-paired-regions]: https://docs.microsoft.com/azure/best-practices-availability-paired-regions
+[azure-backup-azure-stack]: /azure/backup/backup-mabs-install-azure-stack
+[azure-backup-dpmmabs-support]: /azure/backup/backup-support-matrix-mabs-dpm#dpmmabs-networking-support
+[azure-backup-pricing]: /azure/backup/azure-backup-pricing
+[azure-backup-server]: /azure/backup/backup-azure-microsoft-azure-backup
+[azure-paired-regions]: /azure/best-practices-availability-paired-regions
 [azure-stack-vm-size-calculator]: https://www.microsoft.com/download/details.aspx?id=56832
-[azure-stack-hub-expressroute]: https://docs.microsoft.com/azure-stack/operator/azure-stack-connect-expressroute
-[system-center-initial-replication]: https://docs.microsoft.com/system-center/dpm/create-dpm-protection-groups?view=sc-dpm-2019#initial-replication-over-the-network
-[system-center-protection-groups]: https://docs.microsoft.com/system-center/dpm/create-dpm-protection-groups?view=sc-dpm-2019#figure-out-how-much-storage-space-you-need
+[azure-stack-hub-expressroute]: /azure-stack/operator/azure-stack-connect-expressroute
+[system-center-initial-replication]: /system-center/dpm/create-dpm-protection-groups?view=sc-dpm-2019#initial-replication-over-the-network
+[system-center-protection-groups]: /system-center/dpm/create-dpm-protection-groups?view=sc-dpm-2019#figure-out-how-much-storage-space-you-need
 [system-center-recovery-process]: https://docs.microsoft.com/system-center/dpm/how-dpm-protects-data?view=sc-dpm-2019#recovery-process

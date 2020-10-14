@@ -39,7 +39,7 @@ landingContent:
       - linkListType: learn
         links:
           - text: Cost optimization 
-            url: https://docs.microsoft.com/learn/modules/azure-well-architected-introduction/3-cost-optimization
+            url: /learn/modules/azure-well-architected-introduction/3-cost-optimization
       - linkListType: video
         links:
           - text: What trade-offs have you made to optimize for cost?
@@ -155,4 +155,4 @@ landingContent:
           - text: Marketplace Store Charge API  
             url: /rest/api/billing/enterprise/billing-enterprise-api-marketplace-storecharge
           - text: Price Sheet API  
-            url: /rest/api/billing/enterprise/billing-enterprise-api-pricesheet      
+            url: /rest/api/billing/enterprise/billing-enterprise-api-pricesheet

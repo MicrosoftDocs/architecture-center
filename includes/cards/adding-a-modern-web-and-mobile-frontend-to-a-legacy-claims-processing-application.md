@@ -6,7 +6,7 @@
 <article class="card">
     <div class="card-header has-margin-bottom-none" aria-hidden="true">
         <figure class="image diagram has-height-175 has-overflow-hidden level">
-            <a href="/azure/architecture/solution-ideas/articles/adding-a-modern-web-and-mobile-frontend-to-a-legacy-claims-processing-application"><img src="/azure/architecture/browse/thumbs/adding-a-modern-web-and-mobile-frontend-to-a-legacy-claims-processing-application.png" class="diagram" alt="Architecture Diagram" data-linktype="relative-path"></a>
+            <a href="/azure/architecture/solution-ideas/articles/adding-a-modern-web-and-mobile-frontend-to-a-legacy-claims-processing-application"><img src="/azure/architecture/browse/thumbs/adding-a-modern-web-and-mobile-frontend-to-a-legacy-claims-processing-application.png" class="diagram" alt="Thumbnail of Adding a mobile front-end to a legacy app Architectural Diagram." data-linktype="relative-path"></a>
         </figure>
     </div>
     <div class="card-content">

@@ -6,7 +6,7 @@
 <article class="card">
     <div class="card-header has-margin-bottom-none" aria-hidden="true">
         <figure class="image diagram has-height-175 has-overflow-hidden level">
-            <a href="/azure/architecture/solution-ideas/articles/loan-chargeoff-prediction-with-sql-server"><img src="/azure/architecture/browse/thumbs/loan-chargeoff-prediction-with-sql-server.png" class="diagram" alt="Architecture Diagram" data-linktype="relative-path"></a>
+            <a href="/azure/architecture/solution-ideas/articles/loan-chargeoff-prediction-with-sql-server"><img src="/azure/architecture/browse/thumbs/loan-chargeoff-prediction-with-sql-server.png" class="diagram" alt="Thumbnail of Loan ChargeOff Prediction with SQL Server Architectural Diagram." data-linktype="relative-path"></a>
         </figure>
     </div>
     <div class="card-content">
