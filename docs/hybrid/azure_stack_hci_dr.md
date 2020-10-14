@@ -52,7 +52,7 @@ A stretched Azure Stack HCI cluster relies on Storage Replica to perform synchro
 
 ## Architectural excellence
 
-The following considerations constitute a set of guiding tenets that define the [Microsoft Azure Well-Architected Framework][azure-well-architected-framework] and can be used to further enhance your architectural design. 
+The [Microsoft Azure Well-Architected Framework][azure-well-architected-framework] is a set of guiding tenets that are followed in this reference architecture. Teh following considerations are framed in the context of these tenets. 
 
 ### Cost optimization
 
