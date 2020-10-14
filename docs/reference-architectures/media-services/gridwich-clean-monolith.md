@@ -4,16 +4,16 @@ titleSuffix: Azure Example Scenarios
 description: Learn about the components and libraries in the Gridwich clean monolith architecture.
 author: doodlemania2
 ms.date: 10/08/2020
-ms.topic: example-scenario
+ms.topic: reference-architecture
 ms.service: architecture-center
-ms.subservice: example-scenario
+ms.subservice: reference-architecture
 ms.custom:
 - fcp
 ---
 
 # Clean monolith architecture
 
-The code in this project is organized as a clean-architecture monolith with the following conceptual components:
+The code in this project is organized as a clean-architecture monolith, with the following conceptual components:
 
 - API adapters
 - Decoupled application business logic
@@ -25,7 +25,7 @@ The code in this project is organized as a clean-architecture monolith with the 
 
 The solution is stateless, so it doesn't contain any gateways to persistence layers. The solution has no user interface, so it has no controllers or presenters.
 
-Software component composition is achieved via within the Function app. The `ConfigureServices` class defines which concrete classes are available in the IoC container for the app.
+Software component composition is achieved by using the `ConfigureServices` class within the Function app. The `ConfigureServices` class defines which concrete classes are available in the IoC container for the app.
 
 ## Architecture
 
@@ -43,13 +43,13 @@ To encapsulate EventGrid as a request and response broker, the library has:
 - An event dispatcher that uses the IoC to identify and dispatch events to listeners.
 - An event publisher to place responses on the correct EventGrid topic.
 
-The Event Grid request adapter is an https endpoint in the form of an [Azure Function HTTP Endpoint](/azure/azure-functions/functions-bindings-http-webhook). An adapter to convert web requests to Event Grid arrays is also in the same [EventGridFunction](../src/GridWich.Host.FunctionApp/src/Functions/EventGridFunction.cs).
+The Event Grid request adapter is an https endpoint in the form of an [Azure Function HTTP Endpoint](/azure/azure-functions/functions-bindings-http-webhook). An adapter to convert web requests to Event Grid arrays is also in the same [EventGridFunction](https://github.com/mspnp/gridwich/src/GridWich.Host.FunctionApp/src/Functions/EventGridFunction.cs).
 
 The Event Grid response gateway consists of the:
-- [EventGridHandlerBase](../src/GridWich.Core/src/Bases/EventGridHandlerBase.cs), which converts a response DTO into an `EventGridEvent` object.
-- [EventGridDispatcher](../src/GridWich.Core.EventGrid/src/EventGridDispatcher.cs), which places the Event Grid event on the correct response Event Grid topic endpoint URI by using the correct topic key.
+- [EventGridHandlerBase](https://github.com/mspnp/gridwich/src/GridWich.Core/src/Bases/EventGridHandlerBase.cs), which converts a response DTO into an `EventGridEvent` object.
+- [EventGridDispatcher](https://github.com/mspnp/gridwich/src/GridWich.Core.EventGrid/src/EventGridDispatcher.cs), which places the Event Grid event on the correct response Event Grid topic endpoint URI by using the correct topic key.
 
-The solution decouples the saga participants into the following libraries, which have responsibilities over domain-specific application business logic. The libraries contain required infrastructure gateways and their SDKs, which accomplish the actions that the business logic requires.
+The solution decouples the [saga participants](gridwich-sagas.md#saga-participants) into the following libraries, which have responsibilities over domain-specific application business logic. The libraries contain required infrastructure gateways and their SDKs, which accomplish the actions that the business logic requires.
 
 - Analysis.MediaInfo
 - Encode.CloudPort

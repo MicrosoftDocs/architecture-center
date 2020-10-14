@@ -4,9 +4,9 @@ titleSuffix: Azure Example Scenarios
 description: Understand the importance of logging and use of the ObjectLogger utility, context objects, and logging levels.
 author: doodlemania2
 ms.date: 10/08/2020
-ms.topic: example-scenario
+ms.topic: reference-architecture
 ms.service: architecture-center
-ms.subservice: example-scenario
+ms.subservice: reference-architecture
 ms.custom:
 - fcp
 ---
@@ -16,20 +16,21 @@ ms.custom:
 
 Best practices for logging include:
 
-- Don't use string formatting or interpolation. Logging a string with `$"This broke {brokenThing}"` isn't useful for debugging. Pass objects so that they become searchable fields. Instead of `LogInformation(LogEventIds.StartProcessing, $"Processing has started on item {Item.itemNumber}");`, use an object as such `LogInformationObject(LogEventIds.StartProcessing, Item);`, or with anonymous objects like `LogInformationObject(LogEventIds.StartProcessing, new {Item.itemNumber, Item.itemDescription, someData});`.
+- Don't use string formatting or interpolation. Logging a string with `$"This broke {brokenThing}"` isn't useful for debugging. Pass objects so that they become searchable fields. Instead of `LogInformation(LogEventIds.StartProcessing, $"Processing has started on item {Item.itemNumber}");`, use an object as such `LogInformationObject(LogEventIds.StartProcessing, Item);`, or anonymous objects like `LogInformationObject(LogEventIds.StartProcessing, new {Item.itemNumber, Item.itemDescription, someData});`.
+  
 - Follow the EventId numbering conventions outlined in [LogEventIds]().
-
-For any significant body of work, use the following logging pattern:
-
-- LogInformationObject on entry, for example when about to start an encode job
-- LogInformationObject on success, for example when the encode job is successful
-- LogWarningObject, LogErrorObject, or LogCriticalObject on failure, for example encode job failure. Use Exception method variants if applicable.
-
-Although you can log any information at any stage that you think important, you should also take care not to pollute logs with extraneous noise.
+  
+- For any significant body of work, use the following logging pattern:
+  
+  - `LogInformationObject` on entry, for example when about to start an encode job
+  - `LogInformationObject` on success, for example when the encode job is successful
+  - `LogWarningObject`, `LogErrorObject`, or `LogCriticalObject` on failure, for example encode job failure. Use Exception method variants if applicable.
+  
+- Although you can log any information at any stage that you think important, you should also take care not to pollute logs with extraneous noise.
 
 ## ObjectLogger
 
-ObjectLogger/IObjectLogger is a small utility that wraps the standard Logger/ILogger. This one-liner utility logs any C# object by converting C# objects to dictionary objects the logger can consume.
+ObjectLogger/IObjectLogger is a small utility that wraps the standard Logger/ILogger. This one-liner utility logs any C# object by converting C# objects to dictionary objects that the logger can consume.
 
 ObjectLogger/IObjectLogger forces developers to use EventIds in their logging by using an adapter pattern, not inheritance, to restrict use of logger methods that don't have EventIds. EventIds are useful for debugging the service.
 
@@ -43,7 +44,7 @@ The underlying Event Grid runtime infrastructure provides a base schema includin
 
 ## Context objects
 
-When working with complex APIs and workflows that require several inputs and outputs, it is sometimes useful to create a *context object*, which is a property bag of important variables that your code can pass or generate. Context objects can deal with many parameters, and method signatures don't need to change when adding or removing parameters from the context object. Context objects can also be passed to the logger and other interfaces as a unit.
+When working with complex APIs and workflows that require several inputs and outputs, you can create a *context object*, which is a property bag of important variables that your code can pass or generate. Context objects can deal with many parameters, and method signatures don't need to change when adding or removing parameters from the context object. Context objects can also be passed to the logger and other interfaces as a unit.
 
 For example, instead of:
 
@@ -66,7 +67,7 @@ logger.LogInformationObject(LogEventIds.setBlobProperties, storageContext);
 
 ## Log levels
 
-Assigning the appropriate logging level may or may not be straightforward. The following general descriptions of log levels is from [LogLevel Enum](/dotnet/api/microsoft.extensions.logging.loglevel).
+Assigning the appropriate logging level may not be straightforward. The following general descriptions of log levels is from [LogLevel Enum](/dotnet/api/microsoft.extensions.logging.loglevel).
 
 | **LogLevel** | **Enum** | **Description** |
 | -------- | -------- | -------- |

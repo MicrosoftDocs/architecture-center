@@ -4,9 +4,9 @@ titleSuffix: Azure Example Scenarios
 description: Understand the concepts and roles of sagas and opaque operations context in orchestrating Gridwich workflows.
 author: doodlemania2
 ms.date: 10/08/2020
-ms.topic: example-scenario
+ms.topic: reference-architecture
 ms.service: architecture-center
-ms.subservice: example-scenario
+ms.subservice: reference-architecture
 ms.custom:
 - fcp
 ---
@@ -71,7 +71,7 @@ Each of the saga participants must retain the operation context, but may impleme
 - Short-running synchronous operations retain the operation context.
 - Azure Storage provides an opaque string property called `ClientRequestId` for most operations.
 - Azure Media Services V3 has a `Job.CorrelationData` property, or Azure Media Services V2 allows the `Task.Name` to be any string.
-- Other cloud APIs offer similar concepts to an opaque operation context, and return them when signaling progress, completion, or failure.
+- Other cloud APIs offer similar concepts to an opaque operation context that they can return when signaling progress, completion, or failure.
 
 ## Alternatives
 

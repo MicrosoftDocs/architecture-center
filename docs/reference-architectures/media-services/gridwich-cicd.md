@@ -4,9 +4,9 @@ titleSuffix: Azure Example Scenarios
 description: Learn about the guiding principles and considerations for the Gridwich continuous integration and continuous delivery (CD/CD) pipeline.
 author: doodlemania2
 ms.date: 10/08/2020
-ms.topic: example-scenario
+ms.topic: reference-architecture
 ms.service: architecture-center
-ms.subservice: example-scenario
+ms.subservice: reference-architecture
 ms.custom:
 - fcp
 ---
@@ -36,18 +36,18 @@ The Gridwich pipeline scales to multiple environments, but there is only one art
 
 In Gridwich, software release and infrastructure deployment are two separate responsibilities. A single pipeline handles both responsibilities at various stages, using the following general pattern:
 
-[Software Build]->[Infrastructure]->[Software Release]->[Software Configuration]->[Custom Scripts (auto and admin)]
+**Software build > Infrastructure deployment > Software release > Software configuration > Auto and admin custom script deployment**
 
 The guiding principle that infrastructure and software release are two distinct responsibilities makes deploying Event Grid subscriptions more difficult. When Azure creates an Event Grid webhook subscription, it sends a validation event to check whether the registering endpoint accepts Event Grid events. This validation check means the Azure Function msut be released and running before Terraform can build the Event Grid subscription resources.
 
 To address this issue, there are two Terraform jobs in the CI/CD pipeline:
 
-![terraform-sandwich](media/terraform-sandwich.png)
+![Diagram showing the Terraform sandwich jobs.](media/terraform-sandwich.png)
 
 - Terraform Top creates all the resources except for the Azure Event Grid subscriptions.
 - Terraform Bottom creates the Event Grid subscriptions after the software is up and running.
 
-Because Terraform currently lacks the ability to exclude a specific module, the Terraform Top job must explicitly target all the modules except the Event Grid subscriptions. This requirement is potentially error-prone, and a current [GitHub issue on Terraform](https://github.com/hashicorp/terraform/issues/2253) tracks the problem.
+Because Terraform currently lacks the ability to exclude a specific module, the Terraform Top job must explicitly target all the modules except the Event Grid subscriptions. This requirement is potentially error-prone, and a current [GitHub issue on Terraform](https://github.com/hashicorp/terraform/issues/2253) tracks this problem.
 
 ### Post-deployment scripts
 
@@ -57,12 +57,12 @@ Terraform and software releases can't complete certain Gridwich operations, incl
 - Enabling storage analytics in Azure Storage
 - Scaling Azure Media Services
 
-The CLI script `infrastructure/azure-pipelines/templates/steps/azcli-last-steps-template.yml` provides these last steps.
+The CLI script [azcli-last-steps-template.yml](https://github.com/mspnp/gridwich/infrastructure/azure-pipelines/templates/steps/azcli-last-steps-template.yml) provides these last steps.
 
-Also, operations that require elevated privileges shouldn't be done with the CI/CD pipeline. The pipeline generates the set of admin scripts as a pipeline artifact, using output data from Terraform. An admin with elevated privileges runs these scripts the first time an environment is created.
+Operations that require elevated privileges shouldn't be done with the CI/CD pipeline. The pipeline generates the set of admin scripts as a pipeline artifact, using output data from Terraform. An admin with elevated privileges runs these scripts the first time an environment is created.
 
-- [Admin script templates](../infrastructure/terraform/bashscriptgenerator/templates)
-- [Detailed walkthrough of the admin scripts](./Walkthrough_Pipeline_Generated_Scripts_For_Admins.md)
+- [Admin script templates](https://github.com/mspnp/gridwich/infrastructure/terraform/bashscriptgenerator/templates)
+- [Detailed walkthrough of the admin scripts](admin-scripts.md)
 
 ### Everything-as-code and code reuse
 

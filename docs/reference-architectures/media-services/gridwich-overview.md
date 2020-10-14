@@ -1,34 +1,34 @@
 ---
 title: Gridwich media workflow example for a video on-demand system
 titleSuffix: Azure Example Scenarios
-description: Build a stateless action execution environment driven by an external saga workflow system. Media ingestion, processing, and fulfillment uses two new methods: Terraform Sandwiches and Event Grid Sandwiches.
+description: Build a stateless action execution workflow to ingest, process, and deliver media assets. Gridwich is driven by an external saga orchestration system and uses two new methods: Terraform Sandwiches and Event Grid Sandwiches.
 author: doodlemania2
 ms.date: 10/08/2020
-ms.topic: example-scenario
+ms.topic: reference-architecture
 ms.service: architecture-center
-ms.subservice: example-scenario
+ms.subservice: reference-architecture
 ms.custom:
 - fcp
 ---
 
-# The Gridwich Project
+# The Gridwich project
 
-A mass media and entertainment conglomerate had built and was maintaining an on-premises video streaming system to deliver Marketing video assets, including television pilots and Textless-Assets, to their business partners. The company wanted to replace their on-premises service with a cloud-based solution for ingesting, processing, and publishing video assets to partners. In producing the cloud-based solution, Microsoft engineering developed general best practices for processing and delivering assets on Azure.
+A mass media and entertainment conglomerate had built and was maintaining an on-premises video streaming system to deliver marketing video assets like TV pilots to their business partners. The company wanted to replace their on-premises service with a cloud-based solution for ingesting, processing, and publishing video assets to partners. In producing the cloud-based solution, the Microsoft engineering team developed general best practices for processing and delivering media assets on Azure.
 
-This generic Gridwich solution focuses on building a stateless action execution environment driven by an external [saga](gridwich-operations-sagas.md) workflow orchestration system. The pipeline covers media ingestion, processing, and fulfillment using two new methods: Terraform Sandwiches and Event Grid Sandwiches.
+The generic Gridwich solution focuses on building a stateless action execution environment driven by an external [saga](gridwich-operations-sagas.md) workflow orchestration system. The pipeline covers media ingestion, processing, and fulfillment using two new methods: Terraform Sandwiches and Event Grid Sandwiches.
 
-Gridwich uses Azure Media Services, Terraform, Azure Functions, Azure Event Grid, Azure Blob storage, and Azure Logic Apps. The current example is media-specific, but its eventing framework is not. The Gridwich project is a sanitized and genericized media asset pipeline, for internal reusability in future media projects. Terraform deployment is included.
+Gridwich uses Azure Media Services, Terraform, Azure Functions, Azure Event Grid, Azure Blob Storage, and Azure Logic Apps. The current example is media-specific, although the eventing framework is not. The Gridwich project is a sanitized and generalized media asset pipeline for internal reusability in future media projects. The project includes Terraform deployment.
 
 The company's main goals, aside from being able to take advantage of Azure Cloud capacity, cost, and flexibility, were to:
 - Ingest raw video files, process and publish them, and fulfill media requests.
 - Significantly enhance both encoding and new intake and distribution capabilities at scale, and with a cleanly-architected approach.
-- Implement continuous [integration and continuous delivery (CI/CD)](gridwich-cicd.md) for the media asset management pipeline.
+- Implement [continuous integration and continuous delivery (CI/CD)](gridwich-cicd.md) for the media asset management (MAM) pipeline.
 
 ## Architecture
 
 ![Concepts_The_Gridwich_Project_overview_highlevel](media/gridwich-overview.png)
 
-- The *Terraform Sandwich* starts from a multi-stage [Terraform](https://www.terraform.io/) pattern updated to support [infrastructure as code](/azure/devops/learn/what-is-infrastructure-as-code). The pattern is wholly managed and deployed by Terraform, even when not all the [Azure resources](http://terraform.io/docs/providers/azurerm/) can be created before the software artifacts are deployed.
+- The *Terraform Sandwich* starts from a multi-stage [Terraform](https://www.terraform.io/) pattern updated to support [infrastructure as code](/azure/devops/learn/what-is-infrastructure-as-code). The pattern is wholly managed and deployed by Terraform, even when not all the [Azure resources](https://terraform.io/docs/providers/azurerm/) can be created before the software artifacts are deployed.
 
 - The *Event Grid Sandwich* abstracts away remote and long-running processes from the external saga workflow system, by sandwiching those operations between two [Event Grid handlers](./Concepts_Request_and_response_flow.md). This sandwich allows the external system to send a request event, monitor progress events, and wait for an eventual success or failure response that may arrive minutes or hours later.
 
@@ -54,9 +54,4 @@ The company's main goals, aside from being able to take advantage of Azure Cloud
 - [Updates to existing sample](https://github.com/Azure-Samples/media-services-v3-dotnet-core-functions-integration/tree/master/Encoding). Updates to media-services-v3-dotnet-core-functions-integration repo.
 - [Updates to existing sample](https://github.com/NickDrouin/terraform-azure-pipelines-starter). Updates to terraform-azure-pipelines-starter repo.
 - [Updates to existing repo](https://github.com/microsoft/vscode-dev-containers/tree/master/containers/azure-functions-dotnetcore-3.1). Updates to vscode-dev-containers repo, adding Azure Functions v3 and .NET Core 3.1 devcontainer.
-
-### Engagement links
-
-- [AzDo Engagement](https://csefy19.visualstudio.com/CSEng/_workitems/edit/255895)
-- [Game Plan & Checkpoint Artifacts](https://snowballv2.azurewebsites.net/artifactHub?search=255895)
 

@@ -1,0 +1,128 @@
+---
+title: Gridwich pipeline-generated admin scripts
+titleSuffix: Azure Example Scenarios
+description: Learn about the Gridwich pipeline-generated admin scripts and how to run them.
+author: doodlemania2
+ms.date: 10/08/2020
+ms.topic: reference-architecture
+ms.service: architecture-center
+ms.subservice: reference-architecture
+ms.custom:
+- fcp
+---
+
+# Pipeline-generated admin scripts
+
+The Gridwich continuous integration and continuous delivery (CI/CD) pipelines use Terraform to generate and publish admin scripts. A user with elevated permissions must run the scripts manually to create and configure Azure resources. For more information about granting admin and user permissions, see [Set up Azure Active Directory](set-up-azure-devops.md#set-up-azure-active-directory).
+
+The pipelines convert environment variables to Terraform variables to find and replace the variable names in the bash scripts. The bash script source before variables replacement is in the [bashscriptgenerator/templates](https://github.com/mspnp/gridwich/infrastructure/terraform/bashscriptgenerator/templates) directory.
+
+This article describes the admin scripts and how to run them.
+
+Connect to Azure and set the default subscription before running the scripts.
+
+```bash
+az login
+az account set --subscription "idofyourazuresubscription"
+```
+
+You can run the scripts in any order.
+
+## The ams_sp.sh script
+
+The `ams_sp.sh` script grants the Azure Function Application access to Azure Media Services resources, and creates the Media Services service principal.
+
+The script:
+1. Loops and grants the Function App *Contributor* access to Media Services resources.
+1. Creates a Media Services service principal.
+1. Temporarily grants the service principal access to the shared Azure Key Vault.
+1. Stores the service principal ClientId/AppId and secret in the key vault secrets.
+1. Revokes the service principal's access to the key vault.
+
+The Terraform variables are:
+
+- `mediaServicesAccountResourceId`, a list of Media Services Resource IDs.
+- `functionPrincipalId`, the Function App managed identity service principal ID.
+- `mediaServicesName`, the Media Services account name.
+- `mediaServicesResourceGroupName`, the Media Services account resource group.
+- `keyVaultName`, the shared Key Vault name.
+
+To run the script:
+
+1. Download the `ams_sp.sh` file that the pipeline published as an artifact in the `bash_scripts_*` folder.
+1. Run the following command:
+   
+   ```bash
+   chmod +x ams_sp.sh && ./ams_sp.sh
+   ```
+
+## The egv_app_registration.sh script
+
+The *egv_app_registration.sh* bash script uses the *egv_app_registration_manifest.json* file to secure the Azure Event Grid Viewer web app for each environment. The script creates and configures an [Azure App Registration](/azure/active-directory/develop/quickstart-register-app) for [Azure Active Directory (Azure AD)](/azure/active-directory/fundamentals/active-directory-whatis). The script then configures the Event Grid Viewer web app to use the App Registration to secure the viewer, making it available only to those that have proper Azure AD credentials.
+
+The *egv_app_registration_manifest.json* must be in the same directory for the script to run correctly. Using an external manifest file to configure an Azure App Registration is a Microsoft [best practice](https://github.com/Azure/azure-cli/issues/6023#issuecomment-400011467). The GUIDs used in the manifest file are called [well-known-appids](https://github.com/mjisaak/azure-active-directory/blob/master/README.md#well-known-appids), so are not a security risk when hard-coded in the manifest file.
+
+The Terraform variables are:
+
+- `tenantId`, the Azure AD tenant ID, which is used to create the token issurer URL.
+- `eventgridViewerResourceGroupName`, the Event Grid Viewer resource group name.
+- `eventgridViewerAppName`, the Event Grid Viewer web app name.
+- `pipelineBuildId`, the pipeline Build ID. This value is currently unused, but can be used to build an Azure DevOps Build URL to display generated artifacts on screen.
+- `keyVaultName`, the Azure Key Vault to store the Azure AD App Registration AppId/ClientId.
+
+To run the script:
+
+1. Download the published `egv_app_registration.sh` and `egv_app_registration_manifest.json` files into the same directory.
+1. Run the following command:
+   
+   ```bash
+   chmod +x egv_app_registration.sh && ./egv_app_registration.sh
+   ```
+
+## The fxn_to_storage_sp.sh script
+
+The *fxn_to_storage_sp.sh* bash script grants the Function Application access to various Azure Storage Accounts and their resource groups.
+
+The script:
+1. Loops and grants the Function Application **Storage Blob Data Contributor** access to the Azure Storage Accounts.
+1. Loops and grants the Function Application **Reader and Data Access** access to the resource groups that contain the Storage Accounts.
+
+The Terraform variables are:
+
+- `storageAccountIds`, the list of Azure Storage Account IDs.
+- `functionPrincipalId`, the Function Application managed identity service principal ID.
+- `storageRgIds`, the IDs of the resource groups that contain the Storage Accounts.
+
+To run the script:
+
+1. Download the published `fxn_to_storage_sp.sh` file.
+1. Run the following command:
+   
+   ```bash
+   chmod +x fxn_to_storage_sp.sh && ./fxn_to_storage_sp.sh
+   ```
+
+## The logic_app_sp.sh script
+
+The *logic_app_sp.sh* bash script grants the Azure Logic Application access to the Function Application, the Storage Accounts, and the Storage Account resource groups.
+
+The script:
+1. Grants the Logic Application **Website Contributor** access to the Function Application.
+1. Loops and grants the Logic Application **Storage Blob Data Contributor** access to Azure Storage Accounts.
+1. Loops and grants the Logic Application **Reader and Data Access** access to the resource groups that contain the Storage Accounts.
+
+The Terraform variables are:
+
+- `logicAppSCHServicePrincipalId`, the Logic Application managed identity service principal ID.
+- `functionPrincipalId`, the Function Application managed identity service principal ID.
+- `storageAccountIds`, the list of Azure Storage Account IDs.
+- `storageRgIds`, the IDs of the resource groups that contain the Storage Accounts.
+
+To run the script:
+
+1. Download the published logic_app_sp.sh
+1. Execute the following command:
+   
+   ```bash
+   chmod +x logic_app_sp.sh && ./logic_app_sp.sh
+   ```

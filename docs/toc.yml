@@ -1305,6 +1305,35 @@ items:
         href: solution-ideas/articles/digital-media-live-stream.md
       - name: Video-on-demand digital media
         href: solution-ideas/articles/digital-media-video.md
+      - name: Stateless media event framework
+        href: reference-architectures/media-services/gridwich-overview.md
+        items:
+        - name: Clean monolith architecture
+          href: reference-architectures/media-services/gridwich-clean-monolith.md
+        - name: Long-running functions
+          href: reference-architectures/media-services/gridwich-long-running-functions.md
+        - name: Request-response flow
+          href: reference-architectures/media-services/gridwich-request-response-flow.md
+        - name: Synchronous and asynchronous handlers
+          href: reference-architectures/media-services/sync-async-handlers.md
+        - name: Gridwich Storage Service
+          href: reference-architectures/media-services/gridwich-storage-service.md
+        - name: Content protection and DRM
+          href: reference-architectures/media-services/gridwich-content-protection-drm.md
+        - name: Gridwich CI/CD
+          href: reference-architectures/media-services/gridwich-cicd.md
+        - name: Sagas and operations context
+          href: reference-architectures/media-services/gridwich-operations-sagas.md
+        - name: Gridwich logging
+          href: reference-architectures/media-services/gridwich-logging.md
+        - name: Set up Azure DevOps for Gridwich
+          href: reference-architectures/media-services/set-up-azure-devops.md
+        - name: Set up local dev environment
+          href: reference-architectures/media-services/set-up-local-environment.md
+        - name: Create new cloud environment
+          href: reference-architectures/media-services/create-delete-cloud-environment.md
+        - name: Pipeline-generated admin scripts
+          href: reference-architectures/media-services/admin-scripts.md
   - name: Migration
     items:
     - name: Architectures

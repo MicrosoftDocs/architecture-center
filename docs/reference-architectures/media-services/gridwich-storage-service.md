@@ -4,30 +4,28 @@ titleSuffix: Azure Example Scenarios
 description: Learn about the characteristics of the Gridwich Azure Storage Service.
 author: doodlemania2
 ms.date: 10/08/2020
-ms.topic: example-scenario
+ms.topic: reference-architecture
 ms.service: architecture-center
-ms.subservice: example-scenario
+ms.subservice: reference-architecture
 ms.custom:
 - fcp
 ---
 
-# Gridwich Azure Storage Service and context
+# Gridwich Azure Storage Service
 
-This document describes mechanisms available for users of the Gridwich Azure Storage Service, such as event handlers, and their use within the Storage Service. Links point to the corresponding source code, which contains more extensive commentary on the details of the various containers, classes, and mechanisms.
+This document describes how the Gridwich Azure Storage Service meets solution requirements and integrates with mechanisms like event handlers. Links point to the corresponding source code, which contains more extensive commentary on the containers, classes, and mechanisms.
 
-## Components
+The Gridwich Azure Storage Service ([Gridwich.SagaParticipants.Storage.AzureStorage][StorageService]) provides blob and container operations for storage accounts that are configured for Gridwich. Example operations are **Create blob**, **Delete container**, **Copy blob**, or **Change storage tier**.
 
-The Gridwich Azure Storage Service ([Gridwich.SagaParticipants.Storage.AzureStorage][StorageService]) provides operations for blobs and containers in the storage accounts that are configured for Gridwich. Example operations are Create Blob, Delete Container, Copy Blob, or Change Storage tier.
+For external systems, Gridwich exposes most of these operations within the saga participant. Other saga participants use the service for tasks like copying blobs between different containers or accounts when they set up encoding workflows.
 
-Gridwich exposes most of these operations for external systems within the saga participant. Other saga participants use the service for tasks like copying blobs between different containers or accounts when they set up input or archive output for encoding workflows.
+Almost all the Gridwich Storage Service operations require a special context argument of type [StorageClientProviderContext][SCPC]. This context argument fulfills the following requirements:
 
-Almost all the Gridwich Storage Service operations require a special context argument of type [StorageClientProviderContext][SCPC], to satisfy the following requirements:
+- Provides the external system with responses, which include the per-request unique JSON-based operation context value that the external system specified on the Gridwich request.
 
-- Provide the external system with responses, including a per-request unique JSON-based operation context value, which the external system specifies on each request into Gridwich.
+- Allows Storage Service callers like Gridwich event handlers to control which responses are visible to the external system. This control prevents flooding the external system with irrelevant notification events.
 
-- Allow Storage Service callers like Gridwich event handlers to control which responses are visible to the external system. This control prevents flooding the external system with irrelevant notification events.
-
-- Comply with Azure Storage conventions to ensure coherent requests and responses in an environment that doesn't preclude a parallel mix of readers and writers, for example [ETag tracking][ETag]. For more information, see [ETags](#etags-for-content-changes).
+- Complies with Azure Storage conventions to ensure coherent requests and responses in an environment that allows a mix of parallel readers and writers. For example, supports [ETag tracking][ETag]. For more information, see [ETags](#etags-for-content-changes).
 
 ## Requirements
 
@@ -207,22 +205,22 @@ However, there will be issues should the registration be changed to `Singleton`,
 
 The net is that the Gridwich Storage Service, as is, should not be changed to `Singleton` dependency injection registration. This is documented in [dependency injection registration][StorageServiceDI] and a unit test ([CheckThatStorageServiceIsNotASingleton][SSTest]) is included to enforce this.
 
-[StorageService]: /src/Gridwich.SagaParticipants.Storage.AzureStorage
-[SCPC]: ../src/Gridwich.Core/src/Models/StorageClientProviderContext.cs "StorageClientProviderContext.cs"
-[RequestBaseDTO]: ../src/Gridwich.Core/src/DTO/Requests/RequestBaseDTO.cs "RequestBaseDTO.cs"
-[ResponseBaseDTO]: ../src/Gridwich.Core/src/DTO/Responses/ResponseBaseDTO.cs "ResponseBaseDTO.cs"
-[Pipeline]: ../src/Gridwich.SagaParticipants.Storage.AzureStorage/src/Services/BlobClientPipelinePolicy.cs "BlobClientPipelinePolicy.cs"
-[SleeveB]: ../src/Gridwich.SagaParticipants.Storage.AzureStorage/src/Services/StorageBlobClientSleeve.cs "StorageBlobClientSleeve.cs"
-[SleeveC]: ../src/Gridwich.SagaParticipants.Storage.AzureStorage/src/Services/StorageContainerClientSleeve.cs "StorageContainerClientSleeve.cs"
-[ProvB]: ../src/Gridwich.SagaParticipants.Storage.AzureStorage/src/Services/BlobBaseClientProvider.cs "BlobBaseClientProvider.cs"
-[ProvC]: ../src/Gridwich.SagaParticipants.Storage.AzureStorage/src/Services/BlobContainerClientProvider.cs "BlobContainerClientProvider.cs"
-[NotifyD]: ../src/Gridwich.SagaParticipants.Storage.AzureStorage/src/EventGridHandlers/BlobDeletedHandler.cs "BlobDeletedHandler.cs"
-[NotifyC]: ../src/Gridwich.SagaParticipants.Storage.AzureStorage/src/EventGridHandlers/BlobCreatedHandler.cs "BlobCreatedHandler.cs"
-[JSONHelpers]: ../src/Gridwich.Core/src/Helpers/JSONHelpers.cs "JSONHelpers.cs"
-[StorageServiceDI]: ../src/Gridwich.SagaParticipants.Storage.AzureStorage/src/StorageExtensions.cs "StorageExtension.cs"
-[SSTest]: ../src/Gridwich.Host.FunctionApp/tests/Services/ServiceConfigurationTests.cs "ServiceConfigurationTests.cs"
-[StorMgmt]: ../src/Gridwich.SagaParticipants.Storage.AzureStorage/src/Services/AzureStorageManagement.cs "AzureStorageManagement.cs"
-[DIConfig]: ../src/Gridwich.SagaParticipants.Storage.AzureStorage/src/StorageExtensions.cs "Dependency Injection configuration"
+[StorageService]: https://github.com/mspnp/gridwich/src/Gridwich.SagaParticipants.Storage.AzureStorage
+[SCPC]: https://github.com/mspnp/gridwich/src/Gridwich.Core/src/Models/StorageClientProviderContext.cs "StorageClientProviderContext.cs"
+[RequestBaseDTO]: https://github.com/mspnp/gridwich/src/Gridwich.Core/src/DTO/Requests/RequestBaseDTO.cs "RequestBaseDTO.cs"
+[ResponseBaseDTO]: https://github.com/mspnp/gridwich/src/Gridwich.Core/src/DTO/Responses/ResponseBaseDTO.cs "ResponseBaseDTO.cs"
+[Pipeline]: https://github.com/mspnp/gridwich/src/Gridwich.SagaParticipants.Storage.AzureStorage/src/Services/BlobClientPipelinePolicy.cs "BlobClientPipelinePolicy.cs"
+[SleeveB]: https://github.com/mspnp/gridwich/src/Gridwich.SagaParticipants.Storage.AzureStorage/src/Services/StorageBlobClientSleeve.cs "StorageBlobClientSleeve.cs"
+[SleeveC]: https://github.com/mspnp/gridwich/src/Gridwich.SagaParticipants.Storage.AzureStorage/src/Services/StorageContainerClientSleeve.cs "StorageContainerClientSleeve.cs"
+[ProvB]: https://github.com/mspnp/gridwich/src/Gridwich.SagaParticipants.Storage.AzureStorage/src/Services/BlobBaseClientProvider.cs "BlobBaseClientProvider.cs"
+[ProvC]: https://github.com/mspnp/gridwich/src/Gridwich.SagaParticipants.Storage.AzureStorage/src/Services/BlobContainerClientProvider.cs "BlobContainerClientProvider.cs"
+[NotifyD]: https://github.com/mspnp/gridwich/src/Gridwich.SagaParticipants.Storage.AzureStorage/src/EventGridHandlers/BlobDeletedHandler.cs "BlobDeletedHandler.cs"
+[NotifyC]: https://github.com/mspnp/gridwich/src/Gridwich.SagaParticipants.Storage.AzureStorage/src/EventGridHandlers/BlobCreatedHandler.cs "BlobCreatedHandler.cs"
+[JSONHelpers]: https://github.com/mspnp/gridwich/src/Gridwich.Core/src/Helpers/JSONHelpers.cs "JSONHelpers.cs"
+[StorageServiceDI]: https://github.com/mspnp/gridwich/src/Gridwich.SagaParticipants.Storage.AzureStorage/src/StorageExtensions.cs "StorageExtension.cs"
+[SSTest]: https://github.com/mspnp/gridwich/src/Gridwich.Host.FunctionApp/tests/Services/ServiceConfigurationTests.cs "ServiceConfigurationTests.cs"
+[StorMgmt]: https://github.com/mspnp/gridwich/src/Gridwich.SagaParticipants.Storage.AzureStorage/src/Services/AzureStorageManagement.cs "AzureStorageManagement.cs"
+[DIConfig]: https://github.com/mspnp/gridwich/src/Gridwich.SagaParticipants.Storage.AzureStorage/src/StorageExtensions.cs "Dependency Injection configuration"
 
 [SDK_BlobClient]: /dotnet/api/azure.storage.blobs.specialized.blobbaseclient?view=azure-dotnet "Azure SDK - BlobBaseClient class"
 [SDK_ContainerClient]: /dotnet/api/azure.storage.blobs.blobcontainerclient?view=azure-dotnet "Azure SDK - BlobContainerClient class"
