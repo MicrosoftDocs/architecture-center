@@ -1,6 +1,6 @@
 ---
 title: Gridwich long-running Function Apps
-titleSuffix: Azure Example Scenarios
+titleSuffix: Azure Reference Architectures
 description: Understand the challenges and solutions to deploy new Function Apps while gracefully handling the transition for long-running functions.
 author: doodlemania2
 ms.date: 10/08/2020

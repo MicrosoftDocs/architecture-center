@@ -1,6 +1,6 @@
 ---
 title: Gridwich Azure DevOps setup
-titleSuffix: Azure Example Scenarios
+titleSuffix: Azure Reference Architectures
 description: Set up Azure DevOps projects, repos, pipelines, variable groups, and Azure connections for Gridwich.
 author: doodlemania2
 ms.date: 10/08/2020
@@ -17,9 +17,13 @@ Follow the procedures in this article to set up an Azure DevOps project, repo, a
 
 The following procedures and settings use a placeholder Azure DevOps organization called `myorganization`, a new Azure DevOps project called `gridwich-clone`, service connection name `gridwich-connection`, and application name `cl1grw`. Replace these placeholders with your own values as appropriate.
 
+## Azure DevOps procedures
+
+Perform the following procedures in your Azure DevOps organization.
+
 ### Create a project and clone the repo
 
-This procedure clones the Gridwich git repo into a new Azure DevOps project.
+This process clones the Gridwich Git repo into a new Azure DevOps project.
 
 To clone the Gridwich repo to your computer:
 
@@ -344,4 +348,4 @@ Local debugging uses user impersonation, and the developer signs in with their b
 
 ## Test the environment
 
-Follow the [Walkthrough of Testing AMS V3 Encoding](Walkthrough_Testing_AMS_V3_Encoding.md) document to fully test the environment.
+Follow [Walkthrough of Testing AMS V3 Encoding](test-encoding.md) to fully test the setup.

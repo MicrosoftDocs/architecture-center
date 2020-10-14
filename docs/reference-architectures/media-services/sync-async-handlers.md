@@ -1,6 +1,6 @@
 ---
 title: Gridwich simple sync and async handlers
-titleSuffix: Azure Example Scenarios
+titleSuffix: Azure Reference Architectures
 description: Learn about synchronous and asynchronous requests, request-response flows, and handlers.
 author: doodlemania2
 ms.date: 10/08/2020

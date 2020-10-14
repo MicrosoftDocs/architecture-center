@@ -1,6 +1,6 @@
 ---
 title: Gridwich continuous integration and continuous delivery (CD/CD) pipeline
-titleSuffix: Azure Example Scenarios
+titleSuffix: Azure Reference Architectures
 description: Learn about the guiding principles and considerations for the Gridwich continuous integration and continuous delivery (CD/CD) pipeline.
 author: doodlemania2
 ms.date: 10/08/2020

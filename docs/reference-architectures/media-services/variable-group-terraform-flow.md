@@ -1,6 +1,6 @@
 ---
 title: Gridwich pipeline variable group to Terraform variables flow
-titleSuffix: Azure Example Scenarios
+titleSuffix: Azure Reference Architectures
 description: Learn how Gridwich converts Azure Pipelines pipeline variable group variables to Terraform variables.
 author: doodlemania2
 ms.date: 10/08/2020
@@ -30,7 +30,7 @@ The *amsDrmFairPlayAskHex* Azure DevOps Pipeline variable is one of the values u
 
 1. Create the variable in the gridwich-cicd-variables.global Variable Group
 
-    ![gridwich-cicd-variables.global](./img/Walkthrough_Pipeline_Variable_Group_Variable_To_Terraform_Flow_001.png)
+    ![gridwich-cicd-variables.global](media/Walkthrough_Pipeline_Variable_Group_Variable_To_Terraform_Flow_001.png)
 
 1. The variable will be automatically stored as a CI/CD Server Environment Variable as it is referenced in the `variables.yml` file (see [`infrastructure/azure-pipelines/variables.yml`](https://github.com/mspnp/gridwich/infrastructure/azure-pipelines/variables.yml)), which is used as a template in each ci_cd_{environment}_release.yml pipeline.
 

@@ -1,6 +1,6 @@
 ---
 title: Gridwich pipeline-generated admin scripts
-titleSuffix: Azure Example Scenarios
+titleSuffix: Azure Reference Architectures
 description: Learn about the Gridwich pipeline-generated admin scripts and how to run them.
 author: doodlemania2
 ms.date: 10/08/2020

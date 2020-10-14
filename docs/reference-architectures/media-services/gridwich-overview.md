@@ -1,7 +1,7 @@
 ---
 title: Gridwich media workflow example for a video on-demand system
-titleSuffix: Azure Example Scenarios
-description: Build a stateless action execution workflow to ingest, process, and deliver media assets. Gridwich is driven by an external saga orchestration system and uses two new methods: Terraform Sandwiches and Event Grid Sandwiches.
+titleSuffix: Azure Reference Architectures
+description: Build a stateless action execution workflow to ingest, process, and deliver media assets. Gridwich is driven by an external saga orchestration system and uses two new methods, Terraform Sandwiches and Event Grid Sandwiches.
 author: doodlemania2
 ms.date: 10/08/2020
 ms.topic: reference-architecture
@@ -30,7 +30,7 @@ The company's main goals, aside from being able to take advantage of Azure Cloud
 
 - The *Terraform Sandwich* starts from a multi-stage [Terraform](https://www.terraform.io/) pattern updated to support [infrastructure as code](/azure/devops/learn/what-is-infrastructure-as-code). The pattern is wholly managed and deployed by Terraform, even when not all the [Azure resources](https://terraform.io/docs/providers/azurerm/) can be created before the software artifacts are deployed.
 
-- The *Event Grid Sandwich* abstracts away remote and long-running processes from the external saga workflow system, by sandwiching those operations between two [Event Grid handlers](./Concepts_Request_and_response_flow.md). This sandwich allows the external system to send a request event, monitor progress events, and wait for an eventual success or failure response that may arrive minutes or hours later.
+- The *Event Grid Sandwich* abstracts away remote and long-running processes from the external saga workflow system, by sandwiching those operations between two [Event Grid handlers](gridwich-request-response-flow.md). This sandwich allows the external system to send a request event, monitor progress events, and wait for an eventual success or failure response that may arrive minutes or hours later.
 
 ## Components
 

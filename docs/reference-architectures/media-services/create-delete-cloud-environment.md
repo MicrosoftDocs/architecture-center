@@ -1,6 +1,6 @@
 ---
 title: Create or delete a Gridwich cloud environment
-titleSuffix: Azure Example Scenarios
+titleSuffix: Azure Reference Architectures
 description: Use the ci_cd_ext_release or tf_destroy_env pipelines to create or delete cloud development or testing environments.
 author: doodlemania2
 ms.date: 10/08/2020
@@ -49,7 +49,7 @@ To verify that your environment is up, in the Azure portal, confirm that resourc
 
 You should now be able to reach the Event Grid Viewer endpoint and see the web app. Use the endpoint without the `api/eventgrid` URI segment in a web browser to open a URL like the following in a web browser: `https://cl1grw-grw-wa-viewer-f233.azurewebsites.net`.
 
-Follow the [walk through Testing AMS V3 Encoding](Walkthrough_Testing_AMS_V3_Encoding.md) to fully test your environment.
+Follow the [walk through Testing AMS V3 Encoding](test-encoding.md) to fully test your environment.
 
 ## Delete an environment
 

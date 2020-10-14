@@ -1,6 +1,6 @@
 ---
 title: Test Azure Media Services V3 encoding
-titleSuffix: Azure Example Scenarios
+titleSuffix: Azure Reference Architectures
 description: Walk through testing Azure Media Services V3 encoding in Gridwich.
 author: doodlemania2
 ms.date: 10/08/2020
@@ -33,7 +33,7 @@ Expected: EventGrid Viewer Blazor is loaded, and no event in list.
 
 In a storage account attached to Media Services (for example in `cl1grwinbox00sa{your-environment-name}`), create a container (for example `input01`) and upload a video file in it (for example `BBB_trailer_20200225.mp4`).
 
-![UploadedFile](./img/Walkthrough_Testing_AMS_V3_Encoding.uploaded_file.png)
+![UploadedFile](media/Walkthrough_Testing_AMS_V3_Encoding.uploaded_file.png)
 
 ## 3. Sending a message to a deployed function app
 
@@ -66,11 +66,11 @@ POST the following payload:
 ]
 ```
 
-![PortalTesting](./img/Walkthrough_Testing_AMS_V3_Encoding.portal_testing.png)
+![PortalTesting](media/Walkthrough_Testing_AMS_V3_Encoding.portal_testing.png)
 
 You should see a ```response.encode.mediaservicesv3.success``` event.
 
-![SuccessViewer](./img/Walkthrough_Testing_AMS_V3_Encoding.success_viewer.png)
+![SuccessViewer](media/Walkthrough_Testing_AMS_V3_Encoding.success_viewer.png)
 
 ## 4.0 Running locally
 

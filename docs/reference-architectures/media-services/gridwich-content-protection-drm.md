@@ -1,6 +1,6 @@
 ---
 title: Gridwich content protection and DRM
-titleSuffix: Azure Example Scenarios
+titleSuffix: Azure Reference Architectures
 description: Learn about Gridwich audio and video content protection for publishing with Azure Media Services DRM, and how to create and update content protection policies.
 author: doodlemania2
 ms.date: 10/08/2020
@@ -27,7 +27,7 @@ Gridwich creates these policies in the Media Services account at first publicati
 
 The following diagram shows the Azure Media Services policies and their relationship to Gridwich assets and streaming locators.
 
-![Diagram showing the Azure Media Services policies and their relationship to Gridwich assets and streaming locators.](media/content-protection.png)
+![Diagram showing the Azure Media Services policies and their relationship to Gridwich assets and streaming locators.](media/gridwich-content-protection.png)
 
 ## Gridwich publication messages
 
@@ -152,8 +152,6 @@ To store the OpenID Connect Discovery Document endpoint:
 1. Go to **Azure Pipelines** > **Library** > **Variable groups** > **gridwich-cicd-variables.global**.
    
 1. Edit variable name `amsDrmOpenIdConnectDiscoveryDocumentEndpoint` to the value of the endpoint URL, for example `https://domain.com/.well-known/OpenIdConfiguration`.
-   
-   ![select variable](media/GettingStarted_DRM_Settings.variables.png)
 
 ### Apple FairPlay settings
 

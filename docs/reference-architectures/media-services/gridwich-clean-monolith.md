@@ -1,6 +1,6 @@
 ---
 title: Gridwich clean monolith architecture
-titleSuffix: Azure Example Scenarios
+titleSuffix: Azure Reference Architectures
 description: Learn about the components and libraries in the Gridwich clean monolith architecture.
 author: doodlemania2
 ms.date: 10/08/2020
@@ -49,7 +49,7 @@ The Event Grid response gateway consists of the:
 - [EventGridHandlerBase](https://github.com/mspnp/gridwich/src/GridWich.Core/src/Bases/EventGridHandlerBase.cs), which converts a response DTO into an `EventGridEvent` object.
 - [EventGridDispatcher](https://github.com/mspnp/gridwich/src/GridWich.Core.EventGrid/src/EventGridDispatcher.cs), which places the Event Grid event on the correct response Event Grid topic endpoint URI by using the correct topic key.
 
-The solution decouples the [saga participants](gridwich-sagas.md#saga-participants) into the following libraries, which have responsibilities over domain-specific application business logic. The libraries contain required infrastructure gateways and their SDKs, which accomplish the actions that the business logic requires.
+The solution decouples the [saga participants](gridwich-operations-sagas.md#saga-participants) into the following libraries, which have responsibilities over domain-specific application business logic. The libraries contain required infrastructure gateways and their SDKs, which accomplish the actions that the business logic requires.
 
 - Analysis.MediaInfo
 - Encode.CloudPort

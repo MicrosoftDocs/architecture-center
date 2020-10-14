@@ -1,6 +1,6 @@
 ---
 title: Gridwich local development environment setup
-titleSuffix: Azure Example Scenarios
+titleSuffix: Azure Reference Architectures
 description: Set up a local development environment to work with Gridwich.
 author: doodlemania2
 ms.date: 10/08/2020
@@ -18,7 +18,7 @@ This article describes how to set up a local Gridwich development environment in
 ## Prerequisites
 
 - Up-to-date [Visual Studio Code](https://code.visualstudio.com/) or [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/).
-- [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest)
+- [Azure CLI](/cli/azure/install-azure-cli)
 - [.NET Core 3.1](https://dotnet.microsoft.com/download/dotnet-core/3.1)
 - [PowerShell](/powershell/scripting/overview)
 - [Git](https://git-scm.com/downloads) installed, and the Gridwich repository cloned to your local machine.
@@ -43,7 +43,7 @@ Optional:
    
 1. At the prompt, sign in to Azure so your build can access the artifact feed for installing the necessary NuGet packages.
    
-1. Follow the instructions to [create local.settings.json](#create-local-settings-json).
+1. Follow the instructions to [create local.settings.json](#create-localsettingsjson).
    
 1. Press **F5**.
    
@@ -58,7 +58,7 @@ You can now make requests to the two Function endpoints shown in the build outpu
    
 1. In **Solution Explorer**, right-click the **Gridwich.Host.FunctionApp** library and select **Set as Startup Project**.
    
-1. Follow the instructions to [create local.settings.json](#create-local-settings-json).
+1. Follow the instructions to [create local.settings.json](#create-localsettingsjson).
    
 1. Press **F5**.
    

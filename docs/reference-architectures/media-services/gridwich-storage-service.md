@@ -1,6 +1,6 @@
 ---
 title: Gridwich Azure Storage Service and context
-titleSuffix: Azure Example Scenarios
+titleSuffix: Azure Reference Architectures
 description: Learn about the characteristics of the Gridwich Azure Storage Service.
 author: doodlemania2
 ms.date: 10/08/2020
@@ -181,7 +181,7 @@ The pipeline always retrieves an ETag value from an Azure Storage operation if o
 1. Line D will not send an ETag value on the request for `AnotherOpertion()`.
 1. After Line D, the context will have a new `ETag` value, as returned in the response of `AnotherOperation()`.
 1. Sleeve instances are "dispensed" by ClientProviders.  There is one provider for [Blobs][ProvB] and another for [Containers][ProvC].  The providers are created when the Storage Service is initialized and are available directly to Storage Service methods as above.  Caching of sleeve instances is performed internal to each of the two providers.
-1. The Storage Service is currently set as "Transient" in the [Dependency Injection configuration][DIConfig], which implies that the sleeve-based caching will only be on a per-request basis anyway.  While Storage Service would be set to Transient or Scoped, it would likely falter if set as a Singleton due to the cache processing across multiple threads.  See [below](#Storage-Service-and-Dependency-Injection) for more information.
+1. The Storage Service is currently set as "Transient" in the [Dependency Injection configuration][DIConfig], which implies that the sleeve-based caching will only be on a per-request basis anyway.  While Storage Service would be set to Transient or Scoped, it would likely falter if set as a Singleton due to the cache processing across multiple threads.  See [Storage Service and dependency injection](#storage-service-and-dependency-injection) for more information.
 
 ## Other
 
@@ -222,8 +222,8 @@ The net is that the Gridwich Storage Service, as is, should not be changed to `S
 [StorMgmt]: https://github.com/mspnp/gridwich/src/Gridwich.SagaParticipants.Storage.AzureStorage/src/Services/AzureStorageManagement.cs "AzureStorageManagement.cs"
 [DIConfig]: https://github.com/mspnp/gridwich/src/Gridwich.SagaParticipants.Storage.AzureStorage/src/StorageExtensions.cs "Dependency Injection configuration"
 
-[SDK_BlobClient]: /dotnet/api/azure.storage.blobs.specialized.blobbaseclient?view=azure-dotnet "Azure SDK - BlobBaseClient class"
-[SDK_ContainerClient]: /dotnet/api/azure.storage.blobs.blobcontainerclient?view=azure-dotnet "Azure SDK - BlobContainerClient class"
-[SDK_ServiceClient]: /dotnet/api/azure.storage.blobs.blobserviceclient?view=azure-dotnet "Azure SDK - BlobServiceClient class"
-[IAzure]: /dotnet/api/microsoft.azure.management.fluent.iazure?view=azure-dotnet "Microsoft.Azure.Management.Fluent.IAzure"
+[SDK_BlobClient]: /dotnet/api/azure.storage.blobs.specialized.blobbaseclient "Azure SDK - BlobBaseClient class"
+[SDK_ContainerClient]: /dotnet/api/azure.storage.blobs.blobcontainerclient "Azure SDK - BlobContainerClient class"
+[SDK_ServiceClient]: /dotnet/api/azure.storage.blobs.blobserviceclient "Azure SDK - BlobServiceClient class"
+[IAzure]: /dotnet/api/microsoft.azure.management.fluent.iazure "Microsoft.Azure.Management.Fluent.IAzure"
 [ETag]: /azure/storage/common/storage-concurrency#managing-concurrency-in-blob-storage "ETags and Blob Storage"

@@ -1,6 +1,6 @@
 ---
 title: Gridwich operations request and response flow
-titleSuffix: Azure Example Scenarios
+titleSuffix: Azure Reference Architectures
 description: Understand the flow for processing external system requests to Gridwich and responding to the external system.
 author: doodlemania2
 ms.date: 10/08/2020
@@ -42,7 +42,7 @@ The Gridwich request and response process covers request:
    
    Specifically, the Azure Function uses [Dependency Injection](/azure/azure-functions/functions-dotnet-dependency-injection) to register one or more request handlers for specific event types and data versions. An [event dispatcher](https://github.com/mspnp/gridwich/src/GridWich.Core.EventGrid/src/EventGridDispatcher.cs) is injected with the collection of Event Grid event handlers. When processing an event, the event dispatcher queries the event handlers to determine which handlers will process this event.
    
-   An alternative approach is to use the event subscription and filtering mechanism the Event Grid platform provides. This mechanism would impose a 1:1 deployment model, where one Azure function hosts only one event handler. Although the current solution uses a 1:many model, the [clean architecture](gridwich-monolith.md) means that refactoring the solution for 1:1 isn't difficult.
+   An alternative approach is to use the event subscription and filtering mechanism the Event Grid platform provides. This mechanism would impose a 1:1 deployment model, where one Azure function hosts only one event handler. Although the current solution uses a 1:many model, the [clean architecture](gridwich-clean-monolith.md) means that refactoring the solution for 1:1 isn't difficult.
    
 1. Any handler that plans to do further work with the current request must provide an acknowledgement. Specifically, each handler in the system uses a common [EventGridHandlerBase](https://github.com/mspnp/gridwich/src/Gridwich.Core/src/Bases/EventGridHandlerBase.cs) class to provide generic services such as request acknowledgement, failure handling, and publication of response events. The event publication service communicates the acknowledgement, failure, scheduled, or success messages to the EventGrid request broker.
    

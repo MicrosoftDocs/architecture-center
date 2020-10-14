@@ -1,6 +1,6 @@
 ---
 title: Sagas and operations context in Gridwich
-titleSuffix: Azure Example Scenarios
+titleSuffix: Azure Reference Architectures
 description: Understand the concepts and roles of sagas and opaque operations context in orchestrating Gridwich workflows.
 author: doodlemania2
 ms.date: 10/08/2020
