@@ -16,8 +16,8 @@ Architecture diagrams, reference architectures, example scenarios, and solutions
 ## AI + Machine Learning
 <ul class="grid">
 
-[!INCLUDE [AI at the Edge with Azure Stack](../../includes/cards/ai-at-the-edge.md)]
-[!INCLUDE [AI at the Edge with Azure Stack - disconnected](../../includes/cards/ai-at-the-edge-disconnected.md)]
+[!INCLUDE [AI at the Edge with Azure Stack Hub](../../includes/cards/ai-at-the-edge.md)]
+[!INCLUDE [AI at the Edge with Azure Stack Hub - disconnected](../../includes/cards/ai-at-the-edge-disconnected.md)]
 [!INCLUDE [AI enrichment with Azure Cognitive Search](../../includes/cards/cognitive-search-with-skillsets.md)]
 [!INCLUDE [AI for Earth](../../includes/cards/ai-for-earth.md)]
 [!INCLUDE [Auditing, risk, and compliance management](../../includes/cards/auditing-and-risk-compliance.md)]
@@ -336,6 +336,7 @@ Architecture diagrams, reference architectures, example scenarios, and solutions
 [!INCLUDE [Predictive Maintenance for Industrial IoT](../../includes/cards/iot-predictive-maintenance.md)]
 [!INCLUDE [Predictive maintenance with the intelligent IoT Edge](../../includes/cards/iot-predictive-maintenance.md)]
 [!INCLUDE [Process real-time vehicle data using IoT](../../includes/cards/realtime-analytics-vehicle-iot.md)]
+[!INCLUDE [Retail - Buy online, pickup in store (BOPIS)](../../includes/cards/vertical-buy-online-pickup-in-store.md)]
 [!INCLUDE [Scale IoT solutions with application stamps](../../includes/cards/application-stamps.md)]
 [!INCLUDE [Secure your IoT SaaS app with the Microsoft identity platform](../../includes/cards/iot-aad.md)]
 [!INCLUDE [UVEN smart and secure disinfection and lighting](../../includes/cards/uven-disinfection.md)]

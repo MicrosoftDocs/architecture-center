@@ -661,6 +661,8 @@ items:
         href: example-scenario/ai/newsfeed-ingestion.md
       - name: Oil and Gas tank level forecasting
         href: solution-ideas/articles/oil-and-gas-tank-level-forecasting.md
+      - name: Partitioning in Event Hubs and Kafka
+        href: reference-architectures/event-hubs/partitioning-in-event-hubs-and-kafka.md
       - name: Predicting length of stay in hospitals
         href: solution-ideas/articles/predicting-length-of-stay-in-hospitals.md
       - name: Predictive aircraft engine monitoring
@@ -1216,7 +1218,9 @@ items:
       - name: Voice assistants and IoT devices
         href: solution-ideas/articles/iot-controlling-devices-with-voice-assistant.md
       - name: IoT using Azure Data Explorer
-        href: solution-ideas/articles/iot-azure-data-explorer.md
+        href: solution-ideas/articles/iot-azure-data-explorer.md      
+      - name: Buy online, pickup in store
+        href: example-scenario/iot/vertical-buy-online-pickup-in-store.md
     - name: Industrial IoT Analytics
       items:
       - name: Architecture
