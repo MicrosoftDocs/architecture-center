@@ -13,19 +13,17 @@ ms.custom:
 # Kafka on Azure
 
 [Apache Kafka](https://kafka.apache.org/intro) is an open source distributed event streaming platform.
- 
-Customers that are already using Apache Kafka want to know ways to either deploy it on Azure Cloud or emulate the experience in Azure with minimal changes to their current setup. 
 
-Customers are also interested in implementing solutions with Apache Kafka for Greenfield projects and want to leverage Azure.
-
-The targeted audience for this document is Solution Architects looking to implement the scalable message ingestion platform, Apache Kafka on Azure. 
-
-## Use cases
+The targeted audience for this document is Solution Architects looking to implement the scalable message ingestion platform, Apache Kafka on Azure.
 
 If you have already decided to use Apache Kafka and want to know what the options are for implementing it on Azure, this document outlines the right information for you.
 
-- Deploy Apache Kafka on Azure Cloud or emulate the experience in Azure with minimal changes to your current setup.
-- Implement solutions with Apache Kafka for Greenfield projects and leverage Azure.
+## Use cases
+
+This article considers two basic use cases when evaluating solutions for Apache Kafka on Azure:
+
+- You are already using Apache Kafka and want to know ways to either deploy it on Azure Cloud or emulate the experience in Azure with minimal changes to your current setup.
+- You are interested in implementing solutions with Apache Kafka for Greenfield projects and want to leverage Azure.
 
 ## Architecture
 
@@ -35,13 +33,13 @@ The following diagram shows what a typical Lambda architecture would look like w
 
 To help you evaluate the options for Kafka on Azure, we've placed them on a continuum between Infrastructure-as-a-service (IaaS) and Platform-as-a-service (PaaS). 
 
-We recommend that you evaluate them using a PaaS-first approach. This means that you consider whether your design requirements are met using the PaaS offering, and if you come across a limitation, move on to the next offering in the list.
+We recommend that you evaluate them using a PaaS-first approach. First, consider whether your design requirements are met using the PaaS offering, and if you come across a limitation, move on to the next offering in the list.
 
 The following diagram summarizes the Kafka on Azure options using the IaaS-PaaS continuum.
 
 ![Diagram showing the steps in a PaaS first approach with Kafka on Azure.](../media/kafka-on-azure-paas-first-approach.png)
 
-In the following sections, we'll look at the options for Kafka on Azure one by one, presenting pros and cons for each. 
+In the following sections, we'll look at the options for Kafka on Azure one by one, presenting pros and cons for each.
 
 ## Components
 
@@ -50,7 +48,7 @@ The example architecture uses the following components:
 
 ### Confluent Cloud - Platform-as-a-Service
 
-In addition to the options in the preceding diagram, Confluent provides a fully managed Apache Kafka on Azure. The [Confluent Cloud](https://www.confluent.io/confluent-cloud/) implementation of Kafka, abstracts the user from all the deployment, implementation and management details while providing pure service. For more detailed information, see [Supported features for Confluent Cloud](https://docs.confluent.io/current/cloud/features.html).
+In addition to the options in the preceding diagram, Confluent provides a fully managed Apache Kafka on Azure. The [Confluent Cloud](https://www.confluent.io/confluent-cloud/) implementation of Kafka, abstracts the user from all the deployment, implementation, and management details while providing pure service. For more detailed information, see [Supported features for Confluent Cloud](https://docs.confluent.io/current/cloud/features.html).
 
 Here are some of the advantages and limitations of using the Confluent Cloud solution:
 
@@ -129,7 +127,7 @@ Cons
 - Kafka version support and compatibility will always lag behind the published version.
 - Workload migration is required for upgrading a cluster.
 - Adding more disks to an existing cluster is not supported.
-- No public endpoint available which makes Virtual network (VNET) integration mandatory requiring advanced networking configurations.
+- No public endpoint available, which makes Virtual network (VNET) integration mandatory requiring advanced networking configurations.
 
 ### Confluent Enterprise on Azure Marketplace – Infrastructure-as-a-Service
 
