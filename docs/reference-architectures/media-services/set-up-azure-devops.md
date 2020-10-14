@@ -11,7 +11,7 @@ ms.custom:
 - fcp
 ---
 
-## Gridwich Azure DevOps setup
+# Gridwich Azure DevOps setup
 
 Follow the procedures in this article to set up an Azure DevOps project, repo, and pipelines for Gridwich.
 
@@ -150,7 +150,7 @@ Add *variable groups* to store secrets and values to pass into the pipelines.
       telestreamCloudApiKey = tcs_000000000000000000000000
 ```
    
-   - The `amsDrmEnableContentKeyPolicyUpdate` variable controls whether to push content policy updates. The variable must be set to `true` for updates to occur. For more information, see [Content key policy updates](gridwich-content-protection-drm.md#content-key-policy-updates).
+   - The `amsDrmEnableContentKeyPolicyUpdate` variable controls whether to push content policy updates. The variable must be set to `true` for updates to occur. For more information, see [Content key policy updates](gridwich-content-protection-drm.md#content-key-policy-update).
    
    - For Apple FairPlay `amsDrmFairPlayAskHex` and `amsDrmFairPlayPfxPassword`, use the values from the *FairPlay-out-base64.txt* certificate file that you create and upload. For instructions, see [Apple FairPlay settings](gridwich-content-protection-drm.md#apple-fairplay-settings).
      
