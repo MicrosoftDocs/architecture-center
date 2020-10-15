@@ -510,9 +510,10 @@ Keeping your node images in sync with the latest weekly release will minimize th
 
 ### Security monitoring
 
-Consider monitoring the node image with [Azure Security Center](/azure/security-center/security-center-intro) (ASC). ASC monitors the nodes for suspicious activity and makes recommendations.
-
-For information about security hardening applied to AKS virtual machine hosts, see [Security Hardening in host OS](/azure/aks/security-hardened-vm-host-image).
+Monitor your container infrastructure for both active threats and potential security risks: 
+ - Enable [Azure Defender for Kubernetes](/azure/security-center/defender-for-kubernetes-introduction) for threat detection on your Kubernetes clusters.
+ - Use [Azure Security Center](/azure/security-center/security-center-intro) (ASC) to monitor Kubernetes security posture. 
+ - For information about security hardening applied to AKS virtual machine hosts, see [Security Hardening in host OS](/azure/aks/security-hardened-vm-host-image).
 
 ## Cluster and workload operations (DevOps)
 

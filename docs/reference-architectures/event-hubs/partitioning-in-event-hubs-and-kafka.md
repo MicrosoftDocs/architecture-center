@@ -1,6 +1,6 @@
 ---
 title: Partitioning in Event Hubs and Kafka
-author: doodlemania2
+author: rasavant-ms
 ms.date: 10/02/2020
 description: Learn about partitioning in Kafka and Event Hubs with Kafka. See how many partitions to use in ingestion pipelines and how to assign events to partitions.
 ms.custom: fcp
