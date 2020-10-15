@@ -41,7 +41,7 @@ az vm extension set \
 Use the included code sample to deploy a virtual machine and configure a web server on that machine with the custom script extension.
 
 - [Documentation: Azure virtual machine extensions](https://docs.microsoft.com/azure/virtual-machines/extensions/overview)
-- [Code Samples: Configure VM with script extension during ARM deployment](https://docs.microsoft.com/samples/mspnp/samples/azure-well-architected-framework-sample-custom-script-extension/)
+- [Code Samples: Configure VM with script extension during Azure deployment](https://docs.microsoft.com/samples/mspnp/samples/azure-well-architected-framework-sample-custom-script-extension/)
 
 ### cloud-init
 

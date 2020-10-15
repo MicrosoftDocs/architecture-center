@@ -31,11 +31,11 @@ You can use many declarative infrastructure deployment technologies with Azure, 
 
 Azure Resource Manager (ARM) Templates provide an Azure native infrastructure as code solution. ARM Templates are written in a language derived from JavaScript Object Notation (JSON), and they define the infrastructure and configurations for Azure deployments. An ARM template is declarative, you state what intend to deploy, provide configuration values, and the ARM engine takes care of making the necessary Azure REST API put requests. Additional benefits of using ARM templates for infrastructure deployments include:
 
-- **Parallel resource deployment** - the ARM deployment engine sequences resource deployments based on defined dependencies. If dependencies do not exist between two resources, they are deployed at the same time.
+- **Parallel resource deployment** - the Azure deployment engine sequences resource deployments based on defined dependencies. If dependencies do not exist between two resources, they are deployed at the same time.
 - **Modular deployments** - ARM templates can be broken up into multiple template files for reusability and modularization.
 - **Day one resource support** - ARM templates support all Azure resources and resource properties as they are released.
 - **Extensibility** - Azure deployments can be extended using deployment scripts and other automation solutions.
-- **Validation** - ARM deployments are evaluated against a validation API to catch configuration mistakes. 
+- **Validation** - Azure deployments are evaluated against a validation API to catch configuration mistakes. 
 - **Testing** - the [ARM template test toolkit](https://docs.microsoft.com/azure/azure-resource-manager/templates/test-toolkit) provides a static code analysis framework for testing ARM templates.
 - **Change preview** - [ARM template what-if](https://docs.microsoft.com/azure/azure-resource-manager/templates/template-deploy-what-if?tabs=azure-powershell) allows you to see what will be changed before deploying an ARM template.
 - **Tooling** - Language service extensions are available for both [Visual Studio Code](https://docs.microsoft.com/azure/azure-resource-manager/templates/quickstart-create-templates-use-visual-studio-code) and [Visual Studio](https://docs.microsoft.com/azure/azure-resource-manager/templates/create-visual-studio-deployment-project) to assist in authoring ARM templates.
