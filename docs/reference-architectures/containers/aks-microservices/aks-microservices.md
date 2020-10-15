@@ -251,19 +251,19 @@ Using a system like HashiCorp Vault or Azure Key Vault provides several advantag
 - Access control of secrets.
 - Auditing
 
-## Pod and container security
+## Container and Orchestrator security
 
-This list is certainly not exhaustive, but here are some recommended practices for securing your pods and containers:
+These are recommended practices for securing your pods and containers:
 
-Don't run containers in privileged mode. Privileged mode gives a container access to all devices on the host. 
+- **Threat Monitoring –** Monitor for threats using [Azure Defender for container registries](/azure/security-center/defender-for-container-registries-introduction) and [Azure Defender for Kubernetes](/azure/security-center/defender-for-kubernetes-introduction) (or 3rd party capabilities). If you are hosting containers on a VM, use [Azure Defender for servers](/azure/security-center/defender-for-servers-introduction) or a 3rd party capability.
+Additionally, you can integrate logs from [Container Monitoring solution in Azure Monitor](/azure/azure-monitor/insights/containers) to [Azure Sentinel](/azure/sentinel/) or an existing SIEM
 
-When possible, avoid running processes as root inside containers. Containers do not provide complete isolation from a security standpoint, so it's better to run a container process as a non-privileged user.
-
-Store images in a trusted private registry, such as Azure Container Registry or Docker Trusted Registry. Use a validating admission webhook in Kubernetes to ensure that pods can only pull images from the trusted registry.
-
-Scan images and running containers for known vulnerabilities, using a scanning solution such as Twistlock and Aqua, which are available through the Azure Marketplace.
-
-Automate image patching using ACR Tasks, a feature of Azure Container Registry. A container image is built up from layers. The base layers include the OS image and application framework images, such as ASP.NET Core or Node.js. The base images are typically created upstream from the application developers, and are maintained by other project maintainers. When these images are patched upstream, it's important to update, test, and redeploy your own images, so that you don't leave any known security vulnerabilities. ACR Tasks can help to automate this process.
+- **Vulnerability monitoring -** Continuously monitor images and running containers for known vulnerabilities using [Azure Security Center](/azure/security-center/container-security) or a 3rd party solution available through the Azure Marketplace.
+- **Automate image patching** using [ACR Tasks](/azure/container-registry/container-registry-tasks-overview), a feature of Azure Container Registry. A container image is built up from layers. The base layers include the OS image and application framework images, such as ASP.NET Core or Node.js. The base images are typically created upstream from the application developers, and are maintained by other project maintainers. When these images are patched upstream, it&#39;s important to update, test, and redeploy your own images, so that you don&#39;t leave any known security vulnerabilities. ACR Tasks can help to automate this process.
+- **Store images in a trusted private registry** such as Azure Container Registry or Docker Trusted Registry. Use a validating admission webhook in Kubernetes to ensure that pods can only pull images from the trusted registry.
+- **Apply Least Privilege** principle
+  - Don't run containers in privileged mode. Privileged mode gives a container access to all devices on the host.
+  - When possible, avoid running processes as root inside containers. Containers do not provide complete isolation from a security standpoint, so it&#39;s better to run a container process as a non-privileged user.
 
 ## DevOps considerations
 
