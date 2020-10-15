@@ -61,7 +61,7 @@ If you don't manage configuration carefully, your business could encounter disru
 
 Configurations such as installing software on a virtual machine, adding data to a database, or starting pods in an Azure Kubernetes Service cluster need to access Azure through an endpoint that is specific to your instance, outside of the exposed REST APIs. This enables the configuration tools to use agents, networking, or other access methods to provide resource-specific configuration options.
 
-For example, when deploying to Azure, you may need to run post-deployment virtual machine configuration or run other arbitrary code to [bootstrap](./automation-configuration#bootstrap-automation) the deployed Azure resources. Another example is configuration tools that can be used to [configure and manage](./automation-configuration#configuration-management) the ongoing configuration and state of Azure virtual machines.
+For example, when deploying to Azure, you may need to run post-deployment virtual machine configuration or run other arbitrary code to [bootstrap](./automation-configuration.md#bootstrap-automation) the deployed Azure resources. Another example is configuration tools that can be used to [configure and manage](./automation-configuration.md#configuration-management) the ongoing configuration and state of Azure virtual machines.
 
 ### Operational tasks
 
@@ -80,3 +80,8 @@ Two popular options for automating operational tasks are:
 - [**Azure automation**](./automation-tasks.md#azure-automation)- Uses a programming language to automate operational tasks in code and executed on demand.
 
 For more information, see [Automation](./automation-tasks.md). To see a Microsoft Incite video, see [Automating Operational and Management Tasks](https://azure.microsoft.com/resources/videos/microsoft-ignite-2015-automating-operational-and-management-tasks-using-azure-automation/).
+
+#### Next steps
+
+> [!div class="nextstepaction"]
+> [Automate Repeatable Infrastructure](./automation-infrastructure.md)
