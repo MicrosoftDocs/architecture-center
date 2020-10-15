@@ -3,7 +3,7 @@ title: Kafka on Azure
 titleSuffix: Azure Solution Ideas
 description: Learn the 
 author: doodlemania2
-ms.date: 09/29/2020
+ms.date: 10/16/2020
 ms.service: architecture-center
 ms.subservice: solution-idea
 ms.custom:
@@ -12,18 +12,18 @@ ms.custom:
 
 # Kafka on Azure
 
-[Apache Kafka](https://kafka.apache.org/intro) is an open source distributed event streaming platform.
+[Apache Kafka](https://kafka.apache.org/intro) is an open-source distributed event streaming platform with the capabilities of publishing, subscribing,
+storing, and processing streams of events in a distributed and highly scalable manner. Kafka can be deployed on hardware, virtual machines, containers,
+and on-premises as well as in the cloud.
 
-The targeted audience for this document is Solution Architects looking to implement the scalable message ingestion platform, Apache Kafka on Azure.
-
-If you have already decided to use Apache Kafka and want to know what the options are for implementing it on Azure, this document outlines the right information for you.
+This article takes a look at the options for implementing Apache Kafka on Azure.
 
 ## Use cases
 
 This article considers two basic use cases when evaluating solutions for Apache Kafka on Azure:
 
 - You are already using Apache Kafka and want to know ways to either deploy it on Azure Cloud or emulate the experience in Azure with minimal changes to your current setup.
-- You are interested in implementing solutions with Apache Kafka for Greenfield projects and want to leverage Azure.
+- You are interested in implementing solutions with Apache Kafka for Greenfield projects and want to use Azure.
 
 ## Architecture
 
@@ -31,24 +31,23 @@ The following diagram shows what a typical Lambda architecture would look like w
 
 ![Typical Lambda Architecture with Kafka on Azure options.](../media/kafka-on-azure-architecture-diagram.png)
 
-To help you evaluate the options for Kafka on Azure, we've placed them on a continuum between Infrastructure-as-a-service (IaaS) and Platform-as-a-service (PaaS). 
+To help you evaluate the options for Kafka on Azure, we've placed them on a continuum between Infrastructure-as-a-service (IaaS) and Platform-as-a-service (PaaS).
 
 We recommend that you evaluate them using a PaaS-first approach. First, consider whether your design requirements are met using the PaaS offering, and if you come across a limitation, move on to the next offering in the list.
 
-The following diagram summarizes the Kafka on Azure options using the IaaS-PaaS continuum.
+The following diagram summarizes Kafka on Azure options using the IaaS-PaaS continuum.
 
 ![Diagram showing the steps in a PaaS first approach with Kafka on Azure.](../media/kafka-on-azure-paas-first-approach.png)
 
+## Options for using Kafka on Azure
+
 In the following sections, we'll look at the options for Kafka on Azure one by one, presenting pros and cons for each.
 
-## Components
+### Confluent Cloud - PaaS
 
-The example architecture uses the following components:
+In addition to the options in the preceding diagram, Confluent provides a fully managed Apache Kafka on Azure. The [Confluent Cloud](https://www.confluent.io/confluent-cloud/) implementation of Kafka, abstracts the user from all the deployment, implementation, and management details while providing pure service.
 
-
-### Confluent Cloud - Platform-as-a-Service
-
-In addition to the options in the preceding diagram, Confluent provides a fully managed Apache Kafka on Azure. The [Confluent Cloud](https://www.confluent.io/confluent-cloud/) implementation of Kafka, abstracts the user from all the deployment, implementation, and management details while providing pure service. For more detailed information, see [Supported features for Confluent Cloud](https://docs.confluent.io/current/cloud/features.html).
+For more detailed information, see [Supported features for Confluent Cloud](https://docs.confluent.io/current/cloud/features.html).
 
 Here are some of the advantages and limitations of using the Confluent Cloud solution:
 
@@ -66,13 +65,13 @@ Cons
 - Requires Enterprise pricing for an extensive feature set at additional cost.
 - Kafka version support and compatibility will always lag behind the published version.
 
-### Azure Event Hubs with Kafka – Platform-as-a-Service
+### Azure Event Hubs with Kafka - PaaS
 
 [Azure Event Hubs](https://docs.microsoft.com/azure/event-hubs/event-hubs-for-kafka-ecosystem-overview) provides a fully managed, cloud-native service that does not require you to configure servers, disks, or networks. Azure Event Hubs is compatible with Apache Kafka client applications that use producer and consumer APIs for Apache Kafka. This means that you can use Azure Event Hubs like Apache Kafka topics and can send and receive messages by applying minor changes to the client configuration.
 
 Azure Event Hubs includes features such as:
 
-- The ability to publish and consume events using HTTPS, AMQP 1.0 or Kafka 1.0+.
+- The ability to publish and consume events using HTTPS, AMQP 1.0, or Kafka 1.0+.
 - The Event Hubs Capture feature that saves streaming data into a Blob storage account or Azure Data Lake Service account.
 - Clients using Event Hub SDKs act as intelligent consumer agents simplifying checkpointing, leasing, and managing readers.
 
@@ -95,14 +94,14 @@ Pros
 
 Cons
 
-- Feature parity with Apache Kafka - Native Kafka features like Transactions, Compression, Log Compaction, Kafka Streams, Kafka Connect (currently in Preview) are not yet available in production.
-- Schema Registry, which is one of the most sought after offerings from Confluent, is just recently announced to be in Public Preview.
+- Feature parity with Apache Kafka. Native Kafka features like Transactions, Compression, Log Compaction, Kafka Streams, Kafka Connect (currently in Preview) are not yet available in production.
+- Schema Registry, which is one of the most sought after offerings from Confluent, is recently announced to be in Public Preview.
 - [Quotas and limits](https://docs.microsoft.com/azure/event-hubs/event-hubs-quotas) for Azure Event Hubs are restrictive.
 - The single tenant Dedicated Tier offering of Event Hubs with more quota and relaxed limits comes at a [higher price](https://azure.microsoft.com/pricing/details/event-hubs/).
 
 ### Apache Kafka on HDInsight – Managed Cluster
 
-[Kafka on HDInsight](https://docs.microsoft.com/azure/hdinsight/kafka/apache-kafka-introduction) is a managed platform that provides a simplified configuration process that is tested and supported by Microsoft. HDInsight uses native Kafka APIs which means that client application code does not need to change.
+[Kafka on HDInsight](https://docs.microsoft.com/azure/hdinsight/kafka/apache-kafka-introduction) is a managed platform that provides a simplified configuration process that is tested and supported by Microsoft. HDInsight uses native Kafka APIs, which means that client application code does not need to change.
 
 Kafka on HDInsight includes features such as:
 
@@ -129,9 +128,9 @@ Cons
 - Adding more disks to an existing cluster is not supported.
 - No public endpoint available, which makes Virtual network (VNET) integration mandatory requiring advanced networking configurations.
 
-### Confluent Enterprise on Azure Marketplace – Infrastructure-as-a-Service
+### Confluent Enterprise on Azure Marketplace – IaaS
 
-Confluent Enterprise is available as a bring-your-own-license offering in Azure Marketplace. It includes all components from the Apache Kafka Core along with some Apache-licensed open source additions (client tools, pre-built connectors, and cluster-side services such as Schema Registry and REST Proxy).
+Confluent Enterprise is available as a bring-your-own-license offering in Azure Marketplace. It includes all components from the Apache Kafka Core along with some Apache-licensed open-source additions (client tools, pre-built connectors, and cluster-side services such as Schema Registry and REST Proxy).
 
 Here are some of the advantages and limitations of using Confluent Enterprise on Azure Marketplace:
 
@@ -147,7 +146,7 @@ Cons
 - Deployment inside VNET requires peering to work with clients requiring advanced network configurations.
 - Bring Your Own License agreement. Free trial for 30 days only.
 
-### Kafka on Azure Kubernetes Service – Infrastructure-as-a-Service
+### Kafka on Azure Kubernetes Service – IaaS
 
 [Azure Kubernetes Service (AKS)](https://docs.microsoft.com/azure/aks/intro-kubernetes) reduces the complexity and overhead of managing Kubernetes by offloading much of that responsibility to Azure. Apache Kafka clusters can be deployed on AKS in various configurations using best practices offered by Kubernetes operators like [Strimzi](https://strimzi.io/documentation/) or [Confluent Kafka Operator](https://docs.confluent.io/current/installation/operator/index.html). There is a basic [scale and throughput benchmarking and investigation](https://microsoft-my.sharepoint-df.com/:w:/p/cnadolny/Edx-ULTiowRFm9CSw_hF1esBrxtZEnhW28rNd9pBBvQ1KA?e=jF6RHT) done by CSE.
 
@@ -155,22 +154,22 @@ Here are some of the advantages and limitations of using Kafka on AKS:
 
 Pros
 
-- Provides portable infrastructure as code which is cloud agnostic.
+- Provides portable infrastructure as code, which is cloud agnostic.
 - Complete Kafka feature set and APIs are available.
 - Optional additional features can be supported.
 
 Cons
 
 - High availability and disaster recovery must be planned and configured tediously.
-- Custom configuration to achieve desired scale and throughput with apt number of resources needs a lot of work.
+- A custom configuration to achieve the desired scale and throughput with an apt number of resources requires much work.
 - Upgrades could be disruptive.
 - Lack of documentation and support for implementation in production.
 
-### Kafka on Azure Virtual Machines – Infrastructure-as-a-Service
+### Kafka on Azure Virtual Machines – IaaS
 
 The Apache Kafka software can be deployed on a group of Azure VMs to represent a Kafka cluster. The configuration of the cluster is completely up to the user but there are some [recommended approaches](https://docs.confluent.io/2.0.1/kafka/deployment.html).
 
-Here are some of the advantages and limitations of using Kafka on Kafka on Azure Virtual Machines:
+Here are some of the advantages and limitations of using Kafka on Azure Virtual Machines:
 
 Pros
 
@@ -186,6 +185,7 @@ Cons
 
 ## Considerations
 
+The following table of feature comparisons and the decision guidance matrix, compares, and contrasts the options for using Kafka on Azure and presents the considerations for each as well.
 
 ### Feature comparisons
 
@@ -195,7 +195,7 @@ Cons
 |:--------:|:---------------:|:-----------------------:|:---------------:|:-----------------------------------:|:------------:|:---------:|
 |          | PaaS offering from external vendor | Fully managed PaaS offering that supports Kafka protocol | Managed Hortonworks cluster offering | Azure Marketplace offering | Portable cloud agnostic infrastructure | Scalable computing resource |
 | **Model** | PaaS (external vendor) | PaaS | Managed IaaS | IaaS |IaaS |IaaS |
-| **3rd Party Licensing** | Purchase from Confluent	| Not needed | Not mandatory | BYOL | Not mandatory | Not mandatory |  
+| **Third-Party Licensing** | Purchase from Confluent	| Not needed | Not mandatory | BYOL | Not mandatory | Not mandatory |  
 | **Supported Compute Environment** | PaaS – underlying Azure Cloud | PaaS – underlying Service Fabric | Managed disks and VMs | VMs | Containers | VMs |  
 | **Feature Set** | Work in progress | Work in progress with Kafka | Complete for available versions and extendible | Complete for available versions + Schema Registry, Connectors, KSQL | Complete and extendible	| Complete and extendible |  
 | **Data Retention** | 5 TB | Max 90 days, 10 TB included per CU | Customizable | Customizable | Customizable | Customizable | 
@@ -203,7 +203,7 @@ Cons
 | **Kafka Connectors API** | Yes | Preview | Yes | Yes | Yes | Yes | 
 | **Azure Stack Options** | N/A | Preview | Not Available | Yes | Preview | Yes |  
 | **VNET/Public deployment** | Virtual Private Cloud | Public endpoint always exposed | VNET availability in Preview | VNET deployment recommended | VNET deployment | VNET deployment available | VNET deployment available |
-| **Configurable Message Retention beyond 7 days** | 5TB limit | Yes | Yes | Yes | Yes | Yes |
+| **Configurable Message Retention beyond 7 days** | 5-TB limit | Yes | Yes | Yes | Yes | Yes |
 | **Idempotency** | Yes | Yes | Yes | Yes | Yes | Yes |
 | **Transaction** | Yes | EoY 2020 | Yes | Yes | Yes | Yes |
 | **Kafka Streams** | Yes | EoY 2020 | Yes | Yes | Yes | Yes |
@@ -215,19 +215,19 @@ Cons
 | **Declarative Stream Processing** | Yes | Can be added using other Azure service | Yes | Yes | Yes | Yes |
 | **Log Compaction** | Yes | EoY 2020 | Yes | Yes | Yes | Yes |
 | **REST Proxy** | Yes | Yes | Yes | Yes | Yes | Yes |
-| **Geo-Replication** | Not available | Integrated | Integrated | Needs to be configured | Needs to be configured | Needs to be configured |
+| **Geo-Replication** | Not available | Integrated | Integrated | Must be configured | Must be configured | Must be configured |
 | **Authentication** | SSL or SASL | SSL, SASL Plain | SSL | SSL or SASL | SSL or SASL | SSL or SASL |
 | **Authorization** | ACL based |	RBAC |	RBAC (Preview) |	ACL based |	ACL based |	ACL based |
 | **Encryption** | SSL/TLS | SSL, BYOK (Preview) | SSE/TLS, Customer-managed disk encryption | SSL/TLS | SSL/TLS | SSL/TLS |
 | **Automatic Data Balancer** | N/A - PaaS | N/A - PaaS | Yes | Yes | Yes | Yes |
 | **Monitoring Metrics** | Yes | Yes | Can be added | Yes | Can be added | Can be added |
-| **Monitoring Tools** | Confluent Control Center | Azure Monitoring | Azure Monitoring and open source tools | Confluent Control Center | Azure Monitoring and open source tools | Can be added |
+| **Monitoring Tools** | Confluent Control Center | Azure Monitoring | Azure Monitoring and open-source tools | Confluent Control Center | Azure Monitoring and open-source tools | Can be added |
 | **Managed Service** | Yes | Yes | Managed clusters | Managed deployment | No – IaaS | No - IaaS |
 | **Non-disruptive upgrades** | Yes | Yes | No | No | No | No |
 | **Availability SLA** | 99.5% | 99.9% | 99.9% | N/A | 99.5% for AKS | 95% - 99.9% based on usage |
 | **Data Replication** | Confluent Replicator | MirrorMaker or similar (Integrated option coming soon) | Managed disk export / MirrorMaker  or similar | Confluent Replicator | MirrorMaker or similar | MirrorMaker or similar |
 
-### Kafka on Azure Decision Guidance Matrix
+### Kafka on Azure decision guidance matrix
 
 The decision matrix uses the following key:
 
