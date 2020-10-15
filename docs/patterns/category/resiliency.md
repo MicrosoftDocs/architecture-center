@@ -13,7 +13,11 @@ ms.custom: seodec18
 
 # Resiliency patterns
 
-Resiliency is the ability of a system to gracefully handle and recover from failures. The nature of cloud hosting, where applications are often multi-tenant, use shared platform services, compete for resources and bandwidth, communicate over the Internet, and run on commodity hardware means there is an increased likelihood that both transient and more permanent faults will arise. Detecting failures, and recovering quickly and efficiently, is necessary to maintain resiliency.
+Resiliency is the ability of a system to gracefully handle and recover from failures, both inadvertent and malicious.
+
+The nature of cloud hosting, where applications are often multi-tenant, use shared platform services, compete for resources and bandwidth, communicate over the Internet, and run on commodity hardware means there is an increased likelihood that both transient and more permanent faults will arise. The connected nature of the internet and the rise in sophistication and volume of attacks increase the likelihood of a security disruption.
+
+Detecting failures and recovering quickly and efficiently, is necessary to maintain resiliency.
 
 |                            Pattern                             |                                                                                                      Summary                                                                                                       |
 |----------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -25,3 +29,11 @@ Resiliency is the ability of a system to gracefully handle and recover from fail
 |  [Queue-Based Load Leveling](../queue-based-load-leveling.md)  |                                            Use a queue that acts as a buffer between a task and a service that it invokes in order to smooth intermittent heavy loads.                                             |
 |                      [Retry](../retry.md)                      |             Enable an application to handle anticipated, temporary failures when it tries to connect to a service or network resource by transparently retrying an operation that's previously failed.             |
 | [Scheduler Agent Supervisor](../scheduler-agent-supervisor.md) |                                                            Coordinate a set of actions across a distributed set of services and other remote resources.                                                            |
+
+## Security Resliency
+
+Achieving security resilience requires a combination of preventive measures to block attacks, responsive measures detect and quickly remediate active attacks, and governance to ensure consistent application of best practices.
+
+- **Security strategy** should include lessons learned described in [security strategy guidance](https://aka.ms/securitystrategy)
+- **Azure security configurations** should align to the best practices and controls in the [Azure Security Benchmark (ASB)](https://aka.ms/benchmarkdocs). Security configurations for Azure services should align to the [Security baselines for Azure](https://docs.microsoft.com/en-us/azure/security/benchmarks/security-baselines-overview) in the ASB
+- **Azure architectures** should integrate native security capabilities to protect and monitor workloads including [Azure Defender](https://docs.microsoft.com/en-us/azure/security-center/azure-defender), [Azure DDoS protection](https://docs.microsoft.com/en-us/azure/virtual-network/ddos-protection-overview), [Azure Firewall](https://docs.microsoft.com/en-us/azure/firewall/), and [Azure Web Application Firewall (WAF)](https://docs.microsoft.com/en-us/azure/web-application-firewall/)
