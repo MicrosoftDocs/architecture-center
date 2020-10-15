@@ -17,7 +17,7 @@ Automation has revolutionized how businesses operate and this trend continues to
 - Minimize human error in configuring repetitive tasks.
 - Produce consistent and repeatable results.
 
-To learn more, see [Deployment considerations for automation](./deployment#automation).
+To learn more, see [Deployment considerations for automation](./deployment.md#automation).
 
 ## Goals of automation
 
@@ -48,7 +48,7 @@ Three types of automation are described in this article: infrastructure deployme
 
 ### Infrastructure deployment
 
-As businesses move to the cloud, they need to *repeatedly* deploy their solutions and know that their infrastructure is in a *reliable state*. To meet these challenges, you can automate deployments using a practice referred to as [infrastructure as code](./automation-infrastructure). In code, you define the infrastructure that needs to be deployed.
+As businesses move to the cloud, they need to *repeatedly* deploy their solutions and know that their infrastructure is in a *reliable state*. To meet these challenges, you can automate deployments using a practice referred to as [infrastructure as code](./automation-infrastructure.md). In code, you define the infrastructure that needs to be deployed.
 
 Although there are many deployment technologies you can use with Azure, we recommend one of the following:
 
