@@ -269,6 +269,8 @@ items:
       href: checklist/dev-ops.md
     - name: Automation
       items:
+      - name: Automation Overview
+        href: framework/devops/automation-overview.md
       - name: Repeatable infrastructure
         href: framework/devops/automation-infrastructure.md
       - name: Configure infrastructure
