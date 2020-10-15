@@ -2,7 +2,7 @@
 title: Automated Tasks
 description: Automated Tasks
 author: neilpeterson
-ms.date: 09/28/2020
+ms.date: 10/15/2020
 ms.topic: article
 ms.service: architecture-center
 ms.subservice: well-architected

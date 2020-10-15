@@ -2,7 +2,7 @@
 title: Automation overview of goals, best practices, and types in Azure
 description: Automation overview
 author: v-aangie
-ms.date: 10/16/2020
+ms.date: 10/15/2020
 ms.topic: article
 ms.service: architecture-center
 ms.subservice: well-architected
@@ -61,7 +61,7 @@ If you don't manage configuration carefully, your business could encounter disru
 
 Configurations such as installing software on a virtual machine, adding data to a database, or starting pods in an Azure Kubernetes Service cluster need to access Azure through an endpoint that is specific to your instance, outside of the exposed REST APIs. This enables the configuration tools to use agents, networking, or other access methods to provide resource-specific configuration options.
 
-For example, when deploying to Azure, you may need to run post-deployment virtual machine configuration or run other arbitrary code to bootstrap <!--LINK to https://review.docs.microsoft.com/en-us/azure/architecture/framework/devops/automation-configuration?branch=pr-1650#bootstrap-automation-->the deployed Azure resources. Another example is configuration tools that can be used to configure and manage <!--LINK to https://review.docs.microsoft.com/azure/architecture/framework/devops/automation-configuration?branch=pr-en-us-1650#configuration-management-->the ongoing configuration and state of Azure virtual machines.
+For example, when deploying to Azure, you may need to run post-deployment virtual machine configuration or run other arbitrary code to [bootstrap](./automation-configuration#bootstrap-automation) the deployed Azure resources. Another example is configuration tools that can be used to [configure and manage](./automation-configuration#configuration-management) the ongoing configuration and state of Azure virtual machines.
 
 ### Operational tasks
 
@@ -76,7 +76,7 @@ Advantages of automating operational tasks include:
 
 Two popular options for automating operational tasks are:
 
-- **Azure functions**<!--LINK to https://review.docs.microsoft.com/en-us/azure/architecture/framework/devops/automation-tasks?branch=pr-en-us-1650#azure-functions--> - Run code without managing the underlying infrastructure on where the code is run.
-- **Azure automation**<!--LINK to https://review.docs.microsoft.com/en-us/azure/architecture/framework/devops/automation-tasks?branch=pr-en-us-1650#azure-automation--> - Uses a programming language to automate operational tasks in code and executed on demand.
+- [**Azure functions**](./automation-tasks.md#azure-functions) - Run code without managing the underlying infrastructure on where the code is run.
+- [**Azure automation**](./automation-tasks.md#azure-automation)- Uses a programming language to automate operational tasks in code and executed on demand.
 
-For more information, see [Automation](https://azure.microsoft.com/en-in/services/automation/). <!--Replace link with https://review.docs.microsoft.com/en-us/azure/architecture/framework/devops/automation-tasks?branch=pr-en-us-1650--> To see a Microsoft Incite video, see [Automating Operational and Management Tasks](https://azure.microsoft.com/en-in/resources/videos/microsoft-ignite-2015-automating-operational-and-management-tasks-using-azure-automation/).
+For more information, see [Automation](./automation-tasks.md). To see a Microsoft Incite video, see [Automating Operational and Management Tasks](https://azure.microsoft.com/resources/videos/microsoft-ignite-2015-automating-operational-and-management-tasks-using-azure-automation/).

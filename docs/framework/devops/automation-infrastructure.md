@@ -2,7 +2,7 @@
 title: Repeatable Infrastructure
 description: Repeatable Infrastructure 
 author: neilpeterson
-ms.date: 10/07/2020
+ms.date: 10/15/2020
 ms.topic: article
 ms.service: architecture-center
 ms.subservice: well-architected

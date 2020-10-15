@@ -2,7 +2,7 @@
 title: Configure infrastructure
 description: Configure infrastructure
 author: neilpeterson
-ms.date: 10/06/2020
+ms.date: 10/15/2020
 ms.topic: article
 ms.service: architecture-center
 ms.subservice: well-architected
