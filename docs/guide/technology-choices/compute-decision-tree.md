@@ -120,14 +120,14 @@ For guided learning on Service Guarantees, review [Core Cloud Services - Azure a
 
 Review and understand the available security controls and visibility for each service
 
-- [App Service](https://docs.microsoft.com/azure/app-service/overview-security)
-- [Azure Kubernetes Service](https://docs.microsoft.com/azure/aks/security-baseline)
-- [Batch](https://docs.microsoft.com/azure/batch/security-baseline)
-- [Container Instances](https://docs.microsoft.com/azure/container-instances/security-baseline)
-- [Functions](https://docs.microsoft.com/azure/azure-functions/security-baseline)
-- [Service Fabric](https://docs.microsoft.com/azure/service-fabric/security-baseline)
-- [Virtual machine - Windows](https://docs.microsoft.com/azure/virtual-machines/windows/security-baseline)
-- [Virtual machine - LINUX](https://docs.microsoft.com/azure/virtual-machines/linux/security-baseline)
+- [App Service](/azure/app-service/overview-security)
+- [Azure Kubernetes Service](/azure/aks/security-baseline)
+- [Batch](/azure/batch/security-baseline)
+- [Container Instances](/azure/container-instances/security-baseline)
+- [Functions](/azure/azure-functions/security-baseline)
+- [Service Fabric](/azure/service-fabric/security-baseline)
+- [Virtual machine - Windows](/azure/virtual-machines/windows/security-baseline)
+- [Virtual machine - LINUX](/azure/virtual-machines/linux/security-baseline)
 
 ## Other criteria
 
