@@ -128,7 +128,7 @@ Cons
 
 ### Confluent Enterprise on Azure Marketplace – IaaS
 
-Confluent Enterprise is available as a bring-your-own-license offering in Azure Marketplace. It includes all components from the Apache Kafka Core along with some Apache-licensed open-source additions (client tools, pre-built connectors, and cluster-side services such as Schema Registry and REST Proxy).
+[Confluent Enterprise](https://azuremarketplace.microsoft.com/marketplace/apps/confluentinc.confluent-enterprise) is available as a bring-your-own-license offering in Azure Marketplace. It includes all components from the Apache Kafka Core along with some Apache-licensed open-source additions (client tools, pre-built connectors, and cluster-side services such as Schema Registry and REST Proxy).
 
 Here are some of the advantages and limitations of using Confluent Enterprise on Azure Marketplace:
 
