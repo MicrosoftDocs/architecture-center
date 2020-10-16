@@ -38,16 +38,16 @@ To create the project in your Azure DevOps organization:
 1. In the **Create new project** window:
    1. Under **Project name**, enter `gridwich-clone`.
    1. Under **Visibility**, select **Private**.
-   1.- Select **Advanced**, then under **Version control** select **Git**, and under **Work item process** select **Agile**.
+   1. Select **Advanced**, then under **Version control** select **Git**, and under **Work item process** select **Agile**.
    1. Select **Create**.
    
 To clone the Gridwich repo into your Azure DevOps project:
 
-1. From your Azure DevOps project, in the left navigation, select **Repos** > **Files**.
+1. In the left navigation of your Azure DevOps project, select **Repos** > **Files**.
    
 1. On the **Add some code** screen, select **Push an existing repository from command line**, and select the copy icon to copy the commands.
    
-1. On your computer, navigate to the location of the cloned Gridwich repo and run the following commands:
+1. On your computer, navigate to the location of your cloned Gridwich repo, and run the following commands:
    
    ```bash
    git checkout master
@@ -61,6 +61,8 @@ To clone the Gridwich repo into your Azure DevOps project:
    git remote add origin https://myorganization@dev.azure.com/myorganization/gridwich-clone/_git/gridwich-clone
    git push -u origin --all
    ```
+
+The Gridwich repo is now cloned into your `gridwich-clone` project repo.
 
 ### Connect the project to Azure
 
@@ -79,6 +81,7 @@ Connect your Azure DevOps project to an Azure subscription.
    - Under **Subscription**, select the Azure subscription you want to use. Don't select a resource group.
    - Under **Details**, enter `gridwich-connection` as a name for the connection.
    - Select **Grant access permission to all pipelines**.
+   
    Select **Save**.
 
 ### Install extensions for Gridwich
@@ -117,15 +120,15 @@ Update some of the installed files.
    
    - In [terraform-init-steps-template.yml](https://github.com/mspnp/gridwich/infrastructure/azure-pipelines/templates/steps/terraform-init-steps-template.yml), update `TerraformBackendStorageAccount: gridwichtfstate` to `TerraformBackendStorageAccount: <your unique Gridwich storage account name>`.
    
-1. In [terraform/variables.tf](https://github.com/mspnp/gridwich/infrastructure/infrastructure/terraform/variables.tf), update the the default application name from `gridwich` to `cl1grw` or your application name, to avoid name collisions with `gridwich`.
-
-```terraform
-variable "appname" {
-  type        = string
-  description = "Application name. Use only lowercase letters and numbers"
-  default     = "cl1grw"
-}
-```
+1. In [terraform/variables.tf](https://github.com/mspnp/gridwich/infrastructure/infrastructure/terraform/variables.tf), to avoid name collisions with `gridwich`, update the the default application name from `gridwich` to `cl1grw` or your application name.
+   
+   ```terraform
+   variable "appname" {
+     type        = string
+     description = "Application name. Use only lowercase letters and numbers"
+     default     = "cl1grw"
+   }
+   ```
    
 1. Commit the changes and push the commit to the project repo.
 
@@ -139,30 +142,32 @@ Add *variable groups* to store secrets and values to pass into the pipelines.
 
 1. Under **Variables**, select **Add**, and add the following **Name** and **Value** pairs.
    
-```text
-      amsDrmEnableContentKeyPolicyUpdate = false
-      amsDrmFairPlayAskHex = 8D49FD8E59E19F69A52F0E9E0D5742F8
-      amsDrmFairPlayPfxPassword = Password!2020
-      amsDrmOpenIdConnectDiscoveryDocumentEndpoint = https://qa.api.something.com/asset/video/.well-known/OpenIdConfiguration
-      applicationName = cl1grw
-      deploymentEnvironmentType = DEV
-      inboxCORS = localhost:9002;extsysqa.something.com;extsysuat.something.com;extsys.something.com
-      telestreamCloudApiKey = tcs_000000000000000000000000
-```
+   ```text
+         amsDrmEnableContentKeyPolicyUpdate = false
+         amsDrmFairPlayAskHex = 8D49FD8E59E19F69A52F0E9E0D5742F8
+         amsDrmFairPlayPfxPassword = Password!2020
+         amsDrmOpenIdConnectDiscoveryDocumentEndpoint = <https://qa.api.something.com/asset/video/.well-known/OpenIdConfiguration>
+         applicationName = cl1grw
+         deploymentEnvironmentType = DEV
+         inboxCORS = <localhost:9002;extsysqa.something.com;extsysuat.something.com;extsys.something.com>
+         telestreamCloudApiKey = tcs_000000000000000000000000
+   ```
    
    - The `amsDrmEnableContentKeyPolicyUpdate` variable controls whether to push content policy updates. The variable must be set to `true` for updates to occur. For more information, see [Content key policy updates](gridwich-content-protection-drm.md#content-key-policy-update).
    
    - For Apple FairPlay `amsDrmFairPlayAskHex` and `amsDrmFairPlayPfxPassword`, use the values from the *FairPlay-out-base64.txt* certificate file that you create and upload. For instructions, see [Apple FairPlay settings](gridwich-content-protection-drm.md#apple-fairplay-settings).
      
-     The Apple FairPlay values in the preceding example are from the fake FairPlay certificate file [FairPlay-out-base64.txt](https://github.com/mspnp/gridwich/src/Gridwich.SagaParticipans.Publication.MediaServicesV3/tests/FakeFairPlayCert/FairPlay-out-base64.txt). For development purposes, you can use this fake file by selecting **Library** > **+ Secure file**, and uploading the file.
+     Or, for development purposes, you can use the FairPlay values in the preceding example, which are from the fake FairPlay certificate file [FairPlay-out-base64.txt](https://github.com/mspnp/gridwich/src/Gridwich.SagaParticipans.Publication.MediaServicesV3/tests/FakeFairPlayCert/FairPlay-out-base64.txt). Upload this fake file to **Library** > **+ Secure file**. 
    
-   - The `amsDrmOpenIdConnectDiscoveryDocumentEndpoint` should be the OpenID Connect Discovery Document endpoint URL that exposes the public signature keys in Azure Media Services.
+   - For `amsDrmOpenIdConnectDiscoveryDocumentEndpoint`, use the OpenID Connect Discovery Document endpoint URL that exposes the public signature keys in Azure Media Services.
    
    - The `inboxCORS` entry should match the `allowed_origins` list in [terraform/main.tf](https://github.com/mspnp/gridwich/infrastructure/terraform/main.tf).
    
 1. After adding all the name/value pairs, select **Save**,
    
-1. Select **+ Variable group** and add a new variable group named `gridwich-cicd-variables.sb`, with variable `eventEndpointExtSys = https://cl1grw-grw-wa-viewer-sb.azurewebsites.net/api/eventgrid`.
+1. Select **+ Variable group** and add a new variable group named `gridwich-cicd-variables.sb`.
+   
+1. Add variable name `eventEndpointExtSys` with value `https://cl1grw-grw-wa-viewer-sb.azurewebsites.net/api/eventgrid`.
    
 1. Select **Save**.
    
@@ -212,7 +217,7 @@ This pipeline creates the sandbox (SB) environment for the developer environment
    
    - On first run, you must select **Permit** to approve the pipeline using the FairPlay Secure File you uploaded.
      
-     ![permit](media/approve-secure-file.png)
+     ![Select Permit to approve.](media/approve-secure-file.png)
      
 After the first run, an admin must run the bash scripts to set up authorization.
 
@@ -234,14 +239,16 @@ Developers can use this pipeline to create new environments with custom names in
    
 1. Under **Pipelines**, select the pipeline and then select **Edit**. In the editor, add the following variables to the pipeline. For each variable, select **Let users override this value when running this pipeline**.
    
-   - `environment`,
-   - `RUN_FLAG_SUBSCRIPTIONS_FAIL_GRACEFULLY` (default: `false`),
-   - `RUN_FLAG_SUBSCRIPTIONS_DISABLED` (default: `false`) and
-   - `RUN_FLAG_TERRAFORM` (default: `true`)
+   ```text
+      environment
+      RUN_FLAG_SUBSCRIPTIONS_FAIL_GRACEFULLY = false
+      RUN_FLAG_SUBSCRIPTIONS_DISABLED = false
+      RUN_FLAG_TERRAFORM = true
+   ```
    
    You can also use Azure CLI to add the variables. Run the following command for each variable respectively, after logging in to the Azure subscription and installing the [Pipelines extension](/azure/devops/pipelines/create-first-pipeline-cli):
    
-   ```bash
+   ```azurecli
        az pipelines variable create \
            --organization https://dev.azure.com/myorganization \
            --project "gridwich-clone" --pipeline-id <pipeline ID> \
@@ -254,7 +261,7 @@ Developers can use this pipeline to create new environments with custom names in
    
 After the first run, an admin must run the bash scripts to set up authorization.
 
-For instructions on how to run this pipeline and set up a new environment, see
+For more details about how to run this pipeline and set up a new environment, see [Create or delete an environment](create-delete-cloud-environment.md).
 
 #### Add the tf_destroy_env.yml pipeline
 
@@ -274,15 +281,18 @@ Use this pipeline to delete an environment.
    
 1. Under **Pipelines**, select the pipeline and then select **Edit**. In the editor, add the following variables to the pipeline. For each variable, select **Let users override this value when running this pipeline**.
    
-   - `environment`
-   - `RUN_FLAG_SUBSCRIPTIONS_FAIL_GRACEFULLY` with default: `false`
-   - `RUN_FLAG_SUBSCRIPTIONS_DISABLED` with default: `false`
-   - `serviceConnectionName` with default: `gridwich-connection` or your service connection name
-   - `applicationName` with default: `cl1grw` or your app name
+   
+   ```text
+      environment
+      RUN_FLAG_SUBSCRIPTIONS_FAIL_GRACEFULLY = false
+      RUN_FLAG_SUBSCRIPTIONS_DISABLED = false
+      serviceConnectionName = gridwich-connection <or your service connection name>
+      applicationName = cl1grw <or your app name>
+   ```
    
    You can also use Azure CLI to add the variables. Run the following command for each variable respectively, after logging in to the Azure subscription and installing the [Pipelines extension](/azure/devops/pipelines/create-first-pipeline-cli):
    
-   ```azure-cli
+   ```azurecli
        az pipelines variable create \
            --organization https://dev.azure.com/myorganization \
            --project "gridwich-clone" --pipeline-id <pipeline ID> \
@@ -329,7 +339,7 @@ For non-development environments, the pipeline doesn't auto-populate most secret
 
 ### Set up Azure Active Directory
 
-A user with elevated privileges must execute pipeline-generated bash scripts whenever a new environment has been deployed. For more information, see 
+A user with elevated privileges must execute pipeline-generated bash scripts whenever a new environment has been deployed. For more information, see [Pipeline-generated admin scripts](admin-scripts.md).
 
 To grant users admin privileges:
 

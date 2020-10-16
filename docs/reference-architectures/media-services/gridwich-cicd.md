@@ -11,7 +11,7 @@ ms.custom:
 - fcp
 ---
 
-# Gridwich CI/CD
+# Gridwich CI/CD considerations
 
 Gridwich requires multiple resources within and outside of Azure to talk to one another securely. This requirement poses continuous integration and continuous delivery (CI/CD) challenges with Azure Active Directory (Azure AD) permissions, gates, resource creation order of operation, and long-running functions deployment. The following guiding principles address these challenges:
 
@@ -21,18 +21,16 @@ Gridwich requires multiple resources within and outside of Azure to talk to one 
 - Terraform doesn't release software.
 - Infrastructure creation and software release are distinct stages in the pipeline.
 - The CI/CD pipeline doesn't assign Azure AD permissions.
-- The pipeline considers *everything-as-code*.
+- The pipeline considers everything as code.
 - The pipeline uses reusable components focused on composability.
-
-## Considerations
 
 The following considerations relate to the preceding principles:
 
-### Single artifact, multiple environments
+## Single artifact, multiple environments
 
 The Gridwich pipeline scales to multiple environments, but there is only one artifact, which gets promoted from one environment to the next.
 
-### Software release vs infrastructure creation
+## Software release vs infrastructure creation
 
 In Gridwich, software release and infrastructure deployment are two separate responsibilities. A single pipeline handles both responsibilities at various stages, using the following general pattern:
 
@@ -49,7 +47,7 @@ To address this issue, there are two Terraform jobs in the CI/CD pipeline:
 
 Because Terraform currently lacks the ability to exclude a specific module, the Terraform Top job must explicitly target all the modules except the Event Grid subscriptions. This requirement is potentially error-prone, and a current [GitHub issue on Terraform](https://github.com/hashicorp/terraform/issues/2253) tracks this problem.
 
-### Post-deployment scripts
+## Post-deployment scripts
 
 Terraform and software releases can't complete certain Gridwich operations, including:
 
@@ -62,11 +60,11 @@ The CLI script [azcli-last-steps-template.yml](https://github.com/mspnp/gridwich
 Operations that require elevated privileges shouldn't be done with the CI/CD pipeline. The pipeline generates the set of admin scripts as a pipeline artifact, using output data from Terraform. An admin with elevated privileges runs these scripts the first time an environment is created.
 
 - [Admin script templates](https://github.com/mspnp/gridwich/infrastructure/terraform/bashscriptgenerator/templates)
-- [Detailed walkthrough of the admin scripts](admin-scripts.md)
+- [The admin scripts and how to run them](admin-scripts.md)
 
-### Everything-as-code and code reuse
+## Everything as code and code reuse
 
-One advantage of *everything-as-code* is that components can be reused.
+One advantage of everything as code is that components can be reused.
 
 - For Terraform, Gridwich relies heavily on [Terraform modules](https://www.terraform.io/docs/modules/composition.html) to enhance composability and reusability.
-- For Azure DevOps Pipelines YAML, Gridwich uses [Pipeline templates](/azure/devops/pipelines/process/templates).
+- For Azure Pipelines YAML, Gridwich uses [Pipeline templates](/azure/devops/pipelines/process/templates).

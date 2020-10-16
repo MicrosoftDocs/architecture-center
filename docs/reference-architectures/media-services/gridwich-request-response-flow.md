@@ -13,7 +13,7 @@ ms.custom:
 
 # Gridwich operations request and response flow
 
-This article describes the request and response process between an external system and Gridwich. In the example scenario, the external system is both a media asset management (MAM) and workflow orchestration system provided by a large media company.
+This article describes the request and response process between an external system and Gridwich. In the example scenario, the external system is both a media asset management (MAM) and saga workflow orchestration system provided by a large media company.
 
 The Gridwich request and response process covers request:
 

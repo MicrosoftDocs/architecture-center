@@ -13,7 +13,7 @@ ms.custom:
 
 # Clean monolith architecture
 
-The code in this project is organized as a clean-architecture monolith, with the following conceptual components:
+The code in this project is organized as a clean-architecture [monolith](/dotnet/architecture/containerized-lifecycle/design-develop-containerized-apps/monolithic-applications), with the following typical conceptual components:
 
 - API adapters
 - Decoupled application business logic
@@ -25,7 +25,7 @@ The code in this project is organized as a clean-architecture monolith, with the
 
 The solution is stateless, so it doesn't contain any gateways to persistence layers. The solution has no user interface, so it has no controllers or presenters.
 
-Software component composition is achieved by using the `ConfigureServices` class within the Function app. The `ConfigureServices` class defines which concrete classes are available in the IoC container for the app.
+Software component composition is achieved by using the `ConfigureServices` class within the Azure Functions App. The `ConfigureServices` class defines which concrete classes are available in the IoC container for the app.
 
 ## Architecture
 

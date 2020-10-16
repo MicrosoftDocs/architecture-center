@@ -21,9 +21,7 @@ This article describes how to set up a local Gridwich development environment in
 - [Azure CLI](/cli/azure/install-azure-cli)
 - [.NET Core 3.1](https://dotnet.microsoft.com/download/dotnet-core/3.1)
 - [PowerShell](/powershell/scripting/overview)
-- [Git](https://git-scm.com/downloads) installed, and the Gridwich repository cloned to your local machine.
-  
-  Note that problems have been reported when cloning into user directories when using Windows [Git Desktop](https://desktop.github.com/).
+- [Git](https://git-scm.com/downloads) installed, and your Azure DevOps Gridwich repository cloned to your local machine. If you're using Windows [Git Desktop](https://desktop.github.com/), avoid cloning into user directories.
   
 Optional:
 - [curl](https://curl.haxx.se/)
@@ -76,25 +74,25 @@ For an example *local.settings.json* file, see [sample.local.settings.json](http
 If you need an Azure PowerShell CLI environment, you can use [Azure Cloud Shell](https://shell.azure.com) and select PowerShell instead of Bash.
 
 1. To create the file, use the following PowerShell script and edit the results. In the script, use your Azure tenant and subscription values, and replace `mygridwichapp` with your application name.
-
-```powershell
-# Change the $targetEnv if you're not using the 'sb' environment
-$targetEnv = "sb"
-$targetTenant = "00000000-0000-0000-0000-000000000000"
-$targetSub = "00000000-0000-0000-0000-000000000000"
-$appname = "mygridwichapp"
-
-az account set --subscription $targetSub
-$appSettings = az webapp config appsettings list --subscription $targetSub --name $appname-grw-fxn-$targetEnv -g $appname-application-rg-$targetEnv | ConvertFrom-Json
-$settingsList = New-Object System.Collections.ArrayList($null)
-$settingsList.AddRange($appSettings)
-echo "{""IsEncrypted"": false,""Values"": {" > local.settings.$targetEnv.json
-$settingsList.ForEach({echo """$($_.name)"":""$($_.value)"","}) >> local.settings.$targetEnv.json
-echo """AzureWebJobsStorage"": ""UseDevelopmentStorage=true"",""FUNCTIONS_WORKER_RUNTIME"": ""dotnet"",""AZURE_TENANT_ID"": ""$targetTenant"",""AZURE_SUBSCRIPTION_ID"": ""$targetSub""}}" >> local.settings.$targetEnv.json
-type local.settings.$targetEnv.json
-```
    
-1. Edit the resulting file `local.settings.<targetEnv>.json` to remove the following lines:
+   ```azurepowershell
+   # Change the $targetEnv if you're not using the 'sb' environment
+   $targetEnv = "sb"
+   $targetTenant = "00000000-0000-0000-0000-000000000000"
+   $targetSub = "00000000-0000-0000-0000-000000000000"
+   $appname = "mygridwichapp"
+   
+   az account set --subscription $targetSub
+   $appSettings = az webapp config appsettings list --subscription $targetSub --name $appname-grw-fxn-$targetEnv -g $appname-application-rg-$targetEnv | ConvertFrom-Json
+   $settingsList = New-Object System.Collections.ArrayList($null)
+   $settingsList.AddRange($appSettings)
+   echo "{""IsEncrypted"": false,""Values"": {" > local.settings.$targetEnv.json
+   $settingsList.ForEach({echo """$($_.name)"":""$($_.value)"","}) >> local.settings.$targetEnv.json
+   echo """AzureWebJobsStorage"": ""UseDevelopmentStorage=true"",""FUNCTIONS_WORKER_RUNTIME"": ""dotnet"",""AZURE_TENANT_ID"": ""$targetTenant"",""AZURE_SUBSCRIPTION_ID"": ""$targetSub""}}" >> local.settings.$targetEnv.json
+   type local.settings.$targetEnv.json
+   ```
+   
+1. Edit the resulting *local.settings.sb.json* file to remove the following lines:
    
    - `AzureWebJobsDashboard`
    - The `AzureWebJobsStorage` pointing to a connection string
@@ -107,7 +105,7 @@ type local.settings.$targetEnv.json
 
 To view Azure Key Vault keys and secrets, run the following script:
 
-```powershell
+```azurepowershell
     $keyVaultName = 'gridwich-kv-sb'
     $targetUserPrincipalName = (az ad signed-in-user show | ConvertFrom-Json).userPrincipalName
     az keyvault set-policy --name $keyVaultName --secret-permissions list get --upn $targetUserPrincipalName
@@ -117,21 +115,21 @@ Or, you can use the following Azure CLI commands:
 
 1. Run the following command:
    
-   ```azure-cli
+   ```azurecli
    az ad signed-in-user show
    ```
    
-1. In the output, look for `userPrincipalName`, which may look like: `<your username_yourdomain>.com#EXT#@<an Azure Active Directory>.onmicrosoft.com`.
+1. In the output, find and copy `userPrincipalName`, which may look like: `<your username_yourdomain>.com#EXT#@<an Azure Active Directory>.onmicrosoft.com`.
    
-1. Run the following command:
+1. Run the following command, using the `userPrincipalName` value you copied:
    
-   ```azure-cli
+   ```azurecli
    az keyvault set-policy --name gridwich-kv-sb --secret-permissions list get --upn "<your username_yourdomain>.com#EXT#@<an Azure Active Directory>.onmicrosoft.com"
    ```
 
-To replace the secrets that point to `@Microsoft.KeyVault` with actual values, run:
+To replace the secrets in *local.settings.sb.json* that point to `@Microsoft.KeyVault` with actual values, run:
 
-```powershell
+```azurepowershell
 $keyVaultName="$appname-kv-$targetEnv"
 $targetUserPrincipalName = (az ad signed-in-user show | ConvertFrom-Json).userPrincipalName
 az keyvault set-policy --name $keyVaultName --secret-permissions list get --upn $targetUserPrincipalName
@@ -145,9 +143,9 @@ $AmsDrmFairPlayAskHex=$((az keyvault secret show --vault-name $keyVaultName --na
 echo $('"AmsAadClientId":"'+$AmsAadClientId+'",') $('"AmsAadClientSecret":"'+$AmsAadClientSecret+'",') $('"APPINSIGHTS_INSTRUMENTATIONKEY":"'+$APPINSIGHTS_INSTRUMENTATIONKEY+'",') $('"TELESTREAMCLOUD_API_KEY":"'+$TELESTREAMCLOUD_API_KEY+'",') $('"GRW_TOPIC_END_POINT":"'+$GRW_TOPIC_END_POINT+'",') $('"GRW_TOPIC_KEY":"'+$GRW_TOPIC_KEY+'",') $('"AmsDrmFairPlayAskHex":"'+$AmsDrmFairPlayAskHex+'",')
 ```
 
-### Replace the local.settings.json file
+### Replace the local file
 
-Rename *local.settings.<targetEnv>.json* to *local.settings.json* and copy it to [src\local.settings.json](https://github.com/mspnp/gridwich/src/Gridwich.Host.FunctionApp/src/local.settings.json). Or edit *local.settings.json* in place, using the content the preceding scripts echoed to the console.
+Rename *local.settings.sb.json* to *local.settings.json* and copy it to [src\local.settings.json](https://github.com/mspnp/gridwich/src/Gridwich.Host.FunctionApp/src/local.settings.json). Or edit *local.settings.json* in place, using the console output from the preceding scripts.
 
 ### Add dummy values for Azure FairPlay DRM
 

@@ -1,0 +1,118 @@
+# Walkthrough Instructions for a Secret Manager to maintain all secret types
+
+Gridwich uses two types of keys, storage keys and third-party keys.
+
+To give the Azure Functions App and the two Azure Logic Apps the correct permissions to perform Azure Storage Account and Azure Key Vault actions, run the pipeline-generated admin scripts. For instructions, see [Pipeline-generated admin scripts](admin-scripts.md).
+
+![Admin scripts.](media/admin-scripts.png)
+
+## Key Roller Logic App for storage keys
+
+To stay in compliance with security policy, rotate the keys for Storage Accounts on some cadence. Storage keys aren't configured in the Azure Functions App settings, but the Functions App runs under a service principal that has access to the Storage Accounts.
+
+External system security operations personnel submit a request to rotate storage keys. The request is published to Event Grid as a Key Roll Request. The Key Roller Logic App subscribes to that Event Grid topic and responds to the request by rolling the key in the requested Storage Account.
+
+The request from the external system looks like this:
+
+```json
+{
+    "id": "GUID-string",
+    "topic": "Topic-string",
+    "subject": "Subject-string",
+    "dataVersion": "DataVersion-string",
+    "data": {
+        "operationContext": <OperationContextObject>,
+        "account": "storageAccountName",
+        "keyName": "key1"
+    },
+    "eventType": "request.rollkey.storage"
+}
+```
+
+`keyName` corresponds to the name of the key as Azure Storage defines in its [Get Keys operation](/rest/api/storagerp/srp_json_get_storage_account_keys).
+
+On success, the Logic App sends the following message back through Event Grid:
+
+```json
+{
+    "id": "GUID-string",
+    "topic": "Topic-string",
+    "subject": "Subject-string",
+    "dataVersion": "DataVersion-string",
+    "data": {
+      "account": "storageAccountName",
+      "keyName": "key1"
+    },
+    "eventType": "response.rollkey.storage.success"
+}
+```
+
+Because the Functions App isn't configured with storage keys, rolling these keys doesn't require a Functions App restart.
+
+While the request message accepts an `OperationContext` value, the response doesn't include it. See [Roll key message format](gridwich-message-formats.md#rollkey) for more information.
+
+## SecretChangedHandler Logic App for third-party keys
+
+The `SecretChangedHandler` Logic App doesn't use Event Grid. The events are handled purely by configuring the workloads. Terraform sets up all the Functions App and Key Vault configuration.
+
+The Gridwich function app has many keys that are backed by Key Vault. You can see the keys in the function app configuration:
+
+![AppSettings](media/app-settings-keys.png)
+
+The Azure Key Vault itself is configured to send events to a Logic App web hook:
+
+![KeyVault](media/key-vault-logic-app.png)
+
+### SecretChangedHandler flow
+
+1. Security personnel update a key in Key Vault.
+1. Key Vault sends off a key changed event.
+1. The Logic App picks up the key changed event.
+1. The Logic App checks to see if the key is in its `keysToWatch`.
+   
+   ![LogicApp](media/logic-app-keys.png)
+   
+1. If the changed key is in `keysToWatch`, the Logic App triggers a soft restart of the function app.
+   
+   ![LogicApp](media/soft-restart-app.png)
+
+### Add a key
+
+To add or change a key:
+
+1. Add the key to `src/Gridwich.Host.FunctionApp/sample.local.settings.json`.
+1. Add the key to `infrastructure/terraform/shared`:
+   
+   ```terraform
+   #############################
+   # Secrets
+   #############################
+   
+   resource "azurerm_key_vault_secret" "grw_key_secret" {
+     name         = "grw-topic-key"
+     value        = azurerm_eventgrid_topic.grw_topic.primary_access_key
+     key_vault_id = azurerm_key_vault.shared_key_vault.id
+   }
+   
+   # These are the values watched by the Secret Changed Handler; keep these up to date with what is put in Key Vault above
+   # and elsewhere, so if one of the values for these secrets changes, the Function App using them will be updated to
+   # utilize the new value
+   output "secrets_in_shared_keyvault" {
+     value = ["telestream-cloud-api-key", "grw-topic-end-point", "grw-topic-key", "ams-sp-client-id", "ams-sp-client-secret", "appinsights-instrumentationkey", "ams-fairplay-pfx-password", "ams-fairplay-ask-hex", "ams-fairPlay-certificate-b64"]
+   }
+   ##################################################################################
+   # Functions KeyVault References Terraform file
+   ##################################################################################
+   
+   locals {
+     functions_appsetting_keyvault_refs = [
+       {
+         name        = "GRW_TOPIC_KEY"
+         value       = format("@Microsoft.KeyVault(SecretUri=%ssecrets/%s/)", azurerm_key_vault.shared_key_vault.vault_uri, azurerm_key_vault_secret.grw_topic_key_secret.name)
+         slotSetting = false
+       },
+   ```
+   
+1. Add the secret to the environment library at **Pipelines** > **Library** > **Variable groups**> **gridwich-cicd-variables.<environment>**.
+
+![Library](media/environment-library.png)

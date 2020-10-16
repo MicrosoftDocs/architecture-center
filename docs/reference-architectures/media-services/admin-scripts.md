@@ -13,7 +13,7 @@ ms.custom:
 
 # Pipeline-generated admin scripts
 
-The Gridwich continuous integration and continuous delivery (CI/CD) pipelines use Terraform to generate and publish admin scripts. A user with elevated permissions must run the scripts manually to create and configure Azure resources. For more information about granting admin and user permissions, see [Set up Azure Active Directory](set-up-azure-devops.md#set-up-azure-active-directory).
+The Gridwich continuous integration and continuous delivery (CI/CD) pipelines use Terraform to generate and publish admin scripts. A user with elevated permissions must run the scripts manually to create and configure Azure resources. For more information about granting admin permissions, see [Set up Azure Active Directory](set-up-azure-devops.md#set-up-azure-active-directory).
 
 The pipelines convert environment variables to Terraform variables to find and replace the variable names in the bash scripts. The bash script source before variables replacement is in the [bashscriptgenerator/templates](https://github.com/mspnp/gridwich/infrastructure/terraform/bashscriptgenerator/templates) directory.
 
@@ -21,9 +21,9 @@ This article describes the admin scripts and how to run them.
 
 Connect to Azure and set the default subscription before running the scripts.
 
-```bash
+```azurecli
 az login
-az account set --subscription "idofyourazuresubscription"
+az account set --subscription "00000000-0000-0000-0000-000000000000"
 ```
 
 You can run the scripts in any order.
@@ -33,7 +33,7 @@ You can run the scripts in any order.
 The `ams_sp.sh` script grants the Azure Function Application access to Azure Media Services resources, and creates the Media Services service principal.
 
 The script:
-1. Loops and grants the Function App *Contributor* access to Media Services resources.
+1. Loops and grants the Function App **Contributor** access to Media Services resources.
 1. Creates a Media Services service principal.
 1. Temporarily grants the service principal access to the shared Azure Key Vault.
 1. Stores the service principal ClientId/AppId and secret in the key vault secrets.
@@ -49,7 +49,7 @@ The Terraform variables are:
 
 To run the script:
 
-1. Download the `ams_sp.sh` file that the pipeline published as an artifact in the `bash_scripts_*` folder.
+1. Download the *ams_sp.sh* file that the pipeline published as an artifact in the *bash_scripts_\** folder.
 1. Run the following command:
    
    ```bash
@@ -58,9 +58,9 @@ To run the script:
 
 ## The egv_app_registration.sh script
 
-The *egv_app_registration.sh* bash script uses the *egv_app_registration_manifest.json* file to secure the Azure Event Grid Viewer web app for each environment. The script creates and configures an [Azure App Registration](/azure/active-directory/develop/quickstart-register-app) for [Azure Active Directory (Azure AD)](/azure/active-directory/fundamentals/active-directory-whatis). The script then configures the Event Grid Viewer web app to use the App Registration to secure the viewer, making it available only to those that have proper Azure AD credentials.
+The `egv_app_registration.sh` bash script uses the *egv_app_registration_manifest.json* file to secure the Azure Event Grid Viewer web app for each environment. The script creates and configures an [Azure App Registration](/azure/active-directory/develop/quickstart-register-app) for [Azure Active Directory (Azure AD)](/azure/active-directory/fundamentals/active-directory-whatis). The script then configures the Event Grid Viewer web app to use the App Registration to secure the viewer, making it available only to those that have proper Azure AD credentials.
 
-The *egv_app_registration_manifest.json* must be in the same directory for the script to run correctly. Using an external manifest file to configure an Azure App Registration is a Microsoft [best practice](https://github.com/Azure/azure-cli/issues/6023#issuecomment-400011467). The GUIDs used in the manifest file are called [well-known-appids](https://github.com/mjisaak/azure-active-directory/blob/master/README.md#well-known-appids), so are not a security risk when hard-coded in the manifest file.
+The *egv_app_registration_manifest.json* file must be in the same directory for the script to run correctly. Using an external manifest file to configure an Azure App Registration is a Microsoft [best practice](https://github.com/Azure/azure-cli/issues/6023#issuecomment-400011467). The GUIDs used in the manifest file are called [well-known-appids](https://github.com/mjisaak/azure-active-directory/blob/master/README.md#well-known-appids), so aren't a security risk when hard-coded in the manifest file.
 
 The Terraform variables are:
 
@@ -72,7 +72,7 @@ The Terraform variables are:
 
 To run the script:
 
-1. Download the published `egv_app_registration.sh` and `egv_app_registration_manifest.json` files into the same directory.
+1. Download the published *egv_app_registration.sh* and *egv_app_registration_manifest.json* files into the same directory.
 1. Run the following command:
    
    ```bash
@@ -81,7 +81,7 @@ To run the script:
 
 ## The fxn_to_storage_sp.sh script
 
-The *fxn_to_storage_sp.sh* bash script grants the Function Application access to various Azure Storage Accounts and their resource groups.
+The `fxn_to_storage_sp.sh` bash script grants the Function Application access to various Azure Storage Accounts and their resource groups.
 
 The script:
 1. Loops and grants the Function Application **Storage Blob Data Contributor** access to the Azure Storage Accounts.
@@ -95,7 +95,7 @@ The Terraform variables are:
 
 To run the script:
 
-1. Download the published `fxn_to_storage_sp.sh` file.
+1. Download the published *fxn_to_storage_sp.sh* file.
 1. Run the following command:
    
    ```bash
@@ -104,7 +104,7 @@ To run the script:
 
 ## The logic_app_sp.sh script
 
-The *logic_app_sp.sh* bash script grants the Azure Logic Application access to the Function Application, the Storage Accounts, and the Storage Account resource groups.
+The `logic_app_sp.sh` bash script grants the Azure Logic Application access to the Function Application, the Storage Accounts, and the Storage Account resource groups.
 
 The script:
 1. Grants the Logic Application **Website Contributor** access to the Function Application.
@@ -120,8 +120,8 @@ The Terraform variables are:
 
 To run the script:
 
-1. Download the published logic_app_sp.sh
-1. Execute the following command:
+1. Download the published *logic_app_sp.sh* file.
+1. Run the following command:
    
    ```bash
    chmod +x logic_app_sp.sh && ./logic_app_sp.sh

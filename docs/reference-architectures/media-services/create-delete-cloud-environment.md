@@ -45,11 +45,11 @@ The following procedures use placeholder project name `gridwich-clone`, app name
 
 The pipeline steps deploy the application into Azure, but they don't set up any of the identity principals or their access rights to Azure resources. An admin must follow the instructions in [Pipeline-generated admin scripts](admin-scripts.md) to complete the setup.
 
-To verify that your environment is up, in the Azure portal, confirm that resource groups with your environment name exist.
+To verify that your environment is up and running, in the Azure portal, confirm that resource groups exist with your environment name.
 
-You should now be able to reach the Event Grid Viewer endpoint and see the web app. Use the endpoint without the `api/eventgrid` URI segment in a web browser to open a URL like the following in a web browser: `https://cl1grw-grw-wa-viewer-f233.azurewebsites.net`.
+You should now be able to reach the Event Grid Viewer endpoint and see the web app. Use the endpoint without the `api/eventgrid` URI segment in a web browser to open a URL like: `https://cl1grw-grw-wa-viewer-f233.azurewebsites.net`.
 
-Follow the [walk through Testing AMS V3 Encoding](test-encoding.md) to fully test your environment.
+Follow [Test Azure Media Services V3 encoding](test-encoding.md) to fully test your environment.
 
 ## Delete an environment
 
