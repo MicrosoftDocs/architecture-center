@@ -1,10 +1,25 @@
-# Walkthrough Instructions for a Secret Manager to maintain all secret types
+---
+title: Gridwich keys and secrets management
+titleSuffix: Azure Reference Architectures
+description: Learn about the two types of keys Gridwich uses, storage keys and third-party keys, and the Logic Apps that add, change, or rotate the keys.
+author: doodlemania2
+ms.date: 10/08/2020
+ms.topic: reference-architecture
+ms.service: architecture-center
+ms.subservice: reference-architecture
+ms.custom:
+- fcp
+---
+
+# Gridwich storage keys and third-party keys
 
 Gridwich uses two types of keys, storage keys and third-party keys.
 
-To give the Azure Functions App and the two Azure Logic Apps the correct permissions to perform Azure Storage Account and Azure Key Vault actions, run the pipeline-generated admin scripts. For instructions, see [Pipeline-generated admin scripts](admin-scripts.md).
+## Run admin scripts
 
-![Admin scripts.](media/admin-scripts.png)
+To give the Azure Functions App and the two Azure Logic Apps permissions to take Azure Storage Account and Azure Key Vault actions, run the pipeline-generated admin scripts. For instructions, see [Pipeline-generated admin scripts](admin-scripts.md).
+
+![Screenshot showing the pipeline-generated admin scripts.](media/admin-scripts.png)
 
 ## Key Roller Logic App for storage keys
 
@@ -57,11 +72,11 @@ The `SecretChangedHandler` Logic App doesn't use Event Grid. The events are hand
 
 The Gridwich function app has many keys that are backed by Key Vault. You can see the keys in the function app configuration:
 
-![AppSettings](media/app-settings-keys.png)
+![Screenshot showing the keys in App Settings.](media/app-settings-keys.png)
 
 The Azure Key Vault itself is configured to send events to a Logic App web hook:
 
-![KeyVault](media/key-vault-logic-app.png)
+![Screenshot showing Key Vault configuration with the Logic App.](media/key-vault-logic-app.png)
 
 ### SecretChangedHandler flow
 
@@ -70,11 +85,11 @@ The Azure Key Vault itself is configured to send events to a Logic App web hook:
 1. The Logic App picks up the key changed event.
 1. The Logic App checks to see if the key is in its `keysToWatch`.
    
-   ![LogicApp](media/logic-app-keys.png)
+   ![Screenshot showing the Logic App keys.](media/logic-app-keys.png)
    
 1. If the changed key is in `keysToWatch`, the Logic App triggers a soft restart of the function app.
    
-   ![LogicApp](media/soft-restart-app.png)
+   ![Screenshot showing the Trigger soft restart message.](media/soft-restart-app.png)
 
 ### Add a key
 

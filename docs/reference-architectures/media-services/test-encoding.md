@@ -27,7 +27,7 @@ You can test a deployed application in Azure or locally. In both cases, you moni
    
    In a storage account attached to Media Services, for example `cl1grwinbox00sa{your-environment-name}`, create a container, for example `input01`, and upload a video file in it, for example `BBB_trailer_20200225.mp4`.
    
-   ![Uploaded File](media/uploaded-file.png)
+   ![Screenshot showing an uploaded file.](media/uploaded-file.png)
    
 1. Send a message to the deployed Function App.
    
@@ -60,11 +60,11 @@ You can test a deployed application in Azure or locally. In both cases, you moni
    ]
    ```
    
-   ![Testing in the portal.](media/portal-testing.png)
+   ![Screenshot showing testing in the portal.](media/portal-testing.png)
    
    You should see a `response.encode.mediaservicesv3.success` event.
    
-   ![Success event.](media/success-viewer.png)
+   ![Screenshot showing a Success event.](media/success-viewer.png)
    
 ## Test locally
 
@@ -166,12 +166,12 @@ To set up your local environment, see [Gridwich local development environment](s
    
    In the Azure Event Grid Viewer, you should see the job messages.
    
-   ![Viewer](media/viewer.png)
+   ![Screenshot showing the Event Grid Viewer job messages.](media/viewer.png)
    
    You can also go the Media Services account to see the job running or completed.
    
-   ![Media Services job](ams-job.png)
+   ![Screenshot showing the Azure Media Services job.](media/media-services-job.png)
    
    Check that the encoded files are in the output container.
    
-   ![Output Container](media/output-container.png)
+   ![Screenshot showing the Event Grid Viewer Output Container.](media/output-container.png)
