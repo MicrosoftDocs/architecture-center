@@ -657,6 +657,8 @@ items:
         href: solution-ideas/articles/iot-azure-data-explorer.md
       - name: Interactive price analytics
         href: solution-ideas/articles/interactive-price-analytics.md
+      - name: Kafka on Azure
+        href: solution-ideas/articles/kafka-on-azure.md
       - name: Mass ingestion of news feeds on Azure
         href: example-scenario/ai/newsfeed-ingestion.md
       - name: Oil and Gas tank level forecasting

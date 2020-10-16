@@ -16,20 +16,22 @@ ms.custom:
 storing, and processing streams of events in a distributed and highly scalable manner. Kafka can be deployed on hardware, virtual machines, containers,
 and on-premises as well as in the cloud.
 
-This article takes a look at the options for implementing Apache Kafka on Azure.
+This article presents options for implementing Apache Kafka on Azure, evaluates their pros and cons, provides a feature comparison, and offers a decision guidance matrix to help you select between them.
 
 ## Use cases
 
-This article considers two basic use cases when evaluating solutions for Apache Kafka on Azure:
+While evaluating solutions for implementing Kafka on Azure, let's consider these two basic use cases:
 
-- You are already using Apache Kafka and want to know ways to either deploy it on Azure Cloud or emulate the experience in Azure with minimal changes to your current setup.
-- You are interested in implementing solutions with Apache Kafka for Greenfield projects and want to use Azure.
+1. You are already using Apache Kafka and want to know ways to either deploy it on Azure Cloud or emulate the experience in Azure with minimal changes to your current setup.
+2. You are interested in implementing solutions with Apache Kafka for Greenfield projects and want to use Azure.
 
 ## Architecture
 
 The following diagram shows what a typical Lambda architecture would look like with different Kafka on Azure options for the ingestion phase and an exhaustive list of services from the Azure ecosystem supporting them.
 
 ![Typical Lambda Architecture with Kafka on Azure options.](../media/kafka-on-azure-architecture-diagram.png)
+
+## Options for using Kafka on Azure
 
 To help you evaluate the options for Kafka on Azure, we've placed them on a continuum between Infrastructure-as-a-service (IaaS) and Platform-as-a-service (PaaS).
 
@@ -39,15 +41,11 @@ The following diagram summarizes Kafka on Azure options using the IaaS-PaaS cont
 
 ![Diagram showing the steps in a PaaS first approach with Kafka on Azure.](../media/kafka-on-azure-paas-first-approach.png)
 
-## Options for using Kafka on Azure
-
 In the following sections, we'll look at the options for Kafka on Azure one by one, presenting pros and cons for each.
 
 ### Confluent Cloud - PaaS
 
-In addition to the options in the preceding diagram, Confluent provides a fully managed Apache Kafka on Azure. The [Confluent Cloud](https://www.confluent.io/confluent-cloud/) implementation of Kafka, abstracts the user from all the deployment, implementation, and management details while providing pure service.
-
-For more detailed information, see [Supported features for Confluent Cloud](https://docs.confluent.io/current/cloud/features.html).
+Confluent provides a fully managed Apache Kafka on Azure. The [Confluent Cloud](https://www.confluent.io/confluent-cloud/) implementation of Kafka, abstracts the user from all the deployment, implementation, and management details while providing pure service. For more detailed information, see [Supported features for Confluent Cloud](https://docs.confluent.io/current/cloud/features.html).
 
 Here are some of the advantages and limitations of using the Confluent Cloud solution:
 
@@ -141,7 +139,7 @@ Pros
 
 Cons
 
-- Deployment available on Azure Marketplace is designed only for Development and Proof of concept (POC) environments. Production deployment must be processed via email exchanges with [azureteam@confluent.io](mailto:azureteam@confluent.io).
+- The deployment available on Azure Marketplace is designed only for Development and Proof of concept (POC) environments. Production deployment must be processed via email exchanges with [azureteam@confluent.io](mailto:azureteam@confluent.io).
 - Kafka version support and compatibility will always lag behind the published version.
 - Deployment inside VNET requires peering to work with clients requiring advanced network configurations.
 - Bring Your Own License agreement. Free trial for 30 days only.
@@ -185,11 +183,15 @@ Cons
 
 ## Considerations
 
-The following table of feature comparisons and the decision guidance matrix, compares, and contrasts the options for using Kafka on Azure and presents the considerations for each as well.
+The following table of feature comparisons and the decision guidance matrix, compares and contrasts the options for using Kafka on Azure while presenting the considerations for each.
+
+### Summary of customer feedback
+
+For a summary of feedback from multiple customers, see the [Tech Score Card for comparison of top feedback items from customers.](https://microsoft-my.sharepoint.com/:p:/p/rasavant/EW2JTX7_YyxFm_77jzwxz94BKrSpQvvoYP3rQk8RPIItoA?e=p14WhI)
 
 ### Feature comparisons
 
-[Link to Tech Score Card for comparison of top feedback items from customers](https://microsoft-my.sharepoint.com/:p:/p/rasavant/EW2JTX7_YyxFm_77jzwxz94BKrSpQvvoYP3rQk8RPIItoA?e=p14WhI)
+The following table shows a comparison of features for each of the Kafka on Azure solutions discussed in this article:
 
 | Features | Confluent Cloud | Event Hubs + Kafka Head | HDInsight Kafka | Confluent Enterprise on Marketplace | Kafka on AKS | Azure VMs |
 |:--------:|:---------------:|:-----------------------:|:---------------:|:-----------------------------------:|:------------:|:---------:|
@@ -197,7 +199,7 @@ The following table of feature comparisons and the decision guidance matrix, com
 | **Model** | PaaS (external vendor) | PaaS | Managed IaaS | IaaS |IaaS |IaaS |
 | **Third-Party Licensing** | Purchase from Confluent	| Not needed | Not mandatory | BYOL | Not mandatory | Not mandatory |  
 | **Supported Compute Environment** | PaaS – underlying Azure Cloud | PaaS – underlying Service Fabric | Managed disks and VMs | VMs | Containers | VMs |  
-| **Feature Set** | Work in progress | Work in progress with Kafka | Complete for available versions and extendible | Complete for available versions + Schema Registry, Connectors, KSQL | Complete and extendible	| Complete and extendible |  
+| **Feature Set** | Work in progress | Work in progress with Kafka | Complete for available versions and extendable | Complete for available versions + Schema Registry, Connectors, KSQL | Complete and extendable	| Complete and extendable |  
 | **Data Retention** | 5 TB | Max 90 days, 10 TB included per CU | Customizable | Customizable | Customizable | Customizable | 
 | **Schema Registry** | Yes | Public Preview | Yes | Yes | Yes | Yes | 
 | **Kafka Connectors API** | Yes | Preview | Yes | Yes | Yes | Yes | 
@@ -212,7 +214,7 @@ The following table of feature comparisons and the decision guidance matrix, com
 | **Kafka Version Support** | Yes | 1.0+ | 2.1, 1.1, 1.0, 0.10.1, 0.9.0 | 2.2.0, 2.0.1 | Yes | Yes |
 | **Java Client** | Yes | Yes | Yes | Yes | Yes | Yes |
 | **.NET/Python/C++ Client** | Yes | Yes | Yes | Yes | Yes | Yes |
-| **Declarative Stream Processing** | Yes | Can be added using other Azure service | Yes | Yes | Yes | Yes |
+| **Declarative Stream Processing** | Yes | Can be added using another Azure service | Yes | Yes | Yes | Yes |
 | **Log Compaction** | Yes | EoY 2020 | Yes | Yes | Yes | Yes |
 | **REST Proxy** | Yes | Yes | Yes | Yes | Yes | Yes |
 | **Geo-Replication** | Not available | Integrated | Integrated | Must be configured | Must be configured | Must be configured |
@@ -229,7 +231,7 @@ The following table of feature comparisons and the decision guidance matrix, com
 
 ### Kafka on Azure decision guidance matrix
 
-The decision matrix uses the following key:
+The decision guidance matrix uses the following key:
 
 | Symbol                                                 | Feature Support      |
 |--------------------------------------------------------|--------------------|
@@ -237,6 +239,7 @@ The decision matrix uses the following key:
 |:::image type="icon" source="../media/half-star.png"::: | Support with limitations or via extensions or via custom code
 |:::image type="icon" source="../media/full-star.png"::: | Full native support
 |:::image type="icon" source="../media/green-background.png":::| Common decision factor
+
 
 | Feature | Confluent Cloud | Event Hubs + Kafka Head | HDInsight Kafka | Confluent Enterprise on Marketplace | Kafka on AKS | Azure VMs |
 |------------------------------------|:--------------------:|:--------------------:|:--------------------:|:--------------------:|:--------------------:|:--------------------:|
@@ -264,10 +267,8 @@ The decision matrix uses the following key:
 
 ## Next steps
 
-* []()
+- []()
 
 ## Related resources
 
-* []()
-* []()
-* []()
+- [Partitioning in Event Hubs and Kafka](../../reference-architectures/event-hubs/partitioning-in-event-hubs-and-kafka.md)
