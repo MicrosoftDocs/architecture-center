@@ -94,7 +94,7 @@ Numbers in the following sections are approximate. The numbers are based on a va
 
 Also, note that:
 
-- You can't create more than 50 application groups per single Azure AD tenant.
+- You can't create more than 200 application groups per single Azure AD tenant.
 - We recommend that you don't publish more than 50 applications per application group. 
 
 ### Azure limitations
