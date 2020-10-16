@@ -1,9 +1,9 @@
 ---
-title: Title
+title: SQL Server 2008 R2 failover cluster in Azure
 titleSuffix: Azure Example Scenarios
-description: Description
+description: Learn how to rehost SQL Server 2008 R2 failover clusters on Azure virtual machines. See how to use an Azure shared disk to manage shared storage.
 author: GitHubAlias
-ms.date: 09/01/2020
+ms.date: 10/16/2020
 ms.topic: example-scenario
 ms.service: architecture-center
 ms.subservice: example-scenario
@@ -11,225 +11,357 @@ ms.custom:
 - fcp
 ---
 
-# SQL Server 2008 R2 Failover Cluster Instance on Windows Server 2008 R2 in Azure
+# SQL Server 2008 R2 failover cluster in Azure
 
-For different users, in their on-premises environments, SQL Server 2008 R2 Failover Cluster is still one of most adopted database cluster implementation. So far, if these users want to replicate their on-premises deployment in Azure, they had to adopt software solutions to manage shared storage.
+Some businesses rely on SQL Server 2008 R2 failover clusters to manage their data. However, support for this product and for Windows Server 2008 R2 has ended. Regular security updates are no longer available.
 
-Recently Microsoft has definitely overcome this requirement introducing the [Azure shared disks](https://docs.microsoft.com/azure/virtual-machines/windows/disks-shared) feature.
+Many of these customers would like to migrate to Azure but cannot change their infrastructure. The [Azure shared disks][Azure shared disks] feature makes migration possible in this situation. With this feature and a Windows Server 2008 R2 failover cluster, users can replicate their on-premises deployment in Azure. There's no need for third-party software to manage shared storage.
 
-Plus [extending the support for SQL Server 2008 R2 and Windows Server 2008 R2](https://azure.microsoft.com/blog/announcing-new-options-for-sql-server-2008-and-windows-server-2008-end-of-support), Microsoft want to support all users that cannot change their infrastructure, but who want to migrate in Azure.
+With this solution, users can:
 
-The combinations of these two features enable scenarios of workloads rehosting in Azure with no application code changes.
+- Keep their current infrastructure.
+- Rehost workloads in Azure with no application code changes.
+- Get [free extended security updates for 2008 R2 versions of SQL Server and Windows Server][Microsoft blog post on free security updates].
 
-In this architecture is described a configuration to move SQL Server 2008 R2 Failover Cluster on Azure to extend the supportability for the old platforms. A Windows Server 2008 R2 failover cluster based on the Azure Shared Disks is used.
+## Potential use cases
 
-![Cluster Architecture](./Architecture.png)
+This architecture benefits organizations that rely on SQL Server 2008 R2 failover clusters to provide fault-tolerant data management. Examples include businesses in these areas:
 
-## Prerequisites
+- Reservations
+- E-commerce
+- Logistics
 
-* A two nodes instance SQL Server 2008 R2 Failover Cluster on-premises available for migration
-  * The cluster nodes are joined to on-premises domain
-* An Azure VNet connected with on-premises network
-  * Communication with an Active Directory Domain Controller (AD DC), either on premises or an Azure VNet, must be allowed
-  * A subnet on-which host cluster must be available
-* A server, joined to domain, that can host a SMB file share that is used for cluster quorum configuration 
+## Architecture
 
-## Building a Windows Server 2008 R2 Failover Cluster on Azure
+:::image type="complex" source="./Architecture.png" alt-text="Architecture diagram showing a Windows Server 2008 R2 failover cluster that uses an Azure shared disk to manage shared storage." border="false":::
+A dotted line surrounds most components, including a load balancer, two clusters, and a file share witness. The line indicates that these components are part of a virtual network. Inside that network, a horizontal, blue rectangle represents an availability set. It contains two clusters, each with a virtual machine and a disk. Lines run between each cluster and an S M B file share witness. A black, vertical rectangle contains the file share witness and runs through the availability set. On the top border of that rectangle is the internal load balancer. A line extends from the load balancer to the outside of the virtual network rectangle. Outside the virtual network rectangle on the bottom is an Azure shared disk. A line connects that disk to the components in the network.
+:::image-end:::
 
-### Deploy Virtual Machines on Azure
+## Components
 
-The first element of target architecture that must be prepared is the Windows Server 200 R2 Failover Cluster. For this two Windows Server 2008 R2 virtual machine instances are required. This specific operating system version is no longer available through [Azure Marketplace](https://azuremarketplace.microsoft.com/en-us). It can be obtained through a PowerShell script or [uploading a generalized VHD](https://docs.microsoft.com/azure/virtual-machines/windows/upload-generalized-managed).
+- As part of a virtual network, an [internal load balancer][Azure Load Balancer] redirects clients by associating a routable, private IP address with the cluster.
 
-To guarantee redundancy and availability of two Virtual Machines an [Availability Set](https://docs.microsoft.com/azure/virtual-machines/windows/manage-availability#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy) is configured.
+- Two [Azure virtual machines (VMs)][Azure virtual machines] run SQL Server 2008 R2 on Windows Server 2008 R2.
 
->[!NOTE]
->In [Azure Marketplace](https://azuremarketplace.microsoft.com/en-us) is still available "SQL Server 2008 R2 SP3 on Windows Server 2008 R2". Please don't use this instance, because in this image SQL Server is pre-configured as standalone SQL Server instance and target architecture require a cluster configuration.
+- An [availability set][Configure multiple virtual machines in an availability set for redundancy] guarantees the redundancy and availability of the VMs.
 
->[!NOTE]
->Virtual Machines are deployed with [Azure Hybrid Benefit](#Licensing) already activated.
+- A [server message block][Server Message Block overview] (SMB) [file share witness][Deploy a file share witness] provides an additional quorum vote to keep the cluster running after site outages.
 
-The code is available in [Reference Code](/clusterwin2008sql.md#Reference-Code).
+- An [Azure shared disk][Azure shared disks] makes it possible to attach a [managed disk][Introduction to Azure managed disks] to both VMs simultaneously.
 
-### Configure Virtual Machines
+## Alternatives
 
-In order to prepare the two Windows Server 2008 R2 virtual machines to host SQL Cluster 2008 R2 Failover Cluster some specific configurations must be applied.
+A few alternatives to this architecture exist:
 
->[!NOTE]
->The above script deploys VMs that only have private IPs, consistently with classic on-premises database cluster configuration, that usually it is not directly exposed on Internet. To manage the cluster nodes deployed into the Azure VNet from the on-premises network, you must either have a route path established from on-premises that allows the relevant protocols, or you can use Azure native methods like [Azure Bastion](https://docs.microsoft.com/azure/bastion/bastion-connect-vm-rdp).
+- [Upgrade to a newer version of SQL Server][Upgrade SQL Server].
 
-In each virtual machine execute below steps:
+- Migrate your workload to an [Azure SQL Database service][What is Azure SQL?].
 
-* Join virtual machine to domain
+- Purchase [Extended Security Updates][Extended Security Updates frequently asked questions] to use with your current implementation.
 
->[!IMPORTANT]
->Before execute this operation, be sure that the correct [name resolution for resource in Azure virtual networks](https://docs.microsoft.com/azure/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances#name-resolution-that-uses-your-own-dns-server) is in place.
+- Move SQL Server 2008 R2 deployments to Azure VMs, and use third-party software to manage shared storage.
 
-* Add a domain administrator to the machine
-* Install the rollup update [KB3125574](https://support.microsoft.com/help/3125574/convenience-rollup-update-for-windows-7-sp1-and-windows-server-2008-r2). This update extends the failover cluster to support the custom probe used by Azure Internal Load balancer.
+## Considerations
 
-### Deploy Azure Shared Disk
+Keep the following points in mind when implementing this architecture:
 
-Currently the functionally to deploy an Azure Shared Disk is not available in Azure portal, but deployment with [ARM template](https://docs.microsoft.com/azure/azure-resource-manager/templates/overview) is available.
+### Security considerations
 
-When the creation of Azure Shared Disk is complete connect it to both Virtual Machines. This operation can be done in Azure portal using the function "Attach existing disks" di Disks blade of each Virtual Machine.
+This solution provides [extended security updates for 2008 R2 versions of SQL Server and Windows Server][Microsoft blog post on free security updates] for three years. Without extended support beyond that point, security breaches or data loss may result.
 
->[!NOTE]
->Currently ReadOnly host caching is not available for premium SSDs Azure shared disks.
+### Scalability considerations
 
-Login in one virtual machine and execute below operations:
+Windows Server 2008 R2 limits the number of *nodes*, or servers in the failover cluster, to 16.
 
-* Initialize Azure shared disks using MBR partition style
-* Create a New Simple Volume
-* Format Disk
+### Other considerations
 
->[!NOTE]
-> This operation can take several minutes and Virtual Machine could be restarted
+The [Azure shared disk feature only works with ultra disks and premium SSDs][Azure shared disk limits disk types]. Among those disk types, [only certain disk sizes support sharing][Azure shared disk limits disk size].
 
-* To make disk visible on the second virtual machine, reboot it
-* Check that disk is visible on both virtual machines
+## Deploy the solution
 
->[!IMPORTANT]
-> The visibility on both virtual machine is only temporary because subsequently the disk will be managed by cluster.
+Follow these steps to implement this architecture.
 
-The ARM template is available in [Reference Code](/clusterwin2008sql.md#Reference-Code).
+### Prerequisites
 
-### Configure Cluster
+* A two-node SQL Server 2008 R2 failover cluster on-premises, available for migration. The cluster nodes must be connected to an on-premises domain.
+* An [Azure virtual network][What is Azure Virtual Network?] that is connected to an on-premises network.
+  * An [Active Directory domain controller][Domain Controller Roles] that can communicate with the virtual network. This server can either be on-premises or in a separate virtual network.
+  * A subnet on which the host cluster is available.
+* A server that can host an SMB file share witness for [cluster quorum][Failover cluster quorum]. This server must be connected to the on-premises domain.
 
-The configuration of Windows Server 2008 R2 cluster is done following the standard procedures. This chapter describes the macro operations that must be executed.
-There are two deployment option: through the command line or through the Management Console. Due to Windows 2008 R2 Cluster Limitations, the configuration through the GUI 
-will generate some errors related to cluster IP configuration and it will require some recovery activities. The configuration using the command line is easier and it will not generate any errors.
-For both detailed procedures referee to official Microsoft documentation.
+### Build a Windows Server 2008 R2 failover cluster on Azure
 
-### Command Line Configuration   
+Follow these steps to set up the cluster.
 
-In each Virtual Machine, login as domain administrator, open a command line as administrator and run the following commands:
-* Add Failover Clustering feature
+#### Deploy the VMs on Azure
 
-```powershell
-servermanagercmd -install Failover-Clustering
-```
-* Create the Failover Clustering
+- Create two Azure VMs that run Windows Server 2008 R2.
 
-```powershell
-cluster /cluster:"<cluster name>" /create /nodes:"<node 1> <node 2> /ipaddr:<cluster ip address>/255.255.255.0
-```
+  > [!NOTE]
+  > When you deploy a VM, [Azure Hybrid Benefit for Windows Server][Azure Hybrid Benefit for Windows Server] is activated by default. With this benefit and [Software Assurance][Software Assurance], you can use your on-premises Windows Server licenses.
 
-* Open the Failover Cluster Management Console
-  * Add the disks in the available storage
-  * Run the cluster validation to check the configuration
-* Open Firewall Inbound Ports - This configuration is ok for a SQL Server Default instance:
-  * SQL Server - 1433
-  * Load Balancer Health Probe - 59999
-  * For a complete guideline refer to [Configure the Windows Firewall to Allow SQL Server Access](https://docs.microsoft.com/sql/sql-server/install/configure-the-windows-firewall-to-allow-sql-server-access?view=sql-server-ver15)
+  Windows Server 2008 R2 is no longer available on [Azure Marketplace][Azure Marketplace]. However, two other deployment options exist:
 
-### UI Configuration
+  - Run a [PowerShell script][PowerShell script to deploy Virtual Machines on Azure].
+  - [Upload a generalized VHD to Azure][Upload a generalized VHD and use it to create new VMs in Azure]. From the image of the VHD, you can create a new VM with the required operating system.
 
-* Add Failover Clustering feature
-  * If you run a configuration validation, only a warning is displayed because there is only a network interface in each node
-* Open Firewall Inbound Ports - This configuration is ok for a SQL Server Default instance:
-  * SQL Server - 1433
-  * Load Balancer Health Probe - 59999
-  * For a complete guideline refer to [Configure the Windows Firewall to Allow SQL Server Access](https://docs.microsoft.com/sql/sql-server/install/configure-the-windows-firewall-to-allow-sql-server-access?view=sql-server-ver15)
+  > [!NOTE]
+  > [SQL Server 2008 R2 SP3 on Windows Server 2008 R2][SQL Server 2008 R2 SP3 on Windows Server 2008 R2] is available in [Azure Marketplace][Azure Marketplace]. However, this image pre-configures SQL Server as a standalone instance. Since the solution architecture requires a cluster configuration, avoid using the Azure Marketplace image.
 
-Login in one virtual machine and execute below operations:
+- Configure an [availability set][Configure multiple virtual machines in an availability set for redundancy] to guarantee VM redundancy and availability.
 
-* Create a cluster using UI wizard
-  * During this operation the Cluster Name Object (CNO) with the specified name is set into domain
-  * By default the cluster IP address is set using DHCP
 
-  >[!NOTE]
-  > At the end of cluster creation, if a critical error is generated, please ignore it
 
-At end of configuration the cluster won't start because quorum is missing and network IP isn't configured properly.
+#### Configure the VMs
 
-#### Fix IP Configuration
+- Check that the correct [name resolution for resources in Azure virtual networks][Name resolution that uses your own DNS server] is in place.
 
-When the cluster run firs time it receives a not valid IP address. This problem must be fix providing a VNet available IP.
+- Take these steps with each virtual machine:
 
-From one of two nodes execute below command:
+  - Join the virtual machine to the domain.
+  
+  > [!NOTE]
+  > The PowerShell script that deploys VMs assigns them private IP addresses. Classic, on-premises database cluster configurations that have no direct exposure to the internet use this type of assignment. To manage the cluster nodes deployed into the Azure virtual network from the on-premises network, you have two options:
+  >
+  > - Establish a route path from your on-premises system that supports the relevant protocols.
+  > - Use [Azure Bastion] to connect to the VMs.
 
-```powershell
-Net start clussvc /fq
-```
+  - Add a domain administrator to the machine.
 
-From the "Failover Cluster Manager" open the properties of the Cluster IP address and change it from DHCP to Static. Assign it an unused Azure VNet IP address.
+  - Install the [KB3125574][KB3125574] rollup update. This update extends the failover cluster so that it supports the custom probe that Azure internal load balancer uses.
 
-Anyway this IP cannot be used to communicate with cluster. This happen because it is not associated to an Azure object. As consequence, it is not visible inside VNet and cannot be routed. To solve this problem an [Azure internal load balancer](/clusterwin2008sql.md#Azure-Internal-Load-Balancer) will be deployed.
+#### Deploy the Azure shared disk
 
-#### Cluster Witness
+- Use an [ARM template][ARM templates], such as the one in [Reference Code][Reference Code], to deploy an Azure shared disk. Currently you cannot use the Azure portal for this purpose.
 
-Having a cluster with only two nodes a quorum must be configured. In this configuration a file share witness is used.
+- Use the Azure portal to connect the Azure shared disk to both VMs. For this operation, use the `Attach existing disks` function on the Disks blade of each VM.
 
-On the server that can host a SMB file share, create a share and provide _Change_ and _Read_ right to the Cluster Name Object (CNO).
+  > [!NOTE]
+  > Currently ReadOnly host caching is not available for premium SSDs Azure shared disks.
 
-Login in one virtual machine and open the "Configure Cluster Quorum Wizard" and set the cluster quorum using "Node and File Share Majority" setting. When required select the newly created share. 
-The quorum configuration can be done also through the command line. Open a command line as administrator end execute the following command:
+- Sign in to one of the VMs and take these steps:
 
-```powershell
-cluster /cluster:"<cluster name>" res "File Share Witness" /create /group:"Cluster Group" /type:"File Share Witness" /priv SharePath="<witness share>"
-cluster /cluster:"<cluster name>" res "File Share Witness" /online
-cluster "<cluster name>" /quorum:"File Share Witness"
-```
+  - Initialize the Azure shared disk. Select [Master Boot Record (MBR)][Master Boot Record] for the partition style.
+  - Create a new simple volume on the disk.
+  - Format the disk.
 
-Because all the pending configuration now are completed, the cluster can go online.
+  > [!NOTE]
+  > This operation can take several minutes and might require the VM to restart.
 
-### Deploy SQL Server 2008 R2 Failover Cluster
+- Reboot the second VM to give it access to the disk.
 
-To speed up the deployment procedure, slipstream SQL Server 2008 R2 and SQL Server 2008 R2 SP3 using procedure described [here](https://support.microsoft.com/help/955392/how-to-update-or-slipstream-an-installation-of-sql-server-2008).
+- Check that the disk is visible on both VMs.
 
-Login in the first virtual machine and execute below activities:
+  > [!IMPORTANT]
+  > The disk is only temporarily visible on both VMs. Later on, the cluster will take over disk management.
 
-* Add .NET Framework 3.5.1 feature
-* Execute "New SQL Server failover cluster installation"
-  * In the Network configuration, disable DHCP and set an unused VNet IP
-  * In the Database Engine Configuration check that in Data Directories the Azure shared disk is selected
+#### Configure the cluster
 
-Login in the second virtual machine and execute below activities:
+Follow [standard procedures to configure the Windows Server 2008 R2 cluster][Overview of Failover Clusters]. This section outlines the high-level steps.
 
-* Add .NET Framework 3.5.1 feature
-* Execute "Add node to a SQL Server failover cluster"
+You have two options for completing the configuration:
 
-### Azure Internal Load Balancer
+- The command line: This procedure is straightforward and error-free.
+- The management console: Due to Windows 2008 R2 cluster limitations, this procedure generates some errors related to the cluster IP configuration. You'll need to take some additional recovery steps with this approach.
 
-To associate a routable private IP address to SQL cluster an [Azure Internal Load Balancer](https://docs.microsoft.com/azure/load-balancer/tutorial-load-balancer-standard-internal-portal) must be used.
+##### Use the command line
 
->[!NOTE]
->Use as private IP one that was not used previously during the cluster configuration.
+In each VM, sign in as a domain administrator, open a command line as an administrator, and take the following steps:
 
-The code is available in [Reference Code](/clusterwin2008sql.md#Reference-Code).
+- Add the failover clustering feature:
 
-Now the SQL Server 2008 R2 Failover Cluster must be configured to accept the probe requests. To do it a TCP listener for the SQL Failover Cluster IP is configured. During its configuration a TCP port, that is the probe port, is provided as parameter.
+  ```powershell
+  servermanagercmd -install Failover-Clustering
+  ```
 
-From one virtual machine, execute:
+- Create the failover clustering:
 
-```powershell
-$IPResourceName = "<Name of the SQL Server IP resource e.g. 'SQL IP Address 1 (sqldbcluster)'>"
-$AILBIP = "<Azure Internal Load Balancer IP>"
-cluster res $IPResourceName /priv enabledhcp=0 address=$AILBIP probeport=59999 subnetmask=255.255.255.255
-```
+  ```powershell
+  cluster /cluster:"<cluster name>" /create /nodes:"<node 1> <node 2> /ipaddr:<cluster ip address>/255.255.255.0
+  ```
 
-To apply changes, take the SQL Server offline and start it again.
+- Open the failover cluster management console.
+  - Add the disks in the available storage.
+  - Run the cluster validation to check the configuration.
 
-To check that new configuration was accepted, check the SQL Server IP configuration to be sure that subnet mask is set to 255.255.255.255.
+- Configure the inbound ports firewall to use these values for the SQL Server Default instance:
 
->[!NOTE]
-> If the rollup update [KB3125574](https://support.microsoft.com/help/3125574/convenience-rollup-update-for-windows-7-sp1-and-windows-server-2008-r2) has been not installed, the ```cluster``` command will fail because by default it is not possible to configure a subnet mask 255.255.255.255 for a Windows Server 2008 R2 cluster.
+  - SQL Server: 1433
+  - Load Balancer Health Probe: 59999
+  
+  For complete guidelines, refer to [Configure the Windows Firewall to Allow SQL Server Access][Configure the Windows Firewall to Allow SQL Server Access].
 
-## Licensing
+##### Use the management console
+
+In each VM, take the following steps:
+
+- From the Server Manager administrative tool, add the Failover Clustering feature. If you run a configuration validation, you'll see a warning message because there's only a network interface in each node.
+
+- Configure the inbound ports firewall to use these values for the SQL Server Default instance:
+
+  - SQL Server: 1433
+  - Load Balancer Health Probe: 59999
+  
+  For complete guidelines, refer to [Configure the Windows Firewall to Allow SQL Server Access][Configure the Windows Firewall to Allow SQL Server Access].
+
+Sign in to one VM and use the Create Cluster wizard to create a cluster.
+  
+  - This operation creates a Cluster Name Object (CNO) and adds it to the domain.
+  - By default, the operation uses DHCP to set the cluster IP address.
+
+  > [!NOTE]
+  > If the process of creating a cluster generates a critical error at the end, ignore it.
+
+#### Fix the IP configuration
+
+Assign the cluster a valid IP address by following these steps:
+
+- From one of the two nodes, run this command:
+
+  ```powershell
+  Net start clussvc /fq
+  ```
+
+- From the Failover Cluster Manager administrative tool, open the properties of the cluster IP address.
+
+- Change the address from DHCP to Static
+
+- Assign the address an unused Azure virtual network IP address.
+
+> [!NOTE]
+> This IP address cannot be used to communicate with the cluster. Since this address isn't associated with an Azure object, it's not visible in the virtual network, and traffic cannot flow to it. An [Azure internal load balancer][Azure internal load balancer] that you deploy in a later step will solve this problem.
+
+#### Add a cluster witness
+
+Follow these steps to add a file share witness to provide [cluster quorum][Failover cluster quorum]:
+
+- Take these actions on the server that can host an SMB file share:
+
+  - Create a folder and share it.
+  - Give the CNO change and read permissions.
+
+- Sign in to one of the VMs and take these actions:
+
+  - Open the Configure Cluster Quorum wizard.
+  - In **Select Quorum Configuration**, select **Node and File Share Majority**.
+  - In **Configure File Share Witness**, enter the shared folder.
+
+Alternatively, you can configure the quorum through a command line:
+
+- Open a command line as an administrator.
+- Run the following command:
+
+  ```powershell
+  cluster /cluster:"<cluster name>" res "File Share Witness" /create /group:"Cluster Group" /type:"File Share Witness" /priv SharePath="<witness share>"
+  cluster /cluster:"<cluster name>" res "File Share Witness" /online
+  cluster "<cluster name>" /quorum:"File Share Witness"
+  ```
+
+#### Deploy the SQL Server 2008 R2 failover cluster
+
+Follow these steps to bring the cluster online:
+
+- To speed up the deployment procedure, [slipstream SQL Server 2008 R2 and SQL Server 2008 R2 SP3][How to update or slipstream an installation of SQL Server 2008].
+
+- Sign in to one of the VMs and take these steps:
+
+  - From the Server Manager administrative tool, add the .NET Framework 3.5.1 feature.
+  - Open the New SQL Server failover cluster installation administrative tool.
+    - In the network configuration, disable DHCP and enter an unused virtual network IP address.
+    - In the database engine configuration, check that the Azure shared disk is selected in **Data Directories**.
+
+- Sign in to the other VM and take these steps:
+
+  - From the Server Manager administrative tool, add the .NET Framework 3.5.1 feature.
+  - In the installation software, select **Add node to a SQL Server failover cluster**.
+
+#### Add an Azure internal load balancer
+
+Follow these steps to assign a routable, private IP address to the SQL cluster:
+
+- Use the [reference code][Reference Code] to add an [Azure internal load balancer][Quickstart: Create an internal load balancer to load balance VMs using the Azure portal].
+
+  > [!NOTE]
+  > For the private IP address, use an address that you haven't already used during cluster configuration.
+
+- Configure the SQL Server 2008 R2 failover cluster to accept probe requests by running these commands from one of the VMs:
+
+  ```powershell
+  $IPResourceName = "<Name of the SQL Server IP resource e.g. 'SQL IP Address 1 (sqldbcluster)'>"
+  $AILBIP = "<Azure Internal Load Balancer IP>"
+  cluster res $IPResourceName /priv enabledhcp=0 address=$AILBIP probeport=59999 subnetmask=255.255.255.255
+  ```
+
+  These commands configure a TCP listener for the SQL failover cluster IP address. The `cluster` command provides a TCP port, or a probe port.
+
+- Take the SQL Server offline and then restart it to apply these changes.
+
+- Test the new configuration by checking that the subnet mask in the SQL Server IP configuration has the value `255.255.255.255`.
+
+> [!NOTE]
+> If you didn't install the [KB3125574 rollup update][KB3125574], the `cluster` command will fail. By default, you cannot configure the subnet mask `255.255.255.255` for a Windows Server 2008 R2 cluster.
+
+### Licensing
 
 For customers with Software Assurance, [Azure Hybrid Benefit](https://docs.microsoft.com/azure/virtual-machines/windows/hybrid-use-benefit-licensing) for Windows Server allows to use on-premises Windows Server licenses.
 
 The deployed Virtual Machines have the Azure Hybrid Benefit already activated. If you want to revert this configuration follow the [official guideline](https://docs.microsoft.com/azure/virtual-machines/windows/hybrid-use-benefit-licensing#powershell-1).
 
-## Data Migration Strategy
-
-To transfer data from on-premises database to newly created cluster, some potential migration strategies are:
-
-* [Restore a database backup](https://docs.microsoft.com/sql/relational-databases/backup-restore/restore-a-database-backup-using-ssms?view=sql-server-ver15) on the new installation
-* Use the [SQL Log Shipping](https://docs.microsoft.com/it-it/sql/database-engine/log-shipping/configure-log-shipping-sql-server?view=sql-server-ver15) to replicate the databases from the old server to the new one
-
-## Reference Code
+### Reference Code
 
 * [PowerShell script to deploy Virtual Machines on Azure](VM-Deploy.ps1)
 * [ARM Template to create shared disk](shared-disk.json)
 * [PowerShell script to deploy Azure Internal Load Balancer](LB-Deploy.ps1)
+
+## Next steps
+
+To transfer data from your on-premises database to the newly created cluster, consider these migration strategies:
+
+* [Restore a database backup](https://docs.microsoft.com/sql/relational-databases/backup-restore/restore-a-database-backup-using-ssms?view=sql-server-ver15) on the new installation.
+* Use the [SQL Log Shipping](https://docs.microsoft.com/it-it/sql/database-engine/log-shipping/configure-log-shipping-sql-server?view=sql-server-ver15) to replicate the databases from the old server to the new one.
+
+## Related resources
+
+- [Extend support for SQL Server 2008 and SQL Server 2008 R2 with Azure][Extend support for SQL Server 2008 and SQL Server 2008 R2 with Azure]
+- [Frequently asked questions for SQL Server on Azure VMs][Frequently asked questions for SQL Server on Azure VMs]
+- [How to use Azure PowerShell to provision SQL Server on Azure Virtual Machines][How to use Azure PowerShell to provision SQL Server on Azure Virtual Machines]
+- [Migrate a SQL Server database to SQL Server on an Azure virtual machine][Migrate a SQL Server database to SQL Server on an Azure virtual machine]
+
+[ARM templates]: https://docs.microsoft.com/azure/azure-resource-manager/templates/overview
+[Azure Bastion]: https://docs.microsoft.com/azure/bastion/bastion-connect-vm-rdp
+[Azure Hybrid Benefit for Windows Server]: https://docs.microsoft.com/azure/virtual-machines/windows/hybrid-use-benefit-licensing
+[Azure internal load balancer]: /clusterwin2008sql.md#Azure-Internal-Load-Balancer
+[Azure Load Balancer]: https://docs.microsoft.com/azure/load-balancer/load-balancer-overview
+[Azure Marketplace]: (https://azuremarketplace.microsoft.com/)
+[Azure shared disks]: https://docs.microsoft.com/azure/virtual-machines/windows/disks-shared
+[Azure shared disk limits disk types]: https://docs.microsoft.com/azure/virtual-machines/windows/disks-shared#limitations
+[Azure shared disk limits disk size]: https://docs.microsoft.com/azure/virtual-machines/windows/disks-shared#disk-sizes
+[Azure virtual machines]: https://azure.microsoft.com/overview/what-is-a-virtual-machine/
+[Configure multiple virtual machines in an availability set for redundancy]: https://docs.microsoft.com/azure/virtual-machines/manage-availability#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy
+[Configure the Windows Firewall to Allow SQL Server Access]: https://docs.microsoft.com/sql/sql-server/install/configure-the-windows-firewall-to-allow-sql-server-access?view=sql-server-ver15
+[Deploy a file share witness]: https://docs.microsoft.com/windows-server/failover-clustering/file-share-witness
+[Domain Controller Roles]: https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2003/cc786438(v=ws.10)
+[Extend support for SQL Server 2008 and SQL Server 2008 R2 with Azure]: https://docs.microsoft.com/azure/azure-sql/virtual-machines/windows/sql-server-2008-extend-end-of-support
+[Extended Security Updates frequently asked questions]: https://www.microsoft.com/windows-server/extended-security-updates
+[Failover cluster quorum]: https://docs.microsoft.com/windows-server/storage/storage-spaces/understand-quorum
+[Frequently asked questions for SQL Server on Azure VMs]: https://docs.microsoft.com/azure/azure-sql/virtual-machines/windows/frequently-asked-questions-faq
+[How to update or slipstream an installation of SQL Server 2008]: https://support.microsoft.com/help/955392/how-to-update-or-slipstream-an-installation-of-sql-server-2008
+[How to use Azure PowerShell to provision SQL Server on Azure Virtual Machines]: https://docs.microsoft.com/azure/azure-sql/virtual-machines/windows/create-sql-vm-powershell
+[Introduction to Azure managed disks]: https://docs.microsoft.com/azure/virtual-machines/managed-disks-overview
+[KB3125574]: https://support.microsoft.com/help/3125574/convenience-rollup-update-for-windows-7-sp1-and-windows-server-2008-r2
+[Master Boot Record]: https://docs.microsoft.com/windows-server/storage/disk-management/initialize-new-disks#about-partition-styles---gpt-and-mbr
+[Microsoft blog post on free security updates]: https://azure.microsoft.com/blog/announcing-new-options-for-sql-server-2008-and-windows-server-2008-end-of-support
+[Migrate a SQL Server database to SQL Server on an Azure virtual machine]: https://docs.microsoft.com/azure/azure-sql/virtual-machines/windows/migrate-to-vm-from-sql-server
+[Name resolution that uses your own DNS server]: https://docs.microsoft.com/azure/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances#name-resolution-that-uses-your-own-dns-server
+[Overview of Failover Clusters]: https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-r2-and-2008/cc730692(v=ws.10)
+[PowerShell script to deploy Virtual Machines on Azure]: ./VM-Deploy.ps1
+[Quickstart: Create an internal load balancer to load balance VMs using the Azure portal]: https://docs.microsoft.com/azure/load-balancer/tutorial-load-balancer-standard-internal-portal
+[Reference Code]: ./clusterwin2008sql.md#Reference-Code
+[Server Message Block overview]: https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831795(v=ws.11)
+[Software Assurance]: https://www.microsoft.com/licensing/licensing-programs/software-assurance-default?activetab=software-assurance-default-pivot%3aprimaryr3
+[SQL Server 2008 R2 SP3 on Windows Server 2008 R2]: https://azuremarketplace.microsoft.com/marketplace/apps/microsoftsqlserver.sql2008r2sp3-ws2008r2sp1-byol?tab=Overview
+[Upgrade SQL Server]: https://docs.microsoft.com/sql/sql-server/end-of-support/sql-server-end-of-life-overview?view=sql-server-ver15#upgrade-sql-server
+[Upgrading from Windows Server 2008 R2 or Windows Server 2008]: https://docs.microsoft.com/windows-server/get-started/installation-and-upgrade#upgrading-from-windows-server-2008-r2-or-windows-server-2008
+[Upload a generalized VHD and use it to create new VMs in Azure]: https://docs.microsoft.com/azure/virtual-machines/windows/upload-generalized-managed
+[What is Azure SQL?]: https://docs.microsoft.com/azure/azure-sql/azure-sql-iaas-vs-paas-what-is-overview
+[What is Azure Virtual Network?]: https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview
