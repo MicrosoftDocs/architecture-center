@@ -41,7 +41,7 @@ The company's main goals, aside from being able to take advantage of Azure Cloud
 - Azure Logic Apps
 - Terraform
 
-# Azure deployment
+## Azure deployment
 
 Gridwich deploys the following resources to Azure for an application named `gridwich` and environment named `sb`:
 
