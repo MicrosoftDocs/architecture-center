@@ -1,4 +1,4 @@
---
+---
 title: Camera selection for IoT Edge Vision
 titleSuffix: Azure Architecture Center
 description: 
@@ -12,41 +12,37 @@ ms.category:
 ms.subservice: reference-architecture
 ---
 
-# Camera considerations for Azure IoT Edge Vision
+# Camera selection in Azure IoT Edge Vision
 
-This article describes the considerations for the most important component for an Azure IoT Edge Vision solution, a camera. 
+One of the most critical components to any vision workload is selecting the correct camera. The items that are being identified in a vision workload must be presented in such a way so that a computer’s artificial intelligence or machine learning models can evaluate them correctly. To further understand this concept, you need to understand the different camera types that can be used. One thing to note in this article as we move forward, there are a lot of different manufacturers of **area**, **line**, and **smart** cameras. Microsoft does not recommend any one vendor over another - instead we recommend that you select a vendor that fits your specific needs.
 
-## Camera selection
-
-One of the most critical components to any vision workload is selecting the correct camera. The items that are being identified in a vision workload must be presented in such a way so that a computer’s artificial intelligence or machine learning models can evaluate them correctly. To further understand this concept, you need to understand the different camera types that can be used. One thing to note in this article as we move forward, there are a lot of different manufacturers of Area, Line, and Smart Cameras. Microsoft does not recommend any one vendor over another - instead we recommend that you select a vendor that fits your specific needs.
-
-### Area Scan Cameras
+## Area Scan Cameras
 
 This is more your traditional camera image, where a 2D image is captured and then sent over to the Edge hardware to be evaluated. This camera typically has a matrix of pixel sensors.
 
-#### When should you use an Area Scan Camera? 
+### When should you use an Area Scan Camera? 
 
 As the name suggest, Area Scan Cameras look at a large area and are great at detecting change in an area. Some examples of workloads that would use an Area Scan Camera would be workplace safety, or detecting or counting objects (people,animals,cars,etc.) in an environment.
 
 Examples of manufacturers of Area Scan Cameras are [Basler](https://www.baslerweb.com/en/products/industrial-cameras/), [Axis](https://www.axis.com), [Sony](https://www.sony.co.jp/Products/ISP/products/), [Bosch](https://commerce.boschsecurity.com/IP-Cameras/c/10164917899), [FLIR](https://www.flir.com/), [Allied Vision](https://www.alliedvision.com/digital-industrial-camera-solutions.html).
 
-### Line Scan Cameras
+## Line Scan Cameras
 
 Unlike the Area Scan Cameras, the Line Scan Camera has a single row of linear pixel sensors. This can allow the camera to take one-pixel width in very quick successions and then stitches these one-pixel images into a video stream that is sent over to an Edge Device for processing
 
-#### When should you use a Line Scan Camera? 
+### When should you use a Line Scan Camera? 
 
 Line Scan Cameras are great for vision workloads where in the items to be identified are moving past the camera, or items that need to be rotated to detect defects. The Line Scan Camera would then be able to produce a continuous image stream that can then be evaluated. Some examples of workloads that would work best with a Line Scan Camera would be item defect detection on parts that are moved on a conveyer belt, workloads that require spinning to see a cylindrical object, or any workload that requires rotation.
 
 Examples of manufacturers of Area Scan Cameras are [Basler](https://www.baslerweb.com/en/products/industrial-cameras/), [Teledyne Dalsa](https://www.teledynedalsa.com/en/home/), [Hamamatsu Corporation](https://www.hamamatsu.com/index.html?nfxsid=5ede4ac8e12e41591626440), [DataLogic](https://www.datalogic.com/), [Vieworks](https://vieworks.com/), and [Xenics](https://www.xenics.com/).
 
-### Embedded Smart Camera
+## Embedded Smart Camera
 
 This type of camera can use either a Area Scan or Line Scan Camera for the acquisition of the images, however, the Line Scan Smart Camera is rare. The main feature of this camera is that it not only acquires the image, but it can also process the image as they are a self-contained stand-alone system. They typically have either and RS232 or Ethernet port output, and this allows the Smart Cameras to be integrated directly into a PLC or other IIoT interfaces.
 
 Examples of manufacturers of Embedded Smart Cameras are [Basler](https://www.baslerweb.com/en/products/industrial-cameras/), [Lesuze Electronics](https://www.leuze.com).
 
-### Other camera features to consider
+## Other camera features to consider
 
 - **Sensor size**- This is one of the most important factors to evaluate in any vision workload. A sensor is the hardware within a camera that is capturing the light and converting into signals which then produces an image. The sensor contains millions of semiconducting photodetectors that are called photosites. One thing that is a bit of a misconception is that higher megapixel count is a better image. For example, let’s look at two different sensor sizes for a 12-megapixel camera. Camera A has a ½ inch sensor with 12 million photosites and camera B has a 1-inch sensor with 12 million photosites. In the same lighting conditions the camera that has a 1-inch sensor will be cleaner and sharper. Many cameras that would be typically be used in vision workloads would have a sensor between ¼ inch to 1 inch. In some cases, much larger sensors might be required. 
 
@@ -61,13 +57,13 @@ If a camera has a choice between a larger sensor or a smaller sensor some factor
 
 > [!NOTE] There are more camera features to consider when selecting the correct camera for your vision workload. These include lens selection, focal length, monochrome, color depth, stereo depth, triggers, physical size, and support. Sensor manufacturers can help you understand the specific feature that your application may require.
 
-### Camera placement
+## Camera placement
 
 Depending on the items that you are capturing in your vision workload will determine the location and angles that the camera should be placed. The camera location can also affect the sensor type, lens type, and camera body type. There are several key concepts to keep in mind when figuring out the perfect spot to place the camera in.
 
 There are several different factors that can weigh into the overall decision for camera placement. Two of the most critical are lighting and field of view
 
-#### Camera lighting
+### Camera lighting
 
 In a computer vision workload, lighting is a critical component to camera placement. There are several different lighting conditions. While some of the lighting conditions would be useful for one vision workload, it might produce an undesirable condition in another. Types of lighting that are commonly used in computer vision workloads are:
 
@@ -91,7 +87,7 @@ In a computer vision workload, lighting is a critical component to camera placem
 
 ![lightingchart](./images/lightingchart.png)
 
-#### Field of View
+### Field of View
 
 In a vision workload you need to know the distance to the object that you are trying to evaluate.  This also will play a part in the camera selection, sensor selection, and lens configuration.  Some of the components that make up the field of view are:
 
@@ -100,7 +96,7 @@ In a vision workload you need to know the distance to the object that you are tr
 * **Direction of the Sun:** if the computer vision workload is outside, such as monitoring a job construction site for worker safety, will the camera be pointed in the sun at any time?  Keep in mind that if the sun is casting a shadow over the object that the vision workload is monitoring, items might be obscured a bit.  Also, if the camera is getting direct sunlight in the lens, the camera might be “blinded” until the angle of the sun changes.
 * **Camera angle to the object(s):** angle of the camera to the object that the vision workload is monitoring is also critical component to think about.  If the camera is too high it might miss the details that the vision workload is trying to monitor for, and the same may be true if it is too low.
 
-### Communication Interface
+## Communication Interface
 
 In building a computer vision workload it is also important to understand how the system will interact with the output of the camera.  Below are a few of the standard ways that a camera will communicate to IoT Edge:
 
@@ -126,4 +122,4 @@ The specification was updated in 2017 to v2, which added support for RAW-24 colo
 
 ## Next steps
 
-With this knowledge of camera considerations, please proceed to [hardware considerations](iot-edge-hardware.md).
+With this knowledge of camera considerations, please proceed to [Hardware acceleration in Azure IoT Edge Vision](iot-edge-hardware.md).

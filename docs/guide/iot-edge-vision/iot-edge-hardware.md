@@ -1,4 +1,4 @@
---
+---
 title: Azure IoT Edge Vision
 titleSuffix: Azure Architecture Center
 description: 
@@ -12,7 +12,7 @@ ms.category:
 ms.subservice: reference-architecture
 ---
 
-# Hardware Acceleration
+# Hardware acceleration in Azure IoT Edge Vision
 
 Along with the camera selection, one of the other critical decisions in Vision on the Edge projects is hardware acceleration. 
 
@@ -36,4 +36,4 @@ Application Specific Integrated Circuit is by far the fastest accelerator on the
 
 ## Next steps
 
-Proceed to learn what considerations go into place for [machine learning and data science](./iot-edge-machine-learning).
+Proceed to learn what considerations go into place for [Machine learning and data science in Azure IoT Edge Vision](./iot-edge-machine-learning).

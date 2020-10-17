@@ -1,4 +1,4 @@
---
+---
 title: Azure IoT Edge Vision
 titleSuffix: Azure Architecture Center
 description: 
@@ -12,7 +12,7 @@ ms.category:
 ms.subservice: reference-architecture
 ---
 
-# User Interface
+# User interface in Azure IoT Edge Vision
 
 The user interface requirements of an IoT solution will vary depending on the overall solution objectives. In general, there are four user interfaces that are commonly found on IoT solutions: Administrator, Operator, Consumer and Analytics. In this guidance, we are going to focus on simple operator’s user interface and visualization dashboard. We will provide a reference implementation of the latter two
 
@@ -32,15 +32,11 @@ Azure App Service is a managed platform with powerful capabilities for building 
 For real time data reporting, Azure SignalR Service, makes adding real-time communications to your web application is as simple as provisioning a service—no need to be a real-time communications guru! It easily integrates with services such as Azure Functions, Azure Active Directory, Azure Storage, Azure App Service, Azure Analytics, Power BI, IoT, Cognitive Services, Machine Learning, and more.
 To secure your user interface solutions, the Azure Active Directory (Azure AD) enterprise identity service provides single sign-on and multi-factor authentication to help protect your users from 99.9 percent of cybersecurity attacks.
 
-## Scenarios
-
-### Use case 1
-
-#### Overview
+## Scenario 1
 
 Contoso Boards produces high quality circuit boards used in computers. Their number one product is a motherboard. Lately they have been seeing an increase in issues with chip placement on the board. Through their investigation they have noticed that the circuit boards are getting placed incorrectly on the assembly line. They need a way to identify if the circuit board is placed on the assembly line correctly.   The data scientist at Contoso Boards are most familiar with TensorFlow and would like to continue using it as their primary ML model structure.  Contoso Boards has several assembly lines that produce these mother boards.  Contoso Boards would also like to centralized management of the entire solution.
 
-#### Questions
+### Considerations in this scenario
 
 What are we analyzing?
 
@@ -78,21 +74,19 @@ What hardware should be used?
 * GPU
 * ASIC
 
-#### Solution
+### Solution
 
 Based on the overall solution that the Contoso Boards is looking for with this vision use case we should be looking for edge detection of the part.  Based on this we need to **position a camera directly above the at 90 degrees and about 16 inches above the part**. Since the conveyer system moves relatively slowly, we can use an **Area Scan** camera with a **Global shutter**. For this use case our camera should **capture about 30 frames per second**. As for the resolution using the formula of Res=(Object Size) Divided by (details to be captured). Based on the formula Res=16”/8” give 2MP in x and 4 in y so we need a **camera capable of 4MP**. As for the sensor type, we are not fast moving, and really looking for an edge detection, so a CCD sensor could be used, however a **CMOS sensor** will be used. One of the more critical aspects for any vision workload is lighting. In this application Contoso Boards should choose to use a **white diffused filter back light**. This will make the part look almost black and have a high amount of contrast for edge detection. When it comes to color options for this application it is better to be in black and white, as this is what will yield the sharpest edge for the detection AI model.   Looking at what kind of hard, the data scientist are most familiar with TensorFlow and learning ONNX or others would slow down the time for development of the model.  Also because there are several assembly lines that will use this solution, and Contoso Boards would like a centrally managed edge solution so **Azure Stack Edge** (with GPU option) would work well here.  Based on the workload, the fact that Contoso Boards already know TensorFlow, and this will be used on multiple assembly lines, GPU based hardware would be the choice for hardware acceleration.
 
-#### Sample of what the camera would see
+The following figure shows a sample of what the camera would see in this scenario:
 
 ![motherboard](./images/motherboard1.png)
 
-### Use Case 2
-
-#### Overview
+## Scenario 2
 
 Contoso Shipping recently has had several pedestrian accidents at their loading docks. Most of the accidents are happening when a truck leaves the loading dock, and the driver does not see a dock worker walking in front of the truck. Contoso Shipping would like a solution that would watch for people, predict the direction of travel, and warn the drivers of potential dangers of hitting the workers.  The distance from the cameras to Contoso Shipping's server room is to far for GigE connectivity, however they do have a large WIFI mesh that could be used for connectivity.  Most of the data scientist that Contoso Shipping employ are familiar with Open-VINO and they would like to be able to reuse the models on additional hardware in the future.  The solution will also need to ensure that devices are operating as power efficiently as possible.  Finally, Contoso Shipping needs a way to manage the solution remotely for updates.  
 
-#### Questions
+### Considerations in this scenario
 
 What are we analyzing?
 
@@ -133,7 +127,7 @@ How should the camera be mounted?
 * Side view
 * Angular
 
-#### Solution
+### Solution
 
 Based on the distance of the loading dock size Contoso Shipping will require several cameras to cover the entire dock. Based on zoning laws that Contoso Shipping must adhere to require that the surveillance cameras cannot be mounted higher that 20 feet. In this use case the average size of a worker is 5 foot 8 inches. The solution must use the least number of cameras as possible.
 

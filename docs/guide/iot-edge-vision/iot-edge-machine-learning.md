@@ -1,4 +1,4 @@
---
+---
 title: IoT Edge Vision machine learning
 titleSuffix: Azure Architecture Center
 description: 
@@ -12,7 +12,7 @@ ms.category:
 ms.subservice: reference-architecture
 ---
 
-# Machine learning and data science in IoT Edge Vision
+# Machine learning and data science in Azure IoT Edge Vision
 
 The process of designing the machine learning (ML) approach for a vision on the edge scenario one of the biggest challenges in the entire planning process.  Therefore, it is important to understand how to consider and think about ML in the context of edge devices.  Some of the considerations and hurdles are outlined below to help begin to think in terms of using machine learning to address business problems and pain points with guidance including:
 
@@ -132,4 +132,4 @@ In summary, here are the key considerations:
 
 ## Next steps
 
-Proceed to [Image storage and management](./iot-edge-image-storage.md) article to learn how to properly store the images created by your IoT Edge Vision solution.
+Proceed to [Image storage and management in Azure IoT Edge Vision](./iot-edge-image-storage.md) article to learn how to properly store the images created by your IoT Edge Vision solution.
