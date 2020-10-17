@@ -112,7 +112,10 @@ of multiple, overlapping hardware failures.
 
 - Integration with a range of Azure services that provide additional resiliency advantages. You have the option to integrate virtualized workloads running on Azure Stack HCI clusters with such Azure services as [Azure Backup][azure-backup] and [Azure Site Recovery][azure-site-recovery].
 
-- Accelerated failover. You can optimize network infrastructure and its configuration in the manner that expedites completion of a site-level failover, leveraging, for example, software-defined networking, stretched VLANs, network abstraction devices, and shorter TTL of DNS records representing clustered resources. You might want to also consider lowering the [default ResiliencyPeriod][resiliencydefaultperiod], which determines the period of time during which a clustered VM is allowed to run in the isolated state.
+- Accelerated failover. You can optimize network infrastructure and its configuration in the manner that expedites completion of a site-level failover, leveraging, for example, stretched VLANs, network abstraction devices, and shorter TTL of DNS records representing clustered resources. You might want to also consider lowering the [default ResiliencyPeriod][resiliencydefaultperiod], which determines the period of time during which a clustered VM is allowed to run in the isolated state.
+
+> [!CAUTION]
+> SDN is not supported or available for stretched clusters.
 
 ### Security
 
