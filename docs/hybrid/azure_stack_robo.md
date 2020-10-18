@@ -33,6 +33,7 @@ The architecture incorporates the following components and capabilities:
 - **Azure Arc**. Azure Arc is a cloud-based service that extend the Azure Resource Manager-based management model to non-Azure resources including virtual machines, Kubernetes clusters, and containerized databases. 
 - **Azure Policy**. Azure Policy is a cloud-based service that evaluates Azure and, through integration with Azure Arc, on-premises resources by comparing their properties to customizable business rules.
 - **Azure Monitor**. Azure Monitor is a cloud-bases service that maximizes the availability and performance of applications and services by delivering a comprehensive solution for collecting, analyzing, and acting on telemetry from Azure and non-Azure locations.
+<!-- It should be "cloud-based" instead of "cloud-bases". -->
 - **Azure Security Center**. Azure Security Center is a unified infrastructure security management system that provides advanced threat protection and helps strengthen the security posture across Azure and non-Azure locations.
 - **Azure Automation**. Azure Automation delivers a cloud-based automation and desired state configuration service that supports consistent management across Azure and non-Azure locations.
 - **Change Tracking and Inventory**. Change Tracking and Inventory is a feature of Azure Automation that tracks changes in Windows and Linux servers across Azure and non-Azure locations to help you identify and troubleshoot operational and environmental issues.
@@ -49,6 +50,7 @@ The following recommendations apply for most scenarios. Follow these recommendat
 ### Use Azure Stack HCI switchless interconnect and lightweight quorum to implement a highly-available infrastructure for containerized and virtualized ROBO workloads in a cost-effective manner.
 
 In ROBO scenarios, one of the primary business concerns is minimizing cost. Yet, many ROBO workloads are of utmost criticality, with very little tolerance for temporary downtime. Azure Stack HCI offers a sound compromise between these two conflicting priorities. On one hand, it allows you to leverage built-in [resiliency of Storage Spaces Direct][s2d-resiliency] and [Failover Clustering][failover-clustering] technologies that are integral part of Azure Stack HCI to implement highly-available compute, storage, and network infrastructure for containerized and virtualized ROBO workloads. On the other, your solution can consist of as few as 2 cluster nodes with only 4 disks and 64 GB of memory per node. To further minimize the cost, you can take advantage of switchless interconnects between nodes, eliminating the need for redundant switch devices. To finalize cluster configuration, you can implement [the file share witness by using simply a USB drive][usb-file-share-witness] connected to a router hosting uplinks from cluster nodes. For maximum resiliency, on a 2-node cluster, you have the option of configuring Storage Spaces Direct volumes with either [nested two-way mirror or nested mirror accelerated parity][s2d-nested-resiliency], which, unlike the traditional two-way mirroring, tolerate multiple simultaneous hardware failures without data loss. 
+<!-- "a sound compromise" might not be translatable. Consider replacing with "a good balance". -->
 
 > [!NOTE]
 > With nested resiliency, a 2-node cluster and all of its volumes will remain online following a failure of a single node and a single disk on the surviving node. 
@@ -71,6 +73,7 @@ To minimize overhead of managing Azure Stack HCI clusters and their workloads, y
 To further benefit from Azure capabilities, extend the scope of Azure Arc integration to Azure Stack HCI virtualized and containerized workloads by implementing the following functionality:
 
 - [Azure Arc enabled servers][arc-enabled-servers] for virtualized workloads running Azure Stack HCI VMs
+<!-- Missing period at the end of the sentence. -->
 - [Azure Arc enabled data services][arc-enabled-data-services] for containerized SQL Manage Instance or PostgresSQL Hyperscale running on AKS hosted by Azure Stack HCI VMs.
 
 > [!CAUTION]
@@ -83,6 +86,7 @@ With the scope of Azure Arc extended to Azure Stack HCI VMs, you will be able to
 ROBO scenarios present unique challenges regarding security and compliance. With no or, at best, limited local IT support and lack of dedicated data center, it is particularly important to protect their workloads from external and internal threats. You can provide this functionality by leveraging the capabilities included in Azure Stack HCI and delivered through its integration with Azure services. 
 
 Azure Stack HCI certified hardware ensures built-in Secure Boot, United Extensible Firmware Interface (UEFI), and Trusted Platform Module (TPM) support. These technologies, combined with [virtualization-based security (VBS)][azs-hci-vbs] to help protect security-sensitive workloads. BitLocker allows you to encrypt Storage Spaces Direct volumes at rest while SMB encryption provides automatically encryption in transit, facilitating compliance with standards such as FIPS 140-2 and HIPAA.
+<!-- "to" needs to be removed from the second sentence. Sentece should read "These technologies, combined with virtualization-based security (VBS) help protect security-sensitive workloads." -->
 
 In addition, you can onboard Azure Stack HCI VMs in [Azure Security Center][az-security-center] to activate cloud-based behavioral analytics, threat detection and remediation, alerting, and reporting. Similarly, by onboarding Azure Stack HCI VMs in Azure Arc, you gain the ability to use [Azure Policy][arc-azure-policy] to evaluate their compliance with industry regulations and corporate standards. 
 
