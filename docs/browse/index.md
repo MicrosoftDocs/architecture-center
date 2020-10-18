@@ -98,6 +98,7 @@ Architecture diagrams, reference architectures, example scenarios, and solutions
 [!INCLUDE [Interactive Price Analytics](../../includes/cards/interactive-price-analytics.md)]
 [!INCLUDE [Mass ingestion and analysis of news feeds on Azure](../../includes/cards/newsfeed-ingestion.md)]
 [!INCLUDE [Oil and Gas Tank Level Forecasting](../../includes/cards/oil-and-gas-tank-level-forecasting.md)]
+[!INCLUDE [Partitioning in Event Hubs and Kafka](../../includes/cards/partitioning-in-event-hubs-and-kafka.md)]
 [!INCLUDE [Predicting Length of Stay in Hospitals](../../includes/cards/predicting-length-of-stay-in-hospitals.md)]
 [!INCLUDE [Predictive Aircraft Engine Monitoring](../../includes/cards/aircraft-engine-monitoring-for-predictive-maintenance-in-aerospace.md)]
 [!INCLUDE [Product recommendations for retail using Azure](../../includes/cards/product-recommendations.md)]
