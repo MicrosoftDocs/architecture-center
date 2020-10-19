@@ -1,7 +1,7 @@
 ---
 title: Kafka on Azure
 titleSuffix: Azure Solution Ideas
-description: Learn the 
+description: Learn about solutions for implementing Apache Kafka on Azure, including a comparison of the features for each solution. 
 author: doodlemania2
 ms.date: 10/16/2020
 ms.service: architecture-center
@@ -53,12 +53,13 @@ Pros
 
 - The managed PaaS offering ensures easy usage with support.
 - A rich feature set is available through the Confluent ecosystem.
+- The ability to purchase through the Azure Marketplace instead of entering a billing arrangement with a third party.
 
 Cons
 
 - Available in a limited set of Azure regions.
 - Missing Geo-replication.
-- Network peering options are not available.
+- Limited network peering options available.
 - Tied in with Confluent licensing agreements.
 - Requires Enterprise pricing for an extensive feature set at additional cost.
 - Kafka version support and compatibility will always lag behind the published version.
@@ -89,6 +90,7 @@ Pros
   - [Azure Databricks](https://docs.microsoft.com/azure/databricks/scenarios/what-is-azure-databricks)
 
 - Integrated [Geo-disaster recovery and Geo-replication](https://docs.microsoft.com/azure/event-hubs/event-hubs-geo-dr) with data replication coming soon. This integrated geo-disaster recovery is not available in most other offerings.
+- Available across Azure regions.
 
 Cons
 
@@ -256,18 +258,21 @@ The decision guidance matrix uses the following key:
 | Ecosystem support                  | :::image type="icon" source="../media/full-star-green-background.png"::: | :::image type="icon" source="../media/half-star.png"::: | :::image type="icon" source="../media/full-star.png"::: | :::image type="icon" source="../media/full-star.png"::: | :::image type="icon" source="../media/full-star.png"::: | :::image type="icon" source="../media/full-star.png"::: |
 | Extensibility and Flexibility      | :::image type="icon" source="../media/half-star.png"::: | :::image type="icon" source="../media/half-star.png"::: | :::image type="icon" source="../media/half-star.png"::: | :::image type="icon" source="../media/half-star.png"::: | :::image type="icon" source="../media/full-star-green-background.png"::: | :::image type="icon" source="../media/full-star-green-background.png"::: |
 | Supportability                     | :::image type="icon" source="../media/full-star.png"::: | :::image type="icon" source="../media/full-star.png"::: | :::image type="icon" source="../media/full-star.png"::: | :::image type="icon" source="../media/full-star.png"::: | :::image type="icon" source="../media/half-star.png"::: | :::image type="icon" source="../media/half-star.png"::: | 
-| Full feature parity                | :::image type="icon" source="../media/full-star.png"::: | :::image type="icon" source="../media/half-star.png"::: | :::image type="icon" source="../media/full-star-green-background.png"::: | :::image type="icon" source="../media/full-star-green-background.png"::: | :::image type="icon" source="../media/full-star.png"::: | :::image type="icon" source="../media/full-star-green-background.png"::: | 
-| Geo-replication                    | :::image type="icon" source="../media/empty-star.png"::: | :::image type="icon" source="../media/full-star-green-background.png"::: | :::image type="icon" source="../media/full-star-green-background.png"::: | :::image type="icon" source="../media/half-star.png"::: | :::image type="icon" source="../media/half-star.png"::: | :::image type="icon" source="../media/half-star.png"::: | 
+| Full feature parity                | :::image type="icon" source="../media/half-star.png"::: | :::image type="icon" source="../media/half-star.png"::: | :::image type="icon" source="../media/full-star-green-background.png"::: | :::image type="icon" source="../media/full-star-green-background.png"::: | :::image type="icon" source="../media/full-star.png"::: | :::image type="icon" source="../media/full-star-green-background.png"::: | 
+| Geo-replication                    | :::image type="icon" source="../media/half-star.png"::: | :::image type="icon" source="../media/full-star-green-background.png"::: | :::image type="icon" source="../media/full-star-green-background.png"::: | :::image type="icon" source="../media/half-star.png"::: | :::image type="icon" source="../media/half-star.png"::: | :::image type="icon" source="../media/half-star.png"::: | 
 | Data replication                   | :::image type="icon" source="../media/half-star.png"::: | :::image type="icon" source="../media/half-star.png"::: | :::image type="icon" source="../media/half-star.png"::: | :::image type="icon" source="../media/half-star.png"::: | :::image type="icon" source="../media/half-star.png"::: | :::image type="icon" source="../media/half-star.png"::: | 
 | Kafka version support              | :::image type="icon" source="../media/half-star.png"::: | :::image type="icon" source="../media/half-star.png"::: | :::image type="icon" source="../media/half-star.png"::: | :::image type="icon" source="../media/half-star.png"::: | :::image type="icon" source="../media/full-star-green-background.png"::: | :::image type="icon" source="../media/full-star-green-background.png"::: | 
 | Integrated logging and monitoring  | :::image type="icon" source="../media/full-star.png"::: | :::image type="icon" source="../media/full-star.png"::: | :::image type="icon" source="../media/full-star.png"::: | :::image type="icon" source="../media/full-star.png"::: | :::image type="icon" source="../media/half-star.png"::: | :::image type="icon" source="../media/half-star.png"::: | 
 | Confluent schema registry          | :::image type="icon" source="../media/full-star.png"::: | :::image type="icon" source="../media/half-star.png"::: | :::image type="icon" source="../media/half-star.png"::: | :::image type="icon" source="../media/full-star-green-background.png"::: | :::image type="icon" source="../media/half-star.png"::: | :::image type="icon" source="../media/half-star-green-background.png"::: | 
-| Configurable message retention     | :::image type="icon" source="../media/half-star.png"::: | :::image type="icon" source="../media/half-star.png"::: | :::image type="icon" source="../media/half-star.png"::: | :::image type="icon" source="../media/full-star.png"::: | :::image type="icon" source="../media/full-star.png"::: | :::image type="icon" source="../media/full-star.png"::: |
+| Configurable message retention     | :::image type="icon" source="../media/full-star.png"::: | :::image type="icon" source="../media/half-star.png"::: | :::image type="icon" source="../media/half-star.png"::: | :::image type="icon" source="../media/full-star.png"::: | :::image type="icon" source="../media/full-star.png"::: | :::image type="icon" source="../media/full-star.png"::: |
 | Non-disruptive upgrades            | :::image type="icon" source="../media/full-star.png"::: | :::image type="icon" source="../media/full-star-green-background.png"::: | :::image type="icon" source="../media/half-star.png"::: | :::image type="icon" source="../media/empty-star.png"::: | :::image type="icon" source="../media/empty-star.png"::: | :::image type="icon" source="../media/empty-star.png"::: | 
 
 ## Next steps
 
-- []()
+- [Azure Event Grid documentation](https://docs.microsoft.com/en-us/azure/event-grid/)
+- [What is Apache Kafka in Azure HDInsight](https://docs.microsoft.com/azure/hdinsight/kafka/apache-kafka-introduction)
+- [Confluent Cloud](https://www.confluent.io/confluent-cloud/)
+- [Get started using Kafka with Confluent Platform](https://docs.confluent.io/current/getting-started.html)
 
 ## Related resources
 
