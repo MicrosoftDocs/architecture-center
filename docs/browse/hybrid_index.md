@@ -50,6 +50,7 @@ Architecture diagrams, reference architectures, example scenarios, and solutions
 [!INCLUDE [Hybrid ETL with Azure Data Factory](../../includes/cards/hybrid-etl-with-adf.md)]
 [!INCLUDE [Hybrid file services](../../includes/cards/hybrid-file-services.md)]
 [!INCLUDE [On-premises data gateway for Azure Logic Apps](../../includes/cards/gateway-logic-apps.md)]
+[!INCLUDE [Partitioning in Event Hubs and Kafka](../../includes/cards/partitioning-in-event-hubs-and-kafka.md)]
 [!INCLUDE [Publishing internal APIs to external users](../../includes/cards/publish-internal-apis-externally.md)]
 [!INCLUDE [Using Azure file shares in a hybrid environment](../../includes/cards/azure-file-share.md)]
 
