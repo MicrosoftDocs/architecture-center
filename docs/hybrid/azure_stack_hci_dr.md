@@ -12,7 +12,7 @@ ms.custom: fcp
 
 # Use Azure Stack HCI stretched clusters for disaster recovery
 
-<!-- GLOBAL COMMENT: For most of the embedded links text, the title of site to which the embedded link resolves doesn't match the embedded text -->
+<!-- GLOBAL COMMENT: For most of the embedded links text, the title of site to which the embedded link resolves doesn't match the embedded text.   -->
 
 The following reference architecture illustrates how to design and implement disaster recovery of Azure Stack HCI by using stretched clustering. 
 
