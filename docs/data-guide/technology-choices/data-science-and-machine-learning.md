@@ -26,7 +26,7 @@ The following options are available for machine learning in the Azure cloud.
 | [Azure SQL Managed Instance Machine Learning Services](#sql-machine-learning) | In-database machine learning for SQL | Train and deploy models inside Azure SQL Managed Instance |
 | [Machine learning in Azure Synapse Analytics](#sql-machine-learning) | Analytics service with machine learning | Train and deploy models inside Azure SQL Managed Instance |
 | [Machine learning and AI with ONNX in Azure SQL Edge](#sql-machine-learning) | Machine learning in SQL on IoT | Train and deploy models inside Azure SQL Edge |
-| [Azure Databricks](#azure-databricks) | Apache Spark-based analytics platform | Build and deploy models and data workflows using integrations with open-source machine learning libraries and the [MLFlow](https://docs.microsoft.com/azure/databricks/applications/mlflow/) platform. |
+| [Azure Databricks](#azure-databricks) | Apache Spark-based analytics platform | Build and deploy models and data workflows using integrations with open-source machine learning libraries and the [MLFlow](/azure/databricks/applications/mlflow/) platform. |
 
 ## On-premises machine learning products
 

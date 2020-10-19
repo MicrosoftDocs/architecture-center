@@ -76,7 +76,7 @@ Internet edge traffic (also known as North-South traffic) represents network con
 There are two primary choices that can provide internet edge security controls and monitoring:
 
 -   Cloud service provider native controls ([Azure Firewall](https://azure.microsoft.com/services/azure-firewall/) and
-    [Web Application Firewall (WAF)](https://docs.microsoft.com/azure/application-gateway/waf-overview)).
+    [Web Application Firewall (WAF)](/azure/application-gateway/waf-overview)).
 
 -   Partner virtual network appliances (Firewall and WAF Vendors available in [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/). Partner solutions consistently cost more than native controls.
 
@@ -134,5 +134,3 @@ Decide whether to route traffic for the internet through on-premises security de
 For production enterprise, allow cloud resources to start and respond to internet request directly through cloud network security devices defined by your [internet edge strategy](#define-an-internet-edge-strategy). This approach fits the Nth datacenter paradigm, that is Azure datacenters are a part of your enterprise. It scales better for an enterprise deployment because it removes hops that add load, latency, and cost.
 
 Forced tunneling is achieved through a cross-premise WAN link. The goal is to provide the network security teams with greater security and visibility to internet traffic. Even when your resources in the cloud try to respond to incoming requests from the internet, the responses are force tunneled. Alternately, forced tunneling fits a datacenter expansion paradigm and can work well for a quick proof of concept, but scales poorly because of the increased traffic load, latency, and cost. For those reasons, we recommend that you avoid [forced tunneling](/azure/vpn-gateway/vpn-gateway-about-forced-tunneling).
-
-

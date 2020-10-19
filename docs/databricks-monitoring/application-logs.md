@@ -66,7 +66,7 @@ To send application metrics from Azure Databricks application code to Azure Moni
 
 To send your Azure Databricks application logs to Azure Log Analytics using the [Log4j appender](https://logging.apache.org/log4j/2.x/manual/appenders.html) in the library, follow these steps:
 
-1. Build the **spark-listeners-loganalytics-1.0-SNAPSHOT.jar** JAR file as described in the [GitHub readme][config-cluster].
+1. Build the **spark-listeners-1.0-SNAPSHOT.jar** and the **spark-listeners-loganalytics-1.0-SNAPSHOT.jar** JAR file as described in the [GitHub readme][config-cluster].
 
 1. Create a **log4j.properties** [configuration file](https://logging.apache.org/log4j/2.x/manual/configuration.html) for your application. Include the following configuration properties. Substitute your application package name and log level where indicated:
 
@@ -89,7 +89,7 @@ To send your Azure Databricks application logs to Azure Log Analytics using the 
 1. Configure Log4j using the **log4j.properties** file you created in step 3:
 
     ```scala
-    getClass.getResourceAsStream("<path to file in your JAR file>/log4j.properties")) {
+    getClass.getResourceAsStream("<path to file in your JAR file>/log4j.properties") {
           stream => {
             Log4jConfiguration.configure(stream)
           }

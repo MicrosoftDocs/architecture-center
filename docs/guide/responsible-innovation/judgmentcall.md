@@ -17,8 +17,6 @@ Judgment Call is an award-winning game and team-based activity that puts Microso
 
 > [!VIDEO https://www.youtube.com/embed/LXqlAXEMGI0]
 
-[Download a printable card deck](images/judgmentcall_printable.pdf)
-
 ## Benefits
 
 Technology builders need practical methods to incorporate ethics in product development, by considering the values of diverse stakeholders and how technology may uphold or not uphold those values. The goal of the game is to imagine potential outcomes of a product or platform by gaining a better understanding of stakeholders, and what they need and expect.  

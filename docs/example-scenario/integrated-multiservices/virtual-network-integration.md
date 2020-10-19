@@ -52,7 +52,7 @@ The solution uses the following components:
 
 - [Azure Functions](/azure/azure-functions/functions-overview) is a serverless compute platform that handles small, event-driven pieces of code. The cloud infrastructure provides the necessary updated servers to run the functions at scale. The current solution uses a set of two Azure Functions API microservices that create and manage operations for patient test results and auditing records.
 
-- [Azure Virtual Network](/azure/virtual-network/virtual-networks-overview) provides an isolated and highly secure application environment by restricting network access to specific IP addresses or subnets. Both APIM and Azure Functions support access restriction and deployment in virtual networks. This solution uses [regional virtual network integration](https://docs.microsoft.com/azure/azure-functions/functions-networking-options#regional-virtual-network-integration) to deploy both function apps in the same virtual network in the same region.
+- [Azure Virtual Network](/azure/virtual-network/virtual-networks-overview) provides an isolated and highly secure application environment by restricting network access to specific IP addresses or subnets. Both APIM and Azure Functions support access restriction and deployment in virtual networks. This solution uses [regional virtual network integration](/azure/azure-functions/functions-networking-options#regional-virtual-network-integration) to deploy both function apps in the same virtual network in the same region.
 
 - [Azure Key Vault](/azure/key-vault/general/overview) centrally stores, encrypts, and manages access to keys, certificates, and connection strings. This solution maintains the Azure Functions host keys and Azure Cosmos DB connection strings in a Key Vault that only specified identities can access.
 
@@ -105,7 +105,7 @@ Function apps can restrict IPv4, IPv6, and virtual network subnet access. By def
 
 In this solution, the function apps allow interactions only within their own virtual network. The Patient API allows calls from the APIM subnet by adding the APIM subnet to its access restriction allow list. The Audit API allows communication with the Patient API by adding the Patient API subnet to its access restriction allow list. The APIs reject traffic from other sources.
 
-The solution uses [regional virtual network integration](https://docs.microsoft.com/azure/azure-functions/functions-networking-options#regional-virtual-network-integration) to integrate APIM and the function apps with the same virtual network and Azure region. There are several important considerations for using regional virtual network integration:
+The solution uses [regional virtual network integration](/azure/azure-functions/functions-networking-options#regional-virtual-network-integration) to integrate APIM and the function apps with the same virtual network and Azure region. There are several important considerations for using regional virtual network integration:
 
 - You need to use the [Azure Functions Premium SKU](https://azure.microsoft.com/pricing/details/functions/) to have both regional virtual network integration and scalability.
 - You need to use the [APIM Developer or Premium SKU](/azure/api-management/api-management-using-with-vnet#availability) to enable VNET connectivity
@@ -143,7 +143,7 @@ Key rotation involves updating several settings:
 The current solution uses Terraform for most of the key rotation tasks. For more information, see [Key rotation pattern with Terraform](https://github.com/mspnp/vnet-integrated-serverless-microservices/blob/main/docs/key_rotation.md).
 
 #### Managed identities
-In this solution, APIM and the function apps use Azure [system-assigned managed service identities (MSIs)](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/) to access the Key Vault secrets. Key Vault has the following individual access policies for each service's managed identity:
+In this solution, APIM and the function apps use Azure [system-assigned managed service identities (MSIs)](/azure/active-directory/managed-identities-azure-resources/) to access the Key Vault secrets. Key Vault has the following individual access policies for each service's managed identity:
 
 - APIM can get the host key of the Patient API function app.
 - The Patient API function app can get the Audit API host key and the Cosmos DB connection string for its data store.

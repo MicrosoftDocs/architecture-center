@@ -20,6 +20,6 @@ Because security resources are always limited, it is critical to discover and pr
 
 - **Threat modeling:** Newly defined systems such as applications in development (or modifications to them) don’t have real world data on the top vectors attackers would target, so you must rely more on a model of possible and likely vectors to guide risk mitigation. Threat modeling is a structured process to applying security expertise that models the possible attack vectors and prioritize the most likely/damaging threats, allowing you to prioritize risk mitigate efforts. Threat modeling can also be applied to existing systems or a combination of systems.
 
-This document focuses on sharing clearly defined good security practices as well as guidance on applying [threat modeling to your applications and architectures](./applications-services.md#advanced-threat-modeling-techniques).
+This document focuses on sharing clearly defined good security practices as well as guidance on applying [threat modeling to your applications and architectures](./design-apps-services.md).
 
 For more information on current attacks, see the [Microsoft Security Intelligence (SIR) report](https://www.microsoft.com/sir).

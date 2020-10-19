@@ -75,7 +75,7 @@ This scenario uses a separate DevTest and Production [Azure Active Directory (Az
 In situations where VM Image Builder and a Shared Image Gallery don't work, you can set up an [image factory](/azure/devtest-labs/image-factory-create) to build VM images from the CI/CD pipeline and distribute them automatically to any Azure DevTest Labs registered to those images. For more information, see [Run an image factory from Azure DevOps](/azure/devtest-labs/image-factory-set-up-devops-lab).
 
 ## Next steps
-- [DevSecOps in Azure](/azure/architecture/solution-ideas/articles/devsecops-in-azure)
+- [DevSecOps in Azure](./devsecops-in-azure.md)
 - [DevTest and DevOps for PaaS solutions](dev-test-paas.md)
 - [DevTest and DevOps for microservices](dev-test-microservice.md)
 - [Set up Azure DevOps](/azure/devops/get-started/)
