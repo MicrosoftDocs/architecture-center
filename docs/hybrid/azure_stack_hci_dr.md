@@ -12,120 +12,122 @@ ms.custom: fcp
 
 # Use Azure Stack HCI stretched clusters for disaster recovery
 
-This reference architecture illustrates how to design and implement disaster recovery of Azure Stack HCI by using stretched clustering. 
+<!-- GLOBAL COMMENT: For most of the embedded links text, the title of site to which the embedded link resolves doesn't match the embedded text -->
 
-![Actve-active and active-passive Azure Stack HCI stretched cluster][architectural-diagram]
+The following reference architecture illustrates how to design and implement disaster recovery of Azure Stack HCI by using stretched clustering. 
 
-*Download a [Visio file][architectual-diagram-visio-source] of this architecture.*
+![Active-active and active-passive Azure Stack HCI stretched cluster][architectural-diagram]
 
-Typical uses for this architecture include:
+*Download a [Visio file][architectural-diagram-visio-source] of this architecture.*<!-- I'm assuming link will open Visio file. Didn't work for me. -->
 
-- Disaster recovery with automatic failover of Azure Stack HCI virtualized workloads and file shares between two physical locations within the range of 5 ms round trip network latency (corresponding to about 30 mile physical distance). 
+You typically use this architecture for disaster recovery with automatic failover of Azure Stack HCI virtualized workloads and file shares occurring between two physical locations within a range of 5 ms round-trip network latency (corresponding to about 30 physical miles). <!-- This sentence was confusing to me. I added "occurring" to try to clarify on what this is saying. Would help to divide into two shorter sentences. Also note that took away the bullet since you can't really have a list with only one item. -->
 
 ## Architecture
 
 The architecture incorporates the following components and capabilities:
 
-- **Azure Stack HCI (20H2)**. Azure Stack HCI is a hyperconverged infrastructure (HCI) cluster solution that hosts virtualized Windows and Linux workloads and their storage in a hybrid on-premises environment. The stretched cluster can consists of between 4 and 16 physical nodes. 
-- **Storage Replica**. Storage Replica is a Windows Server technology that enables replication of volumes between servers or clusters for disaster recovery.
+- **Azure Stack HCI (20H2)**. Azure Stack HCI is a hyper-converged infrastructure (HCI) cluster solution that hosts virtualized Windows and Linux workloads and their storage in a hybrid on-premises environment. The stretched cluster can consist of between four and 16 physical nodes. 
+- **Storage Replica**. Storage Replica is a Windows Server technology that enables volume replication between servers or clusters for the purpose of disaster recovery.
 - **Live Migration**. Live migration is a Hyper-V feature in Windows Server that allows you to seamlessly move running virtual machines (VMs) from one Hyper-V host to another without perceived downtime. 
-- **Cloud Witness**. Cloud Witness is a type of Failover Cluster quorum witness that uses Microsoft Azure Blob Storage to provide a vote on cluster quorum.
+- **Cloud Witness**. Cloud Witness is a Failover Cluster quorum witness that uses Microsoft Azure Blob Storage to provide a vote on cluster quorum.
 
-## Recommendations
+## Recommendation
 
-The following recommendations apply for most scenarios. Follow these recommendations unless you have a specific requirement that overrides them. 
+The following recommendation applies to most scenarios. Follow the recommendation unless you have a specific requirement that overrides it. 
 
-### Use stretched clusters to implement automated disaster recovery for virtualized workloads and file shares hosted on Azure Stack HCI.
+### Use stretched clusters to implement automated disaster recovery for virtualized workloads and file shares hosted on Azure Stack HCI
 
-Enhance built-in resiliency of Azure Stack HCI by implementing a stretched Azure Stack HCI cluster consisting of two groups of nodes, with one group per site. Each group must contain at minimum 2 nodes. The total number of nodes in a cluster cannot exceed the maximum number of nodes supported by an Azure Stack HCI cluster. The nodes must satisfy the standard [HCI hardware requirements][hci-hardware-requirements]. 
+To enhance the built-in resiliency of Azure Stack HCI, implement a stretched Azure Stack HCI cluster that consists of two groups of nodes, with one group per site. Each group must contain a minimum of two nodes. The total number of nodes in a cluster cannot exceed the maximum number of nodes supported by an Azure Stack HCI cluster. The nodes must satisfy the standard [HCI hardware requirements][hci-hardware-requirements]. 
 
-A stretched Azure Stack HCI cluster relies on Storage Replica to perform synchronous storage replication, between storage volumes hosted by the two groups of nodes in their respective physical sites. In case of a failure affecting the availability of the primary site, the cluster automatically transitions its workloads to nodes in the surviving site, minimizing potential downtime. In case of a planned or expected downtime at the primary site, you have the option of using Hyper-V Live Migration to seamlessly transition its workloads to the other site, avoiding downtime altogether.
+A stretched Azure Stack HCI cluster relies on Storage Replica to perform synchronous storage replication between storage volumes hosted by the two groups of nodes in their respective physical sites. If a failure affects the availability of the primary site, the cluster automatically transitions its workloads to nodes in the surviving site to minimize potential downtime. For planned or expected downtimes at the primary site, you can use Hyper-V Live Migration to seamlessly transition workloads to the other site, avoiding downtime altogether.
 
 > [!NOTE]
-> The synchronous replication ensures crash-consistency, with zero data loss at the file-system level during a failover. 
+> Synchronous replication ensures crash consistency with zero data loss at the file-system level during a failover. 
 
 > [!CAUTION]
-> The synchronous replication requirement applicable to stretched clusters imposes a limit of 5 ms round trip network latency between two groups of cluster nodes in the replicated sites. Depending on the physical network connectivity characteristics, this constraint typically translates into about 20-30 miles distance.
+> The synchronous replication requirement applicable to stretched clusters imposes a limit of 5 ms round-trip network latency between two groups of cluster nodes in the replicated sites. Depending on the physical network connectivity characteristics, this constraint typically translates into about 20-30 physical miles.
 
 > [!NOTE]
-> Replication traffic is automatically protected in transit by relying on signing and encryption provided by Storage Replica.
+> Storage Replica's signing and encryption capability automatically protects in-transit replication traffic.<!-- this note got pinged for passive voice--rewrite OK? -->
 
 ## Architectural excellence
-
-The [Microsoft Azure Well-Architected Framework][azure-well-architected-framework] is a set of guiding tenets that are followed in this reference architecture. The following considerations are framed in the context of these tenets. 
+<!-- link below not showing in preview mode -->
+The [Microsoft Azure Well-Architected Framework][azure-well-architected-framework] provides a set of guiding tenets that are followed in this reference architecture. The framework provides the following benefits. <!-- Link doesn't work so I can't see what this is exactly. What is "this" reference architecture? "are followed"? Instead of "guiding tenets", how about "principles" or "guidelines"? --> 
 
 ### Cost optimization
 
-- Active-active vs active-passive configuration. A stretched Azure Stack HCI cluster support the active-passive and active-active modes. In the active-passive modes, a designated primary site replicates unidirectionally to another site providing the disaster recovery capability. In the active-active mode, two sites replicate their respective volumes unidirectionally to each other, providing the failover capability in case of a failure of the other site. The latter of these two modes helps you minimize the business continuity costs by eliminating the need for a dedicated disaster recovery site. 
+- **Active-active versus active-passive configuration.** Stretched Azure Stack HCI clusters support the active-passive and active-active modes. In active-passive mode, a designated primary site unidirectionally replicates to another site providing the disaster recovery capability <!-- for the primary site? This sentence isn't clear. -->. In active-active mode, two sites replicate their respective volumes unidirectionally to each other, providing failover capability in case of a failure in either site <!-- correct? -->. The latter of these two modes <!-- i.e. active-active mode? I'd just stay that then --> helps minimize business continuity costs by eliminating the need for a dedicated disaster recovery site. 
 
-- Cloud Witness vs File Share Witness. A witness resource is a mandatory component of Azure Stack HCI clusters. To implement it, you can choose either an Azure cloud witness or a file share witness. An Azure cloud witness relies on a blob in an Azure storage account you designate to provide the arbitration point to prevent split-brain scenarios. A file share witness relies on an SMB file share to accomplish the same objective. 
+- **Cloud Witness versus File Share Witness.** A witness resource is a mandatory component within Azure Stack HCI clusters. To implement it, choose either an Azure cloud witness or a file share witness. An Azure cloud witness relies on a blob in an Azure storage account that you designate as the arbitration point to prevent split-brain scenarios. A file share witness relies on a Server Message Block (SMB) file share to accomplish the same objective. 
 
 > [!NOTE]
-> Azure Cloud Witness is the recommended choice for Azure Stack HCI stretched clusters, provided all server nodes in the cluster have a reliable internet connection. The corresponding ongoing Azure charges are practically negligible, since they consist of the price of a small blob with infrequent updates corresponding to changes to the cluster state. In scenarios that involve stretched clusters, a file share witness should reside in a third site, which significantly raises potential implementation costs, unless such site is already available and has existing, reliable connections to the sites hosting the stretched cluster nodes. 
+> Azure Cloud Witness is the recommended choice for Azure Stack HCI stretched clusters, provided all server nodes in the cluster have reliable internet connections. The corresponding Azure charges are negligible; they are based on the price of a small blob with infrequent updates corresponding to changes to the cluster state. In scenarios that involve stretched clusters, a file share witness should reside in a third site, which can significantly raise implementation costs unless the third site is already available and has existing, reliable connections to the sites hosting the stretched cluster nodes. 
 
-- Data Deduplication. Azure Stack HCI and Storage Replica support data deduplication. Starting with Windows Server 2019, deduplication is available on volumes formatted with ReFS, which is the recommended file system for Azure Stack HCI. Deduplication helps increase usable storage capacity by identifying duplicate portions of files and only storing them once. 
+- **Data Deduplication.** Azure Stack HCI and Storage Replica support data deduplication. Starting with Windows Server 2019, deduplication is available on volumes formatted with Resilient File System (ReFS), which is the recommended file system for Azure Stack HCI. Deduplication helps increase usable storage capacity by identifying duplicate portions of files and only storing them once. 
 
 > [!CAUTION]
-> While you should install Data Deduplication server role service on the source and destination servers, it's important not to enable Data Deduplication on the destination nodes of an Azure Stack HCI stretched cluster. Since Data Deduplication manages writes, it should run only on source cluster nodes. Destination nodes always receive deduplicated copies of each volume.
+> Although you should install the Data Deduplication server role service on both the source and destination servers, do not enable Data Deduplication on the destination nodes within an Azure Stack HCI stretched cluster. Because Data Deduplication manages writes, it should run only on source cluster nodes. Destination nodes always receive deduplicated copies of each volume.
 
 ### Operational excellence
 
-- Automatic failover and recovery. A failure of the primary site triggers an automatic failover. Following the failover, the process of establishing the replication from the new primary/former secondary site back to the new secondary/former primary site is automatic as well. In addition, the cluster prevents failback until the replicated volumes are fully synchronized in order to prevent the possibility of data loss.
+- **Automatic failover and recovery.** A primary-site failure triggers automatic failover. Following the failover, the process of establishing replication from the new primary/former secondary site back to the new secondary/former primary site is automatic as well. To prevent potential data loss, the cluster prevents failback until the replicated volumes fully synchronize.
 
-- Simplified provisioning and management experience by using Windows Admin Center. The Create Cluster wizard in [Windows Admin Center provides a wizard-driven interface that guides you through the process of creating an Azure Stack HCI stretched cluster][create-cluster-with-wac]. It detects if cluster nodes reside in two distinct Active Directory Domain Services (AD DS) sites or if their IP addresses belong to two different subnets and, if so, automatically creates and configures the corresponding cluster sites, each representing a separate fault domain. It also allows you to designate the preferred site. Similarly, [Windows Admin Center simplifies the process of provisioning replicated volumes][create-stretched-volumes-with-wac]. 
+- **Simplified provisioning and management experience by using Windows Admin Center.** The Create Cluster wizard in [Windows Admin Center provides a wizard-driven interface that guides you through the process of creating an Azure Stack HCI stretched cluster][create-cluster-with-wac]. The wizard detects whether cluster nodes reside in two distinct Active Directory Domain Services (AD DS) sites or whether their IP addresses belong to two different subnets. If they reside in two different subnets,  the wizard automatically creates and configures the corresponding cluster sites with each representing a separate fault domain. It also allows you to designate the preferred site. Similarly, [Windows Admin Center simplifies the process of provisioning replicated volumes][create-stretched-volumes-with-wac]. 
 
-> [NOTE]
-> Creating volumes and virtual disks for stretched clusters is more involved than for single-site clusters. Stretched clusters require a minimum of four volumes, comprised of two data volumes and two log volumes, with each pair of data and log volume in each site. When you create a replicated data volume by using Windows Admin Center, the process automatically provisions the log volume in the primary site and both data and log replicated volumes in the secondary site, ensuring that each of them has the required size and configuration settings.
+> [!NOTE]
+> Creating volumes and virtual disks for stretched clusters is more involved than for single-site clusters. Stretched clusters require a minimum of four volumes, comprised of two data volumes and two log volumes, with a data/log volume pair at each site. When you create a replicated data volume by using Windows Admin Center, the process automatically provisions the log volume in the primary site and both data and log replicated volumes in the secondary site, ensuring that each of them has the required size and configuration settings.
 
-- Support for [automated stretched cluster provisioning][create-cluster-with-powershell] and [storage management][create-stretched-volumes-with-powershell] by using Windows PowerShell. You can run PowerShell locally from one of the Azure Stack HCI servers or remotely from a management computer.
+- **Support for [automated stretched cluster provisioning][create-cluster-with-powershell] and [storage management][create-stretched-volumes-with-powershell] by using Windows PowerShell.** You can run PowerShell locally from one of the Azure Stack HCI servers or remotely from a management computer.
 
-- Integration with a range of Azure services that provide additional operational advantages. You have the option to integrate virtualized workloads running on Azure Stack HCI clusters with such Azure services as [Azure Monitor][azure-monitor] and Azure Automation solutions, including [Change Tracking and Inventory][change-tracking-and-inventory] and [Update Management][update-management]. Following an initial mandatory registration procedure, Azure Stack HCI clusters can leverage Azure Arc for monitoring and billing. Azure Arc integration offers enhanced integration with other hybrid services, such as [Azure Policy][azure-policy-guest-configuration] and [Log Analytics][resource-context-log-analytics-access-mode]. The registration triggers creation of an Azure Resource Manager resource representing an Azure Stack HCI cluster, effectively extending the Azure management plane to Azure Stack HCI.
+- **Integration with a range of Azure services that provide additional operational advantages.** You can integrate virtualized workloads running on Azure Stack HCI clusters with such Azure services as [Azure Monitor][azure-monitor]<!-- link doesn't work --> and Azure Automation solutions, including [Change Tracking and Inventory][change-tracking-and-inventory] and [Update Management][update-management]<!-- link not showing in preview -->. Following an initial mandatory registration procedure, Azure Stack HCI clusters can leverage Azure Arc for monitoring and billing. Azure Arc integration offers enhanced integration with other hybrid services, such as [Azure Policy][azure-policy-guest-configuration] and [Log Analytics][resource-context-log-analytics-access-mode]. Registration triggers creation of an Azure Resource Manager resource representing an Azure Stack HCI cluster, effectively extending the Azure management plane to Azure Stack HCI.
 
 ### Performance efficiency
 
-- Optimized replication traffic. When designing infrastructure for Azure Stack HCI stretched clusters, you need to take into account additional Storage Replica, Live Migration, and Storage Replica Cluster Performance History traffic flowing between the sites. Synchronous replication requires at least one 1 Gb RDMA or Ethernet/TCP connection between stretched cluster sites, but, depending on the volume of replication traffic, you might need a [faster RDMA connection][site-to-site-network-reqs]. You should also provision multiple connections between sites, which besides resiliency benefits, allows you to [separate Storage Replica traffic from Hyper-V live migration traffic][set-srnetworkconstraint]. 
+- **Optimized replication traffic.** When designing infrastructure for Azure Stack HCI stretched clusters, consider additional Storage Replica, Live Migration, and Storage Replica Cluster Performance History traffic flowing between the sites. Synchronous replication requires at least 1 Gb remote direct memory access (RDMA) or Ethernet/TCP connection between stretched cluster sites. However, depending on the volume of replication traffic, you might need a [faster RDMA connection][site-to-site-network-reqs]. You should also provision multiple connections between sites, which provides resiliency benefits and allows you to [separate Storage Replica traffic from Hyper-V live migration traffic][set-srnetworkconstraint]. 
 
 > [!CAUTION]
 > RDMA is enabled by default for all traffic between cluster nodes in the same site on the same subnet. RDMA is disabled and not supported between sites or between different subnets. You should either disable SMB Direct for cross-site traffic or implement [additional provisions][site-to-site-rdma-considerations] that separate it from cross-node traffic within the same site. 
 
-- Support for seeded initial sync. You have the option to [implement seeded initial sync][sr-initial-sync] in scenarios where initial sync time needs to be minimized or where there is limited bandwidth available between the two sites hosting the stretched cluster.
+- **Support for seeded initial sync.** You can [implement seeded initial sync][sr-initial-sync] in scenarios where initial sync time needs to be minimized or where there is limited bandwidth available between the two sites hosting the stretched cluster.
 
-- Optimized processing of storage I/O. You should ensure [optimal configuration of replicated data and log volumes][sr-volume-reqs], including the choice of their performance tier, volume and sector sizing, disk type, and file system. 
+- **Optimized processing of storage I/O.** Ensure [optimal configuration of replicated data and log volumes][sr-volume-reqs], including their performance tier, volume and sector sizing, disk type, and file system. 
 
-> [NOTE]
+> [!NOTE]
 > Windows Admin Center automatically assigns the optimal configuration if you use it for [provisioning stretched cluster volumes][create-stretched-volumes-with-wac]. 
 
 ### Reliability
 
-- Site-level fault domains. Each physical site of an Azure Stack HCI stretched cluster represent distinct fault domains, providing additional resiliency. A fault domain is a set of hardware components that share a single point of failure. To be fault tolerant to a particular level, you need multiple fault domains at that level. 
+- **Site-level fault domains.** Each physical site of an Azure Stack HCI stretched cluster represents distinct fault domains that provide additional resiliency. A fault domain is a set of hardware components that share a single point of failure. To be fault tolerant to a particular level, you need multiple fault domains at that level. 
 
-> [NOTE]
-> If each location corresponds to a separate AD DS site, the cluster provisioning process will automatically configure site assignment. If there are no separate AD DS sites representing the two locations but the nodes are on two different subnets, the cluster provisioning process will identify sites based on the subnet assignments.
-If the notes are on the same subnet, you need to define site assignment explicitly.
+> [!NOTE]
+> If each location corresponds to a separate AD DS site, the cluster provisioning process automatically configures site assignment. If there are no separate AD DS sites representing the two locations, but the nodes are on two different subnets, the cluster provisioning process will identify sites based on the subnet assignments. If the nodes are on the same subnet, you must define site assignment explicitly.
 
-- Site awareness. Site awareness allows you to control placement of virtualized workloads by designating their preferred sites. Specifying the preferred site for a stretched cluster offers several benefits, including the ability to affinitize workloads at the site level and to customize quorum voting options. By default, during a cold start, all virtual machines are placed in the preferred site, although it is also possible to configure preferred site at the cluster role or group level. This allows for allocating specific virtual machines to their respective sites in the active-active mode. From the quorum perspective, preferred site selection affects the allocation of votes in the manner that favors that site. For example, if connectivity between the two sites hosting stretched cluster nodes is lost and the cluster witness is not reachable, the preferred site remains online, while the nodes in the other site are evicted.
+- **Site awareness.** Site awareness allows you to control placement of virtualized workloads by designating their preferred sites. Specifying the preferred site for a stretched cluster offers many benefits, including the ability to group workloads at the site level and to customize quorum voting options. By default, during a cold start, all virtual machines use the preferred site, although it is also possible to configure the preferred site at the cluster role or group level. This allows you to allocate specific virtual machines to their respective sites in  active-active mode. From the quorum perspective, preferred site selection affects the allocation of votes in a manner that favors that site. For example, if connectivity between the two sites hosting stretched cluster nodes fails and the cluster witness is not reachable, the preferred site remains online, while the nodes in the other site are evicted.
 
-- Improved Storage Spaces Direct volume repair speed (aka resync). Storage Spaces Direct provides automatic resync following events that affect availability of some disks in its storage pool, such as shutting down one of cluster nodes or a localized hardware failure. Azure Stack HCI implements an [enahnced resync process][sr-resync] which operates at much finer granularity than Windows Server 2019, significantly reducing duration of the resync operation. This minimizes potential impact 
-of multiple, overlapping hardware failures. 
+- **Improved Storage Spaces Direct volume repair speed.** Storage Spaces Direct provides automatic resync following events that affect availability of disks within its storage pool, such as shutting down one of the cluster nodes or a localized hardware failure. Azure Stack HCI implements an [enhanced resync process][sr-resync] that operates at a much finer granularity than Windows Server 2019. This process significantly reduces the duration of the resync operation and minimizes the potential impact of multiple, overlapping hardware failures. 
 
-- Resiliency limits. Azure Stack HCI provides multiple levels of resiliency, but due to its hyper-converged architecture, that resiliency is subject to limits imposed not only by the [cluster quorum][cluster-quorum], but also by the [pool quorum][pool-quorum]. You can eliminate this limit by implementing [cluster sets][cluster-sets], combining multiple Azure Stack HCI clusters to create an HCI platform consisting of hundreds of nodes.
+- **Resiliency limits.** Azure Stack HCI provides multiple levels of resiliency, but because of its hyper-converged architecture, that resiliency is subject to limits imposed not only by the [cluster quorum][cluster-quorum], but also by the [pool quorum][pool-quorum]. You can eliminate this limit by implementing [cluster sets][cluster-sets] in which you combine multiple Azure Stack HCI clusters to create an HCI platform consisting of hundreds of nodes.
 
-- Integration with a range of Azure services that provide additional resiliency advantages. You have the option to integrate virtualized workloads running on Azure Stack HCI clusters with such Azure services as [Azure Backup][azure-backup] and [Azure Site Recovery][azure-site-recovery].
+- **Integration with a range of Azure services that provide additional resiliency advantages.** You can integrate virtualized workloads running on Azure Stack HCI clusters with such Azure services as [Azure Backup][azure-backup] and [Azure Site Recovery][azure-site-recovery].
 
-- Accelerated failover. You can optimize network infrastructure and its configuration in the manner that expedites completion of a site-level failover, leveraging, for example, software-defined networking, stretched VLANs, network abstraction devices, and shorter TTL of DNS records representing clustered resources. You might want to also consider lowering the [default ResiliencyPeriod][resiliencydefaultperiod], which determines the period of time during which a clustered VM is allowed to run in the isolated state.
+- **Accelerated failover.** You can optimize the network infrastructure and its configuration to expedite completion of a site-level failover. For example, you can leverage stretched virtual LANs (VLANs), network abstraction devices, and shorter Time to Live (TTL) values in DNS records representing clustered resources. In addition, consider lowering the [default resiliency period][resiliencydefaultperiod], which determines the period of time during which a clustered VM is allowed to run in the isolated state.
+
+> [!CAUTION]
+> Stretched clusters do not support SDN.
 
 ### Security
 
-- Protection in transit. Storage Replica offers built-in security of its replication traffic, which includes packet signing, AES-128-GCM full data encryption, support for Intel AES-NI encryption acceleration, and pre-authentication integrity man-in-the-middle attack prevention. Storage Replica also utilizes Kerberos AES256 for authentication between the replicating nodes.
+- **Protection in transit.** Storage Replica offers built-in security for its replication traffic, which includes packet signing, AES-128-GCM full data encryption, support for Intel AES-NI enc
+- ryption acceleration, and pre-authentication integrity man-in-the-middle attack prevention. Storage Replica also utilizes Kerberos AES256 for authentication between the replicating nodes.
 
-- Encryption at rest. Azure Stack HCI supports BitLocker encryption for its data volumes, facilitating compliance with standards such as FIPS 140-2 and HIPAA.
+- **Encryption at rest.** Azure Stack HCI supports BitLocker Drive Encryption for its data volumes, thus facilitating compliance with standards such as FIPS 140-2 and HIPAA.
 
-- Integration with a range of Azure services that provide additional security advantages. You have the option to integrate virtualized workloads running on Azure Stack HCI clusters with such Azure services as [Azure Security Center][azure-security-center]
+- **Integration with a range of Azure services that provide additional security advantages.** You can integrate virtualized workloads running on Azure Stack HCI clusters with such Azure services as [Azure Security Center][azure-security-center]
 
-- Firewall-friendly configuration. Storage Replica traffic requires [a limited number of open ports between the replicating nodes][sr-firewall-reqs].
+- **Firewall-friendly configuration.** Storage Replica traffic requires [a limited number of open ports between the replicating nodes][sr-firewall-reqs].
 
 > [!CAUTION]
-> Storage Replica and Azure Stack HCI stretched clusters must operate within an Active Directory Domain Services (AD DS) environment. When planning for deployment of Azure Stack HCI stretched clusters, you must ensure connectivity to AD DS domain controllers in each site hosting cluster nodes.
+> Storage Replica and Azure Stack HCI stretched clusters must operate within an AD DS environment. When planning your Azure Stack HCI stretched clusters deployment, ensure connectivity to AD DS domain controllers in each site hosting cluster nodes.
 
 
 [architectural-diagram]: images/azure_stack_hci_dr.png
