@@ -11,10 +11,6 @@ ms.custom:
 
 # Configuration for DevOps
 
-## Automation of manual tasks
-
-Use automation runbooks with hybrid runbook worker to unify management by orchestrating across on-premises environments. Use webhooks to provide a way to fulfill requests and ensure continuous delivery and operations by triggering automation from ITSM, DevOps, and monitoring systems.
-
 ## Monitor and update machine configuration
 
 Use Azure Automation State Configuration to provide configuration management required for enterprise environments.

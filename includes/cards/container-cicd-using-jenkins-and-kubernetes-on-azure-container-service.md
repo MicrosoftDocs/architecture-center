@@ -6,7 +6,7 @@
 <article class="card">
     <div class="card-header has-margin-bottom-none" aria-hidden="true">
         <figure class="image diagram has-height-175 has-overflow-hidden level">
-            <a href="/azure/architecture/solution-ideas/articles/container-cicd-using-jenkins-and-kubernetes-on-azure-container-service"><img src="/azure/architecture/browse/thumbs/container-cicd-using-jenkins-and-kubernetes-on-azure-container-service.png" class="diagram" alt="Architecture Diagram" data-linktype="relative-path"></a>
+            <a href="/azure/architecture/solution-ideas/articles/container-cicd-using-jenkins-and-kubernetes-on-azure-container-service"><img src="/azure/architecture/browse/thumbs/container-cicd-using-jenkins-and-kubernetes-on-azure-container-service.png" class="diagram" alt="Thumbnail of Container CI/CD using Jenkins and Kubernetes on Azure Kubernetes Service (AKS) Architectural Diagram." data-linktype="relative-path"></a>
         </figure>
     </div>
     <div class="card-content">

@@ -89,7 +89,7 @@ In this solution, a single [Azure Active Directory (Azure AD)](https://azure.mic
 ## Next steps
 - [Design a microservice-oriented application](/dotnet/architecture/microservices/multi-container-microservice-net-applications/microservice-application-design)
 - [CI/CD pipeline for container-based workloads](../../example-scenario/apps/devops-with-aks.md)
-- [DevSecOps in Azure](/azure/architecture/solution-ideas/articles/devsecops-in-azure)
+- [DevSecOps in Azure](./devsecops-in-azure.md)
 - [DevTest and DevOps for IaaS solutions](dev-test-iaas.md)
 - [DevTest and DevOps for PaaS solutions](dev-test-paas.md)
 - [Set up Azure DevOps](/azure/devops/get-started/)

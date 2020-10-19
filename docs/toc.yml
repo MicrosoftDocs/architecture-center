@@ -1,6 +1,6 @@
 items:
 - name: Azure Architecture Center
-  href: /azure/architecture/
+  href: ./index.yml
 - name: Architecture icons
   href: icons/index.md
 - name: Browse all Architectures
@@ -257,8 +257,6 @@ items:
       href: framework/devops/development.md
     - name: Deployment
       href: framework/devops/deployment.md
-    - name: Infrastructure Deployments
-      href: framework/devops/iac.md
     - name: Monitoring
       href: framework/devops/monitoring.md
     - name: Performance
@@ -267,18 +265,16 @@ items:
       href: framework/devops/testing.md
     - name: Checklist
       href: checklist/dev-ops.md
-    - name: Release engineering
+    - name: Automation
       items:
-      - name: Release engineering overview
-        href: framework/devops/release-engineering-overview.md
-      - name: Application development
-        href: framework/devops/release-engineering-app-dev.md
-      - name: Continuous integration
-        href: framework/devops/release-engineering-ci.md
-      - name: Continuous deployment
-        href: framework/devops/release-engineering-cd.md
-      - name: Rollback and Rollforward 
-        href: framework/devops/release-engineering-rollback.md
+      - name: Automation Overview
+        href: framework/devops/automation-overview.md
+      - name: Repeatable infrastructure
+        href: framework/devops/automation-infrastructure.md
+      - name: Configure infrastructure
+        href: framework/devops/automation-configuration.md
+      - name: Automate operational tasks
+        href: framework/devops/automation-tasks.md
   - name: Performance Efficiency
     items:
     - name: Overview
@@ -673,6 +669,8 @@ items:
         href: example-scenario/ai/newsfeed-ingestion.md
       - name: Oil and Gas tank level forecasting
         href: solution-ideas/articles/oil-and-gas-tank-level-forecasting.md
+      - name: Partitioning in Event Hubs and Kafka
+        href: reference-architectures/event-hubs/partitioning-in-event-hubs-and-kafka.md
       - name: Predicting length of stay in hospitals
         href: solution-ideas/articles/predicting-length-of-stay-in-hospitals.md
       - name: Predictive aircraft engine monitoring
@@ -800,7 +798,7 @@ items:
         - name: Data storage
           href: data-guide/technology-choices/data-storage.md
         - name: Data store comparison
-          href: guide/technology-choices/data-store-comparison.md
+          href: ./guide/technology-choices/data-store-overview.md
         - name: Pipeline orchestration
           href: data-guide/technology-choices/pipeline-orchestration-data-movement.md
         - name: Real-time message ingestion
@@ -1228,7 +1226,9 @@ items:
       - name: Voice assistants and IoT devices
         href: solution-ideas/articles/iot-controlling-devices-with-voice-assistant.md
       - name: IoT using Azure Data Explorer
-        href: solution-ideas/articles/iot-azure-data-explorer.md
+        href: solution-ideas/articles/iot-azure-data-explorer.md      
+      - name: Buy online, pickup in store
+        href: example-scenario/iot/vertical-buy-online-pickup-in-store.md
     - name: Industrial IoT Analytics
       items:
       - name: Architecture
@@ -1447,6 +1447,8 @@ items:
         href: example-scenario/secrets/secure-refresh-tokens.md
       - name: Securely managed web apps
         href: example-scenario/apps/fully-managed-secure-apps.md
+      - name: Web app private database connectivity
+        href: example-scenario/private-web-app/private-web-app.md
       - name: Virtual network integrated microservices
         href: example-scenario/integrated-multiservices/virtual-network-integration.md
       - name: Virtual Network security options
@@ -1491,6 +1493,8 @@ items:
         href: solution-ideas/articles/sharepoint-farm-microsoft-365.md
       - name: Intelligent product search engine for e-commerce
         href: example-scenario/apps/ecommerce-search.md
+      - name: Magento e-commerce in AKS
+        href: example-scenario/magento/magento-azure.md
       - name: Migrate a web app using Azure APIM
         href: example-scenario/apps/apim-api-scenario.md
       - name: Multi-region N-tier application

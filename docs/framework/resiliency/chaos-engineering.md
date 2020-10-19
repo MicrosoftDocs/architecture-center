@@ -1,33 +1,33 @@
 ---
 title: Chaos engineering
-description: Chaos engineering fundamentals for improving reliability of a service built on Azure
+description: Chaos engineering fundamentals for improving the reliability of a service built on Azure.
 author: absheik
 ms.date: 04/03/2020
 ms.topic: article
 ms.service: architecture-center
 ms.subservice: well-architected
-ms.custom: How do you Chaos engineer your applications to ensure they're fault tolerant?
+ms.custom: How do you chaos engineer your applications to ensure they're fault tolerant?
 ---
 
-# Chaos Engineering
+# Chaos engineering
 
-Chaos engineering is a methodology used to enable developers to attain consistent reliability by hardening the services against failures in production. A common way to introduce chaos is by deliberately injecting fault that causes system components to fail. The goal is to observe, monitor, respond to, and improve your systems reliability under these circumstances.
+Chaos engineering is a methodology that helps developers attain consistent reliability by hardening services against failures in production. A common way to introduce chaos is to deliberately inject fault that causes system components to fail. The goal is to observe, monitor, respond to, and improve your system's reliability under these circumstances.
 
 ## Context
-Characteristics of a service behavior are very difficult to simulate outside of production environment at scale.  Transient nature of cloud platform exasperates this problem.  Architecting services expecting failure is a core tenant of modern service.  Chaos engineering embraces the uncertainty of production and strives to precipitate rare, unpredictable, and disruptive outcomes early so customer impact is minimized.
 
+It's very difficult to simulate the characteristics of a service's behavior outside a production environment at scale. The transient nature of a cloud platform exacerbates this problem. Architecting your service to expect failure is a core tenant of a modern service. Chaos engineering embraces the uncertainty of production and strives to precipitate rare, unpredictable, and disruptive outcomes early, so customer impact is minimized.
 
 ## Principles
 
 Chaos engineering is aimed at increasing your service’s resiliency and the ability to react to failures. By conducting experiments in a controlled environment, you can identify issues during development and deployment.
 
-- Be Proactive​
-- Embrace failure​
-- Break the system​
+- Be Proactive
+- Embrace failure
+- Break the system
 - Identify and address single points of failure early
 - Instill guardrails and graceful mitigations
 - Minimize blast radius
-- Build immunity​
+- Build immunity
 - Chaos engineering should be a part of the development team culture and an ongoing practice, not a short-term tactical effort in response to an outage.
 
 Development team are partners in the process. They must have resources to triage issues, implement testability required for fault injection, and drive the necessary product changes.

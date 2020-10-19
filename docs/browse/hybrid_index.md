@@ -16,8 +16,8 @@ Architecture diagrams, reference architectures, example scenarios, and solutions
 ## Apps
 <ul class="grid">
 
-[!INCLUDE [AI at the Edge with Azure Stack](../../includes/cards/ai-at-the-edge.md)]
-[!INCLUDE [AI at the Edge with Azure Stack - disconnected](../../includes/cards/ai-at-the-edge-disconnected.md)]
+[!INCLUDE [AI at the Edge with Azure Stack Hub](../../includes/cards/ai-at-the-edge.md)]
+[!INCLUDE [AI at the Edge with Azure Stack Hub - disconnected](../../includes/cards/ai-at-the-edge-disconnected.md)]
 [!INCLUDE [Azure Functions in a hybrid environment](../../includes/cards/azure-functions-hybrid.md)]
 [!INCLUDE [Azure Machine Learning decision guide for optimal tool selection](../../includes/cards/aml-decision-tree.md)]
 [!INCLUDE [Cross Cloud Scaling Architecture](../../includes/cards/cross-cloud-scaling.md)]
@@ -50,6 +50,7 @@ Architecture diagrams, reference architectures, example scenarios, and solutions
 [!INCLUDE [Hybrid ETL with Azure Data Factory](../../includes/cards/hybrid-etl-with-adf.md)]
 [!INCLUDE [Hybrid file services](../../includes/cards/hybrid-file-services.md)]
 [!INCLUDE [On-premises data gateway for Azure Logic Apps](../../includes/cards/gateway-logic-apps.md)]
+[!INCLUDE [Partitioning in Event Hubs and Kafka](../../includes/cards/partitioning-in-event-hubs-and-kafka.md)]
 [!INCLUDE [Publishing internal APIs to external users](../../includes/cards/publish-internal-apis-externally.md)]
 [!INCLUDE [Using Azure file shares in a hybrid environment](../../includes/cards/azure-file-share.md)]
 
