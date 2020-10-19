@@ -152,6 +152,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "docs/framework/devops/iac.md",
+      "redirect_url": "/azure/architecture/framework/devops/automation-infrastructure",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "docs/microservices/domain-analysis.md",
       "redirect_url": "/azure/architecture/microservices/model/domain-analysis",
       "redirect_document_id": true

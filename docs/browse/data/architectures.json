@@ -1027,7 +1027,7 @@
             "type": "reference-architecture",
             "file_url": "reference-architectures/containers/aks/secure-baseline-aks.md",
             "http_url": "/azure/architecture/reference-architectures/containers/aks/secure-baseline-aks",
-            "word_count": 7929,
+            "word_count": 7946,
             "read_time": "32 min read",
             "Title": "Baseline architecture for an Azure Kubernetes Service (AKS) cluster",
             "MetaDescription": "Reference architecture for a baseline infrastructure that deploys an Azure Kubernetes Service (AKS) cluster.",
@@ -6838,7 +6838,7 @@
                 "<p><a >Azure Hybrid File Sync</a> will be used for all shared storage. The storage will replicate to two file servers using Hybrid File Sync.</p>",
                 "<p><a href=\"https://docs.microsoft.com/azure/sql-database/sql-database-technical-overview\">Azure SQL Database</a> is a managed relational database service based on the latest stable version of the Microsoft SQL Server Database Engine. In this example, it is used to host Citrix databases.</p>",
                 "<p><a href=\"https://docs.microsoft.com/azure/expressroute/expressroute-introduction\">ExpressRoute</a> lets you extend your on-premises networks into the Microsoft cloud over a private connection facilitated by a connectivity provider.</p>",
-                "<p>[Active Directory Domain Services is used for Directory Services and user authentication</p>",
+                "<p><a href=\"https://docs.microsoft.com/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview\">Active Directory Domain Services</a> is used for Directory Services and user authentication.</p>",
                 "<p><a href=\"https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-availability-sets\">Azure Availability Sets</a> will ensure that the VMs you deploy on Azure are distributed across multiple isolated hardware nodes in a cluster. Doing this ensures that if a hardware or software failure within Azure happens, only a subset of your VMs are affected and that your overall solution remains available and operational.</p>",
                 "<p><a href=\"https://www.citrix.com/products/citrix-adc\">Citrix ADC (NetScaler)</a> is an application delivery controller that performs application-specific traffic analysis to intelligently distribute, optimize, and secure Layer 4-Layer 7 (L4\u2013L7) network traffic for web applications.</p>",
                 "<p><a href=\"https://www.citrix.com/products/citrix-virtual-apps-and-desktops/citrix-storefront.html\">Citrix Storefront</a> is an enterprise app store that improves security and simplifies deployments, delivering a modern, unmatched near-native user experience across Citrix Receiver on any platform. StoreFront makes it easy to manage multi-site and multi-version Citrix Virtual Apps and Desktops environments.</p>",
@@ -7422,7 +7422,7 @@
             "type": "reference-architecture",
             "file_url": "reference-architectures/containers/aks-microservices/aks-microservices.md",
             "http_url": "/azure/architecture/reference-architectures/containers/aks-microservices/aks-microservices",
-            "word_count": 4165,
+            "word_count": 4228,
             "read_time": "17 min read",
             "Title": "Microservices architecture on Azure Kubernetes Service (AKS)",
             "MetaDescription": "Deploy a microservices architecture on Azure Kubernetes Service (AKS)",
@@ -8267,6 +8267,40 @@
             "name": "oracle-migration-overview",
             "popularity": 0,
             "topic": "Databases"
+        },
+        {
+            "tags": [
+                "all-items",
+                "csharp",
+                "example-code",
+                "fcp",
+                "github",
+                "reference-architecture"
+            ],
+            "type": "reference-architecture",
+            "file_url": "reference-architectures/event-hubs/partitioning-in-event-hubs-and-kafka.md",
+            "http_url": "/azure/architecture/reference-architectures/event-hubs/partitioning-in-event-hubs-and-kafka",
+            "word_count": 3439,
+            "read_time": "12 min read",
+            "Title": "Partitioning in Event Hubs and Kafka",
+            "MetaDescription": "Learn about partitioning in Kafka and Event Hubs with Kafka. See how many partitions to use in ingestion pipelines and how to assign events to partitions.",
+            "category": [
+                "hybrid",
+                "analytics"
+            ],
+            "image": "/azure/architecture/reference-architectures/event-hubs/images/event-processing-service.png",
+            "imagepath": "C:\\jvPnpRepos\\architecture-center-pr\\docs\\reference-architectures\\event-hubs\\images\\event-processing-service.png",
+            "publish_date": "10/02/2020",
+            "Summary": "<p>This reference architecture provides strategies for the <a href=\"https://docs.microsoft.com/azure/event-hubs/event-hubs-scalability#partitions\">partitioning model</a> that event ingestion services use. Because event ingestion services provide solutions for high-scale event streaming, they need to process events in parallel and be able to maintain event order. They also need to balance loads and offer scalability. Partitioning models meet all of these requirements.</p>\n<p>Specifically, this document discusses the following strategies:</p>\n<ul>\n<li>How to assign events to partitions.</li>\n<li>How many partitions to use.</li>\n<li>How to assign partitions to subscribers when rebalancing.</li>\n</ul>\n<p>Many event ingestion technologies exist, including:</p>\n<ul>\n<li><a href=\"https://docs.microsoft.com/azure/event-hubs/event-hubs-about\">Azure Event Hubs</a>: A fully managed big data streaming platform.</li>\n<li><a href=\"https://www.confluent.io/what-is-apache-kafka/\">Apache Kafka</a>: An open-source stream-processing platform.</li>\n<li><a href=\"https://docs.microsoft.com/azure/event-hubs/event-hubs-for-kafka-ecosystem-overview\">Event Hubs with Kafka</a>: An alternative to running your own Kafka cluster. This Event Hubs feature provides an endpoint that is compatible with Kafka APIs.</li>\n</ul>\n<p>Besides offering partitioning strategies, this document also points out differences between partitioning in Event Hubs and Kafka.</p>",
+            "sample_code": true,
+            "github_url": "https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/eventhub/Azure.Messaging.EventHubs.Processor",
+            "code_languages": [
+                "csharp"
+            ],
+            "name": "partitioning-in-event-hubs-and-kafka",
+            "popularity": 0,
+            "topic": "Analytics",
+            "hybrid-topic": "Data"
         },
         {
             "tags": [
@@ -11897,7 +11931,7 @@
             "type": "reference-architecture",
             "file_url": "reference-architectures/app-service-web-app/app-monitoring.md",
             "http_url": "/azure/architecture/reference-architectures/app-service-web-app/app-monitoring",
-            "word_count": 1816,
+            "word_count": 1818,
             "read_time": "7 min read",
             "Title": "Web application monitoring on Azure",
             "MetaDescription": "Learn about the monitoring services and a dataflow model for use with multiple data sources. Many monitoring tools and services work with Azure deployments.",
