@@ -15,7 +15,7 @@ Before the cloud became popular, when it came to planning how a system would han
 
 Just as you needed to anticipate increases in load in on-premises environments, you need to anticipate increases in cloud environments to meet business requirements. One difference is that you no longer need to make long-term predictions for anticipated changes to ensure that you will have enough capacity in the future. Another difference is in the approach used to manage performance.
 
-Performance efficiency impacts the entire architecture spectrum. Bridge gaps in you knowledge of Azure by reviewing the 5 pillars in the [Microsoft Azure Well-Architected Framework](https://docs.microsoft.com/azure/architecture/framework/).
+Performance efficiency impacts the entire architecture spectrum. Bridge gaps in your knowledge of Azure by reviewing the 5 pillars in the [Microsoft Azure Well-Architected Framework](https://docs.microsoft.com/azure/architecture/framework/).
 
  To assess your workload using the tenets found in the Microsoft Azure Well-Architected Framework, see the [Microsoft Azure Well-Architected Review](https://docs.microsoft.com/assessments/?id=azure-architecture-review&mode=pre-assessment).
 
