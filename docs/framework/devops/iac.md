@@ -1,7 +1,7 @@
 ---
 title: Infrastructure Deployment
 description: Describes how to automate cloud deployments.
-author: jose-moreno
+author: neilpeterson
 ms.date: 10/21/2019
 ms.topic: article
 ms.service: architecture-center
