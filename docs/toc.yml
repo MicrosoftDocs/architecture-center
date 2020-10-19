@@ -257,8 +257,6 @@ items:
       href: framework/devops/development.md
     - name: Deployment
       href: framework/devops/deployment.md
-    - name: Infrastructure Deployments
-      href: framework/devops/iac.md
     - name: Monitoring
       href: framework/devops/monitoring.md
     - name: Performance
@@ -267,6 +265,16 @@ items:
       href: framework/devops/testing.md
     - name: Checklist
       href: checklist/dev-ops.md
+    - name: Automation
+      items:
+      - name: Automation Overview
+        href: framework/devops/automation-overview.md
+      - name: Repeatable infrastructure
+        href: framework/devops/automation-infrastructure.md
+      - name: Configure infrastructure
+        href: framework/devops/automation-configuration.md
+      - name: Automate operational tasks
+        href: framework/devops/automation-tasks.md
   - name: Performance Efficiency
     items:
     - name: Overview
