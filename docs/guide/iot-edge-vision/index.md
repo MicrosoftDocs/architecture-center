@@ -44,24 +44,35 @@ In terms of cost, sending all of the data to the cloud for analysis could signif
 
 ## Camera considerations
 
-Camera is understandably a very important component of an Azure IoT Edge Vision solution. To learn what considerations should be taken for this component, proceed to [Camera selection in Azure IoT Edge Vision](./iot-edge-camera.md).
+Camera is understandably a very important component of an Azure IoT Edge Vision solution. To learn what considerations should be taken for this component, proceed to [Camera selection in Azure IoT Edge Vision](./camera.md).
 
 ## Hardware acceleration
 
-To bring AI to the edge, the edge hardware should be able to run the powerful AI algorithms. To know the hardware capabilities required for IoT Edge Vision, proceed to [Hardware acceleration in Azure IoT Edge Vision](./iot-edge-hardware.md).
+To bring AI to the edge, the edge hardware should be able to run the powerful AI algorithms. To know the hardware capabilities required for IoT Edge Vision, proceed to [Hardware acceleration in Azure IoT Edge Vision](./hardware.md).
 
 ## Machine learning
 
-Machine learning can be challenging for the data on the edge, due to resource restrictions of edge devices, limited energy budget, and low compute capabilities. See [Machine learning and data science in Azure IoT Edge Vision](./iot-edge-machine-learning.md) to understand the key considerations in designing the machine learning capabilities of your IoT Edge Vision solution.
+Machine learning can be challenging for the data on the edge, due to resource restrictions of edge devices, limited energy budget, and low compute capabilities. See [Machine learning and data science in Azure IoT Edge Vision](./machine-learning.md) to understand the key considerations in designing the machine learning capabilities of your IoT Edge Vision solution.
 
 ## Image storage
 
-Your IoT Edge Vision solution cannot be complete without careful consideration of how and where the images generated will be stored. Read [Image storage and management in Azure IoT Edge Vision](./iot-edge-image-storage.md) for a thorough discussion.
+Your IoT Edge Vision solution cannot be complete without careful consideration of how and where the images generated will be stored. Read [Image storage and management in Azure IoT Edge Vision](./image-storage.md) for a thorough discussion.
 
 ## Alerts
 
-Your IoT Edge device may need to respond to various alerts in its environment. See [Alert persistence in Azure IoT Edge Vision](./iot-edge-alerts.md) to understand the best practices in managing these alerts.
+Your IoT Edge device may need to respond to various alerts in its environment. See [Alert persistence in Azure IoT Edge Vision](./alerts.md) to understand the best practices in managing these alerts.
 
 ## User interface
 
-The user interface or UI of your IoT Edge Vision solution will vary based on the target user. The article [User interface in Azure IoT Edge Vision](./iot-edge-user-interface.md) discusses the main UI considerations.
+The user interface or UI of your IoT Edge Vision solution will vary based on the target user. The article [User interface in Azure IoT Edge Vision](./user-interface.md) discusses the main UI considerations.
+
+## Next steps
+
+This series of articles demonstrate how to build a complete vision workload using Azure IoT Edge devices. For further information, you may refer to the product documentation as following:
+
+- [Azure IoT Edge documentation](https://docs.microsoft.com/azure/iot-edge/)
+- [Tutorial: Perform image classification at the edge with Custom Vision Service](https://docs.microsoft.com/azure/iot-edge/tutorial-deploy-custom-vision)
+- [Azure Machine Learning documentation](https://docs.microsoft.com/azure/machine-learning/)
+- [Azure Kinect DK documentation](https://docs.microsoft.com/azure/kinect-dk/)
+- [MMdnn tool](https://github.com/Microsoft/MMdnn)
+- [ONNX](https://onnx.ai/)

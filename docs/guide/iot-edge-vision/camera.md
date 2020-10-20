@@ -134,4 +134,4 @@ In building a computer vision workload, it is also important to understand how t
 
 ## Next steps
 
-Now that you know the camera considerations for your IoT Edge Vision workload, proceed to setting up the right hardware for your workload. Read [Hardware acceleration in Azure IoT Edge Vision](./iot-edge-hardware.md) for more information.
+Now that you know the camera considerations for your IoT Edge Vision workload, proceed to setting up the right hardware for your workload. Read [Hardware acceleration in Azure IoT Edge Vision](./hardware.md) for more information.

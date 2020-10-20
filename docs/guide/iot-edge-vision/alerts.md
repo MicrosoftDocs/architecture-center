@@ -45,4 +45,4 @@ The preferred option is to use the built-in store and forward capability of IoT 
 
 ## Next steps 
 
-Now you can proceed to work on the [User interface in Azure IoT Edge Vision](./iot-edge-user-interface.md) for your vision workload.
+Now you can proceed to work on the [User interface in Azure IoT Edge Vision](./user-interface.md) for your vision workload.

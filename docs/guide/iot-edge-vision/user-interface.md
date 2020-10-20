@@ -154,7 +154,7 @@ How many cameras will it take? Since we have figured out that our cameras can lo
 
 ![Camera mount scenario - Azure IoT Edge Vision](./images/truck-person-camera-mount.png)
 
-## Resources
+## Next steps
 
 This series of articles have demonstrated how to build a complete vision workload using Azure IoT Edge devices. For further information, you may refer to the product documentation as following:
 

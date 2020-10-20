@@ -138,4 +138,4 @@ In summary, here are the key considerations:
 
 ## Next steps
 
-Proceed to [Image storage and management in Azure IoT Edge Vision](./iot-edge-image-storage.md) article to learn how to properly store the images created by your IoT Edge Vision solution.
+Proceed to [Image storage and management in Azure IoT Edge Vision](./image-storage.md) article to learn how to properly store the images created by your IoT Edge Vision solution.
