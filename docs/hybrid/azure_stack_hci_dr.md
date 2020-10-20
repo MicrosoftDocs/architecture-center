@@ -115,6 +115,7 @@ The [Microsoft Azure Well-Architected Framework][azure-well-architected-framewor
 > [!CAUTION]
 > Stretched clusters do not support SDN.
 
+
 ### Security
 
 - **Protection in transit.** Storage Replica offers built-in security for its replication traffic, which includes packet signing, AES-128-GCM full data encryption, support for Intel AES-NI enc
