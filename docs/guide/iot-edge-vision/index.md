@@ -60,7 +60,7 @@ Your IoT Edge Vision solution cannot be complete without careful consideration o
 
 ## Alerts
 
-Your IoT Edge device may need to respond to various alerts in its environment. See [Alerts persistence in Azure IoT Edge Vision](./iot-edge-alerts.md) to understand the best practices in managing these alerts.
+Your IoT Edge device may need to respond to various alerts in its environment. See [Alert persistence in Azure IoT Edge Vision](./iot-edge-alerts.md) to understand the best practices in managing these alerts.
 
 ## User interface
 

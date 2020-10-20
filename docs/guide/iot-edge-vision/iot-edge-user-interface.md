@@ -156,7 +156,7 @@ How many cameras will it take? Since we have figured out that our cameras can lo
 
 ## Resources
 
-This series of articles have demonstrated how to build a complete Vision workload using Azure IoT Edge devices. For further information, you may refer to the product documentation as following:
+This series of articles have demonstrated how to build a complete vision workload using Azure IoT Edge devices. For further information, you may refer to the product documentation as following:
 
 - [Azure IoT Edge documentation](https://docs.microsoft.com/azure/iot-edge/)
 - [Tutorial: Perform image classification at the edge with Custom Vision Service](https://docs.microsoft.com/azure/iot-edge/tutorial-deploy-custom-vision)

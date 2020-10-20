@@ -1193,7 +1193,7 @@ items:
           href: guide/iot-edge-vision/iot-edge-machine-learning.md
         - name: Image storage
           href: guide/iot-edge-vision/iot-edge-image-storage.md
-        - name: Alerts persistence
+        - name: Alert persistence
           href: guide/iot-edge-vision/iot-edge-alerts.md
         - name: User interface
           href: guide/iot-edge-vision/iot-edge-user-interface.md

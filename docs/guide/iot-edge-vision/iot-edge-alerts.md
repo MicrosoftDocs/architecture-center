@@ -12,11 +12,11 @@ ms.category:
 ms.subservice: reference-architecture
 ---
 
-# Alerts persistence in Azure IoT Edge Vision
+# Alert persistence in Azure IoT Edge Vision
 
 In the context of vision on edge, an alert is a response to an event triggered by the AI model. In other words, it is the inferencing results. The type of event is determined by the training imparted to the model. These events are separate from operational events raised by the processing pipeline and any event related to the health of the runtime.
 
-## Alert types
+## Types of alerts 
 
 Some of the common alerts types are:
 
@@ -30,7 +30,7 @@ Some of the common alerts types are:
 
 Alerts are required to be monitored as they drive certain actions. They are critical to operations, being time sensitive in terms of processing, and are required to be logged for audit and further analysis.
 
-## Alerts persistence
+## Persistence of alerts
 
 The alerts need to persist locally on the edge where they are raised and then passed on to the cloud for further processing and storage. This ensures a quick local response and avoids losing critical alerts due to any transient failures.
 
