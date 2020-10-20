@@ -275,6 +275,18 @@ items:
         href: framework/devops/automation-configuration.md
       - name: Automate operational tasks
         href: framework/devops/automation-tasks.md
+    - name: Release engineering 
+      items:
+      - name: Release engineering overview
+        href: framework/devops/release-engineering-overview.md
+      - name: Application development
+        href: framework/devops/release-engineering-app-dev.md
+      - name: Continuous integration
+        href: framework/devops/release-engineering-ci.md
+      - name: Continuous deployment
+        href: framework/devops/release-engineering-cd.md
+      - name: Rollback and Rollforward 
+        href: framework/devops/release-engineering-rollback.md
   - name: Performance Efficiency
     items:
     - name: Overview
