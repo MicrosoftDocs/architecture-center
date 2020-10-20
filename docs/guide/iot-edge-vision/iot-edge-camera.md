@@ -31,7 +31,7 @@ Examples of manufacturers of area scan cameras are [Basler](https://www.baslerwe
 
 ### Line scan cameras
 
-Unlike the area scan cameras, the line scan camera has a single row of linear pixel sensors. This allows the camera to take one-pixel width images in very quick successions, and then stitches these together into a video stream. This video stream is then sent over to an Edge device for processing.
+Unlike the area scan cameras, the line scan camera has a single row of linear pixel sensors. This allows the camera to take one-pixel width images in quick successions, and then stitches them together into a video stream. This video stream is then sent over to an Edge device for processing.
 
 Line scan cameras are great for vision workloads where the items to be identified are either moving past the camera, or need to be rotated to detect defects. The line scan camera would then be able to produce a continuous image stream for evaluation. Examples of workloads that would work best with a line scan camera are:
 - an item defect detection on parts that are moved on a conveyer belt, 
@@ -50,7 +50,7 @@ Examples of manufacturers of embedded smart cameras are [Basler](https://www.bas
 
 ### Sensor size
 
-This is one of the most important factors to evaluate in any vision workload. A sensor is the hardware within a camera that captures the light and converts into signals, which then produce an image. The sensor contains millions of semiconducting photodetectors called photosites. A higher megapixel count does not always result in a better image. For example, let’s look at two different sensor sizes for a 12-megapixel camera. Camera A has a ½ inch sensor with 12 million photosites and camera B has a 1-inch sensor with 12 million photosites. In the same lighting conditions the camera that has the 1-inch sensor will be cleaner and sharper. Many cameras typically used in vision workloads have a sensor sized between ¼ inch to 1 inch. In some cases, much larger sensors might be required.
+This is one of the most important factors to evaluate in any vision workload. A sensor is the hardware within a camera that captures the light and converts into signals, which then produce an image. The sensor contains millions of semiconducting photodetectors called photosites. A higher megapixel count does not always result in a better image. For example, let’s look at two different sensor sizes for a 12-megapixel camera. Camera A has a ½ inch sensor with 12 million photosites and camera B has a 1-inch sensor with 12 million photosites. In the same lighting conditions, the camera that has the 1-inch sensor will be cleaner and sharper. Many cameras typically used in vision workloads have a sensor sized between ¼ inch to 1 inch. In some cases, much larger sensors might be required.
 
 If a camera has a choice between a larger sensor or a smaller sensor, some factors deciding why you might choose the larger sensor are:
 - need for precision measurements,
@@ -59,7 +59,7 @@ If a camera has a choice between a larger sensor or a smaller sensor, some facto
 
 ### Resolution 
 
-This is another very important factor to both line scan and area scan camera workloads. If your workload must identify fine features, such as the writing on an IC chip, then you need greater resolution cameras. If your workload is trying to detect a face, then higher resolution is required. And if you need to identify a vehicle from a distance, again a higher resolution will be required.
+This is another important factor to both line scan and area scan camera workloads. If your workload must identify fine features, such as the writing on an IC chip, then you need greater resolution cameras. If your workload is trying to detect a face, then higher resolution is required. And if you need to identify a vehicle from a distance, again a higher resolution will be required.
 
 ### Speed
 
@@ -112,7 +112,7 @@ In a vision workload, you need to know the distance to the object that you are t
 
 In building a computer vision workload, it is also important to understand how the system will interact with the output of the camera. Below are a few of the standard ways that a camera will communicate to IoT Edge:
 
-* **Real Time Streaming Protocol(RTSP):** RTSP is a protocol that transfers real-time video data from a device (in our case, the camera) to an endpoint device (Edge compute) directly over a TCP/IP connection. It functions in a client-server application model that is at the application level in the network.
+* **Real Time Streaming Protocol (RTSP):** RTSP is a protocol that transfers real-time video data from a device (in our case, the camera) to an endpoint device (Edge compute) directly over a TCP/IP connection. It functions in a client-server application model that is at the application level in the network.
 
 * **Open Network Video Interface Forum (ONVIF):** A global and open industry forum that is developing open standards for IP-based cameras. This standard is aimed at standardization of communication between the IP camera and down stream systems, interoperability, and open source.
 
@@ -126,7 +126,7 @@ In building a computer vision workload, it is also important to understand how t
   * **CSI-2**:  This standard was released in 2005, and uses either D-PHY or C-PHY as physical layers options. This is further divided into several layers:
     * Physical Layer (C-PHY, D-PHY)
     * Lane Merger layer
-    * Low Level Protocol Layer
+    * Low-Level Protocol Layer
     * Pixel to Byte Conversion Layer
     * Application layer
 
