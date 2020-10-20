@@ -13,35 +13,33 @@ ms.custom:
 # Kafka on Azure
 
 [Apache Kafka](https://kafka.apache.org/intro) is an open-source distributed event streaming platform with the capabilities of publishing, subscribing,
-storing, and processing streams of events in a distributed and highly scalable manner. Kafka can be deployed on hardware, virtual machines, containers,
+storing, and processing streams of events in a distributed and highly scalable manner. Kafka is deployed on hardware, virtual machines, containers,
 and on-premises as well as in the cloud.
-
-This article presents options for implementing Apache Kafka on Azure, evaluates their pros and cons, provides a feature comparison, and offers a decision guidance matrix to help you select between them.
-
-## Use cases
 
 While evaluating solutions for implementing Kafka on Azure, let's consider these two basic use cases:
 
 1. You are already using Apache Kafka and want to know ways to either deploy it on Azure Cloud or emulate the experience in Azure with minimal changes to your current setup.
-2. You are interested in implementing solutions with Apache Kafka for Greenfield projects and want to use Azure.
+2. You are interested in implementing solutions with Apache Kafka for [greenfield projects](https://wikipedia.org/wiki/Greenfield_project) and want to use Azure.
+
+This article presents options for implementing Apache Kafka on Azure, evaluates their pros and cons, provides a feature comparison, and offers a decision guidance matrix to help you select between the options.
 
 ## Architecture
 
-The following diagram shows what a typical Lambda architecture would look like with different Kafka on Azure options for the ingestion phase and an exhaustive list of services from the Azure ecosystem supporting them.
+The following diagram shows what a typical [Lambda architecture](https://wikipedia.org/wiki/Lambda_architecture) looks like with different Kafka on Azure options for the ingestion phase and an exhaustive list of services from the Azure ecosystem supporting them.
 
-![Typical Lambda Architecture with Kafka on Azure options.](../media/kafka-on-azure-architecture-diagram.png)
+![Diagram of a typical Lambda architecture showing options for implementing Apache Kafka on Azure.](../media/kafka-on-azure-architecture-diagram.png)
 
 ## Options for using Kafka on Azure
 
-To help you evaluate the options for Kafka on Azure, we've placed them on a continuum between Infrastructure-as-a-service (IaaS) and Platform-as-a-service (PaaS).
+To evaluate the options for Kafka on Azure, place them on a continuum between Infrastructure-as-a-Service (IaaS) and Platform-as-a-Service (PaaS).
 
-We recommend that you evaluate them using a PaaS-first approach. First, consider whether your design requirements are met using the PaaS offering, and if you come across a limitation, move on to the next offering in the list.
+To evaluate the options, use a PaaS-first approach. First, consider whether your design requirements are met using the PaaS offering, and if you come across a limitation, move on to the next offering in the list.
 
 The following diagram summarizes Kafka on Azure options using the IaaS-PaaS continuum.
 
 ![Diagram showing the steps in a PaaS first approach with Kafka on Azure.](../media/kafka-on-azure-paas-first-approach.png)
 
-In the following sections, we'll look at the options for Kafka on Azure one by one, presenting pros and cons for each.
+The following sections present pros and cons for each Kafka on Azure option.
 
 ### Confluent Cloud - PaaS
 
