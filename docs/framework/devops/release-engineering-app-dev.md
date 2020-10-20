@@ -23,6 +23,30 @@ This article details many considerations and practices that you may want to cons
 
 ## Development environments
 
+When developing software for the cloud, or any environment for that matter, care needs to be taken to ensure that the development environment is set up for success. When setting up a development environment, you may consider questions like the following:
+
+- How do I ensure that all dependencies are in place?
+- How can I best configure my development environment to emulate a production environment?
+- How can I collaborate with my peers during the development process?
+
+The following sections briefly detail technology that aids during the inner-loop development process.
+
+### Docker Desktop
+
+Docker Desktop is an application that provides a Docker environment on your development system. Docker Desktop includes not only the Docker runtime but application development tools and local Kubernetes environment. Using Docker Desktop, you can develop in any language, create and test container images, and when ready, push application ready container images to a container registry for production use.
+
+**Learn more**
+
+- [Docker Desktop](https://docs.microsoft.com/windows/wsl/)
+
+### Windows Subsystem for Linux
+
+Many applications and solutions are built on Linux. Windows Subsystem for Linux provides a Linux environment on your Windows machines, including many command-line tools, utilities, and Linux applications. Multiple GNU/Linux distributions are available and can be found in the Microsoft Store.
+
+**Learn more**
+
+- [Documentation: Windows Subsystem for Linux Documentation](https://www.docker.com/products/docker-desktop)
+
 ## Test-driven development
 
 ## Source control
