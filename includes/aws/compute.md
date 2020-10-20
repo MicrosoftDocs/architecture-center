@@ -21,15 +21,15 @@ ms.service: architecture-center
 | ----------- | ------------- | ----------- |
 | [Elastic Container Service (ECS)](https://aws.amazon.com/ecs/)<br/><br/>[Fargate](https://aws.amazon.com/fargate/) | [Container Instances](https://azure.microsoft.com/services/container-instances/) | Azure Container Instances is the fastest and simplest way to run a container in Azure, without having to provision any virtual machines or adopt a higher-level orchestration service. |
 | [Elastic Container Registry](https://aws.amazon.com/ecr/) | [Container Registry](https://azure.microsoft.com/services/container-registry/) | Allows customers to store Docker formatted images. Used to create all types of container deployments on Azure. |
-| [Elastic Kubernetes Service (EKS)](https://aws.amazon.com/eks/) | [Kubernetes Service (AKS)](https://azure.microsoft.com/services/kubernetes-service/) | Deploy orchestrated containerized applications with Kubernetes. Simplify monitoring and cluster management through auto upgrades and a built-in operations console. |
+| [Elastic Kubernetes Service (EKS)](https://aws.amazon.com/eks/) | [Kubernetes Service (AKS)](https://azure.microsoft.com/services/kubernetes-service/) | Deploy orchestrated containerized applications with Kubernetes. Simplify monitoring and cluster management through auto upgrades and a built-in operations console. See [AKS solution journey](/azure/architecture/reference-architectures/containers/aks-start-here). |
 | [App Mesh](https://aws.amazon.com/app-mesh/) | [Service Fabric Mesh](https://docs.microsoft.com/azure/service-fabric-mesh/service-fabric-mesh-overview) | Fully managed service that enables developers to deploy microservices applications without managing virtual machines, storage, or networking.
 
-### Container architectures
+#### Container architectures
 
 <ul class="grid">
 
+[!INCLUDE [Azure Kubernetes Service (AKS) Baseline Cluster](../../includes/cards/aks-baseline.md)]
 [!INCLUDE [Microservices architecture on Azure Kubernetes Service (AKS)](../../includes/cards/aks.md)]
-[!INCLUDE [Elastic demand handling with AKS](../../includes/cards/aks-demand-spikes.md)]
 [!INCLUDE [CI/CD pipeline for container-based workloads](../../includes/cards/devops-with-aks.md)]
 
 </ul>
@@ -42,7 +42,7 @@ ms.service: architecture-center
 | ----------- | ------------- | ----------- |
 | [Lambda](https://aws.amazon.com/lambda/) | [Functions](https://azure.microsoft.com/services/functions/) | Integrate systems and run backend processes in response to events or schedules without provisioning or managing servers. |
 
-### Serverless architectures
+#### Serverless architectures
 
 <ul class="grid">
 
