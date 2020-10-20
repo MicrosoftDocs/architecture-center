@@ -1189,9 +1189,9 @@ items:
           href: guide/iot-edge-vision/iot-edge-camera.md
         - name: Hardware acceleration
           href: guide/iot-edge-vision/iot-edge-hardware.md
-        - name: Machine learning considerations
+        - name: Machine learning
           href: guide/iot-edge-vision/iot-edge-machine-learning.md
-        - name: Image storage and management
+        - name: Image storage
           href: guide/iot-edge-vision/iot-edge-image-storage.md
         - name: Alerts persistence
           href: guide/iot-edge-vision/iot-edge-alerts.md
