@@ -1,7 +1,7 @@
 ---
 title: Camera selection for IoT Edge Vision
 titleSuffix: Azure Architecture Center
-description: 
+description: This article describes the camera considerations for Azure IoT Edge Vision solution.
 author: MSKeith
 ms.date: 09/30/2020
 ms.topic: guide
@@ -55,7 +55,8 @@ If a camera has a choice between a larger sensor or a smaller sensor some factor
 
 - **Speed**- Sensors come in two types, a *CCD* and a *CMOS*. If the vision workload requires high number of images per second capture rate, then there are two factors that come into play. The first is how fast is the connection on the interface of the camera and the second is what type of sensor is it. CMOS sensors have a direct readout from the photosites and because of this they typically offer a higher frame rate.
 
-> [!NOTE] There are more camera features to consider when selecting the correct camera for your vision workload. These include lens selection, focal length, monochrome, color depth, stereo depth, triggers, physical size, and support. Sensor manufacturers can help you understand the specific feature that your application may require.
+> [!NOTE]
+> There are more camera features to consider when selecting the correct camera for your vision workload. These include lens selection, focal length, monochrome, color depth, stereo depth, triggers, physical size, and support. Sensor manufacturers can help you understand the specific feature that your application may require.
 
 ## Camera placement
 
@@ -83,9 +84,8 @@ In a computer vision workload, lighting is a critical component to camera placem
 
 * **Dark Field lighting:** This type of light source uses several lights in conjunction with different angles to the part.  For example, if the part is laying flat on a conveyor belt the lights would be placed at a 45-degree angle to the part.  This type of lighting is most useful when looking at highly reflective clear objects…and is most commonly used with lens scratch detections.
 
-  Angular placement of light
 
-![lightingchart](./images/lightingchart.png)
+![Angular placement of light - IoT Edge Vision](./images/lightingchart.png)
 
 ### Field of View
 

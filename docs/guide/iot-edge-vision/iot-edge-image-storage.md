@@ -1,7 +1,7 @@
 ---
-title: Azure IoT Edge Vision
+title: Image storage in IoT Edge Vision
 titleSuffix: Azure Architecture Center
-description: 
+description: This article describes the considerations for image storage in an Azure IoT Edge Vision solution.
 author: MSKeith
 ms.date: 09/30/2020
 ms.topic: guide
@@ -26,7 +26,7 @@ Some of the key considerations for managing those images are:
 
 The combination of Azure Blob Storage, Azure IoT Hub, and Azure IoT Edge allow several potential options for the storage of image data:
 
-* Use of the [Azure IoT Edge Blob Storage module](https://docs.microsoft.com/en-us/azure/iot-edge/how-to-store-data-blob), which will automatically sync images to Azure Blob based on policy
+* Use of the [Azure IoT Edge Blob Storage module](https://docs.microsoft.com/azure/iot-edge/how-to-store-data-blob), which will automatically sync images to Azure Blob based on policy
 * Store images to local host file system and upload to Azure blob service using a custom module
 * Use of local database to store images, which then can be synced to cloud database
 

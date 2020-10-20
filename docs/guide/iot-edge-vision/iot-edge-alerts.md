@@ -1,7 +1,7 @@
 ---
-title: Azure IoT Edge Vision
+title: Alerts in IoT Edge Vision
 titleSuffix: Azure Architecture Center
-description: 
+description: This article describes the persistence of alerts in an Azure IoT Edge Vision solution.
 author: MSKeith
 ms.date: 09/30/2020
 ms.topic: guide
@@ -45,4 +45,4 @@ The preferred option is to use the built-in store and forward capability of IoT 
 
 ## Next steps: 
 
-Now you can proceed to work on the [User interface in Azure IoT Edge Vision](iot-edge-user-interface.md) for this IoT Edge Vision solution.
+Now you can proceed to work on the [User interface in Azure IoT Edge Vision](./iot-edge-user-interface.md) for this IoT Edge Vision solution.

@@ -1,7 +1,7 @@
 ---
-title: Azure IoT Edge Vision
+title: Hardware for IoT Edge Vision
 titleSuffix: Azure Architecture Center
-description: 
+description: This article describes the hardware considerations for Azure IoT Edge Vision solution.
 author: MSKeith
 ms.date: 09/30/2020
 ms.topic: guide
@@ -36,4 +36,4 @@ Application Specific Integrated Circuit is by far the fastest accelerator on the
 
 ## Next steps
 
-Proceed to learn what considerations go into place for [Machine learning and data science in Azure IoT Edge Vision](./iot-edge-machine-learning).
+Proceed to learn what considerations go into place for [Machine learning and data science in Azure IoT Edge Vision](./iot-edge-machine-learning.md).

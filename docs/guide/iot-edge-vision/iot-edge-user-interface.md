@@ -1,7 +1,7 @@
 ---
-title: Azure IoT Edge Vision
+title: User interface in IoT Edge Vision
 titleSuffix: Azure Architecture Center
-description: 
+description: This article describes the user interface considerations in an Azure IoT Edge Vision solution.
 author: MSKeith
 ms.date: 09/30/2020
 ms.topic: guide
@@ -133,17 +133,17 @@ Based on the distance of the loading dock size Contoso Shipping will require sev
 
 Formula:
 
-![field of view](./images/fieldofview.png)
+![Formula for field of view - Azure IoT Edge Vision](./images/fieldofview.png)
 
 For an example if we look at the following images:
 
-Taken with 480 horizontal pixels at 20 foot
+This image is taken with 480 horizontal pixels at 20 foot:
 
-![car1](./images/car1.png)
+![Car image at 480 pixels - Azure IoT Edge Vision](./images/car1.png)
 
-Taken with 5184 horizontal pixels at 20 foot
+This image is taken with 5184 horizontal pixels at 20 foot:
 
-![car2](./images/car2.png)
+![Car image at 5184 pixels - Azure IoT Edge Vision](./images/car2.png)
 
 The red square is shown to illustrate one pixel color.
 
