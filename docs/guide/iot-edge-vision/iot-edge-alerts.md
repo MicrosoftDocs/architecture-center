@@ -43,6 +43,6 @@ Some options to achieve this persistence and cloud syncing are:
 
 The preferred option is to use the built-in store and forward capability of IoT Edge runtime. This is more suitable for the alerts due to its time sensitivity, typically small messages sizes, and ease of use.
 
-## Next steps: 
+## Next steps 
 
 Now you can proceed to work on the [User interface in Azure IoT Edge Vision](./iot-edge-user-interface.md) for your vision workload.
