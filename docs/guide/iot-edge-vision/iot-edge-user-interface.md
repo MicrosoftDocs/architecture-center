@@ -33,7 +33,7 @@ This article focuses on a simple operator’s user interface and visualization d
 
 - **Azure SignalR Service** - For real time data reporting, Azure SignalR Service, makes adding real-time communications to your web application as simple as provisioning a service. An in-depth real-time communications expertise is not required. It easily integrates with services such as Azure Functions, Azure Active Directory, Azure Storage, Azure App Service, Azure Analytics, Power BI, Azure IoT, Azure Cognitive Services, Azure Machine Learning, and more.
 
-To secure your user interface solutions, **Azure Active Directory (Azure AD)** enterprise identity service provides single sign-on and multi-factor authentication to help protect your users from 99.9 percent of cybersecurity attacks.
+To secure your user interface solutions, **Azure Active Directory (Azure AD)** enterprise identity service provides single sign-on and multi-factor authentication.
 
 Now let's learn how to build the user interface for some common scenarios.
 
@@ -160,3 +160,7 @@ This series of articles have demonstrated how to build a complete Vision workloa
 
 - [Azure IoT Edge documentation](https://docs.microsoft.com/azure/iot-edge/)
 - [Tutorial: Perform image classification at the edge with Custom Vision Service](https://docs.microsoft.com/azure/iot-edge/tutorial-deploy-custom-vision)
+- [Azure Machine Learning documentation](https://docs.microsoft.com/azure/machine-learning/)
+- [Azure Kinect DK documentation](https://docs.microsoft.com/azure/kinect-dk/)
+- [MMdnn tool](https://github.com/Microsoft/MMdnn)
+- [ONNX](https://onnx.ai/)

@@ -39,7 +39,7 @@ The IoT Edge Blob Storage module is one of the most powerful and straightforward
 3. To conserve space on the Edge device, auto-delete after certain time is configured along with *retain while uploading* option to ensure all images get synced to the cloud.
 4. Local categorization or domain and labeling is implemented using module that can read these images into the UX. The label data is associated to the image URI along with the coordinates and category.
 5. As label data needs to be saved, a local database is preferred to store this metadata, as it will allow easy lookup for the UX and can be synced to the cloud using telemetry messages.
-6. During scoring run, the model detects matching patterns and generates events of interest. This metadata is sent to cloud via telemetry referring the image URI and optionally stored in local database for edge UX. The images continue to be stored to Edge Blob and synced with Azure Blob.
+6. During scoring run, the model detects matching patterns and generates events of interest. This metadata is sent to cloud via telemetry referring to the image URI and optionally stored in local database for edge UX. The images continue to be stored to Edge Blob and synced with Azure Blob.
 
 ## Next steps
 
