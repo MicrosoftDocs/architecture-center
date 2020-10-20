@@ -6,7 +6,7 @@ author: MSKeith
 ms.date: 10/22/2020
 ms.topic: guide
 ms.service: architecture-center
-ms.author: kehilsch
+ms.author: keith
 ms.category:
   - fcp
 ms.subservice: reference-architecture
@@ -30,7 +30,7 @@ It is always critical to clearly define the problem to be solved as the data sci
 
 Even at the start, before training any models, real world data collection and examination will help this process greatly and new ideas could even arise. This article will discuss data considerations in detail. Of course, the equipment itself will help determine the ML approach with regard to device attributes like limited memory, compute, and/or power consumption limits.
 
-Fortunately, data science and machine learning are iterative processes, so if the ML model has poor performance, there are many ways to address issues through experimention. This article will also discuss consideratinos around ML architecture choices. Often, there will be some trial and error involved as well.
+Fortunately, data science and machine learning are iterative processes, so if the ML model has poor performance, there are many ways to address issues through experimentation. This article will also discuss considerations around ML architecture choices. Often, there will be some trial and error involved as well.
 
 ## Machine learning data
 
@@ -39,15 +39,15 @@ Both the source(s) and attributes of data will dictate how the intelligent edge 
 Collecting and using a _balanced dataset_ is critical, and it should equally represent all classes or categories. When the ML model is trained on a dataset, generally that dataset has been split into train, validate, and test subsets. The purpose of these subsets is as follows:
 
 * The training dataset is used for the actual model training over many passes or iterations (often called _epochs_).
-* Througout the training process, the model is spot-checked for how well it is doing on the validation dataset.  
+* Throughout the training process, the model is spot-checked for how well it is doing on the validation dataset.  
 * After a model is done training, the final step is to pass the test dataset through it and assess how well it did as a proxy to the real-world. 
 
 > [!NOTE]
 > Be wary of optimizing for the test dataset, in addition to the training dataset, once one test has been run. It might be good to have a few different test datasets available.
 
-Some good news is that in using deep learning, often costly and onerous feature engineering, featurizations, and preprocessing can be avoided because of how deep learning works to find signal in noise better than traditional ML. However, in deep learning, transformations may still be utilized to clean or reformat data for model input during training as well as inference. The same preprocessing needs to be used in training and when the model is scoring new data.  
+Some good news is that in using deep learning, often costly and onerous feature engineering, featurizations, and preprocessing can be avoided because of how deep learning works to find signal in noise better than traditional ML. However, in deep learning, transformations may still be utilized to clean or reformat data for model input during training as well as inference. The same capacity needs to be used in training and when the model is scoring new data.  
 
-When advanced preprocessing is used such as de-noising, adjusting brightness or contrast, or transformations like RGB to HSV, it must be noted that this can dramatically change the model performance for the better or, sometimes, for the worse.  In general, it is part of the data science exploration process and sometimes it is something that must be observed once the device and other components are placed in a real-world location.
+When advanced preprocessing is used such as denoising, adjusting brightness or contrast, or transformations like RGB to HSV, it must be noted that this can dramatically change the model performance for the better or, sometimes, for the worse.  In general, it is part of the data science exploration process and sometimes it is something that must be observed once the device and other components are placed in a real-world location.
 
 After the hardware is installed into its permanent location, the incoming data stream should be monitored for data drift.
 
@@ -71,7 +71,7 @@ Machine learning (ML) architecture is the layout of the mathematical operations 
 
 It helps to understand the issues that can arise when training an ML model that may only be seen after training or, even at the point of inferencing on device. Overfitting and underfitting are some of the common issues found during the training and testing process.
 
-* **Overfitting** - Overfitting can give a false sense of success because the performance metric (like accuracy) might be very good when the input data looks like the training data.  However, overfitting can occur when the model fits to the training data too closely and can not generalize well to new data. For example, it may become apparent that the model only performs well indoors because the training data was from an indoor setting.
+* **Overfitting** - Overfitting can give a false sense of success because the performance metric (like accuracy) might be very good when the input data looks like the training data.  However, overfitting can occur when the model fits to the training data too closely and cannot generalize well to new data. For example, it may become apparent that the model only performs well indoors because the training data was from an indoor setting.
 
   Overfitting can be caused by following issues:
   
@@ -81,7 +81,7 @@ It helps to understand the issues that can arise when training an ML model that 
   * The model is trained over too many iterations.
   * There may be other reasons for good performance in training and significantly worse performance in validation and testing, which are out of scope for this article.
 
-* **Underfitting** - Underfitting happens when the model has generalized so well that it can not tell the difference between classes with confidence. For example, the training _loss_ will still be unacceptably high.
+* **Underfitting** - Underfitting happens when the model has generalized so well that it cannot tell the difference between classes with confidence. For example, the training _loss_ will still be unacceptably high.
 
   Underfitting can be caused by following issues:
 
@@ -95,13 +95,13 @@ There is no hard and fast rule for determining number of layers for deep neural 
 
 Some considerations when coming up with the best architecture choice will include the inference speed requirements. These include an assessment and acceptance of the speed versus accuracy tradeoff. Often, a faster inference speed is associated with lower performance. For example, accuracy, confidence or precision could suffer.
 
-A discussion around requirements for the ML training and inferencing will be necessary based upon the considerations above and any company specific requirements.  For instance, if the company policy allows open source solutions to be utilized, it will open up a great deal of ML algorithmic possibilities as most cutting edge ML work is in the open source domain.
+A discussion around requirements for the ML training and inferencing will be necessary based upon the considerations above and any company-specific requirements.  For instance, if the company policy allows open-source solutions to be utilized, it will open up a great deal of ML algorithmic possibilities as most cutting edge ML work is in the open-source domain.
 
 In summary, here are the key considerations:
 
 * Keep an eye out for overfitting and underfitting.
 * Testing several ML architectures is often a good idea. This is an iterative process.
-* There will be a trade-off between too much network capaticy and too little. However, it is better to start with too little and build up from there.
+* There will be a trade-off between too much network capacity and too little. However, it is better to start with too little and build up from there.
 * There will be a trade-off between speed and your performance metric such as accuracy.
 * If the performance of the ML model is acceptable, the exploratory phase is complete. This is important to note, as one can be tempted to iterate indefinitely.
 
@@ -113,12 +113,12 @@ The data science process for edge deployments has a general pattern. After a cle
 
 * **Data collection** -  Data collection or acquisition could be an online image search from a currently deployed device, or other representative data source.  Generally, the more data the better. In addition, the more variability, the better the generalization.
 * **Data labeling** - If only hundreds of images need to be labeled, such as, when using transfer learning, it can be done in-house. If tens of thousands of images need to be labeled, a vendor could be enlisted for both data collection and labeling.  
-* **Train a model with ML framework** - An ML framework such as *TensorFlow* or *PyTorch* (both with Python and C++ APIs) will need to be chosen. Usually this depends upon what code samples are available in open source or in-house, as well as the experience of the ML practitioner. Azure ML may be used to train a model using any ML framework and approach, as it is agnostic of framework and has Python and R bindings, and many wrappers around popular frameworks.
-* **Convert the model for inferencing on device** - Almost always, a model will need to be converted to work with a particular runtime. Model conversion usually involves advantageous optimizations like faster inference and smaller model footprints. This step differs for each ML framework and runtime. There are open source interoperability frameworks available such as *ONNX* and *MMdnn*.  
+* **Train a model with ML framework** - An ML framework such as *TensorFlow* or *PyTorch* (both with Python and C++ APIs) will need to be chosen. Usually this depends upon what code samples are available in open-source or in-house, as well as the experience of the ML practitioner. Azure ML may be used to train a model using any ML framework and approach, as it is agnostic of framework and has Python and R bindings, and many wrappers around popular frameworks.
+* **Convert the model for inferencing on device** - Almost always, a model will need to be converted to work with a particular runtime. Model conversion usually involves advantageous optimizations like faster inference and smaller model footprints. This step differs for each ML framework and runtime. There are open-source interoperability frameworks available such as *ONNX* and *MMdnn*.  
 * **Build the solution for device** - The solution is usually built on the same type of device as will be used in the final deployment because binary files created system-specific.  
 * **Using runtime, deploy solution to device** - Once a runtime is chosen, usually in conjunction with the ML framework choice, the compiled solution may be deployed. The Azure IoT Runtime is a Docker-based system in which the ML runtimes may be deployed as containers.
 
-The diagram below shows a sample data science process where open source tools may be leveraged for the data science workflow. Data availability and type will drive most of the choices, including the devices/hardware chosen.
+The diagram below shows a sample data science process where open-source tools may be leveraged for the data science workflow. Data availability and type will drive most of the choices, including the devices/hardware chosen.
 
 ![Vision on the edge work flow](./images/vision_edge_flow.png)
 
@@ -132,7 +132,7 @@ In summary, here are the key considerations:
 
 * Converting models also involves optimizations such as faster inference and smaller model footprints, critical for very resource-constrained devices.
 * The solution will usually need to be built on a build-dedicated device, the same type of device to which the solution will be deployed.
-* The language and framework of choice will depend upon both the ML practitioner's experience as well as what is available in open source.
+* The language and framework of choice will depend upon both the ML practitioner's experience as well as what is available in open-source.
 * The runtime of choice will depend upon the availability of the device and hardware acceleration for ML.
 * It is important to have a code, model, and data versioning system.
 
