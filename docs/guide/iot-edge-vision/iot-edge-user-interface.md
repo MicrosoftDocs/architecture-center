@@ -6,7 +6,7 @@ author: MSKeith
 ms.date: 10/22/2020
 ms.topic: guide
 ms.service: architecture-center
-ms.author: kehilsch
+ms.author: keith
 ms.category:
   - fcp
 ms.subservice: reference-architecture
@@ -31,7 +31,7 @@ This article focuses on a simple operator’s user interface and visualization d
 
 - **Azure App Service** - Azure App Service is a managed platform with powerful capabilities for building web and mobile apps for many platforms and mobile devices. It allows developers to quickly build, deploy, and scale web apps created with popular frameworks, such as .NET, .NET Core, Node.js, Java, PHP, Ruby, or Python, in containers or running on any supported operating system. You can also meet rigorous, enterprise-grade performance, security, and compliance requirements by using the fully managed platform for your operational and monitoring tasks.
 
-- **Azure SignalR Service** - For real time data reporting, Azure SignalR Service, makes adding real-time communications to your web application as simple as provisioning a service. An in-depth real-time communications expertise is not required. It easily integrates with services such as Azure Functions, Azure Active Directory, Azure Storage, Azure App Service, Azure Analytics, Power BI, Azure IoT, Azure Cognitive Services, Azure Machine Learning, and more.
+- **Azure SignalR Service** - For real-time data reporting, Azure SignalR Service, makes adding real-time communications to your web application as simple as provisioning a service. An in-depth real-time communications expertise is not required. It easily integrates with services such as Azure Functions, Azure Active Directory, Azure Storage, Azure App Service, Azure Analytics, Power BI, Azure IoT, Azure Cognitive Services, Azure Machine Learning, and more.
 
 To secure your user interface solutions, **Azure Active Directory (Azure AD)** enterprise identity service provides single sign-on and multi-factor authentication.
 
@@ -39,7 +39,7 @@ Now let's learn how to build the user interface for some common scenarios.
 
 ## Scenario 1
 
-Contoso Boards produces high quality circuit boards used in computers. Their number one product is a motherboard. Lately, they have been seeing an increase in issues with chip placement on the board. Through their investigation, they have noticed that the circuit boards are getting placed incorrectly on the assembly line. They need a way to identify if the circuit board is placed on the assembly line correctly. The data scientist at Contoso Boards are most familiar with TensorFlow and would like to continue using it as their primary ML model structure. Contoso Boards has several assembly lines that produce these mother boards. They would also like to centralize the management of the entire solution.
+Contoso Boards produces high-quality circuit boards used in computers. Their number one product is a motherboard. Lately, they have been seeing an increase in issues with chip placement on the board. Through their investigation, they have noticed that the circuit boards are getting placed incorrectly on the assembly line. They need a way to identify if the circuit board is placed on the assembly line correctly. The data scientists at Contoso Boards are most familiar with TensorFlow and would like to continue using it as their primary ML model structure. Contoso Boards has several assembly lines that produce these mother boards. They would also like to centralize the management of the entire solution.
 
 ### Considerations in this scenario
 
@@ -77,7 +77,7 @@ Contoso Boards can ask themselves questions such as the following:
 
 ### Solution
 
-To find the solution that will be useful for Contoso Boards, let's focus on the edge detection. We need to **position a camera directly above at 90 degrees and about 16 inches above the edge part**. Since the conveyer system moves relatively slowly, we can use an **area scan** camera with a **global shutter**. For this use case, our camera should **capture about 30 frames per second**. The resolution can be found using the formula of `Res=(Object Size) Divided by (details to be captured)`. Based on this formula, **Res=16”/8”** gives 2MP in x and 4 in y, so we need a **camera capable of 4MP**. As for the sensor type, we are not fast moving, and really looking for an edge detection, so a **CMOS sensor** is better suited. One of the more critical aspects for any vision workload is lighting. In this application, Contoso Boards should choose to use a **white diffused filter back light**. This will make the part look almost black and have a high amount of contrast for edge detection. When it comes to color options for this application, it is better to be in black and white, as this is what will yield the sharpest edge for the AI detection model. The data scientist are most familiar with TensorFlow, so learning ONNX or others would slow down the time for development of the model. Also because there are several assembly lines that will use this solution, and Contoso Boards would like a centrally managed edge solution, so **Azure Stack Edge** (with GPU option) would work well here. Based on the workload, the fact that Contoso Boards already know TensorFlow, and this will be used on multiple assembly lines, GPU based hardware would be the choice for hardware acceleration.
+To find the solution that will be useful for Contoso Boards, let's focus on the edge detection. We need to **position a camera directly above at 90 degrees and about 16 inches above the edge part**. Since the conveyer system moves relatively slowly, we can use an **area scan** camera with a **global shutter**. For this use case, our camera should **capture about 30 frames per second**. The resolution can be found using the formula of `Res=(Object Size) Divided by (details to be captured)`. Based on this formula, **Res=16”/8”** gives 2MP in x and 4 in y, so we need a **camera capable of 4MP**. As for the sensor type, we are not fast moving, and really looking for an edge detection, so a **CMOS sensor** is better suited. One of the more critical aspects for any vision workload is lighting. In this application, Contoso Boards should choose to use a **white diffused filter back light**. This will make the part look almost black and have a high amount of contrast for edge detection. When it comes to color options for this application, it is better to be in black and white, as this is what will yield the sharpest edge for the AI detection model. The data scientists are most familiar with TensorFlow, so learning ONNX or others would slow down the time for development of the model. Also because there are several assembly lines that will use this solution, and Contoso Boards would like a centrally managed edge solution, so **Azure Stack Edge** (with GPU option) would work well here. Based on the workload, the fact that Contoso Boards already knows TensorFlow, and this will be used on multiple assembly lines, GPU-based hardware would be the choice for hardware acceleration.
 
 The following figure shows a sample of what the camera would see in this scenario:
 
@@ -96,7 +96,7 @@ Contoso Shipping can introspect by asking the following questions:
 
 - Where are we going to view the people from?
   - The loading docks are 165 feet long.
-  - Cameras will be placed 17 feet high to keep with city ordnances.
+  - Cameras will be placed 17 feet high to keep with city ordinances.
   - Cameras will need to be positioned 100 feet away from the front of the trucks.
   - Camera focus will need to be 10 feet behind the front of the truck, and 10 additional feet in front of the truck, giving a 20 foot depth on focus.
 
@@ -146,7 +146,7 @@ The red square is shown to illustrate one pixel color.
 
 These images demonstrate the issue with using the wrong resolution camera for a given use case. Lens can impact the FOV. However, if the wrong sensor is used for that given use case, the results could be less than expected.
 
-With the above in mind, when choosing a camera for the solution required for Contoso Shipping, we need to think about how many cameras and at what resolution are needed to get the correct amount of details to detect a person. Since we are only trying to identify if a person is in the frame or not, our PPF does not need to be around 80, which is needed for facial identification; we can use somewhere around 15-20. That would place the FOV around 16 feet. A 16-foot FOV would give us about 17.5 pixels per foot, which fits within our required PPF of 15-20. This would mean that we need a **10MP camera that has a horizontal resolution of ~5184 pixels**, and a lens that would allow for an **FOV of 16 feet**. The cameras would need to be placed outside, and the choice of sensor type should not allow for *bloom*. Bloom is when light hits the sensor and overloads the sensor, causing a view of almost over-exposure or a *white out* kind of condition. **CMOS** is the sensor of choice here.
+With the above in mind, when choosing a camera for the solution required for Contoso Shipping, we need to think about how many cameras, and at what resolution, are needed to get the correct number of details to detect a person. Since we are only trying to identify if a person is in the frame or not, our PPF does not need to be around 80, which is needed for facial identification; we can use somewhere around 15-20. That would place the FOV around 16 feet. A 16-foot FOV would give us about 17.5 pixels per foot, which fits within our required PPF of 15-20. This would mean that we need a **10MP camera that has a horizontal resolution of ~5184 pixels**, and a lens that would allow for an **FOV of 16 feet**. The cameras would need to be placed outside, and the choice of sensor type should not allow for *bloom*. Bloom is when light hits the sensor and overloads the sensor, causing a view of almost over-exposure or a *white out* kind of condition. **CMOS** is the sensor of choice here.
 
 Contoso operates 24x7 and as such, needs to ensure that nighttime personnel are also protected. **Monochrome** handles low light conditions much better compared to color. We are not looking to identify a person based on color. And monochrome sensors are a little cheaper then color.
 

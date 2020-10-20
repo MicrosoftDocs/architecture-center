@@ -6,7 +6,7 @@ author: MSKeith
 ms.date: 10/22/2020
 ms.topic: guide
 ms.service: architecture-center
-ms.author: kehilsch
+ms.author: keith
 ms.category:
   - fcp
 ms.subservice: reference-architecture
@@ -28,11 +28,11 @@ Many people are familiar with the Graphics Processing Unit (GPU) as this is the 
 
 ## FPGA 
 
-Field Programmable Gate Arrays are reconfigurable hardware accelerators. These powerful accelerators allow for the growth of Deep Learning Neural networks, which are still evolving. These accelerators have millions of programmable gates, hundred of I/O pins, and an exceptional compute power in the trillions of tera-MAC’s. There also many different libraries available for FPGAs that are optimized for vision workloads. Some of these libraries also include preconfigured interfaces to connect to downstream cameras and devices. One area that FPGAs tend to fall short on is floating point operations. However, manufacturers are currently working on this issue and have made a lot of improvements in this area.
+Field Programmable Gate Arrays are reconfigurable hardware accelerators. These powerful accelerators allow for the growth of Deep Learning Neural networks, which are still evolving. These accelerators have millions of programmable gates, hundreds of I/O pins, and an exceptional compute power in the trillions of tera-MAC’s. There also many different libraries available for FPGAs that are optimized for vision workloads. Some of these libraries also include preconfigured interfaces to connect to downstream cameras and devices. One area that FPGAs tend to fall short on is floating point operations. However, manufacturers are currently working on this issue and have made many improvements in this area.
 
 ## ASIC 
 
-Application Specific Integrated Circuit is by far the fastest accelerator on the market today.  While they are the fastest, they are the hardest to change as they are manufactured to function for a specific task.  These custom chips are gaining popularity due to size, power per watt performance, and IP protection. This is because the IP burned into the ASIC accelerator is much harder to backwards engineer proprietary algorithms.
+Application-Specific Integrated Circuit is by far the fastest accelerator on the market today.  While they are the fastest, they are the hardest to change as they are manufactured to function for a specific task.  These custom chips are gaining popularity due to size, power per watt performance, and IP protection. This is because the IP burned into the ASIC accelerator is much harder to backwards engineer proprietary algorithms.
 
 ## Next steps
 

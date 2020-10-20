@@ -6,7 +6,7 @@ author: MSKeith
 ms.date: 10/22/2020
 ms.topic: guide
 ms.service: architecture-center
-ms.author: kehilsch
+ms.author: keith
 ms.category:
   - fcp
 ms.subservice: reference-architecture
@@ -23,9 +23,9 @@ One of the most critical components in any AI Vision workload is selecting the r
 
 ### Area scan cameras
 
-This type of cameras generate the traditional camera image, where a 2D image is captured and then sent over to the Edge hardware to be evaluated. This camera typically has a matrix of pixel sensors.
+This camera type generates the traditional camera image, where a 2D image is captured and then sent over to the Edge hardware to be evaluated. This camera typically has a matrix of pixel sensors.
 
-As the name suggest, area scan cameras look at a large area and are great at detecting change in an area. Examples of workloads that could use an area scan camera would be workplace safety, or detecting or counting objects (people, animals, cars, and so on) in an environment.
+As the name suggests, area scan cameras look at a large area and are great at detecting change in an area. Examples of workloads that could use an area scan camera would be workplace safety, or detecting or counting objects (people, animals, cars, and so on) in an environment.
 
 Examples of manufacturers of area scan cameras are [Basler](https://www.baslerweb.com/en/products/industrial-cameras/), [Axis](https://www.axis.com), [Sony](https://www.sony.co.jp/Products/ISP/products/), [Bosch](https://commerce.boschsecurity.com/IP-Cameras/c/10164917899), [FLIR](https://www.flir.com/), [Allied Vision](https://www.alliedvision.com/digital-industrial-camera-solutions.html).
 
@@ -42,7 +42,7 @@ Examples of manufacturers of line scan cameras are [Basler](https://www.baslerwe
 
 ### Embedded smart cameras
 
-This type of camera can use either an area scan or a line scan camera for capturing the images, although a line scan smart camera is rare. An embedded smart camera can not only acquire an image, but can also process that image as it is a self-contained stand-alone system. They typically have either an RS232 or an Ethernet port output,which allows them to be integrated directly into a PLC or other IIoT interfaces.
+This type of camera can use either an area scan or a line scan camera for capturing the images, although a line scan smart camera is rare. An embedded smart camera can not only acquire an image, but can also process that image as it is a self-contained stand-alone system. They typically have either an RS232 or an Ethernet port output, which allows them to be integrated directly into a PLC or other IIoT interfaces.
 
 Examples of manufacturers of embedded smart cameras are [Basler](https://www.baslerweb.com/en/products/industrial-cameras/), [Lesuze Electronics](https://www.leuze.com).
 
@@ -50,7 +50,7 @@ Examples of manufacturers of embedded smart cameras are [Basler](https://www.bas
 
 ### Sensor size
 
-This is one of the most important factors to evaluate in any vision workload. A sensor is the hardware within a camera that captures the light and converts into signals which then produce an image. The sensor contains millions of semiconducting photodetectors called photosites. A higher megapixel count does not always result in a better image. For example, let’s look at two different sensor sizes for a 12-megapixel camera. Camera A has a ½ inch sensor with 12 million photosites and camera B has a 1 inch sensor with 12 million photosites. In the same lighting conditions the camera that has the 1 inch sensor will be cleaner and sharper. Many cameras typically used in vision workloads have a sensor sized between ¼ inch to 1 inch. In some cases, much larger sensors might be required.
+This is one of the most important factors to evaluate in any vision workload. A sensor is the hardware within a camera that captures the light and converts into signals, which then produce an image. The sensor contains millions of semiconducting photodetectors called photosites. A higher megapixel count does not always result in a better image. For example, let’s look at two different sensor sizes for a 12-megapixel camera. Camera A has a ½ inch sensor with 12 million photosites and camera B has a 1-inch sensor with 12 million photosites. In the same lighting conditions the camera that has the 1-inch sensor will be cleaner and sharper. Many cameras typically used in vision workloads have a sensor sized between ¼ inch to 1 inch. In some cases, much larger sensors might be required.
 
 If a camera has a choice between a larger sensor or a smaller sensor, some factors deciding why you might choose the larger sensor are:
 - need for precision measurements,
@@ -112,7 +112,7 @@ In a vision workload, you need to know the distance to the object that you are t
 
 In building a computer vision workload, it is also important to understand how the system will interact with the output of the camera. Below are a few of the standard ways that a camera will communicate to IoT Edge:
 
-* **Real Time Streaming Protocol(RTSP):** RTSP is a protocol that transfers real-time video data from a device (in our case, the camera) to an endpoint device (Edge compute) directly over a TCP/IP connection. It functions in a client server application model that is at the application level in the network.
+* **Real Time Streaming Protocol(RTSP):** RTSP is a protocol that transfers real-time video data from a device (in our case, the camera) to an endpoint device (Edge compute) directly over a TCP/IP connection. It functions in a client-server application model that is at the application level in the network.
 
 * **Open Network Video Interface Forum (ONVIF):** A global and open industry forum that is developing open standards for IP-based cameras. This standard is aimed at standardization of communication between the IP camera and down stream systems, interoperability, and open source.
 

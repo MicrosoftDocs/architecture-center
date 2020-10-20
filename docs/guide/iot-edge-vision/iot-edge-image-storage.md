@@ -6,7 +6,7 @@ author: MSKeith
 ms.date: 10/22/2020
 ms.topic: guide
 ms.service: architecture-center
-ms.author: kehilsch
+ms.author: keith
 ms.category:
   - fcp
 ms.subservice: reference-architecture
@@ -34,9 +34,9 @@ The combination of Azure Blob Storage, Azure IoT Hub, and Azure IoT Edge allow s
 
 The IoT Edge Blob Storage module is one of the most powerful and straightforward solutions, and our preferred approach. A typical workflow using this module might be as follows:
 
-1. Raw messages post ingestion are stored locally on the Edge Blob module, with time stamping and sequence numbering to uniquely identify the image files.
+1. Raw messages after ingestion are stored locally on the Edge Blob module, with time stamping and sequence numbering to uniquely identify the image files.
 2. Policy is set on the Edge Blob module for automatic upload to Azure Blob with ordering.
-3. To conserve space on the Edge device, auto-delete after certain time is configured along with *retain while uploading* option to ensure all images get synced to the cloud.
+3. To conserve space on the Edge device, automatic deletion after certain time is configured along with *retain while uploading* option to ensure all images get synced to the cloud.
 4. Local categorization or domain and labeling is implemented using module that can read these images into the UX. The label data is associated to the image URI along with the coordinates and category.
 5. As label data needs to be saved, a local database is preferred to store this metadata, as it will allow easy lookup for the UX and can be synced to the cloud using telemetry messages.
 6. During scoring run, the model detects matching patterns and generates events of interest. This metadata is sent to cloud via telemetry referring to the image URI and optionally stored in local database for edge UX. The images continue to be stored to Edge Blob and synced with Azure Blob.
