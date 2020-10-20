@@ -109,7 +109,7 @@ In summary, here are the key considerations:
 
 The data science process for edge deployments has a general pattern. After a clear data-driven problem statement is formulated, the next steps generally include those shown in the figure below.
 
-![Vision on the edge data science cycle](./images/ds_cycle.png)
+![Vision on the edge data science cycle](./images/data-science-cycle.png)
 
 * **Data collection** -  Data collection or acquisition could be an online image search from a currently deployed device, or other representative data source.  Generally, the more data the better. In addition, the more variability, the better the generalization.
 * **Data labeling** - If only hundreds of images need to be labeled, such as, when using transfer learning, it can be done in-house. If tens of thousands of images need to be labeled, a vendor could be enlisted for both data collection and labeling.  
@@ -120,7 +120,7 @@ The data science process for edge deployments has a general pattern. After a cle
 
 The diagram below shows a sample data science process where open-source tools may be leveraged for the data science workflow. Data availability and type will drive most of the choices, including the devices/hardware chosen.
 
-![Vision on the edge work flow](./images/vision_edge_flow.png)
+![Vision on the edge work flow](./images/vision-edge-flow.png)
 
 If a workflow already exists for the data scientists and app developers, a few other considerations may apply. First, it is advised to have a code, model, and data versioning system in place. Secondly, an automation plan for code and integration testing along with other aspects of the data science process, such as triggers, build/release process, and so on, will help speed up the time to production and cultivate collaboration within the team.
 
@@ -138,4 +138,4 @@ In summary, here are the key considerations:
 
 ## Next steps
 
-Proceed to [Image storage and management in Azure IoT Edge Vision](./iot-edge-image-storage.md) article to learn how to properly store the images created by your IoT Edge Vision solution.
+Proceed to [Image storage and management in Azure IoT Edge Vision](./image-storage.md) article to learn how to properly store the images created by your IoT Edge Vision solution.

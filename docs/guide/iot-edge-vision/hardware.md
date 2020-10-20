@@ -36,4 +36,4 @@ Application-Specific Integrated Circuit is by far the fastest accelerator on the
 
 ## Next steps
 
-Proceed to learn what considerations go into place for [Machine learning and data science in Azure IoT Edge Vision](./iot-edge-machine-learning.md).
+Proceed to learn what considerations go into place for [Machine learning and data science in Azure IoT Edge Vision](./machine-learning.md).

@@ -27,7 +27,7 @@ This camera type generates the traditional camera image, where a 2D image is cap
 
 As the name suggests, area scan cameras look at a large area and are great at detecting change in an area. Examples of workloads that could use an area scan camera would be workplace safety, or detecting or counting objects (people, animals, cars, and so on) in an environment.
 
-Examples of manufacturers of area scan cameras are [Basler](https://www.baslerweb.com/en/products/industrial-cameras/), [Axis](https://www.axis.com), [Sony](https://www.sony.co.jp/Products/ISP/products/), [Bosch](https://commerce.boschsecurity.com/IP-Cameras/c/10164917899), [FLIR](https://www.flir.com/), [Allied Vision](https://www.alliedvision.com/digital-industrial-camera-solutions.html).
+Examples of manufacturers of area scan cameras are [Basler](https://www.baslerweb.com/en/products/industrial-cameras/), [Axis](https://www.axis.com), [Sony](https://www.sony-semicon.co.jp/e/products/IS/industry/product.html), [Bosch](https://commerce.boschsecurity.com/us/en/IP-Cameras/c/10164917899), [FLIR](https://www.flir.com/), [Allied Vision](https://www.alliedvision.com/digital-industrial-camera-solutions.html).
 
 ### Line scan cameras
 
@@ -97,7 +97,7 @@ In a computer vision workload, lighting is a critical component to camera placem
 The figure below shows the angular placement of light:
 
 
-![Angular placement of light - IoT Edge Vision](./images/lightingchart.png)
+![Angular placement of light - IoT Edge Vision](./images/lighting-chart.png)
 
 ### Field of view
 
@@ -134,4 +134,4 @@ In building a computer vision workload, it is also important to understand how t
 
 ## Next steps
 
-Now that you know the camera considerations for your IoT Edge Vision workload, proceed to setting up the right hardware for your workload. Read [Hardware acceleration in Azure IoT Edge Vision](./iot-edge-hardware.md) for more information.
+Now that you know the camera considerations for your IoT Edge Vision workload, proceed to setting up the right hardware for your workload. Read [Hardware acceleration in Azure IoT Edge Vision](./hardware.md) for more information.
