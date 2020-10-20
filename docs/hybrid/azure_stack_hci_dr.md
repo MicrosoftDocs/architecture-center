@@ -12,15 +12,13 @@ ms.custom: fcp
 
 # Use Azure Stack HCI stretched clusters for disaster recovery
 
-<!-- GLOBAL COMMENT: For most of the embedded links text, the title of site to which the embedded link resolves doesn't match the embedded text.   -->
-
 The following reference architecture illustrates how to design and implement disaster recovery of Azure Stack HCI by using stretched clustering. 
 
 ![Active-active and active-passive Azure Stack HCI stretched cluster][architectural-diagram]
 
-*Download a [Visio file][architectural-diagram-visio-source] of this architecture.*<!-- I'm assuming link will open Visio file. Didn't work for me. -->
+*Download a [Visio file][architectural-diagram-visio-source] of this architecture.*
 
-You typically use this architecture for disaster recovery with automatic failover of Azure Stack HCI virtualized workloads and file shares occurring between two physical locations within a range of 5 ms round-trip network latency (corresponding to about 30 physical miles). <!-- This sentence was confusing to me. I added "occurring" to try to clarify on what this is saying. Would help to divide into two shorter sentences. Also note that took away the bullet since you can't really have a list with only one item. -->
+You typically use this architecture for disaster recovery with automatic failover of Azure Stack HCI VMs and file shares between two physical locations within a range of 5 ms round-trip network latency.
 
 ## Architecture
 
@@ -48,15 +46,15 @@ A stretched Azure Stack HCI cluster relies on Storage Replica to perform synchro
 > The synchronous replication requirement applicable to stretched clusters imposes a limit of 5 ms round-trip network latency between two groups of cluster nodes in the replicated sites. Depending on the physical network connectivity characteristics, this constraint typically translates into about 20-30 physical miles.
 
 > [!NOTE]
-> Storage Replica's signing and encryption capability automatically protects in-transit replication traffic.<!-- this note got pinged for passive voice--rewrite OK? -->
+> Storage Replica's signing and encryption capability automatically protects replication traffic.
 
 ## Architectural excellence
-<!-- link below not showing in preview mode -->
-The [Microsoft Azure Well-Architected Framework][azure-well-architected-framework] provides a set of guiding tenets that are followed in this reference architecture. The framework provides the following benefits. <!-- Link doesn't work so I can't see what this is exactly. What is "this" reference architecture? "are followed"? Instead of "guiding tenets", how about "principles" or "guidelines"? --> 
+
+The [Microsoft Azure Well-Architected Framework][azure-well-architected-framework] provides a set of guiding tenets that are followed in this reference architecture. The framework provides the following benefits. 
 
 ### Cost optimization
 
-- **Active-active versus active-passive configuration.** Stretched Azure Stack HCI clusters support the active-passive and active-active modes. In active-passive mode, a designated primary site unidirectionally replicates to another site providing the disaster recovery capability <!-- for the primary site? This sentence isn't clear. -->. In active-active mode, two sites replicate their respective volumes unidirectionally to each other, providing failover capability in case of a failure in either site <!-- correct? -->. The latter of these two modes <!-- i.e. active-active mode? I'd just stay that then --> helps minimize business continuity costs by eliminating the need for a dedicated disaster recovery site. 
+- **Active-active versus active-passive configuration.** Stretched Azure Stack HCI clusters support the active-passive and active-active modes. In active-passive mode, a designated primary site unidirectionally replicates to another site that provides the disaster recovery capability. In active-active mode, two sites replicate their respective volumes unidirectionally to each other, providing failover capability in case of a failure in either site. The active-active mode helps minimize business continuity costs by eliminating the need for a dedicated disaster recovery site. 
 
 - **Cloud Witness versus File Share Witness.** A witness resource is a mandatory component within Azure Stack HCI clusters. To implement it, choose either an Azure cloud witness or a file share witness. An Azure cloud witness relies on a blob in an Azure storage account that you designate as the arbitration point to prevent split-brain scenarios. A file share witness relies on a Server Message Block (SMB) file share to accomplish the same objective. 
 
@@ -79,7 +77,7 @@ The [Microsoft Azure Well-Architected Framework][azure-well-architected-framewor
 
 - **Support for [automated stretched cluster provisioning][create-cluster-with-powershell] and [storage management][create-stretched-volumes-with-powershell] by using Windows PowerShell.** You can run PowerShell locally from one of the Azure Stack HCI servers or remotely from a management computer.
 
-- **Integration with a range of Azure services that provide additional operational advantages.** You can integrate virtualized workloads running on Azure Stack HCI clusters with such Azure services as [Azure Monitor][azure-monitor]<!-- link doesn't work --> and Azure Automation solutions, including [Change Tracking and Inventory][change-tracking-and-inventory] and [Update Management][update-management]<!-- link not showing in preview -->. Following an initial mandatory registration procedure, Azure Stack HCI clusters can leverage Azure Arc for monitoring and billing. Azure Arc integration offers enhanced integration with other hybrid services, such as [Azure Policy][azure-policy-guest-configuration] and [Log Analytics][resource-context-log-analytics-access-mode]. Registration triggers creation of an Azure Resource Manager resource representing an Azure Stack HCI cluster, effectively extending the Azure management plane to Azure Stack HCI.
+- **Integration with a range of Azure services that provide additional operational advantages.** You can integrate virtualized workloads running on Azure Stack HCI clusters with such Azure services as [Azure Monitor][azure-monitor] and Azure Automation solutions, including [Change Tracking and Inventory][change-tracking-and-inventory] and [Update Management][update-management]. Following an initial mandatory registration procedure, Azure Stack HCI clusters can leverage Azure Arc for monitoring and billing. Azure Arc integration offers enhanced integration with other hybrid services, such as [Azure Policy][azure-policy-guest-configuration] and [Log Analytics][resource-context-log-analytics-access-mode]. Registration triggers creation of an Azure Resource Manager resource representing an Azure Stack HCI cluster, effectively extending the Azure management plane to Azure Stack HCI.
 
 ### Performance efficiency
 
@@ -134,7 +132,7 @@ The [Microsoft Azure Well-Architected Framework][azure-well-architected-framewor
 [architectural-diagram]: images/azure_stack_hci_dr.png
 [architectural-diagram-visio-source]: diagrams/azure_stack_hci_dr.vsdx
 [azure-service]: https://docs.microsoft.com/azure/
-[azure-well-architected-framerwork]: https://docs.microsoft.com/azure/architecture/framework/
+[azure-well-architected-framework]: https://docs.microsoft.com/azure/architecture/framework/
 [microsoft-component]: https://docs.microsoft.com/
 [hci-hardware-requirements]: https://docs.microsoft.com/azure-stack/hci/deploy/before-you-start#server-requirements
 [create-cluster-with-wac]: https://docs.microsoft.com/azure-stack/hci/deploy/create-cluster
