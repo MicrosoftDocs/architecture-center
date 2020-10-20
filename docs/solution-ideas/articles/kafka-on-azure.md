@@ -118,26 +118,26 @@ Pros
 - Managed cluster offering that is customizable.
 - No license requirements, unless going for Confluent features
 - Complete Kafka feature set and APIs are available.
-- [High availability](https://docs.microsoft.com/azure/hdinsight/kafka/apache-kafka-high-availability) is ensured with the configuration of fault domains and update domains and [multi-region support](https://docs.microsoft.com/azure/hdinsight/kafka/apache-kafka-mirroring) using MirrorMaker for replication.
+- [High availability](https://docs.microsoft.com/azure/hdinsight/kafka/apache-kafka-high-availability) is ensured with the configuration of fault domains and update domains and [multi-region support](https://docs.microsoft.com/azure/hdinsight/kafka/apache-kafka-mirroring) for replication.
 - Data retention is more configurable than the managed services mentioned above.
 
 Cons
 
 - Kafka version support and compatibility will always lag behind the published version.
 - Workload migration is required for upgrading a cluster.
-- Adding more disks to an existing cluster is not supported.
+- To add more disk space, more cluster nodes must be added. Adding more disks to an existing cluster is not supported.
 - No public endpoint available, which makes Virtual network (VNET) integration mandatory requiring advanced networking configurations.
 
-### Confluent Enterprise on Azure Marketplace – IaaS
+### Confluent Platform on Azure Marketplace – IaaS
 
-[Confluent Enterprise](https://azuremarketplace.microsoft.com/marketplace/apps/confluentinc.confluent-enterprise) is available as a bring-your-own-license offering in Azure Marketplace. It includes all components from the Apache Kafka Core along with some Apache-licensed open-source additions (client tools, pre-built connectors, and cluster-side services such as Schema Registry and REST Proxy).
+[Confluent Platform](https://azuremarketplace.microsoft.com/marketplace/apps/confluentinc.confluent-enterprise) is available as a bring-your-own-license offering in Azure Marketplace. It includes all components from the Apache Kafka Core along with some Apache-licensed open-source additions (client tools, pre-built connectors, and cluster-side services such as Schema Registry and REST Proxy).
 
-Here are some of the advantages and limitations of using Confluent Enterprise on Azure Marketplace:
+Here are some of the advantages and limitations of using Confluent Platform on Azure Marketplace:
 
 Pros
 
 - Automated cluster provisioning, management, and elastic scaling.
-- Complete support for all Confluent Enterprise components like Kafka Connect Workers, Kafka Streams Apps, Schema Registry, REST Proxy, and Control Center.
+- Complete support for all Confluent Platform components like Kafka Connect Workers, Kafka Streams Apps, Schema Registry, REST Proxy, and Control Center.
 
 Cons
 
@@ -148,7 +148,7 @@ Cons
 
 ### Kafka on Azure Kubernetes Service – IaaS
 
-[Azure Kubernetes Service (AKS)](https://docs.microsoft.com/azure/aks/intro-kubernetes) reduces the complexity and overhead of managing Kubernetes by offloading much of that responsibility to Azure. Apache Kafka clusters can be deployed on AKS in various configurations using best practices offered by Kubernetes operators like [Strimzi](https://strimzi.io/documentation/) or [Confluent Kafka Operator](https://docs.confluent.io/current/installation/operator/index.html). There is a basic [scale and throughput benchmarking and investigation](https://microsoft-my.sharepoint-df.com/:w:/p/cnadolny/Edx-ULTiowRFm9CSw_hF1esBrxtZEnhW28rNd9pBBvQ1KA?e=jF6RHT) done by CSE.
+[Azure Kubernetes Service (AKS)](https://docs.microsoft.com/azure/aks/intro-kubernetes) reduces the complexity and overhead of managing Kubernetes by offloading much of that responsibility to Azure. Apache Kafka clusters can be deployed on AKS in various configurations using best practices offered by Kubernetes operators like [Strimzi](https://strimzi.io/documentation/) or [Confluent Kafka Operator](https://docs.confluent.io/current/installation/operator/index.html).
 
 Here are some of the advantages and limitations of using Kafka on AKS:
 
@@ -181,54 +181,50 @@ Cons
 - Selecting the right size of VMs can be tedious.
 - You must implement your own scaling logic. User configurations determine efficacy.
 - Management and monitoring overhead.
-- Achieving the best performance demands knowledge of the ins and outs of Azure networking.
+- Achieving the best performance demands knowledge of the ins and outs of Azure networking and Apache Kafka.
 
 ## Considerations
 
 The following table of feature comparisons and the decision guidance matrix, compares and contrasts the options for using Kafka on Azure while presenting the considerations for each.
 
-### Summary of customer feedback
-
-For a summary of feedback from multiple customers, see the [Tech Score Card for comparison of top feedback items from customers.](https://microsoft-my.sharepoint.com/:p:/p/rasavant/EW2JTX7_YyxFm_77jzwxz94BKrSpQvvoYP3rQk8RPIItoA?e=p14WhI)
-
 ### Feature comparisons
 
 The following table shows a comparison of features for each of the Kafka on Azure solutions discussed in this article:
 
-| Features | Confluent Cloud | Event Hubs + Kafka Head | HDInsight Kafka | Confluent Enterprise on Marketplace | Kafka on AKS | Azure VMs |
+| Features | Confluent Cloud | Event Hubs + Kafka Head | HDInsight Kafka | Confluent Platform on Marketplace | Kafka on AKS | Azure VMs |
 |:--------:|:---------------:|:-----------------------:|:---------------:|:-----------------------------------:|:------------:|:---------:|
-|          | PaaS offering from external vendor | Fully managed PaaS offering that supports Kafka protocol | Managed Hortonworks cluster offering | Azure Marketplace offering | Portable cloud agnostic infrastructure | Scalable computing resource |
+|          | PaaS offering from external vendor | Fully managed PaaS offering that supports Kafka protocol | Managed Hortonworks cluster offering | Azure Marketplace offering | Open Source Apache Kafka implementation on your own compute platform | Open Source Apache Kafka implementation on your own compute platform |
 | **Model** | PaaS (external vendor) | PaaS | Managed IaaS | IaaS |IaaS |IaaS |
 | **Third-Party Licensing** | Purchase from Confluent	| Not needed | Not mandatory | BYOL | Not mandatory | Not mandatory |  
-| **Supported Compute Environment** | PaaS – underlying Azure Cloud | PaaS – underlying Service Fabric | Managed disks and VMs | VMs | Containers | VMs |  
+| **Compute Platform** | PaaS – Not applicable | PaaS – Not applicable | Managed disks and VMs | VMs | AKS cluster | VMs |  
 | **Feature Set** | Work in progress | Work in progress with Kafka | Complete for available versions and extendable | Complete for available versions + Schema Registry, Connectors, KSQL | Complete and extendable	| Complete and extendable |  
 | **Data Retention** | 5 TB | Max 90 days, 10 TB included per CU | Customizable | Customizable | Customizable | Customizable | 
 | **Schema Registry** | Yes | Public Preview | Yes | Yes | Yes | Yes | 
 | **Kafka Connectors API** | Yes | Preview | Yes | Yes | Yes | Yes | 
 | **Azure Stack Options** | N/A | Preview | Not Available | Yes | Preview | Yes |  
-| **VNET/Public deployment** | Virtual Private Cloud | Public endpoint always exposed | VNET availability in Preview | VNET deployment recommended | VNET deployment | VNET deployment available | VNET deployment available |
-| **Configurable Message Retention beyond 7 days** | 5-TB limit | Yes | Yes | Yes | Yes | Yes |
+| **VNET/Public deployment** | Virtual Private Cloud | Public endpoint always exposed | VNET availability in Preview | VNET deployment recommended | VNET deployment | VNET deployment available |
+| **Configurable Message Retention beyond 7 days** | Yes | Yes | Yes | Yes | Yes | Yes |
 | **Idempotency** | Yes | Yes | Yes | Yes | Yes | Yes |
-| **Transaction** | Yes | EoY 2020 | Yes | Yes | Yes | Yes |
-| **Kafka Streams** | Yes | EoY 2020 | Yes | Yes | Yes | Yes |
+| **Transaction** | Yes | In preview | Yes | Yes | Yes | Yes |
+| **Kafka Streams** | Yes | In preview | Yes | Yes | Yes | Yes |
 | **Scaling** | Yes | Yes | Yes | Yes | Tested on Small to Medium Loads | Yes |
 | **Integrated Logging and Monitoring** | Yes | Yes | Can be added | Yes | Can be added | Can be added |
 | **Kafka Version Support** | Yes | 1.0+ | 2.1, 1.1, 1.0, 0.10.1, 0.9.0 | 2.2.0, 2.0.1 | Yes | Yes |
 | **Java Client** | Yes | Yes | Yes | Yes | Yes | Yes |
 | **.NET/Python/C++ Client** | Yes | Yes | Yes | Yes | Yes | Yes |
 | **Declarative Stream Processing** | Yes | Can be added using another Azure service | Yes | Yes | Yes | Yes |
-| **Log Compaction** | Yes | EoY 2020 | Yes | Yes | Yes | Yes |
+| **Log Compaction** | Yes | In preview | Yes | Yes | Yes | Yes |
 | **REST Proxy** | Yes | Yes | Yes | Yes | Yes | Yes |
-| **Geo-Replication** | Not available | Integrated | Integrated | Must be configured | Must be configured | Must be configured |
+| **Geo-Replication** | Must be configured | Integrated | Integrated | Must be configured | Must be configured | Must be configured |
 | **Authentication** | SSL or SASL | SSL, SASL Plain | SSL | SSL or SASL | SSL or SASL | SSL or SASL |
 | **Authorization** | ACL based |	RBAC |	RBAC (Preview) |	ACL based |	ACL based |	ACL based |
 | **Encryption** | SSL/TLS | SSL, BYOK (Preview) | SSE/TLS, Customer-managed disk encryption | SSL/TLS | SSL/TLS | SSL/TLS |
-| **Automatic Data Balancer** | N/A - PaaS | N/A - PaaS | Yes | Yes | Yes | Yes |
+| **Automatic Data Balancer** | N/A - PaaS | N/A - PaaS | Yes | Configure Self-Balancing feature | User must configure | User must configure |
 | **Monitoring Metrics** | Yes | Yes | Can be added | Yes | Can be added | Can be added |
 | **Monitoring Tools** | Confluent Control Center | Azure Monitoring | Azure Monitoring and open-source tools | Confluent Control Center | Azure Monitoring and open-source tools | Can be added |
 | **Managed Service** | Yes | Yes | Managed clusters | Managed deployment | No – IaaS | No - IaaS |
 | **Non-disruptive upgrades** | Yes | Yes | No | No | No | No |
-| **Availability SLA** | 99.5% | 99.9% | 99.9% | N/A | 99.5% for AKS | 95% - 99.9% based on usage |
+| **Availability SLA** | 99.95% | 99.9% | 99.9% | N/A | 99.95% with paid Uptime SLA | 95% - 99.9% based on topology |
 | **Data Replication** | Confluent Replicator | MirrorMaker or similar (Integrated option coming soon) | Managed disk export / MirrorMaker  or similar | Confluent Replicator | MirrorMaker or similar | MirrorMaker or similar |
 
 ### Kafka on Azure decision guidance matrix
@@ -243,9 +239,9 @@ The decision guidance matrix uses the following key:
 |:::image type="icon" source="../media/green-background.png":::| Common decision factor
 
 
-| Feature | Confluent Cloud | Event Hubs + Kafka Head | HDInsight Kafka | Confluent Enterprise on Marketplace | Kafka on AKS | Azure VMs |
+| Feature | Confluent Cloud | Event Hubs + Kafka Head | HDInsight Kafka | Confluent Platform on Marketplace | Kafka on AKS | Azure VMs |
 |------------------------------------|:--------------------:|:--------------------:|:--------------------:|:--------------------:|:--------------------:|:--------------------:|
-| Ease of configuration/deployment   | :::image type="icon" source="../media/full-star.png"::: | :::image type="icon" source="../media/full-star-green-background.png"::: | :::image type="icon" source="../media/half-star.png"::: | :::image type="icon" source="../media/empty-star.png"::: | :::image type="icon" source="../media/empty-star.png"::: | :::image type="icon" source="../media/empty-star.png"::: | 
+| Ease of configuration/deployment   | :::image type="icon" source="../media/full-star.png"::: | :::image type="icon" source="../media/full-star-green-background.png"::: | :::image type="icon" source="../media/half-star.png"::: | :::image type="icon" source="../media/half-star.png"::: | :::image type="icon" source="../media/empty-star.png"::: | :::image type="icon" source="../media/empty-star.png"::: | 
 | Simplicity of maintenance          | :::image type="icon" source="../media/full-star.png"::: | :::image type="icon" source="../media/full-star-green-background.png"::: | :::image type="icon" source="../media/half-star.png"::: | :::image type="icon" source="../media/empty-star.png"::: | :::image type="icon" source="../media/empty-star.png"::: | :::image type="icon" source="../media/empty-star.png"::: | 
 | Kafka native support               | :::image type="icon" source="../media/full-star.png"::: | :::image type="icon" source="../media/half-star.png"::: | :::image type="icon" source="../media/full-star.png"::: | :::image type="icon" source="../media/full-star.png"::: | :::image type="icon" source="../media/full-star.png"::: | :::image type="icon" source="../media/full-star.png"::: |  
 | Java, .NET, Python clients         | :::image type="icon" source="../media/full-star.png"::: | :::image type="icon" source="../media/full-star.png"::: | :::image type="icon" source="../media/full-star.png"::: | :::image type="icon" source="../media/full-star.png"::: | :::image type="icon" source="../media/full-star.png"::: | :::image type="icon" source="../media/full-star.png"::: |  
@@ -269,10 +265,10 @@ The decision guidance matrix uses the following key:
 
 ## Next steps
 
-- [Azure Event Grid documentation](https://docs.microsoft.com/en-us/azure/event-grid/)
+- [Azure Event Grid documentation](https://docs.microsoft.com/azure/event-grid/)
 - [What is Apache Kafka in Azure HDInsight](https://docs.microsoft.com/azure/hdinsight/kafka/apache-kafka-introduction)
-- [Confluent Cloud](https://www.confluent.io/confluent-cloud/)
-- [Get started using Kafka with Confluent Platform](https://docs.confluent.io/current/getting-started.html)
+- [Confluent Cloud](https://azuremarketplace.microsoft.com/marketplace/apps/confluentinc.confluent-cloud-kafka-service-azure)
+- [Confluent Platform](https://azuremarketplace.microsoft.com/marketplace/apps/confluentinc.confluent-enterprise)
 
 ## Related resources
 
