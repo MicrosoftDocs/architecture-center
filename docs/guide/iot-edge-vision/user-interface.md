@@ -81,7 +81,7 @@ To find the solution that will be useful for Contoso Boards, let's focus on the 
 
 The following figure shows a sample of what the camera would see in this scenario:
 
-![Azure IoT Edge user interface scenario - motherboard](./images/motherboard1.png)
+![Azure IoT Edge user interface scenario - motherboard](./images/motherboard.png)
 
 ## Scenario 2
 
@@ -130,17 +130,17 @@ Based on the distance of the loading dock size, Contoso Shipping will require se
 
 Formula for field of view (FOV):
 
-![Formula for field of view - Azure IoT Edge Vision](./images/fieldofview.png)
+![Formula for field of view - Azure IoT Edge Vision](./images/field-of-view.png)
 
 For example, look at the following images.
 
 This image is taken with 480 horizontal pixels at 20 foot:
 
-![Car image at 480 pixels - Azure IoT Edge Vision](./images/car1.png)
+![Car image at 480 pixels - Azure IoT Edge Vision](./images/car-image-low-pixel.png)
 
 This image is taken with 5184 horizontal pixels at 20 foot:
 
-![Car image at 5184 pixels - Azure IoT Edge Vision](./images/car2.png)
+![Car image at 5184 pixels - Azure IoT Edge Vision](./images/car-image-high-pixel.png)
 
 The red square is shown to illustrate one pixel color.
 
@@ -152,7 +152,7 @@ Contoso operates 24x7 and as such, needs to ensure that nighttime personnel are 
 
 How many cameras will it take? Since we have figured out that our cameras can look at a 16 foot path, we can do simple math. 165 foot dock divided by 16 foot FOV gives us 10.3125 cameras. So the solution would need **11 monochrome 5184 horizontal pixel (or 10MP) CMOS cameras with IPX67 housings or weather boxes**. The cameras would be mounted on 11 poles 100 feet from the trucks at 17f high.  Based on the fact that the data scientists are more familiar with **Open-VINO**, data models should be built in **ONNX**. As for what hardware should be used, a device that can be connected over WIFI, and use as little power as possible, is required. Based on this, they should look to an **FPGA processor**. Potentially an ASIC processor could also be utilized, but due to the nature of how an ASIC processor works, it would not meet the requirement of being able to use the models on different hardware in the future.
 
-![Camera mount scenario - Azure IoT Edge Vision](./images/truckpersoncameramount.png)
+![Camera mount scenario - Azure IoT Edge Vision](./images/truck-person-camera-mount.png)
 
 ## Resources
 
