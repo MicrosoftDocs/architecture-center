@@ -29,7 +29,7 @@ When developing software for the cloud, or any environment for that matter, care
 - How can I best configure my development environment to emulate a production environment?
 - How can I collaborate with my peers during the development process?
 
-The following sections briefly detail technology that aids during the inner-loop development process.
+The following sections briefly detail technology that aids during the local or what is often refered to as 'inner-loop' development process.
 
 ### Docker Desktop
 
@@ -46,6 +46,14 @@ Many applications and solutions are built on Linux. Windows Subsystem for Linux 
 **Learn more**
 
 - [Documentation: Windows Subsystem for Linux Documentation](https://www.docker.com/products/docker-desktop)
+
+### Kubernetes Bridge
+
+Bridge to Kubernetes allows you to run and debug code on your development system while connected to a Kubernetes cluster. This configuration can be helpful when working on microservice type architectures. Using Bridge, you can work locally on one service, which has a dependency on other services. Rather than needing to run all dependant services on your development system, Bridge manages the communication between your development system and running services in your Kubernetes cluster.
+
+**Learn more**
+
+- [Documentation: Use Bridge to Kubernetes with Visual Studio Code](https://www.docker.com/products/docker-desktop)
 
 ## Test-driven development
 
