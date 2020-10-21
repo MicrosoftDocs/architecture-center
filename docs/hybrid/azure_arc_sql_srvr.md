@@ -1,5 +1,5 @@
 ---
-title: Azure Arc enabled SQL Server using Azure Security Center
+title: Manage on-premises SQL Server instances with Azure Arc enabled SQL Server
 description: One-sentence description of hybrid reference architecture
 author: githubusername
 ms.date: 00/00/0000
