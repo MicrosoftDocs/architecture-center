@@ -14,7 +14,7 @@ ms.custom: fcp
 
 The following reference architecture illustrates how to design and implement disaster recovery of Azure Stack HCI by using stretched clustering. 
 
-![Active-active and active-passive Azure Stack HCI stretched cluster][architectural-diagram]
+![Diagram illustrating an active-active and an active-passive Azure Stack HCI stretched cluster, with storage volumes and cluster performance history replicating via Storage Replica. In the active-active mode, there is replication traffic in each direction, with both sites hosting Azure Stack HCI VMs. In the active-passive mode, replication is unidirectional, with the active site hosting Azure Stack HCI VMs.][architectural-diagram]
 
 *Download a [Visio file][architectural-diagram-visio-source] of this architecture.*
 
@@ -141,7 +141,7 @@ The [Microsoft Azure Well-Architected Framework][azure-well-architected-framewor
 [create-stretched-volumes-with-powershell]: https://docs.microsoft.com/azure-stack/hci/manage/create-stretched-volumes
 [azure-policy-guest-configuration]: https://docs.microsoft.com/azure/governance/policy/concepts/guest-configuration
 [resource-context-log-analytics-access-mode]: https://docs.microsoft.com/azure/azure-monitor/platform/design-logs-deployment#access-mode
-[azure-monitor]: https://docs.microsoft.com/azure-monitor/insights/vminsights-overview
+[azure-monitor]: https://docs.microsoft.com/azure/azure-monitor/insights/vminsights-overview
 [change-tracking-and-inventory]: https://docs.microsoft.com/azure/automation/change-tracking
 [site-to-site-network-reqs]: https://docs.microsoft.com/azure-stack/hci/concepts/plan-host-networking#site-to-site-requirements-stretched-cluster
 [site-to-site-rdma-considerations]: https://docs.microsoft.com/en-us/azure-stack/hci/concepts/plan-host-networking#rdma-considerations
