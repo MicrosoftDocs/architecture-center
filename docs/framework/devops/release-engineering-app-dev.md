@@ -47,13 +47,22 @@ Many applications and solutions are built on Linux. Windows Subsystem for Linux 
 
 - [Documentation: Windows Subsystem for Linux Documentation](https://www.docker.com/products/docker-desktop)
 
-### Kubernetes Bridge
+### Bridge to Kubernetes
 
-Bridge to Kubernetes allows you to run and debug code on your development system while connected to a Kubernetes cluster. This configuration can be helpful when working on microservice type architectures. Using Bridge, you can work locally on one service, which has a dependency on other services. Rather than needing to run all dependant services on your development system, Bridge manages the communication between your development system and running services in your Kubernetes cluster.
+Bridge to Kubernetes allows you to run and debug code on your development system while connected to a Kubernetes cluster. This configuration can be helpful when working on microservice type architectures. Using Bridge, you can work locally on one service, which has a dependency on other services. Rather than needing to run all dependant services on your development system or deploy your in-development code to the cluster, Bridge manages the communication between your development system and running services in your Kubernetes cluster. Essentially, the code running on your development system behaves as if it is running in the Kubernetes cluster.
+
+Some features of Bridge:
+
+- Works with Azure Kubernetes Service (AKS) and non-AKS clusters (in preview).
+- Redirects traffic between your Kubernetes cluster and code running on your development system.
+- Support for isolated traffic routing, which is important in shared clusters.
+- Replicates environment variables and mounted volumes from your cluster to your development system.
+- Cluster diagnostic logs are made available on your development system.
 
 **Learn more**
 
 - [Documentation: Use Bridge to Kubernetes with Visual Studio Code](https://www.docker.com/products/docker-desktop)
+- [Documentation: Use Bridge to Kubernetes with Visual Studio](https://docs.microsoft.com/visualstudio/containers/bridge-to-kubernetes?view=vs-2019)
 
 ## Test-driven development
 
