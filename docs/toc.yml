@@ -1197,6 +1197,24 @@ items:
         href: hybrid/gateway-logic-apps.md
   - name: Internet of Things
     items:
+    - name: Guides
+      items:
+      - name: Azure IoT Edge Vision
+        items:
+        - name: Overview
+          href: guide/iot-edge-vision/index.md
+        - name: Camera selection
+          href: guide/iot-edge-vision/camera.md
+        - name: Hardware acceleration
+          href: guide/iot-edge-vision/hardware.md
+        - name: Machine learning
+          href: guide/iot-edge-vision/machine-learning.md
+        - name: Image storage
+          href: guide/iot-edge-vision/image-storage.md
+        - name: Alert persistence
+          href: guide/iot-edge-vision/alerts.md
+        - name: User interface
+          href: guide/iot-edge-vision/user-interface.md
     - name: Architectures
       items:
       - name: IoT reference architecture
