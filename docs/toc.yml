@@ -257,8 +257,6 @@ items:
       href: framework/devops/development.md
     - name: Deployment
       href: framework/devops/deployment.md
-    - name: Infrastructure Deployments
-      href: framework/devops/iac.md
     - name: Monitoring
       href: framework/devops/monitoring.md
     - name: Performance
@@ -267,6 +265,16 @@ items:
       href: framework/devops/testing.md
     - name: Checklist
       href: checklist/dev-ops.md
+    - name: Automation
+      items:
+      - name: Automation Overview
+        href: framework/devops/automation-overview.md
+      - name: Repeatable infrastructure
+        href: framework/devops/automation-infrastructure.md
+      - name: Configure infrastructure
+        href: framework/devops/automation-configuration.md
+      - name: Automate operational tasks
+        href: framework/devops/automation-tasks.md
   - name: Performance Efficiency
     items:
     - name: Overview
@@ -1185,6 +1193,24 @@ items:
         href: hybrid/gateway-logic-apps.md
   - name: Internet of Things
     items:
+    - name: Guides
+      items:
+      - name: Azure IoT Edge Vision
+        items:
+        - name: Overview
+          href: guide/iot-edge-vision/index.md
+        - name: Camera selection
+          href: guide/iot-edge-vision/camera.md
+        - name: Hardware acceleration
+          href: guide/iot-edge-vision/hardware.md
+        - name: Machine learning
+          href: guide/iot-edge-vision/machine-learning.md
+        - name: Image storage
+          href: guide/iot-edge-vision/image-storage.md
+        - name: Alert persistence
+          href: guide/iot-edge-vision/alerts.md
+        - name: User interface
+          href: guide/iot-edge-vision/user-interface.md
     - name: Architectures
       items:
       - name: IoT reference architecture

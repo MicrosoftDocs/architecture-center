@@ -6,6 +6,7 @@ author: doodlemania2
 ms.date: 08/25/2020
 ms.topic: example-scenario
 ms.custom:
+- cse
 - fcp
 ---
 
