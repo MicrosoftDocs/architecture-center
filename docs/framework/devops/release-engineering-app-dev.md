@@ -72,15 +72,27 @@ Source control systems provide a way to version control, collaborate on, and pee
 
 Let's examine a few aspects of version controlling software and infrastructure configurations.
 
-**Version Control**: Beyond providing us with a place to store code, source control systems allow us to understand what version of the software is current and identify changes between the current and past versions. Version control solutions should also provide a method for reverting to the previous version when needed.
+**Version Control** 
 
-**Forking and Pull Requests**: Using source control systems, you can create your own copies of the software source called forks. With your fork in place, changes can be made to the software without the risk that the changes will impact the software's current version. Once you are happy with the changes made in your fork, you can suggest that your changes be merged into the main source control through what is known as a pull request.
+Beyond providing us with a place to store code, source control systems allow us to understand what version of the software is current and identify changes between the current and past versions. Version control solutions should also provide a method for reverting to the previous version when needed.
 
-**Peer Review**: As updates are made to software and infrastructure configurations, version control software allows us to propose these changes before merging them into the source. During the proposal, peers can review the changes, recommend updates, and approve the changes. Source control solutions provide an excellent platform for collaboration on changes to the software.
+**Forking and Pull Requests** 
 
-## GitHub
+Using source control systems, you can create your own copies of the software source called forks. With your fork in place, changes can be made to the software without the risk that the changes will impact the software's current version. Once you are happy with the changes made in your fork, you can suggest that your changes be merged into the main source control through what is known as a pull request.
 
-## Azure DevOps Repositories
+**Peer Review** 
+
+As updates are made to software and infrastructure configurations, version control software allows us to propose these changes before merging them into the source. During the proposal, peers can review the changes, recommend updates, and approve the changes. Source control solutions provide an excellent platform for collaboration on changes to the software.
+
+### GitHub
+
+### Azure Repos
+
+Azure DevOps is a collection of services for building, collaborating on, testing, and delivering software to any environment. Azure DevOps services include Azure Repos, which is a source control system. Using Azure Repos include unlimited free private Git repositories. Standard Git powers azure Repos, and you can use clients and tools of your choice for working with them.
+
+**Learn more**
+
+- [Documentation: Azure Repos](https://docs.microsoft.com/azure/devops/repos/?view=azure-devops)
 
 ## Branching strategies
 
