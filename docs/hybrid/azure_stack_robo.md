@@ -43,7 +43,7 @@ The architecture incorporates the following components and capabilities:
 
 ## Recommendations
 
-The following recommendations apply for most scenarios. Follow the recommendations in the subtopics unless you have a specific requirement that overrides them.
+The following recommendations apply for most scenarios. Follow these recommendations unless you have a specific requirement that overrides them.
 
 ### Use Azure Stack HCI switchless interconnect and lightweight quorum for highly-available and cost-effective ROBO infrasturcture. 
 
