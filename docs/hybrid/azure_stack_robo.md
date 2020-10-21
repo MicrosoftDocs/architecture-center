@@ -14,7 +14,7 @@ ms.custom: fcp
 
 This reference architecture illustrates how to design infrastructure for highly available virtualized and containerized workloads in Remote Office/Branch Office (ROBO) scenarios.
 
-![Azure Stack HCI 2-node cluster with switchless interconnect and a USB-based witness for Remote Office/Branch Office][architectural-diagram]
+![Diagram illustrating an Azure Stack HCI ROBO scenario, with a two-node Azure Stack HCI cluster using a switchless interconnect and a USB-based quorum. The cluster leverages a number of Azure services, including Azure Arc that provides the ability to implement Azure Policy, Azure Automation that includes Azure update management functionality, Azure Monitor, as well as Azure File Sync, Azure Network Adapter, Azure Security Center, Azure Backup, Azure Site Recovery, and Storage Replica.][architectural-diagram]
 
 *Download a [Visio file][architectural-diagram-visio-source] of this architecture.*
 
