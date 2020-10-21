@@ -27,7 +27,7 @@ When developing software for the cloud, or any environment for that matter, care
 
 - How do I ensure that all dependencies are in place?
 - How can I best configure my development environment to emulate a production environment?
-- How can I collaborate with my peers during the development process?
+- How do I develop code where service dependencies may exist with code already in production? 
 
 The following sections briefly detail technology that aids during the local or what is often refered to as 'inner-loop' development process.
 
@@ -67,6 +67,20 @@ Some features of Bridge:
 ## Test-driven development
 
 ## Source control
+
+Source control systems provide a way to version control, collaborate on, and peer review software changes. Whether a piece of software is open-sourced or private, using version control software has become a standardized method of managing software development. As detailed in later sections of the Well Architected Framework, source control systems can also be enlightened with integrated testing, security, and release practices. As cloud practices are adopted and because so much of the cloud infrastructure is managed through code, version control systems are also becoming an integral part of infrastructure management. 
+
+Let's examine a few aspects of version controlling software and infrastructure configurations.
+
+**Version Control**: Beyond providing us with a place to store code, source control systems allow us to understand what version of the software is current and identify changes between the current and past versions. Version control solutions should also provide a method for reverting to the previous version when needed.
+
+**Forking and Pull Requests**: Using source control systems, you can create your own copies of the software source called forks. With your fork in place, changes can be made to the software without the risk that the changes will impact the software's current version. Once you are happy with the changes made in your fork, you can suggest that your changes be merged into the main source control through what is known as a pull request.
+
+**Peer Review**: As updates are made to software and infrastructure configurations, version control software allows us to propose these changes before merging them into the source. During the proposal, peers can review the changes, recommend updates, and approve the changes. Source control solutions provide an excellent platform for collaboration on changes to the software.
+
+## GitHub
+
+## Azure DevOps Repositories
 
 ## Branching strategies
 
