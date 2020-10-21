@@ -31,7 +31,7 @@ The architecture incorporates the following components and capabilities:
 
 ## Recommendation
 
-The following recommendation applies to most scenarios. Follow the recommendation unless you have a specific requirement that overrides it. 
+The following recommendation applies for most scenarios. Follow the recommendation unless you have a specific requirement that overrides it. 
 
 ### Use stretched clusters to implement automated disaster recovery for virtualized workloads and file shares hosted on Azure Stack HCI
 
