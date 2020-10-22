@@ -87,7 +87,7 @@ In addition, you can onboard Azure Stack HCI VMs in [Azure Security Center][az-s
 
 ## Architectural excellence
 
-The *[Microsoft Azure Well-Architected Framework][azure-well-architected-framerwork]* is a set of guiding tenets that are followed in this reference architecture. The following considerations are framed in the context of these tenets.
+The [Microsoft Azure Well-Architected Framework][azure-well-architected-framerwork] is a set of guiding tenets that are followed in this reference architecture. The following considerations are framed in the context of these tenets.
 
 ### Cost optimization
 
