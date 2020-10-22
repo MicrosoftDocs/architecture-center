@@ -19,9 +19,9 @@ Just as you needed to anticipate increases in load in on-premises environments, 
 
 ## What is scalability and why is it important?
 
-The main ways to achieve performance efficiency are by using scaling appropriately and implementing PaaS offerings that have built-in scaling. *Scalability* is the ability of a system to handle increased load. Services covered by [Azure Autoscale](https://docs.microsoft.com/azure/azure-monitor/platform/autoscale-overview)<!--replace LINK with new Autoscaling--> can scale automatically to match demand to accommodate workload. They will scale out to ensure capacity during workload peaks and scaling will return to normal automatically when the peak drops.
+An important consideration in achieving performance efficiency is to consider how your application scales and to implement PaaS offerings that have built-in scaling operations. *Scalability* is the ability of a system to handle increased load. Services covered by [Azure Autoscale](https://docs.microsoft.com/azure/azure-monitor/platform/autoscale-overview)<!--replace LINK with new Autoscaling--> can scale automatically to match demand to accommodate workload. They will scale out to ensure capacity during workload peaks and scaling will return to normal automatically when the peak drops.
 
-In the cloud, the ability to take advantage of scalability depends on your infrastructure and services. For example, an application that runs in a Kubernetes cluster will scale much easier than an application installed on a virtual machine. With virtual machines, you may want to plan ahead to avoid scaling infrastructure in the future to meet demand.
+In the cloud, the ability to take advantage of scalability depends on your infrastructure and services. Some platforms, such as Kubernetes, were built with scaling in mind. Virtual machines, on the other hand, may not scale as easily although scale operations are possible. With virtual machines, you may want to plan ahead to avoid scaling infrastructure in the future to meet demand. Another option is to select a different platform such as Azure virtual machines scale sets.
 
 When using scalability, you need only predict the current average and peak times for your workload. Payment plan options allow you to manage this. You pay either per minute or per-hour depending on the service for a designated time period.
 
