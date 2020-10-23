@@ -36,11 +36,11 @@ In response to a request to capture a VM's digital evidence, an SOC team member 
 The Copy-VmDigitalEvidence runbook:
 
 1. Signs in to Azure as a [managed identity](/azure/active-directory/managed-identities-azure-resources/overview) or [service principal](/azure/active-directory/develop/howto-create-service-principal-portal) to access the SOC subscription as well as the target VM
-2. Creates disk snapshots for the VM's operating system (OS) and data disks
-3. Copies the snapshots to the SOC subscription's immutable Blob storage, and to a temporary file share
-4. Calculates SHA-256 hash values for the snapshots on the file share
-5. Copies the SHA-256 hash values, as well as the VM's BEK, KEK if applicable, and disk identification tags, to the SOC key vault
-6. Deletes all copies of the snapshots except the one in immutable Blob storage
+1. Creates disk snapshots for the VM's operating system (OS) and data disks
+1. Copies the snapshots to the SOC subscription's immutable Blob storage, and to a temporary file share
+1. Calculates SHA-256 hash values for the snapshots on the file share
+1. Copies the SHA-256 hash values, as well as the VM's BEK, KEK if applicable, and disk identification tags, to the SOC key vault
+1. Deletes all copies of the snapshots except the one in immutable Blob storage
 
 ### Azure Storage account
 
@@ -141,11 +141,11 @@ You can also deploy a Hybrid Runbook Worker on on-premises or other cloud networ
 
 The following complete PowerShell code samples of the Copy-VmDigitalEvidence runbook are available in GitHub:
 
-- [Copy‑VmDigitalEvidenceWin](https://github.com/mspnp/solution-architectures/blob/master/forensics/Copy-VmDigitalEvidenceWin.ps1) runbook for [Windows Hybrid RunBook Worker](https://docs.microsoft.com/azure/automation/automation-windows-hrw-install).
+- [Copy‑VmDigitalEvidenceWin](https://github.com/mspnp/solution-architectures/blob/master/forensics/Copy-VmDigitalEvidenceWin.ps1) runbook for [Windows Hybrid RunBook Worker](/azure/automation/automation-windows-hrw-install).
 
-- [Copy‑VmDigitalEvidence](https://github.com/mspnp/solution-architectures/blob/master/forensics/Copy-VmDigitalEvidence.ps1) runbook for [Linux Hybrid RunBook Worker](https://docs.microsoft.com/azure/automation/automation-linux-hrw-install#installing-a-linux-hybrid-runbook-worker). The Hybrid Runbook Worker must have PowerShell Core installed and the `sha256sum` program available, to calculate the disk snapshots’ SHA-256 hash values.
+- [Copy‑VmDigitalEvidence](https://github.com/mspnp/solution-architectures/blob/master/forensics/Copy-VmDigitalEvidence.ps1) runbook for [Linux Hybrid RunBook Worker](/azure/automation/automation-linux-hrw-install#installing-a-linux-hybrid-runbook-worker). The Hybrid Runbook Worker must have PowerShell Core installed and the `sha256sum` program available, to calculate the disk snapshots’ SHA-256 hash values.
 
-The Hybrid Runbook Worker must map the Azure File share containing the disk, used to calculate its hash values. Further details for the mounting procedure are available for both [Windows](https://docs.microsoft.com/azure/storage/files/storage-how-to-use-files-windows) and [Linux](https://docs.microsoft.com/azure/storage/files/storage-files-how-to-mount-nfs-shares) systems.
+The Hybrid Runbook Worker must map the Azure File share containing the disk, used to calculate its hash values. Further details for the mounting procedure are available for both [Windows](/azure/storage/files/storage-how-to-use-files-windows) and [Linux](/azure/storage/files/storage-files-how-to-mount-nfs-shares) systems.
 
 ### Capture workflow
 
@@ -179,14 +179,14 @@ After the execution of the Copy-VmDigitalEvidence runbook, the evidence is store
 
 Different methods are available to retrieve the evidence from the .vhd image.
 
-In the following examples the .vhd file is used to create an [Azure managed disk](https://docs.microsoft.com/azure/virtual-machines/managed-disks-overview) that is attached as a data disk to an Azure Virtual Machine used to analyze the evidence.
+In the following examples the .vhd file is used to create an [Azure managed disk](/azure/virtual-machines/managed-disks-overview) that is attached as a data disk to an Azure Virtual Machine used to analyze the evidence.
 
 Below actions must be executed:
 
-- [Create a managed disk from a VHD file in a storage account](https://docs.microsoft.com/azure/virtual-machines/scripts/virtual-machines-powershell-sample-create-managed-disk-from-vhd)
+- [Create a managed disk from a VHD file in a storage account](/azure/virtual-machines/scripts/virtual-machines-powershell-sample-create-managed-disk-from-vhd)
 - Attach the newly created disk to the Azure Virtual Machine:
-  - [Windows procedure](https://docs.microsoft.com/azure/virtual-machines/windows/attach-disk-ps#attach-an-existing-data-disk-to-a-vm)
-  - [Linux procedure](https://docs.microsoft.com/azure/virtual-machines/linux/attach-disk-portal#attach-a-new-disk)
+  - [Windows procedure](/azure/virtual-machines/windows/attach-disk-ps#attach-an-existing-data-disk-to-a-vm)
+  - [Linux procedure](/azure/virtual-machines/linux/attach-disk-portal#attach-a-new-disk)
 
 At the end of the procedure, the Virtual Machine has a new encrypted data disk connected to it.
 
