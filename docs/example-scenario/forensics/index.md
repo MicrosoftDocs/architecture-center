@@ -3,7 +3,7 @@ title: Computer forensics Chain of Custody in Azure
 titleSuffix: Azure Example Scenarios
 description: Create an infrastructure and workflow to ensure a valid digital evidence Chain of Custody (CoC) for computer forensics in Azure.
 author: simonesavi
-ms.date: 04/27/2020
+ms.date: 10/23/2020
 ms.topic: example-scenario
 ms.service: architecture-center
 ms.custom:
@@ -179,16 +179,24 @@ After the execution of the Copy-VmDigitalEvidence runbook, the evidence is store
 
 Different methods are available to retrieve the evidence from the .vhd image.
 
-In the following examples the .vhd file is used to create a Managed Azure Disk that is attached as a data disk to an Azure Virtual Machine. In more details:
+In the following examples the .vhd file is used to create an [Azure managed disk](https://docs.microsoft.com/azure/virtual-machines/managed-disks-overview) that is attached as a data disk to an Azure Virtual Machine used to analyze the evidence.
 
-- Windows encrypted .vhd file is mounted on a Windows Azure Virtual Machine
-- Linux encrypted .vhd file is mounted on a Linux Azure Virtual Machine
+Below actions must be executed:
 
-#### Windows disks
+- [Create a managed disk from a VHD file in a storage account](https://docs.microsoft.com/azure/virtual-machines/scripts/virtual-machines-powershell-sample-create-managed-disk-from-vhd)
+- Attach the newly created disk to the Azure Virtual Machine:
+  - [Windows procedure](https://docs.microsoft.com/azure/virtual-machines/windows/attach-disk-ps#attach-an-existing-data-disk-to-a-vm)
+  - [Linux procedure](https://docs.microsoft.com/azure/virtual-machines/linux/attach-disk-portal#attach-a-new-disk)
 
-The Azure Windows disk snapshot is locked by Bitlocker. Once the disk is mounted on a Windows machine the content is not readable, until it's unlocked.
+At the end of the procedure, the Virtual Machine has a new encrypted data disk connected to it.
 
-To unlock an Azure disk snapshot mounted, for example, under G:\ do the following:
+To decrypt the disk, follow the procedures described in below sessions.
+
+#### Windows disks unlock
+
+The Azure Windows data disk is locked by BitLocker. Once the disk is attached on a Windows machine the content is not readable, until it's unlocked.
+
+To unlock an Azure data disk connected, for example, on G:\ execute below actions:
 
 1. Open the SOC key vault, and search the secret containing the BEK of the disk. The secret is named with the thumbprint of the Copy-VmDigitalEvidence runbook execution
 1. Copy the BEK string and paste it into the `$bekSecretBase64` variable in the following PowerShell script. Paste the value of the `DiskEncryptionKeyFileName` tag associated to the secret into the `$fileName` variable
@@ -208,11 +216,11 @@ To unlock an Azure disk snapshot mounted, for example, under G:\ do the followin
     manage-bde -unlock G: -rk $path
     ```
 
-#### Linux disks
+#### Linux disks unlock
 
-The Azure Linux disk snapshot is locked by DM-Crypt. The content of the disk is not accessible until the disk is unlocked.
+The Azure Linux data disk is locked by DM-Crypt. The content of the disk is not accessible until the disk is unlocked.
 
-To unlock an Azure Linux disk snapshot and mount it under the directory “datadisk”:
+To unlock an Azure data disk and mount it under the directory `datadisk`:
 
 1. Open the SOC key vault, and search the secret containing the BEK of the disk. The secret is named with the thumbprint of the Copy-VmDigitalEvidence runbook execution
 1. Copy the BEK string and paste it into the `bekSecretBase64` variable in the following bash script
@@ -240,7 +248,7 @@ To unlock an Azure Linux disk snapshot and mount it under the directory “datad
    cryptsetup open $device $mountname
     ```
 
-After the script execution, you will be prompted for the encryption passphrase. Copy it from the script output to unlock and access the content of the disk snapshot.
+After the script execution, you will be prompted for the encryption passphrase. Copy it from the script output to unlock and access the content of the Azure data disk.
 
 ## Next steps
 
