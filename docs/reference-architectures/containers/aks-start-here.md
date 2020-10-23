@@ -40,13 +40,20 @@ You understand the benefits and trade-offs of Kubernetes, and have decided that 
 > [!div class="nextstepaction"]
 > [Microsoft's AKS Baseline Cluster](../../reference-architectures/containers/aks/secure-baseline-aks.md)
 
-## Best practices
+### Best practices
 
 As part of on going operations, you may wish to spot check your cluster against current recommended best practices. The best place to start is to ensure your cluster is aligned with Microsoft's [AKS Baseline Cluster](../../reference-architectures/containers/aks/secure-baseline-aks.md).
 
 See [Best Practices for Cluster Operations](/azure/aks/best-practices) and [Best Practices for AKS Workloads](/azure/aks/best-practices#developer-best-practices).
 
 > You may also consider evaluating a community-driven utility like [The AKS Checklist](https://www.the-aks-checklist.com) as a way of organizing and tracking your alignment to these best practices.
+
+## Operations Guide
+
+Getting your workload deployed on AKS is a great milestone and this is when [day-2 operations](https://dzone.com/articles/defining-day-2-operations) are going to be top-of-mind. **Microsoft's AKS Day 2 Operations Guide** was built for your ease of reference. This will help ensure you are ready to meet the demands of your customers and ensure you are prepared for break-fix situations via optimized triage processes.
+
+> [!div class="nextstepaction"]
+> [Microsoft's AKS Day 2 Operations Guide](../../operator-guides/aks/aks-triage-practices.md)
 
 ## Stay current with AKS
 
@@ -85,3 +92,10 @@ If you're a managed service provider, you already use Azure Lighthouse to manage
 
 > [!div class="nextstepaction"]
 > [AKS with Azure Lighthouse](/azure/lighthouse/overview)
+
+### AWS or GCP professionals
+
+These articles provide service mapping and comparison between Azure and other cloud services. This reference can help you ramp up quickly on Azure.
+
+* [Containers and container orchestrators for AWS Professionals](../../aws-professional/compute.md#containers-and-container-orchestrators)
+* [Containers and container orchestrators for GCP Professionals](../../gcp-professional/services.md#containers-and-container-orchestrators)

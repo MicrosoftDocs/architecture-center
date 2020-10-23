@@ -257,8 +257,6 @@ items:
       href: framework/devops/development.md
     - name: Deployment
       href: framework/devops/deployment.md
-    - name: Infrastructure Deployments
-      href: framework/devops/iac.md
     - name: Monitoring
       href: framework/devops/monitoring.md
     - name: Performance
@@ -267,6 +265,16 @@ items:
       href: framework/devops/testing.md
     - name: Checklist
       href: checklist/dev-ops.md
+    - name: Automation
+      items:
+      - name: Automation Overview
+        href: framework/devops/automation-overview.md
+      - name: Repeatable infrastructure
+        href: framework/devops/automation-infrastructure.md
+      - name: Configure infrastructure
+        href: framework/devops/automation-configuration.md
+      - name: Automate operational tasks
+        href: framework/devops/automation-tasks.md
   - name: Performance Efficiency
     items:
     - name: Overview
@@ -729,8 +737,29 @@ items:
       href: reference-architectures/containers/aks/secure-baseline-aks.md
     - name: AKS Cluster Best Practices
       href: /Azure/aks/best-practices
+      maintainContext: true
     - name: AKS Workload Best Practices
       href: /Azure/aks/best-practices#developer-best-practices
+      maintainContext: true
+    - name: AKS day-2 operations guide
+      items:
+        - name: Triage practices
+          items:
+            - name: Introduction
+              href: operator-guides/aks/aks-triage-practices.md
+            - name: 1- Cluster health
+              href: operator-guides/aks/aks-triage-cluster-health.md
+            - name: 2- Node and pod health
+              href: operator-guides/aks/aks-triage-node-health.md
+            - name: 3- Workload deployments
+              href: operator-guides/aks/aks-triage-deployment.md
+            - name: 4- Admission controllers
+              href: operator-guides/aks/aks-triage-controllers.md
+            - name: 5- Container registry connectivity
+              href: operator-guides/aks/aks-triage-container-registry.md                                                 
+        - name: Common Issues
+          href: /azure/aks/troubleshooting?bc=%2fazure%2farchitecture%2fbread%2ftoc.json&toc=%2fazure%2farchitecture%2ftoc.json
+          maintainContext: true
     - name: AKS Example Solutions
       items:
         - name: Microservices architecture on AKS
@@ -1185,6 +1214,24 @@ items:
         href: hybrid/gateway-logic-apps.md
   - name: Internet of Things
     items:
+    - name: Guides
+      items:
+      - name: Azure IoT Edge Vision
+        items:
+        - name: Overview
+          href: guide/iot-edge-vision/index.md
+        - name: Camera selection
+          href: guide/iot-edge-vision/camera.md
+        - name: Hardware acceleration
+          href: guide/iot-edge-vision/hardware.md
+        - name: Machine learning
+          href: guide/iot-edge-vision/machine-learning.md
+        - name: Image storage
+          href: guide/iot-edge-vision/image-storage.md
+        - name: Alert persistence
+          href: guide/iot-edge-vision/alerts.md
+        - name: User interface
+          href: guide/iot-edge-vision/user-interface.md
     - name: Architectures
       items:
       - name: IoT reference architecture

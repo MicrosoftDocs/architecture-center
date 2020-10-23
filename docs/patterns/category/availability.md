@@ -22,3 +22,5 @@ Availability is measured as a percentage of uptime, and defines the proportion o
 | [Health Endpoint Monitoring](../health-endpoint-monitoring.md) | Implement functional checks in an application that external tools can access through exposed endpoints at regular intervals. |
 |  [Queue-Based Load Leveling](../queue-based-load-leveling.md)  | Use a queue that acts as a buffer between a task and a service that it invokes, to smooth intermittent heavy loads.  |
 |                 [Throttling](../throttling.md)                 |   Control the consumption of resources by an instance of an application, an individual tenant, or an entire service.    |
+
+To mitigate against availability risks from malicious Distributed Denial of Service (DDoS) attacks, implement the native [Azure DDoS protection standard](/azure/virtual-network/ddos-protection-overview) service or a 3rd party capability.
