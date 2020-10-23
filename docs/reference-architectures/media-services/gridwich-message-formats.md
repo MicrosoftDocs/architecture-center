@@ -86,7 +86,7 @@ See [Operation context](gridwich-architecture.md#operation-context) for more inf
 
 ## Event Grid messages
 
-For more information about request-response message flow, see [Gridwich operations request and response flow](gridwich-request-response-flow.md).
+For more information about request-response message flow, see [Request flow](gridwich-architecture.md#request-flow).
 
 In the following event descriptions, the JSON property values are the usual string, number, or boolean types. The descriptions use the following specific string content types. If the description includes "opaque," the content and format of the value are arbitrary.
 

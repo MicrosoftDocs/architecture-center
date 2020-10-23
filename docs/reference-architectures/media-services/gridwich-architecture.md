@@ -35,7 +35,7 @@ In developing Gridwich, the team formulated and followed best practices for proc
 
 Gridwich architecture features two *sandwiches* that address the requirements of asynchronous media event processing and [infrastructure as code](/azure/devops/learn/what-is-infrastructure-as-code).
 
-- The *Event Grid Sandwich* abstracts away remote and long-running processes like media encoding from the external saga workflow system by sandwiching them between two [Event Grid handlers](gridwich-request-response-flow.md). This sandwich lets the external system send a request event, monitor scheduled events, and wait for an eventual success or failure response that might arrive minutes or hours later.
+- The *Event Grid Sandwich* abstracts away remote and long-running processes like media encoding from the external saga workflow system by sandwiching them between two [Event Grid handlers](#request-flow). This sandwich lets the external system send a request event, monitor scheduled events, and wait for an eventual success or failure response that might arrive minutes or hours later.
   
   ![Diagram showing the Event Grid handler sandwich.](media/gridwich-overview.png)
   
