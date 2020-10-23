@@ -52,29 +52,15 @@ This instance reuse, combined with the Azure Storage SDK client structure, requi
 
 Almost all the Gridwich Storage Service operations require a special context argument of type [StorageClientProviderContext][SCPC]. This context argument fulfills the following requirements:
 
-- Provides the external system with responses, which include the per-request unique JSON-based operation context value that the external system specified on the Gridwich request.
+- Provides the external system with responses, which include the per-request unique JSON-based operation context value that the external system specified on the Gridwich request. For more information about operation context, see [Operation context](gridwich-architecture.md#operation-context).
 
 - Allows Storage Service callers like Gridwich event handlers to control which responses are visible to the external system. This control prevents flooding the external system with irrelevant notification events.
 
 - Complies with Azure Storage conventions to ensure coherent requests and responses in an environment that allows a mix of parallel readers and writers. For example, supports [ETag tracking][ETag]. For more information, see [ETags](#etags-for-content-changes).
 
-## Operation context
+### Storage context
 
-As part of each external system request to Gridwich, the event payload object includes a JSON object property named [operationContext][RequestBaseDTO]). Gridwich must return a *corresponding* JSON object as part of each response payload to the external system. For more information, see [ResponseBaseDTO][ResponseBaseDTO]).
-
-The requirement is for a "corresponding" rather than the "same" JSON object on the response. For reasons that include Newtonsoft JSON parsing eccentricities and storage operation muting, Gridwich takes advantage of the fact that the external system processes the JSON object sent by Gridwich in a "top-down" fashion.
-
-Specifically, the external system has:
-
-- No dependency on property ordering, so Gridwich can send back an object with the same properties, possibly in a different order. For example, `{"a":1,"b":2}` vs. `{"b":2,"a":1}`.
-  
-- No issue with extra properties being present, so Gridwich, having received `{"b":2,"a":1}`, could validly return `{"a":1,"b":2,"~somethingExtra":"yes"}`. To minimize the possibility of collisions, Gridwich prefixes the names of added properties with a tilde (~), for example `~muted`.
-  
-- No JSON-formatting dependencies. For example, there are no assumptions about where whitespace padding may fall within the string representation of the JSON. Gridwich capitalizes on this lack of formatting dependency by compressing out unneeded whitespace in string representations of the JSON objects. For more information, see [JSONHelpers.SerializeOperationContext][JsonHelpers].
-
-## Storage context
-
-The context for both the blob and container [storage types](#storage-sleeves) is the same [`StorageClientProviderContext`][SCPC], which looks like:
+The context for both the blob and container [storage types](#storage-sleeves) is the same [StorageClientProviderContext][SCPC], which looks like:
 
 ```csharp
     string  ClientRequestID { get; }
@@ -199,7 +185,6 @@ The net is that the Gridwich Storage Service, as is, should not be changed to `S
 
 [StorageService]: https://github.com/mspnp/gridwich/src/Gridwich.SagaParticipants.Storage.AzureStorage
 [SCPC]: https://github.com/mspnp/gridwich/src/Gridwich.Core/src/Models/StorageClientProviderContext.cs "StorageClientProviderContext.cs"
-[RequestBaseDTO]: https://github.com/mspnp/gridwich/src/Gridwich.Core/src/DTO/Requests/RequestBaseDTO.cs "RequestBaseDTO.cs"
 [ResponseBaseDTO]: https://github.com/mspnp/gridwich/src/Gridwich.Core/src/DTO/Responses/ResponseBaseDTO.cs "ResponseBaseDTO.cs"
 [Pipeline]: https://github.com/mspnp/gridwich/src/Gridwich.SagaParticipants.Storage.AzureStorage/src/Services/BlobClientPipelinePolicy.cs "BlobClientPipelinePolicy.cs"
 [SleeveB]: https://github.com/mspnp/gridwich/src/Gridwich.SagaParticipants.Storage.AzureStorage/src/Services/StorageBlobClientSleeve.cs "StorageBlobClientSleeve.cs"

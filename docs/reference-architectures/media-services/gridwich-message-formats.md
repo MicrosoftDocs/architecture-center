@@ -11,84 +11,84 @@ ms.custom:
 - fcp
 ---
 
-# Request-response message formats for Gridwich operations
+# Gridwich operations request-response messages
 
 This article details the specific Event Grid events that form the request-response sequence for different Gridwich operations.
 
 ## Gridwich events
 
-[Gridwich ACK](#m-ack) and [Gridwich Failure](#m-fail) are different from other events. Specifically,
+Gridwich ACK and Gridwich Failure are different from other events. Specifically,
 
-- ACK indicates only that Gridwich has received the request in a Request-ACK-Response sequence, not necessarily that the request is processed.
-- While each operation has one or more unique Success response events, all operations use the same Failure event to communicate failure.
+- [Gridwich ACK](#m-ack) indicates only that Gridwich has received the request in a Request-ACK-Response sequence, not necessarily that the request is processed.
+- While each operation has one or more unique Success response events, all operations use the same [Gridwich Failure](#m-fail) event to communicate failure.
 
-### Publishing events
+**Publishing events**
 
 - [Publishing via Azure Media Services](#publishams)
 - [Create Asset Locator](#createlocator)
 - [Delete Asset Locator](#deletelocator)
 
-### Encoding events
+**Encoding events**
 
-#### Initiate new Encode job
+- **Initiate new Encode job**
+  
+  - [Encode with Media Services V2](#encodeviaamsv2)
+  - [Encode with Media Services V3](#encodeviaamsv3)
+  - [Encode with CloudPort workflow](#encodeviacp)
+  - [Encode via Flip](#encodeviaflip)
+  
+  The immediate response event from each encoder, aside from an ACK, is either a [Failure](#m-fail) or an [Encoding dispatched](#encodedispatchedresponse) event that indicates successful queuing of the job. The [Encoding progress notification events](#encoderstatus) handle further progress.
 
-- [Encode with Media Services V2](#encodeviaamsv2)
-- [Encode with Media Services V3](#encodeviaamsv3)
-- [Encode with CloudPort workflow](#encodeviacp)
-- [Encode via Flip](#encodeviaflip)
+- **Encoding progress notification**
+  
+  All encoders use the same set of [progress notification status events](#encoderstatus).
+  
+  - [Encoding scheduled](#encoderstatusscheduled)
+  - [Encoding in process](#encoderstatusprocessing)
+  - [Encoding completed successfully](#encoderstatussuccess)
+  - [Encoding cancelled](#encoderstatuscancelled)
 
-The immediate response event from each encoder, aside from an ACK, is either a [Failure](#m-fail) or an [Encoding dispatched](#encodedispatchedresponse) event that indicates successful queuing of the job. The [Encoding progress notification events](#encoderstatus) handle further progress.
+**Blob and container storage events**
 
-#### Encoding progress notification status
+- **Containers**
+  
+  - [Create container](#createcontainer)
+  - [Delete container](#deletecontainer)
+  - [Change access/visibility level](#changecontaineraccess)
+  
+- **Blobs**
+  
+  - [Set Blob metadata](#putblobmetadata)
+  - [Copy Blob](#copyblob)
+  - [Delete Blob](#deleteblob)
+  - [Change Blob access tier](#changeblobtier)
+  - [Get Blob SAS URL](#getcontentsas)
+  - [Analyze Blob](#analyzeblob), for example via MediaInfo
+  
+- **Blob notifications**
+  
+  - [Blob created notification](#statusblobcreated)
+  - [Blob deleted notification](#statusblobdeleted)
 
-All encoders use the same set of [progress notification status events](#encoderstatus).
-
-- [Encoding scheduled](#encoderstatusscheduled)
-- [Encoding in process](#encoderstatusprocessing)
-- [Encoding completed successfully](#encoderstatussuccess)
-- [Encoding cancelled](#encoderstatuscancelled)
-
-### Blob and container storage events
-
-#### Containers
-
-- [Create container](#createcontainer)
-- [Delete container](#deletecontainer)
-- [Change access/visibility level](#changecontaineraccess)
-
-#### Blobs
-
-- [Set Blob metadata](#putblobmetadata)
-- [Copy Blob](#copyblob)
-- [Delete Blob](#deleteblob)
-- [Change Blob access tier](#changeblobtier)
-- [Get Blob SAS URL](#getcontentsas)
-- [Analyze Blob](#analyzeblob), for example via MediaInfo
-
-#### Blob notifications
-
-- [Blob created notification](#statusblobcreated)
-- [Blob deleted notification](#statusblobdeleted)
-
-### Storage keys
+**Storage keys**
 
 - [Roll storage keys](#rollkey)
 
 ## Operation context
 
-Gridwich accepts a JSON `OperationContext` object as part of request messages. In general, Gridwich echoes that same object in response messages and isn't concerned with the specific internal structure or content of the context object.
+Gridwich accepts a JSON `OperationContext` object as part of request messages. In general, Gridwich echoes a corresponding object in response messages and isn't concerned with the specific internal structure or content of the context object.
 
 The exception is that the response context object may have extra JSON properties compared to the request equivalent. These extra properties are internal to Gridwich, and their names always start with the tilde ~ character. The request properties are always present on the response context object.
 
 As in normal JSON, the response object properties may appear in a different order than in the request object.
 
-See [Gridwich storage](gridwich-storage-service.md) and [Operation context](gridwich-operations-sagas.md) for more information about operation context.
+See [Operation context](gridwich-architecture.md#operation-context) for more information about operation context.
 
 ## Event Grid messages
 
 For more information about request-response message flow, see [Gridwich operations request and response flow](gridwich-request-response-flow.md).
 
-In the following event descriptions, the JSON property values are the usual string, number, or boolean types. The descriptions use the following specific string content types. If the description includes "opaque," the content and format of the value shouldn't be depended upon.
+In the following event descriptions, the JSON property values are the usual string, number, or boolean types. The descriptions use the following specific string content types. If the description includes "opaque," the content and format of the value are arbitrary.
 
 - `GUID-string`, like `"b621f33d-d01e-0002-7ae5-4008f006664e"` is a 16-byte ID value spelled out to 36 characters (32 hex digits, plus 4 dashes). Note the lack of curly braces. The value is case-insensitive. This format corresponds to the result of [System.GUID.ToString("D")](/dotnet/api/system.guid.tostring).
 - `Topic-string`, like `"/subscriptions/5edeadbe-ef64-4022-a3aa-133bfef1d7a2/resourceGroups/gws-shared-rg-sb/providers/Microsoft.EventGrid/topics/gws-gws-egt-sb"`, is a string of opaque content.
@@ -276,7 +276,7 @@ As usual with Azure Storage, metadata item names must conform to C# identifier n
 }
 ```
 
-### <a id="statusblobcreated"></a>Gridwich tells requester that a blob was created.
+### <a id="statusblobcreated"></a>Gridwich tells requester that a blob was created
 
 The blob could be created from any source, like a copy result, inbox arrival, or encode result.
 
@@ -332,7 +332,7 @@ The blob could be created from any source, like a copy result, inbox arrival, or
 }
 ```
 
-### <a id="statusblobdeleted"></a>Gridwich informs requester that a blob was deleted.
+### <a id="statusblobdeleted"></a>Gridwich informs requester that a blob was deleted
 
 The blob deletion can come from any source, like an explicit request from a requester or a result of internal operations.
 
@@ -461,7 +461,7 @@ The blob deletion can come from any source, like an explicit request from a requ
 }
 ```
 
-### <a id="encodeviaamsv2"></a>Requester asks Gridwich to encode via AMS V2
+### <a id="encodeviaamsv2"></a>Requester asks Gridwich to encode via Azure Media Services V2
 
 **Requester** > **Gridwich**, uses [RequestMediaServicesV2EncodeCreateDTO](https://github.com/mspnp/gridwich/src/Gridwich.Core/src/DTO/Requests/RequestMediaServicesV2EncodeCreateDTO.cs))
 
@@ -486,7 +486,7 @@ The blob deletion can come from any source, like an explicit request from a requ
 }
 ```
 
-### <a id="encodeviaamsv3"></a>Requester asks Gridwich to encode an AMS V3 transform
+### <a id="encodeviaamsv3"></a>Requester asks Gridwich to encode a Media Services V3 transform
 
 **Requester** > **Gridwich**, uses [RequestMediaServicesV3EncodeCreateDTO](https://github.com/mspnp/gridwich/src/Gridwich.Core/src/DTO/Requests/RequestMediaServicesV3EncodeCreateDTO.cs))
 
@@ -520,7 +520,7 @@ The blob deletion can come from any source, like an explicit request from a requ
 
 The start and end times are always relative to the start of the media file, regardless of the presentation start time.
 
-## <a id="encodedispatchedresponse"></a>Gridwich encoders common new encode request successful dispatch response
+### <a id="encodedispatchedresponse"></a>Gridwich encoders common request successful dispatch response
 
 **Gridwich** > **Requester**, uses [ResponseEncodeDispatchedDTO](https://github.com/mspnp/gridwich/src/Gridwich.Core/src/DTO/Responses/ResponseEncodeStatusBaseDTO.cs).
 
@@ -543,7 +543,7 @@ The `<encodername>` is one of `cloudport`, `flip`, `mediaservicesv2`, or `medias
 
 ### <a id="encoderstatus"></a>Gridwich encoder asynchronous status messages
 
-There are four kinds of events that the encoders generate during or at the end of encoding:
+The Gridwich encoders generate four kinds of events during or at the end of encoding:
 
 - Scheduled
 - Processing
@@ -792,7 +792,9 @@ The request provides the container name and an `accessType` of `Blob`, `BlobCont
 
 ### <a id="publishams"></a>Requester asks Gridwich to publish content via Azure Media Services
 
-#### <a id="createlocator"></a>Create asset locator for content
+The request is to create or delete a content asset locator.
+
+#### <a id="createlocator"></a>Create content asset locator
 
 **Requester** > **Gridwich** uses [RequestMediaServicesLocatorCreateDTO](https://github.com/mspnp/gridwich/src/Gridwich.Core/src/DTO/Requests/RequestMediaServicesLocatorCreateDTO.cs).
 
@@ -896,7 +898,7 @@ Failure events aren't of the normal [response.failure](#m-fail) event type, but 
 
 The `response.rollkey.storage.failure` failure events:
 - Don't include any of the normal failure event logging information `log` data properties.
-- Contain an additional data property named `error` that contains error message text. Other Gridwich failures carry that text on the `logEventMessage` data property.
+- Contain an additional data property named `error` that contains error message text. Normally, Gridwich failures carry that text on the `logEventMessage` data property.
 
 These points reflect the current state of the Azure Logic App that performs the RollKey operation. The definition of the Logic App is in the [infrastructure/terraform/keyroller/main.tf](/infrastructure/terraform/keyroller/main.tf) Terraform file.
 
@@ -921,37 +923,37 @@ The `keyName` corresponds to the key name Azure Storage defines in its [Get Keys
 
 **Gridwich** > **Requester**
 
-Success:
-
-```json
-{
-    "id": "GUID-string",
-    "topic": "Topic-string",
-    "subject": "Subject-string",
-    "dataVersion": "DataVersion-string",
-    "data": {
-        "account": "storageAccountName",
-        "keyName": "key1"
-    },
-    "eventType": "response.rollkey.storage.success"
-}
-```
-
-Failure:
-
-```json
-{
-    "id": "GUID-string",
-    "topic": "Topic-string",
-    "subject": "Subject-string",
-    "dataVersion": "1.0",
-    "data": {
-        "account": "storageAccountName1",
-        "keyName": "key1",
-        "error": "error message text"
-    },
-    "eventType": "response.rollkey.storage.failure"
-}
-```
-
-Failure results for this operation are not as complete as normal Gridwich failures. See [Gridwich generic failure request](#m-fail) for more information.
+- Success:
+  
+  ```json
+  {
+      "id": "GUID-string",
+      "topic": "Topic-string",
+      "subject": "Subject-string",
+      "dataVersion": "DataVersion-string",
+      "data": {
+          "account": "storageAccountName",
+          "keyName": "key1"
+      },
+      "eventType": "response.rollkey.storage.success"
+  }
+  ```
+  
+- Failure:
+  
+  ```json
+  {
+      "id": "GUID-string",
+      "topic": "Topic-string",
+      "subject": "Subject-string",
+      "dataVersion": "1.0",
+      "data": {
+         "account": "storageAccountName1",
+          "keyName": "key1",
+          "error": "error message text"
+      },
+      "eventType": "response.rollkey.storage.failure"
+  }
+  ```
+  
+  Failure results for this operation aren't as complete as [normal Gridwich failures](#m-fail).

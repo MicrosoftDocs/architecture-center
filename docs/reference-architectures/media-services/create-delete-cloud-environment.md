@@ -13,7 +13,7 @@ ms.custom:
 
 # Create or delete an environment
 
-This article describes how to use the `ci_cd_ext_release` or `tf_destroy_env` pipeline to create or delete a cloud development or testing environment. The `ci_cd_ext_release` pipeline uses the `gridwich-cicd-variables.single_env` variable group.
+This article describes how to use the `ci_cd_ext_release` or `tf_destroy_env` pipeline to create or delete a new cloud development or testing environment. The `ci_cd_ext_release` pipeline uses the **gridwich-cicd-variables.single_env** variable group.
 
 To create the Azure DevOps project, pipelines, and variable groups, see [Gridwich Azure DevOps setup](set-up-azure-devops.md).
 
@@ -33,7 +33,7 @@ The following procedures use placeholder project name `gridwich-clone`, app name
    
 1. Update the `environment` variable to a four-character maximum environment name.
    
-   Due to Gridwich naming conventions and character restrictions on Azure Storage Account names, make sure your environment name won't exceed the [24-character maximum](/azure/storage/common/storage-account-overview#naming-storage-accounts) for the Gridwich Azure Storage Account name.
+   Due to Gridwich naming conventions and character restrictions on Azure Storage Account names, make sure your full environment name won't exceed the [24-character maximum](/azure/storage/common/storage-account-overview#naming-storage-accounts) for the Gridwich Azure Storage Account name.
    
    ![Screenshot of updating the environment variable.](media/update-variable.png)
    
@@ -51,7 +51,15 @@ You should now be able to reach the Event Grid Viewer endpoint and see the web a
 
 Follow [Test Azure Media Services V3 encoding](test-encoding.md) to fully test your environment.
 
+## Azure resources
+
+Gridwich deploys the following resources to Azure for an application named `gridwich` and environment named `sb`:
+
+![Gridwich Azure deployment diagram.](media/gridwich-deployment.png)
+
 ## Delete an environment
+
+To delete an environment:
 
 1. In the `gridwich-clone` project left navigation, select **Pipelines**, and then select and run the **tf_destroy_env** pipeline with the environment name you want to delete.
    
@@ -59,5 +67,5 @@ Follow [Test Azure Media Services V3 encoding](test-encoding.md) to fully test y
    
 1. Under **Pipelines** > **Environments**, delete the environment.
    
-1. In the Azure portal, go to the Azure Storage Account that is storing your `.tfstate`, and delete the environment file, for example `f233.tfstate`. The Gridwich Storage Account is `gridwichtfstate` in the `gridwich-terraform-rg` resource group.
+1. In the Azure portal, go to the Azure Storage Account that stores your **.tfstate**, and delete the environment file, for example **f233.tfstate**. The Gridwich Storage Account is **gridwichtfstate** in the **gridwich-terraform-rg** resource group.
 

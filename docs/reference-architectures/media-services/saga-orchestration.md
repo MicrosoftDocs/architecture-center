@@ -1,7 +1,7 @@
 ---
-title: Sagas and operations context in Gridwich
+title: Saga orchestration
 titleSuffix: Azure Reference Architectures
-description: Understand the concepts and roles of sagas and opaque operations context in orchestrating Gridwich workflows.
+description: Understand the concepts and roles of sagas in orchestrating Gridwich workflows.
 author: doodlemania2
 ms.date: 10/08/2020
 ms.topic: reference-architecture
@@ -11,23 +11,15 @@ ms.custom:
 - fcp
 ---
 
-# Gridwich sagas and operations context
+# Gridwich sagas
 
 The external system operates as a [saga orchestrator](https://microservices.io/patterns/data/saga.html) that chains a series of activities to build Gridwich workflows. Saga activities might or might not include user interactions or approvals. Gridwich assumes that the external system tracks failure or success for each operation it initiates.
-
-## Operations context
-
-An external system might generate thousands of requests per day, per hour, or per second. With each request, the external system must provide an operation context, which persists through the lifetime of even very long-running requests.
-
-Gridwich is a stateless request processing and work activity solution that responds with an opaque operation context, whether the activity is short- or long-running. If a request contains an operation context, like `{"id"="Op1001"}`, every response includes that operation context.
-
-![request_and_response diagram](media/request-response.png)
 
 ## Saga participants
 
 Each of a set of saga participants contributes one or more work activities to the ecosystem. Each saga participant works independently of the other participants, and more than one saga participant might act on a single request.
 
-The available saga participants are:
+For Gridwich, the available saga participants are:
 
 - Analysis.MediaInfo
 - Encode.CloudPort
@@ -36,13 +28,6 @@ The available saga participants are:
 - Encode.MediaServicesV3
 - Publication.MediaServicesV3
 - Storage.AzureStorage
-
-Each of the saga participants must retain the operation context, but may implement it differently. For example:
-
-- Short-running synchronous operations retain the operation context.
-- Azure Storage provides an opaque string property called `ClientRequestId` for most operations.
-- Azure Media Services V3 has a `Job.CorrelationData` property, or Azure Media Services V2 allows the `Task.Name` to be any string.
-- Other cloud APIs offer similar concepts to an opaque operation context that they can return when signaling progress, completion, or failure.
 
 ## Sagas
 
@@ -75,8 +60,4 @@ The operator reviews the contents, extracts metadata for the media asset managem
  1. Receive the blob created for the copy, and complete the publication flow by updating the MAM system.
 
 ![workflow_publication diagram](media/publication-saga.png)
-
-## Alternatives
-
-To call a new, asynchronous API that provides a opaque operation context, you could use a Durable Function to create a series of tasks within an operation, which would allow the operation context to be saved as a input or output to the operation. Durable functions have a built-in state store for long-running operations. Alternatively, the whole solution could use Durable Functions, regardless of the work activities, but this increases code complexity.
 

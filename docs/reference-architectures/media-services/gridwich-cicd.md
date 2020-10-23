@@ -28,15 +28,15 @@ The following considerations relate to the preceding principles:
 
 ## Single artifact, multiple environments
 
-The Gridwich pipeline scales to multiple environments, but there is only one artifact, which gets promoted from one environment to the next.
+The Gridwich pipeline scales to multiple environments, but there is only one artifact, which the pipeline promotes from one environment to the next.
 
-## Software release vs infrastructure creation
+## Software release vs. infrastructure creation
 
 In Gridwich, software release and infrastructure deployment are two separate responsibilities. A single pipeline handles both responsibilities at various stages, using the following general pattern:
 
 **Software build > Infrastructure deployment > Software release > Software configuration > Auto and admin custom script deployment**
 
-The guiding principle that infrastructure and software release are two distinct responsibilities makes deploying Event Grid subscriptions more difficult. When Azure creates an Event Grid webhook subscription, it sends a validation event to check whether the registering endpoint accepts Event Grid events. This validation check means the Azure Function msut be released and running before Terraform can build the Event Grid subscription resources.
+The guiding principle that infrastructure and software release are two distinct responsibilities makes deploying Event Grid subscriptions more difficult. When Azure creates an Event Grid webhook subscription, it sends a validation event to check whether the registering endpoint accepts Event Grid events. This validation check means the Azure Function must be released and running before Terraform can build the Event Grid subscription resources.
 
 To address this issue, there are two Terraform jobs in the CI/CD pipeline:
 
@@ -57,7 +57,7 @@ Terraform and software releases can't complete certain Gridwich operations, incl
 
 The CLI script [azcli-last-steps-template.yml](https://github.com/mspnp/gridwich/infrastructure/azure-pipelines/templates/steps/azcli-last-steps-template.yml) provides these last steps.
 
-Operations that require elevated privileges shouldn't be done with the CI/CD pipeline. The pipeline generates the set of admin scripts as a pipeline artifact, using output data from Terraform. An admin with elevated privileges runs these scripts the first time an environment is created.
+The CI/CD pipeline doesn't do operations that require elevated privileges. The pipeline generates a set of admin scripts as a pipeline artifact, using output data from Terraform. An admin with elevated privileges must run these scripts the first time an environment is created.
 
 - [Admin script templates](https://github.com/mspnp/gridwich/infrastructure/terraform/bashscriptgenerator/templates)
 - [The admin scripts and how to run them](admin-scripts.md)
@@ -68,3 +68,10 @@ One advantage of everything as code is that components can be reused.
 
 - For Terraform, Gridwich relies heavily on [Terraform modules](https://www.terraform.io/docs/modules/composition.html) to enhance composability and reusability.
 - For Azure Pipelines YAML, Gridwich uses [Pipeline templates](/azure/devops/pipelines/process/templates).
+
+## Next steps
+
+[Run the admin scripts](admin-scripts.md) for Azure permissions.
+[Set up and scale Azure Media Services](media-services-setup-scale.md).
+[Set up content protection and DRM](gridwich-content-protection-drm.md).
+
