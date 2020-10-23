@@ -43,7 +43,7 @@ The following sections present pros and cons for each Kafka on Azure option.
 
 ### Confluent Cloud PaaS solution
 
-Confluent provides a fully managed Apache Kafka on Azure. The [Confluent Cloud](https://www.confluent.io/confluent-cloud/) implementation of Kafka abstracts the user from all the deployment, implementation, and management details while providing pure service. For more detailed information, see [Supported features for Confluent Cloud](https://docs.confluent.io/current/cloud/features.html).
+Confluent provides a fully managed Apache Kafka on Azure. The [Confluent Cloud](https://www.confluent.io/confluent-cloud/) implementation of Kafka abstracts the user from all the deployment, implementation, and management details while providing a pure service. For more detailed information, see [Supported features for Confluent Cloud](https://docs.confluent.io/current/cloud/features.html).
 
 Here are some of the advantages and limitations of using the Confluent Cloud solution:
 
@@ -116,14 +116,14 @@ Pros
 - Managed cluster offering that is customizable.
 - No license requirements, unless going for Confluent features
 - Complete Kafka feature set and APIs are available.
-- [High availability](https://docs.microsoft.com/azure/hdinsight/kafka/apache-kafka-high-availability) is ensured with the configuration of fault domains and update domains and [multi-region support](https://docs.microsoft.com/azure/hdinsight/kafka/apache-kafka-mirroring) for replication.
+- [High availability](https://docs.microsoft.com/azure/hdinsight/kafka/apache-kafka-high-availability) ensures the configuration of fault domains and update domains and [multi-region support](https://docs.microsoft.com/azure/hdinsight/kafka/apache-kafka-mirroring) for replication.
 - Data retention is more configurable than the managed services mentioned above.
 
 Cons
 
 - Kafka version support and compatibility always lags behind the published version.
-- Workload migration is required for upgrading a cluster.
-- To add more disk space, more cluster nodes must be added. Adding more disks to an existing cluster is not supported.
+- Upgrading a cluster requires workload migration.
+- Disks can't be added to an existing cluster. To add more disk space, more cluster nodes must be added.
 - No public endpoint available, which makes virtual network integration mandatory and requires advanced networking configurations.
 
 ### Confluent Platform on Azure Marketplace IaaS solution
@@ -142,7 +142,7 @@ Cons
 - The deployment available on Azure Marketplace is designed only for Development and Proof of concept (POC) environments. Production deployment must be processed via email exchanges with [azureteam@confluent.io](mailto:azureteam@confluent.io).
 - Kafka version support and compatibility always lags behind the published version.
 - Deployment inside virtual network requires peering to work with clients requiring advanced network configurations.
-- The Bring Your Own License agreement is a free trial for 30 days only.
+- Bring Your Own License agreement.
 
 ### Kafka on Azure Kubernetes Service IaaS solution
 
@@ -183,9 +183,9 @@ Cons
 
 ## Considerations
 
-The following table of feature comparisons and the decision guidance matrix, compares and contrasts the options for using Kafka on Azure while presenting the considerations for each.
+The following section presents the considerations for each of the Kafka on Azure solutions.
 
-### Feature comparisons
+### Feature comparison
 
 The following table shows a comparison of features for each of the Kafka on Azure solutions this article discusses:
 
@@ -193,10 +193,10 @@ The following table shows a comparison of features for each of the Kafka on Azur
 |:--------:|:---------------:|:-----------------------:|:---------------:|:-----------------------------------:|:------------:|:---------:|
 |          | PaaS offering from external vendor | Fully managed PaaS offering that supports Kafka protocol | Managed Hortonworks cluster offering | Azure Marketplace offering | Open Source Apache Kafka implementation on your own compute platform | Open Source Apache Kafka implementation on your own compute platform |
 | **Model** | PaaS (external vendor) | PaaS | Managed IaaS | IaaS |IaaS |IaaS |
-| **Third-Party Licensing** | Purchase from Confluent	| Not needed | Not mandatory | BYOL | Not mandatory | Not mandatory |  
+| **Third-Party Licensing** | Purchase from Confluent	| Not needed | Not mandatory | Bring Your Own License (BYOL) | Not mandatory | Not mandatory |  
 | **Compute Platform** | PaaS – Not applicable | PaaS – Not applicable | Managed disks and VMs | VMs | AKS cluster | VMs |  
-| **Feature Set** | Work in progress | Work in progress with Kafka | Complete for available versions and extendable | Complete for available versions + Schema Registry, Connectors, KSQL | Complete and extendable	| Complete and extendable |  
-| **Data retention** | 5 TB | Max 90 days, 10 TB included per CU | Customizable | Customizable | Customizable | Customizable | 
+| **Feature Set** | [See Features](https://docs.confluent.io/current/cloud/features.html) | [See Features](/azure/event-hubs/event-hubs-for-kafka-ecosystem-overview#apache-kafka-feature-differences) | Complete for available versions and extendable | Complete for available versions + Schema Registry, Connectors, KSQL | Complete and extendable	| Complete and extendable |  
+| **Data retention** | 5 TB | Max 90 days, 10 TB included per control unit | Customizable | Customizable | Customizable | Customizable | 
 | **Schema Registry** | Yes | Public Preview | Yes | Yes | Yes | Yes | 
 | **Kafka Connectors API** | Yes | Preview | Yes | Yes | Yes | Yes | 
 | **Azure Stack Options** | N/A | Preview | Not Available | Yes | Preview | Yes |  
@@ -205,7 +205,6 @@ The following table shows a comparison of features for each of the Kafka on Azur
 | **Idempotency** | Yes | Yes | Yes | Yes | Yes | Yes |
 | **Transaction** | Yes | In preview | Yes | Yes | Yes | Yes |
 | **Kafka Streams** | Yes | In preview | Yes | Yes | Yes | Yes |
-| **Scaling** | Yes | Yes | Yes | Yes | Tested on Small to Medium Loads | Yes |
 | **Integrated logging and monitoring** | Yes | Yes | Can be added | Yes | Can be added | Can be added |
 | **Kafka version support** | Yes | 1.0+ | 2.1, 1.1, 1.0, 0.10.1, 0.9.0 | 2.2.0, 2.0.1 | Yes | Yes |
 | **Java Client** | Yes | Yes | Yes | Yes | Yes | Yes |
@@ -214,9 +213,9 @@ The following table shows a comparison of features for each of the Kafka on Azur
 | **Log compaction** | Yes | In preview | Yes | Yes | Yes | Yes |
 | **REST Proxy** | Yes | Yes | Yes | Yes | Yes | Yes |
 | **Geo-replication** | Must be configured | Integrated | Integrated | Must be configured | Must be configured | Must be configured |
-| **Authentication** | SSL or SASL | SSL, SASL Plain | SSL | SSL or SASL | SSL or SASL | SSL or SASL |
-| **Authorization** | ACL based |	RBAC |	RBAC (Preview) |	ACL based |	ACL based |	ACL based |
-| **Encryption** | SSL/TLS | SSL, BYOK (Preview) | SSE/TLS, Customer-managed disk encryption | SSL/TLS | SSL/TLS | SSL/TLS |
+| **Authentication** | Secure Sockets Layer (SSL) or Simple Authentication and Security Layer (SSAL) | SSL, SASL Plain | SSL | SSL or SASL | SSL or SASL | SSL or SASL |
+| **Authorization** | Access Control List (ACL) based |	Role-based Access Control (RBAC) | RBAC in Preview | ACL based |	ACL based |	ACL based |
+| **Encryption** | SSL/TLS | SSL, Bring Your Own Key (BYOK) in Preview | SSE/TLS, Customer-managed disk encryption | SSL/TLS | SSL/TLS | SSL/TLS |
 | **Automatic data nalancer** | N/A - PaaS | N/A - PaaS | Yes | Configure Self-Balancing feature | User must configure | User must configure |
 | **Monitoring metrics** | Yes | Yes | Can be added | Yes | Can be added | Can be added |
 | **Monitoring tools** | Confluent Control Center | Azure Monitoring | Azure Monitoring and open-source tools | Confluent Control Center | Azure Monitoring and open-source tools | Can be added |
@@ -241,7 +240,7 @@ The decision guidance matrix uses the following key:
 |------------------------------------|:--------------------:|:--------------------:|:--------------------:|:--------------------:|:--------------------:|:--------------------:|
 | Ease of configuration/deployment   | :::image type="icon" source="../media/full-star.png"::: | :::image type="icon" source="../media/full-star-green-background.png"::: | :::image type="icon" source="../media/half-star.png"::: | :::image type="icon" source="../media/half-star.png"::: | :::image type="icon" source="../media/empty-star.png"::: | :::image type="icon" source="../media/empty-star.png"::: | 
 | Simplicity of maintenance          | :::image type="icon" source="../media/full-star.png"::: | :::image type="icon" source="../media/full-star-green-background.png"::: | :::image type="icon" source="../media/half-star.png"::: | :::image type="icon" source="../media/empty-star.png"::: | :::image type="icon" source="../media/empty-star.png"::: | :::image type="icon" source="../media/empty-star.png"::: | 
-| Kafka native support               | :::image type="icon" source="../media/full-star.png"::: | :::image type="icon" source="../media/half-star.png"::: | :::image type="icon" source="../media/full-star.png"::: | :::image type="icon" source="../media/full-star.png"::: | :::image type="icon" source="../media/full-star.png"::: | :::image type="icon" source="../media/full-star.png"::: |  
+| Kafka native support               | :::image type="icon" source="../media/full-star.png"::: | :::image type="icon" source="../media/half-star-green-background.png"::: | :::image type="icon" source="../media/full-star.png"::: | :::image type="icon" source="../media/full-star.png"::: | :::image type="icon" source="../media/full-star.png"::: | :::image type="icon" source="../media/full-star.png"::: |  
 | Java, .NET, Python clients         | :::image type="icon" source="../media/full-star.png"::: | :::image type="icon" source="../media/full-star.png"::: | :::image type="icon" source="../media/full-star.png"::: | :::image type="icon" source="../media/full-star.png"::: | :::image type="icon" source="../media/full-star.png"::: | :::image type="icon" source="../media/full-star.png"::: |  
 | 100% managed solution              | :::image type="icon" source="../media/full-star-green-background.png"::: | :::image type="icon" source="../media/full-star-green-background.png"::: | :::image type="icon" source="../media/half-star.png"::: | :::image type="icon" source="../media/half-star.png"::: | :::image type="icon" source="../media/half-star.png"::: | :::image type="icon" source="../media/empty-star.png"::: |
 | Stream processing support          | :::image type="icon" source="../media/full-star.png"::: | :::image type="icon" source="../media/half-star.png"::: | :::image type="icon" source="../media/full-star-green-background.png"::: | :::image type="icon" source="../media/full-star.png"::: | :::image type="icon" source="../media/full-star.png"::: | :::image type="icon" source="../media/full-star.png"::: | 
