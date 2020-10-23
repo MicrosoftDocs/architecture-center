@@ -68,9 +68,11 @@ Some features of Bridge:
 
 ## Source control
 
-Source control systems provide a way to version control, collaborate on, and peer review software changes. Whether a piece of software is open-sourced or private, using version control software has become a standardized method of managing software development. As detailed in later sections of the Well Architected Framework, source control systems can also be enlightened with integrated testing, security, and release practices. As cloud practices are adopted and because so much of the cloud infrastructure is managed through code, version control systems are also becoming an integral part of infrastructure management. 
+Source control systems provide a way to version control, collaborate on, and peer review software changes. As software is merged into source control, the system helps manage code conflicts. Ultimately, source control provides a running history of the software, modification, and contributors. Whether a piece of software is open-sourced or private, using source control software has become a standardized method of managing software development. As detailed in later sections of the Well Architected Framework, source control systems can also be enlightened with integrated testing, security, and release practices. As cloud practices are adopted and because so much of the cloud infrastructure is managed through code, version control systems are also becoming an integral part of infrastructure management. 
 
 Let's examine a few aspects of version controlling software and infrastructure configurations.
+
+**Git**
 
 **Version Control** 
 
