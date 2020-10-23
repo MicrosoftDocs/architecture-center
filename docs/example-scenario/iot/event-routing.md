@@ -13,12 +13,12 @@ ms.custom: fcp
 # Event Routing
 
 ## Motivations
-In an Internet of Things (IoT) solution, IoT devices send [events](https://docs.microsoft.com/azure/architecture/example-scenario/iot/introduction-to-solutions#events) (notifications, acknowledgements, telemetry) to application to gain insights. Applications may require specific subsets of events for processing and/or storage at different end points. These events may also need to be routed to multiple different services for further processing. As the IoT solution is scaled, the number of devices, volume of events, variety of events and different services also varies. A flexible, scalable, consistent, and reliable method to route events is necessary to serve this pattern.
+In an Internet of Things (IoT) solution, IoT devices send [events](https://docs.microsoft.com/azure/architecture/example-scenario/iot/introduction-to-solutions#events) (notifications, acknowledgments, telemetry) to application to gain insights. Applications may require specific subsets of events for processing or storage at different end points. These events may also need to be routed to different services for further processing. As the IoT solution scales out, the number of devices, volume of events, variety of events and different services also varies. A flexible, scalable, consistent, and reliable method to route events is necessary to serve this pattern.
 
 ## Use cases
 A retail outlet is monitoring the fridges for their frozen food section. 
 -   An alert is sent when the temperature of the fridges goes past a pre-determined threshold. A routing rule can be created with the threshold rule to send these specific events to an alert system. 
--   The data science team is building an anomaly detection model to identify issues with the fridges before any of them breaks down. A message routing rule can send all the raw telemetry data to a storage specifically for the data science team to use for training and modelling. 
+-   The data science team is building an anomaly detection model to identify issues with the fridges before any of them breaks down. A message routing rule can send all the raw telemetry data to a storage account specifically for the data science team to use for training and modeling. 
 
 ## Architecture
 ![Architecture diagram illustrating use of rules to route events to different Azure services](media/event-routing.png)
@@ -27,7 +27,7 @@ In an IoT platform, rules can be created for fine-grained routing of events. One
 
 ## Characteristics
 Here are some considerations when using this pattern. 
--   Throughput of endpoints: Endpoints that receives the events must be able to handle the ingress of events sent via the routing. It is also necessary to ensure that the endpoint services have the capacity to ingest and store the data till it is consumed.
+-   Throughput of endpoints: Endpoints that receive events must be able to handle the ingress of events sent via routing. Ensure that the endpoint services have the capacity to ingest and store the data until it is consumed.
 
 -   Format of events: For the routing to be scalable and flexible, the events should have a common format to ensure interoperability across protocols. 
 
@@ -40,12 +40,12 @@ Here are some considerations when using this pattern.
 -   Non-telemetry events: IoT solutions have different types of events like device state changes, and device lifecycle events. The events route should be able to capture and apply rules to such non-telemetry events to enable automation and monitoring. 
 
 When to use this pattern:
--   Sending device telemetry messages as well as events like device lifecycle events, and device twin change events to specific endpoints determined by rules. 
+-   Sending device telemetry messages, device lifecycle events, or device twin change events to specific endpoints determined by rules. 
 
 -   Filtering events by applying specific rules. 
 
 This pattern is not recommended for:
--   Routing based on complex real-time data analysis of times series data. For example, when comparing the 15-minute average telemetry data. This should be implemented with a real-time analytics service for the hot path data. 
+-   Routing based on complex real-time data analysis of time series data. For example, when comparing the 15-minute average telemetry data. If real-time data analysis is required, use a real-time analytics service for the hot path data. 
 
 
 ## See also
