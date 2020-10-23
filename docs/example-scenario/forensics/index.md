@@ -179,7 +179,7 @@ After the execution of the Copy-VmDigitalEvidence runbook, the evidence is store
 
 Different methods are available to retrieve the evidence from the .vhd image.
 
-In the following examples the .vhd file is used to create a managed Azure Disk that is attached as a data disk to an Azure Virtual Machine. In more details:
+In the following examples the .vhd file is used to create a Managed Azure Disk that is attached as a data disk to an Azure Virtual Machine. In more details:
 
 - Windows encrypted .vhd file is mounted on a Windows Azure Virtual Machine
 - Linux encrypted .vhd file is mounted on a Linux Azure Virtual Machine
