@@ -333,21 +333,19 @@ Adjust the following suggested settings as you see fit.
 
 ## Azure portal procedures
 
-The pipeline steps deploy the application into Azure, but they don't set up any of the identity principals or their access rights to Azure resources. Follow the instructions in [Pipeline-generated admin scripts](admin-scripts.md) to complete the setup.
+The pipeline steps deploy the application into Azure, but they don't set up any of the identity principals or their access rights to Azure resources. A user with elevated privileges must follow the instructions in [Pipeline-generated admin scripts](admin-scripts.md) to complete the setup.
 
-For non-development environments, the pipeline doesn't auto-populate most secrets on deployment. Instead the pipeline creates the key vault secrets for the environment with placeholder values. For Gridwich to work, the secrets manager must replace these placeholders with actual values in Azure Key Vault.
+For non-development environments, the pipeline doesn't auto-populate most secrets on deployment. Instead the pipeline creates the key vault secrets for the environment with placeholder values. For Gridwich to work, a secrets manager must replace these placeholders with actual values in Azure Key Vault.
 
 ### Set up Azure Active Directory
 
-A user with elevated privileges must execute pipeline-generated bash scripts whenever a new environment has been deployed. For more information, see [Pipeline-generated admin scripts](admin-scripts.md).
-
-To grant users admin privileges:
+A user with elevated privileges must execute the pipeline-generated admin scripts. To grant users elevated privileges:
 
 1. In Azure Active Directory (Azure AD), create a named group such as *Gridwich Admins*, and add the authorized admins to it.
    
 1. In the Azure Subscription, select **Access Control (IAM)** in the left navigation, select **Add role assignments**, and then assign the **User Access Administrator** role for **Gridwich Admins**.
 
-Local debugging uses user impersonation, and the developer signs in with their browser. To ensure that the application has the correct rights:
+Local debugging uses user impersonation, and developers sign in with their browsers. To ensure that the application has the correct rights:
 
 1. In Azure Active Directory (Azure AD), create a named group such as *Gridwich Devs*, and add the authorized developers to it.
    
@@ -356,6 +354,10 @@ Local debugging uses user impersonation, and the developer signs in with their b
    - **Reader and Data Access**
    - **Storage Blob Data Contributor**
 
-## Test the environment
+## Next steps
 
-Follow [Walkthrough of Testing AMS V3 Encoding](test-encoding.md) to fully test the setup.
+- Run the [admin scripts](admin-scripts.md)
+- Follow [Test Azure Media Services V3 encoding](test-encoding.md) to fully test the setup.
+- Set up a [local development environment](set-up-local-environment.md).
+- Create or delete a [cloud sandbox or test environment](create-delete-cloud-environment.md).
+

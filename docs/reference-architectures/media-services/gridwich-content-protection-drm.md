@@ -13,7 +13,7 @@ ms.custom:
 
 # Content protection and DRM
 
-This article explains the concepts Gridwich uses for audio and video content protection when it publishes a container or asset with Azure Media Services. Media Services uses [Digital Rights Management (DRM)](https://en.wikipedia.org/wiki/Digital_rights_management) to protect content, and supports [Microsoft PlayReady](https://www.microsoft.com/playready/overview/), [Google Widevine](https://www.widevine.com/solutions/widevine-drm) and [Apple FairPlay](https://developer.apple.com/streaming/fps/).
+Media Services uses [Digital Rights Management (DRM)](https://en.wikipedia.org/wiki/Digital_rights_management) to protect content, and supports [Microsoft PlayReady](https://www.microsoft.com/playready/overview/), [Google Widevine](https://www.widevine.com/solutions/widevine-drm) and [Apple FairPlay](https://developer.apple.com/streaming/fps/). This article explains Gridwich content protection concepts, and how to set up and update content protection and DRM policies.
 
 ## Asset streaming locators
 
@@ -187,5 +187,5 @@ When the *FairPlay-out-base64.txt* file changes, the next pipeline run waits for
 
 ## Related resources
 - For more information about Media Services content protection, see [Content protection overview](/azure/media-services/latest/content-protection-overview).
-- For more details about the Azure Pipelines variable group settings flow, see [Azure Pipelines variable group variables flow](variable-group-terraform-flow.md).
+- For more details about the Azure Pipelines variable group settings flow, see [Variable group to Terraform flow](variable-group-terraform-flow.md).
 

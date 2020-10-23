@@ -13,64 +13,64 @@ ms.custom:
 
 # Gridwich storage keys and third-party keys
 
-Gridwich uses two types of keys, storage keys and third-party keys.
+Gridwich uses two types of Azure Key Vault keys, storage keys and third-party keys, which are controlled by two Azure Logic Apps. The Key Roller Logic App rotates the Azure Storage Account keys, and the Secret Changed Handler Logic App rotates or adds third-party keys.
 
 ## Run admin scripts
 
-To give the Azure Functions App and the two Azure Logic Apps permissions to take Azure Storage Account and Azure Key Vault actions, run the pipeline-generated admin scripts. For instructions, see [Pipeline-generated admin scripts](admin-scripts.md).
+To give the Azure Functions App and the two Logic Apps permissions to take Azure Storage Account and Key Vault actions, run the pipeline-generated admin scripts. For instructions, see [Pipeline-generated admin scripts](admin-scripts.md).
 
 ![Screenshot showing the pipeline-generated admin scripts.](media/admin-scripts.png)
 
 ## Key Roller Logic App for storage keys
 
-To stay in compliance with security policy, rotate the keys for Storage Accounts on some cadence. Storage keys aren't configured in the Azure Functions App settings, but the Functions App runs under a service principal that has access to the Storage Accounts.
+To stay in compliance with security policy, rotate the Storage Account keys on a regular cadence.
 
-External system security operations personnel submit a request to rotate storage keys. The request is published to Event Grid as a Key Roll Request. The Key Roller Logic App subscribes to that Event Grid topic and responds to the request by rolling the key in the requested Storage Account.
+Storage keys aren't configured in the Azure Functions App settings, but the Functions App runs under a service principal that has access to the Storage Accounts. Because the Functions App isn't configured with storage keys, rotating these keys doesn't require a Functions App restart.
+
+External system security operations personnel submit a request to rotate storage keys. The request is published to Event Grid as a Key Roll Request. The Key Roller Logic App subscribes to that Event Grid topic and responds to the request by rotating the key in the requested Storage Account.
 
 The request from the external system looks like this:
 
 ```json
 {
-    "id": "GUID-string",
-    "topic": "Topic-string",
-    "subject": "Subject-string",
-    "dataVersion": "DataVersion-string",
+    "id": "<GUID-string>",
+    "topic": "<Topic-string>",
+    "subject": "<Subject-string>",
+    "dataVersion": "<DataVersion-string>",
     "data": {
         "operationContext": <OperationContextObject>,
-        "account": "storageAccountName",
-        "keyName": "key1"
+        "account": "<storageAccountName>",
+        "keyName": "<keyName>"
     },
     "eventType": "request.rollkey.storage"
 }
 ```
 
-`keyName` corresponds to the name of the key as Azure Storage defines in its [Get Keys operation](/rest/api/storagerp/srp_json_get_storage_account_keys).
+Where \<keyName> corresponds to the name of the key as Azure Storage defines in its [Get Keys operation](/rest/api/storagerp/srp_json_get_storage_account_keys).
 
 On success, the Logic App sends the following message back through Event Grid:
 
 ```json
 {
-    "id": "GUID-string",
-    "topic": "Topic-string",
-    "subject": "Subject-string",
-    "dataVersion": "DataVersion-string",
+    "id": "<GUID-string>",
+    "topic": "<Topic-string>",
+    "subject": "<Subject-string>",
+    "dataVersion": "<DataVersion-string>",
     "data": {
-      "account": "storageAccountName",
-      "keyName": "key1"
+        "account": "<storageAccountName>",
+        "keyName": "<keyName>"
     },
-    "eventType": "response.rollkey.storage.success"
+    "eventType": "request.rollkey.storage"
 }
 ```
 
-Because the Functions App isn't configured with storage keys, rolling these keys doesn't require a Functions App restart.
+While the request message accepts an `operationContext` value, the response doesn't include it. See [Roll key message format](gridwich-message-formats.md#rollkey) for details about this message and response.
 
-While the request message accepts an `OperationContext` value, the response doesn't include it. See [Roll key message format](gridwich-message-formats.md#rollkey) for more information.
+## Secret Changed Handler Logic App for third-party keys
 
-## SecretChangedHandler Logic App for third-party keys
+The Secret Changed Handler Logic App doesn't use Event Grid. The events are handled purely by configuring the workloads. Terraform sets up all the Functions App and Key Vault configuration.
 
-The `SecretChangedHandler` Logic App doesn't use Event Grid. The events are handled purely by configuring the workloads. Terraform sets up all the Functions App and Key Vault configuration.
-
-The Gridwich function app has many keys that are backed by Key Vault. You can see the keys in the function app configuration:
+The Gridwich Azure Functions App has many keys that are backed by Key Vault. You can see the keys in the Functions App app settings:
 
 ![Screenshot showing the keys in App Settings.](media/app-settings-keys.png)
 
@@ -80,7 +80,7 @@ The Azure Key Vault itself is configured to send events to a Logic App web hook:
 
 ### SecretChangedHandler flow
 
-1. Security personnel update a key in Key Vault.
+1. Third-party security personnel update a key in Key Vault.
 1. Key Vault sends off a key changed event.
 1. The Logic App picks up the key changed event.
 1. The Logic App checks to see if the key is in its `keysToWatch`.
@@ -109,9 +109,9 @@ To add or change a key:
      key_vault_id = azurerm_key_vault.shared_key_vault.id
    }
    
-   # These are the values watched by the Secret Changed Handler; keep these up to date with what is put in Key Vault above
-   # and elsewhere, so if one of the values for these secrets changes, the Function App using them will be updated to
-   # utilize the new value
+   # These are the values watched by the Secret Changed Handler; keep these up to date with what is put in Key Vault,
+   # so if one of the values for these secrets changes, the Function App using them will be updated to
+   # use the new value
    output "secrets_in_shared_keyvault" {
      value = ["telestream-cloud-api-key", "grw-topic-end-point", "grw-topic-key", "ams-sp-client-id", "ams-sp-client-secret", "appinsights-instrumentationkey", "ams-fairplay-pfx-password", "ams-fairplay-ask-hex", "ams-fairPlay-certificate-b64"]
    }

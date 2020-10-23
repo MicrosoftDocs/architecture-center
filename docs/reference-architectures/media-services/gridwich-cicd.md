@@ -24,7 +24,9 @@ Gridwich requires multiple resources within and outside of Azure to talk to one 
 - The pipeline considers everything as code.
 - The pipeline uses reusable components focused on composability.
 
-The following considerations relate to the preceding principles:
+For more information about how the CI/CD pipelines convert and inject pipeline variables into Terraform modules, and then to Azure Key Vault and Azure Functions app settings, see [Pipelines to Terraform variable flow](variable-group-terraform-flow.md).
+
+The following considerations relate to the preceding principles.
 
 ## Single artifact, multiple environments
 
@@ -42,10 +44,10 @@ To address this issue, there are two Terraform jobs in the CI/CD pipeline:
 
 ![Diagram showing the Terraform sandwich jobs.](media/terraform-sandwich.png)
 
-- Terraform Top creates all the resources except for the Azure Event Grid subscriptions.
-- Terraform Bottom creates the Event Grid subscriptions after the software is up and running.
+- Terraform 1 creates all the resources except for the Azure Event Grid subscriptions.
+- Terraform 2 creates the Event Grid subscriptions after the software is up and running.
 
-Because Terraform currently lacks the ability to exclude a specific module, the Terraform Top job must explicitly target all the modules except the Event Grid subscriptions. This requirement is potentially error-prone, and a current [GitHub issue on Terraform](https://github.com/hashicorp/terraform/issues/2253) tracks this problem.
+Because Terraform currently lacks the ability to exclude a specific module, the Terraform 1 job must explicitly target all the modules except the Event Grid subscriptions. This requirement is potentially error-prone, and a current [GitHub issue on Terraform](https://github.com/hashicorp/terraform/issues/2253) tracks this problem.
 
 ## Post-deployment scripts
 
@@ -60,7 +62,7 @@ The CLI script [azcli-last-steps-template.yml](https://github.com/mspnp/gridwich
 The CI/CD pipeline doesn't do operations that require elevated privileges. The pipeline generates a set of admin scripts as a pipeline artifact, using output data from Terraform. An admin with elevated privileges must run these scripts the first time an environment is created.
 
 - [Admin script templates](https://github.com/mspnp/gridwich/infrastructure/terraform/bashscriptgenerator/templates)
-- [The admin scripts and how to run them](admin-scripts.md)
+- [Run the admin scripts](admin-scripts.md)
 
 ## Everything as code and code reuse
 

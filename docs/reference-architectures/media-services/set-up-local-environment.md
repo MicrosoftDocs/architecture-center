@@ -154,3 +154,6 @@ Manually add the following two values to *local.settings.json*:
 - `AmsDrmFairPlayCertificateB64`. Use the base 64 string from [FakeFairPlayCert/FairPlay-out-base64.txt](https://github.com/mspnp/gridwich/src/Gridwich.SagaParticipants.Publication.MediaServicesV3/tests/FakeFairPlayCert/FairPlay-out-base64.txt). Remove the line endings and set the string in a single line.
 - `AmsDrmFairPlayPfxPassword`. Use the dummy password from [FakeFairPlayCert/FairPlay-out-base64.txt](https://github.com/mspnp/gridwich/src/Gridwich.SagaParticipants.Publication.MediaServicesV3/tests/FakeFairPlayCert/FairPlay-out-base64.txt).
 
+## Next steps
+- [Create or delete a Gridwich cloud sandbox or test environment](create-delete-cloud-environment.md)
+- [Test a deployed Gridwich app locally](test-encoding.md#test-locally)

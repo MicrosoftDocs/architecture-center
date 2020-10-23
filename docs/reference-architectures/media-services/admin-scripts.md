@@ -13,22 +13,30 @@ ms.custom:
 
 # Pipeline-generated admin scripts
 
-The Gridwich continuous integration and continuous delivery (CI/CD) pipelines use Terraform to generate and publish admin scripts. A user with elevated permissions must run the scripts manually to create and configure Azure resources. For more information about granting admin permissions, see [Set up Azure Active Directory](set-up-azure-devops.md#set-up-azure-active-directory).
+The continuous integration and delivery (CI/CD) pipelines deploy the Gridwich application into Azure, but they don't set up any identity principals or their access rights to Azure resources. The pipelines use Terraform to generate and publish admin scripts, and a user with elevated permissions must run the scripts manually to create and configure Azure resources. This article describes the admin scripts and how to run them.
 
-The pipelines convert environment variables to Terraform variables to find and replace the variable names in the bash scripts. The bash script source before variables replacement is in the [bashscriptgenerator/templates](https://github.com/mspnp/gridwich/infrastructure/terraform/bashscriptgenerator/templates) directory.
+## Set up Azure Active Directory
 
-This article describes the admin scripts and how to run them.
+A user with elevated privileges must execute the pipeline-generated admin scripts. To grant users elevated privileges:
 
-Connect to Azure and set the default subscription before running the scripts.
+1. In Azure Active Directory (Azure AD), create a named group such as *Gridwich Admins*, and add the authorized admins to it.
+   
+1. In the Azure Subscription, select **Access Control (IAM)** in the left navigation, select **Add role assignments**, and then assign the **User Access Administrator** role for **Gridwich Admins**.
 
-```azurecli
-az login
-az account set --subscription "00000000-0000-0000-0000-000000000000"
-```
+## Run the admin scripts
+
+The pipelines convert environment variables to Terraform variables to find and replace the variable names in the admin script templates. The bash script source before variables replacement is in the [bashscriptgenerator/templates](https://github.com/mspnp/gridwich/infrastructure/terraform/bashscriptgenerator/templates) directory.
 
 You can run the scripts in any order.
 
-## The ams_sp.sh script
+Connect to Azure and set \<subscriptionID> to the default subscription before running the scripts.
+
+```azurecli
+az login
+az account set --subscription "<subscriptionID>"
+```
+
+### The ams_sp.sh script
 
 The `ams_sp.sh` script grants the Azure Function Application access to Azure Media Services resources, and creates the Media Services service principal.
 
@@ -56,7 +64,7 @@ To run the script:
    chmod +x ams_sp.sh && ./ams_sp.sh
    ```
 
-## The egv_app_registration.sh script
+### The egv_app_registration.sh script
 
 The `egv_app_registration.sh` bash script uses the *egv_app_registration_manifest.json* file to secure the Azure Event Grid Viewer web app for each environment. The script creates and configures an [Azure App Registration](/azure/active-directory/develop/quickstart-register-app) for [Azure Active Directory (Azure AD)](/azure/active-directory/fundamentals/active-directory-whatis). The script then configures the Event Grid Viewer web app to use the App Registration to secure the viewer, making it available only to those that have proper Azure AD credentials.
 
@@ -79,7 +87,7 @@ To run the script:
    chmod +x egv_app_registration.sh && ./egv_app_registration.sh
    ```
 
-## The fxn_to_storage_sp.sh script
+### The fxn_to_storage_sp.sh script
 
 The `fxn_to_storage_sp.sh` bash script grants the Function Application access to various Azure Storage Accounts and their resource groups.
 
@@ -102,7 +110,7 @@ To run the script:
    chmod +x fxn_to_storage_sp.sh && ./fxn_to_storage_sp.sh
    ```
 
-## The logic_app_sp.sh script
+### The logic_app_sp.sh script
 
 The `logic_app_sp.sh` bash script grants the Azure Logic Application access to the Function Application, the Storage Accounts, and the Storage Account resource groups.
 
@@ -126,3 +134,7 @@ To run the script:
    ```bash
    chmod +x logic_app_sp.sh && ./logic_app_sp.sh
    ```
+
+## Next steps
+- [Maintain and rotate Key Vault keys](maintain-keys.md)
+- For more information about how Azure Pipelines variables flow into Terraform modules and Azure settings, see [Variable group to Terraform flow](variable-group-terraform-flow.md). 

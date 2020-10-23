@@ -1,7 +1,7 @@
 ---
 title: Gridwich Azure Media services setup and scaling
 titleSuffix: Azure Reference Architectures
-description: Learn how Gridwich uses the Azure Media Services V2 and V3 SDKs, how to set up authentication and authorization for managed service identities and service principals, and how to scale Media Services resource.
+description: Learn how Gridwich uses Azure Media Services V2 and V3 SDKs to set up authentication and authorization, and how to scale Media Services resources.
 author: doodlemania2
 ms.date: 10/08/2020
 ms.topic: reference-architecture
@@ -13,13 +13,9 @@ ms.custom:
 
 # Gridwich Azure Media Services setup and scaling
 
-Gridwich uses the Azure Media Services platform-as-a-service (PaaS).
+Gridwich uses the Azure Media Services Platform-as-a-Service (PaaS). Depending on the type of operation, the Gridwich application uses one of two methods to access Azure Media Services.
 
-## Authentication and authorization
-
-Depending on the type of operation, the Gridwich application uses one of two methods to access Azure Media Services:
-
-### AMS V2
+## Azure Media Services V2
 
 To perform the encoding of sprite sheets, or to create thumbnails, Gridwich uses the Azure Media Services V2 API via REST.
 
@@ -39,7 +35,7 @@ This code presents the identity of the `TokenCredential` and requests authorizat
 
 When running locally, the `TokenCredential` [prompts the developer to log in](/dotnet/api/azure.identity.interactivebrowsercredential). That identity is then presented when requesting access to the scope. The developer must be a contributor on the resource to successfully authenticate, and the correct environment variables must be in the local settings file.
 
-The file [/terraform/functions/main.tf](https://github.com/mspnp/gridwich/infrastructure/terraform/functions/main.tf) enables a system-assigned managed identity for the Azure Functions App, with:
+The Terraform file [functions/main.tf](https://github.com/mspnp/gridwich/infrastructure/terraform/functions/main.tf) enables a system-assigned managed identity for the Azure Functions App, with:
 
 ```terraform
 resource "azurerm_function_app" "fxn" {
@@ -64,7 +60,7 @@ resource "azurerm_function_app" "fxn" {
 }
 ```
 
-The [infrastructure/terraform/bashscriptgenerator/templates/ams_sp.sh](https://github.com/mspnp/gridwich/infrastructure/terraform/bashscriptgenerator/templates/ams_sp.sh) script enables authorization on the Azure Media Services account for the Azure Functions service principal:
+The Terraform [bashscriptgenerator/templates/ams_sp.sh](https://github.com/mspnp/gridwich/infrastructure/terraform/bashscriptgenerator/templates/ams_sp.sh) script enables authorization on the Azure Media Services account for the Azure Functions service principal:
 
 ```bash
 for id in ${mediaServicesAccountResourceId}
@@ -74,9 +70,9 @@ for id in ${mediaServicesAccountResourceId}
 }
 ```
 
-### AMS V3
+### Azure Media Services V3
 
-The Azure Media Services V3 SDK doesn't support managed identity. Instead, an explicit service principal is created for use with the Media Services V3 SDK via the `ams_sp.sh` script, using the `az ams account sp create` command:
+The Azure Media Services V3 SDK doesn't support managed identity. Instead, an explicit service principal is created for use with the Media Services V3 SDK via the *ams_sp.sh* script, using the `az ams account sp create` command:
 
 ```azurecli
 # Ref: https://docs.microsoft.com/azure/media-services/latest/access-api-cli-how-to
@@ -85,7 +81,7 @@ echo 'Creating service principal for Azure Media Services'
 AZOUT=$(az ams account sp create --account-name ${mediaServicesName} --resource-group ${mediaServicesResourceGroupName} | jq '{AadClientId: .AadClientId, AadSecret:.AadSecret}')
 ```
 
-The script then places the credentials in a key vault fro app settings to consume:
+The script then places the credentials in a key vault for app settings to consume:
 
 ```bash
 echo 'Adding access policy in KeyVault'
@@ -99,7 +95,7 @@ az keyvault delete-policy --name ${keyVaultName} --upn $USER_PRINCIPAL_NAME > /d
 echo 'Done.'
 ```
 
-The Function App settings use a reference to the Azure Key Vault, which has a read access policy for the managed identity. The script creates those and other settings in the `/terraform/functions/main.tf` file:
+The Function App settings use a reference to the Azure Key Vault, which has a read access policy for the managed identity. The script creates those and other settings in the Terraform `functions/main.tf` file:
 
 ```terraform
     {
@@ -114,13 +110,13 @@ The Function App settings use a reference to the Azure Key Vault, which has a re
     },
 ```
 
-## Scaling
+## Scale Media Services resources
 
 The Azure Media Services account owner can scale resources to perform the expected work by calling the Azure CLI within a YAML pipeline step.
 
-The script is in the [infrastructure/azure-pipelines/templates/steps/azcli-last-steps-template.yml](https://github.com/mspnp/gridwich/infrastructure/azure-pipelines/templates/steps/azcli-last-steps-template.yml) file.
+The script is in [azcli-last-steps-template.yml](https://github.com/mspnp/gridwich/infrastructure/azure-pipelines/templates/steps/azcli-last-steps-template.yml).
 
-To set the Media Services reserved encoding infrastructure scale, run:
+To set the Media Services *reserved encoding* infrastructure scale, run:
 
 ```yaml
 - task: AzureCLI@1
@@ -152,7 +148,7 @@ To set the Media Services reserved encoding infrastructure scale, run:
     addSpnToEnvironment: true
 ```
 
-To set the Media Services streaming endpoint infrastructure scale, run:
+To set the Media Services *streaming endpoint* infrastructure scale, run:
 
 ```yaml
 - task: AzureCLI@1
@@ -213,5 +209,7 @@ To set the Media Services streaming endpoint infrastructure scale, run:
     addSpnToEnvironment: true
 ```
 
-The current solution only supports the commercial Azure cloud. For government or other scopes, check Azure Media Services documentation. Update the code to use an app setting for the token scope.
+## Next steps
+
+The current solution only supports the commercial Azure cloud. For government or other scopes, check the [Azure Media Services documentation](/azure/media-services/), and update the code to use an app setting for the token scope.
 

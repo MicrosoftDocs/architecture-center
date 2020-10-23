@@ -17,9 +17,9 @@ This article details the specific Event Grid events that form the request-respon
 
 ## Gridwich events
 
-Gridwich ACK and Gridwich Failure are different from other events. Specifically,
+Gridwich Acknowledgement and Gridwich Failure are different from other events. Specifically,
 
-- [Gridwich ACK](#m-ack) indicates only that Gridwich has received the request in a Request-ACK-Response sequence, not necessarily that the request is processed.
+- [Gridwich Acknowledgement (ACK)](#m-ack) indicates only that Gridwich has received the request in a Request-ACK-Response sequence, not necessarily that the request is processed.
 - While each operation has one or more unique Success response events, all operations use the same [Gridwich Failure](#m-fail) event to communicate failure.
 
 **Publishing events**
@@ -72,7 +72,7 @@ Gridwich ACK and Gridwich Failure are different from other events. Specifically,
 
 **Storage keys**
 
-- [Roll storage keys](#rollkey)
+- [Rotate storage keys](#rollkey)
 
 ## Operation context
 
@@ -898,7 +898,7 @@ Failure events aren't of the normal [response.failure](#m-fail) event type, but 
 
 The `response.rollkey.storage.failure` failure events:
 - Don't include any of the normal failure event logging information `log` data properties.
-- Contain an additional data property named `error` that contains error message text. Normally, Gridwich failures carry that text on the `logEventMessage` data property.
+- Contain an additional data property named `error` that contains error message text. Other Gridwich failures carry that text on the `logEventMessage` data property.
 
 These points reflect the current state of the Azure Logic App that performs the RollKey operation. The definition of the Logic App is in the [infrastructure/terraform/keyroller/main.tf](/infrastructure/terraform/keyroller/main.tf) Terraform file.
 

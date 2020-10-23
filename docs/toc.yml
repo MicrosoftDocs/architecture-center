@@ -1364,18 +1364,20 @@ items:
           href: reference-architectures/media-services/gridwich-clean-monolith.md
         - name: Project naming and structure
           href: reference-architectures/media-services/gridwich-project-names.md
-        - name: Gridwich Storage Service
-          href: reference-architectures/media-services/gridwich-storage-service.md
+        - name: Gridwich CI/CD
+          href: reference-architectures/media-services/gridwich-cicd.md
         - name: Content protection and DRM
           href: reference-architectures/media-services/gridwich-content-protection-drm.md
         - name: Media Services setup and scaling
           href: reference-architectures/media-services/media-services-setup-scale.md
+        - name: Gridwich Storage Service
+          href: reference-architectures/media-services/gridwich-storage-service.md
         - name: Gridwich logging
           href: reference-architectures/media-services/gridwich-logging.md
+        - name: Gridwich message formats
+          href: reference-architectures/media-services/gridwich-message-formats.md
         - name: Saga orchestration
           href: reference-architectures/media-services/saga-orchestration.md
-        - name: Gridwich CI/CD
-          href: reference-architectures/media-services/gridwich-cicd.md
         - name: Variable group to Terraform flow
           href: reference-architectures/media-services/variable-group-terraform-flow.md
         - name: Set up Azure DevOps
