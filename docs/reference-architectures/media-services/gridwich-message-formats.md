@@ -46,7 +46,7 @@ Gridwich Acknowledgement and Gridwich Failure are different from other events. S
   - [Encoding scheduled](#encoderstatusscheduled)
   - [Encoding in process](#encoderstatusprocessing)
   - [Encoding completed successfully](#encoderstatussuccess)
-  - [Encoding cancelled](#encoderstatuscancelled)
+  - [Encoding canceled](#encoderstatuscancelled)
 
 **Blob and container storage events**
 

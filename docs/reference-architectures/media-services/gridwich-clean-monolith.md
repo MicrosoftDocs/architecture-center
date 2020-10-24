@@ -38,12 +38,12 @@ The solution has a `Core.EventGrid` library, which contains:
 - The base classes that help achieve common domain-driven logic or activities.
 - Logging, observability, and exception definitions for use throughout the application.
 
-To encapsulate EventGrid as a request and response broker, the library has:
+To encapsulate Azure Event Grid as a request and response broker, the library has:
 
 - An event dispatcher that uses the IoC to identify and dispatch events to listeners.
 - An event publisher to place responses on the correct EventGrid topic.
 
-The Event Grid request adapter is an https endpoint in the form of an [Azure Function HTTP Endpoint](/azure/azure-functions/functions-bindings-http-webhook). An adapter to convert web requests to Event Grid arrays is also in the same [EventGridFunction](https://github.com/mspnp/gridwich/src/GridWich.Host.FunctionApp/src/Functions/EventGridFunction.cs).
+The Event Grid request adapter is an HTTPS endpoint in the form of an [Azure Function HTTP Endpoint](/azure/azure-functions/functions-bindings-http-webhook). An adapter to convert web requests to Event Grid arrays is also in the same [EventGridFunction](https://github.com/mspnp/gridwich/src/GridWich.Host.FunctionApp/src/Functions/EventGridFunction.cs).
 
 The Event Grid response gateway consists of the:
 - [EventGridHandlerBase](https://github.com/mspnp/gridwich/src/GridWich.Core/src/Bases/EventGridHandlerBase.cs), which converts a response DTO into an `EventGridEvent` object.
@@ -71,7 +71,7 @@ For code reuse and centralization, business logic or infrastructure gateways tha
 
 - The `Storage.AzureStorage` library also contains storage services that other participants use. Having the interfaces in core project avoids IoC issues, but they could be extracted into a separate core storage infrastructure gateway library.
 
-### Microservices considerations
+### Microservices alternative
 
 Nothing in the problem space or architecture explicitly pushes the solution into either a monolithic app or several microservices.
 

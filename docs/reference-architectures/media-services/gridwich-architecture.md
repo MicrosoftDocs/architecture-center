@@ -16,10 +16,10 @@ ms.custom:
 A mass media and entertainment conglomerate replaced their on-premises video streaming service with a cloud-based solution for ingesting, processing, and publishing video assets. The company's main goals, in addition to taking advantage of Azure cloud capacity, cost, and flexibility, were to:
 
 - Ingest raw video files, process and publish them, and fulfill media requests.
-- Significantly enhance both encoding and new intake and distribution capabilities at scale, and with a cleanly-architected approach.
+- Improve both encoding and new intake and distribution capabilities at scale, and with a cleanly architected approach.
 - Implement CI/CD for the media asset management (MAM) pipeline.
 
-Gridwich is a stateless event-processing framework driven by an external [saga workflow orchestration system](saga-orchestration.md). Gridwich pipelines ingest, process, store, and deliver media assets with the help of two new methods, Event Grid Sandwiches and Terraform Sandwiches.
+Gridwich is a stateless event-processing framework driven by an external [saga workflow orchestration system](saga-orchestration.md). Gridwich pipelines ingest, process, store, and deliver media assets with the help of two new methods, Azure Event Grid Sandwiches and Terraform Sandwiches.
 
 The Microsoft engineering team developed Gridwich to align with principles and best practices for:
 
@@ -38,7 +38,7 @@ Gridwich architecture features two *sandwiches* that address the requirements of
 
 - The *Event Grid sandwich* abstracts away remote and long-running processes like media encoding from the external saga workflow system by sandwiching them between two [Event Grid handlers](#request-flow). This sandwich lets the external system send a request event, monitor scheduled events, and wait for an eventual success or failure response that might arrive minutes or hours later.
   
-  ![Diagram showing the Event Grid handler sandwich.](media/gridwich-overview.png)
+  ![Diagram showing the Event Grid handler sandwich.](media/request-response.png)
   
 - The *Terraform Sandwich* is a multi-stage [Terraform](https://www.terraform.io/) pattern updated to support [infrastructure as code](/azure/devops/learn/what-is-infrastructure-as-code).
   
@@ -64,6 +64,8 @@ The Gridwich request and response process covers request:
 
 The following steps describe the request and response process between an external system and Gridwich. In Gridwich, the external system is a media asset management (MAM) and saga workflow orchestration system. For the exact formats of Gridwich operations message events, see [Gridwich message formats](gridwich-message-formats.md).
 
+  ![Diagram showing the Gridwich request-response process.](media/gridwich-overview.png)
+
 1. The external system authors a request and sends it to the request broker.
    
 1. The request broker is responsible for dispatching requests to Gridwich request listeners in a traditional publication-subscription model. In this solution, the request broker is [Azure Event Grid](/azure/event-grid/). All requests are encapsulated using the [Event Grid event schema](/azure/event-grid/event-schema).
@@ -72,7 +74,7 @@ The following steps describe the request and response process between an externa
    
    Requests are encapsulated within the object `Event.Data` property, which is opaque to the Event Grid broker and transport layer. Gridwich also uses the `Event.EventType` and `Event.DataVersion` object fields to route events. So the Event Grid request broker can be substituted with other publication-subscription event brokers, Gridwich depends on the fewest event fields possible, and doesn't use the `Event.Topic` nor `Event.Subject` fields.
    
-1. [Azure Functions](/azure/azure-functions/) consumes events from Event Grid. For better throughput, Gridwich defines an [HTTP endpoint](/azure/azure-functions/functions-bindings-http-webhook) as a push model that Event Grid initiates, rather than the [Event Grid binding](/azure/azure-functions/functions-bindings-event-grid) polling model that Azure Functions provides.
+1. The Gridwich [Azure Functions](/azure/azure-functions/) app consumes events from Event Grid. For better throughput, Gridwich defines an [HTTP endpoint](/azure/azure-functions/functions-bindings-http-webhook) as a push model that Event Grid initiates, rather than the [Event Grid binding](/azure/azure-functions/functions-bindings-event-grid) polling model that Azure Functions provides.
    
 1. The Azure Functions App reads the event properties and dispatches events to parts of the Gridwich code that handle that event type and version.
    
@@ -86,29 +88,11 @@ The following steps describe the request and response process between an externa
    
    ![handler_message_ack_flow diagram](media/request-acknowledgement.png)
    
-1. Gridwich request messages may be synchronous or asynchronous in nature.
-
-   - For requests that are easy to perform and fast to complete, the handler does the work synchronously and returns the success event, with its [operation context](#operation-context), almost immediately after the acknowledgement is sent.
-     
-     ![handler_message_sync_flow diagram](media/request-response-sync-flow.png).
-     
-     For example, the [ChangeBlobTierHandler](https://github.com/mspnp/gridwich/src/GridWich.SagaParticipants.Storage.AzureStorage/src/EventGridHandlers/ChangeBlobTierHandler.cs) is a simple synchronous flow. The handler gets a Request data transfer object (DTO), calls and awaits a single service to do the work, and returns a Success or Failure response.
-     
-     ![event_dispatching_sync_example diagram](media/sync-example.png)
+   For requests that are easy to perform and fast to complete, the handler does the work synchronously and returns the Success or Failure event almost immediately after the acknowledgement is sent.
    
-   - Some requests are long-running. For example, encoding media files can take hours. In these cases, an asynchronous request handler evaluates the request, validates arguments, and initiates the long-running operation. The handler then returns a Scheduled response to confirm that it requested the work activity.
-     
-     ![handler_message_async_flow diagram](media/request-response-async-flow.png)
-     
-     On completing the work activity, the request handler is responsible for providing a Success or Failure completed event for the work. While remaining stateless, the handler must retrieve the original [operation context](#operation-context) and place it in the Completed event message payload.
-     
-     For example, the [BlobCopyHandler](https://github.com/mspnp/gridwich/src/GridWich.SagaParticipants.Storage.AzureStorage/src/EventGridHandlers/BlobCopyHandler.cs) shows a simple asynchronous flow. The handler gets a Request DTO, calls and awaits a single service to initiate the work, and publishes a Scheduled or Failure response.
-     
-     ![event_dispatching_async_example_scheduled diagram](media/async-example-scheduled.png)
-     
-     To complete the long-running request flow, the [BlobCreatedHandler](https://github.com/mspnp/gridwich/src/GridWich.SagaParticipants.Storage.AzureStorage/src/EventGridHandlers/BlobCreatedHandler.cs) consumes the platform event `Microsoft.Storage.BlobCreated`, extracts the original operation context, and publishes a Success or Failure completion response.
-     
-     ![event_dispatching_async_example_success diagram](media/async-example-success.png)
+   For requests that are long-running, an asynchronous request handler evaluates the request, validates arguments, and initiates the long-running operation. The handler then returns a Scheduled response to confirm that it requested the work activity. On completing the work activity, the request handler is responsible for providing a Success or Failure completed event for the work.
+   
+   For details and examples of synchronous and asynchronous processing, see [Sync and async handlers](#sync-and-async-handlers).
    
 1. The event publisher in the Azure Function sends the response event to an Event Grid topic, which acts as a reliable message broker. The external system subscribes to the topic and consumes the messages. The Event Grid platform provides its normal retry logic for publication to the external system.
 
@@ -120,11 +104,66 @@ The external system shouldn't depend on message order. While an Acknowledgement 
 
 Request failures can be due to bad requests, missing pre-conditions, processing failures, security exceptions, or unhandled exceptions. Failures all have the same message form, and should include the original operation context. Failure responses are typically sent by the common [EventGridHandlerBase](https://github.com/mspnp/gridwich/src/Gridwich.Core/src/Bases/EventGridHandlerBase.cs) class to Event Grid via the Azure Function event publisher interface. [Application Insights](/azure/azure-monitor/app/app-insights-overview) also logs failures via the [structured logging](gridwich-logging.md) used throughout the project.
 
+## Sync and async handlers
+
+Gridwich request messages may be synchronous or asynchronous in nature.
+
+### Synchronous event processing
+
+For requests that are easy to perform and fast to complete, the handler does the work synchronously and returns the success event, with its [operation context](#operation-context), almost immediately after the acknowledgement is sent.
+
+![handler_message_sync_flow diagram](media/request-response-sync-flow.png).
+
+For example, the [ChangeBlobTierHandler](https://github.com/mspnp/gridwich/src/GridWich.SagaParticipants.Storage.AzureStorage/src/EventGridHandlers/ChangeBlobTierHandler.cs) is a simple synchronous flow. The handler gets a Request data transfer object (DTO), calls and awaits a single service to do the work, and returns a Success or Failure response.
+
+![event_dispatching_sync_example diagram](media/sync-example.png)
+
+### Asynchronous event processing
+
+Some requests are long-running. For example, encoding media files can take hours. In these cases, an asynchronous request handler evaluates the request, validates arguments, and initiates the long-running operation. The handler then returns a Scheduled response to confirm that it requested the work activity.
+
+![handler_message_async_flow diagram](media/request-response-async-flow.png)
+
+On completing the work activity, the request handler is responsible for providing a Success or Failure completed event for the work. While remaining stateless, the handler must retrieve the original [operation context](#operation-context) and place it in the Completed event message payload.
+
+For example, the [BlobCopyHandler](https://github.com/mspnp/gridwich/src/GridWich.SagaParticipants.Storage.AzureStorage/src/EventGridHandlers/BlobCopyHandler.cs) shows a simple asynchronous flow. The handler gets a Request DTO, calls and awaits a single service to initiate the work, and publishes a Scheduled or Failure response.
+
+![event_dispatching_async_example_scheduled diagram](media/async-example-scheduled.png)
+
+To complete the long-running request flow, the [BlobCreatedHandler](https://github.com/mspnp/gridwich/src/GridWich.SagaParticipants.Storage.AzureStorage/src/EventGridHandlers/BlobCreatedHandler.cs) consumes the platform event `Microsoft.Storage.BlobCreated`, extracts the original operation context, and publishes a Success or Failure completion response.
+
+![event_dispatching_async_example_success diagram](media/async-example-success.png)
+
+## Long-running functions
+
+Some Gridwich functionality requires a relatively long processing time, but deploying the Azure Functions Application drops the long-running process. If these processes end abruptly, there's no status and no report back to the caller. Gridwich must deploy new Functions Apps while gracefully handling the transition for long-running functions and not missing any messages.
+
+The solution must:
+- Not invoke any additional Azure workloads, like Durable Functions, Functions Apps, Logic Apps, or Azure Container Instances.
+- Not keep the state of running instances of the Gridwich app.
+- Not kill processes just because something new is deploying or a new message is requesting the same activity.
+
+The following diagram shows how most Gridwich jobs work. The green box is a job that Gridwich passes to an external service and then reacts in an event-driven way to the status. The red box shows a  function that is long-running on Gridwich itself.
+
+![Diagram showing short-running and long-running functions.](media/long-running-functions.png)
+
+Gridwich uses Azure Functions *slot deployment* and *cancellation tokens* to meet the requirements for reliable, long-running functions.
+
+The Functions runtime adds the cancellation token when the application is shutting down. Gridwich detects the token and returns error codes for all requests and currently running processes.
+
+Slot deployment deploys new software versions. The production slot has the running application, and the staging slot has the new version. Azure does a series of deployment steps and then swaps the slot instances. The old instance restarts as the last step of the process.
+
+Gridwich waits 30 seconds after remapping the hostnames, so for http-triggered functions, Gridwich guarantees at least 30 seconds before the restart for the old production slot. Other triggers are controlled by app settings and don't have a mechanism to wait on app setting updates, so those functions risk being interrupted if execution starts right before the old production slot is restarted.
+
+For more information, see [What happens during a slot swap for Azure Functions](/azure/azure-functions/functions-deployment-slots#swap-operations) and [Azure Functions deployment slots](/azure/azure-functions/functions-deployment-slots).
+
 ## Operation context
 
-The external system might generate thousands of requests per day, per hour, or per second. Each request event payload to Gridwich must include a JSON object property named [operationContext](https://github.com/mspnp/gridwich/src/Gridwich.Core/src/DTO/Requests/RequestBaseDTO.cs), which persists through the lifetime of even very long-running requests.
+The external system might generate thousands of requests per day, per hour, or per second. Each request event payload to Gridwich must include a JSON object property named [operationContext](https://github.com/mspnp/gridwich/src/Gridwich.Core/src/DTO/Requests/RequestBaseDTO.cs).
 
-Gridwich is a stateless request processing and work activity solution that responds with the opaque operation context, whether the activity is short- or long-running. If a request contains an operation context, like `{"id"="Op1001"}`, Gridwich must return a corresponding JSON object as part of each response payload to the external system. See [ResponseBaseDTO](https://github.com/mspnp/gridwich/src/Gridwich.Core/src/DTO/Responses/ResponseBaseDTO.cs).
+Gridwich is a stateless request processing and work activity solution that responds with the opaque operation context, whether the activity is short- or long-running. This operation context persists through the lifetime of even very long-running requests.
+
+If a request contains an operation context, like `{"id"="Op1001"}`, Gridwich must return a corresponding JSON object as part of each response payload to the external system. See [ResponseBaseDTO](https://github.com/mspnp/gridwich/src/Gridwich.Core/src/DTO/Responses/ResponseBaseDTO.cs).
 
 ![request_and_response diagram](media/request-response.png)
 
@@ -153,30 +192,7 @@ For more information about sagas and saga participants, see [Saga orchestration]
 
 ### Alternatives
 
-To call a new, asynchronous API that provides a opaque operation context, you could use a Durable Function to create a series of tasks within an operation, which would allow the operation context to be saved as a input or output to the operation. Durable functions have a built-in state store for long-running operations. Alternatively, the whole solution could use Durable Functions, regardless of the work activities, but this increases code complexity.
-
-## Long-running functions
-
-Some Gridwich functionality requires a relatively long processing time, but deploying the Azure Functions Application drops the long-running process. If these processes end abruptly, there's no status and no report back to the caller. Gridwich must deploy new Functions Apps while gracefully handling the transition for long-running functions and not missing any messages.
-
-The solution had to:
-- Not invoke any additional Azure workloads, like Durable Functions, Functions Apps, Logic Apps, or Azure Container Instances.
-- Not keep the state of running instances of the Gridwich app.
-- Not kill processes just because something new is deploying or a new message is requesting the same activity.
-
-The following diagram shows how most Gridwich jobs work. The green box is a job that Gridwich passes to an external service and then reacts in an event-driven way to the status. The red box shows a  function that is long-running on Gridwich itself.
-
-![async_vs_sync_functions](media/long-running-functions.png)
-
-Gridwich uses Azure Functions *slot deployment* and *cancellation tokens* to meet the requirements for reliable, long-running functions.
-
-The Functions runtime adds the cancellation token when the application is shutting down. Gridwich detects the token and returns error codes for all requests and currently running processes.
-
-Slot deployment deploys new software versions. The production slot has the running application, and the staging slot has the new version. Azure does a series of deployment steps and then swaps the slot instances. The old instance restarts as the last step of the process.
-
-Gridwich waits 30 seconds after remapping the hostnames, so for http-triggered functions, Gridwich guarantees at least 30 seconds before the restart for the old production slot. Other triggers are controlled by app settings and don't have a mechanism to wait on app setting updates, so those functions risk being interrupted if execution starts right before the old production slot is restarted.
-
-For more information, see [What happens during a slot swap for Azure Functions](/azure/azure-functions/functions-deployment-slots#swap-operations) and [Azure Functions deployment slots](/azure/azure-functions/functions-deployment-slots).
+To call a new, asynchronous API that provides an opaque operation context, you could use a Durable Function to create a series of tasks within an operation, which would allow the operation context to be saved as an input or output to the operation. Durable functions have a built-in state store for long-running operations. Alternatively, the whole solution could use Durable Functions, regardless of the work activities, but this increases code complexity.
 
 ## Components
 

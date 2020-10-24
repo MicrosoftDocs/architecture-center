@@ -28,7 +28,7 @@ These SDK client classes currently allow only indirect access to the two HTTP he
 - `x-ms-client-request-id` - for operation context
 - `ETag` - the object version tag
 
-The following diagram shows the structure between the various classes. The diagram indicates how one set of instances relate to each other. The yellow arrows indicate "has a reference to."
+The following diagram shows the structure between the various classes. The diagram indicates how one set of instances relate to each other. The arrows indicate "has a reference to."
 
 ![Instance Relationships](media/gridwich-storage.png)
 
@@ -150,6 +150,8 @@ With Azure Storage, a request including an `ETag` value that doesn't match that 
 
 The pipeline always retrieves an ETag value from an Azure Storage operation if one is present in that REST response. The `ETag` property of the context is always updated, if possible, as of the last operation. The `TrackingETag` flag controls only whether the value of the `ETag` property is sent on the next request from the same client instance. If the `ETag` value is null or empty, no HTTP ETag value will be set for the current request, regardless of the value of `TrackingETag`.
 
+<!--
+Why is this here - what is it referring to?
 **Notes:**
 
 1. The Gridwich Operation Context is auto-populated into the sleeve context at line A.  `TrackingETag` defaults to false.
@@ -160,10 +162,10 @@ The pipeline always retrieves an ETag value from an Azure Storage operation if o
 1. After Line D, the context will have a new `ETag` value, as returned in the response of `AnotherOperation()`.
 1. Sleeve instances are "dispensed" by ClientProviders.  There is one provider for [Blobs][ProvB] and another for [Containers][ProvC].  The providers are created when the Storage Service is initialized and are available directly to Storage Service methods as above.  Caching of sleeve instances is performed internal to each of the two providers.
 1. The Storage Service is currently set as "Transient" in the [Dependency Injection configuration][DIConfig], which implies that the sleeve-based caching will only be on a per-request basis anyway.  While Storage Service would be set to Transient or Scoped, it would likely falter if set as a Singleton due to the cache processing across multiple threads.  See [Storage Service and dependency injection](#storage-service-and-dependency-injection) for more information.
+-->
+## Alternatives
 
-## Other considerations
-
-Notes below aren't related to the current Gridwich Storage Service. They're included here to describe approaches that were already tried.
+The following alternatives describe approaches that were already tried but aren't part of the current Gridwich solution.
 
 ### Gridwich AzureStorageManagement class
 
@@ -171,9 +173,9 @@ In conjunction with the sleeve `Service` member, an instance of an [SDK class][S
 
 ### Hide the pipeline policy via subclassing
 
-- Subclassing the SDK client types adds two simple properties to the client, one for each HTTP header value, to completely hide the interaction with the pipeline policy. But because of a deep Moq bug, it's not possible to create unit tests via Mock for these derived types. Due to Gridwich's use of Mock, this subclassing approach wasn't used.
-  
-  The Moq bug relates to its mishandling of cross-assembly subclassing in the presence of internal-scope virtual functions. The SDK client classes make use of internal-scope virtual functions involving internal-scope types invisible to normal outside users. When Moq tries to create a Mock of the subclass, which is in one of the Gridwich assemblies, it fails at test execution time as it chokes on finding the internal-scope virtuals in the SDK client classes from which the Gridwich classes are derived. There is no workaround without Moq changes in their Castle proxy generation.
+Subclassing the SDK client types adds two simple properties to the client, one for each HTTP header value, to completely hide the interaction with the pipeline policy. But because of a deep Moq bug, it's not possible to create unit tests via Mock for these derived types. Due to Gridwich's use of Mock, this subclassing approach wasn't used.
+
+The Moq bug relates to its mishandling of cross-assembly subclassing in the presence of internal-scope virtual functions. The SDK client classes make use of internal-scope virtual functions involving internal-scope types invisible to normal outside users. When Moq tries to create a Mock of the subclass, which is in one of the Gridwich assemblies, it fails at test execution time as it chokes on finding the internal-scope virtuals in the SDK client classes from which the Gridwich classes are derived. There is no workaround without Moq changes in their Castle proxy generation.
 
 ### Storage Service and dependency injection
 

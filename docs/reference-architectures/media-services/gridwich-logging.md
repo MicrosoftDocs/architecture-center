@@ -72,7 +72,7 @@ Assigning the appropriate logging level may not be straightforward. The followin
 | **LogLevel** | **Enum** | **Description** |
 | -------- | -------- | -------- |
 |LogTrace|0|Contains the most detailed messages and may contain sensitive application data. These messages are disabled by default and shouldn't be enabled in a production environment.|
-|LogDebug| 1|Used for interactive investigation during development. These logs primarily contain information useful for debugging and have no longterm value.|
+|LogDebug| 1|Used for interactive investigation during development. These logs primarily contain information useful for debugging and have no long-term value.|
 |LogInformation| 2|Tracks the general flow of the application. These logs should have long-term value.|
 |LogWarning| 3|Highlights an abnormal or unexpected event in the application flow, but doesn't stop application execution.
 |LogError| 4|Logs when the current flow of execution is stopped due to a failure. These logs should indicate failures in the current activity, not an application-wide failure.|

@@ -333,9 +333,9 @@ Adjust the following suggested settings as you see fit.
 
 ## Azure portal procedures
 
-The pipeline steps deploy the application into Azure, but they don't set up any of the identity principals or their access rights to Azure resources. A user with elevated privileges must follow the instructions in [Pipeline-generated admin scripts](admin-scripts.md) to complete the setup.
+For non-development environments, the pipeline doesn't auto-populate most secrets on deployment. Instead the pipeline creates the key vault secrets for the environment with placeholder values. For Gridwich to work, a secrets manager must replace these placeholders with actual values in Azure Key Vault. For more information about managing and rotating keys, see [Gridwich keys](maintain-keys.md).
 
-For non-development environments, the pipeline doesn't auto-populate most secrets on deployment. Instead the pipeline creates the key vault secrets for the environment with placeholder values. For Gridwich to work, a secrets manager must replace these placeholders with actual values in Azure Key Vault.
+The pipeline steps deploy the application into Azure, but they don't set up any of the identity principals or their access rights to Azure resources. A user with elevated privileges must follow the instructions in [Pipeline-generated admin scripts](admin-scripts.md) to complete the setup.
 
 ### Set up Azure Active Directory
 
@@ -356,8 +356,11 @@ Local debugging uses user impersonation, and developers sign in with their brows
 
 ## Next steps
 
+- Configure [content protection policies and DRM settings](gridwich-content-protection-drm.md).
 - Run the [admin scripts](admin-scripts.md)
-- Follow [Test Azure Media Services V3 encoding](test-encoding.md) to fully test the setup.
+- Manage [Key Vault keys](maintain-keys.md)
 - Set up a [local development environment](set-up-local-environment.md).
 - Create or delete a [cloud sandbox or test environment](create-delete-cloud-environment.md).
+- Follow [Test Azure Media Services V3 encoding](test-encoding.md) to fully test the setup.
+- Scale [Media Services resources](media-services-setup-scale.md#scale-media-services-resources).
 

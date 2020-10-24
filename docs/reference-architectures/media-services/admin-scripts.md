@@ -15,7 +15,7 @@ ms.custom:
 
 The continuous integration and delivery (CI/CD) pipelines deploy the Gridwich application into Azure, but they don't set up any identity principals or their access rights to Azure resources. The pipelines use Terraform to generate and publish admin scripts, and a user with elevated permissions must run the scripts manually to create and configure Azure resources. This article describes the admin scripts and how to run them.
 
-## Set up Azure Active Directory
+## Grant admin privileges
 
 A user with elevated privileges must execute the pipeline-generated admin scripts. To grant users elevated privileges:
 
@@ -72,7 +72,7 @@ The *egv_app_registration_manifest.json* file must be in the same directory for 
 
 The Terraform variables are:
 
-- `tenantId`, the Azure AD tenant ID, which is used to create the token issurer URL.
+- `tenantId`, the Azure AD tenant ID, which is used to create the token issuer URL.
 - `eventgridViewerResourceGroupName`, the Event Grid Viewer resource group name.
 - `eventgridViewerAppName`, the Event Grid Viewer web app name.
 - `pipelineBuildId`, the pipeline Build ID. This value is currently unused, but can be used to build an Azure DevOps Build URL to display generated artifacts on screen.

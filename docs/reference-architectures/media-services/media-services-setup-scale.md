@@ -11,7 +11,7 @@ ms.custom:
 - fcp
 ---
 
-# Gridwich Azure Media Services setup and scaling
+# Gridwich Azure Media Services
 
 Gridwich uses the Azure Media Services Platform-as-a-Service (PaaS). Depending on the type of operation, the Gridwich application uses one of two methods to access Azure Media Services.
 
@@ -70,7 +70,7 @@ for id in ${mediaServicesAccountResourceId}
 }
 ```
 
-### Azure Media Services V3
+## Azure Media Services V3
 
 The Azure Media Services V3 SDK doesn't support managed identity. Instead, an explicit service principal is created for use with the Media Services V3 SDK via the *ams_sp.sh* script, using the `az ams account sp create` command:
 

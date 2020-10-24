@@ -13,7 +13,7 @@ ms.custom:
 
 # Content protection and DRM
 
-Media Services uses [Digital Rights Management (DRM)](https://en.wikipedia.org/wiki/Digital_rights_management) to protect content, and supports [Microsoft PlayReady](https://www.microsoft.com/playready/overview/), [Google Widevine](https://www.widevine.com/solutions/widevine-drm) and [Apple FairPlay](https://developer.apple.com/streaming/fps/). This article explains Gridwich content protection concepts, and how to set up and update content protection and DRM policies.
+Media Services uses [Digital Rights Management (DRM)](https://en.wikipedia.org/wiki/Digital_rights_management) to protect content, and supports [Microsoft PlayReady](https://www.microsoft.com/playready/overview/), [Google Widevine](https://www.widevine.com/solutions/widevine-drm), and [Apple FairPlay](https://developer.apple.com/streaming/fps/). This article explains Gridwich content protection concepts, and how to set up and update content protection and DRM policies.
 
 ## Asset streaming locators
 
@@ -57,13 +57,13 @@ To enable Microsoft PlayReady and Google Widevine on MPEG-DASH output, and Apple
 
 The `cencDRMKey` policy includes options 1 through 6, and the `multiDRMKey` policy includes options 1 through 9:
 
-1. Microsoft PlayReady / non persistent license
+1. Microsoft PlayReady / non-persistent license
 1. Microsoft PlayReady / 2 hours persistent license
 1. Microsoft PlayReady / 14 days persistent license
-1. Google Widevine / non persistent license
+1. Google Widevine / non-persistent license
 1. Google Widevine / 2 hours persistent license
 1. Google Widevine / 14 days persistent license
-1. Apple FairPlay / non persistent license
+1. Apple FairPlay / non-persistent license
 1. Apple FairPlay / 2 hours persistent license
 1. Apple FairPlay / 14 days persistent license
 
@@ -143,7 +143,7 @@ After the update, make sure to delete and purge any copies of source certificate
 
 ## DRM settings
 
-The following sections describe how to configure the DRM settings Gridwich uses to create and update the content key policy. The variables to update are in the Gridwich Azure DevOps project **Pipelines** > **Library** > **Variable groups** > **gridwich-cicd-variables.global** variable group. For instructions on setting up the Azure DevOps project, pipelines, and variable groups, see [Gridwich Azure DevOps setups](set-up-azure-devops.md).
+The following sections describe how to configure the DRM settings Gridwich uses to create and update the content key policy. The variables to update are in the Gridwich Azure DevOps project **Pipelines** > **Library** > **Variable groups** > **gridwich-cicd-variables.global** variable group. For instructions on setting up the Azure DevOps project, pipelines, and variable groups, see [Gridwich Azure DevOps setup](set-up-azure-devops.md).
 
 ### OpenID Connect Discovery Document endpoint
 
