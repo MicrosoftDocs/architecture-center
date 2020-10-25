@@ -14,7 +14,7 @@ ms.custom: fcp
 
 This reference architecture illustrates how to leverage Azure Arc for management, maintenance, and monitoring of SQL Server instances in on-premises and multi-cloud scenarios.
 
-![One-sentence description of hybrid reference architecture][architectural-diagram]
+![Diagram illustrating different scenarios that leverage Azure Arc to optimize administration of SQL Server instances residing on-premises or hosted by third-party cloud providers. The first group of scenarios consists of SQL Server instances running on physical servers or virtual machines. The second group of scenarios comprises on-premises or third-party cloud hosted Kubernetes clusters or Azure Kubernetes Service clusters running on Azure Stack HCI, with Azure Arc data controller serving as an intermediary management layer. All of these scenarios offer integration with a range of Azure services, such as Azure Monitor and Log Analytics, Azure Policy, Azure Security Center and Azure Sentinel.
 
 *Download a [Visio file][architectural-diagram-visio-source] of this architecture.*
 
