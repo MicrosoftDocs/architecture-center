@@ -2,11 +2,147 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id/>
     <title>the Azure Architecture Center</title>
-    <updated>2020-10-18T17:05:46.893Z</updated>
+    <updated>2020-10-25T16:45:07.327Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <subtitle>Updated articles for the Azure Architecture Center</subtitle>
     <category term="new"/>
     <category term="updated"/>
+    <entry>
+        <title type="html"><![CDATA[AKS triage - cluster health]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/operator-guides/aks/aks-triage-cluster-health</id>
+        <link href="https://docs.microsoft.com/azure/architecture/operator-guides/aks/aks-triage-cluster-health"/>
+        <updated>2020-10-22T18:37:30.000Z</updated>
+        <summary type="html"><![CDATA[Triage step to verify the overall AKS cluster health.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[AKS triage - container registry connectivity]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/operator-guides/aks/aks-triage-container-registry</id>
+        <link href="https://docs.microsoft.com/azure/architecture/operator-guides/aks/aks-triage-container-registry"/>
+        <updated>2020-10-22T18:37:30.000Z</updated>
+        <summary type="html"><![CDATA[Triage step to verify the connection to the container registry.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[AKS triage - admission controllers]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/operator-guides/aks/aks-triage-controllers</id>
+        <link href="https://docs.microsoft.com/azure/architecture/operator-guides/aks/aks-triage-controllers"/>
+        <updated>2020-10-22T18:37:30.000Z</updated>
+        <summary type="html"><![CDATA[Triage step to check the admission controllers.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[AKS triage - workload deployments]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/operator-guides/aks/aks-triage-deployment</id>
+        <link href="https://docs.microsoft.com/azure/architecture/operator-guides/aks/aks-triage-deployment"/>
+        <updated>2020-10-22T18:37:30.000Z</updated>
+        <summary type="html"><![CDATA[Triage step to check workload deployments.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[AKS triage - node health]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/operator-guides/aks/aks-triage-node-health</id>
+        <link href="https://docs.microsoft.com/azure/architecture/operator-guides/aks/aks-triage-node-health"/>
+        <updated>2020-10-22T18:37:30.000Z</updated>
+        <summary type="html"><![CDATA[Triage step to verify the node and pod health.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Azure Kubernetes Service (AKS) operations triage]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/operator-guides/aks/aks-triage-practices</id>
+        <link href="https://docs.microsoft.com/azure/architecture/operator-guides/aks/aks-triage-practices"/>
+        <updated>2020-10-22T18:37:30.000Z</updated>
+        <summary type="html"><![CDATA[AKS operations to triage issues.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Alerts in IoT Edge Vision]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/guide/iot-edge-vision/alerts</id>
+        <link href="https://docs.microsoft.com/azure/architecture/guide/iot-edge-vision/alerts"/>
+        <updated>2020-10-20T22:01:55.000Z</updated>
+        <summary type="html"><![CDATA[This article describes the persistence of alerts in an Azure IoT Edge Vision solution.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Camera selection for IoT Edge Vision]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/guide/iot-edge-vision/camera</id>
+        <link href="https://docs.microsoft.com/azure/architecture/guide/iot-edge-vision/camera"/>
+        <updated>2020-10-20T22:01:55.000Z</updated>
+        <summary type="html"><![CDATA[This article describes the camera considerations for Azure IoT Edge Vision solution.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Hardware for IoT Edge Vision]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/guide/iot-edge-vision/hardware</id>
+        <link href="https://docs.microsoft.com/azure/architecture/guide/iot-edge-vision/hardware"/>
+        <updated>2020-10-20T22:01:55.000Z</updated>
+        <summary type="html"><![CDATA[This article describes the hardware considerations for Azure IoT Edge Vision solution.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Image storage in IoT Edge Vision]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/guide/iot-edge-vision/image-storage</id>
+        <link href="https://docs.microsoft.com/azure/architecture/guide/iot-edge-vision/image-storage"/>
+        <updated>2020-10-20T22:01:55.000Z</updated>
+        <summary type="html"><![CDATA[This article describes the considerations for image storage in an Azure IoT Edge Vision solution.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Azure IoT Edge Vision]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/guide/iot-edge-vision</id>
+        <link href="https://docs.microsoft.com/azure/architecture/guide/iot-edge-vision"/>
+        <updated>2020-10-20T22:01:55.000Z</updated>
+        <summary type="html"><![CDATA[These series of articles describe how to create an AI solution using Azure IoT Edge Vision.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Machine learning in IoT Edge Vision]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/guide/iot-edge-vision/machine-learning</id>
+        <link href="https://docs.microsoft.com/azure/architecture/guide/iot-edge-vision/machine-learning"/>
+        <updated>2020-10-20T22:01:55.000Z</updated>
+        <summary type="html"><![CDATA[This article describes the machine learning and data science considerations in an Azure IoT Edge Vision solution.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[User interface in IoT Edge Vision]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/guide/iot-edge-vision/user-interface</id>
+        <link href="https://docs.microsoft.com/azure/architecture/guide/iot-edge-vision/user-interface"/>
+        <updated>2020-10-20T22:01:55.000Z</updated>
+        <summary type="html"><![CDATA[This article describes the user interface considerations in an Azure IoT Edge Vision solution.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Configure infrastructure]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/framework/devops/automation-configuration</id>
+        <link href="https://docs.microsoft.com/azure/architecture/framework/devops/automation-configuration"/>
+        <updated>2020-10-19T16:42:09.000Z</updated>
+        <summary type="html"><![CDATA[Configure infrastructure]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Repeatable Infrastructure]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/framework/devops/automation-infrastructure</id>
+        <link href="https://docs.microsoft.com/azure/architecture/framework/devops/automation-infrastructure"/>
+        <updated>2020-10-19T16:42:09.000Z</updated>
+        <summary type="html"><![CDATA[Repeatable Infrastructure]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Automation overview of goals, best practices, and types in Azure]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/framework/devops/automation-overview</id>
+        <link href="https://docs.microsoft.com/azure/architecture/framework/devops/automation-overview"/>
+        <updated>2020-10-19T16:42:09.000Z</updated>
+        <summary type="html"><![CDATA[Automation overview]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Automated Tasks]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/framework/devops/automation-tasks</id>
+        <link href="https://docs.microsoft.com/azure/architecture/framework/devops/automation-tasks"/>
+        <updated>2020-10-19T16:42:09.000Z</updated>
+        <summary type="html"><![CDATA[Automated Tasks]]></summary>
+        <category label="new" term="new"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Partitioning in Event Hubs and Kafka]]></title>
         <id>https://docs.microsoft.com/azure/architecture/reference-architectures/event-hubs/partitioning-in-event-hubs-and-kafka</id>
@@ -38,6 +174,38 @@
         <updated>2020-10-01T18:35:01.000Z</updated>
         <summary type="html"><![CDATA[Lock down access to an Azure SQL Database with Azure Private Link connectivity from a multi-tenant Azure App Service through regional VNet Integration.]]></summary>
         <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Computer forensics Chain of Custody in Azure]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/example-scenario/forensics</id>
+        <link href="https://docs.microsoft.com/azure/architecture/example-scenario/forensics"/>
+        <updated>2020-10-23T15:56:15.000Z</updated>
+        <summary type="html"><![CDATA[Create an infrastructure and workflow to ensure a valid digital evidence Chain of Custody (CoC) for computer forensics in Azure.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Overview of the performance efficiency pillar]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/framework/scalability/overview</id>
+        <link href="https://docs.microsoft.com/azure/architecture/framework/scalability/overview"/>
+        <updated>2020-10-23T06:57:53.000Z</updated>
+        <summary type="html"><![CDATA[Describes the performance efficiency pillar]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Azure Kubernetes Service (AKS) solution journey]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/reference-architectures/containers/aks-start-here</id>
+        <link href="https://docs.microsoft.com/azure/architecture/reference-architectures/containers/aks-start-here"/>
+        <updated>2020-10-22T18:37:30.000Z</updated>
+        <summary type="html"><![CDATA[An overview of Microsoft's Azure Kubernetes Service (AKS) guidance offerings ranging from "just starting out", to production, and through sustained operations.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[GCP to Azure Services Comparison]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/gcp-professional/services</id>
+        <link href="https://docs.microsoft.com/azure/architecture/gcp-professional/services"/>
+        <updated>2020-10-19T17:42:53.000Z</updated>
+        <summary type="html"><![CDATA[Understand the differences between specific GCP and Azure services.]]></summary>
+        <category label="updated" term="updated"/>
     </entry>
     <entry>
         <title type="html"><![CDATA[Resiliency patterns]]></title>

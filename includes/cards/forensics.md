@@ -14,8 +14,8 @@
             <p>Computer forensics Chain of Custody in Azure</p>
         </a>
         <ul class="card-content-metadata">
-            <li>4/27/2020</li>
-            <li>8 min read</li>
+            <li>10/23/2020</li>
+            <li>10 min read</li>
         </ul>
         <p class="card-content-description">Create an infrastructure and workflow to ensure a valid digital evidence Chain of Custody (CoC) for computer forensics in Azure.</p>
         <div class="bottom-to-top-fade is-hidden-mobile"></div>
