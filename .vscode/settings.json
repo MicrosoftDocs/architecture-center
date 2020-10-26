@@ -363,5 +363,9 @@
     ],
     "docLog.userName": "adamboeglin",
     "docLog.monthsAgo": 4,
-    "docLog.repoTitle": "the Azure Architecture Center"
+    "docLog.repoTitle": "the Azure Architecture Center",
+    "python.linting.pylintArgs": [
+        "--init-hook",
+        "import sys; sys.path.extend([\"\"c:\\\\Users\\\\mimar\\\\.vscode\\\\extensions\\\\ms-python.devicesimulatorexpress-2020.0.36321\\\\out\"\",\"\"c:\\\\Users\\\\mimar\\\\.vscode\\\\extensions\\\\ms-python.devicesimulatorexpress-2020.0.36321\\\\out\\\\micropython\"\",\"\"c:\\\\Users\\\\mimar\\\\.vscode\\\\extensions\\\\ms-python.devicesimulatorexpress-2020.0.36321\\\\out\\\\clue\"\",\"\"c:\\\\Users\\\\mimar\\\\.vscode\\\\extensions\\\\ms-python.devicesimulatorexpress-2020.0.36321\\\\out\\\\base_circuitpython\"\"])"
+    ]
 }
