@@ -31,7 +31,7 @@ The architecture incorporates the following components and capabilities:
 
 ## Recommendation
 
-The following recommendation applies to most scenarios. Follow the recommendation unless you have a specific requirement that overrides it. 
+The following recommendation applies for most scenarios. Follow the recommendation unless you have a specific requirement that overrides it. 
 
 ### Use stretched clusters to implement automated disaster recovery for virtualized workloads and file shares hosted on Azure Stack HCI
 
@@ -50,7 +50,7 @@ A stretched Azure Stack HCI cluster relies on Storage Replica to perform synchro
 
 ## Architectural excellence
 
-The [Microsoft Azure Well-Architected Framework][azure-well-architected-framework] provides a set of guiding tenets that are followed in this reference architecture. The framework provides the following benefits. 
+The [Microsoft Azure Well-Architected Framework][azure-well-architected-framework] is a set of guiding tenets that are followed in this reference architecture. The following considerations are framed in the context of these tenets. 
 
 ### Cost optimization
 
