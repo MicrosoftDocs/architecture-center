@@ -1,6 +1,6 @@
 items:
 - name: Azure Architecture Center
-  href: /azure/architecture/
+  href: ./index.yml
 - name: Architecture icons
   href: icons/index.md
 - name: Browse all Architectures
@@ -257,8 +257,6 @@ items:
       href: framework/devops/development.md
     - name: Deployment
       href: framework/devops/deployment.md
-    - name: Infrastructure Deployments
-      href: framework/devops/iac.md
     - name: Monitoring
       href: framework/devops/monitoring.md
     - name: Performance
@@ -267,6 +265,16 @@ items:
       href: framework/devops/testing.md
     - name: Checklist
       href: checklist/dev-ops.md
+    - name: Automation
+      items:
+      - name: Automation Overview
+        href: framework/devops/automation-overview.md
+      - name: Repeatable infrastructure
+        href: framework/devops/automation-infrastructure.md
+      - name: Configure infrastructure
+        href: framework/devops/automation-configuration.md
+      - name: Automate operational tasks
+        href: framework/devops/automation-tasks.md
   - name: Performance Efficiency
     items:
     - name: Overview
@@ -661,6 +669,8 @@ items:
         href: example-scenario/ai/newsfeed-ingestion.md
       - name: Oil and Gas tank level forecasting
         href: solution-ideas/articles/oil-and-gas-tank-level-forecasting.md
+      - name: Partitioning in Event Hubs and Kafka
+        href: reference-architectures/event-hubs/partitioning-in-event-hubs-and-kafka.md
       - name: Predicting length of stay in hospitals
         href: solution-ideas/articles/predicting-length-of-stay-in-hospitals.md
       - name: Predictive aircraft engine monitoring
@@ -727,8 +737,29 @@ items:
       href: reference-architectures/containers/aks/secure-baseline-aks.md
     - name: AKS Cluster Best Practices
       href: /Azure/aks/best-practices
+      maintainContext: true
     - name: AKS Workload Best Practices
       href: /Azure/aks/best-practices#developer-best-practices
+      maintainContext: true
+    - name: AKS day-2 operations guide
+      items:
+        - name: Triage practices
+          items:
+            - name: Introduction
+              href: operator-guides/aks/aks-triage-practices.md
+            - name: 1- Cluster health
+              href: operator-guides/aks/aks-triage-cluster-health.md
+            - name: 2- Node and pod health
+              href: operator-guides/aks/aks-triage-node-health.md
+            - name: 3- Workload deployments
+              href: operator-guides/aks/aks-triage-deployment.md
+            - name: 4- Admission controllers
+              href: operator-guides/aks/aks-triage-controllers.md
+            - name: 5- Container registry connectivity
+              href: operator-guides/aks/aks-triage-container-registry.md                                                 
+        - name: Common Issues
+          href: /azure/aks/troubleshooting?bc=%2fazure%2farchitecture%2fbread%2ftoc.json&toc=%2fazure%2farchitecture%2ftoc.json
+          maintainContext: true
     - name: AKS Example Solutions
       items:
         - name: Microservices architecture on AKS
@@ -788,7 +819,7 @@ items:
         - name: Data storage
           href: data-guide/technology-choices/data-storage.md
         - name: Data store comparison
-          href: guide/technology-choices/data-store-comparison.md
+          href: ./guide/technology-choices/data-store-overview.md
         - name: Pipeline orchestration
           href: data-guide/technology-choices/pipeline-orchestration-data-movement.md
         - name: Real-time message ingestion
@@ -1183,6 +1214,24 @@ items:
         href: hybrid/gateway-logic-apps.md
   - name: Internet of Things
     items:
+    - name: Guides
+      items:
+      - name: Azure IoT Edge Vision
+        items:
+        - name: Overview
+          href: guide/iot-edge-vision/index.md
+        - name: Camera selection
+          href: guide/iot-edge-vision/camera.md
+        - name: Hardware acceleration
+          href: guide/iot-edge-vision/hardware.md
+        - name: Machine learning
+          href: guide/iot-edge-vision/machine-learning.md
+        - name: Image storage
+          href: guide/iot-edge-vision/image-storage.md
+        - name: Alert persistence
+          href: guide/iot-edge-vision/alerts.md
+        - name: User interface
+          href: guide/iot-edge-vision/user-interface.md
     - name: Architectures
       items:
       - name: IoT reference architecture
@@ -1216,7 +1265,9 @@ items:
       - name: Voice assistants and IoT devices
         href: solution-ideas/articles/iot-controlling-devices-with-voice-assistant.md
       - name: IoT using Azure Data Explorer
-        href: solution-ideas/articles/iot-azure-data-explorer.md
+        href: solution-ideas/articles/iot-azure-data-explorer.md      
+      - name: Buy online, pickup in store
+        href: example-scenario/iot/vertical-buy-online-pickup-in-store.md
     - name: Industrial IoT Analytics
       items:
       - name: Architecture
@@ -1341,6 +1392,8 @@ items:
         href: solution-ideas/articles/unlock-legacy-data.md
       - name: Decompose apps with Service Fabric
         href: example-scenario/infrastructure/service-fabric-microservices.md
+      - name: Legacy failover cluster in Azure
+        href: example-scenario/sql-failover/sql-failover-2008r2.md
   - name: Mixed Reality
     items:
     - name: Architectures
@@ -1435,6 +1488,8 @@ items:
         href: example-scenario/secrets/secure-refresh-tokens.md
       - name: Securely managed web apps
         href: example-scenario/apps/fully-managed-secure-apps.md
+      - name: Web app private database connectivity
+        href: example-scenario/private-web-app/private-web-app.md
       - name: Virtual network integrated microservices
         href: example-scenario/integrated-multiservices/virtual-network-integration.md
       - name: Virtual Network security options
@@ -1479,6 +1534,8 @@ items:
         href: solution-ideas/articles/sharepoint-farm-microsoft-365.md
       - name: Intelligent product search engine for e-commerce
         href: example-scenario/apps/ecommerce-search.md
+      - name: Magento e-commerce in AKS
+        href: example-scenario/magento/magento-azure.md
       - name: Migrate a web app using Azure APIM
         href: example-scenario/apps/apim-api-scenario.md
       - name: Multi-region N-tier application
