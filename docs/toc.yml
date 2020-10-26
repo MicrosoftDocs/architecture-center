@@ -285,6 +285,8 @@ items:
         href: framework/devops/release-engineering-ci.md
       - name: Continuous deployment
         href: framework/devops/release-engineering-cd.md
+      - name: Release testing
+        href: framework/devops/release-engineering-testing.md
       - name: Rollback and Rollforward 
         href: framework/devops/release-engineering-rollback.md
   - name: Performance Efficiency
