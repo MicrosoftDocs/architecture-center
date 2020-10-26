@@ -329,7 +329,7 @@ Azure Automation can process up to 1,000 computers per update deployment. If you
 [20]: /azure/azure-monitor/platform/agent-linux#install-the-agent-using-wrapper-script
 [21]: /azure/azure-monitor/platform/agent-windows#obtain-workspace-id-and-key
 [22]: /azure/automation/update-management/update-mgmt-groups
-[23]: /azure/automation/update-management/update-mgmt-view-update-assessments#work-with-update-classifications
+[23]: /azure/automation/update-management/view-update-assessments
 [24]: /azure/automation/update-management/update-mgmt-pre-post-scripts
 [25]: /azure/automation/update-management/update-mgmt-configure-wuagent
 [26]: /azure/azure-monitor/platform/collect-sccm
