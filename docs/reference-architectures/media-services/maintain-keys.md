@@ -3,7 +3,7 @@ title: Gridwich keys and secrets management
 titleSuffix: Azure Reference Architectures
 description: Learn about the two types of keys Gridwich uses, storage keys and third-party keys, and the Logic Apps that add, change, or rotate the keys.
 author: doodlemania2
-ms.date: 10/08/2020
+ms.date: 10/30/2020
 ms.topic: reference-architecture
 ms.service: architecture-center
 ms.subservice: reference-architecture

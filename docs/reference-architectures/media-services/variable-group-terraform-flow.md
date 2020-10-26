@@ -3,7 +3,7 @@ title: Gridwich pipeline variable group to Terraform variables flow
 titleSuffix: Azure Reference Architectures
 description: Learn how Gridwich converts Azure Pipelines pipeline variable group variables to Terraform variables.
 author: doodlemania2
-ms.date: 10/08/2020
+ms.date: 10/30/2020
 ms.topic: reference-architecture
 ms.service: architecture-center
 ms.subservice: reference-architecture
@@ -15,7 +15,7 @@ ms.custom:
 
 This article describes how Azure Pipelines *variable group* variables flow into various Terraform modules, which deploy them to Azure Key Vault and finally to the Azure Functions App app settings as Key Vault secret references.
 
-The example is a deep dive into how the **amsDrmFairPlayAskHex** variable, located in the **gridwich-cicd-variables.global** variable group, flows througout the continuous integration and continuous delivery (CI/CD) process.
+The example is a deep dive into how the **amsDrmFairPlayAskHex** variable, located in the **gridwich-cicd-variables.global** variable group, flows throughout the continuous integration and continuous delivery (CI/CD) process.
 
 ## Prerequisites
 

@@ -3,7 +3,7 @@ title: Gridwich cloud media processing system
 titleSuffix: Azure Reference Architectures
 description: Build a stateless action execution workflow to ingest, process, and deliver media assets using two new methods, Terraform Sandwiches and Event Grid Sandwiches.
 author: doodlemania2
-ms.date: 10/08/2020
+ms.date: 10/30/2020
 ms.topic: reference-architecture
 ms.service: architecture-center
 ms.subservice: reference-architecture
@@ -13,7 +13,7 @@ ms.custom:
 
 # Gridwich media processing system
 
-A mass media and entertainment conglomerate replaced their on-premises video streaming service with a cloud-based solution for ingesting, processing, and publishing video assets. The company's main goals, in addition to taking advantage of Azure cloud capacity, cost, and flexibility, were to:
+A mass media and entertainment conglomerate replaced their on-premises video streaming service with a cloud-based solution for ingesting, processing, and publishing video assets. The company's main goals were to take advantage of Azure cloud capacity, cost, and flexibility to:
 
 - Ingest raw video files, process and publish them, and fulfill media requests.
 - Improve both encoding and new intake and distribution capabilities at scale, and with a cleanly architected approach.
@@ -59,7 +59,7 @@ The Gridwich request and response process covers request:
 - Transport
 - Reception
 - Dispatch to Gridwich components
-- Acknowledgement and actions
+- Acknowledgment and actions
 - Responses
 
 The following steps describe the request and response process between an external system and Gridwich. In Gridwich, the external system is a media asset management (MAM) and saga workflow orchestration system. For the exact formats of Gridwich operations message events, see [Gridwich message formats](gridwich-message-formats.md).
@@ -82,23 +82,23 @@ The following steps describe the request and response process between an externa
    
    An alternative approach is to use the event subscription and filtering mechanism the Event Grid platform provides. This mechanism would impose a 1:1 deployment model, where one Azure Function hosts only one event handler. Although Gridwich uses a 1:many model, the [clean architecture](gridwich-clean-monolith.md) means that refactoring the solution for 1:1 isn't difficult.
    
-1. Any handler that plans to do further work with the current request must provide an acknowledgement. Specifically, each handler in the system uses a common [EventGridHandlerBase](https://github.com/mspnp/gridwich/src/Gridwich.Core/src/Bases/EventGridHandlerBase.cs) class to provide generic services such as request acknowledgement, failure handling, and publication of response events. The event publication service communicates the Acknowledgement, Failure, Scheduled, or Success messages to the Event Grid request broker.
+1. Any handler that plans to do further work with the current request must provide an acknowledgment. Specifically, each handler in the system uses a common [EventGridHandlerBase](https://github.com/mspnp/gridwich/src/Gridwich.Core/src/Bases/EventGridHandlerBase.cs) class to provide generic services such as request acknowledgment, failure handling, and publication of response events. The event publication service communicates the Acknowledgment, Failure, Scheduled, or Success messages to the Event Grid request broker.
    
-   When it receives a request by a handler, the base class immediately sends an Acknowledgement message, and then dispatches the work to the derived class.
+   When it receives a request by a handler, the base class immediately sends an Acknowledgment message, and then dispatches the work to the derived class.
    
    ![handler_message_ack_flow diagram](media/request-acknowledgement.png)
    
-   For requests that are easy to perform and fast to complete, the handler does the work synchronously and returns the Success or Failure event almost immediately after the acknowledgement is sent.
+   For requests that are easy to perform and fast to complete, the handler does the work synchronously and returns the Success or Failure event almost immediately after the acknowledgment is sent.
    
    For requests that are long-running, an asynchronous request handler evaluates the request, validates arguments, and initiates the long-running operation. The handler then returns a Scheduled response to confirm that it requested the work activity. On completing the work activity, the request handler is responsible for providing a Success or Failure completed event for the work.
    
    For details and examples of synchronous and asynchronous processing, see [Sync and async handlers](#sync-and-async-handlers).
    
-1. The event publisher in the Azure Function sends the response event to an Event Grid topic, which acts as a reliable message broker. The external system subscribes to the topic and consumes the messages. The Event Grid platform provides its normal retry logic for publication to the external system.
+1. The event publisher in the Azure Function sends the response event to an event grid topic, which acts as a reliable message broker. The external system subscribes to the topic and consumes the messages. The Event Grid platform provides its normal retry logic for publication to the external system.
 
 ### Message order
 
-The external system shouldn't depend on message order. While an Acknowledgement would precede both the Success and Scheduled responses, Gridwich doesn't guarantee that a Scheduled response will always precede the corresponding Success response. A valid response sequence could be either Acknowledged/Scheduled/Success or Acknowledged/Success/Scheduled.
+The external system shouldn't depend on message order. While an Acknowledgment would precede both the Success and Scheduled responses, Gridwich doesn't guarantee that a Scheduled response will always precede the corresponding Success response. A valid response sequence could be either Acknowledged/Scheduled/Success or Acknowledged/Success/Scheduled.
 
 ### Request failures
 
@@ -110,7 +110,7 @@ Gridwich request messages may be synchronous or asynchronous in nature.
 
 ### Synchronous event processing
 
-For requests that are easy to perform and fast to complete, the handler does the work synchronously and returns the success event, with its [operation context](#operation-context), almost immediately after the acknowledgement is sent.
+For requests that are easy to perform and fast to complete, the handler does the work synchronously and returns the success event, with its [operation context](#operation-context), almost immediately after the acknowledgment is sent.
 
 ![handler_message_sync_flow diagram](media/request-response-sync-flow.png).
 

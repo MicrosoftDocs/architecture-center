@@ -1,9 +1,9 @@
 ---
 title: Gridwich message formats
 titleSuffix: Azure Reference Architectures
-description: Learn about the the specific Event Grid events that form the request-response sequence for different Gridwich operations.
+description: Learn about the specific Event Grid events that form the request-response sequence for different Gridwich operations.
 author: doodlemania2
-ms.date: 10/08/2020
+ms.date: 10/30/2020
 ms.topic: reference-architecture
 ms.service: architecture-center
 ms.subservice: reference-architecture
@@ -17,9 +17,9 @@ This article details the specific Event Grid events that form the request-respon
 
 ## Gridwich events
 
-Gridwich Acknowledgement and Gridwich Failure are different from other events. Specifically,
+Gridwich Acknowledgment and Gridwich Failure are different from other events. Specifically,
 
-- [Gridwich Acknowledgement (ACK)](#m-ack) indicates only that Gridwich has received the request in a Request-ACK-Response sequence, not necessarily that the request is processed.
+- [Gridwich Acknowledgment (ACK)](#m-ack) indicates only that Gridwich has received the request in a Request-ACK-Response sequence, not necessarily that the request is processed.
 - While each operation has one or more unique Success response events, all operations use the same [Gridwich Failure](#m-fail) event to communicate failure.
 
 **Publishing events**
@@ -46,7 +46,7 @@ Gridwich Acknowledgement and Gridwich Failure are different from other events. S
   - [Encoding scheduled](#encoderstatusscheduled)
   - [Encoding in process](#encoderstatusprocessing)
   - [Encoding completed successfully](#encoderstatussuccess)
-  - [Encoding canceled](#encoderstatuscancelled)
+  - [Encoding canceled](#encoderstatuscanceled)
 
 **Blob and container storage events**
 
@@ -82,7 +82,7 @@ The exception is that the response context object may have extra JSON properties
 
 As in normal JSON, the response object properties may appear in a different order than in the request object.
 
-See [Operation context](gridwich-architecture.md#operation-context) for more information about operation context.
+For more information about operation context, see [Operation context](gridwich-architecture.md#operation-context).
 
 ## Event Grid messages
 
@@ -99,7 +99,7 @@ In the following event descriptions, the JSON property values are the usual stri
 - `StorageURL-string` is an absolute URL that often points to an Azure Storage Blob or container. This string isn't usually a SAS URL.
 - `StorageURL-SAS-string` is an absolute SAS URL that often points to an Azure Storage Blob or container.
 - `OperationContextObject`, like `{ "prodID": 10, "dc": "abc" }`, is an arbitrary JSON object that is accepted on incoming requests and echoed back as part of Gridwich response events.
-- `Metadata-Dictionary` is a string-to-string JSON object dictionary with the name-value pairs representing Azure Storge Blob metadata.
+- `Metadata-Dictionary` is a string-to-string JSON object dictionary with the name-value pairs representing Azure Storage Blob metadata.
 - `Encoder-Context` is an opaque JSON object of properties specific to a particular encoder.
 
 ### <a id="m-ack"></a>Gridwich generic ACK response
@@ -120,7 +120,7 @@ In the following event descriptions, the JSON property values are the usual stri
 }
 ```
 
-The `data.eventType` string value is the top-level `eventType` property from the Request event. For example, for a blob analysis request, the `data.eventType` string value is`request.blob.analysis.create`.
+The `data.eventType` string value is the top level `eventType` property from the Request event. For example, for a blob analysis request, the `data.eventType` string value is`request.blob.analysis.create`.
 
 ### <a id="m-fail"></a>Gridwich generic Failure response
 
@@ -147,7 +147,7 @@ The `data.eventType` string value is the top-level `eventType` property from the
 
 The Failure event doesn't include the original request `eventType` value, but does include the operation context and the handler name that was processing the request. The `log*` properties relate to the problem information recorded using the configured Application Insights instance.
 
-For a limited set of operations, the Failure event object differs significantly from the preceding message. See [Roll storage keys](#rollkey) for more information.
+For a limited set of operations, the Failure event object differs significantly from the preceding message. For more information, see [Roll storage keys](#rollkey).
 
 ### <a id="putblobmetadata"></a>Requester asks Gridwich to place some metadata onto a blob
 
@@ -235,7 +235,7 @@ To later retrieve the current metadata for a blob, see the [Analyze blob](#analy
 
 The `analysisResults` object's content isn't specified. In the current project, it's the MediaInfo output.
 
-The `blobMetadata` value is a a string > string dictionary.object of string-valued properties representing all of the name-value pairs of the specified blob's metadata.
+The `blobMetadata` value is a string > string dictionary.object of string-valued properties representing all of the name-value pairs of the specified blob's metadata.
 
 As usual with Azure Storage, metadata item names must conform to C# identifier naming rules. For more information, see the Azure [SetBlobMetadata REST API](/rest/api/storageservices/set-blob-metadata) and the [C# naming rules](/dotnet/csharp/language-reference/language-specification/lexical-structure#identifiers).
 
@@ -548,7 +548,7 @@ The Gridwich encoders generate four kinds of events during or at the end of enco
 - Scheduled
 - Processing
 - Success
-- Cancelled
+- Canceled
 
 An encode request failure generates a Gridwich Failure event.
 
@@ -614,7 +614,7 @@ An encode request failure generates a Gridwich Failure event.
 }
 ```
 
-#### <a id="encoderstatuscancelled"></a>Encoding Status cancelled
+#### <a id="encoderstatuscanceled"></a>Encoding Status canceled
 
 **Gridwich** > **Requester**, uses [ResponseEncodeCanceledDTO](https://github.com/mspnp/gridwich/src/Gridwich.Core/src/DTO/Responses/ResponseEncodeStatusBaseDTO.cs).
 

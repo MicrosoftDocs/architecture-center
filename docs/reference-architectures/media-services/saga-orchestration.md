@@ -3,7 +3,7 @@ title: Saga orchestration
 titleSuffix: Azure Reference Architectures
 description: Understand the concepts and roles of sagas in orchestrating Gridwich workflows.
 author: doodlemania2
-ms.date: 10/08/2020
+ms.date: 10/30/2020
 ms.topic: reference-architecture
 ms.service: architecture-center
 ms.subservice: reference-architecture
@@ -33,7 +33,7 @@ For Gridwich, the available saga participants are:
 
 ## Sagas
 
-The external system might run a quality control check saga that performs the following steps:
+The external system might run a quality control check saga that does the following steps:
 
 1. Get a notification of a new blob in the inbox storage account.
 1. Request an analysis using MediaInfo.
@@ -46,9 +46,9 @@ The external system might run a quality control check saga that performs the fol
 
 The operator reviews the asset and identifies the various audio track layouts, then starts the following saga:
 
- 1. Start a copy into the longterm storage account.
+ 1. Start a copy into the long-term storage account.
  1. Get notified that the copy is complete.
- 1. Begin an encode with TeleStream CloudPort to Mux the left and right stereo tracks, along with the video, into a new asset.
+ 1. Begin encoding with TeleStream CloudPort to Mux the left and right stereo tracks, along with the video, into a new asset.
  1. Create a multi-bitrate asset using Azure Media Services V3 API encoder.
  1. Publish the asset with DRM, and notify an operator that an asset is ready for logging.
 
@@ -56,9 +56,9 @@ The operator reviews the asset and identifies the various audio track layouts, t
 
 The operator reviews the contents, extracts metadata for the media asset management (MAM) system, and sets mark-in and mark-out points for one or more features, text-less sequences, or featurettes. The operator then begins the publication saga:
 
- 1. Create a time-based filter for each sub-asset, and create a locator with that filter and DRM, using Azure Media Services Publishing V3 API.
- 1. Simultaneously begin to create sprites for each sub-asset.
- 1. After receiving successful responses from both processes, and begin a copy of the sprite files into the published asset.
+ 1. Create a time-based filter for each subasset, and create a locator with that filter and DRM, using Azure Media Services Publishing V3 API.
+ 1. Simultaneously begin to create sprites for each subasset.
+ 1. After receiving successful responses from both processes, begin a copy of the sprite files into the published asset.
  1. Receive the blob created for the copy, and complete the publication flow by updating the MAM system.
 
 ![workflow_publication diagram](media/publication-saga.png)

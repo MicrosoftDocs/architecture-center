@@ -3,7 +3,7 @@ title: Gridwich clean monolith architecture
 titleSuffix: Azure Reference Architectures
 description: Learn about the components and libraries in the Gridwich clean monolith architecture.
 author: doodlemania2
-ms.date: 10/08/2020
+ms.date: 10/30/2020
 ms.topic: reference-architecture
 ms.service: architecture-center
 ms.subservice: reference-architecture

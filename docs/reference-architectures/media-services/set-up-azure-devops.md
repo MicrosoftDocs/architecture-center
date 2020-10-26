@@ -3,7 +3,7 @@ title: Gridwich Azure DevOps setup
 titleSuffix: Azure Reference Architectures
 description: Set up Azure DevOps projects, repos, pipelines, variable groups, and Azure connections for Gridwich.
 author: doodlemania2
-ms.date: 10/08/2020
+ms.date: 10/30/2020
 ms.topic: reference-architecture
 ms.service: architecture-center
 ms.subservice: reference-architecture
@@ -72,7 +72,7 @@ Connect your Azure DevOps project to an Azure subscription.
    
 1. In the **Project settings** left navigation, under **Pipelines**, select **Service connections**, and then select **Create service connection**.
    
-1. In the **New service connnection** window, select **Azure Resource Manager**, and then select **Next**.
+1. In the **New service connection** window, select **Azure Resource Manager**, and then select **Next**.
    
 1. For **Authentication method**, select **Service Principal (automatic)**, and then select **Next**.
    
@@ -120,7 +120,7 @@ Update some of the installed files.
    
    - In [terraform-init-steps-template.yml](https://github.com/mspnp/gridwich/infrastructure/azure-pipelines/templates/steps/terraform-init-steps-template.yml), update `TerraformBackendStorageAccount: gridwichtfstate` to `TerraformBackendStorageAccount: <your unique Gridwich storage account name>`.
    
-1. In [terraform/variables.tf](https://github.com/mspnp/gridwich/infrastructure/infrastructure/terraform/variables.tf), to avoid name collisions with `gridwich`, update the the default application name from `gridwich` to `cl1grw` or your application name.
+1. In [terraform/variables.tf](https://github.com/mspnp/gridwich/infrastructure/infrastructure/terraform/variables.tf), to avoid name collisions with `gridwich`, update the default application name from `gridwich` to `cl1grw` or your application name.
    
    ```terraform
    variable "appname" {
@@ -255,13 +255,13 @@ Developers can use this pipeline to create new environments with custom names in
            --name <variable name> --value <default value> --allow-override true
    ```
    
-1. Select **Run** to run the pipeline any time you want to create a replica of the system.
+1. Select **Run** to run the pipeline anytime you want to create a replica of the system.
    
    On first run, you must select **Permit** to approve the pipeline using the FairPlay Secure File you uploaded.
    
 After the first run, an admin must run the bash scripts to set up authorization.
 
-For more details about how to run this pipeline and set up a new environment, see [Create or delete an environment](create-delete-cloud-environment.md).
+For more information about how to run this pipeline and set up a new environment, see [Create or delete an environment](create-delete-cloud-environment.md).
 
 #### Add the tf_destroy_env.yml pipeline
 
@@ -299,7 +299,7 @@ Use this pipeline to delete an environment.
            --name <variable name> --value <default value> --allow-override true
    ```
    
-1. Select **Run** to run the pipeline any time you need to destroy an environment, like one created by `ci_cd_ext_release`.
+1. Select **Run** to run the pipeline anytime you need to destroy an environment, like one created by `ci_cd_ext_release`.
 
 ### Set PR build policies
 
@@ -313,7 +313,7 @@ Adjust the following suggested settings as you see fit.
    
    - If you're the only one working in this branch, select **Allow requestors to approve their own changes**.
    
-   - Select **When new changes are pushed:**, and then select **Reset all code reviewer votes**.
+   - Select **When new changes are pushed**, and then select **Reset all code reviewer votes**.
    
    - Optionally, set **Check for linked work items** to **On**.
    
@@ -333,7 +333,7 @@ Adjust the following suggested settings as you see fit.
 
 ## Azure portal procedures
 
-For non-development environments, the pipeline doesn't auto-populate most secrets on deployment. Instead the pipeline creates the key vault secrets for the environment with placeholder values. For Gridwich to work, a secrets manager must replace these placeholders with actual values in Azure Key Vault. For more information about managing and rotating keys, see [Gridwich keys](maintain-keys.md).
+For non-development environments, the pipeline doesn't autopopulate most secrets on deployment. Instead the pipeline creates the key vault secrets for the environment with placeholder values. For Gridwich to work, a secrets manager must replace these placeholders with actual values in Azure Key Vault. For more information about managing and rotating keys, see [Gridwich keys](maintain-keys.md).
 
 The pipeline steps deploy the application into Azure, but they don't set up any of the identity principals or their access rights to Azure resources. A user with elevated privileges must follow the instructions in [Pipeline-generated admin scripts](admin-scripts.md) to complete the setup.
 

@@ -3,7 +3,7 @@ title: Logging in Gridwich
 titleSuffix: Azure Reference Architectures
 description: Understand the importance of logging and use of the ObjectLogger utility, context objects, and logging levels.
 author: doodlemania2
-ms.date: 10/08/2020
+ms.date: 10/30/2020
 ms.topic: reference-architecture
 ms.service: architecture-center
 ms.subservice: reference-architecture
