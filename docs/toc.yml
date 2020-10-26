@@ -1356,6 +1356,42 @@ items:
         href: solution-ideas/articles/digital-media-live-stream.md
       - name: Video-on-demand digital media
         href: solution-ideas/articles/digital-media-video.md
+      - name: Gridwich media processing system
+        items:
+        - name: Gridwich architecture
+          href: reference-architectures/media-services/gridwich-architecture.md
+        - name: Clean monolith
+          href: reference-architectures/media-services/gridwich-clean-monolith.md
+        - name: Project naming and structure
+          href: reference-architectures/media-services/gridwich-project-names.md
+        - name: Gridwich CI/CD
+          href: reference-architectures/media-services/gridwich-cicd.md
+        - name: Content protection and DRM
+          href: reference-architectures/media-services/gridwich-content-protection-drm.md
+        - name: Media Services setup and scaling
+          href: reference-architectures/media-services/media-services-setup-scale.md
+        - name: Gridwich Storage Service
+          href: reference-architectures/media-services/gridwich-storage-service.md
+        - name: Gridwich logging
+          href: reference-architectures/media-services/gridwich-logging.md
+        - name: Gridwich message formats
+          href: reference-architectures/media-services/gridwich-message-formats.md
+        - name: Saga orchestration
+          href: reference-architectures/media-services/saga-orchestration.md
+        - name: Variable group to Terraform flow
+          href: reference-architectures/media-services/variable-group-terraform-flow.md
+        - name: Set up Azure DevOps
+          href: reference-architectures/media-services/set-up-azure-devops.md
+        - name: Run Azure admin scripts
+          href: reference-architectures/media-services/admin-scripts.md
+        - name: Set up local dev environment
+          href: reference-architectures/media-services/set-up-local-environment.md
+        - name: Create new cloud environment
+          href: reference-architectures/media-services/create-delete-cloud-environment.md
+        - name: Maintain and rotate keys
+          href: reference-architectures/media-services/maintain-keys.md
+        - name: Test Media Services V3 encoding
+          href: reference-architectures/media-services/test-encoding.md
   - name: Migration
     items:
     - name: Architectures
