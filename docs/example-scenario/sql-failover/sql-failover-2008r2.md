@@ -126,9 +126,9 @@ Follow these steps to set up the cluster.
 
 - Check that the correct [name resolution for resources in Azure virtual networks][Name resolution that uses your own DNS server] is in place.
 
-- Take these steps with each virtual machine:
+- Take these steps with each VM:
 
-  - Join the virtual machine to the domain.
+  - Join the VM to the domain.
   
   > [!NOTE]
   > The PowerShell script that deploys VMs assigns them private IP addresses. Classic, on-premises database cluster configurations that have no direct exposure to the internet use this type of assignment. To manage the cluster nodes deployed into the Azure virtual network from the on-premises network, you have two options:
@@ -142,7 +142,7 @@ Follow these steps to set up the cluster.
 
 #### Deploy the Azure shared disk
 
-- Use an [Azure Resource Manager template (ARM template)][ARM templates], such as the [template][ARM Template to create a shared disk] in [Reference Code][Reference Code], to deploy an Azure shared disk. Currently you can't use the Azure portal for this purpose.
+- Use an [Azure Resource Manager template (ARM template)][ARM templates], such as the [template][ARM Template to create a shared disk] in [Reference code][Reference Code], to deploy an Azure shared disk. Currently you can't use the Azure portal for this purpose.
 
 - Use the Azure portal to connect the Azure shared disk to both VMs. For this operation, use the `Attach existing disks` function on the **Disks** page of each VM.
 
@@ -304,10 +304,10 @@ Follow these steps to assign a routable, private IP address to the SQL cluster:
 
 - Take the SQL Server offline and then restart it to apply these changes.
 
-- Test the new configuration by checking that the subnet mask in the SQL Server IP configuration has the value `255.255.255.255`.
+- Test the new configuration by checking that the subnet mask in the SQL Server IP configuration has the value **255.255.255.255**.
 
 > [!NOTE]
-> If you didn't install the [KB3125574 rollup update][KB3125574], the `cluster` command will fail. By default, you cannot configure the subnet mask `255.255.255.255` for a Windows Server 2008 R2 cluster.
+> If you didn't install the [KB3125574 rollup update][KB3125574], the `cluster` command will fail. By default, you cannot configure the subnet mask **255.255.255.255** for a Windows Server 2008 R2 cluster.
 
 ### Reference code
 
@@ -340,7 +340,7 @@ To transfer data from your on-premises database to the newly created cluster, co
 [Azure Hybrid Benefit for Windows Server]: https://docs.microsoft.com/azure/virtual-machines/windows/hybrid-use-benefit-licensing
 [Azure Hybrid Benefit for Windows Server configuration guidelines]: https://docs.microsoft.com/azure/virtual-machines/windows/hybrid-use-benefit-licensing#convert-an-existing-vm-using-azure-hybrid-benefit-for-windows-server
 [Azure Load Balancer]: https://docs.microsoft.com/azure/load-balancer/load-balancer-overview
-[Azure Marketplace]: (https://azuremarketplace.microsoft.com)
+[Azure Marketplace]: https://azuremarketplace.microsoft.com
 [Azure pricing calculator]: https://azure.microsoft.com/pricing/calculator
 [Azure shared disks]: https://docs.microsoft.com/azure/virtual-machines/windows/disks-shared
 [Azure shared disk limits disk types]: https://docs.microsoft.com/azure/virtual-machines/windows/disks-shared#limitations
