@@ -29,7 +29,7 @@ When creating a Function, a hosting plan is selected. Hosting plans controls how
 
 Functions hosting plans:
 
-- **Consumption** - Default hosting plan, pay only Function execution time, configurable timeout period, automatic scale.
+- **Consumption** - Default hosting plan, pay only for Function execution time, configurable timeout period, automatic scale.
 - **Premium** - Daster start, VNet connectivity, unlimited execution duration, premium instance sizes, more predictable pricing.
 - **App Service Plan** - Functions run on dedicated virtual machines and can use custom images.
 
