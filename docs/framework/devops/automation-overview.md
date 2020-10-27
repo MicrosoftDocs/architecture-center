@@ -29,7 +29,7 @@ A goal of automation is to make tools that do what humans can do, only better. F
 
 Most automation involves a percentage of *toil*. Toil is the operational work that is related to a process that is manual, repetitive, can be automated, and has minimal value. It is counterproductive to automation but in many organizations, a small amount of toil is unavoidable. It becomes an issue when too much toil slows progress. A project's production velocity will decrease if engineers are continuously interrupted by manual tasks attributed to toil, either planned or unplanned. Too much toil can impact job satisfaction. Engineers become dissatisfied when they find themselves spending too much time on operational toil rather than on other projects.
 
-Automation is the solution to reducing toil. By reducing it, engineers can eliminate future toil and concentrate on innovating and automating business solutions.
+Automation should be developed, and increased, so engineers can eliminate future toil. By reducing toil, engineers can concentrate on innovating business solutions.
 
 For more information, see [Toil automation](https://www.coursera.org/lecture/developing-a-google-sre-culture/toil-automation-BpNqj).
 
