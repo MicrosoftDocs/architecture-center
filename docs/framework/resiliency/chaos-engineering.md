@@ -115,7 +115,7 @@ The process must be very *low tax*. That is, the process must make it easy for d
 
 ## Faults
 
-The following table lists faults that you can apply to inject chaos.  
+The following table lists faults that you can apply to inject chaos. The list represents commonly injected faults and isn't intended to be exhaustive. 
 
 :::row:::
     :::column:::
@@ -656,6 +656,3 @@ The following table lists faults that you can apply to inject chaos.
         
     :::column-end:::
 :::row-end:::
-
-> [!NOTE]
-> This list isn't intended to be exhaustive, but it does represent commonly injected faults.
