@@ -23,19 +23,19 @@ When working in Azure, you have many options for automating operational tasks. T
 
 ## Azure Functions 
 
-Azure Functions allows you to run code without managing the underlying infrastructure on where the code is run. Azure functions provide a cost-effective, scalable, and event-driven platform for building applications and running operational tasks. Azure functions support running code written in C#, Java, JavaScript, Python, and PowerShell.
+Azure Functions allows you to run code without managing the underlying infrastructure on where the code is run. Functions provide a cost-effective, scalable, and event-driven platform for building applications and running operational tasks. Functions support running code written in C#, Java, JavaScript, Python, and PowerShell.
 
-When creating a function, a hosting plan is selected. Hosting plans controls how a function app is scaled, resource availability, and availability of advanced features such as virtual network connectivity and startup time. The hosting plan also influences the cost.
+When creating a Function, a hosting plan is selected. Hosting plans controls how a function app is scaled, resource availability, and availability of advanced features such as virtual network connectivity and startup time. The hosting plan also influences the cost.
 
-Azure Functions hosting plans:
+Functions hosting plans:
 
-- **Consumption** - Default hosting plan, pay only function execution time, configurable timeout period, automatic scale.
+- **Consumption** - Default hosting plan, pay only for Function execution time, configurable timeout period, automatic scale.
 - **Premium** - Daster start, VNet connectivity, unlimited execution duration, premium instance sizes, more predictable pricing.
-- **App Service Plan** - Dunctions run on dedicated virtual machines and can use custom images.
+- **App Service Plan** - Functions run on dedicated virtual machines and can use custom images.
 
 For full details on consumption plans, see [Azure Functions scale and hosting](https://docs.microsoft.com/azure/azure-functions/functions-scale).
 
-Azure Functions provide event-driven automation; each function has a trigger associated with it. These triggers are what run the functions. Common triggers include:
+Functions provide event-driven automation; each function has a trigger associated with it. These triggers are what run the functions. Common triggers include:
 
 - **HTTP / Webhook** - Function is run when an HTTP request is received.
 - **Queue** - Function is run when a new message arrives in a message queue.
@@ -46,9 +46,9 @@ Below are example triggers seen in the Azure portal when creating a new function
 
 ![Azure Function triggers as seenin the Azure portal.](../_images/devops/function-triggers.png)
 
-Once an event has occurred that initiates a function, you may also want to consume data from this event or from another source. Once a function has been completed, you may want to publish or push data to an Azure service such as a Blob Storage. Input and output are achieved using input and output bindings. For more information about triggers and bindings, see [Azure Functions triggers and binding concepts](https://docs.microsoft.com/azure/azure-functions/functions-triggers-bindings).
+Once an event has occurred that initiates a Function, you may also want to consume data from this event or from another source. Once a Function has been completed, you may want to publish or push data to an Azure service such as a Blob Storage. Input and output are achieved using input and output bindings. For more information about triggers and bindings, see [Azure Functions triggers and binding concepts](https://docs.microsoft.com/azure/azure-functions/functions-triggers-bindings).
 
-Both PowerShell and Python are common languages for automating everyday operational tasks. Because Azure Functions supports both of these languages, it is an excellent platform for hosting, running, and auditing automated operational tasks. For example, let's assume that you would like to build a solution to facilitate self-service account creation. An Azure PowerShell function could be used to create the account in Azure Active Directory. An HTTP trigger can be used to initiate the function, and an input binding configured to pull the account details from the HTTP request body. The only remaining piece would be a solution that consumes the account details and creates the HTTP requests against the function.
+Both PowerShell and Python are common languages for automating everyday operational tasks. Because Azure Functions supports both of these languages, it is an excellent platform for hosting, running, and auditing automated operational tasks. For example, let's assume that you would like to build a solution to facilitate self-service account creation. An Azure PowerShell Function could be used to create the account in Azure Active Directory. An HTTP trigger can be used to initiate the Function, and an input binding configured to pull the account details from the HTTP request body. The only remaining piece would be a solution that consumes the account details and creates the HTTP requests against the Function.
 
 **Learn more**
 
