@@ -79,7 +79,7 @@ Two popular options for automating operational tasks are:
 - [**Azure functions**](./automation-tasks.md#azure-functions) - Run code without managing the underlying infrastructure on where the code is run.
 - [**Azure automation**](./automation-tasks.md#azure-automation)- Uses a programming language to automate operational tasks in code and executed on demand.
 
-For more information, see [Automation](./automation-tasks.md). To see a Microsoft Incite video, see [Automating Operational and Management Tasks](https://azure.microsoft.com/resources/videos/microsoft-ignite-2015-automating-operational-and-management-tasks-using-azure-automation/).
+For more information, see [Automation](./automation-tasks.md). To see a Microsoft Ignite video, see [Automating Operational and Management Tasks](https://azure.microsoft.com/resources/videos/microsoft-ignite-2015-automating-operational-and-management-tasks-using-azure-automation/).
 
 #### Next steps
 
