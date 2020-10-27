@@ -3,7 +3,7 @@ title: scaling for performance efficiency
 description: Describes the scaling options for performance efficiency
 author: v-aangie
 ms.date: 10/29/2020
-ms.topic: overview
+ms.topic: article
 ms.service: architecture-center
 ms.subservice: well-architected
 ms.custom: 
@@ -11,7 +11,7 @@ ms.custom:
 
 # Design for scaling
 
-Scaling allows applications to react to variable load by increasing and decreasing the number of instances of roles, queues, and other services. However, the application must be designed with this in mind. For example, the application and the services it uses must be stateless to allow requests to be routed to any instance. Having stateless services also means that adding or removing an instance does not adversely impact current users.
+Scaling allows applications to react to variable load by increasing and decreasing the number of instances of roles, queues, and other services. However, the application must be designed with this in mind. For example, the application and the services it uses must be stateless to allow requests to be routed to any instance. Having stateless services also means that adding or removing an instance doesn't adversely impact current users.
 
 ## Plan for growth with scale units
 
@@ -19,13 +19,13 @@ For each resource, know the upper scaling limits, and use [sharding](https://doc
 
 ## Use autoscaling to manage load increases and decreases
 
-Autoscaling enables you to run the right amount of resources to handle the load of you app. It adds resources (called scaling out) to handle an increase in load such as seasonal workloads and customer facing applications. Autoscaling saves money by removing idle resources (called scaling in) during a decrease in load such as during nights and weekends for some corporate apps.
+Autoscaling enables you to run the right amount of resources to handle the load of your app. It adds resources (called scaling out) to handle an increase in load such as seasonal workloads and customer facing applications. Autoscaling saves money by removing idle resources (called scaling in) during a decrease in load such as during nights and weekends for some corporate apps.
 
 Many of the compute offerings in Azure offer autoscale to ensure the right amount of resources are available to meet service user demand. This includes virtual machine scale sets, app service web apps, and API management services. This is critical for the service user experience.
 
-The way it works is that metrics are collected for the resource (e.g., CPU and memory utilization) and the application (e.g., requests queued and requests per second). Rules can then be created off those metrics and time schedules to add and remove instances depending on how the rule evaluates. An [App Services](https://docs.microsoft.com/azure/app-service/overview-hosting-plans#how-does-my-app-run-and-scale) App Plan allows autoscale rules to be set for scale-out and scale-in.
+The way it works is that metrics are collected for the resource (CPU and memory utilization) and the application (requests queued and requests per second). Rules can then be created off those metrics and time schedules to add and remove instances depending on how the rule evaluates. An [App Services](https://docs.microsoft.com/azure/app-service/overview-hosting-plans#how-does-my-app-run-and-scale) App Plan allows autoscale rules to be set for scale-out and scale-in.
 
-[Azure Kubernetes Service](https://docs.microsoft.com/en-us/azure/aks/intro-kubernetes) (AKS) offers two levels of autoscale:
+[Azure Kubernetes Service](https://docs.microsoft.com/azure/aks/intro-kubernetes) (AKS) offers two levels of autoscale:
 
 - **Horizontal autoscale** - Can be enabled on service containers to add more or fewer pod instances within the cluster.
 
@@ -52,7 +52,7 @@ If your application isn't configured to scale out automatically as load increase
 - Cloud Services: [How to autoscale a Cloud Service](https://review.docs.microsoft.com/azure/cloud-services/cloud-services-how-to-scale/)
 - Virtual machines: [Automatic scaling and virtual machine scale sets](https://review.docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-overview/)
 
-## Next steps
+<!--[## Next steps
 
-> [!div class="nextstepaction"]
-> <!--[LINK to next Design article]()-->
+[!div class="nextstepaction"]
+LINK to next Design article]()-->
