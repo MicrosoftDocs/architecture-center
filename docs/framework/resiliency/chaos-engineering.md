@@ -107,7 +107,7 @@ Simulate production failures. Treat injected faults in the same way that you wou
 Halt all faults and roll back the state to its last-known good configuration if the state seems severe.
 
 ### Build confidence incrementally
-Start by hardening the core and then expanding out in layers. At each point, progress should be locked in with automated regression tests. Each team should have a long-term strategy based on a progression that makes sense for the team's circumstances.
+Start by hardening the core, and then expand out in layers. At each point, lock in progress with automated regression tests. Each team should have a long-term strategy based on a progression that makes sense for the team's circumstances.
 
 By applying the shift left strategy, you can help ensure that any obstacles to developer usage are removed early and the testing results are actionable.
 
