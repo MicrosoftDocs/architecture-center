@@ -14,7 +14,7 @@ Operational tasks can include any action or activity you may perform while manag
 
 Many of these operational tasks can and should be automated. Using scripting technologies and related solutions, you can shift effort from manually performing operational tasks towards building automation for these tasks. In doing so, you achieve so much, including:
 
-- Increase time to perform an action.
+- Reduce time to perform an action.
 - Reduce risk in performing the action.
 - Automated response to events and alerts.
 - Increased human capacity for further innovation.
