@@ -99,7 +99,7 @@ Work closely with the development teams to ensure the relevance of the injected 
 An external team can't hypothesize faults for your team. A study of failures from an artificial source might be relevant to your team's purposes, but the effort must be justified.  
 
 ### Inject faults in a way that accurately reflects production failures
-Simulate production failures. Treat injected faults in the same way that you would treat production-level faults. Enforcing a tighter limit on the blast radius will enable you to simulate a production environment. Each fault-injection effort must must be accompanied by tooling that's designed to inject the types of faults that are relevant to your team's scenarios. Here are two basic ways:
+Simulate production failures. Treat injected faults in the same way that you would treat production-level faults. Enforcing a tighter limit on the blast radius will enable you to simulate a production environment. Each fault-injection effort must be accompanied by tooling that's designed to inject the types of faults that are relevant to your team's scenarios. Here are two basic ways:
 
 -	Inject faults in a non-production environment, such as Canary or Test In Production (TIP).
 -	Partition the production service or environment.
