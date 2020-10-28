@@ -13,7 +13,7 @@ ms.custom:
 
 # Gridwich media processing system
 
-A mass media and entertainment conglomerate replaced their on-premises video streaming service with a cloud-based solution for ingesting, processing, and publishing video assets. The company's main goals were to take advantage of Azure cloud capacity, cost, and flexibility to:
+A mass media and entertainment conglomerate replaced their on-premises video streaming service with a cloud-based solution for video asset ingestion, processing, and publication. The company's main goals were to take advantage of Azure cloud capacity, cost, and flexibility to:
 
 - Ingest raw video files, process and publish them, and fulfill media requests.
 - Improve both encoding and new intake and distribution capabilities at scale, and with a cleanly architected approach.
@@ -27,7 +27,8 @@ The Microsoft engineering team developed Gridwich to align with principles and b
 - [Project structure and naming](gridwich-project-names.md)
 - [Continuous integration and delivery (CI/CD)](gridwich-cicd.md)
 - [Content protection and digital rights management (DRM)](gridwich-content-protection-drm.md)
-- [Azure Storage usage and scaling](gridwich-storage-service.md)
+- [Azure Media Services setup and scaling](media-services-setup-scale.md)
+- [Azure Storage usage](gridwich-storage-service.md)
 - [Logging](gridwich-logging.md)
 
 In developing Gridwich, the team formulated best practices for processing and delivering media assets on Azure. Although the Gridwich system is media-specific, the message processing and eventing framework can apply to any stateless event processing workflow.
@@ -120,7 +121,7 @@ For example, the [ChangeBlobTierHandler](https://github.com/mspnp/gridwich/src/G
 
 ### Asynchronous event processing
 
-Some requests are long-running. For example, encoding media files can take hours. In these cases, an asynchronous request handler evaluates the request, validates arguments, and initiates the long-running operation. The handler then returns a Scheduled response to confirm that it requested the work activity.
+Some requests are long-running. For example, encoding media files can take hours. In these cases, an *asynchronous request handler* evaluates the request, validates arguments, and initiates the long-running operation. The handler then returns a Scheduled response to confirm that it requested the work activity.
 
 ![handler_message_async_flow diagram](media/request-response-async-flow.png)
 
@@ -143,11 +144,11 @@ The solution must:
 - Not keep the state of running instances of the Gridwich app.
 - Not kill processes just because something new is deploying or a new message is requesting the same activity.
 
+Gridwich uses Azure Functions *slot deployment* and *cancellation tokens* to meet the requirements for reliable, long-running functions.
+
 The following diagram shows how most Gridwich jobs work. The green box is a job that Gridwich passes to an external service and then reacts in an event-driven way to the status. The red box shows a  function that is long-running on Gridwich itself.
 
 ![Diagram showing short-running and long-running functions.](media/long-running-functions.png)
-
-Gridwich uses Azure Functions *slot deployment* and *cancellation tokens* to meet the requirements for reliable, long-running functions.
 
 The Functions runtime adds the cancellation token when the application is shutting down. Gridwich detects the token and returns error codes for all requests and currently running processes.
 
@@ -161,13 +162,13 @@ For more information, see [What happens during a slot swap for Azure Functions](
 
 The external system might generate thousands of requests per day, per hour, or per second. Each request event payload to Gridwich must include a JSON object property named [operationContext](https://github.com/mspnp/gridwich/src/Gridwich.Core/src/DTO/Requests/RequestBaseDTO.cs).
 
-Gridwich is a stateless request processing and work activity solution that responds with the opaque operation context, whether the activity is short- or long-running. This operation context persists through the lifetime of even very long-running requests.
+Gridwich is a stateless request processing and work activity solution that responds with the *opaque operation context*, whether the activity is short- or long-running. If a request contains an operation context, like `{"id"="Op1001"}`, Gridwich must return a corresponding JSON object as part of each response payload to the external system. See [ResponseBaseDTO](https://github.com/mspnp/gridwich/src/Gridwich.Core/src/DTO/Responses/ResponseBaseDTO.cs).
 
-If a request contains an operation context, like `{"id"="Op1001"}`, Gridwich must return a corresponding JSON object as part of each response payload to the external system. See [ResponseBaseDTO](https://github.com/mspnp/gridwich/src/Gridwich.Core/src/DTO/Responses/ResponseBaseDTO.cs).
+This operation context persists through the lifetime of even very long-running requests.
 
 ![request_and_response diagram](media/request-response.png)
 
-The requirement is for a "corresponding" rather than the "same" JSON object on the response. For reasons that include Newtonsoft JSON parsing eccentricities and storage operation muting, Gridwich takes advantage of the fact that the external system processes the JSON object sent by Gridwich in a top-down fashion.
+The requirement is for a "corresponding" rather than the "same" JSON object on the response. For reasons that include Newtonsoft JSON parsing eccentricities and storage operation muting, Gridwich takes advantage of the fact that the external system processes the JSON object Gridwich sends in a top-down fashion.
 
 Specifically, the external system has:
 
@@ -175,7 +176,7 @@ Specifically, the external system has:
   
 - No issue with extra properties being present, so Gridwich, having received `{"b":2,"a":1}`, could validly return `{"a":1,"b":2,"~somethingExtra":"yes"}`. To minimize the possibility of collisions, Gridwich prefixes the names of added properties with a tilde (~), for example `~muted`.
   
-- No JSON-formatting dependencies. For example, there are no assumptions about where whitespace padding may fall within the string representation of the JSON. Gridwich capitalizes on this lack of formatting dependency by compressing out unneeded whitespace in string representations of the JSON objects. For more information, see [JSONHelpers.SerializeOperationContext][JsonHelpers].
+- No JSON-formatting dependencies. For example, there are no assumptions about where whitespace padding may fall within the string representation of the JSON. Gridwich capitalizes on this lack of formatting dependency by compressing out unneeded whitespace in string representations of the JSON objects. See [JSONHelpers.SerializeOperationContext][JsonHelpers].
 
 ### Saga participants and operation context
 
@@ -188,7 +189,7 @@ Each of the saga participants must retain the operation context, but may impleme
 - Azure Media Services V3 has a `Job.CorrelationData` property, or Azure Media Services V2 allows the `Task.Name` to be any string.
 - Other cloud APIs offer similar concepts to an opaque operation context that they can return when signaling progress, completion, or failure.
 
-For more information about sagas and saga participants, see [Saga orchestration].
+For more information about sagas and saga participants, see [Saga orchestration](saga-orchestration.md).
 
 ### Alternatives
 
@@ -196,14 +197,15 @@ To call a new, asynchronous API that provides an opaque operation context, you c
 
 ## Components
 
-The Gridwich solution uses Azure Media Services, Azure Functions, Azure Event Grid, Azure Blob Storage, and Azure Logic Apps. The code project includes Terraform deployment.
+The Gridwich solution uses Azure Media Services, Azure Functions, Azure Event Grid, Azure Blob Storage, Azure Logic Apps, and Azure Key Vault. The code project includes Terraform deployment.
 
-- Azure Media Services
-- Azure Functions
-- Azure Event Grid
-- Azure Blob Storage
-- Azure Logic Apps
-- Terraform
+- [Azure Media Services](https://azure.microsoft.com/services/media-services/) is a cloud-based media workflow platform to index, package, protect, and stream video. You can scale Media Services resources to your expected workload. Media Services uses [Digital Rights Management (DRM)](https://en.wikipedia.org/wiki/Digital_rights_management) to protect content, and supports [Microsoft PlayReady](https://www.microsoft.com/playready/overview/), [Google Widevine](https://www.widevine.com/solutions/widevine-drm), and [Apple FairPlay](https://developer.apple.com/streaming/fps/). 
+- [Azure Functions](/azure/azure-functions/) lets you run event-triggered code without having to explicitly provision or manage infrastructure. Gridwich is an Azure Functions function app that hosts  execution of various functions.
+- [Azure Event Grid](https://azure.microsoft.com/services/event-grid/) manages the routing of all Gridwich events within Azure and between Azure and the external system. Two sandwiched Event Grid jobs allow for asynchronous media event processing.
+- [Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs/) provides scalable, cost-efficient cloud storage and access for unstructured data like media assets. Gridwich uses both Azure Storage block blobs and containers.
+- [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps/) lets you create automated cloud workflow solutions. Gridwich uses Logic Apps to manage internal and third-party Key Vault keys and secrets.
+- [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) safeguards cryptographic keys, passwords, and other secrets used by Azure and third-party apps and services.
+- [Terraform](https://www.terraform.io/) is an open-source tool that uses Infrastructure as Code to provision and manage infrastructures and services.
 
 ## Next steps
 
