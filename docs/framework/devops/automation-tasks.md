@@ -30,7 +30,7 @@ When creating a Function, a hosting plan is selected. Hosting plans controls how
 Functions hosting plans:
 
 - **Consumption** - Default hosting plan, pay only for Function execution time, configurable timeout period, automatic scale.
-- **Premium** - Daster start, VNet connectivity, unlimited execution duration, premium instance sizes, more predictable pricing.
+- **Premium** - Faster start, VNet connectivity, unlimited execution duration, premium instance sizes, more predictable pricing.
 - **App Service Plan** - Functions run on dedicated virtual machines and can use custom images.
 
 For full details on consumption plans, see [Azure Functions scale and hosting](https://docs.microsoft.com/azure/azure-functions/functions-scale).
@@ -90,7 +90,7 @@ Some Azure services support automatic scale-out, which is the focus of this sect
 
 ### Azure Monitor autoscale
 
-Azure Monitor autoscale can be used to autoscale Virtual Machine Scale Sets, Cloud Services, App Service Web Apps, and API Management service. To configure scale-out operations for these services, while in the Azure portal, select the service, and then the **Scaling** or **scale-out** under the resource settings. Select **Custom** To configure autoscaling rules. Automatic scale operations can also be configured using an Azure Resource Manager Template, the Azure PowerShell module, and the Azure CLI.
+Azure Monitor autoscale can be used to autoscale Virtual Machine Scale Sets, Cloud Services, App Service Web Apps, and API Management service. To configure scale-out operations for these services, while in the Azure portal, select the service, and then **scale-out** under the resource settings. Select **Custom** To configure autoscaling rules. Automatic scale operations can also be configured using an Azure Resource Manager Template, the Azure PowerShell module, and the Azure CLI.
 
 ![Azure App Service scale configuration as seen in the Azure portal.](../_images/devops/auto-scale.png)
 
