@@ -89,7 +89,9 @@ In order to set up the requirement for user assignment:
 
 #### Access Restrictions leveraging Service Endpoints
 
-Besides the application-layer inter-service authorization, this scenario also locks down communications on the network layer.  To do so, the web app for Service A is configured with [Regional VNet Integration][regionalvnet].  
+Besides the application-layer inter-service authorization, this scenario also locks down communications on the network layer.  To do so, the web app for Service A is configured with [Regional VNet Integration][regionalvnet].  This causes any outbound communications from Service A to happen from a private ip from within the ip range assigned to the integration subnet.
+
+In order for Service B, using [Access Restrictions][accessrestrictions], to be able to restrict inbound ip addresses to the range assigned to the integration subnet from Service A, [Service Endpoints][svcep] need to be enabled towards `Microsoft.Web`.
 
 <!-- A bullet list of components in the architecture (including all relevant Azure services) with links to the product documentation.
 
@@ -191,3 +193,4 @@ The following resources will provide more information on the components used in 
 [exposeapprole]: https://docs.microsoft.com/azure/active-directory/develop/howto-add-app-roles-in-azure-ad-apps
 [configurepermission]: https://docs.microsoft.com/azure/active-directory/develop/quickstart-configure-app-access-web-apis#add-permissions-to-access-web-apis
 [aadpermissiontypes]: https://docs.microsoft.com/azure/active-directory/develop/v2-permissions-and-consent#permission-types
+[accessrestrictions]: https://docs.microsoft.com/azure/app-service/app-service-ip-restrictions
