@@ -72,11 +72,24 @@ In addition to these services, the code making up our services is likely to make
 
 #### Token-based Authorization
 
-TODO
+In step 1 of the scenario, Service A will request an access token from AAD to access Service B with.  This is done through a [Client Credentials flow][clientcredsflow] and is typically facilitated by a library like [MSAL][msal] which supports this as shown in the article describing a [daemon application that call web APIs][daemoncallswebapi].  (In addition details can be found in the [sample application for the daemon scenario][daemonsample]).  For this, both Service A and B need to be [registered in AAD][appreg] with Service B requiring client credentials to be assigned in the form of either a shared secret or certificate.  When Service A fetches a token, it injects it as a "bearer" token in the HTTP Authorization header in the request towards Service B.
+
+On the receiving side, Service B will need to validate the token to make sure it is valid and intended for Service B.  Even when a token is valid, one will want to ensure Service B is ony accessible by those clients (Service A in this case) which are explicitly allowed.  There are three ways to accomplish this:
+
+- Validating the token `appid` claim: Service B can validate the `appid` [claim][accesstokenclaims] of the token, indicating which application registered in AAD requested the token; this requires Service B to be explicitly coded for this check
+- Requiring User Assignment: alternatively, one can configure AAD to only hand out tokens for Service B by [requiring user assignment][userassignment] on the corresponding Service Principal of Service B.  In this case, only applications in AAD which have been explicitly assigned a role will get a token towards Service B.  The receiving service in this case does not need to do an explicit role check, expect when required by any business logic.
+- Check for roles in the token: similar to the previous option, when Service B explicitly checks for the presence of a role in the incoming token, it can ensure that Service A was explicitly granted permissions.
+
+In order to set up the requirement for user assignment:
+
+- [Enable User Assignment][userassignment] on Service B
+- [Expose at least one app role][exposeapprole] on Service B, which Service A can ask permission for.  The `AllowedMemberTypes` for this role needs to include `Application`.
+- [Request app permission to the role of Service B][configurepermission] from the Service A app registration by opening its application registration "API permissions" section where you can add permissions to access Service B. Any application roles Service B exposes can be found as an "Application Permission" which can be requested. (This is different from "delegated permissions" which are permissions which you'd grant the application on behalf of a user. In this scenario, using a client-credential flow, there is no user, only an application.)
+- Grant Admin Consent on Service A: as [application permissions][aadpermissiontypes] can only be consented by an admin, Admin consent will need to be given for the application permissions (the app roles from Service B) requested by Service A
 
 #### Access Restrictions leveraging Service Endpoints
 
-TODO
+Besides the application-layer inter-service authorization, this scenario also locks down communications on the network layer.  To do so, the web app for Service A is configured with [Regional VNet Integration][regionalvnet].  
 
 <!-- A bullet list of components in the architecture (including all relevant Azure services) with links to the product documentation.
 
@@ -157,6 +170,7 @@ The following resources will provide more information on the components used in 
 - [Service Endpoints][svcep]
 - [Microsoft Authentication Library][msal]
 - [App Service Regional VNet Integration][regionalvnet]
+- [Sample application demonstrating client credentials flow for daemon apps][daemonsample]
 
 <!-- links -->
 [zerotohero]: https://azure.github.io/AppService/2020/10/05/zero_to_hero_pt7.html
@@ -169,3 +183,11 @@ The following resources will provide more information on the components used in 
 [mi]: https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview
 [privep]: https://docs.microsoft.com/azure/app-service/networking/private-endpoint
 [regionalvnet]: https://docs.microsoft.com/azure/app-service/web-sites-integrate-with-vnet#regional-vnet-integration
+[appreg]: https://docs.microsoft.com/azure/active-directory/develop/quickstart-register-app
+[daemoncallswebapi]: https://docs.microsoft.com/azure/active-directory/develop/scenario-daemon-overview
+[daemonsample]: https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/tree/master/2-Call-OwnApi
+[accesstokenclaims]: https://docs.microsoft.com/azure/active-directory/develop/access-tokens#payload-claims
+[userassignment]: https://docs.microsoft.com/azure/active-directory/develop/howto-restrict-your-app-to-a-set-of-users#update-the-app-to-enable-user-assignment
+[exposeapprole]: https://docs.microsoft.com/azure/active-directory/develop/howto-add-app-roles-in-azure-ad-apps
+[configurepermission]: https://docs.microsoft.com/azure/active-directory/develop/quickstart-configure-app-access-web-apis#add-permissions-to-access-web-apis
+[aadpermissiontypes]: https://docs.microsoft.com/azure/active-directory/develop/v2-permissions-and-consent#permission-types
