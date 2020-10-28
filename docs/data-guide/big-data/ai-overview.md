@@ -273,7 +273,7 @@ hyperparameters.
 - [Tune hyperparameters for your model with Azure Machine
     Learning](/azure/machine-learning/how-to-tune-hyperparameters)
 
-- [Machine Learning Studio (classic): Tune Model
+- [Azure Machine Learning Studio (classic): Tune Model
     Hyperparameters](/azure/machine-learning/studio-module-reference/tune-model-hyperparameters)
 
 ##### Model selection
@@ -376,8 +376,7 @@ and scikit-learn.
     General orientation with links to many learning resources, SDKs,
     documentation, and more
 
-- [Azure Machine Learning versus Machine Learning Studio
-    (classic)](/azure/machine-learning/compare-azure-ml-to-studio-classic)
+- [Azure Machine Learning versus Azure Machine Learning Studio (classic)](/azure/machine-learning/compare-azure-ml-to-studio-classic)
 
 #### Machine learning reference architectures for Azure
 
