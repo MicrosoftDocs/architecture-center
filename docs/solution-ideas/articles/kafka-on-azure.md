@@ -2,7 +2,7 @@
 title: Kafka on Azure
 titleSuffix: Azure solution ideas
 description: Learn about solutions for implementing Apache Kafka on Azure, including a comparison of the features for each solution. 
-author: doodlemania2
+author: rasavant-ms
 ms.date: 10/16/2020
 ms.service: architecture-center
 ms.subservice: solution-idea
