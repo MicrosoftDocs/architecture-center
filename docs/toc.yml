@@ -341,8 +341,6 @@ items:
           href: framework/security/design-management-groups.md          
         - name: Administration
           href: framework/security/design-admins.md
-        - name: Regulatory compliance
-          href: framework/security/design-regulatory-compliance.md
       - name: Identity
         items:
           - name: Identity and access management
@@ -360,7 +358,19 @@ items:
       - name: Storage
         href: framework/security/design-storage.md
       - name: Applications and services
-        href: framework/security/design-apps-services.md
+        items:
+        - name: Application security considerations
+          href: framework/security/design-apps-services.md
+        - name: Application classification
+          href: framework/security/design-apps-considerations.md
+        - name: Threat analysis
+          href: framework/security/design-threat-model.md
+        - name: Securing PaaS deployments
+          href: /azure/security/fundamentals/paas-deployments?bc=%2fazure%2farchitecture%2fbread%2ftoc.json&toc=%2fazure%2farchitecture%2ftoc.json
+        - name: Compliance requirements
+          href: framework/security/design-regulatory-compliance.md
+        - name: Configuration and dependencies
+          href: framework/security/design-app-dependencies.md
     - name: Monitor
       items:
       - name: Security operations
@@ -966,8 +976,6 @@ items:
             href: microservices/ci-cd.md
           - name: CI/CD for microservices on Kubernetes
             href: microservices/ci-cd-kubernetes.md
-          - name: Automated Kubernetes deployments with Bedrock
-            href: example-scenario/bedrock/bedrock-automated-deployments.md
         - name: Migrate to a microservices architecture
           items:
           - name: Migrate a monolith application to microservices

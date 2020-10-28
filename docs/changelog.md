@@ -2,7 +2,7 @@
 title: What's New in the Azure Architecture Center
 description: New and updated articles in the Azure Architecture Center
 author: doodlemania2
-ms.date: 10/18/2020
+ms.date: 10/25/2020
 ms.topic: article
 ms.service: architecture-center
 
@@ -22,6 +22,23 @@ New and updated articles in the Azure Architecture Center
 
 ### New Articles
 
+- [AKS triage - cluster health](https://docs.microsoft.com/azure/architecture/operator-guides/aks/aks-triage-cluster-health)
+- [AKS triage - container registry connectivity](https://docs.microsoft.com/azure/architecture/operator-guides/aks/aks-triage-container-registry)
+- [AKS triage - admission controllers](https://docs.microsoft.com/azure/architecture/operator-guides/aks/aks-triage-controllers)
+- [AKS triage - workload deployments](https://docs.microsoft.com/azure/architecture/operator-guides/aks/aks-triage-deployment)
+- [AKS triage - node health](https://docs.microsoft.com/azure/architecture/operator-guides/aks/aks-triage-node-health)
+- [Azure Kubernetes Service (AKS) operations triage](https://docs.microsoft.com/azure/architecture/operator-guides/aks/aks-triage-practices)
+- [Alerts in IoT Edge Vision](https://docs.microsoft.com/azure/architecture/guide/iot-edge-vision/alerts)
+- [Camera selection for IoT Edge Vision](https://docs.microsoft.com/azure/architecture/guide/iot-edge-vision/camera)
+- [Hardware for IoT Edge Vision](https://docs.microsoft.com/azure/architecture/guide/iot-edge-vision/hardware)
+- [Image storage in IoT Edge Vision](https://docs.microsoft.com/azure/architecture/guide/iot-edge-vision/image-storage)
+- [Azure IoT Edge Vision](https://docs.microsoft.com/azure/architecture/guide/iot-edge-vision)
+- [Machine learning in IoT Edge Vision](https://docs.microsoft.com/azure/architecture/guide/iot-edge-vision/machine-learning)
+- [User interface in IoT Edge Vision](https://docs.microsoft.com/azure/architecture/guide/iot-edge-vision/user-interface)
+- [Configure infrastructure](https://docs.microsoft.com/azure/architecture/framework/devops/automation-configuration)
+- [Repeatable Infrastructure](https://docs.microsoft.com/azure/architecture/framework/devops/automation-infrastructure)
+- [Automation overview of goals, best practices, and types in Azure](https://docs.microsoft.com/azure/architecture/framework/devops/automation-overview)
+- [Automated Tasks](https://docs.microsoft.com/azure/architecture/framework/devops/automation-tasks)
 - [Partitioning in Event Hubs and Kafka](https://docs.microsoft.com/azure/architecture/reference-architectures/event-hubs/partitioning-in-event-hubs-and-kafka)
 - [Retail - Buy online, pickup in store (BOPIS)](https://docs.microsoft.com/azure/architecture/example-scenario/iot/vertical-buy-online-pickup-in-store)
 - [Magento e-commerce platform in Azure Kubernetes Service (AKS)](https://docs.microsoft.com/azure/architecture/example-scenario/magento/magento-azure)
@@ -29,6 +46,10 @@ New and updated articles in the Azure Architecture Center
 
 ### Updated Articles
 
+- [Computer forensics Chain of Custody in Azure](https://docs.microsoft.com/azure/architecture/example-scenario/forensics)  ([#909b776f4](https://github.com/MicrosoftDocs/architecture-center/commit/909b776f4))
+- [Overview of the performance efficiency pillar](https://docs.microsoft.com/azure/architecture/framework/scalability/overview)  ([#ed89cf6ab](https://github.com/MicrosoftDocs/architecture-center/commit/ed89cf6ab))
+- [Azure Kubernetes Service (AKS) solution journey](https://docs.microsoft.com/azure/architecture/reference-architectures/containers/aks-start-here)  ([#b63ab6a9f](https://github.com/MicrosoftDocs/architecture-center/commit/b63ab6a9f))
+- [GCP to Azure Services Comparison](https://docs.microsoft.com/azure/architecture/gcp-professional/services)  ([#a45091c00](https://github.com/MicrosoftDocs/architecture-center/commit/a45091c00))
 - [Resiliency patterns](https://docs.microsoft.com/azure/architecture/patterns/category/resiliency)  ([#b5201626c](https://github.com/MicrosoftDocs/architecture-center/commit/b5201626c))
 - [Choosing an Azure compute service](https://docs.microsoft.com/azure/architecture/guide/technology-choices/compute-decision-tree)  ([#a64329288](https://github.com/MicrosoftDocs/architecture-center/commit/a64329288))
 - [Security patterns](https://docs.microsoft.com/azure/architecture/patterns/category/security)  ([#13add8a06](https://github.com/MicrosoftDocs/architecture-center/commit/13add8a06))

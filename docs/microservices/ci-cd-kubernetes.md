@@ -120,10 +120,10 @@ When possible, package your build process into a Docker container. That allows y
 By using multi-stage builds in Docker, you can define the build environment and the runtime image in a single Dockerfile. For example, here's a Dockerfile that builds an ASP.NET Core application:
 
 ```
-FROM microsoft/dotnet:2.2-runtime AS base
+FROM mcr.microsoft.com/dotnet/core/runtime:3.1 AS base
 WORKDIR /app
 
-FROM microsoft/dotnet:2.2-sdk AS build
+FROM mcr.microsoft.com/dotnet/core/sdk:3.1 AS build
 WORKDIR /src/Fabrikam.Workflow.Service
 
 COPY Fabrikam.Workflow.Service/Fabrikam.Workflow.Service.csproj .
