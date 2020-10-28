@@ -26,7 +26,7 @@ With the Azure AI tools and cloud platform, the next generation of AI-enabled hy
 
 ## Data Flow
 
-1. Data scientists train a model using Azure Machine Learning and an HDInsight cluster. The model is containerized and put in to an Azure Container Registry.
+1. Data scientists train a model using Azure Machine Learning Studio (classic) and an HDInsight cluster. The model is containerized and put in to an Azure Container Registry.
 1. The model is deployed via steps not represented in the diagram to a Kubernetes cluster on Azure Stack Hub.
 1. End users provide data that is scored against the model.
 1. Insights and anomalies from scoring are placed into storage for later upload.

@@ -95,7 +95,7 @@ Start training on your local machine and then scale out to the cloud. [Train you
 
 Azure Machine Learning Studio (classic) supports both R and Python.  
 
-Customers currently using or evaluating Azure Machine Learning Studio (classic) are encouraged to try the designer in Azure Machine Learning studio, which provides drag-n-drop ML modules plus scalability, version control, and enterprise security.
+Customers currently using or evaluating Azure Machine Learning Studio (classic) are encouraged to try the designer in Azure Machine Learning, which provides drag-n-drop ML modules plus scalability, version control, and enterprise security.
 
 ## Azure Batch
 
