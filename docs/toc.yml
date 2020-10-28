@@ -689,7 +689,7 @@ items:
         href: solution-ideas/articles/predicting-length-of-stay-in-hospitals.md
       - name: Predictive aircraft engine monitoring
         href: solution-ideas/articles/aircraft-engine-monitoring-for-predictive-maintenance-in-aerospace.md
-      - name: Real Time analytics on on big data
+      - name: Real Time analytics on big data
         href: solution-ideas/articles/real-time-analytics.md
       - name: Stream processing with Azure Databricks
         href: reference-architectures/data/stream-processing-databricks.md

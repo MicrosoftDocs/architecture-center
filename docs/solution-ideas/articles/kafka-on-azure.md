@@ -1,6 +1,6 @@
 ---
 title: Kafka on Azure
-titleSuffix: Azure Solution Ideas
+titleSuffix: Azure solution ideas
 description: Learn about solutions for implementing Apache Kafka on Azure, including a comparison of the features for each solution. 
 author: doodlemania2
 ms.date: 10/16/2020
@@ -218,8 +218,7 @@ The following table shows a comparison of features for each of the Kafka on Azur
 | **Monitoring tools** | Confluent Control Center | Azure Monitoring | Azure Monitoring and open-source tools | Confluent Control Center | Azure Monitoring and open-source tools | Can be added |
 | **Managed service** | Yes | Yes | Managed clusters | Managed deployment | No – IaaS | No - IaaS |
 | **Non-disruptive upgrades** | Yes | Yes | No | No | No | No |
-| **Availability SLA** | 99.95% | 99.9% | 99.9% | N/A | 99.95% with paid Uptime SLA | 95% - 99.9% based on topology |
-| **Data replication** | Confluent Replicator | MirrorMaker or similar (Integrated option coming soon) | Managed disk export / MirrorMaker  or similar | Confluent Replicator | MirrorMaker or similar | MirrorMaker or similar |
+| **Data replication** | Confluent Replicator | MirrorMaker or similar | Managed disk export / MirrorMaker  or similar | Confluent Replicator | MirrorMaker or similar | MirrorMaker or similar |
 
 ### Kafka on Azure decision guidance matrix
 
