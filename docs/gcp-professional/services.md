@@ -262,7 +262,7 @@ Here are some architectures that use AKS as the orchestrator.
 | Hybrid | [Anthos](https://cloud.google.com/anthos) | [Azure Arc](https://azure.microsoft.com/services/azure-arc/) | For customers who want to simplify complex and distributed environments across on-premises, edge and multi-cloud, Azure Arc enables deployment of Azure services anywhere and extends Azure management to any infrastructure. |
 | Blockchain | [Digital Asset](https://developers.google.com/digital-asset-links) | [Azure Blockchain Service](https://azure.microsoft.com/services/blockchain-service/) | Azure Blockchain Service is a fully managed ledger service that enables users the ability to grow and operate blockchain networks at scale in Azure. |
 | Monitoring | [Cloud Monitoring](https://cloud.google.com/monitoring) | [Application Insights](/azure/azure-monitor/app/app-insights-overview) | Service which provides visibility into the performance, uptime, and overall health of cloud-powered applications. |
-| Logging | [Cloud Logging](https://cloud.google.com/logging) | [Log Analytics](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal/) | Service for real-time log management and analysis. |
+| Logging | [Cloud Logging](https://cloud.google.com/logging) | [Log Analytics](/azure/azure-monitor/log-query/get-started-portal/) | Service for real-time log management and analysis. |
 
 ## Azure Migration Tools
 
