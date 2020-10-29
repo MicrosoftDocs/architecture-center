@@ -12,15 +12,6 @@ ms.subservice: reference-architecture
 
 # Migrate mainframe and midrange data to Azure
 
-data-first is best strategy. This solution does it.
-
-The process of modernizing mainframe and midrange systems involves data management, data visualization, and data integration. Successful digital transformations use a data-first strategy. what is data-first and why is it successful
-
-Maybe explain benefits of modernization here: switching from mainframe and midrange systems to Azure Data Platform offers many benefits. 
-
-In order to reap benefits of cutting-edge technologies, users of mainframe and midrange systems seek to modernize their systems. However, updating technology, infrastructure, and practices involves exhaustively investigating engineering and business activities.
-
-Maybe start here:
 Azure Data Platform and other [what does it do] systems offer improved scalability and performance over mainframe and midrange systems. However, modernizing/updating technology, infrastructure, and practices involves exhaustively investigating engineering and business activities. Besides data management, the modernization process involves data visualization and integration.
 
 Successful digital transformations use a data-first strategy. what is data-first and why is it successful
@@ -43,6 +34,14 @@ In majority of scenarios we are observing that data first strategy is a foundati
 
 This reference architecture outlines various technical aspects for modernizing Mainframe & Midrange data store with improving scalability and performance in an Azure Data Platform. It consists of following processes.
 
+Cut:
+data-first is best strategy. This solution does it.
+
+The process of modernizing mainframe and midrange systems involves data management, data visualization, and data integration. Successful digital transformations use a data-first strategy. what is data-first and why is it successful
+
+Maybe explain benefits of modernization here: switching from mainframe and midrange systems to Azure Data Platform offers many benefits. 
+
+In order to reap benefits of cutting-edge technologies, users of mainframe and midrange systems seek to modernize their systems. However, updating technology, infrastructure, and practices involves exhaustively investigating engineering and business activities.
 
 ## Potential use cases
 
@@ -135,5 +134,11 @@ Keep these points in mind when using a partitioning model.
 
 ## Related resources
 
+[Azure data architecture guide][Azure data architecture guide]
+[Azure data platform end-to-end][Azure data platform end-to-end]
+
+
+[Azure data architecture guide]: https://docs.microsoft.com/azure/architecture/data-guide/
+[Azure data platform end-to-end]: https://docs.microsoft.com/azure/architecture/example-scenario/dataplate2e/data-platform-end-to-end
 [Email address for information on Azure Data Engineering Mainframe and Midrange Modernization]: mailto:datasqlninja@microsoft.com
 [Migration guide]: https://datamigration.microsoft.com/
