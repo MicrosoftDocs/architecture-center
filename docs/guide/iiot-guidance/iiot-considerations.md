@@ -1,6 +1,7 @@
 ---
 title: Considerations in Azure Industrial IoT solution
 titleSuffix: Azure Application Architecture Guide
+description: 
 author: khilscher
 ms.date: 07/17/2020
 ms.topic: conceptual

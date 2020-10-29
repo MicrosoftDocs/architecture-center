@@ -1,5 +1,5 @@
 ---
-title: IaaS: Web application with relational database
+title: 'IaaS: Web application with relational database'
 description: This reference architecture shows best practices for applying Availability Zones to a web application and Microsoft SQL Server database hosted on virtual machines (VMs) known as a zonal deployment.
 author: maggsl
 ms.date: 06/16/2020
@@ -13,6 +13,7 @@ ms.custom:
   - fcp
   - article
 ---
+
 # IaaS: Web application with relational database
 
 Availability Zones are unique physical locations within an Azure region. Each zone is made up of one or more datacenters with independent power, cooling, and networking. The physical separation of availability zones within a region limits the impact to applications and data from zone failures, such as largescale flooding, major/super-storms, and other events that would disrupt site access, safe passage, extended utilities uptime, and the availability of resources. This reference architecture shows best practices for applying Availability Zones to a web application and Microsoft SQL Server database hosted on virtual machines (VMs) known as a zonal deployment.

@@ -1,5 +1,5 @@
 ---
-title: Oracle database migration: Cross-cloud connectivity
+title: 'Oracle database migration: Cross-cloud connectivity'
 titleSuffix: Azure Example Scenarios
 description: Create a connection between your existing Oracle Database and your Azure applications.
 author: amberz

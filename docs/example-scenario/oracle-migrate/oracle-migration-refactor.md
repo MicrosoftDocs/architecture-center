@@ -1,5 +1,5 @@
 ---
-title: Oracle database migration: Refactor
+title: 'Oracle database migration: Refactor'
 titleSuffix: Azure Example Scenarios
 description: Refactor your Oracle database with Azure Database Migration Service and move it to PostgreSQL.
 author: amberz

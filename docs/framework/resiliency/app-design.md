@@ -1,5 +1,6 @@
 ---
 title: Designing resilient Azure applications
+description: 
 author: david-stanford
 ms.date: 10/16/2019
 ms.topic: conceptual
