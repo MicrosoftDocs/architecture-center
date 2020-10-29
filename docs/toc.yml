@@ -279,8 +279,10 @@ items:
     items:
     - name: Overview
       href: framework/scalability/overview.md
-    - name: Application design
-      href: framework/scalability/app-design.md
+    - name: Design
+      items:
+      -name: Scaling
+      href: framework/scalability/design-scale.md
     - name: Capacity planning
       href: framework/scalability/capacity.md
     - name: Load testing
