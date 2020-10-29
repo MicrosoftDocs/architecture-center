@@ -32,12 +32,12 @@ Configuration within in the application can include secrets like database connec
 **Are errors and exceptions handled properly without exposing that information to users?**
 ***
 
-When handling application exceptions, make the application fail gracefully and log the error. Do not provide detailed information related to the failure, such as call stack, SQL queries, out of range errors. This information, can provide attackers with valuable information about the internals of the application. 
+When handling application exceptions, make the application fail gracefully and log the error. Do not provide detailed information related to the failure, such as call stack, SQL queries, or out of range errors. This information can provide attackers with valuable information about the internals of the application.
 
 **Is platform-specific information removed from server-client communication?**
 ***
 
-Do not reveal information about the application platform. Such information (for example, "X-Powered-By", "X-ASPNET-VERSION") are can get exposed through HTTP banners HTTP headers, error messages, website footers. Malicious actors can use this information when mapping attack vectors of the application. 
+Do not reveal information about the application platform. Such information (for example, "X-Powered-By", "X-ASPNET-VERSION") are can get exposed through HTTP banners HTTP headers, error messages, website footers. Malicious actors can use this information when mapping attack vectors of the application.
 
 Consider using Azure CDN to separate the hosting platform from end users. Azure API Management offers transformation policies that allow you to modify HTTP headers and remove sensitive information.
 

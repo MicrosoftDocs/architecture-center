@@ -2,7 +2,7 @@
 title: Regulatory compliance
 description: Security enforcement through standards published by law, authorities, and regulators.
 author: PageWriter-MSFT
-ms.date: 07/15/2019
+ms.date: 10/29/2020
 ms.topic: article
 ms.service: architecture-center
 ms.subservice: well-architected
@@ -24,14 +24,14 @@ Noncompliance can lead to fines or other business impact. Work with your regulat
 - Who approves that solution meets the requirements?
 - Are there processes for obtaining attestations?
 
-## Use the Microsoft Trust Center 
+## Use the Microsoft Trust Center
 
 Outdated security practices won’t sufficiently protect cloud workloads. Keep checking the [Microsoft Trust Center](https://www.microsoft.com/trust-center) for the latest information, news, and best practices in security, privacy, and compliance. 
 
-- **Data governance** Focus on protecting information in cloud services, mobile devices, workstations, or collaboration platforms. Build the security strategy by classifying and labeling information. Use strong access control and encryption technology. 
+- **Data governance**. Focus on protecting information in cloud services, mobile devices, workstations, or collaboration platforms. Build the security strategy by classifying and labeling information. Use strong access control and encryption technology. 
 - **Compliance offerings**. Microsoft offers a comprehensive set of compliance offerings to help your organization comply with national, regional, and industry-specific requirements governing the collection and use of data. For information, see [Compliance offerings](https://go.microsoft.com/fwlink/p/?linkid=2112395).
 - **Compliance score**. Use [Microsoft Compliance Score](https://aka.ms/cspreview) to assess your data protection controls on an ongoing basis. Act on the recommendations to make progress toward compliance. 
-- **Audit reports**. Use audit reports to stay current on the latest privacy, security, and compliance-related information for Microsoft’s cloud services. See, [Audit Reports](https://servicetrust.microsoft.com/ViewPage/MSComplianceGuide).
+- **Audit reports**. Use audit reports to stay current on the latest privacy, security, and compliance-related information for Microsoft’s cloud services. See [Audit Reports](https://servicetrust.microsoft.com/ViewPage/MSComplianceGuide).
 - **Shared responsibility**. The workload can be hosted on Software as a Service (SaaS), Platform as a Service (PaaS), Infrastructure as a Service (IaaS), or in an on-premises datacenter. Have a clear understanding about the portions of the architecture for which you are responsible versus Azure. Whatever the hosting model, the following responsibilities are always retained by you:
     - Data
     - Endpoints
