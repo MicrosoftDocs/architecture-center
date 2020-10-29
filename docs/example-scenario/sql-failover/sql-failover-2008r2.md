@@ -337,8 +337,8 @@ To transfer data from your on-premises database to the newly created cluster, co
 [Migrate a SQL Server database to SQL Server on an Azure virtual machine]: https://docs.microsoft.com/azure/azure-sql/virtual-machines/windows/migrate-to-vm-from-sql-server
 [Name resolution that uses your own DNS server]: https://docs.microsoft.com/azure/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances#name-resolution-that-uses-your-own-dns-server
 [Overview of Failover Clusters]: https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-r2-and-2008/cc730692(v=ws.10)
-[PowerShell script to deploy an Azure internal load balancer]: ./LB-Deploy.ps1
-[PowerShell script to deploy VMs on Azure]: ./VM-Deploy.ps1
+[PowerShell script to deploy an Azure internal load balancer]: https://github.com/mspnp/samples/tree/master/Reliability/SQLServer2008R2FailoverClusterInAzureSample/LB-Deploy.ps1
+[PowerShell script to deploy VMs on Azure]: https://github.com/mspnp/samples/tree/master/Reliability/SQLServer2008R2FailoverClusterInAzureSample/VM-Deploy.ps1
 [Quickstart: Create an internal load balancer to load balance VMs using the Azure portal]: https://docs.microsoft.com/azure/load-balancer/tutorial-load-balancer-standard-internal-portal
 [Reference Code]: #reference-code
 [Restore a database backup]: https://docs.microsoft.com/sql/relational-databases/backup-restore/restore-a-database-backup-using-ssms
