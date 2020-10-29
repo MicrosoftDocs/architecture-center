@@ -12,43 +12,24 @@ ms.subservice: reference-architecture
 
 # Migrate mainframe and midrange data to Azure
 
-Azure Data Platform and other [what does it do] systems offer improved scalability and performance over mainframe and midrange systems. However, modernizing/updating technology, infrastructure, and practices involves exhaustively investigating engineering and business activities. Besides data management, the modernization process involves data visualization and integration.
+Present-day data store solutions like the Azure data platform offer improved scalability and performance over mainframe and midrange systems. However, updating technology, infrastructure, and practices involves exhaustively investigating business and engineering activities. Besides data management, organizations also need to look at data visualization and integration when modernizing.
 
-Successful digital transformations use a data-first strategy. what is data-first and why is it successful
+Successful digital transformations use a [data-first strategy][Five reasons a data-first strategy works]. With this approach, organizations focus on the data initially, rather than on the new system. Data management is no longer merely an item on the modernization checklist, along with infrastructure upgrades and implementation details. Instead, data transformation becomes the centerpiece. Sustainable systems result, as harmonized, quality-oriented data solutions replace fragmented, poorly governed ones.
 
-This reference architecture outlines an end-to-end modernization solution for mainframe and midrange data sources that uses Azure Data Platform as teh target data store. The following processes are involved:
+This reference architecture outlines an end-to-end modernization plan for mainframe and midrange data sources. The solution uses Azure data platform components in a data-first approach. Specifically, it involves:
 
-- Object Conversion: This involves converting object definitions from source data store to corresponding objects on the target data store.
-- Data Ingestion: This involves connecting and extracting data from the source data store.
-- Data Transformation: This involves transforming extracted data to required target data store structure.
-- Data Storage: This involves initial, continuous data loading from source data store to target data store.
-
-
-what is data management:
-what is data visualization:
-what is data integration across an organization’s wider ecosystem. 
-
-In majority of scenarios we are observing that data first strategy is a foundational step towards any successful digital transformation.
-
-
-
-This reference architecture outlines various technical aspects for modernizing Mainframe & Midrange data store with improving scalability and performance in an Azure Data Platform. It consists of following processes.
-
-Cut:
-data-first is best strategy. This solution does it.
-
-The process of modernizing mainframe and midrange systems involves data management, data visualization, and data integration. Successful digital transformations use a data-first strategy. what is data-first and why is it successful
-
-Maybe explain benefits of modernization here: switching from mainframe and midrange systems to Azure Data Platform offers many benefits. 
-
-In order to reap benefits of cutting-edge technologies, users of mainframe and midrange systems seek to modernize their systems. However, updating technology, infrastructure, and practices involves exhaustively investigating engineering and business activities.
+- Object Conversion: Converting object definitions from the source data store to corresponding objects on the target data store.
+- Data Ingestion: Connecting to the source data store and extracting its data.
+- Data Transformation: Transforming extracted data to appropriate target data store structures.
+- Data Storage: Both initially and continually loading data from the source data store to the target data store.
 
 ## Potential use cases
 
-Mainframe & Midrange Modernization use cases that can benefit from this solution are:
-IBM Mainframe & Midrange customers who need to modernize mission-critical workloads.
-Need business intelligence to improve operations, enhance business processes or gain competitive advantages.
-Escape the high costs and rigidity associated with Mainframe & Midrange data stores. 
+Many organizations can benefit from this solution. Possibilities include mainframe and midrange customers who:
+
+- Need to modernize mission-critical workloads.
+- Seek business intelligence to improve operations, enhance processes, or gain a competitive advantage.
+- Aim to escape the high costs and rigidity associated with mainframe and midrange data stores.
 
 
 ## Architecture
@@ -141,4 +122,5 @@ Keep these points in mind when using a partitioning model.
 [Azure data architecture guide]: https://docs.microsoft.com/azure/architecture/data-guide/
 [Azure data platform end-to-end]: https://docs.microsoft.com/azure/architecture/example-scenario/dataplate2e/data-platform-end-to-end
 [Email address for information on Azure Data Engineering Mainframe and Midrange Modernization]: mailto:datasqlninja@microsoft.com
+[Five reasons a data-first strategy works]: https://resources.syniti.com/featured-articles/5-reasons-a-data-first-strategy-works
 [Migration guide]: https://datamigration.microsoft.com/
