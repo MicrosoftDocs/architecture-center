@@ -3,13 +3,15 @@ title: Azure Functions in a hybrid environment
 description: Azure Functions being utilized from on-premises virtual machines
 author: doodlemania2
 ms.date: 06/29/2020
-ms.topic: reference-architecture
+ms.topic: conceptual
 ms.service: architecture-center
 ms.category:
   - hybrid
   - web
 ms.subservice: reference-architecture
-ms.custom: fcp
+ms.custom:
+  - fcp
+  - reference-architecture
 ---
 
 # Azure Functions in a hybrid environment

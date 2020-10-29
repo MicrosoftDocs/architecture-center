@@ -4,11 +4,13 @@ titleSuffix: Azure Application Architecture Guide
 description: This article describes how to figure out harms and negative impact of a technology and ways to mitigate them.
 author: dcass
 ms.date: 05/18/2020
-ms.topic: guide
+ms.topic: conceptual
 ms.service: architecture-center
 ms.category:
   - fcp
 ms.subservice: reference-architecture
+ms.custom:
+  - guide
 ---
 
 # Foundations of assessing harm

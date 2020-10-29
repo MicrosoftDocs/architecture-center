@@ -3,7 +3,7 @@ title: Sign-up and tenant onboarding in multitenant applications
 description: Learn how to implement a sign-up process in a multitenant application, which allows a customer to sign up their organization for your application.
 author: doodlemania2
 ms.date: 07/21/2017
-ms.topic: guide
+ms.topic: conceptual
 ms.service: architecture-center
 ms.category:
   - identity
@@ -11,6 +11,8 @@ ms.subservice: reference-architecture
 pnp.series.title: Manage Identity in Multitenant Applications
 pnp.series.prev: claims
 pnp.series.next: app-roles
+ms.custom:
+  - guide
 ---
 
 <!-- cSpell:ignore signup nameof -->

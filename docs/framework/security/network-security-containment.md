@@ -3,9 +3,11 @@ title: Network security and containment in Azure | Microsoft Docs
 description: Review best practices for network security in Azure, including network segmentation, network management, containment strategy, and internet edge strategy.
 author: PageWriter-MSFT
 ms.date: 07/09/2019
-ms.topic: article
+ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
+ms.custom:
+  - article
 ---
 
 # Network security and containment

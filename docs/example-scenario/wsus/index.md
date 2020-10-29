@@ -6,11 +6,12 @@ author: vpaulreed
 ms.date: 03/15/2020
 ms.category:
   - management-and-governance
-ms.topic: example-scenario
+ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: example-scenario
 ms.custom:
   - fcp
+  - example-scenario
 ---
 
 <!-- cSpell:ignore vpaulreed WSUS NSGs VM's -->

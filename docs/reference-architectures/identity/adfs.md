@@ -4,13 +4,16 @@ titleSuffix: Azure Reference Architectures
 description: Implement a secure hybrid network architecture with Active Directory Federation Service authorization in Azure.
 author: telmosampaio
 ms.date: 12/18/2018
-ms.topic: reference-architecture
+ms.topic: conceptual
 ms.service: architecture-center
 ms.category:
   - identity
   - hybrid
 ms.subservice: reference-architecture
-ms.custom: seodec18, identity
+ms.custom:
+  - seodec18
+  - identity
+  - reference-architecture
 ---
 
 # Extend Active Directory Federation Services (AD FS) to Azure

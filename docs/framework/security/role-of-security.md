@@ -3,10 +3,11 @@ title: Role of security
 description: Describes the role that security plays in the cloud
 author: david-stanford
 ms.date: 10/20/2019
-ms.topic: article
+ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
-ms.custom: 
+ms.custom:
+  - article
 ---
 
 # Role of security when building in the cloud

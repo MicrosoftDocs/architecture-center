@@ -1,17 +1,18 @@
 ---
-title: Banking system cloud transformation on Azure 
+title: Banking system cloud transformation on Azure
 description: Solution for monitoring banking system infrastructure scalability and performance.
 author: doodlemania2
 ms.author: pnp
 ms.date: 8/11/2020
-ms.topic: example-scenario
+ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: example-scenario
-ms.category: 
-    - devops
-ms.custom: 
-    - fcp
-    - cse
+ms.category:
+  - devops
+ms.custom:
+  - fcp
+  - cse
+  - example-scenario
 ---
 
 # Banking system cloud transformation on Azure

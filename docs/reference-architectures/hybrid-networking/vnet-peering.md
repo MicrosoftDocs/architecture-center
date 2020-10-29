@@ -4,13 +4,16 @@ titleSuffix: Azure Reference Architectures
 description: Compares two ways to connect virtual networks in Azure.
 author: anavinahar
 ms.date: 12/13/2019
-ms.topic: reference-architecture
+ms.topic: conceptual
 ms.service: architecture-center
 ms.category:
   - networking
   - integration
 ms.subservice: reference-architecture
-ms.custom: networking, fcp
+ms.custom:
+  - networking
+  - fcp
+  - reference-architecture
 ---
 
 # Choose between virtual network peering and VPN gateways in Azure

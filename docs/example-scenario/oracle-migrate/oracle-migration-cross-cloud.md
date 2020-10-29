@@ -5,13 +5,15 @@ description: Create a connection between your existing Oracle Database and your 
 author: amberz
 ms.author: amberz
 ms.date: 06/23/2020
-ms.topic: example-scenario
+ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: example-scenario
-ms.custom: fcp
+ms.custom:
+  - fcp
+  - example-scenario
 ms.category:
-    - databases
-    - migration
+  - databases
+  - migration
 ---
 
 # Oracle database migration - Cross-cloud connectivity

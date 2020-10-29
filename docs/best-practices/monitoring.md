@@ -4,10 +4,12 @@ titleSuffix: Best practices for cloud applications
 description: Learn how to track how users use your distributed applications and services, trace resource utilization, and monitor the health and performance.
 author: dragon119
 ms.date: 07/13/2016
-ms.topic: best-practice
+ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: cloud-fundamentals
-ms.custom: seodec18
+ms.custom:
+  - seodec18
+  - best-practice
 ---
 
 <!-- cSpell:ignore SIEM HDFS SSDT -->

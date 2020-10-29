@@ -4,12 +4,14 @@ titleSuffix: Azure Application Architecture Guide
 description: 
 author: khilscher
 ms.date: 07/17/2020
-ms.topic: guide
+ms.topic: conceptual
 ms.service: architecture-center
 ms.author: kehilsch
 ms.category:
   - fcp
 ms.subservice: reference-architecture
+ms.custom:
+  - guide
 ---
 
 # Data analysis in Azure Industrial IoT analytics solution

@@ -3,9 +3,11 @@ title: Monitor identity risk
 description: Monitor identity-related risk events for warning on potentially compromised identities and remediate those risks.
 author: PageWriter-MSFT
 ms.date: 09/14/2020
-ms.topic: article
+ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
+ms.custom:
+  - article
 ---
 
 # Monitor identity risk

@@ -3,13 +3,15 @@ title: On-premises data gateway for Azure Logic Apps
 description: Using a data gateway to connect on-premises data sources to Azure Logic Apps
 author: doodlemania2
 ms.date: 07/16/2020
-ms.topic: reference-architecture
+ms.topic: conceptual
 ms.service: architecture-center
 ms.category:
   - hybrid
   - integration
 ms.subservice: reference-architecture
-ms.custom: fcp
+ms.custom:
+  - fcp
+  - reference-architecture
 ---
 
 # On-premises data gateway for Azure Logic Apps

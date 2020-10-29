@@ -3,13 +3,15 @@ title: Manage hybrid Azure workloads using Windows Admin Center
 description: Deploy Windows Admin Center to manage environments on-premises and in Azure.
 author: doodlemania2
 ms.date: 07/29/2020
-ms.topic: reference-architecture
+ms.topic: conceptual
 ms.service: architecture-center
 ms.category:
   - hybrid
   - management-and-governance
 ms.subservice: reference-architecture
-ms.custom: fcp
+ms.custom:
+  - fcp
+  - reference-architecture
 ---
 # Manage hybrid Azure workloads using Windows Admin Center
 

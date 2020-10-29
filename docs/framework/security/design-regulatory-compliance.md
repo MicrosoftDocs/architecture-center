@@ -3,9 +3,11 @@ title: Regulatory compliance
 description: Security enforcement through standards published by law, authorities, and regulators.
 author: PageWriter-MSFT
 ms.date: 10/29/2020
-ms.topic: article
+ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
+ms.custom:
+  - article
 ---
 
 # Regulatory compliance
