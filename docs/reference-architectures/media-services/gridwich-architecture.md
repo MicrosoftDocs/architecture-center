@@ -68,11 +68,11 @@ Specifically, the external system has:
   
 - No issue with extra properties being present, so Gridwich, having received `{"b":2,"a":1}`, could validly return `{"a":1,"b":2,"~somethingExtra":"yes"}`. To minimize the possibility of collisions, Gridwich prefixes the names of added properties with a tilde (~), for example `~muted`.
   
-- No JSON-formatting dependencies. For example, there are no assumptions about where whitespace padding may fall within the string representation of the JSON. Gridwich capitalizes on this lack of formatting dependency by compressing out unneeded whitespace in string representations of the JSON objects. See [JSONHelpers.SerializeOperationContext][JsonHelpers].
+- No JSON-formatting dependencies. For example, there are no assumptions about where whitespace padding may fall within the string representation of the JSON. Gridwich capitalizes on this lack of formatting dependency by compressing out unneeded whitespace in string representations of the JSON objects. See [JSONHelpers.SerializeOperationContext](https://github.com/mspnp/gridwich/src/Gridwich.Core/src/Helpers/JSONHelpers.cs).
 
 ### Saga participants and operation context
 
-Each [saga participant](saga-orchestration.md#saga-participants) contributes one or more work activities to the system. Each saga participant works independently of the other participants, and more than one saga participant might act on a single request.
+In the Gridwich saga orchestration system, each [saga participant](saga-orchestration.md#saga-participants) contributes one or more work activities to the system. Each saga participant works independently of the other participants, and more than one saga participant might act on a single request.
 
 Each of the saga participants must retain the operation context, but may implement it differently. For example:
 
@@ -124,21 +124,19 @@ The following steps describe the request and response process between an externa
    
    ![handler_message_ack_flow diagram](media/request-acknowledgement.png)
    
-   For requests that are easy to perform and fast to complete, the handler does the work synchronously and returns the Success or Failure event almost immediately after the acknowledgment is sent.
+   For requests that are easy to perform and fast to complete, a [synchronous handler](#synchronous-event-processing) does the work and returns the Success or Failure event almost immediately after the acknowledgment is sent.
    
-   For requests that are long-running, an asynchronous request handler evaluates the request, validates arguments, and initiates the long-running operation. The handler then returns a Scheduled response to confirm that it requested the work activity. On completing the work activity, the request handler is responsible for providing a Success or Failure completed event for the work.
-   
-   For details and examples of synchronous and asynchronous processing, see [Sync and async handlers](#sync-and-async-handlers).
+   For requests that are long-running, an [asynchronous handler](#asynchronous-event-processing) evaluates the request, validates arguments, and initiates the long-running operation. The handler then returns a Scheduled response to confirm that it requested the work activity. On completing the work activity, the request handler is responsible for providing a Success or Failure completed event for the work.
    
 1. The event publisher in the Azure Function sends the response event to an event grid topic, which acts as a reliable message broker. The external system subscribes to the topic and consumes the messages. The Event Grid platform provides its normal retry logic for publication to the external system.
 
 ### Message order
 
-The external system shouldn't depend on message order. While an Acknowledgment would precede both the Success and Scheduled responses, Gridwich doesn't guarantee that a Scheduled response will always precede the corresponding Success response. A valid response sequence could be either Acknowledged/Scheduled/Success or Acknowledged/Success/Scheduled.
+While an Acknowledgment would precede both the Success and Scheduled responses, Gridwich doesn't guarantee that a Scheduled response will always precede the corresponding Success response. A valid response sequence could be either Acknowledged/Scheduled/Success or Acknowledged/Success/Scheduled.
 
 ### Request failures
 
-Request failures can be due to bad requests, missing pre-conditions, processing failures, security exceptions, or unhandled exceptions. Failures all have the same message form, and should include the original operation context. Failure responses are typically sent by the common [EventGridHandlerBase](https://github.com/mspnp/gridwich/src/Gridwich.Core/src/Bases/EventGridHandlerBase.cs) class to Event Grid via the Azure Function event publisher interface. [Application Insights](/azure/azure-monitor/app/app-insights-overview) also logs failures via the [structured logging](gridwich-logging.md) used throughout the project.
+Request failures can be caused by bad requests, missing pre-conditions, processing failures, security exceptions, or unhandled exceptions. Almost all failures have the same message form, and include the original operation context. The common [EventGridHandlerBase](https://github.com/mspnp/gridwich/src/Gridwich.Core/src/Bases/EventGridHandlerBase.cs) class typically sends Failure responses to Event Grid via the Azure Function event publisher interface. [Application Insights](/azure/azure-monitor/app/app-insights-overview) also logs failures via [structured logging](gridwich-logging.md).
 
 ## Sync and async handlers
 
@@ -146,7 +144,7 @@ Gridwich request messages may be synchronous or asynchronous in nature.
 
 ### Synchronous event processing
 
-For requests that are easy to perform and fast to complete, the handler does the work synchronously and returns the success event, with its operation context, almost immediately after the acknowledgment is sent.
+For requests that are easy to perform and fast to complete, the handler does the work synchronously and returns the success event, with its operation context, almost immediately after sending the acknowledgment.
 
 ![handler_message_sync_flow diagram](media/request-response-sync-flow.png).
 
