@@ -141,7 +141,7 @@ For more information, refer to [Configure Azure Storage firewalls and virtual ne
 [Planning-for-Azure-Files]: /azure/storage/files/storage-files-planning
 [Azure-Storage-redundancy]: /azure/storage/common/storage-redundancy
 [Azure-files-How-it-works]: /azure/storage/files/storage-files-active-directory-overview#how-it-works
-[Azure-files-Enablement-steps]: /azure/storage/files/storage-files-identity-auth-active-directory-enable
+[Azure-files-Enablement-steps]: /azure/storage/files/storage-files-identity-ad-ds-enable
 [Azure-files-share-permissions]: /azure/storage/files/storage-files-identity-ad-ds-assign-permissions
 [Azure-files-file-level-permissions]: /azure/storage/files/storage-files-identity-ad-ds-configure-permissions
 [Azure-Files-snapshots]: /azure/storage/files/storage-snapshots-files

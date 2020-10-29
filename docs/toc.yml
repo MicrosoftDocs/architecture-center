@@ -68,7 +68,11 @@ items:
     - name: Choose a load balancing service
       href: guide/technology-choices/load-balancing-overview.md
     - name: Choose a messaging service
-      href: guide/technology-choices/messaging.md
+      items:
+      - name: Asynchronous messaging options in Azure
+        href: guide/technology-choices/messaging.md
+      - name: Choose an Apache Kafka host
+        href: solution-ideas/articles/kafka-on-azure.md
   - name: Best practices for cloud applications
     items:
     - name: API design
@@ -685,7 +689,7 @@ items:
         href: solution-ideas/articles/predicting-length-of-stay-in-hospitals.md
       - name: Predictive aircraft engine monitoring
         href: solution-ideas/articles/aircraft-engine-monitoring-for-predictive-maintenance-in-aerospace.md
-      - name: Real Time analytics on on big data
+      - name: Real Time analytics on big data
         href: solution-ideas/articles/real-time-analytics.md
       - name: Stream processing with Azure Databricks
         href: reference-architectures/data/stream-processing-databricks.md
