@@ -52,6 +52,41 @@ Gridwich architecture features two *sandwiches* that address the requirements of
   
   This way, Terraform can wholly manage and deploy the solution infrastructure, even when not all the [Azure resources](https://terraform.io/docs/providers/azurerm/) can be created before the software artifacts are deployed.
 
+## Operation context
+
+The external system might generate thousands of requests per day, per hour, or per second. Each request event payload to Gridwich must include a JSON object property named [operationContext](https://github.com/mspnp/gridwich/src/Gridwich.Core/src/DTO/Requests/RequestBaseDTO.cs).
+
+Gridwich is a stateless request processing and work activity solution that responds with an *opaque operation context*, whether a request is short- or long-running. If a request contains an operation context, like `{"id"="Op1001"}`, Gridwich must return a corresponding JSON object as part of each response payload to the external system. See [ResponseBaseDTO](https://github.com/mspnp/gridwich/src/Gridwich.Core/src/DTO/Responses/ResponseBaseDTO.cs). This operation context persists through the lifetime of even very long-running requests.
+
+![request_and_response diagram](media/request-response.png)
+
+The requirement is for a "corresponding" rather than the "same" JSON object on the response. For reasons that include Newtonsoft JSON parsing eccentricities and storage operation muting, Gridwich takes advantage of the fact that the external system processes the JSON object Gridwich sends in a top-down fashion.
+
+Specifically, the external system has:
+
+- No dependency on property ordering, so Gridwich can send back an object with the same properties, possibly in a different order. For example, `{"a":1,"b":2}` vs. `{"b":2,"a":1}`.
+  
+- No issue with extra properties being present, so Gridwich, having received `{"b":2,"a":1}`, could validly return `{"a":1,"b":2,"~somethingExtra":"yes"}`. To minimize the possibility of collisions, Gridwich prefixes the names of added properties with a tilde (~), for example `~muted`.
+  
+- No JSON-formatting dependencies. For example, there are no assumptions about where whitespace padding may fall within the string representation of the JSON. Gridwich capitalizes on this lack of formatting dependency by compressing out unneeded whitespace in string representations of the JSON objects. See [JSONHelpers.SerializeOperationContext][JsonHelpers].
+
+### Saga participants and operation context
+
+Each [saga participant](saga-orchestration.md#saga-participants) contributes one or more work activities to the system. Each saga participant works independently of the other participants, and more than one saga participant might act on a single request.
+
+Each of the saga participants must retain the operation context, but may implement it differently. For example:
+
+- Short-running synchronous operations retain the operation context.
+- Azure Storage provides an opaque string property called `ClientRequestId` for most operations.
+- Azure Media Services V3 has a `Job.CorrelationData` property, or Azure Media Services V2 allows the `Task.Name` to be any string.
+- Other cloud APIs offer similar concepts to an opaque operation context that they can return when signaling progress, completion, or failure.
+
+For more information about sagas and saga participants, see [Saga orchestration](saga-orchestration.md).
+
+### Alternatives to operation context
+
+To call a new, asynchronous API that provides an opaque operation context, you could use a Durable Function to create a series of tasks within an operation, which would allow the operation context to be saved as an input or output to the operation. Durable functions have a built-in state store for long-running operations. Alternatively, the whole solution could use Durable Functions, regardless of the work activities, but this increases code complexity.
+
 ## Request flow
 
 The Gridwich request and response process covers request:
@@ -73,7 +108,7 @@ The following steps describe the request and response process between an externa
    
    Event Grid is a highly reliable request delivery endpoint. The Azure platform provides necessary request delivery endpoint uptime and stability.
    
-   Requests are encapsulated within the object `Event.Data` property, which is opaque to the Event Grid broker and transport layer. Gridwich also uses the `Event.EventType` and `Event.DataVersion` object fields to route events. So the Event Grid request broker can be substituted with other publication-subscription event brokers, Gridwich depends on the fewest event fields possible, and doesn't use the `Event.Topic` nor `Event.Subject` fields.
+   Requests are encapsulated within the object `Event.Data` property, which is opaque to the Event Grid broker and transport layer. Gridwich also uses the `Event.EventType` and `Event.DataVersion` object fields to route events. Gridwich depends on the fewest event fields possible, and doesn't use the `Event.Topic` nor `Event.Subject` fields, so that the Event Grid request broker can be substituted with other publication-subscription event brokers.
    
 1. The Gridwich [Azure Functions](/azure/azure-functions/) app consumes events from Event Grid. For better throughput, Gridwich defines an [HTTP endpoint](/azure/azure-functions/functions-bindings-http-webhook) as a push model that Event Grid initiates, rather than the [Event Grid binding](/azure/azure-functions/functions-bindings-event-grid) polling model that Azure Functions provides.
    
@@ -111,7 +146,7 @@ Gridwich request messages may be synchronous or asynchronous in nature.
 
 ### Synchronous event processing
 
-For requests that are easy to perform and fast to complete, the handler does the work synchronously and returns the success event, with its [operation context](#operation-context), almost immediately after the acknowledgment is sent.
+For requests that are easy to perform and fast to complete, the handler does the work synchronously and returns the success event, with its operation context, almost immediately after the acknowledgment is sent.
 
 ![handler_message_sync_flow diagram](media/request-response-sync-flow.png).
 
@@ -157,43 +192,6 @@ Slot deployment deploys new software versions. The production slot has the runni
 Gridwich waits 30 seconds after remapping the hostnames, so for http-triggered functions, Gridwich guarantees at least 30 seconds before the restart for the old production slot. Other triggers are controlled by app settings and don't have a mechanism to wait on app setting updates, so those functions risk being interrupted if execution starts right before the old production slot is restarted.
 
 For more information, see [What happens during a slot swap for Azure Functions](/azure/azure-functions/functions-deployment-slots#swap-operations) and [Azure Functions deployment slots](/azure/azure-functions/functions-deployment-slots).
-
-## Operation context
-
-The external system might generate thousands of requests per day, per hour, or per second. Each request event payload to Gridwich must include a JSON object property named [operationContext](https://github.com/mspnp/gridwich/src/Gridwich.Core/src/DTO/Requests/RequestBaseDTO.cs).
-
-Gridwich is a stateless request processing and work activity solution that responds with the *opaque operation context*, whether the activity is short- or long-running. If a request contains an operation context, like `{"id"="Op1001"}`, Gridwich must return a corresponding JSON object as part of each response payload to the external system. See [ResponseBaseDTO](https://github.com/mspnp/gridwich/src/Gridwich.Core/src/DTO/Responses/ResponseBaseDTO.cs).
-
-This operation context persists through the lifetime of even very long-running requests.
-
-![request_and_response diagram](media/request-response.png)
-
-The requirement is for a "corresponding" rather than the "same" JSON object on the response. For reasons that include Newtonsoft JSON parsing eccentricities and storage operation muting, Gridwich takes advantage of the fact that the external system processes the JSON object Gridwich sends in a top-down fashion.
-
-Specifically, the external system has:
-
-- No dependency on property ordering, so Gridwich can send back an object with the same properties, possibly in a different order. For example, `{"a":1,"b":2}` vs. `{"b":2,"a":1}`.
-  
-- No issue with extra properties being present, so Gridwich, having received `{"b":2,"a":1}`, could validly return `{"a":1,"b":2,"~somethingExtra":"yes"}`. To minimize the possibility of collisions, Gridwich prefixes the names of added properties with a tilde (~), for example `~muted`.
-  
-- No JSON-formatting dependencies. For example, there are no assumptions about where whitespace padding may fall within the string representation of the JSON. Gridwich capitalizes on this lack of formatting dependency by compressing out unneeded whitespace in string representations of the JSON objects. See [JSONHelpers.SerializeOperationContext][JsonHelpers].
-
-### Saga participants and operation context
-
-Each of a set of [saga participants](saga-orchestration.md#saga-participants) contributes one or more work activities to the ecosystem. Each saga participant works independently of the other participants, and more than one saga participant might act on a single request.
-
-Each of the saga participants must retain the operation context, but may implement it differently. For example:
-
-- Short-running synchronous operations retain the operation context.
-- Azure Storage provides an opaque string property called `ClientRequestId` for most operations.
-- Azure Media Services V3 has a `Job.CorrelationData` property, or Azure Media Services V2 allows the `Task.Name` to be any string.
-- Other cloud APIs offer similar concepts to an opaque operation context that they can return when signaling progress, completion, or failure.
-
-For more information about sagas and saga participants, see [Saga orchestration](saga-orchestration.md).
-
-### Alternatives
-
-To call a new, asynchronous API that provides an opaque operation context, you could use a Durable Function to create a series of tasks within an operation, which would allow the operation context to be saved as an input or output to the operation. Durable functions have a built-in state store for long-running operations. Alternatively, the whole solution could use Durable Functions, regardless of the work activities, but this increases code complexity.
 
 ## Components
 

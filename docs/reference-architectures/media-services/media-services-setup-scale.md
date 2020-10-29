@@ -31,9 +31,9 @@ var amsAccessToken = _tokenCredential.GetToken(
     default);
 ```
 
-This code presents the identity of the `TokenCredential` and requests authorization at the REST API scope.
+This code presents the identity of the [TokenCredential](/dotnet/api/azure.identity.interactivebrowsercredential) and requests authorization at the REST API scope.
 
-When running locally, the `TokenCredential` [prompts the developer to log in](/dotnet/api/azure.identity.interactivebrowsercredential). That identity is then presented when requesting access to the scope. The developer must be a contributor on the resource to successfully authenticate, and the correct environment variables must be in the local settings file.
+When running locally, `TokenCredential` prompts the developer to log in, and presents that identity when requesting access to the scope. The developer must be a contributor on the resource to successfully authenticate, and the correct environment variables must be in the [local settings file](set-up-local-environment.md#create-localsettingsjson).
 
 The Terraform file [functions/main.tf](https://github.com/mspnp/gridwich/infrastructure/terraform/functions/main.tf) enables a system-assigned managed identity for the Azure Functions App, with:
 
@@ -72,7 +72,7 @@ for id in ${mediaServicesAccountResourceId}
 
 ## Azure Media Services V3
 
-The Azure Media Services V3 SDK doesn't support managed identity. Instead, an explicit service principal is created for use with the Media Services V3 SDK via the *ams_sp.sh* script, using the `az ams account sp create` command:
+The Azure Media Services V3 SDK doesn't support managed identity, so Gridwich creates an explicit service principal to use with the Media Services V3 SDK via the *ams_sp.sh* script, using the `az ams account sp create` command:
 
 ```azurecli
 # Ref: https://docs.microsoft.com/azure/media-services/latest/access-api-cli-how-to
@@ -95,7 +95,7 @@ az keyvault delete-policy --name ${keyVaultName} --upn $USER_PRINCIPAL_NAME > /d
 echo 'Done.'
 ```
 
-The Function App settings use a reference to the Azure Key Vault, which has a read access policy for the managed identity. The script creates those and other settings in the Terraform `functions/main.tf` file:
+The Function App settings use a reference to the Azure Key Vault. The script creates those and other settings in the Terraform `functions/main.tf` file:
 
 ```terraform
     {

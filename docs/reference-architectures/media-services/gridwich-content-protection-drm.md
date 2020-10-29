@@ -13,7 +13,7 @@ ms.custom:
 
 # Content protection and DRM
 
-Media Services uses [Digital Rights Management (DRM)](https://en.wikipedia.org/wiki/Digital_rights_management) to protect content, and supports [Microsoft PlayReady](https://www.microsoft.com/playready/overview/), [Google Widevine](https://www.widevine.com/solutions/widevine-drm), and [Apple FairPlay](https://developer.apple.com/streaming/fps/). This article explains Gridwich content protection concepts, and how to set up and update content protection and DRM policies.
+Azure Media Services uses [Digital Rights Management (DRM)](https://en.wikipedia.org/wiki/Digital_rights_management) to protect content, and supports [Microsoft PlayReady](https://www.microsoft.com/playready/overview/), [Google Widevine](https://www.widevine.com/solutions/widevine-drm), and [Apple FairPlay](https://developer.apple.com/streaming/fps/). This article explains Gridwich content protection concepts, and how to set up and update content protection and DRM policies.
 
 ## Asset streaming locators
 
@@ -111,11 +111,11 @@ A secured token service (STS), not provided in Gridwich, should deliver tokens w
 
 To change the authorized protocols or DRM license properties for content protection, you must update the streaming policy or content key policy. The update mechanism differs depending on the policy.
 
-- The Media Services *streaming policy* can't be changed. So Gridwich uses an internal Media Services name to version the policy, and an external Gridwich publication message name that doesn't change. Old locators will still use the old streaming policy, and new locators will use the updated streaming policy.
+- The Media Services *streaming policy* can't change. Gridwich uses an internal Media Services name to version the policy, and an external publication message name that doesn't change. Old locators still use the old streaming policy, and new locators use the updated streaming policy.
 
-- The Media Services *content key policy* can be updated, so Gridwich uses the same name in Media Services and in the Gridwich publication message. Updating the content key policy affects all old and new locators.
+- The Media Services *content key policy* can update, so Gridwich uses the same name in Media Services and in the Gridwich publication message. Updating the content key policy affects all old and new locators.
   
-  Gridwich can be extended to have two or more content key policies with different names side-by-side. You can use different policies for completely different asset classes with different rights.
+  You can extend Gridwich to have two or more content key policies with different names side-by-side. You can use different policies for completely different asset classes with different rights.
   
 ![Content protection policies update diagram.](media/update-content-protection-policies.png)
 
@@ -131,11 +131,11 @@ private readonly string nameInAmsAccount = CustomStreamingPolicies.MultiDrmStrea
 
 To update the content key policy, use the same name in Media Services and in the publication message.
 
-The policy updates affect all old and new locators, and occur only if the variable `AmsDrmEnableContentKeyPolicyUpdate` is set to `true`. This variable is in **Azure Pipelines** > **Library** > **Variable groups** > **gridwich-cicd-variables.global**.
+Content key policy updates affect all old and new locators, and occur only if the variable **AmsDrmEnableContentKeyPolicyUpdate** is set to `true`. This variable is in **Azure Pipelines** > **Library** > **Variable groups** > **gridwich-cicd-variables.global**.
 
 ![Screenshot of some gridwich-cicd-variables.global variable group variables.](media/fairplay-variables.png)
 
-The variable specifies whether Azure Functions should automatically update the content key policy at startup. Setting this variable lets you decide when to force the update after a code change. Force the update to occur after the Azure Function instance is restarted and when the next publication process is run.
+The variable specifies whether Azure Functions should automatically update the content key policy at startup. Setting this variable lets you decide when to force the update after a code change. Force the update to occur after the Azure Function instance restarts and when the next publication process is run.
 
 Run the pipeline to update the Azure deployment with new settings, secrets, or code. See [Azure Pipelines variable group to Terraform variables flow](variable-group-terraform-flow.md) for more information about the variable flow.
 
@@ -143,7 +143,9 @@ After the update, make sure to delete and purge any copies of source certificate
 
 ## DRM settings
 
-The following sections describe how to configure the DRM settings Gridwich uses to create and update the content key policy. The variables to update are in the Gridwich Azure DevOps project **Pipelines** > **Library** > **Variable groups** > **gridwich-cicd-variables.global** variable group. For instructions on setting up the Azure DevOps project, pipelines, and variable groups, see [Gridwich Azure DevOps setup](set-up-azure-devops.md).
+The following sections describe how to configure the DRM settings Gridwich uses to create and update the content key policy. The variables to update are in the Gridwich Azure DevOps project **Pipelines** > **Library** > **Variable groups** > **gridwich-cicd-variables.global** variable group.
+
+For instructions on setting up the Azure DevOps project, pipelines, and variable groups, see [Gridwich Azure DevOps setup](set-up-azure-devops.md).
 
 ### OpenID Connect Discovery Document endpoint
 
@@ -153,7 +155,7 @@ To store the OpenID Connect Discovery Document endpoint:
 
 1. In the Gridwich Azure DevOps project, go to **Pipelines** > **Library** > **Variable groups** > **gridwich-cicd-variables.global**.
    
-1. Edit variable name `amsDrmOpenIdConnectDiscoveryDocumentEndpoint` to the value of the endpoint URL, for example `https://domain.com/.well-known/OpenIdConfiguration`.
+1. Edit variable name **amsDrmOpenIdConnectDiscoveryDocumentEndpoint** to the value of the endpoint URL, for example `https://domain.com/.well-known/OpenIdConfiguration`.
 
 ### Apple FairPlay settings
 
@@ -165,23 +167,25 @@ Gridwich must process and ingest the FairPlay package from Apple as settings. Ha
    1. Install OpenSSL.
    1. Convert the *FairPlay.cer* file to a *.pem* file.
    1. Convert *.pem* to *.pfx* with password-protected private key.
-   1. Convert the pfx to a base 64 text file called *FairPlay-out-base64.txt*.
+   1. Convert the *.pfx* to a base 64 text file called *FairPlay-out-base64.txt*.
    
 1. Copy the *FairPlay-out-base64.txt* file to **Pipelines** > **Library** > **Secure files**, replacing any existing file with the same name.
    
    ![Screenshot of the FairPlay-out-base64.txt file in Secure files.](media/fairplay-secure-files.png)
    
-1. Store the OpenSSL password in **Pipelines** > **Library** > **Variable groups > gridwich-cicd-variables.global** under variable `amsDrmFairPlayPfxPassword`, in Secured mode.
+1. Store the OpenSSL password in **Pipelines** > **Library** > **Variable groups > gridwich-cicd-variables.global** under variable **amsDrmFairPlayPfxPassword**, in Secured mode.
    
-1. Store the hexadecimal ASK Key that Apple provided in *AppleASK.txt* in **Pipelines** > **Library** > **Variable groups > gridwich-cicd-variables.global** under variable `amsDrmFairPlayAskHex`, in Secured mode.
+1. Store the hexadecimal ASK Key that Apple provided in *AppleASK.txt* under **Pipelines** > **Library** > **Variable groups > gridwich-cicd-variables.global** under variable **amsDrmFairPlayAskHex**, in Secured mode.
    
    ![Screenshot of the SSL password and ASK hex key in Variables.](media/fairplay-variables.png)
 
 #### Update approval
 
-When the *FairPlay-out-base64.txt* file changes, the next pipeline run waits for a one-time approval. Select **Permit** to approve the pipeline using the FairPlay Secure File you uploaded.
+The first pipeline run after the *FairPlay-out-base64.txt* file changes waits for a one-time approval.
 
 ![Pipeline needs permission.](media/needs-permission.png)
+
+Select **Permit** to approve the pipeline using the FairPlay Secure File you uploaded.
 
 ![Select Permit.](media/select-permit.png)
 

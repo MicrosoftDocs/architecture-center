@@ -59,14 +59,14 @@ Terraform and software releases can't complete certain Gridwich operations, incl
 
 The CLI script [azcli-last-steps-template.yml](https://github.com/mspnp/gridwich/infrastructure/azure-pipelines/templates/steps/azcli-last-steps-template.yml) provides these last steps.
 
-The CI/CD pipeline doesn't do operations that require elevated privileges. The pipeline generates a set of admin scripts as a pipeline artifact, using output data from Terraform. An admin with elevated privileges must run these scripts the first time an environment is created.
+The CI/CD pipeline doesn't do operations that need elevated privileges. The pipeline generates a set of admin scripts as a pipeline artifact, using output data from Terraform. After environment creation, an admin with elevated privileges must run these scripts.
 
 - [Admin script templates](https://github.com/mspnp/gridwich/infrastructure/terraform/bashscriptgenerator/templates)
 - [Run the admin scripts](admin-scripts.md)
 
 ## Everything as code and code reuse
 
-One advantage of everything as code is that components can be reused.
+One advantage of everything as code is component reuse.
 
 - For Terraform, Gridwich relies heavily on [Terraform modules](https://www.terraform.io/docs/modules/composition.html) to enhance composability and reusability.
 - For Azure Pipelines YAML, Gridwich uses [Pipeline templates](/azure/devops/pipelines/process/templates).
