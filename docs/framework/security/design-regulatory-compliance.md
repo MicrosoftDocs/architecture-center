@@ -15,7 +15,7 @@ Cloud architectures can have challenges when strictly applying standards to work
 
 **What do the law, authorities, and regulators require?**
 ***
-Governments and regulatory organizations frequently publish standards to help define good security practices so that organizations can avoid negligence. The purpose and scope of these standards and regulations vary, but the security requirements can influence the design for data protection and retention, data privacy, and system security. 
+Governments and regulatory organizations frequently publish standards to help define good security practices so that organizations can avoid negligence. The purpose and scope of these standards and regulations vary, but the security requirements can influence the design for data protection and retention, data privacy, and system security.
 
 Noncompliance can lead to fines or other business impact. Work with your regulators and carefully review the standards to understand both the intent and the literal wording. Start by answering these questions:
 

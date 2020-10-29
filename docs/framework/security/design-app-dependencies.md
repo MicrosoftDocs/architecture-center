@@ -37,7 +37,7 @@ When handling application exceptions, make the application fail gracefully and l
 **Is platform-specific information removed from server-client communication?**
 ***
 
-Do not reveal information about the application platform. Such information (for example, "X-Powered-By", "X-ASPNET-VERSION") are can get exposed through HTTP banners HTTP headers, error messages, website footers. Malicious actors can use this information when mapping attack vectors of the application.
+Do not reveal information about the application platform. Such information (for example, "X-Powered-By", "X-ASPNET-VERSION") can get exposed through HTTP banners HTTP headers, error messages, website footers. Malicious actors can use this information when mapping attack vectors of the application.
 
 Consider using Azure CDN to separate the hosting platform from end users. Azure API Management offers transformation policies that allow you to modify HTTP headers and remove sensitive information.
 
@@ -58,7 +58,7 @@ It's important to be aware of the implications of using third-party frameworks a
     - [OWASP Dependency-Check](https://owasp.org/www-project-dependency-check/)
     - [NPM audit](https://docs.npmjs.com/cli/audit)
 
-- Maintain a list frameworks and libraries as part of the application inventory. Also, keep track of versions in use.
+- Maintain a list of frameworks and libraries as part of the application inventory. Also, keep track of versions in use.
 
 - Update frameworks and libraries as part of the application lifecycle. Prioritize critical security patches. 
 
