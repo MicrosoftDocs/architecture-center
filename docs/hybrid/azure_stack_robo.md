@@ -29,7 +29,7 @@ Typical uses for this architecture include the following ROBO scenarios:
 The architecture incorporates the following components and capabilities:
 - **Azure Stack HCI (20H2)**. A hyperconverged infrastructure (HCI) cluster solution that hosts virtualized Windows and Linux operating system (OS) workloads and their storage in a hybrid on-premises environment. A cluster can consist of between 2 and 16 physical nodes.
 - **File share witness**. A Server Message Block (SMB) share that Failover Clustering uses as a vote in the cluster quorum. Starting with Windows Server 2019, it's possible to use [a USB drive connected to a router][usb-file-share-witness] for this purpose.
-- **Azure Arc**. A cloud-based service that extend the Azure Resource Manager&ndash;based management model to non-Azure resources including virtual machines (VMs), Kubernetes clusters, and containerized databases.
+- **Azure Arc**. A cloud-based service that extend the Azure Resource Manager-based management model to non-Azure resources including virtual machines (VMs), Kubernetes clusters, and containerized databases.
 - **Azure Policy**. A cloud-based service that evaluates Azure and on-premises resources through integration with Azure Arc by comparing properties to customizable business rules.
 - **Azure Monitor**. A cloud-based service that maximizes the availability and performance of applications and services by delivering a comprehensive solution for collecting, analyzing, and acting on telemetry from Azure and non-Azure locations.
 - **Azure Security Center**. A unified infrastructure security management system that provides advanced threat protection and helps strengthen the security posture across Azure and non-Azure locations.
