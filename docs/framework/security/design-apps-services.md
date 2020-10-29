@@ -3,9 +3,11 @@ title: Applications and services
 description: Secure your applications and services in Azure
 author: v-aangie
 ms.date: 09/17/2020
-ms.topic: article
+ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
+ms.custom:
+  - article
 ---
 
 # Applications and services

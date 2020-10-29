@@ -1,11 +1,12 @@
 ---
 title: Artificial intelligence (AI)
-description: 
 author: maggsl
 ms.date: 04/14/2020
-ms.topic: guide
+ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: cloud-fundamentals
+ms.custom:
+  - guide
 ---
 
 <!-- cSpell:ignore maggsl scikit -->

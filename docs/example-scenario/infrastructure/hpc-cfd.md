@@ -7,12 +7,13 @@ ms.date: 09/20/2018
 ms.category:
   - compute
   - storage
-ms.topic: example-scenario
+ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: example-scenario
 ms.custom:
   - fasttrack
   - hpc
+  - example-scenario
 social_image_url: /azure/architecture/example-scenario/infrastructure/media/architecture-hpc-cfd.png
 ---
 

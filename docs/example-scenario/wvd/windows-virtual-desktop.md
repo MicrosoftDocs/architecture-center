@@ -4,13 +4,14 @@ titleSuffix: Azure Example Scenarios
 description: Explore Windows Virtual Desktop, and learn to build virtual desktop infrastructure solutions at enterprise scale.
 author: doodlemania2
 ms.date: 07/16/2020
-ms.topic: example-scenario
+ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: example-scenario
-ms.category: 
-    - windows-virtual-desktop
+ms.category:
+  - windows-virtual-desktop
 ms.custom:
-- fcp
+  - fcp
+  - example-scenario
 ---
 # Windows Virtual Desktop for the enterprise
 

@@ -4,11 +4,12 @@ titleSuffix: Azure Example Scenarios
 description: Learn about serverless reference architectures.
 author: rogeriohc
 ms.date: 06/22/2020
-ms.topic: guide
+ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: reference-architecture
 ms.custom:
-- fcp
+  - fcp
+  - guide
 ---
 # Serverless Functions reference architectures
 

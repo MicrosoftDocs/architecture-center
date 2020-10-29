@@ -1,12 +1,13 @@
 ---
 title: Designing scalable Azure applications
-description: 
 author: david-stanford
 ms.date: 10/16/2019
-ms.topic: article
+ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
-ms.custom: How are you designing your applications to scale? 
+ms.custom:
+  - How are you designing your applications to scale?
+  - article
 ---
 
 # Designing scalable Azure applications

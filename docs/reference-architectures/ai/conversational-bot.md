@@ -3,13 +3,15 @@ title: Build an enterprise-grade conversational bot
 description: How to build an enterprise-grade conversational bot (chatbot) using the Azure Bot Framework.
 author: roalexan
 ms.date: 01/24/2019
-ms.topic: reference-architecture
+ms.topic: conceptual
 ms.service: architecture-center
 ms.category:
   - ai-machine-learning
   - featured
 ms.subservice: reference-architecture
-ms.custom: azcat-ai
+ms.custom:
+  - azcat-ai
+  - reference-architecture
 ---
 
 # Enterprise-grade conversational bot

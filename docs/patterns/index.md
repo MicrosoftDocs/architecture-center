@@ -5,10 +5,12 @@ description: Design patterns for building reliable, scalable, secure application
 keywords: Azure
 author: dragon119
 ms.date: 03/01/2018
-ms.topic: design-pattern
+ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: cloud-fundamentals
-ms.custom: seodec18
+ms.custom:
+  - seodec18
+  - design-pattern
 ---
 
 # Cloud Design Patterns

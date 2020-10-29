@@ -4,12 +4,14 @@ titleSuffix: Azure Reference Architectures
 description: Use the proven practices in this reference architecture to improve scalability and performance in an Azure App Service web application..
 author: doodlemania2
 ms.date: 10/03/2019
-ms.topic: reference-architecture
+ms.topic: conceptual
 ms.service: architecture-center
 ms.category:
   - web
 ms.subservice: reference-architecture
-ms.custom: seodec18
+ms.custom:
+  - seodec18
+  - reference-architecture
 ---
 
 <!-- cSpell:ignore PDFs -->

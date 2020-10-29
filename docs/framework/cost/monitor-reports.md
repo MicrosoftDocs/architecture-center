@@ -1,12 +1,13 @@
 ---
 title: Generate cost reports
 description: Describes ways to gather cost data for reporting purposes
-author:  PageWriter-MSFT
+author: PageWriter-MSFT
 ms.date: 05/12/2020
-ms.topic: article
+ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
-ms.custom: 
+ms.custom:
+  - article
 ---
 
 # Generate cost reports

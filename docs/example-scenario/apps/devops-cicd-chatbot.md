@@ -4,11 +4,12 @@ titleSuffix: Azure Example Scenarios
 description: Use Azure Pipelines with ARM templates to set up a CI/CD pipeline to Azure App Service and Azure Bot Service for a chatbot app.
 author: MariaVrabie
 ms.date: 03/25/2020
-ms.topic: example-scenario
+ms.topic: conceptual
 ms.service: architecture-center
 ms.custom:
-    - fasttrack
-    - fcp
+  - fasttrack
+  - fcp
+  - example-scenario
 ms.category:
   - devops
   - ai-machine-learning

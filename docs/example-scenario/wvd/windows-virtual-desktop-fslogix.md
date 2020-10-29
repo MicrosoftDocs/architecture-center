@@ -4,10 +4,11 @@ titleSuffix: Azure Architecture Guide
 description: Learn to build virtual desktop infrastructure solutions at enterprise scale using Microsoft FSLogix.
 author: christiaanbrinkhoff
 ms.date: 09/12/2020
-ms.topic: guide
+ms.topic: conceptual
 ms.service: architecture-center
 ms.custom:
-- fcp
+  - fcp
+  - guide
 ---
 
 # Microsoft FSLogix for the enterprise

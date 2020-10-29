@@ -1,12 +1,13 @@
 ---
-title: Measure usage to determine cost of Azure resources 
+title: Measure usage to determine cost of Azure resources
 description: Cost strategies for selecting Azure resources
-author:  PageWriter-MSFT
+author: PageWriter-MSFT
 ms.date: 05/12/2020
-ms.topic: article
+ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
-ms.custom: 
+ms.custom:
+  - article
 ---
 
 # Azure resources 

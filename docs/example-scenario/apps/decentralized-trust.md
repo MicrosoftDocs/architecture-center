@@ -6,13 +6,14 @@ author: vitoc
 ms.date: 09/09/2018
 ms.category:
   - blockchain
-ms.topic: example-scenario
+ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: example-scenario
 ms.custom:
   - csa-team
   - blockchain
   - finance
+  - example-scenario
 social_image_url: /azure/architecture/example-scenario/apps/media/architecture-decentralized-trust.png
 ---
 

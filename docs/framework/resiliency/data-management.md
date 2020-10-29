@@ -1,12 +1,13 @@
 ---
 title: Data Management for Reliability
-description: 
 author: david-stanford
 ms.date: 10/16/2019
-ms.topic: article
+ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
-ms.custom: How are you managing your data? 
+ms.custom:
+  - How are you managing your data?
+  - article
 ---
 
 # Data Management for Reliability

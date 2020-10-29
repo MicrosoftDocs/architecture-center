@@ -5,10 +5,12 @@ description: Use these performance and scalability patterns to address variable 
 keywords: design pattern
 author: dragon119
 ms.date: 08/27/2019
-ms.topic: design-pattern
+ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: cloud-fundamentals
-ms.custom: seodec18
+ms.custom:
+  - seodec18
+  - design-pattern
 ---
 
 # Performance and Scalability patterns

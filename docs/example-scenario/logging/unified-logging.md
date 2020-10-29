@@ -4,13 +4,14 @@ titleSuffix: Azure Example Scenarios
 description: Learn about logging, tracing, and monitoring for microservices apps. Run synthetic logging for testing, and create structured logs for analysis.
 author: lanallai
 ms.date: 07/13/2020
-ms.topic: example-scenario
+ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: example-scenario
-ms.category: 
-    - devops
+ms.category:
+  - devops
 ms.custom:
   - fcp
+  - example-scenario
 ---
 
 # Unified logging for microservices apps

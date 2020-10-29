@@ -3,9 +3,11 @@ title: Network monitoring
 description: Use networking logging and track traffic in real time to detect threats.
 author: PageWriter-MSFT
 ms.date: 09/14/2020
-ms.topic: article
+ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
+ms.custom:
+  - article
 ---
 
 # Network monitoring

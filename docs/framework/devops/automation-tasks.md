@@ -3,9 +3,11 @@ title: Automated Tasks
 description: Automated Tasks
 author: neilpeterson
 ms.date: 10/15/2020
-ms.topic: article
+ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
+ms.custom:
+  - article
 ---
 
 # Automate operational tasks

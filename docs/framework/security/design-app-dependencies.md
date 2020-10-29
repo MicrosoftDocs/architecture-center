@@ -3,9 +3,11 @@ title: Secure application's configuration and dependencies
 description: Check the dependencies, frameworks, and libraries.
 author: PageWriter-MSFT
 ms.date: 10/27/2020
-ms.topic: article
+ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
+ms.custom:
+  - article
 ---
 
 # Secure application configuration and dependencies

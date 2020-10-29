@@ -3,10 +3,11 @@ title: Overview of the performance efficiency pillar
 description: Describes the performance efficiency pillar
 author: v-aangie
 ms.date: 10/23/2020
-ms.topic: overview
+ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
-ms.custom: 
+ms.custom:
+  - overview
 ---
 
 # Overview of the performance efficiency pillar

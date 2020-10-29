@@ -6,11 +6,12 @@ author: alexbuckgit
 ms.date: 08/22/2018
 ms.category:
   - compute
-ms.topic: example-scenario
+ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: example-scenario
 ms.custom:
   - HPC
+  - example-scenario
 social_image_url: /azure/architecture/example-scenario/apps/media/architecture-hpc-saas.png
 ---
 

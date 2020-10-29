@@ -3,10 +3,11 @@ title: Checklist - Monitor cost
 description: Describes Azure tools that you can use to monitor your cloud costs.
 author: david-stanford
 ms.date: 05/12/2020
-ms.topic: article
+ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
-ms.custom: 
+ms.custom:
+  - article
 ---
 
 # Checklist - Monitor cost

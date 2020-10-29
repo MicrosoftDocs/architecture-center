@@ -1,15 +1,18 @@
 ---
 title: Batch scoring of Python models on Azure
-description:  Build a scalable solution for batch scoring models on a schedule in parallel using Azure Machine Learning.
+description: Build a scalable solution for batch scoring models on a schedule in parallel using Azure Machine Learning.
 author: njray
 ms.date: 01/30/2019
-ms.topic: reference-architecture
+ms.topic: conceptual
 ms.service: architecture-center
 ms.category:
   - ai-machine-learning
   - developer-tools
 ms.subservice: reference-architecture
-ms.custom: azcat-ai, AI
+ms.custom:
+  - azcat-ai
+  - AI
+  - reference-architecture
 ---
 
 # Batch scoring of Python machine learning models on Azure

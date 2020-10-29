@@ -5,8 +5,11 @@ keywords: async, http, https, request, reply, synchronous, asynchronous, queue, 
 author: WillEastbury
 ms.date: 10/22/2019
 ms.author: wieastbu
-ms.custom: fasttrack-new, architecture
-ms.topic: design-pattern
+ms.custom:
+  - fasttrack-new
+  - architecture
+  - design-pattern
+ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: cloud-fundamentals
 ---

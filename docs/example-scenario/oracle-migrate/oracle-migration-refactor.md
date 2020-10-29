@@ -1,17 +1,19 @@
 ---
-title: 'Oracle database migration: Refactor'
+title: Oracle database migration: Refactor
 titleSuffix: Azure Example Scenarios
 description: Refactor your Oracle database with Azure Database Migration Service and move it to PostgreSQL.
 author: amberz
 ms.author: amberz
 ms.date: 06/23/2020
-ms.topic: example-scenario
+ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: example-scenario
-ms.custom: fcp
+ms.custom:
+  - fcp
+  - example-scenario
 ms.category:
-    - databases
-    - migration
+  - databases
+  - migration
 ---
 
 # Oracle database migration - Refactor
