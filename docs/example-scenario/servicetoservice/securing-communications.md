@@ -120,6 +120,18 @@ Instead of leveraging [Service Endpoints][svcep], one might consider the use of 
 > [!CAUTION]
 > Filtering inbound traffic on Private Endpoints is neither supported through Network Security Groups (NSGs) or by using App Service Access Restrictions.  Every service with network line-of-sight will be able to communicate with the private endpoint of a web application.  This limits its use for locking down traffic on the network layer.
 
+#### Use of Azure Functions to host Services
+
+Instead of hosting services on App Services, [Azure Functions][functions] can be used as well.  
+
+**TODO: describe how functions would differ from what is described before**
+
+#### Use of App Service Easy-Auth
+
+Performing token validation as part of the application code has the advantage of the fact that the authorization code is by-design co-located with the rest of the business logic.  If this is for some reason not practical or desired, App Service Easy-Auth can be configured to perform token validation before the request makes it to the service.  The service then relies on the hosting infrastructure to not accept unauthorized requests.  The downside of doing so is that the service loses this protection when it is moved elsewhere.  In addition, the service has less flexibility in validation of the token and making corresponding authorization decisions.
+
+**TODO: describe how easy-auth fits in to the overall picture**
+
 <!-- Use this section to talk about alternative Azure services or architectures that you might consider for this solution. Include the reasons why you might choose these alternatives. -->
 <!-- 
 > What alternative technologies were considered and why didn't we use them? -->
@@ -202,3 +214,4 @@ The following resources will provide more information on the components used in 
 [aadpermissiontypes]: https://docs.microsoft.com/azure/active-directory/develop/v2-permissions-and-consent#permission-types
 [accessrestrictions]: https://docs.microsoft.com/azure/app-service/app-service-ip-restrictions
 [tokenvalidation]: https://docs.microsoft.com/azure/active-directory/develop/access-tokens#validating-tokens
+[functions]: https://docs.microsoft.com/azure/azure-functions/functions-overview
