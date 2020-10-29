@@ -1404,6 +1404,8 @@ items:
         href: solution-ideas/articles/unlock-legacy-data.md
       - name: Decompose apps with Service Fabric
         href: example-scenario/infrastructure/service-fabric-microservices.md
+      - name: SQL 2008 R2 failover cluster in Azure
+        href: example-scenario/sql-failover/sql-failover-2008r2.md  
   - name: Mixed Reality
     items:
     - name: Architectures
