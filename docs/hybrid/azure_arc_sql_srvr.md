@@ -1,5 +1,5 @@
 ---
-title: Optimize administration of SQL Server instances in on-premises and multiple cloud scenarios by leveraging Azure Arc ->
+title: Optimize administration of SQL Server instances in on-premises and multiple cloud scenarios by leveraging Azure Arc
 description: Optimize management, maintenance, and monitoring of SQL Server with Azure Arc enabled SQL Server and Azure Arc enabled data services in on-premises and multiple cloud scenarios.
 author: githubusername
 ms.date: 00/00/0000
