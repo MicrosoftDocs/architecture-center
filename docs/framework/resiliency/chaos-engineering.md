@@ -9,6 +9,7 @@ ms.subservice: well-architected
 ms.custom:
   - How do you chaos-engineer your applications to ensure that they're fault tolerant?
   - article
+---
 
 # Chaos engineering
 
