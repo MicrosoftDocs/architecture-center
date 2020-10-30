@@ -106,8 +106,6 @@ Azure DevOps is a collection of services for building, collaborating on, testing
 
 ## Branching strategies
 
-## Cloud cadence
-
 #### Next steps
 
 > [!div class="nextstepaction"]
