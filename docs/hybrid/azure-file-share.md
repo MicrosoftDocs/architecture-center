@@ -3,13 +3,15 @@ title: Using Azure file shares in a hybrid environment
 description: Azure file shares can replace traditional file servers. With identity-based authentication you can control access to Azure file shares by using AD DS users and groups.
 author: doodlemania2
 ms.date: 07/26/2020
-ms.topic: reference-architecture
+ms.topic: conceptual
 ms.service: architecture-center
 ms.category:
   - hybrid
   - storage
 ms.subservice: reference-architecture
-ms.custom: fcp
+ms.custom:
+  - fcp
+  - reference-architecture
 ---
 
 # Using Azure file shares in a hybrid environment
@@ -141,7 +143,7 @@ For more information, refer to [Configure Azure Storage firewalls and virtual ne
 [Planning-for-Azure-Files]: /azure/storage/files/storage-files-planning
 [Azure-Storage-redundancy]: /azure/storage/common/storage-redundancy
 [Azure-files-How-it-works]: /azure/storage/files/storage-files-active-directory-overview#how-it-works
-[Azure-files-Enablement-steps]: /azure/storage/files/storage-files-identity-auth-active-directory-enable
+[Azure-files-Enablement-steps]: /azure/storage/files/storage-files-identity-ad-ds-enable
 [Azure-files-share-permissions]: /azure/storage/files/storage-files-identity-ad-ds-assign-permissions
 [Azure-files-file-level-permissions]: /azure/storage/files/storage-files-identity-ad-ds-configure-permissions
 [Azure-Files-snapshots]: /azure/storage/files/storage-snapshots-files

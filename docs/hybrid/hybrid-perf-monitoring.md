@@ -1,16 +1,18 @@
 ---
-title: Hybrid availability and performance monitoring 
+title: Hybrid availability and performance monitoring
 description: Using Azure Monitor to monitor performance and availability for operating system workloads running on-premises, in third-party cloud providers, and in Microsoft Azure
 author: doodlemania2
 ms.date: 07/27/2020
-ms.topic: reference-architecture
+ms.topic: conceptual
 ms.service: architecture-center
 ms.category:
   - hybrid
   - monitoring
   - management-and-governance
 ms.subservice: reference-architecture
-ms.custom: fcp
+ms.custom:
+  - fcp
+  - reference-architecture
 ---
 
 # Hybrid availability and performance monitoring

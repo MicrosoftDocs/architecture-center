@@ -3,13 +3,15 @@ title: Azure Automation in a hybrid environment
 description: Azure Automation leveraged for both on-premises and cloud environments
 author: doodlemania2
 ms.date: 07/23/2020
-ms.topic: reference-architecture
+ms.topic: conceptual
 ms.service: architecture-center
 ms.category:
   - hybrid
   - management-and-governance
 ms.subservice: reference-architecture
-ms.custom: fcp
+ms.custom:
+  - fcp
+  - reference-architecture
 ---
 
 # Azure Automation in a hybrid environment

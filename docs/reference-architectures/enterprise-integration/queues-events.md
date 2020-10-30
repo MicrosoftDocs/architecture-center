@@ -2,15 +2,17 @@
 title: Enterprise integration using queues and events
 description: Recommended architecture for implementing an enterprise integration pattern with Azure Logic Apps, Azure API Management, Azure Service Bus, and Azure Event Grid.
 author: mattfarm
-ms.reviewer: jonfan, estfan, LADocs
+ms.reviewer: 'jonfan, estfan, LADocs'
 ms.date: 12/03/2018
-ms.topic: reference-architecture
+ms.topic: conceptual
 ms.service: architecture-center
 ms.category:
   - integration
   - developer-tools
 ms.subservice: reference-architecture
-ms.custom: integration-services
+ms.custom:
+  - integration-services
+  - reference-architecture
 ---
 
 # Enterprise integration on Azure using message queues and events

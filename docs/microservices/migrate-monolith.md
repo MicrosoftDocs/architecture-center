@@ -5,13 +5,15 @@ description: Use a DDD approach to migrate a monolithic application to microserv
 author: lavann
 ms.date: 11/04/2019
 ms.author: pnp
-ms.topic: guide
+ms.topic: conceptual
 ms.service: architecture-center
 ms.category:
   - migration
   - developer-tools
 ms.subservice: reference-architecture
-ms.custom: microservices
+ms.custom:
+  - microservices
+  - guide
 ---
 
 # Monoliths to microservices using domain-driven design

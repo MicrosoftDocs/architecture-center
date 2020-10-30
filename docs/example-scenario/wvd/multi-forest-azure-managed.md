@@ -4,11 +4,12 @@ titleSuffix: Azure Example Scenarios
 description: This is a solution idea that builds on the multiple forests using Windows Virtual Desktop, using Azure Active Directory Domain Services or Azure AD DS.
 author: nehalineogi
 ms.date: 08/31/2020
-ms.topic: example-scenario
+ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: example-scenario
 ms.custom:
-- fcp
+  - fcp
+  - example-scenario
 ---
 
 # Multiple AD forests with Windows Virtual Desktop and Azure AD DS

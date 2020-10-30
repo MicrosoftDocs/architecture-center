@@ -3,11 +3,12 @@ title: Chaos engineering
 description: Chaos engineering fundamentals for improving the reliability of a service built on Azure.
 author: absheik
 ms.date: 04/03/2020
-ms.topic: article
+ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
-ms.custom: How do you chaos-engineer your applications to ensure that they're fault tolerant?
----
+ms.custom:
+  - How do you chaos-engineer your applications to ensure that they're fault tolerant?
+  - article
 
 # Chaos engineering
 

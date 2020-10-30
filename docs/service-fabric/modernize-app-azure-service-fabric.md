@@ -3,13 +3,15 @@ title: Modernize enterprise applications - Azure Service Fabric
 description: Best practices about moving Windows applications to an Azure compute platform without rewriting. This migration uses container support in Azure Service Fabric.
 author: colincole
 ms.date: 05/01/2019
-ms.topic: guide
+ms.topic: conceptual
 ms.author: pnp
 ms.service: architecture-center
 ms.category:
   - migration
   - management-and-governance
 ms.subservice: reference-architecture
+ms.custom:
+  - guide
 ---
 
 # Modernize enterprise applications with Azure Service Fabric
@@ -97,7 +99,7 @@ Here are the basic steps for containerizing an application.
 2. Make sure the project compiles and runs locally on the developer workstation.
 3. Add a Dockerfile to the project. This Dockerfile example shows a basic .NET MVC application.
     ```
-    FROM microsoft/aspnet:4.7
+    FROM mcr.microsoft.com/dotnet/framework/aspnet:4.8
     ADD PublishOutput/ /inetpub/wwwroot
 
     # add a certificate and configure SSL
@@ -125,7 +127,7 @@ Here are the basic steps for containerizing an application.
 The image is tagged with a version number that Service Fabric references when it deploys and versions the container. Azure DevOps encapsulates and executes the manual Docker build/tag/push process. DevOps details are described in the [DevOps and CI/CD](#devops-and-cicd) section.
 
 > [!NOTE]
-> In the preceding example, the base image is "microsoft/aspnet4.7" from DockerHub.
+> In the preceding example, the base image is "mcr.microsoft.com/dotnet/framework/aspnet:4.8" from DockerHub.
 
 Here are some considerations about the base images:
 

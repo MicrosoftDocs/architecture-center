@@ -5,12 +5,14 @@ description: Follow this code walkthrough to implement an example serverless app
 author: rogeriohc
 ms.date: 06/22/2020
 ms.author: pnp
-ms.topic: guide
+ms.topic: conceptual
 ms.service: architecture-center
 ms.category:
   - developer-tools
   - featured
 ms.subservice: reference-architecture
+ms.custom:
+  - guide
 ---
 
 <!--cSpell:ignore Gyrometer upsert deadletterqueue -->

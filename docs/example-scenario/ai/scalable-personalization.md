@@ -7,12 +7,13 @@ ms.date: 05/31/2019
 ms.category:
   - ai-machine-learning
   - featured
-ms.topic: example-scenario 
+ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: example-scenario
 ms.custom:
   - azcat-ai
   - AI
+  - example-scenario
 social_image_url: /azure/architecture/example-scenario/ai/media/architecture-scalable-personalization.png
 ---
 

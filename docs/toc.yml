@@ -68,7 +68,11 @@ items:
     - name: Choose a load balancing service
       href: guide/technology-choices/load-balancing-overview.md
     - name: Choose a messaging service
-      href: guide/technology-choices/messaging.md
+      items:
+      - name: Asynchronous messaging options in Azure
+        href: guide/technology-choices/messaging.md
+      - name: Choose an Apache Kafka host
+        href: solution-ideas/articles/kafka-on-azure.md
   - name: Best practices for cloud applications
     items:
     - name: API design
@@ -337,8 +341,6 @@ items:
           href: framework/security/design-management-groups.md          
         - name: Administration
           href: framework/security/design-admins.md
-        - name: Regulatory compliance
-          href: framework/security/design-regulatory-compliance.md
       - name: Identity
         items:
           - name: Identity and access management
@@ -356,7 +358,19 @@ items:
       - name: Storage
         href: framework/security/design-storage.md
       - name: Applications and services
-        href: framework/security/design-apps-services.md
+        items:
+        - name: Application security considerations
+          href: framework/security/design-apps-services.md
+        - name: Application classification
+          href: framework/security/design-apps-considerations.md
+        - name: Threat analysis
+          href: framework/security/design-threat-model.md
+        - name: Securing PaaS deployments
+          href: /azure/security/fundamentals/paas-deployments?bc=%2fazure%2farchitecture%2fbread%2ftoc.json&toc=%2fazure%2farchitecture%2ftoc.json
+        - name: Compliance requirements
+          href: framework/security/design-regulatory-compliance.md
+        - name: Configuration and dependencies
+          href: framework/security/design-app-dependencies.md
     - name: Monitor
       items:
       - name: Security operations
@@ -675,7 +689,7 @@ items:
         href: solution-ideas/articles/predicting-length-of-stay-in-hospitals.md
       - name: Predictive aircraft engine monitoring
         href: solution-ideas/articles/aircraft-engine-monitoring-for-predictive-maintenance-in-aerospace.md
-      - name: Real Time analytics on on big data
+      - name: Real Time analytics on big data
         href: solution-ideas/articles/real-time-analytics.md
       - name: Stream processing with Azure Databricks
         href: reference-architectures/data/stream-processing-databricks.md
@@ -962,8 +976,6 @@ items:
             href: microservices/ci-cd.md
           - name: CI/CD for microservices on Kubernetes
             href: microservices/ci-cd-kubernetes.md
-          - name: Automated Kubernetes deployments with Bedrock
-            href: example-scenario/bedrock/bedrock-automated-deployments.md
         - name: Migrate to a microservices architecture
           items:
           - name: Migrate a monolith application to microservices
@@ -1392,6 +1404,8 @@ items:
         href: solution-ideas/articles/unlock-legacy-data.md
       - name: Decompose apps with Service Fabric
         href: example-scenario/infrastructure/service-fabric-microservices.md
+      - name: SQL 2008 R2 failover cluster in Azure
+        href: example-scenario/sql-failover/sql-failover-2008r2.md  
   - name: Mixed Reality
     items:
     - name: Architectures

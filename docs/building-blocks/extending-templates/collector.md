@@ -3,12 +3,14 @@ title: Implement a property transformer and collector in an Azure Resource Manag
 description: Describes how to implement a property transformer and collector in an Azure Resource Manager template.
 author: PeterTaylor9999
 ms.date: 10/30/2018
-ms.topic: article
+ms.topic: conceptual
 ms.service: architecture-center
 ms.category:
   - developer-tools
   - devops
 ms.subservice: reference-architecture
+ms.custom:
+  - article
 ---
 
 <!-- cSpell:ignore copyindex -->

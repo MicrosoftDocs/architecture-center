@@ -4,13 +4,14 @@ titleSuffix: Azure Example Scenarios
 description: Explore Windows Virtual Desktop, and learn to build virtual desktop infrastructure solutions at enterprise scale.
 author: doodlemania2
 ms.date: 07/16/2020
-ms.topic: example-scenario
+ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: example-scenario
-ms.category: 
-    - windows-virtual-desktop
+ms.category:
+  - windows-virtual-desktop
 ms.custom:
-- fcp
+  - fcp
+  - example-scenario
 ---
 # Windows Virtual Desktop for the enterprise
 
@@ -28,6 +29,7 @@ Most demand for enterprise virtual desktop solutions comes from:
 ## Architecture
 
 ![Diagram of a Windows Virtual Desktop service architecture.](images/windows-virtual-desktop.png)
+[Download a copy of this Visio.](https://archcenter.blob.core.windows.net/cdn/wvdatscale.vsdx)
 
 This diagram shows a typical architectural setup for Windows Virtual Desktop.
 
@@ -84,7 +86,7 @@ There are several options for updating Windows Virtual Desktop desktops. Deployi
 
 - [Microsoft Endpoint Configuration Manager (MECM)](/mem/configmgr/) updates server and desktop operating systems.
 - [Windows Updates for Business](/windows/deployment/update/waas-manage-updates-wufb) updates desktop operating systems like Windows 10 multi-session.
-- [Azure Update Management](/azure/automation/automation-update-management) updates server operating systems.
+- [Azure Update Management](/azure/automation/update-management/overview) updates server operating systems.
 - [Azure Log Analytics](/azure/azure-monitor/platform/log-analytics-agent) checks compliance.
 - Deploy a new (custom) image to session hosts every month for the latest Windows and applications updates. You can use an image from the Azure Marketplace or a [custom Azure managed image](/azure/virtual-machines/windows/capture-image-resource).
 

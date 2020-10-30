@@ -4,10 +4,12 @@ titleSuffix: Azure Example Scenarios
 description: Learn about monitor and manage loops, an IoT process pattern that continually monitors networked devices and ensures they remain within tolerance.
 author: hanuk
 ms.date: 08/10/2020
-ms.topic: example-scenario
+ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: example-scenario
-ms.custom: fcp
+ms.custom:
+  - fcp
+  - example-scenario
 ---
 
 # Monitor and manage loops

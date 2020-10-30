@@ -4,11 +4,13 @@ titleSuffix: Azure Application Architecture Guide
 description: Responsible Innovation is a commitment to put people first in the development of technology by understanding the stakeholders and impact of your technology
 author: dcass
 ms.date: 05/18/2020
-ms.topic: guide
+ms.topic: conceptual
 ms.service: architecture-center
 ms.category:
   - fcp
 ms.subservice: reference-architecture
+ms.custom:
+  - guide
 ---
 
 # Responsible Innovation: A Best Practices Toolkit

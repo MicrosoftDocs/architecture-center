@@ -3,10 +3,12 @@ title: Testing Azure applications for resiliency and availability
 description: Testing is an iterative process. Test the application, measure the outcome, analyze and address any failures that result, and repeat the process.
 author: david-stanford
 ms.date: 10/16/2019
-ms.topic: article
+ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
-ms.custom: How do you test your applications to ensure they're fault tolerant?
+ms.custom:
+  - How do you test your applications to ensure they're fault tolerant?
+  - article
 ---
 
 

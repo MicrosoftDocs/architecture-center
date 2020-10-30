@@ -9,11 +9,12 @@ ms.category:
   - integration
   - developer-tools
   - hybrid
-ms.topic: example-scenario
+ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: example-scenario
 ms.custom:
   - fcp
+  - example-scenario
 ---
 
 <!-- cSpell:ignore talhanaveed CNAME -->

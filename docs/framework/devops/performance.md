@@ -3,10 +3,12 @@ title: Performance considerations for your deployment infrastructure
 description: Describes considerations to make regarding your deployment infrastructure.
 author: UmarMohamedUsman
 ms.date: 11/01/2019
-ms.topic: article
+ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
-ms.custom: fasttrack-edit
+ms.custom:
+  - fasttrack-edit
+  - article
 ---
 
 # Performance considerations for your deployment infrastructure

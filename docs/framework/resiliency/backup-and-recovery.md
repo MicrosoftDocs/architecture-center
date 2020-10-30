@@ -3,10 +3,12 @@ title: Backup and disaster recover for Azure applications
 description: Overview of disaster recovery approaches in Azure
 author: david-stanford
 ms.date: 10/16/2019
-ms.topic: article
+ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
-ms.custom: How are you handling DR (Backup & Restore) for this workload? 
+ms.custom:
+  - How are you handling DR (Backup & Restore) for this workload?
+  - article
 ---
 
 <!-- cSpell:ignore BACPAC DTUs -->

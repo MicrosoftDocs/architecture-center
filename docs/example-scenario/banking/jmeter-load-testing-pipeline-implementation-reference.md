@@ -4,14 +4,15 @@ description: Scalable cloud load testing pipeline creates and destroys infrastru
 author: doodlemania2
 ms.author: pnp
 ms.date: 8/11/2020
-ms.topic: example-scenario
+ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: example-scenario
-ms.category: 
-    - devops
-ms.custom: 
-    - fcp
-    - cse
+ms.category:
+  - devops
+ms.custom:
+  - fcp
+  - cse
+  - example-scenario
 ---
 
 # JMeter implementation reference for load testing pipeline solution
