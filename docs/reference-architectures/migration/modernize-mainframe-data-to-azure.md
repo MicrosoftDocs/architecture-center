@@ -2,7 +2,7 @@
 title: Migrate mainframe + midrange data to Azure
 author: JKirsch1
 ms.date: 11/02/2020
-description: Learn about partitioning in Kafka and Event Hubs with Kafka. See how many partitions to use in ingestion pipelines and how to assign events to partitions.
+description: Learn how to modernize IBM mainframe and midrange data. See how to use a data-first approach to migrate this data to Azure.
 ms.custom: fcp
 ms.service: architecture-center
 ms.category:
@@ -34,8 +34,8 @@ Many organizations can benefit from this solution. Possibilities include mainfra
 
 ## Architecture
 
-:::image type="complex" source="./images/migrate-mainframe-data-to-azure.png" alt-text="Architecture diagram showing the flow of events in an ingestion pipeline. Events flow from producers to a cluster or namespace and then to consumers." border="false":::
-   At the center of the diagram is a box labeled Kafka Cluster or Event Hub Namespace. Three smaller boxes sit inside that box. Each is labeled Topic or Event Hub, and each contains multiple rectangles labeled Partition. Above the main box are rectangles labeled Producer. Arrows point from the producers to the main box. Below the main box are rectangles labeled Consumer. Arrows point from the main box to the consumers and are labeled with various offset values. A single blue frame labeled Consumer Group surrounds two of the consumers, grouping them together.
+:::image type="complex" source="./images/migrate-mainframe-data-to-azure.png" alt-text="Architecture diagram showing ..." border="false":::
+   Long description.
 :::image-end:::
 
 1. Object Conversion: This process extracts object definitions from sources and converts them to corresponding objects on the target data store.
