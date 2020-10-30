@@ -116,8 +116,7 @@ The [Microsoft Azure Well-Architected Framework][azure-well-architected-framewor
 
 ### Security
 
-- **Protection in transit.** Storage Replica offers built-in security for its replication traffic, which includes packet signing, AES-128-GCM full data encryption, support for Intel AES-NI enc
-- ryption acceleration, and pre-authentication integrity man-in-the-middle attack prevention. Storage Replica also utilizes Kerberos AES256 for authentication between the replicating nodes.
+- **Protection in transit.** Storage Replica offers built-in security for its replication traffic, which includes packet signing, AES-128-GCM full data encryption, support for Intel AES-NI encryption acceleration, and pre-authentication integrity man-in-the-middle attack prevention. Storage Replica also utilizes Kerberos AES256 for authentication between the replicating nodes.
 
 - **Encryption at rest.** Azure Stack HCI supports BitLocker Drive Encryption for its data volumes, thus facilitating compliance with standards such as FIPS 140-2 and HIPAA.
 
