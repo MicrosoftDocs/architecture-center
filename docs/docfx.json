@@ -82,7 +82,7 @@
           "folder_relative_path_in_docset": "./"
         }
       },
-      "ms.topic": "article",
+      "ms.topic": "conceptual",
       "searchScope": [ "Azure", "Azure Architecture Center" ]
     },
     "fileMetadata": {
