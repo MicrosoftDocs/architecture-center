@@ -3,14 +3,15 @@ title: Predictive maintenance with the intelligent IoT Edge
 description: Learn how a railway company implemented predictive safety maintenance using machine learning on the Azure intelligent IoT Edge platform.
 author: tmmarshall
 ms.date: 07/28/2020
-ms.topic: example-scenario
+ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: example-scenario
-ms.category: 
-    - iot
-ms.custom: 
-    - fcp
-    - cse
+ms.category:
+  - iot
+ms.custom:
+  - fcp
+  - cse
+  - example-scenario
 ---
 
 # Predictive maintenance with the intelligent IoT Edge

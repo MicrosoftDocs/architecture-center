@@ -3,9 +3,11 @@ title: Big data architectures
 description: Learn about big data architectures that handle the ingestion, processing, and analysis of data too large or complex for traditional database systems.
 author: zoinerTejada
 ms.date: 02/12/2018
-ms.topic: guide
+ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: cloud-fundamentals
+ms.custom:
+  - guide
 ---
 
 # Big data architectures

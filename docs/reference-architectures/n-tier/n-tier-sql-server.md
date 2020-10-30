@@ -3,13 +3,15 @@ title: Windows N-tier application on Azure
 description: Implement a multi-tier architecture on Azure for availability, security, scalability, and manageability.
 author: doodlemania2
 ms.date: 09/25/2020
-ms.topic: reference-architecture
+ms.topic: conceptual
 ms.service: architecture-center
 ms.category:
   - databases
   - web
   - management-and-governance
 ms.subservice: reference-architecture
+ms.custom:
+  - reference-architecture
 ---
 
 # Windows N-tier application on Azure with SQL Server

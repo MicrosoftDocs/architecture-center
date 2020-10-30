@@ -3,13 +3,15 @@ title: Deploy AI and machine learning at the edge by using Azure Stack Edge
 description: Run intelligence workloads directly on IoT devices by using Azure Stack Edge
 author: doodlemania2
 ms.date: 07/16/2020
-ms.topic: reference-architecture
+ms.topic: conceptual
 ms.service: architecture-center
 ms.category:
   - hybrid
   - ai-machine-learning
 ms.subservice: reference-architecture
-ms.custom: fcp
+ms.custom:
+  - fcp
+  - reference-architecture
 ---
 
 # Deploy AI and machine learning at the edge by using Azure Stack Edge

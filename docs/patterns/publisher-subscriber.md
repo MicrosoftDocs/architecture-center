@@ -4,9 +4,11 @@ description: Enable an application to announce events to multiple interested con
 keywords: design pattern
 author: alexbuckgit
 ms.date: 12/07/2018
-ms.topic: design-pattern
+ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: cloud-fundamentals
+ms.custom:
+  - design-pattern
 ---
 
 # Publisher-Subscriber pattern

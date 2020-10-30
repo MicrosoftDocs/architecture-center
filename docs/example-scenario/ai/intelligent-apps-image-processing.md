@@ -6,10 +6,12 @@ ms.date: 07/05/2018
 ms.category:
   - ai-machine-learning
   - media
-ms.topic: example-scenario
+ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: example-scenario
 social_image_url: /azure/architecture/example-scenario/ai/media/architecture-intelligent-apps-image-processing.png
+ms.custom:
+  - example-scenario
 ---
 
 # Image classification for insurance claims on Azure

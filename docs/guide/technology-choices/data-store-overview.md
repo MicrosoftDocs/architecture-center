@@ -4,9 +4,11 @@ titleSuffix: Azure Application Architecture Guide
 description: Describes different data storage models found in Azure data services.
 author: dsk-2015
 ms.date: 08/08/2020
-ms.topic: guide
+ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: reference-architecture
+ms.custom:
+  - guide
 ---
 
 # Understand data store models

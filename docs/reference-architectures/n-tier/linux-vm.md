@@ -4,12 +4,14 @@ titleSuffix: Azure Reference Architectures
 description: Learn the best practices for running a Linux virtual machine on Azure, which requires some additional components, including networking and storage resources.
 author: telmosampaio
 ms.date: 12/13/2018
-ms.topic: reference-architecture
+ms.topic: conceptual
 ms.service: architecture-center
 ms.category:
   - compute
 ms.subservice: reference-architecture
-ms.custom: seodec18
+ms.custom:
+  - seodec18
+  - reference-architecture
 ---
 
 # Run a Linux virtual machine on Azure

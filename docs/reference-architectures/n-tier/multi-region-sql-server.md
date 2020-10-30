@@ -3,14 +3,16 @@ title: Multi-region N-tier application
 description: Deploy an application on Azure virtual machines in multiple regions for high availability and resiliency.
 author: doodlemania2
 ms.date: 06/18/2019
-ms.topic: reference-architecture
+ms.topic: conceptual
 ms.service: architecture-center
 ms.category:
   - web
   - databases
   - management-and-governance
 ms.subservice: reference-architecture
-ms.custom: seodec18
+ms.custom:
+  - seodec18
+  - reference-architecture
 ---
 
 # Run an N-tier application in multiple Azure regions for high availability

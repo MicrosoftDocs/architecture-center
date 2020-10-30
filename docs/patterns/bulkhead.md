@@ -5,10 +5,12 @@ description: Isolate elements of an application into pools so that if one fails,
 keywords: design pattern
 author: dragon119
 ms.date: 03/19/2020
-ms.topic: design-pattern
+ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: cloud-fundamentals
-ms.custom: seodec18
+ms.custom:
+  - seodec18
+  - design-pattern
 ---
 
 # Bulkhead pattern

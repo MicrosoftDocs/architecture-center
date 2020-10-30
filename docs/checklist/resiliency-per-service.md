@@ -4,10 +4,12 @@ titleSuffix: Azure Design Review Framework
 description: Resiliency is the ability to recover from failures and continue to function. Use this checklist to review the resiliency considerations for Azure services.
 author: PeterTaylor9999
 ms.date: 11/26/2018
-ms.topic: checklist
+ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
-ms.custom: resiliency, checklist
+ms.custom:
+  - resiliency
+  - checklist
 ---
 
 <!-- cSpell:ignore BACPAC DTUs nonbootable VHDs -->

@@ -7,9 +7,11 @@ ms.service: architecture-center
 ms.subservice: cloud-fundamentals
 ms.workload: data-services
 ms.devlang: R
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/02/2020
 ms.author: jepeach
+ms.custom:
+  - article
 ---
 
 <!-- cSpell:ignore devlang jepeach Jupyter DSVM RevoScaleR sparklyr AZTK -->

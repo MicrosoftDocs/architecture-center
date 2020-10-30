@@ -4,10 +4,12 @@ titleSuffix: Azure Example Scenarios
 description: Create an image classifier with a solution architecture that includes Microsoft AirSim Drone simulator and Azure Custom Vision Cognitive Service.
 author: jocontr
 ms.date: 06/03/2020
-ms.topic: example-scenario
+ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: example-scenario
-ms.custom: fcp
+ms.custom:
+  - fcp
+  - example-scenario
 ms.category:
   - ai-machine-learning
 ---

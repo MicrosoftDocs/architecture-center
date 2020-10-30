@@ -1,15 +1,16 @@
 ---
 title: Security considerations for highly sensitive IaaS apps in Azure
-description: Learn about VM security, encryption, NSGs, DMZs, access control, and other security considerations for highly sensitive IaaS and hybrid apps. 
+description: Learn about VM security, encryption, NSGs, DMZs, access control, and other security considerations for highly sensitive IaaS and hybrid apps.
 author: doodlemania2
 ms.date: 4/15/2020
-ms.topic: reference-architecture
+ms.topic: conceptual
 ms.service: architecture-center
 ms.custom:
-    - fcp
+  - fcp
+  - reference-architecture
 ms.category:
-    - security
-    - compute
+  - security
+  - compute
 ---
 
 # Security for highly sensitive IaaS apps in Azure

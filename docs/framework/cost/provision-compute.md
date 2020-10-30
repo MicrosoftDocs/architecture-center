@@ -1,12 +1,13 @@
 ---
 title: Compute
 description: Describes cost tradeoffs for compute services
-author:  v-aangie
+author: v-aangie
 ms.date: 08/26/2020
-ms.topic: article
+ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
-ms.custom: 
+ms.custom:
+  - article
 ---
 
 # Compute cost estimates

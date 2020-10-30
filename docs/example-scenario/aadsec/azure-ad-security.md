@@ -4,11 +4,12 @@ titleSuffix: Azure Example Scenarios
 description: Learn how security operations teams can use Azure Active Directory identity and access features in an adaptive, integrated zero-trust security architecture.
 author: doodlemania2
 ms.date: 05/20/2020
-ms.topic: example-scenario
+ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: example-scenario
 ms.custom:
   - fcp
+  - example-scenario
 ms.category:
   - security
 ---
