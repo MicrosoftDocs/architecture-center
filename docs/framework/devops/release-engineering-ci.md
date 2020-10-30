@@ -10,11 +10,15 @@ ms.subservice: well-architected
 
 # Release Engineering: Continuous integration
 
-As code is developed, updated, or even removed, having a friction-free and safe method to integrate these changes into the main code branch is paramount to enabling developers to provide value fast.
+As code is developed, updated, or even removed, having a friction-free and safe method to integrate these changes into the main code branch is paramount to enabling developers to provide value fast. As a developer, making small code changes, pushing these to a code repository, and getting almost instantaneous feedback on the quality, test coverage, and introduced bugs allows me to work faster, with more confidence, and less risk. Continuous integration is a practice where source control systems and software deployment pipelines are integrated to provide automated build, test, and feedback mechanisms for software development teams. 
+
+Continious integration is about ensuring that software is ready for deployment but does not include the deployment itself. This document covers the basics of continuous integration and offers links and examples for more in-depth content.
 
 ## Continious integration
 
-Continuous Integration (CI) is a development practice that requires developers to integrate code into a shared repository several times a day. Each check-in is then verified by an automated build, allowing teams to detect problems early. The key details to note are that you need to run code integration multiple times a day, every day, and you need to run the automated verification of the integration. What's the motivation for this? Well, in the development process, the earlier we surface errors, the better. And one source of frequently occurring errors is the code integration step.
+Continious integration is a software development practice under which developers merge software updates into a soruce controll system on a regular cadence. Once merged the following activities may take place:
+
+- Add Bullets for CI
 
 ## Continuous integration pipelines
 
