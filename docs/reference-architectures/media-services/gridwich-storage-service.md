@@ -168,9 +168,9 @@ Why is this here - what is it referring to?
 1. Sleeve instances are "dispensed" by ClientProviders.  There is one provider for [Blobs][ProvB] and another for [Containers][ProvC].  The providers are created when the Storage Service is initialized and are available directly to Storage Service methods as above.  Caching of sleeve instances is performed internal to each of the two providers.
 1. The Storage Service is currently set as "Transient" in the [Dependency Injection configuration][DIConfig], which implies that the sleeve-based caching will only be on a per-request basis anyway.  While Storage Service would be set to Transient or Scoped, it would likely falter if set as a Singleton due to the cache processing across multiple threads.  See [Storage Service and dependency injection](#storage-service-and-dependency-injection) for more information.
 -->
-## Alternatives
+## Storage alternatives
 
-The following sections describe alternative storage approaches that aren't part of the current Gridwich solution.
+The following sections describe alternative storage approaches that aren't part of the current Gridwich storage solution.
 
 ### Gridwich AzureStorageManagement class
 

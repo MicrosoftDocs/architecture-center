@@ -81,7 +81,7 @@ The code namespaces the package uses also follow this convention, for example:
 
 During build and test cycles, transient directories like `bin`, `obj` and `TestResults` appear, which contain no git-eligible artifacts.  The `dotnet clean` processing cleans up these transient directories.
 
-## Project names and namespaces
+## Project namespaces
 
 Gridwich project names and namespaces have the following characteristics.
 

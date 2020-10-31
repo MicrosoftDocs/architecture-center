@@ -36,7 +36,7 @@ The Gridwich pipeline scales to multiple environments, but there is only one art
 
 In Gridwich, software release and infrastructure deployment are two separate responsibilities. A single pipeline handles both responsibilities at various stages, using the following general pattern:
 
-**Software builds > Infrastructure deployment > Software release > Software configuration > Auto and admin custom script deployment**
+**Software builds > Infrastructure deployment > Software release > Software configuration > Custom script deployment**
 
 The guiding principle that infrastructure and software release are two distinct responsibilities makes deploying Event Grid subscriptions more difficult. When Azure creates an Event Grid webhook subscription, it sends a validation event to check whether the registering endpoint accepts Event Grid events. This validation check means the Azure Function must be released and running before Terraform can build the Event Grid subscription resources.
 

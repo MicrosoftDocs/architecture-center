@@ -20,7 +20,7 @@ This article details the specific Event Grid events that form the request-respon
 Gridwich Acknowledgment and Gridwich Failure are different from other events. Specifically,
 
 - [Gridwich Acknowledgment (ACK)](#m-ack) indicates only that Gridwich has received the request in a Request-ACK-Response sequence, not necessarily that the request is processed.
-- While each operation has one or more unique Success response events, all operations use the same [Gridwich Failure](#m-fail) event to communicate failure.
+- While each operation has one or more unique Success response events, almost all operations use the same [Gridwich Failure](#m-fail) event to communicate failure.
 
 **Publishing events**
 
