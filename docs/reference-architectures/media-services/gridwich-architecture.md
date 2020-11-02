@@ -31,13 +31,9 @@ The Microsoft engineering team developed Gridwich to align with principles and b
 - [Azure Storage usage](gridwich-storage-service.md)
 - [Logging](gridwich-logging.md)
 
-The Gridwich solution demonstrates best practices for processing and delivering media assets on Azure.
+The Gridwich solution demonstrates best practices for processing and delivering media assets on Azure. Although the Gridwich system is media-specific, the message processing and eventing framework can apply to any stateless event processing workflow.
 
-## Architecture
-
-Although the Gridwich system is media-specific, the message processing and eventing framework can apply to any stateless event processing workflow.
-
-### Gridwich sandwiches
+## Gridwich sandwiches
 
 Gridwich architecture features two *sandwiches* that address the requirements of asynchronous event processing and infrastructure as code:
 
@@ -72,7 +68,7 @@ Specifically, the external system has:
   
 - No JSON-formatting dependencies. For example, there are no assumptions about where whitespace padding may fall within the string representation of the JSON. Gridwich capitalizes on this lack of formatting dependency by compressing out unneeded whitespace in string representations of the JSON objects. See [JSONHelpers.SerializeOperationContext](https://github.com/mspnp/gridwich/src/Gridwich.Core/src/Helpers/JSONHelpers.cs).
 
-#### Saga participants and operation context
+### Saga participants and operation context
 
 In the Gridwich saga orchestration system, each [saga participant](saga-orchestration.md#saga-participants) contributes one or more work activities to the system. Each saga participant works independently of the other participants, and more than one saga participant might act on a single request.
 
@@ -85,7 +81,7 @@ Each of the saga participants must retain the operation context, but may impleme
 
 For more information about sagas and saga participants, see [Saga orchestration](saga-orchestration.md).
 
-### Request flow
+## Request flow
 
 The Gridwich request and response process covers request:
 
@@ -120,19 +116,19 @@ The following steps describe the request and response process between an externa
    
 1. The event publisher in the Azure Function sends the response event to an event grid topic, which acts as a reliable message broker. The external system subscribes to the topic and consumes the messages. The Event Grid platform provides its normal retry logic for publication to the external system.
 
-#### Message order
+### Message order
 
 While an Acknowledgment would precede both the Success and Scheduled responses, Gridwich doesn't guarantee that a Scheduled response will always precede the corresponding Success response. A valid response sequence could be either **Acknowledged > Scheduled > Success** or **Acknowledged > Success > Scheduled**.
 
-#### Request failures
+### Request failures
 
 Request failures can be caused by bad requests, missing pre-conditions, processing failures, security exceptions, or unhandled exceptions. Almost all failures have the same message form, and include the original operation context. The common [EventGridHandlerBase](https://github.com/mspnp/gridwich/src/Gridwich.Core/src/Bases/EventGridHandlerBase.cs) class typically sends Failure responses to Event Grid via the Azure Function event publisher interface. [Application Insights](/azure/azure-monitor/app/app-insights-overview) also logs failures via [structured logging](gridwich-logging.md).
 
-### Sync and async handlers
+## Sync and async handlers
 
 Gridwich requests may be synchronous or asynchronous in nature.
 
-#### Synchronous event processing
+### Synchronous event processing
 
 For requests that are easy to perform and fast to complete, the handler does the work synchronously and returns the success event, with its operation context, almost immediately after sending the acknowledgment.
 
@@ -142,7 +138,7 @@ For example, the [ChangeBlobTierHandler](https://github.com/mspnp/gridwich/src/G
 
 ![Diagram showing the ChangeBlobTierHandler synchronous flow example.](media/sync-example.png)
 
-#### Asynchronous event processing
+### Asynchronous event processing
 
 Some requests are long-running. For example, encoding media files can take hours. In these cases, an *asynchronous request handler* evaluates the request, validates arguments, and initiates the long-running operation. The handler then returns a Scheduled response to confirm that it requested the work activity.
 
@@ -158,7 +154,7 @@ To complete the long-running request flow, the [BlobCreatedHandler](https://gith
 
 ![Diagram showing the BlobCopyHandler asynchronous flow example with event successful.](media/async-example-success.png)
 
-### Long-running functions
+## Long-running functions
 
 Deploying a new Gridwich Functions App may drop current long-running processes. If these processes end abruptly, there's no status and no report back to the caller. Gridwich must deploy new Functions Apps while gracefully handling the transition for long-running functions and not missing any messages.
 

@@ -21,9 +21,9 @@ This article describes how the Gridwich Azure Storage Service meets solution req
 
 ## Azure Storage SDK
 
-Gridwich uses classes from the Azure Storage SDK to interact with Azure Storage, rather than hand-crafting REST requests. Within the storage provider, the SDK [BlobBasicClient][SDK_BlobClient] and [BlobContainerClient][SDK_ContainerClient] classes manage storage requests. Gridwich storage mechanisms work for both Azure Storage block blobs and containers. This article applies to both blobs and containers, except where noted.
+Gridwich uses classes from the Azure Storage SDK to interact with Azure Storage, rather than hand-crafting REST requests. Within the storage provider, the SDK [BlobBaseClient][SDK_BlobClient] and [BlobContainerClient][SDK_ContainerClient] classes manage storage requests. Gridwich storage mechanisms work for both Azure Storage block blobs and containers. This article applies to both blobs and containers, except where noted.
 
-There are distinct classes and sets of Storage Service operations for blobs and containers, so there's no ambiguity about whether a given storage operation relates to a blob or to a container. The `BlobBasicClient` and `BlobContainerClient` provider classes dispense the two sets of functionality in units called *sleeves* . For more information about sleeves, see [Storage sleeves](#storage-sleeves).
+There are distinct classes and sets of Storage Service operations for blobs and containers, so there's no ambiguity about whether a given storage operation relates to a blob or to a container. The `BlobBaseClient` and `BlobContainerClient` provider classes dispense the two sets of functionality in units called *sleeves* . For more information about sleeves, see [Storage sleeves](#storage-sleeves).
 
 The SDK client classes currently allow only indirect access to the two HTTP headers Gridwich needs to manipulate, `x-ms-client-request-id` for operation context and `ETag` for object version. The following diagram shows the structure between the various classes. The diagram indicates how one set of instances relate to each other. The arrows indicate "has a reference to."
 
@@ -49,7 +49,7 @@ This instance reuse, combined with the Azure Storage SDK client structure, requi
 
 Almost all the Gridwich Storage Service operations require a special context argument of type [StorageClientProviderContext][SCPC]. This context argument fulfills the following requirements:
 
-- Provides the external system with responses, which include the per-request unique JSON-based operation context value that the external system specified on the Gridwich request. For more information, see [Operation context](gridwich-architecture.md#operation-context).
+- Provides the external system with responses, which include the per-request unique JSON-based operation context value that the external system specified on the Gridwich request. For more information, see [Operation context](#operation-context).
 
 - Allows Storage Service callers like Gridwich event handlers to control which responses are visible to the external system. This control prevents flooding the external system with irrelevant notification events. For more information, see [Context muting](#context-muting).
 
@@ -174,11 +174,11 @@ The following sections describe alternative storage approaches that aren't part 
 
 ### Gridwich AzureStorageManagement class
 
-In conjunction with the sleeve `Service` member, an instance of an [SDK class][SDK_ServiceClient]), Gridwich also has the [AzureStorageManagement][StorMgmt] class. That class is used by the Storage Service `GetConnectionStringForAccount` method and the Telerek encoding `GetStoreByNameAsync` method to obtain storage account keys. The class is currently based on the Fluent framework, and should eventually be superseded with additions to the [SDK ServiceClient class][SDK_ServiceClient]. These additions will allow more focused information retrieval than the wide variety in the [Fluent IAzure interface][IAzure].
+In conjunction with the sleeve `Service` member, an instance of an [SDK class][SDK_ServiceClient], Gridwich also has the [AzureStorageManagement][StorMgmt] class. That class is used by the Storage Service `GetConnectionStringForAccount` method and the Telerek encoding `GetStoreByNameAsync` method to obtain storage account keys. The class is currently based on the Fluent framework, and should eventually be superseded with additions to the [SDK ServiceClient class][SDK_ServiceClient]. These additions will allow more focused information retrieval than the wide variety in the [Fluent IAzure interface][IAzure].
 
 ### Hide the pipeline policy via subclassing
 
-Subclassing the SDK client types adds two simple properties to the client, one for each HTTP header value, to completely hide the interaction with the pipeline policy. But because of a deep [Moq](https://github.com/moq/moq4) bug, it's not possible to create unit tests via `mock` for these derived types. Gridwich uses `mock`, so didn't use this subclassing approach.
+Subclassing the SDK client types adds two simple properties to the client, one for each HTTP header value, to completely hide the interaction with the pipeline policy. But because of a deep [Moq](https://github.com/moq/moq4) bug, it's not possible to create unit tests via `mock` for these derived types. Gridwich uses Moq, so didn't use this subclassing approach.
 
 The Moq bug relates to its mishandling of cross-assembly subclassing in the presence of internal-scope virtual functions. The SDK client classes make use of internal-scope virtual functions involving internal-scope types invisible to normal outside users. When Moq tries to create a `mock` of the subclass, which is in one of the Gridwich assemblies, it fails at test execution time as it chokes on finding the internal-scope virtuals in the SDK client classes from which the Gridwich classes are derived. There is no workaround without changes in the Moq Castle proxy generation.
 
@@ -188,7 +188,7 @@ Gridwich currently registers the Storage Service as a `Transient` dependency inj
 
 However, there will be issues if the registration is changed to `Singleton`, one instance across the Gridwich Function app. The Gridwich caching mechanism for sleeves and data byte ranges then won't distinguish between different requests. Also, the cache model isn't a check-out one, so the instance isn't removed from the cache while in use. Since the SDK client classes aren't guaranteed thread-safe, coordination would require a number of changes.
 
-The net is that the Gridwich Storage Service, as is, shouldn't be changed to `Singleton` dependency injection registration. Gridwich follows this restriction in [dependency injection registration][StorageServiceDI] and includes a unit test ([CheckThatStorageServiceIsNotASingleton][SSTest]) to enforce it.
+The net is that the Gridwich Storage Service, as is, shouldn't be changed to `Singleton` dependency injection registration. Gridwich follows this restriction in [dependency injection registration][StorageServiceDI] and includes a unit test, [CheckThatStorageServiceIsNotASingleton][SSTest], to enforce it.
 
 [StorageService]: https://github.com/mspnp/gridwich/src/Gridwich.SagaParticipants.Storage.AzureStorage
 [SCPC]: https://github.com/mspnp/gridwich/src/Gridwich.Core/src/Models/StorageClientProviderContext.cs "StorageClientProviderContext.cs"
