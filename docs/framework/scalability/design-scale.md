@@ -19,17 +19,25 @@ For example, for optimal performance, the application and the services it uses s
 
 Planning for growth starts with understanding your current workloads. This can help to anticipate scale needs based on predictive usage scenarios. An example of a predictive usage scenario is an e-commerce site that recognizes that its infrastructure should scale appropriately for an anticipated high volume of holiday traffic.
 
+Perform load tests and stress tests to determine the necessary infrastructure to support the predicted spikes in workloads. A good plan includes incorporating a buffer to accommodate for random spikes.
+
+For more information on how to determine the upper and maximum limits of an application's capacity, see the Performance Testing article in the Performance Efficiency pillar. <!--LINK to new Performance Testing article-->
+
+Another critical component of planning for scale is to make sure the region that hosts your application supports the necessary scale required to accommodate load increase. If you are using a paired region, make sure the secondary region can also support increase. A region can offer the product but may not support the predicted load increases without the necessary SKUs so you need to verify this. If you do not take this step, you will most likely need to upgrade your product to the next available pricing tier.
+
+To verify your region and SKUs, first select thr product and regions in [Products available bt region](https://azure.microsoft.com/global-infrastructure/services/?products=).
+
+![Products available by region](../_images/_images/design-scale-1.png)
+
+Then, check the SKUs available in the Azure Portal.
+
 ### Add scale units
 
 For each resource, know the upper scaling limits, and use [sharding](https://docs.microsoft.com/azure/azure-sql/database/elastic-scale-introduction#sharding) or decomposition to go beyond those limits. Design the application so that it's easily scaled by adding one or more [scale units](https://docs.microsoft.com/archive/msdn-magazine/2017/february/azure-inside-the-azure-app-service-architecture#what-is-an-app-service-scale-unit). Determine the scale units for the system in terms of well-defined sets of resources. This makes applying scale-out operations easier and less prone to negative impact caused by a lack of resources in some part of the overall system. 
 
 The next step might be to use built-in scaling features or tools such as Azure Automation to autoscale. For example, adding X number of front-end VMs might require Y number of additional queues and Z number of storage accounts to handle the additional workload. So a scale unit could consist of X VM instances, Y queues, and Z storage accounts.
 
-### Check your SKU
 
-It is possible that the region that hosts an application may offer a specific product, but that product may not have all of the necessary pricing tiers (also known as SKUs). Make sure to verify that your region will support the planned increase is scale for the load.
-
-For example, you may need a Service Bus for your application. For scale and stability, the application requires that the Service Bus scales up to a certain level. While the region that you are currently using offers the Service Bus product, it does not offer the required SKUs.
 
 ## Use Autoscaling to manage load increases and decreases
 
@@ -74,7 +82,7 @@ Here's how you can benefit from autoscaling features:
 
 For more information, see [Autoscaling guidance](https://review.docs.microsoft.com/azure/architecture/best-practices/auto-scaling).
 
-If your application isn't configured to scale out automatically as load increases, it's possible that your application's services will fail if they become saturated with user requests. For more information, see the following articles:
+If your application isn't configured to scale out automatically as load increases, it's possible that your application's services will fail if they become saturated with user requests. For more information, see the following articles: 
 
 - General: [performance efficiency checklist](https://review.docs.microsoft.com/azure/architecture/framework/scalability/performance-efficiency)
 - Azure App Service: [Scale instance count manually or automatically](https://review.docs.microsoft.com/azure/monitoring-and-diagnostics/insights-how-to-scale/)
