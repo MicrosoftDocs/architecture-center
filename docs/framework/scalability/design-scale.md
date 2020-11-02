@@ -2,7 +2,7 @@
 title: scaling for performance efficiency
 description: Describes the scaling options for performance efficiency
 author: v-aangie
-ms.date: 10/29/2020
+ms.date: 11/04/2020
 ms.topic: article
 ms.service: architecture-center
 ms.subservice: well-architected
@@ -23,21 +23,19 @@ Perform load tests and stress tests to determine the necessary infrastructure to
 
 For more information on how to determine the upper and maximum limits of an application's capacity, see the Performance Testing article in the Performance Efficiency pillar. <!--LINK to new Performance Testing article-->
 
-Another critical component of planning for scale is to make sure the region that hosts your application supports the necessary scale required to accommodate load increase. If you are using a paired region, make sure the secondary region can also support increase. A region can offer the product but may not support the predicted load increases without the necessary SKUs so you need to verify this. If you do not take this step, you will most likely need to upgrade your product to the next available pricing tier.
+Another critical component of planning for scale is to make sure the region that hosts your application supports the necessary scale required to accommodate load increase. If you are using a multi-region architecture, make sure the secondary regions can also support the increase. A region can offer the product but may not support the predicted load increase without the necessary SKUs so you need to verify this. If you do not take this step, you will most likely need to upgrade your product to the next available pricing tier.
 
-To verify your region and SKUs, first select thr product and regions in [Products available bt region](https://azure.microsoft.com/global-infrastructure/services/?products=).
+To verify your region and available SKUs, first select the product and regions in [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=).
 
 ![Products available by region](../_images/_images/design-scale-1.png)
 
-Then, check the SKUs available in the Azure Portal.
+Then, check the SKUs available in the Azure portal.
 
 ### Add scale units
 
 For each resource, know the upper scaling limits, and use [sharding](https://docs.microsoft.com/azure/azure-sql/database/elastic-scale-introduction#sharding) or decomposition to go beyond those limits. Design the application so that it's easily scaled by adding one or more [scale units](https://docs.microsoft.com/archive/msdn-magazine/2017/february/azure-inside-the-azure-app-service-architecture#what-is-an-app-service-scale-unit). Determine the scale units for the system in terms of well-defined sets of resources. This makes applying scale-out operations easier and less prone to negative impact caused by a lack of resources in some part of the overall system. 
 
 The next step might be to use built-in scaling features or tools such as Azure Automation to autoscale. For example, adding X number of front-end VMs might require Y number of additional queues and Z number of storage accounts to handle the additional workload. So a scale unit could consist of X VM instances, Y queues, and Z storage accounts.
-
-
 
 ## Use Autoscaling to manage load increases and decreases
 
