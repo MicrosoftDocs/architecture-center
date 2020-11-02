@@ -116,19 +116,11 @@ The following steps describe the request and response process between an externa
    
 1. The event publisher in the Azure Function sends the response event to an event grid topic, which acts as a reliable message broker. The external system subscribes to the topic and consumes the messages. The Event Grid platform provides its normal retry logic for publication to the external system.
 
-### Message order
-
-While an Acknowledgment would precede both the Success and Scheduled responses, Gridwich doesn't guarantee that a Scheduled response will always precede the corresponding Success response. A valid response sequence could be either **Acknowledged > Scheduled > Success** or **Acknowledged > Success > Scheduled**.
-
-### Request failures
-
-Request failures can be caused by bad requests, missing pre-conditions, processing failures, security exceptions, or unhandled exceptions. Almost all failures have the same message form, and include the original operation context. The common [EventGridHandlerBase](https://github.com/mspnp/gridwich/src/Gridwich.Core/src/Bases/EventGridHandlerBase.cs) class typically sends Failure responses to Event Grid via the Azure Function event publisher interface. [Application Insights](/azure/azure-monitor/app/app-insights-overview) also logs failures via [structured logging](gridwich-logging.md).
-
-## Sync and async handlers
+### Sync and async handlers
 
 Gridwich requests may be synchronous or asynchronous in nature.
 
-### Synchronous event processing
+#### Synchronous event processing
 
 For requests that are easy to perform and fast to complete, the handler does the work synchronously and returns the success event, with its operation context, almost immediately after sending the acknowledgment.
 
@@ -138,7 +130,7 @@ For example, the [ChangeBlobTierHandler](https://github.com/mspnp/gridwich/src/G
 
 ![Diagram showing the ChangeBlobTierHandler synchronous flow example.](media/sync-example.png)
 
-### Asynchronous event processing
+#### Asynchronous event processing
 
 Some requests are long-running. For example, encoding media files can take hours. In these cases, an *asynchronous request handler* evaluates the request, validates arguments, and initiates the long-running operation. The handler then returns a Scheduled response to confirm that it requested the work activity.
 
@@ -154,7 +146,7 @@ To complete the long-running request flow, the [BlobCreatedHandler](https://gith
 
 ![Diagram showing the BlobCopyHandler asynchronous flow example with event successful.](media/async-example-success.png)
 
-## Long-running functions
+### Long-running functions
 
 Deploying a new Gridwich Functions App may drop current long-running processes. If these processes end abruptly, there's no status and no report back to the caller. Gridwich must deploy new Functions Apps while gracefully handling the transition for long-running functions and not missing any messages.
 
@@ -176,6 +168,14 @@ Slot deployment deploys new software versions. The production slot has the runni
 Gridwich waits 30 seconds after remapping the hostnames, so for HTTP-triggered functions, Gridwich guarantees at least 30 seconds before the restart for the old production slot. Other triggers are controlled by app settings and don't have a mechanism to wait on app setting updates, so those functions risk being interrupted if execution starts right before the old production slot is restarted.
 
 For more information, see [What happens during a slot swap for Azure Functions](/azure/azure-functions/functions-deployment-slots#swap-operations) and [Azure Functions deployment slots](/azure/azure-functions/functions-deployment-slots).
+
+### Message order
+
+While an Acknowledgment would precede both the Success and Scheduled responses, Gridwich doesn't guarantee that a Scheduled response will always precede the corresponding Success response. A valid response sequence could be either **Acknowledged > Scheduled > Success** or **Acknowledged > Success > Scheduled**.
+
+### Request failures
+
+Request failures can be caused by bad requests, missing pre-conditions, processing failures, security exceptions, or unhandled exceptions. Almost all failures have the same message form, and include the original operation context. The common [EventGridHandlerBase](https://github.com/mspnp/gridwich/src/Gridwich.Core/src/Bases/EventGridHandlerBase.cs) class typically sends Failure responses to Event Grid via the Azure Function event publisher interface. [Application Insights](/azure/azure-monitor/app/app-insights-overview) also logs failures via [structured logging](gridwich-logging.md).
 
 ## Components
 
