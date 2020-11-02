@@ -77,7 +77,6 @@ When compared to network virtual appliances (NVAs), with Azure Firewall you can 
 
 ### Reference architecture
 - [Hub-spoke network topology in Azure](../../reference-architectures/hybrid-networking/hub-spoke.md)
-- [Implement a hub-spoke network topology](../../reference-architectures/hybrid-networking/shared-services.md)
 - [Deploy highly available NVAs](../../reference-architectures/dmz/nva-ha.md)
 
 
