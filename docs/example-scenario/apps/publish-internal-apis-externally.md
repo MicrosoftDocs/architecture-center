@@ -7,13 +7,14 @@ ms.author: ssarwa
 ms.category:
   - integration
   - hybrid
-ms.topic: example-scenario
+ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: example-scenario
 ms.custom:
   - fasttrack
   - web-apps
   - app-modernization
+  - example-scenario
 social_image_url: ./media/architecture-publish-internal-apis-externally.png
 ---
 

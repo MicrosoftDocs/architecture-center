@@ -1,11 +1,13 @@
 ---
 title: Security design principles in Azure | Microsoft Docs
-description: These principles support these three key strategies and describe a securely architected system hosted on cloud or on-premises datacenters (or a combination of both). 
+description: These principles support these three key strategies and describe a securely architected system hosted on cloud or on-premises datacenters (or a combination of both).
 author: PageWriter-MSFT
 ms.date: 07/15/2019
-ms.topic: article
+ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
+ms.custom:
+  - article
 ---
 
 # Security design principles

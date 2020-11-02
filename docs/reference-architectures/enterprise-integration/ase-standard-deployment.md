@@ -4,12 +4,14 @@ titleSuffix: Azure Reference Architectures
 description: Recommended architecture for deploying an enterprise application using App Services Environment.
 author: dsk-2015
 ms.date: 05/08/2020
-ms.topic: reference-architecture
+ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: reference-architecture
 ms.category:
-    - management-and-governance
-    - featured
+  - management-and-governance
+  - featured
+ms.custom:
+  - reference-architecture
 ---
 
 # Enterprise app deployment using App Service Environment

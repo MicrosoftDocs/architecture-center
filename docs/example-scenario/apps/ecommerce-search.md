@@ -7,13 +7,14 @@ ms.date: 09/14/2018
 ms.category:
   - web
   - analytics
-ms.topic: example-scenario
+ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: example-scenario
 ms.custom:
   - fasttrack
   - ecommerce
   - web-app
+  - example-scenario
 social_image_url: /azure/architecture/example-scenario/apps/media/architecture-ecommerce-search.png
 ---
 

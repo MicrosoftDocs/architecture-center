@@ -3,13 +3,15 @@ title: Back up files and applications on Azure Stack Hub
 description: Backup and restoration of files and applications of VM-based workloads
 author: doodlemania2
 ms.date: 08/06/2020
-ms.topic: reference-architecture
+ms.topic: conceptual
 ms.service: architecture-center
 ms.category:
   - hybrid
   - management-and-governance
 ms.subservice: reference-architecture
-ms.custom: fcp
+ms.custom:
+  - fcp
+  - reference-architecture
 ---
 
 # Back up files and applications on Azure Stack Hub

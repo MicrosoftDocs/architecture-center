@@ -3,10 +3,12 @@ title: Monitoring application health for reliability in Azure
 description: How to use monitoring to improve application reliability in Azure
 author: david-stanford
 ms.date: 10/16/2019
-ms.topic: article
+ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
-ms.custom: How are you ensuring failures are resolved quickly? 
+ms.custom:
+  - How are you ensuring failures are resolved quickly?
+  - article
 ---
 
 # Monitoring application health for reliability in Azure

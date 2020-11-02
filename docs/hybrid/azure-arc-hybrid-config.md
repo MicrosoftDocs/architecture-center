@@ -3,13 +3,15 @@ title: Manage configurations for Azure Arc enabled servers
 description: Use Azure Arc to extend Azure Resource Manager capabilities to Windows and Linux machines on any infrastructure.
 author: doodlemania2
 ms.date: 07/28/2020
-ms.topic: reference-architecture
+ms.topic: conceptual
 ms.service: architecture-center
 ms.category:
   - hybrid
   - management-and-governance
 ms.subservice: reference-architecture
-ms.custom: fcp 
+ms.custom:
+  - fcp
+  - reference-architecture
 ---
 
 # Manage configurations for Azure Arc enabled servers

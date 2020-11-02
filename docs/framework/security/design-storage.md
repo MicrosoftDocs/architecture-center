@@ -3,9 +3,11 @@ title: Security storage in Azure | Microsoft Docs
 description: Secure data storage in Azure
 author: v-aangie
 ms.date: 09/17/2020
-ms.topic: article
+ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
+ms.custom:
+  - article
 ---
 
 # Storage

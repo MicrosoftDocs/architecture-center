@@ -3,10 +3,12 @@ title: Business Metrics
 description: 
 author: david-stanford
 ms.date: 10/16/2019
-ms.topic: article
+ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
-ms.custom: Which business metrics have you defined for your application? 
+ms.custom:
+  - Which business metrics have you defined for your application?
+  - article
 ---
 
 # Using business metrics to design resilient Azure applications

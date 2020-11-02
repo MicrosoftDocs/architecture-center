@@ -3,10 +3,12 @@ title: Recover from loss of an Azure region
 description: Design resilient, highly available, fault-tolerant applications and plan for disaster recovery.
 author: adamglick
 ms.date: 08/18/2016
-ms.topic: article
+ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
-ms.custom: resiliency
+ms.custom:
+  - resiliency
+  - article
 ---
 
 # Recover from a region-wide service disruption

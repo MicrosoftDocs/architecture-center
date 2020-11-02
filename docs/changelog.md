@@ -2,7 +2,7 @@
 title: What's New in the Azure Architecture Center
 description: New and updated articles in the Azure Architecture Center
 author: doodlemania2
-ms.date: 10/18/2020
+ms.date: 11/02/2020
 ms.topic: article
 ms.service: architecture-center
 
@@ -22,6 +22,28 @@ New and updated articles in the Azure Architecture Center
 
 ### New Articles
 
+- [SQL Server 2008 R2 failover cluster in Azure](https://docs.microsoft.com/azure/architecture/example-scenario/sql-failover/sql-failover-2008r2)
+- [Kafka on Azure](https://docs.microsoft.com/azure/architecture/solution-ideas/articles/kafka-on-azure)
+- [Secure application&#x27;s configuration and dependencies](https://docs.microsoft.com/azure/architecture/framework/security/design-app-dependencies)
+- [Application classification for security](https://docs.microsoft.com/azure/architecture/framework/security/design-apps-considerations)
+- [Application threat analysis](https://docs.microsoft.com/azure/architecture/framework/security/design-threat-model)
+- [AKS triage - cluster health](https://docs.microsoft.com/azure/architecture/operator-guides/aks/aks-triage-cluster-health)
+- [AKS triage - container registry connectivity](https://docs.microsoft.com/azure/architecture/operator-guides/aks/aks-triage-container-registry)
+- [AKS triage - admission controllers](https://docs.microsoft.com/azure/architecture/operator-guides/aks/aks-triage-controllers)
+- [AKS triage - workload deployments](https://docs.microsoft.com/azure/architecture/operator-guides/aks/aks-triage-deployment)
+- [AKS triage - node health](https://docs.microsoft.com/azure/architecture/operator-guides/aks/aks-triage-node-health)
+- [Azure Kubernetes Service (AKS) operations triage](https://docs.microsoft.com/azure/architecture/operator-guides/aks/aks-triage-practices)
+- [Alerts in IoT Edge Vision](https://docs.microsoft.com/azure/architecture/guide/iot-edge-vision/alerts)
+- [Camera selection for IoT Edge Vision](https://docs.microsoft.com/azure/architecture/guide/iot-edge-vision/camera)
+- [Hardware for IoT Edge Vision](https://docs.microsoft.com/azure/architecture/guide/iot-edge-vision/hardware)
+- [Image storage in IoT Edge Vision](https://docs.microsoft.com/azure/architecture/guide/iot-edge-vision/image-storage)
+- [Azure IoT Edge Vision](https://docs.microsoft.com/azure/architecture/guide/iot-edge-vision)
+- [Machine learning in IoT Edge Vision](https://docs.microsoft.com/azure/architecture/guide/iot-edge-vision/machine-learning)
+- [User interface in IoT Edge Vision](https://docs.microsoft.com/azure/architecture/guide/iot-edge-vision/user-interface)
+- [Configure infrastructure](https://docs.microsoft.com/azure/architecture/framework/devops/automation-configuration)
+- [Repeatable Infrastructure](https://docs.microsoft.com/azure/architecture/framework/devops/automation-infrastructure)
+- [Automation overview of goals, best practices, and types in Azure](https://docs.microsoft.com/azure/architecture/framework/devops/automation-overview)
+- [Automated Tasks](https://docs.microsoft.com/azure/architecture/framework/devops/automation-tasks)
 - [Partitioning in Event Hubs and Kafka](https://docs.microsoft.com/azure/architecture/reference-architectures/event-hubs/partitioning-in-event-hubs-and-kafka)
 - [Retail - Buy online, pickup in store (BOPIS)](https://docs.microsoft.com/azure/architecture/example-scenario/iot/vertical-buy-online-pickup-in-store)
 - [Magento e-commerce platform in Azure Kubernetes Service (AKS)](https://docs.microsoft.com/azure/architecture/example-scenario/magento/magento-azure)
@@ -29,6 +51,12 @@ New and updated articles in the Azure Architecture Center
 
 ### Updated Articles
 
+- [Security with identity and access management (IAM) in Azure](https://docs.microsoft.com/azure/architecture/framework/security/design-identity)  ([#2a1154709](https://github.com/MicrosoftDocs/architecture-center/commit/2a1154709))
+- [Regulatory compliance](https://docs.microsoft.com/azure/architecture/framework/security/design-regulatory-compliance)  ([#2a1154709](https://github.com/MicrosoftDocs/architecture-center/commit/2a1154709))
+- [Computer forensics Chain of Custody in Azure](https://docs.microsoft.com/azure/architecture/example-scenario/forensics)  ([#909b776f4](https://github.com/MicrosoftDocs/architecture-center/commit/909b776f4))
+- [Overview of the performance efficiency pillar](https://docs.microsoft.com/azure/architecture/framework/scalability/overview)  ([#ed89cf6ab](https://github.com/MicrosoftDocs/architecture-center/commit/ed89cf6ab))
+- [Azure Kubernetes Service (AKS) solution journey](https://docs.microsoft.com/azure/architecture/reference-architectures/containers/aks-start-here)  ([#b63ab6a9f](https://github.com/MicrosoftDocs/architecture-center/commit/b63ab6a9f))
+- [GCP to Azure Services Comparison](https://docs.microsoft.com/azure/architecture/gcp-professional/services)  ([#a45091c00](https://github.com/MicrosoftDocs/architecture-center/commit/a45091c00))
 - [Resiliency patterns](https://docs.microsoft.com/azure/architecture/patterns/category/resiliency)  ([#b5201626c](https://github.com/MicrosoftDocs/architecture-center/commit/b5201626c))
 - [Choosing an Azure compute service](https://docs.microsoft.com/azure/architecture/guide/technology-choices/compute-decision-tree)  ([#a64329288](https://github.com/MicrosoftDocs/architecture-center/commit/a64329288))
 - [Security patterns](https://docs.microsoft.com/azure/architecture/patterns/category/security)  ([#13add8a06](https://github.com/MicrosoftDocs/architecture-center/commit/13add8a06))
@@ -46,7 +74,7 @@ New and updated articles in the Azure Architecture Center
 - [Tenancy model for SaaS applications](https://docs.microsoft.com/azure/architecture/isv/application-tenancy)
 - [Migrate IBM mainframe applications to Azure with TmaxSoft OpenFrame](https://docs.microsoft.com/azure/architecture/solution-ideas/articles/migrate-mainframe-apps-with-tmaxsoft-openframe)
 - [Monitor tools in Azure | Microsoft Docs](https://docs.microsoft.com/azure/architecture/framework/security/monitor-tools)
-- [Applications and services in Azure | Microsoft Docs](https://docs.microsoft.com/azure/architecture/framework/security/design-apps-services)
+- [Applications and services](https://docs.microsoft.com/azure/architecture/framework/security/design-apps-services)
 - [Security storage in Azure | Microsoft Docs](https://docs.microsoft.com/azure/architecture/framework/security/design-storage)
 - [Azure Active Directory IDaaS in Security Operations](https://docs.microsoft.com/azure/architecture/example-scenario/aadsec/azure-ad-security)
 - [Capture cost requirements for an Azure](https://docs.microsoft.com/azure/architecture/framework/cost/design-capture-requirements)
@@ -103,7 +131,6 @@ New and updated articles in the Azure Architecture Center
 - [Multiple forests with AD DS, Azure AD, and Azure AD DS](https://docs.microsoft.com/azure/architecture/example-scenario/wvd/multi-forest-azure-managed)
 - [Multiple forests with AD DS and Azure AD](https://docs.microsoft.com/azure/architecture/example-scenario/wvd/multi-forest)
 - [Virtual network integrated serverless microservices](https://docs.microsoft.com/azure/architecture/example-scenario/integrated-multiservices/virtual-network-integration)
-- [Automated Kubernetes deployments with Bedrock](https://docs.microsoft.com/azure/architecture/example-scenario/bedrock/bedrock-automated-deployments)
 - [Big data analytics with Azure Data Explorer](https://docs.microsoft.com/azure/architecture/solution-ideas/articles/big-data-azure-data-explorer)
 - [Content Delivery Network analytics](https://docs.microsoft.com/azure/architecture/solution-ideas/articles/content-delivery-network-azure-data-explorer)
 - [Azure Data Explorer interactive analytics](https://docs.microsoft.com/azure/architecture/solution-ideas/articles/interactive-azure-data-explorer)
@@ -145,7 +172,6 @@ New and updated articles in the Azure Architecture Center
 
 ### New Articles
 
-- [Use Cobalt to create an extensible cloud framework](https://docs.microsoft.com/azure/architecture/example-scenario/cobalt/cobalt-extensible-cloud-framework)
 - [Predictive maintenance with the intelligent IoT Edge](https://docs.microsoft.com/azure/architecture/example-scenario/predictive-maintenance/iot-predictive-maintenance)
 - [Multitenant SaaS on Azure](https://docs.microsoft.com/azure/architecture/example-scenario/multi-saas/multitenant-saas)
 - [Saga distributed transactions](https://docs.microsoft.com/azure/architecture/reference-architectures/saga/saga)
@@ -177,52 +203,4 @@ New and updated articles in the Azure Architecture Center
 - [Failure mode analysis](https://docs.microsoft.com/azure/architecture/resiliency/failure-mode-analysis)  ([#f7d496352](https://github.com/MicrosoftDocs/architecture-center/commit/f7d496352))
 - [Azure IoT reference architecture](https://docs.microsoft.com/azure/architecture/reference-architectures/iot)  ([#682844123](https://github.com/MicrosoftDocs/architecture-center/commit/682844123))
 - [Run a highly available SharePoint Server 2016 farm in Azure](https://docs.microsoft.com/azure/architecture/reference-architectures/sharepoint)  ([#fefe37ee4](https://github.com/MicrosoftDocs/architecture-center/commit/fefe37ee4))
-
-## June 2020
-
-### New Articles
-
-- [Build cloud native applications](https://docs.microsoft.com/azure/architecture/solution-ideas/articles/cloud-native-apps)
-- [Deliver highly scalable customer service and ERP applications](https://docs.microsoft.com/azure/architecture/solution-ideas/articles/erp-customer-service)
-- [Modernize .NET applications](https://docs.microsoft.com/azure/architecture/solution-ideas/articles/net-app-modernization)
-- [Firewall and Application Gateway for virtual networks](https://docs.microsoft.com/azure/architecture/example-scenario/gateway/firewall-application-gateway)
-- [Dynamics Business Central as a Service on Azure](https://docs.microsoft.com/azure/architecture/solution-ideas/articles/business-central)
-- [Build web and mobile applications](https://docs.microsoft.com/azure/architecture/solution-ideas/articles/webapps)
-- [AI for Earth](https://docs.microsoft.com/azure/architecture/solution-ideas/articles/ai-for-earth)
-- [Oracle database migration: Cross-cloud connectivity](https://docs.microsoft.com/azure/architecture/example-scenario/oracle-migrate/oracle-migration-cross-cloud)
-- [Oracle database migration: Lift and shift](https://docs.microsoft.com/azure/architecture/example-scenario/oracle-migrate/oracle-migration-lift-shift)
-- [Overview of Oracle database migration](https://docs.microsoft.com/azure/architecture/example-scenario/oracle-migrate/oracle-migration-overview)
-- [Oracle database migration: Rearchitect](https://docs.microsoft.com/azure/architecture/example-scenario/oracle-migrate/oracle-migration-rearchitect)
-- [Oracle database migration: Refactor](https://docs.microsoft.com/azure/architecture/example-scenario/oracle-migrate/oracle-migration-refactor)
-- [Architectural design session](https://docs.microsoft.com/azure/architecture/serverless-quest/ads)
-- [Application assessment](https://docs.microsoft.com/azure/architecture/serverless-quest/application-assessment)
-- [Serverless Functions app development and deployment](https://docs.microsoft.com/azure/architecture/serverless-quest/application-development)
-- [The CSE code-with engineering playbook](https://docs.microsoft.com/azure/architecture/serverless-quest/code-with)
-- [Serverless Functions app operations](https://docs.microsoft.com/azure/architecture/serverless-quest/functions-app-operations)
-- [Azure Functions security](https://docs.microsoft.com/azure/architecture/serverless-quest/functions-app-security)
-- [Conduct a Proof of Concept or pilot](https://docs.microsoft.com/azure/architecture/serverless-quest/poc-pilot)
-- [Serverless Functions reference architectures](https://docs.microsoft.com/azure/architecture/serverless-quest/reference-architectures)
-- [Serverless Functions overview](https://docs.microsoft.com/azure/architecture/serverless-quest/serverless-overview)
-- [Technical workshops and training](https://docs.microsoft.com/azure/architecture/serverless-quest/technical-training)
-- [Plan serverless Functions deployment](https://docs.microsoft.com/azure/architecture/serverless-quest/validate-commit-serverless-adoption)
-- [IaaS: Web application with relational database](https://docs.microsoft.com/azure/architecture/high-availability/ref-arch-iaas-web-and-db)
-- [Baseball decision analysis with ML.NET and Blazor](https://docs.microsoft.com/azure/architecture/data-guide/big-data/baseball-ml-workload)
-- [Run SAP BW/4HANA with Linux virtual machines on Azure](https://docs.microsoft.com/azure/architecture/reference-architectures/sap/run-sap-bw4hana-with-linux-virtual-machines)
-- [Run SAP HANA for Linux virtual machines in a scale-up architecture on Azure](https://docs.microsoft.com/azure/architecture/reference-architectures/sap/run-sap-hana-for-linux-virtual-machines)
-- [SAP on Azure Architecture Guide](https://docs.microsoft.com/azure/architecture/reference-architectures/sap/sap-overview)
-- [Cognizant Safe Buildings with IoT and Azure](https://docs.microsoft.com/azure/architecture/solution-ideas/articles/safe-buildings)
-- [IoT Connected Platform for COVID-19 detection and prevention](https://docs.microsoft.com/azure/architecture/solution-ideas/articles/iot-connected-platform)
-- [COVID-19 Safe Solutions with IoT Edge](https://docs.microsoft.com/azure/architecture/solution-ideas/articles/cctv-mask-detection)
-- [Contactless IoT interfaces with Azure intelligent edge](https://docs.microsoft.com/azure/architecture/solution-ideas/articles/contactless-interfaces)
-- [Vision classifier model with Azure Custom Vision Cognitive Service](https://docs.microsoft.com/azure/architecture/example-scenario/dronerescue/vision-classifier-model-with-custom-vision)
-- [AI enrichment with Azure Cognitive Search](https://docs.microsoft.com/azure/architecture/solution-ideas/articles/cognitive-search-with-skillsets)
-
-### Updated Articles
-
-- [Governance, risk, and compliance in Azure | Microsoft Docs](https://docs.microsoft.com/azure/architecture/framework/security/governance)  ([#5d970b847](https://github.com/MicrosoftDocs/architecture-center/commit/5d970b847))
-- [Serverless Functions code walkthrough](https://docs.microsoft.com/azure/architecture/serverless/code)  ([#af5443d42](https://github.com/MicrosoftDocs/architecture-center/commit/af5443d42))
-- [Azure IoT reference architecture](https://docs.microsoft.com/azure/architecture/reference-architectures/iot)  ([#8294ec869](https://github.com/MicrosoftDocs/architecture-center/commit/8294ec869))
-- [Microservices architecture on Azure Service Fabric](https://docs.microsoft.com/azure/architecture/reference-architectures/microservices/service-fabric)  ([#8294ec869](https://github.com/MicrosoftDocs/architecture-center/commit/8294ec869))
-- [Extend an on-premises network using ExpressRoute](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/expressroute)  ([#1b14c3c9c](https://github.com/MicrosoftDocs/architecture-center/commit/1b14c3c9c))
-- [Extend an on-premises network using VPN](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/vpn)  ([#1b14c3c9c](https://github.com/MicrosoftDocs/architecture-center/commit/1b14c3c9c))
 

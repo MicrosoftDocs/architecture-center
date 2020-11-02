@@ -4,10 +4,12 @@ titleSuffix: Azure Example Scenarios
 description: Learn about measure and control loops, an IoT process pattern to keep IoT devices within tolerable ranges.
 author: hanuk
 ms.date: 08/10/2020
-ms.topic: example-scenario
+ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: example-scenario
-ms.custom: fcp
+ms.custom:
+  - fcp
+  - example-scenario
 ---
 
 # Measure and control loops

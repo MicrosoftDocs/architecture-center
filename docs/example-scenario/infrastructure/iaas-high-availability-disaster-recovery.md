@@ -4,10 +4,11 @@ titleSuffix: Azure Example Scenarios
 description: Choose among high-availability and disaster recovery options like availability sets, availability zones, and regional DR for deploying IaaS apps to the cloud.
 author: shcrouch
 ms.date: 04/06/2020
-ms.topic: example-scenario
+ms.topic: conceptual
 ms.service: architecture-center
 ms.custom:
   - fcp
+  - example-scenario
 ms.category:
   - management-and-governance
 ---

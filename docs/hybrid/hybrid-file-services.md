@@ -3,13 +3,15 @@ title: Hybrid file services
 description: Use Azure File Sync and Azure Files to extend file services hosting capabilities across cloud and on-premises file share resources.
 author: doodlemania2
 ms.date: 07/28/2020
-ms.topic: reference-architecture
+ms.topic: conceptual
 ms.service: architecture-center
 ms.category:
   - hybrid
   - storage
 ms.subservice: reference-architecture
-ms.custom: fcp
+ms.custom:
+  - fcp
+  - reference-architecture
 ---
 
 # Hybrid file services

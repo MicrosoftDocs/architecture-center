@@ -3,14 +3,16 @@ title: Hybrid Security Monitoring using Azure Security Center and Azure Sentinel
 description: Integration of monitoring the security configuration and telemetry of on-premises and Azure operating system workloads
 author: doodlemania2
 ms.date: 08/19/2020
-ms.topic: reference-architecture
+ms.topic: conceptual
 ms.service: architecture-center
 ms.category:
   - hybrid
   - monitoring
   - security
 ms.subservice: reference-architecture
-ms.custom: fcp
+ms.custom:
+  - fcp
+  - reference-architecture
 ---
 
 # Hybrid Security Monitoring using Azure Security Center and Azure Sentinel

@@ -3,13 +3,15 @@ title: Interservice communication in microservices
 description: Learn about the tradeoffs between asynchronous messaging versus synchronous APIs for communication between microservices and some challenges in communication.
 author: doodlemania2
 ms.date: 05/23/2019
-ms.topic: guide
+ms.topic: conceptual
 ms.service: architecture-center
 ms.category:
   - integration
   - developer-tools
 ms.subservice: reference-architecture
-ms.custom: microservices
+ms.custom:
+  - microservices
+  - guide
 ---
 
 # Designing interservice communication for microservices

@@ -7,7 +7,7 @@ ms.date: 11/16/2018
 ms.category:
   - web
   - featured
-ms.topic: example-scenario
+ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: example-scenario
 ms.custom:
@@ -15,6 +15,7 @@ ms.custom:
   - bcdr
   - web-apps
   - application-development
+  - example-scenario
 social_image_url: /azure/architecture/example-scenario/infrastructure/media/architecture-disaster-recovery-multi-tier-app.png
 ---
 

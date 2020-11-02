@@ -3,10 +3,11 @@ title: Checklist - Design for cost
 description: Describes strategies to model your cloud costs
 author: david-stanford
 ms.date: 05/12/2020
-ms.topic: article
+ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
-ms.custom: 
+ms.custom:
+  - article
 ---
 
 

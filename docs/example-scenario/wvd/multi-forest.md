@@ -4,11 +4,12 @@ titleSuffix: Azure Example Scenarios
 description: This article describes an example workload of creating multiple AD forests with Windows Virtual Desktop.
 author: nehalineogi
 ms.date: 08/31/2020
-ms.topic: example-scenario
+ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: example-scenario
 ms.custom:
-- fcp
+  - fcp
+  - example-scenario
 ---
 
 # Multiple AD forests architecture with Windows Virtual Desktop

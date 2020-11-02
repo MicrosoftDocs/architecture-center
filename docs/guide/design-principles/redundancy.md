@@ -4,10 +4,12 @@ titleSuffix: Azure Application Architecture Guide
 description: Use these recommendations to avoid having single points of failure, by building redundancy into your application.
 author: doodlemania2
 ms.date: 08/30/2018
-ms.topic: guide
+ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: reference-architecture
-ms.custom: seojan19
+ms.custom:
+  - seojan19
+  - guide
 ---
 
 # Make all things redundant

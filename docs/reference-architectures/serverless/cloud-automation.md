@@ -5,11 +5,13 @@ description: Recommended architecture for implementing cloud automation using se
 author: dsk-2015
 ms.author: dkshir
 ms.date: 1/14/2020
-ms.topic: reference-architecture
+ms.topic: conceptual
 ms.service: architecture-center
 ms.category:
   - developer-tools
 ms.subservice: reference-architecture
+ms.custom:
+  - reference-architecture
 ---
 
 <!-- cSpell:ignore dkshir ADAL -->

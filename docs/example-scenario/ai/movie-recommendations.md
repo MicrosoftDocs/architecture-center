@@ -6,11 +6,12 @@ ms.date: 01/09/2019
 ms.custom:
   - azcat-ai
   - AI
+  - example-scenario
 social_image_url: /azure/architecture/example-scenario/ai/media/architecture-movie-recommender.png
 ms.category:
   - ai-machine-learning
   - media
-ms.topic: example-scenario
+ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: example-scenario
 ---

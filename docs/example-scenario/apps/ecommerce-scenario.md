@@ -6,13 +6,14 @@ author: chrismason
 ms.date: 07/13/2018
 ms.category:
   - web
-ms.topic: example-scenario
+ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: example-scenario
 ms.custom:
   - fasttrack
   - web-apps
   - ecommerce
+  - example-scenario
 social_image_url: /azure/architecture/example-scenario/apps/media/architecture-ecommerce-scenario.png
 ---
 

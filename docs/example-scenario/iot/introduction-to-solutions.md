@@ -4,12 +4,14 @@ titleSuffix: Azure Example Scenarios
 description: Get an overview of the functional interactions between events, insights, and actions in Azure Internet of Things (IoT) solutions.
 author: wamachine
 ms.date: 08/10/2020
-ms.topic: example-scenario
+ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: example-scenario
-ms.category: 
-    - iot
-ms.custom: fcp
+ms.category:
+  - iot
+ms.custom:
+  - fcp
+  - example-scenario
 ---
 
 # IoT solution overview

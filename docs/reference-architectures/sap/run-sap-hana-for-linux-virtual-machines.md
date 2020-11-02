@@ -3,9 +3,11 @@ title: Run SAP HANA for Linux virtual machines in a scale-up architecture on Azu
 description: Proven practices for running SAP HANA in a high-availability, scale-up environment that supports disaster recovery on Azure.
 author: maggsl
 ms.date: 06/10/2020
-ms.topic: reference-architecture
+ms.topic: conceptual
 ms.service: architecture-center
-ms.custom: fcp 
+ms.custom:
+  - fcp
+  - reference-architecture
 ms.category:
   - databases
   - compute

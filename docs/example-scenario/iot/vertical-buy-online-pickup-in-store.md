@@ -4,12 +4,14 @@ titleSuffix: Azure Example Scenarios
 description: Learn about how Azure IoT can help a retail solution for stores implementing buy online, pickup in store scenarios.
 author: falloutxAY
 ms.date: 10/1/2020
-ms.topic: example-scenario
+ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: example-scenario
-ms.category: 
-    - iot
-ms.custom: fcp
+ms.category:
+  - iot
+ms.custom:
+  - fcp
+  - example-scenario
 ---
 
 # Optimizing curbside pickup with Azure IoT
