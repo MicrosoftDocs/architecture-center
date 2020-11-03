@@ -90,4 +90,3 @@ A hub-spoke network topology is a way to isolate workloads while sharing service
 ### Reference architectures
 
 - [Hub-spoke topology](./hub-spoke.md)
-- [Hub-spoke with shared services](./shared-services.md)

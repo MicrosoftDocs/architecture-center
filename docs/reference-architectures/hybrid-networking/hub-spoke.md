@@ -173,10 +173,6 @@ az deployment group create \
     --parameters winVmUser=$ADMIN_USER winVmPassword=$ADMIN_PASSWORD winVmDnsPrefix=$VM_DNS_PREFIX
 ```
 
-## Next steps
-
-For a version of this architecture that deploys shared identity and security services, see [Hub-spoke network topology with shared services in Azure](./shared-services.md).
-
 <!-- links -->
 
 [aaf-cost]: ../../framework/cost/overview.md

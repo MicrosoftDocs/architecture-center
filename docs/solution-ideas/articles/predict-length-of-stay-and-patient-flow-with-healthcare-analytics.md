@@ -32,7 +32,7 @@ Being able to predict length of stay at the time of admission helps hospitals pr
 
 * [SQL Server R Services](/sql/machine-learning/r/sql-server-r-services?view=sql-server-2016): Stores the patient and hospital data. Provides training and predicted models and predicted results for consumption using R.
 * [Power BI](https://powerbi.microsoft.com) provides an interactive dashboard with visualization that uses data stored in SQL Server to drive decisions on the predictions.
-* [Machine Learning Studio](https://azure.microsoft.com/services/machine-learning-studio): Machine Learning helps you easily design, test, operationalize, and manage predictive analytics solutions in the cloud.
+* [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning): Machine Learning helps you design, test, operationalize, and manage predictive analytics solutions in the cloud.
 
 ## Next steps
 
