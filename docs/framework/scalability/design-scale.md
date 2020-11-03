@@ -27,7 +27,7 @@ Another critical component of planning for scale is to make sure the region that
 
 To verify your region and available SKUs, first select the product and regions in [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=).
 
-![Products available by region](../_images/design-scale-1.png)
+![Products available by region](..docs/_images/design-scale-1.png)
 
 Then, check the SKUs available in the Azure portal.
 
