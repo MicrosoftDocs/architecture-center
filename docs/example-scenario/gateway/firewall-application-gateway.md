@@ -117,7 +117,7 @@ In this option, all traffic goes through both Azure Firewall and WAF. The WAF pr
 
 This design is appropriate for applications that need to know incoming client source IP addresses, for example to serve geolocation-specific content or for logging. Azure Firewall SNATs the incoming traffic, changing the original source IP address. Application Gateway in front of Azure Firewall captures the incoming packet's source IP address in the *X-forwarded-for* header, so the web server can see the original IP address. For more information, see [How an application gateway works][appgw-networking].
 
-One limitation of this design is that Azure Firewall doesn't add much value for inbound web traffic, since the firewall only inspects already-allowed traffic from WAF to the web application. The need to inspect web traffic also places additional pressure on Azure Firewall.
+One potential drawback of this design is that for inbound web traffic the Azure Firewall will inspect flows that have already been allowed by the Web Application Firewall. Hence you should consider whether having two devices inspecting the same content with different rule sets is required by your organization.
 
 ![Application Gateway before Azure Firewall](./images/design4_500.png)
 
@@ -148,7 +148,7 @@ Outbound flows from the VMs to the public internet go through Azure Firewall, as
 
 ## Application Gateway after Firewall
 
-This design lets Azure Firewall filter and discard malicious traffic before it reaches the Application Gateway. Another benefit of this design is that the application gets the same public IP address for both inbound and outbound traffic.
+This design lets Azure Firewall filter and discard malicious traffic before it reaches the Application Gateway, for example by leveraging features like threat intelligence-based filtering. Another benefit of this design is that the application gets the same public IP address for both inbound and outbound traffic.
 
 A downside of this design is that the application can't see the original source IP address of the web traffic, because Azure Firewall SNATs the packets as they come in to the virtual network. A workaround is to use Azure Front Door in front of the firewall to inject the client's IP address in the client request before it enters the virtual network.
 
