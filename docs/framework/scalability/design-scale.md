@@ -27,7 +27,7 @@ Another critical component of planning for scale is to make sure the region that
 
 To verify your region and available SKUs, first select the product and regions in [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=).
 
-![Products available by region](..docs/_images/design-scale-1.png)
+![Products available by region](../_images/design-scale-1a.png)
 
 Then, check the SKUs available in the Azure portal.
 
@@ -87,7 +87,7 @@ If your application isn't configured to scale out automatically as load increase
 - Cloud Services: [How to autoscale a Cloud Service](https://review.docs.microsoft.com/azure/cloud-services/cloud-services-how-to-scale/)
 - Virtual machines: [Automatic scaling and virtual machine scale sets](https://review.docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-overview/)
 
-<!--[## Next steps
+## Next step
 
-[!div class="nextstepaction"]
-LINK to next Design article]()-->
+>[!div class="nextstepaction"]
+>[Plan for capacity](https://review.docs.microsoft.com/en-us/azure/architecture/framework/scalability/capacity?branch=pr-en-us-1963)
