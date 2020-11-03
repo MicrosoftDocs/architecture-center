@@ -279,7 +279,7 @@ For more information, see the Operational Excellence section in [Microsoft Azure
 [cidr]: https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing
 [azure-pricing-calculator]: https://azure.microsoft.com/pricing/calculator
 [datastax]: https://www.datastax.com/products/datastax-enterprise
-[ddos-best-practices]: /azure/security/azure-ddos-best-practices
+[ddos-best-practices]: /azure/security/fundamentals/ddos-best-practices
 [ddos]: /azure/virtual-network/ddos-protection-overview
 [dmz]: ../dmz/secure-vnet-dmz.md
 [github-folder]: https://github.com/mspnp/reference-architectures/tree/master/virtual-machines/n-tier-linux
