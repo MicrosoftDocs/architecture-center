@@ -51,7 +51,6 @@ It is important to correctly configure on-premise DNS settings to resolve privat
 - On-premises DNS server (component 3) needs to setup conditional forwarding to forward DNS query of domain afs.azure.net and file.core.windows.net to DNS server in Azure virtual network (componnet 8). 
 - After receiving forwarded DNS query from on-premises DNS server, DNS server (component 8) in Azure virtual network uses Azure DNS recursive resolver to resolve private domain name and return private IP address to client.
 
-
 ## Components
 
 The enterprise level cloud file sharing solution uses the following components:
@@ -128,6 +127,7 @@ When it comes to an on-premises file sharing solution, many administrators choos
 ### Data Loss and Backup
 
 Data loss is a serious problem for businesses of all sizes, Azure file share backup uses file share snapshots to provide cloud based backup solution that protects your data in the cloud and eliminates additional maintenance overheads involved in on-premises backup solutions. Key benefits of Azure file share backup include
+
 - Zero infrastructure
 - Customized retention
 - Built in management capabilities
@@ -140,6 +140,7 @@ For more information, please refer to [About Azure file share backup][azure-file
 ### Security and File Access Auditing
 
 Security Auditing is one of the most needed requirement to help maintain the security of an enterprise, industry standards require enterprises to follow a strict set of rules related to data security and privacy. File access auditing can be enabled locally and remotely
+
 - Locally, leverage Dynamic Access Control, for more information, refer to [Plan for File Access Auditing][plan-for-file-access-auditing].
 - Remotely, Azure Storage logs in Azure Monitor on Azure Files contains StorageRead, StorageWrite, StorageDelete, and Transaction logs, Azure file access can be logged to storage account, log analytics workspace or stream to an event hub separately. For more information, please refer to [Monitoring Azure Storage][monitor-storage].
 
