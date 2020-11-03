@@ -305,7 +305,7 @@ If you specify a region that supports availability zones, the VMs are deployed i
 [bastion host]: https://en.wikipedia.org/wiki/Bastion_host
 [cidr]: https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing
 [azure-pricing-calculator]: https://azure.microsoft.com/pricing/calculator
-[ddos-best-practices]: /azure/security/azure-ddos-best-practices
+[ddos-best-practices]: /azure/security/fundamentals/ddos-best-practices
 [ddos]: /azure/virtual-network/ddos-protection-overview
 [dmz]: ../dmz/secure-vnet-dmz.md
 [github-folder]: https://github.com/mspnp/reference-architectures/tree/master/virtual-machines/n-tier-windows
