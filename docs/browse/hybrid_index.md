@@ -16,8 +16,8 @@ Architecture diagrams, reference architectures, example scenarios, and solutions
 ## Apps
 <ul class="grid">
 
-[!INCLUDE [AI at the Edge with Azure Stack](../../includes/cards/ai-at-the-edge.md)]
-[!INCLUDE [AI at the Edge with Azure Stack - disconnected](../../includes/cards/ai-at-the-edge-disconnected.md)]
+[!INCLUDE [AI at the Edge with Azure Stack Hub](../../includes/cards/ai-at-the-edge.md)]
+[!INCLUDE [AI at the Edge with Azure Stack Hub - disconnected](../../includes/cards/ai-at-the-edge-disconnected.md)]
 [!INCLUDE [Azure Functions in a hybrid environment](../../includes/cards/azure-functions-hybrid.md)]
 [!INCLUDE [Azure Machine Learning decision guide for optimal tool selection](../../includes/cards/aml-decision-tree.md)]
 [!INCLUDE [Cross Cloud Scaling Architecture](../../includes/cards/cross-cloud-scaling.md)]
@@ -25,9 +25,9 @@ Architecture diagrams, reference architectures, example scenarios, and solutions
 [!INCLUDE [Deploy AI and machine learning at the edge by using Azure Stack Edge](../../includes/cards/deploy-ai-ml-azure-stack-edge.md)]
 [!INCLUDE [DevOps in a hybrid environment](../../includes/cards/devops-in-a-hybrid-environment.md)]
 [!INCLUDE [DevSecOps in Azure](../../includes/cards/devsecops-in-azure.md)]
-[!INCLUDE [HPC Risk Analysis Template – Solution Architecture](../../includes/cards/hpc-risk-analysis.md)]
+[!INCLUDE [HPC Risk Analysis Template - Solution Architecture](../../includes/cards/hpc-risk-analysis.md)]
 [!INCLUDE [Hybrid HPC in Azure with HPC Pack](../../includes/cards/hybrid-hpc-in-azure-with-hpc-pack.md)]
-[!INCLUDE [Hybrid SharePoint Farm with Office 365](../../includes/cards/sharepoint-farm-office-365.md)]
+[!INCLUDE [Hybrid SharePoint Farm with Microsoft 365](../../includes/cards/sharepoint-farm-microsoft-365.md)]
 [!INCLUDE [Machine Learning Operations maturity model](../../includes/cards/mlops-maturity-model.md)]
 [!INCLUDE [Machine learning operations (MLOps) framework to upscale machine learning Lifecycle with Azure Machine Learning](../../includes/cards/mlops-technical-paper.md)]
 [!INCLUDE [Modern Customer Support Portal](../../includes/cards/modern-customer-support-portal-powered-by-an-agile-business-process.md)]
@@ -50,6 +50,7 @@ Architecture diagrams, reference architectures, example scenarios, and solutions
 [!INCLUDE [Hybrid ETL with Azure Data Factory](../../includes/cards/hybrid-etl-with-adf.md)]
 [!INCLUDE [Hybrid file services](../../includes/cards/hybrid-file-services.md)]
 [!INCLUDE [On-premises data gateway for Azure Logic Apps](../../includes/cards/gateway-logic-apps.md)]
+[!INCLUDE [Partitioning in Event Hubs and Kafka](../../includes/cards/partitioning-in-event-hubs-and-kafka.md)]
 [!INCLUDE [Publishing internal APIs to external users](../../includes/cards/publish-internal-apis-externally.md)]
 [!INCLUDE [Using Azure file shares in a hybrid environment](../../includes/cards/azure-file-share.md)]
 

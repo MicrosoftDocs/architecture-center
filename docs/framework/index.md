@@ -4,10 +4,12 @@ titleSuffix: Microsoft Azure Well-Architected Framework introduction
 description: Describes five pillars of software quality, scalability, devops, resiliency, cost, and security.
 author: doodlemania2
 ms.date: 11/20/2019
-ms.topic: guide
+ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
-ms.custom: seojan19
+ms.custom:
+  - seojan19
+  - guide
 ---
 
 # Microsoft Azure Well-Architected Framework
@@ -26,7 +28,7 @@ To assess your workload using the tenets found in the Microsoft Azure Well-Archi
 
 ## Cost Optimization
 
-When you are designing a cloud solution, focus on generating incremental value early. Apply the principles of **[Build-Measure-Learn](https://docs.microsoft.com/azure/cloud-adoption-framework/innovate/considerations/)**, to accelerate your time to market while avoiding capital-intensive solutions. Use the pay-as-you-go strategy for your architecture, and invest in scaling out, rather than delivering a large investment first version. Consider opportunity costs in your architecture, and the balance between first mover advantage versus "fast follow". Use the cost calculators to estimate the initial cost and operational costs. Finally, establish policies, budgets, and controls that set cost limits for your solution.
+When you are designing a cloud solution, focus on generating incremental value early. Apply the principles of **[Build-Measure-Learn](/azure/cloud-adoption-framework/innovate/considerations/)**, to accelerate your time to market while avoiding capital-intensive solutions. Use the pay-as-you-go strategy for your architecture, and invest in scaling out, rather than delivering a large investment first version. Consider opportunity costs in your architecture, and the balance between first mover advantage versus "fast follow". Use the cost calculators to estimate the initial cost and operational costs. Finally, establish policies, budgets, and controls that set cost limits for your solution.
 
 ### Cost guidance
 
@@ -86,7 +88,7 @@ Use the [Performance efficiency checklist](scalability/performance-efficiency.md
 
 ## Reliability
 
-A reliable workload is one that is both resilient and available. Resiliency is the ability of the system to recover from failures and continue to function. The goal of resiliency is to return the application to a fully functioning state after a failure occurs. Availability is can your users get to your workload when they need to.
+A reliable workload is one that is both resilient and available. Resiliency is the ability of the system to recover from failures and continue to function. The goal of resiliency is to return the application to a fully functioning state after a failure occurs. Availability is whether your users can access your workload when they need to.
 
 In traditional application development, there has been a focus on increasing the mean time between failures (MTBF). Effort was spent trying to prevent the system from failing. In cloud computing, a different mindset is required, due to several factors:
 

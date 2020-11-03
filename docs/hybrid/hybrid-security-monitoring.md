@@ -3,14 +3,16 @@ title: Hybrid Security Monitoring using Azure Security Center and Azure Sentinel
 description: Integration of monitoring the security configuration and telemetry of on-premises and Azure operating system workloads
 author: doodlemania2
 ms.date: 08/19/2020
-ms.topic: reference-architecture
+ms.topic: conceptual
 ms.service: architecture-center
 ms.category:
   - hybrid
   - monitoring
   - security
 ms.subservice: reference-architecture
-ms.custom: fcp
+ms.custom:
+  - fcp
+  - reference-architecture
 ---
 
 # Hybrid Security Monitoring using Azure Security Center and Azure Sentinel
@@ -330,47 +332,47 @@ To learn more about Azure Sentinel, refer to the following articles:
 
 [architectural-diagram]: ./images/hybrid-security-monitoring.png
 [architectural-diagram-visio-source]: https://archcenter.blob.core.windows.net/cdn/hybrid-security-monitoring.vsdx
-[azure-monitor]: https://docs.microsoft.com/azure/azure-monitor/
-[azure-monitor-install-agent]: https://docs.microsoft.com/azure/azure-monitor/platform/agent-windows#install-agent-using-setup-wizard
-[azure-monitor-install-agent-linux]: https://docs.microsoft.com/azure/azure-monitor/platform/agent-linux-troubleshoot
-[azure-monitor-storage-pricing]: https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage
-[azure-security-center]: https://docs.microsoft.com/azure/security-center/
-[azure-security-center-alerts]: https://docs.microsoft.com/azure/security-center/alerts-reference#alerts-linux
-[azure-security-center-cloud-smart-alert-correlation]: https://docs.microsoft.com/azure/security-center/security-center-alerts-cloud-smart
-[azure-security-center-connect-data]: https://docs.microsoft.com/azure/sentinel/connect-azure-security-center
-[azure-security-center-coverage]: https://docs.microsoft.com/azure/security-center/security-center-services?tabs=features-windows
-[azure-security-center-endpoint-protection]: https://docs.microsoft.com/azure/security-center/security-center-endpoint-protection
-[azure-security-center-faq]: https://docs.microsoft.com/azure/security-center/security-center-alerts-cloud-smart
-[azure-security-center-health-monitoring]: https://docs.microsoft.com/azure/security-center/security-center-monitoring
-[azure-security-center-planning]: https://docs.microsoft.com/azure/security-center/security-center-planning-and-operations-guide
+[azure-monitor]: /azure/azure-monitor/
+[azure-monitor-install-agent]: /azure/azure-monitor/platform/agent-windows#install-agent-using-setup-wizard
+[azure-monitor-install-agent-linux]: /azure/azure-monitor/platform/agent-linux-troubleshoot
+[azure-monitor-storage-pricing]: /azure/azure-monitor/platform/manage-cost-storage
+[azure-security-center]: /azure/security-center/
+[azure-security-center-alerts]: /azure/security-center/alerts-reference#alerts-linux
+[azure-security-center-cloud-smart-alert-correlation]: /azure/security-center/security-center-alerts-cloud-smart
+[azure-security-center-connect-data]: /azure/sentinel/connect-azure-security-center
+[azure-security-center-coverage]: /azure/security-center/security-center-services?tabs=features-windows
+[azure-security-center-endpoint-protection]: /azure/security-center/security-center-endpoint-protection
+[azure-security-center-faq]: /azure/security-center/security-center-alerts-cloud-smart
+[azure-security-center-health-monitoring]: /azure/security-center/security-center-monitoring
+[azure-security-center-planning]: /azure/security-center/security-center-planning-and-operations-guide
 [azure-security-center-pricing]: https://azure.microsoft.com/pricing/details/security-center/
-[azure-security-center-secure-score]: https://docs.microsoft.com/azure/security-center/secure-score-security-controls
-[azure-security-center-security-alerts]: https://docs.microsoft.com/azure/security-center/alerts-reference
-[azure-security-center-security-policies]: https://docs.microsoft.com/azure/security-center/tutorial-security-policy
-[azure-security-center-security-recommendations]: https://docs.microsoft.com/azure/security-center/recommendations-reference
-[azure-security-center-security-recommendations]: https://docs.microsoft.com/azure/security-center/security-center-recommendations
-[azure-security-center-services]: https://docs.microsoft.com/azure/security-center/security-center-services?tabs=features-windows
-[azure-security-center-supported-platforms]: https://docs.microsoft.com/azure/security-center/security-center-os-coverage
-[azure-security-center-threat-protection]: https://docs.microsoft.com/azure/security-center/threat-protection
-[azure-security-center-tutorial]: https://docs.microsoft.com/azure/security-center/tutorial-security-incident
-[azure-sentinel]: https://docs.microsoft.com/azure/sentinel/
-[azure-sentinel-analytics]: https://docs.microsoft.com/azure/sentinel/tutorial-detect-threats-built-in
-[azure-sentinel-attack-detection]: https://docs.microsoft.com/azure/sentinel/fusion
-[azure-sentinel-connect-windows-firewall]: https://docs.microsoft.com/azure/sentinel/connect-windows-firewall
-[azure-sentinel-connect-windows-security-events]: https://docs.microsoft.com/azure/sentinel/connect-windows-security-events
-[azure-sentinel-data-sources]: https://docs.microsoft.com/azure/sentinel/connect-data-sources
-[azure-sentinel-hunting]: https://docs.microsoft.com/azure/sentinel/hunting
-[azure-sentinel-investigate]: https://docs.microsoft.com/azure/sentinel/tutorial-investigate-cases
-[azure-sentinel-monitor]: https://docs.microsoft.com/azure/sentinel/tutorial-monitor-your-data
-[azure-sentinel-overview]: https://docs.microsoft.com/azure/sentinel/overview
-[azure-sentinel-permissions]: https://docs.microsoft.com/azure/sentinel/roles
+[azure-security-center-secure-score]: /azure/security-center/secure-score-security-controls
+[azure-security-center-security-alerts]: /azure/security-center/alerts-reference
+[azure-security-center-security-policies]: /azure/security-center/tutorial-security-policy
+[azure-security-center-security-recommendations]: /azure/security-center/recommendations-reference
+[azure-security-center-security-recommendations]: /azure/security-center/security-center-recommendations
+[azure-security-center-services]: /azure/security-center/security-center-services?tabs=features-windows
+[azure-security-center-supported-platforms]: /azure/security-center/security-center-os-coverage
+[azure-security-center-threat-protection]: /azure/security-center/threat-protection
+[azure-security-center-tutorial]: /azure/security-center/tutorial-security-incident
+[azure-sentinel]: /azure/sentinel/
+[azure-sentinel-analytics]: /azure/sentinel/tutorial-detect-threats-built-in
+[azure-sentinel-attack-detection]: /azure/sentinel/fusion
+[azure-sentinel-connect-windows-firewall]: /azure/sentinel/connect-windows-firewall
+[azure-sentinel-connect-windows-security-events]: /azure/sentinel/connect-windows-security-events
+[azure-sentinel-data-sources]: /azure/sentinel/connect-data-sources
+[azure-sentinel-hunting]: /azure/sentinel/hunting
+[azure-sentinel-investigate]: /azure/sentinel/tutorial-investigate-cases
+[azure-sentinel-monitor]: /azure/sentinel/tutorial-monitor-your-data
+[azure-sentinel-overview]: /azure/sentinel/overview
+[azure-sentinel-permissions]: /azure/sentinel/roles
 [azure-sentinel-pricing]: https://azure.microsoft.com/pricing/details/azure-sentinel/
-[azure-sentinel-quickstart]: https://docs.microsoft.com/azure/sentinel/quickstart-get-visibility
-[azure-sentinel-quickstart]: https://docs.microsoft.com/azure/sentinel/quickstart-get-visibility
-[azure-sentinel-tutorial]: https://docs.microsoft.com/azure/sentinel/tutorial-detect-threats-built-in
-[azure-stack]: https://docs.microsoft.com/azure-stack/
-[azure-stack-automate-onboarding-powershell]: https://docs.microsoft.com/azure/security-center/security-center-powershell-onboarding
-[azure-stack-hub]: https://docs.microsoft.com/azure-stack/operator/azure-stack-overview?view=azs-2002
+[azure-sentinel-quickstart]: /azure/sentinel/quickstart-get-visibility
+[azure-sentinel-quickstart]: /azure/sentinel/quickstart-get-visibility
+[azure-sentinel-tutorial]: /azure/sentinel/tutorial-detect-threats-built-in
+[azure-stack]: /azure-stack/
+[azure-stack-automate-onboarding-powershell]: /azure/security-center/security-center-powershell-onboarding
+[azure-stack-hub]: /azure-stack/operator/azure-stack-overview?view=azs-2002
 [icon-azurevm]: ./images/hybrid-security-monitoring-asc-Azure-VM.png
 [icon-nonazurevm]: ./images/hybrid-security-monitoring-asc-non-Azure.png
 [screenshot-collectdata]: ./images/hybrid-security-monitoring-collect-data-page.png
@@ -381,4 +383,4 @@ To learn more about Azure Sentinel, refer to the following articles:
 [screenshot-search]: ./images/hybrid-security-monitoring-search-sentinel.png
 [screenshot-workspace]: ./images/hybrid-security-monitoring-workspace.png
 [technet-gallery-azure-playbooks]: https://gallery.technet.microsoft.com/site/search?query=Azure%20playbook&f[1].Value=Azure%20playbook&f[1].Type=SearchText&f[0].Value=security&f[0].Type=RootCategory&ac=5
-[windows-defender-atp-onboard]: https://docs.microsoft.com/windows/security/threat-protection/microsoft-defender-atp/configure-server-endpoints
+[windows-defender-atp-onboard]: /windows/security/threat-protection/microsoft-defender-atp/configure-server-endpoints

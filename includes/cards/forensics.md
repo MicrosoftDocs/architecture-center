@@ -6,7 +6,7 @@
 <article class="card">
     <div class="card-header has-margin-bottom-none" aria-hidden="true">
         <figure class="image diagram has-height-175 has-overflow-hidden level">
-            <a href="/azure/architecture/example-scenario/forensics"><img src="/azure/architecture/browse/thumbs/forensics.png" class="diagram" alt="Architecture Diagram" data-linktype="relative-path"></a>
+            <a href="/azure/architecture/example-scenario/forensics"><img src="/azure/architecture/browse/thumbs/forensics.png" class="diagram" alt="Thumbnail of Computer forensics Chain of Custody in Azure Architectural Diagram." data-linktype="relative-path"></a>
         </figure>
     </div>
     <div class="card-content">
@@ -14,8 +14,8 @@
             <p>Computer forensics Chain of Custody in Azure</p>
         </a>
         <ul class="card-content-metadata">
-            <li>4/27/2020</li>
-            <li>8 min read</li>
+            <li>10/23/2020</li>
+            <li>10 min read</li>
         </ul>
         <p class="card-content-description">Create an infrastructure and workflow to ensure a valid digital evidence Chain of Custody (CoC) for computer forensics in Azure.</p>
         <div class="bottom-to-top-fade is-hidden-mobile"></div>

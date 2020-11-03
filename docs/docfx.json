@@ -70,7 +70,7 @@
     "globalMetadata": {
       "feedback_system": "GitHub",
       "feedback_github_repo": "MicrosoftDocs/architecture-center",
-      "breadcrumb_path": "/azure/architecture/_bread/toc.json",
+      "breadcrumb_path": "/azure/architecture/bread/toc.json",
       "brand": "azure",
       "uhfHeaderId": "azure",
       "titleSuffix": "Azure Architecture Center",
@@ -82,7 +82,7 @@
           "folder_relative_path_in_docset": "./"
         }
       },
-      "ms.topic": "article",
+      "ms.topic": "conceptual",
       "searchScope": [ "Azure", "Azure Architecture Center" ]
     },
     "fileMetadata": {

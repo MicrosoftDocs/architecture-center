@@ -3,12 +3,14 @@ title: Microservices architecture on Azure Service Fabric
 description: Use this reference architecture to see microservices deployed to Azure Service Fabric. This cluster configuration can be a starting point for most deployments.
 author: PageWriter-MSFT
 ms.date: 06/13/2019
-ms.topic: reference-architecture
+ms.topic: conceptual
 ms.service: architecture-center
 ms.category:
   - developer-tools
 ms.subservice: reference-architecture
-ms.custom: microservices
+ms.custom:
+  - microservices
+  - reference-architecture
 ---
 
 <!-- cSpell:ignore CosmosDB Kusto APIM executable's Serilog Traefik SPOF NSGs appsettings Dynatrace -->

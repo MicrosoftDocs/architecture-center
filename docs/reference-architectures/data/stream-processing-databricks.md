@@ -4,13 +4,15 @@ titleSuffix: Azure Reference Architectures
 description: Create an end-to-end stream processing pipeline in Azure using Azure Databricks.
 author: PeterTaylor9999
 ms.date: 11/30/2018
-ms.topic: reference-architecture
+ms.topic: conceptual
 ms.service: architecture-center
 ms.category:
   - analytics
   - databases
 ms.subservice: reference-architecture
-ms.custom: seodec18
+ms.custom:
+  - seodec18
+  - reference-architecture
 ---
 
 <!-- cSpell:ignore eventhubs shapefile Appender malformedrides malformedfares Dropwizard dropoff taxijob durationms timechart startofday endofday DBUs DBCU -->
@@ -215,7 +217,7 @@ maxAvgFarePerNeighborhood
 
 ## Security considerations
 
-Access to the Azure Database workspace is controlled using the [administrator console](https://docs.databricks.com/administration-guide/admin-settings/index.html). The administrator console includes functionality to add users, manage user permissions, and set up single sign-on. Access control for workspaces, clusters, jobs, and tables can also be set through the administrator console.
+Access to the Azure Databricks workspace is controlled using the [administrator console](https://docs.databricks.com/administration-guide/admin-settings/index.html). The administrator console includes functionality to add users, manage user permissions, and set up single sign-on. Access control for workspaces, clusters, jobs, and tables can also be set through the administrator console.
 
 ### Managing secrets
 

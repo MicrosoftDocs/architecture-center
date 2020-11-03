@@ -3,9 +3,11 @@ title: Administration in Azure | Microsoft Docs
 description: Learn about best practices for security of administrator accounts in Azure. Administration introduces some of the highest impact security risks.
 author: PageWriter-MSFT
 ms.date: 07/09/2019
-ms.topic: article
+ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
+ms.custom:
+  - article
 ---
 
 # Administration
@@ -94,7 +96,7 @@ compromise accounts, including administrative accounts.
 
 Create a separate administrative account for all users that have a role
 requiring critical privileges. For these administrative accounts, block
-productivity tools like Office 365 email (remove license). If possible, block
+productivity tools like Microsoft 365 email (remove license). If possible, block
 arbitrary web browsing (with proxy and/or application controls) while allowing
 exceptions for browsing to the Azure portal and other sites required for
 administrative tasks.
@@ -294,5 +296,5 @@ access to critical impact accounts. Ensuring these users (and ideally all users)
 have the knowledge and skills to avoid and resist attacks will reduce your
 overall organizational risk.
 
-You can use [Office 365 Attack Simulation](/office365/securitycompliance/attack-simulator)
+You can use [Office 365 Attack Simulation](/microsoft-365/security/office-365-security/attack-simulator)
 capabilities or any number of third party offerings.

@@ -102,29 +102,29 @@
             "type": "solution-idea",
             "file_url": "solution-ideas/articles/ai-at-the-edge.md",
             "http_url": "/azure/architecture/solution-ideas/articles/ai-at-the-edge",
-            "word_count": 269,
+            "word_count": 274,
             "read_time": "2 min read",
-            "Title": "AI at the Edge with Azure Stack",
-            "MetaDescription": "Move AI models to the edge with a solution architecture that includes Azure Stack.",
+            "Title": "AI at the Edge with Azure Stack Hub",
+            "MetaDescription": "Move AI models to the edge with a solution architecture that includes Azure Stack Hub.",
             "category": [
                 "ai-machine-learning",
                 "hybrid"
             ],
             "image": "/azure/architecture/solution-ideas/media/ai-at-the-edge.png",
             "imagepath": "C:\\jvPnpRepos\\architecture-center-pr\\docs\\solution-ideas\\media\\ai-at-the-edge.png",
-            "publish_date": "12/16/2019",
+            "publish_date": "9/01/2020",
             "components": [
                 "<p><a href=\"https://azure.microsoft.com/services/machine-learning-studio\">Machine Learning Studio</a>: Easily build, deploy, and manage predictive analytics solutions</p>",
                 "<p><a href=\"https://azure.microsoft.com/services/hdinsight\">HDInsight</a>: Provision cloud Hadoop, Spark, R Server, HBase, and Storm clusters</p>",
                 "<p><a href=\"https://azure.microsoft.com/services/container-registry\">Container Registry</a>: Store and manage container images across all types of Azure deployments</p>",
                 "<p><a href=\"https://azure.microsoft.com/services/kubernetes-service\">Azure Kubernetes Service (AKS)</a>: Simplify the deployment, management, and operations of Kubernetes</p>",
                 "<p><a href=\"https://azure.microsoft.com/services/storage\">Storage</a>: Durable, highly available, and massively scalable cloud storage</p>",
-                "<p><a href=\"https://azure.microsoft.com/overview/azure-stack\">Azure Stack</a>: Build and run innovative hybrid applications across cloud boundaries</p>"
+                "<p><a href=\"https://azure.microsoft.com/overview/azure-stack\">Azure Stack Hub</a>: Build and run innovative hybrid applications across cloud boundaries</p>"
             ],
-            "Summary": "<p>With the Azure AI tools and cloud platform, the next generation of AI-enabled hybrid applications can run where your data lives. With Azure Stack, bring a trained AI model to the edge and integrate it with your applications for low-latency intelligence, with no tool or process changes for local applications.</p>",
+            "Summary": "<p>With the Azure AI tools and cloud platform, the next generation of AI-enabled hybrid applications can run where your data lives. With Azure Stack Hub, bring a trained AI model to the edge and integrate it with your applications for low-latency intelligence, with no tool or process changes for local applications.</p>",
             "Flow": {
                 "FlowStep_A": "Data scientists train a model using Azure Machine Learning workbench and an HDInsight cluster. The model is containerized and put into an Azure Container Registry.",
-                "FlowStep_B": "The model is deployed to a Kubernetes cluster on Azure Stack.",
+                "FlowStep_B": "The model is deployed to a Kubernetes cluster on Azure Stack Hub.",
                 "FlowStep_C": "End users provide data that's scored against the model.",
                 "FlowStep_D": "Insights and anomalies from scoring are placed into a queue.",
                 "FlowStep_E": "A function sends compliant data and anomalies to Azure Storage.",
@@ -152,9 +152,9 @@
             "type": "solution-idea",
             "file_url": "solution-ideas/articles/ai-at-the-edge-disconnected.md",
             "http_url": "/azure/architecture/solution-ideas/articles/ai-at-the-edge-disconnected",
-            "word_count": 280,
+            "word_count": 289,
             "read_time": "2 min read",
-            "Title": "AI at the Edge with Azure Stack - disconnected",
+            "Title": "AI at the Edge with Azure Stack Hub - disconnected",
             "MetaDescription": "Move AI models to the edge with a solution architecture that includes Azure Stack. A step-by-step workflow will help you harness the power of edge AI when disconnected from the internet.",
             "category": [
                 "ai-machine-learning",
@@ -162,18 +162,18 @@
             ],
             "image": "/azure/architecture/solution-ideas/media/ai-at-the-edge-disconnected.png",
             "imagepath": "C:\\jvPnpRepos\\architecture-center-pr\\docs\\solution-ideas\\media\\ai-at-the-edge-disconnected.png",
-            "publish_date": "12/16/2019",
+            "publish_date": "9/01/2020",
             "components": [
                 "<p><a href=\"https://azure.microsoft.com/services/hdinsight\">HDInsight</a>: Provision cloud Hadoop, Spark, R Server, HBase, and Storm clusters</p>",
                 "<p><a href=\"https://azure.microsoft.com/services/machine-learning-studio\">Machine Learning Studio</a>: Easily build, deploy, and manage predictive analytics solutions</p>",
                 "<p><a href=\"https://azure.microsoft.com/services/virtual-machines\">Virtual Machines</a>: Provision Windows and Linux virtual machines in seconds</p>",
                 "<p><a href=\"https://azure.microsoft.com/services/kubernetes-service\">Azure Kubernetes Service (AKS)</a>: Simplify the deployment, management, and operations of Kubernetes</p>",
                 "<p><a href=\"https://azure.microsoft.com/services/storage\">Storage</a>: Durable, highly available, and massively scalable cloud storage</p>",
-                "<p><a href=\"https://azure.microsoft.com/overview/azure-stack\">Azure Stack</a>: Build and run innovative hybrid applications across cloud boundaries</p>"
+                "<p><a href=\"https://azure.microsoft.com/overview/azure-stack\">Azure Stack Hub</a>: Build and run innovative hybrid applications across cloud boundaries</p>"
             ],
             "Flow": {
                 "FlowStep_A": "Data scientists train a model using Azure Machine Learning and an HDInsight cluster. The model is containerized and put in to an Azure Container Registry.",
-                "FlowStep_B": "The model is deployed via an offline installer to a Kubernetes cluster on Azure Stack.",
+                "FlowStep_B": "The model is deployed via steps not represented in the diagram to a Kubernetes cluster on Azure Stack Hub.",
                 "FlowStep_C": "End users provide data that is scored against the model.",
                 "FlowStep_D": "Insights and anomalies from scoring are placed into storage for later upload.",
                 "FlowStep_E": "Globally-relevant and compliant insights are available in the global app.",
@@ -251,7 +251,7 @@
             "type": "solution-idea",
             "file_url": "solution-ideas/articles/aks-api-first.md",
             "http_url": "/azure/architecture/solution-ideas/articles/aks-api-first",
-            "word_count": 308,
+            "word_count": 303,
             "read_time": "2 min read",
             "Title": "API-first SaaS business model",
             "MetaDescription": "Adapt, evolve, and allow faster innovation to turn opportunities into strategic advantages.",
@@ -620,7 +620,7 @@
                 "FlowStep_C": "When the data migration is complete, update the table that stores the cutoff times."
             },
             "sample_code": true,
-            "github_url":  "https://github.com/mspnp/azure-data-factory-sqldw-elt-pipeline/blob/master/azure/sqldw_scripts/citypopulation/%5BIntegration%5D.%5BMigrateExternalCityPopulationData%5D.sql",
+            "github_url": "https://github.com/mspnp/azure-data-factory-sqldw-elt-pipeline/blob/master/azure/sqldw_scripts/citypopulation/%5BIntegration%5D.%5BMigrateExternalCityPopulationData%5D.sql",
             "code_languages": [
                 "sql"
             ],
@@ -757,7 +757,7 @@
             "type": "example-workload",
             "file_url": "example-scenario/firewalls/index.md",
             "http_url": "/azure/architecture/example-scenario/firewalls",
-            "word_count": 1507,
+            "word_count": 1521,
             "read_time": "7 min read",
             "Title": "Azure Firewall Architecture Guide",
             "MetaDescription": "Use proven customer engagement practices to design firewalls and proxies in Azure for traditional infrastructure workloads.",
@@ -815,18 +815,18 @@
             "type": "reference-architecture",
             "file_url": "reference-architectures/iot.md",
             "http_url": "/azure/architecture/reference-architectures/iot",
-            "word_count": 3267,
-            "read_time": "13 min read",
+            "word_count": 2920,
+            "read_time": "12 min read",
             "Title": "Azure IoT reference architecture",
             "MetaDescription": "Recommended architecture for IoT applications on Azure using PaaS (platform-as-a-service) components",
             "category": [
                 "iot",
                 "featured"
             ],
-            "image": "/azure/architecture/reference-architectures/_images/iot.png",
-            "imagepath": "C:\\jvPnpRepos\\architecture-center-pr\\docs\\reference-architectures\\_images\\iot.png",
-            "publish_date": "1/09/2019",
-            "Summary": "<p>This reference architecture shows a recommended architecture for IoT applications on Azure using PaaS (platform-as-a-service) components.</p>\n<p><img alt=\"Diagram of the architecture\" src=\"https://docs.microsoft.com/azure/architecture/reference-architectures/_images/iot.png\" /></p>\n<p>IoT applications can be described as <strong>things</strong> (devices) sending data that generates <strong>insights</strong>. These insights generate <strong>actions</strong> to improve a business or process. An example is an engine (the thing) sending temperature data. This data is used to evaluate whether the engine is performing as expected (the insight). The insight is used to proactively prioritize the maintenance schedule for the engine (the action).</p>\n<p>This reference architecture uses Azure PaaS (platform-as-a-service) components. Other options for building IoT solutions on Azure include:</p>\n<ul>\n<li><a href=\"https://docs.microsoft.com/azure/iot-central/\">Azure IoT Central</a>. IoT Central is a fully managed SaaS (software-as-a-service) solution. It abstracts the technical choices and lets you focus on your solution exclusively. This simplicity comes with a tradeoff in being less customizable than a PaaS-based solution.</li>\n<li>Using OSS components such as the SMACK stack (Spark, Mesos, Akka, Cassandra, Kafka) deployed on Azure VMs. This approach offers a great deal of control but is more complex.</li>\n</ul>\n<p>At a high level, there are two ways to process telemetry data, hot path and cold path. The difference has to do with requirements for latency and data access.</p>\n<ul>\n<li>The <strong>hot path</strong> analyzes data in near-real-time, as it arrives. In the hot path, telemetry must be processed with very low latency. The hot path is typically implemented using a stream processing engine. The output may trigger an alert, or be written to a structured format that can be queried using analytical tools.</li>\n<li>The <strong>cold path</strong> performs batch processing at longer intervals (hourly or daily). The cold path typically operates over large volumes of data, but the results don't need to be as timely as the hot path. In the cold path, raw telemetry is captured and then fed into a batch process.</li>\n</ul>",
+            "image": "/azure/architecture/reference-architectures/_images/iot-refarch.svg",
+            "imagepath": "C:\\jvPnpRepos\\architecture-center-pr\\docs\\reference-architectures\\_images\\iot-refarch.svg",
+            "publish_date": "9/10/2020",
+            "Summary": "<p>This reference architecture shows a recommended architecture for IoT applications on Azure using PaaS (platform-as-a-service) components.</p>\n<p><img alt=\"Diagram of the architecture\" src=\"https://docs.microsoft.com/azure/architecture/reference-architectures/_images/iot-refarch.svg\" /></p>\n<p>IoT applications can be described as <strong>things</strong> (devices) sending data that generates <strong>insights</strong>. These insights generate <strong>actions</strong> to improve a business or process. An example is an engine (the thing) sending temperature data. This data is used to evaluate whether the engine is performing as expected (the insight). The insight is used to proactively prioritize the maintenance schedule for the engine (the action).</p>\n<p>This reference architecture uses Azure PaaS (platform-as-a-service) components. Another recommended option for building IoT solutions on Azure is:</p>\n<ul>\n<li><a href=\"https://docs.microsoft.com/azure/iot-central/\">Azure IoT Central</a>. IoT Central is a fully managed SaaS (software-as-a-service) solution. It abstracts the technical choices and lets you focus on your solution exclusively. This simplicity comes with a tradeoff in being less customizable than a PaaS-based solution.</li>\n</ul>\n<p>At a high level, there are two ways to process telemetry data, hot path and cold path. The difference has to do with requirements for latency and data access.</p>\n<ul>\n<li>The <strong>hot path</strong> analyzes data in near-real-time, as it arrives. In the hot path, telemetry must be processed with very low latency. The hot path is typically implemented using a stream processing engine. The output may trigger an alert, or be written to a structured format that can be queried using analytical tools.</li>\n<li>The <strong>cold path</strong> performs batch processing at longer intervals (hourly or daily). The cold path typically operates over large volumes of data, but the results don't need to be as timely as the hot path. In the cold path, raw telemetry is captured and then fed into a batch process.</li>\n</ul>",
             "Flow": {
                 "FlowStep_A": ""
             },
@@ -932,7 +932,7 @@
             "imagepath": "C:\\jvPnpRepos\\architecture-center-pr\\docs\\hybrid\\images\\azure-stack-backup.png",
             "publish_date": "8/06/2020",
             "alternative_choices": "alternative-solutions",
-            "Summary": "<p>This document describes the architecture and design considerations of a solution that delivers an optimized approach to backup and restore of files and applications of VM-based user workloads hosted on Azure Stack Hub.</p>\n<p><img alt=\"Diagram illustrating backup of Azure Stack Hub files and applications hosted on Azure VMs, running such workloads as SQL Server, SharePoint Server, Exchange Server, File Server, and Active Directory Domain Services domain controllers. The backup relies on Azure Backup Server running on a Windows Server VM, with a geo-replicated Azure Recovery Services vault providing long-term storage. Initial backups can be performed by using Azure Import/Export service. Optionally, Azure ExpressRoute can provide high-bandwidth connectivity to Azure.\" src=\"https://docs.microsoft.com/azure/architecture/hybrid/images/azure-stack-backup.png\" /></p>\n<p><em>Download a <a href=\"https://archcenter.blob.core.windows.net/cdn/azure-stack-backup.vsdx\">Visio file</a> of this architecture.</em></p>\n<p>Backup and restore are essential components of any comprehensive business continuity and disaster recovery strategy. Designing and implementing a consistent and reliable backup approach in a hybrid environment is challenging, but can be considerably simplified through integration with services provided by Microsoft Azure. This applies not only to the workloads running on traditional on-premises infrastructure, but also to those hosted by third-party public and private cloud providers. However, benefits of integration with Azure cloud services are particularly evident when the hybrid environments incorporate Azure Stack portfolio offerings, including the Azure Stack Hub.</p>\n<p>While one of the primary strengths of Azure Stack Hub is its support for the platform-as-a-service (PaaS) model, it also helps customers to modernize their existing infrastructure-as-a-service (IaaS) workloads. Such workloads might include file shares, Microsoft SQL Server databases, Microsoft SharePoint farms, and Microsoft Exchange Server clusters. Migrating them to VMs running on hyperconverged, highly-resilient clusters, with administrative and programming models consistent with Microsoft Azure, results in minimized management and maintenance overhead.</p>\n<p>For implementing backup of files and applications running on Azure Hub Stack VMs, Microsoft recommends a hybrid approach that relies on a combination of cloud and on-premises components to deliver a scalable, performant, resilient, secure, straightforward to manage, and cost-efficient backup solution. The central component of this solution is Microsoft Azure Backup Server (MABS) v3, which is part of the Azure Backup offering. MABS relies on Azure Stack Hub infrastructure for compute, network, and short-term storage resources, while it leverages Azure-based storage to serve as the long-term backup store. This minimizes or eliminates the need to maintain physical backup media such as tapes.</p>\n<blockquote>\n<p>[!Note] MABS is based on Microsoft System Center Data Protection Manager (DPM) and provides similar functionality with just a few differences. However, DPM is not supported for use with Azure Stack Hub.</p>\n</blockquote>",
+            "Summary": "<p>This document describes the architecture and design considerations of a solution that delivers an optimized approach to backup and restore of files and applications of VM-based user workloads hosted on Azure Stack Hub.</p>\n<p><img alt=\"Diagram illustrating backup of Azure Stack Hub files and applications hosted on Azure VMs, running such workloads as SQL Server, SharePoint Server, Exchange Server, File Server, and Active Directory Domain Services domain controllers. The backup relies on Azure Backup Server running on a Windows Server VM, with a geo-replicated Azure Recovery Services vault providing long-term storage. Initial backups can be performed by using Azure Import/Export service. Optionally, Azure ExpressRoute can provide high-bandwidth connectivity to Azure.\" src=\"https://docs.microsoft.com/azure/architecture/hybrid/images/azure-stack-backup.png\" /></p>\n<p><em>Download a <a href=\"https://archcenter.blob.core.windows.net/cdn/azure-stack-backup.vsdx\">Visio file</a> of this architecture.</em></p>\n<p>Backup and restore are essential components of any comprehensive business continuity and disaster recovery strategy. Designing and implementing a consistent and reliable backup approach in a hybrid environment is challenging, but can be considerably simplified through integration with services provided by Microsoft Azure. This applies not only to the workloads running on traditional on-premises infrastructure, but also to those hosted by third-party public and private cloud providers. However, benefits of integration with Azure cloud services are particularly evident when the hybrid environments incorporate Azure Stack portfolio offerings, including the Azure Stack Hub.</p>\n<p>While one of the primary strengths of Azure Stack Hub is its support for the platform-as-a-service (PaaS) model, it also helps customers to modernize their existing infrastructure-as-a-service (IaaS) workloads. Such workloads might include file shares, Microsoft SQL Server databases, Microsoft SharePoint farms, and Microsoft Exchange Server clusters. Migrating them to VMs running on hyperconverged, highly-resilient clusters, with administrative and programming models consistent with Microsoft Azure, results in minimized management and maintenance overhead.</p>\n<p>For implementing backup of files and applications running on Azure Hub Stack VMs, Microsoft recommends a hybrid approach that relies on a combination of cloud and on-premises components to deliver a scalable, performant, resilient, secure, straightforward to manage, and cost-efficient backup solution. The central component of this solution is Microsoft Azure Backup Server (MABS) v3, which is part of the Azure Backup offering. MABS relies on Azure Stack Hub infrastructure for compute, network, and short-term storage resources, while it leverages Azure-based storage to serve as the long-term backup store. This minimizes or eliminates the need to maintain physical backup media such as tapes.</p>\n<blockquote>\n<p>[!Note]\nMABS is based on Microsoft System Center Data Protection Manager (DPM) and provides similar functionality with just a few differences. However, DPM is not supported for use with Azure Stack Hub.</p>\n</blockquote>",
             "Flow": {
                 "FlowStep_A": "A customer copies the initial backup data to one or more SATA disks by using the AzureOfflineBackupDiskPrep tool.",
                 "FlowStep_B": "The tool automatically generates an Azure Import job and an Azure AD app in the subscription hosting the target Azure Storage account and Azure Recovery Services vault. The purpose of the app is to provide Azure Backup with secure and scoped access to the Azure Import Service, required by the offline seeding process.",
@@ -1027,10 +1027,10 @@
             "type": "reference-architecture",
             "file_url": "reference-architectures/containers/aks/secure-baseline-aks.md",
             "http_url": "/azure/architecture/reference-architectures/containers/aks/secure-baseline-aks",
-            "word_count": 7816,
-            "read_time": "31 min read",
+            "word_count": 7946,
+            "read_time": "32 min read",
             "Title": "Baseline architecture for an Azure Kubernetes Service (AKS) cluster",
-            "MetaDescription": "Reference architecture for a baseline infrastructure that deploys an Azure Kubernetes Service (AKS) cluster with focus on security.",
+            "MetaDescription": "Reference architecture for a baseline infrastructure that deploys an Azure Kubernetes Service (AKS) cluster.",
             "category": [
                 "containers",
                 "kubernetes",
@@ -1040,10 +1040,7 @@
             "imagepath": "C:\\jvPnpRepos\\architecture-center-pr\\docs\\reference-architectures\\containers\\aks\\images\\secure-baseline-architecture.svg",
             "publish_date": "8/01/2020",
             "Flow": {
-                "FlowStep_A": " A developer commits changes to source code, such as configuration YAML files, which are stored in a git repository. The changes are then pushed to a git server.",
-                "FlowStep_B": " flux runs in pod in alongside the workload. flux has read-only access to the git repository to make sure that flux is only applying changes as requested by developers.",
-                "FlowStep_C": " flux recognizes changes in configuration and applies those changes using kubectl commands.",
-                "FlowStep_D": " Developers do not have direct access to the Kubernetes API through kubectl. Use branch policies on your git server so multiple developers can approve a change before it\u2019s applied to production."
+                "FlowStep_A": " The ingress controller receives the encrypted traffic through the load balancer. The controller is another TLS termination point for \\*.aks-ingress.contoso.com and forwards the traffic to the workload pods over HTTP. The certificates are stored in Azure Key Vault and mounted into the cluster using the Container Storage Interface (CSI) driver. For more information, see Add secret management."
             },
             "sample_code": true,
             "github_url": "https://github.com/mspnp/aks-secure-baseline",
@@ -1398,8 +1395,8 @@
             "http_url": "/azure/architecture/solution-ideas/articles/cloud-native-apps",
             "word_count": 553,
             "read_time": "3 min read",
-            "Title": "Build cloud native apps",
-            "MetaDescription": "Build cloud native apps with Azure Cosmos DB, Azure Database for PostgreSQL and Azure Cache for Redis",
+            "Title": "Build cloud native applications",
+            "MetaDescription": "Build cloud native applications with Azure Cosmos DB, Azure Database for PostgreSQL and Azure Cache for Redis",
             "category": [
                 "databases",
                 "web",
@@ -3057,8 +3054,8 @@
             "http_url": "/azure/architecture/solution-ideas/articles/erp-customer-service",
             "word_count": 507,
             "read_time": "3 min read",
-            "Title": "Deliver highly scalable customer service and ERP apps",
-            "MetaDescription": "Deliver highly scalable customer service and ERP apps with Azure SQL and Azure Cosmos DB",
+            "Title": "Deliver highly scalable customer service and ERP applications",
+            "MetaDescription": "Deliver highly scalable customer service and ERP applications with Azure SQL and Azure Cosmos DB",
             "category": [
                 "databases"
             ],
@@ -3072,7 +3069,7 @@
                 "<p><a href=\"https://docs.microsoft.com/azure/cosmos-db/introduction\">Azure Cosmos DB</a> is a fully managed NoSQL database service for building and modernizing scalable, high performance applications.</p>",
                 "<p><a href=\"https://docs.microsoft.com/power-bi/fundamentals/power-bi-overview\">Power BI</a> is a suite of business tools for self-service and enterprise business intelligence (BI). Here, it\u2019s used to analyze and visualize data.</p>"
             ],
-            "Summary": "<p>Today\u2019s organizations are generating ever-increasing amounts of structured and unstructured data. With Azure managed databases and Azure Synapse Analytics, they can deliver insights to their employees via ERP apps and Power BI, as well as superior customer service through web and mobile apps, scaling without limits as data volumes and application users increase.</p>",
+            "Summary": "<p>Today\u2019s organizations are generating ever-increasing amounts of structured and unstructured data. With Azure managed databases and Azure Synapse Analytics, they can deliver insights to their employees via ERP applications and Power BI, as well as superior customer service through web and mobile applications, scaling without limits as data volumes and application users increase.</p>",
             "name": "erp-customer-service",
             "popularity": 0,
             "topic": "Databases"
@@ -3437,7 +3434,7 @@
             "type": "reference-architecture",
             "file_url": "hybrid/hybrid-dns-infra.md",
             "http_url": "/azure/architecture/hybrid/hybrid-dns-infra",
-            "word_count": 2021,
+            "word_count": 2022,
             "read_time": "8 min read",
             "Title": "Design a hybrid Domain Name System solution with Azure",
             "MetaDescription": "Hybrid Domain Name System (DNS) solution to resolve names for workloads that are hosted on-premises and in Microsoft Azure",
@@ -3454,122 +3451,6 @@
             "popularity": 0,
             "topic": "Networking",
             "hybrid-topic": "Networking"
-        },
-        {
-            "tags": [
-                "'https:--azure.microsoft.com-solutions-architecture-dev-test-iaas-'",
-                "acom-architecture",
-                "all-items",
-                "devops",
-                "example-code",
-                "github",
-                "solution-idea"
-            ],
-            "type": "solution-idea",
-            "file_url": "solution-ideas/articles/dev-test-iaas.md",
-            "http_url": "/azure/architecture/solution-ideas/articles/dev-test-iaas",
-            "word_count": 248,
-            "read_time": "2 min read",
-            "Title": "Dev-Test deployment for testing IaaS solutions",
-            "MetaDescription": "This architecture represents how to configure your infrastructure for development and testing of a standard IaaS-based SaaS system.",
-            "category": [
-                "devops",
-                "management-and-governance"
-            ],
-            "image": "/azure/architecture/solution-ideas/media/dev-test-iaas.png",
-            "imagepath": "C:\\jvPnpRepos\\architecture-center-pr\\docs\\solution-ideas\\media\\dev-test-iaas.png",
-            "publish_date": "12/16/2019",
-            "components": [
-                "<p><a href=\"https://azure.microsoft.com/services/devops\">Azure DevOps</a> manages the development process.</p>",
-                "<p>The <a href=\"https://www.visualstudio.com/docs/release/getting-started/configure-agents\">Microsoft Release Management</a> build and release agents deploy the Azure Resource Manager template and associated code to the various environments.</p>",
-                "<p><a href=\"https://www.visualstudio.com/docs/release/getting-started/configure-agents\">Azure DevOps resource groups</a> are used to define all the services required to deploy the solution into a dev-test or production environment.</p>",
-                "<p><a href=\"https://azure.microsoft.com/services/devtest-lab\">Azure DevTest Labs</a>: Azure Dev-Test Labs manages all of the virtual machines used in the development and test environments.</p>",
-                "<p><a href=\"https://azure.microsoft.com/services/virtual-machines\">Virtual Machines</a>: Virtual machines are used to deploy all of the products used in the solution. Staging slots swap pre-production and production versions.</p>",
-                "<p>Application Insights: Application Insights monitors the web application during development and test runs, and then monitors the full production system when it\u2019s released.</p>"
-            ],
-            "sample_code": true,
-            "github_url": "https://github.com/microsoft/azure-pipelines-tasks/tree/master/Tasks/AzureResourceGroupDeploymentV2",
-            "name": "dev-test-iaas",
-            "popularity": 126,
-            "topic": "DevOps"
-        },
-        {
-            "tags": [
-                "'https:--azure.microsoft.com-solutions-architecture-dev-test-paas-'",
-                "acom-architecture",
-                "all-items",
-                "devops",
-                "example-code",
-                "github",
-                "solution-idea"
-            ],
-            "type": "solution-idea",
-            "file_url": "solution-ideas/articles/dev-test-paas.md",
-            "http_url": "/azure/architecture/solution-ideas/articles/dev-test-paas",
-            "word_count": 287,
-            "read_time": "2 min read",
-            "Title": "Dev-Test deployment for testing PaaS solutions",
-            "MetaDescription": "This architecture represents how to configure your infrastructure for development and testing of a standard PaaS-style system.",
-            "category": [
-                "devops",
-                "databases",
-                "developer-tools"
-            ],
-            "image": "/azure/architecture/solution-ideas/media/dev-test-paas.png",
-            "imagepath": "C:\\jvPnpRepos\\architecture-center-pr\\docs\\solution-ideas\\media\\dev-test-paas.png",
-            "publish_date": "12/16/2019",
-            "components": [
-                "<p><a href=\"https://azure.microsoft.com/services/devops\">Azure DevOps</a> manage the development process.</p>",
-                "<p>The <a href=\"https://www.visualstudio.com/docs/release/getting-started/configure-agents\">Microsoft Release Management</a> build and release agents deploy the Azure Resource Manager template and associated code to the various environments.</p>",
-                "<p><a href=\"https://www.visualstudio.com/docs/release/getting-started/configure-agents\">Resource Groups</a>: AzureDevOps resource groups are used to define all the services required to deploy the solution into a dev-test or production environment.</p>",
-                "<p><a href=\"https://azure.microsoft.com/services/app-service/web\">Web Apps</a>: A web app runs the website and is deployed to all environments. Staging slots are used to swap pre-production and production versions.</p>",
-                "<p><a href=\"https://azure.microsoft.com/services/sql-database\">Azure SQL Database</a> maintains data for the website. Copies are deployed in the dev, test, and production environments.</p>",
-                "<p><a href=\"https://azure.microsoft.com/services/cache\">Azure Cache for Redis</a> is used in each environment to improve performance of the website.</p>",
-                "<p>Application Insights: Application Insights monitors the web application during development and test runs, and then monitors the full production system when it's released.</p>"
-            ],
-            "sample_code": true,
-            "github_url": "https://github.com/microsoft/azure-pipelines-tasks/tree/master/Tasks/AzureResourceGroupDeploymentV2",
-            "name": "dev-test-paas",
-            "popularity": 151,
-            "topic": "DevOps"
-        },
-        {
-            "tags": [
-                "'https:--azure.microsoft.com-solutions-architecture-dev-test-microservice-'",
-                "acom-architecture",
-                "all-items",
-                "devops",
-                "example-code",
-                "github",
-                "microservices",
-                "solution-idea"
-            ],
-            "type": "solution-idea",
-            "file_url": "solution-ideas/articles/dev-test-microservice.md",
-            "http_url": "/azure/architecture/solution-ideas/articles/dev-test-microservice",
-            "word_count": 233,
-            "read_time": "2 min read",
-            "Title": "Dev-Test deployment for testing microservice solutions",
-            "MetaDescription": "This architecture represents how to configure your infrastructure for development and testing of a microservices-based system.",
-            "category": [
-                "devops",
-                "developer-tools"
-            ],
-            "image": "/azure/architecture/solution-ideas/media/dev-test-microservice.png",
-            "imagepath": "C:\\jvPnpRepos\\architecture-center-pr\\docs\\solution-ideas\\media\\dev-test-microservice.png",
-            "publish_date": "12/16/2019",
-            "components": [
-                "<p><a href=\"https://azure.microsoft.com/services/devops\">Azure DevOps</a> manages the development process.</p>",
-                "<p>The <a href=\"https://www.visualstudio.com/docs/release/getting-started/configure-agents\">Microsoft Release Management</a> build and release agents deploy the Azure Resource Manager template and associated code to the various environments.</p>",
-                "<p><a href=\"https://www.visualstudio.com/docs/release/getting-started/configure-agents\">Azure DevOps resource groups</a> are used to define all the services required to deploy the solution into a dev-test or production environment.</p>",
-                "<p><a href=\"https://azure.microsoft.com/services/service-fabric\">Service Fabric</a> orchestrates all of the microservices used in the solution. In development, code is deployed directly from the development tools, while in test and production environments the code is deployed through the build and release agent using Resource Manager templates.</p>",
-                "<p><a href=\"https://azure.microsoft.com/services/sql-database\">Azure SQL Database</a> maintains data for the website. Copies are deployed in the dev, test, and production environments.</p>"
-            ],
-            "sample_code": true,
-            "github_url": "https://github.com/microsoft/azure-pipelines-tasks/tree/master/Tasks/AzureResourceGroupDeploymentV2",
-            "name": "dev-test-microservice",
-            "popularity": 118,
-            "topic": "DevOps"
         },
         {
             "tags": [
@@ -3632,7 +3513,7 @@
             "type": "solution-idea",
             "file_url": "solution-ideas/articles/devsecops-in-azure.md",
             "http_url": "/azure/architecture/solution-ideas/articles/devsecops-in-azure",
-            "word_count": 767,
+            "word_count": 778,
             "read_time": "4 min read",
             "Title": "DevSecOps in Azure",
             "MetaDescription": "DevSecOps involves utilizing security best practices from the beginning of development, shifting the focus on security away from auditing at the end and towards development in the beginning",
@@ -3645,39 +3526,79 @@
             "publish_date": "12/16/2019",
             "components": [
                 "<p><a href=\"https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis\">Azure Active Directory</a> provides identity and access management services for your organization, allowing control over access to the resources inside Azure, GitHub Enterprise, and Azure DevOps.</p>",
-                "<p>Source code is hosted on <a href=\"https://help.github.com/en/github\">GitHub Enterprise</a>, where developers can collaborate within your organization and the open source communities. GitHub Enterprise offers advanced security features to identify vulnerabilities in the code you write and in open source dependencies</p>",
+                "<p>Source code is hosted on <a href=\"https://help.github.com/en/github\">GitHub Enterprise</a>, where developers can collaborate within your organization and the open-source communities. GitHub Enterprise offers advanced security features to identify vulnerabilities in the code you write and in open-source dependencies</p>",
                 "<p>Use <a href=\"https://docs.microsoft.com/azure/devops/boards/github/connect-to-github?view=azure-devops\">Azure Boards</a> to plan work and track its progress, using Agile tools such as Kanban boards.</p>",
                 "<p><a href=\"https://docs.microsoft.com/azure/devops/pipelines/get-started/pipelines-get-started?view=azure-devops\">Azure Pipelines</a> is a service that provides Continuous Integration and Continuous Delivery jobs, to build and release your application automatically.</p>",
                 "<p>Host your Docker container images on <a href=\"https://docs.microsoft.com/azure/container-registry/container-registry-concepts\">Azure Container Registry</a>. This service includes container image scanning with the integration with Azure Security Center.</p>",
-                "<p><a href=\"https://docs.microsoft.com/azure/aks/intro-kubernetes\">Azure Kubernetes Service</a> offers a Kubernetes cluster that is fully-managed by Azure, to ensure availability and security of your infrastructure.</p>",
+                "<p><a href=\"https://docs.microsoft.com/azure/aks/intro-kubernetes\">Azure Kubernetes Service</a> offers a Kubernetes cluster that is fully managed by Azure, to ensure availability and security of your infrastructure.</p>",
                 "<p><a href=\"https://docs.microsoft.com/azure/terraform/terraform-create-k8s-cluster-with-tf-and-aks\">Terraform</a> is a third-party product developed by HashiCorp that allows infrastructure automation on Azure, as well as on other environments.</p>",
                 "<p><a href=\"https://docs.microsoft.com/azure/governance/policy/overview\">Azure Policy</a> lets you create, assign, and manage policies. These policies enforce different rules and effects over your resources, so those resources stay compliant with your corporate standards and service level agreements. It integrates with Azure Kubernetes Service too.</p>",
-                "<p>You can use <a href=\"https://docs.microsoft.com/azure/key-vault/key-vault-overview\">Azure Key Vault</a> to store certificates, connection strings, tokens, and other secrets. These are read by your application at run-time, so they're abstracted away from your developers.</p>",
-                "<p>Azure <a href=\"https://docs.microsoft.com/azure/cosmos-db/introduction\">Cosmos DB</a> is a globally-distributed, multi-model database service, that is fully-managed and compatible with multiple APIs, including MongoDB, Cassandra, SQL.</p>",
+                "<p>You can use <a href=\"https://docs.microsoft.com/azure/key-vault/key-vault-overview\">Azure Key Vault</a> to store certificates, connection strings, tokens, and other secrets. This sensitive information is read by your application at run-time, so it's abstracted away from your developers.</p>",
+                "<p>Azure <a href=\"https://docs.microsoft.com/azure/cosmos-db/introduction\">Cosmos DB</a> is a globally distributed, multi-model database service, that is fully managed and compatible with multiple APIs, including MongoDB, Cassandra, SQL.</p>",
                 "<p><a href=\"https://docs.microsoft.com/azure/application-gateway/ingress-controller-overview\">Azure Application Gateway</a> is a Layer-7 load balancer with support for advanced routing rules and a Web Application Firewall (WAF).</p>",
                 "<p>Using <a href=\"https://docs.microsoft.com/azure/azure-monitor/overview\">Azure Monitor</a> lets you get insights on the availability and performance of your application and infrastructure. It also gives you access to signals to monitor your solution's health and spot abnormal activity early.</p>",
                 "<p>Using <a href=\"https://docs.microsoft.com/azure/active-directory-b2c/overview\">Azure AD B2C</a> you can provide identity services to consumers (end-users) of your application, even if they're not part of your organization.</p>"
             ],
-            "Summary": "<p>Security is a prime concern for business that are storing any sort of custom or client data. The solution that is covering the management and interface of this data should be developed with security in mind. DevSecOps involves utilizing security best practices from the beginning of development, shifting the focus on security away from auditing at the end and towards development in the beginning using a shift-left strategy.</p>\n<p><img alt=\"Architecture Diagram\" src=\"https://docs.microsoft.com/azure/architecture/solution-ideas/media/devsecops-in-azure.png\" />\n<em>Download an <a href=\"https://docs.microsoft.com/azure/architecture/solution-ideas/media/devsecops-in-azure.svg\">SVG</a> of this architecture.</em></p>",
+            "Summary": "<p>Security is a prime concern for businesses that store any sort of custom or client data. The solution that is covering the management and interface of this data should be developed with security in mind. DevSecOps involves utilizing security best practices from the beginning of development, shifting the focus on security away from auditing at the end and towards development in the beginning using a shift-left strategy.</p>\n<p><img alt=\"Architecture Diagram\" src=\"https://docs.microsoft.com/azure/architecture/solution-ideas/media/devsecops-in-azure.png\" />\n<em>Download an <a href=\"https://docs.microsoft.com/azure/architecture/solution-ideas/media/devsecops-in-azure.svg\">SVG</a> of this architecture.</em></p>",
             "Flow": {
-                "FlowStep_A": "Azure Active Directory (AD) can be configured as the identity provider for GitHub. Multi-factor authentication can be enabled for extra security",
-                "FlowStep_B": "Developers commit to GitHub Enterprise, driven by work items and bugs tracked with Azure Boards",
-                "FlowStep_C": "GitHub Enterprise can integrate automatic security and dependency scanning through GitHub Advanced Security and GitHub Open Source Security",
-                "FlowStep_D": "Pull Requests trigger CI builds and automated testing in Azure Pipelines",
-                "FlowStep_E": "The CI build in Azure Pipelines generates a Docker container image that is stored to Azure Container Registry, which is to be used at release time by Azure Kubernetes Service",
-                "FlowStep_F": "Upon uploading to the Azure Container Registry, Azure Security Center will scan the image for Azure-native vulnerabilities and for security recommendations for the pushed image",
-                "FlowStep_G": "A release on Azure Pipelines integrates the Terraform tool, managing both the cloud infrastructure as code, provisioning resources such as Azure Kubernetes Service, Application Gateway, and Azure Cosmos DB",
-                "FlowStep_H": "Azure Pipelines enable Continuous Delivery (CD) to Azure Kubernetes Service, by accessing the Container Registry through a secure service connection",
-                "FlowStep_I": "Azure Policy can be applied to Azure Pipelines to enforce post-deployment gateways, and can be applied directly to the AKS engine for policy enforcement",
-                "FlowStep_J": "Azure Key Vault is used to securely inject secrets and credentials into an application at runtime, abstracting sensitive information away from developers",
-                "FlowStep_K": "End users can authenticate with Azure AD B2C, required to use MFA for extra security, and be routed through an Application Gateway which can load balance and protect core services",
-                "FlowStep_L": "Continuous monitoring with Azure Monitor extends to release pipelines to gate or rollback releases based on monitoring data. Azure Monitor also ingests security logs and can alert on suspicious activity",
-                "FlowStep_M": "As addition and final part of a DevSecOps flow, Azure Security Center will be able to do active threat monitoring on the Azure Kubernetes Service, on both Node level (VM threats) and internals"
+                "FlowStep_A": "Azure Active Directory (AD) can be configured as the identity provider for GitHub. Multi-factor authentication can be enabled for extra security.",
+                "FlowStep_B": "Developers commit to GitHub Enterprise, driven by work items and bugs tracked with Azure Boards.",
+                "FlowStep_C": "GitHub Enterprise can integrate automatic security and dependency scanning through GitHub Advanced Security and GitHub Open Source Security.",
+                "FlowStep_D": "Pull Requests trigger CI builds and automated testing in Azure Pipelines.",
+                "FlowStep_E": "The CI build in Azure Pipelines generates a Docker container image that is stored to Azure Container Registry, which is to be used at release time by Azure Kubernetes Service.",
+                "FlowStep_F": "Upon uploading to the Azure Container Registry, Azure Security Center will scan the image for Azure-native vulnerabilities and for security recommendations for the pushed image.",
+                "FlowStep_G": "A release on Azure Pipelines integrates the Terraform tool, managing both the cloud infrastructure as code, provisioning resources such as Azure Kubernetes Service, Application Gateway, and Azure Cosmos DB.",
+                "FlowStep_H": "Azure Pipelines enable Continuous Delivery (CD) to Azure Kubernetes Service, by accessing the Container Registry through a secure service connection.",
+                "FlowStep_I": "Azure Policy can be applied to Azure Pipelines to enforce post-deployment gateways, and can be applied directly to the AKS engine for policy enforcement.",
+                "FlowStep_J": "Azure Key Vault is used to securely inject secrets and credentials into an application at runtime, abstracting sensitive information away from developers.",
+                "FlowStep_K": "End users can authenticate with Azure AD B2C, required to use MFA for extra security, and be routed through an Application Gateway that can load balance and protect core services.",
+                "FlowStep_L": "Continuous monitoring with Azure Monitor extends to release pipelines to gate or rollback releases based on monitoring data. Azure Monitor also ingests security logs and can alert on suspicious activity.",
+                "FlowStep_M": "As addition and final part of a DevSecOps flow, Azure Security Center will be able to do active threat monitoring on the Azure Kubernetes Service, on both Node level (VM threats) and internals."
             },
             "name": "devsecops-in-azure",
             "popularity": 0,
             "topic": "DevOps",
             "hybrid-topic": "Apps"
+        },
+        {
+            "tags": [
+                "all-items",
+                "example-code",
+                "fcp",
+                "github",
+                "solution-idea"
+            ],
+            "type": "solution-idea",
+            "file_url": "solution-ideas/articles/devsecops-in-github.md",
+            "http_url": "/azure/architecture/solution-ideas/articles/devsecops-in-github",
+            "word_count": 2089,
+            "read_time": "8 min read",
+            "Title": "DevSecOps in GitHub",
+            "MetaDescription": "Learn how GitHub tools make security practices an integral part of DevOps while maintaining efficiency. See how to use these tools within an Azure framework.",
+            "category": [
+                "devops",
+                "security"
+            ],
+            "image": "/azure/architecture/solution-ideas/media/devsecops-in-github-data-flow.png",
+            "imagepath": "C:\\jvPnpRepos\\architecture-center-pr\\docs\\solution-ideas\\media\\devsecops-in-github-data-flow.png",
+            "publish_date": "9/01/2020",
+            "components": [
+                "<p><a href=\"https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis\">Azure AD</a> is a multi-tenant, cloud-based identity service that controls access to Azure and other cloud apps like <a href=\"https://www.microsoft.com/microsoft-365/what-is-microsoft-365\">Microsoft 365</a> and GitHub.</p>",
+                "<p><a href=\"https://docs.github.com/en/github\">GitHub</a> provides a code-hosting platform that developers can use for collaborating on both open-source and <a href=\"https://resources.github.com/whitepapers/introduction-to-innersource/\">inner-source</a> projects.</p>",
+                "<p><a href=\"https://docs.github.com/en/github/developing-online-with-codespaces/about-codespaces\">Codespaces</a> is an online development environment. Hosted by GitHub and powered by <a href=\"https://code.visualstudio.com/\">Visual Studio Code</a>, this tool provides a complete development solution in the cloud.</p>",
+                "<p><a href=\"https://github.com/features/security\">GitHub Security</a> works to eliminate threats in a number of ways. Agents and services identify vulnerabilities in repositories and in dependent packages. They also upgrade dependencies to up-to-date, secure versions.</p>",
+                "<p><a href=\"https://docs.github.com/en/actions/getting-started-with-github-actions/about-github-actions\">GitHub Actions</a> are custom workflows that provide continuous integration (CI) and continuous deployment (CD) capabilities directly in repositories. Computers called <em>runners</em> host these CI/CD jobs.</p>",
+                "<p><a href=\"https://azure.microsoft.com/services/app-service/\">App Service</a> provides a framework for building, deploying, and scaling web apps. This platform offers built-in infrastructure maintenance, security patching, and scaling.</p>",
+                "<p><a href=\"https://docs.microsoft.com/azure/governance/policy/overview\">Azure Policy</a> helps teams manage and prevent IT issues through policy definitions that can enforce rules for cloud resources. For instance, if your project is about to deploy a virtual machine with an unrecognized SKU, Azure Policy alerts you to the problem and stops the deployment.</p>",
+                "<p><a href=\"https://docs.microsoft.com/azure/security-center/security-center-intro\">Azure Security Center</a> provides unified security management and advanced threat protection across hybrid cloud workloads.</p>",
+                "<p><a href=\"https://docs.microsoft.com/azure/azure-monitor/overview\">Azure Monitor</a> collects and analyzes app telemetry, such as performance metrics and activity logs. When this service identifies irregular conditions, it alerts apps and personnel.</p>"
+            ],
+            "Summary": "<p>Starting with the first steps of development, DevSecOps adheres to security best practices. By using a <a href=\"https://devops.com/devops-shift-left-avoid-failure/\">shift-left</a> strategy, DevSecOps redirects the security focus. Instead of pointing toward auditing at the end, it shifts to development in the beginning. Besides producing robust code, this <a href=\"https://whatis.techtarget.com/definition/fail-fast\">fail fast</a> approach helps to resolve problems early on, when they're easy to fix.</p>\n<p>With many security capabilities, GitHub offers tools that support every part of a DevSecOps workflow:</p>\n<ul>\n<li>Browser-based IDEs with built-in security extensions.</li>\n<li>Agents that continuously monitor security advisories and replace vulnerable and out-of-date dependencies.</li>\n<li>Search capabilities that scan source code for vulnerabilities.</li>\n<li>Action-based workflows that automate every step of development, testing, and deployment.</li>\n<li>Spaces that provide a way to privately discuss and resolve security threats and then publish the information.</li>\n</ul>\n<p>Combined with the monitoring and evaluation power of Azure, these features provide a superb service for building secure cloud solutions.</p>",
+            "sample_code": true,
+            "github_url": "https://github.com/features/security",
+            "name": "devsecops-in-github",
+            "popularity": 0,
+            "topic": "DevOps"
         },
         {
             "tags": [
@@ -3723,6 +3644,120 @@
             },
             "name": "dev-test-image-factory",
             "popularity": 43,
+            "topic": "DevOps"
+        },
+        {
+            "tags": [
+                "all-items",
+                "alternative-choices",
+                "fcp",
+                "solution-idea"
+            ],
+            "type": "solution-idea",
+            "file_url": "solution-ideas/articles/dev-test-iaas.md",
+            "http_url": "/azure/architecture/solution-ideas/articles/dev-test-iaas",
+            "word_count": 1068,
+            "read_time": "5 min read",
+            "Title": "DevTest and DevOps for IaaS solutions",
+            "MetaDescription": "Learn how to configure a DevTest and DevOps infrastructure for development, testing, and deploying IaaS-based software.",
+            "category": [
+                "devops",
+                "management-and-governance"
+            ],
+            "image": "/azure/architecture/solution-ideas/media/dev-test-iaas.png",
+            "imagepath": "C:\\jvPnpRepos\\architecture-center-pr\\docs\\solution-ideas\\media\\dev-test-iaas.png",
+            "publish_date": "9/17/2020",
+            "alternative_choices": "alternatives",
+            "components": [
+                "<p><a href=\"https://azure.microsoft.com/services/devtest-lab/\">Azure DevTest Labs</a> provides labs that have all the necessary tools and software to create environments. Developers can efficiently self-manage resources without waiting for approvals. With DevTest Labs, teams can control costs and regulate resources per lab, granting developers permission and flexibility to operate their sandboxes within cost constraints.</p>",
+                "<p><a href=\"https://docs.microsoft.com/azure/virtual-machines/windows/image-builder-overview\">Azure VM Image Builder</a> service provides baseline VM images that developers can customize. The service facilitates the creation and patching of images and can be called as an Azure Pipelines task.</p>",
+                "<p><a href=\"https://docs.microsoft.com/azure/virtual-machines/windows/shared-image-galleries\">Shared Image Gallery</a> acts as a VM image repository for IaaS solutions. VM Image Builder can build directly into a Shared Image Gallery, facilitating an Azure Pipelines CI/CD process of versioning the VM-based application.</p>",
+                "<p><a href=\"https://docs.github.com/github/creating-cloning-and-archiving-repositories/about-repositories\">GitHub</a> is a code hosting platform for version control and collaboration. A GitHub repository contains all project files and their revision history. Developers can work together to contribute, discuss, and manage code in the repository.</p>",
+                "<p><a href=\"https://azure.microsoft.com/services/devops/pipelines/\">Azure Pipelines</a> deploys the VM application images. Pipelines can also deploy the VM resources themselves, through <a href=\"https://docs.microsoft.com/azure/azure-resource-manager/templates/overview\">Azure Resource Manager (ARM) templates</a>. This <a href=\"https://docs.microsoft.com/azure/devops/learn/what-is-infrastructure-as-code\">infrastructure-as-code</a> can be source controlled and configured for CI/CD, ensuring that the infrastructure remains up to date.</p>",
+                "<p><a >DevSecOps in Azure</a>.</p>",
+                "<p><a href=\"https://azure.microsoft.com/services/devops/boards/\">Azure Boards</a> is a service for managing work for software projects. Azure Boards brings a rich set of capabilities, including native support for Scrum and Kanban methodologies, customizable dashboards, and integrated reporting.</p>",
+                "<p><a href=\"https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis\">Azure Active Directory (Azure AD)</a> enterprise identity platform provides single sign-on and multifactor authentication to govern user access to resources. In this scenario, a separate Azure AD per subscription creates a distinct separation of concerns between Azure users.</p>",
+                "<p><a href=\"https://azure.microsoft.com/services/azure-policy/\">Azure Policy</a> governs resources to meet organizational standards and compliance. In a DevTest role, Azure Policy can regulate and limit the number and costs of VMs in the subscription. Auditing can provide insights and track the usage of the DevTest VMs.</p>",
+                "<p><a href=\"https://docs.microsoft.com/azure/devtest-labs/security-baseline\">Azure Monitor</a> can work across subscriptions to monitor VMs in both Production and DevTest environments. Azure Monitor can collect log data from VM operating systems as well as crash dump files, and aggregate them for viewing in <a href=\"https://docs.microsoft.com/azure/security-center/security-center-enable-data-collection\">Azure Security Center</a>.</p>"
+            ],
+            "Summary": "<p><em>Infrastructure as a service (IaaS)</em> is a form of cloud computing that provides virtualized computing resources. <em>Development testing (DevTest)</em> is a software development approach that integrates testing early in the development phase. In this solution, configuring DevTest operations for an IaaS application reduces the cost and overhead of development and test environments, while facilitating faster development through automated virtual machine (VM) and VM image integration and deployment.</p>\n<p><em>DevOps</em> is a set of practices that combine software development and IT operations to shorten the development cycle and provide high-quality continuous deployments (CD). Using <a href=\"https://azure.microsoft.com/services/devops/\">Azure DevOps</a> with DevTest environments lends power and focus to the IaaS development process.</p>",
+            "name": "dev-test-iaas",
+            "popularity": 126,
+            "topic": "DevOps"
+        },
+        {
+            "tags": [
+                "all-items",
+                "alternative-choices",
+                "example-code",
+                "fcp",
+                "github",
+                "solution-idea"
+            ],
+            "type": "solution-idea",
+            "file_url": "solution-ideas/articles/dev-test-paas.md",
+            "http_url": "/azure/architecture/solution-ideas/articles/dev-test-paas",
+            "word_count": 1352,
+            "read_time": "6 min read",
+            "Title": "DevTest and DevOps for PaaS solutions",
+            "MetaDescription": "Learn how to configure a DevTest and DevOps infrastructure for development, testing, and deploying PaaS-based software.",
+            "category": [
+                "devops",
+                "management-and-governance"
+            ],
+            "image": "/azure/architecture/solution-ideas/media/dev-test-paas.png",
+            "imagepath": "C:\\jvPnpRepos\\architecture-center-pr\\docs\\solution-ideas\\media\\dev-test-paas.png",
+            "publish_date": "9/17/2020",
+            "alternative_choices": "alternatives",
+            "Summary": "<p>In <em>platform as a service (PaaS)</em> cloud computing, a service provider delivers a platform for clients to develop, run, and manage applications without having to build and maintain infrastructure. Solution development based on Azure Platform resources and services removes the overhead of managing virtual machines, virtual networks, disks, and related configurations.</p>\n<p><em>Development testing (DevTest)</em> is a software development approach that integrates testing early in the development phase. <em>DevOps</em> is a set of practices that combine software development and IT operations, to shorten the development cycle and provide continuous delivery with high quality.</p>\n<p>This solution architecture combines reduced overhead and a DevOps toolchain to support rapid DevTest iteration cycles and a fast development environment with PaaS resources.</p>",
+            "sample_code": true,
+            "github_url": "https://github.com/features/packages",
+            "name": "dev-test-paas",
+            "popularity": 151,
+            "topic": "DevOps"
+        },
+        {
+            "tags": [
+                "all-items",
+                "alternative-choices",
+                "example-code",
+                "fcp",
+                "github",
+                "solution-idea"
+            ],
+            "type": "solution-idea",
+            "file_url": "solution-ideas/articles/dev-test-microservice.md",
+            "http_url": "/azure/architecture/solution-ideas/articles/dev-test-microservice",
+            "word_count": 1216,
+            "read_time": "5 min read",
+            "Title": "DevTest and DevOps for microservice solutions",
+            "MetaDescription": "Learn how to configure a DevTest and DevOps infrastructure for development, testing, and deploying microservice-based software.",
+            "category": [
+                "devops",
+                "management-and-governance"
+            ],
+            "image": "/azure/architecture/solution-ideas/media/dev-test-microservice.png",
+            "imagepath": "C:\\jvPnpRepos\\architecture-center-pr\\docs\\solution-ideas\\media\\dev-test-microservice.png",
+            "publish_date": "9/17/2020",
+            "alternative_choices": "alternatives",
+            "components": [
+                "<p><a href=\"https://azure.microsoft.com/services/devtest-lab/\">Azure DevTest Labs</a> provides labs that have all the necessary tools and software to create environments. Developers can efficiently self-manage resources without waiting for approvals. With DevTest Labs, teams can control costs and regulate resources per lab, granting developers permission and flexibility to operate their sandboxes within cost constraints.</p>",
+                "<p><a href=\"https://docs.github.com/github/creating-cloning-and-archiving-repositories/about-repositories\">GitHub</a> is a code hosting platform for version control and collaboration. A GitHub source-control <a href=\"https://docs.github.com/github/creating-cloning-and-archiving-repositories/about-repositories\">repository</a> contains all project files and their revision history. Developers can work together to contribute, discuss, and manage code in the repository.</p>",
+                "<p><a href=\"https://github.com/features/actions\">GitHub Actions</a> provides a suite of build and release workflows, covering CI, automated testing, and container deployments.</p>",
+                "<p><a href=\"https://azure.microsoft.com/services/devops/boards/\">Azure Boards</a> is a service for managing work for software projects. Azure Boards brings a rich set of capabilities including native support for Scrum and Kanban methodologies, customizable dashboards, and integrated reporting.</p>",
+                "<p><a href=\"https://azure.microsoft.com/services/devops/pipelines/\">Azure Pipelines</a> is a fully featured CI/CD service that can automatically deploy updated Container Registry images to Kubernetes clusters.</p>",
+                "<p><a >DevSecOps in GitHub</a>.</p>",
+                "<p><a href=\"https://docs.microsoft.com/azure/container-registry/\">Azure Container Registry</a> supports building, storing, and managing container images and artifacts in private registries for all types of container deployments.</p>",
+                "<p><a href=\"https://docs.microsoft.com/azure/aks/intro-kubernetes\">Azure Kubernetes Service</a> makes it simple to deploy managed Kubernetes clusters by offloading much of the complexity, responsibility, and operational overhead to Azure.</p>",
+                "<p><a href=\"https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis\">Azure Active Directory (Azure AD)</a> enterprise identity platform provides single sign-on and multifactor authentication to govern user access. A single Azure AD can manage identity for all environments across subscriptions. <a href=\"https://docs.microsoft.com/azure/role-based-access-control/overview\">Role-based access control (RBAC)</a> restricts access to protected resources, preventing unauthorized or inadvertent modification of production resources.</p>",
+                "<p><a href=\"https://docs.microsoft.com/azure/cosmos-db/optimize-dev-test\">Azure Cosmos DB</a> is a fully managed, widely distributed database-as-a-service that supports high availability, multi-region applications, and both SQL and NoSQL APIs. Azure Cosmos DB includes DevTest features like a local Cosmos DB emulator that integrates with Azure DevOps, and low-cost tiers for managing costs in DevTest sandboxes.</p>",
+                "<p><a href=\"https://docs.microsoft.com/azure/devtest-labs/security-baseline\">Azure Monitor</a> can monitor both Production and DevTest environments. Azure Monitor collects log data from VM operating systems and crash dump files, and aggregates them for viewing in <a href=\"https://docs.microsoft.com/azure/security-center/security-center-enable-data-collection\">Azure Security Center</a>.</p>"
+            ],
+            "Summary": "<p>Microservice architectures design applications as collections of loosely coupled services. In a microservices architecture, services are fine-grained and protocols are lightweight. Microservices offer benefits such as clear separation of concerns and decoupling of dependencies.</p>\n<p>Microservices introduce complexities in the development cycle compared to traditional monolithic applications. Traditionally, development occurs in a local or virtual replica of the application stack, which configures and runs compute and storage components locally in isolation. In a microservice model, developers need to test their services against the existing architecture, catch integration issues early to save on build and deployment time, and keep integrated builds clean over the lifecycle of the application.</p>\n<p><em>Development testing (DevTest)</em> is a software development approach that integrates testing early in the development phase to speed development. <em>DevOps</em> is a set of practices that combine software development and IT operations to shorten the development cycle and provide high-quality continuous delivery. <a href=\"https://kubernetes.io/\">Kubernetes</a> is an open-source container orchestration system for automating application deployments.</p>\n<p>This solution architecture models a development and deployment environment that uses DevOps in DevTest for rapid iterative development of an <a href=\"https://azure.microsoft.com/services/kubernetes-service/\">Azure Kubernetes Service (AKS)</a> microservice application. </p>",
+            "sample_code": true,
+            "github_url": "https://github.com/marketplace/azure-boards",
+            "name": "dev-test-microservice",
+            "popularity": 118,
             "topic": "DevOps"
         },
         {
@@ -3811,7 +3846,7 @@
             "word_count": 41,
             "read_time": "1 min read",
             "Title": "Digital Campaign Management",
-            "MetaDescription": "Engage with customers around the world with rich, personalized digital marketing experiences. Quickly build and launch digital campaigns that automatically scale based on customer demand.",
+            "MetaDescription": "Use Azure Database for PostgreSQL to engage with customers around the world with rich, personalized digital marketing experiences.",
             "category": [
                 "databases"
             ],
@@ -3841,7 +3876,7 @@
             "word_count": 45,
             "read_time": "1 min read",
             "Title": "Digital Marketing using Azure Database for MySQL",
-            "MetaDescription": "Engage with customers around the world with rich, personalized digital marketing experiences. Quickly build and launch digital campaigns that automatically scale based on customer demand.",
+            "MetaDescription": "Use Azure Database for MySQL to engage with customers around the world with rich, personalized digital marketing experiences.",
             "category": [
                 "databases"
             ],
@@ -3912,8 +3947,8 @@
             "type": "reference-architecture",
             "file_url": "hybrid/azure-stack-vm-dr.md",
             "http_url": "/azure/architecture/hybrid/azure-stack-vm-dr",
-            "word_count": 7730,
-            "read_time": "30 min read",
+            "word_count": 7577,
+            "read_time": "29 min read",
             "Title": "Disaster Recovery for Azure Stack Hub virtual machines",
             "MetaDescription": "Optimized approach to disaster recovery of virtual machine (VM)-based user workloads hosted on Azure Stack Hub",
             "category": [
@@ -4169,7 +4204,7 @@
             "type": "solution-idea",
             "file_url": "solution-ideas/articles/aks-demand-spikes.md",
             "http_url": "/azure/architecture/solution-ideas/articles/aks-demand-spikes",
-            "word_count": 341,
+            "word_count": 336,
             "read_time": "2 min read",
             "Title": "Elastic demand handling with AKS",
             "MetaDescription": "Achieve fast and reliable service quality during seasonal and other high-traffic demand periods",
@@ -4250,18 +4285,18 @@
             "word_count": 137,
             "read_time": "1 min read",
             "Title": "Enterprise Productivity Chatbot",
-            "MetaDescription": "Azure Bot Service can be easily combined with Language Understanding to build powerful enterprise productivity bots, allowing organizations to streamline common work activities by integrating external systems, such as Office 365 calendar, customer cases stored in Dynamics CRM and much more.",
+            "MetaDescription": "Azure Bot Service can be easily combined with Language Understanding to build powerful enterprise productivity bots, allowing organizations to streamline common work activities by integrating external systems, such as Microsoft 365 calendar, customer cases stored in Dynamics CRM and much more.",
             "category": [
                 "ai-machine-learning"
             ],
             "image": "/azure/architecture/solution-ideas/media/enterprise-productivity-chatbot.png",
             "imagepath": "C:\\jvPnpRepos\\architecture-center-pr\\docs\\solution-ideas\\media\\enterprise-productivity-chatbot.png",
             "publish_date": "12/16/2019",
-            "Summary": "<p>Azure Bot Service can be easily combined with Language Understanding to build powerful enterprise productivity bots, allowing organizations to streamline common work activities by integrating external systems, such as Office 365 calendar, customer cases stored in Dynamics CRM and much more.</p>",
+            "Summary": "<p>Azure Bot Service can be easily combined with Language Understanding to build powerful enterprise productivity bots, allowing organizations to streamline common work activities by integrating external systems, such as Microsoft 365 calendar, customer cases stored in Dynamics CRM and much more.</p>",
             "Flow": {
                 "FlowStep_A": "Employee access Enterprise Productivity Bot",
                 "FlowStep_B": "Azure Active Directory validates the employee's identity",
-                "FlowStep_C": "The Bot is able to query the employee's Office 365 calendar via the Azure Graph",
+                "FlowStep_C": "The Bot is able to query the employee's Microsoft 365 calendar via the Azure Graph",
                 "FlowStep_D": "Using data gathered from the calendar, the Bot access case information in Dynamics CRM",
                 "FlowStep_E": "Information is returned to the employee who can filter down the data without leaving the Bot"
             },
@@ -4294,7 +4329,7 @@
             "imagepath": "C:\\jvPnpRepos\\architecture-center-pr\\docs\\reference-architectures\\data\\images\\enterprise-bi-synapse.png",
             "publish_date": "11/20/2019",
             "pricing_guidance": "pricing-for-azure-analysis-services-depends-on-the-tier.-the-reference-implementation-of-this-architecture-uses-the-**developer**-tier,-which-is-recommended-for-evaluation,-development,-and-test-scenarios.-other-tiers-include,-the-**basic**-tier,-which-is-recommended-for-small-production-environment;-the-**standard**-tier-for-mission-critical-production-applications.-for-more-information,-see-[the-right-tier-when-you-need-it](-azure-analysis-services-analysis-services-overview#the-right-tier-when-you-need-it).",
-            "Summary": "<p>This reference architecture implements an <a extract-load-and-transform-elt\">extract, load, and transform (ELT)</a> pipeline that moves data from an on-premises SQL Server database into Azure Synapse and transforms the data for analysis.</p>\n<p><img alt=\"GitHub logo\" src=\"https://docs.microsoft.com/azure/architecture/_images/github.png\" /> A reference implementation for this architecture is available on <a href=\"https://github.com/mspnp/reference-architectures/tree/master/data/enterprise_bi_sqldw\">GitHub</a>.</p>\n<p><img alt=\"Architecture diagram for Enterprise BI in Azure with Azure Synapse\" src=\"https://docs.microsoft.com/azure/architecture/reference-architectures/data/images/enterprise-bi-synapse.png\" /></p>\n<p><strong>Scenario</strong>: An organization has a large OLTP data set stored in a SQL Server database on premises. The organization wants to use Azure Synapse to perform analysis using Power BI.</p>\n<p>This reference architecture is designed for one-time or on-demand jobs. If you need to move data on a continuing basis (hourly or daily), we recommend using Azure Data Factory to define an automated workflow. For a reference architecture that uses Data Factory, see <a >Automated enterprise BI with Azure Synapse and Azure Data Factory</a>.</p>",
+            "Summary": "<p>This reference architecture implements an <a extract-load-and-transform-elt\">extract, load, and transform (ELT)</a> pipeline that moves data from an on-premises SQL Server database into Azure Synapse and transforms the data for analysis.</p>\n<p><img alt=\"GitHub logo\" src=\"https://docs.microsoft.com/azure/architecture/_images/github.png\" /> A reference implementation for this architecture is available on <a href=\"https://github.com/mspnp/azure-sqldw-enterprise-bi\">GitHub</a>.</p>\n<p><img alt=\"Architecture diagram for Enterprise BI in Azure with Azure Synapse\" src=\"https://docs.microsoft.com/azure/architecture/reference-architectures/data/images/enterprise-bi-synapse.png\" /></p>\n<p><strong>Scenario</strong>: An organization has a large OLTP data set stored in a SQL Server database on premises. The organization wants to use Azure Synapse to perform analysis using Power BI.</p>\n<p>This reference architecture is designed for one-time or on-demand jobs. If you need to move data on a continuing basis (hourly or daily), we recommend using Azure Data Factory to define an automated workflow. For a reference architecture that uses Data Factory, see <a >Automated enterprise BI with Azure Synapse and Azure Data Factory</a>.</p>",
             "sample_code": true,
             "github_url": "https://github.com/mspnp/template-building-blocks/wiki",
             "name": "enterprise-bi-synapse",
@@ -4759,7 +4794,7 @@
             "word_count": 41,
             "read_time": "1 min read",
             "Title": "Finance management apps using Azure Database for MySQL",
-            "MetaDescription": "Securely store critical data and provide high-value analytics and insights over aggregated data to users, using in-built security and performance.",
+            "MetaDescription": "Use Azure Database for MySQL to securely store critical data and provide high-value analytics and insights over aggregated data to users.",
             "category": [
                 "databases",
                 "analytics"
@@ -4790,7 +4825,7 @@
             "word_count": 35,
             "read_time": "1 min read",
             "Title": "Finance management apps using Azure Database for PostgreSQL",
-            "MetaDescription": "Securely store critical data and provide high-value analytics and insights over aggregated data to users, using in-built security and performance.",
+            "MetaDescription": "Use Azure Database for PostgreSQL to securely store critical data and provide high-value analytics and insights over aggregated data to users.",
             "category": [
                 "databases",
                 "analytics"
@@ -4983,7 +5018,7 @@
             "word_count": 361,
             "read_time": "2 min read",
             "Title": "HIPAA and HITRUST compliant health data AI",
-            "MetaDescription": "Store healthcare data effectively and affordably with cloud-based solutions from Azure. Manage medical records with the highest level of built-in security.",
+            "MetaDescription": "Manage HIPAA and HITRUST compliant health data and medical records with the highest level of built-in security.",
             "category": [
                 "storage"
             ],
@@ -5088,8 +5123,8 @@
             "http_url": "/azure/architecture/solution-ideas/articles/hpc-risk-analysis",
             "word_count": 478,
             "read_time": "3 min read",
-            "Title": "HPC Risk Analysis Template \u2013 Solution Architecture",
-            "MetaDescription": "Build an HPC risk analysis solution architecture with a step-by-step flowchart from Microsoft Azure that combines CycleCloud, Avere vFXT and Tibco Gridserver.",
+            "Title": "HPC Risk Analysis Template - Solution Architecture",
+            "MetaDescription": "Build an HPC risk analysis solution architecture with a step-by-step flowchart from Microsoft Azure that combines CycleCloud, Avere vFXT and TIBCO GridServer.",
             "category": [
                 "compute",
                 "storage",
@@ -5108,13 +5143,13 @@
             ],
             "Flow": {
                 "FlowStep_A": "Operations team uses Azure CycleCloud to configure and launch risk analysis grid in Azure.",
-                "FlowStep_B": "Azure CycleCloud orchestrates VM creation and software configuration for Tibco Gridserver brokers and HPCCA, in-memory data cache, and Avere vFXT cache.",
-                "FlowStep_C": "Quant (or scheduled batch) submits a risk analysis template workflow to the on-premises Tibco GridServer director. Based on job policies and current on-premises use, the workflow is allowed to burst to Azure to expand on-premises grid capacity.",
-                "FlowStep_D": "The Tibco HPCCA detects the change in queue depth for each Tibco broker and requests additional Tibco engine capacity using the Azure CycleCloud Auto-Scaling API. Azure CycleCloud then autostarts engine nodes in Virtual Machine Scale Sets using the Azure H-series, HB-series, and HC-series VMs to optimize cost and performance and NC-series VMs to provide GPU capacity as required.",
+                "FlowStep_B": "Azure CycleCloud orchestrates VM creation and software configuration for TIBCO GridServer brokers and HPCCA, in-memory data cache, and Avere vFXT cache.",
+                "FlowStep_C": "Quant (or scheduled batch) submits a risk analysis template workflow to the on-premises TIBCO GridServer director. Based on job policies and current on-premises use, the workflow is allowed to burst to Azure to expand on-premises grid capacity.",
+                "FlowStep_D": "The TIBCO HPCCA detects the change in queue depth for each TIBCO broker and requests additional TIBCO engine capacity using the Azure CycleCloud Auto-Scaling API. Azure CycleCloud then autostarts engine nodes in Virtual Machine Scale Sets using the Azure H-series, HB-series, and HC-series VMs to optimize cost and performance and NC-series VMs to provide GPU capacity as required.",
                 "FlowStep_E": "As soon as engine VMs join the Azure Grid, the brokers begin executing tasks to the new nodes.",
                 "FlowStep_F": "Risk jobs pull artifacts from on-premises and Azure Blob storage as needed from NFS mounted Avere vFXT and/or via the fast in-memory cache.",
                 "FlowStep_G": "As each task completes, results are returned to the submitter or driver and data is written back to the in-memory cache, or to NFS storage through the Avere vFXT, as required. Cached data is persisted either on-premises or in Azure Blob storage.",
-                "FlowStep_H": "As task queues drain, the Tibco HPCCA uses the Azure CycleCloud Auto-Scaling API to shrink the compute grid and reduce cost."
+                "FlowStep_H": "As task queues drain, the TIBCO HPCCA uses the Azure CycleCloud Auto-Scaling API to shrink the compute grid and reduce cost."
             },
             "name": "hpc-risk-analysis",
             "popularity": 54,
@@ -5378,10 +5413,10 @@
         {
             "tags": [
                 "all-items",
+                "azurecli",
                 "example-code",
                 "fcp",
                 "github",
-                "json",
                 "networking",
                 "reference-architecture",
                 "seodec18",
@@ -5390,8 +5425,8 @@
             "type": "reference-architecture",
             "file_url": "reference-architectures/hybrid-networking/hub-spoke.md",
             "http_url": "/azure/architecture/reference-architectures/hybrid-networking/hub-spoke",
-            "word_count": 2720,
-            "read_time": "11 min read",
+            "word_count": 1727,
+            "read_time": "7 min read",
             "Title": "Hub-spoke network topology in Azure",
             "MetaDescription": "Learn how to implement a hub-spoke topology in Azure, where the hub is a virtual network and the spokes are virtual networks that peer with the hub.",
             "category": [
@@ -5401,12 +5436,13 @@
             ],
             "image": "/azure/architecture/reference-architectures/hybrid-networking/images/hub-spoke.png",
             "imagepath": "C:\\jvPnpRepos\\architecture-center-pr\\docs\\reference-architectures\\hybrid-networking\\images\\hub-spoke.png",
-            "publish_date": "5/21/2020",
+            "publish_date": "9/30/2020",
+            "Summary": "<p>ADMIN_USER=adminuser\nADMIN_PASSWORD=Password2020!</p>",
             "sample_code": true,
             "github_url": "https://github.com/Azure/azure-quickstart-templates/tree/master/101-hub-and-spoke-sandbox",
             "visio_diagram": "https://archcenter.blob.core.windows.net/cdn/hybrid-network-hub-spoke.vsdx",
             "code_languages": [
-                "json"
+                "azurecli"
             ],
             "name": "hub-spoke",
             "popularity": 241,
@@ -5431,27 +5467,27 @@
             "type": "solution-idea",
             "file_url": "solution-ideas/articles/hybrid-connectivity.md",
             "http_url": "/azure/architecture/solution-ideas/articles/hybrid-connectivity",
-            "word_count": 227,
+            "word_count": 236,
             "read_time": "2 min read",
             "Title": "Hybrid Connection",
-            "MetaDescription": "Azure's Hybrid Connection is a foundational blueprint that is applicable to most Azure Stack solutions, allowing you to establish connectivity for any application that involves communications between the Azure public cloud and on-premises Azure Stack components.",
+            "MetaDescription": "Azure's Hybrid Connection is a foundational blueprint that is applicable to most Azure Stack Hub solutions, allowing you to establish connectivity for any application that involves communications between the Azure public cloud and on-premises Azure Stack Hub components.",
             "category": [
                 "hybrid",
                 "networking"
             ],
             "image": "/azure/architecture/solution-ideas/media/hybrid-connectivity.png",
             "imagepath": "C:\\jvPnpRepos\\architecture-center-pr\\docs\\solution-ideas\\media\\hybrid-connectivity.png",
-            "publish_date": "12/16/2019",
+            "publish_date": "9/01/2020",
             "components": [
                 "<p><a href=\"https://azure.microsoft.com/services/virtual-network\">Virtual Network</a>: Provision private networks, optionally connect to on-premises datacenters.</p>",
                 "<p><a href=\"https://azure.microsoft.com/services/vpn-gateway\">Virtual Network Gateway</a>: Learn how to configure VPN Gateway, a virtual private network gateway.</p>",
                 "<p><a href=\"https://azure.microsoft.com/services/virtual-machines\">Virtual Machines</a>: Provision Windows and Linux virtual machines in seconds.</p>",
-                "<p><a href=\"https://azure.microsoft.com/overview/azure-stack\">Azure Stack</a> is a hybrid cloud platform that lets you use Azure services on-premises.</p>"
+                "<p><a href=\"https://azure.microsoft.com/overview/azure-stack\">Azure Stack Hub</a> is a hybrid cloud platform that lets you use Azure services on-premises.</p>"
             ],
-            "Summary": "<p>Azure Stack enables you to deploy Azure services on-premises or in the cloud with a consistent application logic, development paradigm, and operations methodology.</p>\n<p>Hybrid cloud applications are a single system that has components running in both Azure and Azure Stack. This solution blueprint is relevant to establishing connectivity for any application that involves communications between the Azure public cloud and on-premises Azure Stack components. Hybrid connectivity is a foundational blueprint that will be applicable to most Azure Stack solutions.</p>\n<p>Note: This doesn't apply to Azure Stack deployments that are disconnected from the public internet.</p>",
+            "Summary": "<p>Azure Stack Hub enables you to deploy Azure services on-premises or in the cloud with a consistent application logic, development paradigm, and operations methodology.</p>\n<p>Hybrid cloud applications are a single system that has components running in both Azure and Azure Stack Hub. This solution blueprint is relevant to establishing connectivity for any application that involves communications between the Azure public cloud and on-premises Azure Stack Hub components. Hybrid connectivity is a foundational blueprint that will be applicable to most Azure Stack Hub solutions.</p>\n<p>Note: This doesn't apply to Azure Stack Hub deployments that are disconnected from the public internet.</p>",
             "Flow": {
-                "FlowStep_A": "Deploy a virtual network in Azure and Azure Stack.",
-                "FlowStep_B": "Deploy a virtual network gateway in Azure and Azure Stack.",
+                "FlowStep_A": "Deploy a virtual network in Azure and Azure Stack Hub.",
+                "FlowStep_B": "Deploy a virtual network gateway in Azure and Azure Stack Hub.",
                 "FlowStep_C": "Deploy virtual machines in each virtual network.",
                 "FlowStep_D": "Establish a VPN connection over the public internet between the network gateways."
             },
@@ -5565,27 +5601,27 @@
             "type": "solution-idea",
             "file_url": "solution-ideas/articles/hybrid-identity.md",
             "http_url": "/azure/architecture/solution-ideas/articles/hybrid-identity",
-            "word_count": 173,
+            "word_count": 177,
             "read_time": "1 min read",
             "Title": "Hybrid Identity",
-            "MetaDescription": "The Hybrid Identity blueprint enables teams to manage applications and user identity consistently across clouds with the utilization of Azure Stack",
+            "MetaDescription": "The Hybrid Identity blueprint enables teams to manage applications and user identity consistently across clouds with the utilization of Azure Stack Hub",
             "category": [
                 "identity",
                 "hybrid"
             ],
             "image": "/azure/architecture/solution-ideas/media/hybrid-identity.png",
             "imagepath": "C:\\jvPnpRepos\\architecture-center-pr\\docs\\solution-ideas\\media\\hybrid-identity.png",
-            "publish_date": "12/16/2019",
+            "publish_date": "9/01/2020",
             "components": [
-                "<p><a href=\"https://azure.microsoft.com/overview/azure-stack\">Azure Stack</a> is a hybrid cloud platform that lets you use Azure services on-premises.</p>",
+                "<p><a href=\"https://azure.microsoft.com/overview/azure-stack\">Azure Stack Hub</a> is a hybrid cloud platform that lets you use Azure services on-premises.</p>",
                 "<p><a href=\"https://azure.microsoft.com/services/virtual-machines\">Virtual Machines</a>: Provision Windows and Linux virtual machines in seconds.</p>",
                 "<p>Learn how to synchronize directories and enable single sign-on with <a href=\"https://azure.microsoft.com/services/active-directory\">Azure Active Directory</a> (Azure AD).</p>"
             ],
-            "Summary": "<p>The need to keep application components on-premises doesn't have to be a barrier to adopting cloud technologies. With Azure Stack, app components can reside on-premises while interacting with components running in Azure public cloud. This blueprint enables teams to manage identity for users as well as applications in a way that is consistent across clouds.</p>",
+            "Summary": "<p>The need to keep application components on-premises doesn't have to be a barrier to adopting cloud technologies. With Azure Stack Hub, app components can reside on-premises while interacting with components running in Azure public cloud. This blueprint enables teams to manage identity for users as well as applications in a way that is consistent across clouds.</p>",
             "Flow": {
                 "FlowStep_A": "Set up an Azure Active Directory tenant.",
                 "FlowStep_B": "Create users.",
-                "FlowStep_C": "Deploy, manage, and operate application resources on Azure and Azure Stack.",
+                "FlowStep_C": "Deploy, manage, and operate application resources on Azure and Azure Stack Hub.",
                 "FlowStep_D": "Create service principles.",
                 "FlowStep_E": "Deploy with service principles.",
                 "FlowStep_F": "Application resources can communicate over network."
@@ -5626,13 +5662,13 @@
         },
         {
             "tags": [
-                "'https:--azure.microsoft.com-solutions-architecture-sharepoint-farm-office-365-'",
+                "'https:--azure.microsoft.com-solutions-architecture-sharepoint-farm-microsoft-365-'",
                 "acom-architecture",
                 "all-items",
                 "data-flow",
                 "hybrid-infrastructure",
                 "interactive-diagram",
-                "office-365-sharepoint-hybrid",
+                "microsoft-365-sharepoint-hybrid",
                 "sharepoint-farm-solution",
                 "sharepoint-hybrid",
                 "sharepoint-hybrid-architecture",
@@ -5640,18 +5676,18 @@
                 "solution-idea"
             ],
             "type": "solution-idea",
-            "file_url": "solution-ideas/articles/sharepoint-farm-office-365.md",
-            "http_url": "/azure/architecture/solution-ideas/articles/sharepoint-farm-office-365",
+            "file_url": "solution-ideas/articles/sharepoint-farm-microsoft-365.md",
+            "http_url": "/azure/architecture/solution-ideas/articles/sharepoint-farm-microsoft-365",
             "word_count": 402,
             "read_time": "2 min read",
-            "Title": "Hybrid SharePoint Farm with Office 365",
-            "MetaDescription": "Deliver highly available intranet capability by deploying SharePoint and sharing hybrid workloads with Office 365. Setup this solution with step-by-step instructions.",
+            "Title": "Hybrid SharePoint Farm with Microsoft 365",
+            "MetaDescription": "Deliver highly available intranet capability by deploying SharePoint and sharing hybrid workloads with Microsoft 365. Setup this solution with step-by-step instructions.",
             "category": [
                 "web",
                 "hybrid"
             ],
-            "image": "/azure/architecture/solution-ideas/media/sharepoint-farm-office-365.png",
-            "imagepath": "C:\\jvPnpRepos\\architecture-center-pr\\docs\\solution-ideas\\media\\sharepoint-farm-office-365.png",
+            "image": "/azure/architecture/solution-ideas/media/sharepoint-farm-microsoft-365.png",
+            "imagepath": "C:\\jvPnpRepos\\architecture-center-pr\\docs\\solution-ideas\\media\\sharepoint-farm-microsoft-365.png",
             "publish_date": "12/16/2019",
             "components": [
                 "<p><a href=\"https://azure.microsoft.com/features/resource-manager\">Azure Resource Group</a>: Container that holds related resources for an Azure solution</p>",
@@ -5675,13 +5711,13 @@
                 "FlowStep_D": "Deploy SQL Server Always on for HA support for the SharePoint farm.",
                 "FlowStep_E": "Deploy SharePoint Severs. In this scenario we are using 2 Frontend with Distributed Cache and 2 Application with Search roles. This give us high availability.",
                 "FlowStep_F": "Install Azure AD Connect on an on-premises server to synchronize your identities to Azure Active Directory.",
-                "FlowStep_G": "Optionally configure Active Directory Federation Services on premises to support federated authentication to Office 365.",
+                "FlowStep_G": "Optionally configure Active Directory Federation Services on premises to support federated authentication to Microsoft 365.",
                 "FlowStep_H": "Deploy ExpressRoute or setup a site-to-site VPN link for administrative access to the servers hosted in Azure IaaS.",
                 "FlowStep_I": "Setup and provision external access to the Hybrid farm hosted in Azure IaaS",
-                "FlowStep_J": "Setup and configure Hybrid Workloads between Office 365 and the SharePoint farm."
+                "FlowStep_J": "Setup and configure Hybrid Workloads between Microsoft 365 and the SharePoint farm."
             },
-            "name": "sharepoint-farm-office-365",
-            "popularity": 104,
+            "name": "sharepoint-farm-microsoft-365",
+            "popularity": 0,
             "topic": "Web",
             "hybrid-topic": "Apps"
         },
@@ -6046,7 +6082,7 @@
             "type": "solution-idea",
             "file_url": "solution-ideas/articles/aks-iot-data-streaming.md",
             "http_url": "/azure/architecture/solution-ideas/articles/aks-iot-data-streaming",
-            "word_count": 439,
+            "word_count": 433,
             "read_time": "2 min read",
             "Title": "Instant IoT data streaming with AKS",
             "MetaDescription": "Ingest and analyze high volumes of IoT data and generate real-time recommendations",
@@ -6148,7 +6184,7 @@
             "word_count": 36,
             "read_time": "1 min read",
             "Title": "Intelligent apps using Azure Database for MySQL",
-            "MetaDescription": "Develop sophisticated, transformational apps using state of the art machine learning algorithms and integrated visualization tools to get actionable insights and analytics.",
+            "MetaDescription": "Use Azure Database for MySQL to develop sophisticated machine learning and visualization apps for actionable insights and analytics.",
             "category": [
                 "databases",
                 "ai-machine-learning"
@@ -6179,7 +6215,7 @@
             "word_count": 42,
             "read_time": "1 min read",
             "Title": "Intelligent apps using Azure Database for PostgreSQL",
-            "MetaDescription": "Develop sophisticated, transformational apps using state of the art machine learning algorithms and integrated visualization tools to get actionable insights and analytics.",
+            "MetaDescription": "Use Azure Database for PostgreSQL to develop sophisticated machine learning and visualization apps for actionable insights and analytics.",
             "category": [
                 "databases",
                 "ai-machine-learning"
@@ -6545,7 +6581,7 @@
             "type": "solution-idea",
             "file_url": "solution-ideas/articles/iot-using-cosmos-db.md",
             "http_url": "/azure/architecture/solution-ideas/articles/iot-using-cosmos-db",
-            "word_count": 1252,
+            "word_count": 1253,
             "read_time": "5 min read",
             "Title": "IoT using Cosmos DB",
             "MetaDescription": "Scale instantly and elastically to accommodate diverse and unpredictable IoT workloads without sacrificing ingestion or query performance.",
@@ -6557,7 +6593,7 @@
             "imagepath": "C:\\jvPnpRepos\\architecture-center-pr\\docs\\solution-ideas\\media\\iot-using-cosmos-db.svg",
             "publish_date": "3/23/2020",
             "alternative_choices": "alternatives",
-            "Summary": "<p>Scale instantly and elastically to accommodate diverse and unpredictable IoT workloads without sacrificing ingestion or query performance.</p>\n<p>Azure Cosmos DB is Microsoft\u2019s globally distributed, multi-model database. Azure Cosmos DB was built from the ground up with global distribution and horizontal scale at its core. It offers turnkey global distribution across any number of Azure regions by transparently scaling and replicating your data wherever your users are. You can elastically scale throughput and storage worldwide, and pay only for the throughput and storage you need.</p>\n<p>Cosmos DB is ideally suited for IoT solutions. Cosmos DB can ingest device telemetry data at high rates and can serve indexed queries back with low latency and high availability.</p>\n<p>Cosmos DB is a multi-model database with wire protocol\u2013compatible API endpoints for Cassandra, MongoDB, SQL, Gremlin, Etcd, and Table along with built-in support for Jupyter notebooks.</p>",
+            "Summary": "<p>Scale instantly and elastically to accommodate diverse and unpredictable IoT workloads without sacrificing ingestion or query performance.</p>\n<p>Azure Cosmos DB is Microsoft\u2019s globally distributed, multi-model database. Azure Cosmos DB was built from the ground up with global distribution and horizontal scale at its core. It offers turnkey global distribution across any number of Azure regions by transparently scaling and replicating your data wherever your users are. You can elastically scale throughput and storage worldwide, and pay only for the throughput and storage you need.</p>\n<p>Cosmos DB is ideally suited for IoT solutions. Cosmos DB can ingest device telemetry data at high rates and can serve indexed queries back with low latency and high availability.</p>\n<p>Cosmos DB is a multi-model database with wire protocol\u2013compatible API endpoints for Cassandra, MongoDB, SQL, Gremlin, Etcd, and Table along with built-in support for Jupyter Notebook files.</p>",
             "Flow": {
                 "FlowStep_A": "Events generated from IoT devices are sent to the analyze and transform layer through Azure IoT Hub as a stream of messages. Azure IoT Hub stores streams of data in partitions for a configurable amount of time.",
                 "FlowStep_B": "Azure Databricks, running Apache Spark Streaming, picks up the messages in real time from IoT Hub, processes the data based on the business logic and sends the data to Serving layer for storage. Spark Streaming can provide real time analytics such as calculating moving averages, min and max values over time periods.",
@@ -6802,7 +6838,7 @@
                 "<p><a >Azure Hybrid File Sync</a> will be used for all shared storage. The storage will replicate to two file servers using Hybrid File Sync.</p>",
                 "<p><a href=\"https://docs.microsoft.com/azure/sql-database/sql-database-technical-overview\">Azure SQL Database</a> is a managed relational database service based on the latest stable version of the Microsoft SQL Server Database Engine. In this example, it is used to host Citrix databases.</p>",
                 "<p><a href=\"https://docs.microsoft.com/azure/expressroute/expressroute-introduction\">ExpressRoute</a> lets you extend your on-premises networks into the Microsoft cloud over a private connection facilitated by a connectivity provider.</p>",
-                "<p>[Active Directory Domain Services is used for Directory Services and user authentication</p>",
+                "<p><a href=\"https://docs.microsoft.com/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview\">Active Directory Domain Services</a> is used for Directory Services and user authentication.</p>",
                 "<p><a href=\"https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-availability-sets\">Azure Availability Sets</a> will ensure that the VMs you deploy on Azure are distributed across multiple isolated hardware nodes in a cluster. Doing this ensures that if a hardware or software failure within Azure happens, only a subset of your VMs are affected and that your overall solution remains available and operational.</p>",
                 "<p><a href=\"https://www.citrix.com/products/citrix-adc\">Citrix ADC (NetScaler)</a> is an application delivery controller that performs application-specific traffic analysis to intelligently distribute, optimize, and secure Layer 4-Layer 7 (L4\u2013L7) network traffic for web applications.</p>",
                 "<p><a href=\"https://www.citrix.com/products/citrix-virtual-apps-and-desktops/citrix-storefront.html\">Citrix Storefront</a> is an enterprise app store that improves security and simplifies deployments, delivering a modern, unmatched near-native user experience across Citrix Receiver on any platform. StoreFront makes it easy to manage multi-site and multi-version Citrix Virtual Apps and Desktops environments.</p>",
@@ -7386,7 +7422,7 @@
             "type": "reference-architecture",
             "file_url": "reference-architectures/containers/aks-microservices/aks-microservices.md",
             "http_url": "/azure/architecture/reference-architectures/containers/aks-microservices/aks-microservices",
-            "word_count": 4165,
+            "word_count": 4228,
             "read_time": "17 min read",
             "Title": "Microservices architecture on Azure Kubernetes Service (AKS)",
             "MetaDescription": "Deploy a microservices architecture on Azure Kubernetes Service (AKS)",
@@ -7475,6 +7511,41 @@
             "name": "microservices-with-aks",
             "popularity": 153,
             "topic": "Containers"
+        },
+        {
+            "tags": [
+                "all-items",
+                "fcp",
+                "solution-idea"
+            ],
+            "type": "solution-idea",
+            "file_url": "solution-ideas/articles/migrate-mainframe-apps-with-tmaxsoft-openframe.md",
+            "http_url": "/azure/architecture/solution-ideas/articles/migrate-mainframe-apps-with-tmaxsoft-openframe",
+            "word_count": 1396,
+            "read_time": "5 min read",
+            "Title": "Migrate IBM mainframe applications to Azure with TmaxSoft OpenFrame",
+            "MetaDescription": "Find out how to migrate IBM zSeries mainframe applications to Azure. Learn how to use TmaxSoft OpenFrame for this task. Understand the lift and shift approach.",
+            "category": [
+                "mainframe",
+                "migration"
+            ],
+            "image": "/azure/architecture/solution-ideas/media/migrate-mainframe-application-to-azure.png",
+            "imagepath": "C:\\jvPnpRepos\\architecture-center-pr\\docs\\solution-ideas\\media\\migrate-mainframe-application-to-azure.png",
+            "publish_date": "9/18/2020",
+            "components": [
+                "<p><a href=\"https://docs.microsoft.com/azure/expressroute/expressroute-introduction\">Azure ExpressRoute</a> extends on-premises networks into the Microsoft cloud. By using a connectivity provider, ExpressRoute establishes private connections to Microsoft cloud services like <a href=\"https://azure.microsoft.com/overview/what-is-azure/\">Microsoft Azure</a> and <a href=\"https://www.microsoft.com/microsoft-365/what-is-microsoft-365?rtc=1\">Microsoft 365</a>.</p>",
+                "<p><a href=\"https://docs.microsoft.com/azure/bastion/bastion-overview\">Azure VM Bastion</a> provides secure and seamless <a href=\"https://docs.microsoft.com/troubleshoot/windows-server/remote/understanding-remote-desktop-protocol\">Remote Desktop Protocol (RDP)</a> and <a href=\"https://www.ssh.com/ssh/\">Secure Shell (SSH)</a> connectivity to VMs in a network. Instead of using a public IP address, users connect to the VMs directly from the Azure portal.</p>",
+                "<p><a href=\"https://docs.microsoft.com/azure/load-balancer/load-balancer-overview\">Azure Load Balancer</a> operates at layer four of the <a href=\"https://www.networkworld.com/article/3239677/the-osi-model-explained-how-to-understand-and-remember-the-7-layer-network-model.html\">Open Systems Interconnection (OSI)</a> model. As the single point of contact for clients, Load Balancer distributes inbound traffic to back-end pool instances. It directs traffic according to configured load-balancing rules and health probes. The back-end pool instances can be Azure VMs or instances in a virtual machine scale set.</p>",
+                "<p><a href=\"https://azure.microsoft.com/services/virtual-machines/\">Azure VMs</a> are one of several types of on-demand, scalable computing resources that are available with Azure. An Azure VM provides the flexibility of virtualization. But it eliminates the maintenance demands of physical hardware. Azure VMs offer a choice of operating systems, including Windows and Linux.</p>",
+                "<p><a href=\"https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview\">Azure Virtual Networks</a> are the fundamental building blocks for private networks in Azure. These networks provide a way for many types of Azure resources, such as Azure VMs, to securely communicate with each other, the internet, and on-premises networks. An Azure virtual network is like a traditional network operating in a data center. But an Azure virtual network also provides scalability, availability, isolation, and other benefits of Azure's infrastructure.</p>",
+                "<p><a href=\"https://docs.microsoft.com/azure/storage/files/storage-files-introduction\">Azure Files Storage Accounts and Azure File Shares</a> are fully managed file shares in the cloud. Azure file shares are accessible via the industry standard <a href=\"https://docs.microsoft.com/openspecs/windows_protocols/ms-smb/f210069c-7086-4dc2-885e-861d837df688\">Server Message Block (SMB)</a> protocol. They can be mounted concurrently by cloud or on-premises deployments. Windows, Linux, and macOS clients can access these file shares.</p>",
+                "<p><a href=\"https://azure.microsoft.com/services/sql-database/\">Azure SQL Database</a> is an intelligent, scalable relational database service built for the cloud. With AI-powered, automated features, Azure SQL Database handles database management functions like upgrading, patching, backups, and monitoring.</p>",
+                "<p><a href=\"https://azure.microsoft.com/services/site-recovery/\">Azure Site Recovery</a> provides replication, failover, and recovery processes to help keep applications running during outages.</p>"
+            ],
+            "Summary": "<p>TmaxSoft OpenFrame is a rehosting solution that makes it easy to lift existing IBM zSeries mainframe applications and shift them to Microsoft Azure. This lift-and-shift operation uses a no-code approach. TmaxSoft quickly migrates an existing application, as is, to a zSeries mainframe emulation environment on Azure.</p>\n<p>This reference architecture illustrates how the TmaxSoft OpenFrame solution runs on Azure. The approach consists of two virtual machines (VMs) running Linux in an <a href=\"https://www.webopedia.com/TERM/A/active_active.html\">active-active</a> configuration. An Azure Load Balancer distributes incoming traffic between the VMs. OpenFrame emulation software runs on the VMs and provides a zSeries runtime and facilities. Working with the OpenFrame software is an Azure SQL Database. This modernized database layer includes built-in business continuity features.</p>",
+            "name": "migrate-mainframe-apps-with-tmaxsoft-openframe",
+            "popularity": 0,
+            "topic": "Migration"
         },
         {
             "tags": [
@@ -8196,6 +8267,40 @@
             "name": "oracle-migration-overview",
             "popularity": 0,
             "topic": "Databases"
+        },
+        {
+            "tags": [
+                "all-items",
+                "csharp",
+                "example-code",
+                "fcp",
+                "github",
+                "reference-architecture"
+            ],
+            "type": "reference-architecture",
+            "file_url": "reference-architectures/event-hubs/partitioning-in-event-hubs-and-kafka.md",
+            "http_url": "/azure/architecture/reference-architectures/event-hubs/partitioning-in-event-hubs-and-kafka",
+            "word_count": 3439,
+            "read_time": "12 min read",
+            "Title": "Partitioning in Event Hubs and Kafka",
+            "MetaDescription": "Learn about partitioning in Kafka and Event Hubs with Kafka. See how many partitions to use in ingestion pipelines and how to assign events to partitions.",
+            "category": [
+                "hybrid",
+                "analytics"
+            ],
+            "image": "/azure/architecture/reference-architectures/event-hubs/images/event-processing-service.png",
+            "imagepath": "C:\\jvPnpRepos\\architecture-center-pr\\docs\\reference-architectures\\event-hubs\\images\\event-processing-service.png",
+            "publish_date": "10/02/2020",
+            "Summary": "<p>This reference architecture provides strategies for the <a href=\"https://docs.microsoft.com/azure/event-hubs/event-hubs-scalability#partitions\">partitioning model</a> that event ingestion services use. Because event ingestion services provide solutions for high-scale event streaming, they need to process events in parallel and be able to maintain event order. They also need to balance loads and offer scalability. Partitioning models meet all of these requirements.</p>\n<p>Specifically, this document discusses the following strategies:</p>\n<ul>\n<li>How to assign events to partitions.</li>\n<li>How many partitions to use.</li>\n<li>How to assign partitions to subscribers when rebalancing.</li>\n</ul>\n<p>Many event ingestion technologies exist, including:</p>\n<ul>\n<li><a href=\"https://docs.microsoft.com/azure/event-hubs/event-hubs-about\">Azure Event Hubs</a>: A fully managed big data streaming platform.</li>\n<li><a href=\"https://www.confluent.io/what-is-apache-kafka/\">Apache Kafka</a>: An open-source stream-processing platform.</li>\n<li><a href=\"https://docs.microsoft.com/azure/event-hubs/event-hubs-for-kafka-ecosystem-overview\">Event Hubs with Kafka</a>: An alternative to running your own Kafka cluster. This Event Hubs feature provides an endpoint that is compatible with Kafka APIs.</li>\n</ul>\n<p>Besides offering partitioning strategies, this document also points out differences between partitioning in Event Hubs and Kafka.</p>",
+            "sample_code": true,
+            "github_url": "https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/eventhub/Azure.Messaging.EventHubs.Processor",
+            "code_languages": [
+                "csharp"
+            ],
+            "name": "partitioning-in-event-hubs-and-kafka",
+            "popularity": 0,
+            "topic": "Analytics",
+            "hybrid-topic": "Data"
         },
         {
             "tags": [
@@ -9101,6 +9206,54 @@
         },
         {
             "tags": [
+                "all-items",
+                "data-flow",
+                "example-workload",
+                "fcp"
+            ],
+            "type": "example-workload",
+            "file_url": "example-scenario/iot/vertical-buy-online-pickup-in-store.md",
+            "http_url": "/azure/architecture/example-scenario/iot/vertical-buy-online-pickup-in-store",
+            "word_count": 1511,
+            "read_time": "6 min read",
+            "Title": "Retail - Buy online, pickup in store (BOPIS)",
+            "MetaDescription": "Learn about how Azure IoT can help a retail solution for stores implementing buy online, pickup in store scenarios.",
+            "category": [
+                "iot"
+            ],
+            "image": "/azure/architecture/example-scenario/iot/media/bopis.png",
+            "imagepath": "C:\\jvPnpRepos\\architecture-center-pr\\docs\\example-scenario\\iot\\media\\bopis.png",
+            "publish_date": "10/01/2020",
+            "components": [
+                "<p><a href=\"https://azure.microsoft.com/services/iot-edge/\">Azure IoT Edge</a> runs analytics, applications on-premise to ensure</p>",
+                "<p><a href=\"https://azure.microsoft.com/services/media-services/live-video-analytics/\">Live Video Analytics</a> on IoT Edge offers the</p>",
+                "<p><a href=\"https://azure.microsoft.com/services/cognitive-services/\">Azure Cognitive Services</a> allows the AI model to run on the</p>",
+                "<p><a href=\"https://azure.microsoft.com/services/iot-central/\">Azure IoT Central</a> is a fully managed application platform that reduces the burden and cost of developing, managing, and maintaining enterprise-grade IoT solutions. </p>",
+                "<p><a href=\"https://azure.microsoft.com/services/event-hubs/\">Event Hubs</a> are used to queue the events sent to the curbside pickup</p>",
+                "<p><a href=\"https://azure.microsoft.com/services/storage/\">Azure Storage</a> is used to store raw data for analysis. Contoso has decided to use this service as they are storing the objects in flat namespace.</p>",
+                "<p><a href=\"https://azure.microsoft.com/services/functions/\">Azure Functions</a> is a serverless service used to process the events</p>",
+                "<p><a href=\"https://azure.microsoft.com/services/cosmos-db/\">Azure Cosmos DB</a> provides a low-latency database with guaranteed availability and automatic scalability. Contoso requires low latency reads and write for seamless user experience. The curbside pickup application uses NoSQL document to store the data because of the variety in order SKU. As the application is available throughout Europe, Contoso wants a turn key database that provides multi-master read and write. </p>",
+                "<p><a href=\"https://azure.microsoft.com/services/kubernetes-service/\">Azure Kubernetes Service</a>.  The curbside pickup application is based on a microservice design. </p>",
+                "<p><a href=\"https://azure.microsoft.com/services/azure-maps/\">Azure Maps</a> provides geofencing as a service required to</p>",
+                "<p><a href=\"https://azure.microsoft.com/en-us/services/notification-hubs/\">Azure Notification Hubs</a> is a massively scalable mobile push notification engine for quickly sending millions of notifications to iOS, Android, Windows. Using this service, Contoso can easily broadcast notifications to their customers. </p>"
+            ],
+            "Summary": "<p>Contoso is a European retailer operating mid-sized supermarkets. They\nhave grown through the years and are now one of the largest retailers, with more\nthan 1000 stores located in both cities and suburbs.</p>",
+            "Flow": {
+                "FlowStep_A": " Video feed is obtained as cars come into the parking area. The IP",
+                "FlowStep_B": " Azure IoT Central is used because it is a fully managed application platform. It allows Contoso to extend it easily and focus on features that directly impacts business. ",
+                "FlowStep_C": " License plate details are queued in Event hub which routes it to an Azure",
+                "FlowStep_D": " The license plate details are sent to the curbside pickup",
+                "FlowStep_E": " The license plate details are cross-referenced with the",
+                "FlowStep_F": " The curbside pickup application also uses Azure Maps geofence",
+                "FlowStep_G": "Once the store associate begins on the task, the application will",
+                "FlowStep_H": "Order pickup details are written back into storage so that"
+            },
+            "name": "vertical-buy-online-pickup-in-store",
+            "popularity": 0,
+            "topic": "Internet of Things"
+        },
+        {
+            "tags": [
                 "'https:--azure.microsoft.com-solutions-architecture-retail-assistant-or-vacation-planner-with-visual-capabilities-'",
                 "acom-architecture",
                 "ai-ml",
@@ -9158,7 +9311,7 @@
             "word_count": 55,
             "read_time": "1 min read",
             "Title": "Retail and e-commerce using Azure MySQL",
-            "MetaDescription": "Build secure and scalable e-commerce solutions that meet the demands of both customers and business. Engage customers through customized products and offers, process transactions quickly and securely, and focus on fulfillment and customer service.",
+            "MetaDescription": "Build secure and scalable e-commerce solutions that meet the demands of both customers and business using Azure Database for MySQL.",
             "category": [
                 "databases",
                 "web"
@@ -9189,7 +9342,7 @@
             "word_count": 49,
             "read_time": "1 min read",
             "Title": "Retail and e-commerce using Azure PostgreSQL",
-            "MetaDescription": "Build secure and scalable e-commerce solutions that meet the demands of both customers and business. Engage customers through customized products and offers, process transactions quickly and securely, and focus on fulfillment and customer service.",
+            "MetaDescription": "Build secure and scalable e-commerce solutions that meet the demands of both customers and business using Azure Database for PostgreSQL.",
             "category": [
                 "databases",
                 "web"
@@ -9454,7 +9607,7 @@
             "type": "reference-architecture",
             "file_url": "reference-architectures/sharepoint/index.md",
             "http_url": "/azure/architecture/reference-architectures/sharepoint",
-            "word_count": 3437,
+            "word_count": 3435,
             "read_time": "13 min read",
             "Title": "Run a highly available SharePoint Server 2016 farm in Azure",
             "MetaDescription": "Recommended architecture for deploying a high availability SharePoint Server 2016 farm in Azure.",
@@ -10012,7 +10165,7 @@
             "type": "solution-idea",
             "file_url": "solution-ideas/articles/medium-umbraco-web-app.md",
             "http_url": "/azure/architecture/solution-ideas/articles/medium-umbraco-web-app",
-            "word_count": 321,
+            "word_count": 317,
             "read_time": "2 min read",
             "Title": "Scalable Umbraco CMS web app",
             "MetaDescription": "Medium Umbraco CMS web app configured to scale and optimal for high-traffic sites. It uses two web apps, one for your front-end app and the other for your back-office app, deployed in a single region with autoscaling enabled.",
@@ -10214,7 +10367,7 @@
             "word_count": 39,
             "read_time": "1 min read",
             "Title": "Scalable web and mobile applications using Azure Database for MySQL",
-            "MetaDescription": "Rapidly build engaging, performant and scalable cross-platform and native apps for iOS, Android, Windows, or Mac.",
+            "MetaDescription": "Use Azure Database for MySQL to rapidly build engaging, performant, and scalable cross-platform and native apps for iOS, Android, Windows, or Mac.",
             "category": [
                 "mobile",
                 "web",
@@ -10247,7 +10400,7 @@
             "word_count": 66,
             "read_time": "1 min read",
             "Title": "Scalable web and mobile applications using Azure Database for PostgreSQL",
-            "MetaDescription": "Rapidly build engaging, performant and scalable cross-platform and native apps for iOS, Android, Windows, or Mac.",
+            "MetaDescription": "Use Azure Database for PostgreSQL to rapidly build engaging, performant, and scalable cross-platform and native apps for iOS, Android, Windows, or Mac.",
             "category": [
                 "mobile",
                 "web",
@@ -10322,6 +10475,7 @@
                 "all-items",
                 "data-flow",
                 "devops",
+                "fcp",
                 "interactive-diagram",
                 "signalr-service",
                 "solution-idea"
@@ -10329,7 +10483,7 @@
             "type": "solution-idea",
             "file_url": "solution-ideas/articles/secure-devops-for-kubernetes.md",
             "http_url": "/azure/architecture/solution-ideas/articles/secure-devops-for-kubernetes",
-            "word_count": 243,
+            "word_count": 245,
             "read_time": "2 min read",
             "Title": "Secure DevOps for AKS",
             "MetaDescription": "Implementing secure DevOps with Kubernetes on Azure, you can achieve the balance between speed and security and deliver code faster at scale.",
@@ -10339,18 +10493,18 @@
             ],
             "image": "/azure/architecture/solution-ideas/media/secure-devops-for-kubernetes.png",
             "imagepath": "C:\\jvPnpRepos\\architecture-center-pr\\docs\\solution-ideas\\media\\secure-devops-for-kubernetes.png",
-            "publish_date": "12/16/2019",
+            "publish_date": "9/10/2020",
             "Summary": "<p>DevOps and Kubernetes are better together. Implementing secure DevOps together with Kubernetes on Azure, you can achieve the balance between speed and security and deliver code faster at scale. Put guardrails around the development processes using CI/CD with dynamic policy controls and accelerate feedback loop with constant monitoring. Use Azure Pipelines to deliver fast while ensuring enforcement of critical policies with Azure Policy. Azure provides you real-time observability for your build and release pipelines, and the ability to apply compliance audit and reconfigurations easily.</p>",
             "Flow": {
-                "FlowStep_A": "Developers rapidly iterate, test, and debug different parts of an application together in the same Kubernetes cluster",
-                "FlowStep_B": "Code is merged into a GitHub repository, after which automated builds and tests are run by Azure Pipelines",
-                "FlowStep_C": "Container image is registered in Azure Container Registry",
-                "FlowStep_D": "Kubernetes clusters are provisioned using tools like Terraform; Helm charts, installed by Terraform, define the desired state of app resources and configurations",
-                "FlowStep_E": "Operators enforce policies to govern deployments to the AKS cluster",
-                "FlowStep_F": "Release pipeline automatically executes pre-defined deployment strategy with each code change",
-                "FlowStep_G": "Policy enforcement and auditing is added to CI/CD pipeline using Azure Policy",
-                "FlowStep_H": "App telemetry, container health monitoring, and real-time log analytics are obtained using Azure Monitor",
-                "FlowStep_I": "Insights used to address issues and fed into next sprint plans"
+                "FlowStep_A": "Developers rapidly iterate, test, and debug different parts of an application together in the same Kubernetes cluster.",
+                "FlowStep_B": "Code is merged into a GitHub repository, after which automated builds and tests are run by Azure Pipelines.",
+                "FlowStep_C": "Release pipeline automatically executes pre-defined deployment strategy with each code change.",
+                "FlowStep_D": "Kubernetes clusters are provisioned using tools like Helm charts that define the desired state of app resources and configurations.",
+                "FlowStep_E": "Container image is pushed to Azure Container Registry.",
+                "FlowStep_F": "Cluster operators define policies in Azure Policy to govern deployments to the AKS cluster.",
+                "FlowStep_G": "Azure Policy audits requests from the pipeline at the AKS control plane level.",
+                "FlowStep_H": "App telemetry, container health monitoring, and real-time log analytics are obtained using Azure Monitor.",
+                "FlowStep_I": "Insights used to address issues and fed into next sprint plans."
             },
             "name": "secure-devops-for-kubernetes",
             "popularity": 141,
@@ -10713,7 +10867,7 @@
             "type": "reference-architecture",
             "file_url": "reference-architectures/serverless/web-app.md",
             "http_url": "/azure/architecture/reference-architectures/serverless/web-app",
-            "word_count": 4021,
+            "word_count": 4014,
             "read_time": "16 min read",
             "Title": "Serverless web application",
             "MetaDescription": "This reference architecture shows a serverless web application, which serves static content from Azure Blob Storage and implements an API using Azure Functions.",
@@ -10725,7 +10879,7 @@
             "imagepath": "C:\\jvPnpRepos\\architecture-center-pr\\docs\\reference-architectures\\serverless\\_images\\serverless-web-app.png",
             "publish_date": "5/28/2019",
             "alternative_choices": "alternatively,-you-can-store-application-secrets-in-key-vault.-this-allows-you-to-centralize-the-storage-of-secrets,-control-their-distribution,-and-monitor-how-and-when-secrets-are-being-accessed.-for-more-information,-see-[configure-an-azure-web-application-to-read-a-secret-from-key-vault][key-vault-web-app].-however,-note-that-functions-triggers-and-bindings-load-their-configuration-settings-from-app-settings.-there-is-no-built-in-way-to-configure-the-triggers-and-bindings-to-use-key-vault-secrets.",
-            "Summary": "<p>This reference architecture shows a <a href=\"https://azure.microsoft.com/solutions/serverless/\">serverless</a> web application. The application serves static content from Azure Blob Storage, and implements an API using Azure Functions. The API reads data from Cosmos DB and returns the results to the web app.</p>\n<p><img alt=\"GitHub logo\" src=\"https://docs.microsoft.com/azure/architecture/_images/github.png\" /> A reference implementation for this architecture is available on <a href=\"https://github.com/mspnp/serverless-reference-implementation/tree/v0.1.0-update\">GitHub</a>.</p>\n<p><img alt=\"Reference architecture for a serverless web application\" src=\"https://docs.microsoft.com/azure/architecture/reference-architectures/serverless/_images/serverless-web-app.png\" />\n<em>Download an <a href=\"https://docs.microsoft.com/azure/architecture/reference-architectures/serverless/_images/serverless-web-app.svg\">SVG</a> of this architecture.</em> | <em>Download an <a href=\"https://docs.microsoft.com/azure/architecture/reference-architectures/serverless/_images/serverless-web-app.vsdx\">Visio</a> of this architecture.</em></p>\n<p>The term serverless has two distinct but related meanings:</p>\n<ul>\n<li><strong>Backend as a service</strong> (BaaS). Back-end cloud services, such as databases and storage, provide APIs that enable client applications to connect directly to these services.</li>\n<li><strong>Functions as a service</strong> (FaaS). In this model, a \"function\" is a piece of code that is deployed to the cloud and runs inside a hosting environment that completely abstracts the servers that run the code.</li>\n</ul>\n<p>Both definitions have in common the idea that developers and DevOps personnel don't need to deploy, configure, or manage servers. This reference architecture focuses on FaaS using Azure Functions, although serving web content from Azure Blob Storage could be an example of BaaS. Some important characteristics of FaaS are:</p>\n<ol>\n<li>Compute resources are allocated dynamically as needed by the platform.</li>\n<li>Consumption-based pricing: You are charged only for the compute resources used to execute your code.</li>\n<li>The compute resources scale on demand based on traffic, without the developer needing to do any configuration.</li>\n</ol>\n<p>Functions are executed when an external trigger occurs, such as an HTTP request or a message arriving on a queue. This makes an <a >event-driven architecture style</a> natural for serverless architectures. To coordinate work between components in the architecture, consider using message brokers or pub/sub patterns. For help with choosing between messaging technologies in Azure, see <a href=\"https://docs.microsoft.com/azure/event-grid/compare-messaging-services\">Choose between Azure services that deliver messages</a>.</p>",
+            "Summary": "<p>This reference architecture shows a <a href=\"https://azure.microsoft.com/solutions/serverless/\">serverless</a> web application. The application serves static content from Azure Blob Storage, and implements an API using Azure Functions. The API reads data from Cosmos DB and returns the results to the web app.</p>\n<p><img alt=\"GitHub logo\" src=\"https://docs.microsoft.com/azure/architecture/_images/github.png\" /> A reference implementation for this architecture is available on <a href=\"https://github.com/mspnp/serverless-reference-implementation/tree/v0.1.0-update\">GitHub</a>.</p>\n<p><img alt=\"Reference architecture for a serverless web application\" src=\"https://docs.microsoft.com/azure/architecture/reference-architectures/serverless/_images/serverless-web-app.png\" />\n<em>Download an <a href=\"https://docs.microsoft.com/azure/architecture/reference-architectures/serverless/_images/serverless-web-app.svg\">SVG</a> of this architecture.</em></p>\n<p>The term serverless has two distinct but related meanings:</p>\n<ul>\n<li><strong>Backend as a service</strong> (BaaS). Back-end cloud services, such as databases and storage, provide APIs that enable client applications to connect directly to these services.</li>\n<li><strong>Functions as a service</strong> (FaaS). In this model, a \"function\" is a piece of code that is deployed to the cloud and runs inside a hosting environment that completely abstracts the servers that run the code.</li>\n</ul>\n<p>Both definitions have in common the idea that developers and DevOps personnel don't need to deploy, configure, or manage servers. This reference architecture focuses on FaaS using Azure Functions, although serving web content from Azure Blob Storage could be an example of BaaS. Some important characteristics of FaaS are:</p>\n<ol>\n<li>Compute resources are allocated dynamically as needed by the platform.</li>\n<li>Consumption-based pricing: You are charged only for the compute resources used to execute your code.</li>\n<li>The compute resources scale on demand based on traffic, without the developer needing to do any configuration.</li>\n</ol>\n<p>Functions are executed when an external trigger occurs, such as an HTTP request or a message arriving on a queue. This makes an <a >event-driven architecture style</a> natural for serverless architectures. To coordinate work between components in the architecture, consider using message brokers or pub/sub patterns. For help with choosing between messaging technologies in Azure, see <a href=\"https://docs.microsoft.com/azure/event-grid/compare-messaging-services\">Choose between Azure services that deliver messages</a>.</p>",
             "Flow": {
                 "FlowStep_A": "The user clicks the \"Sign in\" link in the web application.",
                 "FlowStep_B": "The browser is redirected the Azure AD sign in page.",
@@ -10814,7 +10968,7 @@
             "type": "example-workload",
             "file_url": "example-scenario/signalr/index.md",
             "http_url": "/azure/architecture/example-scenario/signalr",
-            "word_count": 1409,
+            "word_count": 1435,
             "read_time": "6 min read",
             "Title": "Sharing location in real time using low-cost serverless Azure services",
             "MetaDescription": "SignalR configured in server-less mode to work with Azure Function triggered by Service Bus. All of it using .NET Core. This scenario is best used for real time messaging applications where users require a low-cost but robust messaging service.",
@@ -11777,7 +11931,7 @@
             "type": "reference-architecture",
             "file_url": "reference-architectures/app-service-web-app/app-monitoring.md",
             "http_url": "/azure/architecture/reference-architectures/app-service-web-app/app-monitoring",
-            "word_count": 1816,
+            "word_count": 1818,
             "read_time": "7 min read",
             "Title": "Web application monitoring on Azure",
             "MetaDescription": "Learn about the monitoring services and a dataflow model for use with multiple data sources. Many monitoring tools and services work with Azure deployments.",
@@ -11822,7 +11976,7 @@
             "type": "reference-architecture",
             "file_url": "reference-architectures/n-tier/n-tier-sql-server.md",
             "http_url": "/azure/architecture/reference-architectures/n-tier/n-tier-sql-server",
-            "word_count": 3385,
+            "word_count": 3386,
             "read_time": "13 min read",
             "Title": "Windows N-tier application on Azure",
             "MetaDescription": "Implement a multi-tier architecture on Azure for availability, security, scalability, and manageability.",
@@ -11833,7 +11987,7 @@
             ],
             "image": "/azure/architecture/reference-architectures/n-tier/images/n-tier-sql-server.png",
             "imagepath": "C:\\jvPnpRepos\\architecture-center-pr\\docs\\reference-architectures\\n-tier\\images\\n-tier-sql-server.png",
-            "publish_date": "8/21/2019",
+            "publish_date": "9/25/2020",
             "sample_code": true,
             "github_url": "https://github.com/mspnp/reference-architectures/tree/master/virtual-machines/n-tier-windows",
             "visio_diagram": "https://archcenter.blob.core.windows.net/cdn/vm-reference-architectures.vsdx",
@@ -11856,8 +12010,8 @@
             "type": "example-workload",
             "file_url": "example-scenario/wvd/windows-virtual-desktop.md",
             "http_url": "/azure/architecture/example-scenario/wvd/windows-virtual-desktop",
-            "word_count": 1797,
-            "read_time": "7 min read",
+            "word_count": 1829,
+            "read_time": "8 min read",
             "Title": "Windows Virtual Desktop for the enterprise",
             "MetaDescription": "Explore Windows Virtual Desktop, and learn to build virtual desktop infrastructure solutions at enterprise scale.",
             "category": [

@@ -6,11 +6,12 @@ author: vpaulreed
 ms.date: 03/15/2020
 ms.category:
   - management-and-governance
-ms.topic: example-scenario
+ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: example-scenario
 ms.custom:
   - fcp
+  - example-scenario
 ---
 
 <!-- cSpell:ignore vpaulreed WSUS NSGs VM's -->
@@ -211,7 +212,7 @@ Currently, WSUS doesn't support synchronization with the Windows Home SKU.
 
 ## Azure Update Management
 
-You can use the Update Management solution in Azure to manage and schedule operating system updates for VMs that are syncing against WSUS. The patch status of the VM (that is, which patches are missing) is assessed based on the source that the VM is configured to sync with. If the Windows VM is configured to report to WSUS, the results might differ from what Microsoft Update shows, depending on when WSUS last synced with Microsoft Update. After you configure your WSUS environment, you can enable Update Management. For more information, see [Update Management overview and onboarding steps](/azure/automation/automation-update-management).
+You can use the Update Management solution in Azure to manage and schedule operating system updates for VMs that are syncing against WSUS. The patch status of the VM (that is, which patches are missing) is assessed based on the source that the VM is configured to sync with. If the Windows VM is configured to report to WSUS, the results might differ from what Microsoft Update shows, depending on when WSUS last synced with Microsoft Update. After you configure your WSUS environment, you can enable Update Management. For more information, see [Update Management overview and onboarding steps](/azure/automation/update-management/overview).
 
 ## Next steps
 

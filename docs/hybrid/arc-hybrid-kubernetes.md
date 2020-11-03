@@ -3,13 +3,15 @@ title: Azure Arc hybrid management and deployment for Kubernetes clusters
 description: Using Azure Arc to register Kubernetes clusters hosted outside of Azure, and using Azure tools to manage these clusters along with clusters hosted in Azure Kubernetes Service.
 author: doodlemania2
 ms.date: 07/23/2020
-ms.topic: reference-architecture
+ms.topic: conceptual
 ms.service: architecture-center
 ms.category:
   - hybrid
   - management-and-governance
 ms.subservice: reference-architecture
-ms.custom: fcp
+ms.custom:
+  - fcp
+  - reference-architecture
 ---
 
 # Azure Arc hybrid management and deployment for Kubernetes clusters
@@ -131,22 +133,22 @@ Azure Arc agents require the following protocols/ports/outbound URLs to function
 
 [Architecture diagram]: ./images/arc-hybrid-kubernetes.png
 [Architecture visio]: https://archcenter.blob.core.windows.net/cdn/arc-hybrid-kubernetes.vsdx
-[Azure Arc]: https://docs.microsoft.com/azure/azure-arc/
-[Azure Container Instances]: https://docs.microsoft.com/azure/container-instances/container-instances-overview
-[Azure Kubernetes Service]: https://docs.microsoft.com/azure/aks/
-[Azure Policy]: https://docs.microsoft.com/azure/governance/policy/
-[Azure Monitor]: https://docs.microsoft.com/azure/azure-monitor/
-[Connect an Azure Arc-enabled Kubernetes cluster]: https://docs.microsoft.com/azure/azure-arc/kubernetes/connect-cluster
-[Use Azure RBAC for Kubernetes Authorization]: https://docs.microsoft.com/azure/aks/manage-azure-rbac
-[Create an Azure Arc-enabled onboarding Service Principal]: https://docs.microsoft.com/azure/azure-arc/kubernetes/create-onboarding-service-principal
-[Azure Monitor for containers overview]: https://docs.microsoft.com/azure/azure-monitor/insights/container-insights-overview
-[Enable monitoring of Azure Arc enabled Kubernetes cluster]: https://docs.microsoft.com/azure/azure-monitor/insights/container-insights-enable-arc-enabled-clusters?toc=/azure/azure-arc/toc.json
-[Azure Policy built-in definitions for Azure Arc enabled Kubernetes]: https://docs.microsoft.com/azure/azure-arc/kubernetes/policy-samples
-[Use Azure Policy to apply cluster configurations at scale]: https://docs.microsoft.com/azure/azure-arc/kubernetes/use-azure-policy
-[Deploy configurations using GitOps on Arc enabled Kubernetes cluster]: https://docs.microsoft.com/azure/azure-arc/kubernetes/use-gitops-connected-cluster
-[Supported regions]: https://docs.microsoft.com/azure/azure-arc/kubernetes/overview#supported-regions
-[Subscription limits]: https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#subscription-limits
-[resource group limits]: https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#resource-group-limits
-[Deploy Helm Charts using GitOps on Arc enabled Kubernetes cluster]: https://docs.microsoft.com/azure/azure-arc/kubernetes/use-gitops-with-helm
-[Use managed identities in Azure Kubernetes Service]: https://docs.microsoft.com/azure/aks/use-managed-identity
-[Principles of cost optimization]: https://docs.microsoft.com/azure/architecture/framework/cost/overview
+[Azure Arc]: /azure/azure-arc/
+[Azure Container Instances]: /azure/container-instances/container-instances-overview
+[Azure Kubernetes Service]: /azure/aks/
+[Azure Policy]: /azure/governance/policy/
+[Azure Monitor]: /azure/azure-monitor/
+[Connect an Azure Arc-enabled Kubernetes cluster]: /azure/azure-arc/kubernetes/connect-cluster
+[Use Azure RBAC for Kubernetes Authorization]: /azure/aks/manage-azure-rbac
+[Create an Azure Arc-enabled onboarding Service Principal]: /azure/azure-arc/kubernetes/create-onboarding-service-principal
+[Azure Monitor for containers overview]: /azure/azure-monitor/insights/container-insights-overview
+[Enable monitoring of Azure Arc enabled Kubernetes cluster]: /azure/azure-monitor/insights/container-insights-enable-arc-enabled-clusters?toc=%252fazure%252fazure-arc%252ftoc.json
+[Azure Policy built-in definitions for Azure Arc enabled Kubernetes]: /azure/azure-arc/kubernetes/policy-samples
+[Use Azure Policy to apply cluster configurations at scale]: /azure/azure-arc/kubernetes/use-azure-policy
+[Deploy configurations using GitOps on Arc enabled Kubernetes cluster]: /azure/azure-arc/kubernetes/use-gitops-connected-cluster
+[Supported regions]: /azure/azure-arc/kubernetes/overview#supported-regions
+[Subscription limits]: /azure/azure-resource-manager/management/azure-subscription-service-limits#subscription-limits
+[resource group limits]: /azure/azure-resource-manager/management/azure-subscription-service-limits#resource-group-limits
+[Deploy Helm Charts using GitOps on Arc enabled Kubernetes cluster]: /azure/azure-arc/kubernetes/use-gitops-with-helm
+[Use managed identities in Azure Kubernetes Service]: /azure/aks/use-managed-identity
+[Principles of cost optimization]: ../framework/cost/overview.md

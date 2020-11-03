@@ -3,9 +3,11 @@ title: Security with identity and access management (IAM) in Azure
 description: Use Azure Active Directory (Azure AD) to grant access based on identity authentication and authorization.
 author: PageWriter-MSFT
 ms.date: 07/09/2019
-ms.topic: article
+ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
+ms.custom:
+  - article
 ---
 
 # Identity management
@@ -26,7 +28,7 @@ Provide security assurance through _identity management_: the process of authent
 
 The recommendations in this article can be implemented through the use of Azure AD. 
 
-## Use a dingle enterprise directory
+## Use a single enterprise directory
 
 Have a single enterprise directory for managing identities of full-time employees and enterprise resources. For example, a single Azure AD directory instance can serve as the authoritative source for corporate and organizational accounts.
 
@@ -46,7 +48,7 @@ Keep your cloud identity synchronized with the existing identity systems to ensu
 Consider using [Azure AD connect](/azure/active-directory/connect/active-directory-aadconnect) for synchronizing Azure AD with your existing on-premises directory. For migration projects, have a requirement to complete this task before an Azure migration and development projects begin.
 
 > [!IMPORTANT]
-> Don’t synchronize high-privilege accounts to an on-premises directory. If an adversary gets full control of on-premises assets, they can compromise a cloud account.  This strategy will limit the scope of an incident. For more information, see [Critical impact account dependencies](./critical-impact-accounts.md#critical-impact-admin-dependencies--accountworkstation).
+> Don’t synchronize high-privilege accounts to an on-premises directory. If an attacker gets full control of on-premises assets, they can compromise a cloud account.  This strategy will limit the scope of an incident. For more information, see [Critical impact account dependencies](./critical-impact-accounts.md#critical-impact-admin-dependencies--accountworkstation).
 >
 >
 > Synchronization is blocked by default in the default Azure AD Connect configuration. Make sure that you haven’t customized this configuration. For information about filtering in Azure AD, see [Azure AD Connect sync: Configure filtering](/azure/active-directory/hybrid/how-to-connect-sync-configure-filtering)
@@ -59,7 +61,7 @@ Avoid hosting non-employee accounts in a corporate directory.
 
 Use cloud identity services that are designed to host third-party accounts. Grant the appropriate level of access to those external entities instead of the default permissions that are given to full-time employees. This differentiation can prevent and detect attacks from these vectors. Also, you reduce the onus of managing these identities internally.
 
-For example, these capabilities natively integrate into the same Azure AD identity and permission model used by Azure and Office 365.
+For example, these capabilities natively integrate into the same Azure AD identity and permission model used by Azure and Microsoft 365.
 
 - [Azure AD](/azure/active-directory/) – Employees and Enterprise Resources
 - [Azure AD B2B](/azure/active-directory/b2b/) – Partners
@@ -96,8 +98,17 @@ For more information, see:
 
 ## Use cross-platform credential management
 
-Use a common identity provider, such as Azure Active Directory (AD), for authenticating all platforms (Windows, Linux, and others) and cloud services. Azure AD can authenticate on Windows, [Linux](/azure/virtual-machines/linux/login-using-aad), Azure, Office 365, [Amazon Web Services (AWS)](/azure/active-directory/saas-apps/amazon-web-service-tutorial), [Google Services](/azure/active-directory/saas-apps/google-apps-tutorial), (remote access to) [legacy on-premises applications](/azure/active-directory/manage-apps/application-proxy), and third-party [Software as a Service providers](/azure/active-directory/saas-apps/tutorial-list).
+Use a common identity provider, such as Azure Active Directory (AD), for authenticating all platforms (Windows, Linux, and others) and cloud services. Azure AD can authenticate on Windows, [Linux](/azure/virtual-machines/linux/login-using-aad), Azure, Microsoft 365, [Amazon Web Services (AWS)](/azure/active-directory/saas-apps/amazon-web-service-tutorial), [Google Services](/azure/active-directory/saas-apps/google-apps-tutorial), (remote access to) [legacy on-premises applications](/azure/active-directory/manage-apps/application-proxy), and third-party [Software as a Service providers](/azure/active-directory/saas-apps/tutorial-list).
 
 ## Related Links
 [Five steps to securing your identity infrastructure](/azure/security/fundamentals/steps-secure-identity)
 
+## Prefer Identity Authentication over Keys
+
+Always authenticate with identity services rather than cryptographic keys when available.
+
+Managing keys securely with application code is difficult and regularly leads to mistakes like accidentally publishing sensitive access keys to code repositories like GitHub. Identity systems offer secure and usable experience for access control with built-in sophisticated mechanisms for key rotation, monitoring for anomalies, and more. Most organizations also have skilled teams dedicated to managing identity systems and few (if any) people actively managing key security systems.
+
+For services that offer the Azure AD authentication like [Azure Storage](/azure/storage/common/storage-security-attributes), [Azure App Service](/azure/app-service/app-service-security-attributes), [Azure Backup](/azure/backup/backup-security-attributes), use it for authentication and authorization. To further simplify using identities for developers, you can also take advantage of [managed identities](/azure/active-directory/managed-identities-azure-resources/) to assign identities to resources like VMs and App Services so that developers don’t have to manage identities within the application.
+
+For multitenant best practices, see [Manage identity in multitenant applications](../../multitenant-identity/index.md).

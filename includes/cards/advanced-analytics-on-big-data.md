@@ -6,7 +6,7 @@
 <article class="card">
     <div class="card-header has-margin-bottom-none" aria-hidden="true">
         <figure class="image diagram has-height-175 has-overflow-hidden level">
-            <a href="/azure/architecture/solution-ideas/articles/advanced-analytics-on-big-data"><img src="/azure/architecture/browse/thumbs/advanced-analytics-on-big-data.png" class="diagram" alt="Architecture Diagram" data-linktype="relative-path"></a>
+            <a href="/azure/architecture/solution-ideas/articles/advanced-analytics-on-big-data"><img src="/azure/architecture/browse/thumbs/advanced-analytics-on-big-data.png" class="diagram" alt="Thumbnail of Advanced Analytics Architecture Architectural Diagram." data-linktype="relative-path"></a>
         </figure>
     </div>
     <div class="card-content">

@@ -9,7 +9,7 @@ ms.category:
   - devops
   - web
   - featured
-ms.topic: example-scenario
+ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: example-scenario
 ms.custom:
@@ -17,6 +17,7 @@ ms.custom:
   - seodec18
   - devops
   - app-development
+  - example-scenario
 social_image_url: /azure/architecture/example-scenario/apps/media/architecture-devops-dotnet-webapp.svg
 ---
 

@@ -6,7 +6,7 @@
 <article class="card">
     <div class="card-header has-margin-bottom-none" aria-hidden="true">
         <figure class="image diagram has-height-175 has-overflow-hidden level">
-            <a href="/azure/architecture/hybrid/deploy-ai-ml-azure-stack-edge"><img src="/azure/architecture/browse/thumbs/deploy-ai-ml-azure-stack-edge.png" class="diagram" alt="Architecture Diagram" data-linktype="relative-path"></a>
+            <a href="/azure/architecture/hybrid/deploy-ai-ml-azure-stack-edge"><img src="/azure/architecture/browse/thumbs/deploy-ai-ml-azure-stack-edge.png" class="diagram" alt="Thumbnail of Deploy AI and machine learning at the edge by using Azure Stack Edge Architectural Diagram." data-linktype="relative-path"></a>
         </figure>
     </div>
     <div class="card-content">

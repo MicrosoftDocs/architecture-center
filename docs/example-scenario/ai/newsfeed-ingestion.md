@@ -6,11 +6,12 @@ ms.date: 2/1/2019
 ms.custom:
   - azcat-ai
   - AI
+  - example-scenario
 social_image_url: /azure/architecture/example-scenario/ai/media/mass-ingestion-newsfeeds-architecture.png
 ms.category:
   - analytics
   - ai-machine-learning
-ms.topic: example-scenario
+ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: example-scenario
 ---

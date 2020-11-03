@@ -3,7 +3,7 @@ title: Scalable web and mobile applications using Azure Database for MySQL
 titleSuffix: Azure Solution Ideas
 author: doodlemania2
 ms.date: 12/16/2019
-description: Rapidly build engaging, performant and scalable cross-platform and native apps for iOS, Android, Windows, or Mac.
+description: Use Azure Database for MySQL to rapidly build engaging, performant, and scalable cross-platform and native apps for iOS, Android, Windows, or Mac.
 ms.custom: acom-architecture, mysql, web-app, scalability, use cases, azure, solutions, 'https://azure.microsoft.com/solutions/architecture/scalable-web-and-mobile-applications-using-azure-database-for-mysql/'
 ms.service: architecture-center
 ms.category:

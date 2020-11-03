@@ -4,10 +4,13 @@ description: Performance considerations for running Apache Cassandra on Azure vi
 author: arsenvlad
 ms.author: arsenv
 ms.date: 09/19/2019
-ms.topic: best-practice
+ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: cloud-fundamentals
-ms.custom: fcp
+ms.custom:
+  - fcp
+  - cse
+  - best-practice
 ---
 
 <!-- cSpell:ignore arsenv arsenvlad DataStax mdadm -->

@@ -1,16 +1,18 @@
 ---
-title: Hybrid availability and performance monitoring 
+title: Hybrid availability and performance monitoring
 description: Using Azure Monitor to monitor performance and availability for operating system workloads running on-premises, in third-party cloud providers, and in Microsoft Azure
 author: doodlemania2
 ms.date: 07/27/2020
-ms.topic: reference-architecture
+ms.topic: conceptual
 ms.service: architecture-center
 ms.category:
   - hybrid
   - monitoring
   - management-and-governance
 ms.subservice: reference-architecture
-ms.custom: fcp
+ms.custom:
+  - fcp
+  - reference-architecture
 ---
 
 # Hybrid availability and performance monitoring
@@ -178,35 +180,35 @@ The following are considerations for controlling and managing costs in your envi
 
 [architectural-diagram]: ./images/hybrid-perf-monitoring.png
 [architectural-diagram-visio-source]: https://archcenter.blob.core.windows.net/cdn/hybrid-perf-monitoring.vsdx
-[agents-overview]: https://docs.microsoft.com/azure/azure-monitor/platform/log-analytics-agent
-[dependency-agent]: https://docs.microsoft.com/azure/azure-monitor/platform/agents-overview#dependency-agent
-[design-deployment]: https://docs.microsoft.com/azure/azure-monitor/platform/design-logs-deployment
-[app-insights]: https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview
-[website-availability]: https://docs.microsoft.com/azure/azure-monitor/app/monitor-web-app-availability
-[kusto]: https://docs.microsoft.com/azure/data-explorer/kusto/query/
-[query-examples]: https://docs.microsoft.com/azure/azure-monitor/log-query/examples
-[manage-metrics-alerts]: https://docs.microsoft.com/azure/azure-monitor/platform/alerts-metric
-[manage-log-alerts]: https://docs.microsoft.com/azure/azure-monitor/platform/alerts-log
-[autoscale-overview]: https://docs.microsoft.com/azure/azure-monitor/platform/autoscale-overview
-[service-map]: https://docs.microsoft.com/azure/azure-monitor/insights/vminsights-maps
-[share-dashboards]: https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-logs-dashboards
-[monitor-workbooks]: https://docs.microsoft.com/azure/azure-monitor/platform/workbooks-overview
-[custom-metric-api]: https://docs.microsoft.com/azure/azure-monitor/platform/metrics-custom-overview
-[custom-log-api]: https://docs.microsoft.com/azure/azure-monitor/platform/data-collector-api
-[smart-detection]: https://docs.microsoft.com/azure/azure-monitor/app/proactive-diagnostics
-[vms-by-policy]: https://docs.microsoft.com/azure/azure-monitor/insights/vminsights-enable-at-scale-policy
-[vms-by-powershell]: https://docs.microsoft.com/azure/azure-monitor/insights/vminsights-enable-at-scale-powershell
-[vm-by-dsc]: https://docs.microsoft.com/azure/azure-monitor/insights/vminsights-enable-hybrid-cloud#desired-state-configuration
-[distributed-tracing]: https://docs.microsoft.com/azure/azure-monitor/app/distributed-tracing
-[triage-applications]: https://docs.microsoft.com/azure/azure-monitor/app/app-map?tabs=net
-[interactive-workbooks]: https://docs.microsoft.com/azure/azure-monitor/insights/vminsights-workbooks
-[partner-integrations]: https://docs.microsoft.com/azure/azure-monitor/platform/partners
-[ops-manager]: https://docs.microsoft.com/azure/azure-monitor/platform/om-agents
-[event-hub]: https://docs.microsoft.com/azure/azure-monitor/platform/stream-monitoring-data-event-hubs
-[connect-to-la]: https://docs.microsoft.com/services-hub/health/establish-connectivity-to-azure
-[data-security]: https://docs.microsoft.com/azure/azure-monitor/platform/data-security
-[detection-pack]: https://docs.microsoft.com/azure/azure-monitor/app/proactive-application-security-detection-pack
-[itsm]: https://docs.microsoft.com/azure/azure-monitor/platform/itsmc-overview
+[agents-overview]: /azure/azure-monitor/platform/log-analytics-agent
+[dependency-agent]: /azure/azure-monitor/platform/agents-overview#dependency-agent
+[design-deployment]: /azure/azure-monitor/platform/design-logs-deployment
+[app-insights]: /azure/azure-monitor/app/app-insights-overview
+[website-availability]: /azure/azure-monitor/app/monitor-web-app-availability
+[kusto]: /azure/data-explorer/kusto/query/
+[query-examples]: /azure/azure-monitor/log-query/examples
+[manage-metrics-alerts]: /azure/azure-monitor/platform/alerts-metric
+[manage-log-alerts]: /azure/azure-monitor/platform/alerts-log
+[autoscale-overview]: /azure/azure-monitor/platform/autoscale-overview
+[service-map]: /azure/azure-monitor/insights/vminsights-maps
+[share-dashboards]: /azure/azure-monitor/learn/tutorial-logs-dashboards
+[monitor-workbooks]: /azure/azure-monitor/platform/workbooks-overview
+[custom-metric-api]: /azure/azure-monitor/platform/metrics-custom-overview
+[custom-log-api]: /azure/azure-monitor/platform/data-collector-api
+[smart-detection]: /azure/azure-monitor/app/proactive-diagnostics
+[vms-by-policy]: /azure/azure-monitor/insights/vminsights-enable-at-scale-policy
+[vms-by-powershell]: /azure/azure-monitor/insights/vminsights-enable-at-scale-powershell
+[vm-by-dsc]: /azure/azure-monitor/insights/vminsights-enable-hybrid-cloud#desired-state-configuration
+[distributed-tracing]: /azure/azure-monitor/app/distributed-tracing
+[triage-applications]: /azure/azure-monitor/app/app-map?tabs=net
+[interactive-workbooks]: /azure/azure-monitor/insights/vminsights-workbooks
+[partner-integrations]: /azure/azure-monitor/platform/partners
+[ops-manager]: /azure/azure-monitor/platform/om-agents
+[event-hub]: /azure/azure-monitor/platform/stream-monitoring-data-event-hubs
+[connect-to-la]: /services-hub/health/establish-connectivity-to-azure
+[data-security]: /azure/azure-monitor/platform/data-security
+[detection-pack]: /azure/azure-monitor/app/proactive-application-security-detection-pack
+[itsm]: /azure/azure-monitor/platform/itsmc-overview
 [monitor-pricing]: https://azure.microsoft.com/pricing/details/monitor/
 [pricing-calculator]: https://azure.microsoft.com/pricing/calculator/?service=monitor
-[azmon-for-vms]: https://docs.microsoft.com/azure/azure-monitor/insights/vminsights-overview
+[azmon-for-vms]: /azure/azure-monitor/insights/vminsights-overview

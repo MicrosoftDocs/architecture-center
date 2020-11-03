@@ -6,13 +6,14 @@ ms.date: 01/11/2019
 ms.category:
   - compute
   - storage
-ms.topic: example-scenario
+ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: example-scenario
 ms.custom:
   - cat-team
   - Linux
   - HPC
+  - example-scenario
 social_image_url: /azure/architecture/example-scenario/infrastructure/media/architecture-image-modeling.png
 ---
 

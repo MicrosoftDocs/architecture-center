@@ -4,14 +4,16 @@ titleSuffix: Azure Reference Architectures
 description: See an extract, load, and transform pipeline that moves data from an on-premises SQL Server database into Azure Synapse and transforms the data for analysis.
 author: doodlemania2
 ms.date: 11/20/2019
-ms.topic: reference-architecture
+ms.topic: conceptual
 ms.service: architecture-center
 ms.category:
   - integration
   - analytics
   - databases
 ms.subservice: reference-architecture
-ms.custom: seodec18
+ms.custom:
+  - seodec18
+  - reference-architecture
 ---
 
 # Enterprise BI in Azure with Azure Synapse Analytics
@@ -278,7 +280,7 @@ You may want to review the following [Azure example scenarios](/azure/architectu
 [azure-monitor]: https://azure.microsoft.com/services/monitor
 [blue-green-dep]: https://martinfowler.com/bliki/BlueGreenDeployment.html
 [cannary-releases]: https://martinfowler.com/bliki/CanaryRelease.html
-[github-folder]: https://github.com/mspnp/reference-architectures/tree/master/data/enterprise_bi_sqldw
+[github-folder]: https://github.com/mspnp/azure-sqldw-enterprise-bi
 [synapse-analytics]: /azure/sql-data-warehouse/sql-data-warehouse-concept-resource-utilization-query-activity
 [wwi]: /sql/sample/world-wide-importers/wide-world-importers-oltp-database
 [powerbi-embedded-pricing]: https://azure.microsoft.com/pricing/details/power-bi-embedded

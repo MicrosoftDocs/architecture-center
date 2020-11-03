@@ -5,10 +5,12 @@ description: Create helper services that send network requests on behalf of a co
 keywords: design pattern
 author: dragon119
 ms.date: 06/23/2017
-ms.topic: design-pattern
+ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: cloud-fundamentals
-ms.custom: seodec18
+ms.custom:
+  - seodec18
+  - design-pattern
 ---
 
 # Ambassador pattern

@@ -3,13 +3,15 @@ title: Connect an on-premises network to Azure
 description: Compare reference architectures for connecting an on-premises network to Azure.
 author: telmosampaio
 ms.date: 07/02/2018
-ms.topic: reference-architecture
+ms.topic: conceptual
 ms.service: architecture-center
 ms.category:
   - hybrid
   - networking
 ms.subservice: reference-architecture
-ms.custom: networking
+ms.custom:
+  - networking
+  - reference-architecture
 ---
 
 # Choose a solution for connecting an on-premises network to Azure

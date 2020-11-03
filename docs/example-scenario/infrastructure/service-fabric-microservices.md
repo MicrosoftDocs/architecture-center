@@ -7,13 +7,14 @@ ms.date: 09/20/2018
 ms.category:
   - migration
   - developer-tools
-ms.topic: example-scenario
+ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: example-scenario
 ms.custom:
   - fasttrack
   - application-development
   - app-modernization
+  - example-scenario
 social_image_url: /azure/architecture/example-scenario/infrastructure/media/architecture-service-fabric-complete.png
 ---
 

@@ -1,9 +1,9 @@
 ---
 title: Authorization in multitenant applications
-description: "Learn about two general approaches to authorization using APIs provided by ASP.NET Core: role-based authorization and resource-based authorization."
+description: 'Learn about two general approaches to authorization using APIs provided by ASP.NET Core: role-based authorization and resource-based authorization.'
 author: doodlemania2
 ms.date: 07/21/2017
-ms.topic: guide
+ms.topic: conceptual
 ms.service: architecture-center
 ms.category:
   - identity
@@ -11,11 +11,13 @@ ms.subservice: reference-architecture
 pnp.series.title: Manage Identity in Multitenant Applications
 pnp.series.prev: app-roles
 pnp.series.next: web-api
+ms.custom:
+  - guide
 ---
 
 # Role-based and resource-based authorization
 
-[![GitHub](../_images/github.png) Sample code][sample application]
+[:::image type="icon" source="../_images/github.png" border="false"::: Sample code][sample application]
 
 Our [reference implementation] is an ASP.NET Core application. In this article we'll look at two general approaches to authorization, using the authorization APIs provided in ASP.NET Core.
 

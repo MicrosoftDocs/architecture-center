@@ -180,13 +180,13 @@ For long-running or complex Actions, host your own runners for CI/CD jobs. You c
 [GitHub security advisories]: https://docs.github.com/en/github/managing-security-vulnerabilities/about-github-security-advisories
 [PHP Security Advisories Database]: https://github.com/FriendsOfPHP/security-advisories
 [Vulnerability management in GitHub svg]: ../media/devsecops-in-github-vulnerability-management-data-flow.svg
-[Azure Well-Architected Framework]: /azure/architecture/framework/
+[Azure Well-Architected Framework]: ../../framework/index.md
 [About billing for GitHub actions]: https://docs.github.com/en/github/setting-up-and-managing-billing-and-payments-on-github/about-billing-for-github-actions
 [About self-hosted runners]: https://docs.github.com/en/actions/hosting-your-own-runners/about-self-hosted-runners
 [GitHub Enterprise Server]: https://azuremarketplace.microsoft.com/marketplace/apps/github.githubenterprise
 [GitHub Enterprise highly available failover configuration]: https://docs.github.com/en/enterprise/2.21/admin/enterprise-management/about-high-availability-configuration
 [Configure Dependabot security updates]: https://docs.github.com/en/github/managing-security-vulnerabilities/configuring-github-dependabot-security-updates
-[DevSecOps in Azure]: /azure/architecture/solution-ideas/articles/devsecops-in-azure
+[DevSecOps in Azure]: ./devsecops-in-azure.md
 [GitHub DevSecOps training materials]: https://github.com/devsecops/awesome-devsecops
 [GitHub DevSecOps getting started tips]: https://resources.github.com/whitepapers/Architects-guide-to-DevOps/
 [SARIF]: https://docs.github.com/en/github/finding-security-vulnerabilities-and-errors-in-your-code/sarif-support-for-code-scanning

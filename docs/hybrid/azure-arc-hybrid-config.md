@@ -3,13 +3,15 @@ title: Manage configurations for Azure Arc enabled servers
 description: Use Azure Arc to extend Azure Resource Manager capabilities to Windows and Linux machines on any infrastructure.
 author: doodlemania2
 ms.date: 07/28/2020
-ms.topic: reference-architecture
+ms.topic: conceptual
 ms.service: architecture-center
 ms.category:
   - hybrid
   - management-and-governance
 ms.subservice: reference-architecture
-ms.custom: fcp 
+ms.custom:
+  - fcp
+  - reference-architecture
 ---
 
 # Manage configurations for Azure Arc enabled servers
@@ -135,23 +137,23 @@ The Connected Machine agent for Linux and Windows communicates outbound securely
 
 [architectural-diagram]: ./images/azure-arc-hybrid-config.png
 [architectural-diagram-visio-source]: https://archcenter.blob.core.windows.net/cdn/azure-arc-hybrid-config.vsdx
-[Azure Arc]: https://docs.microsoft.com/azure/azure-arc/
-[Azure Policy Guest Configuration]: https://docs.microsoft.com/azure/governance/policy/concepts/guest-configuration
-[Azure Monitor]: https://docs.microsoft.com/azure/azure-monitor/
-[Azure Sentinel]: https://docs.microsoft.com/azure/sentinel/overview
-[Azure virtual machines]: https://docs.microsoft.com/azure/virtual-machines/
+[Azure Arc]: /azure/azure-arc/
+[Azure Policy Guest Configuration]: /azure/governance/policy/concepts/guest-configuration
+[Azure Monitor]: /azure/azure-monitor/
+[Azure Sentinel]: /azure/sentinel/overview
+[Azure virtual machines]: /azure/virtual-machines/
 [windows-agent-download]: https://aka.ms/AzureConnectedMachineAgent
 [microsoft-package-repo]: https://packages.microsoft.com/
-[agent-overview]: https://docs.microsoft.com/azure/azure-arc/servers/agent-overview
-[Azure Automation State Configuration]: https://docs.microsoft.com/azure/automation/automation-dsc-overview
-[connect-hybrid-at-scale]: https://docs.microsoft.com/azure/azure-arc/servers/onboard-service-principal
-[manage-vm-extensions]: https://docs.microsoft.com/azure/azure-arc/servers/manage-vm-extensions
-[networking configuration]: https://docs.microsoft.com/azure/azure-arc/servers/agent-overview#networking-configuration
-[supported regions]: https://docs.microsoft.com/azure/azure-arc/servers/overview#supported-regions
-[supported operating systems]: https://docs.microsoft.com/azure/azure-arc/servers/agent-overview#supported-operating-systems
-[subscription-limits]: https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#subscription-limits
-[rg-limits]: https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#resource-group-limits
-[arc-built-in-policies]: https://docs.microsoft.com/azure/azure-arc/servers/policy-samples
+[agent-overview]: /azure/azure-arc/servers/agent-overview
+[Azure Automation State Configuration]: /azure/automation/automation-dsc-overview
+[connect-hybrid-at-scale]: /azure/azure-arc/servers/onboard-service-principal
+[manage-vm-extensions]: /azure/azure-arc/servers/manage-vm-extensions
+[networking configuration]: /azure/azure-arc/servers/agent-overview#networking-configuration
+[supported regions]: /azure/azure-arc/servers/overview#supported-regions
+[supported operating systems]: /azure/azure-arc/servers/agent-overview#supported-operating-systems
+[subscription-limits]: /azure/azure-resource-manager/management/azure-subscription-service-limits#subscription-limits
+[rg-limits]: /azure/azure-resource-manager/management/azure-subscription-service-limits#resource-group-limits
+[arc-built-in-policies]: /azure/azure-arc/servers/policy-samples
 [pricing-calculator]: https://azure.microsoft.com/pricing/calculator
-[principles-cost-opt]: https://docs.microsoft.com/azure/architecture/framework/cost/overview
-[onboard-dsc]: https://docs.microsoft.com/azure/azure-arc/servers/onboard-dsc
+[principles-cost-opt]: ../framework/cost/overview.md
+[onboard-dsc]: /azure/azure-arc/servers/onboard-dsc

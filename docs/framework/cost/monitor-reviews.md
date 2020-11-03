@@ -1,12 +1,13 @@
 ---
 title: Conduct cost reviews
-description: Describes ways to gather cost data for reporting purposes
-author:  PageWriter-MSFT
+description: Implement cost monitoring to review cloud spend with the intent of establishing cost controls and preventing any misuse.
+author: PageWriter-MSFT
 ms.date: 05/12/2020
-ms.topic: article
+ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
-ms.custom: 
+ms.custom:
+  - article
 ---
 
 # Conduct cost reviews

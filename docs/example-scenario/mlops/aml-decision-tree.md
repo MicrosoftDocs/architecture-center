@@ -71,7 +71,7 @@ If you don't want to code your own solutions, a set of tools is available for bu
 
 * For experimentation, use Azure Machine Learning Designer.
 
-* For overall orchestration/scheduling, use Logic Apps, especially if integrating to Office 365 suite.
+* For overall orchestration/scheduling, use Logic Apps, especially if integrating to Microsoft 365 suite.
 
 * For data transfer and data transformation, use Data Factory Data Flows. If datasets are simple and on a small scale, Azure Machine Learning Designer can also handle them.
 

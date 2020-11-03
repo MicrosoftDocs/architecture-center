@@ -3,10 +3,11 @@ title: Provisioning cloud resources to optimize cost
 description: Describes guidance on how to provision your cloud resources to minimize cost.
 author: david-stanford
 ms.date: 08/13/2020
-ms.topic: article
+ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
-ms.custom: 
+ms.custom:
+  - article
 ---
 
 

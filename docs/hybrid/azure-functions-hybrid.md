@@ -3,13 +3,15 @@ title: Azure Functions in a hybrid environment
 description: Azure Functions being utilized from on-premises virtual machines
 author: doodlemania2
 ms.date: 06/29/2020
-ms.topic: reference-architecture
+ms.topic: conceptual
 ms.service: architecture-center
 ms.category:
   - hybrid
   - web
 ms.subservice: reference-architecture
-ms.custom: fcp
+ms.custom:
+  - fcp
+  - reference-architecture
 ---
 
 # Azure Functions in a hybrid environment
@@ -100,32 +102,32 @@ Additionally, each virtual network in Azure should also use [virtual network pee
 
 [architectural-diagram]: ./images/azure-functions-hybrid.png
 [architectural-diagram-visio-source]: https://archcenter.blob.core.windows.net/cdn/azure-functions-hybrid.vsdx
-[azure-arc-kubernetes]: https://docs.microsoft.com/azure/azure-arc/kubernetes/
-[azure-architecture-center-serverless]: https://docs.microsoft.com/azure/architecture/serverless-quest/serverless-overview
-[azure-expressroute]: https://docs.microsoft.com/azure/expressroute/
-[azure-functions]: https://docs.microsoft.com/azure/azure-functions/
-[azure-functions-best-practices]: https://docs.microsoft.com/azure/azure-functions/functions-best-practices
-[azure-functions-bindings]: https://docs.microsoft.com/azure/azure-functions/functions-bindings-example
-[azure-functions-bindings-list]: https://docs.microsoft.com/azure/azure-functions/functions-triggers-bindings#supported-bindings
+[azure-arc-kubernetes]: /azure/azure-arc/kubernetes/
+[azure-architecture-center-serverless]: ../serverless-quest/serverless-overview.md
+[azure-expressroute]: /azure/expressroute/
+[azure-functions]: /azure/azure-functions/
+[azure-functions-best-practices]: /azure/azure-functions/functions-best-practices
+[azure-functions-bindings]: /azure/azure-functions/functions-bindings-example
+[azure-functions-bindings-list]: /azure/azure-functions/functions-triggers-bindings#supported-bindings
 [azure-functions-core-tools]: https://github.com/azure/azure-functions-core-tools
-[azure-functions-core-tools-install]: https://docs.microsoft.com/azure/azure-functions/functions-run-local#install-the-azure-functions-core-tools
-[azure-functions-deployment-slots]: https://docs.microsoft.com/azure/azure-functions/functions-deployment-slots
-[azure-functions-docker]: https://docs.microsoft.com/azure/azure-functions/functions-create-function-linux-custom-image
+[azure-functions-core-tools-install]: /azure/azure-functions/functions-run-local#install-the-azure-functions-core-tools
+[azure-functions-deployment-slots]: /azure/azure-functions/functions-deployment-slots
+[azure-functions-docker]: /azure/azure-functions/functions-create-function-linux-custom-image
 [azure-functions-docker-hub]: https://hub.docker.com/_/microsoft-azure-functions-base
-[azure-functions-kubernetes]: https://docs.microsoft.com/azure/azure-functions/functions-kubernetes-keda
-[azure-functions-monitor]: https://docs.microsoft.com/azure/azure-functions/functions-monitoring
-[azure-functions-premium]: https://docs.microsoft.com/azure/azure-functions/functions-premium-plan
-[azure-functions-premium-warmed]: https://docs.microsoft.com/azure/azure-functions/functions-premium-plan#pre-warmed-instances
-[azure-functions-scale]: https://docs.microsoft.com/azure/azure-functions/functions-scale
-[azure-kubernetes-service]: https://docs.microsoft.com/azure/aks/
+[azure-functions-kubernetes]: /azure/azure-functions/functions-kubernetes-keda
+[azure-functions-monitor]: /azure/azure-functions/functions-monitoring
+[azure-functions-premium]: /azure/azure-functions/functions-premium-plan
+[azure-functions-premium-warmed]: /azure/azure-functions/functions-premium-plan#pre-warmed-instances
+[azure-functions-scale]: /azure/azure-functions/functions-scale
+[azure-kubernetes-service]: /azure/aks/
 [azure-pricing-calculator]: https://azure.microsoft.com/pricing/calculator/
-[azure-storage]: https://docs.microsoft.com/azure/storage
-[azure-traffic-manager]: https://docs.microsoft.com/azure/traffic-manager
-[azure-virtual-network]: https://docs.microsoft.com/azure/virtual-network/
-[azure-virtual-network-cross]: https://docs.microsoft.com/azure/expressroute/cross-network-connectivity
-[azure-virtual-network-peering]: https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview
-[azure-virtual-network-service-endpoints]: https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview
-[azure-virtual-network-s2s]: https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal
+[azure-storage]: /azure/storage
+[azure-traffic-manager]: /azure/traffic-manager
+[azure-virtual-network]: /azure/virtual-network/
+[azure-virtual-network-cross]: /azure/expressroute/cross-network-connectivity
+[azure-virtual-network-peering]: /azure/virtual-network/virtual-network-peering-overview
+[azure-virtual-network-service-endpoints]: /azure/virtual-network/virtual-network-service-endpoints-overview
+[azure-virtual-network-s2s]: /azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal
 [kubernetes]: https://kubernetes.io/
 [kubernetes-keda]: https://keda.sh/
 [reference-architecture-hybrid-containers]: hybrid-containers.md

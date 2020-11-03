@@ -3,10 +3,12 @@ title: Tradeoffs
 description: 
 author: david-stanford
 ms.date: 10/16/2019
-ms.topic: article
+ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
-ms.custom: What scalability tradeoffs are you making? 
+ms.custom:
+  - What scalability tradeoffs are you making?
+  - article
 ---
 
 # Tradeoffs

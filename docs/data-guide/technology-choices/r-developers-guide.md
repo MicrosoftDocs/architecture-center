@@ -7,9 +7,11 @@ ms.service: architecture-center
 ms.subservice: cloud-fundamentals
 ms.workload: data-services
 ms.devlang: R
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/02/2020
 ms.author: jepeach
+ms.custom:
+  - article
 ---
 
 <!-- cSpell:ignore devlang jepeach Jupyter DSVM RevoScaleR sparklyr AZTK -->
@@ -35,7 +37,7 @@ This article covers the following Azure services that support the R language:
 |[ML Services on HDInsight](#ml-services-on-hdinsight)            |cluster-based system for running R analyses on large datasets across many nodes   |
 |[Azure Databricks](#azure-databricks)                            |collaborative Spark environment that supports R and other languages               |
 |[Azure Machine Learning](#azure-machine-learning)                | cloud service that you use to train, deploy, automate, and manage machine learning models
-|[Machine Learning Studio (classic)](#azure-machine-learning-studio)  |run custom R scripts in Azure's machine learning experiments                      |
+|[Azure Machine Learning Studio (classic)](#azure-machine-learning-studio)  |run custom R scripts in Azure's machine learning experiments                      |
 |[Azure Batch](#azure-batch)                                      |offers a variety options for economically running R code across many nodes in a cluster|
 |[Azure Notebooks](#azure-notebooks)                              |a no-cost cloud-based version of Jupyter notebooks                  |
 |[Azure SQL Database](#azure-sql-database)                        |run R scripts inside of the SQL Server database engine                            |
@@ -91,11 +93,11 @@ Start training on your local machine and then scale out to the cloud. [Train you
 
 ## <a name="azure-machine-learning-studio"></a>Azure Machine Learning Studio (classic)
 
-[Machine Learning Studio (classic)](https://azure.microsoft.com/services/machine-learning-studio/) is a collaborative, drag-and-drop tool you can use to build, test, and deploy predictive analytics solutions in the cloud.  It enables emerging data scientists to create and deploy machine learning models without the need to write much code.
+[Azure Machine Learning Studio (classic)](https://azure.microsoft.com/services/machine-learning-studio/) is a collaborative, drag-and-drop tool you can use to build, test, and deploy predictive analytics solutions in the cloud.  It enables emerging data scientists to create and deploy machine learning models without the need to write much code.
 
 Azure Machine Learning Studio (classic) supports both R and Python.  
 
-Customers currently using or evaluating Machine Learning Studio (classic) are encouraged to try Azure Machine Learning designer (preview), which provides drag-n-drop ML modules plus scalability, version control, and enterprise security.
+Customers currently using or evaluating Azure Machine Learning Studio (classic) are encouraged to try the designer in Azure Machine Learning, which provides drag-n-drop ML modules plus scalability, version control, and enterprise security.
 
 ## Azure Batch
 

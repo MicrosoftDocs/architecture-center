@@ -3,13 +3,15 @@ title: Using Azure file shares in a hybrid environment
 description: Azure file shares can replace traditional file servers. With identity-based authentication you can control access to Azure file shares by using AD DS users and groups.
 author: doodlemania2
 ms.date: 07/26/2020
-ms.topic: reference-architecture
+ms.topic: conceptual
 ms.service: architecture-center
 ms.category:
   - hybrid
   - storage
 ms.subservice: reference-architecture
-ms.custom: fcp
+ms.custom:
+  - fcp
+  - reference-architecture
 ---
 
 # Using Azure file shares in a hybrid environment
@@ -94,7 +96,7 @@ For more information, refer to [Planning for an Azure File Sync deployment][Plan
   - **Geo-zone-redundant storage (GZRS)**. Data is copied synchronously across three Azure availability zones in the primary region using ZRS. Your data is then copied asynchronously to a single physical location in the secondary region.
 - Premium file shares can be stored in locally redundant storage (LRS) and zone redundant storage (ZRS) only. Standard file shares can be stored in LRS, ZRS, geo-redundant storage (GRS), and geo-zone-redundant storage (GZRS).
 For more information, refer to [Planning for an Azure Files deployment][Planning-for-Azure-Files] and [Azure Storage redundancy][Azure-Storage-redundancy].
-- Azure Files is a cloud service, and as with all cloud services, you must have internet connectivity to access Azure file shares. A redundant internet connection solution is highly recommended to  access disruptions.
+- Azure Files is a cloud service, and as with all cloud services, you must have internet connectivity to access Azure file shares. A redundant internet connection solution is highly recommended to avoid disruptions.
 
 ## Manageability considerations
 
@@ -132,21 +134,21 @@ For more information, refer to [Configure Azure Storage firewalls and virtual ne
 
 [architectural-diagram]: ./images/azure-file-share.png
 [architectural-diagram-visio-source]: https://archcenter.blob.core.windows.net/cdn/azure-file-share.vsdx
-[Create-file-share]: https://docs.microsoft.com/azure/storage/files/storage-how-to-create-file-share
-[Premium-azure-file-share]: https://docs.microsoft.com/azure/storage/files/storage-how-to-create-premium-fileshare
-[P2S-with-Azure-files]: https://docs.microsoft.com/azure/storage/files/storage-files-configure-p2s-vpn-windows
-[S2S-with-Azure-files]: https://docs.microsoft.com/azure/storage/files/storage-files-configure-s2s-vpn
-[Planning-for-Azure-File-Sync]: https://docs.microsoft.com/azure/storage/files/storage-sync-files-planning
-[Azure-Files-scalability-performance]: https://docs.microsoft.com/azure/storage/files/storage-files-scale-targets
-[Planning-for-Azure-Files]: https://docs.microsoft.com/azure/storage/files/storage-files-planning
-[Azure-Storage-redundancy]: https://docs.microsoft.com/azure/storage/common/storage-redundancy
-[Azure-files-How-it-works]: https://docs.microsoft.com/azure/storage/files/storage-files-active-directory-overview#how-it-works
-[Azure-files-Enablement-steps]: https://docs.microsoft.com/azure/storage/files/storage-files-identity-auth-active-directory-enable
-[Azure-files-share-permissions]: https://docs.microsoft.com/azure/storage/files/storage-files-identity-ad-ds-assign-permissions
-[Azure-files-file-level-permissions]: https://docs.microsoft.com/azure/storage/files/storage-files-identity-ad-ds-configure-permissions
-[Azure-Files-snapshots]: https://docs.microsoft.com/azure/storage/files/storage-snapshots-files
-[Azure-Files-softdelete]: https://docs.microsoft.com/azure/storage/files/storage-files-enable-soft-delete
-[Azure-Storage-firewalls]: https://docs.microsoft.com/azure/storage/common/storage-network-security
-[Azure-Files-network-endpoints]: https://docs.microsoft.com/azure/storage/files/storage-files-networking-endpoints
+[Create-file-share]: /azure/storage/files/storage-how-to-create-file-share
+[Premium-azure-file-share]: /azure/storage/files/storage-how-to-create-premium-fileshare
+[P2S-with-Azure-files]: /azure/storage/files/storage-files-configure-p2s-vpn-windows
+[S2S-with-Azure-files]: /azure/storage/files/storage-files-configure-s2s-vpn
+[Planning-for-Azure-File-Sync]: /azure/storage/files/storage-sync-files-planning
+[Azure-Files-scalability-performance]: /azure/storage/files/storage-files-scale-targets
+[Planning-for-Azure-Files]: /azure/storage/files/storage-files-planning
+[Azure-Storage-redundancy]: /azure/storage/common/storage-redundancy
+[Azure-files-How-it-works]: /azure/storage/files/storage-files-active-directory-overview#how-it-works
+[Azure-files-Enablement-steps]: /azure/storage/files/storage-files-identity-ad-ds-enable
+[Azure-files-share-permissions]: /azure/storage/files/storage-files-identity-ad-ds-assign-permissions
+[Azure-files-file-level-permissions]: /azure/storage/files/storage-files-identity-ad-ds-configure-permissions
+[Azure-Files-snapshots]: /azure/storage/files/storage-snapshots-files
+[Azure-Files-softdelete]: /azure/storage/files/storage-files-enable-soft-delete
+[Azure-Storage-firewalls]: /azure/storage/common/storage-network-security
+[Azure-Files-network-endpoints]: /azure/storage/files/storage-files-networking-endpoints
 [Azure-Files-Pricing]: https://azure.microsoft.com/pricing/details/storage/files/
 [Azure-Pricing-calculator]: https://azure.microsoft.com/pricing/calculator/

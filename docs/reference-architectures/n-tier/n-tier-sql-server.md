@@ -2,14 +2,16 @@
 title: Windows N-tier application on Azure
 description: Implement a multi-tier architecture on Azure for availability, security, scalability, and manageability.
 author: doodlemania2
-ms.date: 08/21/2019
-ms.topic: reference-architecture
+ms.date: 09/25/2020
+ms.topic: conceptual
 ms.service: architecture-center
 ms.category:
   - databases
   - web
   - management-and-governance
 ms.subservice: reference-architecture
+ms.custom:
+  - reference-architecture
 ---
 
 # Windows N-tier application on Azure with SQL Server
@@ -162,7 +164,7 @@ az vm list-skus --resource-type virtualMachines --zone false --location <locatio
     --query "[].{Name:name, Zones:locationInfo[].zones[] | join(','@)}" -o table
 ```
 
-If you deploy this architecture to a region that does not support availability zones, put the VMs for each tier inside an *availability set*. VMs within the same availability are deployed across multiple physical servers, compute racks, storage units, and network switches for redundancy. Scale sets automatically use *placement groups*, which act as an implicit availability set.
+If you deploy this architecture to a region that does not support availability zones, put the VMs for each tier inside an *availability set*. VMs within the same availability set are deployed across multiple physical servers, compute racks, storage units, and network switches for redundancy. Scale sets automatically use *placement groups*, which act as an implicit availability set.
 
 When deploying to availability zones, use the Standard SKU of Azure Load Balancer and the v2 SKU of Application Gateway. These SKUs support cross-zone redundancy. For more information, see:
 

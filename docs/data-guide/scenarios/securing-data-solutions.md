@@ -3,9 +3,11 @@ title: Securing data solutions
 description: Learn about data protection, access control, auditing, and Azure services and tools that help you secure data assets.
 author: zoinerTejada
 ms.date: 11/20/2019
-ms.topic: guide
+ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: cloud-fundamentals
+ms.custom:
+  - guide
 ---
 
 # Securing data solutions
@@ -70,7 +72,7 @@ Use [role-based access control](/azure/active-directory/role-based-access-contro
 
 Use [Conditional access in Azure Active Directory](/azure/active-directory/active-directory-conditional-access-azure-portal) to enforce controls on the access to applications in your environment based on specific conditions. For example, your policy statement could take the form of: _When contractors are trying to access our cloud apps from networks that are not trusted, then block access_.
 
-[Azure AD Privileged Identity Management](/azure/active-directory/active-directory-privileged-identity-management-configure) can help you manage, control, and monitor your users and what sorts of tasks they are performing with their admin privileges. This is an important step to limiting who in your organization can carry out privileged operations in Azure AD, Azure, Office 365, or SaaS apps, as well as monitor their activities.
+[Azure AD Privileged Identity Management](/azure/active-directory/active-directory-privileged-identity-management-configure) can help you manage, control, and monitor your users and what sorts of tasks they are performing with their admin privileges. This is an important step to limiting who in your organization can carry out privileged operations in Azure AD, Azure, Microsoft 365, or SaaS apps, as well as monitor their activities.
 
 ### Network
 

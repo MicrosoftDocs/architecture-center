@@ -11,6 +11,7 @@ ms.category:
   - iot
 ms.subservice: solution-idea
 social_image_url: /azure/architecture/solution-ideas/articles/media/supply-chain-track-and-trace.png
+adobe-target: true
 ---
 
 # Supply Chain Track and Trace

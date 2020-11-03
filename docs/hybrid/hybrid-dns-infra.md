@@ -3,13 +3,15 @@ title: Design a hybrid Domain Name System solution with Azure
 description: Hybrid Domain Name System (DNS) solution to resolve names for workloads that are hosted on-premises and in Microsoft Azure
 author: doodlemania2
 ms.date: 07/23/2020
-ms.topic: reference-architecture
+ms.topic: conceptual
 ms.service: architecture-center
 ms.category:
   - hybrid
   - networking
 ms.subservice: reference-architecture
-ms.custom: fcp
+ms.custom:
+  - fcp
+  - reference-architecture
 ---
 
 # Design a hybrid Domain Name System solution with Azure
@@ -115,7 +117,7 @@ For [Linux VMs in Azure][16], use an automated process.
 
 ## Scalability considerations
 
-- Consider using at least two DNS servers per Azure region and on-premises datacenters.
+- Per Azure region or on-premises datacenters, consider using at least two DNS servers each.
 - Notice how that's done in the previous scenario, with DNS servers on-premises and in the hub virtual network.
 
 ## Availability considerations
@@ -149,22 +151,22 @@ For [Linux VMs in Azure][16], use an automated process.
 
 [architectual-diagram]: ./images/hybrid-dns-infra.png
 [architectual-diagram-visio-source]: https://archcenter.blob.core.windows.net/cdn/hybrid-dns-infra.vsdx
-[1]: https://docs.microsoft.com/azure/expressroute/expressroute-introduction
-[2]: https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal
-[3]: https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways#whatis
-[4]: https://docs.microsoft.com/azure/cloud-adoption-framework/ready/enterprise-scale/
-[5]: https://docs.microsoft.com/azure/virtual-wan/virtual-wan-about
-[6]: https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview
-[7]: https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview
-[8]: https://docs.microsoft.com/azure/virtual-machine-scale-sets/overview
-[9]: https://docs.microsoft.com/azure/load-balancer/load-balancer-overview
-[10]: https://docs.microsoft.com/azure/application-gateway/overview
-[11]: https://docs.microsoft.com/azure/private-link/private-link-service-overview
-[12]: https://docs.microsoft.com/azure/architecture/reference-architectures/identity/#integrate-your-on-premises-domains-with-azure-ad
-[13]: https://docs.microsoft.com/azure/dns/dns-zones-records
-[14]: https://docs.microsoft.com/azure/dns/private-dns-overview
-[15]: https://docs.microsoft.com/azure/dns/private-dns-autoregistration
-[16]: https://docs.microsoft.com/azure/virtual-machines/linux/azure-dns
+[1]: /azure/expressroute/expressroute-introduction
+[2]: /azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal
+[3]: /azure/vpn-gateway/vpn-gateway-about-vpngateways#whatis
+[4]: /azure/cloud-adoption-framework/ready/enterprise-scale/
+[5]: /azure/virtual-wan/virtual-wan-about
+[6]: /azure/virtual-network/virtual-networks-overview
+[7]: /azure/virtual-network/virtual-network-peering-overview
+[8]: /azure/virtual-machine-scale-sets/overview
+[9]: /azure/load-balancer/load-balancer-overview
+[10]: /azure/application-gateway/overview
+[11]: /azure/private-link/private-link-service-overview
+[12]: ../reference-architectures/identity/index.md#integrate-your-on-premises-domains-with-azure-ad
+[13]: /azure/dns/dns-zones-records
+[14]: /azure/dns/private-dns-overview
+[15]: /azure/dns/private-dns-autoregistration
+[16]: /azure/virtual-machines/linux/azure-dns
 [17]: https://azure.microsoft.com/pricing/calculator/
 [18]: https://azure.microsoft.com/pricing/details/expressroute/
 [19]: https://azure.microsoft.com/pricing/details/vpn-gateway/

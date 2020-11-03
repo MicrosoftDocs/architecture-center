@@ -3,13 +3,15 @@ title: Connect standalone servers by using Azure Network Adapter
 description: Connect standalone servers on-premises and in other cloud providers networks to Azure networks
 author: doodlemania2
 ms.date: 07/23/2020
-ms.topic: reference-architecture
+ms.topic: conceptual
 ms.service: architecture-center
 ms.category:
   - hybrid
   - networking
 ms.subservice: reference-architecture
-ms.custom: fcp
+ms.custom:
+  - fcp
+  - reference-architecture
 ---
 
 # Connect standalone servers by using Azure Network Adapter
@@ -155,24 +157,24 @@ In some scenarios, the Azure Network Adapter's installation interface might not 
 [architectual-diagram]: ./images/azure-network-adapter.png
 [architectual-diagram-large]: ./images/azure-network-adapter-large.png
 [architectual-diagram-visio-source]: https://archcenter.blob.core.windows.net/cdn/azure-network-adapter.vsdx
-[1]: https://docs.microsoft.com/office365/enterprise/connect-an-on-premises-network-to-a-microsoft-azure-virtual-network
-[2]: https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-highlyavailable#about-azure-vpn-gateway-redundancy
+[1]: /office365/enterprise/connect-an-on-premises-network-to-a-microsoft-azure-virtual-network
+[2]: /azure/vpn-gateway/vpn-gateway-highlyavailable#about-azure-vpn-gateway-redundancy
 [3]: https://portal.azure.com/#create/Microsoft.VirtualNetwork-ARM
-[4]: https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpn-gateway-settings#gwsku
-[5]: https://docs.microsoft.com/windows-server/manage/windows-admin-center/overview
-[6]: https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpn-gateway-settings#gwsku
-[7]: https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal
-[8]: https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-highlyavailable#active-active-azure-vpn-gateway
-[9]: https://docs.microsoft.com/windows-server/manage/windows-admin-center/plan/user-access-options
-[10]: https://docs.microsoft.com/windows/win32/winrm/portal
-[11]: https://docs.microsoft.com/powershell/scripting/learn/remoting/winrmsecurity?view=powershell-7
-[12]: https://docs.microsoft.com/powershell/scripting/learn/remoting/winrmsecurity?view=powershell-7#powershell-remoting-default-settings
-[13]: https://docs.microsoft.com/powershell/scripting/learn/remoting/ps-remoting-second-hop?view=powershell-7#credssp
-[14]: https://docs.microsoft.com/windows-server/manage/windows-admin-center/understand/faq#does-windows-admin-center-use-credssp
-[15]: https://docs.microsoft.com/windows-server/manage/windows-admin-center/deploy/install
-[16]: https://docs.microsoft.com/azure/security-center/security-center-pricing
-[17]: https://docs.microsoft.com/azure/automation/
+[4]: /azure/vpn-gateway/vpn-gateway-about-vpn-gateway-settings#gwsku
+[5]: /windows-server/manage/windows-admin-center/overview
+[6]: /azure/vpn-gateway/vpn-gateway-about-vpn-gateway-settings#gwsku
+[7]: /azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal
+[8]: /azure/vpn-gateway/vpn-gateway-highlyavailable#active-active-azure-vpn-gateway
+[9]: /windows-server/manage/windows-admin-center/plan/user-access-options
+[10]: /windows/win32/winrm/portal
+[11]: /powershell/scripting/learn/remoting/winrmsecurity?view=powershell-7
+[12]: /powershell/scripting/learn/remoting/winrmsecurity?view=powershell-7#powershell-remoting-default-settings
+[13]: /powershell/scripting/learn/remoting/ps-remoting-second-hop?view=powershell-7#credssp
+[14]: /windows-server/manage/windows-admin-center/understand/faq#does-windows-admin-center-use-credssp
+[15]: /windows-server/manage/windows-admin-center/deploy/install
+[16]: /azure/security-center/security-center-pricing
+[17]: /azure/automation/
 [18]: https://azure.microsoft.com/pricing/calculator/
 [19]: https://azure.microsoft.com/pricing/calculator/
-[reference-architecture-windows-vm]: https://docs.microsoft.com/azure/architecture/reference-architectures/n-tier/windows-vm
-[reference-architecture-linux-vm]: https://docs.microsoft.com/azure/architecture/reference-architectures/n-tier/linux-vm
+[reference-architecture-windows-vm]: ../reference-architectures/n-tier/windows-vm.md
+[reference-architecture-linux-vm]: ../reference-architectures/n-tier/linux-vm.md

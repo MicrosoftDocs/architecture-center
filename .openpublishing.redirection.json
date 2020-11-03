@@ -152,6 +152,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "docs/framework/devops/iac.md",
+      "redirect_url": "/azure/architecture/framework/devops/automation-infrastructure",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "docs/microservices/domain-analysis.md",
       "redirect_url": "/azure/architecture/microservices/model/domain-analysis",
       "redirect_document_id": true
@@ -1994,6 +1999,26 @@
       "source_path": "framework/security/identity.md",
       "redirect_url": "/azure/architecture/framework/security/design-identity",
       "redirect_document_id": false       
-     }     
+     },     
+     {
+      "source_path": "docs/solution-ideas/articles/sharepoint-farm-office-365.md",
+      "redirect_url": "/azure/architecture/solution-ideas/articles/sharepoint-farm-microsoft-365",
+      "redirect_document_id": true
+     },
+     {
+      "source_path": "docs/framework/security/applications-services.md",
+      "redirect_url": "/azure/architecture/framework/security/design-apps-services",
+      "redirect_document_id": false
+     },
+     {
+      "source_path": "docs/example-scenario/cobalt/cobalt-extensible-cloud-framework.md",
+      "redirect_url": "/azure/architecture/reference-architectures/containers/aks-start-here",
+      "redirect_document_id": false
+     },
+     {
+      "source_path": "docs/example-scenario/bedrock/bedrock-automated-deployments.md",
+      "redirect_url": "/azure/architecture/reference-architectures/containers/aks-start-here",
+      "redirect_document_id": false
+     }
   ]
 }

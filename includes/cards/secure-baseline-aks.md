@@ -6,7 +6,7 @@
 <article class="card">
     <div class="card-header has-margin-bottom-none" aria-hidden="true">
         <figure class="image diagram has-height-175 has-overflow-hidden level">
-            <a href="/azure/architecture/reference-architectures/containers/aks/secure-baseline-aks"><img src="/azure/architecture/browse/thumbs/secure-baseline-aks.png" class="diagram" alt="Architecture Diagram" data-linktype="relative-path"></a>
+            <a href="/azure/architecture/reference-architectures/containers/aks/secure-baseline-aks"><img src="/azure/architecture/browse/thumbs/secure-baseline-aks.png" class="diagram" alt="Thumbnail of Baseline architecture for an Azure Kubernetes Service (AKS) cluster Architectural Diagram." data-linktype="relative-path"></a>
         </figure>
     </div>
     <div class="card-content">
@@ -15,9 +15,9 @@
         </a>
         <ul class="card-content-metadata">
             <li>8/01/2020</li>
-            <li>31 min read</li>
+            <li>32 min read</li>
         </ul>
-        <p class="card-content-description">Reference architecture for a baseline infrastructure that deploys an Azure Kubernetes Service (AKS) cluster with focus on security.</p>
+        <p class="card-content-description">Reference architecture for a baseline infrastructure that deploys an Azure Kubernetes Service (AKS) cluster.</p>
         <div class="bottom-to-top-fade is-hidden-mobile"></div>
     </div>
 </article>
