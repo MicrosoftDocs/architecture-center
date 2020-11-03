@@ -1150,8 +1150,6 @@ items:
         href: reference-architectures/hybrid-networking/vpn.md
       - name: Hybrid connections
         href: solution-ideas/articles/hybrid-connectivity.md
-      - name: Implement a hub-spoke network topology
-        href: reference-architectures/hybrid-networking/shared-services.md
       - name: Troubleshoot a hybrid VPN connection
         href: reference-architectures/hybrid-networking/troubleshoot-vpn.md
       - name: Connect using Windows Virtual Desktop
