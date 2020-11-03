@@ -340,21 +340,21 @@ As these results show, the producer only used two unique keys. The messages then
 - [Effective strategies for Kafka topic partitioning][Effective strategies for Kafka topic partitioning]
 - [Confluent blog post: How to choose the number of topics/partitions in a Kafka cluster?][How to choose the number of topics/partitions in a Kafka cluster?]
 
-[AMQP 1.0]: https://docs.microsoft.com/azure/service-bus-messaging/service-bus-amqp-protocol-guide
+[AMQP 1.0]: /azure/service-bus-messaging/service-bus-amqp-protocol-guide
 [Apache Kafka]: https://www.confluent.io/what-is-apache-kafka/
-[Apache Kafka developer guide for Azure Event Hubs]: https://docs.microsoft.com/azure/event-hubs/apache-kafka-developer-guide
-[Availability and consistency in Event Hubs]: https://docs.microsoft.com/azure/event-hubs/event-hubs-availability-and-consistency?tabs=latest
-[Azure Event Hubs]: https://docs.microsoft.com/azure/event-hubs/event-hubs-about
-[Azure Event Hubs client library for Java]: https://docs.microsoft.com/java/api/overview/azure/messaging-eventhubs-readme
-[Azure Event Hubs client library for Javascript]: https://docs.microsoft.com/javascript/api/overview/azure/event-hubs-readme
-[Azure Event Hubs client library for Python]: https://docs.microsoft.com/python/api/overview/azure/eventhub-readme
+[Apache Kafka developer guide for Azure Event Hubs]: /azure/event-hubs/apache-kafka-developer-guide
+[Availability and consistency in Event Hubs]: /azure/event-hubs/event-hubs-availability-and-consistency?tabs=latest
+[Azure Event Hubs]: /azure/event-hubs/event-hubs-about
+[Azure Event Hubs client library for Java]: /java/api/overview/azure/messaging-eventhubs-readme
+[Azure Event Hubs client library for Javascript]: /javascript/api/overview/azure/event-hubs-readme
+[Azure Event Hubs client library for Python]: /python/api/overview/azure/eventhub-readme
 [Azure Event Hubs Event Processor client library for .NET]: https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/eventhub/Azure.Messaging.EventHubs.Processor
-[Balance partition load across multiple instances of your application]: https://docs.microsoft.com/azure/event-hubs/event-processor-balance-partition-load
-[Dynamically add partitions to an event hub in Azure Event Hubs]: https://docs.microsoft.com/azure/event-hubs/dynamically-add-partitions
+[Balance partition load across multiple instances of your application]: /azure/event-hubs/event-processor-balance-partition-load
+[Dynamically add partitions to an event hub in Azure Event Hubs]: /azure/event-hubs/dynamically-add-partitions
 [Effective strategies for Kafka topic partitioning]: https://blog.newrelic.com/engineering/effective-strategies-kafka-topic-partitioning/
 [How to choose the number of topics/partitions in a Kafka cluster?]: https://www.confluent.io/blog/how-choose-number-topics-partitions-kafka-cluster/
-[Partitions]: https://docs.microsoft.com/azure/event-hubs/event-hubs-scalability#partitions
-[Quickstart: Data streaming with Event Hubs using the Kafka protocol]: https://docs.microsoft.com/azure/event-hubs/event-hubs-quickstart-kafka-enabled-event-hubs
-[Send events to and receive events from Azure Event Hubs - .NET]: https://docs.microsoft.com/azure/event-hubs/event-hubs-dotnet-standard-getstarted-send
-[Shared Access Signatures]: https://docs.microsoft.com/azure/event-hubs/authorize-access-shared-access-signature
-[Use Azure Event Hubs from Apache Kafka applications]: https://docs.microsoft.com/azure/event-hubs/event-hubs-for-kafka-ecosystem-overview
+[Partitions]: /azure/event-hubs/event-hubs-scalability#partitions
+[Quickstart: Data streaming with Event Hubs using the Kafka protocol]: /azure/event-hubs/event-hubs-quickstart-kafka-enabled-event-hubs
+[Send events to and receive events from Azure Event Hubs - .NET]: /azure/event-hubs/event-hubs-dotnet-standard-getstarted-send
+[Shared Access Signatures]: /azure/event-hubs/authorize-access-shared-access-signature
+[Use Azure Event Hubs from Apache Kafka applications]: /azure/event-hubs/event-hubs-for-kafka-ecosystem-overview

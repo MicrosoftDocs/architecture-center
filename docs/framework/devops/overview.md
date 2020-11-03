@@ -32,6 +32,6 @@ These are the disciplines we group in the operational excellence pillar:
 [monitoring]: ./monitoring.md
 [performance]: ./performance.md
 [deployment]: ./deployment.md
-[iac]: ./iac.md
+[iac]: ./automation-infrastructure.md
 [testing]: ./testing.md
 [app-design]: ./app-design.md
