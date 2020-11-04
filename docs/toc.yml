@@ -1404,8 +1404,6 @@ items:
         href: solution-ideas/articles/unlock-legacy-data.md
       - name: Decompose apps with Service Fabric
         href: example-scenario/infrastructure/service-fabric-microservices.md
-      - name: Migrate mainframe data to Azure
-        href: reference-architectures/migration/modernize-mainframe-data-to-azure.md
   - name: Mixed Reality
     items:
     - name: Architectures
