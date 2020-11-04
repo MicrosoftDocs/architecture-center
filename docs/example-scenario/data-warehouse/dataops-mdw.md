@@ -1,17 +1,18 @@
 ---
-title: DataOps for the modern data warehouse 
-description: How to apply DevOps principles to data pipelines built according to the modern data  (MDW) architectural pattern on Microsoft Azure 
+title: DataOps for the modern data warehouse
+description: How to apply DevOps principles to data pipelines built according to the modern data  (MDW) architectural pattern on Microsoft Azure
 author: doodlemania2
 ms.author: pnp
 ms.date: 07/14/2020
-ms.topic: example-scenario
+ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: example-scenario
-ms.category: 
-    - databases
-ms.custom: 
-    - fcp
-    - cse
+ms.category:
+  - databases
+ms.custom:
+  - fcp
+  - cse
+  - example-scenario
 ---
 
 # DataOps for the modern data warehouse

@@ -5,10 +5,12 @@ description: Deploy Magento e-commerce platform to Azure Kubernetes Service (AKS
 author: doodlemania2
 ms.author: pnp
 ms.date: 10/12/2020
-ms.topic: example-scenario
+ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: example-scenario
-ms.custom: fcp
+ms.custom:
+  - fcp
+  - example-scenario
 ---
 
 # Magento e-commerce in AKS

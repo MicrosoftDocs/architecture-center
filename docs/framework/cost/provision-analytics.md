@@ -1,12 +1,13 @@
 ---
 title: Big data cost estimates
 description: Describes tier, SKU choices for analytics services
-author:  PageWriter-MSFT
+author: PageWriter-MSFT
 ms.date: 08/24/2020
-ms.topic: article
+ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
-ms.custom: 
+ms.custom:
+  - article
 ---
 
 # Big data analytics cost estimates

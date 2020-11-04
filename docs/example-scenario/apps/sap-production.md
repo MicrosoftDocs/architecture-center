@@ -5,7 +5,7 @@ author: DharmeshBhagat
 ms.date: 09/12/2018
 ms.category:
   - databases
-ms.topic: example-scenario
+ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: example-scenario
 ms.custom:
@@ -15,6 +15,7 @@ ms.custom:
   - Linux
   - Oracle
   - Azure
+  - example-scenario
 social_image_url: /azure/architecture/example-scenario/apps/media/architecture-sap-production.png
 ---
 

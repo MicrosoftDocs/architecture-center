@@ -26,7 +26,7 @@ With the Azure AI tools and cloud platform, the next generation of AI-enabled hy
 
 ## Data Flow
 
-1. Data scientists train a model using Azure Machine Learning and an HDInsight cluster. The model is containerized and put in to an Azure Container Registry.
+1. Data scientists train a model using Azure Machine Learning Studio (classic) and an HDInsight cluster. The model is containerized and put in to an Azure Container Registry.
 1. The model is deployed via steps not represented in the diagram to a Kubernetes cluster on Azure Stack Hub.
 1. End users provide data that is scored against the model.
 1. Insights and anomalies from scoring are placed into storage for later upload.
@@ -36,7 +36,7 @@ With the Azure AI tools and cloud platform, the next generation of AI-enabled hy
 ## Components
 
 * [HDInsight](https://azure.microsoft.com/services/hdinsight): Provision cloud Hadoop, Spark, R Server, HBase, and Storm clusters
-* [Machine Learning Studio](https://azure.microsoft.com/services/machine-learning-studio): Easily build, deploy, and manage predictive analytics solutions
+* [Azure Machine Learning Studio (classic)](/azure/machine-learning/studio): Easily build, deploy, and manage predictive analytics solutions
 * [Virtual Machines](https://azure.microsoft.com/services/virtual-machines): Provision Windows and Linux virtual machines in seconds
 * [Azure Kubernetes Service (AKS)](https://azure.microsoft.com/services/kubernetes-service): Simplify the deployment, management, and operations of Kubernetes
 * [Storage](https://azure.microsoft.com/services/storage): Durable, highly available, and massively scalable cloud storage
@@ -45,7 +45,7 @@ With the Azure AI tools and cloud platform, the next generation of AI-enabled hy
 ## Next steps
 
 * [HDInsight documentation](/azure/hdinsight)
-* [Machine Learning Studio documentation](/azure/machine-learning/studio)
+* [Azure Machine Learning Studio (classic) documentation](/azure/machine-learning/studio)
 * [Virtual Machines documentation](/azure/virtual-machines/workloads/sap/get-started?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 * [Azure Kubernetes Service (AKS) documentation](/azure/aks)
 * [Storage documentation](/azure/storage)

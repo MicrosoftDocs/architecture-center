@@ -4,11 +4,12 @@ titleSuffix: Azure Architecture Center
 description: Automation of IP address space additions to peered vNets
 author: randycampbell
 ms.date: 02/01/2020
-ms.topic: article
+ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: reference-architecture
 ms.custom:
-    - fcp
+  - fcp
+  - article
 ---
 
 <!-- cSpell:ignore randycampbell CIDR endregion -->

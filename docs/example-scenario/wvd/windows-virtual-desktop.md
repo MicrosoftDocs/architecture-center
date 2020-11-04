@@ -4,13 +4,14 @@ titleSuffix: Azure Example Scenarios
 description: Explore Windows Virtual Desktop, and learn to build virtual desktop infrastructure solutions at enterprise scale.
 author: doodlemania2
 ms.date: 07/16/2020
-ms.topic: example-scenario
+ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: example-scenario
-ms.category: 
-    - windows-virtual-desktop
+ms.category:
+  - windows-virtual-desktop
 ms.custom:
-- fcp
+  - fcp
+  - example-scenario
 ---
 # Windows Virtual Desktop for the enterprise
 
@@ -28,6 +29,7 @@ Most demand for enterprise virtual desktop solutions comes from:
 ## Architecture
 
 ![Diagram of a Windows Virtual Desktop service architecture.](images/windows-virtual-desktop.png)
+[Download a copy of this Visio.](https://archcenter.blob.core.windows.net/cdn/wvdatscale.vsdx)
 
 This diagram shows a typical architectural setup for Windows Virtual Desktop.
 

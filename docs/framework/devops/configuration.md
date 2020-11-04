@@ -3,10 +3,11 @@ title: Configuration for DevOps
 description: Describes how to best take advantage of the benefits of the cloud to minimize your cost.
 author: david-stanford
 ms.date: 10/21/2019
-ms.topic: article
+ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
-ms.custom: 
+ms.custom:
+  - article
 ---
 
 # Configuration for DevOps

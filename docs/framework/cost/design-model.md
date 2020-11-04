@@ -1,12 +1,13 @@
 ---
 title: Develop a cost model
-description: Do cost modeling to map logical groups of cloud resources to an organization's hierarchy, and then estimate costs for those groups.
-author:  PageWriter-MSFT
+description: Do cost modeling to map logical groups of cloud resources to an organization''s hierarchy, and then estimate costs for those groups.
+author: PageWriter-MSFT
 ms.date: 05/12/2020
-ms.topic: article
+ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
-ms.custom: 
+ms.custom:
+  - article
 ---
 
 # Develop a cost model

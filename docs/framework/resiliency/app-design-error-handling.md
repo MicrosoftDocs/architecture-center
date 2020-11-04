@@ -3,10 +3,12 @@ title: Error handling for resilient applications in Azure
 description: Best practices for handling errors in a resilient way
 author: david-stanford
 ms.date: 10/16/2019
-ms.topic: article
+ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
-ms.custom: How are you managing errors & failures? 
+ms.custom:
+  - How are you managing errors & failures?
+  - article
 ---
 
 # Error handling for resilient applications in Azure

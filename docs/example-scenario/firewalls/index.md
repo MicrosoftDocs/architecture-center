@@ -1,13 +1,15 @@
 ---
 title: Azure Firewall Architecture Guide
-description: Use proven customer engagement practices to design firewalls and proxies in Azure for traditional infrastructure workloads. 
+description: Use proven customer engagement practices to design firewalls and proxies in Azure for traditional infrastructure workloads.
 author: RZomerman
 ms.date: 05/15/2020
-ms.topic: example-scenario
+ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: cloud-fundamentals
 ms.category:
   - networking
+ms.custom:
+  - example-scenario
 ---
 
 # Design Load Balanced Firewall in Azure

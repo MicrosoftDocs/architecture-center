@@ -4,17 +4,17 @@ titleSuffix: Azure Example Scenarios
 description: Develop and deploy serverless microservices across cloud providers with the open-source Serverless Framework and Serverless Multicloud Library.
 author: doodlemania2
 ms.date: 03/30/2020
-ms.topic: example-scenario
+ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: example-scenario
 ms.custom:
-    - fcp
-    - cse
+  - fcp
+  - cse
+  - example-scenario
 ms.category:
-    - developer-tools
-    - hybrid
+  - developer-tools
+  - hybrid
 social_image_url: /azure/architecture/example-scenario/serverless/media/multi-cloud-serverless-architecture.png
-
 ---
 # Serverless Framework multicloud solutions
 

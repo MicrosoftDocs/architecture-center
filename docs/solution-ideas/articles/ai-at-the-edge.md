@@ -36,7 +36,7 @@ With the Azure AI tools and cloud platform, the next generation of AI-enabled hy
 
 ## Components
 
-* [Machine Learning Studio](https://azure.microsoft.com/services/machine-learning-studio): Easily build, deploy, and manage predictive analytics solutions
+* [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning): Build, deploy, and manage predictive analytics solutions
 * [HDInsight](https://azure.microsoft.com/services/hdinsight): Provision cloud Hadoop, Spark, R Server, HBase, and Storm clusters
 * [Container Registry](https://azure.microsoft.com/services/container-registry): Store and manage container images across all types of Azure deployments
 * [Azure Kubernetes Service (AKS)](https://azure.microsoft.com/services/kubernetes-service): Simplify the deployment, management, and operations of Kubernetes
@@ -45,7 +45,7 @@ With the Azure AI tools and cloud platform, the next generation of AI-enabled hy
 
 ## Next steps
 
-* [Machine Learning Studio documentation](/azure/machine-learning/service)
+* [Azure Machine Learning documentation](/azure/machine-learning/service)
 * [HDInsight documentation](/azure/hdinsight)
 * [Container Registry documentation](/azure/container-registry)
 * [Azure Kubernetes Service (AKS) documentation](/azure/aks)

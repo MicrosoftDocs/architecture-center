@@ -8,13 +8,14 @@ ms.author: faisalm
 ms.category:
   - security
   - web
-ms.topic: example-scenario
+ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: example-scenario
 ms.custom:
-    - fasttrack
-    - security
-    - web-apps
+  - fasttrack
+  - security
+  - web-apps
+  - example-scenario
 social_image_url: /azure/architecture/example-scenario/apps/media/ilb-ase-architecture.png
 ---
 

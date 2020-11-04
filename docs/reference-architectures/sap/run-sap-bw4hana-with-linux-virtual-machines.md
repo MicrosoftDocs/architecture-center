@@ -3,9 +3,11 @@ title: Run SAP BW/4HANA with Linux virtual machines on Azure
 description: This example focuses specifically on the SAP BW/4HANA application tier and is suitable for a small-scale production environment of SAP BW/4HANA on Azure where high availability is a priority.
 author: maggsl
 ms.date: 06/10/2020
-ms.topic: reference-architecture
+ms.topic: conceptual
 ms.service: architecture-center
-ms.custom: fcp 
+ms.custom:
+  - fcp
+  - reference-architecture
 ms.category:
   - databases
   - compute
@@ -143,7 +145,7 @@ For the backup data store, we recommend using Azure [cool and archive access tie
 
 ## Networking
 
-Although not required, a [hub-spoke topology](../hybrid-networking/shared-services.md) is commonly deployed to provide logical isolation and security boundaries for an SAP landscape. For other networking details, refer to the [SAP S/4HANA reference architecture](./sap-s4hana.md).
+Although not required, a [hub-spoke topology](../hybrid-networking/hub-spoke.md) is commonly deployed to provide logical isolation and security boundaries for an SAP landscape. For other networking details, refer to the [SAP S/4HANA reference architecture](./sap-s4hana.md).
 
 The hub VNet acts as a central point of connectivity to an on-premises network. The spokes are VNets that [peer](/azure/virtual-network/virtual-network-peering-overview) with the hub, and they can be used to isolate workloads. Traffic flows between the on-premises datacenter and the hub through a gateway connection.
 

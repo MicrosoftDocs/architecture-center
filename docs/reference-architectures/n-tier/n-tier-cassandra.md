@@ -3,14 +3,16 @@ title: N-tier application with Apache Cassandra
 description: Run Linux virtual machines for an N-tier architecture with Apache Cassandra in Microsoft Azure.
 author: doodlemania2
 ms.date: 08/21/2019
-ms.topic: reference-architecture
+ms.topic: conceptual
 ms.service: architecture-center
 ms.category:
   - databases
   - web
   - management-and-governance
 ms.subservice: reference-architecture
-ms.custom: seodec18
+ms.custom:
+  - seodec18
+  - reference-architecture
 ---
 
 # Linux N-tier application in Azure with Apache Cassandra
@@ -277,7 +279,7 @@ For more information, see the Operational Excellence section in [Microsoft Azure
 [cidr]: https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing
 [azure-pricing-calculator]: https://azure.microsoft.com/pricing/calculator
 [datastax]: https://www.datastax.com/products/datastax-enterprise
-[ddos-best-practices]: /azure/security/azure-ddos-best-practices
+[ddos-best-practices]: /azure/security/fundamentals/ddos-best-practices
 [ddos]: /azure/virtual-network/ddos-protection-overview
 [dmz]: ../dmz/secure-vnet-dmz.md
 [github-folder]: https://github.com/mspnp/reference-architectures/tree/master/virtual-machines/n-tier-linux

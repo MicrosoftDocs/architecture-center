@@ -3,10 +3,12 @@ title: Designing resilient Azure applications
 description: 
 author: david-stanford
 ms.date: 10/16/2019
-ms.topic: article
+ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
-ms.custom: How have you ensured that your application is resilient to failures? 
+ms.custom:
+  - How have you ensured that your application is resilient to failures?
+  - article
 ---
 
 # Designing resilient Azure applications

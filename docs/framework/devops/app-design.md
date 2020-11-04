@@ -3,10 +3,12 @@ title: Application design for DevOps
 description: Describes considerations that you should take into account while doing application design to optimize for DevOps.
 author: UmarMohamedUsman
 ms.date: 08/18/2020
-ms.topic: article
+ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
-ms.custom: fasttrack-edit
+ms.custom:
+  - fasttrack-edit
+  - article
 ---
 
 # Application design for DevOps

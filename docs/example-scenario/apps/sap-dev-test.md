@@ -6,12 +6,13 @@ author: AndrewDibbins
 ms.date: 07/11/2018
 ms.category:
   - databases
-ms.topic: example-scenario
+ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: example-scenario
 ms.custom:
   - fasttrack
   - SAP
+  - example-scenario
 social_image_url: /azure/architecture/example-scenario/apps/media/architecture-sap-dev-test.png
 ---
 

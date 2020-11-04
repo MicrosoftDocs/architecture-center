@@ -4,11 +4,13 @@ titleSuffix: Azure reference architectures
 description: This article describes the recommended way to upload audio files and process the speech content to text.
 author: dsk-2015
 ms.date: 03/25/2020
-ms.topic: reference-architecture
+ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: reference-architecture
 ms.category:
   - ai-machine-learning
+ms.custom:
+  - reference-architecture
 ---
 
 # Speech transcription with Azure Cognitive Services

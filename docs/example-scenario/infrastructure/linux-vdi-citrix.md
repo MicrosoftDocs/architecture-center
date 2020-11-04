@@ -6,13 +6,14 @@ author: miguelangelopereira
 ms.date: 09/12/2018
 ms.category:
   - compute
-ms.topic: example-scenario
+ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: example-scenario
 ms.custom:
   - fasttrack
   - Linux
   - hpc
+  - example-scenario
 social_image_url: /azure/architecture/example-scenario/infrastructure/media/azure-citrix-sample-diagram.png
 ---
 

@@ -3,13 +3,16 @@ title: Serverless event processing
 description: Reference architecture for serverless event ingestion and processing using Azure Functions.
 author: doodlemania2
 ms.date: 10/16/2018
-ms.topic: reference-architecture
+ms.topic: conceptual
 ms.service: architecture-center
 ms.category:
   - developer-tools
   - analytics
 ms.subservice: reference-architecture
-ms.custom: seodec18, serverless
+ms.custom:
+  - seodec18
+  - serverless
+  - reference-architecture
 ---
 
 # Serverless event processing using Azure Functions

@@ -68,7 +68,11 @@ items:
     - name: Choose a load balancing service
       href: guide/technology-choices/load-balancing-overview.md
     - name: Choose a messaging service
-      href: guide/technology-choices/messaging.md
+      items:
+      - name: Asynchronous messaging options in Azure
+        href: guide/technology-choices/messaging.md
+      - name: Choose an Apache Kafka host
+        href: solution-ideas/articles/kafka-on-azure.md
   - name: Best practices for cloud applications
     items:
     - name: API design
@@ -685,7 +689,7 @@ items:
         href: solution-ideas/articles/predicting-length-of-stay-in-hospitals.md
       - name: Predictive aircraft engine monitoring
         href: solution-ideas/articles/aircraft-engine-monitoring-for-predictive-maintenance-in-aerospace.md
-      - name: Real Time analytics on on big data
+      - name: Real Time analytics on big data
         href: solution-ideas/articles/real-time-analytics.md
       - name: Stream processing with Azure Databricks
         href: reference-architectures/data/stream-processing-databricks.md
@@ -1146,8 +1150,6 @@ items:
         href: reference-architectures/hybrid-networking/vpn.md
       - name: Hybrid connections
         href: solution-ideas/articles/hybrid-connectivity.md
-      - name: Implement a hub-spoke network topology
-        href: reference-architectures/hybrid-networking/shared-services.md
       - name: Troubleshoot a hybrid VPN connection
         href: reference-architectures/hybrid-networking/troubleshoot-vpn.md
       - name: Connect using Windows Virtual Desktop
@@ -1440,6 +1442,8 @@ items:
         href: solution-ideas/articles/unlock-legacy-data.md
       - name: Decompose apps with Service Fabric
         href: example-scenario/infrastructure/service-fabric-microservices.md
+      - name: SQL 2008 R2 failover cluster in Azure
+        href: example-scenario/sql-failover/sql-failover-2008r2.md  
   - name: Mixed Reality
     items:
     - name: Architectures

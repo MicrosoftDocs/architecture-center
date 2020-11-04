@@ -3,10 +3,12 @@ title: Failure mode analysis
 description: Guidelines for performing a failure mode analysis for cloud solutions based on Azure.
 author: doodlemania2
 ms.date: 05/07/2018
-ms.topic: article
+ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
-ms.custom: resiliency
+ms.custom:
+  - resiliency
+  - article
 ---
 
 # Failure mode analysis for Azure applications

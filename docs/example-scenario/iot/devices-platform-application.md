@@ -4,12 +4,14 @@ titleSuffix: Azure Example Scenarios
 description: Understand the topological relationship between IoT devices, platform, and applications. Learn about Iot gateways, communications protocols, and provisioning.
 author: wamachine
 ms.date: 08/10/2020
-ms.topic: example-scenario
+ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: example-scenario
-ms.custom: fcp
-ms.category: 
-    - iot
+ms.custom:
+  - fcp
+  - example-scenario
+ms.category:
+  - iot
 ---
 
 # IoT solution architecture
