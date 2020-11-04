@@ -2,7 +2,7 @@
 title: Azure Icons
 titleSuffix: Azure Architecture Center
 author: doodlemania2
-ms.date: 07/13/2020
+ms.date: 11/04/2020
 description: Icons for use in building architecture diagrams for Azure
 ms.service: architecture-center
 ---
@@ -13,8 +13,8 @@ Helping our customers design and architect new solutions is core to the Azure Ar
 ### Do’s
 
 * Use the icon to illustrate how products can work together
-* In diagrams, we recommend to include the product name somewhere close to the icon 
-* Use the icons as they would appear within Azure 
+* In diagrams, we recommend to include the product name somewhere close to the icon
+* Use the icons as they would appear within Azure
 
 ### Don’ts
 
@@ -27,6 +27,10 @@ Helping our customers design and architect new solutions is core to the Azure Ar
 ![Example architecture diagram showing multiple services connected together with numbered steps.](../solution-ideas/media/advanced-analytics-on-big-data.png)
 
 [Browse all Azure architectures](../browse/index.md) to view other examples.
+
+## Icon updates
+
+As of November 2020, the folder structure of our collection of Azure architecture icons has changed. The FAQs and Terms of Use PDF files appear in the first level when you download the SVG icons below. The files in the icons folder are the same except there is no longer a CXP folder. If you encounter any issues, let us know.
 
 ## Terms
 
