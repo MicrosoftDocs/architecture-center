@@ -104,8 +104,6 @@ Azure DevOps is a collection of services for building, collaborating on, testing
 
 - [Documentation: Azure Repos](https://docs.microsoft.com/azure/devops/repos/?view=azure-devops)
 
-## Branching strategies
-
 #### Next steps
 
 > [!div class="nextstepaction"]
