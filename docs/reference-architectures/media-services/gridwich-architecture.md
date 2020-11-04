@@ -13,25 +13,25 @@ ms.custom:
 
 # Gridwich media processing system
 
-A mass media and entertainment conglomerate replaced their on-premises video streaming service with a cloud-based solution for video asset ingestion, processing, and publication. The company's main goals were to take advantage of Azure cloud capacity, cost, and flexibility to:
+A well-known mass media and entertainment conglomerate replaced their on-premises video streaming service with a cloud-based solution for video asset ingestion, processing, and publication. The company's main goals were to take advantage of Azure cloud capacity, cost, and flexibility to:
 
 - Ingest raw video files, process and publish them, and fulfill media requests.
 - Improve both encoding and new intake and distribution capabilities at scale, and with a cleanly architected approach.
-- Implement CI/CD for the media asset management (MAM) pipeline.
+- Implement continuous integration and continuous delivery (CI/CD) for the media asset management (MAM) pipeline.
 
-Gridwich is a stateless request processing and work activity solution driven by an external [saga workflow orchestration system](saga-orchestration.md). The Gridwich event-processing framework and pipelines ingest, process, store, and deliver media assets with the help of two new methods, the *Event Grid sandwich* and the *Terraform sandwich*.
+To meet these requirements, the Microsoft engineering team developed Gridwich, a stateless request processing and work activity solution driven by an external [saga workflow orchestration system](saga-orchestration.md). The Gridwich event-processing framework and pipelines ingest, process, store, and deliver media assets with the help of two new methods, the *Event Grid sandwich* and the *Terraform sandwich*.
 
-The Microsoft engineering team developed Gridwich to align with principles and best practices for:
+The Microsoft engineering team developed the Gridwich solution to align with principles and industry standards for:
 
 - [Clean monolith architecture](gridwich-clean-monolith.md)
 - [Project structure and naming](gridwich-project-names.md)
-- [Continuous integration and delivery (CI/CD)](gridwich-cicd.md)
+- [CI/CD](gridwich-cicd.md)
 - [Content protection and digital rights management (DRM)](gridwich-content-protection-drm.md)
 - [Azure Media Services setup and scaling](media-services-setup-scale.md)
 - [Azure Storage usage](gridwich-storage-service.md)
 - [Logging](gridwich-logging.md)
 
-The Gridwich solution demonstrates best practices for processing and delivering media assets on Azure. Although the Gridwich system is media-specific, the message processing and eventing framework can apply to any stateless event processing workflow.
+The Gridwich system demonstrates best practices for processing and delivering media assets on Azure. Although Gridwich is media-specific, its message processing and eventing framework can apply to any stateless event processing workflow.
 
 ## Gridwich sandwiches
 
@@ -55,8 +55,6 @@ Gridwich architecture features two *sandwiches* that address the requirements of
 The external system might generate thousands of requests per day, per hour, or per second. Each [request event](https://github.com/mspnp/gridwich/src/Gridwich.Core/src/DTO/Requests/RequestBaseDTO.cs) to Gridwich must include a JSON object property named `operationContext`.
 
 If a request contains an operation context, like `{"id"="Op1001"}`, each Gridwich [response](https://github.com/mspnp/gridwich/src/Gridwich.Core/src/DTO/Responses/ResponseBaseDTO.cs) must include a corresponding opaque *operation context*, whether the request is short- or long-running. This operation context persists through the lifetime of even very long-running requests.
-
-![Diagram showing the operation context in a Gridwich request and response flow.](media/request-response.png)
 
 The requirement on the response is for a "corresponding" rather than the "same" JSON object. For reasons that include Newtonsoft JSON parsing eccentricities and storage operation muting, Gridwich takes advantage of the fact that the external system processes the JSON object Gridwich returns in a top-down fashion.
 
