@@ -1,6 +1,6 @@
 ---
 title: Use Azure to modernize mainframe + midrange data
-author: JKirsch1
+author: doodlemania2
 ms.date: 11/04/2020
 description: Learn how to modernize IBM mainframe and midrange data. See how to use a data-first approach to migrate this data to Azure.
 ms.custom: fcp
