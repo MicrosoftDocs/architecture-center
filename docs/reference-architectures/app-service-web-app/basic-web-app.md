@@ -4,12 +4,14 @@ titleSuffix: Azure Reference Architectures
 description: Learn about proven practices for a web application that uses Azure App Service and Azure SQL Database by using this reference architecture.
 author: doodlemania2
 ms.date: 12/12/2017
-ms.topic: reference-architecture
+ms.topic: conceptual
 ms.service: architecture-center
 ms.category:
   - web
 ms.subservice: reference-architecture
-ms.custom: seodec18
+ms.custom:
+  - seodec18
+  - reference-architecture
 ---
 
 <!-- cSpell:ignore BACPAC DTUs -->

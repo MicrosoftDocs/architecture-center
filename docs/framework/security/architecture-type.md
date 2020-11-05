@@ -3,9 +3,11 @@ title: What types of attack should the architecture resist in Azure | Microsoft 
 description: An architecture built on good security practices should be resilient to attacks.
 author: PageWriter-MSFT
 ms.date: 07/15/2019
-ms.topic: article
+ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
+ms.custom:
+  - article
 ---
 
 <!-- markdownlint-disable MD026 -->

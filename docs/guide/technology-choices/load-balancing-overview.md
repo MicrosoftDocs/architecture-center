@@ -4,12 +4,14 @@ titleSuffix: Azure Application Architecture Guide
 description: An overview of Azure load-balancing options.
 author: doodlemania2
 ms.date: 04/2/2019
-ms.topic: guide
+ms.topic: conceptual
 ms.service: architecture-center
 ms.category:
   - web
   - compute
 ms.subservice: reference-architecture
+ms.custom:
+  - guide
 ---
 
 # Overview of load-balancing options in Azure

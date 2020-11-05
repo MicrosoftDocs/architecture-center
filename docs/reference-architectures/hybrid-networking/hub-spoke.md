@@ -4,14 +4,18 @@ titleSuffix: Azure Reference Architectures
 description: Learn how to implement a hub-spoke topology in Azure, where the hub is a virtual network and the spokes are virtual networks that peer with the hub.
 author: doodlemania2
 ms.date: 09/30/2020
-ms.topic: reference-architecture
+ms.topic: conceptual
 ms.service: architecture-center
 ms.category:
   - networking
   - management-and-governance
   - hybrid
 ms.subservice: reference-architecture
-ms.custom: seodec18, networking, fcp
+ms.custom:
+  - seodec18
+  - networking
+  - fcp
+  - reference-architecture
 ---
 
 # Hub-spoke network topology in Azure
@@ -168,10 +172,6 @@ az deployment group create \
     --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-hub-and-spoke-sandbox/azuredeploy.json \
     --parameters winVmUser=$ADMIN_USER winVmPassword=$ADMIN_PASSWORD winVmDnsPrefix=$VM_DNS_PREFIX
 ```
-
-## Next steps
-
-For a version of this architecture that deploys shared identity and security services, see [Hub-spoke network topology with shared services in Azure](./shared-services.md).
 
 <!-- links -->
 

@@ -3,13 +3,16 @@ title: Deploy highly available NVAs
 description: Learn how to deploy network virtual appliances for high availability in Azure. This article includes example architectures for ingress, egress, and both.
 author: telmosampaio
 ms.date: 12/08/2018
-ms.topic: reference-architecture
+ms.topic: conceptual
 ms.service: architecture-center
 ms.category:
   - networking
   - management-and-governance
 ms.subservice: reference-architecture
-ms.custom: seodec18, networking
+ms.custom:
+  - seodec18
+  - networking
+  - reference-architecture
 ---
 
 # Deploy highly available network virtual appliances

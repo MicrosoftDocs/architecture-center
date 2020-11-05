@@ -3,13 +3,15 @@ title: Windows N-tier application on Azure
 description: Implement a multi-tier architecture on Azure for availability, security, scalability, and manageability.
 author: doodlemania2
 ms.date: 09/25/2020
-ms.topic: reference-architecture
+ms.topic: conceptual
 ms.service: architecture-center
 ms.category:
   - databases
   - web
   - management-and-governance
 ms.subservice: reference-architecture
+ms.custom:
+  - reference-architecture
 ---
 
 # Windows N-tier application on Azure with SQL Server
@@ -303,7 +305,7 @@ If you specify a region that supports availability zones, the VMs are deployed i
 [bastion host]: https://en.wikipedia.org/wiki/Bastion_host
 [cidr]: https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing
 [azure-pricing-calculator]: https://azure.microsoft.com/pricing/calculator
-[ddos-best-practices]: /azure/security/azure-ddos-best-practices
+[ddos-best-practices]: /azure/security/fundamentals/ddos-best-practices
 [ddos]: /azure/virtual-network/ddos-protection-overview
 [dmz]: ../dmz/secure-vnet-dmz.md
 [github-folder]: https://github.com/mspnp/reference-architectures/tree/master/virtual-machines/n-tier-windows

@@ -3,12 +3,14 @@ title: Building a CI/CD pipeline for microservices on Kubernetes
 description: Describes an example CI/CD pipeline for deploying microservices to Azure Kubernetes Service (AKS).
 author: doodlemania2
 ms.date: 04/11/2019
-ms.topic: guide
+ms.topic: conceptual
 ms.service: architecture-center
 ms.category:
   - containers
 ms.subservice: reference-architecture
-ms.custom: microservices
+ms.custom:
+  - microservices
+  - guide
 ---
 
 <!-- markdownlint-disable MD040 -->
@@ -38,7 +40,7 @@ For purposes of this example, here are some assumptions about the development te
 - The team's branching strategy is based on [trunk-based development](https://trunkbaseddevelopment.com/).
 - The team uses [release branches](/azure/devops/repos/git/git-branching-guidance?view=azure-devops#manage-releases&preserve-view=true) to manage releases. Separate releases are created for each microservice.
 - The CI/CD process uses [Azure Pipelines](/azure/devops/pipelines/?view=azure-devops&preserve-view=true) to build, test, and deploy the microservices to AKS.
-- The container images for each microservice are stored in [Azure Container Registry](/azure/container-registry/&preserve-view=true).
+- The container images for each microservice are stored in [Azure Container Registry](/azure/container-registry/).
 - The team uses Helm charts to package each microservice.
 
 These assumptions drive many of the specific details of the CI/CD pipeline. However, the basic approach described here be adapted for other processes, tools, and services, such as Jenkins or Docker Hub.

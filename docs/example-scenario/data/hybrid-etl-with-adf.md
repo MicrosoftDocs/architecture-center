@@ -6,13 +6,14 @@ ms.date: 11/20/2019
 ms.category:
   - databases
   - hybrid
-ms.topic: example-scenario
+ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: example-scenario
 ms.custom:
   - tsp-team
   - sql-server
   - data
+  - example-scenario
 social_image_url: /azure/architecture/example-scenario/data/media/architecture-diagram-hybrid-etl-with-adf.png
 ---
 

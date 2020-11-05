@@ -4,10 +4,12 @@ titleSuffix: Performance antipatterns for cloud apps
 description: In a cloud application that handles many concurrent requests, repeatedly fetching the same data can reduce performance and scalability.
 author: dragon119
 ms.date: 06/05/2017
-ms.topic: article
+ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: cloud-fundamentals
-ms.custom: seodec18
+ms.custom:
+  - seodec18
+  - article
 ---
 
 <!-- cSpell:ignore linq -->

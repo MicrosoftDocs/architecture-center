@@ -3,14 +3,16 @@ title: Azure Automation Update Management
 description: Manage operating system updates with Update Management in Azure Automation
 author: doodlemania2
 ms.date: 07/16/2020
-ms.topic: reference-architecture
+ms.topic: conceptual
 ms.service: architecture-center
 ms.category:
   - hybrid
   - management-and-governance
   - networking
 ms.subservice: reference-architecture
-ms.custom: fcp
+ms.custom:
+  - fcp
+  - reference-architecture
 ---
 
 # Azure Automation Update Management

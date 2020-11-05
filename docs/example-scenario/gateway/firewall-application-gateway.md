@@ -4,10 +4,12 @@ titleSuffix: Azure Example Scenarios
 description: Learn about options and best practices for using Azure Firewall and Azure Application Gateway security in virtual networks.
 author: erjosito
 ms.date: 06/26/2020
-ms.topic: example-scenario
+ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: example-scenario
-ms.custom: fcp
+ms.custom:
+  - fcp
+  - example-scenario
 ms.category:
   - networking
 ---

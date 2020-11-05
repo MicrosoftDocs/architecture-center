@@ -3,10 +3,12 @@ title: Compare machine learning products from Microsoft
 description: Compare options for building, deploying, and managing your machine learning models. Decide which Microsoft products to choose for your solution.
 author: doodlemania2
 ms.date: 09/01/2020
-ms.topic: guide
+ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: cloud-fundamentals
-ms.custom: contperfq1
+ms.custom:
+  - contperfq1
+  - guide
 ---
 
 <!-- markdownlint-disable MD026 -->

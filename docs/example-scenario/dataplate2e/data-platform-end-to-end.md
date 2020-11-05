@@ -7,12 +7,13 @@ ms.date: 01/31/2020
 ms.category:
   - databases
   - analytics
-ms.topic: example-scenario
+ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: example-scenario
 ms.custom:
   - fcp
   - data-analytics
+  - example-scenario
 social_image_url: /azure/architecture/example-scenario/dataplate2e/media/azure-data-platform-end-to-end.jpg
 ---
 

@@ -1,18 +1,20 @@
 ---
 title: MLOps for Python models using Azure Machine Learning
 titleSuffix: Azure Reference Architectures
-description:  Implement continuous integration (CI), continuous delivery (CD), and retraining for Azure Machine Learning.
+description: Implement continuous integration (CI), continuous delivery (CD), and retraining for Azure Machine Learning.
 author: praneet22
 ms.author: pnp
 ms.date: 05/09/2019
-ms.topic: reference-architecture
+ms.topic: conceptual
 ms.service: architecture-center
 ms.category:
   - ai-machine-learning
   - devops
   - featured
 ms.subservice: reference-architecture
-ms.custom: azcat-ai
+ms.custom:
+  - azcat-ai
+  - reference-architecture
 ---
 
 # Machine learning operationalization (MLOps) for Python models using Azure Machine Learning

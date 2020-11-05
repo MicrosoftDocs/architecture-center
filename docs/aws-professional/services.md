@@ -266,7 +266,7 @@ In addition to front-end testing, the [Azure DevTest Labs](https://azure.microso
 | [Certificate Manager](https://aws.amazon.com/certificate-manager/) | [App Service Certificates available on the Portal](https://azure.microsoft.com/blog/internals-of-app-service-certificate/) | Service that allows customers to create, manage, and consume certificates seamlessly in the cloud. |
 | [GuardDuty](https://aws.amazon.com/guardduty/) | [Advanced Threat Protection](https://azure.microsoft.com/features/azure-advanced-threat-protection/) | Detect and investigate advanced attacks on-premises and in the cloud. |
 | [Artifact](https://aws.amazon.com/artifact/) | [Service Trust Portal](https://servicetrust.microsoft.com/) | Provides access to audit reports, compliance guides, and trust documents from across cloud services. |
-| [Shield](https://aws.amazon.com/shield/) | [DDos Protection Service](/azure/security/azure-ddos-best-practices) | Provides cloud services with protection from distributed denial of services (DDoS) attacks. |
+| [Shield](https://aws.amazon.com/shield/) | [DDos Protection Service](/azure/security/fundamentals/ddos-best-practices) | Provides cloud services with protection from distributed denial of services (DDoS) attacks. |
 
 #### Security architectures
 

@@ -7,12 +7,13 @@ ms.category:
   - iot
   - analytics
   - management-and-governance
-ms.topic: example-scenario
+ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: example-scenario
 ms.custom:
   - IoT
   - data-analytics
+  - example-scenario
 social_image_url: /azure/architecture/example-scenario/data/media/architecture-big-data-with-iot.png
 ---
 

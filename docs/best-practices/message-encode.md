@@ -3,9 +3,11 @@ title: Message encoding considerations
 description: How to choose an encoding format for asynchronous messaging.
 author: PageWriter-MSFT
 ms.date: 03/16/2020
-ms.topic: guide
+ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: cloud-fundamentals
+ms.custom:
+  - guide
 ---
 
 <!-- cSpell:ignore BSON CBOR -->

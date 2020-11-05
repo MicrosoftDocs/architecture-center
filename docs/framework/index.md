@@ -4,10 +4,12 @@ titleSuffix: Microsoft Azure Well-Architected Framework introduction
 description: Describes five pillars of software quality, scalability, devops, resiliency, cost, and security.
 author: doodlemania2
 ms.date: 11/20/2019
-ms.topic: guide
+ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
-ms.custom: seojan19
+ms.custom:
+  - seojan19
+  - guide
 ---
 
 # Microsoft Azure Well-Architected Framework

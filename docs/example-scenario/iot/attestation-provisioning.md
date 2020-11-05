@@ -4,12 +4,14 @@ titleSuffix: Azure Example Scenarios
 description: Learn about how devices confirm their identity with, authenticate with, and can be provisioned within Azure IoT Hubs.
 author: wamachine
 ms.date: 08/21/2020
-ms.topic: example-scenario
+ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: example-scenario
-ms.category: 
-    - iot
-ms.custom: fcp
+ms.category:
+  - iot
+ms.custom:
+  - fcp
+  - example-scenario
 ---
 
 # Attestation, authentication, and provisioning

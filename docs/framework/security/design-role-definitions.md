@@ -3,9 +3,11 @@ title: Team roles and responsibilities
 description: Define clear lines of responsibility and separation of duties.
 author: PageWriter-MSFT
 ms.date: 07/09/2019
-ms.topic: article
+ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
+ms.custom:
+  - article
 ---
 
 # Team roles and responsibilities 

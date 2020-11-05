@@ -4,11 +4,12 @@ titleSuffix: Azure Example Scenarios
 description: Learn about and implement Azure Functions security essentials, secure hosting setup, and application security guidance.
 author: rogeriohc
 ms.date: 06/22/2020
-ms.topic: guide
+ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: reference-architecture
 ms.custom:
-- fcp
+  - fcp
+  - guide
 ---
 # Serverless Functions security
 

@@ -3,10 +3,12 @@ title: Development considerations when enabling DevOps
 description: Describes considerations to make when enabling DevOps for your workload.
 author: UmarMohamedUsman
 ms.date: 10/22/2019
-ms.topic: article
+ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
-ms.custom: fasttrack-edit
+ms.custom:
+  - fasttrack-edit
+  - article
 ---
 
 # Development considerations when enabling DevOps

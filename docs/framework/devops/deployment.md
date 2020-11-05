@@ -3,10 +3,11 @@ title: Deployment considerations for DevOps
 description: Describes deployment considerations to make to enable DevOps in your organization.
 author: david-stanford
 ms.date: 10/21/2019
-ms.topic: article
+ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
-ms.custom: 
+ms.custom:
+  - article
 ---
 
 # Deployment considerations for DevOps

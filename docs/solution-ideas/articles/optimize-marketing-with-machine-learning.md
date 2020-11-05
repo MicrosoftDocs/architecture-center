@@ -33,7 +33,7 @@ In this solution, SQL Server R Services brings the compute to the data by runnin
 ## Components
 
 * [SQL Server R Services](/sql/machine-learning/r/sql-server-r-services?view=sql-server-2016): SQL Server stores the campaign and lead data. R-based analytics provide training and predicted models and predicted results for consumption using R.
-* [Machine Learning Studio](https://azure.microsoft.com/services/machine-learning-studio): Machine Learning helps you easily design, test, operationalize, and manage predictive analytics solutions in the cloud.
+* [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning): Machine Learning helps you design, test, operationalize, and manage predictive analytics solutions in the cloud.
 * [Power BI](https://powerbi.microsoft.com) provides an interactive dashboard with visualization that uses data stored in SQL Server to drive decisions on the predictions.
 
 ## Next steps
