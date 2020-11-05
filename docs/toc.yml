@@ -1150,8 +1150,6 @@ items:
         href: reference-architectures/hybrid-networking/vpn.md
       - name: Hybrid connections
         href: solution-ideas/articles/hybrid-connectivity.md
-      - name: Implement a hub-spoke network topology
-        href: reference-architectures/hybrid-networking/shared-services.md
       - name: Troubleshoot a hybrid VPN connection
         href: reference-architectures/hybrid-networking/troubleshoot-vpn.md
       - name: Connect using Windows Virtual Desktop
@@ -1404,6 +1402,10 @@ items:
         href: solution-ideas/articles/unlock-legacy-data.md
       - name: Decompose apps with Service Fabric
         href: example-scenario/infrastructure/service-fabric-microservices.md
+      - name: SQL 2008 R2 failover cluster in Azure
+        href: example-scenario/sql-failover/sql-failover-2008r2.md
+      - name: Modernize mainframe data with Azure
+        href: reference-architectures/migration/modernize-mainframe-data-to-azure.md
   - name: Mixed Reality
     items:
     - name: Architectures
