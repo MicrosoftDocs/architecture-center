@@ -37,10 +37,30 @@ Many solutions provide continuous integration pipeline capabilities. This articl
 
 ### Source Controll Integration
 
+The integration of your continuous integration pipeline with your source control system is key to enabling fast, self-service, and friction-free code contributions. Source control integration enables these things:
+
+- As pull requests are created, the CI pipeline is run, including all tests, security assessments, and other checks.
+- CI test results are provided to the pull request initiator directly in the pull request, allowing for almost real-time feedback on quality.
+- Another popular practice is building small reports that can be presented in source control to make visible the current builds states.
+
+Let's take a look at these items across both Azure DevOps Pipeline and GitHub Actions.
+
 #### [Azure Devops](#tab/ado)
-#### Azure DevOps Pipelines
+
+#### CI Pipeline Execution
+
+#### Test Integration
+
+#### CI Result Badges
+
 #### [GitHub Actions](#tab/gh)
-### GitHub Actions
+
+#### CI Pipeline Execution
+
+#### Test Integration
+
+#### CI Result Badges
+
 ---
 
 ### Integrated Testing
