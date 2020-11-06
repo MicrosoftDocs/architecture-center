@@ -3,7 +3,7 @@ title: HPC Media Rendering
 titleSuffix: Azure Solution Ideas
 author: doodlemania2
 ms.date: 11/04/2020
-description: Optimize the media rendering process with a step-by-step HPC solution architecture from Azure that combines Azure CycleCloud and Avere vFXT.
+description: Optimize the media rendering process with a step-by-step HPC solution architecture from Azure that combines Azure CycleCloud and HPC Cache.
 ms.custom: acom-architecture, hpc architecture, hpc solution, cluster orchestration, media render, interactive-diagram, 'https://azure.microsoft.com/solutions/architecture/azure-batch-rendering/'
 ms.service: architecture-center
 ms.category:
