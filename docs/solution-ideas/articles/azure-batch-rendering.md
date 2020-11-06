@@ -18,7 +18,7 @@ social_image_url: /azure/architecture/solution-ideas/articles/media/azure-batch-
 
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-Studio rendering architecture This solution allows studios to leverage on-premises capacity to its fullest with the Azure FXT Edge Filer for NAS acceleration. When demand grows beyond on-premises capacity, burst render provides access to tens of thousands of cores using Azure Virtual Machine Scale Sets. An Express Route connection and HPC Cache minimize latency while studios securely manage storage in a single place without replication.
+This solution allows studios to leverage on-premises capacity to its fullest with the Azure FXT Edge Filer for NAS acceleration. When demand grows beyond on-premises capacity, burst render provides access to tens of thousands of cores using Azure Virtual Machine Scale Sets. An Express Route connection and HPC Cache minimize latency while studios securely manage storage in a single place without replication.
 
 ## Architecture
 
