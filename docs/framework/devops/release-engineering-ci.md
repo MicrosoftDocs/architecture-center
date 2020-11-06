@@ -49,7 +49,26 @@ Let's take a look at these items across both Azure DevOps Pipeline and GitHub Ac
 
 #### CI Pipeline Execution
 
+![](../_images/devops/ado-github-status.png)
+
 #### Test Integration
+
+```yaml
+- script: |
+    pip3 install pytest
+    pytest azure-vote/azure-vote/tests/ --junitxml=junit/test-results.xml
+    continueOnError: true
+
+- task: PublishTestResults@2
+    displayName: 'Publish Test Results'
+    inputs:
+    testResultsFormat: 'JUnit'
+    testResultsFiles: '**/test-results.xml'
+    failTaskOnFailedTests: true
+    testRunTitle: 'Python $(python.version)'
+```
+
+![](../_images/devops/ado-tests.png)
 
 #### CI Result Badges
 
