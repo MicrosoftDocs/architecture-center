@@ -13,13 +13,13 @@ ms.custom:
 
 # Migrate Unisys mainframe systems to Azure
 
-Unisys ClearPath Dorado (Legacy Sperry 1100/2200) and Libra (Legacy Burroughs A Series/MCP) computer systems are fully featured mainframe operating environments that can scale up vertically to handle mission critical workloads. Emulating, converting, or modernizing these systems into Azure can provide similar or improved performance and SLA guarantees while taking advantage of Azure flexibility, reliability, and future capabilities.
+Unisys ClearPath Dorado (Legacy Sperry 1100/2200) and Libra (Legacy Burroughs A Series/MCP) computer systems are full-featured mainframe operating environments that can scale up vertically to handle mission critical workloads. Emulating, converting, or modernizing these systems into Azure can provide similar or improved performance and SLA guarantees while taking advantage of Azure flexibility, reliability, and future capabilities.
 
-This article describes the conversion technologies that Microsoft partner Asysco's Automated Migration Technology (AMT) Framework uses to convert Unisys mainframe workflows to Azure. The AMT Framework allows an accelerated move into Azure without rewriting application code or redesigning data architecture from network-based to relational-based. The framework converts legacy code to C#, while maintaining the source code in its original form. Application user interfaces and interactions can be virtually unchanged, minimizing the need for end-user retraining.
+This article describes the conversion technologies that Microsoft partner Asysco's Automated Migration Technology (AMT) Framework uses to convert Unisys mainframe workflows to Azure. The AMT Framework allows an accelerated move into Azure without rewriting application code or redesigning data architecture from network-based to relational-based. The framework converts legacy code to C#, while maintaining the source code in its original form. Application user interfaces and interactions can be virtually unchanged, minimizing the need for end user retraining.
 
 Asysco AMT Transform automates the migration of the complete mainframe ecosystem, by converting:
 - Transaction application code to AMT COBOL or directly to C#/.NET. AMT maintains the original code structure to use as a baseline or for future edits.
-- All databases, whether hierarchical, network or relational, to Azure SQL Server.
+- All databases, whether hierarchical, network, or relational, to Azure SQL Server.
 - WFL/ECL scripts to Windows PowerShell or to open-source Visual Basic scripts.
 - All binary or indexed flat files.
 
@@ -35,7 +35,7 @@ The AMT Framework can support several methodologies to move client workloads to 
 
 ## Architecture
 
-The following diagrams show typical components of Unisys Burroughs MCP or Unisys Sperry OS 1100/2200 mainframe systems.
+The following diagram shows typical components of Unisys Burroughs MCP or Unisys Sperry OS 1100/2200 mainframe systems.
  
 ![Diagram showing Unisys Burroughs MCP or Unisys Sperry OS 1100/2200 mainframe components.](media/unisys-components.png)
 
@@ -55,7 +55,7 @@ The second diagram shows how these Unisys mainframe components can migrate and m
    
 4. Legacy database structures like DMS II, DMS, and RDMS (**E**) can migrate to Azure SQL Database, with the high availability (HA) and disaster recovery (DR) capabilities that Azure provides. Asysco data migration tools can convert DMS and RDMS schemas to SQL.
    
-   Private Link for Azure SQL Database provides a private, direct connection isolated to the Azure networking backbone from the Azure VM to the Azure SQL Database.
+   Private Link for Azure SQL Database provides a private, direct connection isolated to the Azure networking backbone from the Azure VMs to Azure SQL Database.
    
 5. File structures like CIFS, flat files, or virtual tape (**F**) map easily to Azure structured file or blob storage data constructs. Features like Azure Auto Failover Group Replication can provide data protection.
    
