@@ -39,7 +39,7 @@ The following diagrams show typical components of Unisys Burroughs MCP or Unisys
  
 ![Diagram showing Unisys Burroughs MCP or Unisys Sperry OS 1100/2200 mainframe components.](media/unisys-components.png)
 
-The second diagram shows how Unisys mainframe components can migrate and map to Azure capabilities.
+The second diagram shows how these Unisys mainframe components can migrate and map to Azure capabilities.
 
 ![Diagram showing how Unisys mainframe components can map to Azure capabilities.](media/unisys-migration.png)
 
@@ -51,11 +51,11 @@ The second diagram shows how Unisys mainframe components can migrate and map to 
    
 3. The AMT Framework converts mainframe batch and transaction loads (**D**) to sufficient server farms to handle the work.
    
-   This solution uses two sets of two VMs running the web and application layers, fronted by an Azure Load Balancer in an *active-active* arrangement to spread query traffic. An Azure Load Balancer also fronts the transaction servers.
+   This solution uses two sets of two VMs running the web and application layers, fronted by Azure Load Balancers in *active-active* arrangements to spread query and transaction traffic.
    
-4. Legacy database structures like DMS II, DMS, and RDMS (**E**) can migrate to Azure SQL Database, with all the high availability (HA) and disaster recovery (DR) capabilities that Azure provides.
+4. Legacy database structures like DMS II, DMS, and RDMS (**E**) can migrate to Azure SQL Database, with the high availability (HA) and disaster recovery (DR) capabilities that Azure provides. Asysco data migration tools can convert DMS and RDMS schemas to SQL.
    
-   Azure SQL Database utilizing either Hyperscale or Business Critical Tiers for both high IOPS and high uptime SLA. Further, Private Link for Azure SQL Database is utilized to provide a private, direct connection isolated to the Azure Networking Backbone from the Azure VM to the Azure SQL Database. Asysco data migration tools can convert DMS / RDMS schemas to SQL.
+   Private Link for Azure SQL Database provides a private, direct connection isolated to the Azure networking backbone from the Azure VM to the Azure SQL Database.
    
 5. File structures like CIFS, flat files, or virtual tape (**F**) map easily to Azure structured file or blob storage data constructs. Features like Azure Auto Failover Group Replication can provide data protection.
    
@@ -79,25 +79,28 @@ The second diagram shows how Unisys mainframe components can migrate and map to 
   
 - Azure ExpressRoute lets you extend your on-premises networks into the Microsoft cloud over a private connection facilitated by a connectivity provider. With ExpressRoute, you can establish connections to Microsoft cloud services, such as Microsoft Azure and Office 365.
   
-- Azure SQL Database is a fully managed platform as a service (PaaS) database engine. SQL Database handles most database management functions like upgrading, patching, backups, and monitoring without user involvement. Azure SQL Database is always running on the latest stable version of the SQL Server database engine and patched OS with 99.99% availability. PaaS capabilities that are built into Azure SQL Database enable you to focus on the domain-specific database administration and optimization activities that are critical for your business.
+- Azure SQL Database is a fully managed platform as a service (PaaS) database engine. SQL Database handles most database management functions like upgrading, patching, backups, and monitoring without user involvement. Azure SQL Database is always running on the latest stable version of the SQL Server database engine and patched OS with 99.99% availability. PaaS capabilities built into Azure SQL Database let you focus on business critical, domain-specific database administration and optimization.
 
 ## Considerations
 
 ### Availability
-Azure Site Recovery
+Azure Site Recovery.
+
+### Pricing
+Azure SQL Database should use either Hyperscale or Business Critical Tiers for high IOPS and high uptime SLA.
 
 ### Resiliency
-Resiliency is built into this solution due to the Load Balancers. If one presentation or transaction server fails, the other server behind the Load Balancer shoulders the workload until remediation.
+Resiliency is built into this solution due to the Load Balancers. If one presentation or transaction server fails, the other server behind the Load Balancer shoulders the workload.
 
 ### Scalability
 You can scale out the server sets to provide more throughput.
 
 ### Security
 
-Network security group
+Network security group.
 
 Features like Azure Auto Failover Group Replication can provide data protection.
 
 ## Next steps
 
-- For more information, please contact legacy2azure@microsoft.com.
+For more information, please contact legacy2azure@microsoft.com.
