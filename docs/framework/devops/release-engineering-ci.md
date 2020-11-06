@@ -45,8 +45,6 @@ The integration of your continuous integration pipeline with your source control
 
 Let's take a look at these items across both Azure DevOps Pipeline and GitHub Actions.
 
-#### [Azure Devops](#tab/ado)
-
 #### CI Pipeline Execution
 
 ![](../_images/devops/ado-github-status.png)
@@ -72,39 +70,11 @@ Let's take a look at these items across both Azure DevOps Pipeline and GitHub Ac
 
 #### CI Result Badges
 
-#### [GitHub Actions](#tab/gh)
-
-#### CI Pipeline Execution
-
-#### Test Integration
-
-#### CI Result Badges
-
----
-
 ### Integrated Testing
-
-#### [Azure Devops](#tab/ado)
-#### Azure DevOps Pipelines
-#### [GitHub Actions](#tab/gh)
-### GitHub Actions
----
 
 ### Integrated Security Assessment
 
-#### [Azure Devops](#tab/ado)
-#### Azure DevOps Pipelines
-#### [GitHub Actions](#tab/gh)
-### GitHub Actions
----
-
 ### Packaged Assets
-
-#### [Azure Devops](#tab/ado)
-#### Azure DevOps Pipelines
-#### [GitHub Actions](#tab/gh)
-### GitHub Actions
----
 
 ## Tradeoffs
 
