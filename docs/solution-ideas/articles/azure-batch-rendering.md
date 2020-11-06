@@ -2,7 +2,7 @@
 title: HPC Media Rendering
 titleSuffix: Azure Solution Ideas
 author: doodlemania2
-ms.date: 12/16/2019
+ms.date: 11/04/2020
 description: Optimize the media rendering process with a step-by-step HPC solution architecture from Azure that combines Azure CycleCloud and Avere vFXT.
 ms.custom: acom-architecture, hpc architecture, hpc solution, cluster orchestration, media render, interactive-diagram, 'https://azure.microsoft.com/solutions/architecture/azure-batch-rendering/'
 ms.service: architecture-center
@@ -18,22 +18,19 @@ social_image_url: /azure/architecture/solution-ideas/articles/media/azure-batch-
 
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-This HPC media rendering solution architecture shows Azure CycleCloud monitoring a Pixar Tractor pipeline manager and orchestrating burst compute node capacity on-demand using Azure low-priority Virtual Machines Scale Sets. An Avere vFXT cache makes data from the existing on-premises filesystem and Azure Blob storage available to compute nodes in Azure.
+Studio rendering architecture This solution allows studios to leverage on-premises capacity to its fullest with the Azure FXT Edge Filer for NAS acceleration. When demand grows beyond on-premises capacity, burst render provides access to tens of thousands of cores using Azure Virtual Machine Scale Sets. An Express Route connection and HPC Cache minimize latency while studios securely manage storage in a single place without replication.
 
 ## Architecture
+
 ![Architecture Diagram](../media/azure-batch-rendering.png)
 *Download an [SVG](../media/azure-batch-rendering.svg) of this architecture.*
 
 ## Data Flow
 
-1. Operations team uses Azure CycleCloud to configure and launch rendering pipeline cluster.
-1. Azure CycleCloud orchestrates virtual machine (VM) creation and software configuration for head nodes, license servers, and Avere vFXT Cache.
-1. Artist submits a render job to the Pixar Tractor pipeline manager.
-1. Azure CycleCloud detects the change in job queue depth and autostarts render farm nodes in Virtual Machines Scale Sets with location, SKU, and configuration customized by job requirements.
-1. Render pipeline manager (head nodes) executes render jobs on the new render farm VMs.
-1. Render jobs pull artifacts from on-premises and Azure Blob storage as needed from NFS-mounted Avere vFXT.
-1. As each job finishes rendering, resulting artifacts are written back to storage through the Avere vFXT.
-1. As job queue empties, Azure CycleCloud auto-stops render farm VMs to reduce cost.
+1. Optimize access to NAS files and support remote artists with the Azure FXT Edge Filer connecting artists to low-latency storage.
+1. Connecting on-premises storage resources to Azure via Azure Express Route providing a secure, private link to additional render cores.
+1. Azure HPC Cache provides low-latency access to tens of thousands of compute cores with burst rendering.  Azure SDK support in HPC Cache enables automation for easy infrastructure management and cost efficiencies.
+1. A virtual render farm is available in Azure using Virtual Machine Scale Sets that grow as you need it and provides capacity to meet fluctuating demand.
 
 ## Components
 
