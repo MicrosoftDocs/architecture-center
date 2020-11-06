@@ -27,9 +27,22 @@ As a software engineer, continuous integration can help me deliver quality softw
 - Provide quick feedback on detected issues.
 - Where applicable, produce deployable assets or packages that include the updated code.
 
-To achieve continuous integration, we need software solutions to manage, integrate, and automate the process. A common practice is to use a continuous integration pipeline, detailed in the next section of this document.
+To achieve continuous integration, we need software solutions to manage, integrate, and automate the process. A common practice is to use a continuous integration pipeline, detailed in this document's next section.
 
 ## Continuous integration pipelines
+
+A continuous integration pipeline involves a piece of software, in many cases, cloud-hosted, that provides a platform for running automated tests, compliance scans, reporting, and all additional components that make up the continuous integration process. In most cases, the pipeline software is attached to source control such that when pull requests are created and / or software is merged into a specific branch, and the continuous integration pipeline is run. Source control integration also provides the opportunity for providing CI feedback directly on the pull request.
+
+Many solutions provide continuous integration pipeline capabilities. This article covers both Azure DevOps Pipelines and GitHub actions and also provides links for finding more information.
+
+
+#### [Azure Devops](#tab/ado)
+### Azure DevOps Pipelines
+
+#### [GitHub Actions](#tab/gh)
+### GitHub Actions
+
+---
 
 ## Packaging
 
