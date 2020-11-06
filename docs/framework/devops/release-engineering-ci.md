@@ -35,16 +35,37 @@ A continuous integration pipeline involves a piece of software, in many cases, c
 
 Many solutions provide continuous integration pipeline capabilities. This article covers both Azure DevOps Pipelines and GitHub actions and also provides links for finding more information.
 
+### Source Controll Integration
 
 #### [Azure Devops](#tab/ado)
-### Azure DevOps Pipelines
-
+#### Azure DevOps Pipelines
 #### [GitHub Actions](#tab/gh)
 ### GitHub Actions
-
 ---
 
-## Packaging
+### Integrated Testing
+
+#### [Azure Devops](#tab/ado)
+#### Azure DevOps Pipelines
+#### [GitHub Actions](#tab/gh)
+### GitHub Actions
+---
+
+### Integrated Security Assessment
+
+#### [Azure Devops](#tab/ado)
+#### Azure DevOps Pipelines
+#### [GitHub Actions](#tab/gh)
+### GitHub Actions
+---
+
+### Packaged Assets
+
+#### [Azure Devops](#tab/ado)
+#### Azure DevOps Pipelines
+#### [GitHub Actions](#tab/gh)
+### GitHub Actions
+---
 
 ## Tradeoffs
 
