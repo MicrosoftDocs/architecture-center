@@ -14,7 +14,9 @@ ms.custom: fcp
 
 # Enterprise Level Cloud File Share Solution on Azure
 
-This reference architecture illustrates an enterprise level cloud file sharing solution that uses Azure provided services including [Azure Files](https://azure.microsoft.com/services/storage/files/), [Azure File Sync](https://azure.microsoft.com/updates/azure-file-sync), [Azure Private DNS](https://docs.microsoft.com/azure/dns/private-dns-overview), and [Azure Private Endpoint](https://docs.microsoft.com/azure/private-link/private-endpoint-overview). This solution allows you to access Azure file shares in a hybrid work environment over a virtual private network between on-premises and Azure virtual networks, through [ExpressRoute](https://azure.microsoft.com/services/expressroute/ private peering/VPN tunnels, without traversing the internet, you can also control and limit file access through Azure Active Directory Domain Services (AD DS) authentication.
+This reference architecture illustrates an enterprise level cloud file sharing solution that uses Azure provided services including [Azure Files](https://azure.microsoft.com/services/storage/files/), [Azure File Sync](https://azure.microsoft.com/updates/azure-file-sync), [Azure Private DNS](https://docs.microsoft.com/azure/dns/private-dns-overview), and [Azure Private Endpoint](https://docs.microsoft.com/azure/private-link/private-endpoint-overview).
+
+This solution allows you to access Azure file shares in a hybrid work environment over a virtual private network between on-premises and Azure virtual networks, through [ExpressRoute](https://azure.microsoft.com/services/expressroute/) private peering/VPN tunnels, without traversing the internet. It also allows you to control and limit file access through Azure Active Directory Domain Services (AD DS) authentication.
 
 This architecture can be generalized for any enterprise customer who is looking for cost savings by outsourcing the management of file servers and infrastructure while retaining control of the data.
 
