@@ -1,8 +1,8 @@
 ---
-title: scaling for performance efficiency
+title: Design for scaling
 description: Describes the scaling options for performance efficiency
 author: v-aangie
-ms.date: 11/04/2020
+ms.date: 11/10/2020
 ms.topic: article
 ms.service: architecture-center
 ms.subservice: well-architected
@@ -47,6 +47,8 @@ In the case of CPU or memory-intensive applications, scaling up may be required.
 
 For example, you may have an application that processes images, videos or music. Given the process and requirements, it may make sense to scale up a server (e.g., add CPU or memory) to quickly process the large media file. While scaling *out* allows the system to process more files simultaneously, it does not impact processing speed of each individual file.
 
+For more information, see [Autoscaling](https://docs.microsoft.com/azure/architecture/best-practices/auto-scaling).
+
 ## Autoscale with Azure compute services
 
 Many of the Azure compute services offer autoscale to ensure the right amount of resources are available to meet service user demand. This includes virtual machine scale sets, app service web apps, and API management services. This is critical for the service user experience.
@@ -67,6 +69,9 @@ Other Azure services include the following:
 
 Each service documents its autoscale capabilities. Review [Autoscale overview](https://docs.microsoft.com/azure/azure-monitor/platform/autoscale-overview) for a general discussion on Azure platform autoscale.
 
+> [!NOTE]
+> Some Azure services don't have the built-in ability to autoscale. If your application isn't configured to scale out automatically as load increases, it's possible that your application's services will fail if they become saturated with user requests. See [Azure Automation](https://docs.microsoft.com/azure/virtual-desktop/set-up-scaling-script) for possible solutions.
+
 ## Take advantage of platform autoscaling features
 
 Here's how you can benefit from autoscaling features:
@@ -80,14 +85,14 @@ Here's how you can benefit from autoscaling features:
 
 For more information, see [Autoscaling guidance](https://review.docs.microsoft.com/azure/architecture/best-practices/auto-scaling).
 
-If your application isn't configured to scale out automatically as load increases, it's possible that your application's services will fail if they become saturated with user requests. For more information, see the following articles: 
+<!--CANNOT FIND 2nd thru 4th links. Made a generic note above: If your application isn't configured to scale out automatically as load increases, it's possible that your application's services will fail if they become saturated with user requests. For more information, see the following articles: 
 
 - General: [performance efficiency checklist](https://review.docs.microsoft.com/azure/architecture/framework/scalability/performance-efficiency)
 - Azure App Service: [Scale instance count manually or automatically](https://review.docs.microsoft.com/azure/monitoring-and-diagnostics/insights-how-to-scale/)
 - Cloud Services: [How to autoscale a Cloud Service](https://review.docs.microsoft.com/azure/cloud-services/cloud-services-how-to-scale/)
-- Virtual machines: [Automatic scaling and virtual machine scale sets](https://review.docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-overview/)
+- Virtual machines: [Automatic scaling and virtual machine scale sets](https://review.docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-overview/)-->
 
 ## Next step
 
 >[!div class="nextstepaction"]
->[Plan for capacity](https://review.docs.microsoft.com/en-us/azure/architecture/framework/scalability/capacity?branch=pr-en-us-1963)
+>[Plan for capacity]()
