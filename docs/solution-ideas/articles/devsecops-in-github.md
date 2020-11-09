@@ -171,7 +171,7 @@ For long-running or complex Actions, host your own runners for CI/CD jobs. You c
 [Azure Monitor]: /azure/azure-monitor/overview
 [GitHub code scanning]: https://docs.github.com/en/github/finding-security-vulnerabilities-and-errors-in-your-code/about-code-scanning
 [CodeQL]: https://securitylab.github.com/tools/codeql
-[GitHub Dependabot]: https://docs.github.com/en/github/administering-a-repository/about-github-dependabot
+[GitHub Dependabot]: https://docs.github.com/en/free-pro-team@latest/github/administering-a-repository/about-dependabot-version-updates
 [GitHub vulnerability management]: https://docs.github.com/en/github/managing-security-vulnerabilities
 [WhiteSource]: https://www.whitesourcesoftware.com/
 [GitHub Advisory Database]: https://github.com/advisories
