@@ -2,7 +2,7 @@
 title: What's New in the Azure Architecture Center
 description: New and updated articles in the Azure Architecture Center
 author: doodlemania2
-ms.date: 11/02/2020
+ms.date: 11/08/2020
 ms.topic: article
 ms.service: architecture-center
 
