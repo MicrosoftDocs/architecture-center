@@ -55,8 +55,6 @@ In this solution, a single [Azure Active Directory (Azure AD)](https://azure.mic
 [Azure Monitor](/azure/devtest-labs/security-baseline) works across subscriptions to monitor all environments and collect logs, crash dump reports, and application data.
 
 ## Components
-
-- [Azure DevTest Labs](https://azure.microsoft.com/services/devtest-lab/) provides labs that have all the necessary tools and software to create environments. Developers can efficiently self-manage resources without waiting for approvals. With DevTest Labs, teams can control costs and regulate resources per lab, granting developers permission and flexibility to operate their sandboxes within cost constraints.
   
 - [GitHub](https://docs.github.com/github/creating-cloning-and-archiving-repositories/about-repositories) is a code hosting platform for version control and collaboration, with other integrated features:
   - A GitHub source-control [repository](https://docs.github.com/github/creating-cloning-and-archiving-repositories/about-repositories) contains all project files and their revision history. Developers can work together to contribute, discuss, and manage code in the repository.

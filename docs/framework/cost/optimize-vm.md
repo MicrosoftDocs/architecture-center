@@ -1,12 +1,13 @@
 ---
-title: Virtual machine instances 
+title: Virtual machine instances
 description: Learn how to adequately size, optimize, and manage VMs to control costs, meet capacity demand, and reduce waste.
-author:  PageWriter-MSFT
+author: PageWriter-MSFT
 ms.date: 05/12/2020
-ms.topic: article
+ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
-ms.custom: 
+ms.custom:
+  - article
 ---
 
 # Virtual machines

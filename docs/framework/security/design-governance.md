@@ -3,9 +3,11 @@ title: Enforce governance to reduce risks
 description: Security priorities around governance, risk, and compliance.
 author: PageWriter-MSFT
 ms.date: 07/09/2019
-ms.topic: article
+ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
+ms.custom:
+  - article
 ---
 
 <!-- cSpell:ignore NIST -->

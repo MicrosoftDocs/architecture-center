@@ -6,7 +6,7 @@ ms.date: 03/10/2020
 ms.category:
   - iot
   - analytics
-ms.topic: example-scenario
+ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: example-scenario
 ms.custom:
@@ -14,6 +14,7 @@ ms.custom:
   - IoT
   - data
   - analytics
+  - example-scenario
 social_image_url: /azure/architecture/example-scenario/data/media/architecture-realtime-analytics-vehicle-data1.png
 ---
 

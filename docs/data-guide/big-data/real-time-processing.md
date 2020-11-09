@@ -3,9 +3,11 @@ title: Real time processing
 description: Use real-time processing solutions to capture data streams and generate reports or automated responses with minimal latency.
 author: zoinerTejada
 ms.date: 02/12/2018
-ms.topic: guide
+ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: cloud-fundamentals
+ms.custom:
+  - guide
 ---
 
 # Real time processing

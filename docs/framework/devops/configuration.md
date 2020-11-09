@@ -3,17 +3,14 @@ title: Configuration for DevOps
 description: Describes how to best take advantage of the benefits of the cloud to minimize your cost.
 author: david-stanford
 ms.date: 10/21/2019
-ms.topic: article
+ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
-ms.custom: 
+ms.custom:
+  - article
 ---
 
 # Configuration for DevOps
-
-## Automation of manual tasks
-
-Use automation runbooks with hybrid runbook worker to unify management by orchestrating across on-premises environments. Use webhooks to provide a way to fulfill requests and ensure continuous delivery and operations by triggering automation from ITSM, DevOps, and monitoring systems.
 
 ## Monitor and update machine configuration
 

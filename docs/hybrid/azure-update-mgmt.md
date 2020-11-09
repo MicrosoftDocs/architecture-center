@@ -3,14 +3,16 @@ title: Azure Automation Update Management
 description: Manage operating system updates with Update Management in Azure Automation
 author: doodlemania2
 ms.date: 07/16/2020
-ms.topic: reference-architecture
+ms.topic: conceptual
 ms.service: architecture-center
 ms.category:
   - hybrid
   - management-and-governance
   - networking
 ms.subservice: reference-architecture
-ms.custom: fcp
+ms.custom:
+  - fcp
+  - reference-architecture
 ---
 
 # Azure Automation Update Management
@@ -329,7 +331,7 @@ Azure Automation can process up to 1,000 computers per update deployment. If you
 [20]: /azure/azure-monitor/platform/agent-linux#install-the-agent-using-wrapper-script
 [21]: /azure/azure-monitor/platform/agent-windows#obtain-workspace-id-and-key
 [22]: /azure/automation/update-management/update-mgmt-groups
-[23]: /azure/automation/update-management/update-mgmt-view-update-assessments#work-with-update-classifications
+[23]: /azure/automation/update-management/view-update-assessments
 [24]: /azure/automation/update-management/update-mgmt-pre-post-scripts
 [25]: /azure/automation/update-management/update-mgmt-configure-wuagent
 [26]: /azure/azure-monitor/platform/collect-sccm

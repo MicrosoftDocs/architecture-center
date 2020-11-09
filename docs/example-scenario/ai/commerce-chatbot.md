@@ -6,10 +6,12 @@ ms.date: 07/05/2018
 ms.category:
   - ai-machine-learning
   - web
-ms.topic: example-scenario
+ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: example-scenario
 social_image_url: /azure/architecture/example-scenario/ai/media/architecture-commerce-chatbot.png
+ms.custom:
+  - example-scenario
 ---
 
 <!-- cSpell:ignore iainfoulds botservice -->

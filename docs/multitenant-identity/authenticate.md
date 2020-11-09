@@ -3,7 +3,7 @@ title: Authentication in multitenant applications
 description: How a multitenant application can authenticate users from Azure Active Directory.
 author: doodlemania2
 ms.date: 07/21/2017
-ms.topic: guide
+ms.topic: conceptual
 ms.service: architecture-center
 ms.category:
   - identity
@@ -11,6 +11,8 @@ ms.subservice: reference-architecture
 pnp.series.title: Manage Identity in Multitenant Applications
 pnp.series.prev: tailspin
 pnp.series.next: claims
+ms.custom:
+  - guide
 ---
 
 <!-- cSpell:ignore OIDC multitenanted openid -->

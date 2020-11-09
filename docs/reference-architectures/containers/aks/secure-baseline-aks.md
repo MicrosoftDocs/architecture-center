@@ -3,14 +3,17 @@ title: Baseline architecture for an Azure Kubernetes Service (AKS) cluster
 description: Reference architecture for a baseline infrastructure that deploys an Azure Kubernetes Service (AKS) cluster.
 author: PageWriter-MSFT
 ms.date: 08/01/2020
-ms.topic: reference-architecture
+ms.topic: conceptual
 ms.service: architecture-center
 ms.category:
   - containers
   - kubernetes
   - aks
 ms.subservice: reference-architecture
-ms.custom: seojul20, containers
+ms.custom:
+  - seojul20
+  - containers
+  - reference-architecture
 ---
 
 # Azure Kubernetes Service (AKS) production baseline
@@ -510,9 +513,10 @@ Keeping your node images in sync with the latest weekly release will minimize th
 
 ### Security monitoring
 
-Consider monitoring the node image with [Azure Security Center](/azure/security-center/security-center-intro) (ASC). ASC monitors the nodes for suspicious activity and makes recommendations.
-
-For information about security hardening applied to AKS virtual machine hosts, see [Security Hardening in host OS](/azure/aks/security-hardened-vm-host-image).
+Monitor your container infrastructure for both active threats and potential security risks: 
+ - Enable [Azure Defender for Kubernetes](/azure/security-center/defender-for-kubernetes-introduction) for threat detection on your Kubernetes clusters.
+ - Use [Azure Security Center](/azure/security-center/security-center-intro) (ASC) to monitor Kubernetes security posture. 
+ - For information about security hardening applied to AKS virtual machine hosts, see [Security Hardening in host OS](/azure/aks/security-hardened-vm-host-image).
 
 ## Cluster and workload operations (DevOps)
 

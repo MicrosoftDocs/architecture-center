@@ -4,10 +4,11 @@ titleSuffix: Azure Architecture Guide
 description: Learn to build virtual desktop infrastructure solutions at enterprise scale using Microsoft FSLogix.
 author: christiaanbrinkhoff
 ms.date: 09/12/2020
-ms.topic: guide
+ms.topic: conceptual
 ms.service: architecture-center
 ms.custom:
-- fcp
+  - fcp
+  - guide
 ---
 
 # Microsoft FSLogix for the enterprise
@@ -109,7 +110,7 @@ The table below shows you how you can further optimize your WVD environment. Det
 
 Azure NetApp Files has been proven to be a great managed storage solution for FSLogix Profiles and Windows Virtual Desktop. The low latency and the high amount of IOPs is a great mixture for enterprises at scale.
 
-Currently, up to 1000 IP connections per active VNet are possible. These are the open connections per VM over the VNet to the Azure Files; that is, this limitation is applicable per VM and not per session. The following subsections can help you to proactively design your environment. Read [Benefits of using Azure NetApp Files with Windows Virtual Desktop](/azure/azure-netapp-files/solutions-windows-virtual-desktop) for more information.
+Currently, up to 1000 IP connections per active VNet are possible. These are the open connections per VM over the VNet to the share; that is, this limitation is applicable per VM and not per session. This also includes VNET Peerings as well. The following subsections can help you to proactively design your environment. Read [Benefits of using Azure NetApp Files with Windows Virtual Desktop](/azure/azure-netapp-files/solutions-windows-virtual-desktop) for more information.
 
 #### Pooled scenarios
 

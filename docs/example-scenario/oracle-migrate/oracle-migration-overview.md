@@ -5,13 +5,15 @@ description: Learn about Oracle database migration paths and the methods you use
 author: amberz
 ms.author: amberz
 ms.date: 06/23/2020
-ms.topic: example-scenario
+ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: example-scenario
-ms.custom: fcp
+ms.custom:
+  - fcp
+  - example-scenario
 ms.category:
-    - databases
-    - migration
+  - databases
+  - migration
 ---
 
 # Oracle database migration overview

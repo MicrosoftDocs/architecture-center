@@ -1,16 +1,18 @@
 ---
-title: Secure and govern workloads with network level segmentation 
+title: Secure and govern workloads with network level segmentation
 titleSuffix: Azure Reference Architectures
-description: Using network level segmentation to secure virtual networks. 
+description: Using network level segmentation to secure virtual networks.
 author: tremansdoerfer
 ms.date: 4/30/2020
-ms.topic: reference-architecture
+ms.topic: conceptual
 ms.service: architecture-center
 ms.category:
   - hybrid
   - networking
 ms.subservice: reference-architecture
-ms.custom: networking
+ms.custom:
+  - networking
+  - reference-architecture
 ---
 
 # Secure and govern workloads with network level segmentation  

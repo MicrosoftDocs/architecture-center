@@ -4,11 +4,13 @@ description: Build a multitenant SaaS solution on Azure, designed for high avail
 author: doodlemania2
 ms.author: pnp
 ms.date: 07/16/2020
-ms.topic: example-scenario
+ms.topic: conceptual
 ms.service: architecture-center
-ms.category: 
-    - identity
-ms.custom: fcp
+ms.category:
+  - identity
+ms.custom:
+  - fcp
+  - example-scenario
 ---
 
 # Multitenant SaaS on Azure

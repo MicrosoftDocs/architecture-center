@@ -4,10 +4,11 @@ titleSuffix: Azure Example Scenarios
 description: Import threat indicators, view logs, create rules to generate security alerts and incidents, and visualize threat intelligence data with Azure Sentinel.
 author: v-thepet
 ms.date: 04/13/2020
-ms.topic: example-scenario
+ms.topic: conceptual
 ms.service: architecture-center
 ms.custom:
   - fcp
+  - example-scenario
 ms.category:
   - security
 ---

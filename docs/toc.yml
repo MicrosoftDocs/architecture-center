@@ -68,7 +68,11 @@ items:
     - name: Choose a load balancing service
       href: guide/technology-choices/load-balancing-overview.md
     - name: Choose a messaging service
-      href: guide/technology-choices/messaging.md
+      items:
+      - name: Asynchronous messaging options in Azure
+        href: guide/technology-choices/messaging.md
+      - name: Choose an Apache Kafka host
+        href: solution-ideas/articles/kafka-on-azure.md
   - name: Best practices for cloud applications
     items:
     - name: API design
@@ -257,8 +261,6 @@ items:
       href: framework/devops/development.md
     - name: Deployment
       href: framework/devops/deployment.md
-    - name: Infrastructure Deployments
-      href: framework/devops/iac.md
     - name: Monitoring
       href: framework/devops/monitoring.md
     - name: Performance
@@ -267,6 +269,16 @@ items:
       href: framework/devops/testing.md
     - name: Checklist
       href: checklist/dev-ops.md
+    - name: Automation
+      items:
+      - name: Automation Overview
+        href: framework/devops/automation-overview.md
+      - name: Repeatable infrastructure
+        href: framework/devops/automation-infrastructure.md
+      - name: Configure infrastructure
+        href: framework/devops/automation-configuration.md
+      - name: Automate operational tasks
+        href: framework/devops/automation-tasks.md
   - name: Performance Efficiency
     items:
     - name: Overview
@@ -329,8 +341,6 @@ items:
           href: framework/security/design-management-groups.md          
         - name: Administration
           href: framework/security/design-admins.md
-        - name: Regulatory compliance
-          href: framework/security/design-regulatory-compliance.md
       - name: Identity
         items:
           - name: Identity and access management
@@ -348,7 +358,19 @@ items:
       - name: Storage
         href: framework/security/design-storage.md
       - name: Applications and services
-        href: framework/security/design-apps-services.md
+        items:
+        - name: Application security considerations
+          href: framework/security/design-apps-services.md
+        - name: Application classification
+          href: framework/security/design-apps-considerations.md
+        - name: Threat analysis
+          href: framework/security/design-threat-model.md
+        - name: Securing PaaS deployments
+          href: /azure/security/fundamentals/paas-deployments?bc=%2fazure%2farchitecture%2fbread%2ftoc.json&toc=%2fazure%2farchitecture%2ftoc.json
+        - name: Compliance requirements
+          href: framework/security/design-regulatory-compliance.md
+        - name: Configuration and dependencies
+          href: framework/security/design-app-dependencies.md
     - name: Monitor
       items:
       - name: Security operations
@@ -661,11 +683,13 @@ items:
         href: example-scenario/ai/newsfeed-ingestion.md
       - name: Oil and Gas tank level forecasting
         href: solution-ideas/articles/oil-and-gas-tank-level-forecasting.md
+      - name: Partitioning in Event Hubs and Kafka
+        href: reference-architectures/event-hubs/partitioning-in-event-hubs-and-kafka.md
       - name: Predicting length of stay in hospitals
         href: solution-ideas/articles/predicting-length-of-stay-in-hospitals.md
       - name: Predictive aircraft engine monitoring
         href: solution-ideas/articles/aircraft-engine-monitoring-for-predictive-maintenance-in-aerospace.md
-      - name: Real Time analytics on on big data
+      - name: Real Time analytics on big data
         href: solution-ideas/articles/real-time-analytics.md
       - name: Stream processing with Azure Databricks
         href: reference-architectures/data/stream-processing-databricks.md
@@ -727,8 +751,29 @@ items:
       href: reference-architectures/containers/aks/secure-baseline-aks.md
     - name: AKS Cluster Best Practices
       href: /Azure/aks/best-practices
+      maintainContext: true
     - name: AKS Workload Best Practices
       href: /Azure/aks/best-practices#developer-best-practices
+      maintainContext: true
+    - name: AKS day-2 operations guide
+      items:
+        - name: Triage practices
+          items:
+            - name: Introduction
+              href: operator-guides/aks/aks-triage-practices.md
+            - name: 1- Cluster health
+              href: operator-guides/aks/aks-triage-cluster-health.md
+            - name: 2- Node and pod health
+              href: operator-guides/aks/aks-triage-node-health.md
+            - name: 3- Workload deployments
+              href: operator-guides/aks/aks-triage-deployment.md
+            - name: 4- Admission controllers
+              href: operator-guides/aks/aks-triage-controllers.md
+            - name: 5- Container registry connectivity
+              href: operator-guides/aks/aks-triage-container-registry.md                                                 
+        - name: Common Issues
+          href: /azure/aks/troubleshooting?bc=%2fazure%2farchitecture%2fbread%2ftoc.json&toc=%2fazure%2farchitecture%2ftoc.json
+          maintainContext: true
     - name: AKS Example Solutions
       items:
         - name: Microservices architecture on AKS
@@ -931,8 +976,6 @@ items:
             href: microservices/ci-cd.md
           - name: CI/CD for microservices on Kubernetes
             href: microservices/ci-cd-kubernetes.md
-          - name: Automated Kubernetes deployments with Bedrock
-            href: example-scenario/bedrock/bedrock-automated-deployments.md
         - name: Migrate to a microservices architecture
           items:
           - name: Migrate a monolith application to microservices
@@ -1107,8 +1150,6 @@ items:
         href: reference-architectures/hybrid-networking/vpn.md
       - name: Hybrid connections
         href: solution-ideas/articles/hybrid-connectivity.md
-      - name: Implement a hub-spoke network topology
-        href: reference-architectures/hybrid-networking/shared-services.md
       - name: Troubleshoot a hybrid VPN connection
         href: reference-architectures/hybrid-networking/troubleshoot-vpn.md
       - name: Connect using Windows Virtual Desktop
@@ -1183,6 +1224,24 @@ items:
         href: hybrid/gateway-logic-apps.md
   - name: Internet of Things
     items:
+    - name: Guides
+      items:
+      - name: Azure IoT Edge Vision
+        items:
+        - name: Overview
+          href: guide/iot-edge-vision/index.md
+        - name: Camera selection
+          href: guide/iot-edge-vision/camera.md
+        - name: Hardware acceleration
+          href: guide/iot-edge-vision/hardware.md
+        - name: Machine learning
+          href: guide/iot-edge-vision/machine-learning.md
+        - name: Image storage
+          href: guide/iot-edge-vision/image-storage.md
+        - name: Alert persistence
+          href: guide/iot-edge-vision/alerts.md
+        - name: User interface
+          href: guide/iot-edge-vision/user-interface.md
     - name: Architectures
       items:
       - name: IoT reference architecture
@@ -1216,7 +1275,9 @@ items:
       - name: Voice assistants and IoT devices
         href: solution-ideas/articles/iot-controlling-devices-with-voice-assistant.md
       - name: IoT using Azure Data Explorer
-        href: solution-ideas/articles/iot-azure-data-explorer.md
+        href: solution-ideas/articles/iot-azure-data-explorer.md      
+      - name: Buy online, pickup in store
+        href: example-scenario/iot/vertical-buy-online-pickup-in-store.md
     - name: Industrial IoT Analytics
       items:
       - name: Architecture
@@ -1341,6 +1402,8 @@ items:
         href: solution-ideas/articles/unlock-legacy-data.md
       - name: Decompose apps with Service Fabric
         href: example-scenario/infrastructure/service-fabric-microservices.md
+      - name: SQL 2008 R2 failover cluster in Azure
+        href: example-scenario/sql-failover/sql-failover-2008r2.md  
   - name: Mixed Reality
     items:
     - name: Architectures

@@ -5,10 +5,12 @@ description: Design patterns for building reliable, scalable, secure application
 keywords: Azure
 author: dragon119
 ms.date: 03/01/2018
-ms.topic: design-pattern
+ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: cloud-fundamentals
-ms.custom: seodec18
+ms.custom:
+  - seodec18
+  - design-pattern
 ---
 
 # Cloud Design Patterns
@@ -74,7 +76,7 @@ Each pattern describes the problem that the pattern addresses, considerations fo
     <td style="width: 64px; vertical-align: middle;"><a href="./category/security.md"><img src="_images/category/security.svg" alt="Security icon" /></a></td>
     <td>
         <h3><a href="./category/security.md">Security</a></h3>
-        <p>Security is the capability of a system to prevent malicious or accidental actions outside of the designed usage, and to prevent disclosure or loss of information. Cloud applications are exposed on the Internet outside trusted on-premises boundaries, are often open to the public, and may serve untrusted users. Applications must be designed and deployed in a way that protects them from malicious attacks, restricts access to only approved users, and protects sensitive data.</p>
+        <p>Security provides confidentiality, integrity, and availability assurances against malicious attacks on information systems (and safety assurances for attacks on operational technology systems). Losing these assurances can negatively impact your business operations and revenue, as well as your organization’s reputation in the marketplace. Maintaining security requires following well-established practices (security hygiene) and being vigilant to detect and rapidly remediate vulnerabilities and active attacks.</p>
     </td>
 </tr>
 </table>

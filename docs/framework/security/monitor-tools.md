@@ -3,9 +3,11 @@ title: Monitor tools in Azure | Microsoft Docs
 description: Monitor your data in Azure
 author: v-aangie
 ms.date: 09/20/2020
-ms.topic: article
+ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
+ms.custom:
+  - article
 ---
 
 # Monitor tools

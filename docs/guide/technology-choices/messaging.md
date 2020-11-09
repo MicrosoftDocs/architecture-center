@@ -4,13 +4,15 @@ titleSuffix: Azure Application Architecture Guide
 description: Overview of choosing asynchronous messaging for Azure apps.
 author: PageWriter-MSFT
 ms.date: 10/30/2019
-ms.topic: guide
+ms.topic: conceptual
 ms.service: architecture-center
 ms.category:
   - integration
   - developer-tools
 ms.subservice: reference-architecture
-ms.custom: seonov19
+ms.custom:
+  - seonov19
+  - guide
 ---
 
 # Asynchronous messaging options in Azure

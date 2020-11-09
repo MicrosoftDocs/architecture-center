@@ -1,12 +1,13 @@
 ---
 title: Azure Messaging cost estimates
 description: Describes cost strategies for messaging services
-author:  v-aangie
+author: v-aangie
 ms.date: 09/04/2020
-ms.topic: article
+ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
-ms.custom: 
+ms.custom:
+  - article
 ---
 
 # Azure messaging cost estimates

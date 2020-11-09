@@ -16,8 +16,8 @@ Architecture diagrams, reference architectures, example scenarios, and solutions
 ## AI + Machine Learning
 <ul class="grid">
 
-[!INCLUDE [AI at the Edge with Azure Stack](../../includes/cards/ai-at-the-edge.md)]
-[!INCLUDE [AI at the Edge with Azure Stack - disconnected](../../includes/cards/ai-at-the-edge-disconnected.md)]
+[!INCLUDE [AI at the Edge with Azure Stack Hub](../../includes/cards/ai-at-the-edge.md)]
+[!INCLUDE [AI at the Edge with Azure Stack Hub - disconnected](../../includes/cards/ai-at-the-edge-disconnected.md)]
 [!INCLUDE [AI enrichment with Azure Cognitive Search](../../includes/cards/cognitive-search-with-skillsets.md)]
 [!INCLUDE [AI for Earth](../../includes/cards/ai-for-earth.md)]
 [!INCLUDE [Auditing, risk, and compliance management](../../includes/cards/auditing-and-risk-compliance.md)]
@@ -98,6 +98,7 @@ Architecture diagrams, reference architectures, example scenarios, and solutions
 [!INCLUDE [Interactive Price Analytics](../../includes/cards/interactive-price-analytics.md)]
 [!INCLUDE [Mass ingestion and analysis of news feeds on Azure](../../includes/cards/newsfeed-ingestion.md)]
 [!INCLUDE [Oil and Gas Tank Level Forecasting](../../includes/cards/oil-and-gas-tank-level-forecasting.md)]
+[!INCLUDE [Partitioning in Event Hubs and Kafka](../../includes/cards/partitioning-in-event-hubs-and-kafka.md)]
 [!INCLUDE [Predicting Length of Stay in Hospitals](../../includes/cards/predicting-length-of-stay-in-hospitals.md)]
 [!INCLUDE [Predictive Aircraft Engine Monitoring](../../includes/cards/aircraft-engine-monitoring-for-predictive-maintenance-in-aerospace.md)]
 [!INCLUDE [Product recommendations for retail using Azure](../../includes/cards/product-recommendations.md)]
@@ -336,6 +337,7 @@ Architecture diagrams, reference architectures, example scenarios, and solutions
 [!INCLUDE [Predictive Maintenance for Industrial IoT](../../includes/cards/iot-predictive-maintenance.md)]
 [!INCLUDE [Predictive maintenance with the intelligent IoT Edge](../../includes/cards/iot-predictive-maintenance.md)]
 [!INCLUDE [Process real-time vehicle data using IoT](../../includes/cards/realtime-analytics-vehicle-iot.md)]
+[!INCLUDE [Retail - Buy online, pickup in store (BOPIS)](../../includes/cards/vertical-buy-online-pickup-in-store.md)]
 [!INCLUDE [Scale IoT solutions with application stamps](../../includes/cards/application-stamps.md)]
 [!INCLUDE [Secure your IoT SaaS app with the Microsoft identity platform](../../includes/cards/iot-aad.md)]
 [!INCLUDE [UVEN smart and secure disinfection and lighting](../../includes/cards/uven-disinfection.md)]
@@ -367,7 +369,6 @@ Architecture diagrams, reference architectures, example scenarios, and solutions
 [!INCLUDE [Run a highly available SharePoint Server 2016 farm in Azure](../../includes/cards/sharepoint.md)]
 [!INCLUDE [SMB disaster recovery with Azure Site Recovery](../../includes/cards/disaster-recovery-smb-azure-site-recovery.md)]
 [!INCLUDE [SMB disaster recovery with Double-Take DR](../../includes/cards/disaster-recovery-smb-double-take-dr.md)]
-[!INCLUDE [Use Cobalt to create an extensible cloud framework](../../includes/cards/cobalt-extensible-cloud-framework.md)]
 
 </ul>
 
@@ -451,7 +452,6 @@ Architecture diagrams, reference architectures, example scenarios, and solutions
 [!INCLUDE [Firewall and Application Gateway for virtual networks](../../includes/cards/firewall-application-gateway.md)]
 [!INCLUDE [Hub-spoke network topology in Azure](../../includes/cards/hub-spoke.md)]
 [!INCLUDE [Hybrid Connection](../../includes/cards/hybrid-connectivity.md)]
-[!INCLUDE [Implement a hub-spoke network topology](../../includes/cards/shared-services.md)]
 [!INCLUDE [Implement a secure hybrid network](../../includes/cards/secure-vnet-dmz.md)]
 [!INCLUDE [Secure and govern workloads with network level segmentation](../../includes/cards/network-level-segmentation.md)]
 [!INCLUDE [Troubleshoot a hybrid VPN connection](../../includes/cards/troubleshoot-vpn.md)]

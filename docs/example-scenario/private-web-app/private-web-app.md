@@ -5,12 +5,13 @@ description: Lock down access to an Azure SQL Database with Azure Private Link c
 author: jelledruyts
 ms.author: jelled
 ms.date: 09/30/2020
-ms.topic: example-scenario
+ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: example-scenario
 ms.custom:
   - fcp
   - fasttrack-new
+  - example-scenario
 ---
 
 # Web app with private connectivity to SQL Database

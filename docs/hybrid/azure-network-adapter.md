@@ -3,13 +3,15 @@ title: Connect standalone servers by using Azure Network Adapter
 description: Connect standalone servers on-premises and in other cloud providers networks to Azure networks
 author: doodlemania2
 ms.date: 07/23/2020
-ms.topic: reference-architecture
+ms.topic: conceptual
 ms.service: architecture-center
 ms.category:
   - hybrid
   - networking
 ms.subservice: reference-architecture
-ms.custom: fcp
+ms.custom:
+  - fcp
+  - reference-architecture
 ---
 
 # Connect standalone servers by using Azure Network Adapter
