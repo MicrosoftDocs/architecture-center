@@ -2031,6 +2031,22 @@
     {
       "source_path": "docs/framework/devops/testing.md",
       "redirect_url": "/azure/architecture/framework/devops/release-engineering-testing"
+    },
+    {
+      "source_path": "docs/framework/devops/deployment.md",
+      "redirect_url": "/azure/architecture/framework/devops/release-engineering-cd"
+    },
+    {
+      "source_path": "docs/framework/devops/configuration.md",
+      "redirect_url": "/azure/architecture/framework/devops/overview"
+    },
+    {
+      "source_path": "docs/framework/devops/performance.md",
+      "redirect_url": "/azure/architecture/framework/devops/release-engineering-performance"
+    },
+    {
+      "source_path": "docs/framework/devops/process.md",
+      "redirect_url": "/azure/architecture/framework/devops/overview"
     }
   ]
 }
