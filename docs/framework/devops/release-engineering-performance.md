@@ -31,7 +31,7 @@ Here are few ways you can achieve faster builds.
 
   * Add parallel build execution so we can speed up the build process. For more info see, [Azure DevOps parallel jobs](/azure/devops/pipelines/licensing/concurrent-jobs?view=azure-devops&preserve-view=true).
 
-  * Enable parallel execution of test suites, which is often a huge time saver, especially when executing integration and UI tests. For more info see, [Run tests in parallel using Azure Pipeline](/azure/devops/pipelines/test/parallel-testing-any-test-runner?view=azure-devops).
+  * Enable parallel execution of test suites, which is often a huge time saver, especially when executing integration and UI tests. For more info see, [Run tests in parallel using Azure Pipeline](/azure/devops/pipelines/test/parallel-testing-any-test-runner?view=azure-devops&preserve-view=true).
 
   * Use the notion of a multiplier, where you can scale out your builds over multiple build agents. For more info see, [Organizing Azure Pipeline into Jobs](/azure/devops/pipelines/process/phases?tabs=yaml&view=azure-devops&preserve-view=true).
 

@@ -47,7 +47,7 @@ Let's take a look at these items across both Azure DevOps Pipeline and GitHub Ac
 
 #### CI Pipeline Execution
 
-![](../_images/devops/ado-github-status.png)
+![Image of Azure DevOps integration with GitHub.](../_images/devops/ado-github-status.png)
 
 #### Test Integration
 
@@ -66,7 +66,7 @@ Let's take a look at these items across both Azure DevOps Pipeline and GitHub Ac
     testRunTitle: 'Python $(python.version)'
 ```
 
-![](../_images/devops/ado-tests.png)
+![Image of Azure DevOps pipeline tests in the Azure DevOps portal.](../_images/devops/ado-tests.png)
 
 #### CI Result Badges
 
