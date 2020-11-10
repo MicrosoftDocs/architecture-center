@@ -74,6 +74,8 @@ Let's take a look at these items across both Azure DevOps Pipeline and GitHub Ac
 
 ### Integrated Security Assessment
 
+All deployment tools must incorporate security restrictions to protect the deployed application. Define and enforce deployment policies carefully, and minimize the need for human intervention.
+
 ### Packaged Assets
 
 ## Tradeoffs

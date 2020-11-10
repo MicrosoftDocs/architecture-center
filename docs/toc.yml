@@ -277,22 +277,22 @@ items:
         href: framework/devops/release-engineering-cd.md
       - name: Release testing
         href: framework/devops/release-engineering-testing.md
-      - name: Rollback and Rollforward 
+      - name: Performance
+        href: framework/devops/performance.md
+      - name: Rollback and Rollforward
         href: framework/devops/release-engineering-rollback.md
     - name: Observability (operational awareness) 
       items:
       - name: Monitoring
         href: framework/devops/monitoring.md
-    - name: Incident Management
+    - name: Governance and Maintenance
       items:
+      - name: Governance
+        href: framework/devops/governance.md
     - name: Application design
       href: framework/devops/app-design.md
-    - name: Development
-      href: framework/devops/development.md
     - name: Deployment
       href: framework/devops/deployment.md
-    - name: Performance
-      href: framework/devops/performance.md
     - name: Testing
       href: framework/devops/testing.md
     - name: Checklist
