@@ -41,6 +41,6 @@ This solution is built on the Azure managed services: [Blob Storage](https://azu
 * [How to use Azure Blob storage](/azure/storage/blobs/storage-quickstart-blobs-portal)
 * [How to encode an asset using Media Encoder](/azure/media-services/media-services-rest-encode-asset)
 * [How to manage streaming endpoints](/azure/media-services/media-services-portal-manage-streaming-endpoints)
-* [Using Azure Content Delivery Network](/api/Redirect/documentation/articles/cdn-create-new-endpoint)
-* [Develop video player applications](/api/Redirect/documentation/articles/media-services-develop-video-players)
+* [Using Azure Content Delivery Network](https://docs.microsoft.com/azure/cdn/cdn-create-new-endpoint)
+* [Playing your content with existing players](https://docs.microsoft.com/azure/media-services/previous/media-services-playback-content-with-existing-players)
 * [Deliver content securely](https://azure.microsoft.com/services/media-services/content-protection)
