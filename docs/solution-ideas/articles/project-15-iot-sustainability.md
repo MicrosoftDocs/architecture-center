@@ -1,5 +1,5 @@
 ---
-title: Project 15 Open Platform for Conservation and Ecological Sustainability Solutions
+title: Project 15 from Microsoft Open Platform for Conservation and Ecological Sustainability Solutions
 titleSuffix: Azure Solution Ideas
 author: pacorte
 description: Learn how to use Project 15 reference architecture and conservation and ecosystem sustainability open platform to bring the latest Microsoft cloud and Internet of Things (IoT) technologies to accelerate scientific teams building solutions like species tracking & observation, poaching prevention, ecosystem monitoring, pollution detection, etc.
@@ -13,11 +13,11 @@ ms.category:
 
 # Project 15 Open Platform for Conservation and Ecological Sustainability Solutions
 
-Project 15 
+Project 15 from Microsoft mission is to empower scientists and conservationists around the world to capture and analyze the data they need to preserve critical species and ecosystems. 
 
-Project 15's goal with a conservation and ecosystem sustainability open platform is to bring the latest Microsoft cloud and Internet of Things (IoT) technologies to accelerate scientific teams building solutions like species tracking & observation, poaching prevention, ecosystem monitoring, pollution detection, etc.
+Project 15 approach is to pair a community of developers, students and partners with conservation teams around the world, backed with the power of the Microsoft cloud and our IoT Open Platform.Part of this approach is the Project 15 Open Platform, which is an open source software designed and built by Microsoft to connect to the cloud, manage and secure devices used in conservation projects.
 
-The P15 Open Platform will get teams roughly 80% of the way to a finished solution.
+The Project 15 Open Platform will get teams roughly 80% of the way to a finished solution.
 
 This article showcases how to get started with deploying the IoT solutions. Goals were to:
 
@@ -33,7 +33,13 @@ With deployment to Azure in a **push of a button**, the main components of the i
 If you would like to contribute a feature or module to the Project 15 repo, submit a [pull request](https://docs.github.com/en/desktop/contributing-and-collaborating-using-github-desktop/creating-an-issue-or-pull-request).  
 We are in the process of creating a list of known use cases with our scientific partners, a list of problems to be solved. Coming soon!
 
+## Potential Solutions
+
+Project 15's goal with a conservation and ecosystem sustainability open platform is to bring the latest Microsoft cloud and Internet of Things (IoT) technologies to accelerate scientific teams building solutions like species tracking & observation, poaching prevention, ecosystem monitoring, pollution detection, etc.
+
 ## Solution Overview
+
+![Project 15 Open Platform Reference Architecture](../media/project-15-open-platform-overview.png)
 
 1. **Components that are full included**  
     These are Azure services that if someone was standing up the solution these parts of the infrastructure only need to be deployed once and then expanded as devices get added to the solution. To learn all the ins and outs of these services is a lift and would take time. Our theory here is that by this method, the technologist doesn't need to know every nitty-gritty detail and can expand their learning as needed. For learning about building an IoT Solution, a great resource to ramp up quickly on the concepts with real world examples and labs is available at [Internet of Things Learning Path](https://aka.ms/iotlp). Of course, if one wants to learn all the details, Microsoft Learn's [Introduction to Azure IoT](https://docs.microsoft.com/learn/paths/introduction-to-azure-iot/) has all you need. All our learning resources here, are free to you.  
@@ -46,8 +52,31 @@ We are in the process of creating a list of known use cases with our scientific 
 
 ## Architecture
 
-![Project 15 Open Platform Reference Architecture](../media/project-15-open-platform-architecture.png)
+![Project 15 Open Platform Reference Architecture](../media/project-15-architecture.png)
 
+Open Platform is consist of multiple Azure services and configurations/settings to :
+
+- Enable Ready to go solution
+- Provision devices using Device Provisioning Service
+- Connect provisioned IoT Devices to IoT Hub
+- Ingest telemetry and events from IoT devices
+- Build a data pipeline necessary for basic telemetry and events processing
+- Visualize IoT devices, telemetry, device events, and device management events in a web site
+- Enable real time visualization using SignalR messaging
+- Store and visualize IoT data using Time Series Insights
+- Enable location based services using Azure Maps
+- Build publish-subscribe model using Event Grid
+- Secure the solution by setting security policies and access controls
+- Exhibit examples of IoT Data visualization and basic device management
+
+## Technical Goals and Requirements
+
+- Ready to go solution  
+    A solution is ready to accept data from devices right after deployment
+- Minimize manual operations  
+    Automate deployment as much as possible to avoid manual operations
+- Pre-configure as much as possible  
+    Pre-configure all settings to avoid post deployment configurations
 
 ## Components
 
@@ -62,3 +91,4 @@ Please visit the [Project 15 on GitHub](https://aka.ms/project15code) to deploy 
 ## Related resources
 
 - [Microsoft & Sustainability](https://www.microsoft.com/sustainability)
+- [AI for Earth](https://www.microsoft.com/ai/ai-for-earth)
