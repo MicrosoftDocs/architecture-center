@@ -13,13 +13,11 @@ ms.category:
 
 # Project 15 Open Platform for Conservation and Ecological Sustainability Solutions
 
-Project 15 from Microsoft mission is to empower scientists and conservationists around the world to capture and analyze the data they need to preserve critical species and ecosystems. 
+[Project 15 from Microsoft](https://aka.ms/project15) mission is to empower scientists and conservationists around the world to capture and analyze the data they need to preserve critical species and ecosystems.
 
 Project 15 approach is to pair a community of developers, students and partners with conservation teams around the world, backed with the power of the Microsoft cloud and our IoT Open Platform.Part of this approach is the Project 15 Open Platform, which is an open source software designed and built by Microsoft to connect to the cloud, manage and secure devices used in conservation projects.
 
-The Project 15 Open Platform will get teams roughly 80% of the way to a finished solution.
-
-This article showcases how to get started with deploying the IoT solutions. Goals were to:
+The Project 15 Open Platform will get teams roughly 80% of the way to a finished solution. This article showcases how to get started with deploying the IoT solutions. Goals were to:
 
 1. **Close the Skill Gap**  
     Boost innovation with a ready-made platform, allowing the scientific developer to expand into specific use cases.
@@ -45,7 +43,7 @@ Project 15's goal with a conservation and ecosystem sustainability open platform
     These are Azure services that if someone was standing up the solution these parts of the infrastructure only need to be deployed once and then expanded as devices get added to the solution. To learn all the ins and outs of these services is a lift and would take time. Our theory here is that by this method, the technologist doesn't need to know every nitty-gritty detail and can expand their learning as needed. For learning about building an IoT Solution, a great resource to ramp up quickly on the concepts with real world examples and labs is available at [Internet of Things Learning Path](https://aka.ms/iotlp). Of course, if one wants to learn all the details, Microsoft Learn's [Introduction to Azure IoT](https://docs.microsoft.com/learn/paths/introduction-to-azure-iot/) has all you need. All our learning resources here, are free to you.  
 
 1. **Included Components but needs customization**  
-    Here the solution will deploy these services for you, but you will start to modify and add to them based on your use case. The details of the services here are all explained in our [Project 15 Open Platform Developer Guide](Developer-Guide/DeveloperGuide.md). The high level architecture of what services are involved, see blow.  
+    Here the solution will deploy these services for you, but you will start to modify and add to them based on your use case. The details of the services here are all explained in our [Project 15 Open Platform Developer Guide](https://microsoft.github.io/project15/Developer-Guide/DeveloperGuide.html). The high level architecture of what services are involved, see blow.  
 
 1. **Not Included, requires full customization**  
     This is the part where your IP will reside.  How this works is once you Deploy the solution to your own Azure account, **it is yours to build out**. Think of how you use a word processor. The word processor is a tool and the book you write, is yours. Meaning the story you publish is yours, the revenue generated is yours. Same idea. This solution is a tool for you to use to write your own solutions. We are here to help enable you to use it and we will evolve new features over time and let you know so you can bring them in to your solution if you like. We are creating instructions and best practices around "How do I fork this repo to make my own solution but keep getting any updates from the main repo?"  
@@ -54,7 +52,7 @@ Project 15's goal with a conservation and ecosystem sustainability open platform
 
 ![Project 15 Open Platform Reference Architecture](../media/project-15-architecture.png)
 
-Open Platform is consist of multiple Azure services and configurations/settings to :
+Open Platform is consist of multiple Azure services and configurations/settings to:
 
 - Enable Ready to go solution
 - Provision devices using Device Provisioning Service
@@ -80,7 +78,7 @@ Open Platform is consist of multiple Azure services and configurations/settings 
 
 ## Components
 
--[Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/) connects devices to Azure cloud resources, and can use queries to filter data to be sent to the cloud.
+- [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/) connects devices to Azure cloud resources, and can use queries to filter data to be sent to the cloud.
 
 - [Azure Stream Analytics (ASA)](https://azure.microsoft.com/services/stream-analytics) provides real-time serverless stream processing that can run the same queries in the cloud and on the edge. ASA on IoT Edge can filter or aggregate data that needs to be sent to the cloud for further processing or storage.
 
