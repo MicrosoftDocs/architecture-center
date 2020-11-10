@@ -289,8 +289,6 @@ items:
       items:
       - name: Governance
         href: framework/devops/governance.md
-    - name: Deployment
-      href: framework/devops/deployment.md
     - name: Checklist
       href: checklist/dev-ops.md
   - name: Performance Efficiency
