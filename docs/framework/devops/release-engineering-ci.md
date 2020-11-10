@@ -41,11 +41,9 @@ The integration of your continuous integration pipeline with your source control
 
 - As pull requests are created, the CI pipeline is run, including all tests, security assessments, and other checks.
 - CI test results are provided to the pull request initiator directly in the pull request, allowing for almost real-time feedback on quality.
-- Another popular practice is building small reports that can be presented in source control to make visible the current builds states.
+- Another popular practice is building small reports or badges that can be presented in source control to make visible the current builds states
 
-Let's take a look at these items across both Azure DevOps Pipeline and GitHub Actions.
-
-#### CI Pipeline Execution
+The following image shows the integration between GitHub and an Azure DevOps pipeline. In this example, a pull request has been created, which in turn has triggered an Azure DevOps pipeline. The pipeline status can be seen directly in the pull request.
 
 ![Image of Azure DevOps integration with GitHub.](../_images/devops/ado-github-status.png)
 
@@ -69,6 +67,15 @@ Let's take a look at these items across both Azure DevOps Pipeline and GitHub Ac
 ![Image of Azure DevOps pipeline tests in the Azure DevOps portal.](../_images/devops/ado-tests.png)
 
 #### CI Result Badges
+
+Many developers like to show that they're keeping their code quality high by displaying a status badge in their repo. The following image shows an Azure Pipelines badge as displayed on the Readme file for an open-source project on GitHub.
+
+![Image of Azure DevOps integration with GitHub.](../_images/devops/github-status-badge.png)
+
+To learn how to display badges in your repositories, see these articles:
+
+- [Add an Azure Pipeline status badge to your repository](https://docs.microsoft.com/azure/devops/pipelines/create-first-pipeline?view=azure-devops&tabs=java%2Ctfs-2018-2%2Cbrowser#add-a-status-badge-to-your-repository).
+- [Add a GitHub workflow status badge to your repository](https://docs.github.com/en/free-pro-team@latest/actions/managing-workflow-runs/adding-a-workflow-status-badge).
 
 ### Integrated Testing
 

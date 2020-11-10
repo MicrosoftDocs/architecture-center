@@ -86,6 +86,8 @@ Using source control systems, you can create your own copies of the software sou
 
 As updates are made to software and infrastructure configurations, version control software allows us to propose these changes before merging them into the source. During the proposal, peers can review the changes, recommend updates, and approve the changes. Source control solutions provide an excellent platform for collaboration on changes to the software.
 
+To learn more about using Git, visit the [DevOps Resource Center](https://docs.microsoft.com/azure/devops/learn/git/what-is-git).
+
 ### GitHub
 
 GitHub is a popular source control system that uses Git. In addition to core Git functionality, GitHub includes several other features such as access control, collaboration features such as code issues, project boards, wikis, and an automation platform called GitHub actions.
