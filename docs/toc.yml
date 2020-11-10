@@ -289,12 +289,8 @@ items:
       items:
       - name: Governance
         href: framework/devops/governance.md
-    - name: Application design
-      href: framework/devops/app-design.md
     - name: Deployment
       href: framework/devops/deployment.md
-    - name: Testing
-      href: framework/devops/testing.md
     - name: Checklist
       href: checklist/dev-ops.md
   - name: Performance Efficiency
