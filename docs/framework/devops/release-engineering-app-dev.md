@@ -60,7 +60,7 @@ Some features of Bridge:
 **Learn more**
 
 - [Documentation: Use Bridge to Kubernetes with Visual Studio Code](https://www.docker.com/products/docker-desktop)
-- [Documentation: Use Bridge to Kubernetes with Visual Studio](https://docs.microsoft.com/visualstudio/containers/bridge-to-kubernetes?view=vs-2019)
+- [Documentation: Use Bridge to Kubernetes with Visual Studio](https://docs.microsoft.com/visualstudio/containers/bridge-to-kubernetes?view=vs-2019&preserve-view=true)
 
 ## Source control
 
@@ -100,7 +100,7 @@ Azure DevOps is a collection of services for building, collaborating on, testing
 
 **Learn more**
 
-- [Documentation: Azure Repos](https://docs.microsoft.com/azure/devops/repos/?view=azure-devops)
+- [Documentation: Azure Repos](https://docs.microsoft.com/azure/devops/repos/?view=azure-devops&preserve-view=true)
 
 #### Next steps
 
