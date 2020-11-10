@@ -103,7 +103,7 @@ Take note, the Terraform provider for Azure is an abstraction on top of Azure AP
 
 - [Documentation: Using Terraform on Azure](https://docs.microsoft.com/azure/developer/terraform/overview)
 
-#### Next steps
+## Next steps
 
 > [!div class="nextstepaction"]
 > [Automate infrastructure configuration](./automation-configuration.md)

@@ -102,7 +102,7 @@ Azure DevOps is a collection of services for building, collaborating on, testing
 
 - [Documentation: Azure Repos](https://docs.microsoft.com/azure/devops/repos/?view=azure-devops&preserve-view=true)
 
-#### Next steps
+## Next steps
 
 > [!div class="nextstepaction"]
 > [Release Engineering: Continuous integration](./release-engineering-ci.md)

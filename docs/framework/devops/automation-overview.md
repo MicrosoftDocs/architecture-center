@@ -83,7 +83,7 @@ Two popular options for automating operational tasks are:
 
 For more information, see [Automation](./automation-tasks.md). To see a Microsoft Ignite video, see [Automating Operational and Management Tasks](https://azure.microsoft.com/resources/videos/microsoft-ignite-2015-automating-operational-and-management-tasks-using-azure-automation/).
 
-#### Next steps
+## Next steps
 
 > [!div class="nextstepaction"]
 > [Automate Repeatable Infrastructure](./automation-infrastructure.md)

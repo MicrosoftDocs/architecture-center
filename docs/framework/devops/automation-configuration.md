@@ -175,7 +175,7 @@ Puppet is an enterprise-ready automation platform that handles the application d
 
 - [Documentation: How Puppet works](https://puppet.com/products/how-puppet-works)
 
-#### Next steps
+## Next steps
 
 > [!div class="nextstepaction"]
 > [Automate operational tasks](./automation-tasks.md)

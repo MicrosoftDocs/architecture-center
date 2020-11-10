@@ -10,7 +10,7 @@ ms.subservice: well-architected
 
 # Release Engineering Overview
 
-#### Next steps
+## Next steps
 
 > [!div class="nextstepaction"]
 > [Release Engineering: Application Development](./release-engineering-app-dev.md)

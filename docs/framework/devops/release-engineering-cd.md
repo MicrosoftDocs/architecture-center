@@ -37,7 +37,7 @@ With good use of staging and production environments, you can push updates to th
 
 To capture as much version-specific information as possible, implement a robust logging strategy. If you use staged deployment techniques, more than one version of your application will be running in production. If a problem occurs, determine which version is causing it.
 
-#### Next steps
+## Next steps
 
 > [!div class="nextstepaction"]
 > [Release Engineering: Testing](./release-engineering-testing.md)

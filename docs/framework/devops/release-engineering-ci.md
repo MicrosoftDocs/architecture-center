@@ -80,7 +80,7 @@ All deployment tools must incorporate security restrictions to protect the deplo
 
 ## Tradeoffs
 
-#### Next steps
+## Next steps
 
 > [!div class="nextstepaction"]
 > [Release Engineering: Continuous deployment](./release-engineering-cd.md)
