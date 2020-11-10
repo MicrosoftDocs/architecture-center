@@ -2027,6 +2027,10 @@
     {
       "source_path": "docs/framework/devops/app-design.md",
       "redirect_url": "/azure/architecture/framework/devops/release-engineering-app-dev"
+    },
+    {
+      "source_path": "docs/framework/devops/testing.md",
+      "redirect_url": "/azure/architecture/framework/devops/release-engineering-testing"
     }
   ]
 }

@@ -1,5 +1,5 @@
 ---
-title: Governing Azure environment
+title: Governing Azure environments
 description: Describes how to govern your workload to ensure your DevOps infrastructure is working as intended.
 author: neilpeterson
 ms.date: 11/10/2020
@@ -10,6 +10,8 @@ ms.custom:
   - fasttrack-edit
   - article
 ---
+
+# Governing Azure environments
 
 ## Tagging and resource naming
 
