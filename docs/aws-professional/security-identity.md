@@ -23,7 +23,7 @@ Driving security and identity consistency across clouds should include:
 
 ## Multi-cloud identity integration
 
-Customers who are using both Azure and AWS cloud platforms will benefit from consolidating identity services between these two clouds using [Azure Active Directory](/azure/active-directory/fundamentals/active-directory-whatis) and Single Sign-on (SSO) services. This model allows for a consolidated identity plane through which access to services in both clouds are provisioned using standard SAML-based sign-on capabilities.
+Customers who are using both Azure and AWS cloud platforms will benefit from consolidating identity services between these two clouds using [Azure Active Directory](/azure/active-directory/fundamentals/active-directory-whatis) and Single Sign-on (SSO) services. This model allows for a consolidated identity plane through which access to services in both clouds can be consistently accessed and governed.
 
 This approach allows for the rich role-based access controls in Azure Active Directory to be enabled across the Identity & Access Management (IAM) services in AWS using rules to associate the user.userprincipalname and user.assignrole attributes from Azure AD into IAM permissions. This approach reduces the number of unique identities users and administrators are required to maintain across both clouds including a consolidation of the identity per account design that AWS employs. The [AWS IAM solution](https://aws.amazon.com/iam/features/?nc=sn&loc=2) allows for and specifically identifies Azure Active Directory as a federation and authentication source for their customers.
 
@@ -33,7 +33,7 @@ A complete walk-through of this integration can be found in the following articl
 
 Because many customers continue to support a hybrid identity model for Active Directory services, it is increasingly important for Security Engineering teams to implement strong authentication solutions and block legacy authentication methods associated primarily with on-premises and legacy Microsoft technologies.
 
-A combination of multi-factor authentication (MFA), along with conditional access policies enable enhanced security for common authentication scenarios for end users in your organization. While MFA itself provides an increase level of security to confirm authentications, when combined with [conditional access (CA) controls to block legacy authentication](https://docs.microsoft.com/azure/active-directory/conditional-access/howto-conditional-access-policy-block-legacy) will further prevent unauthorized access attempts to cloud service environments. Strong authentication using only modern authentication clients is fully realized with the combination of MFA and CA policies.
+A combination of multi-factor authentication (MFA), along with conditional access policies enable enhanced security for common authentication scenarios for end users in your organization. While MFA itself provides an increase level of security to confirm authentications, additional controls can be applied using [conditional access (CA) controls to block legacy authentication](https://docs.microsoft.com/azure/active-directory/conditional-access/howto-conditional-access-policy-block-legacy) to both Azure and AWS cloud environment. Strong authentication using only modern authentication clients is only possible with the combination of MFA and CA policies.
 
 ## Cloud Platform Security (multi-cloud)
 
