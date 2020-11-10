@@ -255,20 +255,6 @@ items:
     items:
     - name: Overview
       href: framework/devops/overview.md
-    - name: Application design
-      href: framework/devops/app-design.md
-    - name: Development
-      href: framework/devops/development.md
-    - name: Deployment
-      href: framework/devops/deployment.md
-    - name: Monitoring
-      href: framework/devops/monitoring.md
-    - name: Performance
-      href: framework/devops/performance.md
-    - name: Testing
-      href: framework/devops/testing.md
-    - name: Checklist
-      href: checklist/dev-ops.md
     - name: Automation
       items:
       - name: Automation Overview
@@ -279,6 +265,38 @@ items:
         href: framework/devops/automation-configuration.md
       - name: Automate operational tasks
         href: framework/devops/automation-tasks.md
+    - name: Release engineering
+      items:
+      - name: Release engineering overview
+        href: framework/devops/release-engineering-overview.md
+      - name: Application development
+        href: framework/devops/release-engineering-app-dev.md
+      - name: Continuous integration
+        href: framework/devops/release-engineering-ci.md
+      - name: Continuous deployment
+        href: framework/devops/release-engineering-cd.md
+      - name: Release testing
+        href: framework/devops/release-engineering-testing.md
+      - name: Rollback and Rollforward 
+        href: framework/devops/release-engineering-rollback.md
+    - name: Observability (operational awareness) 
+      items:
+      - name: Monitoring
+        href: framework/devops/monitoring.md
+    - name: Incident Management
+      items:
+    - name: Application design
+      href: framework/devops/app-design.md
+    - name: Development
+      href: framework/devops/development.md
+    - name: Deployment
+      href: framework/devops/deployment.md
+    - name: Performance
+      href: framework/devops/performance.md
+    - name: Testing
+      href: framework/devops/testing.md
+    - name: Checklist
+      href: checklist/dev-ops.md
   - name: Performance Efficiency
     items:
     - name: Overview
