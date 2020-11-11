@@ -17,12 +17,14 @@ Best practices for logging include:
 
 - Don't use string formatting or interpolation. Logging a string with `$"This broke {brokenThing}"` isn't useful for debugging.
   
-- Pass objects so that they become searchable fields. Instead of `LogInformation(LogEventIds.StartProcessing, $"Processing has started on item {Item.itemNumber}");`,
+- Pass objects so that they become searchable fields.
   
-  - Use an object as such `LogInformationObject(LogEventIds.StartProcessing, Item);`, or
-  - Use anonymous objects like `LogInformationObject(LogEventIds.StartProcessing, new {Item.itemNumber, Item.itemDescription, someData});`.
+  Instead of `LogInformation(LogEventIds.StartProcessing, $"Processing has started on item {Item.itemNumber}");`, use:
   
-- Follow the EventId numbering conventions outlined in [LogEventIds]().
+  - An object as such, like `LogInformationObject(LogEventIds.StartProcessing, Item);`, or
+  - Anonymous objects, like `LogInformationObject(LogEventIds.StartProcessing, new {Item.itemNumber, Item.itemDescription, someData});`.
+  
+- Follow the EventId numbering conventions outlined in [LogEventIds](https://github.com/mspnp/gridwich/src/Gridwich.Core/src/Constants/LogEventIds.cs).
   
 - For any significant body of work, use the following logging pattern:
   
@@ -34,7 +36,7 @@ Best practices for logging include:
 
 ## ObjectLogger
 
-ObjectLogger/IObjectLogger is a small utility that is a wrapper for the standard Logger/ILogger. This one-liner utility logs any C# object by converting C# objects to dictionary objects that the logger can consume.
+ObjectLogger/IObjectLogger is a small wrapper utility for the standard Logger/ILogger. This one-liner utility logs any C# object by converting C# objects to dictionary objects that the logger can consume.
 
 ObjectLogger/IObjectLogger forces developers to use EventIds in their logging by using an adapter pattern, not inheritance, to restrict use of logger methods that don't have EventIds. EventIds are useful for debugging the service.
 
@@ -48,7 +50,7 @@ The underlying Event Grid runtime infrastructure provides a base schema, includi
 
 ## Context objects
 
-When working with complex APIs and workflows that require several inputs and outputs, you can create a *context object*, which is a property bag of important variables that your code can pass or generate. Context objects can deal with many parameters, and method signatures don't need to change when adding or removing parameters from the context object. Context objects can also be passed to the logger and other interfaces as a unit.
+When working with complex APIs and workflows that require several inputs and outputs, you can create a *context object*, which is a property bag of important variables that your code can pass or generate. Context objects can deal with many parameters, and method signatures don't need to change when you add or remove parameters from the context object. You can also pass context objects to the logger and other interfaces as a unit.
 
 For example, instead of:
 

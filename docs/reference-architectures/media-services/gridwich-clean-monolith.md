@@ -25,7 +25,7 @@ The code in this project is organized as a clean-architecture [monolith](/dotnet
 
 The solution is stateless, so it doesn't contain any gateways to persistence layers. The solution has no user interface, so it has no controllers or presenters.
 
-The software component composition uses the [ConfigureServices](https://github.com/mspnp/gridwich/src/Gridwich.Host.FunctionApp/src/GridwichConfigureServices.cs) class within the Azure Functions App to define which concrete classes are available in the IoC container for the app.
+The software component composition uses the [GridwichConfigureServices](https://github.com/mspnp/gridwich/src/Gridwich.Host.FunctionApp/src/GridwichConfigureServices.cs) class to define which concrete classes are available in the IoC container for the Azure Functions App.
 
 ## Monolithic architecture
 
@@ -45,9 +45,9 @@ To encapsulate Azure Event Grid as a request and response broker, the library ha
 
 The Event Grid request adapter is an HTTP endpoint in the form of an [Azure Function HTTP Endpoint](/azure/azure-functions/functions-bindings-http-webhook). An adapter to convert web requests to Event Grid arrays is also in the same [EventGridFunction](https://github.com/mspnp/gridwich/src/GridWich.Host.FunctionApp/src/Functions/EventGridFunction.cs).
 
-The Event Grid response gateway consists of the:
-- [EventGridHandlerBase](https://github.com/mspnp/gridwich/src/GridWich.Core/src/Bases/EventGridHandlerBase.cs), which converts a response DTO into an `EventGridEvent` object.
-- [EventGridDispatcher](https://github.com/mspnp/gridwich/src/GridWich.Core.EventGrid/src/EventGridDispatcher.cs), which places the Event Grid event on the correct response Event Grid topic endpoint URI by using the correct topic key.
+The Event Grid response gateway consists of:
+- The [EventGridHandlerBase](https://github.com/mspnp/gridwich/src/GridWich.Core/src/Bases/EventGridHandlerBase.cs), which converts a response DTO into an `EventGridEvent` object.
+- The [EventGridDispatcher](https://github.com/mspnp/gridwich/src/GridWich.Core.EventGrid/src/EventGridDispatcher.cs), which places the Event Grid event on the correct response Event Grid topic endpoint URI by using the topic key.
 
 The solution decouples the [saga participants](saga-orchestration.md#saga-participants) into the following libraries, which have responsibilities over domain-specific application business logic. The libraries contain required infrastructure gateways and their SDKs, which accomplish the actions that the business logic requires.
 
@@ -65,7 +65,7 @@ For code reuse and centralization, Gridwich consolidates business logic or infra
 - [Gridwich.SagaParticipants.Encode](https://github.com/mspnp/gridwich/src/Gridwich.SagaParticipants.Encode/)
 - [Gridwich.SagaParticipants.Encode.TelestreamCloud](https://github.com/mspnp/gridwich/src/Gridwich.SagaParticipants.Encode.TelestreamCloud/)
 
-### Microservices alternative
+## Microservices alternative
 
 Nothing in the Gridwich problem space or architecture explicitly pushes the solution into either a monolithic app or several microservices.
 

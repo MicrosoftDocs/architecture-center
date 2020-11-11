@@ -23,7 +23,7 @@ When Gridwich first publishes an asset, it creates a *streaming locator* by call
   
 - The *content key policy* describes how to deliver the key or DRM license to a player. For DRM, the policy describes properties like duration, offline mode, minimum device security level, and digital output protection. Gridwich configures these DRM settings and secrets, and uses them to create and update the policy.
 
-Gridwich creates these policies in the Media Services account at first publication, and reuses them for future publications. A Gridwich publication message must specify the streaming policy and content key policy.
+Gridwich creates these policies in the Media Services account at first publication, and reuses them for future publications.
 
 The following diagram shows the Azure Media Services policies and their relationship to Gridwich assets and streaming locators.
 
@@ -31,7 +31,7 @@ The following diagram shows the Azure Media Services policies and their relation
 
 ## Gridwich publication messages
 
-The following example shows a Gridwich publication message:
+A Gridwich publication message must specify the streaming policy and content key policy. The following example shows a Gridwich publication message:
 
 ```json
 {
@@ -111,17 +111,19 @@ A secured token service (STS), not provided in Gridwich, should deliver tokens w
 
 To change the authorized protocols or DRM license properties for content protection, update the streaming policy or content key policy. The update mechanism differs depending on the policy.
 
-- The Media Services *streaming policy* can't change. Gridwich uses an internal Media Services name to assign a version to the policy, and an external Gridwich publication message name that doesn't change. Old locators will still use the old streaming policy, and new locators will use the updated streaming policy.
+- The Media Services *streaming policy* can't change. Gridwich uses an internal Media Services name to assign a version to the updated policy, and uses an external Gridwich publication message name that doesn't change. Old locators will still use the old streaming policy, and new locators will use the updated streaming policy.
 
 - The Media Services *content key policy* can change, so Gridwich uses the same name in Media Services and in the Gridwich publication message. Updating the content key policy affects all old and new locators.
   
   You can extend Gridwich to have two or more content key policies with different names side by side. You can use different policies for completely different asset classes with different rights.
   
+The following diagram shows the process of updating the streaming policy and content key policies:
+
 ![Content protection policies update diagram.](media/update-content-protection-policies.png)
 
 ### Streaming policy update
 
-The streaming policy uses an internal Media Services name to assign a version to the policy, and an external request name that doesn't change. For example, the `multiDRMStreaming` policy in the request has a matching name like `multiDRMStreaming-Version-1-0` in Media Services. If the code in the [MediaServicesV3CustomStreamingPolicyMultiDrmStreaming.cs](https://github.com/mspnp/gridwich/src/Gridwich.SagaParticipants.Publication.MediaServicesV3/src/StreamingPolicies/MediaServicesV3CustomStreamingPolicyMultiDrmStreaming.cs) file changes, update the streaming policy name in the file to increment the version number.
+The streaming policy uses an internal Media Services name to assign a version to the policy, and an external request name that doesn't change. In the preceding example, the `multiDRMStreaming` policy in the request has the name `multiDRMStreaming-Version-1-0` in Media Services. If the code in the [MediaServicesV3CustomStreamingPolicyMultiDrmStreaming.cs](https://github.com/mspnp/gridwich/src/Gridwich.SagaParticipants.Publication.MediaServicesV3/src/StreamingPolicies/MediaServicesV3CustomStreamingPolicyMultiDrmStreaming.cs) file changes, update the streaming policy name in the file to increment the version number:
 
 ```csharp
 private readonly string nameInAmsAccount = CustomStreamingPolicies.MultiDrmStreaming + "-Version-1-0";
@@ -129,13 +131,11 @@ private readonly string nameInAmsAccount = CustomStreamingPolicies.MultiDrmStrea
 
 ### Content key policy update
 
-To update the content key policy, use the same name in Media Services and in the publication message.
+The updated content key policy uses the same name in Media Services and in the publication message, and affects all old and new locators.
 
-Content key policy updates affect all old and new locators, and occur only if the variable **AmsDrmEnableContentKeyPolicyUpdate** is set to `true`. This variable is in **Azure Pipelines** > **Library** > **Variable groups** > **gridwich-cicd-variables.global**.
+Content key policy updates can occur only if the pipeline variable **AmsDrmEnableContentKeyPolicyUpdate** is set to `true`. This variable is in **Azure Pipelines** > **Library** > **Variable groups** > **gridwich-cicd-variables.global**.
 
-![Screenshot of some gridwich-cicd-variables.global variable group variables.](media/fairplay-variables.png)
-
-The variable specifies whether Azure Functions should automatically update the content key policy at startup. Setting this variable lets you decide when to force the update after a code change. Force the update to occur after the Azure Function instance restarts and when the next publication process is run.
+This variable specifies whether Azure Functions should automatically update the content key policy at startup. Setting this variable lets you decide when to force the update after a code change. Force the update to occur after the Azure Function instance restarts and when the next publication process runs.
 
 Run the pipeline to update the Azure deployment with new settings, secrets, or code. See [Azure Pipelines variable group to Terraform variables flow](variable-group-terraform-flow.md) for more information about the variable flow.
 
@@ -170,8 +170,6 @@ Gridwich processes and ingests the FairPlay package from Apple as settings. Hand
    1. Convert the *.pfx* file to a base 64 text file called *FairPlay-out-base64.txt*.
    
 1. Copy the *FairPlay-out-base64.txt* file to **Pipelines** > **Library** > **Secure files**, replacing any existing same-named file.
-   
-   ![Screenshot of the FairPlay-out-base64.txt file in Secure files.](media/fairplay-secure-files.png)
    
 1. Store the OpenSSL password in **Pipelines** > **Library** > **Variable groups > gridwich-cicd-variables.global** under the variable **amsDrmFairPlayPfxPassword**, in Secured mode.
    

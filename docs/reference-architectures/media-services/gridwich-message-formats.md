@@ -1,5 +1,5 @@
 ---
-title: Gridwich message formats
+title: Gridwich request-response message formats
 titleSuffix: Azure Reference Architectures
 description: Learn about the specific Event Grid events that form the request-response sequence for different Gridwich operations.
 author: doodlemania2
@@ -11,7 +11,7 @@ ms.custom:
 - fcp
 ---
 
-# Gridwich operations request-response messages
+# Gridwich request-response message formats
 
 This article details the specific Event Grid events that form the request-response sequence for different Gridwich operations.
 
@@ -19,7 +19,7 @@ This article details the specific Event Grid events that form the request-respon
 
 Gridwich Acknowledgment and Gridwich Failure are different from other Gridwich events. Specifically:
 
-- [Gridwich Acknowledgment (ACK)](#m-ack) indicates only that Gridwich has received, but not necessarily processed, the request in a Request-ACK-Response sequence.
+- [Gridwich Acknowledgment (ACK)](#m-ack) indicates that Gridwich has received, but not necessarily processed, the request in a Request-ACK-Response sequence.
 - Each operation has one or more unique Success response events, but almost all operations use the same [Gridwich Failure](#m-fail) event to communicate failure.
 
 **Publishing events**
@@ -76,13 +76,13 @@ Gridwich Acknowledgment and Gridwich Failure are different from other Gridwich e
 
 ## Operation context
 
-Gridwich accepts a JSON `OperationContext` object as part of request messages. In general, Gridwich echoes a corresponding object in response messages and isn't concerned with the specific internal structure or content of the context object.
+Gridwich accepts a JSON `operationContext` object as part of request messages. In general, Gridwich echoes a corresponding object in response messages and isn't concerned with the specific internal structure or content of the context object.
 
 The exception is that the response context object may have extra JSON properties compared to the request equivalent. These extra properties are internal to Gridwich, and their names always start with the tilde ~ character. The request properties are always present on the response context object.
 
 As in normal JSON, the response object properties may appear in a different order than in the request object.
 
-For more information about operation context, see [Operation context](gridwich-architecture.md#operation-context).
+For more information about operation context, see [Operation context](gridwich-architecture.md#operation-context) in the Gridwich Architecture article.
 
 ## Event Grid messages
 
