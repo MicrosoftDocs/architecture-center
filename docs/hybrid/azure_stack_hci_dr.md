@@ -111,7 +111,7 @@ The [Microsoft Azure Well-Architected Framework][azure-well-architected-framewor
 - **Accelerated failover.** You can optimize the network infrastructure and its configuration to expedite completion of a site-level failover. For example, you can leverage stretched virtual LANs (VLANs), network abstraction devices, and shorter Time to Live (TTL) values in DNS records representing clustered resources. In addition, consider lowering the [default resiliency period][resiliencydefaultperiod], which determines the period of time during which a clustered VM is allowed to run in the isolated state.
 
 > [!CAUTION]
-> Stretched clusters do not support SDN.
+> Using Stretched clusters with SDN is considered an advanced configuration and you should contact your Systems Integrator or Microsoft Support for further assistance.
 
 
 ### Security
@@ -142,6 +142,7 @@ The [Microsoft Azure Well-Architected Framework][azure-well-architected-framewor
 [resource-context-log-analytics-access-mode]: https://docs.microsoft.com/azure/azure-monitor/platform/design-logs-deployment#access-mode
 [azure-monitor]: https://docs.microsoft.com/azure/azure-monitor/insights/vminsights-overview
 [change-tracking-and-inventory]: https://docs.microsoft.com/azure/automation/change-tracking
+[update-management]: https://docs.microsoft.com/azure/automation/update-management/overview
 [site-to-site-network-reqs]: https://docs.microsoft.com/azure-stack/hci/concepts/plan-host-networking#site-to-site-requirements-stretched-cluster
 [site-to-site-rdma-considerations]: https://docs.microsoft.com/en-us/azure-stack/hci/concepts/plan-host-networking#rdma-considerations
 [set-srnetworkconstraint]: https://docs.microsoft.com/powershell/module/storagereplica/set-srnetworkconstraint?view=win10-ps
