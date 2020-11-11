@@ -33,7 +33,12 @@ To achieve continuous integration, we need software solutions to manage, integra
 
 A continuous integration pipeline involves a piece of software, in many cases, cloud-hosted, that provides a platform for running automated tests, compliance scans, reporting, and all additional components that make up the continuous integration process. In most cases, the pipeline software is attached to source control such that when pull requests are created and / or software is merged into a specific branch, and the continuous integration pipeline is run. Source control integration also provides the opportunity for providing CI feedback directly on the pull request.
 
-Many solutions provide continuous integration pipeline capabilities. This article covers both Azure DevOps Pipelines and GitHub actions and also provides links for finding more information.
+Many solutions provide continuous integration pipeline capabilities. This article touches on both Azure DevOps Pipelines and GitHub actions and provides links to find more information.
+
+To learn how to create a continuous integration pipeline, see these articles:
+
+- [Azure DevOps: Create your first pipeline](https://docs.microsoft.com/azure/devops/pipelines/create-first-pipeline?view=azure-devops&preserve-view=true).
+- [GitHub Actions: Setting up continuous integration using workflow tempaltes](https://docs.github.com/en/free-pro-team@latest/actions/guides/setting-up-continuous-integration-using-workflow-templates).
 
 ### Source Controll Integration
 
@@ -45,9 +50,16 @@ The integration of your continuous integration pipeline with your source control
 
 The following image shows the integration between GitHub and an Azure DevOps pipeline. In this example, a pull request has been created, which in turn has triggered an Azure DevOps pipeline. The pipeline status can be seen directly in the pull request.
 
-![Image of Azure DevOps integration with GitHub.](../_images/devops/ado-github-status.png)
+![Image of Azure DevOps status badge in GitHub repository.](../_images/devops/ado-github-status.png)
 
 #### Test Integration
+
+A key element of continuous integration is the continual building and testing of code as code contributions are created. Testing pull requests as they are created gives quick feedback that the commit does has not introduced breaking changes. The neat thing here is that the tests that are run by the continuous integration pipeline can be the same tests run during test-driven development.
+
+The following code snippet shows a test step from an Azure DevOps pipeline. There are two actions occurring:
+
+- The first task is using a popular Python testing framework to run CI tests. These tests reside in source control alongside the Python code. The test results are output to a file named _test-results.xml_.
+- The second task consumes the test results and publishing them to the Azure DevOps pipeline as an integrated report.
 
 ```yaml
 - script: |
@@ -64,6 +76,8 @@ The following image shows the integration between GitHub and an Azure DevOps pip
     testRunTitle: 'Python $(python.version)'
 ```
 
+The following image shows the test results as seen in the Azure DevOps portal.
+
 ![Image of Azure DevOps pipeline tests in the Azure DevOps portal.](../_images/devops/ado-tests.png)
 
 #### CI Result Badges
@@ -74,18 +88,12 @@ Many developers like to show that they're keeping their code quality high by dis
 
 To learn how to display badges in your repositories, see these articles:
 
-- [Add an Azure Pipeline status badge to your repository](https://docs.microsoft.com/azure/devops/pipelines/create-first-pipeline?view=azure-devops&tabs=java%2Ctfs-2018-2%2Cbrowser#add-a-status-badge-to-your-repository).
+- [Add an Azure Pipeline status badge to your repository](https://docs.microsoft.com/azure/devops/pipelines/create-first-pipeline?view=azure-devops&tabs=java%2Ctfs-2018-2%2Cbrowser#add-a-status-badge-to-your-repository&preserve-view=true).
 - [Add a GitHub workflow status badge to your repository](https://docs.github.com/en/free-pro-team@latest/actions/managing-workflow-runs/adding-a-workflow-status-badge).
-
-### Integrated Testing
 
 ### Integrated Security Assessment
 
 All deployment tools must incorporate security restrictions to protect the deployed application. Define and enforce deployment policies carefully, and minimize the need for human intervention.
-
-### Packaged Assets
-
-## Tradeoffs
 
 ## Next steps
 
