@@ -3,7 +3,7 @@ title: Gridwich clean monolith architecture
 titleSuffix: Azure Reference Architectures
 description: Learn about the components and libraries in the Gridwich clean monolith architecture, and a microservices alternative.
 author: doodlemania2
-ms.date: 10/30/2020
+ms.date: 11/12/2020
 ms.topic: reference-architecture
 ms.service: architecture-center
 ms.subservice: reference-architecture
@@ -21,15 +21,15 @@ The code in this project is organized as a clean-architecture [monolith](/dotnet
 - Infrastructure gateways
 - Inversion of Control (IoC)
 
-![Diagram showing the parts of a clean monolith architecture.](media/clean-monolith-components.png)
+![Diagram showing typical conceptual components of a clean monolith architecture.](media/clean-monolith-components.png)
 
 The solution is stateless, so it doesn't contain any gateways to persistence layers. The solution has no user interface, so it has no controllers or presenters.
 
-Software component composition uses the [ConfigureServices](https://github.com/mspnp/gridwich/src/Gridwich.Host.FunctionApp/src/GridwichConfigureServices.cs) class within the Azure Functions App to define which concrete classes are available in the IoC container for the app.
+The software component composition uses the [ConfigureServices](https://github.com/mspnp/gridwich/src/Gridwich.Host.FunctionApp/src/GridwichConfigureServices.cs) class within the Azure Functions App to define which concrete classes are available in the IoC container for the app.
 
 ## Monolithic architecture
 
-![Diagram showing the components for the monolithic Gridwich architecture.](media/solution-components.png)
+![Diagram showing components of the Gridwich monolith architecture.](media/solution-components.png)
 
 The solution has a [Core.EventGrid](https://github.com/mspnp/gridwich/src/GridWich.Core.EventGrid/) library, which contains:
 
@@ -65,13 +65,13 @@ For code reuse and centralization, Gridwich consolidates business logic or infra
 - [Gridwich.SagaParticipants.Encode](https://github.com/mspnp/gridwich/src/Gridwich.SagaParticipants.Encode/)
 - [Gridwich.SagaParticipants.Encode.TelestreamCloud](https://github.com/mspnp/gridwich/src/Gridwich.SagaParticipants.Encode.TelestreamCloud/)
 
-## Microservices alternative
+### Microservices alternative
 
 Nothing in the Gridwich problem space or architecture explicitly pushes the solution into either a monolithic app or several microservices.
 
-The app could easily be refactored into microservices, each a Function App hosting a single saga participant. Each Function app would link the core and core EventGrid libraries.  The apps would each have a linkage or use a common library for infrastructure gateways.
+You could easily refactor the app into microservices, each a Function App hosting a single saga participant. Each Function app would link the core and core EventGrid libraries.  The apps would each have a linkage or use a common library for infrastructure gateways.
 
-![Diagram showing the components for a microservices Gridwich architecture.](media/microservices-components.png)
+![Diagram showing an alternative Gridwich microservices architecture.](media/microservices-components.png)
 
 The advantage of such a microservices approach is the ability to scale differently for each type of request. If there were thousands of one type of request per second, but only hundreds of another request type per day, the overall solution would benefit from having smaller, easy-to-instantiate and quick-to-execute functions for the high-volume requests.
 

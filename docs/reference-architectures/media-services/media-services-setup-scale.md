@@ -3,7 +3,7 @@ title: Gridwich Azure Media services setup and scaling
 titleSuffix: Azure Reference Architectures
 description: Learn how Gridwich uses Azure Media Services V2 and V3 SDKs to set up authentication and authorization, and how to scale Media Services resources.
 author: doodlemania2
-ms.date: 10/30/2020
+ms.date: 11/12/2020
 ms.topic: reference-architecture
 ms.service: architecture-center
 ms.subservice: reference-architecture
@@ -11,15 +11,15 @@ ms.custom:
 - fcp
 ---
 
-# Gridwich Azure Media Services
+# Gridwich and Azure Media Services
 
-Gridwich uses the Azure Media Services Platform-as-a-Service (PaaS). Depending on the type of operation, the Gridwich application uses one of two methods to access Azure Media Services.
+Gridwich uses the Azure Media Services Platform as a Service (PaaS). Depending on the type of operation, the Gridwich application uses one of two methods to access Azure Media Services.
 
 ## Azure Media Services V2
 
-To perform the encoding of sprite sheets, or to create thumbnails, Gridwich uses the Azure Media Services V2 API via REST.
+To perform the encoding of sprite sheets, or to create thumbnails, Gridwich uses the Azure Media Services V2 API via representational state transfer (REST).
 
-Work on AMS V2 is initiated by the [MediaServicesV2EncodeCreateHandler](https://github.com/mspnp/gridwich/src/GridWich.SagaParticipants.Encode.MediaServicesV2/src/EventGridHandlers/MediaServicesV2EncodeCreateHandler.cs), which calls the [MediaServicesV2RestEncodeService](https://github.com/mspnp/gridwich/src/GridWich.SagaParticipants.Encode.MediaServicesV2/src/Services/MediaServicesV2RestEncodeService.cs), which in turn uses the [MediaServicesV2RestWrapper](https://github.com/mspnp/gridwich/src/GridWich.SagaParticipants.Encode.MediaServicesV2/src/Services/MediaServicesV2RestWrapper.cs).
+The [MediaServicesV2EncodeCreateHandler](https://github.com/mspnp/gridwich/src/GridWich.SagaParticipants.Encode.MediaServicesV2/src/EventGridHandlers/MediaServicesV2EncodeCreateHandler.cs) initiates work by calling the [MediaServicesV2RestEncodeService](https://github.com/mspnp/gridwich/src/GridWich.SagaParticipants.Encode.MediaServicesV2/src/Services/MediaServicesV2RestEncodeService.cs), which in turn uses the [MediaServicesV2RestWrapper](https://github.com/mspnp/gridwich/src/GridWich.SagaParticipants.Encode.MediaServicesV2/src/Services/MediaServicesV2RestWrapper.cs).
 
 Within the [MediaServicesV2RestWrapper](https://github.com/mspnp/gridwich/src/GridWich.SagaParticipants.Encode.MediaServicesV2/src/Services/MediaServicesV2RestWrapper.cs), the function `ConfigureRestClient` sets up authentication via an [Azure.Core.TokenCredential](/dotnet/api/azure.identity.defaultazurecredential) object:
 
@@ -33,9 +33,9 @@ var amsAccessToken = _tokenCredential.GetToken(
 
 This code presents the identity of the [TokenCredential](/dotnet/api/azure.identity.interactivebrowsercredential) and requests authorization at the REST API scope.
 
-When running locally, `TokenCredential` prompts the developer to log in, and presents that identity when requesting access to the scope. The developer must be a contributor on the resource to successfully authenticate, and the correct environment variables must be in the [local settings file](set-up-local-environment.md#create-localsettingsjson).
+When running locally, the `TokenCredential` [prompts the developer to log in](/dotnet/api/azure.identity.interactivebrowsercredential). That identity is then presented when requesting access to the scope. For successful authentication, the developer must be a contributor on the resource, and the correct environment variables must be in the local settings file.
 
-The Terraform file [functions/main.tf](https://github.com/mspnp/gridwich/infrastructure/terraform/functions/main.tf) enables a system-assigned managed identity for the Azure Functions App, with:
+Use the Terraform file [functions/main.tf](https://github.com/mspnp/gridwich/infrastructure/terraform/functions/main.tf) to configure a system-assigned managed identity for the Azure Functions App, with:
 
 ```terraform
 resource "azurerm_function_app" "fxn" {
@@ -60,7 +60,7 @@ resource "azurerm_function_app" "fxn" {
 }
 ```
 
-The Terraform [bashscriptgenerator/templates/ams_sp.sh](https://github.com/mspnp/gridwich/infrastructure/terraform/bashscriptgenerator/templates/ams_sp.sh) script enables authorization on the Azure Media Services account for the Azure Functions service principal:
+Use the Terraform [bashscriptgenerator/templates/ams_sp.sh](https://github.com/mspnp/gridwich/infrastructure/terraform/bashscriptgenerator/templates/ams_sp.sh) script to authorize the Azure Functions service principal on the Azure Media Services account:
 
 ```bash
 for id in ${mediaServicesAccountResourceId}
@@ -72,7 +72,7 @@ for id in ${mediaServicesAccountResourceId}
 
 ## Azure Media Services V3
 
-The Azure Media Services V3 SDK doesn't support managed identity, so Gridwich creates an explicit service principal to use with the Media Services V3 SDK via the *ams_sp.sh* script, using the `az ams account sp create` command:
+The Azure Media Services V3 SDK doesn't support managed identity. Instead, the *ams_sp.sh* script creates an explicit service principal to use with the Media Services V3 SDK, by using the `az ams account sp create` command:
 
 ```azurecli
 # Ref: https://docs.microsoft.com/azure/media-services/latest/access-api-cli-how-to
@@ -112,7 +112,7 @@ The Function App settings use a reference to the Azure Key Vault. The script cre
 
 ## Scale Media Services resources
 
-The Azure Media Services account owner can scale resources to perform the expected work by calling the Azure CLI within a YAML pipeline step.
+The Azure Media Services account owner can scale resources to perform the expected work by calling the Azure command-line interface (Azure CLI) within a YAML pipeline step.
 
 The script is in [azcli-last-steps-template.yml](https://github.com/mspnp/gridwich/infrastructure/azure-pipelines/templates/steps/azcli-last-steps-template.yml).
 

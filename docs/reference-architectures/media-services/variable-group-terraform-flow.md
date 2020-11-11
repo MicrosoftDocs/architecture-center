@@ -3,7 +3,7 @@ title: Gridwich pipeline variable group to Terraform variables flow
 titleSuffix: Azure Reference Architectures
 description: Learn how Gridwich converts Azure Pipelines pipeline variable group variables to Terraform variables.
 author: doodlemania2
-ms.date: 10/30/2020
+ms.date: 11/12/2020
 ms.topic: reference-architecture
 ms.service: architecture-center
 ms.subservice: reference-architecture
@@ -21,19 +21,19 @@ The example is a deep dive into how the **amsDrmFairPlayAskHex** variable, locat
 
 - Basic knowledge of [Terraform](/azure/developer/terraform/overview) and [Azure Pipelines](/services/devops/pipelines) operations.
 
-- An Azure DevOps Gridwich project, pipelines, and variable groups, set up by following the instructions at [Gridwich Azure DevOps setup](set-up-azure-devops.md), and the [admin scripts](admin-scripts.md) run to give Gridwich permission to Azure components.
+- An Azure DevOps Gridwich project, pipelines, and variable groups, set up by following the instructions at [Gridwich Azure DevOps setup](set-up-azure-devops.md).
+
+- The [admin scripts](admin-scripts.md) run to give Gridwich access permissions to Azure components.
 
 - The **amsDrmFairPlayAskHex** variable set in the **gridwich-cicd-variables.global** variable group. The value is the FairPlay hexadecimal ASK Key that Apple provides in *AppleASK.txt*. Or, for development purposes, you can use the dummy value and file described in [Add pipeline variable groups](set-up-azure-devops.md#add-pipeline-variable-groups). Save the value in Secured mode.
-  
-  ![gridwich-cicd-variables.global](media/cicd-variables.png)
 
 ## The amsDrmFairPlayAskHex flow
 
-The **amsDrmFairPlayAskHex** Azure Pipelines variable interacts with Azure Media Services FairPlay DRM. The pipeline passes the variable value to Terraform to set in the shared Azure Key Vault and ultimately referenced as a Key Vault reference secret in the Azure Function App settings.
+The **amsDrmFairPlayAskHex** Azure Pipelines variable interacts with Azure Media Services FairPlay DRM. The pipeline passes the variable value to Terraform to set in the shared Azure Key Vault and ultimately reference as a Key Vault secret in the Azure Function App settings.
 
-The variable is automatically stored as a CI/CD server environment variable because it's referenced in [variables.yml](https://github.com/mspnp/gridwich/infrastructure/azure-pipelines/variables.yml), which is used as a template in each *ci_cd_<environment>_release.yml* pipeline.
+Gridwich automatically stores the variable as a CI/CD server environment variable because it's referenced in [variables.yml](https://github.com/mspnp/gridwich/infrastructure/azure-pipelines/variables.yml), which is used as a template in each *ci_cd_<environment>_release.yml* pipeline.
 
-1. The [deploy-to-env-stages-template.yml](https://github.com/mspnp/gridwich/infrastructure/azure-pipelines/templates/stages/deploy-to-env-stages-template.yml) template passes the CI/CD server environment variable to Terraform as a variable, using the `TerraformArguments` property. This action happens for both the first and second Terraform sandwich jobs.
+1. The [deploy-to-env-stages-template.yml](https://github.com/mspnp/gridwich/infrastructure/azure-pipelines/templates/stages/deploy-to-env-stages-template.yml) template passes the CI/CD server environment variable to Terraform as a variable, by using the `TerraformArguments` property. This action happens for both the first and second Terraform sandwich jobs.
    
    ```yaml
    stages:
@@ -52,7 +52,7 @@ The variable is automatically stored as a CI/CD server environment variable beca
             . . .
    ```
    
-   The **amsDrm_FairPlay_Ask_Hex** variable in the main module [variables.tf](https://github.com/mspnp/gridwich/infrastructure/terraform/variables.tf) file will contain the value of the `amsDrmFairPlayAskHex` CI/CD environment variable:
+   The **amsDrm_FairPlay_Ask_Hex** variable in the main module [variables.tf](https://github.com/mspnp/gridwich/infrastructure/terraform/variables.tf) file contains the value of the `amsDrmFairPlayAskHex` CI/CD environment variable:
    
    ```yaml
    variable "amsDrm_FairPlay_Ask_Hex" {
@@ -130,7 +130,7 @@ The variable is automatically stored as a CI/CD server environment variable beca
          ]
      ```
      
-1. The [functions-deploy-steps-template.yml](https://github.com/mspnp/gridwich/infrastructure/azure-pipelines/templates/steps/functions-deploy-steps-template.yml) template loops through each generated *media_services_app_settings.json* and other similar JSON files, and uses the Azure CLI to set the Function App app settings:
+1. The [functions-deploy-steps-template.yml](https://github.com/mspnp/gridwich/infrastructure/azure-pipelines/templates/steps/functions-deploy-steps-template.yml) template loops through each generated *media_services_app_settings.json* and other similar JSON files, and uses the Azure command-line interface (Azure CLI) to set the Function App app settings:
    
    ```yaml
        - task: AzureCLI@1
@@ -148,16 +148,3 @@ The variable is automatically stored as a CI/CD server environment variable beca
            addSpnToEnvironment: true
    ```
    
-The following screenshots show:
-
-- A published *media_services_app_settings.json* artifact in an Azure Pipeline:
-  
-  ![Screenshot showing published media_services_app_settings.json.](media/settings-json.png)
-  
-- Output from the `Deploy Functions` pipeline job:
-  
-  ![Screenshot showing output from the Deploy Functions job.](media/deploy-functions-output.png)
-  
-- The `amsDrmFairPlayAskHex` Key Vault secret reference set in the Function App appsettings:
-  
-  ![Screenshot showing Azure Function App AppSettings.](media/function-app-settings.png)

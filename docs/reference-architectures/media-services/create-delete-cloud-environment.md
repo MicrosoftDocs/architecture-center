@@ -3,7 +3,7 @@ title: Create or delete a Gridwich cloud environment
 titleSuffix: Azure Reference Architectures
 description: Use the ci_cd_ext_release or tf_destroy_env pipelines to create or delete cloud development or testing environments.
 author: doodlemania2
-ms.date: 10/30/2020
+ms.date: 11/12/2020
 ms.topic: reference-architecture
 ms.service: architecture-center
 ms.subservice: reference-architecture

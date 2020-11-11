@@ -3,7 +3,7 @@ title: Gridwich continuous integration and continuous delivery (CD/CD) pipeline
 titleSuffix: Azure Reference Architectures
 description: Learn about the guiding principles and considerations for the Gridwich continuous integration and continuous delivery (CD/CD) pipeline.
 author: doodlemania2
-ms.date: 10/30/2020
+ms.date: 11/12/2020
 ms.topic: reference-architecture
 ms.service: architecture-center
 ms.subservice: reference-architecture
@@ -13,7 +13,7 @@ ms.custom:
 
 # Gridwich CI/CD considerations
 
-Gridwich requires multiple resources within and outside of Azure to talk to one another securely. This requirement poses continuous integration and continuous delivery (CI/CD) challenges with Azure Active Directory (Azure AD) permissions, gates, resource creation order of operation, and long-running functions deployment. The following guiding principles address these challenges:
+Gridwich requires multiple resources within and outside Azure to talk to one another securely. This requirement poses continuous integration and continuous delivery (CI/CD) challenges with Azure Active Directory (Azure AD) permissions, gates, resource creation, order of operation, and long-running functions deployment. The following guiding principles address these challenges:
 
 - A single build artifact affects all environments in the same pipeline.
 - Non-gated environments are disposable.
@@ -38,7 +38,7 @@ In Gridwich, software release and infrastructure deployment are two separate res
 
 **Software builds > Infrastructure deployment > Software release > Software configuration > Custom script deployment**
 
-The guiding principle that infrastructure and software release are two distinct responsibilities makes deploying Event Grid subscriptions more difficult. When Azure creates an Event Grid webhook subscription, it sends a validation event to check whether the registering endpoint accepts Event Grid events. This validation check means the Azure Function must be released and running before Terraform can build the Event Grid subscription resources.
+The guiding principle that infrastructure and software release are two distinct responsibilities makes deploying Event Grid subscriptions more difficult. When Azure creates an Event Grid webhook subscription, it sends a validation event to check whether the registering endpoint accepts Event Grid events. To pass this validation check, the Azure Function must be released and running before Terraform can build the Event Grid subscription resources.
 
 To address this issue, there are two Terraform jobs in the CI/CD pipeline:
 
@@ -47,26 +47,23 @@ To address this issue, there are two Terraform jobs in the CI/CD pipeline:
 - Terraform 1 creates all the resources except for the Azure Event Grid subscriptions.
 - Terraform 2 creates the Event Grid subscriptions after the software is up and running.
 
-Because Terraform currently lacks the ability to exclude a specific module, the Terraform 1 job must explicitly target all the modules except the Event Grid subscriptions. This requirement is potentially error-prone, and a current [GitHub issue on Terraform](https://github.com/hashicorp/terraform/issues/2253) tracks this problem.
+Because Terraform currently lacks the ability to exclude a specific module, the Terraform 1 job must explicitly target all the modules except the Event Grid subscriptions. This requirement is potentially error prone, and a current [GitHub issue on Terraform](https://github.com/hashicorp/terraform/issues/2253) tracks this problem.
 
 ## Post-deployment scripts
 
+The CI/CD pipeline doesn't do operations that need elevated privileges. The pipeline uses [admin script templates](https://github.com/mspnp/gridwich/infrastructure/terraform/bashscriptgenerator/templates) to generate a set of admin scripts as pipeline artifacts, using Terraform output data. An admin with elevated privileges must [run these admin scripts](admin-scripts.md) whenever a new Gridwich environment is created.
+
 Terraform and software releases can't complete certain Gridwich operations, including:
 
-- Copying certificate to Azure Key Vault
+- Copying certificates to Azure Key Vault
 - Enabling storage analytics in Azure Storage
 - Scaling Azure Media Services
 
-The CLI script [azcli-last-steps-template.yml](https://github.com/mspnp/gridwich/infrastructure/azure-pipelines/templates/steps/azcli-last-steps-template.yml) provides these last steps.
-
-The CI/CD pipeline doesn't do operations that need elevated privileges. The pipeline generates a set of admin scripts as a pipeline artifact, using output data from Terraform. After environment creation, an admin with elevated privileges must run these scripts.
-
-- [Admin script templates](https://github.com/mspnp/gridwich/infrastructure/terraform/bashscriptgenerator/templates)
-- [Run the admin scripts](admin-scripts.md)
+The Azure CLI script [azcli-last-steps-template.yml](https://github.com/mspnp/gridwich/infrastructure/azure-pipelines/templates/steps/azcli-last-steps-template.yml) provides these last steps.
 
 ## Everything as code and code reuse
 
-One advantage of everything as code is component reuse.
+One advantage of the "everything as code" practice is component reuse.
 
 - For Terraform, Gridwich relies heavily on [Terraform modules](https://www.terraform.io/docs/modules/composition.html) to enhance composability and reusability.
 - For Azure Pipelines YAML, Gridwich uses [Pipeline templates](/azure/devops/pipelines/process/templates).

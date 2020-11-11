@@ -3,7 +3,7 @@ title: Gridwich message formats
 titleSuffix: Azure Reference Architectures
 description: Learn about the specific Event Grid events that form the request-response sequence for different Gridwich operations.
 author: doodlemania2
-ms.date: 10/30/2020
+ms.date: 11/12/2020
 ms.topic: reference-architecture
 ms.service: architecture-center
 ms.subservice: reference-architecture
@@ -17,10 +17,10 @@ This article details the specific Event Grid events that form the request-respon
 
 ## Gridwich events
 
-Gridwich Acknowledgment and Gridwich Failure are different from other events. Specifically,
+Gridwich Acknowledgment and Gridwich Failure are different from other Gridwich events. Specifically:
 
-- [Gridwich Acknowledgment (ACK)](#m-ack) indicates only that Gridwich has received the request in a Request-ACK-Response sequence, not necessarily that the request is processed.
-- While each operation has one or more unique Success response events, almost all operations use the same [Gridwich Failure](#m-fail) event to communicate failure.
+- [Gridwich Acknowledgment (ACK)](#m-ack) indicates only that Gridwich has received, but not necessarily processed, the request in a Request-ACK-Response sequence.
+- Each operation has one or more unique Success response events, but almost all operations use the same [Gridwich Failure](#m-fail) event to communicate failure.
 
 **Publishing events**
 
@@ -54,7 +54,7 @@ Gridwich Acknowledgment and Gridwich Failure are different from other events. Sp
   
   - [Create container](#createcontainer)
   - [Delete container](#deletecontainer)
-  - [Change access/visibility level](#changecontaineraccess)
+  - [Change access or visibility level](#changecontaineraccess)
   
 - **Blobs**
   
@@ -67,8 +67,8 @@ Gridwich Acknowledgment and Gridwich Failure are different from other events. Sp
   
 - **Blob notifications**
   
-  - [Blob created notification](#statusblobcreated)
-  - [Blob deleted notification](#statusblobdeleted)
+  - [Blob created](#statusblobcreated)
+  - [Blob deleted](#statusblobdeleted)
 
 **Storage keys**
 
@@ -94,7 +94,7 @@ In the following event descriptions, the JSON property values are the usual stri
 - `Topic-string`, like `"/subscriptions/5edeadbe-ef64-4022-a3aa-133bfef1d7a2/resourceGroups/gws-shared-rg-sb/providers/Microsoft.EventGrid/topics/gws-gws-egt-sb"`, is a string of opaque content.
 - `Subject-string`, like `"/blobServices/default/containers/telestreamoutput/blobs/db08122195b66be71db9e54ae04c58df/503220533TAGHD23976fps16x990266772067587.mxf"`, is a string of opaque content.
 - `EventType-string`, like `"request.operation.requested"` is generally a string of the form: `{"request"|"response"}.operation[.qualifier]`.
-- `DataVersion-string`, like `"1.0"`, is a versioning indicator message processors use to distinguish different evolutions of the same operation. Gridwich requires this field. The `HandlesEvent` method determines which versions an individual Event Grid Handler can process.
+- `DataVersion-string`, like `"1.0"`, is a versioning indicator that message processors use to distinguish different evolutions of the same operation. Gridwich requires this field. The `HandlesEvent` method determines which versions an individual Event Grid Handler can process.
 - `URL-string` is an absolute URL that often points to Application Insights logs. These strings are usually a SAS URL, due to target authorization requirements.
 - `StorageURL-string` is an absolute URL that often points to an Azure Storage Blob or container. This string isn't usually a SAS URL.
 - `StorageURL-SAS-string` is an absolute SAS URL that often points to an Azure Storage Blob or container.
@@ -145,7 +145,7 @@ The `data.eventType` string value is the top level `eventType` property from the
 }
 ```
 
-The Failure event doesn't include the original request `eventType` value, but does include the operation context and the handler name that was processing the request. The `log*` properties relate to the problem information recorded using the configured Application Insights instance.
+The Failure event doesn't include the original request `eventType` value, but does include the operation context and the handler name that was processing the request. The `log*` properties relate to the problem information that the configured Application Insights instance recorded.
 
 For a limited set of operations, the Failure event object differs significantly from the preceding message. For more information, see [Roll storage keys](#rollkey).
 
@@ -276,9 +276,9 @@ As usual with Azure Storage, metadata item names must conform to C# identifier n
 }
 ```
 
-### <a id="statusblobcreated"></a>Gridwich tells requester that a blob was created
+### <a id="statusblobcreated"></a>Gridwich tells requester that it created a blob
 
-The blob could be created from any source, like a copy result, inbox arrival, or encode result.
+Gridwich could have created the blob from any source, like a copy result, inbox arrival, or encode result.
 
 **Gridwich** > **Requester**, uses [ResponseBlobCreatedSuccessDTO](https://github.com/mspnp/gridwich/src/Gridwich.Core/src/DTO/Responses/ResponseBlobCreatedSuccessDTO.cs).
 
@@ -297,7 +297,7 @@ The blob could be created from any source, like a copy result, inbox arrival, or
 }
 ```
 
-### <a id="deleteblob"></a>Requester ask Gridwich to delete a blob
+### <a id="deleteblob"></a>Requester asks Gridwich to delete a blob
 
 **Requester** > **Gridwich** uses [RequestBlobDeleteDTO](https://github.com/mspnp/gridwich/src/Gridwich.Core/src/DTO/Requests/RequestBlobDeleteDTO.cs).
 
@@ -332,7 +332,7 @@ The blob could be created from any source, like a copy result, inbox arrival, or
 }
 ```
 
-### <a id="statusblobdeleted"></a>Gridwich informs requester that a blob was deleted
+### <a id="statusblobdeleted"></a>Gridwich informs requester that it deleted a blob
 
 The blob deletion can come from any source, like an explicit request from a requester or a result of internal operations.
 
@@ -411,7 +411,7 @@ The blob deletion can come from any source, like an explicit request from a requ
 }
 ```
 
-### <a id="encodeviaflip"></a>Requester asks Gridwich to Encode via Flip
+### <a id="encodeviaflip"></a>Requester asks Gridwich to encode via Flip
 
 **Requester** > **Gridwich**, uses [RequestFlipEncodeCreateDTO](https://github.com/mspnp/gridwich/src/Gridwich.Core/src/DTO/Requests/RequestFlipEncodeCreateDTO.cs).
 
@@ -512,7 +512,7 @@ The blob deletion can come from any source, like an explicit request from a requ
 }
 ```
 
-`transformName` is one of the [CustomTransforms](https://github.com/mspnp/gridwich/src/Gridwich.SagaParticipants.Encode.MediaServicesV3/src/Constants/CustomTransforms.cs)
+The `transformName` property is one of the [CustomTransforms](https://github.com/mspnp/gridwich/src/Gridwich.SagaParticipants.Encode.MediaServicesV3/src/Constants/CustomTransforms.cs):
 
 - `audio-mono-aac-video-mbr-no-bframes`
 - `audio-copy-video-mbr-no-bframes`
@@ -614,7 +614,7 @@ An encode request failure generates a Gridwich Failure event.
 }
 ```
 
-#### <a id="encoderstatuscanceled"></a>Encoding Status canceled
+#### <a id="encoderstatuscanceled"></a>Encoding status canceled
 
 **Gridwich** > **Requester**, uses [ResponseEncodeCanceledDTO](https://github.com/mspnp/gridwich/src/Gridwich.Core/src/DTO/Responses/ResponseEncodeStatusBaseDTO.cs).
 
@@ -653,8 +653,8 @@ An encode request failure generates a Gridwich Failure event.
 }
 ```
 
-- `accessTier` is `Hot`,`Cool`, or `Archive`.
-- `rehydratePriority` is `Standard` or `High`.
+- The `accessTier` property is `Hot`, `Cool`, or `Archive`.
+- The `rehydratePriority` property is `Standard` or `High`.
 
 **Gridwich** > **Requester** uses [ResponseBlobTierChangeSuccessDTO](https://github.com/mspnp/gridwich/src/Gridwich.Core/src/DTO/Responses/ResponseBlobTierChangeSuccessDTO.cs)
 
@@ -872,7 +872,7 @@ The start and end times are always relative to the start of the media file, rega
 }
 ```
 
-Where `locatorName` is an opaque string generated by Gridwich.
+The `locatorName` property is an opaque string generated by Gridwich.
 
 **Gridwich** > **Requester** uses [ResponseMediaServicesLocatorDeleteSuccessDTO](https://github.com/mspnp/gridwich/src/Gridwich.Core/src/DTO/Responses/ResponseMediaServicesLocatorDeleteSuccessDTO.cs).
 
@@ -902,7 +902,7 @@ The `response.rollkey.storage.failure` failure events:
 
 These points reflect the current state of the Azure Logic App that performs the RollKey operation. The definition of the Logic App is in the [infrastructure/terraform/keyroller/main.tf](/infrastructure/terraform/keyroller/main.tf) Terraform file.
 
-The `keyName` corresponds to the key name Azure Storage defines in its [Get Keys](/rest/api/storagerp/srp_json_get_storage_account_keys) operation.
+The `keyName` corresponds to the key name that Azure Storage defines in its [Get Keys](/rest/api/storagerp/srp_json_get_storage_account_keys) operation.
 
 **Requester** > **Gridwich**
 

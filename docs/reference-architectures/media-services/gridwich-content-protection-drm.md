@@ -3,7 +3,7 @@ title: Gridwich content protection and DRM
 titleSuffix: Azure Reference Architectures
 description: Learn about Gridwich audio and video content protection for publishing with Azure Media Services DRM, and how to create and update content protection policies.
 author: doodlemania2
-ms.date: 10/30/2020
+ms.date: 11/12/2020
 ms.topic: reference-architecture
 ms.service: architecture-center
 ms.subservice: reference-architecture
@@ -13,7 +13,7 @@ ms.custom:
 
 # Content protection and DRM
 
-Azure Media Services uses [Digital Rights Management (DRM)](https://en.wikipedia.org/wiki/Digital_rights_management) to protect content, and supports [Microsoft PlayReady](https://www.microsoft.com/playready/overview/), [Google Widevine](https://www.widevine.com/solutions/widevine-drm), and [Apple FairPlay](https://developer.apple.com/streaming/fps/). This article explains Gridwich content protection, and how to set up and update content protection and DRM policies.
+Media Services uses [Digital Rights Management (DRM)](https://en.wikipedia.org/wiki/Digital_rights_management) to protect content, and supports [Microsoft PlayReady](https://www.microsoft.com/playready/overview/), [Google Widevine](https://www.widevine.com/solutions/widevine-drm), and [Apple FairPlay](https://developer.apple.com/streaming/fps/). This article discusses Gridwich content protection concepts, and explains how to set up and update content protection and DRM policies.
 
 ## Asset streaming locators
 
@@ -58,18 +58,18 @@ To enable Microsoft PlayReady and Google Widevine on MPEG-DASH output, and Apple
 The `cencDRMKey` policy includes options 1 through 6, and the `multiDRMKey` policy includes options 1 through 9:
 
 1. Microsoft PlayReady / non-persistent license
-1. Microsoft PlayReady / 2 hours persistent license
-1. Microsoft PlayReady / 14 days persistent license
+1. Microsoft PlayReady / two-hour persistent license
+1. Microsoft PlayReady / 14-day persistent license
 1. Google Widevine / non-persistent license
-1. Google Widevine / 2 hours persistent license
-1. Google Widevine / 14 days persistent license
+1. Google Widevine / two-hour persistent license
+1. Google Widevine / 14-day persistent license
 1. Apple FairPlay / non-persistent license
-1. Apple FairPlay / 2 hours persistent license
-1. Apple FairPlay / 14 days persistent license
+1. Apple FairPlay / two-hour persistent license
+1. Apple FairPlay / 14-day persistent license
 
-The JSON token the player provides to Media Services should look similar to one of the following examples. These token examples are case-sensitive.
+The JSON token that the player provides to Media Services should look similar to one of the following examples. These token examples are case-sensitive.
 
-A secured token service (STS), not provided in Gridwich, should deliver tokens with correct and expected claims. The `persistent` claim specifies the option Media Services should use when generating the license. The issuer `iss`, and audience `aud` claims should match the definitions in [ContentKeyPolicyClaims](https://github.com/mspnp/gridwich/src/Gridwich.SagaParticipants.Publication.MediaServicesV3/src/Constants/ContentKeyPolicyClaims.cs).
+A secured token service (STS), not provided in Gridwich, should deliver tokens with correct and expected claims. The `persistent` claim specifies the option that Media Services should use when generating the license. The `iss` and `aud` claims should match the definitions in [ContentKeyPolicyClaims](https://github.com/mspnp/gridwich/src/Gridwich.SagaParticipants.Publication.MediaServicesV3/src/Constants/ContentKeyPolicyClaims.cs).
 
 ### JSON token examples
 
@@ -109,19 +109,19 @@ A secured token service (STS), not provided in Gridwich, should deliver tokens w
 
 ## Update policies
 
-To change the authorized protocols or DRM license properties for content protection, you must update the streaming policy or content key policy. The update mechanism differs depending on the policy.
+To change the authorized protocols or DRM license properties for content protection, update the streaming policy or content key policy. The update mechanism differs depending on the policy.
 
-- The Media Services *streaming policy* can't change. Gridwich uses an internal Media Services name to version the policy, and an external publication message name that doesn't change. Old locators still use the old streaming policy, and new locators use the updated streaming policy.
+- The Media Services *streaming policy* can't change. Gridwich uses an internal Media Services name to assign a version to the policy, and an external Gridwich publication message name that doesn't change. Old locators will still use the old streaming policy, and new locators will use the updated streaming policy.
 
-- The Media Services *content key policy* can update, so Gridwich uses the same name in Media Services and in the Gridwich publication message. Updating the content key policy affects all old and new locators.
+- The Media Services *content key policy* can change, so Gridwich uses the same name in Media Services and in the Gridwich publication message. Updating the content key policy affects all old and new locators.
   
-  You can extend Gridwich to have two or more content key policies with different names side-by-side. You can use different policies for completely different asset classes with different rights.
+  You can extend Gridwich to have two or more content key policies with different names side by side. You can use different policies for completely different asset classes with different rights.
   
 ![Content protection policies update diagram.](media/update-content-protection-policies.png)
 
 ### Streaming policy update
 
-The streaming policy uses an internal Media Services name to version the policy, and an external request name that doesn't change. For example, the `multiDRMStreaming` policy in the request has a matching name like `multiDRMStreaming-Version-1-0` in Media Services. If the code in the [MediaServicesV3CustomStreamingPolicyMultiDrmStreaming.cs](https://github.com/mspnp/gridwich/src/Gridwich.SagaParticipants.Publication.MediaServicesV3/src/StreamingPolicies/MediaServicesV3CustomStreamingPolicyMultiDrmStreaming.cs) file changes, update the streaming policy name in the file to increment the version number.
+The streaming policy uses an internal Media Services name to assign a version to the policy, and an external request name that doesn't change. For example, the `multiDRMStreaming` policy in the request has a matching name like `multiDRMStreaming-Version-1-0` in Media Services. If the code in the [MediaServicesV3CustomStreamingPolicyMultiDrmStreaming.cs](https://github.com/mspnp/gridwich/src/Gridwich.SagaParticipants.Publication.MediaServicesV3/src/StreamingPolicies/MediaServicesV3CustomStreamingPolicyMultiDrmStreaming.cs) file changes, update the streaming policy name in the file to increment the version number.
 
 ```csharp
 private readonly string nameInAmsAccount = CustomStreamingPolicies.MultiDrmStreaming + "-Version-1-0";
@@ -143,7 +143,7 @@ After the update, make sure to delete and purge any copies of source certificate
 
 ## DRM settings
 
-The following sections describe how to configure the DRM settings Gridwich uses to create and update the content key policy. The variables to update are in the Gridwich Azure DevOps project **Pipelines** > **Library** > **Variable groups** > **gridwich-cicd-variables.global** variable group.
+The following sections describe how to configure the DRM settings that Gridwich uses to create and update the content key policy. The variables to update are in the Gridwich Azure DevOps project **Pipelines** > **Library** > **Variable groups** > **gridwich-cicd-variables.global** variable group.
 
 For instructions on setting up the Azure DevOps project, pipelines, and variable groups, see [Gridwich Azure DevOps setup](set-up-azure-devops.md).
 
@@ -155,41 +155,39 @@ To store the OpenID Connect Discovery Document endpoint:
 
 1. In the Gridwich Azure DevOps project, go to **Pipelines** > **Library** > **Variable groups** > **gridwich-cicd-variables.global**.
    
-1. Edit variable name **amsDrmOpenIdConnectDiscoveryDocumentEndpoint** to the value of the endpoint URL, for example `https://domain.com/.well-known/OpenIdConfiguration`.
+1. Edit the variable name **amsDrmOpenIdConnectDiscoveryDocumentEndpoint**, setting it to the value of the endpoint URL, for example `https://domain.com/.well-known/OpenIdConfiguration`.
 
 ### Apple FairPlay settings
 
-Gridwich must process and ingest the FairPlay package from Apple as settings. Handle the secrets with care, and delete and purge any copies of source certificates or intermediate files from devices that create or update the content key policy.
+Gridwich processes and ingests the FairPlay package from Apple as settings. Handle the secrets with care, and delete and purge any copies of source certificates or intermediate files from devices that create or update the content key policy.
 
 #### FairPlay certificate
 
-1. Follow the [Azure Media Services documentation](/azure/media-services/latest/fairplay-license-overview#requirements) to create a PFX certificate with a private key from the files Apple delivers.
+1. Follow the [Azure Media Services documentation](/azure/media-services/latest/fairplay-license-overview#requirements) to create a PFX certificate with a private key from the files that Apple delivers.
    1. Install OpenSSL.
    1. Convert the *FairPlay.cer* file to a *.pem* file.
-   1. Convert *.pem* to *.pfx* with password-protected private key.
-   1. Convert the *.pfx* to a base 64 text file called *FairPlay-out-base64.txt*.
+   1. Convert the *.pem* file to a *.pfx* file with a password-protected private key.
+   1. Convert the *.pfx* file to a base 64 text file called *FairPlay-out-base64.txt*.
    
-1. Copy the *FairPlay-out-base64.txt* file to **Pipelines** > **Library** > **Secure files**, replacing any existing file with the same name.
+1. Copy the *FairPlay-out-base64.txt* file to **Pipelines** > **Library** > **Secure files**, replacing any existing same-named file.
    
    ![Screenshot of the FairPlay-out-base64.txt file in Secure files.](media/fairplay-secure-files.png)
    
-1. Store the OpenSSL password in **Pipelines** > **Library** > **Variable groups > gridwich-cicd-variables.global** under variable **amsDrmFairPlayPfxPassword**, in Secured mode.
+1. Store the OpenSSL password in **Pipelines** > **Library** > **Variable groups > gridwich-cicd-variables.global** under the variable **amsDrmFairPlayPfxPassword**, in Secured mode.
    
-1. Store the hexadecimal ASK Key that Apple provided in *AppleASK.txt* under **Pipelines** > **Library** > **Variable groups > gridwich-cicd-variables.global** under variable **amsDrmFairPlayAskHex**, in Secured mode.
-   
-   ![Screenshot of the SSL password and ASK hex key in Variables.](media/fairplay-variables.png)
+1. Store the hexadecimal ASK Key that Apple provides in *AppleASK.txt* in **Pipelines** > **Library** > **Variable groups > gridwich-cicd-variables.global** under the variable **amsDrmFairPlayAskHex**, in Secured mode.
 
 #### Update approval
 
-The first pipeline run after the *FairPlay-out-base64.txt* file changes waits for a one-time approval.
+When the *FairPlay-out-base64.txt* file changes, the next pipeline run waits for a one-time approval.
 
-![Pipeline needs permission.](media/needs-permission.png)
+![Screenshot showing Azure Pipeline waiting for approval.](media/needs-permission.png)
 
-Select **Permit** to approve the pipeline using the FairPlay Secure File you uploaded.
+Select **Permit** to approve the pipeline by using the FairPlay Secure File you uploaded.
 
-![Select Permit.](media/select-permit.png)
+![Screenshot showing the Permit button to grant approval.](media/select-permit.png)
 
 ## Related resources
 - For more information about Media Services content protection, see [Content protection overview](/azure/media-services/latest/content-protection-overview).
-- For more details about the Azure Pipelines variable group settings flow, see [Variable group to Terraform flow](variable-group-terraform-flow.md).
+- For more details about the Azure Pipelines variable group settings, see [Variable group to Terraform flow](variable-group-terraform-flow.md).
 

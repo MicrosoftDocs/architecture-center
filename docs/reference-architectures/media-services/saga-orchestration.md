@@ -3,7 +3,7 @@ title: Saga orchestration
 titleSuffix: Azure Reference Architectures
 description: Understand the concepts and roles of sagas in orchestrating Gridwich workflows.
 author: doodlemania2
-ms.date: 10/30/2020
+ms.date: 11/12/2020
 ms.topic: reference-architecture
 ms.service: architecture-center
 ms.subservice: reference-architecture
@@ -15,11 +15,11 @@ ms.custom:
 
 In the example implementation, the external system is both a media asset management (MAM) and workflow orchestration system provided by a large media company. The external system operates as a [saga orchestrator](https://microservices.io/patterns/data/saga.html) that chains a series of activities to build Gridwich workflows.
 
-Saga activities might or might not include user interactions or approvals. Gridwich assumes that the external system tracks failure or success for each operation it initiates.
+Saga activities might or might not include user interactions or approvals. Gridwich assumes that the external system tracks the failure or success of each operation it initiates.
 
 ## Saga participants
 
-Each of a set of saga participants contributes one or more work activities to the ecosystem. Each saga participant works independently of the other participants, and more than one saga participant might act on a single request.
+Each saga participant contributes one or more work activities to the ecosystem. Each participant works independently, and more than one saga participant might act on a single request.
 
 For Gridwich, the available saga participants are:
 
@@ -35,31 +35,31 @@ For Gridwich, the available saga participants are:
 
 The external system might run a quality control check saga that does the following steps:
 
-1. Get a notification of a new blob in the inbox storage account.
-1. Request an analysis using MediaInfo.
-1. Review the MediaInfo response, auto-approve the file, and start a copy into an intermediate account.
-1. Get notified that the copy is complete.
-1. Start a multi-bitrate encode using Azure Media Services V3 API encoder, request AAC audio for all tracks, and copy the video codec.
-1. Publish the completed encode using DRM, and notify an operator that an asset is ready for review.
+1. Gets a notification of a new blob in the inbox storage account.
+1. Requests an analysis using MediaInfo.
+1. Reviews the MediaInfo response, auto-approves the file, and starts a copy into an intermediate account.
+1. Gets notified that the copy is complete.
+1. Starts a multi-bitrate encoding by using Azure Media Services V3 API encoder, requests AAC audio for all tracks, and copies the video codec.
+1. Publishes the completed asset using DRM, and notifies an operator that an asset is ready for review.
 
-![workflow_quality_control diagram](media/quality-control-saga.png)
+![Diagram showing a quality control check saga.](media/quality-control-saga.png)
 
-The operator reviews the asset and identifies the various audio track layouts, then starts the following saga:
+The operator reviews the asset, identifies the various audio track layouts, and then starts the following saga:
 
- 1. Start a copy into the long-term storage account.
- 1. Get notified that the copy is complete.
- 1. Begin encoding with TeleStream CloudPort to Mux the left and right stereo tracks, along with the video, into a new asset.
- 1. Create a multi-bitrate asset using Azure Media Services V3 API encoder.
- 1. Publish the asset with DRM, and notify an operator that an asset is ready for logging.
+ 1. Starts a copy into the long-term storage account.
+ 1. Gets notified that the copy is complete.
+ 1. Begins encoding with TeleStream CloudPort to Mux the left and right stereo tracks, along with the video, into a new asset.
+ 1. Creates a multi-bitrate asset by using Azure Media Services V3 API encoder.
+ 1. Publishes the asset with DRM, and notifies an operator that an asset is ready for logging.
 
-![workflow_logging diagram](media/logging-saga.png)
+![Diagram showing a new asset creation saga.](media/logging-saga.png)
 
-The operator reviews the contents, extracts metadata for the media asset management (MAM) system, and sets mark-in and mark-out points for one or more features, text-less sequences, or featurettes. The operator then begins the publication saga:
+The operator reviews the asset contents, extracts metadata for the MAM system, and sets mark-in and mark-out points for one or more features, text-less sequences, or featurettes. The operator then begins the publication saga:
 
- 1. Create a time-based filter for each subasset, and create a locator with that filter and DRM, using Azure Media Services Publishing V3 API.
- 1. Simultaneously begin to create sprites for each subasset.
- 1. After receiving successful responses from both processes, begin a copy of the sprite files into the published asset.
- 1. Receive the blob created for the copy, and complete the publication flow by updating the MAM system.
+ 1. Creates a time-based filter for each subasset, and creates a locator with that filter and DRM, by using Azure Media Services Publishing V3 API.
+ 1. Simultaneously begins to create sprites for each subasset.
+ 1. After receiving successful responses from both processes, begins a copy of the sprite files into the published asset.
+ 1. Receives the blob created for the copy, and completes the publication flow by updating the MAM system.
 
-![workflow_publication diagram](media/publication-saga.png)
+![Diagram showing a new asset publication saga.](media/publication-saga.png)
 

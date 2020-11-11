@@ -3,7 +3,7 @@ title: Gridwich Azure DevOps setup
 titleSuffix: Azure Reference Architectures
 description: Set up Azure DevOps projects, repos, pipelines, variable groups, and Azure connections for Gridwich.
 author: doodlemania2
-ms.date: 10/30/2020
+ms.date: 11/12/2020
 ms.topic: reference-architecture
 ms.service: architecture-center
 ms.subservice: reference-architecture
