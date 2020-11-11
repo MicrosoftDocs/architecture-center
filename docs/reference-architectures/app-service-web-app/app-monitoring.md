@@ -169,4 +169,4 @@ Check out these resources designed to help you get started with your own monitor
 [app-insights-limits]: /azure/azure-subscription-service-limits#application-insights
 [message-filtering]: /azure/application-insights/app-insights-api-filtering-sampling
 [message-sampling]: /azure/application-insights/app-insights-sampling
-[devops-monitoring]: /azure/architecture/framework/devops/monitoring
+[devops-monitoring]: ../../framework/devops/monitoring.md

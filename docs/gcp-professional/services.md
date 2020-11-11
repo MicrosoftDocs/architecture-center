@@ -114,7 +114,7 @@ Here are some architectures that use AKS as the orchestrator.
 
 </ul>
 
-[view all](/azure/architecture/browse/#containers)
+[view all](../browse/index.md#containers)
 
 ### Functions
 

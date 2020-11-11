@@ -61,7 +61,7 @@ Cons
 
 ### Azure Event Hubs with Kafka PaaS solution
 
-[Azure Event Hubs](https://docs.microsoft.com/azure/event-hubs/event-hubs-for-kafka-ecosystem-overview) provides a fully managed, cloud-native service that doesn't require you to configure servers, disks, or networks. Azure Event Hubs is compatible with Apache Kafka client applications that use producer and consumer APIs for Apache Kafka. This means that you can use Azure Event Hubs like Apache Kafka topics and can send and receive messages by applying minor changes to the client configuration.
+[Azure Event Hubs](/azure/event-hubs/event-hubs-for-kafka-ecosystem-overview) provides a fully managed, cloud-native service that doesn't require you to configure servers, disks, or networks. Azure Event Hubs is compatible with Apache Kafka client applications that use producer and consumer APIs for Apache Kafka. This means that you can use Azure Event Hubs like Apache Kafka topics and can send and receive messages by applying minor changes to the client configuration.
 
 Azure Event Hubs includes features such as:
 
@@ -77,26 +77,26 @@ Pros
 - Opens up the ability to integrate with different Azure services like:
 
   - [Azure Stream Analytics](/azure/stream-analytics/stream-analytics-introduction)
-  - [Azure Synapse Analytics](https://docs.microsoft.com/azure/event-grid/event-grid-event-hubs-integration)
-  - [Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/introduction)
-  - [Azure Data Lake Storage](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-overview)
-  - [Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/overview-what-is-azure-ml)
-  - [Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-overview)
-  - [Azure Databricks](https://docs.microsoft.com/azure/databricks/scenarios/what-is-azure-databricks)
+  - [Azure Synapse Analytics](/azure/event-grid/event-grid-event-hubs-integration)
+  - [Azure Cosmos DB](/azure/cosmos-db/introduction)
+  - [Azure Data Lake Storage](/azure/data-lake-store/data-lake-store-overview)
+  - [Azure Machine Learning](/azure/machine-learning/overview-what-is-azure-ml)
+  - [Azure Functions](/azure/azure-functions/functions-overview)
+  - [Azure Databricks](/azure/databricks/scenarios/what-is-azure-databricks)
 
-- Integrated [geo-disaster recovery and geo-replication](https://docs.microsoft.com/azure/event-hubs/event-hubs-geo-dr) is not available in most other offerings.
+- Integrated [geo-disaster recovery and geo-replication](/azure/event-hubs/event-hubs-geo-dr) is not available in most other offerings.
 - Available across Azure regions.
 
 Cons
 
 - Feature parity with Apache Kafka. Native Kafka features like Transactions, Compression, Log Compaction, Kafka Streams, Kafka Connect (currently in Preview) aren't available in production.
 - Schema Registry, which is one of the most sought after offerings from Confluent, is in Public Preview.
-- [Quotas and limits](https://docs.microsoft.com/azure/event-hubs/event-hubs-quotas) for Azure Event Hubs are restrictive.
+- [Quotas and limits](/azure/event-hubs/event-hubs-quotas) for Azure Event Hubs are restrictive.
 - The single tenant Dedicated Tier offering of Event Hubs with more quota and relaxed limits comes at a [higher price](https://azure.microsoft.com/pricing/details/event-hubs/).
 
 ### Apache Kafka on HDInsight managed cluster
 
-[Kafka on HDInsight](https://docs.microsoft.com/azure/hdinsight/kafka/apache-kafka-introduction) is a managed platform that provides a simplified configuration process that is tested and supported by Microsoft. HDInsight uses native Kafka APIs, which means that you don't need to change client application code to use this solution.
+[Kafka on HDInsight](/azure/hdinsight/kafka/apache-kafka-introduction) is a managed platform that provides a simplified configuration process that is tested and supported by Microsoft. HDInsight uses native Kafka APIs, which means that you don't need to change client application code to use this solution.
 
 Kafka on HDInsight includes features such as:
 
@@ -113,7 +113,7 @@ Pros
 - Managed cluster offering that is customizable.
 - No license requirements, unless going for Confluent features
 - Complete Kafka feature set and APIs are available.
-- [High availability](https://docs.microsoft.com/azure/hdinsight/kafka/apache-kafka-high-availability) ensures the configuration of fault domains and update domains and [multi-region support](https://docs.microsoft.com/azure/hdinsight/kafka/apache-kafka-mirroring) for replication.
+- [High availability](/azure/hdinsight/kafka/apache-kafka-high-availability) ensures the configuration of fault domains and update domains and [multi-region support](/azure/hdinsight/kafka/apache-kafka-mirroring) for replication.
 - Data retention is more configurable than the managed services mentioned above.
 
 Cons
@@ -143,7 +143,7 @@ Cons
 
 ### Kafka on Azure Kubernetes Service IaaS solution
 
-[Azure Kubernetes Service (AKS)](https://docs.microsoft.com/azure/aks/intro-kubernetes) reduces the complexity and overhead of managing Kubernetes by offloading much of that responsibility to Azure. Apache Kafka clusters are deployed on AKS in various configurations using the best practices of Kubernetes operators like [Strimzi](https://strimzi.io/documentation/) or [Confluent Kafka Operator](https://docs.confluent.io/current/installation/operator/index.html).
+[Azure Kubernetes Service (AKS)](/azure/aks/intro-kubernetes) reduces the complexity and overhead of managing Kubernetes by offloading much of that responsibility to Azure. Apache Kafka clusters are deployed on AKS in various configurations using the best practices of Kubernetes operators like [Strimzi](https://strimzi.io/documentation/) or [Confluent Kafka Operator](https://docs.confluent.io/current/installation/operator/index.html).
 
 Here are some of the advantages and limitations of using Kafka on AKS:
 
