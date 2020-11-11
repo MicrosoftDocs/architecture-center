@@ -16,7 +16,7 @@ ms.custom:
 
 ## Build redundancy into your application, to avoid having single points of failure
 
-A resilient application routes around failure. Identify the critical paths in your application. Is there redundancy at each point in the path? If a subsystem fails, will the application fail over to something else?
+A resilient application routes around failure. Identify the critical paths in your application. Is there redundancy at each point in the path? When a subsystem fails, will the application fail over to something else?
 
 ## Recommendations
 
