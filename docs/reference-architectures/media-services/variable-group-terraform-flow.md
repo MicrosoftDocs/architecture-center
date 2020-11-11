@@ -23,7 +23,7 @@ The example is a deep dive into how the **amsDrmFairPlayAskHex** variable, locat
 
 - An Azure DevOps Gridwich project, pipelines, and variable groups, set up by following the instructions at [Gridwich Azure DevOps setup](set-up-azure-devops.md).
 
-- The [admin scripts](admin-scripts.md) run to give Gridwich access permissions to Azure components.
+- The [admin scripts](run-admin-scripts.md) run to give Gridwich access permissions to Azure components.
 
 - The **amsDrmFairPlayAskHex** variable set in the **gridwich-cicd-variables.global** variable group. The value is the FairPlay hexadecimal ASK Key that Apple provides in *AppleASK.txt*. Or, for development purposes, you can use the dummy value and file described in [Add pipeline variable groups](set-up-azure-devops.md#add-pipeline-variable-groups). Save the value in Secured mode.
 

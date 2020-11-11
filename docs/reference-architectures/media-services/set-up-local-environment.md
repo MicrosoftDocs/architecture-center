@@ -31,9 +31,7 @@ Optional:
 
 1. In Visual Studio Code, when prompted which version of Terraform language server to install, select the latest stable version:
    
-   ![Screenshot showing Terraform language server versions.](media/terraform-language-server.png)
-   
-1. After installation, execute the following command:
+1. After installation, run the following command:
    
    ```bash
    dotnet restore ./src --interactive
@@ -106,9 +104,9 @@ If you need an Azure PowerShell CLI environment, you can use [Azure Cloud Shell]
 To view Azure Key Vault keys and secrets, run the following script:
 
 ```azurepowershell
-    $keyVaultName = 'gridwich-kv-sb'
-    $targetUserPrincipalName = (az ad signed-in-user show | ConvertFrom-Json).userPrincipalName
-    az keyvault set-policy --name $keyVaultName --secret-permissions list get --upn $targetUserPrincipalName
+$keyVaultName = 'gridwich-kv-sb'
+$targetUserPrincipalName = (az ad signed-in-user show | ConvertFrom-Json).userPrincipalName
+az keyvault set-policy --name $keyVaultName --secret-permissions list get --upn $targetUserPrincipalName
 ```
 
 Or, you can use the following Azure CLI commands:

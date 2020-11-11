@@ -15,7 +15,7 @@ ms.custom:
 
 The Gridwich Azure Storage Service, [Gridwich.SagaParticipants.Storage.AzureStorage][StorageService], provides blob and container operations for Azure Storage Accounts that are configured for Gridwich. Example storage operations are **Create blob**, **Delete container**, **Copy blob**, or **Change storage tier**.
 
-Gridwich exposes most of these operations to external systems within the `Storage.AzureStorage` [saga participant](saga-orchestration.md#saga-participants). Other saga participants use the service for tasks like copying blobs between different containers or accounts when they set up encoding workflows.
+Gridwich exposes most of these operations to external systems within the `Storage.AzureStorage` [saga participant](gridwich-saga-orchestration.md#saga-participants). Other saga participants use the service for tasks like copying blobs between different containers or accounts when they set up encoding workflows.
 
 This article describes how the Gridwich Azure Storage Service meets solution requirements and integrates with mechanisms like event handlers. Links point to the corresponding source code, which contains more extensive commentary on the containers, classes, and mechanisms.
 

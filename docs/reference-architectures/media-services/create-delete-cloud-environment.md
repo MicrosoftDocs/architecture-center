@@ -21,29 +21,31 @@ The following procedures use placeholder project name `gridwich-clone`, app name
 
 ## Create an environment
 
-1. In the `gridwich-clone` project left navigation, select **Pipelines** and then select the **ci_cd_ext_release** pipeline.
+1. In Azure DevOps, in your `gridwich-clone` project left navigation, select **Pipelines** and then select the **ci_cd_ext_release** pipeline.
    
-1. Select **Run**.
-   
-   ![Screenshot of the pipeline dialog with Run highlighted.](media/run-pipeline.png)
+1. Select **Run pipeline**.
    
 1. In the **Run pipeline** dialog, select the branch that you want to deploy to Azure, and then select **Variables**.
    
-   ![Screenshot of the Variables list.](media/select-variables.png)
+   ![Screenshot of the Run pipeline dialog with Variables selected.](media/run-pipeline-dialog.png)
    
-1. Update the `environment` variable to a four-character maximum environment name.
+1. In the **Variables** dialog, select the **environment** variable.
    
-   Due to Gridwich naming conventions and character restrictions on Azure Storage Account names, make sure your full environment name won't exceed the [24-character maximum](/azure/storage/common/storage-account-overview#naming-storage-accounts) for the Gridwich Azure Storage Account name.
+   ![Screenshot of the Variables dialog with the environment variable selected.](media/select-variables.png)
+   
+1. In the **Update variable** dialog, enter a value with a four-character maximum length, and then select **Update**. The four-character limitation ensures that your full Gridwich Storage Account name won't exceed the [24-character maximum] for Azure Storage Account names.
    
    ![Screenshot of updating the environment variable.](media/update-variable.png)
    
-1. Update the `RUN_FLAG_SUBSCRIPTIONS_DISABLED` variable to `true` if you want subscriptions to be skipped.
+1. Update the **RUN_FLAG_SUBSCRIPTIONS_DISABLED** variable to `true` if you want subscriptions to be skipped.
    
-1. Update the `RUN_FLAG_SUBSCRIPTIONS_FAIL_GRACEFULLY` to `true` if you want subscriptions to fail gracefully.
+1. Update the **RUN_FLAG_SUBSCRIPTIONS_FAIL_GRACEFULLY** to `true` if you want subscriptions to fail gracefully.
    
-1. Select **Update**, and in the **Run pipeline** dialog, select **Run**.
+1. In the **Run pipeline** dialog, select **Run**.
+   
+   ![Screenshot of the pipeline dialog with Run highlighted.](media/run-pipeline.png)
 
-The pipeline steps deploy the application into Azure, but they don't set up any of the identity principals or their access rights to Azure resources. An admin must follow the instructions in [Pipeline-generated admin scripts](admin-scripts.md) to complete the setup.
+The pipeline steps deploy the application into Azure, but they don't set up any of the identity principals or their access rights to Azure resources. An admin must follow the instructions in [Pipeline-generated admin scripts](run-admin-scripts.md) to complete the setup.
 
 To verify that your environment is up and running, in the Azure portal, confirm that resource groups exist with your environment name.
 
@@ -63,7 +65,7 @@ To delete an environment:
 
 1. In the `gridwich-clone` project left navigation, select **Pipelines**, and then select and run the **tf_destroy_env** pipeline with the environment name you want to delete.
    
-   Make sure to set the `RUN_FLAG_SUBSCRIPTIONS_DISABLED` variable to the same value used when creating the environment.
+   Make sure to set the **RUN_FLAG_SUBSCRIPTIONS_DISABLED** variable to the same value used when creating the environment.
    
 1. Under **Pipelines** > **Environments**, delete the environment.
    

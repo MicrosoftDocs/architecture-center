@@ -1375,7 +1375,7 @@ items:
           - name: Clean monolith design
             href: reference-architectures/media-services/gridwich-clean-monolith.md
           - name: Saga orchestration
-            href: reference-architectures/media-services/saga-orchestration.md
+            href: reference-architectures/media-services/gridwich-saga-orchestration.md
           - name: Project names and structure
             href: reference-architectures/media-services/gridwich-project-names.md
           - name: Gridwich CI/CD
@@ -1397,7 +1397,7 @@ items:
           - name: Set up Azure DevOps
             href: reference-architectures/media-services/set-up-azure-devops.md
           - name: Run Azure admin scripts
-            href: reference-architectures/media-services/admin-scripts.md
+            href: reference-architectures/media-services/run-admin-scripts.md
           - name: Set up local dev environment
             href: reference-architectures/media-services/set-up-local-environment.md
           - name: Create new cloud environment

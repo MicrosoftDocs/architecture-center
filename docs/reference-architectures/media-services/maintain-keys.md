@@ -17,9 +17,7 @@ Gridwich uses two types of Azure Key Vault keys, storage keys and third-party ke
 
 ## Run admin scripts
 
-To give the Azure Functions App and the two Logic Apps permissions to take Azure Storage Account and Key Vault actions, run the pipeline-generated admin scripts. For instructions, see [Pipeline-generated admin scripts](admin-scripts.md).
-
-![Screenshot showing the pipeline-generated admin scripts.](media/admin-scripts.png)
+To give the Azure Functions App and the two Logic Apps permissions to take Azure Storage Account and Key Vault actions, run the pipeline-generated admin scripts. For instructions, see [Pipeline-generated admin scripts](run-admin-scripts.md).
 
 ## Key Roller Logic App for storage keys
 
@@ -27,7 +25,7 @@ To stay in compliance with security policy, rotate the Storage Account keys on a
 
 Storage keys aren't configured in the Azure Functions App settings, but the Functions App runs under a service principal that has access to the Storage Accounts. Because the Functions App isn't configured with storage keys, rotating these keys doesn't require a Functions App restart.
 
-External system security operations personnel submit a request to rotate storage keys. The request is published to Event Grid as a Key Roll Request. The Key Roller Logic App subscribes to that Event Grid topic and responds to the request by rotating the key in the requested Storage Account.
+External system security operations personnel submit a request to rotate storage keys. The request is published to Azure Event Grid as a Key Roll Request. The Key Roller Logic App subscribes to that Event Grid topic and responds to the request by rotating the key in the requested Storage Account.
 
 The request from the external system looks like this:
 
@@ -46,9 +44,9 @@ The request from the external system looks like this:
 }
 ```
 
-Where \<keyName> corresponds to the name of the key as Azure Storage defines in its [Get Keys operation](/rest/api/storagerp/srp_json_get_storage_account_keys).
+Where \<keyName> corresponds to the name of the key, as Azure Storage defines it in its [Get Keys operation](/rest/api/storagerp/srp_json_get_storage_account_keys).
 
-On success, the Logic App sends the following message back through Event Grid:
+On success, the Logic App sends the following response back through Event Grid:
 
 ```json
 {
@@ -70,9 +68,7 @@ While the request message accepts an `operationContext` value, the response does
 
 The Secret Changed Handler Logic App doesn't use Event Grid. The events are handled purely by configuring the workloads. Terraform sets up all the Functions App and Key Vault configuration.
 
-The Gridwich Azure Functions App has many keys that are backed by Key Vault. You can see the keys in the Functions App app settings:
-
-![Screenshot showing the keys in App Settings.](media/app-settings-keys.png)
+The Gridwich Azure Functions App has many keys that are backed by Key Vault. You can see the keys in the Functions App app settings.
 
 The Azure Key Vault itself is configured to send events to a Logic App web hook:
 
@@ -95,8 +91,9 @@ The Azure Key Vault itself is configured to send events to a Logic App web hook:
 
 To add or change a key:
 
-1. Add the key to `src/Gridwich.Host.FunctionApp/sample.local.settings.json`.
-1. Add the key to `infrastructure/terraform/shared`:
+1. Add the key to the [Gridwich.Host.FunctionApp/sample.local.settings.json](https://github.com/mspnp/blob/main/gridwich/src/Gridwich.Host.FunctionApp/sample.local.settings.json) file.
+   
+1. Add the key to [infrastructure/terraform/shared](https://github.com/mspnp/blob/main/gridwich/infrastructure/terraform/shared/):
    
    ```terraform
    #############################
@@ -128,6 +125,7 @@ To add or change a key:
        },
    ```
    
-1. Add the secret to the environment library at **Pipelines** > **Library** > **Variable groups**> **gridwich-cicd-variables.<environment>**.
+1. Add the secret to the environment library at **Pipelines** > **Library** > **Variable groups**> **gridwich-cicd-variables.\<environment>**, in Secured mode.
+   
+   ![Screenshot of the environment Library.](media/environment-library.png)
 
-![Library](media/environment-library.png)

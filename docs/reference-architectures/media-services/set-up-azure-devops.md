@@ -17,7 +17,7 @@ Follow the procedures in this article to set up an Azure DevOps project, repo, a
 
 The following procedures and settings use a placeholder Azure DevOps organization called `myorganization`, a new Azure DevOps project called `gridwich-clone`, service connection name `gridwich-connection`, and application name `cl1grw`. Replace these placeholders with your own values as appropriate.
 
-## Azure DevOps procedures
+## Set up the Azure DevOps project and repo
 
 Perform the following procedures in your Azure DevOps organization.
 
@@ -94,15 +94,15 @@ Install the necessary extensions for Azure DevOps to work with Gridwich.
    
 1. If the following extensions aren't installed, select **Browse Marketplace** or use the following links to install them.
    
-   - [mspremier.BuildQualityChecks](https://marketplace.visualstudio.com/items?itemName=mspremier.BuildQualityChecks)
-   - [Palmmedia.reportgenerator](https://marketplace.visualstudio.com/items?itemName=Palmmedia.reportgenerator)
-   - [ms-devlabs.custom-terraform-tasks](https://marketplace.visualstudio.com/items?itemName=ms-devlabs.custom-terraform-tasks)
+   - **Build Quality Checks**, [mspremier.BuildQualityChecks](https://marketplace.visualstudio.com/items?itemName=mspremier.BuildQualityChecks)
+   - **ReportGenerator**, [Palmmedia.reportgenerator](https://marketplace.visualstudio.com/items?itemName=Palmmedia.reportgenerator)
+   - **Terraform**, [ms-devlabs.custom-terraform-tasks](https://marketplace.visualstudio.com/items?itemName=ms-devlabs.custom-terraform-tasks)
 
 ### Update files
 
 Update some of the installed files.
 
-1. In [build-test-report-steps-template.yml](https://github.com/mspnp/blob/main/gridwich/infrastructure/azure-pipelines/templates/steps/build-test-report-steps-template.yml), comment out GitHub tasks, because this repo doesn't use GitHub.
+1. In [build-test-report-steps-template.yml](https://github.com/mspnp/blob/main/gridwich/infrastructure/azure-pipelines/templates/steps/build-test-report-steps-template.yml), comment out GitHub tasks if your repo doesn't use GitHub.
    
    ```yaml
    #- task: GitHubComment@0
@@ -112,7 +112,7 @@ Update some of the installed files.
    #    comment: '$(comment)'
    ```
    
-1. Update names in several other YAML files
+1. Update names in several other YAML files:
 
    - In [ci-cd-release-stages.yml](https://github.com/mspnp/blob/main/gridwich/infrastructure/azure-pipelines/templates/stages/ci-cd-release-stages.yml), update `serviceConnection: gridwich-*` to `serviceConnection: gridwich-connection` or your service connection name.
    
@@ -132,13 +132,13 @@ Update some of the installed files.
    
 1. Commit the changes and push the commit to the project repo.
 
-### Add pipeline variable groups
+## Add pipeline variable groups
 
-Add *variable groups* to store secrets and values to pass into the pipelines.
+Add Azure Pipelines *variable groups* to store secrets and values to pass into the pipelines.
 
 1. In the `gridwich-clone` project left navigation, select **Pipelines** > **Library**, and then select **+ Variable group**.
    
-1. Under **Properties**, for **Name**, enter `gridwich-cicd-variables.global`.
+1. Under **Properties**, for **Name**, enter **gridwich-cicd-variables.global**.
 
 1. Under **Variables**, select **Add**, and add the following **Name** and **Value** pairs.
    
@@ -153,37 +153,37 @@ Add *variable groups* to store secrets and values to pass into the pipelines.
          telestreamCloudApiKey = tcs_000000000000000000000000
    ```
    
-   - The `amsDrmEnableContentKeyPolicyUpdate` variable controls whether to push content policy updates. The variable must be set to `true` for updates to occur. For more information, see [Content key policy updates](gridwich-content-protection-drm.md#content-key-policy-update).
+   - The **amsDrmEnableContentKeyPolicyUpdate** variable controls whether to push content policy updates. The variable must be set to `true` for updates to occur. For more information, see [Content key policy updates](gridwich-content-protection-drm.md#content-key-policy-update).
    
-   - For Apple FairPlay `amsDrmFairPlayAskHex` and `amsDrmFairPlayPfxPassword`, use the values from the *FairPlay-out-base64.txt* certificate file that you create and upload. For instructions, see [Apple FairPlay settings](gridwich-content-protection-drm.md#apple-fairplay-settings).
+   - For Apple FairPlay **amsDrmFairPlayAskHex** and **amsDrmFairPlayPfxPassword**, use the values from the *FairPlay-out-base64.txt* certificate file that you create and upload. For instructions, see [Apple FairPlay settings](gridwich-content-protection-drm.md#apple-fairplay-settings).
      
-     Or, for development purposes, you can use the FairPlay values in the preceding example, which are from the fake FairPlay certificate file [FairPlay-out-base64.txt](https://github.com/mspnp/blob/main/gridwich/src/Gridwich.SagaParticipans.Publication.MediaServicesV3/tests/FakeFairPlayCert/FairPlay-out-base64.txt). Upload this fake file to **Library** > **+ Secure file**. 
+     Or, for development purposes, you can use the FairPlay values in the preceding example, which are from the fake FairPlay certificate file [FairPlay-out-base64.txt](https://github.com/mspnp/blob/main/gridwich/src/Gridwich.SagaParticipans.Publication.MediaServicesV3/tests/FakeFairPlayCert/FairPlay-out-base64.txt). Upload this fake file to **Library** > **+ Secure file**.
    
-   - For `amsDrmOpenIdConnectDiscoveryDocumentEndpoint`, use the OpenID Connect Discovery Document endpoint URL that exposes the public signature keys in Azure Media Services.
+   - For **amsDrmOpenIdConnectDiscoveryDocumentEndpoint**, use the OpenID Connect Discovery Document endpoint URL that exposes the public signature keys in Azure Media Services.
    
-   - The `inboxCORS` entry should match the `allowed_origins` list in [terraform/main.tf](https://github.com/mspnp/blob/main/gridwich/infrastructure/terraform/main.tf).
+   - The **inboxCORS** entry should match the `allowed_origins` list in [terraform/main.tf](https://github.com/mspnp/blob/main/gridwich/infrastructure/terraform/main.tf).
    
 1. After adding all the name/value pairs, select **Save**,
    
-1. Select **+ Variable group** and add a new variable group named `gridwich-cicd-variables.sb`.
+1. Select **+ Variable group** and add a new variable group named **gridwich-cicd-variables.sb**.
    
-1. Add variable name `eventEndpointExtSys` with value `https://cl1grw-grw-wa-viewer-sb.azurewebsites.net/api/eventgrid`.
+1. Add variable name **eventEndpointExtSys** with value `https://cl1grw-grw-wa-viewer-sb.azurewebsites.net/api/eventgrid`.
    
 1. Select **Save**.
    
 1. Under **Variable groups**, select **gridwich-cicd-variables.sb**.
    
-1. Select **Clone**, and name the cloned variable group `gridwich-cicd-variables.single_env`.
+1. Select **Clone**, and name the cloned variable group **gridwich-cicd-variables.single_env**.
    
    ![Screenshot of cloning the variable group.](media/clone-variable-group.png)
    
 1. Select **Save**.
 
-### Add pipelines
+## Add pipelines
 
-Add the pipelines.
+Add Azure Pipelines build and deployment pipelines.
 
-#### Add the functions_pr_master.yml pipeline
+### Add the functions_pr_master.yml pipeline
 
 This pipeline runs when you make a code pull request from a feature branch to the master branch.
 
@@ -199,9 +199,9 @@ This pipeline runs when you make a code pull request from a feature branch to th
    
 1. Select **Run** to run the pipeline.
 
-#### Add the ci_cd_dev_release.yml pipeline
+### Add the ci_cd_dev_release.yml pipeline
 
-This pipeline creates the sandbox (SB) environment for the developer environment.
+This pipeline creates the sandbox (SB) developer environment.
 
 1. In the `gridwich-clone` project left navigation, select **Pipelines** and then select **Create pipeline** or **New pipeline**.
    
@@ -219,11 +219,11 @@ This pipeline creates the sandbox (SB) environment for the developer environment
      
      ![Select Permit to approve.](media/approve-secure-file.png)
      
-After the first run, an admin must run the bash scripts to set up authorization.
+   - For the first run, an admin must [run the bash scripts](run-admin-scripts.md) to set up authorization.
 
-#### Add the ci_cd_ext_release.yml pipeline for single environments
+### Add the ci_cd_ext_release.yml pipeline
 
-Developers can use this pipeline to create new environments with custom names in the developer-external environment.
+Use this pipeline to create a new single cloud developer environment with a custom name.
 
 1. In the `gridwich-clone` project left navigation, select **Pipelines** and then select **Create pipeline** or **New pipeline**.
    
@@ -246,7 +246,7 @@ Developers can use this pipeline to create new environments with custom names in
       RUN_FLAG_TERRAFORM = true
    ```
    
-   You can also use Azure CLI to add the variables. Run the following command for each variable respectively, after logging in to the Azure subscription and installing the [Pipelines extension](/azure/devops/pipelines/create-first-pipeline-cli):
+   You can also use Azure CLI to add the variables. Run the following command for each variable respectively, after signing in to the Azure subscription and installing the [Pipelines extension](/azure/devops/pipelines/create-first-pipeline-cli):
    
    ```azurecli
        az pipelines variable create \
@@ -257,15 +257,15 @@ Developers can use this pipeline to create new environments with custom names in
    
 1. Select **Run** to run the pipeline anytime you want to create a replica of the system.
    
-   On first run, you must select **Permit** to approve the pipeline using the FairPlay Secure File you uploaded.
+   - On first run, you must select **Permit** to approve the pipeline using the FairPlay Secure File you uploaded.
    
-After the first run, an admin must run the bash scripts to set up authorization.
+   - For the first run, an admin must [run the bash scripts](run-admin-scripts.md) to set up authorization.
 
 For more information about how to run this pipeline and set up a new environment, see [Create or delete an environment](create-delete-cloud-environment.md).
 
-#### Add the tf_destroy_env.yml pipeline
+### Add the tf_destroy_env.yml pipeline
 
-Use this pipeline to delete an environment.
+Use this pipeline to delete an environment, like one the `ci_cd_ext_release` pipeline created.
 
 1. In the `gridwich-clone` project left navigation, select **Pipelines** and then select **Create pipeline** or **New pipeline**.
    
@@ -290,7 +290,7 @@ Use this pipeline to delete an environment.
       applicationName = cl1grw <or your app name>
    ```
    
-   You can also use Azure CLI to add the variables. Run the following command for each variable respectively, after logging in to the Azure subscription and installing the [Pipelines extension](/azure/devops/pipelines/create-first-pipeline-cli):
+   You can also use Azure CLI to add the variables. Run the following command for each variable respectively, after signing in to the Azure subscription and installing the [Pipelines extension](/azure/devops/pipelines/create-first-pipeline-cli):
    
    ```azurecli
        az pipelines variable create \
@@ -299,9 +299,9 @@ Use this pipeline to delete an environment.
            --name <variable name> --value <default value> --allow-override true
    ```
    
-1. Select **Run** to run the pipeline anytime you need to destroy an environment, like one created by `ci_cd_ext_release`.
+1. Select **Run** to run the pipeline anytime you need to destroy an environment.
 
-### Set PR build policies
+## Set PR build policies
 
 Adjust the following suggested settings as you see fit.
 
@@ -327,19 +327,19 @@ Adjust the following suggested settings as you see fit.
    
    - Build pipeline: `functions_pr_master`
    - Path filter: `/src/*`
-   - Display name: PR Policy
+   - Display name: `PR Policy`
    
 1. Select **Save**.
 
 ## Azure portal procedures
 
-For non-development environments, the pipeline doesn't autopopulate most secrets on deployment. Instead the pipeline creates the key vault secrets for the environment with placeholder values. For Gridwich to work, a secrets manager must replace these placeholders with actual values in Azure Key Vault. For more information about managing and rotating keys, see [Gridwich keys](maintain-keys.md).
+For non-development environments, the pipeline doesn't autopopulate most secrets on deployment. Instead the pipeline creates the key vault secrets for the environment with placeholder values. For Gridwich to work, a secrets manager must replace these placeholders with actual values in Azure Key Vault. For more information, see [Manage and rotate keys](maintain-keys.md).
 
-The pipeline steps deploy the application into Azure, but they don't set up any of the identity principals or their access rights to Azure resources. A user with elevated privileges must follow the instructions in [Pipeline-generated admin scripts](admin-scripts.md) to complete the setup.
+The pipeline steps deploy the application into Azure, but they don't set up any of the identity principals or their access rights to Azure resources. A user with elevated privileges must follow the instructions in [Pipeline-generated admin scripts](run-admin-scripts.md) to complete the setup.
 
-### Set up Azure Active Directory
+### Grant admin and user role permissions
 
-A user with elevated privileges must execute the pipeline-generated admin scripts. To grant users elevated privileges:
+A user with elevated privileges must run the pipeline-generated admin scripts. To grant users elevated privileges:
 
 1. In Azure Active Directory (Azure AD), create a named group such as *Gridwich Admins*, and add the authorized admins to it.
    
@@ -347,7 +347,7 @@ A user with elevated privileges must execute the pipeline-generated admin script
 
 Local debugging uses user impersonation, and developers sign in with their browsers. To ensure that the application has the correct rights:
 
-1. In Azure Active Directory (Azure AD), create a named group such as *Gridwich Devs*, and add the authorized developers to it.
+1. In Azure AD, create a named group such as *Gridwich Devs*, and add the authorized developers to it.
    
 1. In the Azure Subscription, select **Access Control (IAM)** in the left navigation, select **Add role assignments**, and then assign the following roles for **Gridwich Devs**:
    
@@ -357,7 +357,7 @@ Local debugging uses user impersonation, and developers sign in with their brows
 ## Next steps
 
 - Configure [content protection policies and DRM settings](gridwich-content-protection-drm.md).
-- Run the [admin scripts](admin-scripts.md)
+- Run the [admin scripts](run-admin-scripts.md)
 - Manage [Key Vault keys](maintain-keys.md)
 - Set up a [local development environment](set-up-local-environment.md).
 - Create or delete a [cloud sandbox or test environment](create-delete-cloud-environment.md).

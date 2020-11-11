@@ -17,21 +17,23 @@ You can test a deployed application in Azure or locally. In both cases, you moni
 
 ## Test in Azure
 
-1. Open the Event Grid Viewer app. Update `cl1grw` with your application name and `sb` with your environment name, as needed.
+1. Use the following URL to open the Event Grid Viewer app:
    
-   `https://cl1grw-grw-wa-viewer-sb.azurewebsites.net`
+   `https://<your app name>-<your environment name>.azurewebsites.net`
    
    The Event Grid Viewer Blazor should load, with no event in the list.
    
+   ![Screenshot showing the Event Grid Viewer Blazor with no events in the list.](media/blazor-viewer.png)
+   
 1. Prepare the input content.
    
-   In a storage account attached to Media Services, for example `cl1grwinbox00sa{your-environment-name}`, create a container, for example `input01`, and upload a video file in it, for example `BBB_trailer_20200225.mp4`.
+   In an Azure Storage Account attached to Azure Media Services, for example `cl1grwinbox00sa<your-environment-name>`, create a container, for example `input01`, and upload a video file in it, for example `BBB_trailer_20200225.mp4`.
    
    ![Screenshot showing an uploaded file.](media/uploaded-file.png)
    
 1. Send a message to the deployed Function App.
    
-   Find the Azure Function App in the portal, select the Event Grid function, and then select **Testing**.
+   Find the Gridwich Azure Function App in the portal, select the Event Grid function, and then select **Testing**.
    
    POST the following payload:
    
@@ -59,9 +61,6 @@ You can test a deployed application in Azure or locally. In both cases, you moni
        }
    ]
    ```
-   
-   ![Screenshot showing testing in the portal.](media/portal-testing.png)
-   
    You should see a `response.encode.mediaservicesv3.success` event.
    
    ![Screenshot showing a Success event.](media/success-viewer.png)
@@ -168,10 +167,10 @@ To set up your local environment, see [Gridwich local development environment](s
    
    ![Screenshot showing the Event Grid Viewer job messages.](media/viewer.png)
    
-   You can also go the Media Services account to see the job running or completed.
+   You can also go to the Azure Media Services account to see the job running or completed.
    
    ![Screenshot showing the Azure Media Services job.](media/media-services-job.png)
    
-   Check that the encoded files are in the output container.
+   Check that the encoded files are in the Azure Storage Account output container.
    
-   ![Screenshot showing the Event Grid Viewer Output Container.](media/output-container.png)
+   ![Screenshot showing the Storage Account Output Container.](media/output-container.png)
