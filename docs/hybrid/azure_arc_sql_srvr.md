@@ -1,6 +1,6 @@
 ---
-title: Optimize administration of SQL Server instances in on-premises and multiple cloud scenarios by leveraging Azure Arc
-description: Optimize management, maintenance, and monitoring of SQL Server with Azure Arc enabled SQL Server and Azure Arc enabled data services in on-premises and multiple cloud scenarios.
+title: Optimize administration of SQL Server instances in on-premises and multi-cloud environments by leveraging Azure Arc
+description: Optimize management, maintenance, and monitoring of SQL Server with Azure Arc enabled SQL Server and Azure Arc enabled data services in on-premises and multi-cloud environments.
 author: githubusername
 ms.date: 00/00/0000
 ms.topic: reference-architecture
@@ -9,11 +9,10 @@ ms.category:
   - category
 ms.custom: fcp
 ---
-<!--LM: multi-cloud should be multiple cloud. Per MS style, we don't hyphenate words that begin with "multi". And, if it's not in the dictionary, then use "multiple" before the word instead.-->
-<!--LM: Style note. Consider changing the order of the title/headings to "...multiple cloud and on-premises scenarios". -->
-# Optimize administration of SQL Server instances in on-premises and multiple cloud scenarios by leveraging Azure Arc
 
-This reference architecture illustrates how to leverage Azure Arc for management, maintenance, and monitoring of SQL Server instances in on-premises and multiple cloud scenarios.
+# Optimize administration of SQL Server instances in on-premises and multi-cloud environments by leveraging Azure Arc
+
+This reference architecture illustrates how to leverage Azure Arc for management, maintenance, and monitoring of SQL Server instances in on-premises and multi-cloud environments.
 
 ![Diagram illustrating different scenarios that leverage Azure Arc to optimize administration of SQL Server instances residing on-premises or hosted by third-party cloud providers. The first group of scenarios consists of SQL Server instances running on physical servers or virtual machines. The second group of scenarios comprises on-premises, third-party cloud hosted Kubernetes clusters, or Azure Kubernetes Service clusters running on Azure Stack HCI, with Azure Arc data controller serving as an intermediary management layer. All of these scenarios offer integration with a range of Azure services, such as Azure Monitor and Log Analytics, Azure Policy, Azure Security Center, and Azure Sentinel.][architectural-diagram]
 
@@ -23,7 +22,7 @@ Typical uses for this architecture include:
 
 - Assessing Azure Arc enabled SQL Server configuration, availability, performance, and compliance by using Azure Monitor.
 - Detecting and remediating security threats targeting Azure Arc enabled SQL Server by using Azure Security Center and Azure Sentinel.
-- Automating deployment and management of Azure Arc enabled SQL Managed Instance on Azure Arc enabled Kubernetes in on-premises and multiple cloud scenarios.
+- Automating deployment and management of Azure Arc enabled SQL Managed Instance on Azure Arc enabled Kubernetes in on-premises and multi-cloud environments.
 - Automating deployment and management of Azure Arc enabled SQL Managed Instance on Azure Kubernetes Service (AKS) on Azure Stack HCI.
 
 ## Architecture
@@ -33,7 +32,7 @@ The architecture consists of the following components and capabilities:
 - **[SQL Server][sql-server]**. This data platform gives you a wide range of choices of development languages, data types, on-premises or cloud environments, and operating systems.
 - **[Azure Arc][azure-arc]**. This cloud-based service extends the Azure Resource Manager-based management model to non-Azure resources including virtual machines (VMs), Kubernetes clusters, and containerized databases.
 - **[Azure Arc enabled servers][azure-arc-enabled-servers]**. This hybrid service allows you to manage your Windows and Linux machines, hosted outside of Azure, on your corporate network or other cloud provider. This is similar to how you manage native Azure VMs.
-- **[Azure Arc enabled SQL Server][azure-arc-enabled-sql-server]**. This part of the Azure Arc enabled servers extends Azure services to SQL Server instances, hosted outside of Azure in the customer’s datacenter, on the edge or in a multiple cloud environment.
+- **[Azure Arc enabled SQL Server][azure-arc-enabled-sql-server]**. This part of the Azure Arc enabled servers extends Azure services to SQL Server instances, hosted outside of Azure in the customer’s datacenter, on the edge or in a multi-cloud environment.
 - **[Kubernetes][kubernetes-open-source]**. This is a portable, extensible open-source platform for managing and orchestrating containerized workloads.
 - **[Azure Kubernetes Service][azure-kubernetes-service]**. This is a service that makes it simple to deploy a managed Kubernetes cluster in Azure.
 - **[Azure Stack HCI (20H2)][azs-hci]**. This is a hyperconverged infrastructure (HCI) cluster solution that hosts virtualized Windows and Linux operating system (OS) workloads and their storage in a hybrid on-premises environment. A cluster consists of two to 16 physical nodes.
@@ -71,7 +70,7 @@ You can use Azure Arc enabled SQL Server instances, hosted on physical and virtu
 
 - Advanced data security for Azure Arc enabled SQL Server. This functionality helps you detect and remediate security anomalies and threats to Azure Arc enabled SQL Server instances. Like the on-demand SQL Assessment, to enable Azure Arc enabled SQL Server, you need to install the Log Analytics agent on the server hosting the SQL Server instance. You must also enable the Azure Defender feature of Azure Security Center to automatically define the scope of data collection and to analyze it. You can [review results of this analysis in the Azure Security Center][azure-security-center-explore] and, after you [onboard Azure Sentinel][azure-sentinel-onboarding], use it to further investigate security alerts directly in the Azure portal.
 
-### Automate deployment and management of Azure Arc enabled SQL Managed Instance in on-premises and multiple cloud scenarios
+### Automate deployment and management of Azure Arc enabled SQL Managed Instance in on-premises and multi-cloud environments
 
 Azure Arc enabled SQL Managed Instance becomes a containerized deployment running on top of Azure Arc enabled data services. To host your deployment, you can use the following options: <!--LM: Please check that "becomes" still retains the meaning of the sentence.-->
 
