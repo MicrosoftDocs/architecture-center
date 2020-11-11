@@ -2,7 +2,7 @@
 title: Design scalable Azure applications
 description: Describes the design considerations for scalable applications
 author: v-aangie
-ms.date: 11/10/2020
+ms.date: 11/13/2020
 ms.topic: article
 ms.service: architecture-center
 ms.subservice: well-architected
@@ -13,7 +13,7 @@ ms.custom:
 
 # Design scalable Azure applications
 
-Application design is critical to handling scale as load increases. This article will give you insight on the most important topics. For more topics related to handling scale as load increases, see the Design applications for efficiency article in the Performance efficiency pillar. <!--LINK to Design - design-efficiency article-->
+Application design is critical to handling scale as load increases. This article will give you insight on the most important topics. For more topics related to handling scale as load increases, see the *Design applications for efficiency* article in the Performance efficiency pillar. <!--LINK to Design - design-efficiency article-->
 
 ## Choose the right database
 

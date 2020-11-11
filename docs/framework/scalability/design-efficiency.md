@@ -2,7 +2,7 @@
 title: Design Azure applications for efficiency
 description: Describes the design options for application efficiency
 author: v-aangie
-ms.date: 11/10/2020
+ms.date: 11/13/2020
 ms.topic: article
 ms.service: architecture-center
 ms.subservice: well-architected
@@ -13,7 +13,7 @@ ms.custom:
 
 # Design Azure applications for efficiency
 
-Application design is critical to handling scale as load increases. The topics in this article will give you insight into designing applications for efficiency. For other key topics related to handling scale as load increases, see the Design scalable Azure applications article in the Performance efficiency pillar. <!--LINK to Design - design-apps article-->
+Application design is critical to handling scale as load increases. The topics in this article will give you insight into designing applications for efficiency. For other key topics related to handling scale as load increases, see the *Design scalable Azure applications* article in the Performance efficiency pillar. <!--LINK to Design - design-apps article-->
 
 ## Reduce response time with asynchronous programming
 

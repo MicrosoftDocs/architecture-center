@@ -2,7 +2,7 @@
 title: Design for scaling
 description: Describes the scaling options for performance efficiency
 author: v-aangie
-ms.date: 11/10/2020
+ms.date: 11/13/2020
 ms.topic: article
 ms.service: architecture-center
 ms.subservice: well-architected
@@ -11,7 +11,7 @@ ms.custom:
 
 # Design for scaling
 
-Scaling allows applications to react to variable load by increasing and decreasing the number of instances of roles, queues, and other services. However, the application must be designed with this in mind.
+Scaling allows applications to react to variable load by increasing and decreasing the number of instances of roles, queues, and other services. The application must be designed with this in mind.
 
 For example, for optimal performance, the application and the services it uses should be stateless to allow requests to be routed to any instance. Having stateless services also means that adding or removing an instance doesn't adversely impact current users. If an application is stateful, however, then additional design considerations will be necessary, such as session-handling for deprecated instances.
 
@@ -21,9 +21,9 @@ Planning for growth starts with understanding your current workloads. This can h
 
 Perform load tests and stress tests to determine the necessary infrastructure to support the predicted spikes in workloads. A good plan includes incorporating a buffer to accommodate for random spikes.
 
-For more information on how to determine the upper and maximum limits of an application's capacity, see the Performance Testing article in the Performance Efficiency pillar. <!--LINK to new Performance Testing article-->
+For more information on how to determine the upper and maximum limits of an application's capacity, see *Performance Testing* in the Performance Efficiency pillar. <!--LINK to new Performance Testing article-->
 
-Another critical component of planning for scale is to make sure the region that hosts your application supports the necessary scale required to accommodate load increase. If you are using a multi-region architecture, make sure the secondary regions can also support the increase. A region can offer the product but may not support the predicted load increase without the necessary SKUs so you need to verify this. If you do not take this step, you will most likely need to upgrade your product to the next available pricing tier.
+Another critical component of planning for scale is to make sure the region that hosts your application supports the necessary scale required to accommodate load increase. If you are using a multiregion architecture, make sure the secondary regions can also support the increase. A region can offer the product but may not support the predicted load increase without the necessary SKUs so you need to verify this. If you do not take this step, you will most likely need to upgrade your product to the next available pricing tier.
 
 To verify your region and available SKUs, first select the product and regions in [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=).
 
@@ -33,13 +33,17 @@ Then, check the SKUs available in the Azure portal.
 
 ### Add scale units
 
-For each resource, know the upper scaling limits, and use [sharding](https://docs.microsoft.com/azure/azure-sql/database/elastic-scale-introduction#sharding) or decomposition to go beyond those limits. Design the application so that it's easily scaled by adding one or more [scale units](https://docs.microsoft.com/archive/msdn-magazine/2017/february/azure-inside-the-azure-app-service-architecture#what-is-an-app-service-scale-unit). Determine the scale units for the system in terms of well-defined sets of resources. This makes applying scale-out operations easier and less prone to negative impact caused by a lack of resources in some part of the overall system. 
+For each resource, know the upper scaling limits, and use [sharding](https://docs.microsoft.com/azure/azure-sql/database/elastic-scale-introduction#sharding) or decomposition to go beyond those limits. Design the application so that it's easily scaled by adding one or more [scale units](https://docs.microsoft.com/archive/msdn-magazine/2017/february/azure-inside-the-azure-app-service-architecture#what-is-an-app-service-scale-unit). Determine the scale units for the system in terms of well-defined sets of resources. This makes applying scale-out operations easier and less prone to negative impact caused by a lack of resources in some part of the overall system.
 
 The next step might be to use built-in scaling features or tools such as Azure Automation to autoscale. For example, adding X number of front-end VMs might require Y number of additional queues and Z number of storage accounts to handle the additional workload. So a scale unit could consist of X VM instances, Y queues, and Z storage accounts.
 
 ## Use Autoscaling to manage load increases and decreases
 
 Autoscaling enables you to run the right amount of resources to handle the load of your app. It adds resources (called scaling out) to handle an increase in load such as seasonal workloads and customer facing applications. Autoscaling saves money by removing idle resources (called scaling in) during a decrease in load such as during nights and weekends for some corporate apps.
+
+You automatically scale between the minimum and maximum number of instances to run and add or remove VMs automatically based on a set of rules.
+
+![Autoscale](../_images/design-autoscale.png)
 
 ### CPU or memory-intensive applications
 
@@ -70,6 +74,8 @@ Other Azure services include the following:
 Each service documents its autoscale capabilities. Review [Autoscale overview](https://docs.microsoft.com/azure/azure-monitor/platform/autoscale-overview) for a general discussion on Azure platform autoscale.
 
 > [!NOTE]
+> Autoscaling mostly applies to compute resources. While it's possible to horizontally scale a database or message queue, this usually involves data partitioning, which is generally not automated.
+>
 > Some Azure services don't have the built-in ability to autoscale. If your application isn't configured to scale out automatically as load increases, it's possible that your application's services will fail if they become saturated with user requests. See [Azure Automation](https://docs.microsoft.com/azure/virtual-desktop/set-up-scaling-script) for possible solutions.
 
 ## Take advantage of platform autoscaling features
@@ -83,7 +89,7 @@ Here's how you can benefit from autoscaling features:
 > [!NOTE]
 > Remember to use autoscaling to scale down/in resources that are no longer necessary for the given load in order to reduce operational costs.
 
-For more information, see [Autoscaling guidance](https://review.docs.microsoft.com/azure/architecture/best-practices/auto-scaling).
+For more information, see [Autoscaling](https://review.docs.microsoft.com/azure/architecture/best-practices/auto-scaling).
 
 <!--CANNOT FIND 2nd thru 4th links. Made a generic note above: If your application isn't configured to scale out automatically as load increases, it's possible that your application's services will fail if they become saturated with user requests. For more information, see the following articles: 
 
