@@ -47,9 +47,9 @@ administrative accounts and published prioritized roadmaps for protecting privil
 access that can be used as references for prioritizing mitigations for
 accounts with privileged access.
 
-- [Securing Privileged Access (SPA) roadmap for administrators of on-premises Active Directory](https://aka.ms/SPARoadmap)
+- [Securing Privileged Access (SPA) roadmap for administrators of on-premises Active Directory](/windows-server/identity/securing-privileged-access/securing-privileged-access)
 
-- [Guidance for securing administrators of Azure Active Directory](https://aka.ms/securitysteps)
+- [Guidance for securing administrators of Azure Active Directory](/azure/security/fundamentals/steps-secure-identity)
 
 ## Minimize number of critical impact admins
 

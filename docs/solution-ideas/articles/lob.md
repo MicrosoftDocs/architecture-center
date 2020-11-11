@@ -43,8 +43,8 @@ Data is loaded from these different data sources using several Azure components:
 - [Azure API management](https://azure.microsoft.com/services/api-management/): Hybrid, multi-cloud management platform for APIs across all environments
 - [Azure SQL Database](https://azure.microsoft.com/services/sql-database/): Build apps that scale with the pace of your business with managed and intelligent SQL in the cloud
 - [Azure Data Factory](https://azure.microsoft.com/services/data-factory/): Hybrid data integration service that simplifies ETL at scale
-- [Power BI](https://docs.microsoft.com/power-bi) : a suite of business analytics tools to analyze data and share insights. Power BI can query a semantic model stored in Analysis Services, or it can query Azure Synapse directly.
+- [Power BI](/power-bi) : a suite of business analytics tools to analyze data and share insights. Power BI can query a semantic model stored in Analysis Services, or it can query Azure Synapse directly.
 
 ## Next Steps
 
-- Learn more: [https://aka.ms/learnpowerapps](https://aka.ms/learnpowerapps)
+- Learn more: [https://aka.ms/learnpowerapps](/learn/browse/?products=power-apps)
