@@ -27,16 +27,16 @@ Typical uses for this architecture include the following ROBO scenarios:
 ## Architecture
 
 The architecture incorporates the following components and capabilities:
-- **Azure Stack HCI (20H2)**. Azure Stack HCI is a hyper-converged infrastructure (HCI) cluster solution that hosts virtualized Windows and Linux workloads and their storage in a hybrid on-premises environment. The stretched cluster can consist of between four and 16 physical nodes.
+- **[Azure Stack HCI (20H2)][azs-hci]**. Azure Stack HCI is a hyper-converged infrastructure (HCI) cluster solution that hosts virtualized Windows and Linux workloads and their storage in a hybrid on-premises environment. The stretched cluster can consist of between four and 16 physical nodes.
 - **File share witness**. A file share witness is a Server Message Block (SMB) share that Failover Cluster uses as a vote in the cluster quorum. Starting with Windows Server 2019, it's possible to use [a USB drive connected to a router][usb-file-share-witness] for this purpose.
-- **Azure Arc**. A cloud-based service that extend the Azure Resource Manager&ndash;based management model to non-Azure resources including virtual machines (VMs), Kubernetes clusters, and containerized databases.
+- **[Azure Arc][azure-arc]**. A cloud-based service that extend the Azure Resource Manager&ndash;based management model to non-Azure resources including virtual machines (VMs), Kubernetes clusters, and containerized databases.
 - **Azure Policy**. A cloud-based service that evaluates Azure and on-premises resources through integration with Azure Arc by comparing properties to customizable business rules.
-- **Azure Monitor**. A cloud-based service that maximizes the availability and performance of your applications and services by delivering a comprehensive solution for collecting, analyzing, and acting on telemetry from your cloud and on-premises environments.
-- **Azure Security Center**. Azure Security Center is a unified infrastructure security management system that strengthens the security posture of your data centers, and provides advanced threat protection across your hybrid workloads in the cloud - whether they're in Azure or not - as well as on premises.
+- **[Azure Monitor][azure-monitor]**. A cloud-based service that maximizes the availability and performance of your applications and services by delivering a comprehensive solution for collecting, analyzing, and acting on telemetry from your cloud and on-premises environments.
+- **[Azure Security Center][azure-security-center]**. Azure Security Center is a unified infrastructure security management system that strengthens the security posture of your data centers, and provides advanced threat protection across your hybrid workloads in the cloud - whether they're in Azure or not - as well as on premises.
 - **Azure Automation**. Azure Automation delivers a cloud-based automation and configuration service that supports consistent management across your Azure and non-Azure environments.
 - **Change Tracking and Inventory**. A feature of Azure Automation that tracks changes in Windows Server and Linux servers hosted in Azure, on-premises, and other cloud environments to help you pinpoint operational and environmental issues with software managed by the Distribution Package Manager.
 - **Update Management**. A feature of Azure Automation that streamlines management of OS updates for Windows Server and Linux machines in Azure, in on-premises environments, and in other cloud environments.
-- **Azure Backup**. The Azure Backup service provides simple, secure, and cost-effective solutions to back up your data and recover it from the Microsoft Azure cloud.
+- **[Azure Backup][azure-backup]**. The Azure Backup service provides simple, secure, and cost-effective solutions to back up your data and recover it from the Microsoft Azure cloud.
 - **Azure Site Recovery**. A cloud-based service that helps ensure business continuity by keeping business apps and workloads running during outages. Site Recovery manages replication and failover of workloads running on both physical and virtual machines between their primary site and a secondary location.
 - **Azure File Sync**. A cloud-based service that provides the ability to synchronize and cache content of Azure file shares by using Windows Servers across your Azure and non-Azure environments.
 - **Storage Replica**. A Windows Server technology that enables replication of volumes between servers or clusters for disaster recovery.
@@ -133,8 +133,14 @@ Security considerations include:
 
 [architectural-diagram]: images/azure_stack_robo.png
 [architectural-diagram-visio-source]: diagrams/azure_stack_robo.vsdx
-[azure-service]: https://docs.microsoft.com/azure/
 [azure-well-architected-framerwork]: https://docs.microsoft.com/azure/architecture/framework/
+[azs-hci]: https://docs.microsoft.com/azure-stack/hci/overview
+[azure-arc]: https://docs.microsoft.com/azure/azure-arc/
+[azure-monitor]: https://docs.microsoft.com/azure/azure-monitor/overview
+[azure-backup]: https://docs.microsoft.com/azure/backup/backup-overview
+[azure-security-center]: https://docs.microsoft.com/azure/security-center/security-center-introduction
+
+
 [usb-file-share-witness]: https://techcommunity.microsoft.com/t5/failover-clustering/new-file-share-witness-feature-in-windows-server-2019/ba-p/372149
 [s2d-resiliency]: https://docs.microsoft.com/windows-server/storage/storage-spaces/storage-spaces-fault-tolerance
 [failover-clustering]: https://docs.microsoft.com/windows-server/failover-clustering/failover-clustering-overview
