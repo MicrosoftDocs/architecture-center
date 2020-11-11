@@ -78,11 +78,11 @@ The following steps describe the request and response process between an externa
    
 1. The Azure Functions App reads the event properties and dispatches events to parts of the Gridwich code that handle that event type and version.
    
-   Specifically, the Functions App uses [dependency injection](/azure/azure-functions/functions-dotnet-dependency-injection) to register one or more request handlers for specific event types and data versions. The [event dispatcher](https://github.com/mspnp/gridwich/src/GridWich.Core.EventGrid/src/EventGridDispatcher.cs) is injected with the collection of Event Grid event handlers. When processing an event, the event dispatcher queries the event handlers to determine which handlers will process this event.
+   Specifically, the Functions App uses [dependency injection](/azure/azure-functions/functions-dotnet-dependency-injection) to register one or more request handlers for specific event types and data versions. The [event dispatcher](https://github.com/mspnp/blob/main/gridwich/src/GridWich.Core.EventGrid/src/EventGridDispatcher.cs) is injected with the collection of Event Grid event handlers. When processing an event, the event dispatcher queries the event handlers to determine which handlers will process this event.
    
    An alternative approach is to use the event subscription and filtering mechanism the Event Grid platform provides. This mechanism would impose a 1:1 deployment model, where one Azure Function hosts only one event handler. Although Gridwich uses a 1:many model, the [clean architecture](gridwich-clean-monolith.md) means that refactoring the solution for 1:1 isn't difficult.
    
-1. Any handler that plans to do further work with the current request must provide an acknowledgment. Specifically, each handler in the system uses a common [EventGridHandlerBase](https://github.com/mspnp/gridwich/src/Gridwich.Core/src/Bases/EventGridHandlerBase.cs) class to provide generic services such as request acknowledgment, failure handling, and publication of response events. The event publication service communicates the Acknowledgment, Failure, Scheduled, or Success messages to the Event Grid request broker.
+1. Any handler that plans to do further work with the current request must provide an acknowledgment. Specifically, each handler in the system uses a common [EventGridHandlerBase](https://github.com/mspnp/blob/main/gridwich/src/Gridwich.Core/src/Bases/EventGridHandlerBase.cs) class to provide generic services such as request acknowledgment, failure handling, and publication of response events. The event publication service communicates the Acknowledgment, Failure, Scheduled, or Success messages to the Event Grid request broker.
    
    When it receives a request by a handler, the base class immediately sends an Acknowledgment message, and then dispatches the work to the derived class.
    
@@ -102,7 +102,7 @@ The external system shouldn't depend on message order. While an Acknowledgment w
 
 ### Request failures
 
-Request failures can be due to bad requests, missing pre-conditions, processing failures, security exceptions, or unhandled exceptions. Failures all have the same message form, and should include the original operation context. Failure responses are typically sent by the common [EventGridHandlerBase](https://github.com/mspnp/gridwich/src/Gridwich.Core/src/Bases/EventGridHandlerBase.cs) class to Event Grid via the Azure Function event publisher interface. [Application Insights](/azure/azure-monitor/app/app-insights-overview) also logs failures via the [structured logging](gridwich-logging.md) used throughout the project.
+Request failures can be due to bad requests, missing pre-conditions, processing failures, security exceptions, or unhandled exceptions. Failures all have the same message form, and should include the original operation context. Failure responses are typically sent by the common [EventGridHandlerBase](https://github.com/mspnp/blob/main/gridwich/src/Gridwich.Core/src/Bases/EventGridHandlerBase.cs) class to Event Grid via the Azure Function event publisher interface. [Application Insights](/azure/azure-monitor/app/app-insights-overview) also logs failures via the [structured logging](gridwich-logging.md) used throughout the project.
 
 ## Sync and async handlers
 
@@ -114,7 +114,7 @@ For requests that are easy to perform and fast to complete, the handler does the
 
 ![handler_message_sync_flow diagram](media/request-response-sync-flow.png).
 
-For example, the [ChangeBlobTierHandler](https://github.com/mspnp/gridwich/src/GridWich.SagaParticipants.Storage.AzureStorage/src/EventGridHandlers/ChangeBlobTierHandler.cs) is a simple synchronous flow. The handler gets a Request data transfer object (DTO), calls and awaits a single service to do the work, and returns a Success or Failure response.
+For example, the [ChangeBlobTierHandler](https://github.com/mspnp/blob/main/gridwich/src/GridWich.SagaParticipants.Storage.AzureStorage/src/EventGridHandlers/ChangeBlobTierHandler.cs) is a simple synchronous flow. The handler gets a Request data transfer object (DTO), calls and awaits a single service to do the work, and returns a Success or Failure response.
 
 ![event_dispatching_sync_example diagram](media/sync-example.png)
 
@@ -126,11 +126,11 @@ Some requests are long-running. For example, encoding media files can take hours
 
 On completing the work activity, the request handler is responsible for providing a Success or Failure completed event for the work. While remaining stateless, the handler must retrieve the original [operation context](#operation-context) and place it in the Completed event message payload.
 
-For example, the [BlobCopyHandler](https://github.com/mspnp/gridwich/src/GridWich.SagaParticipants.Storage.AzureStorage/src/EventGridHandlers/BlobCopyHandler.cs) shows a simple asynchronous flow. The handler gets a Request DTO, calls and awaits a single service to initiate the work, and publishes a Scheduled or Failure response.
+For example, the [BlobCopyHandler](https://github.com/mspnp/blob/main/gridwich/src/GridWich.SagaParticipants.Storage.AzureStorage/src/EventGridHandlers/BlobCopyHandler.cs) shows a simple asynchronous flow. The handler gets a Request DTO, calls and awaits a single service to initiate the work, and publishes a Scheduled or Failure response.
 
 ![event_dispatching_async_example_scheduled diagram](media/async-example-scheduled.png)
 
-To complete the long-running request flow, the [BlobCreatedHandler](https://github.com/mspnp/gridwich/src/GridWich.SagaParticipants.Storage.AzureStorage/src/EventGridHandlers/BlobCreatedHandler.cs) consumes the platform event `Microsoft.Storage.BlobCreated`, extracts the original operation context, and publishes a Success or Failure completion response.
+To complete the long-running request flow, the [BlobCreatedHandler](https://github.com/mspnp/blob/main/gridwich/src/GridWich.SagaParticipants.Storage.AzureStorage/src/EventGridHandlers/BlobCreatedHandler.cs) consumes the platform event `Microsoft.Storage.BlobCreated`, extracts the original operation context, and publishes a Success or Failure completion response.
 
 ![event_dispatching_async_example_success diagram](media/async-example-success.png)
 
@@ -159,11 +159,11 @@ For more information, see [What happens during a slot swap for Azure Functions](
 
 ## Operation context
 
-The external system might generate thousands of requests per day, per hour, or per second. Each request event payload to Gridwich must include a JSON object property named [operationContext](https://github.com/mspnp/gridwich/src/Gridwich.Core/src/DTO/Requests/RequestBaseDTO.cs).
+The external system might generate thousands of requests per day, per hour, or per second. Each request event payload to Gridwich must include a JSON object property named [operationContext](https://github.com/mspnp/blob/main/gridwich/src/Gridwich.Core/src/DTO/Requests/RequestBaseDTO.cs).
 
 Gridwich is a stateless request processing and work activity solution that responds with the opaque operation context, whether the activity is short- or long-running. This operation context persists through the lifetime of even very long-running requests.
 
-If a request contains an operation context, like `{"id"="Op1001"}`, Gridwich must return a corresponding JSON object as part of each response payload to the external system. See [ResponseBaseDTO](https://github.com/mspnp/gridwich/src/Gridwich.Core/src/DTO/Responses/ResponseBaseDTO.cs).
+If a request contains an operation context, like `{"id"="Op1001"}`, Gridwich must return a corresponding JSON object as part of each response payload to the external system. See [ResponseBaseDTO](https://github.com/mspnp/blob/main/gridwich/src/Gridwich.Core/src/DTO/Responses/ResponseBaseDTO.cs).
 
 ![request_and_response diagram](media/request-response.png)
 

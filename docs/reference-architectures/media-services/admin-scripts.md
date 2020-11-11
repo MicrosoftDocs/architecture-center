@@ -25,7 +25,7 @@ A user with elevated privileges must execute the pipeline-generated admin script
 
 ## Run the admin scripts
 
-The pipelines convert environment variables to Terraform variables to find and replace the variable names in the admin script templates. The bash script source before variables replacement is in the [bashscriptgenerator/templates](https://github.com/mspnp/gridwich/infrastructure/terraform/bashscriptgenerator/templates) directory.
+The pipelines convert environment variables to Terraform variables to find and replace the variable names in the admin script templates. The bash script source before variables replacement is in the [bashscriptgenerator/templates](https://github.com/mspnp/blob/main/gridwich/infrastructure/terraform/bashscriptgenerator/templates) directory.
 
 You can run the scripts in any order.
 

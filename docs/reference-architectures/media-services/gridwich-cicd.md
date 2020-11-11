@@ -51,7 +51,7 @@ Because Terraform currently lacks the ability to exclude a specific module, the 
 
 ## Post-deployment scripts
 
-The CI/CD pipeline doesn't do operations that need elevated privileges, but uses [admin script templates](https://github.com/mspnp/gridwich/infrastructure/terraform/bashscriptgenerator/templates) to generate a set of admin scripts as pipeline artifacts. An admin with elevated privileges must run these admin scripts whenever a new Gridwich environment is created. For more information, see [Run Azure admin scripts](admin-scripts.md).
+The CI/CD pipeline doesn't do operations that need elevated privileges, but uses [admin script templates](https://github.com/mspnp/blob/main/gridwich/infrastructure/terraform/bashscriptgenerator/templates) to generate a set of admin scripts as pipeline artifacts. An admin with elevated privileges must run these admin scripts whenever a new Gridwich environment is created. For more information, see [Run Azure admin scripts](admin-scripts.md).
 
 Terraform and software releases can't complete certain Gridwich operations, including:
 
@@ -59,7 +59,7 @@ Terraform and software releases can't complete certain Gridwich operations, incl
 - Enabling storage analytics in Azure Storage
 - Scaling Azure Media Services
 
-The Azure CLI script [azcli-last-steps-template.yml](https://github.com/mspnp/gridwich/infrastructure/azure-pipelines/templates/steps/azcli-last-steps-template.yml) provides these last steps.
+The Azure CLI script [azcli-last-steps-template.yml](https://github.com/mspnp/blob/main/gridwich/infrastructure/azure-pipelines/templates/steps/azcli-last-steps-template.yml) provides these last steps.
 
 ## Everything as code and code reuse
 

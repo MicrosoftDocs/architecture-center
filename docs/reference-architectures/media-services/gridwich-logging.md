@@ -24,7 +24,7 @@ Best practices for logging include:
   - An object as such, like `LogInformationObject(LogEventIds.StartProcessing, Item);`, or
   - Anonymous objects, like `LogInformationObject(LogEventIds.StartProcessing, new {Item.itemNumber, Item.itemDescription, someData});`.
   
-- Follow the EventId numbering conventions outlined in [LogEventIds](https://github.com/mspnp/gridwich/src/Gridwich.Core/src/Constants/LogEventIds.cs).
+- Follow the EventId numbering conventions outlined in [LogEventIds](https://github.com/mspnp/blob/main/gridwich/src/Gridwich.Core/src/Constants/LogEventIds.cs).
   
 - For any significant body of work, use the following logging pattern:
   

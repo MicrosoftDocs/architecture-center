@@ -19,9 +19,9 @@ Gridwich uses the Azure Media Services Platform as a Service (PaaS). Depending o
 
 To perform the encoding of sprite sheets, or to create thumbnails, Gridwich uses the Azure Media Services V2 API via representational state transfer (REST).
 
-The [MediaServicesV2EncodeCreateHandler](https://github.com/mspnp/gridwich/src/GridWich.SagaParticipants.Encode.MediaServicesV2/src/EventGridHandlers/MediaServicesV2EncodeCreateHandler.cs) initiates work by calling the [MediaServicesV2RestEncodeService](https://github.com/mspnp/gridwich/src/GridWich.SagaParticipants.Encode.MediaServicesV2/src/Services/MediaServicesV2RestEncodeService.cs), which in turn uses the [MediaServicesV2RestWrapper](https://github.com/mspnp/gridwich/src/GridWich.SagaParticipants.Encode.MediaServicesV2/src/Services/MediaServicesV2RestWrapper.cs).
+The [MediaServicesV2EncodeCreateHandler](https://github.com/mspnp/blob/main/gridwich/src/GridWich.SagaParticipants.Encode.MediaServicesV2/src/EventGridHandlers/MediaServicesV2EncodeCreateHandler.cs) initiates work by calling the [MediaServicesV2RestEncodeService](https://github.com/mspnp/blob/main/gridwich/src/GridWich.SagaParticipants.Encode.MediaServicesV2/src/Services/MediaServicesV2RestEncodeService.cs), which in turn uses the [MediaServicesV2RestWrapper](https://github.com/mspnp/blob/main/gridwich/src/GridWich.SagaParticipants.Encode.MediaServicesV2/src/Services/MediaServicesV2RestWrapper.cs).
 
-Within the [MediaServicesV2RestWrapper](https://github.com/mspnp/gridwich/src/GridWich.SagaParticipants.Encode.MediaServicesV2/src/Services/MediaServicesV2RestWrapper.cs), the function `ConfigureRestClient` sets up authentication via an [Azure.Core.TokenCredential](/dotnet/api/azure.identity.defaultazurecredential) object:
+Within the [MediaServicesV2RestWrapper](https://github.com/mspnp/blob/main/gridwich/src/GridWich.SagaParticipants.Encode.MediaServicesV2/src/Services/MediaServicesV2RestWrapper.cs), the function `ConfigureRestClient` sets up authentication via an [Azure.Core.TokenCredential](/dotnet/api/azure.identity.defaultazurecredential) object:
 
 ```csharp
 var amsAccessToken = _tokenCredential.GetToken(
@@ -35,7 +35,7 @@ This code presents the identity of the [TokenCredential](/dotnet/api/azure.ident
 
 When running locally, the `TokenCredential` [prompts the developer to log in](/dotnet/api/azure.identity.interactivebrowsercredential). That identity is then presented when requesting access to the scope. For successful authentication, the developer must be a contributor on the resource, and the correct environment variables must be in the local settings file.
 
-Use the Terraform file [functions/main.tf](https://github.com/mspnp/gridwich/infrastructure/terraform/functions/main.tf) to configure a system-assigned managed identity for the Azure Functions App, with:
+Use the Terraform file [functions/main.tf](https://github.com/mspnp/blob/main/gridwich/infrastructure/terraform/functions/main.tf) to configure a system-assigned managed identity for the Azure Functions App, with:
 
 ```terraform
 resource "azurerm_function_app" "fxn" {
@@ -60,7 +60,7 @@ resource "azurerm_function_app" "fxn" {
 }
 ```
 
-Use the Terraform [bashscriptgenerator/templates/ams_sp.sh](https://github.com/mspnp/gridwich/infrastructure/terraform/bashscriptgenerator/templates/ams_sp.sh) script to authorize the Azure Functions service principal on the Azure Media Services account:
+Use the Terraform [bashscriptgenerator/templates/ams_sp.sh](https://github.com/mspnp/blob/main/gridwich/infrastructure/terraform/bashscriptgenerator/templates/ams_sp.sh) script to authorize the Azure Functions service principal on the Azure Media Services account:
 
 ```bash
 for id in ${mediaServicesAccountResourceId}
@@ -114,7 +114,7 @@ The Function App settings use a reference to the Azure Key Vault. The script cre
 
 The Azure Media Services account owner can scale resources to perform the expected work by calling the Azure command-line interface (Azure CLI) within a YAML pipeline step.
 
-The script is in [azcli-last-steps-template.yml](https://github.com/mspnp/gridwich/infrastructure/azure-pipelines/templates/steps/azcli-last-steps-template.yml).
+The script is in [azcli-last-steps-template.yml](https://github.com/mspnp/blob/main/gridwich/infrastructure/azure-pipelines/templates/steps/azcli-last-steps-template.yml).
 
 To set the Media Services *reserved encoding* infrastructure scale, run:
 

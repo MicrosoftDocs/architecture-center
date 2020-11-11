@@ -104,7 +104,7 @@ In the following event descriptions, the JSON property values are the usual stri
 
 ### <a id="m-ack"></a>Gridwich generic ACK response
 
-**Gridwich** > **Requester**, uses [ResponseAcknowledgeDTO](https://github.com/mspnp/gridwich/src/Gridwich.Core/src/DTO/Responses/ResponseAcknowledgeDTO.cs).
+**Gridwich** > **Requester**, uses [ResponseAcknowledgeDTO](https://github.com/mspnp/blob/main/gridwich/src/Gridwich.Core/src/DTO/Responses/ResponseAcknowledgeDTO.cs).
 
 ```json
 {
@@ -124,7 +124,7 @@ The `data.eventType` string value is the top level `eventType` property from the
 
 ### <a id="m-fail"></a>Gridwich generic Failure response
 
-**Gridwich** > **Requester**, uses [ResponseFailureDTO](https://github.com/mspnp/gridwich/src/Gridwich.Core/src/DTO/Responses/ResponseFailureDTO.cs).
+**Gridwich** > **Requester**, uses [ResponseFailureDTO](https://github.com/mspnp/blob/main/gridwich/src/Gridwich.Core/src/DTO/Responses/ResponseFailureDTO.cs).
 
 ```json
 {
@@ -151,7 +151,7 @@ For a limited set of operations, the Failure event object differs significantly 
 
 ### <a id="putblobmetadata"></a>Requester asks Gridwich to place some metadata onto a blob
 
-**Requester** > **Gridwich** uses [RequestBlobMetadataCreateDTO](https://github.com/mspnp/gridwich/src/Gridwich.Core/src/DTO/Requests/RequestBlobMetadataCreateDTO.cs).
+**Requester** > **Gridwich** uses [RequestBlobMetadataCreateDTO](https://github.com/mspnp/blob/main/gridwich/src/Gridwich.Core/src/DTO/Requests/RequestBlobMetadataCreateDTO.cs).
 
 ```json
 {
@@ -170,7 +170,7 @@ For a limited set of operations, the Failure event object differs significantly 
 
 The `blobMetadata` is an object of string-valued properties representing all of the name-value pairs of the desired blob metadata.
 
-**Gridwich** > **Requester** uses [ResponseBlobMetadataSuccessDTO](https://github.com/mspnp/gridwich/src/Gridwich.Core/src/DTO/Responses/ResponseBlobMetadataSuccessDTO.cs).
+**Gridwich** > **Requester** uses [ResponseBlobMetadataSuccessDTO](https://github.com/mspnp/blob/main/gridwich/src/Gridwich.Core/src/DTO/Responses/ResponseBlobMetadataSuccessDTO.cs).
 
 ```json
 {
@@ -191,7 +191,7 @@ To later retrieve the current metadata for a blob, see the [Analyze blob](#analy
 
 ### <a id="analyzeblob"></a>Requester asks Gridwich to perform an analysis of a blob via MediaInfo
 
-**Requester** > **Gridwich** uses [RequestBlobAnalysisCreateDTO](https://github.com/mspnp/gridwich/src/Gridwich.Core/src/DTO/Requests/RequestBlobAnalysisCreateDTO.cs).
+**Requester** > **Gridwich** uses [RequestBlobAnalysisCreateDTO](https://github.com/mspnp/blob/main/gridwich/src/Gridwich.Core/src/DTO/Requests/RequestBlobAnalysisCreateDTO.cs).
 
 ```json
 {
@@ -215,7 +215,7 @@ To later retrieve the current metadata for a blob, see the [Analyze blob](#analy
 }
 ```
 
-**Gridwich** > **Requester** uses [ResponseBlobAnalysisSuccessDTO](https://github.com/mspnp/gridwich/src/Gridwich.Core/src/DTO/Responses/ResponseBlobAnalysisSuccessDTO.cs).
+**Gridwich** > **Requester** uses [ResponseBlobAnalysisSuccessDTO](https://github.com/mspnp/blob/main/gridwich/src/Gridwich.Core/src/DTO/Responses/ResponseBlobAnalysisSuccessDTO.cs).
 
 ```json
 {
@@ -241,7 +241,7 @@ As usual with Azure Storage, metadata item names must conform to C# identifier n
 
 ### <a id="copyblob"></a>Requester asks Gridwich to copy a blob from a target location to a new destination
 
-**Requester** > **Gridwich** uses [RequestBlobCopyDTO](https://github.com/mspnp/gridwich/src/Gridwich.Core/src/DTO/Requests/RequestBlobCopyDTO.cs).
+**Requester** > **Gridwich** uses [RequestBlobCopyDTO](https://github.com/mspnp/blob/main/gridwich/src/Gridwich.Core/src/DTO/Requests/RequestBlobCopyDTO.cs).
 
 ```json
 {
@@ -258,7 +258,7 @@ As usual with Azure Storage, metadata item names must conform to C# identifier n
 }
 ```
 
-**Gridwich** > **Requester** uses [ResponseBlobCopyScheduledDTO](https://github.com/mspnp/gridwich/src/Gridwich.Core/src/DTO/Responses/ResponseBlobCopyScheduledDTO.cs).
+**Gridwich** > **Requester** uses [ResponseBlobCopyScheduledDTO](https://github.com/mspnp/blob/main/gridwich/src/Gridwich.Core/src/DTO/Responses/ResponseBlobCopyScheduledDTO.cs).
 
 ```json
 {
@@ -280,7 +280,7 @@ As usual with Azure Storage, metadata item names must conform to C# identifier n
 
 Gridwich could have created the blob from any source, like a copy result, inbox arrival, or encode result.
 
-**Gridwich** > **Requester**, uses [ResponseBlobCreatedSuccessDTO](https://github.com/mspnp/gridwich/src/Gridwich.Core/src/DTO/Responses/ResponseBlobCreatedSuccessDTO.cs).
+**Gridwich** > **Requester**, uses [ResponseBlobCreatedSuccessDTO](https://github.com/mspnp/blob/main/gridwich/src/Gridwich.Core/src/DTO/Responses/ResponseBlobCreatedSuccessDTO.cs).
 
 ```json
 {
@@ -299,7 +299,7 @@ Gridwich could have created the blob from any source, like a copy result, inbox 
 
 ### <a id="deleteblob"></a>Requester asks Gridwich to delete a blob
 
-**Requester** > **Gridwich** uses [RequestBlobDeleteDTO](https://github.com/mspnp/gridwich/src/Gridwich.Core/src/DTO/Requests/RequestBlobDeleteDTO.cs).
+**Requester** > **Gridwich** uses [RequestBlobDeleteDTO](https://github.com/mspnp/blob/main/gridwich/src/Gridwich.Core/src/DTO/Requests/RequestBlobDeleteDTO.cs).
 
 ```json
 {
@@ -315,7 +315,7 @@ Gridwich could have created the blob from any source, like a copy result, inbox 
 }
 ```
 
-**Gridwich** > **Requester** uses [ResponseBlobDeleteScheduledDTO](https://github.com/mspnp/gridwich/src/Gridwich.Core/src/DTO/Responses/ResponseBlobDeleteScheduledDTO.cs).
+**Gridwich** > **Requester** uses [ResponseBlobDeleteScheduledDTO](https://github.com/mspnp/blob/main/gridwich/src/Gridwich.Core/src/DTO/Responses/ResponseBlobDeleteScheduledDTO.cs).
 
 ```json
 {
@@ -336,7 +336,7 @@ Gridwich could have created the blob from any source, like a copy result, inbox 
 
 The blob deletion can come from any source, like an explicit request from a requester or a result of internal operations.
 
-**Gridwich** > **Requester**, uses [ResponseBlobDeleteSuccessDTO](https://github.com/mspnp/gridwich/src/Gridwich.Core/src/DTO/Responses/ResponseBlobDeleteSuccessDTO.cs).
+**Gridwich** > **Requester**, uses [ResponseBlobDeleteSuccessDTO](https://github.com/mspnp/blob/main/gridwich/src/Gridwich.Core/src/DTO/Responses/ResponseBlobDeleteSuccessDTO.cs).
 
 ```json
 {
@@ -354,7 +354,7 @@ The blob deletion can come from any source, like an explicit request from a requ
 
 ### <a id="getcontentsas"></a>Requester asks Gridwich to return a time-expiration content SAS URL
 
-**Requester** > **Gridwich** uses [RequestBlobSasUrlCreateDTO](https://github.com/mspnp/gridwich/src/Gridwich.Core/src/DTO/Requests/RequestBlobSasUrlCreateDTO.cs).
+**Requester** > **Gridwich** uses [RequestBlobSasUrlCreateDTO](https://github.com/mspnp/blob/main/gridwich/src/Gridwich.Core/src/DTO/Requests/RequestBlobSasUrlCreateDTO.cs).
 
 ```json
 {
@@ -371,7 +371,7 @@ The blob deletion can come from any source, like an explicit request from a requ
 }
 ```
 
-**Gridwich** > **Requester** uses [ResponseBlobSasUrlSuccessDTO](https://github.com/mspnp/gridwich/src/Gridwich.Core/src/DTO/Responses/ResponseBlobSasUrlSuccessDTO.cs).
+**Gridwich** > **Requester** uses [ResponseBlobSasUrlSuccessDTO](https://github.com/mspnp/blob/main/gridwich/src/Gridwich.Core/src/DTO/Responses/ResponseBlobSasUrlSuccessDTO.cs).
 
 ```json
 {
@@ -389,7 +389,7 @@ The blob deletion can come from any source, like an explicit request from a requ
 
 ### <a id="encodeviacp"></a>Requester asks Gridwich to encode via CloudPort Workflow
 
-**Requester** > **Gridwich**, uses [RequestCloudPortEncodeCreateDTO](https://github.com/mspnp/gridwich/src/Gridwich.Core/src/DTO/Requests/RequestCloudPortEncodeCreateDTO.cs).
+**Requester** > **Gridwich**, uses [RequestCloudPortEncodeCreateDTO](https://github.com/mspnp/blob/main/gridwich/src/Gridwich.Core/src/DTO/Requests/RequestCloudPortEncodeCreateDTO.cs).
 
 ```json
 {
@@ -413,7 +413,7 @@ The blob deletion can come from any source, like an explicit request from a requ
 
 ### <a id="encodeviaflip"></a>Requester asks Gridwich to encode via Flip
 
-**Requester** > **Gridwich**, uses [RequestFlipEncodeCreateDTO](https://github.com/mspnp/gridwich/src/Gridwich.Core/src/DTO/Requests/RequestFlipEncodeCreateDTO.cs).
+**Requester** > **Gridwich**, uses [RequestFlipEncodeCreateDTO](https://github.com/mspnp/blob/main/gridwich/src/Gridwich.Core/src/DTO/Requests/RequestFlipEncodeCreateDTO.cs).
 
 ```json
 {
@@ -463,7 +463,7 @@ The blob deletion can come from any source, like an explicit request from a requ
 
 ### <a id="encodeviaamsv2"></a>Requester asks Gridwich to encode via Azure Media Services V2
 
-**Requester** > **Gridwich**, uses [RequestMediaServicesV2EncodeCreateDTO](https://github.com/mspnp/gridwich/src/Gridwich.Core/src/DTO/Requests/RequestMediaServicesV2EncodeCreateDTO.cs))
+**Requester** > **Gridwich**, uses [RequestMediaServicesV2EncodeCreateDTO](https://github.com/mspnp/blob/main/gridwich/src/Gridwich.Core/src/DTO/Requests/RequestMediaServicesV2EncodeCreateDTO.cs))
 
 ```json
 {
@@ -488,7 +488,7 @@ The blob deletion can come from any source, like an explicit request from a requ
 
 ### <a id="encodeviaamsv3"></a>Requester asks Gridwich to encode a Media Services V3 transform
 
-**Requester** > **Gridwich**, uses [RequestMediaServicesV3EncodeCreateDTO](https://github.com/mspnp/gridwich/src/Gridwich.Core/src/DTO/Requests/RequestMediaServicesV3EncodeCreateDTO.cs))
+**Requester** > **Gridwich**, uses [RequestMediaServicesV3EncodeCreateDTO](https://github.com/mspnp/blob/main/gridwich/src/Gridwich.Core/src/DTO/Requests/RequestMediaServicesV3EncodeCreateDTO.cs))
 
 ```json
 {
@@ -512,7 +512,7 @@ The blob deletion can come from any source, like an explicit request from a requ
 }
 ```
 
-The `transformName` property is one of the [CustomTransforms](https://github.com/mspnp/gridwich/src/Gridwich.SagaParticipants.Encode.MediaServicesV3/src/Constants/CustomTransforms.cs):
+The `transformName` property is one of the [CustomTransforms](https://github.com/mspnp/blob/main/gridwich/src/Gridwich.SagaParticipants.Encode.MediaServicesV3/src/Constants/CustomTransforms.cs):
 
 - `audio-mono-aac-video-mbr-no-bframes`
 - `audio-copy-video-mbr-no-bframes`
@@ -522,7 +522,7 @@ The start and end times are always relative to the start of the media file, rega
 
 ### <a id="encodedispatchedresponse"></a>Gridwich encoders common request successful dispatch response
 
-**Gridwich** > **Requester**, uses [ResponseEncodeDispatchedDTO](https://github.com/mspnp/gridwich/src/Gridwich.Core/src/DTO/Responses/ResponseEncodeStatusBaseDTO.cs).
+**Gridwich** > **Requester**, uses [ResponseEncodeDispatchedDTO](https://github.com/mspnp/blob/main/gridwich/src/Gridwich.Core/src/DTO/Responses/ResponseEncodeStatusBaseDTO.cs).
 
 ```json
 {
@@ -554,7 +554,7 @@ An encode request failure generates a Gridwich Failure event.
 
 #### <a id="encoderstatusscheduled"></a>Encoding status scheduled
 
-**Gridwich** > **Requester**, uses [ResponseEncodeScheduledDTO](https://github.com/mspnp/gridwich/src/Gridwich.Core/src/DTO/Responses/ResponseEncodeStatusBaseDTO.cs).
+**Gridwich** > **Requester**, uses [ResponseEncodeScheduledDTO](https://github.com/mspnp/blob/main/gridwich/src/Gridwich.Core/src/DTO/Responses/ResponseEncodeStatusBaseDTO.cs).
 
 ```json
 {
@@ -573,7 +573,7 @@ An encode request failure generates a Gridwich Failure event.
 
 #### <a id="encoderstatusprocessing"></a>Encoding status processing
 
-**Gridwich** > **Requester**, uses [ResponseEncodeProcessingDTO](https://github.com/mspnp/gridwich/src/Gridwich.Core/src/DTO/Responses/ResponseEncodeStatusBaseDTO.cs).
+**Gridwich** > **Requester**, uses [ResponseEncodeProcessingDTO](https://github.com/mspnp/blob/main/gridwich/src/Gridwich.Core/src/DTO/Responses/ResponseEncodeStatusBaseDTO.cs).
 
 ```json
 {
@@ -594,7 +594,7 @@ An encode request failure generates a Gridwich Failure event.
 
 #### <a id="encoderstatussuccess"></a>Encoding status success
 
-**Gridwich** > **Requester**, uses [ResponseEncodeSuccessDTO](https://github.com/mspnp/gridwich/src/Gridwich.Core/src/DTO/Responses/ResponseEncodeStatusBaseDTO.cs).
+**Gridwich** > **Requester**, uses [ResponseEncodeSuccessDTO](https://github.com/mspnp/blob/main/gridwich/src/Gridwich.Core/src/DTO/Responses/ResponseEncodeStatusBaseDTO.cs).
 
 ```json
 {
@@ -616,7 +616,7 @@ An encode request failure generates a Gridwich Failure event.
 
 #### <a id="encoderstatuscanceled"></a>Encoding status canceled
 
-**Gridwich** > **Requester**, uses [ResponseEncodeCanceledDTO](https://github.com/mspnp/gridwich/src/Gridwich.Core/src/DTO/Responses/ResponseEncodeStatusBaseDTO.cs).
+**Gridwich** > **Requester**, uses [ResponseEncodeCanceledDTO](https://github.com/mspnp/blob/main/gridwich/src/Gridwich.Core/src/DTO/Responses/ResponseEncodeStatusBaseDTO.cs).
 
 ```json
 {
@@ -635,7 +635,7 @@ An encode request failure generates a Gridwich Failure event.
 
 ### <a id="changeblobtier"></a>Requester asks Gridwich to change a blob's storage tier
 
-**Requester** > **Gridwich** uses [RequestBlobTierChangeDTO](https://github.com/mspnp/gridwich/src/Gridwich.Core/src/DTO/Requests/RequestBlobTierChangeDTO.cs).
+**Requester** > **Gridwich** uses [RequestBlobTierChangeDTO](https://github.com/mspnp/blob/main/gridwich/src/Gridwich.Core/src/DTO/Requests/RequestBlobTierChangeDTO.cs).
 
 ```json
 {
@@ -656,7 +656,7 @@ An encode request failure generates a Gridwich Failure event.
 - The `accessTier` property is `Hot`, `Cool`, or `Archive`.
 - The `rehydratePriority` property is `Standard` or `High`.
 
-**Gridwich** > **Requester** uses [ResponseBlobTierChangeSuccessDTO](https://github.com/mspnp/gridwich/src/Gridwich.Core/src/DTO/Responses/ResponseBlobTierChangeSuccessDTO.cs)
+**Gridwich** > **Requester** uses [ResponseBlobTierChangeSuccessDTO](https://github.com/mspnp/blob/main/gridwich/src/Gridwich.Core/src/DTO/Responses/ResponseBlobTierChangeSuccessDTO.cs)
 
 ```json
 {
@@ -678,7 +678,7 @@ An encode request failure generates a Gridwich Failure event.
 
 The request provides the Storage Account and container name.
 
-**Requester** > **Gridwich** uses [RequestContainerCreateDTO](https://github.com/mspnp/gridwich/src/Gridwich.Core/src/DTO/Requests/RequestContainerCreateDTO.cs).
+**Requester** > **Gridwich** uses [RequestContainerCreateDTO](https://github.com/mspnp/blob/main/gridwich/src/Gridwich.Core/src/DTO/Requests/RequestContainerCreateDTO.cs).
 
 ```json
 {
@@ -695,7 +695,7 @@ The request provides the Storage Account and container name.
 }
 ```
 
-**Gridwich** > **Requester** uses [ResponseContainerCreatedSuccessDTO](https://github.com/mspnp/gridwich/src/Gridwich.Core/src/DTO/Responses/ResponseContainerCreatedSuccessDTO.cs).
+**Gridwich** > **Requester** uses [ResponseContainerCreatedSuccessDTO](https://github.com/mspnp/blob/main/gridwich/src/Gridwich.Core/src/DTO/Responses/ResponseContainerCreatedSuccessDTO.cs).
 
 ```json
 {
@@ -716,7 +716,7 @@ The request provides the Storage Account and container name.
 
 The request provides the Storage Account and container name.
 
-**Requester** > **Gridwich** uses [RequestContainerDeleteDTO](https://github.com/mspnp/gridwich/src/Gridwich.Core/src/DTO/Requests/RequestContainerDeleteDTO.cs).
+**Requester** > **Gridwich** uses [RequestContainerDeleteDTO](https://github.com/mspnp/blob/main/gridwich/src/Gridwich.Core/src/DTO/Requests/RequestContainerDeleteDTO.cs).
 
 ```json
 {
@@ -733,7 +733,7 @@ The request provides the Storage Account and container name.
 }
 ```
 
- **Gridwich** > **Requester** uses [ResponseContainerDeleteSuccessDTO](https://github.com/mspnp/gridwich/src/Gridwich.Core/src/DTO/Responses/ResponseContainerDeleteSuccessDTO.cs).
+ **Gridwich** > **Requester** uses [ResponseContainerDeleteSuccessDTO](https://github.com/mspnp/blob/main/gridwich/src/Gridwich.Core/src/DTO/Responses/ResponseContainerDeleteSuccessDTO.cs).
 
 ```json
 {
@@ -754,7 +754,7 @@ The request provides the Storage Account and container name.
 
 The request provides the container name and an `accessType` of `Blob`, `BlobContainer`, or `None`.
 
-**Requester** > **Gridwich** uses [RequestContainerAccessChangeDTO](https://github.com/mspnp/gridwich/src/Gridwich.Core/src/DTO/Requests/RequestContainerAccessChangeDTO.cs).
+**Requester** > **Gridwich** uses [RequestContainerAccessChangeDTO](https://github.com/mspnp/blob/main/gridwich/src/Gridwich.Core/src/DTO/Requests/RequestContainerAccessChangeDTO.cs).
 
 ```json
 {
@@ -772,7 +772,7 @@ The request provides the container name and an `accessType` of `Blob`, `BlobCont
 }
 ```
 
-**Gridwich** > **Requester** uses [ResponseContainerAccessChangeSuccessDTO](https://github.com/mspnp/gridwich/src/Gridwich.Core/src/DTO/Responses/ResponseContainerAccessChangeSuccessDTO.cs).
+**Gridwich** > **Requester** uses [ResponseContainerAccessChangeSuccessDTO](https://github.com/mspnp/blob/main/gridwich/src/Gridwich.Core/src/DTO/Responses/ResponseContainerAccessChangeSuccessDTO.cs).
 
 ```json
 {
@@ -796,7 +796,7 @@ The request is to create or delete a content asset locator.
 
 #### <a id="createlocator"></a>Create content asset locator
 
-**Requester** > **Gridwich** uses [RequestMediaServicesLocatorCreateDTO](https://github.com/mspnp/gridwich/src/Gridwich.Core/src/DTO/Requests/RequestMediaServicesLocatorCreateDTO.cs).
+**Requester** > **Gridwich** uses [RequestMediaServicesLocatorCreateDTO](https://github.com/mspnp/blob/main/gridwich/src/Gridwich.Core/src/DTO/Requests/RequestMediaServicesLocatorCreateDTO.cs).
 
 ```json
 {
@@ -834,7 +834,7 @@ The start and end times are always relative to the start of the media file, rega
 | cencDrmStreaming      | Microsoft PlayReady + Google Widevine                  |
 | multiDrmStreaming     | Microsoft PlayReady + Google Widevine + Apple FairPlay |
 
-**Gridwich** > **Requester** uses [ResponseMediaServicesLocatorCreateSuccessDTO](https://github.com/mspnp/gridwich/src/Gridwich.Core/src/DTO/Responses/ResponseMediaServicesLocatorCreateSuccessDTO.cs).
+**Gridwich** > **Requester** uses [ResponseMediaServicesLocatorCreateSuccessDTO](https://github.com/mspnp/blob/main/gridwich/src/Gridwich.Core/src/DTO/Responses/ResponseMediaServicesLocatorCreateSuccessDTO.cs).
 
 ```json
 {
@@ -856,7 +856,7 @@ The start and end times are always relative to the start of the media file, rega
 
 #### <a id="deletelocator"></a>Delete asset locator
 
- **Requester** > **Gridwich** uses [RequestMediaServicesLocatorDeleteDTO](https://github.com/mspnp/gridwich/src/Gridwich.Core/src/DTO/Requests/RequestMediaServicesLocatorDeleteDTO.cs).
+ **Requester** > **Gridwich** uses [RequestMediaServicesLocatorDeleteDTO](https://github.com/mspnp/blob/main/gridwich/src/Gridwich.Core/src/DTO/Requests/RequestMediaServicesLocatorDeleteDTO.cs).
 
 ```json
 {
@@ -874,7 +874,7 @@ The start and end times are always relative to the start of the media file, rega
 
 The `locatorName` property is an opaque string generated by Gridwich.
 
-**Gridwich** > **Requester** uses [ResponseMediaServicesLocatorDeleteSuccessDTO](https://github.com/mspnp/gridwich/src/Gridwich.Core/src/DTO/Responses/ResponseMediaServicesLocatorDeleteSuccessDTO.cs).
+**Gridwich** > **Requester** uses [ResponseMediaServicesLocatorDeleteSuccessDTO](https://github.com/mspnp/blob/main/gridwich/src/Gridwich.Core/src/DTO/Responses/ResponseMediaServicesLocatorDeleteSuccessDTO.cs).
 
 ```json
 {

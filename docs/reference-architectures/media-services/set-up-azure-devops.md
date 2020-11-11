@@ -27,7 +27,7 @@ This process clones the Gridwich Git repo into a new Azure DevOps project.
 
 To clone the Gridwich repo to your computer:
 
-1. In a web browser, navigate to the [main Gridwich repo](https://github.com/mspnp/gridwich/), select **Code** at upper right, and under **Clone**, select the copy icon to copy the HTTPS clone URL.
+1. In a web browser, navigate to the [main Gridwich repo](https://github.com/mspnp/blob/main/gridwich/), select **Code** at upper right, and under **Clone**, select the copy icon to copy the HTTPS clone URL.
    
 1. In a Bash window on your computer, in the location where you want the cloned directory, enter `git clone` and the URL you just copied.
    
@@ -102,7 +102,7 @@ Install the necessary extensions for Azure DevOps to work with Gridwich.
 
 Update some of the installed files.
 
-1. In [build-test-report-steps-template.yml](https://github.com/mspnp/gridwich/infrastructure/azure-pipelines/templates/steps/build-test-report-steps-template.yml), comment out GitHub tasks, because this repo doesn't use GitHub.
+1. In [build-test-report-steps-template.yml](https://github.com/mspnp/blob/main/gridwich/infrastructure/azure-pipelines/templates/steps/build-test-report-steps-template.yml), comment out GitHub tasks, because this repo doesn't use GitHub.
    
    ```yaml
    #- task: GitHubComment@0
@@ -114,13 +114,13 @@ Update some of the installed files.
    
 1. Update names in several other YAML files
 
-   - In [ci-cd-release-stages.yml](https://github.com/mspnp/gridwich/infrastructure/azure-pipelines/templates/stages/ci-cd-release-stages.yml), update `serviceConnection: gridwich-*` to `serviceConnection: gridwich-connection` or your service connection name.
+   - In [ci-cd-release-stages.yml](https://github.com/mspnp/blob/main/gridwich/infrastructure/azure-pipelines/templates/stages/ci-cd-release-stages.yml), update `serviceConnection: gridwich-*` to `serviceConnection: gridwich-connection` or your service connection name.
    
-   - In [terraform-destroy-stages-template.yml](https://github.com/mspnp/gridwich/infrastructure/azure-pipelines/templates/stages/terraform-destroy-stages-template.yml), update two instances of `serviceConnection: gridwich-*` to `serviceConnection: gridwich-connection` or your service connection name.
+   - In [terraform-destroy-stages-template.yml](https://github.com/mspnp/blob/main/gridwich/infrastructure/azure-pipelines/templates/stages/terraform-destroy-stages-template.yml), update two instances of `serviceConnection: gridwich-*` to `serviceConnection: gridwich-connection` or your service connection name.
    
-   - In [terraform-init-steps-template.yml](https://github.com/mspnp/gridwich/infrastructure/azure-pipelines/templates/steps/terraform-init-steps-template.yml), update `TerraformBackendStorageAccount: gridwichtfstate` to `TerraformBackendStorageAccount: <your unique Gridwich storage account name>`.
+   - In [terraform-init-steps-template.yml](https://github.com/mspnp/blob/main/gridwich/infrastructure/azure-pipelines/templates/steps/terraform-init-steps-template.yml), update `TerraformBackendStorageAccount: gridwichtfstate` to `TerraformBackendStorageAccount: <your unique Gridwich storage account name>`.
    
-1. In [terraform/variables.tf](https://github.com/mspnp/gridwich/infrastructure/infrastructure/terraform/variables.tf), to avoid name collisions with `gridwich`, update the default application name from `gridwich` to `cl1grw` or your application name.
+1. In [terraform/variables.tf](https://github.com/mspnp/blob/main/gridwich/infrastructure/infrastructure/terraform/variables.tf), to avoid name collisions with `gridwich`, update the default application name from `gridwich` to `cl1grw` or your application name.
    
    ```terraform
    variable "appname" {
@@ -157,11 +157,11 @@ Add *variable groups* to store secrets and values to pass into the pipelines.
    
    - For Apple FairPlay `amsDrmFairPlayAskHex` and `amsDrmFairPlayPfxPassword`, use the values from the *FairPlay-out-base64.txt* certificate file that you create and upload. For instructions, see [Apple FairPlay settings](gridwich-content-protection-drm.md#apple-fairplay-settings).
      
-     Or, for development purposes, you can use the FairPlay values in the preceding example, which are from the fake FairPlay certificate file [FairPlay-out-base64.txt](https://github.com/mspnp/gridwich/src/Gridwich.SagaParticipans.Publication.MediaServicesV3/tests/FakeFairPlayCert/FairPlay-out-base64.txt). Upload this fake file to **Library** > **+ Secure file**. 
+     Or, for development purposes, you can use the FairPlay values in the preceding example, which are from the fake FairPlay certificate file [FairPlay-out-base64.txt](https://github.com/mspnp/blob/main/gridwich/src/Gridwich.SagaParticipans.Publication.MediaServicesV3/tests/FakeFairPlayCert/FairPlay-out-base64.txt). Upload this fake file to **Library** > **+ Secure file**. 
    
    - For `amsDrmOpenIdConnectDiscoveryDocumentEndpoint`, use the OpenID Connect Discovery Document endpoint URL that exposes the public signature keys in Azure Media Services.
    
-   - The `inboxCORS` entry should match the `allowed_origins` list in [terraform/main.tf](https://github.com/mspnp/gridwich/infrastructure/terraform/main.tf).
+   - The `inboxCORS` entry should match the `allowed_origins` list in [terraform/main.tf](https://github.com/mspnp/blob/main/gridwich/infrastructure/terraform/main.tf).
    
 1. After adding all the name/value pairs, select **Save**,
    
