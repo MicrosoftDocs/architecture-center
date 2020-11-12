@@ -31,7 +31,7 @@ The software component composition uses the [GridwichConfigureServices](https://
 
 ![Diagram showing components of the Gridwich monolith architecture.](media/solution-components.png)
 
-The solution has a [Core.EventGrid](https://github.com/mspnp/gridwich/blob/main/src/GridWich.Core.EventGrid/) library, which contains:
+The solution has a [Core.EventGrid](https://github.com/mspnp/gridwich/tree/main/src/Gridwich.Core.EventGrid/) library, which contains:
 
 - The domain request and response data transfer objects (DTOs).
 - Interfaces for all application business logic or service objects.
@@ -43,11 +43,11 @@ To encapsulate Azure Event Grid as a request and response broker, the library ha
 - An event dispatcher that uses the IoC to identify and dispatch events to listeners.
 - An event publisher to place responses on the correct EventGrid topic.
 
-The Event Grid request adapter is an HTTP endpoint in the form of an [Azure Function HTTP Endpoint](/azure/azure-functions/functions-bindings-http-webhook). An adapter to convert web requests to Event Grid arrays is also in the same [EventGridFunction](https://github.com/mspnp/gridwich/blob/main/src/GridWich.Host.FunctionApp/src/Functions/EventGridFunction.cs).
+The Event Grid request adapter is an HTTP endpoint in the form of an [Azure Function HTTP Endpoint](/azure/azure-functions/functions-bindings-http-webhook). An adapter to convert web requests to Event Grid arrays is also in the same [EventGridFunction](https://github.com/mspnp/gridwich/blob/main/src/Gridwich.Host.FunctionApp/src/Functions/EventGridFunction.cs).
 
 The Event Grid response gateway consists of:
-- The [EventGridHandlerBase](https://github.com/mspnp/gridwich/blob/main/src/GridWich.Core/src/Bases/EventGridHandlerBase.cs), which converts a response DTO into an `EventGridEvent` object.
-- The [EventGridDispatcher](https://github.com/mspnp/gridwich/blob/main/src/GridWich.Core.EventGrid/src/EventGridDispatcher.cs), which places the Event Grid event on the correct response Event Grid topic endpoint URI by using the topic key.
+- The [EventGridHandlerBase](https://github.com/mspnp/gridwich/blob/main/src/Gridwich.Core/src/Bases/EventGridHandlerBase.cs), which converts a response DTO into an `EventGridEvent` object.
+- The [EventGridDispatcher](https://github.com/mspnp/gridwich/blob/main/src/Gridwich.Core.EventGrid/src/EventGridDispatcher.cs), which places the Event Grid event on the correct response Event Grid topic endpoint URI by using the topic key.
 
 The solution decouples the [saga participants](gridwich-saga-orchestration.md#saga-participants) into the following libraries, which have responsibilities over domain-specific application business logic. The libraries contain required infrastructure gateways and their SDKs, which accomplish the actions that the business logic requires.
 
@@ -61,7 +61,7 @@ The solution decouples the [saga participants](gridwich-saga-orchestration.md#sa
 
 For code reuse and centralization, Gridwich consolidates business logic or infrastructure gateways that are used across participants into the following shared libraries:
 
-- [Gridwich.Core.MediaServicesV3](https://github.com/mspnp/gridwich/blob/main/src/Core.MediaServicesV3/)
+- [Gridwich.Core.MediaServicesV3](https://github.com/mspnp/gridwich/blob/main/src/Gridwich.Core.MediaServicesV3/)
 - [Gridwich.SagaParticipants.Encode](https://github.com/mspnp/gridwich/blob/main/src/Gridwich.SagaParticipants.Encode/)
 - [Gridwich.SagaParticipants.Encode.TelestreamCloud](https://github.com/mspnp/gridwich/blob/main/src/Gridwich.SagaParticipants.Encode.TelestreamCloud/)
 

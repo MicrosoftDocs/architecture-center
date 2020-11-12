@@ -133,7 +133,7 @@ For requests that are easy to perform and fast to complete, the handler does the
 
 ![Diagram showing a synchronous request-response message flow.](media/request-response-sync-flow.png).
 
-For example, the [ChangeBlobTierHandler](https://github.com/mspnp/gridwich/blob/main/src/GridWich.SagaParticipants.Storage.AzureStorage/src/EventGridHandlers/ChangeBlobTierHandler.cs) is a simple synchronous flow. The handler gets a Request data transfer object (DTO), calls and awaits a single service to do the work, and returns a Success or Failure response.
+For example, the [ChangeBlobTierHandler](https://github.com/mspnp/gridwich/blob/main/src/Gridwich.SagaParticipants.Storage.AzureStorage/src/EventGridHandlers/ChangeBlobTierHandler.cs) is a simple synchronous flow. The handler gets a Request data transfer object (DTO), calls and awaits a single service to do the work, and returns a Success or Failure response.
 
 ![Diagram showing the ChangeBlobTierHandler synchronous flow example.](media/sync-example.png)
 
@@ -145,11 +145,11 @@ Some requests are long-running. For example, encoding media files can take hours
 
 On completing the work activity, the request handler is responsible for providing a Success or Failure completed event for the work. While remaining stateless, the handler must retrieve the original [operation context](#operation-context) and place it in the Completed event message payload.
 
-For example, the [BlobCopyHandler](https://github.com/mspnp/gridwich/blob/main/src/GridWich.SagaParticipants.Storage.AzureStorage/src/EventGridHandlers/BlobCopyHandler.cs) shows a simple asynchronous flow. The handler gets a Request DTO, calls and awaits a single service to initiate the work, and publishes a Scheduled or Failure response.
+For example, the [BlobCopyHandler](https://github.com/mspnp/gridwich/blob/main/src/Gridwich.SagaParticipants.Storage.AzureStorage/src/EventGridHandlers/BlobCopyHandler.cs) shows a simple asynchronous flow. The handler gets a Request DTO, calls and awaits a single service to initiate the work, and publishes a Scheduled or Failure response.
 
 ![Diagram showing the BlobCopyHandler asynchronous flow example with event scheduled.](media/async-example-scheduled.png)
 
-To complete the long-running request flow, the [BlobCreatedHandler](https://github.com/mspnp/gridwich/blob/main/src/GridWich.SagaParticipants.Storage.AzureStorage/src/EventGridHandlers/BlobCreatedHandler.cs) consumes the platform event `Microsoft.Storage.BlobCreated`, extracts the original operation context, and publishes a Success or Failure completion response.
+To complete the long-running request flow, the [BlobCreatedHandler](https://github.com/mspnp/gridwich/blob/main/src/Gridwich.SagaParticipants.Storage.AzureStorage/src/EventGridHandlers/BlobCreatedHandler.cs) consumes the platform event `Microsoft.Storage.BlobCreated`, extracts the original operation context, and publishes a Success or Failure completion response.
 
 ![Diagram showing the BlobCopyHandler asynchronous flow example with event successful.](media/async-example-success.png)
 
@@ -180,30 +180,30 @@ For more information, see [What happens during a slot swap for Azure Functions](
 
 The Gridwich solution uses Azure Event Grid, Azure Functions, Azure Media Services, Azure Blob Storage, Azure Logic Apps, and Azure Key Vault. The code project includes Terraform deployment.
 
-- [Azure Event Grid](https:/azure.microsoft.com/services/event-grid/) manages the routing of Gridwich events. Two sandwiched Event Grid jobs allow for asynchronous media event processing. Event Grid is a highly reliable request delivery endpoint. The Azure platform provides necessary request delivery endpoint uptime and stability.
+- [Azure Event Grid](https://azure.microsoft.com/services/event-grid/) manages the routing of Gridwich events. Two sandwiched Event Grid jobs allow for asynchronous media event processing. Event Grid is a highly reliable request delivery endpoint. The Azure platform provides necessary request delivery endpoint uptime and stability.
   
   Gridwich encapsulates events within the object `Event.Data` property, which is opaque to the Event Grid broker and transport layer. Gridwich also uses the `Event.EventType` and `Event.DataVersion` object fields to route events. So that the Event Grid request broker can be substituted with other publication-subscription event brokers, Gridwich depends on the fewest event fields possible, and doesn't use the `Event.Topic` or `Event.Subject` fields.
   
 - [Azure Functions](/azure/azure-functions/) lets you run event-triggered code without having to explicitly provision or manage infrastructure. Gridwich is an Azure Functions App that hosts execution of various functions.
   
-- [Azure Media Services](https:/azure.microsoft.com/services/media-services/) is a cloud-based workflow platform for indexing, packaging, protecting, and streaming media. Media Services uses [Digital Rights Management (DRM)](https:/en.wikipedia.org/wiki/Digital_rights_management) to protect content, and supports [Microsoft PlayReady](https:/www.microsoft.com/playready/overview/), [Google Widevine](https:/www.widevine.com/solutions/widevine-drm), and [Apple FairPlay](https:/developer.apple.com/streaming/fps/). Gridwich lets you [scale Media Services resources](media-services-setup-scale.md#scale-media-services-resources) to your expected workload.
+- [Azure Media Services](https://azure.microsoft.com/services/media-services/) is a cloud-based workflow platform for indexing, packaging, protecting, and streaming media. Media Services uses [Digital Rights Management (DRM)](https://en.wikipedia.org/wiki/Digital_rights_management) to protect content, and supports [Microsoft PlayReady](https://www.microsoft.com/playready/overview/), [Google Widevine](https://www.widevine.com/solutions/widevine-drm), and [Apple FairPlay](https://developer.apple.com/streaming/fps/). Gridwich lets you [scale Media Services resources](media-services-setup-scale.md#scale-media-services-resources) to your expected workload.
   
-- [Azure Blob Storage](https:/azure.microsoft.com/services/storage/blobs/) provides scalable, cost-efficient cloud storage and access for unstructured data like media assets. Gridwich uses both Azure Storage block blobs and containers.
+- [Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs/) provides scalable, cost-efficient cloud storage and access for unstructured data like media assets. Gridwich uses both Azure Storage block blobs and containers.
   
-- [Azure Logic Apps](https:/azure.microsoft.com/services/logic-apps/) lets you create automated cloud workflow solutions. Gridwich uses Logic Apps to [manage Key Vault keys and secrets](maintain-keys.md).
-- [Azure Key Vault](https:/azure.microsoft.com/services/key-vault/) safeguards cryptographic keys, passwords, and other secrets that Azure and third-party apps and services use.
+- [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps/) lets you create automated cloud workflow solutions. Gridwich uses Logic Apps to [manage Key Vault keys and secrets](maintain-keys.md).
+- [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) safeguards cryptographic keys, passwords, and other secrets that Azure and third-party apps and services use.
   
-- [Terraform](https:/www.terraform.io/) is an open-source tool that uses Infrastructure as Code to provision and manage infrastructures and services.
+- [Terraform](https://www.terraform.io/) is an open-source tool that uses Infrastructure as Code to provision and manage infrastructures and services.
 
 ## Alternatives
 
 - [Durable Functions](/azure/azure-functions/durable/durable-functions-overview), which have a built-in state store for long-running operations, could also provide an opaque operation context. Durable Functions could create a series of tasks within an operation, and save the operation context as an input or output for the operation. In fact, Gridwich could use Durable Functions for all work activities, but this approach would increase code complexity.
   
-- You could achieve better decoupling from the Event Grid infrastructure by refactoring the [EventGridHandlerBase](https:/github.com/mspnp/gridwich/blob/main/src/Bases/EventGridHandlerBase.cs) into a `RequestHandlerBase`, and removing any linkage to Event Grid objects or types. This refactored class would deal only in base DTOs, and not in transport-specific object types. Similarly, the [IEventGridDispatcher](https:/github.com/mspnp/gridwich/blob/main/src/Interfaces/IEventGridDispatcher.cs) could become an `IResponseDispatcher` with a specific `EventGridDispatcher` implementation.
+- You could achieve better decoupling from the Event Grid infrastructure by refactoring the [EventGridHandlerBase](https://github.com/mspnp/gridwich/blob/main/src/Bases/EventGridHandlerBase.cs) into a `RequestHandlerBase`, and removing any linkage to Event Grid objects or types. This refactored class would deal only in base DTOs, and not in transport-specific object types. Similarly, the [IEventGridDispatcher](https://github.com/mspnp/gridwich/blob/main/src/Interfaces/IEventGridDispatcher.cs) could become an `IResponseDispatcher` with a specific `EventGridDispatcher` implementation.
   
-- The [Gridwich.SagaParticipants.Storage.AzureStorage](https:/github.com/mspnp/gridwich/blob/main/src/Gridwich.SagaParticipants.Storage.AzureStorage/) library also contains storage services that other saga participants use. Having the interfaces in a core project avoids Inversion of Control (IoC) issues, but you could extract the interfaces into a separate core storage infrastructure gateway library.
+- The [Gridwich.SagaParticipants.Storage.AzureStorage](https://github.com/mspnp/gridwich/blob/main/src/Gridwich.SagaParticipants.Storage.AzureStorage/) library also contains storage services that other saga participants use. Having the interfaces in a core project avoids Inversion of Control (IoC) issues, but you could extract the interfaces into a separate core storage infrastructure gateway library.
   
-- The Gridwich Functions App uses [dependency injection](/azure/azure-functions/functions-dotnet-dependency-injection) to register one or more request handlers for specific event types and data versions. The app injects the [event dispatcher](https:/github.com/mspnp/gridwich/blob/main/src/GridWich.Core.EventGrid/src/EventGridDispatcher.cs) with the collection of Event Grid event handlers, and the dispatcher queries the handlers to determine which ones will process the event.
+- The Gridwich Functions App uses [dependency injection](/azure/azure-functions/functions-dotnet-dependency-injection) to register one or more request handlers for specific event types and data versions. The app injects the [event dispatcher](https://github.com/mspnp/gridwich/blob/main/src/Gridwich.Core.EventGrid/src/EventGridDispatcher.cs) with the collection of Event Grid event handlers, and the dispatcher queries the handlers to determine which ones will process the event.
   
   Alternatively, you could use the event subscription and filtering mechanism that the Event Grid platform provides. This mechanism imposes a 1:1 deployment model, where one Azure Function hosts only one event handler. Although Gridwich uses a 1:many model, its [clean architecture](gridwich-clean-monolith.md) means that refactoring the solution for 1:1 wouldn't be difficult.
   
@@ -225,13 +225,13 @@ The Gridwich solution uses Azure Event Grid, Azure Functions, Azure Media Servic
 
 ## Related resources
 
-- [Terraform starter project for Azure Pipelines](https:/github.com/microsoft/terraform-azure-devops-starter).
-- [Azure Function with Event Grid and Terraform Sandwich sample](https:/github.com/Azure-Samples/azure-functions-event-grid-terraform). Subscribe an Azure Function to Event Grid Events via Terraform, using a Terraform Sandwich.
-- [MediaInfoLib with Azure Storage](https:/github.com/Azure-Samples/functions-dotnet-core-mediainfo). Azure Functions and console samples that use cross-platform .NET Core to retrieve a report on a media file stored in Azure Storage.
-- [AMS V2 REST API samples](https:/github.com/Azure-Samples/media-services-v2-dotnet-core-restsharp-sample). A variety of Azure Media Services V2 REST API samples using RestSharp in .NET Core 3.1.
-- [Event Grid Viewer Blazor](https:/github.com/Azure-Samples/eventgrid-viewer-blazor). An EventGrid Viewer application, using Blazor and SignalR, with Azure Active Directory authorization support.
-- [Azure Function with Managed Service Identity for Azure Storage](https:/github.com/Azure-Samples/functions-storage-managed-identity). Use Managed Service Identity between Azure Functions and Azure Storage.
-- [Handling serverless Key Vault rotation](https:/github.com/Azure-Samples/serverless-keyvault-secret-rotation-handling). Use Event Grid and Logic Apps to handle Azure Key Vault secret rotation changes that an Azure Function uses.
-- [Updates to existing media-services-v3-dotnet-core-functions-integration sample](https:/github.com/Azure-Samples/media-services-v3-dotnet-core-functions-integration/tree/master/Encoding).
-- [Updates to vscode-dev-containers repo](https:/github.com/microsoft/vscode-dev-containers/tree/master/containers/azure-functions-dotnetcore-3.1). Updates to the vscode-dev-containers repo, adding the Azure Functions v3 and .NET Core 3.1 devcontainer.
+- [Terraform starter project for Azure Pipelines](https://github.com/microsoft/terraform-azure-devops-starter).
+- [Azure Function with Event Grid and Terraform Sandwich sample](https://github.com/Azure-Samples/azure-functions-event-grid-terraform). Subscribe an Azure Function to Event Grid Events via Terraform, using a Terraform Sandwich.
+- [MediaInfoLib with Azure Storage](https://github.com/Azure-Samples/functions-dotnet-core-mediainfo). Azure Functions and console samples that use cross-platform .NET Core to retrieve a report on a media file stored in Azure Storage.
+- [AMS V2 REST API samples](https://github.com/Azure-Samples/media-services-v2-dotnet-core-restsharp-sample). A variety of Azure Media Services V2 REST API samples using RestSharp in .NET Core 3.1.
+- [Event Grid Viewer Blazor](https://github.com/Azure-Samples/eventgrid-viewer-blazor). An EventGrid Viewer application, using Blazor and SignalR, with Azure Active Directory authorization support.
+- [Azure Function with Managed Service Identity for Azure Storage](https://github.com/Azure-Samples/functions-storage-managed-identity). Use Managed Service Identity between Azure Functions and Azure Storage.
+- [Handling serverless Key Vault rotation](https://github.com/Azure-Samples/serverless-keyvault-secret-rotation-handling). Use Event Grid and Logic Apps to handle Azure Key Vault secret rotation changes that an Azure Function uses.
+- [Updates to existing media-services-v3-dotnet-core-functions-integration sample](https://github.com/Azure-Samples/media-services-v3-dotnet-core-functions-integration/tree/master/Encoding).
+- [Updates to vscode-dev-containers repo](https://github.com/microsoft/vscode-dev-containers/tree/master/containers/azure-functions-dotnetcore-3.1). Updates to the vscode-dev-containers repo, adding the Azure Functions v3 and .NET Core 3.1 devcontainer.
 

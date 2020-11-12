@@ -19,9 +19,9 @@ Gridwich uses the Azure Media Services Platform as a Service (PaaS). Depending o
 
 To perform the encoding of sprite sheets, or to create thumbnails, Gridwich uses the Azure Media Services V2 API via representational state transfer (REST).
 
-The [MediaServicesV2EncodeCreateHandler](https://github.com/mspnp/gridwich/blob/main/src/GridWich.SagaParticipants.Encode.MediaServicesV2/src/EventGridHandlers/MediaServicesV2EncodeCreateHandler.cs) initiates work by calling the [MediaServicesV2RestEncodeService](https://github.com/mspnp/gridwich/blob/main/src/GridWich.SagaParticipants.Encode.MediaServicesV2/src/Services/MediaServicesV2RestEncodeService.cs), which in turn uses the [MediaServicesV2RestWrapper](https://github.com/mspnp/gridwich/blob/main/src/GridWich.SagaParticipants.Encode.MediaServicesV2/src/Services/MediaServicesV2RestWrapper.cs).
+The [MediaServicesV2EncodeCreateHandler](https://github.com/mspnp/gridwich/blob/main/src/Gridwich.SagaParticipants.Encode.MediaServicesV2/src/EventGridHandlers/MediaServicesV2EncodeCreateHandler.cs) initiates work by calling the [MediaServicesV2RestEncodeService](https://github.com/mspnp/gridwich/blob/main/src/Gridwich.SagaParticipants.Encode.MediaServicesV2/src/Services/MediaServicesV2RestEncodeService.cs), which in turn uses the [MediaServicesV2RestWrapper](https://github.com/mspnp/gridwich/blob/main/src/Gridwich.SagaParticipants.Encode.MediaServicesV2/src/Services/MediaServicesV2RestWrapper.cs).
 
-Within the [MediaServicesV2RestWrapper](https://github.com/mspnp/gridwich/blob/main/src/GridWich.SagaParticipants.Encode.MediaServicesV2/src/Services/MediaServicesV2RestWrapper.cs), the function `ConfigureRestClient` sets up authentication via an [Azure.Core.TokenCredential](/dotnet/api/azure.identity.defaultazurecredential) object:
+Within the [MediaServicesV2RestWrapper](https://github.com/mspnp/gridwich/blob/main/src/Gridwich.SagaParticipants.Encode.MediaServicesV2/src/Services/MediaServicesV2RestWrapper.cs), the function `ConfigureRestClient` sets up authentication via an [Azure.Core.TokenCredential](/dotnet/api/azure.identity.defaultazurecredential) object:
 
 ```csharp
 var amsAccessToken = _tokenCredential.GetToken(

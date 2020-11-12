@@ -27,7 +27,7 @@ This process clones the Gridwich Git repo into a new Azure DevOps project.
 
 To clone the Gridwich repo to your computer:
 
-1. In a web browser, navigate to the [main Gridwich repo](https://github.com/mspnp/gridwich/blob/main/), select **Code** at upper right, and under **Clone**, select the copy icon to copy the HTTPS clone URL.
+1. In a web browser, navigate to the [main Gridwich repo](https://github.com/mspnp/gridwich), select **Code** at upper right, and under **Clone**, select the copy icon to copy the HTTPS clone URL.
    
 1. In a Bash window on your computer, in the location where you want the cloned directory, enter `git clone` and the URL you just copied.
    
@@ -120,7 +120,7 @@ Update some of the installed files.
    
    - In [terraform-init-steps-template.yml](https://github.com/mspnp/gridwich/blob/main/infrastructure/azure-pipelines/templates/steps/terraform-init-steps-template.yml), update `TerraformBackendStorageAccount: gridwichtfstate` to `TerraformBackendStorageAccount: <your unique Gridwich storage account name>`.
    
-1. In [terraform/variables.tf](https://github.com/mspnp/gridwich/blob/main/infrastructure/infrastructure/terraform/variables.tf), to avoid name collisions with `gridwich`, update the default application name from `gridwich` to `cl1grw` or your application name.
+1. In [terraform/variables.tf](https://github.com/mspnp/gridwich/blob/main/infrastructure/terraform/variables.tf), to avoid name collisions with `gridwich`, update the default application name from `gridwich` to `cl1grw` or your application name.
    
    ```terraform
    variable "appname" {
@@ -143,21 +143,21 @@ Add Azure Pipelines *variable groups* to store secrets and values to pass into t
 1. Under **Variables**, select **Add**, and add the following **Name** and **Value** pairs.
    
    ```text
-         amsDrmEnableContentKeyPolicyUpdate = false
-         amsDrmFairPlayAskHex = 8D49FD8E59E19F69A52F0E9E0D5742F8
-         amsDrmFairPlayPfxPassword = Password!2020
-         amsDrmOpenIdConnectDiscoveryDocumentEndpoint = <https://qa.api.something.com/asset/video/.well-known/OpenIdConfiguration>
-         applicationName = cl1grw
-         deploymentEnvironmentType = DEV
-         inboxCORS = <localhost:9002;extsysqa.something.com;extsysuat.something.com;extsys.something.com>
-         telestreamCloudApiKey = tcs_000000000000000000000000
+   amsDrmEnableContentKeyPolicyUpdate = false
+   amsDrmFairPlayAskHex = 8D49FD8E59E19F69A52F0E9E0D5742F8
+   amsDrmFairPlayPfxPassword = Password!2020
+   amsDrmOpenIdConnectDiscoveryDocumentEndpoint = <https://qa.api.something.com/asset/video/.well-known/OpenIdConfiguration>
+   applicationName = cl1grw
+   deploymentEnvironmentType = DEV
+   inboxCORS = <localhost:9002;extsysqa.something.com;extsysuat.something.com;extsys.something.com>
+   telestreamCloudApiKey = tcs_000000000000000000000000
    ```
    
-   - The **amsDrmEnableContentKeyPolicyUpdate** variable controls whether to push content policy updates. The variable must be set to `true` for updates to occur. For more information, see [Content key policy updates](gridwich-content-protection-drm.md#content-key-policy-update).
+   - The **amsDrmEnableContentKeyPolicyUpdate** variable controls whether to push content policy updates. The variable must be set to `true` for updates to occur. For more information, see [Content key policy update](gridwich-content-protection-drm.md#content-key-policy-update).
    
    - For Apple FairPlay **amsDrmFairPlayAskHex** and **amsDrmFairPlayPfxPassword**, use the values from the *FairPlay-out-base64.txt* certificate file that you create and upload. For instructions, see [Apple FairPlay settings](gridwich-content-protection-drm.md#apple-fairplay-settings).
      
-     Or, for development purposes, you can use the FairPlay values in the preceding example, which are from the fake FairPlay certificate file [FairPlay-out-base64.txt](https://github.com/mspnp/gridwich/blob/main/src/Gridwich.SagaParticipans.Publication.MediaServicesV3/tests/FakeFairPlayCert/FairPlay-out-base64.txt). Upload this fake file to **Library** > **+ Secure file**.
+     Or, for development purposes, you can use the FairPlay values in the preceding example, which are from the fake FairPlay certificate file [FairPlay-out-base64.txt](https://github.com/mspnp/gridwich/blob/main/src/Gridwich.SagaParticipants.Publication.MediaServicesV3/tests/FakeFairPlayCert/FairPlay-out-base64.txt). Upload this fake file to **Library** > **+ Secure file**.
    
    - For **amsDrmOpenIdConnectDiscoveryDocumentEndpoint**, use the OpenID Connect Discovery Document endpoint URL that exposes the public signature keys in Azure Media Services.
    
@@ -174,8 +174,6 @@ Add Azure Pipelines *variable groups* to store secrets and values to pass into t
 1. Under **Variable groups**, select **gridwich-cicd-variables.sb**.
    
 1. Select **Clone**, and name the cloned variable group **gridwich-cicd-variables.single_env**.
-   
-   ![Screenshot of cloning the variable group.](media/clone-variable-group.png)
    
 1. Select **Save**.
 
@@ -240,19 +238,19 @@ Use this pipeline to create a new single cloud developer environment with a cust
 1. Under **Pipelines**, select the pipeline and then select **Edit**. In the editor, add the following variables to the pipeline. For each variable, select **Let users override this value when running this pipeline**.
    
    ```text
-      environment
-      RUN_FLAG_SUBSCRIPTIONS_FAIL_GRACEFULLY = false
-      RUN_FLAG_SUBSCRIPTIONS_DISABLED = false
-      RUN_FLAG_TERRAFORM = true
+   environment
+   RUN_FLAG_SUBSCRIPTIONS_FAIL_GRACEFULLY = false
+   RUN_FLAG_SUBSCRIPTIONS_DISABLED = false
+   RUN_FLAG_TERRAFORM = true
    ```
    
    You can also use Azure CLI to add the variables. Run the following command for each variable respectively, after signing in to the Azure subscription and installing the [Pipelines extension](/azure/devops/pipelines/create-first-pipeline-cli):
    
    ```azurecli
-       az pipelines variable create \
-           --organization https://dev.azure.com/myorganization \
-           --project "gridwich-clone" --pipeline-id <pipeline ID> \
-           --name <variable name> --value <default value> --allow-override true
+   az pipelines variable create \
+       --organization https://dev.azure.com/myorganization \
+       --project "gridwich-clone" --pipeline-id <pipeline ID> \
+       --name <variable name> --value <default value> --allow-override true
    ```
    
 1. Select **Run** to run the pipeline anytime you want to create a replica of the system.
@@ -265,7 +263,7 @@ For more information about how to run this pipeline and set up a new environment
 
 ### Add the tf_destroy_env.yml pipeline
 
-Use this pipeline to delete an environment, like one the `ci_cd_ext_release` pipeline created.
+Use this pipeline to delete an environment, like one that the `ci_cd_ext_release` pipeline created.
 
 1. In the `gridwich-clone` project left navigation, select **Pipelines** and then select **Create pipeline** or **New pipeline**.
    
@@ -283,20 +281,20 @@ Use this pipeline to delete an environment, like one the `ci_cd_ext_release` pip
    
    
    ```text
-      environment
-      RUN_FLAG_SUBSCRIPTIONS_FAIL_GRACEFULLY = false
-      RUN_FLAG_SUBSCRIPTIONS_DISABLED = false
-      serviceConnectionName = gridwich-connection <or your service connection name>
-      applicationName = cl1grw <or your app name>
+   environment
+   RUN_FLAG_SUBSCRIPTIONS_FAIL_GRACEFULLY = false
+   RUN_FLAG_SUBSCRIPTIONS_DISABLED = false
+   serviceConnectionName = gridwich-connection <or your service connection name>
+   applicationName = cl1grw <or your app name>
    ```
    
    You can also use Azure CLI to add the variables. Run the following command for each variable respectively, after signing in to the Azure subscription and installing the [Pipelines extension](/azure/devops/pipelines/create-first-pipeline-cli):
    
    ```azurecli
-       az pipelines variable create \
-           --organization https://dev.azure.com/myorganization \
-           --project "gridwich-clone" --pipeline-id <pipeline ID> \
-           --name <variable name> --value <default value> --allow-override true
+   az pipelines variable create \
+       --organization https://dev.azure.com/myorganization \
+       --project "gridwich-clone" --pipeline-id <pipeline ID> \
+       --name <variable name> --value <default value> --allow-override true
    ```
    
 1. Select **Run** to run the pipeline anytime you need to destroy an environment.
