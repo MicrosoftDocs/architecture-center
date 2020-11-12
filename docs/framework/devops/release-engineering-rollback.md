@@ -18,15 +18,15 @@ In some cases, a new software deployment can harm or degrade the functionality o
 
 ## Azure Resource Manager (ARM) deployments
 
-When deploying Azure infrastructure and solutons with Azure Resoure Manager (ARM) tempaltes a deployment record is created.
+When deploying Azure infrastructure and solutions with Azure Resource Manager (ARM) templates a deployment record is created. When creating a new deployment, you can provide a previously known good deployment so that if the current deployment fails, the previous know good deployment is redeployed. There are several considerations and caveats when using this functionality. See the documentation linked below for these details.
 
-![Image showing Azure Resource Manager Deployments in the Azure portak.](../_images/devops/arm-deployments.png)
+![Image showing Azure Resource Manager Deployments in the Azure portal.](../_images/devops/arm-deployments.png)
 
-For more information, see [Rollback on error to successful deployment](https://docs.microsoft.com/azure/azure-resource-manager/templates/rollback-on-error)
+For more information, see [Rollback on an error to successful deployment](https://docs.microsoft.com/azure/azure-resource-manager/templates/rollback-on-error)
 
 ## Logic apps
 
-When making changes to an Azure logic application a new version of the application is created. Azure maintins a history of versions and can revert or promote any previous version. To do so, in the Azure portal, select your logic app > **Versions**. On the versions pane, previous versions can be selected and the application can be inspectd both in code view and the visual designer view. Select the version that you would like to revert to, and click the **Promote** option and then **Save**.
+When making changes to an Azure logic application, a new version of the application is created. Azure maintains a history of versions and can revert or promote any previous version. To do so, in the Azure portal, select your logic app > **Versions**. Previous versions can be selected on the versions pane, and the application can be inspected both in the code view and the visual designer view. Select the version you would like to revert to, and click the **Promote** option and then **Save**.
 
 ![Image showing Azure logic application version history.](../_images/devops/revert-logic-app.png)
 
