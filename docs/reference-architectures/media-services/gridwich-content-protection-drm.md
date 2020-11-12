@@ -51,9 +51,9 @@ A Gridwich publication message must specify the streaming policy and content key
 }
 ```
 
-To enable Microsoft PlayReady and Google Widevine on MPEG-DASH output, use `"streamingPolicyName": "cencDrmStreaming"` and `"contentKeyPolicyName": "cencDrmKey"`. The `cencDRMKey` policy code is in [MediaServicesV3CustomContentKeyPolicyCencDrmKey](https://github.com/mspnp/blob/main/gridwich/src/Gridwich.SagaParticipants.Publication.MediaServicesV3/src/ContentKeyPolicies/MediaServicesV3CustomContentKeyPolicyCencDrmKey.cs).
+To enable Microsoft PlayReady and Google Widevine on MPEG-DASH output, use `"streamingPolicyName": "cencDrmStreaming"` and `"contentKeyPolicyName": "cencDrmKey"`. The `cencDRMKey` policy code is in [MediaServicesV3CustomContentKeyPolicyCencDrmKey](https://github.com/mspnp/gridwich/blob/main/src/Gridwich.SagaParticipants.Publication.MediaServicesV3/src/ContentKeyPolicies/MediaServicesV3CustomContentKeyPolicyCencDrmKey.cs).
 
-To enable Microsoft PlayReady and Google Widevine on MPEG-DASH output, and Apple FairPlay on HLS (TS and CMAF), use `"streamingPolicyName": "multiDrmStreaming"` and `"contentKeyPolicyName": "multiDrmKey"`. The `multiDRMKey` policy code is in [MediaServicesV3CustomContentKeyPolicyMultiDrmKey](https://github.com/mspnp/blob/main/gridwich/src/Gridwich.SagaParticipants.Publication.MediaServicesV3/src/ContentKeyPolicies/MediaServicesV3CustomContentKeyPolicyMultiDrmKey.cs).
+To enable Microsoft PlayReady and Google Widevine on MPEG-DASH output, and Apple FairPlay on HLS (TS and CMAF), use `"streamingPolicyName": "multiDrmStreaming"` and `"contentKeyPolicyName": "multiDrmKey"`. The `multiDRMKey` policy code is in [MediaServicesV3CustomContentKeyPolicyMultiDrmKey](https://github.com/mspnp/gridwich/blob/main/src/Gridwich.SagaParticipants.Publication.MediaServicesV3/src/ContentKeyPolicies/MediaServicesV3CustomContentKeyPolicyMultiDrmKey.cs).
 
 The `cencDRMKey` policy includes options 1 through 6, and the `multiDRMKey` policy includes options 1 through 9:
 
@@ -69,7 +69,7 @@ The `cencDRMKey` policy includes options 1 through 6, and the `multiDRMKey` poli
 
 The JSON token that the player provides to Media Services should look similar to one of the following examples. These token examples are case-sensitive.
 
-A secured token service (STS), not provided in Gridwich, should deliver tokens with correct and expected claims. The `persistent` claim specifies the option that Media Services should use when generating the license. The `iss` and `aud` claims should match the definitions in [ContentKeyPolicyClaims](https://github.com/mspnp/blob/main/gridwich/src/Gridwich.SagaParticipants.Publication.MediaServicesV3/src/Constants/ContentKeyPolicyClaims.cs).
+A secured token service (STS), not provided in Gridwich, should deliver tokens with correct and expected claims. The `persistent` claim specifies the option that Media Services should use when generating the license. The `iss` and `aud` claims should match the definitions in [ContentKeyPolicyClaims](https://github.com/mspnp/gridwich/blob/main/src/Gridwich.SagaParticipants.Publication.MediaServicesV3/src/Constants/ContentKeyPolicyClaims.cs).
 
 ### JSON token examples
 
@@ -123,7 +123,7 @@ The following diagram shows the process of updating the streaming policy and con
 
 ### Streaming policy update
 
-The streaming policy uses an internal Media Services name to assign a version to the policy, and an external request name that doesn't change. In the preceding example, the `multiDRMStreaming` policy in the request has the name `multiDRMStreaming-Version-1-0` in Media Services. If the code in the [MediaServicesV3CustomStreamingPolicyMultiDrmStreaming.cs](https://github.com/mspnp/blob/main/gridwich/src/Gridwich.SagaParticipants.Publication.MediaServicesV3/src/StreamingPolicies/MediaServicesV3CustomStreamingPolicyMultiDrmStreaming.cs) file changes, update the streaming policy name in the file to increment the version number:
+The streaming policy uses an internal Media Services name to assign a version to the policy, and an external request name that doesn't change. In the preceding example, the `multiDRMStreaming` policy in the request has the name `multiDRMStreaming-Version-1-0` in Media Services. If the code in the [MediaServicesV3CustomStreamingPolicyMultiDrmStreaming.cs](https://github.com/mspnp/gridwich/blob/main/src/Gridwich.SagaParticipants.Publication.MediaServicesV3/src/StreamingPolicies/MediaServicesV3CustomStreamingPolicyMultiDrmStreaming.cs) file changes, update the streaming policy name in the file to increment the version number:
 
 ```csharp
 private readonly string nameInAmsAccount = CustomStreamingPolicies.MultiDrmStreaming + "-Version-1-0";

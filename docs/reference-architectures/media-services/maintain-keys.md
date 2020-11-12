@@ -91,9 +91,9 @@ The Azure Key Vault itself is configured to send events to a Logic App web hook:
 
 To add or change a key:
 
-1. Add the key to the [Gridwich.Host.FunctionApp/sample.local.settings.json](https://github.com/mspnp/blob/main/gridwich/src/Gridwich.Host.FunctionApp/sample.local.settings.json) file.
+1. Add the key to the [Gridwich.Host.FunctionApp/sample.local.settings.json](https://github.com/mspnp/gridwich/blob/main/src/Gridwich.Host.FunctionApp/sample.local.settings.json) file.
    
-1. Add the key to [infrastructure/terraform/shared](https://github.com/mspnp/blob/main/gridwich/infrastructure/terraform/shared/):
+1. Add the key to [infrastructure/terraform/shared](https://github.com/mspnp/gridwich/blob/main/infrastructure/terraform/shared/):
    
    ```terraform
    #############################

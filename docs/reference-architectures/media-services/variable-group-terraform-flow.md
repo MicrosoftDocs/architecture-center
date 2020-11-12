@@ -31,9 +31,9 @@ The example is a deep dive into how the **amsDrmFairPlayAskHex** variable, locat
 
 The **amsDrmFairPlayAskHex** Azure Pipelines variable interacts with Azure Media Services FairPlay DRM. The pipeline passes the variable value to Terraform to set in the shared Azure Key Vault and ultimately reference as a Key Vault secret in the Azure Function App settings.
 
-Gridwich automatically stores the variable as a CI/CD server environment variable because it's referenced in [variables.yml](https://github.com/mspnp/blob/main/gridwich/infrastructure/azure-pipelines/variables.yml), which is used as a template in each *ci_cd_<environment>_release.yml* pipeline.
+Gridwich automatically stores the variable as a CI/CD server environment variable because it's referenced in [variables.yml](https://github.com/mspnp/gridwich/blob/main/infrastructure/azure-pipelines/variables.yml), which is used as a template in each *ci_cd_<environment>_release.yml* pipeline.
 
-1. The [deploy-to-env-stages-template.yml](https://github.com/mspnp/blob/main/gridwich/infrastructure/azure-pipelines/templates/stages/deploy-to-env-stages-template.yml) template passes the CI/CD server environment variable to Terraform as a variable, by using the `TerraformArguments` property. This action happens for both the first and second Terraform sandwich jobs.
+1. The [deploy-to-env-stages-template.yml](https://github.com/mspnp/gridwich/blob/main/infrastructure/azure-pipelines/templates/stages/deploy-to-env-stages-template.yml) template passes the CI/CD server environment variable to Terraform as a variable, by using the `TerraformArguments` property. This action happens for both the first and second Terraform sandwich jobs.
    
    ```yaml
    stages:
@@ -52,7 +52,7 @@ Gridwich automatically stores the variable as a CI/CD server environment variabl
             . . .
    ```
    
-   The **amsDrm_FairPlay_Ask_Hex** variable in the main module [variables.tf](https://github.com/mspnp/blob/main/gridwich/infrastructure/terraform/variables.tf) file contains the value of the `amsDrmFairPlayAskHex` CI/CD environment variable:
+   The **amsDrm_FairPlay_Ask_Hex** variable in the main module [variables.tf](https://github.com/mspnp/gridwich/blob/main/infrastructure/terraform/variables.tf) file contains the value of the `amsDrmFairPlayAskHex` CI/CD environment variable:
    
    ```yaml
    variable "amsDrm_FairPlay_Ask_Hex" {
@@ -71,7 +71,7 @@ Gridwich automatically stores the variable as a CI/CD server environment variabl
    }
    ```
    
-1. The shared Terraform module [main.tf](https://github.com/mspnp/blob/main/gridwich/infrastructure/terraform/shared/main.tf) sets the **amsDrm_FairPlay_Ask_Hex** variable as a secret in the shared Azure Key Vault:
+1. The shared Terraform module [main.tf](https://github.com/mspnp/gridwich/blob/main/infrastructure/terraform/shared/main.tf) sets the **amsDrm_FairPlay_Ask_Hex** variable as a secret in the shared Azure Key Vault:
    
    ```terraform
    resource "azurerm_key_vault_secret" "ams_fairplay_ask_hex" {
@@ -88,9 +88,9 @@ Gridwich automatically stores the variable as a CI/CD server environment variabl
    }
    ```
    
-1. The `mediaservices` module in the [main.tf](https://github.com/mspnp/blob/main/gridwich/infrastructure/terraform/main.tf) file generates a *media_services_app_settings.json* file artifact that the CI/CD process uses to set the Function App app settings for Azure Media Services:
+1. The `mediaservices` module in the [main.tf](https://github.com/mspnp/gridwich/blob/main/infrastructure/terraform/main.tf) file generates a *media_services_app_settings.json* file artifact that the CI/CD process uses to set the Function App app settings for Azure Media Services:
    
-   - In the [main](https://github.com/mspnp/blob/main/gridwich/infrastructure/terraform/main.tf) module:
+   - In the [main](https://github.com/mspnp/gridwich/blob/main/infrastructure/terraform/main.tf) module:
      
      ```terraform
          module "mediaservices" {
@@ -99,7 +99,7 @@ Gridwich automatically stores the variable as a CI/CD server environment variabl
          }
      ```
      
-   - In the [mediaservices/main](https://github.com/mspnp/blob/main/gridwich/infrastructure/terraform/mediaservices/main.tf) module:
+   - In the [mediaservices/main](https://github.com/mspnp/gridwich/blob/main/infrastructure/terraform/mediaservices/main.tf) module:
      
      ```terraform
          locals {
@@ -130,7 +130,7 @@ Gridwich automatically stores the variable as a CI/CD server environment variabl
          ]
      ```
      
-1. The [functions-deploy-steps-template.yml](https://github.com/mspnp/blob/main/gridwich/infrastructure/azure-pipelines/templates/steps/functions-deploy-steps-template.yml) template loops through each generated *media_services_app_settings.json* and other similar JSON files, and uses the Azure command-line interface (Azure CLI) to set the Function App app settings:
+1. The [functions-deploy-steps-template.yml](https://github.com/mspnp/gridwich/blob/main/infrastructure/azure-pipelines/templates/steps/functions-deploy-steps-template.yml) template loops through each generated *media_services_app_settings.json* and other similar JSON files, and uses the Azure command-line interface (Azure CLI) to set the Function App app settings:
    
    ```yaml
        - task: AzureCLI@1

@@ -23,13 +23,13 @@ Each saga participant contributes one or more work activities to the ecosystem. 
 
 For Gridwich, the available saga participants are:
 
-- [Analysis.MediaInfo](https://github.com/mspnp/blob/main/gridwich/src/Gridwich.SagaParticipants.Analysis.MediaInfo/)
-- [Encode.CloudPort](https://github.com/mspnp/blob/main/gridwich/src/Gridwich.SagaParticipants.Encode.CloudPort/)
-- [Encode.Flip](https://github.com/mspnp/blob/main/gridwich/src/Gridwich.SagaParticipants.Encode.Flip/)
-- [Encode.MediaServicesV2](https://github.com/mspnp/blob/main/gridwich/src/Gridwich.SagaParticipants.Encode.MediaServicesV2/)
-- [Encode.MediaServicesV3](https://github.com/mspnp/blob/main/gridwich/src/Gridwich.SagaParticipants.Encode.MediaServicesV3/)
-- [Publication.MediaServicesV3](https://github.com/mspnp/blob/main/gridwich/src/Gridwich.SagaParticipants.Publication.MediaServicesV3/)
-- [Storage.AzureStorage](https://github.com/mspnp/blob/main/gridwich/src/Gridwich.SagaParticipants.Storage.AzureStorage/)
+- [Analysis.MediaInfo](https://github.com/mspnp/gridwich/blob/main/src/Gridwich.SagaParticipants.Analysis.MediaInfo/)
+- [Encode.CloudPort](https://github.com/mspnp/gridwich/blob/main/src/Gridwich.SagaParticipants.Encode.CloudPort/)
+- [Encode.Flip](https://github.com/mspnp/gridwich/blob/main/src/Gridwich.SagaParticipants.Encode.Flip/)
+- [Encode.MediaServicesV2](https://github.com/mspnp/gridwich/blob/main/src/Gridwich.SagaParticipants.Encode.MediaServicesV2/)
+- [Encode.MediaServicesV3](https://github.com/mspnp/gridwich/blob/main/src/Gridwich.SagaParticipants.Encode.MediaServicesV3/)
+- [Publication.MediaServicesV3](https://github.com/mspnp/gridwich/blob/main/src/Gridwich.SagaParticipants.Publication.MediaServicesV3/)
+- [Storage.AzureStorage](https://github.com/mspnp/gridwich/blob/main/src/Gridwich.SagaParticipants.Storage.AzureStorage/)
 
 ## Example saga workflows
 

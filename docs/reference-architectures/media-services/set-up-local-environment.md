@@ -67,7 +67,7 @@ You can now make requests to the two Function endpoints shown in the build outpu
 
 The following procedure creates the settings on your local machine to run the Gridwich Azure Function.
 
-For an example *local.settings.json* file, see [sample.local.settings.json](https://github.com/mspnp/blob/main/gridwich/src/Gridwich.Host.FunctionApp/src/sample.local.settings.json).
+For an example *local.settings.json* file, see [sample.local.settings.json](https://github.com/mspnp/gridwich/blob/main/src/Gridwich.Host.FunctionApp/src/sample.local.settings.json).
 
 If you need an Azure PowerShell CLI environment, you can use [Azure Cloud Shell](https://shell.azure.com) and select PowerShell instead of Bash.
 
@@ -143,14 +143,14 @@ echo $('"AmsAadClientId":"'+$AmsAadClientId+'",') $('"AmsAadClientSecret":"'+$Am
 
 ### Replace the local file
 
-Rename *local.settings.sb.json* to *local.settings.json* and copy it to [src\local.settings.json](https://github.com/mspnp/blob/main/gridwich/src/Gridwich.Host.FunctionApp/src/local.settings.json). Or edit *local.settings.json* in place, using the console output from the preceding scripts.
+Rename *local.settings.sb.json* to *local.settings.json* and copy it to [src\local.settings.json](https://github.com/mspnp/gridwich/blob/main/src/Gridwich.Host.FunctionApp/src/local.settings.json). Or edit *local.settings.json* in place, using the console output from the preceding scripts.
 
 ### Add dummy values for Azure FairPlay DRM
 
 Manually add the following two values to *local.settings.json*:
 
-- `AmsDrmFairPlayCertificateB64`. Use the base 64 string from [FakeFairPlayCert/FairPlay-out-base64.txt](https://github.com/mspnp/blob/main/gridwich/src/Gridwich.SagaParticipants.Publication.MediaServicesV3/tests/FakeFairPlayCert/FairPlay-out-base64.txt). Remove the line endings and set the string in a single line.
-- `AmsDrmFairPlayPfxPassword`. Use the dummy password from [FakeFairPlayCert/FairPlay-out-base64.txt](https://github.com/mspnp/blob/main/gridwich/src/Gridwich.SagaParticipants.Publication.MediaServicesV3/tests/FakeFairPlayCert/FairPlay-out-base64.txt).
+- `AmsDrmFairPlayCertificateB64`. Use the base 64 string from [FakeFairPlayCert/FairPlay-out-base64.txt](https://github.com/mspnp/gridwich/blob/main/src/Gridwich.SagaParticipants.Publication.MediaServicesV3/tests/FakeFairPlayCert/FairPlay-out-base64.txt). Remove the line endings and set the string in a single line.
+- `AmsDrmFairPlayPfxPassword`. Use the dummy password from [FakeFairPlayCert/FairPlay-out-base64.txt](https://github.com/mspnp/gridwich/blob/main/src/Gridwich.SagaParticipants.Publication.MediaServicesV3/tests/FakeFairPlayCert/FairPlay-out-base64.txt).
 
 ## Next steps
 - [Create or delete a Gridwich cloud sandbox or test environment](create-delete-cloud-environment.md)
