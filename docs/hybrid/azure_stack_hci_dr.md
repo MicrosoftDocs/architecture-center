@@ -24,10 +24,10 @@ You typically use this architecture for disaster recovery with automatic failove
 
 The architecture incorporates the following components and capabilities:
 
-- **Azure Stack HCI (20H2)**. Azure Stack HCI is a hyper-converged infrastructure (HCI) cluster solution that hosts virtualized Windows and Linux workloads and their storage in a hybrid on-premises environment. The stretched cluster can consist of between four and 16 physical nodes. 
-- **Storage Replica**. Storage Replica is a Windows Server technology that enables volume replication between servers or clusters for the purpose of disaster recovery.
-- **Live Migration**. Live migration is a Hyper-V feature in Windows Server that allows you to seamlessly move running virtual machines (VMs) from one Hyper-V host to another without perceived downtime. 
-- **Cloud Witness**. Cloud Witness is a Failover Cluster quorum witness that uses Microsoft Azure Blob Storage to provide a vote on cluster quorum.
+- **[Azure Stack HCI (20H2)][azs-hci]**. Azure Stack HCI is a hyper-converged infrastructure (HCI) cluster solution that hosts virtualized Windows and Linux workloads and their storage in a hybrid on-premises environment. The stretched cluster can consist of between four and 16 physical nodes. 
+- **[Storage Replica][storage-replica]**. Storage Replica is a Windows Server technology that enables volume replication between servers or clusters for the purpose of disaster recovery.
+- **[Live Migration][live-migration]**. Live migration is a Hyper-V feature in Windows Server that allows you to seamlessly move running virtual machines (VMs) from one Hyper-V host to another without perceived downtime. 
+- **[Cloud Witness][cloud-witness]**. Cloud Witness is a Failover Cluster quorum witness that uses Microsoft Azure Blob Storage to provide a vote on cluster quorum.
 
 ## Recommendation
 
@@ -130,9 +130,12 @@ The [Microsoft Azure Well-Architected Framework][azure-well-architected-framewor
 
 [architectural-diagram]: images/azure_stack_hci_dr.png
 [architectural-diagram-visio-source]: diagrams/azure_stack_hci_dr.vsdx
-[azure-service]: https://docs.microsoft.com/azure/
 [azure-well-architected-framework]: https://docs.microsoft.com/azure/architecture/framework/
 [microsoft-component]: https://docs.microsoft.com/
+[azs-hci]: https://docs.microsoft.com/azure-stack/hci/overview
+[storage-replica]: https://docs.microsoft.com/windows-server/storage/storage-replica/storage-replica-overview
+[cloud-witness]: https://docs.microsoft.com/windows-server/failover-clustering/deploy-cloud-witness
+[live-migration]: https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/live-migration-overview
 [hci-hardware-requirements]: https://docs.microsoft.com/azure-stack/hci/deploy/before-you-start#server-requirements
 [create-cluster-with-wac]: https://docs.microsoft.com/azure-stack/hci/deploy/create-cluster
 [create-cluster-with-powershell]: https://docs.microsoft.com/azure-stack/hci/deploy/create-cluster-powershell
@@ -144,7 +147,7 @@ The [Microsoft Azure Well-Architected Framework][azure-well-architected-framewor
 [change-tracking-and-inventory]: https://docs.microsoft.com/azure/automation/change-tracking
 [update-management]: https://docs.microsoft.com/azure/automation/update-management/overview
 [site-to-site-network-reqs]: https://docs.microsoft.com/azure-stack/hci/concepts/plan-host-networking#site-to-site-requirements-stretched-cluster
-[site-to-site-rdma-considerations]: https://docs.microsoft.com/en-us/azure-stack/hci/concepts/plan-host-networking#rdma-considerations
+[site-to-site-rdma-considerations]: https://docs.microsoft.com/azure-stack/hci/concepts/plan-host-networking#rdma-considerations
 [set-srnetworkconstraint]: https://docs.microsoft.com/powershell/module/storagereplica/set-srnetworkconstraint?view=win10-ps
 [sr-initial-sync]: https://docs.microsoft.com/windows-server/storage/storage-replica/storage-replica-frequently-asked-questions#FAQ12
 [sr-volume-reqs]: https://docs.microsoft.com/windows-server/storage/storage-replica/stretch-cluster-replication-using-shared-storage#provision-operating-system-features-roles-storage-and-network
@@ -156,4 +159,4 @@ The [Microsoft Azure Well-Architected Framework][azure-well-architected-framewor
 [azure-site-recovery]: https://docs.microsoft.com/azure-stack/hci/manage/azure-site-recovery
 [resiliencydefaultperiod]: https://techcommunity.microsoft.com/t5/failover-clustering/virtual-machine-compute-resiliency-in-windows-server-2016/ba-p/372027
 [azure-security-center]: https://docs.microsoft.com/azure-stack/hci/concepts/security#part-2-use-azure-security-center
-[sr-firewall-reqs]: https://docs.microsoft.com/en-us/windows-server/storage/storage-replica/stretch-cluster-replication-using-shared-storage#prerequisites
+[sr-firewall-reqs]: https://docs.microsoft.com/windows-server/storage/storage-replica/stretch-cluster-replication-using-shared-storage#prerequisites
