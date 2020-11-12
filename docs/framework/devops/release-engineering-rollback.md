@@ -8,22 +8,14 @@ ms.service: architecture-center
 ms.subservice: well-architected
 ---
 
-# Release Engineering: Rollback and Rollforward
+# Release Engineering: Rollback
 
-## Rollback plan
-
-Use App Service deployment slots to fall back on last-known good menu.
-
-The most important step is to implement an architecture that supports the need to rollback. For instance, componentized, service-based architectures lend themselves well to this. Persistent message queues and asynchronous services allow you to bring components down for rollback without affecting the main user base. Work towards something like the Blue-Green release pattern such that your application can stay available whilst you are working on one half of the system.
-
-If a deployment fails, your application could become unavailable. To minimize downtime, design a rollback process to go back to a last-known good version. Include a strategy to roll back changes to databases and any other services your app depends on.
-
-If you're using Azure App Service, you can set up a last-known good site slot and use it to roll back from a web or API app deployment.
-
-## Git
+In some cases, a new software deployment can harm or degrade the functionality of a software system. When building your solutions, it is essential to anticipate deployment issues, architect solutions that provide mechanisms for fixing problematic deployments. Rolling back a deployment involves reverting the deployment to a known good state. Rollback can be accomplished in many different ways. Several Azure services support native mechanisms for rolling back to a previous state. Several of these services are detailed in this article.
 
 ## Web Apps
 
 ## Azure Kubernetes Service
 
-## Others
+## Azure Resource Manager (ARM) deployments
+
+## Logic Apps
