@@ -14,13 +14,48 @@ In some cases, a new software deployment can harm or degrade the functionality o
 
 ## Web Apps
 
-## Azure Kubernetes Service
+## Azure Kubernetes Service (AKS)
+
+A Kubernetes deployment defines the desired state for a particular workload running in the cluster. For example, a deployment may declare that a workload consists of 3 replicas of a specific pod should be running at all times. The deployment object creates a ReplicaSet and the associate Pods. When updating a workload, the deployment itself can be revised, which will generally roll out a new container image to the deployment pods. Assuming multiple replicas of the pods exist, this rollout can happen in a controlled and staged manner such that no downtime occurs.
+
+If a deployment introduces breaking changes or unintentional results, it can be reverted to an earlier state.
+
+In this case, a deployment named _demorollback_ contains three replicas of a pod.
+
+```azurecli
+$ kubectl get deployments
+
+NAME           READY   UP-TO-DATE   AVAILABLE   AGE
+demorollback   3/3     3            3           28s
+```
+
+As the deployment is updated, deployment history is retained.
+
+```azurecli
+$ kubectl rollout history deployment demorollback
+
+deployment.apps/demorollback 
+REVISION  CHANGE-CAUSE
+1         <none>
+2         <none>
+```
+
+If an updated deployment has introduced issues, the `kubectl rollout undo` command can be used to revert to a previous deployment revision.
+
+```azurecli
+$ kubectl rollout undo deploy demorollback --to-revision=1
+
+deployment.apps/demorollback rolled back
+  Volumes:      <none>
+```
+
+For more information, see [Kubernetes Deployments](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/)
 
 ## Azure Resource Manager (ARM) deployments
 
-When deploying Azure infrastructure and solutions with Azure Resource Manager (ARM) templates a deployment record is created. When creating a new deployment, you can provide a previously known good deployment so that if the current deployment fails, the previous know good deployment is redeployed. There are several considerations and caveats when using this functionality. See the documentation linked below for these details.
+When deploying Azure infrastructure and solutions with Azure Resource Manager (ARM) templates, a deployment record is created. When creating a new deployment, you can provide a previously known good deployment so that if the current deployment fails, the previous know good deployment is redeployed. There are several considerations and caveats when using this functionality. See the documentation linked below for these details.
 
-![Image showing Azure Resource Manager Deployments in the Azure portal.](../_images/devops/arm-deployments.png)
+:::image type="content" source="../_images/devops/arm-deployments.png" alt-text="Image showing Azure Resource Manager Deployments in the Azure portal." lightbox="../_images/devops/arm-deployments-full.png":::
 
 For more information, see [Rollback on an error to successful deployment](https://docs.microsoft.com/azure/azure-resource-manager/templates/rollback-on-error)
 
@@ -28,7 +63,6 @@ For more information, see [Rollback on an error to successful deployment](https:
 
 When making changes to an Azure logic application, a new version of the application is created. Azure maintains a history of versions and can revert or promote any previous version. To do so, in the Azure portal, select your logic app > **Versions**. Previous versions can be selected on the versions pane, and the application can be inspected both in the code view and the visual designer view. Select the version you would like to revert to, and click the **Promote** option and then **Save**.
 
-![Image showing Azure logic application version history.](../_images/devops/revert-logic-app.png)
+:::image type="content" source="../_images/devops/revert-logic-app.png" alt-text="Image showing Azure logic application version history." lightbox="../_images/devops/revert-logic-app-full.png":::
 
 For more information, see [Manage logic apps in the Azure portal](https://docs.microsoft.com/azure/logic-apps/manage-logic-apps-with-azure-portal)
-
