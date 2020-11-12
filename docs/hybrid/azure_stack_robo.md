@@ -26,7 +26,7 @@ Typical uses for this architecture include the following ROBO scenarios:
 
 ## Architecture
 
-The architecture incorporates the following components and capabilities:
+The architecture consists of the following components and capabilities:
 - **[Azure Stack HCI (20H2)][azs-hci]**. Azure Stack HCI is a hyper-converged infrastructure (HCI) cluster solution that hosts virtualized Windows and Linux workloads and their storage in a hybrid on-premises environment. The stretched cluster can consist of between four and 16 physical nodes.
 - **[File share witness][file-share-witness]**. A file share witness is a Server Message Block (SMB) share that Failover Cluster uses as a vote in the cluster quorum. Starting with Windows Server 2019, it's possible to use [a USB drive connected to a router][usb-file-share-witness] for this purpose.
 - **[Azure Arc][azure-arc]**. A cloud-based service that extends the Azure Resource Manager&ndash;based management model to non-Azure resources including virtual machines (VMs), Kubernetes clusters, and containerized databases.
