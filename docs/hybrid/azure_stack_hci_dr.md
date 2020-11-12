@@ -22,7 +22,7 @@ You typically use this architecture for disaster recovery with automatic failove
 
 ## Architecture
 
-The architecture incorporates the following components and capabilities:
+The architecture consists of the following components and capabilities:
 
 - **[Azure Stack HCI (20H2)][azs-hci]**. Azure Stack HCI is a hyper-converged infrastructure (HCI) cluster solution that hosts virtualized Windows and Linux workloads and their storage in a hybrid on-premises environment. The stretched cluster can consist of between four and 16 physical nodes. 
 - **[Storage Replica][storage-replica]**. Storage Replica is a Windows Server technology that enables volume replication between servers or clusters for disaster recovery.
