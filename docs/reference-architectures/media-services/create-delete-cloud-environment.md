@@ -33,7 +33,7 @@ The following procedures use placeholder project name `gridwich-clone`, app name
    
    ![Screenshot of the Variables dialog with the environment variable selected.](media/select-variables.png)
    
-1. In the **Update variable** dialog, enter a value with a four-character maximum length, and then select **Update**. The four-character limitation ensures that your full Gridwich Storage Account name won't exceed the [24-character maximum](https://docs.microsoft.com/en-us/azure/storage/common/storage-account-overview#naming-storage-accounts) for Azure Storage Accounts.
+1. In the **Update variable** dialog, enter a value with a four-character maximum length, and then select **Update**. The four-character limitation ensures that your full Gridwich Storage Account name won't exceed the [24-character maximum](/azure/storage/common/storage-account-overview#naming-storage-accounts) for Azure Storage Accounts.
    
    ![Screenshot of updating the environment variable.](media/update-variable.png)
    

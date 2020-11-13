@@ -59,7 +59,7 @@ The solution decouples the [saga participants](gridwich-saga-orchestration.md#sa
 - [Gridwich.SagaParticipants.Publication.MediaServicesV3](https://github.com/mspnp/gridwich/blob/main/src/Gridwich.SagaParticipants.Publication.MediaServicesV3/)
 - [Gridwich.SagaParticipants.Storage.AzureStorage](https://github.com/mspnp/gridwich/blob/main/src/Gridwich.SagaParticipants.Storage.AzureStorage/)
 
-For code reuse and centralization, Gridwich consolidates business logic or infrastructure gateways that are used across participants into the following shared libraries:
+For code reuse and centralization, Gridwich consolidates business logic or infrastructure gateways that several participants use into the following shared libraries:
 
 - [Gridwich.Core.MediaServicesV3](https://github.com/mspnp/gridwich/blob/main/src/Gridwich.Core.MediaServicesV3/)
 - [Gridwich.SagaParticipants.Encode](https://github.com/mspnp/gridwich/blob/main/src/Gridwich.SagaParticipants.Encode/)
@@ -73,7 +73,7 @@ You could easily refactor the app into microservices, each a Function App hostin
 
 ![Diagram showing an alternative Gridwich microservices architecture.](media/microservices-components.png)
 
-The advantage of such a microservices approach is the ability to scale differently for each type of request. If there were thousands of one type of request per second, but only hundreds of another request type per day, the overall solution would benefit from having smaller, easy-to-instantiate and quick-to-execute functions for the high-volume requests.
+The advantage of such a microservices approach is the ability to scale differently for each type of request. If there were thousands of one request type per second, but only hundreds of another request type per day, the overall solution would benefit from having smaller, easy-to-instantiate, and quick-to-execute functions for the high-volume requests.
 
-The drawback to such microservices is that any shared models would require synchronized rollout of the microservices, or request pool draining and switchover if there was a data schema change. This requirement would complicate future development, continuous deployment, and operations. Since the business problem didn't demonstrate a need for microservices, the architecture uses a clean monolith approach.
+The drawback of microservices is that any shared models require synchronized rollout of the microservices, or request pool draining and switchover if there's a data schema change. This requirement would complicate future development, continuous deployment, and operations. Since the business problem didn't demonstrate a need for microservices, Gridwich architecture uses a clean monolith approach.
 

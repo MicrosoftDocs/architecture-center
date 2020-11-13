@@ -38,7 +38,9 @@ Best practices for logging include:
 
 [ObjectLogger](https://github.com/mspnp/gridwich/blob/main/src/Gridwich.Core/src/ObjectLogger.cs) with [IObjectLogger](https://github.com/mspnp/gridwich/blob/main/src/Gridwich.Core/src/Interfaces/IObjectLogger.cs) is a small wrapper utility for the standard Logger/ILogger. This one-liner utility logs any C# object by converting C# objects to dictionary objects that the logger can consume.
 
-ObjectLogger/IObjectLogger forces developers to use EventIds in their logging by using an adapter pattern, not inheritance, to restrict use of logger methods that don't have EventIds. EventIds are useful for debugging the service.
+ObjectLogger/IObjectLogger restricts use of logger methods that don't have `EventIds` by using an adapter pattern, rather than inheritance. This restriction forces developers to use `EventIds`, which are useful for debugging.
+
+Other recommendations for using ObjectLogger include:
 
 - Don't bypass IObjectLogger by using ILogger.
 - Use IObjectLogger with the proper type for your class: `IObjectLogger<myClass>`.
@@ -46,11 +48,11 @@ ObjectLogger/IObjectLogger forces developers to use EventIds in their logging by
 
 ## Logging schema and data
 
-The underlying Event Grid runtime infrastructure provides a base schema, including the event time, device of origin, severity level, and string message. Logger/ILogger default custom properties include `EventId`, `Category`, and `RequestPath`.
+The underlying Event Grid runtime infrastructure provides a base schema. The [Event Grid event schema](/azure/event-grid/event-schema) includes the event time, device of origin, severity level, and string message. Logger/ILogger default custom properties include `EventId`, `Category`, and `RequestPath`.
 
 ## Context objects
 
-When working with complex APIs and workflows that require several inputs and outputs, you can create a *context object*, which is a property bag of important variables that your code can pass or generate. Context objects can deal with many parameters, and method signatures don't need to change when you add or remove parameters. You can also pass context objects to the logger and other interfaces as a unit.
+To work with complex APIs and workflows that require several inputs and outputs, you can create a *context object*, which is a property bag of important variables that your code can pass or generate. Context objects can deal with many parameters, and method signatures don't need to change when you add or remove parameters. You can also pass context objects to the logger and other interfaces as a unit.
 
 For example, instead of:
 

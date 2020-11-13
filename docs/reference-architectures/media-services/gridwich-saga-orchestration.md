@@ -13,7 +13,7 @@ ms.custom:
 
 # Gridwich saga orchestration
 
-In the example implementation, the external system is a media asset management (MAM) and workflow orchestration system provided by a large media company. The external system operates as a [saga orchestrator](https://microservices.io/patterns/data/saga.html) that chains a series of activities to build Gridwich workflows.
+In the example implementation, the external system is a large media company's media asset management (MAM) and workflow orchestration system. The external system operates as a [saga orchestrator](https://microservices.io/patterns/data/saga.html) that chains a series of activities to build Gridwich workflows.
 
 Saga activities might or might not include user interactions or approvals. Gridwich assumes that the external system tracks the failure or success of each operation it initiates.
 

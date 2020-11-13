@@ -64,7 +64,7 @@ To enable Microsoft PlayReady and Google Widevine on MPEG-DASH output, and Apple
 
 ```json
         "streamingPolicyName": "multiDrmStreaming",
-        "contentKeyPolicyName": multiDrmKey",
+        "contentKeyPolicyName": "multiDrmKey",
 ```
 
 The `multiDRMKey` policy code is in [MediaServicesV3CustomContentKeyPolicyMultiDrmKey](https://github.com/mspnp/gridwich/blob/main/src/Gridwich.SagaParticipants.Publication.MediaServicesV3/src/ContentKeyPolicies/MediaServicesV3CustomContentKeyPolicyMultiDrmKey.cs).
