@@ -3,9 +3,11 @@ title: Application classification for security
 description: Security considerations for your applications and services in Azure.
 author: v-aangie
 ms.date: 09/17/2020
-ms.topic: article
+ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
+ms.custom:
+  - article
 ---
 # Application classification for security
 

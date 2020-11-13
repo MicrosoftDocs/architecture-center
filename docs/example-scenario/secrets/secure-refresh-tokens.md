@@ -4,13 +4,14 @@ titleSuffix: Azure Example Scenarios
 description: Store OAuth 2.0 On-Behalf-Of (OBO) refresh tokens securely using Azure Key Vault and Azure Functions managed identity for key rotation and token refresh.
 author: jmostella
 ms.date: 07/15/2020
-ms.topic: example-scenario
+ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: example-scenario
-ms.category: 
-    - security
+ms.category:
+  - security
 ms.custom:
-- fcp
+  - fcp
+  - example-scenario
 ---
 
 # Secure OAuth 2.0 OBO refresh tokens

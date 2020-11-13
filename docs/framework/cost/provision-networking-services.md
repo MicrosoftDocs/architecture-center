@@ -1,12 +1,13 @@
 ---
 title: Networking resources provisioning
 description: Describes cost strategies for networking design choices
-author:  PageWriter-MSFT
+author: PageWriter-MSFT
 ms.date: 05/14/2020
-ms.topic: article
+ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
-ms.custom: 
+ms.custom:
+  - article
 ---
 
 # Networking resources provisioning
@@ -76,7 +77,6 @@ When compared to network virtual appliances (NVAs), with Azure Firewall you can 
 
 ### Reference architecture
 - [Hub-spoke network topology in Azure](../../reference-architectures/hybrid-networking/hub-spoke.md)
-- [Implement a hub-spoke network topology](../../reference-architectures/hybrid-networking/shared-services.md)
 - [Deploy highly available NVAs](../../reference-architectures/dmz/nva-ha.md)
 
 

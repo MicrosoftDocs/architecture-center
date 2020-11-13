@@ -3,9 +3,11 @@ title: Choosing a search data store
 description: Compare Azure search data store technologies that create and store specialized indexes for searching free-form text.
 author: zoinerTejada
 ms.date: 02/12/2018
-ms.topic: guide
+ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: cloud-fundamentals
+ms.custom:
+  - guide
 ---
 
 # Choosing a search data store in Azure
@@ -23,7 +25,7 @@ In Azure, all of the following data stores will meet the core requirements for s
 - [Azure Search](/azure/search/search-what-is-azure-search)
   - using [CosmosDb](/azure/search/search-howto-index-cosmosdb)
   - using [Azure SQL Database](/azure/search/search-howto-connecting-azure-sql-database-to-azure-search-using-indexers)
-- [Elasticsearch](https://azuremarketplace.microsoft.com/marketplace/apps/elastic.elasticsearch_service?tab=Overview)
+- [Elasticsearch](https://azuremarketplace.microsoft.com/marketplace/apps/elastic.elasticsearch?tab=Overview)
 - [HDInsight with Solr](/azure/hdinsight/hdinsight-hadoop-solr-install-linux)
 - [Azure SQL Database with full text search](/sql/relational-databases/search/full-text-search)
 

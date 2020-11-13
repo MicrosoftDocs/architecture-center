@@ -1,15 +1,16 @@
 ---
 title: Security considerations for highly sensitive IaaS apps in Azure
-description: Learn about VM security, encryption, NSGs, DMZs, access control, and other security considerations for highly sensitive IaaS and hybrid apps. 
+description: Learn about VM security, encryption, NSGs, DMZs, access control, and other security considerations for highly sensitive IaaS and hybrid apps.
 author: doodlemania2
 ms.date: 4/15/2020
-ms.topic: reference-architecture
+ms.topic: conceptual
 ms.service: architecture-center
 ms.custom:
-    - fcp
+  - fcp
+  - reference-architecture
 ms.category:
-    - security
-    - compute
+  - security
+  - compute
 ---
 
 # Security for highly sensitive IaaS apps in Azure
@@ -133,7 +134,7 @@ An architecture like the one in [Network DMZ between Azure and an on-premises da
 
 You can also use [Just-In-Time (JIT) VM access](/azure/security-center/security-center-just-in-time) for remote management while limiting exposure of public IP addresses. With JIT VM access, an NSG blocks remote management ports like *remote desktop protocol (RDP)* and *secure shell (SSH)* by default. Upon request, JIT VM access enables the port only for a specified time window, and potentially for a specific IP address or range. JIT access also works for VMs that have only private IP addresses. You can use Azure Bastion to block traffic to a VM until JIT VM access is enabled.
 
-To deploy more applications, you can use a [hub-spoke network topology](../hybrid-networking/shared-services.md) in Azure, with the DMZ in the hub virtual network and the applications in spoke virtual networks. The hub virtual network can contain a VPN and/or ExpressRoute gateway, firewall NVA, management hosts, identity infrastructure, and other shared services. The spoke virtual networks are connected to the hub with [virtual network peering](/azure/virtual-network/virtual-network-peering-overview). An Azure virtual network doesn't allow transitive routing over the hub from one spoke to another. Spoke-to-spoke traffic is only possible via the firewall appliances in the hub. This architecture effectively isolates applications from one another.
+To deploy more applications, you can use a [hub-spoke network topology](../hybrid-networking/hub-spoke.md) in Azure, with the DMZ in the hub virtual network and the applications in spoke virtual networks. The hub virtual network can contain a VPN and/or ExpressRoute gateway, firewall NVA, management hosts, identity infrastructure, and other shared services. The spoke virtual networks are connected to the hub with [virtual network peering](/azure/virtual-network/virtual-network-peering-overview). An Azure virtual network doesn't allow transitive routing over the hub from one spoke to another. Spoke-to-spoke traffic is only possible via the firewall appliances in the hub. This architecture effectively isolates applications from one another.
 
 ## Multi-region deployment
 

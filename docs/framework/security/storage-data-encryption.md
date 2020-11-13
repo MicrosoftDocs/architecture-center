@@ -2,10 +2,12 @@
 title: Storage, data, and encryption in Azure | Microsoft Docs
 description: How to secure data storage in Azure.
 author: dsk-2015
-ms.date: 07/03/2019
-ms.topic: article
+ms.date: 11/05/2020
+ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
+ms.custom:
+  - article
 ---
 
 # Storage, data, and encryption
@@ -58,7 +60,7 @@ Cloud service providers make multiple methods of access control over storage
 resources available. Examples include shared keys, shared signatures, anonymous
 access, and identity provider-based methods.
 
-Identify provider methods of authentication and authorization are the least
+Identity provider methods of authentication and authorization are the least
 liable to compromise and enable more fine-grained role-based access controls
 over storage resources.
 

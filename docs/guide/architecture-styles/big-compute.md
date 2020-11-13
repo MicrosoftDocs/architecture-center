@@ -4,10 +4,13 @@ titleSuffix: Azure Application Architecture Guide
 description: Describes benefits, challenges, and best practices for Big Compute architectures on Azure.
 author: doodlemania2
 ms.date: 08/30/2018
-ms.topic: guide
+ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: cloud-fundamentals
-ms.custom: seojan19, HPC
+ms.custom:
+  - seojan19
+  - HPC
+  - guide
 ---
 
 # Big compute architecture style

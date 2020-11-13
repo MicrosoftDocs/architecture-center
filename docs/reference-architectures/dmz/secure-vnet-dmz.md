@@ -3,14 +3,17 @@ title: Implement a secure hybrid network
 description: See a secure hybrid network that extends an on-premises network to Azure with a perimeter network between the on-premises network and an Azure virtual network.
 author: doodlemania2
 ms.date: 01/07/2020
-ms.topic: reference-architecture
+ms.topic: conceptual
 ms.service: architecture-center
 ms.category:
   - networking
   - security
   - hybrid
 ms.subservice: reference-architecture
-ms.custom: seodec18, networking
+ms.custom:
+  - seodec18
+  - networking
+  - reference-architecture
 ---
 
 # Network DMZ between Azure and an on-premises datacenter

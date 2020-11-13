@@ -4,12 +4,14 @@ titleSuffix: Azure Architecture Center
 description: This article describes the persistence of alerts in an Azure IoT Edge Vision solution.
 author: MSKeith
 ms.date: 10/22/2020
-ms.topic: guide
+ms.topic: conceptual
 ms.service: architecture-center
 ms.author: keith
 ms.category:
   - fcp
 ms.subservice: reference-architecture
+ms.custom:
+  - guide
 ---
 
 # Alert persistence in Azure IoT Edge Vision

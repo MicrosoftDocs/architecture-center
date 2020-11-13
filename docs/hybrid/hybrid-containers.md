@@ -3,13 +3,15 @@ title: Run containers in a hybrid environment
 description: Run containers from an enterprise container registry on-premises and in Azure
 author: doodlemania2
 ms.date: 06/29/2020
-ms.topic: reference-architecture
+ms.topic: conceptual
 ms.service: architecture-center
 ms.category:
   - hybrid
   - devops
 ms.subservice: reference-architecture
-ms.custom: fcp
+ms.custom:
+  - fcp
+  - reference-architecture
 ---
 
 # Run containers in a hybrid environment

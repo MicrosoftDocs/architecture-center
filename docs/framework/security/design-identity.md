@@ -3,9 +3,11 @@ title: Security with identity and access management (IAM) in Azure
 description: Use Azure Active Directory (Azure AD) to grant access based on identity authentication and authorization.
 author: PageWriter-MSFT
 ms.date: 07/09/2019
-ms.topic: article
+ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
+ms.custom:
+  - article
 ---
 
 # Identity management

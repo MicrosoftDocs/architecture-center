@@ -4,14 +4,15 @@ description: Details about the patterns and implementations used when the commer
 author: doodlemania2
 ms.author: pnp
 ms.date: 8/11/2020
-ms.topic: example-scenario
+ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: example-scenario
-ms.category: 
-    - integration
-ms.custom: 
-    - fcp
-    - cse
+ms.category:
+  - integration
+ms.custom:
+  - fcp
+  - cse
+  - example-scenario
 ---
 
 # Patterns and implementations

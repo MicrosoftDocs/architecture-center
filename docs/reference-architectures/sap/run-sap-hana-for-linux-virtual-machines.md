@@ -3,9 +3,11 @@ title: Run SAP HANA for Linux virtual machines in a scale-up architecture on Azu
 description: Proven practices for running SAP HANA in a high-availability, scale-up environment that supports disaster recovery on Azure.
 author: maggsl
 ms.date: 06/10/2020
-ms.topic: reference-architecture
+ms.topic: conceptual
 ms.service: architecture-center
-ms.custom: fcp 
+ms.custom:
+  - fcp
+  - reference-architecture
 ms.category:
   - databases
   - compute
@@ -73,7 +75,7 @@ virtual machines in the back-end pool require public outbound connectivity, addi
 
 ### Networking
 
-We recommend using a [hub-spoke topology](../hybrid-networking/shared-services.md), where the hub VNet acts as a central point of connectivity to an on-premises network. The spokes are VNets that peer with the hub, and they can be used to isolate workloads. Traffic flows between the on-premises datacenter and the hub through a gateway connection.
+We recommend using a [hub-spoke topology](../hybrid-networking/hub-spoke.md), where the hub VNet acts as a central point of connectivity to an on-premises network. The spokes are VNets that peer with the hub, and they can be used to isolate workloads. Traffic flows between the on-premises datacenter and the hub through a gateway connection.
 
 #### Availability Zones
 
