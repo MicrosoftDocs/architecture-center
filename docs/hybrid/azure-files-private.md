@@ -48,7 +48,7 @@ It is important to correctly configure on-premise DNS settings to resolve privat
 ## Components
 - **Client** - Is a client that can 'talk' to file server or Azure files through SMB protocol, usually it is a Windows, Linux, or Mac OSX desktop.
 
-- **DC & DNS Server** - Domain controller (DC) is a server that responds to authentication requests and verifies users on computer networks. DNS Server provides computer name-to-IP address-mapping name resolution services to computers and users. DC and DC Server can be combined into one single server or can be separated into different servers.
+- **DC & DNS Server** - Domain controller (DC) is a server that responds to authentication requests and verifies users on computer networks. DNS Server provide computer name-to-IP address mapping name resolution services to computers and users. DC and DNS Server can be combined into one single server or can be separated into different servers.
 
 - **File Server** - Is a server hosts file share and provides file share service through SMB protocol.
 
