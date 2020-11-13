@@ -17,7 +17,7 @@ ms.category:
 
 Project 15 approach is to pair a community of developers, students and partners with conservation teams around the world, backed with the power of the Microsoft cloud and our IoT Open Platform. Part of this approach is the Project 15 Open Platform, which is an open source software designed and built by Microsoft to connect to the cloud, manage and secure devices used in conservation and sustainability projects.
 
-Goals of the Project 15 Open Platfrom and outreach was the following:
+Goals of the Project 15 Open Platform and outreach was the following:
 
 1. **Close the Skill Gap**  
     Boost innovation with a ready-made platform, allowing the scientific developer to expand into specific use cases.
