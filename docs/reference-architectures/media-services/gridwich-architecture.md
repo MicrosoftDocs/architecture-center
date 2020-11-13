@@ -74,7 +74,7 @@ The following steps describe the request and response process between an externa
    
 1. Any handler that will work with the current request uses the common [EventGridHandlerBase](https://github.com/mspnp/gridwich/blob/main/src/Gridwich.Core/src/Bases/EventGridHandlerBase.cs) class to immediately send an Acknowledgment message when it receives the request. The handler then dispatches the work to the derived class.
    
-   Gridwich requests can be synchronous or asynchronous in nature. For requests that are easy to perform and fast to complete, a [synchronous handler](#synchronous-event-processing) does the work and returns the Success or Failure event almost immediately after the Acknowledgment is sent.
+   Gridwich request workflows can be synchronous or asynchronous in nature. For requests that are easy to perform and fast to complete, a [synchronous handler](#synchronous-event-processing) does the work and returns the Success or Failure event almost immediately after the Acknowledgment is sent.
    
    For requests that are long-running, an [asynchronous handler](#asynchronous-event-processing) evaluates the request, validates arguments, and initiates the long-running operation. The handler then returns a Scheduled response to confirm that it requested the work activity. On completing the work activity, the request handler is responsible for providing a Success or Failure completed event for the work.
    
@@ -88,7 +88,7 @@ While an Acknowledgment precedes both the Success and Scheduled responses, Gridw
 
 ### Request failures
 
-Request failures can be caused by bad requests, missing pre-conditions, processing failures, security exceptions, or unhandled exceptions. Almost all failures have the same message form, and include the original [operation context](#operation-context). The common [EventGridHandlerBase](https://github.com/mspnp/gridwich/blob/main/src/Gridwich.Core/src/Bases/EventGridHandlerBase.cs) class typically sends Failure responses to Event Grid via the Azure Function event publisher interface. [Application Insights](/azure/azure-monitor/app/app-insights-overview) also logs failures via [structured logging](gridwich-logging.md).
+Request failures can be caused by bad requests, missing pre-conditions, processing failures, security exceptions, or unhandled exceptions. Almost all failures have the same message form, and include the original [operation context](#operation-context) value. The common [EventGridHandlerBase](https://github.com/mspnp/gridwich/blob/main/src/Gridwich.Core/src/Bases/EventGridHandlerBase.cs) class typically sends Failure responses to Event Grid via the Azure Function event publisher interface. [Application Insights](/azure/azure-monitor/app/app-insights-overview) also logs failures via [structured logging](gridwich-logging.md).
 
 ## Operation context
 
@@ -172,17 +172,17 @@ The Functions runtime adds the cancellation token when the application is shutti
 
 Slot deployment deploys new software versions. The production slot has the running application, and the staging slot has the new version. Azure does a series of deployment steps and then swaps the slot instances. The old instance restarts as the last step of the process.
 
-Gridwich waits 30 seconds after remapping the host names, so for HTTP-triggered functions, Gridwich guarantees at least 30 seconds before the restart for the old production slot. Other triggers are controlled by app settings and don't have a mechanism to wait on app setting updates, so those functions risk being interrupted if execution starts right before the old production slot restarts.
+Gridwich waits 30 seconds after remapping the host names, so for HTTP-triggered functions, Gridwich guarantees at least 30 seconds before the restart for the old production slot. Other triggers might be controlled by app settings that don't have a mechanism to wait on app setting updates. Those functions risk interruption if execution starts right before the old production slot restarts.
 
 For more information, see [What happens during a slot swap for Azure Functions](/azure/azure-functions/functions-deployment-slots#swap-operations) and [Azure Functions deployment slots](/azure/azure-functions/functions-deployment-slots).
 
 ## Components
 
-The Gridwich solution uses Azure Event Grid, Azure Functions, Azure Media Services, Azure Blob Storage, Azure Logic Apps, and Azure Key Vault. The CI/CD processes use Azure Repos, Azure Pipelines, and Terraform.
+The Gridwich media processing solution uses Azure Event Grid, Azure Functions, Azure Media Services, Azure Blob Storage, Azure Logic Apps, and Azure Key Vault. The CI/CD and saga orchestration processes use Azure Repos, Azure Pipelines, and Terraform.
 
-- [Azure Event Grid](https://azure.microsoft.com/services/event-grid/) manages the routing of Gridwich events. Two sandwiched Event Grid jobs allow for asynchronous media event processing. Event Grid is a highly reliable request delivery endpoint. The Azure platform provides necessary request delivery endpoint uptime and stability.
+- [Azure Event Grid](https://azure.microsoft.com/services/event-grid/) manages the routing of Gridwich events, with two sandwiched Event Grid jobs that allow for asynchronous media event processing. Event Grid is a highly reliable request delivery endpoint. The Azure platform provides necessary request delivery endpoint uptime and stability.
   
-  Gridwich encapsulates events within the object `Event.Data` property, which is opaque to the Event Grid broker and transport layer. Gridwich also uses the `Event.EventType` and `Event.DataVersion` object fields to route events. So that the Event Grid request broker can be substituted with other publication-subscription event brokers, Gridwich depends on the fewest event fields possible, and doesn't use the `Event.Topic` or `Event.Subject` fields.
+  Gridwich encapsulates events within the [Event Grid schema](/azure/event-grid/event-schema) `Event.Data` property object, which is opaque to the Event Grid broker and transport layer. Gridwich also uses the `eventType` and `dataVersion` object fields to route events. So that the Event Grid request broker can be substituted with other publication-subscription event brokers, Gridwich depends on the fewest event fields possible, and doesn't use the `topic` or `subject` fields.
   
 - [Azure Functions](https://azure.microsoft.com/services/functions/) lets you run event-triggered code without having to explicitly provision or manage infrastructure. Gridwich is an Azure Functions App that hosts execution of various functions.
   

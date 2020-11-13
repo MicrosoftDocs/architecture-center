@@ -23,7 +23,7 @@ The Gridwich system has three major components, `Core`, `Host.FunctionApp`, and 
   
 - The `Host.FunctionApp` project is the public interface to the overall system.
   
-- `SagaParticipants` projects provide external function capabilities like analyze, encode, publish, and store.
+- `SagaParticipants` projects provide external function capabilities like analysis, encoding, publishing, and storage.
   
   `SagaParticipants.{Capability}` projects describe the interfaces, exceptions, and events that a capability produces.
   
