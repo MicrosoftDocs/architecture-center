@@ -56,33 +56,41 @@ After enabling a private endpoint, private IP addresses are allocated in the Azu
 
 The solution shown in this architecture, correctly configures on-premises DNS settings so that they resolve private domain names to private IP addresses, by using the following methods:
 
-- Private DNS zones (component 11 and 12) are created from Azure to provide private name resolution for Azure File Sync and Azure Files.
-- Private DNS zones are linked to the Azure virtual network so a DNS server (component 8) deployed in the virtual network can resolve private domain names.
+- Private DNS zones (components **11** and **12**) are created from Azure to provide private name resolution for Azure File Sync and Azure Files.
+- Private DNS zones are linked to the Azure virtual network so a DNS server (component **8**) deployed in the virtual network can resolve private domain names.
 - Respectively, DNS A records must be created for Azure Files and Azure File Sync in private DNS zones. For the endpoint configuration steps, see [Configuring Azure Files network endpoints](/azure/storage/files/storage-files-networking-endpoints) and [Configuring Azure File Sync network endpoints](/azure/storage/files/storage-sync-files-networking-endpoints).
-- The on-premises DNS server (component 3) must set up conditional forwarding to forward the DNS query of `domain afs.azure.net` and `file.core.windows.net` to the DNS server in the Azure virtual network (component 8).
-- After receiving the forwarded DNS query from the on-premises DNS server, DNS server (component 8) in the Azure virtual network uses the Azure DNS recursive resolver to resolve private domain names and return private IP addresses to the client.
+- The on-premises DNS server (component **3**) must set up conditional forwarding to forward the DNS query of `domain afs.azure.net` and `file.core.windows.net` to the DNS server in the Azure virtual network (component **8**).
+- After receiving the forwarded DNS query from the on-premises DNS server, DNS server (component **8**) in the Azure virtual network uses the Azure DNS recursive resolver to resolve private domain names and return private IP addresses to the client.
 
 ## Components
 
-The enterprise-level cloud file sharing solution uses the following components:
+The enterprise-level cloud file sharing solution depicted in the architecture diagram uses the following components:
 
-- **Client** - Typically, the client is a Windows, Linux, or Mac OSX desktop that can *talk* to a file server or Azure Files through the SMB protocol.
+1. **Client 1** - Typically, the client is a Windows, Linux, or Mac OSX desktop that can *talk* to a file server or Azure Files through the SMB protocol.
 
-- **DC and DNS servers** - A Domain Controller (DC) is a server that responds to authentication requests and verifies users on computer networks. A DNS server provides computer name-to-IP address-mapping name resolution services to computers and users. DC and DNS servers can be combined into a single server or can be separated into different servers.
+2. **Client N** - Additional clients.
 
-- **File server** - A server that hosts file share and provides file share service through the SMB protocol.
+3. **DC and DNS servers** - A Domain Controller (DC) is a server that responds to authentication requests and verifies users on computer networks. A DNS server provides computer name-to-IP address-mapping name resolution services to computers and users. DC and DNS servers can be combined into a single server or can be separated into different servers.
 
-- **Customer edge router or VPN Device** - A Customer edge router (CE) or VPN Device that establishes an ExpressRoute or VPN connection to an Azure virtual network.
+4. **File server** - A server that hosts file share and provides file share service through the SMB protocol.
 
-- **ExpressRoute and VPN Gateway** – ExpressRoute is a service that lets you extend your on-premises network into the Microsoft cloud over a private connection facilitated by a connectivity provider. VPN Gateway is a specific type of virtual network gateway that is used to send encrypted traffic between an Azure virtual network and an on-premises location over the public Internet. ExpressRoute or VPN Gateway establishes ExpressRoute or VPN connection to your on-premises network.
+5. **Customer edge router or VPN Device** - A Customer edge router (CE) or VPN Device that establishes an ExpressRoute or VPN connection to an Azure virtual network.
 
-- **Azure File Sync and Cloud tiering** – Azure File Sync is a service offered by Azure to centralize your organization's file shares in Azure, while keeping the flexibility, performance, and compatibility of an on-premises file server. Cloud tiering is an optional feature of Azure File Sync in which frequently accessed files are cached locally on the server while all other files are tiered to Azure Files based on policy settings.
+6. **ExpressRoute and VPN Gateway** – ExpressRoute is a service that lets you extend your on-premises network into the Microsoft cloud over a private connection facilitated by a connectivity provider. VPN Gateway is a specific type of virtual network gateway that is used to send encrypted traffic between an Azure virtual network and an on-premises location over the public Internet. ExpressRoute or VPN Gateway establishes ExpressRoute or VPN connection to your on-premises network.
 
-- **Azure Files** - A fully managed service that offers file shares in the cloud that are accessible via the industry standard Server Message Block (SMB) protocol. Azure Files implements the SMB v3 protocol and supports authentication through on-premises Active Directory Domain Services (AD DS) and Azure Active Directory Domain Services (Azure AD DS). File shares from Azure Files can be mounted concurrently by cloud or on-premises deployments of Windows, Linux, and macOS. Additionally, Azure file shares can be cached nearer to where the data is being used, on Windows Servers with Azure File Sync for fast access.
+7. **Azure Private Endpoint** - A network interface that connects you privately and securely to a service powered by [Azure Private Link](https://azure.microsoft.com/services/private-link/). In this solution, an Azure File Sync private endpoint connects to Azure File Sync **9**, and an Azure Files private endpoint connects to Azure Files **10**.
 
-- **Azure Private DNS** - An Azure offered DNS service to manage and resolve domain names in a virtual network without the need to add a custom DNS solution.
+8. **Azure Private DNS** - An Azure offered DNS service to manage and resolve domain names in a virtual network without the need to add a custom DNS solution.
 
-- **Azure Private Endpoint** - A network interface that connects you privately and securely to a service powered by [Azure Private Link](https://azure.microsoft.com/services/private-link/). In this solution, an Azure File Sync private endpoint connects to Azure File Sync, and an Azure Files private endpoint connects to Azure Files.
+9. **Azure File Sync and Cloud tiering** – Azure File Sync is a service offered by Azure to centralize your organization's file shares in Azure, while keeping the flexibility, performance, and compatibility of an on-premises file server. Cloud tiering is an optional feature of Azure File Sync in which frequently accessed files are cached locally on the server while all other files are tiered to Azure Files based on policy settings.
+
+10. **Azure Files** - A fully managed service that offers file shares in the cloud that are accessible via the industry standard Server Message Block (SMB) protocol. Azure Files implements the SMB v3 protocol and supports authentication through on-premises Active Directory Domain Services (AD DS) and Azure Active Directory Domain Services (Azure AD DS). File shares from Azure Files can be mounted concurrently by cloud or on-premises deployments of Windows, Linux, and macOS. Additionally, Azure file shares can be cached nearer to where the data is being used, on Windows Servers with Azure File Sync for fast access.
+
+11. **Azure File Sync private DNS zone** - A private DNS zone created from Azure to provide private name resolution for Azure File Sync.
+
+12. **Azure Files private DNS zone** -  A private DNS zone created from Azure to provide private name resolution for Azure Files.
+
+13. **Azure Backup** - An Azure file share backup that uses file share snapshots to provide a cloud-based backup solution. For considerations, see [Data loss and Backup](#data-loss-and-backup).
 
 ## Traffic flows
 
@@ -90,7 +98,7 @@ After enabling Azure File Sync and Azure Files, Azure file shares can be accesse
 
 - Local cache mode - The client accesses files and file shares through a local file server with cloud tiering enabled. When a user opens a file from the local file server, file data is either served from the file server local cache, or the Azure File Sync agent seamlessly recalls the file data from Azure Files. In the architecture diagram for this solution, it happens between component **1** and **4**.
 
-- Remote mode - The client accesses files and file shares directly from a remote Azure file share. In the architecture diagram for this solution, the traffic flow travels through component **2**, **5**, **6**, **7** and **10**.
+- Remote mode - The client accesses files and file shares directly from a remote Azure file share. In the architecture diagram for this solution, the traffic flow travels through components **2**, **5**, **6**, **7** and **10**.
 
 Azure File Sync traffic travels between components **4**, **5**, **6**, and **7**, using an [ExpressRoute circuit](/azure/expressroute/expressroute-circuit-peerings) for a reliable connection.
 
