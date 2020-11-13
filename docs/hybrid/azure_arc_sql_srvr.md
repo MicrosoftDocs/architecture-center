@@ -119,7 +119,7 @@ The [Microsoft Azure Well-Architected Framework][azure-well-architected-framerwo
 
 - To perform registration of individual Azure Arc enabled SQL Server instances, you can interactively run [a script available directly from the Azure portal][connect-sql-server-to-azure-arc]. For large-scale deployments, you can [run the same script in the unattended manner][connect-sql-server-to-azure-arc-at-scale], by leveraging an Azure AD service principal.
 
-- To perform on-demand assessment of configuration and health of Azure Arc enabled SQL Server instances by using Azure Monitor, you must deploy the Log Analytics agent to the server hosting that SQL Server instance. You can automate this deployment at scale by leveraging the ability to [enable Azure Monitor for VMs for Azure Arc enabled servers][azure-monitor-for-vms].
+- To perform on-demand assessment of configuration and health of Azure Arc enabled SQL Server instances by using Azure Monitor, you must deploy the Log Analytics agent to the server hosting that SQL Server instance. You can automate this deployment at scale by leveraging Azure Policy to [enable Azure Monitor for VMs for Azure Arc enabled servers][azure-monitor-for-vms].
 
 - On-demand SQL Assessment and advanced data security are available for SQL Server instances which are not Azure Arc enabled. However, Azure Arc simplifies their provisioning and configuration. You can, for example, use the VM extension capability to [automate deployment of the Log Analytics agent][azure-vm-extension-log-analytics-deploy] to servers hosting SQL Server instances.
 
@@ -160,7 +160,7 @@ The [Microsoft Azure Well-Architected Framework][azure-well-architected-framerwo
 [architectural-diagram-visio-source]: diagrams/azure_arc_sql_srvr.vsdx
 [azure-well-architected-framerwork]: https://docs.microsoft.com/azure/architecture/framework/
 [sql-server]: https://docs.microsoft.com/sql/sql-server/
-[azure-arc]: https://docs.microsoft.com/azure/azure-arc/
+[azure-arc]: https://docs.microsoft.com/azure/azure-arc/overview
 [azure-arc-enabled-servers]: https://docs.microsoft.com/azure/azure-arc/servers/overview
 [azure-arc-enabled-sql-server]: https://docs.microsoft.com/sql/sql-server/azure-arc/overview?view=sql-server-ver15
 [kubernetes-open-source]: https://docs.microsoft.com/learn/modules/intro-to-kubernetes/2-what-is-kubernetes
@@ -173,13 +173,13 @@ The [Microsoft Azure Well-Architected Framework][azure-well-architected-framerwo
 [azure-arc-enabled-sql-managed-instance]: https://docs.microsoft.com/azure/azure-arc/data/managed-instance-overview
 [azure-resource-manager]: https://docs.microsoft.com/azure/azure-resource-manager/management/overview
 [azure-monitor]: https://docs.microsoft.com/azure/azure-monitor/overview
-[azure-log-analytics]: https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview#what-is-log-analytics
+[azure-log-analytics]: to https://docs.microsoft.com/azure/azure-monitor/log-query/log-analytics-overview
 [azure-sentinel]: https://docs.microsoft.com/azure/sentinel/overview
 [azure-security-center]: https://docs.microsoft.com/azure/security-center/security-center-introduction
 [azure-backup]: https://docs.microsoft.com/azure/backup/backup-overview
 [azure-premier-support]: https://azure.microsoft.com/support/plans/premier/
 [azure-monitor-for-vms]: https://docs.microsoft.com/azure/azure-monitor/insights/vminsights-enable-policy
-[connect-sql-server-to-azure-arc]: https://docs.microsoft.com/sql/sql-server/azure-arc/connect?view=sql-server-ver15
+[connect-sql-server-to-azure-arc]: https://docs.microsoft.com/en-us/sql/sql-server/azure-arc/connect?view=sql-server-ver15#generate-a-registration-script-for-sql-server
 [connect-sql-server-to-azure-arc-at-scale]: https://docs.microsoft.com/sql/sql-server/azure-arc/connect-at-scale?view=sql-server-ver15
 [azure-arc-sql-assess-prereqs]: https://docs.microsoft.com/sql/sql-server/azure-arc/assess?view=sql-server-ver15#prerequisites
 [azure-arc-sql-assess]: https://docs.microsoft.com/sql/sql-server/azure-arc/assess?view=sql-server-ver15
