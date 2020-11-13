@@ -173,7 +173,7 @@ The [Microsoft Azure Well-Architected Framework][azure-well-architected-framerwo
 [azure-arc-enabled-sql-managed-instance]: https://docs.microsoft.com/azure/azure-arc/data/managed-instance-overview
 [azure-resource-manager]: https://docs.microsoft.com/azure/azure-resource-manager/management/overview
 [azure-monitor]: https://docs.microsoft.com/azure/azure-monitor/overview
-[azure-log-analytics]: to https://docs.microsoft.com/azure/azure-monitor/log-query/log-analytics-overview
+[azure-log-analytics]: https://docs.microsoft.com/azure/azure-monitor/log-query/log-analytics-overview
 [azure-sentinel]: https://docs.microsoft.com/azure/sentinel/overview
 [azure-security-center]: https://docs.microsoft.com/azure/security-center/security-center-introduction
 [azure-backup]: https://docs.microsoft.com/azure/backup/backup-overview
