@@ -48,3 +48,8 @@ It's important to select different builds for different purpose.
 * **Nightly build:** Purpose of this build is not only to compile but also ensure necessary integration/regression tests are run. This build can take up some more time, because we need to do some extra steps to get additional information about the product. For example, metrics about the state of the software using SonarQube. It may also contain a set of regression tests and integration tests and it may also deploy the solution to a temporary machine to verify the solution is continuing to work. For more info see, [scheduling builds using cron syntax](/azure/devops/pipelines/process/scheduled-triggers)
 
 * **Release build:** Besides compiling, running test this build additionally compiles the API documentation, compliance reports, code signing, and other steps which are not required every time the code is built. Finally this build provide the golden copy that will be pushed to the release pipeline to finally deploy in the production environment. Generally release build is gets triggered manually instead of a CI trigger.
+
+## Next steps
+
+> [!div class="nextstepaction"]
+> [Release Engineering: Rollback ](./release-engineering-rollback.md)
