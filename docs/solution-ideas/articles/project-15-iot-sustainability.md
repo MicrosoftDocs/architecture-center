@@ -44,7 +44,7 @@ Project 15's goal with a conservation and ecosystem sustainability open platform
 
 ## Reference architecture
 
-![Project 15 Open Platform Reference Architecture](../media/project-15-architecture.png)
+![Project 15 Open Platform Reference Architecture](../media/project-15-ref-architecture.png)
 
 Open Platform is consist of multiple Azure services and configurations/settings to:
 
