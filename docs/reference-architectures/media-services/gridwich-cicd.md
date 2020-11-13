@@ -1,5 +1,5 @@
 ---
-title: Gridwich continuous integration and continuous delivery (CD/CD) pipeline
+title: Gridwich CI/CD pipeline
 titleSuffix: Azure Reference Architectures
 description: Learn about the guiding principles and considerations for the Gridwich continuous integration and continuous delivery (CD/CD) pipeline.
 author: doodlemania2
@@ -24,7 +24,7 @@ Gridwich requires multiple resources within and outside Azure to talk to one ano
 - The pipeline considers everything as code.
 - The pipeline uses reusable components focused on composability.
 
-For more information about how the CI/CD pipelines convert and inject pipeline variables into Terraform modules, and then to Azure Key Vault and Azure Functions app settings, see [Pipelines to Terraform variable flow](variable-group-terraform-flow.md).
+For more information about how the Azure Pipelines CI/CD pipelines convert and inject pipeline variables into Terraform modules, and then to Azure Key Vault and Azure Functions app settings, see [Pipelines to Terraform variable flow](variable-group-terraform-flow.md).
 
 The following considerations relate to the preceding principles.
 
@@ -70,5 +70,5 @@ One advantage of the "everything as code" practice is component reuse.
 
 ## Next steps
 
-- [Run the admin scripts](run-admin-scripts.md) for Azure permissions
+- [Run the admin scripts](run-admin-scripts.md)
 - [Pipeline variables to Terraform flow](variable-group-terraform-flow.md)

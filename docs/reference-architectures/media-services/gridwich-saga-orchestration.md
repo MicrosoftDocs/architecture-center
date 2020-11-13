@@ -1,7 +1,7 @@
 ---
-title: Saga orchestration
+title: Gridwich saga orchestration
 titleSuffix: Azure Reference Architectures
-description: Understand the concepts and roles of sagas in orchestrating Gridwich workflows.
+description: Understand the concepts and roles of sagas and saga participants in orchestrating Gridwich workflows.
 author: doodlemania2
 ms.date: 11/12/2020
 ms.topic: reference-architecture
@@ -11,7 +11,7 @@ ms.custom:
 - fcp
 ---
 
-# Gridwich sagas
+# Gridwich saga orchestration
 
 In the example implementation, the external system is a media asset management (MAM) and workflow orchestration system provided by a large media company. The external system operates as a [saga orchestrator](https://microservices.io/patterns/data/saga.html) that chains a series of activities to build Gridwich workflows.
 
@@ -31,7 +31,7 @@ For Gridwich, the available saga participants are:
 - [Publication.MediaServicesV3](https://github.com/mspnp/gridwich/blob/main/src/Gridwich.SagaParticipants.Publication.MediaServicesV3/)
 - [Storage.AzureStorage](https://github.com/mspnp/gridwich/blob/main/src/Gridwich.SagaParticipants.Storage.AzureStorage/)
 
-## Example saga workflows
+## Example saga workflow
 
 The external system might run a quality control check saga that does the following steps:
 

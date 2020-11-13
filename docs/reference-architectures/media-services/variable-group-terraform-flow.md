@@ -1,5 +1,5 @@
 ---
-title: Gridwich pipeline variable group to Terraform variables flow
+title: Gridwich variable flow
 titleSuffix: Azure Reference Architectures
 description: Learn how Gridwich converts Azure Pipelines pipeline variable group variables to Terraform variables.
 author: doodlemania2
@@ -13,23 +13,25 @@ ms.custom:
 
 # Pipelines to Terraform variable flow
 
-This article describes how Azure Pipelines *variable group* variables flow into various Terraform modules, which deploy them to Azure Key Vault and finally to the Azure Functions App app settings as Key Vault secret references.
+This article describes how Azure Pipelines *variable group* variables flow into Terraform modules, which deploy them to Azure Key Vault and finally to the Gridwich Functions App settings as Key Vault secret references.
 
-The example is a deep dive into how the **amsDrmFairPlayAskHex** variable, located in the **gridwich-cicd-variables.global** variable group, flows throughout the continuous integration and continuous delivery (CI/CD) process.
+The example is a deep dive into how the **amsDrmFairPlayAskHex** variable, located in the Azure Pipelines **gridwich-cicd-variables.global** variable group, flows throughout the continuous integration and continuous delivery (CI/CD) process.
 
 ## Prerequisites
 
-- Basic knowledge of [Terraform](/azure/developer/terraform/overview) and [Azure Pipelines](/services/devops/pipelines) operations.
-
+- Basic knowledge of [Terraform](/azure/developer/terraform/overview) and [Azure Pipelines](https://azure.microsoft.com/services/devops/pipelines/) operations.
+  
 - An Azure DevOps Gridwich project, pipelines, and variable groups, set up by following the instructions at [Gridwich Azure DevOps setup](set-up-azure-devops.md).
-
+  
 - The [admin scripts](run-admin-scripts.md) run to give Gridwich access permissions to Azure components.
-
-- The **amsDrmFairPlayAskHex** variable set in the **gridwich-cicd-variables.global** variable group. The value is the FairPlay hexadecimal ASK Key that Apple provides in *AppleASK.txt*. Or, for development purposes, you can use the dummy value and file described in [Add pipeline variable groups](set-up-azure-devops.md#add-pipeline-variable-groups). Save the value in Secured mode.
+  
+- The **amsDrmFairPlayAskHex** variable set in the Azure Pipelines **gridwich-cicd-variables.global** variable group.
+  
+  The value is the FairPlay hexadecimal ASK Key that Apple provides in *AppleASK.txt*. Or, for development purposes, you can use the dummy value and file described in [Add pipeline variable groups](set-up-azure-devops.md#add-pipeline-variable-groups). Save the value in Secured mode.
 
 ## The amsDrmFairPlayAskHex flow
 
-The **amsDrmFairPlayAskHex** Azure Pipelines variable interacts with Azure Media Services FairPlay DRM. The pipeline passes the variable value to Terraform to set in the shared Azure Key Vault and ultimately reference as a Key Vault secret in the Azure Function App settings.
+The Azure Pipelines **amsDrmFairPlayAskHex** variable interacts with Azure Media Services FairPlay DRM. The pipeline passes the variable value to Terraform to set in the shared Azure Key Vault and ultimately reference as a Key Vault secret in the Azure Function App settings.
 
 Gridwich automatically stores the variable as a CI/CD server environment variable because it's referenced in [variables.yml](https://github.com/mspnp/gridwich/blob/main/infrastructure/azure-pipelines/variables.yml), which is used as a template in each *ci_cd_<environment>_release.yml* pipeline.
 

@@ -1,5 +1,5 @@
 ---
-title: Gridwich request-response message formats
+title: Gridwich request-response messages
 titleSuffix: Azure Reference Architectures
 description: Learn about the specific Event Grid events that form the request-response sequence for different Gridwich operations.
 author: doodlemania2
@@ -24,9 +24,9 @@ Gridwich Acknowledgment and Gridwich Failure are different from other Gridwich e
 
 **Publishing events**
 
-- [Publishing via Azure Media Services](#publishams)
-- [Create Asset Locator](#createlocator)
-- [Delete Asset Locator](#deletelocator)
+- [Publish via Azure Media Services](#publishams)
+- [Create asset locator](#createlocator)
+- [Delete asset locator](#deletelocator)
 
 **Encoding events**
 
@@ -35,11 +35,11 @@ Gridwich Acknowledgment and Gridwich Failure are different from other Gridwich e
   - [Encode with Media Services V2](#encodeviaamsv2)
   - [Encode with Media Services V3](#encodeviaamsv3)
   - [Encode with CloudPort workflow](#encodeviacp)
-  - [Encode via Flip](#encodeviaflip)
+  - [Encode with Flip](#encodeviaflip)
   
   The immediate response event from each encoder, aside from an ACK, is either a [Failure](#m-fail) or an [Encoding dispatched](#encodedispatchedresponse) event that indicates successful queuing of the job. The [Encoding progress notification events](#encoderstatus) handle further progress.
 
-- **Encoding progress notification**
+- **Encoding progress notifications**
   
   All encoders use the same set of [progress notification status events](#encoderstatus).
   
@@ -58,12 +58,12 @@ Gridwich Acknowledgment and Gridwich Failure are different from other Gridwich e
   
 - **Blobs**
   
-  - [Set Blob metadata](#putblobmetadata)
-  - [Copy Blob](#copyblob)
-  - [Delete Blob](#deleteblob)
-  - [Change Blob access tier](#changeblobtier)
-  - [Get Blob SAS URL](#getcontentsas)
-  - [Analyze Blob](#analyzeblob), for example via MediaInfo
+  - [Set blob metadata](#putblobmetadata)
+  - [Copy blob](#copyblob)
+  - [Delete blob](#deleteblob)
+  - [Change blob access tier](#changeblobtier)
+  - [Get blob SAS URL](#getcontentsas)
+  - [Analyze blob](#analyzeblob), for example via MediaInfo
   
 - **Blob notifications**
   
@@ -239,7 +239,7 @@ The `blobMetadata` value is a string > string dictionary.object of string-valued
 
 As usual with Azure Storage, metadata item names must conform to C# identifier naming rules. For more information, see the Azure [SetBlobMetadata REST API](/rest/api/storageservices/set-blob-metadata) and the [C# naming rules](/dotnet/csharp/language-reference/language-specification/lexical-structure#identifiers).
 
-### <a id="copyblob"></a>Requester asks Gridwich to copy a blob from a target location to a new destination
+### <a id="copyblob"></a>Requester asks Gridwich to copy a blob to a new destination
 
 **Requester** > **Gridwich** uses [RequestBlobCopyDTO](https://github.com/mspnp/gridwich/blob/main/src/Gridwich.Core/src/DTO/Requests/RequestBlobCopyDTO.cs).
 
@@ -463,7 +463,7 @@ The blob deletion can come from any source, like an explicit request from a requ
 
 ### <a id="encodeviaamsv2"></a>Requester asks Gridwich to encode via Azure Media Services V2
 
-**Requester** > **Gridwich**, uses [RequestMediaServicesV2EncodeCreateDTO](https://github.com/mspnp/gridwich/blob/main/src/Gridwich.Core/src/DTO/Requests/RequestMediaServicesV2EncodeCreateDTO.cs))
+**Requester** > **Gridwich**, uses [RequestMediaServicesV2EncodeCreateDTO](https://github.com/mspnp/gridwich/blob/main/src/Gridwich.Core/src/DTO/Requests/RequestMediaServicesV2EncodeCreateDTO.cs)
 
 ```json
 {
@@ -488,7 +488,7 @@ The blob deletion can come from any source, like an explicit request from a requ
 
 ### <a id="encodeviaamsv3"></a>Requester asks Gridwich to encode a Media Services V3 transform
 
-**Requester** > **Gridwich**, uses [RequestMediaServicesV3EncodeCreateDTO](https://github.com/mspnp/gridwich/blob/main/src/Gridwich.Core/src/DTO/Requests/RequestMediaServicesV3EncodeCreateDTO.cs))
+**Requester** > **Gridwich**, uses [RequestMediaServicesV3EncodeCreateDTO](https://github.com/mspnp/gridwich/blob/main/src/Gridwich.Core/src/DTO/Requests/RequestMediaServicesV3EncodeCreateDTO.cs)
 
 ```json
 {
@@ -499,7 +499,7 @@ The blob deletion can come from any source, like an explicit request from a requ
     "data": {
         "operationContext": <OperationContextObject>,
         "inputs": [
-         { "blobUri": "https://<storageaccountname>.blob.core.windows.net/<containername>/<filname>" }
+         { "blobUri": "https://<storageaccountname>.blob.core.windows.net/<containername>/<filename>" }
         ],
         "outputContainer": "https://<storageaccountname>.blob.core.windows.net/<containername>/",
         "transformName": "audio-mono-aac-video-mbr-no-bframes",
@@ -533,7 +533,7 @@ The start and end times are always relative to the start of the media file, rega
     "data": {
         "operationContext": <OperationContextObject>,
         "encoderContext": <EncoderContext>,
-        "workflowJobName": "CloudPort or Flip Assigned Job name for Workflow instance, or AMS Job Id."
+        "workflowJobName": "CloudPort or Flip assigned job name for workflow instance, or Media Services Job Id."
     },
     "eventType": "response.encode.<encodername>.dispatched"
 }
@@ -565,7 +565,7 @@ An encode request failure generates a Gridwich Failure event.
     "data": {
         "operationContext": <OperationContextObject>,
         "encoderContext":  <EncoderContext>,
-        "workflowJobName": "CloudPort or Flip Assigned Job name for Workflow instance, or AMS Job Id."
+        "workflowJobName": "CloudPort or Flip assigned job name for workflow instance, or Media Services Job Id."
     },
     "eventType": "response.encode.<encodername>.scheduled"
 }
@@ -584,7 +584,7 @@ An encode request failure generates a Gridwich Failure event.
     "data": {
         "operationContext": <OperationContextObject>,
         "encoderContext": <EncoderContext>,
-        "workflowJobName": "CloudPort or Flip Assigned Job name for Workflow instance, or AMS Job Id.",
+        "workflowJobName": "CloudPort or Flip assigned job name for workflow instance, or Media Services Job Id.",
         "currentStatus": "string",
         "percentComplete": 50,
     },
@@ -605,7 +605,7 @@ An encode request failure generates a Gridwich Failure event.
     "data": {
         "operationContext": <OperationContextObject>,,
         "encoderContext": <EncoderContext>,
-        "workflowJobName": "CloudPort or Flip Assigned Job name for Workflow instance, or AMS Job Id.",
+        "workflowJobName": "CloudPort or Flip assigned job name for workflow instance, or Media Services Job Id.",
         "outputs":[
             { "blobUri": "StorageURL-string" }
         ]
@@ -627,7 +627,7 @@ An encode request failure generates a Gridwich Failure event.
     "data": {
         "operationContext": <OperationContextObject>,
         "encoderContext": <EncoderContext>,
-        "workflowJobName": "CloudPort or Flip Assigned Job name for Workflow instance, or AMS Job Id."
+        "workflowJobName": "CloudPort or Flip assigned job name for workflow instance, or Media Services Job Id."
     },
     "eventType": "response.encode.<encodername>.canceled"
 }
@@ -900,7 +900,7 @@ The `response.rollkey.storage.failure` failure events:
 - Don't include any of the normal failure event logging information `log` data properties.
 - Contain an additional data property named `error` that contains error message text. Other Gridwich failures carry that text on the `logEventMessage` data property.
 
-These points reflect the current state of the Azure Logic App that performs the RollKey operation. The definition of the Logic App is in the [infrastructure/terraform/keyroller/main.tf](/infrastructure/terraform/keyroller/main.tf) Terraform file.
+These points reflect the current state of the Azure Logic App that performs the RollKey operation. The definition of the Logic App is in the [infrastructure/terraform/keyroller/main.tf](https://github.com/mspnp/gridwich/blob/main/infrastructure/terraform/keyroller/main.tf) Terraform file.
 
 The `keyName` corresponds to the key name that Azure Storage defines in its [Get Keys](/rest/api/storagerp/srp_json_get_storage_account_keys) operation.
 

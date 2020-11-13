@@ -13,7 +13,7 @@ ms.custom:
 
 # Content protection and DRM
 
-Media Services uses [Digital Rights Management (DRM)](https://en.wikipedia.org/wiki/Digital_rights_management) to protect content, and supports [Microsoft PlayReady](https://www.microsoft.com/playready/overview/), [Google Widevine](https://www.widevine.com/solutions/widevine-drm), and [Apple FairPlay](https://developer.apple.com/streaming/fps/). This article discusses Gridwich content protection concepts, and explains how to set up and update content protection and DRM policies.
+Media Services uses [Digital Rights Management (DRM)](https://en.wikipedia.org/wiki/Digital_rights_management) to protect content, and supports [Microsoft PlayReady](https://www.microsoft.com/playready/overview/), [Google Widevine](https://www.widevine.com/solutions/widevine-drm), and [Apple FairPlay](https://developer.apple.com/streaming/fps/). This article discusses Gridwich content protection, and explains how to set up and update content protection and DRM policies.
 
 ## Asset streaming locators
 
@@ -25,7 +25,7 @@ When Gridwich first publishes an asset, it creates a *streaming locator* by call
 
 Gridwich creates these policies in the Media Services account at first publication, and reuses them for future publications.
 
-The following diagram shows the Azure Media Services policies and their relationship to Gridwich assets and streaming locators.
+The following diagram shows the Azure Media Services policies and their relationship to Gridwich assets and streaming locators:
 
 ![Diagram showing the Azure Media Services policies and their relationship to Gridwich assets and streaming locators.](media/gridwich-content-protection.png)
 
@@ -51,9 +51,23 @@ A Gridwich publication message must specify the streaming policy and content key
 }
 ```
 
-To enable Microsoft PlayReady and Google Widevine on MPEG-DASH output, use `"streamingPolicyName": "cencDrmStreaming"` and `"contentKeyPolicyName": "cencDrmKey"`. The `cencDRMKey` policy code is in [MediaServicesV3CustomContentKeyPolicyCencDrmKey](https://github.com/mspnp/gridwich/blob/main/src/Gridwich.SagaParticipants.Publication.MediaServicesV3/src/ContentKeyPolicies/MediaServicesV3CustomContentKeyPolicyCencDrmKey.cs).
+To enable Microsoft PlayReady and Google Widevine on MPEG-DASH output, use
 
-To enable Microsoft PlayReady and Google Widevine on MPEG-DASH output, and Apple FairPlay on HLS (TS and CMAF), use `"streamingPolicyName": "multiDrmStreaming"` and `"contentKeyPolicyName": "multiDrmKey"`. The `multiDRMKey` policy code is in [MediaServicesV3CustomContentKeyPolicyMultiDrmKey](https://github.com/mspnp/gridwich/blob/main/src/Gridwich.SagaParticipants.Publication.MediaServicesV3/src/ContentKeyPolicies/MediaServicesV3CustomContentKeyPolicyMultiDrmKey.cs).
+```json
+        "streamingPolicyName": "cencDrmStreaming",
+        "contentKeyPolicyName": "cencDrmKey",
+```
+
+The `cencDRMKey` policy code is in [MediaServicesV3CustomContentKeyPolicyCencDrmKey](https://github.com/mspnp/gridwich/blob/main/src/Gridwich.SagaParticipants.Publication.MediaServicesV3/src/ContentKeyPolicies/MediaServicesV3CustomContentKeyPolicyCencDrmKey.cs).
+
+To enable Microsoft PlayReady and Google Widevine on MPEG-DASH output, and Apple FairPlay on HLS (TS and CMAF), use
+
+```json
+        "streamingPolicyName": "multiDrmStreaming",
+        "contentKeyPolicyName": multiDrmKey",
+```
+
+The `multiDRMKey` policy code is in [MediaServicesV3CustomContentKeyPolicyMultiDrmKey](https://github.com/mspnp/gridwich/blob/main/src/Gridwich.SagaParticipants.Publication.MediaServicesV3/src/ContentKeyPolicies/MediaServicesV3CustomContentKeyPolicyMultiDrmKey.cs).
 
 The `cencDRMKey` policy includes options 1 through 6, and the `multiDRMKey` policy includes options 1 through 9:
 
@@ -111,7 +125,7 @@ A secured token service (STS), not provided in Gridwich, should deliver tokens w
 
 To change the authorized protocols or DRM license properties for content protection, update the streaming policy or content key policy. The update mechanism differs depending on the policy.
 
-- The Media Services *streaming policy* can't change. Gridwich uses an internal Media Services name to assign a version to the updated policy, and uses an external Gridwich publication message name that doesn't change. Old locators will still use the old streaming policy, and new locators will use the updated streaming policy.
+- The Media Services *streaming policy* can't change. Gridwich uses an external Gridwich publication message name that doesn't change, and uses an internal Media Services name to assign a version to the updated policy. Old locators will still use the old streaming policy, and new locators will use the updated streaming policy.
 
 - The Media Services *content key policy* can change, so Gridwich uses the same name in Media Services and in the Gridwich publication message. Updating the content key policy affects all old and new locators.
   
@@ -133,9 +147,9 @@ private readonly string nameInAmsAccount = CustomStreamingPolicies.MultiDrmStrea
 
 The updated content key policy uses the same name in Media Services and in the publication message, and affects all old and new locators.
 
-Content key policy updates can occur only if the pipeline variable **AmsDrmEnableContentKeyPolicyUpdate** is set to `true`. This variable is in **Azure Pipelines** > **Library** > **Variable groups** > **gridwich-cicd-variables.global**.
+Content key policy updates can occur only if the Azure Pipelines pipeline variable **AmsDrmEnableContentKeyPolicyUpdate** is set to `true`. The variable is in the Gridwich Azure DevOps project under **Pipelines** > **Library** > **Variable groups** > **gridwich-cicd-variables.global**.
 
-This variable specifies whether Azure Functions should automatically update the content key policy at startup. Setting this variable lets you decide when to force the update after a code change. Force the update to occur after the Azure Function instance restarts and when the next publication process runs.
+This variable specifies whether Azure Functions should automatically update the content key policy at startup, which lets you decide when to force the update after a code change. Force the update to occur after the Azure Function instance restarts and when the next publication process runs.
 
 Run the pipeline to update the Azure deployment with new settings, secrets, or code. See [Azure Pipelines variable group to Terraform variables flow](variable-group-terraform-flow.md) for more information about the variable flow.
 
@@ -143,7 +157,7 @@ After the update, make sure to delete and purge any copies of source certificate
 
 ## DRM settings
 
-The following sections describe how to configure the DRM settings that Gridwich uses to create and update the content key policy. The variables to update are in the Gridwich Azure DevOps project **Pipelines** > **Library** > **Variable groups** > **gridwich-cicd-variables.global** variable group.
+The following sections describe how to configure the DRM settings that Gridwich uses to create and update the content key policy. The variables to update are in the Gridwich Azure Pipelines **Library** > **Variable groups** > **gridwich-cicd-variables.global** variable group.
 
 For instructions on setting up the Azure DevOps project, pipelines, and variable groups, see [Gridwich Azure DevOps setup](set-up-azure-devops.md).
 

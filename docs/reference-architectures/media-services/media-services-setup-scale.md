@@ -1,5 +1,5 @@
 ---
-title: Gridwich Azure Media services setup and scaling
+title: Gridwich Media Services setup and scaling
 titleSuffix: Azure Reference Architectures
 description: Learn how Gridwich uses Azure Media Services V2 and V3 SDKs to set up authentication and authorization, and how to scale Media Services resources.
 author: doodlemania2
@@ -17,7 +17,7 @@ Gridwich uses the Azure Media Services Platform as a Service (PaaS). Depending o
 
 ## Azure Media Services V2
 
-To perform the encoding of sprite sheets, or to create thumbnails, Gridwich uses the Azure Media Services V2 API via representational state transfer (REST).
+To perform the encoding of sprite sheets, or to create thumbnails, Gridwich uses the Azure Media Services V2 API via REST.
 
 The [MediaServicesV2EncodeCreateHandler](https://github.com/mspnp/gridwich/blob/main/src/Gridwich.SagaParticipants.Encode.MediaServicesV2/src/EventGridHandlers/MediaServicesV2EncodeCreateHandler.cs) initiates work by calling the [MediaServicesV2RestEncodeService](https://github.com/mspnp/gridwich/blob/main/src/Gridwich.SagaParticipants.Encode.MediaServicesV2/src/Services/MediaServicesV2RestEncodeService.cs), which in turn uses the [MediaServicesV2RestWrapper](https://github.com/mspnp/gridwich/blob/main/src/Gridwich.SagaParticipants.Encode.MediaServicesV2/src/Services/MediaServicesV2RestWrapper.cs).
 
@@ -33,7 +33,7 @@ var amsAccessToken = _tokenCredential.GetToken(
 
 This code presents the identity of the [TokenCredential](/dotnet/api/azure.identity.interactivebrowsercredential) and requests authorization at the REST API scope.
 
-When running locally, the `TokenCredential` [prompts the developer to log in](/dotnet/api/azure.identity.interactivebrowsercredential). That identity is then presented when requesting access to the scope. For successful authentication, the developer must be a contributor on the resource, and the correct environment variables must be in the local settings file.
+When running locally, the `TokenCredential` prompts the developer to sign in. That identity is then presented when requesting access to the scope. For successful authentication, the developer must be a contributor on the resource, and the correct environment variables must be in the local settings file.
 
 Use the Terraform file [functions/main.tf](https://github.com/mspnp/gridwich/blob/main/infrastructure/terraform/functions/main.tf) to configure a system-assigned managed identity for the Azure Functions App, with:
 

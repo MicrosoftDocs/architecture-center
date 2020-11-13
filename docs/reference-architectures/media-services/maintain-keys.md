@@ -21,7 +21,7 @@ To give the Azure Functions App and the two Logic Apps permissions to take Azure
 
 ## Key Roller Logic App for storage keys
 
-To stay in compliance with security policy, rotate the Storage Account keys on a regular cadence.
+To stay in compliance with security policies, rotate Storage Account keys on a regular cadence.
 
 Storage keys aren't configured in the Azure Functions App settings, but the Functions App runs under a service principal that has access to the Storage Accounts. Because the Functions App isn't configured with storage keys, rotating these keys doesn't require a Functions App restart.
 
@@ -66,7 +66,7 @@ While the request message accepts an `operationContext` value, the response does
 
 ## Secret Changed Handler Logic App for third-party keys
 
-The Secret Changed Handler Logic App doesn't use Event Grid. The events are handled purely by configuring the workloads. Terraform sets up all the Functions App and Key Vault configuration.
+The Secret Changed Handler Logic App doesn't use Event Grid. The events are handled purely by configuring the workloads. Terraform sets up the Functions App and Key Vault configuration.
 
 The Gridwich Azure Functions App has many keys that are backed by Key Vault. You can see the keys in the Functions App app settings.
 
@@ -91,9 +91,9 @@ The Azure Key Vault itself is configured to send events to a Logic App web hook:
 
 To add or change a key:
 
-1. Add the key to the [Gridwich.Host.FunctionApp/sample.local.settings.json](https://github.com/mspnp/gridwich/blob/main/src/Gridwich.Host.FunctionApp/sample.local.settings.json) file.
+1. Add the key to the [Gridwich.Host.FunctionApp/sample.local.settings.json](https://github.com/mspnp/gridwich/blob/main/src/Gridwich.Host.FunctionApp/src/sample.local.settings.json) file.
    
-1. Add the key to [infrastructure/terraform/shared](https://github.com/mspnp/gridwich/blob/main/infrastructure/terraform/shared/):
+1. Add the key to [infrastructure/terraform/shared/main.tf](https://github.com/mspnp/gridwich/blob/main/infrastructure/terraform/shared/main.tf):
    
    ```terraform
    #############################

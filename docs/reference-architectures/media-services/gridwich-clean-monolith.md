@@ -27,11 +27,11 @@ The solution is stateless, so it doesn't contain any gateways to persistence lay
 
 The software component composition uses the [GridwichConfigureServices](https://github.com/mspnp/gridwich/blob/main/src/Gridwich.Host.FunctionApp/src/GridwichConfigureServices.cs) class to define which concrete classes are available in the IoC container for the Azure Functions App.
 
-## Monolithic architecture
+## Gridwich architecture
 
 ![Diagram showing components of the Gridwich monolith architecture.](media/solution-components.png)
 
-The solution has a [Core.EventGrid](https://github.com/mspnp/gridwich/tree/main/src/Gridwich.Core.EventGrid/) library, which contains:
+The Gridwich solution has a [Core.EventGrid](https://github.com/mspnp/gridwich/tree/main/src/Gridwich.Core.EventGrid/) library, which contains:
 
 - The domain request and response data transfer objects (DTOs).
 - Interfaces for all application business logic or service objects.
@@ -41,7 +41,7 @@ The solution has a [Core.EventGrid](https://github.com/mspnp/gridwich/tree/main/
 To encapsulate Azure Event Grid as a request and response broker, the library has:
 
 - An event dispatcher that uses the IoC to identify and dispatch events to listeners.
-- An event publisher to place responses on the correct EventGrid topic.
+- An event publisher to place responses on the correct Event Grid topic.
 
 The Event Grid request adapter is an HTTP endpoint in the form of an [Azure Function HTTP Endpoint](/azure/azure-functions/functions-bindings-http-webhook). An adapter to convert web requests to Event Grid arrays is also in the same [EventGridFunction](https://github.com/mspnp/gridwich/blob/main/src/Gridwich.Host.FunctionApp/src/Functions/EventGridFunction.cs).
 

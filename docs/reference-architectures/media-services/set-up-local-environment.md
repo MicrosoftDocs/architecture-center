@@ -21,7 +21,7 @@ This article describes how to set up a local Gridwich development environment in
 - [Azure CLI](/cli/azure/install-azure-cli)
 - [.NET Core 3.1](https://dotnet.microsoft.com/download/dotnet-core/3.1)
 - [PowerShell](/powershell/scripting/overview)
-- [Git](https://git-scm.com/downloads) installed, and your Azure DevOps Gridwich repository cloned to your local machine. If you're using Windows [Git Desktop](https://desktop.github.com/), avoid cloning into user directories.
+- [Git](https://git-scm.com/downloads) installed, and your organization's Azure DevOps Gridwich repository cloned to your local machine. If you're using Windows [GitHub Desktop](https://desktop.github.com/), avoid cloning into user directories.
   
 Optional:
 - [curl](https://curl.haxx.se/)
@@ -125,7 +125,7 @@ Or, you can use the following Azure CLI commands:
    az keyvault set-policy --name gridwich-kv-sb --secret-permissions list get --upn "<your username_yourdomain>.com#EXT#@<an Azure Active Directory>.onmicrosoft.com"
    ```
 
-To replace the secrets in *local.settings.sb.json* that point to `@Microsoft.KeyVault` with actual values, run:
+To replace the `@Microsoft.KeyVault` secrets in *local.settings.sb.json* with actual values, run:
 
 ```azurepowershell
 $keyVaultName="$appname-kv-$targetEnv"
@@ -143,14 +143,14 @@ echo $('"AmsAadClientId":"'+$AmsAadClientId+'",') $('"AmsAadClientSecret":"'+$Am
 
 ### Replace the local file
 
-Rename *local.settings.sb.json* to *local.settings.json* and copy it to [src\local.settings.json](https://github.com/mspnp/gridwich/blob/main/src/Gridwich.Host.FunctionApp/src/local.settings.json). Or edit *local.settings.json* in place, using the console output from the preceding scripts.
+Rename *local.settings.sb.json* to *local.settings.json* and copy it to [Gridwich.Host.FunctionApp/src](https://github.com/mspnp/gridwich/tree/main/src/Gridwich.Host.FunctionApp/src). Or edit *local.settings.json* in place, using the console output from the preceding scripts.
 
 ### Add dummy values for Azure FairPlay DRM
 
 Manually add the following two values to *local.settings.json*:
 
 - `AmsDrmFairPlayCertificateB64`. Use the base 64 string from [FakeFairPlayCert/FairPlay-out-base64.txt](https://github.com/mspnp/gridwich/blob/main/src/Gridwich.SagaParticipants.Publication.MediaServicesV3/tests/FakeFairPlayCert/FairPlay-out-base64.txt). Remove the line endings and set the string in a single line.
-- `AmsDrmFairPlayPfxPassword`. Use the dummy password from [FakeFairPlayCert/FairPlay-out-base64.txt](https://github.com/mspnp/gridwich/blob/main/src/Gridwich.SagaParticipants.Publication.MediaServicesV3/tests/FakeFairPlayCert/FairPlay-out-base64.txt).
+- `AmsDrmFairPlayPfxPassword`. Use the dummy password from [FakeFairPlayCert/password.txt](https://github.com/mspnp/gridwich/blob/main/src/Gridwich.SagaParticipants.Publication.MediaServicesV3/tests/FakeFairPlayCert/password.txt).
 
 ## Next steps
 - [Create or delete a Gridwich cloud sandbox or test environment](create-delete-cloud-environment.md)

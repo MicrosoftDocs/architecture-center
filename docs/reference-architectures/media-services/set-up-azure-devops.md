@@ -19,17 +19,17 @@ The following procedures and settings use a placeholder Azure DevOps organizatio
 
 ## Set up the Azure DevOps project and repo
 
-Perform the following procedures in your Azure DevOps organization.
+Perform the following procedures in your [Azure DevOps](https://azure.microsoft.com/services/devops/) organization.
 
 ### Create a project and clone the repo
 
-This process clones the Gridwich Git repo into a new Azure DevOps project.
+This process clones the Gridwich Git repo into a new Azure DevOps project and repo.
 
 To clone the Gridwich repo to your computer:
 
-1. In a web browser, navigate to the [main Gridwich repo](https://github.com/mspnp/gridwich), select **Code** at upper right, and under **Clone**, select the copy icon to copy the HTTPS clone URL.
+1. In a bash window on your computer, change to the directory where you want the cloned repo, and enter `git clone https://github.com/mspnp/gridwich.git`.
    
-1. In a Bash window on your computer, in the location where you want the cloned directory, enter `git clone` and the URL you just copied.
+1. Enter `cd gridwich` to change to the cloned Gridwich directory.
    
 To create the project in your Azure DevOps organization:
 
@@ -47,10 +47,10 @@ To clone the Gridwich repo into your Azure DevOps project:
    
 1. On the **Add some code** screen, select **Push an existing repository from command line**, and select the copy icon to copy the commands.
    
-1. On your computer, navigate to the location of your cloned Gridwich repo, and run the following commands:
+1. On your computer, from the location of your cloned Gridwich repo, run the following commands:
    
    ```bash
-   git checkout master
+   git checkout main
    git pull
    git remote rm origin
    ```
@@ -62,7 +62,7 @@ To clone the Gridwich repo into your Azure DevOps project:
    git push -u origin --all
    ```
 
-The Gridwich repo is now cloned into your `gridwich-clone` project repo.
+The Gridwich repo is now cloned into your organization's `gridwich-clone` project repo.
 
 ### Connect the project to Azure
 
@@ -179,11 +179,11 @@ Add Azure Pipelines *variable groups* to store secrets and values to pass into t
 
 ## Add pipelines
 
-Add Azure Pipelines build and deployment pipelines.
+Add the Azure Pipelines build and deployment pipelines.
 
 ### Add the functions_pr_master.yml pipeline
 
-This pipeline runs when you make a code pull request from a feature branch to the master branch.
+This pipeline runs when you make a code pull request from a feature branch to the main branch.
 
 1. In the `gridwich-clone` project left navigation, select **Pipelines** and then select **Create pipeline**.
    
@@ -303,7 +303,7 @@ Use this pipeline to delete an environment, like one that the `ci_cd_ext_release
 
 Adjust the following suggested settings as you see fit.
 
-1. In your Azure DevOps project under **Repos** > **Branches**, select the three dots to the right of the **master** branch and then select **Branch policies**.
+1. In your Azure DevOps project under **Repos** > **Branches**, select the three dots to the right of the **main** branch and then select **Branch policies**.
    
 1. Under **Branch Policies**:
    
@@ -355,8 +355,8 @@ Local debugging uses user impersonation, and developers sign in with their brows
 ## Next steps
 
 - Configure [content protection policies and DRM settings](gridwich-content-protection-drm.md).
-- Run the [admin scripts](run-admin-scripts.md)
-- Manage [Key Vault keys](maintain-keys.md)
+- Run the [admin scripts](run-admin-scripts.md).
+- Manage [Key Vault keys](maintain-keys.md).
 - Set up a [local development environment](set-up-local-environment.md).
 - Create or delete a [cloud sandbox or test environment](create-delete-cloud-environment.md).
 - Follow [Test Azure Media Services V3 encoding](test-encoding.md) to fully test the setup.

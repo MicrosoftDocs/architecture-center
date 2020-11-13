@@ -1,7 +1,7 @@
 ---
-title: Test Azure Media Services V3 encoding
+title: Test Media Services V3 encoding
 titleSuffix: Azure Reference Architectures
-description: Walk through testing Azure Media Services V3 encoding in Gridwich.
+description: Walk through testing Gridwich Azure Media Services V3 encoding by using the Azure Event Grid Viewer Blazor, or locally.
 author: doodlemania2
 ms.date: 11/12/2020
 ms.topic: reference-architecture

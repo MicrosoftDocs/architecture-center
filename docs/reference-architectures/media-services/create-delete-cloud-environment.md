@@ -1,5 +1,5 @@
 ---
-title: Create or delete a Gridwich cloud environment
+title: Create a Gridwich environment
 titleSuffix: Azure Reference Architectures
 description: Use the ci_cd_ext_release or tf_destroy_env pipelines to create or delete cloud development or testing environments.
 author: doodlemania2
@@ -21,7 +21,7 @@ The following procedures use placeholder project name `gridwich-clone`, app name
 
 ## Create an environment
 
-1. In Azure DevOps, in your `gridwich-clone` project left navigation, select **Pipelines** and then select the **ci_cd_ext_release** pipeline.
+1. In your organization's Azure DevOps `gridwich-clone` project, select **Pipelines** in the left navigation, and then select the **ci_cd_ext_release** pipeline.
    
 1. Select **Run pipeline**.
    
@@ -33,7 +33,7 @@ The following procedures use placeholder project name `gridwich-clone`, app name
    
    ![Screenshot of the Variables dialog with the environment variable selected.](media/select-variables.png)
    
-1. In the **Update variable** dialog, enter a value with a four-character maximum length, and then select **Update**. The four-character limitation ensures that your full Gridwich Storage Account name won't exceed the [24 character maximum](https://docs.microsoft.com/en-us/azure/storage/common/storage-account-overview#naming-storage-accounts).
+1. In the **Update variable** dialog, enter a value with a four-character maximum length, and then select **Update**. The four-character limitation ensures that your full Gridwich Storage Account name won't exceed the [24-character maximum](https://docs.microsoft.com/en-us/azure/storage/common/storage-account-overview#naming-storage-accounts) for Azure Storage Accounts.
    
    ![Screenshot of updating the environment variable.](media/update-variable.png)
    

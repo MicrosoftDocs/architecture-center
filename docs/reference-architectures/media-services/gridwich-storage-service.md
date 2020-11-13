@@ -1,5 +1,5 @@
 ---
-title: Gridwich Azure Storage Service and context
+title: Gridwich Storage Service
 titleSuffix: Azure Reference Architectures
 description: Learn about the characteristics of the Gridwich Azure Storage Service.
 author: doodlemania2
@@ -25,17 +25,17 @@ Gridwich uses classes from the Azure Storage SDK to interact with Azure Storage,
 
 These SDK client classes currently allow only indirect access to the two HTTP headers Gridwich needs to manipulate, `x-ms-client-request-id` for operation context and `ETag` for object version.
 
-The following diagram illustrates the structure of the various classes and how instances relate to each other. The arrows indicate "has a reference to."
+In Gridwich, a pair of provider classes dispense [BlobBaseClientProvider][ProvB] and [BlobContainerClientProvider][ProvC] functionality in units called *sleeves*. For details about sleeves, see [Storage sleeves](#storage-sleeves).
+
+Gridwich requires its storage mechanisms to work for both Azure Storage block blobs and containers. With distinct classes and Storage Service operations for blobs and containers, there's no ambiguity about whether a given storage operation relates to a blob or to a container. This article applies to both blobs and containers, except where noted.
+
+The following diagram illustrates the structure of the various SDK and Gridwich classes, and how instances relate to each other. The arrows indicate "has a reference to."
 
 ![Diagram showing client object instance relationships between the Storage SDK classes.](media/gridwich-storage.png)
 
-Gridwich requires its storage mechanisms to work for both Azure Storage block blobs and containers. There are distinct classes and Storage Service operations for blobs and containers, so there's no ambiguity about whether a given storage operation relates to a blob or to a container. This article applies to both blobs and containers, except where noted.
-
-A pair of provider classes dispense [blob][ProvB] and [container][ProvC] functionality in units called *sleeves*. For details, see [Storage sleeves](#storage-sleeves).
-
 ## Pipeline policy
 
-Set the hook to manipulate the HTTP headers as a pipeline policy instance when you create the client instance. You can set this policy only at client instance creation time, and you can't change the policy. The storage provider code using the client must be able to manipulate the header values during execution. The challenge is to make the storage provider and pipeline interact cleanly.
+You set the hook to manipulate the HTTP headers as a pipeline policy instance when you create the client instance. You can set this policy only at client instance creation time, and you can't change the policy. The storage provider code using the client must be able to manipulate the header values during execution. The challenge is to make the storage provider and pipeline interact cleanly.
 
 For the Gridwich pipeline policy, see the [BlobClientPipelinePolicy][Pipeline] class.
 
@@ -43,7 +43,7 @@ For the Gridwich pipeline policy, see the [BlobClientPipelinePolicy][Pipeline] c
 
 TCP connection establishment and authentication create overhead when an SDK client object instance sends its first request to Azure Storage. Multiple calls to the same blob in an external system request, for example **Get Metadata**, then **Delete blob**, compound the overhead.
 
-To mitigate overhead, Gridwich maintains a cache of one client instance for each blob or container, depending on the [SDK classes][SDK_BlobClient] the operation context uses. Gridwich retains this client instance and can use the instance for multiple Azure Storage operations against the same blob or container for the duration of an external system request.
+To mitigate overhead, Gridwich maintains a cache of one client instance for each blob or container, depending on the SDK classes the operation context uses. Gridwich retains this client instance and can use the instance for multiple Azure Storage operations against the same blob or container for the duration of an external system request.
 
 The Azure SDK-provided client classes require SDK client object instances to be specific to a single blob or container at creation time. The instances also aren't guaranteed safe for simultaneous use on different threads. Since an [operation context](gridwich-architecture.md#operation-context) represents a single request, Gridwich bases caching on the combination of blob or container name with operation context.
 
@@ -53,9 +53,9 @@ This instance reuse, combined with the Azure Storage SDK client structure, requi
 
 Almost all the Gridwich Storage Service operations require a special context argument of type [StorageClientProviderContext][SCPC]. This context argument fulfills the following requirements:
 
-- Provides the external system with responses, which include the per-request unique JSON-based *operation context* value that the external system specified on the Gridwich request. For more information about operation context, see [Operation context](gridwich-architecture.md#operation-context).
+- Provides the external system with responses, which include the per-request unique JSON-based *operation context* value that the external system specified on the Gridwich request. For more information, see [Operation context](gridwich-architecture.md#operation-context).
 
-- Allows Storage Service callers like Gridwich event handlers to control which responses are visible to the external system. This control prevents the service from flooding the external system with irrelevant notification events.
+- Allows Storage Service callers like Gridwich event handlers to control which responses are visible to the external system. This control prevents the service from flooding the external system with irrelevant notification events. For more information, see [Context muting](#context-muting).
 
 - Complies with Azure Storage conventions to ensure coherent requests and responses in an environment that allows a mix of parallel readers and writers. For example, supports [ETag tracking][ETag]. For more information, see [ETags](#etags-for-target-consistency).
 
@@ -71,7 +71,9 @@ The context for both the blob and container [storage types](#storage-sleeves) is
     bool    TrackingETag { get; set; }
 ```
 
-The first two properties are different representations of the operation context that was used to initialize the [StorageClientProviderContext][SCPC] instance. The class has a variety of constructors, including a copy constructor. Additional methods include `ResetTo`, to allow in-place state duplication, and a static `CreateSafe` method to ensure that problematic initializations don't throw exceptions. The class also contains special handling for creating contexts based on GUIDs and empty strings. The Azure Storage Notification handlers for blob [Created][NotifyC] and [Deleted][NotifyD], which also process notifications arising from external agents, require the GUID form.
+The first two properties are different representations of the operation context that was used to initialize the [StorageClientProviderContext][SCPC] instance. The class has a variety of constructors, including a copy constructor. Additional methods include `ResetTo`, to allow in-place state duplication, and a static `CreateSafe` method to ensure that problematic initializations don't throw exceptions.
+
+The class also contains special handling for creating contexts based on GUIDs and empty strings. The Azure Storage Notification handlers for blob [Created][NotifyC] and [Deleted][NotifyD], which also process notifications arising from external agents, require the GUID form.
 
 ### Context muting
 
@@ -89,7 +91,9 @@ An example is blob copies that an encoder executes to arrange blobs in Azure Sto
 
 The caller controls the ultimate visibility of operations. Both muted and non-muted operations are based on an equivalent `operationContext` value. The intent of context muting is to make it easier to perform issue diagnosis from event tracing logs, because it's possible to see the storage operations related to a request, regardless of operation muting status.
 
-The [base Response DTO][ResponseBaseDTO] has a boolean property `DoNotPublish`, which event dispatching uses to dictate the final decision about whether to publish. Event dispatching, in turn, sets the `DoNotPublish` property based on the `IsMuted` property of the context. The service transmits the muting setting to Azure Storage, which then sets the `clientRequestId` in the storage notification events it presents to the two Gridwich handlers, [Created][NotifyC] and [Deleted][NotifyD]. Those two handlers set `DoNotPublish` to reflect the caller-requested muting.
+The [ResponseBaseDTO][ResponseBaseDTO] has a boolean property `DoNotPublish`, which event dispatching uses to dictate the final decision about whether to publish. Event dispatching, in turn, sets the `DoNotPublish` property based on the `IsMuted` property of the context.
+
+The service transmits the muting setting to Azure Storage, which then sets the `clientRequestId` in the storage notification events it presents to the two Gridwich handlers, [Created][NotifyC] and [Deleted][NotifyD]. Those two handlers set `DoNotPublish` to reflect the caller-requested muting.
 
 ## ETags for target consistency
 
@@ -109,7 +113,7 @@ To use the `ETag` for the preceding example:
 
 If the two `ETag` values are different, the delete operation fails. The failure implies that some other operation changed the blob between steps 2 and 3. Repeat the process from step 1.
 
-`ETag` is a parameter of constructors and a string property of the [StorageClientProviderContext class][SCPC]. Only the Gridwich-specific [HTTP pipeline policy][Pipeline] manipulates the `ETag` value.
+`ETag` is a parameter of constructors and a string property of the [StorageClientProviderContext class][SCPC]. Only the Gridwich-specific [BlobClientPipelinePolicy][Pipeline] manipulates the `ETag` value.
 ### Control ETag use
 
 The `TrackingETag` property controls whether to send the `ETag` value on the next request. The value `true` means that the service sends an `ETag` if one is available.
@@ -140,14 +144,13 @@ The `Service` property on the sleeve is a convenience. Some of the final encoder
 
 ### Sleeve usage
 
-The storage providers return sleeves. Storage service code looks similar to the following annotated code sequence, with types spelled out for clarity:
+The client storage providers dispense sleeve instances. The storage service code looks similar to the following annotated code sequence, with types spelled out for clarity:
 
 ```csharp
     public bool DeleteBlob(Uri sourceUri, StorageClientProviderContext context)
     {
         . . .
         StorageBlobClientSleeve sleeve = _blobBaseClientProvider.GetBlobBaseClientForUri(sourceUri, context); // Line A
-
         BlobProperties propsIncludingMetadata = sleeve.Client.GetProperties(); // Line B
         sleeve.Context.TrackingETag = true;   // Send ETag from GetProperties()
         var wasDeleted = sleeve.Client.DeleteBlob(); // Line C
@@ -163,8 +166,8 @@ The storage providers return sleeves. Storage service code looks similar to the 
 1. After Line C, the context has a new `ETag` value, as returned in the `Delete()` response.
 1. Line D doesn't send an `ETag` value on the request for `AnotherOperation()`.
 1. After Line D, the context has a new `ETag` value, as returned in the `AnotherOperation()` response.
-1. Client providers dispense sleeve instances. There is one provider for [Blobs][ProvB] and another for [Containers][ProvC].
-1. The Storage Service is currently set as `Transient` in the [dependency injection configuration][DIConfig], which implies that the sleeve-based caching is on a per-request basis. See [Storage Service and dependency injection](#storage-service-and-dependency-injection) for more information.
+
+The Storage Service is currently set as `Transient` in the [dependency injection configuration][DIConfig], which implies that the sleeve-based caching is on a per-request basis. See [Storage Service and dependency injection](#storage-service-and-dependency-injection) for more information.
 
 ## Storage Service alternatives
 

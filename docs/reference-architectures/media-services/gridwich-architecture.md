@@ -1,7 +1,7 @@
 ---
-title: Gridwich cloud media processing system
+title: Gridwich cloud media system
 titleSuffix: Azure Reference Architectures
-description: Build a stateless action execution workflow to ingest, process, and deliver media assets using two new methods, Terraform Sandwiches and Event Grid Sandwiches.
+description: Learn about a stateless action execution workflow that ingests, processes, and delivers media assets using two new methods, Terraform Sandwiches and Event Grid Sandwiches.
 author: doodlemania2
 ms.date: 11/12/2020
 ms.topic: reference-architecture
@@ -36,7 +36,7 @@ The Gridwich system embodies best practices for processing and delivering media 
 
 Gridwich architecture features two *sandwiches* that address the requirements of asynchronous event processing and infrastructure as code:
 
-- The *Event Grid sandwich* abstracts away remote and long-running processes like media encoding from the external saga workflow system by sandwiching them between two [Event Grid handlers](#request-flow). This sandwich lets the external system send a request event, monitor scheduled events, and wait for an eventual success or failure response that might arrive minutes or hours later.
+- The *Event Grid sandwich* abstracts away remote and long-running processes like media encoding from the external saga workflow system by sandwiching them between two Event Grid handlers. This sandwich lets the external system send a request event, monitor scheduled events, and wait for an eventual success or failure response that might arrive minutes or hours later.
   
   ![Diagram showing the Event Grid handler sandwich.](media/request-response.png)
   
@@ -66,9 +66,9 @@ The following steps describe the request and response process between an externa
 
 1. The external system creates a request and sends it to the request broker.
    
-1. The request broker is responsible for dispatching requests to Gridwich request listeners in a traditional publication-subscription model. In this solution, the request broker is [Azure Event Grid](/azure/event-grid/). All requests are encapsulated using the [Event Grid event schema](/azure/event-grid/event-schema).
+1. The request broker is responsible for dispatching requests to Gridwich request listeners in a traditional publication-subscription model. In this solution, the request broker is Azure Event Grid. All requests are encapsulated using the [Event Grid event schema](/azure/event-grid/event-schema).
    
-1. The Gridwich [Azure Functions](/azure/azure-functions/) app consumes events from Event Grid. For better throughput, Gridwich defines an [HTTP endpoint](/azure/azure-functions/functions-bindings-http-webhook) as a push model that Event Grid initiates, rather than the [Event Grid binding](/azure/azure-functions/functions-bindings-event-grid) polling model that Azure Functions provides.
+1. The Gridwich Azure Functions app consumes events from Event Grid. For better throughput, Gridwich defines an [HTTP endpoint](/azure/azure-functions/functions-bindings-http-webhook) as a push model that Event Grid initiates, rather than the [Event Grid binding](/azure/azure-functions/functions-bindings-event-grid) polling model that Azure Functions provides.
    
 1. The Azure Functions App reads the event properties and dispatches events to parts of the Gridwich code that handle that event type and version.
    
@@ -178,13 +178,13 @@ For more information, see [What happens during a slot swap for Azure Functions](
 
 ## Components
 
-The Gridwich solution uses Azure Event Grid, Azure Functions, Azure Media Services, Azure Blob Storage, Azure Logic Apps, and Azure Key Vault. The code project includes Terraform deployment.
+The Gridwich solution uses Azure Event Grid, Azure Functions, Azure Media Services, Azure Blob Storage, Azure Logic Apps, and Azure Key Vault. The CI/CD processes use Azure Repos, Azure Pipelines, and Terraform.
 
 - [Azure Event Grid](https://azure.microsoft.com/services/event-grid/) manages the routing of Gridwich events. Two sandwiched Event Grid jobs allow for asynchronous media event processing. Event Grid is a highly reliable request delivery endpoint. The Azure platform provides necessary request delivery endpoint uptime and stability.
   
   Gridwich encapsulates events within the object `Event.Data` property, which is opaque to the Event Grid broker and transport layer. Gridwich also uses the `Event.EventType` and `Event.DataVersion` object fields to route events. So that the Event Grid request broker can be substituted with other publication-subscription event brokers, Gridwich depends on the fewest event fields possible, and doesn't use the `Event.Topic` or `Event.Subject` fields.
   
-- [Azure Functions](/azure/azure-functions/) lets you run event-triggered code without having to explicitly provision or manage infrastructure. Gridwich is an Azure Functions App that hosts execution of various functions.
+- [Azure Functions](https://azure.microsoft.com/services/functions/) lets you run event-triggered code without having to explicitly provision or manage infrastructure. Gridwich is an Azure Functions App that hosts execution of various functions.
   
 - [Azure Media Services](https://azure.microsoft.com/services/media-services/) is a cloud-based workflow platform for indexing, packaging, protecting, and streaming media. Media Services uses [Digital Rights Management (DRM)](https://en.wikipedia.org/wiki/Digital_rights_management) to protect content, and supports [Microsoft PlayReady](https://www.microsoft.com/playready/overview/), [Google Widevine](https://www.widevine.com/solutions/widevine-drm), and [Apple FairPlay](https://developer.apple.com/streaming/fps/). Gridwich lets you [scale Media Services resources](media-services-setup-scale.md#scale-media-services-resources) to your expected workload.
   
@@ -193,17 +193,19 @@ The Gridwich solution uses Azure Event Grid, Azure Functions, Azure Media Servic
 - [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps/) lets you create automated cloud workflow solutions. Gridwich uses Logic Apps to [manage Key Vault keys and secrets](maintain-keys.md).
 - [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) safeguards cryptographic keys, passwords, and other secrets that Azure and third-party apps and services use.
   
+- [Azure DevOps](https://azure.microsoft.com/services/devops/) is a set of developer and operations services, including Git-based code repositories and automated build and release pipelines, that integrate with Azure. Gridwich uses [Azure Repos](https://azure.microsoft.com/services/devops/repos/) to store and update the code projects, and [Azure Pipelines](https://azure.microsoft.com/services/devops/pipelines/) for CI/CD and other workflows.
+  
 - [Terraform](https://www.terraform.io/) is an open-source tool that uses Infrastructure as Code to provision and manage infrastructures and services.
 
 ## Alternatives
 
 - [Durable Functions](/azure/azure-functions/durable/durable-functions-overview), which have a built-in state store for long-running operations, could also provide an opaque operation context. Durable Functions could create a series of tasks within an operation, and save the operation context as an input or output for the operation. In fact, Gridwich could use Durable Functions for all work activities, but this approach would increase code complexity.
   
-- You could achieve better decoupling from the Event Grid infrastructure by refactoring the [EventGridHandlerBase](https://github.com/mspnp/gridwich/blob/main/src/Bases/EventGridHandlerBase.cs) into a `RequestHandlerBase`, and removing any linkage to Event Grid objects or types. This refactored class would deal only in base DTOs, and not in transport-specific object types. Similarly, the [IEventGridDispatcher](https://github.com/mspnp/gridwich/blob/main/src/Interfaces/IEventGridDispatcher.cs) could become an `IResponseDispatcher` with a specific `EventGridDispatcher` implementation.
+- You could achieve better decoupling from the Event Grid infrastructure by refactoring the [EventGridHandlerBase](https://github.com/mspnp/gridwich/blob/main/src/Gridwich.Core/src/Bases/EventGridHandlerBase.cs) into a `RequestHandlerBase`, and removing any linkage to Event Grid objects or types. This refactored class would deal only in base DTOs, and not in transport-specific object types. Similarly, the [IEventGridDispatcher](https://github.com/mspnp/gridwich/blob/main/src/Gridwich.Core/src/Interfaces/IEventGridDispatcher.cs) could become an `IResponseDispatcher` with a specific `EventGridDispatcher` implementation.
   
 - The [Gridwich.SagaParticipants.Storage.AzureStorage](https://github.com/mspnp/gridwich/blob/main/src/Gridwich.SagaParticipants.Storage.AzureStorage/) library also contains storage services that other saga participants use. Having the interfaces in a core project avoids Inversion of Control (IoC) issues, but you could extract the interfaces into a separate core storage infrastructure gateway library.
   
-- The Gridwich Functions App uses [dependency injection](/azure/azure-functions/functions-dotnet-dependency-injection) to register one or more request handlers for specific event types and data versions. The app injects the [event dispatcher](https://github.com/mspnp/gridwich/blob/main/src/Gridwich.Core.EventGrid/src/EventGridDispatcher.cs) with the collection of Event Grid event handlers, and the dispatcher queries the handlers to determine which ones will process the event.
+- The Gridwich Functions App uses [dependency injection](/azure/azure-functions/functions-dotnet-dependency-injection) to register one or more request handlers for specific event types and data versions. The app injects the [EventGridDispatcher](https://github.com/mspnp/gridwich/blob/main/src/Gridwich.Core.EventGrid/src/EventGridDispatcher.cs) with the collection of Event Grid event handlers, and the dispatcher queries the handlers to determine which ones will process the event.
   
   Alternatively, you could use the event subscription and filtering mechanism that the Event Grid platform provides. This mechanism imposes a 1:1 deployment model, where one Azure Function hosts only one event handler. Although Gridwich uses a 1:many model, its [clean architecture](gridwich-clean-monolith.md) means that refactoring the solution for 1:1 wouldn't be difficult.
   
