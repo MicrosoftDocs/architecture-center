@@ -14,7 +14,10 @@ ms.custom:
 
 # Secure inter-service communications
 
-This example scenario shows how to secure and lock down communications between two backend services on both the application and network layers.  Communications can only flow between those services which have been explicitly configured to allow for this, adhering to the principle of least privilege.
+This example scenario shows how to set up restricted communications between two backend services on both the application and network layers.  Communications can only flow between those services which have been explicitly configured to allow for this, adhering to the principle of least privilege.
+
+> [!IMPORTANT]
+> While this article serves as a specific educational example of how communications can be restricted between two services it should not serve as generic guidance.  The way an architecture is secured should be the result of careful planning, [threat-modeling][threatmodeling], work throughout the [Security Development Lifecycle][sdlc] and should be derived from a close understanding of business-, compliance-, regulatory- and other non-functional requirements.  As an example, while in the below scenario communications are restricted on the network layer, organizations increasingly realize they should assume breach and rather embrace a [zero trust security model][zerotrust] in which the networking layer is of secondary importance.
 
 <!-- The title is a noun phrase that describes the scenario.
 
@@ -34,7 +37,7 @@ Avoid naming the scenario after the Azure technologies that are used.
 
 ## Potential use cases
 
-While this article provides a concrete example with services hosted in Azure App Service, the general principles outlined apply to other hosting platforms just as well.
+While this article provides a concrete example with services hosted in Azure App Service, similar techniques can be used for Azure Functions.
 
 <!-- > Are there any other use cases or industries where this would be a fit?
 > How similar or different are they to what's in this article?
@@ -47,11 +50,11 @@ These other uses cases have similar design patterns:
 
 ![Architecture diagram](./media/svc-to-svc-solution-architecture.png "Solution Architecture")
 
-The diagram outlines how Service A wants to communicate in a secured way with Service B, both running on Azure App Service.  
+The diagram outlines how Service A wants to communicate in a restricted way with Service B, both running on Azure App Service.
 
-To do so, both services are registered with Azure Active Directory so they can use OAuth 2.0 token-based authorization between them, leveraging a [Client Credentials flow][clientcredsflow].  
+To do so, both services are registered with Azure Active Directory so they can use OAuth 2.0 token-based authorization between them, leveraging a [Client Credentials flow][clientcredsflow].
 
-In addition, Service B is configured with [App Service Access Restrictions][accessrestrictions] to only allow communications from the integration subnet of Service A.  From a network point of view, this effectively restricts inbound connectivity to Service B to Service A which uses App Service [Regional VNET integration][regionalvnet] to establish outbound communication from a private IP address in the Virtual Network.  [Service Endpoints][svcep] are configured to make sure Access Restrictions can be applied to the Web App hosting Service B.
+In addition, Service B is configured with [Service Endpoints][svcep] to only allow communications from the integration subnet of Service A.  From a network point of view, this restricts inbound connectivity to Service B to Service A which uses App Service [Regional VNET integration][regionalvnet] to establish outbound communication from a private IP address in the integration subnet.
 
 <!--
 > What does the solution look like at a high level?
@@ -66,13 +69,13 @@ The following Azure services are used in this scenario:
 - [App Service][appsvc] hosting both services and allowing autoscale and high availability without having to manage infrastructure.
 - [Azure Active Directory][aad] as the cloud-based identity and access management service taking care of authenticating services and enabling OAuth 2.0 based token-based authorization.
 - [Azure Virtual Network (VNet)][vnet] is the fundamental building block for your private network in Azure. VNet enables many types of Azure resources, such as Azure Virtual Machines (VM), to securely communicate with each other, the internet, and on-premises networks.
-- [Azure Service Endpoints][svcep] providing secure and direct connectivity to Azure services over an optimized route over the Azure backbone network, while allowing App Service Access Restrictions to act upon the private source IP of inbound communications coming from within the integration vnet.
+- [Azure Service Endpoints][svcep] providing secure and direct connectivity to Azure services over an optimized route over the Azure backbone network, while [restricting access][accessrestrictions] to the range of private source IPs from within the integration subnet.
 
 In addition to these services, the code making up our services is likely to make use of the [Microsoft Authentication Library (MSAL)][msal].  For Service A, MSAL allows for fetching access tokens from Azure AD using a client-credentials-flow.
 
 #### Token-based Authorization
 
-In step 1 of the scenario, Service A will request an access token from Azure AD to access Service B with.  This is done through a [Client Credentials flow][clientcredsflow] and is typically facilitated by a library like [MSAL][msal] which supports this as shown in the article describing a [daemon application that call web APIs][daemoncallswebapi].  (In addition details can be found in the [sample application for the daemon scenario][daemonsample]).  For this, both Service A and B need to be [registered in Azure AD][appreg] with Service A requiring client credentials to be assigned in the form of either a shared secret or certificate.  When Service A fetches a token, it injects it as a "bearer" token in the HTTP Authorization header in the request towards Service B.
+In step 1 of the scenario, Service A will request an access token from Azure AD to access Service B with.  This is done through a [Client Credentials flow][clientcredsflow] and is typically facilitated by a library like [MSAL][msal] which supports this as shown in the article describing a [daemon application that call web APIs][daemoncallswebapi].  (Additional details can be found in the [sample application for the daemon scenario][daemonsample]).  For this, both Service A and B need to be [registered in Azure AD][appreg] with Service A requiring client credentials to be assigned in the form of either a shared secret or certificate.  When Service A fetches a token, it injects it as a "bearer" token in the HTTP Authorization header in the request towards Service B.
 
 On the receiving side, Service B will need to [validate the token][tokenvalidation] to make sure it is valid and intended for Service B (indicated by the audience claim: `aud`).  Even when a token is valid, one will want to ensure Service B is ony accessible by those clients (Service A in this case) which are explicitly allowed.  There are three ways to accomplish this:
 
@@ -212,6 +215,9 @@ The following resources will provide more information on the components used in 
 [exposeapprole]: https://docs.microsoft.com/azure/active-directory/develop/howto-add-app-roles-in-azure-ad-apps
 [configurepermission]: https://docs.microsoft.com/azure/active-directory/develop/quickstart-configure-app-access-web-apis#add-permissions-to-access-web-apis
 [aadpermissiontypes]: https://docs.microsoft.com/azure/active-directory/develop/v2-permissions-and-consent#permission-types
-[accessrestrictions]: https://docs.microsoft.com/azure/app-service/app-service-ip-restrictions
+[accessrestrictions]: https://docs.microsoft.com/en-us/azure/app-service/app-service-ip-restrictions#use-service-endpoints
 [tokenvalidation]: https://docs.microsoft.com/azure/active-directory/develop/access-tokens#validating-tokens
 [functions]: https://docs.microsoft.com/azure/azure-functions/functions-overview
+[threatmodeling]: https://www.microsoft.com/securityengineering/sdl/threatmodeling
+[zerotrust]: https://www.microsoft.com/security/business/zero-trust
+[sdlc]: https://www.microsoft.com/securityengineering/sdl
