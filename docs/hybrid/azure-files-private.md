@@ -46,23 +46,25 @@ It is important to correctly configure on-premise DNS settings to resolve privat
 
 
 ## Components
-- **Client** - Is a client that can 'talk' to file server or Azure files through SMB protocol, usually it is a Windows, Linux, or Mac OSX desktop.
+- **Client**(component 1 or 2) - Is a client that can 'talk' to file server or Azure files through SMB protocol, usually it is a Windows, Linux, or Mac OSX desktop.
 
-- **DC & DNS Server** - Domain controller (DC) is a server that responds to authentication requests and verifies users on computer networks. DNS Server provide computer name-to-IP address mapping name resolution services to computers and users. DC and DNS Server can be combined into one single server or can be separated into different servers.
+- **DC & DNS Server**(component 3) - Domain controller (DC) is a server that responds to authentication requests and verifies users on computer networks. DNS Server provide computer name-to-IP address mapping name resolution services to computers and users. DC and DNS Server can be combined into one single server or can be separated into different servers(for example, component 8 is a seperated DNS server).
 
-- **File Server** - Is a server hosts file share and provides file share service through SMB protocol.
+- **File Server**(component 4) - Is a server hosts file share and provides file share service through SMB protocol.
 
-- **CE/VPN Device** - Customer edge router (CE) or VPN Device is used to establish ExpressRoute or VPN connection to Azure virtual network.
+- **CE/VPN Device**(component 5) - Customer edge router (CE) or VPN Device is used to establish ExpressRoute or VPN connection to Azure virtual network.
 
-- **ExpressRoute/VPN Gateway** – ExpressRoute is a service lets you extend your on-premises networks into the Microsoft cloud over a private connection facilitated by a connectivity provider. VPN Gateway is a specific type of virtual network gateway that is used to send encrypted traffic between an Azure virtual network and an on-premises location over the public Internet. ExpressRoute or VPN Gateway is used to establish ExpressRoute or VPN connection to customer’s on-premises network.
+- **ExpressRoute/VPN Gateway**(component 6) – ExpressRoute is a service lets you extend your on-premises networks into the Microsoft cloud over a private connection facilitated by a connectivity provider. VPN Gateway is a specific type of virtual network gateway that is used to send encrypted traffic between an Azure virtual network and an on-premises location over the public Internet. ExpressRoute or VPN Gateway is used to establish ExpressRoute or VPN connection to customer’s on-premises network.
 
-- **Azure File Sync & Cloud Tiering** – Azure File Sync is a service offered by Azure to centralize your organization's file shares in Azure, while keeping the flexibility, performance, and compatibility of an on-premises file server. Cloud tiering is an optional feature of Azure File Sync in which frequently accessed files are cached locally on the server while all other files are tiered to Azure Files based on policy settings.
+- **Azure Private Endpoint**(component 7) - is a network interface that connects you privately and securely to a service powered by Azure Private Link, in our case, Azure file sync private endpoint connects to Azure file sync, and Azure files private endpoint connects to Azure files.
 
-- **Azure Files** - Is a fully managed service offers file shares in the cloud that are accessible via the industry standard Server Message Block (SMB) protocol. Azure files implements SMB v3 protocol and supports authentication through on-premises Active Directory Domain Services (AD DS) and Azure Active Directory Domain Services (Azure AD DS). File shares from Azure files can be mounted concurrently by cloud or on-premises deployments of Windows, Linux, and macOS. Additionally, Azure file shares can be cached on Windows Servers with Azure File Sync for fast access near where the data is being used.
+- **Azure File Sync & Cloud Tiering**(component 9) – Azure File Sync is a service offered by Azure to centralize your organization's file shares in Azure, while keeping the flexibility, performance, and compatibility of an on-premises file server. Cloud tiering is an optional feature of Azure File Sync in which frequently accessed files are cached locally on the server while all other files are tiered to Azure Files based on policy settings.
 
-- **Azure Private DNS** - An Azure offered DNS service to manage and resolve domain names in a virtual network without the need to add a custom DNS solution.
+- **Azure Files**(component 10) - Is a fully managed service offers file shares in the cloud that are accessible via the industry standard Server Message Block (SMB) protocol. Azure files implements SMB v3 protocol and supports authentication through on-premises Active Directory Domain Services (AD DS) and Azure Active Directory Domain Services (Azure AD DS). File shares from Azure files can be mounted concurrently by cloud or on-premises deployments of Windows, Linux, and macOS. Additionally, Azure file shares can be cached on Windows Servers with Azure File Sync for fast access near where the data is being used.
 
-- **Azure Private Endpoint** - is a network interface that connects you privately and securely to a service powered by Azure Private Link, in our case, Azure file sync private endpoint connects to Azure file sync, and Azure files private endpoint connects to Azure files.
+- **Azure Private DNS**(component 11 and 12) - An Azure offered DNS service to manage and resolve domain names in a virtual network without the need to add a custom DNS solution.
+
+- **Azure Backup**(component 13) - Is a cost-effective, secure, one-click backup solution that’s scalable based on your backup storage needs. In our case, it is used to back up Azure file shares.
 
 ## Traffic flows
 After enabling Azure file sync and Azure files, Azure file shares can be accessed in two modes, local cache mode or remote mode, in both modes, client uses existing AD DS credentials to authenticate itself.
