@@ -1,9 +1,9 @@
 ---
-title: Unisys mainframe migration to Azure
+title: Unisys mainframe migration
 titleSuffix: Azure Reference Architectures
 description: Learn about options for using the Asysco Automated Migration Technology (AMT) Framework to migrate Unisys mainframe workloads to Azure.
 author: doodlemania2
-ms.date: 11/03/2020
+ms.date: 11/13/2020
 ms.topic: reference-architecture
 ms.service: architecture-center
 ms.subservice: reference-architecture
@@ -13,9 +13,9 @@ ms.custom:
 
 # Migrate Unisys mainframe systems to Azure
 
-Unisys ClearPath Dorado (Legacy Sperry 1100/2200) and Libra (Legacy Burroughs A Series/MCP) computer systems are full-featured mainframe operating environments that can scale up vertically to handle mission critical workloads. Emulating, converting, or modernizing these systems into Azure can provide similar or improved performance and SLA guarantees while taking advantage of Azure flexibility, reliability, and future capabilities.
+Unisys ClearPath mainframe systems are full-featured operating environments that can scale up vertically to handle mission critical workloads. Machine models include Dorado, running Legacy Sperry 1100/2200, and Libra, running Legacy Burroughs A Series/MCP. Emulating, converting, or modernizing these systems into Azure can provide similar or better performance and SLA guarantees, while taking advantage of Azure flexibility, reliability, and future capabilities.
 
-This article describes the conversion technologies that Microsoft partner Asysco's Automated Migration Technology (AMT) Framework uses to convert Unisys mainframe workflows to Azure. The AMT Framework allows an accelerated move into Azure without rewriting application code or redesigning data architecture from network-based to relational-based. The framework converts legacy code to C#, while maintaining the source code in its original form. Application user interfaces and interactions can be virtually unchanged, minimizing the need for end user retraining.
+This article describes the conversion technologies that Microsoft partner [Asysco](https://asysco.com/products/) uses to migrate Unisys mainframe workflows to Azure. The Automated Migration Technology (AMT) Framework allows an accelerated move into Azure without rewriting application code or redesigning data architecture. The framework converts legacy code to C#, while maintaining the source code in its original form. Application user interfaces and interactions can be virtually unchanged, minimizing the need for end user retraining.
 
 Asysco AMT Transform automates the migration of the complete mainframe ecosystem, by converting:
 - Transaction application code to AMT COBOL or directly to C#/.NET. AMT maintains the original code structure to use as a baseline or for future edits.
@@ -25,7 +25,7 @@ Asysco AMT Transform automates the migration of the complete mainframe ecosystem
 
 ## Potential use cases
 
-The AMT Framework can support several methodologies to move client workloads to Azure:
+The AMT Framework supports several options to move client workloads to Azure:
 
 - One method is to convert and move the entire mainframe system to Azure at once, saving interim mainframe maintenance and facility support costs. This method carries some risk because all processes, like application conversion, data migration, and testing, must align to allow a smooth transition.
 
@@ -39,7 +39,7 @@ The following diagram shows typical components of Unisys Burroughs MCP or Unisys
  
 ![Diagram showing Unisys Burroughs MCP or Unisys Sperry OS 1100/2200 mainframe components.](media/unisys-components.png)
 
-The second diagram shows how these Unisys mainframe components can migrate and map to Azure capabilities.
+The second diagram shows how these Unisys mainframe components can map and migrate to Azure capabilities.
 
 ![Diagram showing how Unisys mainframe components can map to Azure capabilities.](media/unisys-migration.png)
 
