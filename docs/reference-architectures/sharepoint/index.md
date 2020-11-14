@@ -359,7 +359,7 @@ This sign-in tunnels from the Fabrikam.com domain used by the on-premises networ
 [sharepoint-accounts]: /SharePoint/install/initial-deployment-administrative-and-service-accounts-in-sharepoint-server
 [sharepoint-crawling]: /SharePoint/search/best-practices-for-crawling
 [sharepoint-dr]: /SharePoint/administration/plan-for-disaster-recovery
-[sharepoint-hybrid]: https://aka.ms/sphybrid
+[sharepoint-hybrid]: /sharepoint/hybrid/hybrid
 [sharepoint-minrole]: /SharePoint/administration/managing-a-minrole-server-farm-in-sharepoint-server-2016
 [sharepoint-ops]: /SharePoint/administration/administration
 [sharepoint-reqs]: /SharePoint/install/hardware-and-software-requirements

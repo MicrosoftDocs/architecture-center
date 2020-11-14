@@ -31,7 +31,7 @@ Processing involves the following steps:
 
 1. Scoring jobs run in parallel across the nodes of the Batch cluster. Each node:
 
-    1. Pulls the worker Docker image from Docker Hub and starts a container.
+    1. Pulls the worker Docker image and starts a container.
 
     1. Reads input data and pre-trained R models from Azure Blob storage.
 

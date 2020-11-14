@@ -182,7 +182,7 @@ The geofence triggers provides additional accuracy on the estimated time of arri
 -   [Azure Notification Hubs](https://azure.microsoft.com/en-us/services/notification-hubs/) is a massively scalable mobile push notification engine for quickly sending millions of notifications to iOS, Android, Windows. Using this service, Contoso can easily broadcast notifications to their customers. 
 
 For more detailed discussions, see the IoT reference architecture
-[document](https://docs.microsoft.com/azure/architecture/reference-architectures/iot) to understand and explore the various implementation choices
+[document](../../reference-architectures/iot.md) to understand and explore the various implementation choices
 available.
 
 ## Next steps

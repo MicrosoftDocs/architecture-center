@@ -55,12 +55,12 @@ then working to retrofit any gaps over time as you mature your security program.
 We recommend evaluating the following considerations when prioritizing which to
 follow first:
 
-- **High business impact and highly exposed systems:** These include systems with direct intrinsic value as well as the systems that provide attackers a path to them. For more information, see [Identify and classify business critical applications](./applications-services.md#identify-and-classify-business-critical-applications).
+- **High business impact and highly exposed systems:** These include systems with direct intrinsic value as well as the systems that provide attackers a path to them. For more information, see [Identify and classify business critical applications](./design-apps-services.md).
 
 - **Easiest to implement mitigations:** Identify quick wins by prioritizing the best practices, which your organization can execute quickly because you already have the required skills, tools, and knowledge to do it (for example, implementing a Web App Firewall (WAF) to protect a legacy application). Be careful not to exclusively use (or overuse) this short-term prioritization method. Doing so can increase your risk by preventing your program from growing and leaving critical risks exposed for extended periods.
 
 Microsoft has provided some prioritized lists of security initiatives to help organizations start with these decisions based on our experience with threats and mitigation initiatives in our own environments and across our customers. See [Module 4a](/office365/securitycompliance/ciso-workshop-module-4a)
-of the [Microsoft CISO Workshop](https://aka.ms/cisoworkshop).
+of the [Microsoft CISO Workshop](/security/ciso-workshop/ciso-workshop).
 
 ## Operationalize Azure Secure Score
 
@@ -126,7 +126,7 @@ applicable regulatory requirements are being followed.
 Ensure all Azure environments that connect to your production
 environment/network apply your organization’s policy and IT governance controls
 for security. You can discover existing connected tenants using a
-[tool](https://aka.ms/magicbutton) provided by Microsoft. Guidance on permissions
+[tool](/azure/role-based-access-control/elevate-access-global-admin?toc=%252fazure%252factive-directory%252fprivileged-identity-management%252ftoc.json) provided by Microsoft. Guidance on permissions
 you may assign to security is in the [Assign privileges for managing the
 environment](#assign-privileges-for-managing-the-environment) section.
 

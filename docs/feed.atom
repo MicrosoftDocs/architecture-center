@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id/>
     <title>the Azure Architecture Center</title>
-    <updated>2020-11-02T13:29:27.500Z</updated>
+    <updated>2020-11-08T17:39:31.922Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <subtitle>Updated articles for the Azure Architecture Center</subtitle>
     <category term="new"/>

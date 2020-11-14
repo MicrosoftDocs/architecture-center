@@ -133,5 +133,5 @@ Architect your Windows Virtual Desktop solution to realize cost savings. Here ar
 - FSLogix for the enterprise - best practices [documentation](./windows-virtual-desktop-fslogix.md)
 - Use the new [ARM templates](https://github.com/Azure/RDS-Templates/tree/master/ARM-wvd-templates) to automate the deployment of your Windows Virtual Desktop environment. These ARM templates support only Azure Resource Manager Windows Virtual Desktop objects. These ARM templates don't support Windows Virtual Desktop (classic). 
 - For multiple AD forests architecture, read [Multiple AD Forests Architecture in Windows Virtual Desktop](./multi-forest.md).
-- [Windows Virtual Desktop partner integrations](https://aka.ms/wvdpartner) lists approved Windows Virtual Desktop partner providers and independent software vendors.
+- [Windows Virtual Desktop partner integrations](/azure/virtual-desktop/partners) lists approved Windows Virtual Desktop partner providers and independent software vendors.
 - Use the resources at [Windows_10_VDI_Optimize](https://github.com/The-Virtual-Desktop-Team/Virtual-Desktop-Optimization-Tool) to help optimize performance in a Windows 10 Enterprise VDI environment.
