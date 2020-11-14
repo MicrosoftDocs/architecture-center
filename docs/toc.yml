@@ -1064,6 +1064,8 @@ items:
         href: hybrid/azure-arc-hybrid-config.md
       - name: Azure Automation in a hybrid environment
         href: hybrid/azure-automation-hybrid.md
+      - name: Azure enterprise cloud file share
+        href: hybrid/azure-files-private.md
       - name: Using Azure file shares in a hybrid environment
         href: hybrid/azure-file-share.md
       - name: Azure Functions in a hybrid environment
