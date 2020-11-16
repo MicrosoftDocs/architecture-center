@@ -1310,6 +1310,8 @@ items:
         href: example-scenario/iot/monitor-manage-loop.md
       - name: Analyze and optimize loop
         href: example-scenario/iot/analyze-optimize-loop.md
+      - name: Event routing
+        href: example-scenario/iot/event-routing.md
       - name: Solution scaling with application stamps
         href: example-scenario/iot/application-stamps.md
   - name: Management and Governance
