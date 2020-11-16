@@ -38,13 +38,13 @@ Project 15's goal with a conservation and ecosystem sustainability open platform
 
 1. **Included Components, but needs customization:** The solution will deploy services, but services will need to be modify based on different use cases. The details of the services here are all explained in the [Project 15 Open Platform Developer Guide](https://microsoft.github.io/project15/Developer-Guide/DeveloperGuide.html). The high level architecture of what services are involved, see below.  
 
-1. **Not Included, requires full customization:** This is the part where IP will reside. How this works is once you Deploy the solution to your own Azure account, **it is yours to build out**. Think of how you use a word processor. The word processor is a tool and the book you write, is yours. Meaning the story you publish is yours, the revenue generated is yours. Same idea. This solution is a tool for you to use to write your own solutions.
+1. **Not Included, requires full customization:** This is the part where intellectual property will reside. Once you deploy the solution to your own Azure account, **it is yours to build out**. Think of how you use a word processor. The word processor is a tool and the book you write, is yours. Meaning the story you publish is yours, the revenue generated is yours. Same idea. This solution is a tool for you to use to write your own solutions.
 
 ## Reference architecture
 
 ![Project 15 Open Platform Reference Architecture](../media/project-15-ref-architecture.png)
 
-Open Platform is consist of multiple Azure services and configurations/settings to:
+Open Platform consists of multiple Azure services and configurations/settings to:
 
 - Provision devices using Device Provisioning Service
 - Connect provisioned IoT Devices to IoT Hub
