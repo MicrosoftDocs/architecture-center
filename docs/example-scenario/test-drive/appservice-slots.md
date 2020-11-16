@@ -55,12 +55,16 @@ az webapp list --resource-group app-service-slots --output table
 
 ## Demo solution
 
-# [Azure CLI](#tab/azure-cli)
-
 Use the curl command to see the application content. Replace the URL with that from your application. The application should return 'Hello World', notice this it is malformed.
 
 ```azurecli-interactive
 curl wh7srjrdniwve.azurewebsites.net
+```
+
+The results will look similar to the following:
+
+```azurecli
+Hello, Wa*rld!
 ```
 
 Use the _az webapp deployment slot list_ command to return a list of application slots. Replace the application name with the name from your deployment.
@@ -75,27 +79,25 @@ Use the _az webapp deployment slot list_ command to swap the known good and prod
 az webapp deployment slot swap --slot KnownGood --target-slot production --resource-group app-service-slots --name wh7srjrdniwve 
 ```
 
+This can also be done in the Azure portal using the following UI found on the application.
+
+![](./images/portal2.png)
+
 Run the curl command again; this time, notice that the application returns _Hello World_. Replace the URL with that from your application.
 
 ```azurecli-interactive
 curl wh7srjrdniwve.azurewebsites.net
 ```
 
-# [Azure Portal](#tab/azure-portal)
+The results will look similar to the following:
 
-![](./images/portal1.png)
-
-![](./images/app1.png)
-
-![](./images/portal2.png)
-
-![](./images/portal3.png)
-
-![](./images/app2.png)
-
----
+```azurecli
+Hello, World!
+```
 
 ### Delete solution
+
+Once done with this solution experience, delete the resource group, which also deletes the App Service Plan and applications.
 
 ```azurecli-interactive
 az group delete --location eastus --name app-service-slots
