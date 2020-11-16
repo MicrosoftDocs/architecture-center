@@ -12,7 +12,7 @@ ms.custom:
 
 # Azure App Service deployment slot rollback
 
-When you deploy your web app, web app on Linux, mobile back end, or API app to Azure App Service, you can use a separate deployment slot instead of the default production slot when you're running in the Standard, Premium, or Isolated App Service plan tier. Deployment slots are live apps with their own host names. App content and configurations elements can be swapped between two deployment slots, including the production slot.
+When you deploy your web app, web app on Linux, mobile back end, or API app to Azure App Service, you can use a separate deployment slot instead of the default production slot when running in the Standard, Premium, or Isolated App Service plan tier. Deployment slots are live apps with their own hostnames. App content and configurations elements can be swapped between two deployment slots, including the production slot.
 
 ## Solution overview
 
@@ -38,25 +38,35 @@ az deployment group create \
     --template-uri https://raw.githubusercontent.com/neilpeterson/samples/appservice-slots-demo/OperationalExcellence/azure-appservice-slots/azuredeploy.json
 ```
 
+Once the deployment has completed, run the following command to return both the application name and URL.
+
 ```azurecli-interactive
-az webapp list --resource-group app-service-slots -output table
+az webapp list --resource-group app-service-slots --output table
 ```
 
 ## Demo solution
 
 # [Azure CLI](#tab/azure-cli)
 
+Use the curl command to see the application content. Replace the URL with that from your application. The application should return 'Hello World', notice this it is malformed.
+
 ```azurecli-interactive
 curl wh7srjrdniwve.azurewebsites.net
 ```
 
-```azurecli-interactive
-az webapp deployment slot list --resource-group slots018 --name wh7srjrdniwve -o table
-```
+Use the _az webapp deployment slot list_ command to return a list of application slots. Replace the application name with the name from your deployment.
 
 ```azurecli-interactive
-az webapp deployment slot swap --slot KnownGood --target-slot production --name wh7srjrdniwve --resource-group slots018
+az webapp deployment slot list --resource-group app-service-slots --name wh7srjrdniwve --output table
 ```
+
+Use the _az webapp deployment slot list_ command to swap the known good and production slot. Replace the application name with the name from your deployment.
+
+```azurecli-interactive
+az webapp deployment slot swap --slot KnownGood --target-slot production --resource-group app-service-slots --name wh7srjrdniwve 
+```
+
+Run the curl command again; this time, notice that the application returns _Hello World_. Replace the URL with that from your application.
 
 ```azurecli-interactive
 curl wh7srjrdniwve.azurewebsites.net
