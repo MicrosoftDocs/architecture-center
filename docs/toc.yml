@@ -271,8 +271,6 @@ items:
         href: framework/devops/release-engineering-app-dev.md
       - name: Continuous integration
         href: framework/devops/release-engineering-ci.md
-      - name: Continuous deployment
-        href: framework/devops/release-engineering-cd.md
       - name: Release testing
         href: framework/devops/release-engineering-testing.md
       - name: Performance
