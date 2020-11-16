@@ -1404,7 +1404,7 @@ items:
         href: example-scenario/infrastructure/service-fabric-microservices.md
       - name: SQL 2008 R2 failover cluster in Azure
         href: example-scenario/sql-failover/sql-failover-2008r2.md
-      - name: Modernize mainframe data with Azure
+      - name: Migrate mainframe data to Azure
         href: reference-architectures/migration/modernize-mainframe-data-to-azure.md
   - name: Mixed Reality
     items:
