@@ -2,7 +2,7 @@
 title: Design for scaling
 description: Describes the scaling options for performance efficiency
 author: v-aangie
-ms.date: 11/13/2020
+ms.date: 11/17/2020
 ms.topic: article
 ms.service: architecture-center
 ms.subservice: well-architected

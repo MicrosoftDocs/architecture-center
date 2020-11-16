@@ -2,7 +2,7 @@
 title: Plan for capacity
 description: Describes the capacity design options for performance efficiency
 author: v-aangie
-ms.date: 11/13/2020
+ms.date: 11/17/2020
 ms.topic: article
 ms.service: architecture-center
 ms.subservice: well-architected
@@ -34,7 +34,7 @@ To learn more about CDNs, see [General guidelines and good practices](https://do
 
 Large-scale application design takes careful planning and possibly involves complex implementation. Work with your business and marketing teams to prepare for large-scale events. Knowing if there will be sudden spikes in traffic such as Superbowl, Black Friday, or Marketing pushes, can allow you to prepare your infrastructure ahead of time.
 
-A fundamental design principle in Azure is to [scale-out](docs\framework\scalability\design-scale.md) by adding machines or service instances based on increased demand. Scaling out can be a better alternative to purchasing additional hardware, which may not be in your budget. Depending on your payment plan, you don't pay for idle VMs or need to reserve capacity in advance. A pay as you go plan is usually ideal for applications that need to meet planned spikes in traffic.
+A fundamental design principle in Azure is to scale out <!--link to design-scale-->by adding machines or service instances based on increased demand. Scaling out can be a better alternative to purchasing additional hardware, which may not be in your budget. Depending on your payment plan, you don't pay for idle VMs or need to reserve capacity in advance. A pay as you go plan is usually ideal for applications that need to meet planned spikes in traffic.
 
 > [!NOTE]
 > Don't plan for capacity to meet the highest level of expected demand. An inappropriate or misconfigured service can impact cost. For example, building a multiregion service when the service levels don't require high-availability or geo-redundancy will increase cost without reasonable business justification.
