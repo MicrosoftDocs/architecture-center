@@ -1,9 +1,11 @@
 ---
+title: Enterprise-level cloud file sync and share solution on Azure
+description: This reference architecture illustrates an enterprise-level cloud file sharing solution with Azure provided services including Azure Files, Azure File Sync, Azure Private DNS and Azure Private Endpoint, secure file storage and sharing infrastructure with Azure private link as well as AD DS authentication.  
 title: Azure enterprise cloud file share
 title-suffix: Azure Architecture Center
 description: Learn about an enterprise-level cloud file sharing solution that uses Azure Files, Azure File Sync, Azure Private DNS, and Azure Private Endpoint.  
 author: huangyingting
-ms.date: 09/19/2020
+ms.date: 11/19/2020
 ms.topic: example-scenario
 ms.service: architecture-center
 ms.category:
@@ -12,8 +14,6 @@ ms.category:
 ms.subservice: reference-architecture
 ms.custom: fcp
 ---
-
-# Enterprise-level cloud file share solution on Azure
 
 This reference architecture illustrates an enterprise-level cloud file sharing solution that uses Azure services including [Azure Files](https://azure.microsoft.com/services/storage/files/), [Azure File Sync](https://azure.microsoft.com/updates/azure-file-sync), [Azure Private DNS](/azure/dns/private-dns-overview), and [Azure Private Endpoint](/azure/private-link/private-endpoint-overview). The solution generates cost savings by outsourcing the management of file servers and infrastructure while retaining control of the data.
 
@@ -56,9 +56,6 @@ A Domain Name System (DNS) Server is a critical component of the solution. Each 
 
 After enabling a private endpoint, private IP addresses are allocated in the Azure virtual network. These addresses allow access to those services over a private connection, and the same FQDNs must now resolve to private IP addresses. To achieve that, Azure Files and Azure File Sync create a canonical name DNS record (CNAME) to redirect the resolution to a private domain name:
 
-- The Azure File Sync's public domain name `\*.afs.azure.net` gets a CNAME redirect to the private domain name `\*.\<region\>.privatelink.afs.azure.net`. 
-- The Azure Files public domain name `\<name\>.file.core.windows.net` gets a CNAME redirect to the private domain name `\<name\>.privatelink.file.core.windows.net`.
-
 The solution shown in this architecture correctly configures on-premises DNS settings so that they resolve private domain names to private IP addresses, by using the following methods:
 
 - Private DNS zones (components **11** and **12**) are created from Azure to provide private name resolution for Azure File Sync and Azure Files.
@@ -68,7 +65,6 @@ The solution shown in this architecture correctly configures on-premises DNS set
 - After receiving the forwarded DNS query from the on-premises DNS server, the DNS server (component **8**) in the Azure virtual network uses the Azure DNS recursive resolver to resolve private domain names and return private IP addresses to the client.
 
 ## Components
-
 The solution depicted in the architecture diagram uses the following components:
 
 1. **Client 1** - Typically, the client is a Windows, Linux, or Mac OSX desktop that can *talk* to a file server or Azure Files through the SMB protocol.
@@ -117,7 +113,11 @@ Private domain name resolution queries go through components **3**, **5**, **6**
 
 ## Considerations
 
+
+### Security and File Access Auditing
 Consider the following points when implementing this solution:
+- Locally, leverage Dynamic Access Control, for more information, see [Plan for File Access Auditing][plan-for-file-access-auditing].
+- Remotely, Azure Storage logs in Azure Monitor on Azure files contains StorageRead, StorageWrite, StorageDelete, and Transaction logs, Azure file access can be logged to storage account, log analytics workspace and stream to an event hub separately. For more information, see [Monitoring Azure Storage][monitor-storage].
 
 ### Planning
 
