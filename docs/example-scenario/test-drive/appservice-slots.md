@@ -16,7 +16,16 @@ When you deploy your web app, web app on Linux, mobile back end, or API app to A
 
 ## Solution overview
 
-![Reference architecture for a basic web application in Azure](./images/basic-web-app.png)
+This example solution deploys an Azure App Service Plan, with two additional slots, Staging, and KnownGood. A problematic application is deployed to the production slot, and a know good version deployed to the KnownGood slot. This solution demonstrates basic rollback between two deployment slots. Specifically, you can swap the Production and KnownGood slot to revert the application to a working state.
+
+![Reference architecture for a basic web application in Azure](./images/app-service-slots.png)
+
+The architecture consists of the following components:
+
+- [Azure App Service](https://docs.microsoft.com/azure/app-service/overview-hosting-plans): The App Service plan defines a set of compute resources for a web app to run. 
+- [Azure App Service](https://docs.microsoft.com/azure/app-service/overview): Azure App Service is an HTTP-based service for hosting web applications, REST APIs, and mobile back ends.
+- [Azure App Service Slots](https://docs.microsoft.com/azure/app-service/deploy-staging-slots): Deployment slots are live apps with their own hostnames. App content and configurations elements can be swapped between two deployment slots, including the production slot.
+- [Azure Front Door](https://docs.microsoft.com/azure/frontdoor/front-door-overview): Azure Front Door is a global, scalable entry-point that uses the Microsoft global edge network to create fast, secure, and widely scalable web applications.
 
 ## Solution video
 
