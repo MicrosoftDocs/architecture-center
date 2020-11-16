@@ -73,7 +73,7 @@ Use the _az webapp deployment slot list_ command to return a list of application
 az webapp deployment slot list --resource-group app-service-slots --name wh7srjrdniwve --output table
 ```
 
-Use the _az webapp deployment slot list_ command to swap the known good and production slot. Replace the application name with the name from your deployment.
+Use the _az webapp deployment slot swap command to swap the known good and production slot. Replace the application name with the name from your deployment.
 
 ```azurecli-interactive
 az webapp deployment slot swap --slot KnownGood --target-slot production --resource-group app-service-slots --name wh7srjrdniwve 
@@ -83,13 +83,13 @@ This can also be done in the Azure portal using the following UI found on the ap
 
 ![](./images/portal2.png)
 
-Run the curl command again; this time, notice that the application returns _Hello World_. Replace the URL with that from your application.
+Run the curl command again, replace the URL with that from your application.
 
 ```azurecli-interactive
 curl wh7srjrdniwve.azurewebsites.net
 ```
 
-The results will look similar to the following:
+This time, notice that the application returns _Hello World!_. 
 
 ```azurecli
 Hello, World!
