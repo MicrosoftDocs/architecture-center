@@ -36,10 +36,10 @@ The solution leverages Azure file sync to synchronize file/folder ACL between on
 
 By implementing private endpoint on Azure files and Azure file sync, accessing Azure files and Azure file sync are restricted from Azure virtual network (with public endpoint access are disabled on Azure files and Azure file sync). ExpressRoute private peering/VPN site to site tunnel extends on-premise network to Azure virtual network, Azure file sync and SMB traffics (from on-premises to Azure files and Azure file sync private endpoints) are restricted to private connection only. At transition, Azure Files will only allow the connection if it is made with SMB 3.0+, connections made from the Azure File Sync agent to Azure file share or Storage Sync Service are always encrypted. At rest, Azure Storage automatically encrypts your data when it is persisted to the cloud, it applys to Azure files as well.
 
-DNS is a critical component in above solution. Each Azure service, in our case is Azure files or Azure file sync service, has a FQDN. Orginally, when a client accesses Azure files share, or an Azure file sync agent (deployed at on-premises file server) accesses Azure file sync service, those services' FQDNs will be resolved to their public IP addresses. After enabling private endpoint, private IP addresses will be allocated in Azure virtual network to allow accessing those services over private connection, same FQDNs need to resolve to private IP addresses now. To achieve that, Azure files and Azure file sync will create a canonical name DNS record (CNAME) to redirect the resolution to private domain name. 
+DNS is a critical component in above solution. Each Azure service, in our case is Azure files or Azure file sync service, has a FQDN. Orginally, when a client accesses Azure files share, or an Azure file sync agent (deployed at on-premises file server) accesses Azure file sync service, those services' FQDNs will be resolved to their public IP addresses. After enabling private endpoint, private IP addresses will be allocated in Azure virtual network to allow accessing those services over private connection, same FQDNs need to resolve to private IP addresses now. To achieve that, Azure files and Azure file sync will create a canonical name DNS record (CNAME) to redirect the resolution to private domain name.
 
 - Azure file sync's public domain names \*.afs.azure.net will have CNAMEs redirect to private domain name \*.\<region\>.privatelink.afs.azure.net. 
-- Azure files public domain name \<name\>.file.core.windows.net will have a CNAME redirect to private domain name \<name\>.privatelink.file.core.windows.net. 
+- Azure files public domain name \<name\>.file.core.windows.net will have a CNAME redirect to private domain name \<name\>.privatelink.file.core.windows.net.
 
 It is important to correctly configure on-premise DNS settings to resolve private domain name to private IP address. In the solution above:
 
@@ -62,6 +62,8 @@ It is important to correctly configure on-premise DNS settings to resolve privat
 - **ExpressRoute/VPN Gateway**(component 6) – ExpressRoute is a service lets you extend your on-premises networks into the Microsoft cloud over a private connection facilitated by a connectivity provider. VPN Gateway is a specific type of virtual network gateway that is used to send encrypted traffic between an Azure virtual network and an on-premises location over the public Internet. ExpressRoute or VPN Gateway is used to establish ExpressRoute or VPN connection to customer’s on-premises network.
 
 - **Azure Private Endpoint**(component 7) - is a network interface that connects you privately and securely to a service powered by Azure Private Link, in our case, Azure file sync private endpoint connects to Azure file sync, and Azure files private endpoint connects to Azure files.
+
+- After receiving a forwarded DNS query from an on-premises DNS server, DNS server (component 8) in Azure virtual network uses Azure DNS recursive resolver to resolve private domain name and return private IP address to client.
 
 - **Azure File Sync & Cloud Tiering**(component 9) – Azure File Sync is a service offered by Azure to centralize your organization's file shares in Azure, while keeping the flexibility, performance, and compatibility of an on-premises file server. Cloud tiering is an optional feature of Azure File Sync in which frequently accessed files are cached locally on the server while all other files are tiered to Azure Files based on policy settings.
 
@@ -106,12 +108,12 @@ For Azure files networking considerations, refer to [Azure Files networking cons
 
 When dealing with name resolution for Private Endpoints, in order to resolve private domain name of Azure files and Azure file sync.
 
-From Azure side, 
+From Azure side:
 
 - If Azure-provided name resolution is used, Azure virtual network needs to link to provisioned private DNS zones.
 - If "bring your own DNS server" is used, the virtual network where your own DNS server deployed, needs to link to provisioned private DNS zones.
 
-From on-premises side, all it needs is to map private domain name to private IP address, 
+From on-premises side, all it needs is to map private domain name to private IP address:
 
 - This can be done through DNS forwarding to a DNS server deployed in Azure virtual network, which is described in above architectural design.
 - Or, on-premises DNS server can set up zones for private domain \<region\>.privatelink.afs.azure.net and privatelink.file.core.windows.net, register Azure files and Azure file sync private endpoint's IP addresses as DNS A records into respective DNS zones, so on-premises client can resolve private domain name directly from local on-premises DNS server.
