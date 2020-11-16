@@ -267,8 +267,6 @@ items:
         href: framework/devops/automation-tasks.md
     - name: Release engineering
       items:
-      - name: Release engineering overview
-        href: framework/devops/release-engineering-overview.md
       - name: Application development
         href: framework/devops/release-engineering-app-dev.md
       - name: Continuous integration
@@ -285,10 +283,6 @@ items:
       items:
       - name: Monitoring
         href: framework/devops/monitoring.md
-    - name: Governance and Maintenance
-      items:
-      - name: Governance
-        href: framework/devops/governance.md
     - name: Checklist
       href: checklist/dev-ops.md
   - name: Performance Efficiency
