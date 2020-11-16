@@ -35,7 +35,7 @@ Docker Desktop is an application that provides a Docker environment on your deve
 
 **Learn more**
 
-- [Docker Desktop](https://docs.microsoft.com/windows/wsl/)
+[Docker Desktop](https://docs.microsoft.com/windows/wsl/)
 
 ### Windows Subsystem for Linux
 
@@ -43,7 +43,7 @@ Many applications and solutions are built on Linux. Windows Subsystem for Linux 
 
 **Learn more**
 
-- [Documentation: Windows Subsystem for Linux Documentation](https://www.docker.com/products/docker-desktop)
+[Documentation: Windows Subsystem for Linux Documentation](https://www.docker.com/products/docker-desktop)
 
 ### Bridge to Kubernetes
 
@@ -94,7 +94,7 @@ GitHub is a popular source control system that uses Git. In addition to core Git
 
 **Learn more**
 
-- [GitHub](https://github.com)
+[GitHub](https://github.com)
 
 ### Azure Repos
 
@@ -102,7 +102,7 @@ Azure DevOps is a collection of services for building, collaborating on, testing
 
 **Learn more**
 
-- [Documentation: Azure Repos](https://docs.microsoft.com/azure/devops/repos/?view=azure-devops&preserve-view=true)
+[Documentation: Azure Repos](https://docs.microsoft.com/azure/devops/repos/?view=azure-devops&preserve-view=true)
 
 ## Next steps
 

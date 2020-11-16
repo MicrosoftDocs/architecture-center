@@ -18,6 +18,8 @@ When deploying an application to Azure App Service, consider utilizing deploymen
 
 ![Image of Azure DevOps pipeline tests in the Azure DevOps portal.](../_images/devops/app-service-slots.png)
 
+**Learn more**
+
 If you would like to experience out Azure App Service deployment slots, try out this 15-minute hands-on solution experience.
 
 > [!div class="nextstepaction"]
@@ -69,6 +71,8 @@ For more information, see [Kubernetes Deployments](https://kubernetes.io/docs/co
 A deployment record is created when deploying Azure infrastructure and solutions with Azure Resource Manager (ARM) templates. When creating a new deployment, you can provide a previously known good deployment so that if the current deployment fails, the previous know good deployment is redeployed. There are several considerations and caveats when using this functionality. See the documentation linked below for these details.
 
 :::image type="content" source="../_images/devops/arm-deployments.png" alt-text="Image showing Azure Resource Manager Deployments in the Azure portal." lightbox="../_images/devops/arm-deployments-full.png":::
+
+**Learn more**
 
 For more information, see [Rollback on an error to successful deployment](https://docs.microsoft.com/azure/azure-resource-manager/templates/rollback-on-error)
 

@@ -92,7 +92,6 @@ curl wh7srjrdniwve.azurewebsites.net
 az group delete --location eastus --name app-service-slots
 ```
 
-
 ## Next steps
 
 > [!div class="nextstepaction"]
