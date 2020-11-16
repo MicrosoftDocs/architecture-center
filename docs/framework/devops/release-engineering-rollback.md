@@ -14,12 +14,20 @@ In some cases, a new software deployment can harm or degrade the functionality o
 
 ## Azure App Service
 
-When deploying an application to Azure App Service, consider utilizing deployment slots. Deployment slots are running instances of the application, each with a separate host name, and can be used to stage and test applications before promoting to a production slot. A deployment slot can be created to hold the last known good instance of your application. In the event of an issue or problematic deployment, the production slot can be swapped with the know good slot to bring the application back to a known good state. 
+When deploying an application to Azure App Service, consider utilizing deployment slots. Deployment slots are running instances of the application, each with a separate hostname, and can be used to stage and test applications before promoting to a production slot. A deployment slot can be created to hold the last known good instance of your application. In the event of an issue or problematic deployment, the production slot can be swapped with the know good slot to bring the application back to a known good state. 
+
+![Image of Azure DevOps pipeline tests in the Azure DevOps portal.](../_images/devops/app-service-slots.png)
+
+If you would like to experience out Azure App Service deployment slots, try out this 15-minute hands-on solution experience.
+
+> [!div class="nextstepaction"]
+> [Azure App Service Deployment Slots](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Freview.docs.microsoft.com%2Fen-us%2Fazure%2Farchitecture%2Fexample-scenario%2Ftest-drive%2Fappservice-slots%3Fbranch%3Dpr-en-us-2043&data=04%7C01%7CNeil.Peterson%40microsoft.com%7C50e0c256018b4a420b6c08d88a541d7c%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637411441173881460%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C1000&sdata=8sV%2FeZEkH9MDYxtCl7MTl5zRKTTAMXndpWir9l3%2BcKE%3D&reserved=0)
+
+**Learn more**
 
 See the following documentation for more information.
 
 - For more information, see [Set up staging environments in Azure App Service](https://docs.microsoft.com/azure/app-service/deploy-staging-slots)
-- [Code Samples: App Service Deployment Slots]()
 
 ## Azure Kubernetes Service (AKS)
 
@@ -56,6 +64,8 @@ deployment.apps/demorollback rolled back
   Volumes:      <none>
 ```
 
+**Learn more**
+
 For more information, see [Kubernetes Deployments](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/)
 
 ## Azure Resource Manager (ARM) deployments
@@ -71,5 +81,7 @@ For more information, see [Rollback on an error to successful deployment](https:
 When making changes to an Azure logic application, a new version of the application is created. Azure maintains a history of versions and can revert or promote any previous version. To do so, in the Azure portal, select your logic app > **Versions**. Previous versions can be selected on the versions pane, and the application can be inspected both in the code view and the visual designer view. Select the version you would like to revert to, and click the **Promote** option and then **Save**.
 
 :::image type="content" source="../_images/devops/revert-logic-app.png" alt-text="Image showing Azure logic application version history." lightbox="../_images/devops/revert-logic-app-full.png":::
+
+**Learn more**
 
 For more information, see [Manage logic apps in the Azure portal](https://docs.microsoft.com/azure/logic-apps/manage-logic-apps-with-azure-portal)

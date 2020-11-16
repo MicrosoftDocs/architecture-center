@@ -35,6 +35,8 @@ A continuous integration pipeline involves a piece of software, in many cases, c
 
 Many solutions provide continuous integration pipeline capabilities. This article touches on both Azure DevOps Pipelines and GitHub actions and provides links to find more information.
 
+**Learn more**
+
 To learn how to create a continuous integration pipeline, see these articles:
 
 - [Azure DevOps: Create your first pipeline](https://docs.microsoft.com/azure/devops/pipelines/create-first-pipeline?view=azure-devops&preserve-view=true).
@@ -85,6 +87,8 @@ The following image shows the test results as seen in the Azure DevOps portal.
 Many developers like to show that they're keeping their code quality high by displaying a status badge in their repo. The following image shows an Azure Pipelines badge as displayed on the Readme file for an open-source project on GitHub.
 
 ![Image of Azure DevOps integration with GitHub.](../_images/devops/github-status-badge.png)
+
+**Learn more**
 
 To learn how to display badges in your repositories, see these articles:
 
