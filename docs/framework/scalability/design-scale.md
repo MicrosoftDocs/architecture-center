@@ -59,6 +59,8 @@ Many of the Azure compute services offer autoscale to ensure the right amount of
 
 The way it works is that metrics are collected for the resource (CPU and memory utilization) and the application (requests queued and requests per second). Rules can then be created off those metrics and time schedules to add and remove instances depending on how the rule evaluates. An [App Services](https://docs.microsoft.com/azure/app-service/overview-hosting-plans#how-does-my-app-run-and-scale) App Plan allows autoscale rules to be set for scale-out/scale-in and scale-up/scale-down. Scaling also applies to [Azure Automation](https://docs.microsoft.com/azure/automation/automation-intro).
 
+:::image type="icon" source="../../_images/github.png" border="false"::: The [Application Service autoscaling](https://github.com/mspnp/samples/tree/master/PerformanceEfficiency/AppServiceAutoscalingSample) sample shows how to create an Azure App Service plan which includes an Azure App Service. Then you'll deploy a basic Asp.Net Core MVC application that you can use to simulate a CPU spike.
+
 [Azure Kubernetes Service](https://docs.microsoft.com/azure/aks/intro-kubernetes) (AKS) offers two levels of autoscale:
 
 - **Horizontal autoscale** - Can be enabled on service containers to add more or fewer pod instances within the cluster.
@@ -74,7 +76,7 @@ Other Azure services include the following:
 Each service documents its autoscale capabilities. Review [Autoscale overview](https://docs.microsoft.com/azure/azure-monitor/platform/autoscale-overview) for a general discussion on Azure platform autoscale.
 
 > [!NOTE]
-> Autoscaling mostly applies to compute resources. While it's possible to horizontally scale a database or message queue, this usually involves data partitioning, which is generally not automated.
+> Autoscaling mostly applies to compute resources. While it's possible to horizontally scale a database or message queue, this usually involves data partitioning, which isn't generally automated.
 >
 > Some Azure services don't have the built-in ability to autoscale. If your application isn't configured to scale out automatically as load increases, it's possible that your application's services will fail if they become saturated with user requests. See [Azure Automation](https://docs.microsoft.com/azure/virtual-desktop/set-up-scaling-script) for possible solutions.
 
