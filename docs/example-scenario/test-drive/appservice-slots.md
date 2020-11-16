@@ -1,6 +1,6 @@
 ---
-title: Automated Tasks
-description: Automated Tasks
+title: Azure App Service deployment slot rollback
+description: Azure App Service deployment slot rollback
 author: neilpeterson
 ms.date: 10/15/2020
 ms.topic: conceptual
@@ -81,7 +81,7 @@ az webapp deployment slot swap --slot KnownGood --target-slot production --resou
 
 This can also be done in the Azure portal using the following UI found on the application.
 
-![](./images/portal2.png)
+![Image showing Azure App Serivices deployment slots.](./images/portal2.png)
 
 Run the curl command again, replace the URL with that from your application.
 
