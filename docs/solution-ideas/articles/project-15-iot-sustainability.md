@@ -1,7 +1,7 @@
 ---
 title: Project 15 from Microsoft Open Platform for Conservation and Ecological Sustainability Solutions
 titleSuffix: Azure Solution Ideas
-author: pacorte
+author: AltaOhms
 description: Learn how to use Project 15 reference architecture and conservation and ecosystem sustainability open platform to bring the latest Microsoft cloud and Internet of Things (IoT) technologies to accelerate scientific teams building solutions like species tracking & observation, poaching prevention, ecosystem monitoring, pollution detection, etc.
 ms.date: 11/09/2020
 ms.custom: iot, fcp
@@ -15,15 +15,7 @@ ms.category:
 
 [Project 15 from Microsoft](https://aka.ms/project15) mission is to empower scientists and conservationists around the world to capture and analyze the data they need to preserve critical species and ecosystems.
 
-<<<<<<< Updated upstream
-Project 15 approach is to pair a community of developers, students and partners with conservation teams around the world, backed with the power of the Microsoft cloud and our IoT Open Platform. Part of this approach is the Project 15 Open Platform, which is an open source software designed and built by Microsoft to connect to the cloud, manage and secure devices used in conservation and sustainability projects.
-
-Goals of the Project 15 Open Platform and outreach was the following:
-=======
-Project 15 approach is to pair a community of developers, students and partners with conservation teams around the world, backed with the power of the Microsoft cloud and our IoT Open Platform. Part of this approach is the Project 15 Open Platform, which is an open source software designed and built by Microsoft to connect to the cloud, manage and secure devices used in conservation projects.
-
-The Project 15 Open Platform will get teams roughly 80% of the way to a finished solution. This article showcases how to get started with deploying the IoT solutions. Goals of Project 15 Open Platform:
->>>>>>> Stashed changes
+Project 15 approach is to pair a community of developers, students and partners with conservation teams around the world, backed with the power of the Microsoft cloud and our IoT Open Platform. Part of this approach is the Project 15 Open Platform, which is an open source software designed and built by Microsoft to connect to the cloud, manage and secure devices used in conservation projects. The Project 15 Open Platform will get teams roughly 80% of the way to a finished solution and the architecture can be used as a reference in your building related end to end IoT solutions. This article showcases how to get started with deploying the IoT solutions. Project 15 Open Platform can help teams with the following:
 
 1. **Close the Skill Gap**  
     Boost innovation with a ready-made platform, allowing the scientific developer to expand into specific use cases.
@@ -40,7 +32,7 @@ Project 15's goal with a conservation and ecosystem sustainability open platform
 
 ## Solution Overview
 
-![Project 15 Open Platform Reference Architecture](../media/project-15-open-platform-overview.png)
+![Project 15 Open Platform Overview Architecture](../media/project-15-open-platform-overview.png)
 
 1. **Components that are fully included:** These components are Azure Services that only need to be deployed once and then expanded as devices get added to the solution.
 
