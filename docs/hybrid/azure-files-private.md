@@ -71,27 +71,27 @@ The solution shown in this architecture correctly configures on-premises DNS set
 
 The solution depicted in the architecture diagram uses the following components:
 
-- **Client** (component 1 or 2) - Typically, the client is a Windows, Linux, or Mac OSX desktop that can *talk* to a file server or Azure Files through the SMB protocol.
+- **Client** (component **1** or **2**) - Typically, the client is a Windows, Linux, or Mac OSX desktop that can *talk* to a file server or Azure Files through the SMB protocol.
 
-- **DC and DNS servers** (component 3) - A Domain Controller (DC) is a server that responds to authentication requests and verifies users on computer networks. A DNS server provides computer name-to-IP address-mapping name resolution services to computers and users. DC and DNS servers can be combined into a single server or can be separated into different servers.
+- **DC and DNS servers** (component **3**) - A Domain Controller (DC) is a server that responds to authentication requests and verifies users on computer networks. A DNS server provides computer name-to-IP address-mapping name resolution services to computers and users. DC and DNS servers can be combined into a single server or can be separated into different servers.
 
-- **File server** (component 4) - A server that hosts file shares and provides file share services through the SMB protocol.
+- **File server** (component **4**) - A server that hosts file shares and provides file share services through the SMB protocol.
 
-- **CE/VPN Device** (component 5) - A Customer edge router (CE) or VPN Device is used to establish ExpressRoute or VPN connection to the Azure virtual network.
+- **CE/VPN Device** (component **5**) - A Customer edge router (CE) or VPN Device is used to establish ExpressRoute or VPN connection to the Azure virtual network.
 
-- **ExpressRoute/VPN Gateway** (component 6) – ExpressRoute is a service that lets you extend your on-premises network into the Microsoft cloud over a private connection facilitated by a connectivity provider. VPN Gateway is a specific type of virtual network gateway that is used to send encrypted traffic between an Azure virtual network and an on-premises location over the public internet. ExpressRoute or VPN Gateway establishes ExpressRoute or VPN connection to your on-premises network.
+- **ExpressRoute/VPN Gateway** (component **6**) – ExpressRoute is a service that lets you extend your on-premises network into the Microsoft cloud over a private connection facilitated by a connectivity provider. VPN Gateway is a specific type of virtual network gateway that is used to send encrypted traffic between an Azure virtual network and an on-premises location over the public internet. ExpressRoute or VPN Gateway establishes ExpressRoute or VPN connection to your on-premises network.
 
-- **Azure Private Endpoint** (component 7) - A network interface that connects you privately and securely to a service powered by [Azure Private Link](https://azure.microsoft.com/services/private-link/). In this solution, an Azure File Sync private endpoint connects to Azure File Sync (**9**), and an Azure Files private endpoint connects to Azure Files (**10**).
+- **Azure Private Endpoint** (component **7**) - A network interface that connects you privately and securely to a service powered by [Azure Private Link](https://azure.microsoft.com/services/private-link/). In this solution, an Azure File Sync private endpoint connects to Azure File Sync (**9**), and an Azure Files private endpoint connects to Azure Files (**10**).
 
-- After receiving a forwarded DNS query from an on-premises DNS server, **DNS server** (component **8**) in the Azure virtual network uses the Azure DNS recursive resolver to resolve the private domain name and return a private IP address to the client.
+- After receiving a forwarded DNS query from an on-premises DNS server, the **DNS server** (component **8**) in the Azure virtual network uses the Azure DNS recursive resolver to resolve the private domain name and return a private IP address to the client.
 
-- **Azure File Sync and Cloud tiering** (component 9) – Azure File Sync is a service offered by Azure to centralize your organization's file shares in Azure, while keeping the flexibility, performance, and compatibility of an on-premises file server. Cloud tiering is an optional feature of Azure File Sync in which frequently accessed files are cached locally on the server while all other files are tiered to Azure Files based on policy settings.
+- **Azure File Sync and Cloud tiering** (component **9**) – Azure File Sync is a service offered by Azure to centralize your organization's file shares in Azure, while keeping the flexibility, performance, and compatibility of an on-premises file server. Cloud tiering is an optional feature of Azure File Sync in which frequently accessed files are cached locally on the server while all other files are tiered to Azure Files based on policy settings.
 
-- **Azure Files** (component 10) - A fully managed service that offers file shares in the cloud that are accessible via the industry standard Server Message Block (SMB) protocol. Azure Files implements the SMB v3 protocol and supports authentication through on-premises Active Directory Domain Services (AD DS) and Azure Active Directory Domain Services (Azure AD DS). File shares from Azure Files can be mounted concurrently by cloud or on-premises deployments of Windows, Linux, and macOS. Additionally, Azure file shares can be cached nearer to where the data is being used, on Windows Servers with Azure File Sync for fast access.
+- **Azure Files** (component **10**) - A fully managed service that offers file shares in the cloud that are accessible via the industry standard Server Message Block (SMB) protocol. Azure Files implements the SMB v3 protocol and supports authentication through on-premises Active Directory Domain Services (AD DS) and Azure Active Directory Domain Services (Azure AD DS). File shares from Azure Files can be mounted concurrently by cloud or on-premises deployments of Windows, Linux, and macOS. Additionally, Azure file shares can be cached nearer to where the data is being used, on Windows Servers with Azure File Sync for fast access.
 
-- **Azure Private DNS** (components 11 and 12) - A DNS service, offered by Azure, to manage and resolve domain names in a virtual network without the need to add a custom DNS solution.
+- **Azure Private DNS** (components **11** and **12**) - A DNS service, offered by Azure, to manage and resolve domain names in a virtual network without the need to add a custom DNS solution.
 
-- **Azure Backup** (component 13) - An Azure file share backup that uses file share snapshots to provide a cloud-based backup solution. For considerations, see [Data loss and backup](#data-loss-and-backup).
+- **Azure Backup** (component **13**) - An Azure file share backup that uses file share snapshots to provide a cloud-based backup solution. For considerations, see [Data loss and backup](#data-loss-and-backup).
 
 ## Traffic flows
 
