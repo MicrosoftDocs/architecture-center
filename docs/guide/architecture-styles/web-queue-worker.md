@@ -6,7 +6,7 @@ author: doodlemania2
 ms.date: 04/10/2019
 ms.topic: conceptual
 ms.service: architecture-center
-ms.subservice: cloud-fundamentals
+ms.subservice: guide
 ms.custom:
   - seojan19
   - guide

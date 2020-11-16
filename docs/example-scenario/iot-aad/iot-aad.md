@@ -13,6 +13,7 @@ ms.custom:
   - fcp
   - example-scenario
 social_image_url: /azure/architecture/example-scenario/iot-aad/media/multi-tenant-iot.png
+ms.subservice: example-scenario
 ---
 
 <!--cSpell:ignore knicholasa ISV's Woodgrove ecommerce SAML Gmail -->

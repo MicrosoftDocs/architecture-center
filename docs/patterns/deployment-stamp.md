@@ -6,7 +6,7 @@ author: johndowns
 ms.date: 11/26/2019
 ms.topic: conceptual
 ms.service: architecture-center
-ms.subservice: cloud-fundamentals
+ms.subservice: design-pattern
 ms.custom:
   - fasttrack-new
   - fcp

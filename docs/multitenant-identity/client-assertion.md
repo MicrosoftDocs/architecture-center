@@ -10,7 +10,7 @@ ms.category:
 ms.custom:
   - has-adal-ref
   - guide
-ms.subservice: reference-architecture
+ms.subservice: azure-guide
 ---
 
 # Use client assertion to get access tokens from Azure AD

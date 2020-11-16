@@ -6,7 +6,7 @@ author: dsk-2015
 ms.date: 08/08/2020
 ms.topic: conceptual
 ms.service: architecture-center
-ms.subservice: reference-architecture
+ms.subservice: guide
 ms.custom:
   - guide
 ---

@@ -9,7 +9,7 @@ ms.service: architecture-center
 ms.category:
   - hybrid
   - networking
-ms.subservice: reference-architecture
+ms.subservice: azure-guide
 ms.custom:
   - networking
   - article

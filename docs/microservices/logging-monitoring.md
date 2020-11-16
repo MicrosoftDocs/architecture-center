@@ -8,7 +8,7 @@ ms.service: architecture-center
 ms.category:
   - management-and-governance
   - developer-tools
-ms.subservice: reference-architecture
+ms.subservice: azure-guide
 ms.custom:
   - microservices
   - guide

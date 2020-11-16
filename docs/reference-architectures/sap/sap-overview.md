@@ -11,6 +11,7 @@ ms.custom:
 ms.category:
   - databases
   - compute
+ms.subservice: reference-architecture
 ---
 
 # SAP on Azure Architecture Guide
