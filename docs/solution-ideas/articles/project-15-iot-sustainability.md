@@ -11,11 +11,11 @@ ms.category:
   - iot
 ---
 
-# Project 15 Open Platform for Conservation and Ecological Sustainability Solutions
+# Project 15 from Microsoft Open Platform for Conservation and Ecological Sustainability Solutions
 
-[Project 15 from Microsoft](https://aka.ms/project15) mission is to empower scientists and conservationists around the world to capture and analyze the data they need to preserve critical species and ecosystems.
+[Project 15 from Microsoft's](https://aka.ms/project15) mission is to empower scientists and conservationists around the world to capture and analyze the data they need to preserve critical species and ecosystems.
 
-Project 15 approach is to pair a community of developers, students and partners with conservation teams around the world, backed with the power of the Microsoft cloud and our IoT Open Platform. Part of this approach is the Project 15 Open Platform, which is an open source software designed and built by Microsoft to connect to the cloud, manage and secure devices used in conservation projects. The Project 15 Open Platform will get teams roughly 80% of the way to a finished solution and the architecture can be used as a reference in your building related end to end IoT solutions. This article showcases how to get started with deploying the IoT solutions. Project 15 Open Platform can help teams with the following:
+Project 15 approach is to pair a community of developers, students and partners with conservation teams around the world, backed with the power of the Microsoft cloud and our IoT Open Platform. Part of this approach is the Project 15 Open Platform, which is an open source software designed and built by Microsoft to connect to the cloud, manage and secure devices used in conservation projects. The Project 15 Open Platform will get teams roughly 80% of the way to a finished solution. Also, teams can refer to the architecture to help them build their own end to end IoT solutions. Project 15 Open Platform can help teams with the following:
 
 1. **Close the Skill Gap**  
     Boost innovation with a ready-made platform, allowing the scientific developer to expand into specific use cases.
@@ -24,7 +24,7 @@ Project 15 approach is to pair a community of developers, students and partners 
 1. **Lower the development cost**  
     The Open Platform lowers the cost of overall development and reduces complexity. Opens up opportunities for partnering with the Open Source developer community and universities.
 
-The Project 15 Open Platform will get teams roughly 80% of the way to a finished solution. With deployment to Azure in a **push of a button**, the main components of the infrastructure for a standard IoT Solution will be up and running. There is documentation of the common scenarios for simulation of device data, connection of a device, and over time the Project 15 team will grow enablement on the [Project 15 YouTube Channel](https://aka.ms/project15video) and other Microsoft Learning channels.
+ With deployment to Azure in a **push of a button**, the main components of the infrastructure for a standard IoT Solution will be up and running. There is documentation of the common scenarios for simulation of device data, connection of a device, and over time the Project 15 team will grow enablement on the [Project 15 YouTube Channel](https://aka.ms/project15video) and other Microsoft Learning channels.
 
 ## Potential Solutions
 
