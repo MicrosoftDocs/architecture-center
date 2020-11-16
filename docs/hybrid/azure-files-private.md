@@ -176,7 +176,7 @@ Security Auditing is one of the most needed requirements to help maintain the se
 [About Azure file share backup][azure-file-share-backup-overview]
 
 [architectural-diagram]: ./images/azure-files-private.png
-[architectural-diagram-visio-source]: ./diagrams/azure-files-private.vsdx
+[architectural-diagram-visio-source]: https://archcenter.blob.core.windows.net/cdn/azure-files-private.vsdx
 [storage-files-planning]: https://docs.microsoft.com/azure/storage/files/storage-files-planning
 [storage-files-deployment-guide]: https://docs.microsoft.com/azure/storage/files/storage-files-deployment-guide
 [storage-files-networking-endpoints]: https://docs.microsoft.com/azure/storage/files/storage-files-networking-endpoints
