@@ -11,7 +11,7 @@ ms.category:
   - iot
 ---
 
-# Project 15 Open Platform for Conservation and Ecological Sustainability Solutions
+# Project 15 from Microsoft Open Platform for Conservation and Ecological Sustainability Solutions
 
 [Project 15 from Microsoft's](https://aka.ms/project15) mission is to empower scientists and conservationists around the world to capture and analyze the data they need to preserve critical species and ecosystems. 
 
