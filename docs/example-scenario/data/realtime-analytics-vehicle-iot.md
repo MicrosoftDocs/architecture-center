@@ -188,7 +188,7 @@ The data flows through the solution as follows:
     Sphere Device Certificate for IoT Edge.
 
 -   Review the [Azure IoT Reference
-    Architecture](https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/iot/)
+    Architecture](https://docs.microsoft.com/azure/architecture/reference-architectures/iot/)
     that shows a recommended architecture for IoT applications on Azure using
     PaaS (platform-as-a-service) components.
 
