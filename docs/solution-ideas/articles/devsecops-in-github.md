@@ -69,6 +69,7 @@ GitHub DevSecOps installations cover many security scenarios. Possibilities incl
 
 [GitHub Security][GitHub Security] provides multiple features for addressing security risks:
 
+- [Secret scanning][GitHub secret scanning] inspects repositories or commits for any tokens, keys, or secrets that might inadvertently hide in code. Teams can be notified that secrets have leaked into public view, and service providers can be notified that one of their secrets leaked. Service providers can optionally revoke or renew the secrets.
 - [Code scanning][GitHub code scanning] inspects code for known vulnerabilities and coding errors. As an example, if a developer leaves a database connection string exposed in code, this feature discovers the secret. After verifying its validity with the database, GitHub starts the process of obtaining an uncompromised string. These checks use [CodeQL][CodeQL], a code analysis platform that improves upon traditional analyzers by treating code as data. Scans automatically run at scheduled times or after certain events occur, like commits or pushes.
 - [GitHub Dependabot][GitHub Dependabot] checks for outdated or vulnerable packages and applications. This automated agent updates software, replacing out-of-date or insecure dependencies with newer, secure versions. For instance, if your project uses an open-source library, Dependabot examines that library. Suppose the library doesn't encrypt sensitive cleartext that it stores in a database. In this case, Dependabot creates a PR to upgrade the library to a version that encrypts the data.
 - [Vulnerability management][GitHub vulnerability management] identifies and updates known vulnerabilities in code and in software packages that the code uses. It runs checks whenever the following events occur:
@@ -138,6 +139,7 @@ For long-running or complex Actions, host your own runners for CI/CD jobs. You c
 - Scan your code using the CodeQL analysis engine. CodeQL can discover potential vulnerabilities and coding errors. It can run both on a schedule and when events occur, such as a commit or a PR creation. See [About code scanning][GitHub code scanning].
 - Make sure to [configure Dependabot security updates][Configure Dependabot security updates], which can remove known threats from projects.
 - You can augment the code-scanning capabilities of GitHub by adding [GitHub third-party code-scanning tools][GitHub code scanning] that produce Static Analysis Results Interchange Format (SARIF) files. GitHub then creates alerts when those tools identify potential security issues.
+- GitHub Security features vary based on an organization's licensing, and the visibility of a repository (public or private). See [Plans for all developers][GitHub pricing].
 
 ## Next steps
 
@@ -169,6 +171,7 @@ For long-running or complex Actions, host your own runners for CI/CD jobs. You c
 [Azure Policy]: /azure/governance/policy/overview
 [Azure Security Center]: /azure/security-center/security-center-intro
 [Azure Monitor]: /azure/azure-monitor/overview
+[GitHub secret scanning]: https://docs.github.com/en/free-pro-team@latest/github/administering-a-repository/about-secret-scanning
 [GitHub code scanning]: https://docs.github.com/en/github/finding-security-vulnerabilities-and-errors-in-your-code/about-code-scanning
 [CodeQL]: https://securitylab.github.com/tools/codeql
 [GitHub Dependabot]: https://docs.github.com/en/free-pro-team@latest/github/administering-a-repository/about-dependabot-version-updates
@@ -187,6 +190,7 @@ For long-running or complex Actions, host your own runners for CI/CD jobs. You c
 [GitHub Enterprise highly available failover configuration]: https://docs.github.com/en/enterprise/2.21/admin/enterprise-management/about-high-availability-configuration
 [Configure Dependabot security updates]: https://docs.github.com/en/github/managing-security-vulnerabilities/configuring-github-dependabot-security-updates
 [DevSecOps in Azure]: ./devsecops-in-azure.md
+[GitHub pricing] https://github.com/pricing
 [GitHub DevSecOps training materials]: https://github.com/devsecops/awesome-devsecops
 [GitHub DevSecOps getting started tips]: https://resources.github.com/whitepapers/Architects-guide-to-DevOps/
 [SARIF]: https://docs.github.com/en/github/finding-security-vulnerabilities-and-errors-in-your-code/sarif-support-for-code-scanning
