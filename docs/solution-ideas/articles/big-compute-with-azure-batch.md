@@ -23,15 +23,12 @@ This solution implements a cloud-native application with Azure Batch, which prov
 
 This solution is built on managed services including Virtual Machines, Storage, and Batch. These Azure services run in a high-availability environment, patched and supported, allowing you to focus on your solution.
 
-The links to the right provide documentation on deploying and managing the Azure products listed in the solution architecture above.
+The links below provide documentation on deploying and managing the Azure products that are included in this solution idea:
 
-[Batch documentation](/azure/batch)
-
-[Virtual Machines](https://azure.microsoft.com/services/virtual-machines)
-
-[Azure Batch](https://azure.microsoft.com/services/batch)
-
-[Azure Blob Storage](https://azure.microsoft.com/services/storage)
+* [Batch documentation](/azure/batch)
+* [Virtual Machines](https://azure.microsoft.com/services/virtual-machines)
+* [Azure Batch](https://azure.microsoft.com/services/batch)
+* [Azure Blob Storage](https://azure.microsoft.com/services/storage)
 
 ## Architecture
 
