@@ -373,17 +373,16 @@ items:
           href: framework/security/design-app-dependencies.md
     - name: Monitor
       items:
-      - name: Security operations
-        href: framework/security/security-operations.md
-      - name: Review and audit
-        href: framework/security/governance.md
+      - name: Health modeling
+        href: framework/security/monitor.md
       - name: Tools
-        href: framework/security/monitor-tools.md
-      - name: Network access
-        href: framework/security/monitor-network.md
-      - name: Monitor identity risk
-        href: framework/security/monitor-identity.md
-      - name: DDoS attacks
+        href: framework/security/monitor-tools.md              
+      - name: Security operations
+        href: framework/security/monitor-security-operations.md
+      - name: Review and audit
+        href: framework/security/monitor-audit.md
+      - name: Identity and network risks
+        href: framework/security/monitor-identity-network.md
     - name: Optimize
       items:
         - name: Automate 
