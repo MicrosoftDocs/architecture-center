@@ -6,7 +6,7 @@ author: rogeriohc
 ms.date: 06/22/2020
 ms.topic: conceptual
 ms.service: architecture-center
-ms.subservice: guide
+ms.subservice: azure-guide
 ms.custom:
   - fcp
   - guide

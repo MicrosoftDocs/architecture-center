@@ -5,7 +5,7 @@ author: PageWriter-MSFT
 ms.date: 03/16/2020
 ms.topic: conceptual
 ms.service: architecture-center
-ms.subservice: guide
+ms.subservice: best-practice
 ms.custom:
   - guide
 ---
