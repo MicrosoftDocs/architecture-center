@@ -20,11 +20,6 @@ When deploying an application to Azure App Service, consider utilizing deploymen
 
 **Learn more**
 
-If you would like to experience out Azure App Service deployment slots, try out this 15-minute hands-on solution experience.
-
-> [!div class="nextstepaction"]
-> [Test Drive: Azure App Service Deployment Slots](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Freview.docs.microsoft.com%2Fen-us%2Fazure%2Farchitecture%2Fexample-scenario%2Ftest-drive%2Fappservice-slots%3Fbranch%3Dpr-en-us-2043&data=04%7C01%7CNeil.Peterson%40microsoft.com%7C50e0c256018b4a420b6c08d88a541d7c%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637411441173881460%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C1000&sdata=8sV%2FeZEkH9MDYxtCl7MTl5zRKTTAMXndpWir9l3%2BcKE%3D&reserved=0)
-
 For more information on using Azure App Service deployment slots, see [Set up staging environments in Azure App Service](https://docs.microsoft.com/azure/app-service/deploy-staging-slots)
 
 ## Azure Kubernetes Service (AKS)
