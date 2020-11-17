@@ -119,13 +119,13 @@ The hands-on demo Azure Notebooks showcase the AI for Earth **Land Cover Mapping
 To run the demo Notebooks:
 
 1. Open the [Land Cover Mapping](https://notebooks.azure.com/operations-manager/projects/ai-for-earth) or [Species Classification](https://notebooks.azure.com/operations-manager/projects/ai-for-earth-apis) project.
-1. Select **Sign in** at upper right, and after signing in with your Microsoft or Azure account, select **Clone**.
-1. On the pop-up screen, select **I trust the contents of this project**, and then select **Clone** again.
-1. After you clone the project, select **Run on Free Compute**.
-1. On the next screen, select the *.ipynb* file. 
-1. In the Notebook, paste the API Key you received into the appropriate placeholder.
-1. Select each cell in turn, and then select **Run** to run the cell. You can ignore any `pip` warnings that appear when installing packages.
-1. Follow the prompts to enter different addresses for the Land Cover Mapping demo, or different species for the Species Classification demo, and see the APIs in action.
+2. Select **Sign in** at upper right, and after signing in with your Microsoft or Azure account, select **Clone**.
+3. On the pop-up screen, select **I trust the contents of this project**, and then select **Clone** again.
+4. After you clone the project, select **Run on Free Compute**.
+5. On the next screen, select the *.ipynb* file. 
+6. In the Notebook, paste the API Key you received into the appropriate placeholder.
+7. Select each cell in turn, and then select **Run** to run the cell. You can ignore any `pip` warnings that appear when installing packages.
+8. Follow the prompts to enter different addresses for the Land Cover Mapping demo, or different species for the Species Classification demo, and see the APIs in action.
 
 ## Next steps
 

@@ -5,7 +5,7 @@ items:
   href: icons/index.md
 - name: Browse all Architectures
   href: browse/index.md
-- name: Browse Hybrid Cloud Architectures
+- name: Browse Hybrid and Multicloud Architectures
   href: browse/hybrid_index.md
 - name: What's new
   href: changelog.md
@@ -373,17 +373,16 @@ items:
           href: framework/security/design-app-dependencies.md
     - name: Monitor
       items:
-      - name: Security operations
-        href: framework/security/security-operations.md
-      - name: Review and audit
-        href: framework/security/governance.md
+      - name: Health modeling
+        href: framework/security/monitor.md
       - name: Tools
-        href: framework/security/monitor-tools.md
-      - name: Network access
-        href: framework/security/monitor-network.md
-      - name: Monitor identity risk
-        href: framework/security/monitor-identity.md
-      - name: DDoS attacks
+        href: framework/security/monitor-tools.md              
+      - name: Security operations
+        href: framework/security/monitor-security-operations.md
+      - name: Review and audit
+        href: framework/security/monitor-audit.md
+      - name: Identity and network risks
+        href: framework/security/monitor-identity-network.md
     - name: Optimize
       items:
         - name: Automate 
@@ -1106,6 +1105,8 @@ items:
         href: hybrid/azure-arc-hybrid-config.md
       - name: Azure Automation in a hybrid environment
         href: hybrid/azure-automation-hybrid.md
+      - name: Azure enterprise cloud file share
+        href: hybrid/azure-files-private.md
       - name: Using Azure file shares in a hybrid environment
         href: hybrid/azure-file-share.md
       - name: Azure Functions in a hybrid environment
@@ -1310,6 +1311,8 @@ items:
         href: example-scenario/iot/monitor-manage-loop.md
       - name: Analyze and optimize loop
         href: example-scenario/iot/analyze-optimize-loop.md
+      - name: Event routing
+        href: example-scenario/iot/event-routing.md
       - name: Solution scaling with application stamps
         href: example-scenario/iot/application-stamps.md
   - name: Management and Governance
@@ -1366,6 +1369,46 @@ items:
         href: solution-ideas/articles/digital-media-live-stream.md
       - name: Video-on-demand digital media
         href: solution-ideas/articles/digital-media-video.md
+      - name: Gridwich media processing system
+        items:
+        - name: Gridwich architecture
+          href: reference-architectures/media-services/gridwich-architecture.md
+        - name: Gridwich concepts
+          items:
+          - name: Clean monolith design
+            href: reference-architectures/media-services/gridwich-clean-monolith.md
+          - name: Saga orchestration
+            href: reference-architectures/media-services/gridwich-saga-orchestration.md
+          - name: Project names and structure
+            href: reference-architectures/media-services/gridwich-project-names.md
+          - name: Gridwich CI/CD
+            href: reference-architectures/media-services/gridwich-cicd.md
+          - name: Content protection and DRM
+            href: reference-architectures/media-services/gridwich-content-protection-drm.md
+          - name: Gridwich Media Services
+            href: reference-architectures/media-services/media-services-setup-scale.md
+          - name: Gridwich Storage Service
+            href: reference-architectures/media-services/gridwich-storage-service.md
+          - name: Gridwich logging
+            href: reference-architectures/media-services/gridwich-logging.md
+          - name: Gridwich message formats
+            href: reference-architectures/media-services/gridwich-message-formats.md
+          - name: Pipeline variables to Terraform flow
+            href: reference-architectures/media-services/variable-group-terraform-flow.md
+        - name: Gridwich procedures
+          items:
+          - name: Set up Azure DevOps
+            href: reference-architectures/media-services/set-up-azure-devops.md
+          - name: Run Azure admin scripts
+            href: reference-architectures/media-services/run-admin-scripts.md
+          - name: Set up local dev environment
+            href: reference-architectures/media-services/set-up-local-environment.md
+          - name: Create new cloud environment
+            href: reference-architectures/media-services/create-delete-cloud-environment.md
+          - name: Maintain and rotate keys
+            href: reference-architectures/media-services/maintain-keys.md
+          - name: Test Media Services V3 encoding
+            href: reference-architectures/media-services/test-encoding.md
   - name: Migration
     items:
     - name: Architectures
@@ -1403,7 +1446,9 @@ items:
       - name: Decompose apps with Service Fabric
         href: example-scenario/infrastructure/service-fabric-microservices.md
       - name: SQL 2008 R2 failover cluster in Azure
-        href: example-scenario/sql-failover/sql-failover-2008r2.md  
+        href: example-scenario/sql-failover/sql-failover-2008r2.md
+      - name: Migrate mainframe data to Azure
+        href: reference-architectures/migration/modernize-mainframe-data-to-azure.md
   - name: Mixed Reality
     items:
     - name: Architectures
