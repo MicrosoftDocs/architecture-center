@@ -1,7 +1,7 @@
 ---
 title: Services in an Azure Industrial IoT solution
 titleSuffix: Azure Application Architecture Guide
-description: 
+description: Guidance on services in an IIoT analytics solution.
 author: khilscher
 ms.date: 07/17/2020
 ms.topic: conceptual

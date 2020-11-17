@@ -1,7 +1,7 @@
 ---
 title: Azure Industrial IoT guidance
 titleSuffix: Azure Application Architecture Guide
-description: 
+description: Architectural guidance on Azure Industrial IoT Analytics.
 author: khilscher
 ms.date: 07/17/2020
 ms.topic: conceptual
