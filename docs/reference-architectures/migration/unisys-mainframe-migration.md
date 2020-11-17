@@ -3,7 +3,7 @@ title: Unisys mainframe migration
 titleSuffix: Azure Reference Architectures
 description: Learn about options for using the Asysco Automated Migration Technology (AMT) Framework to migrate Unisys mainframe workloads to Azure.
 author: doodlemania2
-ms.date: 11/13/2020
+ms.date: 11/17/2020
 ms.topic: reference-architecture
 ms.service: architecture-center
 ms.subservice: reference-architecture
@@ -45,7 +45,7 @@ The following diagram shows typical components of Unisys Burroughs MCP or Unisys
   
 - Application servers (**C**) do batch processing, and handle transactions through COMS Transaction Management for MCP, or High Volume/Transaction Interface Packages (TIP/HVTIP) for OS2200.
   
-- Applications (**D**) may be written in COBOL, C, PASCAL, ALGOL, RPG, or WFL for MCP, or COBOL, Fortran, C, MASM, SSG, PASCAL, UCOBOL, or ECL for OS2200.
+- Applications (**D**) for MCP may be written in COBOL, C, PASCAL, ALGOL, RPG, or WFL. For OS2200, applications are in COBOL, Fortran, C, MASM, SSG, PASCAL, UCOBOL, or ECL.
 
 - Database management systems (**E**) are XA-compliant. MCP uses hierarchical DMS II database systems, and OS2200 uses network-based DMS II or relational database systems.
   
@@ -55,13 +55,13 @@ The following diagram shows typical components of Unisys Burroughs MCP or Unisys
   
 - A printer subsystem (**H**) manages on-premises printers.
 
-The second diagram shows how these Unisys mainframe components can map and migrate to Azure capabilities.
+The second diagram shows how the Unisys mainframe components can map and migrate to Azure capabilities.
 
 ![Diagram showing how Unisys mainframe components can map to Azure capabilities.](media/unisys-migration.png)
 
-1. A web browser to access Azure system resources replaces terminal emulation for demand and online users (**A**). Users access web-based applications over TLS port 443. For admin access to the Azure Virtual Machines (VMs), Azure Bastion hosts can maximize security by minimizing open ports.
+1. A web browser to access Azure system resources replaces terminal emulation for demand and online users (**A**). Users access web-based applications over TLS port 443. For admin access to the Azure Virtual Machines (VMs), [Azure Bastion](/azure/bastion/bastion-overview) hosts maximize security by minimizing open ports.
    
-2. Presentation layer code runs in IIS and uses ASP.NET to maintain the Unisys mainframe user-interface screens (**B**). The applications' presentation layers can remain virtually unchanged, to minimize end user retraining. Or, you can update the web application presentation layer with modern user experience frameworks.
+2. Presentation layer code runs in IIS and uses ASP.NET to maintain the Unisys mainframe user-interface screens (**B**). The applications' presentation layers can remain virtually unchanged, to minimize end user retraining. Or you can update the web application presentation layer with modern user experience frameworks.
    
 3. The AMT Framework converts mainframe presentation, batch, and transaction loads (**C**) to sufficient server farms to handle the work. The solution uses two sets of two VMs running the web and application layers, fronted by Azure Load Balancers in *active-active* arrangements to spread query and transaction traffic.
    
@@ -69,9 +69,7 @@ The second diagram shows how these Unisys mainframe components can map and migra
 
 4. The AMT Framework converts legacy application code (**D**) to C#/.NET. If code needs changing or editing, AMT can maintain and reprocess the original code, or you can edit the converted C# code directly to advance the code base to new standards.
    
-5. Legacy database structures (**E**) can migrate to Azure SQL Database, with the high availability (HA) and disaster recovery (DR) capabilities that Azure provides. Asysco data migration tools can convert DMS and RDMS schemas to SQL.
-   
-   [Private Link for Azure SQL Database](/azure/azure-sql/database/private-endpoint-overview) provides a private, direct connection isolated to the Azure networking backbone from the Azure VMs to Azure SQL Database.
+5. Legacy database structures (**E**) can migrate to Azure SQL Database, with the high availability (HA) and disaster recovery (DR) capabilities that Azure provides. Asysco data migration tools can convert DMS and RDMS schemas to SQL. Azure Private Link provides a private, direct connection from the Azure VMs to Azure SQL Database.
    
 6. File structures (**F**) map easily to Azure structured file or blob storage data constructs. Features like Azure autofailover group replication can provide data protection.
    
@@ -95,7 +93,11 @@ The second diagram shows how these Unisys mainframe components can map and migra
   
 - [Azure ExpressRoute](/azure/expressroute/expressroute-introduction) lets you extend your on-premises networks into the Microsoft cloud over a private connection facilitated by a connectivity provider. With ExpressRoute, you can establish connections to cloud services like Azure and Office 365.
   
+- [Azure Bastion](/azure/bastion/bastion-overview) hosts maximize security by minimizing open ports. provides secure and seamless RDP/SSH connectivity to your virtual machines. Bastion provides secure RDP and SSH connectivity to the VMs in the virtual network, directly from the Azure portal over TLS.
+
 - [Azure SQL Database](/azure/azure-sql/database/sql-database-paas-overview) is a fully managed platform as a service (PaaS) database engine that is always running on the latest stable version of SQL Server and patched OS, with 99.99% availability. SQL Database handles most database management functions like upgrading, patching, backups, and monitoring without user involvement. These PaaS capabilities let you focus on business critical, domain-specific database administration and optimization.
+
+- [Azure Private Link for Azure SQL Database](/azure/azure-sql/database/private-endpoint-overview) provides a private, direct connection, isolated to the Azure networking backbone, from the Azure VMs to Azure SQL Database.
 
 ## Considerations
 
@@ -104,26 +106,27 @@ The following considerations apply to this architecture:
 ### Availability
 - This architecture uses [Azure Site Recovery](https://azure.microsoft.com/services/site-recovery/) to mirror the Azure VMs to a secondary Azure region for quick failover and DR in case of Azure datacenter failure.
 
-- [Azure autofailover group replication](/azure/azure-sql/database/auto-failover-group-overview) can provide data protection by managing database replication and failover to another region.
-
-### Pricing
-- Azure SQL Database should use [Hyperscale or Business Critical](/azure/azure-sql/database/service-tiers-general-purpose-business-critical) SQL Database tiers for high input/output operations per second (IOPS) and high uptime SLA.
-
-- This architecture works best with Premium SSDs or Ultra Disk SSDs. For more information, see [Managed Disks pricing](https://azure.microsoft.com/pricing/details/managed-disks/).
+- [Azure autofailover group replication](/azure/azure-sql/database/auto-failover-group-overview) provides data protection by managing database replication and failover to another region.
 
 ### Resiliency
-Resiliency is built into this solution due to the Load Balancers. If one presentation or transaction server fails, the other server behind the Load Balancer shoulders the workload.
+Resiliency is built into this solution because of the Load Balancers. If one presentation or transaction server fails, the other server behind the Load Balancer shoulders the workload.
 
 ### Scalability
-You can scale out the server sets to provide more throughput. For more information, see [What are virtual machine scale sets](/azure/virtual-machine-scale-sets/overview).
+You can scale out the server sets to provide more throughput. For more information, see [Virtual machine scale sets](/azure/virtual-machine-scale-sets/overview).
 
 ### Security
 
 - This solution uses an Azure network security group (NSG) to manage traffic between Azure resources. For more information, see [Network security groups](https://docs.microsoft.com/azure/virtual-network/network-security-groups-overview).
 
 - [Private Link for Azure SQL Database](/azure/azure-sql/database/private-endpoint-overview) provides a private, direct connection isolated to the Azure networking backbone from the Azure VMs to Azure SQL Database.
-   
+
+[Azure Bastion](/azure/bastion/bastion-overview) maximize admin access security by minimizing open ports. Bastion provides secure and seamless secure RDP and SSH connectivity over TLS from the Azure portal to VMs in the virtual network.
+
+### Pricing
+- Azure SQL Database should use [Hyperscale or Business Critical](/azure/azure-sql/database/service-tiers-general-purpose-business-critical) SQL Database tiers for high input/output operations per second (IOPS) and high uptime SLA.
+
+- This architecture works best with Premium SSDs or Ultra Disk SSDs. For more information, see [Managed Disks pricing](https://azure.microsoft.com/pricing/details/managed-disks/).
 
 ## Next steps
 
-For more information, please contact legacy2azure@microsoft.com.
+For more information, please contact [legacy2azure@microsoft.com](mailto:legacy2azure@microsoft.com).
