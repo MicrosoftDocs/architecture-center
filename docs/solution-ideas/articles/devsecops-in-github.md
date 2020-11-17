@@ -190,7 +190,7 @@ For long-running or complex Actions, host your own runners for CI/CD jobs. You c
 [GitHub Enterprise highly available failover configuration]: https://docs.github.com/en/enterprise/2.21/admin/enterprise-management/about-high-availability-configuration
 [Configure Dependabot security updates]: https://docs.github.com/en/github/managing-security-vulnerabilities/configuring-github-dependabot-security-updates
 [DevSecOps in Azure]: ./devsecops-in-azure.md
-[GitHub pricing] https://github.com/pricing
+[GitHub pricing]: https://github.com/pricing
 [GitHub DevSecOps training materials]: https://github.com/devsecops/awesome-devsecops
 [GitHub DevSecOps getting started tips]: https://resources.github.com/whitepapers/Architects-guide-to-DevOps/
 [SARIF]: https://docs.github.com/en/github/finding-security-vulnerabilities-and-errors-in-your-code/sarif-support-for-code-scanning
