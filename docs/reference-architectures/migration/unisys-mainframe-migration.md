@@ -43,11 +43,11 @@ The following diagram shows typical components of Unisys Burroughs MCP or Unisys
   
 - Loosely coupled integrated middleware includes web services, MOM, WebSphere MQ, and MSMQ. Environment integrators include Java, .NET, Tuxedo, and packages like SAP. Other middleware includes direct data access via ODBC, JDBC, and JCA connectors, and XML providers.
   
-- Application servers (**C**) do batch processing, and handle transactions through COMS Transaction Management for MCP, or High Volume/Transaction Interface Packages (TIP/HVTIP) for OS2200.
+- Application servers (**C**) do batch processing, and handle transactions through COMS Transaction Management server for MCP, or High Volume/Transaction Interface Packages (TIP/HVTIP) for OS 2200.
   
-- Applications (**D**) for MCP may be written in COBOL, C, PASCAL, ALGOL, RPG, or WFL. For OS2200, applications are in COBOL, Fortran, C, MASM, SSG, PASCAL, UCOBOL, or ECL.
+- Applications (**D**) for MCP are written in COBOL, C, PASCAL, ALGOL, RPG, or WFL. For OS 2200, applications are in COBOL, Fortran, C, MASM, SSG, PASCAL, UCOBOL, or ECL.
 
-- Database management systems (**E**) are XA-compliant. MCP uses hierarchical DMS II database systems, and OS2200 uses network-based DMS II or relational database systems.
+- Database management systems (**E**) are XA-compliant. MCP uses hierarchical DMS II database systems, and OS 2200 uses network-based DMS II or relational database systems.
   
 - File facilities (**F**) include CIFS, sequential, flat files, keyed IO, and virtual tape files.
   
@@ -59,7 +59,7 @@ The second diagram shows how the Unisys mainframe components can map and migrate
 
 ![Diagram showing how Unisys mainframe components can map to Azure capabilities.](media/unisys-migration.png)
 
-1. A web browser to access Azure system resources replaces terminal emulation for demand and online users (**A**). Users access web-based applications over TLS port 443. For admin access to the Azure Virtual Machines (VMs), [Azure Bastion](/azure/bastion/bastion-overview) hosts maximize security by minimizing open ports.
+1. A web browser to access Azure system resources replaces terminal emulation for demand and online users (**A**). Users access web-based applications over TLS port 443. For admin access to the Azure Virtual Machines (VMs), Azure Bastion hosts maximize security by minimizing open ports.
    
 2. Presentation layer code runs in IIS and uses ASP.NET to maintain the Unisys mainframe user-interface screens (**B**). The applications' presentation layers can remain virtually unchanged, to minimize end user retraining. Or you can update the web application presentation layer with modern user experience frameworks.
    
@@ -77,7 +77,7 @@ The second diagram shows how the Unisys mainframe components can map and migrate
    
 8. Azure Site Recovery HA/DR capabilities mirror the Azure VMs to a secondary Azure region for quick failover in case of Azure datacenter failure.
    
-9. The system can support printers and other legacy system output devices if they have IP addresses connected to the Azure network.
+9. The system can support printers (**H**) and other legacy system output devices if they have IP addresses connected to the Azure network.
 
 ## Components
 
