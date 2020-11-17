@@ -179,7 +179,7 @@ The data flows through the solution as follows:
     with HoloLens 2](https://news.microsoft.com/transform/vroom-with-a-view-hololens-2-powers-faster-fixes-mercedes-benz-usa/).
 
 -   Read about the [Azure Sphere cellular-enabled guardian device powered by
-    AT&T](https://azure.microsoft.com/en-us/blog/attpowered-guardian-device-with-azure-sphere-enables-highly-secured-simple-and-scalable-connectivity-from-anywhere/).
+    AT&T](https://azure.microsoft.com/blog/attpowered-guardian-device-with-azure-sphere-enables-highly-secured-simple-and-scalable-connectivity-from-anywhere/).
 
 -   Review [Publish and subscribe with Azure IoT Edge](https://docs.microsoft.com/azure/iot-edge/how-to-publish-subscribe?view=iotedge-2020-11) to understand how to
     configure general-purpose MQTT brokering in IoT Edge.
