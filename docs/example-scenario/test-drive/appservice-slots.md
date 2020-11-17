@@ -29,7 +29,7 @@ The architecture consists of the following components:
 
 ## Solution video
 
-To see a video demo of the solution, see the Azure Monitor and [Azure Policy and Azure Kubernetes Service (AKS)  on Channel9]().
+To see a video demo of the solution, see the [Azure App Service deployment slots demo on Channel9]().
 
 ## Deploy the solution
 
