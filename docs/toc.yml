@@ -5,7 +5,7 @@ items:
   href: icons/index.md
 - name: Browse all Architectures
   href: browse/index.md
-- name: Browse Hybrid Cloud Architectures
+- name: Browse Hybrid and Multicloud Architectures
   href: browse/hybrid_index.md
 - name: What's new
   href: changelog.md
