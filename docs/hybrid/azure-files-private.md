@@ -36,7 +36,7 @@ The following diagram shows how clients can access Azure file shares:
 
 ![Enterprise-level cloud file share diagram that shows how clients can access Azure file shares locally through a cloud tiering file server or remotely over ExpressRoute private peering or VPN tunnel in a private network environment.](./images/azure-files-private.png)
 
-*Download a [Visio file](https://architecture.blob.core.windows.net/cdn/azure-files-private.vsdx) of this architecture.*
+*Download a [Visio file](https://archcenter.blob.core.windows.net/cdn/azure-files-private.vsdx) of this architecture.*
 
 The enterprise-level cloud file sharing solution uses the following methods to provide the same user experience as traditional file sharing but with Azure file shares:
 
@@ -56,8 +56,8 @@ A Domain Name System (DNS) Server is a critical component of the solution. Each 
 
 After enabling a private endpoint, private IP addresses are allocated in the Azure virtual network. These addresses allow access to those services over a private connection, and the same FQDNs must now resolve to private IP addresses. To achieve that, Azure Files and Azure File Sync create a canonical name DNS record (CNAME) to redirect the resolution to a private domain name:
 
-- The Azure File Sync's public domain name `\*.afs.azure.net` gets a CNAME redirect to the private domain name `\*.\<region\>.privatelink.afs.azure.net`. 
-- The Azure Files public domain name `\<name\>.file.core.windows.net` gets a CNAME redirect to the private domain name `\<name\>.privatelink.file.core.windows.net`.
+- The Azure File Sync's public domain name `*.afs.azure.net` gets a CNAME redirect to the private domain name `*.<region>.privatelink.afs.azure.net`. 
+- The Azure Files public domain name `<name>.file.core.windows.net` gets a CNAME redirect to the private domain name `<name>.privatelink.file.core.windows.net`.
 
 The solution shown in this architecture correctly configures on-premises DNS settings so that they resolve private domain names to private IP addresses, by using the following methods:
 
@@ -137,7 +137,7 @@ From the Azure side:
 From the on-premises side, the private domain name is mapped to a private IP address in one of the following ways:
 
 - Through DNS forwarding to a DNS server deployed in the Azure virtual network, as the diagram shows.
-- Through the on-premises DNS server that sets up zones for the private domain `\<region\>.privatelink.afs.azure.net` and `privatelink.file.core.windows.net`. The server registers the IP addresses of Azure Files and Azure File Sync private endpoints as DNS A records into their respective DNS zones. The on-premises client resolves the private domain name directly from the local on-premises DNS server.
+- Through the on-premises DNS server that sets up zones for the private domain `<region>.privatelink.afs.azure.net` and `privatelink.file.core.windows.net`. The server registers the IP addresses of Azure Files and Azure File Sync private endpoints as DNS A records into their respective DNS zones. The on-premises client resolves the private domain name directly from the local on-premises DNS server.
 
 ### Distributed File System (DFS)
 
