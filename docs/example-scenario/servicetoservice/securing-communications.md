@@ -87,7 +87,7 @@ On the receiving side, in step 5, Service B will need to [validate the token][to
 
 There are three ways to accomplish this:
 
-- **Validating the token `appid` claim**: Service B can validate the `appid` [claim][accesstokenclaims] of the token, indicating which application registered in Azure AD requested the token; this requires Service B to be explicitly coded for this check against a known safe list of callers
+- **Validating the token `appid` claim**: Service B can validate the `appid` [claim][accesstokenclaims] of the token, indicating which application registered in Azure AD requested the token; this requires Service B to be explicitly coded for this check against a known access control list of callers
 - **Check for roles in the token**: similar to the previous option, when Service B explicitly checks for the presence of a role in the incoming token, it can ensure that Service A was explicitly granted permissions.
 - **Requiring User Assignment**: alternatively, one can configure Azure AD to only hand out tokens for Service B by [requiring user assignment][userassignment] on the corresponding Service Principal of Service B.  In this case, only applications in Azure AD which have been explicitly assigned a role will get a token towards Service B.  The receiving service in this case does not need to do an explicit role check, except when required by any business logic.
 
