@@ -26,7 +26,7 @@ The zone-redundant application gateway and zone-redundant load balancer distribu
 
 ![Infographic of Availability Zones architecture](./images/ref-arch-iaas.png)
 
-[*Download a Visio file of this architecture.*](https://archcenter.blob.core.windows.net/cdn/ref-arch-iaas.vsdx)
+[*Download a Visio file of this architecture.*](https://arch-center.azureedge.net/ref-arch-iaas.vsdx)
 
 ## Architecture
 

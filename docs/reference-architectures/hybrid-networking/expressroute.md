@@ -351,7 +351,7 @@ To deploy the solution, perform the following steps.
 
 
 [azurect]: https://github.com/Azure/NetworkMonitoring/tree/master/AzureCT
-[visio-download]: https://archcenter.blob.core.windows.net/cdn/hybrid-network-architectures.vsdx
+[visio-download]: https://arch-center.azureedge.net/hybrid-network-architectures.vsdx
 
 [0]: ./images/expressroute.png "Hybrid network architecture using Azure ExpressRoute"
 [1]: ../_images/guidance-hybrid-network-expressroute/figure2.png "Using redundant routers with ExpressRoute primary and secondary circuits"

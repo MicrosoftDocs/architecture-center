@@ -293,6 +293,6 @@ For more information, see the Operational Excellence section in [Microsoft Azure
 [public IP address]: /azure/virtual-network/virtual-network-ip-addresses-overview-arm
 [resource-manager-overview]: /azure/azure-resource-manager/resource-group-overview
 [subscription-limits]: /azure/azure-subscription-service-limits
-[visio-download]: https://archcenter.blob.core.windows.net/cdn/vm-reference-architectures.vsdx
+[visio-download]: https://arch-center.azureedge.net/vm-reference-architectures.vsdx
 [vmss-design]: /azure/virtual-machine-scale-sets/virtual-machine-scale-sets-design-overview
 [vmss]: /azure/virtual-machine-scale-sets/virtual-machine-scale-sets-overview
