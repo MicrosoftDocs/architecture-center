@@ -167,7 +167,7 @@ The data flows through the solution as follows:
     service technicians to view vehicle data (for example, service history, OBD-II data,
     part diagrams, etc.) holographically to aid in troubleshooting and repair.
 
-## Next Steps
+## Next steps
 
 -   Review the [Sending OBD-II Data to HoloLens using MQTT and Azure Sphere
     GitHub
