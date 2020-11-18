@@ -29,6 +29,9 @@ This image indicates that network and connectivity issues are caused by Azure CN
 
 ![AKS Diagnostics Results - Networking - Azure CNI](images/aks-diagnostics-network.svg)
 
+To learn more about this feature, see [Azure Kubernetes Service Diagnostics overview](https://docs.microsoft.com/azure/aks/concepts-diagnostics).
+
 ## Next steps
 > [!div class="nextstepaction"]
 > [Examine the node and pod health](aks-triage-node-health.md)
+
