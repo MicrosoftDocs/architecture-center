@@ -133,9 +133,12 @@ Instead of hosting services on App Services, [Azure Functions][functions] can be
 
 #### Use of App Service Authentication and Authorization
 
-Performing token validation as part of the application code has the advantage of the fact that the authorization code is by-design co-located with the rest of the business logic.  If this is for some reason not practical or desired, [App Service Authentication and Authorization][easyauth] (sometimes referred to as "Easy-Auth") can be configured to perform token validation before the request makes it to the service.  The service then relies on the hosting infrastructure to not accept unauthorized requests.  The downside of doing so is that the service loses this protection when it is moved elsewhere.  In addition, the service has less flexibility in validation of the token and making corresponding authorization decisions.
+Performing token validation as part of the application code has the advantage of the fact that the authorization code is by-design co-located with the rest of the business logic.  If this is for some reason not practical or desired, [App Service Authentication and Authorization][easyauth] (sometimes referred to as "Easy-Auth") can be configured to perform basic token validation before the request makes it to the service.  The service then relies on the hosting infrastructure to not accept unauthorized requests.  The downside of doing so is that the service loses this protection when it is moved elsewhere.  
 
 In order to configure App Service Authentication and Authorization, the Authorization Behavior should be set to "Log In with Azure Active Directory".  This will cause tokens to be validated and access to be restricted to valid tokens.
+
+> [!IMPORTANT]
+> While App Service Authentication and Authorization works for simple scenarios, complex authorization requirements should be covered with logic from within the application code instead.
 
 <!-- Use this section to talk about alternative Azure services or architectures that you might consider for this solution. Include the reasons why you might choose these alternatives. -->
 <!-- 
