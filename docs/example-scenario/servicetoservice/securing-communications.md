@@ -88,15 +88,15 @@ On the receiving side, in step 5, Service B will need to [validate the token][to
 There are three ways to accomplish this:
 
 - **Validating the token `appid` claim**: Service B can validate the `appid` [claim][accesstokenclaims] of the token, indicating which application registered in Azure AD requested the token; this requires Service B to be explicitly coded for this check against a known safe list of callers
-- **Requiring User Assignment**: alternatively, one can configure Azure AD to only hand out tokens for Service B by [requiring user assignment][userassignment] on the corresponding Service Principal of Service B.  In this case, only applications in Azure AD which have been explicitly assigned a role will get a token towards Service B.  The receiving service in this case does not need to do an explicit role check, except when required by any business logic.
 - **Check for roles in the token**: similar to the previous option, when Service B explicitly checks for the presence of a role in the incoming token, it can ensure that Service A was explicitly granted permissions.
+- **Requiring User Assignment**: alternatively, one can configure Azure AD to only hand out tokens for Service B by [requiring user assignment][userassignment] on the corresponding Service Principal of Service B.  In this case, only applications in Azure AD which have been explicitly assigned a role will get a token towards Service B.  The receiving service in this case does not need to do an explicit role check, except when required by any business logic.
 
-In order to set up the requirement for User Assignment:
+  In order to set up the requirement for this:
 
-- [Enable User Assignment][userassignment] on Service B
-- [Expose at least one app role][exposeapprole] on Service B, which Service A can ask permission for.  The `AllowedMemberTypes` for this role needs to include `Application`.
-- [Request app permission to the role of Service B][configurepermission] from the Service A app registration by opening its application registration "API permissions" section where you can add permissions to access Service B. Any application roles Service B exposes can be found as an "Application Permission" which can be requested. (This is different from "delegated permissions" which are permissions which you'd grant the application on behalf of a user. In this scenario, using a client-credential flow, there is no user, only an application.)
-- Grant Admin Consent on Service A: as [application permissions][aadpermissiontypes] can only be consented by an admin or the owner of Service B.  This consent will need to be given for the application permissions (the app roles from Service B) requested by Service A.
+  - [Enable User Assignment][userassignment] on Service B
+  - [Expose at least one app role][exposeapprole] on Service B, which Service A can ask permission for.  The `AllowedMemberTypes` for this role needs to include `Application`.
+  - [Request app permission to the role of Service B][configurepermission] from the Service A app registration by opening its application registration "API permissions" section where you can add permissions to access Service B. Any application roles Service B exposes can be found as an "Application Permission" which can be requested. (This is different from "delegated permissions" which are permissions which you'd grant the application on behalf of a user. In this scenario, using a client-credential flow, there is no user, only an application.)
+  - Grant Admin Consent on Service A: as [application permissions][aadpermissiontypes] can only be consented by an admin or the owner of Service B.  This consent will need to be given for the application permissions (the app roles from Service B) requested by Service A.
 
 #### Service Endpoints
 
