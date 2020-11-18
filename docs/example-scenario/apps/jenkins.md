@@ -22,7 +22,7 @@ This scenario shows how to deploy and operate a scalable, enterprise-grade Jenki
 
 ![Jenkins server running on Azure][0]
 
-*Download a [Visio file](https://archcenter.blob.core.windows.net/cdn/Jenkins-architecture.vsdx) that contains this architecture diagram.*
+*Download a [Visio file](https://arch-center.azureedge.net/Jenkins-architecture.vsdx) that contains this architecture diagram.*
 
 This architecture supports disaster recovery with Azure services but does not cover more advanced scale-out scenarios involving multiple primaries or high availability (HA) with no downtime. For general insights about the various Azure components, including a step-by-step tutorial about building out a CI/CD pipeline on Azure, see [Jenkins on Azure][jenkins-on-azure].
 

@@ -263,7 +263,7 @@ For other cost considerations, see the Cost section in [Microsoft Azure Well-Arc
 [webapp]: /azure/app-service/overview
 [webchat]: /azure/bot-service/bot-service-channel-connect-webchat?view=azure-bot-service-4.0
 
-[visio-download]: https://archcenter.blob.core.windows.net/cdn/conversational-bot.vsdx
+[visio-download]: https://arch-center.azureedge.net/conversational-bot.vsdx
 
 [cosmosdb-logger]: https://github.com/Microsoft/botbuilder-utils-js/tree/master/packages/botbuilder-transcript-cosmosdb
 [appinsights-logger]: https://github.com/Microsoft/botbuilder-utils-js/tree/master/packages/botbuilder-transcript-app-insights

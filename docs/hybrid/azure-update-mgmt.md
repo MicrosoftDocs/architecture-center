@@ -307,7 +307,7 @@ Azure Automation can process up to 1,000 computers per update deployment. If you
 - Use the Azure pricing calculator to estimate costs. For more information about Log Analytics pricing models, refer to [Azure Monitor pricing][40].
 
 [architectural-diagram]: ./images/azure-update-mgmt.png
-[architectural-diagram-visio-source]: https://archcenter.blob.core.windows.net/cdn/azure-update-mgmt.vsdx
+[architectural-diagram-visio-source]: https://arch-center.azureedge.net/azure-update-mgmt.vsdx
 [1]: /azure/azure-monitor/platform/design-logs-deployment
 [2]: /azure/automation/automation-hybrid-runbook-worker
 [3]: /azure/automation/automation-intro

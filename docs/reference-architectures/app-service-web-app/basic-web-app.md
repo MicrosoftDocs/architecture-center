@@ -291,7 +291,7 @@ For more information, see [Deploy resources with Azure Resource Manager template
 [troubleshoot-blade]: https://azure.microsoft.com/updates/self-service-troubleshooting-for-app-service-web-apps-customers
 [tfs]: /azure/devops/server/tfs-is-now-azure-devops-server
 [troubleshoot-web-app]: /azure/app-service-web/web-sites-dotnet-troubleshoot-visual-studio
-[visio-download]: https://archcenter.blob.core.windows.net/cdn/app-service-reference-architectures.vsdx
+[visio-download]: https://arch-center.azureedge.net/app-service-reference-architectures.vsdx
 [web-app-autoscale]: /azure/app-service-web/web-sites-scale
 [web-app-backup]: /azure/app-service-web/web-sites-backup
 [web-app-log-stream]: /azure/app-service-web/web-sites-enable-diagnostic-log#stream-logs

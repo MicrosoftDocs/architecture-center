@@ -268,4 +268,4 @@ You may wish to review the following [Azure example scenarios](/azure/architectu
 [type]: /azure/virtual-machines/workloads/sap/hana-installation
 [typei-sku]: /azure/virtual-machines/workloads/sap/hana-know-terms
 [vnet]: /azure/virtual-network/virtual-networks-overview
-[visio-download]: https://archcenter.blob.core.windows.net/cdn/sap-reference-architectures.vsdx
+[visio-download]: https://arch-center.azureedge.net/sap-reference-architectures.vsdx
