@@ -243,5 +243,5 @@ After deployment completes, you can test connectivity from the simulated on-prem
 [security-considerations]: #security-considerations
 [set-a-static-ip-address]: /azure/virtual-network/virtual-networks-static-private-ip-arm-pportal
 [standby-operations-masters]: /previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc794737(v=ws.10)
-[visio-download]: https://archcenter.blob.core.windows.net/cdn/identity-architectures.vsdx
+[visio-download]: https://arch-center.azureedge.net/identity-architectures.vsdx
 [vm-windows-sizes]: /azure/virtual-machines/sizes

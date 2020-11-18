@@ -259,5 +259,5 @@ In this step, you will connect the two local network gateways.
 [routing-and-remote-access-service]: /previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd469790(v=ws.11)
 [security-principle-of-least-privilege]: /dotnet/framework/data/adonet/security-overview#Anchor_1
 [udr-overview]: /azure/virtual-network/virtual-networks-udr-overview
-[visio-download]: https://archcenter.blob.core.windows.net/cdn/dmz-reference-architectures.vsdx
+[visio-download]: https://arch-center.azureedge.net/dmz-reference-architectures.vsdx
 [wireshark]: https://www.wireshark.org

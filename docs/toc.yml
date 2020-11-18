@@ -5,7 +5,7 @@ items:
   href: icons/index.md
 - name: Browse all Architectures
   href: browse/index.md
-- name: Browse Hybrid Cloud Architectures
+- name: Browse Hybrid and Multicloud Architectures
   href: browse/hybrid_index.md
 - name: What's new
   href: changelog.md
@@ -373,17 +373,16 @@ items:
           href: framework/security/design-app-dependencies.md
     - name: Monitor
       items:
-      - name: Security operations
-        href: framework/security/security-operations.md
-      - name: Review and audit
-        href: framework/security/governance.md
+      - name: Health modeling
+        href: framework/security/monitor.md
       - name: Tools
-        href: framework/security/monitor-tools.md
-      - name: Network access
-        href: framework/security/monitor-network.md
-      - name: Monitor identity risk
-        href: framework/security/monitor-identity.md
-      - name: DDoS attacks
+        href: framework/security/monitor-tools.md              
+      - name: Security operations
+        href: framework/security/monitor-security-operations.md
+      - name: Review and audit
+        href: framework/security/monitor-audit.md
+      - name: Identity and network risks
+        href: framework/security/monitor-identity-network.md
     - name: Optimize
       items:
         - name: Automate 
@@ -1106,6 +1105,8 @@ items:
         href: hybrid/azure-arc-hybrid-config.md
       - name: Azure Automation in a hybrid environment
         href: hybrid/azure-automation-hybrid.md
+      - name: Azure enterprise cloud file share
+        href: hybrid/azure-files-private.md
       - name: Using Azure file shares in a hybrid environment
         href: hybrid/azure-file-share.md
       - name: Azure Functions in a hybrid environment
@@ -1448,6 +1449,8 @@ items:
         href: example-scenario/sql-failover/sql-failover-2008r2.md
       - name: Migrate mainframe data to Azure
         href: reference-architectures/migration/modernize-mainframe-data-to-azure.md
+      - name: Migrate Unisys mainframes to Azure
+        href: reference-architectures/migration/unisys-mainframe-migration.md
   - name: Mixed Reality
     items:
     - name: Architectures

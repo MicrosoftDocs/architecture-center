@@ -1,5 +1,5 @@
 ---
-title: Hybrid Architectures
+title: Hybrid and Multicloud Architectures
 description: Architecture diagrams, reference architectures, example scenarios, and solutions for common hybrid workloads.
 author: doodlemania2
 ms.date: 10/18/2019
@@ -7,9 +7,9 @@ layout: LandingPage
 ms.topic: landing-page
 ---
 
-# Hybrid Cloud Architectures
+# Hybrid and Multicloud Architectures
 
-Architecture diagrams, reference architectures, example scenarios, and solutions for common hybrid cloud workloads.
+Architecture diagrams, reference architectures, example scenarios, and solutions for common hybrid and multicloud workloads.
 
 <a href="#apps">Apps</a>  | <a href="#data">Data</a>  | <a href="#identity">Identity</a>  | <a href="#management">Management</a>  | <a href="#networking">Networking</a>  | <a href="#security">Security</a> 
 
