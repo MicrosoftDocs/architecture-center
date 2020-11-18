@@ -24,7 +24,7 @@ For a description of the core components of a typical enterprise-grade chatbot s
 
 This diagram shows deployment of a chatbot solution in *active-passive* failover mode in two different Azure regions for disaster recovery.
 
-[Download a Visio file](https://archcenter.blob.core.windows.net/cdn/Bot_DR.vsdx) of this architecture.
+[Download a Visio file](https://arch-center.azureedge.net/Bot_DR.vsdx) of this architecture.
 
 ## Components
 

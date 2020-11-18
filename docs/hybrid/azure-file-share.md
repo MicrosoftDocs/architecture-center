@@ -133,7 +133,7 @@ For more information, refer to [Configure Azure Storage firewalls and virtual ne
 - There are additional costs associated with file share snapshots and outbound data transfers (when transferring data from Azure file shares, inbound data transfer is free). Data transfer costs depend on the actual amount of transferred data and on the stock keeping unit (SKU) of your virtual network gateway (if a virtual network gateway is used). Please refer to [Azure Files Pricing][Azure-Files-Pricing] and [Azure Pricing calculator][Azure-Pricing-calculator] for the actual costs. Be aware that the actual cost varies by Azure region and your individual contract. Contact a Microsoft sales representative for additional information on pricing.
 
 [architectural-diagram]: ./images/azure-file-share.png
-[architectural-diagram-visio-source]: https://archcenter.blob.core.windows.net/cdn/azure-file-share.vsdx
+[architectural-diagram-visio-source]: https://arch-center.azureedge.net/azure-file-share.vsdx
 [Create-file-share]: /azure/storage/files/storage-how-to-create-file-share
 [Premium-azure-file-share]: /azure/storage/files/storage-how-to-create-premium-fileshare
 [P2S-with-Azure-files]: /azure/storage/files/storage-files-configure-p2s-vpn-windows

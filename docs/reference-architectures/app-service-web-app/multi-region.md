@@ -174,4 +174,4 @@ This architecture builds on the one shown in [Improve scalability in a web appli
 [sql-replication]: /azure/sql-database/sql-database-geo-replication-overview
 [sql-rpo]: /azure/sql-database/sql-database-business-continuity#sql-database-features-that-you-can-use-to-provide-business-continuity
 [storage-outage]: /azure/storage/storage-disaster-recovery-guidance
-[visio-download]: https://archcenter.blob.core.windows.net/cdn/app-service-reference-architectures.vsdx
+[visio-download]: https://arch-center.azureedge.net/app-service-reference-architectures.vsdx

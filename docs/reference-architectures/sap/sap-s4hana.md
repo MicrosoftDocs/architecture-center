@@ -677,5 +677,5 @@ See the following articles for more information and for examples of SAP workload
 [azure-pricing-calculator]: https://azure.microsoft.com/pricing/calculator
 [linux-vms-pricing]: https://azure.microsoft.com/pricing/details/virtual-machines/linux
 [expressroute-pricing]: https://azure.microsoft.com/pricing/details/expressroute
-[visio-download]: https://archcenter.blob.core.windows.net/cdn/sap-s4hana.vsdx
+[visio-download]: https://arch-center.azureedge.net/sap-s4hana.vsdx
 [az-spot-vms]: /azure/virtual-machines/windows/spot-vms

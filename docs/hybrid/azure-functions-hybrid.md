@@ -101,7 +101,7 @@ Additionally, each virtual network in Azure should also use [virtual network pee
 - The Azure Functions Premium plan bills on instances instead of consumption. The minimum of a single instance ensures there will be at least some monthly bill even without runs. You can set a maximum instance count to control costs for workloads that may burst in size.
 
 [architectural-diagram]: ./images/azure-functions-hybrid.png
-[architectural-diagram-visio-source]: https://archcenter.blob.core.windows.net/cdn/azure-functions-hybrid.vsdx
+[architectural-diagram-visio-source]: https://arch-center.azureedge.net/azure-functions-hybrid.vsdx
 [azure-arc-kubernetes]: /azure/azure-arc/kubernetes/
 [azure-architecture-center-serverless]: ../serverless-quest/serverless-overview.md
 [azure-expressroute]: /azure/expressroute/

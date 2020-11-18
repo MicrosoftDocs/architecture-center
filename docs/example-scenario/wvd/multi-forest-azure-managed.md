@@ -59,4 +59,4 @@ For more information, see these articles:
 - [Windows Virtual Desktop Documentation](/azure/virtual-desktop/).
 
 <!-- links -->
-[visio-download]: https://archcenter.blob.core.windows.net/cdn/WVD-two-forest-to-Azure-AADDS-No-Private-Connectivity.vsdx
+[visio-download]: https://arch-center.azureedge.net/WVD-two-forest-to-Azure-AADDS-No-Private-Connectivity.vsdx

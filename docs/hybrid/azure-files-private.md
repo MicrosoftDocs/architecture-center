@@ -36,7 +36,7 @@ The following diagram shows how clients can access Azure file shares:
 
 ![Enterprise-level cloud file share diagram that shows how clients can access Azure file shares locally through a cloud tiering file server or remotely over ExpressRoute private peering or VPN tunnel in a private network environment.](./images/azure-files-private.png)
 
-*Download a [Visio file](https://archcenter.blob.core.windows.net/cdn/azure-files-private.vsdx) of this architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/azure-files-private.vsdx) of this architecture.*
 
 The enterprise-level cloud file sharing solution uses the following methods to provide the same user experience as traditional file sharing but with Azure file shares:
 
