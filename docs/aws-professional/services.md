@@ -91,10 +91,12 @@ For an overview of Azure for AWS users, see [Introduction to Azure for AWS profe
 
 <ul class="grid">
 
+
 [!INCLUDE [Azure data platform end-to-end](../../includes/cards/data-platform-end-to-end.md)]
 [!INCLUDE [Campaign Optimization with Azure HDInsight Spark Clusters](../../includes/cards/campaign-optimization-with-azure-hdinsight-spark-clusters.md)]
 
 </ul>
+
 
 [view all](../browse/index.md#databases)
 
