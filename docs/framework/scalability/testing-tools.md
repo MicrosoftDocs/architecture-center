@@ -40,9 +40,9 @@ Caching can dramatically improve performance, scalability, and availability. The
 
 Use performance testing and usage analysis to determine whether pre-populating or on-demand loading of the cache, or a combination of both, is appropriate. The decision should be based on the volatility and usage pattern of the data. Cache utilization and performance analysis are particularly important in applications that encounter heavy loads and must be highly scalable.
 
-To learn more about how to use cashing as a solution in testing, see [Cashing](https://docs.microsoft.com/azure/architecture/best-practices/caching#determine-how-to-cache-data-effectively).
+To learn more about how to use caching as a solution in testing, see [Caching](https://docs.microsoft.com/azure/architecture/best-practices/caching#determine-how-to-cache-data-effectively).
 
-### Use Azure Redis to cashe data
+### Use Azure Redis to cache data
 
 Azure Cache for Redis is a caching service that can be accessed from any Azure application, whether the application is implemented as a cloud service, a website, or inside an Azure virtual machine. Caches can be shared by client applications that have the appropriate access key. It is a high-performance caching solution that provides availability, scalability, and security.
 
