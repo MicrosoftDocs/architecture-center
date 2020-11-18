@@ -331,7 +331,7 @@ To learn more about Azure Sentinel, refer to the following articles:
 - [Azure Stack Hub][azure-stack-hub]
 
 [architectural-diagram]: ./images/hybrid-security-monitoring.png
-[architectural-diagram-visio-source]: https://archcenter.blob.core.windows.net/cdn/hybrid-security-monitoring.vsdx
+[architectural-diagram-visio-source]: https://arch-center.azureedge.net/hybrid-security-monitoring.vsdx
 [azure-monitor]: /azure/azure-monitor/
 [azure-monitor-install-agent]: /azure/azure-monitor/platform/agent-windows#install-agent-using-setup-wizard
 [azure-monitor-install-agent-linux]: /azure/azure-monitor/platform/agent-linux-troubleshoot

@@ -156,7 +156,7 @@ In some scenarios, the Azure Network Adapter's installation interface might not 
 
 [architectual-diagram]: ./images/azure-network-adapter.png
 [architectual-diagram-large]: ./images/azure-network-adapter-large.png
-[architectual-diagram-visio-source]: https://archcenter.blob.core.windows.net/cdn/azure-network-adapter.vsdx
+[architectual-diagram-visio-source]: https://arch-center.azureedge.net/azure-network-adapter.vsdx
 [1]: /office365/enterprise/connect-an-on-premises-network-to-a-microsoft-azure-virtual-network
 [2]: /azure/vpn-gateway/vpn-gateway-highlyavailable#about-azure-vpn-gateway-redundancy
 [3]: https://portal.azure.com/#create/Microsoft.VirtualNetwork-ARM

@@ -132,7 +132,7 @@ Azure Arc agents require the following protocols/ports/outbound URLs to function
 - General cost considerations are described in the [Principles of cost optimization][Principles of cost optimization] section in the Microsoft Azure Well-Architected Framework.
 
 [Architecture diagram]: ./images/arc-hybrid-kubernetes.png
-[Architecture visio]: https://archcenter.blob.core.windows.net/cdn/arc-hybrid-kubernetes.vsdx
+[Architecture visio]: https://arch-center.azureedge.net/arc-hybrid-kubernetes.vsdx
 [Azure Arc]: /azure/azure-arc/
 [Azure Container Instances]: /azure/container-instances/container-instances-overview
 [Azure Kubernetes Service]: /azure/aks/

@@ -393,5 +393,5 @@ See the following articles for more information and for examples of SAP workload
 [aaf-cost]: ../../framework/cost/overview.md
 [azure-pricing-calculator]: https://azure.microsoft.com/pricing/calculator
 [expressroute-pricing]: https://azure.microsoft.com/pricing/details/expressroute
-[visio-download]: https://archcenter.blob.core.windows.net/cdn/sap-netweaver.vsdx
+[visio-download]: https://arch-center.azureedge.net/sap-netweaver.vsdx
 [az-spot-vms]: /azure/virtual-machines/windows/spot-vms

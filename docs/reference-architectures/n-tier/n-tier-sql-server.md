@@ -328,7 +328,7 @@ If you specify a region that supports availability zones, the VMs are deployed i
 [sql-keyvault]: /azure/azure-sql/virtual-machines/windows/azure-key-vault-integration-configure
 [Managed-Sql-pricing]: https://azure.microsoft.com/pricing/details/sql-database/managed
 [subscription-limits]: /azure/azure-subscription-service-limits
-[visio-download]: https://archcenter.blob.core.windows.net/cdn/vm-reference-architectures.vsdx
+[visio-download]: https://arch-center.azureedge.net/vm-reference-architectures.vsdx
 [vmss-design]: /azure/virtual-machine-scale-sets/virtual-machine-scale-sets-design-overview
 [vmss]: /azure/virtual-machine-scale-sets/virtual-machine-scale-sets-overview
 [Windows-vm-pricing]: https://azure.microsoft.com/pricing/details/virtual-machines/windows

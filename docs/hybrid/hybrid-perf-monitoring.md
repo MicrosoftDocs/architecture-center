@@ -179,7 +179,7 @@ The following are considerations for controlling and managing costs in your envi
 - For more information, refer to [Azure Monitor pricing][monitor-pricing] and [Pricing calculator][pricing-calculator].
 
 [architectural-diagram]: ./images/hybrid-perf-monitoring.png
-[architectural-diagram-visio-source]: https://archcenter.blob.core.windows.net/cdn/hybrid-perf-monitoring.vsdx
+[architectural-diagram-visio-source]: https://arch-center.azureedge.net/hybrid-perf-monitoring.vsdx
 [agents-overview]: /azure/azure-monitor/platform/log-analytics-agent
 [dependency-agent]: /azure/azure-monitor/platform/agents-overview#dependency-agent
 [design-deployment]: /azure/azure-monitor/platform/design-logs-deployment

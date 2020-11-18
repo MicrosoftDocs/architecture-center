@@ -196,7 +196,7 @@ az deployment group create \
 [vnet-peering-requirements]: /azure/virtual-network/virtual-network-manage-peering#requirements-and-constraints
 [vpn-appliance]: /azure/vpn-gateway/vpn-gateway-about-vpn-devices
 [windows-vm-ra]: ../n-tier/n-tier-sql-server.md
-[visio-download]: https://archcenter.blob.core.windows.net/cdn/hybrid-network-hub-spoke.vsdx
+[visio-download]: https://arch-center.azureedge.net/hybrid-network-hub-spoke.vsdx
 [ref-arch-repo]: https://github.com/mspnp/reference-architectures
 
 [0]: ./images/hub-spoke.png "Hub-spoke topology in Azure"
