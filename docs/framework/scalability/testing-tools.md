@@ -70,7 +70,7 @@ Follow the guidelines in [Design for high performance](https://docs.microsoft.co
 
 To avoid performance issues due to throttling, always provision sufficient resources for your application. Take into consideration [VM sizes](https://docs.microsoft.com/azure/virtual-machines/premium-storage-performance#high-scale-vm-sizes) and [disk sizes](https://docs.microsoft.com/azure/virtual-machines/premium-storage-performance#premium-storage-disk-sizes). Benchmarking is the best way to figure out what resources you will need to host your application.
 
-See the [Optimize IOPS, throughput, and latency](https://docs.microsoft.com/en-us/azure/virtual-machines/premium-storage-performance#optimize-iops-throughput-and-latency-at-a-glance) table for guidance.
+See the [Optimize IOPS, throughput, and latency](https://docs.microsoft.com/azure/virtual-machines/premium-storage-performance#optimize-iops-throughput-and-latency-at-a-glance) table for guidance.
 
 ## Metrics
 
