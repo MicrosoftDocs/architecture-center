@@ -287,8 +287,12 @@ items:
       href: framework/scalability/app-design.md
     - name: Capacity planning
       href: framework/scalability/capacity.md
-    - name: Load testing
-      href: framework/scalability/load-testing.md
+    - name: Testing
+      items:
+      - name: Performance testing
+        href: framework/scalability/performance-testing.md
+      - name: Testing tools
+        href: framework/scalability/testing-tools.md  
     - name: Monitoring
       href: framework/scalability/monitoring.md
     - name: Checklist
