@@ -11,6 +11,7 @@ ms.category:
 ms.custom:
   - fcp
   - example-scenario
+ms.subservice: example-scenario
 ---
 
 # Multitenant SaaS on Azure

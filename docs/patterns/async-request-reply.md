@@ -11,7 +11,7 @@ ms.custom:
   - design-pattern
 ms.topic: conceptual
 ms.service: architecture-center
-ms.subservice: cloud-fundamentals
+ms.subservice: design-pattern
 ---
 
 <!-- cSpell:ignore cqrs WillEastbury wieastbu -->

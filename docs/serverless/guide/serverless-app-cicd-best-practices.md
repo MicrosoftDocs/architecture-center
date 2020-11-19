@@ -9,7 +9,7 @@ ms.service: architecture-center
 ms.category:
   - devops
   - developer-tools
-ms.subservice: reference-architecture
+ms.subservice: azure-guide
 ms.custom:
   - guide
 ---

@@ -14,6 +14,7 @@ ms.category:
   - devops
   - ai-machine-learning
 social_image_url: /azure/architecture/example-scenario/apps/media/deployment-flow.png
+ms.subservice: example-scenario
 ---
 
 <!-- cSpell:ignore MariaVrabie appservice botservice cicdbots azurewebsites -->

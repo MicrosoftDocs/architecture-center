@@ -7,7 +7,7 @@ ms.topic: conceptual
 ms.service: architecture-center
 ms.category:
   - compute
-ms.subservice: reference-architecture
+ms.subservice: guide
 ms.custom:
   - guide
 ---

@@ -9,7 +9,7 @@ ms.category:
   - developer-tools
   - management-and-governance
   - featured
-ms.subservice: reference-architecture
+ms.subservice: azure-guide
 ---
 
 <!-- cSpell:ignore Dropwizard loganalytics samplejob appender jconfiguration kusto rowcounter -->

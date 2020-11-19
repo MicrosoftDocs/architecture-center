@@ -9,7 +9,7 @@ ms.service: architecture-center
 ms.author: keith
 ms.category:
   - fcp
-ms.subservice: reference-architecture
+ms.subservice: azure-guide
 ms.custom:
   - guide
 ---

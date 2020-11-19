@@ -11,6 +11,7 @@ ms.custom:
   - example-scenario
 ms.category:
   - security
+ms.subservice: example-scenario
 ---
 
 # Computer forensics in Azure
