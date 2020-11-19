@@ -63,9 +63,9 @@ The following recommendations apply for most scenarios. Follow these recommendat
 
 ## Scalability considerations
 
-Jenkins can scale to support very large workloads. For elastic builds, do not run builds on the Jenkins primary server. Instead, offload build tasks to Jenkins agents, which can be elastically scaled in and out as need. Consider two options for scaling agents:
+Jenkins can dynamically scale to support workloads as needed. For elastic builds, do not run builds on the Jenkins primary server. Instead, offload build tasks to Jenkins agents, which can be elastically scaled in and out as need. Consider two options for scaling agents:
 
-- [Scale Jenkins deployments with Azure VM Agents][vm-agent]. VM Agents enables elastic scale-out for agents and can use distinct types of virtual machines. You can specify a different base image from Azure Marketplace or use a custom image. For details about how the Jenkins agents scale, see [Architecting for Scale][scale] in the Jenkins documentation.
+- [Scale Jenkins deployments with Azure VM Agents][vm-agent]. VM Agents enable elastic scale-out for agents and can use distinct types of virtual machines. You can specify a different base image from Azure Marketplace or use a custom image. For details about how the Jenkins agents scale, see [Architecting for Scale][scale] in the Jenkins documentation.
 
 - Run a container as an agent in either [Azure Container Service with Kubernetes](/azure/container-service/kubernetes/), or [Azure Container Instances](/azure/container-instances/).
 
@@ -75,7 +75,7 @@ Also, use Azure Storage to share build artifacts that may be used in the next st
 
 ### Scaling the Jenkins server
 
-When you [create a VM and install Jenkins][install-jenkins-section], you can specify the size of the VM. Selecting the correct VM server size depends on the size of the expected workload. The Jenkins community maintains a [selection guide][selection-guide] to help identify the configuration that best meets your requirements. Azure offers many [sizes for Linux VMs][sizes-linux] to meet any requirements. For more information about scaling the Jenkins primary, refer to the Jenkins community of [best practices][best-practices], which also includes details about scaling Jenkins.
+When you [create a VM and install Jenkins][install-jenkins-section], you can specify the size of the VM. Selecting the correct VM server size depends on the size of the expected workload. The Jenkins community maintains a [selection guide][selection-guide] to help identify the configuration that best meets your requirements. Azure offers many [sizes for Linux VMs][sizes-linux] to meet any requirements. For more information about scaling the Jenkins primary, see the Jenkins community of [best practices][best-practices], which also includes details about scaling Jenkins.
 
 ## Availability considerations
 
@@ -85,7 +85,7 @@ Availability in the context of a Jenkins server means being able to recover any 
 
 - Recovery Point Objective (RPO) indicates how much data you can afford to lose if a disruption in service affects Jenkins.
 
-In practice, RTO and RPO imply redundancy and backup. Availability is not a question of hardware recovery &mdash; that is part of Azure &mdash; but rather ensuring you maintain the state of your Jenkins server. Microsoft offers a [service level agreement][sla] (SLA) for single VM instances. If this SLA doesn't meet your uptime requirements, make sure you have a plan for disaster recovery, or consider using a [multi-primary Jenkins server][multi-primary] deployment (not covered in this document).
+In practice, RTO, and RPO imply redundancy and backup. Availability is not a question of hardware recovery - that is part of Azure - but rather ensuring you maintain the state of your Jenkins server. Microsoft offers a [service level agreement][sla] (SLA) for single VM instances. If this SLA doesn't meet your uptime requirements, make sure you have a plan for disaster recovery, or consider using a [multi-primary Jenkins server][multi-primary] deployment (not covered in this document).
 
 Consider using the disaster recovery [scripts][disaster] in step 7 of the deployment to create an Azure Storage account with managed disks to store the Jenkins server state. If Jenkins goes down, it can be restored to the state stored in this separate storage account.
 
@@ -98,11 +98,11 @@ Use the following approaches to help lock down security on a basic Jenkins serve
     > [!NOTE]
     > When adding SSL to your server, create a network security group rule for the Jenkins subnet to open port 443. For more information, see [How to open ports to a virtual machine with the Azure portal][port443].
 
-- Ensure that the Jenkins configuration prevents cross site request forgery (Manage Jenkins \> Configure Global Security). This is the default for Microsoft Jenkins Server.
+- Ensure that the Jenkins configuration prevents cross site request forgery (Manage Jenkins \> Configure Global Security). This option is the default for Microsoft Jenkins Server.
 
 - Configure read-only access to the Jenkins dashboard by using the [Matrix Authorization Strategy Plugin][matrix].
 
-- Use RBAC to restrict the access of the service principal to the minimum required to run the jobs. This helps limit the scope of damage from a rogue job.
+- Use RBAC to restrict the access of the service principal to the minimum required to run the jobs. This level of security helps limit the scope of damage from a rogue job.
 
 Jenkins jobs often require secrets to access Azure services that require authorization, such as Azure Container Service. Use [Key Vault][key-vault] to manage these secrets securely. Use Key Vault to store service principal credentials, passwords, tokens, and other secrets.
 
@@ -112,13 +112,13 @@ The Jenkins server has its own user management system, and the Jenkins community
 
 ## Manageability considerations
 
-Use resource groups to organize the Azure resources that are deployed. Deploy production environments and development/test environments in separate resource groups, so that you can monitor each environment's resources and roll up billing costs by resource group. You can also delete resources as a set, which is very useful for test deployments.
+Use resource groups to organize the Azure resources that are deployed. Deploy production environments and development/test environments in separate resource groups, so that you can monitor each environment's resources and roll up billing costs by resource group. You can also delete resources as a set, which is useful for test deployments.
 
 Azure provides several features for [monitoring and diagnostics][monitoring-diag] of the overall infrastructure. To monitor CPU usage, this architecture deploys Azure Monitor. For example, you can use Azure Monitor to monitor CPU utilization, and send a notification if CPU usage exceeds 80 percent. (High CPU usage indicates that you might want to scale up the Jenkins server VM.) You can also notify a designated user if the VM fails or becomes unavailable.
 
 ## Communities
 
-Communities can answer questions and help you set up a successful deployment. Consider the following:
+Communities like the following can answer questions and help you configure a successful deployment:
 
 - [Jenkins Community Blog](https://jenkins.io/node/)
 - [Azure Forum](https://azure.microsoft.com/support/forums/)
