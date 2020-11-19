@@ -5,7 +5,7 @@ description: Compare Azure cloud services to Amazon Web Services (AWS) for multi
 keywords: cloud services comparison, cloud services compared, multicloud, compare Azure AWS, compare Azure and AWS, compare AWS and Azure, IT capabilities
 author: doodlemania2
 ms.author: pnp
-ms.date: 08/11/2020
+ms.date: 11/11/2020
 ms.topic: reference
 ms.service: architecture-center
 ms.subservice: cloud-fundamentals
@@ -90,11 +90,13 @@ For an overview of Azure for AWS users, see [Introduction to Azure for AWS profe
 ### Big data architectures
 
 <ul class="grid">
-  
+
+
 [!INCLUDE [Azure data platform end-to-end](../../includes/cards/data-platform-end-to-end.md)]
 [!INCLUDE [Campaign Optimization with Azure HDInsight Spark Clusters](../../includes/cards/campaign-optimization-with-azure-hdinsight-spark-clusters.md)]
 
 </ul>
+
 
 [view all](../browse/index.md#databases)
 

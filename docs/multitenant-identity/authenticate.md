@@ -7,7 +7,7 @@ ms.topic: conceptual
 ms.service: architecture-center
 ms.category:
   - identity
-ms.subservice: reference-architecture
+ms.subservice: azure-guide
 pnp.series.title: Manage Identity in Multitenant Applications
 pnp.series.prev: tailspin
 pnp.series.next: claims

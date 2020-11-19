@@ -6,7 +6,7 @@ author: dragon119
 ms.date: 06/05/2017
 ms.topic: conceptual
 ms.service: architecture-center
-ms.subservice: cloud-fundamentals
+ms.subservice: anti-pattern
 ms.custom:
   - seodec18
   - article
