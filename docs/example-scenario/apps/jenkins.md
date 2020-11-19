@@ -33,7 +33,7 @@ The focus of this document is on the core Azure operations needed to support Jen
 
 The architecture consists of the following components:
 
-- **Resource group.** A [resource group][rg] is used to group Azure assets so they can be managed by lifetime, owner, and other criteria. Use resource groups to deploy and monitor Azure assets as a group and track billing costs by resource group. You can also delete resources as a set, which is very useful for test deployments.
+- **Resource group.** A [resource group][rg] is used to group Azure assets so they can be managed by lifetime, owner, and other criteria. Use resource groups to deploy and monitor Azure assets as a group and track billing costs by resource group. You can also delete resources as a set, which is useful for test deployments.
 
 - **Jenkins server.** A virtual machine is deployed to run [Jenkins][azure-market] as an automation server and serves as Jenkins Primary. In the section [Install and configure Jenkins][install-jenkins-section], you'll see how to install Jenkins on a new VM.
 
@@ -118,7 +118,7 @@ Azure provides several features for [monitoring and diagnostics][monitoring-diag
 
 ## Communities
 
-Communities like the following can answer questions and help you configure a successful deployment:
+The following online communities can answer questions and help you configure a successful deployment:
 
 - [Jenkins Community Blog](https://jenkins.io/node/)
 - [Azure Forum](https://azure.microsoft.com/support/forums/)
