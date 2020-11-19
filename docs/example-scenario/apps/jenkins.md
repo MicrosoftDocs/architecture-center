@@ -19,7 +19,7 @@ social_image_url: /azure/architecture/example-scenario/apps/media/architecture-j
 
 # Run a Jenkins server on Azure
 
-This scenario shows how to deploy and operate a scalable, enterprise-grade Jenkins server on Azure secured with single sign-on (SSO). The architecture also uses Azure Monitor to monitor the state of the Jenkins server. [**Deploy this solution**](#deploy-the-solution).
+This scenario explains the architecture and considerations to take into account when [installing and configuring Jenkins][install-jenkins-section].
 
 ![Jenkins server running on Azure][0]
 
@@ -35,7 +35,7 @@ The architecture consists of the following components:
 
 - **Resource group.** A [resource group][rg] is used to group Azure assets so they can be managed by lifetime, owner, and other criteria. Use resource groups to deploy and monitor Azure assets as a group and track billing costs by resource group. You can also delete resources as a set, which is very useful for test deployments.
 
-- **Jenkins server.** A virtual machine is deployed to run [Jenkins][azure-market] as an automation server and serves as Jenkins Primary. In the section [Install and configure Jenkins](#nstall-and-configure-jenkins) section, you'll see how to install Jenkins on a new VM.
+- **Jenkins server.** A virtual machine is deployed to run [Jenkins][azure-market] as an automation server and serves as Jenkins Primary. In the section [Install and configure Jenkins][install-jenkins-section], you'll see how to install Jenkins on a new VM.
 
   > [!NOTE]
   > Nginx is installed on the VM to act as a reverse proxy to Jenkins. You can configure Nginx to enable SSL for the Jenkins server.
@@ -75,7 +75,7 @@ Also, use Azure Storage to share build artifacts that may be used in the next st
 
 ### Scaling the Jenkins server
 
-When you [create a VM and install Jenkins](#nstall-and-configure-jenkins), you can specify the size of the VM. Selecting the correct VM server size depends on the size of the expected workload. The Jenkins community maintains a [selection guide][selection-guide] to help identify the configuration that best meets your requirements. Azure offers many [sizes for Linux VMs][sizes-linux] to meet any requirements. For more information about scaling the Jenkins primary, refer to the Jenkins community of [best practices][best-practices], which also includes details about scaling Jenkins.
+When you [create a VM and install Jenkins][install-jenkins-section], you can specify the size of the VM. Selecting the correct VM server size depends on the size of the expected workload. The Jenkins community maintains a [selection guide][selection-guide] to help identify the configuration that best meets your requirements. Azure offers many [sizes for Linux VMs][sizes-linux] to meet any requirements. For more information about scaling the Jenkins primary, refer to the Jenkins community of [best practices][best-practices], which also includes details about scaling Jenkins.
 
 ## Availability considerations
 
@@ -145,6 +145,7 @@ To create a VM and install Jenkins, follow the instructions in the article, [Qui
 [disaster]: https://github.com/Azure/jenkins/tree/master/disaster_recovery
 [functions]: https://aka.ms/azjenkinsfunctions
 [index]: https://plugins.jenkins.io
+[install-jenkins-section]: #install-and-configure-jenkins
 [jenkins-best]: https://wiki.jenkins.io/display/JENKINS/Jenkins+Best+Practices
 [jenkins-on-azure]: /azure/jenkins
 [key-vault]: /azure/key-vault
