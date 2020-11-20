@@ -77,5 +77,5 @@ To get a unified view across the enterprise, feed the logs collected through nat
 - [Security health modeling](monitor.md)
 - [Security tools](monitor-tools.md)
 - [Security logs and audits](monitor-audit.md)
-- [Check for identity, network, data risks](monitor-security-operations.md)
+- [Check for identity, network, data risks](monitor-identity-network.md)
 
