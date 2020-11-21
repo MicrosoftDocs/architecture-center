@@ -2,7 +2,7 @@
 title: Baseline architecture for an Azure Kubernetes Service (AKS) cluster
 description: Reference architecture for a baseline infrastructure that deploys an Azure Kubernetes Service (AKS) cluster.
 author: PageWriter-MSFT
-ms.date: 08/01/2020
+ms.date: 11/21/2020
 ms.topic: conceptual
 ms.service: architecture-center
 ms.category:
@@ -424,13 +424,13 @@ Those limits can be specified in your deployment manifests. For more information
 
 ### Availability zones and multi-region support
 
-If your SLA requires a higher uptime, protect against loss in a zone. You can use availability zones if the region supports them. The nodes in the user node pool are then able to spread across zones. If an entire zone is unavailable, a node in another zone within the region is still available. Each node pool maps to a separate virtual machine scale set, which manages node instances and scalability. Scale set operations and configuration managed by the AKS service. Here are some considerations when enabling multizone:
+If your SLA requires a higher uptime, protect against loss in a zone. You can use availability zones if the region supports them. Both the control plane components and the nodes in the node pools are then able to spread across zones. If an entire zone is unavailable, a node in another zone within the region is still available. Each node pool maps to a separate virtual machine scale set, which manages node instances and scalability. Scale set operations and configuration are managed by the AKS service. Here are some considerations when enabling multizone:
 
--   **Entire infrastructure.** Choose a region that supports availability zones. For more information, see [Limitations and region availability](/azure/aks/availability-zones#limitations-and-region-availability). If you want to buy an Uptime SLA, choose a region that supports that option.
+-   **Entire infrastructure.** Choose a region that supports availability zones. For more information, see [Limitations and region availability](/azure/aks/availability-zones#limitations-and-region-availability). If you want to buy an Uptime SLA, choose a region that supports that option. The Uptime SLA is greater when using availability zones.
 
 -   **Cluster**. Availability zones can only be set when the node pool is created and can't be changed later. The node sizes should be supported in all zones so that the expected distribution is possible. The underlying virtual machine scale set provides the same hardware configuration across zones.
 
-    Multizone support only applies to node pools. The AKS API server is in a single zone. If the API server becomes unavailable as part of a zone failure, pods deployed on node pools will continue to run, however Kubernetes will lose orchestration capabilities, and workload might be affected.
+    Multizone support not only applies to node pools, but the control plane as well. The AKS control plane will span the zones requested, like the node pools. If you do not use zone support in your cluster, the control plane components are not guaranteed to spread across availability zones.
 
 -   **Dependent resources**. For complete zonal benefit, all service dependencies must also support zones. If a dependent service doesn't support zones, it's possible that a zone failure could cause that service to fail.
 
