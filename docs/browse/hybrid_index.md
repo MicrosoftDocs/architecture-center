@@ -45,6 +45,7 @@ Architecture diagrams, reference architectures, example scenarios, and solutions
 <ul class="grid">
 
 [!INCLUDE [Archive on-premises data to cloud](../../includes/cards/backup-archive-on-premises.md)]
+[!INCLUDE [Azure enterprise cloud file share](../../includes/cards/azure-files-private.md)]
 [!INCLUDE [Back up on-premises applications and data to cloud](../../includes/cards/backup-archive-on-premises-applications.md)]
 [!INCLUDE [Extend your on-premises big data investments with HDInsight](../../includes/cards/extend-your-on-premises-big-data-investments-with-hdinsight.md)]
 [!INCLUDE [Hybrid ETL with Azure Data Factory](../../includes/cards/hybrid-etl-with-adf.md)]
