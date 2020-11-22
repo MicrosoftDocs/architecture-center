@@ -631,6 +631,8 @@ Act on recommendations provided by [Azure Advisor](https://portal.azure.com/#bla
 
 -   If the application doesn’t require burst scaling, consider sizing the cluster to just the right size by analyzing performance metrics over time.
 
+-   If your workload supports it, [scale your user node pools to 0 nodes](https://docs.microsoft.com/azure/aks/scale-cluster#scale-user-node-pools-to-0) when there is reason for them to be running. Furthermore, if there are no workloads left scheduled to be run in your cluster, consider using the [AKS Start/Stop feature](https://docs.microsoft.com/azure/aks/start-stop-cluster) to shut down all compute, inclucing your system node pool and the AKS control plane.
+
 For other cost-related information, see [AKS pricing](https://azure.microsoft.com/pricing/details/kubernetes-service/).
 
 ## Next Steps
