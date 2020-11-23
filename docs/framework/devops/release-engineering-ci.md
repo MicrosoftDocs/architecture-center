@@ -3,35 +3,35 @@ title: Release Engineering Continuous integration
 description: Release Engineering Continuous integration
 author: neilpeterson
 ms.date: 09/28/2020
-ms.topic: article
+ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
 ---
 
 # Release Engineering: Continuous integration
 
-As code is developed, updated, or even removed, having a friction-free and safe method to integrate these changes into the main code branch is paramount to enabling developers to provide value fast. As a developer, making small code changes, pushing these to a code repository, and getting almost instantaneous feedback on the quality, test coverage, and introduced bugs allows me to work faster, with more confidence, and less risk. Continuous integration is a practice where source control systems and software deployment pipelines are integrated to provide automated build, test, and feedback mechanisms for software development teams. 
+As code is developed, updated, or even removed, having a friction-free and safe method to integrate these changes into the main code branch is paramount to enabling developers to provide value fast. As a developer, making small code changes, pushing these to a code repository, and getting almost instantaneous feedback on the quality, test coverage, and introduced bugs allows you to work faster, with more confidence, and less risk. Continuous integration (CI) is a practice where source control systems and software deployment pipelines are integrated to provide automated build, test, and feedback mechanisms for software development teams. 
 
-Continuous integration is about ensuring that software is ready for deployment but does not include the deployment itself. This document covers the basics of continuous integration and offers links and examples for more in-depth content.
+Continuous integration is about ensuring that software is ready for deployment but does not include the deployment itself. This article covers the basics of continuous integration and offers links and examples for more in-depth content.
 
 ## Continious integration
 
-Continuous integration is a software development practice under which developers integrate software updates into a source control system on a regular cadence. The continuous integration process starts when an engineer creates a pull request signaling to the CI system that code changes ready to be integrated. Ideally, integration validates the code against several baselines and tests and provides quick feedback to the requesting engineer on the status of these tests. Assuming baseline checks and testing have gone well, the integration process produces and stages assets such as compiled code and container images that will eventually deploy the updated software.
+Continuous integration is a software development practice under which developers integrate software updates into a source control system on a regular cadence. The continuous integration process starts when an engineer creates a pull request signaling to the CI system that code changes are ready to be integrated. Ideally, integration validates the code against several baselines and tests and provides quick feedback to the requesting engineer on the status of these tests. Assuming baseline checks and testing have gone well, the integration process produces and stages assets such as compiled code and container images that will eventually deploy the updated software.
 
-As a software engineer, continuous integration can help me deliver quality software more quickly by performing the following:
+As a software engineer, continuous integration can help you deliver quality software more quickly by performing the following:
 
 - Run automated tests against the code, providing early detection of breaking changes.
 - Run code analysis to ensure code standards, quality, and configuration.
 - Run compliance and security checks ensuring no known vulnerabilities.
 - Run acceptance or functional tested to ensure that the software operates as expected.
-- Provide quick feedback on detected issues.
+- To provide quick feedback on detected issues.
 - Where applicable, produce deployable assets or packages that include the updated code.
 
-To achieve continuous integration, we need software solutions to manage, integrate, and automate the process. A common practice is to use a continuous integration pipeline, detailed in this document's next section.
+To achieve continuous integration, use software solutions to manage, integrate, and automate the process. A common practice is to use a continuous integration pipeline, detailed in this article's next section.
 
 ## Continuous integration pipelines
 
-A continuous integration pipeline involves a piece of software, in many cases, cloud-hosted, that provides a platform for running automated tests, compliance scans, reporting, and all additional components that make up the continuous integration process. In most cases, the pipeline software is attached to source control such that when pull requests are created and / or software is merged into a specific branch, and the continuous integration pipeline is run. Source control integration also provides the opportunity for providing CI feedback directly on the pull request.
+A continuous integration pipeline involves a piece of software, in many cases, cloud-hosted, that provides a platform for running automated tests, compliance scans, reporting, and all additional components that make up the continuous integration process. In most cases, the pipeline software is attached to source control such that when pull requests are created or software is merged into a specific branch, and the continuous integration pipeline is run. Source control integration also provides the opportunity for providing CI feedback directly on the pull request.
 
 Many solutions provide continuous integration pipeline capabilities. This article touches on both Azure DevOps Pipelines and GitHub actions and provides links to find more information.
 
@@ -39,10 +39,10 @@ Many solutions provide continuous integration pipeline capabilities. This articl
 
 To learn how to create a continuous integration pipeline, see these articles:
 
-- [Azure DevOps: Create your first pipeline](https://docs.microsoft.com/azure/devops/pipelines/create-first-pipeline?view=azure-devops&preserve-view=true).
-- [GitHub Actions: Setting up continuous integration using workflow tempaltes](https://docs.github.com/en/free-pro-team@latest/actions/guides/setting-up-continuous-integration-using-workflow-templates).
+- [Azure DevOps: Create your first pipeline](https://docs.microsoft.com/azure/devops/pipelines/create-first-pipeline?view=azure-devops&preserve-view=true)
+- [GitHub Actions: Setting up continuous integration using workflow tempaltes](https://docs.github.com/en/free-pro-team@latest/actions/guides/setting-up-continuous-integration-using-workflow-templates)
 
-### Source Controll Integration
+### Source Control Integration
 
 The integration of your continuous integration pipeline with your source control system is key to enabling fast, self-service, and friction-free code contributions. Source control integration enables these things:
 
@@ -56,7 +56,7 @@ The following image shows the integration between GitHub and an Azure DevOps pip
 
 #### Test Integration
 
-A key element of continuous integration is the continual building and testing of code as code contributions are created. Testing pull requests as they are created gives quick feedback that the commit does has not introduced breaking changes. The neat thing here is that the tests that are run by the continuous integration pipeline can be the same tests run during test-driven development.
+A key element of continuous integration is the continual building and testing of code as code contributions are created. Testing pull requests as they are created gives quick feedback that the commit  has not introduced breaking changes. The advantage is that the tests that are run by the continuous integration pipeline can be the same tests run during test-driven development.
 
 The following code snippet shows a test step from an Azure DevOps pipeline. There are two actions occurring:
 
@@ -92,7 +92,7 @@ Many developers like to show that they're keeping their code quality high by dis
 
 To learn how to display badges in your repositories, see these articles:
 
-- [Add an Azure Pipeline status badge to your repository](https://docs.microsoft.com/azure/devops/pipelines/create-first-pipeline?view=azure-devops&tabs=java%2Ctfs-2018-2%2Cbrowser#add-a-status-badge-to-your-repository&preserve-view=true).
+- [Add an Azure Pipeline status badge to your repository](https://docs.microsoft.com/azure/devops/pipelines/create-first-pipeline?view=azure-devops&tabs=java%2Ctfs-2018-2%2Cbrowser#add-a-status-badge-to-your-repository).
 - [Add a GitHub workflow status badge to your repository](https://docs.github.com/en/free-pro-team@latest/actions/managing-workflow-runs/adding-a-workflow-status-badge).
 
 ## Next steps

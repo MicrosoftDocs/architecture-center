@@ -3,31 +3,31 @@ title: Release Engineering Application Development
 description: Release Engineering Application Development
 author: neilpeterson
 ms.date: 09/28/2020
-ms.topic: article
+ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
 ---
 
 # Release Engineering: Application Development
 
-One of the primary goals of adopting modern release management strategies is to build systems that allow your teams to turn ideas into production delivered software with as little friction as possible. Throughout this section of the Well Architected Framework, methods, and tools for quickly and reliably delivering software are examined. You will learn about things like continuous deployment software, integration strategies, and deployment environments. Samples are provided to help you quickly get hands-on with this technology.
+One of the primary goals of adopting modern release management strategies is to build systems that allow your teams to turn ideas into production delivered software with as little friction as possible. Throughout this section of the Well-Architected Framework, methods and tools for quickly and reliably delivering software are examined. You will learn about things like continuous deployment software, integration strategies, and deployment environments. Samples are provided to help you quickly get hands-on with this technology.
 
-However, release engineering does not start with fancy deployment software, multiple deployment environments, or Kubernetes clusters. Before examining how we can quickly and reliably release software, we need to first look at how software is developed. Not only has the introduction of cloud computing had a significant impact on how software is delivered and run, but it's also had a huge 'downstream' impact on how software is developed. For example, the introduction of container technology has changed how we can host, scale, and deprecate software. That said, containers have also impacted things like dependency management, host environment, and tooling as we develop software.
+However, release engineering does not start with fancy deployment software, multiple deployment environments, or Kubernetes clusters. Before examining how we can quickly and reliably release software, we need to first look at how software is developed. Not only has the introduction of cloud computing had a significant impact on how software is delivered and run, but it's also had a huge downstream impact on how software is developed. For example, the introduction of container technology has changed how we can host, scale, and deprecate software. That said, containers have also impacted things like dependency management, host environment, and tooling as we develop software.
 
 This article details many practices that you may want to consider when building strategies for developing for the cloud. Topics include:
 
 - Development environments, or where you write your code.
-- Source control and branching strategies, how you manage, collaborate on and eventually deploy your code.
+- Source control and branching strategies, how you manage, collaborate on, and eventually deploy your code.
 
 ## Development environments
 
-When developing software for the cloud, or any environment for that matter, care needs to be taken to ensure that the development environment is set up for success. When setting up a development environment, you may consider questions like the following:
+When developing software for the cloud, or any environment, care needs to be taken to ensure that the development environment is set up for success. When setting up a development environment, you may consider questions like the following:
 
 - How do I ensure that all dependencies are in place?
 - How can I best configure my development environment to emulate a production environment?
 - How do I develop code where service dependencies may exist with code already in production? 
 
-The following sections briefly detail technology that aids during the local or what is often referred to as 'inner-loop' development process.
+The following sections briefly detail technology that aids during the local or what is often referred to as "inner-loop" development process.
 
 ### Docker Desktop
 
@@ -35,7 +35,7 @@ Docker Desktop is an application that provides a Docker environment on your deve
 
 **Learn more**
 
-[Docker Desktop](https://docs.microsoft.com/windows/wsl/)
+[Docker Desktop](https://www.docker.com/products/docker-desktop)
 
 ### Windows Subsystem for Linux
 
@@ -43,11 +43,11 @@ Many applications and solutions are built on Linux. Windows Subsystem for Linux 
 
 **Learn more**
 
-[Documentation: Windows Subsystem for Linux Documentation](https://www.docker.com/products/docker-desktop)
+[Documentation: Windows Subsystem for Linux Documentation](https://docs.microsoft.com/windows/wsl/)
 
 ### Bridge to Kubernetes
 
-Bridge to Kubernetes allows you to run and debug code on your development system while connected to a Kubernetes cluster. This configuration can be helpful when working on microservice type architectures. Using Bridge, you can work locally on one service, which has a dependency on other services. Rather than needing to run all dependant services on your development system or deploy your in-development code to the cluster, Bridge manages the communication between your development system and running services in your Kubernetes cluster. Essentially, the code running on your development system behaves as if it is running in the Kubernetes cluster.
+Bridge to Kubernetes allows you to run and debug code on your development system while connected to a Kubernetes cluster. This configuration can be helpful when working on microservice type architectures. Using Bridge, you can work locally on one service, which has a dependency on other services. Rather than needing to run all dependant services on your development system or deploy your in-development code to the cluster, Bridge manages the communication between your development system and running services in your Kubernetes cluster. Essentially, the code running on your development system behaves as if it's running in the Kubernetes cluster.
 
 Some features of Bridge:
 
@@ -59,14 +59,14 @@ Some features of Bridge:
 
 **Learn more**
 
-- [Documentation: Use Bridge to Kubernetes with Visual Studio Code](https://www.docker.com/products/docker-desktop)
+- [Documentation: Use Bridge to Kubernetes with Visual Studio Code](https://docs.microsoft.com/azure/dev-spaces/how-vs-code-works-with-dev-spaces)
 - [Documentation: Use Bridge to Kubernetes with Visual Studio](https://docs.microsoft.com/visualstudio/containers/bridge-to-kubernetes?view=vs-2019&preserve-view=true)
 
 ## Source control
 
-Source control management (SCM) systems provide a way to control, collaborate, and peer review software changes. As software is merged into source control, the system helps manage code conflicts. Ultimately, source control provides a running history of the software, modification, and contributors. Whether a piece of software is open-sourced or private, using source control software has become a standardized method of managing software development. As detailed in later sections of the Well Architected Framework, source control systems can also be enlightened with integrated testing, security, and release practices. As cloud practices are adopted and because so much of the cloud infrastructure is managed through code, version control systems are also becoming an integral part of infrastructure management. 
+Source control management (SCM) systems provide a way to control, collaborate, and peer review software changes. As software is merged into source control, the system helps manage code conflicts. Ultimately, source control provides a running history of the software, modification, and contributors. Whether a piece of software is open-sourced or private, using source control software has become a standardized method of managing software development. As detailed in later sections of the Well-Architected Framework, source control systems can also be enlightened with integrated testing, security, and release practices. As cloud practices are adopted and because so much of the cloud infrastructure is managed through code, version control systems are also becoming an integral part of infrastructure management. 
 
-Many source control systems are powered by Git. Git is a distributed version control system and related tools that allow you and your team to track source code changes during the software development lifecycle. Using Git, you can create a copy of the software, make changes, propose the changes, and receive peer review on your proposal. During peer review, Git makes it easy to see precisely the changes being proposed. Once the proposed changes have been approved, Git helps merge the changes into the source, including conflict resolution. If, at any point, the changes need to be reverted, Git can also manage rollback.
+Many source control systems are powered by Git. Git is a distributed version control system with related tools that allow you and your team to track source code changes during the software development lifecycle. Using Git, you can create a copy of the software, make changes, propose the changes, and receive peer review on your proposal. During peer review, Git makes it easy to see precisely the changes being proposed. Once the proposed changes have been approved, Git helps merge the changes into the source, including conflict resolution. If, at any point, the changes need to be reverted, Git can also manage rollback.
 
 Let's examine a few aspects of version controlling software and infrastructure configurations.
 
@@ -98,7 +98,7 @@ GitHub is a popular source control system that uses Git. In addition to core Git
 
 ### Azure Repos
 
-Azure DevOps is a collection of services for building, collaborating on, testing, and delivering software to any environment. Azure DevOps services include Azure Repos, which is a source control system. Using Azure Repos include unlimited free private Git repositories. Standard Git powers azure Repos, and you can use clients and tools of your choice for working with them.
+Azure DevOps is a collection of services for building, collaborating on, testing, and delivering software to any environment. Azure DevOps services include Azure Repos, which is a source control system. Using Azure Repos includes unlimited free private Git repositories. Standard Git powers Azure Repos, and you can use clients and tools of your choice for working with them.
 
 **Learn more**
 
