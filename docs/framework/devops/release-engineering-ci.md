@@ -92,7 +92,7 @@ Many developers like to show that they're keeping their code quality high by dis
 
 To learn how to display badges in your repositories, see these articles:
 
-- [Add an Azure Pipeline status badge to your repository](https://docs.microsoft.com/azure/devops/pipelines/create-first-pipeline?view=azure-devops&tabs=java%2Ctfs-2018-2%2Cbrowser#add-a-status-badge-to-your-repository).
+- [Add an Azure Pipeline status badge to your repository](https://docs.microsoft.com/azure/devops/pipelines/create-first-pipeline?view=azure-devops&tabs=java%2Ctfs-2018-2%2Cbrowser&preserve-view=true#add-a-status-badge-to-your-repository).
 - [Add a GitHub workflow status badge to your repository](https://docs.github.com/en/free-pro-team@latest/actions/managing-workflow-runs/adding-a-workflow-status-badge).
 
 ## Next steps
