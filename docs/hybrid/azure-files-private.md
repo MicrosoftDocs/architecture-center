@@ -1,7 +1,7 @@
 ---
 title: Azure enterprise cloud file share
 title-suffix: Azure Architecture Center
-description: Learn about an enterprise-level cloud file sharing solution that uses Azure Files, Azure File Sync, Azure Private DNS, and Azure Private Endpoint.  
+description: Learn about an enterprise-level cloud file sharing solution that uses Azure Files, Azure File Sync, Azure Private DNS, and Azure Private Endpoint.  
 author: huangyingting
 ms.date: 11/15/2020
 ms.topic: example-scenario

@@ -14,8 +14,8 @@
             <p>Run a Jenkins server on Azure</p>
         </a>
         <ul class="card-content-metadata">
-            <li>4/30/2018</li>
-            <li>10 min read</li>
+            <li>11/19/2020</li>
+            <li>6 min read</li>
         </ul>
         <p class="card-content-description">Recommended architecture that shows how to deploy and operate a scalable, enterprise-grade Jenkins server on Azure secured with single sign-on (SSO).</p>
         <div class="bottom-to-top-fade is-hidden-mobile"></div>

@@ -1,13 +1,11 @@
 ---
-title: Deployment considerations for DevOps
-description: Describes deployment considerations to make to enable DevOps in your organization.
-author: david-stanford
-ms.date: 10/21/2019
-ms.topic: conceptual
+title: Release Engineering Continuous deployment
+description: Release Engineering Continuous deployment
+author: neilpeterson
+ms.date: 09/28/2020
+ms.topic: article
 ms.service: architecture-center
 ms.subservice: well-architected
-ms.custom:
-  - article
 ---
 
 # Deployment considerations for DevOps
@@ -24,24 +22,13 @@ The most reliable deployment processes are automated and *idempotent* &mdash; th
 
 - To automate provisioning of Azure resources, you can use [Terraform](/azure/virtual-machines/windows/infrastructure-automation#terraform),
     [Ansible](/azure/virtual-machines/windows/infrastructure-automation#ansible), [Chef](/azure/virtual-machines/windows/infrastructure-automation#chef), [Puppet](/azure/virtual-machines/windows/infrastructure-automation#puppet),
-    [Azure PowerShell](/powershell/azure/overview), [Azure CLI](/cli/azure), or [Azure Resource Manager templates](/azure/azure-resource-manager/template-deployment-overview).
-- To configure VMs, you can use [cloud-init](/azure/virtual-machines/windows/infrastructure-automation#cloud-init) (for Linux VMs) or [Azure Automation State Configuration](/azure/automation/automation-dsc-overview) (DSC).
-- To automate application deployment, you can use [Azure DevOps Services](/azure/virtual-machines/windows/infrastructure-automation#azure-devops-services), [Jenkins](/azure/virtual-machines/windows/infrastructure-automation#jenkins), or other CI/CD solutions.
+    [Azure PowerShell](/powershell/azure/overview), [Azure CLI](/cli/azure), or [Azure Resource Manager templates](/azure/azure-resource-manager/template-deployment-overview).
+- To configure VMs, you can use [cloud-init](/azure/virtual-machines/windows/infrastructure-automation#cloud-init) (for Linux VMs) or [Azure Automation State Configuration](/azure/automation/automation-dsc-overview) (DSC).
+- To automate application deployment, you can use [Azure DevOps Services](/azure/virtual-machines/windows/infrastructure-automation#azure-devops-services), [Jenkins](/azure/virtual-machines/windows/infrastructure-automation#jenkins), or other CI/CD solutions.
 
 As a best practice, create a repository of categorized automation scripts for quick access, documented with explanations of parameters and examples of script use. Keep this documentation in sync with your Azure deployments, and designate a primary person to manage the repository.
 
 Automation scripts can also activate resources on demand for disaster recovery.
-
-### Use code to provision and configure infrastructure
-
-This practice, called *infrastructure as code,* may use a declarative approach or an imperative approach (or a combination of both).
-
-- [Resource Manager templates](/azure/azure-resource-manager/template-deployment-overview) are an example of a declarative approach.
-- [PowerShell](/powershell/azure/overview) scripts are an example of an imperative approach.
-
-### Practice immutable infrastructure
-
-In other words, don't modify infrastructure after it's deployed to production. After improvised changes have been applied, you might not know exactly what has changed, so it can be difficult to troubleshoot the system.
 
 ### Automate and test deployment and maintenance tasks
 
@@ -65,22 +52,12 @@ Deployment to various stages and running tests/validations at each stage before 
 
 With good use of staging and production environments, you can push updates to the production environment in a highly controlled way and minimize disruption from unanticipated deployment issues.
 
-- [*Blue-green deployment*](https://martinfowler.com/bliki/BlueGreenDeployment.html) involves deploying an update into a production environment that's separate from the live application. After you validate the deployment, switch the traffic routing to the updated version. One way to do this is to use the [staging slots](/azure/app-service/web-sites-staged-publishing) available in Azure App Service to stage a deployment before moving it to production.
-- [*Canary releases*](https://martinfowler.com/bliki/CanaryRelease.html) are similar to blue-green deployments. Instead of switching all traffic to the updated application, you route only a small portion of the traffic to the new deployment. If there's a problem, revert to the old deployment. If not, gradually route more traffic to the new version. If you're using Azure App Service, you can use the Testing in production feature to manage a canary release.
+- [*Blue-green deployment*](https://martinfowler.com/bliki/BlueGreenDeployment.html) involves deploying an update into a production environment that's separate from the live application. After you validate the deployment, switch the traffic routing to the updated version. One way to do this is to use the [staging slots](/azure/app-service/web-sites-staged-publishing) available in Azure App Service to stage a deployment before moving it to production.
+- [*Canary releases*](https://martinfowler.com/bliki/CanaryRelease.html) are similar to blue-green deployments. Instead of switching all traffic to the updated application, you route only a small portion of the traffic to the new deployment. If there's a problem, revert to the old deployment. If not, gradually route more traffic to the new version. If you're using Azure App Service, you can use the Testing in production feature to manage a canary release.
 
 ## Logging and auditing
 
 To capture as much version-specific information as possible, implement a robust logging strategy. If you use staged deployment techniques, more than one version of your application will be running in production. If a problem occurs, determine which version is causing it.
-
-## Rollback plan
-
-Use App Service deployment slots to fall back on last-known good menu.
-
-The most important step is to implement an architecture that supports the need to rollback. For instance, componentized, service-based architectures lend themselves well to this. Persistent message queues and asynchronous services allow you to bring components down for rollback without affecting the main user base. Work towards something like the Blue-Green release pattern such that your application can stay available whilst you are working on one half of the system.
-
-If a deployment fails, your application could become unavailable. To minimize downtime, design a rollback process to go back to a last-known good version. Include a strategy to roll back changes to databases and any other services your app depends on.
-
-If you're using Azure App Service, you can set up a last-known good site slot and use it to roll back from a web or API app deployment.
 
 ## High availability considerations
 
@@ -99,3 +76,8 @@ We recommend deploying all but the least critical applications and application s
 If you run applications and databases in a single, primary region with no replication, your recovery strategy might be to redeploy to another region. This solution is affordable but most appropriate for non-critical applications that can tolerate longer recovery times. If you choose this strategy, automate the redeployment process as much as possible and include redeployment scenarios in your disaster response testing.
 
 To automate your redeployment process, consider using [Azure Site Recovery](/azure/site-recovery/).
+
+## Next steps
+
+> [!div class="nextstepaction"]
+> [Release Engineering: Rollback ](./release-engineering-rollback.md)
