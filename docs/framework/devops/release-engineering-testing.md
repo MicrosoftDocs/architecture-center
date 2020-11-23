@@ -1,20 +1,19 @@
 ---
-title: Testing your Application and Azure Environment
+title: Testing your application and Azure environment
 description: Describes DevOps testing considerations to make when designing your workload.
 author: jose-moreno
 ms.date: 10/21/2019
-ms.topic: conceptual
+ms.topic: article
 ms.service: architecture-center
 ms.subservice: well-architected
-ms.custom:
-  - article
+ms.custom: 
 ---
 
-# Testing your Application and Azure Environment
+# Testing your application and Azure environment
 
 Testing is one of the fundamental components and DevOps and agile development in general. If automation gives DevOps the required speed and agility to deploy software quickly, only through extensive testing those deployments will achieve the required reliability that customers demand.
 
-A main tenet of a DevOps practice to achieve system reliability is the "Shift Left" principle. If developing and deploying an application is a process depicted as a series of steps going from left to right, testing should not only be performed at the very end of the process (at the right). It should be shifted as much to the beginning (to the left) as possible, errors are cheaper to repair when caught early and can be expensive or impossible to fix later in the application life cycle.
+A main tenet of a DevOps practice to achieve system reliability is the "Shift Left" principle. If developing and deploying an application is a process depicted as a series of steps going from left to right, testing should not be limited to being performed at the very end of the process (at the right). It should be shifted as much to the beginning (to the left) as possible. Errors are cheaper to repair when caught early. They can be expensive or impossible to fix later in the application life cycle.
 
 Another aspect to consider is that testing should occur on both application code as well as infrastructure code and they should be subject to the same quality controls. As described in  [Infrastructure as Code][iac], the environment where applications are running should be version-controlled and deployed through the same mechanisms as application code, and hence can be tested and validated using DevOps testing paradigms too.
 
@@ -68,17 +67,17 @@ It is equally important verifying that after the stress test is concluded, the i
 
 ### Business Continuity Drills
 
-Certain infrastructure test scenarios can be considered under the category of acceptance testing, such as Business Continuity drills. In particular Disaster Recovery scenarios are difficult to test on-premises, but the public cloud makes this kind of tests easier. Tools such as Azure Site Recovery make it possible starting an isolated copy of the primary location in a secondary environment, so that it can be verified that the applications have come up as they should.
+Certain infrastructure test scenarios can be considered under the category of acceptance testing, such as Business continuity drills. In particular Disaster Recovery scenarios are difficult to test on-premises, but the public cloud makes this kind of tests easier. Tools such as Azure Site Recovery make it possible to start an isolated copy of the primary location in a secondary environment, so that it can be verified that the applications have come up as they should.
 
 In case there is any problem, the Disaster Recovery procedure can be optimized, and the infrastructure in the secondary environment can be deleted.
 
-### Exploratory Testing
+### Exploratory testing
 
 Experts explore the application in its entirety trying to find faults or suboptimal implementations of functionality. These experts could be developers, UX specialists, product owners, actual users, and other profiles. Test plans are typically not used, since testing is left to the ability of the individual tester.
 
 ### Fault injection
 
-The same concept can be applied to the infrastructure. If the application should be resilient to infrastructure failures, introducing faults in the underlying infrastructure and observing how the application behaves is fundamental for increasing the trust in your redundancy mechanisms. Shutting down ungracefully infrastructure components, degrading the performance of certain elements such as network equipment or introducing faults purposely in the environment are ways of verifying that the application is going to react as expected when these situations occur in real life.
+The same concept can be applied to the infrastructure. If the application should be resilient to infrastructure failures, introducing faults in the underlying infrastructure and observing how the application behaves is fundamental for increasing the trust in your redundancy mechanisms. Shutting down infrastructure components, pourposley degrading performance, or introducing faults are ways of verifying that the application is going to react as expected when these situations occur.
 
 Most companies use a controlled way of injecting faults in the system, although if confident with the application resiliency, automated frameworks could be used. A new science has been developed around fault injection, called Chaos Engineering.
 
@@ -86,8 +85,12 @@ Most companies use a controlled way of injecting faults in the system, although 
 
 In order to deploy software quickly and reliably, testing is a fundamental component of the development and deployment life cycle. Not only application code should be tested, but infrastructure automation and resiliency should equally be put to the test, to make sure that the application is going to perform as expected in every situation.
 
+## Next steps
+
+> [!div class="nextstepaction"]
+> [Release Engineering: Performance ](./release-engineering-performance.md)
+
 <!-- testing -->
-[iac]: ./automation-infrastructure.md
 [pipelines]: /azure/devops/pipelines
 [devopstests]: /azure/devops/test
 [telemetry]: /azure/azure-monitor/app/usage-overview
