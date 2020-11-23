@@ -337,6 +337,7 @@ Architecture diagrams, reference architectures, example scenarios, and solutions
 [!INCLUDE [Predictive Maintenance for Industrial IoT](../../includes/cards/iot-predictive-maintenance.md)]
 [!INCLUDE [Predictive maintenance with the intelligent IoT Edge](../../includes/cards/iot-predictive-maintenance.md)]
 [!INCLUDE [Process real-time vehicle data using IoT](../../includes/cards/realtime-analytics-vehicle-iot.md)]
+[!INCLUDE [Project 15 from Microsoft Open Platform for Conservation and Ecological Sustainability Solutions](../../includes/cards/project-15-iot-sustainability.md)]
 [!INCLUDE [Retail - Buy online, pickup in store (BOPIS)](../../includes/cards/vertical-buy-online-pickup-in-store.md)]
 [!INCLUDE [Scale IoT solutions with application stamps](../../includes/cards/application-stamps.md)]
 [!INCLUDE [Secure your IoT SaaS app with the Microsoft identity platform](../../includes/cards/iot-aad.md)]
@@ -487,6 +488,7 @@ Architecture diagrams, reference architectures, example scenarios, and solutions
 <ul class="grid">
 
 [!INCLUDE [Archive on-premises data to cloud](../../includes/cards/backup-archive-on-premises.md)]
+[!INCLUDE [Azure enterprise cloud file share](../../includes/cards/azure-files-private.md)]
 [!INCLUDE [Back up on-premises applications and data to cloud](../../includes/cards/backup-archive-on-premises-applications.md)]
 [!INCLUDE [HIPAA and HITRUST compliant health data AI](../../includes/cards/security-compliance-blueprint-hipaa-hitrust-health-data-ai.md)]
 [!INCLUDE [HPC Media Rendering](../../includes/cards/azure-batch-rendering.md)]
