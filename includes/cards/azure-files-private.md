@@ -17,7 +17,7 @@
             <li>11/15/2020</li>
             <li>9 min read</li>
         </ul>
-        <p class="card-content-description">Learn about an enterprise-level cloud file sharing solution that uses Azure Files, Azure File Sync, Azure Private DNS, and Azure Private Endpoint.</p>
+        <p class="card-content-description">Learn about an enterprise-level cloud file sharing solution that uses Azure Files, Azure File Sync, Azure Private DNS, and Azure Private Endpoint.</p>
         <div class="bottom-to-top-fade is-hidden-mobile"></div>
     </div>
 </article>
