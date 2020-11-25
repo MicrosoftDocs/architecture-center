@@ -60,7 +60,7 @@ Open Platform consists of multiple Azure services and configurations/settings to
 
 ## Components
 
-- [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/) connects devices to Azure cloud resources, and can use queries to filter data to be sent to the cloud.
+- [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/) Azure IoT Hub connects devices to Azure cloud resources. With this managed service, you can use queries to filter data that you send to the cloud.
 - [Azure Stream Analytics (ASA)](https://azure.microsoft.com/services/stream-analytics) provides real-time serverless stream processing that can run the same queries in the cloud and on the edge. ASA on IoT Edge can filter or aggregate data that needs to be sent to the cloud for further processing or storage.
 - [Azure Functions](https://azure.microsoft.com/services/functions/) lets you build and debug locally without additional setup, deploy and operate at scale in the cloud, and integrate services using triggers and bindings.
 - [Time Series Insights](https://azure.microsoft.com/services/time-series-insights/) store and visualize time series data for the solution.
