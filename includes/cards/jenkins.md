@@ -6,7 +6,7 @@
 <article class="card">
     <div class="card-header has-margin-bottom-none" aria-hidden="true">
         <figure class="image diagram has-height-175 has-overflow-hidden level">
-            <a href="/azure/architecture/example-scenario/apps/jenkins"><img src="/azure/architecture/browse/thumbs/jenkins.png" class="diagram" alt="Architecture Diagram" data-linktype="relative-path"></a>
+            <a href="/azure/architecture/example-scenario/apps/jenkins"><img src="/azure/architecture/browse/thumbs/jenkins.png" class="diagram" alt="Thumbnail of Run a Jenkins server on Azure Architectural Diagram." data-linktype="relative-path"></a>
         </figure>
     </div>
     <div class="card-content">
@@ -14,8 +14,8 @@
             <p>Run a Jenkins server on Azure</p>
         </a>
         <ul class="card-content-metadata">
-            <li>4/30/2018</li>
-            <li>10 min read</li>
+            <li>11/19/2020</li>
+            <li>6 min read</li>
         </ul>
         <p class="card-content-description">Recommended architecture that shows how to deploy and operate a scalable, enterprise-grade Jenkins server on Azure secured with single sign-on (SSO).</p>
         <div class="bottom-to-top-fade is-hidden-mobile"></div>

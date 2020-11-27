@@ -3,9 +3,11 @@ title: Artificial intelligence (AI)
 description: 
 author: maggsl
 ms.date: 04/14/2020
-ms.topic: guide
+ms.topic: conceptual
 ms.service: architecture-center
-ms.subservice: cloud-fundamentals
+ms.subservice: azure-guide
+ms.custom:
+  - guide
 ---
 
 <!-- cSpell:ignore maggsl scikit -->
@@ -40,7 +42,7 @@ Deep learning uses artificial neural networks, which consist of multiple layers 
 
 With many layers in each neural network-and sometimes using multiple neural networks-a machine can learn through its own data processing. This requires much more data and much more computing power than ML.
 
-- [Deep learning versus machine learning](https://docs.microsoft.com/azure/machine-learning/concept-deep-learning-vs-machine-learning)
+- [Deep learning versus machine learning](/azure/machine-learning/concept-deep-learning-vs-machine-learning)
 
 - [Distributed training of deep learning models on Azure](../../reference-architectures/ai/training-deep-learning.md)
 
@@ -69,7 +71,7 @@ Microsoft offers the Azure Bot Service, a managed service purpose-built for
 enterprise-grade bot development.
 
 - [About Azure Bot
-    Service](https://docs.microsoft.com/azure/bot-service/bot-service-overview-introduction)
+    Service](/azure/bot-service/bot-service-overview-introduction)
 
 - [Ten guidelines for responsible
     bots](https://www.microsoft.com/research/publication/responsible-bots/)
@@ -105,7 +107,7 @@ Learn more about Microsoft AI, and keep up-to-date with related news:
 - [Microsoft AI on GitHub: Samples, reference architectures, and best
     practices](https://github.com/microsoft/AI)
 
-- [Azure Architecture Center](https://docs.microsoft.com/azure/architecture/)
+- [Azure Architecture Center](../../index.yml)
 
 ## High-level architectural types
 
@@ -131,7 +133,7 @@ into five main pillars: Vision, Speech, Language, Web Search, and
 Decision/Recommendation.
 
 - [Azure Cognitive Services
-    documentation](https://docs.microsoft.com/azure/cognitive-services/)
+    documentation](/azure/cognitive-services/)
 
 - [Try Azure Cognitive Services for
     free](https://azure.microsoft.com/try/cognitive-services/)
@@ -145,29 +147,29 @@ Decision/Recommendation.
 #### Prebuilt AI models in AI Builder
 
 AI Builder is a new capability in [Microsoft Power
-Platform](https://docs.microsoft.com/power-platform/) that provides a
+Platform](/power-platform/) that provides a
 point-and-click interface for adding AI to your apps, even if you have no coding
 or data science skills. (Some features in AI Builder have not yet released for
 general availability and remain in preview status. For more information, refer
 to the [Feature availability by
-region](https://docs.microsoft.com/ai-builder/availability-region) page.)
+region](/ai-builder/availability-region) page.)
 
 You can build and train your own models, but AI Builder also provides [select
 prebuilt AI
-models](https://docs.microsoft.com/ai-builder/prebuilt-overview) that are
+models](/ai-builder/prebuilt-overview) that are
 ready for use right away. For example, you can add a component in Microsoft
 Power Apps based on a prebuilt model that recognizes contact information from
 business cards.
 
 - [Power Apps on Azure](https://azure.microsoft.com/products/powerapps/)
 
-- [AI Builder documentation](https://docs.microsoft.com/ai-builder/)
+- [AI Builder documentation](/ai-builder/)
 
 - [AI model types in AI
-    Builder](https://docs.microsoft.com/ai-builder/model-types)
+    Builder](/ai-builder/model-types)
 
 - [Overview of prebuilt AI models in AI
-    Builder](https://docs.microsoft.com/ai-builder/prebuilt-overview)
+    Builder](/ai-builder/prebuilt-overview)
 
 ### Custom AI
 
@@ -196,13 +198,13 @@ Azure.
     page](https://azure.microsoft.com/develop/python/)
 
 - [Azure for Python
-    developers](https://docs.microsoft.com/azure/python/)
+    developers](/azure/python/)
 
 - [Azure Machine Learning SDK for
-    Python](https://docs.microsoft.com/python/api/overview/azure/ml/?view=azure-ml-py)
+    Python](/python/api/overview/azure/ml/?view=azure-ml-py)
 
 - [Introduction to machine learning with Python and Azure
-    Notebooks](https://docs.microsoft.com/learn/paths/intro-to-ml-with-python/)
+    Notebooks](/learn/paths/intro-to-ml-with-python/)
 
 - [scikit-learn.](https://scikit-learn.org/stable/) An open-source ML library
     for Python
@@ -215,7 +217,7 @@ Azure.
     library also used for ML applications and neural networks
 
 - [Tutorial: Apply machine learning models in Azure Functions with Python and
-    TensorFlow](https://docs.microsoft.com/azure/azure-functions/functions-machine-learning-tensorflow?tabs=bash)
+    TensorFlow](/azure/azure-functions/functions-machine-learning-tensorflow?tabs=bash)
 
 [R is a language and environment](https://www.r-project.org/) for statistical
 computing and graphics. It can be used for everything from mapping broad social
@@ -237,7 +239,7 @@ different options for R developers to run their code in Azure.
     A video illustrating how to incorporate your R code in ML studio.
 
 - [Tutorial: Create a logistic regression model in R with Azure Machine
-    Learning](https://docs.microsoft.com/azure/machine-learning/tutorial-1st-r-experiment)
+    Learning](/azure/machine-learning/tutorial-1st-r-experiment)
 
 #### Training
 
@@ -257,7 +259,7 @@ model's results are accurate, it is considered ready for use and can be
 deployed.
 
 - [Train models with Azure Machine
-    Learning](https://docs.microsoft.com/azure/machine-learning/concept-train-machine-learning-model)
+    Learning](/azure/machine-learning/concept-train-machine-learning-model)
 
 ##### Hyperparameter tuning
 
@@ -271,10 +273,10 @@ This process generates multiple models, each trained using different families of
 hyperparameters.
 
 - [Tune hyperparameters for your model with Azure Machine
-    Learning](https://docs.microsoft.com/azure/machine-learning/how-to-tune-hyperparameters)
+    Learning](/azure/machine-learning/how-to-tune-hyperparameters)
 
-- [Machine Learning Studio (classic): Tune Model
-    Hyperparameters](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/tune-model-hyperparameters)
+- [Azure Machine Learning Studio (classic): Tune Model
+    Hyperparameters](/azure/machine-learning/studio-module-reference/tune-model-hyperparameters)
 
 ##### Model selection
 
@@ -296,7 +298,7 @@ training, and other tasks, without requiring extensive programming or domain
 knowledge.
 
 - [What is automated machine
-    learning?](https://docs.microsoft.com/azure/machine-learning/concept-automated-ml)
+    learning?](/azure/machine-learning/concept-automated-ml)
 
 #### Scoring
 
@@ -337,7 +339,7 @@ market analyses, and many other applications.
     workloads
 
 - [Azure Machine Learning SDK for
-    Python](https://docs.microsoft.com/python/api/overview/azure/ml/?view=azure-ml-py)
+    Python](/python/api/overview/azure/ml/?view=azure-ml-py)
 
 - [Azure Machine Learning service example notebooks
     (Python).](https://github.com/Azure/MachineLearningNotebooks) A GitHub repo
@@ -369,15 +371,14 @@ and scikit-learn.
     overview](../../data-guide/big-data/machine-learning-at-scale.md)
 
 - [Azure Machine Learning documentation
-    overview](https://docs.microsoft.com/azure/machine-learning/)
+    overview](/azure/machine-learning/)
 
 - [What is Azure Machine
-    Learning?](https://docs.microsoft.com/azure/machine-learning/overview-what-is-azure-ml)
+    Learning?](/azure/machine-learning/overview-what-is-azure-ml)
     General orientation with links to many learning resources, SDKs,
     documentation, and more
 
-- [Azure Machine Learning versus Machine Learning Studio
-    (classic)](https://docs.microsoft.com/azure/machine-learning/compare-azure-ml-to-studio-classic)
+- [Azure Machine Learning versus Azure Machine Learning Studio (classic)](/azure/machine-learning/compare-azure-ml-to-studio-classic)
 
 #### Machine learning reference architectures for Azure
 
@@ -426,19 +427,19 @@ using a no-code UI or through a code-first notebooks experience.
 - [Azure automated ML infographic (PDF)](https://aka.ms/automlinfographic/)
 
 - [Tutorial: Create a classification model with automated ML in Azure Machine
-    Learning](https://docs.microsoft.com/azure/machine-learning/tutorial-first-experiment-automated-ml)
+    Learning](/azure/machine-learning/tutorial-first-experiment-automated-ml)
 
 - [Tutorial: Use automated machine learning to predict taxi
-    fares](https://docs.microsoft.com/azure/machine-learning/tutorial-auto-train-models)
+    fares](/azure/machine-learning/tutorial-auto-train-models)
 
 - [Configure automated ML experiments in
-    Python](https://docs.microsoft.com/azure/machine-learning/how-to-configure-auto-train)
+    Python](/azure/machine-learning/how-to-configure-auto-train)
 
 - [Use the CLI extension for Azure Machine
-    Learning](https://docs.microsoft.com/azure/machine-learning/reference-azure-machine-learning-cli)
+    Learning](/azure/machine-learning/reference-azure-machine-learning-cli)
 
 - [Automate machine learning activities with the Azure Machine Learning
-    CLI](https://docs.microsoft.com/azure/machine-learning/reference-azure-machine-learning-cli)
+    CLI](/azure/machine-learning/reference-azure-machine-learning-cli)
 
 ### Azure Cognitive Services
 
@@ -446,7 +447,7 @@ This is a comprehensive family of AI services and cognitive APIs to help you bui
 
 - [Cognitive Services product home page](https://azure.microsoft.com/services/cognitive-services/)
 
-- [Azure Cognitive Services documentation](https://docs.microsoft.com/azure/cognitive-services/)
+- [Azure Cognitive Services documentation](/azure/cognitive-services/)
 
 ### Azure Cognitive Search
 
@@ -455,13 +456,13 @@ The service can search over private heterogenous content, with options for AI en
 
 - [Azure Cognitive Search product home page](https://azure.microsoft.com/services/search/)
 
-- [Getting started with AI enrichment](https://docs.microsoft.com/azure/search/cognitive-search-concept-intro)
+- [Getting started with AI enrichment](/azure/search/cognitive-search-concept-intro)
 
-- [Azure Cognitive Search documentation overview](https://docs.microsoft.com/azure/search/)
+- [Azure Cognitive Search documentation overview](/azure/search/)
 
 - [Choosing a natural language processing technology in Azure](../../data-guide/technology-choices/natural-language-processing.md)
 
-- [Quickstart: Create an Azure Cognitive Search cognitive skill set in the Azure portal](https://docs.microsoft.com/azure/search/cognitive-search-quickstart-blob)
+- [Quickstart: Create an Azure Cognitive Search cognitive skill set in the Azure portal](/azure/search/cognitive-search-quickstart-blob)
 
 ### Azure Bot Service
 
@@ -469,7 +470,7 @@ This is a purpose-built bot development environment with out-of-the-box template
 
 - [Azure Bot Service product home page](https://azure.microsoft.com/services/bot-service/)
 
-- [Azure Bot Service documentation overview](https://docs.microsoft.com/azure/bot-service/bot-service-overview-introduction)
+- [Azure Bot Service documentation overview](/azure/bot-service/bot-service-overview-introduction)
 
 - [Azure reference architecture: Enterprise-grade conversational bot](../../reference-architectures/ai/conversational-bot.md)
 
@@ -484,41 +485,41 @@ This is a purpose-built bot development environment with out-of-the-box template
 Apache Spark is a parallel processing framework that supports in-memory
 processing to boost the performance of big data analytic applications. Spark provides primitives for in-memory cluster computing. A Spark job can load and cache data into memory and query it repeatedly, which is much faster than disk-based applications, such as Hadoop.
 
-[Apache Spark in Azure HDInsight](https://docs.microsoft.com/azure/hdinsight/spark/apache-spark-overview) is the Microsoft implementation of Apache Spark in the cloud. Spark clusters in HDInsight are compatible with Azure Storage and Azure Data Lake Storage, so you can use HDInsight Spark clusters to process your data stored in Azure.
+[Apache Spark in Azure HDInsight](/azure/hdinsight/spark/apache-spark-overview) is the Microsoft implementation of Apache Spark in the cloud. Spark clusters in HDInsight are compatible with Azure Storage and Azure Data Lake Storage, so you can use HDInsight Spark clusters to process your data stored in Azure.
 
 The Microsoft Machine Learning library for Apache Spark is [MMLSpark](https://github.com/Azure/mmlspark) (Microsoft ML for Apache Spark). It is an open-source library that adds many deep learning and data science tools, networking capabilities, and production-grade performance to the Spark ecosystem. [Learn more about MMLSpark features and capabilities.](../../data-guide/technology-choices/data-science-and-machine-learning.md#mmlspark)
 
-- [Azure HDInsight overview.](https://docs.microsoft.com/azure/hdinsight/hdinsight-overview) Basic information about features, cluster architecture, and use cases, with pointers to quickstarts and tutorials.
+- [Azure HDInsight overview.](/azure/hdinsight/hdinsight-overview) Basic information about features, cluster architecture, and use cases, with pointers to quickstarts and tutorials.
 
-- [Tutorial: Build an Apache Spark machine learning application in Azure HDInsight](https://docs.microsoft.com/azure/hdinsight/spark/apache-spark-ipython-notebook-machine-learning)
+- [Tutorial: Build an Apache Spark machine learning application in Azure HDInsight](/azure/hdinsight/spark/apache-spark-ipython-notebook-machine-learning)
 
-- [Apache Spark best practices on HDInsight](https://docs.microsoft.com/azure/hdinsight/spark/spark-best-practices)
+- [Apache Spark best practices on HDInsight](/azure/hdinsight/spark/spark-best-practices)
 
-- [Configure HDInsight Apache Spark Cluster settings](https://docs.microsoft.com/azure/hdinsight/spark/apache-spark-settings)
+- [Configure HDInsight Apache Spark Cluster settings](/azure/hdinsight/spark/apache-spark-settings)
 
-- [Machine learning on HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-machine-learning-overview)
+- [Machine learning on HDInsight](/azure/hdinsight/hdinsight-machine-learning-overview)
 
 - [GitHub repo for MMLSpark: Microsoft Machine Learning library for Apache Spark](https://github.com/Azure/mmlspark)
 
-- [Create an Apache Spark machine learning pipeline on HDInsight](https://docs.microsoft.com/azure/hdinsight/spark/apache-spark-creating-ml-pipelines)
+- [Create an Apache Spark machine learning pipeline on HDInsight](/azure/hdinsight/spark/apache-spark-creating-ml-pipelines)
 
 ### Azure Databricks Runtime for Machine Learning
 
 [Azure Databricks](https://azure.microsoft.com/services/databricks/) is an Apache Spark–based analytics platform with one-click setup, streamlined workflows, and an interactive workspace for collaboration between data scientists, engineers, and business analysts.
 
-[Databricks Runtime for Machine Learning (Databricks Runtime ML)](https://docs.microsoft.com/azure/databricks/runtime/mlruntime) lets you start a Databricks cluster with all of the libraries required for distributed training. It provides a ready-to-go environment for machine learning and data science. Plus, it contains multiple popular libraries, including TensorFlow, PyTorch, Keras, and XGBoost. It also supports distributed training using Horovod.
+[Databricks Runtime for Machine Learning (Databricks Runtime ML)](/azure/databricks/runtime/mlruntime) lets you start a Databricks cluster with all of the libraries required for distributed training. It provides a ready-to-go environment for machine learning and data science. Plus, it contains multiple popular libraries, including TensorFlow, PyTorch, Keras, and XGBoost. It also supports distributed training using Horovod.
 
 - [Azure Databricks product home page](https://azure.microsoft.com/services/databricks/)
 
-- [Azure Databricks documentation](https://docs.microsoft.com/azure/azure-databricks/)
+- [Azure Databricks documentation](/azure/azure-databricks/)
 
-- [Machine learning capabilities in Azure Databricks](https://docs.microsoft.com/azure/databricks/applications/machine-learning/)
+- [Machine learning capabilities in Azure Databricks](/azure/databricks/applications/machine-learning/)
 
-- [How-to guide: Databricks Runtime for Machine Learning](https://docs.microsoft.com/azure/databricks/runtime/mlruntime)
+- [How-to guide: Databricks Runtime for Machine Learning](/azure/databricks/runtime/mlruntime)
 
 - [Batch scoring of Spark machine learning models on Azure Databricks](../../reference-architectures/ai/batch-scoring-databricks.md)
 
-- [Deep learning overview for Azure Databricks](https://docs.microsoft.com/azure/databricks/applications/deep-learning/)
+- [Deep learning overview for Azure Databricks](/azure/databricks/applications/deep-learning/)
 
 ## Customer stories
 

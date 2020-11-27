@@ -1,14 +1,16 @@
 ---
 title: Gateway Offloading pattern
 titleSuffix: Cloud Design Patterns
-description: Offload shared or specialized service functionality to a gateway proxy.
+description: Use the Gateway Offloading design pattern to offload shared or specialized service functionality to a gateway proxy.
 keywords: design pattern
 author: dragon119
 ms.date: 06/23/2017
-ms.topic: design-pattern
+ms.topic: conceptual
 ms.service: architecture-center
-ms.subservice: cloud-fundamentals
-ms.custom: seodec18
+ms.subservice: design-pattern
+ms.custom:
+  - seodec18
+  - design-pattern
 ---
 
 # Gateway Offloading pattern
@@ -85,7 +87,7 @@ proxy_set_header X-Real-IP $remote_addr;
 }
 ```
 
-On Azure, this can be achieved by [setting up SSL termination on Application Gateway](https://docs.microsoft.com/azure/application-gateway/tutorial-ssl-cli).
+On Azure, this can be achieved by [setting up SSL termination on Application Gateway](/azure/application-gateway/tutorial-ssl-cli).
 
 ## Related guidance
 

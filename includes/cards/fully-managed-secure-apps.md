@@ -6,7 +6,7 @@
 <article class="card">
     <div class="card-header has-margin-bottom-none" aria-hidden="true">
         <figure class="image diagram has-height-175 has-overflow-hidden level">
-            <a href="/azure/architecture/example-scenario/apps/fully-managed-secure-apps"><img src="/azure/architecture/browse/thumbs/fully-managed-secure-apps.png" class="diagram" alt="Architecture Diagram" data-linktype="relative-path"></a>
+            <a href="/azure/architecture/example-scenario/apps/fully-managed-secure-apps"><img src="/azure/architecture/browse/thumbs/fully-managed-secure-apps.png" class="diagram" alt="Thumbnail of Securely managed web applications Architectural Diagram." data-linktype="relative-path"></a>
         </figure>
     </div>
     <div class="card-content">
@@ -17,7 +17,7 @@
             <li>5/09/2019</li>
             <li>8 min read</li>
         </ul>
-        <p class="card-content-description">Securely deploy an expense application to Azure App Service Environment.</p>
+        <p class="card-content-description">Learn about deploying secure applications using the Azure App Service Environment, the Azure Application Gateway service, and Web Application Firewall.</p>
         <div class="bottom-to-top-fade is-hidden-mobile"></div>
     </div>
 </article>

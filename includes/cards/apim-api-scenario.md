@@ -6,7 +6,7 @@
 <article class="card">
     <div class="card-header has-margin-bottom-none" aria-hidden="true">
         <figure class="image diagram has-height-175 has-overflow-hidden level">
-            <a href="/azure/architecture/example-scenario/apps/apim-api-scenario"><img src="/azure/architecture/browse/thumbs/apim-api-scenario.png" class="diagram" alt="Architecture Diagram" data-linktype="relative-path"></a>
+            <a href="/azure/architecture/example-scenario/apps/apim-api-scenario"><img src="/azure/architecture/browse/thumbs/apim-api-scenario.png" class="diagram" alt="Thumbnail of Migrate a web app using Azure APIM Architectural Diagram." data-linktype="relative-path"></a>
         </figure>
     </div>
     <div class="card-content">
@@ -17,7 +17,7 @@
             <li>9/13/2018</li>
             <li>5 min read</li>
         </ul>
-        <p class="card-content-description">Use Azure API Management to modernize a legacy web application.</p>
+        <p class="card-content-description">In this scenario, an e-commerce company in the travel industry migrates a legacy web application by using Azure API Management.</p>
         <div class="bottom-to-top-fade is-hidden-mobile"></div>
     </div>
 </article>

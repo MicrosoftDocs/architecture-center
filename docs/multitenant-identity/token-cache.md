@@ -1,14 +1,16 @@
 ---
 title: Cache access tokens in a multitenant application
-description: Caching access tokens used for invoking a backend Web API.
-author: MikeWasson
+description: Learn how to implement a custom token cache that derives from the Azure AD Authentication Library TokenCache class suitable for web apps.
+author: doodlemania2
 ms.date: 07/21/2017
-ms.topic: guide
+ms.topic: conceptual
 ms.service: architecture-center
 ms.category:
   - identity
-ms.custom: has-adal-ref
-ms.subservice: reference-architecture
+ms.custom:
+  - has-adal-ref
+  - guide
+ms.subservice: azure-guide
 pnp.series.title: Manage Identity in Multitenant Applications
 pnp.series.prev: web-api
 pnp.series.next: adfs
@@ -16,7 +18,7 @@ pnp.series.next: adfs
 
 # Cache access tokens
 
-[![GitHub](../_images/github.png) Sample code][sample application]
+[:::image type="icon" source="../_images/github.png" border="false"::: Sample code][sample application]
 
 It's relatively expensive to get an OAuth access token, because it requires an HTTP request to the token endpoint. Therefore, it's good to cache tokens whenever possible. The [Azure AD Authentication Library][ADAL] (ADAL)  automatically caches tokens obtained from Azure AD, including refresh tokens.
 
@@ -141,12 +143,12 @@ In our case, we decided not to handle these two events.
 
 <!-- links -->
 
-[ADAL]: https://msdn.microsoft.com/library/azure/jj573266.aspx
+[ADAL]: /previous-versions/azure/jj573266(v=azure.100)
 [client-assertion]: ./client-assertion.md
-[data-protection]: https://docs.microsoft.com/aspnet/core/security/data-protection
-[distributed-cache]: https://docs.microsoft.com/aspnet/core/performance/caching/distributed
-[key-management]: https://docs.microsoft.com/aspnet/core/security/data-protection/configuration/default-settings
-[in-memory-cache]: https://docs.microsoft.com/aspnet/core/performance/caching/memory
-[tokencache-class]: https://msdn.microsoft.com/library/azure/microsoft.identitymodel.clients.activedirectory.tokencache.aspx
-[x509-cert-encryption]: https://docs.microsoft.com/aspnet/core/security/data-protection/implementation/key-encryption-at-rest#x509-certificate
+[data-protection]: /aspnet/core/security/data-protection
+[distributed-cache]: /aspnet/core/performance/caching/distributed
+[key-management]: /aspnet/core/security/data-protection/configuration/default-settings
+[in-memory-cache]: /aspnet/core/performance/caching/memory
+[tokencache-class]: /dotnet/api/microsoft.identitymodel.clients.activedirectory.tokencache?view=azure-dotnet
+[x509-cert-encryption]: /aspnet/core/security/data-protection/implementation/key-encryption-at-rest#x509-certificate
 [sample application]: https://github.com/mspnp/multitenant-saas-guidance

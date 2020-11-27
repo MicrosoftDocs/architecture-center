@@ -2,12 +2,14 @@
 title: Performance tuning - Event streaming with Azure Functions
 titleSuffix: Azure Architecture Center
 description: Using load testing to improve the performance of an event streaming application.
-author: MikeWasson
+author: doodlemania2
 ms.author: pnp
 ms.date: 08/27/2019
-ms.topic: article
+ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: cloud-fundamentals
+ms.custom:
+  - article
 ---
 
 <!--cSpell:ignore upsert upserted -->
@@ -22,7 +24,7 @@ This article describes how a development team used metrics to find bottlenecks a
 
 ![Diagram of an event streaming architecture](./images/streaming//event-streaming.png)
 
-In this scenario, a fleet of drones sends position data in real time to Azure IoT Hub. A Functions app receives the events, transforms the data into [GeoJSON](https://tools.ietf.org/html/rfc7946) format, and writes the transformed data to Cosmos DB. Cosmos DB has native support for [geospatial data](https://docs.microsoft.com/azure/cosmos-db/geospatial), and Cosmos DB collections can be indexed for efficient spatial queries. For example, a client application could query for all drones within 1 km of a given location, or find all drones within a certain area.
+In this scenario, a fleet of drones sends position data in real time to Azure IoT Hub. A Functions app receives the events, transforms the data into [GeoJSON](https://tools.ietf.org/html/rfc7946) format, and writes the transformed data to Cosmos DB. Cosmos DB has native support for [geospatial data](/azure/cosmos-db/geospatial), and Cosmos DB collections can be indexed for efficient spatial queries. For example, a client application could query for all drones within 1 km of a given location, or find all drones within a certain area.
 
 These processing requirements are simple enough that they don't require a full-fledged stream processing engine. In particular, the processing doesn't join streams, aggregate data, or process across time windows. Based on these requirements, Azure Functions is a good fit for processing the messages. Cosmos DB can also scale to support very high write throughput.
 
@@ -46,7 +48,7 @@ if (firstMsgEnqueuedTicksUtc.HasValue)
 }
 ```
 
-The `TrackMetric` method writes a custom metric to Application Insights. For information about using `TrackMetric` inside an Azure Function, see [Custom telemetry in C# function](https://docs.microsoft.com/azure/azure-functions/functions-monitoring#log-custom-telemetry-in-c-functions).
+The `TrackMetric` method writes a custom metric to Application Insights. For information about using `TrackMetric` inside an Azure Function, see [Custom telemetry in C# function](/azure/azure-functions/functions-monitoring#log-custom-telemetry-in-c-functions).
 
 If the function keeps up with the volume of messages, this metric should stay at a low steady state. Some latency is unavoidable, so the value will never be zero. But if the function falls behind, the delta between enqueued time and processing time will start to go up.
 
@@ -66,7 +68,7 @@ That was the clue. Looking at the partition heat map, it turned out that all of 
 
 ![Graph of Cosmos DB partition heat map](./images/streaming/cosmosdb-partitions.png)
 
-What you want to see in the heat map is an even distribution across all of the partitions. In this case, because every document was getting written to the same partition, adding RUs didn't help. The problem turned out to be a bug in the code. Although the Cosmos DB collection had a partition key, the Azure Function didn't actually include the partition key in the document. For more information about the partition heat map, see [Determine the throughput distribution across partitions](https://docs.microsoft.com/azure/cosmos-db/use-metrics#determine-the-throughput-distribution-across-partitions).
+What you want to see in the heat map is an even distribution across all of the partitions. In this case, because every document was getting written to the same partition, adding RUs didn't help. The problem turned out to be a bug in the code. Although the Cosmos DB collection had a partition key, the Azure Function didn't actually include the partition key in the document. For more information about the partition heat map, see [Determine the throughput distribution across partitions](/azure/cosmos-db/use-metrics#determine-the-throughput-distribution-across-partitions).
 
 ## Test 2: Fix partitioning issue
 
@@ -103,7 +105,7 @@ If the time to process a message is the bottleneck, one solution is to process m
 - Increase the number of IoT Hub partitions. Each IoT Hub partition gets assigned one function instance at a time, so we would expect throughput to scale linearly with the number of partitions.
 - Parallelize the document writes within the function.
 
-To explore the second option, the team modified the function to support parallel writes. The original version of the function used the Cosmos DB [output binding](https://docs.microsoft.com/azure/azure-functions/functions-bindings-cosmosdb#output). The optimized version calls the Cosmos DB client directly and performs the writes in parallel using [Task.WhenAll](https://docs.microsoft.com/dotnet/api/system.threading.tasks.task.whenall):
+To explore the second option, the team modified the function to support parallel writes. The original version of the function used the Cosmos DB [output binding](/azure/azure-functions/functions-bindings-cosmosdb#output). The optimized version calls the Cosmos DB client directly and performs the writes in parallel using [Task.WhenAll](/dotnet/api/system.threading.tasks.task.whenall):
 
 ```csharp
 private async Task<(long documentsUpserted,
@@ -140,6 +142,10 @@ private async Task<(long documentsUpserted,
 Note that race conditions are possible with approach. Suppose that two messages from the same drone happen to arrive in the same batch of messages. By writing them in parallel, the earlier message could overwrite the later message. For this particular scenario, the application can tolerate losing an occasional message. Drones send new position data every 5 seconds, so the data in Cosmos DB is updated continually. In other scenarios, however, it may be important to process messages strictly in order.
 
 After deploying this code change, the application was able to ingest more than 2500 requests/sec, using an IoT Hub with 32 partitions.
+
+## Client-side Consideration
+Overall client experience may be diminished by aggressive parallelization on server side.  Consider leveraging [Azure Cosmos DB bulk executor library]( /azure/cosmos-db/bulk-executor-overview) (not shown in this implementation) which significantly reduces the client-side compute resources needed to saturate the throughput allocated to a Cosmos DB container. A single threaded application that writes data using the bulk import API achieves nearly ten times greater write throughput when compared to a multi-threaded application that writes data in parallel while saturating the client machine's CPU.
+
 
 ## Summary
 

@@ -3,12 +3,14 @@ title: Update a resource in an Azure Resource Manager template
 description: Describes how to extend the functionality of Azure Resource Manager templates to update a resource.
 author: PeterTaylor9999
 ms.date: 10/31/2018
-ms.topic: article
+ms.topic: conceptual
 ms.service: architecture-center
 ms.category:
   - developer-tools
   - devops
-ms.subservice: reference-architecture
+ms.subservice: azure-guide
+ms.custom:
+  - article
 ---
 
 <!-- cSpell:ignore subtemplate ipconfig -->
@@ -129,7 +131,7 @@ An example template is available on [GitHub][github]. To deploy the template, ru
 
 ```bash
 az group create --location <location> --name <resource-group-name>
-az group deployment create -g <resource-group-name> \
+az deployment group create -g <resource-group-name> \
     --template-uri https://raw.githubusercontent.com/mspnp/template-examples/master/example1-update/deploy.json
 ```
 
@@ -147,5 +149,5 @@ The original `firstVNet` has been updated instead of re-created. If `firstVNet` 
 
 - Learn how deploy a resource based on a condition, such as whether a parameter value is present. See [Conditionally deploy a resource in an Azure Resource Manager template](./conditional-deploy.md).
 
-[cli]: https://docs.microsoft.com/cli/azure/?view=azure-cli-latest
+[cli]: /cli/azure/?view=azure-cli-latest
 [github]: https://github.com/mspnp/template-examples

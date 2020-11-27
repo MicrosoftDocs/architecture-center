@@ -6,7 +6,7 @@
 <article class="card">
     <div class="card-header has-margin-bottom-none" aria-hidden="true">
         <figure class="image diagram has-height-175 has-overflow-hidden level">
-            <a href="/azure/architecture/example-scenario/apps/ecommerce-scenario"><img src="/azure/architecture/browse/thumbs/ecommerce-scenario.png" class="diagram" alt="Architecture Diagram" data-linktype="relative-path"></a>
+            <a href="/azure/architecture/example-scenario/apps/ecommerce-scenario"><img src="/azure/architecture/browse/thumbs/ecommerce-scenario.png" class="diagram" alt="Thumbnail of E-commerce front end Architectural Diagram." data-linktype="relative-path"></a>
         </figure>
     </div>
     <div class="card-content">
@@ -17,7 +17,7 @@
             <li>7/13/2018</li>
             <li>6 min read</li>
         </ul>
-        <p class="card-content-description">Host an e-commerce site on Azure.</p>
+        <p class="card-content-description">This example scenario implements an e-commerce front end using Azure platform as a service tools, which allow you to handle increases in transactions.</p>
         <div class="bottom-to-top-fade is-hidden-mobile"></div>
     </div>
 </article>

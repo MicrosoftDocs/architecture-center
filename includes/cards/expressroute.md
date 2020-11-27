@@ -6,7 +6,7 @@
 <article class="card">
     <div class="card-header has-margin-bottom-none" aria-hidden="true">
         <figure class="image diagram has-height-175 has-overflow-hidden level">
-            <a href="/azure/architecture/reference-architectures/hybrid-networking/expressroute"><img src="/azure/architecture/browse/thumbs/expressroute.png" class="diagram" alt="Architecture Diagram" data-linktype="relative-path"></a>
+            <a href="/azure/architecture/reference-architectures/hybrid-networking/expressroute"><img src="/azure/architecture/browse/thumbs/expressroute.png" class="diagram" alt="Thumbnail of Extend an on-premises network using ExpressRoute Architectural Diagram." data-linktype="relative-path"></a>
         </figure>
     </div>
     <div class="card-content">
@@ -15,7 +15,7 @@
         </a>
         <ul class="card-content-metadata">
             <li>7/23/2019</li>
-            <li>12 min read</li>
+            <li>13 min read</li>
         </ul>
         <p class="card-content-description">Implement a secure site-to-site network architecture that spans an Azure virtual network and an on-premises network connected using Azure ExpressRoute.</p>
         <div class="bottom-to-top-fade is-hidden-mobile"></div>

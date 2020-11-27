@@ -4,9 +4,11 @@ description: Enable an application to announce events to multiple interested con
 keywords: design pattern
 author: alexbuckgit
 ms.date: 12/07/2018
-ms.topic: design-pattern
+ms.topic: conceptual
 ms.service: architecture-center
-ms.subservice: cloud-fundamentals
+ms.subservice: design-pattern
+ms.custom:
+  - design-pattern
 ---
 
 # Publisher-Subscriber pattern
@@ -60,7 +62,7 @@ Pub/sub messaging has the following benefits:
 
 Consider the following points when deciding how to implement this pattern:
 
-- **Existing technologies.** It is strongly recommended to use available messaging products and services that support a publish-subscribe model, rather than building your own. In Azure, consider using [Service Bus](https://docs.microsoft.com/azure/service-bus-messaging/) or [Event Grid](https://docs.microsoft.com/azure/event-grid/). Other technologies that can be used for pub/sub messaging include Redis, RabbitMQ, and Apache Kafka.
+- **Existing technologies.** It is strongly recommended to use available messaging products and services that support a publish-subscribe model, rather than building your own. In Azure, consider using [Service Bus](/azure/service-bus-messaging/) or [Event Grid](/azure/event-grid/). Other technologies that can be used for pub/sub messaging include Redis, RabbitMQ, and Apache Kafka.
 
 - **Subscription handling.** The messaging infrastructure must provide mechanisms that consumers can use to subscribe to or unsubscribe from available channels.
 
@@ -118,11 +120,11 @@ For more information, see [Enterprise integration on Azure using message queues 
 
 The following patterns and guidance might be relevant when implementing this pattern:
 
-- [Choose between Azure services that deliver messages](https://docs.microsoft.com/azure/event-grid/compare-messaging-services).
+- [Choose between Azure services that deliver messages](/azure/event-grid/compare-messaging-services).
 
 - The [Event-driven architecture style](../guide/architecture-styles/event-driven.md) is an architecture style that uses pub/sub messaging.
 
-- [Asynchronous Messaging Primer](https://msdn.microsoft.com/library/dn589781.aspx). Message queues are an asynchronous communications mechanism. If a consumer service needs to send a reply to an application, it might be necessary to implement some form of response messaging. The Asynchronous Messaging Primer provides information on how to implement request/reply messaging using message queues.
+- [Asynchronous Messaging Primer](/previous-versions/msp-n-p/dn589781(v=pandp.10)). Message queues are an asynchronous communications mechanism. If a consumer service needs to send a reply to an application, it might be necessary to implement some form of response messaging. The Asynchronous Messaging Primer provides information on how to implement request/reply messaging using message queues.
 
 - [Observer Pattern](https://en.wikipedia.org/wiki/Observer_pattern). The Publish-Subscribe pattern builds on the Observer pattern by decoupling subjects from observers via asynchronous messaging.
 

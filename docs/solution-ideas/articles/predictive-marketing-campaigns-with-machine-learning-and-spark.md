@@ -1,7 +1,7 @@
 ---
 title: Predictive Marketing with Machine Learning
 titleSuffix: Azure Solution Ideas
-author: adamboeglin
+author: doodlemania2
 ms.date: 12/16/2019
 description: Learn how to build a machine-learning model with Microsoft R Server on Azure HDInsight Spark clusters to recommend actions to maximize the purchase rate.
 ms.custom: acom-architecture, predictive marketing, ai-ml, analytics, predictive analytics software, predictive analytics marketing, 'https://azure.microsoft.com/solutions/architecture/predictive-marketing-campaigns-with-machine-learning-and-spark/'
@@ -35,11 +35,11 @@ This architecture enables efficient handling of big data on Spark with Microsoft
 * Microsoft R Server on [HDInsight](https://azure.microsoft.com/services/hdinsight) Spark clusters provides distributed and scalable machine learning capabilities for big data, combining the power of R Server and Apache Spark.
 * [Power BI](https://powerbi.microsoft.com) provides an interactive dashboard with visualization that uses data stored in SQL Server to drive decisions on the predictions.
 * [Storage Accounts](https://azure.microsoft.com/services/storage): Azure Storage stores campaign and lead data.
-* [Machine Learning Studio](https://azure.microsoft.com/services/machine-learning-studio): Machine Learning helps you easily design, test, operationalize, and manage predictive analytics solutions in the cloud.
+* [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning): Machine Learning helps you design, test, operationalize, and manage predictive analytics solutions in the cloud.
 
 ## Next steps
 
-* [Learn more about Spark on HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-apache-spark-overview)
+* [Learn more about Spark on HDInsight](/azure/hdinsight/hdinsight-apache-spark-overview)
 * [Learn more about Power BI](https://powerbi.microsoft.com/documentation/powerbi-landing-page)
-* [Learn more about Azure storage](https://docs.microsoft.com/azure/storage/common/storage-introduction)
-* [Learn more about Machine Learning](/azure/machine-learning/overview-what-is-azure-ml)
+* [Learn more about Azure storage](/azure/storage/common/storage-introduction)
+* [Learn more about Azure Machine Learning](/azure/machine-learning/overview-what-is-azure-ml)

@@ -3,9 +3,11 @@ title: Choosing a natural language processing technology
 description: Choose a natural language processing service for sentiment analysis, topic and language detection, key phrase extraction, and document categorization.
 author: zoinerTejada
 ms.date: 02/25/2020
-ms.topic: guide
+ms.topic: conceptual
 ms.service: architecture-center
-ms.subservice: cloud-fundamentals
+ms.subservice: azure-guide
+ms.custom:
+  - guide
 ---
 
 # Choosing a natural language processing technology in Azure
@@ -37,9 +39,9 @@ When using NLP to extract information and insight from free-form text, the start
 
 In Azure, the following services provide natural language processing (NLP) capabilities:
 
-- [Azure HDInsight with Spark and Spark MLlib](https://docs.microsoft.com/azure/hdinsight/spark/apache-spark-overview)
-- [Azure Databricks](https://docs.microsoft.com/azure/azure-databricks/what-is-azure-databricks)
-- [Microsoft Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/welcome)
+- [Azure HDInsight with Spark and Spark MLlib](/azure/hdinsight/spark/apache-spark-overview)
+- [Azure Databricks](/azure/azure-databricks/what-is-azure-databricks)
+- [Microsoft Cognitive Services](/azure/cognitive-services/welcome)
 
 ## Key selection criteria
 

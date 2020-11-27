@@ -1,7 +1,7 @@
 ---
 title: Remote Patient Monitoring Solutions
 titleSuffix: Azure Solution Ideas
-author: adamboeglin
+author: doodlemania2
 ms.date: 12/16/2019
 description: Provide a high level of preventative medical care with remote patient monitoring from Azure. Analyze large amounts of medical data in a secure environment.
 ms.custom: acom-architecture, ai-ml, healthcare, remote patient monitoring, remote patient monitoring system, medical data analysis, remote patient monitoring solutions, interactive-diagram, 'https://azure.microsoft.com/solutions/architecture/remote-patient-monitoring/'
@@ -30,7 +30,7 @@ Predict and prevent future incidents by combining IoT and intelligence to optimi
 1. Securely store sensor and device data in Cosmos DB.
 1. Analyze sensor and device data using a pre-trained Cognitive Services API or a custom developed Machine Learning model.
 1. Store Artificial Intelligence (AI) and Machine Learning results in Cosmos DB.
-1. Interact AI and Machine Learning results using PowerBI, while preserving Role-Based Access Control (RBAC).
+1. Interact AI and Machine Learning results using Power BI, while preserving Role-Based Access Control (RBAC).
 1. Integrate data insights with backend systems and processes using Logic Apps.
 
 ## Components
@@ -43,18 +43,18 @@ Predict and prevent future incidents by combining IoT and intelligence to optimi
 * [Power BI Embedded](https://azure.microsoft.com/services/power-bi-embedded): Embed fully interactive, stunning data visualizations in your applications
 * [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db): Globally distributed, multi-model database for any scale
 * Application Insights: Detect, triage, and diagnose issues in your web apps and services
-* [Machine Learning Studio](https://azure.microsoft.com/services/machine-learning-studio): Easily build, deploy, and manage predictive analytics solutions
+* [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning): Build, deploy, and manage predictive analytics solutions
 * [Azure Monitor](https://azure.microsoft.com/services/monitor): Full observability into your applications, infrastructure, and network
 
 ## Next steps
 
-* [IoT Hub Documentation](https://docs.microsoft.com/azure/iot-hub)
-* [Azure Security Center Documentation](https://docs.microsoft.com/azure/security-center)
-* [Get Started with Azure](https://docs.microsoft.com/azure/guides/developer/azure-developer-guide)
-* [What is Azure Key Vault?](https://docs.microsoft.com/azure/key-vault/key-vault-overview)
-* [Azure Logic Apps Documentation](https://docs.microsoft.com/azure/logic-apps)
-* [Power BI Embedded Documentation](https://docs.microsoft.com/azure/power-bi-embedded)
-* [Azure Cosmos DB Documentation](https://docs.microsoft.com/azure/cosmos-db)
-* [Application Insights Documentation](https://docs.microsoft.com/azure/application-insights)
-* [Azure Machine Learning Documentation](https://docs.microsoft.com/azure/machine-learning)
-* [Azure Monitor Documentation](https://docs.microsoft.com/azure/monitoring-and-diagnostics)
+* [IoT Hub Documentation](/azure/iot-hub)
+* [Azure Security Center Documentation](/azure/security-center)
+* [Get Started with Azure](/azure/guides/developer/azure-developer-guide)
+* [What is Azure Key Vault?](/azure/key-vault/key-vault-overview)
+* [Azure Logic Apps Documentation](/azure/logic-apps)
+* [Power BI Embedded Documentation](/azure/power-bi-embedded)
+* [Azure Cosmos DB Documentation](/azure/cosmos-db)
+* [Application Insights Documentation](/azure/application-insights)
+* [Azure Machine Learning Documentation](/azure/machine-learning)
+* [Azure Monitor Documentation](/azure/monitoring-and-diagnostics)

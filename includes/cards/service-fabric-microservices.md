@@ -6,7 +6,7 @@
 <article class="card">
     <div class="card-header has-margin-bottom-none" aria-hidden="true">
         <figure class="image diagram has-height-175 has-overflow-hidden level">
-            <a href="/azure/architecture/example-scenario/infrastructure/service-fabric-microservices"><img src="/azure/architecture/browse/thumbs/service-fabric-microservices.png" class="diagram" alt="Architecture Diagram" data-linktype="relative-path"></a>
+            <a href="/azure/architecture/example-scenario/infrastructure/service-fabric-microservices"><img src="/azure/architecture/browse/thumbs/service-fabric-microservices.png" class="diagram" alt="Thumbnail of Using Service Fabric to decompose applications Architectural Diagram." data-linktype="relative-path"></a>
         </figure>
     </div>
     <div class="card-content">
@@ -17,7 +17,7 @@
             <li>9/20/2018</li>
             <li>6 min read</li>
         </ul>
-        <p class="card-content-description">Decompose a large monolithic application into microservices.</p>
+        <p class="card-content-description">Learn about Azure Service Fabric as a platform for decomposing an unwieldy monolithic application into multiple, manageable microservices.</p>
         <div class="bottom-to-top-fade is-hidden-mobile"></div>
     </div>
 </article>

@@ -1,23 +1,25 @@
 ---
 title: Sign-up and tenant onboarding in multitenant applications
-description: How to onboard tenants in a multitenant application.
-author: MikeWasson
+description: Learn how to implement a sign-up process in a multitenant application, which allows a customer to sign up their organization for your application.
+author: doodlemania2
 ms.date: 07/21/2017
-ms.topic: guide
+ms.topic: conceptual
 ms.service: architecture-center
 ms.category:
   - identity
-ms.subservice: reference-architecture
+ms.subservice: azure-guide
 pnp.series.title: Manage Identity in Multitenant Applications
 pnp.series.prev: claims
 pnp.series.next: app-roles
+ms.custom:
+  - guide
 ---
 
 <!-- cSpell:ignore signup nameof -->
 
 # Tenant sign-up and onboarding
 
-[![GitHub](../_images/github.png) Sample code][sample application]
+[:::image type="icon" source="../_images/github.png" border="false"::: Sample code][sample application]
 
 This article describes how to implement a *sign-up* process in a multitenant application, which allows a customer to sign up their organization for your application.
 

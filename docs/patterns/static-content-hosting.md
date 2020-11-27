@@ -5,10 +5,12 @@ description: Deploy static content to a cloud-based storage service that can del
 keywords: design pattern
 author: dragon119
 ms.date: 02/24/2020
-ms.topic: design-pattern
+ms.topic: conceptual
 ms.service: architecture-center
-ms.subservice: cloud-fundamentals
-ms.custom: seodec18
+ms.subservice: design-pattern
+ms.custom:
+  - seodec18
+  - design-pattern
 social_image_url: /azure/architecture/patterns/media/orderedList1.png
 ---
 
@@ -68,11 +70,11 @@ This pattern might not be useful in the following situations:
 
 ## Example
 
-Azure Storage supports serving static content directly from a storage container. Files are served through anonymous access requests. By default, files have a URL in a subdomain of `core.windows.net`, such as `https://contoso.z4.web.core.windows.net/image.png`. You can configure a custom domain name, and use Azure CDN to access the files over HTTPS. For more information, see [Static website hosting in Azure Storage](https://docs.microsoft.com/azure/storage/blobs/storage-blob-static-website).
+Azure Storage supports serving static content directly from a storage container. Files are served through anonymous access requests. By default, files have a URL in a subdomain of `core.windows.net`, such as `https://contoso.z4.web.core.windows.net/image.png`. You can configure a custom domain name, and use Azure CDN to access the files over HTTPS. For more information, see [Static website hosting in Azure Storage](/azure/storage/blobs/storage-blob-static-website).
 
 ![Delivering static parts of an application directly from a storage service](./_images/static-content-hosting-pattern.png)
 
-Static website hosting makes the files available for anonymous access. If you need to control who can access the files, you can store files in Azure blob storage and then generate [shared access signatures](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1) to limit access.
+Static website hosting makes the files available for anonymous access. If you need to control who can access the files, you can store files in Azure blob storage and then generate [shared access signatures](/azure/storage/common/storage-dotnet-shared-access-signature-part-1) to limit access.
 
 The links in the pages delivered to the client must specify the full URL of the resource. If the resource is protected with a valet key, such as a shared access signature, this signature must be included in the URL.
 

@@ -1,13 +1,14 @@
 ---
 title: Cross Cloud Scaling Architecture
 titleSuffix: Azure Solution Ideas
-author: adamboeglin
+author: doodlemania2
 ms.date: 12/16/2019
 description: Learn how to improve cross cloud scalability with solution architecture that includes Azure Stack. A step-by-step flowchart details instructions for implementation.
 ms.custom: acom-architecture, hybrid-infrastructure, cross cloud architecture, cloud scalability, scalability,  cross cloud, interactive-diagram, 'https://azure.microsoft.com/solutions/architecture/cross-cloud-scaling/'
 ms.service: architecture-center
 ms.category:
   - hybrid
+  - web
 ms.subservice: solution-idea
 social_image_url: /azure/architecture/solution-ideas/articles/media/cross-cloud-scaling.png
 ---
@@ -39,6 +40,6 @@ Modern software is increasingly connected and distributed. The consistency of Az
 
 ## Next steps
 
-* [Traffic Manager documentation](https://docs.microsoft.com/azure/traffic-manager)
-* [Azure Functions documentation](https://docs.microsoft.com/azure/azure-functions)
-* [Azure Stack documentation](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-solution-cloud-burst)
+* [Traffic Manager documentation](/azure/traffic-manager)
+* [Azure Functions documentation](/azure/azure-functions)
+* [Azure Stack documentation](/azure/azure-stack/user/azure-stack-solution-cloud-burst)

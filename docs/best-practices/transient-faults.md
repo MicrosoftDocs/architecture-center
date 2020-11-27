@@ -1,13 +1,15 @@
 ---
 title: Retry general guidance
 titleSuffix: Best practices for cloud applications
-description: Guidance on retry for transient fault handling.
+description: Learn how to handle transient faults when connecting to resources, caused by loss of network connectivity, temporary unavailability, or timeouts.
 author: dragon119
 ms.date: 07/13/2016
-ms.topic: best-practice
+ms.topic: conceptual
 ms.service: architecture-center
-ms.subservice: cloud-fundamentals
-ms.custom: seodec18
+ms.subservice: best-practice
+ms.custom:
+  - seodec18
+  - best-practice
 ---
 
 # Transient fault handling
@@ -106,7 +108,7 @@ The following guidelines will help you to design a suitable transient fault hand
 
   - Ensure you fully test your retry strategy implementation under as wide a set of circumstances as possible, especially when both the application and the target resources or services it uses are under extreme load. To check behavior during testing, you can:
 
-    - Inject transient and nontransient faults into the service. For example, send invalid requests or add code that detects test requests and responds with different types of errors. For an example using TestApi, see [Fault Injection Testing with TestApi](https://msdn.microsoft.com/magazine/ff898404.aspx) and [Introduction to TestApi – Part 5: Managed Code Fault Injection APIs](https://blogs.msdn.microsoft.com/ivo_manolov/2009/11/25/introduction-to-testapi-part-5-managed-code-fault-injection-apis/).
+    - Inject transient and nontransient faults into the service. For example, send invalid requests or add code that detects test requests and responds with different types of errors. For an example using TestApi, see [Fault Injection Testing with TestApi](/archive/msdn-magazine/2010/august/msdn-magazine-test-run-fault-injection-testing-with-testapi) and [Introduction to TestApi – Part 5: Managed Code Fault Injection APIs](/archive/blogs/ivo_manolov/introduction-to-testapi-part-5-managed-code-fault-injection-apis).
 
     - Create a mock of the resource or service that returns a range of errors that the real service may return. Ensure you cover all the types of error that your retry strategy is designed to detect.
 

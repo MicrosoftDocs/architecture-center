@@ -1,12 +1,13 @@
 ---
-title: Measure usage to determine cost of Azure resources 
+title: Measure usage to determine cost of Azure resources
 description: Cost strategies for selecting Azure resources
-author:  PageWriter-MSFT
+author: PageWriter-MSFT
 ms.date: 05/12/2020
-ms.topic: article
+ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
-ms.custom: 
+ms.custom:
+  - article
 ---
 
 # Azure resources 
@@ -37,9 +38,9 @@ Another way to look at pricing is the allocated usage.
 Suppose, you de-allocate the virtual machine. You'll not be billed for Compute Hours, I/O reads or writes, and other compute meters because the virtual machine is not running and has no given compute resources. However, you'll be charged for storage costs for the disks.
 
 Here are some considerations:
--	The meters and pricing vary per product and often have different pricing tiers based on the location, size, or capacity of the resource.
--	Cost for associated with infrastructure is kept low with commodity hardware.
--	Failures cannot be prevented but the effects of failure can be minimized through design choices. The resiliency features are factored in the price of a service and its features.
+- The meters and pricing vary per product and often have different pricing tiers based on the location, size, or capacity of the resource.
+- Cost for associated with infrastructure is kept low with commodity hardware.
+- Failures cannot be prevented but the effects of failure can be minimized through design choices. The resiliency features are factored in the price of a service and its features.
 
 Here are some examples:
 

@@ -6,7 +6,7 @@
 <article class="card">
     <div class="card-header has-margin-bottom-none" aria-hidden="true">
         <figure class="image diagram has-height-175 has-overflow-hidden level">
-            <a href="/azure/architecture/solution-ideas/articles/digital-marketing-sitecore"><img src="/azure/architecture/browse/thumbs/digital-marketing-sitecore.png" class="diagram" alt="Architecture Diagram" data-linktype="relative-path"></a>
+            <a href="/azure/architecture/solution-ideas/articles/digital-marketing-sitecore"><img src="/azure/architecture/browse/thumbs/digital-marketing-sitecore.png" class="diagram" alt="Thumbnail of Scalable Sitecore marketing website Architectural Diagram." data-linktype="relative-path"></a>
         </figure>
     </div>
     <div class="card-content">
@@ -17,7 +17,7 @@
             <li>12/16/2019</li>
             <li>2 min read</li>
         </ul>
-        <p class="card-content-description">With the Sitecore Experience Platform (xP), you have at your fingertips the complete data, integrated tools, and automation capabilities to engage your customers throughout an iterative life cycle—the technology foundation necessary to win customers for life.</p>
+        <p class="card-content-description">With the Sitecore Experience Platform (xP), you have at your fingertips the complete data, integrated tools, and automation capabilities to engage your customers throughout an iterative life cycle-the technology foundation necessary to win customers for life.</p>
         <div class="bottom-to-top-fade is-hidden-mobile"></div>
     </div>
 </article>

@@ -1,20 +1,22 @@
 ---
 title: Identity management for multitenant applications
 description: Best practices for authentication, authorization, and identity management in multitenant apps.
-author: MikeWasson
+author: doodlemania2
 ms.date: 07/21/2017
-ms.topic: guide
+ms.topic: conceptual
 ms.service: architecture-center
 ms.category:
   - identity
-ms.subservice: reference-architecture
+ms.subservice: azure-guide
+ms.custom:
+  - guide
 ---
 
 # Manage identity in multitenant applications
 
 This series of articles describes best practices for multitenancy, when using Azure AD for authentication and identity management.
 
-[![GitHub](../_images/github.png) Sample code][sample-application]
+[:::image type="icon" source="../_images/github.png" border="false"::: Sample code][sample-application]
 
 When you're building a multitenant application, one of the first challenges is managing user identities, because now every user belongs to a tenant. For example:
 
@@ -30,7 +32,7 @@ To accompany this series of articles, we created a complete [end-to-end implemen
 
 Let's say you're writing an enterprise SaaS application to be hosted in the cloud. Of course, the application will have users:
 
-![Users](./images/users.png)
+![Diagram showing individual users.](./images/users.png)
 
 But those users belong to organizations:
 
@@ -41,7 +43,7 @@ Example: Tailspin sells subscriptions to its SaaS application. Contoso and Fabri
 - Alice *should* have access to Contoso data.
 - Alice *should not* have access to Fabrikam data.
 
-This guidance will show you how to manage user identities in a multitenant application, using [Azure Active Directory (Azure AD)](https://docs.microsoft.com/azure/active-directory) to handle sign-in and authentication.
+This guidance will show you how to manage user identities in a multitenant application, using [Azure Active Directory (Azure AD)](/azure/active-directory) to handle sign-in and authentication.
 
 <!-- markdownlint-disable MD026 -->
 
@@ -53,7 +55,7 @@ A *tenant* is a group of users. In a SaaS application, the tenant is a subscribe
 
 Typically, application data is shared among the users within a tenant, but not with other tenants.
 
-![Multitenant](./images/multitenant.png)
+![Diagram showing a Multitenant application.](./images/multitenant.png)
 
 Compare this architecture with a single-tenant architecture, where each tenant has a dedicated physical instance. In a single-tenant architecture, you add tenants by spinning up new instances of the app.
 
@@ -87,7 +89,7 @@ In a multitenant app, you must consider users in the context of tenants.
 In this guidance, we'll look specifically at using Azure AD for identity management.
 
 - We assume the customer stores their user profiles in Azure AD (including Office365 and Dynamics CRM tenants)
-- Customers with on-premises Active Directory can use [Azure AD Connect](https://docs.microsoft.com/azure/active-directory/hybrid/whatis-hybrid-identity) to sync their on-premises Active Directory with Azure AD. If a customer with on-premises Active Directory cannot use Azure AD Connect (due to corporate IT policy or other reasons), the SaaS provider can federate with the customer's directory through Active Directory Federation Services (AD FS). This option is described in [Federating with a customer's AD FS](adfs.md).
+- Customers with on-premises Active Directory can use [Azure AD Connect](/azure/active-directory/hybrid/whatis-hybrid-identity) to sync their on-premises Active Directory with Azure AD. If a customer with on-premises Active Directory cannot use Azure AD Connect (due to corporate IT policy or other reasons), the SaaS provider can federate with the customer's directory through Active Directory Federation Services (AD FS). This option is described in [Federating with a customer's AD FS](adfs.md).
 
 This guidance does not consider other aspects of multitenancy such as data partitioning, per-tenant configuration, and so forth.
 

@@ -5,10 +5,12 @@ description: Coordinate a set of actions across a distributed set of services an
 keywords: design pattern
 author: dragon119
 ms.date: 06/23/2017
-ms.topic: design-pattern
+ms.topic: conceptual
 ms.service: architecture-center
-ms.subservice: cloud-fundamentals
-ms.custom: seodec18
+ms.subservice: design-pattern
+ms.custom:
+  - seodec18
+  - design-pattern
 ---
 
 # Scheduler Agent Supervisor pattern
@@ -135,9 +137,9 @@ The following patterns and guidance might also be relevant when implementing thi
 - [Retry pattern](./retry.md). An Agent can use this pattern to transparently retry an operation that accesses a remote service or resource that has previously failed. Use when the expectation is that the cause of the failure is transient and can be corrected.
 - [Circuit Breaker pattern](./circuit-breaker.md). An Agent can use this pattern to handle faults that take a variable amount of time to correct when connecting to a remote service or resource.
 - [Compensating Transaction pattern](./compensating-transaction.md). If the workflow being performed by a Scheduler can't be completed successfully, it might be necessary to undo any work it's previously performed. The Compensating Transaction pattern describes how this can be achieved for operations that follow the eventual consistency model. These types of operations are commonly implemented by a Scheduler that performs complex business processes and workflows.
-- [Asynchronous Messaging Primer](https://msdn.microsoft.com/library/dn589781.aspx). The components in the Scheduler Agent Supervisor pattern typically run decoupled from each other and communicate asynchronously. Describes some of the approaches that can be used to implement asynchronous communication based on message queues.
+- [Asynchronous Messaging Primer](/previous-versions/msp-n-p/dn589781(v=pandp.10)). The components in the Scheduler Agent Supervisor pattern typically run decoupled from each other and communicate asynchronously. Describes some of the approaches that can be used to implement asynchronous communication based on message queues.
 - [Leader Election pattern](./leader-election.md). It might be necessary to coordinate the actions of multiple instances of a Supervisor to prevent them from attempting to recover the same failed process. The Leader Election pattern describes how to do this.
-- [Cloud Architecture: The Scheduler-Agent-Supervisor Pattern](https://blogs.msdn.microsoft.com/clemensv/2010/09/27/cloud-architecture-the-scheduler-agent-supervisor-pattern/) on Clemens Vasters' blog
+- [Cloud Architecture: The Scheduler-Agent-Supervisor Pattern](/archive/blogs/clemensv/cloud-architecture-the-scheduler-agent-supervisor-pattern) on Clemens Vasters' blog
 - [Process Manager pattern](https://www.enterpriseintegrationpatterns.com/patterns/messaging/ProcessManager.html)
-- [Reference 6: A Saga on Sagas](https://msdn.microsoft.com/library/jj591569.aspx). An example showing how the CQRS pattern uses a process manager (part of the CQRS Journey guidance).
+- [Reference 6: A Saga on Sagas](/previous-versions/msp-n-p/jj591569(v=pandp.10)). An example showing how the CQRS pattern uses a process manager (part of the CQRS Journey guidance).
 - [Microsoft Azure Scheduler](https://azure.microsoft.com/services/scheduler/)

@@ -3,10 +3,11 @@ title: Tradeoffs for costs
 description: Describes some of the trade-offs you may decide to make when optimizing a workload for cost.
 author: david-stanford
 ms.date: 05/12/2020
-ms.topic: article
+ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
-ms.custom: 
+ms.custom:
+  - article
 ---
 
 # Tradeoffs for costs
@@ -23,19 +24,19 @@ Cost has a direct correlation with reliability.
 **Does the cost of high availability components exceed the acceptable downtime?**
 ***
 
-Overall Service Level Agreement (SLA), Recovery Time Objective (RTO), and Recovery Point Objective (RPO) may lead to expensive design choices. If your service SLAs, RTOs, and RPOs times are short, then higher investment is inevitable for high availability and disaster recovery options. 
+Overall Service Level Agreement (SLA), Recovery Time Objective (RTO), and Recovery Point Objective (RPO) may lead to expensive design choices. If your service SLAs, RTOs, and RPOs times are short, then higher investment is inevitable for high availability and disaster recovery options.
 
-For example, to support high availability, you choose to host the application across regions. This choice is costlier than single region because of the replication costs or the need provisioning extra nodes. Data transfer between regions will also add cost. 
+For example, to support high availability, you choose to host the application across regions. This choice is costlier than single region because of the replication costs or the need provisioning extra nodes. Data transfer between regions will also add cost.
 
-If the cost of high availability exceeds the cost of downtime, you can save by using Azure platform-managed replication and recover data from the backup storage. 
+If the cost of high availability exceeds the cost of downtime, you can save by using Azure platform-managed replication and recover data from the backup storage.
 
-For resiliency, availability, and reliability considerations, see the [Reliability](/azure/architecture/framework/resiliency/overview?branch=master) pillar.
-
+For resiliency, availability, and reliability considerations, see the [Reliability](../resiliency/overview.md?branch=master) pillar.
 
 ## Cost versus performance efficiency
+
 Boosting performance will lead to higher cost.
 
-Many factors impact performance. 
+Many factors impact performance.
 
 **Fixed or consumption-based provisioning**. Avoid cost estimation of a workload at consistently high utilization. Consumption-based pricing will be more expensive that the equivalent provisioned pricing. Smooth out the peaks to get a consistent flow of compute and data. Ideally, use manual and autoscaling to find the right balance. Scaling up is more expensive than scaling out.
 
@@ -47,7 +48,7 @@ While caching can reduce cost, there are some performance tradeoffs. For example
 
 **Batch or real-time processing**. Using dedicated resources for batch processing long running jobs will increase the cost. You can lower cost by provisioning Spot VMs but be prepared for the job to be interrupted every time Azure evicts the VM.
 
-For performance considerations, see the [Performance Efficiency](/azure/architecture/framework/scalability/overview) pillar.
+For performance considerations, see the [Performance Efficiency](../scalability/overview.md) pillar.
 
 
 ## Cost versus security
@@ -56,7 +57,7 @@ Increasing security of the workload will increase cost.
 As a rule, don't compromise on security. For certain workloads, you can't avoid security costs. For example, for specific security and compliance requirements, deploying to differentiated regions will be more expensive.
 Premium security features can also increase the cost. There are areas you can reduce cost by using native security features. For example, avoid implementing custom RBAC roles if you can use built-in roles. 
 
-For security considerations, see the [Security Pillar](/azure/architecture/framework/security/overview).
+For security considerations, see the [Security Pillar](../security/overview.md).
 
 ## Cost versus operational excellence
 
@@ -64,5 +65,4 @@ Investing in systems monitoring and automation might increase the cost initially
 - IT operations processes like user or application access provisioning, incident response, and disaster recovery should be integrated with the workload.
 - Cost of maintaining infrastructure is more expensive. With PaaS or SaaS services, infrastructure, platform management services, and additional operational efficiencies are included in the service pricing.
 
-For operational considerations, see the [Operational Excellence](/azure/architecture/framework/devops/overview) pillar.
-
+For operational considerations, see the [Operational Excellence](../devops/overview.md) pillar.

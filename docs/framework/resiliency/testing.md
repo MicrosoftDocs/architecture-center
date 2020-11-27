@@ -3,10 +3,12 @@ title: Testing Azure applications for resiliency and availability
 description: Testing is an iterative process. Test the application, measure the outcome, analyze and address any failures that result, and repeat the process.
 author: david-stanford
 ms.date: 10/16/2019
-ms.topic: article
+ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
-ms.custom: How do you test your applications to ensure they're fault tolerant?
+ms.custom:
+  - How do you test your applications to ensure they're fault tolerant?
+  - article
 ---
 
 
@@ -26,7 +28,7 @@ As part of your test plan, include:
 - Third-party service testing
 
 ## Chaos engineering
-Harden services against failures in production to attain consistent reliability by adopting [chaos engineering](/azure/architecture/framework/resiliency/chaos-engineering).
+Harden services against failures in production to attain consistent reliability by adopting [chaos engineering](./chaos-engineering.md).
 
 ## Simulation testing
 
@@ -58,7 +60,7 @@ Your test plan should incorporate possible failure points identified during the 
 - Measure the recovery times, and be sure that your business requirements are met.
 - Verify that failures don't cascade and are handled in an isolated way.
 
-Best practices for [Chaos Engineering](/azure/architecture/framework/resiliency/chaos-engineering#best-practices), for more information about failure scenarios, see [Failure and disaster recovery for Azure applications](../../framework/resiliency/backup-and-recovery.md).
+Best practices for [Chaos Engineering](./chaos-engineering.md#best-practices), for more information about failure scenarios, see [Failure and disaster recovery for Azure applications](../../framework/resiliency/backup-and-recovery.md).
 
 ## Test under peak loads
 

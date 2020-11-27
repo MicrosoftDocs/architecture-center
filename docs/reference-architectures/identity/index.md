@@ -1,15 +1,18 @@
 ---
 title: Integrate on-premises AD with Azure
 description: Compare reference architectures for integrating on-premises Active Directory with Azure.
-author: MikeWasson
+author: doodlemania2
 ms.date: 07/30/2019
-ms.topic: reference-architecture
+ms.topic: conceptual
 ms.service: architecture-center
 ms.category:
   - identity
   - hybrid
 ms.subservice: reference-architecture
-ms.custom: seodec18, identity
+ms.custom:
+  - seodec18
+  - identity
+  - reference-architecture
 ---
 
 # Choose a solution for integrating on-premises Active Directory with Azure
@@ -48,7 +51,7 @@ You can also use Azure AD without using an on-premises directory. In this case, 
 
 - You must configure connectivity with your on-premises domain to keep the Azure AD directory synchronized.
 - Applications may need to be rewritten to enable authentication through Azure AD.
-- If you wish to authenticate service and computer accounts, you will have to also deploy [Azure Active Directory Domain Services](https://docs.microsoft.com/azure/active-directory-domain-services/).
+- If you wish to authenticate service and computer accounts, you will have to also deploy [Azure Active Directory Domain Services](/azure/active-directory-domain-services/).
 
 **Reference architecture**
 
@@ -126,7 +129,7 @@ Typical uses for this architecture:
 [aad]: ./azure-ad.md
 [ad-ds]: ./adds-extend-domain.md
 [ad-ds-forest]: ./adds-forest.md
-[ad-forest-defn]: https://docs.microsoft.com/windows/desktop/AD/forests
+[ad-forest-defn]: /windows/desktop/AD/forests
 [adfs]: ./adfs.md
-[azure-active-directory]: https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-overview
-[azure-ad-connect]: https://docs.microsoft.com/azure/active-directory/hybrid/whatis-hybrid-identity
+[azure-active-directory]: /azure/active-directory-domain-services/active-directory-ds-overview
+[azure-ad-connect]: /azure/active-directory/hybrid/whatis-hybrid-identity

@@ -4,13 +4,16 @@ titleSuffix: Azure Reference Architectures
 description: Implement a highly available and secure site-to-site network architecture that spans an Azure virtual network and an on-premises network connected using ExpressRoute with VPN gateway failover.
 author: telmosampaio
 ms.date: 10/22/2017
-ms.topic: reference-architecture
+ms.topic: conceptual
 ms.service: architecture-center
 ms.category:
   - hybrid
   - networking
 ms.subservice: reference-architecture
-ms.custom: seodec18, networking
+ms.custom:
+  - seodec18
+  - networking
+  - reference-architecture
 ---
 
 <!-- cSpell:ignore RRAS -->
@@ -91,11 +94,13 @@ After you have established the virtual network gateway connections, test the env
 3. Verify that you can still connect from your on-premises network to your Azure VNet using the VPN virtual network gateway connection.
 4. Contact your provider to reestablish ExpressRoute connectivity.
 
-## Considerations
+## DevOps considerations
 
-For ExpressRoute considerations, see the [Implementing a Hybrid Network Architecture with Azure ExpressRoute][guidance-expressroute] guidance.
+For ExpressRoute DevOps considerations, see the [Implementing a Hybrid Network Architecture with Azure ExpressRoute][guidance-expressroute] guidance.
 
-For site-to-site VPN considerations, see the [Implementing a Hybrid Network Architecture with Azure and On-premises VPN][guidance-vpn] guidance.
+For site-to-site VPN DevOps considerations, see the [Implementing a Hybrid Network Architecture with Azure and On-premises VPN][guidance-vpn] guidance.
+
+## Security considerations
 
 For general Azure security considerations, see [Microsoft cloud services and network security][best-practices-security].
 
@@ -141,12 +146,12 @@ To deploy the solution, perform the following steps.
 
 [windows-vm-ra]: ../n-tier/n-tier-sql-server.md
 [linux-vm-ra]: ../n-tier/n-tier-cassandra.md
-[vpn-appliance]: https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpn-devices
-[connect-to-an-Azure-vnet]: https://technet.microsoft.com/library/dn786406.aspx
-[expressroute-prereq]: https://docs.microsoft.com/azure/expressroute/expressroute-prerequisites
+[vpn-appliance]: /azure/vpn-gateway/vpn-gateway-about-vpn-devices
+[connect-to-an-Azure-vnet]: /microsoft-365/enterprise/connect-an-on-premises-network-to-a-microsoft-azure-virtual-network?view=o365-worldwide
+[expressroute-prereq]: /azure/expressroute/expressroute-prerequisites
 [implementing-expressroute]: ./expressroute.md
 [implementing-vpn]: ./vpn.md
 [guidance-expressroute]: ./expressroute.md
 [guidance-vpn]: ./vpn.md
-[best-practices-security]: https://docs.microsoft.com/azure/best-practices-network-security
-[visio-download]: https://archcenter.blob.core.windows.net/cdn/hybrid-network-architectures.vsdx
+[best-practices-security]: /azure/best-practices-network-security
+[visio-download]: https://arch-center.azureedge.net/hybrid-network-architectures.vsdx

@@ -3,10 +3,12 @@ title: Monitoring application health for reliability in Azure
 description: How to use monitoring to improve application reliability in Azure
 author: david-stanford
 ms.date: 10/16/2019
-ms.topic: article
+ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
-ms.custom: How are you ensuring failures are resolved quickly? 
+ms.custom:
+  - How are you ensuring failures are resolved quickly?
+  - article
 ---
 
 # Monitoring application health for reliability in Azure
@@ -25,7 +27,7 @@ Monitor your application for warning signs that might require proactive interven
 1. Set thresholds at levels that identify issues before they become critical and require a recovery response.
 1. Send an alert to operations when the threshold value is reached.
 
-Consider [Microsoft System Center 2016](https://www.microsoft.com/cloud-platform/system-center) or third-party tools to provide monitoring capabilities. Most monitoring solutions track key performance counters and service availability. [Azure resource health](https://docs.microsoft.com/azure/service-health/resource-health-checks-resource-types) provides some built-in health status checks, which can help diagnose throttling of Azure services.
+Consider [Microsoft System Center 2016](https://www.microsoft.com/cloud-platform/system-center) or third-party tools to provide monitoring capabilities. Most monitoring solutions track key performance counters and service availability. [Azure resource health](/azure/service-health/resource-health-checks-resource-types) provides some built-in health status checks, which can help diagnose throttling of Azure services.
 
 ## Remote call statistics
 
@@ -44,11 +46,14 @@ Track the progress of long-running processes to minimize the likelihood that the
 
 Present telemetry data in a format that makes it easy for an operator to notice problems or trends quickly, such as a dashboard or email alert.
 
-Get a full-stack view of application state by using [Azure dashboards](https://docs.microsoft.com/azure/azure-portal/azure-portal-dashboards) to create a consolidated view of monitoring graphs from Application Insights, Log Analytics, Azure Monitor metrics, and Service Health. And use [Azure Monitor alerts](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-overview) to create notifications on Service Health, resource health, Azure Monitor metrics, logs in Log Analytics, and Application Insights.
+Get a full-stack view of application state by using [Azure dashboards](/azure/azure-portal/azure-portal-dashboards) to create a consolidated view of monitoring graphs from Application Insights, Log Analytics, Azure Monitor metrics, and Service Health. And use [Azure Monitor alerts](/azure/azure-monitor/platform/alerts-overview) to create notifications on Service Health, resource health, Azure Monitor metrics, logs in Log Analytics, and Application Insights.
 
 For more information about monitoring and diagnostics, see [Monitoring and diagnostics](../../best-practices/monitoring.md).
 
-![GitHub](../../_images/github.png) A sample about creating resource-level health activity log alerts is [here](https://github.com/mspnp/samples/tree/master/ResiliencyHealthAlerts). The sample uses Azure Resource Manager to create alerts.
+:::image type="icon" source="../../_images/github.png" border="false"::: Here are some samples about creating and querying alerts:
+
+- [HealthAlert](https://github.com/mspnp/samples/tree/master/Reliability/HealthAlerts). A sample about creating resource-level health activity log alerts. The sample uses Azure Resource Manager to create alerts.
+- [GraphAlertsPsSample](https://github.com/mspnp/samples/tree/master/Reliability/GraphAlertsPsSample). A set of PowerShell commands that queries for alerts generated against your subscription.
 
 ## Test Monitoring
 
@@ -60,7 +65,7 @@ Azure subscriptions have limits on certain resource types, such as number of res
 
 Address the following subscription limits with alerts.
 
-![GitHub](../../_images/github.png) A reference implementation is available on [GitHub](https://github.com/mspnp/serverless-automation/blob/master/src/automation/throttling-responder/deployment.md).
+:::image type="icon" source="../../_images/github.png" border="false"::: A reference implementation is available on [GitHub](https://github.com/mspnp/serverless-automation/blob/master/src/automation/throttling-responder/deployment.md).
 
 For information about that implementation, see [Event-based cloud automation on Azure](../../reference-architectures/serverless/cloud-automation.md).
 
@@ -72,27 +77,27 @@ Depending on the specific service and your application requirements, you can oft
 
 ### Azure storage scalability and performance targets
 
-Azure allows a maximum number of storage accounts per subscription. If your application requires more storage accounts than are currently available in your subscription, create a new subscription with additional storage accounts. For more information, see [Azure subscription and service limits, quotas, and constraints](https://docs.microsoft.com/azure/azure-subscription-service-limits/#storage-limits).
+Azure allows a maximum number of storage accounts per subscription. If your application requires more storage accounts than are currently available in your subscription, create a new subscription with additional storage accounts. For more information, see [Azure subscription and service limits, quotas, and constraints](/azure/azure-subscription-service-limits/#storage-limits).
 
-If you exceed Azure storage scalability and performance targets, your application will experience storage throttling. For more information, see [Azure Storage scalability and performance targets](https://docs.microsoft.com/azure/storage/storage-scalability-targets).
+If you exceed Azure storage scalability and performance targets, your application will experience storage throttling. For more information, see [Azure Storage scalability and performance targets](/azure/storage/storage-scalability-targets).
 
 ### Scalability targets for virtual machine disks
 
-An Azure infrastructure as a service (IaaS) VM supports attaching a number of data disks, depending on several factors, including the VM size and the type of storage account. If your application exceeds the scalability targets for virtual machine disks, provision additional storage accounts and create the virtual machine disks there. For more information, see [Scalability and performance targets for VM disks on Windows](https://docs.microsoft.com/azure/virtual-machines/windows/disk-scalability-targets).
+An Azure infrastructure as a service (IaaS) VM supports attaching a number of data disks, depending on several factors, including the VM size and the type of storage account. If your application exceeds the scalability targets for virtual machine disks, provision additional storage accounts and create the virtual machine disks there. For more information, see [Scalability and performance targets for VM disks on Windows](/azure/virtual-machines/windows/disk-scalability-targets).
 
 ### VM size
 
-If the actual CPU, memory, disk, and I/O of your VMs approach the limits of the VM size, your application may experience capacity issues. To correct the issues, increase the VM size. VM sizes are described in [Sizes for virtual machines in Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-sizes).
+If the actual CPU, memory, disk, and I/O of your VMs approach the limits of the VM size, your application may experience capacity issues. To correct the issues, increase the VM size. VM sizes are described in [Sizes for virtual machines in Azure](/azure/virtual-machines/sizes).
 
-If your workload fluctuates over time, consider using virtual machine scale sets to automatically scale the number of VM instances. Otherwise, you need to manually increase or decrease the number of VMs. For more information, see the [virtual machine scale sets overview](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-overview).
+If your workload fluctuates over time, consider using virtual machine scale sets to automatically scale the number of VM instances. Otherwise, you need to manually increase or decrease the number of VMs. For more information, see the [virtual machine scale sets overview](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-overview).
 
 ### Azure SQL Database
 
-If your Azure SQL Database tier isn't adequate to handle your application's Database Transaction Unit (DTU) requirements, your data use will be throttled. For more information on selecting the correct service plan, see [Azure SQL Database purchasing models](https://docs.microsoft.com/azure/sql-database/sql-database-service-tiers).
+If your Azure SQL Database tier isn't adequate to handle your application's Database Transaction Unit (DTU) requirements, your data use will be throttled. For more information on selecting the correct service plan, see [Azure SQL Database purchasing models](/azure/sql-database/sql-database-service-tiers).
 
 Sample:
 
-This [reference implementation](https://github.com/mspnp/serverless-automation/blob/master/src/automation/throttling-responder/deployment.md) monitors a Cosmos DB database for throttling. Azure Monitor alerts are triggered when data access requests to CosmosDB exceed the capacity in Request Units (or RUs). For more context, see the [Reference Architecture](https://docs.microsoft.com/azure/architecture/reference-architectures/serverless/cloud-automation) (Throttling response scenario)
+This [reference implementation](https://github.com/mspnp/serverless-automation/blob/master/src/automation/throttling-responder/deployment.md) monitors a Cosmos DB database for throttling. Azure Monitor alerts are triggered when data access requests to Cosmos DB exceed the capacity in Request Units (or RUs). For more context, see the [Reference Architecture](../../reference-architectures/serverless/cloud-automation.md) (Throttling response scenario)
 
 
 ## Instrumentation
@@ -108,13 +113,13 @@ Monitoring systems should capture comprehensive details so that applications can
 
 The raw data for monitoring can come from a variety of sources, including:
 
-- Application logs, such as those produced by the [Azure Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview) service.
-- Operating system performance metrics collected by [Azure monitoring agents](https://docs.microsoft.com/azure/azure-monitor/platform/agents-overview).
-- [Azure resources](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported), including metrics collected by Azure Monitor.
-- [Azure Service Health](https://docs.microsoft.com/azure/service-health/service-health-overview), which offers a dashboard to help you track active events.
-- [Azure AD logs](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics) built into the Azure platform.
+- Application logs, such as those produced by the [Azure Application Insights](/azure/azure-monitor/app/app-insights-overview) service.
+- Operating system performance metrics collected by [Azure monitoring agents](/azure/azure-monitor/platform/agents-overview).
+- [Azure resources](/azure/azure-monitor/platform/metrics-supported), including metrics collected by Azure Monitor.
+- [Azure Service Health](/azure/service-health/service-health-overview), which offers a dashboard to help you track active events.
+- [Azure AD logs](/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics) built into the Azure platform.
 
-Most Azure services have metrics and diagnostics that you can configure to analyze and determine the cause of problems. To learn more, see [Monitoring data collected by Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/data-collection).
+Most Azure services have metrics and diagnostics that you can configure to analyze and determine the cause of problems. To learn more, see [Monitoring data collected by Azure Monitor](/azure/azure-monitor/platform/data-collection).
 
 ## Collection and storage
 
@@ -133,6 +138,9 @@ The health and performance of an application can degrade over time, and degradat
 Implement probes or check functions, and run them regularly from outside the application. These checks can be as simple as measuring response time for the application as a whole, for individual parts of the application, for specific services that the application uses, or for separate components.
 
 Check functions can run processes to ensure that they produce valid results, measure latency and check availability, and extract information from the system.
+
+:::image type="icon" source="../../_images/github.png" border="false"::: The [HealthProbesSample](https://github.com/mspnp/samples/tree/master/Reliability/HealthProbesSample) sample shows how to set up health probes. It provides an ARM template to set up the infrastructure. A load balancer accepts public requests and load balance to a set of virtual machines. The health probe is set up so that it can check for service's path /Health.
+
 
 ## Application logs
 
@@ -160,4 +168,4 @@ Audit records are commonly maintained for compliance or regulatory requirements 
 
 ## Analysis and diagnosis
 
-Analyze data consolidated in these data stores to troubleshoot issues and gain an overall view of application health. Generally, you can [search for and analyze](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview) the data in Application Insights and Log Analytics using Kusto queries or view preconfigured graphs using [management solutions](https://docs.microsoft.com/azure/azure-monitor/insights/solutions-inventory). Or use Azure Advisor to view recommendations with a focus on [resiliency](https://docs.microsoft.com/azure/advisor/advisor-high-availability-recommendations) and [performance](https://docs.microsoft.com/azure/advisor/advisor-performance-recommendations).
+Analyze data consolidated in these data stores to troubleshoot issues and gain an overall view of application health. Generally, you can [search for and analyze](/azure/azure-monitor/log-query/log-query-overview) the data in Application Insights and Log Analytics using Kusto queries or view preconfigured graphs using [management solutions](/azure/azure-monitor/insights/solutions-inventory). Or use Azure Advisor to view recommendations with a focus on [resiliency](/azure/advisor/advisor-high-availability-recommendations) and [performance](/azure/advisor/advisor-performance-recommendations).

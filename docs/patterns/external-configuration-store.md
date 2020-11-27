@@ -5,10 +5,12 @@ description: Move configuration information out of the application deployment pa
 keywords: design pattern
 author: dragon119
 ms.date: 06/23/2017
-ms.topic: design-pattern
+ms.topic: conceptual
 ms.service: architecture-center
-ms.subservice: cloud-fundamentals
-ms.custom: seodec18
+ms.subservice: design-pattern
+ms.custom:
+  - seodec18
+  - design-pattern
 ---
 
 # External Configuration Store pattern
@@ -31,7 +33,7 @@ Store the configuration information in external storage, and provide an interfac
 
 The backing store you choose for configuration information should have an interface that provides consistent and easy-to-use access. It should expose the information in a correctly typed and structured format. The implementation might also need to authorize users’ access in order to protect configuration data, and be flexible enough to allow storage of multiple versions of the configuration (such as development, staging, or production, including multiple release versions of each one).
 
-> Many built-in configuration systems read the data when the application starts up, and cache the data in memory to provide fast access and minimize the impact on application performance. Depending on the type of backing store used, and the latency of this store, it might be helpful to implement a caching mechanism within the external configuration store. For more information, see the [Caching Guidance](https://msdn.microsoft.com/library/dn589802.aspx). The figure illustrates an overview of the External Configuration Store pattern with optional local cache.
+> Many built-in configuration systems read the data when the application starts up, and cache the data in memory to provide fast access and minimize the impact on application performance. Depending on the type of backing store used, and the latency of this store, it might be helpful to implement a caching mechanism within the external configuration store. For more information, see the [Caching Guidance](/previous-versions/msp-n-p/dn589802(v=pandp.10)). The figure illustrates an overview of the External Configuration Store pattern with optional local cache.
 
 ![An overview of the External Configuration Store pattern with optional local cache](./_images/external-configuration-store-overview.png)
 

@@ -1,7 +1,7 @@
 ---
 title: Build high availability into your BCDR strategy
 titleSuffix: Azure Solution Ideas
-author: adamboeglin
+author: doodlemania2
 ms.date: 12/16/2019
 description: Virtual machines (VMs) are physically separated across zones, and a virtual network is created using load balancers at each site. These locations are close enough for high availability replication, so your applications stay running, despite any issues at the physical locations.
 ms.custom: acom-architecture, bcdr, availability, strategy, interactive-diagram, 'https://azure.microsoft.com/solutions/architecture/build-high-availability-into-your-bcdr-strategy/'
@@ -9,6 +9,7 @@ ms.service: architecture-center
 ms.category:
   - management-and-governance
   - networking
+  - hybrid
 ms.subservice: solution-idea
 social_image_url: /azure/architecture/solution-ideas/articles/media/build-high-availability-into-your-bcdr-strategy.png
 ---
@@ -42,6 +43,6 @@ Virtual machines (VMs) are physically separated across zones, and a virtual netw
 
 ## Next steps
 
-* [Virtual Machines documentation](https://docs.microsoft.com/azure/virtual-machines)
-* [SQL Database documentation](https://docs.microsoft.com/azure/sql-database)
-* [Load Balancer documentation](https://docs.microsoft.com/azure/load-balancer)
+* [Virtual Machines documentation](/azure/virtual-machines)
+* [SQL Database documentation](/azure/sql-database)
+* [Load Balancer documentation](/azure/load-balancer)

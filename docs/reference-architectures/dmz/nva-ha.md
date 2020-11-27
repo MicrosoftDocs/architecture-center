@@ -1,15 +1,18 @@
 ---
 title: Deploy highly available NVAs
-description: Deploy network virtual appliances with high availability.
+description: Learn how to deploy network virtual appliances for high availability in Azure. This article includes example architectures for ingress, egress, and both.
 author: telmosampaio
 ms.date: 12/08/2018
-ms.topic: reference-architecture
+ms.topic: conceptual
 ms.service: architecture-center
 ms.category:
   - networking
   - management-and-governance
 ms.subservice: reference-architecture
-ms.custom: seodec18, networking
+ms.custom:
+  - seodec18
+  - networking
+  - reference-architecture
 ---
 
 # Deploy highly available network virtual appliances
@@ -34,7 +37,7 @@ The following architectures describe the resources and configuration necessary f
 
 | Solution | Benefits | Considerations |
 | --- | --- | --- |
-| [Load Balancer Standard & HA ports](https://docs.microsoft.com/azure/load-balancer/load-balancer-ha-ports-overview) |Balances all TCP and UDP flows |Confirm with NVA providers how to best use HA ports and to learn which scenarios are supported <br/> HA ports feature is available in all the global Azure regions <br/> Fast failover to healthy instances, with per-instance health probes <br/> Review [limitations](https://docs.microsoft.com/azure/load-balancer/load-balancer-ha-ports-overview#limitations)|
+| [Load Balancer Standard & HA ports](/azure/load-balancer/load-balancer-ha-ports-overview) |Balances all TCP and UDP flows |Confirm with NVA providers how to best use HA ports and to learn which scenarios are supported <br/> HA ports feature is available in all the global Azure regions <br/> Fast failover to healthy instances, with per-instance health probes <br/> Review [limitations](/azure/load-balancer/load-balancer-ha-ports-overview#limitations)|
 | [Ingress with layer 7 NVAs][ingress-with-layer-7] |All NVA nodes are active |Requires an NVA that can terminate connections and use SNAT<br/> Requires a separate set of NVAs for traffic coming from the Internet and from Azure <br/> Can only be used for traffic originating outside Azure |
 | [Egress with layer 7 NVAs][egress-with-layer-7] |All NVA nodes are active | Requires an NVA that can terminate connections and implements source network address translation (SNAT)
 | [Ingress-Egress with layer 7 NVAs][ingress-egress-with-layer-7] |All nodes are active<br/>Able to handle traffic originated in Azure |Requires an NVA that can terminate connections and use SNAT<br/>Requires a separate set of NVAs for traffic coming from the Internet and from Azure |
@@ -98,7 +101,7 @@ This architecture uses two Azure virtual machines to host the NVA firewall in an
 
 This solution is designed for Azure customers who cannot configure SNAT for inbound requests on their NVA firewalls. SNAT hides the original source client IP address. If you need to log the original IPs or used them within other layered security components behind your NVAs, this solution offers a basic approach.
 
-The failover of UDR table entries is automated by a next-hop address set to the IP address of an interface on the active NVA firewall virtual machine. The automated failover logic is hosted in a function app that you create using [Azure Functions](https://docs.microsoft.com/azure/azure-functions/). The failover code runs as a serverless function inside Azure Functions. Deployment is convenient, cost-effective, and easy to maintain and customize. In addition, the function app is hosted within Azure Functions, so it has no dependencies on the virtual network. If changes to the virtual network impact the NVA firewalls, the function app continues to run independently. Testing is more accurate as well, because it takes place outside the virtual network using the same route as the inbound client requests.
+The failover of UDR table entries is automated by a next-hop address set to the IP address of an interface on the active NVA firewall virtual machine. The automated failover logic is hosted in a function app that you create using [Azure Functions](/azure/azure-functions/). The failover code runs as a serverless function inside Azure Functions. Deployment is convenient, cost-effective, and easy to maintain and customize. In addition, the function app is hosted within Azure Functions, so it has no dependencies on the virtual network. If changes to the virtual network impact the NVA firewalls, the function app continues to run independently. Testing is more accurate as well, because it takes place outside the virtual network using the same route as the inbound client requests.
 
 To check the availability of the NVA firewall, the function app code probes it in one of two ways:
 
@@ -111,19 +114,19 @@ You choose the type of probe you want to use when you configure the function app
 ## Next steps
 
 - Learn how to [implement a DMZ between Azure and your on-premises datacenter][dmz-on-premises] using Azure Firewall.
-- [Troubleshoot network virtual appliance issues in Azure](https://docs.microsoft.com/azure/virtual-network/virtual-network-troubleshoot-nva)
+- [Troubleshoot network virtual appliance issues in Azure](/azure/virtual-network/virtual-network-troubleshoot-nva)
 
 <!-- links -->
 
-[cloud-security]: https://docs.microsoft.com/azure/best-practices-network-security
+[cloud-security]: /azure/best-practices-network-security
 [dmz-on-premises]: ./secure-vnet-dmz.md
 [egress-with-layer-7]: #egress-with-layer-7-nvas
 [ingress-with-layer-7]: #ingress-with-layer-7-nvas
 [ingress-egress-with-layer-7]: #ingress-egress-with-layer-7-nvas
-[lb-overview]: https://docs.microsoft.com/azure/load-balancer/load-balancer-overview
-[nva-scenario]: https://docs.microsoft.com/azure/virtual-network/virtual-network-scenario-udr-gw-nva
+[lb-overview]: /azure/load-balancer/load-balancer-overview
+[nva-scenario]: /azure/virtual-network/virtual-network-scenario-udr-gw-nva
 [pip-udr-switch]: #pip-udr-switch-with-layer-4-nvas
-[udr-overview]: https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview
+[udr-overview]: /azure/virtual-network/virtual-networks-udr-overview
 [zookeeper]: https://zookeeper.apache.org
 [pnp-ha-nva]: https://github.com/mspnp/ha-nva
 [ha-nva-fo]: https://aka.ms/ha-nva-fo

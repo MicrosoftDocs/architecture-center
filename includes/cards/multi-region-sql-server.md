@@ -6,7 +6,7 @@
 <article class="card">
     <div class="card-header has-margin-bottom-none" aria-hidden="true">
         <figure class="image diagram has-height-175 has-overflow-hidden level">
-            <a href="/azure/architecture/reference-architectures/n-tier/multi-region-sql-server"><img src="/azure/architecture/browse/thumbs/multi-region-sql-server.png" class="diagram" alt="Architecture Diagram" data-linktype="relative-path"></a>
+            <a href="/azure/architecture/reference-architectures/n-tier/multi-region-sql-server"><img src="/azure/architecture/browse/thumbs/multi-region-sql-server.png" class="diagram" alt="Thumbnail of Multi-region N-tier application Architectural Diagram." data-linktype="relative-path"></a>
         </figure>
     </div>
     <div class="card-content">
@@ -15,7 +15,7 @@
         </a>
         <ul class="card-content-metadata">
             <li>6/18/2019</li>
-            <li>8 min read</li>
+            <li>10 min read</li>
         </ul>
         <p class="card-content-description">Deploy an application on Azure virtual machines in multiple regions for high availability and resiliency.</p>
         <div class="bottom-to-top-fade is-hidden-mobile"></div>

@@ -17,7 +17,7 @@
             <li>3/23/2020</li>
             <li>2 min read</li>
         </ul>
-        <p class="card-content-description">Create seamless conversational interfaces with all of your internet-accessible devices—from your connected television or fridge to devices in a connected power plant. By combining Azure Speech Service, Language Understanding Service (LUIS) and Azure Bot Framework, developers can create natural, human-like conversational interfaces to control smart devices.</p>
+        <p class="card-content-description">Create seamless conversational interfaces with all of your internet-accessible devices-from your connected television or fridge to devices in a connected power plant. By combining Azure Speech Service, Language Understanding Service (LUIS) and Azure Bot Framework, developers can create natural, human-like conversational interfaces to control smart devices.</p>
         <div class="bottom-to-top-fade is-hidden-mobile"></div>
     </div>
 </article>

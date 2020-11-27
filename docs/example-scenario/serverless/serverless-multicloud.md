@@ -4,21 +4,18 @@ titleSuffix: Azure Example Scenarios
 description: Develop and deploy serverless microservices across cloud providers with the open-source Serverless Framework and Serverless Multicloud Library.
 author: doodlemania2
 ms.date: 03/30/2020
-ms.topic: example-scenario
+ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: example-scenario
 ms.custom:
-    - fcp
-    - cse
+  - fcp
+  - cse
+  - example-scenario
 ms.category:
-    - developer-tools
-    - hybrid
+  - developer-tools
+  - hybrid
 social_image_url: /azure/architecture/example-scenario/serverless/media/multi-cloud-serverless-architecture.png
-
 ---
-
-<!-- cSpell:ignore Apigee -->
-
 # Serverless Framework multicloud solutions
 
 This article describes how the Microsoft Commercial Software Engineering (CSE) team partnered with a global retailer to deploy a highly-available serverless solution across both Azure and Amazon Web Services (AWS) cloud platforms, using the [Serverless Framework](https://serverless.com).
@@ -42,12 +39,12 @@ This project met the following technical goals:
 
 Other potential benefits of using the Serverless Framework include:
 
-- Prevention or reduction of vendor lock-in.
-- 40-60+% code reduction during development by using the Multicloud Serverless Library.
-- Development of best-of-breed solutions that combine different cloud providers' services.
-- Elimination of most platform and infrastructure complexity and maintenance requirements.
-- Easier data sharing, performance and cost comparisons, and ability to take advantage of special offerings.
-- Active-active high availability.
+- Prevention or reduction of vendor lock-in
+- 40-60+% code reduction during development by using the Multicloud Serverless Library
+- Development of best-of-breed solutions that combine different cloud providers' services
+- Elimination of most platform and infrastructure complexity and maintenance requirements
+- Easier data sharing, performance and cost comparisons, and ability to take advantage of special offerings
+- Active-active high availability
 
 ## Potential use cases
 
@@ -62,21 +59,20 @@ Other potential benefits of using the Serverless Framework include:
 - The user app can come from any source capable of logging into the cloud. In this implementation, the user logs into a gateway app that load balances requests 50-50 between the Azure and AWS clouds.
 - Any response also routes through the API Manager gateway, which then sends it to the requestor app.
 
-The following figure shows the processing pipeline. The middleware layers represent any intermediate functionality needed before reaching the handler.
-
-![Multicloud processing pipeline](./media/multi-cloud-processing-pipeline.png)
-
 ### The Serverless Framework
-
 This solution uses the Serverless Framework, available from [Serverless, Inc](https://serverless.com/). The free version of the Serverless Framework includes a CLI, additional plugins, and limited monitoring services. The Pro edition features operational capabilities across clouds, such as enhanced monitoring and alerts. The framework supports Node.js and Python languages, and both AWS and Azure cloud hosts.
 
 To use Azure with the Serverless Framework, you need:
 
-- Node.js, to package microservices.
-- Azure Functions, to provide functionality comparable to other cloud platforms.
-- The Serverless Framework, to support multicloud deployment and monitoring.
-- The Serverless Multicloud Library, to provide normalized runtime APIs for developers.
+- Node.js, to package microservices
+- Azure Functions, to provide functionality comparable to other cloud platforms
+- The Serverless Framework, to support multicloud deployment and monitoring
+- The Serverless Multicloud Library, to provide normalized runtime APIs for developers
 - The Azure Functions Serverless Plugin, to support multicloud deployment. This plugin wasn't initially up to parity with the comparable AWS Lambda plug-in, and was extended for this project.
+
+The following figure shows the processing pipeline. The middleware layers represent any intermediate functionality needed before reaching the handler.
+
+![Multicloud processing pipeline](./media/multi-cloud-processing-pipeline.png)
 
 ### Cloud-agnostic APIs
 
@@ -98,12 +94,12 @@ The API Manager can be an existing or custom application. The Apigee&trade; API 
 
 The API Manager must be able to:
 
-- Be deployed inside or outside a cloud platform as needed.
-- Route messages to and from both cloud platforms.
-- Log traffic requests to coordinate asynchronous message traffic.
-- Relay requests and responses using the common REST API from and to the user application.
-- Monitor the health of both cloud serverless framework deployments to validate their ability to receive requests.
-- Perform automated health and availability checks on each cloud platform, to support routing and high availability.
+- Be deployed inside or outside a cloud platform as needed
+- Route messages to and from both cloud platforms
+- Log traffic requests to coordinate asynchronous message traffic
+- Relay requests and responses using the common REST API from and to the user application
+- Monitor the health of both cloud serverless framework deployments to validate their ability to receive requests
+- Perform automated health and availability checks on each cloud platform, to support routing and high availability
 
 ## Alternatives
 
@@ -133,9 +129,9 @@ In the multicloud solution, blue-green deployment is implemented in both cloud p
 
 ![Active-active blue-green deployment](./media/active-active-blue-green-deployment.png)
 
-A secondary benefit of blue-green deployment is being able to use the failover deployment on each cloud platform as a test environment for updates to microservices, before releasing them to the production deployment.
+A secondary benefit of blue-green deployment is the ability to use the failover deployment on each cloud platform as a test environment for microservices updates, before releasing them to the production deployment.
 
 ## Related resources
 
-- [Sample code](https://github.com/serverless/multicloud) and [README](https://github.com/serverless/multicloud/blob/master/README.md) for this implementation on GitHub.
-- [Serverless Framework](https://serverless.com/).
+- [Sample code](https://github.com/serverless/multicloud) and [README](https://github.com/serverless/multicloud/blob/master/README.md) for this implementation on GitHub
+- [Serverless Framework](https://serverless.com/)

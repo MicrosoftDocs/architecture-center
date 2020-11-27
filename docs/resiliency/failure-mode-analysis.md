@@ -1,12 +1,14 @@
 ---
 title: Failure mode analysis
 description: Guidelines for performing a failure mode analysis for cloud solutions based on Azure.
-author: MikeWasson
+author: doodlemania2
 ms.date: 05/07/2018
-ms.topic: article
+ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
-ms.custom: resiliency
+ms.custom:
+  - resiliency
+  - article
 ---
 
 # Failure mode analysis for Azure applications
@@ -287,7 +289,7 @@ For more information, see [Service Bus messaging exceptions][sb-messaging-except
     - Active replication: The client sends every message to both queues. The receiver listens on both queues. Tag messages with a unique identifier, so the client can discard duplicate messages.
     - Passive replication: The client sends the message to one queue. If there is an error, the client falls back to the other queue. The receiver listens on both queues. This approach reduces the number of duplicate messages that are sent. However, the receiver must still handle duplicate messages.
 
-    For more information, see [GeoReplication sample][sb-georeplication-sample] and [Best practices for insulating applications against Service Bus outages and disasters](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-outages-disasters).
+    For more information, see [GeoReplication sample][sb-georeplication-sample] and [Best practices for insulating applications against Service Bus outages and disasters](/azure/service-bus-messaging/service-bus-outages-disasters).
 
 ### Duplicate message.
 
@@ -432,6 +434,14 @@ For more information, see [Overview of Service Bus dead-letter queues][sb-dead-l
 
 **Diagnostics**. Use [App Service diagnostic logging][app-service-logging]. Use a service such as [Azure Log Analytics][azure-log-analytics], [Application Insights][app-insights], or [New Relic][new-relic] to help understand the diagnostic logs.
 
+:::image type="icon" source="../_images/github.png" border="false"::: A sample is available [here](https://github.com/mspnp/samples/tree/master/Reliability/FailureModeAnalysisSample). It uses [Polly](https://github.com/App-vNext/Polly) for these exceptions: 
+
+- 429 - Throttling 
+- 408 - Timeout 
+- 401 - Unauthorized
+- 503 or 5xx - Service unavailable 
+
+
 ### One of the operations in a workflow or distributed transaction fails.
 
 **Detection**. After *N* retry attempts, it still fails.
@@ -464,55 +474,55 @@ For more information about the FMA process, see [Resilience by design for cloud 
 
 <!-- links -->
 
-[api-management]: https://docs.microsoft.com/azure/api-management
-[api-management-throttling]: https://docs.microsoft.com/azure/api-management/api-management-sample-flexible-throttling
-[app-insights]: https://docs.microsoft.com/azure/application-insights/app-insights-overview
-[app-insights-web-apps]: https://docs.microsoft.com/azure/application-insights/app-insights-azure-web-apps
-[app-service-configure]: https://docs.microsoft.com/azure/app-service-web/web-sites-configure
-[app-service-logging]: https://docs.microsoft.com/azure/app-service-web/web-sites-enable-diagnostic-log
-[app-service-slots]: https://docs.microsoft.com/azure/app-service-web/web-sites-staged-publishing
+[api-management]: /azure/api-management
+[api-management-throttling]: /azure/api-management/api-management-sample-flexible-throttling
+[app-insights]: /azure/application-insights/app-insights-overview
+[app-insights-web-apps]: /azure/application-insights/app-insights-azure-web-apps
+[app-service-configure]: /azure/app-service-web/web-sites-configure
+[app-service-logging]: /azure/app-service-web/web-sites-enable-diagnostic-log
+[app-service-slots]: /azure/app-service-web/web-sites-staged-publishing
 [auto-rest-client-retry]: https://github.com/Azure/autorest/tree/master/docs
-[azure-activity-logs]: https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs
-[azure-alerts]: https://docs.microsoft.com/azure/monitoring-and-diagnostics/insights-alerts-portal
-[azure-log-analytics]: https://docs.microsoft.com/azure/log-analytics/log-analytics-overview
-[BrokeredMessage.TimeToLive]: https://msdn.microsoft.com/library/microsoft.servicebus.messaging.brokeredmessage.timetolive.aspx
+[azure-activity-logs]: /azure/monitoring-and-diagnostics/monitoring-overview-activity-logs
+[azure-alerts]: /azure/monitoring-and-diagnostics/insights-alerts-portal
+[azure-log-analytics]: /azure/log-analytics/log-analytics-overview
+[BrokeredMessage.TimeToLive]: /dotnet/api/microsoft.servicebus.messaging.brokeredmessage?view=azure-dotnet
 [cassandra-error-handling]: https://www.datastax.com/dev/blog/cassandra-error-handling-done-right
-[circuit-breaker]: https://msdn.microsoft.com/library/dn589784.aspx
-[cosmos-db-multi-region]: https://docs.microsoft.com/azure/cosmos-db/tutorial-global-distribution-sql-api
+[circuit-breaker]: /previous-versions/msp-n-p/dn589784(v=pandp.10)
+[cosmos-db-multi-region]: /azure/cosmos-db/tutorial-global-distribution-sql-api
 [health-endpoint-monitoring-pattern]: ../patterns/health-endpoint-monitoring.md
 [onstop-events]: https://azure.microsoft.com/blog/the-right-way-to-handle-azure-onstop-events
-[lb-monitor]: https://docs.microsoft.com/azure/load-balancer/load-balancer-monitor-log
-[lb-probe]: https://docs.microsoft.com/azure/load-balancer/load-balancer-custom-probe-overview#types
+[lb-monitor]: /azure/load-balancer/load-balancer-monitor-log
+[lb-probe]: /azure/load-balancer/load-balancer-custom-probe-overview#types
 [new-relic]: https://newrelic.com
-[priority-queue-pattern]: https://msdn.microsoft.com/library/dn589794.aspx
-[queue-based-load-leveling]: https://msdn.microsoft.com/library/dn589783.aspx
-[QuotaExceededException]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.quotaexceededexception.aspx
+[priority-queue-pattern]: /previous-versions/msp-n-p/dn589794(v=pandp.10)
+[queue-based-load-leveling]: /previous-versions/msp-n-p/dn589783(v=pandp.10)
+[QuotaExceededException]: /dotnet/api/microsoft.servicebus.messaging.quotaexceededexception?view=azure-dotnet
 [ra-web-apps-basic]: ../reference-architectures/app-service-web-app/basic-web-app.md
-[redis-monitor]: https://docs.microsoft.com/azure/azure-cache-for-redis/cache-how-to-monitor
+[redis-monitor]: /azure/azure-cache-for-redis/cache-how-to-monitor
 [redis-retry]: ../best-practices/retry-service-specific.md#azure-cache-for-redis
 [resilience-by-design-pdf]: https://download.microsoft.com/download/D/8/C/D8C599A4-4E8A-49BF-80EE-FE35F49B914D/Resilience_by_Design_for_Cloud_Services_White_Paper.pdf
-[RoleEntryPoint.OnStop]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleentrypoint.onstop.aspx
-[RoleEnvironment.Stopping]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.stopping.aspx
+[RoleEntryPoint.OnStop]: /previous-versions/azure/reference/ee772844(v=azure.100)
+[RoleEnvironment.Stopping]: /previous-versions/azure/reference/ee758136(v=azure.100)
 [rm-locks]: /azure/azure-resource-manager/resource-group-lock-resources/
 [sb-dead-letter-queue]: /azure/service-bus-messaging/service-bus-dead-letter-queues/
 [sb-georeplication-sample]: https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.Azure.ServiceBus/GeoReplication
-[sb-messagingexception-class]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagingexception.aspx
-[sb-messaging-exceptions]: https://docs.microsoft.com/azure/service-bus-messaging/service-bus-messaging-exceptions
-[sb-partition]: https://docs.microsoft.com/azure/service-bus-messaging/service-bus-partitioning
-[sb-poison-message]: https://docs.microsoft.com/azure/app-service/webjobs-sdk-how-to#automatic-triggers
+[sb-messagingexception-class]: /dotnet/api/microsoft.servicebus.messaging.messagingexception?view=azure-dotnet
+[sb-messaging-exceptions]: /azure/service-bus-messaging/service-bus-messaging-exceptions
+[sb-partition]: /azure/service-bus-messaging/service-bus-partitioning
+[sb-poison-message]: /azure/app-service/webjobs-sdk-how-to#automatic-triggers
 [sb-retry]: ../best-practices/retry-service-specific.md#service-bus
-[search-sdk]: https://msdn.microsoft.com/library/dn951165.aspx
-[scheduler-agent-supervisor]: https://msdn.microsoft.com/library/dn589780.aspx
-[search-analytics]: https://docs.microsoft.com/azure/search/search-traffic-analytics
-[sql-db-audit]: https://docs.microsoft.com/azure/sql-database/sql-database-auditing-get-started
-[sql-db-errors]: https://docs.microsoft.com/azure/sql-database/sql-database-develop-error-messages/#resource-governance-errors
-[sql-db-failover]: https://docs.microsoft.com/azure/sql-database/sql-database-geo-replication-failover-portal
-[sql-db-limits]: https://docs.microsoft.com/azure/sql-database/sql-database-resource-limits
-[sql-db-replication]: https://docs.microsoft.com/azure/sql-database/sql-database-geo-replication-overview
-[storage-metrics]: https://msdn.microsoft.com/library/dn782843.aspx
-[storage-replication]: https://docs.microsoft.com/azure/storage/storage-redundancy
-[Storage.RetryPolicies]: https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.retrypolicies
-[sys.event_log]: https://msdn.microsoft.com/library/dn270018.aspx
-[throttling-pattern]: https://msdn.microsoft.com/library/dn589798.aspx
-[web-jobs]: https://docs.microsoft.com/azure/app-service-web/web-sites-create-web-jobs
-[web-jobs-shutdown]: https://docs.microsoft.com/azure/app-service/webjobs-sdk-how-to#cancellation-tokens
+[search-sdk]: /dotnet/api/overview/azure/search?view=azure-dotnet
+[scheduler-agent-supervisor]: /previous-versions/msp-n-p/dn589780(v=pandp.10)
+[search-analytics]: /azure/search/search-traffic-analytics
+[sql-db-audit]: /azure/sql-database/sql-database-auditing-get-started
+[sql-db-errors]: /azure/sql-database/sql-database-develop-error-messages/#resource-governance-errors
+[sql-db-failover]: /azure/sql-database/sql-database-geo-replication-failover-portal
+[sql-db-limits]: /azure/sql-database/sql-database-resource-limits
+[sql-db-replication]: /azure/sql-database/sql-database-geo-replication-overview
+[storage-metrics]: /azure/storage/common/monitor-storage
+[storage-replication]: /azure/storage/storage-redundancy
+[Storage.RetryPolicies]: /dotnet/api/microsoft.azure.storage.retrypolicies
+[sys.event_log]: /sql/relational-databases/system-catalog-views/sys-event-log-azure-sql-database?view=azuresqldb-current
+[throttling-pattern]: /previous-versions/msp-n-p/dn589798(v=pandp.10)
+[web-jobs]: /azure/app-service-web/web-sites-create-web-jobs
+[web-jobs-shutdown]: /azure/app-service/webjobs-sdk-how-to#cancellation-tokens

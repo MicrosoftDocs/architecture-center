@@ -6,7 +6,7 @@
 <article class="card">
     <div class="card-header has-margin-bottom-none" aria-hidden="true">
         <figure class="image diagram has-height-175 has-overflow-hidden level">
-            <a href="/azure/architecture/reference-architectures/n-tier/n-tier-cassandra"><img src="/azure/architecture/browse/thumbs/n-tier-cassandra.png" class="diagram" alt="Architecture Diagram" data-linktype="relative-path"></a>
+            <a href="/azure/architecture/reference-architectures/n-tier/n-tier-cassandra"><img src="/azure/architecture/browse/thumbs/n-tier-cassandra.png" class="diagram" alt="Thumbnail of N-tier application with Apache Cassandra Architectural Diagram." data-linktype="relative-path"></a>
         </figure>
     </div>
     <div class="card-content">
@@ -15,7 +15,7 @@
         </a>
         <ul class="card-content-metadata">
             <li>8/21/2019</li>
-            <li>10 min read</li>
+            <li>11 min read</li>
         </ul>
         <p class="card-content-description">Run Linux virtual machines for an N-tier architecture with Apache Cassandra in Microsoft Azure.</p>
         <div class="bottom-to-top-fade is-hidden-mobile"></div>

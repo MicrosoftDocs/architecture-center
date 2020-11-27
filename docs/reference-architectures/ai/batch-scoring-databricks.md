@@ -1,16 +1,18 @@
 ---
 title: Batch scoring of Spark models on Azure Databricks
-description:  Build a scalable solution for batch scoring an Apache Spark classification model on a schedule using Azure Databricks.
+description: Build a scalable solution for batch scoring an Apache Spark classification model on a schedule using Azure Databricks.
 author: njray
 ms.date: 11/20/2019
-ms.topic: reference-architecture
+ms.topic: conceptual
 ms.service: architecture-center
 ms.category:
   - ai-machine-learning
   - analytics
   - databases
 ms.subservice: reference-architecture
-ms.custom: azcat-ai
+ms.custom:
+  - azcat-ai
+  - reference-architecture
 ---
 
 # Batch scoring of Spark machine learning models on Azure Databricks
@@ -109,12 +111,12 @@ We have also built a reference architecture that uses Spark for building [real-t
 <!-- links -->
 
 [adf]: https://azure.microsoft.com/blog/operationalize-azure-databricks-notebooks-using-data-factory
-[ai-guide]: https://docs.microsoft.com/azure/machine-learning/team-data-science-process/cortana-analytics-playbook-predictive-maintenance
+[ai-guide]: /azure/machine-learning/team-data-science-process/cortana-analytics-playbook-predictive-maintenance
 [blob]: https://docs.databricks.com/spark/latest/data-sources/azure/azure-storage.html
 [cli]: https://docs.databricks.com/user-guide/dev-tools/databricks-cli.html
 [cluster]: https://docs.azuredatabricks.net/clusters/configure.html#cluster-size-and-autoscaling
-[databricks]: https://docs.microsoft.com/azure/azure-databricks
-[databricks-connect]: https://docs.microsoft.com/azure/azure-databricks/databricks-connect-to-data-sources
+[databricks]: /azure/azure-databricks
+[databricks-connect]: /azure/azure-databricks/databricks-connect-to-data-sources
 [data-sources]: https://docs.databricks.com/spark/latest/data-sources/index.html
 [github]: https://github.com/Azure/BatchSparkScoringPredictiveMaintenance
 [job]: https://docs.databricks.com/user-guide/jobs.html

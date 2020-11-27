@@ -6,7 +6,7 @@
 <article class="card">
     <div class="card-header has-margin-bottom-none" aria-hidden="true">
         <figure class="image diagram has-height-175 has-overflow-hidden level">
-            <a href="/azure/architecture/solution-ideas/articles/enterprise-chatbot-disaster-recovery"><img src="/azure/architecture/browse/thumbs/enterprise-chatbot-disaster-recovery.png" class="diagram" alt="Architecture Diagram" data-linktype="relative-path"></a>
+            <a href="/azure/architecture/solution-ideas/articles/enterprise-chatbot-disaster-recovery"><img src="/azure/architecture/browse/thumbs/enterprise-chatbot-disaster-recovery.png" class="diagram" alt="Thumbnail of Enterprise chatbot disaster recovery Architectural Diagram." data-linktype="relative-path"></a>
         </figure>
     </div>
     <div class="card-content">
@@ -14,7 +14,7 @@
             <p>Enterprise chatbot disaster recovery</p>
         </a>
         <ul class="card-content-metadata">
-            <li>5/11/2020</li>
+            <li>6/22/2020</li>
             <li>3 min read</li>
         </ul>
         <p class="card-content-description">Learn how to set up disaster recovery and high availability for Azure services in an enterprise-grade conversational bot.</p>

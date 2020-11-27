@@ -4,13 +4,15 @@ titleSuffix: Azure Reference Architectures
 description: This reference architecture shows how to deploy Python models as web services on Azure to make real-time predictions.
 author: msalvaris
 ms.date: 01/28/2019
-ms.topic: reference-architecture
+ms.topic: conceptual
 ms.service: architecture-center
 ms.category:
   - ai-machine-learning
   - developer-tools
 ms.subservice: reference-architecture
-ms.custom: azcat-ai
+ms.custom:
+  - azcat-ai
+  - reference-architecture
 ---
 
 # Real-time scoring of Python scikit-learn and deep learning models on Azure
@@ -96,7 +98,7 @@ While deploying your application, monitor the AKS cluster to make sure it's work
 
 To see the overall state of the cluster and nodes, go to the **Nodes** section of the Kubernetes dashboard. If a node is inactive or has failed, you can display the error logs from that page. Similarly, go to the **Pods** and **Deployments** sections for information about the number of pods and status of your deployment.
 
-### AKS logs'
+### AKS logs
 
 AKS automatically logs all stdout/stderr to the logs of the pods in the cluster. Use kubectl to see these and also node-level events and logs. For details, see the deployment steps.
 
@@ -127,7 +129,7 @@ Use the  [Azure pricing calculator][azure-pricing-calculator] to estimate costs.
 For more information, see the Cost section in [Microsoft Azure Well-Architected Framework][aaf-cost].
 
 
-### Azure Machine Learning'
+### Azure Machine Learning
 
 In this reference architecture, a large portion of cost is driven by compute resources. For the purposes of experimentation and training, Azure Machine Learning is free. You are only charged for the compute used by the web service. Use the [Azure pricing calculator][azure-pricing-calculator] to estimate your compute costs.
 
@@ -140,7 +142,7 @@ Azure Container Registry offers **Basic**, **Standard**, and **Premium**. Choose
 You only pay for the virtual machines instances, storage, and networking resources consumed by your Kubernetes cluster. To estimate the cost of the required resources, see the [Container Services calculator][aks-Calculator].
 
 
-For more information, see the Cost section in [Azure Architecture Framework][AAF-cost].
+For more information, see the Cost section in [Microsoft Azure Well-Architected Framework][AAF-cost].
 
 ## DevOps considerations
 
@@ -156,17 +158,17 @@ To deploy this reference architecture, follow the steps described in the GitHub 
 
 <!-- links -->
 
-[aad-auth]: https://docs.microsoft.com/azure/aks/aad-integration
+[aad-auth]: /azure/aks/aad-integration
 [aaf-cost]: ../../framework/cost/overview.md
-[acr]: https://docs.microsoft.com/azure/container-registry
-[aks]: https://docs.microsoft.com/azure/aks/intro-kubernetes
+[acr]: /azure/container-registry
+[aks]: /azure/aks/intro-kubernetes
 [aks-Calculator]: https://azure.microsoft.com/pricing/calculator/?service=kubernetes-service
-[autoscaler]: https://docs.microsoft.com/azure/aks/autoscaler
-[autoscale-pods]: https://docs.microsoft.com/azure/aks/tutorial-kubernetes-scale#autoscale-pods
+[autoscaler]: /azure/aks/autoscaler
+[autoscale-pods]: /azure/aks/tutorial-kubernetes-scale#autoscale-pods
 [az-container-registry-pricing]: https://azure.microsoft.com/pricing/details/container-registry
 [azure-pricing-calculator]: https://azure.microsoft.com/pricing/calculator
-[ddos]: https://docs.microsoft.com/azure/virtual-network/ddos-protection-overview
-[get-started]: https://docs.microsoft.com/azure/security-center/security-center-get-started
+[ddos]: /azure/virtual-network/ddos-protection-overview
+[get-started]: /azure/security-center/security-center-get-started
 [github-python]: https://github.com/Microsoft/MLAKSDeployAML
 [github-dl]: https://github.com/Microsoft/AKSDeploymentTutorial_AML
 [gpus-vs-cpus]: https://azure.microsoft.com/blog/gpus-vs-cpus-for-deployment-of-deep-learning-models/

@@ -3,10 +3,11 @@ title: Checklist - Design for cost
 description: Describes strategies to model your cloud costs
 author: david-stanford
 ms.date: 05/12/2020
-ms.topic: article
+ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
-ms.custom: 
+ms.custom:
+  - article
 ---
 
 
@@ -16,7 +17,7 @@ Use this checklist when designing a cost-effective workload.
 ## Cost model
 
 - **Capture clear requirements**. Gather detailed information about the business workflow,  regulatory, security, and availability. 
-    - [Capture requirements](/azure/architecture/framework/cost/design-capture-requirements)
+    - [Capture requirements](./design-capture-requirements.md)
 
 - **Estimate the initial cost**. Use tools such as [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to assess cost of the services you plan to use in the workload. Use [Azure Migrate](/azure/migrate/migrate-services-overview) and [Microsoft Azure Total Cost of Ownership (TCO) Calculator](https://azure.microsoft.com/pricing/tco/calculator/) for migration projects. Accurately reflect the cost associated with right storage type. Add hidden costs, such as networking cost for large data download.
     - [Estimate the initial cost](./design-initial-estimate.md)
@@ -40,7 +41,7 @@ Use this checklist when designing a cost-effective workload.
 
 - **Choose the right resources to handle the performance**. Understand the usage meters and the number of meters for each resource in the workload. Consider tradeoffs over time. For example, cheaper virtual machines may initially indicate a lower cost but can be more expensive over time to maintain a certain performance level. Be clear about the billing model of third-party services. 
     - [Azure resources](./design-resources.md)
-    - [Use cost alerts to monitor usage and spending](https://docs.microsoft.com/azure/cost-management-billing/costs/cost-mgt-alerts-monitor-usage-spending)
+    - [Use cost alerts to monitor usage and spending](/azure/cost-management-billing/costs/cost-mgt-alerts-monitor-usage-spending)
 
 - **Compare consumption-based pricing with pre-provisioned cost**. Establish baseline cost by considering the peaks and the frequency of peaks when analyzing performance. 
     - [Consumption and fixed cost models](./design-price.md)
@@ -48,9 +49,4 @@ Use this checklist when designing a cost-effective workload.
 - **Use proof-of-concept deployments**. The [Azure Architecture Center](/azure/architecture) has many reference architectures and implementations that can serve as a starting point.  The [Azure Tech Community](https://techcommunity.microsoft.com/t5/azure/ct-p/Azure) has architecture and services forums. 
 
 - **Choose managed services when possible**. With PaaS and SaaS options, the cost of running and maintaining the infrastructure is included in the service price.
-    - [Managed services](/azure/architecture/framework/cost/design-paas)
-
-
-
-
-
+    - [Managed services](./design-paas.md)

@@ -6,7 +6,7 @@
 <article class="card">
     <div class="card-header has-margin-bottom-none" aria-hidden="true">
         <figure class="image diagram has-height-175 has-overflow-hidden level">
-            <a href="/azure/architecture/solution-ideas/articles/predictive-insights-with-vehicle-telematics"><img src="/azure/architecture/browse/thumbs/predictive-insights-with-vehicle-telematics.png" class="diagram" alt="Architecture Diagram" data-linktype="relative-path"></a>
+            <a href="/azure/architecture/solution-ideas/articles/predictive-insights-with-vehicle-telematics"><img src="/azure/architecture/browse/thumbs/predictive-insights-with-vehicle-telematics.png" class="diagram" alt="Thumbnail of Predictive Insights with Vehicle Telematics Architectural Diagram." data-linktype="relative-path"></a>
         </figure>
     </div>
     <div class="card-content">

@@ -3,9 +3,11 @@ title: Choosing a real-time message ingestion technology
 description: Choose an Azure message ingestion store to support message buffering, scale-out processing, reliable delivery, and queuing semantics.
 author: zoinerTejada
 ms.date: 02/12/2018
-ms.topic: guide
+ms.topic: conceptual
 ms.service: architecture-center
-ms.subservice: cloud-fundamentals
+ms.subservice: azure-guide
+ms.custom:
+  - guide
 ---
 
 # Choosing a real-time message ingestion technology in Azure
@@ -18,17 +20,17 @@ Real time processing deals with streams of data that are captured in real-time a
 
 <!-- markdownlint-enable MD026 -->
 
-- [Azure Event Hubs](https://docs.microsoft.com/azure/event-hubs/)
-- [Azure IoT Hub](https://docs.microsoft.com/azure/iot-hub/)
-- [Kafka on HDInsight](https://docs.microsoft.com/azure/hdinsight/kafka/apache-kafka-get-started)
+- [Azure Event Hubs](/azure/event-hubs/)
+- [Azure IoT Hub](/azure/iot-hub/)
+- [Kafka on HDInsight](/azure/hdinsight/kafka/apache-kafka-get-started)
 
 ## Azure Event Hubs
 
-[Azure Event Hubs](https://docs.microsoft.com/azure/event-hubs/) is a highly scalable data streaming platform and event ingestion service, capable of receiving and processing millions of events per second. Event Hubs can process and store events, data, or telemetry produced by distributed software and devices. Data sent to an event hub can be transformed and stored using any real-time analytics provider or batching/storage adapters. Event Hubs provides publish-subscribe capabilities with low latency at massive scale, which makes it appropriate for big data scenarios.
+[Azure Event Hubs](/azure/event-hubs/) is a highly scalable data streaming platform and event ingestion service, capable of receiving and processing millions of events per second. Event Hubs can process and store events, data, or telemetry produced by distributed software and devices. Data sent to an event hub can be transformed and stored using any real-time analytics provider or batching/storage adapters. Event Hubs provides publish-subscribe capabilities with low latency at massive scale, which makes it appropriate for big data scenarios.
 
 ## Azure IoT Hub
 
-[Azure IoT Hub](https://docs.microsoft.com/azure/iot-hub/) is a managed service that enables reliable and secure bidirectional communications between millions of IoT devices and a cloud-based back end.
+[Azure IoT Hub](/azure/iot-hub/) is a managed service that enables reliable and secure bidirectional communications between millions of IoT devices and a cloud-based back end.
 
 Feature of IoT Hub include:
 
@@ -38,11 +40,11 @@ Feature of IoT Hub include:
 - Secure communications and access control using per-device security keys or X.509 certificates.
 - Monitoring of device connectivity and device identity management events.
 
-In terms of message ingestion, IoT Hub is similar to Event Hubs. However, it was specifically designed for managing IoT device connectivity, not just message ingestion. For more information, see [Comparison of Azure IoT Hub and Azure Event Hubs](https://docs.microsoft.com/azure/iot-hub/iot-hub-compare-event-hubs).
+In terms of message ingestion, IoT Hub is similar to Event Hubs. However, it was specifically designed for managing IoT device connectivity, not just message ingestion. For more information, see [Comparison of Azure IoT Hub and Azure Event Hubs](/azure/iot-hub/iot-hub-compare-event-hubs).
 
 ## Kafka on HDInsight
 
-[Apache Kafka](https://kafka.apache.org/) is an open-source distributed streaming platform that can be used to build real-time data pipelines and streaming applications. Kafka also provides message broker functionality similar to a message queue, where you can publish and subscribe to named data streams. It is horizontally scalable, fault-tolerant, and extremely fast. [Kafka on HDInsight](https://docs.microsoft.com/azure/hdinsight/kafka/apache-kafka-get-started) provides a Kafka as a managed, highly scalable, and highly available service in Azure.
+[Apache Kafka](https://kafka.apache.org/) is an open-source distributed streaming platform that can be used to build real-time data pipelines and streaming applications. Kafka also provides message broker functionality similar to a message queue, where you can publish and subscribe to named data streams. It is horizontally scalable, fault-tolerant, and extremely fast. [Kafka on HDInsight](/azure/hdinsight/kafka/apache-kafka-get-started) provides a Kafka as a managed, highly scalable, and highly available service in Azure.
 
 Some common use cases for Kafka are:
 
@@ -70,11 +72,11 @@ The following tables summarize the key differences in capabilities.
 | Cloud-to-device communications | Yes | No | No |
 | Device-initiated file upload | Yes | No | No |
 | Device state information | [Device twins](/azure/iot-hub/iot-hub-devguide-device-twins) | No | No |
-| Protocol support | MQTT, AMQP, HTTPS <sup>1</sup> | AMQP, HTTPS, [Kafka Protocol](https://docs.microsoft.com/azure/event-hubs/event-hubs-for-kafka-ecosystem-overview) | [Kafka Protocol](https://cwiki.apache.org/confluence/display/KAFKA/A+Guide+To+The+Kafka+Protocol) |
+| Protocol support | MQTT, AMQP, HTTPS <sup>1</sup> | AMQP, HTTPS, [Kafka Protocol](/azure/event-hubs/event-hubs-for-kafka-ecosystem-overview) | [Kafka Protocol](https://cwiki.apache.org/confluence/display/KAFKA/A+Guide+To+The+Kafka+Protocol) |
 | Security | Per-device identity; revocable access control. | Shared access policies; limited revocation through publisher policies. | Authentication using SASL; pluggable authorization; integration with external authentication services supported. |
 
 <!-- markdownlint-enable MD026 -->
 
-[1] You can also use [Azure IoT protocol gateway](https://docs.microsoft.com/azure/iot-hub/iot-hub-protocol-gateway) as a custom gateway to enable protocol adaptation for IoT Hub.
+[1] You can also use [Azure IoT protocol gateway](/azure/iot-hub/iot-hub-protocol-gateway) as a custom gateway to enable protocol adaptation for IoT Hub.
 
-For more information, see [Comparison of Azure IoT Hub and Azure Event Hubs](https://docs.microsoft.com/azure/iot-hub/iot-hub-compare-event-hubs).
+For more information, see [Comparison of Azure IoT Hub and Azure Event Hubs](/azure/iot-hub/iot-hub-compare-event-hubs).

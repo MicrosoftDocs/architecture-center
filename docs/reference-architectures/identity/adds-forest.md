@@ -4,13 +4,16 @@ titleSuffix: Azure Reference Architectures
 description: How to create a trusted Active Directory domain in Azure.
 author: telmosampaio
 ms.date: 05/02/2018
-ms.topic: reference-architecture
+ms.topic: conceptual
 ms.service: architecture-center
 ms.category:
   - identity
   - hybrid
 ms.subservice: reference-architecture
-ms.custom: seodec18, identity
+ms.custom:
+  - seodec18
+  - identity
+  - reference-architecture
 ---
 
 # Create an Active Directory Domain Services (AD DS) resource forest in Azure
@@ -112,7 +115,7 @@ A deployment for this architecture is available on [GitHub][github]. Note that t
 
 1. Clone, fork, or download the zip file for the [GitHub repository](https://github.com/mspnp/identity-reference-architectures).
 
-2. Install [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+2. Install [Azure CLI 2.0](/cli/azure/install-azure-cli?view=azure-cli-latest).
 
 3. Install the [Azure building blocks](https://github.com/mspnp/template-building-blocks/wiki/Install-Azure-Building-Blocks) npm package.
 
@@ -186,14 +189,14 @@ A deployment for this architecture is available on [GitHub][github]. Note that t
 [ADDS-pricing]: https://azure.microsoft.com/pricing/details/active-directory-ds
 [adfs]: ./adfs.md
 [azure-gateway-charges]: https://azure.microsoft.com/pricing/details/vpn-gateway
-[azure-expressroute]: https://docs.microsoft.com/azure/expressroute/expressroute-introduction
-[azure-vpn-gateway]: https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways
+[azure-expressroute]: /azure/expressroute/expressroute-introduction
+[azure-vpn-gateway]: /azure/vpn-gateway/vpn-gateway-about-vpngateways
 [considerations]: ./index.md
 [azure-pricing-calculator]: https://azure.microsoft.com/pricing/calculator
-[creating-external-trusts]: https://technet.microsoft.com/library/cc816837(v=ws.10).aspx
-[creating-forest-trusts]: https://technet.microsoft.com/library/cc816810(v=ws.10).aspx
+[creating-external-trusts]: /previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc816837(v=ws.10)
+[creating-forest-trusts]: /previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc816810(v=ws.10)
 [github]: https://github.com/mspnp/identity-reference-architectures/tree/master/adds-forest
 [microsoft_systems_center]: https://microsoft.com/cloud-platform/system-center
-[monitoring_ad]: https://msdn.microsoft.com/library/bb727046.aspx
-[standby-operations-masters]: https://technet.microsoft.com/library/cc794737(v=ws.10).aspx
-[visio-download]: https://archcenter.blob.core.windows.net/cdn/identity-architectures.vsdx
+[monitoring_ad]: /previous-versions/windows/it-pro/windows-2000-server/bb727046(v=technet.10)
+[standby-operations-masters]: /previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc794737(v=ws.10)
+[visio-download]: https://arch-center.azureedge.net/identity-architectures.vsdx

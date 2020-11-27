@@ -6,7 +6,7 @@
 <article class="card">
     <div class="card-header has-margin-bottom-none" aria-hidden="true">
         <figure class="image diagram has-height-175 has-overflow-hidden level">
-            <a href="/azure/architecture/reference-architectures/data/enterprise-bi-adf"><img src="/azure/architecture/browse/thumbs/enterprise-bi-adf.png" class="diagram" alt="Architecture Diagram" data-linktype="relative-path"></a>
+            <a href="/azure/architecture/reference-architectures/data/enterprise-bi-adf"><img src="/azure/architecture/browse/thumbs/enterprise-bi-adf.png" class="diagram" alt="Thumbnail of Automated enterprise BI Architectural Diagram." data-linktype="relative-path"></a>
         </figure>
     </div>
     <div class="card-content">
@@ -14,7 +14,7 @@
             <p>Automated enterprise BI</p>
         </a>
         <ul class="card-content-metadata">
-            <li>11/20/2019</li>
+            <li>6/03/2020</li>
             <li>13 min read</li>
         </ul>
         <p class="card-content-description">Automate an extract, load, and transform (ELT) workflow in Azure using Azure Data Factory with Azure Synapse Analytics.</p>

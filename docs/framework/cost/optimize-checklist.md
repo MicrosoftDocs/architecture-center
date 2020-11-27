@@ -1,12 +1,13 @@
 ---
 title: Checklist - Optimize cost
-description: Optimize by using Azure Reservations to lower cost
-author:  PageWriter-MSFT
+description: Use these checklist considerations to help monitor and optimize workloads by using the right resources and sizes.
+author: PageWriter-MSFT
 ms.date: 05/12/2020
-ms.topic: article
+ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
-ms.custom: 
+ms.custom:
+  - article
 ---
 
 # Checklist - Optimize cost
@@ -21,7 +22,7 @@ Continue to monitor and optimize the workload by using the right resources and s
     - **Recommended** tab in the [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/CreateBlade/referrer/docs)
     - Recommendations in the [Cost Management Power BI app](https://appsource.microsoft.com/product/power-bi/costmanagement.azurecostmanagementapp)
     - Recommendations in [Azure Advisor](https://portal.azure.com/#blade/Microsoft_Azure_Expert/AdvisorMenuBlade/overview)
-    - Recommendations using [Reservation REST APIs](https://docs.microsoft.com/rest/api/consumption/reservationrecommendations/list)
+    - Recommendations using [Reservation REST APIs](/rest/api/consumption/reservationrecommendations/list)
 
 - **Use reserved instances on long running workloads**. Reserve a prepaid capacity for a period, generally one or three years. With reserved instances, there’s a significant discount when compared with pay-as-you-go pricing.
     - [Reserved instances](./optimize-reserved.md)
@@ -32,7 +33,7 @@ Continue to monitor and optimize the workload by using the right resources and s
 
     There are also payment plans offered at a lower cost:
 
-    - [Microsoft Azure Enterprise Agreement](https://docs.microsoft.com/azure/cost-management-billing/manage/ea-portal-get-started)
+    - [Microsoft Azure Enterprise Agreement](/azure/cost-management-billing/manage/ea-portal-get-started)
     - [Enterprise Dev Test Subscription](https://azure.microsoft.com/offers/ms-azr-0148p/)
     - [Cloud Service Provider (Partner Program)](https://partner.microsoft.com/membership/cloud-solution-provider)
 
@@ -43,7 +44,7 @@ Continue to monitor and optimize the workload by using the right resources and s
 - **Reevaluate design choices**. Analyze the cost reports and forecast the capacity needs. You might need to change some design choices.
     - **Choose the right storage tier**. Consider using hot, cold, archive tier for storage account data. Storage accounts can provide automated tiering and lifecycle management. For more information, see [Review your storage options](/azure/cloud-adoption-framework/ready/considerations/storage-options)
 
-    - **Choose the right data store**. Instead of using one data store service, use a mix of data store depending on the type of data you need to store for each workload. For more information, see [Choose the right data store](/azure/architecture/guide/technology-choices/data-store-overview).
+    - **Choose the right data store**. Instead of using one data store service, use a mix of data store depending on the type of data you need to store for each workload. For more information, see [Choose the right data store](../../guide/technology-choices/data-store-overview.md).
 
     - **Choose Spot VMs for low priority workloads**. Spot VMs are ideal for workloads that can be interrupted, such as highly parallel batch processing jobs.
         - [Spot VMs](./optimize-vm.md#spot-vms)
@@ -51,9 +52,7 @@ Continue to monitor and optimize the workload by using the right resources and s
     - **Optimize data transfer**. Only deploy to multiple regions if your service levels require it for either availability or geo-distribution. Data going out of Azure datacenters can add cost because pricing is based on Billing Zones.
         - [Traffic across billing zones and regions](./design-regions.md#traffic-across-billing-zones-and-regions)
 
-    - **Reduce load on servers**. Use Azure Content Delivery Network (CDN) and caching service to reduce load on front-end servers. Cachicn is suitable for servers that are continually rendering dynamic content that doesn't change frequently. 
+    - **Reduce load on servers**. Use Azure Content Delivery Network (CDN) and caching service to reduce load on front-end servers. Caching is suitable for servers that are continually rendering dynamic content that doesn't change frequently. 
 
     - **Use managed services**. Measure the cost of maintaining infrastructure and replace it with Azure PaaS or SaaS services.
         - [Managed services](./design-paas.md)
-
-

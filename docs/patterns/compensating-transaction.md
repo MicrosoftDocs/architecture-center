@@ -5,10 +5,12 @@ description: Undo the work performed by a series of steps, which together define
 keywords: design pattern
 author: dragon119
 ms.date: 06/23/2017
-ms.topic: design-pattern
+ms.topic: conceptual
 ms.service: architecture-center
-ms.subservice: cloud-fundamentals
-ms.custom: seodec18
+ms.subservice: design-pattern
+ms.custom:
+  - seodec18
+  - design-pattern
 ---
 
 # Compensating Transaction pattern
@@ -19,7 +21,7 @@ Undo the work performed by a series of steps, which together define an eventuall
 
 Applications running in the cloud frequently modify data. This data might be spread across various data sources held in different geographic locations. To avoid contention and improve performance in a distributed environment, an application shouldn't try to provide strong transactional consistency. Rather, the application should implement eventual consistency. In this model, a typical business operation consists of a series of separate steps. While these steps are being performed, the overall view of the system state might be inconsistent, but when the operation has completed and all of the steps have been executed the system should become consistent again.
 
-> The [Data Consistency Primer](https://msdn.microsoft.com/library/dn589800.aspx) provides information about why distributed transactions don't scale well, and the principles of the eventual consistency model.
+> The [Data Consistency Primer](/previous-versions/msp-n-p/dn589800(v=pandp.10)) provides information about why distributed transactions don't scale well, and the principles of the eventual consistency model.
 
 A challenge in the eventual consistency model is how to handle a step that has failed. In this case it might be necessary to undo all of the work completed by the previous steps in the operation. However, the data can't simply be rolled back because other concurrent instances of the application might have changed it. Even in cases where the data hasn't been changed by a concurrent instance, undoing a step might not simply be a matter of restoring the original state. It might be necessary to apply various business-specific rules (see the travel website described in the Example section).
 
@@ -59,7 +61,7 @@ Placing a short-term timeout-based lock on each resource that's required to comp
 
 Consider using retry logic that is more forgiving than usual to minimize failures that trigger a compensating transaction. If a step in an operation that implements eventual consistency fails, try handling the failure as a transient exception and repeat the step. Only stop the operation and initiate a compensating transaction if a step fails repeatedly or irrecoverably.
 
-> Many of the challenges of implementing a compensating transaction are the same as those with implementing eventual consistency. See the section Considerations for Implementing Eventual Consistency in the [Data Consistency Primer](https://msdn.microsoft.com/library/dn589800.aspx) for more information.
+> Many of the challenges of implementing a compensating transaction are the same as those with implementing eventual consistency. See the section Considerations for Implementing Eventual Consistency in the [Data Consistency Primer](/previous-versions/msp-n-p/dn589800(v=pandp.10)) for more information.
 
 ## When to use this pattern
 
@@ -90,7 +92,7 @@ In many business solutions, failure of a single step doesn't always necessitate 
 
 The following patterns and guidance might also be relevant when implementing this pattern:
 
-- [Data Consistency Primer](https://msdn.microsoft.com/library/dn589800.aspx). The Compensating Transaction pattern is often used to undo operations that implement the eventual consistency model. This primer provides information on the benefits and tradeoffs of eventual consistency.
+- [Data Consistency Primer](/previous-versions/msp-n-p/dn589800(v=pandp.10)). The Compensating Transaction pattern is often used to undo operations that implement the eventual consistency model. This primer provides information on the benefits and tradeoffs of eventual consistency.
 
 - [Scheduler-Agent-Supervisor pattern](./scheduler-agent-supervisor.md). Describes how to implement resilient systems that perform business operations that use distributed services and resources. Sometimes, it might be necessary to undo the work performed by an operation by using a compensating transaction.
 

@@ -6,7 +6,7 @@
 <article class="card">
     <div class="card-header has-margin-bottom-none" aria-hidden="true">
         <figure class="image diagram has-height-175 has-overflow-hidden level">
-            <a href="/azure/architecture/reference-architectures/app-service-web-app/basic-web-app"><img src="/azure/architecture/browse/thumbs/basic-web-app.png" class="diagram" alt="Architecture Diagram" data-linktype="relative-path"></a>
+            <a href="/azure/architecture/reference-architectures/app-service-web-app/basic-web-app"><img src="/azure/architecture/browse/thumbs/basic-web-app.png" class="diagram" alt="Thumbnail of Basic web application Architectural Diagram." data-linktype="relative-path"></a>
         </figure>
     </div>
     <div class="card-content">
@@ -17,7 +17,7 @@
             <li>12/12/2017</li>
             <li>11 min read</li>
         </ul>
-        <p class="card-content-description">Recommended architecture for a basic web application running in Azure.</p>
+        <p class="card-content-description">Learn about proven practices for a web application that uses Azure App Service and Azure SQL Database by using this reference architecture.</p>
         <div class="bottom-to-top-fade is-hidden-mobile"></div>
     </div>
 </article>

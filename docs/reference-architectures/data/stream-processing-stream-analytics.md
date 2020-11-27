@@ -1,15 +1,17 @@
 ---
 title: Stream processing with Azure Stream Analytics
-description: Create an end-to-end stream processing pipeline in Azure.
-author: MikeWasson
+description: This reference architecture shows an end-to-end stream processing pipeline, which ingests data, correlates records, and calculates a rolling average.
+author: doodlemania2
 ms.date: 11/06/2018
-ms.topic: reference-architecture
+ms.topic: conceptual
 ms.service: architecture-center
 ms.category:
   - analytics
   - databases
 ms.subservice: reference-architecture
-ms.custom: seodec18
+ms.custom:
+  - seodec18
+  - reference-architecture
 ---
 
 # Stream processing pipeline with Azure Stream Analytics
@@ -28,15 +30,15 @@ The architecture consists of the following components.
 
 **Data sources**. In this architecture, there are two data sources that generate data streams in real time. The first stream contains ride information, and the second contains fare information. The reference architecture includes a simulated data generator that reads from a set of static files and pushes the data to Event Hubs. In a real application, the data sources would be devices installed in the taxi cabs.
 
-**Azure Event Hubs**. [Event Hubs](https://docs.microsoft.com/azure/event-hubs/) is an event ingestion service. This architecture uses two event hub instances, one for each data source. Each data source sends a stream of data to the associated event hub.
+**Azure Event Hubs**. [Event Hubs](/azure/event-hubs/) is an event ingestion service. This architecture uses two event hub instances, one for each data source. Each data source sends a stream of data to the associated event hub.
 
-**Azure Stream Analytics**. [Stream Analytics](https://docs.microsoft.com/azure/stream-analytics/) is an event-processing engine. A Stream Analytics job reads the data streams from the two event hubs and performs stream processing.
+**Azure Stream Analytics**. [Stream Analytics](/azure/stream-analytics/) is an event-processing engine. A Stream Analytics job reads the data streams from the two event hubs and performs stream processing.
 
 **Cosmos DB**. The output from the Stream Analytics job is a series of records, which are written as JSON documents to a Cosmos DB document database.
 
-**Microsoft Power BI**. Power BI is a suite of business analytics tools to analyze data for business insights. In this architecture, it loads the data from Cosmos DB. This allows users to analyze the complete set of historical data that's been collected. You could also stream the results directly from Stream Analytics to Power BI for a real-time view of the data. For more information, see [Real-time streaming in Power BI](https://docs.microsoft.com/power-bi/service-real-time-streaming).
+**Microsoft Power BI**. Power BI is a suite of business analytics tools to analyze data for business insights. In this architecture, it loads the data from Cosmos DB. This allows users to analyze the complete set of historical data that's been collected. You could also stream the results directly from Stream Analytics to Power BI for a real-time view of the data. For more information, see [Real-time streaming in Power BI](/power-bi/service-real-time-streaming).
 
-**Azure Monitor**. [Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/) collects performance metrics about the Azure services deployed in the solution. By visualizing these in a dashboard, you can get insights into the health of the solution.
+**Azure Monitor**. [Azure Monitor](/azure/monitoring-and-diagnostics/) collects performance metrics about the Azure services deployed in the solution. By visualizing these in a dashboard, you can get insights into the health of the solution.
 
 ## Data ingestion
 
@@ -44,13 +46,13 @@ The architecture consists of the following components.
 
 To simulate a data source, this reference architecture uses the [New York City Taxi Data](https://uofi.app.box.com/v/NYCtaxidata/folder/2332218797) dataset<sup>[[1]](#note1)</sup>. This dataset contains data about taxi trips in New York City over a four-year period (2010&ndash;2013). It contains two types of record: ride data and fare data. Ride data includes trip duration, trip distance, and pickup and dropoff location. Fare data includes fare, tax, and tip amounts. Common fields in both record types include medallion number, hack license, and vendor ID. Together these three fields uniquely identify a taxi plus a driver. The data is stored in CSV format.
 
-<span id="note1">[1]</span> Donovan, Brian; Work, Dan (2016): New York City Taxi Trip Data (2010-2013). University of Illinois at Urbana-Champaign. https://doi.org/10.13012/J8PN93H8
+<span id="note1">[1]</span> Donovan, Brian; Work, Dan (2016): New York City Taxi Trip Data (2010-2013). University of Illinois at Urbana-Champaign. <https://doi.org/10.13012/J8PN93H8>
 
 <!-- markdownlint-enable MD033 -->
 
 The data generator is a .NET Core application that reads the records and sends them to Azure Event Hubs. The generator sends ride data in JSON format and fare data in CSV format.
 
-Event Hubs uses [partitions](https://docs.microsoft.com/azure/event-hubs/event-hubs-features#partitions) to segment the data. Partitions allow a consumer to read each partition in parallel. When you send data to Event Hubs, you can specify the partition key explicitly. Otherwise, records are assigned to partitions in round-robin fashion.
+Event Hubs uses [partitions](/azure/event-hubs/event-hubs-features#partitions) to segment the data. Partitions allow a consumer to read each partition in parallel. When you send data to Event Hubs, you can specify the partition key explicitly. Otherwise, records are assigned to partitions in round-robin fashion.
 
 In this particular scenario, ride data and fare data should end up with the same partition ID for a given taxi cab. This enables Stream Analytics to apply a degree of parallelism when it correlates the two streams. A record in partition *n* of the ride data will match a record in partition *n* of the fare data.
 
@@ -124,28 +126,24 @@ The next step joins the two input streams to select matching records from each s
 
 ```sql
 Step3 AS (
-  SELECT
-         tr.Medallion,
-         tr.HackLicense,
-         tr.VendorId,
-         tr.PickupTime,
-         tr.TripDistanceInMiles,
+  SELECT tr.TripDistanceInMiles,
          tf.TipAmount
     FROM [Step1] tr
     PARTITION BY PartitionId
     JOIN [Step2] tf PARTITION BY PartitionId
-      ON tr.Medallion = tf.Medallion
-     AND tr.HackLicense = tf.HackLicense
-     AND tr.VendorId = tf.VendorId
+      ON tr.PartitionId = tf.PartitionId
      AND tr.PickupTime = tf.PickupTime
-     AND tr.PartitionId = tf.PartitionId
      AND DATEDIFF(minute, tr, tf) BETWEEN 0 AND 15
 )
 ```
 
-This query joins records on a set of fields that uniquely identify matching records (Medallion, HackLicense, VendorId, and PickupTime). The `JOIN` statement also includes the partition ID. As mentioned, this takes advantage of the fact that matching records always have the same partition ID in this scenario.
+This query joins records on a set of fields that uniquely identify matching records (`PartitionId` and `PickupTime`).
 
-In Stream Analytics, joins are *temporal*, meaning records are joined within a particular window of time. Otherwise, the job might need to wait indefinitely for a match. The [DATEDIFF](https://docs.microsoft.com/stream-analytics-query/join-azure-stream-analytics) function specifies how far two matching records can be separated in time for a match.
+> [!NOTE]
+> We want the `TaxiRide` and `TaxiFare` streams to be joined by the unique combination of  `Medallion`, `HackLicense`, `VendorId` and `PickupTime`. In this case the `PartitionId` covers the `Medallion`, `HackLicense` and `VendorId` fields, but this should not be taken as generally the case.
+
+
+In Stream Analytics, joins are *temporal*, meaning records are joined within a particular window of time. Otherwise, the job might need to wait indefinitely for a match. The [DATEDIFF](/stream-analytics-query/join-azure-stream-analytics) function specifies how far two matching records can be separated in time for a match.
 
 The last step in the job computes the average tip per mile, grouped by a hopping window of 5 minutes.
 
@@ -157,15 +155,15 @@ SELECT System.Timestamp AS WindowTime,
   GROUP BY HoppingWindow(Duration(minute, 5), Hop(minute, 1))
 ```
 
-Stream Analytics provides several [windowing functions](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-window-functions). A hopping window moves forward in time by a fixed period, in this case 1 minute per hop. The result is to calculate a moving average over the past 5 minutes.
+Stream Analytics provides several [windowing functions](/azure/stream-analytics/stream-analytics-window-functions). A hopping window moves forward in time by a fixed period, in this case 1 minute per hop. The result is to calculate a moving average over the past 5 minutes.
 
-In the architecture shown here, only the results of the Stream Analytics job are saved to Cosmos DB. For a big data scenario, consider also using [Event Hubs Capture](https://docs.microsoft.com/azure/event-hubs/event-hubs-capture-overview) to save the raw event data into Azure Blob storage. Keeping the raw data will allow you to run batch queries over your historical data at later time, in order to derive new insights from the data.
+In the architecture shown here, only the results of the Stream Analytics job are saved to Cosmos DB. For a big data scenario, consider also using [Event Hubs Capture](/azure/event-hubs/event-hubs-capture-overview) to save the raw event data into Azure Blob storage. Keeping the raw data will allow you to run batch queries over your historical data at later time, in order to derive new insights from the data.
 
 ## Scalability considerations
 
 ### Event Hubs
 
-The throughput capacity of Event Hubs is measured in [throughput units](https://docs.microsoft.com/azure/event-hubs/event-hubs-scalability#throughput-units). You can autoscale an event hub by enabling [auto-inflate](https://docs.microsoft.com/azure/event-hubs/event-hubs-auto-inflate), which automatically scales the throughput units based on traffic, up to a configured maximum.
+The throughput capacity of Event Hubs is measured in [throughput units](/azure/event-hubs/event-hubs-scalability#throughput-units). You can autoscale an event hub by enabling [auto-inflate](/azure/event-hubs/event-hubs-auto-inflate), which automatically scales the throughput units based on traffic, up to a configured maximum.
 
 ### Stream Analytics
 
@@ -173,7 +171,7 @@ For Stream Analytics, the computing resources allocated to a job are measured in
 
 For Event Hubs input, use the `PARTITION BY` keyword to partition the Stream Analytics job. The data will be divided into subsets based on the Event Hubs partitions.
 
-Windowing functions and temporal joins require additional SU. When possible, use `PARTITION BY` so that each partition is processed separately. For more information, see [Understand and adjust Streaming Units](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-streaming-unit-consumption#windowed-aggregates).
+Windowing functions and temporal joins require additional SU. When possible, use `PARTITION BY` so that each partition is processed separately. For more information, see [Understand and adjust Streaming Units](/azure/stream-analytics/stream-analytics-streaming-unit-consumption#windowed-aggregates).
 
 If it's not possible to parallelize the entire Stream Analytics job, try to break the job into multiple steps, starting with one or more parallel steps. That way, the first steps can run in parallel. For example, in this reference architecture:
 
@@ -181,19 +179,19 @@ If it's not possible to parallelize the entire Stream Analytics job, try to brea
 - Step 3 performs a partitioned join across two input streams. This step takes advantage of the fact that matching records share the same partition key, and so are guaranteed to have the same partition ID in each input stream.
 - Step 4 aggregates across all of the partitions. This step cannot be parallelized.
 
-Use the Stream Analytics [job diagram](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-job-diagram-with-metrics) to see how many partitions are assigned to each step in the job. The following diagram shows the job diagram for this reference architecture:
+Use the Stream Analytics [job diagram](/azure/stream-analytics/stream-analytics-job-diagram-with-metrics) to see how many partitions are assigned to each step in the job. The following diagram shows the job diagram for this reference architecture:
 
 ![Job diagram](./images/stream-processing-asa/job-diagram.png)
 
 ### Cosmos DB
 
-Throughput capacity for Cosmos DB is measured in [Request Units](https://docs.microsoft.com/azure/cosmos-db/request-units) (RU). In order to scale a Cosmos DB container past 10,000 RU, you must specify a [partition key](https://docs.microsoft.com/azure/cosmos-db/partition-data) when you create the container, and include the partition key in every document.
+Throughput capacity for Cosmos DB is measured in [Request Units](/azure/cosmos-db/request-units) (RU). In order to scale a Cosmos DB container past 10,000 RU, you must specify a [partition key](/azure/cosmos-db/partition-data) when you create the container, and include the partition key in every document.
 
 In this reference architecture, new documents are created only once per minute (the hopping window interval), so the throughput requirements are quite low. For that reason, there's no need to assign a partition key in this scenario.
 
 ## Monitoring considerations
 
-With any stream processing solution, it's important to monitor the performance and health of the system. [Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/) collects metrics and diagnostics logs for the Azure services used in the architecture. Azure Monitor is built into the Azure platform and does not require any additional code in your application.
+With any stream processing solution, it's important to monitor the performance and health of the system. [Azure Monitor](/azure/monitoring-and-diagnostics/) collects metrics and diagnostics logs for the Azure services used in the architecture. Azure Monitor is built into the Azure platform and does not require any additional code in your application.
 
 Any of the following warning signals indicate that you should scale out the relevant Azure resource:
 
@@ -201,7 +199,7 @@ Any of the following warning signals indicate that you should scale out the rele
 - The Stream Analytics job consistently uses more than 80% of allocated Streaming Units (SU).
 - Cosmos DB begins to throttle requests.
 
-The reference architecture includes a custom dashboard, which is deployed to the Azure portal. After you deploy the architecture, you can view the dashboard by opening the [Azure portal](https://portal.azure.com) and selecting `TaxiRidesDashboard` from list of dashboards. For more information about creating and deploying custom dashboards in the Azure portal, see [Programmatically create Azure Dashboards](https://docs.microsoft.com/azure/azure-portal/azure-portal-dashboards-create-programmatically).
+The reference architecture includes a custom dashboard, which is deployed to the Azure portal. After you deploy the architecture, you can view the dashboard by opening the [Azure portal](https://portal.azure.com) and selecting `TaxiRidesDashboard` from list of dashboards. For more information about creating and deploying custom dashboards in the Azure portal, see [Programmatically create Azure Dashboards](/azure/azure-portal/azure-portal-dashboards-create-programmatically).
 
 The following image shows the dashboard after the Stream Analytics job ran for about an hour.
 
@@ -261,8 +259,8 @@ You may wish to review the following [Azure example scenarios](/azure/architectu
 
 <!-- links -->
 [AAF-devops]: ../../framework/devops/overview.md
-[arm-template]: https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#resource-groups
-[az-devops]: https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-automation#azure-devops-services
+[arm-template]: /azure/azure-resource-manager/resource-group-overview#resource-groups
+[az-devops]: /azure/virtual-machines/windows/infrastructure-automation#azure-devops-services
 [azure-monitor]: https://azure.microsoft.com/services/monitor
 [github]: https://github.com/mspnp/azure-stream-analytics-data-pipeline
 [azure-pricing-calculator]: https://azure.microsoft.com/pricing/calculator

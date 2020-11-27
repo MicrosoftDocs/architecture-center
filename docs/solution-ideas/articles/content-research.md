@@ -1,7 +1,7 @@
 ---
 title: Content Research
 titleSuffix: Azure Solution Ideas
-author: adamboeglin
+author: doodlemania2
 ms.date: 12/16/2019
 description: Knowledge mining with a search index makes it easy for customers and employees to locate what they are looking for faster.
 ms.custom: acom-architecture
@@ -35,14 +35,14 @@ There are three steps: Ingest, Enrich and Exploration. First, the unstructured a
 
 Key technologies used to implement tools for technical content review and research
 
-- [Azure Cognitive Search](https://docs.microsoft.com/azure/search/)
+- [Azure Cognitive Search](/azure/search/)
 - [Microsoft Text Analytics API](https://azure.microsoft.com/services/cognitive-services/text-analytics/)
 - [Microsoft Translator Text API](https://azure.microsoft.com/services/cognitive-services/translator-text-api/)
 - [Microsoft Form Recognizer](https://azure.microsoft.com/services/cognitive-services/form-recognizer/)
-- [Web API custom skill interface](https://docs.microsoft.com/azure/search/cognitive-search-custom-skill-interface)
+- [Web API custom skill interface](/azure/search/cognitive-search-custom-skill-interface)
 
 ## Next steps
 
-Using the [knowledge mining solution accelerator](https://docs.microsoft.com/samples/azure-samples/azure-search-knowledge-mining/azure-search-knowledge-mining/) to build an initial knowledge mining prototype with Azure Cognitive Search.
+Using the [knowledge mining solution accelerator](/samples/azure-samples/azure-search-knowledge-mining/azure-search-knowledge-mining/) to build an initial knowledge mining prototype with Azure Cognitive Search.
 
-Building custom skills with Microsoft's [Custom Web API](https://docs.microsoft.com/azure/search/cognitive-search-custom-skill-interface)
+Building custom skills with Microsoft's [Custom Web API](/azure/search/cognitive-search-custom-skill-interface)

@@ -5,10 +5,12 @@ description: Generate prepopulated views over the data in one or more data store
 keywords: design pattern
 author: dragon119
 ms.date: 06/23/2017
-ms.topic: design-pattern
+ms.topic: conceptual
 ms.service: architecture-center
-ms.subservice: cloud-fundamentals
-ms.custom: seodec18
+ms.subservice: design-pattern
+ms.custom:
+  - seodec18
+  - design-pattern
 ---
 
 # Materialized View pattern
@@ -67,6 +69,7 @@ This pattern isn't useful in the following situations:
 - The source data is simple and easy to query.
 - The source data changes very quickly, or can be accessed without using a view. In these cases, you should avoid the processing overhead of creating views.
 - Consistency is a high priority. The views might not always be fully consistent with the original data.
+- When using microservices.  Microservices typically have well defined boundries aligning to [domain driven design (DDD)](../microservices/model/tactical-ddd.md).
 
 ## Example
 
@@ -82,7 +85,7 @@ Creating this materialized view requires complex queries. However, by exposing t
 
 The following patterns and guidance might also be relevant when implementing this pattern:
 
-- [Data Consistency Primer](https://msdn.microsoft.com/library/dn589800.aspx). The summary information in a materialized view has to be maintained so that it reflects the underlying data values. As the data values change, it might not be practical to update the summary data in real time, and instead you'll have to adopt an eventually consistent approach. Summarizes the issues surrounding maintaining consistency over distributed data, and describes the benefits and tradeoffs of different consistency models.
+- [Data Consistency Primer](/previous-versions/msp-n-p/dn589800(v=pandp.10)). The summary information in a materialized view has to be maintained so that it reflects the underlying data values. As the data values change, it might not be practical to update the summary data in real time, and instead you'll have to adopt an eventually consistent approach. Summarizes the issues surrounding maintaining consistency over distributed data, and describes the benefits and tradeoffs of different consistency models.
 - [Command and Query Responsibility Segregation (CQRS) pattern](./cqrs.md). Use to update the information in a materialized view by responding to events that occur when the underlying data values change.
 - [Event Sourcing pattern](./event-sourcing.md). Use in conjunction with the CQRS pattern to maintain the information in a materialized view. When the data values a materialized view is based on are changed, the system can raise events that describe these changes and save them in an event store.
 - [Index Table pattern](./index-table.md). The data in a materialized view is typically organized by a primary key, but queries might need to retrieve information from this view by examining data in other fields. Use to create secondary indexes over data sets for data stores that don't support native secondary indexes.

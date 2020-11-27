@@ -1,16 +1,18 @@
 ---
 title: Federate with a customer's AD FS
-description: How to federate with a customer's AD FS in a multitenant application.
-author: MikeWasson
+description: Learn how a multitenant SaaS application can support authentication by using Active Directory Federation Services, in order to federate with a customer AD FS.
+author: doodlemania2
 ms.date: 07/21/2017
-ms.topic: guide
+ms.topic: conceptual
 ms.service: architecture-center
 ms.category:
   - identity
-ms.subservice: reference-architecture
+ms.subservice: azure-guide
 pnp.series.title: Manage Identity in Multitenant Applications
 pnp.series.prev: token-cache
 pnp.series.next: client-assertion
+ms.custom:
+  - guide
 ---
 
 # Federate with a customer's AD FS
@@ -54,7 +56,7 @@ For an example of using WS-Federation with ASP.NET 4, see the [active-directory-
 
 ## Limitations
 
-By default, the relying party application receives only a fixed set of claims available in the id_token, shown in the following table. With AD FS 2016, you can customize the id_token in OpenID Connect scenarios. For more information, see [Custom ID Tokens in AD FS](https://docs.microsoft.com/windows-server/identity/ad-fs/development/customize-id-token-ad-fs-2016).
+By default, the relying party application receives only a fixed set of claims available in the id_token, shown in the following table. With AD FS 2016, you can customize the id_token in OpenID Connect scenarios. For more information, see [Custom ID Tokens in AD FS](/windows-server/identity/ad-fs/development/customize-id-token-ad-fs-2016).
 
 | Claim | Description |
 | --- | --- |
@@ -116,11 +118,11 @@ Here are the steps in more detail.
 1. Right-click the newly added claims provider trust, and select **Edit Claims Rules**.
 2. Click **Add Rule**.
 3. Select "Pass Through or Filter an Incoming Claim" and click **Next**.
-   ![Add Transform Claim Rule Wizard](./images/edit-claims-rule.png)
+   ![Screenshot of selecting Pass Through or Filter an Incoming Claim under Claim rule template.](./images/edit-claims-rule.png)
 4. Enter a name for the rule.
 5. Under "Incoming claim type", select **UPN**.
 6. Select "Pass through all claim values".
-   ![Add Transform Claim Rule Wizard](./images/edit-claims-rule2.png)
+   ![Screenshot of selecting Pass through all claim values.](./images/edit-claims-rule2.png)
 7. Click **Finish**.
 8. Repeat steps 2 - 7, and specify **Anchor Claim Type** for the incoming claim type.
 9. Click **OK** to complete the wizard.
@@ -153,7 +155,7 @@ The customer must do the following:
    ![Add Relying Party Trust Wizard](./images/add-rp-trust.png)
 5. On the **Specify Display Name** page, enter any name.
 6. On the **Choose Access Control Policy** page, choose a policy. You could permit everyone in the organization, or choose a specific security group.
-   ![Add Relying Party Trust Wizard](./images/add-rp-trust2.png)
+   ![Screenshot of the Choose Access Control Policy page.](./images/add-rp-trust2.png)
 7. Enter any parameters required in the **Policy** box.
 8. Click **Next** to complete the wizard.
 
@@ -168,7 +170,7 @@ The customer must do the following:
 6. In the **Mapping of LDAP attributes** section:
    * Under **LDAP Attribute**, select **User-Principal-Name**.
    * Under **Outgoing Claim Type**, select **UPN**.
-     ![Add Transform Claim Rule Wizard](./images/add-claims-rules2.png)
+     ![Screenshot of selecting User-Principal-Name and UPN under Mapping of LDAP attributes.](./images/add-claims-rules2.png)
 7. Click **Finish**.
 8. Click **Add Rule** again.
 9. Select "Send Claims Using a Custom Rule" and click **Next**.
@@ -187,16 +189,16 @@ The customer must do the following:
 
 <!-- links -->
 
-[Azure AD Connect]: https://docs.microsoft.com/azure/active-directory/hybrid/whatis-hybrid-identity
-[federation trust]: https://technet.microsoft.com/library/cc770993(v=ws.11).aspx
-[account partner]: https://technet.microsoft.com/library/cc731141(v=ws.11).aspx
-[resource partner]: https://technet.microsoft.com/library/cc731141(v=ws.11).aspx
-[Authentication instant]: https://msdn.microsoft.com/library/system.security.claims.claimtypes.authenticationinstant%28v=vs.110%29.aspx
+[Azure AD Connect]: /azure/active-directory/hybrid/whatis-hybrid-identity
+[federation trust]: /previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc770993(v=ws.11)
+[account partner]: /previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc731141(v=ws.11)
+[resource partner]: /previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc731141(v=ws.11)
+[Authentication instant]: /dotnet/api/system.security.claims.claimtypes.authenticationinstant?view=netcore-3.1
 [Expiration time]: https://tools.ietf.org/html/draft-ietf-oauth-json-web-token-25#section-4.1.
-[Name identifier]: https://msdn.microsoft.com/library/system.security.claims.claimtypes.nameidentifier(v=vs.110).aspx
-[active-directory-on-azure]: https://msdn.microsoft.com/library/azure/jj156090.aspx
+[Name identifier]: /dotnet/api/system.security.claims.claimtypes.nameidentifier?view=netcore-3.1
+[active-directory-on-azure]: /windows-server/identity/ad-ds/introduction-to-active-directory-domain-services-ad-ds-virtualization-level-100
 [blog post]: https://www.cloudidentity.com/blog/2015/08/21/openid-connect-web-sign-on-with-adfs-in-windows-server-2016-tp3
-[Customizing the AD FS Sign-in Pages]: https://technet.microsoft.com/library/dn280950.aspx
+[Customizing the AD FS Sign-in Pages]: /previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn280950(v=ws.11)
 [sample application]: https://github.com/mspnp/multitenant-saas-guidance
 [client assertion]: ./client-assertion.md
 [active-directory-dotnet-webapp-wsfederation]: https://github.com/Azure-Samples/active-directory-dotnet-webapp-wsfederation

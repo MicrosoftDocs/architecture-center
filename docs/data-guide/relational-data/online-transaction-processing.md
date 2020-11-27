@@ -3,9 +3,11 @@ title: Online transaction processing (OLTP)
 description: Learn about atomicity, consistency, and other features of online transaction processing (OLTP), which manages transactional data while supporting querying.
 author: zoinerTejada
 ms.date: 07/27/2019
-ms.topic: guide
+ms.topic: conceptual
 ms.service: architecture-center
-ms.subservice: cloud-fundamentals
+ms.subservice: azure-guide
+ms.custom:
+  - guide
 ---
 
 # Online transaction processing (OLTP)
@@ -60,16 +62,16 @@ Implementing and using an OLTP system can create a few challenges:
 
 ## OLTP in Azure
 
-Applications such as websites hosted in [App Service Web Apps](https://docs.microsoft.com/azure/app-service/app-service-web-overview), REST APIs running in App Service, or mobile or desktop applications communicate with the OLTP system, typically via a REST API intermediary.
+Applications such as websites hosted in [App Service Web Apps](/azure/app-service/app-service-web-overview), REST APIs running in App Service, or mobile or desktop applications communicate with the OLTP system, typically via a REST API intermediary.
 
 In practice, most workloads are not purely OLTP. There tends to be an analytical component as well. In addition, there is an increasing demand for real-time reporting, such as running reports against the operational system. This is also referred to as HTAP (Hybrid Transactional and Analytical Processing). For more information, see [Online Analytical Processing (OLAP)](./online-analytical-processing.md).
 
 In Azure, all of the following data stores will meet the core requirements for OLTP and the management of transaction data:
 
-- [Azure SQL Database](https://docs.microsoft.com/azure/sql-database/)
-- [SQL Server in an Azure virtual machine](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-iaas-overview?toc=/azure/virtual-machines/windows/toc.json)
-- [Azure Database for MySQL](https://docs.microsoft.com/azure/mysql/)
-- [Azure Database for PostgreSQL](https://docs.microsoft.com/azure/postgresql/)
+- [Azure SQL Database](/azure/sql-database/)
+- [SQL Server in an Azure virtual machine](/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-iaas-overview?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+- [Azure Database for MySQL](/azure/mysql/)
+- [Azure Database for PostgreSQL](/azure/postgresql/)
 
 ## Key selection criteria
 
@@ -111,7 +113,7 @@ The following tables summarize the key differences in capabilities.
 
 | Capability | Azure SQL Database | SQL Server in an Azure virtual machine| Azure Database for MySQL | Azure Database for PostgreSQL|
 | --- | --- | --- | --- | --- | --- |
-| Maximum database instance size | [4 TB](https://docs.microsoft.com/azure/sql-database/sql-database-resource-limits) | 256 TB | [16 TB](https://docs.microsoft.com/azure/mysql/concepts-limits) | [16 TB](https://docs.microsoft.com/azure/postgresql/concepts-limits) |
+| Maximum database instance size | [4 TB](/azure/sql-database/sql-database-resource-limits) | 256 TB | [16 TB](/azure/mysql/concepts-limits) | [16 TB](/azure/postgresql/concepts-limits) |
 | Supports capacity pools  | Yes | Yes | No | No |
 | Supports clusters scale out  | No | Yes | No | No |
 | Dynamic scalability (scale up)  | Yes | No | Yes | Yes |
@@ -142,9 +144,9 @@ The following tables summarize the key differences in capabilities.
 |                                                Data masking                                                 |        Yes         |                  Yes                   |            No            |              No               |
 |                                         Transparent data encryption                                         |        Yes         |                  Yes                   |           Yes            |              Yes              |
 |                                  Restrict access to specific IP addresses                                   |        Yes         |                  Yes                   |           Yes            |              Yes              |
-|                                  Restrict access to allow VNet access only                                  |        Yes         |                  Yes                   |           Yes            |              Yes               |
-|                                    Azure Active Directory authentication                                    |        Yes         |                  Yes                   |            No            |              No               |
+|                                  Restrict access to allow VNet access only                                  |        Yes         |                  Yes                   |           Yes            |              Yes              |
+|                                    Azure Active Directory authentication                                    |        Yes         |                  No                    |            Yes           |              Yes              |
 |                                       Active Directory authentication                                       |         No         |                  Yes                   |            No            |              No               |
-|                                         Multi-factor authentication                                         |        Yes         |                  Yes                   |            No            |              No               |
-| Supports [Always Encrypted](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine) |        Yes         |                  Yes                   |            No            |              No               |
+|                                         Multi-factor authentication                                         |        Yes         |                  No                    |            Yes           |              Yes              |
+| Supports [Always Encrypted](/sql/relational-databases/security/encryption/always-encrypted-database-engine) |        Yes         |                  Yes                   |            No            |              No               |
 |                                                 Private IP                                                  |         No         |                  Yes                   |            No            |              No               |

@@ -6,7 +6,7 @@
 <article class="card">
     <div class="card-header has-margin-bottom-none" aria-hidden="true">
         <figure class="image diagram has-height-175 has-overflow-hidden level">
-            <a href="/azure/architecture/reference-architectures/app-service-web-app/scalable-web-app"><img src="/azure/architecture/browse/thumbs/scalable-web-app.png" class="diagram" alt="Architecture Diagram" data-linktype="relative-path"></a>
+            <a href="/azure/architecture/reference-architectures/app-service-web-app/scalable-web-app"><img src="/azure/architecture/browse/thumbs/scalable-web-app.png" class="diagram" alt="Thumbnail of Scalable web application Architectural Diagram." data-linktype="relative-path"></a>
         </figure>
     </div>
     <div class="card-content">
@@ -17,7 +17,7 @@
             <li>10/03/2019</li>
             <li>7 min read</li>
         </ul>
-        <p class="card-content-description">Improve scalability in a web application running in Microsoft Azure.</p>
+        <p class="card-content-description">Use the proven practices in this reference architecture to improve scalability and performance in an Azure App Service web application..</p>
         <div class="bottom-to-top-fade is-hidden-mobile"></div>
     </div>
 </article>

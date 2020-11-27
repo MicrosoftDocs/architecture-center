@@ -7,16 +7,16 @@ ms.service: architecture-center
 ms.category:
   - management-and-governance
   - databases
-ms.subservice: reference-architecture
+ms.subservice: azure-guide
 ---
 
 # Monitoring Azure Databricks
 
-[Azure Databricks](https://docs.microsoft.com/azure/azure-databricks) is a fast, powerful [Apache Spark](https://spark.apache.org)–based analytics service that makes it easy to rapidly develop and deploy big data analytics and artificial intelligence (AI) solutions. Many users take advantage of the simplicity of notebooks in their Azure Databricks solutions. For users that require more robust computing options, Azure Databricks supports the distributed execution of custom application code.
+[Azure Databricks](/azure/azure-databricks) is a fast, powerful [Apache Spark](https://spark.apache.org)–based analytics service that makes it easy to rapidly develop and deploy big data analytics and artificial intelligence (AI) solutions. Many users take advantage of the simplicity of notebooks in their Azure Databricks solutions. For users that require more robust computing options, Azure Databricks supports the distributed execution of custom application code.
 
 Monitoring is a critical part of any production-level solution, and Azure Databricks offers robust functionality for monitoring custom application metrics, streaming query events, and application log messages. Azure Databricks can send this monitoring data to different logging services.
 
-The following articles show how to send monitoring data from Azure Databricks to [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview), the monitoring data platform for Azure.
+The following articles show how to send monitoring data from Azure Databricks to [Azure Monitor](/azure/azure-monitor/overview), the monitoring data platform for Azure.
 
 - [Send Azure Databricks application logs to Azure Monitor](./application-logs.md)
 - [Use dashboards to visualize Azure Databricks metrics](./dashboards.md)

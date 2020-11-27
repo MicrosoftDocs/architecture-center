@@ -4,10 +4,12 @@ titleSuffix: Best practices for cloud applications
 description: Guidance on separating data partitions to be managed and accessed separately.
 author: dragon119
 ms.date: 11/04/2018
-ms.topic: best-practice
+ms.topic: conceptual
 ms.service: architecture-center
-ms.subservice: cloud-fundamentals
-ms.custom: seodec18
+ms.subservice: best-practice
+ms.custom:
+  - seodec18
+  - best-practice
 ---
 
 <!-- cSpell:ignore shardlet shardlets MGET MSET -->
@@ -20,17 +22,17 @@ This article describes some strategies for partitioning data in various Azure da
 
 A single SQL database has a limit to the volume of data that it can contain. Throughput is constrained by architectural factors and the number of concurrent connections that it supports.
 
-[Elastic pools](https://docs.microsoft.com/azure/sql-database/sql-database-elastic-pool) support horizontal scaling for a SQL database. Using elastic pools, you can partition your data into shards that are spread across multiple SQL databases. You can also add or remove shards as the volume of data that you need to handle grows and shrinks. Elastic pools can also help reduce contention by distributing the load across databases.
+[Elastic pools](/azure/sql-database/sql-database-elastic-pool) support horizontal scaling for a SQL database. Using elastic pools, you can partition your data into shards that are spread across multiple SQL databases. You can also add or remove shards as the volume of data that you need to handle grows and shrinks. Elastic pools can also help reduce contention by distributing the load across databases.
 
 Each shard is implemented as a SQL database. A shard can hold more than one dataset (called a *shardlet*). Each database maintains metadata that describes the shardlets that it contains. A shardlet can be a single data item, or a group of items that share the same shardlet key. For example, in a multitenant application, the shardlet key can be the tenant ID, and all data for a tenant can be held in the same shardlet.
 
-Client applications are responsible for associating a dataset with a shardlet key. A separate SQL database acts as a global shard map manager. This database has a list of all the shards and shardlets in the system. The application connects to the shard map manager database to obtain a copy of the shard map. It caches the shard map locally, and uses the map to route data requests to the appropriate shard. This functionality is hidden behind a series of APIs that are contained in the [Elastic Database client library](https://docs.microsoft.com/azure/sql-database/sql-database-elastic-database-client-library), which is available for Java and .NET.
+Client applications are responsible for associating a dataset with a shardlet key. A separate SQL database acts as a global shard map manager. This database has a list of all the shards and shardlets in the system. The application connects to the shard map manager database to obtain a copy of the shard map. It caches the shard map locally, and uses the map to route data requests to the appropriate shard. This functionality is hidden behind a series of APIs that are contained in the [Elastic Database client library](/azure/sql-database/sql-database-elastic-database-client-library), which is available for Java and .NET.
 
-For more information about elastic pools, see [Scaling out with Azure SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-elastic-scale-introduction).
+For more information about elastic pools, see [Scaling out with Azure SQL Database](/azure/sql-database/sql-database-elastic-scale-introduction).
 
 To reduce latency and improve availability, you can replicate the global shard map manager database. With the Premium pricing tiers, you can configure active geo-replication to continuously copy data to databases in different regions.
 
-Alternatively, use [Azure SQL Data Sync](https://docs.microsoft.com/azure/sql-database/sql-database-sync-data) or [Azure Data Factory](https://docs.microsoft.com/azure/data-factory) to replicate the shard map manager database across regions. This form of replication runs periodically and is more suitable if the shard map changes infrequently, and does not require Premium tier.
+Alternatively, use [Azure SQL Data Sync](/azure/sql-database/sql-database-sync-data) or [Azure Data Factory](/azure/data-factory) to replicate the shard map manager database across regions. This form of replication runs periodically and is more suitable if the shard map changes infrequently, and does not require Premium tier.
 
 Elastic Database provides two schemes for mapping data to shardlets and storing them in shards:
 
@@ -48,13 +50,13 @@ A single shard can contain the data for several shardlets. For example, you can 
 
 Elastic pools make it possible to add and remove shards as the volume of data shrinks and grows. Client applications can create and delete shards dynamically, and transparently update the shard map manager. However, removing a shard is a destructive operation that also requires deleting all the data in that shard.
 
-If an application needs to split a shard into two separate shards or combine shards, use the [split-merge tool](https://docs.microsoft.com/azure/sql-database/sql-database-elastic-scale-overview-split-and-merge). This tool runs as an Azure web service, and migrates data safely between shards.
+If an application needs to split a shard into two separate shards or combine shards, use the [split-merge tool](/azure/sql-database/sql-database-elastic-scale-overview-split-and-merge). This tool runs as an Azure web service, and migrates data safely between shards.
 
 The partitioning scheme can significantly affect the performance of your system. It can also affect the rate at which shards have to be added or removed, or that data must be repartitioned across shards. Consider the following points:
 
 - Group data that is used together in the same shard, and avoid operations that access data from multiple shards. A shard is a SQL database in its own right, and cross-database joins must be performed on the client side.
 
-    Although SQL Database does not support cross-database joins, you can use the Elastic Database tools to perform [multi-shard queries](https://docs.microsoft.com/azure/sql-database/sql-database-elastic-scale-multishard-querying). A multi-shard query sends individual queries to each database and merges the results.
+    Although SQL Database does not support cross-database joins, you can use the Elastic Database tools to perform [multi-shard queries](/azure/sql-database/sql-database-elastic-scale-multishard-querying). A multi-shard query sends individual queries to each database and merges the results.
 
 - Don't design a system that has dependencies between shards. Referential integrity constraints, triggers, and stored procedures in one database cannot reference objects in another.
 
@@ -112,7 +114,7 @@ Consider the following points when you design your entities for Azure table stor
 
   - Sharing the partition key across a subset of entities makes it possible to group related entities in the same partition. Operations that involve related entities can be performed by using entity group transactions, and queries that fetch a set of related entities can be satisfied by accessing a single server.
 
-For more information, see [Azure storage table design guide].
+For more information, see [Azure storage table design guide] and [Scalable partitioning strategy].
 
 ## Partitioning Azure blob storage
 
@@ -122,7 +124,7 @@ Each blob (either block or page) is held in a container in an Azure storage acco
 
 The partition key for a blob is account name + container name + blob name. The partition key is used to partition data into ranges and these ranges are load-balanced across the system. Blobs can be distributed across many servers in order to scale out access to them, but a single blob can only be served by a single server.
 
-If your naming scheme uses timestamps or numerical identifiers, it can lead to excessive traffic going to one partition, limiting the system from effectively load balancing. For instance, if you have daily operations that use a blob object with a timestamp such as *yyyy-mm-dd*, all the traffic for that operation would go to a single partition server. Instead, consider prefixing the name with a three-digit hash. For more information, see [Partition Naming Convention](https://docs.microsoft.com/azure/storage/common/storage-performance-checklist#partitioning).
+If your naming scheme uses timestamps or numerical identifiers, it can lead to excessive traffic going to one partition, limiting the system from effectively load balancing. For instance, if you have daily operations that use a blob object with a timestamp such as *yyyy-mm-dd*, all the traffic for that operation would go to a single partition server. Instead, consider prefixing the name with a three-digit hash. For more information, see [Partition Naming Convention](/azure/storage/common/storage-performance-checklist#partitioning).
 
 The actions of writing a single block or page are atomic, but operations that span blocks, pages, or blobs are not. If you need to ensure consistency when performing write operations across blocks, pages, and blobs, take out a write lock by using a blob lease.
 
@@ -175,7 +177,7 @@ Azure Cosmos DB is a NoSQL database that can store JSON documents using the [Azu
 
 Documents are organized into collections. You can group related documents together in a collection. For example, in a system that maintains blog postings, you can store the contents of each blog post as a document in a collection. You can also create collections for each subject type. Alternatively, in a multitenant application, such as a system where different authors control and manage their own blog posts, you can partition blogs by author and create separate collections for each author. The storage space that's allocated to collections is elastic and can shrink or grow as needed.
 
-Cosmos DB supports automatic partitioning of data based on an application-defined partition key. A *logical partition* is a partition that stores all the data for a single partition key value. All documents that share the same value for the partition key are placed within the same logical partition. Cosmos DB distributes values according to hash of the partition key. A logical partition has a maximum size of 10 GB. Therefore, the choice of the partition key is an important decision at design time. Choose a property with a wide range of values and even access patterns. For more information, see [Partition and scale in Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/partition-data).
+Cosmos DB supports automatic partitioning of data based on an application-defined partition key. A *logical partition* is a partition that stores all the data for a single partition key value. All documents that share the same value for the partition key are placed within the same logical partition. Cosmos DB distributes values according to hash of the partition key. A logical partition has a maximum size of 10 GB. Therefore, the choice of the partition key is an important decision at design time. Choose a property with a wide range of values and even access patterns. For more information, see [Partition and scale in Azure Cosmos DB](/azure/cosmos-db/partition-data).
 
 > [!NOTE]
 > Each Cosmos DB database has a *performance level* that determines the amount of resources it gets. A performance level is associated with a *request unit* (RU) rate limit. The RU rate limit specifies the volume of resources that's reserved and available for exclusive use by that collection. The cost of a collection depends on the performance level that's selected for that collection. The higher the performance level (and RU rate limit) the higher the charge. You can adjust the performance level of a collection by using the Azure portal. For more information, see [Request Units in Azure Cosmos DB][cosmos-db-ru].
@@ -239,7 +241,7 @@ Client applications simply send requests to any of the participating Redis serve
 This model is implemented by using Redis clustering, and is described in more detail on the [Redis cluster tutorial] page on the Redis website. Redis clustering is transparent to client applications. Additional Redis servers can be added to the cluster (and the data can be repartitioned) without requiring that you reconfigure the clients.
 
 > [!IMPORTANT]
-> Azure Cache for Redis currently supports Redis clustering in [premium](https://docs.microsoft.com/azure/azure-cache-for-redis/cache-how-to-premium-clustering) tier only.
+> Azure Cache for Redis currently supports Redis clustering in [premium](/azure/azure-cache-for-redis/cache-how-to-premium-clustering) tier only.
 
 The page [Partitioning: how to split data among multiple Redis instances] on the Redis website provides more information about implementing partitioning with Redis. The remainder of this section assumes that you are implementing client-side or proxy-assisted partitioning.
 
@@ -298,38 +300,39 @@ For more information about using partitions in Event Hubs, see [What is Event Hu
 
 For considerations about trade-offs between availability and consistency, see [Availability and consistency in Event Hubs].
 
-[Availability and consistency in Event Hubs]: https://docs.microsoft.com/azure/event-hubs/event-hubs-availability-and-consistency
-[azure-limits]: https://docs.microsoft.com/azure/azure-subscription-service-limits
-[Azure Content Delivery Network]: https://docs.microsoft.com/azure/cdn/cdn-overview
+[Availability and consistency in Event Hubs]: /azure/event-hubs/event-hubs-availability-and-consistency
+[azure-limits]: /azure/azure-subscription-service-limits
+[Azure Content Delivery Network]: /azure/cdn/cdn-overview
 [Azure Cache for Redis]: https://azure.microsoft.com/services/cache
-[Azure Storage Table Design Guide]: https://docs.microsoft.com/azure/storage/storage-table-design-guide
-[Building a Polyglot Solution]: https://msdn.microsoft.com/library/dn313279.aspx
-[cosmos-db-ru]: https://docs.microsoft.com/azure/cosmos-db/request-units
-[Data Access for Highly Scalable Solutions: Using SQL, NoSQL, and Polyglot Persistence]: https://msdn.microsoft.com/library/dn271399.aspx
-[Data consistency primer]: https://aka.ms/Data-Consistency-Primer
-[Data Partitioning Guidance]: https://msdn.microsoft.com/library/dn589795.aspx
+[Azure Storage Table Design Guide]: /azure/storage/storage-table-design-guide
+[Building a Polyglot Solution]: /previous-versions/msp-n-p/dn313279(v=pandp.10)
+[cosmos-db-ru]: /azure/cosmos-db/request-units
+[Data Access for Highly Scalable Solutions: Using SQL, NoSQL, and Polyglot Persistence]: /previous-versions/msp-n-p/dn271399(v=pandp.10)
+[Data consistency primer]: /previous-versions/msp-n-p/dn589800(v=pandp.10)
+[Data Partitioning Guidance]: /previous-versions/msp-n-p/dn589795(v=pandp.10)
 [Data Types]: https://redis.io/topics/data-types
-[cosmos-db-sql-api]: https://docs.microsoft.com/azure/cosmos-db/sql-api-introduction
-[Elastic Database features overview]: https://docs.microsoft.com/azure/sql-database/sql-database-elastic-scale-introduction
-[event-hubs]: https://docs.microsoft.com/azure/event-hubs
+[cosmos-db-sql-api]: /azure/cosmos-db/sql-api-introduction
+[Elastic Database features overview]: /azure/sql-database/sql-database-elastic-scale-introduction
+[event-hubs]: /azure/event-hubs
 [Federations Migration Utility]: https://code.msdn.microsoft.com/vstudio/Federations-Migration-ce61e9c1
-[guidelines and recommendations for reliable collections in Azure Service Fabric]: https://docs.microsoft.com/azure/service-fabric/service-fabric-reliable-services-reliable-collections-guidelines
-[Multi-shard querying]: https://docs.microsoft.com/azure/sql-database/sql-database-elastic-scale-multishard-querying
-[Overview of Azure Service Fabric]: https://docs.microsoft.com/azure/service-fabric/service-fabric-overview
-[Partition Service Fabric reliable services]: https://docs.microsoft.com/azure/service-fabric/service-fabric-concepts-partitioning
+[guidelines and recommendations for reliable collections in Azure Service Fabric]: /azure/service-fabric/service-fabric-reliable-services-reliable-collections-guidelines
+[Multi-shard querying]: /azure/sql-database/sql-database-elastic-scale-multishard-querying
+[Overview of Azure Service Fabric]: /azure/service-fabric/service-fabric-overview
+[Partition Service Fabric reliable services]: /azure/service-fabric/service-fabric-concepts-partitioning
 [Partitioning: how to split data among multiple Redis instances]: https://redis.io/topics/partitioning
-[Performing Entity Group Transactions]: https://docs.microsoft.com/rest/api/storageservices/Performing-Entity-Group-Transactions
+[Performing Entity Group Transactions]: /rest/api/storageservices/Performing-Entity-Group-Transactions
 [Redis cluster tutorial]: https://redis.io/topics/cluster-tutorial
-[Running Redis on a CentOS Linux VM in Azure]: https://blogs.msdn.microsoft.com/tconte/2012/06/08/running-redis-on-a-centos-linux-vm-in-windows-azure
-[Scaling using the Elastic Database split-merge tool]: https://docs.microsoft.com/azure/sql-database/sql-database-elastic-scale-overview-split-and-merge
-[Using Azure Content Delivery Network]: https://docs.microsoft.com/azure/cdn/cdn-create-new-endpoint
-[Service Bus quotas]: https://docs.microsoft.com/azure/service-bus-messaging/service-bus-quotas
-[service-fabric-reliable-collections]: https://docs.microsoft.com/azure/service-fabric/service-fabric-reliable-services-reliable-collections
-[Service limits in Azure Search]: https://docs.microsoft.com/azure/search/search-limits-quotas-capacity
+[Running Redis on a CentOS Linux VM in Azure]: /archive/blogs/tconte/running-redis-on-a-centos-linux-vm-in-windows-azure
+[Scaling using the Elastic Database split-merge tool]: /azure/sql-database/sql-database-elastic-scale-overview-split-and-merge
+[Using Azure Content Delivery Network]: /azure/cdn/cdn-create-new-endpoint
+[Service Bus quotas]: /azure/service-bus-messaging/service-bus-quotas
+[service-fabric-reliable-collections]: /azure/service-fabric/service-fabric-reliable-services-reliable-collections
+[Service limits in Azure Search]: /azure/search/search-limits-quotas-capacity
 [Sharding pattern]: ../patterns/sharding.md
-[Supported Data Types (Azure Search)]: https://msdn.microsoft.com/library/azure/dn798938.aspx
+[Supported Data Types (Azure Search)]: /rest/api/searchservice/Supported-data-types
 [Transactions]: https://redis.io/topics/transactions
-[What is Event Hubs?]: https://docs.microsoft.com/azure/event-hubs/event-hubs-what-is-event-hubs
-[What is Azure Search?]: https://docs.microsoft.com/azure/search/search-what-is-azure-search
-[What is Azure SQL Database?]: https://docs.microsoft.com/azure/sql-database/sql-database-technical-overview
-[scalability targets]: https://docs.microsoft.com/azure/storage/common/storage-scalability-targets
+[What is Event Hubs?]: /azure/event-hubs/event-hubs-what-is-event-hubs
+[What is Azure Search?]: /azure/search/search-what-is-azure-search
+[What is Azure SQL Database?]: /azure/sql-database/sql-database-technical-overview
+[scalability targets]: /azure/storage/common/storage-scalability-targets
+[Scalable partitioning strategy]: /rest/api/storageservices/designing-a-scalable-partitioning-strategy-for-azure-table-storage

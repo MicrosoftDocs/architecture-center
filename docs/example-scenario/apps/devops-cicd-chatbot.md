@@ -4,15 +4,17 @@ titleSuffix: Azure Example Scenarios
 description: Use Azure Pipelines with ARM templates to set up a CI/CD pipeline to Azure App Service and Azure Bot Service for a chatbot app.
 author: MariaVrabie
 ms.date: 03/25/2020
-ms.topic: example-scenario
+ms.topic: conceptual
 ms.service: architecture-center
 ms.custom:
-    - fasttrack
-    - fcp
+  - fasttrack
+  - fcp
+  - example-scenario
 ms.category:
   - devops
   - ai-machine-learning
 social_image_url: /azure/architecture/example-scenario/apps/media/deployment-flow.png
+ms.subservice: example-scenario
 ---
 
 <!-- cSpell:ignore MariaVrabie appservice botservice cicdbots azurewebsites -->
@@ -49,7 +51,7 @@ Source control lets development teams track software code changes and inspect ol
 
 ### ARM templates
 
-The example uses several [linked ARM templates](https://docs.microsoft.com/azure/azure-resource-manager/templates/linked-templates) to deploy the solution. *Capability templates*, similar to units or modules, implement specific pieces of functionality. An *end-to-end solution* or *orchestrator* template brings those underlying capabilities together. There are a couple of benefits to this approach:
+The example uses several [linked ARM templates](/azure/azure-resource-manager/templates/linked-templates) to deploy the solution. *Capability templates*, similar to units or modules, implement specific pieces of functionality. An *end-to-end solution* or *orchestrator* template brings those underlying capabilities together. There are a couple of benefits to this approach:
 
 - The underlying capability templates can be individually unit tested.
 - The underlying capability templates could be defined as standards for an organization, and reused in multiple solutions.
@@ -69,24 +71,24 @@ If you want your chatbot to use Cognitive Services such as LUIS and QnA Maker, b
 
 The example uses a simple C# chatbot designed to work in the Microsoft Teams channel. You can open the [example solution](https://github.com/mspnp/solution-architectures/blob/master/cicdbots/application/Devopsbot.sln) in Visual Studio.
 
-To develop a new bot, create a C# Bot Framework project in Visual Studio. You can use the Echo Bot template, or start an empty project. For a comprehensive tutorial on creating a Bot Framework project, see [Create a bot with the Bot Framework SDK for .NET](https://docs.microsoft.com/azure/bot-service/dotnet/bot-builder-dotnet-sdk-quickstart?view=azure-bot-service-4.0). For information on configuring a bot to run on multiple channels, see [Manage channels in Bot Service](https://docs.microsoft.com/azure/bot-service/bot-service-manage-channels). Adding a bot in Microsoft Teams requires a few additional steps and considerations. For details, see [Bots in Microsoft Teams](https://docs.microsoft.com/microsoftteams/platform/concepts/bots/bots-overview).
+To develop a new bot, create a C# Bot Framework project in Visual Studio. You can use the Echo Bot template, or start an empty project. For a comprehensive tutorial on creating a Bot Framework project, see [Create a bot with the Bot Framework SDK for .NET](/azure/bot-service/dotnet/bot-builder-dotnet-sdk-quickstart?view=azure-bot-service-4.0). For information on configuring a bot to run on multiple channels, see [Manage channels in Bot Service](/azure/bot-service/bot-service-manage-channels). Adding a bot in Microsoft Teams requires a few additional steps and considerations. For details, see [Bots in Microsoft Teams](/microsoftteams/platform/concepts/bots/bots-overview).
 
 You can test and debug your chatbot during development with the [Bot Framework emulator](https://github.com/Microsoft/BotFramework-Emulator), a desktop app that lets you test and debug bots built with the BotBuilder SDK.
 
-[Unit testing](https://en.wikipedia.org/wiki/Unit_testing) tests specific parts of source code against a desired outcome. Unit testing chatbots uses the same principles and best practices as testing other apps. For more information about unit testing, see [Unit testing in .NET](https://docs.microsoft.com/dotnet/core/testing/) and [Unit testing best practices](https://docs.microsoft.com/dotnet/core/testing/unit-testing-best-practices).
+[Unit testing](https://en.wikipedia.org/wiki/Unit_testing) tests specific parts of source code against a desired outcome. Unit testing chatbots uses the same principles and best practices as testing other apps. For more information about unit testing, see [Unit testing in .NET](/dotnet/core/testing/) and [Unit testing best practices](/dotnet/core/testing/unit-testing-best-practices).
 
-You can add a unit test project to a chatbot solution in Visual Studio, and choose between MSTest or XUnit for the project. For a live view of the unit tests, [configure Live Unit Testing](https://docs.microsoft.com/visualstudio/test/live-unit-testing). 
+You can add a unit test project to a chatbot solution in Visual Studio, and choose between MSTest or XUnit for the project. For a live view of the unit tests, [configure Live Unit Testing](/visualstudio/test/live-unit-testing). 
 
 ### Continuous integration and build
-[Azure Pipelines](https://docs.microsoft.com/azure/devops/pipelines/get-started/index) is the Azure DevOps service that implements build, test, and deployment pipelines for your apps.
+[Azure Pipelines](/azure/devops/pipelines/get-started/index) is the Azure DevOps service that implements build, test, and deployment pipelines for your apps.
 
-You define the triggers and tasks for build pipelines in a [YAML build definition file](https://docs.microsoft.com/azure/devops/pipelines/get-started-yaml) that you can store in source control. You can also use the [Classic](https://docs.microsoft.com/azure/devops/pipelines/get-started/pipelines-get-started#define-pipelines-using-the-classic-interface) visual interface to create a build pipeline by selecting **Use the classic editor** on the pipeline creation page.
+You define the triggers and tasks for build pipelines in a [YAML build definition file](/azure/devops/pipelines/get-started-yaml) that you can store in source control. You can also use the [Classic](/azure/devops/pipelines/get-started/pipelines-get-started#define-pipelines-using-the-classic-interface) visual interface to create a build pipeline by selecting **Use the classic editor** on the pipeline creation page.
 
 If you enable continuous integration in the `triggers` section of your build pipeline, new commits to the repository automatically kick off the build. YAML build pipelines have a CI trigger on all branches by default. Once you check in your code, the build pipeline runs tests to validate the code, and builds the appropriate parts of the software. The number and types of tests and tasks you run depend on your wider build and release strategy.
 
 ### Continuous deployment and release
 
-An Azure Pipelines [release pipeline](https://docs.microsoft.com/azure/devops/pipelines/release) automates your release process and enables continuous delivery.
+An Azure Pipelines [release pipeline](/azure/devops/pipelines/release) automates your release process and enables continuous delivery.
 
 In the release pipeline, you define a number of tasks to deploy your app and underlying infrastructure. You can define many variables for the overall pipeline, so you don't have to input them for every task.
 
@@ -100,7 +102,7 @@ An Azure App Service Plan is the underlying server farm used to deploy an Azure 
 
 The Azure Bot Service provides an endpoint for the bot to communicate through the chosen channels. The Bot Service also provides a mechanism to associate the bot to a pricing tier, based upon the expected requests and throughput. The deployed *botservicePlan.json* ARM template creates the Bot Service for the chatbot app.
 
-To deploy to Azure, the bot needs an Application ID and password, and the ability to register channels to run in. The example *botservice.json* template includes channel registration, but you also need to register the app in the Azure portal. To register an app in the Azure portal, see [App registration](https://docs.microsoft.com/azure/bot-service/bot-service-resources-bot-framework-faq#app-registration).
+To deploy to Azure, the bot needs an Application ID and password, and the ability to register channels to run in. The example *botservice.json* template includes channel registration, but you also need to register the app in the Azure portal. To register an app in the Azure portal, see [App registration](/azure/bot-service/bot-service-resources-bot-framework-faq#app-registration).
 
 ### Application Insights
 
@@ -112,9 +114,9 @@ Azure Application Insights can collect telemetry from the app about what the bot
 
 - The linked ARM templates for deploying the infrastructure need to be accessible from a public endpoint, like a Git repository or an Azure Blob Storage account. If you upload the templates to a storage account, they remain secure, as they are held in a private mode but can be accessed using some form of SAS token.
 
-- A common practice is to use [Azure KeyVault](https://docs.microsoft.com/azure/key-vault) instead of storing secrets in Azure DevOps. If the Service Principal connection to your Azure Subscription has appropriate access policies to the Azure KeyVault, it can download secrets from the KeyVault to use as variables in your pipeline, which avoids storing them in source control. The name of the secret will be set with the associated value. For example, a secret in the KeyVault called `botMicrosoftAppPassword` could be referenced by `$(botMicrosoftAppPassword)` in the release pipeline definition.
+- A common practice is to use [Azure KeyVault](/azure/key-vault) instead of storing secrets in Azure DevOps. If the Service Principal connection to your Azure Subscription has appropriate access policies to the Azure KeyVault, it can download secrets from the KeyVault to use as variables in your pipeline, which avoids storing them in source control. The name of the secret will be set with the associated value. For example, a secret in the KeyVault called `botMicrosoftAppPassword` could be referenced by `$(botMicrosoftAppPassword)` in the release pipeline definition.
 
-- You can set up [Bot Analytics](https://docs.microsoft.com/azure/bot-service/bot-service-manage-analytics) to gain additional insight into the performance of your bot. To set up Bot Analytics, you need an API Key from Application Insights, but you can't create this key by using an ARM template. You can create the key manually from your Application Insights resource in the Azure portal.
+- You can set up [Bot Analytics](/azure/bot-service/bot-service-manage-analytics) to gain additional insight into the performance of your bot. To set up Bot Analytics, you need an API Key from Application Insights, but you can't create this key by using an ARM template. You can create the key manually from your Application Insights resource in the Azure portal.
 
 ## Deploy this scenario
 
@@ -125,14 +127,14 @@ You can build and deploy the [example scenario from GitHub](https://github.com/m
 This solution requires an existing Azure account, and an Azure DevOps organization and team project.
 
 - [Create a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
-- [Create an Azure DevOps Organization](https://docs.microsoft.com/azure/devops/organizations/accounts/create-organization)
-- [Create a project in Azure DevOps](https://docs.microsoft.com/azure/devops/organizations/projects/create-project)
+- [Create an Azure DevOps Organization](/azure/devops/organizations/accounts/create-organization)
+- [Create a project in Azure DevOps](/azure/devops/organizations/projects/create-project)
 
 ### Bot development and registration
 
 The example uses a simple C# chatbot designed to work in the Microsoft Teams channel. The chatbot replies to anyone writing *VSTS* with the phrase **You mentioned "VSTS" above, but I think you meant Azure DevOps**. You can open the [example solution](https://github.com/mspnp/solution-architectures/blob/master/cicdbots/application/Devopsbot.sln) in Visual Studio.
 
-To deploy to Azure, the bot needs an Application ID and password, and the ability to register channels to run in. The example [botservice.json](https://github.com/mspnp/solution-architectures/blob/master/cicdbots/arm-templates/botservice.json) ARM template includes channel registration, but you also need to register the app in the Azure portal. To register an app in the Azure portal, see [App registration](https://docs.microsoft.com/azure/bot-service/bot-service-resources-bot-framework-faq#app-registration). When you register the app, note the Application ID and password, as you'll use them to set Azure Pipelines variables for deployment.
+To deploy to Azure, the bot needs an Application ID and password, and the ability to register channels to run in. The example [botservice.json](https://github.com/mspnp/solution-architectures/blob/master/cicdbots/arm-templates/botservice.json) ARM template includes channel registration, but you also need to register the app in the Azure portal. To register an app in the Azure portal, see [App registration](/azure/bot-service/bot-service-resources-bot-framework-faq#app-registration). When you register the app, note the Application ID and password, as you'll use them to set Azure Pipelines variables for deployment.
 
 ### Bot testing
 
@@ -196,6 +198,6 @@ Here are some additional items to further enhance the scenario:
 ## Related resources
 
 - [Design a CI/CD pipeline using Azure DevOps](../apps/devops-dotnet-webapp.md)
-- [What is source control?](https://docs.microsoft.com/azure/devops/user-guide/source-control)
-- [Understand the structure and syntax of Azure Resource Manager templates](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authoring-templates)
-- [ARM template reference guide for Microsoft.Storage resource types](https://docs.microsoft.com/azure/templates/microsoft.storage/allversions)
+- [What is source control?](/azure/devops/user-guide/source-control)
+- [Understand the structure and syntax of Azure Resource Manager templates](/azure/azure-resource-manager/resource-group-authoring-templates)
+- [ARM template reference guide for Microsoft.Storage resource types](/azure/templates/microsoft.storage/allversions)

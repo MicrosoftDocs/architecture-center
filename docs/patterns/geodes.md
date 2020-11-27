@@ -4,12 +4,13 @@ titleSuffix: Cloud Design Patterns
 description: Deploy backend services into a set of geographical nodes, each of which can service any client request in any region.
 author: willeastbury
 ms.date: 03/17/2020
-ms.topic: design-pattern
+ms.topic: conceptual
 ms.service: architecture-center
-ms.subservice: cloud-fundamentals
+ms.subservice: design-pattern
 ms.custom:
-    - fcp
-    - fasttrack-new
+  - fcp
+  - fasttrack-new
+  - design-pattern
 ---
 
 # Geodes
@@ -31,7 +32,7 @@ Modern cloud infrastructure has evolved to enable geographic load balancing of f
 
 ## Solution
 
-Deploy the service into a number of satellite deployments spread around the globe, each of which is called a *geode*. The geode pattern harnesses key features of Azure to route traffic via the shortest path to a nearby geode, which improves latency and performance. Each geode is behind a global load balancer, and uses a geo-replicated read-write service like [Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/introduction) to host the data plane, ensuring cross-geode data consistency. Data replication services ensure that data stores are identical across geodes, so *all* requests can be served from *all* geodes.
+Deploy the service into a number of satellite deployments spread around the globe, each of which is called a *geode*. The geode pattern harnesses key features of Azure to route traffic via the shortest path to a nearby geode, which improves latency and performance. Each geode is behind a global load balancer, and uses a geo-replicated read-write service like [Azure Cosmos DB](/azure/cosmos-db/introduction) to host the data plane, ensuring cross-geode data consistency. Data replication services ensure that data stores are identical across geodes, so *all* requests can be served from *all* geodes.
 
 The key difference between a [deployment stamp](./deployment-stamp.md) and a geode is that geodes never exist in isolation. There should always be more than one geode in a production platform. 
 
@@ -40,7 +41,7 @@ The key difference between a [deployment stamp](./deployment-stamp.md) and a geo
 Geodes have the following characteristics:
 - Consist of a collection of disparate types of resources, often defined in a template.
 - Have no dependencies outside of the geode footprint and are self-contained. No geode is dependent on another to operate, and if one dies, the others continue to operate.
-- Are loosely coupled via an edge network and replication backplane. For example, you can use [Azure Traffic Manager](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-overview) or [Azure Front Door](https://docs.microsoft.com/azure/frontdoor/front-door-overview) for fronting the geodes, while Azure Cosmos DB can act as the replication backplane. Geodes are not the same as clusters because they share a replication backplane, so the platform takes care of quorum issues.
+- Are loosely coupled via an edge network and replication backplane. For example, you can use [Azure Traffic Manager](/azure/traffic-manager/traffic-manager-overview) or [Azure Front Door](/azure/frontdoor/front-door-overview) for fronting the geodes, while Azure Cosmos DB can act as the replication backplane. Geodes are not the same as clusters because they share a replication backplane, so the platform takes care of quorum issues.
 
 The geode pattern occurs in big data architectures that use commodity hardware to process data colocated on the same machine, and MapReduce to consolidate results across machines. Another usage is near-edge compute, which brings compute closer to the intelligent edge of the network to reduce response time. 
 
@@ -58,7 +59,7 @@ Use the following techniques and technologies to implement this pattern:
 - Serverless technologies where possible, to reduce always-on deployment cost, especially when load is frequently rebalanced around the globe. This strategy allows for many geodes to be deployed with minimal additional investment. Serverless and consumption-based billing technologies reduce waste and cost from duplicate geo-distributed deployments.
 
 Consider the following points when deciding how to implement this pattern:
-- Choose whether to process data locally in each region, or to distribute aggregations in a single geode and replicate the result across the globe. The [Azure Cosmos DB change feed processor](https://docs.microsoft.com/azure/cosmos-db/change-feed-processor) offers this granular control using its *lease container* concept, and the *leasecollectionprefix* in the corresponding [Azure Functions binding](https://docs.microsoft.com/azure/cosmos-db/change-feed-functions). Each approach has distinct advantages and drawbacks.
+- Choose whether to process data locally in each region, or to distribute aggregations in a single geode and replicate the result across the globe. The [Azure Cosmos DB change feed processor](/azure/cosmos-db/change-feed-processor) offers this granular control using its *lease container* concept, and the *leasecollectionprefix* in the corresponding [Azure Functions binding](/azure/cosmos-db/change-feed-functions). Each approach has distinct advantages and drawbacks.
 - Geodes can work in tandem, using the Azure Cosmos DB change feed and a real-time communication platform like SignalR. Geodes can communicate with remote users via other geodes in a mesh pattern, without knowing or caring where the remote user is located.
 - This design pattern implicitly decouples everything, resulting in an ultra-highly distributed and decoupled architecture. Decoupling is a good thing, but consider how to track different components of the same request as they might execute asynchronously on different instances. Get a good monitoring strategy in place.
 
@@ -77,7 +78,5 @@ This pattern might not be suitable for
 
 ## Examples
 
-- Windows Active Directory implements an early variant of this pattern. Multi-master replication means all updates and requests can in theory be served from all serviceable nodes, but FSMO roles mean that all geodes aren't equal.
+- Windows Active Directory implements an early variant of this pattern. Multi-primary replication means all updates and requests can in theory be served from all serviceable nodes, but FSMO roles mean that all geodes aren't equal.
 - A [QnA sample application](https://github.com/xstof/qnademo) on GitHub showcases this design pattern in practice.
-
-

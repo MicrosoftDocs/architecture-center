@@ -9,13 +9,14 @@ ms.category:
   - devops
   - featured
   - compute
-ms.topic: example-scenario
+ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: example-scenario
 social_image_url: /azure/architecture/example-scenario/apps/media/architecture-devops-with-aks.png
 ms.custom:
-    - devops
-    - microservices
+  - devops
+  - microservices
+  - example-scenario
 ---
 
 # CI/CD pipeline for container-based workloads
@@ -153,23 +154,23 @@ This scenario used Azure Container Registry and Azure Kubernetes Service to stor
 
 <!-- links -->
 [architecture]: ./media/architecture-devops-with-aks.png
-[docs-aci]: https://docs.microsoft.com/azure/container-instances/container-instances-overview
-[docs-acr]: https://docs.microsoft.com/azure/container-registry/container-registry-intro
-[docs-aks]: https://docs.microsoft.com/azure/aks/intro-kubernetes
-[docs-azure-monitor]: https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview
-[docs-cosmos-db]: https://docs.microsoft.com/azure/cosmos-db/introduction
-[docs-virtual-machines]: https://docs.microsoft.com/azure/virtual-machines/linux/overview
-[createsp]: https://docs.microsoft.com/cli/azure/ad/sp#az-ad-sp-create
+[docs-aci]: /azure/container-instances/container-instances-overview
+[docs-acr]: /azure/container-registry/container-registry-intro
+[docs-aks]: /azure/aks/intro-kubernetes
+[docs-azure-monitor]: /azure/monitoring-and-diagnostics/monitoring-overview
+[docs-cosmos-db]: /azure/cosmos-db/introduction
+[docs-virtual-machines]: /azure/virtual-machines/linux/overview
+[createsp]: /cli/azure/ad/sp#az-ad-sp-create
 [grafana]: https://grafana.com
 [jenkins]: https://jenkins.io
-[security]: https://docs.microsoft.com/azure/security
-[scalability]: ../../checklist/performance-efficiency.md
-[sshkeydocs]: https://docs.microsoft.com/azure/virtual-machines/linux/mac-create-ssh-keys
-[azure-pipelines]: https://docs.microsoft.com/azure/devops/pipelines
+[security]: /azure/security
+[scalability]: ../../framework/scalability/performance-efficiency.md
+[sshkeydocs]: /azure/virtual-machines/linux/mac-create-ssh-keys
+[azure-pipelines]: /azure/devops/pipelines
 [kubernetes]: https://kubernetes.io
-[service-fabric]: https://docs.microsoft.com/azure/service-fabric
-[get-aks-versions]: https://docs.microsoft.com/cli/azure/aks?view=azure-cli-latest#az-aks-get-versions
-[aks-default-version]: https://docs.microsoft.com/azure/aks/supported-kubernetes-versions
+[service-fabric]: /azure/service-fabric
+[get-aks-versions]: /cli/azure/aks?view=azure-cli-latest#az-aks-get-versions
+[aks-default-version]: /azure/aks/supported-kubernetes-versions
 
 [small-pricing]: https://azure.com/e/841f0a75b1ea4802ba1ac8f7918a71e7
 [medium-pricing]: https://azure.com/e/eea0e6d79b4e45618a96d33383ec77ba

@@ -1,7 +1,7 @@
 ---
-title: SAP NetWeaver on SQLServer
+title: SAP NetWeaver on SQL Server
 titleSuffix: Azure Solution Ideas
-author: adamboeglin
+author: doodlemania2
 ms.date: 12/16/2019
 description: The NetWeaver on SQL Server application solution illustrates how a user request flows through an SAP landscape built on NetWeaver by utilizing Azure Virtual Machines to host SAP applications and a SQL Server database.
 ms.custom: acom-architecture, sap, SAP on Azure, Azure SQL Server, SAP NetWeaver, SQL Server, Azure Virtual Machine, interactive-diagram, 'https://azure.microsoft.com/solutions/architecture/sap-netweaver-on-sql-server/'
@@ -12,7 +12,7 @@ ms.subservice: solution-idea
 social_image_url: /azure/architecture/solution-ideas/articles/media/sap-netweaver-on-sql-server.png
 ---
 
-# SAP NetWeaver on SQLServer
+# SAP NetWeaver on SQL Server
 
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
@@ -42,5 +42,5 @@ This NetWeaver on SQL Server application solution illustrates how a user request
 
 ## Next steps
 
-* [SAP Certifications for Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-certifications)
-* [Premium Storage: high-performance storage for Azure Virtual Machine workloads](https://docs.microsoft.com/azure/storage/storage-premium-storage)
+* [SAP Certifications for Azure](/azure/virtual-machines/workloads/sap/sap-certifications)
+* [Premium Storage: high-performance storage for Azure Virtual Machine workloads](/azure/storage/storage-premium-storage)

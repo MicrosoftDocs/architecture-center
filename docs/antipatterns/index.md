@@ -1,12 +1,14 @@
 ---
 title: Performance antipatterns
-description: Common practices that are likely to cause scalability problems.
+description: Learn about performance antipatterns, common practices that are likely to cause scalability problems when an application is under pressure.
 author: dragon119
 ms.date: 06/05/2017
-ms.topic: article
+ms.topic: conceptual
 ms.service: architecture-center
-ms.subservice: cloud-fundamentals
-ms.custom: seodec18
+ms.subservice: anti-pattern
+ms.custom:
+  - seodec18
+  - article
 ---
 
 # Performance antipatterns for cloud applications

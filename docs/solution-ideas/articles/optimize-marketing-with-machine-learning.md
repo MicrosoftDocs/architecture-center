@@ -1,7 +1,7 @@
 ---
 title: Optimize Marketing with Machine Learning
 titleSuffix: Azure Solution Ideas
-author: adamboeglin
+author: doodlemania2
 ms.date: 12/16/2019
 description: Learn how to build a machine-learning model with SQL Server 2016 with R Services to optimize and manage marketing campaigns.
 ms.custom: acom-architecture, machine learning r, ai-ml, machine learning in marketing, machine learning marketing, 'https://azure.microsoft.com/solutions/architecture/optimize-marketing-with-machine-learning/'
@@ -32,12 +32,12 @@ In this solution, SQL Server R Services brings the compute to the data by runnin
 
 ## Components
 
-* [SQL Server R Services](https://www.microsoft.com/sql-server/sql-server-r-services): SQL Server stores the campaign and lead data. R-based analytics provide training and predicted models and predicted results for consumption using R.
-* [Machine Learning Studio](https://azure.microsoft.com/services/machine-learning-studio): Machine Learning helps you easily design, test, operationalize, and manage predictive analytics solutions in the cloud.
+* [SQL Server R Services](/sql/machine-learning/r/sql-server-r-services?view=sql-server-2016): SQL Server stores the campaign and lead data. R-based analytics provide training and predicted models and predicted results for consumption using R.
+* [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning): Machine Learning helps you design, test, operationalize, and manage predictive analytics solutions in the cloud.
 * [Power BI](https://powerbi.microsoft.com) provides an interactive dashboard with visualization that uses data stored in SQL Server to drive decisions on the predictions.
 
 ## Next steps
 
-* [Get started with SQL Server R Services](https://www.microsoft.com/sql-server/sql-server-r-services)
+* [Get started with SQL Server R Services](/sql/machine-learning/r/sql-server-r-services?view=sql-server-2016)
 * [Learn more about Machine Learning](/azure/machine-learning/overview-what-is-azure-ml)
 * [Learn more about Power BI](https://powerbi.microsoft.com/documentation/powerbi-landing-page)

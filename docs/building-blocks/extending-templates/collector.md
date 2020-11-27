@@ -3,12 +3,14 @@ title: Implement a property transformer and collector in an Azure Resource Manag
 description: Describes how to implement a property transformer and collector in an Azure Resource Manager template.
 author: PeterTaylor9999
 ms.date: 10/30/2018
-ms.topic: article
+ms.topic: conceptual
 ms.service: architecture-center
 ms.category:
   - developer-tools
   - devops
-ms.subservice: reference-architecture
+ms.subservice: azure-guide
+ms.custom:
+  - article
 ---
 
 <!-- cSpell:ignore copyindex -->
@@ -320,7 +322,7 @@ An example template is available on [GitHub][github]. To deploy the template, cl
 git clone https://github.com/mspnp/template-examples.git
 cd template-examples/example4-collector
 az group create --location <location> --name <resource-group-name>
-az group deployment create -g <resource-group-name> \
+az deployment group create -g <resource-group-name> \
     --template-uri https://raw.githubusercontent.com/mspnp/template-examples/master/example4-collector/deploy.json \
     --parameters deploy.parameters.json
 ```
@@ -328,6 +330,6 @@ az group deployment create -g <resource-group-name> \
 <!-- links -->
 
 [objects-as-parameters]: ./objects-as-parameters.md
-[nsg]: https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg
-[cli]: https://docs.microsoft.com/cli/azure/?view=azure-cli-latest
+[nsg]: /azure/virtual-network/virtual-networks-nsg
+[cli]: /cli/azure/?view=azure-cli-latest
 [github]: https://github.com/mspnp/template-examples

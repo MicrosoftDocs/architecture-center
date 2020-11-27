@@ -1,7 +1,7 @@
 ---
 title: API-first SaaS business model
 titleSuffix: Azure Solution Ideas
-author: adamboeglin
+author: doodlemania2
 ms.date: 04/17/2020
 description: Adapt, evolve, and allow faster innovation to turn opportunities into strategic advantages.
 ms.custom: acom-architecture
@@ -26,7 +26,7 @@ Adapt, evolve, and allow faster innovation to turn opportunities into strategic 
 ## Architecture
 
 ![Architecture Diagram](../media/aks-api-first.png)
-*Download an [SVG](../media/aks-api-first.svg) or [PPTX](../media/aks-api-first.pptx) of this architecture.*
+*Download an [SVG](../media/aks-api-first.svg)*
 
 ## Data Flow
 
@@ -44,7 +44,7 @@ The example scenario uses several Azure components:
 
 - [Azure Kubernetes Service](https://azure.microsoft.com/services/kubernetes-service/): The fully managed Azure Kubernetes Service (AKS) makes deploying and managing containerized applications easy
 - [Azure API Management](https://azure.microsoft.com/services/api-management/): Selectively expose data and services to the outside world and manage incoming API calls
-- [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/): A fully managed database service with turnkey global distribution and transparent multi-master replication.
+- [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/): A fully managed database service with turnkey global distribution and transparent multi-primary replication.
 - [Azure SQL Database](https://azure.microsoft.com/services/sql-database/): A fully managed relational database with built-in intelligence.
 - [Azure Storage](https://azure.microsoft.com/services/storage/): Azure Storage offers a durable, highly available, massively scalable cloud storage solution and includes object, file, disk, queue, and table storage.
 - [Azure Functions](https://azure.microsoft.com/services/functions/): An event-driven serverless compute platform that can also solve complex orchestration problems.

@@ -4,13 +4,15 @@ titleSuffix: Azure Reference Architectures
 description: This reference architecture shows how to apply neural style transfer to a video, using Azure Machine Learning.
 author: jiata
 ms.date: 02/06/2019
-ms.topic: reference-architecture
+ms.topic: conceptual
 ms.service: architecture-center
 ms.category:
   - ai-machine-learning
   - media
 ms.subservice: reference-architecture
-ms.custom: azcat-ai
+ms.custom:
+  - azcat-ai
+  - reference-architecture
 ---
 
 # Batch scoring of deep learning models on Azure
@@ -25,7 +27,7 @@ This reference architecture shows how to apply neural style transfer to a video,
 
 | Style image: | Input/content video: | Output video: |
 |--------|--------|---------|
-| <img src="https://happypathspublic.blob.core.windows.net/assets/batch_scoring_for_dl/style_image.jpg" width="300"> | [<img src="https://happypathspublic.blob.core.windows.net/assets/batch_scoring_for_dl/input_video_image_0.jpg" width="300" height="300">](https://happypathspublic.blob.core.windows.net/assets/batch_scoring_for_dl/input_video.mp4 "Input Video") *click to view video* | [<img src="https://happypathspublic.blob.core.windows.net/assets/batch_scoring_for_dl/output_video_image_0.jpg" width="300" height="300">](https://happypathspublic.blob.core.windows.net/assets/batch_scoring_for_dl/output_video.mp4 "Output Video") *click to view video* |
+| <img src="https://happypathspublic.blob.core.windows.net/assets/batch_scoring_for_dl/style_image.jpg" width="300" alt="Picture of a painting in particular art style." > | [<img src="https://happypathspublic.blob.core.windows.net/assets/batch_scoring_for_dl/input_video_image_0.jpg" width="300" height="300" alt="Picture of an animal in a tree in realistic style." >](https://happypathspublic.blob.core.windows.net/assets/batch_scoring_for_dl/input_video.mp4 "Input Video") *click to view video* | [<img src="https://happypathspublic.blob.core.windows.net/assets/batch_scoring_for_dl/output_video_image_0.jpg" width="300" height="300" alt="Picture of an animal in a tree, stylized to match a painting." >](https://happypathspublic.blob.core.windows.net/assets/batch_scoring_for_dl/output_video.mp4 "Output Video") *click to view video* |
 
 <!-- markdownlint-enable MD033 -->
 
@@ -141,15 +143,15 @@ To deploy this reference architecture, follow the steps described in the [GitHub
 
 <!-- links -->
 
-[aml-compute]: https://docs.microsoft.com/azure/machine-learning/service/concept-compute-target
-[aml-pipeline]: https://docs.microsoft.com/azure/machine-learning/service/concept-ml-pipelines
-[amls]: https://docs.microsoft.com/azure/machine-learning/service/overview-what-is-azure-ml
-[blob-storage]: https://docs.microsoft.com/azure/storage/blobs/storage-blobs-introduction
+[aml-compute]: /azure/machine-learning/service/concept-compute-target
+[aml-pipeline]: /azure/machine-learning/service/concept-ml-pipelines
+[amls]: /azure/machine-learning/service/overview-what-is-azure-ml
+[blob-storage]: /azure/storage/blobs/storage-blobs-introduction
 [deployment]: https://github.com/Azure/Batch-Scoring-Deep-Learning-Models-With-AML
 [deployment2]: https://github.com/Azure/Batch-Scoring-Deep-Learning-Models-With-AKS
 [ffmpeg]: https://www.ffmpeg.org
 [image-style-transfer]: https://www.cv-foundation.org/openaccess/content_cvpr_2016/papers/Gatys_Image_Style_Transfer_CVPR_2016_paper.pdf
-[logic-apps]: https://docs.microsoft.com/azure/logic-apps
+[logic-apps]: /azure/logic-apps
 [source-video]: https://happypathspublic.blob.core.windows.net/videos/orangutan.mp4
-[storage-security]: https://docs.microsoft.com/azure/storage/common/storage-security-guide
-[virtual-network]: https://docs.microsoft.com/azure/machine-learning/service/how-to-enable-virtual-network
+[storage-security]: /azure/storage/common/storage-security-guide
+[virtual-network]: /azure/machine-learning/service/how-to-enable-virtual-network

@@ -1,13 +1,15 @@
 ---
 title: API design guidance
 titleSuffix: Best practices for cloud applications
-description: Guidance on how to create a well-designed web API.
+description: Web applications can expose APIs so clients to interact with the application. Well-designed web APIs should support platform independence and service evolution.
 author: dragon119
 ms.date: 01/12/2018
-ms.topic: best-practice
+ms.topic: conceptual
 ms.service: architecture-center
-ms.subservice: cloud-fundamentals
-ms.custom: seodec18
+ms.subservice: best-practice
+ms.custom:
+  - seodec18
+  - best-practice
 ---
 
 <!-- cSpell:ignore HATEOAS -->
@@ -328,7 +330,7 @@ A subsequent request from the client application can retrieve the remainder of t
 One of the primary motivations behind REST is that it should be possible to navigate the entire set of resources without requiring prior knowledge of the URI scheme. Each HTTP GET request should return the information necessary to find the resources related directly to the requested object through hyperlinks included in the response, and it should also be provided with information that describes the operations available on each of these resources. This principle is known as HATEOAS, or Hypertext as the Engine of Application State. The system is effectively a finite state machine, and the response to each request contains the information necessary to move from one state to another; no other information should be necessary.
 
 > [!NOTE]
-> Currently there are no standards or specifications that define how to model the HATEOAS principle. The examples shown in this section illustrate one possible solution.
+> Currently there are no general-purpose standards that define how to model the HATEOAS principle.  The examples shown in this section illustrate one possible, proprietary solution.
 
 For example, to handle the relationship between an order and a customer, the representation of an order could include links that identify the available operations for the customer of the order. Here is a possible representation:
 
@@ -512,7 +514,7 @@ You may want to adopt OpenAPI for your web APIs. Some points to consider:
 
 - OpenAPI promotes a contract-first approach, rather than an implementation-first approach. Contract-first means you design the API contract (the interface) first and then write code that implements the contract.
 
-- Tools like Swagger can generate client libraries or documentation from API contracts. For example, see [ASP.NET Web API help pages using Swagger](https://docs.microsoft.com/aspnet/core/tutorials/web-api-help-pages-using-swagger).
+- Tools like Swagger can generate client libraries or documentation from API contracts. For example, see [ASP.NET Web API help pages using Swagger](/aspnet/core/tutorials/web-api-help-pages-using-swagger).
 
 ## More information
 

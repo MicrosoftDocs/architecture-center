@@ -3,17 +3,19 @@ title: Overview of the operational excellence pillar
 description: Describes the operational excellence pillar.
 author: david-stanford
 ms.date: 10/21/2019
-ms.topic: overview
+ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
-ms.custom: fasttrack-edit
+ms.custom:
+  - fasttrack-edit
+  - overview
 ---
 
 # Overview of the operational excellence pillar
 
 This pillar covers the operations processes that keep an application running in production. Deployments must be reliable and predictable. They should be automated to reduce the chance of human error. They should be a fast and routine process, so they don't slow down the release of new features or bug fixes. Equally important, you must be able to quickly roll back or roll forward if an update has problems.
 
-To assess your workload using the tenets found in the Microsoft Azure Well-Architected Framework, see the [Microsoft Azure Well-Architected Review](https://docs.microsoft.com/assessments/?mode=pre-assessment&id=azure-architecture-review).
+To assess your workload using the tenets found in the Microsoft Azure Well-Architected Framework, see the [Microsoft Azure Well-Architected Review](/assessments/?id=azure-architecture-review&mode=pre-assessment).
 
 These are the disciplines we group in the operational excellence pillar:
 
@@ -30,6 +32,6 @@ These are the disciplines we group in the operational excellence pillar:
 [monitoring]: ./monitoring.md
 [performance]: ./performance.md
 [deployment]: ./deployment.md
-[iac]: ./iac.md
+[iac]: ./automation-infrastructure.md
 [testing]: ./testing.md
 [app-design]: ./app-design.md

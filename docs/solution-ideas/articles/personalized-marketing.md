@@ -1,7 +1,7 @@
 ---
 title: Personalized marketing solutions
 titleSuffix: Azure Solution Ideas
-author: adamboeglin
+author: doodlemania2
 ms.date: 12/16/2019
 description: Find essential technology to market your products with personalized offers. Individualize your marketing for greater customer response using big-data insights.
 ms.custom: acom-architecture, personalized marketing, ai-ml, marketing personalization, targeted marketing, 'https://azure.microsoft.com/solutions/architecture/personalized-marketing/'
@@ -34,17 +34,17 @@ By personalizing your offers, you'll deliver an individualized experience for ev
 * [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db) stores aggregated data of clicks by user, product, and offer as well as user-profile information.
 * [Storage Accounts](https://azure.microsoft.com/services/storage): Azure Storage stores archived raw click-stream data from Stream Analytics.
 * [Azure Functions](https://azure.microsoft.com/services/functions) takes in user clickstream data from website and reads existing user history from Azure Cosmos DB. These data are then run through the Machine Learning web service or used along with the cold-start data in Azure Cache for Redis to obtain product-affinity scores. Product-affinity scores are used with the personalized-offer logic to determine the most relevant offer to present to the user.
-* [Machine Learning Studio](https://azure.microsoft.com/services/machine-learning-studio): Machine Learning helps you easily design, test, operationalize, and manage predictive analytics solutions in the cloud.
+* [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning): Machine Learning helps you design, test, operationalize, and manage predictive analytics solutions in the cloud.
 * [Azure Cache for Redis](https://azure.microsoft.com/services/cache) stores pre-computed cold-start product affinity scores for users without history.
 * [Power BI](https://powerbi.microsoft.com) Visualizes user activity data as well as offers presented by reading in data from Cosmos DB.
 
 ## Next steps
 
-* [Learn more about Event Hubs](https://docs.microsoft.com/azure/event-hubs/event-hubs-what-is-event-hubs)
-* [Learn more about Stream Analytics](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-introduction)
-* [Learn how to use Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db)
-* [Learn more about Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-introduction)
-* [Learn how to create functions](https://docs.microsoft.com/azure/azure-functions)
+* [Learn more about Event Hubs](/azure/event-hubs/event-hubs-what-is-event-hubs)
+* [Learn more about Stream Analytics](/azure/stream-analytics/stream-analytics-introduction)
+* [Learn how to use Azure Cosmos DB](/azure/cosmos-db)
+* [Learn more about Azure Storage](/azure/storage/common/storage-introduction)
+* [Learn how to create functions](/azure/azure-functions)
 * [Learn more about machine learning](/azure/machine-learning/overview-what-is-azure-ml)
-* [Learn how to use Azure Cache for Redis](https://docs.microsoft.com/azure/redis-cache/cache-dotnet-how-to-use-azure-redis-cache)
+* [Learn how to use Azure Cache for Redis](/azure/redis-cache/cache-dotnet-how-to-use-azure-redis-cache)
 * [Learn about Power BI](https://powerbi.microsoft.com/documentation/powerbi-landing-page)

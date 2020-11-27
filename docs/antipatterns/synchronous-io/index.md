@@ -4,10 +4,12 @@ titleSuffix: Performance antipatterns for cloud apps
 description: Blocking the calling thread while I/O completes can reduce performance and affect vertical scalability.
 author: dragon119
 ms.date: 06/05/2017
-ms.topic: article
+ms.topic: conceptual
 ms.service: architecture-center
-ms.subservice: cloud-fundamentals
-ms.custom: seodec18
+ms.subservice: anti-pattern
+ms.custom:
+  - seodec18
+  - article
 ---
 
 <!-- cSpell:ignore uploadedfiles myblob -->
@@ -152,7 +154,7 @@ await LibraryIOOperationAsync();
 
 ## How to detect the problem
 
-For users, the application may seem unresponsive or appear to hang periodically. The application might fail with timeout exceptions. These failures could also return HTTP 500 (Internal Server) errors. On the server, incoming client requests might be blocked until a thread becomes available, resulting in excessive request queue lengths, manifested as HTTP 503 (Service Unavailable) errors.
+For users, the application may seem unresponsive periodically. The application might fail with timeout exceptions. These failures could also return HTTP 500 (Internal Server) errors. On the server, incoming client requests might be blocked until a thread becomes available, resulting in excessive request queue lengths, manifested as HTTP 503 (Service Unavailable) errors.
 
 You can perform the following steps to help identify the problem:
 
@@ -197,8 +199,8 @@ Throughput is far higher. Over the same duration as the previous test, the syste
 
 [sample-app]: https://github.com/mspnp/performance-optimization/tree/master/SynchronousIO
 [async-wrappers]: https://blogs.msdn.microsoft.com/pfxteam/2012/03/24/should-i-expose-asynchronous-wrappers-for-synchronous-methods
-[performance-counters]: https://docs.microsoft.com/azure/cloud-services/cloud-services-dotnet-diagnostics-performance-counters
-[web-sites-monitor]: https://docs.microsoft.com/azure/app-service-web/web-sites-monitor
+[performance-counters]: /azure/cloud-services/cloud-services-dotnet-diagnostics-performance-counters
+[web-sites-monitor]: /azure/app-service-web/web-sites-monitor
 
 [sync-performance]: _images/SyncPerformance.jpg
 [async-performance]: _images/AsyncPerformance.jpg

@@ -5,10 +5,12 @@ description: Implement functional checks in an application that external tools c
 keywords: design pattern
 author: dragon119
 ms.date: 06/23/2017
-ms.topic: design-pattern
+ms.topic: conceptual
 ms.service: architecture-center
-ms.subservice: cloud-fundamentals
-ms.custom: seodec18
+ms.subservice: design-pattern
+ms.custom:
+  - seodec18
+  - design-pattern
 ---
 
 # Health Endpoint Monitoring pattern
@@ -197,14 +199,14 @@ In addition to routing requests, Traffic Manager pings a URL, port, and relative
 
 However, Traffic Manager will only wait ten seconds to receive a response from the monitoring URL. Therefore, you should ensure that your health verification code executes in this time, allowing for network latency for the round trip from Traffic Manager to your application and back again.
 
-> Read more information about using [Traffic Manager to monitor your applications](https://docs.microsoft.com/azure/traffic-manager/). Traffic Manager is also discussed in [Multiple Datacenter Deployment Guidance](https://msdn.microsoft.com/library/dn589779.aspx).
+> Read more information about using [Traffic Manager to monitor your applications](/azure/traffic-manager/). Traffic Manager is also discussed in [Multiple Datacenter Deployment Guidance](/previous-versions/msp-n-p/dn589779(v=pandp.10)).
 
 ## Related guidance
 
 The following guidance can be useful when implementing this pattern:
 
-- [Instrumentation and Telemetry Guidance](https://msdn.microsoft.com/library/dn589775.aspx). Checking the health of services and components is typically done by probing, but it's also useful to have information in place to monitor application performance and detect events that occur at runtime. This data can be transmitted back to monitoring tools as additional information for health monitoring. Instrumentation and Telemetry Guidance explores gathering remote diagnostics information that's collected by instrumentation in applications.
+- [Instrumentation and Telemetry Guidance](/previous-versions/msp-n-p/dn589775(v=pandp.10)). Checking the health of services and components is typically done by probing, but it's also useful to have information in place to monitor application performance and detect events that occur at runtime. This data can be transmitted back to monitoring tools as additional information for health monitoring. Instrumentation and Telemetry Guidance explores gathering remote diagnostics information that's collected by instrumentation in applications.
 - [Receiving alert notifications][portal-alerts].
 - This pattern includes a downloadable [sample application](https://github.com/mspnp/cloud-design-patterns/tree/master/health-endpoint-monitoring).
 
-[portal-alerts]: https://docs.microsoft.com/azure/azure-monitor/platform/alerts-metric
+[portal-alerts]: /azure/azure-monitor/platform/alerts-metric

@@ -1,7 +1,7 @@
 ---
 title: DevTest Image Factory
 titleSuffix: Azure Solution Ideas
-author: adamboeglin
+author: doodlemania2
 ms.date: 12/16/2019
 description: Create, maintain, and distribute custom images with the DevTest Image Factory, an automated image development and management solution from Azure DevTest Labs.
 ms.custom: acom-architecture, Azure DevTest Image Factory, devops, Image Management Solutions, Create Custom Image, interactive-diagram, 'https://azure.microsoft.com/solutions/architecture/dev-test-image-factory/'
@@ -42,6 +42,6 @@ The image factory provides a great way for organizations to create, maintain, an
 
 ## Next steps
 
-* [Azure Lab Services documentation](https://docs.microsoft.com/azure/lab-services)
-* [Virtual Machines documentation](https://docs.microsoft.com/azure/virtual-machines)
-* [Azure Devops documentation](https://docs.microsoft.com/azure/devops)
+* [Azure Lab Services documentation](/azure/lab-services)
+* [Virtual Machines documentation](/azure/virtual-machines)
+* [Azure Devops documentation](/azure/devops)

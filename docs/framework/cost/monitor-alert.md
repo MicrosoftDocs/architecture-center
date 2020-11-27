@@ -1,12 +1,13 @@
 ---
 title: Set budgets and alerts
-description: Describes ways to gather cost data for reporting purposes
-author:  PageWriter-MSFT
+description: Use the Azure Cost Management alert feature to generate alerts when consumption reaches a threshold.
+author: PageWriter-MSFT
 ms.date: 05/12/2020
-ms.topic: article
+ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
-ms.custom: 
+ms.custom:
+  - article
 ---
 
 # Set budgets and alerts
@@ -18,7 +19,7 @@ Consider the metrics that each resource in the workload. For each metric, build 
 You can also set alerts on allowed budgets at the resource group or management groups scopes. Both cloud services performance and budget requirements can be balanced through alerts on metrics and budgets.
 
 Over time, the workload can be optimized to autoheal itself when alerts are triggered.
-For information about using alerts, see [Use cost alerts to monitor usage and spending](https://docs.microsoft.com/azure/cost-management-billing/costs/cost-mgt-alerts-monitor-usage-spending).
+For information about using alerts, see [Use cost alerts to monitor usage and spending](/azure/cost-management-billing/costs/cost-mgt-alerts-monitor-usage-spending).
 
 ## Respond to alerts
 When you receive an alert, check the current consumption data. Budget alerts aren't triggered in real time. There may be a delay between the alert and the current actual cost. 
@@ -32,4 +33,4 @@ If the alert was caused because of unnecessary or expensive resources, you can i
 
 ## Revise budgets
 
-After you identify and analyze your spending patterns, you can set budget limits for applications or business units. You'll want to [assign access](https://docs.microsoft.com/azure/cost-management/assign-access-acm-data) to view or manage each budget to the appropriate groups. Setting several alert thresholds for each budget can help track your burn down rate.
+After you identify and analyze your spending patterns, you can set budget limits for applications or business units. You'll want to [assign access](/azure/cost-management/assign-access-acm-data) to view or manage each budget to the appropriate groups. Setting several alert thresholds for each budget can help track your burn down rate.

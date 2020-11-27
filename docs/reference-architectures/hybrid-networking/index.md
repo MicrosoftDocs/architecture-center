@@ -3,13 +3,15 @@ title: Connect an on-premises network to Azure
 description: Compare reference architectures for connecting an on-premises network to Azure.
 author: telmosampaio
 ms.date: 07/02/2018
-ms.topic: reference-architecture
+ms.topic: conceptual
 ms.service: architecture-center
 ms.category:
   - hybrid
   - networking
 ms.subservice: reference-architecture
-ms.custom: networking
+ms.custom:
+  - networking
+  - reference-architecture
 ---
 
 # Choose a solution for connecting an on-premises network to Azure
@@ -18,7 +20,7 @@ This article compares options for connecting an on-premises network to an Azure 
 
 ## VPN connection
 
-A [VPN gateway](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways) is a type of virtual network gateway that sends encrypted traffic between an Azure virtual network and an on-premises location. The encrypted traffic goes over the public Internet.
+A [VPN gateway](/azure/vpn-gateway/vpn-gateway-about-vpngateways) is a type of virtual network gateway that sends encrypted traffic between an Azure virtual network and an on-premises location. The encrypted traffic goes over the public Internet.
 
 This architecture is suitable for hybrid applications where the traffic between on-premises hardware and the cloud is likely to be light, or you are willing to trade slightly extended latency for the flexibility and processing power of the cloud.
 
@@ -40,7 +42,7 @@ This architecture is suitable for hybrid applications where the traffic between 
 
 ## Azure ExpressRoute connection
 
-[ExpressRoute](https://docs.microsoft.com/azure/expressroute/) connections use a private, dedicated connection through a third-party connectivity provider. The private connection extends your on-premises network into Azure.
+[ExpressRoute](/azure/expressroute/) connections use a private, dedicated connection through a third-party connectivity provider. The private connection extends your on-premises network into Azure.
 
 This architecture is suitable for hybrid applications running large-scale, mission-critical workloads that require a high degree of scalability.
 
@@ -88,4 +90,3 @@ A hub-spoke network topology is a way to isolate workloads while sharing service
 ### Reference architectures
 
 - [Hub-spoke topology](./hub-spoke.md)
-- [Hub-spoke with shared services](./shared-services.md)

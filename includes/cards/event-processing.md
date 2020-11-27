@@ -6,7 +6,7 @@
 <article class="card">
     <div class="card-header has-margin-bottom-none" aria-hidden="true">
         <figure class="image diagram has-height-175 has-overflow-hidden level">
-            <a href="/azure/architecture/reference-architectures/serverless/event-processing"><img src="/azure/architecture/browse/thumbs/event-processing.png" class="diagram" alt="Architecture Diagram" data-linktype="relative-path"></a>
+            <a href="/azure/architecture/reference-architectures/serverless/event-processing"><img src="/azure/architecture/browse/thumbs/event-processing.png" class="diagram" alt="Thumbnail of Serverless event processing Architectural Diagram." data-linktype="relative-path"></a>
         </figure>
     </div>
     <div class="card-content">
@@ -15,7 +15,7 @@
         </a>
         <ul class="card-content-metadata">
             <li>10/16/2018</li>
-            <li>6 min read</li>
+            <li>7 min read</li>
         </ul>
         <p class="card-content-description">Reference architecture for serverless event ingestion and processing using Azure Functions.</p>
         <div class="bottom-to-top-fade is-hidden-mobile"></div>

@@ -1,14 +1,16 @@
 ---
 title: Design patterns for microservices
-description: Design patterns that to implement a robust microservices architecture.
-author: MikeWasson
+description: Learn how designs that use microservices can increase the velocity of application releases by deploying small, autonomous services independently.
+author: doodlemania2
 ms.date: 02/25/2019
-ms.topic: guide
+ms.topic: conceptual
 ms.service: architecture-center
 ms.category:
   - developer-tools
-ms.subservice: reference-architecture
-ms.custom: microservices
+ms.subservice: azure-guide
+ms.custom:
+  - microservices
+  - guide
 ---
 
 # Design patterns for microservices

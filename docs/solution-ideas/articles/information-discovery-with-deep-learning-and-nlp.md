@@ -1,7 +1,7 @@
 ---
 title: Information discovery with deep learning and NLP
 titleSuffix: Azure Solution Ideas
-author: adamboeglin
+author: doodlemania2
 ms.date: 12/16/2019
 description: See how deep learning and natural language processing can be used effectively with the Microsoft AI platform.
 ms.custom: acom-architecture, convolutional neural network, discrete manufacturing, decision tree algorithm, ai-ml,  image classification, gradient boosting decision tree, failure detection, automated manufacturing solutions, 'https://azure.microsoft.com/solutions/architecture/information-discovery-with-deep-learning-and-nlp/'
@@ -40,7 +40,7 @@ By combining deep learning and natural language processing (NLP) with data on si
 
 * [Learn more about Microsoft SQL Server](https://www.microsoft.com/sql-server/sql-server-2017)
 * [Learn more about Azure Machine Learning Workbench](/azure/machine-learning/overview-what-happened-to-workbench)
-* [Learn more about Azure Machine Learning Experimentation Service](/azure/machine-learning/how-to-enable-virtual-network)
+* [Learn more about Azure Machine Learning sample experiments](/azure/machine-learning/classic/sample-experiments)
 * [Learn More about Azure Machine Learning Model Management](/azure/machine-learning/concept-model-management-and-deployment)
 * [Learn more about Jupyter Notebooks](https://jupyter.org)
 * [Learn more about Azure Container Registry](https://azure.microsoft.com/services/container-registry)

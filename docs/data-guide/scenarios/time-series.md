@@ -3,9 +3,11 @@ title: Time series data
 description: Analyze time series data like sensor data, stock prices, click stream data, or app telemetry for historical trends, real-time alerts, or predictive modeling.
 author: zoinerTejada
 ms.date: 04/02/2020
-ms.topic: guide
+ms.topic: conceptual
 ms.service: architecture-center
-ms.subservice: cloud-fundamentals
+ms.subservice: azure-guide
+ms.custom:
+  - guide
 ---
 
 <!-- cSpell:ignore downsample TSDB -->
@@ -63,7 +65,7 @@ In many scenarios that involve time series data, such as IoT, the data is captur
 
 Data from one or more data sources is ingested into the stream buffering layer by [IoT Hub](/azure/iot-hub/), [Event Hubs](/azure/event-hubs/), or [Kafka on HDInsight](/azure/hdinsight/kafka/apache-kafka-introduction). Next, the data is processed in the stream processing layer that can optionally hand off the processed data to a machine learning service for predictive analytics. The processed data is stored in an analytical data store, such as [HBase](/azure/hdinsight/hbase/apache-hbase-overview), [Azure Cosmos DB](/azure/cosmos-db/), Azure Data Lake, or Blob Storage. An analytics and reporting application or service, like Power BI, [Azure Data Explorer](/azure/data-explorer/time-series-analysis), or OpenTSDB (if stored in HBase) can be used to display the time series data for analysis.
 
-Another option is to use [Azure Time Series Insights](https://docs.microsoft.com/azure/time-series-insights). Time Series Insights is a fully managed service for time series data. In this architecture, Time Series Insights performs the roles of stream processing, data store, and analytics and reporting. It accepts streaming data from either IoT Hub or Event Hubs and stores, processes, analyzes, and displays the data in near real time. It does not pre-aggregate the data, but stores the raw events.
+Another option is to use [Azure Time Series Insights](/azure/time-series-insights). Time Series Insights is a fully managed service for time series data. In this architecture, Time Series Insights performs the roles of stream processing, data store, and analytics and reporting. It accepts streaming data from either IoT Hub or Event Hubs and stores, processes, analyzes, and displays the data in near real time. It does not pre-aggregate the data, but stores the raw events.
 
 Time Series Insights is schema adaptive, which means that you do not have to do any data preparation to start deriving insights. This enables you to explore, compare, and correlate a variety of data sources seamlessly. It also provides SQL-like filters and aggregates, ability to construct, visualize, compare, and overlay various time series patterns, heat maps, and the ability to save and share queries.
 

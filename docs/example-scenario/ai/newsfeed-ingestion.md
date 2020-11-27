@@ -6,11 +6,12 @@ ms.date: 2/1/2019
 ms.custom:
   - azcat-ai
   - AI
+  - example-scenario
 social_image_url: /azure/architecture/example-scenario/ai/media/mass-ingestion-newsfeeds-architecture.png
 ms.category:
   - analytics
   - ai-machine-learning
-ms.topic: example-scenario
+ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: example-scenario
 ---
@@ -80,7 +81,7 @@ The following list of Azure components is used in this example.
 
 - Use a different input mechanism instead of RSS feeds. Use multiple generators or ingestion processes to feed Azure Cosmos DB and Azure Storage.
 
-- [Azure Cognitive Search](https://docs.microsoft.com/azure/search) is an AI feature in Azure Search that can also used to extract text from images, blobs, and other unstructured data sources.
+- [Azure Cognitive Search](/azure/search) is an AI feature in Azure Search that can also used to extract text from images, blobs, and other unstructured data sources.
 
 ## Considerations
 
@@ -125,36 +126,36 @@ Pricing for Azure Functions varies depending on the [plan][function-plan] it run
 All the code for this scenario is available in the [GitHub][github] repository. This repository contains the source code used to build the generator application that feeds the pipeline for this demo.
 
 [architecture]: ./media/mass-ingestion-newsfeeds-architecture.png
-[aai]: https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview
+[aai]: /azure/azure-monitor/app/app-insights-overview
 [aas]: https://azure.microsoft.com/try/app-service
 [acs]: https://azure.microsoft.com/services/cognitive-services/directory
-[collection]: https://docs.microsoft.com/rest/api/cosmos-db/collections
-[compare]: https://docs.microsoft.com/azure/azure-functions/functions-compare-logic-apps-ms-flow-webjobs#compare-azure-functions-and-azure-logic-apps
-[cosmos-db]: https://docs.microsoft.com/azure/cosmos-db/introduction
+[collection]: /rest/api/cosmos-db/collections
+[compare]: /azure/azure-functions/functions-compare-logic-apps-ms-flow-webjobs#compare-azure-functions-and-azure-logic-apps
+[cosmos-db]: /azure/cosmos-db/introduction
 [db-cost]: https://azure.microsoft.com/pricing/details/cosmos-db
-[db-practices]: https://docs.microsoft.com/azure/cosmos-db/database-security
+[db-practices]: /azure/cosmos-db/database-security
 [english]: https://www.nasa.gov/rss/dyn/breaking_news.rss
-[face]: https://docs.microsoft.com/azure/cognitive-services/face/overview
+[face]: /azure/cognitive-services/face/overview
 [free]: https://azure.microsoft.com/free/?WT.mc_id=A261C142F
-[functions]: https://docs.microsoft.com/azure/azure-functions/functions-overview
-[function-plan]: https://docs.microsoft.com/azure/azure-functions/functions-scale
+[functions]: /azure/azure-functions/functions-overview
+[function-plan]: /azure/azure-functions/functions-scale
 [german]: http://www.bamf.de/SiteGlobals/Functions/RSS/DE/Feed/RSSNewsfeed_Meldungen
 [github]: https://github.com/Azure/cognitive-services
-[keys]: https://docs.microsoft.com/azure/cosmos-db/partition-data
-[language]: https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-languages
-[logic-app]: https://docs.microsoft.com/azure/logic-apps/logic-apps-overview
-[queues-topics]: https://docs.microsoft.com/azure/service-bus-messaging/service-bus-queues-topics-subscriptions
+[keys]: /azure/cosmos-db/partition-data
+[language]: /azure/cognitive-services/translator/reference/v3-0-languages
+[logic-app]: /azure/logic-apps/logic-apps-overview
+[queues-topics]: /azure/service-bus-messaging/service-bus-queues-topics-subscriptions
 [partial]: https://feedback.azure.com/forums/263030-azure-cosmos-db/suggestions/6693091-be-able-to-do-partial-updates-on-document
-[plan]: https://docs.microsoft.com/azure/azure-functions/functions-scale
-[plan-aas]: https://docs.microsoft.com/azure/azure-functions/functions-scale#app-service-plan
-[plan-c]: https://docs.microsoft.com/azure/azure-functions/functions-scale#consumption-plan
+[plan]: /azure/azure-functions/functions-scale
+[plan-aas]: /azure/azure-functions/functions-scale#app-service-plan
+[plan-c]: /azure/azure-functions/functions-scale#consumption-plan
 [portal]: https://portal.azure.com
 [redlock]: https://redis.io/topics/distlock
 [russian]: http://government.ru/all/rss
-[service-bus]: https://docs.microsoft.com/azure/service-bus-messaging
-[storage]: https://docs.microsoft.com/azure/storage/common/storage-account-overview
-[throughput]: https://docs.microsoft.com/azure/cosmos-db/scaling-throughput
-[topics]: https://docs.microsoft.com/azure/service-bus-messaging/service-bus-dotnet-how-to-use-topics-subscriptions
-[text-analytics]: https://docs.microsoft.com/azure/cognitive-services/text-analytics
-[translate-text]: https://docs.microsoft.com/azure/cognitive-services/translator/translator-info-overview
-[vision]: https://docs.microsoft.com/azure/cognitive-services/computer-vision/home
+[service-bus]: /azure/service-bus-messaging
+[storage]: /azure/storage/common/storage-account-overview
+[throughput]: /azure/cosmos-db/scaling-throughput
+[topics]: /azure/service-bus-messaging/service-bus-dotnet-how-to-use-topics-subscriptions
+[text-analytics]: /azure/cognitive-services/text-analytics
+[translate-text]: /azure/cognitive-services/translator/translator-info-overview
+[vision]: /azure/cognitive-services/computer-vision/home

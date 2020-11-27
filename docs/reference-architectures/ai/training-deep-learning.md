@@ -115,7 +115,7 @@ Azure Machine Learning offers many ways to [instrument your experiments][azureml
 
 ## Cost considerations
 
-Use the  [Azure pricing calculator][azure-pricing-calculator] to estimate costs. Here are some other considerations.
+Use the [Azure pricing calculator][azure-pricing-calculator] to estimate costs. Here are some other tips for how to [plan and manage costs][costs].
 
 ### Premium Blob Storage
 
@@ -147,28 +147,29 @@ The output from this architecture is a trained model that is saved to blob stora
 [0]: ./_images/distributed_dl_architecture.png
 [1]: ./_images/distributed_dl_flow.png
 [2]: ./_images/distributed_dl_tests.png
-[acr]: https://docs.microsoft.com/azure/container-registry/container-registry-intro
+[acr]: /azure/container-registry/container-registry-intro
 [aaf-cost]: ../../framework/cost/overview.md
-[aml-compute]: https://docs.microsoft.com/azure/machine-learning/service/how-to-set-up-training-targets#amlcompute
+[aml-compute]: /azure/machine-learning/service/how-to-set-up-training-targets#amlcompute
 [az-container-registry-pricing]: https://azure.microsoft.com/pricing/details/container-registry
 [az-vm-pricing]: https://azure.microsoft.com/pricing/details/virtual-machines
-[azure-blob]: https://docs.microsoft.com/azure/storage/blobs/storage-blobs-introduction
+[azure-blob]: /azure/storage/blobs/storage-blobs-introduction
 [batch-scoring]: ../../reference-architectures/ai/batch-scoring-deep-learning.md
 [benchmark]: https://github.com/msalvaris/BatchAIHorovodBenchmark
 [blobfuse]: https://github.com/Azure/azure-storage-fuse
 [block-blob-pricing]: https://azure.microsoft.com/pricing/details/storage/blobs
 [azure-pricing-calculator]: https://azure.microsoft.com/pricing/calculator
-[endpoints]: https://docs.microsoft.com/azure/storage/common/storage-network-security?toc=%2fazure%2fvirtual-network%2ftoc.json#grant-access-from-a-virtual-network
+[endpoints]: /azure/storage/common/storage-network-security?toc=%2fazure%2fvirtual-network%2ftoc.json#grant-access-from-a-virtual-network
 [github]: https://github.com/microsoft/DistributedDeepLearning
-[gpu]: https://docs.microsoft.com/azure/virtual-machines/windows/sizes-gpu
-[gpu-vm-sizes]: https://docs.microsoft.com/azure/virtual-machines/linux/sizes-gpu
+[gpu]: /azure/virtual-machines/windows/sizes-gpu
+[gpu-vm-sizes]: /azure/virtual-machines/linux/sizes-gpu
 [horovod]: https://github.com/uber/horovod
 [imagenet]: http://www.image-net.org
 [real-time-scoring]: ../../reference-architectures/ai/realtime-scoring-python.md
 [resnet]: https://arxiv.org/abs/1512.03385
-[security-guide]: https://docs.microsoft.com/azure/storage/common/storage-security-guide
-[azureml-logging]: https://docs.microsoft.com/azure/machine-learning/how-to-track-experiments
-[azureml-tensorboard]: https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/track-and-monitor-experiments/tensorboard/tensorboard.ipynb
+[security-guide]: /azure/storage/common/storage-security-guide
+[azureml-logging]: /azure/machine-learning/how-to-track-experiments
+[azureml-tensorboard]: https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/track-and-monitor-experiments/tensorboard/tensorboard/tensorboard.ipynb
 [tfrecords]: https://www.tensorflow.org/tutorials/load_data/tf_records
 [petastorm]: https://github.com/uber/petastorm
 [premium-storage]: https://azure.microsoft.com/services/storage/blobs
+[costs]: /azure/machine-learning/concept-plan-manage-cost

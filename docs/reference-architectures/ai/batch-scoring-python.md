@@ -1,15 +1,18 @@
 ---
 title: Batch scoring of Python models on Azure
-description:  Build a scalable solution for batch scoring models on a schedule in parallel using Azure Machine Learning.
+description: Build a scalable solution for batch scoring models on a schedule in parallel using Azure Machine Learning.
 author: njray
 ms.date: 01/30/2019
-ms.topic: reference-architecture
+ms.topic: conceptual
 ms.service: architecture-center
 ms.category:
   - ai-machine-learning
   - developer-tools
 ms.subservice: reference-architecture
-ms.custom: azcat-ai, AI
+ms.custom:
+  - azcat-ai
+  - AI
+  - reference-architecture
 ---
 
 # Batch scoring of Python machine learning models on Azure
@@ -78,22 +81,22 @@ Automatic scaling may not be appropriate for batch jobs that happen too close to
 
 To deploy this reference architecture, follow the steps described in the [GitHub repo][github].
 
-[acr]: https://docs.microsoft.com/azure/container-registry/container-registry-intro
-[amls]: https://docs.microsoft.com/azure/machine-learning/service/overview-what-is-azure-ml
-[batch-scoring]: https://docs.microsoft.com/azure/machine-learning/service/how-to-run-batch-predictions
-[cli]: https://docs.microsoft.com/cli/azure
+[acr]: /azure/container-registry/container-registry-intro
+[amls]: /azure/machine-learning/service/overview-what-is-azure-ml
+[batch-scoring]: /azure/machine-learning/service/how-to-run-batch-predictions
+[cli]: /cli/azure
 [create-resources]: https://github.com/microsoft/az-ml-batch-score/blob/master/01_DataPrep.ipynb
-[deep]: /azure/architecture/reference-architectures/ai/batch-scoring-deep-learning
-[event-hubs]: https://docs.microsoft.com/azure/event-hubs/event-hubs-geo-dr
+[deep]: ./batch-scoring-deep-learning.md
+[event-hubs]: /azure/event-hubs/event-hubs-geo-dr
 [explorer]: https://azure.microsoft.com/features/storage-explorer
 [github]: https://github.com/Microsoft/AMLBatchScoringPipeline
 [one-class-svm]: http://scikit-learn.org/stable/modules/generated/sklearn.svm.OneClassSVM.html
 [portal]: https://portal.azure.com
-[python-sdk]: https://docs.microsoft.com/python/api/overview/azure/ml/intro
-[ml-workspace]: https://docs.microsoft.com/azure/machine-learning/studio/create-workspace
-[pipeline]: https://docs.microsoft.com/azure/machine-learning/service/concept-ml-pipelines
+[python-sdk]: /python/api/overview/azure/ml/intro
+[ml-workspace]: /azure/machine-learning/studio/create-workspace
+[pipeline]: /azure/machine-learning/service/concept-ml-pipelines
 [pyscript]: https://github.com/Microsoft/AMLBatchScoringPipeline/blob/master/scripts/predict.py
-[storage]: https://docs.microsoft.com/azure/storage/blobs/storage-blobs-overview
-[stream-analytics]: https://docs.microsoft.com/azure/stream-analytics
-[sql-database]: https://docs.microsoft.com/azure/sql-database
-[app-insights]: https://docs.microsoft.com/azure/application-insights/app-insights-overview
+[storage]: /azure/storage/blobs/storage-blobs-overview
+[stream-analytics]: /azure/stream-analytics
+[sql-database]: /azure/sql-database
+[app-insights]: /azure/application-insights/app-insights-overview

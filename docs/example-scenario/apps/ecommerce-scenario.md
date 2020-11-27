@@ -1,18 +1,19 @@
 ---
 title: E-commerce front end
 titleSuffix: Azure Example Scenarios
-description: Host an e-commerce site on Azure.
+description: This example scenario implements an e-commerce front end using Azure platform as a service tools, which allow you to handle increases in transactions.
 author: chrismason
 ms.date: 07/13/2018
 ms.category:
   - web
-ms.topic: example-scenario
+ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: example-scenario
 ms.custom:
   - fasttrack
   - web-apps
   - ecommerce
+  - example-scenario
 social_image_url: /azure/architecture/example-scenario/apps/media/architecture-ecommerce-scenario.png
 ---
 
@@ -75,7 +76,7 @@ Other options for the web tier and functions include:
 
 Other options for the data tier include:
 
-- [Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/introduction): Microsoft's globally distributed, multi-model database. This service provides a platform to run other data models such as Mongo DB, Cassandra, Graph data, or simple table storage.
+- [Cosmos DB](/azure/cosmos-db/introduction): Microsoft's globally distributed, multi-model database. This service provides a platform to run other data models such as Mongo DB, Cassandra, Graph data, or simple table storage.
 
 ## Considerations
 
@@ -156,11 +157,11 @@ We have provided three sample cost profiles based on amount of traffic you expec
 [end-to-end-walkthrough]: https://github.com/Azure/fta-customerfacingapps/tree/master/ecommerce/articles
 [microservices-ecommerce]: https://github.com/dotnet-architecture/eShopOnContainers
 [multi-region-web-app]: ../../reference-architectures/app-service-web-app/multi-region.md
-[pci-dss-blueprint]: https://docs.microsoft.com/azure/security/blueprints/payment-processing-blueprint
+[pci-dss-blueprint]: /azure/security/blueprints/payment-processing-blueprint
 [resiliency-app-service]: ../../checklist/resiliency-per-service.md#app-service
 [resiliency]: ../../framework/resiliency/overview.md
-[scalability]: ../../checklist/performance-efficiency.md
+[scalability]: ../../framework/scalability/performance-efficiency.md
 [secure-development]: https://www.microsoft.com/SDL/process/design.aspx
-[service-bus]: https://docs.microsoft.com/azure/service-bus-messaging
-[sql-geo-replication]: https://docs.microsoft.com/azure/sql-database/sql-database-geo-replication-overview
-[storage-geo-redundancy]: https://docs.microsoft.com/azure/storage/common/storage-redundancy-grs
+[service-bus]: /azure/service-bus-messaging
+[sql-geo-replication]: /azure/sql-database/sql-database-geo-replication-overview
+[storage-geo-redundancy]: /azure/storage/common/storage-redundancy-grs
