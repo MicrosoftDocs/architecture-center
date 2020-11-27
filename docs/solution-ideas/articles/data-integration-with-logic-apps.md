@@ -33,9 +33,9 @@ With Azure Logic Apps it is possible to integrate data from an HTTP request and 
 
 The architecture has the following components: 
 
-- **Azure Logic Apps**.
-- **On-premises data gateway**.
-- **SQL Server**.
+- ![Azure Logic Apps](https://docs.microsoft.com/en-us/azure/logic-apps/quickstart-create-first-logic-app-workflow)
+- ![On-premises data gateway](https://docs.microsoft.com/en-us/power-bi/connect-data/service-gateway-onprem)
+- ![SQL Server](https://docs.microsoft.com/en-us/sql/?view=sql-server-ver15)
 
 
 ## Next Steps
