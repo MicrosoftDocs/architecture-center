@@ -20,7 +20,7 @@ With Azure Logic Apps it is possible to integrate data from an HTTP request and 
 
 
 ## Architecture
-![Architecture diagram - Data Integration with Logic Apps and SQL Server](./_images/data-integration-with-logic-apps.png)
+![Architecture diagram - Data Integration with Logic Apps and SQL Server](./_media/data-integration-with-logic-apps.png)
 
 ## Data Flow
 
