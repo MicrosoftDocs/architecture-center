@@ -24,9 +24,9 @@ With Azure Logic Apps it is possible to integrate data from an HTTP request and 
 
 ## Data Flow
 
-1.
-2.
-3.
+1. Data is consumed in Azure Logic Apps through an HTTP request.
+2. A connection with an on-premises data gateway is established (which is configured on both Azure and the local machine).
+3. Data is stored in a SQL database through Microsoft SQL Server.
 
 
 ## Components
