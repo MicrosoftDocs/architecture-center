@@ -1457,6 +1457,8 @@ items:
         href: reference-architectures/migration/modernize-mainframe-data-to-azure.md
       - name: Migrate Unisys mainframes to Azure
         href: reference-architectures/migration/unisys-mainframe-migration.md
+      - name: Refactor IBM z/OS mainframe CF on Azure
+        href: reference-architectures/migration/refactor-zos-cf.md
   - name: Mixed Reality
     items:
     - name: Architectures
