@@ -8,6 +8,8 @@ ms.service: architecture-center
 ms.subservice: solution-idea
 ms.custom:
 - fcp
+ms.category:
+- analytics
 ---
 
 # IoT telemetry analytics with Azure Data Explorer
