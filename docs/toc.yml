@@ -1101,6 +1101,10 @@ items:
         href: example-scenario/wvd/windows-virtual-desktop-fslogix.md
       - name: Administer SQL Server anywhere with Azure Arc
         href: hybrid/azure-arc-sql-server.md
+      - name: Azure Stack stretched clusters for DR
+        href: hybrid/azure-stack-hci-dr.md
+      - name: Azure Stack for remote offices and branches
+        href: hybrid/azure-stack-robo.md
     - name: Architectures
       items:
       - name: Manage configurations for Azure Arc enabled servers

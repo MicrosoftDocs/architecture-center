@@ -1,8 +1,8 @@
 ---
 title: Use Azure Stack HCI switchless interconnect and lightweight quorum for Remote Office/Branch Office
 description: Cost-effective approach to implement highly-available virtualized and containerized workloads in Remote Office/Branch Office scenarios
-author: githubusername
-ms.date: 00/00/0000
+author: doodlemania2
+ms.date: 11/29/2020
 ms.topic: reference-architecture
 ms.service: architecture-center
 ms.category:
@@ -132,7 +132,7 @@ Security considerations include:
 - [Azure Stack HCI advanced security][azs-hci-advanced-security]. Apply Microsoft security baselines to Azure Stack HCI clusters and their Windows Server workloads by using Active Directory Domain Services (AD DS) with Group Policy. You can use [Microsoft Advanced Threat Analytics (ATA)][ms-ata] to detect and remediate cyber threats targeting AD DS domain controllers providing authentication services to Azure Stack HCI clusters and their Windows Server workloads.
 
 [architectural-diagram]: images/azure_stack_robo.png
-[architectural-diagram-visio-source]: diagrams/azure_stack_robo.vsdx
+[architectural-diagram-visio-source]: https://archcenter.blob.core.windows.net/cdn/azure_stack_robo.vsdx
 [azure-well-architected-framerwork]: https://docs.microsoft.com/azure/architecture/framework/
 [azs-hci]: https://docs.microsoft.com/azure-stack/hci/overview
 [azure-arc]: https://docs.microsoft.com/azure/azure-arc/overview
@@ -150,7 +150,7 @@ Security considerations include:
 [usb-file-share-witness]: https://techcommunity.microsoft.com/t5/failover-clustering/new-file-share-witness-feature-in-windows-server-2019/ba-p/372149
 [s2d-resiliency]: https://docs.microsoft.com/windows-server/storage/storage-spaces/storage-spaces-fault-tolerance
 [failover-clustering]: https://docs.microsoft.com/windows-server/failover-clustering/failover-clustering-overview
-[s2d-nested-resiliency]: https://docs.microsoft.com/en-us/windows-server/storage/storage-spaces/nested-resiliency#why-nested-resiliency
+[s2d-nested-resiliency]: https://docs.microsoft.com/windows-server/storage/storage-spaces/nested-resiliency#why-nested-resiliency
 [azs-hci-register-arc]: https://docs.microsoft.com/azure-stack/hci/deploy/register-with-azure
 [azs-hci-portal-view]: https://docs.microsoft.com/azure-stack/hci/manage/azure-portal
 [azs-hci-monitor]: https://docs.microsoft.com/azure-stack/hci/manage/azure-monitor

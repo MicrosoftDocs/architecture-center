@@ -1,8 +1,8 @@
 ---
 title: Use Azure Stack HCI stretched clusters for disaster recovery
 description: Disaster recovery with lossless automatic failover of Azure Stack HCI virtualized workloads between two on-premises locations
-author: githubusername
-ms.date: 00/00/0000
+author: doodlemania2
+ms.date: 11/29/2020
 ms.topic: reference-architecture
 ms.service: architecture-center
 ms.category:
@@ -113,7 +113,6 @@ The [Microsoft Azure Well-Architected Framework][azure-well-architected-framewor
 > [!CAUTION]
 > Using Stretched clusters with SDN is considered an advanced configuration and you should contact your Systems Integrator or Microsoft Support for further assistance.
 
-
 ### Security
 
 - **Protection in transit.** Storage Replica offers built-in security for its replication traffic, which includes packet signing, AES-128-GCM full data encryption, support for Intel AES-NI encryption acceleration, and pre-authentication integrity man-in-the-middle attack prevention. Storage Replica also utilizes Kerberos AES256 for authentication between the replicating nodes.
@@ -127,9 +126,8 @@ The [Microsoft Azure Well-Architected Framework][azure-well-architected-framewor
 > [!CAUTION]
 > Storage Replica and Azure Stack HCI stretched clusters must operate within an AD DS environment. When planning your Azure Stack HCI stretched clusters deployment, ensure connectivity to AD DS domain controllers in each site hosting cluster nodes.
 
-
 [architectural-diagram]: images/azure_stack_hci_dr.png
-[architectural-diagram-visio-source]: diagrams/azure_stack_hci_dr.vsdx
+[architectural-diagram-visio-source]: https://archcenter.blob.core.windows.net/cdn/azure_stack_hci_dr.vsdx
 [azure-well-architected-framework]: https://docs.microsoft.com/azure/architecture/framework/
 [microsoft-component]: https://docs.microsoft.com/
 [azs-hci]: https://docs.microsoft.com/azure-stack/hci/overview
