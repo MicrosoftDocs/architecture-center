@@ -1100,7 +1100,7 @@ items:
       - name: FSLogix for the enterprise
         href: example-scenario/wvd/windows-virtual-desktop-fslogix.md
       - name: Administer SQL Server with Azure Arc
-        href: hybrd/azure-arc-sql-server.md
+        href: hybrid/azure-arc-sql-server.md
     - name: Architectures
       items:
       - name: Manage configurations for Azure Arc enabled servers
