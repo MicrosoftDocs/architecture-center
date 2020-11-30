@@ -1,7 +1,7 @@
 ---
-title: Refactor IBM z/OS mainframe CF to Azure
+title: Refactor IBM z/OS mainframe Coupling Facility (CF) to Azure
 titleSuffix: Azure Reference Architectures
-description: Find out how Azure services and components can provide scale-out performance comparable to IBM z/OS mainframe Coupling Facility (CF) and Parallel Sysplex capabilities.
+description: Learn how Azure services and components can provide scale-out performance comparable to IBM z/OS mainframe CF and Parallel Sysplex capabilities.
 author: doodlemania2
 ms.date: 11/30/2020
 ms.topic: reference-architecture
@@ -17,13 +17,9 @@ This architecture shows how Azure can provide scale-out performance and high ava
 
 CFs are physical devices that connect multiple mainframe servers or Central Electronics Complexes (CECs) with shared memory, letting systems scale out to increase performance. Applications written in languages like COBOL and PL/I seamlessly take advantage of these tightly coupled scale-out features.
 
-IBM DB2 databases and Customer Information Control System (CICS) servers can use CFs with a mainframe subsystem called Parallel Sysplex that combines data sharing and parallel computing. Parallel Sysplex allows a cluster of up to 32 systems to share a workload for high performance, high availability, and disaster recovery (DR).
+IBM DB2 databases and Customer Information Control System (CICS) servers can use CFs with a mainframe subsystem called Parallel Sysplex that combines data sharing and parallel computing. Parallel Sysplex allows a cluster of up to 32 systems to share a workload for high performance, high availability, and disaster recovery (DR). Mainframe CFs with Parallel Sysplex are typically deployed in the same datacenter, with close proximity between the CECs, but can also be implemented between datacenters.
 
-Mainframe CFs with Parallel Sysplex are typically deployed in the same datacenter, with close proximity between the CECs, but can also be implemented between datacenters.
-
-Azure resources can provide similar scale-out performance with shared data and high availability. Azure compute clusters share memory through data caching mechanisms like Azure Cache for Redis, and use scalable data technologies like Azure SQL Database and Azure Cosmos DB.
-
-Azure can implement availability sets and groups, combined with geo-redundant capabilities, to extend scale-out compute and high availability to distributed Azure datacenters.
+Azure resources can provide similar scale-out performance with shared data and high availability. Azure compute clusters share memory through data caching mechanisms like Azure Cache for Redis, and use scalable data technologies like Azure SQL Database and Azure Cosmos DB. Azure can implement availability sets and groups, combined with geo-redundant capabilities, to extend scale-out compute and high availability to distributed Azure datacenters.
 
 ## Architecture
 
@@ -32,7 +28,7 @@ The following diagram shows the architecture of an IBM z/OS mainframe system wit
 ![Diagram showing IBM z/OS mainframe architecture with Coupling Facility and Parallel Sysplex components.](media/ibm-mainframe.png)
 
 - Input travels into the mainframe over TCP/IP, using standard mainframe protocols like TN3270 and HTTPS **(A)**.
-- Receiving applications **(B)** can be either batch or online systems. Batch jobs can be spread or cloned across multiple CECs that share data in the data tier. The online tiercan spread a logical CICS region across multiple CECs by using Parallel Sysplex CICS or CICSPlex.
+- Receiving applications **(B)** can be either batch or online systems. Batch jobs can be spread or cloned across multiple CECs that share data in the data tier. The online tier can spread a logical CICS region across multiple CECs by using Parallel Sysplex CICS or CICSPlex.
 - COBOL, PL/I, Assembler, or compatible applications (**C**) run in the Parallel Sysplex-enabled environment, such as a CICSPlex.
 - Other application services (**D**) can also use shared memory across a CF.
 - Parallel Sysplex-enabled data services like DB2 (**E**) allow for scale-out data storage in a shared environment.
@@ -47,23 +43,23 @@ The next diagram shows how Azure services can provide similar functionality and 
 
 1. Input comes from remote clients via Express Route, or from other Azure applications. In either case, TCP/IP is the primary connection to the system.
    
-   A web browser to access Azure system resources replaces terminal emulation for demand and online users (**A**). Users access web-based applications over TLS port 443. Web applications' presentation layers can remain virtually unchanged, to minimize end user retraining. Or you can update the web application presentation layer with modern user experience frameworks.
+   A web browser to access Azure system resources replaces terminal emulation for demand and online users. Users access web-based applications over TLS port 443. Web applications' presentation layers can remain virtually unchanged, to minimize end user retraining. Or you can update the web application presentation layer with modern user experience frameworks.
    
    For admin access to the Azure Virtual Machines (VMs), Azure Bastion hosts maximize security by minimizing open ports.
    
 1. In Azure, access to the application compute clusters is through Azure Load Balancer, allowing for scale-out compute resources to process the input work.
    
-1. The type of application compute cluster to use depends on whether the application runs on virtual machines (VMs), or can be deployed in a container cluster like Kubernetes. Usually, mainframe system emulation for applications written in PL/I or COBOL use VMs, while applications refactored to Java or .NET use containers. Some mainframe system emulation software can also support deployment in containers.
+1. The type of application compute cluster to use depends on whether the application runs on virtual machines (VMs) or can be deployed in a container cluster like Kubernetes. Usually, mainframe system emulation for applications written in PL/I or COBOL use VMs, while applications refactored to Java or .NET use containers. Some mainframe system emulation software can also support deployment in containers.
    
-1. Application servers, such as Tomcat for Java or CICS/IMS transaction processing monitor for COBOL, receive the input, and share application state and data using Azure Cache for Redis or Remote Direct Memory Access (RDMA). This capability is similar to CF for mainframes (**I**).
+1. Application servers, such as Tomcat for Java or CICS/IMS transaction processing monitor for COBOL, receive the input, and share application state and data using Azure Cache for Redis or Remote Direct Memory Access (RDMA). This capability is similar to CF for mainframes.
    
-1. Data services in the application clusters allow for multiple connections to persistent data sources (**E**). These data sources can include platform-as-a-service (PaaS) data services like Azure SQL Database and Azure Cosmos DB, databases on VMs like Oracle or Db2, or Big Data repositories like Databricks and Azure Data Lake. Application data services can also connect to streaming data services like Kafka and Azure Stream Analytics.
+1. Data services in the application clusters allow for multiple connections to persistent data sources. These data sources can include platform-as-a-service (PaaS) data services like Azure SQL Database and Azure Cosmos DB, databases on VMs like Oracle or Db2, or Big Data repositories like Databricks and Azure Data Lake. Application data services can also connect to streaming data analytics services like Kafka and Azure Stream Analytics.
    
    Azure PaaS data services provide scalable and highly available data storage that can be shared across multiple compute resources in a cluster. These services can also be geo-redundant.
    
-1. The application servers host various application programs based on language (**D**), such as Java classes in Tomcat, or COBOL programs with CICS verbs in CICS emulation VMs (**C**).
+1. The application servers host various application programs based on language, such as Java classes in Tomcat, or COBOL programs with CICS verbs in CICS emulation VMs.
    
-1. Data services use a combination of high-performance storage on Ultra or Premium solid state disks (SSDs), file storage on NetApp or Azure Files, and standard blob, archive, and backup storage that can be locally redundant or geo-redundant.
+1. Data services use a combination of high-performance storage on Ultra or Premium solid-state disks (SSDs), file storage on NetApp or Azure Files, and standard blob, archive, and backup storage that can be locally redundant or geo-redundant.
    
 1. Azure Blob storage is a common landing zone for external data sources.
    
@@ -77,7 +73,9 @@ The next diagram shows how Azure services can provide similar functionality and 
   
 - [Azure Bastion](/azure/bastion/bastion-overview) is a fully managed PaaS that you provision inside your virtual network. Bastion provides secure and seamless RDP and SSH connectivity to the VMs in your virtual network directly from the Azure portal over TLS.
   
-- [Azure Load Balancer](/azure/load-balancer/load-balancer-overview) distributes inbound flows from the load balancer's front end to backend pool instances, according to configured load balancing rules and health probes. The backend pool instances can be Azure VMs or instances in a virtual machine scale set. Load Balancer is the single point of contact for clients. Load Balancer operates at layer four of the Open Systems Interconnection (OSI) model. Both level 7 application level and level 4 network protocol level load balancers are available. The type to use depends on how the application input reaches the compute cluster's entry point.
+- [Azure Load Balancer](/azure/load-balancer/load-balancer-overview) distributes inbound flows from the load balancer's front end to backend pool instances, according to configured load-balancing rules and health probes. The backend pool instances can be Azure VMs or instances in a virtual machine scale set. Load Balancer is the single point of contact for clients.
+  
+  Load Balancer operates at layer 4 of the Open Systems Interconnection (OSI) model. Both level 7 application level and level 4 network protocol level load balancers are available. The type to use depends on how the application input reaches the compute cluster's entry point.
   
 - [Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines/) are on-demand, scalable computing resources that give you the flexibility of virtualization without having to buy and maintain physical hardware. Azure VMs give you a choice of operating systems, including Windows and Linux.
   
@@ -107,17 +105,17 @@ The next diagram shows how Azure services can provide similar functionality and 
   
 - [Azure Stream Analytics](https://azure.microsoft.comservices/stream-analytics/) is an Azure-based analytics service for streaming data.
   
-- [Azure Databricks](https://azure.microsoft.com/services/databricks/) is an Azure Apache Spark PaaS service for Big Data analytics.
+- [Azure Databricks](https://azure.microsoft.com/services/databricks/) is an Apache Spark PaaS service for Big Data analytics.
 
 ## Considerations
 
 The following considerations apply to this architecture:
 
 ### Availability
-- This architecture uses [Azure Site Recovery](https://azure.microsoft.com/services/site-recovery/) to mirror Azure VMs to a secondary Azure region for quick failover and DR in case of Azure datacenter failure.
+This architecture uses [Azure Site Recovery](https://azure.microsoft.com/services/site-recovery/) to mirror Azure VMs to a secondary Azure region for quick failover and DR if an Azure datacenter fails.
 
 ### Resiliency
-Resiliency is built into this solution because of the Load Balancers. If one presentation or transaction server fails, other servers behind the Load Balancer can run the workload.
+Resiliency is built into this solution because of the Load Balancers. If one presentation or transaction server fails, other servers behind the Load Balancer can run workloads.
 
 ### Scalability
 You can scale out the server sets to provide more throughput. For more information, see [Virtual machine scale sets](/azure/virtual-machine-scale-sets/overview).
@@ -128,7 +126,7 @@ You can scale out the server sets to provide more throughput. For more informati
 
 - [Private Link for Azure SQL Database](/azure/azure-sql/database/private-endpoint-overview) provides a private, direct connection isolated to the Azure networking backbone from the Azure VMs to Azure SQL Database.
 
-[Azure Bastion](/azure/bastion/bastion-overview) maximizes admin access security by minimizing open ports. Bastion provides secure and seamless secure RDP and SSH connectivity over TLS from the Azure portal to VMs in the virtual network.
+- [Azure Bastion](/azure/bastion/bastion-overview) maximizes admin access security by minimizing open ports. Bastion provides secure and seamless secure RDP and SSH connectivity over TLS from the Azure portal to VMs in the virtual network.
 
 ### Pricing
 - Azure SQL Database should use [Hyperscale or Business Critical](/azure/azure-sql/database/service-tiers-general-purpose-business-critical) SQL Database tiers for high input/output operations per second (IOPS) and high uptime SLA.
