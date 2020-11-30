@@ -2,7 +2,7 @@
 title: Choosing a search data store
 description: 
 author: zoinerTejada
-ms.date: 02/12/2018
+ms.date: 11/30/2020
 ms.topic: guide
 ms.service: architecture-center
 ms.subservice: cloud-fundamentals
@@ -20,7 +20,7 @@ This article compares technology choices for search data stores in Azure. A sear
 
 In Azure, all of the following data stores will meet the core requirements for search against free-form text data by providing a search index:
 
-- [Azure Search](/azure/search/search-what-is-azure-search)
+- [Azure Cognitive Search](/azure/search/search-what-is-azure-search)
 - [Elasticsearch](https://azuremarketplace.microsoft.com/marketplace/apps/elastic.elasticsearch?tab=Overview)
 - [HDInsight with Solr](/azure/hdinsight/hdinsight-hadoop-solr-install-linux)
 - [Azure SQL Database with full text search](/sql/relational-databases/search/full-text-search)
@@ -47,23 +47,23 @@ The following tables summarize the key differences in capabilities.
 
 ### General capabilities
 
-| Capability | Azure Search | Elasticsearch | HDInsight with Solr | SQL Database |
+| Capability | Cognitive Search | Elasticsearch | HDInsight with Solr | SQL Database |
 | --- | --- | --- | --- | --- |
 | Is managed service | Yes | No | Yes | Yes |  
 | REST API | Yes | Yes | Yes | No |
-| Programmability | .NET | Java | Java | T-SQL |
+| Programmability | .NET, Java, Python, JavaScript | Java | Java | T-SQL |
 | Document indexers for common file types (PDF, DOCX, TXT, and so on) | Yes | No | Yes | No |
 
 ### Manageability capabilities
 
-| Capability | Azure Search | Elasticsearch | HDInsight with Solr | SQL Database |
+| Capability | Cognitive Search | Elasticsearch | HDInsight with Solr | SQL Database |
 | --- | --- | --- | --- | --- |
-| Updateable schema | No | Yes | Yes | Yes |
+| Updateable schema | Yes | Yes | Yes | Yes |
 | Supports scale out  | Yes | Yes | Yes | No |
 
 ### Analytic workload capabilities
 
-| Capability | Azure Search | Elasticsearch | HDInsight with Solr | SQL Database |
+| Capability | Cognitive Search | Elasticsearch | HDInsight with Solr | SQL Database |
 | --- | --- | --- | --- | --- |
 | Supports analytics beyond full text search | No | Yes | Yes | Yes |
 | Part of a log analytics stack | No | Yes (ELK) |  No | No |
@@ -71,12 +71,12 @@ The following tables summarize the key differences in capabilities.
 
 ### Security capabilities
 
-| Capability | Azure Search | Elasticsearch | HDInsight with Solr | SQL Database |
+| Capability | Cognitive Search | Elasticsearch | HDInsight with Solr | SQL Database |
 | --- | --- | --- | --- | --- |
 | Row-level security | Partial (requires application query to filter by group id) | Partial (requires application query to filter by group id) | Yes | Yes |
 | Transparent data encryption | No | No | No | Yes |  
-| Restrict access to specific IP addresses | No | Yes | Yes | Yes |
-| Restrict access to allow virtual network access only | No | Yes | Yes | Yes |  
+| Restrict access to specific IP addresses | Yes | Yes | Yes | Yes |
+| Restrict access to allow virtual network access only | Yes | Yes | Yes | Yes |  
 | Active Directory authentication (integrated authentication) | No | No | No | Yes |
 
 ## See also
