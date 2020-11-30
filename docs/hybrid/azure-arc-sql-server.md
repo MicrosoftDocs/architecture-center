@@ -157,7 +157,7 @@ The [Microsoft Azure Well-Architected Framework][azure-well-architected-framerwo
 > To enhance the security of data in transit to Azure, you should [configure servers hosting the SQL Server instances to use Transport Layer Security (TLS) 1.2][server-configure-tls-12].
 
 [architectural-diagram]: images/azure_arc_sql_srvr.png
-[architectural-diagram-visio-source]: diagrams/azure_arc_sql_srvr.vsdx
+[architectural-diagram-visio-source]: https://archcenter.blob.core.windows.net/cdn/azure_arc_sql_srvr.vsdx
 [azure-well-architected-framerwork]: https://docs.microsoft.com/azure/architecture/framework/
 [sql-server]: https://docs.microsoft.com/sql/sql-server/
 [azure-arc]: https://docs.microsoft.com/azure/azure-arc/overview
@@ -179,7 +179,7 @@ The [Microsoft Azure Well-Architected Framework][azure-well-architected-framerwo
 [azure-backup]: https://docs.microsoft.com/azure/backup/backup-overview
 [azure-premier-support]: https://azure.microsoft.com/support/plans/premier/
 [azure-monitor-for-vms]: https://docs.microsoft.com/azure/azure-monitor/insights/vminsights-enable-policy
-[connect-sql-server-to-azure-arc]: https://docs.microsoft.com/en-us/sql/sql-server/azure-arc/connect?view=sql-server-ver15#generate-a-registration-script-for-sql-server
+[connect-sql-server-to-azure-arc]: https://docs.microsoft.com/sql/sql-server/azure-arc/connect?view=sql-server-ver15#generate-a-registration-script-for-sql-server
 [connect-sql-server-to-azure-arc-at-scale]: https://docs.microsoft.com/sql/sql-server/azure-arc/connect-at-scale?view=sql-server-ver15
 [azure-arc-sql-assess-prereqs]: https://docs.microsoft.com/sql/sql-server/azure-arc/assess?view=sql-server-ver15#prerequisites
 [azure-arc-sql-assess]: https://docs.microsoft.com/sql/sql-server/azure-arc/assess?view=sql-server-ver15
