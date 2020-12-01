@@ -6,7 +6,8 @@ ms.date: 11/29/2020
 ms.topic: reference-architecture
 ms.service: architecture-center
 ms.category:
-  - category
+  - hybrid
+  - management-and-governance
 ms.custom: fcp
 ---
 
