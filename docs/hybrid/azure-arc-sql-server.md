@@ -7,6 +7,7 @@ ms.topic: reference-architecture
 ms.service: architecture-center
 ms.category:
   - hybrid
+  - databases
 ms.custom: fcp
 ---
 
