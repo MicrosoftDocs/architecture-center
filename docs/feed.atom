@@ -2,11 +2,51 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id/>
     <title>the Azure Architecture Center</title>
-    <updated>2020-11-22T21:04:41.890Z</updated>
+    <updated>2020-12-01T01:57:40.253Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <subtitle>Updated articles for the Azure Architecture Center</subtitle>
     <category term="new"/>
     <category term="updated"/>
+    <entry>
+        <title type="html"><![CDATA[Use Azure Stack HCI stretched clusters for disaster recovery]]></title>
+        <id>/azure/architecture/hybrid/azure-stack-hci-dr</id>
+        <link href="/azure/architecture/hybrid/azure-stack-hci-dr"/>
+        <updated>2020-11-30T21:18:15.000Z</updated>
+        <summary type="html"><![CDATA[Disaster recovery with lossless automatic failover of Azure Stack HCI virtualized workloads between two on-premises locations]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Use Azure Stack HCI switchless interconnect and lightweight quorum for Remote Office/Branch Office]]></title>
+        <id>/azure/architecture/hybrid/azure-stack-robo</id>
+        <link href="/azure/architecture/hybrid/azure-stack-robo"/>
+        <updated>2020-11-30T21:18:15.000Z</updated>
+        <summary type="html"><![CDATA[Cost-effective approach to implement highly-available virtualized and containerized workloads in Remote Office/Branch Office scenarios]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Release Engineering Application Development]]></title>
+        <id>/azure/architecture/framework/devops/release-engineering-app-dev</id>
+        <link href="/azure/architecture/framework/devops/release-engineering-app-dev"/>
+        <updated>2020-11-23T18:18:49.000Z</updated>
+        <summary type="html"><![CDATA[Release Engineering Application Development]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Release Engineering Continuous integration]]></title>
+        <id>/azure/architecture/framework/devops/release-engineering-ci</id>
+        <link href="/azure/architecture/framework/devops/release-engineering-ci"/>
+        <updated>2020-11-23T18:18:49.000Z</updated>
+        <summary type="html"><![CDATA[Release Engineering Continuous integration]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Release Engineering Rollback]]></title>
+        <id>/azure/architecture/framework/devops/release-engineering-rollback</id>
+        <link href="/azure/architecture/framework/devops/release-engineering-rollback"/>
+        <updated>2020-11-23T18:18:49.000Z</updated>
+        <summary type="html"><![CDATA[Release Engineering Rollback]]></summary>
+        <category label="new" term="new"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Project 15 from Microsoft Open Platform for Conservation and Ecological Sustainability Solutions]]></title>
         <id>/azure/architecture/solution-ideas/articles/project-15-iot-sustainability</id>
@@ -60,7 +100,7 @@
         <id>/azure/architecture/hybrid/azure-files-private</id>
         <link href="/azure/architecture/hybrid/azure-files-private"/>
         <updated>2020-11-17T17:37:43.000Z</updated>
-        <summary type="html"><![CDATA[Learn about an enterprise-level cloud file sharing solution that uses Azure Files, Azure File Sync, Azure Private DNS, and Azure Private Endpoint.]]></summary>
+        <summary type="html"><![CDATA[Learn about an enterprise-level cloud file sharing solution that uses Azure Files, Azure File Sync, Azure Private DNS, and Azure Private Endpoint.]]></summary>
         <category label="new" term="new"/>
     </entry>
     <entry>
@@ -214,6 +254,14 @@
         <updated>2020-11-16T00:05:26.000Z</updated>
         <summary type="html"><![CDATA[Learn how Gridwich converts Azure Pipelines pipeline variable group variables to Terraform variables.]]></summary>
         <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Choosing a data storage technology]]></title>
+        <id>/azure/architecture/data-guide/technology-choices/data-storage</id>
+        <link href="/azure/architecture/data-guide/technology-choices/data-storage"/>
+        <updated>2020-11-23T20:15:19.000Z</updated>
+        <summary type="html"><![CDATA[Compare big data storage technology options in Azure, including key selection criteria and a capability matrix.]]></summary>
+        <category label="updated" term="updated"/>
     </entry>
     <entry>
         <title type="html"><![CDATA[Process real-time vehicle data using IoT]]></title>
