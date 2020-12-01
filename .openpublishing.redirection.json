@@ -2019,6 +2019,10 @@
       "source_path": "docs/example-scenario/bedrock/bedrock-automated-deployments.md",
       "redirect_url": "/azure/architecture/reference-architectures/containers/aks-start-here",
       "redirect_document_id": false
-     }
+     },
+     {
+        "source_path": "docs/framework/scalability/app-design.md",
+        "redirect_url": "/azure/architecture/framework/scalability/design-apps"
+     }  
   ]
 }
