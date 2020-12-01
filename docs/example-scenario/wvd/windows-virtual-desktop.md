@@ -29,7 +29,7 @@ Most demand for enterprise virtual desktop solutions comes from:
 ## Architecture
 
 ![Diagram of a Windows Virtual Desktop service architecture.](images/windows-virtual-desktop.png)
-[Download a copy of this Visio.](https://archcenter.blob.core.windows.net/cdn/wvdatscale.vsdx)
+[Download a copy of this Visio.](https://arch-center.azureedge.net/wvdatscale.vsdx)
 
 This diagram shows a typical architectural setup for Windows Virtual Desktop.
 

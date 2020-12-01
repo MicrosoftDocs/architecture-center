@@ -6,7 +6,7 @@ author: alexbuckgit
 ms.date: 12/07/2018
 ms.topic: conceptual
 ms.service: architecture-center
-ms.subservice: cloud-fundamentals
+ms.subservice: design-pattern
 ms.custom:
   - design-pattern
 ---

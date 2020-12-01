@@ -11,6 +11,7 @@ ms.custom:
 ms.category:
   - security
   - compute
+ms.subservice: reference-architecture
 ---
 
 # Security for highly sensitive IaaS apps in Azure

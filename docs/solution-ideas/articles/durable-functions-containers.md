@@ -27,7 +27,7 @@ You don't always need full-fledged container orchestrators to provision and mana
 
 ![Durable Functions orchestration of Container Instances](../media/durable-function-aci.png)
 
-[Download a Visio file](https://archcenter.blob.core.windows.net/cdn/Durable_Func_ACI.vsdx) of this architecture.
+[Download a Visio file](https://arch-center.azureedge.net/Durable_Func_ACI.vsdx) of this architecture.
 
 1. The batch processing job is packaged into a container image stored in Azure Container Registry (ACR), ready to deploy with options like AKS, Service Fabric, or ACI.
 1. An HTTP trigger invokes the orchestrator function to orchestrate the container deployment.

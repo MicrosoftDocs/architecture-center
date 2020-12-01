@@ -22,11 +22,10 @@ Microsoft HPC Pack is a free high performance computing (HPC) solution built on 
 
 This solution shows the process for using HPC Pack to create a hybrid (on-premises and Azure) HPC environment.
 
-The links to the right provide documentation on deploying and managing the Azure products listed in the solution architecture above.
+The links below provide documentation on deploying and managing the Azure products that are included in this solution idea:
 
-[Documentation Home Page](https://technet.microsoft.com/library/cc514029\(v=ws.11\).aspx)
-
-[HPC Pack Azure Deployment Options](/azure/virtual-machines/windows/hpcpack-cluster-options)
+* [Documentation Home Page](https://technet.microsoft.com/library/cc514029\(v=ws.11\).aspx)
+* [HPC Pack Azure Deployment Options](/azure/virtual-machines/windows/hpcpack-cluster-options)
 
 ## Architecture
 

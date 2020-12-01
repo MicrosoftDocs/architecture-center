@@ -9,7 +9,7 @@ ms.service: architecture-center
 ms.category:
   - storage
   - databases
-ms.subservice: reference-architecture
+ms.subservice: guide
 ms.custom:
   - seojan19
   - guide
