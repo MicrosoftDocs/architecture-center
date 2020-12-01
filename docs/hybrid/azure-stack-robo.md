@@ -6,7 +6,8 @@ ms.date: 11/29/2020
 ms.topic: reference-architecture
 ms.service: architecture-center
 ms.category:
-  - category
+  - hybrid
+  - management-and-governance
 ms.custom: fcp
 ---
 
@@ -45,7 +46,7 @@ The architecture incorporates the following components and capabilities:
 
 The following recommendations apply for most scenarios. Follow these recommendations unless you have a specific requirement that overrides them.
 
-### Use Azure Stack HCI switchless interconnect and lightweight quorum for highly-available and cost-effective ROBO infrasturcture. 
+### Use Azure Stack HCI switchless interconnect and lightweight quorum for highly-available and cost-effective ROBO infrastructure. 
 
 In ROBO scenarios, a primary business concern is minimizing costs. Yet many ROBO workloads are of utmost criticality with very little tolerance for downtime. Azure Stack HCI offers the optimal solution by offering both resiliency and cost-effectiveness. Using Azure Stack HCI, you can leverage built-in [resiliency of Storage Spaces Direct][s2d-resiliency] and [Failover Clustering][failover-clustering] technologies to implement highly-available compute, storage, and network infrastructure for containerized and virtualized ROBO workloads. For cost-effectiveness, you can use as few as two cluster nodes with only four disks and 64 gigabytes (GB) of memory per node. To further minimize costs, you can use switchless interconnects between nodes, thereby eliminating the need for redundant switch devices. To finalize cluster configuration, you can implement [a file share witness simply by using a USB drive][usb-file-share-witness] connected to a router hosting uplinks from cluster nodes. For maximum resiliency, on a 2-node cluster you have the option of configuring Storage Spaces Direct volumes with either [nested two-way mirror, or nested mirror accelerated parity][s2d-nested-resiliency]. Unlike the traditional two-way mirroring, these options tolerate multiple simultaneous hardware failures without data loss.
 

@@ -2,7 +2,7 @@
 title: What's New in the Azure Architecture Center
 description: New and updated articles in the Azure Architecture Center
 author: doodlemania2
-ms.date: 11/22/2020
+ms.date: 11/30/2020
 ms.topic: article
 ms.service: architecture-center
 ---
@@ -21,6 +21,11 @@ New and updated articles in the Azure Architecture Center
 
 ### New Articles
 
+- [Use Azure Stack HCI stretched clusters for disaster recovery](/azure/architecture/hybrid/azure-stack-hci-dr)
+- [Use Azure Stack HCI switchless interconnect and lightweight quorum for Remote Office/Branch Office](/azure/architecture/hybrid/azure-stack-robo)
+- [Release Engineering Application Development](/azure/architecture/framework/devops/release-engineering-app-dev)
+- [Release Engineering Continuous integration](/azure/architecture/framework/devops/release-engineering-ci)
+- [Release Engineering Rollback](/azure/architecture/framework/devops/release-engineering-rollback)
 - [Project 15 from Microsoft Open Platform for Conservation and Ecological Sustainability Solutions](/azure/architecture/solution-ideas/articles/project-15-iot-sustainability)
 - [Unisys mainframe migration](/azure/architecture/reference-architectures/migration/unisys-mainframe-migration)
 - [Security logs and audits](/azure/architecture/framework/security/monitor-audit)
@@ -50,6 +55,7 @@ New and updated articles in the Azure Architecture Center
 
 ### Updated Articles
 
+- [Choosing a data storage technology](/azure/architecture/data-guide/technology-choices/data-storage)  ([#4128cc2d9](https://github.com/MicrosoftDocs/architecture-center/commit/4128cc2d9))
 - [Process real-time vehicle data using IoT](/azure/architecture/example-scenario/data/realtime-analytics-vehicle-iot)  ([#beeba69f6](https://github.com/MicrosoftDocs/architecture-center/commit/beeba69f6))
 - [Security monitoring tools in Azure](/azure/architecture/framework/security/monitor-tools)  ([#4f3a35043](https://github.com/MicrosoftDocs/architecture-center/commit/4f3a35043))
 - [Building a CI/CD pipeline for microservices on Kubernetes](/azure/architecture/microservices/ci-cd-kubernetes)  ([#c0135f775](https://github.com/MicrosoftDocs/architecture-center/commit/c0135f775))
