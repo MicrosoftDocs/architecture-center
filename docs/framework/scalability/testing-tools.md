@@ -35,7 +35,7 @@ What are your baselines and goals for:
 
 ## Caching data
 
-Caching can dramatically improve performance, scalability, and availability. The more data that you have and the larger the number of users that need to access this data, the greater the benefits of caching become. Caching typically works well with data that is immutable or that changes infrequently. Examples include reference information such as product and pricing information in an e-commerce application, or shared static resources that are costly to construct. Some or all of this data can be loaded into the cache at application startup to minimize demand on resources and to improve performance.
+Caching can dramatically improve performance, scalability, and availability. The more data that you have, the greater the benefits of caching become. Caching typically works well with data that is immutable or that changes infrequently. Examples include reference information such as product and pricing information in an e-commerce application, or shared static resources that are costly to construct. Some or all of this data can be loaded into the cache at application startup to minimize demand on resources and to improve performance.
 
 Use performance testing and usage analysis to determine whether pre-populating or on-demand loading of the cache, or a combination of both, is appropriate. The decision should be based on the volatility and usage pattern of the data. Cache utilization and performance analysis are particularly important in applications that encounter heavy loads and must be highly scalable.
 
@@ -57,26 +57,23 @@ To learn more about CDNs, see [Best practices for using content delivery network
 
 ## Benchmark testing
 
-Benchmarking is the process of simulating different workloads on your application and measuring application performance for each workload. Use performance indicators to assess whether your application is performing as expected or not. Once you measure system performance, run benchmarking tools on the VMs hosting the application to determine the performance levels that your application can achieve.
+Benchmarking is the process of simulating different workloads on your application and measuring application performance for each workload. It is the best way to figure out what resources you will need to host your application. Use performance indicators to assess whether your application is performing as expected or not. Take into consideration [VM sizes](https://docs.microsoft.com/azure/virtual-machines/premium-storage-performance#high-scale-vm-sizes) and [disk sizes](https://docs.microsoft.com/azure/virtual-machines/premium-storage-performance#premium-storage-disk-sizes). 
 
 Follow the guidelines in [Design for high performance](https://docs.microsoft.com/azure/virtual-machines/premium-storage-performance) to learn how to build high performance applications using Azure Premium Storage.
-
- Key performance indicators for benchmarking are:
-
-- **IOPS** - IOPS, or Input/output Operations Per Second, is the number of requests that your application is sending to the storage disks in one second.
-- **Throughput** - Throughput, or bandwidth is the amount of data that your application is sending to the storage disks in a specified interval.
-- **Latency** - Latency is the time it takes an application to receive a single request, send it to the storage disks and send the response to the client.
-
-To avoid performance issues due to throttling, always provision sufficient resources for your application. Take into consideration [VM sizes](https://docs.microsoft.com/azure/virtual-machines/premium-storage-performance#high-scale-vm-sizes) and [disk sizes](https://docs.microsoft.com/azure/virtual-machines/premium-storage-performance#premium-storage-disk-sizes). Benchmarking is the best way to figure out what resources you will need to host your application.
 
 See the [Optimize IOPS, throughput, and latency](https://docs.microsoft.com/azure/virtual-machines/premium-storage-performance#optimize-iops-throughput-and-latency-at-a-glance) table for guidance.
 
 ## Metrics
 
-Metrics can be aggregated using a variety of algorithms, compared to other metrics, and analyzed for trends over time. They are available for interactive analysis in the Azure portal with Azure Metrics Explorer. Metrics also can be added to an Azure dashboard for visualization in combination with other data and used for near-real time alerting.
+Metrics measure trends over time. They are available for interactive analysis in the Azure portal with Azure Metrics Explorer. Metrics also can be added to an Azure dashboard for visualization in combination with other data and used for near-real time alerting.
 
 Performance testing gives you the ability to see specific details on the processing capabilities of applications. You'll most likely want a monitoring tool that allows you to discover proactively if the issues you find through testing are appearing in both your infrastructure and applications. [Azure Monitor Metrics](https://docs.microsoft.com/azure/azure-monitor/platform/data-platform-metrics) is a feature of Azure Monitor that collects metrics from monitored resources into a time series database.
 
 With [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview), you can collect, analyze, and act on telemetry from your cloud and on-premises environments. It helps you understand how applications are performing and identifies issues affecting them and the resources they depend on.
 
 For a list of Azure metrics, see [Supported metrics with Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported).
+
+## Next steps
+
+>[!div class="nextstepaction"]
+>[Performance monitoring](https://docs.microsoft.com/azure/architecture/framework/scalability/monitoring)
