@@ -92,7 +92,7 @@ When combined with an orchestration platform designed to execute and manage micr
 Kubernetes supports pod autoscaling and cluster autoscaling. To learn more, see [Autoscaling](https://docs.microsoft.com/azure/architecture/reference-architectures/containers/aks-microservices/aks-microservices#autoscaling). A Service Fabric architecture takes a different approach to scaling for stateless and stateful services. To learn more, see [Scaling considerations](https://docs.microsoft.com/azure/architecture/reference-architectures/microservices/service-fabric#scaling-services).
 
 > [!TIP]
-> When appropriate, decomposing an application into microservices is a level of decoupling that is an architectural best practice. A microservices architecture can also bring some challenges. The design patterns in [Design patterns for microservices](https://docs.microsoft.com/en-us/azure/architecture/microservices/design/patterns) can help mitigate these challenges.
+> When appropriate, decomposing an application into microservices is a level of decoupling that is an architectural best practice. A microservices architecture can also bring some challenges. The design patterns in [Design patterns for microservices](https://docs.microsoft.com/azure/architecture/microservices/design/patterns) can help mitigate these challenges.
 
 ## Establish connection pooling
 

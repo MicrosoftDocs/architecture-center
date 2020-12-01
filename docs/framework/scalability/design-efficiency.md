@@ -35,7 +35,7 @@ To learn more about queue-based Load Leveling, see [Queue-based Load Leveling pa
 
 ## Optimize with data compression
 
-A well-known optimization best practice for scaling is to use a compression strategy to compress and bundle web pages or API responses. The idea is to shrink the data returned from a page or API back to the browser or client app. Compressing the data returned to clients optimizes network traffic and accelerates the application. .NET has built-in framework support for this technique with GZip compression. For more information, see [Response compression in ASP.NET Core](https://docs.microsoft.com/aspnet/core/performance/response-compression?view=aspnetcore-3.1).
+A well-known optimization best practice for scaling is to use a compression strategy to compress and bundle web pages or API responses. The idea is to shrink the data returned from a page or API back to the browser or client app. Compressing the data returned to clients optimizes network traffic and accelerates the application. .NET has built-in framework support for this technique with GZip compression. For more information, see [Response compression in ASP.NET Core](https://docs.microsoft.com/aspnet/core/performance/response-compression?view=aspnetcore-3.1&preserve-view=true).
 
 ## Improve scalability with session affinity
 
@@ -46,9 +46,9 @@ If an application is stateful, meaning that data or state will be stored locally
 
 ## Run background jobs to meet integration needs
 
-Many types of applications require background tasks that run independently of the user interface (UI). Examples include batch jobs, intensive processing tasks, and long-running processes such as workflows. Background jobs can be executed without requiring user interaction. The application can start the job and then continue to process interactive requests from users. To learn more, see [Background jobs](https://docs.microsoft.com/en-us/azure/architecture/best-practices/background-jobs).
+Many types of applications require background tasks that run independently of the user interface (UI). Examples include batch jobs, intensive processing tasks, and long-running processes such as workflows. Background jobs can be executed without requiring user interaction. The application can start the job and then continue to process interactive requests from users. To learn more, see [Background jobs](https://docs.microsoft.com/azure/architecture/best-practices/background-jobs).
 
-Background tasks must offer sufficient performance to ensure they do not block the application, or cause inconsistencies due to delayed operation when the system is under load. Typically, performance is improved by scaling the compute instances that host the background tasks. For a list of considerations, see [Scaling and performance considerations](https://docs.microsoft.com/en-us/azure/architecture/best-practices/background-jobs#scaling-and-performance-considerations).
+Background tasks must offer sufficient performance to ensure they do not block the application, or cause inconsistencies due to delayed operation when the system is under load. Typically, performance is improved by scaling the compute instances that host the background tasks. For a list of considerations, see [Scaling and performance considerations](https://docs.microsoft.com/azure/architecture/best-practices/background-jobs#scaling-and-performance-considerations).
 
 [Logic Apps](https://docs.microsoft.com/azure/logic-apps/logic-apps-overview) is a serverless consumption (pay-per-use) service that enables a vast set of out-of-the-box ready-to-use connectors and a long-running workflow engine to enable cloud-native integration needs quickly. Logic Apps is flexible enough for scenarios like running tasks/jobs, advanced scheduling, and triggering. Logic Apps also has advanced hosting options to allow it to run within enterprise restricted cloud environments. Logic Apps can be combined with all other Azure services to complement one another, or it can be used independently.
 
