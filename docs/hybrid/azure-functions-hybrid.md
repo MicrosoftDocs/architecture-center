@@ -61,7 +61,7 @@ You may choose to have Azure Functions run on-premises rather than in Azure; for
 You can run Azure Functions on-premises in three ways:
 
 - **[Azure Functions Core Tools][azure-functions-core-tools]**. Azure Functions Core Tools is a developer suite that typically [installs from node package manager (npm)][azure-functions-core-tools-install]. It allows developers to develop, debug, and test function apps at the command prompt on a local computer.
-- **[Azure Functions Docker container image][azure-functions-docker]**. You can use a [container image on Docker Hub][azure-functions-docker-hub] as a base image for containers that run Azure Functions on a Docker host or in Kubernetes.
+- **[Azure Functions Docker container image][azure-functions-docker]**. You can use this [container image][azure-functions-docker-hub] as a base image for containers that run Azure Functions on a Docker host or in Kubernetes.
 - **[Kubernetes][kubernetes]**. Azure Functions support [seamless event-driven scale within a Kubernetes cluster][azure-functions-kubernetes] using [Kubernetes-based Event Driven Autoscaling (KEDA)][kubernetes-keda]. To review best practices for managing [Azure Kubernetes Service][azure-kubernetes-service] clusters and [Azure arc enabled Kubernetes][azure-arc-kubernetes] clusters, review the [Run containers in a hybrid environment][reference-architecture-hybrid-containers] reference architecture.
 
 ### Network connectivity
@@ -101,7 +101,7 @@ Additionally, each virtual network in Azure should also use [virtual network pee
 - The Azure Functions Premium plan bills on instances instead of consumption. The minimum of a single instance ensures there will be at least some monthly bill even without runs. You can set a maximum instance count to control costs for workloads that may burst in size.
 
 [architectural-diagram]: ./images/azure-functions-hybrid.png
-[architectural-diagram-visio-source]: https://archcenter.blob.core.windows.net/cdn/azure-functions-hybrid.vsdx
+[architectural-diagram-visio-source]: https://arch-center.azureedge.net/azure-functions-hybrid.vsdx
 [azure-arc-kubernetes]: /azure/azure-arc/kubernetes/
 [azure-architecture-center-serverless]: ../serverless-quest/serverless-overview.md
 [azure-expressroute]: /azure/expressroute/

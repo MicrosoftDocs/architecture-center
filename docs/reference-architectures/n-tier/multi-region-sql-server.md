@@ -239,7 +239,7 @@ The following architecture uses some of the same technologies:
 [tm-routing]: /azure/traffic-manager/traffic-manager-routing-methods
 [tm-sla]: https://azure.microsoft.com/support/legal/sla/traffic-manager
 [traffic-manager]: https://azure.microsoft.com/services/traffic-manager
-[visio-download]: https://archcenter.blob.core.windows.net/cdn/vm-reference-architectures.vsdx
+[visio-download]: https://arch-center.azureedge.net/vm-reference-architectures.vsdx
 [vnet-dns]: /azure/virtual-network/manage-virtual-network#change-dns-servers
 [wsfc]: /sql/sql-server/failover-clusters/windows/windows-server-failover-clustering-wsfc-with-sql-server?view=sql-server-ver15
 [WAF-cost]: ../../framework/cost/overview.md

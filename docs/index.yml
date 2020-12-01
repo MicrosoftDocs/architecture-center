@@ -333,9 +333,6 @@ conceptualContent:
         - text: Hub-spoke topology
           itemType: architecture
           url: reference-architectures/hybrid-networking/hub-spoke.md
-        - text: Hub-spoke topology with shared services
-          itemType: architecture
-          url: reference-architectures/hybrid-networking/shared-services.md
         - text: DMZ between Azure and on-premises
           itemType: architecture
           url: ./reference-architectures/dmz/secure-vnet-dmz.md

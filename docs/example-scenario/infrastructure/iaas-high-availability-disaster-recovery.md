@@ -11,6 +11,7 @@ ms.custom:
   - example-scenario
 ms.category:
   - management-and-governance
+ms.subservice: example-scenario
 ---
 
 # High availability and disaster recovery for IaaS apps

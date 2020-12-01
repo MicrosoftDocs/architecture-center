@@ -6,7 +6,7 @@ ms.author: arsenv
 ms.date: 09/19/2019
 ms.topic: conceptual
 ms.service: architecture-center
-ms.subservice: cloud-fundamentals
+ms.subservice: best-practice
 ms.custom:
   - fcp
   - cse

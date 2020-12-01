@@ -5,7 +5,7 @@ author: doodlemania2
 ms.date: 09/01/2020
 ms.topic: conceptual
 ms.service: architecture-center
-ms.subservice: cloud-fundamentals
+ms.subservice: azure-guide
 ms.custom:
   - contperfq1
   - guide

@@ -87,6 +87,9 @@ Architecture diagrams, reference architectures, example scenarios, and solutions
 [!INCLUDE [Anomaly Detector Process](../../includes/cards/anomaly-detector-process.md)]
 [!INCLUDE [Application integration using Event Grid](../../includes/cards/application-integration-using-event-grid.md)]
 [!INCLUDE [Automated enterprise BI](../../includes/cards/enterprise-bi-adf.md)]
+[!INCLUDE [Azure Data Explorer interactive analytics](../../includes/cards/interactive-azure-data-explorer.md)]
+[!INCLUDE [Azure Data Explorer monitoring](../../includes/cards/monitor-azure-data-explorer.md)]
+[!INCLUDE [Big data analytics with Azure Data Explorer](../../includes/cards/big-data-azure-data-explorer.md)]
 [!INCLUDE [Data warehousing and analytics](../../includes/cards/data-warehouse.md)]
 [!INCLUDE [Demand Forecasting](../../includes/cards/demand-forecasting.md)]
 [!INCLUDE [Demand Forecasting + Price Optimization](../../includes/cards/demand-forecasting-price-optimization-marketing.md)]
@@ -96,6 +99,7 @@ Architecture diagrams, reference architectures, example scenarios, and solutions
 [!INCLUDE [Extend your on-premises big data investments with HDInsight](../../includes/cards/extend-your-on-premises-big-data-investments-with-hdinsight.md)]
 [!INCLUDE [Extract, transform, and load (ETL) using HDInsight](../../includes/cards/extract-transform-and-load-using-hdinsight.md)]
 [!INCLUDE [Interactive Price Analytics](../../includes/cards/interactive-price-analytics.md)]
+[!INCLUDE [IoT analytics with Azure Data Explorer](../../includes/cards/iot-azure-data-explorer.md)]
 [!INCLUDE [Mass ingestion and analysis of news feeds on Azure](../../includes/cards/newsfeed-ingestion.md)]
 [!INCLUDE [Oil and Gas Tank Level Forecasting](../../includes/cards/oil-and-gas-tank-level-forecasting.md)]
 [!INCLUDE [Partitioning in Event Hubs and Kafka](../../includes/cards/partitioning-in-event-hubs-and-kafka.md)]
@@ -201,6 +205,7 @@ Architecture diagrams, reference architectures, example scenarios, and solutions
 [!INCLUDE [Modern Data Warehouse Architecture](../../includes/cards/modern-data-warehouse.md)]
 [!INCLUDE [N-tier application with Apache Cassandra](../../includes/cards/n-tier-cassandra.md)]
 [!INCLUDE [Ops automation using Event Grid](../../includes/cards/ops-automation-using-event-grid.md)]
+[!INCLUDE [Optimize administration of SQL Server instances in on-premises and multi-cloud environments by leveraging Azure Arc](../../includes/cards/azure-arc-sql-server.md)]
 [!INCLUDE [Oracle Database Migration to Azure](../../includes/cards/reference-architecture-for-oracle-database-migration-to-azure.md)]
 [!INCLUDE [Oracle database migration: Cross-cloud connectivity](../../includes/cards/oracle-migration-cross-cloud.md)]
 [!INCLUDE [Oracle database migration: Lift and shift](../../includes/cards/oracle-migration-lift-shift.md)]
@@ -337,6 +342,7 @@ Architecture diagrams, reference architectures, example scenarios, and solutions
 [!INCLUDE [Predictive Maintenance for Industrial IoT](../../includes/cards/iot-predictive-maintenance.md)]
 [!INCLUDE [Predictive maintenance with the intelligent IoT Edge](../../includes/cards/iot-predictive-maintenance.md)]
 [!INCLUDE [Process real-time vehicle data using IoT](../../includes/cards/realtime-analytics-vehicle-iot.md)]
+[!INCLUDE [Project 15 from Microsoft Open Platform for Conservation and Ecological Sustainability Solutions](../../includes/cards/project-15-iot-sustainability.md)]
 [!INCLUDE [Retail - Buy online, pickup in store (BOPIS)](../../includes/cards/vertical-buy-online-pickup-in-store.md)]
 [!INCLUDE [Scale IoT solutions with application stamps](../../includes/cards/application-stamps.md)]
 [!INCLUDE [Secure your IoT SaaS app with the Microsoft identity platform](../../includes/cards/iot-aad.md)]
@@ -369,6 +375,8 @@ Architecture diagrams, reference architectures, example scenarios, and solutions
 [!INCLUDE [Run a highly available SharePoint Server 2016 farm in Azure](../../includes/cards/sharepoint.md)]
 [!INCLUDE [SMB disaster recovery with Azure Site Recovery](../../includes/cards/disaster-recovery-smb-azure-site-recovery.md)]
 [!INCLUDE [SMB disaster recovery with Double-Take DR](../../includes/cards/disaster-recovery-smb-double-take-dr.md)]
+[!INCLUDE [Use Azure Stack HCI stretched clusters for disaster recovery](../../includes/cards/azure-stack-hci-dr.md)]
+[!INCLUDE [Use Azure Stack HCI switchless interconnect and lightweight quorum for Remote Office/Branch Office](../../includes/cards/azure-stack-robo.md)]
 
 </ul>
 
@@ -396,6 +404,7 @@ Architecture diagrams, reference architectures, example scenarios, and solutions
 [!INCLUDE [Lift and shift to containers with AKS](../../includes/cards/migrate-existing-applications-with-aks.md)]
 [!INCLUDE [Migrate IBM mainframe applications to Azure with TmaxSoft OpenFrame](../../includes/cards/migrate-mainframe-apps-with-tmaxsoft-openframe.md)]
 [!INCLUDE [Modern Customer Support Portal](../../includes/cards/modern-customer-support-portal-powered-by-an-agile-business-process.md)]
+[!INCLUDE [Modernize mainframe & midrange data](../../includes/cards/modernize-mainframe-data-to-azure.md)]
 [!INCLUDE [Serverless Computing Solution for LOB Apps](../../includes/cards/onboarding-customers-with-a-cloud-native-serverless-architecture.md)]
 [!INCLUDE [Unlock Legacy Data with Azure Stack](../../includes/cards/unlock-legacy-data.md)]
 [!INCLUDE [Using Service Fabric to decompose applications](../../includes/cards/service-fabric-microservices.md)]
@@ -452,7 +461,6 @@ Architecture diagrams, reference architectures, example scenarios, and solutions
 [!INCLUDE [Firewall and Application Gateway for virtual networks](../../includes/cards/firewall-application-gateway.md)]
 [!INCLUDE [Hub-spoke network topology in Azure](../../includes/cards/hub-spoke.md)]
 [!INCLUDE [Hybrid Connection](../../includes/cards/hybrid-connectivity.md)]
-[!INCLUDE [Implement a hub-spoke network topology](../../includes/cards/shared-services.md)]
 [!INCLUDE [Implement a secure hybrid network](../../includes/cards/secure-vnet-dmz.md)]
 [!INCLUDE [Secure and govern workloads with network level segmentation](../../includes/cards/network-level-segmentation.md)]
 [!INCLUDE [Troubleshoot a hybrid VPN connection](../../includes/cards/troubleshoot-vpn.md)]
@@ -487,6 +495,7 @@ Architecture diagrams, reference architectures, example scenarios, and solutions
 <ul class="grid">
 
 [!INCLUDE [Archive on-premises data to cloud](../../includes/cards/backup-archive-on-premises.md)]
+[!INCLUDE [Azure enterprise cloud file share](../../includes/cards/azure-files-private.md)]
 [!INCLUDE [Back up on-premises applications and data to cloud](../../includes/cards/backup-archive-on-premises-applications.md)]
 [!INCLUDE [HIPAA and HITRUST compliant health data AI](../../includes/cards/security-compliance-blueprint-hipaa-hitrust-health-data-ai.md)]
 [!INCLUDE [HPC Media Rendering](../../includes/cards/azure-batch-rendering.md)]

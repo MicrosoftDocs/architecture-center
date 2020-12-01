@@ -37,8 +37,8 @@ There are two editions, **Enterprise** and **Basic**. Training models don't incu
 - If you deploy models to a Kubernetes Service cluster, Machine Learning adds a [surcharge](https://azure.microsoft.com/pricing/details/machine-learning-service/) on top of the Kubernetes Service compute cost. This cost can be lowered through autoscaling. 
 
 For more information, see these articles:
--	[Machine Learning pricing calculator](https://azure.microsoft.com/pricing/calculator/?service=machine-learning-service)
--	[Azure Machine Learning](https://azure.microsoft.com/pricing/details/machine-learning/)
+- [Machine Learning pricing calculator](https://azure.microsoft.com/pricing/calculator/?service=machine-learning-service)
+- [Azure Machine Learning](https://azure.microsoft.com/pricing/details/machine-learning/)
 
 #### Reference architecture
 
@@ -57,8 +57,8 @@ For more information, see these articles:
 ## Azure Cognitive services
 The billing depends on the type of service. The charges are based on the number of transactions for each type of operation specific to a service. Certain number of transactions are free. If you need additional transactions, choose from the **Standard** instances.
 For more information, see
--	[Cognitive services pricing calculator](https://azure.microsoft.com/pricing/calculator/)
--	[Cognitive services pricing](https://azure.microsoft.com/pricing/details/cognitive-services/)
+- [Cognitive services pricing calculator](https://azure.microsoft.com/pricing/calculator/)
+- [Cognitive services pricing](https://azure.microsoft.com/pricing/details/cognitive-services/)
 #### Reference architecture
 [Build an enterprise-grade conversational bot](../../reference-architectures/ai/conversational-bot.md)
 

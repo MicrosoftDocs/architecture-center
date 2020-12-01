@@ -9,7 +9,7 @@ ms.service: architecture-center
 ms.category:
   - integration
   - developer-tools
-ms.subservice: reference-architecture
+ms.subservice: guide
 ms.custom:
   - seonov19
   - guide

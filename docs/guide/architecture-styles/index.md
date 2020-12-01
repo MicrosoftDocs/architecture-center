@@ -6,7 +6,7 @@ author: doodlemania2
 ms.author: pnp
 ms.topic: conceptual
 ms.service: architecture-center
-ms.subservice: cloud-fundamentals
+ms.subservice: guide
 ms.date: 05/14/2019
 ms.custom:
   - guide

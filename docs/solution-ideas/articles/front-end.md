@@ -45,4 +45,4 @@ Data is loaded from these different data sources using several Azure components:
 
 ## Next Steps
 
-- Learn more: [https://aka.ms/learnpowerapps](https://aka.ms/learnpowerapps)
+- Learn more: [https://aka.ms/learnpowerapps](/learn/browse/?products=power-apps)
