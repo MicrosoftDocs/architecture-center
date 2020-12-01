@@ -2,7 +2,7 @@
 title: Performance testing
 description: Describes the testing considerations for performance efficiency
 author: v-aangie
-ms.date: 11/17/2020
+ms.date: 12/02/2020
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
@@ -13,9 +13,9 @@ ms.custom:
 
 # Performance testing
 
-Performance testing helps to maintain systems properly and fix defects before problems reach system users. It helps maintain the efficiency, responsiveness, scalability, and speed of applications when compared with business requirements. When done effectively, performance testing should give you the diagnostic information necessary to eliminate bottlenecks, which lead to poor performance. A bottleneck occurs when data flow is either interrupted or stops due to inefficient capacity to handle the workload.
+Performance testing helps to maintain systems properly and fix defects before problems reach system users. It helps maintain the efficiency, responsiveness, scalability, and speed of applications when compared with business requirements. When done effectively, performance testing should give you the diagnostic information necessary to eliminate bottlenecks, which lead to poor performance. A bottleneck occurs when data flow is either interrupted or stops due to insufficient capacity to handle the workload.
 
-To avoid experiencing poor performance, commit time and resources to testing system performance. Two subsets of performance testing, load testing and stress testing, can determine the upper and maximum limits, respectively, of the application's capacity. By performing these tests, you can determine the necessary infrastructure to support the anticipated workloads. 
+To avoid experiencing poor performance, commit time and resources to testing system performance. Two subsets of performance testing, load testing and stress testing, can determine the upper (close to capacity limit) and maximum (point of failure) limit, respectively, of the application's capacity. By performing these tests, you can determine the necessary infrastructure to support the anticipated workloads. 
 
 A best practice is to plan for a load buffer to accommodate random spikes without overloading the infrastructure. For example, if a normal system load is 100,000 requests per second, the infrastructure should support 100,000 requests at 80% of total capacity (i.e., 125,000 requests per second). If you anticipate that the application will continue to sustain 100,000 requests per second, and the current SKU introduces latency at 65,000 requests per second, you'll most likely need to upgrade your product to the next higher SKU. If there is a secondary region, you'll need to ensure that it also supports the higher SKU.
 
