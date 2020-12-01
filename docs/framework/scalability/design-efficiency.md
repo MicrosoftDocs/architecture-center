@@ -54,7 +54,7 @@ Background tasks must offer sufficient performance to ensure they do not block t
 
 Like all serverless services, Logic Apps doesn't require VM instances to be purchased, enabled, and scaled up and down. Instead, Logic Apps scale automatically on serverless PaaS provided instances, and a consumer only pays based on usage.
 
-## Next step
+## Next steps
 
 >[!div class="nextstepaction"]
 >[Design for scaling](https://review.docs.microsoft.com/azure/architecture/framework/scalability/design-scale)

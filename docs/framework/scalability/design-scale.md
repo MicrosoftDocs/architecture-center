@@ -6,7 +6,7 @@ ms.date: 12/01/2020
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
-ms.custom: 
+ms.custom: references_regions
 ---
 
 # Design for scaling
@@ -23,7 +23,7 @@ For more information on how to determine the upper and maximum limits of an appl
 
 Another critical component of planning for scale is to make sure the region that hosts your application supports the necessary capacity required to accommodate load increase. If you are using a multiregion architecture, make sure the secondary regions can also support the increase. A region can offer the product but may not support the predicted load increase without the necessary SKUs (Stock Keeping Units) so you need to verify this.
 
-To verify your region and available SKUs, first select the product and regions in [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=).
+To verify your region and available SKUs, first select the product and regions in [Products available by region](https://azure.microsoft.com/global-infrastructure/services/).
 
 ![Products available by region](../_images/design-scale-1a.png)
 
@@ -87,8 +87,7 @@ Each service documents its autoscale capabilities. Review [Autoscale overview](h
 > [!NOTE]
 > If your application does not have built-in ability to autoscale, or isn't configured to scale out automatically as load increases, it's possible that your application's services will fail if they become saturated with user requests. See [Azure Automation](https://docs.microsoft.com/azure/virtual-desktop/set-up-scaling-script) for possible solutions.
 
-
-## Next step
+## Next steps
 
 >[!div class="nextstepaction"]
 >[Plan for capacity](https://review.docs.microsoft.com/azure/architecture/framework/scalability/design-capacity)

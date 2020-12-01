@@ -113,7 +113,7 @@ Integrated security is a singular unified solution to protect every service that
 
 Measure your business' security requirements against the advantages and disadvantages of connection pooling. To learn more, see [Pool fragmentation](https://docs.microsoft.com/dotnet/framework/data/adonet/sql-server-connection-pooling#pool-fragmentation.)
 
-## Next step
+## Next steps
 
 >[!div class="nextstepaction"]
 >[Application efficiency](https://review.docs.microsoft.com/azure/architecture/framework/scalability/design-efficiency)
