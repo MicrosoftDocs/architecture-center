@@ -116,4 +116,4 @@ Measure your business' security requirements against the advantages and disadvan
 ## Next steps
 
 >[!div class="nextstepaction"]
->[Application efficiency](https://review.docs.microsoft.com/azure/architecture/framework/scalability/design-efficiency)
+>[Application efficiency](https://docs.microsoft.com/azure/architecture/framework/scalability/design-efficiency)
