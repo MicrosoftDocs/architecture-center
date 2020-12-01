@@ -1,17 +1,21 @@
 ---
 title: Securely managed web applications
 titleSuffix: Azure Example Scenarios
-description: Securely deploy an expense application to Azure App Service Environment.
+description: Learn about deploying secure applications using the Azure App Service Environment, the Azure Application Gateway service, and Web Application Firewall.
 author: fmustaf
 ms.date: 05/09/2019
 ms.author: faisalm
-ms.topic: example-scenario
+ms.category:
+  - security
+  - web
+ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: example-scenario
 ms.custom:
-    - fasttrack
-    - security
-    - web-apps
+  - fasttrack
+  - security
+  - web-apps
+  - example-scenario
 social_image_url: /azure/architecture/example-scenario/apps/media/ilb-ase-architecture.png
 ---
 
@@ -52,7 +56,7 @@ Data flows through the scenario as follows:
 - Azure [Application Gateway][docs-appgw] is a web traffic load balancer operating at Layer 7 that manages traffic to the web application. It offers SSL offloading, which removes additional overhead from the web servers hosting the web app to decrypt traffic again.
 - [Web Application Firewall][docs-waf] (WAF) is a feature of Application Gateway. Enabling the WAF in the Application Gateway further enhances security. The WAF uses OWASP rules to protect the web application against attacks such as cross-site scripting, session hijacks, and SQL injection.
 - [Azure SQL Database][docs-sql-database] was selected because the majority of the data in this application is relational data, with some data as documents and Blobs.
-- [Azure Networking][azure-networking] provides a variety of networking capabilities in Azure, and the networks can be peered with other virtual networks in Azure Connectivity can also be established with on-premises datacenters via Express Route or site-to-site. In this case, a [service endpoint][sql-service-endpoint] is enabled on the virtual network to ensure the data is flowing only between the Azure virtual network and the SQL Database instance.
+- [Azure Networking][azure-networking] provides a variety of networking capabilities in Azure, and the networks can be peered with other virtual networks in Azure Connectivity can also be established with on-premises datacenters via ExpressRoute or site-to-site. In this case, a [service endpoint][sql-service-endpoint] is enabled on the virtual network to ensure the data is flowing only between the Azure virtual network and the SQL Database instance.
 - [Azure DevOps][docs-azure-devops] is used to help teams collaborate during many sprints, using features of Azure DevOps that support Agile Development, and to create build and release pipelines.
 - An Azure build [VM][docs-azure-vm] was created so that the installed agent can pull down the respective build, and deploy the web app to the ASE environment.
 
@@ -73,7 +77,7 @@ There are certain considerations to be aware of when dealing with certificates o
 
 You cannot issue a CSR from the Internal Load Balancer (ILB) of an ASE. The way to handle this is to use [this procedure][create-wildcard-cert-letsencrypt].
 
-The above allows you to use proof of DNS name ownership instead of a CSR. If you own a DNS namespace, you can put in special DNS TXT record, the above service checks that the record is there, and if found, knows that you own the DNS server because you have the right record. Based on that information, it issues a certificate that is signed up to a trusted root, which you can then upload to your ILB. You don’t need to do anything with the individual certificate stores on the Web Apps because you have a trusted root SSL certificate at the ILB.
+The above allows you to use proof of DNS name ownership instead of a CSR. If you own a DNS namespace, you can put in special DNS TXT record, the above service checks that the record is there, and if found, knows that you own the DNS server because you have the right record. Based on that information, it issues a certificate that is signed up to a trusted root, which you can then upload to your ILB. You don't need to do anything with the individual certificate stores on the Web Apps because you have a trusted root SSL certificate at the ILB.
 
 Make self-signed or internally issued SSL cert work if we want to make secure calls between services running in ILB ASE
 Another [solution to consider][ase-and-internally-issued-cert] on how to make ILB ASE work with internally issued SSL certificate and how to load the internal CA to the trusted root store.
@@ -91,7 +95,7 @@ Additionally, the custom domain name used for apps and the domain name used by t
 - abcd.def.contoso.com
 - abcd.contoso.com
 
-Choose a domain for the ILB ASE that won’t have a conflict with those custom domain names. You can use something like contoso-internal.com for the domain of your ASE for the example here, because that won't conflict with custom domain names that end in .contoso.com.
+Choose a domain for the ILB ASE that won't have a conflict with those custom domain names. You can use something like contoso-internal.com for the domain of your ASE for the example here, because that won't conflict with custom domain names that end in .contoso.com.
 
 Another point to consider is regarding DNS. In order to allow applications within the ASE to communicate with each other, for instance a web application to talk to an API, you will need to have DNS configured for your virtual network holding the ASE. You can either [bring your own DNS][bring-your-own-dns] or you can use [Azure DNS private zones][private-zones]
 
@@ -107,7 +111,7 @@ Another point to consider is regarding DNS. In order to allow applications withi
 - Review best practices for [cloud apps autoscale][design-best-practice-cloud-apps-autoscale].
 - When building a cloud application, be aware of the [typical design patterns for scalability][design-patterns-scalability].
 - Review the scalability considerations in the appropriate [App Service web application reference architecture][app-service-reference-architecture].
-- For other scalability topics, see the [scalability checklist][scalability] available in the Azure Architecture Center.
+- For other scalability topics, see the [performance efficiency checklist][scalability] available in the Azure Architecture Center.
 
 ### Security
 
@@ -146,9 +150,9 @@ We have provided three sample cost profiles based on amount of traffic you expec
 <!-- links -->
 
 [intro-to-app-svc-env]: /azure/app-service/environment/intro
-[create-wildcard-cert-letsencrypt]: https://blogs.msdn.microsoft.com/mihansen/2018/03/15/creating-wildcard-ssl-certificates-with-lets-encrypt/
-[ase-and-internally-issued-cert]: https://www.patrickob.com/2018/11/10/adding-ca-certs-to-the-trusted-root-store-for-web-apps-hosted-in-an-ase/
-[isolated-tier-pricing-and-ase-pricing]: https://azure.microsoft.com/pricing/details/app-service/windows/
+[create-wildcard-cert-letsencrypt]: /archive/blogs/mihansen/creating-wildcard-ssl-certificates-with-lets-encrypt
+[ase-and-internally-issued-cert]: https://www.patrickob.com/2018/11/10/adding-ca-certs-to-the-trusted-root-store-for-web-apps-hosted-in-an-ase
+[isolated-tier-pricing-and-ase-pricing]: https://azure.microsoft.com/pricing/details/app-service/windows
 [bring-your-own-dns]: /azure/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances#specify-dns-servers
 [private-zones]: /azure/dns/private-dns-overview
 [create-ilb-ase]: /azure/app-service/environment/create-ilb-ase
@@ -160,39 +164,34 @@ We have provided three sample cost profiles based on amount of traffic you expec
 [medium-pricing]: https://azure.com/e/c280777e16bd4fd5bc9c23f3b8caf91f
 [large-pricing]: https://azure.com/e/294d5b09fa064ced87d6422826f2a0fc
 [app-service-reference-architecture]: ../../reference-architectures/app-service-web-app/basic-web-app.md
-[availability]: /azure/architecture/patterns/category/availability
+[availability]: ../../patterns/category/availability.md
 
-[design-patterns-availability]: /azure/architecture/patterns/category/availability
-[design-patterns-resiliency]: /azure/architecture/patterns/category/resiliency
-[design-patterns-scalability]: /azure/architecture/patterns/category/performance-scalability
-[design-patterns-security]: /azure/architecture/patterns/category/security
+[design-patterns-availability]: ../../patterns/category/availability.md
+[design-patterns-resiliency]: ../../patterns/category/resiliency.md
+[design-patterns-scalability]: ../../patterns/category/performance-scalability.md
+[design-patterns-security]: ../../patterns/category/security.md
 [design-geo-distributed-ase]: /azure/app-service/environment/app-service-app-service-environment-geo-distributed-scale
-[design-best-practice-cloud-apps-autoscale]: /azure/architecture/best-practices/auto-scaling
+[design-best-practice-cloud-apps-autoscale]: ../../best-practices/auto-scaling.md
 
-[docs-b2c]: /azure/active-directory-b2c/active-directory-b2c-overview
 [docs-sql-database]: /azure/sql-database/sql-database-technical-overview
-[docs-storage-blobs]: /azure/storage/blobs/storage-blobs-introduction
-[docs-storage-queues]: /azure/storage/queues/storage-queues-introduction
-[docs-traffic-manager]: /azure/traffic-manager/traffic-manager-overview
 [docs-webapps]: /azure/app-service/app-service-web-overview
 [docs-apiapps]: /azure/app-service/app-service-web-tutorial-rest-api
 [docs-appgw]: /azure/application-gateway/overview
 [docs-waf]: /azure/application-gateway/waf-overview
-[docs-networking]: /azure/networking/networking-overview
 [docs-azure-devops]: /azure/devops/?view=vsts
 [docs-azure-vm]: /azure/virtual-machines/windows/overview
 [docs-azure-scale-ase]: /azure/app-service/environment/intro
-[docs-service-fabric]: /azure/service-fabric/
-[docs-kubernetes-service]: /azure/aks/
+[docs-service-fabric]: /azure/service-fabric
+[docs-kubernetes-service]: /azure/aks
 [Azure Networking]: /azure/networking/networking-overview
 
 [end-to-end-walkthrough]: https://github.com/Azure/fta-internalbusinessapps/blob/master/appmodernization/app-service-environment/ase-walkthrough.md
 [use-app-svc-web-apps-with-appgw]: https://github.com/Azure/fta-internalbusinessapps/blob/webapp-appgateway/appmodernization/app-service/articles/app-gateway-web-apps.md
 [integrate-ilb-ase-with-appgw]: /azure/app-service/environment/integrate-with-application-gateway
 [pci-dss-blueprint]: /azure/security/blueprints/payment-processing-blueprint
-[resiliency-app-service]: /azure/architecture/checklist/resiliency-per-service#app-service
-[resiliency]: /azure/architecture/framework/resiliency/overview
-[scalability]: /azure/architecture/checklist/scalability
+[resiliency-app-service]: ../../checklist/resiliency-per-service.md#app-service
+[resiliency]: ../../framework/resiliency/overview.md
+[scalability]: ../../framework/scalability/performance-efficiency.md
 [secure-development]: https://www.microsoft.com/SDL/process/design.aspx
 [sql-geo-replication]: /azure/sql-database/sql-database-geo-replication-overview
 [storage-geo-redudancy]: /azure/storage/common/storage-redundancy-grs

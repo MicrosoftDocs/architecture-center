@@ -4,18 +4,20 @@ titleSuffix: Azure Design Review Framework
 description: Cost checklist guidance for design concerns
 author: david-stanford
 ms.date: 10/10/2019
-ms.topic: checklist
+ms.topic: conceptual
 ms.service: architecture-center
-ms.subservice: cloud-design-principles
-ms.custom: checklist
+ms.subservice: well-architected
+ms.custom:
+  - checklist
 ---
+
 # Cost checklist
 
 ## Organization
 
 - Plan your hierarchy around management groups, subscriptions, and resource groups. Mapping your organization to your Azure hierarchy will help with reporting costs across business units, applications, IT infrastructure shared services, etc.
 
-- Leverage subscription types that offer lower rates for Azure resources, such as Dev/Test subscriptions.
+- Use subscription types that offer lower rates for Azure resources, such as Dev/Test subscriptions.
 
 - Plan a tagging strategy early in the planning process. It's important to know that tags are not inherited by resources from their parent resource group. Consider tagging single resources to create custom reporting groups where needed.
 
@@ -49,7 +51,7 @@ ms.custom: checklist
 
 ## Provisioning
 
-- Leverage Hybrid Use Benefit where possible on VM images Windows Server and/or SQL Server software.
+- Use Hybrid Use Benefit where possible on VM images Windows Server and/or SQL Server software.
 
 - Provision resources starting on the smaller tier and scale up/out as needed. For example, start with a smaller managed disk and scale up as needed. Some resources, such as managed disks or ExpressRoute circuits charge for allocated capacity and not consumption. Resources in Azure generally allow for scaling up/out with little to no downtime. Scaling down or in may involve downtime or redeployment.
 
@@ -59,9 +61,9 @@ ms.custom: checklist
 
 ## Optimization
 
-- Leverage reserved instances for commonly use VM families and regions. Consider purchasing reserved instances for VM families that will likely have an uptime of 24/7.
+- Use reserved instances for commonly use VM families and regions. Consider purchasing reserved instances for VM families that will likely have an uptime of 24/7.
 
-- Leverage tooling in Azure that provides recommendations on usage or cost optimization. For example, Azure Advisor or Azure cost analysis.
+- Use tooling in Azure that provides recommendations on usage or cost optimization. For example, Azure Advisor or Azure cost analysis.
 
 - Consider using custom scripts or Azure APIs to find and delete orphaned resources not flagged by native tools like Azure Advisor.
 

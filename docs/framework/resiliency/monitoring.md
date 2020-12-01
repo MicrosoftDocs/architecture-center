@@ -3,10 +3,12 @@ title: Monitoring application health for reliability in Azure
 description: How to use monitoring to improve application reliability in Azure
 author: david-stanford
 ms.date: 10/16/2019
-ms.topic: article
+ms.topic: conceptual
 ms.service: architecture-center
-ms.subservice: cloud-design-principles
-ms.custom: How are you ensuring failures are resolved quickly? 
+ms.subservice: well-architected
+ms.custom:
+  - How are you ensuring failures are resolved quickly?
+  - article
 ---
 
 # Monitoring application health for reliability in Azure
@@ -38,7 +40,7 @@ Long-running workflows often include multiple steps, each of which should be ind
 Track the progress of long-running processes to minimize the likelihood that the entire workflow will need to be rolled back or that multiple compensating transactions will need to be executed.
 
 >[!TIP]
-> Monitor and manage the progress of long-running workflows by implementing a pattern such as [Scheduler Agent Supervisor](/azure/architecture/patterns/scheduler-agent-supervisor).
+> Monitor and manage the progress of long-running workflows by implementing a pattern such as [Scheduler Agent Supervisor](../../patterns/scheduler-agent-supervisor.md).
 
 ## Visualization and alerts
 
@@ -46,7 +48,12 @@ Present telemetry data in a format that makes it easy for an operator to notice 
 
 Get a full-stack view of application state by using [Azure dashboards](/azure/azure-portal/azure-portal-dashboards) to create a consolidated view of monitoring graphs from Application Insights, Log Analytics, Azure Monitor metrics, and Service Health. And use [Azure Monitor alerts](/azure/azure-monitor/platform/alerts-overview) to create notifications on Service Health, resource health, Azure Monitor metrics, logs in Log Analytics, and Application Insights.
 
-For more information about monitoring and diagnostics, see [Monitoring and diagnostics](/azure/architecture/best-practices/monitoring).
+For more information about monitoring and diagnostics, see [Monitoring and diagnostics](../../best-practices/monitoring.md).
+
+:::image type="icon" source="../../_images/github.png" border="false"::: Here are some samples about creating and querying alerts:
+
+- [HealthAlert](https://github.com/mspnp/samples/tree/master/Reliability/HealthAlerts). A sample about creating resource-level health activity log alerts. The sample uses Azure Resource Manager to create alerts.
+- [GraphAlertsPsSample](https://github.com/mspnp/samples/tree/master/Reliability/GraphAlertsPsSample). A set of PowerShell commands that queries for alerts generated against your subscription.
 
 ## Test Monitoring
 
@@ -58,6 +65,10 @@ Azure subscriptions have limits on certain resource types, such as number of res
 
 Address the following subscription limits with alerts.
 
+:::image type="icon" source="../../_images/github.png" border="false"::: A reference implementation is available on [GitHub](https://github.com/mspnp/serverless-automation/blob/master/src/automation/throttling-responder/deployment.md).
+
+For information about that implementation, see [Event-based cloud automation on Azure](../../reference-architectures/serverless/cloud-automation.md).
+
 ### Individual services
 
 Individual Azure services have consumption limits on storage, throughput, number of connections, requests per second, and other metrics. Your application will fail if it attempts to use resources beyond these limits, resulting in service throttling and possible downtime.
@@ -68,7 +79,7 @@ Depending on the specific service and your application requirements, you can oft
 
 Azure allows a maximum number of storage accounts per subscription. If your application requires more storage accounts than are currently available in your subscription, create a new subscription with additional storage accounts. For more information, see [Azure subscription and service limits, quotas, and constraints](/azure/azure-subscription-service-limits/#storage-limits).
 
-If you exceed Azure storage scalability and performance targets, your application will experience storage throttling. For more information, see [Azure Storage scalability and performance targets](/azure/storage/storage-scalability-targets/).
+If you exceed Azure storage scalability and performance targets, your application will experience storage throttling. For more information, see [Azure Storage scalability and performance targets](/azure/storage/storage-scalability-targets).
 
 ### Scalability targets for virtual machine disks
 
@@ -76,13 +87,18 @@ An Azure infrastructure as a service (IaaS) VM supports attaching a number of da
 
 ### VM size
 
-If the actual CPU, memory, disk, and I/O of your VMs approach the limits of the VM size, your application may experience capacity issues. To correct the issues, increase the VM size. VM sizes are described in [Sizes for virtual machines in Azure](/azure/virtual-machines/virtual-machines-windows-sizes/?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+If the actual CPU, memory, disk, and I/O of your VMs approach the limits of the VM size, your application may experience capacity issues. To correct the issues, increase the VM size. VM sizes are described in [Sizes for virtual machines in Azure](/azure/virtual-machines/sizes).
 
-If your workload fluctuates over time, consider using virtual machine scale sets to automatically scale the number of VM instances. Otherwise, you need to manually increase or decrease the number of VMs. For more information, see the [virtual machine scale sets overview](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-overview/).
+If your workload fluctuates over time, consider using virtual machine scale sets to automatically scale the number of VM instances. Otherwise, you need to manually increase or decrease the number of VMs. For more information, see the [virtual machine scale sets overview](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-overview).
 
 ### Azure SQL Database
 
-If your Azure SQL Database tier isn't adequate to handle your application's Database Transaction Unit (DTU) requirements, your data use will be throttled. For more information on selecting the correct service plan, see [Azure SQL Database purchasing models](/azure/sql-database/sql-database-service-tiers/).
+If your Azure SQL Database tier isn't adequate to handle your application's Database Transaction Unit (DTU) requirements, your data use will be throttled. For more information on selecting the correct service plan, see [Azure SQL Database purchasing models](/azure/sql-database/sql-database-service-tiers).
+
+Sample:
+
+This [reference implementation](https://github.com/mspnp/serverless-automation/blob/master/src/automation/throttling-responder/deployment.md) monitors a Cosmos DB database for throttling. Azure Monitor alerts are triggered when data access requests to Cosmos DB exceed the capacity in Request Units (or RUs). For more context, see the [Reference Architecture](../../reference-architectures/serverless/cloud-automation.md) (Throttling response scenario)
+
 
 ## Instrumentation
 
@@ -122,6 +138,9 @@ The health and performance of an application can degrade over time, and degradat
 Implement probes or check functions, and run them regularly from outside the application. These checks can be as simple as measuring response time for the application as a whole, for individual parts of the application, for specific services that the application uses, or for separate components.
 
 Check functions can run processes to ensure that they produce valid results, measure latency and check availability, and extract information from the system.
+
+:::image type="icon" source="../../_images/github.png" border="false"::: The [HealthProbesSample](https://github.com/mspnp/samples/tree/master/Reliability/HealthProbesSample) sample shows how to set up health probes. It provides an ARM template to set up the infrastructure. A load balancer accepts public requests and load balance to a set of virtual machines. The health probe is set up so that it can check for service's path /Health.
+
 
 ## Application logs
 

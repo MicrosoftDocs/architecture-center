@@ -1,12 +1,18 @@
 ---
 title: N-tier application with Apache Cassandra
 description: Run Linux virtual machines for an N-tier architecture with Apache Cassandra in Microsoft Azure.
-author: MikeWasson
+author: doodlemania2
 ms.date: 08/21/2019
-ms.topic: reference-architecture
+ms.topic: conceptual
 ms.service: architecture-center
+ms.category:
+  - databases
+  - web
+  - management-and-governance
 ms.subservice: reference-architecture
-ms.custom: seodec18
+ms.custom:
+  - seodec18
+  - reference-architecture
 ---
 
 # Linux N-tier application in Azure with Apache Cassandra
@@ -33,7 +39,7 @@ The architecture has the following components.
 
 - **Application gateway**. [Application Gateway](/azure/application-gateway/) is a layer 7 load balancer. In this architecture, it routes HTTP requests to the web front end. Application Gateway also provides a [web application firewall](/azure/application-gateway/waf-overview) (WAF) that protects the application from common exploits and vulnerabilities.
 
-- **Load balancers**. Use [Azure Standard Load Balancer][load-balancer] to distribute network traffic from the web tier to the business tier, and from the business tier to SQL Server.
+- **Load balancers**. Use [Azure Standard Load Balancer][load-balancer] to distribute network traffic from the web tier to the business tier.
 
 - **Network security groups** (NSGs). Use [NSGs][nsg] to restrict network traffic within the virtual network. For example, in the three-tier architecture shown here, the database tier does not accept traffic from the web front end, only from the business tier and the management subnet.
 
@@ -144,7 +150,7 @@ Not all regions support availability zones, and not all VM sizes are supported i
 
 ```bash
 az vm list-skus --resource-type virtualMachines --zone false --location <location> \
-    --query "[].{Name:name, Zones:locationInfo[].zones[] | join(','@)}" -o table  
+    --query "[].{Name:name, Zones:locationInfo[].zones[] | join(','@)}" -o table
 ```
 
 If you deploy this architecture to a region that does not support availability zones, put the VMs for each tier inside an *availability set*. VMs within the same availability are deployed across multiple physical servers, compute racks, storage units, and network switches for redundancy. Scale sets automatically use *placement groups*, which act as an implicit availability set.
@@ -181,7 +187,7 @@ For considerations about designing a health probe endpoint, see [Health Endpoint
 
 ## Cost considerations
 
-Use the [Azure Pricing Calculator][Cost-Calculator] to estimates costs. Here are some other considerations.
+Use the [Azure Pricing Calculator][azure-pricing-calculator] to estimates costs. Here are some other considerations.
 
 ### Virtual machine scale sets
 
@@ -194,7 +200,7 @@ For single VMs pricing options See [Linux VMs pricing][Linux-vm-pricing].
 
 You are charged only for the number of configured load-balancing and outbound rules. Inbound NAT rules are free. There is no hourly charge for the Standard Load Balancer when no rules are configured.
 
-For more information, see the cost section in [Azure Architecture Framework][AAF-cost].
+For more information, see the cost section in [Microsoft Azure Well-Architected Framework][WAF-cost].
 
 
 ## Security considerations
@@ -233,30 +239,52 @@ To deploy the Linux VMs for an N-tier application reference architecture, follow
    azbb -s <your subscription_id> -g <your resource_group_name> -l <azure region> -p n-tier-linux.json --deploy
    ```
 
+## DevOps considerations
+
+In this architecture you use an [Azure Building Blocks template][azbb-template] for provisioning the Azure resources and its dependencies. Since all the main resources and their dependencies are in the same virtual network, they are isolated in the same basic workload, that makes it easier to associate the workload's specific resources to a DevOps team, so that the team can independently manage all aspects of those resources. This isolation enables DevOps Teams and Services to perform continuous integration and continuous delivery (CI/CD).
+
+Also, you can use different deployment templates and integrate them with [Azure DevOps Services][az-devops] to provision different environments in minutes, for example to replicate production like scenarios or load testing environments only when needed, saving cost.
+
+In this sceanario you virtual machines are configured by using Virtual Machine Extensions, since they offer the possibility of installing certain additional software, such as Apache Cassandra. In particular, the Custom Script Extension allows the download and execution of arbitrary code on a Virtual Machine, allowing unlimited customization of the Operating System of an Azure VM. VM Extensions are installed and executed only at VM creation time. That means if the Operating System gets configured incorrectly at a later stage, it will require a manual intervention to move it back to its correct state. Configuration Management Tools can be used to address this issue.
+
+Consider using the [Azure Monitor][azure-monitor] to Analyze and optimize the performance of your infrastructure, Monitor and diagnose networking issues without logging into your virtual machines. Application Insights is actually one of the components of Azure Monitor, which gives you rich metrics and logs to verify the state of your complete Azure landscape. Azure Monitor will help you to follow the state of your infrastructure.
+
+Make sure not only to monitor your compute elements supporting your application code, but your data platform as well, in particular your databases, since a low performance of the data tier of an application could have serious consequences.
+
+In order to test the Azure environment where the applications are running, it should be version-controlled and deployed through the same mechanisms as application code, then it can be tested and validated using DevOps testing paradigms too.
+
+
+For more information, see the Operational Excellence section in [Microsoft Azure Well-Architecture Framework][WAF-devops].
+
 ## Next steps
 
 - [Microsoft Learn module: Tour the N-tier architecture style](/learn/modules/n-tier-architecture/)
 
 <!-- links -->
 
-[AAF-cost]: /azure/architecture/framework/cost/overview
-[app-gw-scaling]: /azure/application-gateway/
+[arm-template]: /azure/azure-resource-manager/resource-group-overview#resource-groups
+[WAF-devops]: ../../framework/devops/overview.md
+[az-devops]: /azure/virtual-machines/windows/infrastructure-automation#azure-devops-services
+[azbb-template]: https://github.com/mspnp/template-building-blocks/wiki/overview
+[WAF-cost]: ../../framework/cost/overview.md
+[app-gw-scaling]: /azure/application-gateway
 [azure-dns]: /azure/dns/dns-overview
 [azure-key-vault]: https://azure.microsoft.com/services/key-vault
+[azure-monitor]: https://azure.microsoft.com/services/monitor/
 [bastion host]: https://en.wikipedia.org/wiki/Bastion_host
-[cassandra-in-azure]: https://academy.datastax.com/resources/deployment-guide-azure
+[cassandra-in-azure]: https://downloads.datastax.com/#enterprise
 [cassandra-consistency]: https://docs.datastax.com/en/cassandra/2.0/cassandra/dml/dml_config_consistency_c.html
-[cassandra-replication]: https://academy.datastax.com/planet-cassandra/data-replication-in-nosql-databases-explained
+[cassandra-replication]: http://highscalability.com/blog/2012/7/9/data-replication-in-nosql-databases.html
 [cassandra-consistency-usage]: https://medium.com/@foundev/cassandra-how-many-nodes-are-talked-to-with-quorum-also-should-i-use-it-98074e75d7d5#.b4pb4alb2
 [cidr]: https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing
-[Cost-Calculator]: https://azure.microsoft.com/pricing/calculator/
+[azure-pricing-calculator]: https://azure.microsoft.com/pricing/calculator
 [datastax]: https://www.datastax.com/products/datastax-enterprise
-[ddos-best-practices]: /azure/security/azure-ddos-best-practices
+[ddos-best-practices]: /azure/security/fundamentals/ddos-best-practices
 [ddos]: /azure/virtual-network/ddos-protection-overview
 [dmz]: ../dmz/secure-vnet-dmz.md
 [github-folder]: https://github.com/mspnp/reference-architectures/tree/master/virtual-machines/n-tier-linux
-[Linux-vm-pricing]: https://azure.microsoft.com/pricing/details/virtual-machines/linux/
-[load-balancer-hashing]: /azure/load-balancer/concepts-limitations#load-balancer-concepts
+[Linux-vm-pricing]: https://azure.microsoft.com/pricing/details/virtual-machines/linux
+[load-balancer-hashing]: /azure/load-balancer/components#load-balancing-rules
 [load-balancer]: /azure/load-balancer/load-balancer-get-started-internet-arm-cli
 [network-security]: /azure/best-practices-network-security
 [nsg]: /azure/virtual-network/virtual-networks-nsg
@@ -265,6 +293,6 @@ To deploy the Linux VMs for an N-tier application reference architecture, follow
 [public IP address]: /azure/virtual-network/virtual-network-ip-addresses-overview-arm
 [resource-manager-overview]: /azure/azure-resource-manager/resource-group-overview
 [subscription-limits]: /azure/azure-subscription-service-limits
-[visio-download]: https://archcenter.blob.core.windows.net/cdn/vm-reference-architectures.vsdx
+[visio-download]: https://arch-center.azureedge.net/vm-reference-architectures.vsdx
 [vmss-design]: /azure/virtual-machine-scale-sets/virtual-machine-scale-sets-design-overview
 [vmss]: /azure/virtual-machine-scale-sets/virtual-machine-scale-sets-overview

@@ -1,13 +1,19 @@
 ---
 title: Enterprise business intelligence
 titleSuffix: Azure Reference Architectures
-description: Use Azure to gain business insights from relational data stored on-premises.
-author: MikeWasson
+description: See an extract, load, and transform pipeline that moves data from an on-premises SQL Server database into Azure Synapse and transforms the data for analysis.
+author: doodlemania2
 ms.date: 11/20/2019
-ms.topic: reference-architecture
+ms.topic: conceptual
 ms.service: architecture-center
+ms.category:
+  - integration
+  - analytics
+  - databases
 ms.subservice: reference-architecture
-ms.custom: seodec18
+ms.custom:
+  - seodec18
+  - reference-architecture
 ---
 
 # Enterprise BI in Azure with Azure Synapse Analytics
@@ -90,7 +96,7 @@ Don't run AzCopy on the same machine that runs your production workloads, becaus
 
 Test the upload first to see what the upload speed is like. You can use the /NC option in AzCopy to specify the number of concurrent copy operations. Start with the default value, then experiment with this setting to tune the performance. In a low-bandwidth environment, too many concurrent operations can overwhelm the network connection and prevent the operations from completing successfully.
 
-AzCopy moves data to storage over the public internet. If this isn't fast enough, consider setting up an [ExpressRoute](/azure/expressroute/) circuit. ExpressRoute is a service that routes your data through a dedicated private connection to Azure. Another option, if your network connection is too slow, is to physically ship the data on disk to an Azure datacenter. For more information, see [Transferring data to and from Azure](/azure/architecture/data-guide/scenarios/data-transfer).
+AzCopy moves data to storage over the public internet. If this isn't fast enough, consider setting up an [ExpressRoute](/azure/expressroute/) circuit. ExpressRoute is a service that routes your data through a dedicated private connection to Azure. Another option, if your network connection is too slow, is to physically ship the data on disk to an Azure datacenter. For more information, see [Transferring data to and from Azure](../../data-guide/scenarios/data-transfer.md).
 
 During a copy operation, AzCopy creates a temporary journal file, which enables AzCopy to restart the operation if it gets interrupted (for example, due to a network error). Make sure there is enough disk space to store the journal files. You can use the /Z option to specify where the journal files are written.
 
@@ -121,7 +127,7 @@ Be aware of the following limitations:
 
 - Your source data schema might contain data types that are not supported in Azure Synapse.
 
-To work around these limitations, you can create a stored procedure that performs the necessary conversions. Reference this stored procedure when you run bcp. Alternatively, [Redgate Data Platform Studio](/azure/sql-data-warehouse/sql-data-warehouse-load-with-redgate) automatically converts data types that aren’t supported in Azure Synapse.
+To work around these limitations, you can create a stored procedure that performs the necessary conversions. Reference this stored procedure when you run bcp. Alternatively, [Redgate Data Platform Studio](/azure/sql-data-warehouse/sql-data-warehouse-load-with-redgate) automatically converts data types that aren't supported in Azure Synapse.
 
 For more information, see the following articles:
 
@@ -175,9 +181,9 @@ To reduce the amount of unnecessary processing, consider using partitions to div
 
 ## Security considerations
 
-### IP whitelisting of Analysis Services clients
+### IP allow list of Analysis Services clients
 
-Consider using the Analysis Services firewall feature to whitelist client IP addresses. If enabled, the firewall blocks all client connections other than those specified in the firewall rules. The default rules whitelist the Power BI service, but you can disable this rule if desired. For more information, see [Hardening Azure Analysis Services with the new firewall capability](https://azure.microsoft.com/blog/hardening-azure-analysis-services-with-the-new-firewall-capability/).
+Consider using the Analysis Services firewall feature to allow list client IP addresses. If enabled, the firewall blocks all client connections other than those specified in the firewall rules. The default rules allow list the Power BI service, but you can disable this rule if desired. For more information, see [Hardening Azure Analysis Services with the new firewall capability](https://azure.microsoft.com/blog/hardening-azure-analysis-services-with-the-new-firewall-capability/).
 
 ### Authorization
 
@@ -188,9 +194,65 @@ Azure Analysis Services uses Azure Active Directory (Azure AD) to authenticate u
 
 For more information, see [Manage database roles and users](/azure/analysis-services/analysis-services-database-users).
 
+## DevOps considerations
+
+- Create separate resource groups for production, development, and test environments. Separate resource groups make it easier to manage deployments, delete test deployments, and assign access rights.
+
+- Use the [Azure Building blocks][azbb] templates provided in this architecture or create [Azure Resource Manager template][arm-template] to deploy the Azure resources following the infrastructure as Code (IaC) Process. With templates,  automating deployments using [Azure DevOps Services][az-devops], or other CI/CD solutions is easier.
+
+- Put each workload in a separate deployment template and store the resources in source control systems. You can deploy the templates together or individually as part of a CI/CD process, making the automation process easier. 
+
+    In this architecture, there are three main workloads:
+    - The data warehouse server, Analysis Services, and related resources. 
+    - Azure Data Factory.
+    - An on-premises to cloud simulated scenario.
+
+    Each workload has its own deployment template.
+
+    The data warehouse server is set up and configured by using Azure CLI commands which follows the imperative approach of the IaC practice. Consider using deployment scripts and integrate them in the automation process.
+
+- Consider staging your workloads. Deploy to various stages and run validation checks at each stage before moving to the next stage. That way you can push updates to your production environments in a highly controlled way and minimize unanticipated deployment issues. Use [Blue-green deployment][blue-green-dep] and [Canary releases][cannary-releases]  strategies for updating live production environments. 
+
+    Have a good rollback strategy for handling failed deployments. For example, you can automatically redeploy an earlier, successful deployment from your deployment history. See the --rollback-on-error flag parameter in Azure CLI. 
+
+- [Azure Monitor][azure-monitor] is the recommended option for analyzing the performance of your data warehouse and the entire Azure analytics platform for an integrated monitoring experience. [Azure Synapse Analytics][synapse-analytics] provides a monitoring experience within the Azure portal to show insights to your data warehouse workload. The Azure portal is the recommended tool when monitoring your data warehouse because it provides configurable retention periods, alerts, recommendations, and customizable charts and dashboards for metrics and logs. 
+
+
+For more information, see the DevOps section in [Microsoft Azure Well-Architected Framework][AAF-devops].
+
+### Azure Synapse
+
+- Choose **Compute Optimized Gen1** for frequent scaling operations. This option is priced as pay-as-you-go, based on Data warehouse units consumption (DWU). 
+
+- Choose **Compute Optimized Gen2** for intensive workloads with higher query performance and compute scalability needs. You can choose the pay-as-you-go model or use reserved plans of one year (37% savings) or 3 years (65% savings).
+
+Data storage is charged separately. Other services such as disaster recovery and threat detection are also charged separately.
+
+For more information, see [Azure Synapse Pricing][az-synapse-pricing].
+
+### Azure Analysis Services
+
+Pricing for Azure Analysis Services depends on the tier. The reference implementation of this architecture uses the **Developer** tier, which is recommended for evaluation, development, and test scenarios. Other tiers include, the **Basic** tier, which is recommended for small production environment; the **Standard** tier for mission-critical production applications. For more information, see [The right tier when you need it](/azure/analysis-services/analysis-services-overview#the-right-tier-when-you-need-it). 
+
+No charges apply when you pause your instance.
+
+For more information, see [Azure Analysis Services pricing][az-as-pricing].
+
+### Blob Storage
+
+Consider using the Azure Storage reserved capacity feature to lower cost on storage. With this model, you get a discount if you can commit to reservation for fixed storage capacity for one or three years. For more information, see [Optimize costs for Blob storage with reserved capacity][az-storage-reserved].
+
+### Power BI Embedded
+
+Power BI Embedded is a Platform-as-a-Service (PaaS) solution that offers a set of APIs to enable the integration of Power BI content into custom apps and websites. Users who publish BI content need to be licensed with [Power BI Pro][powerbi-pro-purchase]. For information about pricing, see [Power BI Embedded pricing][powerbi-embedded-pricing].
+
+
+For more information, see the Cost section in [Microsoft Azure Well-Architected Framework][aaf-cost].
+
+
 ## Deploy the solution
 
-To the deploy and run the reference implementation, follow the steps in the [GitHub readme][github-folder]. It deploys the following:
+To the deploy and run the reference implementation, follow the steps in the [GitHub readme][github-folder]. It deploys the following resources:
 
 - A Windows VM to simulate an on-premises database server. It includes SQL Server 2017 and related tools, along with Power BI Desktop.
 - An Azure storage account that provides Blob storage to hold data exported from the SQL Server database.
@@ -205,11 +267,26 @@ To the deploy and run the reference implementation, follow the steps in the [Git
 
 You may want to review the following [Azure example scenarios](/azure/architecture/example-scenario) that demonstrate specific solutions using some of the same technologies:
 
-- [Data warehousing and analytics for sales and marketing](/azure/architecture/example-scenario/data/data-warehouse)
-- [Hybrid ETL with existing on-premises SSIS and Azure Data Factory](/azure/architecture/example-scenario/data/hybrid-etl-with-adf)
+- [Data warehousing and analytics for sales and marketing](../../example-scenario/data/data-warehouse.md)
+- [Hybrid ETL with existing on-premises SSIS and Azure Data Factory](../../example-scenario/data/hybrid-etl-with-adf.md)
 
 <!-- links -->
 
+[AAF-devops]: ../../framework/devops/overview.md
 [adf-ra]: ./enterprise-bi-adf.md
-[github-folder]: https://github.com/mspnp/reference-architectures/tree/master/data/enterprise_bi_sqldw
+[arm-template]: /azure/azure-resource-manager/resource-group-overview#resource-groups
+[az-devops]: /azure/virtual-machines/windows/infrastructure-automation#azure-devops-services
+[azbb]: https://github.com/mspnp/template-building-blocks/wiki
+[azure-monitor]: https://azure.microsoft.com/services/monitor
+[blue-green-dep]: https://martinfowler.com/bliki/BlueGreenDeployment.html
+[cannary-releases]: https://martinfowler.com/bliki/CanaryRelease.html
+[github-folder]: https://github.com/mspnp/azure-sqldw-enterprise-bi
+[synapse-analytics]: /azure/sql-data-warehouse/sql-data-warehouse-concept-resource-utilization-query-activity
 [wwi]: /sql/sample/world-wide-importers/wide-world-importers-oltp-database
+[powerbi-embedded-pricing]: https://azure.microsoft.com/pricing/details/power-bi-embedded
+[powerbi-pro-purchase]: /power-bi/service-admin-purchasing-power-bi-pro
+[wwi]: /sql/sample/world-wide-importers/wide-world-importers-oltp-database
+[az-synapse-pricing]: https://azure.microsoft.com/pricing/details/synapse-analytics
+[az-as-pricing]: https://azure.microsoft.com/pricing/details/analysis-services
+[az-storage-reserved]: /azure/storage/blobs/storage-blob-reserved-capacity
+[aaf-cost]: ../../framework/cost/overview.md

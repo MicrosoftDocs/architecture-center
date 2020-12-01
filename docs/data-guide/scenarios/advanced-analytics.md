@@ -1,12 +1,15 @@
 ---
 title: Advanced analytics
-description: 
+description: Use mathematical, probabilistic, and statistical modeling techniques to enable predictive processing and automated decision making.
 author: zoinerTejada
 ms.date: 02/12/2018
-ms.topic: guide
+ms.topic: conceptual
 ms.service: architecture-center
-ms.subservice: cloud-fundamentals
-ms.custom: data-analytics, AI
+ms.subservice: azure-guide
+ms.custom:
+  - data-analytics
+  - AI
+  - guide
 ---
 
 # Advanced analytics

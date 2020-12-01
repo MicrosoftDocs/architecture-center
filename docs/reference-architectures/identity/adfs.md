@@ -4,10 +4,16 @@ titleSuffix: Azure Reference Architectures
 description: Implement a secure hybrid network architecture with Active Directory Federation Service authorization in Azure.
 author: telmosampaio
 ms.date: 12/18/2018
-ms.topic: reference-architecture
+ms.topic: conceptual
 ms.service: architecture-center
+ms.category:
+  - identity
+  - hybrid
 ms.subservice: reference-architecture
-ms.custom: seodec18, identity
+ms.custom:
+  - seodec18
+  - identity
+  - reference-architecture
 ---
 
 # Extend Active Directory Federation Services (AD FS) to Azure
@@ -104,7 +110,7 @@ The article [Deploying a Federation Server Farm][Deploying_a_federation_server_f
 3. Add each AD FS server VM to the domain.
 
 > [!NOTE]
-> To install AD FS, the domain controller running the primary domain controller (PDC) emulator flexible single master operation (FSMO) role for the domain must be running and accessible from the AD FS VMs. <<RBC: Is there a way to make this less repetitive?>>
+> To install AD FS, the domain controller running the primary domain controller (PDC) emulator flexible single master operation (FSMO) role for the domain must be running and accessible from the AD FS VMs.
 >
 
 ### AD FS trust
@@ -185,6 +191,24 @@ Place AD FS servers and WAP servers in separate subnets with their own firewalls
 Restrict direct sign in access to the AD FS and WAP servers. Only DevOps staff should be able to connect. Do not join the WAP servers to the domain.
 
 Consider using a set of network virtual appliances that logs detailed information on traffic traversing the edge of your virtual network for auditing purposes.
+
+## DevOps considerations
+
+For DevOps considerations, see [DevOps: Extending Active Directory Domain Services (AD DS) to Azure](adds-extend-domain.md#devops-considerations).
+
+## Cost considerations
+
+Use the [Azure pricing calculator][azure-pricing-calculator] to estimate costs. Other considerations are described in the Cost section in [Microsoft Azure Well-Architected Framework][aaf-cost].
+
+Here are cost considerations for the services used in this architecture.
+
+### AD Domain Services
+
+Consider having Active Directory Domain Services as a shared service that is consumed by multiple workloads to lower costs. For more information, see [Active Directory Domain Services pricing][ADDS-pricing].
+
+### Azure AD Federation Services
+
+For information about the editions offered by Azure Active Directory, see [Azure AD pricing][Azure-AD-pricing]. The AD Federation Services feature is available in all editions.
 
 ## Deploy the solution
 
@@ -361,36 +385,28 @@ A deployment for this architecture is available on [GitHub][github]. Note that t
 1. Verify that the Contoso Corporation sign-in page appears. Sign in as **contoso\testuser**.
 
 <!-- links -->
-[extending-ad-to-azure]: adds-extend-domain.md
 
-[vm-recommendations]: ../virtual-machines-windows/single-vm.md
-[hybrid-azure-on-prem-vpn]: ../hybrid-networking/vpn.md
-
-[azure-cli]: /azure/azure-resource-manager/xplat-cli-azure-resource-manager
-[DRS]: https://technet.microsoft.com/library/dn280945.aspx
-[where-to-place-an-fs-proxy]: https://technet.microsoft.com/library/dd807048.aspx
-[ADDRS]: https://technet.microsoft.com/library/dn486831.aspx
-[plan-your-adfs-deployment]: https://msdn.microsoft.com/library/azure/dn151324.aspx
+[extending-ad-to-azure]: ./adds-extend-domain.md
+[aaf-cost]: ../../framework/cost/overview.md
+[Azure-AD-pricing]: https://azure.microsoft.com/pricing/details/active-directory
+[where-to-place-an-fs-proxy]: /previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dd807048(v=ws.11)
+[ADDS-pricing]: https://azure.microsoft.com/pricing/details/active-directory-ds
+[ADDRS]: /previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn486831(v=ws.11)
+[plan-your-adfs-deployment]: /previous-versions/azure/azure-services/dn151324(v=azure.100)
 [ad_network_recommendations]: #network_configuration_recommendations_for_AD_DS_VMs
-[adfs_certificates]: https://technet.microsoft.com/library/dn781428(v=ws.11).aspx
-[create_service_account_for_adfs_farm]: https://technet.microsoft.com/library/dd807078.aspx
-[adfs-configuration-database]: https://technet.microsoft.com/library/ee913581(v=ws.11).aspx
+[adfs_certificates]: /previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn781428(v=ws.11)
+[adfs-configuration-database]: /previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/ee913581(v=ws.11)
 [active-directory-federation-services]: /windows-server/identity/active-directory-federation-services
-[security-considerations]: #security-considerations
-[recommendations]: #recommendations
-[active-directory-federation-services-overview]: https://technet.microsoft.com/library/hh831502(v=ws.11).aspx
-[establishing-federation-trust]: https://blogs.msdn.microsoft.com/alextch/2011/06/27/establishing-federation-trust/
-[Deploying_a_federation_server_farm]:  /windows-server/identity/ad-fs/deployment/deploying-a-federation-server-farm
-[install_and_configure_the_web_application_proxy_server]: https://technet.microsoft.com/library/dn383662.aspx
-[publish_applications_using_AD_FS_preauthentication]: https://technet.microsoft.com/library/dn383640.aspx
-[managing-adfs-components]: https://technet.microsoft.com/library/cc759026.aspx
-[oms-adfs-pack]: https://www.microsoft.com/download/details.aspx?id=41184
-[azure-powershell-download]: /powershell/azure/overview
-[aad]: /azure/active-directory/
-[aadb2c]: /azure/active-directory-b2c/
+[active-directory-federation-services-overview]: /windows-server/identity/active-directory-federation-services
+[establishing-federation-trust]: /archive/blogs/alextch/establishing-federation-trust
+[Deploying_a_federation_server_farm]: /windows-server/identity/ad-fs/deployment/deploying-a-federation-server-farm
+[install_and_configure_the_web_application_proxy_server]: /previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn383662(v=ws.11)
+[publish_applications_using_AD_FS_preauthentication]: /previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn383640(v=ws.11)
+[oms-adfs-pack]: https://www.microsoft.com/en-us/download/details.aspx?id=54526
 [adfs-intro]: /azure/active-directory/hybrid/whatis-hybrid-identity
 [github]: https://github.com/mspnp/identity-reference-architectures/tree/master/adfs
-[adfs_certificates]: https://technet.microsoft.com/library/dn781428(v=ws.11).aspx
-[considerations]: ./considerations.md
-[visio-download]: https://archcenter.blob.core.windows.net/cdn/identity-architectures.vsdx
-[psise]: /powershell/scripting/components/ise/windows-powershell-integrated-scripting-environment--ise-
+[adfs_certificates]: /previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn781428(v=ws.11)
+[considerations]: ./index.md
+[visio-download]: https://arch-center.azureedge.net/identity-architectures.vsdx
+[psise]: /powershell/scripting/windows-powershell/ise/introducing-the-windows-powershell-ise
+[azure-pricing-calculator]: https://azure.microsoft.com/pricing/calculator

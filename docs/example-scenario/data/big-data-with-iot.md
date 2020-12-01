@@ -3,12 +3,17 @@ title: IoT and data analytics
 description: Use IoT devices and data analytics to provide comprehensive management and operation of construction projects.
 author: alexbuckgit
 ms.date: 08/29/2018
-ms.topic: example-scenario
+ms.category:
+  - iot
+  - analytics
+  - management-and-governance
+ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: example-scenario
 ms.custom:
   - IoT
   - data-analytics
+  - example-scenario
 social_image_url: /azure/architecture/example-scenario/data/media/architecture-big-data-with-iot.png
 ---
 
@@ -70,7 +75,7 @@ The data flows through the solution as follows:
 - [Azure Databricks](/azure/azure-databricks/what-is-azure-databricks) is an Apache Spark-based analytics platform optimized for Azure. It is integrated with Azure to provide one-click setup, streamlined workflows, and an interactive collaborative workspace.
 - [Data Lake Storage](/azure/storage/data-lake-storage) is an alternative to Blob storage. For this scenario, Data Lake Storage was not available in the targeted region.
 - [Web Apps](/azure/app-service) could also be used to host the web services for ingesting construction results data.
-- Many technology options are available for real-time message ingestion, data storage, stream processing, storage of analytical data, and analytics and reporting. For an overview of these options, their capabilities, and key selection criteria, see [Big data architectures: Real-time processing](/azure/architecture/data-guide/technology-choices/real-time-ingestion) in the [Azure Data Architecture Guide](/azure/architecture/data-guide).
+- Many technology options are available for real-time message ingestion, data storage, stream processing, storage of analytical data, and analytics and reporting. For an overview of these options, their capabilities, and key selection criteria, see [Big data architectures: Real-time processing](../../data-guide/technology-choices/real-time-ingestion.md) in the [Azure Data Architecture Guide](../../data-guide/technology-choices/real-time-ingestion.md).
 
 ## Considerations
 
@@ -90,11 +95,10 @@ The following considerations will drive a substantial portion of the costs for t
 
 To see an implementation of a similar architecture, read the [Komatsu customer story][customer-story].
 
-Guidance for big data architectures is available in the [Azure Data Architecture Guide](/azure/architecture/data-guide).
+Guidance for big data architectures is available in the [Azure Data Architecture Guide](../../data-guide/index.md).
 
 <!-- links -->
 
-[product-category]: https://azure.microsoft.com/product-categories/analytics/
-[customer-site]: https://home.komatsu/en/
+[product-category]: https://azure.microsoft.com/product-categories/analytics
 [customer-story]: https://customers.microsoft.com/story/komatsu-manufacturing-azure-iot-hub-japan
 [architecture]: ./media/architecture-big-data-with-iot.png

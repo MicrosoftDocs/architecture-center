@@ -1,19 +1,23 @@
 ---
 title: Application roles
-description: How to perform authorization using application roles.
-author: MikeWasson
+description: Learn how to perform authorization by using Azure AD application roles, which are used to assign permissions to users.
+author: doodlemania2
 ms.date: 07/21/2017
-ms.topic: guide
+ms.topic: conceptual
 ms.service: architecture-center
-ms.subservice: reference-architecture
+ms.category:
+  - identity
+ms.subservice: azure-guide
 pnp.series.title: Manage Identity in Multitenant Applications
 pnp.series.prev: signup
 pnp.series.next: authorize
+ms.custom:
+  - guide
 ---
 
 # Application roles
 
-[![GitHub](../_images/github.png) Sample code][sample application]
+[:::image type="icon" source="../_images/github.png" border="false"::: Sample code][sample application]
 
 Application roles are used to assign permissions to users. For example, the [Tailspin Surveys][tailspin] application defines the following roles:
 
@@ -163,8 +167,8 @@ Drawbacks:
 
 <!-- links -->
 
-[tailspin]: tailspin.md
-[authorization]: authorize.md
-[Securing a backend web API]: web-api.md
-[application manifest]: /azure/active-directory/active-directory-application-manifest/
+[tailspin]: ./tailspin.md
+[authorization]: ./authorize.md
+[Securing a backend web API]: ./web-api.md
+[application manifest]: /azure/active-directory/active-directory-application-manifest
 [sample application]: https://github.com/mspnp/multitenant-saas-guidance

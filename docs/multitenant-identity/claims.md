@@ -1,19 +1,23 @@
 ---
 title: Work with claim-based identities in multitenant applications
-description: How a use claims for issuer validation and authorization.
-author: MikeWasson
+description: Learn about claims in Azure AD. As issuer, Azure AD sends a set of claims about the user which can be trusted because the issuer can be trusted.
+author: doodlemania2
 ms.date: 07/21/2017
-ms.topic: guide
+ms.topic: conceptual
 ms.service: architecture-center
-ms.subservice: reference-architecture
+ms.category:
+  - identity
+ms.subservice: azure-guide
 pnp.series.title: Manage Identity in Multitenant Applications
 pnp.series.prev: authenticate
 pnp.series.next: signup
+ms.custom:
+  - guide
 ---
 
 # Work with claims-based identities
 
-[![GitHub](../_images/github.png) Sample code][sample application]
+[:::image type="icon" source="../_images/github.png" border="false"::: Sample code][sample application]
 
 ## Claims in Azure AD
 
@@ -83,7 +87,7 @@ For a single-tenant application, you can just check that the issuer is your own 
 * In the OIDC middleware options, set **ValidateIssuer** to false. This turns off the automatic check.
 * When a tenant signs up, store the tenant and the issuer in your user DB.
 * Whenever a user signs in, look up the issuer in the database. If the issuer isn't found, it means that tenant hasn't signed up. You can redirect them to a sign up page.
-* You could also blacklist certain tenants; for example, for customers that didn't pay their subscription.
+* You could also block certain tenants; for example, for customers that didn't pay their subscription.
 
 For a more detailed discussion, see [Sign-up and tenant onboarding in a multitenant application][signup].
 
@@ -120,11 +124,11 @@ For more information, see [Role-based and resource-based authorization in multit
 
 <!-- links -->
 
-[scope parameter]: https://nat.sakimura.org/2012/01/26/scopes-and-claims-in-openid-connect/
-[Supported Token and Claim Types]: /azure/active-directory/active-directory-token-and-claims/
+[scope parameter]: https://nat.sakimura.org/2012/01/26/scopes-and-claims-in-openid-connect
+[Supported Token and Claim Types]: /azure/active-directory/active-directory-token-and-claims
 [issuer]: https://openid.net/specs/openid-connect-core-1_0.html#IDToken
-[Authentication events]: authenticate.md#authentication-events
-[signup]: signup.md
+[Authentication events]: ./authenticate.md#authentication-events
+[signup]: ./signup.md
 [Claims-Based Authorization]: /aspnet/core/security/authorization/claims
 [sample application]: https://github.com/mspnp/multitenant-saas-guidance
-[authorization]: authorize.md
+[authorization]: ./authorize.md

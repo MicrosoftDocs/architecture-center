@@ -1,12 +1,19 @@
 ---
 title: Use an object as a parameter in an Azure Resource Manager template
 description: Describes how to extend the functionality of Azure Resource Manager templates to use objects as parameters.
-author: petertay
+author: PeterTaylor9999
 ms.date: 10/30/2018
-ms.topic: article
+ms.topic: conceptual
 ms.service: architecture-center
-ms.subservice: reference-architecture
+ms.category:
+  - developer-tools
+  - devops
+ms.subservice: azure-guide
+ms.custom:
+  - article
 ---
+
+<!-- cSpell:ignore subproperties -->
 
 # Use an object as a parameter in an Azure Resource Manager template
 
@@ -307,7 +314,7 @@ An example template is available on [GitHub][github]. To deploy the template, cl
 git clone https://github.com/mspnp/template-examples.git
 cd template-examples/example3-object-param
 az group create --location <location> --name <resource-group-name>
-az group deployment create -g <resource-group-name> \
+az deployment group create -g <resource-group-name> \
     --template-uri https://raw.githubusercontent.com/mspnp/template-examples/master/example3-object-param/deploy.json \
     --parameters deploy.parameters.json
 ```

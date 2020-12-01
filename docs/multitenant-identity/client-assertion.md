@@ -1,19 +1,21 @@
 ---
 title: Use client assertion to get access tokens from Azure AD
-description: How to use client assertion to get access tokens from Azure AD.
-author: MikeWasson
-ms.date: 07/21/2017
-ms.topic: guide
+description: Learn how to add client assertion, where the client uses an X.509 certificate to prove the token request is genuine, to the Tailspin Surveys sample application.
+author: doodlemania2
+ms.date: 04/02/2020
+ms.topic: conceptual
 ms.service: architecture-center
-ms.subservice: reference-architecture
-pnp.series.title: Manage Identity in Multitenant Applications
-pnp.series.prev: adfs
-pnp.series.next: key-vault
+ms.category:
+  - identity
+ms.custom:
+  - has-adal-ref
+  - guide
+ms.subservice: azure-guide
 ---
 
 # Use client assertion to get access tokens from Azure AD
 
-[![GitHub](../_images/github.png) Sample code][sample application]
+[:::image type="icon" source="../_images/github.png" border="false"::: Sample code][sample application]
 
 This article describes how to add client assertion to the [Tailspin Surveys][Surveys] sample application.
 
@@ -96,14 +98,15 @@ public class CertificateCredentialService : ICredentialService
     }
 }
 ```
+> [!NOTE]
+> For more information on ID Tokens, please see [this](/azure/active-directory/develop/id-tokens) document. 
 
 [**Next**](./adfs.md)
 
 <!-- links -->
 
-[configure-web-app]: /azure/app-service-web/web-sites-configure/
-[azure-management-portal]: https://portal.azure.com
+[configure-web-app]: /azure/app-service-web/web-sites-configure
 [client assertion]: https://tools.ietf.org/html/rfc7521
 [sample application]: https://github.com/mspnp/multitenant-saas-guidance
-[Surveys]: tailspin.md
-[using-certs-in-websites]: https://azure.microsoft.com/blog/using-certificates-in-azure-websites-applications/
+[Surveys]: ./tailspin.md
+[using-certs-in-websites]: https://azure.microsoft.com/blog/using-certificates-in-azure-websites-applications

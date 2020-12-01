@@ -1,18 +1,22 @@
 ---
 title: Identity management for multitenant applications
 description: Best practices for authentication, authorization, and identity management in multitenant apps.
-author: MikeWasson
+author: doodlemania2
 ms.date: 07/21/2017
-ms.topic: guide
+ms.topic: conceptual
 ms.service: architecture-center
-ms.subservice: reference-architecture
+ms.category:
+  - identity
+ms.subservice: azure-guide
+ms.custom:
+  - guide
 ---
 
 # Manage identity in multitenant applications
 
 This series of articles describes best practices for multitenancy, when using Azure AD for authentication and identity management.
 
-[![GitHub](../_images/github.png) Sample code][sample-application]
+[:::image type="icon" source="../_images/github.png" border="false"::: Sample code][sample-application]
 
 When you're building a multitenant application, one of the first challenges is managing user identities, because now every user belongs to a tenant. For example:
 
@@ -28,7 +32,7 @@ To accompany this series of articles, we created a complete [end-to-end implemen
 
 Let's say you're writing an enterprise SaaS application to be hosted in the cloud. Of course, the application will have users:
 
-![Users](./images/users.png)
+![Diagram showing individual users.](./images/users.png)
 
 But those users belong to organizations:
 
@@ -51,7 +55,7 @@ A *tenant* is a group of users. In a SaaS application, the tenant is a subscribe
 
 Typically, application data is shared among the users within a tenant, but not with other tenants.
 
-![Multitenant](./images/multitenant.png)
+![Diagram showing a Multitenant application.](./images/multitenant.png)
 
 Compare this architecture with a single-tenant architecture, where each tenant has a dedicated physical instance. In a single-tenant architecture, you add tenants by spinning up new instances of the app.
 
@@ -59,7 +63,7 @@ Compare this architecture with a single-tenant architecture, where each tenant h
 
 ### Multitenancy and horizontal scaling
 
-To achieve scale in the cloud, it’s common to add more physical instances. This is known as *horizontal scaling* or *scaling out*. Consider a web app. To handle more traffic, you can add more server VMs and put them behind a load balancer. Each VM runs a separate physical instance of the web app.
+To achieve scale in the cloud, it's common to add more physical instances. This is known as *horizontal scaling* or *scaling out*. Consider a web app. To handle more traffic, you can add more server VMs and put them behind a load balancer. Each VM runs a separate physical instance of the web app.
 
 ![Load balancing a web site](./images/load-balancing.png)
 

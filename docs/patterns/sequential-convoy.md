@@ -1,5 +1,5 @@
 ---
-title: Sequential Convoy   
+title: Sequential Convoy
 description: The sequential convoy cloud design pattern allows for first-in-first-out processing of data in a serverless environment.
 keywords: serverless, biztalk, sequential convoy, fifo, functions, messaging
 author: brandonh-msft
@@ -78,4 +78,4 @@ The following information may be relevant when implementing this pattern:
 
 - [Message sessions: first in, first out (FIFO)](/azure/service-bus-messaging/message-sessions)
 - [Peek-Lock Message (Non-Destructive Read)](/rest/api/servicebus/peek-lock-message-non-destructive-read)
-- [In order delivery of correlated messages in Logic Apps by using Service Bus sessions](https://blogs.msdn.microsoft.com/logicapps/2017/05/02/in-order-delivery-of-correlated-messages-in-logic-apps-by-using-service-bus-sessions/) (MSDN blog)
+- [In order delivery of correlated messages in Logic Apps by using Service Bus sessions](/archive/blogs/logicapps/in-order-delivery-of-correlated-messages-in-logic-apps-by-using-service-bus-sessions) (MSDN blog)

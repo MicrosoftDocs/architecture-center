@@ -1,18 +1,23 @@
 ---
 title: 3D video rendering
 titleSuffix: Azure Example Scenarios
-description: Run native HPC workloads in Azure using the Azure Batch service.
-author: adamboeglin
+description: Use Azure Batch to manage existing Windows or Linux applications, including AutoDesk Maya and Blender, to run large-scale 3D video render jobs in Azure.
+author: doodlemania2
 ms.date: 07/13/2018
-ms.topic: example-scenario
+ms.category:
+  - compute
+ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: example-scenario
 ms.custom:
   - fasttrack
   - hpc
   - media
+  - example-scenario
 social_image_url: /azure/architecture/example-scenario/infrastructure/media/architecture-video-rendering.png
 ---
+
+<!-- cSpell:ignore infiniband haswell cuda -->
 
 # 3D video rendering on Azure
 
@@ -105,7 +110,7 @@ While there is currently no failover capability in Azure Batch, we recommend usi
 
 This scenario demonstrates how Azure Batch works while showcasing Azure Batch Labs as an example SaaS solution that can be developed for your own customers:
 
-[Azure Batch Masterclass][batch-labs-masterclass]
+[Azure Batch Labs][batch-labs]
 
 ### Deploy the components
 
@@ -157,33 +162,25 @@ Azure Batch also supports the use of low-priority VMs in the node pools, which c
 [Using containers on Azure Batch][batch-containers]
 
 <!-- links -->
+
 [architecture]: ./media/architecture-video-rendering.png
-[resource-groups]: /azure/azure-resource-manager/resource-group-overview
-[security]: /azure/security/
-[resiliency]: /azure/architecture/resiliency/
-[scalability]: /azure/architecture/checklist/scalability
+[security]: /azure/security
 [vmss]: /azure/virtual-machine-scale-sets/overview
-[storage]: https://azure.microsoft.com/services/storage/
-[batch]: https://azure.microsoft.com/services/batch/
-[batch-arch]: https://azure.microsoft.com/solutions/architecture/big-compute-with-azure-batch/
 [compute-hpc]: /azure/virtual-machines/windows/sizes-hpc
 [compute-gpu]: /azure/virtual-machines/windows/sizes-gpu
-[compute-compute]: /azure/virtual-machines/windows/sizes-compute
 [compute-memory]: /azure/virtual-machines/windows/sizes-memory
 [compute-general]: /azure/virtual-machines/windows/sizes-general
-[compute-storage]: /azure/virtual-machines/windows/sizes-storage
-[compute-acu]: /azure/virtual-machines/windows/acu
 [compute=benchmark]: /azure/virtual-machines/windows/compute-benchmark-scores
 [hpc-est-high]: https://azure.com/e/9ac25baf44ef49c3a6b156935ee9544c
 [hpc-est-med]: https://azure.com/e/0286f1d6f6784310af4dcda5aec8c893
 [hpc-est-low]: https://azure.com/e/e39afab4e71949f9bbabed99b428ba4a
-[batch-labs-masterclass]: https://github.com/azurebigcompute/BigComputeLabs/tree/master/Azure%20Batch%20Masterclass%20Labs
+[batch-labs]: https://github.com/azurebigcompute/BigComputeLabs/tree/master/Azure%20Batch%20Masterclass%20Labs
 [batch-scaling]: /azure/batch/batch-automatic-scaling
-[hpc-alt-solutions]: /azure/virtual-machines/linux/high-performance-computing?toc=%2fazure%2fbatch%2ftoc.json
+[hpc-alt-solutions]: /azure/virtual-machines/linux/high-performance-computing
 [batch-monitor]: /azure/batch/monitoring-overview
-[batch-pricing]: https://azure.microsoft.com/pricing/details/batch/
-[batch-doc]: /azure/batch/
-[batch-overview]: https://azure.microsoft.com/services/batch/
+[batch-pricing]: https://azure.microsoft.com/pricing/details/batch
+[batch-doc]: /azure/batch
+[batch-overview]: https://azure.microsoft.com/services/batch
 [batch-containers]: https://github.com/Azure/batch-shipyard
 [azure-arm-templates]: /azure/azure-resource-manager/template-deployment-overview
 [batch-plugins]: /azure/batch/batch-rendering-service#options-for-rendering-on-azure

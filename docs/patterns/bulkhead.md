@@ -4,11 +4,13 @@ titleSuffix: Cloud Design Patterns
 description: Isolate elements of an application into pools so that if one fails, the others will continue to function.
 keywords: design pattern
 author: dragon119
-ms.date: 06/23/2017
-ms.topic: design-pattern
+ms.date: 03/19/2020
+ms.topic: conceptual
 ms.service: architecture-center
-ms.subservice: cloud-fundamentals
-ms.custom: seodec18
+ms.subservice: design-pattern
+ms.custom:
+  - seodec18
+  - design-pattern
 ---
 
 # Bulkhead pattern
@@ -41,14 +43,14 @@ The following diagram shows bulkheads structured around connection pools that ca
 
 The next diagram shows multiple clients calling a single service. Each client is assigned a separate service instance. Client 1 has made too many requests and overwhelmed its instance. Because each service instance is isolated from the others, the other clients can continue making calls.
 
-![First diagram of the Bulkhead pattern](./_images/bulkhead-2.png)
+![Diagram showing multiple clients calling a single service.](./_images/bulkhead-2.png)
 
 ## Issues and considerations
 
 - Define partitions around the business and technical requirements of the application.
 - When partitioning services or consumers into bulkheads, consider the level of isolation offered by the technology as well as the overhead in terms of cost, performance and manageability.
 - Consider combining bulkheads with retry, circuit breaker, and throttling patterns to provide more sophisticated fault handling.
-- When partitioning consumers into bulkheads, consider using processes, thread pools, and semaphores. Projects like [Netflix Hystrix][hystrix] and [Polly][polly] offer a framework for creating consumer bulkheads.
+- When partitioning consumers into bulkheads, consider using processes, thread pools, and semaphores. Projects like [resilience4j](https://github.com/resilience4j/resilience4j) and [Polly][polly] offer a framework for creating consumer bulkheads.
 - When partitioning services into bulkheads, consider deploying them into separate virtual machines, containers, or processes. Containers offer a good balance of resource isolation with fairly low overhead.
 - Services that communicate using asynchronous messages can be isolated through different sets of queues. Each queue can have a dedicated set of instances processing messages on the queue, or a single group of instances using an algorithm to dequeue and dispatch processing.
 - Determine the level of granularity for the bulkheads. For example, if you want to distribute tenants across partitions, you could place each tenant into a separate partition, or put several tenants into one partition.
@@ -98,5 +100,4 @@ spec:
 
 <!-- links -->
 
-[hystrix]: https://github.com/Netflix/Hystrix
 [polly]: https://github.com/App-vNext/Polly

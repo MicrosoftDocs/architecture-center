@@ -8,7 +8,8 @@
           "**/*.md",
           "**/toc.yml",
           "**/toc.experimental.yml",
-          "**/*context.yml"
+          "**/*context.yml",
+          "**/index.yml"
         ],
         "exclude": [
           "**/obj/**",
@@ -40,7 +41,8 @@
           "**/*.svg",
           "**/*.js",
           "**/*.json",
-          "feed.xml"
+          "**/*.docx",
+          "feed.atom"
         ],
         "exclude": [
           "**/obj/**",
@@ -70,6 +72,7 @@
       "feedback_github_repo": "MicrosoftDocs/architecture-center",
       "breadcrumb_path": "/azure/architecture/bread/toc.json",
       "brand": "azure",
+      "uhfHeaderId": "azure",
       "titleSuffix": "Azure Architecture Center",
       "ms.author": "pnp",
       "ms.service": "architecture-center",
@@ -79,7 +82,7 @@
           "folder_relative_path_in_docset": "./"
         }
       },
-      "ms.topic": "article",
+      "ms.topic": "conceptual",
       "searchScope": [ "Azure", "Azure Architecture Center" ]
     },
     "fileMetadata": {
@@ -99,7 +102,10 @@
         "reference-architectures/data/**/*.md": [ "Azure", "Azure Architecture Center", "Data Guide" ],
         "example-scenario/data/**/*.md": [ "Azure", "Azure Architecture Center", "Data Guide" ],
         "reference-architectures/hybrid-networking/**/*.md": [ "Azure", "Azure Architecture Center", "Networking" ],
-        "reference-architectures/dmz/**/*.md": [ "Azure", "Azure Architecture Center", "Networking" ]
+        "reference-architectures/dmz/**/*.md": [ "Azure", "Azure Architecture Center", "Networking" ],
+        "reference-architectures/**/*.md": [ "Azure", "Azure Architecture Center", "Reference Architectures" ],
+        "example-scenario/**/*.md": [ "Azure", "Azure Architecture Center", "Reference Architectures" ],
+        "solution-ideas/**/*.md": [ "Azure", "Azure Architecture Center", "Reference Architectures" ]
       }
     },
     "template": [

@@ -1,15 +1,19 @@
 ---
 title: Digital image-based modeling on Azure
 description: Accelerate digital image-based modeling on Azure using Avere and Agisoft PhotoScan
-author: adamboeglin
+author: doodlemania2
 ms.date: 01/11/2019
-ms.topic: example-scenario
+ms.category:
+  - compute
+  - storage
+ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: example-scenario
 ms.custom:
   - cat-team
   - Linux
   - HPC
+  - example-scenario
 social_image_url: /azure/architecture/example-scenario/infrastructure/media/architecture-image-modeling.png
 ---
 
@@ -116,6 +120,6 @@ The following resources will provide more information on the components used in 
 - [Agisoft PhotoScan](https://www.agisoft.com/) home page
 - [Azure Storage Performance and Scalability Checklist](/azure/storage/common/storage-performance-checklist)
 - [Parallel Virtual File Systems on Microsoft Azure: Performance tests of Lustre, GlusterFS, and BeeGFS](https://azure.microsoft.com/mediahandler/files/resourcefiles/parallel-virtual-file-systems-on-microsoft-azure/Parallel_Virtual_File_Systems_on_Microsoft_Azure.pdf) (PDF)
-- An example scenario for [computer-aided engineering (CAE) on Azure](/azure/architecture/example-scenario/apps/hpc-saas)
+- An example scenario for [computer-aided engineering (CAE) on Azure](../../example-scenario/apps/hpc-saas.md)
 - [HPC on Azure](https://azure.microsoft.com/solutions/high-performance-computing/) home page
 - Overview of [Big Compute: HPC &amp; Microsoft Batch](https://azure.microsoft.com/solutions/big-compute)

@@ -1,17 +1,22 @@
 ---
 title: Scalable and secure WordPress on Azure
 titleSuffix: Azure Example Scenarios
-description: Build a highly scalable and secure WordPress website for media events.
+description: This example shows a highly scalable and secure installation of WordPress. The scenario was used for a large convention and scaled to meet spike traffic.
 author: david-stanford
 ms.date: 09/18/2018
-ms.topic: example-scenario
+ms.category:
+  - web
+ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: example-scenario
 social_image_url: /azure/architecture/example-scenario/infrastructure/media/secure-scalable-wordpress.png
 ms.custom:
-    - web-apps
-    - scalability
+  - web-apps
+  - scalability
+  - example-scenario
 ---
+
+<!-- cSpell:ignore wordpress rsync CDNs -->
 
 # Highly scalable and secure WordPress website
 
@@ -46,7 +51,7 @@ The second workflow is how authors contribute new content:
 4. From the admin jump box, the author is then able to connect to the Azure load balancer for the authoring cluster.
 5. The Azure load balancer distributes traffic to the virtual machine scale sets of web servers that have write access to the Maria DB cluster.
 6. New static content is uploaded to Azure files and dynamic content is written into the Maria DB cluster.
-7. These changes are then replicated to the alternate region via rsync or master/slave replication.
+7. These changes are then replicated to the alternate region via rsync or primary/secondary replication.
 
 ### Components
 
@@ -54,7 +59,7 @@ The second workflow is how authors contribute new content:
 - [Virtual networks](/azure/virtual-network/virtual-networks-overview) allow resources such as VMs to securely communicate with each other, the Internet, and on-premises networks. Virtual networks provide isolation and segmentation, filter and route traffic, and allow connection between locations. The two networks are connected via Vnet peering.
 - [Network security groups](/azure/virtual-network/security-overview) contain a list of security rules that allow or deny inbound or outbound network traffic based on source or destination IP address, port, and protocol. The virtual networks in this scenario are secured with network security group rules that restrict the flow of traffic between the application components.
 - [Load balancers](/azure/load-balancer/load-balancer-overview) distribute inbound traffic according to rules and health probes. A load balancer provides low latency and high throughput, and scales up to millions of flows for all TCP and UDP applications. A load balancer is used in this scenario to distribute traffic from the content deliver network to the front-end web servers.
-- [Virtual machine scale sets][docs-vmss] let you create and manage a group of identical load-balanced VMs. The number of VM instances can automatically increase or decrease in response to demand or a defined schedule. Two separate virtual machine scale sets are used in this scenario - one for the front-end web-servers serving content, and one for the front-end webservers used to author new content.
+- [Virtual machine scale sets][docs-vmss] let you create and manage a group of identical load-balanced VMs. The number of VM instances can automatically increase or decrease in response to demand or a defined schedule. Two separate virtual machine scale sets are used in this scenario - one for the front-end web-servers serving content, and one for the front-end web servers used to author new content.
 - [Azure Files](/azure/storage/files/storage-files-introduction) provides a fully managed file share in the cloud that hosts all of the WordPress content in this scenario, so that all of the VMs have access to the data.
 - [Azure Key Vault](/azure/key-vault/key-vault-overview) is used to store and tightly control access to passwords, certificates, and keys.
 - [Azure Active Directory (Azure AD)](/azure/active-directory/fundamentals/active-directory-whatis) is a multitenant, cloud-based directory and identity management service. In this scenario, Azure AD provides authentication services for the website and the VPN tunnels.
@@ -68,7 +73,7 @@ The second workflow is how authors contribute new content:
 
 ### Availability
 
-The VM instances in this scenario are deployed across multiple regions, with the data replicated between the two via RSYNC for the WordPress content and master slave replication for the MariaDB clusters.
+The VM instances in this scenario are deployed across multiple regions, with the data replicated between the two via RSYNC for the WordPress content and primary/secondary replication for the MariaDB clusters.
 
 ### Scalability
 
@@ -101,11 +106,10 @@ We have provided a pre-configured [cost profile][pricing] based on the architect
 - How much of your content is dynamic? How much is static? The variance around dynamic and static content influences how much data has to be retrieved from the database tier versus how much will be cached in the CDN.
 
 <!-- links -->
-[architecture]: ./media/architecture-secure-scalable-wordpress.png
+
 [mariadb-tutorial]: /azure/virtual-machines/linux/classic/mariadb-mysql-cluster
 [docs-vmss]: /azure/virtual-machine-scale-sets/overview
 [docs-vmss-autoscale]: /azure/virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-overview
 [docs-nsg]: /azure/virtual-network/security-overview
-[security]: /azure/security/
-[availability]: ../../checklist/availability.md
+[security]: /azure/security
 [pricing]: https://azure.com/e/a8c4809dab444c1ca4870c489fbb196b

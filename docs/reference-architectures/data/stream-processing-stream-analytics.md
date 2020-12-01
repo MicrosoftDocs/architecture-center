@@ -1,17 +1,22 @@
 ---
 title: Stream processing with Azure Stream Analytics
-description: Create an end-to-end stream processing pipeline in Azure.
-author: MikeWasson
+description: This reference architecture shows an end-to-end stream processing pipeline, which ingests data, correlates records, and calculates a rolling average.
+author: doodlemania2
 ms.date: 11/06/2018
-ms.topic: reference-architecture
+ms.topic: conceptual
 ms.service: architecture-center
+ms.category:
+  - analytics
+  - databases
 ms.subservice: reference-architecture
-ms.custom: seodec18
+ms.custom:
+  - seodec18
+  - reference-architecture
 ---
 
 # Stream processing pipeline with Azure Stream Analytics
 
-This reference architecture shows an end-to-end [stream processing](/azure/architecture/data-guide/big-data/real-time-processing) pipeline. The pipeline ingests data from two sources, correlates records in the two streams, and calculates a rolling average across a time window. The results are stored for further analysis.
+This reference architecture shows an end-to-end [stream processing](../../data-guide/big-data/real-time-processing.md) pipeline. The pipeline ingests data from two sources, correlates records in the two streams, and calculates a rolling average across a time window. The results are stored for further analysis.
 
 ![GitHub logo](../../_images/github.png) A reference implementation for this architecture is available on [GitHub][github].
 
@@ -41,7 +46,7 @@ The architecture consists of the following components.
 
 To simulate a data source, this reference architecture uses the [New York City Taxi Data](https://uofi.app.box.com/v/NYCtaxidata/folder/2332218797) dataset<sup>[[1]](#note1)</sup>. This dataset contains data about taxi trips in New York City over a four-year period (2010&ndash;2013). It contains two types of record: ride data and fare data. Ride data includes trip duration, trip distance, and pickup and dropoff location. Fare data includes fare, tax, and tip amounts. Common fields in both record types include medallion number, hack license, and vendor ID. Together these three fields uniquely identify a taxi plus a driver. The data is stored in CSV format.
 
-<span id="note1">[1]</span> Donovan, Brian; Work, Dan (2016): New York City Taxi Trip Data (2010-2013). University of Illinois at Urbana-Champaign. https://doi.org/10.13012/J8PN93H8
+<span id="note1">[1]</span> Donovan, Brian; Work, Dan (2016): New York City Taxi Trip Data (2010-2013). University of Illinois at Urbana-Champaign. <https://doi.org/10.13012/J8PN93H8>
 
 <!-- markdownlint-enable MD033 -->
 
@@ -121,26 +126,22 @@ The next step joins the two input streams to select matching records from each s
 
 ```sql
 Step3 AS (
-  SELECT
-         tr.Medallion,
-         tr.HackLicense,
-         tr.VendorId,
-         tr.PickupTime,
-         tr.TripDistanceInMiles,
+  SELECT tr.TripDistanceInMiles,
          tf.TipAmount
     FROM [Step1] tr
     PARTITION BY PartitionId
     JOIN [Step2] tf PARTITION BY PartitionId
-      ON tr.Medallion = tf.Medallion
-     AND tr.HackLicense = tf.HackLicense
-     AND tr.VendorId = tf.VendorId
+      ON tr.PartitionId = tf.PartitionId
      AND tr.PickupTime = tf.PickupTime
-     AND tr.PartitionId = tf.PartitionId
      AND DATEDIFF(minute, tr, tf) BETWEEN 0 AND 15
 )
 ```
 
-This query joins records on a set of fields that uniquely identify matching records (Medallion, HackLicense, VendorId, and PickupTime). The `JOIN` statement also includes the partition ID. As mentioned, this takes advantage of the fact that matching records always have the same partition ID in this scenario.
+This query joins records on a set of fields that uniquely identify matching records (`PartitionId` and `PickupTime`).
+
+> [!NOTE]
+> We want the `TaxiRide` and `TaxiFare` streams to be joined by the unique combination of  `Medallion`, `HackLicense`, `VendorId` and `PickupTime`. In this case the `PartitionId` covers the `Medallion`, `HackLicense` and `VendorId` fields, but this should not be taken as generally the case.
+
 
 In Stream Analytics, joins are *temporal*, meaning records are joined within a particular window of time. Otherwise, the job might need to wait indefinitely for a match. The [DATEDIFF](/stream-analytics-query/join-azure-stream-analytics) function specifies how far two matching records can be separated in time for a match.
 
@@ -214,17 +215,53 @@ Auto-inflate was enabled at about the 06:35 mark. You can see the p drop in thro
 
 Interestingly, this had the side effect of increasing the SU utilization in the Stream Analytics job. By throttling, Event Hubs was artificially reducing the ingestion rate for the Stream Analytics job. It's actually common that resolving one performance bottleneck reveals another. In this case, allocating additional SU for the Stream Analytics job resolved the issue.
 
+## Cost considerations
+Use the [Azure pricing calculator][azure-pricing-calculator] to estimate costs. Here are some considerations for services used in this reference architecture.
+
+### Azure Stream Analytics
+
+Azure Stream Analytics is priced by the number of streaming units ($0.11/hour) required to process the data into the service. 
+
+Stream Analytics can be expensive if you are not processing the data in real-time or small amounts of data. For those use cases, consider using Azure Functions or Logic Apps to move data from Azure Event Hubs to a data store. 
+
+### Azure Event Hubs and Azure Cosmos DB
+
+For cost considerations about Azure Event Hubs and Cosmos DB, see Cost considerations see the [Stream processing with Azure Databricks](stream-processing-databricks.md) reference architecture. 
+
+
 ## Deploy the solution
 
 To the deploy and run the reference implementation, follow the steps in the [GitHub readme][github].
+
+## DevOps considerations
+
+- Create separate resource groups for production, development, and test environments. Separate resource groups make it easier to manage deployments, delete test deployments, and assign access rights.
+
+- Use [Azure Resource Manager template][arm-template] to deploy the Azure resources following the infrastructure as Code (IaC) Process. With templates, automating deployments using [Azure DevOps Services][az-devops], or other CI/CD solutions is easier.
+
+- Put each workload in a separate deployment template and store the resources in source control systems. You can deploy the templates together or individually as part of a CI/CD process, making the automation process easier. 
+
+  In this architecture, Azure Event Hubs, Log Analytics, and Cosmos DB are identified as a single workload. These resources are included in a single ARM template.
+
+- Consider staging your workloads. Deploy to various stages and run validation checks at each stage before moving to the next stage. That way you can push updates to your production environments in a highly controlled way and minimize unanticipated deployment issues.
+
+- Consider using [Azure Monitor][azure-monitor] to analyze the performance of your stream processing pipeline. For more information, see [Monitoring Azure Databricks][databricks-monitoring].
+
+
+For more information, see the DevOps section in [Microsoft Azure Well-Architected Framework][AAF-devops].
 
 ## Related resources
 
 You may wish to review the following [Azure example scenarios](/azure/architecture/example-scenario) that demonstrate specific solutions using some of the same technologies:
 
-- [IoT and data analytics in the construction industry](/azure/architecture/example-scenario/data/big-data-with-iot)
-- [Real-time fraud detection](/azure/architecture/example-scenario/data/fraud-detection)
+- [IoT and data analytics in the construction industry](../../example-scenario/data/big-data-with-iot.md)
+- [Real-time fraud detection](../../example-scenario/data/fraud-detection.md)
 
 <!-- links -->
-
+[AAF-devops]: ../../framework/devops/overview.md
+[arm-template]: /azure/azure-resource-manager/resource-group-overview#resource-groups
+[az-devops]: /azure/virtual-machines/windows/infrastructure-automation#azure-devops-services
+[azure-monitor]: https://azure.microsoft.com/services/monitor
 [github]: https://github.com/mspnp/azure-stream-analytics-data-pipeline
+[azure-pricing-calculator]: https://azure.microsoft.com/pricing/calculator
+[databricks-monitoring]: ../../databricks-monitoring/index.md

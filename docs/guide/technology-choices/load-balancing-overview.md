@@ -2,12 +2,16 @@
 title: Overview of Azure load-balancing options
 titleSuffix: Azure Application Architecture Guide
 description: An overview of Azure load-balancing options.
-author: sharad4u
-ms.date: 08/23/2019
-ms.topic: guide
+author: doodlemania2
+ms.date: 04/2/2019
+ms.topic: conceptual
 ms.service: architecture-center
-ms.subservice: reference-architecture
-ms.custom: seojan19
+ms.category:
+  - web
+  - compute
+ms.subservice: guide
+ms.custom:
+  - guide
 ---
 
 # Overview of load-balancing options in Azure
@@ -26,7 +30,7 @@ Azure load balancing services can be categorized along two dimensions: global ve
 
 ### HTTP(S) versus non-HTTP(S)
 
-- **HTTP(S)** load-balancing services are Layer 7 load balancers that only accept HTTP(S) traffic. They are intended for web applications or other HTTP(S) endpoints. They include features such as SSL offload, web application firewall, path-based load balancing, and session affinity.
+- **HTTP(S)** load-balancing services are [Layer 7](https://www.iso.org/ics/35.100/x/) load balancers that only accept HTTP(S) traffic. They are intended for web applications or other HTTP(S) endpoints. They include features such as SSL offload, web application firewall, path-based load balancing, and session affinity.
 
 - **Non-HTTP/S** load-balancing services can handle non-HTTP(S) traffic and are recommended for non-web workloads. 
 
@@ -37,7 +41,7 @@ The following table summarizes the Azure load balancing services by these catego
 | Azure Front Door | Global | HTTP(S) |
 | Traffic Manager | Global | non-HTTP(S) |
 | Application Gateway | Regional | HTTP(S) |
-| Azure Load Balancer | Regional | non-HTTP(S) |
+| Azure Load Balancer | Global | non-HTTP(S) |
 
 ## Azure load balancing services
 
@@ -45,11 +49,14 @@ Here are the main load-balancing services currently available in Azure:
 
 [Front Door](/azure/frontdoor/front-door-overview) is an application delivery network that provides global load balancing and site acceleration service for web applications. It offers Layer 7 capabilities for your application like SSL offload, path-based routing, fast failover, caching, etc. to improve performance and high-availability of your applications.
 
+>[!NOTE]
+> At this time, Azure Front Door does not support Web Sockets.
+
 [Traffic Manager](/azure/traffic-manager/traffic-manager-overview) is a DNS-based traffic load balancer that enables you to distribute traffic optimally to services across global Azure regions, while providing high availability and responsiveness. Because Traffic Manager is a DNS-based load-balancing service, it load balances only at the domain level. For that reason, it can't fail over as quickly as Front Door, because of common challenges around DNS caching and systems not honoring DNS TTLs. 
 
 [Application Gateway](/azure/application-gateway/overview) provides application delivery controller (ADC) as a service, offering various Layer 7 load-balancing capabilities. Use it to optimize web farm productivity by offloading CPU-intensive SSL termination to the gateway.
 
-[Azure Load Balancer](/azure/load-balancer/load-balancer-overview) is a high-performance, low-latency Layer 4 load-balancing service (inbound and outbound) for all UDP and TCP protocols. It is built to handle millions of requests per second while ensuring your solution is highly available. Azure Load Balancer is zone-redundant, ensuring high availability across Availability Zones.
+[Azure Load Balancer](/azure/load-balancer/load-balancer-overview) is a high-performance, ultra low-latency Layer 4 load-balancing service (inbound and outbound) for all UDP and TCP protocols. It is built to handle millions of requests per second while ensuring your solution is highly available. Azure Load Balancer is zone-redundant, ensuring high availability across Availability Zones.
 
 ## Decision tree for load balancing in Azure
 
@@ -73,7 +80,7 @@ If your application consists of multiple workloads, evaluate each workload separ
 
 - **Internet facing**. Applications that are publicly accessible from the internet. As a best practice, application owners apply restrictive access policies or protect the application by setting up offerings like web application firewall and DDoS protection.
 
-- **Global**. End users or clients are located beyond a small geographical area. For example, users across multiple continents, across countries within a continent, or even across multiple metropolitan areas within a larger country.
+- **Global**. End users or clients are located beyond a small geographical area. For example, users across multiple continents, across countries/regions within a continent, or even across multiple metropolitan areas within a larger country/region.
 
 - **PaaS**. Platform as a service (PaaS) services provide a managed hosting environment, where you can deploy your application without needing to manage VMs or networking resources. In this case, PaaS refers to services that provide integrated load balancing within a region. See [Choosing a compute service &ndash; Scalability](./compute-decision-tree.md#scalability).
 

@@ -5,10 +5,12 @@ description: Cloud Design Patterns for Microsoft Azure
 keywords: Azure
 author: dragon119
 ms.date: 12/10/2018
-ms.topic: design-pattern
+ms.topic: conceptual
 ms.service: architecture-center
-ms.subservice: cloud-fundamentals
-ms.custom: seodec18
+ms.subservice: design-pattern
+ms.custom:
+  - seodec18
+  - design-pattern
 ---
 
 # Cloud Design Patterns

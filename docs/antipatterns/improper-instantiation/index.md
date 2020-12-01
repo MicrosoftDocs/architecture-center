@@ -4,10 +4,12 @@ titleSuffix: Performance antipatterns for cloud apps
 description: Avoid continually creating new instances of an object that is meant to be created once and then shared.
 author: dragon119
 ms.date: 06/05/2017
-ms.topic: article
+ms.topic: conceptual
 ms.service: architecture-center
-ms.subservice: cloud-fundamentals
-ms.custom: seodec18
+ms.subservice: anti-pattern
+ms.custom:
+  - seodec18
+  - article
 ---
 
 # Improper Instantiation antipattern
@@ -20,7 +22,7 @@ Many libraries provide abstractions of external resources. Internally, these cla
 
 - `System.Net.Http.HttpClient`. Communicates with a web service using HTTP.
 - `Microsoft.ServiceBus.Messaging.QueueClient`. Posts and receives messages to a Service Bus queue.
-- `Microsoft.Azure.Documents.Client.DocumentClient`. Connects to a Cosmos DB instance
+- `Microsoft.Azure.Documents.Client.DocumentClient`. Connects to a Cosmos DB instance.
 - `StackExchange.Redis.ConnectionMultiplexer`. Connects to Redis, including Azure Cache for Redis.
 
 These classes are intended to be instantiated once and reused throughout the lifetime of an application. However, it's a common misunderstanding that these classes should be acquired only as necessary and released quickly. (The ones listed here happen to be .NET libraries, but the pattern is not unique to .NET.)
@@ -168,11 +170,11 @@ For comparison, the following image shows the stack trace telemetry. This time, 
 
 The next graph shows a similar load test using a shared instance of the `ExpensiveToCreateService` object. Again, the volume of handled requests increases in line with the user load, while the average response time remains low.
 
-![Throughput of the sample application reusing the same instance of an HttpClient object for each request][throughput-single-ExpensiveToCreateService-instance]
+![Graph showing a similar load test using a shared instance of the ExpensiveToCreateService object.][throughput-single-ExpensiveToCreateService-instance]
 
 [sample-app]: https://github.com/mspnp/performance-optimization/tree/master/ImproperInstantiation
 [service-bus-messaging]: /azure/service-bus-messaging/service-bus-performance-improvements
-[new-relic]: https://newrelic.com/application-monitoring
+[new-relic]: https://newrelic.com/products/application-monitoring
 [throughput-new-HTTPClient-instance]: _images/HttpClientInstancePerRequest.jpg
 [dashboard-new-HTTPClient-instance]: _images/HttpClientInstancePerRequestWebTransactions.jpg
 [thread-profiler-new-HTTPClient-instance]: _images/HttpClientInstancePerRequestThreadProfile.jpg

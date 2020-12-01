@@ -1,16 +1,22 @@
 ---
 title: Choosing a data pipeline orchestration technology
-description: 
+description: Choose an Azure data pipeline orchestration technology to automate pipeline orchestration, control flow, and data movement workflows.
 author: zoinerTejada
 ms.date: 02/12/2018
-ms.topic: guide
+ms.topic: conceptual
 ms.service: architecture-center
-ms.subservice: cloud-fundamentals
+ms.subservice: azure-guide
+ms.custom:
+  - guide
 ---
+
+<!-- cSpell:ignore Oozie HDFS SSMS -->
 
 # Choosing a data pipeline orchestration technology in Azure
 
 Most big data solutions consist of repeated data processing operations, encapsulated in workflows. A pipeline orchestrator is a tool that helps to automate these workflows. An orchestrator can schedule jobs, execute workflows, and coordinate dependencies among tasks.
+
+<!--markdownlint-disable MD026 -->
 
 ## What are your options for data pipeline orchestration?
 

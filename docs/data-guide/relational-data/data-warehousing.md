@@ -1,12 +1,16 @@
 ---
 title: Data warehousing in Microsoft Azure
-description: Creating data warehouse solutions for Azure
-author: MikeWasson
+description: Learn about data warehousing in Azure. A data warehouse is a repository of integrated data from disparate sources used for reporting and analysis of the data.
+author: doodlemania2
 ms.date: 11/20/2019
-ms.topic: guide
+ms.topic: conceptual
 ms.service: architecture-center
-ms.subservice: cloud-fundamentals
+ms.subservice: azure-guide
+ms.custom:
+  - guide
 ---
+
+<!-- cSpell:ignore LLAP Oozie DWUs -->
 
 # Data warehousing
 
@@ -29,7 +33,7 @@ Choose a data warehouse when you need to turn massive amounts of data from opera
 
 Consider using a data warehouse when you need to keep historical data separate from the source transaction systems for performance reasons. Data warehouses make it easy to access historical data from multiple locations, by providing a centralized location using common formats, keys, and data models.
 
-Because data warehouses are optimized for read access, generating reports is faster than using the source transaction system for reporting. 
+Because data warehouses are optimized for read access, generating reports is faster than using the source transaction system for reporting.
 
 Other benefits include:
 
@@ -59,12 +63,12 @@ There are several options for implementing a data warehouse in Azure, depending 
 
 SMP:
 
-- [Azure SQL Database](/azure/sql-database/)
+- [Azure SQL Database](/azure/sql-database)
 - [SQL Server in a virtual machine](/sql/sql-server/sql-server-technical-documentation)
 
 MPP:
 
-- [Azure Data Warehouse](/azure/sql-data-warehouse/sql-data-warehouse-overview-what-is)
+- [Azure Synapse Analytics (formerly Azure Data Warehouse)](/azure/sql-data-warehouse/sql-data-warehouse-overview-what-is)
 - [Apache Hive on HDInsight](/azure/hdinsight/hadoop/hdinsight-use-hive)
 - [Interactive Query (Hive LLAP) on HDInsight](/azure/hdinsight/interactive-query/apache-interactive-query-get-started)
 
@@ -72,23 +76,23 @@ As a general rule, SMP-based warehouses are best suited for small to medium data
 
 Beyond data sizes, the type of workload pattern is likely to be a greater determining factor. For example, complex queries may be too slow for an SMP solution, and require an MPP solution instead. MPP-based systems usually have a performance penalty with small data sizes, because of how jobs are distributed and consolidated across nodes. If your data sizes already exceed 1 TB and are expected to continually grow, consider selecting an MPP solution. However, if your data sizes are smaller, but your workloads are exceeding the available resources of your SMP solution, then MPP may be your best option as well.
 
-The data accessed or stored by your data warehouse could come from a number of data sources, including a data lake, such as [Azure Data Lake Storage](/azure/data-lake-store/). For a video session that compares the different strengths of MPP services that can use Azure Data Lake, see [Azure Data Lake and Azure Data Warehouse: Applying Modern Practices to Your App](https://azure.microsoft.com/resources/videos/build-2016-azure-data-lake-and-azure-data-warehouse-applying-modern-practices-to-your-app/).
+The data accessed or stored by your data warehouse could come from a number of data sources, including a data lake, such as [Azure Data Lake Storage](/azure/data-lake-store). For a video session that compares the different strengths of MPP services that can use Azure Data Lake, see [Azure Data Lake and Azure Data Warehouse: Applying Modern Practices to Your App](https://azure.microsoft.com/resources/videos/build-2016-azure-data-lake-and-azure-data-warehouse-applying-modern-practices-to-your-app).
 
 SMP systems are characterized by a single instance of a relational database management system sharing all resources (CPU/Memory/Disk). You can scale up an SMP system. For SQL Server running on a VM, you can scale up the VM size. For Azure SQL Database, you can scale up by selecting a different service tier.
 
-MPP systems can be scaled out by adding more compute nodes (which have their own CPU, memory, and I/O subsystems). There are physical limitations to scaling up a server, at which point scaling out is more desirable, depending on the workload. However, the differences in querying, modeling, and data partitioning mean that MPP solutions require a different skillset.
+MPP systems can be scaled out by adding more compute nodes (which have their own CPU, memory, and I/O subsystems). There are physical limitations to scaling up a server, at which point scaling out is more desirable, depending on the workload. However, the differences in querying, modeling, and data partitioning mean that MPP solutions require a different skill set.
 
 When deciding which SMP solution to use, see [A closer look at Azure SQL Database and SQL Server on Azure VMs](/azure/sql-database/sql-database-paas-vs-sql-server-iaas#business-motivations-for-choosing-databases-managed-instances-or-sql-virtual-machines).
 
 Azure Synapse (formerly Azure SQL Data Warehouse) can also be used for small and medium datasets, where the workload is compute and memory intensive. Read more about Azure Synapse patterns and common scenarios:
 
-- [Azure SQL Data Warehouse Workload Patterns and Anti-Patterns](https://blogs.msdn.microsoft.com/sqlcat/2017/09/05/azure-sql-data-warehouse-workload-patterns-and-anti-patterns/)
+- [Azure SQL Data Warehouse Workload Patterns and Anti-Patterns](#data-warehousing-in-azure)
 
-- [Azure SQL Data Warehouse loading patterns and strategies](https://blogs.msdn.microsoft.com/sqlcat/2017/05/17/azure-sql-data-warehouse-loading-patterns-and-strategies/)
+- [Azure SQL Data Warehouse loading patterns and strategies](/archive/blogs/sqlcat/azure-sql-data-warehouse-loading-patterns-and-strategies)
 
-- [Migrating data to Azure SQL Data Warehouse in practice](https://blogs.msdn.microsoft.com/sqlcat/2016/08/18/migrating-data-to-azure-sql-data-warehouse-in-practice/)
+- [Migrating data to Azure SQL Data Warehouse in practice](/archive/blogs/sqlcat/migrating-data-to-azure-sql-data-warehouse-in-practice)
 
-- [Common ISV application patterns using Azure SQL Data Warehouse](https://blogs.msdn.microsoft.com/sqlcat/2017/09/05/common-isv-application-patterns-using-azure-sql-data-warehouse/)
+- [Common ISV application patterns using Azure SQL Data Warehouse](/archive/blogs/sqlcat/common-isv-application-patterns-using-azure-sql-data-warehouse)
 
 ## Key selection criteria
 
@@ -104,7 +108,7 @@ To narrow the choices, start by answering these questions:
 
 - Do you need to integrate data from several sources, beyond your OLTP data store? If so, consider options that easily integrate multiple data sources.
 
-- Do you have a multitenancy requirement? If so, Azure Synapse is not ideal for this requirement. For more information, see [Azure Synapse Patterns and Anti-Patterns](https://blogs.msdn.microsoft.com/sqlcat/2017/09/05/azure-sql-data-warehouse-workload-patterns-and-anti-patterns/).
+- Do you have a multitenancy requirement? If so, Azure Synapse is not ideal for this requirement. For more information, see [Azure Synapse Patterns and Anti-Patterns](#data-warehousing-in-azure).
 
 - Do you prefer a relational data store? If so, choose an option with a relational data store, but also note that you can use a tool like PolyBase to query non-relational data stores if needed. If you decide to use PolyBase, however, run performance tests against your unstructured data sets for your workload.
 
@@ -147,7 +151,7 @@ The following tables summarize the key differences in capabilities.
 
 [3] With Azure Synapse, you can restore a database to any available restore point within the last seven days. Snapshots start every four to eight hours and are available for seven days. When a snapshot is older than seven days, it expires and its restore point is no longer available.
 
-[4] Consider using an [external Hive metastore](/azure/hdinsight/hdinsight-hadoop-provision-linux-clusters#metastore-settings) that can be backed up and restored as needed. Standard backup and restore options that apply to Blob Storage or Data Lake Storage can be used for the data, or third-party HDInsight backup and restore solutions, such as [Imanis Data](https://azure.microsoft.com/blog/imanis-data-cloud-migration-backup-for-your-big-data-applications-on-azure-hdinsight/) can be used for greater flexibility and ease of use.
+[4] Consider using an [external Hive metastore](/azure/hdinsight/hdinsight-hadoop-provision-linux-clusters#metastore-settings) that can be backed up and restored as needed. Standard backup and restore options that apply to Blob Storage or Data Lake Storage can be used for the data, or third-party HDInsight backup and restore solutions, such as [Imanis Data](https://azure.microsoft.com/blog/imanis-data-cloud-migration-backup-for-your-big-data-applications-on-azure-hdinsight) can be used for greater flexibility and ease of use.
 
 ### Scalability capabilities
 

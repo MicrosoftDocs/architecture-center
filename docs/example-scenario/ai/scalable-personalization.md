@@ -4,12 +4,21 @@ description: Use machine learning to automate content-based personalization for 
 author: gramhagen
 ms.author: scgraham
 ms.date: 05/31/2019
-ms.topic: example-scenario 
+ms.category:
+  - ai-machine-learning
+  - featured
+ms.topic: conceptual
 ms.service: architecture-center
+ms.subservice: example-scenario
 ms.custom:
   - azcat-ai
   - AI
+  - example-scenario
+social_image_url: /azure/architecture/example-scenario/ai/media/architecture-scalable-personalization.png
 ---
+
+<!-- cSpell:ignore gramhagen scgraham Criteo anonymized hyperparameters precompute mmlspark -->
+
 # Scalable personalization on Azure
 
 Recommendations are a main revenue driver for many businesses and are used in different kinds of industries, including retail, news, and media. With the availability of large amounts of data, you can now provide highly relevant recommendations using machine learning.
@@ -22,9 +31,9 @@ This example scenario shows how your business can use machine learning to automa
 
 This scenario is relevant to the following use cases:
 
-- Content recommendations on a website or in a mobile application
-- Product recommendation on an e-commerce site
-- Displayed ad recommendation on a website
+- Content recommendations on a website or in a mobile application.
+- Product recommendation on an e-commerce site.
+- Displayed ad recommendation on a website.
 
 ## Architecture
 
@@ -105,21 +114,22 @@ To better understand the cost of running this scenario on Azure, we provide a [p
 - [Azure Machine Learning] will be used to deploy the model to AKS with a small three-node cluster using **D3** instances.
 - AKS cluster will autoscale as needed, resulting in two nodes per month being active on average.
 
-To see how pricing differs for your use case, change the variables to match your expected data size and serving load requirements. For larger or smaller training data sizes, the size of the Databricks cluster can be increased or reduced, respectively. To handle larger numbers of concurrent users during model serving, the AKS cluster should be increased. For more information on scaling AKS to support latency and load requirements, review the [operationalization notebook](https://aka.ms/recommenders/lgbm-criteo-o16n).
+To see how pricing differs for your use case, change the variables to match your expected data size and serving load requirements. For larger or smaller training data sizes, the size of the Databricks cluster can be increased or reduced, respectively. To handle larger numbers of concurrent users during model serving, the AKS cluster should be increased. For more information on scaling AKS to support latency and load requirements, review the [operationalization notebook](https://github.com/microsoft/recommenders/blob/master/examples/05_operationalize/lightgbm_criteo_o16n.ipynb).
 
 ## Next steps
 
-- For an in-depth guide to building and scaling a recommender service, see [Build a real-time recommendation API on Azure](/azure/architecture/reference-architectures/ai/real-time-recommendation). 
+- For an in-depth guide to building and scaling a recommender service, see [Build a real-time recommendation API on Azure](../../reference-architectures/ai/real-time-recommendation.md).
 - To see more examples, tutorials, and tools to help you build your own recommendation system visit the [Microsoft Recommenders] GitHub repository.
 
 <!-- links -->
-[Azure Blob Storage]: https://azure.microsoft.com/services/storage/blobs/
-[Azure Databricks]: https://azure.microsoft.com/services/databricks/
-[Azure Container Registry]: https://azure.microsoft.com/services/container-registry/
-[Azure Kubernetes Service]: https://azure.microsoft.com/services/kubernetes-service/
-[Azure Machine Learning]: https://azure.microsoft.com/services/machine-learning-service/
+
+[Azure Blob Storage]: https://azure.microsoft.com/services/storage/blobs
+[Azure Databricks]: https://azure.microsoft.com/services/databricks
+[Azure Container Registry]: https://azure.microsoft.com/services/container-registry
+[Azure Kubernetes Service]: https://azure.microsoft.com/services/kubernetes-service
+[Azure Machine Learning]: https://azure.microsoft.com/services/machine-learning-service
 [Microsoft Recommenders]: https://github.com/Microsoft/Recommenders
 [MMLSpark]: https://aka.ms/spark
 [MML Spark Serving]: https://github.com/Azure/mmlspark/blob/master/docs/mmlspark-serving.md
 [LightGBM]: https://github.com/Microsoft/LightGBM
-[1]: https://azure.microsoft.com/support/legal/sla/summary/
+[1]: https://azure.microsoft.com/support/legal/sla/summary

@@ -1,11 +1,13 @@
 ---
 title: Online transaction processing (OLTP)
-description: 
+description: Learn about atomicity, consistency, and other features of online transaction processing (OLTP), which manages transactional data while supporting querying.
 author: zoinerTejada
 ms.date: 07/27/2019
-ms.topic: guide
+ms.topic: conceptual
 ms.service: architecture-center
-ms.subservice: cloud-fundamentals
+ms.subservice: azure-guide
+ms.custom:
+  - guide
 ---
 
 # Online transaction processing (OLTP)
@@ -20,7 +22,7 @@ Transactions typically need to be *atomic* and *consistent*. Atomicity means tha
 
 Transactional databases can support strong consistency for transactions using various locking strategies, such as pessimistic locking, to ensure that all data is strongly consistent within the context of the enterprise, for all users and processes.
 
-The most common deployment architecture that uses transactional data is the data store tier in a 3-tier architecture. A 3-tier architecture typically consists of a presentation tier, business logic tier, and data store tier. A related deployment architecture is the [N-tier](/azure/architecture/guide/architecture-styles/n-tier) architecture, which may have multiple middle-tiers handling business logic.
+The most common deployment architecture that uses transactional data is the data store tier in a 3-tier architecture. A 3-tier architecture typically consists of a presentation tier, business logic tier, and data store tier. A related deployment architecture is the [N-tier](../../guide/architecture-styles/n-tier.md) architecture, which may have multiple middle-tiers handling business logic.
 
 ## Typical traits of transactional data
 
@@ -67,7 +69,7 @@ In practice, most workloads are not purely OLTP. There tends to be an analytical
 In Azure, all of the following data stores will meet the core requirements for OLTP and the management of transaction data:
 
 - [Azure SQL Database](/azure/sql-database/)
-- [SQL Server in an Azure virtual machine](/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-iaas-overview?toc=%2Fazure%2Fvirtual-machines%2Fwindows%2Ftoc.json)
+- [SQL Server in an Azure virtual machine](/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-iaas-overview?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 - [Azure Database for MySQL](/azure/mysql/)
 - [Azure Database for PostgreSQL](/azure/postgresql/)
 
@@ -142,9 +144,9 @@ The following tables summarize the key differences in capabilities.
 |                                                Data masking                                                 |        Yes         |                  Yes                   |            No            |              No               |
 |                                         Transparent data encryption                                         |        Yes         |                  Yes                   |           Yes            |              Yes              |
 |                                  Restrict access to specific IP addresses                                   |        Yes         |                  Yes                   |           Yes            |              Yes              |
-|                                  Restrict access to allow VNet access only                                  |        Yes         |                  Yes                   |           Yes            |              Yes               |
-|                                    Azure Active Directory authentication                                    |        Yes         |                  Yes                   |            No            |              No               |
+|                                  Restrict access to allow VNet access only                                  |        Yes         |                  Yes                   |           Yes            |              Yes              |
+|                                    Azure Active Directory authentication                                    |        Yes         |                  No                    |            Yes           |              Yes              |
 |                                       Active Directory authentication                                       |         No         |                  Yes                   |            No            |              No               |
-|                                         Multi-factor authentication                                         |        Yes         |                  Yes                   |            No            |              No               |
+|                                         Multi-factor authentication                                         |        Yes         |                  No                    |            Yes           |              Yes              |
 | Supports [Always Encrypted](/sql/relational-databases/security/encryption/always-encrypted-database-engine) |        Yes         |                  Yes                   |            No            |              No               |
 |                                                 Private IP                                                  |         No         |                  Yes                   |            No            |              No               |

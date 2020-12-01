@@ -1,16 +1,20 @@
 ---
 title: Using Service Fabric to decompose applications
 titleSuffix: Azure Example Scenarios
-description: Decompose a large monolithic application into microservices.
+description: Learn about Azure Service Fabric as a platform for decomposing an unwieldy monolithic application into multiple, manageable microservices.
 author: timomta
 ms.date: 09/20/2018
-ms.topic: example-scenario
+ms.category:
+  - migration
+  - developer-tools
+ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: example-scenario
 ms.custom:
   - fasttrack
   - application-development
   - app-modernization
+  - example-scenario
 social_image_url: /azure/architecture/example-scenario/infrastructure/media/architecture-service-fabric-complete.png
 ---
 
@@ -65,7 +69,7 @@ The picture below shows how our large web site is now partially decomposed into 
 
 ![Architecture diagram showing partial decomposition](./media/architecture-service-fabric-midway.png)
 
-Further development focuses on separating the single large Default Web site container pictured above. Each of the virtual directory ASP.NET apps is removed from the container one at a time and ported to ASP.NET Core [reliable services](/azure/service-fabric/service-fabric-reliable-services-introduction).
+Further development focuses on separating the single large Default Web site container pictured above. Each of the virtual directory ASP.NET apps is removed from the container one at a time and ported to ASP.NET Core [Reliable Services](/azure/service-fabric/service-fabric-reliable-services-introduction).
 
 Once each of the virtual directories has been factored out, the Default Web site is written as an ASP.NET Core reliable service, which accepts incoming browser requests and routes them to the correct ASP.NET application.
 
@@ -83,11 +87,11 @@ Service Fabric is capable of hosting many different [application scenarios](/azu
 
 For a Service Fabric cluster hosted in Azure, the largest part of the cost is the number and size of the nodes in your cluster. Azure allows quick and simple creation of a cluster composed of the underlying node size you specify, but the compute charges are based on the node size multiplied by the number of nodes.
 
-Other less costly components of cost are the storage charges for each node's virtual disks and network IO egress charges from Azure (for example network traffic out of Azure to a user's browser).
+Other less costly components of cost are the storage charges for each node's virtual disks and network I/O egress charges from Azure (for example network traffic out of Azure to a user's browser).
 
 To get an idea of cost, we have created an example using some default values for cluster size, networking, and storage: Take a look at the [pricing calculator](https://azure.com/e/52dea096e5844d5495a7b22a9b2ccdde). Feel free to update the values in this default calculator to those relevant to your situation.
 
-## Next Steps
+## Next steps
 
 Take some time to familiarize yourself with the platform by going through the [documentation](/azure/service-fabric/service-fabric-overview) and reviewing the many different [application scenarios](/azure/service-fabric/service-fabric-application-scenarios) for Service Fabric. The documentation will tell you what a cluster consists of, what it can run on, software architecture, and maintenance for it.
 
@@ -97,7 +101,7 @@ From the standpoint of your current application, begin to think about its differ
 
 ## Related resources
 
-- [Building Microservices on Azure](/azure/architecture/microservices)
+- [Building Microservices on Azure](../../microservices/index.md)
 - [Service Fabric Overview](/azure/service-fabric/service-fabric-overview)
 - [Service Fabric Programming Model](/azure/service-fabric/service-fabric-choose-framework)
 - [Service Fabric Availability](/azure/service-fabric/service-fabric-availability-services)

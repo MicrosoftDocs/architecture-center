@@ -1,14 +1,16 @@
 ---
 title: Cache-Aside pattern
 titleSuffix: Cloud Design Patterns
-description: Load data on demand into a cache from a data store.
+description: Learn how to load data on demand into a cache, which can improve performance and maintain consistency between cached data and the underlying data store.
 keywords: design pattern
 author: dragon119
 ms.date: 11/01/2018
-ms.topic: design-pattern
+ms.topic: conceptual
 ms.service: architecture-center
-ms.subservice: cloud-fundamentals
-ms.custom: seodec18
+ms.subservice: design-pattern
+ms.custom:
+  - seodec18
+  - design-pattern
 ---
 
 # Cache-Aside pattern
@@ -143,6 +145,6 @@ public async Task UpdateEntityAsync(MyEntity entity)
 
 The following information may be relevant when implementing this pattern:
 
-- [Caching Guidance](/azure/architecture/best-practices/caching). Provides additional information on how you can cache data in a cloud solution, and the issues that you should consider when you implement a cache.
+- [Caching Guidance](../best-practices/caching.md). Provides additional information on how you can cache data in a cloud solution, and the issues that you should consider when you implement a cache.
 
-- [Data Consistency Primer](https://msdn.microsoft.com/library/dn589800.aspx). Cloud applications typically use data that's spread across data stores. Managing and maintaining data consistency in this environment is a critical aspect of the system, particularly the concurrency and availability issues that can arise. This primer describes issues about consistency across distributed data, and summarizes how an application can implement eventual consistency to maintain the availability of data.
+- [Data Consistency Primer](/previous-versions/msp-n-p/dn589800(v=pandp.10)). Cloud applications typically use data that's spread across data stores. Managing and maintaining data consistency in this environment is a critical aspect of the system, particularly the concurrency and availability issues that can arise. This primer describes issues about consistency across distributed data, and summarizes how an application can implement eventual consistency to maintain the availability of data.

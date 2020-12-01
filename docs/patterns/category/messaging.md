@@ -1,14 +1,16 @@
 ---
 title: Messaging patterns
 titleSuffix: Cloud Design Patterns
-description: The distributed nature of cloud applications requires a messaging infrastructure that connects the components and services, ideally in a loosely coupled manner in order to maximize scalability. Asynchronous messaging is widely used, and provides many benefits, but also brings challenges such as the ordering of messages, poison message management, idempotency, and more.
+description: Use these messaging patterns to support cloud applications by using a messaging that connects the components and services in a manner to maximize scalability.
 keywords: design pattern
 author: dragon119
 ms.date: 10/24/2019
-ms.topic: design-pattern
+ms.topic: conceptual
 ms.service: architecture-center
-ms.subservice: cloud-fundamentals
-ms.custom: seodec18
+ms.subservice: design-pattern
+ms.custom:
+  - seodec18
+  - design-pattern
 ---
 
 # Messaging patterns

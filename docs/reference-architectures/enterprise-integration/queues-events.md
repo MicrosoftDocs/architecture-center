@@ -2,12 +2,17 @@
 title: Enterprise integration using queues and events
 description: Recommended architecture for implementing an enterprise integration pattern with Azure Logic Apps, Azure API Management, Azure Service Bus, and Azure Event Grid.
 author: mattfarm
-ms.reviewer: jonfan, estfan, LADocs
+ms.reviewer: 'jonfan, estfan, LADocs'
 ms.date: 12/03/2018
-ms.topic: reference-architecture
+ms.topic: conceptual
 ms.service: architecture-center
+ms.category:
+  - integration
+  - developer-tools
 ms.subservice: reference-architecture
-ms.custom: integration-services
+ms.custom:
+  - integration-services
+  - reference-architecture
 ---
 
 # Enterprise integration on Azure using message queues and events
@@ -69,6 +74,10 @@ Review the SLA for each service:
 
 To enable failover if a serious outage occurs, consider implementing geo-disaster recovery in Service Bus Premium. For more information, see [Azure Service Bus geo-disaster recovery](/azure/service-bus-messaging/service-bus-geo-dr).
 
+## DevOps considerations
+
+See DevOps considerations in [Basic Enterprise Integration reference architecture](./basic-enterprise-integration.md#devops-considerations)
+
 ## Security considerations
 
 To secure Service Bus, use shared access signature (SAS). You can grant a user access to Service Bus resources with specific rights by using [SAS authentication](/azure/service-bus-messaging/service-bus-sas). For more information, see [Service Bus authentication and authorization](/azure/service-bus-messaging/service-bus-authentication-and-authorization).
@@ -78,7 +87,7 @@ If you need to expose a Service Bus queue as an HTTP endpoint, for example, to p
 The Event Grid service secures event delivery through a validation code. If you use Logic Apps to consume the event, validation is automatically performed. For more information, see [Event Grid security and authentication](/azure/event-grid/security-authentication).
 
 ## Cost Considerations
-In general, use the [Pricing calculator][Cost-Calculator] to estimate costs. Here are some other considerations.
+In general, use the [Azure pricing calculator][azure-pricing-calculator] to estimate costs. Here are some other considerations.
 
 ### API Management
 
@@ -100,19 +109,19 @@ Event Grid uses a serverless model. Billing is calculated based on the number of
 
 For more information, see [Event Grid pricing](https://azure.microsoft.com/pricing/details/event-grid/). 
 
-For more information, see the cost section in [Azure Architecture Framework][AAF-cost].
+For more information, see the cost section in [Microsoft Azure Well-Architected Framework][aaf-cost].
 
 
-[AAF-cost]: /azure/architecture/framework/cost/overview
+[aaf-cost]: ../../framework/cost/overview.md
 [apim]: /azure/api-management
-[apim-sla]: https://azure.microsoft.com/support/legal/sla/api-management/
+[apim-sla]: https://azure.microsoft.com/support/legal/sla/api-management
 [apim-autoscale]: /azure/api-management/api-management-howto-autoscale
-[Cost-Calculator]: https://azure.microsoft.com/pricing/calculator/
-[event-grid]: /azure/event-grid/
+[azure-pricing-calculator]: https://azure.microsoft.com/pricing/calculator
+[event-grid]: /azure/event-grid
 [event-grid-sla]: https://azure.microsoft.com/support/legal/sla/event-grid
 [logic-apps]: /azure/logic-apps/logic-apps-overview
 [logic-apps-sla]: https://azure.microsoft.com/support/legal/sla/logic-apps
-[sb-sla]: https://azure.microsoft.com/support/legal/sla/service-bus/
-[service-bus]: /azure/service-bus-messaging/
-[service-bus-pricing]: https://azure.microsoft.com/pricing/details/service-bus/
+[sb-sla]: https://azure.microsoft.com/support/legal/sla/service-bus
+[service-bus]: /azure/service-bus-messaging
+[service-bus-pricing]: https://azure.microsoft.com/pricing/details/service-bus
 [basic-enterprise-integration]: ./basic-enterprise-integration.md

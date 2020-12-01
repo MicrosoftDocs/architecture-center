@@ -1,16 +1,21 @@
 ---
 title: Migrate an Azure Cloud Services application to Azure Service Fabric
 description: How to migrate an application from Azure Cloud Services to Azure Service Fabric.
-author: MikeWasson
+author: doodlemania2
 ms.date: 05/29/2019
-ms.topic: guide
+ms.topic: conceptual
 ms.service: architecture-center
-ms.subservice: reference-architecture
+ms.category:
+  - migration
+  - management-and-governance
+ms.subservice: azure-guide
+ms.custom:
+  - guide
 ---
 
 # Migrate an Azure Cloud Services application to Azure Service Fabric
 
-[![GitHub](../_images/github.png) Sample code][sample-code]
+[:::image type="icon" source="../_images/github.png" border="false"::: Sample code][sample-code]
 
 This article describes migrating an application from Azure Cloud Services to Azure Service Fabric. It focuses on architectural decisions and recommended practices.
 
@@ -196,7 +201,7 @@ As mentioned, it's recommended to place the Kestrel web server behind a reverse 
 
 ### Layer 7 routing
 
-In the [original Surveys application](https://msdn.microsoft.com/library/hh534477.aspx#sec21), one web role listened on port 80, and the other web role listened on port 443.
+In the [original Surveys application](/previous-versions/msp-n-p/hh534477(v=pandp.10)#sec21), one web role listened on port 80, and the other web role listened on port 443.
 
 | Public site | Survey management site |
 |-------------|------------------------|
@@ -256,7 +261,7 @@ Tailspin sees other benefits in moving the Surveys application to a more granula
 - Each service can be implemented using the best technology for that service. For example, a service fabric cluster can include services built using different versions of the .Net Frameworks, Java, or other languages such as C or C++.
 - Each service can be independently scaled to respond to increases and decreases in load.
 
-The source code for the refactored version of the app is available on [GitHub](https://github.com/mspnp/cloud-services-to-service-fabric/tree/master/servicefabric-phase-2.)
+The source code for the refactored version of the app is available on [GitHub](https://github.com/mspnp/cloud-services-to-service-fabric/tree/master/servicefabric-phase-2).
 
 ## Design considerations
 
@@ -353,26 +358,24 @@ If you are just getting started with [Azure Service Fabric][service-fabric], fir
 
 <!-- links -->
 
-[application-gateway]: /azure/application-gateway/
-[aspnet-core]: /aspnet/core/
+[application-gateway]: /azure/application-gateway
 [aspnet-webapi]: https://www.asp.net/web-api
 [aspnet-migration]: /aspnet/core/migration/mvc
 [aspnet-webapi]: https://www.asp.net/web-api
 [azure-deployment-models]: /azure/azure-resource-manager/resource-manager-deployment-model
-[azure-sdk]: https://azure.microsoft.com/downloads/archive-net-downloads/
+[azure-sdk]: https://azure.microsoft.com/downloads/archive-net-downloads
 [cloud-service-autoscale]: /azure/cloud-services/cloud-services-how-to-scale-portal
 [cloud-service-config]: /azure/cloud-services/cloud-services-model-and-package
 [cloud-service-endpoints]: /azure/cloud-services/cloud-services-enable-communication-role-instances#worker-roles-vs-web-roles
 [kestrel]: /aspnet/core/fundamentals/servers/kestrel
 [monitoring-diagnostics]: /azure/service-fabric/service-fabric-diagnostics-overview
-[owin]: https://www.asp.net/aspnet/overview/owin-and-katana
 [reliable-concurrent-queue]: /azure/service-fabric/service-fabric-reliable-services-reliable-concurrent-queue
 [reverse-proxy]: /azure/service-fabric/service-fabric-reverseproxy
 [sample-code]: https://github.com/mspnp/cloud-services-to-service-fabric
 [service-fabric]: /azure/service-fabric/service-fabric-get-started
 [sf-application-model]: /azure/service-fabric/service-fabric-application-model
 [sf-aspnet-core]: /azure/service-fabric/service-fabric-add-a-web-frontend
-[sf-auto-scale]: /azure/service-fabric/service-fabric-cluster-scale-up-down
+[sf-auto-scale]: /azure/service-fabric/service-fabric-cluster-resource-manager-autoscaling
 [sf-compare-cloud-services]: /azure/service-fabric/service-fabric-cloud-services-migration-differences
 [sf-logs]: /azure/service-fabric/service-fabric-diagnostics-how-to-setup-wad
 [sf-manifest-resources]: /azure/service-fabric/service-fabric-service-manifest-resources
@@ -384,5 +387,5 @@ If you are just getting started with [Azure Service Fabric][service-fabric], fir
 [sf-reliable-collections]: /azure/service-fabric/service-fabric-reliable-services-reliable-collections
 [sf-reverse-proxy]: /azure/service-fabric/service-fabric-reverseproxy
 [sf-security]: /azure/service-fabric/service-fabric-cluster-security
-[tailspin-scenario]: https://msdn.microsoft.com/library/hh534482.aspx
+[tailspin-scenario]: /previous-versions/msp-n-p/hh534482(v=pandp.10)
 [vm-scale-sets]: /azure/virtual-machine-scale-sets/virtual-machine-scale-sets-overview

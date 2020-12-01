@@ -1,13 +1,19 @@
 ---
 title: Microservices architecture on Azure Service Fabric
-description: Deploy a microservices architecture on Azure Service Fabric
+description: Use this reference architecture to see microservices deployed to Azure Service Fabric. This cluster configuration can be a starting point for most deployments.
 author: PageWriter-MSFT
 ms.date: 06/13/2019
-ms.topic: reference-architecture
+ms.topic: conceptual
 ms.service: architecture-center
+ms.category:
+  - developer-tools
 ms.subservice: reference-architecture
-ms.custom: microservices
+ms.custom:
+  - microservices
+  - reference-architecture
 ---
+
+<!-- cSpell:ignore CosmosDB Kusto APIM executable's Serilog Traefik SPOF NSGs appsettings Dynatrace -->
 
 # Microservices architecture on Azure Service Fabric
 
@@ -30,20 +36,20 @@ The architecture consists of the following components. For other terms, see [Ser
 
 **Nodes**. The nodes are the VMs that belong to the Service Fabric cluster.
 
-**Node types**. A node type represents a virtual machine scale set that deploys a collection of nodes. A Service Fabric cluster has at least one node type. In a cluster with multiple node types, one must be declared the [Primary node type](/azure/service-fabric/service-fabric-cluster-capacity#primary-node-type). The primary node type in the cluster runs the [Service Fabric system services](/azure/service-fabric/service-fabric-technical-overview#system-services). These services provide the platform capabilities of Service Fabric. The primary node type also acts as the [seed nodes](/azure/service-fabric/service-fabric-disaster-recovery#random-failures-leading-to-cluster-failures) for the cluster, which are the nodes that maintain the availability of the underlying cluster. Configure [additional node types](/azure/service-fabric/service-fabric-cluster-capacity#non-primary-node-type) to run your services.
+**Node types**. A node type represents a virtual machine scale set that deploys a collection of nodes. A Service Fabric cluster has at least one node type. In a cluster with multiple node types, one must be declared the [Primary node type](/azure/service-fabric/service-fabric-cluster-capacity#primary-node-type). The primary node type in the cluster runs the [Service Fabric system services](/azure/service-fabric/service-fabric-technical-overview#system-services). These services provide the platform capabilities of Service Fabric. The primary node type also acts as the [seed nodes](/azure/service-fabric/service-fabric-disaster-recovery#random-failures-that-lead-to-cluster-failures) for the cluster, which are the nodes that maintain the availability of the underlying cluster. Configure [additional node types](/azure/service-fabric/service-fabric-cluster-capacity#non-primary-node-type) to run your services.
 
 **Services**. A service performs a standalone function that can start and run independently of other services. Instances of services get deployed to nodes in the cluster. There are two varieties of service in Service Fabric:
 
 - **Stateless service**. A stateless service does not maintain state within the service. If state persistence is required, then state is written to and retrieved from an external store, such as Azure Cosmos DB.
-- **Stateful service**. The [service state](/azure/service-fabric/service-fabric-concepts-state) is kept within the service itself. Most stateful services implement this through Service Fabric’s [Reliable Collections](/azure/service-fabric/service-fabric-reliable-services-reliable-collections).
+- **Stateful service**. The [service state](/azure/service-fabric/service-fabric-concepts-state) is kept within the service itself. Most stateful services implement this through Service Fabric's [Reliable Collections](/azure/service-fabric/service-fabric-reliable-services-reliable-collections).
 
 **Service Fabric Explorer**. [Service Fabric Explorer][sfx] is an open-source tool for inspecting and managing Service Fabric clusters.
 
 **Azure Pipelines**. [Pipelines](/azure/devops/pipelines/?view=azure-devops) is part of [Azure DevOps Services](/azure/devops/index?view=azure-devops) and runs automated builds, tests, and deployments. You can also use third-party CI/CD solutions such as Jenkins.
 
-**Azure Monitor**. [Azure Monitor](/azure/azure-monitor/) collects and stores metrics and logs, including platform metrics for the Azure services in the solution and application telemetry. Use this data to monitor the application, set up alerts and dashboards, and perform root cause analysis of failures. Azure Monitor integrates with Service Fabric to collect metrics from controllers, nodes, and containers, as well as container logs and master node logs.
+**Azure Monitor**. [Azure Monitor](/azure/azure-monitor) collects and stores metrics and logs, including platform metrics for the Azure services in the solution and application telemetry. Use this data to monitor the application, set up alerts and dashboards, and perform root cause analysis of failures. Azure Monitor integrates with Service Fabric to collect metrics from controllers, nodes, and containers, as well as container and node logs.
 
-**Azure Key Vault**. Use [Key Vault](/azure/key-vault/) to store any application secrets used by the microservices, such as connection strings.
+**Azure Key Vault**. Use [Key Vault](/azure/key-vault) to store any application secrets used by the microservices, such as connection strings.
 
 **Azure API Management**. In this architecture, [API Management](/azure/api-management/api-management-key-concepts) acts as an API gateway that accepts requests from clients and routes them to your services.
 
@@ -55,7 +61,7 @@ Service Fabric provides an infrastructure to build, deploy, and upgrade microser
 
 Service Fabric follows an application model where an application is a collection of microservices. The application is described in an [application manifest](/azure/service-fabric/service-fabric-application-and-service-manifests) file that defines the different types of service contained in that application, and pointers to the independent service packages. The application package also usually contains parameters that serve as overrides for certain settings used by the services. Each service package has a manifest file that describes the physical files and folders that are necessary to run that service, including binaries, configuration files, and read-only data for that service. Services and applications are independently versioned and upgradable.
 
-Optionally, the application manifest can describe services that are automatically provisioned when an instance of the application is created. These are called default services. In this case, the application manifest also describes how these services should be created, including the service’s name, instance count, security/isolation policy, and placement constraints.
+Optionally, the application manifest can describe services that are automatically provisioned when an instance of the application is created. These are called default services. In this case, the application manifest also describes how these services should be created, including the service's name, instance count, security/isolation policy, and placement constraints.
 
 > [!NOTE]
 > Avoid using default services if you want to control the life time of your services. Default services are created when the application is created, and run as long as the application is running.
@@ -70,25 +76,25 @@ For that reason, in a microservices architecture, we recommend using multiple ap
 
 ### Service Fabric programming models
 
-When you add a microservice to a Service Fabric application, decide whether it has state or data that needs to be made highly available and reliable. If so, can it store data externally or is the data contained as part of the service? Choose a stateless service if you don’t need to store data or want to store data in external storage. If you want to maintain state or data as part of the service (for example, you need that data to reside in memory close to the code), or cannot tolerate a dependency on an external store, consider choosing a stateful service.
+When you add a microservice to a Service Fabric application, decide whether it has state or data that needs to be made highly available and reliable. If so, can it store data externally or is the data contained as part of the service? Choose a stateless service if you don't need to store data or want to store data in external storage. If you want to maintain state or data as part of the service (for example, you need that data to reside in memory close to the code), or cannot tolerate a dependency on an external store, consider choosing a stateful service.
 
 If you have existing code that you want to run on Service Fabric, you can run it as a guest executable, which is an arbitrary executable that runs as a service. Alternatively, you can package the executable in a container that has all the dependencies needed for deployment. Service Fabric models both containers and guest executables as stateless services. For guidance about choosing a model, see [Service Fabric programming model overview](/azure/service-fabric/service-fabric-choose-framework).
 
 With guest executables, you are responsible of maintaining the environment in which it runs. For example, suppose that a guest executable requires Python. If the executable is not self-contained, you need to make sure that the required version of Python is pre-installed in the environment. Service Fabric does not manage the environment. Azure offers multiple mechanisms to set up the environment, including custom virtual machine images and extensions.
 
-To access a guest executable through a reverse proxy, make sure you have added the **UriScheme** attribute to the **Endpoint** element in the guest executable’s service manifest.
+To access a guest executable through a reverse proxy, make sure you have added the **UriScheme** attribute to the **Endpoint** element in the guest executable's service manifest.
 
 ```xml
     <Endpoints>
-      <Endpoint Name="MyGuextExeTypeEndpoint" Port="8090" Protocol="http" UriScheme="http" PathSuffix="api" Type="Input"/>
+      <Endpoint Name="MyGuestExeTypeEndpoint" Port="8090" Protocol="http" UriScheme="http" PathSuffix="api" Type="Input"/>
     </Endpoints>
 ```
 
-If the service has additional routes, specify the routes in the **PathSuffix** value. The value should not be prefixed or suffixed with ‘/’. Another way is to add the route in the service name.
+If the service has additional routes, specify the routes in the **PathSuffix** value. The value should not be prefixed or suffixed with '/'. Another way is to add the route in the service name.
 
 ```xml
     <Endpoints>
-      <Endpoint Name="MyGuextExeTypeEndpoint" Port="8090" Protocol="http" PathSuffix="api" Type="Input"/>
+      <Endpoint Name="MyGuestExeTypeEndpoint" Port="8090" Protocol="http" PathSuffix="api" Type="Input"/>
     </Endpoints>
 ```
 
@@ -101,26 +107,26 @@ For more information, see:
 
 An [API gateway](../..//microservices/design/gateway.md) (ingress) sits between external clients and the microservices. It acts as a reverse proxy, routing requests from clients to microservices. It may also perform various cross-cutting tasks such as authentication, SSL termination, and rate limiting.
 
-Azure API Management is recommended for most scenarios, but [Træfik](https://docs.traefik.io/) is a popular open-source alternative. Both technology options are integrated with Service Fabric.
+Azure API Management is recommended for most scenarios, but [Traefik](https://docs.traefik.io) is a popular open-source alternative. Both technology options are integrated with Service Fabric.
 
-- API Management exposes a public IP address and routes traffic to your services. It runs in a dedicated subnet in the same virtual network as the Service Fabric cluster.  It can access services in a node type that is exposed through a load balancer with a private IP address. This option is only available in the Premium and Developer tiers of API Management. For production workloads, use the Premium tier. Pricing information is described in [API Management pricing](https://azure.microsoft.com/pricing/details/api-management/). For more information, see Service Fabric with [Azure API Management overview](/azure/service-fabric/service-fabric-api-management-overview).
-- Træfik supports features such as routing, tracing, logs, and metrics. Træfik runs as a stateless service in the Service Fabric cluster. Service versioning can be supported through routing. For information on how to set up Træfik for service ingress and as the reverse proxy within the cluster, see [Azure Service Fabric Provider](https://docs.traefik.io/v1.7/configuration/backends/servicefabric/). For more information about using Træfik with Service Fabric, see [Intelligent routing on Service Fabric with Træfik](https://blogs.msdn.microsoft.com/azureservicefabric/2018/04/05/intelligent-routing-on-service-fabric-with-traefik/) (blog post).
+- API Management exposes a public IP address and routes traffic to your services. It runs in a dedicated subnet in the same virtual network as the Service Fabric cluster.  It can access services in a node type that is exposed through a load balancer with a private IP address. This option is only available in the Premium and Developer tiers of API Management. For production workloads, use the Premium tier. Pricing information is described in [API Management pricing](https://azure.microsoft.com/pricing/details/api-management). For more information, see Service Fabric with [Azure API Management overview](/azure/service-fabric/service-fabric-api-management-overview).
+- Traefik supports features such as routing, tracing, logs, and metrics. Traefik runs as a stateless service in the Service Fabric cluster. Service versioning can be supported through routing. For information on how to set up Traefik for service ingress and as the reverse proxy within the cluster, see [Azure Service Fabric Provider](https://docs.traefik.io/v1.7/configuration/backends/servicefabric). For more information about using Traefik with Service Fabric, see [Intelligent routing on Service Fabric with Traefik](https://blogs.msdn.microsoft.com/azureservicefabric/2018/04/05/intelligent-routing-on-service-fabric-with-traefik) (blog post).
 
-Træfik, unlike Azure API Management, does not have functionality to resolve the partition of a stateful service (with more than one partition) to which a request is routed. For more information, see [Add a matcher for partitioning services](https://github.com/containous/traefik/issues/3224).
+Traefik, unlike Azure API Management, does not have functionality to resolve the partition of a stateful service (with more than one partition) to which a request is routed. For more information, see [Add a matcher for partitioning services](https://github.com/containous/traefik/issues/3224).
 
-Other API management options include [Azure Application Gateway](/azure/application-gateway/) and [Azure Front Door](/azure/frontdoor/). These services can be used in conjunction with API Management to perform tasks such as routing, SSL termination, and firewall.
+Other API management options include [Azure Application Gateway](/azure/application-gateway) and [Azure Front Door](/azure/frontdoor). These services can be used in conjunction with API Management to perform tasks such as routing, SSL termination, and firewall.
 
 ### Interservice communication
 
 To facilitate service-to-service communication, consider using HTTP as the communication protocol. As a baseline for most scenarios, we recommend using [the reverse proxy service](/azure/service-fabric/service-fabric-reverseproxy) for service discovery.
 
-- Communication protocol. In a microservices architecture, services need to communicate with each other with minimum coupling at runtime. To enable language-agnostic communication, HTTP is an industry-standard with a wide range of tools and HTTP servers that are available in different languages, all supported by Service Fabric. Therefore, using HTTP instead of Service Fabric’s built in service remoting is recommended for most workloads.
-- Service discovery. To communicate with other services within a cluster, a client service needs to resolve the target service’s current location. In Service Fabric, services can move between nodes, causing the service endpoints to change dynamically. To avoid connections to stale endpoints, Service Fabric’s Naming Service can be used to retrieve updated endpoint information. However, Service Fabric also provides a built-in [reverse proxy service](/azure/service-fabric/service-fabric-reverseproxy) that abstracts the naming service. This option is easier to use and results in simpler code.
+- Communication protocol. In a microservices architecture, services need to communicate with each other with minimum coupling at runtime. To enable language-agnostic communication, HTTP is an industry-standard with a wide range of tools and HTTP servers that are available in different languages, all supported by Service Fabric. Therefore, using HTTP instead of Service Fabric's built-in service remoting is recommended for most workloads.
+- Service discovery. To communicate with other services within a cluster, a client service needs to resolve the target service's current location. In Service Fabric, services can move between nodes, causing the service endpoints to change dynamically. To avoid connections to stale endpoints, Service Fabric's Naming Service can be used to retrieve updated endpoint information. However, Service Fabric also provides a built-in [reverse proxy service](/azure/service-fabric/service-fabric-reverseproxy) that abstracts the naming service. This option is easier to use and results in simpler code.
 
 Other options for interservice communication include,
 
-- [Træfik](https://docs.traefik.io/) for advanced routing.
-- [DNS](/azure/dns/) for compatibility scenarios where a service expects to use DNS.
+- [Traefik](https://docs.traefik.io) for advanced routing.
+- [DNS](/azure/dns) for compatibility scenarios where a service expects to use DNS.
 - [ServicePartitionClient&lt;TCommunicationClient&gt;](/dotnet/api/microsoft.servicefabric.services.communication.client.servicepartitionclient-1?view=azure-dotnet) class. The class caches service endpoints and can enable better performance, as calls go directly between services without intermediaries or custom protocols.
 
 ## Scalability considerations
@@ -136,9 +142,9 @@ This section is focused on autoscaling. You can choose to manually scale in situ
 
 When you create a Service Fabric cluster, provision the node types based on your security and scalability needs. Each node type is mapped to a virtual machine scale set and can be scaled independently.
 
-- Create a node type for each group of services that have different scalability or resource requirements. Start by provisioning a node type (which becomes the [primary node type](/azure/service-fabric/service-fabric-cluster-capacity#primary-node-type)) for the Service Fabric system services. Then create separate node types to run your public or front-end services, and other node types as necessary for your backend and private or isolated services. Specify [placement constraints](/azure/service-fabric/service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies) so that the services are only deployed to the intended node types.
+- Create a node type for each group of services that have different scalability or resource requirements. Start by provisioning a node type (which becomes the [Primary node type](/azure/service-fabric/service-fabric-cluster-capacity#primary-node-type)) for the Service Fabric system services. Then create separate node types to run your public or front-end services, and other node types as necessary for your backend and private or isolated services. Specify [placement constraints](/azure/service-fabric/service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies) so that the services are only deployed to the intended node types.
 - Specify the durability tier for each node type. The durability tier represents the ability for Service Fabric to influence virtual machine scale set updates and maintenance operations. For production workloads, choose the Silver or higher durability tier. For information about each tier, see [The durability characteristics of the cluster](/azure/service-fabric/service-fabric-cluster-capacity#the-durability-characteristics-of-the-cluster).
-- If using the Bronze durability tier, certain operations require manual steps.  For node types with Bronze durability tier additional steps are required during scale in. For more information on scaling operations, see [this guide](/azure/service-fabric/service-fabric-cluster-scale-up-down).
+- If using the Bronze durability tier, certain operations require manual steps.  For node types with Bronze durability tier additional steps are required during scale in. For more information on scaling operations, see [this guide](/azure/service-fabric/service-fabric-cluster-resource-manager-autoscaling).
 
 ### Scaling nodes
 
@@ -171,7 +177,7 @@ For a stateful service, scaling is controlled by the number of partitions, the s
 
 For more information, see:
 
-- [Scale a Service Fabric cluster in or out using autoscale rules or manually](/azure/service-fabric/service-fabric-cluster-scale-up-down)
+- [Scale a Service Fabric cluster in or out using autoscale rules or manually](/azure/service-fabric/service-fabric-cluster-resource-manager-autoscaling)
 - [Scale a Service Fabric cluster programmatically](/azure/service-fabric/service-fabric-cluster-programmatic-scaling)
 - [Scale a Service Fabric cluster out by adding a virtual machine scale set](/azure/service-fabric/virtual-machine-scale-set-scale-node-type-scale-out)
 
@@ -192,7 +198,7 @@ Consider constraining the resources of your services. See [Resource governance m
 - Do not mix resource governed and resource non-governed services on the same node type. The non-governed services might consume too many resources, affecting the resource governed services. Specify [placement constraints](/azure/service-fabric/service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies) to make sure that those types of services do not run on the same set of nodes. See [Specify resource governance](/azure/service-fabric/service-fabric-resource-governance#specify-resource-governance). (This is an example of the [Bulkhead pattern](../../patterns/bulkhead.md).)
 - Specify the CPU cores and memory to reserve for a service instance. For information about usage and limitations of resource governance policies, see [Resource governance](/azure/service-fabric/service-fabric-resource-governance).
 
-Make sure every service’s target instance or replica count is greater than 1 to avoid a single point of failure (SPOF). The largest number that you can use as service instance or replica count equals the number nodes that to which the service is constrained.
+Make sure every service's target instance or replica count is greater than 1 to avoid a single point of failure (SPOF). The largest number that you can use as service instance or replica count equals the number nodes that to which the service is constrained.
 
 Make sure every stateful service has at least two active secondary replicas. Five replicas are recommended for production workloads.
 
@@ -206,7 +212,7 @@ Here are some key points for securing your application on Service Fabric:
 
 Consider defining subnet boundaries for each virtual machine scale set to control the flow of communication. Each node type has its own virtual machine scale set in a subnet within the Service Fabric cluster's virtual network. Network Security Groups (NSGs) can be added to the subnets to allow or reject network traffic. For example, with front-end and back-end node types, you can add an NSG to the backend subnet to accept inbound traffic only the front-end subnet.
 
-When calling external Azure Services from the cluster, use [Virtual Network service endpoints](/azure/virtual-network/virtual-network-service-endpoints-overview) if the Azure service supports it. Using a service endpoint secures the service to only the cluster’s Virtual Network. For example, if you are using Cosmos DB to store data, configure the Cosmos DB account with a service endpoint to allow access only from a specific subnet. See [Access Azure Cosmos DB resources from virtual networks](/azure/cosmos-db/vnet-service-endpoint).
+When calling external Azure Services from the cluster, use [Virtual Network service endpoints](/azure/virtual-network/virtual-network-service-endpoints-overview) if the Azure service supports it. Using a service endpoint secures the service to only the cluster's Virtual Network. For example, if you are using Cosmos DB to store data, configure the Cosmos DB account with a service endpoint to allow access only from a specific subnet. See [Access Azure Cosmos DB resources from virtual networks](/azure/cosmos-db/vnet-service-endpoint).
 
 ### Endpoints and interservice communication
 
@@ -225,15 +231,15 @@ Remote desktop is useful for diagnostic and troubleshooting, but make sure not t
 
 ### Secrets and certificates
 
-Store secrets such as connection strings to datastores in Azure Key Vault. The Key Vault must be in the same region as the virtual machine scale set. You will need to:
+Store secrets such as connection strings to data stores in Azure Key Vault. The Key Vault must be in the same region as the virtual machine scale set. You will need to:
 
-- Authenticate the service’s access to the Key Vault.
+- Authenticate the service's access to the Key Vault.
 
     Enable [managed identity](/azure/active-directory/managed-identities-azure-resources/services-support-msi#azure-virtual-machine-scale-sets) on the virtual machine scale set that hosts the service.
 
 - Store your secrets in the Key Vault.
 
-    Add secrets in a format that can be translated to a key-value pair. For example, CosmosDB--AuthKey. When the configuration is built, “--” is converted into “:”.
+    Add secrets in a format that can be translated to a key-value pair. For example, CosmosDB--AuthKey. When the configuration is built, "--" is converted into ":".
 
 - Access those secrets in your service.
 
@@ -290,9 +296,9 @@ For more information about securing Service Fabric, see:
 
 To recover from failures and maintain a fully functioning state, the application must implement certain resiliency patterns. Here are some common patterns:
 
-- [Retry pattern](/azure/architecture/patterns/retry): To handle errors that are expected to be transient, such as resources being temporarily unavailable.
-- [Circuit breaker](/azure/architecture/patterns/circuit-breaker): To address faults that might need longer to fix.
-- [Bulkhead pattern](/azure/architecture/patterns/bulkhead): To isolate resources per service.
+- [Retry pattern](../../patterns/retry.md): To handle errors that are expected to be transient, such as resources being temporarily unavailable.
+- [Circuit breaker](../../patterns/circuit-breaker.md): To address faults that might need longer to fix.
+- [Bulkhead pattern](../../patterns/bulkhead.md): To isolate resources per service.
 
 This reference implementation uses [Polly](https://github.com/App-vNext/Polly), an open-source option, to implement all of those patterns.
 
@@ -320,7 +326,7 @@ Application telemetry provides data about your service that can help you monitor
 - You can add your own instrumentation by using the [TelemetryClient](/dotnet/api/microsoft.applicationinsights.telemetryclient?view=azure-dotnet) class in the SDK and view the data in Application Insights. See [Add custom instrumentation to your application](/azure/service-fabric/service-fabric-tutorial-monitoring-aspnet#add-custom-instrumentation-to-your-application).
 - Log ETW events by using [EventSource](/azure/service-fabric/service-fabric-diagnostics-event-generation-app#eventsource). This option is available by default in a Visual Studio Service Fabric solution.
 
- Application Insights provides a lot of built-in telemetry: requests, traces, events, exceptions, metrics, dependencies. If your service exposes HTTP endpoints, enable Application Insights by calling the **UseApplicationInsights** extension method for [Microsoft.AspNetCore.Hosting.IWebHostBuilder](https://docs.microsoft.com/dotnet/api/microsoft.aspnetcore.hosting.iwebhostbuilder?view=aspnetcore-2.2). For information about instrumenting your service for Application Insights, see these articles:
+ Application Insights provides a lot of built-in telemetry: requests, traces, events, exceptions, metrics, dependencies. If your service exposes HTTP endpoints, enable Application Insights by calling the **UseApplicationInsights** extension method for [Microsoft.AspNetCore.Hosting.IWebHostBuilder](/dotnet/api/microsoft.aspnetcore.hosting.iwebhostbuilder?view=aspnetcore-2.2). For information about instrumenting your service for Application Insights, see these articles:
 
 - [Tutorial: Monitor and diagnose an ASP.NET Core application on Service Fabric using Application Insights](/azure/service-fabric/service-fabric-tutorial-monitoring-aspnet).
 - [Application Insights for ASP.NET Core](/azure/application-insights/app-insights-asp-net-core)
@@ -338,7 +344,7 @@ To view the traces and event logs, use [Application Insights](/azure/service-fab
 
 If your service does not expose HTTP endpoints, you need to write a custom extension that sends traces to Application Insights. For an example, see the Workflow service in the reference implementation.
 
-ASP.NET Core services use the [ILogger interface](/aspnet/core/fundamentals/logging/?view=aspnetcore-2.2) for application logging. To make these application logs available in Azure Monitor, send the `ILogger` events to Application Insights. For more information, see [ILogger in an ASP.NET Core application](https://github.com/Microsoft/ApplicationInsights-dotnet-logging/blob/develop/src/ILogger/Readme.md#aspnet-core-application). Application Insights can add correlation properties to ILogger events, useful for visualizing distributed tracing.
+ASP.NET Core services use the [ILogger interface](/aspnet/core/fundamentals/logging/?view=aspnetcore-2.2) for application logging. To make these application logs available in Azure Monitor, send the `ILogger` events to Application Insights. For more information, see [ILogger in an ASP.NET Core application](https://github.com/Microsoft/ApplicationInsights-dotnet-logging/tree/master/src/ILogger#aspnet-core-application). Application Insights can add correlation properties to ILogger events, useful for visualizing distributed tracing.
 
 For more information, see:
 
@@ -382,7 +388,7 @@ You can also view performance logs and telemetry data related to a Service Fabri
 
 In microservices architecture, several services often participate to complete a task. The telemetry from each of those services is correlated by using context fields (operation ID, request ID, and so forth) in a distributed trace. By using [Application Map](/azure/azure-monitor/app/app-map) in Application Insights, you can build the view of distributed logical operation and visualize the entire service graph of your application. You can also use transaction diagnostics in Application Insight to correlate server-side telemetry. For more information, see [Unified cross-component transaction diagnostics](/azure/application-insights/app-insights-transaction-diagnostics).
 
-[Application Insights Application Map](/azure/azure-monitor/app/app-map) provides the topology of the application by using HTTP dependency calls made between  services, with the installed Application Insights SDK. It’s also important to correlate tasks that are dispatched asynchronously using a queue. For details about sending correlation telemetry in a queue message, see [Queue instrumentation](/azure/azure-monitor/app/custom-operations-tracking#queue-instrumentation).
+[Application Insights Application Map](/azure/azure-monitor/app/app-map) provides the topology of the application by using HTTP dependency calls made between services, with the installed Application Insights SDK. It's also important to correlate tasks that are dispatched asynchronously using a queue. For details about sending correlation telemetry in a queue message, see [Queue instrumentation](/azure/azure-monitor/app/custom-operations-tracking#queue-instrumentation).
 
 For more information, see:
 
@@ -397,7 +403,52 @@ Use Azure Monitor alerts to notify sysadmins when certain conditions occur in sp
 
 [Log search alert rules](/azure/azure-monitor/platform/alerts-unified-log) allow you to define and run a Kusto query against a Log Analytics workspace at regular intervals. An alert is created if the query result matches a certain condition.
 
+## Cost considerations
+
+Use the [Azure pricing calculator][azure-pricing-calculator] to estimate costs. Other considerations are described in the Cost section in [Microsoft Azure Well-Architected Framework][aaf-cost].
+
+Here are some points to consider for some of the services used in this architecture.
+
+### Azure Service Fabric
+
+You are charged for the compute instances, storage, networking resources, and IP addresses you choose when creating a Service Fabric cluster. There are deployment charges for Service Fabric.
+
+### Virtual machine scale sets
+
+In this architecture, the microservices are deployed into nodes that are virtual machine scale sets. You are charged for the Azure VMs that are deployed as part of the cluster and underlying infrastructure resources, such as storage and networking. There are no incremental charges for the virtual machine scale sets service.
+
+### Azure API Management (APIM)
+
+APIM is used as a gateway to route the requests from clients to your services in the cluster.
+
+There are different pricing options. The **Consumption** option is charged on a pay-per-use basis and includes a gateway component. Based on your workload, choose an option described in [Api Management pricing][Api-Management-pricing].
+
+### Azure Application Insights
+
+Application insights is used for collect telemetry for all services and also to view the traces and event logs in a structured way. The pricing for Azure Application Insights is a Pay-As-You-Go model based on data volume ingested and optionally for longer data retention. For more information, see [Manage Usage and Cost For Application Insights][ap-insight-cost].
+
+### Azure Monitor
+
+For Azure Monitor Log Analytics, you are charged for data ingestion and retention. For more information, see [Azure Monitor Pricing][az-monitor-pricing] for more information.
+
+### Azure Key Vault
+
+Azure Key Vault is used to store the Application Insight's instrumentation key as a secret. Azure Key Vault is offered in two service tiers. If you don't need HSM-protected keys, choose the **Standard**. For information about the features in each tier, see [Key Vault pricing](https://azure.microsoft.com/pricing/details/key-vault).
+
+### Azure DevOps Services
+
+This reference architecture only uses Azure Pipelines. Azure offers the Azure Pipeline as an individual Service. You are allowed a free Microsoft-hosted job with 1,800 minutes per month for CI/CD and one self-hosted job with unlimited minutes per month, extra jobs have charges. For more information, see [Azure DevOps Services Pricing][DevOps-pricing].
+
+## DevOps considerations
+
+### Azure Pipelines
+
+The reference implementation is deployed using Azure Pipelines. For DevOps considerations in a microservices architecture, see [CI/CD for microservices](../../microservices/ci-cd.md)
+
+You can also learn how to deploy a container application with CI/CD to a Service Fabric cluster, in this [tutorial][service-fabric-tutorial].
+
 ## Deploy the solution
+
 To deploy the reference implementation for this architecture, follow the steps in the [GitHub repo][ri-deploy].
 
 [ri]: https://github.com/mspnp/microservices-reference-implementation-servicefabric
@@ -408,4 +459,12 @@ To deploy the reference implementation for this architecture, follow the steps i
 - [Using domain analysis to model microservices](../../microservices/model/domain-analysis.md)
 - [Designing a microservices architecture](../../microservices/design/index.md)
 
+[sfx]: /azure/service-fabric/service-fabric-visualizing-your-cluster
+[service-fabric-tutorial]: /azure/service-fabric/service-fabric-tutorial-deploy-container-app-with-cicd-vsts
+[aaf-cost]: ../../framework/cost/overview.md
+[ap-insight-cost]: /azure/azure-monitor/app/pricing
+[Api-Management-pricing]: https://azure.microsoft.com/pricing/details/api-management
+[az-monitor-pricing]: https://azure.microsoft.com/pricing/details/monitor
+[azure-pricing-calculator]: https://azure.microsoft.com/pricing/calculator
+[DevOps-pricing]: https://azure.microsoft.com/pricing/details/devops/azure-devops-services
 [sfx]: /azure/service-fabric/service-fabric-visualizing-your-cluster

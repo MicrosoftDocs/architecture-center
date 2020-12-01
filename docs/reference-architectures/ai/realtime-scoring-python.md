@@ -4,10 +4,15 @@ titleSuffix: Azure Reference Architectures
 description: This reference architecture shows how to deploy Python models as web services on Azure to make real-time predictions.
 author: msalvaris
 ms.date: 01/28/2019
-ms.topic: reference-architecture
+ms.topic: conceptual
 ms.service: architecture-center
+ms.category:
+  - ai-machine-learning
+  - developer-tools
 ms.subservice: reference-architecture
-ms.custom: azcat-ai
+ms.custom:
+  - azcat-ai
+  - reference-architecture
 ---
 
 # Real-time scoring of Python scikit-learn and deep learning models on Azure
@@ -55,7 +60,7 @@ The application flow for the deep learning model is as follows:
 5. The web service created by Azure Machine Learning preprocesses the image data and sends it to the model for scoring.
 6. The predicted categories with their scores are returned to the client.
 
-## Architecture
+## Architecture'
 
 This architecture consists of the following components.
 
@@ -117,6 +122,33 @@ Use [RBAC][rbac] to control access to the Azure resources that you deploy. RBAC 
 
 **Logging**. Use best practices before storing log data, such as scrubbing user passwords and other information that could be used to commit security fraud.
 
+## Cost considerations
+
+Use the  [Azure pricing calculator][azure-pricing-calculator] to estimate costs. Here are some other considerations.
+
+For more information, see the Cost section in [Microsoft Azure Well-Architected Framework][aaf-cost].
+
+
+### Azure Machine Learning
+
+In this reference architecture, a large portion of cost is driven by compute resources. For the purposes of experimentation and training, Azure Machine Learning is free. You are only charged for the compute used by the web service. Use the [Azure pricing calculator][azure-pricing-calculator] to estimate your compute costs.
+
+### Azure Container Registry
+
+Azure Container Registry offers **Basic**, **Standard**, and **Premium**. Choose a tier depending on the storage you need. Choose **Premium**  if you need geo replication, or you enhanced throughput for docker pulls across concurrent nodes. In addition, standard networking charges apply. For more information, see Azure [Container Registry pricing][az-container-registry-pricing].
+
+### Azure Kubernetes Service
+
+You only pay for the virtual machines instances, storage, and networking resources consumed by your Kubernetes cluster. To estimate the cost of the required resources, see the [Container Services calculator][aks-Calculator].
+
+
+For more information, see the Cost section in [Microsoft Azure Well-Architected Framework][AAF-cost].
+
+## DevOps considerations
+
+In this architecture the scoring images are created by the Machine Learning model and deployed as containers on AKS. You can integrate the entire architecture into a release pipeline for model management and oprationalization, including DevOps tasks for data sanity test, model training on different compute targets, model version management, model deployment as real-time web service, staged deployment to QA/production environments, integration testing and functional testing. 
+The [Machine learning operationalization (MLOps) for Python models using Azure Machine Learning][mlops-ra] reference architecture shows how to implement a continuous integration (CI), continuous delivery (CD), and retraining pipeline for an AI application using Azure DevOps and Azure Machine Learning.
+
 ## Deployment
 
 To deploy this reference architecture, follow the steps described in the GitHub repos:
@@ -127,12 +159,14 @@ To deploy this reference architecture, follow the steps described in the GitHub 
 <!-- links -->
 
 [aad-auth]: /azure/aks/aad-integration
-[acr]: /azure/container-registry/
-[something]: https://kubernetes.io/docs/reference/access-authn-authz/authentication/
+[aaf-cost]: ../../framework/cost/overview.md
+[acr]: /azure/container-registry
 [aks]: /azure/aks/intro-kubernetes
+[aks-Calculator]: https://azure.microsoft.com/pricing/calculator/?service=kubernetes-service
 [autoscaler]: /azure/aks/autoscaler
 [autoscale-pods]: /azure/aks/tutorial-kubernetes-scale#autoscale-pods
-[azcopy]: /azure/storage/common/storage-use-azcopy-linux
+[az-container-registry-pricing]: https://azure.microsoft.com/pricing/details/container-registry
+[azure-pricing-calculator]: https://azure.microsoft.com/pricing/calculator
 [ddos]: /azure/virtual-network/ddos-protection-overview
 [get-started]: /azure/security-center/security-center-get-started
 [github-python]: https://github.com/Microsoft/MLAKSDeployAML
@@ -143,6 +177,7 @@ To deploy this reference architecture, follow the steps described in the GitHub 
 [kubectl]: https://kubernetes.io/docs/tasks/tools/install-kubectl/
 [aml]: /azure/machine-learning/service/overview-what-is-azure-ml
 [manually-scale-pods]: /azure/aks/tutorial-kubernetes-scale#manually-scale-pods
+[mlops-ra]: ./mlops-python.md
 [monitor-containers]: /azure/monitoring/monitoring-container-insights-overview
 [permissions]: /azure/aks/concepts-identity
 [rbac]: /azure/active-directory/role-based-access-control-what-is

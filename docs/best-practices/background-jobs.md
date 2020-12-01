@@ -1,14 +1,18 @@
 ---
 title: Background jobs guidance
 titleSuffix: Best practices for cloud applications
-description: Guidance on background tasks that run independently of the user interface.
+description: Learn about background tasks that run independently of the user interface, such as batch jobs, intensive processing tasks, and long-running processes.
 author: dragon119
 ms.date: 11/05/2018
-ms.topic: best-practice
+ms.topic: conceptual
 ms.service: architecture-center
-ms.subservice: cloud-fundamentals
-ms.custom: seodec18
+ms.subservice: best-practice
+ms.custom:
+  - seodec18
+  - best-practice
 ---
+
+<!-- cSpell:ignore webjobs wwwroot -->
 
 # Background jobs
 
@@ -117,7 +121,7 @@ Azure WebJobs have the following characteristics:
 
 Background tasks might be implemented in a way that prevents them from being deployed to Azure Web Apps, or these options might not be convenient. Typical examples are Windows services, and third-party utilities and executable programs. Another example might be programs written for an execution environment that is different than that hosting the application. For example, it might be a Unix or Linux program that you want to execute from a Windows or .NET application. You can choose from a range of operating systems for an Azure virtual machine, and run your service or executable on that virtual machine.
 
-To help you choose when to use Virtual Machines, see [Azure App Services, Cloud Services and Virtual Machines comparison](/azure/app-service-web/choose-web-site-cloud-service-vm/). For information about the options for Virtual Machines, see [Sizes for Windows virtual machines in Azure](/azure/virtual-machines/windows/sizes). For more information about the operating systems and prebuilt images that are available for Virtual Machines, see [Azure Virtual Machines Marketplace](https://azure.microsoft.com/gallery/virtual-machines/).
+To help you choose when to use Virtual Machines, see [Azure App Services, Cloud Services and Virtual Machines comparison](/azure/app-service-web/choose-web-site-cloud-service-vm). For information about the options for Virtual Machines, see [Sizes for Windows virtual machines in Azure](/azure/virtual-machines/windows/sizes). For more information about the operating systems and prebuilt images that are available for Virtual Machines, see [Azure Virtual Machines Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/compute).
 
 To initiate the background task in a separate virtual machine, you have a range of options:
 
@@ -136,17 +140,17 @@ See the earlier section [Triggers](#triggers) for more information about how you
 Consider the following points when you are deciding whether to deploy background tasks in an Azure virtual machine:
 
 - Hosting background tasks in a separate Azure virtual machine provides flexibility and allows precise control over initiation, execution, scheduling, and resource allocation. However, it will increase runtime cost if a virtual machine must be deployed just to run background tasks.
-- There is no facility to monitor the tasks in the Azure portal and no automated restart capability for failed tasks--although you can monitor the basic status of the virtual machine and manage it by using the  [Azure Resource Manager Cmdlets](https://msdn.microsoft.com/library/mt125356.aspx). However, there are no facilities to control processes and threads in compute nodes. Typically, using a virtual machine will require additional effort to implement a mechanism that collects data from instrumentation in the task, and from the operating system in the virtual machine. One solution that might be appropriate is to use the [System Center Management Pack for Azure](https://www.microsoft.com/download/details.aspx?id=50013).
+- There is no facility to monitor the tasks in the Azure portal and no automated restart capability for failed tasks--although you can monitor the basic status of the virtual machine and manage it by using the  [Azure Resource Manager Cmdlets](/powershell/module/?view=azps-1.0.0). However, there are no facilities to control processes and threads in compute nodes. Typically, using a virtual machine will require additional effort to implement a mechanism that collects data from instrumentation in the task, and from the operating system in the virtual machine. One solution that might be appropriate is to use the [System Center Management Pack for Azure](https://www.microsoft.com/download/details.aspx?id=50013).
 - You might consider creating monitoring probes that are exposed through HTTP endpoints. The code for these probes could perform health checks, collect operational information and statistics--or collate error information and return it to a management application. For more information, see the [Health Endpoint Monitoring pattern](../patterns/health-endpoint-monitoring.md).
 
 For more information, see:
 
-- [Virtual Machines](https://azure.microsoft.com/services/virtual-machines/)
-- [Azure Virtual Machines FAQ](/azure/virtual-machines/virtual-machines-linux-classic-faq?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
+- [Virtual Machines](https://azure.microsoft.com/services/virtual-machines)
+- [Azure Virtual Machines FAQ](/azure/virtual-machines/linux/faq)
 
 ### Azure Batch
 
-Consider [Azure Batch](/azure/batch/) if you need to run large, parallel high-performance computing (HPC) workloads across tens, hundreds, or thousands of VMs.
+Consider [Azure Batch](/azure/batch) if you need to run large, parallel high-performance computing (HPC) workloads across tens, hundreds, or thousands of VMs.
 
 The Batch service provisions the VMs, assign tasks to the VMs, runs the tasks, and monitors the progress. Batch can automatically scale out the VMs in response to the workload. Batch also provides job scheduling. Azure Batch supports both Linux and Windows VMs.
 
@@ -164,7 +168,7 @@ For more information, see:
 
 - [What is Azure Batch?](/azure/batch/batch-technical-overview)
 - [Develop large-scale parallel compute solutions with Batch](/azure/batch/batch-api-basics)
-- [Batch and HPC solutions for large-scale computing workloads](/azure/batch/batch-hpc-solutions)
+- [Batch and HPC solutions for large-scale computing workloads](../topics/high-performance-computing.md)
 
 ### Azure Kubernetes Service
 
@@ -183,11 +187,11 @@ Containers can be useful for running background jobs. Some of the benefits inclu
 
 <!-- markdownlint-enable MD024 -->
 
-- Requires an understanding of how to use a container orchestrator. Depending on the skillset of your DevOps team, this may or may not be an issue.
+- Requires an understanding of how to use a container orchestrator. Depending on the skill set of your DevOps team, this may or may not be an issue.
 
 For more information, see:
 
-- [Overview of containers in Azure](https://azure.microsoft.com/overview/containers/)
+- [Overview of containers in Azure](https://azure.microsoft.com/overview/containers)
 
 - [Introduction to private Docker container registries](/azure/container-registry/container-registry-intro)
 
@@ -245,9 +249,9 @@ Background tasks must be resilient in order to provide reliable services to the 
 
   - Typically, a background task will peek at messages in the queue, which temporarily hides them from other message consumers. Then it deletes the messages after they have been successfully processed. If a background task fails when processing a message, that message will reappear on the queue after the peek time-out expires. It will be processed by another instance of the task or during the next processing cycle of this instance. If the message consistently causes an error in the consumer, it will block the task, the queue, and eventually the application itself when the queue becomes full. Therefore, it is vital to detect and remove poison messages from the queue. If you are using Azure Service Bus, messages that cause an error can be moved automatically or manually to an associated dead letter queue.
 
-  - Queues are guaranteed at *least once* delivery mechanisms, but they might deliver the same message more than once. In addition, if a background task fails after processing a message but before deleting it from the queue, the message will become available for processing again. Background tasks should be idempotent, which means that processing the same message more than once does not cause an error or inconsistency in the application’s data. Some operations are naturally idempotent, such as setting a stored value to a specific new value. However, operations such as adding a value to an existing stored value without checking that the stored value is still the same as when the message was originally sent will cause inconsistencies. Azure Service Bus queues can be configured to automatically remove duplicated messages.
+  - Queues are guaranteed at *least once* delivery mechanisms, but they might deliver the same message more than once. In addition, if a background task fails after processing a message but before deleting it from the queue, the message will become available for processing again. Background tasks should be idempotent, which means that processing the same message more than once does not cause an error or inconsistency in the application's data. Some operations are naturally idempotent, such as setting a stored value to a specific new value. However, operations such as adding a value to an existing stored value without checking that the stored value is still the same as when the message was originally sent will cause inconsistencies. Azure Service Bus queues can be configured to automatically remove duplicated messages.
 
-  - Some messaging systems, such as Azure storage queues and Azure Service Bus queues, support a de-queue count property that indicates the number of times a message has been read from the queue. This can be useful in handling repeated and poison messages. For more information, see [Asynchronous Messaging Primer](https://msdn.microsoft.com/library/dn589781.aspx) and [Idempotency Patterns](https://blog.jonathanoliver.com/idempotency-patterns/).
+  - Some messaging systems, such as Azure storage queues and Azure Service Bus queues, support a de-queue count property that indicates the number of times a message has been read from the queue. This can be useful in handling repeated and poison messages. For more information, see [Asynchronous Messaging Primer](/previous-versions/msp-n-p/dn589781(v=pandp.10)) and [Idempotency Patterns](https://blog.jonathanoliver.com/idempotency-patterns).
 
 ## Scaling and performance considerations
 
@@ -265,4 +269,4 @@ Background tasks must offer sufficient performance to ensure they do not block t
 
 ## Related patterns
 
-- [Compute Partitioning Guidance](https://msdn.microsoft.com/library/dn589773.aspx)
+- [Compute Partitioning Guidance](/previous-versions/msp-n-p/dn589773(v=pandp.10))

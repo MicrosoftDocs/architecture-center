@@ -4,10 +4,16 @@ titleSuffix: Azure Reference Architectures
 description: How to create a trusted Active Directory domain in Azure.
 author: telmosampaio
 ms.date: 05/02/2018
-ms.topic: reference-architecture
+ms.topic: conceptual
 ms.service: architecture-center
+ms.category:
+  - identity
+  - hybrid
 ms.subservice: reference-architecture
-ms.custom: seodec18, identity
+ms.custom:
+  - seodec18
+  - identity
+  - reference-architecture
 ---
 
 # Create an Active Directory Domain Services (AD DS) resource forest in Azure
@@ -78,6 +84,28 @@ For additional information, see [Monitoring Active Directory][monitoring_ad]. Yo
 Forest level trusts are transitive. If you establish a forest level trust between an on-premises forest and a forest in the cloud, this trust is extended to other new domains created in either forest. If you use domains to provide separation for security purposes, consider creating trusts at the domain level only. Domain level trusts are non-transitive.
 
 For Active Directory-specific security considerations, see the security considerations section in [Extending Active Directory to Azure][adds-extend-domain].
+
+## DevOps considerations
+
+For DevOps considerations, see [DevOps: Extending Active Directory Domain Services (AD DS) to Azure](adds-extend-domain.md#devops-considerations).
+
+## Cost considerations
+
+Use the [Azure pricing calculator][azure-pricing-calculator] to estimate costs. Other considerations are described in the Cost section in [Microsoft Azure Well-Architected Framework][aaf-cost].
+
+Here are cost considerations for the services used in this architecture.
+
+### AD Domain Services
+
+Consider having Active Directory Domain Services as a shared service that is consumed by multiple workloads to lower costs. For more information, see [Active Directory Domain Services pricing][ADDS-pricing].
+
+### Azure VPN Gateway
+
+The main component of this architecture is the VPN gateway service. You are charged based on the amount of time that the gateway is provisioned and available.
+
+All inbound traffic is free, all outbound traffic is charged. Internet bandwidth costs are applied to VPN outbound traffic.  
+
+For more information, see [VPN Gateway Pricing][azure-gateway-charges].
 
 ## Deploy the solution
 
@@ -155,26 +183,20 @@ A deployment for this architecture is available on [GitHub][github]. Note that t
 - Learn the best practices for [creating an AD FS infrastructure][adfs] in Azure.
 
 <!-- links -->
-[adds-extend-domain]: adds-extend-domain.md
-[adfs]: adfs.md
-[azure-cli-2]: /azure/install-azure-cli
-[azbb]: https://github.com/mspnp/template-building-blocks/wiki/Install-Azure-Building-Blocks
 
-[running-VMs-for-an-N-tier-architecture-on-Azure]: ../virtual-machines-windows/n-tier.md
-
-[ad-azure-guidelines]: https://msdn.microsoft.com/library/azure/jj156090.aspx
+[aaf-cost]: ../../framework/cost/overview.md
+[adds-extend-domain]: ./adds-extend-domain.md
+[ADDS-pricing]: https://azure.microsoft.com/pricing/details/active-directory-ds
+[adfs]: ./adfs.md
+[azure-gateway-charges]: https://azure.microsoft.com/pricing/details/vpn-gateway
 [azure-expressroute]: /azure/expressroute/expressroute-introduction
 [azure-vpn-gateway]: /azure/vpn-gateway/vpn-gateway-about-vpngateways
-[considerations]: ./considerations.md
-[creating-external-trusts]: https://technet.microsoft.com/library/cc816837(v=ws.10).aspx
-[creating-forest-trusts]: https://technet.microsoft.com/library/cc816810(v=ws.10).aspx
+[considerations]: ./index.md
+[azure-pricing-calculator]: https://azure.microsoft.com/pricing/calculator
+[creating-external-trusts]: /previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc816837(v=ws.10)
+[creating-forest-trusts]: /previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc816810(v=ws.10)
 [github]: https://github.com/mspnp/identity-reference-architectures/tree/master/adds-forest
-[incoming-trust]: https://raw.githubusercontent.com/mspnp/identity-reference-architectures/master/adds-forest/extensions/incoming-trust.ps1
 [microsoft_systems_center]: https://microsoft.com/cloud-platform/system-center
-[monitoring_ad]: https://msdn.microsoft.com/library/bb727046.aspx
-[resource-manager-overview]: /azure/azure-resource-manager/resource-group-overview
-[solution-script]: https://raw.githubusercontent.com/mspnp/identity-reference-architectures/master/adds-forest/Deploy-ReferenceArchitecture.ps1
-[standby-operations-masters]: https://technet.microsoft.com/library/cc794737(v=ws.10).aspx
-[outgoing-trust]: https://raw.githubusercontent.com/mspnp/identity-reference-architectures/master/adds-forest/extensions/outgoing-trust.ps1
-[verify-a-trust]: https://technet.microsoft.com/library/cc753821.aspx
-[visio-download]: https://archcenter.blob.core.windows.net/cdn/identity-architectures.vsdx
+[monitoring_ad]: /previous-versions/windows/it-pro/windows-2000-server/bb727046(v=technet.10)
+[standby-operations-masters]: /previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc794737(v=ws.10)
+[visio-download]: https://arch-center.azureedge.net/identity-architectures.vsdx

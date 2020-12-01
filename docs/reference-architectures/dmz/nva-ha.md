@@ -1,12 +1,18 @@
 ---
 title: Deploy highly available NVAs
-description: Deploy network virtual appliances with high availability.
+description: Learn how to deploy network virtual appliances for high availability in Azure. This article includes example architectures for ingress, egress, and both.
 author: telmosampaio
 ms.date: 12/08/2018
-ms.topic: reference-architecture
+ms.topic: conceptual
 ms.service: architecture-center
+ms.category:
+  - networking
+  - management-and-governance
 ms.subservice: reference-architecture
-ms.custom: seodec18, networking
+ms.custom:
+  - seodec18
+  - networking
+  - reference-architecture
 ---
 
 # Deploy highly available network virtual appliances
@@ -31,6 +37,7 @@ The following architectures describe the resources and configuration necessary f
 
 | Solution | Benefits | Considerations |
 | --- | --- | --- |
+| [Load Balancer Standard & HA ports](/azure/load-balancer/load-balancer-ha-ports-overview) |Balances all TCP and UDP flows |Confirm with NVA providers how to best use HA ports and to learn which scenarios are supported <br/> HA ports feature is available in all the global Azure regions <br/> Fast failover to healthy instances, with per-instance health probes <br/> Review [limitations](/azure/load-balancer/load-balancer-ha-ports-overview#limitations)|
 | [Ingress with layer 7 NVAs][ingress-with-layer-7] |All NVA nodes are active |Requires an NVA that can terminate connections and use SNAT<br/> Requires a separate set of NVAs for traffic coming from the Internet and from Azure <br/> Can only be used for traffic originating outside Azure |
 | [Egress with layer 7 NVAs][egress-with-layer-7] |All NVA nodes are active | Requires an NVA that can terminate connections and implements source network address translation (SNAT)
 | [Ingress-Egress with layer 7 NVAs][ingress-egress-with-layer-7] |All nodes are active<br/>Able to handle traffic originated in Azure |Requires an NVA that can terminate connections and use SNAT<br/>Requires a separate set of NVAs for traffic coming from the Internet and from Azure |
@@ -112,15 +119,15 @@ You choose the type of probe you want to use when you configure the function app
 <!-- links -->
 
 [cloud-security]: /azure/best-practices-network-security
-[dmz-on-premises]: secure-vnet-dmz.md
+[dmz-on-premises]: ./secure-vnet-dmz.md
 [egress-with-layer-7]: #egress-with-layer-7-nvas
 [ingress-with-layer-7]: #ingress-with-layer-7-nvas
 [ingress-egress-with-layer-7]: #ingress-egress-with-layer-7-nvas
-[lb-overview]: /azure/load-balancer/load-balancer-overview/
-[nva-scenario]: /azure/virtual-network/virtual-network-scenario-udr-gw-nva/
+[lb-overview]: /azure/load-balancer/load-balancer-overview
+[nva-scenario]: /azure/virtual-network/virtual-network-scenario-udr-gw-nva
 [pip-udr-switch]: #pip-udr-switch-with-layer-4-nvas
-[udr-overview]: /azure/virtual-network/virtual-networks-udr-overview/
-[zookeeper]: https://zookeeper.apache.org/
+[udr-overview]: /azure/virtual-network/virtual-networks-udr-overview
+[zookeeper]: https://zookeeper.apache.org
 [pnp-ha-nva]: https://github.com/mspnp/ha-nva
 [ha-nva-fo]: https://aka.ms/ha-nva-fo
 

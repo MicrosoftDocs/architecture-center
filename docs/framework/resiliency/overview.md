@@ -1,19 +1,21 @@
 ---
-title: Overview of the resiliency pillar 
-description: Describes the resiliency pillar
+title: Overview of the reliability pillar
+description: Describes the reliability pillar
 author: david-stanford
 ms.date: 10/21/2019
-ms.topic: overview
+ms.topic: conceptual
 ms.service: architecture-center
-ms.subservice: cloud-design-principles
-ms.custom: 
+ms.subservice: well-architected
+ms.custom:
+  - fasttrack-edit
+  - overview
 ---
 
-# Overview of the resiliency pillar
+# Overview of the reliability pillar
 
-Building a reliable application in the cloud is different from traditional application development. While historically you may have purchased levels of redundant higher-end hardware to minimize the chance of an entire application platform failing.  In the cloud, we acknowledge up front that failures will happen. Instead of trying to prevent failures altogether, the goal is to minimize the effects of a single failing component.
+Building a reliable application in the cloud is different from traditional application development. While historically you may have purchased levels of redundant higher-end hardware to minimize the chance of an entire application platform failing, in the cloud, we acknowledge up front that failures will happen. Instead of trying to prevent failures altogether, the goal is to minimize the effects of a single failing component.
 
-To assess your workload using the tenets found in the Azure architecture framework, see the [Azure architecture review](/assessments/?mode=pre-assessment&id=azure-architecture-review).
+To assess your workload using the tenets found in the Microsoft Azure Well-Architected Framework, see the [Microsoft Azure Well-Architected Review](/assessments/?id=azure-architecture-review&mode=pre-assessment).
 
 Reliable applications are:
 
@@ -41,8 +43,9 @@ Identify your business needs, and build your reliability plan to address them. C
 
 - **Identify workloads and usage.** A *workload* is a distinct capability or task that is logically separated from other tasks, in terms of business logic and data storage requirements. Each workload has different requirements for availability, scalability, data consistency, and disaster recovery.
 - **Plan for usage patterns.** *Usage patterns* also play a role in requirements. Identify differences in requirements during critical and non-critical periods. For example, a tax-filing application can't fail during a filing deadline. To ensure uptime, plan redundancy across several regions in case one fails. Conversely, to minimize costs during non-critical periods, you can run your application in a single region.
+- **Identify critical components and paths.** Not all components of your system might be as important as others. For example, you might have an optional component that adds incremental value, but that the workload can run without if necessary. Understand where these components are, and conversely, where the critical parts of your workload are. This will help to scope your availability and reliablity metrics and to plan your recovery strategies to prioritise the highest-importance components.
 - **Establish availability metrics &mdash; *mean time to recovery* (MTTR) and *mean time between failures* (MTBF).** MTTR is the average time it takes to restore a component after a failure. MTBF is how long a component can reasonably expect to last between outages. Use these measures to determine where to add redundancy and to determine service-level agreements (SLAs) for customers.
-- **Establish recovery metrics &mdash; recovery time objective and recovery point objective (RPO).** *RTO* is the maximum acceptable time an application can be unavailable after an incident. *RPO* is the maximum duration of data loss that is acceptable during a disaster. To derive these values, conduct a risk assessment and make sure you understand the cost and risk of downtime or data loss in your organization.
+- **Establish recovery metrics &mdash; recovery time objective (RTO) and recovery point objective (RPO).** *RTO* is the maximum acceptable time an application can be unavailable after an incident. *RPO* is the maximum duration of data loss that is acceptable during a disaster. To derive these values, conduct a risk assessment and make sure you understand the cost and risk of downtime or data loss in your organization.
     > [!NOTE]
     > If the MTTR of *any* critical component in a highly available setup exceeds the system RTO, a failure in the system might cause an unacceptable business disruption. That is, you can't restore the system within the defined RTO.
 - **Determine workload availability targets.** To ensure that application architecture meets your business requirements, define target SLAs for each workload. Account for the cost and complexity of meeting availability requirements, in addition to application dependencies.
@@ -69,6 +72,14 @@ During the architectural phase, focus on implementing practices that meet your b
   - **Document and test your failover and failback processes.** Clearly document instructions to fail over to a new data store, and test them regularly to make sure they are accurate and easy to follow.
   - **Protect your data.** Back up and validate data regularly, and make sure no single user account has access to both production and backup data.
   - **Plan for data recovery.** Make sure that your backup and replication strategy provides for data recovery times that meet your service-level requirements. Account for all types of data your application uses, including reference data and databases.
+
+## Azure service dependencies
+
+Microsoft Azure services are available globally to drive your cloud operations at an optimal level. You can choose the best region for your needs based on technical and regulatory considerations: service capabilities, data residency, compliance requirements, and latency.
+
+Azure services deployed to Azure regions are listed on the [Azure global infrastructure products](https://azure.microsoft.com/global-infrastructure/services/?products=all) page. To better understand regions and Availability Zones in Azure, see [Regions and Availability Zones in Azure](/azure/availability-zones/az-overview).
+
+Azure services are built for resiliency including high availability and disaster recovery. There are no services that are dependent on a single logical data center (to avoid single points of failure). Non-regional services listed on [Azure global infrastructure products](https://azure.microsoft.com/global-infrastructure/services/?products=all) are services for which there is no dependency on a specific Azure region. Non-regional services are deployed to two or more regions and if there is a regional failure, the instance of the service in another region continues servicing customers. Certain non-regional services enable customers to specify the region where the underlying virtual machine (VM) on which service runs will be deployed. For example, [Windows Virtual Desktop](https://azure.microsoft.com/services/virtual-desktop/) enables customers to specify the region location where the VM resides. All Azure services that store customer data allow the customer to specify the specific regions in which their data will be stored. The exception is [Azure Active Directory (Azure AD)](https://azure.microsoft.com/services/active-directory/), which has geo placement (such as Europe or North America). For more information about data storage residency, see the [Data residency map](https://azuredatacentermap.azurewebsites.net).
 
 ## Test with simulations and forced failovers
 

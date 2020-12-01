@@ -1,11 +1,18 @@
 ---
 title: Send Azure Databricks application logs to Azure Monitor
-description: How to send custom logs and metrics from Azure Databricks to Azure Monitor
-author: petertaylor9999
+description: Learn how to send application logs and metrics from Azure Databricks to a Log Analytics workspace using the Azure Databricks Monitoring Library.
+author: PeterTaylor9999
 ms.date: 03/26/2019
 ms.service: architecture-center
-ms.subservice: reference-architecture
+ms.category:
+  - databases
+  - developer-tools
+  - management-and-governance
+  - featured
+ms.subservice: azure-guide
 ---
+
+<!-- cSpell:ignore Dropwizard loganalytics samplejob appender jconfiguration kusto rowcounter -->
 
 # Send Azure Databricks application logs to Azure Monitor
 
@@ -28,7 +35,7 @@ To send application metrics from Azure Databricks application code to Azure Moni
 
 1. Create Dropwizard [gauges or counters](https://metrics.dropwizard.io/4.0.0/manual/core.html) in your application code. You can use the `UserMetricsSystem` class defined in the monitoring library. The following example creates a counter named `counter1`.
 
-    ```Scala
+    ```scala
     import org.apache.spark.metrics.UserMetricsSystems
     import org.apache.spark.sql.SparkSession
 
@@ -59,11 +66,11 @@ To send application metrics from Azure Databricks application code to Azure Moni
 
 To send your Azure Databricks application logs to Azure Log Analytics using the [Log4j appender](https://logging.apache.org/log4j/2.x/manual/appenders.html) in the library, follow these steps:
 
-1. Build the **spark-listeners-loganalytics-1.0-SNAPSHOT.jar** JAR file as described in the [GitHub readme][config-cluster].
+1. Build the **spark-listeners-1.0-SNAPSHOT.jar** and the **spark-listeners-loganalytics-1.0-SNAPSHOT.jar** JAR file as described in the [GitHub readme][config-cluster].
 
 1. Create a **log4j.properties** [configuration file](https://logging.apache.org/log4j/2.x/manual/configuration.html) for your application. Include the following configuration properties. Substitute your application package name and log level where indicated:
 
-    ```YAML
+    ```yaml
     log4j.appender.A1=com.microsoft.pnp.logging.loganalytics.LogAnalyticsAppender
     log4j.appender.A1.layout=com.microsoft.pnp.logging.JSONLayout
     log4j.appender.A1.layout.LocationInfo=false
@@ -75,14 +82,14 @@ To send your Azure Databricks application logs to Azure Log Analytics using the 
 
 1. In your application code, include the **spark-listeners-loganalytics** project, and import `com.microsoft.pnp.logging.Log4jconfiguration` to your application code.
 
-    ```Scala
+    ```scala
     import com.microsoft.pnp.logging.Log4jConfiguration
     ```
 
 1. Configure Log4j using the **log4j.properties** file you created in step 3:
 
-    ```Scala
-    getClass.getResourceAsStream("<path to file in your JAR file>/log4j.properties")) {
+    ```scala
+    getClass.getResourceAsStream("<path to file in your JAR file>/log4j.properties") {
           stream => {
             Log4jConfiguration.configure(stream)
           }
@@ -91,7 +98,7 @@ To send your Azure Databricks application logs to Azure Log Analytics using the 
 
 1. Add Apache Spark log messages at the appropriate level in your code as required. For example, use the `logDebug` method to send a debug log message. For more information, see [Logging][spark-logging] in the Spark documentation.
 
-    ```Scala
+    ```scala
     logTrace("Trace message")
     logDebug("Debug message")
     logInfo("Info message")
@@ -119,13 +126,13 @@ When the job runs, you can view the application logs and metrics in your Log Ana
 
 Application logs appear under SparkLoggingEvent_CL:
 
-```Kusto
+```kusto
 SparkLoggingEvent_CL | where logger_name_s contains "com.microsoft.pnp"
 ```
 
 Application metrics appear under SparkMetric_CL:
 
-```Kusto
+```kusto
 SparkMetric_CL | where name_s contains "rowcounter" | limit 50
 ```
 

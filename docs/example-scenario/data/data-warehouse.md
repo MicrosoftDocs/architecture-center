@@ -1,14 +1,18 @@
 ---
 title: Data warehousing and analytics
-description: Consolidate data from multiple sources and optimize data analytics.
+description: This example demonstrates a data pipeline that integrates large amounts of data from multiple sources into a unified analytics platform in Azure.
 author: alexbuckgit
 ms.date: 11/20/2019
-ms.topic: example-scenario
+ms.category:
+  - analytics
+  - databases
+ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: example-scenario
 ms.custom:
   - data-analytics
   - data-warehouse
+  - example-scenario
 social_image_url: /azure/architecture/example-scenario/data/media/architecture-data-warehouse.png
 ---
 
@@ -40,7 +44,7 @@ This approach can also be used to:
 The data flows through the solution as follows:
 
 1. For each data source, any updates are exported periodically into a staging area in Azure Blob storage.
-2. Data Factory incrementally loads the data from Blob storage into staging tables in Azure Synapse Analytics. The data is cleansed and transformed during this process. Polybase can parallelize the process for large datasets.
+2. Data Factory incrementally loads the data from Blob storage into staging tables in Azure Synapse Analytics. The data is cleansed and transformed during this process. PolyBase can parallelize the process for large datasets.
 3. After loading a new batch of data into the warehouse, a previously created Analysis Services tabular model is refreshed. This semantic model simplifies the analysis of business data and relationships.
 4. Business analysts use Microsoft Power BI to analyze warehoused data via the Analysis Services semantic model.
 
@@ -57,7 +61,7 @@ The company has data sources on many different platforms:
 Data is loaded from these different data sources using several Azure components:
 
 - [Blob storage](/azure/storage/blobs/storage-blobs-introduction) is used to stage source data before it's loaded into Azure Synapse.
-- [Data Factory](/azure/data-factory) orchestrates the transformation of staged data into a common structure in Azure Synapse. Data Factory [uses Polybase when loading data into Azure Synapse](/azure/data-factory/connector-azure-sql-data-warehouse#use-polybase-to-load-data-into-azure-sql-data-warehouse) to maximize throughput.
+- [Data Factory](/azure/data-factory) orchestrates the transformation of staged data into a common structure in Azure Synapse. Data Factory [uses PolyBase when loading data into Azure Synapse](/azure/data-factory/connector-azure-sql-data-warehouse#use-polybase-to-load-data-into-azure-sql-data-warehouse) to maximize throughput.
 - [Azure Synapse](/azure/sql-data-warehouse/sql-data-warehouse-overview-what-is) is a distributed system for storing and analyzing large datasets. Its use of massive parallel processing (MPP) makes it suitable for running high-performance analytics. Azure Synapse can use [PolyBase](/sql/relational-databases/polybase/polybase-guide) to rapidly load data from Blob storage.
 - [Analysis Services](/azure/analysis-services) provides a semantic model for your data. It can also increase system performance when analyzing your data.
 - [Power BI](/power-bi) is a suite of business analytics tools to analyze data and share insights. Power BI can query a semantic model stored in Analysis Services, or it can query Azure Synapse directly.
@@ -66,16 +70,16 @@ Data is loaded from these different data sources using several Azure components:
 ### Alternatives
 
 - The example pipeline includes several different kinds of data sources. This architecture can handle a wide variety of relational and non-relational data sources.
-- Data Factory orchestrates the workflows for your data pipeline. If you want to load data only one time or on demand, you could use tools like SQL Server bulk copy (bcp) and AzCopy to copy data into Blob storage. You can then load the data directly into Azure Synapse using Polybase.
+- Data Factory orchestrates the workflows for your data pipeline. If you want to load data only one time or on demand, you could use tools like SQL Server bulk copy (bcp) and AzCopy to copy data into Blob storage. You can then load the data directly into Azure Synapse using PolyBase.
 - If you have very large datasets, consider using [Data Lake Storage](/azure/storage/data-lake-storage/introduction), which provides limitless storage for analytics data.
 - An on-premises [SQL Server Parallel Data Warehouse](/sql/analytics-platform-system) appliance can also be used for big data processing. However, operating costs are often much lower with a managed cloud-based solution like Azure Synapse.
 - Azure Synapse is not a good fit for OLTP workloads or data sets smaller than 250 GB. For those cases you should use Azure SQL Database or SQL Server.
 - For comparisons of other alternatives, see:
 
-  - [Choosing a data pipeline orchestration technology in Azure](/azure/architecture/data-guide/technology-choices/pipeline-orchestration-data-movement)
-  - [Choosing a batch processing technology in Azure](/azure/architecture/data-guide/technology-choices/batch-processing)
-  - [Choosing an analytical data store in Azure](/azure/architecture/data-guide/technology-choices/analytical-data-stores)
-  - [Choosing a data analytics technology in Azure](/azure/architecture/data-guide/technology-choices/analysis-visualizations-reporting)
+  - [Choosing a data pipeline orchestration technology in Azure](../../data-guide/technology-choices/pipeline-orchestration-data-movement.md)
+  - [Choosing a batch processing technology in Azure](../../data-guide/technology-choices/batch-processing.md)
+  - [Choosing an analytical data store in Azure](../../data-guide/technology-choices/analytical-data-stores.md)
+  - [Choosing a data analytics technology in Azure](../../data-guide/technology-choices/analysis-visualizations-reporting.md)
 
 ## Considerations
 
@@ -97,11 +101,11 @@ Review a [pricing sample for a data warehousing scenario][calculator] via the Az
 - [Analysis Services](https://azure.microsoft.com/pricing/details/analysis-services) is available in developer, basic, and standard tiers. Instances are priced based on query processing units (QPUs) and available memory. To keep your costs lower, minimize the number of queries you run, how much data they process, and how often they run.
 - [Power BI](https://powerbi.microsoft.com/pricing) has different product options for different requirements. [Power BI Embedded](https://azure.microsoft.com/pricing/details/power-bi-embedded) provides an Azure-based option for embedding Power BI functionality inside your applications. A Power BI Embedded instance is included in the pricing sample above.
 
-## Next Steps
+## Next steps
 
-- Review the [Azure reference architecture for automated enterprise BI](/azure/architecture/reference-architectures/data/enterprise-bi-adf), which includes instructions for deploying an instance of this architecture in Azure.
+- Review the [Azure reference architecture for automated enterprise BI](../../reference-architectures/data/enterprise-bi-adf.md), which includes instructions for deploying an instance of this architecture in Azure.
 - Read the [Maritz Motivation Solutions customer story][source-document]. That story describes a similar approach to managing customer data.
-- Find comprehensive architectural guidance on data pipelines, data warehousing, online analytical processing (OLAP), and big data in the [Azure Data Architecture Guide](/azure/architecture/data-guide).
+- Find comprehensive architectural guidance on data pipelines, data warehousing, online analytical processing (OLAP), and big data in the [Azure Data Architecture Guide](../../data-guide/index.md).
 
 <!-- links -->
 

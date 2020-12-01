@@ -1,16 +1,20 @@
 ---
 title: About the Tailspin Surveys application
-description: An overview of the Tailspin Surveys application.
-author: MikeWasson
+description: Several examples use the Tailspin scenario about a fictional company that is developing a SaaS application named Surveys to create and publish online surveys.
+author: doodlemania2
 ms.date: 07/21/2017
-ms.topic: guide
+ms.topic: conceptual
 ms.service: architecture-center
-ms.subservice: reference-architecture
+ms.category:
+  - developer-tools
+ms.subservice: azure-guide
+ms.custom:
+  - guide
 ---
 
 # The Tailspin scenario
 
-[![GitHub](../_images/github.png) Sample code][sample application]
+[:::image type="icon" source="../_images/github.png" border="false"::: Sample code][sample application]
 
 Tailspin is a fictional company that is developing a SaaS application named Surveys. This application enables organizations to create and publish online surveys.
 
@@ -55,13 +59,15 @@ The Surveys application consists of a web front end and a web API backend. Both 
 
 The web application uses Azure Active Directory (Azure AD) to authenticate users. The web application also calls Azure AD to get OAuth 2 access tokens for the Web API. Access tokens are cached in Azure Cache for Redis. The cache enables multiple instances to share the same token cache (for example, in a server farm).
 
-![Architecture](./images/architecture.png)
+:::image type="complex" source="./images/architecture.png" alt-text="Architectural diagram showing the web front end and web API backend for the Surveys app.":::
+   The diagram shows components in boxes, interacting with other components via two-way arrows. The Surveys web application authenticates with Azure AD to get access tokens for the web API, and caches the tokens in the Azure Cache for Redis access token cache.
+:::image-end:::
 
 [**Next**][authentication]
 
 <!-- links -->
 
-[authentication]: authenticate.md
+[authentication]: ./authenticate.md
 
 [ASP.NET Core]: /aspnet/core
 [sample application]: https://github.com/mspnp/multitenant-saas-guidance

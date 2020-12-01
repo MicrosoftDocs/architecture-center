@@ -1,12 +1,18 @@
 ---
 title: Real-time scoring of R machine learning models
-description:  Implement a real-time prediction service in R using Machine Learning Server running in Azure Kubernetes Service (AKS).
+description: Implement a real-time prediction service in R using Machine Learning Server running in Azure Kubernetes Service (AKS).
 author: njray
 ms.date: 12/10/2019
-ms.topic: reference-architecture
+ms.topic: conceptual
 ms.service: architecture-center
+ms.category:
+  - ai-machine-learning
+  - developer-tools
+  - containers
 ms.subservice: reference-architecture
-ms.custom: azcat-ai
+ms.custom:
+  - azcat-ai
+  - reference-architecture
 ---
 
 # Real-time scoring of R machine learning models on Azure
@@ -43,7 +49,7 @@ In general, open-source R models store all their data in memory, so ensure that 
 
 ### Network encryption
 
-In this reference architecture, HTTPS is enabled for communication with the cluster, and a staging certificate from [Let’s Encrypt][encrypt] is used. For production purposes, substitute your own certificate from an appropriate signing authority.
+In this reference architecture, HTTPS is enabled for communication with the cluster, and a staging certificate from [Let's Encrypt][encrypt] is used. For production purposes, substitute your own certificate from an appropriate signing authority.
 
 ### Authentication and authorization
 
@@ -57,9 +63,9 @@ This reference architecture bundles the application (R) and the data (model obje
 
 ## Monitoring and logging considerations
 
-Use the [Kubernetes dashboard][dashboard] to monitor the overall status of your AKS cluster. See the cluster’s overview blade in Azure portal for more details. The [GitHub][github] resources also show how to bring up the dashboard from R.
+Use the [Kubernetes dashboard][dashboard] to monitor the overall status of your AKS cluster. See the cluster's overview blade in Azure portal for more details. The [GitHub][github] resources also show how to bring up the dashboard from R.
 
-Although the dashboard gives you a view of the overall health of your cluster, it’s also important to track the status of individual containers. To do this, enable [Azure Monitor Insights][monitor] from the cluster overview blade in Azure portal, or consider [Azure Monitor for containers][monitor-containers] (in preview).
+Although the dashboard gives you a view of the overall health of your cluster, it's also important to track the status of individual containers. To do this, enable [Azure Monitor Insights][monitor] from the cluster overview blade in Azure portal, or consider [Azure Monitor for containers][monitor-containers] (in preview).
 
 ## Cost considerations
 
@@ -71,26 +77,26 @@ An alternative to Plumber is [Microsoft Machine Learning Server][mmls], which pr
 
 [Nginx][nginx] and [Cert-Manager][cert-manager] can be used rather than Traefik to provide the middleware layer.
 
-This architecture provides a pure R experience. It doesn't use the [Python](/python/api/overview/azure/ml/intro?view=azure-ml-py)-oriented [Azure Machine Learning](/azure/machine-learning/service/overview-what-is-azure-ml#what-is-machine-learning) (AzureML SDK), which is a mature cloud service for developing AI solutions at scale. AzureML SDK provides an easy path for developing and deploying containerized scoring scripts. We provide an [alternative solution](https://github.com/microsoft/AMLSDKRModelsOperationalization) that shows how to use [Conda](https://conda.io/en/latest/) to [install R](https://docs.anaconda.com/anaconda/user-guide/tasks/use-r-language/) and R packages to leverage AzureML SDK via the [rpy2](https://rpy2.bitbucket.io/) Python package. The value of using this alternative to operationalize R models is that you don't need to know Flask, and you can reuse AzureML SDK expertise, which can be useful for teams that are comfortable using both R and Python languages for their data science projects. The implementation of this alternative architecture is [available on GitHub](https://github.com/microsoft/AMLSDKRModelsOperationalization).
+This architecture provides a pure R experience. It doesn't use the [Python](/python/api/overview/azure/ml/intro?view=azure-ml-py)-oriented [Azure Machine Learning](/azure/machine-learning/service/overview-what-is-azure-ml#what-is-machine-learning) (AzureML SDK), which is a mature cloud service for developing AI solutions at scale. AzureML SDK provides an easy path for developing and deploying containerized scoring scripts. We provide an [alternative solution](https://github.com/microsoft/AMLSDKRModelsOperationalization) that shows how to use [Conda](https://conda.io/en/latest/) to [install R](https://docs.anaconda.com/anaconda/user-guide/tasks/use-r-language/) and R packages to leverage AzureML SDK via the [rpy2](https://pypi.org/project/rpy2/) Python package. The value of using this alternative to operationalize R models is that you don't need to know Flask, and you can reuse AzureML SDK expertise, which can be useful for teams that are comfortable using both R and Python languages for their data science projects. The implementation of this alternative architecture is [available on GitHub](https://github.com/microsoft/AMLSDKRModelsOperationalization).
 
 ## Deploy the solution
 
 The reference implementation of this architecture is available on [GitHub][github]. Follow the steps described there to deploy a simple predictive model as a service.
 
 <!-- links -->
-[azure-ad]: /azure/active-directory/fundamentals/active-directory-whatis
+
 [API]: /azure/api-management/api-management-key-concepts
 [ACR]: /azure/container-registry/container-registry-intro
 [AKS]: /azure/aks/intro-kubernetes
-[autoscaler]: https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/
-[cert-manager]: https://cert-manager.io/
+[autoscaler]: https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale
+[cert-manager]: https://cert-manager.io
 [cluster-autoscaler]: /azure/aks/autoscaler
 [monitor]: /azure/monitoring/monitoring-container-insights-overview
 [dashboard]: /azure/aks/kubernetes-dashboard
-[docker]: https://docs.docker.com/registry/spec/api/
-[encrypt]: https://letsencrypt.org/
+[docker]: https://docs.docker.com/registry/spec/api
+[encrypt]: https://letsencrypt.org
 [gitHub]: https://github.com/Azure/RealtimeRDeployment
-[K-API]: https://kubernetes.io/docs/reference/
+[K-API]: https://kubernetes.io/docs/reference
 [MMLS]: /machine-learning-server/what-is-machine-learning-server
 [monitor-containers]: /azure/azure-monitor/insights/container-insights-overview
 [nginx]: https://www.nginx.com

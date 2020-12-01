@@ -1,14 +1,20 @@
 ---
 title: Basic web application
 titleSuffix: Azure Reference Architectures
-description: Recommended architecture for a basic web application running in Azure.
-author: MikeWasson
+description: Learn about proven practices for a web application that uses Azure App Service and Azure SQL Database by using this reference architecture.
+author: doodlemania2
 ms.date: 12/12/2017
-ms.topic: reference-architecture
+ms.topic: conceptual
 ms.service: architecture-center
+ms.category:
+  - web
 ms.subservice: reference-architecture
-ms.custom: seodec18
+ms.custom:
+  - seodec18
+  - reference-architecture
 ---
+
+<!-- cSpell:ignore BACPAC DTUs -->
 
 # Run a basic web application in Azure
 
@@ -50,14 +56,11 @@ The architecture has the following components:
 
 Your requirements might differ from the architecture described here. Use the recommendations in this section as a starting point.
 
-
 ### App Service plan
 
 Use **Free** and **Shared** (preview) tiers for testing purposes because the shared resources cannot scale out. The two tiers provide different options within your budget.  Run your production workload on **Basic**, **Standard**, and **Premium** tiers because the app runs on dedicated virtual machine instances and has allocated resources that can scale out. App Service plans are billed on a per second basis.
 
-For more information, see [How much does my App Service plan cost?
-](https://docs.microsoft.com/azure/app-service/overview-hosting-plans#how-much-does-my-app-service-plan-cost)
-
+For more information, see [How much does my App Service plan cost?](/azure/app-service/overview-hosting-plans#how-much-does-my-app-service-plan-cost)
 
 Use the Standard or Premium tiers, because they support scale-out, autoscale, and secure sockets layer (SSL). Each tier supports several *instance sizes* that differ by number of cores and memory. You can change the tier or instance size after you create a plan. For more information about App Service plans, see [App Service Pricing][app-service-plans-tiers].
 
@@ -65,7 +68,7 @@ You are charged for the instances in the App Service plan, even if the app is st
 
 ### SQL Database
 
-A logical server group makes administrative tasks simple. Each database within the group is deployed with a specific  [service tier][sql-db-service-tiers]. Within each group, the databases cannot share resources. There are no compute costs for the server but for each database, you need to specify the tier. Therefore, because of the dedicated resources the performance might be better but the cost can be higher. 
+A logical server group makes administrative tasks simple. Each database within the group is deployed with a specific  [service tier][sql-db-service-tiers]. Within each group, the databases cannot share resources. There are no compute costs for the server but for each database, you need to specify the tier. Therefore, because of the dedicated resources the performance might be better but the cost can be higher.
 
 Use the [V12 version][sql-db-v12] of SQL Database. SQL Database supports Basic, Standard, and Premium [service tiers][sql-db-service-tiers], with multiple performance levels within each tier measured in [Database Transaction Units (DTUs)][sql-dtu]. Perform capacity planning and choose a tier and performance level that meets your requirements.
 
@@ -73,12 +76,11 @@ Use the [V12 version][sql-db-v12] of SQL Database. SQL Database supports Basic, 
 
 Provision the App Service plan and the SQL Database in the same region to minimize network latency. Generally, choose the region closest to your users.
 
-The resource group also has a region, which specifies where deployment metadata is stored. Put the resource group and its resources in the same region. This can improve availability during deployment. 
+The resource group also has a region, which specifies where deployment metadata is stored. Put the resource group and its resources in the same region. This can improve availability during deployment.
 
 Use the [pricing calculator][pricing] to estimate costs.
 
-For more information, see the cost section in [Azure Architecture Framework](/azure/architecture/framework/cost/overview).
-
+For more information, see the cost section in [Microsoft Azure Well-Architected Framework](../../framework/cost/overview.md).
 
 ## Scalability considerations
 
@@ -138,6 +140,12 @@ When assigning resources to resource groups, consider the following:
 
 For more information, see [Azure Resource Manager overview](/azure/azure-resource-manager/resource-group-overview).
 
+## DevOps considerations
+
+In this architecture you use an [Azure Resource Manager template][arm-template] for provisioning the Azure resources and its dependencies. Since this is a single web application, all the resources are isolated in the same basic workload, that makes it easier to associate the workload's specific resources to a team, so that the team can independently manage all aspects of those resources. This isolation enables the DevOps team to perform continuous integration and continuous delivery (CI/CD). Also, you can use different [Azure Resource Manager templates][arm-template] and integrate them with Azure DevOps Services to provision different environments in minutes, for example to replicate production like scenarios or load testing environments only when needed, saving cost.
+
+Provision multiple instances of the web application, so it does not depend on a single instance which could create a single point of failure. Also multiple instances improve resiliency and scalability.
+
 ### Deployment
 
 Deployment involves two steps:
@@ -181,6 +189,9 @@ Tips for troubleshooting your application:
 - The [Kudu dashboard][kudu] has several tools for monitoring and debugging your application. For more information, see [Azure Websites online tools you should know about][kudu] (blog post). You can reach the Kudu dashboard from the Azure portal. Open the blade for your app and click **Tools**, then click **Kudu**.
 - If you use Visual Studio, see the article [Troubleshoot a web app in Azure App Service using Visual Studio][troubleshoot-web-app] for debugging and troubleshooting tips.
 
+
+For more information, see the DevOps section in [Azure Well-Architected Framework][AAF-devops].
+
 ## Security considerations
 
 This section lists security considerations that are specific to the Azure services described in this article. It's not a complete list of security best practices. For some additional security considerations, see [Secure an app in Azure App Service][app-service-security].
@@ -205,7 +216,7 @@ As a security best practice, your app should enforce HTTPS by redirecting HTTP r
 
 ### Authentication
 
-We recommend authenticating through an identity provider (IDP), such as Azure AD, Facebook, Google, or Twitter. Use OAuth 2 or OpenID Connect (OIDC) for the authentication flow. Azure AD provides functionality to manage users and groups, create application roles, integrate your on-premises identities, and consume backend services such as Office 365 and Skype for Business.
+We recommend authenticating through an identity provider (IDP), such as Azure AD, Facebook, Google, or Twitter. Use OAuth 2 or OpenID Connect (OIDC) for the authentication flow. Azure AD provides functionality to manage users and groups, create application roles, integrate your on-premises identities, and consume backend services such as Microsoft 365 and Skype for Business.
 
 Avoid having the application manage user logins and credentials directly, as it creates a potential attack surface.  At a minimum, you would need to have email confirmation, password recovery, and multi-factor authentication; validate password strength; and store password hashes securely. The large identity providers handle all of those things for you, and are constantly monitoring and improving their security practices.
 
@@ -242,35 +253,33 @@ For more information, see [Deploy resources with Azure Resource Manager template
 <!-- links -->
 
 [aad-auth]: /azure/app-service-mobile/app-service-mobile-how-to-configure-active-directory-authentication
+[AAF-devops]: ../../framework/devops/overview.md
 [app-insights]: /azure/application-insights/app-insights-overview
 [app-insights-data-rate]: /azure/application-insights/app-insights-pricing
-[app-service]: /azure/app-service/
+[app-service]: /azure/app-service
 [app-service-auth]: /azure/app-service-api/app-service-api-authentication
 [app-service-plans]: /azure/app-service/azure-web-sites-web-hosting-plans-in-depth-overview
-[app-service-plans-tiers]: https://azure.microsoft.com/pricing/details/app-service/
+[app-service-plans-tiers]: https://azure.microsoft.com/pricing/details/app-service
 [app-service-security]: /azure/app-service-web/web-sites-security
 [app-settings]: /azure/app-service-web/web-sites-configure
 [arm-template]: /azure/azure-resource-manager/resource-group-overview#resource-groups
-[azure-devops]: /azure/devops/
+[azure-devops]: /azure/devops
 [azure-dns]: /azure/dns/dns-overview
 [custom-domain-name]: /azure/app-service-web/web-sites-custom-domain-name
 [deploy]: /azure/app-service-web/web-sites-deploy
 [deploy-arm-template]: /azure/resource-group-template-deploy
 [deployment-slots]: /azure/app-service-web/web-sites-staged-publishing
 [diagnostic-logs]: /azure/app-service-web/web-sites-enable-diagnostic-log
-[kudu]: https://azure.microsoft.com/blog/windows-azure-websites-online-tools-you-should-know-about/
+[kudu]: https://azure.microsoft.com/blog/windows-azure-websites-online-tools-you-should-know-about
 [monitoring-guidance]: ../../best-practices/monitoring.md
-[new-relic]: https://newrelic.com/
+[new-relic]: https://newrelic.com
 [paas-basic-arm-template]: https://github.com/mspnp/reference-architectures/tree/master/managed-web-app/basic-web-app/Paas-Basic/Templates
 [perf-analysis]: https://github.com/mspnp/performance-optimization/blob/master/Performance-Analysis-Primer.md
 [pricing]: https://azure.microsoft.com/pricing/calculator
 [rbac]: /azure/active-directory/role-based-access-control-what-is
-[resource-group]: /azure/azure-resource-manager/resource-group-overview
-[sla]: https://azure.microsoft.com/support/legal/sla/
 [sql-audit]: /azure/sql-database/sql-database-auditing-get-started
 [sql-backup]: /azure/sql-database/sql-database-business-continuity
-[sql-db]: /azure/sql-database/
-[sql-db-overview]: /azure/sql-database/sql-database-technical-overview
+[sql-db]: /azure/sql-database
 [sql-db-scale]: /azure/sql-database/sql-database-single-database-scale
 [sql-db-service-tiers]: /azure/sql-database/sql-database-service-tiers
 [sql-db-v12]: /azure/sql-database/sql-database-features
@@ -278,12 +287,11 @@ For more information, see [Deploy resources with Azure Resource Manager template
 [sql-human-error]: /azure/sql-database/sql-database-business-continuity#recover-a-database-within-the-same-azure-region
 [sql-outage-recovery]: /azure/sql-database/sql-database-recovery-using-backups#geo-restore
 [ssl-redirect]: /azure/app-service-web/web-sites-configure-ssl-certificate
-[sql-resource-limits]: /azure/sql-database/sql-database-resource-limits
 [ssl-cert]: /azure/app-service-web/web-sites-purchase-ssl-web-site
-[troubleshoot-blade]: https://azure.microsoft.com/updates/self-service-troubleshooting-for-app-service-web-apps-customers/
+[troubleshoot-blade]: https://azure.microsoft.com/updates/self-service-troubleshooting-for-app-service-web-apps-customers
 [tfs]: /azure/devops/server/tfs-is-now-azure-devops-server
 [troubleshoot-web-app]: /azure/app-service-web/web-sites-dotnet-troubleshoot-visual-studio
-[visio-download]: https://archcenter.blob.core.windows.net/cdn/app-service-reference-architectures.vsdx
+[visio-download]: https://arch-center.azureedge.net/app-service-reference-architectures.vsdx
 [web-app-autoscale]: /azure/app-service-web/web-sites-scale
 [web-app-backup]: /azure/app-service-web/web-sites-backup
 [web-app-log-stream]: /azure/app-service-web/web-sites-enable-diagnostic-log#stream-logs

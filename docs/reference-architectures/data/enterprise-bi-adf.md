@@ -1,12 +1,18 @@
 ---
 title: Automated enterprise BI
 description: Automate an extract, load, and transform (ELT) workflow in Azure using Azure Data Factory with Azure Synapse Analytics.
-author: MikeWasson
-ms.date: 11/20/2019
-ms.topic: reference-architecture
+author: doodlemania2
+ms.date: 06/03/2020
+ms.topic: conceptual
 ms.service: architecture-center
+ms.category:
+  - analytics
+  - databases
+  - integration
 ms.subservice: reference-architecture
-ms.custom: seodec18
+ms.custom:
+  - seodec18
+  - reference-architecture
 ---
 
 # Automated enterprise BI with Azure Synapse Analytics and Azure Data Factory
@@ -52,13 +58,13 @@ The architecture consists of the following components.
 
 **Azure Active Directory** (Azure AD) authenticates users who connect to the Analysis Services server through Power BI.
 
-Data Factory can use also use Azure AD to authenticate to Azure Synapse, by using a service principal or Managed Service Identity (MSI). For simplicity, the example deployment uses SQL Server authentication.
+Data Factory can also use Azure AD to authenticate to Azure Synapse, by using a service principal or Managed Service Identity (MSI). For simplicity, the example deployment uses SQL Server authentication.
 
 ## Data pipeline
 
 In [Azure Data Factory][adf], a pipeline is a logical grouping of activities used to coordinate a task &mdash; in this case, loading and transforming data into Azure Synapse.
 
-This reference architecture defines a master pipeline that runs a sequence of child pipelines. Each child pipeline loads data into one or more data warehouse tables.
+This reference architecture defines a parent pipeline that runs a sequence of child pipelines. Each child pipeline loads data into one or more data warehouse tables.
 
 ![Screenshot of the pipeline in Azure Data Factory](./images/adf-pipeline.png)
 
@@ -92,7 +98,7 @@ After a new batch of data is loaded into the warehouse, refresh the Analysis Ser
 
 Data cleansing should be part of the ELT process. In this reference architecture, one source of bad data is the city population table, where some cities have zero population, perhaps because no data was available. During processing, the ELT pipeline removes those cities from the city population table. Perform data cleansing on staging tables, rather than external tables.
 
-Here is the stored procedure that removes the cities with zero population from the City Population table. (You can find the source file [here](https://github.com/mspnp/reference-architectures/blob/master/data/enterprise_bi_sqldw_advanced/azure/sqldw_scripts/citypopulation/%5BIntegration%5D.%5BMigrateExternalCityPopulationData%5D.sql).)
+Here is the stored procedure that removes the cities with zero population from the City Population table. (You can find the source file [here](https://github.com/mspnp/azure-data-factory-sqldw-elt-pipeline/blob/master/azure/sqldw_scripts/citypopulation/%5BIntegration%5D.%5BMigrateExternalCityPopulationData%5D.sql).)
 
 ```sql
 DELETE FROM [Integration].[CityPopulation_Staging]
@@ -139,7 +145,7 @@ The advantage of this approach is that it preserves historical data, which can b
 
 ![Second screenshot of the city dimension table](./images/city-dimension-table-2.png)
 
-For each Sales fact, you want to associate that fact with a single row in City dimension table, corresponding to the invoice date. As part of the ETL process, create an additional column that
+For each Sales fact, you want to associate that fact with a single row in City dimension table, corresponding to the invoice date. 
 
 The following T-SQL query creates a temporary table that associates each invoice with the correct City Key from the City dimension table.
 
@@ -180,9 +186,85 @@ Be aware of the following limitations:
 
 - If service endpoints are enabled for Azure Storage, PolyBase cannot copy data from Storage into Azure Synapse. There is a mitigation for this issue. For more information, see [Impact of using VNet Service Endpoints with Azure storage](/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview?toc=%2fazure%2fvirtual-network%2ftoc.json#impact-of-using-vnet-service-endpoints-with-azure-storage).
 
-- To move data from on-premises into Azure Storage, you will need to whitelist public IP addresses from your on-premises or ExpressRoute. For details, see [Securing Azure services to virtual networks](/azure/virtual-network/virtual-network-service-endpoints-overview#secure-azure-services-to-virtual-networks).
+- To move data from on-premises into Azure Storage, you will need to allow public IP addresses from your on-premises or ExpressRoute. For details, see [Securing Azure services to virtual networks](/azure/virtual-network/virtual-network-service-endpoints-overview#secure-azure-services-to-virtual-networks).
 
 - To enable Analysis Services to read data from Azure Synapse, deploy a Windows VM to the virtual network that contains the Azure Synapse service endpoint. Install [Azure On-premises Data Gateway](/azure/analysis-services/analysis-services-gateway) on this VM. Then connect your Azure Analysis service to the data gateway.
+
+## DevOps considerations
+
+- Create separate resource groups for production, development, and test environments. Separate resource groups make it easier to manage deployments, delete test deployments, and assign access rights.
+
+- Use the [Azure Building blocks][azbb] templates provided in this architecture or create [Azure Resource Manager template][arm-template] to deploy the Azure resources following the infrastructure as Code (IaC) Process. With templates,  automating deployments using [Azure DevOps Services][az-devops], or other CI/CD solutions is easier.
+
+- Put each workload in a separate deployment template and store the resources in source control systems. You can deploy the templates together or individually as part of a CI/CD process, making the automation process easier. 
+
+    In this architecture, there are three main workloads:
+    - The data warehouse server, Analysis Services, and related resources. 
+    - Azure Data Factory.
+    - An on-premises to cloud simulated scenario.
+
+    Each workload has its own deployment template.
+
+    The data warehouse server is set up and configured by using Azure CLI commands which follows the imperative approach of the IaC practice. Consider using deployment scripts and integrate them in the automation process.
+
+- Consider staging your workloads. Deploy to various stages and run validation checks at each stage before moving to the next stage. That way you can push updates to your production environments in a highly controlled way and minimize unanticipated deployment issues. Use [Blue-green deployment][blue-green-dep] and [Canary releases][cannary-releases]  strategies for updating live production environments. 
+
+    Have a good rollback strategy for handling failed deployments. For example, you can automatically redeploy an earlier, successful deployment from your deployment history. See the --rollback-on-error flag parameter in Azure CLI. 
+
+- [Azure Monitor][azure-monitor] is the recommended option for analyzing the performance of your data warehouse and the entire Azure analytics platform for an integrated monitoring experience. [Azure Synapse Analytics][synapse-analytics] provides a monitoring experience within the Azure portal to show insights to your data warehouse workload. The Azure portal is the recommended tool when monitoring your data warehouse because it provides configurable retention periods, alerts, recommendations, and customizable charts and dashboards for metrics and logs. 
+
+
+For more information, see the DevOps section in [Microsoft Azure Well-Architected Framework][AAF-devops].
+
+## Cost considerations
+Use the [Azure pricing calculator][azure-pricing-calculator] to estimate costs. Here are some considerations for services used in this reference architecture.
+
+
+### Azure Data Factory
+
+In this architecture, Azure Data Factory automates the ELT pipeline. The pipeline moves the data from an on-premises SQL Server database into Azure Synapse. The data is then transformed into a tabular model for analysis. For this scenario, pricing starts from $ 0.001 activity runs per month that includes activity, trigger, and debug runs. That price is the base charge only for orchestration. You are also charged for execution activities, such as copying data, lookups, and external activities. Each activity is individually priced. You are also charged for pipelines with no associated triggers or runs within the month. All activities are prorated by the minute and rounded up.
+
+#### Example cost analysis
+
+Consider a use case where there are two lookups activities from two different sources. One takes 1 minute and 2 seconds (rounded up to 2 minutes) and the other one takes 1 minute resulting in total time of 3 minutes. One data copy activity takes 10 minutes. One stored procedure activity takes 2 minutes. Total activity runs for 4 minutes. Cost is calculated as follows:
+
+Activity runs: 4 * $ 0.001 = $0.004
+
+Lookups: 3 * ($0.005 / 60) = $0.00025
+
+Stored procedure: 2 * ($0.00025 / 60) = $0.000008
+
+Data copy: 10 * ($0.25 / 60) * 4 data integration unit (DIU) = $0.167
+
+- Total cost per pipeline run: $0.17.
+- Run once per day for 30 days: $5.1 month. 
+- Run once per day per 100 tables for 30 days: $ 510 
+
+Every activity has an associated cost. Understand the pricing model and use the [ADF pricing calculator][adf-calculator] to get a solution optimized not only for performance but also for cost. Manage your costs by starting, stopping, pausing, and scaling your services.
+
+### Azure Synapse
+
+Azure Synapse is ideal for intensive workloads with higher query performance and compute scalability needs. You can choose the pay-as-you-go model or use reserved plans of one year (37% savings) or 3 years (65% savings).
+
+Data storage is charged separately. Other services such as disaster recovery and threat detection are also charged separately.
+
+For more information, see [Azure Synapse Pricing][az-synapse-pricing].
+
+### Analysis Services
+
+Pricing for Azure Analysis Services depends on the tier. The reference implementation of this architecture uses the **Developer** tier, which is recommended for evaluation, development, and test scenarios. Other tiers include, the **Basic** tier, which is recommended for small production environment; the **Standard** tier for mission-critical production applications. For more information, see [The right tier when you need it](/azure/analysis-services/analysis-services-overview#the-right-tier-when-you-need-it). 
+
+No charges apply when you pause your instance.
+
+For more information, see [Azure Analysis Services pricing][az-as-pricing].
+
+### Blob Storage
+
+Consider using the Azure Storage reserved capacity feature to lower cost on storage. With this model, you get a discount if you can commit to reservation for fixed storage capacity for one or three years. For more information, see [Optimize costs for Blob storage with reserved capacity][az-storage-reserved].
+
+
+For more information, see the Cost section in [Microsoft Azure Well-Architected Framework][aaf-cost].
+
 
 ## Deploy the solution
 
@@ -198,13 +280,32 @@ To the deploy and run the reference implementation, follow the steps in the [Git
 
 You may want to review the following [Azure example scenarios](/azure/architecture/example-scenario) that demonstrate specific solutions using some of the same technologies:
 
-- [Data warehousing and analytics for sales and marketing](/azure/architecture/example-scenario/data/data-warehouse)
-- [Hybrid ETL with existing on-premises SSIS and Azure Data Factory](/azure/architecture/example-scenario/data/hybrid-etl-with-adf)
-- [Enterprise BI in Azure with Azure Synapse](/azure/architecture/reference-architectures/data/enterprise-bi-sqldw).
+- [Data warehousing and analytics for sales and marketing](../../example-scenario/data/data-warehouse.md)
+- [Hybrid ETL with existing on-premises SSIS and Azure Data Factory](../../example-scenario/data/hybrid-etl-with-adf.md)
+- [Enterprise BI in Azure with Azure Synapse](./enterprise-bi-synapse.md).
 
 <!-- links -->
 
+[AAF-devops]: ../../framework/devops/overview.md
 [adf]: /azure/data-factory
+[arm-template]: /azure/azure-resource-manager/resource-group-overview#resource-groups
+[az-devops]: /azure/virtual-machines/windows/infrastructure-automation#azure-devops-services
+[azbb]: https://github.com/mspnp/template-building-blocks/wiki
+[azure-monitor]: https://azure.microsoft.com/services/monitor
+[blue-green-dep]: https://martinfowler.com/bliki/BlueGreenDeployment.html
+[cannary-releases]: https://martinfowler.com/bliki/CanaryRelease.html
 [github]: https://github.com/mspnp/azure-data-factory-sqldw-elt-pipeline
-[MergeLocation]: https://github.com/mspnp/reference-architectures/blob/master/data/enterprise_bi_sqldw_advanced/azure/sqldw_scripts/city/%5BIntegration%5D.%5BMergeLocation%5D.sql
+[MergeLocation]: https://github.com/mspnp/azure-data-factory-sqldw-elt-pipeline/blob/master/azure/sqldw_scripts/city/%5BIntegration%5D.%5BMergeLocation%5D.sql
+[synapse-analytics]: /azure/sql-data-warehouse/sql-data-warehouse-concept-resource-utilization-query-activity
+[wwi]: /sql/sample/world-wide-importers/wide-world-importers-oltp-database
+[azure-pricing-calculator]: https://azure.microsoft.com/pricing/calculator
+[aaf-cost]: ../../framework/cost/overview.md
+[adf]: /azure/data-factory
+[adf-calculator]: https://azure.microsoft.com/pricing/calculator/?service=data-factory
+[az-as-pricing]: https://azure.microsoft.com/pricing/details/analysis-services
+[az-storage-reserved]: /azure/storage/blobs/storage-blob-reserved-capacity
+[az-synapse-pricing]: https://azure.microsoft.com/pricing/details/synapse-analytics
+[azure-pricing-calculator]: https://azure.microsoft.com/pricing/calculator
+[github]: https://github.com/mspnp/azure-data-factory-sqldw-elt-pipeline
+[MergeLocation]: https://github.com/mspnp/azure-data-factory-sqldw-elt-pipeline/blob/master/azure/sqldw_scripts/city/%5BIntegration%5D.%5BMergeLocation%5D.sql
 [wwi]: /sql/sample/world-wide-importers/wide-world-importers-oltp-database

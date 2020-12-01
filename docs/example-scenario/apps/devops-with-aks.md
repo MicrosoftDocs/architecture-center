@@ -4,13 +4,19 @@ titleSuffix: Azure Example Scenarios
 description: Build a DevOps pipeline for a Node.js web app with Jenkins, Azure Container Registry, Azure Kubernetes Service, Cosmos DB, and Grafana.
 author: iainfoulds
 ms.date: 07/05/2018
-ms.topic: example-scenario
+ms.category:
+  - containers
+  - devops
+  - featured
+  - compute
+ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: example-scenario
 social_image_url: /azure/architecture/example-scenario/apps/media/architecture-devops-with-aks.png
 ms.custom:
-    - devops
-    - microservices
+  - devops
+  - microservices
+  - example-scenario
 ---
 
 # CI/CD pipeline for container-based workloads
@@ -74,7 +80,7 @@ Azure Kubernetes Service lets you scale the number of cluster nodes to meet the 
 
 Application data is stored in Azure Cosmos DB, a globally distributed, multi-model database that can scale globally. Cosmos DB abstracts the need to scale your infrastructure as with traditional database components, and you can choose to replicate your Cosmos DB globally to meet the demands of your customers.
 
-For other scalability topics, see the [scalability checklist][scalability] available in the Azure Architecture Center.
+For other scalability topics, see the [performance efficiency checklist][scalability] available in the Azure Architecture Center.
 
 ### Security
 
@@ -148,7 +154,6 @@ This scenario used Azure Container Registry and Azure Kubernetes Service to stor
 
 <!-- links -->
 [architecture]: ./media/architecture-devops-with-aks.png
-[autoscaling]: ../../best-practices/auto-scaling.md
 [docs-aci]: /azure/container-instances/container-instances-overview
 [docs-acr]: /azure/container-registry/container-registry-intro
 [docs-aks]: /azure/aks/intro-kubernetes
@@ -156,15 +161,14 @@ This scenario used Azure Container Registry and Azure Kubernetes Service to stor
 [docs-cosmos-db]: /azure/cosmos-db/introduction
 [docs-virtual-machines]: /azure/virtual-machines/linux/overview
 [createsp]: /cli/azure/ad/sp#az-ad-sp-create
-[grafana]: https://grafana.com/
-[jenkins]: https://jenkins.io/
-[resource-groups]: /azure/azure-resource-manager/resource-group-overview
-[security]: /azure/security/
-[scalability]: ../../checklist/scalability.md
+[grafana]: https://grafana.com
+[jenkins]: https://jenkins.io
+[security]: /azure/security
+[scalability]: ../../framework/scalability/performance-efficiency.md
 [sshkeydocs]: /azure/virtual-machines/linux/mac-create-ssh-keys
 [azure-pipelines]: /azure/devops/pipelines
-[kubernetes]: https://kubernetes.io/
-[service-fabric]: /azure/service-fabric/
+[kubernetes]: https://kubernetes.io
+[service-fabric]: /azure/service-fabric
 [get-aks-versions]: /cli/azure/aks?view=azure-cli-latest#az-aks-get-versions
 [aks-default-version]: /azure/aks/supported-kubernetes-versions
 

@@ -5,10 +5,15 @@ description: Use a DDD approach to migrate a monolithic application to microserv
 author: lavann
 ms.date: 11/04/2019
 ms.author: pnp
-ms.topic: guide
+ms.topic: conceptual
 ms.service: architecture-center
-ms.subservice: reference-architecture
-ms.custom: microservices
+ms.category:
+  - migration
+  - developer-tools
+ms.subservice: azure-guide
+ms.custom:
+  - microservices
+  - guide
 ---
 
 # Monoliths to microservices using domain-driven design
@@ -113,5 +118,3 @@ This approach is an example of the [Strangler pattern](../patterns/strangler.md)
 ## Next steps
 
 When the application has been decomposed into constituent microservices, it becomes possible to use modern orchestration tools such as [Azure DevOps](/azure/devops/) to manage the lifecycle of each service. For more information, see [CI/CD for microservices architectures](./ci-cd.md).
-
-

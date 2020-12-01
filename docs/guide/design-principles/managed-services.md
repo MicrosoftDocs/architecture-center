@@ -2,12 +2,14 @@
 title: Use platform as a service (PaaS) options
 titleSuffix: Azure Application Architecture Guide
 description: When possible, choose platform as a service (PaaS) over infrastructure as a service (IaaS).
-author: MikeWasson
+author: doodlemania2
 ms.date: 08/30/2018
-ms.topic: guide
+ms.topic: conceptual
 ms.service: architecture-center
-ms.subservice: reference-architecture
-ms.custom: seojan19
+ms.subservice: guide
+ms.custom:
+  - seojan19
+  - guide
 ---
 
 # Use platform as a service (PaaS) options
@@ -22,10 +24,13 @@ Of course, your application may have specific requirements that make an IaaS app
 
 | Instead of running... | Consider using... |
 |-----------------------|-------------|
-| Active Directory | Azure Active Directory Domain Services |
-| Elasticsearch | Azure Search |
-| Hadoop | HDInsight |
-| IIS | App Service |
-| MongoDB | Cosmos DB |
-| Redis | Azure Cache for Redis |
-| SQL Server | Azure SQL Database |
+| Active Directory | [Azure Active Directory](/azure/active-directory/fundamentals/active-directory-whatis) |
+| Elasticsearch | [Azure Search](/azure/search/search-what-is-azure-search) |
+| Hadoop | [HDInsight](/azure/hdinsight/hdinsight-overview) |
+| IIS | [App Service](/azure/app-service/overview) |
+| MongoDB | [Cosmos DB](/azure/cosmos-db/introduction) |
+| Redis | [Azure Cache for Redis](/azure/azure-cache-for-redis/cache-overview) |
+| SQL Server | [Azure SQL Database](/azure/sql-database/sql-database-technical-overview) |
+| File share | [Azure NetApp Files](/azure/azure-netapp-files/azure-netapp-files-introduction) |
+
+Please note that this is not meant to be an exhaustive list, but a subset of equivalent options.

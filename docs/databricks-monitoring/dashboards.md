@@ -1,17 +1,22 @@
 ---
 title: Use dashboards to visualize Azure Databricks metrics
-description: How to deploy a Grafana dashboard to monitor performance in Azure Databricks
-author: petertaylor9999
+description: Learn how to set up a Grafana dashboard to monitor performance of Azure Databricks jobs. Azure Databricks is an Apache Spark-based analytics service.
+author: PeterTaylor9999
 ms.date: 03/26/2019
 ms.service: architecture-center
-ms.subservice: reference-architecture
+ms.category:
+  - databases
+  - management-and-governance
+ms.subservice: azure-guide
 ---
+
+<!-- cSpell:ignore Grafana perftools loganalytics bitnami sparkmonitoring LOGTYPE -->
 
 # Use dashboards to visualize Azure Databricks metrics
 
 This article shows how to set up a Grafana dashboard to monitor Azure Databricks jobs for performance issues.
 
-[Azure Databricks](/azure/azure-databricks/) is a fast, powerful, and collaborative [Apache Spark](https://spark.apache.org/)–based analytics service that makes it easy to rapidly develop and deploy big data analytics and artificial intelligence (AI) solutions. Monitoring is a critical component of operating Azure Databricks workloads in production. The first step is to gather metrics into a workspace for analysis. In Azure, the best solution for managing log data is [Azure Monitor](/azure/azure-monitor/). Azure Databricks does not natively support sending log data to Azure monitor, but a [library for this functionality](https://github.com/mspnp/spark-monitoring) is available in [Github](https://github.com).
+[Azure Databricks](/azure/azure-databricks) is a fast, powerful, and collaborative [Apache Spark](https://spark.apache.org)–based analytics service that makes it easy to rapidly develop and deploy big data analytics and artificial intelligence (AI) solutions. Monitoring is a critical component of operating Azure Databricks workloads in production. The first step is to gather metrics into a workspace for analysis. In Azure, the best solution for managing log data is [Azure Monitor](/azure/azure-monitor). Azure Databricks does not natively support sending log data to Azure monitor, but a [library for this functionality](https://github.com/mspnp/spark-monitoring) is available in [GitHub](https://github.com).
 
 This library enables logging of Azure Databricks service metrics as well as Apache Spark structure streaming query event metrics. Once you've successfully deployed this library to an Azure Databricks cluster, you can further deploy a set of [Grafana](https://grafana.com) dashboards that you can deploy as part of your production environment.
 
@@ -28,10 +33,10 @@ To deploy the Azure Log Analytics workspace, follow these steps:
 1. Navigate to the `/perftools/deployment/loganalytics` directory.
 1. Deploy the **logAnalyticsDeploy.json** Azure Resource Manager template. For more information about deploying Resource Manager templates, see [Deploy resources with Resource Manager templates and Azure CLI][rm-cli]. The template has the following parameters:
 
-    * **location**: The region where the Log Analytics workspace and dashboards are deployed.
-    * **serviceTier**: Rhe workspace pricing tier. See [here][sku] for a list of valid values.
-    * **dataRetention** (optional): The number of days the log data is retained in the Log Analytics workspace. The default value is 30 days. If the pricing tier is `Free`, the data retention must be seven days.
-    * **workspaceName** (optional): A name for the workspace. If not specified, the template generates a name.
+    - **location**: The region where the Log Analytics workspace and dashboards are deployed.
+    - **serviceTier**: Rhe workspace pricing tier. See [here][sku] for a list of valid values.
+    - **dataRetention** (optional): The number of days the log data is retained in the Log Analytics workspace. The default value is 30 days. If the pricing tier is `Free`, the data retention must be seven days.
+    - **workspaceName** (optional): A name for the workspace. If not specified, the template generates a name.
 
     ```bash
     az group deployment create --resource-group <resource-group-name> --template-file logAnalyticsDeploy.json --parameters location='East US' serviceTier='Standalone'
@@ -41,7 +46,7 @@ This template creates the workspace and also creates a set of predefined queries
 
 ## Deploy Grafana in a virtual machine
 
-Grafana is an open source project you can deploy to visualize the time series metrics stored in your Azure Log Analytics workspace using the Grafana plugin for Azure Monitor. Grafana executes on a virtual machine (VM) and requires a storage account, virtual network, and other resources. To deploy a virtual machine with the bitnami certified Grafana image and associated resources, follow these steps:
+Grafana is an open source project you can deploy to visualize the time series metrics stored in your Azure Log Analytics workspace using the Grafana plugin for Azure Monitor. Grafana executes on a virtual machine (VM) and requires a storage account, virtual network, and other resources. To deploy a virtual machine with the bitnami-certified Grafana image and associated resources, follow these steps:
 
 1. Use the Azure CLI to accept the Azure Marketplace image terms for Grafana.
 
@@ -111,10 +116,10 @@ Next, change the Grafana administrator password by following these steps:
 1. In the **Settings** section, enter a name for the data source in the **Name** textbox.
 1. In the **Azure Monitor API Details** section, enter the following information:
 
-    * Subscription Id: Your Azure subscription ID.
-    * Tenant Id: The tenant ID from earlier.
-    * Client Id: The value of "appId" from earlier.
-    * Client Secret: The value of "password" from earlier.
+    - Subscription Id: Your Azure subscription ID.
+    - Tenant Id: The tenant ID from earlier.
+    - Client Id: The value of "appId" from earlier.
+    - Client Secret: The value of "password" from earlier.
 
 1. In the **Azure Log Analytics API Details** section, check the **Same Details as Azure Monitor API** checkbox.
 1. Click **Save & Test**. If the Log Analytics data source is correctly configured, a success message is displayed.

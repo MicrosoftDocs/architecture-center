@@ -4,15 +4,19 @@ titleSuffix: Best practices for cloud applications
 description: Guidance on separating data partitions to be managed and accessed separately.
 author: dragon119
 ms.date: 11/04/2018
-ms.topic: best-practice
+ms.topic: conceptual
 ms.service: architecture-center
-ms.subservice: cloud-fundamentals
-ms.custom: seodec18
+ms.subservice: best-practice
+ms.custom:
+  - seodec18
+  - best-practice
 ---
+
+<!-- cSpell:ignore shardlet shardlets MGET MSET -->
 
 # Data partitioning strategies
 
-This article describes some strategies for partitioning data in various Azure data stores. For general guidance about when to partition data and best practices, see [Data partitioning](./data-partitioning.md)
+This article describes some strategies for partitioning data in various Azure data stores. For general guidance about when to partition data and best practices, see [Data partitioning](./data-partitioning.md).
 
 ## Partitioning Azure SQL Database
 
@@ -28,7 +32,7 @@ For more information about elastic pools, see [Scaling out with Azure SQL Databa
 
 To reduce latency and improve availability, you can replicate the global shard map manager database. With the Premium pricing tiers, you can configure active geo-replication to continuously copy data to databases in different regions.
 
-Alternatively, use [Azure SQL Data Sync](/azure/sql-database/sql-database-sync-data) or [Azure Data Factory](/azure/data-factory/) to replicate the shard map manager database across regions. This form of replication runs periodically and is more suitable if the shard map changes infrequently, and does not require Premium tier.
+Alternatively, use [Azure SQL Data Sync](/azure/sql-database/sql-database-sync-data) or [Azure Data Factory](/azure/data-factory) to replicate the shard map manager database across regions. This form of replication runs periodically and is more suitable if the shard map changes infrequently, and does not require Premium tier.
 
 Elastic Database provides two schemes for mapping data to shardlets and storing them in shards:
 
@@ -110,7 +114,7 @@ Consider the following points when you design your entities for Azure table stor
 
   - Sharing the partition key across a subset of entities makes it possible to group related entities in the same partition. Operations that involve related entities can be performed by using entity group transactions, and queries that fetch a set of related entities can be satisfied by accessing a single server.
 
-For more information, see [Azure storage table design guide].
+For more information, see [Azure storage table design guide] and [Scalable partitioning strategy].
 
 ## Partitioning Azure blob storage
 
@@ -130,7 +134,7 @@ Azure storage queues enable you to implement asynchronous messaging between proc
 
 Each storage queue has a unique name within the storage account that contains it. Azure partitions queues based on the name. All messages for the same queue are stored in the same partition, which is controlled by a single server. Different queues can be managed by different servers to help balance the load. The allocation of queues to servers is transparent to applications and users.
 
-In a large-scale application, don't use the same storage queue for all instances of the application because this approach might cause the server that's hosting the queue to become a hotspot. Instead, use different queues for different functional areas of the application. Azure storage queues do not support transactions, so directing messages to different queues should have little effect on messaging consistency.
+In a large-scale application, don't use the same storage queue for all instances of the application because this approach might cause the server that's hosting the queue to become a hot spot. Instead, use different queues for different functional areas of the application. Azure storage queues do not support transactions, so directing messages to different queues should have little effect on messaging consistency.
 
 An Azure storage queue can handle up to 2,000 messages per second. If you need to process messages at a greater rate than this, consider creating multiple queues. For example, in a global application, create separate storage queues in separate storage accounts to handle application instances that are running in each region.
 
@@ -253,9 +257,9 @@ Consider the following points when deciding how to partition data with Azure Cac
 
 - The aggregate types enable you to associate many related values with the same key. A Redis key identifies a list, set, or hash rather than the data items that it contains. These types are all available with Azure Cache for Redis and are described by the [Data types] page on the Redis website. For example, in part of an e-commerce system that tracks the orders that are placed by customers, the details of each customer can be stored in a Redis hash that is keyed by using the customer ID. Each hash can hold a collection of order IDs for the customer. A separate Redis set can hold the orders, again structured as hashes, and keyed by using the order ID. Figure 8 shows this structure. Note that Redis does not implement any form of referential integrity, so it is the developer's responsibility to maintain the relationships between customers and orders.
 
-![Suggested structure in Redis storage for recording customer orders and their details](./images/data-partitioning/RedisCustomersandOrders.png)
+![Suggested structure in Redis storage for recording customer orders and their details](./images/data-partitioning/RedisCustomersAndOrders.png)
 
-*Figure 8. Suggested structure in Redis storage for recording customer orders and their details.*
+_Figure 8. Suggested structure in Redis storage for recording customer orders and their details._
 
 > [!NOTE]
 > In Redis, all keys are binary data values (like Redis strings) and can contain up to 512 MB of data. In theory, a key can contain almost any information. However, we recommend adopting a consistent naming convention for keys that is descriptive of the type of data and that identifies the entity, but is not excessively long. A common approach is to use keys of the form "entity_type:ID". For example, you can use "customer:99" to indicate the key for a customer with the ID 99.
@@ -299,14 +303,13 @@ For considerations about trade-offs between availability and consistency, see [A
 [Availability and consistency in Event Hubs]: /azure/event-hubs/event-hubs-availability-and-consistency
 [azure-limits]: /azure/azure-subscription-service-limits
 [Azure Content Delivery Network]: /azure/cdn/cdn-overview
-[Azure Cache for Redis]: https://azure.microsoft.com/services/cache/
-[Azure Storage Scalability and Performance Targets]: /azure/storage/storage-scalability-targets
+[Azure Cache for Redis]: https://azure.microsoft.com/services/cache
 [Azure Storage Table Design Guide]: /azure/storage/storage-table-design-guide
-[Building a Polyglot Solution]: https://msdn.microsoft.com/library/dn313279.aspx
+[Building a Polyglot Solution]: /previous-versions/msp-n-p/dn313279(v=pandp.10)
 [cosmos-db-ru]: /azure/cosmos-db/request-units
-[Data Access for Highly Scalable Solutions: Using SQL, NoSQL, and Polyglot Persistence]: https://msdn.microsoft.com/library/dn271399.aspx
-[Data consistency primer]: https://aka.ms/Data-Consistency-Primer
-[Data Partitioning Guidance]: https://msdn.microsoft.com/library/dn589795.aspx
+[Data Access for Highly Scalable Solutions: Using SQL, NoSQL, and Polyglot Persistence]: /previous-versions/msp-n-p/dn271399(v=pandp.10)
+[Data consistency primer]: /previous-versions/msp-n-p/dn589800(v=pandp.10)
+[Data Partitioning Guidance]: /previous-versions/msp-n-p/dn589795(v=pandp.10)
 [Data Types]: https://redis.io/topics/data-types
 [cosmos-db-sql-api]: /azure/cosmos-db/sql-api-introduction
 [Elastic Database features overview]: /azure/sql-database/sql-database-elastic-scale-introduction
@@ -319,16 +322,17 @@ For considerations about trade-offs between availability and consistency, see [A
 [Partitioning: how to split data among multiple Redis instances]: https://redis.io/topics/partitioning
 [Performing Entity Group Transactions]: /rest/api/storageservices/Performing-Entity-Group-Transactions
 [Redis cluster tutorial]: https://redis.io/topics/cluster-tutorial
-[Running Redis on a CentOS Linux VM in Azure]: https://blogs.msdn.microsoft.com/tconte/2012/06/08/running-redis-on-a-centos-linux-vm-in-windows-azure/
+[Running Redis on a CentOS Linux VM in Azure]: /archive/blogs/tconte/running-redis-on-a-centos-linux-vm-in-windows-azure
 [Scaling using the Elastic Database split-merge tool]: /azure/sql-database/sql-database-elastic-scale-overview-split-and-merge
 [Using Azure Content Delivery Network]: /azure/cdn/cdn-create-new-endpoint
 [Service Bus quotas]: /azure/service-bus-messaging/service-bus-quotas
 [service-fabric-reliable-collections]: /azure/service-fabric/service-fabric-reliable-services-reliable-collections
-[Service limits in Azure Search]:  /azure/search/search-limits-quotas-capacity
+[Service limits in Azure Search]: /azure/search/search-limits-quotas-capacity
 [Sharding pattern]: ../patterns/sharding.md
-[Supported Data Types (Azure Search)]:  https://msdn.microsoft.com/library/azure/dn798938.aspx
+[Supported Data Types (Azure Search)]: /rest/api/searchservice/Supported-data-types
 [Transactions]: https://redis.io/topics/transactions
 [What is Event Hubs?]: /azure/event-hubs/event-hubs-what-is-event-hubs
 [What is Azure Search?]: /azure/search/search-what-is-azure-search
 [What is Azure SQL Database?]: /azure/sql-database/sql-database-technical-overview
 [scalability targets]: /azure/storage/common/storage-scalability-targets
+[Scalable partitioning strategy]: /rest/api/storageservices/designing-a-scalable-partitioning-strategy-for-azure-table-storage

@@ -3,10 +3,12 @@ title: Recover from loss of an Azure region
 description: Design resilient, highly available, fault-tolerant applications and plan for disaster recovery.
 author: adamglick
 ms.date: 08/18/2016
-ms.topic: article
+ms.topic: conceptual
 ms.service: architecture-center
-ms.subservice: cloud-design-principles
-ms.custom: resiliency
+ms.subservice: well-architected
+ms.custom:
+  - resiliency
+  - article
 ---
 
 # Recover from a region-wide service disruption
@@ -40,7 +42,7 @@ Many alternative strategies are available for implementing distributed compute a
 
 - **Hot Spare (Active/Active)**: The application is designed to receive production load in multiple regions. The cloud services in each region might be configured for higher capacity than required for disaster recovery purposes. Alternatively, the cloud services might scale out as necessary at the time of a disaster and fail over. This approach requires substantial investment in application design, but it has significant benefits. These include low and guaranteed recovery time, continuous testing of all recovery locations, and efficient usage of capacity.
 
-A complete discussion of distributed design is outside the scope of this document. For more information, see [Disaster Recovery and High Availability for Azure Applications](https://aka.ms/drtechguide).
+A complete discussion of distributed design is outside the scope of this document. For more information, see [Disaster Recovery and High Availability for Azure Applications](../framework/resiliency/backup-and-recovery.md).
 
 ## Virtual machines
 
@@ -78,13 +80,15 @@ Geo-replication is included in current pricing for Azure Storage. This is called
 
 ### Determining if a geo-failover has occurred
 
-If a geo-failover occurs, this will be posted to the [Azure Service Health Dashboard](https://azure.microsoft.com/status). Applications can implement an automated means of detecting this, however, by monitoring the geo-region for their storage account. This can be used to trigger other recovery operations, such as activation of compute resources in the geo-region where their storage moved to. You can perform a query for this from the service management API, by using [Get Storage Account Properties](https://msdn.microsoft.com/library/ee460802.aspx). The relevant properties are:
+If a geo-failover occurs, this will be posted to the [Azure Service Health Dashboard](https://azure.microsoft.com/status). Applications can implement an automated means of detecting this, however, by monitoring the geo-region for their storage account. This can be used to trigger other recovery operations, such as activation of compute resources in the geo-region where their storage moved to. You can perform a query for this from the service management API, by using [Get Storage Account Properties](/previous-versions/azure/reference/ee460802(v=azure.100)). The relevant properties are:
 
-    <GeoPrimaryRegion>primary-region</GeoPrimaryRegion>
-    <StatusOfPrimary>[Available|Unavailable]</StatusOfPrimary>
-    <LastGeoFailoverTime>DateTime</LastGeoFailoverTime>
-    <GeoSecondaryRegion>secondary-region</GeoSecondaryRegion>
-    <StatusOfSecondary>[Available|Unavailable]</StatusOfSecondary>
+```console
+<GeoPrimaryRegion>primary-region</GeoPrimaryRegion>
+<StatusOfPrimary>[Available|Unavailable]</StatusOfPrimary>
+<LastGeoFailoverTime>DateTime</LastGeoFailoverTime>
+<GeoSecondaryRegion>secondary-region</GeoSecondaryRegion>
+<StatusOfSecondary>[Available|Unavailable]</StatusOfSecondary>
+```
 
 ## Database
 
@@ -159,7 +163,7 @@ Configuration files provide the quickest way to set up a virtual network in an a
 ### SQL Database checklist
 
 1. Review the SQL Database section of this document.
-2. Use [geo-restore](/azure/sql-database/sql-database-recovery-using-backups/#geo-restore) or [geo-replication](/azure/sql-database/sql-database-geo-replication-overview) as appropriate.
+2. Use [Geo-restore](/azure/sql-database/sql-database-recovery-using-backups/#geo-restore) or [geo-replication](/azure/sql-database/sql-database-geo-replication-overview) as appropriate.
 
 ### SQL Server on Virtual Machines checklist
 

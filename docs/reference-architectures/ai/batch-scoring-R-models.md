@@ -3,10 +3,15 @@ title: Batch scoring with R Models on Azure
 description: Perform batch scoring with R models using Azure Batch and a data set based on retail store sales forecasting.
 author: njray
 ms.date: 03/29/2019
-ms.topic: reference-architecture
+ms.topic: conceptual
 ms.service: architecture-center
+ms.category:
+  - ai-machine-learning
+  - developer-tools
 ms.subservice: reference-architecture
-ms.custom: azcat-ai
+ms.custom:
+  - azcat-ai
+  - reference-architecture
 ---
 
 # Batch scoring of R machine learning models on Azure
@@ -26,7 +31,7 @@ Processing involves the following steps:
 
 1. Scoring jobs run in parallel across the nodes of the Batch cluster. Each node:
 
-    1. Pulls the worker Docker image from Docker Hub and starts a container.
+    1. Pulls the worker Docker image and starts a container.
 
     1. Reads input data and pre-trained R models from Azure Blob storage.
 
@@ -63,7 +68,7 @@ Each node of the Batch cluster runs the worker container, which executes the sco
 
 ### Parallelizing the workload
 
-When batch scoring data with R models, consider how to parallelize the workload. The input data must be partitioned somehow so that the scoring operation can be distributed  across the cluster nodes. Try different approaches to discover the best choice for distributing your workload. On a case-by-case basis, consider the following:
+When batch scoring data with R models, consider how to parallelize the workload. The input data must be partitioned somehow so that the scoring operation can be distributed across the cluster nodes. Try different approaches to discover the best choice for distributing your workload. On a case-by-case basis, consider the following:
 
 - How much data can be loaded and processed in the memory of a single node.
 - The overhead of starting each batch job.
@@ -71,7 +76,7 @@ When batch scoring data with R models, consider how to parallelize the workload.
 
 In the scenario used for this example, the model objects are large, and it takes only a few seconds to generate a forecast for individual products. For this reason, you can group the products and execute a single Batch job per node. A loop within each job generates forecasts for the products sequentially. This method turns out to be the most efficient way to parallelize this particular workload. It avoids the overhead of starting many smaller Batch jobs and repeatedly loading the R models.
 
-An alternative approach is to trigger one Batch job per product. Azure Batch automatically forms a queue of jobs and submits them to be executed on the cluster as nodes become available. Use [automatic scaling][autoscale] to adjust the number of nodes in the cluster depending on the number of jobs. This approach makes more sense if it takes a relatively long time to complete each scoring operation, justifying the overhead of starting the jobs and reloading the model objects. This approach is also simpler to implement and gives you the flexibility to use automatic scaling—an important consideration if the size of the total workload is not known in advance.
+An alternative approach is to trigger one Batch job per product. Azure Batch automatically forms a queue of jobs and submits them to be executed on the cluster as nodes become available. Use [automatic scaling][autoscale] to adjust the number of nodes in the cluster depending on the number of jobs. This approach makes more sense if it takes a relatively long time to complete each scoring operation, justifying the overhead of starting the jobs and reloading the model objects. This approach is also simpler to implement and gives you the flexibility to use automatic scaling-an important consideration if the size of the total workload is not known in advance.
 
 ## Monitoring and logging considerations
 

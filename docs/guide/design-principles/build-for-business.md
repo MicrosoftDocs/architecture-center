@@ -1,13 +1,15 @@
 ---
 title: Build for the needs of the business
 titleSuffix: Azure Application Architecture Guide
-description: Every design decision must be justified by a business requirement.
-author: MikeWasson
+description: Use these recommendations to guide design, such as defining business objectives and documenting service level agreements and service level objectives.
+author: doodlemania2
 ms.date: 08/30/2018
-ms.topic: guide
+ms.topic: conceptual
 ms.service: architecture-center
-ms.subservice: reference-architecture
-ms.custom: seojan19
+ms.subservice: guide
+ms.custom:
+  - seojan19
+  - guide
 ---
 
 # Build for the needs of the business
@@ -33,4 +35,4 @@ This design principle may seem obvious, but it's crucial to keep in mind when de
 **Manage costs**. In a traditional on-premises application, you pay upfront for hardware as a capital expenditure. In a cloud application, you pay for the resources that you consume. Make sure that you understand the pricing model for the services that you consume. The total cost will include network bandwidth usage, storage, IP addresses, service consumption, and other factors. For more information, see [Azure pricing][pricing]. Also consider your operations costs. In the cloud, you don't have to manage the hardware or other infrastructure, but you still need to manage your applications, including DevOps, incident response, disaster recovery, and so forth.
 
 [domain-model]: https://martinfowler.com/eaaCatalog/domainModel.html
-[pricing]: https://azure.microsoft.com/pricing/
+[pricing]: https://azure.microsoft.com/pricing

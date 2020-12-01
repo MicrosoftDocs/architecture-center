@@ -1,12 +1,18 @@
 ---
 title: Batch scoring of Python models on Azure
-description:  Build a scalable solution for batch scoring models on a schedule in parallel using Azure Machine Learning.
+description: Build a scalable solution for batch scoring models on a schedule in parallel using Azure Machine Learning.
 author: njray
 ms.date: 01/30/2019
-ms.topic: reference-architecture
+ms.topic: conceptual
 ms.service: architecture-center
+ms.category:
+  - ai-machine-learning
+  - developer-tools
 ms.subservice: reference-architecture
-ms.custom: azcat-ai, AI
+ms.custom:
+  - azcat-ai
+  - AI
+  - reference-architecture
 ---
 
 # Batch scoring of Python machine learning models on Azure
@@ -65,7 +71,7 @@ For convenience in this scenario, one scoring task is submitted within a single 
 
 ## Cost considerations
 
-The most expensive components used in this reference architecture are the compute resources. The compute cluster size scales up and down depending on the jobs in the queue. Enable automatic scaling programmatically through the [Python SDK][python-sdk] by modifying the compute’s provisioning configuration. Or use the [Azure CLI][cli] to set the automatic scaling parameters of the cluster.
+The most expensive components used in this reference architecture are the compute resources. The compute cluster size scales up and down depending on the jobs in the queue. Enable automatic scaling programmatically through the [Python SDK][python-sdk] by modifying the compute's provisioning configuration. Or use the [Azure CLI][cli] to set the automatic scaling parameters of the cluster.
 
 For work that doesn't require immediate processing, configure the automatic scaling formula so the default state (minimum) is a cluster of zero nodes. With this configuration, the cluster starts with zero nodes and only scales up when it detects jobs in the queue. If the batch scoring process happens only a few times a day or less, this setting enables significant cost savings.
 
@@ -76,26 +82,21 @@ Automatic scaling may not be appropriate for batch jobs that happen too close to
 To deploy this reference architecture, follow the steps described in the [GitHub repo][github].
 
 [acr]: /azure/container-registry/container-registry-intro
-[ai]: /azure/application-insights/app-insights-overview
-[aml-compute]: /azure/machine-learning/service/how-to-set-up-training-targets#amlcompute
 [amls]: /azure/machine-learning/service/overview-what-is-azure-ml
-[automatic-scaling]: /azure/batch/batch-automatic-scaling
-[azure-files]: /azure/storage/files/storage-files-introduction
 [batch-scoring]: /azure/machine-learning/service/how-to-run-batch-predictions
 [cli]: /cli/azure
-[create-resources]: https://github.com/Microsoft/AMLBatchScoringPipeline/blob/master/01_create_resources.ipynb
-[deep]: /azure/architecture/reference-architectures/ai/batch-scoring-deep-learning
+[create-resources]: https://github.com/microsoft/az-ml-batch-score/blob/master/01_DataPrep.ipynb
+[deep]: ./batch-scoring-deep-learning.md
 [event-hubs]: /azure/event-hubs/event-hubs-geo-dr
-[explorer]: https://azure.microsoft.com/features/storage-explorer/
+[explorer]: https://azure.microsoft.com/features/storage-explorer
 [github]: https://github.com/Microsoft/AMLBatchScoringPipeline
 [one-class-svm]: http://scikit-learn.org/stable/modules/generated/sklearn.svm.OneClassSVM.html
 [portal]: https://portal.azure.com
 [python-sdk]: /python/api/overview/azure/ml/intro
 [ml-workspace]: /azure/machine-learning/studio/create-workspace
 [pipeline]: /azure/machine-learning/service/concept-ml-pipelines
-[python-script]: https://github.com/Azure/BatchAIAnomalyDetection/blob/master/batchai/predict.py
 [pyscript]: https://github.com/Microsoft/AMLBatchScoringPipeline/blob/master/scripts/predict.py
 [storage]: /azure/storage/blobs/storage-blobs-overview
-[stream-analytics]: /azure/stream-analytics/
-[sql-database]: /azure/sql-database/
+[stream-analytics]: /azure/stream-analytics
+[sql-database]: /azure/sql-database
 [app-insights]: /azure/application-insights/app-insights-overview

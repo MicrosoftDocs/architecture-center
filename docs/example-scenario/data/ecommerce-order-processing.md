@@ -1,15 +1,19 @@
 ---
 title: Scalable order processing
 titleSuffix: Azure Example Scenarios
-description: Build a highly scalable order processing pipeline using Azure Cosmos DB.
+description: This example demonstrates a highly scalable, resilient architecture for online order processing, using managed Azure services such as Cosmos DB and HDInsight.
 author: alexbuckgit
 ms.date: 07/10/2018
-ms.topic: example-scenario
+ms.category:
+  - web
+  - databases
+ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: example-scenario
 ms.custom:
   - fasttrack
   - web-apps
+  - example-scenario
 social_image_url: /azure/architecture/example-scenario/data/media/architecture-ecommerce-order-processing.png
 ---
 
@@ -49,9 +53,9 @@ This architecture details key components of an order processing pipeline. The da
 
 ## Considerations
 
-Many technology options are available for real-time message ingestion, data storage, stream processing, storage of analytical data, and analytics and reporting. For an overview of these options, their capabilities, and key selection criteria, see [Big data architectures: Real-time processing](/azure/architecture/data-guide/technology-choices/real-time-ingestion) in the [Azure Data Architecture Guide](/azure/architecture/data-guide).
+Many technology options are available for real-time message ingestion, data storage, stream processing, storage of analytical data, and analytics and reporting. For an overview of these options, their capabilities, and key selection criteria, see [Big data architectures: Real-time processing](../../data-guide/technology-choices/real-time-ingestion.md) in the [Azure Data Architecture Guide](../../data-guide/index.md).
 
-Microservices have become a popular architectural style for building cloud applications that are resilient, highly scalable, independently deployable, and able to evolve quickly. Microservices require a different approach to designing and building applications. Tools such as Docker, Kubernetes, Azure Service Fabric, and Nomad enable the development of microservices-based architectures. For guidance on building and running a microservices-based architecture, see [Designing microservices on Azure](/azure/architecture/microservices) in the Azure Architecture Center.
+Microservices have become a popular architectural style for building cloud applications that are resilient, highly scalable, independently deployable, and able to evolve quickly. Microservices require a different approach to designing and building applications. Tools such as Docker, Kubernetes, Azure Service Fabric, and Nomad enable the development of microservices-based architectures. For guidance on building and running a microservices-based architecture, see [Designing microservices on Azure](../../microservices/index.md) in the Azure Architecture Center.
 
 ### Availability
 
@@ -66,7 +70,7 @@ For other availability considerations, see the [availability checklist][availabi
 Kafka on HDInsight allows [configuration of storage and scalability](/azure/hdinsight/kafka/apache-kafka-scalability) for Kafka clusters. Cosmos DB provides fast, predictable performance and [scales seamlessly](/azure/cosmos-db/partition-data) as your application grows.
 The event sourcing microservices-based architecture of this scenario also makes it easier to scale your system and expand its functionality.
 
-For other scalability considerations, see the [scalability checklist][scalability] available in the Azure Architecture Center.
+For other scalability considerations, see the [performance efficiency checklist][scalability] available in the Azure Architecture Center.
 
 ### Security
 
@@ -99,12 +103,12 @@ Other related resources include:
 - *[Designing Data-Intensive Applications](https://dataintensive.net)* by Martin Kleppmann (O'Reilly Media, 2017).
 - *[Domain Modeling Made Functional: Tackle Software Complexity with Domain-Driven Design and F#](https://pragprog.com/book/swdddf/domain-modeling-made-functional)* by Scott Wlaschin (Pragmatic Programmers LLC, 2018).
 - Other [Cosmos DB use cases][docs-cosmos-db-use-cases]
-- [Real time processing architecture](/azure/architecture/data-guide/big-data/real-time-processing) in the [Azure Data Architecture Guide](/azure/architecture/data-guide).
+- [Real time processing architecture](../../data-guide/big-data/real-time-processing.md) in the [Azure Data Architecture Guide](../../data-guide/index.md).
 
 <!-- links -->
 
 [architecture]: ./media/architecture-ecommerce-order-processing.png
-[product-category]: https://azure.microsoft.com/product-categories/databases/
+[product-category]: https://azure.microsoft.com/product-categories/databases
 [source-document]: https://customers.microsoft.com/story/jet-com-powers-innovative-e-commerce-engine-on-azure-in-less-than-12-months
 [source-presentation]: https://channel9.msdn.com/events/Build/2018/BRK3602
 [small-pricing]: https://azure.com/e/3d43949ffbb945a88cc0a126dc3a0e6e
@@ -115,9 +119,7 @@ Other related resources include:
 [docs-cosmos-db-guarantees]: /azure/cosmos-db/high-availability#slas-for-availability
 [docs-cosmos-db-use-cases]: /azure/cosmos-db/use-cases
 [docs-kafka-high-availability]: /azure/hdinsight/kafka/apache-kafka-high-availability
-[docs-event-hubs]: /azure/event-hubs/event-hubs-what-is-event-hubs
-[docs-stream-analytics]: /azure/stream-analytics/stream-analytics-introduction
-[availability]: /azure/architecture/checklist/availability
-[scalability]: /azure/architecture/checklist/scalability
-[resiliency]: /azure/architecture/patterns/category/resiliency/
-[security]: /azure/security/
+[availability]: ../../framework/resiliency/overview.md
+[scalability]: ../../framework/scalability/performance-efficiency.md
+[resiliency]: ../../patterns/category/resiliency.md
+[security]: /azure/security

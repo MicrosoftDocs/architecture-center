@@ -1,19 +1,27 @@
 ---
 title: Azure data platform end-to-end
 titleSuffix: Azure Example Scenarios
-description: Description
+description: Use Azure services to ingest, process, store, serve, and visualize data from different sources.
 author: fabragaMS
 ms.date: 01/31/2020
-ms.topic: example-scenario
+ms.category:
+  - databases
+  - analytics
+ms.topic: conceptual
 ms.service: architecture-center
+ms.subservice: example-scenario
 ms.custom:
   - fcp
   - data-analytics
+  - example-scenario
+social_image_url: /azure/architecture/example-scenario/dataplate2e/media/azure-data-platform-end-to-end.jpg
 ---
+
+<!-- cSpell:ignore fabraga -->
 
 # Azure data platform end-to-end
 
-This example scenario demonstrates how to leverage the extensive family of Azure Data Services to build a modern data platform capable of handling the most common data challenges in an organization.
+This example scenario demonstrates how to use the extensive family of Azure Data Services to build a modern data platform capable of handling the most common data challenges in an organization.
 
 The solution described in this article combines a range of Azure services that will ingest, process, store, serve, and visualize data from different sources, both structured and unstructured.
 
@@ -35,11 +43,11 @@ This approach can also be used to:
 
 ## Architecture
 
-[ ![Architecture for modern data platform using Azure data services](./media/azure-data-platform-end-to-end.jpg)](./media/azure-data-platform-end-to-end.jpg#lightbox)
+[![Architecture for a modern data platform using Azure data services](./media/azure-data-platform-end-to-end.jpg)](./media/azure-data-platform-end-to-end.jpg#lightbox)
 
 > [!NOTE]
 >
->- The services covered by this architecture are only a subset of a much larger family of Azure services. Similar outcomes can be achieved by leveraging other services and/or features not covered by this design.
+>- The services covered by this architecture are only a subset of a much larger family of Azure services. Similar outcomes can be achieved by using other services or features not covered by this design.
 >- Specific business requirements for your analytics use case may also ask for the use of different services or features not considered in this design.
 
 The data flows through the solution as follows (from bottom-up):
@@ -50,11 +58,11 @@ The data flows through the solution as follows (from bottom-up):
 
 1. Still part of the Azure Data Factory pipeline, use Azure Data Lake Store Gen 2 to stage the data copied from the relational databases. You can save the data in delimited text format or compressed as Parquet files.
 
-1. Use Azure Synapse Polybase capabilities for fast ingestion into your data warehouse tables.
+1. Use Azure Synapse PolyBase capabilities for fast ingestion into your data warehouse tables.
 
 1. Load relevant data from the Azure Synapse data warehouse into Power BI datasets for data visualization. Power BI models implement a semantic model to simplify the analysis of business data and relationships.
 
-1. Business analysts use Power BI reports and dashboards to analyze  data and derive business insights.
+1. Business analysts use Power BI reports and dashboards to analyze data and derive business insights.
 
 ### Semi-structured data sources
 
@@ -62,13 +70,13 @@ The data flows through the solution as follows (from bottom-up):
 
 1. Still part of the Azure Data Factory pipeline, use Azure Data Lake Store Gen 2 to save the original data copied from the semi-structured data source.
 
-1. Azure Data Factory Mapping Dataflows or Azure Databricks notebooks can now be used to process the semi-structured data and apply the necessary transformations before data can be used for reporting. You can save the resulting dataset as Parquet files in the data lake.
+1. Azure Data Factory Mapping Data Flows or Azure Databricks notebooks can now be used to process the semi-structured data and apply the necessary transformations before data can be used for reporting. You can save the resulting dataset as Parquet files in the data lake.
 
-1. Use Azure Synapse Polybase capabilities for fast ingestion into your data warehouse tables.
+1. Use Azure Synapse PolyBase capabilities for fast ingestion into your data warehouse tables.
 
 1. Load relevant data from the Azure Synapse data warehouse into Power BI datasets for data visualization. Power BI models implement a semantic model to simplify the analysis of business data and relationships.
 
-1. Business analysts use Power BI reports and dashboards to analyze  data and derive business insights.
+1. Business analysts use Power BI reports and dashboards to analyze data and derive business insights.
 
 ### Non-structured data sources
 
@@ -78,11 +86,11 @@ The data flows through the solution as follows (from bottom-up):
 
 1. You can invoke Azure Databricks notebooks from your pipeline to process the unstructured data. The notebook can make use of Cognitive Services APIs or invoke custom Azure Machine Learning Service models to generate insights from the unstructured data. You can save the resulting dataset as Parquet files in the data lake.
 
-1. Use Azure Synapse Polybase capabilities for fast ingestion into your data warehouse tables.
+1. Use Azure Synapse PolyBase capabilities for fast ingestion into your data warehouse tables.
 
 1. Load relevant data from the Azure Synapse data warehouse into Power BI datasets for data visualization. Power BI models implement a semantic model to simplify the analysis of business data and relationships.
 
-1. Business analysts use Power BI reports and dashboards to analyze  data and derive business insights.
+1. Business analysts use Power BI reports and dashboards to analyze data and derive business insights.
 
 ### Streaming
 
@@ -124,6 +132,8 @@ Power BI | [Create and use analytics reports with Power BI][pbi-learn] | [Power 
 
 ### Alternatives
 
+- For situations where device management, authentication, and provisioning are required, [Azure IOT Hub](/azure/iot-hub/) may be a preferred solution over Event Hubs.  Event Hubs should still be considered for other streaming data sources.
+
 - In the architecture above, Azure Data Factory is the service responsible for data pipeline orchestration. Azure Databricks can also be used to perform the same role through the execution of nested notebooks.
 
 - In the architecture above, Azure Stream Analytics is the service responsible for processing streaming data. Azure Databricks can also be used to perform the same role through the execution of notebooks.
@@ -132,10 +142,10 @@ Power BI | [Create and use analytics reports with Power BI][pbi-learn] | [Power 
 
 - For comparisons of other alternatives, see:
 
-  - [Choosing a data pipeline orchestration technology in Azure](/azure/architecture/data-guide/technology-choices/pipeline-orchestration-data-movement)
-  - [Choosing a batch processing technology in Azure](/azure/architecture/data-guide/technology-choices/batch-processing)
-  - [Choosing an analytical data store in Azure](/azure/architecture/data-guide/technology-choices/analytical-data-stores)
-  - [Choosing a data analytics technology in Azure](/azure/architecture/data-guide/technology-choices/analysis-visualizations-reporting)
+  - [Choosing a data pipeline orchestration technology in Azure](../../data-guide/technology-choices/pipeline-orchestration-data-movement.md)
+  - [Choosing a batch processing technology in Azure](../../data-guide/technology-choices/batch-processing.md)
+  - [Choosing an analytical data store in Azure](../../data-guide/technology-choices/analytical-data-stores.md)
+  - [Choosing a data analytics technology in Azure](../../data-guide/technology-choices/analysis-visualizations-reporting.md)
 
 ## Considerations
 
@@ -157,27 +167,25 @@ The ideal individual pricing tier and the total overall cost of each service inc
 
 ## Next steps
 
-- Find comprehensive architectural guidance on data pipelines, data warehousing, online analytical processing (OLAP), and big data in the [Azure Data Architecture Guide](/azure/architecture/data-guide).
+- Find comprehensive architectural guidance on data pipelines, data warehousing, online analytical processing (OLAP), and big data in the [Azure Data Architecture Guide](../../data-guide/index.md).
 
 <!-- links -->
 
-[source-document]: https://customers.microsoft.com/story/maritz
-[calculator]: https://azure.com/e/b798fb70c53e4dd19fdeacea4db78276
-[adf-learn]: https://docs.microsoft.com/learn/modules/data-ingestion-with-azure-data-factory
-[adf-techdoc]: https://docs.microsoft.com/azure/data-factory/
-[synapse-learn]: https://docs.microsoft.com/learn/paths/implement-sql-data-warehouse/
-[synapse-techdoc]: https://docs.microsoft.com/azure/sql-data-warehouse/
-[adls-learn]: https://docs.microsoft.com/learn/paths/data-processing-with-azure-adls/
-[adls-techdoc]: https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-introduction
-[cognitive-learn]: https://docs.microsoft.com/learn/browse/?term=cognitive
-[cognitive-techdoc]: https://docs.microsoft.com/azure/cognitive-services/
-[cosmos-learn]: https://docs.microsoft.com/learn/paths/work-with-nosql-data-in-azure-cosmos-db/
-[cosmos-techdoc]: https://docs.microsoft.com/azure/cosmos-db/
-[databricks-learn]: https://docs.microsoft.com/learn/paths/data-engineering-with-databricks/
-[databricks-techdoc]: https://docs.microsoft.com/azure/azure-databricks/
-[eventhubs-learn]: https://docs.microsoft.com/learn/modules/enable-reliable-messaging-for-big-data-apps-using-event-hubs/
-[eventhubs-techdoc]: https://docs.microsoft.com/azure/event-hubs/
-[asa-learn]: https://docs.microsoft.com/learn/paths/implement-data-streaming-with-asa/
-[asa-techdoc]: https://docs.microsoft.com/azure/stream-analytics/
-[pbi-learn]: https://docs.microsoft.com/learn/paths/create-use-analytics-reports-power-bi/
-[pbi-techdoc]: https://docs.microsoft.com/power-bi/
+[adf-learn]: /learn/modules/data-ingestion-with-azure-data-factory
+[adf-techdoc]: /azure/data-factory
+[synapse-learn]: /learn/paths/implement-sql-data-warehouse
+[synapse-techdoc]: /azure/sql-data-warehouse
+[adls-learn]: /learn/paths/data-processing-with-azure-adls
+[adls-techdoc]: /azure/storage/blobs/data-lake-storage-introduction
+[cognitive-learn]: /learn/browse/?term=cognitive
+[cognitive-techdoc]: /azure/cognitive-services
+[cosmos-learn]: /learn/paths/work-with-nosql-data-in-azure-cosmos-db
+[cosmos-techdoc]: /azure/cosmos-db
+[databricks-learn]: /learn/paths/data-engineering-with-databricks
+[databricks-techdoc]: /azure/azure-databricks
+[eventhubs-learn]: /learn/modules/enable-reliable-messaging-for-big-data-apps-using-event-hubs
+[eventhubs-techdoc]: /azure/event-hubs
+[asa-learn]: /learn/paths/implement-data-streaming-with-asa
+[asa-techdoc]: /azure/stream-analytics
+[pbi-learn]: /learn/paths/create-use-analytics-reports-power-bi
+[pbi-techdoc]: /power-bi

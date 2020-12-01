@@ -3,10 +3,12 @@ title: Business Metrics
 description: 
 author: david-stanford
 ms.date: 10/16/2019
-ms.topic: article
+ms.topic: conceptual
 ms.service: architecture-center
-ms.subservice: cloud-design-principles
-ms.custom: Which business metrics have you defined for your application? 
+ms.subservice: well-architected
+ms.custom:
+  - Which business metrics have you defined for your application?
+  - article
 ---
 
 # Using business metrics to design resilient Azure applications
@@ -65,6 +67,8 @@ In Azure, the [Service Level Agreement](https://azure.microsoft.com/support/lega
 
 The Azure SLA also includes provisions for obtaining a service credit if the SLA is not met, along with specific definitions of *availability* for each service. That aspect of the SLA acts as an enforcement policy.
 
+:::image type="icon" source="../../_images/github.png" border="false"::: The [Service Level Agreement Estimator](https://github.com/mspnp/samples/tree/master/Reliability/SLAEstimator) sample shows how to calculate the SLA of your architecture. 
+
 ### Composite SLAs
 
 *Composite SLAs* involve multiple services supporting an application, each with differing levels of availability. For example, consider an App Service web app that writes to Azure SQL Database. At the time of this writing, these Azure services have the following SLAs:
@@ -76,7 +80,7 @@ What is the maximum downtime you would expect for this application? If either se
 
 You can improve the composite SLA by creating independent fallback paths. For example, if SQL Database is unavailable, put transactions into a queue to be processed later.
 
-![Composite SLA](/azure/architecture/framework/_images/composite-sla.png)
+![Composite SLA](../../framework/_images/composite-sla.png)
 
 With this design, the application is still available even if it can't connect to the database. However, it fails if the database and the queue both fail at the same time. The expected percentage of time for a simultaneous failure is 0.0001 × 0.001, so the composite SLA for this combined path is:
 

@@ -4,11 +4,15 @@ titleSuffix: Performance antipatterns for cloud apps
 description: Putting all of an application's data into a single data store can hurt performance.
 author: dragon119
 ms.date: 06/05/2017
-ms.topic: article
+ms.topic: conceptual
 ms.service: architecture-center
-ms.subservice: cloud-fundamentals
-ms.custom: seodec18
+ms.subservice: anti-pattern
+ms.custom:
+  - seodec18
+  - article
 ---
+
+<!-- cSpell:ignore DTUs -->
 
 # Monolithic Persistence antipattern
 
@@ -16,7 +20,7 @@ Putting all of an application's data into a single data store can hurt performan
 
 ## Problem description
 
-Historically, applications have often used a single data store, regardless of the different types of data that the application might need to store. Usually this was done to simplify the application design, or else to match the existing skillset of the development team.
+Historically, applications have often used a single data store, regardless of the different types of data that the application might need to store. Usually this was done to simplify the application design, or else to match the existing skill set of the development team.
 
 Modern cloud-based systems often have additional functional and nonfunctional requirements, and need to store many heterogeneous types of data, such as documents, images, cached data, queued messages, application logs, and telemetry. Following the traditional approach and putting all of this information into the same data store can hurt performance, for two main reasons:
 
@@ -65,7 +69,7 @@ public class PolyController : ApiController
 
 - Separate data by the way it is used and how it is accessed. For example, don't store log information and business data in the same data store. These types of data have significantly different requirements and patterns of access. Log records are inherently sequential, while business data is more likely to require random access, and is often relational.
 
-- Consider the data access pattern for each type of data. For example, store formatted reports and documents in a document database such as [Cosmos DB][CosmosDB], but use [Azure Cache for Redis][azure-cache] to cache temporary data.
+- Consider the data access pattern for each type of data. For example, store formatted reports and documents in a document database such as [Cosmos DB][cosmos-db], but use [Azure Cache for Redis][azure-cache] to cache temporary data.
 
 - If you follow this guidance but still reach the limits of the database, you may need to scale up the database. Also consider scaling horizontally and partitioning the load across database servers. However, partitioning may require redesigning the application. For more information, see [Data partitioning][DataPartitioningGuidance].
 
@@ -141,12 +145,12 @@ Similarly, the maximum DTU utilization of the log database only reaches about 70
 - [Data partitioning][DataPartitioningGuidance]
 
 [sample-app]: https://github.com/mspnp/performance-optimization/tree/master/MonolithicPersistence
-[CosmosDB]: https://azure.microsoft.com/services/cosmos-db/
+[cosmos-db]: https://azure.microsoft.com/services/cosmos-db
 [azure-cache]: /azure/azure-cache-for-redis/cache-overview
-[Data-Access-Guide]: https://msdn.microsoft.com/library/dn271399.aspx
+[Data-Access-Guide]: /previous-versions/msp-n-p/dn271399(v=pandp.10)
 [DataPartitioningGuidance]: ../../best-practices/data-partitioning.md
 [data-store-overview]: ../../guide/technology-choices/data-store-overview.md
-[data-store-comparison]: ../../guide/technology-choices/data-store-comparison.md
+[data-store-comparison]: ../../guide/technology-choices/data-store-considerations.md
 
 [MonolithicScenarioLoadTest]: _images/MonolithicScenarioLoadTest.jpg
 [MonolithicDatabaseUtilization]: _images/MonolithicDatabaseUtilization.jpg

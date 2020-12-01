@@ -4,7 +4,10 @@ titleSuffix: Azure Example Scenarios
 description: Create a multitier web application built for high availability and disaster recovery on Azure using Azure virtual machines, availability sets, availability zones, Azure Site Recovery, and Azure Traffic Manager.
 author: sujayt
 ms.date: 11/16/2018
-ms.topic: example-scenario
+ms.category:
+  - web
+  - featured
+ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: example-scenario
 ms.custom:
@@ -12,8 +15,11 @@ ms.custom:
   - bcdr
   - web-apps
   - application-development
-social_image_url: /azure/architecture/example-scenario/infrastructure/media/arhitecture-disaster-recovery-multi-tier-app.png
+  - example-scenario
+social_image_url: /azure/architecture/example-scenario/infrastructure/media/architecture-disaster-recovery-multi-tier-app.png
 ---
+
+<!-- cSpell:ignore sujayt -->
 
 # Multitier web application built for high availability and disaster recovery on Azure
 
@@ -71,7 +77,7 @@ This scenario demonstrates a multitier application that uses ASP.NET and Microso
 
 You can add or remove VMs in each tier based on your scaling requirements. Because this scenario uses load balancers, you can add more VMs to a tier without affecting application uptime.
 
-For other scalability topics, see the [scalability checklist][scalability] in the Azure Architecture Center.
+For other scalability topics, see the [performance efficiency checklist][scalability] in the Azure Architecture Center.
 
 ### Security
 
@@ -90,21 +96,16 @@ Configuring disaster recovery for Azure VMs using Azure Site Recovery will incur
 We have provided a [sample cost calculator][calculator] for configuring disaster recovery for a three-tier application using six virtual machines. All of the services are pre-configured in the cost calculator. To see how the pricing would change for your particular use case, change the appropriate variables to estimate the cost.
 
 <!-- links -->
-[architecture]: ./media/arhitecture-disaster-recovery-multi-tier-app.png
-[autoscaling]: /azure/architecture/best-practices/auto-scaling
-[availability]: ../../checklist/availability.md
-[resiliency]: /azure/architecture/resiliency/
-[security]: /azure/security/
-[scalability]: /azure/architecture/checklist/scalability
+
+[architecture]: ./media/architecture-disaster-recovery-multi-tier-app.png
+[security]: /azure/security
+[scalability]: ../../framework/scalability/performance-efficiency.md
 [docs-availability-zones]: /azure/availability-zones/az-overview
 [docs-load-balancer]: /azure/load-balancer/load-balancer-overview
 [docs-nsg]: /azure/virtual-network/security-overview
-[docs-vmss]: /azure/virtual-machine-scale-sets/overview
 [docs-sql-always-on]: /sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server
-[docs-vmss-autoscale]: /azure/virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-overview
-[docs-vnet]: /azure/virtual-network/virtual-networks-overview
 [docs-sql-server-linux]: /sql/linux/sql-server-linux-overview?view=sql-server-linux-2017
-[docs-traffic-manager]: /azure/traffic-manager/
-[docs-azure-site-recovery]: /azure/site-recovery/azure-to-azure-quickstart/
-[docs-availability-sets]: /azure/virtual-machines/windows/manage-availability/
-[calculator]: https://azure.com/e/6835332265044d6d931d68c917979e6d/
+[docs-traffic-manager]: /azure/traffic-manager
+[docs-azure-site-recovery]: /azure/site-recovery/azure-to-azure-quickstart
+[docs-availability-sets]: /azure/virtual-machines/windows/manage-availability
+[calculator]: https://azure.com/e/6835332265044d6d931d68c917979e6d

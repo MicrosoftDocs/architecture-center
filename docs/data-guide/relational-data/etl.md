@@ -1,12 +1,16 @@
 ---
 title: Extract, transform, and load (ETL)
-description: 
+description: Learn about extract-transform-load (ETL) and extract-load-transform (ELT) data transformation pipelines, and how to use control flows and data flows.
 author: zoinerTejada
 ms.date: 11/20/2019
-ms.topic: guide
+ms.topic: conceptual
 ms.service: architecture-center
-ms.subservice: cloud-fundamentals
+ms.subservice: azure-guide
+ms.custom:
+  - guide
 ---
+
+<!-- cSpell:ignore Oozie HDFS deduplicating -->
 
 # Extract, transform, and load (ETL)
 
@@ -26,7 +30,7 @@ Often, the three ETL phases are run in parallel to save time. For example, while
 
 Relevant Azure service:
 
-- [Azure Data Factory v2](https://azure.microsoft.com/services/data-factory/)
+- [Azure Data Factory v2](https://azure.microsoft.com/services/data-factory)
 
 Other tools:
 
@@ -50,7 +54,7 @@ Relevant Azure service:
 
 - [Azure Synapse](/azure/sql-data-warehouse/sql-data-warehouse-overview-what-is)
 - [HDInsight with Hive](/azure/hdinsight/hadoop/hdinsight-use-hive)
-- [Azure Data Factory v2](https://azure.microsoft.com/services/data-factory/)
+- [Azure Data Factory v2](https://azure.microsoft.com/services/data-factory)
 - [Oozie on HDInsight](/azure/hdinsight/hdinsight-use-oozie-linux-mac)
 
 Other tools:
@@ -69,7 +73,7 @@ In the diagram above, there are several tasks within the control flow, one of wh
 
 Relevant Azure service:
 
-- [Azure Data Factory v2](https://azure.microsoft.com/services/data-factory/)
+- [Azure Data Factory v2](https://azure.microsoft.com/services/data-factory)
 
 Other tools:
 

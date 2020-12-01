@@ -2,13 +2,15 @@
 title: Big data architecture style
 titleSuffix: Azure Application Architecture Guide
 description: Describes benefits, challenges, and best practices for Big Data architectures on Azure.
-author: MikeWasson
+author: doodlemania2
 ms.date: 11/20/2019
-ms.topic: guide
+ms.topic: conceptual
 ms.service: architecture-center
-ms.subservice: cloud-fundamentals
-ms.custom: seojan19, IoT
-
+ms.subservice: guide
+ms.custom:
+  - seojan19
+  - IoT
+  - guide
 ---
 
 # Big data architecture style
@@ -48,7 +50,7 @@ Most big data architectures include some or all of the following components:
 
 Azure includes many services that can be used in a big data architecture. They fall roughly into two categories:
 
-- Managed services, including Azure Data Lake Store, Azure Data Lake Analytics, Azure Data Warehouse, Azure Stream Analytics, Azure Event Hub, Azure IoT Hub, and Azure Data Factory.
+- Managed services, including Azure Data Lake Store, Azure Data Lake Analytics, Azure Synapse Analytics, Azure Stream Analytics, Azure Event Hub, Azure IoT Hub, and Azure Data Factory.
 - Open source technologies based on the Apache Hadoop platform, including HDFS, HBase, Hive, Pig, Spark, Storm, Oozie, Sqoop, and Kafka. These technologies are available on Azure in the Azure HDInsight service.
 
 These options are not mutually exclusive, and many solutions combine open source technologies with Azure services.
@@ -132,4 +134,4 @@ The boxes that are shaded gray show components of an IoT system that are not dir
 
  <!-- links -->
 
-[iot-ref-arch]: https://azure.microsoft.com/updates/microsoft-azure-iot-reference-architecture-available/
+[iot-ref-arch]: https://azure.microsoft.com/updates/microsoft-azure-iot-reference-architecture-available

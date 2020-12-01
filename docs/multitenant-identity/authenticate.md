@@ -1,18 +1,25 @@
 ---
 title: Authentication in multitenant applications
 description: How a multitenant application can authenticate users from Azure Active Directory.
-author: MikeWasson
+author: doodlemania2
 ms.date: 07/21/2017
-ms.topic: guide
+ms.topic: conceptual
 ms.service: architecture-center
-ms.subservice: reference-architecture
+ms.category:
+  - identity
+ms.subservice: azure-guide
 pnp.series.title: Manage Identity in Multitenant Applications
 pnp.series.prev: tailspin
 pnp.series.next: claims
+ms.custom:
+  - guide
 ---
+
+<!-- cSpell:ignore OIDC multitenanted openid -->
+
 # Authenticate using Azure AD and OpenID Connect
 
-[![GitHub](../_images/github.png) Sample code][sample application]
+[:::image type="icon" source="../_images/github.png" border="false"::: Sample code][sample application]
 
 The Surveys application uses the OpenID Connect (OIDC) protocol to authenticate users with Azure Active Directory (Azure AD). The Surveys application uses ASP.NET Core, which has built-in middleware for OIDC. The following diagram shows what happens when the user signs in, at a high level.
 
@@ -45,15 +52,15 @@ This section describes how to configure the authentication middleware in ASP.NET
 In your [startup class](/aspnet/core/fundamentals/startup), add the OpenID Connect middleware:
 
 ```csharp
-app.UseOpenIdConnectAuthentication(new OpenIdConnectOptions {
-    ClientId = configOptions.AzureAd.ClientId,
-    ClientSecret = configOptions.AzureAd.ClientSecret, // for code flow
-    Authority = Constants.AuthEndpointPrefix,
-    ResponseType = OpenIdConnectResponseType.CodeIdToken,
-    PostLogoutRedirectUri = configOptions.AzureAd.PostLogoutRedirectUri,
-    SignInScheme = CookieAuthenticationDefaults.AuthenticationScheme,
-    TokenValidationParameters = new TokenValidationParameters { ValidateIssuer = false },
-    Events = new SurveyAuthenticationEvents(configOptions.AzureAd, loggerFactory),
+app.AddAuthentication().AddOpenIdConnect(options => {
+    options.ClientId = configOptions.AzureAd.ClientId;
+    options.ClientSecret = configOptions.AzureAd.ClientSecret; // for code flow
+    options.Authority = Constants.AuthEndpointPrefix;
+    options.ResponseType = OpenIdConnectResponseType.CodeIdToken;
+    options.PostLogoutRedirectUri = configOptions.AzureAd.PostLogoutRedirectUri;
+    options.SignInScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+    options.TokenValidationParameters = new TokenValidationParameters { ValidateIssuer = false };
+    options.Events = new SurveyAuthenticationEvents(configOptions.AzureAd, loggerFactory);
 });
 ```
 
@@ -69,15 +76,15 @@ Notice that some of the settings are taken from runtime configuration options. H
 Also add the Cookie Authentication middleware to the pipeline. This middleware is responsible for writing the user claims to a cookie, and then reading the cookie during subsequent page loads.
 
 ```csharp
-app.UseCookieAuthentication(new CookieAuthenticationOptions {
-    AutomaticAuthenticate = true,
-    AutomaticChallenge = true,
-    AccessDeniedPath = "/Home/Forbidden",
-    CookieSecure = CookieSecurePolicy.Always,
+app.AddAuthentication().AddCookie(options => {
+    options.AutomaticAuthenticate = true;
+    options.AutomaticChallenge = true;
+    options.AccessDeniedPath = "/Home/Forbidden";
+    options.CookieSecure = CookieSecurePolicy.Always;
 
     // The default setting for cookie expiration is 14 days. SlidingExpiration is set to true by default
-    ExpireTimeSpan = TimeSpan.FromHours(1),
-    SlidingExpiration = true
+    options.ExpireTimeSpan = TimeSpan.FromHours(1);
+    options.SlidingExpiration = true;
 });
 ```
 
@@ -132,7 +139,7 @@ Here is the authentication process:
 
 ### Authentication ticket
 
-If authentication succeeds, the OIDC middleware creates an authentication ticket, which contains a claims principal that holds the user's claims. You can access the ticket inside the **AuthenticationValidated** or **TicketReceived** event.
+If authentication succeeds, the OIDC middleware creates an authentication ticket, which contains a claims principal that holds the user's claims.
 
 > [!NOTE]
 > Until the entire authentication flow is completed, `HttpContext.User` still holds an anonymous principal, **not** the authenticated user. The anonymous principal has an empty claims collection. After authentication completes and the app redirects, the cookie middleware deserializes the authentication cookie and sets `HttpContext.User` to a claims principal that represents the authenticated user.
@@ -141,7 +148,7 @@ If authentication succeeds, the OIDC middleware creates an authentication ticket
 
 During the authentication process, the OpenID Connect middleware raises a series of events:
 
-- **RedirectToIdentityProvider**. Called right before the middleware redirects to the authentication endpoint. You can use this event to modify the redirect URL; for example, to add request parameters. See [Adding the admin consent prompt](signup.md#adding-the-admin-consent-prompt) for an example.
+- **RedirectToIdentityProvider**. Called right before the middleware redirects to the authentication endpoint. You can use this event to modify the redirect URL; for example, to add request parameters. See [Adding the admin consent prompt](./signup.md#adding-the-admin-consent-prompt) for an example.
 - **AuthorizationCodeReceived**. Called with the authorization code.
 - **TokenResponseReceived**. Called after the middleware gets an access token from the IDP, but before it is validated. Applies only to authorization code flow.
 - **TokenValidated**. Called after the middleware validates the ID token. At this point, the application has a set of validated claims about the user. You can use this event to perform additional validation on the claims, or to transform claims. See [Working with claims](claims.md).
@@ -170,7 +177,7 @@ By default, the OIDC middleware uses hybrid flow with form post response mode.
 
 When the OIDC middleware redirects to the authorization endpoint, the redirect URL includes all of the query string parameters needed by OIDC. For hybrid flow:
 
-- client_id. This value is set in the **ClientId** option
+- client_id. This value is set in the **ClientId** option.
 - scope = "openid profile", which means it's an OIDC request and we want the user's profile.
 - response_type  = "code id_token". This specifies hybrid flow.
 - response_mode = "form_post". This specifies form post response.
@@ -178,7 +185,7 @@ When the OIDC middleware redirects to the authorization endpoint, the redirect U
 To specify a different flow, set the **ResponseType** property on the options. For example:
 
 ```csharp
-app.UseOpenIdConnectAuthentication(options =>
+app.AddAuthentication().AddOpenIdConnect(options =>
 {
     options.ResponseType = "code"; // Authorization code flow
 
@@ -188,7 +195,7 @@ app.UseOpenIdConnectAuthentication(options =>
 
 [**Next**][claims]
 
-[claims]: claims.md
+[claims]: ./claims.md
 [cookie-options]: /aspnet/core/security/authentication/cookie#absolute-cookie-expiration
-[session-cookie]: https://en.wikipedia.org/wiki/HTTP_cookie#Session_cookie
+[session-cookie]: https://wikipedia.org/wiki/HTTP_cookie#Session_cookie
 [sample application]: https://github.com/mspnp/multitenant-saas-guidance

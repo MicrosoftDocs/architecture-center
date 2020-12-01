@@ -1,12 +1,16 @@
 ---
 title: Choosing a stream processing technology
-description: 
+description: Compare options for real-time message stream processing in Azure, with key selection criteria and a capability matrix.
 author: zoinerTejada
 ms.date: 02/12/2018
-ms.topic: guide
+ms.topic: conceptual
 ms.service: architecture-center
-ms.subservice: cloud-fundamentals
+ms.subservice: azure-guide
+ms.custom:
+  - guide
 ---
+
+<!-- cSpell:ignore HDFS -->
 
 # Choosing a stream processing technology in Azure
 
@@ -28,6 +32,7 @@ In Azure, all of the following data stores will meet the core requirements suppo
 - [HDInsight with Storm](/azure/hdinsight/storm/apache-storm-overview)
 - [Azure Functions](/azure/azure-functions/functions-overview)
 - [Azure App Service WebJobs](/azure/app-service/web-sites-create-web-jobs)
+- [Apache Kafka streams API](/azure/hdinsight/kafka/apache-kafka-streams-api)
 
 ## Key Selection Criteria
 
@@ -74,5 +79,6 @@ See also:
 - [Choosing a real-time message ingestion technology](./real-time-ingestion.md)
 - [Real time processing](../big-data/real-time-processing.md)
 
+<!-- links -->
 
 [dotnet-spark]: https://github.com/dotnet/spark

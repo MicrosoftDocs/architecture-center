@@ -1,12 +1,17 @@
 ---
 title: Image classification on Azure
-description: Build image processing into your Azure applications.
+description: Learn how to build image processing into your applications by using Azure services such as the Computer Vision API and Azure Functions.
 author: david-stanford
 ms.date: 07/05/2018
-ms.topic: example-scenario
+ms.category:
+  - ai-machine-learning
+  - media
+ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: example-scenario
 social_image_url: /azure/architecture/example-scenario/ai/media/architecture-intelligent-apps-image-processing.png
+ms.custom:
+  - example-scenario
 ---
 
 # Image classification for insurance claims on Azure
@@ -55,11 +60,11 @@ This scenario covers the back-end components of a web or mobile application. Dat
 
 The majority of the components used in this example scenario are managed services that will automatically scale. A couple notable exceptions: Azure Functions has a limit of a maximum of 200 instances. If you need to scale beyond this limit, consider multiple regions or app plans.
 
-Cosmos DB doesn’t autoscale in terms of provisioned request units (RUs). For guidance on estimating your requirements, see [request units](/azure/cosmos-db/request-units) in our documentation. To fully take advantage of the scaling in Cosmos DB, understand how [partition keys](/azure/cosmos-db/partition-data) work in CosmosDB.
+Cosmos DB doesn't autoscale in terms of provisioned request units (RUs). For guidance on estimating your requirements, see [request units](/azure/cosmos-db/request-units) in our documentation. To fully take advantage of the scaling in Cosmos DB, understand how [partition keys](/azure/cosmos-db/partition-data) work in Cosmos DB.
 
-NoSQL databases frequently trade consistency (in the sense of the CAP theorem) for availability, scalability, and partitioning. In this example scenario, a key-value data model is used and transaction consistency is rarely needed as most operations are by definition atomic. Additional guidance to [Choose the right data store](../../guide/technology-choices/data-store-overview.md) is available in the Azure Architecture Center. If your implementation requires high consistency, you can [choose your consistency level](/azure/cosmos-db/consistency-levels) in CosmosDB.
+NoSQL databases frequently trade consistency (in the sense of the CAP theorem) for availability, scalability, and partitioning. In this example scenario, a key-value data model is used and transaction consistency is rarely needed as most operations are by definition atomic. Additional guidance to [Choose the right data store](../../guide/technology-choices/data-store-overview.md) is available in the Azure Architecture Center. If your implementation requires high consistency, you can [choose your consistency level](/azure/cosmos-db/consistency-levels) in Cosmos DB.
 
-For general guidance on designing scalable solutions, see the [scalability checklist][scalability] in the Azure Architecture Center.
+For general guidance on designing scalable solutions, see the [performance efficiency checklist][scalability] in the Azure Architecture Center.
 
 ### Security
 
@@ -94,11 +99,10 @@ Before deploying this example scenario in a production environment, review recom
 [small-pricing]: https://azure.com/e/f9b59d238b43423683db73f4a31dc380
 [medium-pricing]: https://azure.com/e/7c7fc474db344b87aae93bc29ae27108
 [large-pricing]: https://azure.com/e/cbadbca30f8640d6a061f8457a74ba7d
-[cognitive-search]: /azure/search/cognitive-search-concept-intro
 [serverless]: /azure/functions/tutorial-static-website-serverless-api-with-database
 [cv-categories]: /azure/cognitive-services/computer-vision/category-taxonomy
-[resiliency]: /azure/architecture/framework/resiliency/overview
-[security]: /azure/security/
-[scalability]: /azure/architecture/checklist/scalability
+[resiliency]: ../../framework/resiliency/overview.md
+[security]: /azure/security
+[scalability]: ../../framework/scalability/performance-efficiency.md
 [functions-best-practices]: /azure/azure-functions/functions-best-practices
 [msi]: /azure/app-service/app-service-managed-service-identity

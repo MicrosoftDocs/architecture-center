@@ -1,7 +1,7 @@
 ---
 title: Intelligent product search engine for e-commerce
 titleSuffix: Azure Example Scenarios
-description: Provide a world-class search experience in an e-commerce application.
+description: This example scenario shows how using Azure Search can dramatically increase the relevance of search results for your e-commerce customers.
 author: jelledruyts
 ms.date: 11/30/2020
 ms.topic: example-scenario
@@ -11,6 +11,7 @@ ms.custom:
   - fasttrack
   - ecommerce
   - web-app
+  - example-scenario
 social_image_url: /azure/architecture/example-scenario/apps/media/architecture-ecommerce-search.png
 ---
 
@@ -117,9 +118,9 @@ To learn more about Azure Cognitive Search, visit the [documentation center][doc
 [docs-search]: /azure/search/search-what-is-azure-search
 [docs-sql-database]: /azure/sql-database/sql-database-technical-overview
 [docs-webapps]: /azure/app-service/app-service-web-overview
-[docs-botservice]: /azure/bot-service/
-[docs-cognitive]: /azure/cognitive-services/
-[apache-lucene]: https://lucene.apache.org/
+[docs-botservice]: /azure/bot-service
+[docs-cognitive]: /azure/cognitive-services
+[apache-lucene]: https://lucene.apache.org
 [elastic-marketplace]: https://azuremarketplace.microsoft.com/marketplace/apps/elastic.elasticsearch
 [end-to-end-walkthrough]: https://github.com/Azure-Samples/search-dotnet-asp-net-mvc-jobs
 [search-sla]: https://go.microsoft.com/fwlink/?LinkId=716855
@@ -131,7 +132,7 @@ To learn more about Azure Cognitive Search, visit the [documentation center][doc
 [search-analyzers]: /rest/api/searchservice/custom-analyzers-in-azure-search
 [search-scoring]: /rest/api/searchservice/add-scoring-profiles-to-a-search-index
 [search-samples]: https://azure.microsoft.com/resources/samples/?service=search&sort=0
-[search-demo]: https://azjobsdemo.azurewebsites.net/
+[search-demo]: https://azjobsdemo.azurewebsites.net
 [small-pricing]: https://azure.com/e/db2672a55b6b4d768ef0060a8d9759bd
 [medium-pricing]: https://azure.com/e/a5ad0706c9e74add811e83ef83766a1c
 [large-pricing]: https://azure.com/e/57f95a898daa487795bd305599973ee6

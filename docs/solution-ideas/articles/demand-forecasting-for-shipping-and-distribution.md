@@ -1,42 +1,48 @@
 ---
 title: Demand Forecasting for Shipping and Distribution
 titleSuffix: Azure Solution Ideas
-author: adamboeglin
+author: doodlemania2
 ms.date: 12/16/2019
-description: The Demand Forecasting for Shipping and Distribution Solution uses historical demand data to forecast demand in future periods across varios customers, products and destinations. For instance, a shipping or delivery company wants to predict the quantities of the different products its customers want delivered at different locations at future times. A company can use these forecasts as input to an allocation tool that optimizes operations, such as delivery vehicles routing, or to plan capacity in the longer term.
+description: Use historical demand data to forecast future periods across various customers, products and destinations.
 ms.custom: acom-architecture, artificial intelligence, solution architectures, Azure, ai gallery, 'https://azure.microsoft.com/solutions/architecture/demand-forecasting-for-shipping-and-distribution/'
 ms.service: architecture-center
+ms.category:
+  - analytics
+  - ai-machine-learning
 ms.subservice: solution-idea
+social_image_url: /azure/architecture/solution-ideas/articles/media/demand-forecasting-for-shipping-and-distribution.png
 ---
+
 # Demand Forecasting for Shipping and Distribution
 
-[!INCLUDE [header_file](../header.md)]
+The Demand Forecasting for Shipping and Distribution Solution uses historical demand data to forecast demand in future periods across various customers, products and destinations. For instance, a shipping or delivery company wants to predict the quantities of the different products its customers want delivered at different locations at future times. A company can use these forecasts as input to an allocation tool that optimizes operations, such as delivery vehicles routing, or to plan capacity in the longer term.
 
-The Demand Forecasting for Shipping and Distribution Solution uses historical demand data to forecast demand in future periods across varios customers, products and destinations. For instance, a shipping or delivery company wants to predict the quantities of the different products its customers want delivered at different locations at future times. A company can use these forecasts as input to an allocation tool that optimizes operations, such as delivery vehicles routing, or to plan capacity in the longer term.
+[View on GitHub](https://github.com/Azure/cortana-intelligence-shipping-and-distribution-forecasting/blob/master/Technical%20Deployment%20Guide/Technical-Solution-Guide.md)
 
 ## Architecture
 
-![Architecture diagram](../media/demand-forecasting-for-shipping-and-distribution.svg)
+![Architecture diagram](../media/demand-forecasting-for-shipping-and-distribution.png)
+*Download an [SVG](../media/demand-forecasting-for-shipping-and-distribution.svg) of this architecture.*
 
 ## Summary
 
-This is an an Azure Solution to reduce the uncertainty in forecasted shipments for organizations that need to plan based on future quantities. This page explains what the Solution does, and how to install a copy that you can run and modify in your [Azure](https://azure.microsoft.com/free/) subscription.
+This is an an Azure Solution to reduce the uncertainty in forecasted shipments for organizations that need to plan based on future quantities. This page explains what the Solution does, and how to install a copy that you can run and modify in your [Azure](https://azure.microsoft.com/free) subscription.
 
 Azure Solutions in the Cortana Intelligence Gallery are composed of advanced analytics tools for data ingestion, data storage, scheduling and advanced analytics components - all of the essential elements for running a demand forecasting solution that can be integrated with your current production systems. This Solution combines several Azure services. Azure SQL Server is used for storing forecasts and historical distribution data, Azure Machine Learning (AML) webservice for hosting the R forecasting code, Azure Data Factory to orchestrate the entire workflow, and Power BI to visualize it.
 
-Use the 'Deploy' button on this page to deploy an instance of the Solution for the Azure subscription you specify. This will bring you through the steps in your subscription needed to create and launch the resources that make up this solution so that you can run it. The Solution includes multiple Azure services (described below) along with Azure functions that, among other tasks, simulate the data and populate the database with it, so that immediately after deployment you will have a working end-to-end solution.
+Use the [GitHub repository](https://github.com/Azure/cortana-intelligence-shipping-and-distribution-forecasting/blob/master/Technical%20Deployment%20Guide/Technical-Solution-Guide.md) to deploy an instance of the Solution for the Azure subscription you specify. This will bring you through the steps in your subscription needed to create and launch the resources that make up this solution so that you can run it. The Solution includes multiple Azure services (described below) along with Azure functions that, among other tasks, simulate the data and populate the database with it, so that immediately after deployment you will have a working end-to-end solution.
 
 ## Description
 
 Estimated Daily Cost: [$4.66](https://azure.github.io/Azure-CloudIntelligence-SolutionAuthoringWorkspace/solution-prices#shipping-and-distribution-demand-forecasting)
 
-The Demand Forecasting for Shipping and Distribution Solution uses historical demand data to forecast demand in future periods across various customers, products and destinations. For instance, a shipping or delivery company wants to predict the quantities of the different products its customers want delivered at different locations at future times. Similarly a vendor or insurer wants to know the number of products that will be returned due to failures over the course of a year. A company can use these forecasts as input to an allocation tool that optimizes operations, such as delivery vehicles routing, or to plan capacity in the longer term. 
+The Demand Forecasting for Shipping and Distribution Solution uses historical demand data to forecast demand in future periods across various customers, products and destinations. For instance, a shipping or delivery company wants to predict the quantities of the different products its customers want delivered at different locations at future times. Similarly a vendor or insurer wants to know the number of products that will be returned due to failures over the course of a year. A company can use these forecasts as input to an allocation tool that optimizes operations, such as delivery vehicles routing, or to plan capacity in the longer term.
 
 Characteristics of all of these forecasting cases are:
 
-  * There are numerous kinds of items with differing volumes, that roll up under one or more category levels.
-  * There is a history available for the quantity of the item at each time in the past. The volumes of the items differ widely, with possibly a substantial number that have zero volume at times.
-  * The history of items shows both trend and seasonality, possibly at multiple time scales. The quantities committed or returned are not strongly price sensitive. In other words, the delivery company cannot strongly influence quantities by short-term changes in prices, although there may be other determinants that affect volume, such as weather.
+* There are numerous kinds of items with differing volumes, that roll up under one or more category levels.
+* There is a history available for the quantity of the item at each time in the past. The volumes of the items differ widely, with possibly a substantial number that have zero volume at times.
+* The history of items shows both trend and seasonality, possibly at multiple time scales. The quantities committed or returned are not strongly price sensitive. In other words, the delivery company cannot strongly influence quantities by short-term changes in prices, although there may be other determinants that affect volume, such as weather.
 
 Under these conditions we can take advantage of the hierarchy formed among the time series of the different items. By enforcing consistency so that the quantities lower in the hierarchy (e.g. individual product quantities) sum to the quantities above (customer product totals) we improve the accuracy of the overall forecast. The same applies if individual items are grouped into categories, even possibly categories that overlap. For example, one might be interested in forecasting demand of all products in total, by location, by product category, by customer, etc.
 
@@ -66,12 +72,10 @@ See the [Technical Solution Guide](https://github.com/Azure/cortana-intelligence
 
 Here is an example of a snapshot of the forecasts generated by the solution in the PowerBI dashboard that comes with the Solution.
 
-![Power BI Snapshot](//azurecomcdn.azureedge.net/cvt-add179e08f40a2f574f2c13e23c39140f82f2f0c5faf32b8e79061bb1ec3c7ca/images/shared/solutions/architecture-details/demand-forecasting-for-shipping-and-distribution/powerbisnapshot.png)
+![Power BI Snapshot](https://azurecomcdn.azureedge.net/cvt-add179e08f40a2f574f2c13e23c39140f82f2f0c5faf32b8e79061bb1ec3c7ca/images/shared/solutions/architecture-details/demand-forecasting-for-shipping-and-distribution/powerbisnapshot.png)
 
 ## Pricing Info
 
-Your Azure subscription used for the deployment will incur consumption charges on the services used in this solution, approximately $4.66/day. For more information, please visit the [Pricing Calculator](https://azure.microsoft.com/pricing/calculator/).
+Your Azure subscription used for the deployment will incur consumption charges on the services used in this solution, approximately $4.66/day. For more information, please visit the [Pricing Calculator](https://azure.microsoft.com/pricing/calculator).
 
 Note: If you are no longer using the deployed solution, remember to delete it to stop incurring consumption charges.
-
-

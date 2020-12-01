@@ -1,12 +1,16 @@
 ---
 title: Run a Windows VM on Azure
 titleSuffix: Azure Reference Architectures
-description: Best practices for running a Windows virtual machine on Azure.
+description: Learn the best practices for running a Windows virtual machine on Azure, which requires some additional components, including networking and storage resources.
 author: telmosampaio
 ms.date: 12/13/2018
-ms.topic: reference-architecture
+ms.topic: conceptual
 ms.service: architecture-center
+ms.category:
+  - compute
 ms.subservice: reference-architecture
+ms.custom:
+  - reference-architecture
 ---
 
 # Run a Windows virtual machine on Azure
@@ -88,9 +92,9 @@ Use [Azure Spot VMs](/azure/virtual-machines/windows/spot-vms) to run workloads 
 - Test environments, including continuous integration and continuous delivery workloads.
 - Large-scale stateless applications.
 
-Use the [Azure Pricing Calculator][Cost-Calculator] to estimates costs.
+Use the [Azure Pricing Calculator][azure-pricing-calculator] to estimates costs.
 
-For more information, see the cost section in [Azure Architecture Framework][AAF-cost].
+For more information, see the cost section in [Microsoft Azure Well-Architected Framework][WAF-cost].
 
 
 ## Security considerations
@@ -110,6 +114,19 @@ Use [Azure Security Center][security-center] to get a central view of the securi
 
 **Data encryption**. Use [Azure Disk Encryption][disk-encryption] if you need to encrypt the OS and data disks.
 
+## DevOps considerations
+
+Use infrastructure as Code (IaC) either by using a single [Azure Resource Manager template][arm-template] for provisioning the Azure resources (declarative approach) or by using a single PowerShell script (imperative approach). Since all the resources are in the same virtual network, they are isolated in the same basic workload, that makes it easier to associate the workload's specific resources to a DevOps team, so that the team can independently manage all aspects of those resources. This isolation enables the DevOps Team and Services to perform continuous integration and continuous delivery (CI/CD).
+
+Also, you can use different [Azure Resource Manager templates][arm-template] and integrate them with [Azure DevOps Services][az-devops] to provision different environments in minutes, for example to replicate production like scenarios or load testing environments only when needed, saving cost.
+
+For higher availability architecture see [Windows N-tier application on Azure with SQL Server](./n-tier-sql-server.md), the reference architecture includes more than one VM and each VM is included in an availability set.
+
+Consider using the [Azure Monitor][azure-monitor] to Analyze and optimize the performance of your infrastructure, Monitor and diagnose networking issues without logging into your virtual machines.
+
+
+For more information, see the Operational Excellence section in [Azure Well-Architected Framework][WAF-devops].
+
 ## Next steps
 
 - To provision a Windows VM, see [Create and Manage Windows VMs with Azure PowerShell](/azure/virtual-machines/windows/tutorial-manage-vm)
@@ -119,40 +136,44 @@ Use [Azure Security Center][security-center] to get a central view of the securi
 
 <!-- links -->
 
-[Azure Architecture Framework]: /azure/architecture/framework/cost/overview
+[arm-template]: /azure/azure-resource-manager/resource-group-overview#resource-groups
+[az-devops]: /azure/virtual-machines/windows/infrastructure-automation#azure-devops-services
+[Microsoft Azure Well-Architected Framework]: ../../framework/cost/overview.md
+[azure-monitor]: https://azure.microsoft.com/services/monitor/
 [audit-logs]: https://azure.microsoft.com/blog/analyze-azure-audit-logs-in-powerbi-more/
-[azure-storage]: /azure/storage/storage-introduction
-[blob-storage]: /azure/storage/storage-introduction
+[azure-storage]: /azure/storage/common/storage-introduction
+[blob-storage]: /azure/storage/common/storage-introduction
 [boot-diagnostics]: https://azure.microsoft.com/blog/boot-diagnostics-for-virtual-machines-v2/
 [cname-record]: https://en.wikipedia.org/wiki/CNAME_record
 [Pricing calculator]: https://azure.microsoft.com/pricing/calculator
-[data-disk]: /azure/virtual-machines/virtual-machines-windows-about-disks-vhds
+[data-disk]: /azure/virtual-machines/windows/disks-types
 [disk-encryption]: /azure/security/fundamentals/azure-disk-encryption-vms-vmss
 [enable-monitoring]: /azure/monitoring-and-diagnostics/insights-how-to-use-diagnostics
-[fqdn]: /azure/virtual-machines/virtual-machines-windows-portal-create-fqdn
+[fqdn]: /azure/virtual-machines/windows/portal-create-fqdn
 [group-policy]: /windows-server/administration/windows-server-update-services/deploy/4-configure-group-policy-settings-for-automatic-updates
-[manage-vm-availability]: /azure/virtual-machines/virtual-machines-windows-manage-availability
+[manage-vm-availability]: /azure/virtual-machines/windows/manage-availability
 [managed-disks]: /azure/storage/storage-managed-disks-overview
 [naming-conventions]: /azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging
 [nsg]: /azure/virtual-network/virtual-networks-nsg
 [nsg-default-rules]: /azure/virtual-network/security-overview#default-security-rules
-[planned-maintenance]: /azure/virtual-machines/virtual-machines-windows-planned-maintenance
+[planned-maintenance]: /azure/virtual-machines/maintenance-and-updates
 [premium-storage]: /azure/virtual-machines/windows/premium-storage
 [rbac]: /azure/active-directory/role-based-access-control-what-is
 [rbac-roles]: /azure/active-directory/role-based-access-built-in-roles
 [rbac-devtest]: /azure/active-directory/role-based-access-built-in-roles#devtest-labs-user
 [rbac-network]: /azure/active-directory/role-based-access-built-in-roles#network-contributor
-[reboot-logs]: https://azure.microsoft.com/blog/viewing-vm-reboot-logs/
-[resize-os-disk]: /azure/virtual-machines/virtual-machines-windows-expand-os-disk
+[reboot-logs]: https://azure.microsoft.com/blog/viewing-vm-reboot-logs
+[resize-os-disk]: /azure/virtual-machines/windows/expand-os-disk
 [resource-lock]: /azure/resource-group-lock-resources
 [resource-manager-overview]: /azure/azure-resource-manager/resource-group-overview
 [security-center]: /azure/security-center/security-center-intro
 [security-center-get-started]: /azure/security-center/security-center-get-started
-[select-vm-image]: /azure/virtual-machines/virtual-machines-windows-cli-ps-findimage
+[select-vm-image]: /azure/virtual-machines/windows/cli-ps-findimage
 [services-by-region]: https://azure.microsoft.com/regions/#services
 [static-ip]: /azure/virtual-network/virtual-networks-reserved-public-ip
-[virtual-machine-sizes]: /azure/virtual-machines/virtual-machines-windows-sizes
-[visio-download]: https://archcenter.blob.core.windows.net/cdn/vm-reference-architectures.vsdx
-[vm-size-tables]: /azure/virtual-machines/virtual-machines-windows-sizes
+[virtual-machine-sizes]: /azure/virtual-machines/sizes
+[vm-size-tables]: /azure/virtual-machines/sizes
 [vm-sla]: https://azure.microsoft.com/support/legal/sla/virtual-machines
-[windows-vms-pricing]: https://azure.microsoft.com/pricing/details/virtual-machines/windows/
+[windows-vms-pricing]: https://azure.microsoft.com/pricing/details/virtual-machines/windows
+[WAF-cost]: ../../framework/cost/overview.md
+[WAF-devops]: ../../framework/devops/overview.md

@@ -2,13 +2,21 @@
 title: Integrate on-premises AD domains with Azure AD
 titleSuffix: Azure Reference Architectures
 description: Implement a secure hybrid network architecture using Azure Active Directory (Azure AD).
-author: MikeWasson
+author: doodlemania2
 ms.date: 08/28/2019
-ms.topic: reference-architecture
+ms.topic: conceptual
 ms.service: architecture-center
+ms.category:
+  - identity
+  - hybrid
 ms.subservice: reference-architecture
-ms.custom: seodec18, identity
+ms.custom:
+  - seodec18
+  - identity
+  - reference-architecture
 ---
+
+<!-- cSpell:ignore writeback MSOL -->
 
 # Integrate on-premises Active Directory domains with Azure Active Directory
 
@@ -29,7 +37,7 @@ Typical uses for this reference architecture include:
 - Architectures in which the on-premises network and the application's Azure VNet are not connected using a VPN tunnel or ExpressRoute circuit.
 
 > [!NOTE]
-> Azure AD can authenticate the identity of users and applications that exist in an organization’s directory. Some applications and services, such as SQL Server, may require computer authentication, in which case this solution is not appropriate.
+> Azure AD can authenticate the identity of users and applications that exist in an organization's directory. Some applications and services, such as SQL Server, may require computer authentication, in which case this solution is not appropriate.
 >
 
 For additional considerations, see [Choose a solution for integrating on-premises Active Directory with Azure][considerations].
@@ -132,7 +140,7 @@ For more information, see [Publish applications using Azure AD Application proxy
 
 ### Object synchronization
 
-Azure AD Connect's default configuration synchronizes objects from your local Active Directory directory based on the rules specified in the article [Azure AD Connect sync: Understanding the default configuration][aad-connect-sync-default-rules]. Objects that satisfy these rules are synchronized while all other objects are ignored. Some example rules:
+The default configuration for Azure AD Connect synchronizes objects from your local Active Directory directory based on the rules specified in the article [Azure AD Connect sync: Understanding the default configuration][aad-connect-sync-default-rules]. Objects that satisfy these rules are synchronized while all other objects are ignored. Some example rules:
 
 - User objects must have a unique *sourceAnchor* attribute and the *accountEnabled* attribute must be populated.
 - User objects must have a *sAMAccountName* attribute and cannot start with the text *Azure AD_* or *MSOL_*.
@@ -162,7 +170,7 @@ For the Azure AD Connect sync server, determine how many objects you are likely 
 The Azure AD service is geo-distributed and runs in multiple datacenters spread around the world with automated failover. If a datacenter becomes unavailable, Azure AD ensures that your directory data is available for instance access in at least two more regionally dispersed datacenters.
 
 > [!NOTE]
-> The service level agreement (SLA) for Azure AD Basic and Premium services guarantees at least 99.9% availability. There is no SLA for the Free tier of Azure AD. For more information, see [SLA for Azure Active Directory][sla-aad].
+> The service level agreement (SLA) for the Microsoft 365 Apps AD tier and Premium services guarantees at least 99.9% availability. There is no SLA for the Free tier of Azure AD. For more information, see [SLA for Azure Active Directory][sla-aad].
 >
 
 Consider provisioning a second instance of Azure AD Connect sync server in staging mode to increase availability, as discussed in the topology recommendations section.
@@ -195,7 +203,7 @@ For more information and tips for managing Azure AD Connect, see [Azure AD Conne
 
 Use conditional access control to deny authentication requests from unexpected sources:
 
-- Trigger [Azure Multi-Factor Authentication (MFA)][azure-multifactor-authentication] if a user attempts to connect from a nontrusted location such as across the Internet instead of a trusted network.
+- Trigger [Azure Multi-Factor Authentication (MFA)][azure-multifactor-authentication] if a user attempts to connect from a untrusted location such as across the Internet instead of a trusted network.
 
 - Use the device platform type of the user (iOS, Android, Windows Mobile, Windows) to determine access policy to applications and features.
 
@@ -207,13 +215,32 @@ Use conditional access control to deny authentication requests from unexpected s
 
 For more information, see [Azure Active Directory conditional access][aad-conditional-access].
 
+## DevOps considerations
+
+For DevOps considerations, see [DevOps: Extending Active Directory Domain Services (AD DS) to Azure](adds-extend-domain.md#devops-considerations).
+
+## Cost considerations
+
+Use the [Azure pricing calculator][azure-pricing-calculator] to estimate costs. Other considerations are described in the Cost section in [Microsoft Azure Well-Architected Framework][aaf-cost].
+
+Here are cost considerations for the services used in this architecture.
+
+### Azure AD Connect
+
+For information about the editions offered by Azure Active Directory, see [Azure AD pricing][Azure-AD-pricing]. The AD Connect sync feature is available in all editions.
+
+### VMs for N-Tier application
+
+The deployment includes infrastructure for an N-tier application. For cost information about these resources, [Run VMs for an N-tier architecture][implementing-a-multi-tier-architecture-on-Azure].
+
 ## Deploy the solution
 
 A deployment for a reference architecture that implements these recommendations and considerations is available on GitHub. This reference architecture deploys a simulated on-premises network in Azure that you can use to test and experiment. To deploy the solution, see the [readme](https://github.com/mspnp/identity-reference-architectures/tree/master/azure-ad) on GitHub.
 
 <!-- links -->
 
-[implementing-a-multi-tier-architecture-on-Azure]: ../virtual-machines-windows/n-tier.md
+[aaf-cost]: ../../framework/cost/overview.md
+[implementing-a-multi-tier-architecture-on-Azure]: ../n-tier/n-tier-sql-server.md#cost-considerations
 
 [aad-agent-installation]: /azure/active-directory/active-directory-aadconnect-health-agent-install
 [aad-application-proxy]: /azure/active-directory/active-directory-application-proxy-enable
@@ -228,17 +255,21 @@ A deployment for a reference architecture that implements these recommendations 
 [aad-health-adfs]: /azure/active-directory/active-directory-aadconnect-health-adfs
 [aad-identity-protection]: /azure/active-directory/active-directory-identityprotection
 [aad-password-management]: /azure/active-directory/active-directory-passwords-customize
-[aad-powershell]: https://msdn.microsoft.com/library/azure/mt757189.aspx
+[aad-powershell]: /powershell/module/azuread/?view=azureadps-2.0
 [aad-reporting-guide]: /azure/active-directory/active-directory-reporting-guide
-[aad-scalability]: https://blogs.technet.microsoft.com/enterprisemobility/2014/09/02/azure-ad-under-the-hood-of-our-geo-redundant-highly-available-distributed-cloud-directory/
+[aad-scalability]: https://blogs.technet.microsoft.com/enterprisemobility/2014/09/02/azure-ad-under-the-hood-of-our-geo-redundant-highly-available-distributed-cloud-directory
 [aad-sync-best-practices]: /azure/active-directory/hybrid/how-to-connect-sync-best-practices-changing-default-configuration
 [aad-sync-disaster-recovery]: /azure/active-directory/hybrid/how-to-connect-sync-operations#disaster-recovery
 [aad-sync-requirements]: /azure/active-directory/active-directory-hybrid-identity-design-considerations-directory-sync-requirements
 [aad-topologies]: /azure/active-directory/hybrid/plan-connect-topologies
 [aad-user-sign-in]: /azure/active-directory/hybrid/plan-connect-user-signin
+[AAF-devops]: ../../framework/devops/overview.md
 [azure-active-directory]: /azure/active-directory-domain-services/active-directory-ds-overview
 [azure-ad-connect]: /azure/active-directory/hybrid/whatis-hybrid-identity
+[Azure-AD-pricing]: https://azure.microsoft.com/pricing/details/active-directory
 [azure-multifactor-authentication]: /azure/multi-factor-authentication/multi-factor-authentication
-[considerations]: ./considerations.md
+[considerations]: ./index.md
 [sla-aad]: https://azure.microsoft.com/support/legal/sla/active-directory
-[visio-download]: https://archcenter.blob.core.windows.net/cdn/identity-architectures.vsdx
+[visio-download]: https://arch-center.azureedge.net/identity-architectures.vsdx
+[azure-pricing-calculator]: https://azure.microsoft.com/pricing/calculator
+[AAF-devops]: ../../framework/devops/overview.md

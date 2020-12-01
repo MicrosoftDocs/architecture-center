@@ -1,11 +1,13 @@
 ---
 title: Choosing a real-time message ingestion technology
-description: 
+description: Choose an Azure message ingestion store to support message buffering, scale-out processing, reliable delivery, and queuing semantics.
 author: zoinerTejada
 ms.date: 02/12/2018
-ms.topic: guide
+ms.topic: conceptual
 ms.service: architecture-center
-ms.subservice: cloud-fundamentals
+ms.subservice: azure-guide
+ms.custom:
+  - guide
 ---
 
 # Choosing a real-time message ingestion technology in Azure
@@ -70,7 +72,7 @@ The following tables summarize the key differences in capabilities.
 | Cloud-to-device communications | Yes | No | No |
 | Device-initiated file upload | Yes | No | No |
 | Device state information | [Device twins](/azure/iot-hub/iot-hub-devguide-device-twins) | No | No |
-| Protocol support | MQTT, AMQP, HTTPS <sup>1</sup> | AMQP, HTTPS | [Kafka Protocol](https://cwiki.apache.org/confluence/display/KAFKA/A+Guide+To+The+Kafka+Protocol) |
+| Protocol support | MQTT, AMQP, HTTPS <sup>1</sup> | AMQP, HTTPS, [Kafka Protocol](/azure/event-hubs/event-hubs-for-kafka-ecosystem-overview) | [Kafka Protocol](https://cwiki.apache.org/confluence/display/KAFKA/A+Guide+To+The+Kafka+Protocol) |
 | Security | Per-device identity; revocable access control. | Shared access policies; limited revocation through publisher policies. | Authentication using SASL; pluggable authorization; integration with external authentication services supported. |
 
 <!-- markdownlint-enable MD026 -->

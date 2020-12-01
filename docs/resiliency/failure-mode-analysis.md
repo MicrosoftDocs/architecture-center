@@ -1,12 +1,14 @@
 ---
 title: Failure mode analysis
 description: Guidelines for performing a failure mode analysis for cloud solutions based on Azure.
-author: MikeWasson
+author: doodlemania2
 ms.date: 05/07/2018
-ms.topic: article
+ms.topic: conceptual
 ms.service: architecture-center
-ms.subservice: cloud-design-principles
-ms.custom: resiliency
+ms.subservice: well-architected
+ms.custom:
+  - resiliency
+  - article
 ---
 
 # Failure mode analysis for Azure applications
@@ -98,7 +100,7 @@ Application_End logging will catch the app domain shutdown (soft process crash) 
 
 **Recovery:**
 
-The [Search .NET SDK][search-sdk] automatically retries after transient failures. Any exceptions thrown by the client SDK should be treated as non-transient errors.
+The [Search .NET SDK][search-sdk] automatically retries after transient failures. Any exceptions thrown by the client SDK should be treated as nontransient errors.
 
 The default retry policy uses exponential back-off. To use a different retry policy, call `SetRetryPolicy` on the `SearchIndexClient` or `SearchServiceClient` class. For more information, see [Automatic Retries][auto-rest-client-retry].
 
@@ -110,7 +112,7 @@ The default retry policy uses exponential back-off. To use a different retry pol
 
 **Recovery:**
 
-The [Search .NET SDK][search-sdk]  automatically retries after transient failures. Any exceptions thrown by the client SDK should be treated as non-transient errors.
+The [Search .NET SDK][search-sdk]  automatically retries after transient failures. Any exceptions thrown by the client SDK should be treated as nontransient errors.
 
 The default retry policy uses exponential back-off. To use a different retry policy, call `SetRetryPolicy` on the `SearchIndexClient` or `SearchServiceClient` class. For more information, see [Automatic Retries][auto-rest-client-retry].
 
@@ -126,7 +128,7 @@ The default retry policy uses exponential back-off. To use a different retry pol
 
 - Each [Cassandra client](https://cwiki.apache.org/confluence/display/CASSANDRA2/ClientOptions) has its own retry policies and capabilities. For more information, see [Cassandra error handling done right][cassandra-error-handling].
 - Use a rack-aware deployment, with data nodes distributed across the fault domains.
-- Deploy to multiple regions with local quorum consistency. If a non-transient failure occurs, fail over to another region.
+- Deploy to multiple regions with local quorum consistency. If a nontransient failure occurs, fail over to another region.
 
 **Diagnostics**. Application logs
 
@@ -166,34 +168,6 @@ The default retry policy uses exponential back-off. To use a different retry pol
 
 **Diagnostics**. Log all errors on the client side.
 
-## Elasticsearch
-
-### Reading data from Elasticsearch fails.
-
-**Detection**. Catch the appropriate exception for the particular [Elasticsearch client][elasticsearch-client] being used.
-
-**Recovery:**
-
-- Use a retry mechanism. Each client has its own retry policies.
-- Deploy multiple Elasticsearch nodes and use replication for high availability.
-
-For more information, see [Running Elasticsearch on Azure][elasticsearch-azure].
-
-**Diagnostics**. You can use monitoring tools for Elasticsearch, or log all errors on the client side with the payload. See the 'Monitoring' section in [Running Elasticsearch on Azure][elasticsearch-azure].
-
-### Writing data to Elasticsearch fails.
-
-**Detection**. Catch the appropriate exception for the particular [Elasticsearch client][elasticsearch-client] being used.
-
-**Recovery:**
-
-- Use a retry mechanism. Each client has its own retry policies.
-- If the application can tolerate a reduced consistency level, consider writing with `write_consistency` setting of `quorum`.
-
-For more information, see [Running Elasticsearch on Azure][elasticsearch-azure].
-
-**Diagnostics**. You can use monitoring tools for Elasticsearch, or log all errors on the client side with the payload. See the 'Monitoring' section in [Running Elasticsearch on Azure][elasticsearch-azure].
-
 ## Queue storage
 
 ### Writing a message to Azure Queue storage fails consistently.
@@ -231,7 +205,7 @@ Consider using Azure Service Bus Messaging queues, which provides a [dead-letter
 **Recovery:**
 
 1. Retry on transient failures. Azure Cache for Redis supports built-in retry. For more information, see [Azure Cache for Redis retry guidelines][redis-retry].
-2. Treat non-transient failures as a cache miss, and fall back to the original data source.
+2. Treat nontransient failures as a cache miss, and fall back to the original data source.
 
 **Diagnostics**. Use [Azure Cache for Redis diagnostics][redis-monitor].
 
@@ -242,7 +216,7 @@ Consider using Azure Service Bus Messaging queues, which provides a [dead-letter
 **Recovery:**
 
 1. Retry on transient failures. Azure Cache for Redis supports built-in retry. For more information, see [Azure Cache for Redis retry guidelines][redis-retry].
-2. If the error is non-transient, ignore it and let other transactions write to the cache later.
+2. If the error is nontransient, ignore it and let other transactions write to the cache later.
 
 **Diagnostics**. Use [Azure Cache for Redis diagnostics][redis-monitor].
 
@@ -315,7 +289,7 @@ For more information, see [Service Bus messaging exceptions][sb-messaging-except
     - Active replication: The client sends every message to both queues. The receiver listens on both queues. Tag messages with a unique identifier, so the client can discard duplicate messages.
     - Passive replication: The client sends the message to one queue. If there is an error, the client falls back to the other queue. The receiver listens on both queues. This approach reduces the number of duplicate messages that are sent. However, the receiver must still handle duplicate messages.
 
-    For more information, see [GeoReplication sample][sb-georeplication-sample] and [Best practices for insulating applications against Service Bus outages and disasters](/azure/service-bus-messaging/service-bus-outages-disasters/).
+    For more information, see [GeoReplication sample][sb-georeplication-sample] and [Best practices for insulating applications against Service Bus outages and disasters](/azure/service-bus-messaging/service-bus-outages-disasters).
 
 ### Duplicate message.
 
@@ -408,7 +382,7 @@ For more information, see [Overview of Service Bus dead-letter queues][sb-dead-l
 - Deploy at least two backend VMs in an availability set, behind a load balancer.
 - If the connection error is transient, sometimes TCP will successfully retry sending the message.
 - Implement a retry policy in the application.
-- For persistent or non-transient errors, implement the [Circuit Breaker][circuit-breaker] pattern.
+- For persistent or nontransient errors, implement the [Circuit Breaker][circuit-breaker] pattern.
 - If the calling VM exceeds its network egress limit, the outbound queue will fill up. If the outbound queue is consistently full, consider scaling out.
 
 **Diagnostics**. Log events at service boundaries.
@@ -460,6 +434,14 @@ For more information, see [Overview of Service Bus dead-letter queues][sb-dead-l
 
 **Diagnostics**. Use [App Service diagnostic logging][app-service-logging]. Use a service such as [Azure Log Analytics][azure-log-analytics], [Application Insights][app-insights], or [New Relic][new-relic] to help understand the diagnostic logs.
 
+:::image type="icon" source="../_images/github.png" border="false"::: A sample is available [here](https://github.com/mspnp/samples/tree/master/Reliability/FailureModeAnalysisSample). It uses [Polly](https://github.com/App-vNext/Polly) for these exceptions: 
+
+- 429 - Throttling 
+- 408 - Timeout 
+- 401 - Unauthorized
+- 503 or 5xx - Service unavailable 
+
+
 ### One of the operations in a workflow or distributed transaction fails.
 
 **Detection**. After *N* retry attempts, it still fails.
@@ -492,58 +474,55 @@ For more information about the FMA process, see [Resilience by design for cloud 
 
 <!-- links -->
 
-[api-management]: /azure/api-management/
-[api-management-throttling]: /azure/api-management/api-management-sample-flexible-throttling/
-[app-insights]: /azure/application-insights/app-insights-overview/
-[app-insights-web-apps]: /azure/application-insights/app-insights-azure-web-apps/
-[app-service-configure]: /azure/app-service-web/web-sites-configure/
-[app-service-logging]: /azure/app-service-web/web-sites-enable-diagnostic-log/
-[app-service-slots]: /azure/app-service-web/web-sites-staged-publishing/
+[api-management]: /azure/api-management
+[api-management-throttling]: /azure/api-management/api-management-sample-flexible-throttling
+[app-insights]: /azure/application-insights/app-insights-overview
+[app-insights-web-apps]: /azure/application-insights/app-insights-azure-web-apps
+[app-service-configure]: /azure/app-service-web/web-sites-configure
+[app-service-logging]: /azure/app-service-web/web-sites-enable-diagnostic-log
+[app-service-slots]: /azure/app-service-web/web-sites-staged-publishing
 [auto-rest-client-retry]: https://github.com/Azure/autorest/tree/master/docs
-[azure-activity-logs]: /azure/monitoring-and-diagnostics/monitoring-overview-activity-logs/
-[azure-alerts]: /azure/monitoring-and-diagnostics/insights-alerts-portal/
-[azure-log-analytics]: /azure/log-analytics/log-analytics-overview/
-[BrokeredMessage.TimeToLive]: https://msdn.microsoft.com/library/microsoft.servicebus.messaging.brokeredmessage.timetolive.aspx
+[azure-activity-logs]: /azure/monitoring-and-diagnostics/monitoring-overview-activity-logs
+[azure-alerts]: /azure/monitoring-and-diagnostics/insights-alerts-portal
+[azure-log-analytics]: /azure/log-analytics/log-analytics-overview
+[BrokeredMessage.TimeToLive]: /dotnet/api/microsoft.servicebus.messaging.brokeredmessage?view=azure-dotnet
 [cassandra-error-handling]: https://www.datastax.com/dev/blog/cassandra-error-handling-done-right
-[circuit-breaker]: https://msdn.microsoft.com/library/dn589784.aspx
+[circuit-breaker]: /previous-versions/msp-n-p/dn589784(v=pandp.10)
 [cosmos-db-multi-region]: /azure/cosmos-db/tutorial-global-distribution-sql-api
-[elasticsearch-azure]: ../elasticsearch/index.md
-[elasticsearch-client]: https://www.elastic.co/guide/en/elasticsearch/client/index.html
 [health-endpoint-monitoring-pattern]: ../patterns/health-endpoint-monitoring.md
-[onstop-events]: https://azure.microsoft.com/blog/the-right-way-to-handle-azure-onstop-events/
-[lb-monitor]: /azure/load-balancer/load-balancer-monitor-log/
+[onstop-events]: https://azure.microsoft.com/blog/the-right-way-to-handle-azure-onstop-events
+[lb-monitor]: /azure/load-balancer/load-balancer-monitor-log
 [lb-probe]: /azure/load-balancer/load-balancer-custom-probe-overview#types
-[new-relic]: https://newrelic.com/
-[priority-queue-pattern]: https://msdn.microsoft.com/library/dn589794.aspx
-[queue-based-load-leveling]: https://msdn.microsoft.com/library/dn589783.aspx
-[QuotaExceededException]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.quotaexceededexception.aspx
+[new-relic]: https://newrelic.com
+[priority-queue-pattern]: /previous-versions/msp-n-p/dn589794(v=pandp.10)
+[queue-based-load-leveling]: /previous-versions/msp-n-p/dn589783(v=pandp.10)
+[QuotaExceededException]: /dotnet/api/microsoft.servicebus.messaging.quotaexceededexception?view=azure-dotnet
 [ra-web-apps-basic]: ../reference-architectures/app-service-web-app/basic-web-app.md
 [redis-monitor]: /azure/azure-cache-for-redis/cache-how-to-monitor
 [redis-retry]: ../best-practices/retry-service-specific.md#azure-cache-for-redis
 [resilience-by-design-pdf]: https://download.microsoft.com/download/D/8/C/D8C599A4-4E8A-49BF-80EE-FE35F49B914D/Resilience_by_Design_for_Cloud_Services_White_Paper.pdf
-[RoleEntryPoint.OnStop]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleentrypoint.onstop.aspx
-[RoleEnvironment.Stopping]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.stopping.aspx
+[RoleEntryPoint.OnStop]: /previous-versions/azure/reference/ee772844(v=azure.100)
+[RoleEnvironment.Stopping]: /previous-versions/azure/reference/ee758136(v=azure.100)
 [rm-locks]: /azure/azure-resource-manager/resource-group-lock-resources/
 [sb-dead-letter-queue]: /azure/service-bus-messaging/service-bus-dead-letter-queues/
-[sb-georeplication-sample]: https://github.com/Azure-Samples/azure-servicebus-messaging-samples/tree/master/GeoReplication
-[sb-messagingexception-class]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagingexception.aspx
-[sb-messaging-exceptions]: /azure/service-bus-messaging/service-bus-messaging-exceptions/
-[sb-outages]: /azure/service-bus-messaging/service-bus-outages-disasters/#protecting-queues-and-topics-against-datacenter-outages-or-disasters
-[sb-partition]: /azure/service-bus-messaging/service-bus-partitioning/
+[sb-georeplication-sample]: https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.Azure.ServiceBus/GeoReplication
+[sb-messagingexception-class]: /dotnet/api/microsoft.servicebus.messaging.messagingexception?view=azure-dotnet
+[sb-messaging-exceptions]: /azure/service-bus-messaging/service-bus-messaging-exceptions
+[sb-partition]: /azure/service-bus-messaging/service-bus-partitioning
 [sb-poison-message]: /azure/app-service/webjobs-sdk-how-to#automatic-triggers
 [sb-retry]: ../best-practices/retry-service-specific.md#service-bus
-[search-sdk]: https://msdn.microsoft.com/library/dn951165.aspx
-[scheduler-agent-supervisor]: https://msdn.microsoft.com/library/dn589780.aspx
-[search-analytics]: /azure/search/search-traffic-analytics/
-[sql-db-audit]: /azure/sql-database/sql-database-auditing-get-started/
+[search-sdk]: /dotnet/api/overview/azure/search?view=azure-dotnet
+[scheduler-agent-supervisor]: /previous-versions/msp-n-p/dn589780(v=pandp.10)
+[search-analytics]: /azure/search/search-traffic-analytics
+[sql-db-audit]: /azure/sql-database/sql-database-auditing-get-started
 [sql-db-errors]: /azure/sql-database/sql-database-develop-error-messages/#resource-governance-errors
-[sql-db-failover]: /azure/sql-database/sql-database-geo-replication-failover-portal/
-[sql-db-limits]: /azure/sql-database/sql-database-resource-limits/
-[sql-db-replication]: /azure/sql-database/sql-database-geo-replication-overview/
-[storage-metrics]: https://msdn.microsoft.com/library/dn782843.aspx
-[storage-replication]: /azure/storage/storage-redundancy/
+[sql-db-failover]: /azure/sql-database/sql-database-geo-replication-failover-portal
+[sql-db-limits]: /azure/sql-database/sql-database-resource-limits
+[sql-db-replication]: /azure/sql-database/sql-database-geo-replication-overview
+[storage-metrics]: /azure/storage/common/monitor-storage
+[storage-replication]: /azure/storage/storage-redundancy
 [Storage.RetryPolicies]: /dotnet/api/microsoft.azure.storage.retrypolicies
-[sys.event_log]: https://msdn.microsoft.com/library/dn270018.aspx
-[throttling-pattern]: https://msdn.microsoft.com/library/dn589798.aspx
-[web-jobs]: /azure/app-service-web/web-sites-create-web-jobs/
+[sys.event_log]: /sql/relational-databases/system-catalog-views/sys-event-log-azure-sql-database?view=azuresqldb-current
+[throttling-pattern]: /previous-versions/msp-n-p/dn589798(v=pandp.10)
+[web-jobs]: /azure/app-service-web/web-sites-create-web-jobs
 [web-jobs-shutdown]: /azure/app-service/webjobs-sdk-how-to#cancellation-tokens

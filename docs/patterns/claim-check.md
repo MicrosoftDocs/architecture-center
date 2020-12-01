@@ -5,9 +5,11 @@ description: Split a large message into a claim check and a payload to avoid ove
 keywords: design pattern
 author: yorek
 ms.date: 03/05/2019
-ms.topic: design-pattern
+ms.topic: conceptual
 ms.service: architecture-center
-ms.subservice: cloud-fundamentals
+ms.subservice: design-pattern
+ms.custom:
+  - design-pattern
 ---
 
 # Claim-Check Pattern
@@ -26,7 +28,7 @@ Sending such large messages to the message bus directly is not recommended, beca
 
 Store the entire message payload into an external service, such as a database. Get the reference to the stored payload, and send just that reference to the message bus. The reference acts like a claim check used to retrieve a piece of luggage, hence the name of the pattern. Clients interested in processing that specific message can use the obtained reference to retrieve the payload, if needed.
 
-![Diagram of the Claim-Check pattern](./_images/claim-check.jpg)
+![Diagram of the Claim-Check pattern](./_images/claim-check.png)
 
 ## Issues and considerations
 

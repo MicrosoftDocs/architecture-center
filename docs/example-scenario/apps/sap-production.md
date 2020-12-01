@@ -1,9 +1,11 @@
 ---
 title: SAP deployment on Azure using an Oracle DB
-description: Run an SAP production deployment in Azure using an Oracle database.
+description: This example demonstrates a SAP deployment on virtual machines on Azure, along with a High Availability Oracle database.
 author: DharmeshBhagat
 ms.date: 09/12/2018
-ms.topic: example-scenario
+ms.category:
+  - databases
+ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: example-scenario
 ms.custom:
@@ -13,8 +15,11 @@ ms.custom:
   - Linux
   - Oracle
   - Azure
+  - example-scenario
 social_image_url: /azure/architecture/example-scenario/apps/media/architecture-sap-production.png
 ---
+
+<!-- cSpell:ignore DharmeshBhagat HANA -->
 
 # Running SAP production workloads using an Oracle Database on Azure
 
@@ -36,7 +41,7 @@ Other relevant use cases include:
 
 ![Architecture overview of a production SAP environment in Azure][architecture]
 
-This example includes a high availability configuration for an Oracle database, SAP central services, and multiple SAP application servers running on different virtual machines. The Azure network uses a [hub-and-spoke topology](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke) for security purposes. The data flows through the solution as follows:
+This example includes a high availability configuration for an Oracle database, SAP central services, and multiple SAP application servers running on different virtual machines. The Azure network uses a [hub-and-spoke topology](../../reference-architectures/hybrid-networking/hub-spoke.md) for security purposes. The data flows through the solution as follows:
 
 1. Users access the SAP system via the SAP user interface, a web browser, or other client tools like Microsoft Excel. An ExpressRoute connection provides access from the organization's on-premises network to resources running in Azure.
 2. The ExpressRoute terminates in Azure at the ExpressRoute virtual network (VNet) gateway. Network traffic is routed to a gateway subnet through the ExpressRoute gateway created in the hub VNet.
@@ -107,9 +112,10 @@ Click the link below to deploy the solution.
 
 For other information about running SAP production workloads in Azure, review the following reference architectures:
 
-- [SAP NetWeaver for AnyDB](/azure/architecture/reference-architectures/sap/sap-netweaver)
-- [SAP S/4HANA](/azure/architecture/reference-architectures/sap/sap-s4hana)
-- [SAP HANA large instances](/azure/architecture/reference-architectures/sap/hana-large-instances)
+- [SAP NetWeaver for AnyDB](../../reference-architectures/sap/sap-netweaver.md)
+- [SAP S/4HANA](../../reference-architectures/sap/sap-s4hana.md)
+- [SAP HANA large instances](../../reference-architectures/sap/hana-large-instances.md)
 
 <!-- links -->
-[architecture]: media/architecture-sap-production.png
+
+[architecture]: ./media/architecture-sap-production.png

@@ -1,11 +1,13 @@
 ---
 title: Security operations in Azure | Microsoft Docs
-description: Detect, respond, and recover the system when it's attacked.
+description: Detect, respond, and recover the system when it''s attacked.
 author: PageWriter-MSFT
 ms.date: 07/09/2019
-ms.topic: article
+ms.topic: conceptual
 ms.service: architecture-center
-ms.subservice: cloud-design-principles
+ms.subservice: well-architected
+ms.custom:
+  - article
 ---
 
 # Security operations
@@ -15,18 +17,18 @@ as live adversaries attack it. The tasks of security operations are
 described well by the NIST Cybersecurity Framework functions of Detect, Respond,
 and Recover.
 
--   **Detect** - Security operations must detect the presence of adversaries in
+- **Detect** - Security operations must detect the presence of adversaries in
     the system, who are incented to stay hidden in most cases as this allows
     them to achieve their objectives unimpeded. This can take the form of
     reacting to an alert of suspicious activity or proactively hunting for
     anomalous events in the enterprise activity logs.
 
--   **Respond** – Upon detection of potential adversary action or campaign,
+- **Respond** – Upon detection of potential adversary action or campaign,
     security operations must rapidly investigate to identify whether it is an
     actual attack (true positive) or a false alarm (false positive) and then
     enumerate the scope and goal of the adversary operation.
 
--   **Recover** – The ultimate goal of security operations is to preserve or
+- **Recover** – The ultimate goal of security operations is to preserve or
     restore the security assurances (confidentiality, integrity, availability)
     of business services during and after an attack.
 
@@ -55,18 +57,18 @@ drive continuous improvement in the right areas that meaningfully reduce risk.
 To ensure that security operations are effectively containing attackers access,
 the objectives should focus on
 
--   Reducing **time to acknowledge** an alert to ensure that detected
+- Reducing **time to acknowledge** an alert to ensure that detected
     adversaries are not ignored while defenders are spending time investigating
     false positives.
 
--   Reducing **time to remediate** a discovered adversary to reduce their
+- Reducing **time to remediate** a discovered adversary to reduce their
     opportunity time to conduct and attack and reach sensitive systems
 
--   **Prioritizing** security investments into systems that have high intrinsic
+- **Prioritizing** security investments into systems that have high intrinsic
     value (likely targets / high business impact) and access to many systems or
     sensitive systems (administrator accounts and sensitive users)
 
--   Increase focus on **proactively hunting** for adversaries as your program
+- Increase focus on **proactively hunting** for adversaries as your program
     matures and reactive incidents get under control. This is focused on
     reducing the time that a higher skilled adversary can operate in the
     environment (for example, skilled enough to evade reactive alerts).
@@ -112,16 +114,16 @@ hunting and other activities.
 To complement the broad visibility of a centralized SIEM (like Azure Sentinel,
 Splunk, or QRadar), you should leverage native detections and controls such as
 
--   Organizations using Azure should leverage capabilities like Azure Security
+- Organizations using Azure should leverage capabilities like Azure Security
     Center for alert generation on the Azure platform.
 
--   Organizations should leverage native logging capabilities like Azure Monitor
+- Organizations should leverage native logging capabilities like Azure Monitor
     and AWS CloudTrail for pulling logs into a central view
 
--   Organizations using Azure should leverage Network Security Group (NSG)
+- Organizations using Azure should leverage Network Security Group (NSG)
     capabilities for visibility into network activities on the Azure platform.
 
--   Investigation practices should leverage native tools with deep knowledge of
+- Investigation practices should leverage native tools with deep knowledge of
     the asset type such as an Endpoint Detection and Response (EDR) solution,
     Identity tools, and Azure Sentinel.
 
@@ -136,12 +138,12 @@ false positives, and lower performance.
 The data you collect should be focused on supporting one or more of these
 operations activities:
 
--   **Alerts** (detections from existing tools or data required for generating
+- **Alerts** (detections from existing tools or data required for generating
     custom alerts)
 
--   **Investigation** of an incident (for example, required for common queries)
+- **Investigation** of an incident (for example, required for common queries)
 
--   Proactive **hunting** activities
+- Proactive **hunting** activities
 
 Integrating more data can allow you to enrich alerts with additional context
 that enable rapid response and remediation (filter false positives, and elevate

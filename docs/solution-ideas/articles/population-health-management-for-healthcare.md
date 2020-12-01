@@ -1,16 +1,20 @@
 ---
 title: Population Health Management for Healthcare
 titleSuffix: Azure Solution Ideas
-author: adamboeglin
+author: doodlemania2
 ms.date: 12/16/2019
 description: Population Health Management is an important tool that is increasingly being used by health care providers to manage and control the escalating costs. The crux of Population Health Management is to use data to improve health outcomes. Tracking, monitoring, and bench marking are the three bastions of Population Health Management, aimed at improving clinical and health outcomes while managing and reducing cost.
 ms.custom: acom-architecture, artificial intelligence, healthcare, ai-ml, solution architectures, Azure, ai gallery, 'https://azure.microsoft.com/solutions/architecture/population-health-management-for-healthcare/'
 ms.service: architecture-center
+ms.category:
+  - ai-machine-learning
 ms.subservice: solution-idea
+social_image_url: /azure/architecture/solution-ideas/articles/media/population-health-management-for-healthcare.png
 ---
+
 # Population Health Management for Healthcare
 
-[!INCLUDE [header_file](../header.md)]
+[!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
 Population Health Management is an important tool that is increasingly being used by health care providers to manage and control the escalating costs. The crux of Population Health Management is to use data to improve health outcomes. Tracking, monitoring, and bench marking are the three bastions of Population Health Management, aimed at improving clinical and health outcomes while managing and reducing cost.
 
@@ -18,8 +22,8 @@ In this solution, we will be leveraging the clinical and socioeconomic in-patien
 
 ## Architecture
 
-![Architecture diagram](../media/population-health-management-for-healthcare.svg)
-
+![Architecture diagram](../media/population-health-management-for-healthcare.png)
+*Download an [SVG](../media/population-health-management-for-healthcare.svg) of this architecture.*
 
 ## Description
 
@@ -29,10 +33,8 @@ Using Cortana Intelligence Suite you can put together and deploy from the ground
 
 The 'Deploy' button will launch a workflow that will deploy an instance of the solution within a Resource Group in the Azure subscription you specify. The architecture diagram below shows the data flow and the end-to-end pipeline for Population Health Management Solution for Healthcare. The solution includes multiple Azure services and requires a few necessary manual steps to have a working end-to-end solution with simulated in-patient data from hospitals.
 
-The architecture diagram below shows the solution design for Population Health Management Solution for Healthcare. The solution is composed of several Azure components that perform various tasks, viz. data ingestion, data storage, data movement, advanced analytics and visualization. [Azure Event Hub](https://azure.microsoft.com/services/event-hubs/) is the ingestion point of raw records that will be processed in this solution. These are then pushed to Data Lake Store for storage and further processing by [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/). A second Stream Analytics job sends selected data to [PowerBI](https://powerbi.microsoft.com/) for near real time visualizations. [Azure Data Factory](https://azure.microsoft.com/services/data-factory/) orchestrates, on a schedule, the scoring of the raw events from the Azure Stream Analytics job by utilizing [Azure Data Lake Analytics](https://azure.microsoft.com/services/data-lake-analytics/) for processing with both [USQL](https://msdn.microsoft.com/library/azure/mt591959.aspx) and [R](https://www.r-project.org/about.html). Results of the scoring are then stored in [Azure Data Lake Store](https://azure.microsoft.com/services/data-lake-store/) and visualized using Power BI.
+The architecture diagram above shows the solution design for Population Health Management Solution for Healthcare. The solution is composed of several Azure components that perform various tasks, viz. data ingestion, data storage, data movement, advanced analytics and visualization. [Azure Event Hub](https://azure.microsoft.com/services/event-hubs) is the ingestion point of raw records that will be processed in this solution. These are then pushed to Data Lake Store for storage and further processing by [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics). A second Stream Analytics job sends selected data to [PowerBI](https://powerbi.microsoft.com) for near real time visualizations. [Azure Data Factory](https://azure.microsoft.com/services/data-factory) orchestrates, on a schedule, the scoring of the raw events from the Azure Stream Analytics job by utilizing [Azure Data Lake Analytics](https://azure.microsoft.com/services/data-lake-analytics) for processing with both [USQL](https://msdn.microsoft.com/library/azure/mt591959.aspx) and [R](https://www.r-project.org/about.html). Results of the scoring are then stored in [Azure Data Lake Store](https://azure.microsoft.com/services/data-lake-store) and visualized using Power BI.
 
 ## Post Deployment Steps
 
-Once the solution is deployed to the subscription, you can see the various services deployed by clicking the resource group name on the final deployment screen. Alternatively you can use [Azure management portal](https://portal.azure.com/) to see the resources provisioned in your resource group in your subscription. The source code of the solution as well as manual deployment instructions can be found here. The post deployment steps constitute monitoring the health of your deployment and visualizing the Population Health Report in real time as well as the results of the predictions from length of stay model. The post deployment instructions can be found [here](https://github.com/Azure/cortana-intelligence-population-health-management/blob/master/Azure%20Data%20Lake/AutomatedDeploymentGuide/Post%20Deployment%20Instructions.md).
-
-
+Once the solution is deployed to the subscription, you can see the various services deployed by clicking the resource group name on the final deployment screen. Alternatively you can use [Azure management portal](https://portal.azure.com) to see the resources provisioned in your resource group in your subscription. The source code of the solution as well as manual deployment instructions can be found [here](https://github.com/Azure/cortana-intelligence-population-health-management/tree/master/Azure%20Data%20Lake/ManualDeploymentGuide). The post deployment steps constitute monitoring the health of your deployment and visualizing the Population Health Report in real time as well as the results of the predictions from length of stay model. The post deployment instructions can be found [here](https://github.com/Azure/cortana-intelligence-population-health-management/tree/master/Azure%20Data%20Lake/ManualDeploymentGuide/Visualization).

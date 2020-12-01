@@ -1,15 +1,17 @@
 ---
-title: Data Management
+title: Data Management for Reliability
 description: 
 author: david-stanford
 ms.date: 10/16/2019
-ms.topic: article
+ms.topic: conceptual
 ms.service: architecture-center
-ms.subservice: cloud-design-principles
-ms.custom: How are you managing your data? 
+ms.subservice: well-architected
+ms.custom:
+  - How are you managing your data?
+  - article
 ---
 
-# Data Management
+# Data Management for Reliability
 
 ## Database resiliency
 
@@ -55,6 +57,13 @@ Azure SQL Database provides two types of recovery: geo-restore and active geo-re
 
 A variety of options are available for recovery and high availability for SQL Server 2012 (and later) running in Azure Virtual Machines. For more information, see [High availability and disaster recovery for SQL Server in Azure Virtual Machines](/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-high-availability-dr).
 
+### SQL Server Always On Availability Groups across regions
+
+Alternatively, you can use SQL Always On Availability Groups for high availability by creating a single availability group that includes the SQL Server instances in both regions. 
+
+As an example, [Multi-region N-tier application](../../reference-architectures/n-tier/multi-region-sql-server.md) reference architecture shows a set of practices for running an N-tier application in multiple Azure regions to achieve availability and a robust disaster recovery infrastructure. It uses a SQL Server Always On Availability Group and Azure Traffic Manager.
+
+
 ## Storage resiliency
 
 Azure Storage provides data resiliency through automated replicas. However, this does not prevent application code or users from corrupting data, whether accidentally or maliciously. Maintaining data fidelity in the face of application or user error requires more advanced techniques, such as copying the data to a secondary storage location with an audit log.
@@ -64,3 +73,11 @@ Azure Storage provides data resiliency through automated replicas. However, this
 - **Files**. Use [share snapshots](/azure/storage/files/storage-snapshots-files), or use AzCopy or PowerShell to copy your files to another storage account.
 
 - **Tables**. Use AzCopy to export the table data into another storage account in another region.
+
+:::image type="icon" source="../../_images/github.png" border="false"::: Samples related to storage resiliency are [here](https://github.com/mspnp/samples/tree/master/Reliability/StorageSnapshotsSample). The scripts perform these tasks: 
+
+- ARM template to deploy a storage account and blob container. 
+- Copies file into the blob container. 
+- Creates the blob snapshot. 
+- Creates a share snapshot. 
+- Calls AzCopy for table storage

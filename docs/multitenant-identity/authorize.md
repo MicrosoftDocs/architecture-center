@@ -1,19 +1,23 @@
 ---
 title: Authorization in multitenant applications
-description: How to perform authorization in a multitenant application.
-author: MikeWasson
+description: 'Learn about two general approaches to authorization using APIs provided by ASP.NET Core: role-based authorization and resource-based authorization.'
+author: doodlemania2
 ms.date: 07/21/2017
-ms.topic: guide
+ms.topic: conceptual
 ms.service: architecture-center
-ms.subservice: reference-architecture
+ms.category:
+  - identity
+ms.subservice: azure-guide
 pnp.series.title: Manage Identity in Multitenant Applications
 pnp.series.prev: app-roles
 pnp.series.next: web-api
+ms.custom:
+  - guide
 ---
 
 # Role-based and resource-based authorization
 
-[![GitHub](../_images/github.png) Sample code][sample application]
+[:::image type="icon" source="../_images/github.png" border="false"::: Sample code][sample application]
 
 Our [reference implementation] is an ASP.NET Core application. In this article we'll look at two general approaches to authorization, using the authorization APIs provided in ASP.NET Core.
 
@@ -251,11 +255,10 @@ static readonly Dictionary<OperationAuthorizationRequirement, Func<List<UserPerm
 
 <!-- links -->
 
-[Tailspin]: tailspin.md
-
-[Application roles]: app-roles.md
+[Tailspin]: ./tailspin.md
+[Application roles]: ./app-roles.md
 [policies]: /aspnet/core/security/authorization/policies
-[reference implementation]: tailspin.md
-[Configuring the authentication middleware]: authenticate.md#configure-the-auth-middleware
+[reference implementation]: ./tailspin.md
+[Configuring the authentication middleware]: ./authenticate.md#configure-the-auth-middleware
 [sample application]: https://github.com/mspnp/multitenant-saas-guidance
-[web-api]: web-api.md
+[web-api]: ./web-api.md

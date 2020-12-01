@@ -1,14 +1,18 @@
 ---
 title: API design guidance
 titleSuffix: Best practices for cloud applications
-description: Guidance on how to create a well-designed web API.
+description: Web applications can expose APIs so clients to interact with the application. Well-designed web APIs should support platform independence and service evolution.
 author: dragon119
 ms.date: 01/12/2018
-ms.topic: best-practice
+ms.topic: conceptual
 ms.service: architecture-center
-ms.subservice: cloud-fundamentals
-ms.custom: seodec18
+ms.subservice: best-practice
+ms.custom:
+  - seodec18
+  - best-practice
 ---
+
+<!-- cSpell:ignore HATEOAS -->
 
 # Web API design
 
@@ -32,7 +36,7 @@ Here are some of the main design principles of RESTful APIs using HTTP:
 
 - A resource has an *identifier*, which is a URI that uniquely identifies that resource. For example, the URI for a particular customer order might be:
 
-    ```HTTP
+    ```http
     https://adventure-works.com/orders/1
     ```
 
@@ -74,7 +78,7 @@ Level 3 corresponds to a truly RESTful API according to Fielding's definition. I
 
 Focus on the business entities that the web API exposes. For example, in an e-commerce system, the primary entities might be customers and orders. Creating an order can be achieved by sending an HTTP POST request that contains the order information. The HTTP response indicates whether the order was placed successfully or not. When possible, resource URIs should be based on nouns (the resource) and not verbs (the operations on the resource).
 
-```HTTP
+```http
 https://adventure-works.com/orders // Good
 
 https://adventure-works.com/create-order // Avoid
@@ -84,7 +88,7 @@ A resource doesn't have to be based on a single physical data item. For example,
 
 Entities are often grouped together into collections (orders, customers). A collection is a separate resource from the item within the collection, and should have its own URI. For example, the following URI might represent the collection of orders:
 
-```HTTP
+```http
 https://adventure-works.com/orders
 ```
 
@@ -145,7 +149,7 @@ In the HTTP protocol, formats are specified through the use of *media types*, al
 
 The Content-Type header in a request or response specifies the format of the representation. Here is an example of a POST request that includes JSON data:
 
-```HTTP
+```http
 POST https://adventure-works.com/orders HTTP/1.1
 Content-Type: application/json; charset=utf-8
 Content-Length: 57
@@ -157,7 +161,7 @@ If the server doesn't support the media type, it should return HTTP status code 
 
 A client request can include an Accept header that contains a list of media types the client will accept from the server in the response message. For example:
 
-```HTTP
+```http
 GET https://adventure-works.com/orders/2 HTTP/1.1
 Accept: application/json
 ```
@@ -233,14 +237,14 @@ Sometimes a POST, PUT, PATCH, or DELETE operation might require processing that 
 
 You should expose an endpoint that returns the status of an asynchronous request, so the client can monitor the status by polling the status endpoint. Include the URI of the status endpoint in the Location header of the 202 response. For example:
 
-```HTTP
+```http
 HTTP/1.1 202 Accepted
 Location: /api/status/12345
 ```
 
 If the client sends a GET request to this endpoint, the response should contain the current status of the request. Optionally, it could also include an estimated time to completion or a link to cancel the operation.
 
-```HTTP
+```http
 HTTP/1.1 200 OK
 Content-Type: application/json
 
@@ -252,7 +256,7 @@ Content-Type: application/json
 
 If the asynchronous operation creates a new resource, the status endpoint should return status code 303 (See Other) after the operation completes. In the 303 response, include a Location header that gives the URI of the new resource:
 
-```HTTP
+```http
 HTTP/1.1 303 See Other
 Location: /api/orders/12345
 ```
@@ -267,7 +271,7 @@ Instead, the API can allow passing a filter in the query string of the URI, such
 
 GET requests over collection resources can potentially return a large number of items. You should design a web API to limit the amount of data returned by any single request. Consider supporting query strings that specify the maximum number of items to retrieve and a starting offset into the collection. For example:
 
-```HTTP
+```http
 /orders?limit=25&offset=50
 ```
 
@@ -285,13 +289,13 @@ A resource may contain large binary fields, such as files or images. To overcome
 
 Also, consider implementing HTTP HEAD requests for these resources. A HEAD request is similar to a GET request, except that it only returns the HTTP headers that describe the resource, with an empty message body. A client application can issue a HEAD request to determine whether to fetch a resource by using partial GET requests. For example:
 
-```HTTP
+```http
 HEAD https://adventure-works.com/products/10?fields=productImage HTTP/1.1
 ```
 
 Here is an example response message:
 
-```HTTP
+```http
 HTTP/1.1 200 OK
 
 Accept-Ranges: bytes
@@ -301,14 +305,14 @@ Content-Length: 4580
 
 The Content-Length header gives the total size of the resource, and the Accept-Ranges header indicates that the corresponding GET operation supports partial results. The client application can use this information to retrieve the image in smaller chunks. The first request fetches the first 2500 bytes by using the Range header:
 
-```HTTP
+```http
 GET https://adventure-works.com/products/10?fields=productImage HTTP/1.1
 Range: bytes=0-2499
 ```
 
 The response message indicates that this is a partial response by returning HTTP status code 206. The Content-Length header specifies the actual number of bytes returned in the message body (not the size of the resource), and the Content-Range header indicates which part of the resource this is (bytes 0-2499 out of 4580):
 
-```HTTP
+```http
 HTTP/1.1 206 Partial Content
 
 Accept-Ranges: bytes
@@ -326,7 +330,7 @@ A subsequent request from the client application can retrieve the remainder of t
 One of the primary motivations behind REST is that it should be possible to navigate the entire set of resources without requiring prior knowledge of the URI scheme. Each HTTP GET request should return the information necessary to find the resources related directly to the requested object through hyperlinks included in the response, and it should also be provided with information that describes the operations available on each of these resources. This principle is known as HATEOAS, or Hypertext as the Engine of Application State. The system is effectively a finite state machine, and the response to each request contains the information necessary to move from one state to another; no other information should be necessary.
 
 > [!NOTE]
-> Currently there are no standards or specifications that define how to model the HATEOAS principle. The examples shown in this section illustrate one possible solution.
+> Currently there are no general-purpose standards that define how to model the HATEOAS principle.  The examples shown in this section illustrate one possible, proprietary solution.
 
 For example, to handle the relationship between an order and a customer, the representation of an order could include links that identify the available operations for the customer of the order. Here is a possible representation:
 
@@ -394,7 +398,7 @@ This is the simplest approach, and may be acceptable for some internal APIs. Sig
 
 For example, a request to the URI `https://adventure-works.com/customers/3` should return the details of a single customer containing `id`, `name`, and `address` fields expected by the client application:
 
-```HTTP
+```http
 HTTP/1.1 200 OK
 Content-Type: application/json; charset=utf-8
 
@@ -406,7 +410,7 @@ Content-Type: application/json; charset=utf-8
 
 If the `DateCreated` field is added to the schema of the customer resource, then the response would look like this:
 
-```HTTP
+```http
 HTTP/1.1 200 OK
 Content-Type: application/json; charset=utf-8
 
@@ -421,14 +425,14 @@ Each time you modify the web API or change the schema of resources, you add a ve
 
 Extending the previous example, if the `address` field is restructured into subfields containing each constituent part of the address (such as `streetAddress`, `city`, `state`, and `zipCode`), this version of the resource could be exposed through a URI containing a version number, such as `https://adventure-works.com/v2/customers/3`:
 
-```HTTP
+```http
 HTTP/1.1 200 OK
 Content-Type: application/json; charset=utf-8
 
 {"id":3,"name":"Contoso LLC","dateCreated":"2014-09-04T12:11:38.0376089Z","address":{"streetAddress":"1 Microsoft Way","city":"Redmond","state":"WA","zipCode":98053}}
 ```
 
-This versioning mechanism is very simple but depends on the server routing the request to the appropriate endpoint. However, it can become unwieldy as the web API matures through several iterations and the server has to support a number of different versions. Also, from a purist’s point of view, in all cases the client applications are fetching the same data (customer 3), so the URI should not really be different depending on the version. This scheme also complicates implementation of HATEOAS as all links will need to include the version number in their URIs.
+This versioning mechanism is very simple but depends on the server routing the request to the appropriate endpoint. However, it can become unwieldy as the web API matures through several iterations and the server has to support a number of different versions. Also, from a purist's point of view, in all cases the client applications are fetching the same data (customer 3), so the URI should not really be different depending on the version. This scheme also complicates implementation of HATEOAS as all links will need to include the version number in their URIs.
 
 ### Query string versioning
 
@@ -445,12 +449,12 @@ Rather than appending the version number as a query string parameter, you could 
 
 Version 1:
 
-```HTTP
+```http
 GET https://adventure-works.com/customers/3 HTTP/1.1
 Custom-Header: api-version=1
 ```
 
-```HTTP
+```http
 HTTP/1.1 200 OK
 Content-Type: application/json; charset=utf-8
 
@@ -459,12 +463,12 @@ Content-Type: application/json; charset=utf-8
 
 Version 2:
 
-```HTTP
+```http
 GET https://adventure-works.com/customers/3 HTTP/1.1
 Custom-Header: api-version=2
 ```
 
-```HTTP
+```http
 HTTP/1.1 200 OK
 Content-Type: application/json; charset=utf-8
 
@@ -477,14 +481,14 @@ As with the previous two approaches, implementing HATEOAS requires including the
 
 When a client application sends an HTTP GET request to a web server it should stipulate the format of the content that it can handle by using an Accept header, as described earlier in this guidance. Frequently the purpose of the *Accept* header is to allow the client application to specify whether the body of the response should be XML, JSON, or some other common format that the client can parse. However, it is possible to define custom media types that include information enabling the client application to indicate which version of a resource it is expecting. The following example shows a request that specifies an *Accept* header with the value *application/vnd.adventure-works.v1+json*. The *vnd.adventure-works.v1* element indicates to the web server that it should return version 1 of the resource, while the *json* element specifies that the format of the response body should be JSON:
 
-```HTTP
+```http
 GET https://adventure-works.com/customers/3 HTTP/1.1
 Accept: application/vnd.adventure-works.v1+json
 ```
 
 The code handling the request is responsible for processing the *Accept* header and honoring it as far as possible (the client application may specify multiple formats in the *Accept* header, in which case the web server can choose the most appropriate format for the response body). The web server confirms the format of the data in the response body by using the Content-Type header:
 
-```HTTP
+```http
 HTTP/1.1 200 OK
 Content-Type: application/vnd.adventure-works.v1+json; charset=utf-8
 
@@ -502,7 +506,7 @@ This approach is arguably the purest of the versioning mechanisms and lends itse
 
 ## Open API Initiative
 
-The [Open API Initiative](https://www.openapis.org/) was created by an industry consortium to standardize REST API descriptions across vendors. As part of this initiative, the Swagger 2.0 specification was renamed the OpenAPI Specification (OAS) and brought under the Open API Initiative.
+The [Open API Initiative](https://www.openapis.org) was created by an industry consortium to standardize REST API descriptions across vendors. As part of this initiative, the Swagger 2.0 specification was renamed the OpenAPI Specification (OAS) and brought under the Open API Initiative.
 
 You may want to adopt OpenAPI for your web APIs. Some points to consider:
 
@@ -516,6 +520,6 @@ You may want to adopt OpenAPI for your web APIs. Some points to consider:
 
 - [Microsoft REST API guidelines](https://github.com/Microsoft/api-guidelines/blob/master/Guidelines.md). Detailed recommendations for designing public REST APIs.
 
-- [Web API checklist](https://mathieu.fenniak.net/the-api-checklist/). A useful list of items to consider when designing and implementing a web API.
+- [Web API checklist](https://mathieu.fenniak.net/the-api-checklist). A useful list of items to consider when designing and implementing a web API.
 
-- [Open API Initiative](https://www.openapis.org/). Documentation and implementation details on Open API.
+- [Open API Initiative](https://www.openapis.org). Documentation and implementation details on Open API.

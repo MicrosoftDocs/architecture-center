@@ -1,11 +1,13 @@
 ---
 title: Choosing a natural language processing technology
-description: 
+description: Choose a natural language processing service for sentiment analysis, topic and language detection, key phrase extraction, and document categorization.
 author: zoinerTejada
 ms.date: 02/25/2020
-ms.topic: guide
+ms.topic: conceptual
 ms.service: architecture-center
-ms.subservice: cloud-fundamentals
+ms.subservice: azure-guide
+ms.custom:
+  - guide
 ---
 
 # Choosing a natural language processing technology in Azure
@@ -24,7 +26,7 @@ NLP can be use to classify documents, such as labeling documents as sensitive or
 
 When using NLP to extract information and insight from free-form text, the starting point is typically the raw documents stored in object storage such as Azure Storage or Azure Data Lake Store.
 
-### Challenges
+## Challenges
 
 - Processing a collection of free-form text documents is typically computationally resource intensive, as well as being time intensive.
 - Without a standardized document format, it can be difficult to achieve consistently accurate results using free-form text processing to extract specific facts from a document. For example, think of a text representation of an invoice&mdash;it can be difficult to build a process that correctly extracts the invoice number and invoice date for invoices across any number of vendors.
@@ -92,4 +94,4 @@ The following tables summarize the key differences in capabilities.
 
 ## See also
 
-[Natural language processing](../scenarios/natural-language-processing.md)
+[Natural language processing](../technology-choices/natural-language-processing.md)
