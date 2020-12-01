@@ -2,7 +2,7 @@
 title: Testing tools
 description: Describes testing tools used for performance efficiency
 author: v-aangie
-ms.date: 11/17/2020
+ms.date: 12/02/2020
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
@@ -13,28 +13,27 @@ ms.custom:
 
 # Testing tools
 
-There are multiple stages in the development and deployment life cycle in which tests can be performed. Application code, infrastructure automation, and resiliency should all be tested. This can ensure that the application will perform as expected in every situation. You'll want to test early enough in the application life cycle to catch and fix errors. Errors are cheaper to repair when caught early and can be expensive or impossible to fix later.
+There are multiple stages in the development and deployment life cycle in which tests can be performed. Application code, infrastructure automation, and fault tolerance should all be tested. This can ensure that the application will perform as expected in every situation. You'll want to test early enough in the application life cycle to catch and fix errors. Errors are cheaper to repair when caught early and can be expensive or impossible to fix later.
 
-Testing can be automated or manual. Automating tests is the best way to make sure that they are executed. Depending on how frequently tests are performed, they are typically limited in duration and scope. Manual testing is much more expensive than automated testing, and is run much less frequently. Manual testing may be necessary to correct errors before they become too expensive to repair, or does not meet customer expectations. For a list of tests that you should consider while developing and deploying applications, see [Testing your application and Azure environment](https://docs.microsoft.com/azure/architecture/framework/devops/testing).
+Testing can be automated or manual. Automating tests is the best way to make sure that they are executed. Depending on how frequently tests are performed, they are typically limited in duration and scope. Manual testing is run much less frequently. For a list of tests that you should consider while developing and deploying applications, see [Testing your application and Azure environment](https://docs.microsoft.com/azure/architecture/framework/devops/testing).
 
 ## Identify baselines and goals for performance
 
-Have a clear understanding of your baselines and goals before you start testing. Knowing where you are (baseline) and where you want to be (goal) make it easier to plan how to get there. Established baselines and goals will help you to stay on track and measure progress. Testing may also uncover a need to perform additional testing on areas that you may not have planned.
+Knowing where you are (baseline) and where you want to be (goal) make it easier to plan how to get there. Established baselines and goals will help you to stay on track and measure progress. Testing may also uncover a need to perform additional testing on areas that you may not have planned.
 
-Baselines can vary based on types of connections or platforms that a user may leverage for accessing the application. It may be important to establish baselines that address the diversity of connections, platforms, and elements such as time of day, or weekday versus weekend.
+Baselines can vary based on connections or platforms that a user may leverage for accessing the application. It may be important to establish baselines that address the different connections, platforms, and elements such as time of day, or weekday versus weekend.
 
-There are many types of goals when determining baselines for application performance. Some examples are, a specific number of visitors within a given time period, the time it takes to render a page, or a desired number of transactions if your site conducts e-commerce. The following list shows some examples of questions that may help you to determine goals.
+There are many types of goals when determining baselines for application performance. Some examples are, the time it takes to render a page, or a desired number of transactions if your site conducts e-commerce. The following list shows some examples of questions that may help you to determine goals.
 
 What are your baselines and goals for:
 
 - Establishing an initial connection to a service?
-- A complete page load?
 - An API endpoint complete response?
-- Server response times?    
+- Server response times?
 - Latency between systems/microservices?
 - Database queries?
 
-## Caching data as a solution
+## Caching data
 
 Caching can dramatically improve performance, scalability, and availability. The more data that you have and the larger the number of users that need to access this data, the greater the benefits of caching become. Caching typically works well with data that is immutable or that changes infrequently. Examples include reference information such as product and pricing information in an e-commerce application, or shared static resources that are costly to construct. Some or all of this data can be loaded into the cache at application startup to minimize demand on resources and to improve performance.
 
@@ -48,7 +47,7 @@ Azure Cache for Redis is a caching service that can be accessed from any Azure a
 
 To learn more about using Azure Cache for Redis, see [Considerations for implementing caching in Azure](https://docs.microsoft.com/azure/architecture/best-practices/caching#considerations-for-implementing-caching-in-azure).
 
-## Content delivery network as a solution
+## Content delivery network
 
 Content delivery networks (CDNs) are typically used to deliver static content such as images, style sheets, documents, client-side scripts, and HTML pages. The major advantages of using a CDN are lower latency and faster delivery of content to users, regardless of their geographical location in relation to the datacenter where the application is hosted. CDNs can help to reduce load on a web application because the application does not have to service requests for the content that is hosted in the CDN. Using a CDN is a good way to minimize the load on your application, and maximize availability and performance. Consider adopting this strategy for all of the appropriate content and resources your application uses.
 
@@ -81,8 +80,3 @@ Performance testing gives you the ability to see specific details on the process
 With [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview), you can collect, analyze, and act on telemetry from your cloud and on-premises environments. It helps you understand how applications are performing and identifies issues affecting them and the resources they depend on.
 
 For a list of Azure metrics, see [Supported metrics with Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported).
-
-## Next step
-
->[!div class="nextstepaction"]
->[Monitoring](https://docs.microsoft.com/azure/architecture/framework/scalability/monitoring)

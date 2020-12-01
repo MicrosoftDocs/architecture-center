@@ -60,7 +60,7 @@ For more information on autoscaling, see *Design for scaling* in the Performance
 > [!NOTE]
 > Ensure that a rule has been configured to scale the environment back down once load reaches below the set thresholds. This will save you money.
 
-## Next step
+## Next steps
 
 >[!div class="nextstepaction"]
 >[Testing tools](https://docs.microsoft.com/azure/architecture/framework/scalability/testing-tools)
