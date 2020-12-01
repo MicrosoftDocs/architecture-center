@@ -2048,7 +2048,7 @@
       "source_path": "docs/framework/devops/process.md",
       "redirect_url": "/azure/architecture/framework/devops/overview"
     },
-      "source-path": "docs/framework/scalability/app-design.md",
+      "source_path": "docs/framework/scalability/app-design.md",
       "redirect_url": "/azure/architecture/framework/scalability/design-apps"
     ]
 }
