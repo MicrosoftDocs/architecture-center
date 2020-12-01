@@ -25,7 +25,7 @@ Free-form text processing can produce useful, actionable data from large amounts
 
 ## Architecture
 
-In most scenarios, the source text documents are loaded into object storage such as Azure Storage or Azure Data Lake Store, and then indexed using an external search service. In this scenario, source text documents are physically distinct from a resulting search index that's hosted on a search service. An exception is using full text search within SQL Server or Azure SQL Database. In this case, the document data is exists in tables managed by the database. Once stored, the documents are processed in a batch to create the index.
+In most scenarios, the source text documents are loaded into object storage such as Azure Storage or Azure Data Lake Store, and then indexed using an external search service. In this scenario, source text documents are physically distinct from a resulting search index that's hosted on a search service. An exception is using full text search within SQL Server or Azure SQL Database. In this case, the document data exists internally in tables managed by the database. Once stored, the documents are processed in a batch to create the index.
 
 ## Technology choices
 

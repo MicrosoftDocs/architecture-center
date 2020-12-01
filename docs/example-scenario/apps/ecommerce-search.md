@@ -95,7 +95,7 @@ Typical ways to tune your search service include:
 
 ## Deploy the scenario
 
-To deploy a more complete e-commerce version of this scenario, you can follow this [step-by-step tutorial][end-to-end-walkthrough] that provides a .NET sample application that runs a simple ticket purchasing application. It also includes Azure Cognitive Search and uses many of the features discussed. Additionally, there is a Resource Manager template to automate the deployment of most of the Azure resources.
+To deploy a version of this scenario, you can follow this [step-by-step tutorial][end-to-end-walkthrough] that provides a .NET sample application that runs a job search web site. It demonstrates most of the Azure Cognitive Search features discussed thus far.
 
 ## Pricing
 
@@ -121,7 +121,7 @@ To learn more about Azure Cognitive Search, visit the [documentation center][doc
 [docs-cognitive]: /azure/cognitive-services/
 [apache-lucene]: https://lucene.apache.org/
 [elastic-marketplace]: https://azuremarketplace.microsoft.com/marketplace/apps/elastic.elasticsearch
-[end-to-end-walkthrough]: https://github.com/Azure/fta-customerfacingapps/tree/master/ecommerce/articles
+[end-to-end-walkthrough]: https://github.com/Azure-Samples/search-dotnet-asp-net-mvc-jobs
 [search-sla]: https://go.microsoft.com/fwlink/?LinkId=716855
 [search-tier]: /azure/search/search-sku-tier
 [search-capacity]: /azure/search/search-capacity-planning
