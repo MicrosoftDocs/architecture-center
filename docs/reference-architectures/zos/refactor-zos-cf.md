@@ -13,11 +13,11 @@ ms.custom:
 
 # Refactor IBM z/OS mainframe CF to Azure
 
-This architecture shows how Azure can provide scale-out performance and high availability similar to IBM z/OS mainframe systems that use Coupling Facilities (CFs).
+This architecture shows how Azure can provide scale-out performance and high availability that is similar to IBM z/OS mainframe systems with Coupling Facilities (CFs).
 
 CFs are physical devices that connect multiple mainframe servers or Central Electronics Complexes (CECs) with shared memory, letting systems scale out to increase performance. Applications written in languages like COBOL and PL/I seamlessly take advantage of these tightly coupled scale-out features.
 
-IBM Db2 databases and Customer Information Control System (CICS) servers can use CFs with a mainframe subsystem called Parallel Sysplex that combines data sharing and parallel computing. Parallel Sysplex allows a cluster of up to 32 systems to share a workload for high performance, high availability, and disaster recovery (DR). Mainframe CFs with Parallel Sysplex typically reside in the same datacenter, with close proximity between the CECs, but can also extend across datacenters.
+IBM Db2 databases and Customer Information Control System (CICS) servers can use CFs with a mainframe subsystem called Parallel Sysplex that combines data sharing and parallel computing. Parallel Sysplex allows a cluster of up to 32 systems to share workloads for high performance, high availability, and disaster recovery (DR). Mainframe CFs with Parallel Sysplex typically reside in the same datacenter, with close proximity between the CECs, but can also extend across datacenters.
 
 Azure resources can provide similar scale-out performance with shared data and high availability. Azure compute clusters share memory through data caching mechanisms like Azure Cache for Redis, and use scalable data technologies like Azure SQL Database and Azure Cosmos DB. Azure can implement availability sets and groups, combined with geo-redundant capabilities, to extend scale-out compute and high availability to distributed Azure datacenters.
 
@@ -87,7 +87,7 @@ The next diagram shows how Azure services can provide similar functionality and 
   
 - [Azure Kubernetes Service (AKS)](https://azure.microsoft.com/services/kubernetes-service/) is a fully managed Kubernetes service for deploying and managing containerized applications in container-based compute clusters.
   
-- [Azure Cache for Redis](https://azure.microsoft.com/services/cache/) is a fully managed, in-memory cache that improves the performance and scalability of data-heavy architectures. The current architecture uses Azure Cache for Redis to share data and state between compute resources.
+- [Azure Cache for Redis](https://azure.microsoft.com/services/cache/) is a fully managed, in-memory cache that improves the performance and scalability of data-intensive architectures. The current architecture uses Azure Cache for Redis to share data and state between compute resources.
   
 - [Azure SQL Database](/azure/azure-sql/database/sql-database-paas-overview) is a fully managed PaaS database engine that always runs the latest stable version of SQL Server and patched OS, with 99.99% availability. SQL Database handles upgrading, patching, backups, monitoring, and most other database management functions without user involvement. These PaaS capabilities let you focus on business critical, domain-specific database administration and optimization.
   
