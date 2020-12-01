@@ -187,7 +187,8 @@ available.
 
 ## Next steps
 
-For more details on implementations, take a look at some of these retail partner solutions. 
+For more details on implementations, take a look at some of examples below.
 
 [Oneview Commerce](https://www.oneviewcommerce.com/)<br>
-[Ombori](https://ombori.com/)
+[Ombori](https://ombori.com/)<br>
+[Retail end-2-end demo](https://github.com/Azure-Samples/IoTDemos/tree/master/RetailDemo)
