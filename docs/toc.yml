@@ -255,20 +255,6 @@ items:
     items:
     - name: Overview
       href: framework/devops/overview.md
-    - name: Application design
-      href: framework/devops/app-design.md
-    - name: Development
-      href: framework/devops/development.md
-    - name: Deployment
-      href: framework/devops/deployment.md
-    - name: Monitoring
-      href: framework/devops/monitoring.md
-    - name: Performance
-      href: framework/devops/performance.md
-    - name: Testing
-      href: framework/devops/testing.md
-    - name: Checklist
-      href: checklist/dev-ops.md
     - name: Automation
       items:
       - name: Automation Overview
@@ -279,6 +265,26 @@ items:
         href: framework/devops/automation-configuration.md
       - name: Automate operational tasks
         href: framework/devops/automation-tasks.md
+    - name: Release engineering
+      items:
+      - name: Application development
+        href: framework/devops/release-engineering-app-dev.md
+      - name: Continuous integration
+        href: framework/devops/release-engineering-ci.md
+      - name: Release testing
+        href: framework/devops/release-engineering-testing.md
+      - name: Performance
+        href: framework/devops/release-engineering-performance.md
+      - name: Release deployment
+        href: framework/devops/release-engineering-cd.md
+      - name: Rollback
+        href: framework/devops/release-engineering-rollback.md
+    - name: Observability (operational awareness) 
+      items:
+      - name: Monitoring
+        href: framework/devops/monitoring.md
+    - name: Checklist
+      href: checklist/dev-ops.md
   - name: Performance Efficiency
     items:
     - name: Overview
@@ -1463,6 +1469,8 @@ items:
         href: reference-architectures/migration/modernize-mainframe-data-to-azure.md
       - name: Migrate Unisys mainframes to Azure
         href: reference-architectures/migration/unisys-mainframe-migration.md
+      - name: Refactor IBM z/OS mainframe CF on Azure
+        href: reference-architectures/zos/refactor-zos-coupling-facility.md
   - name: Mixed Reality
     items:
     - name: Architectures

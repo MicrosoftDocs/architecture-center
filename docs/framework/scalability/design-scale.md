@@ -90,4 +90,4 @@ Each service documents its autoscale capabilities. Review [Autoscale overview](h
 ## Next steps
 
 >[!div class="nextstepaction"]
->[Plan for capacity](https://review.docs.microsoft.com/azure/architecture/framework/scalability/design-capacity)
+>[Plan for capacity](https://docs.microsoft.com/azure/architecture/framework/scalability/design-capacity)

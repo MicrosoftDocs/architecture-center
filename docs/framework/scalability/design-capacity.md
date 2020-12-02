@@ -53,3 +53,8 @@ For a list of built-in metrics, see [Azure Monitor autoscaling common metrics](h
 Preemptively scaling based on historical data can ensure your application has consistent performance, even though your metrics haven't yet indicated the need to scale. Schedule-based rules allow you to scale when you see time patterns in your load and want to scale before a possible load increase or decrease occurs. For example, you can set a trigger attribute to scale out to 10 instances on weekdays, and scale in to four (4) instances on Saturday and Sunday. If you can predict the load on the application, consider using scheduled autoscaling, which adds and removes instances to meet anticipated peaks in demand.
 
 To learn more, see [Use Azure Monitor autoscale](https://docs.microsoft.com/azure/architecture/best-practices/auto-scaling#use-azure-monitor-autoscale).
+
+## Next steps
+
+>[!div class="nextstepaction"]
+>[Performance testing](https://docs.microsoft.com/azure/architecture/framework/scalability/performance-testing)
