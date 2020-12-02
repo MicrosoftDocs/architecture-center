@@ -9,7 +9,7 @@ ms.service: architecture-center
 ms.category:
   - management-and-governance
   - solutions
-ms.subservice: reference-architecture
+ms.subservice: azure-guide
 ms.custom:
   - high-availability
   - fasttrack-edit

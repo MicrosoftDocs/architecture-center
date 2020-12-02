@@ -7,8 +7,7 @@ ms.service: architecture-center
 ms.category:
   - databases
   - management-and-governance
-
-ms.subservice: reference-architecture
+ms.subservice: azure-guide
 ---
 
 <!-- cSpell:ignore Grafana perftools loganalytics bitnami sparkmonitoring LOGTYPE -->

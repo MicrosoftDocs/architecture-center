@@ -1,5 +1,5 @@
 ---
-title: Hybrid Architectures
+title: Hybrid and Multicloud Architectures
 description: Architecture diagrams, reference architectures, example scenarios, and solutions for common hybrid workloads.
 author: doodlemania2
 ms.date: 10/18/2019
@@ -7,9 +7,9 @@ layout: LandingPage
 ms.topic: landing-page
 ---
 
-# Hybrid Cloud Architectures
+# Hybrid and Multicloud Architectures
 
-Architecture diagrams, reference architectures, example scenarios, and solutions for common hybrid cloud workloads.
+Architecture diagrams, reference architectures, example scenarios, and solutions for common hybrid and multicloud workloads.
 
 <a href="#apps">Apps</a>  | <a href="#data">Data</a>  | <a href="#identity">Identity</a>  | <a href="#management">Management</a>  | <a href="#networking">Networking</a>  | <a href="#security">Security</a> 
 
@@ -45,11 +45,13 @@ Architecture diagrams, reference architectures, example scenarios, and solutions
 <ul class="grid">
 
 [!INCLUDE [Archive on-premises data to cloud](../../includes/cards/backup-archive-on-premises.md)]
+[!INCLUDE [Azure enterprise cloud file share](../../includes/cards/azure-files-private.md)]
 [!INCLUDE [Back up on-premises applications and data to cloud](../../includes/cards/backup-archive-on-premises-applications.md)]
 [!INCLUDE [Extend your on-premises big data investments with HDInsight](../../includes/cards/extend-your-on-premises-big-data-investments-with-hdinsight.md)]
 [!INCLUDE [Hybrid ETL with Azure Data Factory](../../includes/cards/hybrid-etl-with-adf.md)]
 [!INCLUDE [Hybrid file services](../../includes/cards/hybrid-file-services.md)]
 [!INCLUDE [On-premises data gateway for Azure Logic Apps](../../includes/cards/gateway-logic-apps.md)]
+[!INCLUDE [Optimize administration of SQL Server instances in on-premises and multi-cloud environments by leveraging Azure Arc](../../includes/cards/azure-arc-sql-server.md)]
 [!INCLUDE [Partitioning in Event Hubs and Kafka](../../includes/cards/partitioning-in-event-hubs-and-kafka.md)]
 [!INCLUDE [Publishing internal APIs to external users](../../includes/cards/publish-internal-apis-externally.md)]
 [!INCLUDE [Using Azure file shares in a hybrid environment](../../includes/cards/azure-file-share.md)]
@@ -89,6 +91,8 @@ Architecture diagrams, reference architectures, example scenarios, and solutions
 [!INCLUDE [Manage configurations for Azure Arc enabled servers](../../includes/cards/azure-arc-hybrid-config.md)]
 [!INCLUDE [Manage hybrid Azure workloads using Windows Admin Center](../../includes/cards/hybrid-server-os-mgmt.md)]
 [!INCLUDE [SMB disaster recovery with Azure Site Recovery](../../includes/cards/disaster-recovery-smb-azure-site-recovery.md)]
+[!INCLUDE [Use Azure Stack HCI stretched clusters for disaster recovery](../../includes/cards/azure-stack-hci-dr.md)]
+[!INCLUDE [Use Azure Stack HCI switchless interconnect and lightweight quorum for Remote Office/Branch Office](../../includes/cards/azure-stack-robo.md)]
 
 </ul>
 

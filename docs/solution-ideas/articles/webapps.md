@@ -3,7 +3,7 @@ title: Build web and mobile applications
 titleSuffix: Azure Solution Ideas
 author: doodlemania2
 ms.date: 06/24/2020
-description: The reference architecture below is inspired by HSBC’s digital payment platform, PayMe for Business.
+description: The reference architecture below is inspired by HSBC's digital payment platform, PayMe for Business.
 ms.custom: acom-architecture, fcp
 ms.service: architecture-center
 ms.category:

@@ -371,7 +371,7 @@ This sign-in tunnels from the Fabrikam.com domain used by the on-premises networ
 [sql-sharepoint-best-practices]: /SharePoint/administration/best-practices-for-sql-server-in-a-sharepoint-server-farm
 [tempdb]: /sql/relational-databases/databases/tempdb-database
 [virtual-networks-nsg]: /azure/virtual-network/virtual-networks-nsg
-[visio-download]: https://archcenter.blob.core.windows.net/cdn/Sharepoint-2016.vsdx
+[visio-download]: https://arch-center.azureedge.net/Sharepoint-2016.vsdx
 [vm-sizes-general]: /azure/virtual-machines/windows/sizes-general
 [vm-sizes-memory]: /azure/virtual-machines/windows/sizes-memory
 [windows-n-tier]: ../n-tier/n-tier-sql-server.md

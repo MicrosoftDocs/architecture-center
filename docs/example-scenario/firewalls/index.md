@@ -5,7 +5,7 @@ author: RZomerman
 ms.date: 05/15/2020
 ms.topic: conceptual
 ms.service: architecture-center
-ms.subservice: cloud-fundamentals
+ms.subservice: example-scenario
 ms.category:
   - networking
 ms.custom:
