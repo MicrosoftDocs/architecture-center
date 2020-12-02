@@ -59,8 +59,6 @@ To learn more about CDNs, see [Best practices for using content delivery network
 
 Benchmarking is the process of simulating different workloads on your application and measuring application performance for each workload. It is the best way to figure out what resources you will need to host your application. Use performance indicators to assess whether your application is performing as expected or not. Take into consideration [VM sizes](https://docs.microsoft.com/azure/virtual-machines/premium-storage-performance#high-scale-vm-sizes) and [disk sizes](https://docs.microsoft.com/azure/virtual-machines/premium-storage-performance#premium-storage-disk-sizes). 
 
-Follow the guidelines in [Design for high performance](https://docs.microsoft.com/azure/virtual-machines/premium-storage-performance) to learn how to build high performance applications using Azure Premium Storage.
-
 See the [Optimize IOPS, throughput, and latency](https://docs.microsoft.com/azure/virtual-machines/premium-storage-performance#optimize-iops-throughput-and-latency-at-a-glance) table for guidance.
 
 ## Metrics
