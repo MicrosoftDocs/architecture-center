@@ -51,7 +51,7 @@ Test the amount of time it would take for users to be rerouted to the paired reg
 
 Once you have performed testing and found an acceptable operational margin and response under increased levels of load, configure the environment to sustain performance efficiency. Scale out or scale in to handle increases and decreases in load. For example, you may know that you will encounter high levels of traffic during the day and low levels on weekends. You may configure the environment to scale out for increases in load or scale in for decreases before the load actually changes.
 
-For more information on autoscaling, see *Design for scaling* in the Performance Efficiency pillar. <!--Add link -->
+For more information on autoscaling, see [Design for scaling](https://docs.microsoft.com/azure/architecture/framework/scalability/design-scale) in the Performance Efficiency pillar.
 
 > [!NOTE]
 > Ensure that a rule has been configured to scale the environment back down once load reaches below the set thresholds. This will save you money.
