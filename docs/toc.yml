@@ -265,9 +265,6 @@ items:
         href: framework/devops/automation-configuration.md
       - name: Automate operational tasks
         href: framework/devops/automation-tasks.md
-<<<<<<< HEAD
-  - name: Performance Efficiency 
-=======
     - name: Release engineering
       items:
       - name: Application development
@@ -289,8 +286,6 @@ items:
     - name: Checklist
       href: checklist/dev-ops.md
   - name: Performance Efficiency
->>>>>>> bfdae1c13f4d8ed7efad5d09fa539f388469d9f5
-    items:
     - name: Overview 
       href: framework/scalability/overview.md
     - name: Design
@@ -306,9 +301,9 @@ items:
     - name: Testing
       items:
       - name: Performance testing
-        href: framework/scalability/performance-testing.md
+        href: framework/scalability/performance-test.md
       - name: Testing tools
-        href: framework/scalability/testing-tools.md  
+        href: framework/scalability/test-tools.md  
     - name: Monitoring
       href: framework/scalability/monitoring.md
     - name: Checklist
