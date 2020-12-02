@@ -5,10 +5,12 @@ description: Use a queue that acts as a buffer between a task and a service that
 keywords: design pattern
 author: dragon119
 ms.date: 01/02/2019
-ms.topic: design-pattern
+ms.topic: conceptual
 ms.service: architecture-center
-ms.subservice: cloud-fundamentals
-ms.custom: seodec18
+ms.subservice: design-pattern
+ms.custom:
+  - seodec18
+  - design-pattern
 ---
 
 # Queue-Based Load Leveling pattern

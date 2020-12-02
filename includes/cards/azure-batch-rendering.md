@@ -6,7 +6,7 @@
 <article class="card">
     <div class="card-header has-margin-bottom-none" aria-hidden="true">
         <figure class="image diagram has-height-175 has-overflow-hidden level">
-            <a href="/azure/architecture/solution-ideas/articles/azure-batch-rendering"><img src="/azure/architecture/browse/thumbs/azure-batch-rendering.png" class="diagram" alt="Architecture Diagram" data-linktype="relative-path"></a>
+            <a href="/azure/architecture/solution-ideas/articles/azure-batch-rendering"><img src="/azure/architecture/browse/thumbs/azure-batch-rendering.png" class="diagram" alt="Thumbnail of HPC Media Rendering Architectural Diagram." data-linktype="relative-path"></a>
         </figure>
     </div>
     <div class="card-content">
@@ -14,10 +14,10 @@
             <p>HPC Media Rendering</p>
         </a>
         <ul class="card-content-metadata">
-            <li>12/16/2019</li>
+            <li>11/04/2020</li>
             <li>2 min read</li>
         </ul>
-        <p class="card-content-description">Optimize the media rendering process with a step-by-step HPC solution architecture from Azure that combines Azure CycleCloud and Avere vFXT.</p>
+        <p class="card-content-description">Optimize the media rendering process with a step-by-step HPC solution architecture from Azure that combines Azure CycleCloud and HPC Cache.</p>
         <div class="bottom-to-top-fade is-hidden-mobile"></div>
     </div>
 </article>

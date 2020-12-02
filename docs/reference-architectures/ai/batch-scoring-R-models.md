@@ -3,13 +3,15 @@ title: Batch scoring with R Models on Azure
 description: Perform batch scoring with R models using Azure Batch and a data set based on retail store sales forecasting.
 author: njray
 ms.date: 03/29/2019
-ms.topic: reference-architecture
+ms.topic: conceptual
 ms.service: architecture-center
 ms.category:
   - ai-machine-learning
   - developer-tools
 ms.subservice: reference-architecture
-ms.custom: azcat-ai
+ms.custom:
+  - azcat-ai
+  - reference-architecture
 ---
 
 # Batch scoring of R machine learning models on Azure
@@ -29,7 +31,7 @@ Processing involves the following steps:
 
 1. Scoring jobs run in parallel across the nodes of the Batch cluster. Each node:
 
-    1. Pulls the worker Docker image from Docker Hub and starts a container.
+    1. Pulls the worker Docker image and starts a container.
 
     1. Reads input data and pre-trained R models from Azure Blob storage.
 

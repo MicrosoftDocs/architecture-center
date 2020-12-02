@@ -4,13 +4,16 @@ titleSuffix: Azure Reference Architectures
 description: Implement a secure hybrid network architecture using Azure Active Directory (Azure AD).
 author: doodlemania2
 ms.date: 08/28/2019
-ms.topic: reference-architecture
+ms.topic: conceptual
 ms.service: architecture-center
 ms.category:
   - identity
   - hybrid
 ms.subservice: reference-architecture
-ms.custom: seodec18, identity
+ms.custom:
+  - seodec18
+  - identity
+  - reference-architecture
 ---
 
 <!-- cSpell:ignore writeback MSOL -->
@@ -167,7 +170,7 @@ For the Azure AD Connect sync server, determine how many objects you are likely 
 The Azure AD service is geo-distributed and runs in multiple datacenters spread around the world with automated failover. If a datacenter becomes unavailable, Azure AD ensures that your directory data is available for instance access in at least two more regionally dispersed datacenters.
 
 > [!NOTE]
-> The service level agreement (SLA) for the Office 365 Apps AD tier and Premium services guarantees at least 99.9% availability. There is no SLA for the Free tier of Azure AD. For more information, see [SLA for Azure Active Directory][sla-aad].
+> The service level agreement (SLA) for the Microsoft 365 Apps AD tier and Premium services guarantees at least 99.9% availability. There is no SLA for the Free tier of Azure AD. For more information, see [SLA for Azure Active Directory][sla-aad].
 >
 
 Consider provisioning a second instance of Azure AD Connect sync server in staging mode to increase availability, as discussed in the topology recommendations section.
@@ -267,6 +270,6 @@ A deployment for a reference architecture that implements these recommendations 
 [azure-multifactor-authentication]: /azure/multi-factor-authentication/multi-factor-authentication
 [considerations]: ./index.md
 [sla-aad]: https://azure.microsoft.com/support/legal/sla/active-directory
-[visio-download]: https://archcenter.blob.core.windows.net/cdn/identity-architectures.vsdx
+[visio-download]: https://arch-center.azureedge.net/identity-architectures.vsdx
 [azure-pricing-calculator]: https://azure.microsoft.com/pricing/calculator
 [AAF-devops]: ../../framework/devops/overview.md

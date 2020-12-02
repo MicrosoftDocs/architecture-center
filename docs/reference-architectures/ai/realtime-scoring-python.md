@@ -4,13 +4,15 @@ titleSuffix: Azure Reference Architectures
 description: This reference architecture shows how to deploy Python models as web services on Azure to make real-time predictions.
 author: msalvaris
 ms.date: 01/28/2019
-ms.topic: reference-architecture
+ms.topic: conceptual
 ms.service: architecture-center
 ms.category:
   - ai-machine-learning
   - developer-tools
 ms.subservice: reference-architecture
-ms.custom: azcat-ai
+ms.custom:
+  - azcat-ai
+  - reference-architecture
 ---
 
 # Real-time scoring of Python scikit-learn and deep learning models on Azure
@@ -96,7 +98,7 @@ While deploying your application, monitor the AKS cluster to make sure it's work
 
 To see the overall state of the cluster and nodes, go to the **Nodes** section of the Kubernetes dashboard. If a node is inactive or has failed, you can display the error logs from that page. Similarly, go to the **Pods** and **Deployments** sections for information about the number of pods and status of your deployment.
 
-### AKS logs'
+### AKS logs
 
 AKS automatically logs all stdout/stderr to the logs of the pods in the cluster. Use kubectl to see these and also node-level events and logs. For details, see the deployment steps.
 
@@ -127,7 +129,7 @@ Use the  [Azure pricing calculator][azure-pricing-calculator] to estimate costs.
 For more information, see the Cost section in [Microsoft Azure Well-Architected Framework][aaf-cost].
 
 
-### Azure Machine Learning'
+### Azure Machine Learning
 
 In this reference architecture, a large portion of cost is driven by compute resources. For the purposes of experimentation and training, Azure Machine Learning is free. You are only charged for the compute used by the web service. Use the [Azure pricing calculator][azure-pricing-calculator] to estimate your compute costs.
 

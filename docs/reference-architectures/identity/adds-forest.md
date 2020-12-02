@@ -4,13 +4,16 @@ titleSuffix: Azure Reference Architectures
 description: How to create a trusted Active Directory domain in Azure.
 author: telmosampaio
 ms.date: 05/02/2018
-ms.topic: reference-architecture
+ms.topic: conceptual
 ms.service: architecture-center
 ms.category:
   - identity
   - hybrid
 ms.subservice: reference-architecture
-ms.custom: seodec18, identity
+ms.custom:
+  - seodec18
+  - identity
+  - reference-architecture
 ---
 
 # Create an Active Directory Domain Services (AD DS) resource forest in Azure
@@ -196,4 +199,4 @@ A deployment for this architecture is available on [GitHub][github]. Note that t
 [microsoft_systems_center]: https://microsoft.com/cloud-platform/system-center
 [monitoring_ad]: /previous-versions/windows/it-pro/windows-2000-server/bb727046(v=technet.10)
 [standby-operations-masters]: /previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc794737(v=ws.10)
-[visio-download]: https://archcenter.blob.core.windows.net/cdn/identity-architectures.vsdx
+[visio-download]: https://arch-center.azureedge.net/identity-architectures.vsdx

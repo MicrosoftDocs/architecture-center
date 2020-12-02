@@ -4,10 +4,12 @@ description: Segregate operations that read data from those that update data.
 keywords: design pattern
 author: dragon119
 ms.date: 02/11/2020
-ms.topic: design-pattern
+ms.topic: conceptual
 ms.service: architecture-center
-ms.subservice: cloud-fundamentals
-ms.custom: seodec18
+ms.subservice: design-pattern
+ms.custom:
+  - seodec18
+  - design-pattern
 ---
 
 # Command and Query Responsibility Segregation (CQRS) pattern
@@ -233,6 +235,6 @@ The following patterns and guidance are useful when implementing this pattern:
 
 - [Materialized View pattern](./materialized-view.md). The read model of a CQRS implementation can contain materialized views of the write model data, or the read model can be used to generate materialized views.
 
-- The patterns & practices guide [CQRS Journey](https://aka.ms/cqrs). In particular, [Introducing the Command Query Responsibility Segregation pattern](/previous-versions/msp-n-p/jj591573(v=pandp.10)) explores the pattern and when it's useful, and [Epilogue: Lessons Learned](/previous-versions/msp-n-p/jj591568(v=pandp.10)) helps you understand some of the issues that come up when using this pattern.
+- The patterns & practices guide [CQRS Journey](/previous-versions/msp-n-p/jj554200(v=pandp.10)). In particular, [Introducing the Command Query Responsibility Segregation pattern](/previous-versions/msp-n-p/jj591573(v=pandp.10)) explores the pattern and when it's useful, and [Epilogue: Lessons Learned](/previous-versions/msp-n-p/jj591568(v=pandp.10)) helps you understand some of the issues that come up when using this pattern.
 
 - The post [CQRS by Martin Fowler](https://martinfowler.com/bliki/CQRS.html), which explains the basics of the pattern and links to other useful resources.

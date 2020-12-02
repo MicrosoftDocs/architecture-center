@@ -3,9 +3,11 @@ title: Governance, risk, and compliance in Azure | Microsoft Docs
 description: Learn how to define security priorities around governance, risk, and compliance, beginning with definitions of these concepts and how they affect security.
 author: PageWriter-MSFT
 ms.date: 07/09/2019
-ms.topic: article
+ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
+ms.custom:
+  - article
 ---
 
 <!-- cSpell:ignore NIST -->
@@ -53,12 +55,12 @@ then working to retrofit any gaps over time as you mature your security program.
 We recommend evaluating the following considerations when prioritizing which to
 follow first:
 
-- **High business impact and highly exposed systems:** These include systems with direct intrinsic value as well as the systems that provide attackers a path to them. For more information, see [Identify and classify business critical applications](./applications-services.md#identify-and-classify-business-critical-applications).
+- **High business impact and highly exposed systems:** These include systems with direct intrinsic value as well as the systems that provide attackers a path to them. For more information, see [Identify and classify business critical applications](./design-apps-services.md).
 
 - **Easiest to implement mitigations:** Identify quick wins by prioritizing the best practices, which your organization can execute quickly because you already have the required skills, tools, and knowledge to do it (for example, implementing a Web App Firewall (WAF) to protect a legacy application). Be careful not to exclusively use (or overuse) this short-term prioritization method. Doing so can increase your risk by preventing your program from growing and leaving critical risks exposed for extended periods.
 
 Microsoft has provided some prioritized lists of security initiatives to help organizations start with these decisions based on our experience with threats and mitigation initiatives in our own environments and across our customers. See [Module 4a](/office365/securitycompliance/ciso-workshop-module-4a)
-of the [Microsoft CISO Workshop](https://aka.ms/cisoworkshop).
+of the [Microsoft CISO Workshop](/security/ciso-workshop/ciso-workshop).
 
 ## Operationalize Azure Secure Score
 
@@ -108,7 +110,7 @@ Set up a regular cadence (typically monthly) to review Azure secure score and pl
 **NOTE:** Note that in the DevOps model, some application teams may be responsible for their own application resources.
 
 
-![GitHub](../../_images/github.png) The [Azure Secure Score sample](https://github.com/mspnp/samples/tree/master/Security/AzureSecureScoreSample) shows how to get your Azure Secure Score for a subscription by calling the Azure Security Center REST API. The API methods provide the flexibility to query the data and build your own reporting mechanism of your secure scores over time.
+:::image type="icon" source="../../_images/github.png" border="false"::: The [Azure Secure Score sample](https://github.com/mspnp/samples/tree/master/Security/AzureSecureScoreSample) shows how to get your Azure Secure Score for a subscription by calling the Azure Security Center REST API. The API methods provide the flexibility to query the data and build your own reporting mechanism of your secure scores over time.
 
 ## Manage connected tenants
 
@@ -124,7 +126,7 @@ applicable regulatory requirements are being followed.
 Ensure all Azure environments that connect to your production
 environment/network apply your organization’s policy and IT governance controls
 for security. You can discover existing connected tenants using a
-[tool](https://aka.ms/magicbutton) provided by Microsoft. Guidance on permissions
+[tool](/azure/role-based-access-control/elevate-access-global-admin?toc=%252fazure%252factive-directory%252fprivileged-identity-management%252ftoc.json) provided by Microsoft. Guidance on permissions
 you may assign to security is in the [Assign privileges for managing the
 environment](#assign-privileges-for-managing-the-environment) section.
 
@@ -213,7 +215,7 @@ A good enterprise segmentation strategy meets these criteria:
 - **Monitored** – Security Operations should monitor for potential violations
     of the integrity of the segments (account usage, unexpected traffic, etc.)
 
-![A screenshot of a cell phone Description automatically generated](images/enterprise-tenant.png)
+![Diagram showing enterprise segmentation strategy.](images/enterprise-tenant.png)
 
 ## Security team visibility
 
@@ -303,7 +305,7 @@ resources, you can assign these permissions to those roles.
 emergencies (and initial setup if required). Do not use this role for daily
 tasks. See [Emergency Access (‘Break Glass’ Accounts)](./critical-impact-accounts.md#emergency-access-or-break-glass-accounts) for more details.
 
-![A screenshot of a cell phone Description automatically generated](images/ref-segment.png)
+![Diagram showing Core Services Reference Permissions.](images/ref-segment.png)
 
 ### Segment reference permissions
 

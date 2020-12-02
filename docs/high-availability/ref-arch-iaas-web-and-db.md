@@ -1,15 +1,19 @@
 ---
-title: "IaaS: Web application with relational database"
-description:  This reference architecture shows best practices for applying Availability Zones to a web application and Microsoft SQL Server database hosted on virtual machines (VMs) known as a zonal deployment. 
+title: 'IaaS: Web application with relational database'
+description: This reference architecture shows best practices for applying Availability Zones to a web application and Microsoft SQL Server database hosted on virtual machines (VMs) known as a zonal deployment.
 author: maggsl
 ms.date: 06/16/2020
-ms.topic: article
+ms.topic: conceptual
 ms.service: architecture-center
-ms.category: 
-    - solutions
+ms.category:
+  - solutions
 ms.subservice: reference-architecture
-ms.custom: high-availability, fcp
+ms.custom:
+  - high-availability
+  - fcp
+  - article
 ---
+
 # IaaS: Web application with relational database
 
 Availability Zones are unique physical locations within an Azure region. Each zone is made up of one or more datacenters with independent power, cooling, and networking. The physical separation of availability zones within a region limits the impact to applications and data from zone failures, such as largescale flooding, major/super-storms, and other events that would disrupt site access, safe passage, extended utilities uptime, and the availability of resources. This reference architecture shows best practices for applying Availability Zones to a web application and Microsoft SQL Server database hosted on virtual machines (VMs) known as a zonal deployment.
@@ -22,7 +26,7 @@ The zone-redundant application gateway and zone-redundant load balancer distribu
 
 ![Infographic of Availability Zones architecture](./images/ref-arch-iaas.png)
 
-[*Download a Visio file of this architecture.*](https://archcenter.blob.core.windows.net/cdn/ref-arch-iaas.vsdx)
+[*Download a Visio file of this architecture.*](https://arch-center.azureedge.net/ref-arch-iaas.vsdx)
 
 ## Architecture
 
@@ -198,7 +202,7 @@ Encrypt sensitive data at rest and use [Azure Key Vault](https://azure.microsoft
 ### DDoS protection
 
 The Azure platform provides basic DDoS protection by default. This basic protection is targeted at protecting the Azure infrastructure. Although basic DDoS protection is automatically enabled, we recommend using [DDoS Protection Standard](/azure/virtual-network/ddos-protection-overview).
-Standard protection uses adaptive tuning, based on your application's network traffic patterns, to detect threats. This allows it to apply mitigations against DDoS attacks that might go unnoticed by the infrastructure-wide DDoS policies. Standard protection also provides alerting, telemetry, and analytics through Azure Monitor. For more information, see [Azure DDoS Protection: Best practices and reference architectures](/azure/security/azure-ddos-best-practices).
+Standard protection uses adaptive tuning, based on your application's network traffic patterns, to detect threats. This allows it to apply mitigations against DDoS attacks that might go unnoticed by the infrastructure-wide DDoS policies. Standard protection also provides alerting, telemetry, and analytics through Azure Monitor. For more information, see [Azure DDoS Protection: Best practices and reference architectures](/azure/security/fundamentals/ddos-best-practices).
 
 ## Next steps
 

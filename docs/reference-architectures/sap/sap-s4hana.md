@@ -3,13 +3,18 @@ title: SAP S/4HANA in Linux on Azure
 description: Proven practices for running SAP S/4HANA in a Linux environment on Azure with high availability.
 author: lbrader
 ms.date: 02/19/2020
-ms.topic: reference-architecture
+ms.topic: conceptual
 ms.service: architecture-center
 ms.category:
   - databases
   - management-and-governance
 ms.subservice: reference-architecture
-ms.custom: seodec18, SAP, Linux, fcp
+ms.custom:
+  - seodec18
+  - SAP
+  - Linux
+  - fcp
+  - reference-architecture
 ---
 
 <!-- cSpell:ignore lbrader HANA Fiori -->
@@ -672,5 +677,5 @@ See the following articles for more information and for examples of SAP workload
 [azure-pricing-calculator]: https://azure.microsoft.com/pricing/calculator
 [linux-vms-pricing]: https://azure.microsoft.com/pricing/details/virtual-machines/linux
 [expressroute-pricing]: https://azure.microsoft.com/pricing/details/expressroute
-[visio-download]: https://archcenter.blob.core.windows.net/cdn/sap-s4hana.vsdx
+[visio-download]: https://arch-center.azureedge.net/sap-s4hana.vsdx
 [az-spot-vms]: /azure/virtual-machines/windows/spot-vms

@@ -2,11 +2,11 @@
 
 <!-- markdownlint-disable MD033 -->
 
-<li class="grid-item item-column" data-categories="Networking Management and Governance ">
+<li class="grid-item item-column" data-categories="Networking Management and Governance Hybrid ">
 <article class="card">
     <div class="card-header has-margin-bottom-none" aria-hidden="true">
         <figure class="image diagram has-height-175 has-overflow-hidden level">
-            <a href="/azure/architecture/reference-architectures/hybrid-networking/hub-spoke"><img src="/azure/architecture/browse/thumbs/hub-spoke.png" class="diagram" alt="Architecture Diagram" data-linktype="relative-path"></a>
+            <a href="/azure/architecture/reference-architectures/hybrid-networking/hub-spoke"><img src="/azure/architecture/browse/thumbs/hub-spoke.png" class="diagram" alt="Thumbnail of Hub-spoke network topology in Azure Architectural Diagram." data-linktype="relative-path"></a>
         </figure>
     </div>
     <div class="card-content">
@@ -14,8 +14,8 @@
             <p>Hub-spoke network topology in Azure</p>
         </a>
         <ul class="card-content-metadata">
-            <li>5/21/2020</li>
-            <li>11 min read</li>
+            <li>9/30/2020</li>
+            <li>7 min read</li>
         </ul>
         <p class="card-content-description">Learn how to implement a hub-spoke topology in Azure, where the hub is a virtual network and the spokes are virtual networks that peer with the hub.</p>
         <div class="bottom-to-top-fade is-hidden-mobile"></div>

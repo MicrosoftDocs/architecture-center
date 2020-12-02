@@ -4,12 +4,14 @@ titleSuffix: Azure Reference Architectures
 description: Learn about proven practices for a web application that uses Azure App Service and Azure SQL Database by using this reference architecture.
 author: doodlemania2
 ms.date: 12/12/2017
-ms.topic: reference-architecture
+ms.topic: conceptual
 ms.service: architecture-center
 ms.category:
   - web
 ms.subservice: reference-architecture
-ms.custom: seodec18
+ms.custom:
+  - seodec18
+  - reference-architecture
 ---
 
 <!-- cSpell:ignore BACPAC DTUs -->
@@ -214,7 +216,7 @@ As a security best practice, your app should enforce HTTPS by redirecting HTTP r
 
 ### Authentication
 
-We recommend authenticating through an identity provider (IDP), such as Azure AD, Facebook, Google, or Twitter. Use OAuth 2 or OpenID Connect (OIDC) for the authentication flow. Azure AD provides functionality to manage users and groups, create application roles, integrate your on-premises identities, and consume backend services such as Office 365 and Skype for Business.
+We recommend authenticating through an identity provider (IDP), such as Azure AD, Facebook, Google, or Twitter. Use OAuth 2 or OpenID Connect (OIDC) for the authentication flow. Azure AD provides functionality to manage users and groups, create application roles, integrate your on-premises identities, and consume backend services such as Microsoft 365 and Skype for Business.
 
 Avoid having the application manage user logins and credentials directly, as it creates a potential attack surface.  At a minimum, you would need to have email confirmation, password recovery, and multi-factor authentication; validate password strength; and store password hashes securely. The large identity providers handle all of those things for you, and are constantly monitoring and improving their security practices.
 
@@ -289,7 +291,7 @@ For more information, see [Deploy resources with Azure Resource Manager template
 [troubleshoot-blade]: https://azure.microsoft.com/updates/self-service-troubleshooting-for-app-service-web-apps-customers
 [tfs]: /azure/devops/server/tfs-is-now-azure-devops-server
 [troubleshoot-web-app]: /azure/app-service-web/web-sites-dotnet-troubleshoot-visual-studio
-[visio-download]: https://archcenter.blob.core.windows.net/cdn/app-service-reference-architectures.vsdx
+[visio-download]: https://arch-center.azureedge.net/app-service-reference-architectures.vsdx
 [web-app-autoscale]: /azure/app-service-web/web-sites-scale
 [web-app-backup]: /azure/app-service-web/web-sites-backup
 [web-app-log-stream]: /azure/app-service-web/web-sites-enable-diagnostic-log#stream-logs

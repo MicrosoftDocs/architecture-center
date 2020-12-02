@@ -13,7 +13,7 @@ _Brief introduction goes here._ [**Deploy this solution**.](#deploy-the-solution
 
 ![alt text](./media/folder_name/architecture-diagram.png)
 
-_Download a [Visio file](https://arch-center.azureedge.net/cdn/architecture.vsdx) that contains this architecture diagram._
+_Download a [Visio file](https://arch-center.azureedge.net/architecture.vsdx) that contains this architecture diagram. This file must be uploaded to `https://arch-center.azureedge.net/`_
 
 ## Architecture
 

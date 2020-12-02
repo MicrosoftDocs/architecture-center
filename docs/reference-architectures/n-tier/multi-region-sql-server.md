@@ -3,14 +3,16 @@ title: Multi-region N-tier application
 description: Deploy an application on Azure virtual machines in multiple regions for high availability and resiliency.
 author: doodlemania2
 ms.date: 06/18/2019
-ms.topic: reference-architecture
+ms.topic: conceptual
 ms.service: architecture-center
 ms.category:
   - web
   - databases
   - management-and-governance
 ms.subservice: reference-architecture
-ms.custom: seodec18
+ms.custom:
+  - seodec18
+  - reference-architecture
 ---
 
 # Run an N-tier application in multiple Azure regions for high availability
@@ -237,7 +239,7 @@ The following architecture uses some of the same technologies:
 [tm-routing]: /azure/traffic-manager/traffic-manager-routing-methods
 [tm-sla]: https://azure.microsoft.com/support/legal/sla/traffic-manager
 [traffic-manager]: https://azure.microsoft.com/services/traffic-manager
-[visio-download]: https://archcenter.blob.core.windows.net/cdn/vm-reference-architectures.vsdx
+[visio-download]: https://arch-center.azureedge.net/vm-reference-architectures.vsdx
 [vnet-dns]: /azure/virtual-network/manage-virtual-network#change-dns-servers
 [wsfc]: /sql/sql-server/failover-clusters/windows/windows-server-failover-clustering-wsfc-with-sql-server?view=sql-server-ver15
 [WAF-cost]: ../../framework/cost/overview.md

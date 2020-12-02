@@ -6,10 +6,12 @@ author: EdPrice
 ms.date: 03/16/2020
 ms.category:
   - compute
-ms.topic: example-scenario
+ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: example-scenario
-ms.custom: fcp
+ms.custom:
+  - fcp
+  - example-scenario
 social_image_url: /azure/architecture/example-scenario/infrastructure/media/architecture-hpc-reservoir-simulation.png
 ---
 

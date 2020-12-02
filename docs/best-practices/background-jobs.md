@@ -4,10 +4,12 @@ titleSuffix: Best practices for cloud applications
 description: Learn about background tasks that run independently of the user interface, such as batch jobs, intensive processing tasks, and long-running processes.
 author: dragon119
 ms.date: 11/05/2018
-ms.topic: best-practice
+ms.topic: conceptual
 ms.service: architecture-center
-ms.subservice: cloud-fundamentals
-ms.custom: seodec18
+ms.subservice: best-practice
+ms.custom:
+  - seodec18
+  - best-practice
 ---
 
 <!-- cSpell:ignore webjobs wwwroot -->

@@ -3,9 +3,11 @@ title: What types of attack should the architecture resist in Azure | Microsoft 
 description: An architecture built on good security practices should be resilient to attacks.
 author: PageWriter-MSFT
 ms.date: 07/15/2019
-ms.topic: article
+ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
+ms.custom:
+  - article
 ---
 
 <!-- markdownlint-disable MD026 -->
@@ -20,6 +22,6 @@ Because security resources are always limited, it is critical to discover and pr
 
 - **Threat modeling:** Newly defined systems such as applications in development (or modifications to them) don’t have real world data on the top vectors attackers would target, so you must rely more on a model of possible and likely vectors to guide risk mitigation. Threat modeling is a structured process to applying security expertise that models the possible attack vectors and prioritize the most likely/damaging threats, allowing you to prioritize risk mitigate efforts. Threat modeling can also be applied to existing systems or a combination of systems.
 
-This document focuses on sharing clearly defined good security practices as well as guidance on applying [threat modeling to your applications and architectures](./applications-services.md#advanced-threat-modeling-techniques).
+This document focuses on sharing clearly defined good security practices as well as guidance on applying [threat modeling to your applications and architectures](./design-apps-services.md).
 
 For more information on current attacks, see the [Microsoft Security Intelligence (SIR) report](https://www.microsoft.com/sir).

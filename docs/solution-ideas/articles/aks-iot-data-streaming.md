@@ -14,6 +14,7 @@ ms.subservice: solution-idea
 ms.author: stellal
 social_image_url: /azure/architecture/solution-ideas/media/aks-demand-spikes.png
 ---
+<!--cSpell:ignore HDInsights -->
 
 # Instant IoT data streaming with AKS
 
@@ -30,7 +31,7 @@ This example utilizes:
 ## Architecture
 
 ![Architecture Diagram](../media/aks-iot-data-streaming.png)
-*Download an [SVG](../media/aks-iot-data-streaming.svg) or [PPTX](../media/aks-iot-data-streaming.pptx) of this architecture.*
+*Download an [SVG](../media/aks-iot-data-streaming.svg)*
 
 ## Data Flow
 
@@ -54,7 +55,7 @@ This example scenario uses several Azure components:
 - [Azure Kubernetes Service](https://azure.microsoft.com/services/kubernetes-service/): The fully managed Azure Kubernetes Service (AKS) makes deploying and managing containerized applications easy
 - [Azure Key Vault](https://azure.microsoft.com/services/key-vault/): Safeguard cryptographic keys and other secrets used by cloud apps and services
 - [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/): A fully managed database service with turnkey global distribution and transparent multi-primary replication.
-- [Azure HDInsights](https://azure.microsoft.com/services/hdinsight/): A cost-effective, enterprise-grade service for open source analytics
+- [Azure HDInsights](https://azure.microsoft.com/services/hdinsight/): A cost-effective, enterprise-grade service for open-source analytics
 - [Azure Web Apps](https://azure.microsoft.com/services/app-service/web/): Build and host web apps, mobile back ends, and RESTful APIs without managing infrastructure.
 - [Azure Database for PosgreSQL](https://azure.microsoft.com/services/postgresql/): a fully managed relational database service based on the open-source Postgres database engine.
 - [Azure Databricks](https://azure.microsoft.com/services/databricks/): An Apache Spark-based analytics platform optimized for the Microsoft Azure cloud services platform.

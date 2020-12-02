@@ -5,10 +5,12 @@ description: Isolate elements of an application into pools so that if one fails,
 keywords: design pattern
 author: dragon119
 ms.date: 03/19/2020
-ms.topic: design-pattern
+ms.topic: conceptual
 ms.service: architecture-center
-ms.subservice: cloud-fundamentals
-ms.custom: seodec18
+ms.subservice: design-pattern
+ms.custom:
+  - seodec18
+  - design-pattern
 ---
 
 # Bulkhead pattern
@@ -41,7 +43,7 @@ The following diagram shows bulkheads structured around connection pools that ca
 
 The next diagram shows multiple clients calling a single service. Each client is assigned a separate service instance. Client 1 has made too many requests and overwhelmed its instance. Because each service instance is isolated from the others, the other clients can continue making calls.
 
-![First diagram of the Bulkhead pattern](./_images/bulkhead-2.png)
+![Diagram showing multiple clients calling a single service.](./_images/bulkhead-2.png)
 
 ## Issues and considerations
 

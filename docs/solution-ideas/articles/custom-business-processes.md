@@ -51,8 +51,8 @@ Data is loaded from these different data sources using several Azure components:
 - [Azure Bot Service](https://azure.microsoft.com/services/bot-service/): A managed service purpose-built for bot development
 - [Azure Data Factory](https://azure.microsoft.com/services/data-factory/): Hybrid data integration service that simplifies ETL at scale
 - [Power Automate](https://flow.microsoft.com/): Streamline repetitive tasks and paperless processes
-- [Power BI](https://docs.microsoft.com/power-bi) is a suite of business analytics tools to analyze data and share insights.
+- [Power BI](/power-bi) is a suite of business analytics tools to analyze data and share insights.
 
 ## Next Steps
 
-- Learn more: [https://aka.ms/learnpowerapps](https://aka.ms/learnpowerapps)
+- Learn more: [https://aka.ms/learnpowerapps](/learn/browse/?products=power-apps)

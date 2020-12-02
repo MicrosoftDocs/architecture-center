@@ -7,11 +7,13 @@ ms.date: 07/05/2018
 ms.category:
   - security
   - analytics
-ms.topic: example-scenario
+ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: example-scenario
 social_image_url: /azure/architecture/example-scenario/data/media/architecture-fraud-detection.png
-ms.custom: ai-ml
+ms.custom:
+  - ai-ml
+  - example-scenario
 ---
 
 # Real-time fraud detection on Azure

@@ -1,14 +1,17 @@
 ---
 title: SAP on Azure Architecture Guide
-description: This guide is based on the Microsoft Azure Well-Architected Framework, but the recommendations are specific to deployments of SAP solutions. 
+description: This guide is based on the Microsoft Azure Well-Architected Framework, but the recommendations are specific to deployments of SAP solutions.
 author: maggsl
 ms.date: 06/10/2020
-ms.topic: reference-architecture
+ms.topic: conceptual
 ms.service: architecture-center
-ms.custom: fcp 
+ms.custom:
+  - fcp
+  - reference-architecture
 ms.category:
   - databases
   - compute
+ms.subservice: reference-architecture
 ---
 
 # SAP on Azure Architecture Guide
@@ -175,7 +178,7 @@ Azure Disk Encryption works with [Azure Key Vault](/azure/key-vault/key-vault-wh
 
 ### Identity management
 
-Consider using Azure AD to authenticate and authorize users. Azure AD is a fully managed identity and access management service. You can use it to create domains that exist purely on Azure or to integrate with your on-premises Active Directory identities. Azure AD also integrates with Office 365, Dynamics CRM Online, and many software as a service (SaaS) applications from partners.
+Consider using Azure AD to authenticate and authorize users. Azure AD is a fully managed identity and access management service. You can use it to create domains that exist purely on Azure or to integrate with your on-premises Active Directory identities. Azure AD also integrates with Microsoft 365, Dynamics CRM Online, and many software as a service (SaaS) applications from partners.
 
 For consumer-facing applications, Azure Active Directory B2C lets users authenticate with their existing social accounts (such as Facebook, Google, or LinkedIn) or to create a new user account that is managed by Azure AD.
 

@@ -4,13 +4,15 @@ titleSuffix: Azure Reference Architectures
 description: Recommended architecture for deploying a high availability SharePoint Server 2016 farm in Azure.
 author: njray
 ms.date: 07/26/2018
-ms.topic: reference-architecture
+ms.topic: conceptual
 ms.service: architecture-center
 ms.category:
   - management-and-governance
   - web
 ms.subservice: reference-architecture
-ms.custom: seodec18
+ms.custom:
+  - seodec18
+  - reference-architecture
 ---
 
 # Run a highly available SharePoint Server 2016 farm in Azure
@@ -23,7 +25,7 @@ This reference architecture shows proven practices for deploying a highly availa
 
 ## Architecture
 
-This architecture builds on the one shown in [Run Windows VMs for an N-tier application][windows-n-tier]. It deploys a SharePoint Server 2016 farm with high availability inside an Azure virtual network (VNet). This architecture is suitable for a test or production environment, a SharePoint hybrid infrastructure with Office 365, or as the basis for a disaster recovery scenario.
+This architecture builds on the one shown in [Run Windows VMs for an N-tier application][windows-n-tier]. It deploys a SharePoint Server 2016 farm with high availability inside an Azure virtual network (VNet). This architecture is suitable for a test or production environment, a SharePoint hybrid infrastructure with Microsoft 365, or as the basis for a disaster recovery scenario.
 
 The architecture consists of the following components:
 
@@ -122,9 +124,9 @@ For more information about these recommendations, see [Initial deployment admini
 
 ### Hybrid workloads
 
-This reference architecture deploys a SharePoint Server 2016 farm that can be used as a [SharePoint hybrid environment][sharepoint-hybrid] &mdash; that is, extending SharePoint Server 2016 to Office 365 SharePoint Online. If you have Office Online Server, see [Office Web Apps and Office Online Server supportability in Azure][office-web-apps].
+This reference architecture deploys a SharePoint Server 2016 farm that can be used as a [SharePoint hybrid environment][sharepoint-hybrid] &mdash; that is, extending SharePoint Server 2016 to SharePoint Online. If you have Office Online Server, see [Office Web Apps and Office Online Server supportability in Azure][office-web-apps].
 
-The default service applications in this deployment are designed to support hybrid workloads. All SharePoint Server 2016 and Office 365 hybrid workloads can be deployed to this farm without changes to the SharePoint infrastructure, with one exception: The Cloud Hybrid Search Service Application must not be deployed onto servers hosting an existing search topology. Therefore, one or more search-role-based VMs must be added to the farm to support this hybrid scenario.
+The default service applications in this deployment are designed to support hybrid workloads. All SharePoint Server 2016 and Microsoft 365 hybrid workloads can be deployed to this farm without changes to the SharePoint infrastructure, with one exception: The Cloud Hybrid Search Service Application must not be deployed onto servers hosting an existing search topology. Therefore, one or more search-role-based VMs must be added to the farm to support this hybrid scenario.
 
 ### SQL Server Always On availability groups
 
@@ -357,7 +359,7 @@ This sign-in tunnels from the Fabrikam.com domain used by the on-premises networ
 [sharepoint-accounts]: /SharePoint/install/initial-deployment-administrative-and-service-accounts-in-sharepoint-server
 [sharepoint-crawling]: /SharePoint/search/best-practices-for-crawling
 [sharepoint-dr]: /SharePoint/administration/plan-for-disaster-recovery
-[sharepoint-hybrid]: https://aka.ms/sphybrid
+[sharepoint-hybrid]: /sharepoint/hybrid/hybrid
 [sharepoint-minrole]: /SharePoint/administration/managing-a-minrole-server-farm-in-sharepoint-server-2016
 [sharepoint-ops]: /SharePoint/administration/administration
 [sharepoint-reqs]: /SharePoint/install/hardware-and-software-requirements
@@ -369,7 +371,7 @@ This sign-in tunnels from the Fabrikam.com domain used by the on-premises networ
 [sql-sharepoint-best-practices]: /SharePoint/administration/best-practices-for-sql-server-in-a-sharepoint-server-farm
 [tempdb]: /sql/relational-databases/databases/tempdb-database
 [virtual-networks-nsg]: /azure/virtual-network/virtual-networks-nsg
-[visio-download]: https://archcenter.blob.core.windows.net/cdn/Sharepoint-2016.vsdx
+[visio-download]: https://arch-center.azureedge.net/Sharepoint-2016.vsdx
 [vm-sizes-general]: /azure/virtual-machines/windows/sizes-general
 [vm-sizes-memory]: /azure/virtual-machines/windows/sizes-memory
 [windows-n-tier]: ../n-tier/n-tier-sql-server.md

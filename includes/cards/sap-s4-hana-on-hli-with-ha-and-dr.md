@@ -6,7 +6,7 @@
 <article class="card">
     <div class="card-header has-margin-bottom-none" aria-hidden="true">
         <figure class="image diagram has-height-175 has-overflow-hidden level">
-            <a href="/azure/architecture/solution-ideas/articles/sap-s4-hana-on-hli-with-ha-and-dr"><img src="/azure/architecture/browse/thumbs/sap-s4-hana-on-hli-with-ha-and-dr.png" class="diagram" alt="Architecture Diagram" data-linktype="relative-path"></a>
+            <a href="/azure/architecture/solution-ideas/articles/sap-s4-hana-on-hli-with-ha-and-dr"><img src="/azure/architecture/browse/thumbs/sap-s4-hana-on-hli-with-ha-and-dr.png" class="diagram" alt="Thumbnail of SAP S/4 HANA for Large Instances Architectural Diagram." data-linktype="relative-path"></a>
         </figure>
     </div>
     <div class="card-content">

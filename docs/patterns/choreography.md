@@ -6,9 +6,11 @@ keywords: design pattern
 author: PageWriter-MSFT
 ms.date: 02/24/2020
 ms.author: pnp
-ms.topic: design-pattern
+ms.topic: conceptual
 ms.service: architecture-center
-ms.subservice: cloud-fundamentals
+ms.subservice: design-pattern
+ms.custom:
+  - design-pattern
 ---
 
 <!-- cSpell:ignore upsert typeof -->

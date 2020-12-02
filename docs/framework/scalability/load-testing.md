@@ -3,10 +3,12 @@ title: Load Testing
 description: 
 author: david-stanford
 ms.date: 10/16/2019
-ms.topic: article
+ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
-ms.custom: How are you handling user load? 
+ms.custom:
+  - How are you handling user load?
+  - article
 ---
 
 # Load Testing
@@ -19,7 +21,7 @@ Load test your application at the expected peak load to ensure there are no chal
 
 Different Azure services have soft and hard limits associated with them. Understand the limits for the services you consume so that you are not blocked if you need to exceed them. Review [Azure subscription and service limits, quotas, and constraints](/azure/azure-subscription-service-limits) to get a list of the most common Azure limits.
 
-  ![GitHub](../../_images/github.png) The [ResourceLimits](https://github.com/mspnp/samples/tree/master/OperationalExcellence/ResourceLimits) sample shows how to query the limits and quotas for commonly used resources.
+  :::image type="icon" source="../../_images/github.png" border="false"::: The [ResourceLimits](https://github.com/mspnp/samples/tree/master/OperationalExcellence/ResourceLimits) sample shows how to query the limits and quotas for commonly used resources.
 
 ## Understanding application behavior under load
 

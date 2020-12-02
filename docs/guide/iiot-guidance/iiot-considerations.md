@@ -1,15 +1,17 @@
 ---
 title: Considerations in Azure Industrial IoT solution
 titleSuffix: Azure Application Architecture Guide
-description: 
+description: Architectural considerations in an IIoT Analytics Solution.
 author: khilscher
 ms.date: 07/17/2020
-ms.topic: guide
+ms.topic: conceptual
 ms.service: architecture-center
 ms.author: kehilsch
 ms.category:
   - fcp
-ms.subservice: reference-architecture
+ms.subservice: azure-guide
+ms.custom:
+  - guide
 ---
 
 # Architectural Considerations in an IIoT Analytics Solution

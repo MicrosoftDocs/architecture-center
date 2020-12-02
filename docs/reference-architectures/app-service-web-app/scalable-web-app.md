@@ -4,12 +4,14 @@ titleSuffix: Azure Reference Architectures
 description: Use the proven practices in this reference architecture to improve scalability and performance in an Azure App Service web application..
 author: doodlemania2
 ms.date: 10/03/2019
-ms.topic: reference-architecture
+ms.topic: conceptual
 ms.service: architecture-center
 ms.category:
   - web
 ms.subservice: reference-architecture
-ms.custom: seodec18
+ms.custom:
+  - seodec18
+  - reference-architecture
 ---
 
 <!-- cSpell:ignore PDFs -->
@@ -186,5 +188,5 @@ This architecture builds on the one shown in [Basic web application][basic-web-a
 [sql-db]: /azure/sql-database
 [sql-elastic]: /azure/sql-database/sql-database-elastic-scale-introduction
 [sql-encryption]: /azure/azure-sql/database/transparent-data-encryption-tde-overview?view=sql-server-ver15
-[visio-download]: https://archcenter.blob.core.windows.net/cdn/app-service-reference-architectures.vsdx
+[visio-download]: https://arch-center.azureedge.net/app-service-reference-architectures.vsdx
 [web-app-multi-region]: ./multi-region.md

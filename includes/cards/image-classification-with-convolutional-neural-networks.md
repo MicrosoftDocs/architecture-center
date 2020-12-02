@@ -6,7 +6,7 @@
 <article class="card">
     <div class="card-header has-margin-bottom-none" aria-hidden="true">
         <figure class="image diagram has-height-175 has-overflow-hidden level">
-            <a href="/azure/architecture/solution-ideas/articles/image-classification-with-convolutional-neural-networks"><img src="/azure/architecture/browse/thumbs/image-classification-with-convolutional-neural-networks.png" class="diagram" alt="Architecture Diagram" data-linktype="relative-path"></a>
+            <a href="/azure/architecture/solution-ideas/articles/image-classification-with-convolutional-neural-networks"><img src="/azure/architecture/browse/thumbs/image-classification-with-convolutional-neural-networks.png" class="diagram" alt="Thumbnail of Image classification with Convolutional Neural Networks Architectural Diagram." data-linktype="relative-path"></a>
         </figure>
     </div>
     <div class="card-content">

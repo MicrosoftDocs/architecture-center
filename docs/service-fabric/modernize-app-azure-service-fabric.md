@@ -3,13 +3,15 @@ title: Modernize enterprise applications - Azure Service Fabric
 description: Best practices about moving Windows applications to an Azure compute platform without rewriting. This migration uses container support in Azure Service Fabric.
 author: colincole
 ms.date: 05/01/2019
-ms.topic: guide
+ms.topic: conceptual
 ms.author: pnp
 ms.service: architecture-center
 ms.category:
   - migration
   - management-and-governance
-ms.subservice: reference-architecture
+ms.subservice: azure-guide
+ms.custom:
+  - guide
 ---
 
 # Modernize enterprise applications with Azure Service Fabric
@@ -72,7 +74,7 @@ From an application development perspective, determine the workstation requireme
 
 - [Docker for Windows](https://www.docker.com/docker-windows) is required for developers to containerize and test their applications prior to deployment.
 - Visual Studio Docker support is required. Standardize on the latest version of [Visual Studio](https://visualstudio.microsoft.com/) for the best Docker compatibility.
-- If workstations don't have enough hardware resources to oversee those requirements, use Azure compute resources for speed and productivity gains. An option is the Azure DevTest Labs Service. Docker for Windows, and Visual Studio 2017 require a minimum of 8 GB of memory.
+- If workstations don't have enough hardware resources to oversee those requirements, use Azure compute resources for speed and productivity gains. An option is the Azure DevTest Labs Service. Docker for Windows, and Visual Studio 2019 require a minimum of 8 GB of memory.
 
 ### Networking requirements
 
@@ -94,10 +96,11 @@ After you've determined the applications that meet the selection criteria, conta
 Here are the basic steps for containerizing an application.
 
 1. Open the project in Visual Studio.
-2. Make sure the project compiles and runs locally on the developer workstation.
-3. Add a Dockerfile to the project. This Dockerfile example shows a basic .NET MVC application.
-    ```
-    FROM microsoft/aspnet:4.7
+1. Make sure the project compiles and runs locally on the developer workstation.
+1. Add a Dockerfile to the project. This Dockerfile example shows a basic .NET MVC application.
+
+    ```dockerfile
+    FROM mcr.microsoft.com/dotnet/framework/aspnet:4.8
     ADD PublishOutput/ /inetpub/wwwroot
 
     # add a certificate and configure SSL
@@ -111,11 +114,11 @@ Here are the basic steps for containerizing an application.
     # plugin into SF healthcheck ensuring the container website is running
     HEALTHCHECK --interval=30s --timeout=30s --start-period=60s --retries=3 CMD curl -f http://localhost/ || exit 1
     ```
-4. Test locally by using Docker For Windows. The application must successfully run in a Docker container by using the Visual Studio debug experience. For more information, see [Deploy a .NET app using Docker Compose](/azure/service-fabric/service-fabric-host-app-in-a-container).
 
-5. Build (if needed), tag, and push the tested image to a Docker registry, like the [Azure Container Registry](/azure/container-registry/) service. This example uses an existing Azure Container Registry named MyAcr and Docker build/tag/push to build/deploy appA to the registry.
+1. Test locally by using Docker For Windows. The application must successfully run in a Docker container by using the Visual Studio debug experience. For more information, see [Deploy a .NET app using Docker Compose](/azure/service-fabric/service-fabric-host-app-in-a-container).
+1. Build (if needed), tag, and push the tested image to a container registry, like the [Azure Container Registry](/azure/container-registry/) service. This example uses an existing Azure Container Registry named MyAcr and Docker build/tag/push to build/deploy appA to the registry.
 
-    ```
+    ```bash
     docker login myacr.azurecr.io -u myacr -p <pwd>
     docker build -t appa .
     docker tag appa myacr.azurecr.io/appa:1.0
@@ -125,7 +128,7 @@ Here are the basic steps for containerizing an application.
 The image is tagged with a version number that Service Fabric references when it deploys and versions the container. Azure DevOps encapsulates and executes the manual Docker build/tag/push process. DevOps details are described in the [DevOps and CI/CD](#devops-and-cicd) section.
 
 > [!NOTE]
-> In the preceding example, the base image is "microsoft/aspnet4.7" from DockerHub.
+> In the preceding example, the base image is "mcr.microsoft.com/dotnet/framework/aspnet:4.8" from the Microsoft Container Registry.
 
 Here are some considerations about the base images:
 
@@ -210,7 +213,7 @@ The Service Fabric Log Analytics workspace and Service Fabric solution provide d
 
 ### Unused container images
 
-Docker images are downloaded to each Service Fabric host and can consume space on the host disk. To free up disk space, consider [image pruning](/azure/service-fabric/service-fabric-get-started-containers#configure-the-runtime-to-remove-unused-container-images) to remove images that are no longer referenced and used by running containers. Configure this option in the Host section of the cluster manifest.
+Container images are downloaded to each Service Fabric host and can consume space on the host disk. To free up disk space, consider [image pruning](/azure/service-fabric/service-fabric-get-started-containers#configure-the-runtime-to-remove-unused-container-images) to remove images that are no longer referenced and used by running containers. Configure this option in the Host section of the cluster manifest.
 
 ### Secrets and certificates management with Key Vault
 
@@ -277,7 +280,7 @@ Service Fabric has a built-in reverse proxy but is limited in its feature set.  
 
 Here is the network flow for the example infrastructure.
 
-![Example infrastructure for containerizing apps](images/containersf-net.png)
+![Diagram of the example infrastructure showing a reverse proxy for inbound traffic.](images/containersf-net.png)
 The key aspect of the ingress reverse proxy is inspecting inbound traffic and rewriting that traffic to the destination container.
 
 For example, application A is registered with the Service Fabric DNS service with the domain name: appA.container.myorg.com. External users access the application with `https://appA.myorg.com`. Use public or organizational DNS and register appA.myorg.com to point to the public IP for the application node type.
@@ -288,7 +291,7 @@ For example, application A is registered with the Service Fabric DNS service wit
 
 Here is an example ApplicationManifest.xml for Container A in the example infrastructure.
 
-```
+```xml
 <?xml version="1.0" encoding="utf-8"?>
 <ApplicationManifest ApplicationTypeName="sfapp02Type"
                      ApplicationTypeVersion="1.0.0"
@@ -329,7 +332,7 @@ Here is an example ApplicationManifest.xml for Container A in the example infras
 
 Here is the example ServiceManifest.xml for the containerized application appA.
 
-```
+```xml
 <?xml version="1.0" encoding="utf-8"?>
 <ServiceManifest Name="appAsvcPkg"
                  Version="1.0.0"
@@ -365,11 +368,11 @@ For information about manifests, see [Service Fabric application and service man
 
 ### Environmental configuration
 
-Do not hardcode configuration values in the container image by using [environment variables](/azure/service-fabric/service-fabric-how-to-specify-environment-variables) to pass values to a container. A DevOps pipeline can build a Docker image, test in a test environment, promote to staging (or pre-production), and promote to production. Do not rebuild a docker image for each environment.
+Do not hardcode configuration values in the container image by using [environment variables](/azure/service-fabric/service-fabric-how-to-specify-environment-variables) to pass values to a container. A DevOps pipeline can build a container image, test in a test environment, promote to staging (or pre-production), and promote to production. Do not rebuild an image for each environment.
 
-Docker can pass environment variables directly to a Docker container when running a container. In this example, Docker passes the eShopTitle variable to the eshopweb container:
+Docker can pass environment variables directly to a container when starting one. In this example, Docker passes the eShopTitle variable to the eshopweb container:
 
-```
+```bash
 docker run -p 80:80 -d --name eshoptest -e eShopTitle=SomeName eshopweb:1.0
 ```
 
@@ -424,8 +427,8 @@ Here are two approaches for getting application logs into Log Analytics.
 
     Each container records any output sent to the command line of a container. Access the output outside the container, which is automatically executed by Container Monitoring Solution.
 
-    ```
-    Docker Logs <ContainerID>
+    ```bash
+    docker logs <ContainerID>
     ```
 
     Move Docker to an attached VM data disk with enough storage to make sure the OS drive doesn't fill up with container logs.
@@ -441,21 +444,21 @@ Here are two approaches for getting application logs into Log Analytics.
 
 Application containerization ensures consistency. It makes sure all Service Fabric-hosted applications use the latest approved corporate image and provides an automatable image updating process that is consistent through DevOps. Azure Pipelines provides the automation process. For more information, see [Tutorial: Deploy an application with CI/CD to a Service Fabric cluster](/azure/service-fabric/service-fabric-tutorial-deploy-app-with-cicd-vsts).
 
-![Service Fabric scale set extensions](images/containersf-devops.png)
+![Diagram showing how containerized Service Fabric-hosted apps work with DevOps and CI/CD.](images/containersf-devops.png)
 
 - An enterprise may want to control the base container images in a centralized registry. The preceding workflow shows one image registry. There could be multiple registries that are used to share central IT-built enterprise images with application teams. One way to centralize control is for the central IT registry to allow application teams with read-only access to the enterprise base image repository. Application teams each have their own container registry with their Docker files and build off the central IT base image repository.
-- There are various third-party image scanning tools that can plug into this process on Docker push/pulls from the Azure Container Registry. Those solutions are available in Azure Marketplace and referenced in the Azure portal Container Registry blade. For example, Aqua and TwistLock.
+- There are various third-party image scanning tools that can plug into this process on push/pulls from the Azure Container Registry. Those solutions are available in Azure Marketplace and referenced in the Azure portal Container Registry blade. For example, Aqua and TwistLock.
 After the source code is pushed to a git-based repository, set up CI/CD by creating an Azure DevOps build definition, selecting the source repository, and choosing the **Azure Service Fabric Application and Docker Support** template.
 
 ![Azure Service Fabric Application and Docker Support template](images/containersf-devops-template1.png)
 
-The template sets up the build process and tasks for CI/CD by building and containerizing the application, pushing the container image to a Docker registry (Azure Container Registry is the default), and deploying the Service Fabric application with the containerized services to the cluster. Each application code change creates a version of the code and an updated containerized image. Service Fabric's rolling upgrade feature deploys service upgrades gracefully.
+The template sets up the build process and tasks for CI/CD by building and containerizing the application, pushing the container image to a container registry (Azure Container Registry is the default), and deploying the Service Fabric application with the containerized services to the cluster. Each application code change creates a version of the code and an updated containerized image. Service Fabric's rolling upgrade feature deploys service upgrades gracefully.
 
-![Azure Service Fabric Application and Docker Support template](images/containersf-devops-template2.png)
+![Screenshot showing Service Fabric's rolling upgrade feature for updating manifests.](images/containersf-devops-template2.png)
 
 Here is an example of a build starting the full DevOps process on an Azure-provided hosted build agent. Some enterprises may require the build agents to run internally within their private Azure virtual network corporate network. Set up a Windows build agent VM and instruct Azure DevOps to use the private VM for building and deploying code. For information about using custom build agents, see Self-hosted Windows agents.
 
-![Azure Service Fabric Application and Docker Support template](images/containersf-devops-process.png)
+![Example screenshot of a build starting the full DevOps process on an Azure-provided hosted build agent.](images/containersf-devops-process.png)
 
 ## Conclusion
 

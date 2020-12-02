@@ -4,10 +4,12 @@ titleSuffix: Performance antipatterns for cloud apps
 description: Avoid continually creating new instances of an object that is meant to be created once and then shared.
 author: dragon119
 ms.date: 06/05/2017
-ms.topic: article
+ms.topic: conceptual
 ms.service: architecture-center
-ms.subservice: cloud-fundamentals
-ms.custom: seodec18
+ms.subservice: anti-pattern
+ms.custom:
+  - seodec18
+  - article
 ---
 
 # Improper Instantiation antipattern
@@ -168,7 +170,7 @@ For comparison, the following image shows the stack trace telemetry. This time, 
 
 The next graph shows a similar load test using a shared instance of the `ExpensiveToCreateService` object. Again, the volume of handled requests increases in line with the user load, while the average response time remains low.
 
-![Throughput of the sample application reusing the same instance of an HttpClient object for each request][throughput-single-ExpensiveToCreateService-instance]
+![Graph showing a similar load test using a shared instance of the ExpensiveToCreateService object.][throughput-single-ExpensiveToCreateService-instance]
 
 [sample-app]: https://github.com/mspnp/performance-optimization/tree/master/ImproperInstantiation
 [service-bus-messaging]: /azure/service-bus-messaging/service-bus-performance-improvements

@@ -5,7 +5,7 @@ description: Compare Azure cloud services to Amazon Web Services (AWS) for multi
 keywords: cloud services comparison, cloud services compared, multicloud, compare Azure AWS, compare Azure and AWS, compare AWS and Azure, IT capabilities
 author: doodlemania2
 ms.author: pnp
-ms.date: 08/11/2020
+ms.date: 11/11/2020
 ms.topic: reference
 ms.service: architecture-center
 ms.subservice: cloud-fundamentals
@@ -39,7 +39,7 @@ For an overview of Azure for AWS users, see [Introduction to Azure for AWS profe
 | AWS service | Azure service | Description |
 | ----------- | ------------- | ----------- |
 | [SageMaker](https://aws.amazon.com/sagemaker/) | [Machine Learning](https://azure.microsoft.com/services/machine-learning-services/) | A cloud service to train, deploy, automate, and manage machine learning models. |
-| [Alexa Skills Kit](https://developer.amazon.com/alexa/alexa-skills-kit) | [Bot Framework](https://dev.botframework.com/) | Build and connect intelligent bots that interact with your users using text/SMS, Skype, Teams, Slack, Office 365 mail, Twitter, and other popular services. |
+| [Alexa Skills Kit](https://developer.amazon.com/alexa/alexa-skills-kit) | [Bot Framework](https://dev.botframework.com/) | Build and connect intelligent bots that interact with your users using text/SMS, Skype, Teams, Slack, Microsoft 365 mail, Twitter, and other popular services. |
 | [Lex](https://aws.amazon.com/lex/) | [Speech Services](https://azure.microsoft.com/services/cognitive-services/speech/) | API capable of converting speech to text, understanding intent, and converting text back to speech for natural responsiveness. |
 | [Lex](https://aws.amazon.com/lex/) | [Language Understanding (LUIS)](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/) | Allows your applications to understand user commands contextually. |
 | [Polly](https://aws.amazon.com/polly/), [Transcribe](https://aws.amazon.com/transcribe/) | [Speech Services](https://azure.microsoft.com/services/cognitive-services/speech/) | Enables both Speech to Text, and Text into Speech capabilities. |
@@ -82,6 +82,7 @@ For an overview of Azure for AWS users, see [Introduction to Azure for AWS profe
 
 | AWS service | Azure service | Description |
 | ----------- | ------------- | ----------- |
+| [EMR](https://aws.amazon.com/emr/) | [Azure Data Explorer](https://azure.microsoft.com/en-au/services/data-explorer/) | Fully managed, low latency, distributed big data analytics platform to run complex queries across petabytes of data. |
 | [EMR](https://aws.amazon.com/emr/) | [Databricks](https://azure.microsoft.com/services/databricks/) | Apache Spark-based analytics platform. |
 | [EMR](https://aws.amazon.com/emr/) | [HDInsight](https://azure.microsoft.com/services/hdinsight/) | Managed Hadoop service. Deploy and manage Hadoop clusters in Azure. |
 | [EMR](https://aws.amazon.com/emr/) | [Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage/) | Massively scalable, secure data lake functionality built on Azure Blob Storage. |
@@ -90,10 +91,12 @@ For an overview of Azure for AWS users, see [Introduction to Azure for AWS profe
 
 <ul class="grid">
 
+
 [!INCLUDE [Azure data platform end-to-end](../../includes/cards/data-platform-end-to-end.md)]
 [!INCLUDE [Campaign Optimization with Azure HDInsight Spark Clusters](../../includes/cards/campaign-optimization-with-azure-hdinsight-spark-clusters.md)]
 
 </ul>
+
 
 [view all](../browse/index.md#databases)
 
@@ -109,8 +112,8 @@ For an overview of Azure for AWS users, see [Introduction to Azure for AWS profe
 
 | AWS service | Azure service | Description |
 | ----------- | ------------- | ----------- |
-| [Kinesis Analytics](https://aws.amazon.com/kinesis/data-analytics/) | [Stream Analytics](https://azure.microsoft.com/services/stream-analytics/) <br/><br/>[Data Lake Analytics](https://azure.microsoft.com/services/data-lake-analytics/) <br/><br/>[Data Lake Store](https://azure.microsoft.com/services/data-lake-store/) | Storage and analysis platforms that create insights from large quantities of data, or data that originates from many sources. |
-| [QuickSight](https://aws.amazon.com/quicksight/) | [Power BI](https://powerbi.microsoft.com/) | Business intelligence tools that build visualizations, perform ad hoc analysis, and develop business insights from data. |
+| [Kinesis Analytics](https://aws.amazon.com/kinesis/data-analytics/) | [Stream Analytics](https://azure.microsoft.com/services/stream-analytics/) <br/><br/> [Azure Data Explorer](https://azure.microsoft.com/en-au/services/data-explorer/) <br/><br/> [Data Lake Analytics](https://azure.microsoft.com/services/data-lake-analytics/) <br/><br/>[Data Lake Store](https://azure.microsoft.com/services/data-lake-store/) | Storage and analysis platforms that create insights from large quantities of data, or data that originates from many sources. |
+| [QuickSight](https://aws.amazon.com/quicksight/) | [Power BI](https://powerbi.microsoft.com/) | Business intelligence tools that build visualizations, perform ad hoc analysis, and develop business insights from data. 
 | [CloudSearch](https://aws.amazon.com/cloudsearch/) | [Cognitive Search](https://azure.microsoft.com/services/search/) | Delivers full-text search and related search analytics and capabilities. |
 | [Athena](https://aws.amazon.com/athena/) | [Data Lake Analytics](https://azure.microsoft.com/services/data-lake-analytics/) | Provides a serverless interactive query service that uses standard SQL for analyzing databases. |
 
@@ -266,7 +269,7 @@ In addition to front-end testing, the [Azure DevTest Labs](https://azure.microso
 | [Certificate Manager](https://aws.amazon.com/certificate-manager/) | [App Service Certificates available on the Portal](https://azure.microsoft.com/blog/internals-of-app-service-certificate/) | Service that allows customers to create, manage, and consume certificates seamlessly in the cloud. |
 | [GuardDuty](https://aws.amazon.com/guardduty/) | [Advanced Threat Protection](https://azure.microsoft.com/features/azure-advanced-threat-protection/) | Detect and investigate advanced attacks on-premises and in the cloud. |
 | [Artifact](https://aws.amazon.com/artifact/) | [Service Trust Portal](https://servicetrust.microsoft.com/) | Provides access to audit reports, compliance guides, and trust documents from across cloud services. |
-| [Shield](https://aws.amazon.com/shield/) | [DDos Protection Service](/azure/security/azure-ddos-best-practices) | Provides cloud services with protection from distributed denial of services (DDoS) attacks. |
+| [Shield](https://aws.amazon.com/shield/) | [DDos Protection Service](/azure/security/fundamentals/ddos-best-practices) | Provides cloud services with protection from distributed denial of services (DDoS) attacks. |
 
 #### Security architectures
 
@@ -292,6 +295,7 @@ In addition to front-end testing, the [Azure DevTest Labs](https://azure.microso
 | [API Gateway](https://aws.amazon.com/api-gateway/) | [API Management](https://azure.microsoft.com/services/api-management/) | A turnkey solution for publishing APIs to external and internal consumers. |
 | [CloudFront](https://aws.amazon.com/cloudfront/) | [Content Delivery Network](https://azure.microsoft.com/services/cdn/) | A global content delivery network that delivers audio, video, applications, images, and other files. |
 | [Global Accelerator](https://aws.amazon.com/global-accelerator/) | [Front Door](https://azure.microsoft.com/services/frontdoor/) | Easily join your distributed microservices architectures into a single global application using HTTP load balancing and path-based routing rules. Automate turning up new regions and scale-out with API-driven global actions, and independent fault-tolerance to your back end microservices in Azure-or anywhere. |
+| [Global Accelerator](https://aws.amazon.com/global-accelerator/) | [Cross-regional load balancer](https://docs.microsoft.com/azure/load-balancer/cross-region-overview) | Distribute and load balance traffic across multiple Azure regions via a single, static, global anycast public IP address. |
 | [LightSail](https://aws.amazon.com/lightsail/) | [App Service](https://azure.microsoft.com/services/app-service/) | Build, deploy, and scale web apps on a fully managed platform. |
 
 #### Web architectures
@@ -311,7 +315,7 @@ In addition to front-end testing, the [Azure DevTest Labs](https://azure.microso
 | Area | AWS service | Azure service | Description |
 |------|-------------|---------------|-------------|
 | Backend process logic | [Step Functions](https://aws.amazon.com/step-functions/) | [Logic Apps](https://azure.microsoft.com/services/logic-apps/) | Cloud technology to build distributed applications using out-of-the-box connectors to reduce integration challenges. Connect apps, data and devices on-premises or in the cloud. |
-| Enterprise application services | [WorkMail](https://aws.amazon.com/workmail/), [WorkDocs](https://aws.amazon.com/workdocs/) | [Office 365](https://products.office.com/) | Fully integrated Cloud service providing communications, email, document management in the cloud and available on a wide variety of devices. |
+| Enterprise application services | [WorkMail](https://aws.amazon.com/workmail/), [WorkDocs](https://aws.amazon.com/workdocs/) | [Microsoft 365](https://products.office.com/) | Fully integrated Cloud service providing communications, email, document management in the cloud and available on a wide variety of devices. |
 | Gaming | [GameLift](https://aws.amazon.com/gamelift/), [GameSparks](https://www.gamesparks.com/) | [PlayFab](https://playfab.com/) | Managed services for hosting dedicated game servers. |
 | Media transcoding | [Elastic Transcoder](https://aws.amazon.com/elastictranscoder/) | [Media Services](https://azure.microsoft.com/services/media-services/) | Services that offer broadcast-quality video streaming services, including various transcoding technologies. |
 | Workflow | [Simple Workflow Service (SWF)](https://aws.amazon.com/swf/) | [Logic Apps](https://azure.microsoft.com/services/logic-apps/) | Serverless technology for connecting apps, data and devices anywhere, whether on-premises or in the cloud for large ecosystems of SaaS and cloud-based connectors. |

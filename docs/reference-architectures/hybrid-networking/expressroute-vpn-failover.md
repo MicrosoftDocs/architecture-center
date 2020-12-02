@@ -4,13 +4,16 @@ titleSuffix: Azure Reference Architectures
 description: Implement a highly available and secure site-to-site network architecture that spans an Azure virtual network and an on-premises network connected using ExpressRoute with VPN gateway failover.
 author: telmosampaio
 ms.date: 10/22/2017
-ms.topic: reference-architecture
+ms.topic: conceptual
 ms.service: architecture-center
 ms.category:
   - hybrid
   - networking
 ms.subservice: reference-architecture
-ms.custom: seodec18, networking
+ms.custom:
+  - seodec18
+  - networking
+  - reference-architecture
 ---
 
 <!-- cSpell:ignore RRAS -->
@@ -151,4 +154,4 @@ To deploy the solution, perform the following steps.
 [guidance-expressroute]: ./expressroute.md
 [guidance-vpn]: ./vpn.md
 [best-practices-security]: /azure/best-practices-network-security
-[visio-download]: https://archcenter.blob.core.windows.net/cdn/hybrid-network-architectures.vsdx
+[visio-download]: https://arch-center.azureedge.net/hybrid-network-architectures.vsdx

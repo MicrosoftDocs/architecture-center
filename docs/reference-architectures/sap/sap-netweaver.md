@@ -3,13 +3,18 @@ title: Run SAP NetWeaver in Windows on Azure
 description: Proven practices for running SAP NetWeaver in a Windows environment on Azure with high availability.
 author: lbrader
 ms.date: 02/19/2020
-ms.topic: reference-architecture
+ms.topic: conceptual
 ms.service: architecture-center
 ms.category:
   - databases
   - management-and-governance
 ms.subservice: reference-architecture
-ms.custom: seodec18, SAP, Windows, fcp
+ms.custom:
+  - seodec18
+  - SAP
+  - Windows
+  - fcp
+  - reference-architecture
 ---
 
 <!-- cSpell:ignore lbrader netweaver jumpbox jumpboxes ACLs HANA SOFS SWDs SMLG ABAP SAPGUI SAPGUIs SPOF WSFC ASCS MSEE Iperf SIOS sapmnt -->
@@ -319,7 +324,7 @@ To encrypt Windows virtual machine disks, you can use [Azure Disk Encryption](/a
 
 For data at rest encryption, SQL Server Transparent Data Encryption (TDE) encrypts SQL Server, Azure SQL Database, and Azure SQL Data Warehouse data files. For more information, see [SQL Server Azure Virtual Machines DBMS deployment for SAP NetWeaver](/azure/virtual-machines/workloads/sap/dbms_guide_sqlserver).
 
-As always, make sure to manage security updates and patches, a necessary and ongoing effort to safeguard your information assets. Consider an end-to-end [automation approach](/azure/automation/automation-tutorial-update-management) for the task.
+As always, make sure to manage security updates and patches, a necessary and ongoing effort to safeguard your information assets. Consider an end-to-end [automation approach](/azure/automation/update-management/manage-updates-for-vm) for the task.
 
 ## Cost considerations
 
@@ -388,5 +393,5 @@ See the following articles for more information and for examples of SAP workload
 [aaf-cost]: ../../framework/cost/overview.md
 [azure-pricing-calculator]: https://azure.microsoft.com/pricing/calculator
 [expressroute-pricing]: https://azure.microsoft.com/pricing/details/expressroute
-[visio-download]: https://archcenter.blob.core.windows.net/cdn/sap-netweaver.vsdx
+[visio-download]: https://arch-center.azureedge.net/sap-netweaver.vsdx
 [az-spot-vms]: /azure/virtual-machines/windows/spot-vms

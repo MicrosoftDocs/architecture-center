@@ -168,7 +168,7 @@ The output from this architecture is a trained model that is saved to blob stora
 [resnet]: https://arxiv.org/abs/1512.03385
 [security-guide]: /azure/storage/common/storage-security-guide
 [azureml-logging]: /azure/machine-learning/how-to-track-experiments
-[azureml-tensorboard]: https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/track-and-monitor-experiments/tensorboard/tensorboard.ipynb
+[azureml-tensorboard]: https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/track-and-monitor-experiments/tensorboard/tensorboard/tensorboard.ipynb
 [tfrecords]: https://www.tensorflow.org/tutorials/load_data/tf_records
 [petastorm]: https://github.com/uber/petastorm
 [premium-storage]: https://azure.microsoft.com/services/storage/blobs

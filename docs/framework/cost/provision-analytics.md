@@ -1,12 +1,13 @@
 ---
 title: Big data cost estimates
 description: Describes tier, SKU choices for analytics services
-author:  PageWriter-MSFT
+author: PageWriter-MSFT
 ms.date: 08/24/2020
-ms.topic: article
+ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
-ms.custom: 
+ms.custom:
+  - article
 ---
 
 # Big data analytics cost estimates
@@ -132,10 +133,10 @@ Each tier offers one or more instances. The main cost drivers are the QPUs and m
 Azure Data Factory is a big data orchestrator. The service transfers data to and from diverse types of data stores. It transforms the data by using other compute services. It creates workflows that automate data movement and transformation. 
 You are only charged for consumption. Consumption is measured by these factors:
 
--	Pipeline activities that take the actions on the data. Those actions include copying the data from various sources, transforming it, and controlling the flow. For more information, see [data movement activities](/azure/data-factory/copy-activity-overview), [data transformation activities](/azure/data-factory/transform-data), and [control activities](/azure/data-factory/control-flow-web-activity).
+- Pipeline activities that take the actions on the data. Those actions include copying the data from various sources, transforming it, and controlling the flow. For more information, see [data movement activities](/azure/data-factory/copy-activity-overview), [data transformation activities](/azure/data-factory/transform-data), and [control activities](/azure/data-factory/control-flow-web-activity).
 
     You are charged for the total activities in thousands.
--	Executions measured in data integration units. Each unit tracks CPU, memory, and network resource allocation. This measurement applies to Azure Integration Runtime.
+- Executions measured in data integration units. Each unit tracks CPU, memory, and network resource allocation. This measurement applies to Azure Integration Runtime.
 
 You are also charged for execution activities, such as copying data, lookups, and external activities. Each activity is individually priced. You are also charged for pipelines with no associated triggers or runs within the month. All activities are prorated by the minute and rounded up.
 

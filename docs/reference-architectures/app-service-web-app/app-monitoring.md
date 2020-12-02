@@ -3,13 +3,15 @@ title: Web application monitoring on Azure
 description: Learn about the monitoring services and a dataflow model for use with multiple data sources. Many monitoring tools and services work with Azure deployments.
 author: doodlemania2
 ms.date: 12/12/2018
-ms.topic: reference-architecture
+ms.topic: conceptual
 ms.service: architecture-center
 ms.category:
   - web
   - management-and-governance
 ms.subservice: reference-architecture
-ms.custom: azcat
+ms.custom:
+  - azcat
+  - reference-architecture
 ---
 
 # Web application monitoring on Azure
@@ -167,3 +169,4 @@ Check out these resources designed to help you get started with your own monitor
 [app-insights-limits]: /azure/azure-subscription-service-limits#application-insights
 [message-filtering]: /azure/application-insights/app-insights-api-filtering-sampling
 [message-sampling]: /azure/application-insights/app-insights-sampling
+[devops-monitoring]: ../../framework/devops/monitoring.md

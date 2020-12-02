@@ -326,7 +326,7 @@ In addition to the network configurations available in the [Cloud Bursting](#hyb
     </li>
     <li class="column is-one-third has-padding-top-small-mobile has-padding-bottom-small">
         <a class="is-undecorated is-full-height is-block"
-            href="/azure/architecture/reference-architectures/hybrid-networking/shared-services">
+            href="/azure/architecture/reference-architectures/hybrid-networking/#hub-spoke-network-topology">
             <article class="card has-outline-hover is-relative is-fullheight">
                     <figure class="image has-margin-right-none has-margin-left-none has-margin-top-none has-margin-bottom-none">
                         <img role="presentation" alt="Diagram showing how to implement a hub-spoke network topology with shared services in Azure." src="/azure/architecture/reference-architectures/hybrid-networking/images/shared-services.png">

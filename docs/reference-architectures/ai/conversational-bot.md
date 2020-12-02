@@ -3,13 +3,15 @@ title: Build an enterprise-grade conversational bot
 description: How to build an enterprise-grade conversational bot (chatbot) using the Azure Bot Framework.
 author: roalexan
 ms.date: 01/24/2019
-ms.topic: reference-architecture
+ms.topic: conceptual
 ms.service: architecture-center
 ms.category:
   - ai-machine-learning
   - featured
 ms.subservice: reference-architecture
-ms.custom: azcat-ai
+ms.custom:
+  - azcat-ai
+  - reference-architecture
 ---
 
 # Enterprise-grade conversational bot
@@ -261,7 +263,7 @@ For other cost considerations, see the Cost section in [Microsoft Azure Well-Arc
 [webapp]: /azure/app-service/overview
 [webchat]: /azure/bot-service/bot-service-channel-connect-webchat?view=azure-bot-service-4.0
 
-[visio-download]: https://archcenter.blob.core.windows.net/cdn/conversational-bot.vsdx
+[visio-download]: https://arch-center.azureedge.net/conversational-bot.vsdx
 
 [cosmosdb-logger]: https://github.com/Microsoft/botbuilder-utils-js/tree/master/packages/botbuilder-transcript-cosmosdb
 [appinsights-logger]: https://github.com/Microsoft/botbuilder-utils-js/tree/master/packages/botbuilder-transcript-app-insights

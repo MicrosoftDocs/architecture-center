@@ -6,7 +6,7 @@
 <article class="card">
     <div class="card-header has-margin-bottom-none" aria-hidden="true">
         <figure class="image diagram has-height-175 has-overflow-hidden level">
-            <a href="/azure/architecture/solution-ideas/articles/devsecops-in-azure"><img src="/azure/architecture/browse/thumbs/devsecops-in-azure.png" class="diagram" alt="Architecture Diagram" data-linktype="relative-path"></a>
+            <a href="/azure/architecture/solution-ideas/articles/devsecops-in-azure"><img src="/azure/architecture/browse/thumbs/devsecops-in-azure.png" class="diagram" alt="Thumbnail of DevSecOps in Azure Architectural Diagram." data-linktype="relative-path"></a>
         </figure>
     </div>
     <div class="card-content">
@@ -15,7 +15,7 @@
         </a>
         <ul class="card-content-metadata">
             <li>12/16/2019</li>
-            <li>3 min read</li>
+            <li>4 min read</li>
         </ul>
         <p class="card-content-description">DevSecOps involves utilizing security best practices from the beginning of development, shifting the focus on security away from auditing at the end and towards development in the beginning</p>
         <div class="bottom-to-top-fade is-hidden-mobile"></div>

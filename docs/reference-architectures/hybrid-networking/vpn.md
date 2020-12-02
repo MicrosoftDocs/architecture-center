@@ -3,13 +3,15 @@ title: Extend an on-premises network using VPN
 description: A secure site-to-site network architecture that spans an Azure virtual network and an on-premises network connected using a VPN.
 author: doodlemania2
 ms.date: 01/24/2020
-ms.topic: reference-architecture
+ms.topic: conceptual
 ms.service: architecture-center
 ms.category:
   - hybrid
   - networking
 ms.subservice: reference-architecture
-ms.custom: networking
+ms.custom:
+  - networking
+  - reference-architecture
 ---
 
 # On-premises network connected to Azure using a VPN gateway
@@ -264,7 +266,7 @@ Although VPNs can be used to connect virtual networks within Azure, it's not alw
 [route-based-routing]: https://en.wikipedia.org/wiki/Static_routing
 [rras-logging]: https://www.petri.com/enable-diagnostic-logging-in-windows-server-2012-r2-routing-and-remote-access
 [sla-for-vpn-gateway]: https://azure.microsoft.com/support/legal/sla/vpn-gateway
-[visio-download]: https://archcenter.blob.core.windows.net/cdn/hybrid-network-architectures.vsdx
+[visio-download]: https://arch-center.azureedge.net/hybrid-network-architectures.vsdx
 [vpn-appliance-ipsec]: /azure/vpn-gateway/vpn-gateway-about-vpn-devices#ipsec
 [vpn-appliance]: /azure/vpn-gateway/vpn-gateway-about-vpn-devices
 [vpn-appliances]: /azure/vpn-gateway/vpn-gateway-about-vpn-devices

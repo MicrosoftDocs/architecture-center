@@ -3,9 +3,11 @@ title: Processing CSV and JSON files
 description: Learn about CSV and JSON files, the most common formats for ingesting, exchanging, and storing unstructured or semi-structured data.
 author: zoinerTejada
 ms.date: 02/12/2018
-ms.topic: guide
+ms.topic: conceptual
 ms.service: architecture-center
-ms.subservice: cloud-fundamentals
+ms.subservice: azure-guide
+ms.custom:
+  - guide
 ---
 
 # Working with CSV and JSON files for data solutions

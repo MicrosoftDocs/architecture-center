@@ -5,6 +5,8 @@ items:
   href: icons/index.md
 - name: Browse all Architectures
   href: browse/index.md
+- name: Browse Hybrid and Multicloud Architectures
+  href: browse/hybrid_index.md
 - name: What's new
   href: changelog.md
 - name: Application Architecture Guide
@@ -66,7 +68,11 @@ items:
     - name: Choose a load balancing service
       href: guide/technology-choices/load-balancing-overview.md
     - name: Choose a messaging service
-      href: guide/technology-choices/messaging.md
+      items:
+      - name: Asynchronous messaging options in Azure
+        href: guide/technology-choices/messaging.md
+      - name: Choose an Apache Kafka host
+        href: solution-ideas/articles/kafka-on-azure.md
   - name: Best practices for cloud applications
     items:
     - name: API design
@@ -212,13 +218,15 @@ items:
           href: framework/cost/provision-compute.md
         - name: Data stores
           href: framework/cost/provision-datastores.md
+        - name: Messaging
+          href: framework/cost/provision-messaging.md  
         - name: Networking
           href: framework/cost/provision-networking.md
           items:
             - name: Cost for networking services
               href: framework/cost/provision-networking-services.md
         - name: Web apps    
-          href: framework/cost/provision-webapps.md                      
+          href: framework/cost/provision-webapps.md   
     - name: Monitor
       items: 
       - name: Checklist
@@ -247,30 +255,50 @@ items:
     items:
     - name: Overview
       href: framework/devops/overview.md
-    - name: Application design
-      href: framework/devops/app-design.md
-    - name: Development
-      href: framework/devops/development.md
-    - name: Deployment
-      href: framework/devops/deployment.md
-    - name: Infrastructure Deployments
-      href: framework/devops/iac.md
-    - name: Monitoring
-      href: framework/devops/monitoring.md
-    - name: Performance
-      href: framework/devops/performance.md
-    - name: Testing
-      href: framework/devops/testing.md
+    - name: Automation
+      items:
+      - name: Automation Overview
+        href: framework/devops/automation-overview.md
+      - name: Repeatable infrastructure
+        href: framework/devops/automation-infrastructure.md
+      - name: Configure infrastructure
+        href: framework/devops/automation-configuration.md
+      - name: Automate operational tasks
+        href: framework/devops/automation-tasks.md
+    - name: Release engineering
+      items:
+      - name: Application development
+        href: framework/devops/release-engineering-app-dev.md
+      - name: Continuous integration
+        href: framework/devops/release-engineering-ci.md
+      - name: Release testing
+        href: framework/devops/release-engineering-testing.md
+      - name: Performance
+        href: framework/devops/release-engineering-performance.md
+      - name: Release deployment
+        href: framework/devops/release-engineering-cd.md
+      - name: Rollback
+        href: framework/devops/release-engineering-rollback.md
+    - name: Observability (operational awareness) 
+      items:
+      - name: Monitoring
+        href: framework/devops/monitoring.md
     - name: Checklist
       href: checklist/dev-ops.md
   - name: Performance Efficiency
     items:
     - name: Overview
       href: framework/scalability/overview.md
-    - name: Application design
-      href: framework/scalability/app-design.md
-    - name: Capacity planning
-      href: framework/scalability/capacity.md
+    - name: Design
+      items:  
+      - name: Application design
+        href: framework/scalability/design-apps.md
+      - name: Application efficiency
+        href: framework/scalability/design-efficiency.md
+      - name: Scalability
+        href: framework/scalability/design-scale.md  
+      - name: Capacity planning
+        href: framework/scalability/design-capacity.md
     - name: Load testing
       href: framework/scalability/load-testing.md
     - name: Monitoring
@@ -307,32 +335,74 @@ items:
       href: checklist/resiliency-per-service.md
   - name: Security
     items:
-    - name: Overview
+    - name: About
       href: framework/security/overview.md
-    - name: Role of security
-      href: framework/security/role-of-security.md
-    - name: Security design principles
-      href: framework/security/security-principles.md
-    - name: Types of attacks to resist
-      href: framework/security/architecture-type.md
-    - name: Regulatory compliance
-      href: framework/security/law-authority.md
-    - name: Reduce organizational risk
-      href: framework/security/resilience.md
-    - name: Governance, risk, and compliance
-      href: framework/security/governance.md
-    - name: Identity and access management
-      href: framework/security/identity.md
-    - name: Network security and containment
-      href: framework/security/network-security-containment.md
-    - name: Storage, data, and encryption
-      href: framework/security/storage-data-encryption.md
-    - name: Applications and services
-      href: framework/security/applications-services.md
-    - name: Administration
-      href: framework/security/critical-impact-accounts.md
-    - name: Security operations
-      href: framework/security/security-operations.md
+    - name: Principles
+      href: framework/security/security-principles.md      
+    - name: Design
+      items:
+      - name: Governance
+        items: 
+        - name: Overview
+          href: framework/security/design-governance.md
+        - name: Team roles and responsibilities
+          href: framework/security/design-role-definitions.md          
+        - name: Segmentation strategy
+          href: framework/security/design-segmentation.md
+        - name: Management groups 
+          href: framework/security/design-management-groups.md          
+        - name: Administration
+          href: framework/security/design-admins.md
+      - name: Identity
+        items:
+          - name: Identity and access management
+            href: framework/security/design-identity.md
+          - name: Best practices
+            href: /azure/security/fundamentals/identity-management-best-practices?bc=%2fazure%2farchitecture%2fbread%2ftoc.json&toc=%2fazure%2farchitecture%2ftoc.json
+      - name: Networking
+        items:
+          - name: Network security review 
+            href: framework/security/design-network-review.md
+          - name: Containment strategies for organizations
+            href: framework/security/design-network.md
+          - name:  Best practices
+            href: /azure/security/fundamentals/network-best-practices?bc=%2fazure%2farchitecture%2fbread%2ftoc.json&toc=%2fazure%2farchitecture%2ftoc.json
+      - name: Storage
+        href: framework/security/design-storage.md
+      - name: Applications and services
+        items:
+        - name: Application security considerations
+          href: framework/security/design-apps-services.md
+        - name: Application classification
+          href: framework/security/design-apps-considerations.md
+        - name: Threat analysis
+          href: framework/security/design-threat-model.md
+        - name: Securing PaaS deployments
+          href: /azure/security/fundamentals/paas-deployments?bc=%2fazure%2farchitecture%2fbread%2ftoc.json&toc=%2fazure%2farchitecture%2ftoc.json
+        - name: Compliance requirements
+          href: framework/security/design-regulatory-compliance.md
+        - name: Configuration and dependencies
+          href: framework/security/design-app-dependencies.md
+    - name: Monitor
+      items:
+      - name: Health modeling
+        href: framework/security/monitor.md
+      - name: Tools
+        href: framework/security/monitor-tools.md              
+      - name: Security operations
+        href: framework/security/monitor-security-operations.md
+      - name: Review and audit
+        href: framework/security/monitor-audit.md
+      - name: Identity and network risks
+        href: framework/security/monitor-identity-network.md
+    - name: Optimize
+      items:
+        - name: Automate 
+          href: framework/security/governance.md
+        - name: Replace insecure protocols
+          href: framework/security/governance.md
+        - name: Elevate security capabilities
+          href: framework/security/governance.md
 - name: Design Patterns
   items:
   - name: Overview
@@ -578,6 +648,8 @@ items:
         href: example-scenario/dronerescue/vision-classifier-model-with-custom-vision.md
       - name: Visual assistant
         href: solution-ideas/articles/visual-assistant.md
+      - name: Deploy AI and machine learning at the edge by using Azure Stack Edge
+        href: hybrid/deploy-ai-ml-azure-stack-edge.md
   - name: Analytics
     items:
     - name: Architectures
@@ -622,11 +694,13 @@ items:
         href: example-scenario/ai/newsfeed-ingestion.md
       - name: Oil and Gas tank level forecasting
         href: solution-ideas/articles/oil-and-gas-tank-level-forecasting.md
+      - name: Partitioning in Event Hubs and Kafka
+        href: reference-architectures/event-hubs/partitioning-in-event-hubs-and-kafka.md
       - name: Predicting length of stay in hospitals
         href: solution-ideas/articles/predicting-length-of-stay-in-hospitals.md
       - name: Predictive aircraft engine monitoring
         href: solution-ideas/articles/aircraft-engine-monitoring-for-predictive-maintenance-in-aerospace.md
-      - name: Real Time analytics on on big data
+      - name: Real Time analytics on big data
         href: solution-ideas/articles/real-time-analytics.md
       - name: Stream processing with Azure Databricks
         href: reference-architectures/data/stream-processing-databricks.md
@@ -666,36 +740,55 @@ items:
         href: solution-ideas/articles/hybrid-hpc-in-azure-with-hpc-pack.md
       - name: Linux virtual desktops with Citrix
         href: example-scenario/infrastructure/linux-vdi-citrix.md
+      - name: Move Azure resources across regions
+        href: solution-ideas/articles/move-azure-resources-across-regions.md
       - name: Run a Linux VM on Azure
         href: reference-architectures/n-tier/linux-vm.md
       - name: Run a Windows VM on Azure
         href: reference-architectures/n-tier/windows-vm.md
+      - name: Solaris emulator on Azure VMs
+        href: solution-ideas/articles/solaris-azure.md
+      - name: Migrate IBM applications with TmaxSoft OpenFrame
+        href: solution-ideas/articles/migrate-mainframe-apps-with-tmaxsoft-openframe.md
       - name: Reservoir simulations
         href: example-scenario/infrastructure/reservoir-simulation.md
       - name: CFD simulations
         href: example-scenario/infrastructure/hpc-cfd.md
   - name: Containers
     items:
-    - name: AKS Production Baseline
+    - name: AKS Solution Journey
+      href: reference-architectures/containers/aks-start-here.md
+    - name: AKS Baseline Cluster
+      href: reference-architectures/containers/aks/secure-baseline-aks.md
+    - name: AKS Cluster Best Practices
+      href: /Azure/aks/best-practices
+      maintainContext: true
+    - name: AKS Workload Best Practices
+      href: /Azure/aks/best-practices#developer-best-practices
+      maintainContext: true
+    - name: AKS day-2 operations guide
       items:
-      - name: Overview
-        href: reference-architectures/containers/aks/secure-baseline-aks.md
-      - name: Operational Excellence
-        href: reference-architectures/containers/aks/secure-baseline-aks.md#operational-excellence
-      - name: Security
-        href: reference-architectures/containers/aks/secure-baseline-aks.md#security
-      - name: Reliability
-        href: reference-architectures/containers/aks/secure-baseline-aks.md#reliability
-      - name: Performance Efficiency
-        href: reference-architectures/containers/aks/secure-baseline-aks.md#performance-efficiency
-      - name: Cost Optimization
-        href: reference-architectures/containers/aks/secure-baseline-aks.md#cost-optimization
-    - name: Microservices on AKS
+        - name: Triage practices
+          items:
+            - name: Introduction
+              href: operator-guides/aks/aks-triage-practices.md
+            - name: 1- Cluster health
+              href: operator-guides/aks/aks-triage-cluster-health.md
+            - name: 2- Node and pod health
+              href: operator-guides/aks/aks-triage-node-health.md
+            - name: 3- Workload deployments
+              href: operator-guides/aks/aks-triage-deployment.md
+            - name: 4- Admission controllers
+              href: operator-guides/aks/aks-triage-controllers.md
+            - name: 5- Container registry connectivity
+              href: operator-guides/aks/aks-triage-container-registry.md                                                 
+        - name: Common Issues
+          href: /azure/aks/troubleshooting?bc=%2fazure%2farchitecture%2fbread%2ftoc.json&toc=%2fazure%2farchitecture%2ftoc.json
+          maintainContext: true
+    - name: AKS Example Solutions
       items:
-      - name: Microservices architecture on AKS
-        href: reference-architectures/containers/aks-microservices/aks-microservices.md
-    - name: Architectures 
-      items:
+        - name: Microservices architecture on AKS
+          href: reference-architectures/containers/aks-microservices/aks-microservices.md
         - name: Microservices with AKS and Azure DevOps
           href: solution-ideas/articles/microservices-with-aks.md
         - name: Secure DevOps for AKS
@@ -750,6 +843,8 @@ items:
           href: data-guide/scenarios/data-lake.md
         - name: Data storage
           href: data-guide/technology-choices/data-storage.md
+        - name: Data store comparison
+          href: ./guide/technology-choices/data-store-overview.md
         - name: Pipeline orchestration
           href: data-guide/technology-choices/pipeline-orchestration-data-movement.md
         - name: Real-time message ingestion
@@ -758,6 +853,10 @@ items:
           href: data-guide/technology-choices/search-options.md
         - name: Stream processing
           href: data-guide/technology-choices/stream-processing.md
+      - name: Application tenancy in SaaS Databases
+        items:
+        - name: Tenancy models
+          href: isv/application-tenancy.md
       - name: Monitor Azure Databricks jobs
         items:
         - name: Overview
@@ -888,8 +987,6 @@ items:
             href: microservices/ci-cd.md
           - name: CI/CD for microservices on Kubernetes
             href: microservices/ci-cd-kubernetes.md
-          - name: Automated Kubernetes deployments with Bedrock
-            href: example-scenario/bedrock/bedrock-automated-deployments.md
         - name: Migrate to a microservices architecture
           items:
           - name: Migrate a monolith application to microservices
@@ -976,13 +1073,15 @@ items:
           href: solution-ideas/articles/container-cicd-using-jenkins-and-kubernetes-on-azure-container-service.md
         - name: DevSecOps in Azure
           href: solution-ideas/articles/devsecops-in-azure.md
-        - name: Dev-Test for IaaS
+        - name: DevSecOps in GitHub
+          href: solution-ideas/articles/devsecops-in-github.md
+        - name: DevTest and DevOps for IaaS
           href: solution-ideas/articles/dev-test-iaas.md
-        - name: Dev-Test for PaaS
+        - name: DevTest and DevOps for PaaS
           href: solution-ideas/articles/dev-test-paas.md
-        - name: Dev-Test for microservices
+        - name: DevTest and DevOps for microservices
           href: solution-ideas/articles/dev-test-microservice.md
-        - name: Dev-Test Image Factory
+        - name: DevTest Image Factory
           href: solution-ideas/articles/dev-test-image-factory.md
         - name: CI/CD using Jenkins and Terraform
           href: solution-ideas/articles/immutable-infrastructure-cicd-using-jenkins-and-terraform-on-azure-virtual-architecture-overview.md
@@ -996,6 +1095,8 @@ items:
           href: solution-ideas/articles/sharepoint-farm-devtest.md
         - name: Real time location sharing
           href: example-scenario/signalr/index.md
+        - name: Run containers in a hybrid environment
+          href: hybrid/hybrid-containers.md
   - name: High Availability
     items:
     -  name: Overview
@@ -1006,8 +1107,54 @@ items:
         href: high-availability/ref-arch-iaas-web-and-db.md     
   - name: Hybrid
     items:
+    - name: Guides
+      items:
+      - name: FSLogix for the enterprise
+        href: example-scenario/wvd/windows-virtual-desktop-fslogix.md
+      - name: Administer SQL Server anywhere with Azure Arc
+        href: hybrid/azure-arc-sql-server.md
+      - name: Azure Stack stretched clusters for DR
+        href: hybrid/azure-stack-hci-dr.md
+      - name: Azure Stack for remote offices and branches
+        href: hybrid/azure-stack-robo.md
     - name: Architectures
       items:
+      - name: Manage configurations for Azure Arc enabled servers
+        href: hybrid/azure-arc-hybrid-config.md
+      - name: Azure Automation in a hybrid environment
+        href: hybrid/azure-automation-hybrid.md
+      - name: Azure enterprise cloud file share
+        href: hybrid/azure-files-private.md
+      - name: Using Azure file shares in a hybrid environment
+        href: hybrid/azure-file-share.md
+      - name: Azure Functions in a hybrid environment
+        href: hybrid/azure-functions-hybrid.md
+      - name: Back up files and applications on Azure Stack Hub
+        href: hybrid/azure-stack-backup.md
+      - name: Azure Automation Update Management
+        href: hybrid/azure-update-mgmt.md
+      - name: Deploy AI and machine learning at the edge by using Azure Stack Edge
+        href: hybrid/deploy-ai-ml-azure-stack-edge.md
+      - name: Design a hybrid Domain Name System solution with Azure
+        href: hybrid/hybrid-dns-infra.md
+      - name: Hybrid file services
+        href: hybrid/hybrid-file-services.md
+      - name: Hybrid availability and performance monitoring
+        href: hybrid/hybrid-perf-monitoring.md
+      - name: Hybrid Security Monitoring using Azure Security Center and Azure Sentinel
+        href: hybrid/hybrid-security-monitoring.md
+      - name: Manage hybrid Azure workloads using Windows Admin Center
+        href: hybrid/hybrid-server-os-mgmt.md
+      - name: Azure Arc hybrid management and deployment for Kubernetes clusters
+        href: hybrid/arc-hybrid-kubernetes.md
+      - name: Connect standalone servers by using Azure Network Adapter
+        href: hybrid/azure-network-adapter.md
+      - name: Disaster Recovery for Azure Stack Hub virtual machines
+        href: hybrid/azure-stack-vm-dr.md
+      - name: On-premises data gateway for Azure Logic Apps
+        href: hybrid/gateway-logic-apps.md
+      - name: Run containers in a hybrid environment
+        href: hybrid/hybrid-containers.md
       - name: Connect an on-premises network to Azure
         href: reference-architectures/hybrid-networking/index.md
       - name: Connect an on-premises network to Azure using ExpressRoute
@@ -1022,9 +1169,6 @@ items:
         href: reference-architectures/hybrid-networking/vpn.md
       - name: Hybrid connections
         href: solution-ideas/articles/hybrid-connectivity.md
-      - name: Implement a hub-spoke network topology
-        href: reference-architectures/hybrid-networking/shared-services.md
-
       - name: Troubleshoot a hybrid VPN connection
         href: reference-architectures/hybrid-networking/troubleshoot-vpn.md
       - name: Connect using Windows Virtual Desktop
@@ -1095,8 +1239,28 @@ items:
         href: solution-ideas/articles/custom-business-processes.md
       - name: Line of Business Extension
         href: solution-ideas/articles/lob.md
+      - name: On-premises data gateway for Azure Logic Apps
+        href: hybrid/gateway-logic-apps.md
   - name: Internet of Things
     items:
+    - name: Guides
+      items:
+      - name: Azure IoT Edge Vision
+        items:
+        - name: Overview
+          href: guide/iot-edge-vision/index.md
+        - name: Camera selection
+          href: guide/iot-edge-vision/camera.md
+        - name: Hardware acceleration
+          href: guide/iot-edge-vision/hardware.md
+        - name: Machine learning
+          href: guide/iot-edge-vision/machine-learning.md
+        - name: Image storage
+          href: guide/iot-edge-vision/image-storage.md
+        - name: Alert persistence
+          href: guide/iot-edge-vision/alerts.md
+        - name: User interface
+          href: guide/iot-edge-vision/user-interface.md
     - name: Architectures
       items:
       - name: IoT reference architecture
@@ -1130,7 +1294,9 @@ items:
       - name: Voice assistants and IoT devices
         href: solution-ideas/articles/iot-controlling-devices-with-voice-assistant.md
       - name: IoT using Azure Data Explorer
-        href: solution-ideas/articles/iot-azure-data-explorer.md
+        href: solution-ideas/articles/iot-azure-data-explorer.md      
+      - name: Buy online, pickup in store
+        href: example-scenario/iot/vertical-buy-online-pickup-in-store.md
     - name: Industrial IoT Analytics
       items:
       - name: Architecture
@@ -1155,6 +1321,16 @@ items:
         href: example-scenario/iot/cloud-to-device.md
       - name: Builders, developers, and operators
         href: example-scenario/iot/builders-developers-operators.md
+    - name: IoT patterns
+      items:        
+      - name: Measure and control loop
+        href: example-scenario/iot/measure-control-loop.md
+      - name: Monitor and manage loop
+        href: example-scenario/iot/monitor-manage-loop.md
+      - name: Analyze and optimize loop
+        href: example-scenario/iot/analyze-optimize-loop.md
+      - name: Event routing
+        href: example-scenario/iot/event-routing.md
       - name: Solution scaling with application stamps
         href: example-scenario/iot/application-stamps.md
   - name: Management and Governance
@@ -1185,6 +1361,22 @@ items:
         href: solution-ideas/articles/disaster-recovery-smb-azure-site-recovery.md
       - name: SMB disaster recovery with Double-Take DR
         href: solution-ideas/articles/disaster-recovery-smb-double-take-dr.md
+      - name: Manage configurations for Azure Arc enabled servers
+        href: hybrid/azure-arc-hybrid-config.md
+      - name: Azure Automation in a hybrid environment
+        href: hybrid/azure-automation-hybrid.md
+      - name: Back up files and applications on Azure Stack Hub
+        href: hybrid/azure-stack-backup.md
+      - name: Azure Automation Update Management
+        href: hybrid/azure-update-mgmt.md
+      - name: Hybrid availability and performance monitoring
+        href: hybrid/hybrid-perf-monitoring.md
+      - name: Manage hybrid Azure workloads using Windows Admin Center
+        href: hybrid/hybrid-server-os-mgmt.md
+      - name: Azure Arc hybrid management and deployment for Kubernetes clusters
+        href: hybrid/arc-hybrid-kubernetes.md
+      - name: Disaster Recovery for Azure Stack Hub virtual machines
+        href: hybrid/azure-stack-vm-dr.md
   - name: Media
     items:
     - name: Architectures
@@ -1195,6 +1387,46 @@ items:
         href: solution-ideas/articles/digital-media-live-stream.md
       - name: Video-on-demand digital media
         href: solution-ideas/articles/digital-media-video.md
+      - name: Gridwich media processing system
+        items:
+        - name: Gridwich architecture
+          href: reference-architectures/media-services/gridwich-architecture.md
+        - name: Gridwich concepts
+          items:
+          - name: Clean monolith design
+            href: reference-architectures/media-services/gridwich-clean-monolith.md
+          - name: Saga orchestration
+            href: reference-architectures/media-services/gridwich-saga-orchestration.md
+          - name: Project names and structure
+            href: reference-architectures/media-services/gridwich-project-names.md
+          - name: Gridwich CI/CD
+            href: reference-architectures/media-services/gridwich-cicd.md
+          - name: Content protection and DRM
+            href: reference-architectures/media-services/gridwich-content-protection-drm.md
+          - name: Gridwich Media Services
+            href: reference-architectures/media-services/media-services-setup-scale.md
+          - name: Gridwich Storage Service
+            href: reference-architectures/media-services/gridwich-storage-service.md
+          - name: Gridwich logging
+            href: reference-architectures/media-services/gridwich-logging.md
+          - name: Gridwich message formats
+            href: reference-architectures/media-services/gridwich-message-formats.md
+          - name: Pipeline variables to Terraform flow
+            href: reference-architectures/media-services/variable-group-terraform-flow.md
+        - name: Gridwich procedures
+          items:
+          - name: Set up Azure DevOps
+            href: reference-architectures/media-services/set-up-azure-devops.md
+          - name: Run Azure admin scripts
+            href: reference-architectures/media-services/run-admin-scripts.md
+          - name: Set up local dev environment
+            href: reference-architectures/media-services/set-up-local-environment.md
+          - name: Create new cloud environment
+            href: reference-architectures/media-services/create-delete-cloud-environment.md
+          - name: Maintain and rotate keys
+            href: reference-architectures/media-services/maintain-keys.md
+          - name: Test Media Services V3 encoding
+            href: reference-architectures/media-services/test-encoding.md
   - name: Migration
     items:
     - name: Architectures
@@ -1212,7 +1444,7 @@ items:
       - name: Lift and shift LOB apps
         href: solution-ideas/articles/modern-customer-support-portal-powered-by-an-agile-business-process.md
       - name: Lift and shift with AKS
-        href: solution-ideas/articles/migrate-existing-applications-with-aks.md
+        href: solution-ideas/articles/modern-customer-support-portal-powered-by-an-agile-business-process.md
       - name: Oracle database migration
         items:
         - name: Migration decision process
@@ -1231,6 +1463,12 @@ items:
         href: solution-ideas/articles/unlock-legacy-data.md
       - name: Decompose apps with Service Fabric
         href: example-scenario/infrastructure/service-fabric-microservices.md
+      - name: SQL 2008 R2 failover cluster in Azure
+        href: example-scenario/sql-failover/sql-failover-2008r2.md
+      - name: Migrate mainframe data to Azure
+        href: reference-architectures/migration/modernize-mainframe-data-to-azure.md
+      - name: Migrate Unisys mainframes to Azure
+        href: reference-architectures/migration/unisys-mainframe-migration.md
   - name: Mixed Reality
     items:
     - name: Architectures
@@ -1277,6 +1515,14 @@ items:
         href: reference-architectures/dmz/secure-vnet-dmz.md
       - name: Segmenting Virtual Networks
         href: reference-architectures/hybrid-networking/network-level-segmentation.md
+      - name: Azure Automation Update Management
+        href: hybrid/azure-update-mgmt.md
+      - name: Design a hybrid Domain Name System solution with Azure
+        href: hybrid/hybrid-dns-infra.md
+      - name: Hybrid availability and performance monitoring
+        href: hybrid/hybrid-perf-monitoring.md
+      - name: Connect standalone servers by using Azure Network Adapter
+        href: hybrid/azure-network-adapter.md
   - name: SAP
     items:
     - name: Overview
@@ -1317,10 +1563,14 @@ items:
         href: example-scenario/secrets/secure-refresh-tokens.md
       - name: Securely managed web apps
         href: example-scenario/apps/fully-managed-secure-apps.md
+      - name: Web app private database connectivity
+        href: example-scenario/private-web-app/private-web-app.md
       - name: Virtual network integrated microservices
         href: example-scenario/integrated-multiservices/virtual-network-integration.md
       - name: Virtual Network security options
         href: example-scenario/gateway/firewall-application-gateway.md
+      - name: Hybrid Security Monitoring using Azure Security Center and Azure Sentinel
+        href: hybrid/hybrid-security-monitoring.md
   - name: Storage
     items:
     - name: Architectures
@@ -1331,6 +1581,10 @@ items:
         href: solution-ideas/articles/medical-data-storage.md
       - name: HIPAA/HITRUST Health Data and AI
         href: solution-ideas/articles/security-compliance-blueprint-hipaa-hitrust-health-data-ai.md
+      - name: Using Azure file shares in a hybrid environment
+        href: hybrid/azure-file-share.md
+      - name: Hybrid file services
+        href: hybrid/hybrid-file-services.md
   - name: Web
     items:
     - name: Architectures
@@ -1351,10 +1605,12 @@ items:
         href: solution-ideas/articles/highly-available-sharepoint-farm.md
       - name: Highly available multi-region web application
         href: reference-architectures/app-service-web-app/multi-region.md
-      - name: Hybrid SharePoint farm with Office 365
-        href: solution-ideas/articles/sharepoint-farm-office-365.md
+      - name: Hybrid SharePoint farm with Microsoft 365
+        href: solution-ideas/articles/sharepoint-farm-microsoft-365.md
       - name: Intelligent product search engine for e-commerce
         href: example-scenario/apps/ecommerce-search.md
+      - name: Magento e-commerce in AKS
+        href: example-scenario/magento/magento-azure.md
       - name: Migrate a web app using Azure APIM
         href: example-scenario/apps/apim-api-scenario.md
       - name: Multi-region N-tier application
@@ -1393,5 +1649,7 @@ items:
         href: solution-ideas/articles/webapps.md
       - name: Dynamics Business Central as a Service on Azure
         href: solution-ideas/articles/business-central.md
+      - name: Azure Functions in a hybrid environment
+        href: hybrid/azure-functions-hybrid.md
 - name: Cloud Adoption Framework
   href: /azure/cloud-adoption-framework

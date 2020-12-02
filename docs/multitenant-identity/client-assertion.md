@@ -3,17 +3,19 @@ title: Use client assertion to get access tokens from Azure AD
 description: Learn how to add client assertion, where the client uses an X.509 certificate to prove the token request is genuine, to the Tailspin Surveys sample application.
 author: doodlemania2
 ms.date: 04/02/2020
-ms.topic: guide
+ms.topic: conceptual
 ms.service: architecture-center
 ms.category:
   - identity
-ms.custom: has-adal-ref
-ms.subservice: reference-architecture
+ms.custom:
+  - has-adal-ref
+  - guide
+ms.subservice: azure-guide
 ---
 
 # Use client assertion to get access tokens from Azure AD
 
-[![GitHub](../_images/github.png) Sample code][sample application]
+[:::image type="icon" source="../_images/github.png" border="false"::: Sample code][sample application]
 
 This article describes how to add client assertion to the [Tailspin Surveys][Surveys] sample application.
 

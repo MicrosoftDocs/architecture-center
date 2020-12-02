@@ -3,10 +3,12 @@ title: Failure mode analysis
 description: Guidelines for performing a failure mode analysis for cloud solutions based on Azure.
 author: doodlemania2
 ms.date: 05/07/2018
-ms.topic: article
+ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
-ms.custom: resiliency
+ms.custom:
+  - resiliency
+  - article
 ---
 
 # Failure mode analysis for Azure applications
@@ -432,7 +434,7 @@ For more information, see [Overview of Service Bus dead-letter queues][sb-dead-l
 
 **Diagnostics**. Use [App Service diagnostic logging][app-service-logging]. Use a service such as [Azure Log Analytics][azure-log-analytics], [Application Insights][app-insights], or [New Relic][new-relic] to help understand the diagnostic logs.
 
-![GitHub](../_images/github.png) A sample is available [here](https://github.com/mspnp/samples/tree/master/Reliability/FailureModeAnalysisSample). It uses [Polly](https://github.com/App-vNext/Polly) for these exceptions: 
+:::image type="icon" source="../_images/github.png" border="false"::: A sample is available [here](https://github.com/mspnp/samples/tree/master/Reliability/FailureModeAnalysisSample). It uses [Polly](https://github.com/App-vNext/Polly) for these exceptions: 
 
 - 429 - Throttling 
 - 408 - Timeout 

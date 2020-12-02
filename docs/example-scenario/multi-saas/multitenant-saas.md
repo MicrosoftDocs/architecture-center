@@ -4,11 +4,14 @@ description: Build a multitenant SaaS solution on Azure, designed for high avail
 author: doodlemania2
 ms.author: pnp
 ms.date: 07/16/2020
-ms.topic: example-scenario
+ms.topic: conceptual
 ms.service: architecture-center
-ms.category: 
-    - identity
-ms.custom: fcp
+ms.category:
+  - identity
+ms.custom:
+  - fcp
+  - example-scenario
+ms.subservice: example-scenario
 ---
 
 # Multitenant SaaS on Azure
@@ -34,6 +37,8 @@ These use cases have design patterns that can benefit from a multitenant SaaS so
 ## Architecture
 
 ![Diagram showing a multitenant SaaS architecture set up in Azure in two different regions.](./media/multitenant-saas.png)
+
+*Download an [SVG](./media/multitenant-saas.svg) of this architecture.*
 
 A suite of Azure technologies secure and load balance the traffic.
 

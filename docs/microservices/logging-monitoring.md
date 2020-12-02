@@ -3,13 +3,15 @@ title: Monitoring a microservices application in AKS
 description: Learn about best practices for monitoring a microservices application that runs on Azure Kubernetes Service, by collecting telemetry from the application.
 author: doodlemania2
 ms.date: 04/06/2020
-ms.topic: guide
+ms.topic: conceptual
 ms.service: architecture-center
 ms.category:
   - management-and-governance
   - developer-tools
-ms.subservice: reference-architecture
-ms.custom: microservices
+ms.subservice: azure-guide
+ms.custom:
+  - microservices
+  - guide
 ---
 
 <!-- cSpell:ignore kusto kube kubelet Backoff Fluentd TICK Serilog Telegraf Dropoff Istio linkerd kubectl -->
@@ -215,7 +217,7 @@ The following screenshot shows the [application map](/azure/azure-monitor/app/ap
 
 The arrows from `fabrikam-workflow` and `fabrikam-ingestion` to a Service Bus queue show where the messages are sent and received. You can't tell from the diagram which service is sending messages and which is receiving &mdash; the arrows just show that both services are calling Service Bus &mdash; but this information is available in the details:
 
-![Application map](./images/monitoring/application-map-sb-ops.png)
+![Screenshot of Application map details.](./images/monitoring/application-map-sb-ops.png)
 
 Because every call includes an operation ID, you can also view the end-to-end steps in a single transaction, including timing information and the HTTP calls at each step. Here is the visualization of one such transaction:
 
@@ -229,7 +231,7 @@ Now here is an example when calls to a backend service were failing:
 
 This shows that a large fraction (36%) of calls to the Drone Scheduler service failed during the period being queried. In the end-to-end transaction view, it shows that an exception occurs when sending an HTTP PUT request to the service.
 
-![End-to-end transaction](./images/monitoring/transaction-errors.png)
+![Screenshot of the End-to-end transaction details showing that an exception occurs when sending an HTTP PUT request to the service.](./images/monitoring/transaction-errors.png)
 
 Further drilling in, the exception turns out to be a socket exception, "No such device or address."
 

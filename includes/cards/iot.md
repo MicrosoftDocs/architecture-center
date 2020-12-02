@@ -6,7 +6,7 @@
 <article class="card">
     <div class="card-header has-margin-bottom-none" aria-hidden="true">
         <figure class="image diagram has-height-175 has-overflow-hidden level">
-            <a href="/azure/architecture/reference-architectures/iot"><img src="/azure/architecture/browse/thumbs/iot.png" class="diagram" alt="Architecture Diagram" data-linktype="relative-path"></a>
+            <a href="/azure/architecture/reference-architectures/iot"><img src="/azure/architecture/browse/thumbs/iot.png" class="diagram" alt="Thumbnail of Azure IoT reference architecture Architectural Diagram." data-linktype="relative-path"></a>
         </figure>
     </div>
     <div class="card-content">
@@ -14,8 +14,8 @@
             <p>Azure IoT reference architecture</p>
         </a>
         <ul class="card-content-metadata">
-            <li>1/09/2019</li>
-            <li>13 min read</li>
+            <li>9/10/2020</li>
+            <li>12 min read</li>
         </ul>
         <p class="card-content-description">Recommended architecture for IoT applications on Azure using PaaS (platform-as-a-service) components</p>
         <div class="bottom-to-top-fade is-hidden-mobile"></div>

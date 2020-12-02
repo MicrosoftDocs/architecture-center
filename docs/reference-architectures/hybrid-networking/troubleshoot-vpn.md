@@ -4,13 +4,15 @@ titleSuffix: Azure Reference Architectures
 description: Troubleshoot a VPN gateway connection between an on-premises network and Azure.
 author: telmosampaio
 ms.date: 10/08/2018
-ms.topic: article
+ms.topic: conceptual
 ms.service: architecture-center
 ms.category:
   - hybrid
   - networking
-ms.subservice: reference-architecture
-ms.custom: networking
+ms.subservice: azure-guide
+ms.custom:
+  - networking
+  - article
 ---
 
 <!-- cSpell:ignore RRAS Russinovich sysinternals psping profx -->

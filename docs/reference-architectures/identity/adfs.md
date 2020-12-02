@@ -4,13 +4,16 @@ titleSuffix: Azure Reference Architectures
 description: Implement a secure hybrid network architecture with Active Directory Federation Service authorization in Azure.
 author: telmosampaio
 ms.date: 12/18/2018
-ms.topic: reference-architecture
+ms.topic: conceptual
 ms.service: architecture-center
 ms.category:
   - identity
   - hybrid
 ms.subservice: reference-architecture
-ms.custom: seodec18, identity
+ms.custom:
+  - seodec18
+  - identity
+  - reference-architecture
 ---
 
 # Extend Active Directory Federation Services (AD FS) to Azure
@@ -404,6 +407,6 @@ A deployment for this architecture is available on [GitHub][github]. Note that t
 [github]: https://github.com/mspnp/identity-reference-architectures/tree/master/adfs
 [adfs_certificates]: /previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn781428(v=ws.11)
 [considerations]: ./index.md
-[visio-download]: https://archcenter.blob.core.windows.net/cdn/identity-architectures.vsdx
+[visio-download]: https://arch-center.azureedge.net/identity-architectures.vsdx
 [psise]: /powershell/scripting/windows-powershell/ise/introducing-the-windows-powershell-ise
 [azure-pricing-calculator]: https://azure.microsoft.com/pricing/calculator

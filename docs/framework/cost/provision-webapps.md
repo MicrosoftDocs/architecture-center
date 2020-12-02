@@ -1,12 +1,13 @@
 ---
 title: Web application cost estimates
 description: Describes cost strategies for web apps
-author:  v-aangie
+author: v-aangie
 ms.date: 09/02/2020
-ms.topic: article
+ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
-ms.custom: 
+ms.custom:
+  - article
 ---
 
 # Web application cost estimates
@@ -17,16 +18,16 @@ Use the [Azure Pricing calculator](https://azure.microsoft.com/en-us/pricing/cal
 
 ## App Service plans
 
-The App Service plans include the set of compute resources needed for the web app to run. Except for Free tier, an App Service plan carries a charge on the compute resources it uses. For a description of App Service plans, see Azure [App Service plan overview](https://docs.microsoft.com/azure/app-service/overview-hosting-plans).
+The App Service plans include the set of compute resources needed for the web app to run. Except for Free tier, an App Service plan carries a charge on the compute resources it uses. For a description of App Service plans, see Azure [App Service plan overview](/azure/app-service/overview-hosting-plans).
 
-You can potentially save money by choosing one or more App Service plans. To help find the solution that meets your business requirements, see [Should I put an app in a new plan or an existing plan?](https://docs.microsoft.com/azure/app-service/overview-hosting-plans#should-i-put-an-app-in-a-new-plan-or-an-existing-plan)
+You can potentially save money by choosing one or more App Service plans. To help find the solution that meets your business requirements, see [Should I put an app in a new plan or an existing plan?](/azure/app-service/overview-hosting-plans#should-i-put-an-app-in-a-new-plan-or-an-existing-plan)
 
 The *pricing tier* of an App Service plan determines what App Service features you get and how much you pay for the plan. The higher the tier, the higher the cost. For details on the pricing tiers, see [App Service Pricing](https://azure.microsoft.com/pricing/details/app-service/windows/).
 
 **Are there exceptions that impact App Services plan cost?**
 ***
 
-You don't get charged for using the App Service features that are available to you (e.g., configuring custom domains, TLS/SSL certificates, deployment slots, backups, etc.). For a list of exceptions, see [How much does my App Service plan cost?](https://docs.microsoft.com/azure/app-service/overview-hosting-plans#how-much-does-my-app-service-plan-cost)
+You don't get charged for using the App Service features that are available to you (e.g., configuring custom domains, TLS/SSL certificates, deployment slots, backups, etc.). For a list of exceptions, see [How much does my App Service plan cost?](/azure/app-service/overview-hosting-plans#how-much-does-my-app-service-plan-cost)
 
 ## App Service cost
 
@@ -56,7 +57,7 @@ For pricing details, see [Content Delivery Network pricing](https://azure.micros
 
 ## Azure Cognitive Search cost
 
-To set up and scale a search experience quickly and cost-effectively, use Azure Cognitive Search. When you create an Azure Cognitive Search service, a resource is created at a pricing tier (or SKU) that's fixed for the lifetime of the service. Billing depends on the type of service. See [Search API](https://docs.microsoft.com/azure/cognitive-services/welcome#search-apis) for a list of services.
+To set up and scale a search experience quickly and cost-effectively, use Azure Cognitive Search. When you create an Azure Cognitive Search service, a resource is created at a pricing tier (or SKU) that's fixed for the lifetime of the service. Billing depends on the type of service. See [Search API](/azure/cognitive-services/welcome#search-apis) for a list of services.
 
 The charges are based on the number of transactions for each type of operation specific to a service. A certain number of transactions are free. If you need additional transactions, choose from the Standard instances.
 
@@ -64,7 +65,7 @@ For pricing details, see [Azure Cognitive Search pricing](https://azure.microsof
 
 ## Azure SignalR cost
 
-Use SignalR for any scenario that requires pushing data from server to client in real time. For example, Azure SignalR provides secure and simplified communication between client and app one-to-one (e.g., chat window) or one-to-many (instant broadcasting, IoT dashboards, or notification to social network). To learn more about Azure SignalR, see [What is Azure SignalR Service?](https://docs.microsoft.com/azure/azure-signalr/signalr-overview#what-is-azure-signalr-service-used-for)
+Use SignalR for any scenario that requires pushing data from server to client in real time. For example, Azure SignalR provides secure and simplified communication between client and app one-to-one (e.g., chat window) or one-to-many (instant broadcasting, IoT dashboards, or notification to social network). To learn more about Azure SignalR, see [What is Azure SignalR Service?](/azure/azure-signalr/signalr-overview#what-is-azure-signalr-service-used-for)
 
 The Free tier is not recommended for a production environment. With the Standard tier, you pay only for what you use. A Standard tier is recommended as an enterprise solution because it offers a large number of concurrent connections and messages.
 
@@ -74,4 +75,4 @@ For pricing details, see [Azure SignalR Service pricing](https://azure.microsoft
 
 To broadcast push notifications to millions of users at once, or tailor notifications to individual users, use Notification Hubs. Pricing is based on number of pushes. The Free tier is a good starting point for exploring push capabilities but is not recommended for production apps. If you require more pushes and features such as scheduled pushes or multi-tenancy, you can buy additional pushes per million for a fee.
 
-See [Push notifications with Azure Notification Hubs: Frequently asked questions](https://docs.microsoft.com/azure/notification-hubs/notification-hubs-push-notification-faq) for more information. For pricing details, see [Notification Hubs pricing](https://azure.microsoft.com/pricing/details/notification-hubs/).
+See [Push notifications with Azure Notification Hubs: Frequently asked questions](/azure/notification-hubs/notification-hubs-push-notification-faq) for more information. For pricing details, see [Notification Hubs pricing](https://azure.microsoft.com/pricing/details/notification-hubs/).

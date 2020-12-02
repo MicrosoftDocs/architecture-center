@@ -1,15 +1,17 @@
 ---
 title: CI/CD for a serverless Azure frontend
-description: Learn best practices for a robust CI/CD pipeline for your serverless frontend on Azure. 
+description: Learn best practices for a robust CI/CD pipeline for your serverless frontend on Azure.
 author: dsk-2015
 ms.author: dkshir
 ms.date: 10/20/2019
-ms.topic: guide
+ms.topic: conceptual
 ms.service: architecture-center
 ms.category:
   - devops
   - developer-tools
-ms.subservice: reference-architecture
+ms.subservice: azure-guide
+ms.custom:
+  - guide
 ---
 
 <!-- cSpell:ignore dkshir cicd brotli iname fabrikamdronestatus Jamstack setvariable CDNS -->

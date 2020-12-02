@@ -1,12 +1,13 @@
 ---
-title: Autoscale instances 
+title: Autoscale instances
 description: Describes autoscaling strategies for lowering cost
-author:  PageWriter-MSFT
+author: PageWriter-MSFT
 ms.date: 05/12/2020
-ms.topic: article
+ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
-ms.custom: 
+ms.custom:
+  - article
 ---
 
 # Autoscale instances

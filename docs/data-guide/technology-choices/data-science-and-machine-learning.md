@@ -3,9 +3,12 @@ title: Compare machine learning products from Microsoft
 description: Compare options for building, deploying, and managing your machine learning models. Decide which Microsoft products to choose for your solution.
 author: doodlemania2
 ms.date: 09/01/2020
-ms.topic: guide
+ms.topic: conceptual
 ms.service: architecture-center
-ms.subservice: cloud-fundamentals
+ms.subservice: azure-guide
+ms.custom:
+  - contperfq1
+  - guide
 ---
 
 <!-- markdownlint-disable MD026 -->
@@ -25,7 +28,7 @@ The following options are available for machine learning in the Azure cloud.
 | [Azure SQL Managed Instance Machine Learning Services](#sql-machine-learning) | In-database machine learning for SQL | Train and deploy models inside Azure SQL Managed Instance |
 | [Machine learning in Azure Synapse Analytics](#sql-machine-learning) | Analytics service with machine learning | Train and deploy models inside Azure SQL Managed Instance |
 | [Machine learning and AI with ONNX in Azure SQL Edge](#sql-machine-learning) | Machine learning in SQL on IoT | Train and deploy models inside Azure SQL Edge |
-| [Azure Databricks](#azure-databricks) | Apache Spark-based analytics platform | Build and deploy models and data workflows using integrations with open-source machine learning libraries and the [MLFlow](https://docs.microsoft.com/azure/databricks/applications/mlflow/) platform. |
+| [Azure Databricks](#azure-databricks) | Apache Spark-based analytics platform | Build and deploy models and data workflows using integrations with open-source machine learning libraries and the [MLFlow](/azure/databricks/applications/mlflow/) platform. |
 
 ## On-premises machine learning products
 
@@ -52,7 +55,7 @@ The following development platforms and tools are available for machine learning
 
 [Azure Machine Learning](/azure/machine-learning/service/overview-what-is-azure-ml) is a fully managed cloud service used to train, deploy, and manage machine learning models at scale. It fully supports open-source technologies, so you can use tens of thousands of open-source Python packages such as TensorFlow, PyTorch, and scikit-learn. Rich tools are also available, such as [Compute instances](/azure/machine-learning/concept-compute-instance), [Jupyter notebooks](/azure/machine-learning/tutorial-1st-experiment-sdk-setup), or the [Azure Machine Learning for Visual Studio Code extension](/azure/machine-learning/tutorial-setup-vscode-extension), a free extension that allows you to manage your resources, model training workflows and deployments in Visual Studio Code. Azure Machine Learning includes features that automate model generation and tuning with ease, efficiency, and accuracy.
 
-Use Python SDK, Jupyter notebooks, R, and the CLI for machine learning at cloud scale. For a low-code or no-code option, use Azure Machine Learning's interactive, [designer](/azure/machine-learning/service/concept-designer) (preview) in studio to easily and quickly build, test, and deploy models using pre-built machine learning algorithms.
+Use Python SDK, Jupyter notebooks, R, and the CLI for machine learning at cloud scale. For a low-code or no-code option, use Azure Machine Learning's interactive, [designer](/azure/machine-learning/service/concept-designer) in the studio to easily and quickly build, test, and deploy models using pre-built machine learning algorithms.
 
 Try the [free or paid version of Azure Machine Learning](https://aka.ms/AMLFree).
 

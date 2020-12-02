@@ -2,11 +2,11 @@
 
 <!-- markdownlint-disable MD033 -->
 
-<li class="grid-item item-column" data-categories="Internet of Things Analytics ">
+<li class="grid-item item-column" data-categories="Internet of Things ">
 <article class="card">
     <div class="card-header has-margin-bottom-none" aria-hidden="true">
         <figure class="image diagram has-height-175 has-overflow-hidden level">
-            <a href="/azure/architecture/example-scenario/data/realtime-analytics-vehicle-iot"><img src="/azure/architecture/browse/thumbs/realtime-analytics-vehicle-iot.png" class="diagram" alt="Architecture Diagram" data-linktype="relative-path"></a>
+            <a href="/azure/architecture/example-scenario/data/realtime-analytics-vehicle-iot"><img src="/azure/architecture/browse/thumbs/realtime-analytics-vehicle-iot.png" class="diagram" alt="Thumbnail of Process real-time vehicle data using IoT Architectural Diagram." data-linktype="relative-path"></a>
         </figure>
     </div>
     <div class="card-content">
@@ -14,8 +14,8 @@
             <p>Process real-time vehicle data using IoT</p>
         </a>
         <ul class="card-content-metadata">
-            <li>3/10/2020</li>
-            <li>7 min read</li>
+            <li>11/17/2020</li>
+            <li>5 min read</li>
         </ul>
         <p class="card-content-description">This example builds a real-time data ingestion/processing pipeline to ingest and process messages from IoT devices into a big data analytic platform in Azure.</p>
         <div class="bottom-to-top-fade is-hidden-mobile"></div>

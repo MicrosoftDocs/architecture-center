@@ -1,15 +1,17 @@
 ---
 title: Azure Industrial IoT - data analysis
 titleSuffix: Azure Application Architecture Guide
-description: 
+description: Guidance on data analysis in an Azure Industrial IoT analytics solution.
 author: khilscher
 ms.date: 07/17/2020
-ms.topic: guide
+ms.topic: conceptual
 ms.service: architecture-center
 ms.author: kehilsch
 ms.category:
   - fcp
-ms.subservice: reference-architecture
+ms.subservice: azure-guide
+ms.custom:
+  - guide
 ---
 
 # Data analysis in Azure Industrial IoT analytics solution
@@ -80,7 +82,7 @@ We recommend building a Single Page Application (SPA) using:
 - [Azure App Services Web Apps](https://azure.microsoft.com/services/app-service/web/) to host the web application
 - Power BI to [embed Power BI dashboards](/power-bi/collaborate-share/service-embed-secure) directly in the web app
 - [Azure Maps](/azure/azure-maps/) to render map visualizations
-- [Microsoft Graph SDK for JavaScript](https://developer.microsoft.com/graph/blogs/microsoft-graph-sdk-for-javascript-2-0-0/) to integrate with Office 365
+- [Microsoft Graph SDK for JavaScript](https://developer.microsoft.com/graph/blogs/microsoft-graph-sdk-for-javascript-2-0-0/) to integrate with Microsoft 365
 
 ## Notebooks
 

@@ -4,15 +4,17 @@ titleSuffix: Azure Design Patterns
 description: Understand and use the saga design pattern to ensure data consistency on distributed transactions in microservices architectures.
 author: fernandoBRS
 ms.date: 07/21/2020
-ms.topic: design-pattern
+ms.topic: conceptual
 ms.service: architecture-center
 ms.category:
   - databases
   - event-driven
   - transactions
   - microservices
-ms.subservice: cloud-fundamentals
-ms.custom: fcp
+ms.subservice: design-pattern
+ms.custom:
+  - fcp
+  - design-pattern
 ---
 
 # Saga distributed transactions pattern

@@ -4,10 +4,12 @@ titleSuffix: Performance antipatterns for cloud apps
 description: Offloading processing to a database server can cause performance and scalability problems.
 author: dragon119
 ms.date: 06/05/2017
-ms.topic: article
+ms.topic: conceptual
 ms.service: architecture-center
-ms.subservice: cloud-fundamentals
-ms.custom: seodec18
+ms.subservice: anti-pattern
+ms.custom:
+  - seodec18
+  - article
 ---
 
 <!-- cSpell:ignore DTUs LTRIM RTRIM RDBMS Linq processingindatabasemonitor -->
@@ -265,7 +267,7 @@ The following graph shows a load test using the updated code. Throughput is sign
 
 <!-- markdownlint-disable MD033 -->
 
-<img src="./_images/processinginclientapplicationloadtest.jpg" alt="Load-test results for performing processing in the database" aria-describedby="description-3">
+<img src="./_images/processinginclientapplicationloadtest.jpg" alt="Graph showing load-test results for performing processing in the client application." aria-describedby="description-3">
 <p id="description-3" class="visually-hidden">This line graph shows user load, requests per second, and average response time. The graph shows that response time remains roughly constant throughout the load test.</p>
 
 CPU and DTU utilization shows that the system took longer to reach saturation, despite the increased throughput.

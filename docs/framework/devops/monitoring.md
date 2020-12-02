@@ -3,10 +3,12 @@ title: Monitoring for DevOps
 description: Describes how to monitor your workload to ensure your DevOps infrastructure is working as intended.
 author: david-stanford
 ms.date: 11/01/2019
-ms.topic: article
+ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
-ms.custom: fasttrack-edit
+ms.custom:
+  - fasttrack-edit
+  - article
 ---
 
 # Monitoring for DevOps
@@ -44,7 +46,7 @@ Should your application run on Azure Kubernetes Service, Azure Monitor allows yo
 
 Additionally, for operators that prefer using the open-source Kubernetes monitoring tool Prometheus but still like the ease of use of Azure Monitor Container Insights, both solutions can integrate with each other.
 
-  ![GitHub](../../_images/github.png) The [Sidecar Pattern](https://github.com/mspnp/samples/blob/master/OperationalExcellence/Patterns/SidecarPattern/Sidecar-pattern.md) adds a separate container with responsibilities that are required by the main container. A common use case is for running logging utilities and monitoring agents.
+  :::image type="icon" source="../../_images/github.png" border="false"::: The [Sidecar Pattern](https://github.com/mspnp/samples/blob/master/OperationalExcellence/Patterns/SidecarPattern/Sidecar-pattern.md) adds a separate container with responsibilities that are required by the main container. A common use case is for running logging utilities and monitoring agents.
 
 
 ### Network monitoring

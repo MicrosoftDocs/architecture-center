@@ -1,16 +1,19 @@
 ---
 title: Run SAP HANA on Azure (Large Instances)
 titleSuffix: Azure Reference Architectures
-description:  Proven practices for running SAP HANA in a high availability environment on Azure Large Instances.
+description: Proven practices for running SAP HANA in a high availability environment on Azure Large Instances.
 author: bentrin
 ms.date: 04/02/2020
-ms.topic: reference-architecture
+ms.topic: conceptual
 ms.service: architecture-center
 ms.category:
   - databases
   - compute
 ms.subservice: reference-architecture
-ms.custom: seodec18, SAP
+ms.custom:
+  - seodec18
+  - SAP
+  - reference-architecture
 ---
 
 <!-- cSpell:ignore lbrader HANA MSEE Xeon CIDR STONITH VLAN -->
@@ -265,4 +268,4 @@ You may wish to review the following [Azure example scenarios](/azure/architectu
 [type]: /azure/virtual-machines/workloads/sap/hana-installation
 [typei-sku]: /azure/virtual-machines/workloads/sap/hana-know-terms
 [vnet]: /azure/virtual-network/virtual-networks-overview
-[visio-download]: https://archcenter.blob.core.windows.net/cdn/sap-reference-architectures.vsdx
+[visio-download]: https://arch-center.azureedge.net/sap-reference-architectures.vsdx

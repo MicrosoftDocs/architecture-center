@@ -6,13 +6,14 @@ author: doodlemania2
 ms.date: 07/13/2018
 ms.category:
   - compute
-ms.topic: example-scenario
+ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: example-scenario
 ms.custom:
   - fasttrack
   - hpc
   - media
+  - example-scenario
 social_image_url: /azure/architecture/example-scenario/infrastructure/media/architecture-video-rendering.png
 ---
 
