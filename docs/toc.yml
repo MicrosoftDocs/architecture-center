@@ -305,7 +305,7 @@ items:
       href: framework/scalability/performance-efficiency.md
   - name: Reliability
     items:
-    - name: Overview
+    - name: Overview 
       href: framework/resiliency/overview.md
     - name: Application design
       items:
