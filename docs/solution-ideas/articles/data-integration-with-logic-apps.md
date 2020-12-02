@@ -15,7 +15,7 @@ ms.category:
 
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
  
-With Azure Logic Apps it is possible to integrate data from an HTTP request and store it in an on-premises database using Microsoft SQL Server. This gives us the benefits of using a Logic App, such as being able to securely acess it as an endpoint using Azure API Management Services, or allowing you to automate tasks related to the data, such as sending a Teams message or an Email. 
+With Azure Logic Apps it is possible to integrate data from an HTTP request and store it in an on-premises database using Microsoft SQL Server. This gives us the benefits of using a Logic App, such as being able to securely acess it as an endpoint using [Azure API Management Services](https://azure.microsoft.com/en-us/services/api-management/), or allowing you to automate tasks related to the data, such as sending a Teams message or an Email. 
 
 
 
