@@ -41,4 +41,5 @@ The architecture has the following components:
 ## Next Steps
 - [Import a Logic App as an API](https://docs.microsoft.com/en-us/azure/api-management/import-logic-app-as-api)
 - [On-premises data gateways documentation](https://docs.microsoft.com/en-us/data-integration/gateway/)
+- [Install on-premises data gateway for Azure Logic Apps](https://docs.microsoft.com/en-us/azure/logic-apps/logic-apps-gateway-install)
 
