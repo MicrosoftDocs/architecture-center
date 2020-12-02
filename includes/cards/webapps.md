@@ -17,7 +17,7 @@
             <li>6/24/2020</li>
             <li>2 min read</li>
         </ul>
-        <p class="card-content-description">The reference architecture below is inspired by HSBC’s digital payment platform, PayMe for Business.</p>
+        <p class="card-content-description">The reference architecture below is inspired by HSBC's digital payment platform, PayMe for Business.</p>
         <div class="bottom-to-top-fade is-hidden-mobile"></div>
     </div>
 </article>

@@ -270,6 +270,6 @@ A deployment for a reference architecture that implements these recommendations 
 [azure-multifactor-authentication]: /azure/multi-factor-authentication/multi-factor-authentication
 [considerations]: ./index.md
 [sla-aad]: https://azure.microsoft.com/support/legal/sla/active-directory
-[visio-download]: https://archcenter.blob.core.windows.net/cdn/identity-architectures.vsdx
+[visio-download]: https://arch-center.azureedge.net/identity-architectures.vsdx
 [azure-pricing-calculator]: https://azure.microsoft.com/pricing/calculator
 [AAF-devops]: ../../framework/devops/overview.md

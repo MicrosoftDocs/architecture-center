@@ -37,9 +37,9 @@ Set limits or quotas to prevent unexpected costs, For more information, see [Azu
 Use tags on resources and resource groups to track the incurred costs. Identify the service meters that can't be tagged or viewed in the cost analysis tool in Azure portal.
 
 The advantages of tagging include:
--	The cost can be reported to an owner, an application, a business department or a project initiative. This feature is useful because the overall cost can span multiple resources, locations, and subscriptions. 
--	Filter information. This filtering can be used in cost analysis tool in Azure portal allowing you to get granular reports.
+- The cost can be reported to an owner, an application, a business department or a project initiative. This feature is useful because the overall cost can span multiple resources, locations, and subscriptions. 
+- Filter information. This filtering can be used in cost analysis tool in Azure portal allowing you to get granular reports.
 
 There are some limitations:
--	Tags can’t be inherited. If you tag a resource group, the resources under that group won’t inherit that tag. This aspect requires, additional efforts in looking up the parent resource group to get tagging information if you want to tag related resource.
--	Not all Azure resources can be tagged and not all taggable resources in Azure are accounted for in the Azure cost analysis tool.
+- Tags can’t be inherited. If you tag a resource group, the resources under that group won’t inherit that tag. This aspect requires, additional efforts in looking up the parent resource group to get tagging information if you want to tag related resource.
+- Not all Azure resources can be tagged and not all taggable resources in Azure are accounted for in the Azure cost analysis tool.

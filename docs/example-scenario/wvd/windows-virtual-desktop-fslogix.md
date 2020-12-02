@@ -9,6 +9,7 @@ ms.service: architecture-center
 ms.custom:
   - fcp
   - guide
+ms.subservice: azure-guide
 ---
 
 # Microsoft FSLogix for the enterprise

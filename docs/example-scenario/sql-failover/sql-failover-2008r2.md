@@ -307,48 +307,48 @@ To transfer data from your on-premises database to the newly created cluster, co
 - [Migrate a SQL Server database to SQL Server on an Azure virtual machine][Migrate a SQL Server database to SQL Server on an Azure virtual machine]
 
 [ARM Template to create a shared disk]: ./shared-disk.json
-[ARM templates]: https://docs.microsoft.com/azure/azure-resource-manager/templates/overview
-[Azure Bastion]: https://docs.microsoft.com/azure/bastion/bastion-connect-vm-rdp
-[Azure Hybrid Benefit for Windows Server]: https://docs.microsoft.com/azure/virtual-machines/windows/hybrid-use-benefit-licensing
-[Azure Hybrid Benefit for Windows Server configuration guidelines]: https://docs.microsoft.com/azure/virtual-machines/windows/hybrid-use-benefit-licensing#convert-an-existing-vm-using-azure-hybrid-benefit-for-windows-server
-[Azure Load Balancer]: https://docs.microsoft.com/azure/load-balancer/load-balancer-overview
+[ARM templates]: /azure/azure-resource-manager/templates/overview
+[Azure Bastion]: /azure/bastion/bastion-connect-vm-rdp
+[Azure Hybrid Benefit for Windows Server]: /azure/virtual-machines/windows/hybrid-use-benefit-licensing
+[Azure Hybrid Benefit for Windows Server configuration guidelines]: /azure/virtual-machines/windows/hybrid-use-benefit-licensing#convert-an-existing-vm-using-azure-hybrid-benefit-for-windows-server
+[Azure Load Balancer]: /azure/load-balancer/load-balancer-overview
 [Azure Marketplace]: https://azuremarketplace.microsoft.com
 [Azure pricing calculator]: https://azure.microsoft.com/pricing/calculator
-[Azure shared disks]: https://docs.microsoft.com/azure/virtual-machines/windows/disks-shared
-[Azure shared disk limits disk types]: https://docs.microsoft.com/azure/virtual-machines/windows/disks-shared#limitations
-[Azure shared disk limits disk size]: https://docs.microsoft.com/azure/virtual-machines/windows/disks-shared#disk-sizes
+[Azure shared disks]: /azure/virtual-machines/windows/disks-shared
+[Azure shared disk limits disk types]: /azure/virtual-machines/windows/disks-shared#limitations
+[Azure shared disk limits disk size]: /azure/virtual-machines/windows/disks-shared#disk-sizes
 [Azure virtual machines]: https://azure.microsoft.com/overview/what-is-a-virtual-machine/
-[Cluster Name Object]: https://docs.microsoft.com/windows-server/failover-clustering/configure-ad-accounts#overview-of-active-directory-accounts-needed-by-a-failover-cluster
-[Configure multiple virtual machines in an availability set for redundancy]: https://docs.microsoft.com/azure/virtual-machines/manage-availability#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy
-[Configure the Windows Firewall to Allow SQL Server Access]: https://docs.microsoft.com/sql/sql-server/install/configure-the-windows-firewall-to-allow-sql-server-access
-[Deploy a file share witness]: https://docs.microsoft.com/windows-server/failover-clustering/file-share-witness
-[Domain Controller Roles]: https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2003/cc786438(v=ws.10)
-[Dynamic Host Configuration Protocol]: https://docs.microsoft.com/windows-server/networking/technologies/dhcp/dhcp-top
-[Extend support for SQL Server 2008 and SQL Server 2008 R2 with Azure]: https://docs.microsoft.com/azure/azure-sql/virtual-machines/windows/sql-server-2008-extend-end-of-support
+[Cluster Name Object]: /windows-server/failover-clustering/configure-ad-accounts#overview-of-active-directory-accounts-needed-by-a-failover-cluster
+[Configure multiple virtual machines in an availability set for redundancy]: /azure/virtual-machines/manage-availability#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy
+[Configure the Windows Firewall to Allow SQL Server Access]: /sql/sql-server/install/configure-the-windows-firewall-to-allow-sql-server-access
+[Deploy a file share witness]: /windows-server/failover-clustering/file-share-witness
+[Domain Controller Roles]: /previous-versions/windows/it-pro/windows-server-2003/cc786438(v=ws.10)
+[Dynamic Host Configuration Protocol]: /windows-server/networking/technologies/dhcp/dhcp-top
+[Extend support for SQL Server 2008 and SQL Server 2008 R2 with Azure]: /azure/azure-sql/virtual-machines/windows/sql-server-2008-extend-end-of-support
 [Extended Security Updates frequently asked questions]: https://www.microsoft.com/windows-server/extended-security-updates
-[Failover cluster quorum]: https://docs.microsoft.com/windows-server/storage/storage-spaces/understand-quorum
-[Frequently asked questions for SQL Server on Azure VMs]: https://docs.microsoft.com/azure/azure-sql/virtual-machines/windows/frequently-asked-questions-faq
+[Failover cluster quorum]: /windows-server/storage/storage-spaces/understand-quorum
+[Frequently asked questions for SQL Server on Azure VMs]: /azure/azure-sql/virtual-machines/windows/frequently-asked-questions-faq
 [How to update or slipstream an installation of SQL Server 2008]: https://support.microsoft.com/help/955392/how-to-update-or-slipstream-an-installation-of-sql-server-2008
-[How to use Azure PowerShell to provision SQL Server on Azure Virtual Machines]: https://docs.microsoft.com/azure/azure-sql/virtual-machines/windows/create-sql-vm-powershell
-[Introduction to Azure managed disks]: https://docs.microsoft.com/azure/virtual-machines/managed-disks-overview
+[How to use Azure PowerShell to provision SQL Server on Azure Virtual Machines]: /azure/azure-sql/virtual-machines/windows/create-sql-vm-powershell
+[Introduction to Azure managed disks]: /azure/virtual-machines/managed-disks-overview
 [KB3125574]: https://support.microsoft.com/help/3125574/convenience-rollup-update-for-windows-7-sp1-and-windows-server-2008-r2
 [Microsoft blog post on free security updates]: https://azure.microsoft.com/blog/announcing-new-options-for-sql-server-2008-and-windows-server-2008-end-of-support
-[Microsoft SQL Server 2008 R2 lifecycle]: https://docs.microsoft.com/lifecycle/products/microsoft-sql-server-2008-r2
-[Migrate a SQL Server database to SQL Server on an Azure virtual machine]: https://docs.microsoft.com/azure/azure-sql/virtual-machines/windows/migrate-to-vm-from-sql-server
-[Name resolution that uses your own DNS server]: https://docs.microsoft.com/azure/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances#name-resolution-that-uses-your-own-dns-server
-[Overview of Failover Clusters]: https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-r2-and-2008/cc730692(v=ws.10)
+[Microsoft SQL Server 2008 R2 lifecycle]: /lifecycle/products/microsoft-sql-server-2008-r2
+[Migrate a SQL Server database to SQL Server on an Azure virtual machine]: /azure/azure-sql/virtual-machines/windows/migrate-to-vm-from-sql-server
+[Name resolution that uses your own DNS server]: /azure/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances#name-resolution-that-uses-your-own-dns-server
+[Overview of Failover Clusters]: /previous-versions/windows/it-pro/windows-server-2008-r2-and-2008/cc730692(v=ws.10)
 [PowerShell script to deploy an Azure internal load balancer]: https://github.com/mspnp/samples/tree/master/Reliability/SQLServer2008R2FailoverClusterInAzureSample/LB-Deploy.ps1
 [PowerShell script to deploy VMs on Azure]: https://github.com/mspnp/samples/tree/master/Reliability/SQLServer2008R2FailoverClusterInAzureSample/VM-Deploy.ps1
-[Quickstart: Create an internal load balancer to load balance VMs using the Azure portal]: https://docs.microsoft.com/azure/load-balancer/tutorial-load-balancer-standard-internal-portal
+[Quickstart: Create an internal load balancer to load balance VMs using the Azure portal]: /azure/load-balancer/tutorial-load-balancer-standard-internal-portal
 [Reference Code]: #reference-code
-[Restore a database backup]: https://docs.microsoft.com/sql/relational-databases/backup-restore/restore-a-database-backup-using-ssms
-[Server Message Block overview]: https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831795(v=ws.11)
+[Restore a database backup]: /sql/relational-databases/backup-restore/restore-a-database-backup-using-ssms
+[Server Message Block overview]: /previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831795(v=ws.11)
 [Software Assurance]: https://www.microsoft.com/licensing/licensing-programs/software-assurance-default?activetab=software-assurance-default-pivot%3aprimaryr3
-[SQL Log Shipping]: https://docs.microsoft.com/sql/database-engine/log-shipping/configure-log-shipping-sql-server
+[SQL Log Shipping]: /sql/database-engine/log-shipping/configure-log-shipping-sql-server
 [SQL Server 2008 R2 SP3 on Windows Server 2008 R2]: https://azuremarketplace.microsoft.com/marketplace/apps/microsoftsqlserver.sql2008r2sp3-ws2008r2sp1-byol?tab=Overview
-[Upgrade SQL Server]: https://docs.microsoft.com/sql/sql-server/end-of-support/sql-server-end-of-life-overview#upgrade-sql-server
-[Upgrading from Windows Server 2008 R2 or Windows Server 2008]: https://docs.microsoft.com/windows-server/get-started/installation-and-upgrade#upgrading-from-windows-server-2008-r2-or-windows-server-2008
-[Upload a generalized VHD and use it to create new VMs in Azure]: https://docs.microsoft.com/azure/virtual-machines/windows/upload-generalized-managed
-[What is Azure SQL?]: https://docs.microsoft.com/azure/azure-sql/azure-sql-iaas-vs-paas-what-is-overview
-[What is Azure Virtual Network?]: https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview
+[Upgrade SQL Server]: /sql/sql-server/end-of-support/sql-server-end-of-life-overview#upgrade-sql-server
+[Upgrading from Windows Server 2008 R2 or Windows Server 2008]: /windows-server/get-started/installation-and-upgrade#upgrading-from-windows-server-2008-r2-or-windows-server-2008
+[Upload a generalized VHD and use it to create new VMs in Azure]: /azure/virtual-machines/windows/upload-generalized-managed
+[What is Azure SQL?]: /azure/azure-sql/azure-sql-iaas-vs-paas-what-is-overview
+[What is Azure Virtual Network?]: /azure/virtual-network/virtual-networks-overview
 [Windows Server 2008 R2 lifecycle]: https://docs.microsoft.com/lifecycle/products/windows-server-2008-r2

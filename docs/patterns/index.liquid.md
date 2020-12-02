@@ -7,7 +7,7 @@ author: dragon119
 ms.date: 12/10/2018
 ms.topic: conceptual
 ms.service: architecture-center
-ms.subservice: cloud-fundamentals
+ms.subservice: design-pattern
 ms.custom:
   - seodec18
   - design-pattern

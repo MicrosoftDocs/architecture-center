@@ -11,7 +11,7 @@ ms.category:
   - event-driven
   - transactions
   - microservices
-ms.subservice: cloud-fundamentals
+ms.subservice: design-pattern
 ms.custom:
   - fcp
   - design-pattern

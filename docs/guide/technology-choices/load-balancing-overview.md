@@ -9,7 +9,7 @@ ms.service: architecture-center
 ms.category:
   - web
   - compute
-ms.subservice: reference-architecture
+ms.subservice: guide
 ms.custom:
   - guide
 ---

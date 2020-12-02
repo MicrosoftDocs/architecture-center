@@ -151,7 +151,7 @@ For more information on how to configure Azure File Sync with a proxy server, re
 - You can use the [Azure Storage Pricing Calculator][Pricing calculator] to help estimate your costs.
 
 [Architecture diagram]: ./images/hybrid-file-services.png
-[Visio diagram]: https://archcenter.blob.core.windows.net/cdn/hybrid-file-services.vsdx
+[Visio diagram]: https://arch-center.azureedge.net/hybrid-file-services.vsdx
 [Storage Account]: /azure/storage/common/storage-account-overview
 [Azure Files]: /azure/storage/files/storage-files-planning
 [Azure Active Directory]: /azure/active-directory/fundamentals/active-directory-whatis

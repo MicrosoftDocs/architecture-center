@@ -191,7 +191,7 @@ For a complete list of server management capabilities, refer to [Manage Servers 
 
 [architectural-diagram-azure]: ./images/hybrid-server-os-mgmt-wac-azure.png
 [architectural-diagram-onprem]: ./images/hybrid-server-os-mgmt-wac-onprem.png
-[architectural-diagram-visio-source]: https://archcenter.blob.core.windows.net/cdn/hybrid-server-os-mgmt.vsdx
+[architectural-diagram-visio-source]: https://arch-center.azureedge.net/hybrid-server-os-mgmt.vsdx
 [onprem-installation-type]: ./images/hybrid-server-os-mgmt-wac-onprem-install-type.png
 [wac-case-studies]: /windows-server/manage/windows-admin-center/understand/case-studies
 [user-access-options]: /windows-server/manage/windows-admin-center/plan/user-access-options

@@ -279,7 +279,7 @@ For more information, see the Operational Excellence section in [Microsoft Azure
 [cidr]: https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing
 [azure-pricing-calculator]: https://azure.microsoft.com/pricing/calculator
 [datastax]: https://www.datastax.com/products/datastax-enterprise
-[ddos-best-practices]: /azure/security/azure-ddos-best-practices
+[ddos-best-practices]: /azure/security/fundamentals/ddos-best-practices
 [ddos]: /azure/virtual-network/ddos-protection-overview
 [dmz]: ../dmz/secure-vnet-dmz.md
 [github-folder]: https://github.com/mspnp/reference-architectures/tree/master/virtual-machines/n-tier-linux
@@ -293,6 +293,6 @@ For more information, see the Operational Excellence section in [Microsoft Azure
 [public IP address]: /azure/virtual-network/virtual-network-ip-addresses-overview-arm
 [resource-manager-overview]: /azure/azure-resource-manager/resource-group-overview
 [subscription-limits]: /azure/azure-subscription-service-limits
-[visio-download]: https://archcenter.blob.core.windows.net/cdn/vm-reference-architectures.vsdx
+[visio-download]: https://arch-center.azureedge.net/vm-reference-architectures.vsdx
 [vmss-design]: /azure/virtual-machine-scale-sets/virtual-machine-scale-sets-design-overview
 [vmss]: /azure/virtual-machine-scale-sets/virtual-machine-scale-sets-overview

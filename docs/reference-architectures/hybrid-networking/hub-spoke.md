@@ -173,10 +173,6 @@ az deployment group create \
     --parameters winVmUser=$ADMIN_USER winVmPassword=$ADMIN_PASSWORD winVmDnsPrefix=$VM_DNS_PREFIX
 ```
 
-## Next steps
-
-For a version of this architecture that deploys shared identity and security services, see [Hub-spoke network topology with shared services in Azure](./shared-services.md).
-
 <!-- links -->
 
 [aaf-cost]: ../../framework/cost/overview.md
@@ -200,7 +196,7 @@ For a version of this architecture that deploys shared identity and security ser
 [vnet-peering-requirements]: /azure/virtual-network/virtual-network-manage-peering#requirements-and-constraints
 [vpn-appliance]: /azure/vpn-gateway/vpn-gateway-about-vpn-devices
 [windows-vm-ra]: ../n-tier/n-tier-sql-server.md
-[visio-download]: https://archcenter.blob.core.windows.net/cdn/hybrid-network-hub-spoke.vsdx
+[visio-download]: https://arch-center.azureedge.net/hybrid-network-hub-spoke.vsdx
 [ref-arch-repo]: https://github.com/mspnp/reference-architectures
 
 [0]: ./images/hub-spoke.png "Hub-spoke topology in Azure"

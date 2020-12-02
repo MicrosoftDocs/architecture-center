@@ -297,7 +297,7 @@ To test and deploy the runbook on a Hybrid Runbook Worker Group, use the followi
 - Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate costs. Pricing models for Log Analytics are explained [here][30].
 
 [architectural-diagram]: ./images/azure-automation-hybrid.png
-[architectural-diagram-visio-source]: https://archcenter.blob.core.windows.net/cdn/azure-automation-hybrid.vsdx
+[architectural-diagram-visio-source]: https://arch-center.azureedge.net/azure-automation-hybrid.vsdx
 [1]: /azure/azure-monitor/platform/design-logs-deployment
 [2]: /azure/automation/automation-hybrid-runbook-worker
 [3]: /azure/automation/automation-intro

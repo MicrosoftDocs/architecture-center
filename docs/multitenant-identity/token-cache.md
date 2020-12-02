@@ -10,7 +10,7 @@ ms.category:
 ms.custom:
   - has-adal-ref
   - guide
-ms.subservice: reference-architecture
+ms.subservice: azure-guide
 pnp.series.title: Manage Identity in Multitenant Applications
 pnp.series.prev: web-api
 pnp.series.next: adfs

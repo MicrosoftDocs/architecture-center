@@ -582,7 +582,7 @@ Here you'll find a list of considerations to explore. They're based on the lesso
 
 * [Azure DevOps Machine Learning extension](https://marketplace.visualstudio.com/items?itemName=ms-air-aiagility.vss-services-azureml)
 
-* [Azure Machine Learning CLI](https://aka.ms/azmlcli)
+* [Azure Machine Learning CLI](/azure/machine-learning/reference-azure-machine-learning-cli)
 
 * [Trigger applications, processes, or CI/CD workflows based on Azure Machine Learning events](/azure/machine-learning/service/how-to-use-event-grid)
 

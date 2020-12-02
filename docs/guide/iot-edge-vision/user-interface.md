@@ -9,7 +9,7 @@ ms.service: architecture-center
 ms.author: keith
 ms.category:
   - fcp
-ms.subservice: reference-architecture
+ms.subservice: azure-guide
 ms.custom:
   - guide
 ---
@@ -160,9 +160,9 @@ How many cameras will it take? Since we have figured out that our cameras can lo
 
 This series of articles have demonstrated how to build a complete vision workload using Azure IoT Edge devices. For further information, you may refer to the product documentation as following:
 
-- [Azure IoT Edge documentation](https://docs.microsoft.com/azure/iot-edge/)
-- [Tutorial: Perform image classification at the edge with Custom Vision Service](https://docs.microsoft.com/azure/iot-edge/tutorial-deploy-custom-vision)
-- [Azure Machine Learning documentation](https://docs.microsoft.com/azure/machine-learning/)
-- [Azure Kinect DK documentation](https://docs.microsoft.com/azure/kinect-dk/)
+- [Azure IoT Edge documentation](/azure/iot-edge/)
+- [Tutorial: Perform image classification at the edge with Custom Vision Service](/azure/iot-edge/tutorial-deploy-custom-vision)
+- [Azure Machine Learning documentation](/azure/machine-learning/)
+- [Azure Kinect DK documentation](/azure/kinect-dk/)
 - [MMdnn tool](https://github.com/Microsoft/MMdnn)
 - [ONNX](https://onnx.ai/)

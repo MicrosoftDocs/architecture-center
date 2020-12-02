@@ -33,7 +33,7 @@ This line-of-business application solution consolidates data from multiple busin
 1. Employee mobile app connects to the logic app that orchestrates the business process
 1. Employee mobile app authenticates via Azure Active Directory
 
-## Components''
+## Components
 
 * Azure [Virtual Machines](https://azure.microsoft.com/services/virtual-machines) lets you deploy a Windows Server or Linux image in the cloud. You can select images from a marketplace or use your own customized images.
 * [Azure SQL Database](https://azure.microsoft.com/services/sql-database) is a relational database service that lets you rapidly create, extend, and scale relational applications into the cloud.

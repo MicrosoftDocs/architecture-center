@@ -328,7 +328,7 @@ To deploy the reference implementation for this architecture, follow the steps i
 
 [ri]: https://github.com/mspnp/microservices-reference-implementation
 [ri-deploy]: https://github.com/mspnp/microservices-reference-implementation/blob/master/deployment.md
-[visio-download]: https://archcenter.blob.core.windows.net/cdn/aks-reference-architecture.vsdx
+[visio-download]: https://arch-center.azureedge.net/aks-reference-architecture.vsdx
 [aaf-cost]: ../../../framework/cost/overview.md
 [azure-pricing-calculator]: https://azure.microsoft.com/pricing/calculator
 [DevOps-pricing]: https://azure.microsoft.com/pricing/details/devops/azure-devops-services
