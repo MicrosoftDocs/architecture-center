@@ -51,6 +51,7 @@ Architecture diagrams, reference architectures, example scenarios, and solutions
 [!INCLUDE [Hybrid ETL with Azure Data Factory](../../includes/cards/hybrid-etl-with-adf.md)]
 [!INCLUDE [Hybrid file services](../../includes/cards/hybrid-file-services.md)]
 [!INCLUDE [On-premises data gateway for Azure Logic Apps](../../includes/cards/gateway-logic-apps.md)]
+[!INCLUDE [Optimize administration of SQL Server instances in on-premises and multi-cloud environments by leveraging Azure Arc](../../includes/cards/azure-arc-sql-server.md)]
 [!INCLUDE [Partitioning in Event Hubs and Kafka](../../includes/cards/partitioning-in-event-hubs-and-kafka.md)]
 [!INCLUDE [Publishing internal APIs to external users](../../includes/cards/publish-internal-apis-externally.md)]
 [!INCLUDE [Using Azure file shares in a hybrid environment](../../includes/cards/azure-file-share.md)]
@@ -90,6 +91,8 @@ Architecture diagrams, reference architectures, example scenarios, and solutions
 [!INCLUDE [Manage configurations for Azure Arc enabled servers](../../includes/cards/azure-arc-hybrid-config.md)]
 [!INCLUDE [Manage hybrid Azure workloads using Windows Admin Center](../../includes/cards/hybrid-server-os-mgmt.md)]
 [!INCLUDE [SMB disaster recovery with Azure Site Recovery](../../includes/cards/disaster-recovery-smb-azure-site-recovery.md)]
+[!INCLUDE [Use Azure Stack HCI stretched clusters for disaster recovery](../../includes/cards/azure-stack-hci-dr.md)]
+[!INCLUDE [Use Azure Stack HCI switchless interconnect and lightweight quorum for Remote Office/Branch Office](../../includes/cards/azure-stack-robo.md)]
 
 </ul>
 
