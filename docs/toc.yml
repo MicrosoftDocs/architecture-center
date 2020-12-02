@@ -286,6 +286,7 @@ items:
     - name: Checklist
       href: checklist/dev-ops.md
   - name: Performance Efficiency
+    items:
     - name: Overview 
       href: framework/scalability/overview.md
     - name: Design
