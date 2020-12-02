@@ -43,7 +43,7 @@ To learn more about how to use caching as a solution in testing, see [Caching](h
 
 ### Use Azure Redis to cache data
 
-Azure Cache for Redis is a caching service that can be accessed from any Azure application, whether the application is implemented as a cloud service, a website, or inside an Azure virtual machine. Caches can be shared by client applications that have the appropriate access key. It is a high-performance caching solution that provides availability, scalability, and security.
+Azure Cache for Redis is a caching service that can be accessed from any Azure application, whether the application is implemented as a cloud service, a website, or inside an Azure virtual machine. Caches can be shared by client applications that have the appropriate access key. It is a high-performance caching solution that provides availability, scalability, and security. 
 
 To learn more about using Azure Cache for Redis, see [Considerations for implementing caching in Azure](https://docs.microsoft.com/azure/architecture/best-practices/caching#considerations-for-implementing-caching-in-azure).
 
