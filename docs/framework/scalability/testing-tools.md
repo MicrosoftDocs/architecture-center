@@ -1,6 +1,6 @@
 ---
 title: Testing tools
-description: Describes testing tools used for performance efficiency
+description: Describes testing tools for performance efficiency
 author: v-aangie
 ms.date: 12/02/2020
 ms.topic: conceptual

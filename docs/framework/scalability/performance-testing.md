@@ -39,7 +39,7 @@ Determine the maximum demand you want to place on memory, CPU, and disk IOPS. On
 
 Once you determine an acceptable operational margin and response time under typical loads, verify that the environment is configured adequately. To do this, make sure the SKUs that you selected are based on the desired margins. Be careful to stay as close as possible to your margins. Allocating too much can increase costs and maintenance unnecessarily; allocating too few can result in poor user experience.
 
-In addition to stress testing through increased load, you can stress test by reducing resources to identify what happens when the machine runs out of memory. You can also stress test by increasing latency (e.g., the database takes 10x time to reply, writes to storage takes 10x longer, etc).
+In addition to stress testing through increased load, you can stress test by reducing resources to identify what happens when the machine runs out of memory. You can also stress test by increasing latency (e.g., the database takes 10x time to reply, writes to storage takes 10x longer, etc.).
 
 ## Multiregion testing
 
