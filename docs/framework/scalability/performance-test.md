@@ -59,4 +59,4 @@ For more information on autoscaling, see *Design for scaling* in the Performance
 ## Next steps
 
 >[!div class="nextstepaction"]
->[Testing tools](https://docs.microsoft.com/azure/architecture/framework/scalability/testing-tools)
+>[Testing tools](https://docs.microsoft.com/azure/architecture/framework/scalability/test-tools)
