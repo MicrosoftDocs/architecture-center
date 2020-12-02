@@ -39,3 +39,4 @@ The architecture has the following components:
 
 
 ## Next Steps
+- [Import a Logic App as an API](https://docs.microsoft.com/en-us/azure/api-management/import-logic-app-as-api)
