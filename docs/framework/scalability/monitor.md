@@ -1,8 +1,8 @@
 ---
-title: Monitoring
+title: Monitoring for performance efficiency
 description: None
-author: faisalm
-ms.date: 10/16/2019
+author: v-aangie
+ms.date: 12/07/2020
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
@@ -11,7 +11,7 @@ ms.custom:
   - article
 ---
 
-# Monitoring for Scalability
+# Monitoring for performance efficiency
 
 Monitoring for scalability should be part of your overall monitoring strategy that utilizes [Azure Monitor](/azure/azure-monitor/). The overall monitoring strategy should take into consideration not only scalability, but resiliency (infrastructure, application, and dependent services) and application performance as well. Most services in Azure offer the ability to turn on both data and management plane logs as well as metrics. For purposes of scalability, looking at the metrics would allow you to scale based scale up, scale out, scale in, and scale down. The ability to scale dynamically is one of the biggest values of moving to the cloud.  
 
