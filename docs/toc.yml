@@ -289,10 +289,16 @@ items:
     items:
     - name: Overview
       href: framework/scalability/overview.md
-    - name: Application design
-      href: framework/scalability/app-design.md
-    - name: Capacity planning
-      href: framework/scalability/capacity.md
+    - name: Design
+      items:  
+      - name: Application design
+        href: framework/scalability/design-apps.md
+      - name: Application efficiency
+        href: framework/scalability/design-efficiency.md
+      - name: Scalability
+        href: framework/scalability/design-scale.md  
+      - name: Capacity planning
+        href: framework/scalability/design-capacity.md
     - name: Load testing
       href: framework/scalability/load-testing.md
     - name: Monitoring
@@ -1105,6 +1111,12 @@ items:
       items:
       - name: FSLogix for the enterprise
         href: example-scenario/wvd/windows-virtual-desktop-fslogix.md
+      - name: Administer SQL Server anywhere with Azure Arc
+        href: hybrid/azure-arc-sql-server.md
+      - name: Azure Stack stretched clusters for DR
+        href: hybrid/azure-stack-hci-dr.md
+      - name: Azure Stack for remote offices and branches
+        href: hybrid/azure-stack-robo.md
     - name: Architectures
       items:
       - name: Manage configurations for Azure Arc enabled servers
@@ -1457,6 +1469,8 @@ items:
         href: reference-architectures/migration/modernize-mainframe-data-to-azure.md
       - name: Migrate Unisys mainframes to Azure
         href: reference-architectures/migration/unisys-mainframe-migration.md
+      - name: Refactor IBM z/OS mainframe CF on Azure
+        href: reference-architectures/zos/refactor-zos-coupling-facility.md
   - name: Mixed Reality
     items:
     - name: Architectures
