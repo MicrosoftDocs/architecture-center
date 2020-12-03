@@ -13,11 +13,11 @@ ms.category:
 
 # Project 15 from Microsoft Open Platform for Conservation and Ecological Sustainability Solutions
 
-The mission of [Project 15 from Microsoft](https://aka.ms/project15) is to empower scientists and conservationists around the world. The project pairs conservation teams with a community of developers, students, and Microsoft partners. Backed by the power of the Microsoft cloud and the Internet of Things (IoT) Open Platform, the project helps these teams capture and analyze the data they need to preserve critical species and ecosystems.
+The mission of [Project 15 from Microsoft](https://aka.ms/project15) is to empower scientists and conservationists around the world. The project pairs conservation teams with a community of developers, students, and Microsoft partners. Backed by the power of the Microsoft cloud and an Internet of Things (IoT) open platform, the project helps these teams capture and analyze the data they need to preserve critical species and ecosystems.
 
-A key part of solutions is the Project 15 Open Platform, which Microsoft designed and built. This open-source software connects to the cloud and securely manages devices that conservation projects use. Its architecture functions as a reference in teams' building-related end-to-end IoT solutions. As a result, Open Platform gets teams roughly 80 percent of the way to a finished solution.
+A key part of solutions is the Project 15 Open Platform, which Microsoft designed and built. This open-source software connects to the cloud and securely manages devices that conservation projects use. Its architecture functions as a reference in teams' building-related end-to-end IoT solutions.
 
-The Project 15 Open Platform can help teams accomplish these goals:
+The Project 15 Open Platform gets teams roughly 80 percent of the way to finished solutions and helps them meet these goals:
 
 - **Close the skill gap**  
   The ready-made platform boosts innovation. Scientific developers can expand into specific use cases.
@@ -28,7 +28,7 @@ The Project 15 Open Platform can help teams accomplish these goals:
 
 ## Potential use cases
 
-By contributing the latest Microsoft cloud and IoT technologies to conservation and ecosystem sustainability open platforms, Project 15 accelerates scientific innovation in these and other areas:
+With its Open Platform, Project 15 contributes the latest Microsoft cloud and IoT technologies to conservation and ecosystem sustainability efforts. In so doing, Project 15 accelerates scientific innovation in these and other areas:
 
 - Species tracking and observation
 - Poaching prevention
@@ -55,42 +55,42 @@ Open Platform components fall into these categories:
 
 ![Project 15 Open Platform Reference Architecture](../media/project-15-ref-architecture.png)
 
-Project 15 Open Platform consists of multiple Azure services and configurations:
+Various Azure services and configurations make up the Project 15 Open Platform:
 
-- Device Provisioning Service provisions IoT devices and connects them to IoT Hub.
+1. The Azure IoT Hub device provisioning service provisions IoT devices and connects them to IoT Hub.
 
-- Streaming platforms and services build the data pipeline that's necessary for basic telemetry and event processing:
+1. Streaming platforms and services build the data pipeline that's necessary for basic telemetry and event processing:
 
-  - Event Hubs ingests telemetry and events from IoT devices.
-  - Event Grid provides a publish-subscribe model that routes events.
+   - Event Hubs ingests telemetry and events from IoT devices.
+   - Event Grid provides a publish-subscribe model that routes events.
 
-- Databases, blob storage, and tables store telemetry and file data that offices upload.
+1. Stream Analytics analyzes data (**3a**). Azure Functions processes data (**3b**). And Time Series Insights monitors, analyzes, and stores data (**3c**). These three services also feed data into a presentation layer.
 
-- Azure Functions processes data. Stream Analytics analyzes data. And Time Series Insights monitors, analyzes, and stores data. These three services also feed data into a presentation layer.
+1. Users connect to the presentation layer through browsers. In that layer:
 
-- Users connect to the presentation layer through browsers. In that layer:
+   - SignalR messaging provides real-time visualization.
+   - App Service and Web Apps provide platforms for building, deploying, and scaling web apps.
+   - Tools like Time Series Insights and Power BI visualize IoT devices, telemetry, and events in websites.
 
-  - SignalR messaging provides real-time visualization.
-  - App Service and Web App provide platforms for building, deploying, and scaling web apps.
-  - Tools like Time Series Insights and Power BI visualize IoT devices, telemetry, and events in websites.
+1. Databases, blob storage, and tables store telemetry and file data that offices upload.
 
-- Other Azure components provide additional functionality:
+1. Other Azure components provide additional functionality:
 
-  - API Apps and Azure Functions work to make device management events available in websites.
-  - Azure Active Directory manages users.
-  - API Apps and Event Grid manage external data.
-  - Azure Digital Twins offers modeling capabilities for optimizing operations.
-  - Azure Defender secures the solution by establishing security policies and access controls.
-  - Azure Notification Hubs and Azure Logic Apps handle notifications.
-  - Azure Machine Learning provides AI capabilities for forecasting device behavior.
-  - Azure Maps tracks geofencing data to provide location-based services.
+   - API Apps and Azure Functions work to make device management events available in websites.
+   - Azure Active Directory manages users.
+   - API Apps and Event Grid manage external data.
+   - Azure Digital Twins offers modeling capabilities for optimizing operations.
+   - Azure Defender secures the solution by establishing security policies and access controls.
+   - Azure Notification Hubs and Azure Logic Apps handle notifications.
+   - Azure Machine Learning provides AI capabilities for forecasting device behavior.
+   - Azure Maps tracks geofencing data to provide location-based services.
 
 ## Components
 
 - [Device Provisioning Service (DPS)](https://docs.microsoft.com/azure/iot-dps/) makes zero-touch, just-in-time provisioning possible. With this IoT Hub helper service, you can provision devices in a secure and scalable manner.
 - [Azure Event Hubs](https://docs.microsoft.com/azure/event-hubs/event-hubs-about) is a fully managed big data streaming platform.
 - [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/) connects devices to Azure cloud resources. With this managed service, you can use queries to filter data that you send to the cloud.
-- [Azure Stream Analytics (ASA)](https://azure.microsoft.com/services/stream-analytics) provides real-time serverless stream processing that can run queries in the cloud and on devices on the edge of the network. ASA on IoT Edge can filter or aggregate data that you need to send to the cloud for further processing or storage.
+- [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics) provides real-time serverless stream processing that can run queries in the cloud and on devices on the edge of the network. ASA on IoT Edge can filter or aggregate data that you need to send to the cloud for further processing or storage.
 - [Azure Functions](https://azure.microsoft.com/services/functions/) is an event-driven serverless compute platform that you can use to build and debug locally without additional setup. With Functions, you can deploy and operate at scale in the cloud. By using its triggers and bindings, you can integrate services.
 - [Time Series Insights](https://azure.microsoft.com/services/time-series-insights/) is an analytics platform that you can use to monitor, analyze, and visualize IoT time series data.
 - [Azure Maps](https://azure.microsoft.com/services/azure-maps/) offers geospatial APIs for adding maps, spatial analytics, and mobility solutions to apps.
@@ -110,7 +110,7 @@ Project 15 Open Platform consists of multiple Azure services and configurations:
 
 - Deployment to Azure happens with the push of a button. The main components of the infrastructure for a standard IoT Solution are then up and running.
 
-- Documentation is available for common scenarios such as simulating device data and connecting devices. Over time, the Project 15 team will add content to the [Project 15 YouTube Channel](https://aka.ms/project15video) and other [Microsoft learning channels](https://docs.microsoft.com/learn/).
+- Documentation is available for common scenarios such as simulating device data and connecting devices. Over time, the Project 15 team adds content to the [Project 15 YouTube Channel](https://aka.ms/project15video) and other [Microsoft learning channels](https://docs.microsoft.com/learn/).
 
 ## Next steps
 
