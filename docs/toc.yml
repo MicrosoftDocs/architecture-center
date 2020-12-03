@@ -135,7 +135,7 @@ items:
       href: guide/responsible-innovation/index.md
     - name: Judgment Call
       href: guide/responsible-innovation/judgmentcall.md
-    - name: Harms Modeling
+    - name: Harms Modeling 
       items:
       - name: Understand Harm
         href: guide/responsible-innovation/harms-modeling/index.md
@@ -287,7 +287,7 @@ items:
       href: checklist/dev-ops.md
   - name: Performance Efficiency
     items:
-    - name: Overview
+    - name: Overview 
       href: framework/scalability/overview.md
     - name: Design
       items:  
@@ -299,15 +299,19 @@ items:
         href: framework/scalability/design-scale.md  
       - name: Capacity planning
         href: framework/scalability/design-capacity.md
-    - name: Load testing
-      href: framework/scalability/load-testing.md
+    - name: Testing
+      items:
+      - name: Performance testing
+        href: framework/scalability/performance-test.md
+      - name: Testing tools
+        href: framework/scalability/test-tools.md  
     - name: Monitoring
       href: framework/scalability/monitoring.md
     - name: Checklist
       href: framework/scalability/performance-efficiency.md
   - name: Reliability
     items:
-    - name: Overview
+    - name: Overview 
       href: framework/resiliency/overview.md
     - name: Application design
       items:
