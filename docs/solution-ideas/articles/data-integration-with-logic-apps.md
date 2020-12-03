@@ -2,7 +2,7 @@
 title: Data Integration with Logic Apps and SQL Server  
 description: Recommended architecture for integrating data through Azure Logic Apps and storing it in an on-premises database using SQL Server.
 authors: beatrizmayumi, shantnus
-ms.date: 11/27/2020
+ms.date: 12/2/2020
 ms.topic: solution-ideas
 ms.service: architecture-center
 ms.subservice: solution-idea
@@ -42,4 +42,5 @@ The architecture has the following components:
 - [Import a Logic App as an API](https://docs.microsoft.com/en-us/azure/api-management/import-logic-app-as-api)
 - [On-premises data gateways documentation](https://docs.microsoft.com/en-us/data-integration/gateway/)
 - [Install on-premises data gateway for Azure Logic Apps](https://docs.microsoft.com/en-us/azure/logic-apps/logic-apps-gateway-install)
+- [Connect to on-premises data sources from Azure Logic Apps](https://docs.microsoft.com/en-us/azure/logic-apps/logic-apps-gateway-connection)
 
