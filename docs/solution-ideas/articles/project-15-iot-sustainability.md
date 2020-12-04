@@ -143,33 +143,33 @@ Various Azure services and configurations make up the Project 15 Open Platform:
 - [AI for Earth][AI for Earth]
 - Content that the Project 15 team periodically adds to the [Project 15 YouTube Channel][Project 15 YouTube Channel] and other [Microsoft learning channels][Microsoft learning channels].
 
-[Project 15 from Microsoft]: https://aka.ms/project15
-[Project 15 Open Platform Developer Guide]: https://microsoft.github.io/project15/Developer-Guide/DeveloperGuide.html
-[Solution details]: #solution-details
-[IoT Hub]: https://azure.microsoft.com/services/iot-hub/
+[AI for Earth]: https://www.microsoft.com/ai/ai-for-earth
+[API Apps]: https://azure.microsoft.com/services/app-service/api/
+[App Service]: https://azure.microsoft.com/services/app-service/
+[Azure AD]: https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis
+[Azure Defender]: https://azure.microsoft.com/services/azure-defender/
+[Azure Digital Twins]: https://azure.microsoft.com/services/digital-twins/
+[Azure Maps]: https://azure.microsoft.com/services/azure-maps/
+[Azure SignalR Service]: https://docs.microsoft.com/aspnet/signalr/overview/getting-started/introduction-to-signalr
+[Blob Storage]: https://docs.microsoft.com/azure/storage/blobs/storage-blobs-introduction
+[Deploying Project 15 from Microsoft Open Platform]: https://microsoft.github.io/project15/Deploy/Deployment.html
 [device provisioning service of IoT Hub]: https://docs.microsoft.com/azure/iot-dps/
 [Event Hubs]: https://docs.microsoft.com/azure/event-hubs/event-hubs-about
 [Event Grid]: https://azure.microsoft.com/services/event-grid/
-[Stream Analytics]: https://azure.microsoft.com/services/stream-analytics
 [Functions]: https://azure.microsoft.com/services/functions/
-[Time Series Insights]: https://azure.microsoft.com/services/time-series-insights/
-[Azure SignalR Service]: https://docs.microsoft.com/aspnet/signalr/overview/getting-started/introduction-to-signalr
-[App Service]: https://azure.microsoft.com/services/app-service/
-[Web Apps]: https://azure.microsoft.com/services/app-service/web/
-[Power BI]: https://docs.microsoft.com/power-bi/fundamentals/power-bi-overview
-[Blob Storage]: https://docs.microsoft.com/azure/storage/blobs/storage-blobs-introduction
-[API Apps]: https://azure.microsoft.com/services/app-service/api/
-[Azure AD]: https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis
-[Azure Digital Twins]: https://azure.microsoft.com/services/digital-twins/
-[Azure Defender]: https://azure.microsoft.com/services/azure-defender/
-[Notification Hubs]: https://docs.microsoft.com/azure/notification-hubs/notification-hubs-push-notification-overview
+[Introduction to Azure IoT]: https://docs.microsoft.com/learn/paths/introduction-to-azure-iot/
+[IoT Hub]: https://azure.microsoft.com/services/iot-hub/
 [Logic Apps]: https://azure.microsoft.com/services/logic-apps/
 [Machine Learning]: https://docs.microsoft.com/azure/machine-learning/overview-what-is-azure-ml
-[Azure Maps]: https://azure.microsoft.com/services/azure-maps/
-[Project 15 YouTube Channel]: https://aka.ms/project15video
 [Microsoft learning channels]: https://docs.microsoft.com/learn/
-[Project 15 on GitHub]: https://aka.ms/project15code
 [Microsoft & Sustainability]: https://www.microsoft.com/sustainability
-[AI for Earth]: https://www.microsoft.com/ai/ai-for-earth
-[Introduction to Azure IoT]: https://docs.microsoft.com/learn/paths/introduction-to-azure-iot/
-[Deploying Project 15 from Microsoft Open Platform]: https://microsoft.github.io/project15/Deploy/Deployment.html
+[Notification Hubs]: https://docs.microsoft.com/azure/notification-hubs/notification-hubs-push-notification-overview
+[Power BI]: https://docs.microsoft.com/power-bi/fundamentals/power-bi-overview
+[Project 15 on GitHub]: https://aka.ms/project15code
+[Project 15 from Microsoft]: https://aka.ms/project15
+[Project 15 Open Platform Developer Guide]: https://microsoft.github.io/project15/Developer-Guide/DeveloperGuide.html
+[Project 15 YouTube Channel]: https://aka.ms/project15video
+[Solution details]: #solution-details
+[Stream Analytics]: https://azure.microsoft.com/services/stream-analytics
+[Time Series Insights]: https://azure.microsoft.com/services/time-series-insights/
+[Web Apps]: https://azure.microsoft.com/services/app-service/web/
