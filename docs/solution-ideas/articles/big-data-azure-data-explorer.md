@@ -10,6 +10,7 @@ ms.custom:
 - fcp
 ms.category:
 - analytics
+- iot
 ---
 
 # Big data analytics with Azure Data Explorer
