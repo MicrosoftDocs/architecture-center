@@ -522,7 +522,6 @@ Architecture diagrams, reference architectures, example scenarios, and solutions
 [!INCLUDE [Highly available SharePoint farm](../../includes/cards/highly-available-sharepoint-farm.md)]
 [!INCLUDE [Highly available multi-region web application](../../includes/cards/multi-region.md)]
 [!INCLUDE [Hybrid SharePoint Farm with Microsoft 365](../../includes/cards/sharepoint-farm-microsoft-365.md)]
-[!INCLUDE [Intelligent product search engine for e-commerce](../../includes/cards/ecommerce-search.md)]
 [!INCLUDE [Migrate a web app using Azure APIM](../../includes/cards/apim-api-scenario.md)]
 [!INCLUDE [Multi-region N-tier application](../../includes/cards/multi-region-sql-server.md)]
 [!INCLUDE [Multi-tier web application built for HA/DR](../../includes/cards/multi-tier-app-disaster-recovery.md)]

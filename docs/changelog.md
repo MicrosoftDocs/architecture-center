@@ -2,7 +2,7 @@
 title: What's New in the Azure Architecture Center
 description: New and updated articles in the Azure Architecture Center
 author: doodlemania2
-ms.date: 11/30/2020
+ms.date: 12/06/2020
 ms.topic: article
 ms.service: architecture-center
 ---
@@ -16,6 +16,22 @@ ms.service: architecture-center
 
 
 New and updated articles in the Azure Architecture Center
+
+## December 2020
+
+### New Articles
+
+- [Performance testing](/azure/architecture/framework/scalability/performance-test)
+- [Testing tools](/azure/architecture/framework/scalability/test-tools)
+- [Refactor IBM z/OS mainframe Coupling Facility (CF) to Azure](/azure/architecture/reference-architectures/zos/refactor-zos-coupling-facility)
+- [Design scalable Azure applications](/azure/architecture/framework/scalability/design-apps)
+- [Plan for capacity](/azure/architecture/framework/scalability/design-capacity)
+- [Design Azure applications for efficiency](/azure/architecture/framework/scalability/design-efficiency)
+- [Design for scaling](/azure/architecture/framework/scalability/design-scale)
+
+### Updated Articles
+
+- [Baseline architecture for an Azure Kubernetes Service (AKS) cluster](/azure/architecture/reference-architectures/containers/aks/secure-baseline-aks)  ([#32842d421](https://github.com/MicrosoftDocs/architecture-center/commit/32842d421))
 
 ## November 2020
 
@@ -207,40 +223,4 @@ New and updated articles in the Azure Architecture Center
 - [Cost governance for an Azure workload](/azure/architecture/framework/cost/design-governance)  ([#a3452805a](https://github.com/MicrosoftDocs/architecture-center/commit/a3452805a))
 - [Event-based cloud automation](/azure/architecture/reference-architectures/serverless/cloud-automation)  ([#d2cca2011](https://github.com/MicrosoftDocs/architecture-center/commit/d2cca2011))
 - [Serverless event processing](/azure/architecture/reference-architectures/serverless/event-processing)  ([#d2cca2011](https://github.com/MicrosoftDocs/architecture-center/commit/d2cca2011))
-
-## July 2020
-
-### New Articles
-
-- [Predictive maintenance with the intelligent IoT Edge](/azure/architecture/example-scenario/predictive-maintenance/iot-predictive-maintenance)
-- [Multitenant SaaS on Azure](/azure/architecture/example-scenario/multi-saas/multitenant-saas)
-- [Saga distributed transactions](/azure/architecture/reference-architectures/saga/saga)
-- [Secure OAuth 2.0 On-Behalf-Of refresh tokens for web services](/azure/architecture/example-scenario/secrets/secure-refresh-tokens)
-- [Baseline architecture for an Azure Kubernetes Service (AKS) cluster](/azure/architecture/reference-architectures/containers/aks/secure-baseline-aks)
-- [Azure Icons](/azure/architecture/icons)
-- [Windows Virtual Desktop for the enterprise](/azure/architecture/example-scenario/wvd/windows-virtual-desktop)
-- [UVEN smart and secure disinfection and lighting](/azure/architecture/solution-ideas/articles/uven-disinfection)
-- [Azure Industrial IoT guidance](/azure/architecture/guide/iiot-guidance/iiot-architecture)
-- [Considerations in Azure Industrial IoT solution](/azure/architecture/guide/iiot-guidance/iiot-considerations)
-- [Azure Industrial IoT - data analysis](/azure/architecture/guide/iiot-guidance/iiot-data)
-- [Services in an Azure Industrial IoT solution](/azure/architecture/guide/iiot-guidance/iiot-services)
-- [DataOps for the modern data warehouse](/azure/architecture/example-scenario/data-warehouse/dataops-mdw)
-- [Unified logging for microservices applications](/azure/architecture/example-scenario/logging/unified-logging)
-- [Homomorphic encryption with SEAL](/azure/architecture/solution-ideas/articles/homomorphic-encryption-seal)
-- [Azure Machine Learning decision guide for optimal tool selection](/azure/architecture/example-scenario/mlops/aml-decision-tree)
-- [Machine Learning Operations maturity model](/azure/architecture/example-scenario/mlops/mlops-maturity-model)
-- [Machine learning operations (MLOps) framework to upscale machine learning Lifecycle with Azure Machine Learning](/azure/architecture/example-scenario/mlops/mlops-technical-paper)
-- [Cognizant Safe Buildings with IoT and Azure](/azure/architecture/solution-ideas/articles/safe-buildings)
-- [Machine teaching with the Microsoft Autonomous Systems platform](/azure/architecture/solution-ideas/articles/autonomous-systems)
-- [Machine teaching](/azure/architecture/solution-ideas/articles/machine-teaching)
-
-### Updated Articles
-
-- [Compare machine learning products from Microsoft](/azure/architecture/data-guide/technology-choices/data-science-and-machine-learning)  ([#84a5aab4e](https://github.com/MicrosoftDocs/architecture-center/commit/84a5aab4e))
-- [Autoscaling guidance](/azure/architecture/best-practices/auto-scaling)  ([#16d331c41](https://github.com/MicrosoftDocs/architecture-center/commit/16d331c41))
-- [Storage, data, and encryption in Azure | Microsoft Docs](/azure/architecture/framework/security/storage-data-encryption)  ([#bf81a3ea4](https://github.com/MicrosoftDocs/architecture-center/commit/bf81a3ea4))
-- [Monitoring application health for reliability in Azure](/azure/architecture/framework/resiliency/monitoring)  ([#f7d496352](https://github.com/MicrosoftDocs/architecture-center/commit/f7d496352))
-- [Failure mode analysis](/azure/architecture/resiliency/failure-mode-analysis)  ([#f7d496352](https://github.com/MicrosoftDocs/architecture-center/commit/f7d496352))
-- [Azure IoT reference architecture](/azure/architecture/reference-architectures/iot)  ([#682844123](https://github.com/MicrosoftDocs/architecture-center/commit/682844123))
-- [Run a highly available SharePoint Server 2016 farm in Azure](/azure/architecture/reference-architectures/sharepoint)  ([#fefe37ee4](https://github.com/MicrosoftDocs/architecture-center/commit/fefe37ee4))
 
