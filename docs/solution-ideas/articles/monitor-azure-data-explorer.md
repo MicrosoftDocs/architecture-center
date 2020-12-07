@@ -10,6 +10,7 @@ ms.custom:
 - fcp
 ms.category:
 - analytics
+- iot
 ---
 
 # End-to-end monitoring solution with Azure Data Explorer

@@ -18,17 +18,12 @@ ms.custom:
 
 # Azure Kubernetes Service (AKS) production baseline
 
-In this reference architecture, we’ll build a baseline infrastructure that deploys an Azure Kubernetes Service (AKS) cluster. This article includes recommendations for networking, security, identity, management, and monitoring of the cluster based on an organization’s business requirements. The requirements are assessed by using [Azure Well-Architected Framework](../../../framework/index.md).
+In this reference architecture, we’ll build a baseline infrastructure that deploys an Azure Kubernetes Service (AKS) cluster. This article includes recommendations for networking, security, identity, management, and monitoring of the cluster based on an organization’s business requirements. 
 
 ![GitHub logo](../../../_images/github.png) An implementation of this architecture is available on [GitHub: Azure Kubernetes Service (AKS) Secure Baseline Reference Implementation](https://github.com/mspnp/aks-secure-baseline). You can use it as a starting point and configure it as per your needs.
 
-### Recommended content
-
-> This reference architecture requires knowledge of Kubernetes and its concepts. If you need a refresher, complete this workshop to deploy a multi-container application to Kubernetes on Azure Kubernetes Service (AKS).
-> [!div class="nextstepaction"]
-> [Azure Kubernetes Service Workshop](/learn/modules/aks-workshop/)
-
-### Architecture choices
+> [!NOTE]
+> This reference architecture requires knowledge of Kubernetes and its concepts. If you need a refresher, see the **Related articles** section for resources. 
 
 :::row:::
     :::column:::
@@ -38,8 +33,9 @@ In this reference architecture, we’ll build a baseline infrastructure that dep
       [Deploy Ingress resources](#deploy-ingress-resources)
     :::column-end:::
     :::column:::
-      #### Cluster compute
+      #### Cluster configuration
       [Compute for the base cluster](#configure-compute-for-the-base-cluster)
+      [Container image reference](#container-image-reference)
     :::column-end:::
     :::column:::
       #### Identity management
@@ -155,6 +151,20 @@ For the complete set of considerations for this architecture, see [AKS baseline 
 
 For information related to planning IP for an AKS cluster, see [Plan IP addressing for your cluster](/azure/aks/configure-azure-cni#plan-ip-addressing-for-your-cluster).
 
+## Container image reference
+In addition to the workload, the cluster might contain several other images, such as the ingress controller. Some of those images may reside in public registries. Consider these points when pulling them into your cluster.
+- The cluster is authenticated to pull the image.
+- If you are using a public image, consider importing it into your container registry that aligns with your SLO. Otherwise, the image might be subject to unexpected availability issues. Those issues can cause operational issues if the image isn't available when you need it. Here are some benefits of using your container registry instead of a public registry:
+  - You can block unauthorized access to your images.
+  - You won't have public facing dependencies.
+  - You can access image pull logs to monitor activities and triage connectivity issues.
+  - Take advantage of integrated container scanning and image compliance.
+
+  An option is Azure Container Registry (ACR).
+
+- Pull images from authorized registries. You can enforce this restriction through Azure Policy. In this reference implementation, the cluster only pulls images from ACR that is deployed as part of the architecture.  
+
+ 
 ## Configure compute for the base cluster
 
 In AKS, each node pool maps to a virtual machine scale set. Nodes are VMs in each node pool. Consider using a smaller VM size for the system node pool to minimize costs. This reference implementation deploys the system node pool with three DS2_v2 nodes. That size is sufficient to meet the expected load of the system pods. The OS disk is 512 GB.
@@ -639,3 +649,7 @@ For other cost-related information, see [AKS pricing](https://azure.microsoft.co
 
 - To learn about hosting Microservices on AKS, see [Microservices architecture on Azure Kubernetes Service (AKS)](../aks-microservices/aks-microservices.md).
 - The see the AKS product roadmap, see [Azure Kubernetes Service Roadmap on GitHub](https://github.com/Azure/AKS/projects/1).
+
+## Related articles
+
+If you need a refresher in Kubernetes, complete the [Azure Kubernetes Service Workshop](/learn/modules/aks-workshop/) to deploy a multi-container application to Kubernetes on Azure Kubernetes Service (AKS).
