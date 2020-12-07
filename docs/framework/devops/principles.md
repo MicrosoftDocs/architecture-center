@@ -1,6 +1,6 @@
 ---
-title: Release Engineering Application Development
-description: Release Engineering Application Development
+title: Operational Exclience Design Principles
+description: Operational Exclience Design Principles
 author: neilpeterson
 ms.date: 09/28/2020
 ms.topic: conceptual
