@@ -118,7 +118,7 @@ Using the TimescaleDB extension of PostgreSQL will enable more efficient handlin
 
 ## Security and compliance
 
-This solution handles PHI and personal data. As such, it is important to use services that are certified for medical applications (HIPAA certifications, not only for the data that remains in the database but also the logs and telemetry data). For details please consult the [HIPAA section](https://www.microsoft.com/TrustCenter/Compliance/HIPAA) of the Microsoft Trust Center.
+This solution handles PHI and personal data. As such, it is important to use services that are certified for medical applications (HIPAA certifications, not only for the data that remains in the database but also the logs and telemetry data). For details please consult the [HIPAA section](/compliance/regulatory/offering-hipaa-hitech) of the Microsoft Trust Center.
 
 ## Pricing
 
