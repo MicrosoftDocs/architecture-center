@@ -43,7 +43,7 @@ Now, customers can connect to the online retail catalog via the web app. The loa
 
 ## Components
 
-- [Azure App Service](/azure/app-service/overview) is an HTTP-based service for hosting web applications, REST APIs, and mobile back ends. You can take advantage of its DevOps capabilities, such as continuous deployment from Docker Hub, as shown here.
+- [Azure App Service](/azure/app-service/overview) is an HTTP-based service for hosting web applications, REST APIs, and mobile back ends. You can take advantage of its DevOps capabilities, such as continuous deployment, as shown here.
 - [Azure SQL Database](/azure/azure-sql/database/sql-database-paas-overview) is a fully managed and intelligent relational database service built for the cloud. With SQL Database, you can create a highly available and high-performance data storage layer for modern cloud applications.
 - [Azure DevOps](https://azure.microsoft.com/services/devops/) provides developer services to support teams to plan work, collaborate on code development, and build and deploy applications.
 - [Azure Database Migration Service](/azure/dms/dms-overview) enables seamless migration from multiple database sources to Azure, with minimal downtime.

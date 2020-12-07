@@ -5,7 +5,7 @@ author: doodlemania2
 ms.author: pnp
 ms.topic: conceptual
 ms.service: architecture-center
-ms.subservice: reference-architecture
+ms.subservice: guide
 ms.date: 01/08/2020
 ms.custom:
   - guide

@@ -2,10 +2,10 @@
 title: Choosing a data storage technology
 description: Compare big data storage technology options in Azure, including key selection criteria and a capability matrix.
 author: doodlemania2
-ms.date: 11/20/2019
+ms.date: 11/19/2020
 ms.topic: conceptual
 ms.service: architecture-center
-ms.subservice: cloud-fundamentals
+ms.subservice: azure-guide
 ms.custom:
   - guide
 ---
@@ -33,6 +33,10 @@ There are several options for ingesting data into Azure, depending on your needs
 
 - [Azure Cosmos DB](/azure/cosmos-db)
 - [HBase on HDInsight](https://hbase.apache.org)
+
+**Analytical databases:**
+
+[Azure Data Explorer](/azure/data-explorer/) 
 
 ## Azure Storage blobs
 
@@ -81,15 +85,21 @@ Data is stored in the rows of a table, and data within a row is grouped by colum
 
 The [HDInsight implementation](/azure/hdinsight/hbase/apache-hbase-overview) leverages the scale-out architecture of HBase to provide automatic sharding of tables, strong consistency for reads and writes, and automatic failover. Performance is enhanced by in-memory caching for reads and high-throughput streaming for writes. In most cases, you'll want to [create the HBase cluster inside a virtual network](/azure/hdinsight/hbase/apache-hbase-provision-vnet) so other HDInsight clusters and applications can directly access the tables.
 
+## Azure Data Explorer
+
+[Azure Data Explorer](https://azure.microsoft.com/services/data-explorer/) is a fast and highly scalable data exploration service for log and telemetry data. It helps you handle the many data streams emitted by modern software so you can collect, store, and analyze data. Azure Data Explorer is ideal for analyzing large volumes of diverse data from any data source, such as websites, applications, IoT devices, and more. This data is used for diagnostics, monitoring, reporting, machine learning, and additional analytics capabilities. Azure Data Explorer makes it simple to ingest this data and enables you to do complex ad hoc queries on the data in seconds. 
+
+Azure Data Explorer can be linearly [scaled out](/azure/data-explorer/manage-cluster-horizontal-scaling) for increasing ingestion and query processing throughput. An Azure Data Explorer cluster can be [deployed to a Virtual Network](/azure/data-explorer/vnet-deployment) for enabling private networks. 
+
 ## Key selection criteria
 
 To narrow the choices, start by answering these questions:
 
-- Do you need managed, high-speed, cloud-based storage for any type of text or binary data? If yes, then select one of the file storage options.
+- Do you need managed, high-speed, cloud-based storage for any type of text or binary data? If yes, then select one of the file storage or analytics options.
 
 - Do you need file storage that is optimized for parallel analytics workloads and high throughput/IOPS? If yes, then choose an option that is tuned to analytics workload performance.
 
-- Do you need to store unstructured or semi-structured data in a schemaless database? If so, select one of the non-relational options. Compare options for indexing and database models. Depending on the type of data you need to store, the primary database models may be the largest factor.
+- Do you need to store unstructured or semi-structured data in a schemaless database? If so, select one of the non-relational or analytics options. Compare options for indexing and database models. Depending on the type of data you need to store, the primary database models may be the largest factor.
 
 - Can you use the service in your region? Check the regional availability for each Azure service. See [Products available by region](https://azure.microsoft.com/regions/services).
 
@@ -125,3 +135,15 @@ The following tables summarize the key differences in capabilities.
 | Native Azure Functions integration |                        [Yes](/azure/cosmos-db/serverless-computing-database)                        |                                                                     No                                                                     |
 |   Automatic global distribution    |                          [Yes](/azure/cosmos-db/distribute-data-globally)                           | No [HBase cluster replication can be configured](/azure/hdinsight/hbase/apache-hbase-replication) across regions with eventual consistency |
 |           Pricing model            | Elastically scalable request units (RUs) charged per-second as needed, elastically scalable storage |                              Per-minute pricing for HDInsight cluster (horizontal scaling of nodes), storage                               |
+
+## Analytical database capabilities
+
+| Capability                     | Azure Data Explorer                                                                                                                                                             |
+| ------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Primary database model         | Relational (column store), telemetry, and time series store                                                                                                                     |
+| SQL language support           | Yes                                                                                                                                                                             |
+| Pricing model                  | Elastically scalable cluster instances                                                                                                                                          |
+| Authentication                 | Based on [Azure Active Directory identities](https://github.com/uglide/azure-content/blob/master/articles/active-directory/active-directory-authentication-scenarios.md) |
+| Encryption at rest             | Supported, customer managed keys                                                                                                                                                |                                                                                                                                            |
+| Analytics workload performance | Optimized performance for parallel analytics workloads                                                                                                                         |
+| Size limits                    | Linearly scalable               

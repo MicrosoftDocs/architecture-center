@@ -6,7 +6,7 @@ author: randycampbell
 ms.date: 02/01/2020
 ms.topic: conceptual
 ms.service: architecture-center
-ms.subservice: reference-architecture
+ms.subservice: azure-guide
 ms.custom:
   - fcp
   - article

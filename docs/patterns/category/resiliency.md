@@ -7,7 +7,7 @@ author: dragon119
 ms.date: 06/23/2017
 ms.topic: conceptual
 ms.service: architecture-center
-ms.subservice: cloud-fundamentals
+ms.subservice: design-pattern
 ms.custom:
   - seodec18
   - design-pattern
@@ -36,8 +36,8 @@ Detecting failures and recovering quickly and efficiently, is necessary to maint
 
 Achieving security resilience requires a combination of preventive measures to block attacks, responsive measures detect and quickly remediate active attacks, and governance to ensure consistent application of best practices.
 
-- **Security strategy** should include lessons learned described in [security strategy guidance](https://aka.ms/securitystrategy) 
-- **Azure security configurations** should align to the best practices and controls in the [Azure Security Benchmark (ASB)](https://aka.ms/benchmarkdocs). Security configurations for Azure services should align to the [Security baselines for Azure](/azure/security/benchmarks/security-baselines-overview) in the ASB
+- **Security strategy** should include lessons learned described in [security strategy guidance](/azure/cloud-adoption-framework/strategy/define-security-strategy) 
+- **Azure security configurations** should align to the best practices and controls in the [Azure Security Benchmark (ASB)](/azure/security/benchmarks/). Security configurations for Azure services should align to the [Security baselines for Azure](/azure/security/benchmarks/security-baselines-overview) in the ASB
 - **Azure architectures** should integrate native security capabilities to protect and monitor workloads including [Azure Defender](/azure/security-center/azure-defender), [Azure DDoS protection](/azure/virtual-network/ddos-protection-overview), [Azure Firewall](/azure/firewall/), and [Azure Web Application Firewall (WAF)](/azure/web-application-firewall/)
 
 For a more detailed dsicussion, see the [Cybersecurity Resilience](/security/ciso-workshop/ciso-workshop-module-1#part-2-cybersecurity-resilience-1350) module in the CISO workshop

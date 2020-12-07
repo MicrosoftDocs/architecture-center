@@ -362,7 +362,7 @@ In conclusion, Azure Stack Hub is a unique offering, which differs in many aspec
 It's important to note that the backup solution described here focuses exclusively on file and application data on Azure Stack Hub VMs. This is just a part of an overall business continuity strategy that should account for a variety of other scenarios affecting workload availability. These could include localized hardware and software failures, system outages, catastrophic events, and large-scale disasters.
 
 [architectural-diagram]: ./images/azure-stack-backup.png
-[architectural-diagram-visio-source]: https://archcenter.blob.core.windows.net/cdn/azure-stack-backup.vsdx
+[architectural-diagram-visio-source]: https://arch-center.azureedge.net/azure-stack-backup.vsdx
 [azure-backup-azure-stack]: /azure/backup/backup-mabs-install-azure-stack
 [azure-backup-dpmmabs-support]: /azure/backup/backup-support-matrix-mabs-dpm#dpmmabs-networking-support
 [azure-backup-pricing]: /azure/backup/azure-backup-pricing

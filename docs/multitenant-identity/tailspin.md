@@ -7,7 +7,7 @@ ms.topic: conceptual
 ms.service: architecture-center
 ms.category:
   - developer-tools
-ms.subservice: reference-architecture
+ms.subservice: azure-guide
 ms.custom:
   - guide
 ---

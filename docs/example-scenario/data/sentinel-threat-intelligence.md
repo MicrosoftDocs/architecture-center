@@ -11,6 +11,7 @@ ms.custom:
   - example-scenario
 ms.category:
   - security
+ms.subservice: example-scenario
 ---
 
 # Cyber threat intelligence with Azure Sentinel

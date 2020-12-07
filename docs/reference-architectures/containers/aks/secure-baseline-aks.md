@@ -2,7 +2,7 @@
 title: Baseline architecture for an Azure Kubernetes Service (AKS) cluster
 description: Reference architecture for a baseline infrastructure that deploys an Azure Kubernetes Service (AKS) cluster.
 author: PageWriter-MSFT
-ms.date: 08/01/2020
+ms.date: 11/21/2020
 ms.topic: conceptual
 ms.service: architecture-center
 ms.category:
@@ -18,17 +18,12 @@ ms.custom:
 
 # Azure Kubernetes Service (AKS) production baseline
 
-In this reference architecture, we’ll build a baseline infrastructure that deploys an Azure Kubernetes Service (AKS) cluster. This article includes recommendations for networking, security, identity, management, and monitoring of the cluster based on an organization’s business requirements. The requirements are assessed by using [Azure Well-Architected Framework](../../../framework/index.md).
+In this reference architecture, we’ll build a baseline infrastructure that deploys an Azure Kubernetes Service (AKS) cluster. This article includes recommendations for networking, security, identity, management, and monitoring of the cluster based on an organization’s business requirements. 
 
 ![GitHub logo](../../../_images/github.png) An implementation of this architecture is available on [GitHub: Azure Kubernetes Service (AKS) Secure Baseline Reference Implementation](https://github.com/mspnp/aks-secure-baseline). You can use it as a starting point and configure it as per your needs.
 
-### Recommended content
-
-> This reference architecture requires knowledge of Kubernetes and its concepts. If you need a refresher, complete this workshop to deploy a multi-container application to Kubernetes on Azure Kubernetes Service (AKS).
-> [!div class="nextstepaction"]
-> [Azure Kubernetes Service Workshop](/learn/modules/aks-workshop/)
-
-### Architecture choices
+> [!NOTE]
+> This reference architecture requires knowledge of Kubernetes and its concepts. If you need a refresher, see the **Related articles** section for resources. 
 
 :::row:::
     :::column:::
@@ -38,8 +33,9 @@ In this reference architecture, we’ll build a baseline infrastructure that dep
       [Deploy Ingress resources](#deploy-ingress-resources)
     :::column-end:::
     :::column:::
-      #### Cluster compute
+      #### Cluster configuration
       [Compute for the base cluster](#configure-compute-for-the-base-cluster)
+      [Container image reference](#container-image-reference)
     :::column-end:::
     :::column:::
       #### Identity management
@@ -155,6 +151,20 @@ For the complete set of considerations for this architecture, see [AKS baseline 
 
 For information related to planning IP for an AKS cluster, see [Plan IP addressing for your cluster](/azure/aks/configure-azure-cni#plan-ip-addressing-for-your-cluster).
 
+## Container image reference
+In addition to the workload, the cluster might contain several other images, such as the ingress controller. Some of those images may reside in public registries. Consider these points when pulling them into your cluster.
+- The cluster is authenticated to pull the image.
+- If you are using a public image, consider importing it into your container registry that aligns with your SLO. Otherwise, the image might be subject to unexpected availability issues. Those issues can cause operational issues if the image isn't available when you need it. Here are some benefits of using your container registry instead of a public registry:
+  - You can block unauthorized access to your images.
+  - You won't have public facing dependencies.
+  - You can access image pull logs to monitor activities and triage connectivity issues.
+  - Take advantage of integrated container scanning and image compliance.
+
+  An option is Azure Container Registry (ACR).
+
+- Pull images from authorized registries. You can enforce this restriction through Azure Policy. In this reference implementation, the cluster only pulls images from ACR that is deployed as part of the architecture.  
+
+ 
 ## Configure compute for the base cluster
 
 In AKS, each node pool maps to a virtual machine scale set. Nodes are VMs in each node pool. Consider using a smaller VM size for the system node pool to minimize costs. This reference implementation deploys the system node pool with three DS2_v2 nodes. That size is sufficient to meet the expected load of the system pods. The OS disk is 512 GB.
@@ -424,13 +434,13 @@ Those limits can be specified in your deployment manifests. For more information
 
 ### Availability zones and multi-region support
 
-If your SLA requires a higher uptime, protect against loss in a zone. You can use availability zones if the region supports them. The nodes in the user node pool are then able to spread across zones. If an entire zone is unavailable, a node in another zone within the region is still available. Each node pool maps to a separate virtual machine scale set, which manages node instances and scalability. Scale set operations and configuration managed by the AKS service. Here are some considerations when enabling multizone:
+If your SLA requires a higher uptime, protect against loss in a zone. You can use availability zones if the region supports them. Both the control plane components and the nodes in the node pools are then able to spread across zones. If an entire zone is unavailable, a node in another zone within the region is still available. Each node pool maps to a separate virtual machine scale set, which manages node instances and scalability. Scale set operations and configuration are managed by the AKS service. Here are some considerations when enabling multizone:
 
--   **Entire infrastructure.** Choose a region that supports availability zones. For more information, see [Limitations and region availability](/azure/aks/availability-zones#limitations-and-region-availability). If you want to buy an Uptime SLA, choose a region that supports that option.
+-   **Entire infrastructure.** Choose a region that supports availability zones. For more information, see [Limitations and region availability](/azure/aks/availability-zones#limitations-and-region-availability). If you want to buy an Uptime SLA, choose a region that supports that option. The Uptime SLA is greater when using availability zones.
 
 -   **Cluster**. Availability zones can only be set when the node pool is created and can't be changed later. The node sizes should be supported in all zones so that the expected distribution is possible. The underlying virtual machine scale set provides the same hardware configuration across zones.
 
-    Multizone support only applies to node pools. The AKS API server is in a single zone. If the API server becomes unavailable as part of a zone failure, pods deployed on node pools will continue to run, however Kubernetes will lose orchestration capabilities, and workload might be affected.
+    Multizone support not only applies to node pools, but the control plane as well. The AKS control plane will span the zones requested, like the node pools. If you do not use zone support in your cluster, the control plane components are not guaranteed to spread across availability zones.
 
 -   **Dependent resources**. For complete zonal benefit, all service dependencies must also support zones. If a dependent service doesn't support zones, it's possible that a zone failure could cause that service to fail.
 
@@ -631,9 +641,15 @@ Act on recommendations provided by [Azure Advisor](https://portal.azure.com/#bla
 
 -   If the application doesn’t require burst scaling, consider sizing the cluster to just the right size by analyzing performance metrics over time.
 
+-   If your workload supports it, [scale your user node pools to 0 nodes](/azure/aks/scale-cluster#scale-user-node-pools-to-0) when there is no expectation for them to be running. Furthermore, if there are no workloads left scheduled to be run in your cluster, consider using the [AKS Start/Stop feature](/azure/aks/start-stop-cluster) to shut down all compute, which includes your system node pool and the AKS control plane.
+
 For other cost-related information, see [AKS pricing](https://azure.microsoft.com/pricing/details/kubernetes-service/).
 
 ## Next Steps
 
 - To learn about hosting Microservices on AKS, see [Microservices architecture on Azure Kubernetes Service (AKS)](../aks-microservices/aks-microservices.md).
 - The see the AKS product roadmap, see [Azure Kubernetes Service Roadmap on GitHub](https://github.com/Azure/AKS/projects/1).
+
+## Related articles
+
+If you need a refresher in Kubernetes, complete the [Azure Kubernetes Service Workshop](/learn/modules/aks-workshop/) to deploy a multi-container application to Kubernetes on Azure Kubernetes Service (AKS).

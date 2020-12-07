@@ -11,6 +11,7 @@ ms.custom:
 ms.category:
   - databases
   - compute
+ms.subservice: reference-architecture
 ---
 
 # Run SAP BW/4HANA with Linux virtual machines on Azure

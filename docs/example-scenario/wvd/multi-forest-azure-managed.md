@@ -45,7 +45,7 @@ The following steps show how the data flows in this architecture in the form of 
 >
 > 1. For Group Policy requirements in Azure AD DS, you can [install Group Policy Management tools](/azure/active-directory-domain-services/manage-group-policy#before-you-begin) on a Windows Server virtual machine that is joined to Azure AD DS.
 > 2. To extend GPO infrastructure for WVD from the on-premises domain controllers, manual export and import to Azure AD DS is required.  
-> 3. Custom [ADMX templates](/microsoft-edge/deploy/managing-group-policy-admx-files) are not supported in Azure AD DS, so the FSLogix ADMX templates should not be used. Instead, FSLogix settings should be set in the Group Policy Preferences, windows registry or scripts.
+
 >
 
 ## Next steps
@@ -59,4 +59,4 @@ For more information, see these articles:
 - [Windows Virtual Desktop Documentation](/azure/virtual-desktop/).
 
 <!-- links -->
-[visio-download]: https://archcenter.blob.core.windows.net/cdn/WVD-two-forest-to-Azure-AADDS-No-Private-Connectivity.vsdx
+[visio-download]: https://arch-center.azureedge.net/WVD-two-forest-to-Azure-AADDS-No-Private-Connectivity.vsdx

@@ -8,6 +8,9 @@ ms.service: architecture-center
 ms.subservice: solution-idea
 ms.custom:
 - fcp
+ms.category:
+- analytics
+- iot
 ---
 
 # Interactive analytics with Azure Data Explorer

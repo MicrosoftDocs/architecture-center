@@ -8,7 +8,7 @@ ms.date: 02/24/2020
 ms.author: pnp
 ms.topic: conceptual
 ms.service: architecture-center
-ms.subservice: cloud-fundamentals
+ms.subservice: design-pattern
 ms.custom:
   - design-pattern
 ---

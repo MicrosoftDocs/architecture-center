@@ -36,4 +36,4 @@ See these best practices related to PaaS applications.
 Secure communication paths between applications and the services. Make sure that there's a distinction between the endpoints exposed to the public internet and private ones. Also, the public endpoints are protected with web application firewall. 
 
 > [!div class="nextstepaction"]
-> [Network security](/azure/architecture/framework/security/design-network)
+> [Network security](./design-network.md)

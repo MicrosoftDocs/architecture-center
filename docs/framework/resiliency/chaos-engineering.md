@@ -72,10 +72,10 @@ If you plan to practice the simulated handling of potentially catastrophic scena
 1. Identify and act on the result.
 
 Periodically validate your process, architecture choices, and code. By conducting fault-injection experiments, you can confirm that monitoring is in place and alerts are set up, the *directly responsible individual* (DRI) process is effective, and your documentation and investigation processes are up to date. Keep in mind a few key considerations:
--	Challenge system assumptions.
--	Validate change (topology, platform, resources).
--	Use service-level agreement (SLA) buffers.
--	Use live-site outages as opportunities.
+- Challenge system assumptions.
+- Validate change (topology, platform, resources).
+- Use service-level agreement (SLA) buffers.
+- Use live-site outages as opportunities.
 
 ## Best practices
 
@@ -103,8 +103,8 @@ An external team can't hypothesize faults for your team. A study of failures fro
 ### Inject faults in a way that accurately reflects production failures
 Simulate production failures. Treat injected faults in the same way that you would treat production-level faults. Enforcing a tighter limit on the blast radius will enable you to simulate a production environment. Each fault-injection effort must be accompanied by tooling that's designed to inject the types of faults that are relevant to your team's scenarios. Here are two basic ways:
 
--	Inject faults in a non-production environment, such as Canary or Test In Production (TIP).
--	Partition the production service or environment.
+- Inject faults in a non-production environment, such as Canary or Test In Production (TIP).
+- Partition the production service or environment.
 
 Halt all faults and roll back the state to its last-known good configuration if the state seems severe.
 

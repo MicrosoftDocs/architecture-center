@@ -7,7 +7,7 @@ ms.service: architecture-center
 ms.category:
   - management-and-governance
   - databases
-ms.subservice: reference-architecture
+ms.subservice: azure-guide
 ---
 
 # Monitoring Azure Databricks

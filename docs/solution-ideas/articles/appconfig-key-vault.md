@@ -41,7 +41,7 @@ The Azure staging and production environments use an [Azure Managed Service Iden
 
 ![Azure environment](../media/appconfig-azure.png)
 
-[Download a Visio file](https://archcenter.blob.core.windows.net/cdn/AppConfig_Development.vsdx) of this architecture.
+[Download a Visio file](https://arch-center.azureedge.net/AppConfig_Development.vsdx) of this architecture.
 
 ## Data flow
 

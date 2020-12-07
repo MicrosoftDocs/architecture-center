@@ -359,7 +359,7 @@ This sign-in tunnels from the Fabrikam.com domain used by the on-premises networ
 [sharepoint-accounts]: /SharePoint/install/initial-deployment-administrative-and-service-accounts-in-sharepoint-server
 [sharepoint-crawling]: /SharePoint/search/best-practices-for-crawling
 [sharepoint-dr]: /SharePoint/administration/plan-for-disaster-recovery
-[sharepoint-hybrid]: https://aka.ms/sphybrid
+[sharepoint-hybrid]: /sharepoint/hybrid/hybrid
 [sharepoint-minrole]: /SharePoint/administration/managing-a-minrole-server-farm-in-sharepoint-server-2016
 [sharepoint-ops]: /SharePoint/administration/administration
 [sharepoint-reqs]: /SharePoint/install/hardware-and-software-requirements
@@ -371,7 +371,7 @@ This sign-in tunnels from the Fabrikam.com domain used by the on-premises networ
 [sql-sharepoint-best-practices]: /SharePoint/administration/best-practices-for-sql-server-in-a-sharepoint-server-farm
 [tempdb]: /sql/relational-databases/databases/tempdb-database
 [virtual-networks-nsg]: /azure/virtual-network/virtual-networks-nsg
-[visio-download]: https://archcenter.blob.core.windows.net/cdn/Sharepoint-2016.vsdx
+[visio-download]: https://arch-center.azureedge.net/Sharepoint-2016.vsdx
 [vm-sizes-general]: /azure/virtual-machines/windows/sizes-general
 [vm-sizes-memory]: /azure/virtual-machines/windows/sizes-memory
 [windows-n-tier]: ../n-tier/n-tier-sql-server.md

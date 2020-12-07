@@ -11,6 +11,7 @@ ms.custom:
 ms.category:
   - databases
   - compute
+ms.subservice: reference-architecture
 ---
 
 # Run SAP HANA for Linux virtual machines in a scale-up architecture on Azure

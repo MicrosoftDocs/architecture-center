@@ -429,4 +429,4 @@ In conclusion, Azure Stack Hub is a unique offering, which differs in many aspec
 It's important to note that the disaster recovery solution described here focused exclusively on VM-based workloads of Azure Stack Hub. This is only part of an overall business continuity strategy that should account for other Azure Stack Hub workload types and scenarios that affect their availability.
 
 [architectural-diagram]: ./images/azure-stack-vm-dr.png
-[architectural-diagram-visio-source]: https://archcenter.blob.core.windows.net/cdn/azure-stack-vm-dr.vsdx
+[architectural-diagram-visio-source]: https://arch-center.azureedge.net/azure-stack-vm-dr.vsdx

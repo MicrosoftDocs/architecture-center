@@ -205,18 +205,18 @@ For warm path storage, consider using Azure Cosmos DB. For more information, see
 
 ## Next steps
 
-- For a more detailed discussion of the recommended architecture and implementation choices, see [Microsoft Azure IoT Reference Architecture](https://aka.ms/iotrefarchitecture) (PDF).
+- For a more detailed discussion of the recommended architecture and implementation choices, see [Microsoft Azure IoT Reference Architecture](https://download.microsoft.com/download/A/4/D/A4DAD253-BC21-41D3-B9D9-87D2AE6F0719/Microsoft_Azure_IoT_Reference_Architecture.pdf) (PDF).
 
 - For detailed documentation of the various Azure IoT services, see [Azure IoT Fundamentals](/azure/iot-fundamentals/).
 
 - A sample IoT implementation is available on [GitHub](https://github.com/mspnp/iot-guidance).
 
 [AAF-devops]: ../framework/devops/overview.md
-[az-devops]: /azure/devops/index?view=azure-devops
+[az-devops]: /azure/devops/index?view=azure-devops&preserve-view=true
 [az-monitor]: https://azure.microsoft.com/services/monitor/
 [blue-green-dep]: https://martinfowler.com/bliki/BlueGreenDeployment.html
 [cannary-releases]: https://martinfowler.com/bliki/CanaryRelease.html
-[pipelines]: /azure/devops/pipelines/?view=azure-devops
+[pipelines]: /azure/devops/pipelines/?view=azure-devops&preserve-view=true
 [arm-template]: /azure/azure-resource-manager/resource-group-overview#resource-groups
 [aaf-cost]: ../framework/cost/overview.md
 [azure-pricing-calculator]: https://azure.microsoft.com/pricing/calculator
