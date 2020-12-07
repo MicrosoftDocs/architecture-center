@@ -283,6 +283,8 @@ items:
       items:
       - name: Monitoring
         href: framework/devops/monitoring.md
+      - name: Operational Excellence patterns
+        href: framework/devops/devops-patterns.md  
     - name: Checklist
       href: checklist/dev-ops.md
   - name: Performance Efficiency
@@ -307,6 +309,8 @@ items:
         href: framework/scalability/test-tools.md  
     - name: Monitoring
       href: framework/scalability/monitoring.md
+    - name: Performance Efficiency patterns
+      href: framework/scalability/performance-efficiency-patterns.md 
     - name: Checklist
       href: framework/scalability/performance-efficiency.md
   - name: Reliability
@@ -335,6 +339,8 @@ items:
       href: resiliency/recovery-loss-azure-region.md
     - name: Resiliency testing
       href: framework/resiliency/testing.md
+    - name: Design patterns
+      href: framework/resiliency/reliability-patterns.md
     - name: Checklist
       href: checklist/resiliency-per-service.md
   - name: Security
@@ -407,28 +413,22 @@ items:
           href: framework/security/governance.md
         - name: Elevate security capabilities
           href: framework/security/governance.md
+    - name: Security patterns
+      href: framework/security/security-patterns.md     
 - name: Design Patterns
   items:
   - name: Overview
     href: patterns/index.md
   - name: Categories
     items:
-    - name: Availability
-      href: patterns/category/availability.md
     - name: Data management
       href: patterns/category/data-management.md
     - name: Design and implementation
       href: patterns/category/design-implementation.md
-    - name: Management and monitoring
-      href: patterns/category/management-monitoring.md
     - name: Messaging
       href: patterns/category/messaging.md
-    - name: Performance and scalability
-      href: patterns/category/performance-scalability.md
     - name: Resiliency
       href: patterns/category/resiliency.md
-    - name: Security
-      href: patterns/category/security.md
   - name: Ambassador
     href: patterns/ambassador.md
   - name: Anti-corruption Layer

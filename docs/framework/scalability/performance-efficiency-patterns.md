@@ -1,5 +1,5 @@
 ---
-title: Performance and Scalability patterns
+title: Performance Efficiency patterns
 titleSuffix: Cloud Design Patterns
 description: Use these performance and scalability patterns to address variable workloads and peaks in activity for cloud applications.
 keywords: design pattern
@@ -7,13 +7,13 @@ author: dragon119
 ms.date: 08/27/2019
 ms.topic: conceptual
 ms.service: architecture-center
-ms.subservice: design-pattern
+ms.subservice: well-architected
 ms.custom:
   - seodec18
   - design-pattern
 ---
 
-# Performance and Scalability patterns
+# Performance Efficiency patterns
 
 Performance is an indication of the responsiveness of a system to execute any action within a given time interval, while scalability is ability of a system either to handle increases in load without impact on performance or for the available resources to be readily increased. Cloud applications typically encounter variable workloads and peaks in activity. Predicting these, especially in a multi-tenant scenario, is almost impossible. Instead, applications should be able to scale out within limits to meet peaks in demand, and scale in when demand decreases. Scalability concerns not just compute instances, but other elements such as data storage, messaging infrastructure, and more.
 

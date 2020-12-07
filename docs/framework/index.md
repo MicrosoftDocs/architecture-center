@@ -165,9 +165,9 @@ Use Key Vault to safeguard cryptographic keys and secrets. By using Key Vault, y
 [trust-center]: https://azure.microsoft.com/support/trust-center
 
 <!-- patterns -->
-[management-patterns]: ../patterns/category/management-monitoring.md
-[resiliency-patterns]: ../patterns/category/resiliency.md
-[scalability-patterns]: ../patterns/category/performance-scalability.md
+[operational-excellence-patterns]: ../../framework/devops/devops-patterns.md
+[resiliency-patterns]: ../../framework/resiliency/resiliency-patterns.md
+[performance-efficiency-patterns]: ../../framework/scalability/performance-efficiency-patterns.md
 
 <!-- practices -->
 [autoscale]: ../best-practices/auto-scaling.md

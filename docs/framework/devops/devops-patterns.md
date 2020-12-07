@@ -1,5 +1,5 @@
 ---
-title: Management and Monitoring patterns
+title: Operational Excellence patterns
 titleSuffix: Cloud Design Patterns
 description: Use these management and monitoring patterns to support cloud applications, which offer special challenges because the applications run in a remote datacenter.
 keywords: design pattern
@@ -7,13 +7,13 @@ author: dragon119
 ms.date: 06/23/2017
 ms.topic: conceptual
 ms.service: architecture-center
-ms.subservice: design-pattern
+ms.subservice: well-architected
 ms.custom:
   - seodec18
   - design-pattern
 ---
 
-# Management and Monitoring patterns
+# Operational Excellence patterns
 
 Cloud applications run in a remote datacenter where you do not have full control of the infrastructure or, in some cases, the operating system. This can make management and monitoring more difficult than an on-premises deployment. Applications must expose runtime information that administrators and operators can use to manage and monitor the system, as well as supporting changing business requirements and customization without requiring the application to be stopped or redeployed.
 

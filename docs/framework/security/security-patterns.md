@@ -7,7 +7,7 @@ author: dragon119
 ms.date: 06/23/2017
 ms.topic: conceptual
 ms.service: architecture-center
-ms.subservice: design-pattern
+ms.subservice: well-architected
 ms.custom:
   - seodec18
   - design-pattern
