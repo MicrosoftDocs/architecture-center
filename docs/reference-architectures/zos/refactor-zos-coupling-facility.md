@@ -103,7 +103,7 @@ The next diagram shows how Azure services can provide similar functionality and 
   
 - [Azure Files](/azure/storage/files/storage-files-introduction) offers fully managed file shares in an Azure Storage Account that are accessible from the cloud or on-premises. Windows, Linux, and macOS deployments can mount Azure file shares concurrently, and access files via the industry-standard Server Message Block (SMB) protocol.
   
-- [Azure Stream Analytics](https://azure.microsoft.comservices/stream-analytics/) is an Azure-based analytics service for streaming data.
+- [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/) is an Azure-based analytics service for streaming data.
   
 - [Azure Databricks](https://azure.microsoft.com/services/databricks/) is an Apache Spark PaaS service for Big Data analytics.
 
