@@ -53,7 +53,7 @@ Identify your business needs, and build your reliability plan to address them. C
 
     Define your own target SLAs for each workload in your solution, so you can determine whether the architecture meets the business requirements. For example, if a workload requires 99.99 percent uptime but depends on a service with a 99.9 percent SLA, that service can't be a single point of failure in the system.
 
-For more information about developing requirements for reliable applications, see [Application design for resiliency](./app-design.md).
+For more information about developing requirements for reliable applications, see [Application design for resiliency](./design-apps.md).
 
 ## Use architectural best practices
 

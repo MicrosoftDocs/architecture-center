@@ -324,9 +324,9 @@ items:
     - name: Application design
       items:
       - name: Design overview
-        href: framework/resiliency/app-design.md
+        href: framework/resiliency/design-apps.md
       - name: Error handling
-        href: framework/resiliency/app-design-error-handling.md
+        href: framework/resiliency/app-design-error-handling.md 
       - name: Failure mode analysis
         href: resiliency/failure-mode-analysis.md
     - name: Backup and recovery
