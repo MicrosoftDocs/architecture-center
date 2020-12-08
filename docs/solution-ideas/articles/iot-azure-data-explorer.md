@@ -10,6 +10,7 @@ ms.custom:
 - fcp
 ms.category:
 - analytics
+- iot
 ---
 
 # IoT telemetry analytics with Azure Data Explorer

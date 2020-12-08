@@ -57,4 +57,4 @@ To learn more, see [Use Azure Monitor autoscale](https://docs.microsoft.com/azur
 ## Next steps
 
 >[!div class="nextstepaction"]
->[Performance testing](https://docs.microsoft.com/azure/architecture/framework/scalability/performance-testing)
+>[Performance testing](https://docs.microsoft.com/azure/architecture/framework/scalability/performance-test)
