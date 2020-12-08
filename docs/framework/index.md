@@ -110,7 +110,7 @@ When designing an application to be resilient, you must understand your availabi
 ### Reliability guidance
 
 - [Designing reliable Azure applications][resiliency]
-- [Design patterns for resiliency][resiliency-patterns]
+- [Design patterns for resiliency][../../framework/reliability-patterns]
 - Best practices: [Transient fault handling][transient-fault-handling], [Retry guidance for specific services][retry-service-specific]
 
 ## Security

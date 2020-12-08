@@ -21,9 +21,9 @@ Security provides confidentiality, integrity, and availability assurances agains
 
 |                    Pattern                     |                                                                                                         Summary                                                                                                         |
 |------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| [Federated Identity](../federated-identity.md) |                                                                                Delegate authentication to an external identity provider.                                                                                |
-|         [Gatekeeper](../gatekeeper.md)         | Protect applications and services by using a dedicated host instance that acts as a broker between clients and the application or service, validates and sanitizes requests, and passes requests and data between them. |
-|          [Valet Key](../valet-key.md)          |                                                        Use a token or key that provides clients with restricted direct access to a specific resource or service.                                                        |
+| [Federated Identity](https://docs.microsoft.com/azure/architecture/patterns/federated-identity) |                                                                                Delegate authentication to an external identity provider.                                                                                |
+|         [Gatekeeper](https://docs.microsoft.com/azure/architecture/patterns/gatekeeper)         | Protect applications and services by using a dedicated host instance that acts as a broker between clients and the application or service, validates and sanitizes requests, and passes requests and data between them. |
+|          [Valet Key](https://docs.microsoft.com/azure/architecture/patterns/valet-key)          |                                                        Use a token or key that provides clients with restricted direct access to a specific resource or service.                                                        |
 
 ## Key Security Resources
 
