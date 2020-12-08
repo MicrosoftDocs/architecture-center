@@ -343,9 +343,7 @@ items:
       href: resiliency/recovery-loss-azure-region.md
     - name: Resiliency testing
       href: framework/resiliency/testing.md
-    - name: Availability patterns
-      href: framework/resiliency/reliability-patterns.md
-       - name: Checklist
+    - name: Checklist
       href: checklist/resiliency-per-service.md
     - name: Reliability patterns
       href: framework/resiliency/reliability-patterns.md  
