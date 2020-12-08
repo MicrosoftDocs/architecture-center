@@ -25,7 +25,7 @@ By getting teams roughly 80 percent of the way to finished solutions, the Projec
 
 ## Potential use cases
 
-With its Open Platform, Project 15 contributes the latest Microsoft cloud and IoT technologies to conservation and ecosystem sustainability efforts. In so doing, Project 15 accelerates scientific innovation in these and other areas:
+With its Open Platform, Project 15 contributes the latest Azure and IoT technologies to conservation and ecosystem sustainability efforts. In so doing, Project 15 accelerates scientific innovation in these and other areas:
 
 - Species tracking and observation
 - Poaching prevention
