@@ -13,9 +13,9 @@ ms.custom:
 
 # Azure security for AWS
 
-Some Amazon Web Services (AWS) accounts that support critical workloads and highly sensitive information might not have adequate protection and security. This article discusses Azure security solutions like Azure Active Directory (Azure AD), Microsoft Cloud App Security (MCAS), and Azure Sentinel that can help protect and control AWS account access and environments.
+Amazon Web Services (AWS) accounts that support critical workloads and highly sensitive information need strong protection and security. Many organizations that use AWS also rely on Azure Active Directory (Azure AD) for identity and access protection, like for Microsoft 365 installations. Azure AD can provide beefed up identity protection for AWS accounts without additional cost. Microsoft Cloud App Security (MCAS) backs up Azure AD with session and user behavior monitoring, and Azure Sentinel monitoring can detect additional threats against AWS environments.
 
-This article provides AWS identity architects, administrators, and security analysts with immediate insights and detailed guidance for rapidly adopting Azure security solutions. You can configure and test these solutions without impacting administrators and developers until you're ready to switch over to the new methods.
+This article provides AWS identity architects, administrators, and security analysts with immediate insights and detailed guidance for rapidly adopting these Azure security solutions. You can configure and test these solutions without impacting administrators and developers until you're ready to switch over to the new methods.
 
 Azure security solutions are extensible and have multiple levels of protection for securing access and monitoring user interactions. An organization can implement one or more of these solutions along with other types of protection for a full security architecture to protect current and future AWS deployments.
 
@@ -150,7 +150,7 @@ By default, an AWS account has no *IAM users* until the root user creates one or
 
 Some *IAM service accounts* continue to run in AWS IAM to provide programmatic access. Be sure to review these accounts, securely store and restrict access to their security credentials, and rotate the credentials regularly.
 
-Review all existing *IAM identity provider* configurations to ensure they are relevant, and plan how to replace them with the single Azure AD identity provider.
+Review all existing *IAM identity provider* configurations to ensure they're relevant, and plan how to replace them with the single Azure AD identity provider.
 
 ### Review and record account information
 
@@ -188,9 +188,7 @@ If the AWS account doesn't have a strong RBAC implementation, start by working o
    
 1. Review the AWS IAM Users, Groups, and Roles that are attached to the IAM Policy **AdministratorAccess**.
    
-1. Work through the other assigned IAM Policies, starting with policies that can modify, create, or delete resources and other configuration items. Policies in use can be identified by looking at the **Used as** column:
-   
-   :::image type="content" source="media/iam-policies.png" alt-text="Screenshot of a list of IAM Policies.":::
+1. Work through the other assigned IAM Policies, starting with policies that can modify, create, or delete resources and other configuration items. You can identify policies in use by looking at the **Used as** column.
 
 ### Migrate from AWS IAM Accounts to Azure AD SSO
 
@@ -243,9 +241,9 @@ The following links provide full detailed implementation steps and troubleshooti
 
 AWS administrators and developers use an enterprise application to sign in to Azure AD for authentication, then redirect to AWS for authorization and secure access to AWS resources. The simplest method to see the application is by signing in to `https://myapps.microsoft.com`, but you can also publish the unique URL anywhere that provides easy access.
 
-Follow the instructions in [Add AWS from the gallery](/azure/active-directory/saas-apps/amazon-web-service-tutorial#adding-amazon-web-services-aws-from-the-gallery) to set up the enterprise application.
+Follow the instructions in [Add Amazon Web Services (AWS) from the gallery](/azure/active-directory/saas-apps/amazon-web-service-tutorial#adding-amazon-web-services-aws-from-the-gallery) to set up the enterprise application.
 
-Use a unique name for the enterprise application that includes an identifier for the company and specific AWS account. This unique identifier helps if there's more than one AWS account to administer, such as DevTest and Production.
+If there's more than one AWS account to administer, such as DevTest and Production, use a unique name for the enterprise application that includes an identifier for the company and specific AWS account.
 
 ![Screenshot that shows creating the enterprise application in Azure AD.](media/provisioning.png)
 
@@ -253,7 +251,7 @@ Use a unique name for the enterprise application that includes an identifier for
 
 1. Follow the steps in [Configure and test Azure AD SSO for AWS](/azure/active-directory/saas-apps/amazon-web-service-tutorial#configure-and-test-azure-ad-sso-for-amazon-web-services-aws) through step 2a, [Create AWS test user](/azure/active-directory/saas-apps/amazon-web-service-tutorial#create-amazon-web-services-aws-test-user). In step 2a, assign a group to access the application, instead of directly adding a user.
    
-   You will create more than one role, so you can't complete these steps until you finish the AWS configuration. However, create the following two Azure AD test users and two Azure AD groups now:
+   You'll create more than one role, so you can't complete these steps until you finish the AWS configuration. However, create the following two Azure AD test users and two Azure AD groups now:
    
    - User 1: Test-AWSAdmin
    - User 2: Test-AWSDeveloper
@@ -443,9 +441,9 @@ After you create the Azure AD Conditional Access policy, set up the MCAS Session
    
    :::image type="content" source="media/session-policy.png" alt-text="Screenshot of the Create policy list.":::
    
-1.  On the **Create session policy** page, under **Policy template**, select **Block upload of potential malware (based on Microsoft Threat Intelligence)**.
+1. On the **Create session policy** page, under **Policy template**, select **Block upload of potential malware (based on Microsoft Threat Intelligence)**.
    
-1.  In the **ACTIVITIES** section, modify the activity filter to include **App** equal to **“Amazon Web Services**, and remove the default device selection.
+1. In the **ACTIVITIES** section, modify the activity filter to include **App** equal to **Amazon Web Services**, and remove the default device selection.
    
    :::image type="content" source="media/activity-source.png" alt-text="Screenshot of the Activities section of the Create session policy page.":::
    
@@ -455,40 +453,43 @@ After you create the Azure AD Conditional Access policy, set up the MCAS Session
 
 Test all policies regularly to ensure they're still effective and relevant. Here are a few testing ideas:
 
-- IAM Policy changes: This policy triggers each time you attempt to modify the settings within AWS IAM, such as creating the new IAM policy and account to use in the following Azure Sentinel section.
+- **IAM Policy changes**: This policy triggers each time you attempt to modify the settings within AWS IAM, such as creating the new IAM policy and account to use in the following Azure Sentinel section.
 
-- Console sign-in failures: Any failed attempts to sign in to one of the test accounts trigger this policy. The alert details show that the attempt came from one of the Azure regional datacenters.
+- **Console sign-in failures**: Any failed attempts to sign in to one of the test accounts trigger this policy. The alert details show that the attempt came from one of the Azure regional datacenters.
 
-- S3 bucket activity policy: Attempting to create a new AWS S3 storage account and set it to be publicly available triggers the policy.
+- **S3 bucket activity policy**: Attempting to create a new AWS S3 storage account and set it to be publicly available triggers the policy.
 
-- Malware detection policy: If you configured malware detection as a session policy, you can test it by uploading a file to an AWS S3 storage account. You can download a safe test file to use from the [European Institute for Computer Anti-Virus Research (EICAR)](https://www.eicar.org/). You should be immediately blocked from uploading the file, and see the alert trigger in the MCAS portal shortly afterwards.
+- **Malware detection policy**: If you configured malware detection as a session policy, you can test it by uploading a file to an AWS S3 storage account. You can download a safe test file from the [European Institute for Computer Anti-Virus Research (EICAR)](https://www.eicar.org/). The policy should immediately block you from uploading the file, and you should see the alert trigger in the MCAS portal shortly afterwards.
 
 ## Azure Sentinel for advanced threat detection
 
 Connecting an AWS account and MCAS to Azure Sentinel enables monitoring capabilities that compare events across multiple firewalls, network devices, and servers.
 
-This section covers the following steps:
-- Enable the Azure Sentinel Connector for AWS
-- Monitor AWS incidents
-- Regularly check for data ingestion
+After you enable the Azure Sentinel Connector for AWS, you can monitor AWS incidents and data ingestion.
 
 ### Enable the Azure Sentinel Connector for AWS
 
-As with the MCAS configuration, this connection requires configuring AWS IAM to provide the credential and permissions.
+As with the MCAS configuration, this connection requires configuring AWS IAM to provide credentials and permissions.
 
-1. To configure AWS IAM, follow the steps at [Connect Azure Sentinel to AWS CloudTrail](/azure/sentinel/connect-aws).
+1. In AWS IAM, follow the steps at [Connect Azure Sentinel to AWS CloudTrail](/azure/sentinel/connect-aws).
    
-1. After you configure AWS IAM, in the Azure portal under **Azure Sentinel** > **Data connectors**, find and select the **Amazon Web Services** connector from the list.
+1. To complete the configuration in the Azure portal, under **Azure Sentinel** > **Data connectors**, select the **Amazon Web Services** connector.
    
    :::image type="content" source="media/aws-connector.png" alt-text="Screenshot of the Azure Sentinel Data connectors page showing the Amazon Web Services connector.":::
    
-1.  Once connected, enable the built-in Sentinel workbooks to monitor **AWS Network Activities** and **AWS User Activities**.
+1. Select **Open connector page**.
    
-1.  Enable the available analytics templates for AWS.
+1. Under **Configuration**, enter the Role ARN from the AWS IAM configuration in the **Role to add** field, and select **Add**.
+   
+1. Select **Next steps**, and select the **AWS Network Activities** and **AWS User Activities** activities to monitor.
+   
+1. Under **Relevant analytic templates**, select **Create rule** next to the AWS analytic templates you want to enable.
+   
+1. Set up each rule, and select **Create**.
 
-The following table shows the available rule templates for cross-checking AWS entity behaviors and threat indicators. The rule names describe their purpose, and the potential data sources list the data sources each rule can use.
+The following table shows the available rule templates for checking AWS entity behaviors and threat indicators. The rule names describe their purpose, and the potential data sources list the data sources each rule can use.
 
-| Analytic rule name                                                     | Potential data sources                                                           |
+| Analytic template name                                                 | Data sources                                                           |
 |------------------------------------------------------------------------|----------------------------------------------------------------------------------|
 | Known IRIDIUM IP                                                       | DNS, Azure Monitor, Cisco ASA, Palo Alto Networks, Azure AD, Azure Activity, AWS |
 | Full Admin policy created and then attached to Roles, Users, or Groups | AWS                                                                              |
@@ -519,21 +520,21 @@ Azure Sentinel shows incidents generated by MCAS, if connected, and incidents cr
 
 ### Regularly check for data ingestion
 
-Ensure that data is continuously ingested into Azure Sentinel by viewing the connector details. The following graph shows a new connection that has been enabled for only three days:
+Ensure that data is continuously ingested into Azure Sentinel by viewing the connector details. The following graph shows a new connection:
 
 :::image type="content" source="media/data-ingestion.png" alt-text="Screenshot of connector details showing data ingestion.":::
 
-If the data stops ingesting and the graph drops, check the credentials used to connect to the AWS account, and check that AWS CloudTrail is still enabled to collect the events.
+If the data stops ingesting and the graph drops, check the credentials used to connect to the AWS account, and check that AWS CloudTrail can still collect the events.
 
 ## Next steps
 
-- For the Microsoft security information, see [www.microsoft.com/security](https://www.microsoft.com/security).
+- For the latest Microsoft security information, see [www.microsoft.com/security](https://www.microsoft.com/security).
 - For full details of how to implement and manage Azure AD, see [Securing Azure environments with Azure Active Directory](https://aka.ms/AzureADSecuredAzure).
-- [Best practices for securing AWS accounts and resources](https://aws.amazon.com/premiumsupport/knowledge-center/security-best-practices/).
-- [Microsoft Docs tutorial: SSO for AWS](/azure/active-directory/saas-apps/amazon-web-service-tutorial).
+- For security guidance from AWS, see [Best practices for securing AWS accounts and resources](https://aws.amazon.com/premiumsupport/knowledge-center/security-best-practices/).
 - [AWS tutorial: Azure AD IDP SSO](https://docs.aws.amazon.com/singlesignon/latest/userguide/azure-ad-idp.html).
+- [Microsoft tutorial: SSO for AWS](/azure/active-directory/saas-apps/amazon-web-service-tutorial).
 - [PIM deployment plan](/azure/active-directory/privileged-identity-management/pim-deployment-plan).
 - [Identity protection security overview](/azure/active-directory/identity-protection/concept-identity-protection-security-overview).
-- [What is Microsoft Defender for Identity](/defender-for-identity/what-is).
+- [What is Microsoft Defender for Identity?](/defender-for-identity/what-is)
 - [Connect AWS to Microsoft Cloud App Security](/cloud-app-security/connect-aws-to-microsoft-cloud-app-security).
-- [MCAS detections to protect AWS](/cloud-app-security/protect-aws).
+- [How Cloud App Security helps protect your Amazon Web Services (AWS) environment](/cloud-app-security/protect-aws).
