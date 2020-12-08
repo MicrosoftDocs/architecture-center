@@ -1,6 +1,6 @@
 ---
-title: Operational Exclience Design Principles
-description: Operational Exclience Design Principles
+title: Operational excellence design principles
+description: Operational Excellence Design Principles
 author: neilpeterson
 ms.date: 12/07/2020
 ms.topic: conceptual
