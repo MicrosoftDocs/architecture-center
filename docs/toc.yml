@@ -255,6 +255,8 @@ items:
     items:
     - name: Overview
       href: framework/devops/overview.md
+    - name: Principles
+      href: framework/devops/principles.md
     - name: Automation
       items:
       - name: Automation Overview
