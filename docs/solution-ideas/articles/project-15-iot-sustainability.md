@@ -13,9 +13,9 @@ ms.category:
 
 # Project 15 Open Platform for Conservation and Sustainability
 
-The mission of [Project 15 from Microsoft][Project 15 from Microsoft] is to empower scientists and conservationists around the world. The project pairs conservation teams with a community of developers, students, and Microsoft partners. Backed by the power of the Microsoft cloud and an Internet of Things (IoT) open platform, the project helps these teams capture and analyze the data they need to preserve critical species and ecosystems.
+The mission of [Project 15 from Microsoft][Project 15 from Microsoft] is to empower scientists and conservationists around the world. The project pairs conservation teams with a community of developers, students, and Microsoft partners. Backed by the power of Azure and an Internet of Things (IoT) open platform, the project helps these teams capture and analyze the data they need to preserve critical species and ecosystems.
 
-A key part of solutions is the Project 15 Open Platform, which Microsoft designed and built. This open-source software connects to the cloud and securely manages devices that conservation projects use. Its architecture serves as a reference for building end-to-end IoT solutions.
+A key part of these solutions is the Project 15 Open Platform, which Microsoft designed and built. This open-source software connects to the cloud and securely manages devices that conservation projects use. Its architecture serves as a reference for building end-to-end IoT solutions.
 
 By getting teams roughly 80 percent of the way to finished solutions, the Project 15 Open Platform helps meet these goals:
 
@@ -34,12 +34,12 @@ With its Open Platform, Project 15 contributes the latest Microsoft cloud and Io
 
 ## Architecture
 
-The following sections provide an overview of Project 15 Open Platform functionality and a detailed view of its architecture.
+The following sections provide insight into Project 15 Open Platform functionality and architecture.
 
 ### Solution overview
 
 :::image type="complex" source="../media/project-15-open-platform-overview.png" alt-text="Diagram providing an overview of Project 15 Open Platform functionality. Colors indicate the level of customization that each area requires.":::
-Diagram showing components and functionality of the Project 15 Open Platform. Bars depict areas of functionality, such as user management and security. Boxes represent actions that the platform handles like connect devices and ingest data. Between the boxes are arrows that indicate the flow of data in the system. The components are color coded. Light green elements are fully included in the platform. Dark green elements are included but need customization. Blue elements are not included by default and require full customization. Images of animals and plants connected to sensors and trackers are also visible. Arrows indicate that their data flows into the system, and the system is able to manage these devices.
+Diagram showing components and functionality of the Project 15 Open Platform. Bars show areas of functionality, such as user management and security. Boxes represent actions that the platform handles like connect devices and ingest data. Between the boxes are arrows that indicate the flow of data in the system. The components are color coded. Light green elements are fully included in the platform. Dark green elements are included but need customization. Blue elements aren't included by default and require full customization. Images of animals and plants connected to sensors and trackers are also visible. Arrows indicate that their data flows into the system, and the system can manage these devices.
 :::image-end:::
 
 Open Platform components fall into these categories:
@@ -53,7 +53,7 @@ Open Platform components fall into these categories:
 ### Solution details
 
 :::image type="complex" source="../media/project-15-ref-architecture.png" alt-text="Diagram showing how the Project 15 Open Platform collects, processes, analyzes, stores, secures, visualizes, and monitors IoT device data.":::
-Diagram showing the Azure components that make up the Project 15 Open Platform. Boxes depict layers of the solution, such as the gateway, the data process layer, the presentation layer, and the storage layer. Arrows show how data flows between these layers. Additional arrows show how users and devices interact with the system.
+Diagram showing the Azure components that make up the Project 15 Open Platform. Boxes represent layers of the solution, such as the gateway, the data process layer, the presentation layer, and the storage layer. Arrows show how data flows between these layers. Additional arrows show how users and devices interact with the system.
 :::image-end:::
 
 Various Azure services and configurations make up the Project 15 Open Platform:
@@ -73,7 +73,7 @@ Various Azure services and configurations make up the Project 15 Open Platform:
    - Azure App Service and its Web Apps feature provide platforms for building, deploying, and scaling web apps.
    - Tools like Time Series Insights and Power BI visualize IoT devices, telemetry, and events in websites.
 
-1. Databases, Azure Blob Storage, and tables store file data that offices upload and telemetry.
+1. Databases, Azure Blob Storage, and tables store telemetry and file data from offices in the field.
 
 1. Other Azure components provide additional functionality:
 
@@ -98,7 +98,7 @@ Various Azure services and configurations make up the Project 15 Open Platform:
 
 - [Stream Analytics][Stream Analytics] provides real-time serverless stream processing that can run queries in the cloud and on devices on the edge of the network. Stream Analytics on IoT Edge can filter or aggregate data that you send to the cloud for further processing or storage.
 
-- [Functions][Functions] is an event-driven serverless compute platform that you can use to build and debug locally without additional setup. With Functions, you can deploy and operate at scale in the cloud. By using its triggers and bindings, you can integrate services.
+- [Functions][Functions] is an event-driven serverless compute platform that you can use to build and debug locally without additional setup. With Functions, you can deploy and operate at scale in the cloud and use triggers and bindings to integrate services.
 
 - [Time Series Insights][Time Series Insights] is an analytics platform that you can use to monitor, analyze, and visualize IoT time series data.
 
@@ -120,7 +120,7 @@ Various Azure services and configurations make up the Project 15 Open Platform:
 
 - [Notification Hubs][Notification Hubs] provides a push engine that you can use to send notifications to any platform from any back end.
 
-- [Logic Apps][Logic Apps] automate workflows. With this service, you can connect apps and data across clouds without writing code.
+- [Logic Apps][Logic Apps] automates workflows. With this service, you can connect apps and data across clouds without writing code.
 
 - [Machine Learning][Machine Learning] is a cloud-based environment you can use to train, deploy, automate, manage, and track machine learning models. With these models, you can forecast future behavior, outcomes, and trends.
 
@@ -141,7 +141,7 @@ Various Azure services and configurations make up the Project 15 Open Platform:
 
 - [Microsoft & Sustainability][Microsoft & Sustainability]
 - [AI for Earth][AI for Earth]
-- Content that the Project 15 team periodically adds to the [Project 15 YouTube Channel][Project 15 YouTube Channel] and other [Microsoft learning channels][Microsoft learning channels].
+- The Project 15 team periodically adds content to the [Project 15 YouTube Channel][Project 15 YouTube Channel] and other [Microsoft learning channels][Microsoft learning channels].
 
 [AI for Earth]: https://www.microsoft.com/ai/ai-for-earth
 [API Apps]: https://azure.microsoft.com/services/app-service/api/
