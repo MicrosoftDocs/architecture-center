@@ -1735,7 +1735,7 @@
     },
     {
       "source_path": "docs/patterns/category/index.md",
-      "redirect_url": "/azure/patterns/category/availability",
+      "redirect_url": "/azure/framework/resiliency/reliability.md",
       "redirect_document_id": false
     },
     {

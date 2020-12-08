@@ -101,7 +101,7 @@ Another point to consider is regarding DNS. In order to allow applications withi
 
 ### Availability
 
-- Consider leveraging the [typical design patterns for availability][design-patterns-availability] when building your cloud application.
+- Consider leveraging the [typical design patterns for availability](../../framework/resiliency/reliability-patterns) when building your cloud application.
 - Review the availability considerations in the appropriate [App Service web application reference architecture][app-service-reference-architecture].
 - For additional considerations concerning availability, see the [availability checklist][availability] in the Azure Architecture Center.
 
@@ -109,13 +109,13 @@ Another point to consider is regarding DNS. In order to allow applications withi
 
 - Understand how [scale works][docs-azure-scale-ase] in ASE.
 - Review best practices for [cloud apps autoscale][design-best-practice-cloud-apps-autoscale].
-- When building a cloud application, be aware of the [typical design patterns for scalability][design-patterns-scalability].
+- When building a cloud application, be aware of the [typical design patterns for scalability](../../framework/resiliency/reliability-patterns).
 - Review the scalability considerations in the appropriate [App Service web application reference architecture][app-service-reference-architecture].
 - For other scalability topics, see the [performance efficiency checklist][scalability] available in the Azure Architecture Center.
 
 ### Security
 
-- Consider leveraging the [typical design patterns for security][design-patterns-security] where appropriate.
+- Consider leveraging the [typical design patterns for security](../../framework/resiliency/reliability-patterns) where appropriate.
 - Review the security considerations in the appropriate [App Service web application reference architecture][app-service-reference-architecture].
 - Consider following a [secure development lifecycle][secure-development] process to help developers build more secure software and address security compliance requirements while reducing development cost.
 - Review the blueprint architecture for [Azure PCI DSS compliance][pci-dss-blueprint].
@@ -166,10 +166,10 @@ We have provided three sample cost profiles based on amount of traffic you expec
 [app-service-reference-architecture]: ../../reference-architectures/app-service-web-app/basic-web-app.md
 [availability]: ../../patterns/category/availability.md
 
-[design-patterns-availability]: ../../patterns/category/availability.md
-[design-patterns-resiliency]: ../../patterns/category/resiliency.md
-[design-patterns-scalability]: ../../patterns/category/performance-scalability.md
-[design-patterns-security]: ../../patterns/category/security.md
+[design-patterns-availability]: ../../framework/resiliency/reliability-patterns.md
+[design-patterns-resiliency]: ../../framework/resiliency/resiliency-patterns.md
+[design-patterns-performance-efficiency]: ../../framework/scalability/performance-efficiency-patterns.md
+[design-patterns-security]: ../../framework/security/security-patterns.md
 [design-geo-distributed-ase]: /azure/app-service/environment/app-service-app-service-environment-geo-distributed-scale
 [design-best-practice-cloud-apps-autoscale]: ../../best-practices/auto-scaling.md
 

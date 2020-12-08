@@ -69,4 +69,4 @@ The following diagram shows an application making a request to a remote service 
 
 <!-- links -->
 
-[resiliency-patterns]: ./category/resiliency.md
+[resiliency-patterns]: ../../resiliency/resiliency-patterns.md

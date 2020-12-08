@@ -27,7 +27,7 @@ Availability is measured as a percentage of uptime, and defines the proportion o
 |  [Queue-Based Load Leveling](https://docs.microsoft.com/azure/architecture/patterns/queue-based-load-leveling)  | Use a queue that acts as a buffer between a task and a service that it invokes, to smooth intermittent heavy loads.  |
 |                 [Throttling](https://docs.microsoft.com/azure/architecture/patterns/throttling)                 |   Control the consumption of resources by an instance of an application, an individual tenant, or an entire service.    |
 
-To mitigate against availability risks from malicious Distributed Denial of Service (DDoS) attacks, implement the native [Azure DDoS protection standard](/azure/virtual-network/ddos-protection-overview) service or a 3rd party capability.
+To mitigate against availability risks from malicious Distributed Denial of Service (DDoS) attacks, implement the native [Azure DDoS protection standard](/azure/virtual-network/ddos-protection-overview) service or a third party capability.
 
 ## High availability
 
@@ -60,3 +60,13 @@ Detecting failures and recovering quickly and efficiently, is necessary to maint
 |  [Queue-Based Load Leveling](https://docs.microsoft.com/azure/architecture/patterns/queue-based-load-leveling)  |                                            Use a queue that acts as a buffer between a task and a service that it invokes in order to smooth intermittent heavy loads.                                             |
 |                      [Retry](https://docs.microsoft.com/azure/architecture/patterns/retry)                      |             Enable an application to handle anticipated, temporary failures when it tries to connect to a service or network resource by transparently retrying an operation that's previously failed.             |
 | [Scheduler Agent Supervisor](https://docs.microsoft.com/azure/architecture/patterns/scheduler-agent-supervisor) |                                                            Coordinate a set of actions across a distributed set of services and other remote resources.                                                            |
+
+### Security Resiliency
+
+Achieving security resilience requires a combination of preventive measures to block attacks, responsive measures detect and quickly remediate active attacks, and governance to ensure consistent application of best practices.
+
+- **Security strategy** should include lessons learned described in [security strategy guidance](/azure/cloud-adoption-framework/strategy/define-security-strategy).
+- **Azure security configurations** should align to the best practices and controls in the [Azure Security Benchmark (ASB)](/azure/security/benchmarks/). Security configurations for Azure services should align to the [Security baselines for Azure](/azure/security/benchmarks/security-baselines-overview) in the ASB.
+- **Azure architectures** should integrate native security capabilities to protect and monitor workloads including [Azure Defender](/azure/security-center/azure-defender), [Azure DDoS protection](/azure/virtual-network/ddos-protection-overview), [Azure Firewall](/azure/firewall/), and [Azure Web Application Firewall (WAF)](/azure/web-application-firewall/).
+
+For a more detailed discussion, see the [Cybersecurity Resilience](/security/ciso-workshop/ciso-workshop-module-1#part-2-cybersecurity-resilience-1350) module in the CISO workshop.

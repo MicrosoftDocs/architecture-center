@@ -287,6 +287,8 @@ items:
         href: framework/devops/devops-patterns.md  
     - name: Checklist
       href: checklist/dev-ops.md
+    - name: Operational excellence patterns
+      href: framework/devops/devops-patterns.md  
   - name: Performance Efficiency
     items:
     - name: Overview 
@@ -313,6 +315,8 @@ items:
       href: framework/scalability/performance-efficiency-patterns.md 
     - name: Checklist
       href: framework/scalability/performance-efficiency.md
+    - name: Performance efficiency patterns
+      href: framework/scalability/performance-efficiency-patterns.md  
   - name: Reliability
     items:
     - name: Overview 
@@ -341,10 +345,10 @@ items:
       href: framework/resiliency/testing.md
     - name: Availability patterns
       href: framework/resiliency/reliability-patterns.md
-    - name: Resiliency patterns
-      href: framework/resiliency/resiliency-patterns.md
-    - name: Checklist
+       - name: Checklist
       href: checklist/resiliency-per-service.md
+    - name: Reliability patterns
+      href: framework/resiliency/reliability-patterns.md  
   - name: Security
     items:
     - name: About
