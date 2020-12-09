@@ -13,7 +13,7 @@ ms.custom:
 
 # Design Azure applications for efficiency
 
-Making choices that effect performance efficiency is critical to application design. For additional related topics, see the [Design scalable Azure applications](https://review.docs.microsoft.com/azure/architecture/framework/scalability/design-apps) article in the Performance efficiency pillar.
+Making choices that effect performance efficiency is critical to application design. For additional related topics, see the [Design scalable Azure applications](/azure/architecture/framework/scalability/design-apps) article in the Performance efficiency pillar.
 
 ## Reduce response time with asynchronous programming
 
