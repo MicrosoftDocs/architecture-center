@@ -33,9 +33,11 @@ In this reference architecture, we’ll build a baseline infrastructure that dep
       [Deploy Ingress resources](#deploy-ingress-resources)
     :::column-end:::
     :::column:::
-      #### Cluster configuration
-      [Compute for the base cluster](#configure-compute-for-the-base-cluster)
-      [Container image reference](#container-image-reference)
+
+      #### Cluster compute
+      [Compute for the base cluster](#configure-compute-for-the-base-cluster)\
+      [Container image reference](#container-image-reference)\
+      [Policy management](#policy-management)
     :::column-end:::
     :::column:::
       #### Identity management
@@ -366,6 +368,31 @@ The CSI driver has many providers to support various managed stores. In this imp
 The workload used in this architecture is stateless. If you need to store state, persisting it outside the cluster is recommended. Guidance for workload state is outside the scope of this article.
 
 To learn more about storage options, see [Storage options for applications in Azure Kubernetes Service (AKS)](/azure/aks/concepts-storage).
+
+## Policy management
+
+An effective way to manage an AKS cluster is by enforcing governance through policies. Kubernetes implements policies through OPA Gatekeeper. For AKS, the policies are delivered through Azure Policy. Each policy is applied to all clusters in its scope. Azure Policy enforcement is ultimately handled by OPA Gatekeeper in the cluster and all policy checks are logged. Policy changes are not immediately reflected in your cluster. Expect to see some delays.
+
+When setting policies, apply them based on the requirements of the workload. Consider these factors:
+
+- Do you want to set a collection of policies (called initiatives) or choose individual policies. Azure Policy provides two built-in initiatives: basic and restricted. Each initiative is a collection of built-in policies applicable to an AKS cluster. It's recommended that you select an initiative _and_ pick and choose additional policies for the cluster and the resources (ACR, Application Gateway, Key Vault, and others) that interact with the cluster, as per the requirements of your organization.
+
+- Do you want to **Audit** or **Deny** the action. In **Audit** mode, the action is allowed but it's flagged as **Non-Compliant**. Have processes to check non-compliant states at a regular cadence and take necessary action. In **Deny** mode, the action is blocked because it violates the policy. Be careful in choosing this mode because it can be too restrictive for the workload to function.  
+
+- Do you have areas in your workload that shouldn't be compliant by design? Azure Policy has the capability to specify Kubernetes namespaces which are exempt from policy enforcement. It's recommended that still apply policies in **Audit** mode so that you are aware of those instances.
+
+- Do you have requirements that are not covered by the built-in policies? In these rare cases, create a custom Azure Policy definition that applies your custom OPA Gatekeeper policies. Do not apply policies directly to the cluster.
+
+- Do you have organization-wide requirements? If so, add those policies at the management group level. Your cluster should also assign its own workload-specific policies, even if the organization has generic policies.
+
+- Azure policies are assigned to specific scopes. Ensure the _production_ policies are also validated against your _pre-production_ environment. Otherwise, when deploying to your production environment, you may run into unexpected additional restrictions that weren't accounted for in pre-production.
+
+
+In this reference implementation Azure Policy is enabled when the AKS cluster is created and assigns the restrictive initiative in **Audit** mode to gain visibility into non-compliance.
+
+The implementation also sets additional policies that are not part of any built-in initiatives. Those policies are set in **Deny** mode. For example, there is a policy in place to make sure images are only pulled from the deployed ACR. Consider creating your own custom initiatives. Combine the policies that are applicable for your workload into a single assignment.
+ 
+To observe how Azure Policy is functioning from within your cluster, you can access the pod logs for all pods in the `gatekeeper-system` namespace as well as the logs for the `azure-policy` and `azure-policy-webhook` pods in the `kube-system` namespace.
 
 ## Node and pod scalability
 
