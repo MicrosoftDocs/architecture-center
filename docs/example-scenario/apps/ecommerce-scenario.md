@@ -82,7 +82,7 @@ Other options for the data tier include:
 
 ### Availability
 
-- Consider leveraging the [typical design patterns for availability](../../framework/reliability-patterns) when building your cloud application.
+- Consider leveraging the [typical design patterns for availability](../../framework/resiliency/reliability-patterns) when building your cloud application.
 - Review the availability considerations in the appropriate [App Service web application reference architecture][app-service-reference-architecture]
 - For additional considerations concerning availability, see the [availability checklist][availability] in the Azure Architecture Center.
 
@@ -102,7 +102,7 @@ Other options for the data tier include:
 ### Resiliency
 
 - Consider leveraging the [circuit breaker pattern][circuit-breaker] to provide graceful error handling should one part of the application not be available.
-- Review the [typical design patterns for resiliency][design-patterns-resiliency] and consider implementing these where appropriate.
+- Review the [typical design patterns for resiliency][../../framework/resiliency/reliability-patterns] and consider implementing these where appropriate.
 - You can find a number of [recommended practices for App Service][resiliency-app-service] in the Azure Architecture Center.
 - Consider using active [geo-replication][sql-geo-replication] for the data tier and [geo-redundant][storage-geo-redundancy] storage for images and queues.
 - For a deeper discussion on [resiliency][resiliency], see the relevant article in the Azure Architecture Center.
@@ -136,7 +136,7 @@ We have provided three sample cost profiles based on amount of traffic you expec
 [availability]: ../../framework/resiliency/reliability-patterns.md
 [circuit-breaker]: ../../patterns/circuit-breaker.md
 [design-patterns-availability]: ../../framework/resiliency/reliability-patterns.md
-[design-patterns-resiliency]: ../../framework/resiliency/resiliency-patterns.md
+[design-patterns-resiliency]: ../../framework/resiliency/reliability-patterns.md
 [design-patterns-performance efficiency]: ../../framework/scalability/performance-efficiency-patterns.md
 [design-patterns-security]: ../../framework/security/security-patterns.md
 [docs-application-insights]: https://www.microsoft.com/azure/application-insights/app-insights-overview
