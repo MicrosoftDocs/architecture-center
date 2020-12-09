@@ -82,19 +82,19 @@ Other options for the data tier include:
 
 ### Availability
 
-- Consider leveraging the [typical design patterns for availability](../../framework/resiliency/reliability-patterns) when building your cloud application.
+- Consider leveraging the [typical design patterns for availability](/azure/architecture/framework/resiliency/reliability-patterns) when building your cloud application. azure/architecture/framework/scalability/performance-efficiency
 - Review the availability considerations in the appropriate [App Service web application reference architecture][app-service-reference-architecture]
 - For additional considerations concerning availability, see the [availability checklist][availability] in the Azure Architecture Center.
 
 ### Scalability
 
-- When building a cloud application be aware of the [typical design patterns for scalability][../../framework/scalability/performance-efficiency-patterns].
+- When building a cloud application be aware of the [typical design patterns for scalability](../../framework/scalability/performance-efficiency-patterns).
 - Review the scalability considerations in the appropriate [App Service web application reference architecture][app-service-reference-architecture]
-- For other scalability topics, see the [performance efficiency checklist][scalability] available in the Azure Architecture Center.
+- For other scalability topics, see the [performance efficiency checklist](/azure/architecture/framework/scalability/performance-efficiency) available in the Azure Architecture Center.
 
 ### Security
 
-- Consider leveraging the [typical design patterns for security][../../framework/security/security-patterns] where appropriate.
+- Consider leveraging the [typical design patterns for security](/azure/architecture/framework/security/security-patterns) where appropriate.
 - Review the security considerations in the appropriate [App Service web application reference architecture][app-service-reference-architecture].
 - Consider following a [secure development lifecycle][secure-development] process to help developers build more secure software and address security compliance requirements while reducing development cost.
 - Review the blueprint architecture for [Azure PCI DSS compliance][pci-dss-blueprint].
@@ -102,7 +102,7 @@ Other options for the data tier include:
 ### Resiliency
 
 - Consider leveraging the [circuit breaker pattern][circuit-breaker] to provide graceful error handling should one part of the application not be available.
-- Review the [typical design patterns for resiliency][../../framework/resiliency/reliability-patterns] and consider implementing these where appropriate.
+- Review the [typical design patterns for resiliency](/azure/architecture/framework/resiliency/reliability-patterns) and consider implementing these where appropriate.
 - You can find a number of [recommended practices for App Service][resiliency-app-service] in the Azure Architecture Center.
 - Consider using active [geo-replication][sql-geo-replication] for the data tier and [geo-redundant][storage-geo-redundancy] storage for images and queues.
 - For a deeper discussion on [resiliency][resiliency], see the relevant article in the Azure Architecture Center.
