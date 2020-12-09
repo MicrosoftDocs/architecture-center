@@ -33,7 +33,6 @@ In this reference architecture, we’ll build a baseline infrastructure that dep
       [Deploy Ingress resources](#deploy-ingress-resources)
     :::column-end:::
     :::column:::
-
       #### Cluster compute
       [Compute for the base cluster](#configure-compute-for-the-base-cluster)\
       [Container image reference](#container-image-reference)\
@@ -237,7 +236,7 @@ Kubernetes Ingress resources route and distribute incoming traffic to the cluste
 
 - Ingress controller. We have chosen Traefik. It runs in the user node pool in the cluster. It receives traffic from the internal load balancer, terminates TLS, and forwards it to the workload pods over HTTP.
 
-    The ingress controller is a critical component of cluster. Consider these points when configuring this component.
+The ingress controller is a critical component of cluster. Consider these points when configuring this component.
 
 - As part of your design decisions, choose a scope within which the ingress controller will be allowed operate. For example, you might allow the controller to only interact with the pods that run a specific workload.
 
@@ -250,6 +249,14 @@ Kubernetes Ingress resources route and distribute incoming traffic to the cluste
 - Ingress controller should send signals that indicate the health of pods. Configure `readinessProbe` and `livenessProbe` settings that will monitor the health of the pods at the specified interval.
 
 - Consider restricting the ingress controller’s access to specific resources and the ability to perform certain actions. That restriction can be implemented through Kubernetes RBAC permissions. For example, in this architecture, Traefik has been granted permissions to watch, get, and list services and endpoints by using rules in the Kubernetes `ClusterRole` object.
+
+> [!NOTE]
+>The choice for the appropriate ingress controller is driven by the requirements the workload, the skillset of the operator, and the supportability of the technology options. Most importantly, the ability to meet your SLO expectation. 
+>
+>Traefik is a popular open-source option for a Kubernetes cluster and is chosen in this architecture for illustrative purposes. It shows third-party products integration with Azure services. For example, the implementation shows how to integrate Traefik with Azure AD Pod Managed Identity and Azure Key Vault. 
+>
+> Another choice is Azure Application Gateway Ingress Controller and its well integrated with AKS. Apart from its capabilities as an ingress controller, it offers other benefits. For example, Application Gateway facilitates the virtual network entry point of your cluster. It can observe traffic entering the cluster. If you have an application that requires WAF, Application Gateway is a good choice because its integrated with WAF. Also, it provides the opportunity to do TLS termination.
+
 
 ### Router settings
 
