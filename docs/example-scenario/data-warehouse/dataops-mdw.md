@@ -134,13 +134,13 @@ The diagram below demonstrates the CI/CD process and sequence for the build and 
 
 1. Developers develop in their own sandbox environments within the dev resource group and commit changes into their own short-lived git branches. For example, `<developer_name>/<branch_name>`.
 
-1. When changes are complete, developers raise a pull request (PR) to the master branch for review. Doing so automatically kicks-off the PR validation pipeline, which runs the unit tests, linting, and data-tier application package (DACPAC) builds.
+1. When changes are complete, developers raise a pull request (PR) to the main branch for review. Doing so automatically kicks-off the PR validation pipeline, which runs the unit tests, linting, and data-tier application package (DACPAC) builds.
 
-1. On completion of the PR validation, the commit to master will trigger a build pipeline that publishes all necessary build artifacts.
+1. On completion of the PR validation, the commit to main will trigger a build pipeline that publishes all necessary build artifacts.
 
 1. The completion of a successful build pipeline will trigger the first stage of the release pipeline. Doing so deploys the publish build artifacts into the dev environment, except for ADF.
 
-    Developers manually publish to the dev ADF from the collaboration branch (master). The manual publishing updates the Azure Resource Manager (ARM) templates in the `adf_publish` branch.
+    Developers manually publish to the dev ADF from the collaboration branch (main). The manual publishing updates the Azure Resource Manager (ARM) templates in the `adf_publish` branch.
 
 1. The successful completion of the first stage triggers a manual approval gate.
 
