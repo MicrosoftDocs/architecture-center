@@ -63,7 +63,7 @@ This scenario's event sourcing approach allows system components to be loosely c
 
 Azure Monitor provides unified user interfaces for monitoring across various Azure services. For more information, see [Monitoring in Microsoft Azure](/azure/monitoring-and-diagnostics/monitoring-overview). Event Hubs and Stream Analytics are both integrated with Azure Monitor.
 
-For other availability considerations, see the [availability checklist][availability].
+For other availability considerations, see the [availability checklist](../../framework/resiliency/overview).
 
 ### Scalability
 
@@ -76,11 +76,11 @@ For other scalability considerations, see the [performance efficiency checklist]
 
 The [Cosmos DB security model](/azure/cosmos-db/secure-access-to-data) authenticates users and provides access to its data and resources. For more information, see [Cosmos DB database security](/azure/cosmos-db/database-security).
 
-For general guidance on designing secure solutions, see the [Azure Security Documentation][security].
+For general guidance on designing secure solutions, see the [Azure Security Documentation](https://docs.microsoft.com/azure/security/)).
 
 ### Resiliency
 
-The event sourcing architecture and associated technologies in this example scenario make this scenario highly resilient when failures occur. For general guidance on designing resilient solutions, see [Designing resilient applications for Azure][resiliency].
+The event sourcing architecture and associated technologies in this example scenario make this scenario highly resilient when failures occur. For general guidance on designing resilient solutions, see [Designing resilient applications for Azure](../../framework/resiliency/reliability-patterns).
 
 ## Pricing
 
@@ -119,7 +119,7 @@ Other related resources include:
 [docs-cosmos-db-guarantees]: /azure/cosmos-db/high-availability#slas-for-availability
 [docs-cosmos-db-use-cases]: /azure/cosmos-db/use-cases
 [docs-kafka-high-availability]: /azure/hdinsight/kafka/apache-kafka-high-availability
-[availability]: ../../framework/resiliency/overview.md
-[scalability]: ../../framework/scalability/performance-efficiency.md
-[resiliency]: ../../patterns/category/resiliency.md
+[availability]: /azure/architecture/framework/resiliency/overview
+[scalability]: /azure/archetecture/framework/scalability/performance-efficiency.md
+[resiliency]: /azure/architecture/framework/resiliency/reliability-patterns.md
 [security]: /azure/security

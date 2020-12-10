@@ -1,6 +1,6 @@
 ---
 title: Designing resilient Azure applications
-description: 
+description: Design considerations for making sure applications are resilient to failure
 author: david-stanford
 ms.date: 10/16/2019
 ms.topic: conceptual
