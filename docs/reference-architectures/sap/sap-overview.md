@@ -107,9 +107,9 @@ It is essential to carefully consider both availability and recoverability withi
 
 ### Resiliency guidance
 
-[Designing reliable Azure applications](../../framework/resiliency/overview.md)
+[Designing reliable Azure applications](/azure/architecture/framework/resiliency/overview.md)
 
-[Design patterns for resiliency](../../framework/resiliency/resiliency-patterns.md)
+[Design patterns for resiliency](/azure/architecture/framework/resiliency/reliability-patterns.md)
 
 [Azure Virtual Machines high availability for SAP NetWeaver](/azure/virtual-machines/workloads/sap/sap-high-availability-guide-start)
 
@@ -146,7 +146,7 @@ Be mindful of latency-sensitive interfaces between SAP and non-SAP applications.
 
 Run SAP HANA for Linux virtual machines in a scale-up architecture on Azure
 
-[Design patterns for performance efficiency](../../framework/scalability/performance-efficiency-patterns)
+[Design patterns for performance efficiency](/azure/architecture/framework/scalability/performance-efficiency-patterns)
 
 Best practices:
 

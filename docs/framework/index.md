@@ -54,7 +54,7 @@ Use the [DevOps checklist][devops-checklist] to review your design from a manage
 
 ### Operational excellence guidance
 
-- [Design patterns for operational excellence](.devops/devops-patterns)
+- [Design patterns for operational excellence](./devops/devops-patterns)
 - Best practices: [Monitoring and diagnostics][monitoring]
 
 ## Performance efficiency
@@ -83,7 +83,7 @@ Use the [Performance efficiency checklist](scalability/performance-efficiency.md
 
 ### Performance efficiency guidance
 
-- [Design patterns for performance efficiency][performance-efficiency-patterns]
+- [Design patterns for performance efficiency](./scalability/performance-efficiency-patterns)
 - Best practices: [Autoscaling][autoscale], [Background jobs][background-jobs], [Caching][caching], [CDN][cdn], [Data partitioning][data-partitioning]
 
 ## Reliability
@@ -110,7 +110,7 @@ When designing an application to be resilient, you must understand your availabi
 ### Reliability guidance
 
 - [Designing reliable Azure applications][resiliency]
-- [Design patterns for resiliency][resiliency-patterns]
+- [Design patterns for resiliency](./resiliency/reliability-patterns)
 - Best practices: [Transient fault handling][transient-fault-handling], [Retry guidance for specific services][retry-service-specific]
 
 ## Security

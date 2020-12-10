@@ -88,7 +88,7 @@ Other options for the data tier include:
 
 ### Scalability
 
-- When building a cloud application be aware of the [typical design patterns for scalability](../../framework/scalability/performance-efficiency-patterns).
+- When building a cloud application be aware of the [typical design patterns for scalability](/azure/architecture/framework/scalability/performance-efficiency-patterns).
 - Review the scalability considerations in the appropriate [App Service web application reference architecture][app-service-reference-architecture]
 - For other scalability topics, see the [performance efficiency checklist](/azure/architecture/framework/scalability/performance-efficiency) available in the Azure Architecture Center.
 
