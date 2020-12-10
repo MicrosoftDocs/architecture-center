@@ -324,7 +324,7 @@ items:
     - name: Application design
       items:
       - name: Design overview
-        href: framework/resiliency/design-apps.md
+        href: framework/resiliency/app-design.md
       - name: Error handling
         href: framework/resiliency/app-design-error-handling.md 
       - name: Failure mode analysis
@@ -422,7 +422,7 @@ items:
 - name: Design Patterns
   items:
   - name: Overview
-    href: azure/architecture/patterns/index.md
+    href: patterns/index.md
   - name: Categories
     items:
     - name: Data management
