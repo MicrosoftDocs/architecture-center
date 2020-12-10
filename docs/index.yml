@@ -50,7 +50,7 @@ productDirectory:
           text: Web API design
         - url: ./microservices/index.md
           text: Building microservices on Azure
-        - url: ./patterns/index.md
+        - url: /azure/architechture/patterns/index.md
           text: Application design patterns
         - url: ./multitenant-identity/index.md
           text: Managing identity in multitenant apps
@@ -98,7 +98,7 @@ conceptualContent:
         url: ./aws-professional/services.md
         itemType: reference
       - text: Cloud Design Patterns
-        url: ./patterns/index.md
+        url: azure/architecture/patterns/index.md
         itemType: concept
       - text: Web API design
         url: ./best-practices/api-design.md

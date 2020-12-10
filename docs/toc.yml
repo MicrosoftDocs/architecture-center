@@ -422,7 +422,7 @@ items:
 - name: Design Patterns
   items:
   - name: Overview
-    href: patterns/index.md
+    href: azure/architecture/patterns/index.md
   - name: Categories
     items:
     - name: Data management
