@@ -9,7 +9,7 @@ items:
   href: browse/hybrid_index.md
 - name: What's new
   href: changelog.md
-- name: Application Architecture Guide
+- name: Application Architecture Guide 
   items:
   - name: Introduction
     href: guide/index.md
