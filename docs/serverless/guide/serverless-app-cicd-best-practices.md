@@ -189,7 +189,7 @@ The advantages of this approach are as follows:
 
 ## Host and distribute using the cloud
 
-A content delivery network (CDN) is a set of distributed servers that speed up the content delivery to users over a vast geographical area. Every user gets the content from the server nearest to them. The CDN accesses this content from an *origin* server, and caches it to *edge* servers at strategic locations. The sample CI/CD in this article uses [Azure CDN](/azure/cdn), pointing to website content hosted on [Azure Blob Storage](/azure/storage/blobs/storage-blobs-overview) as the origin server. The Blob storage is [configured for static website hosting](https://github.com/mspnp/serverless-reference-implementation/tree/main/src/ClientApp#create-azure-storage-static-website-hosting). For a quick guide on how to use Azure CDN with Azure Blob Storage, read [Integrate an Azure storage account with Azure CDN](/azure/cdn/cdn-create-a-storage-account-with-cdn).
+A content delivery network (CDN) is a set of distributed servers that speed up the content delivery to users over a vast geographical area. Every user gets the content from the server nearest to them. The CDN accesses this content from an *origin* server, and caches it to *edge* servers at strategic locations. The sample CI/CD in this article uses [Azure CDN](/azure/cdn), pointing to website content hosted on [Azure Blob Storage](/azure/storage/blobs/storage-blobs-overview) as the origin server. The Blob storage is [configured for static website hosting](https://github.com/mspnp/serverless-reference-implementation/tree/master/src/ClientApp#create-azure-storage-static-website-hosting). For a quick guide on how to use Azure CDN with Azure Blob Storage, read [Integrate an Azure storage account with Azure CDN](/azure/cdn/cdn-create-a-storage-account-with-cdn).
 
 The following are some strategies that can improve the CDN performance.
 
@@ -213,7 +213,7 @@ For more information, see [Improve performance by compressing files in Azure CDN
 
 Using CDN is optimal for static content, which can be safely cached at the edge servers. However, dynamic web sites require the server to generate content based on user response. This type of content cannot be cached on the edge, requiring a more involved end-to-end solution that can speed up the content delivery. [Dynamic site acceleration by Azure CDN](/azure/cdn/cdn-dynamic-site-acceleration) is one such solution that measurably improves the performance of dynamic web pages.
 
-This sample enables dynamic site acceleration as shown in [this section of the readme](https://github.com/mspnp/serverless-reference-implementation/tree/main/src/ClientApp#configure-dynamic-site-acceleration).
+This sample enables dynamic site acceleration as shown in [this section of the readme](https://github.com/mspnp/serverless-reference-implementation/tree/master/src/ClientApp#configure-dynamic-site-acceleration).
 
 ## Manage website cache
 
@@ -232,6 +232,6 @@ This ensures that the CDN always gets new updated files, and removes the need to
 
 ## Next steps
 
-- Now that you understand the basics, follow [this readme](https://github.com/mspnp/serverless-reference-implementation/tree/main/src/ClientApp) to set up and execute the CI/CD pipeline.
+- Now that you understand the basics, follow [this readme](https://github.com/mspnp/serverless-reference-implementation/tree/master/src/ClientApp) to set up and execute the CI/CD pipeline.
 
 - Learn [best practices for using content delivery networks (CDNs)](../../best-practices/cdn.md)
