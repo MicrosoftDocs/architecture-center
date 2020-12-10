@@ -109,12 +109,6 @@ Another option for running an R script in Azure Batch is to bundle your code wit
 
 A third option is to use the [Azure Distributed Data Engineering Toolkit](https://github.com/Azure/aztk) (AZTK), which allows you to provision on-demand Spark clusters using Docker containers in Azure Batch.  This provides an economical way to run Spark jobs in Azure.  By using [SparklyR with AZTK](https://github.com/Azure/aztk/wiki/SparklyR-on-Azure-with-AZTK), your R scripts can be scaled out in the cloud easily and economically.
 
-## Azure Notebooks
-
-[Azure Notebooks](https://notebooks.azure.com) is a low-cost, low-friction method for R developers who prefer working with notebooks to bring their code to Azure.  It is a free service for anyone to develop and run code in their browser using [Jupyter](https://jupyter.org/), which is an open-source project that enables combing markdown prose, executable code, and graphics onto a single canvas.
-
-The free service tier of Azure Notebooks is a viable option for small-scale projects, as it limits each notebook's process to 4 GB of memory and 1 GB data sets. If you need compute and data power beyond these limitations, however, you can run notebooks in a Data Science Virtual Machine instance. For more information, see [Manage and configure Azure Notebooks projects - Compute tier](/azure/notebooks/configure-manage-azure-notebooks-projects#compute-tier).
-
 ## Azure SQL Database
 
 [Azure SQL Database](https://azure.microsoft.com/services/sql-database/) is Microsoft's intelligent, fully managed relational cloud database service.  It allows you to use the full power of SQL Server without any hassle of setting up the infrastructure.  This includes [Machine Learning Services in SQL Server](/sql/advanced-analytics/what-is-sql-server-machine-learning?view=sql-server-2017), which is one of the more recent additions to SQL.
