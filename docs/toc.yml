@@ -1581,6 +1581,8 @@ items:
         href: example-scenario/gateway/firewall-application-gateway.md
       - name: Hybrid Security Monitoring using Azure Security Center and Azure Sentinel
         href: hybrid/hybrid-security-monitoring.md
+      - name: Azure security for AWS
+        href: reference-architectures/aws/aws-azure-security.md
   - name: Storage
     items:
     - name: Architectures
