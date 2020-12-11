@@ -505,8 +505,8 @@ items:
     href: patterns/sidecar.md
   - name: Static Content Hosting
     href: patterns/static-content-hosting.md
-  - name: Strangler
-    href: patterns/strangler.md
+  - name: Strangler Fig
+    href: patterns/strangler-fig.md
   - name: Throttling
     href: patterns/throttling.md
   - name: Valet Key
