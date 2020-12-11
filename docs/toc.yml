@@ -350,19 +350,25 @@ items:
       - name: Governance
         items: 
         - name: Overview
-          href: framework/security/design-governance.md
-        - name: Team roles and responsibilities
-          href: framework/security/design-role-definitions.md          
+          href: framework/security/design-governance.md    
         - name: Segmentation strategy
           href: framework/security/design-segmentation.md
         - name: Management groups 
           href: framework/security/design-management-groups.md          
         - name: Administration
           href: framework/security/design-admins.md
-      - name: Identity
+      - name: Identity and access management
         items:
-          - name: Identity and access management
+          - name: Checklist
             href: framework/security/design-identity.md
+          - name: Roles and responsibilities
+            href: framework/security/design-identity-role-definitions.md 
+          - name: Control plane
+            href: framework/security/design-identity-control-plane.md            
+          - name: Authentication
+            href: framework/security/design-identity-authentication.md
+          - name: Authorization
+            href: framework/security/design-identity-authorization.md
           - name: Best practices
             href: /azure/security/fundamentals/identity-management-best-practices?bc=%2fazure%2farchitecture%2fbread%2ftoc.json&toc=%2fazure%2farchitecture%2ftoc.json
       - name: Networking
