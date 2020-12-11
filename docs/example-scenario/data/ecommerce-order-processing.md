@@ -76,11 +76,11 @@ For other scalability considerations, see the [performance efficiency checklist]
 
 The [Cosmos DB security model](/azure/cosmos-db/secure-access-to-data) authenticates users and provides access to its data and resources. For more information, see [Cosmos DB database security](/azure/cosmos-db/database-security).
 
-For general guidance on designing secure solutions, see the [Azure Security Documentation](https://docs.microsoft.com/azure/security/)).
+For general guidance on designing secure solutions, see the [Azure Security Documentation](https://docs.microsoft.com/azure/security/).
 
 ### Resiliency
 
-The event sourcing architecture and associated technologies in this example scenario make this scenario highly resilient when failures occur. For general guidance on designing resilient solutions, see [Designing resilient applications for Azure](azure/architecture/framework/resiliency/reliability-patterns).
+The event sourcing architecture and associated technologies in this example scenario make this scenario highly resilient when failures occur. For general guidance on designing resilient solutions, see [Designing resilient applications for Azure](../../framework/resiliency/reliability-patterns).
 
 ## Pricing
 
