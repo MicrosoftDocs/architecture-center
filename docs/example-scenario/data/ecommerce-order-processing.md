@@ -63,7 +63,7 @@ This scenario's event sourcing approach allows system components to be loosely c
 
 Azure Monitor provides unified user interfaces for monitoring across various Azure services. For more information, see [Monitoring in Microsoft Azure](/azure/monitoring-and-diagnostics/monitoring-overview). Event Hubs and Stream Analytics are both integrated with Azure Monitor.
 
-For other availability considerations, see the [availability checklist](../../framework/resiliency/overview).
+For other availability considerations, see the [availability checklist](https://review.docs.microsoft.com/azure/architecture/framework/resiliency/overview).
 
 ### Scalability
 
@@ -80,7 +80,7 @@ For general guidance on designing secure solutions, see the [Azure Security Docu
 
 ### Resiliency
 
-The event sourcing architecture and associated technologies in this example scenario make this scenario highly resilient when failures occur. For general guidance on designing resilient solutions, see [Designing resilient applications for Azure](../../framework/resiliency/reliability-patterns).
+The event sourcing architecture and associated technologies in this example scenario make this scenario highly resilient when failures occur. For general guidance on designing resilient solutions, see [Designing resilient applications for Azure](azure/architecture/framework/resiliency/reliability-patterns).
 
 ## Pricing
 

@@ -422,7 +422,7 @@ items:
 - name: Design Patterns
   items:
   - name: Overview
-    href: patterns/index.md
+    href: framework/index.md
   - name: Categories
     items:
     - name: Data management
@@ -1660,4 +1660,4 @@ items:
       - name: Azure Functions in a hybrid environment
         href: hybrid/azure-functions-hybrid.md
 - name: Cloud Adoption Framework
-  href: /azure/cloud-adoption-framework
+  href: /azure/cloud-adoption-framework 
