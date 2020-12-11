@@ -75,12 +75,20 @@ To proactively receive updates about AKS upgrades, we recommend using the follow
 
 * Check when an upgrade is required for your cluster
     * Get list of available target upgrade versions for your AKS Control Plane Upgrades
-        * ` az aks get-upgrades --resource-group myResourceGroup --name myAKSCluster --output table `
-        ![available_controlplane_upgrade_versions](images/available_cp_upgrade_versions.png)
+        * ```
+          az aks get-upgrades \
+          --resource-group myResourceGroup \
+          --name myAKSCluster --output table 
+          ```
+        * ![available_controlplane_upgrade_versions](images/available_cp_upgrade_versions.png)
     * Determine the target version for the control plane from the above results.
     * Then check the kubernetes versions of the nodes in your nodepools and determine if the cluster's node pools need to be upgraded too
-        * `az aks nodepool list --query "[].{Name:name,k8version:orchestratorVersion}" -g rg-cluster --cluster-name aks-cluster-name -o table`
-        ![nodepoool_version](images/nodepool_versions.png)
+        * ```
+          az aks nodepool list \  
+          --query "[].{Name:name,k8version:orchestratorVersion}" \  
+          -g rg-cluster --cluster-name aks-cluster-name -o table
+          ```
+        * ![nodepoool_version](images/nodepool_versions.png)
 
 
 * Once a new version becomes available, you should ideally plan an upgrade across all environments before the version becomes the default. This approach provides more control and predictability when needed, and plan upgrades with minimal disruption to existing workloads.
