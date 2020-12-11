@@ -1,9 +1,9 @@
 ---
 title: Azure security for Amazon Web Services (AWS)
 titleSuffix: Azure Reference Architectures
-description: Learn how Azure Active Directory (Azure AD) and other Microsoft security solutions can help secure and protect AWS account access and environments.
+description: Learn how Azure Active Directory (Azure AD), Microsoft Cloud App Security, and Azure Sentinel can help secure and protect Amazon Web Services (AWS) account access and environments.
 author: doodlemania2
-ms.date: 12/07/2020
+ms.date: 12/10/2020
 ms.topic: reference-architecture
 ms.service: architecture-center
 ms.subservice: reference-architecture
@@ -13,25 +13,25 @@ ms.custom:
 
 # Azure security for AWS
 
-Amazon Web Services (AWS) accounts that support critical workloads and highly sensitive information need strong identity and security protection. Many organizations that use AWS already rely on Azure Active Directory (Azure AD) for identity and access protection. These organizations can quickly and easily deploy Azure AD identity protection and access control for their AWS accounts, often without additional cost.
+Amazon Web Services (AWS) accounts that support critical workloads and highly sensitive information need strong identity and security protection. Microsoft offers several solutions that can help secure and protect AWS accounts and environments. 
 
-Advanced Azure AD features can protect the most sensitive AWS accounts. Microsoft Cloud App Security (MCAS) backs up Azure AD with session and user behavior monitoring. Azure Sentinel monitoring can detect additional threats against AWS environments.
+Many organizations that use AWS already rely on Azure Active Directory (Azure AD) for Microsoft 365 or hybrid cloud identity and access protection. These organizations can quickly and easily deploy Azure AD identity protection and access control for their AWS accounts, often without additional cost. Other, advanced Azure AD features can protect especially sensitive AWS installations. Microsoft Cloud App Security (MCAS) backs up Azure AD with session protection and user behavior monitoring. Azure Sentinel integrates with Azure AD and MCAS to detect threats against AWS environments.
 
-This article provides AWS identity architects, administrators, and security analysts with immediate insights and detailed guidance for deploying these Microsoft security solutions. You can configure and test these solutions without impacting your existing identity providers and AWS account users.
+These Microsoft security solutions are extensible and have multiple levels of protection for securing access and monitoring user interactions. An organization can implement one or more of these solutions along with other types of protection for a full security architecture to protect current and future AWS deployments.
 
-Azure security solutions are extensible and have multiple levels of protection for securing access and monitoring user interactions. An organization can implement one or more of these solutions along with other types of protection for a full security architecture to protect current and future AWS deployments.
+This article provides AWS identity architects, administrators, and security analysts with immediate insights and detailed guidance for deploying Microsoft security solutions. You can configure and test these solutions without impacting your existing identity providers and AWS account users until you're ready to switch over.
 
 ## Architecture
 
-The following diagram shows how AWS installations can benefit from key Microsoft security components:
+This diagram summarizes how AWS installations can benefit from key Microsoft security components:
 
 ![Diagram showing the benefits of implementing Azure security for AWS.](media/benefits.png)
 
-- Azure AD controls AWS identities and applies additional security to the sign-in process.
+- Azure AD provides centralized *single sign-on (SSO)* and strong authentication through *multi-factor authentication (MFA)* and *Conditional Access*. Azure AD supports AWS role-based identities and authorization for access to AWS resources.
 
-- MCAS integrates with Azure AD to monitor and control session actions after sign-in.
+- MCAS integrates with Azure AD to enforce additional access restrictions, and monitors and protects sessions after sign-in. MCAS uses *user behavior analytics (UBA)* and other AWS APIs to monitor sessions and users and support information protection.
 
-- Azure Sentinel and MCAS monitor the AWS environment for misconfiguration, potential malware, and advanced threats to AWS identities, devices, applications, and data.
+- Azure Sentinel integrates with MCAS and AWS to detect and automatically respond to threats. Azure Sentinel monitors the AWS environment for misconfiguration, potential malware, and advanced threats to AWS identities, devices, applications, and data.
 
 ### Azure AD for identity and access control
 
@@ -39,42 +39,41 @@ AWS creates a separate *IAM store* for each account it creates. The following di
 
 ![Diagram showing a single-account AWS environment.](media/aws-single-account.png)
 
-The *root account* has full control of the AWS account, and other identities have delegated access. The AWS IAM *user principal* provides a unique identity for each administrator and developer that needs to access the AWS account. IAM can protect each root and user principal account with a complex password and basic *multi-factor authentication (MFA)*.
+The *root user* fully controls the AWS account, and delegates access to other identities. The AWS IAM *principal* provides a unique identity for each role and user that needs to access the AWS account. AWS IAM can protect each root, principal, and user account with a complex password and basic MFA.
 
-Many organizations need more than one AWS account, increasing the IAM instances they need to manage. Multiple accounts can result in *identity silos* that are complex to manage.
+Many organizations need more than one AWS account, resulting in *identity silos* that are complex to manage.
 
 ![Diagram showing a multiple-account AWS environment.](media/aws-multiple-accounts.png)
 
-To allow centralized identity management and avoid having to manage multiple accounts and passwords, most organizations want to use *single sign-on (SSO)* for platform resources. Some AWS customers rely on server-based Microsoft Active Directory for SSO integration. Other customers invest in third-party solutions to synchronize or federate their identities and provide SSO.
+To allow centralized identity management and avoid having to manage multiple accounts and passwords, most organizations prefer single sign-on for platform resources. Some AWS customers rely on server-based Microsoft Active Directory for SSO integration. Other customers invest in third-party solutions to synchronize or federate their identities and provide SSO.
 
-Azure AD is a cloud-based, comprehensive *identity and access management* solution that provides centralized identity management with strong SSO authentication. Many organizations already use Azure AD to assign and protect Microsoft 365 identities. Employees use their Azure AD identities to access email, files, instant messaging, cloud applications, and on-premises resources. Almost any app or platform that follows common web authentication standards can use Azure AD, including AWS.
+Azure AD is a cloud-based, comprehensive identity and access management solution that provides centralized identity management with strong SSO authentication. Many organizations already use Azure AD to assign and protect Microsoft 365 or hybrid cloud identities. Employees use their Azure AD identities to access email, files, instant messaging, cloud applications, and on-premises resources.
+
+Almost any app or platform that follows common web authentication standards, including AWS, can use Azure AD to protect identities and access. You can quickly and easily deploy Azure AD to let administrators and developers sign in to AWS environments with their existing identities.
 
 Azure AD offers several capabilities for direct integration with AWS:
 
 - SSO across legacy, traditional, and modern authentication solutions.
-- MFA, including integration with several third-party solutions from the [Microsoft Intelligent Security Association (MISA)](https://www.microsoft.com/security/business/intelligent-security-association) partners.
+- MFA, including integration with several third-party solutions from [Microsoft Intelligent Security Association (MISA)](https://www.microsoft.com/security/business/intelligent-security-association) partners.
 - *Conditional Access* policies to define specific access requirements in real time.
 - Threat detection and automated response at massive scale. Azure AD processes over 30 billion authentication requests per day, along with trillions of signals about threats worldwide.
 - *Privileged Access Management (PAM)* to enable *Just-In-Time (JIT) provisioning* to specific resources.
-- Quick deployment that lets administrators and developers sign in to AWS environments with their existing identities.
 
 ![Diagram showing AWS and Azure AD integration.](media/azure-aws-integration.png)
 
 #### Azure AD Conditional Access
 
-Powerful features for strong authentication and strict governance policies are key benefits of Azure AD. You can enforce Conditional Access policies when users first attempt to gain access to the AWS Management Console or resources. Azure AD uses both policy-defined controls and risk-based assessments to determine the authentication and authorization process. Once you implement Conditional Access policies, you can impose additional controls such as PAM and JIT provisioning.
+Azure AD offers powerful Conditional Access features for strong authentication and strict governance. Conditional Access policies trigger when users attempt to gain access to the AWS Management Console or resources. Azure AD uses both policy-defined controls and risk-based assessments to manage authentication and authorization. Once you enable Conditional Access, you can impose additional controls such as PAM to enable JIT provisioning.
 
 #### Advanced Azure AD identity protection
 
-The current article walks you through implementing Azure AD authentication and Conditional Access policies. Other advanced Azure AD features can provide additional layers of control for the most sensitive accounts.
+The current article discusses Azure AD authentication and Conditional Access policies. Other advanced Azure AD features can provide additional layers of control for the most sensitive AWS accounts. Azure AD Premium P2 licenses include these advanced features:
 
-Azure AD Premium P2 licenses include these advanced features:
-
-- **Privileged Identity Management (PIM)** provides advanced controls for all delegated roles within Azure and Microsoft 365. For example, instead of an administrator always using the Global Admin role, they have permission to activate the role on demand. This permission deactivates after a set time limit, such as one hour. PIM logs all activations, and has additional controls that can further restrict the activation capabilities. PIM further protects your identity architecture by ensuring additional layers of governance and protection before administrators can make changes.
+- **Privileged Identity Management (PIM)** to provide advanced controls for all delegated roles within Azure and Microsoft 365. For example, instead of an administrator always using the Global Admin role, they have permission to activate the role on demand. This permission deactivates after a set time limit like one hour. PIM logs all activations, and has additional controls that can further restrict the activation capabilities. PIM further protects your identity architecture by ensuring additional layers of governance and protection before administrators can make changes.
   
   You can expand PIM to any delegated permission by controlling access to custom groups, such as the ones you created for access to AWS roles. For more information about deploying PIM, see [Deploy Azure AD Privileged Identity Management](/azure/active-directory/privileged-identity-management/pim-deployment-plan).
 
-- **Advanced Identity Protection** increases Azure AD sign-in security by monitoring user or session risk. User risk defines the potential of the credentials being compromised, such as the user ID and password appearing in a publicly released breach list, and session risk determines whether the sign-in activity comes from a risky location, IP address, or other indicator of compromise. Both detection types draw on Microsoft's comprehensive threat intelligence capabilities.
+- **Advanced Identity Protection** increases Azure AD sign-in security by monitoring user or session risk. User risk defines the potential of the credentials being compromised, such as the user ID and password appearing in a publicly released breach list. Session risk determines whether the sign-in activity comes from a risky location, IP address, or other indicator of compromise. Both detection types draw on Microsoft's comprehensive threat intelligence capabilities.
   
   For more information about Advanced Identity Protection, see the [Azure AD Identity Protection security overview](/azure/active-directory/identity-protection/concept-identity-protection-security-overview).
 
@@ -86,11 +85,11 @@ Azure AD Premium P2 licenses include these advanced features:
 
 Several users or roles making administrative changes can result in *configuration drift* away from intended security architecture and standards. Security standards can also change over time. Security personnel must constantly and consistently detect new risks, evaluate mitigation options, and update security architecture to prevent potential breaches. Security management across multiple public cloud and private infrastructure environments can become burdensome.
 
-Microsoft Cloud App Security is a *Cloud Access Security Broker (CASB)* platform with capabilities for *Cloud Security Posture Management (CSPM)*. MCAS can connect to multiple cloud services and applications to collect security logs, monitor user behavior, and impose restrictions that the platforms themselves don't offer.
+Microsoft Cloud App Security is a *Cloud Access Security Broker (CASB)* platform with capabilities for *Cloud Security Posture Management (CSPM)*. MCAS can connect to multiple cloud services and applications to collect security logs, monitor user behavior, and impose restrictions that the platforms themselves may not offer.
 
 MCAS provides several capabilities that can integrate with AWS for immediate benefits:
 
-- The MCAS app connector uses several AWS APIs to search for configuration issues and threats on the AWS platform, including *user behavior analytics (UBA)*.
+- The MCAS app connector uses several AWS APIs, including UBA, to search for configuration issues and threats on the AWS platform.
 - *AWS Access Controls* can enforce sign-in restrictions based on application, device, IP address, location, registered ISP, and specific user attributes.
 - *Session Controls for AWS* block potential malware uploads or downloads based on Microsoft Threat Intelligence or real-time content inspection. Session controls can also use real-time content inspection and sensitive data detection to impose *data loss prevention (DLP)* rules that prevent cut, copy, paste, or print operations.
 
@@ -100,7 +99,7 @@ MCAS is available standalone, or as part of Microsoft Enterprise Mobility + Secu
 
 Threats can come from a wide range of devices, applications, locations, and user types. Data loss prevention requires inspecting content during upload or download, because post-mortem review may be too late. AWS doesn't provide native capabilities for device and application management, risk-based conditional access, session-based controls, or inline UBA.
 
-[Azure Sentinel](/azure/sentinel/) is a *Security Information and Event Management (SIEM)* and *Security Orchestration, Automation, and Response (SOAR)* solution that centralizes and coordinates threat detection and response automation for modern security operations. Connect an AWS account to Azure Sentinel for monitoring capabilities that compare events across multiple firewalls, network devices, and servers. Combined with additional threat intelligence, analytics rules, and machine learning, Azure Sentinel helps discover and respond to advanced attack techniques.
+[Azure Sentinel](/azure/sentinel/) is a *Security Information and Event Management (SIEM)* and *Security Orchestration, Automation, and Response (SOAR)* solution that centralizes and coordinates threat detection and response automation for modern security operations. Azure Sentinel can monitor AWS accounts to compare events across multiple firewalls, network devices, and servers. Azure Sentinel combines monitoring data with threat intelligence, analytics rules, and machine learning to discover and respond to advanced attack techniques.
 
 Connect both AWS and MCAS into Azure Sentinel to get MCAS alerts and run additional threat checks using multiple Threat Intelligence feeds. Azure Sentinel can initiate a coordinated response outside of MCAS, integrate with IT Service Management (ITSM) solutions, and retain data long term for compliance purposes.
 
@@ -118,7 +117,7 @@ The following principles and guidelines are important for any cloud security sol
   
 - Prevent unauthorized data exfiltration by actively inspecting and controlling content.
   
-- Raise awareness that customers may already own solutions like Azure AD Premium P2 that they can use to increase security without additional expense. Other solutions like MCAS and Azure Sentinel come at a reasonable cost.
+- Raise awareness that customers may already own solutions like Azure AD Premium P2 that can increase security without additional expense.
 
 ### Basic AWS account security
 
@@ -135,33 +134,42 @@ To ensure basic security hygiene for AWS accounts and resources:
 
 ### AWS IAM components
 
-A key aspect of securing the AWS Management Console is clearly understanding who can make sensitive configuration changes. Review the following AWS IAM account components:
+Clearly understand and review the following AWS IAM account components:
 
-Each AWS account has a single *root user* account owner that has unrestricted access. The security team must fully control the root user account to prevent it being used to sign in to the AWS Management Console. To control the root user account:
+#### Root user
+
+A key aspect of securing the AWS Management Console is controlling who can make sensitive configuration changes. Each AWS account has a single *root user* account owner that has unrestricted access. The security team should fully control the root user account to prevent it from signing in to the AWS Management Console or working with AWS resources.
+
+To control the root user account:
+
 - Consider changing the root user sign-in credentials from an email address to a service account that the security team controls.
-- Make sure the root user account password is extremely complex.
-- Enforce MFA for the root user.
+- Make sure the root user account password is extremely complex, and enforce MFA for the root user.
 - Monitor logs for instances of the root user account being used to sign in.
 - Use the root user account only in emergencies.
 - Use Azure AD to implement delegated administrative access rather than using the root user for administrative tasks.
 
-By default, an AWS account has no *IAM users* until the root user creates one or more accounts to delegate access. A solution that synchronizes existing accounts from another identity system, such as Microsoft Active Directory, can also automatically provision IAM users.
 
-*IAM policies* provide delegated access rights to AWS account resources. AWS provides 241 unique IAM policies, and customers can also define custom policies for specific delegations.
+#### IAM users, policies, roles, and groups
 
-*IAM groups* are a way to administer *Role-Based Access Control (RBAC)*. Instead of assigning IAM policies directly to IAM users, you create an IAM group and attach one or more IAM role-based policies. IAM users in the group inherit the appropriate access rights to resources. Review existing groups for appropriate mapping of users, groups, and policies.
+- By default, an AWS account has no *IAM users* until the root user creates one or more accounts to delegate access. A solution that synchronizes existing accounts from another identity system, such as Microsoft Active Directory, can also automatically provision IAM users.
 
-*IAM roles* are assumed by programmatic access or can be associated to [External Identities](/azure/active-directory/external-identities/) to implement Azure AD identities. Use roles to administer RBAC for anything other than IAM users. Review all existing IAM roles for appropriate associated IAM policies and membership. AWS provides two default roles: **AWSServiceRoleForSupport** and **AWSServiceRoleForTrustedAdvisor**. All other roles are custom created.
+- *IAM policies* provide delegated access rights to AWS account resources. AWS provides 241 unique IAM policies, and customers can also define custom policies for specific delegations.
 
-Some *IAM service accounts* must run in AWS IAM to provide programmatic access. Be sure to review these accounts, securely store and restrict access to their security credentials, and rotate the credentials regularly.
+- *IAM roles* are a form of identity that programmatic access or [External Identities](/azure/active-directory/external-identities/) can assume. The current solution uses External Identities to implement Azure AD identities. Roles are the way to admnister *Role-Based Access Control (RBAC)* for anyone other than IAM users.
+  
+  AWS provides two default roles: **AWSServiceRoleForSupport** and **AWSServiceRoleForTrustedAdvisor**. All other existing IAM roles have been custom created. Review all existing IAM roles for appropriate associated IAM policies and membership.
 
-Review all existing *IAM identity provider* configurations to ensure they're relevant.
+- *IAM groups* are a way to administer RBAC. Instead of assigning IAM policies directly to individual IAM users, you create an IAM group, assign permissions by attaching one or more IAM policies, and add IAM users to the group to inherit the appropriate access rights to resources. Review existing groups for appropriate mapping of users, groups, and policies.
+
+- Some *IAM service accounts* must run in AWS IAM to provide programmatic access. Be sure to review these accounts, securely store and restrict access to their security credentials, and rotate the credentials regularly.
+
+- Review all existing *IAM identity provider* configurations to ensure they're relevant.
 
 ## Deploy the solutions
 
 These procedures assumes that Azure AD is already configured for the organization, such as for a Microsoft 365 implementation. Accounts can be synchronized from an Active Directory domain, or can be cloud accounts created directly in Azure AD.
 
-### Plan and prepare
+### Plan and prepare for Azure AD deployment
 
 To prepare for deployment of Azure security solutions:
 
@@ -176,13 +184,13 @@ Assess and record current AWS and Azure AD account information. If you have more
    - **Payment method**, whether assigned to a credit card or a company billing agreement.
    - **Alternative contacts** who have access to AWS account information.
    - **Security questions** securely updated and recorded for emergency access.
-   - **AWS Regions** enabled or disabled to comply with data security policy.
+   - **AWS regions** enabled or disabled to comply with data security policy.
    
 1. At [https://console.aws.amazon.com/iam/home#/home](https://console.aws.amazon.com/iam/home#/home), review and record the following AWS IAM components:
    
    - **Groups** that have been created, including detailed membership and role-based mapping policies attached.
    - **Users** that have been created, including the **Password age** for user accounts, and the **Access key age** for service accounts. Also confirm that MFA is enabled for each user.
-   - **Roles**. There are two default roles, **AWSServiceRoleForSupport** and **AWSSviceRoleForTrustedAdvisor**. Record any other roles, which are custom. These roles are linked to permission policies, and will be used for mapping roles in Azure AD.
+   - **Roles**. There are two default roles, **AWSServiceRoleForSupport** and **AWSServiceRoleForTrustedAdvisor**. Record any other roles, which are custom. These roles are linked to permission policies, and will be used for mapping roles in Azure AD.
    - **Policies**. Out-of-the-box policies have **AWS managed**, **Job function**, or **Customer managed** in the **Type** column. Record all other policies, which are custom. Also record where each policy is assigned, from the entries in the **Used as** column.
    - **Identity providers**, to understand any existing Security Assertion Markup Language (SAML) identity providers. Plan how to replace the existing identity providers with the single Azure AD identity provider.
    
@@ -193,43 +201,39 @@ Assess and record current AWS and Azure AD account information. If you have more
 
 #### Plan RBAC
 
-If the AWS installation already uses IAM Groups and IAM Roles to delegate permissions for human and programmatic access, you can map that existing structure to new Azure AD user accounts and security groups.
+If the AWS installation already uses IAM groups and IAM roles to delegate permissions for human and programmatic access, you can map that existing structure to new Azure AD user accounts and security groups.
 
 If the AWS account doesn't have a strong RBAC implementation, start by working on the most sensitive access:
 
-1. Update the AWS root user for the AWS account.
+1. Update the AWS account root user.
    
-1. Review the AWS IAM Users, Groups, and Roles that are attached to the IAM Policy **AdministratorAccess**.
+1. Review the AWS IAM users, groups, and roles that are attached to the IAM policy **AdministratorAccess**.
    
-1. Work through the other assigned IAM Policies, starting with policies that can modify, create, or delete resources and other configuration items. You can identify policies in use by looking at the **Used as** column.
+1. Work through the other assigned IAM policies, starting with policies that can modify, create, or delete resources and other configuration items. You can identify policies in use by looking at the **Used as** column.
    
-1. Review all existing IAM users and plan how each one will migrate to Azure AD, including any existing group memberships and role mappings.
+1. Review all existing IAM users, and plan how each one will migrate to Azure AD, including any existing group memberships and role mappings.
 
 #### Plan final migration
 
-Azure AD centralizes all authentication and authorization. You can plan and implement user mapping and RBAC without impacting administrators and developers until you're ready to enforce the new methods. As the final critical step, you remove the legacy authentication methods and access.
+Azure AD centralizes all authentication and authorization. You can plan and configure user mapping and RBAC without impacting administrators and developers until you're ready to enforce the new methods. As the final critical step, you remove the legacy authentication methods and access.
 
-The overall steps for migrating from AWS IAM accounts to Azure AD are:
+The overall process for migrating from AWS IAM accounts to Azure AD is:
 
-1. Map IAM Policies to Azure AD roles, and use RBAC to map roles to security groups.
+1. Map IAM policies to Azure AD roles, and use RBAC to map roles to security groups.
    
-1. Replace each IAM User with an Azure AD user who is a member of the appropriate security groups, to ensure they can sign in and gain appropriate permissions.
+1. Replace each IAM user with an Azure AD user who is a member of the appropriate security groups to sign in and gain appropriate permissions.
    
-1. Test by asking each user to sign in with their Azure AD account and confirm they have the appropriate level of access.
+1. Test by asking each user to sign in with their Azure AD account and confirm they have the appropriate access level.
    
-1. Once access is confirmed, remove the AWS IAM User account. Repeat the process for each user until they're all migrated.
+1. Once the user confirms Azure AD access, remove the AWS IAM user account. Repeat the process for each user until they're all migrated.
 
-For service accounts and programmatic access, the same approach applies. Update each application using the account to use an equivalent Azure AD user account instead.
+For service accounts and programmatic access, use the same approach. Update each application that uses the account to use an equivalent Azure AD user account instead.
 
-Recommendations for migration:
+Make sure any remaining AWS IAM users have very complex passwords with MFA enabled, or an access key that's replaced regularly.
 
-- For easy identification and troubleshooting, make it easy to identify the components you create to support the integration. For example, service accounts should start with a standard naming convention like "SVC-".
+The following diagram shows an example of the configuration steps and final policy and role mapping across Azure AD and AWS IAM:
 
-- Be sure to document all new items.
-
-- Make sure any new credentials include complex passwords that you store centrally for secure lifecycle management.
-
-- Make sure any remaining AWS IAM Users have very complex passwords with MFA enabled, or an Access Key that is replaced regularly.
+![Diagram showing configuration steps and final role mapping from AWS IAM to Azure AD.](media/role-mapping.png)
 
 ### Deploy Azure AD for AWS SSO
 
@@ -239,8 +243,9 @@ This procedure covers the following steps:
 
 1. Create a new Azure AD enterprise application.
 2. Configure Azure AD SSO for AWS.
-3. Update role mapping.
-4. Test Azure AD SSO into AWS Management Console.
+3. Enable Azure AD provisioning to list AWS IAM roles.
+4. Update role mapping.
+5. Test Azure AD SSO into AWS Management Console.
 
 The following links provide full detailed implementation steps and troubleshooting:
 
@@ -272,17 +277,25 @@ If there's more than one AWS account to administer, such as DevTest and Producti
    
 1. Follow the steps under [Configure AWS SSO](/azure/active-directory/saas-apps/amazon-web-service-tutorial#configure-amazon-web-services-aws-sso).
    
-   1. Repeat steps 7-10 to create each of the following two roles and assign different permissions based on their scope of work:
-      
-      - IAM Role 1: AzureAD-Admins
-      - IAM Role 2: AzureAD-Developers
-      
-   1. In steps 11-20, create a new IAM user to act on behalf of the Azure AD provisioning agent and allow synchronization of all available AWS IAM roles into Azure AD. AWS needs this IAM user to define which users map to which roles before they sign in to the AWS Management Console.
-      
-      Based on these configuration steps, you can diagram the interactions like this:
-      
-      ![Diagram showing the list roles IAM user and policy.](media/list-roles.png)
-      
+1. Repeat steps 7-10 to create each of the following two roles and assign different permissions based on their scope of work:
+   
+   - IAM Role 1: AzureAD-Admins
+   - IAM Role 2: AzureAD-Developers
+
+#### Enable Azure AD provisioning to list AWS IAM roles
+
+In steps 11-20 of [Configure AWS SSO](/azure/active-directory/saas-apps/amazon-web-service-tutorial#configure-amazon-web-services-aws-sso), create a new IAM user to act on behalf of the Azure AD provisioning agent and allow synchronization of all available AWS IAM roles into Azure AD. AWS needs this IAM user to define which users map to which roles before they sign in to the AWS Management Console.
+
+- Make it easy to identify the components you create to support this integration. For example, name service accounts with a standard naming convention like "SVC-".
+
+- Be sure to document all new items.
+
+- Make sure any new credentials include complex passwords that you store centrally for secure lifecycle management.
+
+Based on these configuration steps, you can diagram the interactions like this:
+
+![Diagram showing the list roles IAM user and policy.](media/list-roles.png)
+
 #### Update role mapping
 
 Because you're using two roles, carry out the following additional steps:
@@ -307,19 +320,15 @@ If you can't see or select a role, go back to the **Provisioning** page to confi
 
 :::image type="content" source="media/restart-provisioning.png" alt-text="Screenshot of Restart provisioning in the menu bar.":::
 
-The following diagram shows an example of the configuration steps and final role mapping across Azure AD and AWS IAM:
-
-![Diagram showing configuration steps and final role mapping from AWS IAM to Azure AD.](media/role-mapping.png)
-
 #### Test Azure AD SSO into AWS Management Console
 
 Test signing in as each of the test users to confirm that the SSO works.
 
-1. Launch a new private browser session to ensure other stored credentials don't conflict with testing.
+1. Launch a new private browser session to ensure that other stored credentials don't conflict with testing.
    
 1. Go to `https://myapps.microsoft.com`, using the Test-AWSAdmin or Test-AWSDeveloper Azure AD user account credentials you created previously.
    
-1. You should see the new icon for the AWS Console app. Select the icon, and follow any additional authentication prompts:
+1. You should see the new icon for the AWS Console app. Select the icon, and follow any authentication prompts:
    
    :::image type="content" source="media/aws-logo.png" alt-text="Screenshot of the AWS Console app icon.":::
    
@@ -329,7 +338,7 @@ Test signing in as each of the test users to confirm that the SSO works.
    
    **ROLE / UPN / AWS Account Number**
    
-   The user sign-in session information is useful for tracking user sign-in activity in MCAS or Azure Sentinel.
+   You can use this user sign-in session information for tracking user sign-in activity in MCAS or Azure Sentinel.
    
    :::image type="content" source="media/sign-in-session.png" alt-text="Screenshot of sign-in session information.":::
    
@@ -375,7 +384,7 @@ You implemented the central management and strong authentication that modern ide
 
 In this section, you:
 
-1. Add an app connector for AWS.
+1. Add an MCAS app connector for AWS.
 1. Configure MCAS monitoring policies for AWS activities.
 1. Configure Azure AD session policies for AWS activities.
 1. Test MCAS policies for AWS.
@@ -402,11 +411,13 @@ The initial connection may take some time, depending on the AWS account log size
 
 Once the app connector is enabled, MCAS shows new templates and options in the policy configuration builder. You can create policies directly from the templates and modify them for your needs, or develop a policy without using the templates.
 
+To implement policies using the templates:
+
 1. In the MCAS left navigation, expand **Control** and then select **Templates**.
    
    :::image type="content" source="media/template-menu.png" alt-text="Screenshot of the MCAS left navigation with Templates selected.":::
    
-1. Review the available templates and search for **AWS**.
+1. Search for **aws** and review the available policy templates for AWS.
    
    :::image type="content" source="media/policy-template.png" alt-text="Screenshot of the list of available AWS templates in MCAS.":::
    
@@ -433,11 +444,11 @@ Session policies are a powerful combination of Azure AD Conditional Access polic
    - **Users and Groups**: Select the two role groups you created earlier:
      - **AWS-Account1-Administrators**
      - **AWS-Account1-Developers**
-   - **Cloud apps or actions**: Select the enterprise application you created earlier, **Contoso – AWS – Account 1**
+   - **Cloud apps or actions**: Select the enterprise application you created earlier, **Contoso-AWS-Account 1**
    - **Session**: Select **Use Conditional Access App Control**
 1. Set **Enable policy** to **On**.
    
-   :::image type="content" source="media/aws-policy.png" alt-text="Screenshot of the filled-out new policy form for session controls.":::
+   :::image type="content" source="media/session-controls.png" alt-text="Screenshot of the filled-out new policy form for session controls.":::
    
 1. Select **Create**.
 
@@ -461,7 +472,7 @@ After you create the Azure AD Conditional Access policy, set up the MCAS Session
 
 Test all policies regularly to ensure they're still effective and relevant. Here are a few testing ideas:
 
-- **IAM Policy changes**: This policy triggers each time you attempt to modify the settings within AWS IAM, such as creating the new IAM policy and account to use in the following Azure Sentinel section.
+- **IAM Policy changes**: This policy should trigger each time you attempt to modify the settings within AWS IAM, such as creating the new IAM policy and account to use in the following Azure Sentinel section.
 
 - **Console sign-in failures**: Any failed attempts to sign in to one of the test accounts trigger this policy. The alert details show that the attempt came from one of the Azure regional datacenters.
 
