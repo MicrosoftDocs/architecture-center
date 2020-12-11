@@ -13,7 +13,7 @@ ms.subservice: reference-architecture
 
 This section will talk about AKS patching and upgrading practices, and who is responsible for what (shared responsibility). This includes the worker nodes along with Kubernetes versions.
 
-# Considerations
+## Considerations
  | Scenario                  | Customer Initiated? | K8S Upgraded? | OS Kernel Upgraded?    | Node Image Upgraded? | Available Today (12/08)?  | Notes                                                                                                                                                                                              |
 |---------------------------|---------------------|---------------|------------------------|----------------------|--------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Security patching         | No                  | No            | Yes, following reboot  | No                   | Yes                      | https://help.ubuntu.com/community/AutomaticSecurityUpdates                                                                                                                                         |
@@ -30,7 +30,7 @@ This section will talk about AKS patching and upgrading practices, and who is re
 | Cluster auto upgrade      | No                  | Yes           | No                     | No                   | No                       | In Progress - https://github.com/Azure/AKS/issues/1303                                                                                                                                             |
 
 
-# Patching AKS worker nodes
+## Patching AKS worker nodes
 * Security patches are applied daily and they are retrieved directly from Ubuntu.
     * https://help.ubuntu.com/community/AutomaticSecurityUpdates. 
     * To protect your clusters, security updates are automatically applied to Linux nodes in AKS, see [process node OS updates](https://docs.microsoft.com/azure/aks/node-updates-kured). These updates include OS security fixes or kernel updates. Some of these updates require a node reboot to complete the process. AKS doesn't automatically reboot these Linux nodes to complete the update process.
@@ -44,7 +44,7 @@ This section will talk about AKS patching and upgrading practices, and who is re
 * Consider patching your AKS worker nodes if you want all the OS updates applied immediately as they are released and depending on the release cycle of node image upgrades is not an option.
 
 
-# Node Image Upgrades
+## Node Image Upgrades
 
  * An updated node image will contain up to date security patches, but may also contain other updates, such as newer versions of the components listed in the [release notes](https://github.com/Azure/AKS/releases). 
  * These updates have all relevant and validated security updates, feature updates or both.
@@ -68,7 +68,7 @@ This section will talk about AKS patching and upgrading practices, and who is re
 
 
 
-# Create continuous cluster upgrade process
+## Create continuous cluster upgrade process
 Information about new AKS versions and releases are published to the [AKS Github release notes page](https://github.com/Azure/AKS/releases). You can also subscribe to the [Github RSS Feed](https://github.com/Azure/AKS/releases.atom). The release notes page has information about the latest AKS features, behavioral changes, Bug fixes and Component Updates.
 
 To proactively receive updates about AKS upgrades, we recommend using the following methods:
@@ -106,7 +106,7 @@ To proactively receive updates about AKS upgrades, we recommend using the follow
     --no-wait
     ```
 
-# Minimize disruption to existing workloads during an upgrade
+## Minimize disruption to existing workloads during an upgrade
 * Plan and schedule maintenance windows.
 * [Plan your tolerance for disruption.](https://kubernetes.io/docs/tasks/run-application/configure-pdb/)
 * [Use surge upgrades to control nodepool upgrades.](https://docs.microsoft.com/azure/aks/upgrade-cluster#customize-node-surge-upgrade)
