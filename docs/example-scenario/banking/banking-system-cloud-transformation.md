@@ -255,7 +255,7 @@ They used a formula to calculate the estimated ideal number of partitions per to
 
 For DevOps, Contoso Bank already used an on-premises instance of GitLab for their code repository. They created continuous integration/continuos delivery (CI/CD) pipelines for development environments using a custom Jenkins-based solution that they developed internally. It wasn't providing an optimal DevOps experience.
 
-To deliver an improved DevOps experience for Contoso, the CSE team used Azure Pipelines on [Azure DevOps](https://azure.microsoft.com/services/devops/) to manage the application lifecycle. The CI pipeline runs on every pull request, while the CD pipeline runs on every successful merge to master branch. Each member of the development team was responsible for managing the repositories and pipelines for each service. They also  had to enforce code reviews, unit tests and linting (static source code analysis).
+To deliver an improved DevOps experience for Contoso, the CSE team used Azure Pipelines on [Azure DevOps](https://azure.microsoft.com/services/devops/) to manage the application lifecycle. The CI pipeline runs on every pull request, while the CD pipeline runs on every successful merge to the main branch. Each member of the development team was responsible for managing the repositories and pipelines for each service. They also  had to enforce code reviews, unit tests and linting (static source code analysis).
 
 The CSE team deployed services concurrently with no interdependency and used Jenkins agents as requested by Contoso Bank.
 
@@ -265,7 +265,7 @@ They incorporated Prometheus as part of the solution to monitor the services and
 
 The team rolled out the solution to the development environment through Azure Pipelines. Each service had its own build and deployment pipeline. They used a deployment pipeline that can be manually triggered. It should force a full deployment of the environment and the containers in a specific branch version.
 
-The CSE team created release branches that generated stable versions for deployment. Merging branches into the master branch only occurs when the team is sure that they're ready to deploy the solution. A rollback strategy, beyond deploying the previous stable version, was out of scope for this engagement. Approval gates exist for each stage. Each gate requests deployment approval.
+The CSE team created release branches that generated stable versions for deployment. Merging branches into the main branch only occurs when the team is sure that they're ready to deploy the solution. A rollback strategy, beyond deploying the previous stable version, was out of scope for this engagement. Approval gates exist for each stage. Each gate requests deployment approval.
 
 #### Disaster recovery
 

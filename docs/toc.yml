@@ -1303,6 +1303,8 @@ items:
         href: solution-ideas/articles/iot-azure-data-explorer.md      
       - name: Buy online, pickup in store
         href: example-scenario/iot/vertical-buy-online-pickup-in-store.md
+      - name: Project 15 Open Platform
+        href: solution-ideas/articles/project-15-iot-sustainability.md
     - name: Industrial IoT Analytics
       items:
       - name: Architecture

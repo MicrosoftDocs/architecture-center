@@ -11,7 +11,7 @@ ms.category:
   - iot
 ---
 
-# Project 15 Open Platform for Conservation and Sustainability
+# Project 15 Open Platform for conservation and sustainability
 
 The mission of [Project 15 from Microsoft][Project 15 from Microsoft] is to empower scientists and conservationists around the world. The project pairs conservation teams with a community of developers, students, and Microsoft partners. Backed by the power of Azure and an Internet of Things (IoT) open platform, the project helps these teams capture and analyze the data they need to preserve critical species and ecosystems.
 

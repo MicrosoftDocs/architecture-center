@@ -292,7 +292,7 @@ The following diagram describes how to apply CI/CD development and release workf
 
 * When a PR is created from a Feature branch, the pipeline runs [code validation tests](#code-validation-tests) to validate the quality of the code via unit tests and code quality tests. To validate quality upstream, the pipeline also runs [basic model validation tests](#basic-model-validation-tests) to validate the end-to-end training and scoring steps with a sample set of mocked data.
 
-* When the PR is merged into the master branch, the CI pipeline will run the same code validation tests and basic model validation tests with increased epoch. The pipeline will then package the *artifacts*, which include the code and binaries, to run in the machine learning environment.
+* When the PR is merged into the main branch, the CI pipeline will run the same code validation tests and basic model validation tests with increased epoch. The pipeline will then package the *artifacts*, which include the code and binaries, to run in the machine learning environment.
 
 * After the artifacts are available, a [model validation CD pipeline](#model-validation-cd-pipeline) will be triggered. It runs end-to-end validation on the development machine learning environment. A scoring mechanism will be published. For a batch scoring scenario, a scoring pipeline is published to the machine learning environment and triggered to produce results. If you wanted to use a real-time scoring scenario, you can publish a web app or deploy a container.
 
@@ -332,7 +332,7 @@ The scoring CD pipeline is applicable for the batch inference scenario, where th
 
 ### Development vs. production environments
 
-It's a good practice to separate the development (dev) and the production (prod) environments. It allows the system to trigger the model validation CD pipeline and scoring CD pipeline at a different cadence. For the described MLOps flow, pipelines targeting the master branch will run on the dev environment, and the pipeline targeting the Release branch will run on the prod environment.
+It's a good practice to separate the development (dev) and the production (prod) environments. It allows the system to trigger the model validation CD pipeline and scoring CD pipeline at a different cadence. For the described MLOps flow, pipelines targeting the main branch will run on the dev environment, and the pipeline targeting the Release branch will run on the prod environment.
 
 ### Code changes vs. data changes
 
@@ -404,7 +404,7 @@ Model orchestration follows these steps:
 
 1. That pipeline runs unit tests, code quality tests, and model validation tests.
 
-1. When merged into the master branch, the same code validation tests are run and DevOps packages the artifacts.
+1. When merged into the main branch, the same code validation tests are run and DevOps packages the artifacts.
 
 1. When DevOps collected artifacts, that triggered Azure Machine Learning to begin:
 
@@ -420,7 +420,7 @@ Model orchestration follows these steps:
 
 ### Enable experimentation
 
-As mentioned, the traditional data science machine learning lifecycle doesn't support the MLOps process without modification. It uses different kinds of manual tools and experimentation, validation, packaging, and model hand-off that can't be easily scaled for an effective CI/CD process. MLOps demands a high level of process automation. Whether a new machine learning model is being developed or an old one is modified, it's necessary to automate the machine learning model’s lifecycle. In the Phase 2 project, the team uses Azure DevOps to orchestrate and republish Azure Machine Learning pipelines for training tasks. The long running master branch performs basic testing of models, and pushed stable releases through the long running release branch.
+As mentioned, the traditional data science machine learning lifecycle doesn't support the MLOps process without modification. It uses different kinds of manual tools and experimentation, validation, packaging, and model hand-off that can't be easily scaled for an effective CI/CD process. MLOps demands a high level of process automation. Whether a new machine learning model is being developed or an old one is modified, it's necessary to automate the machine learning model’s lifecycle. In the Phase 2 project, the team uses Azure DevOps to orchestrate and republish Azure Machine Learning pipelines for training tasks. The long running main branch performs basic testing of models, and pushed stable releases through the long running release branch.
 
 Source control becomes an important part of this process. Git is the version control system used to track notebook and model code. It also supports process automation. The basic workflow implemented for using source control applies the following principles:
 
@@ -428,9 +428,9 @@ Source control becomes an important part of this process. Git is the version con
 
 * New code development must use a branch until the code is fully developed and validated.
 
-* When you've validated the new code, you can merge it into the master branch.
+* When you've validated the new code, you can merge it into the main branch.
 
-* Handle releases by establishing a permanent versioned branch separate from the master branch.
+* Handle releases by establishing a permanent versioned branch separate from the main branch.
 
 * Version and use source control for the datasets that you conditioned for training or consumption so that you can preserve the integrity of each dataset.
 
