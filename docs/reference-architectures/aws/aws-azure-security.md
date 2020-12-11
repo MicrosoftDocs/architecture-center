@@ -17,7 +17,7 @@ Amazon Web Services (AWS) accounts that support critical workloads and highly se
 
 Many organizations that use AWS already rely on Azure Active Directory (Azure AD) for Microsoft 365 or hybrid cloud identity and access protection. These organizations can quickly and easily deploy Azure AD identity protection and access control for their AWS accounts, often without additional cost.
 
-Other, advanced Azure AD features like Privileged Identity Management (PIM) and just-in-time Privileged Access Management (PAM) can protect especially sensitive AWS installations. Microsoft Cloud App Security (MCAS) backs up Azure AD with session protection and user behavior monitoring. Azure Sentinel integrates with Azure AD and MCAS to detect threats against AWS environments.
+Other, advanced Azure AD features like Privileged Identity Management (PIM) and just-in-time Privileged Access Management (PAM) can help protect the most sensitive AWS installations. Microsoft Cloud App Security (MCAS) backs up Azure AD with session protection and user behavior monitoring. Azure Sentinel integrates with Azure AD and MCAS to detect threats against AWS environments.
 
 These Microsoft security solutions are extensible and have multiple levels of protection for securing access and monitoring user interactions. An organization can implement one or more of these solutions along with other types of protection for a full security architecture to protect current and future AWS deployments.
 
@@ -31,7 +31,7 @@ This diagram summarizes how AWS installations can benefit from key Microsoft sec
 
 - Azure AD provides centralized *single sign-on (SSO)* and strong authentication through *multi-factor authentication (MFA)* and *Conditional Access*. Azure AD supports AWS role-based identities and authorization for access to AWS resources.
 
-- MCAS integrates with Azure AD to enforce additional access restrictions, and monitors and protects sessions after sign-in. MCAS uses *user behavior analytics (UBA)* and other AWS APIs to monitor sessions and users and to support information protection.
+- MCAS integrates with Azure AD Conditional Access to enforce additional restrictions, and monitors and protects sessions after sign-in. MCAS uses *user behavior analytics (UBA)* and other AWS APIs to monitor sessions and users and to support information protection.
 
 - Azure Sentinel integrates with MCAS and AWS to detect and automatically respond to threats. Azure Sentinel monitors the AWS environment for misconfiguration, potential malware, and advanced threats to AWS identities, devices, applications, and data.
 
@@ -348,7 +348,7 @@ Test signing in as each of the test users to confirm that the SSO works.
    
 1. Sign out, and repeat the process for the other test user account to confirm the differences in role mapping and permissions.
 
-## Enable MFA Conditional Access
+## Enable Conditional Access
 
 To create a new Conditional Access policy that requires MFA:
 
