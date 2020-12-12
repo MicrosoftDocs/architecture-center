@@ -26,4 +26,4 @@ To support a [multi-cloud experience](/azure/virtual-machines/workloads/oracle/o
 See [Set up a direct interconnection between Azure and Oracle Cloud Infrastructure](/azure/virtual-machines/workloads/oracle/configure-azure-oci-networking) for step-by-step configuration instructions. Refer to the **Important** alert at the beginning of the article. It shows a list of Oracle applications that Oracle has certified to run in Azure when using the Azure/Oracle Cloud interconnect solution.
 
 > [!NOTE]
-> If this migration path doesn't seem like the right one for your business needs, refer back to the [Migration decision tree](oracle-migration-overview.md#migration-decision-tree).
+> If this migration path doesn't seem like the right one for your business needs, refer back to the [Migration decision tree](oracle-migration-overview.yml#migration-decision-tree).

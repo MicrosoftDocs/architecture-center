@@ -55,4 +55,4 @@ You can't use Oracle Real Application Cluster (RAC) by itself in Azure. If you u
 To begin migrating your Oracle database to Azure VMs, see [Oracle VM images and their deployment on Microsoft Azure](/azure/virtual-machines/workloads/oracle/oracle-vm-solutions).
 
 > [!NOTE]
-> If this migration path doesn't seem like the right one for your business needs, refer back to the [Migration decision tree](oracle-migration-overview.md#migration-decision-tree).
+> If this migration path doesn't seem like the right one for your business needs, refer back to the [Migration decision tree](oracle-migration-overview.yml#migration-decision-tree).
