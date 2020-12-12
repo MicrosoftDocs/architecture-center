@@ -32,13 +32,13 @@ Many industries protect their data by using confidential computing for these pur
 
 1. A clerk for the hospital (*Lamna Hospital*) opens its Azure Blob storage static website to enter patient data.
 
-2. The clerk enters data into the hospital's web portal, which your company (*Contoso Medical Platform Ltd*) powers with a Python Flask-based web API. A confidential node in the [SCONE](https://sconedocs.github.io/#scone-executive-summary) confidential computing software protects the patient data. *SCONE* works within an Azure Kubernetes Service (AKS) hosted cluster.
+2. The clerk enters data into the hospital's web portal, which your company (*Contoso Medical Platform Ltd*) powers with a Python Flask-based web API. A confidential node in the [SCONE](https://sconedocs.github.io/#scone-executive-summary) confidential computing software protects the patient data. SCONE works within an Azure Kubernetes Service (AKS) hosted cluster.
 
-3. Within the *SCONE* confidential node in the Contoso AKS cluster, the Python code converts the patient data into confidential containers and stores it in encrypted form in memory within the Redis Cache Service, using Microsoft Azure Attestation to establish trust.
+3. Within the SCONE confidential node in the Contoso AKS cluster, the Python code converts the patient data into confidential containers and stores it in encrypted form in memory within the Redis Cache Service, using Microsoft Azure Attestation to establish trust.
 
 4. 
 
-5. The Contoso application sends the protected patient data from the confidential node in its AKS cluster to an enclave in the confidential inferencing Open Neural Network Exchange (ONNX) runtime server, which is hosted in the confidential node of the Fabrikam AKS cluster.
+5. The Contoso application sends the protected patient data from the confidential node in its AKS cluster to an enclave in the confidential inferencing Open Neural Network Exchange (ONNX) runtime server, which is hosted in the confidential node of the AKS cluster run by the *Fabrikam Diagnostic Provider*.
 
 6. The Fabrikam machine learning-based application sends the diagnostic results from the confidential inferencing ONNX runtime server back to the confidential node in the Contoso AKS cluster.
 
@@ -68,9 +68,7 @@ Many industries protect their data by using confidential computing for these pur
 
 ### Availability, scalability, and security
 
-The available sizes for Azure confidential computing virtual machines are the 2nd-generation D family sizes for general purpose needs, known collectively as D-Series v2. The specific available sizes are **DC1s_v2**, **DC2s_v2**, **DC4s_V2**, and **DC8_v2**, where the numerals represent the number of virtual CPUs (vCPUs). You may deploy these sizes only in certain regions. For more information, see [Quickstart: Deploy an Azure Confidential Computing VM in the Marketplace](/azure/confidential-computing/quick-create-marketplace) and [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines).
-
-This scenario uses Intel SGX-enabled DCs_v2-series (Gen2) virtual machines.
+The available sizes for Azure confidential computing virtual machines (VMs) are the 2nd-generation D family sizes for general purpose needs, known collectively as D-Series v2 or DCsv2 series. This scenario uses Intel SGX-enabled DCs_v2-series virtual machines with Gen2 operating system (OS) images. The specific available sizes are **DC1s_v2**, **DC2s_v2**, **DC4s_V2**, and **DC8_v2**, where the numerals represent the number of virtual CPUs (vCPUs). You may deploy these sizes only in certain regions. For more information, see [Quickstart: Deploy an Azure Confidential Computing VM in the Marketplace](/azure/confidential-computing/quick-create-marketplace) and [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines).
 
 ## Deploy this scenario
 
@@ -148,11 +146,11 @@ To get the Flask-based service running and tested on your local SGX-enabled comp
 
 ### Execute on a Kubernetes cluster and AKS
 
-#### Install and run SCONE services
-
 Before executing on a Kubernetes cluster, you need to get access to [curated confidential applications called SconeApps](https://sconedocs.github.io/helm/), which the procedure here leads you through. SconeApps are available on a private GitHub repository that currently is available only for commercial customers, through SCONE Standard Edition. Go to the [SCONE website](https://scontain.com/) and contact the company directly to get this service level.
 
 You also need to use Helm, which manages Kubernetes packages. If Helm isn't already installed, you can go to the [Helm website](https://helm.sh/) to install it.
+
+#### Install and run SCONE services
 
 SCONE services that you'll install include the SCONE local attestation service (LAS), the SCONE configuration and attestation service (CAS), and the SGX device plug-in for Kubernetes. To install and run SCONE services:
 
@@ -286,13 +284,20 @@ kubectl delete pod api-v1-example-test-api
 
 ## Pricing
 
+To explore the cost of running this scenario, all of the Azure services are preconfigured in the cost calculator. To see how the pricing would change for your particular use case, change the appropriate variables to match your expected traffic.
 
+The following three sample cost profiles are based on the VM size that you select:
+
+- [Small](https://azure.com/e/67f57cced64540dbb8a764c175145c8c): This pricing example correlates to the **DC2s_v2** VM size, which contains two vCPUs.
+- [Medium](https://azure.com/e/ddcc24e2e16848388c3556efd8dd3c57): This pricing example correlates to the **DC4s_V2** VM size, which contains four vCPUs.
+- [Large](https://azure.com/e/d1732c48c782466b8fa302dfbd4a9887): This pricing example correlates to the **DC8_v2** VM size, which contains eight vCPUs.
 
 ## Next steps
 
-
+[Learn more about Azure confidential computing](/azure/confidential-computing/)
 
 ## Related resources
 
+- [Confidential containers on AKS](/azure/confidential-computing/confidential-containers)
 - [Official ONNX runtime website](https://www.onnxruntime.ai/)
 - [Confidential ONNX inference server (GitHub sample)](https://github.com/microsoft/onnx-server-openenclave)
