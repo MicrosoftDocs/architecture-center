@@ -46,14 +46,14 @@ A microservice is a loosely coupled, independently deployable unit of code. Micr
 ### API gateway
 API gateways are a general [microservices design pattern](https://microservices.io/patterns/apigateway.html). An *API gateway* sits between external clients and the microservices. It acts as a reverse proxy, routing requests from clients to microservices. It may also perform various cross-cutting tasks such as authentication, SSL termination, and rate limiting. For more information, see 
 
-- [Using API gateways in microservices](../../../microservices/design/gateway.yml)
+- [Using API gateways in microservices](../../../microservices/design/gateway.md)
 - [Choosing a gateway technology](../../../microservices/design/gateway.md#choosing-a-gateway-technology)
 
 In Kubernetes, the functionality of an API gateway is mostly handled by the **Ingress** resource and the **Ingress controller**. The considerations are described in the [Ingress](#ingress) section.
 
 ### Data storage
 
-In a microservices architecture, services should not share data storage. Each service should own its own private data in a separate logical storage, to avoid hidden dependencies among services. The reason is to avoid unintentional coupling between services, which can happen when services share the same underlying data schemas. Also, when services manage their own data stores, they can use the right data store for their particular requirements. For more information, see [Designing microservices: Data considerations](../../../microservices/design/data-considerations.yml).
+In a microservices architecture, services should not share data storage. Each service should own its own private data in a separate logical storage, to avoid hidden dependencies among services. The reason is to avoid unintentional coupling between services, which can happen when services share the same underlying data schemas. Also, when services manage their own data stores, they can use the right data store for their particular requirements. For more information, see [Designing microservices: Data considerations](../../../microservices/design/data-considerations.md).
 
 Avoid storing persistent data in local cluster storage, because that ties the data to the node. Instead,
 
@@ -96,7 +96,7 @@ On the other hand, if you need complete control over the settings, you may want 
 > For AKS, you can also use Azure Application Gateway, using the [Application Gateway Ingress Controller](https://azure.github.io/application-gateway-kubernetes-ingress/). This option requires [CNI networking](/azure/aks/configure-azure-cni) to be enabled when you configure the AKS cluster, because Application Gateway is deployed into a subnet of the AKS virtual network. 
 Azure Application Gateway can perform layer-7 routing and SSL termination. It also has built-in support for web application firewall (WAF).
 
-For information about load-balancing services in Azure, see [Overview of load-balancing options in Azure](../../../guide/technology-choices/load-balancing-overview.yml).
+For information about load-balancing services in Azure, see [Overview of load-balancing options in Azure](../../../guide/technology-choices/load-balancing-overview.md).
 
 ### TLS/SSL encryption
 
@@ -171,7 +171,7 @@ Here are some considerations when designing probes:
 
 ## Resource constraints
 
-Resource contention can affect the availability of a service. Define resource constraints for containers, so that a single container cannot overwhelm the cluster resources (memory and CPU). For non-container resources, such as threads or network connections, consider using the [Bulkhead Pattern](../../../patterns/bulkhead.yml) to isolate resources.
+Resource contention can affect the availability of a service. Define resource constraints for containers, so that a single container cannot overwhelm the cluster resources (memory and CPU). For non-container resources, such as threads or network connections, consider using the [Bulkhead Pattern](../../../patterns/bulkhead.md) to isolate resources.
 
 Use resource quotas to limit the total resources allowed for a namespace. That way, the front end can't starve the backend services for resources or vice-versa.
 
@@ -269,9 +269,9 @@ Here are some goals of a robust CI/CD process for a microservices architecture:
 - Sufficient access control policies are in place.
 - For containerized workloads, you can trust the container images that are deployed to production.
 
-To learn more about the challenges, see [CI/CD for microservices architectures](../../../microservices/ci-cd.yml).
+To learn more about the challenges, see [CI/CD for microservices architectures](../../../microservices/ci-cd.md).
 
-For specific recommendations and best practices, see [CI/CD for microservices on Kubernetes](../../../microservices/ci-cd-kubernetes.yml).
+For specific recommendations and best practices, see [CI/CD for microservices on Kubernetes](../../../microservices/ci-cd-kubernetes.md).
 
 ## Cost considerations
 
@@ -309,8 +309,8 @@ To deploy the reference implementation for this architecture, follow the steps i
 
 ## Next steps
 
-- To learn about monitoring this architecture, see [Monitoring a microservices architecture in Azure Kubernetes Service (AKS)](../../../microservices/logging-monitoring.yml).
-- To learn how we measured the performance of this application, see [Performance tuning scenario: Distributed business transactions](../../../performance/distributed-transaction.yml).
+- To learn about monitoring this architecture, see [Monitoring a microservices architecture in Azure Kubernetes Service (AKS)](../../../microservices/logging-monitoring.md).
+- To learn how we measured the performance of this application, see [Performance tuning scenario: Distributed business transactions](../../../performance/distributed-transaction.md).
 
 [ri]: https://github.com/mspnp/microservices-reference-implementation
 [ri-deploy]: https://github.com/mspnp/microservices-reference-implementation/blob/master/deployment.yml

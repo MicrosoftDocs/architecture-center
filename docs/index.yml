@@ -437,7 +437,7 @@ conceptualContent:
           url:  example-scenario/apps/ecommerce-scenario.yml
         - text: E-commerce product search
           itemType: get-started
-          url:  example-scenario/apps/ecommerce-search.md
+          url:  example-scenario/apps/ecommerce-search.yml
         - text: Publishing internal APIs externally
           itemType: get-started
           url:  example-scenario/apps/publish-internal-apis-externally.yml

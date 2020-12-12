@@ -100,9 +100,9 @@ It is essential to carefully consider both availability and recoverability withi
 
 Best practices:
 
-- [Transient fault handling](../../best-practices/transient-faults.yml)
+- [Transient fault handling](../../best-practices/transient-faults.md)
 
-- [Retry guidance for specific services](../../best-practices/retry-service-specific.yml)
+- [Retry guidance for specific services](../../best-practices/retry-service-specific.md)
 
 ## Scalability
 
@@ -137,13 +137,13 @@ Best practices:
 
 - [Autoscaling](../../best-practices/auto-scaling.md)
 
-- [Background jobs](../../best-practices/background-jobs.yml)
+- [Background jobs](../../best-practices/background-jobs.md)
 
-- [Caching](../../best-practices/caching.yml)
+- [Caching](../../best-practices/caching.md)
 
-- [Content delivery networks](../../best-practices/cdn.yml)
+- [Content delivery networks](../../best-practices/cdn.md)
 
-- [Data partitioning](../../best-practices/data-partitioning.yml)
+- [Data partitioning](../../best-practices/data-partitioning.md)
 
 ## Security
 

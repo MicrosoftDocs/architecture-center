@@ -19,7 +19,7 @@ Examples of measure and control loops in action include:
 ## Architecture
 ![Measure and control loop in the context of a regulatory control.](./media/measure-and-control.svg)
 
-A measure and control loop is scoped as a single device abstraction composed of sensors, actuators, and a controller. These loops may integrate with [analyze and optimize loops](analyze-optimize-loop.md) and [monitor and manage loops](monitor-manage-loop.yml) that operate in a much larger context.
+A measure and control loop is scoped as a single device abstraction composed of sensors, actuators, and a controller. These loops may integrate with [analyze and optimize loops](analyze-optimize-loop.yml) and [monitor and manage loops](monitor-manage-loop.yml) that operate in a much larger context.
 
 ## Characteristics
 A measure and control loop has the following characteristics:

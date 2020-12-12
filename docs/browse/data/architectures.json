@@ -6242,7 +6242,7 @@
                 "web-app"
             ],
             "type": "example-workload",
-            "file_url": "example-scenario/apps/ecommerce-search.md",
+            "file_url": "example-scenario/apps/ecommerce-search.yml",
             "http_url": "/azure/architecture/example-scenario/apps/ecommerce-search",
             "word_count": 1485,
             "read_time": "6 min read",
@@ -8241,7 +8241,7 @@
                 "github"
             ],
             "type": "example-workload",
-            "file_url": "example-scenario/oracle-migrate/oracle-migration-overview.md",
+            "file_url": "example-scenario/oracle-migrate/oracle-migration-overview.yml",
             "http_url": "/azure/architecture/example-scenario/oracle-migrate/oracle-migration-overview",
             "word_count": 591,
             "read_time": "3 min read",

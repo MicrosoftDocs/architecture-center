@@ -5,7 +5,7 @@ The Gridwich Azure Storage Service, [Gridwich.SagaParticipants.Storage.AzureStor
 
 Gridwich requires its storage mechanisms to work for both Azure Storage block blobs and containers. With distinct classes and Storage Service operations for blobs and containers, there's no ambiguity about whether a given storage operation relates to a blob or to a container. This article applies to both blobs and containers, except where noted.
 
-Gridwich exposes most storage operations to external systems within the `Storage.AzureStorage` [saga participant](gridwich-saga-orchestration.md#saga-participants). Other saga participants use the storage service for tasks like copying blobs between different containers or accounts when they set up encoding workflows.
+Gridwich exposes most storage operations to external systems within the `Storage.AzureStorage` [saga participant](gridwich-saga-orchestration.yml#saga-participants). Other saga participants use the storage service for tasks like copying blobs between different containers or accounts when they set up encoding workflows.
 
 This article describes how the Gridwich Azure Storage Service meets solution requirements and integrates with mechanisms like event handlers. Links point to the corresponding source code, which contains more extensive commentary on the containers, classes, and mechanisms.
 
@@ -33,7 +33,7 @@ TCP connection establishment and authentication create overhead when an SDK clie
 
 To mitigate overhead, Gridwich maintains a cache of one client instance for each storage blob or container, depending on the SDK classes the operation context uses. Gridwich retains this client instance and can use the instance for multiple Azure Storage operations against the same blob or container for the duration of an external system request.
 
-The Azure SDK-provided client classes require SDK client object instances to be specific to a single blob or container at creation time. The instances also aren't guaranteed safe for simultaneous use on different threads. Since an [operation context](gridwich-architecture.md#operation-context) represents a single request, Gridwich bases caching on the combination of blob or container name with operation context.
+The Azure SDK-provided client classes require SDK client object instances to be specific to a single blob or container at creation time. The instances also aren't guaranteed safe for simultaneous use on different threads. Since an [operation context](gridwich-architecture.yml#operation-context) represents a single request, Gridwich bases caching on the combination of blob or container name with operation context.
 
 This instance reuse, combined with the Azure Storage SDK client structure, requires additional support code to balance efficiency and code clarity.
 
@@ -41,7 +41,7 @@ This instance reuse, combined with the Azure Storage SDK client structure, requi
 
 Almost all the Gridwich Storage Service operations require a special context argument of type [StorageClientProviderContext][SCPC]. This context argument fulfills the following requirements:
 
-- Provides the external system with responses, which include the per-request unique JSON-based *operation context* value that the external system specified on the Gridwich request. For more information, see [Operation context](gridwich-architecture.md#operation-context).
+- Provides the external system with responses, which include the per-request unique JSON-based *operation context* value that the external system specified on the Gridwich request. For more information, see [Operation context](gridwich-architecture.yml#operation-context).
 
 - Allows Storage Service callers like Gridwich event handlers to control which responses are visible to the external system. This control prevents the service from flooding the external system with irrelevant notification events. For more information, see [Context muting](#context-muting).
 

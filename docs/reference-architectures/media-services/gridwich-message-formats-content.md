@@ -70,11 +70,11 @@ The exception is that the response context object may have extra JSON properties
 
 As in normal JSON, the response object properties may appear in a different order than in the request object.
 
-For more information about operation context, see [Operation context](gridwich-architecture.md#operation-context) in the Gridwich Architecture article.
+For more information about operation context, see [Operation context](gridwich-architecture.yml#operation-context) in the Gridwich Architecture article.
 
 ## Event Grid messages
 
-For more information about request-response message flow, see [Request flow](gridwich-architecture.md#request-flow).
+For more information about request-response message flow, see [Request flow](gridwich-architecture.yml#request-flow).
 
 In the following event descriptions, the JSON property values are the usual string, number, or boolean types. The descriptions use the following specific string content types. If the description includes "opaque," the content and format of the value are arbitrary.
 

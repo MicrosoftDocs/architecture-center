@@ -104,4 +104,4 @@ Below you'll find a workaround list. It's useful when you're migrating Oracle da
 To begin migrating your Oracle database to Azure Database for PostgreSQL, see [Tutorial: Migrate Oracle to Azure Database for PostgreSQL online using DMS](/azure/dms/tutorial-oracle-azure-postgresql-online).
 
 > [!NOTE]
-> If this migration path doesn't seem like the right one for your business needs, refer back to the [Migration decision tree](oracle-migration-overview.md#migration-decision-tree).
+> If this migration path doesn't seem like the right one for your business needs, refer back to the [Migration decision tree](oracle-migration-overview.yml#migration-decision-tree).

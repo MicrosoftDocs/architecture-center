@@ -87,8 +87,8 @@ If you can commit to one or three years, opt for reserved instances, which can s
 
 #### Reference architecture
 - [Stream processing with Azure Databricks](../../reference-architectures/data/stream-processing-databricks.yml)
-- [Build a Real-time Recommendation API on Azure](../../reference-architectures/ai/real-time-recommendation.md) 
-- [Batch scoring of Spark models on Azure Databricks](../../reference-architectures/ai/real-time-recommendation.md)
+- [Build a Real-time Recommendation API on Azure](../../reference-architectures/ai/real-time-recommendation.yml) 
+- [Batch scoring of Spark models on Azure Databricks](../../reference-architectures/ai/real-time-recommendation.yml)
 
 ## Azure Stream Analytics
 Stream analytics uses *streaming units (SUs)* to measure the amount of compute, memory, and throughput required to process data. When provisioning a stream processing job, you're expected to specify an initial number of SUs. Higher streaming units mean higher cost because more resources are used. 

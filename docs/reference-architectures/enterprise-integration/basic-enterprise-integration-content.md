@@ -223,4 +223,4 @@ For greater reliability and scalability, use message queues and events to decoup
 [logic-apps-sla]: https://azure.microsoft.com/support/legal/sla/logic-apps
 [monitor]: /azure/azure-monitor/overview
 [rbac]: /azure/role-based-access-control/overview
-[rto]: ../../framework/resiliency/business-metrics.yml
+[rto]: ../../framework/resiliency/business-metrics.md

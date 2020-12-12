@@ -312,7 +312,7 @@ To deploy the solution, perform the following steps.
 [configure-expressroute-routing]: /azure/expressroute/expressroute-howto-routing-arm
 [sla-for-expressroute]: https://azure.microsoft.com/support/legal/sla/expressroute
 [link-vnet-to-expressroute]: /azure/expressroute/expressroute-howto-linkvnet-arm
-[devops-monitoring]: ../../framework/devops/monitoring.yml
+[devops-monitoring]: ../../framework/devops/monitoring.md
 [ExpressRoute-provisioning]: /azure/expressroute/expressroute-workflows
 [expressroute-introduction]: /azure/expressroute/expressroute-introduction
 [expressroute-peering]: /azure/expressroute/expressroute-circuit-peerings

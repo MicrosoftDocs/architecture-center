@@ -141,9 +141,9 @@ Add Azure Pipelines *variable groups* to store secrets and values to pass into t
    telestreamCloudApiKey = tcs_000000000000000000000000
    ```
    
-   - The **amsDrmEnableContentKeyPolicyUpdate** variable controls whether to push content policy updates. The variable must be set to `true` for updates to occur. For more information, see [Content key policy update](gridwich-content-protection-drm.md#content-key-policy-update).
+   - The **amsDrmEnableContentKeyPolicyUpdate** variable controls whether to push content policy updates. The variable must be set to `true` for updates to occur. For more information, see [Content key policy update](gridwich-content-protection-drm.yml#content-key-policy-update).
    
-   - For Apple FairPlay **amsDrmFairPlayAskHex** and **amsDrmFairPlayPfxPassword**, use the values from the *FairPlay-out-base64.txt* certificate file that you create and upload. For instructions, see [Apple FairPlay settings](gridwich-content-protection-drm.md#apple-fairplay-settings).
+   - For Apple FairPlay **amsDrmFairPlayAskHex** and **amsDrmFairPlayPfxPassword**, use the values from the *FairPlay-out-base64.txt* certificate file that you create and upload. For instructions, see [Apple FairPlay settings](gridwich-content-protection-drm.yml#apple-fairplay-settings).
      
      Or, for development purposes, you can use the FairPlay values in the preceding example, which are from the fake FairPlay certificate file [FairPlay-out-base64.txt](https://github.com/mspnp/gridwich/blob/main/src/Gridwich.SagaParticipants.Publication.MediaServicesV3/tests/FakeFairPlayCert/FairPlay-out-base64.txt). Upload this fake file to **Library** > **+ Secure file**.
    
@@ -348,5 +348,5 @@ Local debugging uses user impersonation, and developers sign in with their brows
 - Set up a [local development environment](set-up-local-environment.yml).
 - Create or delete a [cloud sandbox or test environment](create-delete-cloud-environment.yml).
 - Follow [Test Azure Media Services V3 encoding](test-encoding.yml) to fully test the setup.
-- Scale [Media Services resources](media-services-setup-scale.md#scale-media-services-resources).
+- Scale [Media Services resources](media-services-setup-scale.yml#scale-media-services-resources).
 

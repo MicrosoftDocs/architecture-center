@@ -394,7 +394,7 @@ The manual or programmatic way requires you to monitor and set alerts on CPU uti
 
 Autoscaling is the approach because some of those manual mechanisms are built into the autoscaler.
 
-As a general approach, start by performance testing with a minimum number of pods and nodes. Use those values to establish the baseline expectation. Then use a combination of performance metrics and manual scaling to locate bottlenecks and understand the application’s response to scaling. Finally, use this data to set the parameters for autoscaling. For information about a performance tuning scenario using AKS, see [Performance tuning scenario: Distributed business transactions](../../../performance/distributed-transaction.yml).
+As a general approach, start by performance testing with a minimum number of pods and nodes. Use those values to establish the baseline expectation. Then use a combination of performance metrics and manual scaling to locate bottlenecks and understand the application’s response to scaling. Finally, use this data to set the parameters for autoscaling. For information about a performance tuning scenario using AKS, see [Performance tuning scenario: Distributed business transactions](../../../performance/distributed-transaction.md).
 
 ### Horizontal Pod Autoscaler
 
@@ -473,7 +473,7 @@ Enabling availability zones won’t be enough if the entire region goes down. To
 
 -   If an Azure resource supports geo-redundancy, provide the location where the redundant service will have its secondary. For example, enabling geo-replication for Azure Container Registry will automatically replicate images to the selected Azure regions, and will provide continued access to images even if a region were experiencing an outage.
 
--   Choose a traffic router that can distribute traffic across zones or regions, depending on your requirement. This architecture deploys Azure Load Balancer because it can distribute non-web traffic across zones. If you need to distribute traffic across regions, Azure Front Door should be considered. For other considerations, see [Choose a load balancer](../../../guide/technology-choices/load-balancing-overview.yml).
+-   Choose a traffic router that can distribute traffic across zones or regions, depending on your requirement. This architecture deploys Azure Load Balancer because it can distribute non-web traffic across zones. If you need to distribute traffic across regions, Azure Front Door should be considered. For other considerations, see [Choose a load balancer](../../../guide/technology-choices/load-balancing-overview.md).
 
 ### Disaster Recovery
 
@@ -547,7 +547,7 @@ Monitor your container infrastructure for both active threats and potential secu
 
 ## Cluster and workload operations (DevOps)
 
-Here are some considerations. For more information, see the [Operational Excellence](../../../framework/devops/deployment.yml) pillar.
+Here are some considerations. For more information, see the [Operational Excellence](../../../framework/devops/deployment.md) pillar.
 
 ### Isolate workload responsibilities
 

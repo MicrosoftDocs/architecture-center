@@ -15,7 +15,7 @@ The example is a deep dive into how the **amsDrmFairPlayAskHex** variable, locat
   
 - The **amsDrmFairPlayAskHex** variable set in the Azure Pipelines **gridwich-cicd-variables.global** variable group.
   
-  The value is the FairPlay hexadecimal ASK Key that Apple provides in *AppleASK.txt*. Or, for development purposes, you can use the dummy value and file described in [Add pipeline variable groups](set-up-azure-devops.md#add-pipeline-variable-groups). Save the value in Secured mode.
+  The value is the FairPlay hexadecimal ASK Key that Apple provides in *AppleASK.txt*. Or, for development purposes, you can use the dummy value and file described in [Add pipeline variable groups](set-up-azure-devops.yml#add-pipeline-variable-groups). Save the value in Secured mode.
 
 ## The amsDrmFairPlayAskHex flow
 

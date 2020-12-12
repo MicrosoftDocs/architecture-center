@@ -140,5 +140,5 @@ The Connected Machine agent for Linux and Windows communicates outbound securely
 [rg-limits]: /azure/azure-resource-manager/management/azure-subscription-service-limits#resource-group-limits
 [arc-built-in-policies]: /azure/azure-arc/servers/policy-samples
 [pricing-calculator]: https://azure.microsoft.com/pricing/calculator
-[principles-cost-opt]: ../framework/cost/overview.yml
+[principles-cost-opt]: ../framework/cost/overview.md
 [onboard-dsc]: /azure/azure-arc/servers/onboard-dsc

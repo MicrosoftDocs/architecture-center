@@ -22,7 +22,7 @@ The following diagram shows the schematic of a typical analyze and optimize loop
 
 ![Diagram showing an analyze and optimize loop in context with measure and control and monitor and manage loops.](./media/analyze-and-optimize.svg)
 
-In an analyze and optimize loop, data from various IoT, enterprise, private, and public sources flows into cloud data lakes. Offline analytics consume the data lakes to discover hidden trends and business optimization insights. The optimization insights from the offline analytics processes flow back to IoT installations through [monitor and manage loops](monitor-manage-loop.md) and [measure and control loops](measure-control-loop.yml).
+In an analyze and optimize loop, data from various IoT, enterprise, private, and public sources flows into cloud data lakes. Offline analytics consume the data lakes to discover hidden trends and business optimization insights. The optimization insights from the offline analytics processes flow back to IoT installations through [monitor and manage loops](monitor-manage-loop.yml) and [measure and control loops](measure-control-loop.yml).
 
 ## Characteristics
 

@@ -84,7 +84,7 @@ The external system might generate thousands of requests per day, per hour, or p
 
 If a request contains an operation context, like `{"id"="Op1001"}`, each Gridwich [response](https://github.com/mspnp/gridwich/blob/main//src/Gridwich.Core/src/DTO/Responses/ResponseBaseDTO.cs) must include a corresponding opaque *operation context*, whether the request is short-running or long-running. This operation context persists through the lifetime of even very long-running requests.
 
-The response requirement is for a "corresponding" rather than the "same" JSON object. Gridwich features like [context muting](gridwich-storage-service.md#context-muting) take advantage of the fact that the external system processes the returned JSON object in a top-down fashion.
+The response requirement is for a "corresponding" rather than the "same" JSON object. Gridwich features like [context muting](gridwich-storage-service.yml#context-muting) take advantage of the fact that the external system processes the returned JSON object in a top-down fashion.
 
 Specifically, the external system has:
 
@@ -96,7 +96,7 @@ Specifically, the external system has:
 
 ### Saga participants and operation context
 
-In the Gridwich saga orchestration system, each [saga participant](gridwich-saga-orchestration.md#saga-participants) contributes one or more work activities to the system. Each saga participant works independently of the other participants, and more than one saga participant might act on a single request.
+In the Gridwich saga orchestration system, each [saga participant](gridwich-saga-orchestration.yml#saga-participants) contributes one or more work activities to the system. Each saga participant works independently of the other participants, and more than one saga participant might act on a single request.
 
 Each of the saga participants must retain the operation context, but may implement it differently. For example:
 
@@ -174,7 +174,7 @@ The Gridwich media processing solution uses Azure Event Grid, Azure Functions, A
   
 - [Azure Functions](https://azure.microsoft.com/services/functions/) lets you run event-triggered code without having to explicitly provision or manage infrastructure. Gridwich is an Azure Functions App that hosts execution of various functions.
   
-- [Azure Media Services](https://azure.microsoft.com/services/media-services/) is a cloud-based workflow platform for indexing, packaging, protecting, and streaming media. Media Services uses [Digital Rights Management (DRM)](https://en.wikipedia.org/wiki/Digital_rights_management) to protect content, and supports [Microsoft PlayReady](https://www.microsoft.com/playready/overview/), [Google Widevine](https://www.widevine.com/solutions/widevine-drm), and [Apple FairPlay](https://developer.apple.com/streaming/fps/). Gridwich lets you [scale Media Services resources](media-services-setup-scale.md#scale-media-services-resources) to your expected workload.
+- [Azure Media Services](https://azure.microsoft.com/services/media-services/) is a cloud-based workflow platform for indexing, packaging, protecting, and streaming media. Media Services uses [Digital Rights Management (DRM)](https://en.wikipedia.org/wiki/Digital_rights_management) to protect content, and supports [Microsoft PlayReady](https://www.microsoft.com/playready/overview/), [Google Widevine](https://www.widevine.com/solutions/widevine-drm), and [Apple FairPlay](https://developer.apple.com/streaming/fps/). Gridwich lets you [scale Media Services resources](media-services-setup-scale.yml#scale-media-services-resources) to your expected workload.
   
 - [Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs/) provides scalable, cost-efficient cloud storage and access for unstructured data like media assets. Gridwich uses both Azure Storage block blobs and containers.
   
@@ -197,7 +197,7 @@ The Gridwich media processing solution uses Azure Event Grid, Azure Functions, A
   
   Alternatively, you could use the event subscription and filtering mechanism that the Event Grid platform provides. This mechanism imposes a 1:1 deployment model, where one Azure Function hosts only one event handler. Although Gridwich uses a 1:many model, its [clean architecture](gridwich-clean-monolith.yml) means that refactoring the solution for 1:1 wouldn't be difficult.
   
-- For an alternative microservices rather than monolithic Gridwich architecture, see [Microservices alternative](gridwich-clean-monolith.md#microservices-alternative).
+- For an alternative microservices rather than monolithic Gridwich architecture, see [Microservices alternative](gridwich-clean-monolith.yml#microservices-alternative).
 
 ## Deploy the solution
 
@@ -211,7 +211,7 @@ The Gridwich media processing solution uses Azure Event Grid, Azure Functions, A
 - [Set up content protection and DRM](gridwich-content-protection-drm.yml).
 - [Create a new sandbox or test cloud environment](create-delete-cloud-environment.yml).
 - [Maintain and manage Key Vault keys](maintain-keys.yml).
-- [Scale Media Services resources](media-services-setup-scale.md#scale-media-services-resources).
+- [Scale Media Services resources](media-services-setup-scale.yml#scale-media-services-resources).
 
 ## Related resources
 

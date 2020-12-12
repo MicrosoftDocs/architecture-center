@@ -80,7 +80,7 @@ enterprise-grade bot development.
     bot](../../reference-architectures/ai/conversational-bot.yml)
 
 - [Example workload: Conversational chatbot for hotel reservations on
-    Azure](../../example-scenario/ai/commerce-chatbot.md)
+    Azure](../../example-scenario/ai/commerce-chatbot.yml)
 
 ### Autonomous systems
 
@@ -399,22 +399,22 @@ and scikit-learn.
 
 - [Machine learning operationalization (MLOps) for Python models using Azure
     Machine
-    Learning](../../reference-architectures/ai/mlops-python.md)
+    Learning](../../reference-architectures/ai/mlops-python.yml)
 
 - [Batch scoring of R machine learning models on
-    Azure](../../reference-architectures/ai/batch-scoring-r-models.md)
+    Azure](../../reference-architectures/ai/batch-scoring-r-models.yml)
 
 - [Real-time scoring of R machine learning models on
-    Azure](../../reference-architectures/ai/realtime-scoring-r.md)
+    Azure](../../reference-architectures/ai/realtime-scoring-r.yml)
 
 - [Batch scoring of Spark machine learning models on Azure
-    Databricks](../../reference-architectures/ai/batch-scoring-databricks.md)
+    Databricks](../../reference-architectures/ai/batch-scoring-databricks.yml)
 
 - [Enterprise-grade conversational
     bot](../../reference-architectures/ai/conversational-bot.yml)
 
 - [Build a real-time recommendation API on
-    Azure](../../reference-architectures/ai/real-time-recommendation.md)
+    Azure](../../reference-architectures/ai/real-time-recommendation.yml)
 
 ### Azure automated machine learning
 
@@ -474,7 +474,7 @@ This is a purpose-built bot development environment with out-of-the-box template
 
 - [Azure reference architecture: Enterprise-grade conversational bot](../../reference-architectures/ai/conversational-bot.yml)
 
-- [Example workload: Conversational chatbot for hotel reservations on Azure](../../example-scenario/ai/commerce-chatbot.md)
+- [Example workload: Conversational chatbot for hotel reservations on Azure](../../example-scenario/ai/commerce-chatbot.yml)
 
 - [Microsoft Bot Framework](https://dev.botframework.com/)
 
@@ -517,7 +517,7 @@ The Microsoft Machine Learning library for Apache Spark is [MMLSpark](https://g
 
 - [How-to guide: Databricks Runtime for Machine Learning](/azure/databricks/runtime/mlruntime)
 
-- [Batch scoring of Spark machine learning models on Azure Databricks](../../reference-architectures/ai/batch-scoring-databricks.md)
+- [Batch scoring of Spark machine learning models on Azure Databricks](../../reference-architectures/ai/batch-scoring-databricks.yml)
 
 - [Deep learning overview for Azure Databricks](/azure/databricks/applications/deep-learning/)
 

@@ -143,11 +143,11 @@ This architecture builds on the one shown in [Basic web application][basic-web-a
 ## Next steps
 
 - [Run a web application in multiple Azure regions for high availability][web-app-multi-region]
-- [Overview of load-balancing options in Azure](../../guide/technology-choices/load-balancing-overview.yml)
+- [Overview of load-balancing options in Azure](../../guide/technology-choices/load-balancing-overview.md)
 
 <!-- links -->
 
-[api-guidance]: ../../best-practices/api-design.yml
+[api-guidance]: ../../best-practices/api-design.md
 [app-service-security]: /azure/app-service-web/web-sites-security
 [app-service-web-app]: /azure/app-service-web/app-service-web-overview
 [app-service-pricing]: https://azure.microsoft.com/pricing/details/app-service
@@ -158,13 +158,13 @@ This architecture builds on the one shown in [Basic web application][basic-web-a
 [azure-search-scaling]: /azure/search/search-capacity-planning
 [basic-web-app]: ./basic-web-app.yml
 [basic-web-app-devops]: ./basic-web-app.yml#devops-considerations
-[caching-guidance]: ../../best-practices/caching.yml
+[caching-guidance]: ../../best-practices/caching.md
 [cdn-app-service]: /azure/app-service-web/cdn-websites-with-cdn
 [cdn-storage-account]: /azure/cdn/cdn-create-a-storage-account-with-cdn
-[cdn-guidance]: ../../best-practices/cdn.yml
+[cdn-guidance]: ../../best-practices/cdn.md
 [cors]: /azure/app-service-api/app-service-api-cors-consume-javascript
 [cosmosdb]: /azure/cosmos-db
-[datastore]: ../..//guide/technology-choices/data-store-overview.yml
+[datastore]: ../..//guide/technology-choices/data-store-overview.md
 [durable-functions]: /azure/azure-functions/durable-functions-overview
 [functions]: /azure/azure-functions/functions-overview
 [github]: https://github.com/mspnp/reference-architectures/tree/master/web-app

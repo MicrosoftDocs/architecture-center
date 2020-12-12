@@ -37,7 +37,7 @@ This architecture diagram shows a typical scenario that involves the following:
 
 ## Components
 
-This architecture uses the same [components](./windows-virtual-desktop.md#components-you-manage) as listed in [WVD at enterprise scale Architecture](./windows-virtual-desktop.yml).
+This architecture uses the same [components](./windows-virtual-desktop.yml#components-you-manage) as listed in [WVD at enterprise scale Architecture](./windows-virtual-desktop.yml).
 
 Additionally, the following components are also used in this architecture:
 

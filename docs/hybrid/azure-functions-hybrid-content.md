@@ -88,7 +88,7 @@ Additionally, each virtual network in Azure should also use [virtual network pee
 [architectural-diagram]: ./images/azure-functions-hybrid.png
 [architectural-diagram-visio-source]: https://arch-center.azureedge.net/azure-functions-hybrid.vsdx
 [azure-arc-kubernetes]: /azure/azure-arc/kubernetes/
-[azure-architecture-center-serverless]: ../serverless-quest/serverless-overview.yml
+[azure-architecture-center-serverless]: ../serverless-quest/serverless-overview.md
 [azure-expressroute]: /azure/expressroute/
 [azure-functions]: /azure/azure-functions/
 [azure-functions-best-practices]: /azure/azure-functions/functions-best-practices

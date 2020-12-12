@@ -4,7 +4,7 @@
 SAP BW/4HANA is an enterprise data warehouse solution designed for the cloud and optimized for the SAP HANA platform. The following example focuses specifically
 on the SAP BW/4HANA application tier and is suitable for a small-scale production environment of SAP BW/4HANA on Azure where high availability is a priority.
 
-This example workload also draws on the foundation of the SAP on Azure reference architectures for [SAP NetWeaver (Windows) for AnyDB on virtual machines](./sap-netweaver.md) and [SAP S/4HANA for Linux virtual machines on Azure](./sap-s4hana.yml). A similar deployment approach is used for SAP BW/4HANA workloads in that the application layer is deployed using virtual machines that can be changed in size to accommodate your organization's needs.
+This example workload also draws on the foundation of the SAP on Azure reference architectures for [SAP NetWeaver (Windows) for AnyDB on virtual machines](./sap-netweaver.yml) and [SAP S/4HANA for Linux virtual machines on Azure](./sap-s4hana.yml). A similar deployment approach is used for SAP BW/4HANA workloads in that the application layer is deployed using virtual machines that can be changed in size to accommodate your organization's needs.
 
 The network layout has been simplified to demonstrate recommended architectural principals for an Azure enterprise deployment based on a [hub-spoke topology](../hybrid-networking/hub-spoke.yml).
 
@@ -131,7 +131,7 @@ For the backup data store, we recommend using Azure [cool and archive access tie
 
 ## Networking
 
-Although not required, a [hub-spoke topology](../hybrid-networking/hub-spoke.md) is commonly deployed to provide logical isolation and security boundaries for an SAP landscape. For other networking details, refer to the [SAP S/4HANA reference architecture](./sap-s4hana.yml).
+Although not required, a [hub-spoke topology](../hybrid-networking/hub-spoke.yml) is commonly deployed to provide logical isolation and security boundaries for an SAP landscape. For other networking details, refer to the [SAP S/4HANA reference architecture](./sap-s4hana.yml).
 
 The hub VNet acts as a central point of connectivity to an on-premises network. The spokes are VNets that [peer](/azure/virtual-network/virtual-network-peering-overview) with the hub, and they can be used to isolate workloads. Traffic flows between the on-premises datacenter and the hub through a gateway connection.
 
@@ -159,7 +159,7 @@ At the SAP application layer, Azure offers a wide range of virtual machine sizes
 
 Resource redundancy is the general theme in highly available infrastructure solutions. If your organization has a less stringent SLA, use single-instance virtual machines with Premium disks, which offer an [uptime SLA](https://buildazure.com/2016/11/24/single-instance-vms-now-with-99-9-sla/).
 
-To maximize application availability, you can deploy redundant resources in an availability set or across [Availability Zones](/azure/virtual-machines/workloads/sap/sap-ha-availability-zones). For more information, refer to the [SAP S/4HANA reference architecture](./sap-s4hana.md#availability-considerations).
+To maximize application availability, you can deploy redundant resources in an availability set or across [Availability Zones](/azure/virtual-machines/workloads/sap/sap-ha-availability-zones). For more information, refer to the [SAP S/4HANA reference architecture](./sap-s4hana.yml#availability-considerations).
 
 This architecture places virtual machines that perform the same role into an availability set. This configuration helps meet [SLAs](https://azure.microsoft.com/support/legal/sla/virtual-machines) by guarding against downtime caused by Azure infrastructure maintenance and unplanned outages. Two or more virtual machines per availability set are required to get a higher SLA.
 
@@ -205,11 +205,11 @@ To provide SAP-based monitoring of resources and service performance of the SAP 
 
 For the SAP ASCS and application servers, we recommend using Azure Backup to protect the virtual machine contents. Azure Backup provides independent, isolated backups to help guard against accidental destruction of original data. Backups are stored in a [Recovery Services vault](/azure/backup/backup-azure-recovery-services-vault-overview) that offers built-in management of recovery points. Configuration and scalability are simple, backups are optimized, and you can easily restore as needed.
 
-Backup of the database tier varies depending on whether SAP HANA is deployed on [virtual machines](./run-sap-hana-for-linux-virtual-machines.md) or [Azure Large Instances](./hana-large-instances.md). See the [management and operations considerations](./run-sap-hana-for-linux-virtual-machines.yml) for SAP HANA on Linux virtual machines.
+Backup of the database tier varies depending on whether SAP HANA is deployed on [virtual machines](./run-sap-hana-for-linux-virtual-machines.yml) or [Azure Large Instances](./hana-large-instances.yml). See the [management and operations considerations](./run-sap-hana-for-linux-virtual-machines.yml) for SAP HANA on Linux virtual machines.
 
 ## Security
 
 SAP has its own User Management Engine (UME) to control role-based access and authorization within the SAP application and databases. For details, see the
 [Security Guide SAP BW∕4HANA](https://help.sap.com/viewer/d3b558c9e49d4eb495c99c63a0ae549a/1.0.4/en-US).
 
-The [SAP S/4HANA reference architecture](./sap-s4hana.md#security-considerations) provides additional infrastructure security considerations that apply to SAP BW/4HANA.
+The [SAP S/4HANA reference architecture](./sap-s4hana.yml#security-considerations) provides additional infrastructure security considerations that apply to SAP BW/4HANA.
