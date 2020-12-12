@@ -17,7 +17,8 @@ azureCategories:
   - databases
   - management-and-governance
 summary: Guarantee access to users around the world with the high-availability and low-latency capabilities built into Microsoft's global datacenters.
-products: []
+products:
+  - azure
 thumbnailUrl: /azure/architecture/browse/thumbs/globally-distributed-mission-critical-applications-using-cosmos-db.png
 content: |
    [!include[](globally-distributed-mission-critical-applications-using-cosmos-db-content.md)]

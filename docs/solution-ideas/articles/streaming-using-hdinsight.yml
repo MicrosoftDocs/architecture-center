@@ -17,7 +17,8 @@ azureCategories:
   - databases
   - developer-tools
 summary: 'Ingest and process millions of streaming events per second with Apache Kafka, Apache Storm, and Apache Spark Streaming.'
-products: []
+products:
+  - azure
 thumbnailUrl: /azure/architecture/browse/thumbs/streaming-using-hdinsight.png
 content: |
    [!include[](streaming-using-hdinsight-content.md)]

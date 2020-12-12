@@ -15,7 +15,6 @@ name: Web and Mobile Front Ends
 azureCategories:
   - mobile
   - web
-  - front
 summary: This example scenario demonstrates how you can accelerate frontend and business process development with drag and drop visual designer.
 products:
   - azure

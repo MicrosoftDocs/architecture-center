@@ -17,7 +17,8 @@ azureCategories:
   - databases
   - ai-machine-learning
 summary: 'Generate personalized recommendations for customers in real time, using low-latency and tunable consistency settings for immediate insights'
-products: []
+products:
+  - azure
 thumbnailUrl: /azure/architecture/browse/thumbs/personalization-using-cosmos-db.png
 content: |
    [!include[](personalization-using-cosmos-db-content.md)]

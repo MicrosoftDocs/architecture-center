@@ -13,7 +13,8 @@ metadata:
     - example-scenario
 name: IoT measure and control loops
 summary: 'Learn about measure and control loops, an IoT process pattern to keep IoT devices within tolerable ranges.'
-products: []
+products:
+  - azure
 thumbnailUrl: /azure/architecture/browse/thumbs/measure-and-control.svg
 content: |
    [!include[](measure-control-loop-content.md)]

@@ -14,8 +14,6 @@ metadata:
 name: Custom Business Processes
 azureCategories:
   - mobile
-  - apim
-  - functions
 summary: This example demonstrates how you can deploy portals that automate manual or paper-based processes and surface rich user experience. Leverage Azure API management and Azure Functions to connect custom APIs which tap into your legacy systems.
 products:
   - azure

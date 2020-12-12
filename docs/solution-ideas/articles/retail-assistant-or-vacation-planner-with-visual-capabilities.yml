@@ -17,7 +17,8 @@ azureCategories:
   - ai-machine-learning
   - web
 summary: The retail assistant or vacation planner can help your customers have interactions with your business bot and provide suggestions based on the visual information.
-products: []
+products:
+  - azure
 thumbnailUrl: /azure/architecture/browse/thumbs/retail-assistant-or-vacation-planner-with-visual-capabilities.png
 content: |
    [!include[](retail-assistant-or-vacation-planner-with-visual-capabilities-content.md)]

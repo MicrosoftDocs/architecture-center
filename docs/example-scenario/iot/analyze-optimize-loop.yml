@@ -13,7 +13,8 @@ metadata:
     - example-scenario
 name: IoT analyze and optimize loops
 summary: 'Learn about analyze and optimize loops, an IoT pattern for generating and applying optimization insights based on the entire business context.'
-products: []
+products:
+  - azure
 thumbnailUrl: /azure/architecture/browse/thumbs/analyze-and-optimize.svg
 content: |
    [!include[](analyze-optimize-loop-content.md)]

@@ -18,8 +18,6 @@ metadata:
 name: Baseline architecture for an Azure Kubernetes Service (AKS) cluster
 azureCategories:
   - containers
-  - kubernetes
-  - aks
 summary: Reference architecture for a baseline infrastructure that deploys an Azure Kubernetes Service (AKS) cluster.
 products:
   - aspnet

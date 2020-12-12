@@ -18,7 +18,8 @@ azureCategories:
   - developer-tools
   - hybrid
 summary: Detailed explanation of the MLOps maturity model stages and defining characteristics of each stage.
-products: []
+products:
+  - azure
 thumbnailUrl: ""
 content: |
    [!include[](mlops-maturity-model-content.md)]

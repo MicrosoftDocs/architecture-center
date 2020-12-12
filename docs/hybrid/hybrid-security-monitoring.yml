@@ -17,7 +17,6 @@ metadata:
 name: Hybrid Security Monitoring using Azure Security Center and Azure Sentinel
 azureCategories:
   - hybrid
-  - monitoring
   - security
 summary: Integration of monitoring the security configuration and telemetry of on-premises and Azure operating system workloads
 products:

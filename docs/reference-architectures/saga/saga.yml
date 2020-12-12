@@ -19,9 +19,6 @@ metadata:
 name: Saga distributed transactions
 azureCategories:
   - databases
-  - event-driven
-  - transactions
-  - microservices
 summary: Understand and use the saga design pattern to ensure data consistency on distributed transactions in microservices architectures.
 products:
   - azure

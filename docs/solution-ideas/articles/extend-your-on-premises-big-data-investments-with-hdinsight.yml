@@ -17,7 +17,8 @@ azureCategories:
   - analytics
   - hybrid
 summary: Extend your on-premises big data investments to the cloud and transform your business using the advanced analytics capabilities of HDInsight.
-products: []
+products:
+  - azure
 thumbnailUrl: /azure/architecture/browse/thumbs/extend-your-on-premises-big-data-investments-with-hdinsight.png
 content: |
    [!include[](extend-your-on-premises-big-data-investments-with-hdinsight-content.md)]

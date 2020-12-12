@@ -17,7 +17,8 @@ azureCategories:
   - hybrid
   - web
 summary: 'Accelerate development of reliable, high-performing chat applications'
-products: []
+products:
+  - azure
 thumbnailUrl: /azure/architecture/browse/thumbs/cross-platform-chat.png
 content: |
    [!include[](cross-platform-chat-content.md)]

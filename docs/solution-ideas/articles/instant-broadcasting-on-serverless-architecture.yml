@@ -17,7 +17,8 @@ azureCategories:
   - media
   - developer-tools
 summary: Simplify one-to-many real-time communication and updates using serverless code
-products: []
+products:
+  - azure
 thumbnailUrl: /azure/architecture/browse/thumbs/instant-broadcasting-on-serverless-architecture.png
 content: |
    [!include[](instant-broadcasting-on-serverless-architecture-content.md)]

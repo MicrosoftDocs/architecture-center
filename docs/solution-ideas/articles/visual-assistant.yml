@@ -15,7 +15,8 @@ name: Visual Assistant
 azureCategories:
   - ai-machine-learning
 summary: 'Visual assistant provides rich information based on content of the image with capabilities such as reading business card, identifying barcode, and recognizing popular people, places, objects, artworks, and monuments.'
-products: []
+products:
+  - azure
 thumbnailUrl: /azure/architecture/browse/thumbs/visual-assistant.png
 content: |
    [!include[](visual-assistant-content.md)]

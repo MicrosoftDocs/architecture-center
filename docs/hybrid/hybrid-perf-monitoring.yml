@@ -17,7 +17,6 @@ metadata:
 name: Hybrid availability and performance monitoring
 azureCategories:
   - hybrid
-  - monitoring
   - management-and-governance
 summary: 'Using Azure Monitor to monitor performance and availability for operating system workloads running on-premises, in third-party cloud providers, and in Microsoft Azure'
 products:

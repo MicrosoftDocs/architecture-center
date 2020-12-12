@@ -15,7 +15,8 @@ name: Interactive querying with HDInsight
 azureCategories:
   - databases
 summary: 'Perform fast, interactive SQL queries at scale over structured or unstructured data with Apache Hive LLAP.'
-products: []
+products:
+  - azure
 thumbnailUrl: /azure/architecture/browse/thumbs/interactive-querying-with-hdinsight.png
 content: |
    [!include[](interactive-querying-with-hdinsight-content.md)]
