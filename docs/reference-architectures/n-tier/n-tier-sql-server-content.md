@@ -309,7 +309,7 @@ If you specify a region that supports availability zones, the VMs are deployed i
 [sql-alwayson-ilb]: /azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-alwayson-int-listener
 [sql-alwayson-listeners]: /sql/database-engine/availability-groups/windows/listeners-client-connectivity-application-failover?view=sql-server-ver15&preserve-view=true
 [sql-alwayson-read-only-routing]: /sql/database-engine/availability-groups/windows/listeners-client-connectivity-application-failover?view=sql-server-ver15&preserve-view=true#ConnectToSecondary
-[sql-alwayson]: /sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server?view=sql-server-ver15&preserve-view=true&preserve-view=true
+[sql-alwayson]: /sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server?view=sql-server-ver15&preserve-view=true
 [sql-keyvault]: /azure/azure-sql/virtual-machines/windows/azure-key-vault-integration-configure
 [Managed-Sql-pricing]: https://azure.microsoft.com/pricing/details/sql-database/managed
 [subscription-limits]: /azure/azure-subscription-service-limits

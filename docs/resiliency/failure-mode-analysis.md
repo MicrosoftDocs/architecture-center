@@ -506,12 +506,12 @@ For more information about the FMA process, see [Resilience by design for cloud 
 [rm-locks]: /azure/azure-resource-manager/resource-group-lock-resources/
 [sb-dead-letter-queue]: /azure/service-bus-messaging/service-bus-dead-letter-queues/
 [sb-georeplication-sample]: https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.Azure.ServiceBus/GeoReplication
-[sb-messagingexception-class]: /dotnet/api/microsoft.servicebus.messaging.messagingexception?view=azure-dotnet&preserve-view=true&preserve-view=true
+[sb-messagingexception-class]: /dotnet/api/microsoft.servicebus.messaging.messagingexception?view=azure-dotnet&preserve-view=true
 [sb-messaging-exceptions]: /azure/service-bus-messaging/service-bus-messaging-exceptions
 [sb-partition]: /azure/service-bus-messaging/service-bus-partitioning
 [sb-poison-message]: /azure/app-service/webjobs-sdk-how-to#automatic-triggers
 [sb-retry]: ../best-practices/retry-service-specific.md#service-bus
-[search-sdk]:  /dotnet/api/overview/azure/search?view=azure-dotnet&preserve-view=true&preserve-view=true
+[search-sdk]:  /dotnet/api/overview/azure/search?view=azure-dotnet&preserve-view=true
 [scheduler-agent-supervisor]: /previous-versions/msp-n-p/dn589780(v=pandp.10)
 [search-analytics]: /azure/search/search-traffic-analytics
 [sql-db-audit]: /azure/sql-database/sql-database-auditing-get-started
