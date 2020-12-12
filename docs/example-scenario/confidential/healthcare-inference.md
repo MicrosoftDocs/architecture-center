@@ -3,7 +3,7 @@ title: Confidential computing on a healthcare platform
 titleSuffix: Azure Example Scenarios
 description: Learn how to use confidential computing and containers to support a provider-hosted application. Securely collaborate with a hospital and a diagnostic provider.
 author: agowdamsft
-ms.author: agowda
+ms.author: amgowda
 ms.date: 12/11/2020
 ms.topic: example-scenario
 ms.service: architecture-center
@@ -76,10 +76,10 @@ This scenario involves a [confidential Flask-based application](https://sconedoc
 
 To begin scenario deployment, clone the example code to your local computer, and then go to the root folder:
 
-    ```bash
-    git clone https://github.com/Azure-Samples/confidential-container-samples.git
-    cd confidential-container-samples/confidential-healthcare-scone-confinf-onnx
-    ```
+```bash
+git clone https://github.com/Azure-Samples/confidential-container-samples.git
+cd confidential-container-samples/confidential-healthcare-scone-confinf-onnx
+```
 
 ### Set up for inference server deployment
 
