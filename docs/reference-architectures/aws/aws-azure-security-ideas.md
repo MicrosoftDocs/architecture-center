@@ -1,7 +1,7 @@
 ---
-title: Azure security for Amazon Web Services (AWS)
+title: Azure security ideas for Amazon Web Services (AWS)
 titleSuffix: Azure Reference Architectures
-description: Learn how Azure Active Directory (Azure AD), Microsoft Cloud App Security, and Azure Sentinel can help secure and protect Amazon Web Services (AWS) account access and environments.
+description: Learn how Microsoft Cloud App Security (MCAS) and Azure Sentinel can help secure and protect Amazon Web Services (AWS) account access and environments.
 author: doodlemania2
 ms.date: 12/10/2020
 ms.topic: reference-architecture
@@ -17,11 +17,11 @@ Amazon Web Services (AWS) accounts that support critical workloads and highly se
 
 Many organizations that use AWS already rely on Azure Active Directory (Azure AD) for Microsoft 365 or hybrid cloud identity and access protection. These organizations can quickly and easily [deploy Azure AD identity and access control for AWS accounts](aws-azure-ad-security.md), often without additional cost.
 
-Other Microsoft security components can integrate with Azure AD to provide additional security for AWS accounts. Microsoft Cloud App Security (MCAS) can back up Azure AD with session protection and user behavior monitoring. Azure Sentinel can integrate with Azure AD and MCAS to detect threats against AWS environments.
+Other Microsoft security components can integrate with Azure AD to provide additional security for AWS accounts. Microsoft Cloud App Security (MCAS) can back up Azure AD with session protection and user behavior monitoring. Azure Sentinel can integrate with Azure AD and MCAS to detect and automatically respond to threats against AWS environments.
 
 These Microsoft security solutions are extensible and have multiple levels of protection. Organizations can implement one or more of these solutions along with other types of protection for a full security architecture that protects current and future AWS deployments.
 
-This article provides AWS identity architects, administrators, and security analysts with immediate insights and detailed guidance for deploying several Microsoft security solutions. You can configure and test these solutions without impacting your existing identity providers and AWS account users until you're ready to switch over.
+This article provides AWS identity architects, administrators, and security analysts with immediate insights and detailed guidance for deploying several Microsoft security solutions.
 
 ## Architecture
 
