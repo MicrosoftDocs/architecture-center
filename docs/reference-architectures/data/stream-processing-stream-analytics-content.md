@@ -249,4 +249,4 @@ You may wish to review the following [Azure example scenarios](/azure/architectu
 [azure-monitor]: https://azure.microsoft.com/services/monitor
 [github]: https://github.com/mspnp/azure-stream-analytics-data-pipeline
 [azure-pricing-calculator]: https://azure.microsoft.com/pricing/calculator
-[databricks-monitoring]: ../../databricks-monitoring/index.yml
+[databricks-monitoring]: ../../databricks-monitoring/index.md

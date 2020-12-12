@@ -35,9 +35,9 @@ This architecture details key components of an order processing pipeline. The da
 
 ## Considerations
 
-Many technology options are available for real-time message ingestion, data storage, stream processing, storage of analytical data, and analytics and reporting. For an overview of these options, their capabilities, and key selection criteria, see [Big data architectures: Real-time processing](../../data-guide/technology-choices/real-time-ingestion.md) in the [Azure Data Architecture Guide](../../data-guide/index.yml).
+Many technology options are available for real-time message ingestion, data storage, stream processing, storage of analytical data, and analytics and reporting. For an overview of these options, their capabilities, and key selection criteria, see [Big data architectures: Real-time processing](../../data-guide/technology-choices/real-time-ingestion.md) in the [Azure Data Architecture Guide](../../data-guide/index.md).
 
-Microservices have become a popular architectural style for building cloud applications that are resilient, highly scalable, independently deployable, and able to evolve quickly. Microservices require a different approach to designing and building applications. Tools such as Docker, Kubernetes, Azure Service Fabric, and Nomad enable the development of microservices-based architectures. For guidance on building and running a microservices-based architecture, see [Designing microservices on Azure](../../microservices/index.yml) in the Azure Architecture Center.
+Microservices have become a popular architectural style for building cloud applications that are resilient, highly scalable, independently deployable, and able to evolve quickly. Microservices require a different approach to designing and building applications. Tools such as Docker, Kubernetes, Azure Service Fabric, and Nomad enable the development of microservices-based architectures. For guidance on building and running a microservices-based architecture, see [Designing microservices on Azure](../../microservices/index.md) in the Azure Architecture Center.
 
 ### Availability
 
@@ -85,7 +85,7 @@ Other related resources include:
 - *[Designing Data-Intensive Applications](https://dataintensive.net)* by Martin Kleppmann (O'Reilly Media, 2017).
 - *[Domain Modeling Made Functional: Tackle Software Complexity with Domain-Driven Design and F#](https://pragprog.com/book/swdddf/domain-modeling-made-functional)* by Scott Wlaschin (Pragmatic Programmers LLC, 2018).
 - Other [Cosmos DB use cases][docs-cosmos-db-use-cases]
-- [Real time processing architecture](../../data-guide/big-data/real-time-processing.md) in the [Azure Data Architecture Guide](../../data-guide/index.yml).
+- [Real time processing architecture](../../data-guide/big-data/real-time-processing.md) in the [Azure Data Architecture Guide](../../data-guide/index.md).
 
 <!-- links -->
 

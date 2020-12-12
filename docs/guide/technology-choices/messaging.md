@@ -218,7 +218,7 @@ Combining services can increase the efficiency of your messaging system. For ins
 
 For details about connecting Service Bus to Event Grid, see [Azure Service Bus to Event Grid integration overview](/azure/service-bus-messaging/service-bus-to-event-grid-integration-concept).
 
-The [Enterprise integration on Azure using message queues and events](../../reference-architectures/enterprise-integration/queues-events.md) reference architecture shows an implementation of Service Bus to Event Grid integration.
+The [Enterprise integration on Azure using message queues and events](../../reference-architectures/enterprise-integration/queues-events.yml) reference architecture shows an implementation of Service Bus to Event Grid integration.
 
 Here's another example. Event Grid receives a set of events in which some events require a workflow while others are for notification. The message metadata indicates the type of event. One way is to check the metadata by using the filtering feature in the event subscription. If it requires a workflow, Event Grid sends it to Azure Service Bus queue. The receivers of that queue can take necessary actions. The notification events are sent to Logic Apps to send alert emails. 
 

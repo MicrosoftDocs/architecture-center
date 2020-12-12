@@ -41,5 +41,5 @@ Finally, they surface business intelligence insights to users across the company
 ## Next Steps
 
 - Read the [H&R Block customer story](https://customers.microsoft.com/story/724156-hr-block-professional-services-azure-sql-server) to learn how they use Azure SQL to unify data sources to deliver seamless multichannel experiences and provide better customer service.
-- Find comprehensive architectural guidance for designing data-centric solutions on [Azure in the Azure Data Architecture Guide](../../data-guide/index.yml).
+- Find comprehensive architectural guidance for designing data-centric solutions on [Azure in the Azure Data Architecture Guide](../../data-guide/index.md).
 - Learn more about how [Azure Synapse Link](/azure/cosmos-db/synapse-link) can enable you to run near real-time analytics over operational data in Azure Cosmos DB, and [explore common use cases](/azure/cosmos-db/synapse-link-use-cases) like real-time personalization, predictive maintenance and anomaly detection in IoT scenarios, and supply chain analytics, forecasting, and reporting.

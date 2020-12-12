@@ -109,19 +109,19 @@ The following sections list other serverless and Azure Functions-related referen
 
 - [Serverless application architectures using Event Grid](../solution-ideas/articles/serverless-application-architectures-using-event-grid.md)
 - [Serverless apps using Cosmos DB](https://azure.microsoft.com/solutions/architecture/serverless-apps-using-cosmos-db/)
-- [Serverless event processing using Azure Functions](../reference-architectures/serverless/event-processing.md)
-- [Serverless web application on Azure](../reference-architectures/serverless/web-app.md)
+- [Serverless event processing using Azure Functions](../reference-architectures/serverless/event-processing.yml)
+- [Serverless web application on Azure](../reference-architectures/serverless/web-app.yml)
 - [Serverless Asynchronous Multiplayer Reference Architecture](/gaming/azure/reference-architectures/multiplayer-asynchronous-serverless)
 - [Instant Broadcasting on Serverless Architecture](../solution-ideas/articles/instant-broadcasting-on-serverless-architecture.md)
-- [Building a telehealth system on Azure](../example-scenario/apps/telehealth-system.md)
+- [Building a telehealth system on Azure](../example-scenario/apps/telehealth-system.yml)
 - [Custom Data Sovereignty & Data Gravity Requirements](../solution-ideas/articles/data-sovereignty-and-gravity.md)
 - [Sharing location in real time using low-cost serverless Azure services](../example-scenario/signalr/index.md)
 
 
 ### Web and mobile backend
-- [An e-commerce front end](../example-scenario/apps/ecommerce-scenario.md)
+- [An e-commerce front end](../example-scenario/apps/ecommerce-scenario.yml)
 - [Architect scalable e-commerce web app](../solution-ideas/articles/scalable-ecommerce-web-app.md)
-- [Improve scalability in an Azure web application](../reference-architectures/app-service-web-app/scalable-web-app.md)
+- [Improve scalability in an Azure web application](../reference-architectures/app-service-web-app/scalable-web-app.yml)
 - [Uploading and CDN-preloading static content with Azure Functions](/samples/azure-samples/functions-java-push-static-contents-to-cdn/functions-java-push-static-contents-to-cdn/)
 - [Cross Cloud Scaling Architecture](../solution-ideas/articles/cross-cloud-scaling.md)
 - [Social App for Mobile and Web with Authentication](../solution-ideas/articles/social-mobile-and-web-app-with-authentication.md)
@@ -133,7 +133,7 @@ The following sections list other serverless and Azure Functions-related referen
 - [Speech transcription with Azure Cognitive Services](../reference-architectures/ai/speech-ai-ingestion.md)
 - [Training a Model with AzureML and Azure Functions](/samples/azure-samples/functions-python-azureml-azurefunctions-deeplearning/training-a-model-with-azureml-and-azure-functions/)
 - [Customer Reviews App with Cognitive Services](/samples/azure-samples/functions-customer-reviews/customer-reviews-cognitive-services/)
-- [Enterprise-grade conversational bot](../reference-architectures/ai/conversational-bot.md)
+- [Enterprise-grade conversational bot](../reference-architectures/ai/conversational-bot.yml)
 - [AI at the Edge](../solution-ideas/articles/ai-at-the-edge.md)
 - [Mass ingestion and analysis of news feeds on Azure](../example-scenario/ai/newsfeed-ingestion.md)
 - [HIPPA and HITRUST compliant health data AI](../solution-ideas/articles/security-compliance-blueprint-hipaa-hitrust-health-data-ai.md)
@@ -146,8 +146,8 @@ The following sections list other serverless and Azure Functions-related referen
 - [Operational analysis and driving process efficiency](/azure/time-series-insights/time-series-insights-update-use-cases#operational-analysis-and-driving-process-efficiency)
 
 ### IoT
-- [Azure IoT reference (SQL DB)](../reference-architectures/iot.md)
-- [Azure IoT reference (Cosmos DB)](../reference-architectures/iot.md)
+- [Azure IoT reference (SQL DB)](../reference-architectures/iot.yml)
+- [Azure IoT reference (Cosmos DB)](../reference-architectures/iot.yml)
 - [IoT using Cosmos DB](../solution-ideas/articles/iot-using-cosmos-db.md)
 - [Facilities management powered by mixed reality and IoT](../solution-ideas/articles/facilities-management-powered-by-mixed-reality-and-iot.md)
 - [Complementary Code Pattern for Azure IoT Edge Modules & Cloud Applications](/samples/azure-samples/iot-edge-complementary-code/complementary-code-pattern-for-azure-iot-edge-modules--cloud-applications/)

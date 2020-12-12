@@ -497,7 +497,7 @@ For more information about the FMA process, see [Resilience by design for cloud 
 [priority-queue-pattern]: /previous-versions/msp-n-p/dn589794(v=pandp.10)
 [queue-based-load-leveling]: /previous-versions/msp-n-p/dn589783(v=pandp.10)
 [QuotaExceededException]: /dotnet/api/microsoft.servicebus.messaging.quotaexceededexception?view=azure-dotnet
-[ra-web-apps-basic]: ../reference-architectures/app-service-web-app/basic-web-app.md
+[ra-web-apps-basic]: ../reference-architectures/app-service-web-app/basic-web-app.yml
 [redis-monitor]: /azure/azure-cache-for-redis/cache-how-to-monitor
 [redis-retry]: ../best-practices/retry-service-specific.md#azure-cache-for-redis
 [resilience-by-design-pdf]: https://download.microsoft.com/download/D/8/C/D8C599A4-4E8A-49BF-80EE-FE35F49B914D/Resilience_by_Design_for_Cloud_Services_White_Paper.pdf

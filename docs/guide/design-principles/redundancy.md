@@ -44,7 +44,7 @@ A resilient application routes around failure. Identify the critical paths in yo
 
 <!-- links -->
 
-[multi-vm-blueprint]: ../../reference-architectures/n-tier/n-tier-sql-server.md
+[multi-vm-blueprint]: ../../reference-architectures/n-tier/n-tier-sql-server.yml
 
 [cosmos-db-geo-replication]: /azure/cosmos-db/distribute-data-globally
 [sql-always-on]: /sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server?view=sql-server-ver15

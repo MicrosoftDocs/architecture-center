@@ -57,7 +57,7 @@ The data flows through the solution as follows:
 - [Azure Databricks](/azure/azure-databricks/what-is-azure-databricks) is an Apache Spark-based analytics platform optimized for Azure. It is integrated with Azure to provide one-click setup, streamlined workflows, and an interactive collaborative workspace.
 - [Data Lake Storage](/azure/storage/data-lake-storage) is an alternative to Blob storage. For this scenario, Data Lake Storage was not available in the targeted region.
 - [Web Apps](/azure/app-service) could also be used to host the web services for ingesting construction results data.
-- Many technology options are available for real-time message ingestion, data storage, stream processing, storage of analytical data, and analytics and reporting. For an overview of these options, their capabilities, and key selection criteria, see [Big data architectures: Real-time processing](../../data-guide/technology-choices/real-time-ingestion.md) in the [Azure Data Architecture Guide](../../data-guide/technology-choices/real-time-ingestion.yml).
+- Many technology options are available for real-time message ingestion, data storage, stream processing, storage of analytical data, and analytics and reporting. For an overview of these options, their capabilities, and key selection criteria, see [Big data architectures: Real-time processing](../../data-guide/technology-choices/real-time-ingestion.md) in the [Azure Data Architecture Guide](../../data-guide/technology-choices/real-time-ingestion.md).
 
 ## Considerations
 
@@ -77,7 +77,7 @@ The following considerations will drive a substantial portion of the costs for t
 
 To see an implementation of a similar architecture, read the [Komatsu customer story][customer-story].
 
-Guidance for big data architectures is available in the [Azure Data Architecture Guide](../../data-guide/index.yml).
+Guidance for big data architectures is available in the [Azure Data Architecture Guide](../../data-guide/index.md).
 
 <!-- links -->
 

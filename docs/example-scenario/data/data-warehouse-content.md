@@ -59,10 +59,10 @@ Data is loaded from these different data sources using several Azure components:
 - Azure Synapse is not a good fit for OLTP workloads or data sets smaller than 250 GB. For those cases you should use Azure SQL Database or SQL Server.
 - For comparisons of other alternatives, see:
 
-  - [Choosing a data pipeline orchestration technology in Azure](../../data-guide/technology-choices/pipeline-orchestration-data-movement.yml)
-  - [Choosing a batch processing technology in Azure](../../data-guide/technology-choices/batch-processing.yml)
-  - [Choosing an analytical data store in Azure](../../data-guide/technology-choices/analytical-data-stores.yml)
-  - [Choosing a data analytics technology in Azure](../../data-guide/technology-choices/analysis-visualizations-reporting.yml)
+  - [Choosing a data pipeline orchestration technology in Azure](../../data-guide/technology-choices/pipeline-orchestration-data-movement.md)
+  - [Choosing a batch processing technology in Azure](../../data-guide/technology-choices/batch-processing.md)
+  - [Choosing an analytical data store in Azure](../../data-guide/technology-choices/analytical-data-stores.md)
+  - [Choosing a data analytics technology in Azure](../../data-guide/technology-choices/analysis-visualizations-reporting.md)
 
 ## Considerations
 
@@ -88,7 +88,7 @@ Review a [pricing sample for a data warehousing scenario][calculator] via the Az
 
 - Review the [Azure reference architecture for automated enterprise BI](../../reference-architectures/data/enterprise-bi-adf.yml), which includes instructions for deploying an instance of this architecture in Azure.
 - Read the [Maritz Motivation Solutions customer story][source-document]. That story describes a similar approach to managing customer data.
-- Find comprehensive architectural guidance on data pipelines, data warehousing, online analytical processing (OLAP), and big data in the [Azure Data Architecture Guide](../../data-guide/index.yml).
+- Find comprehensive architectural guidance on data pipelines, data warehousing, online analytical processing (OLAP), and big data in the [Azure Data Architecture Guide](../../data-guide/index.md).
 
 <!-- links -->
 

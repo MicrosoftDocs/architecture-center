@@ -189,7 +189,7 @@ For more information, see [How much does my App Service plan cost?][app-service-
 
     In this architecture, Data Factory automates the data ingestion pipeline. Explore a range of data integration capabilities to fit your budget needs, from managed SQL Server Integration Services for seamless migration of SQL Server projects to the cloud (cost effective option), to large-scale, serverless data pipelines for integrating data of all shapes and sizes.
 
-    For an example, see [Azure Data Factory - example cost analysis](../../reference-architectures/data/enterprise-bi-adf.md#example-cost-analysis).
+    For an example, see [Azure Data Factory - example cost analysis](../../reference-architectures/data/enterprise-bi-adf.yml#example-cost-analysis).
 
 - Azure Functions
 

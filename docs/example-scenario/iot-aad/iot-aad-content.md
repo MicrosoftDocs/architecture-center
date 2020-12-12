@@ -191,7 +191,7 @@ This has been an overview of how to use Azure AD to secure your application, foc
 
 - [Microsoft identity platform best practices and recommendations](/azure/active-directory/develop/identity-platform-integration-checklist)
 
-- [Manage identity in multi-tenant applications](../../multitenant-identity/index.yml)
+- [Manage identity in multi-tenant applications](../../multitenant-identity/index.md)
 
 - [Azure AD developer guidance](/azure/active-directory/develop/howto-add-app-roles-in-azure-ad-apps)
 

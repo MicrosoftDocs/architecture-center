@@ -182,7 +182,7 @@ If you'd like to deploy the solution, follow the steps in the [How to use the sa
 
 Azure Databricks
 
-* [Monitoring Azure Databricks with Azure Monitor](../../databricks-monitoring/index.yml)
+* [Monitoring Azure Databricks with Azure Monitor](../../databricks-monitoring/index.md)
 * [Monitoring Azure Databricks Jobs with Application Insights](/archive/msdn-magazine/2018/june/azure-databricks-monitoring-azure-databricks-jobs-with-application-insights)
 
 Data Factory

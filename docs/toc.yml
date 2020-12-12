@@ -4,7 +4,7 @@ items:
   - name: Architecture icons
     href: icons/index.md
   - name: Browse all Architectures
-    href: browse/index.md
+    href: browse/index.yml
   - name: Browse Hybrid and Multicloud Architectures
     href: browse/hybrid_index.md
   - name: What's new

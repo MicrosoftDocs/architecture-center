@@ -56,7 +56,7 @@ For an overview of Azure for AWS users, see [Introduction to Azure for AWS profe
 
 </ul>
 
-[view all](../browse/index.md#ai--machine-learning)
+[view all](../browse/index.yml#ai--machine-learning)
 
 ## Big data and analytics
 
@@ -76,7 +76,7 @@ For an overview of Azure for AWS users, see [Introduction to Azure for AWS profe
 
 </ul>
 
-[view all](../browse/index.md#databases)
+[view all](../browse/index.yml#databases)
 
 ### Big data processing
 
@@ -98,7 +98,7 @@ For an overview of Azure for AWS users, see [Introduction to Azure for AWS profe
 </ul>
 
 
-[view all](../browse/index.md#databases)
+[view all](../browse/index.yml#databases)
 
 ### Data orchestration / ETL
 
@@ -127,7 +127,7 @@ For an overview of Azure for AWS users, see [Introduction to Azure for AWS profe
 
 </ul>
 
-[view all](../browse/index.md#analytics)
+[view all](../browse/index.yml#analytics)
 
 ## Compute
 
@@ -159,7 +159,7 @@ For an overview of Azure for AWS users, see [Introduction to Azure for AWS profe
 
 </ul>
 
-[view all](../browse/index.md#devops)
+[view all](../browse/index.yml#devops)
 
 ## Internet of things (IoT)
 
@@ -180,7 +180,7 @@ For an overview of Azure for AWS users, see [Introduction to Azure for AWS profe
 
 </ul>
 
-[view all](../browse/index.md#devops)
+[view all](../browse/index.yml#devops)
 
 ## Management
 
@@ -226,7 +226,7 @@ In addition to front-end testing, the [Azure DevTest Labs](https://azure.microso
 
 </ul>
 
-[view all](../browse/index.md#mobile)
+[view all](../browse/index.yml#mobile)
 
 ## Networking
 
@@ -281,7 +281,7 @@ In addition to front-end testing, the [Azure DevTest Labs](https://azure.microso
 
 </ul>
 
-[view all](../browse/index.md#security)
+[view all](../browse/index.yml#security)
 
 ## Storage
 
@@ -308,7 +308,7 @@ In addition to front-end testing, the [Azure DevTest Labs](https://azure.microso
 
 </ul>
 
-[view all](../browse/index.md#web)
+[view all](../browse/index.yml#web)
 
 ## Miscellaneous
 

@@ -124,10 +124,10 @@ Power BI | [Create and use analytics reports with Power BI][pbi-learn] | [Power 
 
 - For comparisons of other alternatives, see:
 
-  - [Choosing a data pipeline orchestration technology in Azure](../../data-guide/technology-choices/pipeline-orchestration-data-movement.yml)
-  - [Choosing a batch processing technology in Azure](../../data-guide/technology-choices/batch-processing.yml)
-  - [Choosing an analytical data store in Azure](../../data-guide/technology-choices/analytical-data-stores.yml)
-  - [Choosing a data analytics technology in Azure](../../data-guide/technology-choices/analysis-visualizations-reporting.yml)
+  - [Choosing a data pipeline orchestration technology in Azure](../../data-guide/technology-choices/pipeline-orchestration-data-movement.md)
+  - [Choosing a batch processing technology in Azure](../../data-guide/technology-choices/batch-processing.md)
+  - [Choosing an analytical data store in Azure](../../data-guide/technology-choices/analytical-data-stores.md)
+  - [Choosing a data analytics technology in Azure](../../data-guide/technology-choices/analysis-visualizations-reporting.md)
 
 ## Considerations
 
@@ -149,7 +149,7 @@ The ideal individual pricing tier and the total overall cost of each service inc
 
 ## Next steps
 
-- Find comprehensive architectural guidance on data pipelines, data warehousing, online analytical processing (OLAP), and big data in the [Azure Data Architecture Guide](../../data-guide/index.yml).
+- Find comprehensive architectural guidance on data pipelines, data warehousing, online analytical processing (OLAP), and big data in the [Azure Data Architecture Guide](../../data-guide/index.md).
 
 <!-- links -->
 

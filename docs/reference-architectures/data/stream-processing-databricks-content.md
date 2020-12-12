@@ -305,7 +305,7 @@ SparkMetric_CL
 | where name_s contains "driver.DAGScheduler.job.allJobs"
 ```
 
-For more information, see [Monitoring Azure Databricks](../../databricks-monitoring/index.yml).
+For more information, see [Monitoring Azure Databricks](../../databricks-monitoring/index.md).
 
 ## DevOps considerations
 
@@ -396,7 +396,7 @@ To the deploy and run the reference implementation, follow the steps in the [Git
 [arm-template]: /azure/azure-resource-manager/resource-group-overview#resource-groups
 [az-devops]: /azure/virtual-machines/windows/infrastructure-automation#azure-devops-services
 [azure-monitor]: https://azure.microsoft.com/services/monitor
-[databricks-monitoring]: ../../databricks-monitoring/index.yml
+[databricks-monitoring]: ../../databricks-monitoring/index.md
 [aaf-cost]: ../../framework/cost/overview.md
 [Cosmos-Calculator]: https://cosmos.azure.com/capacitycalculator
 [cosmosdb-pricing]: https://azure.microsoft.com/pricing/details/cosmos-db

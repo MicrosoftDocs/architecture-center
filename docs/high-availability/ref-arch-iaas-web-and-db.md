@@ -78,7 +78,7 @@ The architecture has the following components.
 
 Your requirements might differ from the architecture described here. Use these recommendations as a starting point.
 
-For recommendations on configuring the VMs, see [Run a Windows VM on Azure](../reference-architectures/n-tier/windows-vm.md).
+For recommendations on configuring the VMs, see [Run a Windows VM on Azure](../reference-architectures/n-tier/windows-vm.yml).
 
 For more information about designing virtual networks and subnets, see [Plan and design Azure Virtual Networks](/azure/virtual-network/virtual-network-vnet-plan-design-arm).
 
@@ -122,7 +122,7 @@ Test your deployment by [forcing a manual failover](/sql/database-engine/availab
 
 ## Availability considerations
 
-Availability Zones provide high resilience within a single region. If you need even higher availability, consider replicating the application across two regions, using Azure Traffic Manager for failover. For more information, see [Run an N-tier application in multiple Azure regions for high availability](../reference-architectures/n-tier/multi-region-sql-server.md).
+Availability Zones provide high resilience within a single region. If you need even higher availability, consider replicating the application across two regions, using Azure Traffic Manager for failover. For more information, see [Run an N-tier application in multiple Azure regions for high availability](../reference-architectures/n-tier/multi-region-sql-server.yml).
 
 Not all regions support Availability Zones, and not all VM sizes are supported in all zones. Run the following Azure CLI command to find the supported zones for each VM size within a region:
 
@@ -193,7 +193,7 @@ Use [network security groups](/azure/virtual-network/virtual-networks-nsg) (NSGs
 
 ### DMZ
 
-Consider adding a network virtual appliance (NVA) to create a DMZ between the internet and the Azure virtual network. NVA is a generic term for a virtual appliance that can perform network-related tasks, such as firewall, packet inspection, auditing, and custom routing. For more information, see [Network DMZ between Azure and an on-premises datacenter](../reference-architectures/dmz/secure-vnet-dmz.md).
+Consider adding a network virtual appliance (NVA) to create a DMZ between the internet and the Azure virtual network. NVA is a generic term for a virtual appliance that can perform network-related tasks, such as firewall, packet inspection, auditing, and custom routing. For more information, see [Network DMZ between Azure and an on-premises datacenter](../reference-architectures/dmz/secure-vnet-dmz.yml).
 
 ### Encryption
 
