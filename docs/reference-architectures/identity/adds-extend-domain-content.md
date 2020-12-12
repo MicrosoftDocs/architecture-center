@@ -211,7 +211,7 @@ After deployment completes, you can test connectivity from the simulated on-prem
 [azure-expressroute]: /azure/expressroute/expressroute-introduction
 [azure-monitor]: https://azure.microsoft.com/services/monitor
 [az-devops]: /azure/virtual-machines/windows/infrastructure-automation#azure-devops-services
-[az-pipelines]: /azure/devops/pipelines/?view=azure-devops
+[az-pipelines]: /azure/devops/pipelines/?view=azure-devops&preserve-view=true
 
 [ADDS-pricing]: https://azure.microsoft.com/pricing/details/active-directory-ds
 [availability-set]: /azure/virtual-machines/windows/tutorial-availability-sets

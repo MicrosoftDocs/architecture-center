@@ -13,7 +13,6 @@ metadata:
 name: Line of Business Extension
 azureCategories:
   - mobile
-  - functions
 summary: This example shows how you can modernize your legacy systems that cannot support new processes and provide better user experience.
 products:
   - azure
@@ -21,7 +20,6 @@ products:
   - power-apps
   - power-bi
   - powerapps
-  - surface
 thumbnailUrl: /azure/architecture/browse/thumbs/lob.png
 content: |
    [!include[](lob-content.md)]

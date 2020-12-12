@@ -132,7 +132,7 @@ This class has several dependencies, which are injected into the constructor usi
 
 - The `ITelemetryProcessor` and `IStateChangeProcessor` interfaces define two helper objects. As we'll see, these objects do most of the work.
 
-- The [TelemetryClient](/dotnet/api/microsoft.applicationinsights.telemetryclient?view=azure-dotnet) is part of the Application Insights SDK. It is used to send custom application metrics to Application Insights.
+- The [TelemetryClient](/dotnet/api/microsoft.applicationinsights.telemetryclient?view=azure-dotnet&preserve-view=true) is part of the Application Insights SDK. It is used to send custom application metrics to Application Insights.
 
 Later, we'll look at how to configure the dependency injection. For now, just assume these dependencies exist.
 

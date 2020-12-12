@@ -81,4 +81,4 @@ In this scenario, an organization is running HPC Pack on-premises, and uses Azur
 [batch-hpc-solutions]: ../../topics/high-performance-computing.md
 [deploy-hpc-azure]: /azure/virtual-machines/windows/hpcpack-2016-cluster
 [embarrassingly-parallel]: https://en.wikipedia.org/wiki/Embarrassingly_parallel
-[hpc-pack]: /powershell/high-performance-computing/overview?view=hpc19-ps
+[hpc-pack]: /powershell/high-performance-computing/overview?view=hpc19-ps&preserve-view=true

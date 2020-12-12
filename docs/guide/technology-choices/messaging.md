@@ -232,4 +232,4 @@ Consider these patterns when implementing asynchronous messaging:
 - [Retry Pattern](../../patterns/retry.md). A producer or consumer might be unable connect to a queue, but the reasons for this failure may be temporary and quickly pass. This pattern describes how to handle this situation to add resiliency to an application.
 - [Scheduler Agent Supervisor Pattern](../../patterns/scheduler-agent-supervisor.md). Messaging is often used as part of a workflow implementation. This pattern demonstrates how messaging can coordinate a set of actions across a distributed set of services and other remote resources, and enable a system to recover and retry actions that fail.
 - [Choreography pattern](../../patterns/choreography.md). This pattern shows how services can use messaging to control the workflow of a business transaction.
-- [Claim-Check Pattern](oracle-migration-overview.yml). This pattern shows how to split a large message into a claim check and a payload.
+- [Claim-Check Pattern](../../patterns/claim-check.md). This pattern shows how to split a large message into a claim check and a payload.

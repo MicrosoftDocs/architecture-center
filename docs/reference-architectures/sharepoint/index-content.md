@@ -336,7 +336,7 @@ This sign-in tunnels from the Fabrikam.com domain used by the on-premises networ
 [nsg]: /azure/virtual-network/virtual-networks-nsg
 [office-web-apps]: https://support.microsoft.com/help/3199955/office-web-apps-and-office-online-server-supportability-in-azure
 [paired-regions]: /azure/best-practices-availability-paired-regions
-[pipelines]: /azure/devops/pipelines/?view=azure-devops
+[pipelines]: /azure/devops/pipelines/?view=azure-devops&preserve-view=true
 [readme]: https://github.com/mspnp/reference-architectures/tree/master/sharepoint/sharepoint-2016
 [resource-group]: /azure/azure-resource-manager/resource-group-overview
 [quotas]: /azure/azure-subscription-service-limits

@@ -103,7 +103,7 @@ Additionally, data can continue to transfer from Azure Stack Edge to Machine Lea
 [azure-machine-learning-pipelines]: /azure/machine-learning/concept-ml-pipelines
 [azure-machine-learning-pricing]: https://azure.microsoft.com/pricing/details/machine-learning/
 [azure-machine-learning-register-model]: /azure/machine-learning/concept-model-management-and-deployment#register-and-track-ml-models
-[azure-machine-learning-sdk-python]: /python/api/overview/azure/ml/?view=azure-ml-py
+[azure-machine-learning-sdk-python]: /python/api/overview/azure/ml/?view=azure-ml-py&preserve-view=true
 [azure-machine-learning-sdk-r]: https://azure.github.io/azureml-sdk-for-r/reference/index.html
 [azure-pricing-calculator]: https://azure.microsoft.com/pricing/calculator/
 [azure-stack-edge]: /azure/databox-online/

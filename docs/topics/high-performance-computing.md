@@ -284,7 +284,7 @@ The following are examples of cluster and workload managers that can run in Azur
 - [Altair PBS Works](https://www.altair.com/pbs-works)
 - [Rescale](https://www.rescale.com/azure)
 - [Univa Grid Engine](https://www.univa.com/products/univa-grid-engine.php)
-- [Microsoft HPC Pack](/powershell/high-performance-computing/overview?view=hpc19-ps)
+- [Microsoft HPC Pack](/powershell/high-performance-computing/overview?view=hpc19-ps&preserve-view=true)
   - [HPC Pack for Windows](/azure/virtual-machines/windows/hpcpack-cluster-options)
   - [HPC Pack for Linux](/azure/virtual-machines/linux/hpcpack-cluster-options)
 

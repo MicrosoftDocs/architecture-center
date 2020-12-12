@@ -1,6 +1,6 @@
 ---
 title: Artificial intelligence (AI)
-description: 
+description: Artificial intelligence (AI)
 author: maggsl
 ms.date: 04/14/2020
 ms.topic: conceptual
@@ -201,7 +201,7 @@ Azure.
     developers](/azure/python/)
 
 - [Azure Machine Learning SDK for
-    Python](/python/api/overview/azure/ml/?view=azure-ml-py)
+    Python](/python/api/overview/azure/ml/?view=azure-ml-py&preserve-view=true)
 
 - [Introduction to machine learning with Python and Azure
     Notebooks](/learn/paths/intro-to-ml-with-python/)
@@ -339,7 +339,7 @@ market analyses, and many other applications.
     workloads
 
 - [Azure Machine Learning SDK for
-    Python](/python/api/overview/azure/ml/?view=azure-ml-py)
+    Python](/python/api/overview/azure/ml/?view=azure-ml-py&preserve-view=true)
 
 - [Azure Machine Learning service example notebooks
     (Python).](https://github.com/Azure/MachineLearningNotebooks) A GitHub repo

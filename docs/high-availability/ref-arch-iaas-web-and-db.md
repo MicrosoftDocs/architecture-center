@@ -97,11 +97,11 @@ Create rules 2 – 3 with higher priority than the first rule, so they override 
 ### SQL Server Always On availability groups
 
 We recommend [Always On availability
-groups](/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server?view=sql-server-ver15) for Microsoft SQL Server high availability. Other tiers connect to the database through an [availability group listener](/sql/database-engine/availability-groups/windows/listeners-client-connectivity-application-failover?view=sql-server-ver15). The listener enables a SQL client to connect without knowing the name of the physical instance of SQL Server. VMs that access the database must be joined to the domain. The client (in this case, another tier) uses DNS to resolve the listener's virtual network name into IP addresses.
+groups](/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server?view=sql-server-ver15&preserve-view=true&preserve-view=true) for Microsoft SQL Server high availability. Other tiers connect to the database through an [availability group listener](/sql/database-engine/availability-groups/windows/listeners-client-connectivity-application-failover?view=sql-server-ver15). The listener enables a SQL client to connect without knowing the name of the physical instance of SQL Server. VMs that access the database must be joined to the domain. The client (in this case, another tier) uses DNS to resolve the listener's virtual network name into IP addresses.
 
 Configure the SQL Server Always On availability group as follows:
 
-- Create a Windows Server Failover Clustering (WSFC) cluster, a SQL Server Always On availability group, and a primary replica. For more information, see [Getting Started with Always On availability groups](/sql/database-engine/availability-groups/windows/getting-started-with-always-on-availability-groups-sql-server?view=sql-server-ver15).
+- Create a Windows Server Failover Clustering (WSFC) cluster, a SQL Server Always On availability group, and a primary replica. For more information, see [Getting Started with Always On availability groups](/sql/database-engine/availability-groups/windows/getting-started-with-always-on-availability-groups-sql-server?view=sql-server-ver15&preserve-view=true).
 
 - Create an internal load balancer with a static private IP address.
 
@@ -116,9 +116,9 @@ When a SQL client tries to connect, the load balancer routes the connection requ
 
 During a failover, existing client connections are closed. After the failover completes, new connections will be routed to the new primary replica.
 
-If your application makes significantly more reads than writes, you can offload some of the read-only queries to a secondary replica. See [Connect to a read-only replica](/sql/database-engine/availability-groups/windows/listeners-client-connectivity-application-failover?view=sql-server-ver15#ConnectToSecondary).
+If your application makes significantly more reads than writes, you can offload some of the read-only queries to a secondary replica. See [Connect to a read-only replica](/sql/database-engine/availability-groups/windows/listeners-client-connectivity-application-failover?view=sql-server-ver15#ConnectToSecondary&preserve-view=true).
 
-Test your deployment by [forcing a manual failover](/sql/database-engine/availability-groups/windows/perform-a-forced-manual-failover-of-an-availability-group-sql-server?view=sql-server-ver15) of the availability group.
+Test your deployment by [forcing a manual failover](/sql/database-engine/availability-groups/windows/perform-a-forced-manual-failover-of-an-availability-group-sql-server?view=sql-server-ver15&preserve-view=true) of the availability group.
 
 ## Availability considerations
 

@@ -31,7 +31,7 @@ The architecture consists of the following components. For other terms, see [Ser
 
 **Service Fabric Explorer**. [Service Fabric Explorer][sfx] is an open-source tool for inspecting and managing Service Fabric clusters.
 
-**Azure Pipelines**. [Pipelines](/azure/devops/pipelines/?view=azure-devops) is part of [Azure DevOps Services](/azure/devops/index?view=azure-devops) and runs automated builds, tests, and deployments. You can also use third-party CI/CD solutions such as Jenkins.
+**Azure Pipelines**. [Pipelines](/azure/devops/pipelines/?view=azure-devops&preserve-view=true) is part of [Azure DevOps Services](/azure/devops/index?view=azure-devops) and runs automated builds, tests, and deployments. You can also use third-party CI/CD solutions such as Jenkins.
 
 **Azure Monitor**. [Azure Monitor](/azure/azure-monitor) collects and stores metrics and logs, including platform metrics for the Azure services in the solution and application telemetry. Use this data to monitor the application, set up alerts and dashboards, and perform root cause analysis of failures. Azure Monitor integrates with Service Fabric to collect metrics from controllers, nodes, and containers, as well as container and node logs.
 
@@ -309,7 +309,7 @@ You can use Azure Monitor to set up dashboards for monitoring and to send alerts
 Application telemetry provides data about your service that can help you monitor the health of your service and identify issues. To add traces and events in your service:
 
 - [Microsoft.Extensions.Logging](/azure/service-fabric/service-fabric-how-to-diagnostics-log#microsoftextensionslogging) if you are developing your service with ASP.NET Core. For other frameworks, use a logging library of your choice such as Serilog.
-- You can add your own instrumentation by using the [TelemetryClient](/dotnet/api/microsoft.applicationinsights.telemetryclient?view=azure-dotnet) class in the SDK and view the data in Application Insights. See [Add custom instrumentation to your application](/azure/service-fabric/service-fabric-tutorial-monitoring-aspnet#add-custom-instrumentation-to-your-application).
+- You can add your own instrumentation by using the [TelemetryClient](/dotnet/api/microsoft.applicationinsights.telemetryclient?view=azure-dotnet&preserve-view=true) class in the SDK and view the data in Application Insights. See [Add custom instrumentation to your application](/azure/service-fabric/service-fabric-tutorial-monitoring-aspnet#add-custom-instrumentation-to-your-application).
 - Log ETW events by using [EventSource](/azure/service-fabric/service-fabric-diagnostics-event-generation-app#eventsource). This option is available by default in a Visual Studio Service Fabric solution.
 
  Application Insights provides a lot of built-in telemetry: requests, traces, events, exceptions, metrics, dependencies. If your service exposes HTTP endpoints, enable Application Insights by calling the **UseApplicationInsights** extension method for [Microsoft.AspNetCore.Hosting.IWebHostBuilder](/dotnet/api/microsoft.aspnetcore.hosting.iwebhostbuilder?view=aspnetcore-2.2). For information about instrumenting your service for Application Insights, see these articles:

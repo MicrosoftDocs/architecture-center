@@ -204,7 +204,7 @@ For warm path storage, consider using Azure Cosmos DB. For more information, see
 [az-monitor]: https://azure.microsoft.com/services/monitor/
 [blue-green-dep]: https://martinfowler.com/bliki/BlueGreenDeployment.html
 [cannary-releases]: https://martinfowler.com/bliki/CanaryRelease.html
-[pipelines]: /azure/devops/pipelines/?view=azure-devops&preserve-view=true
+[pipelines]: /azure/devops/pipelines/?view=azure-devops&preserve-view=true&preserve-view=true
 [arm-template]: /azure/azure-resource-manager/resource-group-overview#resource-groups
 [aaf-cost]: ../framework/cost/overview.md
 [azure-pricing-calculator]: https://azure.microsoft.com/pricing/calculator
