@@ -85,9 +85,9 @@ Click the link below to deploy the solution.
 
 <!-- links -->
 
-[resiliency]: ../../framework/resiliency/overview.yml
+[resiliency]: ../../framework/resiliency/overview.md
 [security]: /azure/security
-[scalability]: ../../framework/scalability/performance-efficiency.yml
+[scalability]: ../../framework/scalability/performance-efficiency.md
 [sap-netweaver]: ../../reference-architectures/sap/sap-netweaver.yml
 [sap-hana]: ../../reference-architectures/sap/sap-s4hana.yml
 [sap-large]: ../../reference-architectures/sap/hana-large-instances.yml

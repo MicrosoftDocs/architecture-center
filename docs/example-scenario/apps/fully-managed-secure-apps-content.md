@@ -144,14 +144,14 @@ We have provided three sample cost profiles based on amount of traffic you expec
 [medium-pricing]: https://azure.com/e/c280777e16bd4fd5bc9c23f3b8caf91f
 [large-pricing]: https://azure.com/e/294d5b09fa064ced87d6422826f2a0fc
 [app-service-reference-architecture]: ../../reference-architectures/app-service-web-app/basic-web-app.yml
-[availability]: ../../patterns/category/availability.yml
+[availability]: ../../patterns/category/availability.md
 
-[design-patterns-availability]: ../../patterns/category/availability.yml
-[design-patterns-resiliency]: ../../patterns/category/resiliency.yml
-[design-patterns-scalability]: ../../patterns/category/performance-scalability.yml
-[design-patterns-security]: ../../patterns/category/security.yml
+[design-patterns-availability]: ../../patterns/category/availability.md
+[design-patterns-resiliency]: ../../patterns/category/resiliency.md
+[design-patterns-scalability]: ../../patterns/category/performance-scalability.md
+[design-patterns-security]: ../../patterns/category/security.md
 [design-geo-distributed-ase]: /azure/app-service/environment/app-service-app-service-environment-geo-distributed-scale
-[design-best-practice-cloud-apps-autoscale]: ../../best-practices/auto-scaling.yml
+[design-best-practice-cloud-apps-autoscale]: ../../best-practices/auto-scaling.md
 
 [docs-sql-database]: /azure/sql-database/sql-database-technical-overview
 [docs-webapps]: /azure/app-service/app-service-web-overview
@@ -169,9 +169,9 @@ We have provided three sample cost profiles based on amount of traffic you expec
 [use-app-svc-web-apps-with-appgw]: https://github.com/Azure/fta-internalbusinessapps/blob/webapp-appgateway/appmodernization/app-service/articles/app-gateway-web-apps.yml
 [integrate-ilb-ase-with-appgw]: /azure/app-service/environment/integrate-with-application-gateway
 [pci-dss-blueprint]: /azure/security/blueprints/payment-processing-blueprint
-[resiliency-app-service]: ../../checklist/resiliency-per-service.yml#app-service
-[resiliency]: ../../framework/resiliency/overview.yml
-[scalability]: ../../framework/scalability/performance-efficiency.yml
+[resiliency-app-service]: ../../checklist/resiliency-per-service.md#app-service
+[resiliency]: ../../framework/resiliency/overview.md
+[scalability]: ../../framework/scalability/performance-efficiency.md
 [secure-development]: https://www.microsoft.com/SDL/process/design.aspx
 [sql-geo-replication]: /azure/sql-database/sql-database-geo-replication-overview
 [storage-geo-redudancy]: /azure/storage/common/storage-redundancy-grs

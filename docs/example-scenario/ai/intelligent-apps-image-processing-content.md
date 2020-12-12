@@ -47,7 +47,7 @@ The majority of the components used in this example scenario are managed service
 
 Cosmos DB doesn't autoscale in terms of provisioned request units (RUs). For guidance on estimating your requirements, see [request units](/azure/cosmos-db/request-units) in our documentation. To fully take advantage of the scaling in Cosmos DB, understand how [partition keys](/azure/cosmos-db/partition-data) work in Cosmos DB.
 
-NoSQL databases frequently trade consistency (in the sense of the CAP theorem) for availability, scalability, and partitioning. In this example scenario, a key-value data model is used and transaction consistency is rarely needed as most operations are by definition atomic. Additional guidance to [Choose the right data store](../../guide/technology-choices/data-store-overview.yml) is available in the Azure Architecture Center. If your implementation requires high consistency, you can [choose your consistency level](/azure/cosmos-db/consistency-levels) in Cosmos DB.
+NoSQL databases frequently trade consistency (in the sense of the CAP theorem) for availability, scalability, and partitioning. In this example scenario, a key-value data model is used and transaction consistency is rarely needed as most operations are by definition atomic. Additional guidance to [Choose the right data store](../../guide/technology-choices/data-store-overview.md) is available in the Azure Architecture Center. If your implementation requires high consistency, you can [choose your consistency level](/azure/cosmos-db/consistency-levels) in Cosmos DB.
 
 For general guidance on designing scalable solutions, see the [performance efficiency checklist][scalability] in the Azure Architecture Center.
 
@@ -86,8 +86,8 @@ Before deploying this example scenario in a production environment, review recom
 [large-pricing]: https://azure.com/e/cbadbca30f8640d6a061f8457a74ba7d
 [serverless]: /azure/functions/tutorial-static-website-serverless-api-with-database
 [cv-categories]: /azure/cognitive-services/computer-vision/category-taxonomy
-[resiliency]: ../../framework/resiliency/overview.yml
+[resiliency]: ../../framework/resiliency/overview.md
 [security]: /azure/security
-[scalability]: ../../framework/scalability/performance-efficiency.yml
+[scalability]: ../../framework/scalability/performance-efficiency.md
 [functions-best-practices]: /azure/azure-functions/functions-best-practices
 [msi]: /azure/app-service/app-service-managed-service-identity

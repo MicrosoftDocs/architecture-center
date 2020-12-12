@@ -45,7 +45,7 @@ Keep all deployment and source code artifacts in a source code repository, and u
 ## Next steps
 
 - [Enterprise-grade conversational bot](../../reference-architectures/ai/conversational-bot.yml)
-- [Overview of the resiliency pillar](../../framework/resiliency/overview.yml)
+- [Overview of the resiliency pillar](../../framework/resiliency/overview.md)
 - [Azure Key Vault availability and redundancy](/azure/key-vault/key-vault-disaster-recovery-guidance)
 - [Business continuity and disaster recovery (BCDR): Azure Paired Regions](/azure/best-practices-availability-paired-regions)
 - [Authoring and publishing regions and the associated keys](/azure/cognitive-services/luis/luis-reference-regions)

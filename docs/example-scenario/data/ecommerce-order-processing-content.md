@@ -101,7 +101,7 @@ Other related resources include:
 [docs-cosmos-db-guarantees]: /azure/cosmos-db/high-availability#slas-for-availability
 [docs-cosmos-db-use-cases]: /azure/cosmos-db/use-cases
 [docs-kafka-high-availability]: /azure/hdinsight/kafka/apache-kafka-high-availability
-[availability]: ../../framework/resiliency/overview.yml
-[scalability]: ../../framework/scalability/performance-efficiency.yml
-[resiliency]: ../../patterns/category/resiliency.yml
+[availability]: ../../framework/resiliency/overview.md
+[scalability]: ../../framework/scalability/performance-efficiency.md
+[resiliency]: ../../patterns/category/resiliency.md
 [security]: /azure/security
