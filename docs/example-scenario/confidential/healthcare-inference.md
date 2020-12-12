@@ -4,7 +4,7 @@ titleSuffix: Azure Example Scenarios
 description: Learn how to use confidential computing and containers to support a provider-hosted application that securely collaborates with a hospital and a diagnostic provider.
 author: agowdamsft
 ms.author: agowda
-ms.date: 12/9/2020
+ms.date: 12/11/2020
 ms.topic: example-scenario
 ms.service: architecture-center
 ms.subservice: example-scenario
@@ -62,71 +62,71 @@ Many industries protect their data by using confidential computing for these pur
 
 - [Fortanix](https://www.fortanix.com) can be used instead of SCONE to deploy confidential containers to use with your containerized application. Fortanix provides the flexibility to run and manage the broadest set of applications, including existing applications, new enclave-native applications, and pre-packaged applications.
 
-- [Graphene](https://graphene.readthedocs.io/en/latest/cloud-deployment.html#azure-kubernetes-service-aks) is a lightweight, open-source guest OS that can run a single Linux application in an isolated environment with benefits comparable to running a complete OS. It has good tooling support for converting existing docker container applications to Graphene Shielded Containers (GSC).
+- [Graphene](https://graphene.readthedocs.io/en/latest/cloud-deployment.html#azure-kubernetes-service-aks) is a lightweight, open-source guest OS that can run a single Linux application in an isolated environment with benefits comparable to running a complete OS. It has good tooling support for converting existing Docker container applications to Graphene Shielded Containers (GSC).
 
 ## Considerations
 
 ### Availability, scalability, and security
 
-The available sizes for Azure confidential computing virtual machines are **DC1s_v2**, **DC2s_v2**, **DC4s_V2**, and **DC8_v2**. You may deploy these sizes only in certain regions. For more information, see [Quickstart: Deploy an Azure Confidential Computing VM in the Marketplace](/azure/confidential-computing/quick-create-marketplace) and [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines).
+The available sizes for Azure confidential computing virtual machines are the 2nd-generation D family sizes for general purpose needs, known collectively as D-Series v2. The specific available sizes are **DC1s_v2**, **DC2s_v2**, **DC4s_V2**, and **DC8_v2**, where the numerals represent the number of virtual CPUs (vCPUs). You may deploy these sizes only in certain regions. For more information, see [Quickstart: Deploy an Azure Confidential Computing VM in the Marketplace](/azure/confidential-computing/quick-create-marketplace) and [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines).
 
-This scenario uses Intel SGX-enabled DCs_v2-series (Gen2) virtual machines. 
+This scenario uses Intel SGX-enabled DCs_v2-series (Gen2) virtual machines.
 
 ## Deploy this scenario
 
 This scenario involves a [confidential Flask-based application](https://sconedocs.github.io/flask_demo/) example adapted from the SCONE website. The Python code, which uses the SCONE Flask web API, executes inside of an Intel Software Guard Extensions (SGX) enclave.
 
-### Set up for inference server deployment
-
-To get ready to deploy the confidential inference server deployment, follow these steps:
-
-1. Clone the example code to your local computer, and then go to the root folder:
+To begin scenario deployment, clone the example code to your local computer, and then go to the root folder:
 
     ```bash
     git clone https://github.com/Azure-Samples/confidential-container-samples.git
     cd confidential-container-samples/confidential-healthcare-scone-confinf-onnx
     ```
 
-1. Prepare the inference model by running the model script:
+### Set up for inference server deployment
 
-    ```bash
-    cd model
-    ./run.sh
-    ```
+To get ready to deploy the confidential inference server deployment, prepare the inference model by running the model script:
 
-    The model script creates the ONNX model file (*unet.onnx*), which is used as part of the deployment of an ONNX runtime confidential inference server.
+```bash
+cd model
+./run.sh
+```
+
+The model script creates the ONNX model file (*unet.onnx*), which is used as part of the deployment of an ONNX runtime confidential inference server.
 
 ### Run and test the service
 
-To get the Flask-based service running and tested on your local SGX-enabled computer, follow these steps:
+To get the Flask-based service running and tested on your local SGX-enabled computer:
 
-1. Fill in the confidential ONNX deployment's server address and API key, and the Azure application's ID and password. Then run a script that creates an encrypted image and generates some environment variables to store and load. Finally, start the Flask-based service and the Redis Cache Service  using `docker-compose`:
+1. In the shell commands below, replace the confidential ONNX deployment placeholders with actual values for the server address, API key, and directory. Do the same for the object ID and password of the Azure application. Then run a script that creates an encrypted image and generates some environment variables to store and load. Finally, start the Flask-based service and the Redis Cache Service by running `docker-compose`:
 
     ```bash
     export CONFONNX_URL=<your deployment server address>
     export CONFONNX_API_KEY=<your deployment API key>
-    export CONFONNX_DIR=/path/to/confonnx/repo
+    export CONFONNX_DIR=<path to your deployment server directory, such as /path/to/confonnx/repo>
     export AZ_APP_ID=<Azure application ID>
     export AZ_APP_PWD=<Azure application password>
+
+    cd ..
     ./create_image.sh
     source myenv
     docker-compose up
     ```
 
-1. Retrieve the API certificate from the SCONE Configuration and Attestation Service) (CAS):
+1. Retrieve the API certificate from the SCONE configuration and attestation service (CAS) by using the Client URL command (`cURL`) and the `jq` filtering command:
 
     ```bash
     source myenv
     curl -k -X GET "https://${SCONE_CAS_ADDR-cas}:8081/v1/values/session=$FLASK_SESSION" | jq -r .values.api_ca_cert.value > cacert.pem
     ```
 
-    SCONE CAS issues API certificates to the host name `api`, so we have to use that as the URL name.
+1. Set the URL name. The API certificates are given the host name `api`, so you have to use that string.
 
     ```bash
     export URL=https://api:4996
     ```
 
-1. To point to the actual address, use the Client URL command (`cURL`). Alternatively, you can edit your */etc/hosts* file.
+1. Execute test queries with the `cURL` command, using the `--resolve` option to point to the actual address. (Alternatively, you can edit your */etc/hosts* file.)
 
     ```bash
     curl --cacert cacert.pem -X POST ${URL}/patient/patient_3 -d "fname=Jane&lname=Doe&address='123 Main Street'&city=Richmond&state=Washington&ssn=123-223-2345&email=nr@aaa.com&dob=01/01/2010&contactphone=123-234-3456&drugallergies='Sulpha, Penicillin, Tree Nut'&preexistingconditions='diabetes, hypertension, asthma'&dateadmitted=01/05/2010&insurancedetails='Primera Blue Cross'" --resolve api:4996:127.0.0.1
@@ -146,7 +146,143 @@ To get the Flask-based service running and tested on your local SGX-enabled comp
     {"id":"patient_3","score":0.2781606437899131}
     ```
 
-### Execute on a Kubernetes cluster
+### Execute on a Kubernetes cluster and AKS
+
+#### Install and run SCONE services
+
+Before executing on a Kubernetes cluster, you need to get access to [curated confidential applications called SconeApps](https://sconedocs.github.io/helm/), which the procedure here leads you through. SconeApps are available on a private GitHub repository that currently is available only for commercial customers, through SCONE Standard Edition. Go to the [SCONE website](https://scontain.com/) and contact the company directly to get this service level.
+
+You also need to use Helm, which manages Kubernetes packages. If Helm isn't already installed, you can go to the [Helm website](https://helm.sh/) to install it.
+
+SCONE services that you'll install include the SCONE local attestation service (LAS), the SCONE configuration and attestation service (CAS), and the SGX device plug-in for Kubernetes. To install and run SCONE services:
+
+1. If you don't already have a GitHub personal access token (PAT), go to the [New personal access token](https://github.com/settings/tokens/new) site on GitHub, enter a **Note**, and select **Generate new token** to create a new one. Then copy the new personal access token that appears (a 40-digit hexadecimal number).
+
+1. Paste the GitHub personal access token into the `GH_TOKEN` placeholder and run the shell commands below:
+
+    ```bash
+    export GH_TOKEN=<your GitHub personal access token>
+    helm repo add sconeapps https://${GH_TOKEN}@raw.githubusercontent.com/scontain/sconeapps/master/
+    helm repo update
+    ```
+
+1. If you don't already have a Docker Hub personal access token, go to [Managing access tokens](https://docs.docker.com/docker-hub/access-tokens/) on the Docker documentation website and follow the instructions to create and copy an access token.
+
+1. In the shell commands below, replace the Docker Hub placeholders for the user name, access token, and email address. Then run the shell commands to give SconeApps access to private Docker images:
+
+    ```bash
+    export DOCKER_HUB_USERNAME=<your Docker Hub user name>
+    export DOCKER_HUB_ACCESS_TOKEN=<your Docker Hub access token>
+    export DOCKER_HUB_EMAIL=<your Docker Hub email address>
+    
+    kubectl create secret docker-registry sconeapps \
+        --docker-server=index.docker.io/v1/ \
+        --docker-username=$DOCKER_HUB_USERNAME \
+        --docker-password=$DOCKER_HUB_ACCESS_TOKEN \
+        --docker-email=$DOCKER_HUB_EMAIL
+    ```
+
+1. Use Helm to install and start the SCONE LAS and CAS:
+
+    ```bash
+    helm install las sconeapps/las --set service.hostPort=true
+    helm install cas sconeapps/cas
+    ```
+
+1. Use Helm to install the SGX device plug-in for Kubernetes:
+
+    ```bash
+    helm install sgxdevplugin sconeapps/sgxdevplugin
+    ```
+
+#### Run and test the application
+
+To run and test the Flask-based application:
+
+1. In the following shell commands, replace the `IMAGE` placeholder with the repository address to put the image in (for example, `myregistry.azurecr.io/flask_restapi_image`). Then run the shell commands, which create a Docker image and set its name:
+
+    ```bash
+    export IMAGE=<your repository address for the image>
+    # Optional: export FLASK_HOSTNAME=<name>.<location>.cloudapp.azure.com
+    # Optional: export LETSENCRYPT_CERT_DIR=<certificate directory path, such as /path/to/certs>
+    ./create_image.sh
+    source myenv
+    docker push $IMAGE
+    ```
+
+1. Use the Helm chart from the *deploy/helm* repository directory to deploy the application to a Kubernetes cluster:
+
+    ```bash
+    helm install api-v1 deploy/helm \
+       --set image=$IMAGE \
+       --set scone.cas=$SCONE_CAS_ADDR \
+       --set scone.flask_session=$FLASK_SESSION/flask_restapi \
+       --set scone.redis_session=$REDIS_SESSION/redis \
+       --set service.type=LoadBalancer
+    ```
+
+    Setting `service.type` to `LoadBalancer` allows the application to get traffic from the internet through a managed load balancer.
+
+1. After all resources are running, use Helm to test the API:
+
+    ```bash
+    helm test api-v1
+    ```
+
+#### Access the application
+
+To access the confidential Flask-based application:
+
+1. If the confidential Flask-based application is exposed to the world through a load balancer service type, you can retrieve its CA certificate from the configuration and attestation service:
+
+    ```bash
+    source myenv
+    curl -k -X GET "https://${SCONE_CAS_ADDR-cas}:8081/v1/values/session=$FLASK_SESSION" | jq -r .values.api_ca_cert.value > cacert.pem
+    ```
+
+1. Retrieve the public IP address of the service:
+
+    ```bash
+    export SERVICE_IP=$(kubectl get svc --namespace default api-v1-example \
+        --template "{{ range (index .status.loadBalancer.ingress 0) }}{{.}}{{ end }}")
+    ```
+
+1. Set the URL name. The API certificates are given the host name `api`, so you have to use that string.
+
+    ```bash
+    export URL=https://api
+    ```
+
+1. Execute test queries with the `cURL` command, using the `--resolve` option to point to the actual address. (Alternatively, you can edit your */etc/hosts* file.)
+
+    ```bash
+    curl --cacert cacert.pem \
+        -X POST ${URL}/patient/patient_3 \
+        -d "fname=Jane&lname=Doe&address='123 Main Street'&city=Richmond&state=Washington&ssn=123-223-2345&email=nr@aaa.com&dob=01/01/2010&contactphone=123-234-3456&drugallergies='Sulpha, Penicillin, Tree Nut'&preexistingconditions='diabetes, hypertension, asthma'&dateadmitted=01/05/2010&insurancedetails='Primera Blue Cross'" \
+        --resolve api:443:${SERVICE_IP}
+    curl --cacert cacert.pem \
+        -X POST ${URL}/delineate \
+        -F img=@model/brain-segmentation-pytorch/assets/TCGA_CS_4944.png \
+        --resolve api:443:${SERVICE_IP}
+    ```
+
+#### Deploy and access the web client
+
+To access the deployed enclave service, see the *web_client* folder, which contains a basic static website. You may deploy the static website directly to Azure Blob storage, which doesn't have a back-end component. Before you deploy the website, remember to replace the server URL.
+
+You can use a [sample brain segmentation image](https://github.com/mateuszbuda/brain-segmentation-pytorch/blob/master/assets/TCGA_CS_4944.png) to try the delineation function that invokes the deployed confidential inference server.
+
+### Clean up resources
+
+To uninstall the resources used to run the confidential healthcare platform, run these shell commands:
+
+```bash
+helm delete cas
+helm delete las
+helm delete sgxdevplugin
+helm delete api-v1
+kubectl delete pod api-v1-example-test-api
+```
 
 ## Pricing
 
@@ -158,4 +294,5 @@ To get the Flask-based service running and tested on your local SGX-enabled comp
 
 ## Related resources
 
-
+- [Official ONNX runtime website](https://www.onnxruntime.ai/)
+- [Confidential ONNX inference server (GitHub sample)](https://github.com/microsoft/onnx-server-openenclave)
