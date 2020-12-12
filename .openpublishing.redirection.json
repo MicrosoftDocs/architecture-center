@@ -2055,6 +2055,10 @@
      {
       "source_path": "docs/patterns/strangler.md",
       "redirect_url": "/azure/architecture/patterns/strangler-fig"
+     },
+     {
+      "source_path": "docs/browse/hybrid_index.md",
+      "redirect_url": "azure/architecture/browse/?azure_categories=hybrid"
      } 
     ]
 }
