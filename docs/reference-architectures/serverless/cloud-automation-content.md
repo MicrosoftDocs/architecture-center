@@ -234,7 +234,7 @@ To deploy the reference implementations for this architecture, see the [deployme
 
 ## Next steps
 
-Learn more about the [serverless implementations](../../serverless/code.yml).
+Learn more about the [serverless implementations](../../serverless/code.md).
 
 <!-- links -->
 

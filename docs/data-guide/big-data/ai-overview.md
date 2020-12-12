@@ -46,11 +46,11 @@ With many layers in each neural network-and sometimes using multiple neural netw
 
 - [Distributed training of deep learning models on Azure](../../reference-architectures/ai/training-deep-learning.yml)
 
-- [Batch scoring of deep learning models on Azure](../../reference-architectures/ai/batch-scoring-deep-learning.md)
+- [Batch scoring of deep learning models on Azure](../../reference-architectures/ai/batch-scoring-deep-learning.yml)
 
 - [Training of Python scikit-learn and deep learning models on Azure](../../reference-architectures/ai/training-python-models.yml)
 
-- [Real-time scoring of Python scikit-learn and deep learning models on Azure](../../reference-architectures/ai/realtime-scoring-python.md)
+- [Real-time scoring of Python scikit-learn and deep learning models on Azure](../../reference-architectures/ai/realtime-scoring-python.yml)
 
 ### Bots
 
@@ -392,10 +392,10 @@ and scikit-learn.
     Azure](../../reference-architectures/ai/batch-scoring-python.yml)
 
 - [Batch scoring of deep learning models on
-    Azure](../../reference-architectures/ai/batch-scoring-deep-learning.md)
+    Azure](../../reference-architectures/ai/batch-scoring-deep-learning.yml)
 
 - [Real-time scoring of Python scikit-learn and deep learning models on
-    Azure](../../reference-architectures/ai/realtime-scoring-python.md)
+    Azure](../../reference-architectures/ai/realtime-scoring-python.yml)
 
 - [Machine learning operationalization (MLOps) for Python models using Azure
     Machine

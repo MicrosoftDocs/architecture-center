@@ -25,7 +25,7 @@ As organizations such as yours have adopted Azure, the [Cloud Adoption Framework
 
 You understand the benefits and trade-offs of Kubernetes, and have decided that AKS is the best Azure compute platform for your workload. Your organizational controls have been put into place; you're ready to learn how to deploy production-ready clusters for your workload.
 
-**Microsoft's AKS Baseline Cluster** is the starting point to help you build production-ready AKS clusters. We recommend you start from this baseline implementation and modify it to align to your workload's specific needs and [Well-Architected Framework](../../framework/index.yml) priorities.
+**Microsoft's AKS Baseline Cluster** is the starting point to help you build production-ready AKS clusters. We recommend you start from this baseline implementation and modify it to align to your workload's specific needs and [Well-Architected Framework](../../framework/index.md) priorities.
 
 > [!div class="nextstepaction"]
 > [Microsoft's AKS Baseline Cluster](../../reference-architectures/containers/aks/secure-baseline-aks.yml)

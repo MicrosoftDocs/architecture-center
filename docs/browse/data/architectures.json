@@ -3511,7 +3511,7 @@
                 "solution-idea"
             ],
             "type": "solution-idea",
-            "file_url": "solution-ideas/articles/devsecops-in-azure.md",
+            "file_url": "solution-ideas/articles/devsecops-in-azure.yml",
             "http_url": "/azure/architecture/solution-ideas/articles/devsecops-in-azure",
             "word_count": 778,
             "read_time": "4 min read",

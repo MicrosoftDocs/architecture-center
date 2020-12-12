@@ -53,7 +53,7 @@ In this solution, a single [Azure Active Directory (Azure AD)](https://azure.mic
   
 - [Azure Pipelines](https://azure.microsoft.com/services/devops/pipelines/) is a fully featured CI/CD service that can automatically deploy updated Container Registry images to Kubernetes clusters.
   
-- [Azure Key Vault](/azure/key-vault/general/basic-concepts) securely stores and tightly controls access to secrets like API keys, passwords, and certificates. For more information about Key Vault in DevOps scenarios, see [DevSecOps in Azure](devsecops-in-azure.md) and [DevSecOps in GitHub](devsecops-in-github.yml).
+- [Azure Key Vault](/azure/key-vault/general/basic-concepts) securely stores and tightly controls access to secrets like API keys, passwords, and certificates. For more information about Key Vault in DevOps scenarios, see [DevSecOps in Azure](devsecops-in-azure.yml) and [DevSecOps in GitHub](devsecops-in-github.yml).
   
 - [Azure Container Registry](/azure/container-registry/) supports building, storing, and managing container images and artifacts in private registries for all types of container deployments.
   

@@ -80,4 +80,4 @@ In a purely real-time solution, most of the processing orchestration is managed 
 
 The following reference architecture shows an end-to-end stream processing pipeline:
 
-- [Stream processing with Azure Stream Analytics](../../reference-architectures/data/stream-processing-stream-analytics.md)
+- [Stream processing with Azure Stream Analytics](../../reference-architectures/data/stream-processing-stream-analytics.yml)

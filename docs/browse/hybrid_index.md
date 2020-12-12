@@ -24,7 +24,7 @@ Architecture diagrams, reference architectures, example scenarios, and solutions
 [!INCLUDE [Cross-platform Chat](../../includes/cards/cross-platform-chat.md)]
 [!INCLUDE [Deploy AI and machine learning at the edge by using Azure Stack Edge](../../includes/cards/deploy-ai-ml-azure-stack-edge.md)]
 [!INCLUDE [DevOps in a hybrid environment](../../includes/cards/devops-in-a-hybrid-environment.md)]
-[!INCLUDE [DevSecOps in Azure](../../includes/cards/devsecops-in-azure.md)]
+[!INCLUDE [DevSecOps in Azure](../../includes/cards/devsecops-in-azure.yml)]
 [!INCLUDE [HPC Risk Analysis Template - Solution Architecture](../../includes/cards/hpc-risk-analysis.md)]
 [!INCLUDE [Hybrid HPC in Azure with HPC Pack](../../includes/cards/hybrid-hpc-in-azure-with-hpc-pack.md)]
 [!INCLUDE [Hybrid SharePoint Farm with Microsoft 365](../../includes/cards/sharepoint-farm-microsoft-365.md)]
