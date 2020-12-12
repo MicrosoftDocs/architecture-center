@@ -16,6 +16,6 @@ products:
   - azure
   - dotnet
   - github
-thumbnailUrl: ./thumbs/default.png
+thumbnailUrl: ""
 content: |
    [!include[](gridwich-logging-content.md)]

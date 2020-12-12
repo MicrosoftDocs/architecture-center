@@ -22,6 +22,6 @@ summary: Compare reference architectures for integrating on-premises Active Dire
 products:
   - azure
   - windows
-thumbnailUrl: ./thumbs/default.png
+thumbnailUrl: ""
 content: |
    [!include[](index-content.md)]

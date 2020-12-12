@@ -1462,7 +1462,7 @@ items:
               - name: Oracle database migration
                 items:
                   - name: Migration decision process
-                    href: example-scenario/oracle-migrate/oracle-migration-overview.yml
+                    href: example-scenario/oracle-migrate/oracle-migration-overview.md
                   - name: Cross-cloud connectivity
                     href: example-scenario/oracle-migrate/oracle-migration-cross-cloud.yml
                   - name: Lift and shift to Azure VMs

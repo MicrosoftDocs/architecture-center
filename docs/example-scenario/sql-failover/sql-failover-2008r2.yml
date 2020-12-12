@@ -21,6 +21,6 @@ products:
   - vs
   - windows
   - windows-server
-thumbnailUrl: ./thumbs/default.png
+thumbnailUrl: ""
 content: |
    [!include[](sql-failover-2008r2-content.md)]

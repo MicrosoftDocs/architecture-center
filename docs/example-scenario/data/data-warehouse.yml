@@ -24,6 +24,6 @@ products:
   - azure
   - power-bi
   - sql-server
-thumbnailUrl: ./thumbs/default.png
+thumbnailUrl: ""
 content: |
    [!include[](data-warehouse-content.md)]

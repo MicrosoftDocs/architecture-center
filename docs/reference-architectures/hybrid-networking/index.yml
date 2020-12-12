@@ -21,6 +21,6 @@ summary: Compare reference architectures for connecting an on-premises network t
 products:
   - azure
   - azure-expressroute
-thumbnailUrl: ./thumbs/default.png
+thumbnailUrl: ""
 content: |
    [!include[](index-content.md)]

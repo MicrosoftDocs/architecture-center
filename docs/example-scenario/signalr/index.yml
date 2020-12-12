@@ -27,6 +27,6 @@ products:
   - azure
   - azure-functions
   - github
-thumbnailUrl: ./thumbs/default.png
+thumbnailUrl: ""
 content: |
    [!include[](index-content.md)]

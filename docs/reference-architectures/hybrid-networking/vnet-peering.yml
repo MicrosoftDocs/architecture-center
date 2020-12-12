@@ -23,6 +23,6 @@ summary: Compares two ways to connect virtual networks in Azure.
 products:
   - azure
   - azure-portal
-thumbnailUrl: ./thumbs/default.png
+thumbnailUrl: ""
 content: |
    [!include[](vnet-peering-content.md)]

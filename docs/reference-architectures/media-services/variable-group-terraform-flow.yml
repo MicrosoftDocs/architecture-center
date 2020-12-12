@@ -17,6 +17,6 @@ products:
   - azure-devops
   - azure-pipelines
   - github
-thumbnailUrl: ./thumbs/default.png
+thumbnailUrl: ""
 content: |
    [!include[](variable-group-terraform-flow-content.md)]

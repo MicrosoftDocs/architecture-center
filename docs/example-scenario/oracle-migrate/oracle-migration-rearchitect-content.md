@@ -75,4 +75,4 @@ After the whole migration, uninstall the client components to remove the **ssma_
 To begin migrating your Oracle database to SQL, see [SQL Server Migration Assistant for Oracle (OracleToSQL)](/sql/ssma/oracle/sql-server-migration-assistant-for-oracle-oracletosql).
 
 > [!NOTE]
-> If this migration path doesn't seem like the right one for your business needs, refer back to the [Migration decision tree](oracle-migration-overview.yml#migration-decision-tree).
+> If this migration path doesn't seem like the right one for your business needs, refer back to the [Migration decision tree](oracle-migration-overview.md#migration-decision-tree).

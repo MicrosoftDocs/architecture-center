@@ -17,6 +17,6 @@ products:
   - azure-functions
   - dotnet
   - github
-thumbnailUrl: ./thumbs/default.png
+thumbnailUrl: ""
 content: |
    [!include[](media-services-setup-scale-content.md)]

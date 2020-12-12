@@ -15,6 +15,6 @@ summary: 'Learn about Gridwich namespaces and project naming conventions and str
 products:
   - azure
   - dotnet
-thumbnailUrl: ./thumbs/default.png
+thumbnailUrl: ""
 content: |
    [!include[](gridwich-project-names-content.md)]

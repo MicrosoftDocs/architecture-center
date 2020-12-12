@@ -26,6 +26,6 @@ products:
   - azure
   - github
   - windows
-thumbnailUrl: ./thumbs/default.png
+thumbnailUrl: ""
 content: |
    [!include[](sap-production-content.md)]

@@ -25,6 +25,6 @@ summary: Use IoT devices and data analytics to provide comprehensive management 
 products:
   - azure
   - azure-databricks
-thumbnailUrl: ./thumbs/default.png
+thumbnailUrl: ""
 content: |
    [!include[](big-data-with-iot-content.md)]

@@ -28,6 +28,6 @@ products:
   - github
   - vs
   - windows
-thumbnailUrl: ./thumbs/default.png
+thumbnailUrl: ""
 content: |
    [!include[](jenkins-content.md)]

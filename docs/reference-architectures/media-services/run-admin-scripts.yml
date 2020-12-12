@@ -18,6 +18,6 @@ products:
   - azure-pipelines
   - azure-storage
   - github
-thumbnailUrl: ./thumbs/default.png
+thumbnailUrl: ""
 content: |
    [!include[](run-admin-scripts-content.md)]
