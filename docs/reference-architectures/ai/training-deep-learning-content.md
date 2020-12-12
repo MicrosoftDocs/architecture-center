@@ -135,7 +135,7 @@ The output from this architecture is a trained model that is saved to blob stora
 [1]: ./_images/distributed_dl_flow.png
 [2]: ./_images/distributed_dl_tests.png
 [acr]: /azure/container-registry/container-registry-intro
-[aaf-cost]: ../../framework/cost/overview.yml
+[aaf-cost]: ../../framework/cost/overview.md
 [aml-compute]: /azure/machine-learning/service/how-to-set-up-training-targets#amlcompute
 [az-container-registry-pricing]: https://azure.microsoft.com/pricing/details/container-registry
 [az-vm-pricing]: https://azure.microsoft.com/pricing/details/virtual-machines

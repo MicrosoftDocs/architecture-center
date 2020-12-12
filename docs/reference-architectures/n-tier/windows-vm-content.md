@@ -124,7 +124,7 @@ For more information, see the Operational Excellence section in [Azure Well-Arch
 
 [arm-template]: /azure/azure-resource-manager/resource-group-overview#resource-groups
 [az-devops]: /azure/virtual-machines/windows/infrastructure-automation#azure-devops-services
-[Microsoft Azure Well-Architected Framework]: ../../framework/cost/overview.yml
+[Microsoft Azure Well-Architected Framework]: ../../framework/cost/overview.md
 [azure-monitor]: https://azure.microsoft.com/services/monitor/
 [audit-logs]: https://azure.microsoft.com/blog/analyze-azure-audit-logs-in-powerbi-more/
 [azure-storage]: /azure/storage/common/storage-introduction
@@ -161,5 +161,5 @@ For more information, see the Operational Excellence section in [Azure Well-Arch
 [vm-size-tables]: /azure/virtual-machines/sizes
 [vm-sla]: https://azure.microsoft.com/support/legal/sla/virtual-machines
 [windows-vms-pricing]: https://azure.microsoft.com/pricing/details/virtual-machines/windows
-[WAF-cost]: ../../framework/cost/overview.yml
-[WAF-devops]: ../../framework/devops/overview.yml
+[WAF-cost]: ../../framework/cost/overview.md
+[WAF-devops]: ../../framework/devops/overview.md

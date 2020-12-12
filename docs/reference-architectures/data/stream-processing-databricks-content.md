@@ -392,12 +392,12 @@ To the deploy and run the reference implementation, follow the steps in the [Git
 
 <!-- links -->
 
-[AAF-devops]: ../../framework/devops/overview.yml
+[AAF-devops]: ../../framework/devops/overview.md
 [arm-template]: /azure/azure-resource-manager/resource-group-overview#resource-groups
 [az-devops]: /azure/virtual-machines/windows/infrastructure-automation#azure-devops-services
 [azure-monitor]: https://azure.microsoft.com/services/monitor
 [databricks-monitoring]: ../../databricks-monitoring/index.yml
-[aaf-cost]: ../../framework/cost/overview.yml
+[aaf-cost]: ../../framework/cost/overview.md
 [Cosmos-Calculator]: https://cosmos.azure.com/capacitycalculator
 [cosmosdb-pricing]: https://azure.microsoft.com/pricing/details/cosmos-db
 [azure-pricing-calculator]: https://azure.microsoft.com/pricing/calculator

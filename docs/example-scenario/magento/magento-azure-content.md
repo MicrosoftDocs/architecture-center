@@ -126,7 +126,7 @@ AKS clusters can be deployed across multiple Availability Zones, to provide a hi
 
 - Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate costs.
 
-- See other cost considerations in [Principles of cost optimization](../../framework/cost/overview.yml) in the Microsoft Azure Well-Architected Framework.
+- See other cost considerations in [Principles of cost optimization](../../framework/cost/overview.md) in the Microsoft Azure Well-Architected Framework.
 
 ## DevOps considerations
 

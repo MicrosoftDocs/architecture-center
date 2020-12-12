@@ -209,7 +209,7 @@ The following architecture uses some of the same technologies:
 [Windows-vm-pricing]: https://azure.microsoft.com/pricing/details/virtual-machines/windows
 [Managed-Sql-pricing]: https://azure.microsoft.com/pricing/details/sql-database/managed
 [azure-sql-db]: /azure/sql-database
-[health-endpoint-monitoring-pattern]: ../../patterns/health-endpoint-monitoring.yml
+[health-endpoint-monitoring-pattern]: ../../patterns/health-endpoint-monitoring.md
 [azure-cli]: /cli/azure
 [azure-pricing-calculator]: https://azure.microsoft.com/pricing/calculator
 [regional-pairs]: /azure/best-practices-availability-paired-regions
@@ -226,5 +226,5 @@ The following architecture uses some of the same technologies:
 [visio-download]: https://arch-center.azureedge.net/vm-reference-architectures.vsdx
 [vnet-dns]: /azure/virtual-network/manage-virtual-network#change-dns-servers
 [wsfc]: /sql/sql-server/failover-clusters/windows/windows-server-failover-clustering-wsfc-with-sql-server?view=sql-server-ver15
-[WAF-cost]: ../../framework/cost/overview.yml
-[WAF-devops]: ../../framework/devops/overview.yml
+[WAF-cost]: ../../framework/cost/overview.md
+[WAF-devops]: ../../framework/devops/overview.md

@@ -143,7 +143,7 @@ To deploy this reference architecture, follow the steps described in the GitHub 
 <!-- links -->
 
 [aad-auth]: /azure/aks/aad-integration
-[aaf-cost]: ../../framework/cost/overview.yml
+[aaf-cost]: ../../framework/cost/overview.md
 [acr]: /azure/container-registry
 [aks]: /azure/aks/intro-kubernetes
 [aks-Calculator]: https://azure.microsoft.com/pricing/calculator/?service=kubernetes-service

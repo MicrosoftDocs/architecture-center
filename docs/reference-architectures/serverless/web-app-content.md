@@ -306,7 +306,7 @@ Related guidance:
 
 <!-- links -->
 
-[aaf-cost]: ../../framework/cost/overview.yml
+[aaf-cost]: ../../framework/cost/overview.md
 [api-versioning]: ../../best-practices/api-design.yml#versioning-a-restful-web-api
 [apim]: /azure/api-management/api-management-key-concepts
 [apim-ip]: /azure/api-management/api-management-faq#how-can-i-secure-the-connection-between-the-api-management-gateway-and-my-back-end-services

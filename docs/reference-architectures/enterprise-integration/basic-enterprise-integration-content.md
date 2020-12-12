@@ -188,7 +188,7 @@ For greater reliability and scalability, use message queues and events to decoup
 <!-- links -->
 
 [aad]: /azure/active-directory
-[aaf-cost]: ../../framework/cost/overview.yml
+[aaf-cost]: ../../framework/cost/overview.md
 [apim]: /azure/api-management
 [apim-autoscale]: /azure/api-management/api-management-howto-autoscale
 [apim-backup]: /azure/api-management/api-management-howto-disaster-recovery-backup-restore

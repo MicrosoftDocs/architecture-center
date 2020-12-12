@@ -154,7 +154,7 @@ A deployment for a reference architecture that implements these recommendations 
 
 ### Prerequisites
 
-[!INCLUDE [ref-arch-prerequisites.md](../../../includes/ref-arch-prerequisites.yml)]
+[!INCLUDE [ref-arch-prerequisites.md](../../../includes/ref-arch-prerequisites.md)]
 
 ### Deploy resources
 
@@ -217,7 +217,7 @@ In this step, you will connect the two local network gateways.
 
 <!-- links -->
 
-[aaf-cost]: ../../framework/cost/overview.yml
+[aaf-cost]: ../../framework/cost/overview.md
 [azure-forced-tunneling]: /azure/vpn-gateway/vpn-gateway-forced-tunneling-rm
 [azurect]: https://github.com/Azure/NetworkMonitoring/tree/master/AzureCT
 [cloud-services-network-security]: /azure/best-practices-network-security

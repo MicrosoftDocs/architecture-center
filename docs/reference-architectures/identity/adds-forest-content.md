@@ -167,7 +167,7 @@ A deployment for this architecture is available on [GitHub][github]. Note that t
 
 <!-- links -->
 
-[aaf-cost]: ../../framework/cost/overview.yml
+[aaf-cost]: ../../framework/cost/overview.md
 [adds-extend-domain]: ./adds-extend-domain.yml
 [ADDS-pricing]: https://azure.microsoft.com/pricing/details/active-directory-ds
 [adfs]: ./adfs.yml

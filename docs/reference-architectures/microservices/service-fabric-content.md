@@ -447,7 +447,7 @@ To deploy the reference implementation for this architecture, follow the steps i
 
 [sfx]: /azure/service-fabric/service-fabric-visualizing-your-cluster
 [service-fabric-tutorial]: /azure/service-fabric/service-fabric-tutorial-deploy-container-app-with-cicd-vsts
-[aaf-cost]: ../../framework/cost/overview.yml
+[aaf-cost]: ../../framework/cost/overview.md
 [ap-insight-cost]: /azure/azure-monitor/app/pricing
 [Api-Management-pricing]: https://azure.microsoft.com/pricing/details/api-management
 [az-monitor-pricing]: https://azure.microsoft.com/pricing/details/monitor

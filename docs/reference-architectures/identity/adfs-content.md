@@ -370,7 +370,7 @@ A deployment for this architecture is available on [GitHub][github]. Note that t
 <!-- links -->
 
 [extending-ad-to-azure]: ./adds-extend-domain.yml
-[aaf-cost]: ../../framework/cost/overview.yml
+[aaf-cost]: ../../framework/cost/overview.md
 [Azure-AD-pricing]: https://azure.microsoft.com/pricing/details/active-directory
 [where-to-place-an-fs-proxy]: /previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dd807048(v=ws.11)
 [ADDS-pricing]: https://azure.microsoft.com/pricing/details/active-directory-ds

@@ -372,7 +372,7 @@ See the following articles for more information and for examples of SAP workload
 
 <!-- links -->
 
-[aaf-cost]: ../../framework/cost/overview.yml
+[aaf-cost]: ../../framework/cost/overview.md
 [azure-pricing-calculator]: https://azure.microsoft.com/pricing/calculator
 [expressroute-pricing]: https://azure.microsoft.com/pricing/details/expressroute
 [visio-download]: https://arch-center.azureedge.net/sap-netweaver.vsdx

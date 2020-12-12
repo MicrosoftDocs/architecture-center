@@ -156,8 +156,8 @@ az deployment group create \
 
 <!-- links -->
 
-[aaf-cost]: ../../framework/cost/overview.yml
-[AAF-devops]: ../../framework/devops/overview.yml
+[aaf-cost]: ../../framework/cost/overview.md
+[AAF-devops]: ../../framework/devops/overview.md
 [azure-cli-2]: /azure/install-azure-cli
 [azure-pricing-calculator]: https://azure.microsoft.com/pricing/calculator
 [azbb]: https://github.com/mspnp/template-building-blocks/wiki/Install-Azure-Building-Blocks

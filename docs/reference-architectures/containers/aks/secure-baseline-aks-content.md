@@ -610,7 +610,7 @@ Advanced deployment techniques such as [Blue-green deployment](https://martinfow
 
 ## Cost management
 
-Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate costs for the services used in the architecture. Other best practices are described in the [Cost Optimization](../../../framework/cost/overview.md) section in [Microsoft Azure Well-Architected Framework](../../../framework/cost/overview.yml).
+Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate costs for the services used in the architecture. Other best practices are described in the [Cost Optimization](../../../framework/cost/overview.md) section in [Microsoft Azure Well-Architected Framework](../../../framework/cost/overview.md).
 
 ### Provision
 

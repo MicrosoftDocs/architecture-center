@@ -207,7 +207,7 @@ The parameter files include a hard-coded password in various places. Change thes
 
 ### Prerequisites
 
-[!INCLUDE [ref-arch-prerequisites.md](../../../includes/ref-arch-prerequisites.yml)]
+[!INCLUDE [ref-arch-prerequisites.md](../../../includes/ref-arch-prerequisites.md)]
 
 ### Deployment steps
 
@@ -308,8 +308,8 @@ This sign-in tunnels from the Fabrikam.com domain used by the on-premises networ
 
 
 
-[AAF-cost]: ../../framework/cost/overview.yml
-[AAF-devops]: ../../framework/devops/overview.yml
+[AAF-cost]: ../../framework/cost/overview.md
+[AAF-devops]: ../../framework/devops/overview.md
 [arm-template]: /azure/azure-resource-manager/management/overview
 [Cost-Calculator]: https://azure.microsoft.com/pricing/calculator/
 [ADDS-pricing]: https://azure.microsoft.com/pricing/details/active-directory-ds/
@@ -318,7 +318,7 @@ This sign-in tunnels from the Fabrikam.com domain used by the on-premises networ
 [az-monitor]: https://azure.microsoft.com/services/monitor/
 [azbb]: https://github.com/mspnp/template-building-blocks/wiki/Install-Azure-Building-Blocks
 [azure-gateway-pricing]: https://azure.microsoft.com/pricing/details/vpn-gateway/
-[aaf-cost]: ../../framework/cost/overview.yml
+[aaf-cost]: ../../framework/cost/overview.md
 [azure-pricing-calculator]: https://azure.microsoft.com/pricing/calculator
 [ADDS-pricing]: https://azure.microsoft.com/pricing/details/active-directory-ds
 [availability-set]: /azure/virtual-machines/windows/manage-availability

@@ -65,7 +65,7 @@ The resource group also has a region, which specifies where deployment metadata 
 
 Use the [pricing calculator][pricing] to estimate costs.
 
-For more information, see the cost section in [Microsoft Azure Well-Architected Framework](../../framework/cost/overview.yml).
+For more information, see the cost section in [Microsoft Azure Well-Architected Framework](../../framework/cost/overview.md).
 
 ## Scalability considerations
 
@@ -238,7 +238,7 @@ For more information, see [Deploy resources with Azure Resource Manager template
 <!-- links -->
 
 [aad-auth]: /azure/app-service-mobile/app-service-mobile-how-to-configure-active-directory-authentication
-[AAF-devops]: ../../framework/devops/overview.yml
+[AAF-devops]: ../../framework/devops/overview.md
 [app-insights]: /azure/application-insights/app-insights-overview
 [app-insights-data-rate]: /azure/application-insights/app-insights-pricing
 [app-service]: /azure/app-service

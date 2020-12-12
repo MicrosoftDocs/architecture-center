@@ -197,8 +197,8 @@ After deployment completes, you can test connectivity from the simulated on-prem
 
 <!-- links -->
 
-[aaf-cost]: ../../framework/cost/overview.yml
-[AAF-devops]: ../../framework/devops/overview.yml
+[aaf-cost]: ../../framework/cost/overview.md
+[AAF-devops]: ../../framework/devops/overview.md
 [adds-resource-forest]: ./adds-forest.yml
 [adfs]: ./adfs.yml
 [azbb]: https://github.com/mspnp/template-building-blocks/wiki/Install-Azure-Building-Blocks

@@ -222,7 +222,7 @@ A deployment for a reference architecture that implements these recommendations 
 
 <!-- links -->
 
-[aaf-cost]: ../../framework/cost/overview.yml
+[aaf-cost]: ../../framework/cost/overview.md
 [implementing-a-multi-tier-architecture-on-Azure]: ../n-tier/n-tier-sql-server.yml#cost-considerations
 
 [aad-agent-installation]: /azure/active-directory/active-directory-aadconnect-health-agent-install
@@ -246,7 +246,7 @@ A deployment for a reference architecture that implements these recommendations 
 [aad-sync-requirements]: /azure/active-directory/active-directory-hybrid-identity-design-considerations-directory-sync-requirements
 [aad-topologies]: /azure/active-directory/hybrid/plan-connect-topologies
 [aad-user-sign-in]: /azure/active-directory/hybrid/plan-connect-user-signin
-[AAF-devops]: ../../framework/devops/overview.yml
+[AAF-devops]: ../../framework/devops/overview.md
 [azure-active-directory]: /azure/active-directory-domain-services/active-directory-ds-overview
 [azure-ad-connect]: /azure/active-directory/hybrid/whatis-hybrid-identity
 [Azure-AD-pricing]: https://azure.microsoft.com/pricing/details/active-directory
@@ -255,4 +255,4 @@ A deployment for a reference architecture that implements these recommendations 
 [sla-aad]: https://azure.microsoft.com/support/legal/sla/active-directory
 [visio-download]: https://arch-center.azureedge.net/identity-architectures.vsdx
 [azure-pricing-calculator]: https://azure.microsoft.com/pricing/calculator
-[AAF-devops]: ../../framework/devops/overview.yml
+[AAF-devops]: ../../framework/devops/overview.md

@@ -1,7 +1,7 @@
 
 
 
-This reference architecture shows how to deploy virtual machines (VMs) and a virtual network configured for an [N-tier](../../guide/architecture-styles/n-tier.yml) application, using Apache Cassandra on Linux for the data tier. [**Deploy this solution**](#deploy-the-solution).
+This reference architecture shows how to deploy virtual machines (VMs) and a virtual network configured for an [N-tier](../../guide/architecture-styles/n-tier.md) application, using Apache Cassandra on Linux for the data tier. [**Deploy this solution**](#deploy-the-solution).
 
 [![N-tier architecture using Microsoft Azure](./images/n-tier-cassandra.png)](./images/n-tier-cassandra.png)
 
@@ -124,7 +124,7 @@ Application Gateway supports fixed capacity mode or autoscaling mode. Fixed capa
 
 ## Performance considerations
 
-To get the best performance from Cassandra on Azure VMs, see the recommendations in [Run Apache Cassandra on Azure VMs](../../best-practices/cassandra.yml).
+To get the best performance from Cassandra on Azure VMs, see the recommendations in [Run Apache Cassandra on Azure VMs](../../best-practices/cassandra.md).
 
 ## Availability considerations
 
@@ -167,7 +167,7 @@ For more information about health probes, see:
 - [Load Balancer health probes](/azure/load-balancer/load-balancer-custom-probe-overview)
 - [Application Gateway health monitoring overview](/azure/application-gateway/application-gateway-probe-overview)
 
-For considerations about designing a health probe endpoint, see [Health Endpoint Monitoring pattern](../../patterns/health-endpoint-monitoring.yml).
+For considerations about designing a health probe endpoint, see [Health Endpoint Monitoring pattern](../../patterns/health-endpoint-monitoring.md).
 
 ## Cost considerations
 
@@ -207,7 +207,7 @@ If you specify a region that supports availability zones, the VMs are deployed i
 
 ### Prerequisites
 
-[!INCLUDE [ref-arch-prerequisites.md](../../../includes/ref-arch-prerequisites.yml)]
+[!INCLUDE [ref-arch-prerequisites.md](../../../includes/ref-arch-prerequisites.md)]
 
 ### Deploy the solution using azbb
 
@@ -247,10 +247,10 @@ For more information, see the Operational Excellence section in [Microsoft Azure
 <!-- links -->
 
 [arm-template]: /azure/azure-resource-manager/resource-group-overview#resource-groups
-[WAF-devops]: ../../framework/devops/overview.yml
+[WAF-devops]: ../../framework/devops/overview.md
 [az-devops]: /azure/virtual-machines/windows/infrastructure-automation#azure-devops-services
 [azbb-template]: https://github.com/mspnp/template-building-blocks/wiki/overview
-[WAF-cost]: ../../framework/cost/overview.yml
+[WAF-cost]: ../../framework/cost/overview.md
 [app-gw-scaling]: /azure/application-gateway
 [azure-dns]: /azure/dns/dns-overview
 [azure-key-vault]: https://azure.microsoft.com/services/key-vault
