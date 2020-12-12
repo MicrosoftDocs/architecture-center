@@ -1,0 +1,27 @@
+### YamlMime:Architecture
+metadata:
+  title: Integrate on-premises AD with Azure
+  description: Compare reference architectures for integrating on-premises Active Directory with Azure.
+  author: doodlemania2
+  ms.date: 07/30/2019
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.category:
+    - identity
+    - hybrid
+  ms.subservice: reference-architecture
+  ms.custom:
+    - seodec18
+    - identity
+    - reference-architecture
+name: Integrate on-premises AD with Azure
+azureCategories:
+  - identity
+  - hybrid
+summary: Compare reference architectures for integrating on-premises Active Directory with Azure.
+products:
+  - azure
+  - windows
+thumbnailUrl: ./thumbs/default.png
+content: |
+   [!include[](index-content.md)]

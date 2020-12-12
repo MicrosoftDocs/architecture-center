@@ -1,0 +1,29 @@
+### YamlMime:Architecture
+metadata:
+  title: Web and Mobile Front Ends
+  titleSuffix: Azure Solution Ideas
+  author: doodlemania2
+  ms.date: 08/24/2020
+  description: This example scenario demonstrates how you can accelerate frontend and business process development with drag and drop visual designer.
+  ms.service: architecture-center
+  ms.category:
+    - mobile
+    - web
+    - front
+  ms.subservice: solution-idea
+name: Web and Mobile Front Ends
+azureCategories:
+  - mobile
+  - web
+  - front
+summary: This example scenario demonstrates how you can accelerate frontend and business process development with drag and drop visual designer.
+products:
+  - azure
+  - azure-functions
+  - power-apps
+  - power-automate
+  - powerapps
+  - surface
+thumbnailUrl: /azure/architecture/browse/thumbs/front-end.png
+content: |
+   [!include[](front-end-content.md)]

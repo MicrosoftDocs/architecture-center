@@ -1,0 +1,33 @@
+### YamlMime:Architecture
+metadata:
+  title: Run a Jenkins server on Azure
+  titleSuffix: Azure Reference Architectures
+  description: 'Recommended architecture that shows how to deploy and operate a scalable, enterprise-grade Jenkins server on Azure secured with single sign-on (SSO).'
+  author: njray
+  ms.date: 11/19/2020
+  ms.category:
+    - devops
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: example-scenario
+  ms.custom:
+    - seodec18
+    - devops
+    - example-scenario
+    - devx-track-jenkins
+  social_image_url: /azure/architecture/example-scenario/apps/media/architecture-jenkins.png
+name: Run a Jenkins server on Azure
+azureCategories:
+  - devops
+summary: 'Recommended architecture that shows how to deploy and operate a scalable, enterprise-grade Jenkins server on Azure secured with single sign-on (SSO).'
+products:
+  - azure
+  - azure-monitor
+  - azure-portal
+  - azure-storage
+  - github
+  - vs
+  - windows
+thumbnailUrl: ./thumbs/default.png
+content: |
+   [!include[](jenkins-content.md)]

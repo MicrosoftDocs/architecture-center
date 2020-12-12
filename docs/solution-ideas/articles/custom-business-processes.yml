@@ -1,0 +1,31 @@
+### YamlMime:Architecture
+metadata:
+  title: Custom Business Processes
+  titleSuffix: Azure Solution Ideas
+  author: doodlemania2
+  ms.date: 08/24/2020
+  description: This example demonstrates how you can deploy portals that automate manual or paper-based processes and surface rich user experience. Leverage Azure API management and Azure Functions to connect custom APIs which tap into your legacy systems.
+  ms.service: architecture-center
+  ms.category:
+    - mobile
+    - apim
+    - functions
+  ms.subservice: solution-idea
+name: Custom Business Processes
+azureCategories:
+  - mobile
+  - apim
+  - functions
+summary: This example demonstrates how you can deploy portals that automate manual or paper-based processes and surface rich user experience. Leverage Azure API management and Azure Functions to connect custom APIs which tap into your legacy systems.
+products:
+  - azure
+  - azure-functions
+  - azure-storage
+  - power-apps
+  - power-automate
+  - power-bi
+  - powerapps
+  - surface
+thumbnailUrl: /azure/architecture/browse/thumbs/custom-business-processes.png
+content: |
+   [!include[](custom-business-processes-content.md)]

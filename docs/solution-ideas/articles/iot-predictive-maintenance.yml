@@ -1,0 +1,33 @@
+### YamlMime:Architecture
+metadata:
+  title: Predictive Maintenance for Industrial IoT
+  titleSuffix: Azure Solution Ideas
+  author: doodlemania2
+  ms.date: 08/05/2020
+  description: null
+  ms.custom: acom-architecture
+  ms.service: architecture-center
+  ms.category:
+    - iot
+    - analytics
+    - containers
+  ms.subservice: solution-idea
+  ms.author: losampai
+  social_image_url: /azure/architecture/solution-ideas/media/iot-predictive-maintenance.png
+name: Predictive Maintenance for Industrial IoT
+azureCategories:
+  - iot
+  - analytics
+  - containers
+summary: null
+products:
+  - azure
+  - azure-databricks
+  - azure-hdinsight
+  - azure-iot
+  - azure-storage
+  - github
+  - power-bi
+thumbnailUrl: /azure/architecture/browse/thumbs/iot-predictive-maintenance.png
+content: |
+   [!include[](iot-predictive-maintenance-content.md)]

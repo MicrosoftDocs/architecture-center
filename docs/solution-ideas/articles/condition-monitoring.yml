@@ -1,0 +1,33 @@
+### YamlMime:Architecture
+metadata:
+  title: Condition Monitoring for Industrial IoT
+  titleSuffix: Azure Solution Ideas
+  author: doodlemania2
+  ms.date: 08/05/2020
+  description: This example demonstrates how manufacturers can connect their assets to the cloud using OPC UA and the Industrial Components.
+  ms.custom: acom-architecture
+  ms.service: architecture-center
+  ms.category:
+    - iot
+    - analytics
+    - containers
+  ms.subservice: solution-idea
+  ms.author: losampai
+  social_image_url: /azure/architecture/solution-ideas/media/condition-monitoring.png
+name: Condition Monitoring for Industrial IoT
+azureCategories:
+  - iot
+  - analytics
+  - containers
+summary: This example demonstrates how manufacturers can connect their assets to the cloud using OPC UA and the Industrial Components.
+products:
+  - azure
+  - azure-functions
+  - azure-iot
+  - azure-storage
+  - consumer
+  - github
+  - power-bi
+thumbnailUrl: /azure/architecture/browse/thumbs/condition-monitoring.png
+content: |
+   [!include[](condition-monitoring-content.md)]

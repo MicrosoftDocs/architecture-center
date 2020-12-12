@@ -1,0 +1,28 @@
+### YamlMime:Architecture
+metadata:
+  title: Elastic demand handling with AKS
+  titleSuffix: Azure Solution Ideas
+  author: doodlemania2
+  ms.date: 04/17/2020
+  description: Achieve fast and reliable service quality during seasonal and other high-traffic demand periods
+  ms.custom: acom-architecture
+  ms.service: architecture-center
+  ms.category:
+    - containers
+    - web
+  ms.subservice: solution-idea
+  ms.author: stellal
+  social_image_url: /azure/architecture/solution-ideas/media/aks-demand-spikes.png
+name: Elastic demand handling with AKS
+azureCategories:
+  - containers
+  - web
+summary: Achieve fast and reliable service quality during seasonal and other high-traffic demand periods
+products:
+  - azure
+  - azure-cdn
+  - azure-functions
+  - azure-storage
+thumbnailUrl: /azure/architecture/browse/thumbs/aks-demand-spikes.png
+content: |
+   [!include[](aks-demand-spikes-content.md)]

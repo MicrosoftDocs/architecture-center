@@ -1,0 +1,30 @@
+### YamlMime:Architecture
+metadata:
+  title: Instant IoT data streaming with AKS
+  titleSuffix: Azure Solution Ideas
+  author: doodlemania2
+  ms.date: 04/17/2020
+  description: Ingest and analyze high volumes of IoT data and generate real-time recommendations
+  ms.custom: acom-architecture
+  ms.service: architecture-center
+  ms.category:
+    - containers
+    - iot
+    - analytics
+  ms.subservice: solution-idea
+  ms.author: stellal
+  social_image_url: /azure/architecture/solution-ideas/media/aks-demand-spikes.png
+name: Instant IoT data streaming with AKS
+azureCategories:
+  - containers
+  - iot
+  - analytics
+summary: Ingest and analyze high volumes of IoT data and generate real-time recommendations
+products:
+  - azure
+  - azure-databricks
+  - azure-hdinsight
+  - azure-pipelines
+thumbnailUrl: /azure/architecture/browse/thumbs/aks-iot-data-streaming.png
+content: |
+   [!include[](aks-iot-data-streaming-content.md)]

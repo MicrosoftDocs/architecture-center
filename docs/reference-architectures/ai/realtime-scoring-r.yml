@@ -1,0 +1,31 @@
+### YamlMime:Architecture
+metadata:
+  title: Real-time scoring of R machine learning models
+  description: Implement a real-time prediction service in R using Machine Learning Server running in Azure Kubernetes Service (AKS).
+  author: njray
+  ms.date: 12/10/2019
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.category:
+    - ai-machine-learning
+    - developer-tools
+    - containers
+  ms.subservice: reference-architecture
+  ms.custom:
+    - azcat-ai
+    - reference-architecture
+name: Real-time scoring of R machine learning models
+azureCategories:
+  - ai-machine-learning
+  - developer-tools
+  - containers
+summary: Implement a real-time prediction service in R using Machine Learning Server running in Azure Kubernetes Service (AKS).
+products:
+  - azure
+  - azure-monitor
+  - azure-portal
+  - github
+  - sql-server
+thumbnailUrl: ./thumbs/default.png
+content: |
+   [!include[](realtime-scoring-r-content.md)]
