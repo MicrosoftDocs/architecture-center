@@ -1,0 +1,36 @@
+### YamlMime:Architecture
+metadata:
+  title: Security considerations for highly sensitive IaaS apps in Azure
+  description: 'Learn about VM security, encryption, NSGs, DMZs, access control, and other security considerations for highly sensitive IaaS and hybrid apps.'
+  author: doodlemania2
+  ms.date: 4/15/2020
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.custom:
+    - fcp
+    - reference-architecture
+  ms.category:
+    - security
+    - compute
+  ms.subservice: reference-architecture
+name: Security considerations for highly sensitive IaaS apps in Azure
+azureCategories:
+  - security
+  - compute
+summary: 'Learn about VM security, encryption, NSGs, DMZs, access control, and other security considerations for highly sensitive IaaS and hybrid apps.'
+products:
+  - azure
+  - azure-backup
+  - azure-bastion
+  - azure-blueprints
+  - azure-dns
+  - azure-firewall
+  - azure-monitor
+  - azure-policy
+  - azure-portal
+  - azure-sentinel
+  - sql-server
+  - windows
+thumbnailUrl: /azure/architecture/browse/thumbs/dedicated-hosts.png
+content: |
+   [!include[](high-security-iaas-content.md)]

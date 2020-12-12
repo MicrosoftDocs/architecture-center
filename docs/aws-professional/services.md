@@ -44,7 +44,7 @@ For an overview of Azure for AWS users, see [Introduction to Azure for AWS profe
 | [Lex](https://aws.amazon.com/lex/) | [Language Understanding (LUIS)](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/) | Allows your applications to understand user commands contextually. |
 | [Polly](https://aws.amazon.com/polly/), [Transcribe](https://aws.amazon.com/transcribe/) | [Speech Services](https://azure.microsoft.com/services/cognitive-services/speech/) | Enables both Speech to Text, and Text into Speech capabilities. |
 | [Rekognition](https://aws.amazon.com/rekognition/) | [Cognitive Services](https://azure.microsoft.com/services/cognitive-services/) | [Computer Vision](https://azure.microsoft.com/services/cognitive-services/computer-vision/): Extract information from images to categorize and process visual data.<br/><br/> [Face](https://azure.microsoft.com/services/cognitive-services/face/): Detect, identify, and analyze faces in photos. <br/><br/> [Emotions](https://azure.microsoft.com/services/cognitive-services/emotion/): Recognize emotions in images. |
-| [Skills Kit](https://developer.amazon.com/alexa/alexa-skills-kit) | [Virtual Assistant](/azure/bot-service/bot-builder-virtual-assistant-introduction?view=azure-bot-service-4.0) | The Virtual Assistant Template brings together a number of best practices we've identified through the building of conversational experiences and automates integration of components that we've found to be highly beneficial to Bot Framework developers.
+| [Skills Kit](https://developer.amazon.com/alexa/alexa-skills-kit) | [Virtual Assistant](/azure/bot-service/bot-builder-virtual-assistant-introduction?view=azure-bot-service-4.0&preserve-view=tru) | The Virtual Assistant Template brings together a number of best practices we've identified through the building of conversational experiences and automates integration of components that we've found to be highly beneficial to Bot Framework developers.
 
 ### AI and machine learning architectures
 
@@ -56,7 +56,7 @@ For an overview of Azure for AWS users, see [Introduction to Azure for AWS profe
 
 </ul>
 
-[view all](../browse/index.md#ai--machine-learning)
+[view all](../browse/index.yml?azure_categories=ai-machine-learning)
 
 ## Big data and analytics
 
@@ -76,7 +76,7 @@ For an overview of Azure for AWS users, see [Introduction to Azure for AWS profe
 
 </ul>
 
-[view all](../browse/index.md#databases)
+[view all](../browse/index.yml?azure_categories=databases)
 
 ### Big data processing
 
@@ -98,7 +98,7 @@ For an overview of Azure for AWS users, see [Introduction to Azure for AWS profe
 </ul>
 
 
-[view all](../browse/index.md#databases)
+[view all](../browse/index.yml?azure_categories=databases)
 
 ### Data orchestration / ETL
 
@@ -127,7 +127,7 @@ For an overview of Azure for AWS users, see [Introduction to Azure for AWS profe
 
 </ul>
 
-[view all](../browse/index.md#analytics)
+[view all](../browse/index.yml?azure_categories=analytics)
 
 ## Compute
 
@@ -159,7 +159,7 @@ For an overview of Azure for AWS users, see [Introduction to Azure for AWS profe
 
 </ul>
 
-[view all](../browse/index.md#devops)
+[view all](../browse/index.yml?azure_categories=devops)
 
 ## Internet of things (IoT)
 
@@ -180,7 +180,7 @@ For an overview of Azure for AWS users, see [Introduction to Azure for AWS profe
 
 </ul>
 
-[view all](../browse/index.md#devops)
+[view all](../browse/index.yml?azure_categories=iot)
 
 ## Management
 
@@ -226,7 +226,7 @@ In addition to front-end testing, the [Azure DevTest Labs](https://azure.microso
 
 </ul>
 
-[view all](../browse/index.md#mobile)
+[view all](../browse/index.yml?azure_categories=mobile)
 
 ## Networking
 
@@ -281,7 +281,7 @@ In addition to front-end testing, the [Azure DevTest Labs](https://azure.microso
 
 </ul>
 
-[view all](../browse/index.md#security)
+[view all](../browse/index.yml?azure_categories=security)
 
 ## Storage
 
@@ -308,7 +308,7 @@ In addition to front-end testing, the [Azure DevTest Labs](https://azure.microso
 
 </ul>
 
-[view all](../browse/index.md#web)
+[view all](../browse/index.yml?azure_categories=web)
 
 ## Miscellaneous
 

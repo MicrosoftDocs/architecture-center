@@ -1,0 +1,28 @@
+### YamlMime:Architecture
+metadata:
+  title: Hybrid SharePoint Farm with Microsoft 365
+  titleSuffix: Azure Solution Ideas
+  author: doodlemania2
+  ms.date: 12/16/2019
+  description: Deliver highly available intranet capability by deploying SharePoint and sharing hybrid workloads with Microsoft 365. Setup this solution with step-by-step instructions.
+  ms.custom: 'acom-architecture, hybrid-infrastructure, sharepoint hybrid, sharepoint hybrid architecture, sharepoint farm solution, microsoft 365 sharepoint hybrid, sharepoint hybrid solution, interactive-diagram, ''https://azure.microsoft.com/solutions/architecture/sharepoint-farm-microsoft-365/'''
+  ms.service: architecture-center
+  ms.category:
+    - web
+    - hybrid
+  ms.subservice: solution-idea
+  social_image_url: /azure/architecture/solution-ideas/articles/media/sharepoint-farm-microsoft-365.png
+name: Hybrid SharePoint Farm with Microsoft 365
+azureCategories:
+  - web
+  - hybrid
+summary: Deliver highly available intranet capability by deploying SharePoint and sharing hybrid workloads with Microsoft 365. Setup this solution with step-by-step instructions.
+products:
+  - azure
+  - azure-expressroute
+  - sql-server
+  - windows
+  - windows-server
+thumbnailUrl: /azure/architecture/browse/thumbs/sharepoint-farm-microsoft-365.png
+content: |
+   [!include[](sharepoint-farm-microsoft-365-content.md)]

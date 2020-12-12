@@ -1,0 +1,29 @@
+### YamlMime:Architecture
+metadata:
+  title: Azure Data Explorer interactive analytics
+  titleSuffix: Azure Solution Ideas
+  description: Interactive Analytics with Azure Data Explorer focuses on its integration with the rest of the data platform ecosystem.
+  author: orspod
+  ms.date: 08/11/2020
+  ms.service: architecture-center
+  ms.subservice: solution-idea
+  ms.custom:
+    - fcp
+  ms.category:
+    - analytics
+    - iot
+name: Azure Data Explorer interactive analytics
+azureCategories:
+  - analytics
+  - iot
+summary: Interactive Analytics with Azure Data Explorer focuses on its integration with the rest of the data platform ecosystem.
+products:
+  - azure
+  - azure-iot
+  - azure-storage
+  - consumer
+  - power-bi
+  - windows
+thumbnailUrl: /azure/architecture/browse/thumbs/interactive-azure-data-explorer.png
+content: |
+   [!include[](interactive-azure-data-explorer-content.md)]

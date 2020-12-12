@@ -87,7 +87,7 @@ For more information, see [hybrid identity providers](/azure/active-directory/hy
 >
 > ![GitHub logo](../../_images/github.svg) [GitHub: Integrate on-premises Active Directory domains with Azure Active Directory](https://github.com/mspnp/identity-reference-architectures/tree/master/azure-ad).
 >
-> The design considerations are described in [Integrate on-premises Active Directory domains with Azure AD](../../reference-architectures/identity/azure-ad.md).
+> The design considerations are described in [Integrate on-premises Active Directory domains with Azure AD](../../reference-architectures/identity/azure-ad.yml).
 
 
 ## Use passwordless authentication

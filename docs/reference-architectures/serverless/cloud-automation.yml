@@ -1,0 +1,31 @@
+### YamlMime:Architecture
+metadata:
+  title: Event-based cloud automation
+  titleSuffix: Azure Reference Architectures
+  description: Recommended architecture for implementing cloud automation using serverless technologies.
+  author: dsk-2015
+  ms.author: dkshir
+  ms.date: 1/14/2020
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.category:
+    - developer-tools
+  ms.subservice: reference-architecture
+  ms.custom:
+    - reference-architecture
+name: Event-based cloud automation
+azureCategories:
+  - developer-tools
+summary: Recommended architecture for implementing cloud automation using serverless technologies.
+products:
+  - azure
+  - azure-functions
+  - azure-monitor
+  - azure-policy
+  - github
+  - power-apps
+  - sql-server
+  - windows
+thumbnailUrl: /azure/architecture/browse/thumbs/cloud-automation.png
+content: |
+   [!include[](cloud-automation-content.md)]

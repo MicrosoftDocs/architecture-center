@@ -1,0 +1,26 @@
+### YamlMime:Architecture
+metadata:
+  title: Scalable Episerver marketing website
+  titleSuffix: Azure Solution Ideas
+  author: doodlemania2
+  ms.date: 12/16/2019
+  description: Let your business run multi-channel digital marketing websites on one platform and spin up and spin down campaigns on demand. Take advantage of the comprehensive capabilities of Episerver to manage every aspect of your site and campaign performance.
+  ms.custom: 'acom-architecture, web-apps, ''https://azure.microsoft.com/solutions/architecture/digital-marketing-episerver/'''
+  ms.service: architecture-center
+  ms.category:
+    - web
+  ms.subservice: solution-idea
+  social_image_url: /azure/architecture/solution-ideas/articles/media/digital-marketing-episerver.png
+name: Scalable Episerver marketing website
+azureCategories:
+  - web
+summary: Let your business run multi-channel digital marketing websites on one platform and spin up and spin down campaigns on demand. Take advantage of the comprehensive capabilities of Episerver to manage every aspect of your site and campaign performance.
+products:
+  - azure
+  - azure-cdn
+  - azure-monitor
+  - azure-portal
+  - dotnet
+thumbnailUrl: /azure/architecture/browse/thumbs/digital-marketing-episerver.png
+content: |
+   [!include[](digital-marketing-episerver-content.md)]

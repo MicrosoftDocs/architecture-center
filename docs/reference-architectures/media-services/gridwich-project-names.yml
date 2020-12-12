@@ -1,0 +1,20 @@
+### YamlMime:Architecture
+metadata:
+  title: Gridwich project naming and namespaces
+  titleSuffix: Azure Reference Architectures
+  description: 'Learn about Gridwich namespaces and project naming conventions and structure, based on components, capabilities, and technologies.'
+  author: doodlemania2
+  ms.date: 11/12/2020
+  ms.topic: reference-architecture
+  ms.service: architecture-center
+  ms.subservice: reference-architecture
+  ms.custom:
+    - fcp
+name: Gridwich project naming and namespaces
+summary: 'Learn about Gridwich namespaces and project naming conventions and structure, based on components, capabilities, and technologies.'
+products:
+  - azure
+  - dotnet
+thumbnailUrl: ""
+content: |
+   [!include[](gridwich-project-names-content.md)]
