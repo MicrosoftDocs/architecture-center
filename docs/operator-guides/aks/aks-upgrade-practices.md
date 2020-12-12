@@ -9,7 +9,7 @@ ms.service: architecture-center
 ms.subservice: reference-architecture
 ---
 
-# Best practices for Patching and Upgrading Clusters
+# Guidance for Patching and Upgrading Clusters
 
 This section will talk about AKS patching and upgrading practices, and who is responsible for what (shared responsibility). This includes the worker nodes along with Kubernetes versions.
 
@@ -40,15 +40,15 @@ This section will talk about AKS patching and upgrading practices, and who is re
 
     ![k_describe_node](images/os_kernel_image_version.png)
 * It’s possible that a security patch will install a later version of the kernel than would be seen if a new cluster is created.
-* The process to keep Windows Server nodes up to date is a little different. Windows Server nodes don't receive daily updates. Instead, you perform an AKS upgrade that deploys new nodes with the latest base Window Server image and patches. For AKS clusters that use Windows Server nodes, see [Upgrade a node pool in AKS](https://docs.microsoft.com/azure/aks/use-multiple-node-pools#upgrade-a-node-pool).
+* The process to keep Windows Server nodes up-to-date is a little different. Windows Server nodes don't receive daily updates. Instead, you perform an AKS upgrade that deploys new nodes with the latest base Window Server image and patches. For AKS clusters that use Windows Server nodes, see [Upgrade a node pool in AKS](https://docs.microsoft.com/azure/aks/use-multiple-node-pools#upgrade-a-node-pool).
 * Consider patching your AKS worker nodes if you want all the OS updates applied immediately as they are released and depending on the release cycle of node image upgrades is not an option.
 
 
 ## Node Image Upgrades
 
- * An updated node image will contain up to date security patches, but may also contain other updates, such as newer versions of the components listed in the [release notes](https://github.com/Azure/AKS/releases). 
+ * An updated node image will contain up-to-date security patches, but may also contain other updates, such as newer versions of the components listed in the [release notes](https://github.com/Azure/AKS/releases). 
  * These updates have all relevant and validated security updates, feature updates or both.
- * Using the node image upgrade method will provide a way to ensure that all of your AKS nodes have the very latest components installed on them.
+ * Using the node image upgrade method will provide a way to ensure that all of your AKS nodes have the latest components installed on them.
  * Considering checking and applying node image upgrades weekly.
 
 * GET latest available Node Image version
@@ -61,15 +61,15 @@ This section will talk about AKS patching and upgrading practices, and who is re
       az aks nodepool list --query "[].{Name:name,NodeImageVersion:nodeImageVersion}" -g rg-cluster --cluster-name aks-cluster-name -o table
     
     * ![nodimage_version_cli](images/nodeimage_versions_cli.png)
-* Upgrade Nodepools to the latest node image version
+* Upgrade node pools to the latest node image version
     * [Upgrade all nodes in node pools](https://docs.microsoft.com/azure/aks/node-image-upgrade#upgrade-all-nodes-in-all-node-pools)
     * [Upgrade a specific node pool](https://docs.microsoft.com/azure/aks/node-image-upgrade#upgrade-a-specific-node-pool)
-    * [Upgrade node pool using Github Actions](https://docs.microsoft.com/azure/aks/node-upgrade-github-actions)
+    * [Upgrade node pool using GitHub Actions](https://docs.microsoft.com/azure/aks/node-upgrade-github-actions)
 
 
 
 ## Create continuous cluster upgrade process
-Information about new AKS versions and releases are published to the [AKS Github release notes page](https://github.com/Azure/AKS/releases). You can also subscribe to the [Github RSS Feed](https://github.com/Azure/AKS/releases.atom). The release notes page has information about the latest AKS features, behavioral changes, Bug fixes and Component Updates.
+Information about new AKS versions and releases is published to the [AKS GitHub release notes page](https://github.com/Azure/AKS/releases). You can also subscribe to the [GitHub RSS Feed](https://github.com/Azure/AKS/releases.atom). The release notes page has information about the latest AKS features, behavioral changes, Bug fixes, and Component Updates.
 
 To proactively receive updates about AKS upgrades, we recommend using the following methods:
 
@@ -82,7 +82,7 @@ To proactively receive updates about AKS upgrades, we recommend using the follow
           ```
         * ![available_controlplane_upgrade_versions](images/available_cp_upgrade_versions.png)
     * Determine the target version for the control plane from the above results.
-    * Then check the kubernetes versions of the nodes in your nodepools and determine if the cluster's node pools need to be upgraded too
+    * Then check the kubernetes versions of the nodes in your node pools and determine if the cluster's node pools need to be upgraded too
         * ```
           az aks nodepool list \  
           --query "[].{Name:name,k8version:orchestratorVersion}" \  
@@ -104,7 +104,7 @@ To proactively receive updates about AKS upgrades, we recommend using the follow
         --kubernetes-version KUBERNETES_VERSION \  
         --no-wait
      ```
-* Upgrade the nodepools to the target version
+* Upgrade the node pools to the target version
     ```
     az aks nodepool upgrade \
     --resource-group myResourceGroup \
