@@ -1,7 +1,7 @@
 
 
 
-[!INCLUDE [header_file](../../../includes/sol-idea-header.yml)]
+[!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
 Quality assurance systems allow businesses to prevent defects throughout their processes of delivering goods or services to customers. Building such a system that collects data and identifies potential problems along a pipeline can provide enormous advantages. For example, in digital manufacturing, quality assurance across the assembly line is imperative. Identifying slowdowns and potential failures before they occur rather than after they are detected can help companies reduce costs for scrap and rework while improving productivity.
 

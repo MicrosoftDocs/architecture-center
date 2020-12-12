@@ -1,7 +1,7 @@
 
 
 
-[!INCLUDE [header_file](../../../includes/sol-idea-header.yml)]
+[!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
 Azure Stack Hub enables you to deploy Azure services on-premises or in the cloud with a consistent application logic, development paradigm, and operations methodology.
 

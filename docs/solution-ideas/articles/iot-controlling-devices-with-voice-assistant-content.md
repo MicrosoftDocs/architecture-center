@@ -3,7 +3,7 @@
 
 
 
-[!INCLUDE [header_file](../../../includes/sol-idea-header.yml)]
+[!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
 Create seamless conversational interfaces with all of your internet-accessible devices-from your connected television or fridge to devices in a connected power plant. By combining [Azure Speech Service](/azure/cognitive-services/speech-service/overview), [Language Understanding Service](/azure/cognitive-services/luis/) (LUIS) and [Azure Bot Framework](/azure/bot-service/?view=azure-bot-service-4.0), developers can create natural, human-like conversational interfaces to control smart devices using [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/).
 

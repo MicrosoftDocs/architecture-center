@@ -1,7 +1,7 @@
 
 
 
-[!INCLUDE [header_file](../../../includes/sol-idea-header.yml)]
+[!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
 This Predictive Maintenance solution monitors aircraft and predicts the remaining useful life of aircraft engine components.
 

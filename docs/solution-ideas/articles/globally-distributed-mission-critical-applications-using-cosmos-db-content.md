@@ -1,7 +1,7 @@
 
 
 
-[!INCLUDE [header_file](../../../includes/sol-idea-header.yml)]
+[!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
 Guarantee access to users around the world with the high-availability and low-latency capabilities built into Microsoft's global datacenters.
 

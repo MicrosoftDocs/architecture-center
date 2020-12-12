@@ -5,7 +5,7 @@ This solution idea shows how you can deploy WVD rapidly in a *minimum viable pro
 
 This solution idea also applies to mergers and acquisitions, organization rebranding, and multiple on-premises identities requirements.
 
-[!INCLUDE [header_file](../../../includes/sol-idea-header.yml)]
+[!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
 ## Architecture
 

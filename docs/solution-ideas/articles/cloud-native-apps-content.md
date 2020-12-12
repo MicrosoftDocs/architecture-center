@@ -1,7 +1,7 @@
 
 
 
-[!INCLUDE [header_file](../../../includes/sol-idea-header.yml)]
+[!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
 Web and mobile applications are a key part of a successful digital transformation strategy. Organizations can build cloud-native applications using Azure managed databases, Azure Kubernetes Service, and analytics/ML for applications that are incredibly responsive to customer needs.
 

@@ -1,7 +1,7 @@
 
 
 
-[!INCLUDE [header_file](../../../includes/sol-idea-header.yml)]
+[!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
 The retail assistant or vacation planner can help your customers have interactions with your business bot and provide suggestions based on the visual information.
 

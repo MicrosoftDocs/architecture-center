@@ -1,7 +1,7 @@
 
 
 
-[!INCLUDE [header_file](../../../includes/sol-idea-header.yml)]
+[!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
 Businesses use blockchain to digitize workflows they share with other organizations, such as moving physical assets across supply chains. The anatomy of blockchain apps is similar across use cases. Here, we use Azure Blockchain Service as the foundational managed blockchain network and build a consortium application that can ingest signals from relevant user interfaces and communicate ledger data to consuming apps across the consortium.
 

@@ -1,7 +1,7 @@
 
 
 
-[!INCLUDE [header_file](../../../includes/sol-idea-header.yml)]
+[!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
 Perform fast, interactive SQL queries at scale over structured or unstructured data with Apache Hive LLAP.
 

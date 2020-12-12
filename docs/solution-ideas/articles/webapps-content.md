@@ -1,7 +1,7 @@
 
 
 
-[!INCLUDE [header_file](../../../includes/sol-idea-header.yml)]
+[!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
 With Azure, it’s easy to build web and mobile applications to help with digital payments, hotel or rental car bookings, e-commerce platforms, and more. A microservices-based architecture enables organizations to seamlessly scale on demand to cater to internet-scale users.
 

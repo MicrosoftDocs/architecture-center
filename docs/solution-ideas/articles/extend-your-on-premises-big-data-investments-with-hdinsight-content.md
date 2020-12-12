@@ -1,7 +1,7 @@
 
 
 
-[!INCLUDE [header_file](../../../includes/sol-idea-header.yml)]
+[!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
 Extend your on-premises big data investments to the cloud and transform your business using the advanced analytics capabilities of HDInsight.
 

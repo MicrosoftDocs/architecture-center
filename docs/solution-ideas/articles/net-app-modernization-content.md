@@ -1,7 +1,7 @@
 
 
 
-[!INCLUDE [header_file](../../../includes/sol-idea-header.yml)]
+[!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
 Modern web applications must meet higher user expectations and greater demands than ever before. By migrating legacy .NET applications to Azure, organizations can ensure their apps are incredibly secure, flexible and available from anywhere in the world, and scalable to meet spikes in demand.
 

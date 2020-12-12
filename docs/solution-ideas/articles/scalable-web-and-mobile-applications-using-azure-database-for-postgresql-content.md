@@ -1,7 +1,7 @@
 
 
 
-[!INCLUDE [header_file](../../../includes/sol-idea-header.yml)]
+[!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
 Rapidly build engaging, performant and scalable cross-platform and native apps for iOS, Android, Windows, or Mac.
 

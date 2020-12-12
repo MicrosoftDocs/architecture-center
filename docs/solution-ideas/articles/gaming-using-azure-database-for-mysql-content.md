@@ -1,7 +1,7 @@
 
 
 
-[!INCLUDE [header_file](../../../includes/sol-idea-header.yml)]
+[!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
 Scale your databases elastically to accommodate unpredictable bursts of traffic and deliver low-latency multi-player experiences.
 
