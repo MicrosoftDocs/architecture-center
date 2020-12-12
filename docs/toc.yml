@@ -422,7 +422,7 @@ items:
 - name: Design Patterns
   items:
   - name: Overview
-    href: framework/index.md
+    href: patterns/index.md
   - name: Categories
     items:
     - name: Data management
