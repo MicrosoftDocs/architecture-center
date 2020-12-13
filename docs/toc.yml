@@ -769,7 +769,7 @@ items:
       - name: Containers
         items:
           - name: AKS Solution Journey
-            href: reference-architectures/containers/aks-start-here.yml
+            href: reference-architectures/containers/aks-start-here.md
           - name: AKS Baseline Cluster
             href: reference-architectures/containers/aks/secure-baseline-aks.yml
           - name: AKS Cluster Best Practices
