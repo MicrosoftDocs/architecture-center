@@ -459,7 +459,7 @@ For Azure, you can enforce policies by,
 
 
 
-One way of managing VMs in the virtual network is by using [Azure Bastion](/azure/bastion/). This service allows you to log into VMs in the virtual network through SSH or remote desktop protocol (RDP) without exposing the VMs directly to the internet. To see a reference architecture that uses Bastion, see [Network DMZ between Azure and an on-premises datacenter](../../reference-architectures/dmz/secure-vnet-dmz.md).
+One way of managing VMs in the virtual network is by using [Azure Bastion](/azure/bastion/). This service allows you to log into VMs in the virtual network through SSH or remote desktop protocol (RDP) without exposing the VMs directly to the internet. To see a reference architecture that uses Bastion, see [Network DMZ between Azure and an on-premises datacenter](../../reference-architectures/dmz/secure-vnet-dmz.yml).
 
 ## Assign incident notification contact
 
@@ -598,7 +598,7 @@ There are two places where you review reported risk events:
     reporting capabilities of [Azure Active Directory Identity
     Protection](/azure/active-directory/active-directory-identityprotection).
 
-In addition, you can use the [Identity Protection risk events API](/graph/api/resources/identityriskevent?view=graph-rest-beta) to
+In addition, you can use the [Identity Protection risk events API](/graph/api/resources/identityriskevent?view=graph-rest-beta&preserve-view=true) to
 gain programmatic access to security detections using Microsoft Graph.
 
 Remediate these risks by manually addressing each reported account or by setting

@@ -1,0 +1,38 @@
+### YamlMime:Architecture
+metadata:
+  title: Build an enterprise-grade conversational bot
+  description: How to build an enterprise-grade conversational bot (chatbot) using the Azure Bot Framework.
+  author: roalexan
+  ms.date: 01/24/2019
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.category:
+    - ai-machine-learning
+    - featured
+  ms.subservice: reference-architecture
+  ms.custom:
+    - azcat-ai
+    - reference-architecture
+name: Build an enterprise-grade conversational bot
+azureCategories:
+  - ai-machine-learning
+  - featured
+summary: How to build an enterprise-grade conversational bot (chatbot) using the Azure Bot Framework.
+products:
+  - azure
+  - azure-devops
+  - azure-functions
+  - azure-portal
+  - azure-search
+  - azure-storage
+  - dotnet
+  - github
+  - office
+  - office-365
+  - power-bi
+  - sql-server
+  - vs
+  - vs-code
+thumbnailUrl: /azure/architecture/browse/thumbs/conversational-bot-logical.png
+content: |
+   [!include[](conversational-bot-content.md)]

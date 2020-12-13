@@ -1,0 +1,27 @@
+### YamlMime:Architecture
+metadata:
+  title: Highly available multi-region web application
+  description: Recommended architecture for a highly available web application running in multiple regions in Azure.
+  author: doodlemania2
+  ms.date: 08/14/2019
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.category:
+    - web
+    - management-and-governance
+  ms.subservice: reference-architecture
+  ms.custom:
+    - seodec18
+    - reference-architecture
+name: Highly available multi-region web application
+azureCategories:
+  - web
+  - management-and-governance
+summary: Recommended architecture for a highly available web application running in multiple regions in Azure.
+products:
+  - azure
+  - azure-storage
+  - vs
+thumbnailUrl: /azure/architecture/browse/thumbs/multi-region-web-app-diagram.png
+content: |
+   [!include[](multi-region-content.md)]

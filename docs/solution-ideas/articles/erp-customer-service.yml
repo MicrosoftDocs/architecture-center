@@ -1,0 +1,24 @@
+### YamlMime:Architecture
+metadata:
+  title: Deliver highly scalable customer service and ERP applications
+  titleSuffix: Azure Solution Ideas
+  author: doodlemania2
+  description: Deliver highly scalable customer service and ERP applications with Azure SQL and Azure Cosmos DB
+  ms.date: 06/26/2020
+  ms.custom: fcp
+  ms.service: architecture-center
+  ms.subservice: solution-idea
+  ms.category:
+    - databases
+name: Deliver highly scalable customer service and ERP applications
+azureCategories:
+  - databases
+summary: Deliver highly scalable customer service and ERP applications with Azure SQL and Azure Cosmos DB
+products:
+  - azure
+  - azure-arc
+  - power-bi
+  - surface
+thumbnailUrl: /azure/architecture/browse/thumbs/erp-customer-service.png
+content: |
+   [!include[](erp-customer-service-content.md)]

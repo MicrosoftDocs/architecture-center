@@ -1,0 +1,25 @@
+### YamlMime:Architecture
+metadata:
+  title: Forecast Energy and Power Demand
+  titleSuffix: Azure Solution Ideas
+  author: doodlemania2
+  ms.date: 12/16/2019
+  description: Learn how Microsoft Azure can help accurately forecast spikes in demand for energy products and services to give your company a competitive advantage.
+  ms.custom: 'acom-architecture, energy demand, power forecast, energy forecast, ai-ml, ''https://azure.microsoft.com/solutions/architecture/forecast-energy-power-demand/'''
+  ms.service: architecture-center
+  ms.category:
+    - ai-machine-learning
+    - integration
+  ms.subservice: solution-idea
+  social_image_url: /azure/architecture/solution-ideas/articles/media/forecast-energy-power-demand.png
+name: Forecast Energy and Power Demand
+azureCategories:
+  - ai-machine-learning
+  - integration
+summary: Learn how Microsoft Azure can help accurately forecast spikes in demand for energy products and services to give your company a competitive advantage.
+products:
+  - azure
+  - power-bi
+thumbnailUrl: /azure/architecture/browse/thumbs/forecast-energy-power-demand.png
+content: |
+   [!include[](forecast-energy-power-demand-content.md)]

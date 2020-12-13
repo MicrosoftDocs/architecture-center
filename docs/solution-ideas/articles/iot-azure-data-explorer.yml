@@ -1,0 +1,28 @@
+### YamlMime:Architecture
+metadata:
+  title: IoT analytics with Azure Data Explorer
+  titleSuffix: Azure Solution Ideas
+  description: 'IoT Telemetry Analytics with Azure Data Explorer demonstrates near real-time analytics over fast flowing, high volume, wide variety of streaming data from IoT devices.'
+  author: orspod
+  ms.date: 08/11/2020
+  ms.service: architecture-center
+  ms.subservice: solution-idea
+  ms.custom:
+    - fcp
+  ms.category:
+    - analytics
+    - iot
+name: IoT analytics with Azure Data Explorer
+azureCategories:
+  - analytics
+  - iot
+summary: 'IoT Telemetry Analytics with Azure Data Explorer demonstrates near real-time analytics over fast flowing, high volume, wide variety of streaming data from IoT devices.'
+products:
+  - azure
+  - azure-functions
+  - azure-iot
+  - azure-storage
+  - power-bi
+thumbnailUrl: /azure/architecture/browse/thumbs/iot-azure-data-explorer.png
+content: |
+   [!include[](iot-azure-data-explorer-content.md)]
