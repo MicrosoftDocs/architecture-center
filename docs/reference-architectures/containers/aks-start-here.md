@@ -1,5 +1,16 @@
+---
+title: Azure Kubernetes Service (AKS) solution journey
+titleSuffix: Azure Architecture Center
+description: An overview of Microsoft''s Azure Kubernetes Service (AKS) guidance offerings ranging from "just starting out", to production, and through sustained operations.
+author: ckittel
+ms.date: 09/10/2020
+ms.topic: conceptual
+ms.service: architecture-center
+ms.custom:
+  - overview
+---
 
-
+# Azure Kubernetes Service solution journey
 
 Kubernetes is an open-source system for automating deployment, scaling, and management of containerized applications. [Azure Kubernetes Service (AKS)](/azure/aks/) makes it simple to deploy a managed Kubernetes cluster in Azure.
 
