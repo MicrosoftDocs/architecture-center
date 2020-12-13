@@ -81,22 +81,22 @@ git clone https://github.com/Azure-Samples/confidential-container-samples.git
 cd confidential-container-samples/confidential-healthcare-scone-confinf-onnx
 ```
 
-### Set up for inference server deployment
+### Deploy the confidential inference server
 
-To get ready to deploy the confidential inference server deployment, prepare the inference model by running the model script:
+To get ready to deploy the confidential inference server, prepare the inference model by running the model script:
 
 ```bash
 cd model
 ./run.sh
 ```
 
-The model script creates the ONNX model file (*unet.onnx*). This file is used as part of the deployment of an ONNX runtime confidential inference server.
+The model script creates the ONNX model file (*unet.onnx*). This file is used as part of the deployment of an ONNX runtime confidential inference server. To complete the deployment of the confidential inference server, see the [confidential ONNX inference server](https://github.com/microsoft/onnx-server-openenclave) project on GitHub. Note the server address, API key, and deployment directory that you use, because you'll need them in the next section.
 
 ### Run and test the service
 
 To get the Flask-based service running and tested on your local SGX-enabled computer:
 
-1. In the shell commands below, replace the confidential ONNX deployment placeholders with actual values for the server address, API key, and directory. Do the same for the object ID and password of the Azure application. Then run a script that creates an encrypted image and generates some environment variables to store and load. Finally, start the Flask-based service and the Redis Cache Service by running `docker-compose`:
+1. In the shell commands below, replace the confidential ONNX placeholders with actual values for the server address, API key, and directory that you used to deploy the confidential inference server. Also replace the placeholders for the object ID and password of the Azure application. Then run a script that creates an encrypted image and generates some environment variables to store and load. Finally, start the Flask-based service and the Redis Cache Service by running `docker-compose`:
 
     ```bash
     export CONFONNX_URL=<your deployment server address>
