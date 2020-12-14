@@ -13,55 +13,123 @@ ms.custom:
 
 # Monitoring for performance efficiency
 
-Monitoring for scalability should be part of your overall monitoring strategy that utilizes [Azure Monitor](/azure/azure-monitor/). The overall monitoring strategy should take into consideration not only scalability, but resiliency (infrastructure, application, and dependent services) and application performance as well. Most services in Azure offer the ability to turn on both data and management plane logs as well as metrics. For purposes of scalability, looking at the metrics would allow you to scale based scale up, scale out, scale in, and scale down. The ability to scale dynamically is one of the biggest values of moving to the cloud.  
+Monitoring for scalability should be part of your overall monitoring strategy that utilizes [Azure Monitor](/services/monitor/). The overall monitoring strategy should take into consideration not only scalability, but reliability (infrastructure, application, and dependent services) and application performance as well.
 
-## What are some of the reasons for setting up auto scaling
+With Azure Monitor, you can analyze data, set up alerts, get end-to-end views of your applications, and use machine learning–driven insights to quickly identify and resolve problems. You can also monitor and diagnose networking issues without logging into your virtual machines. For example, you can trigger a packet capture, diagnose routing issues, analyze network security group flow logs, and gain visibility and control over your Azure network.
 
-- Are the systems able to handle the current number of requests?
-- Are the systems meeting the performance NFRs?
-- Are the systems out of resources (CPU, Memory, I/O)?
-- Is there an opportunity to have cost savings by not overprovisioning resources?
+[Azure Monitor Metrics](/azure/azure-monitor/platform/data-platform-metrics) is a feature of Azure Monitor that collects numeric data from monitored resources into a time series database. Metrics are numerical values that are collected at regular intervals and describe some aspect of a system at a particular time. To learn more about Azure Monitor Metrics, see [What can you do with Azure Monitor Metrics?](/azure/azure-monitor/platform/data-platform-metrics#what-can-you-do-with-azure-monitor-metrics)
 
-## What is the goal of auto scaling
+## Monitoring for scalability
 
-- Scale up or out or in and down resources to meet the current demand.
-- Decrease costs by scaling down when resources are not needed.
-- Improve customer experience be offering uninterrupted service even when the demand peaks of valleys.
+For purposes of scalability, analyzing the metrics would allow you to scale based scale up, scale out, scale in, and scale down. The ability to scale dynamically is one of the biggest values of moving to the cloud.
 
-## How can metrics be used to auto scale
+One of the challenges to metric data is that it often has limited information to provide context for collected values. Azure Monitor addresses this challenge with multi-dimensional metrics. Dimensions of a metric are name-value pairs that carry additional data to describe the metric value. To learn about multi-dimensional metrics and an example for network throughput, see [multi-dimensional metrics](/azure-monitor/platform/data-platform-metrics#multi-dimensional-metrics).
 
-- As stated before, most Azure services offer the ability to export logs and metrics to services such as Log Analytics and external service like Splunk through Azure Event Hubs. Furthermore, application leveraging technologies such as Application Insights can further enhance the telemetry coming out of the applications.  
-- The metrics coming out of Azure services include metrics such as CPU and memory, utilization, bandwidth information, current storage utilization information, and much more. You can refer to the [supported metrics for Azure Monitor](/azure/azure-monitor/platform/metrics-supported)
+Most Azure services offer the ability to export [logs](/azure/azure-monitor/platform/data-platform-logs) and [metrics](/azure/azure-monitor/platform/data-platform-metrics) to services such as Log Analytics and external service like Splunk through Azure Event Hubs. Furthermore, application leveraging technologies such as [Application Insights](/azure/azure-monitor/app/app-insights-overview) can enhance the telemetry coming out of applications. The metrics coming out of Azure services include metrics such as CPU and memory utilization, bandwidth information, current storage utilization information, and more. For further information, see [supported metrics for Azure Monitor](/azure/azure-monitor/platform/metrics-supported).
 
-## How do Azure services auto scale
+To learn more about Application Insights, see [What does Application Insights monitor?](/azure/azure-monitor/app/app-insights-overview#what-does-application-insights-monitor)
 
-- App Services, ASE, and virtual machine scale sets be configured with autoscaling rules that can be based on several metrics including CPU, memory, bandwidth, etc. These rules can create new instances (scale out) or remove instances (scale in) or a running service. This capability can be enhanced by generating custom events from technologies like Application Insight that could be based on some other custom metrics.
-- Azure Kubernetes Services offers both the ability to scale pods as well as to auto scale nodes. Scaling rules can be based on internal metrics or can leverage metrics from systems like Prometheus.
-- Other services, such as Application Gateway, can be scaled manually. In this case, it is important to leverage services such as Log Analytics to raise alerts when the service is no longer able to handle the load.
+## Monitoring for reliability
 
-- Monitor Metrics and auto scale on performance and schedule for [VMs and virtual machine scale sets](/azure/azure-monitor/insights/vminsights-overview)
+Improve the reliability of your workloads by implementing high availability, disaster recovery, backup, and monitoring in Azure. Monitoring systems should capture comprehensive details so that applications can be restored efficiently and, if necessary, designers and developers can modify the system to prevent the situation from recurring.
 
-- For Container workloads, [container monitoring solution in Azure Monitor](/azure/azure-monitor/insights/containers) should be utilized.
+The raw data for monitoring can come from a variety of sources, including:
 
-:::image type="icon" source="../../_images/github.png" border="false"::: The [AppServiceAutoscalingSample](https://github.com/mspnp/samples/tree/master/PerformanceEfficiency/AppServiceAutoscalingSample) sample shows autoscaling scenarios based on CPU utilization. 
+- Application logs, such as those produced by [Azure Application Insights](/azure/azure-monitor/app/app-insights-overview).
+- Operating system performance metrics collected by [Azure monitoring agents](/azure/azure-monitor/platform/agents-overview).
+- [Azure resources](/azure/azure-monitor/platform/metrics-supported), including metrics collected by Azure Monitor.
+- [Azure Service Health](/azure/service-health/service-health-overview), which offers a dashboard to help you track active events.
+- [Azure AD logs](/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics) built into the Azure platform.
 
-## Monitoring best practices
+To learn more, see [Monitoring health for reliability](/azure/architecture/framework/resiliency/monitoring).
+
+## Metered metrics monitoring
+
+The basic Azure Monitor billing model is a cloud-friendly, consumption-based pricing ("pay-as-you-go"). You only pay for what you use. Pricing details are available for [metrics](/pricing/details/monitor/) as well as alerting, notifications, Log Analytics and Application Insights.
+
+If you are actively using Azure services, use Azure to monitor your [usage and estimated costs](/azure/azure-monitor/platform/usage-estimated-costs).
+
+If you have not yet purchased an Azure monitoring tool, see [Azure Monitor pricing](/pricing/details/monitor/) for pricing details and FAQs. You can also use the [Pricing Calculator](/pricing/calculator/?service=monitor) to determine your pricing. The Pricing Calculator will help you estimate your likely costs based on your expected utilization.
+
+## Application level monitoring
+
+Instrumentation of your code allows precise detection of under-performing pieces when load or stress tests are applied. It is critical to have this data available to improve and identify performance opportunities in the application code. APM technology, such as [Application Insights](/azure/azure-monitor/app/app-insights-overview), can be used to manage the performance and availability of the application, aggregating application level logs and events for subsequent interpretation.
+
+Here are some questions that can help maximize your application level monitoring:
+
+**Are application events correlated across all application components?**
+***
+
+Event correlation between the layers of the application will provide the ability to connect tracing data of the complete application stack. Once this connection is made, you can see a complete picture of where time is spent at each layer. This will typically mean having a tool that can query the repositories of tracing data in correlation to a unique identifier that represents a completed transaction that has flowed through the system.
+
+**Is it possible to evaluate critical application performance targets and non-functional requirements (NFRs)?**
+***
+
+Application level metrics should include end-to-end transaction times of key technical functions, such as database queries, response times for external API calls, failure rates of processing steps, etc.
+
+**Is the end-to-end performance of critical system flows monitored?**
+***
+
+It should be possible to correlate application log events across critical system flows, such as user login, to fully assess the health of key scenarios in the context of targets and NFRs.
+
+## Resource/Infrastructure Level Monitoring
+
+Log aggregation technologies, such as Azure Log Analytics or Splunk, should be used to collate logs and metrics across all application components for subsequent evaluation. Resources may include Azure IaaS and PaaS services as well as third-party appliances such as firewalls or Anti-Malware solutions used in the application. For example, if Azure Event Hub is used, the Diagnostic Settings should be configured to push logs and metrics to the data sink.
+
+Here are some questions that can help maximize your resource/infrastructure level monitoring:
+
+**Are you collecting Azure Activity Logs within the log aggregation tool?**
+***
+
+Azure Activity Logs provide audit information about when an Azure resource is modified, such as when a virtual machine is started or stopped. This information is extremely useful for the interpretation and troubleshooting of issues. It provides transparency around configuration changes that can be mapped to adverse performance events.
+
+**Is resource level monitoring enforced throughout the application?**
+***
+
+All application resources should be configured to route diagnostic logs and metrics to the chosen log aggregation technology. Azure Policy should also be used as a device to ensure the consistent use of diagnostic settings across the application, to enforce the desired configuration for each Azure service.
+
+**Are logs and metrics available for critical internal dependencies?**
+***
+
+To be able to build a robust application health model, ensure there is visibility into the operational state of critical internal dependencies, such as a shared NVA (network virtual appliance) or Express Route connection.
+
+**Are critical external dependencies monitored?**
+***
+
+Monitor critical external dependencies, such as an API service, to ensure operational visibility of performance. For exaMple, a probe could be used to measure the latency of an external API.
+
+## Data Interpretation & Health Modelling
+***
+
+To build a robust application health model, it is vital that application and resource level data be correlated and evaluated together to optimize the detection of issues and troubleshooting of detected issues. The overall performance can be impacted by both application-level issues as well as resource-level failures. This can also help to distinguish between transient and non-transient faults.
+
+A holistic application health model should be used to quantify what "healthy" and "unhealthy" states represent across all application components. It is highly recommended that a *traffic light* model be used to indicate a healthy state (green light) when key non-functional requirements and targets are fully satisfied and resources are optimally utilized. For example, a healthy state can be 95% of requests are processed in <= 500ms with AKS node utilization at x% etc. Also, An [Application Map](https://docs.microsoft.com/azure/azure-monitor/app/app-map?tabs=net) can to help spot performance bottlenecks or failure hotspots across components of a distributed application.
+
+Here are some questions that can help maximize your data interpretation and health modelling monitoring:
+
+**Are long-term trends analyzed to predict performance issues before they occur?**
+***
+
+Analytics should be performed across long-term operational data to provide the history of application performance and detect if there have been any regressions. An example of a regression is if the average response times have been slowly increasing over time and getting closer to the maximum target.
+
+**Have retention times for logs and metrics been defined, with housekeeping mechanisms configured?**
+***
+
+Clear retention times should be defined to allow for suitable historic analysis but also control storage costs. Suitable housekeeping tasks should also be used to archive data to cheaper storage or aggregate data for long-term trend analysis.
+
+## Best practices for monitoring
 
 - Know the minimum number of instances that should run at any given time.
 - Determine what metrics are best for your solution to base your auto scaling rules.
 - Configure the auto scaling rules for those services that include it.
 - Create alert rules for the services that could be scaled manually.
-- Monitor your environment to make sure that auto scaling is working as expected. For example, watch out for scaling events from the telemetry coming out of the management plane.
+- Monitor your environment to make sure that autoscaling is working as expected. For example, watch out for scaling events from the telemetry coming out of the management plane.
 - Monitor web applications using [Azure Application Insights](/azure/azure-monitor/learn/quick-monitor-portal).
 - [Monitor network performance](/azure/azure-monitor/insights/network-performance-monitor).
-  - Consider reviewing as applicable, [network performance monitor](/azure/azure-monitor/insights/network-performance-monitor-performance-monitor), [service connectivity monitor](/azure/azure-monitor/insights/network-performance-monitor-service-connectivity), [ExpressRoute monitor](/azure/azure-monitor/insights/network-performance-monitor-expressroute)
+  - Consider reviewing as applicable, [network performance monitor](/azure/azure-monitor/insights/network-performance-monitor-performance-monitor), [service connectivity monitor](/azure/azure-monitor/insights/network-performance-monitor-service-connectivity), and [ExpressRoute monitor](/azure/azure-monitor/insights/network-performance-monitor-expressroute).
 - For long-term storage, consider [archiving of the Monitoring Data](/azure/azure-monitor/learn/tutorial-archive-data).
 - Track activities using [Azure Security and Audit Logs](/azure/security/fundamentals/log-audit).
 
-## Related Useful Resources
-
-- [Azure Monitor Data Platform](/azure/azure-monitor/platform/data-platform)
-- [Auto scaling best practices](/azure/azure-monitor/platform/autoscale-best-practices)
-- [Manage log data and workspaces](/azure/azure-monitor/platform/manage-access)
-in Azure Monitor.
-- [Azure Diagnostic Logs and Schemas](/azure/azure-monitor/platform/diagnostic-logs-schema)
+## Next steps
+> [!div class="nextstepaction"]
+> [Optimize]()
