@@ -81,7 +81,7 @@ Here are some questions that can help maximize your resource/infrastructure leve
 **Are you collecting Azure Activity Logs within the log aggregation tool?**
 ***
 
-Azure Activity Logs provide audit information about when an Azure resource is modified, such as when a virtual machine is started or stopped. This information is extremely useful for the interpretation and troubleshooting of issues. It provides transparency around configuration changes that can be mapped to adverse performance events.
+Azure Activity Logs provide audit information about when an Azure resource is modified, such as when a virtual machine is started or stopped. This information is useful for the interpretation and troubleshooting of issues. It provides transparency around configuration changes that can be mapped to adverse performance events.
 
 **Is resource level monitoring enforced throughout the application?**
 ***
@@ -98,14 +98,14 @@ To be able to build a robust application health model, ensure there is visibilit
 
 Monitor critical external dependencies, such as an API service, to ensure operational visibility of performance. For exaMple, a probe could be used to measure the latency of an external API.
 
-## Data Interpretation & Health Modelling
+## Data Interpretation & Health Modeling
 ***
 
 To build a robust application health model, it is vital that application and resource level data be correlated and evaluated together to optimize the detection of issues and troubleshooting of detected issues. The overall performance can be impacted by both application-level issues as well as resource-level failures. This can also help to distinguish between transient and non-transient faults.
 
 A holistic application health model should be used to quantify what "healthy" and "unhealthy" states represent across all application components. It is highly recommended that a *traffic light* model be used to indicate a healthy state (green light) when key non-functional requirements and targets are fully satisfied and resources are optimally utilized. For example, a healthy state can be 95% of requests are processed in <= 500ms with AKS node utilization at x% etc. Also, An [Application Map](https://docs.microsoft.com/azure/azure-monitor/app/app-map?tabs=net) can to help spot performance bottlenecks or failure hotspots across components of a distributed application.
 
-Here are some questions that can help maximize your data interpretation and health modelling monitoring:
+Here are some questions that can help maximize your data interpretation and health modeling monitoring:
 
 **Are long-term trends analyzed to predict performance issues before they occur?**
 ***
