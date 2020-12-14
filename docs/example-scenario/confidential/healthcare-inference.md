@@ -91,16 +91,16 @@ git clone https://github.com/Azure-Samples/confidential-container-samples.git
 cd confidential-container-samples/confidential-healthcare-scone-confinf-onnx
 ```
 
-### Deploy the confidential inference server
+### Deploy the confidential inferencing server
 
-To get ready to deploy the confidential inference server, prepare the inference model by running the model script:
+To get ready to deploy the confidential inferencing server, prepare the inference model by running the model script:
 
 ```bash
 cd model
 ./run.sh
 ```
 
-The model script creates the ONNX model file *unet.onnx*. Part of the deployment of an ONNX runtime confidential inference server uses this file. To complete the deployment of the confidential inference server, see the [confidential ONNX inference server](https://github.com/microsoft/onnx-server-openenclave) project on GitHub. Note the following information, which you'll need in the next section:
+The model script creates the ONNX model file *unet.onnx*. Part of the deployment of an ONNX runtime confidential inferencing server uses this file. To complete the deployment of the confidential inferencing server, see the [confidential ONNX inference server](https://github.com/microsoft/onnx-server-openenclave) project on GitHub. Note the following information, which you'll need in the next section:
 
 - Server address
 - API key
@@ -112,7 +112,7 @@ To get the Flask-based service running and tested on your local SGX-enabled comp
 
 1. Edit these shell commands:
 
-   - Replace the confidential ONNX placeholders with actual values for the server address, API key, and directory that you used to deploy the confidential inference server.
+   - Replace the confidential ONNX placeholders with actual values for the server address, API key, and directory that you used to deploy the confidential inferencing server.
    - Replace the placeholders for the object ID and password of the Azure application.
 
     ```bash
@@ -298,7 +298,7 @@ To access the confidential Flask-based application:
 
 To access the deployed enclave service, see the *web_client* folder, which contains a basic static website. Deploy the static website directly to Blob Storage, which doesn't have a back-end component. Replace the server URL before you deploy the website.
 
-You can use a [sample brain segmentation image](https://github.com/mateuszbuda/brain-segmentation-pytorch/blob/master/assets/TCGA_CS_4944.png) to try the delineation function that invokes the deployed confidential inference server.
+You can use a [sample brain segmentation image](https://github.com/mateuszbuda/brain-segmentation-pytorch/blob/master/assets/TCGA_CS_4944.png) to try the delineation function that invokes the deployed confidential inferencing server.
 
 ### Clean up resources
 
