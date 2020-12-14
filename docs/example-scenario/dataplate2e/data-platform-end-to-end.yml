@@ -1,0 +1,34 @@
+### YamlMime:Architecture
+metadata:
+  title: Azure data platform end-to-end
+  titleSuffix: Azure Example Scenarios
+  description: 'Use Azure services to ingest, process, store, serve, and visualize data from different sources.'
+  author: fabragaMS
+  ms.date: 01/31/2020
+  ms.category:
+    - databases
+    - analytics
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: example-scenario
+  ms.custom:
+    - fcp
+    - data-analytics
+    - example-scenario
+  social_image_url: /azure/architecture/example-scenario/dataplate2e/media/azure-data-platform-end-to-end.jpg
+name: Azure data platform end-to-end
+azureCategories:
+  - databases
+  - analytics
+summary: 'Use Azure services to ingest, process, store, serve, and visualize data from different sources.'
+products:
+  - azure
+  - azure-databricks
+  - azure-functions
+  - azure-iot
+  - consumer
+  - power-bi
+  - sql-server
+thumbnailUrl: /azure/architecture/browse/thumbs/azure-data-platform-end-to-end.jpg
+content: |
+   [!include[](data-platform-end-to-end-content.md)]

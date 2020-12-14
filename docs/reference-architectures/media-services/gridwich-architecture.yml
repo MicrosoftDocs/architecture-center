@@ -1,0 +1,27 @@
+### YamlMime:Architecture
+metadata:
+  title: Gridwich cloud media system
+  titleSuffix: Azure Reference Architectures
+  description: 'Learn about a stateless action execution workflow that ingests, processes, and delivers media assets using two new methods, Terraform Sandwiches and Event Grid Sandwiches.'
+  author: doodlemania2
+  ms.date: 11/12/2020
+  ms.topic: reference-architecture
+  ms.service: architecture-center
+  ms.subservice: reference-architecture
+  ms.custom:
+    - fcp
+name: Gridwich cloud media system
+summary: 'Learn about a stateless action execution workflow that ingests, processes, and delivers media assets using two new methods, Terraform Sandwiches and Event Grid Sandwiches.'
+products:
+  - azure
+  - azure-devops
+  - azure-functions
+  - azure-pipelines
+  - azure-repos
+  - azure-storage
+  - dotnet
+  - github
+  - vs
+thumbnailUrl: /azure/architecture/browse/thumbs/request-response.png
+content: |
+   [!include[](gridwich-architecture-content.md)]

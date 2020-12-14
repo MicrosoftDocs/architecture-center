@@ -1,0 +1,35 @@
+### YamlMime:Architecture
+metadata:
+  title: Extend an on-premises network using VPN
+  description: A secure site-to-site network architecture that spans an Azure virtual network and an on-premises network connected using a VPN.
+  author: doodlemania2
+  ms.date: 01/24/2020
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.category:
+    - hybrid
+    - networking
+  ms.subservice: reference-architecture
+  ms.custom:
+    - networking
+    - reference-architecture
+name: Extend an on-premises network using VPN
+azureCategories:
+  - hybrid
+  - networking
+summary: A secure site-to-site network architecture that spans an Azure virtual network and an on-premises network connected using a VPN.
+products:
+  - azure
+  - azure-bastion
+  - azure-devops
+  - azure-expressroute
+  - azure-portal
+  - azure-stack
+  - github
+  - office
+  - vs
+  - windows
+  - windows-server
+thumbnailUrl: /azure/architecture/browse/thumbs/vpn.png
+content: |
+   [!include[](vpn-content.md)]
