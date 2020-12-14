@@ -114,7 +114,7 @@ ms.subservice: example-scenario
 
 <ul class="panelContent cardsC">
 <li style="display: flex; flex-direction: column;">
-    <a href="~/example-scenario/apps/apim-api-scenario.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
+    <a href="~/example-scenario/apps/apim-api-scenario.yml" style="display: flex; flex-direction: column; flex: 1 0 auto;">
         <div class="cardSize" style="flex: 1 0 auto; display: flex;">
             <div class="cardPadding" style="display: flex;">
                 <div class="card">
@@ -152,7 +152,7 @@ ms.subservice: example-scenario
     </a>
 </li>
 <li style="display: flex; flex-direction: column;">
-    <a href="~/example-scenario/apps/devops-dotnet-webapp.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
+    <a href="~/example-scenario/apps/devops-dotnet-webapp.yml" style="display: flex; flex-direction: column; flex: 1 0 auto;">
         <div class="cardSize" style="flex: 1 0 auto; display: flex;">
             <div class="cardPadding" style="display: flex;">
                 <div class="card">
@@ -171,7 +171,7 @@ ms.subservice: example-scenario
     </a>
 </li>
 <li style="display: flex; flex-direction: column;">
-    <a href="~/example-scenario/apps/devops-with-aks.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
+    <a href="~/example-scenario/apps/devops-with-aks.yml" style="display: flex; flex-direction: column; flex: 1 0 auto;">
         <div class="cardSize" style="flex: 1 0 auto; display: flex;">
             <div class="cardPadding" style="display: flex;">
                 <div class="card">
@@ -190,7 +190,7 @@ ms.subservice: example-scenario
     </a>
 </li>
 <li style="display: flex; flex-direction: column;">
-    <a href="~/example-scenario/apps/ecommerce-scenario.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
+    <a href="~/example-scenario/apps/ecommerce-scenario.yml" style="display: flex; flex-direction: column; flex: 1 0 auto;">
         <div class="cardSize" style="flex: 1 0 auto; display: flex;">
             <div class="cardPadding" style="display: flex;">
                 <div class="card">
@@ -209,7 +209,7 @@ ms.subservice: example-scenario
     </a>
 </li>
 <li style="display: flex; flex-direction: column;">
-    <a href="~/example-scenario/apps/ecommerce-search.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
+    <a href="~/example-scenario/apps/ecommerce-search.yml" style="display: flex; flex-direction: column; flex: 1 0 auto;">
         <div class="cardSize" style="flex: 1 0 auto; display: flex;">
             <div class="cardPadding" style="display: flex;">
                 <div class="card">
@@ -228,7 +228,7 @@ ms.subservice: example-scenario
     </a>
 </li>
 <li style="display: flex; flex-direction: column;">
-    <a href="~/example-scenario/apps/fully-managed-secure-apps.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
+    <a href="~/example-scenario/apps/fully-managed-secure-apps.yml" style="display: flex; flex-direction: column; flex: 1 0 auto;">
         <div class="cardSize" style="flex: 1 0 auto; display: flex;">
             <div class="cardPadding" style="display: flex;">
                 <div class="card">
@@ -247,7 +247,7 @@ ms.subservice: example-scenario
     </a>
 </li>
 <li style="display: flex; flex-direction: column;">
-    <a href="~/example-scenario/apps/hpc-saas.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
+    <a href="~/example-scenario/apps/hpc-saas.yml" style="display: flex; flex-direction: column; flex: 1 0 auto;">
         <div class="cardSize" style="flex: 1 0 auto; display: flex;">
             <div class="cardPadding" style="display: flex;">
                 <div class="card">
@@ -266,7 +266,7 @@ ms.subservice: example-scenario
     </a>
 </li>
 <li style="display: flex; flex-direction: column;">
-    <a href="~/example-scenario/apps/jenkins.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
+    <a href="~/example-scenario/apps/jenkins.yml" style="display: flex; flex-direction: column; flex: 1 0 auto;">
         <div class="cardSize" style="flex: 1 0 auto; display: flex;">
             <div class="cardPadding" style="display: flex;">
                 <div class="card">
@@ -285,7 +285,7 @@ ms.subservice: example-scenario
     </a>
 </li>
 <li style="display: flex; flex-direction: column;">
-    <a href="~/example-scenario/apps/publish-internal-apis-externally.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
+    <a href="~/example-scenario/apps/publish-internal-apis-externally.yml" style="display: flex; flex-direction: column; flex: 1 0 auto;">
         <div class="cardSize" style="flex: 1 0 auto; display: flex;">
             <div class="cardPadding" style="display: flex;">
                 <div class="card">
@@ -304,7 +304,7 @@ ms.subservice: example-scenario
     </a>
 </li>
 <li style="display: flex; flex-direction: column;">
-    <a href="~/example-scenario/apps/sap-dev-test.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
+    <a href="~/example-scenario/apps/sap-dev-test.yml" style="display: flex; flex-direction: column; flex: 1 0 auto;">
         <div class="cardSize" style="flex: 1 0 auto; display: flex;">
             <div class="cardPadding" style="display: flex;">
                 <div class="card">
@@ -323,7 +323,7 @@ ms.subservice: example-scenario
     </a>
 </li>
 <li style="display: flex; flex-direction: column;">
-    <a href="~/example-scenario/apps/sap-production.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
+    <a href="~/example-scenario/apps/sap-production.yml" style="display: flex; flex-direction: column; flex: 1 0 auto;">
         <div class="cardSize" style="flex: 1 0 auto; display: flex;">
             <div class="cardPadding" style="display: flex;">
                 <div class="card">
@@ -342,7 +342,7 @@ ms.subservice: example-scenario
     </a>
 </li>
 <li style="display: flex; flex-direction: column;">
-    <a href="~/example-scenario/apps/telehealth-system.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
+    <a href="~/example-scenario/apps/telehealth-system.yml" style="display: flex; flex-direction: column; flex: 1 0 auto;">
         <div class="cardSize" style="flex: 1 0 auto; display: flex;">
             <div class="cardPadding" style="display: flex;">
                 <div class="card">
@@ -366,7 +366,7 @@ ms.subservice: example-scenario
 
 <ul class="panelContent cardsC">
 <li style="display: flex; flex-direction: column;">
-    <a href="~/example-scenario/data/big-data-with-iot.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
+    <a href="~/example-scenario/data/big-data-with-iot.yml" style="display: flex; flex-direction: column; flex: 1 0 auto;">
         <div class="cardSize" style="flex: 1 0 auto; display: flex;">
             <div class="cardPadding" style="display: flex;">
                 <div class="card">
@@ -423,7 +423,7 @@ ms.subservice: example-scenario
     </a>
 </li>
 <li style="display: flex; flex-direction: column;">
-    <a href="~/example-scenario/data/fraud-detection.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
+    <a href="~/example-scenario/data/fraud-detection.yml" style="display: flex; flex-direction: column; flex: 1 0 auto;">
         <div class="cardSize" style="flex: 1 0 auto; display: flex;">
             <div class="cardPadding" style="display: flex;">
                 <div class="card">
@@ -461,7 +461,7 @@ ms.subservice: example-scenario
     </a>
 </li>
 <li style="display: flex; flex-direction: column;">
-    <a href="~/example-scenario/data/realtime-analytics-vehicle-iot.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
+    <a href="~/example-scenario/data/realtime-analytics-vehicle-iot.yml" style="display: flex; flex-direction: column; flex: 1 0 auto;">
         <div class="cardSize" style="flex: 1 0 auto; display: flex;">
             <div class="cardPadding" style="display: flex;">
                 <div class="card">
@@ -485,7 +485,7 @@ ms.subservice: example-scenario
 
 <ul class="panelContent cardsC">
 <li style="display: flex; flex-direction: column;">
-    <a href="~/example-scenario/infrastructure/hpc-cfd.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
+    <a href="~/example-scenario/infrastructure/hpc-cfd.yml" style="display: flex; flex-direction: column; flex: 1 0 auto;">
         <div class="cardSize" style="flex: 1 0 auto; display: flex;">
             <div class="cardPadding" style="display: flex;">
                 <div class="card">
@@ -504,7 +504,7 @@ ms.subservice: example-scenario
     </a>
 </li>
 <li style="display: flex; flex-direction: column;">
-    <a href="~/example-scenario/infrastructure/image-modeling.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
+    <a href="~/example-scenario/infrastructure/image-modeling.yml" style="display: flex; flex-direction: column; flex: 1 0 auto;">
         <div class="cardSize" style="flex: 1 0 auto; display: flex;">
             <div class="cardPadding" style="display: flex;">
                 <div class="card">
@@ -523,7 +523,7 @@ ms.subservice: example-scenario
     </a>
 </li>
 <li style="display: flex; flex-direction: column;">
-    <a href="~/example-scenario/infrastructure/linux-vdi-citrix.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
+    <a href="~/example-scenario/infrastructure/linux-vdi-citrix.yml" style="display: flex; flex-direction: column; flex: 1 0 auto;">
         <div class="cardSize" style="flex: 1 0 auto; display: flex;">
             <div class="cardPadding" style="display: flex;">
                 <div class="card">
@@ -542,7 +542,7 @@ ms.subservice: example-scenario
     </a>
 </li>
 <li style="display: flex; flex-direction: column;">
-    <a href="~/example-scenario/infrastructure/multi-tier-app-disaster-recovery.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
+    <a href="~/example-scenario/infrastructure/multi-tier-app-disaster-recovery.yml" style="display: flex; flex-direction: column; flex: 1 0 auto;">
         <div class="cardSize" style="flex: 1 0 auto; display: flex;">
             <div class="cardPadding" style="display: flex;">
                 <div class="card">
@@ -561,7 +561,7 @@ ms.subservice: example-scenario
     </a>
 </li>
 <li style="display: flex; flex-direction: column;">
-    <a href="~/example-scenario/infrastructure/service-fabric-microservices.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
+    <a href="~/example-scenario/infrastructure/service-fabric-microservices.yml" style="display: flex; flex-direction: column; flex: 1 0 auto;">
         <div class="cardSize" style="flex: 1 0 auto; display: flex;">
             <div class="cardPadding" style="display: flex;">
                 <div class="card">
@@ -580,7 +580,7 @@ ms.subservice: example-scenario
     </a>
 </li>
 <li style="display: flex; flex-direction: column;">
-    <a href="~/example-scenario/infrastructure/video-rendering.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
+    <a href="~/example-scenario/infrastructure/video-rendering.yml" style="display: flex; flex-direction: column; flex: 1 0 auto;">
         <div class="cardSize" style="flex: 1 0 auto; display: flex;">
             <div class="cardPadding" style="display: flex;">
                 <div class="card">
@@ -599,7 +599,7 @@ ms.subservice: example-scenario
     </a>
 </li>
 <li style="display: flex; flex-direction: column;">
-    <a href="~/example-scenario/infrastructure/wordpress.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
+    <a href="~/example-scenario/infrastructure/wordpress.yml" style="display: flex; flex-direction: column; flex: 1 0 auto;">
         <div class="cardSize" style="flex: 1 0 auto; display: flex;">
             <div class="cardPadding" style="display: flex;">
                 <div class="card">

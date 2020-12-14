@@ -1,0 +1,25 @@
+### YamlMime:Architecture
+metadata:
+  title: Lift and shift to containers with AKS
+  titleSuffix: Azure Solution Ideas
+  author: doodlemania2
+  ms.date: 12/16/2019
+  description: Lift and shift to containers with AKS
+  ms.custom: 'acom-architecture, app-dev, devops, chat, signalr service, interactive-diagram, ''https://azure.microsoft.com/solutions/architecture/migrate-existing-applications-with-aks/'''
+  ms.service: architecture-center
+  ms.category:
+    - migration
+    - containers
+  ms.subservice: solution-idea
+  social_image_url: /azure/architecture/solution-ideas/articles/media/migrate-existing-applications-with-aks.png
+name: Lift and shift to containers with AKS
+azureCategories:
+  - migration
+  - containers
+summary: Lift and shift to containers with AKS
+products:
+  - azure
+  - azure-portal
+thumbnailUrl: /azure/architecture/browse/thumbs/migrate-existing-applications-with-aks.png
+content: |
+   [!include[](migrate-existing-applications-with-aks-content.md)]

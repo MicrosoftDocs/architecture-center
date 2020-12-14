@@ -138,7 +138,7 @@ Cloud applications often use managed services that have access keys. Never check
 
 ### Data sovereignty and encryption
 
-Make sure that your data remains in the correct geopolitical zone when using Azure's highly available. Azure's geo-replicated storage uses the concept of a [paired region][paired-region] in the same geopolitical region.
+Make sure that your data remains in the correct geopolitical zone when using Azure data services. Azure's geo-replicated storage uses the concept of a [paired region][paired-region] in the same geopolitical region.
 
 Use Key Vault to safeguard cryptographic keys and secrets. By using Key Vault, you can encrypt keys and secrets by using keys that are protected by hardware security modules (HSMs). Many Azure storage and DB services support data encryption at rest, including [Azure Storage][storage-encryption], [Azure SQL Database][sql-db-encryption], [Azure Synapse Analytics][data-warehouse-encryption], and [Cosmos DB][cosmos-db-encryption].
 
@@ -150,7 +150,7 @@ Use Key Vault to safeguard cryptographic keys and secrets. By using Key Vault, y
 
 <!-- links -->
 
-[identity-ref-arch]: ../reference-architectures/identity/index.md
+[identity-ref-arch]: ../reference-architectures/identity/index.yml
 [resiliency]: ../framework/resiliency/overview.md
 [ad-subscriptions]: /azure/active-directory/active-directory-how-subscriptions-associated-directory
 [data-warehouse-encryption]: /azure/data-lake-store/data-lake-store-security-overview#data-protection

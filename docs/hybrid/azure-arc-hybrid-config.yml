@@ -1,0 +1,34 @@
+### YamlMime:Architecture
+metadata:
+  title: Manage configurations for Azure Arc enabled servers
+  description: Use Azure Arc to extend Azure Resource Manager capabilities to Windows and Linux machines on any infrastructure.
+  author: doodlemania2
+  ms.date: 07/28/2020
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.category:
+    - hybrid
+    - management-and-governance
+  ms.subservice: reference-architecture
+  ms.custom:
+    - fcp
+    - reference-architecture
+name: Manage configurations for Azure Arc enabled servers
+azureCategories:
+  - hybrid
+  - management-and-governance
+summary: Use Azure Arc to extend Azure Resource Manager capabilities to Windows and Linux machines on any infrastructure.
+products:
+  - azure
+  - azure-arc
+  - azure-automation
+  - azure-lighthouse
+  - azure-monitor
+  - azure-policy
+  - azure-portal
+  - azure-sentinel
+  - vs
+  - windows
+thumbnailUrl: /azure/architecture/browse/thumbs/azure-arc-hybrid-config.png
+content: |
+   [!include[](azure-arc-hybrid-config-content.md)]

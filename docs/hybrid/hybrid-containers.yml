@@ -1,0 +1,33 @@
+### YamlMime:Architecture
+metadata:
+  title: Run containers in a hybrid environment
+  description: Run containers from an enterprise container registry on-premises and in Azure
+  author: doodlemania2
+  ms.date: 06/29/2020
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.category:
+    - hybrid
+    - devops
+  ms.subservice: reference-architecture
+  ms.custom:
+    - fcp
+    - reference-architecture
+name: Run containers in a hybrid environment
+azureCategories:
+  - hybrid
+  - devops
+summary: Run containers from an enterprise container registry on-premises and in Azure
+products:
+  - azure
+  - azure-arc
+  - azure-functions
+  - azure-monitor
+  - azure-policy
+  - azure-stack
+  - github
+  - vs
+  - windows
+thumbnailUrl: /azure/architecture/browse/thumbs/hybrid-containers.png
+content: |
+   [!include[](hybrid-containers-content.md)]

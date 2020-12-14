@@ -1,0 +1,28 @@
+### YamlMime:Architecture
+metadata:
+  title: Azure Data Explorer monitoring
+  titleSuffix: Azure Solution Ideas
+  description: End-to-end monitoring solution with Azure Data Explorer demonstrates a hybrid monitoring solution integrated with Azure Sentinel and Azure Monitor for ingesting streaming and batched logs from diverse sources within an enterprise ecosystem.
+  author: orspod
+  ms.date: 08/11/2020
+  ms.service: architecture-center
+  ms.subservice: solution-idea
+  ms.custom:
+    - fcp
+  ms.category:
+    - analytics
+    - iot
+name: Azure Data Explorer monitoring
+azureCategories:
+  - analytics
+  - iot
+summary: End-to-end monitoring solution with Azure Data Explorer demonstrates a hybrid monitoring solution integrated with Azure Sentinel and Azure Monitor for ingesting streaming and batched logs from diverse sources within an enterprise ecosystem.
+products:
+  - azure
+  - azure-iot
+  - azure-monitor
+  - azure-sentinel
+  - azure-storage
+thumbnailUrl: /azure/architecture/browse/thumbs/monitor-azure-data-explorer.png
+content: |
+   [!include[](monitor-azure-data-explorer-content.md)]
