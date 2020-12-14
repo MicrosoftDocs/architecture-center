@@ -1,0 +1,26 @@
+### YamlMime:Architecture
+metadata:
+  title: Modernize .NET applications
+  titleSuffix: Azure Solution Ideas
+  author: doodlemania2
+  description: Modernize .NET applications with Azure SQL DB and Azure App Service
+  ms.date: 06/26/2020
+  ms.custom: fcp
+  ms.service: architecture-center
+  ms.subservice: solution-idea
+  ms.category:
+    - integration
+    - databases
+name: Modernize .NET applications
+azureCategories:
+  - integration
+  - databases
+summary: Modernize .NET applications with Azure SQL DB and Azure App Service
+products:
+  - azure
+  - azure-devops
+  - github
+  - windows
+thumbnailUrl: /azure/architecture/browse/thumbs/net-app-modernization.png
+content: |
+   [!include[](net-app-modernization-content.md)]

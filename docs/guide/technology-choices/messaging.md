@@ -179,7 +179,7 @@ Event Hubs is capable of ingesting millions of events per second. The events are
 #### Pull model
 Like Event Grid, Event Hubs also offers Publisher-Subscriber capabilities. A key difference between Event Grid and Event Hubs is in the way event data is made available to the subscribers. Event Grid pushes the ingested data to the subscribers whereas Event Hub makes the data available in a pull model. As events are received, Event Hubs appends them to the stream. A subscriber manages its cursor and can move forward and back in the stream, select a time offset, and replay a sequence at its pace. 
 
-Stream processors are subscribers that pull data from Event Hubs for the purposes of transformation and statistical analysis. Use [Azure Stream Analytics](../../reference-architectures/data/stream-processing-stream-analytics.md) and [Apache Spark](https://spark.apache.org/) for complex processing such as aggregation over time windows or anomaly detection. 
+Stream processors are subscribers that pull data from Event Hubs for the purposes of transformation and statistical analysis. Use [Azure Stream Analytics](../../reference-architectures/data/stream-processing-stream-analytics.yml) and [Apache Spark](https://spark.apache.org/) for complex processing such as aggregation over time windows or anomaly detection. 
 
 If you want to act on each event per partition, you can pull the data by using [Event Processing Host](/azure/event-hubs/event-hubs-event-processor-host) or by using built in connector such as [Logic Apps](/azure/connectors/connectors-create-api-azure-event-hubs) to provide the transformation logic. Another option is to use [Azure Functions](/azure/azure-functions/).
 
@@ -218,7 +218,7 @@ Combining services can increase the efficiency of your messaging system. For ins
 
 For details about connecting Service Bus to Event Grid, see [Azure Service Bus to Event Grid integration overview](/azure/service-bus-messaging/service-bus-to-event-grid-integration-concept).
 
-The [Enterprise integration on Azure using message queues and events](../../reference-architectures/enterprise-integration/queues-events.md) reference architecture shows an implementation of Service Bus to Event Grid integration.
+The [Enterprise integration on Azure using message queues and events](../../reference-architectures/enterprise-integration/queues-events.yml) reference architecture shows an implementation of Service Bus to Event Grid integration.
 
 Here's another example. Event Grid receives a set of events in which some events require a workflow while others are for notification. The message metadata indicates the type of event. One way is to check the metadata by using the filtering feature in the event subscription. If it requires a workflow, Event Grid sends it to Azure Service Bus queue. The receivers of that queue can take necessary actions. The notification events are sent to Logic Apps to send alert emails. 
 

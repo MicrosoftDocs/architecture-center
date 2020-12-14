@@ -1,0 +1,30 @@
+### YamlMime:Architecture
+metadata:
+  title: Scalable and secure WordPress on Azure
+  titleSuffix: Azure Example Scenarios
+  description: This example shows a highly scalable and secure installation of WordPress. The scenario was used for a large convention and scaled to meet spike traffic.
+  author: david-stanford
+  ms.date: 09/18/2018
+  ms.category:
+    - web
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: example-scenario
+  social_image_url: /azure/architecture/example-scenario/infrastructure/media/secure-scalable-wordpress.png
+  ms.custom:
+    - web-apps
+    - scalability
+    - example-scenario
+name: Scalable and secure WordPress on Azure
+azureCategories:
+  - web
+summary: This example shows a highly scalable and secure installation of WordPress. The scenario was used for a large convention and scaled to meet spike traffic.
+products:
+  - azure
+  - azure-arc
+  - azure-files
+  - sql-server
+  - surface
+thumbnailUrl: /azure/architecture/browse/thumbs/secure-scalable-wordpress.png
+content: |
+   [!include[](wordpress-content.md)]

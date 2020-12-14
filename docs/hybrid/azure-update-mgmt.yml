@@ -1,0 +1,37 @@
+### YamlMime:Architecture
+metadata:
+  title: Azure Automation Update Management
+  description: Manage operating system updates with Update Management in Azure Automation
+  author: doodlemania2
+  ms.date: 07/16/2020
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.category:
+    - hybrid
+    - management-and-governance
+    - networking
+  ms.subservice: reference-architecture
+  ms.custom:
+    - fcp
+    - reference-architecture
+name: Azure Automation Update Management
+azureCategories:
+  - hybrid
+  - management-and-governance
+  - networking
+summary: Manage operating system updates with Update Management in Azure Automation
+products:
+  - azure
+  - azure-automation
+  - azure-devops
+  - azure-monitor
+  - azure-portal
+  - expression
+  - github
+  - msc
+  - vs
+  - windows
+  - windows-server
+thumbnailUrl: /azure/architecture/browse/thumbs/azure-update-mgmt.png
+content: |
+   [!include[](azure-update-mgmt-content.md)]

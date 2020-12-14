@@ -1,0 +1,24 @@
+### YamlMime:Architecture
+metadata:
+  title: Live streaming digital media
+  titleSuffix: Azure Solution Ideas
+  author: doodlemania2
+  ms.date: 12/16/2019
+  description: 'A live streaming solution allows you to capture video in real-time and broadcast it to consumers in real time, such as streaming interviews, conferences, and sporting events online.'
+  ms.custom: 'acom-architecture, media, ''https://azure.microsoft.com/solutions/architecture/digital-media-live-stream/'''
+  ms.service: architecture-center
+  ms.category:
+    - media
+  ms.subservice: solution-idea
+  social_image_url: /azure/architecture/solution-ideas/articles/media-live-stream.png
+name: Live streaming digital media
+azureCategories:
+  - media
+summary: 'A live streaming solution allows you to capture video in real-time and broadcast it to consumers in real time, such as streaming interviews, conferences, and sporting events online.'
+products:
+  - azure
+  - consumer
+  - dotnet
+thumbnailUrl: /azure/architecture/browse/thumbs/digital-media-live-stream.png
+content: |
+   [!include[](digital-media-live-stream-content.md)]
