@@ -327,7 +327,7 @@ You might need to create several Conditional Access policies to meet business ne
 
 Once you enable Conditional Access, you can impose additional controls such as PAM and just-in-time (JIT) provisioning. For more information, see [What is automated SaaS app user provisioning in Azure AD](https://docs.microsoft.com/azure/active-directory/app-provisioning/user-provisioning).
 
-If you have MCAS, you can use Conditional Access to configure MCAS session policies. For more information, see [Configure Azure AD session policies for AWS activities](aws-azure-security-ideas.md#configure-mcas-monitoring-policies-for-aws-activities).
+If you have MCAS, you can use Conditional Access to configure MCAS session policies. For more information, see [Configure Azure AD session policies for AWS activities](aws-azure-security-solutions.md#configure-mcas-monitoring-policies-for-aws-activities).
 
 ## See also
 
