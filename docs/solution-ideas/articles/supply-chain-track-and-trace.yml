@@ -20,7 +20,6 @@ azureCategories:
 summary: Learn how to use the Azure Blockchain Workbench. Build an asset tracking application for supply chain with a step-by-step flowchart.
 products:
   - azure
-  - blockchain
 thumbnailUrl: /azure/architecture/browse/thumbs/supply-chain-track-and-trace.png
 content: |
    [!include[](supply-chain-track-and-trace-content.md)]
