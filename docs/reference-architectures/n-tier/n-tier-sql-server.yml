@@ -21,15 +21,8 @@ azureCategories:
 summary: 'Implement a multi-tier architecture on Azure for availability, security, scalability, and manageability.'
 products:
   - azure
-  - azure-devops
-  - azure-dns
-  - azure-monitor
-  - azure-portal
-  - github
-  - sql-server
-  - vs
-  - windows
-  - windows-server
+  - azure-virtual-network
+  - azure-virtual-machines
 thumbnailUrl: /azure/architecture/browse/thumbs/n-tier-sql-server.png
 content: |
    [!include[](n-tier-sql-server-content.md)]

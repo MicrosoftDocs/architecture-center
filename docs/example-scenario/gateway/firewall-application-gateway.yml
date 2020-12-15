@@ -22,8 +22,6 @@ products:
   - azure-expressroute
   - azure-firewall
   - azure-storage
-  - surface
-  - vs
 thumbnailUrl: /azure/architecture/browse/thumbs/decision-tree.png
 content: |
    [!include[](firewall-application-gateway-content.md)]

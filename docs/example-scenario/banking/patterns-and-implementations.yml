@@ -22,7 +22,6 @@ products:
   - azure
   - azure-functions
   - azure-pipelines
-  - consumer
   - github
 thumbnailUrl: /azure/architecture/browse/thumbs/orchestration-based-saga-serverless-arch.png
 content: |

@@ -21,10 +21,6 @@ summary: Deploy Windows Admin Center to manage environments on-premises and in A
 products:
   - azure
   - azure-portal
-  - azure-stack
-  - office
-  - vs
-  - windows
   - windows-server
 thumbnailUrl: /azure/architecture/browse/thumbs/hybrid-server-os-mgmt-wac-azure.png
 content: |

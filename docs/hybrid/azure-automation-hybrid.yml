@@ -21,12 +21,6 @@ summary: Azure Automation leveraged for both on-premises and cloud environments
 products:
   - azure
   - azure-automation
-  - azure-devops
-  - azure-monitor
-  - azure-portal
-  - github
-  - vs
-  - windows
   - windows-server
 thumbnailUrl: /azure/architecture/browse/thumbs/azure-automation-hybrid.png
 content: |

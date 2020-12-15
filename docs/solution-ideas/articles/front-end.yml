@@ -22,7 +22,6 @@ products:
   - power-apps
   - power-automate
   - powerapps
-  - surface
 thumbnailUrl: /azure/architecture/browse/thumbs/front-end.png
 content: |
    [!include[](front-end-content.md)]

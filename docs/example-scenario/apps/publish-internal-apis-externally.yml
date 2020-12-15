@@ -27,10 +27,6 @@ products:
   - azure-devops
   - azure-monitor
   - azure-pipelines
-  - azure-portal
-  - consumer
-  - github
-  - surface
   - vs
   - windows
 thumbnailUrl: /azure/architecture/browse/thumbs/architecture-publish-internal-apis-externally.png

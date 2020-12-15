@@ -25,11 +25,7 @@ products:
   - azure
   - azure-devops
   - azure-pipelines
-  - azure-portal
-  - azure-storage
-  - dotnet
-  - github
-  - vs
+  - azure-bot-service
 thumbnailUrl: /azure/architecture/browse/thumbs/deployment-flow.png
 content: |
    [!include[](devops-cicd-chatbot-content.md)]

@@ -22,14 +22,8 @@ azureCategories:
 summary: Implement a secure site-to-site network architecture that spans an Azure virtual network and an on-premises network connected using Azure ExpressRoute.
 products:
   - azure
-  - azure-devops
   - azure-expressroute
-  - azure-portal
-  - github
-  - microsoft-edge
-  - office
-  - vs
-  - windows
+  - azure-virtual-network
 thumbnailUrl: /azure/architecture/browse/thumbs/expressroute.png
 content: |
    [!include[](expressroute-content.md)]

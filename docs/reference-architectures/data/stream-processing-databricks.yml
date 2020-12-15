@@ -22,12 +22,6 @@ summary: Create an end-to-end stream processing pipeline in Azure using Azure Da
 products:
   - azure
   - azure-databricks
-  - azure-devops
-  - azure-monitor
-  - azure-portal
-  - consumer
-  - github
-  - windows
 thumbnailUrl: /azure/architecture/browse/thumbs/stream-processing-databricks.png
 content: |
    [!include[](stream-processing-databricks-content.md)]

@@ -19,10 +19,7 @@ azureCategories:
 summary: This reference architecture shows how to conduct distributed training of deep learning models across clusters of GPU-enabled VMs using Azure Machine Learning.
 products:
   - azure
-  - azure-portal
-  - azure-storage
-  - github
-  - windows
+  - azure-machine-learning
 thumbnailUrl: /azure/architecture/browse/thumbs/distributed_dl_architecture.png
 content: |
    [!include[](training-deep-learning-content.md)]

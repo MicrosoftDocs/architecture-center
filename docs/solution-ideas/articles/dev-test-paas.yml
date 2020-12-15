@@ -19,14 +19,8 @@ azureCategories:
 summary: 'Learn how to configure a DevTest and DevOps infrastructure for development, testing, and deploying PaaS-based software.'
 products:
   - azure
-  - azure-boards
   - azure-devops
-  - azure-monitor
-  - azure-pipelines
-  - azure-policy
-  - azure-portal
-  - github
-  - vs
+  - azure-devtest-labs
 thumbnailUrl: /azure/architecture/browse/thumbs/dev-test-paas.png
 content: |
    [!include[](dev-test-paas-content.md)]

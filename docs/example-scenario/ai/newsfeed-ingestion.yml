@@ -24,12 +24,9 @@ products:
   - azure
   - azure-face
   - azure-functions
-  - azure-portal
   - azure-search
   - azure-storage
   - dotnet
-  - github
-  - surface
 thumbnailUrl: /azure/architecture/browse/thumbs/mass-ingestion-newsfeeds-architecture.png
 content: |
    [!include[](newsfeed-ingestion-content.md)]
