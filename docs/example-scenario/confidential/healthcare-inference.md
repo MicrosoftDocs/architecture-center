@@ -15,7 +15,7 @@ ms.custom:
 
 When organizations collaborate, they share information. But most parties don't want to give other parties access to all parts of the data. Mechanisms exist for safeguarding data at rest and in transit. However, encrypting data in use poses different challenges. This article presents a solution that Azure confidential computing (ACC) offers for encrypting in-use data.
 
-By using confidential computing and containers, the solution provides a way for a provider-hosted application to securely collaborate with a hospital and a third-party diagnostic provider. Azure Kubernetes Service (AKS) hosts confidential computing nodes on its clusters. Azure Attestation establishes trust with the diagnostic provider. By using these Azure components, the architecture isolates the sensitive data of the hospital patients while the data is being processed in the cloud. The hospital data is then inaccessible to the diagnostic provider. Through this architecture, the provider-hosted application can also take advantage of advanced analytics. The diagnostic provider makes these analytics available as confidential computing services of machine learning (ML) applications.
+By using confidential computing and containers, the solution provides a way for a provider-hosted application to securely collaborate with a hospital and a third-party diagnostic provider. Azure Kubernetes Service (AKS) hosts confidential computing nodes. Azure Attestation establishes trust with the diagnostic provider. By using these Azure components, the architecture isolates the sensitive data of the hospital patients while the specific shared data is being processed in the cloud. The hospital data is then inaccessible to the diagnostic provider. Through this architecture, the provider-hosted application can also take advantage of advanced analytics. The diagnostic provider makes these analytics available as confidential computing services of machine learning (ML) applications.
 
 ## Potential use cases
 
@@ -33,15 +33,22 @@ Many industries protect their data by using confidential computing for these pur
 Diagram showing how data flows between three parties in a healthcare setting. Three rectangles represent the three parties: a hospital, a medical platform, and a diagnostic provider. Each rectangle contains icons that represent various components, such as a website, a client application, Azure Attestation, a web API, data storage, and a runtime. The medical platform and diagnostic provider rectangles also contain smaller rectangles that represent confidential nodes and A K S clusters. Arrows connect these components and show the flow of data. Numbered callouts correspond to the steps that this article describes after the diagram.
 :::image-end:::
 
-1. A clerk for Lamna Hospital opens an Azure Blob Storage static website to enter patient data.
+The diagram outlines the architecture. Throughout the system:
 
-1. The clerk enters data into the hospital's web portal, which Contoso Medical Platform Ltd. powers with a Python Flask–based web API. A confidential node in the [SCONE](https://sconedocs.github.io/#scone-executive-summary) confidential computing software protects the patient data. SCONE works within an AKS-hosted cluster and is Software Guard Extensions (SGX) software that helps run the container in an enclave.
+- Network communication is TLS encrypted in transit.
+- Azure Monitor tracks component performance, and Azure Container Registry (ACR) manages the solution's containers.
 
-1. The Python code is wrapped in SCONE SGX software. The solution deploys that code on an AKS confidential node as a confidential container. The code stores the data in encrypted form in memory within Azure Cache for Redis (**3a**), using Azure Attestation to establish trust (**3b**).
+The solution involves the following steps:
 
-1. If the code doesn't find the patient data, it prompts the clerk to enter the sensitive information on a form. The code then stores that information in Azure Cache for Redis.
+1. A clerk for Lamna Hospital opens the hospital's web portal, an Azure Blob Storage static website, to enter patient data.
 
-1. The Contoso application sends the protected patient data from its AKS cluster to an enclave in the Open Neural Network Exchange (ONNX) runtime server. Fabrikam Diagnostic Provider hosts this confidential inferencing server in the confidential node of an AKS cluster.
+1. The clerk enters data into the hospital's web portal, which Contoso Medical Platform Ltd. powers with a Python Flask–based web API. A confidential node in the [SCONE](https://sconedocs.github.io/#scone-executive-summary) confidential computing software protects the patient data. SCONE works within an AKS cluster that has the Software Guard Extensions (SGX) enabled that help run the container in an enclave.
+
+1. The Python code is wrapped in SCONE SGX software. The solution deploys that code on an AKS confidential node as a confidential container. The code stores the data in memory within a Redis cache (**3a**), using Azure Attestation to establish trust (**3b**).
+
+1. If the code doesn't find the patient data, it prompts the clerk to enter the sensitive information on a form. The code then stores that information in Redis.
+
+1. The Contoso application sends the protected patient data from its AKS cluster to an enclave in the Open Neural Network Exchange (ONNX) runtime server. Fabrikam Diagnostic Provider hosts this confidential inferencing server in a confidential node of the Fabrikam AKS cluster.
 
 1. The Fabrikam machine learning–based application obtains the diagnostic results from the confidential inferencing ONNX runtime server. The app sends these results back to the confidential node in the Contoso AKS cluster.
 
@@ -53,15 +60,21 @@ Diagram showing how data flows between three parties in a healthcare setting. Th
 
 - [Azure Attestation](/azure/attestation/) is a unified solution that remotely verifies the trustworthiness of a platform. Azure Attestation also remotely verifies the integrity of the binaries that run in the platform. Use Azure Attestation to establish trust with the confidential application.
 
-- [AKS Cluster - Hosted](/azure/aks/intro-kubernetes) simplifies the process of deploying a managed AKS-hosted cluster.
+- [AKS Cluster](/azure/aks/intro-kubernetes) simplifies the process of deploying a Kubernetes cluster.
 
-- [Confidential computing nodes](/azure/confidential-computing/confidential-nodes-aks-overview) can run sensitive workloads on AKS within a hardware-based trusted execution environment (TEE) by allowing user-level code to allocate private regions of memory, known as enclaves. Confidential computing nodes can support confidential containers or enclave-aware containers.
+- [Confidential computing nodes](/azure/confidential-computing/confidential-nodes-aks-overview) are hosted on a specific virtual machine series that can run sensitive workloads on AKS within a hardware-based trusted execution environment (TEE) by allowing user-level code to allocate private regions of memory, known as enclaves. Confidential computing nodes can support confidential containers or enclave-aware containers.
 
-- [Azure Cache for Redis](https://docs.microsoft.com/azure/azure-cache-for-redis/cache-overview) is an in-memory data store based on the open-source software Redis.
+- [SCONE platform](https://azuremarketplace.microsoft.com/marketplace/apps/scontainug1595751515785.scone?tab=Overview) is an Azure Partner independent software vendor (ISV) solution from Scontain.
+
+- [Redis](https://redis.io/) is an open-source, in-memory data structure store.
 
 - [Secure Container Environment (SCONE)](https://sconedocs.github.io/) supports the execution of confidential applications in containers that run inside a Kubernetes cluster.
 
 - [Confidential Inferencing ONNX Runtime Server Enclave (ONNX RT - Enclave)](https://github.com/microsoft/onnx-server-openenclave) is a host that restricts the ML hosting party from accessing both the inferencing request and its corresponding response.
+
+- [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview) collects and analyzes app telemetry, such as performance metrics and activity logs.
+
+- [ACR](https://azure.microsoft.com/services/container-registry/) is a service that creates a managed registry. ACR builds, stores, and manages container images and can store containerized machine learning models.
 
 ### Alternatives
 
@@ -71,264 +84,65 @@ Diagram showing how data flows between three parties in a healthcare setting. Th
 
 ## Considerations
 
-Azure confidential computing virtual machines (VMs) are available in 2nd-generation D family sizes for general purpose needs. These sizes are known collectively as D-Series v2 or DCsv2 series. Specifically, the following sizes are available, where the numerals represent the number of virtual CPUs (vCPUs):
-
-- **DC1s_v2**
-- **DC2s_v2**
-- **DC4s_v2**
-- **DC8_v2**
-
-This scenario uses Intel SGX-enabled DCs_v2-series virtual machines with Gen2 operating system (OS) images. But you can only deploy certain sizes in certain regions. For more information, see [Quickstart: Deploy an Azure Confidential Computing VM in the Marketplace](/azure/confidential-computing/quick-create-marketplace) and [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines).
+Azure confidential computing virtual machines (VMs) are available in 2nd-generation D family sizes for general purpose needs. These sizes are known collectively as D-Series v2 or DCsv2 series. This scenario uses Intel SGX-enabled DCs_v2-series virtual machines with Gen2 operating system (OS) images. But you can only deploy certain sizes in certain regions. For more information, see [Quickstart: Deploy an Azure Confidential Computing VM in the Marketplace](/azure/confidential-computing/quick-create-marketplace) and [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines).
 
 ## Deploy this scenario
 
-This scenario involves a [confidential Flask-based application](https://sconedocs.github.io/flask_demo/) example adapted from the SCONE website. The Python code, which uses the SCONE Flask web API, executes in an SGX enclave.
+Deploying this scenario involves the following high-level steps:
 
-To begin scenario deployment, clone the example code to your local computer, and then go to the root folder:
+- Deploy the confidential inferencing server. See the [confidential ONNX inference server](https://github.com/microsoft/onnx-server-openenclave) project on GitHub for information on this step.
 
-```bash
-git clone https://github.com/Azure-Samples/confidential-container-samples.git
-cd confidential-container-samples/confidential-healthcare-scone-confinf-onnx
-```
+- Run and test the Flask-based service on your local SGX-enabled computer.
 
-### Deploy the confidential inferencing server
+- Run the code on a Kubernetes cluster and AKS:
 
-To get ready to deploy the confidential inferencing server, prepare the inference model by running the model script:
+  - Get access to [curated confidential applications called SconeApps](https://sconedocs.github.io/helm/). SconeApps are available on a private GitHub repository that's currently only available for commercial customers, through SCONE Standard Edition. Go to the [SCONE website](https://scontain.com/) and contact the company directly to get this service level.
 
-```bash
-cd model
-./run.sh
-```
+  - Install [Helm](https://helm.sh/), which manages Kubernetes packages.
 
-The model script creates the ONNX model file *unet.onnx*. Part of the deployment of an ONNX runtime confidential inferencing server uses this file. To complete the deployment of the confidential inferencing server, see the [confidential ONNX inference server](https://github.com/microsoft/onnx-server-openenclave) project on GitHub. Note the following information, which you'll need in the next section:
+  - Install and run SCONE services.
 
-- Server address
-- API key
-- Deployment directory
+  - Run and test the Flask-based application.
 
-### Run and test the service
+  - Access the confidential Flask-based application.
 
-To get the Flask-based service running and tested on your local SGX-enabled computer:
+  - Deploy and access the web client.
 
-1. Edit these shell commands:
-
-   - Replace the confidential ONNX placeholders with actual values for the server address, API key, and directory that you used to deploy the confidential inferencing server.
-   - Replace the placeholders for the object ID and password of the Azure application.
-
-    ```bash
-    export CONFONNX_URL=<your deployment server address>
-    export CONFONNX_API_KEY=<your deployment API key>
-    export CONFONNX_DIR=<path to your deployment server directory, such as /path/to/confonnx/repo>
-    export AZ_APP_ID=<Azure application ID>
-    export AZ_APP_PWD=<Azure application password>
-    ```
-
-1. Run a script that creates an encrypted image and generates some environment variables for storing and loading. Then start the Flask-based service and the Azure Cache for Redis service by running `docker-compose`:
-
-    ```bash
-    cd ..
-    ./create_image.sh
-    source myenv
-    docker-compose up
-    ```
-
-1. Retrieve the API certificate from the SCONE configuration and attestation service (CAS) by using the Client URL command (`cURL`) and the `jq` filtering command:
-
-    ```bash
-    source myenv
-    curl -k -X GET "https://${SCONE_CAS_ADDR-cas}:8081/v1/values/session=$FLASK_SESSION" | jq -r .values.api_ca_cert.value > cacert.pem
-    ```
-
-1. Set the URL name. The API certificates use the host name `api`, so you have to use that string.
-
-    ```bash
-    export URL=https://api:4996
-    ```
-
-1. Execute test queries with the `cURL` command, using the `--resolve` option to point to the actual address. Alternatively, you can edit your */etc/hosts* file.
-
-    ```bash
-    curl --cacert cacert.pem -X POST ${URL}/patient/patient_3 -d "fname=Jane&lname=Doe&address='123 Main Street'&city=Richmond&state=Washington&ssn=123-223-2345&email=nr@aaa.com&dob=01/01/2010&contactphone=123-234-3456&drugallergies='Sulpha, Penicillin, Tree Nut'&preexistingconditions='diabetes, hypertension, asthma'&dateadmitted=01/05/2010&insurancedetails='Primera Blue Cross'" --resolve api:4996:127.0.0.1
-    curl --cacert cacert.pem -X GET ${URL}/patient/patient_3 --resolve api:4996:127.0.0.1
-    curl --cacert cacert.pem -X GET ${URL}/score/patient_3 --resolve api:4996:127.0.0.1
-    curl --cacert cacert.pem -X POST ${URL}/delineate -F img=@model/brain-segmentation-pytorch/assets/TCGA_CS_4944.png
-    ```
-
-    You might see output similar to the following text:
-
-    ```console
-    $ curl --cacert cacert.pem -X POST https://localhost:4996/patient/patient_3 -d "fname=Jane&lname=Doe&address='123 Main Street'&city=Richmond&state=Washington&ssn=123-223-2345&email=nr@aaa.com&dob=01/01/2010&contactphone=123-234-3456&drugallergies='Sulpha, Penicillin, Tree Nut'&preexistingconditions='diabetes, hypertension, asthma'&dateadmitted=01/05/2010&insurancedetails='Primera Blue Cross'" --resolve api:4996:127.0.0.1
-    {"address":"'123 Main Street'","city":"Richmond","contactphone":"123-234-3456","dateadmitted":"01/05/2010","dob":"01/01/2010","drugallergies":"'Sulpha, Penicillin, Tree Nut'","email":"nr@aaa.com","fname":"Jane","id":"patient_3","insurancedetails":"'Primera Blue Cross'","lname":"Doe","preexistingconditions":"'diabetes, hypertension, asthma'","score":0.1168424489618366,"ssn":"123-223-2345","state":"Washington"}
-    $ curl --cacert cacert.pem -X GET localhost:4996/patient/patient_3 --resolve api:4996:127.0.0.1
-    {"address":"'123 Main Street'","city":"Richmond","contactphone":"123-234-3456","dateadmitted":"01/05/2010","dob":"01/01/2010","drugallergies":"'Sulpha, Penicillin, Tree Nut'","email":"nr@aaa.com","fname":"Jane","id":"patient_3","insurancedetails":"'Primera Blue Cross'","lname":"Doe","preexistingconditions":"'diabetes, hypertension, asthma'","score":0.1168424489618366,"ssn":"123-223-2345","state":"Washington"}
-    $ curl --cacert cacert.pem -X GET localhost:4996/score/patient_3 --resolve api:4996:127.0.0.1
-    {"id":"patient_3","score":0.2781606437899131}
-    ```
-
-### Run on a Kubernetes cluster and AKS
-
-Before running code on a Kubernetes cluster, you need to get access to [curated confidential applications called SconeApps](https://sconedocs.github.io/helm/), which the procedure here leads you through. SconeApps are available on a private GitHub repository that's currently only available for commercial customers, through SCONE Standard Edition. Go to the [SCONE website](https://scontain.com/) and contact the company directly to get this service level.
-
-You also need to use Helm, which manages Kubernetes packages. If Helm isn't already installed, you can go to the [Helm website](https://helm.sh/) to install it.
-
-#### Install and run SCONE services
-
-The solution uses the following SCONE services:
-
-- The SCONE local attestation service (LAS)
-- The SCONE configuration and attestation service (CAS)
-- The SGX device plug-in for Kubernetes.
-
-Take these steps to install and run these services:
-
-1. If you don't already have a GitHub personal access token (PAT):
-   1. Go to the [New personal access token](https://github.com/settings/tokens/new) site on GitHub.
-   1. Enter a **Note**, and select **Generate new token** to create a new one.
-   1. Copy the new personal access token that appears, which is a 40-digit hexadecimal number.
-
-1. Paste the GitHub personal access token into the `GH_TOKEN` placeholder and run the following shell commands:
-
-    ```bash
-    export GH_TOKEN=<your GitHub personal access token>
-    helm repo add sconeapps https://${GH_TOKEN}@raw.githubusercontent.com/scontain/sconeapps/master/
-    helm repo update
-    ```
-
-1. If you don't already have a Docker Hub personal access token, go to [Managing access tokens](https://docs.docker.com/docker-hub/access-tokens/) on the Docker documentation website. Follow the instructions to create and copy an access token.
-
-1. In the following shell commands, replace the Docker Hub placeholders for the user name, access token, and email address. Then run the shell commands to give SconeApps access to private Docker images:
-
-    ```bash
-    export DOCKER_HUB_USERNAME=<your Docker Hub user name>
-    export DOCKER_HUB_ACCESS_TOKEN=<your Docker Hub access token>
-    export DOCKER_HUB_EMAIL=<your Docker Hub email address>
-    
-    kubectl create secret docker-registry sconeapps \
-        --docker-server=index.docker.io/v1/ \
-        --docker-username=$DOCKER_HUB_USERNAME \
-        --docker-password=$DOCKER_HUB_ACCESS_TOKEN \
-        --docker-email=$DOCKER_HUB_EMAIL
-    ```
-
-1. Use Helm to install and start the SCONE LAS and CAS:
-
-    ```bash
-    helm install las sconeapps/las --set service.hostPort=true
-    helm install cas sconeapps/cas
-    ```
-
-1. Use Helm to install the SGX device plug-in for Kubernetes:
-
-    ```bash
-    helm install sgxdevplugin sconeapps/sgxdevplugin
-    ```
-
-#### Run and test the application
-
-To run and test the Flask-based application:
-
-1. In the following shell commands, replace the `IMAGE` placeholder with the repository address you want to put the image in. For example, use `myregistry.azurecr.io/flask_restapi_image`. Then run the shell commands, which create a Docker image and set its name:
-
-    ```bash
-    export IMAGE=<your repository address for the image>
-    # Optional: export FLASK_HOSTNAME=<name>.<location>.cloudapp.azure.com
-    # Optional: export LETSENCRYPT_CERT_DIR=<certificate directory path, such as /path/to/certs>
-    ./create_image.sh
-    source myenv
-    docker push $IMAGE
-    ```
-
-1. Use the Helm chart from the *deploy/helm* repository directory to deploy the application to a Kubernetes cluster:
-
-    ```bash
-    helm install api-v1 deploy/helm \
-       --set image=$IMAGE \
-       --set scone.cas=$SCONE_CAS_ADDR \
-       --set scone.flask_session=$FLASK_SESSION/flask_restapi \
-       --set scone.redis_session=$REDIS_SESSION/redis \
-       --set service.type=LoadBalancer
-    ```
-
-    When you set `service.type` to `LoadBalancer`, the application can get traffic from the internet through a managed load balancer.
-
-1. After all resources are running, use Helm to test the API:
-
-    ```bash
-    helm test api-v1
-    ```
-
-#### Access the application
-
-To access the confidential Flask-based application:
-
-1. If the application is exposed to the world through a load balancer service type, retrieve its CA certificate from the configuration and attestation service:
-
-    ```bash
-    source myenv
-    curl -k -X GET "https://${SCONE_CAS_ADDR-cas}:8081/v1/values/session=$FLASK_SESSION" | jq -r .values.api_ca_cert.value > cacert.pem
-    ```
-
-1. Retrieve the public IP address of the service:
-
-    ```bash
-    export SERVICE_IP=$(kubectl get svc --namespace default api-v1-example \
-        --template "{{ range (index .status.loadBalancer.ingress 0) }}{{.}}{{ end }}")
-    ```
-
-1. Set the URL name. The API certificates use the host name `api`, so you have to use that string.
-
-    ```bash
-    export URL=https://api
-    ```
-
-1. Execute test queries with the `cURL` command, using the `--resolve` option to point to the actual address. Alternatively, edit your */etc/hosts* file.
-
-    ```bash
-    curl --cacert cacert.pem \
-        -X POST ${URL}/patient/patient_3 \
-        -d "fname=Jane&lname=Doe&address='123 Main Street'&city=Richmond&state=Washington&ssn=123-223-2345&email=nr@aaa.com&dob=01/01/2010&contactphone=123-234-3456&drugallergies='Sulpha, Penicillin, Tree Nut'&preexistingconditions='diabetes, hypertension, asthma'&dateadmitted=01/05/2010&insurancedetails='Primera Blue Cross'" \
-        --resolve api:443:${SERVICE_IP}
-    curl --cacert cacert.pem \
-        -X POST ${URL}/delineate \
-        -F img=@model/brain-segmentation-pytorch/assets/TCGA_CS_4944.png \
-        --resolve api:443:${SERVICE_IP}
-    ```
-
-#### Deploy and access the web client
-
-To access the deployed enclave service, see the *web_client* folder, which contains a basic static website. Deploy the static website directly to Blob Storage, which doesn't have a back-end component. Replace the server URL before you deploy the website.
-
-You can use a [sample brain segmentation image](https://github.com/mateuszbuda/brain-segmentation-pytorch/blob/master/assets/TCGA_CS_4944.png) to try the delineation function that invokes the deployed confidential inferencing server.
-
-### Clean up resources
-
-To uninstall the resources that you used to run the confidential healthcare platform, run these shell commands:
-
-```bash
-helm delete cas
-helm delete las
-helm delete sgxdevplugin
-helm delete api-v1
-kubectl delete pod api-v1-example-test-api
-```
+Note that these steps focus on the enclave containers. A secured infastructure would extend well beyond this implementation and include compliance requirements, such as added protections required by HIPAA.
 
 ## Pricing
 
-To explore the cost of running this scenario, use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator), which preconfigures all Azure services. To see the price of your use case, change the appropriate variables to match your expected traffic.
+To explore the cost of running this scenario, use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator), which preconfigures all Azure services.
 
-The following three sample cost profiles use different VM sizes:
+A [sample cost profile](https://azure.com/e/5e776a5dbebf4f20974ebbfa0e247747) is available for the Contoso Medical SaaS Platform, as pictured in the diagram. It includes the following components:
 
-- [Small](https://azure.com/e/67f57cced64540dbb8a764c175145c8c): Uses the **DC2s_v2** VM size, which contains two vCPUs.
-- [Medium](https://azure.com/e/ddcc24e2e16848388c3556efd8dd3c57): Uses the **DC4s_V2** VM size, which contains four vCPUs.
-- [Large](https://azure.com/e/d1732c48c782466b8fa302dfbd4a9887): Uses the **DC8_v2** VM size, which contains eight vCPUs.
+- System node pool and SGX nodepool: no disks, all ephemeral
+- AKS Load Balancer
+- Azure Virtual Network: nominal
+- Azure Container Registry
+- Storage account for single-page application (SPA)
+
+The profile doesn't include the following components:
+
+- Azure Attestation Service: free
+- Azure Monitor Logs: usage based
+- SCONE ISV licensing
+- Compliance services required for solutions working with sensitive data, including:
+
+  - Azure Security Center and Azure Defender for Kubernetes
+  - Azure DDoS Protection: standard
+  - Azure Firewall
+  - Azure Application Gateway and Azure Web Application Firewall
 
 ## Next steps
 
-[Learn more about Azure confidential computing](/azure/confidential-computing/)
+- Learn more about [Azure confidential computing](/azure/confidential-computing/).
+- See the [confidential ONNX inference server](https://github.com/microsoft/onnx-server-openenclave) project on GitHub.
 
 ## Related resources
 
-- [Confidential containers on AKS](/azure/confidential-computing/confidential-containers)
-- [Official ONNX runtime website](https://www.onnxruntime.ai/)
-- [Confidential ONNX inference server (GitHub sample)](https://github.com/microsoft/onnx-server-openenclave)
-- [MobileCoin use case with anonymized blockchain data](https://customers.microsoft.com/story/844245-mobilecoin-banking-and-capital-markets-azure)
+- [Confidential containers on AKS](/azure/confidential-computing/confidential-containers).
+- [Official ONNX runtime website](https://www.onnxruntime.ai/).
+- [Confidential ONNX inference server (GitHub sample)](https://github.com/microsoft/onnx-server-openenclave).
+- [MobileCoin use case with anonymized blockchain data](https://customers.microsoft.com/story/844245-mobilecoin-banking-and-capital-markets-azure).
+- [A sample brain segmentation image](https://github.com/mateuszbuda/brain-segmentation-pytorch/blob/master/assets/TCGA_CS_4944.png) for use with the delineation function that invokes the confidential inferencing server.
