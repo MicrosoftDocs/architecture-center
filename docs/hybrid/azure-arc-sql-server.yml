@@ -18,15 +18,7 @@ summary: 'Optimize management, maintenance, and monitoring of SQL Server with Az
 products:
   - azure
   - azure-arc
-  - azure-backup
-  - azure-monitor
-  - azure-policy
-  - azure-portal
-  - azure-sentinel
-  - azure-stack
   - sql-server
-  - vs
-  - windows
 thumbnailUrl: /azure/architecture/browse/thumbs/azure_arc_sql_srvr.png
 content: |
    [!include[](azure-arc-sql-server-content.md)]

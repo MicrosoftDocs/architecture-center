@@ -18,7 +18,6 @@ azureCategories:
 summary: Knowledge mining can help customer support teams quickly find the right answer for a customer inquiry or assess customer sentiment at scale.
 products:
   - azure
-  - surface
 thumbnailUrl: /azure/architecture/browse/thumbs/customer-feedback-and-analytics.png
 content: |
    [!include[](customer-feedback-and-analytics-content.md)]

@@ -20,8 +20,6 @@ summary: Explore Big Compute solutions with Azure Batch. Use HPC cloud systems f
 products:
   - azure
   - azure-batch
-  - azure-portal
-  - azure-storage
 thumbnailUrl: /azure/architecture/browse/thumbs/big-compute-with-azure-batch.png
 content: |
    [!include[](big-compute-with-azure-batch-content.md)]

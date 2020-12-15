@@ -21,13 +21,9 @@ azureCategories:
 summary: Reference architecture for serverless event ingestion and processing using Azure Functions.
 products:
   - azure
-  - azure-databricks
   - azure-functions
   - azure-monitor
-  - azure-pipelines
   - azure-storage
-  - consumer
-  - github
 thumbnailUrl: /azure/architecture/browse/thumbs/serverless-event-processing.png
 content: |
    [!include[](event-processing-content.md)]

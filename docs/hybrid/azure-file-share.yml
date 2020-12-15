@@ -20,12 +20,7 @@ azureCategories:
 summary: Azure file shares can replace traditional file servers. With identity-based authentication you can control access to Azure file shares by using AD DS users and groups.
 products:
   - azure
-  - azure-backup
   - azure-files
-  - azure-portal
-  - azure-storage
-  - vs
-  - windows
   - windows-server
 thumbnailUrl: /azure/architecture/browse/thumbs/azure-file-share.png
 content: |

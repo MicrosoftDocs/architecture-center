@@ -23,11 +23,6 @@ summary: This example demonstrates how manufacturers can connect their assets to
 products:
   - azure
   - azure-functions
-  - azure-iot
-  - azure-storage
-  - consumer
-  - github
-  - power-bi
 thumbnailUrl: /azure/architecture/browse/thumbs/condition-monitoring.png
 content: |
    [!include[](condition-monitoring-content.md)]

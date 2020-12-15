@@ -22,14 +22,8 @@ azureCategories:
 summary: 'Automate an extract, load, and transform (ELT) workflow in Azure using Azure Data Factory with Azure Synapse Analytics.'
 products:
   - azure
-  - azure-devops
-  - azure-monitor
-  - azure-portal
-  - azure-storage
-  - github
   - power-bi
   - sql-server
-  - windows
 thumbnailUrl: /azure/architecture/browse/thumbs/enterprise-bi-adf.png
 content: |
    [!include[](enterprise-bi-adf-content.md)]

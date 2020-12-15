@@ -17,8 +17,7 @@ azureCategories:
 summary: 'A live streaming solution allows you to capture video in real-time and broadcast it to consumers in real time, such as streaming interviews, conferences, and sporting events online.'
 products:
   - azure
-  - consumer
-  - dotnet
+  - azure-live-ondemand-streaming
 thumbnailUrl: /azure/architecture/browse/thumbs/digital-media-live-stream.png
 content: |
    [!include[](digital-media-live-stream-content.md)]

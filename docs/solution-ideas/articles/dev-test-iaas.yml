@@ -19,15 +19,8 @@ azureCategories:
 summary: 'Learn how to configure a DevTest and DevOps infrastructure for development, testing, and deploying IaaS-based software.'
 products:
   - azure
-  - azure-boards
   - azure-devops
-  - azure-monitor
-  - azure-pipelines
-  - azure-policy
-  - azure-portal
-  - github
-  - vs
-  - windows
+  - azure-devtest-labs
 thumbnailUrl: /azure/architecture/browse/thumbs/dev-test-iaas.png
 content: |
    [!include[](dev-test-iaas-content.md)]

@@ -19,9 +19,8 @@ azureCategories:
 summary: 'A large enterprise architecture for SharePoint, Dynamics CRM, and Linux web servers hosted on an on-premises datacenter with failover to Azure infrastructure.'
 products:
   - azure
-  - azure-portal
-  - azure-storage
-  - dynamics
+  - azure-traffic-manager
+  - azure-site-recovery
 thumbnailUrl: /azure/architecture/browse/thumbs/disaster-recovery-enterprise-scale-dr.png
 content: |
    [!include[](disaster-recovery-enterprise-scale-dr-content.md)]

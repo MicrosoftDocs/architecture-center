@@ -23,7 +23,6 @@ products:
   - azure-devops
   - azure-monitor
   - azure-pipelines
-  - consumer
   - github
 thumbnailUrl: /azure/architecture/browse/thumbs/banking-system-solution-arch.png
 content: |

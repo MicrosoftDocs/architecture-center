@@ -26,11 +26,7 @@ products:
   - azure-functions
   - azure-monitor
   - azure-pipelines
-  - azure-portal
   - azure-storage
-  - consumer
-  - github
-  - surface
 thumbnailUrl: /azure/architecture/browse/thumbs/serverless-web-app.png
 content: |
    [!include[](web-app-content.md)]

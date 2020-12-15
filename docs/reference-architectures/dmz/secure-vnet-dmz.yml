@@ -26,12 +26,7 @@ products:
   - azure-bastion
   - azure-expressroute
   - azure-firewall
-  - azure-portal
-  - azure-storage
-  - dotnet
-  - github
-  - vs
-  - windows
+  - azure-virtual-network
 thumbnailUrl: /azure/architecture/browse/thumbs/dmz-private.png
 content: |
    [!include[](secure-vnet-dmz-content.md)]
