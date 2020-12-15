@@ -18,13 +18,6 @@ azureCategories:
 summary: Find out how to migrate IBM zSeries mainframe applications to Azure. Learn how to use TmaxSoft OpenFrame for this task. Understand the lift and shift approach.
 products:
   - azure
-  - azure-bastion
-  - azure-expressroute
-  - azure-files
-  - azure-portal
-  - sql-server
-  - vs
-  - windows
 thumbnailUrl: /azure/architecture/browse/thumbs/migrate-mainframe-application-to-azure.png
 content: |
    [!include[](migrate-mainframe-apps-with-tmaxsoft-openframe-content.md)]

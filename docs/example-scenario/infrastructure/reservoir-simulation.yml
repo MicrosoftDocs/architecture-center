@@ -23,9 +23,6 @@ products:
   - azure-cyclecloud
   - azure-storage
   - dynamics
-  - github
-  - surface
-  - windows
 thumbnailUrl: /azure/architecture/browse/thumbs/architecture-hpc-reservoir-simulation.png
 content: |
    [!include[](reservoir-simulation-content.md)]

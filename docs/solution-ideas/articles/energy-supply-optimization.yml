@@ -21,9 +21,6 @@ products:
   - azure
   - azure-batch
   - azure-storage
-  - consumer
-  - github
-  - power-bi
 thumbnailUrl: /azure/architecture/browse/thumbs/energy-supply-optimization.png
 content: |
    [!include[](energy-supply-optimization-content.md)]

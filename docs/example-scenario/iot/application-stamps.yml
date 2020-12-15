@@ -20,7 +20,6 @@ summary: 'Learn about scaling up IoT device populations with application stamps,
 products:
   - azure
   - azure-iot
-  - consumer
 thumbnailUrl: /azure/architecture/browse/thumbs/application-stamping.png
 content: |
    [!include[](application-stamps-content.md)]

@@ -20,15 +20,7 @@ azureCategories:
 summary: 'This reference architecture shows an end-to-end stream processing pipeline, which ingests data, correlates records, and calculates a rolling average.'
 products:
   - azure
-  - azure-databricks
-  - azure-devops
-  - azure-functions
-  - azure-monitor
-  - azure-portal
-  - consumer
-  - github
-  - power-bi
-  - windows
+  - azure-stream-analytics
 thumbnailUrl: /azure/architecture/browse/thumbs/stream-processing-asa.png
 content: |
    [!include[](stream-processing-stream-analytics-content.md)]

@@ -17,14 +17,9 @@ name: Web app private connectivity to Azure SQL database
 summary: Lock down access to an Azure SQL Database with Azure Private Link connectivity from a multi-tenant Azure App Service through regional VNet Integration.
 products:
   - azure
-  - azure-dns
-  - azure-functions
-  - azure-monitor
-  - azure-portal
-  - azure-storage
-  - github
   - sql-server
-  - windows
+  - azure-app-service
+  - azure-web-apps
 thumbnailUrl: /azure/architecture/browse/thumbs/appsvc-private-sql-solution-architecture.png
 content: |
    [!include[](private-web-app-content.md)]

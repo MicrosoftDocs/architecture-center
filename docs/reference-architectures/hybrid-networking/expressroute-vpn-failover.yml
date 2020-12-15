@@ -23,11 +23,7 @@ summary: Implement a highly available and secure site-to-site network architectu
 products:
   - azure
   - azure-expressroute
-  - azure-portal
-  - github
-  - vs
-  - windows
-  - windows-server
+  - azure-virtual-network
 thumbnailUrl: /azure/architecture/browse/thumbs/expressroute-vpn-failover.png
 content: |
    [!include[](expressroute-vpn-failover-content.md)]

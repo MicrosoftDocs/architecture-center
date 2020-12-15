@@ -17,10 +17,9 @@ azureCategories:
 summary: Let your business run multi-channel digital marketing websites on one platform and spin up and spin down campaigns on demand. Take advantage of the comprehensive capabilities of Episerver to manage every aspect of your site and campaign performance.
 products:
   - azure
-  - azure-cdn
-  - azure-monitor
-  - azure-portal
-  - dotnet
+  - azure-web-apps
+  - azure-blob-storage
+  - azure-sql-database
 thumbnailUrl: /azure/architecture/browse/thumbs/digital-marketing-episerver.png
 content: |
    [!include[](digital-marketing-episerver-content.md)]
