@@ -1,0 +1,22 @@
+### YamlMime:Architecture
+metadata:
+  title: Move Azure resources across regions
+  titleSuffix: Azure Solution Ideas
+  description: 'Learn the key steps, considerations, and strategies for moving Azure resources across regions by examining an example scenario.'
+  author: doodlemania2
+  ms.date: 09/15/2020
+  ms.service: architecture-center
+  ms.subservice: solution-idea
+  ms.custom:
+    - fcp
+name: Move Azure resources across regions
+summary: 'Learn the key steps, considerations, and strategies for moving Azure resources across regions by examining an example scenario.'
+products:
+  - azure
+  - azure-automation
+  - azure-expressroute
+  - azure-iot
+  - microsoft-edge
+thumbnailUrl: /azure/architecture/browse/thumbs/move-azure-resources-architecture-diagram.png
+content: |
+   [!include[](move-azure-resources-across-regions-content.md)]

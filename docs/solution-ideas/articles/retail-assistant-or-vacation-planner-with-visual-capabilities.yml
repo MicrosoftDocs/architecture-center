@@ -1,0 +1,24 @@
+### YamlMime:Architecture
+metadata:
+  title: Retail Assistant with Visual Capabilities
+  titleSuffix: Azure Solution Ideas
+  author: doodlemania2
+  ms.date: 12/16/2019
+  description: The retail assistant or vacation planner can help your customers have interactions with your business bot and provide suggestions based on the visual information.
+  ms.custom: 'acom-architecture, ai-ml, chatbot, ecommerce, retail assistant, cognitive services, vacation planner, visual capabilities, interactive-diagram, ''https://azure.microsoft.com/solutions/architecture/retail-assistant-or-vacation-planner-with-visual-capabilities/'''
+  ms.service: architecture-center
+  ms.category:
+    - ai-machine-learning
+    - web
+  ms.subservice: solution-idea
+  social_image_url: /azure/architecture/solution-ideas/articles/media/retail-assistant-or-vacation-planner-with-visual-capabilities.png
+name: Retail Assistant with Visual Capabilities
+azureCategories:
+  - ai-machine-learning
+  - web
+summary: The retail assistant or vacation planner can help your customers have interactions with your business bot and provide suggestions based on the visual information.
+products:
+  - azure
+thumbnailUrl: /azure/architecture/browse/thumbs/retail-assistant-or-vacation-planner-with-visual-capabilities.png
+content: |
+   [!include[](retail-assistant-or-vacation-planner-with-visual-capabilities-content.md)]

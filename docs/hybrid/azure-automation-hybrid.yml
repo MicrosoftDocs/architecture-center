@@ -1,0 +1,27 @@
+### YamlMime:Architecture
+metadata:
+  title: Azure Automation in a hybrid environment
+  description: Azure Automation leveraged for both on-premises and cloud environments
+  author: doodlemania2
+  ms.date: 07/23/2020
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.category:
+    - hybrid
+    - management-and-governance
+  ms.subservice: reference-architecture
+  ms.custom:
+    - fcp
+    - reference-architecture
+name: Azure Automation in a hybrid environment
+azureCategories:
+  - hybrid
+  - management-and-governance
+summary: Azure Automation leveraged for both on-premises and cloud environments
+products:
+  - azure
+  - azure-automation
+  - windows-server
+thumbnailUrl: /azure/architecture/browse/thumbs/azure-automation-hybrid.png
+content: |
+   [!include[](azure-automation-hybrid-content.md)]

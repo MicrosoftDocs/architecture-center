@@ -19,7 +19,7 @@ After releasing your Azure Kubernetes Service-hosted application, prepare for _d
 - Plan for future growth. 
 
 ## Prerequisites
-The best practices for day-2 operations assume that you've deployed the [Azure Kubernetes Service (AKS) Baseline](../../reference-architectures/containers/aks/secure-baseline-aks.md) architecture as an example of a production cluster. 
+The best practices for day-2 operations assume that you've deployed the [Azure Kubernetes Service (AKS) Baseline](../../reference-architectures/containers/aks/secure-baseline-aks.yml) architecture as an example of a production cluster. 
 
 ## Triage practices
 

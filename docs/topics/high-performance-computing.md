@@ -182,7 +182,7 @@ Building an HPC system from scratch on Azure offers a significant amount of flex
 
 If you have an existing on-premises HPC system that you'd like to connect to Azure, there are a number of resources to help get you started.
 
-First, review the [Options for connecting an on-premises network to Azure](../reference-architectures/hybrid-networking/index.md) article in the documentation.  From there, you may want information on these connectivity options:
+First, review the [Options for connecting an on-premises network to Azure](../reference-architectures/hybrid-networking/index.yml) article in the documentation.  From there, you may want information on these connectivity options:
 
 <ul class="columns is-multiline has-margin-left-none has-margin-bottom-none has-padding-top-medium">
     <li class="column is-one-third has-padding-top-small-mobile has-padding-bottom-small">
@@ -284,7 +284,7 @@ The following are examples of cluster and workload managers that can run in Azur
 - [Altair PBS Works](https://www.altair.com/pbs-works)
 - [Rescale](https://www.rescale.com/azure)
 - [Univa Grid Engine](https://www.univa.com/products/univa-grid-engine.php)
-- [Microsoft HPC Pack](/powershell/high-performance-computing/overview?view=hpc19-ps)
+- [Microsoft HPC Pack](/powershell/high-performance-computing/overview?view=hpc19-ps&preserve-view=true)
   - [HPC Pack for Windows](/azure/virtual-machines/windows/hpcpack-cluster-options)
   - [HPC Pack for Linux](/azure/virtual-machines/linux/hpcpack-cluster-options)
 
