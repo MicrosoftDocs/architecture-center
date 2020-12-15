@@ -22,9 +22,7 @@ products:
   - azure-functions
   - azure-iot
   - azure-monitor
-  - github
   - power-bi
-  - surface
 thumbnailUrl: /azure/architecture/browse/thumbs/iot-refarch.svg
 content: |
    [!include[](iot-content.md)]

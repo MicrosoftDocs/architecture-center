@@ -20,11 +20,7 @@ summary: 'Import threat indicators, view logs, create rules to generate security
 products:
   - azure
   - azure-monitor
-  - azure-portal
   - azure-sentinel
-  - expression
-  - github
-  - windows
 thumbnailUrl: /azure/architecture/browse/thumbs/sentinel-data-flow.png
 content: |
    [!include[](sentinel-threat-intelligence-content.md)]

@@ -20,11 +20,7 @@ azureCategories:
 summary: Build a conversational chatbot for commerce applications with Azure Bot Service.
 products:
   - azure
-  - azure-arc
-  - azure-portal
-  - consumer
-  - github
-  - sql-server
+  - azure-bot-service
 thumbnailUrl: /azure/architecture/browse/thumbs/architecture-commerce-chatbot.png
 content: |
    [!include[](commerce-chatbot-content.md)]

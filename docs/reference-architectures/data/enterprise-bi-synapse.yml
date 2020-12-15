@@ -23,15 +23,8 @@ azureCategories:
 summary: 'See an extract, load, and transform pipeline that moves data from an on-premises SQL Server database into Azure Synapse and transforms the data for analysis.'
 products:
   - azure
-  - azure-devops
-  - azure-monitor
-  - azure-portal
-  - azure-storage
-  - expression
-  - github
-  - power-bi
   - sql-server
-  - windows
+  - azure-synapse-analytics
 thumbnailUrl: /azure/architecture/browse/thumbs/enterprise-bi-synapse.png
 content: |
    [!include[](enterprise-bi-synapse-content.md)]

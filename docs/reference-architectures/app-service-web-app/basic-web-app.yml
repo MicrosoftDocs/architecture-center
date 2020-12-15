@@ -19,17 +19,8 @@ azureCategories:
 summary: Learn about proven practices for a web application that uses Azure App Service and Azure SQL Database by using this reference architecture.
 products:
   - azure
-  - azure-devops
-  - azure-dns
-  - azure-portal
-  - azure-storage
-  - dotnet
-  - github
-  - skype
-  - sql-server
-  - surface
-  - vs
-  - windows
+  - azure-app-service
+  - azure-web-apps
 thumbnailUrl: /azure/architecture/browse/thumbs/basic-web-app.png
 content: |
    [!include[](basic-web-app-content.md)]

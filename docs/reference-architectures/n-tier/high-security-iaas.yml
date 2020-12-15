@@ -20,17 +20,8 @@ azureCategories:
 summary: 'Learn about VM security, encryption, NSGs, DMZs, access control, and other security considerations for highly sensitive IaaS and hybrid apps.'
 products:
   - azure
-  - azure-backup
-  - azure-bastion
-  - azure-blueprints
-  - azure-dns
-  - azure-firewall
-  - azure-monitor
-  - azure-policy
-  - azure-portal
-  - azure-sentinel
-  - sql-server
-  - windows
+  - azure-virtual-machines
+  - azure-virtual-network
 thumbnailUrl: /azure/architecture/browse/thumbs/dedicated-hosts.png
 content: |
    [!include[](high-security-iaas-content.md)]

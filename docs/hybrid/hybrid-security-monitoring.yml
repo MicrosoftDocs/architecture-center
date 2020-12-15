@@ -21,15 +21,8 @@ azureCategories:
 summary: Integration of monitoring the security configuration and telemetry of on-premises and Azure operating system workloads
 products:
   - azure
-  - azure-automation
-  - azure-monitor
-  - azure-portal
   - azure-sentinel
-  - azure-stack
-  - office
-  - office-365
-  - vs
-  - windows
+  - azure-security-center
 thumbnailUrl: /azure/architecture/browse/thumbs/hybrid-security-monitoring.png
 content: |
    [!include[](hybrid-security-monitoring-content.md)]

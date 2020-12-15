@@ -30,8 +30,7 @@ products:
   - azure-arc
   - azure-monitor
   - azure-pipelines
-  - azure-portal
-  - github
+  - azure-kubernetes-service
 thumbnailUrl: /azure/architecture/browse/thumbs/architecture-devops-with-aks.png
 content: |
    [!include[](devops-with-aks-content.md)]

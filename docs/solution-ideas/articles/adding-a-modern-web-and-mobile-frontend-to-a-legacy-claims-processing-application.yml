@@ -19,7 +19,6 @@ products:
   - azure
   - power-bi
   - sql-server
-  - surface
   - windows
   - windows-server
 thumbnailUrl: /azure/architecture/browse/thumbs/adding-a-modern-web-and-mobile-frontend-to-a-legacy-claims-processing-application.png

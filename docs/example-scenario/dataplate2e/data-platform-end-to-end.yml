@@ -26,7 +26,6 @@ products:
   - azure-databricks
   - azure-functions
   - azure-iot
-  - consumer
   - power-bi
   - sql-server
 thumbnailUrl: /azure/architecture/browse/thumbs/azure-data-platform-end-to-end.jpg

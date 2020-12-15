@@ -15,11 +15,6 @@ summary: 'Set up Azure DevOps projects, repos, pipelines, variable groups, and A
 products:
   - azure
   - azure-devops
-  - azure-pipelines
-  - azure-portal
-  - azure-repos
-  - github
-  - vs
 thumbnailUrl: /azure/architecture/browse/thumbs/approve-secure-file.png
 content: |
    [!include[](set-up-azure-devops-content.md)]

@@ -19,14 +19,7 @@ azureCategories:
 summary: Use this reference architecture to extend an on-premises Active Directory domain to Azure to provide distributed authentication services.
 products:
   - azure
-  - azure-devops
-  - azure-expressroute
-  - azure-monitor
-  - azure-pipelines
-  - azure-portal
-  - github
-  - vs
-  - windows
+  - azure-virtual-network
 thumbnailUrl: /azure/architecture/browse/thumbs/adds-extend-domain.png
 content: |
    [!include[](adds-extend-domain-content.md)]
