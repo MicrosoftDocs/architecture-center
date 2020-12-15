@@ -1233,6 +1233,8 @@ items:
                 href: reference-architectures/identity/azure-ad.yml
               - name: Integrate on-premises AD with Azure
                 href: reference-architectures/identity/index.yml
+              - name: Azure AD identity management for AWS
+                href: reference-architectures/aws/aws-azure-ad-security.md
       - name: Integration
         items:
           - name: Architectures
@@ -1587,6 +1589,8 @@ items:
                 href: example-scenario/gateway/firewall-application-gateway.yml
               - name: Hybrid Security Monitoring using Azure Security Center and Azure Sentinel
                 href: hybrid/hybrid-security-monitoring.yml
+              - name: MCAS and Azure Sentinel security for AWS
+                href: reference-architectures/aws/aws-azure-security-solutions.md
       - name: Storage
         items:
           - name: Architectures
