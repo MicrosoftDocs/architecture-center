@@ -1,0 +1,28 @@
+### YamlMime:Architecture
+metadata:
+  title: Build cloud native applications
+  titleSuffix: Azure Solution Ideas
+  author: doodlemania2
+  description: 'Build cloud native applications with Azure Cosmos DB, Azure Database for PostgreSQL and Azure Cache for Redis'
+  ms.date: 06/26/2020
+  ms.custom: fcp
+  ms.service: architecture-center
+  ms.subservice: solution-idea
+  ms.category:
+    - databases
+    - web
+    - mobile
+name: Build cloud native applications
+azureCategories:
+  - databases
+  - web
+  - mobile
+summary: 'Build cloud native applications with Azure Cosmos DB, Azure Database for PostgreSQL and Azure Cache for Redis'
+products:
+  - azure
+  - azure-databricks
+  - azure-functions
+  - power-bi
+thumbnailUrl: /azure/architecture/browse/thumbs/cloud-native-apps.png
+content: |
+   [!include[](cloud-native-apps-content.md)]

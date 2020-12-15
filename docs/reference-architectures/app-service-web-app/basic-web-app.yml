@@ -1,0 +1,26 @@
+### YamlMime:Architecture
+metadata:
+  title: Basic web application
+  titleSuffix: Azure Reference Architectures
+  description: Proven practices for deploying web applications that use Azure App Service and Azure SQL Database.
+  author: doodlemania2
+  ms.date: 12/12/2017
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.category:
+    - web
+  ms.subservice: reference-architecture
+  ms.custom:
+    - seodec18
+    - reference-architecture
+name: Basic web application
+azureCategories:
+  - web
+summary: Proven practices for deploying web applications that use Azure App Service and Azure SQL Database.
+products:
+  - azure
+  - azure-app-service
+  - azure-web-apps
+thumbnailUrl: /azure/architecture/browse/thumbs/basic-web-app.png
+content: |
+   [!include[](basic-web-app-content.md)]

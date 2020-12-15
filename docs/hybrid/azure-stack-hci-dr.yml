@@ -1,0 +1,32 @@
+### YamlMime:Architecture
+metadata:
+  title: Use Azure Stack HCI stretched clusters for disaster recovery
+  description: Disaster recovery with lossless automatic failover of Azure Stack HCI virtualized workloads between two on-premises locations
+  author: doodlemania2
+  ms.date: 11/29/2020
+  ms.topic: reference-architecture
+  ms.service: architecture-center
+  ms.category:
+    - hybrid
+    - management-and-governance
+  ms.custom: fcp
+name: Use Azure Stack HCI stretched clusters for disaster recovery
+azureCategories:
+  - hybrid
+  - management-and-governance
+summary: Disaster recovery with lossless automatic failover of Azure Stack HCI virtualized workloads between two on-premises locations
+products:
+  - azure
+  - azure-arc
+  - azure-automation
+  - azure-backup
+  - azure-monitor
+  - azure-policy
+  - azure-stack
+  - azure-storage
+  - vs
+  - windows
+  - windows-server
+thumbnailUrl: /azure/architecture/browse/thumbs/azure_stack_hci_dr.png
+content: |
+   [!include[](azure-stack-hci-dr-content.md)]

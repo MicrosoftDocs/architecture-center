@@ -1,0 +1,26 @@
+### YamlMime:Architecture
+metadata:
+  title: SAP on Azure Architecture Guide
+  description: 'This guide is based on the Microsoft Azure Well-Architected Framework, but the recommendations are specific to deployments of SAP solutions.'
+  author: maggsl
+  ms.date: 06/10/2020
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.custom:
+    - fcp
+    - reference-architecture
+  ms.category:
+    - databases
+    - compute
+  ms.subservice: reference-architecture
+name: SAP on Azure Architecture Guide
+azureCategories:
+  - databases
+  - compute
+summary: 'This guide is based on the Microsoft Azure Well-Architected Framework, but the recommendations are specific to deployments of SAP solutions.'
+products:
+  - azure
+  - azure-sap
+thumbnailUrl: /azure/architecture/browse/thumbs/sap-overview-architecture-diagram.png
+content: |
+   [!include[](sap-overview-content.md)]

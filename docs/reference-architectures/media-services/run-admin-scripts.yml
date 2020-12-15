@@ -1,0 +1,23 @@
+### YamlMime:Architecture
+metadata:
+  title: Gridwich pipeline-generated admin scripts
+  titleSuffix: Azure Reference Architectures
+  description: Learn about the Gridwich pipeline-generated admin scripts and how to run them.
+  author: doodlemania2
+  ms.date: 11/12/2020
+  ms.topic: reference-architecture
+  ms.service: architecture-center
+  ms.subservice: reference-architecture
+  ms.custom:
+    - fcp
+name: Gridwich pipeline-generated admin scripts
+summary: Learn about the Gridwich pipeline-generated admin scripts and how to run them.
+products:
+  - azure
+  - azure-devops
+  - azure-pipelines
+  - azure-storage
+  - github
+thumbnailUrl: ""
+content: |
+   [!include[](run-admin-scripts-content.md)]

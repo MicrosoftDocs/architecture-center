@@ -1,0 +1,21 @@
+### YamlMime:Architecture
+metadata:
+  title: SQL Server 2008 R2 failover cluster in Azure
+  titleSuffix: Azure Example Scenarios
+  description: Learn how to rehost SQL Server 2008 R2 failover clusters on Azure virtual machines. See how to use an Azure shared disk to manage shared storage.
+  author: GitHubAlias
+  ms.date: 10/26/2020
+  ms.topic: example-scenario
+  ms.service: architecture-center
+  ms.subservice: example-scenario
+  ms.custom:
+    - fcp
+name: SQL Server 2008 R2 failover cluster in Azure
+summary: Learn how to rehost SQL Server 2008 R2 failover clusters on Azure virtual machines. See how to use an Azure shared disk to manage shared storage.
+products:
+  - azure
+  - sql-server
+  - windows-server
+thumbnailUrl: ""
+content: |
+   [!include[](sql-failover-2008r2-content.md)]
