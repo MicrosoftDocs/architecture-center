@@ -19,7 +19,7 @@ Planning for growth starts with understanding your current workloads. This can h
 
 Perform load tests and stress tests to determine the necessary infrastructure to support the predicted spikes in workloads. A good plan includes incorporating a buffer to accommodate for random spikes.
 
-For more information on how to determine the upper and maximum limits of an application's capacity, see [Performance testing](/azure/cosmos-db/performance-testing) in the Performance Efficiency pillar.
+For more information on how to determine the upper and maximum limits of an application's capacity, see [Performance testing](./performance-test.md) in the Performance Efficiency pillar.
 
 Another critical component of planning for scale is to make sure the region that hosts your application supports the necessary capacity required to accommodate load increase. If you are using a multiregion architecture, make sure the secondary regions can also support the increase. A region can offer the product but may not support the predicted load increase without the necessary SKUs (Stock Keeping Units) so you need to verify this.
 
@@ -90,4 +90,4 @@ Each service documents its autoscale capabilities. Review [Autoscale overview](h
 ## Next steps
 
 >[!div class="nextstepaction"]
->[Plan for capacity](https://docs.microsoft.com/azure/architecture/framework/scalability/design-capacity)
+>[Plan for capacity](./design-capacity.md)
