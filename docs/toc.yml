@@ -1227,6 +1227,8 @@ items:
         href: reference-architectures/identity/azure-ad.md
       - name: Integrate on-premises AD with Azure
         href: reference-architectures/identity/index.md
+      - name: Azure AD identity management for AWS
+        href: reference-architectures/aws/aws-azure-ad-security.md
   - name: Integration
     items:
     - name: Architectures
@@ -1581,8 +1583,8 @@ items:
         href: example-scenario/gateway/firewall-application-gateway.md
       - name: Hybrid Security Monitoring using Azure Security Center and Azure Sentinel
         href: hybrid/hybrid-security-monitoring.md
-      - name: Azure security for AWS
-        href: reference-architectures/aws/aws-azure-security.md
+      - name: MCAS and Azure Sentinel security for AWS
+        href: reference-architectures/aws/aws-security-solutions.md
   - name: Storage
     items:
     - name: Architectures

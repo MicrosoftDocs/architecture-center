@@ -1,6 +1,6 @@
 ---
-title: Azure security ideas for Amazon Web Services (AWS)
-titleSuffix: Azure Reference Architectures
+title: MCAS and Azure Sentinel for Amazon Web Services (AWS)
+titleSuffix: Azure Solution Ideas
 description: Learn how Microsoft Cloud App Security (MCAS) and Azure Sentinel can help secure and protect Amazon Web Services (AWS) account access and environments.
 author: doodlemania2
 ms.date: 12/10/2020
@@ -13,11 +13,11 @@ ms.custom:
 
 # Azure security ideas for AWS
 
-Amazon Web Services (AWS) accounts that support critical workloads and highly sensitive information need strong identity and security protection. Microsoft offers several solutions that can help secure and protect AWS accounts and environments. 
+Microsoft offers several security solutions that can help secure and protect Amazon Web Services (AWS) accounts and environments. 
 
-Many organizations that use AWS already rely on Azure Active Directory (Azure AD) for Microsoft 365 or hybrid cloud identity and access protection. These organizations can quickly and easily [deploy Azure AD identity and access control for AWS accounts](aws-azure-ad-security.md), often without additional cost.
+AWS organizations that use Azure Active Directory (Azure AD) for Microsoft 365 or hybrid cloud identity and access protection can quickly and easily [deploy Azure AD for AWS accounts](aws-azure-ad-security.md), often without additional cost.
 
-Other Microsoft security components can integrate with Azure AD to provide additional security for AWS accounts. Microsoft Cloud App Security (MCAS) can back up Azure AD with session protection and user behavior monitoring. Azure Sentinel can integrate with Azure AD and MCAS to detect and automatically respond to threats against AWS environments.
+Other Microsoft security components can integrate with Azure AD to provide additional security for AWS accounts. Microsoft Cloud App Security (MCAS) backs up Azure AD with session protection and user behavior monitoring. Azure Sentinel integrates with Azure AD and MCAS to detect and automatically respond to threats against AWS environments.
 
 These Microsoft security solutions are extensible and have multiple levels of protection. Organizations can implement one or more of these solutions along with other types of protection for a full security architecture that protects current and future AWS deployments.
 
@@ -39,7 +39,7 @@ This diagram summarizes how AWS installations can benefit from key Microsoft sec
 
 Several users or roles making administrative changes can result in *configuration drift* away from intended security architecture and standards. Security standards can also change over time. Security personnel must constantly and consistently detect new risks, evaluate mitigation options, and update security architecture to prevent potential breaches. Security management across multiple public cloud and private infrastructure environments can become burdensome.
 
-Microsoft Cloud App Security is a *Cloud Access Security Broker (CASB)* platform with capabilities for *Cloud Security Posture Management (CSPM)*. MCAS can connect to multiple cloud services and applications to collect security logs, monitor user behavior, and impose restrictions that the platforms themselves may not offer.
+[Microsoft Cloud App Security](/cloud-app-security/what-is-cloud-app-security) is a *Cloud Access Security Broker (CASB)* platform with capabilities for *Cloud Security Posture Management (CSPM)*. MCAS can connect to multiple cloud services and applications to collect security logs, monitor user behavior, and impose restrictions that the platforms themselves may not offer.
 
 MCAS provides several capabilities that can integrate with AWS for immediate benefits:
 
@@ -72,7 +72,7 @@ The following principles and guidelines are important for any cloud security sol
   
 - Prevent unauthorized data exfiltration by actively inspecting and controlling content.
   
-- Raise awareness that customers may already own solutions like Azure AD Premium P2 that can increase security without additional expense.
+- Take advantage of solutions you might already own like Azure AD Premium P2 that can increase security without additional expense.
 
 ### Basic AWS account security
 
@@ -80,7 +80,7 @@ To ensure basic security hygiene for AWS accounts and resources:
 
 - Review the AWS security guidance at [Best practices for securing AWS accounts and resources](https://aws.amazon.com/premiumsupport/knowledge-center/security-best-practices/).
 
-- Reduce the risk of malware and other malicious content upload and download by actively inspecting all data transfers through the AWS Management Console. Content that uploads or downloads directly to resources within the AWS platform, such as web servers or databases, might need additional protection.
+- Reduce the risk of uploading and downloading malware and other malicious content by actively inspecting all data transfers through the AWS Management Console. Content that uploads or downloads directly to resources within the AWS platform, such as web servers or databases, might need additional protection.
 
 - Consider protecting access to other resources, including:
   - Resources created within the AWS account.
@@ -91,18 +91,18 @@ To ensure basic security hygiene for AWS accounts and resources:
 
 To prepare for deployment of Azure security solutions, review and record current AWS and Azure AD account information. If you have more than one AWS account deployed, repeat these steps for each account.
 
-1. At [https://console.aws.amazon.com/billing/home?#/account](https://console.aws.amazon.com/billing/home?#/account), record the following current AWS account information:
+1. In the [AWS Billing Management Console](https://console.aws.amazon.com/billing/home?#/account), record the following current AWS account information:
    
-   - **AWS Account ID**, a unique identifier.
+   - **AWS Account Id**, a unique identifier.
    - **Account Name** or root user.
    - **Payment method**, whether assigned to a credit card or a company billing agreement.
-   - **Alternative contacts** who have access to AWS account information.
+   - **Alternate contacts** who have access to AWS account information.
    - **Security questions** securely updated and recorded for emergency access.
    - **AWS regions** enabled or disabled to comply with data security policy.
    
-1. At [https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview), review the Azure AD tenant to use for IAM integration.
+1. In the [Azure Active Directory portal](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview), review the Azure AD tenant:
    
-   - Assess **Tenant information** to see whether the tenant has an Azure AD Premium P1 or P2 license.
+   - Assess **Tenant information** to see whether the tenant has an Azure AD Premium P1 or P2 license. A P2 license provides [Advanced Azure AD identity management](#advanced-azure-ad-identity-management) features.
    - Assess **Enterprise applications** to see whether any existing applications use the AWS application type, as shown by `http://aws.amazon.com/` in the **Homepage URL** column.
 
 ## Deploy MCAS
@@ -111,7 +111,7 @@ Once you deploy the central management and strong authentication that modern ide
 - Collect security data and carry out threat detections for AWS accounts.
 - Implement advanced controls to mitigate risk and prevent data loss.
 
-In this section, you:
+To deploy MCAS, you:
 
 1. Add an MCAS app connector for AWS.
 1. Configure MCAS monitoring policies for AWS activities.
@@ -124,7 +124,7 @@ In this section, you:
    
 1. On the **App Connectors** page, select the **+** and then select **Amazon Web Services** from the list.
    
-1. When prompted for a name, use a similar format as in previous sections, for example *Contoso-AWS-Account 1*.
+1. Use a unique name for the connector that includes an identifier for the company and specific AWS account, for example *Contoso-AWS-Account 1*.
 
 1. Follow the instructions at [Connect AWS to Microsoft Cloud App Security](/cloud-app-security/connect-aws-to-microsoft-cloud-app-security) to create an appropriate AWS IAM user.
    
@@ -181,7 +181,7 @@ Session policies are a powerful combination of Azure AD Conditional Access polic
    
 1. Select **Create**.
 
-After you create the Azure AD Conditional Access policy, set up the MCAS Session Policy to control user behavior during AWS sessions.
+After you create the Azure AD Conditional Access policy, set up an MCAS Session Policy to control user behavior during AWS sessions.
 
 1. In the MCAS portal, expand **Control** and then select **Policies**.
    
@@ -199,7 +199,7 @@ After you create the Azure AD Conditional Access policy, set up the MCAS Session
 
 ### Test MCAS policies for AWS
 
-Test all policies regularly to ensure they're still effective and relevant. Here are a few testing ideas:
+Test all policies regularly to ensure they're still effective and relevant. Here are a few recommended tests:
 
 - **IAM Policy changes**: This policy should trigger each time you attempt to modify the settings within AWS IAM, such as creating the new IAM policy and account to use in the following Azure Sentinel section.
 
@@ -252,7 +252,7 @@ The following table shows the available rule templates for checking AWS entity b
 | Login to AWS Management Console without MFA                            | AWS                                                                              |
 | Changes to internet facing AWS RDS Database instances                  | AWS                                                                              |
 | Changes made to AWS CloudTrail logs                                    | AWS                                                                              |
-| Threat Intelligence map IP entity to AWSCloudTrail                     | Threat Intelligence Platforms, AWS                                               |
+| Threat Intelligence map IP entity to AWS CloudTrail                     | Threat Intelligence Platforms, AWS                                              |
 
 Enabled templates have an **IN USE** indicator on the connector details page:
 
@@ -280,10 +280,7 @@ If the data stops ingesting and the graph drops, check the credentials used to c
 - For security guidance from AWS, see [Best practices for securing AWS accounts and resources](https://aws.amazon.com/premiumsupport/knowledge-center/security-best-practices/).
 - For the latest Microsoft security information, see [www.microsoft.com/security](https://www.microsoft.com/security).
 - For full details of how to implement and manage Azure AD, see [Securing Azure environments with Azure Active Directory](https://aka.ms/AzureADSecuredAzure).
-- [AWS tutorial: Azure AD with IDP SSO](https://docs.aws.amazon.com/singlesignon/latest/userguide/azure-ad-idp.html).
-- [Microsoft tutorial: SSO for AWS](/azure/active-directory/saas-apps/amazon-web-service-tutorial).
-- [PIM deployment plan](/azure/active-directory/privileged-identity-management/pim-deployment-plan).
-- [Identity protection security overview](/azure/active-directory/identity-protection/concept-identity-protection-security-overview).
-- [What is Microsoft Defender for Identity?](/defender-for-identity/what-is)
+- [Azure AD identity and access management for AWS](aws-azure-ad-security.md).
 - [Connect AWS to Microsoft Cloud App Security](/cloud-app-security/connect-aws-to-microsoft-cloud-app-security).
 - [How Cloud App Security helps protect your Amazon Web Services (AWS) environment](/cloud-app-security/protect-aws).
+- [Connect Azure Sentinel to AWS CloudTrail](/azure/sentinel/connect-aws).
