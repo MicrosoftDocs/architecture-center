@@ -22,10 +22,7 @@ azureCategories:
 summary: Implement a real-time prediction service in R using Machine Learning Server running in Azure Kubernetes Service (AKS).
 products:
   - azure
-  - azure-monitor
-  - azure-portal
-  - github
-  - sql-server
+  - azure-machine-learning
 thumbnailUrl: ""
 content: |
    [!include[](realtime-scoring-r-content.md)]

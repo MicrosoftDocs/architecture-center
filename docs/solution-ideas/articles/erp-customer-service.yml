@@ -18,7 +18,6 @@ products:
   - azure
   - azure-arc
   - power-bi
-  - surface
 thumbnailUrl: /azure/architecture/browse/thumbs/erp-customer-service.png
 content: |
    [!include[](erp-customer-service-content.md)]

@@ -21,14 +21,7 @@ summary: Use Azure Arc to extend Azure Resource Manager capabilities to Windows 
 products:
   - azure
   - azure-arc
-  - azure-automation
-  - azure-lighthouse
-  - azure-monitor
-  - azure-policy
-  - azure-portal
-  - azure-sentinel
-  - vs
-  - windows
+  - azure-resource-manager
 thumbnailUrl: /azure/architecture/browse/thumbs/azure-arc-hybrid-config.png
 content: |
    [!include[](azure-arc-hybrid-config-content.md)]

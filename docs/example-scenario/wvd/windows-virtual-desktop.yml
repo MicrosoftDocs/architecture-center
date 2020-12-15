@@ -19,13 +19,9 @@ azureCategories:
 summary: 'Explore Windows Virtual Desktop, and learn to build virtual desktop infrastructure solutions at enterprise scale.'
 products:
   - azure
-  - azure-expressroute
-  - azure-files
-  - azure-portal
-  - github
-  - vs
   - windows
   - windows-server
+  - windows-virtual-desktop
 thumbnailUrl: /azure/architecture/browse/thumbs/windows-virtual-desktop.png
 content: |
    [!include[](windows-virtual-desktop-content.md)]

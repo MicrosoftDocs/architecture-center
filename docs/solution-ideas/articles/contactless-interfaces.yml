@@ -20,7 +20,6 @@ products:
   - azure
   - azure-iot
   - azure-storage
-  - surface
 thumbnailUrl: /azure/architecture/browse/thumbs/avanade-contactless.png
 content: |
    [!include[](contactless-interfaces-content.md)]

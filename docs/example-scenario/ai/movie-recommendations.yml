@@ -23,10 +23,9 @@ summary: 'Use machine learning to automate movie, product, and other recommendat
 products:
   - azure
   - azure-databricks
-  - azure-portal
   - azure-storage
-  - consumer
-  - github
+  - azure-cosmos-db
+  - azure-container-instances
 thumbnailUrl: /azure/architecture/browse/thumbs/architecture-movie-recommender.png
 content: |
    [!include[](movie-recommendations-content.md)]

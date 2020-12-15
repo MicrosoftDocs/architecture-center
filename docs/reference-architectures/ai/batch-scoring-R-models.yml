@@ -21,11 +21,7 @@ summary: Perform batch scoring with R models using Azure Batch and a data set ba
 products:
   - azure
   - azure-batch
-  - azure-portal
-  - azure-storage
-  - github
-  - vs
-  - windows
+  - azure-machine-learning
 thumbnailUrl: /azure/architecture/browse/thumbs/batch-scoring-r-models.png
 content: |
    [!include[](batch-scoring-R-models-content.md)]

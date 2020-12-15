@@ -23,14 +23,6 @@ summary: Manage operating system updates with Update Management in Azure Automat
 products:
   - azure
   - azure-automation
-  - azure-devops
-  - azure-monitor
-  - azure-portal
-  - expression
-  - github
-  - msc
-  - vs
-  - windows
   - windows-server
 thumbnailUrl: /azure/architecture/browse/thumbs/azure-update-mgmt.png
 content: |

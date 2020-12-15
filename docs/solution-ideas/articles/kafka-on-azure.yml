@@ -17,8 +17,6 @@ products:
   - azure-functions
   - azure-hdinsight
   - azure-monitor
-  - azure-stack
-  - consumer
 thumbnailUrl: /azure/architecture/browse/thumbs/kafka-on-azure-architecture-diagram.png
 content: |
    [!include[](kafka-on-azure-content.md)]

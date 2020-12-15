@@ -24,8 +24,6 @@ summary: Use machine learning to automate content-based personalization for cust
 products:
   - azure
   - azure-databricks
-  - azure-portal
-  - github
 thumbnailUrl: /azure/architecture/browse/thumbs/architecture-scalable-personalization.png
 content: |
    [!include[](scalable-personalization-content.md)]

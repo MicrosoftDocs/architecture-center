@@ -20,13 +20,7 @@ azureCategories:
 summary: 'This guide is based on the Microsoft Azure Well-Architected Framework, but the recommendations are specific to deployments of SAP solutions.'
 products:
   - azure
-  - azure-arc
-  - azure-expressroute
-  - azure-storage
-  - consumer
-  - dynamics
-  - github
-  - windows
+  - azure-sap
 thumbnailUrl: /azure/architecture/browse/thumbs/sap-overview-architecture-diagram.png
 content: |
    [!include[](sap-overview-content.md)]

@@ -20,21 +20,11 @@ azureCategories:
   - containers
 summary: Reference architecture for a baseline infrastructure that deploys an Azure Kubernetes Service (AKS) cluster.
 products:
-  - aspnet
   - azure
-  - azure-advisor
-  - azure-bastion
-  - azure-devops
-  - azure-firewall
-  - azure-functions
   - azure-monitor
   - azure-policy
-  - azure-portal
   - azure-rbac
-  - azure-storage
-  - consumer
-  - github
-  - windows
+  - azure-kubernetes-service
 thumbnailUrl: /azure/architecture/browse/thumbs/secure-baseline-architecture.svg
 content: |
    [!include[](secure-baseline-aks-content.md)]

@@ -20,12 +20,7 @@ azureCategories:
 summary: Learn about the monitoring services and a dataflow model for use with multiple data sources. Many monitoring tools and services work with Azure deployments.
 products:
   - azure
-  - azure-automation
   - azure-monitor
-  - azure-policy
-  - azure-portal
-  - power-bi
-  - sql-server
 thumbnailUrl: /azure/architecture/browse/thumbs/architecture-diagram-app-monitoring.svg
 content: |
    [!include[](app-monitoring-content.md)]

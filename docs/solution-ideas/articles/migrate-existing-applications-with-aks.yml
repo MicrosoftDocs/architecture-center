@@ -19,7 +19,7 @@ azureCategories:
 summary: Lift and shift to containers with AKS
 products:
   - azure
-  - azure-portal
+  - azure-kubernetes-service
 thumbnailUrl: /azure/architecture/browse/thumbs/migrate-existing-applications-with-aks.png
 content: |
    [!include[](migrate-existing-applications-with-aks-content.md)]

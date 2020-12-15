@@ -15,11 +15,7 @@ azureCategories:
 summary: This reference architecture shows recommended practices for tuning the hyperparameters (training parameters) of a scikit-learn Python model.
 products:
   - azure
-  - azure-portal
-  - azure-storage
-  - github
-  - windows
-  - windows-server
+  - azure-machine-learning
 thumbnailUrl: /azure/architecture/browse/thumbs/training-python-models.png
 content: |
    [!include[](training-python-models-content.md)]

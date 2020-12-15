@@ -20,16 +20,7 @@ azureCategories:
 summary: Recommended architecture for deploying an enterprise application using App Services Environment.
 products:
   - azure
-  - azure-bastion
-  - azure-firewall
-  - azure-monitor
-  - azure-pipelines
-  - azure-portal
-  - azure-rbac
-  - github
-  - sql-server
-  - vs
-  - windows
+  - azure-app-service
 thumbnailUrl: /azure/architecture/browse/thumbs/standard-ase-deployment.png
 content: |
    [!include[](ase-standard-deployment-content.md)]

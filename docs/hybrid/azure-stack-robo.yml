@@ -18,16 +18,7 @@ summary: Cost-effective approach to implement highly-available virtualized and c
 products:
   - azure
   - azure-arc
-  - azure-automation
-  - azure-backup
-  - azure-monitor
-  - azure-policy
-  - azure-portal
-  - azure-stack
-  - office
-  - vs
-  - windows
-  - windows-server
+  - azure-stack-hci
 thumbnailUrl: /azure/architecture/browse/thumbs/azure_stack_robo.png
 content: |
    [!include[](azure-stack-robo-content.md)]

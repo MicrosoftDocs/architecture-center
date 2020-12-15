@@ -14,15 +14,7 @@ azureCategories:
 summary: Learn how to use the AI for Earth APIs to help build solutions for environmental problems. See other AI for Earth projects and initiatives.
 products:
   - azure
-  - azure-arc
-  - azure-backup
-  - azure-databricks
-  - azure-devops
   - azure-notebooks
-  - azure-portal
-  - azure-storage
-  - github
-  - windows
 thumbnailUrl: /azure/architecture/browse/thumbs/wildbook-network-diagram.png
 content: |
    [!include[](ai-for-earth-content.md)]

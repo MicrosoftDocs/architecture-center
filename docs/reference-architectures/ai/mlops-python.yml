@@ -24,12 +24,7 @@ azureCategories:
 summary: 'Implement continuous integration (CI), continuous delivery (CD), and retraining for Azure Machine Learning.'
 products:
   - azure
-  - azure-devops
-  - azure-pipelines
-  - azure-portal
-  - azure-storage
-  - github
-  - vs
+  - azure-machine-learning
 thumbnailUrl: /azure/architecture/browse/thumbs/ml-ops-python.png
 content: |
    [!include[](mlops-python-content.md)]

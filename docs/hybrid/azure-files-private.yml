@@ -19,14 +19,7 @@ azureCategories:
 summary: 'Learn about an enterprise-level cloud file sharing solution that uses Azure Files, Azure File Sync, Azure Private DNS, and Azure Private Endpoint.'
 products:
   - azure
-  - azure-backup
-  - azure-dns
   - azure-files
-  - azure-monitor
-  - azure-portal
-  - azure-storage
-  - vs
-  - windows
   - windows-server
 thumbnailUrl: /azure/architecture/browse/thumbs/azure-files-private.png
 content: |

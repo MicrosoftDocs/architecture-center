@@ -19,10 +19,7 @@ azureCategories:
 summary: 'Learn how the task-based consumer mobile app architecture is created with a step-by-step flow chart that shows the integration with Azure App Service Mobile Apps, Visual Studio, and Xamarin to simplify the build process.'
 products:
   - azure
-  - azure-portal
   - azure-sdks
-  - consumer
-  - github
   - vs
   - windows
   - xamarin

@@ -28,9 +28,7 @@ products:
   - azure-dns
   - azure-functions
   - azure-monitor
-  - consumer
   - power-bi
-  - windows
 thumbnailUrl: /azure/architecture/browse/thumbs/simple-enterprise-integration.png
 content: |
    [!include[](basic-enterprise-integration-content.md)]

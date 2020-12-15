@@ -24,7 +24,6 @@ products:
   - azure-arc
   - azure-files
   - sql-server
-  - surface
 thumbnailUrl: /azure/architecture/browse/thumbs/secure-scalable-wordpress.png
 content: |
    [!include[](wordpress-content.md)]
