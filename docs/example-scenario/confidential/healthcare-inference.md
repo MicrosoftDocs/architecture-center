@@ -108,7 +108,7 @@ Deploying this scenario involves the following high-level steps:
 
   - Deploy and access the web client.
 
-Note that these steps focus on the enclave containers. A secured infastructure would extend well beyond this implementation and include compliance requirements, such as added protections required by HIPAA.
+These steps focus on the enclave containers. A secured infrastructure would extend beyond this implementation and include compliance requirements, such as added protections required by HIPAA.
 
 ## Pricing
 
@@ -116,7 +116,7 @@ To explore the cost of running this scenario, use the [Azure pricing calculator]
 
 A [sample cost profile](https://azure.com/e/5e776a5dbebf4f20974ebbfa0e247747) is available for the Contoso Medical SaaS Platform, as pictured in the diagram. It includes the following components:
 
-- System node pool and SGX nodepool: no disks, all ephemeral
+- System node pool and SGX node pool: no disks, all ephemeral
 - AKS Load Balancer
 - Azure Virtual Network: nominal
 - Azure Container Registry
