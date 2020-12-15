@@ -11,7 +11,7 @@ ms.custom:
 - fcp
 ---
 
-# Azure security ideas for AWS
+# Azure security solutions for AWS
 
 Microsoft offers several security solutions that can help secure and protect Amazon Web Services (AWS) accounts and environments. 
 
@@ -124,7 +124,7 @@ To deploy MCAS, you:
    
 1. On the **App Connectors** page, select the **+** and then select **Amazon Web Services** from the list.
    
-1. Use a unique name for the connector that includes an identifier for the company and specific AWS account, for example *Contoso-AWS-Account 1*.
+1. Use a unique name for the connector that includes an identifier for the company and specific AWS account, for example *Contoso-AWS-Account1*.
 
 1. Follow the instructions at [Connect AWS to Microsoft Cloud App Security](/cloud-app-security/connect-aws-to-microsoft-cloud-app-security) to create an appropriate AWS IAM user.
    
