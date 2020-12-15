@@ -90,23 +90,19 @@ Azure confidential computing virtual machines (VMs) are available in 2nd-generat
 
 Deploying this scenario involves the following high-level steps:
 
-- Deploy the confidential inferencing server. See the [confidential ONNX inference server](https://github.com/microsoft/onnx-server-openenclave) project on GitHub for information on this step.
+- Deploy the confidential inferencing server on an existing SGX-enabled AKS Cluster. See the [confidential ONNX inference server](https://github.com/microsoft/onnx-server-openenclave) project on GitHub for information on this step.
 
-- Run and test the Flask-based service on your local SGX-enabled computer.
+- Configure Azure Attestation policies.
 
-- Run the code on a Kubernetes cluster and AKS:
+- Deploy an SGX-enabled AKS cluster node pool.
 
-  - Get access to [curated confidential applications called SconeApps](https://sconedocs.github.io/helm/). SconeApps are available on a private GitHub repository that's currently only available for commercial customers, through SCONE Standard Edition. Go to the [SCONE website](https://scontain.com/) and contact the company directly to get this service level.
+- Get access to [curated confidential applications called SconeApps](https://sconedocs.github.io/helm/). SconeApps are available on a private GitHub repository that's currently only available for commercial customers, through SCONE Standard Edition. Go to the [SCONE website](https://scontain.com/) and contact the company directly to get this service level.
 
-  - Install [Helm](https://helm.sh/), which manages Kubernetes packages.
+- Install and run SCONE services on your AKS cluster.
 
-  - Install and run SCONE services.
+- Install and test the Flask-based application on your AKS cluster.
 
-  - Run and test the Flask-based application.
-
-  - Access the confidential Flask-based application.
-
-  - Deploy and access the web client.
+- Deploy and access the web client.
 
 These steps focus on the enclave containers. A secured infrastructure would extend beyond this implementation and include compliance requirements, such as added protections required by HIPAA.
 
