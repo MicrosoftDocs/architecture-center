@@ -1499,28 +1499,18 @@ items:
                 href: solution-ideas/articles/training-and-procedural-guidance-powered-by-mixed-reality.yml
       - name: Mobile
         items:
-        - name: Introduction
-          href: multitenant-identity/index.md
-        - name: The Tailspin scenario
-          href: multitenant-identity/tailspin.md
-        - name: Authentication
-          href: multitenant-identity/authenticate.md
-        - name: Claims-based identity
-          href: multitenant-identity/claims.md
-        - name: Tenant sign-up
-          href: multitenant-identity/signup.md
-        - name: Application roles
-          href: multitenant-identity/app-roles.md
-        - name: Authorization
-          href: multitenant-identity/authorize.md
-        - name: Secure a web API
-          href: multitenant-identity/web-api.md
-        - name: Cache access tokens
-          href: multitenant-identity/token-cache.md
-        - name: Client assertion
-          href: multitenant-identity/client-assertion.md
-        - name: Federate with a customer's AD FS
-          href: multitenant-identity/adfs.md
+          - name: Architectures
+            items:
+              - name: Custom mobile workforce app
+                href: solution-ideas/articles/custom-mobile-workforce-app.yml
+              - name: Scalable apps with Azure MySQL
+                href: solution-ideas/articles/scalable-web-and-mobile-applications-using-azure-database-for-mysql.yml
+              - name: Scalable apps using Azure PostgreSQL
+                href: solution-ideas/articles/scalable-web-and-mobile-applications-using-azure-database-for-postgresql.yml
+              - name: Social app for with authentication
+                href: solution-ideas/articles/social-mobile-and-web-app-with-authentication.yml
+              - name: Task-based consumer mobile app
+                href: solution-ideas/articles/task-based-consumer-mobile-app.yml
       - name: Networking
         items:
           - name: Guides
@@ -1603,30 +1593,18 @@ items:
                 href: reference-architectures/aws/aws-azure-security-solutions.md
       - name: Storage
         items:
-        - name: Migration decision process
-          href: example-scenario/oracle-migrate/oracle-migration-overview.md
-        - name: Cross-cloud connectivity
-          href: example-scenario/oracle-migrate/oracle-migration-cross-cloud.md
-        - name: Lift and shift to Azure VMs
-          href: example-scenario/oracle-migrate/oracle-migration-lift-shift.md
-        - name: Refactor
-          href: example-scenario/oracle-migrate/oracle-migration-refactor.md
-        - name: Rearchitect
-          href: example-scenario/oracle-migrate/oracle-migration-rearchitect.md
-      - name: Serverless computing LOB apps
-        href: solution-ideas/articles/onboarding-customers-with-a-cloud-native-serverless-architecture.md
-      - name: Unlock Legacy Data with Azure Stack
-        href: solution-ideas/articles/unlock-legacy-data.md
-      - name: Decompose apps with Service Fabric
-        href: example-scenario/infrastructure/service-fabric-microservices.md
-      - name: SQL 2008 R2 failover cluster in Azure
-        href: example-scenario/sql-failover/sql-failover-2008r2.md
-      - name: Migrate mainframe data to Azure
-        href: reference-architectures/migration/modernize-mainframe-data-to-azure.md
-      - name: Migrate Unisys mainframes to Azure
-        href: reference-architectures/migration/unisys-mainframe-migration.md
-      - name: Refactor IBM z/OS mainframe CF on Azure
-        href: reference-architectures/zos/refactor-zos-coupling-facility.md
+          - name: Architectures
+            items:
+              - name: Media rendering
+                href: solution-ideas/articles/azure-batch-rendering.yml
+              - name: Medical data storage
+                href: solution-ideas/articles/medical-data-storage.yml
+              - name: HIPAA/HITRUST Health Data and AI
+                href: solution-ideas/articles/security-compliance-blueprint-hipaa-hitrust-health-data-ai.yml
+              - name: Using Azure file shares in a hybrid environment
+                href: hybrid/azure-file-share.yml
+              - name: Hybrid file services
+                href: hybrid/hybrid-file-services.yml
       - name: Web
         items:
           - name: Architectures
