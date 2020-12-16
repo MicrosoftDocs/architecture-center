@@ -1,6 +1,6 @@
 ---
 title: Partitioning data for performance optimization
-description: Caching considerations for performance optimization
+description: Partitioning considerations for performance optimization
 author: v-aangie
 ms.date: 12/19/2020
 ms.topic: conceptual
