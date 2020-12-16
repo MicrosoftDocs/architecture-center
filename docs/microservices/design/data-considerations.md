@@ -91,5 +91,7 @@ Because the package data is not relational, a document-oriented database is appr
 
 ## Next steps
 
+Learn about design patterns that can help mitigate some common challenges in a microservices architecture.
+
 > [!div class="nextstepaction"]
 > [Design patterns for microservices](./patterns.md)
