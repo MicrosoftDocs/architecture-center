@@ -1587,6 +1587,10 @@ items:
                 href: example-scenario/gateway/firewall-application-gateway.yml
               - name: Hybrid Security Monitoring using Azure Security Center and Azure Sentinel
                 href: hybrid/hybrid-security-monitoring.yml
+              - name: MCAS and Azure Sentinel security for AWS
+                href: reference-architectures/aws/aws-azure-security-solutions.md
+              - name: Healthcare platform confidential computing
+                href: example-scenario/confidential/healthcare-inference.md
       - name: Storage
         items:
           - name: Architectures
