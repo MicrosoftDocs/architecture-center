@@ -18,7 +18,6 @@ azureCategories:
 summary: 'In industries where bidding competition is fierce, or when the diagnosis of a problem must be quick or in near real-time, companies can use knowledge mining to avoid costly mistakes'
 products:
   - azure
-  - surface
 thumbnailUrl: /azure/architecture/browse/thumbs/business-process-management.png
 content: |
    [!include[](business-process-management-content.md)]

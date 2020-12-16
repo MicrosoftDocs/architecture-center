@@ -25,9 +25,6 @@ products:
   - azure-monitor
   - azure-pipelines
   - azure-policy
-  - consumer
-  - github
-  - vs
 thumbnailUrl: /azure/architecture/browse/thumbs/devsecops-in-azure.png
 content: |
    [!include[](devsecops-in-azure-content.md)]

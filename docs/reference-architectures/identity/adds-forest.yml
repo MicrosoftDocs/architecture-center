@@ -22,11 +22,7 @@ azureCategories:
 summary: How to create a trusted Active Directory domain in Azure.
 products:
   - azure
-  - azure-expressroute
-  - azure-portal
-  - github
-  - vs
-  - windows
+  - azure-active-directory
 thumbnailUrl: /azure/architecture/browse/thumbs/adds-forest.png
 content: |
    [!include[](adds-forest-content.md)]

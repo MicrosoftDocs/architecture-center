@@ -22,12 +22,6 @@ azureCategories:
 summary: 'Recommended architecture that shows how to deploy and operate a scalable, enterprise-grade Jenkins server on Azure secured with single sign-on (SSO).'
 products:
   - azure
-  - azure-monitor
-  - azure-portal
-  - azure-storage
-  - github
-  - vs
-  - windows
 thumbnailUrl: ""
 content: |
    [!include[](jenkins-content.md)]

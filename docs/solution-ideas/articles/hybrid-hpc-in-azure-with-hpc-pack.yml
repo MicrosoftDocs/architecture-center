@@ -21,10 +21,7 @@ azureCategories:
 summary: Get a hybrid high performance computing solution built with Windows Server technology. Use Azure HPC Pack to create a hybrid HPC environment.
 products:
   - azure
-  - azure-portal
-  - vs
-  - windows
-  - windows-server
+  - azure-virtual-machines
 thumbnailUrl: /azure/architecture/browse/thumbs/hybrid-hpc-in-azure-with-hpc-pack.png
 content: |
    [!include[](hybrid-hpc-in-azure-with-hpc-pack-content.md)]

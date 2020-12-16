@@ -19,12 +19,8 @@ azureCategories:
 summary: 'Learn the best practices for running a Linux virtual machine on Azure, which requires some additional components, including networking and storage resources.'
 products:
   - azure
-  - azure-backup
-  - azure-devops
-  - azure-monitor
-  - azure-portal
-  - azure-storage
-  - windows
+  - azure-virtual-machines
+  - azure-linux-vm
 thumbnailUrl: /azure/architecture/browse/thumbs/single-vm-diagram.png
 content: |
    [!include[](linux-vm-content.md)]

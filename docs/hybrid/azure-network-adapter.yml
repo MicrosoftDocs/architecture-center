@@ -20,13 +20,7 @@ azureCategories:
 summary: Connect standalone servers on-premises and in other cloud providers networks to Azure networks
 products:
   - azure
-  - azure-automation
-  - azure-backup
-  - azure-bastion
-  - azure-portal
-  - office
-  - vs
-  - windows
+  - azure-virtual-network
   - windows-server
 thumbnailUrl: /azure/architecture/browse/thumbs/azure-network-adapter.png
 content: |

@@ -19,9 +19,7 @@ azureCategories:
 summary: 'Improve uptime and operations in hospitality, manufacturing, retail, and more with mixed reality and IoT. This scenario shows how you can visualize a virtual replica of your physical space with real-time data in the context of your environment. It is built on Azure Spatial Anchors and Azure Digital Twins. After reviewing this solution architecture, dive right in and explore our reference sample.'
 products:
   - azure
-  - azure-functions
-  - azure-portal
-  - dotnet
+  - azure-iot
 thumbnailUrl: /azure/architecture/browse/thumbs/facilities-management-powered-by-mixed-reality-and-iot.png
 content: |
    [!include[](facilities-management-powered-by-mixed-reality-and-iot-content.md)]

@@ -17,8 +17,6 @@ summary: 'See how BrainLit''s UVEN system uses IoT and Azure Sphere to provide s
 products:
   - azure
   - azure-sphere
-  - github
-  - surface
 thumbnailUrl: /azure/architecture/browse/thumbs/uven-system.png
 content: |
    [!include[](uven-disinfection-content.md)]

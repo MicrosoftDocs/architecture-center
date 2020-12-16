@@ -21,9 +21,7 @@ products:
   - azure
   - azure-iot
   - azure-storage
-  - consumer
   - power-bi
-  - windows
 thumbnailUrl: /azure/architecture/browse/thumbs/interactive-azure-data-explorer.png
 content: |
    [!include[](interactive-azure-data-explorer-content.md)]

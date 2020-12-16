@@ -14,15 +14,6 @@ name: Unisys mainframe migration
 summary: Learn about options for using the Asysco Automated Migration Technology (AMT) Framework to migrate Unisys mainframe workloads to Azure.
 products:
   - azure
-  - azure-bastion
-  - azure-expressroute
-  - azure-files
-  - azure-portal
-  - azure-storage
-  - office
-  - office-365
-  - sql-server
-  - windows
 thumbnailUrl: /azure/architecture/browse/thumbs/unisys-components.png
 content: |
    [!include[](unisys-mainframe-migration-content.md)]

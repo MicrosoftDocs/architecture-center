@@ -22,10 +22,7 @@ azureCategories:
 summary: Implement a secure hybrid network architecture using Azure Active Directory (Azure AD).
 products:
   - azure
-  - azure-portal
-  - github
   - sql-server
-  - surface
   - vs
   - windows
 thumbnailUrl: /azure/architecture/browse/thumbs/azure-ad.png

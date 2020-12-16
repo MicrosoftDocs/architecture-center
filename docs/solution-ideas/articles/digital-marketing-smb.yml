@@ -17,9 +17,9 @@ azureCategories:
 summary: 'Start simple with the content management system that enables you to easily maintain the messaging on your website in real-time, from a browser, with no coding skills.'
 products:
   - azure
-  - azure-monitor
-  - azure-portal
-  - dotnet
+  - azure-sql-database
+  - azure-cdn
+  - azure-web-apps
 thumbnailUrl: /azure/architecture/browse/thumbs/digital-marketing-smb.png
 content: |
    [!include[](digital-marketing-smb-content.md)]

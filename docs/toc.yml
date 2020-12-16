@@ -1233,6 +1233,8 @@ items:
                 href: reference-architectures/identity/azure-ad.yml
               - name: Integrate on-premises AD with Azure
                 href: reference-architectures/identity/index.yml
+              - name: Azure AD identity management for AWS
+                href: reference-architectures/aws/aws-azure-ad-security.md
       - name: Integration
         items:
           - name: Architectures
