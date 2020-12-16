@@ -146,22 +146,10 @@ materially damage your business or mission.
 Choose level of admin workstation security based on the options available at
 <https://aka.ms/securedworkstation>
 
-- **Highly Secure Productivity Device (Enhanced Security Workstation or
-    Specialized Workstation)**  
-    You can start this security journey for critical impact admins by providing
-    them with a higher security workstation that still allows for general
-    browsing and productivity tasks. Using this as an interim step helps ease
-    the transition to fully isolated workstations for both the critical impact
-    admins as well as the IT staff supporting these users and their
-    workstations.
+**Specialized Device** – You can start this security journey for critical impact admins by providing them with a workstation and limiting local administrative rights, as well as which applications may run to only the applications installed by an authorized administrator.  
+The Specialized security user demands a controlled environment while still being able to do activities such as email and web browsing in a simple-to-use experience. These users expect features such as cookies, favorites, and other shortcuts to work but do not require the ability to modify or debug their device operating system, install drivers, or similar.
 
-- **Privileged Access Workstation (Specialized Workstation or Secured
-    Workstation)**  
-    These configurations represent the ideal security state for critical impact
-    admins as they heavily restrict access to phishing, browser, and
-    productivity application attack vectors. These workstations don't allow
-    general internet browsing, only allow browser access to Azure portal and
-    other administrative sites.
+**Privileged Access Workstation (PAW)** – This is the highest security configuration designed for extremely sensitive roles that would have a signficant or material impact on the organization if their account was compromised. The PAW configuration includes security controls and policies that restrict local administrative access and productivity tools to minimize the attack surface to only what is absolutely required for performing sensitive job tasks. This makes the PAW device difficult for attackers to compromise because it blocks the most common vector for phishing attacks: email and web browsing. To provide productivity to these users, separate accounts and workstations must be provided for productivity applications and web browsing. While inconvenient, this is a necessary control to protect users whose account could inflict damage to most or all resources in the organization.
 
 ## Critical impact admin dependencies – Account/Workstation
 
