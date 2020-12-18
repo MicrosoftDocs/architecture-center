@@ -5,7 +5,7 @@ metadata:
   description: 'Understand the importance of logging and use of the ObjectLogger utility, context objects, and logging levels.'
   author: doodlemania2
   ms.date: 11/12/2020
-  ms.topic: reference-architecture
+  ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: reference-architecture
   ms.custom:

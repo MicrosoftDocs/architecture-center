@@ -5,7 +5,7 @@ metadata:
   description: 'Learn about a stateless action execution workflow that ingests, processes, and delivers media assets using two new methods, Terraform Sandwiches and Event Grid Sandwiches.'
   author: doodlemania2
   ms.date: 11/12/2020
-  ms.topic: reference-architecture
+  ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: reference-architecture
   ms.custom:
