@@ -68,7 +68,7 @@ For added security, this example infrastructure enables all the Windows VMs to b
 Consider the following options to further improve security in this scenario:
 
 - Use network virtual appliances such as Fortinet, Checkpoint, and Juniper.
-- Apply [role-based access control](/azure/role-based-access-control/overview) to the resource groups.
+- Apply [Azure role-based access control (Azure RBAC)](/azure/role-based-access-control/overview) to the resource groups.
 - Enable VM [JIT](/azure/security-center/security-center-just-in-time) access if jump boxes are accessed via the Internet.
 - Use [Azure Key Vault](/azure/key-vault/quick-create-portal) to store the passwords used by administrator accounts.
 

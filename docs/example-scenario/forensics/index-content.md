@@ -82,7 +82,7 @@ Consider the following requirements when proving the validity of a CoC:
 
 ### Least access/privilege
 
-Only two individuals within the SOC team should have rights to modify the controls governing access to the subscription and its data. Grant other individuals only bare minimum access to data subsets they need to perform their work. Configure and enforce access through [role-based access control](/azure/role-based-access-control/overview) (RBAC). Only the [virtual network](/azure/virtual-network/virtual-networks-overview) in the SOC subscription has access to the Storage account.
+Only two individuals within the SOC team should have rights to modify the controls governing access to the subscription and its data. Grant other individuals only bare minimum access to data subsets they need to perform their work. Configure and enforce access through [Azure role-based access control (Azure RBAC)](/azure/role-based-access-control/overview). Only the [virtual network](/azure/virtual-network/virtual-networks-overview) in the SOC subscription has access to the Storage account.
 
 ### Evidence acquisition
 

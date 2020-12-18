@@ -120,7 +120,7 @@ Create separate resource groups for production, development, and test environmen
 When assigning resources to resource groups, consider the following:
 
 - Lifecycle. In general, put resources with the same lifecycle into the same resource group.
-- Access. You can use [role-based access control][rbac] (RBAC) to apply access policies to the resources in a group.
+- Access. You can use [Azure role-based access control (Azure RBAC)][rbac] to apply access policies to the resources in a group.
 - Billing. You can view the rolled-up costs for the resource group.
 
 For more information, see [Azure Resource Manager overview](/azure/azure-resource-manager/resource-group-overview).
@@ -261,7 +261,7 @@ For more information, see [Deploy resources with Azure Resource Manager template
 [paas-basic-arm-template]: https://github.com/mspnp/reference-architectures/tree/master/managed-web-app/basic-web-app/Paas-Basic/Templates
 [perf-analysis]: https://github.com/mspnp/performance-optimization/blob/master/Performance-Analysis-Primer.yml
 [pricing]: https://azure.microsoft.com/pricing/calculator
-[rbac]: /azure/active-directory/role-based-access-control-what-is
+[rbac]: /azure/role-based-access-control/overview
 [sql-audit]: /azure/sql-database/sql-database-auditing-get-started
 [sql-backup]: /azure/sql-database/sql-database-business-continuity
 [sql-db]: /azure/sql-database

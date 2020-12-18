@@ -200,7 +200,7 @@ The following table shows a comparison of features for each of the Kafka on Azur
 | **REST Proxy** | Yes | Yes | Yes | Yes | Yes | Yes |
 | **Geo-replication** | Must be configured | Integrated | Integrated | Must be configured | Must be configured | Must be configured |
 | **Authentication** | Secure Sockets Layer (SSL) or Simple Authentication and Security Layer (SSAL) | SSL, SASL Plain | SSL | SSL or SASL | SSL or SASL | SSL or SASL |
-| **Authorization** | Access Control List (ACL) based |	Role-based Access Control (RBAC) | RBAC in Preview | ACL based |	ACL based |	ACL based |
+| **Authorization** | Access Control List (ACL) based |	Role-based access control (RBAC) | RBAC in Preview | ACL based |	ACL based |	ACL based |
 | **Encryption** | SSL/TLS | SSL, Bring Your Own Key (BYOK) in Preview | SSE/TLS, Customer-managed disk encryption | SSL/TLS | SSL/TLS | SSL/TLS |
 | **Automatic data balancer** | N/A - PaaS | N/A - PaaS | Yes | Configure Self-Balancing feature | User must configure | User must configure |
 | **Monitoring metrics** | Yes | Yes | Can be added | Yes | Can be added | Can be added |

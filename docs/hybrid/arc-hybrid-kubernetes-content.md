@@ -108,7 +108,7 @@ Azure Arc agents require the following protocols/ports/outbound URLs to function
 
 ## Security considerations
 
-- You can use RBAC to manage access to Azure Arc enabled Kubernetes across Azure and on-premises environments using Azure Active Directory (Azure AD) identities. For more information, refer to [Use Azure RBAC for Kubernetes Authorization][Use Azure RBAC for Kubernetes Authorization].
+- You can use Azure RBAC to manage access to Azure Arc enabled Kubernetes across Azure and on-premises environments using Azure Active Directory (Azure AD) identities. For more information, refer to [Use Azure RBAC for Kubernetes Authorization][Use Azure RBAC for Kubernetes Authorization].
 - We recommend using a service principal with limited privileges for onboarding Kubernetes clusters to Azure Arc. This is useful in CI/CD pipelines such as Azure Pipelines and GitHub Actions. For more information, refer to [Create an Azure Arc-enabled onboarding Service Principal][Create an Azure Arc-enabled onboarding Service Principal].
 - To simplify service principal management, you can use managed identities in AKS. However, clusters must be created using the managed identity and existing clusters (including Azure and on-premises clusters) can't be migrated to managed identities. For more information, refer to [Use managed identities in Azure Kubernetes Service][Use managed identities in Azure Kubernetes Service].
 

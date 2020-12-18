@@ -169,7 +169,7 @@ There are two types of managed identities:
   - Need pre-authorization to secure resources during provisioning, or
   - Have resources that are recycled frequently, while permissions need to be consistent.
 
-Once the identity is assigned to the Azure function, assign it a role using [role-based access control (RBAC)](/azure/role-based-access-control/overview) to access the resources. For example, to update a resource, the *Contributor* role will need to be assigned to the function identity.
+Once the identity is assigned to the Azure function, assign it a role using [Azure role-based access control (Azure RBAC)](/azure/role-based-access-control/overview) to access the resources. For example, to update a resource, the *Contributor* role will need to be assigned to the function identity.
 
 ## Cost considerations
 

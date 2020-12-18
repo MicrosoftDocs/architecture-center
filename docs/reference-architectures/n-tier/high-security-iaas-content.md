@@ -160,7 +160,7 @@ Use the resources in your management subnet to grant app tier access only to peo
 
 There are several other ways to control Azure roles and policies:
 
-- [Role based access control](/azure/role-based-access-control/overview) (RBAC) for Azure resources lets you assign built-in or custom roles to users, so they have only the privileges they need. You can combine RBAC with PIM to implement an audited approval workflow that elevates privileges for a limited time period.
+- [Azure role-based access control (Azure RBAC)](/azure/role-based-access-control/overview) for Azure resources lets you assign built-in or custom roles to users, so they have only the privileges they need. You can combine Azure RBAC with PIM to implement an audited approval workflow that elevates privileges for a limited time period.
 - Policies enforce corporate rules, standards, and SLAs. [Azure Policy](/azure/governance/policy/) is an Azure service that creates, assigns, and manages policies, and evaluates your resources for policy compliance. 
 - [Azure Blueprints](/azure/governance/blueprints/overview) combine role assignments, policy assignments, and deployment templates to define a set of replicable Azure resources that implement and follow an organization's standards, patterns, and requirements. Blueprints are a declarative way to orchestrate the deployment of resource templates and other artifacts. You can create blueprints yourself, or leverage existing blueprints. For example, the [ISO 27001 Shared Services blueprint](/azure/governance/blueprints/samples/iso27001-shared/) deploys a shared services hub that you can modify and extend to your organization's requirements.
 

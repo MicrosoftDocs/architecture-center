@@ -37,7 +37,7 @@ When assigning a role to a user consider what actions the role can perform and w
 
 - You can use security groups to assign permissions. However, there are disadvantages. It can get complex because the workload needs to keep track of which security groups correspond to which application roles, for each tenant. Also, access tokens can grow significantly and Azure AD includes an "overage" claim to limit the token size. See [Microsoft identity platform access tokens](/azure/active-directory/develop/access-tokens). 
 
-For more information, see [Azure role-based access control (RBAC)](/azure/role-based-access-control/overview). 
+For more information, see [Azure role-based access control (Azure RBAC)](/azure/role-based-access-control/overview). 
   
 For information about implementing role-based authorization in an ASP.NET application, see [Role-based authorization](/azure/architecture/multitenant-identity/authorize#role-based-authorization).  
 
