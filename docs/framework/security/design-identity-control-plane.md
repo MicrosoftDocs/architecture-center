@@ -26,10 +26,10 @@ Azure Resource Manager handles all control plane requests and applies restrictio
 
 ## Roles and permission assignment 
 
-**Is the workload infrastructure protected with RBAC (role-based access control)?**
+**Is the workload infrastructure protected with Azure role-based access control (Azure RBAC)?**
 ***
 
-Role-based access control (RBAC) provides the separation when accessing the resources that an application uses. Decide who has access to resources at the granular level and what they can do with those resources. For example:
+Azure role-based access control (Azure RBAC) provides the separation when accessing the resources that an application uses. Decide who has access to resources at the granular level and what they can do with those resources. For example:
 
 - Developers can't access production infrastructure.
 - Only the SecOps team can read and manage Key Vault secrets.
@@ -52,7 +52,7 @@ For example, assign security teams with the **Security Readers** permission that
 **Are there resource locks applied on critical parts of the infrastructure?**
 ***
 
-Unlike role-based access control, management locks are used to apply a restriction across all users and roles.
+Unlike Azure role-based access control, management locks are used to apply a restriction across all users and roles.
 
 For critical infrastructure, use management locks to prevent deletion or modification of a resource, resource group, or subscription. Lock in use cases where only specific roles and users with permissions should be able to delete/modify resources. 
 

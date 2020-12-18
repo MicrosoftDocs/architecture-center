@@ -218,26 +218,26 @@ The management IP list may change after the route table is deployed, in which ca
 
 ### Azure Active Directory
 
-Azure Active Directory provides security features to authenticate applications and authorize access to resources. This reference architecture uses two key features of Azure Active Directory: managed identities, and role based access control.
+Azure Active Directory provides security features to authenticate applications and authorize access to resources. This reference architecture uses two key features of Azure Active Directory: managed identities, and Azure role-based access control.
 
 When building cloud applications, the credentials required to authenticate to cloud services, must be secured. Ideally, the credentials should never appear on developer workstations or checked into source control. Azure Key Vault provides a way to securely store credentials and secrets, but the app still has to authenticate to Key Vault to retrieve them. **Managed Identities for Azure resources** provides Azure services with an automatically managed identity in Azure AD. This identity can be used to authenticate to any service that supports Azure AD authentication, including Key Vault, without any credentials in the application.
 
-[Role-based access control or RBAC](/azure/role-based-access-control/overview) manages access to Azure resources. This includes:
+[Azure role-based access control (Azure RBAC)](/azure/role-based-access-control/overview) manages access to Azure resources. This includes:
 
 - which entity has the access: user, managed identity, security principal.
 - what type of access it has: owner, contributor, reader, admin.
 - scope of the access: resource, resource group, subscription, or management group.
 
-You can lock down access to ASE applications by tightly controlling the role required and the type of access for each app. This way, multiple apps can be deployed on the same ASE from different development teams. For example, the frontend might be handled by one team, and the backend by another. RBAC can be used to limit each team's access to the app(s) it is working on. Explore [Custom roles in Azure RBAC](/azure/role-based-access-control/custom-roles) to create roles suitable to your organization.
+You can lock down access to ASE applications by tightly controlling the role required and the type of access for each app. This way, multiple apps can be deployed on the same ASE from different development teams. For example, the frontend might be handled by one team, and the backend by another. Azure RBAC can be used to limit each team's access to the app(s) it is working on. Explore [Azure custom roles](/azure/role-based-access-control/custom-roles) to create roles suitable to your organization.
 
 ### Key Vault
 
-Some services support managed identities, however they use RBAC to set up permissions for the app. For example, see Service Bus' [built-in RBAC roles](/azure/service-bus-messaging/service-bus-managed-service-identity#built-in-rbac-roles-for-azure-service-bus), as well as [RBAC in CosmosDB](/azure/cosmos-db/role-based-access-control). *Owner* access to the subscription is required for granting these permissions, even though personnel with *Contributor* access can deploy these services. To allow a wider team of developers to be able to run the deployment scripts, the next best option is to use native access control policies of the service:
+Some services support managed identities, however they use Azure RBAC to set up permissions for the app. For example, see Service Bus' [built-in roles](/azure/service-bus-messaging/service-bus-managed-service-identity#built-in-rbac-roles-for-azure-service-bus), as well as [Azure RBAC in Azure Cosmos DB](/azure/cosmos-db/role-based-access-control). *Owner* access to the subscription is required for granting these permissions, even though personnel with *Contributor* access can deploy these services. To allow a wider team of developers to be able to run the deployment scripts, the next best option is to use native access control policies of the service:
 
 - For Service Bus, it is [Shared Access Signatures](/azure/service-bus-messaging/service-bus-authentication-and-authorization#shared-access-signature),
 - For CosmosDB, it is the [Master Keys](/azure/cosmos-db/secure-access-to-data#master-keys).
 
-The connection strings for these access control policies are then stored in the Key Vault. The vault itself is accessed through managed identities, which does not require RBAC. Set the access policy for these connection strings appropriately. For example, read-only for the backend, write-only for the frontend, and so on, instead of using default root access policy.
+The connection strings for these access control policies are then stored in the Key Vault. The vault itself is accessed through managed identities, which does not require Azure RBAC. Set the access policy for these connection strings appropriately. For example, read-only for the backend, write-only for the frontend, and so on, instead of using default root access policy.
 
 The following snippet in [services.json](https://github.com/mspnp/app-service-environments-ILB-deployments/blob/master/deployment/templates/services.json) shows the KeyVault configuration for these services:
 

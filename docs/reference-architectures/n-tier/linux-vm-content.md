@@ -112,10 +112,10 @@ Use [Azure Security Center][security-center] to get a central view of the securi
 
 **Antimalware**. If enabled, Security Center checks whether antimalware software is installed. You can also use Security Center to install antimalware software from inside the Azure portal.
 
-**Access control**. Use [role-based access control (RBAC)][rbac] to control access to Azure resources. RBAC lets you assign authorization roles to members of your DevOps team. For example, the Reader role can view Azure resources but not create, manage, or delete them. Some permissions are specific to an Azure resource type. For example, the Virtual Machine Contributor role can restart or deallocate a VM, reset the administrator password, create a new VM, and so on. Other [built-in RBAC roles][rbac-roles] that may be useful for this architecture include [DevTest Labs User][rbac-devtest] and [Network Contributor][rbac-network].
+**Access control**. Use [Azure role-based access control (Azure RBAC)][rbac] to control access to Azure resources. Azure RBAC lets you assign authorization roles to members of your DevOps team. For example, the Reader role can view Azure resources but not create, manage, or delete them. Some permissions are specific to an Azure resource type. For example, the Virtual Machine Contributor role can restart or deallocate a VM, reset the administrator password, create a new VM, and so on. Other [built-in roles][rbac-roles] that may be useful for this architecture include [DevTest Labs User][rbac-devtest] and [Network Contributor][rbac-network].
 
 > [!NOTE]
-> RBAC does not limit the actions that a user logged into a VM can perform. Those permissions are determined by the account type on the guest OS.
+> Azure RBAC does not limit the actions that a user logged into a VM can perform. Those permissions are determined by the account type on the guest OS.
 
 **Audit logs**. Use [audit logs][audit-logs] to see provisioning actions and other VM events.
 
@@ -165,10 +165,10 @@ For more information, see the Operational excellence section in [Microsoft Azure
 [nsg-default-rules]: /azure/virtual-network/security-overview#default-security-rules
 [planned-maintenance]: /azure/virtual-machines/maintenance-and-updates
 [premium-storage]: /azure/virtual-machines/linux/premium-storage
-[rbac]: /azure/active-directory/role-based-access-control-what-is
-[rbac-roles]: /azure/active-directory/role-based-access-built-in-roles
-[rbac-devtest]: /azure/active-directory/role-based-access-built-in-roles#devtest-labs-user
-[rbac-network]: /azure/active-directory/role-based-access-built-in-roles#network-contributor
+[rbac]: /azure/role-based-access-control/overview
+[rbac-roles]: /azure/role-based-access-control/built-in-roles
+[rbac-devtest]: /azure/role-based-access-control/built-in-roles#devtest-labs-user
+[rbac-network]: /azure/role-based-access-control/built-in-roles#network-contributor
 [reboot-logs]: https://azure.microsoft.com/blog/viewing-vm-reboot-logs
 [resource-lock]: /azure/resource-group-lock-resources
 [resource-manager-overview]: /azure/azure-resource-manager/resource-group-overview

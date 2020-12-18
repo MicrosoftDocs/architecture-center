@@ -25,7 +25,7 @@ Designate groups (or individual roles) that will be responsible for central func
 | Network operations | Enterprise-wide virtual network and subnet allocation.
 | IT operations| Server endpoint security includes monitoring and remediating server security. This includes tasks such as patching, configuration, endpoint security,and so on. 
 | Security operations | Incident monitoring and response to investigate and remediate security incidents in Security Information and Event Management (SIEM) or source console such as Azure Security Center Azure AD Identity Protection.
-| Policy management | Apply governance based on risk analysis and compliance requirements. Set direction for use of Roles Based Access Control (RBAC), Azure Security Center, Administrator protection strategy, and Azure Policy to govern Azure resources.
+| Policy management | Apply governance based on risk analysis and compliance requirements. Set direction for use of Azure role-based access control (Azure RBAC), Azure Security Center, Administrator protection strategy, and Azure Policy to govern Azure resources.
 |Identity Security and Standards| Set direction for Azure AD directories, PIM/PAM usage, MFA, password/synchronization configuration, Application Identity Standards.
 
 >![Task](../../_images/i-best-practices.svg) Application roles and responsibilities should cover different access level of each operational function. For example, publish production release, access customer data, manipulate database records, and so on. Application teams should include central functions listed in the preceding table.

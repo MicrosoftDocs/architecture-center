@@ -86,7 +86,7 @@ In addition, the developer can decide based on the requirements of the app if it
 
 In addition to authentication, the developer can enforce *authorization* within the app. Authorization is used to ensure once a user has access to an app, they are given proper privileges to access data and resources.
 
-Authorization rules can be enforced with [Role-Based Access Control](/azure/role-based-access-control/overview) (RBAC) and [Role Claims](/azure/active-directory/develop/active-directory-enterprise-app-role-management). When using RBAC, a tenant admin grants permissions to use or view resources based on **roles**, and not to individual users or groups.
+Authorization rules can be enforced with [Azure role-based access control (Azure RBAC)](/azure/role-based-access-control/overview) and [Role Claims](/azure/active-directory/develop/active-directory-enterprise-app-role-management). When using Azure RBAC, a tenant admin grants permissions to use or view resources based on **roles**, and not to individual users or groups.
 
 The developer can [add app roles](/azure/active-directory/develop/howto-add-app-roles-in-azure-ad-apps) to an app and declare them in the [app's manifest](/azure/active-directory/active-directory-application-manifest/). When a user signs into the app, Azure AD emits a claim for each role that the user has been granted, individually and from their group membership. The app can use these role claims with the tenant ID claim to do an access check. This will determine whether a user is allowed to perform an action on a specific resource associated with an Azure AD tenant.
 

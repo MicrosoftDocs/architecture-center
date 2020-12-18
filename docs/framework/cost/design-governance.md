@@ -29,7 +29,7 @@ Azure Policy can set rules on management groups, subscriptions, and resources gr
 
 For more information, see [Create management groups for resource organization and management](/azure/governance/management-groups/create).
 
-Control the group who can manage resources in the subscription, see [Built-in roles for Azure resources](/azure/role-based-access-control/built-in-roles).
+Control the group who can manage resources in the subscription, see [Azure built-in roles](/azure/role-based-access-control/built-in-roles).
 
 Set limits or quotas to prevent unexpected costs, For more information, see [Azure subscription and service limits, quotas, and constraints](/azure/azure-resource-manager/management/azure-subscription-service-limits).
 
