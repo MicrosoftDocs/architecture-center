@@ -36,7 +36,7 @@ This section will talk about AKS patching and upgrading practices, and who is re
  * Using the node image upgrade method will ensure you only get tested kernels and components which are compatible with those kernels.
  * Linux might receive daily security updates while the process to keep Windows Server nodes up-to-date is a little different. Windows Server nodes don't receive daily updates. Instead, you perform an AKS upgrade that deploys new nodes with the latest base Window Server image and patches.
  * Using the node image upgrade process allows you to better streamline upgrades for both windows and linux nodepools. 
- * Considering checking and applying node image upgrades bi-weekly and automating the process.
+ * Consider checking and applying node image upgrades bi-weekly and automating the process.
  * Use “kubectl describe node …” to check the OS kernel version and the OS image version.
 
     ![k_describe_node](images/os_kernel_image_version.png)
@@ -55,7 +55,7 @@ This section will talk about AKS patching and upgrading practices, and who is re
     * [Upgrade all nodes in node pools](https://docs.microsoft.com/azure/aks/node-image-upgrade#upgrade-all-nodes-in-all-node-pools)
     * [Upgrade a specific node pool](https://docs.microsoft.com/azure/aks/node-image-upgrade#upgrade-a-specific-node-pool)
     * [Upgrade node pool using GitHub Actions](https://docs.microsoft.com/azure/aks/node-upgrade-github-actions)
-* Consider automating the node image upgrade process. See [Node Upgrade GitHub Actions](https://docs.microsoft.com/en-us/azure/aks/node-upgrade-github-actions)
+* Consider automating the node image upgrade process. See [Node Upgrade GitHub Actions](https://docs.microsoft.com/azure/aks/node-upgrade-github-actions)
 
 
 
@@ -111,7 +111,7 @@ To proactively receive updates about AKS upgrades, we recommend using the follow
 ## Minimize disruption to existing workloads during an upgrade
 * Set up multiple environments
 * Plan and schedule maintenance windows.
-* [Plan your tolerance for disruption.](https://docs.microsoft.com/en-us/azure/aks/operator-best-practices-scheduler#plan-for-availability-using-pod-disruption-budgets)
+* [Plan your tolerance for disruption.](https://docs.microsoft.com/azure/aks/operator-best-practices-scheduler#plan-for-availability-using-pod-disruption-budgets)
 * [Use surge upgrades to control nodepool upgrades.](https://docs.microsoft.com/azure/aks/upgrade-cluster#customize-node-surge-upgrade)
 
 ## Next Steps
