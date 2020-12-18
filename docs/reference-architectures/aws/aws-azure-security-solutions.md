@@ -4,7 +4,7 @@ titleSuffix: Azure Solution Ideas
 description: Learn how Microsoft Cloud App Security (MCAS) and Azure Sentinel can help secure and protect Amazon Web Services (AWS) account access and environments.
 author: doodlemania2
 ms.date: 12/10/2020
-ms.topic: reference-architecture
+ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: reference-architecture
 ms.custom:
