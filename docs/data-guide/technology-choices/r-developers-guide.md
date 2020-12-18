@@ -39,7 +39,6 @@ This article covers the following Azure services that support the R language:
 |[Azure Machine Learning](#azure-machine-learning)                | cloud service that you use to train, deploy, automate, and manage machine learning models
 |[Azure Machine Learning Studio (classic)](#azure-machine-learning-studio)  |run custom R scripts in Azure's machine learning experiments                      |
 |[Azure Batch](#azure-batch)                                      |offers a variety options for economically running R code across many nodes in a cluster|
-|[Azure Notebooks](#azure-notebooks)                              |a no-cost cloud-based version of Jupyter notebooks                  |
 |[Azure SQL Database](#azure-sql-database)                        |run R scripts inside of the SQL Server database engine                            |
 
 ## Data Science Virtual Machine
