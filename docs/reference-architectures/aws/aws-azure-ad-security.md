@@ -4,7 +4,7 @@ titleSuffix: Azure Reference Architectures
 description: Learn how Azure Active Directory (Azure AD) can help secure and protect Amazon Web Services (AWS) account identities and access.
 author: doodlemania2
 ms.date: 12/10/2020
-ms.topic: reference-architecture
+ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: reference-architecture
 ms.custom:

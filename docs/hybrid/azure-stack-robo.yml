@@ -4,8 +4,9 @@ metadata:
   description: Cost-effective approach to implement highly-available virtualized and containerized workloads in Remote Office/Branch Office scenarios
   author: doodlemania2
   ms.date: 11/29/2020
-  ms.topic: reference-architecture
+  ms.topic: conceptual
   ms.service: architecture-center
+  ms.subservice: reference-architecture
   ms.category:
     - hybrid
     - management-and-governance

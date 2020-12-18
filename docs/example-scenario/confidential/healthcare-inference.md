@@ -5,7 +5,7 @@ description: Learn how to use confidential computing and containers to support a
 author: agowdamsft
 ms.author: amgowda
 ms.date: 12/11/2020
-ms.topic: example-scenario
+ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: example-scenario
 ms.custom:
