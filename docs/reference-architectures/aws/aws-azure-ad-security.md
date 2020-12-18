@@ -4,7 +4,7 @@ titleSuffix: Azure Reference Architectures
 description: Learn how Azure Active Directory (Azure AD) can help secure and protect Amazon Web Services (AWS) account identities and access.
 author: doodlemania2
 ms.date: 12/10/2020
-ms.topic: reference-architecture
+ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: reference-architecture
 ms.custom:
@@ -325,7 +325,7 @@ To create a new Conditional Access policy that requires MFA:
 
 You might need to create several Conditional Access policies to meet business needs for strong authentication. Consider the naming convention you use when creating the policies to ensure ease of identification and ongoing maintenance. Also, unless MFA is already widely deployed, make sure the policy is scoped to impact only the intended users. Other policies should cover other user groups' needs.
 
-Once you enable Conditional Access, you can impose additional controls such as PAM and just-in-time (JIT) provisioning. For more information, see [What is automated SaaS app user provisioning in Azure AD](https://docs.microsoft.com/azure/active-directory/app-provisioning/user-provisioning).
+Once you enable Conditional Access, you can impose additional controls such as PAM and just-in-time (JIT) provisioning. For more information, see [What is automated SaaS app user provisioning in Azure AD](/azure/active-directory/app-provisioning/user-provisioning).
 
 If you have MCAS, you can use Conditional Access to configure MCAS session policies. For more information, see [Configure Azure AD session policies for AWS activities](aws-azure-security-solutions.md#configure-mcas-monitoring-policies-for-aws-activities).
 
