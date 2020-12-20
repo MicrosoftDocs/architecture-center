@@ -101,7 +101,7 @@ Another way to improve resiliency is to use [Azure Service Bus](/azure/service-b
 
 ## Solution deployment
 
-For information about how to deploy the reference implementation for this architecture, see [the GitHub readme](https://github.com/mspnp/cognitive-services-reference-implementation/blob/master/README.yml).
+For information about how to deploy the reference implementation for this architecture, see [the GitHub readme](https://github.com/mspnp/cognitive-services-reference-implementation/blob/master/README.md).
 
 ## Next steps
 
