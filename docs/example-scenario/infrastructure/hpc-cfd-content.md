@@ -109,7 +109,7 @@ Once you've deployed the sample, learn more about [Azure CycleCloud][cyclecloud]
 [rdma]: /azure/virtual-machines/windows/sizes-hpc#rdma-capable-instances
 [vms]: /azure/virtual-machines
 [batch]: /azure/batch
-[avere]: https://github.com/Azure/Avere/blob/master/README.yml
+[avere]: https://github.com/Azure/Avere/blob/master/README.md
 [cycle-svcprin]: /azure/cyclecloud/quickstart-install-cyclecloud#service-principal
 [cycle-ssh]: /azure/cyclecloud/quickstart-install-cyclecloud#ssh-keypair
 [cycle-login]: /azure/cyclecloud/quickstart-install-cyclecloud#log-into-the-cyclecloud-application-server
