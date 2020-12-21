@@ -92,9 +92,9 @@ Use [Azure Monitor for containers][monitor-containers] to collect metrics and lo
 
 Use [Azure Security Center][security-center] to get a central view of the security state of your Azure resources. Security Center monitors potential security issues and provides a comprehensive picture of the security health of your deployment, although it doesn't monitor AKS agent nodes. Security Center is configured per Azure subscription. Enable security data collection as described in [Onboard your Azure subscription to Security Center Standard][get-started]. When data collection is enabled, Security Center automatically scans any VMs created under that subscription.
 
-**Operations**. To sign in to an AKS cluster using your Azure Active Directory (Azure AD) authentication token, configure AKS to use Azure AD for [user authentication][aad-auth]. Cluster administrators can also configure Kubernetes role-based access control (RBAC) based on a user's identity or directory group membership.
+**Operations**. To sign in to an AKS cluster using your Azure Active Directory (Azure AD) authentication token, configure AKS to use Azure AD for [user authentication][aad-auth]. Cluster administrators can also configure Kubernetes role-based access control (Kubernetes RBAC) based on a user's identity or directory group membership.
 
-Use [RBAC][rbac] to control access to the Azure resources that you deploy. RBAC lets you assign authorization roles to members of your DevOps team. A user can be assigned to multiple roles, and you can create custom roles for even more fine-grained [permissions].
+Use [Azure RBAC][rbac] to control access to the Azure resources that you deploy. Azure RBAC lets you assign authorization roles to members of your DevOps team. A user can be assigned to multiple roles, and you can create custom roles for even more fine-grained [permissions].
 
 **HTTPS**. As a security best practice, the application should enforce HTTPS and redirect HTTP requests. Use an [ingress controller][ingress-controller] to deploy a reverse proxy that terminates SSL and redirects HTTP requests. For more information, see [Create an HTTPS ingress controller on Azure Kubernetes Service (AKS)][https-ingress].
 
@@ -164,7 +164,7 @@ To deploy this reference architecture, follow the steps described in the GitHub 
 [mlops-ra]: ./mlops-python.yml
 [monitor-containers]: /azure/monitoring/monitoring-container-insights-overview
 [permissions]: /azure/aks/concepts-identity
-[rbac]: /azure/active-directory/role-based-access-control-what-is
+[rbac]: /azure/role-based-access-control/overview
 [scale-cluster]: /azure/aks/scale-cluster
 [scikit]: https://pypi.org/project/scikit-learn/
 [security-center]: /azure/security-center/security-center-intro

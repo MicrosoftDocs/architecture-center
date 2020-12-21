@@ -115,5 +115,5 @@ A secondary benefit of blue-green deployment is the ability to use the failover 
 
 ## Related resources
 
-- [Sample code](https://github.com/serverless/multicloud) and [README](https://github.com/serverless/multicloud/blob/master/README.yml) for this implementation on GitHub
+- [Sample code](https://github.com/serverless/multicloud) and [README](https://github.com/serverless/multicloud/blob/master/README.md) for this implementation on GitHub
 - [Serverless Framework](https://serverless.com/)

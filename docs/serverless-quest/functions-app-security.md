@@ -70,17 +70,16 @@ Azure Functions lets you use keys to make it harder to access your HTTP function
 
 For more information, see [Secure an HTTP endpoint in production](/azure/azure-functions/functions-bindings-http-webhook-trigger?tabs=csharp#secure-an-http-endpoint-in-production).
 
-### Set up role-based access control (RBAC)
-Azure role-based access control (RBAC) has several built-in Azure roles that you can assign to users, groups, service principals, and managed identities to control access to Azure resources. If the built-in roles don't meet your organization's needs, you can create your own Azure custom roles.
+### Set up Azure role-based access control (Azure RBAC)
+Azure role-based access control (Azure RBAC) has several Azure built-in roles that you can assign to users, groups, service principals, and managed identities to control access to Azure resources. If the built-in roles don't meet your organization's needs, you can create your own Azure custom roles.
 
 Review each Functions app before deployment to identify excessive permissions. Carefully examine functions to apply "least privilege" permissions, giving each function only what it needs to successfully execute. 
 
-Use RBAC to assign permissions to users, groups, and applications at a certain scope. The scope of a role assignment can be a subscription, a resource group, or a single resource. Avoid using wildcards whenever possible. 
+Use Azure RBAC to assign permissions to users, groups, and applications at a certain scope. The scope of a role assignment can be a subscription, a resource group, or a single resource. Avoid using wildcards whenever possible. 
 
-For more information about RBAC, see:
-- [What is role-based access control (RBAC) for Azure resources?](/azure/role-based-access-control/overview)
+For more information about Azure RBAC, see:
+- [What is Azure role-based access control (Azure RBAC)?](/azure/role-based-access-control/overview)
 - [Azure built-in roles](/azure/role-based-access-control/built-in-roles)
-- [Azure role-based access control (RBAC)](/azure/role-based-access-control/overview)
 - [Azure custom roles](/azure/role-based-access-control/custom-roles)
 
 ### Use managed identities and key vaults
@@ -88,7 +87,7 @@ A common challenge when building cloud applications is how to manage credentials
 
 For more information, see [Use Key Vault references for App Service and Azure Functions](/azure/app-service/app-service-key-vault-references).
 
-Managed identities let Functions apps access resources like key vaults and storage accounts without requiring specific access keys or connection strings. A full audit trail in the logs displays which identities execute requests to resources. Use RBAC and managed identities to granularly control exactly what resources Azure Functions applications can access. 
+Managed identities let Functions apps access resources like key vaults and storage accounts without requiring specific access keys or connection strings. A full audit trail in the logs displays which identities execute requests to resources. Use Azure RBAC and managed identities to granularly control exactly what resources Azure Functions applications can access. 
 
 For more information, see:
 - [What are managed identities for Azure resources?](/azure/active-directory/managed-identities-azure-resources/overview)

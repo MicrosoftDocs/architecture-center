@@ -98,7 +98,7 @@ When you assign resources to resource groups, consider these factors:
 
 - **Lifecycle**. In general, put resources that have the same lifecycle in the same resource group.
 
-- **Access**. To apply access policies to the resources in a group, you can use [role-based access control][rbac] (RBAC).
+- **Access**. To apply access policies to the resources in a group, you can use [Azure role-based access control (Azure RBAC)][rbac].
 
 - **Billing**. You can view rollup costs for the resource group.
 
@@ -151,7 +151,7 @@ Although this list doesn't completely describe all security best practices, here
 
 - The Azure API Management service has a fixed public IP address. Restrict access for calling Logic Apps endpoints to only the IP address of API Management. For more information, see [Restrict inbound IP addresses][logic-apps-restrict-ip].
 
-- To make sure users have appropriate access levels, use role-based access control (RBAC).
+- To make sure users have appropriate access levels, use Azure role-based access control (Azure RBAC).
 
 - Secure public API endpoints in API Management by using OAuth or OpenID Connect. To secure public API endpoints, configure an identity provider, and add a JSON Web Token (JWT) validation policy. For more information, see [Protect an API by using OAuth 2.0 with Azure Active Directory and API Management][apim-oauth].
 

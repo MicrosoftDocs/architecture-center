@@ -128,7 +128,7 @@ If you want to integrate an on-premises Active Directory environment with an Azu
 ### Protecting your infrastructure
 
 Control access to the Azure resources that you deploy. Every Azure subscription has a [trust relationship][ad-subscriptions] with an Azure AD tenant.
-Use [role-based access control][rbac] (RBAC) to grant users within your organization the correct permissions to Azure resources. Grant access by assigning RBAC role to users or groups at a certain scope. The scope can be a subscription, a resource group, or a single resource. [Audit][resource-manager-auditing] all changes to infrastructure.
+Use [Azure role-based access control (Azure RBAC)][rbac] to grant users within your organization the correct permissions to Azure resources. Grant access by assigning Azure roles to users or groups at a certain scope. The scope can be a subscription, a resource group, or a single resource. [Audit][resource-manager-auditing] all changes to infrastructure.
 
 ### Application security
 
@@ -155,7 +155,7 @@ Use Key Vault to safeguard cryptographic keys and secrets. By using Key Vault, y
 [ad-subscriptions]: /azure/active-directory/active-directory-how-subscriptions-associated-directory
 [data-warehouse-encryption]: /azure/data-lake-store/data-lake-store-security-overview#data-protection
 [cosmos-db-encryption]: /azure/cosmos-db/database-security
-[rbac]: /azure/active-directory/role-based-access-control-what-is
+[rbac]: /azure/role-based-access-control/overview
 [paired-region]: /azure/best-practices-availability-paired-regions
 [resource-manager-auditing]: /azure/azure-resource-manager/resource-group-audit
 [security-center]: https://azure.microsoft.com/services/security-center

@@ -16,7 +16,7 @@ Cloud and hybrid solutions from Microsoft help you manage medical data storage e
 1. Securely store medical image data in Azure Data Lake Store and/or Azure Blob Storage.
 1. Analyze medical image data using a pre-trained Azure Cognitive Services API or a custom developed Machine Learning model.
 1. Store artificial intelligence (AI) and Machine Learning results in Azure Data Lake.
-1. Interact AI and Machine Learning results using PowerBI, while preserving Role-Based Access Control (RBAC).
+1. Interact AI and Machine Learning results using PowerBI, while preserving Azure role-based access control (Azure RBAC).
 1. Securely interact with medical image data via a web based vendor neutral archive (VNA) image viewer.
 
 ## Components
