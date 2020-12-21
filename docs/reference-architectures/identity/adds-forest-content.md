@@ -33,10 +33,7 @@ The on-premises domains are contained within a different forest from the domains
 
 You can establish trusts at the forest level by [creating forest trusts][creating-forest-trusts], or at the domain level by [creating external trusts][creating-external-trusts]. A forest level trust creates a relationship between all domains in two forests. An external domain level trust only creates a relationship between two specified domains. You should only create external domain level trusts between domains in different forests.
 
-Trusts can be unidirectional (one-way) or bidirectional (two-way):
-
-- A one-way trust enables users in one domain or forest (known as the *incoming* domain or forest) to access the resources held in another (the *outgoing* domain or forest).
-- A two-way trust enables users in either domain or forest to access resources held in the other.
+Trusts with an on-premises Active Directory are only unidirectional (one-way). A one-way trust enables users in one domain or forest (known as the *incoming* domain or forest) to access the resources held in another (the *outgoing* domain or forest).
 
 The following table summarizes trust configurations for some simple scenarios:
 
@@ -44,7 +41,6 @@ The following table summarizes trust configurations for some simple scenarios:
 | --- | --- | --- |
 | On-premises users require access to resources in the cloud, but not vice versa |One-way, incoming |One-way, outgoing |
 | Users in the cloud require access to resources located on-premises, but not vice versa |One-way, outgoing |One-way, incoming |
-| Users in the cloud and on-premises both requires access to resources held in the cloud and on-premises |Two-way, incoming and outgoing |Two-way, incoming and outgoing |
 
 ## Scalability considerations
 
