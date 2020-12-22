@@ -35,89 +35,65 @@ Mainframe and midrange customers can benefit from this solution, especially when
 
 ## Architecture
 
-:::image type="complex" source="./images/modernize-mainframe-data-with-azure.png" alt-text="Architecture diagram showing how to modernize mainframe and midrange systems by migrating data to Azure." border="false":::
+:::image type="complex" source="./images/replicate-mainframe-data-in-azure.png" alt-text="Architecture diagram showing how to modernize mainframe and midrange systems by migrating data to Azure." border="false":::
    The diagram contains two parts, one for on-premises components, and one for Azure components. The on-premises part contains boxes that represent the file system, the relational and non-relational databases, and the object conversion components. Arrows point from the on-premises components to the Azure components. One of those arrows goes through the object conversion box, and one is labeled on-premises data gateway. The Azure part contains boxes that represent data ingestion and transformation, data storage, Azure services, and client apps. Some arrows point from the on-premises components to the tools and services in the data integration and transformation box. Another arrow points from that box to the data storage box, which contains databases and data stores. Additional arrows point from data storage to Azure services and to client apps.
 :::image-end:::
 
-Data modernization involves the following steps. Throughout the process, an on-premises data gateway transfers data quickly and securely between on-premises systems and Azure services (1).
+Mainframe and midrange systems update on-premises application databases on a regular interval. To maintain consistency, the solution syncs the latest data with Azure databases. The sync process involves the following steps:
 
-### Object conversion
+1. Throughout the process:
 
-The object conversion process extracts object definitions from sources. The definitions are then converted into corresponding objects on the target data store (2).
+   1. Azure Data Factory pipelines orchestrate activities, from data extraction to data loading. You can schedule pipeline activities, start them manually, or automatically trigger them.
+   1. An on-premises data gateway transfers data quickly and securely between on-premises systems and Azure services.
 
-- Microsoft SQL Server Migration Assistance (SSMA) for Db2 migrates schemas and data from IBM Db2 databases to Azure databases.
+1. On-premises databases store data:
 
-- Data Provider for Host Files converts objects by:
+   - Db2 zOS
+   - Db2 for i
+   - Db2 LUW
+   - IMS
+   - ADABAS
+   - IDMS
 
-  - Parsing COBOL and RPG record layouts, or *copybooks*.
-  - Mapping the copybooks to C# objects that .NET applications use.
-- Third-party tools perform automated object conversion on non-relational databases, file systems, and other data stores.
+1. Pipelines group activities that perform tasks. To extract data, Azure Data Factory dynamically creates one pipeline per on-premises table. You can then use a massively parallel implementation when you replicate data in Azure. But you can also configure the solution to meet your requirements:
 
-### Data ingestion and transformation
+   - Full replication: You replicate the entire database, making necessary modifications to data types and fields in the target Azure database. 
+   - Partial, delta, or incremental replication: You use *watermark columns* in the source table to sync updated rows with Azure databases. These columns contain either a continuously incrementing key or a time stamp indicating the table's last update.
 
-In the next step, the process migrates data.
+   Data Factory also uses pipelines for the following transformation tasks:
 
-#### File data
+   - Data type conversion
+   - Data manipulation
+   - Data formatting
+   - Column derivation
+   - Data flattening
+   - Data sorting
+   - Data filtering
 
-- Data Provider connects remotely to IBM host file system servers (3a). With non-mainframe systems, Data Provider reads data offline.
-  
-  Mainframe and midrange systems store data on DASD or tape in EBCDIC format in these types of files:
+1. A self-hosted integration runtime (IR) provides the environment that Data Factory uses to run and dispatch activities.
 
-  - Indexed [VSAM][VSAM] files
-  - Non-indexed [GDG][GDG] files
-  - [Flat files][Flat files].
+1. Azure Data Lake and Azure Blob provide a place for data staging. This step is sometimes required for transforming and merging data from multiple sources.
 
-  COBOL, PL/I, and assembly language copybooks define the data structure of these files. Data Provider converts the data from EBCDIC to ASCII format based on the copybook layout.
+1. Data preparation takes place next. Factory uses Azure Databricks, custom activities, and pipeline data flows to transform data quickly and effectively. 
 
-- FTP converts and transfers mainframe and midrange datasets with single layouts and unpacked fields to Azure (3b).
+1. Azure Data factory loads data into relational and non-relational Azure databases:
 
-#### Database data
+   - Azure SQL
+   - Azure Database for PostgreSQL
+   - Azure Cosmos DB
+   - Azure Data Lake Storage
+   - Azure Database for Maria DB
 
-- IBM mainframe and midrange systems store data in relational databases including:
+   In certain use cases, other tools can also load data.
 
-  - [Db2 for z/OS][IBM Db2 for z/OS]
-  - [Db2 LUW][IBM Db2 10.5 for Linux, Unix and Windows documentation]
-  - [Db2 for i][IBM Db2 for i]
+1. Other tools can also replicate and transform data:
 
-  These services migrate the database data (3c):
+   - SQL Server Integration services (SSIS)
+   - Microsoft Service for DRDA: DRDA services which are bundled with Host Integration Server (HIS) can connect to the SQL Family of databases and fetch data into on-premises systems and update the on-premises database with latest information.  A virtual machine on-premises or Azure would be needed to run DRDA/HIS services which can help in connecting to Azure the SQL Family. 
+   - Third-party tools: When the solution requires near real-time replication, you can use third-party tools. Some of these agents are available in [Azure Marketplace][Azure Marketplace].
 
-  - Azure Data Factory uses a Db2 connector to extract and integrate data from these databases.
-  - SQL Server Integration Services (SSIS) handles a broad range of data [ETL][ETL] tasks.
+1. Add step for analytics.
 
-- IBM mainframe and midrange systems store data in non-relational databases including:
-
-  - [IDMS][IDMS], a [network model][Network model] Database Management System (DBMS)
-  - [IMS][IMS], a [hierarchical model][Comparison of hierarchical and relational databases] DBMS
-  - [ADABAS][ADABAS]
-  - [Datacom][Datacom]
-
-  Third-party products integrate data from these databases (3d).
-
-Azure services like Data Factory and AzCopy load data into Azure databases and data storage (4). Third-party solutions and custom loading solutions can also load data.
-
-### Data storage
-
-Azure offers many managed data storage solutions (5):
-
-- Databases:
-
-  - Azure SQL Database
-  - Azure Database for PostgreSQL
-  - Azure Cosmos DB
-  - Azure Database for MySQL
-  - Azure Database for MariaDB
-  - Azure SQL Managed Instance
-
-- Storage:
-
-  - Azure Data Lake Storage
-  - Azure Storage
-
-### Data tier
-
-- A range of Azure Services use the modernized data tier for computing, analytics, storage, and networking (6).
-
-- Existing client applications also use the modernized data tier (7).
 
 ## Components
 
@@ -252,5 +228,7 @@ Use the [Azure pricing calculator][Azure pricing calculator] to estimate the cos
 [What is HIS]: https://docs.microsoft.com/host-integration-server/what-is-his
 [What is NoSQL? Databases for a cloud-scale future]: https://www.infoworld.com/article/3240644/what-is-nosql-databases-for-a-cloud-scale-future.html
 
+
+[Azure Marketplace]: https://azuremarketplace.microsoft.com/marketplace/
 [Azure SQL on VM]: https://azure.microsoft.com/services/virtual-machines/sql-server/
 [Microsoft Service for DRDA]: https://docs.microsoft.com/host-integration-server/what-is-his#Data
