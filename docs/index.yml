@@ -199,7 +199,7 @@ conceptualContent:
           url: checklist/dev-ops.md
           itemType: concept
         - text: Advanced Azure Resource Manager Templates
-          url: guide/arm/advanced-templates/index.md
+          url: guide/azure-resource-manager/advanced-templates/index.md
           itemType: how-to-guide
         - text: DevOps with Azure DevOps
           itemType: get-started

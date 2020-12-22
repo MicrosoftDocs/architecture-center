@@ -1062,15 +1062,15 @@ items:
               - name: Advanced Azure Resource Manager templates
                 items:
                   - name: Overview
-                    href: guide/arm/advanced-templates/index.md
+                    href: guide/azure-resource-manager/advanced-templates/index.md
                   - name: Update a resource
-                    href: guide/arm/advanced-templates/update-resource.md
+                    href: guide/azure-resource-manager/advanced-templates/update-resource.md
                   - name: Conditionally deploy a resource
-                    href: guide/arm/advanced-templates/conditional-deploy.md
+                    href: guide/azure-resource-manager/advanced-templates/conditional-deploy.md
                   - name: Use an object as a parameter
-                    href: guide/arm/advanced-templates/objects-as-parameters.md
+                    href: guide/azure-resource-manager/advanced-templates/objects-as-parameters.md
                   - name: Property transformer and collector
-                    href: guide/arm/advanced-templates/collector.md
+                    href: guide/azure-resource-manager/advanced-templates/collector.md
           - name: Architectures
             items:
               - name: CI/CD pipeline for chatbots with ARM templates

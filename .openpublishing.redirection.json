@@ -2062,23 +2062,23 @@
      },
      {
       "source_path": "docs/building-blocks/extending-templates/collector.md",
-      "redirect_url": "/azure/architecture/guide/arm/advanced-templates/collector"
+      "redirect_url": "/azure/architecture/guide/azure-resource-manager/advanced-templates/collector"
      },
      {
       "source_path": "docs/building-blocks/extending-templates/conditional-deploy.md",
-      "redirect_url": "/azure/architecture/guide/arm/advanced-templates/conditional-deploy"
+      "redirect_url": "/azure/architecture/guide/azure-resource-manager/advanced-templates/conditional-deploy"
      },
      {
       "source_path": "docs/building-blocks/extending-templates/objects-as-parameters.md",
-      "redirect_url": "/azure/architecture/guide/arm/advanced-templates/objects-as-parameters"
+      "redirect_url": "/azure/architecture/guide/azure-resource-manager/advanced-templates/objects-as-parameters"
      },
      {
       "source_path": "docs/building-blocks/extending-templates/update-resource.md",
-      "redirect_url": "/azure/architecture/guide/arm/advanced-templates/update-resource"
+      "redirect_url": "/azure/architecture/guide/azure-resource-manager/advanced-templates/update-resource"
      },
      {
       "source_path": "docs/building-blocks/extending-templates/index.md",
-      "redirect_url": "/azure/architecture/guide/arm/advanced-templates"
+      "redirect_url": "/azure/architecture/guide/azure-resource-manager/advanced-templates"
      }
   ]
 }
