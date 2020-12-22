@@ -197,8 +197,6 @@ For warm path storage, consider using Azure Cosmos DB. For more information, see
 
 - For detailed documentation of the various Azure IoT services, see [Azure IoT Fundamentals](/azure/iot-fundamentals/).
 
-- A sample IoT implementation is available on [GitHub](https://github.com/mspnp/iot-guidance).
-
 [AAF-devops]: ../framework/devops/overview.md
 [az-devops]: /azure/devops/index?view=azure-devops&preserve-view=true
 [az-monitor]: https://azure.microsoft.com/services/monitor/
