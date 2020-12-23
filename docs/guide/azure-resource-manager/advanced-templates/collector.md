@@ -26,7 +26,7 @@ To work around this, you can implement a property transform and collector templa
 
 Let's take a look at how we can implement a property collector and transformer with an example that deploys a [network security group][nsg]. The diagram below shows the relationship between our templates and our resources within those templates:
 
-![property collector and transformer architecture](../_images/collector-transformer.png)
+![property collector and transformer architecture](../images/collector-transformer.png)
 
 Our **calling template** includes two resources:
 

@@ -1059,18 +1059,18 @@ items:
             href: checklist/dev-ops.md
           - name: Guides
             items:
-              - name: Extending Resource Manager templates
+              - name: Advanced Azure Resource Manager templates
                 items:
                   - name: Overview
-                    href: building-blocks/extending-templates/index.md
+                    href: guide/azure-resource-manager/advanced-templates/index.md
                   - name: Update a resource
-                    href: building-blocks/extending-templates/update-resource.md
+                    href: guide/azure-resource-manager/advanced-templates/update-resource.md
                   - name: Conditionally deploy a resource
-                    href: building-blocks/extending-templates/conditional-deploy.md
+                    href: guide/azure-resource-manager/advanced-templates/conditional-deploy.md
                   - name: Use an object as a parameter
-                    href: building-blocks/extending-templates/objects-as-parameters.md
+                    href: guide/azure-resource-manager/advanced-templates/objects-as-parameters.md
                   - name: Property transformer and collector
-                    href: building-blocks/extending-templates/collector.md
+                    href: guide/azure-resource-manager/advanced-templates/collector.md
           - name: Architectures
             items:
               - name: CI/CD pipeline for chatbots with ARM templates
