@@ -1059,18 +1059,18 @@ items:
             href: checklist/dev-ops.md
           - name: Guides
             items:
-              - name: Extending Resource Manager templates
+              - name: Advanced Azure Resource Manager templates
                 items:
                   - name: Overview
-                    href: building-blocks/extending-templates/index.md
+                    href: guide/azure-resource-manager/advanced-templates/index.md
                   - name: Update a resource
-                    href: building-blocks/extending-templates/update-resource.md
+                    href: guide/azure-resource-manager/advanced-templates/update-resource.md
                   - name: Conditionally deploy a resource
-                    href: building-blocks/extending-templates/conditional-deploy.md
+                    href: guide/azure-resource-manager/advanced-templates/conditional-deploy.md
                   - name: Use an object as a parameter
-                    href: building-blocks/extending-templates/objects-as-parameters.md
+                    href: guide/azure-resource-manager/advanced-templates/objects-as-parameters.md
                   - name: Property transformer and collector
-                    href: building-blocks/extending-templates/collector.md
+                    href: guide/azure-resource-manager/advanced-templates/collector.md
           - name: Architectures
             items:
               - name: CI/CD pipeline for chatbots with ARM templates
@@ -1233,6 +1233,8 @@ items:
                 href: reference-architectures/identity/azure-ad.yml
               - name: Integrate on-premises AD with Azure
                 href: reference-architectures/identity/index.yml
+              - name: Azure AD identity management for AWS
+                href: reference-architectures/aws/aws-azure-ad-security.md
       - name: Integration
         items:
           - name: Architectures
@@ -1587,6 +1589,10 @@ items:
                 href: example-scenario/gateway/firewall-application-gateway.yml
               - name: Hybrid Security Monitoring using Azure Security Center and Azure Sentinel
                 href: hybrid/hybrid-security-monitoring.yml
+              - name: MCAS and Azure Sentinel security for AWS
+                href: reference-architectures/aws/aws-azure-security-solutions.md
+              - name: Healthcare platform confidential computing
+                href: example-scenario/confidential/healthcare-inference.md
       - name: Storage
         items:
           - name: Architectures

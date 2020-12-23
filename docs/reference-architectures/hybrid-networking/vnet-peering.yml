@@ -22,7 +22,7 @@ azureCategories:
 summary: Compares two ways to connect virtual networks in Azure.
 products:
   - azure
-  - azure-portal
+  - azure-virtual-network
 thumbnailUrl: ""
 content: |
    [!include[](vnet-peering-content.md)]

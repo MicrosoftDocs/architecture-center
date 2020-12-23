@@ -21,10 +21,8 @@ azureCategories:
 summary: 'This reference architecture shows how to apply neural style transfer to a video, using Azure Machine Learning.'
 products:
   - azure
-  - azure-portal
   - azure-storage
-  - github
-  - windows
+  - azure-machine-learning
 thumbnailUrl: /azure/architecture/browse/thumbs/aml-scoring-deep-learning.png
 content: |
    [!include[](batch-scoring-deep-learning-content.md)]

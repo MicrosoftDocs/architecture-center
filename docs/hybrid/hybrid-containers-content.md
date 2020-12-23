@@ -64,7 +64,7 @@ In this reference, Azure Container Instances container groups are utilized as *v
 ## Manageability considerations
 
 - Consider using [Azure Resource Manager templates][azure-container-instances-arm-templates] to deploy Azure Container Instance container groups in a repeatable fashion for multiple region deployments and large-scale orchestration. You can similarly use Azure Resource Manager templates to deploy [Azure Kubernetes Service][azure-kubernetes-service-arm-templates], [Azure Key Vault][azure-key-vault-arm-templates], and [Azure Cosmos DB][azure-cosmos-db-arm-templates].
-- Consider utilizing [role-based access control][azure-role-based-access-control] (RBAC) to prevent users from accidentally creating or deleting container instances without permission.
+- Consider utilizing [Azure role-based access control (Azure RBAC)][azure-role-based-access-control] to prevent users from accidentally creating or deleting container instances without permission.
 - Use Azure Monitor to [monitor metrics and logs for both on-premises and remote containers][azure-monitor-containers], [analyze the data using queries][azure-monitor-containers-analyze], and [create alerts for abnormal situations][azure-monitor-containers-alert].
 - Use Azure Policy to [implement enforcement of a set of rules][azure-policy-kubernetes] for clusters and pods deployed to Kubernetes Service or an Azure Arc-enabled Kubernetes cluster.
 

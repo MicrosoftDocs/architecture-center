@@ -88,7 +88,7 @@ When deploying your Machine Learning compute cluster, you can configure your clu
 
 In scenarios where there are multiple users, make sure that sensitive data is protected against malicious activity. If other users are given access to this deployment to customize the input data, take note of the following precautions and considerations:
 
-- Use RBAC to limit users' access to only the resources they need.
+- Use Azure RBAC to limit users' access to only the resources they need.
 - Provision two separate storage accounts. Store input and output data in the first account. External users can be given access to this account. Store executable scripts and output log files in the other account. External users should not have access to this account. This will ensure that external users cannot modify any executable files (to inject malicious code), and don't have access to log files, which could hold sensitive information.
 - Malicious users can DDoS the job queue or inject malformed poison messages in the job queue, causing the system to lock up or causing dequeuing errors.
 

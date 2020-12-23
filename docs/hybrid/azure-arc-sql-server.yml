@@ -4,8 +4,9 @@ metadata:
   description: 'Optimize management, maintenance, and monitoring of SQL Server with Azure Arc enabled SQL Server and Azure Arc enabled data services in on-premises and multi-cloud environments.'
   author: doodlemania2
   ms.date: 11/29/2020
-  ms.topic: reference-architecture
+  ms.topic: conceptual
   ms.service: architecture-center
+  ms.subservice: reference-architecture
   ms.category:
     - hybrid
     - databases
@@ -18,15 +19,7 @@ summary: 'Optimize management, maintenance, and monitoring of SQL Server with Az
 products:
   - azure
   - azure-arc
-  - azure-backup
-  - azure-monitor
-  - azure-policy
-  - azure-portal
-  - azure-sentinel
-  - azure-stack
   - sql-server
-  - vs
-  - windows
 thumbnailUrl: /azure/architecture/browse/thumbs/azure_arc_sql_srvr.png
 content: |
    [!include[](azure-arc-sql-server-content.md)]

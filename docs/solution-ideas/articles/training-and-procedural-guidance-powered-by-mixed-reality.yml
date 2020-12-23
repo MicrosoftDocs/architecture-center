@@ -17,7 +17,6 @@ azureCategories:
 summary: 'Enable your team and employees to learn new processes and materials faster, with fewer errors, and greater confidence by providing persistent holographic instructions mapped to precise locations in their physical workspace.'
 products:
   - azure
-  - azure-portal
 thumbnailUrl: /azure/architecture/browse/thumbs/training-and-procedural-guidance-powered-by-mixed-reality.png
 content: |
    [!include[](training-and-procedural-guidance-powered-by-mixed-reality-content.md)]

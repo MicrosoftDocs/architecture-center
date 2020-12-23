@@ -5,7 +5,7 @@ metadata:
   description: Learn about the specific Event Grid events that form the request-response sequence for different Gridwich operations.
   author: doodlemania2
   ms.date: 11/12/2020
-  ms.topic: reference-architecture
+  ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: reference-architecture
   ms.custom:

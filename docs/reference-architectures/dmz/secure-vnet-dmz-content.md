@@ -39,7 +39,7 @@ The following recommendations apply for most scenarios. Follow these recommendat
 
 ### Access control recommendations
 
-Use [role-based access control][rbac] (RBAC) to manage the resources in your application. Consider creating the following [custom roles][rbac-custom-roles]:
+Use [Azure role-based access control (Azure RBAC)][rbac] to manage the resources in your application. Consider creating the following [custom roles][rbac-custom-roles]:
 
 - A DevOps role with permissions to administer the infrastructure for the application, deploy the application components, and monitor and restart VMs.
 
@@ -51,7 +51,7 @@ The DevOps and IT administrator roles should not have access to the firewall res
 
 ### Resource group recommendations
 
-Azure resources such as VMs, virtual networks, and load balancers can be easily managed by grouping them together into resource groups. Assign RBAC roles to each resource group to restrict access.
+Azure resources such as VMs, virtual networks, and load balancers can be easily managed by grouping them together into resource groups. Assign Azure roles to each resource group to restrict access.
 
 We recommend creating the following resource groups:
 
@@ -114,7 +114,7 @@ Traffic between tiers is restricted by using NSGs. The business tier blocks all 
 
 ### DevOps access
 
-Use [RBAC][rbac] to restrict the operations that DevOps can perform on each tier. When granting permissions, use the [principle of least privilege][security-principle-of-least-privilege]. Log all administrative operations and perform regular audits to ensure any configuration changes were planned.
+Use [Azure RBAC][rbac] to restrict the operations that DevOps can perform on each tier. When granting permissions, use the [principle of least privilege][security-principle-of-least-privilege]. Log all administrative operations and perform regular audits to ensure any configuration changes were planned.
 
 ## Cost considerations
 
@@ -237,8 +237,8 @@ In this step, you will connect the two local network gateways.
 [ra-expressroute]: ../hybrid-networking/expressroute.yml
 [ra-vpn-failover]: ../hybrid-networking/expressroute-vpn-failover.yml
 [ra-vpn]: ../hybrid-networking/vpn.yml
-[rbac-custom-roles]: /azure/active-directory/role-based-access-control-custom-roles
-[rbac]: /azure/active-directory/role-based-access-control-configure
+[rbac-custom-roles]: /azure/role-based-access-control/custom-roles
+[rbac]: /azure/role-based-access-control/role-assignments-portal
 [routing-and-remote-access-service]: /previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd469790(v=ws.11)
 [security-principle-of-least-privilege]: /dotnet/framework/data/adonet/security-overview#Anchor_1
 [udr-overview]: /azure/virtual-network/virtual-networks-udr-overview

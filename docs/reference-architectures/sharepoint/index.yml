@@ -21,16 +21,7 @@ azureCategories:
 summary: Recommended architecture for deploying a high availability SharePoint Server 2016 farm in Azure.
 products:
   - azure
-  - azure-arc
-  - azure-devops
-  - azure-monitor
-  - azure-portal
-  - github
-  - office
-  - sql-server
-  - vs
-  - windows
-  - windows-server
+  - azure-virtual-machines
 thumbnailUrl: /azure/architecture/browse/thumbs/sharepoint-ha.png
 content: |
    [!include[](index-content.md)]

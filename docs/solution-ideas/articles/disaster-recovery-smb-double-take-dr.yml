@@ -17,7 +17,7 @@ azureCategories:
 summary: Small and medium businesses can inexpensively implement disaster recovery to the cloud by using a partner solution like Double-Take DR.
 products:
   - azure
-  - azure-portal
+  - azure-traffic-manager
 thumbnailUrl: /azure/architecture/browse/thumbs/disaster-recovery-smb-double-take-dr.png
 content: |
    [!include[](disaster-recovery-smb-double-take-dr-content.md)]

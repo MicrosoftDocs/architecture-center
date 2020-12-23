@@ -26,7 +26,6 @@ summary: 'In this scenario, an e-commerce company in the travel industry migrate
 products:
   - azure
   - azure-monitor
-  - surface
 thumbnailUrl: /azure/architecture/browse/thumbs/architecture-apim-api-scenario.png
 content: |
    [!include[](apim-api-scenario-content.md)]

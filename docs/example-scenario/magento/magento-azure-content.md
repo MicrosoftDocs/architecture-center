@@ -30,9 +30,9 @@ Here are some security considerations for this scenario:
 
 Kubernetes and Azure both have mechanisms for *role-based access control (RBAC)*.
 
-- Azure RBAC controls access to Azure resources, including the ability to create resources. RBAC can assign permissions to users, groups, or *service principals*, which are security identities used by applications.
+- Azure RBAC controls access to Azure resources, including the ability to create resources. Azure RBAC can assign permissions to users, groups, or *service principals*, which are security identities used by applications.
 
-- Kubernetes RBAC controls permissions to the Kubernetes API. For example, creating pods and listing pods are actions that RBAC can authorize to users.
+- Kubernetes RBAC controls permissions to the Kubernetes API. For example, creating pods and listing pods are actions that Kubernetes RBAC can authorize to users.
 
 AKS integrates the Azure and Kubernetes RBAC mechanisms. To assign AKS permissions to users, create *roles* and *role bindings*:
 
@@ -46,7 +46,7 @@ When you create the AKS cluster, you can configure it to use Azure AD for user a
 
 - For details on how to set up Azure AD integration, see [AKS-managed Azure Active Directory integration](/azure/aks/managed-aad).
   
-- For more information about controlling access to cluster resources using RBAC and Azure AD identities, see [Use Kubernetes RBAC with Azure AD](/azure/aks/azure-ad-rbac).
+- For more information about controlling access to cluster resources using Kubernetes RBAC and Azure AD identities, see [Use Kubernetes RBAC with Azure AD](/azure/aks/azure-ad-rbac).
 
 ## Scalability considerations
 

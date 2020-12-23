@@ -34,7 +34,7 @@ This solution architecture combines reduced overhead and a DevOps toolchain to s
    
    For an App Service, a Pipelines release can deploy the targeted build version to the Production resource in the Pre-Production app slot, and then swap slots to Production in place. If something goes wrong during the swap of Pre-Production to Production, App Service can roll back the swap for extra deployment safety.
 
-In this solution, a single [Azure Active Directory (Azure AD)](https://azure.microsoft.com/services/active-directory/) manages identity for both the DevTest and Production subscriptions. [Role-based access control (RBAC)](/azure/role-based-access-control/overview) restricts access to protected resources, preventing unauthorized or inadvertent modification of Production resources. Developers don't have the same access control levels in Production as in their DevTest sandboxes.
+In this solution, a single [Azure Active Directory (Azure AD)](https://azure.microsoft.com/services/active-directory/) manages identity for both the DevTest and Production subscriptions. [Azure role-based access control (Azure RBAC)](/azure/role-based-access-control/overview) restricts access to protected resources, preventing unauthorized or inadvertent modification of Production resources. Developers don't have the same access control levels in Production as in their DevTest sandboxes.
 
 [Terraform](https://www.terraform.io/docs/providers/azurerm/r/app_service.html) provisions and modifies resources for each environment, tailoring size, instance count, and other properties. The current solution models an environment stack of Azure App Service, Azure Cache for Redis, and Azure SQL Database.
 
@@ -54,7 +54,7 @@ In this solution, a single [Azure Active Directory (Azure AD)](https://azure.mic
   
 - [Azure Key Vault](/azure/key-vault/general/basic-concepts) securely stores and tightly controls access to secrets like API keys, passwords, and certificates. For more information about Key Vault in DevOps scenarios, see [DevSecOps in Azure](devsecops-in-azure.yml) and [DevSecOps in GitHub](devsecops-in-github.yml).
   
-- [Azure AD](/azure/active-directory/fundamentals/active-directory-whatis) enterprise identity platform provides single sign-on and multifactor authentication to govern user access to resources. In the current scenario, Azure AD works with RBAC to restrict access per environment.
+- [Azure AD](/azure/active-directory/fundamentals/active-directory-whatis) enterprise identity platform provides single sign-on and multifactor authentication to govern user access to resources. In the current scenario, Azure AD works with Azure RBAC to restrict access per environment.
   
 - [Terraform](https://www.terraform.io/) is a third-party tool that provisions and modifies resources per environment. The current solution provisions an environment stack of Azure App Service, Azure Cache for Redis, and Azure SQL Database.
   
