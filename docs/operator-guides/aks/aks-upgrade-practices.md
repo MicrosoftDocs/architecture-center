@@ -29,6 +29,9 @@ This section will talk about AKS patching and upgrading practices, and who is re
 | Cluster auto upgrade      | No                  | Yes           | No                     | No                   | Yes                       | In Preview - https://docs.microsoft.com/azure/aks/upgrade-cluster#set-auto-upgrade-channel-preview                                                                                                                                              |
 
 ## Node Image Upgrades
+AKS isn't a Platform-as-a-Service (PaaS) solution. Some components, such as agent nodes, have shared responsibility, where users must help maintain the AKS cluster. User input is required, for example, to apply an agent node operating system (OS) security patch.
+
+Microsoft provides patches and new images for your image nodes weekly, but doesn't automatically patch them by default. To keep your agent node OS and runtime components patched, you should keep a regular node image upgrade schedule or automate it. AKS supports upgrading the images on a node using node image upgrades so you're up to date with the newest OS and runtime updates.
 
  * An updated node image will contain up-to-date OS security patches, kernel updates, k8 security updates, newer versions of binaries (kubelet,cni, containerd etc.), and updated versions of components listed in the [release notes](https://github.com/Azure/AKS/releases). 
  * These updates have all relevant and validated security updates, feature updates or both.
