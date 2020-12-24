@@ -259,7 +259,7 @@ For more information, see [Deploy resources with Azure Resource Manager template
 [monitoring-guidance]: ../../best-practices/monitoring.md
 [new-relic]: https://newrelic.com
 [paas-basic-arm-template]: https://github.com/mspnp/reference-architectures/tree/master/managed-web-app/basic-web-app/Paas-Basic/Templates
-[perf-analysis]: https://github.com/mspnp/performance-optimization/blob/master/Performance-Analysis-Primer.yml
+[perf-analysis]: https://github.com/mspnp/performance-optimization/blob/master/Performance-Analysis-Primer.md
 [pricing]: https://azure.microsoft.com/pricing/calculator
 [rbac]: /azure/role-based-access-control/overview
 [sql-audit]: /azure/sql-database/sql-database-auditing-get-started

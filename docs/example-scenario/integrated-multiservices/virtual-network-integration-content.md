@@ -53,7 +53,7 @@ The solution uses the following components:
   
   APIM and the Azure Functions runtime have built-in support for Application Insights to generate and correlate a wide variety of telemetry, including standard application output. The function apps use the Application Insights Node.js SDK to manually track dependencies and other custom telemetry.
   
-  For more information about the distributed telemetry tracing in this solution, see [Distributed telemetry](https://github.com/mspnp/vnet-integrated-serverless-microservices/blob/main/docs/distributed_telemetry.yml).
+  For more information about the distributed telemetry tracing in this solution, see [Distributed telemetry](https://github.com/mspnp/vnet-integrated-serverless-microservices/blob/main/docs/distributed_telemetry.md).
 
 ## Alternatives
 
@@ -80,7 +80,7 @@ Due to the sensitivity of the data, security is paramount in this solution. The 
 - Key Vault key rotation
 - Managed service identities
 
-For more details about the security pattern for this solution, see [Security pattern for communication between API Management, Functions apps, and Cosmos DB](https://github.com/mspnp/vnet-integrated-serverless-microservices/blob/main/docs/security_pattern.yml).
+For more details about the security pattern for this solution, see [Security pattern for communication between API Management, Functions apps, and Cosmos DB](https://github.com/mspnp/vnet-integrated-serverless-microservices/blob/main/docs/security_pattern.md).
 
 #### API gateway management
 The system is publicly accessible only through the single managed APIM endpoint. The APIM subnet restricts incoming traffic to specified gateway node IP addresses.
@@ -129,7 +129,7 @@ Key rotation involves updating several settings:
 - The Key Vault reference in the function app application settings, to refer to the latest secret version
 - The Key Vault reference in the APIM caching policy for the Patient API
 
-The current solution uses Terraform for most of the key rotation tasks. For more information, see [Key rotation pattern with Terraform](https://github.com/mspnp/vnet-integrated-serverless-microservices/blob/main/docs/key_rotation.yml).
+The current solution uses Terraform for most of the key rotation tasks. For more information, see [Key rotation pattern with Terraform](https://github.com/mspnp/vnet-integrated-serverless-microservices/blob/main/docs/key_rotation.md).
 
 #### Managed identities
 In this solution, APIM and the function apps use Azure [system-assigned managed service identities (MSIs)](/azure/active-directory/managed-identities-azure-resources/) to access the Key Vault secrets. Key Vault has the following individual access policies for each service's managed identity:
