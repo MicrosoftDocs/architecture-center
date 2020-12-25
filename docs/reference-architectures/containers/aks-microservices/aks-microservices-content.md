@@ -313,7 +313,7 @@ To deploy the reference implementation for this architecture, follow the steps i
 - To learn how we measured the performance of this application, see [Performance tuning scenario: Distributed business transactions](../../../performance/distributed-transaction.md).
 
 [ri]: https://github.com/mspnp/microservices-reference-implementation
-[ri-deploy]: https://github.com/mspnp/microservices-reference-implementation/blob/master/deployment.yml
+[ri-deploy]: https://github.com/mspnp/microservices-reference-implementation/blob/master/deployment.md
 [visio-download]: https://arch-center.azureedge.net/aks-reference-architecture.vsdx
 [aaf-cost]: ../../../framework/cost/overview.md
 [azure-pricing-calculator]: https://azure.microsoft.com/pricing/calculator
