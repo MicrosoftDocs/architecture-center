@@ -438,7 +438,7 @@ You can also learn how to deploy a container application with CI/CD to a Service
 To deploy the reference implementation for this architecture, follow the steps in the [GitHub repo][ri-deploy].
 
 [ri]: https://github.com/mspnp/microservices-reference-implementation-servicefabric
-[ri-deploy]: https://github.com/mspnp/microservices-reference-implementation-servicefabric/blob/master/deployment.yml
+[ri-deploy]: https://github.com/mspnp/microservices-reference-implementation-servicefabric/blob/master/deployment.md
 
 ## Next steps
 
