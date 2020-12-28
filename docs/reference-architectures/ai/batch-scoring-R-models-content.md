@@ -96,7 +96,7 @@ To deploy this reference architecture, follow the steps described in the [GitHub
 [autoscale]: /azure/batch/batch-automatic-scaling
 [batch]: /azure/batch/batch-technical-overview
 [blob]: /azure/storage/blobs/storage-blobs-introduction
-[doAzureParallel]: https://github.com/Azure/doAzureParallel/blob/master/docs/32-autoscale.yml
+[doAzureParallel]: https://github.com/Azure/doAzureParallel/blob/master/docs/32-autoscale.md
 [getJobFiles]: /azure/machine-learning/service/how-to-train-ml-models
 [github]: https://github.com/Azure/RBatchScoring
 [logic-apps]: /azure/logic-apps/logic-apps-overview

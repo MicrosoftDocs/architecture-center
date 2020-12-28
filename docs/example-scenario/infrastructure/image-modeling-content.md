@@ -45,7 +45,7 @@ This architecture also includes Active Directory domain controllers to control a
 - To take advantage of Azure services for managing an HPC cluster, use tools such as Azure CycleCloud or Azure Batch instead of managing the resources through templates or scripts.
 - Deploy the BeeGFS parallel virtual file system as the back-end storage on Azure instead of Avere vFXT. Use the [BeeGFS template](https://github.com/paulomarquesc/beegfs-template) to deploy this end-to-end solution on Azure.
 - Deploy the storage solution of your choice, such as GlusterFS, Lustre, or Windows Storage Spaces Direct. To do this, edit the [PhotoScan template](https://github.com/paulomarquesc/photoscan-template) to work with the storage solution you want.
-- Deploy the worker nodes with the Windows operating system instead of Linux, the default option. When choosing Windows nodes, storage integration options are not executed by the deployment templates. You must manually integrate the environment with an existing storage solution, or customize the PhotoScan template to provide such automation, as described in the [repository](https://github.com/paulomarquesc/photoscan-template/blob/master/docs/AverePostDeploymentSteps.yml).
+- Deploy the worker nodes with the Windows operating system instead of Linux, the default option. When choosing Windows nodes, storage integration options are not executed by the deployment templates. You must manually integrate the environment with an existing storage solution, or customize the PhotoScan template to provide such automation, as described in the [repository](https://github.com/paulomarquesc/photoscan-template/blob/master/docs/AverePostDeploymentSteps.md).
 
 ## Considerations
 
