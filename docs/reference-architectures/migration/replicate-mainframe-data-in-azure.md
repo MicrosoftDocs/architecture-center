@@ -3,7 +3,7 @@ title: Modernize mainframe & midrange data
 titleSuffix: Azure Reference Architectures
 author: doodlemania2
 ms.date: 12/12/2020
-description: Learn how to modernize IBM mainframe and midrange data. See how to use a data-first approach to migrate this data to Azure.
+description: Learn how to replicate data while modernizing mainframe and midrange systems. See how to sync on-premises data with Azure data during modernization.
 ms.custom: fcp
 ms.service: architecture-center
 ms.category:
@@ -13,7 +13,7 @@ ms.subservice: reference-architecture
 
 # Replicate mainframe and midrange data in Azure
 
-Data availability and integrity play an important role in mainframe and midrange modernization. If you use a [data-first strategy][Modernize mainframe & midrange data], you can migrate data to Azure without impacting applications. But to avoid latency and throughput issues during modernization, sometimes you need to replicate data quickly or keep on-premises data in sync with Azure databases.
+Data availability and integrity play an important role in mainframe and midrange modernization. [Data-first strategies][Modernize mainframe & midrange data] help to keep data intact and available during migration to Azure. But to avoid impacting applications during modernization, sometimes you need to replicate data quickly or keep on-premises data in sync with Azure databases.
 
 This reference architecture outlines an implementation plan for replicating and syncing data during modernization to Azure. It discusses technical aspects like data stores, tools, and services. Specifically, the solution covers:
 
@@ -34,8 +34,8 @@ Data replication and sync scenarios that can benefit from this solution include:
 
 ## Architecture
 
-:::image type="complex" source="./images/replicate-mainframe-data-in-azure.png" alt-text="Architecture diagram showing how to modernize mainframe and midrange systems by migrating data to Azure." border="false":::
-   The diagram contains two parts, one for on-premises components, and one for Azure components. The on-premises part contains boxes that represent the file system, the relational and non-relational databases, and the object conversion components. Arrows point from the on-premises components to the Azure components. One of those arrows goes through the object conversion box, and one is labeled on-premises data gateway. The Azure part contains boxes that represent data ingestion and transformation, data storage, Azure services, and client apps. Some arrows point from the on-premises components to the tools and services in the data integration and transformation box. Another arrow points from that box to the data storage box, which contains databases and data stores. Additional arrows point from data storage to Azure services and to client apps.
+:::image type="complex" source="./images/replicate-mainframe-data-in-azure.png" alt-text="Architecture diagram showing how to sync on-premises and Azure databases during mainframe modernization." border="false":::
+   The diagram contains two parts, one for on-premises components, and one for Azure components. The on-premises part contains rectangles, one that pictures databases and one that contains integration tools. A server icon that represents the self-hosted integration runtime is also located in the on-premises part. The Azure part also contains rectangles. One is for pipelines. Others are for services used for staging and preparing data. Another contains Azure databases. Arrows point from on-premises components to Azure components. They represent the flow of data in the replication and sync processes. One of the arrows goes through the on-premises data gateway.
 :::image-end:::
 
 Mainframe and midrange systems update on-premises application databases on a regular interval. To maintain consistency, the solution syncs the latest data with Azure databases. The sync process involves the following steps:
@@ -47,7 +47,7 @@ Mainframe and midrange systems update on-premises application databases on a reg
 
 1. On-premises databases like Db2 zOS, Db2 for i, and Db2 LUW store data.
 
-1. Pipelines group activities that perform tasks. To extract data, Azure Data Factory dynamically creates one pipeline per on-premises table. You can then use a massively parallel implementation when you replicate data in Azure. But you can also configure the solution to meet your requirements:
+1. Pipelines group activities that perform tasks. To extract data, Data Factory dynamically creates one pipeline per on-premises table. You can then use a massively parallel implementation when you replicate data in Azure. But you can also configure the solution to meet your requirements:
 
    - Full replication: You replicate the entire database, making necessary modifications to data types and fields in the target Azure database. 
    - Partial, delta, or incremental replication: You use *watermark columns* in source tables to sync updated rows with Azure databases. These columns contain either a continuously incrementing key or a time stamp indicating the table's last update.
@@ -81,8 +81,9 @@ Mainframe and midrange systems update on-premises application databases on a reg
 
 1. Other tools can also replicate and transform data:
 
+   - Microsoft Service for Distributed Relational Database Architecture (DRDA): These DRDA services can connect to the Azure SQL family of databases and keep on-premises databases up to date. These services run on an on-premises virtual machine (VM) or an Azure VM.
+   - SQL Server Migration Assistance (SSMA) for Db2: This tool migrates schemas and data from IBM Db2 databases to Azure databases.
    - SQL Server Integration services (SSIS): This platform can extract, transform, and load data.
-   - Microsoft Service for Distributed Relational Database Architecture (DRDA): These DRDA services can connect to the Azure SQL family of databases and keep on-premises databases up to date. These services run on either an on-premises or an Azure virtual machine (VM).
    - Third-party tools: When the solution requires near real-time replication, you can use third-party tools. Some of these agents are available in [Azure Marketplace][Azure Marketplace].
 
 1. Azure Synapse Analytics manages the data and makes it available for business intelligence and machine learning applications.
@@ -111,7 +112,7 @@ The solution uses the following components.
 
 - [Data Factory][Azure Data Factory] is a hybrid data integration service. You can use this fully managed, serverless solution to create, schedule, and orchestrate ETL and [ELT][ELT] workflows.
 
-- [SQL Server Integration Services (SSIS)][SQL Server Integration Services] is a platform for building enterprise-level data integration and transformation solutions. You can use SSIS to manage, replicate, cleanse, and mine data.
+- [SSIS][SQL Server Integration Services] is a platform for building enterprise-level data integration and transformation solutions. You can use SSIS to manage, replicate, cleanse, and mine data.
 
 - [Azure Databricks][Azure Databricks documentation] is a data analytics platform. Based on the Apache Spark open-source distributed processing system, Azure Databricks is optimized for Azure cloud services. In an analytics workflow, Azure Databricks reads data from multiple sources and uses Spark to provide insights.
 
@@ -123,7 +124,7 @@ The solution uses the following components.
 
 - [Azure Cosmos DB][Welcome to Azure Cosmos DB] is a globally distributed, [multi-model][The rise of the multimodel database] database. With Azure Cosmos DB, your solutions can elastically and independently scale throughput and storage across any number of geographic regions. This fully managed [NoSQL][What is NoSQL? Databases for a cloud-scale future] database service guarantees single-digit millisecond latencies at the ninety-ninth percentile anywhere in the world.
 
-- [Azure Data Lake Storage][Azure Data Lake Storage] is a storage repository that holds a large amount of data in its native, raw format. Data lake stores are optimized for scaling to terabytes and petabytes of data. The data typically comes from multiple, heterogeneous sources and may be structured, semi-structured, or unstructured. [Data Lake Storage Gen2][Azure Data Lake Storage Gen2] combines Data Lake Storage Gen1 capabilities with Azure Blob storage. This next-generation data lake solution provides file system semantics, file-level security, and scale. But it also offers the low-cost, tiered storage, high availability, and disaster recovery capabilities of Blob Storage.
+- [Data Lake Storage][Azure Data Lake Storage] is a storage repository that holds a large amount of data in its native, raw format. Data lake stores are optimized for scaling to terabytes and petabytes of data. The data typically comes from multiple, heterogeneous sources and may be structured, semi-structured, or unstructured. [Data Lake Storage Gen2][Azure Data Lake Storage Gen2] combines Data Lake Storage Gen1 capabilities with Blob Storage. This next-generation data lake solution provides file system semantics, file-level security, and scale. But it also offers the low-cost, tiered storage, high availability, and disaster recovery capabilities of Blob Storage.
 
 - [Azure Database for MariaDB][Azure Database for MariaDB documentation] is a cloud-based relational database service. This service is based on the [MariaDB][MariaDB] community edition database engine.
 
@@ -141,7 +142,7 @@ The solution uses the following components.
 
 - [Azure VMs][Azure virtual machines] are on-demand, scalable computing resources that are available with Azure. An Azure VM provides the flexibility of virtualization. But it eliminates the maintenance demands of physical hardware. Azure VMs offer a choice of operating systems, including Windows and Linux.
 
-- An [IR][Integration runtime in Azure Data Factory] is the compute infrastructure that Azure Data Factory uses to integrate data across different network environments. Data Factory uses [self-hosted IRs][Self-hosted integration runtime] to copy data between cloud data stores and data stores in on-premises networks.
+- An [IR][Integration runtime in Azure Data Factory] is the compute infrastructure that Data Factory uses to integrate data across different network environments. Data Factory uses [self-hosted IRs][Self-hosted integration runtime] to copy data between cloud data stores and data stores in on-premises networks.
 
 ## Recommendations
 
@@ -153,31 +154,34 @@ Keep these points in mind when considering this architecture.
 
 ### Availability considerations
 
-- Something about general availability in Azure.
+- Infrastructure management, including [availability][Types of Databases on Azure], is automated in Azure databases.
 
-- See [Pooling and failover] for information on the failover protection that Microsoft Service for DRDA provides.
+- See [Pooling and failover][Pooling and failover] for information on the failover protection that Microsoft Service for DRDA provides.
 
 ### Manageability considerations
 
-- See [Network transports and transactions] to learn about the types of client connections that Microsoft Service for DRDA supports. Move this one to security?
+
 
 - When you use an on-premises application gateway, be aware of [limits on read and write operations][Gateway considerations].
 
-- To use SSMA for Db2, install the client program on a computer that can access the source DB2 database and the target instance of SQL Server. That computer should meet the [requirements listed in Installing SSMA for DB2 client (DB2ToSQL)][Installing SSMA for DB2 client (DB2ToSQL) Prerequisites].
+- To use SSMA for Db2, install the client program on a computer that can access the source Db2 database and the target instance of SQL Server. That computer should meet the requirements listed in [Installing SSMA for Db2 client][Installing SSMA for DB2 client (DB2ToSQL) Prerequisites].
 
 - The [self-hosted IR can only run on a Windows operating system][Self-hosted IR compute resource and scaling].
 
-### Security considerations
-
-The on-premises data gateway provides data protection during transfers from on-premises to Azure systems.
-
 ### Scalability considerations
 
-maybe something general about scalability in Azure.
+- Infrastructure management, including [scalability][Types of Databases on Azure], is automated in Azure databases.
 
-You can [scale out the self-hosted IR][Self-hosted IR compute resource and scaling] by associating the logical instance with multiple on-premises machines in active-active mode.
+- You can [scale out the self-hosted IR][Self-hosted IR compute resource and scaling] by associating the logical instance with multiple on-premises machines in active-active mode.
+
+### Security considerations
+
+- The on-premises data gateway provides data protection during transfers from on-premises to Azure systems.
+
+- See [Network transports and transactions] to learn about the types of client connections that Microsoft Service for DRDA supports.
 
 ## Pricing
+
 Use the [Azure pricing calculator][Azure pricing calculator] to estimate the cost of implementing this solution.
 
 ## Next steps
@@ -190,68 +194,47 @@ Use the [Azure pricing calculator][Azure pricing calculator] to estimate the cos
 - [Azure data architecture guide][Azure data architecture guide]
 - [Azure data platform end-to-end][Azure data platform end-to-end]
 
-[ADABAS]: https://www.softwareag.com/en_corporate/platform/adabas-natural.html
-[Get started with AzCopy]: https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10
+[Azure Blob Storage]: https://docs.microsoft.com/azure/storage/blobs/storage-blobs-introduction
 [Azure data architecture guide]: https://docs.microsoft.com/azure/architecture/data-guide/
 [Azure Data Factory]: https://azure.microsoft.com/services/data-factory/
 [Azure Data Lake Storage]: https://azure.microsoft.com/services/storage/data-lake-storage/
+[Azure Data Lake Storage Gen2]: https://docs.microsoft.com/azure/databricks/data/data-sources/azure/azure-datalake-gen2
 [Azure data platform end-to-end]: https://docs.microsoft.com/azure/architecture/example-scenario/dataplate2e/data-platform-end-to-end
 [Azure Database for MariaDB documentation]: https://docs.microsoft.com/azure/mariadb/
 [Azure Database for PostgreSQL]: https://azure.microsoft.com/services/postgresql/
+[Azure Databricks documentation]: https://docs.microsoft.com/azure/databricks/
+[Azure Marketplace]: https://azuremarketplace.microsoft.com/marketplace/
 [Azure pricing calculator]: https://azure.microsoft.com/pricing/calculator
-[Azure Services overview]: https://azurecharts.com/overview
 [Azure SQL]: https://azure.microsoft.com/services/azure-sql/
 [Azure SQL Database]: https://azure.microsoft.com/services/sql-database/
-[Azure Storage]: https://docs.microsoft.com/azure/storage/
+[Azure SQL on VM]: https://azure.microsoft.com/services/virtual-machines/sql-server/
+[Azure Synapse Analytics]: https://docs.microsoft.com/azure/synapse-analytics/overview-what-is
 [Azure virtual machines]: https://azure.microsoft.com/services/virtual-machines/
-[Comparison of hierarchical and relational databases]: https://www.ibm.com/support/knowledgecenter/SSEPH2_14.1.0/com.ibm.ims14.doc.apg/ims_comparehierandreldbs.htm
-[Configure HIS component for performance]: https://docs.microsoft.com/host-integration-server/core/data-for-host-files#configuringForPerformance
-[Data Provider]: https://docs.microsoft.com/host-integration-server/core/data-for-host-files
-data-providers-for-host-files-security-and-protection
-[Datacom]: https://www.broadcom.com/products/mainframe/databases-database-mgmt/datacom
 [ELT]: https://www.ibm.com/cloud/learn/etl#toc-etl-vs-elt-goFgkQcP
-[ETL]: https://www.ibm.com/cloud/learn/etl
-[Five reasons a data-first strategy works]: https://resources.syniti.com/featured-articles/5-reasons-a-data-first-strategy-works
-[Flat files]: https://www.pcmag.com/encyclopedia/term/flat-file
+[Email address for information on Azure Data Engineering On-premises Modernization]: mailto:datasqlninja@microsoft.com
 [Gateway considerations]: https://docs.microsoft.com/data-integration/gateway/service-gateway-onprem#considerations
-[GDG]: https://www.ibm.com/support/knowledgecenter/zosbasics/com.ibm.zos.zconcepts/zconcepts_175.htm
 [Hyperscale service tier]: https://docs.microsoft.com/azure/azure-sql/database/service-tier-hyperscale
-[IBM Db2 10.5 for Linux, Unix and Windows documentation]: https://www.ibm.com/support/knowledgecenter/en/SSEPGG_10.5.0/com.ibm.db2.luw.kc.doc/welcome.html
-[IBM Db2 for i]: https://www.ibm.com/support/pages/ibm-db2-i
-[IBM Db2 for z/OS]: https://www.ibm.com/analytics/db2/zos
-[IDMS]: https://www.broadcom.com/products/mainframe/databases-database-mgmt/idms
-[IMS]: https://www.ibm.com/it-infrastructure/z/ims
 [Install an on-premises data gateway]: https://docs.microsoft.com/data-integration/gateway/service-gateway-install
+[Installing SSMA for DB2 client (DB2ToSQL) Prerequisites]: https://docs.microsoft.com/sql/ssma/db2/installing-ssma-for-db2-client-db2tosql?view=sql-server-ver15#prerequisites
+[Integration runtime in Azure Data Factory]: https://docs.microsoft.com/azure/data-factory/concepts-integration-runtime
 [MariaDB]: https://mariadb.org/
+[Microsoft Service for DRDA]: https://docs.microsoft.com/host-integration-server/what-is-his#Data
+[Migration guide]: https://datamigration.microsoft.com/
+[Modernize mainframe & midrange data]: https://docs.microsoft.com/azure/architecture/reference-architectures/migration/modernize-mainframe-data-to-azure
 [MySQL Community Edition]: https://www.mysql.com/products/community/
-[Network model]: https://web.archive.org/web/20060904190944/http://coronet.iicm.edu/wbtmaster/allcoursescontent/netlib/ndm1.htm
+[Network transports and transactions]: https://docs.microsoft.com/host-integration-server/core/planning-and-architecting-solutions-using-microsoft-service-for-drda#network-transports-and-transactions
 [Performance tuning steps]: https://docs.microsoft.com/azure/data-factory/copy-activity-performance#performance-tuning-steps
+[Pooling and failover]: https://docs.microsoft.com/host-integration-server/core/planning-and-architecting-solutions-using-microsoft-service-for-drda#pooling-and-failover
 [PostgreSQL]: https://www.postgresql.org/
 [The rise of the multimodel database]: https://www.infoworld.com/article/2861579/the-rise-of-the-multimodel-database.html
+[Self-hosted integration runtime]: https://docs.microsoft.com/azure/data-factory/concepts-integration-runtime#self-hosted-integration-runtime
+[Self-hosted IR compute resource and scaling]: https://docs.microsoft.com/azure/data-factory/concepts-integration-runtime#self-hosted-ir-compute-resource-and-scaling
 [SQL Server Integration Services]: https://docs.microsoft.com/sql/integration-services/sql-server-integration-services
 [SQL Server Migration Assistant for Db2]: https://docs.microsoft.com/sql/ssma/db2/sql-server-migration-assistant-for-db2-db2tosql
-[VSAM]: https://www.ibm.com/support/knowledgecenter/zosbasics/com.ibm.zos.zconcepts/zconcepts_169.htm
+[Types of Databases on Azure]: https://azure.microsoft.com/product-categories/databases/
 [Welcome to Azure Cosmos DB]: https://docs.microsoft.com/azure/cosmos-db/introduction
 [What is an on-premises data gateway?]: https://docs.microsoft.com/data-integration/gateway/service-gateway-onprem
 [What is Azure Database for MySQL?]: https://docs.microsoft.com/azure/mysql/overview
 [What is Azure SQL Managed Instance?]: https://docs.microsoft.com/azure/azure-sql/managed-instance/sql-managed-instance-paas-overview
 [What is HIS]: https://docs.microsoft.com/host-integration-server/what-is-his
 [What is NoSQL? Databases for a cloud-scale future]: https://www.infoworld.com/article/3240644/what-is-nosql-databases-for-a-cloud-scale-future.html
-
-
-[Azure Blob Storage]: https://docs.microsoft.com/azure/storage/blobs/storage-blobs-introduction
-[Azure Databricks documentation]: https://docs.microsoft.com/azure/databricks/
-[Azure Data Lake Storage Gen2]: https://docs.microsoft.com/azure/databricks/data/data-sources/azure/azure-datalake-gen2
-[Azure Marketplace]: https://azuremarketplace.microsoft.com/marketplace/
-[Azure SQL on VM]: https://azure.microsoft.com/services/virtual-machines/sql-server/
-[Azure Synapse Analytics]: https://docs.microsoft.com/azure/synapse-analytics/overview-what-is
-[Email address for information on Azure Data Engineering On-premises Modernization]: mailto:datasqlninja@microsoft.com
-[Installing SSMA for DB2 client (DB2ToSQL) Prerequisites]: https://docs.microsoft.com/sql/ssma/db2/installing-ssma-for-db2-client-db2tosql?view=sql-server-ver15#prerequisites
-[Integration runtime in Azure Data Factory]: https://docs.microsoft.com/azure/data-factory/concepts-integration-runtime
-[Microsoft Service for DRDA]: https://docs.microsoft.com/host-integration-server/what-is-his#Data
-[Migration guide]: https://datamigration.microsoft.com/
-[Modernize mainframe & midrange data]: https://docs.microsoft.com/azure/architecture/reference-architectures/migration/modernize-mainframe-data-to-azure
-[Network transports and transactions]: https://docs.microsoft.com/host-integration-server/core/planning-and-architecting-solutions-using-microsoft-service-for-drda#network-transports-and-transactions
-[Pooling and failover]: https://docs.microsoft.com/host-integration-server/core/planning-and-architecting-solutions-using-microsoft-service-for-drda#pooling-and-failover
-[Self-hosted integration runtime]: https://docs.microsoft.com/azure/data-factory/concepts-integration-runtime#self-hosted-integration-runtime
-[Self-hosted IR compute resource and scaling]: https://docs.microsoft.com/azure/data-factory/concepts-integration-runtime#self-hosted-ir-compute-resource-and-scaling
