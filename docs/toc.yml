@@ -959,6 +959,8 @@ items:
                 href: solution-ideas/articles/streaming-using-hdinsight.yml
               - name: Windows N-tier applications
                 href: reference-architectures/n-tier/n-tier-sql-server.yml
+              - name: CluedIn eventual connectivity MDM
+                href: reference-architectures/data/cluedin.yml
       - name: Developer Options
         items:
           - name: Microservices

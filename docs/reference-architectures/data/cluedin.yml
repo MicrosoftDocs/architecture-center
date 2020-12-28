@@ -1,0 +1,37 @@
+### YamlMime:Architecture
+metadata:
+  title: CluedIn Master Data Management solution
+  titleSuffix: Azure Architectures
+  description: Use CluedIn eventual connectivity data integration to blend data from siloed data sources into Azure data storage and analytics services.
+  author: doodlemania2
+  ms.date: 12/28/2020
+  ms.topic: conceptual
+  ms.service: architecture-center
+azureCategories:
+  - databases
+  - management-and-governance
+products:
+  - azure-cache-redis
+  - azure-cosmos-db
+  - azure-data-factory
+  - azure-database-postgresql
+  - azure-databricks
+  - azure-devops-tool-integrations
+  - azure-disk-storage
+  - azure-kubernetes-service
+  - azure-log-analytics
+  - azure-machine-learning
+  - azure-monitor
+  - azure-pipelines
+  - azure-signalr-service
+  - azure-sql-database
+  - azure-sql-managed-instance
+  - azure-synapse-analytics
+  - dotnet-core
+  - power-bi
+name: CluedIn eventual connectivity solution for Azure
+summary: Use the CluedIn eventual connectivity data integration technique to seamlessly blend data from many siloed data sources into Azure data management and analytics services.
+thumbnailUrl: /azure/architecture/browse/thumbs/cluedin-architecture-small.png
+content: |
+  [!include[](cluedin-content.md)]
+
