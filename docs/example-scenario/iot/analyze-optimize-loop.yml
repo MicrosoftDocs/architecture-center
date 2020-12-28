@@ -15,6 +15,6 @@ name: IoT analyze and optimize loops
 summary: 'Learn about analyze and optimize loops, an IoT pattern for generating and applying optimization insights based on the entire business context.'
 products:
   - azure
-thumbnailUrl: /azure/architecture/browse/thumbs/analyze-and-optimize.svg
+thumbnailUrl: /azure/architecture/browse/thumbs/analyze-and-optimize.png
 content: |
    [!include[](analyze-optimize-loop-content.md)]
