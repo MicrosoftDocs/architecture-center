@@ -1,18 +1,3 @@
----
-title: Modernize mainframe & midrange data
-titleSuffix: Azure Reference Architectures
-author: doodlemania2
-ms.date: 12/12/2020
-description: Learn how to replicate data while modernizing mainframe and midrange systems. See how to sync on-premises data with Azure data during modernization.
-ms.custom: fcp
-ms.service: architecture-center
-ms.category:
-  - migration
-ms.subservice: reference-architecture
----
-
-# Replicate mainframe and midrange data in Azure
-
 Data availability and integrity play an important role in mainframe and midrange modernization. [Data-first strategies][Modernize mainframe & midrange data] help to keep data intact and available during migration to Azure. But to avoid impacting applications during modernization, sometimes you need to replicate data quickly or keep on-premises data in sync with Azure databases.
 
 This reference architecture outlines an implementation plan for replicating and syncing data during modernization to Azure. It discusses technical aspects like data stores, tools, and services. Specifically, the solution covers:
@@ -20,22 +5,21 @@ This reference architecture outlines an implementation plan for replicating and 
 - Extraction: Connecting to and extracting from a source database.
 - Transformation:
   - Staging: Temporarily storing data in its original format and preparing it for transformation.
-  - Preparation: Transforming and manipulating data by using mapping rules that meet target database requirements. 
+  - Preparation: Transforming and manipulating data by using mapping rules that meet target database requirements.
 - Loading: Inserting data into a target database.
 
 ## Potential use cases
 
 Data replication and sync scenarios that can benefit from this solution include:
 
-- Command Query Responsibility Segregation (CQRS) architectures that use Azure to service all inquire channels. 
-- Environments that test on-premises applications and rehosted or re-engineered applications in parallel. 
+- Command Query Responsibility Segregation (CQRS) architectures that use Azure to service all inquire channels.
+- Environments that test on-premises applications and rehosted or re-engineered applications in parallel.
 - On-premises systems with tightly coupled applications that require phased remediation or modernization.
-
 
 ## Architecture
 
-:::image type="complex" source="./images/replicate-mainframe-data-in-azure.png" alt-text="Architecture diagram showing how to sync on-premises and Azure databases during mainframe modernization." border="false":::
-   The diagram contains two parts, one for on-premises components, and one for Azure components. The on-premises part contains rectangles, one that pictures databases and one that contains integration tools. A server icon that represents the self-hosted integration runtime is also located in the on-premises part. The Azure part also contains rectangles. One is for pipelines. Others are for services used for staging and preparing data. Another contains Azure databases. Arrows point from on-premises components to Azure components. They represent the flow of data in the replication and sync processes. One of the arrows goes through the on-premises data gateway.
+:::image type="complex" source="./images/sync-mainframe-data-with-azure.png" alt-text="Architecture diagram showing how to sync on-premises and Azure databases during mainframe modernization." border="false":::
+   The diagram contains two parts, one for on-premises components, and one for Azure components. The on-premises part contains rectangles, one that pictures databases and one that contains integration tools. A server icon that represents the self-hosted integration runtime is also located in the on-premises part. The Azure part also contains rectangles. One is for pipelines. Others are for services that the solution uses for staging and preparing data. Another contains Azure databases. Arrows point from on-premises components to Azure components. These arrows represent the flow of data in the replication and sync processes. One of the arrows goes through the on-premises data gateway.
 :::image-end:::
 
 Mainframe and midrange systems update on-premises application databases on a regular interval. To maintain consistency, the solution syncs the latest data with Azure databases. The sync process involves the following steps:
