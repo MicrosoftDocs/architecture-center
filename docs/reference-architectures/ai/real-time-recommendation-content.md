@@ -143,7 +143,7 @@ We have also built a reference architecture that uses Spark and Azure Databricks
 [partition-data]: /azure/cosmos-db/partition-data
 [redis]: /azure/azure-cache-for-redis/cache-overview
 [ru]: /azure/cosmos-db/request-units
-[setup]: https://github.com/Microsoft/Recommenders/blob/master/SETUP.yml#repository-installation
-[setupo16n]: https://github.com/Microsoft/Recommenders/blob/master/SETUP.yml#prepare-azure-databricks-for-operationalization
+[setup]: https://github.com/Microsoft/Recommenders/blob/master/SETUP.md#repository-installation
+[setupo16n]: https://github.com/Microsoft/Recommenders/blob/master/SETUP.md#prepare-azure-databricks-for-operationalization
 [scale]: /azure/aks/tutorial-kubernetes-scale
 [workspace]: /azure/azure-databricks

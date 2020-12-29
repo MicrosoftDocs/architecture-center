@@ -131,7 +131,7 @@ The preceding list isn't exhaustive. If your design has other resources that wil
 
 This architecture is designed for a single workload. For multiple workloads, you may want to isolate the user node pools from each other and from the system node pool. That choice may result in more subnets that are smaller in size. Also, the ingress resource might be more complex. You might need multiple ingress controllers that will require extra addresses.
 
-For the complete set of considerations for this architecture, see [AKS baseline Network Topology](https://github.com/mspnp/aks-secure-baseline/blob/main/networking/topology.yml).
+For the complete set of considerations for this architecture, see [AKS baseline Network Topology](https://github.com/mspnp/aks-secure-baseline/blob/main/networking/topology.md).
 
 For information related to planning IP for an AKS cluster, see [Plan IP addressing for your cluster](/azure/aks/configure-azure-cni#plan-ip-addressing-for-your-cluster).
 
