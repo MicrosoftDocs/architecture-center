@@ -61,7 +61,7 @@ Mainframe and midrange systems update on-premises application databases on a reg
    - Azure Database for MariaDB
    - Azure Database for MySQL
 
-   In certain use cases, other tools can also load data. Other databases can also store data, such as Azure SQL Managed Instance and Azure SQL on VMs.
+   In certain use cases, other tools can also load data.
 
 1. Other tools can also replicate and transform data:
 
@@ -102,7 +102,11 @@ The solution uses the following components.
 
 ### Data storage
 
-- [Azure SQL][Azure SQL Database] is part of the [Azure SQL family][Azure SQL] and is built for the cloud. This service offers all the benefits of a fully managed and evergreen platform as a service. Azure SQL Database also provides AI-powered, automated features that optimize performance and durability. Serverless compute and [Hyperscale storage options][Hyperscale service tier] automatically scale resources on demand.
+- [Azure SQL Database][Azure SQL Database] is part of the [Azure SQL][Azure SQL] family and is built for the cloud. This service offers all the benefits of a fully managed and evergreen platform as a service. SQL Database also provides AI-powered, automated features that optimize performance and durability. Serverless compute and [Hyperscale storage options][Hyperscale service tier] automatically scale resources on demand.
+
+- [SQL Managed Instance][What is Azure SQL Managed Instance?] is part of the Azure SQL service portfolio. This intelligent, scalable, cloud database service combines the broadest SQL Server engine compatibility with all the benefits of a fully managed and evergreen platform as a service. With SQL Managed Instance, you can modernize existing apps at scale.
+
+- [SQL Server on Azure VMs][Azure SQL on VM] provides a way to lift and shift SQL Server workloads to the cloud with 100 percent code compatibility. As part of the Azure SQL family, SQL Server on Azure VMs offers the combined performance, security, and analytics of SQL Server with the flexibility and hybrid connectivity of Azure. With SQL Server on Azure VMs, you can migrate existing apps or build new apps. You can also access the latest SQL Server updates and releases, including SQL Server 2019.
 
 - [Azure Database for PostgreSQL][Azure Database for PostgreSQL] is a fully managed relational database service that's based on the community edition of the open-source [PostgreSQL][PostgreSQL] database engine. With this service, you can focus on application innovation instead of database management. You can also scale your workload quickly and easily.
 
@@ -113,10 +117,6 @@ The solution uses the following components.
 - [Azure Database for MariaDB][Azure Database for MariaDB documentation] is a cloud-based relational database service. This service is based on the [MariaDB][MariaDB] community edition database engine.
 
 - [Azure Database for MySQL][What is Azure Database for MySQL?] is a fully managed relational database service based on the [community edition of the open-source MySQL database engine][MySQL Community Edition].
-
-- [SQL Managed Instance][What is Azure SQL Managed Instance?] is part of the Azure SQL service portfolio. This intelligent, scalable, cloud database service combines the broadest SQL Server engine compatibility with all the benefits of a fully managed and evergreen platform as a service. With SQL Managed Instance, you can modernize existing apps at scale.
-
-- [Azure SQL on VMs][Azure SQL on VM] provides a way to lift and shift SQL Server workloads to the cloud with 100 percent code compatibility. As part of the Azure SQL family, Azure SQL on VMs offers the combined performance, security, and analytics of SQL Server with the flexibility and hybrid connectivity of Azure. With Azure SQL on VMs, you can migrate existing apps or build new apps. You can also access the latest SQL Server updates and releases, including SQL Server 2019.
 
 - [Blob Storage][Azure Blob Storage] provides optimized cloud object storage that manages massive amounts of unstructured data.
 
