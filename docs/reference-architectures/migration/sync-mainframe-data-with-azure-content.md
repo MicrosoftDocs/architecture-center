@@ -144,8 +144,6 @@ Keep these points in mind when considering this architecture.
 
 ### Manageability considerations
 
-
-
 - When you use an on-premises application gateway, be aware of [limits on read and write operations][Gateway considerations].
 
 - To use SSMA for Db2, install the client program on a computer that can access the source Db2 database and the target instance of SQL Server. That computer should meet the requirements listed in [Installing SSMA for Db2 client][Installing SSMA for DB2 client (DB2ToSQL) Prerequisites].
