@@ -274,8 +274,8 @@ Customization leads to complexity that increases confusion and makes automation
 more complex, challenging, and fragile. These factors all negatively impact
 security
 
-We recommend that you evaluate the [built-in roles](/azure/active-directory/role-based-access-built-in-roles)
-designed to cover most normal scenarios. [Custom roles](/azure/active-directory/role-based-access-control-custom-roles)
+We recommend that you evaluate the [built-in roles](/azure/role-based-access-control/built-in-roles)
+designed to cover most normal scenarios. [Custom roles](/azure/role-based-access-control/custom-roles)
 are a powerful and sometimes useful capability, but they should be reserved for
 cases when built in roles won't work.
 

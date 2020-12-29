@@ -1,0 +1,28 @@
+### YamlMime:Architecture
+metadata:
+  title: Batch scoring for deep learning models
+  titleSuffix: Azure Reference Architectures
+  description: 'This reference architecture shows how to apply neural style transfer to a video, using Azure Machine Learning.'
+  author: jiata
+  ms.date: 02/06/2019
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.category:
+    - ai-machine-learning
+    - media
+  ms.subservice: reference-architecture
+  ms.custom:
+    - azcat-ai
+    - reference-architecture
+name: Batch scoring for deep learning models
+azureCategories:
+  - ai-machine-learning
+  - media
+summary: 'This reference architecture shows how to apply neural style transfer to a video, using Azure Machine Learning.'
+products:
+  - azure
+  - azure-storage
+  - azure-machine-learning
+thumbnailUrl: /azure/architecture/browse/thumbs/aml-scoring-deep-learning.png
+content: |
+   [!include[](batch-scoring-deep-learning-content.md)]

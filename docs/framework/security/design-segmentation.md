@@ -45,7 +45,7 @@ This segment hosts shared services utilized across the organization. These share
 There are other segments that can contain resources based on some criteria. For instance, resources used by a workload application can be contained in a separate segment. Another way is segment by lifecycle stages: development, test, and production. Some resources might intersect, such as applications can use virtual networks used for lifecycle stages. 
 
 ### Functions and teams
-These are the main functions for this reference model. Mapping between central functions, responsibilities, and teams are described in [Team roles and responsibilities](design-role-definitions.md). 
+These are the main functions for this reference model. Mapping between central functions, responsibilities, and teams are described in [Team roles and responsibilities](design-identity-role-definitions.md). 
 
 |Function|Scope|Responsibility|
 |---|---|---|
