@@ -27,7 +27,7 @@ Mainframe and midrange systems update on-premises application databases on a reg
 1. Throughout the process:
 
    1. An on-premises data gateway transfers data quickly and securely between on-premises systems and Azure services.
-   1. Azure Data Factory pipelines orchestrate activities, from data extraction to data loading. You can schedule pipeline activities, start them manually, or automatically trigger them.
+   1. Azure Data Factory pipelines orchestrate activities that range from data extraction to data loading. You can schedule pipeline activities, start them manually, or automatically trigger them.
 
 1. On-premises databases like Db2 zOS, Db2 for i, and Db2 LUW store data.
 
@@ -67,7 +67,7 @@ Mainframe and midrange systems update on-premises application databases on a reg
 
    - Microsoft Service for Distributed Relational Database Architecture (DRDA): These DRDA services can connect to the Azure SQL family of databases and keep on-premises databases up to date. These services run on an on-premises virtual machine (VM) or an Azure VM.
    - SQL Server Migration Assistance (SSMA) for Db2: This tool migrates schemas and data from IBM Db2 databases to Azure databases.
-   - SQL Server Integration services (SSIS): This platform can extract, transform, and load data.
+   - SQL Server Integration Services (SSIS): This platform can extract, transform, and load data.
    - Third-party tools: When the solution requires near real-time replication, you can use third-party tools. Some of these agents are available in [Azure Marketplace][Azure Marketplace].
 
 1. Azure Synapse Analytics manages the data and makes it available for business intelligence and machine learning applications.
@@ -79,7 +79,7 @@ The solution uses the following components.
 
 ### Tools
 
-- [Microsoft Service for DRDA][Microsoft Service for DRDA] is a component of [Host Integration Server (HIS)][What is HIS]. Microsoft Service for DRDA is an Application Server (AS) that DRDA Application Requester (AR) clients use. Examples of DRDA AR clients include IBM DB2 for z/OS and DB2 for i5/OS. These clients use the AS to convert Db2 SQL statements and run them on SQL Server.
+- [Microsoft Service for DRDA][Microsoft Service for DRDA] is a component of [Host Integration Server (HIS)][What is HIS]. Microsoft Service for DRDA is an Application Server (AS) that DRDA Application Requester (AR) clients use. Examples of DRDA AR clients include IBM Db2 for z/OS and Db2 for i5/OS. These clients use the AS to convert Db2 SQL statements and run them on SQL Server.
 
 - [SSMA for Db2][SQL Server Migration Assistant for Db2] automates migration from Db2 to Microsoft database services. While running on a VM, this tool converts Db2 database objects into SQL Server database objects and creates those objects in SQL Server. SSMA for Db2 then migrates data from Db2 to the following services:
 
@@ -108,7 +108,7 @@ The solution uses the following components.
 
 - [Azure Cosmos DB][Welcome to Azure Cosmos DB] is a globally distributed, [multi-model][The rise of the multimodel database] database. With Azure Cosmos DB, your solutions can elastically and independently scale throughput and storage across any number of geographic regions. This fully managed [NoSQL][What is NoSQL? Databases for a cloud-scale future] database service guarantees single-digit millisecond latencies at the ninety-ninth percentile anywhere in the world.
 
-- [Data Lake Storage][Azure Data Lake Storage] is a storage repository that holds a large amount of data in its native, raw format. Data lake stores are optimized for scaling to terabytes and petabytes of data. The data typically comes from multiple, heterogeneous sources and may be structured, semi-structured, or unstructured. [Data Lake Storage Gen2][Azure Data Lake Storage Gen2] combines Data Lake Storage Gen1 capabilities with Blob Storage. This next-generation data lake solution provides file system semantics, file-level security, and scale. But it also offers the low-cost, tiered storage, high availability, and disaster recovery capabilities of Blob Storage.
+- [Data Lake Storage][Azure Data Lake Storage] is a storage repository that holds a large amount of data in its native, raw format. Data lake stores are optimized for scaling to terabytes and petabytes of data. The data typically comes from multiple, heterogeneous sources and may be structured, semi-structured, or unstructured. [Data Lake Storage Gen2][Azure Data Lake Storage Gen2] combines Data Lake Storage Gen1 capabilities with Blob Storage. This next-generation data lake solution provides file system semantics, file-level security, and scale. But it also offers the tiered storage, high availability, and disaster recovery capabilities of Blob Storage.
 
 - [Azure Database for MariaDB][Azure Database for MariaDB documentation] is a cloud-based relational database service. This service is based on the [MariaDB][MariaDB] community edition database engine.
 
