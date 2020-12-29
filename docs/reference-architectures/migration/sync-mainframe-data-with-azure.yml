@@ -2,7 +2,7 @@
 metadata:
   title: Replicate and sync mainframe data in Azure
   titleSuffix: Azure architecture
-  description: Learn how to replicate data while modernizing mainframe and midrange systems. See how to sync on-premises data with Azure data during modernization.
+  description: Replicate data while modernizing mainframe and midrange systems. Sync on-premises data with Azure data during modernization.
   author: doodlemania2
   ms.date: 12/29/2020
   ms.topic: conceptual
