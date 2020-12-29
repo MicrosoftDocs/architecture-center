@@ -21,6 +21,6 @@ summary: Learn about the monitoring services and a dataflow model for use with m
 products:
   - azure
   - azure-monitor
-thumbnailUrl: /azure/architecture/browse/thumbs/architecture-diagram-app-monitoring.svg
+thumbnailUrl: /azure/architecture/browse/thumbs/architecture-diagram-app-monitoring.png
 content: |
    [!include[](app-monitoring-content.md)]
