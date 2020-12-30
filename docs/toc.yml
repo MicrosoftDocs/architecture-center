@@ -313,7 +313,7 @@ items:
                 href: framework/scalability/test-tools.md
           - name: Monitoring
             href: framework/scalability/monitoring.md
-         - name: Reliability
+      - name: Reliability
         items:
           - name: Overview
             href: framework/resiliency/overview.md
