@@ -24,14 +24,14 @@ Data replication and sync scenarios that can benefit from this solution include:
 
 Mainframe and midrange systems update on-premises application databases on a regular interval. To maintain consistency, the solution syncs the latest data with Azure databases. The sync process involves the following steps:
 
-1. Throughout the process:
+1. These actions occur throughout the process:
 
    1. An on-premises data gateway transfers data quickly and securely between on-premises systems and Azure services.
    1. Azure Data Factory pipelines orchestrate activities that range from data extraction to data loading. You can schedule pipeline activities, start them manually, or automatically trigger them.
 
-1. On-premises databases like Db2 zOS, Db2 for i, and Db2 LUW store data.
+1. On-premises databases like Db2 zOS, Db2 for i, and Db2 LUW store the data.
 
-1. Pipelines group activities that perform tasks. To extract data, Data Factory dynamically creates one pipeline per on-premises table. You can then use a massively parallel implementation when you replicate data in Azure. But you can also configure the solution to meet your requirements:
+1. Pipelines group the activities that perform tasks. To extract data, Data Factory dynamically creates one pipeline per on-premises table. You can then use a massively parallel implementation when you replicate data in Azure. But you can also configure the solution to meet your requirements:
 
    - Full replication: You replicate the entire database, making necessary modifications to data types and fields in the target Azure database. 
    - Partial, delta, or incremental replication: You use *watermark columns* in source tables to sync updated rows with Azure databases. These columns contain either a continuously incrementing key or a time stamp indicating the table's last update.
@@ -75,7 +75,7 @@ Mainframe and midrange systems update on-premises application databases on a reg
 
 ## Components
 
-The solution uses the following components.
+The solution uses the following components:
 
 ### Tools
 
@@ -98,25 +98,25 @@ The solution uses the following components.
 
 - [SSIS][SQL Server Integration Services] is a platform for building enterprise-level data integration and transformation solutions. You can use SSIS to manage, replicate, cleanse, and mine data.
 
-- [Azure Databricks][Azure Databricks documentation] is a data analytics platform. Based on the Apache Spark open-source distributed processing system, Azure Databricks is optimized for Azure cloud services. In an analytics workflow, Azure Databricks reads data from multiple sources and uses Spark to provide insights.
+- [Azure Databricks][Azure Databricks] is a data analytics platform. Based on the Apache Spark open-source distributed processing system, Azure Databricks is optimized for Azure cloud services. In an analytics workflow, Azure Databricks reads data from multiple sources and uses Spark to provide insights.
 
 ### Data storage
 
 - [Azure SQL Database][Azure SQL Database] is part of the [Azure SQL][Azure SQL] family and is built for the cloud. This service offers all the benefits of a fully managed and evergreen platform as a service. SQL Database also provides AI-powered, automated features that optimize performance and durability. Serverless compute and [Hyperscale storage options][Hyperscale service tier] automatically scale resources on demand.
 
-- [SQL Managed Instance][What is Azure SQL Managed Instance?] is part of the Azure SQL service portfolio. This intelligent, scalable, cloud database service combines the broadest SQL Server engine compatibility with all the benefits of a fully managed and evergreen platform as a service. With SQL Managed Instance, you can modernize existing apps at scale.
+- [SQL Managed Instance][Azure SQL Managed Instance] is part of the Azure SQL service portfolio. This intelligent, scalable, cloud database service combines the broadest SQL Server engine compatibility with all the benefits of a fully managed and evergreen platform as a service. With SQL Managed Instance, you can modernize existing apps at scale.
 
 - [SQL Server on Azure VMs][Azure SQL on VM] provides a way to lift and shift SQL Server workloads to the cloud with 100 percent code compatibility. As part of the Azure SQL family, SQL Server on Azure VMs offers the combined performance, security, and analytics of SQL Server with the flexibility and hybrid connectivity of Azure. With SQL Server on Azure VMs, you can migrate existing apps or build new apps. You can also access the latest SQL Server updates and releases, including SQL Server 2019.
 
 - [Azure Database for PostgreSQL][Azure Database for PostgreSQL] is a fully managed relational database service that's based on the community edition of the open-source [PostgreSQL][PostgreSQL] database engine. With this service, you can focus on application innovation instead of database management. You can also scale your workload quickly and easily.
 
-- [Azure Cosmos DB][Welcome to Azure Cosmos DB] is a globally distributed, [multi-model][The rise of the multimodel database] database. With Azure Cosmos DB, your solutions can elastically and independently scale throughput and storage across any number of geographic regions. This fully managed [NoSQL][What is NoSQL? Databases for a cloud-scale future] database service guarantees single-digit millisecond latencies at the ninety-ninth percentile anywhere in the world.
+- [Azure Cosmos DB][Azure Cosmos DB] is a globally distributed, [multimodel][The rise of the multimodel database] database. With Azure Cosmos DB, your solutions can elastically and independently scale throughput and storage across any number of geographic regions. This fully managed [NoSQL][What is NoSQL? Databases for a cloud-scale future] database service guarantees single-digit millisecond latencies at the ninety-ninth percentile anywhere in the world.
 
 - [Data Lake Storage][Azure Data Lake Storage] is a storage repository that holds a large amount of data in its native, raw format. Data lake stores are optimized for scaling to terabytes and petabytes of data. The data typically comes from multiple, heterogeneous sources and may be structured, semi-structured, or unstructured. [Data Lake Storage Gen2][Azure Data Lake Storage Gen2] combines Data Lake Storage Gen1 capabilities with Blob Storage. This next-generation data lake solution provides file system semantics, file-level security, and scale. But it also offers the tiered storage, high availability, and disaster recovery capabilities of Blob Storage.
 
-- [Azure Database for MariaDB][Azure Database for MariaDB documentation] is a cloud-based relational database service. This service is based on the [MariaDB][MariaDB] community edition database engine.
+- [Azure Database for MariaDB][Azure Database for MariaDB] is a cloud-based relational database service. This service is based on the [MariaDB][MariaDB] community edition database engine.
 
-- [Azure Database for MySQL][What is Azure Database for MySQL?] is a fully managed relational database service based on the [community edition of the open-source MySQL database engine][MySQL Community Edition].
+- [Azure Database for MySQL][Azure Database for MySQL] is a fully managed relational database service based on the [community edition of the open-source MySQL database engine][MySQL Community Edition].
 
 - [Blob Storage][Azure Blob Storage] provides optimized cloud object storage that manages massive amounts of unstructured data.
 
@@ -176,47 +176,47 @@ Use the [Azure pricing calculator][Azure pricing calculator] to estimate the cos
 - [Azure data architecture guide][Azure data architecture guide]
 - [Azure data platform end-to-end][Azure data platform end-to-end]
 
-[Azure Blob Storage]: https://docs.microsoft.com/azure/storage/blobs/storage-blobs-introduction
-[Azure data architecture guide]: https://docs.microsoft.com/azure/architecture/data-guide/
+[Azure Blob Storage]: https://azure.microsoft.com/services/storage/blobs/
+[Azure Cosmos DB]: https://azure.microsoft.com/services/cosmos-db/
+[Azure data architecture guide]: /azure/architecture/data-guide/
 [Azure Data Factory]: https://azure.microsoft.com/services/data-factory/
 [Azure Data Lake Storage]: https://azure.microsoft.com/services/storage/data-lake-storage/
-[Azure Data Lake Storage Gen2]: https://docs.microsoft.com/azure/databricks/data/data-sources/azure/azure-datalake-gen2
-[Azure data platform end-to-end]: https://docs.microsoft.com/azure/architecture/example-scenario/dataplate2e/data-platform-end-to-end
-[Azure Database for MariaDB documentation]: https://docs.microsoft.com/azure/mariadb/
+[Azure Data Lake Storage Gen2]: /azure/databricks/data/data-sources/azure/azure-datalake-gen2
+[Azure data platform end-to-end]: /azure/architecture/example-scenario/dataplate2e/data-platform-end-to-end
+[Azure Database for MariaDB]: https://azure.microsoft.com/services/mariadb/
 [Azure Database for PostgreSQL]: https://azure.microsoft.com/services/postgresql/
-[Azure Databricks documentation]: https://docs.microsoft.com/azure/databricks/
+[Azure Databricks]: https://azure.microsoft.com/services/databricks/
 [Azure Marketplace]: https://azuremarketplace.microsoft.com/marketplace/
 [Azure pricing calculator]: https://azure.microsoft.com/pricing/calculator
 [Azure SQL]: https://azure.microsoft.com/services/azure-sql/
 [Azure SQL Database]: https://azure.microsoft.com/services/sql-database/
+[Azure SQL Managed Instance]: https://azure.microsoft.com/services/azure-sql/sql-managed-instance/
 [Azure SQL on VM]: https://azure.microsoft.com/services/virtual-machines/sql-server/
-[Azure Synapse Analytics]: https://docs.microsoft.com/azure/synapse-analytics/overview-what-is
+[Azure Synapse Analytics]: https://azure.microsoft.com/services/synapse-analytics/
 [Azure virtual machines]: https://azure.microsoft.com/services/virtual-machines/
 [ELT]: https://www.ibm.com/cloud/learn/etl#toc-etl-vs-elt-goFgkQcP
 [Email address for information on Azure Data Engineering On-premises Modernization]: mailto:datasqlninja@microsoft.com
 [Gateway considerations]: https://docs.microsoft.com/data-integration/gateway/service-gateway-onprem#considerations
-[Hyperscale service tier]: https://docs.microsoft.com/azure/azure-sql/database/service-tier-hyperscale
+[Hyperscale service tier]: /azure/azure-sql/database/service-tier-hyperscale
 [Install an on-premises data gateway]: https://docs.microsoft.com/data-integration/gateway/service-gateway-install
 [Installing SSMA for DB2 client (DB2ToSQL) Prerequisites]: https://docs.microsoft.com/sql/ssma/db2/installing-ssma-for-db2-client-db2tosql?view=sql-server-ver15#prerequisites
-[Integration runtime in Azure Data Factory]: https://docs.microsoft.com/azure/data-factory/concepts-integration-runtime
+[Integration runtime in Azure Data Factory]: /azure/data-factory/concepts-integration-runtime
 [MariaDB]: https://mariadb.org/
 [Microsoft Service for DRDA]: https://docs.microsoft.com/host-integration-server/what-is-his#Data
 [Migration guide]: https://datamigration.microsoft.com/
-[Modernize mainframe & midrange data]: https://docs.microsoft.com/azure/architecture/reference-architectures/migration/modernize-mainframe-data-to-azure
+[Modernize mainframe & midrange data]: /azure/architecture/reference-architectures/migration/modernize-mainframe-data-to-azure
 [MySQL Community Edition]: https://www.mysql.com/products/community/
 [Network transports and transactions]: https://docs.microsoft.com/host-integration-server/core/planning-and-architecting-solutions-using-microsoft-service-for-drda#network-transports-and-transactions
-[Performance tuning steps]: https://docs.microsoft.com/azure/data-factory/copy-activity-performance#performance-tuning-steps
+[Performance tuning steps]: /azure/data-factory/copy-activity-performance#performance-tuning-steps
 [Pooling and failover]: https://docs.microsoft.com/host-integration-server/core/planning-and-architecting-solutions-using-microsoft-service-for-drda#pooling-and-failover
 [PostgreSQL]: https://www.postgresql.org/
 [The rise of the multimodel database]: https://www.infoworld.com/article/2861579/the-rise-of-the-multimodel-database.html
-[Self-hosted integration runtime]: https://docs.microsoft.com/azure/data-factory/concepts-integration-runtime#self-hosted-integration-runtime
-[Self-hosted IR compute resource and scaling]: https://docs.microsoft.com/azure/data-factory/concepts-integration-runtime#self-hosted-ir-compute-resource-and-scaling
+[Self-hosted integration runtime]: /azure/data-factory/concepts-integration-runtime#self-hosted-integration-runtime
+[Self-hosted IR compute resource and scaling]: /azure/data-factory/concepts-integration-runtime#self-hosted-ir-compute-resource-and-scaling
 [SQL Server Integration Services]: https://docs.microsoft.com/sql/integration-services/sql-server-integration-services
 [SQL Server Migration Assistant for Db2]: https://docs.microsoft.com/sql/ssma/db2/sql-server-migration-assistant-for-db2-db2tosql
 [Types of Databases on Azure]: https://azure.microsoft.com/product-categories/databases/
-[Welcome to Azure Cosmos DB]: https://docs.microsoft.com/azure/cosmos-db/introduction
 [What is an on-premises data gateway?]: https://docs.microsoft.com/data-integration/gateway/service-gateway-onprem
-[What is Azure Database for MySQL?]: https://docs.microsoft.com/azure/mysql/overview
-[What is Azure SQL Managed Instance?]: https://docs.microsoft.com/azure/azure-sql/managed-instance/sql-managed-instance-paas-overview
+[Azure Database for MySQL]: https://azure.microsoft.com/services/mysql/
 [What is HIS]: https://docs.microsoft.com/host-integration-server/what-is-his
 [What is NoSQL? Databases for a cloud-scale future]: https://www.infoworld.com/article/3240644/what-is-nosql-databases-for-a-cloud-scale-future.html
