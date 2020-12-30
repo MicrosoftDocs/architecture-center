@@ -40,6 +40,6 @@ products:
   - github
   - vs
   - windows
-thumbnailUrl: /azure/architecture/browse/thumbs/architecture-devops-dotnet-webapp.svg
+thumbnailUrl: /azure/architecture/browse/thumbs/architecture-devops-dotnet-webapp.png
 content: |
    [!include[](devops-dotnet-webapp-content.md)]
