@@ -1,4 +1,4 @@
-Modern enterprise companies have many processes and projects that are fueled by data, but the raw data has to be prepared for consumption. Data use cases from advanced analytics to machine learning all require very similar data preparation processes and attention:
+Modern enterprise companies base many processes and projects on data, but the raw data has to be prepared for consumption. Data use cases from advanced analytics to machine learning all require similar data preparation processes and attention:
 
 1. Data projects start with data *discovery*, to determine where data is and what systems it uses.
 2. Data *integration* then brings multiple data sources together into a unified or connected data set.
@@ -11,7 +11,7 @@ The CluedIn platform encapsulates these data management processes and pillars in
 
 CluedIn uses a data integration technique called *eventual connectivity* that yields better results than classic *extract, transform, load (ETL)* or *extract, load, transform (ELT)* models. Eventual connectivity uses [GraphQL](https://graphql.org/) queries to blend data seamlessly from across many siloed data sources.
 
-With eventual connectivity, data isn't joined or blended upon entry or loading into other systems. Instead, CluedIn loads data as is, and tags records using metadata. Eventually, records with the same tags merge or build a relationship in the graph.
+With eventual connectivity, data isn't joined or blended upon entry or loading into other systems. Instead, CluedIn loads the data as is, and tags records using metadata. Eventually, records with the same tags merge or build a relationship in the graph.
 
 This sophisticated data merging technique provides a foundation for data-driven solutions. The CluedIn hub integrates data into a pipeline that cleans, prepares, models, governs, enriches, deduplicates, and catalogs data to make it easily available and accessible for business uses.
 
@@ -45,9 +45,9 @@ CluedIn includes enterprise-grade governance, for assurance that you can use you
   
 - CluedIn stores the cleaned, processed data in SQL or Redis databases, and provides the data to analytics services to generate insights.
 
-- CluedIn security grants permissions and controls access to different services through [Azure role-based access control (RBAC)](/azure/role-based-access-control/overview), with [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) security key control and [Azure Monitor](https://azure.microsoft.com/services/monitor/) logging.
+- CluedIn security grants permissions and controls access to different services through Azure role-based access control (RBAC), with Azure Key Vault security key control and Azure Monitor logging.
 
-- [Azure Pipelines](https://azure.microsoft.com/services/devops/pipelines/) continuous integration and continuous delivery (CI/CD) pipelines trigger deployments and rolling updates to the AKS environment.
+- Azure Pipelines continuous integration and continuous delivery (CI/CD) pipelines handle deployments and rolling updates to the AKS environment.
 
 ## Components
 
@@ -83,7 +83,7 @@ The CluedIn platform has the following characteristics and considerations:
 
 ### Scalability
 
-CluedIn runs in [Docker containers](https://hub.docker.com/) and uses [Kubernetes](https://kubernetes.io/) to host and orchestrate the different pieces of the application. This architecture means that CluedIn works well in elastic environments and can automatically scale to needed sizes and infrastructure.
+- CluedIn runs in [Docker containers](https://hub.docker.com/) and uses [Kubernetes](https://kubernetes.io/) to host and orchestrate the different pieces of the application. This architecture means that CluedIn works well in elastic environments and can automatically scale to needed sizes and infrastructure.
 
 - Native support for autoscaling leverages the power of Azure to provide a scalable environment for the biggest data workloads.
 
@@ -103,16 +103,16 @@ CluedIn runs in [Docker containers](https://hub.docker.com/) and uses [Kubernete
 
 - CluedIn integrates with [Azure Pipelines](https://azure.microsoft.com/services/devops/pipelines/) CI/CD pipelines for development, testing, and deployment to the AKS environment.
 
-- CluedIn supports unit, integration, and functional testing to see if data is transforming as expected. Virtualized processing pipelines can run in memory for sandbox testing. Production-grade assertions can help debug and track down data issues.
+- CluedIn supports unit, integration, and functional testing to ensure that data transforms as expected. Virtualized processing pipelines can run in memory for sandbox testing. Production-grade assertions can help debug and track down data issues.
 
 - Fully scripted data deployment processes support setup, test, and rollout.
 
 ## Deployment
 - You can deploy CluedIn locally for development and evaluation purposes using Docker. For more information and instructions, see [CluedIn with Docker](http://documentation.cluedin.net/docs/00-gettingStarted/30-docker-local.html).
 
-- For testing and production environments, deploy CluedIn with Kubernetes. CluedIn provides a [Helm package manager](https://helm.sh/) chart to install CluedIn quickly in a Kubernetes cluster. The chart installs the CluedIn server, website, and other required services like storage and queues. For more information and instructions, see [CluedIn with Kubernetes](http://documentation.cluedin.net/docs/00-gettingStarted/40-kubernetes.html).
+- For testing and production environments, CluedIn provides a [Helm package manager](https://helm.sh/) chart to install CluedIn quickly in a Kubernetes cluster. The chart installs the CluedIn server, website, and other required services like storage and queues. For more information and instructions, see [CluedIn with Kubernetes](http://documentation.cluedin.net/docs/00-gettingStarted/40-kubernetes.html).
 
 ## Next steps
 
-- For more information about CluedIn, see the [CluedIn](https://www.cluedin.com/) website.
+- For more information about CluedIn, see the [CluedIn website](https://www.cluedin.com/).
 - For CluedIn documentation, see the [CluedIn documentation](http://documentation.cluedin.net/).

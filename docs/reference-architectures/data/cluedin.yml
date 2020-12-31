@@ -1,6 +1,6 @@
 ### YamlMime:Architecture
 metadata:
-  title: CluedIn data preparation solution
+  title: CluedIn data preparation platform
   titleSuffix: Azure Architectures
   description: Use CluedIn eventual connectivity data integration to blend data from many siloed data sources and prepare it for analytics and business operations.
   author: doodlemania2
