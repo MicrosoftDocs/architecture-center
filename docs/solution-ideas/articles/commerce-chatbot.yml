@@ -21,6 +21,6 @@ summary: Together, the Azure Bot Service and Language Understanding service enab
   commands.
 products:
   - azure
-thumbnailUrl: /azure/architecture/browse/thumbs/commerce-chatbot.svg
+thumbnailUrl: /azure/architecture/browse/thumbs/commerce-chatbot.png
 content: |
    [!include[](commerce-chatbot-content.md)]
