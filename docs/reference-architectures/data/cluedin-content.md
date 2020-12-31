@@ -3,7 +3,7 @@ Enterprise companies have many processes and projects that are fueled by data. D
 1. Data projects start with data *discovery*, to determine where data is and what systems it uses.
 2. Data *integration* then brings multiple data sources together into a unified or connected data set.
 3. The next step is to *normalize, standardize, harmonize,* and *clean* the data so machines can process it in a uniform, consistent, and high-fidelity manner.
-4. Finally, the data must be made easily and readily available for the business's operational needs.
+4. Finally, the data must be made easily and readily available for business operational needs.
 
 During these processes, *governance* ensures data control and privacy protection with clear ownership, full traceability, and an audit trail of data origins, processing, and use.
 
@@ -22,7 +22,6 @@ CluedIn includes enterprise-grade governance, for assurance that you can use you
 ## Architecture
 
 ![Diagram showing CluedIn architectural structure.](images/cluedin-architecture.png)
-![Diagram showing CluedIn architectural structure small.](images/cluedin-architecture-small.png)
 
 - CluedIn ingests data from sources like Azure SQL DB, Azure Cosmos DB, PostgreSQL, and Salesforce databases via Azure Data Factory.
 
@@ -46,11 +45,11 @@ CluedIn includes enterprise-grade governance, for assurance that you can use you
   
 - CluedIn stores the cleaned, processed data in SQL or Redis databases, and provides the data to analytics services to generate insights.
 
-- CluedIn security grants permissions and controls access to different services through Azure Active Directory (Azure AD) role-based access control, with Azure Key Vault key control and Azure Monitor access monitoring.
+- CluedIn security grants permissions and controls access to different services through Azure Active Directory (Azure AD) role-based access control, with Azure Key Vault key control and Azure Monitor access logging.
 
 - Azure Pipelines continuous integration and continuous delivery (CI/CD) pipelines trigger deployments and rolling updates to the AKS environment.
 
-CluedIn runs in [Docker containers](https://hub.docker.com/) and uses [Kubernetes](https://kubernetes.io/) to host and orchestrate the different pieces of the application. This architectures means that CluedIn works well in elastic environments and can automatically scale to needed sizes and infrastructure.
+CluedIn runs in [Docker containers](https://hub.docker.com/) and uses [Kubernetes](https://kubernetes.io/) to host and orchestrate the different pieces of the application. This architecture means that CluedIn works well in elastic environments and can automatically scale to needed sizes and infrastructure.
 
 ## Components
 
@@ -85,9 +84,9 @@ The CluedIn platform has the following characteristics and considerations:
 
 ### Resiliency
 
-- CluedIn takes automatic daily database backups and keeps them in your longterm storage for 30 days by default. The entire platform is built on redundant, fault tolerant stacks that maintain backups for all subsystems. Round the clock monitoring systems ensure that services are as untainted as possible. CluedIn follows industry standard practices for infrastructure redundancy.
+- CluedIn takes automatic daily database backups and keeps them in your long-term storage for 30 days by default. The entire platform is built on redundant, fault tolerant stacks that maintain backups for all subsystems. Round the clock monitoring systems ensure that services are as untainted as possible. CluedIn follows industry standard practices for infrastructure redundancy.
 
-- CluedIn surfaces and stores only a representation of your data, not the original version. CluedIn manages the data representations behind multiple firewall and proxy layers, and authenticates them with a set of unique keys. If CluedIn detects destructive data intrusion, you can temporarily wipe your CluedIn data from your servers. Once the intrusion is subsided, CluedIn re-gathers your data to get back its original state.
+- CluedIn surfaces and stores only a representation of your data, not the original version. CluedIn manages the data representations behind multiple firewall and proxy layers, and authenticates them with a set of unique keys. If CluedIn detects destructive data intrusion, you can temporarily wipe your CluedIn data from your servers. Once the intrusion is subsided, CluedIn regathers your data to get back its original state.
 
 - All data stores run in high-availability (HA) mode.
 
@@ -95,7 +94,7 @@ The CluedIn platform has the following characteristics and considerations:
 
 - Native support for autoscaling leverages the power of Azure to provide a scalable environment for the biggest data workloads.
 
-- Schemaless graph modelling means that the data model is automatically inferred from the source data, rather than being explicitly integrated. New data sources automatically connect to every other data source. The number of data sources can scale infinitely without increasing integration complexity.
+- Schemaless graph modeling means that the data model is automatically inferred from the source data, rather than being explicitly integrated. New data sources automatically connect to every other data source. The number of data sources can scale infinitely without increasing integration complexity.
 
 ### Security
 
