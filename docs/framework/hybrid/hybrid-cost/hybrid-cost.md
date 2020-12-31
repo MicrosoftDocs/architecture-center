@@ -55,7 +55,7 @@ For budget concerns, you get a considerable amount of functionality that you can
 
 ### Azure Architecture Center (AAC) resources
 
-Click the following links for architecture details and diagrams.
+Click the following links for architecture details and diagrams. 
 
 - [Manage configurations for Azure Arc enabled servers](/azure/architecture/hybrid/azure-arc-hybrid-config)
 - [Azure Arc hybrid management and deployment for Kubernetes clusters](/azure/architecture/hybrid/arc-hybrid-kubernetes)

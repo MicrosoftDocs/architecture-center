@@ -11,7 +11,7 @@ ms.custom:
 
 # Overview of a hybrid environment
 
-Customer environments are becoming increasingly complex, with many applications often running on different hardware across on-premises, multicloud, and the edge. Managing these disparate environments at scale, ensuring uncompromised security, and enabling developer agility are critical to success.
+Customer environments are becoming increasingly complex, with many applications often running on different hardware across on-premises, multicloud, and the edge. Managing these disparate environments at scale, ensuring uncompromised security, and enabling developer agility are critical to success. 
 
 Azure uniquely helps you meet these challenges, giving you the flexibility to innovate anywhere in your hybrid environment while operating seamlessly and securely. The Well-Architected Framework includes a hybrid description for each of the five pillars: cost optimization, operational excellence, performance efficiency, reliability, and security.
 
