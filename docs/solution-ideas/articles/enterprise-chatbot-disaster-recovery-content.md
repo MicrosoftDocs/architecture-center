@@ -42,7 +42,7 @@ Keep all deployment and source code artifacts in a source code repository, and u
 - Create a Secure Sockets Layer (SSL) certificate for your traffic manager endpoint, and [bind the SSL certificate](/azure/app-service/configure-ssl-bindings) in your App Services.
 - Finally, use the Traffic Manager or Azure Front Door endpoint of QnA Maker in your bot, and use the traffic manager endpoint of the bot API as the bot endpoint in Azure Bot Service registration.
 
-### List of Services
+### List of services
 
 Key technologies used to implement this architecture:
 
