@@ -29,25 +29,27 @@ CluedIn includes enterprise-grade governance, for assurance that you can use you
 
 - The enterprise service bus connects through ports 5672 and 15672 for admin endpoints. Crawlers send data to the bus, and the processing layer consumes data from the bus, over port 5672.
 
+  All communication from the browser into the application uses a set of ingress definitions, which require only a single public IP address. In a production environment, all communication is over secure socket layer (SSL).
+  
 - The CluedIn solution itself consists of various functional layers that run in a Kubernetes cluster in Azure Kubernetes Service (AKS). A combination of .NET Core microservice applications handles distinct functions like user interface, queuing, data ingestion, and streaming data processing.
-
-- The CluedIn ASP.NET Core web application communicates through a combination of REST and GraphQL calls over port 443. GraphQL and REST HTTPS calls use a pull model, and WebSockets calls use a push model.
-  
-  All communication from the browser comes into the application through a set of ingress definitions, so requires only a single public IP address. In a production environment, all communication is over secure socket layer (SSL).
-  
-- CluedIn handles secure data access with throttling and Cross-Site Request Forgery (CSRF) prevention.
-
-- On the server, the data abstraction application layer communicates with the different data stores through the ports for each store.
 
 - In the persistence layer, databases consume data from the transaction log and persist it to provide eventual consistency across the different data stores. All the stores run in high-availability (HA) mode.
   
   Unlike with data virtualization, the CluedIn persistence layer ingests parts of source data and preserves the highest fidelity version of data and its structure. This high fidelity means that the CluedIn data fabric can serve business requests for data in any format or model.
   
-- CluedIn stores the cleaned, processed data in SQL or Redis databases, and provides the data to analytics services to generate insights.
+- In the data abstraction layer, the application communicates to the different data stores through the ports for each store.
+
+- CluedIn data access is through GraphQL, REST, and WebSockets calls over port 443. GraphQL and REST use a pull model, and WebSockets uses a push model.
+  
+  CluedIn protects data access through throttling and Cross-Site Request Forgery (CSRF) prevention.
+  
+- The CluedIn ASP.NET Core web application communicates through a combination of REST and GraphQL calls over port 443.
+
+- CluedIn stores cleaned, processed data in SQL or Redis databases, and provides the data to analytics services to generate insights.
 
 - CluedIn security grants permissions and controls access to different services through Azure role-based access control (RBAC), with Azure Key Vault security key control and Azure Monitor logging.
 
-- Azure Pipelines continuous integration and continuous delivery (CI/CD) pipelines handle deployments and rolling updates to the AKS environment.
+- CluedIn uses Azure Pipelines continuous integration and continuous delivery (CI/CD) pipelines to handle deployments and rolling updates to the AKS environment.
 
 ## Components
 
@@ -79,7 +81,7 @@ The CluedIn platform has the following characteristics and considerations:
 
 - CluedIn surfaces and stores only a representation of your data, not the original version. CluedIn manages the data representations behind multiple firewall and proxy layers, and authenticates them with a set of unique keys. If CluedIn detects destructive data intrusion, it can temporarily wipe the CluedIn data from the servers. Once the intrusion subsides, CluedIn regathers the data to get back to its original state.
 
-- All data stores run in high-availability (HA) mode.
+- All data stores run in high-availability mode.
 
 ### Scalability
 
