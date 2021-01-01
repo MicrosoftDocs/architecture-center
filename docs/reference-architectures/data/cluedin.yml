@@ -25,7 +25,7 @@ products:
   - azure-sql-managed-instance
   - azure-synapse-analytics
   - power-bi
-name: CluedIn data integration and preparation
+name: CluedIn data integration and preparation solution
 summary: Use the CluedIn eventual connectivity data integration technique to seamlessly blend data from many siloed data sources into Azure data management and analytics services.
 thumbnailUrl: /azure/architecture/browse/thumbs/cluedin-architecture-small.png
 content: |
