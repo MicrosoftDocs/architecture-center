@@ -7,9 +7,7 @@ Modern enterprise companies base many processes and projects on data, but the ra
 
 During these processes, *governance* must ensure data control and privacy protection with clear ownership, full traceability, and an audit trail of data origins, processing, and use.
 
-The CluedIn platform encapsulates these data management processes and pillars into a coherent, consistent, end-to-end master data management (MDM) solution.
-
-CluedIn uses a data integration technique called *eventual connectivity* that yields better results than classic *extract, transform, load (ETL)* or *extract, load, transform (ELT)* models. Eventual connectivity uses [GraphQL](https://graphql.org/) queries to blend data seamlessly from across many siloed data sources.
+The CluedIn platform encapsulates these data management processes and pillars into a coherent, consistent, end-to-end master data management (MDM) solution. CluedIn uses a data integration technique called *eventual connectivity* that yields better results than classic *extract, transform, load (ETL)* or *extract, load, transform (ELT)* models. Eventual connectivity uses [GraphQL](https://graphql.org/) queries to blend data seamlessly from across many siloed data sources.
 
 With eventual connectivity, data isn't joined or blended upon entry or loading into other systems. Instead, CluedIn loads the data as is, and tags records using metadata. Eventually, records with the same tags merge or build a relationship in the graph.
 
@@ -23,9 +21,9 @@ CluedIn includes enterprise-grade governance, for assurance that you can use you
 
 ![Diagram showing CluedIn architectural structure.](images/cluedin-architecture.png)
 
-- CluedIn ingests data from sources like Azure SQL DB, Azure Cosmos DB, PostgreSQL, and Salesforce databases via Azure Data Factory.
+- CluedIn ingests data from sources like Azure SQL DB, Azure Cosmos DB, PostgreSQL, and Salesforce databases via Azure Data Factory connectors.
 
-- The CluedIn crawling layer takes input from customer cloud or on-premises accessible systems like SAP, Oracle, Slack, and Hadoop, or can use on-premises agents to crawl non-public data.
+  The CluedIn crawling layer takes input from customer cloud or on-premises accessible systems like SAP, Oracle, Slack, and Hadoop, or can use on-premises agents to crawl non-public data.
 
 - The enterprise service bus connects through ports 5672 and 15672 for admin endpoints. Crawlers send data to the bus, and the processing layer consumes data from the bus, over port 5672.
 
@@ -45,9 +43,9 @@ CluedIn includes enterprise-grade governance, for assurance that you can use you
   
 - The CluedIn ASP.NET Core web application communicates through a combination of REST and GraphQL calls over port 443.
 
-- CluedIn stores cleaned, processed data in SQL or Redis databases, and provides the data to analytics services to generate insights.
+- CluedIn stores cleaned, processed data in SQL or Redis databases, and provides the data to analytics services like Power BI and Azure Synapse Analytics to generate insights.
 
-- CluedIn security grants permissions and controls access to different services through Azure role-based access control (RBAC), with Azure Key Vault security key control and Azure Monitor logging.
+- CluedIn security grants permissions and controls access to different services through Azure role-based access control (RBAC), with Azure Key Vault security key management and Azure Monitor logging.
 
 - CluedIn uses Azure Pipelines continuous integration and continuous delivery (CI/CD) pipelines to handle deployments and rolling updates to the AKS environment.
 
@@ -63,7 +61,7 @@ CluedIn uses and supports many database sources and services, including:
 - [Azure Data Lake](https://azure.microsoft.com/solutions/data-lake/), a scalable data storage and analytics service.
 - [Azure Data Factory](https://azure.microsoft.com/services/data-factory/), a fully managed, serverless data integration solution for ingesting, preparing, and transforming data at scale. CluedIn uses over 90 built-in Data Factory connectors to acquire data from sources like Amazon Redshift, Google BigQuery, HDFS, Oracle Exadata, Teradata, Salesforce, Marketo, ServiceNow, and all Azure data services.
 
-CluedIn provides processed data to many analytics apps and services, including:
+CluedIn provides processed, governed data to many analytics apps and services, including:
 
 - [Azure Databricks](https://azure.microsoft.com/services/databricks/), a fast, easy, and collaborative Apache Spark-based analytics service.
 - [Azure Synapse Analytics](https://azure.microsoft.com/services/synapse-analytics/), a limitless analytics service that brings together enterprise data warehousing and Big Data analytics.
@@ -89,7 +87,7 @@ The CluedIn platform has the following characteristics and considerations:
 
 - Native support for autoscaling leverages the power of Azure to provide a scalable environment for the biggest data workloads.
 
-- Schemaless graph modeling automatically infers a data model from the source data. New data sources automatically connect to all other data sources, rather than being explicitly integrated. The number of data sources can scale infinitely without increasing integration complexity.
+- Schemaless graph modeling automatically infers a data model from the source data. New data sources automatically connect to all other data sources, rather than having to be explicitly integrated. The number of data sources can scale infinitely without increasing integration complexity.
 
 ### Security
 
