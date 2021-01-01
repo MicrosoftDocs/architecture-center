@@ -19,7 +19,7 @@ CluedIn includes enterprise-grade governance, for assurance that you can use you
 
 ## Architecture
 
-![Diagram showing CluedIn architectural structure.](images/cluedin-architecture.png)
+![Diagram showing CluedIn architectural structure.](images/cluedin-architecture1.svg)
 
 - CluedIn ingests data from sources like Azure SQL DB, Azure Cosmos DB, PostgreSQL, and Salesforce databases via Azure Data Factory connectors.
 
