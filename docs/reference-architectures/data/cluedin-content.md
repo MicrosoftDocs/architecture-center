@@ -1,4 +1,4 @@
-Modern enterprise companies base many processes and projects on data, but the raw data has to be prepared for consumption. Data use cases from advanced analytics to machine learning all require similar data preparation processes and attention:
+Modern enterprise companies base many processes and projects on data, but the raw data has to be prepared for consumption. Data use cases from advanced analytics to machine learning all require similar data preparation processes and attention.
 
 1. Data projects start with data *discovery*, to determine where data is and what systems it uses.
 2. Data *integration* then brings multiple data sources together into a unified or connected data set.
@@ -19,35 +19,33 @@ CluedIn includes enterprise-grade governance, for assurance that you can use you
 
 ## Architecture
 
-![Diagram showing CluedIn architectural structure.](images/cluedin-architecture.svg)
+![Diagram showing CluedIn architectural structure and data flow.](images/cluedin-architecture.svg)
 
-- CluedIn ingests data from sources like Azure SQL DB, Azure Cosmos DB, PostgreSQL, and Salesforce databases via Azure Data Factory connectors.
+The CluedIn solution consists of various functional layers that run in a Kubernetes cluster in Azure Kubernetes Service (AKS). A combination of .NET Core microservice applications handles distinct functions like data ingestion, streaming data processing, queuing, and user interface.
 
-  The CluedIn crawling layer takes input from customer cloud or on-premises accessible systems like SAP, Oracle, Slack, and Hadoop, or can use on-premises agents to crawl non-public data.
-
-- The enterprise service bus connects through ports 5672 and 15672 for admin endpoints. Crawlers send data to the bus, and the processing layer consumes data from the bus, over port 5672.
-
-  All communication from the browser into the application uses a set of ingress definitions, which require only a single public IP address. In a production environment, all communication is over secure socket layer (SSL).
+1. The CluedIn crawling layer ingests data from from customer cloud sources like Azure SQL DB, Azure Cosmos DB, PostgreSQL, and Salesforce databases via Azure Data Factory connectors.
+   
+   CluedIn also takes input from on-premises accessible systems like SAP, Oracle, Slack, and Hadoop, or can use on-premises agents to crawl non-public data.
+   
+1. The enterprise service bus connects through ports 5672 and 15672 for admin endpoints. Crawlers send data to the bus, and the processing layer consumes data from the bus, over port 5672.
+   
+1. The transaction log layer takes results from the processing layer.
+   
+1. In the persistence layer, databases consume data from the transaction log and persist it to provide eventual consistency across the different data stores. All the stores run in high-availability (HA) mode.
+   
+   Unlike with data virtualization, the CluedIn persistence layer ingests parts of source data and preserves the highest fidelity version of data and its structure. This high fidelity means that the CluedIn data fabric can serve business requests for data in any format or model.
   
-- The CluedIn solution itself consists of various functional layers that run in a Kubernetes cluster in Azure Kubernetes Service (AKS). A combination of .NET Core microservice applications handles distinct functions like user interface, queuing, data ingestion, and streaming data processing.
-
-- In the persistence layer, databases consume data from the transaction log and persist it to provide eventual consistency across the different data stores. All the stores run in high-availability (HA) mode.
+1. The data abstraction layer connects to the different data stores through the ports for each store.
+   
+1. Data access is through GraphQL, REST, and WebSockets calls over port 443. GraphQL and REST use a pull model, and WebSockets uses a push model.
+   
+   CluedIn protects data access through throttling and Cross-Site Request Forgery (CSRF) prevention.
   
-  Unlike with data virtualization, the CluedIn persistence layer ingests parts of source data and preserves the highest fidelity version of data and its structure. This high fidelity means that the CluedIn data fabric can serve business requests for data in any format or model.
+1. The CluedIn ASP.NET Core web application communicates through a combination of REST and GraphQL calls over port 443.
+   
+   All communication from the browser into the application uses a set of ingress definitions, which require only a single public IP address. In a production environment, all communication is over secure socket layer (SSL).
   
-- In the data abstraction layer, the application communicates to the different data stores through the ports for each store.
-
-- CluedIn data access is through GraphQL, REST, and WebSockets calls over port 443. GraphQL and REST use a pull model, and WebSockets uses a push model.
-  
-  CluedIn protects data access through throttling and Cross-Site Request Forgery (CSRF) prevention.
-  
-- The CluedIn ASP.NET Core web application communicates through a combination of REST and GraphQL calls over port 443.
-
-- CluedIn stores cleaned, processed data in SQL or Redis databases, and provides the data to analytics services like Power BI and Azure Synapse Analytics to generate insights.
-
-- CluedIn security grants permissions and controls access to different services through Azure role-based access control (RBAC), with Azure Key Vault security key management and Azure Monitor logging.
-
-- CluedIn uses Azure Pipelines continuous integration and continuous delivery (CI/CD) pipelines to handle deployments and rolling updates to the AKS environment.
+1. The CluedIn application provides cleaned, processed data to analytics services like Power BI and Azure Synapse Analytics for generating insights. The system backs up and stores all data in SQL or Redis databases.
 
 ## Components
 
@@ -77,7 +75,7 @@ The CluedIn platform has the following characteristics and considerations:
 
 - CluedIn takes automatic daily database backups and keeps them in long-term storage for 30 days by default. The entire platform is built on redundant, fault tolerant stacks that maintain backups for all subsystems. Round the clock monitoring systems ensure that services are as untainted as possible. CluedIn follows industry standard practices for infrastructure redundancy.
 
-- CluedIn surfaces and stores only a representation of your data, not the original version. CluedIn manages the data representations behind multiple firewall and proxy layers, and authenticates them with a set of unique keys. If CluedIn detects destructive data intrusion, it can temporarily wipe the CluedIn data from the servers. Once the intrusion subsides, CluedIn regathers the data to get back to its original state.
+- CluedIn surfaces and stores only a representation of your data, not the original version. If CluedIn detects destructive data intrusion, it can temporarily wipe the CluedIn data from your servers. Once the intrusion subsides, CluedIn regathers the data to get back to its original state.
 
 - All data stores run in high-availability mode.
 
@@ -95,22 +93,24 @@ The CluedIn platform has the following characteristics and considerations:
 
 - In addition to authenticated user accounts, CluedIn also supports single sign-on (SSO) and identity frameworks. Requests to the CluedIn application use encrypted access tokens that have no correlation with user identity.
 
+- CluedIn manages stored data representations behind multiple firewall and proxy layers, and authenticates them with a set of unique keys.
+
 - CluedIn stores all sourced data with 256-bit AES encryption, which is stronger than or equal to the encryption level of the supported data sources.
 
-- CluedIn ensures secure data access with throttling and CSRF prevention.
+- Throttling and CSRF prevention protect data access.
 
 ### DevOps
 
-- CluedIn integrates with [Azure Pipelines](https://azure.microsoft.com/services/devops/pipelines/) CI/CD pipelines for development, testing, and deployment to the AKS environment.
+- CluedIn uses [Azure Pipelines](https://azure.microsoft.com/services/devops/pipelines/) continuous integration and continuous delivery (CI/CD) pipelines to handle deployments and rolling updates to the AKS environment.
 
 - CluedIn supports unit, integration, and functional testing to ensure that data transforms as expected. Virtualized processing pipelines can run in memory for sandbox testing. Production-grade assertions can help debug and track down data issues.
 
-- Fully scripted data deployment processes support setup, test, and rollout.
+- For testing and production environments, CluedIn provides a [Helm package manager](https://helm.sh/) chart to install CluedIn quickly in a Kubernetes cluster. Fully scripted data deployment processes support setup, test, and rollout.
 
 ## Deployment
-- You can deploy CluedIn locally for development and evaluation purposes using Docker. For more information and instructions, see [CluedIn with Docker](http://documentation.cluedin.net/docs/00-gettingStarted/30-docker-local.html).
+- To deploy CluedIn for development and evaluation purposes using Docker, see [CluedIn with Docker](http://documentation.cluedin.net/docs/00-gettingStarted/30-docker-local.html).
 
-- For testing and production environments, CluedIn provides a [Helm package manager](https://helm.sh/) chart to install CluedIn quickly in a Kubernetes cluster. The chart installs the CluedIn server, website, and other required services like storage and queues. For more information and instructions, see [CluedIn with Kubernetes](http://documentation.cluedin.net/docs/00-gettingStarted/40-kubernetes.html).
+- To install CluedIn quickly in a Kubernetes cluster, see [CluedIn with Kubernetes](http://documentation.cluedin.net/docs/00-gettingStarted/40-kubernetes.html). The Helm chart installs the CluedIn server, website, and other required services like storage and queues.
 
 ## Next steps
 
