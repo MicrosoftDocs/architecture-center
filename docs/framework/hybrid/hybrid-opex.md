@@ -27,15 +27,15 @@ Be sure to utilize hybrid reference architectures from this section. They can al
 ### Azure Arc enabled servers & Kubernetes: Infrastructure management customer needs
 
 - **IT Estate visibility and control**
-   - Customer need: "I need to be able to see all my resources in a single location and be able to query through them to gain insights."
+   - Customer's need: "I need to be able to see all my resources in a single location and be able to query through them to gain insights."
 - **Cloud-based management**
-   - Customer need: "I need to be able to modernize my operations by being able to use the same cloud management services on my resources outside of Azure."
+   - Customer's need: "I need to be able to modernize my operations by being able to use the same cloud management services on my resources outside of Azure."
 - **Governance**
-   - Customer need: "I need to be able to ensure consistent configurations in all my resources from a central location."
+   - Customer's need: "I need to be able to ensure consistent configurations in all my resources from a central location."
 - **DevOps and cloud native app deployment flexibility**
-   - Customer need: "I need to be able to deploy apps’ infra through templates and apps’ configurations through GitOps."
+   - Customer's need: "I need to be able to deploy apps’ infra through templates and apps’ configurations through GitOps."
 - **Increased flexibility when adopting PaaS**
-   - Customer need: "I need to be able to run PaaS services on infrastructure of my choice."
+   - Customer's need: "I need to be able to run PaaS services on infrastructure of my choice."
  
 ### Modernize datacenter
 
@@ -48,7 +48,7 @@ Be sure to utilize hybrid reference architectures from this section. They can al
 ### Azure Stack HCI use cases
 
 - **Upgrade your infrastructure for remote work using VDI**
-   - Bring desktops on prem for low latency and data sovereignty enabling remote work using a brokerage service like Microsoft Remote Desktop Services. With Azure Stack HCI you can scale your resources in a simple predictable way. Provide a secure way to deliver desktop services to a wide range of devices without allowing users to store data locally or upload data from those local devices
+   - Bring desktops on-premises for low latency and data sovereignty enabling remote work using a brokerage service like Microsoft Remote Desktop Services. With Azure Stack HCI you can scale your resources in a simple predictable way. Provide a secure way to deliver desktop services to a wide range of devices without allowing users to store data locally or upload data from those local devices
 - **Modernize your remote and branch office, with easier to deploy and manageable technology**
    - Use Azure Stack HCI to meet the evolving IT demands of branch offices, retail stores, and field locations. Bring efficient IT to remote locations at the right price by leveraging switchless deployment and 2 node clusters.
    - Deploy your container-built edge workloads and essential business applications in highly available virtual machines (VMs).
@@ -75,7 +75,7 @@ Utilize Arc Jumpstart, Arc Reference Architectures, and HCI Reference Architectu
 - **Connect Machines agent overview of Azure Arc**
    - Connect machines from Azure Portal
    - At scale using service principal
-   - Connect to Azure Arc with Powershell DSC
+   - Connect to Azure Arc with PowerShell DSC
    - Connect machines from WAC
 - **Monitor hybrid machines with Azure Monitor for VMs**
    - [Tutorial - Monitor a hybrid machine with Azure Monitor for VMs](/azure/azure-arc/servers/learn/tutorial-enable-vm-insights) (in Azure Arc | Microsoft Docs)
@@ -92,13 +92,13 @@ VM extensions can be managed using:
 
 ## Code deployment
 
-- **Deploy Azure VM extensions with ARM templates**: [Enable VM extension using Azure Resource Manager template](/azure/azure-arc/servers/manage-vm-extensions-template) (in Azure Arc | Microsoft Docs) 
+- **Deploy Azure VM extensions with ARM templates**: [Enable VM extension using Azure Resource Manager template](/azure/azure-arc/servers/manage-vm-extensions-template) (in Azure Arc | Microsoft Docs)
    - Linux
    - Windows
 - **Deploy Custom Scripts**
    - Linux
    - Windows
-- **Deploy Powershell DSC Extension**
+- **Deploy PowerShell DSC Extension**
    - Linux
    - Windows
 - **Deploy Azure Monitor Dependency Extension agent**
