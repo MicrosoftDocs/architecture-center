@@ -11,7 +11,7 @@ ms.custom:
 
 # Operational excellence in a hybrid environment
 
-Operational excellence consists of the operations processes that keep a system running in production.
+Operational excellence consists of the operations processes that keep a system running in production. 
 
 Be sure to utilize hybrid reference architectures from this section. They can also be found in the Azure Architecture Center, [Hybrid and Multicloud](/azure/architecture/browse/?azure_categories=hybrid) category.
  

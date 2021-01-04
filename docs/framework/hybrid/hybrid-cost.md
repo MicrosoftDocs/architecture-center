@@ -17,7 +17,7 @@ ms.custom:
 
 Define the following for your workloads.
 
-- Monitor cloud spend with hybrid workloads.
+- Monitor cloud spend with hybrid workloads. 
    - Track cost trends and forecast future spend in dashboards in Azure of your on-prem data estates with Azure Arc. <!--Overlaps with CAF. -->
 - Keep within cost constraints.
    - Create, apply, and enforce standardized and custom tags and policies.
