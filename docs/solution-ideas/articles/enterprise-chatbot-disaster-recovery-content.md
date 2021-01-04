@@ -42,6 +42,22 @@ Keep all deployment and source code artifacts in a source code repository, and u
 - Create a Secure Sockets Layer (SSL) certificate for your traffic manager endpoint, and [bind the SSL certificate](/azure/app-service/configure-ssl-bindings) in your App Services.
 - Finally, use the Traffic Manager or Azure Front Door endpoint of QnA Maker in your bot, and use the traffic manager endpoint of the bot API as the bot endpoint in Azure Bot Service registration.
 
+### List of services
+
+Key technologies used to implement this architecture:
+
+* [Azure Bot Service](https://azure.microsoft.com/services/bot-service)
+* [Azure Active Directory](https://azure.microsoft.com/services/active-directory)
+* [Azure Traffic Manager](https://azure.microsoft.com/services/traffic-manager)
+* [Azure Front Door](https://azure.microsoft.com/services/frontdoor)
+* [Azure App Service Web Apps](https://azure.microsoft.com/services/app-service/web)
+* [Azure Cognitive Services QnA Maker](https://azure.microsoft.com/services/cognitive-services/qna-maker)
+* [Azure Monitor](https://azure.microsoft.com/services/monitor): Application Insights is a feature of Azure Monitor.
+* [Azure Cognitive Services Language Understanding](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service)
+* [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db)
+* [Azure Key Vault](https://azure.microsoft.com/services/key-vault)
+* [Azure Cognitive Search](https://azure.microsoft.com/services/search)
+
 ## Next steps
 
 - [Enterprise-grade conversational bot](../../reference-architectures/ai/conversational-bot.yml)

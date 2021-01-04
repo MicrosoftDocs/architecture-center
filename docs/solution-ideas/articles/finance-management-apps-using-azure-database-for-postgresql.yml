@@ -19,6 +19,6 @@ azureCategories:
 summary: Use Azure Database for PostgreSQL to securely store critical data and provide high-value analytics and insights over aggregated data to users.
 products:
   - azure
-thumbnailUrl: /azure/architecture/browse/thumbs/finance-management-apps-using-azure-database-for-postgresql.svg
+thumbnailUrl: /azure/architecture/browse/thumbs/finance-management-apps-using-azure-database-for-postgresql.png
 content: |
    [!include[](finance-management-apps-using-azure-database-for-postgresql-content.md)]
