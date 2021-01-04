@@ -23,6 +23,6 @@ products:
   - azure-iot
   - azure-monitor
   - power-bi
-thumbnailUrl: /azure/architecture/browse/thumbs/iot-refarch.svg
+thumbnailUrl: /azure/architecture/browse/thumbs/iot-refarch.png
 content: |
    [!include[](iot-content.md)]
