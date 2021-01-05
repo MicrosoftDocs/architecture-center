@@ -64,10 +64,10 @@ The [Azure Kubernetes Service](/azure/aks/intro-kubernetes) supports Docker cont
 
 - [Create a Linux VM on Azure using the portal](/azure/virtual-machines/linux/quick-create-portal)
 
-- [Azure Reference Architecture: Running a Linux VM on Azure](../reference-architectures/n-tier/linux-vm.md)
+- [Azure Reference Architecture: Running a Linux VM on Azure](../reference-architectures/n-tier/linux-vm.yml)
 
 - [Get started with Node.js web apps in Azure App Service](/azure/app-service/app-service-web-get-started-nodejs)
 
-- [Azure Reference Architecture: Basic web application](../reference-architectures/app-service-web-app/basic-web-app.md)
+- [Azure Reference Architecture: Basic web application](../reference-architectures/app-service-web-app/basic-web-app.yml)
 
 - [Create your first Azure Function](/azure/azure-functions/functions-create-first-azure-function)

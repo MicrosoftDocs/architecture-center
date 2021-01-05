@@ -1,0 +1,26 @@
+### YamlMime:Architecture
+metadata:
+  title: Product recommendations for retail using Azure
+  titleSuffix: Azure Solution Ideas
+  author: doodlemania2
+  ms.date: 12/16/2019
+  description: 'This solution implements a process of aggregating customer data into a complete profile, and uses advanced machine learning models backed by the reliability and processing power of Azure to provide predictive insights on simulated customers.'
+  ms.custom: 'acom-architecture, artificial intelligence, solution architectures, Azure, ai gallery, interactive-diagram, ''https://azure.microsoft.com/solutions/architecture/customer-360/'''
+  ms.service: architecture-center
+  ms.category:
+    - analytics
+  ms.subservice: solution-idea
+  social_image_url: /azure/architecture/solution-ideas/articles/media/product-recommendations.png
+name: Product recommendations for retail using Azure
+azureCategories:
+  - analytics
+summary: 'This solution implements a process of aggregating customer data into a complete profile, and uses advanced machine learning models backed by the reliability and processing power of Azure to provide predictive insights on simulated customers.'
+products:
+  - azure
+  - azure-hdinsight
+  - azure-storage
+  - github
+  - power-bi
+thumbnailUrl: /azure/architecture/browse/thumbs/product-recommendations.png
+content: |
+   [!include[](product-recommendations-content.md)]

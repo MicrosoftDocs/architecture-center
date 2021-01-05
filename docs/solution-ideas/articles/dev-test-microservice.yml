@@ -1,0 +1,32 @@
+### YamlMime:Architecture
+metadata:
+  title: DevTest and DevOps for microservice solutions
+  titleSuffix: Azure Solution Ideas
+  author: doodlemania2
+  ms.date: 09/17/2020
+  description: 'Learn how to configure a DevTest and DevOps infrastructure for development, testing, and deploying microservice-based software.'
+  ms.custom:
+    - fcp
+  ms.service: architecture-center
+  ms.category:
+    - devops
+    - management-and-governance
+  ms.subservice: solution-idea
+name: DevTest and DevOps for microservice solutions
+azureCategories:
+  - devops
+  - management-and-governance
+summary: 'Learn how to configure a DevTest and DevOps infrastructure for development, testing, and deploying microservice-based software.'
+products:
+  - azure
+  - azure-boards
+  - azure-devops
+  - azure-monitor
+  - azure-pipelines
+  - azure-repos
+  - dotnet
+  - github
+  - vs
+thumbnailUrl: /azure/architecture/browse/thumbs/dev-test-microservice.png
+content: |
+   [!include[](dev-test-microservice-content.md)]

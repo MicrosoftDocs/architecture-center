@@ -1,0 +1,25 @@
+### YamlMime:Architecture
+metadata:
+  title: IoT solution architecture
+  titleSuffix: Azure Example Scenarios
+  description: 'Understand the topological relationship between IoT devices, platform, and applications. Learn about Iot gateways, communications protocols, and provisioning.'
+  author: wamachine
+  ms.date: 08/10/2020
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: example-scenario
+  ms.custom:
+    - fcp
+    - example-scenario
+  ms.category:
+    - iot
+name: IoT solution architecture
+azureCategories:
+  - iot
+summary: 'Understand the topological relationship between IoT devices, platform, and applications. Learn about Iot gateways, communications protocols, and provisioning.'
+products:
+  - azure
+  - azure-iot
+thumbnailUrl: /azure/architecture/browse/thumbs/devices-platform-application.png
+content: |
+   [!include[](devices-platform-application-content.md)]

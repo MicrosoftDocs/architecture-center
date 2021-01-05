@@ -3,6 +3,9 @@ title: Replace this text based on the guidance in Completing the metadata under 
 description: Replace this text based on the guidance in Completing the metadata under the Article Title section.
 keywords: Replace this text based on the guidance in Completing the metadata under the Article Title section.
 ms.date: mm/dd/yyyy
+ms.service = architecture-center
+ms.topic = conceptual
+ms.subservice = design-pattern
 pnp.series.title: Cloud Design Patterns
 pnp.pattern.categories: Replace this text based on the guidance in Completing the metadata under the Article Title section.
 ---
