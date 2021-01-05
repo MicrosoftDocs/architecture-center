@@ -15,21 +15,21 @@ Security includes protecting applications and data from threats.
 
 ## Azure Architecture Center (AAC) resources
 
-- [Hybrid Security Monitoring using Azure Security Center and Azure Sentinel](/azure/architecture/hybrid/hybrid-security-monitoring)
+- [Hybrid Security Monitoring using Azure Security Center and Azure Sentinel](/azure/architecture/hybrid/hybrid-security-monitoring)<!--CAF Overlap-->
 - [DevSecOps in Azure](/azure/architecture/solution-ideas/articles/devsecops-in-azure)
-- [Optimize administration of SQL Server instances in on-premises and multi-cloud environments by leveraging Azure Arc](/azure/architecture/hybrid/azure-arc-sql-server)
+- [Optimize administration of SQL Server instances in on-premises and multi-cloud environments by leveraging Azure Arc](/azure/architecture/hybrid/azure-arc-sql-server)<!--CAF Overlap-->
 
 ## Principals
 
 ### Azure Arc management security capabilities
 
-- Access unique Azure security capabilities such as Azure Security Center.
-- Centrally manage and access<!--CAF Overlap--> for resources with Role-Based Access Control.
+- Access unique Azure security capabilities such as Azure Security Center.<!--CAF Overlap-->
+- Centrally manage and access for resources with Role-Based Access Control.<!--CAF Overlap-->
 - Centrally manage and enforce compliance and simplify audit reporting with Azure Policy.<!--CAF Overlap-->
  
 ### Azure Arc enabled data services security capabilities
 
-- Protect your data workloads with Azure Security Center in your environment, using the advanced threat protection and vulnerability assessment features for unmatched security. 
+- Protect your data workloads with Azure Security Center in your environment, using the advanced threat protection and vulnerability assessment features for unmatched security.<!--CAF Overlap--> 
 - Set security policies, resource boundaries, and role-based access control for various data workloads seamlessly across your hybrid infrastructure.<!--CAF Overlap-->
 
 ### Azure Stack HCI
@@ -44,26 +44,26 @@ Security includes protecting applications and data from threats.
 
 ### Azure Arc enabled servers
 
-**Implement Azure Monitor**
+**Implement Azure Monitor**<!--CAF Overlap-->
 
 Use Azure Monitor to monitor your VMs, virtual machine scale sets, and Azure Arc machines at scale<!--"at scale" CAF Overlap-->. Azure Monitor analyzes the performance and health of your Windows and Linux VMs. It also monitors their processes and dependencies on other resources and external processes. It includes support for monitoring performance and application dependencies for VMs that are hosted on-premises or in another cloud provider.
 
 **Implement Azure Sentinel**
 
-Use Azure Sentinel to deliver intelligent security analytics and threat intelligence across the enterprise. This provides a single solution for alert detection, threat visibility, proactive hunting, and threat response. Azure Sentinel is a scalable, cloud-native, security information event management (SIEM) and security orchestration automated response (SOAR) solution that enables several scenarios including:
+Use Azure Sentinel to deliver intelligent security analytics and threat intelligence across the enterprise. This provides a single solution for alert detection, threat visibility, proactive hunting, and threat response. Azure Sentinel is a scalable, cloud-native, security information event management (SIEM) and security orchestration automated response (SOAR) solution that enables several scenarios including:<!--CAF Overlap-->
 - Collect data at cloud scale across all users, devices, applications, and infrastructure, both on-premises and in multiple clouds.<!--CAF Overlap-->
 - Detect previously undetected threats and minimize false positives.<!--CAF Overlap-->
 - Investigate threats with artificial intelligence and hunt for suspicious activities at scale.<!--CAF Overlap-->
-- Respond to incidents rapidly with built-in orchestration and automation of common tasks.
+- Respond to incidents rapidly with built-in orchestration and automation of common tasks.<!--CAF Overlap-->
  
 ### **Azure Stack HCI**
 
-A stretched Azure Stack HCI cluster relies on Storage Replica to perform synchronous storage replication between storage volumes hosted by the two groups of nodes in their respective physical sites. If a failure affects the availability of the primary site, the cluster automatically transitions its workloads to nodes in the surviving site to minimize potential downtime.
+A stretched Azure Stack HCI cluster relies on Storage Replica to perform synchronous storage replication between storage volumes hosted by the two groups of nodes in their respective physical sites. If a failure affects the availability of the primary site, the cluster automatically transitions its workloads to nodes in the surviving site to minimize potential downtime.<!--CAF Overlap-->
 
 ## Monitor
 
-- Across products: Integrate with Azure Sentinel, Azure Defender.
-- Bring Azure Security Center to your on-prem data and servers with Arc.
+- Across products: Integrate with Azure Sentinel, Azure Defender.<!--CAF Overlap-->
+- Bring Azure Security Center to your on-prem data and servers with Arc.<!--CAF Overlap-->
 - Set security policies, resource boundaries, and RBAC for workloads across the hybrid infra.<!--CAF Overlap-->
 - Proper admin roles for read, modify, re-onboard, and delete a machine,<!--CAF Overlap-->
  
