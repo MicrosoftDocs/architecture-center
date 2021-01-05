@@ -24,7 +24,7 @@ Security includes protecting applications and data from threats.
 ### Azure Arc management security capabilities
 
 - Access unique Azure security capabilities such as Azure Security Center.
-- Centrally manage and access<!--CAF Overlap--> for resources with Role Based Access Control.
+- Centrally manage and access<!--CAF Overlap--> for resources with Role-Based Access Control.
 - Centrally manage and enforce compliance and simplify audit reporting with Azure Policy.<!--CAF Overlap-->
  
 ### Azure Arc enabled data services security capabilities
