@@ -37,7 +37,7 @@ Security includes protecting applications and data from threats.
 - **Protection in transit**. Storage Replica offers built-in security for its replication traffic. This includes packet signing, AES-128-GCM full data encryption, support for Intel AES-NI encryption acceleration, and pre-authentication integrity man-in-the-middle attack prevention.
    - Storage Replica also utilizes Kerberos AES256 for authentication between the replicating nodes.
 - **Encryption at rest**. Azure Stack HCI supports BitLocker Drive Encryption for its data volumes, thus facilitating compliance with standards such as FIPS 140-2 and HIPAA.
-- **Integration with a range of Azure services that provide additional security advantages**. You can integrate virtualized workloads that run on Azure Stack HCI clusters with such Azure services as Azure Security Center.
+- **Integration with a range of Azure services that provide more security advantages**. You can integrate virtualized workloads that run on Azure Stack HCI clusters with such Azure services as Azure Security Center.
 - **Firewall-friendly configuration**. Storage Replica traffic requires a limited number of open ports between the replicating nodes.
 
 ## Design
@@ -50,7 +50,7 @@ Use Azure Monitor to monitor your VMs, virtual machine scale sets, and Azure Arc
 
 **Implement Azure Sentinel**
 
-Use Azure Sentinel to deliver intelligent security analytics and threat intelligence across the enterprise, providing a single solution for alert detection, threat visibility, proactive hunting, and threat response. Azure Sentinel is a scalable, cloud-native, security information event management (SIEM) and security orchestration automated response (SOAR) solution that enables several scenarios including:
+Use Azure Sentinel to deliver intelligent security analytics and threat intelligence across the enterprise. This provides a single solution for alert detection, threat visibility, proactive hunting, and threat response. Azure Sentinel is a scalable, cloud-native, security information event management (SIEM) and security orchestration automated response (SOAR) solution that enables several scenarios including:
 - Collect data at cloud scale across all users, devices, applications, and infrastructure, both on-premises and in multiple clouds.<!--CAF Overlap-->
 - Detect previously undetected threats and minimize false positives.<!--CAF Overlap-->
 - Investigate threats with artificial intelligence and hunt for suspicious activities at scale.<!--CAF Overlap-->
