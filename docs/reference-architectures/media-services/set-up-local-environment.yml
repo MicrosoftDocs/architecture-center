@@ -18,6 +18,6 @@ products:
   - dotnet
   - github
   - windows
-thumbnailUrl: ""
+thumbnailUrl: /azure/architecture/browse/thumbs/request-response.png
 content: |
    [!include[](set-up-local-environment-content.md)]
