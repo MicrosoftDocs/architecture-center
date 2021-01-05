@@ -1,6 +1,6 @@
 ### YamlMime:Architecture
 metadata:
-  title: CluedIn data management platform
+  title: Master Data Management with Azure and CluedIn
   titleSuffix: Azure Architectures
   description: Use CluedIn eventual connectivity data integration to blend data from many siloed data sources and prepare it for analytics and business operations.
   author: doodlemania2
@@ -25,7 +25,7 @@ products:
   - azure-sql-managed-instance
   - azure-synapse-analytics
   - power-bi
-name: CluedIn data integration and preparation solution
+name: Master Data Management with CluedIn
 summary: Use the CluedIn eventual connectivity data integration technique to seamlessly blend data from many siloed data sources into Azure data management and analytics services.
 thumbnailUrl: /azure/architecture/browse/thumbs/cluedin-architecture-small.png
 content: |
