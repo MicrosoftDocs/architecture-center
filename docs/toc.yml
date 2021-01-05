@@ -750,8 +750,8 @@ items:
         href: aws-professional/security-identity.md
       - name: Storage
         href: aws-professional/storage.md
-    - name: Service comparison
-      href: aws-professional/services.md
+      - name: Service comparison
+        href: aws-professional/services.md
   - name: Azure for GCP Professionals
     items:
     - name: Overview
