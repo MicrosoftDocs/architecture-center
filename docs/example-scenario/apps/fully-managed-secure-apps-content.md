@@ -143,7 +143,7 @@ We have provided three sample cost profiles based on amount of traffic you expec
 [small-pricing]: https://azure.com/e/22e2c9d300ee425a89a001726221c7b2
 [medium-pricing]: https://azure.com/e/c280777e16bd4fd5bc9c23f3b8caf91f
 [large-pricing]: https://azure.com/e/294d5b09fa064ced87d6422826f2a0fc
-[app-service-reference-architecture]: ../../reference-architectures/app-service-web-app/basic-web-app.md
+[app-service-reference-architecture]: ../../reference-architectures/app-service-web-app/basic-web-app.yml
 [availability]: /azure/architecture/checklist/resiliency-per-service
 
 [design-patterns-availability]: ../../framework/resiliency/reliability-patterns.md
