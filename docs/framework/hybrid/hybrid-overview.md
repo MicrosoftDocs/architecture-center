@@ -21,7 +21,7 @@ The hybrid model offers three solutions that allow you to extend Azure managemen
 
 Use *Azure Arc management* to extend Azure management to any infrastructure in a hybrid environment. Key features of Azure Arc management are:
 
-- **Unified governance and management**
+- **Unified Operations** <!--CAF Overlap... Link off to https://review.docs.microsoft.com/en-us/azure/cloud-adoption-framework/scenarios/unified-operations/unified-operations?branch=pr-en-us-884 -->
    - Organize resources such as virtual machines, Kubernetes clusters and Azure services deployed across your entire IT environment.
    - Manage and govern resources with a single pane of glass from Azure.
    - Integrated with Azure Lighthouse for managed service provider support.
