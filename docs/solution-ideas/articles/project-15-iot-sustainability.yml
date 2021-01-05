@@ -23,6 +23,6 @@ products:
   - github
   - office
   - power-bi
-thumbnailUrl: /azure/architecture/browse/thumbs/project-15-open-platform-overview.png
+thumbnailUrl: /azure/architecture/browse/thumbs/project-15-ref-architecture.png
 content: |
    [!include[](project-15-iot-sustainability-content.md)]
