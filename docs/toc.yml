@@ -425,6 +425,8 @@ items:
                 href: framework/hybrid/hybrid-cost.md 
               - name: Operational Excellence
                 href: framework/hybrid/hybrid-opex.md
+              - name: Security
+                href: framework/hybrid/hybrid-security.md  
   - name: Design Patterns
     items:
       - name: Overview

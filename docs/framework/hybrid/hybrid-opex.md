@@ -17,21 +17,21 @@ Be sure to utilize hybrid reference architectures from this section. They can al
  
 ## Principles
 
-### Monitor your entire IT estate regardless of where your resources are stored.
+### Monitor your entire IT estate<!--CAF Overlap "entire IT estate"--> regardless of where your resources are stored.
 
 - **Azure Arc enabled data services**
-   - Better data estate planning and control: Single view of all data assets for easy tracking and IT control over sprawl.
-   - Improve IT productivity: No end of support for traditional on-premises database SW, full automation to enable management at scale.
-   - Increase IT agility: Policy-driven management to give business users access and freedom to operate within defined enterprise-level policies by IT.
+   - Better data estate planning and control: Single view of all data assets for easy tracking and IT control over sprawl.<!--CAF Overlap-->
+   - Improve IT productivity: No end of support for traditional on-premises database SW, full automation to enable management at scale.<!--CAF Overlap-->
+   - Increase IT agility: Policy-driven management to give business users access and freedom to operate within defined enterprise-level policies by IT.<!--CAF Overlap-->
 
 ### Azure Arc enabled servers & Kubernetes: Infrastructure management customer needs
 
-- **IT Estate visibility and control**
-   - Customer's need: "I need to be able to see all my resources in a single location and be able to query through them to gain insights."
-- **Cloud-based management**
-   - Customer's need: "I need to be able to modernize my operations by being able to use the same cloud management services on my resources outside of Azure."
-- **Governance**
-   - Customer's need: "I need to be able to ensure consistent configurations in all my resources from a central location."
+- **IT Estate visibility and control**<!--CAF Overlap-->
+   - Customer's need: "I need to be able to see all my resources in a single location and be able to query through them to gain insights."<!--CAF Overlap-->
+- **Cloud-based management**<!--CAF Overlap-->
+   - Customer's need: "I need to be able to modernize my operations by being able to use the same cloud management services on my resources outside of Azure."<!--CAF Overlap-->
+- **Governance**<!--CAF Overlap-->
+   - Customer's need: "I need to be able to ensure consistent configurations in all my resources from a central location."<!--CAF Overlap-->
 - **DevOps and cloud native app deployment flexibility**
    - Customer's need: "I need to be able to deploy apps’ infra through templates and apps’ configurations through GitOps."
 - **Increased flexibility when adopting PaaS**
@@ -47,13 +47,13 @@ Be sure to utilize hybrid reference architectures from this section. They can al
 
 ### Azure Stack HCI use cases
 
-- **Upgrade your infrastructure for remote work using VDI**
-   - Bring desktops on-premises for low latency and data sovereignty enabling remote work using a brokerage service like Microsoft Remote Desktop Services. With Azure Stack HCI you can scale your resources in a simple predictable way. Provide a secure way to deliver desktop services to a wide range of devices without allowing users to store data locally or upload data from those local devices
-- **Modernize your remote and branch office, with easier to deploy and manageable technology**
-   - Use Azure Stack HCI to meet the evolving IT demands of branch offices, retail stores, and field locations. Bring efficient IT to remote locations at the right price by leveraging switchless deployment and 2 node clusters.
-   - Deploy your container-built edge workloads and essential business applications in highly available virtual machines (VMs).
-   - Get a global view of your system’s health Azure Monitor.
-   - Control your enterprise virtual desktop infrastructure configuration in the cloud with an Azure update management solution.
+- **Upgrade your infrastructure for remote work using VDI**.<!--CAF Overlap-->
+   - Bring desktops on-premises for low latency and data sovereignty enabling remote work using a brokerage service like Microsoft Remote Desktop Services. With Azure Stack HCI you can scale your resources in a simple predictable way. Provide a secure way to deliver desktop services to a wide range of devices without allowing users to store data locally or upload data from those local devices.<!--CAF Overlap-->
+- **Modernize your remote and branch office, with easier to deploy and manageable technology**.<!--CAF Overlap-->
+   - Use Azure Stack HCI to meet the evolving IT demands of branch offices, retail stores, and field locations. Bring efficient IT to remote locations at the right price by leveraging switchless deployment and 2 node clusters.<!--CAF Overlap-->
+   - Deploy your container-built edge workloads and essential business applications in highly available virtual machines (VMs).<!--CAF Overlap-->
+   - Get a global view of your system’s health Azure Monitor.<!--CAF Overlap-->
+   - Control your enterprise virtual desktop infrastructure configuration in the cloud with an Azure update management solution.<!--CAF Overlap-->
 - **Modernize your high-performance workloads and container enterprise infrastructure Customer**
    - Use Azure Stack HCI to enable automated deployment, scaling and management of containerized applications by running a Kubernetes cluster on your hyperconverged infrastructure.
  
@@ -92,23 +92,23 @@ VM extensions can be managed using:
 
 ## Code deployment
 
-- **Deploy Azure VM extensions with ARM templates**: [Enable VM extension using Azure Resource Manager template](/azure/azure-arc/servers/manage-vm-extensions-template) (in Azure Arc | Microsoft Docs)
+- **Deploy Azure VM extensions with ARM templates**: [Enable VM extension using Azure Resource Manager template](/azure/azure-arc/servers/manage-vm-extensions-template) (in Azure Arc | Microsoft Docs)<!--CAF Overlap-->
    - Linux
    - Windows
-- **Deploy Custom Scripts**
+- **Deploy Custom Scripts**<!--CAF Overlap-->
    - Linux
    - Windows
-- **Deploy PowerShell DSC Extension**
+- **Deploy PowerShell DSC Extension**<!--CAF Overlap-->
    - Linux
    - Windows
-- **Deploy Azure Monitor Dependency Extension agent**
+- **Deploy Azure Monitor Dependency Extension agent**<!--CAF Overlap-->
    - Linux
    - Windows
-- **Deploy Azure Key Vault Extensions**
+- **Deploy Azure Key Vault Extensions**<!--CAF Overlap-->
    - Linux
    - Windows
 
-### Management capabilities comparison by deployment model
+### Management capabilities comparison by deployment model<!--CAF Overlap-->
 
 ![Management capabilities comparison by deployment model](../_images/hybrid-deployment.png)
   
@@ -123,4 +123,4 @@ Reliability is the ability of a system to recover from failures and continue to 
 ## Next steps
 
 >[!div class="nextstepaction"]
->[Performance efficiency](/azure/architecture/framework/hybrid/hybrid-scalability)
+>[Performance efficiency](/azure/architecture/framework/hybrid/hybrid-security)

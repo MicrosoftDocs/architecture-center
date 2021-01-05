@@ -17,22 +17,22 @@ ms.custom:
 
 Define the following for your workloads.
 
-- Monitor cloud spend with hybrid workloads. 
-   - Track cost trends and forecast future spend in dashboards in Azure of your on-prem data estates with Azure Arc. <!--Overlaps with CAF. -->
-- Keep within cost constraints.
-   - Create, apply, and enforce standardized and custom tags and policies.
-   - Enforce run-time conformance and audit resources with Azure Policy.
+- Monitor cloud spend with hybrid workloads.
+   - Track cost trends and forecast future spend in dashboards in Azure of your on-prem data estates with Azure Arc.<!--CAF Overlap-->
+- Keep within cost constraints.<!--CAF Overlap-->
+   - Create, apply, and enforce standardized and custom tags and policies.<!--CAF Overlap-->
+   - Enforce run-time conformance and audit resources with Azure Policy.<!--CAF Overlap-->
 - Choose a flexible billing model.
    - With Azure Arc enabled data services, you can use existing hardware with the addition of an Opex model.
 
 ### Key points
 
-For budget concerns, you get a considerable amount of functionality that you can use across all of your servers and cluster, at no cost with Azure Arc enabled servers. You can turn on additional Azure services to each workload as you need them, or not at all.
+For budget concerns, you get a considerable amount of functionality at no cost that you can use across all of your servers and cluster<!--CAF Overlap "across all of your servers and cluster"--> with Azure Arc enabled servers. You can turn on additional Azure services to each workload as you need them, or not at all.
 
 - **Free Core Azure Arc capabilities**
-   - Update, management
-   - Search index
-   - Group, tags
+   - Update, management<!--CAF Overlap-->
+   - Search index<!--CAF Overlap-->
+   - Group, tags<!--CAF Overlap-->
    - Portal
    - Templates, extensions
    - RBAC, subscriptions
@@ -48,8 +48,8 @@ For budget concerns, you get a considerable amount of functionality that you can
 **Other key points**:
 
 - **Start slow**. Light up new capabilities as needed. Most of Azure Arc's resources are free to start.
-- **Save time with unified management** for your on-premises and cloud workloads by projecting them all into Azure.
-- **Automate and delegate** remediation of incidents and problems to service teams without IT intervention.
+- **Save time with unified management<!--CAF Overlap "unified management"-->** for your on-premises and cloud workloads by projecting them all into Azure.
+- **Automate and delegate** remediation of incidents and problems to service teams without IT intervention.<!--CAF Overlap-->
  
 ## Design
 
@@ -78,7 +78,7 @@ Click the following links for architecture details and diagrams.
    - Azure Stack HCI billing is based on a monthly subscription fee per physical processor core, not a perpetual license. When customers connect to Azure, the number of cores used is automatically uploaded and assessed for billing purposes. Cost doesn’t vary with consumption beyond the physical processor cores. This means that more VMs don’t cost more, and customers who are able to run denser virtual environments are rewarded.
 - Use AVS if you're locked in with VMware.
 - Use Azure Arc on any infrastructure of your choice.
-- Slowly begin migrating out of your datacenter and use Azure Arc while you're migrating to project everything into Azure.
+- Slowly begin migrating out of your datacenter and use Azure Arc while you're migrating to project everything into Azure.<!--CAF Overlap-->
 
 ### Capacity planning
 
@@ -93,21 +93,21 @@ Click the following links for guidance in provisioning.
 - [Azure Arc Jumpstart for templates](https://github.com/microsoft/azure_arc) (in GitHub)
 - [Azure Stack HCI pricing](https://azure.microsoft.com/en-us/pricing/details/azure-stack/hci/)
    - Azure Stack HCI can reduce costs by saving in server, storage, and network infrastructure.
-- [Azure VMware Solution pricing](https://azure.microsoft.com/pricing/details/azure-vmware/)
+- [Azure VMware Solution pricing - Run your VMware workloads natively on Azure](https://azure.microsoft.com/pricing/details/azure-vmware/)
    - Run your VMware workloads natively on Azure.
 - [Azure Stack Hub pricing](https://azure.microsoft.com/pricing/details/azure-stack/hub/)
 
 ## Monitor
 
 - [Managing the Azure Arc enabled servers agent](/azure/azure-arc/servers/manage-agent)
-   - Bring all your resources into a single system so you can organize and inventory through a variety of Azure scopes, such as Management groups, Subscriptions, and Resource Groups.
-   - Create, apply, and enforce standardized and custom tags to keep track of resources.
-   - Build powerful queries and search your global portfolio with Azure Resource Graph.
+   - Bring all your resources into a single system so you can organize and inventory through a variety of Azure scopes, such as Management groups, Subscriptions, and Resource Groups.<!--CAF Overlap-->
+   - Create, apply, and enforce standardized and custom tags to keep track of resources.<!--CAF Overlap-->
+   - Build powerful queries and search your global portfolio with Azure Resource Graph.<!--CAF Overlap-->
 - With [Azure Stack HCI](https://azure.microsoft.com/en-us/pricing/details/azure-stack/hci/)
-   - Costs for datacenter real estate, electricity, personnel, and servers can be reduced or eliminated.
-   - Costs are now part of OPEX, which can be scaled as needed.
+   - Costs for datacenter real estate, electricity, personnel, and servers can be reduced or eliminated.<!--CAF Overlap-->
+   - Costs are now part of OPEX, which can be scaled as needed.<!--CAF Overlap-->
 
 ## Next steps
 
->[!div class="nextstepaction"]
+>[!div class="nextstepaction"] 
 >[Operational excellence](/azure/architecture/framework/hybrid/hybrid-opex)
