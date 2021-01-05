@@ -34,10 +34,10 @@ Security includes protecting applications and data from threats.
 
 ### Azure Stack HCI
 
-- **Protection in transit**. Storage Replica offers built-in security for its replication traffic, which includes packet signing, AES-128-GCM full data encryption, support for Intel AES-NI encryption acceleration, and pre-authentication integrity man-in-the-middle attack prevention.
+- **Protection in transit**. Storage Replica offers built-in security for its replication traffic. This includes packet signing, AES-128-GCM full data encryption, support for Intel AES-NI encryption acceleration, and pre-authentication integrity man-in-the-middle attack prevention.
    - Storage Replica also utilizes Kerberos AES256 for authentication between the replicating nodes.
 - **Encryption at rest**. Azure Stack HCI supports BitLocker Drive Encryption for its data volumes, thus facilitating compliance with standards such as FIPS 140-2 and HIPAA.
-- **Integration with a range of Azure services that provide additional security advantages**. You can integrate virtualized workloads running on Azure Stack HCI clusters with such Azure services as Azure Security Center.
+- **Integration with a range of Azure services that provide additional security advantages**. You can integrate virtualized workloads that run on Azure Stack HCI clusters with such Azure services as Azure Security Center.
 - **Firewall-friendly configuration**. Storage Replica traffic requires a limited number of open ports between the replicating nodes.
 
 ## Design
@@ -46,7 +46,7 @@ Security includes protecting applications and data from threats.
 
 **Implement Azure Monitor**
 
-Use Azure Monitor to monitor your VMs, virtual machine scale sets, and Azure Arc machines at scale<!--"at scale" CAF Overlap-->. Azure Monitor analyzes the performance and health of your Windows and Linux VMs and monitors their processes and dependencies on other resources and external processes. It includes support for monitoring performance and application dependencies for VMs that are hosted on-premises or in another cloud provider.
+Use Azure Monitor to monitor your VMs, virtual machine scale sets, and Azure Arc machines at scale<!--"at scale" CAF Overlap-->. Azure Monitor analyzes the performance and health of your Windows and Linux VMs. It also monitors their processes and dependencies on other resources and external processes. It includes support for monitoring performance and application dependencies for VMs that are hosted on-premises or in another cloud provider.
 
 **Implement Azure Sentinel**
 
