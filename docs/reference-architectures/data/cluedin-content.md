@@ -7,15 +7,15 @@ Modern enterprise companies base many processes and projects on data, but the ra
 
 During these processes, *governance* must ensure data control and privacy protection with clear ownership, full traceability, and an audit trail of data origins, processing, and use.
 
-The CluedIn platform encapsulates these data management processes and pillars into a coherent, consistent, end-to-end master data management (MDM) solution. CluedIn uses a data integration technique called *eventual connectivity* that yields better results than classic *extract, transform, load (ETL)* or *extract, load, transform (ELT)* models. Eventual connectivity uses [GraphQL](https://graphql.org/) queries to blend data seamlessly from across many siloed data sources.
+The [CluedIn platform](https://appsource.microsoft.com/product/web-apps/cluedin.cluedin?tab=Overview) encapsulates these data management processes and pillars into a coherent, consistent, end-to-end Master Data Management (MDM) solution. CluedIn uses a data integration technique called *eventual connectivity* that yields better results than classic *extract, transform, load (ETL)* or *extract, load, transform (ELT)* models. Eventual connectivity uses [GraphQL](https://graphql.org/) queries to blend data seamlessly from across many siloed data sources.
 
 With eventual connectivity, data isn't joined or blended upon entry or loading into other systems. Instead, CluedIn loads the data as is, and tags records using metadata. Eventually, records with the same tags merge or build a relationship in the graph.
 
-This sophisticated data merging technique provides a foundation for data-driven solutions. The CluedIn hub integrates data into a pipeline that cleans, prepares, models, governs, enriches, deduplicates, and catalogs data to make it easily available and accessible for business uses.
+This sophisticated data merging technique provides a foundation for data-driven solutions. The CluedIn Data Fabric integrates data into a pipeline that cleans, prepares, models, governs, enriches, deduplicates, and catalogs data to make it easily available and accessible for business uses.
 
-CluedIn provides businesses with metrics about the quality of data it ingests, intelligently detecting dirty data and preparing it for cleaning by data engineers. Proprietary fuzzy logic machine learning algorithms help data stewards, business users, and curators label data, and teach the system to identify, correct, and prevent data quality issues over time.
+CluedIn provides businesses with metrics about the quality of data it ingests, intelligently detecting dirty data and preparing it for cleaning by data engineers and data stewards. Proprietary fuzzy logic machine learning algorithms help business users and curators label data, and teach the system to identify, correct, and prevent data quality issues over time.
 
-CluedIn includes enterprise-grade governance, for assurance that you can use your data safely and confidently. CluedIn can stream cleaned, governed data directly to analysis systems like Power BI to make it easily available to the rest of the business. Native support for autoscaling leverages the power of Azure to provide a scalable environment for the biggest data workloads.
+CluedIn includes enterprise-grade governance, for assurance that you can use your data safely and confidently. CluedIn can stream cleaned, governed data directly to analysis systems like Power BI, Azure Databricks, Azure Synapse Analytics, or Azure Cognitive Services  to make it easily available to the rest of the business. Native support for autoscaling leverages the power of Azure to provide a scalable environment for the biggest data workloads.
 
 ## Architecture
 
@@ -25,7 +25,7 @@ The CluedIn solution consists of various functional layers that run in a Kuberne
 
 1. The CluedIn crawling layer ingests data from customer cloud sources like Azure SQL DB, Azure Cosmos DB, PostgreSQL, and Salesforce databases via Azure Data Factory connectors.
    
-   CluedIn also takes input from on-premises accessible systems like SAP, Oracle, Slack, and Hadoop, or can use on-premises agents to crawl non-public data.
+   CluedIn also takes input from on-premises accessible systems like SAP, Oracle, IBM, and Hadoop, or can use on-premises agents to crawl non-public data.
    
 1. The enterprise service bus connects through ports 5672 and 15672 for admin endpoints. Crawlers send data to the bus, and the processing layer consumes data from the bus, over port 5672.
    
@@ -33,7 +33,7 @@ The CluedIn solution consists of various functional layers that run in a Kuberne
    
 1. In the persistence layer, databases consume data from the transaction log and persist it to provide eventual consistency across the different data stores. All the stores run in high-availability (HA) mode.
    
-   Unlike with data virtualization, the CluedIn persistence layer ingests parts of source data and preserves the highest fidelity version of data and its structure. This high fidelity means that the CluedIn data fabric can serve business requests for data in any format or model.
+   Unlike with data virtualization, the CluedIn persistence layer ingests parts of the source data and preserves the highest fidelity version of data and its structure. This high fidelity means that the CluedIn Data Fabric can serve business requests for data in any format or model.
   
 1. The data abstraction layer connects to the different data stores through the ports for each store.
    
@@ -116,3 +116,5 @@ The CluedIn platform has the following characteristics and considerations:
 
 - For more information about CluedIn, see the [CluedIn website](https://www.cluedin.com/).
 - For CluedIn documentation, see the [CluedIn documentation](http://documentation.cluedin.net/).
+- For an overview of Azure data architecture, see the [Azure Data Architecture Guide](/azure/architecture/data-guide/).
+- For an example end-to-end Azure data platform, see [Azure data platform end-to-end](/azure/architecture/example-scenario/dataplate2e/data-platform-end-to-end).
