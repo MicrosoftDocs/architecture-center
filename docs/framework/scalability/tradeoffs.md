@@ -2,7 +2,7 @@
 title: Tradeoffs for performance efficiency
 description: Tradeoffs for performance optimization
 author: v-aangie
-ms.date: 01/05/2021
+ms.date: 01/07/2021
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
@@ -19,7 +19,7 @@ As you design the workload, consider tradeoffs between performance optimization 
 
 Cost can increase as a result of boosting performance. Many performance factors impact cost.
 
-- Avoid cost estimation of a workload at consistently high utilization. Consumption-based pricing will be more expensive that the equivalent provisioned pricing. Smooth out the peaks to get a consistent flow of compute and data. Ideally, use manual and autoscaling to find the right balance. Scaling up is more expensive than scaling out.
+- Avoid cost estimation of a workload at consistently high utilization. Consumption-based pricing will be more expensive that the equivalent provisioned pricing. Smooth out the peaks to get a consistent flow of compute and data. Ideally, use manual and autoscaling to find the right balance. Scaling up is generally more expensive than scaling out.
 
 - Cost scales directly with number of regions. Locating resources in cheaper regions shouldn't negate the cost of network ingress and egress or by degraded application performance because of increased latency.
 
