@@ -81,11 +81,9 @@ The two layers at which communications are restricted are outlined below:
 
 In step 1 and 2 of the scenario, Service A will request an access token from Azure AD to access Service B with.  This is done through a [Client Credentials flow][clientcredsflow] and is typically facilitated by an OIDC compatible library like [MSAL][msal] which supports this as shown in the article describing a [daemon application that call web APIs][daemoncallswebapi].  (Additional details can be found in the [sample application for the daemon scenario][daemonsample]).  For this, both Service A and B need to be [registered in Azure AD][appreg] with Service A requiring client credentials to be assigned in the form of either a shared secret or certificate.  
 
-When Service A fetches a token, it injects it as a "bearer" token in the HTTP Authorization header in the request towards Service B. (See step 3.)
+When Service A fetches a token, it injects it as a "bearer" token in the HTTP Authorization header in the request towards Service B (See step 3.)  This is according to the [OAuth 2.0 Bearer Token Usage specification][bearertokenspec].  On the receiving side, in step 5, Service B will need to [validate the token][tokenvalidation] to make sure it is valid *and* intended for Service B (indicated by the audience claim: `aud`).
 
-On the receiving side, in step 5, Service B will need to [validate the token][tokenvalidation] to make sure it is valid and intended for Service B (indicated by the audience claim: `aud`).  Even when a token is valid, one will want to ensure Service B is ony accessible by those clients (Service A in this case) which are explicitly allowed.  
-
-There are three ways to accomplish this:
+Even when a token is valid, one will want to ensure Service B is ony accessible by those clients (Service A in this case) which are explicitly allowed.  There are three ways to accomplish this:
 
 - **Validating the token `appid` claim**: Service B can validate the `appid` [claim][accesstokenclaims] of the token, indicating which application registered in Azure AD requested the token; this requires Service B to be explicitly coded for this check against a known access control list of callers
 - **Check for roles in the token**: similar to the previous option, when Service B explicitly checks for the presence of a role in the incoming token, it can ensure that Service A was explicitly granted permissions.
@@ -238,3 +236,4 @@ The following resources will provide more information on the components used in 
 [functionsnetworking]: https://docs.microsoft.com/azure/azure-functions/functions-networking-options
 [easyauth]: https://docs.microsoft.com/azure/app-service/overview-authentication-authorization
 [securitybaseline]: https://docs.microsoft.com/azure/app-service/security-baseline
+[bearertokenspec]: https://tools.ietf.org/html/rfc6750
