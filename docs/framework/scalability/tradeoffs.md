@@ -17,7 +17,7 @@ As you design the workload, consider tradeoffs between performance optimization 
 
 ## Performance efficiency vs. cost
 
-Cost can increase as a result of boosting performance. Many performance factors impact cost.
+Cost can increase as a result of boosting performance. Many performance factors impact cost. 
 
 - Avoid cost estimation of a workload at consistently high utilization. Consumption-based pricing will be more expensive that the equivalent provisioned pricing. Smooth out the peaks to get a consistent flow of compute and data. Ideally, use manual and autoscaling to find the right balance. Scaling up is generally more expensive than scaling out.
 
