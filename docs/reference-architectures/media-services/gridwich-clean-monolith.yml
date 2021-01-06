@@ -17,6 +17,6 @@ products:
   - azure-functions
   - dotnet
   - github
-thumbnailUrl: /azure/architecture/browse/thumbs/clean-monolith-components.png
+thumbnailUrl: /azure/architecture/browse/thumbs/request-response.png
 content: |
    [!include[](gridwich-clean-monolith-content.md)]

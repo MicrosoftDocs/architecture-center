@@ -17,6 +17,6 @@ products:
   - azure-devops
   - azure-pipelines
   - github
-thumbnailUrl: ""
+thumbnailUrl: /azure/architecture/browse/thumbs/request-response.png
 content: |
    [!include[](variable-group-terraform-flow-content.md)]

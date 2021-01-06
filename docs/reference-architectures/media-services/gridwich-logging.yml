@@ -16,6 +16,6 @@ products:
   - azure
   - dotnet
   - github
-thumbnailUrl: ""
+thumbnailUrl: /azure/architecture/browse/thumbs/request-response.png
 content: |
    [!include[](gridwich-logging-content.md)]

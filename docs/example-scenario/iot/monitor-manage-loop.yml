@@ -16,6 +16,6 @@ summary: 'Learn about monitor and manage loops, an IoT process pattern that cont
 products:
   - azure
   - azure-iot
-thumbnailUrl: /azure/architecture/browse/thumbs/monitor-and-manage.svg
+thumbnailUrl: /azure/architecture/browse/thumbs/monitor-and-manage.png
 content: |
    [!include[](monitor-manage-loop-content.md)]
