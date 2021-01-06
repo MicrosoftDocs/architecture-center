@@ -71,7 +71,7 @@ The following Azure services are used in this scenario:
 - [Azure Virtual Network (VNet)][vnet] is the fundamental building block for your private network in Azure. VNet enables many types of Azure resources, such as Azure Virtual Machines (VM), to securely communicate with each other, the internet, and on-premises networks.
 - [Azure Service Endpoints][svcep] providing secure and direct connectivity to Azure services over an optimized route over the Azure backbone network, while [restricting access][accessrestrictions] to the range of private source IPs from within the integration subnet.
 
-In addition to these services, the code making up our services is likely to make use of the [Microsoft Authentication Library (MSAL)][msal].  For Service A, MSAL allows for fetching access tokens from Azure AD using a client-credentials-flow.
+In addition to these services, the code making up our services is likely to make use of an OIDC compatible library such as the [Microsoft Authentication Library (MSAL)][msal].  For Service A, such library like MSAL allows for fetching access tokens from Azure AD using a client-credentials-flow.
 
 The two layers at which communications are restricted are outlined below:
 - **Token-based Authorization**, restricting access on the application layer
@@ -79,7 +79,7 @@ The two layers at which communications are restricted are outlined below:
 
 #### Token-based Authorization
 
-In step 1 and 2 of the scenario, Service A will request an access token from Azure AD to access Service B with.  This is done through a [Client Credentials flow][clientcredsflow] and is typically facilitated by a library like [MSAL][msal] which supports this as shown in the article describing a [daemon application that call web APIs][daemoncallswebapi].  (Additional details can be found in the [sample application for the daemon scenario][daemonsample]).  For this, both Service A and B need to be [registered in Azure AD][appreg] with Service A requiring client credentials to be assigned in the form of either a shared secret or certificate.  
+In step 1 and 2 of the scenario, Service A will request an access token from Azure AD to access Service B with.  This is done through a [Client Credentials flow][clientcredsflow] and is typically facilitated by an OIDC compatible library like [MSAL][msal] which supports this as shown in the article describing a [daemon application that call web APIs][daemoncallswebapi].  (Additional details can be found in the [sample application for the daemon scenario][daemonsample]).  For this, both Service A and B need to be [registered in Azure AD][appreg] with Service A requiring client credentials to be assigned in the form of either a shared secret or certificate.  
 
 When Service A fetches a token, it injects it as a "bearer" token in the HTTP Authorization header in the request towards Service B. (See step 3.)
 
@@ -209,6 +209,7 @@ The following resources will provide more information on the components used in 
 - [Microsoft Authentication Library][msal]
 - [App Service Regional VNet Integration][regionalvnet]
 - [Sample application demonstrating client credentials flow for daemon apps][daemonsample]
+- [Azure Security Baseline for App Service][securitybaseline]
 
 <!-- links -->
 [appsvcnetworking]: https://docs.microsoft.com/azure/app-service/networking-features
@@ -237,6 +238,7 @@ The following resources will provide more information on the components used in 
 [threatmodeling]: https://www.microsoft.com/securityengineering/sdl/threatmodeling
 [zerotrust]: https://www.microsoft.com/security/business/zero-trust
 [sdlc]: https://www.microsoft.com/securityengineering/sdl
-[addmitorole]: https://review.docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/how-to-assign-app-role-managed-identity-powershell
+[addmitorole]: https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/how-to-assign-app-role-managed-identity-powershell
 [functionsnetworking]: https://docs.microsoft.com/azure/azure-functions/functions-networking-options
 [easyauth]: https://docs.microsoft.com/azure/app-service/overview-authentication-authorization
+[securitybaseline]: https://docs.microsoft.com/azure/app-service/security-baseline
