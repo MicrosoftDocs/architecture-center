@@ -311,6 +311,8 @@ items:
             href: framework/scalability/monitoring.md
           - name: Checklist
             href: framework/scalability/performance-efficiency.md
+          - name: Tradeoffs
+            href: framework/scalability/tradeoffs.md
       - name: Reliability
         items:
           - name: Overview
