@@ -52,7 +52,7 @@ These other uses cases have similar design patterns:
 
 The diagram outlines how Service A wants to communicate in a restricted way with Service B, both running on Azure App Service.
 
-To do so, both services are registered with Azure Active Directory so they can use OAuth 2.0 token-based authorization between them, leveraging a [Client Credentials flow][clientcredsflow].
+To do so, both services are registered with Azure Active Directory so they can use OAuth 2.0 token-based authorization between them, using a [Client Credentials flow][clientcredsflow].
 
 In addition, Service B is configured with [Service Endpoints][svcep] to only allow communications from the integration subnet of Service A.  From a network point of view, this restricts inbound connectivity to Service B to Service A which uses App Service [Regional VNET integration][regionalvnet] to establish outbound communication from a private IP address in the integration subnet.
 
@@ -74,6 +74,7 @@ The following Azure services are used in this scenario:
 In addition to these services, the code making up our services is likely to make use of an OIDC compatible library such as the [Microsoft Authentication Library (MSAL)][msal].  For Service A, such library like MSAL allows for fetching access tokens from Azure AD using a client-credentials-flow.
 
 The two layers at which communications are restricted are outlined below:
+
 - **Token-based Authorization**, restricting access on the application layer
 - **Service Endpoints**, restricting access on the networking layer
 
@@ -113,11 +114,10 @@ In order for Service B, to be able to [restrict inbound communication][accessres
 
 #### Managed Identity
 
-Instead of registering as an application with Azure AD, Service A might consider to leverage a [Managed Identity][mi] to fetch an access token with.  This has the distinct advantage that it would free operators from managing credentials for an app registration.  
+Instead of registering as an application with Azure AD, Service A might consider to use a [Managed Identity][mi] to fetch an access token with.  This has the distinct advantage that it would free operators from managing credentials for an app registration.  
 
 > [!IMPORTANT]
 > While the managed identity would provide Service A with an identity to fetch a token with, it does not represent an app registration in Azure AD.  This means, a proper app registration would still be required for scenarios where other services need to request an access token towards Service A itself.
-
 > [!IMPORTANT]
 > Note that a managed identity cannot be assigned to an app role through the Azure Portal.  Instead this can be done through the command line [as documented][addmitorole].
 
