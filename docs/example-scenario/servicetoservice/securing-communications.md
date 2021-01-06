@@ -121,11 +121,7 @@ Instead of registering as an application with Azure AD, Service A might consider
 > While the managed identity would provide Service A with an identity to fetch a token with, it does not represent an app registration in Azure AD.  This means, a proper app registration would still be required for scenarios where other services need to request an access token towards Service A itself.
 
 > [!IMPORTANT]
-> TODO: WAIT FOR PR SIGN-OFF HERE:
->
-> https://github.com/MicrosoftDocs/azure-docs-pr/pull/137552
->
-> A managed identity cannot be assigned to an app role through the Azure Portal.  Instead this can be done through the command line [as documented][addmitorole].
+> Note that a managed identity cannot be assigned to an app role through the Azure Portal.  Instead this can be done through the command line [as documented][addmitorole].
 
 #### Use of Azure Functions to host Services
 
