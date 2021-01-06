@@ -1,6 +1,6 @@
 ---
 title: Tradeoffs for performance efficiency
-description: Tradeoffs for performance optimization
+description: Tradeoffs for performance efficiency
 author: v-aangie
 ms.date: 01/07/2021
 ms.topic: conceptual
@@ -72,7 +72,7 @@ Some reliability considerations are:
 
 - Often, you can achieve higher availability by adopting an *eventual consistency* model. To learn about selecting the correct data store, see [Use the best data store for the job](/azure/architecture/guide/design-principles/use-the-best-data-store).
 
-- If your application requires more storage accounts than are currently available in your subscription, create a new subscription with additional storage accounts. For more information, see [Scalability and performance targets](/azure/storage/common/scalability-targets-standard-account).
+- If your application requires more storage accounts than are currently available in your subscription, create a new subscription with additional storage accounts. For more information, see [Scalability and performance targets](../azure/storage/common/scalability-targets-standard-account).
 
 - Avoid scaling up or down. Instead, select a tier and instance size that meet your performance requirements under typical load, and then scale out the instances to handle changes in traffic volume. Scaling up and down may trigger an application restart.
 
