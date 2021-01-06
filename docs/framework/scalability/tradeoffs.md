@@ -72,13 +72,13 @@ Some reliability considerations are:
 
 - Often, you can achieve higher availability by adopting an *eventual consistency* model. To learn about selecting the correct data store, see [Use the best data store for the job](/azure/architecture/guide/design-principles/use-the-best-data-store).
 
-- If your application requires more storage accounts than are currently available in your subscription, create a new subscription with additional storage accounts. For more information, see [Scalability and performance targets](../azure/storage/common/scalability-targets-standard-account).
+- If your application requires more storage accounts than are currently available in your subscription, create a new subscription with additional storage accounts. For more information, see [Scalability and performance targets](https://docs.microsoft.com/azure/storage/common/scalability-targets-standard-account).
 
 - Avoid scaling up or down. Instead, select a tier and instance size that meet your performance requirements under typical load, and then scale out the instances to handle changes in traffic volume. Scaling up and down may trigger an application restart.
 
 - Create a separate storage account for logs. Don't use the same storage account for logs and application data. This helps to prevent logging from reducing application performance.
 
-- Monitor performance. Use a performance monitoring service such as [New Relic](https://newrelic.com/) or [Application Insights](/azure/azure-monitor/app/app-insights-overview) to monitor application performance and behavior under load. Performance monitoring gives you real-time insight into the application. It enables you to diagnose issues and perform root-cause analysis of failures.
+- Monitor performance. Use a performance monitoring service such as [New Relic](https://newrelic.com/) or [Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview) to monitor application performance and behavior under load. Performance monitoring gives you real-time insight into the application. It enables you to diagnose issues and perform root-cause analysis of failures.
 
 For resiliency, availability, and reliability considerations, see the [Reliability](/azure/architecture/framework/resiliency/overview) pillar.
 
@@ -86,7 +86,7 @@ For resiliency, availability, and reliability considerations, see the [Reliabili
 
 If performance is so poor that the data is unusable, you can consider the data to be inaccessible. From a security perspective, you need to do whatever you can to make sure that your services have optimal uptime and performance.
 
-A popular and effective method for enhancing availability and performance is load balancing. Load balancing is a method of distributing network traffic across servers that are part of a service. It helps performance because the processor, network, and memory overhead for serving requests are distributed across all the load-balanced servers. We recommend that you employ load balancing whenever you can, and as appropriate for your services. For information on load balancing scenarios, see [Optimize uptime and performance](/azure/security/fundamentals/network-best-practices?bc=%2fazure%2farchitecture%2fbread%2ftoc.json&toc=%2fazure%2farchitecture%2ftoc.json#optimize-uptime-and-performance).
+A popular and effective method for enhancing availability and performance is load balancing. Load balancing is a method of distributing network traffic across servers that are part of a service. It helps performance because the processor, network, and memory overhead for serving requests are distributed across all the load-balanced servers. We recommend that you employ load balancing whenever you can, and as appropriate for your services. For information on load balancing scenarios, see [Optimize uptime and performance](https://docs.microsoft.com/azure/security/fundamentals/network-best-practices#optimize-uptime-and-performance).
 
 Consider these security measures, which impact performance:
 
@@ -94,8 +94,8 @@ Consider these security measures, which impact performance:
 
 - Ensure that you are integrating critical security alerts and logs into SIEMs (security information and event management) without introducing a high volume of low value data. Doing so can increase SIEM cost, false positives, and lower performance. For more information, see [Prioritize alert and log integration](/azure/architecture/framework/security/monitor-audit#prioritize-alert-and-log-integration).
 
-- Use Azure AD Connect to synchronize your on-premises directory with your cloud directory. There are factors that affect the performance of Azure AD Connect. Ensure Azure AD Connect has enough capacity to keep underperforming systems from impeding security and productivity. Large or complex organizations (organizations provisioning more than 100,000 objects) should follow the [recommendations](/azure/active-directory/hybrid/whatis-hybrid-identity) to optimize their Azure AD Connect implementation.
+- Use Azure AD Connect to synchronize your on-premises directory with your cloud directory. There are factors that affect the performance of Azure AD Connect. Ensure Azure AD Connect has enough capacity to keep underperforming systems from impeding security and productivity. Large or complex organizations (organizations provisioning more than 100,000 objects) should follow the [recommendations](https://docs.microsoft.com/azure/active-directory/hybrid/whatis-hybrid-identity) to optimize their Azure AD Connect implementation.
 
-- If you want to gain access to real time performance information at the packet level, use [packet capture](/azure/network-watcher/network-watcher-alert-triggered-packet-capture) to set alerts.
+- If you want to gain access to real time performance information at the packet level, use [packet capture](https://docs.microsoft.com/azure/network-watcher/network-watcher-alert-triggered-packet-capture) to set alerts.
 
 For other security considerations, see the [Security](/azure/architecture/framework/security/overview) pillar.
