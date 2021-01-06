@@ -1,18 +1,3 @@
----
-title: MCAS and Azure Sentinel for Amazon Web Services (AWS)
-titleSuffix: Azure Solution Ideas
-description: Learn how Microsoft Cloud App Security (MCAS) and Azure Sentinel can help secure and protect Amazon Web Services (AWS) account access and environments.
-author: doodlemania2
-ms.date: 12/10/2020
-ms.topic: conceptual
-ms.service: architecture-center
-ms.subservice: reference-architecture
-ms.custom:
-- fcp
----
-
-# Azure security solutions for AWS
-
 Microsoft offers several security solutions that can help secure and protect Amazon Web Services (AWS) accounts and environments. 
 
 AWS organizations that use Azure Active Directory (Azure AD) for Microsoft 365 or hybrid cloud identity and access protection can quickly and easily [deploy Azure AD for AWS accounts](aws-azure-ad-security.md), often without additional cost.

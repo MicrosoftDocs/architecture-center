@@ -1,18 +1,3 @@
----
-title: Azure AD security for Amazon Web Services (AWS)
-titleSuffix: Azure Reference Architectures
-description: Learn how Azure Active Directory (Azure AD) can help secure and protect Amazon Web Services (AWS) account identities and access.
-author: doodlemania2
-ms.date: 12/10/2020
-ms.topic: conceptual
-ms.service: architecture-center
-ms.subservice: reference-architecture
-ms.custom:
-- fcp
----
-
-# Azure AD identity and access management for AWS
-
 Amazon Web Services (AWS) accounts that support critical workloads and highly sensitive information need strong identity protection and access control. Azure Active Directory (Azure AD) is a cloud-based, comprehensive, centralized identity and access management solution that can help secure and protect AWS accounts and environments. Azure AD provides centralized *single sign-on (SSO)* and strong authentication through *multi-factor authentication (MFA)* and *Conditional Access* policies. Azure AD supports AWS role-based identities and access control.
 
 Many organizations that use AWS already rely on Azure AD for Microsoft 365 or hybrid cloud identity and access protection. These organizations can quickly and easily deploy Azure AD for their AWS accounts, often without additional cost. Other, [advanced Azure AD features](#advanced-azure-ad-identity-management) like Privileged Identity Management (PIM) and Advanced Identity Protection can help protect the most sensitive AWS accounts.
