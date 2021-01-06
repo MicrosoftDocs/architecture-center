@@ -18,5 +18,5 @@ products:
   - azure-active-directory
 thumbnailUrl: /azure/architecture/browse/thumbs/azure-aws-integration.png
 content: |
-   [!include[](aws-azure-ad-security.md)]
+   [!include[](aws-azure-ad-security-content.md)]
 
