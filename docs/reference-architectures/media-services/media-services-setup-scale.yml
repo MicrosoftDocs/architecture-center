@@ -17,6 +17,6 @@ products:
   - azure-functions
   - dotnet
   - github
-thumbnailUrl: ""
+thumbnailUrl: /azure/architecture/browse/thumbs/request-response.png
 content: |
    [!include[](media-services-setup-scale-content.md)]

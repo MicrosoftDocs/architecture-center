@@ -19,6 +19,6 @@ products:
   - azure-storage
   - github
   - vs
-thumbnailUrl: /azure/architecture/browse/thumbs/terraform-sandwich.png
+thumbnailUrl: /azure/architecture/browse/thumbs/request-response.png
 content: |
    [!include[](gridwich-cicd-content.md)]

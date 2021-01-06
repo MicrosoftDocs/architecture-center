@@ -19,6 +19,6 @@ products:
   - azure-pipelines
   - github
   - windows
-thumbnailUrl: /azure/architecture/browse/thumbs/gridwich-content-protection.png
+thumbnailUrl: /azure/architecture/browse/thumbs/request-response.png
 content: |
    [!include[](gridwich-content-protection-drm-content.md)]
