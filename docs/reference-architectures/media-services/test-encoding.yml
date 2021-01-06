@@ -18,6 +18,6 @@ products:
   - azure-storage
   - dotnet
   - windows
-thumbnailUrl: /azure/architecture/browse/thumbs/blazor-viewer.png
+thumbnailUrl: /azure/architecture/browse/thumbs/request-response.png
 content: |
    [!include[](test-encoding-content.md)]
