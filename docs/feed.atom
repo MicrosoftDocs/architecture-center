@@ -480,14 +480,6 @@
         <category label="new" term="new"/>
     </entry>
     <entry>
-        <title type="html"><![CDATA[Kafka on Azure]]></title>
-        <id>https://docs.microsoft.com/azure/architecture/solution-ideas/articles/kafka-on-azure</id>
-        <link href="https://docs.microsoft.com/azure/architecture/solution-ideas/articles/kafka-on-azure"/>
-        <updated>2020-10-28T20:15:46.000Z</updated>
-        <summary type="html"><![CDATA[Learn about solutions for implementing Apache Kafka on Azure, including a comparison of the features for each solution.]]></summary>
-        <category label="new" term="new"/>
-    </entry>
-    <entry>
         <title type="html"><![CDATA[Secure application's configuration and dependencies]]></title>
         <id>https://docs.microsoft.com/azure/architecture/framework/security/design-app-dependencies</id>
         <link href="https://docs.microsoft.com/azure/architecture/framework/security/design-app-dependencies"/>

@@ -71,8 +71,6 @@ items:
             items:
               - name: Asynchronous messaging options in Azure
                 href: guide/technology-choices/messaging.md
-              - name: Choose an Apache Kafka host
-                href: solution-ideas/articles/kafka-on-azure.yml
       - name: Best practices for cloud applications
         items:
           - name: API design
