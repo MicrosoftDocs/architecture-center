@@ -17,6 +17,6 @@ products:
   - azure-functions
   - azure-storage
   - github
-thumbnailUrl: /azure/architecture/browse/thumbs/key-vault-logic-app.png
+thumbnailUrl: /azure/architecture/browse/thumbs/request-response.png
 content: |
    [!include[](maintain-keys-content.md)]
