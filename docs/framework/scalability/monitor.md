@@ -2,7 +2,7 @@
 title: Monitoring for performance efficiency
 description: None
 author: v-aangie
-ms.date: 12/07/2020
+ms.date: 01/08/2021
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
@@ -13,17 +13,19 @@ ms.custom:
 
 # Monitoring for performance efficiency
 
-Monitoring for scalability should be part of your overall monitoring strategy that utilizes [Azure Monitor](/services/monitor/). The overall monitoring strategy should take into consideration not only scalability, but reliability (infrastructure, application, and dependent services) and application performance as well.
+Monitoring for scalability should be part of your overall monitoring strategy that utilizes [Azure Monitor](https://azure.microsoft.com/services/monitor/). The overall monitoring strategy should take into consideration not only scalability, but reliability (infrastructure, application, and dependent services) and application performance as well.
 
-With Azure Monitor, you can analyze data, set up alerts, get end-to-end views of your applications, and use machine learning–driven insights to quickly identify and resolve problems. You can also monitor and diagnose networking issues without logging into your virtual machines. For example, you can trigger a packet capture, diagnose routing issues, analyze network security group flow logs, and gain visibility and control over your Azure network.
+With Azure Monitor, you can analyze data, set up alerts, get end-to-end views of your applications, and use machine learning–driven insights to quickly identify and resolve problems. Azure monitor can also help diagnose networking related issues. For example, you can trigger a packet capture, diagnose routing issues, analyze network security group flow logs, and gain visibility and control over your Azure network.
 
 [Azure Monitor Metrics](/azure/azure-monitor/platform/data-platform-metrics) is a feature of Azure Monitor that collects numeric data from monitored resources into a time series database. Metrics are numerical values that are collected at regular intervals and describe some aspect of a system at a particular time. To learn more about Azure Monitor Metrics, see [What can you do with Azure Monitor Metrics?](/azure/azure-monitor/platform/data-platform-metrics#what-can-you-do-with-azure-monitor-metrics)
 
 ## Monitoring for scalability
 
-For purposes of scalability, analyzing the metrics would allow you to scale based scale up, scale out, scale in, and scale down. The ability to scale dynamically is one of the biggest values of moving to the cloud.
+For purposes of scalability, analyzing the metrics would allow you to scale up, scale out, scale in, and scale down. The ability to scale dynamically is one of the biggest values of moving to the cloud.
 
 One of the challenges to metric data is that it often has limited information to provide context for collected values. Azure Monitor addresses this challenge with multi-dimensional metrics. Dimensions of a metric are name-value pairs that carry additional data to describe the metric value. To learn about multi-dimensional metrics and an example for network throughput, see [multi-dimensional metrics](/azure-monitor/platform/data-platform-metrics#multi-dimensional-metrics).
+
+[Azure Monitor Metrics](https://docs.microsoft.com/azure/azure-monitor/platform/data-platform-metrics) can store numeric data only in a particular structure, while [Azure Monitor Logs](https://docs.microsoft.com/azure/azure-monitor/platform/data-platform-logs) can store a variety of different data types each with their own structure. You can also perform complex analysis on logs data using log queries which cannot be used for analysis of metrics data. While Azure Monitor Metrics collects numeric data from monitored resources into a time series database, Azure Monitor Logs is capable of supporting near real-time scenarios, making them particularly useful for alerting and fast detection of issues.
 
 Most Azure services offer the ability to export [logs](/azure/azure-monitor/platform/data-platform-logs) and [metrics](/azure/azure-monitor/platform/data-platform-metrics) to services such as Log Analytics and external service like Splunk through Azure Event Hubs. Furthermore, application leveraging technologies such as [Application Insights](/azure/azure-monitor/app/app-insights-overview) can enhance the telemetry coming out of applications. The metrics coming out of Azure services include metrics such as CPU and memory utilization, bandwidth information, current storage utilization information, and more. For further information, see [supported metrics for Azure Monitor](/azure/azure-monitor/platform/metrics-supported).
 
@@ -74,7 +76,7 @@ It should be possible to correlate application log events across critical system
 
 ## Resource/Infrastructure Level Monitoring
 
-Log aggregation technologies, such as Azure Log Analytics or Splunk, should be used to collate logs and metrics across all application components for subsequent evaluation. Resources may include Azure IaaS and PaaS services as well as third-party appliances such as firewalls or Anti-Malware solutions used in the application. For example, if Azure Event Hub is used, the Diagnostic Settings should be configured to push logs and metrics to the data sink.
+Log aggregation technologies, such as Azure Log Analytics or Splunk, should be used to collate logs and metrics across all application components, including infrastructural components, for subsequent evaluation. Resources may include Azure IaaS and PaaS services as well as third-party appliances such as firewalls or Anti-Malware solutions used in the application. For example, if Azure Event Hub is used, the Diagnostic Settings should be configured to push logs and metrics to the data sink.
 
 Here are some questions that can help maximize your resource/infrastructure level monitoring:
 
@@ -86,7 +88,7 @@ Azure Activity Logs provide audit information about when an Azure resource is mo
 **Is resource level monitoring enforced throughout the application?**
 ***
 
-All application resources should be configured to route diagnostic logs and metrics to the chosen log aggregation technology. Azure Policy should also be used as a device to ensure the consistent use of diagnostic settings across the application, to enforce the desired configuration for each Azure service.
+All application resources should be configured to route diagnostic logs and metrics to the chosen log aggregation technology. [Azure Policy](https://docs.microsoft.com/azure/governance/policy/overview) should also be used as a device to ensure the consistent use of diagnostic settings across the application, to enforce the desired configuration for each Azure service.
 
 **Are logs and metrics available for critical internal dependencies?**
 ***
@@ -130,6 +132,4 @@ Clear retention times should be defined to allow for suitable historic analysis 
 - For long-term storage, consider [archiving of the Monitoring Data](/azure/azure-monitor/learn/tutorial-archive-data).
 - Track activities using [Azure Security and Audit Logs](/azure/security/fundamentals/log-audit).
 
-## Next steps
-> [!div class="nextstepaction"]
-> [Optimize]()
+<!--Add Next Steps link to Caching data for performance optimization in Optimize -->
