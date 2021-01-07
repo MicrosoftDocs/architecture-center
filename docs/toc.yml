@@ -71,8 +71,6 @@ items:
             items:
               - name: Asynchronous messaging options in Azure
                 href: guide/technology-choices/messaging.md
-              - name: Choose an Apache Kafka host
-                href: solution-ideas/articles/kafka-on-azure.yml
       - name: Best practices for cloud applications
         items:
           - name: API design
@@ -311,6 +309,8 @@ items:
             href: framework/scalability/monitoring.md
           - name: Checklist
             href: framework/scalability/performance-efficiency.md
+          - name: Tradeoffs
+            href: framework/scalability/tradeoffs.md
       - name: Reliability
         items:
           - name: Overview
@@ -959,6 +959,8 @@ items:
                 href: solution-ideas/articles/streaming-using-hdinsight.yml
               - name: Windows N-tier applications
                 href: reference-architectures/n-tier/n-tier-sql-server.yml
+              - name: Master Data Management with CluedIn
+                href: reference-architectures/data/cluedin.yml
       - name: Developer Options
         items:
           - name: Microservices
@@ -1234,7 +1236,7 @@ items:
               - name: Integrate on-premises AD with Azure
                 href: reference-architectures/identity/index.yml
               - name: Azure AD identity management for AWS
-                href: reference-architectures/aws/aws-azure-ad-security.md
+                href: reference-architectures/aws/aws-azure-ad-security.yml
       - name: Integration
         items:
           - name: Architectures
@@ -1590,7 +1592,7 @@ items:
               - name: Hybrid Security Monitoring using Azure Security Center and Azure Sentinel
                 href: hybrid/hybrid-security-monitoring.yml
               - name: MCAS and Azure Sentinel security for AWS
-                href: reference-architectures/aws/aws-azure-security-solutions.md
+                href: reference-architectures/aws/aws-azure-security-solutions.yml
               - name: Healthcare platform confidential computing
                 href: example-scenario/confidential/healthcare-inference.md
       - name: Storage
