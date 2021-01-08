@@ -29,7 +29,7 @@ One of the challenges to metric data is that it often has limited information to
 
 Most Azure services offer the ability to export logs and metrics to services such as Log Analytics and external service like Splunk. Furthermore, application technologies such as [Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview) can enhance the telemetry coming out of applications. The metrics coming out of Azure services include metrics such as CPU and memory utilization, bandwidth information, current storage utilization information, and more. For more information, see [supported metrics for Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported).
 
-To learn more about Application Insights, see [What does Application Insights monitor?](/azure/azure-monitor/app/app-insights-overview#what-does-application-insights-monitor)
+To learn more about Application Insights, see [What does Application Insights monitor?](/https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview#what-does-application-insights-monitor)
 
 ## Monitoring for reliability
 
@@ -130,7 +130,7 @@ Clear retention times should be defined to allow for suitable historic analysis 
 - Monitor your environment to make sure that autoscaling is working as expected. For example, watch out for scaling events from the telemetry coming out of the management plane.
 - Monitor web applications using Azure Application Insights.
 - Monitor network performance.
-  - Consider reviewing as applicable, [network performance monitor](https://docs.microsoft.com/azure/azure-monitor/insights/network-performance-monitor-performance-monitor), [service connectivity monitor](https://docs.microsoft.com/azure/azure-monitor/insights/network-performance-monitor-service-connectivity), and [ExpressRoute monitor](/azure/azure-monitor/insights/network-performance-monitor-expressroute).
+  - Consider reviewing as applicable, [network performance monitor](https://docs.microsoft.com/azure/azure-monitor/insights/network-performance-monitor-performance-monitor), [service connectivity monitor](https://docs.microsoft.com/azure/azure-monitor/insights/network-performance-monitor-service-connectivity), and [ExpressRoute monitor](https://docs.microsoft.com/azure/azure-monitor/insights/network-performance-monitor-expressroute).
 - For long-term storage, consider archiving of the Monitoring Data.
 - Track activities using [Azure Security and Audit Logs](https://docs.microsoft.com/azure/security/fundamentals/log-audit).
 
