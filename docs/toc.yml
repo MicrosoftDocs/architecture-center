@@ -1573,6 +1573,8 @@ items:
                 href: example-scenario/aadsec/azure-ad-security.yml
               - name: Cyber threat intelligence
                 href: example-scenario/data/sentinel-threat-intelligence.yml
+              - name: Healthcare platform confidential computing
+                href: example-scenario/confidential/healthcare-inference.yml
               - name: Highly-secure IaaS apps
                 href: reference-architectures/n-tier/high-security-iaas.yml
               - name: Homomorphic encryption with SEAL
@@ -1593,8 +1595,6 @@ items:
                 href: hybrid/hybrid-security-monitoring.yml
               - name: MCAS and Azure Sentinel security for AWS
                 href: reference-architectures/aws/aws-azure-security-solutions.yml
-              - name: Healthcare platform confidential computing
-                href: example-scenario/confidential/healthcare-inference.md
       - name: Storage
         items:
           - name: Architectures
