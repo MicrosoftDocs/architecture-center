@@ -13,7 +13,6 @@ azureCategories:
   - containers
   - security
 products:
-  - azure
   - azure-container-registry
   - azure-kubernetes-service
 name: Confidential computing on a healthcare platform
