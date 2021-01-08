@@ -76,7 +76,7 @@ Use this section to talk about alternative Azure services or architectures that 
 
 ## Deploy this scenario
 
-> (Optional if it doesn't make sense)
+> (Optional, but greatly encouraged)
 >
 > Is there an example deployment that can show me this in action?  What would I need to change to run this in production?
 
