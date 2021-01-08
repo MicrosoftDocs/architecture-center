@@ -1,6 +1,6 @@
 ---
 title: <Article Title>
-titleSuffix: Azure Example Scenarios
+titleSuffix: Azure Example Workloads
 description: <Article Description>
 author: <github username>
 ms.date: <publish or update date - mm/dd/yyyy>
