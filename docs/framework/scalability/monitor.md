@@ -19,7 +19,7 @@ With Azure Monitor, you can analyze data, set up alerts, get end-to-end views of
 
 [Azure Monitor Metrics](https://docs.microsoft.com/azure/azure-monitor/platform/data-platform-metrics) is a feature of Azure Monitor that collects numeric data from monitored resources into a time series database. Metrics are numerical values that are collected at regular intervals and describe some aspect of a system at a particular time. To learn more about Azure Monitor Metrics, see [What can you do with Azure Monitor Metrics?](https://docs.microsoft.com/azure/azure-monitor/platform/data-platform-metrics#what-can-you-do-with-azure-monitor-metrics)
 
-Azure Monitor Metrics can store numeric data only in a particular structure, while [Azure Monitor Logs](https://docs.microsoft.com/azure/azure-monitor/platform/data-platform-logs) can store a variety of different data types each with their own structure. You can also perform complex analysis on logs data using log queries which cannot be used for analysis of metrics data. While Azure Monitor Metrics collects numeric data from monitored resources into a time series database, Azure Monitor Logs is capable of supporting near real-time scenarios, making them particularly useful for alerting and fast detection of issues. To learn more about Azure Monitor Logs, see [What can you do with Azure Monitor Logs?](https://docs.microsoft.com/azure/azure-monitor/platform/data-platform-logs#what-can-you-do-with-azure-monitor-logs)
+Azure Monitor Metrics can store numeric data only in a particular structure, while [Azure Monitor Logs](https://docs.microsoft.com/azure/azure-monitor/platform/data-platform-logs) can store various different data types each with their own structure. You can also perform complex analysis on logs data using log queries which cannot be used for analysis of metrics data. While Azure Monitor Metrics collects numeric data from monitored resources into a time series database, Azure Monitor Logs is capable of supporting near real-time scenarios, making them particularly useful for alerting and fast detection of issues. To learn more about Azure Monitor Logs, see [What can you do with Azure Monitor Logs?](https://docs.microsoft.com/azure/azure-monitor/platform/data-platform-logs#what-can-you-do-with-azure-monitor-logs)
 
 ## Monitoring for scalability
 
@@ -35,7 +35,7 @@ To learn more about Application Insights, see [What does Application Insights mo
 
 Improve the reliability of your workloads by implementing high availability, disaster recovery, backup, and monitoring in Azure. Monitoring systems should capture comprehensive details so that applications can be restored efficiently and, if necessary, designers and developers can modify the system to prevent the situation from recurring.
 
-The raw data for monitoring can come from a variety of sources, including:
+The raw data for monitoring can come from various sources, including:
 
 - Application logs, such as those produced by [Azure Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview).
 - Operating system performance metrics collected by [Azure monitoring agents](https://docs.microsoft.com/azure/azure-monitor/platform/agents-overview).
@@ -116,7 +116,7 @@ Here are some questions that can help maximize your data interpretation and heal
 
 Analytics should be performed across long-term operational data to provide the history of application performance and detect if there have been any regressions. An example of a regression is if the average response times have been slowly increasing over time and getting closer to the maximum target.
 
-**Have retention times for logs and metrics been defined, with housekeeping mechanisms configured?**
+**Have retention times been defined for logs and metrics, with housekeeping mechanisms configured?**
 ***
 
 Clear retention times should be defined to allow for suitable historic analysis but also control storage costs. Suitable housekeeping tasks should also be used to archive data to cheaper storage or aggregate data for long-term trend analysis.
