@@ -1,0 +1,28 @@
+### YamlMime:Architecture
+metadata:
+  title: Secure DevOps for AKS
+  titleSuffix: Azure Solution Ideas
+  author: doodlemania2
+  ms.date: 09/10/2020
+  description: 'Implementing secure DevOps with Kubernetes on Azure, you can achieve the balance between speed and security and deliver code faster at scale.'
+  ms.custom: 'fcp, acom-architecture, devops, signalr service, interactive-diagram, ''https://azure.microsoft.com/solutions/architecture/secure-devops-for-kubernetes/'''
+  ms.service: architecture-center
+  ms.category:
+    - containers
+    - devops
+  ms.subservice: solution-idea
+  social_image_url: /azure/architecture/solution-ideas/articles/media/secure-devops-for-kubernetes.png
+name: Secure DevOps for AKS
+azureCategories:
+  - containers
+  - devops
+summary: 'Implementing secure DevOps with Kubernetes on Azure, you can achieve the balance between speed and security and deliver code faster at scale.'
+products:
+  - azure
+  - azure-monitor
+  - azure-pipelines
+  - azure-policy
+  - github
+thumbnailUrl: /azure/architecture/browse/thumbs/secure-devops-for-kubernetes.png
+content: |
+   [!include[](secure-devops-for-kubernetes-content.md)]

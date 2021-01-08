@@ -1,0 +1,25 @@
+### YamlMime:Architecture
+metadata:
+  title: Intelligent product search engine for e-commerce
+  titleSuffix: Azure Example Scenarios
+  description: Provide a world-class search experience in an e-commerce application.
+  author: jelledruyts
+  ms.date: 11/30/2020
+  ms.topic: example-scenario
+  ms.service: architecture-center
+  ms.subservice: example-scenario
+  ms.custom:
+    - fasttrack
+    - ecommerce
+    - web-app
+  social_image_url: /azure/architecture/example-scenario/apps/media/architecture-ecommerce-search.png
+name: Intelligent product search engine for e-commerce
+summary: Provide a world-class search experience in an e-commerce application.
+products:
+  - azure
+  - dotnet
+  - github
+  - sql-server
+thumbnailUrl: /azure/architecture/browse/thumbs/architecture-ecommerce-search.png
+content: |
+   [!include[](ecommerce-search-content.md)]

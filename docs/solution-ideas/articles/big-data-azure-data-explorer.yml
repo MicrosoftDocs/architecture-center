@@ -1,0 +1,27 @@
+### YamlMime:Architecture
+metadata:
+  title: Big data analytics with Azure Data Explorer
+  titleSuffix: Azure Solution Ideas
+  description: 'Big Data Analytics with Azure Data Explorer demonstrates Azure Data Explorer''s abilities to cater to volume, velocity, and variety of data, the three V''s of big data.'
+  author: orspod
+  ms.date: 08/11/2020
+  ms.service: architecture-center
+  ms.subservice: solution-idea
+  ms.custom:
+    - fcp
+  ms.category:
+    - analytics
+    - iot
+name: Big data analytics with Azure Data Explorer
+azureCategories:
+  - analytics
+  - iot
+summary: 'Big Data Analytics with Azure Data Explorer demonstrates Azure Data Explorer''s abilities to cater to volume, velocity, and variety of data, the three V''s of big data.'
+products:
+  - azure
+  - azure-iot
+  - azure-storage
+  - power-bi
+thumbnailUrl: /azure/architecture/browse/thumbs/big-data-azure-data-explorer.png
+content: |
+   [!include[](big-data-azure-data-explorer-content.md)]

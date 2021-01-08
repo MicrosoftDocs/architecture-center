@@ -1,0 +1,25 @@
+### YamlMime:Architecture
+metadata:
+  title: API-first SaaS business model
+  titleSuffix: Azure Solution Ideas
+  author: doodlemania2
+  ms.date: 04/17/2020
+  description: 'Adapt, evolve, and allow faster innovation to turn opportunities into strategic advantages.'
+  ms.custom: acom-architecture
+  ms.service: architecture-center
+  ms.category:
+    - containers
+  ms.subservice: solution-idea
+  ms.author: stellal
+  social_image_url: /azure/architecture/solution-ideas/media/aks-api-first.png
+name: API-first SaaS business model
+azureCategories:
+  - containers
+summary: 'Adapt, evolve, and allow faster innovation to turn opportunities into strategic advantages.'
+products:
+  - azure
+  - azure-functions
+  - azure-storage
+thumbnailUrl: /azure/architecture/browse/thumbs/aks-api-first.png
+content: |
+   [!include[](aks-api-first-content.md)]
