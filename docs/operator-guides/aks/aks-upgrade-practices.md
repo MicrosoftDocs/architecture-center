@@ -9,7 +9,7 @@ ms.service: architecture-center
 ms.subservice: reference-architecture
 ---
 
-# Patching and upgrading guidance
+# Patching and upgrade guidance
 
 This section of the Azure Kubernetes Service (AKS) Day-2 Operations Guide describes patching and upgrading practices for AKS worker nodes and Kubernetes (K8S) versions.
 
