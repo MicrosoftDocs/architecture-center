@@ -27,7 +27,7 @@ For purposes of scalability, analyzing the metrics would allow you to scale up, 
 
 One of the challenges to metric data is that it often has limited information to provide context for collected values. Azure Monitor addresses this challenge with multi-dimensional metrics. Dimensions of a metric are name-value pairs that carry additional data to describe the metric value. To learn about multi-dimensional metrics and an example for network throughput, see [multi-dimensional metrics](https://docs.microsoft.com/azure/azure-monitor/platform/data-platform-metrics#multi-dimensional-metrics).
 
-Most Azure services offer the ability to export logs and metrics to services such as Log Analytics and external service like Splunk through Azure Event Hubs. Furthermore, application leveraging technologies such as [Application Insights](/azure/azure-monitor/app/app-insights-overview) can enhance the telemetry coming out of applications. The metrics coming out of Azure services include metrics such as CPU and memory utilization, bandwidth information, current storage utilization information, and more. For further information, see [supported metrics for Azure Monitor](/azure/azure-monitor/platform/metrics-supported).
+Most Azure services offer the ability to export logs and metrics to services such as Log Analytics and external service like Splunk. Furthermore, application leveraging technologies such as [Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview) can enhance the telemetry coming out of applications. The metrics coming out of Azure services include metrics such as CPU and memory utilization, bandwidth information, current storage utilization information, and more. For further information, see [supported metrics for Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported).
 
 To learn more about Application Insights, see [What does Application Insights monitor?](/azure/azure-monitor/app/app-insights-overview#what-does-application-insights-monitor)
 
@@ -37,25 +37,27 @@ Improve the reliability of your workloads by implementing high availability, dis
 
 The raw data for monitoring can come from a variety of sources, including:
 
-- Application logs, such as those produced by [Azure Application Insights](/azure/azure-monitor/app/app-insights-overview).
-- Operating system performance metrics collected by [Azure monitoring agents](/azure/azure-monitor/platform/agents-overview).
-- [Azure resources](/azure/azure-monitor/platform/metrics-supported), including metrics collected by Azure Monitor.
-- [Azure Service Health](/azure/service-health/service-health-overview), which offers a dashboard to help you track active events.
-- [Azure AD logs](/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics) built into the Azure platform.
+- Application logs, such as those produced by [Azure Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview).
+- Operating system performance metrics collected by [Azure monitoring agents](https://docs.microsoft.com/azure/azure-monitor/platform/agents-overview).
+- [Azure resources](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported), including metrics collected by Azure Monitor.
+- [Azure Service Health](https://docs.microsoft.com/azure/service-health/overview), which offers a dashboard to help you track active events.
+- [Azure AD logs](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics) built into the Azure platform.
 
 To learn more, see [Monitoring health for reliability](/azure/architecture/framework/resiliency/monitoring).
+
+Monitor your application for early warning signs that might require proactive intervention. Tools that assess the overall health of the application and its dependencies help you to recognize quickly when a system or its components suddenly become unavailable. Use them to implement an early warning system. For more information, see [Monitoring application health for reliability](/azure/architecture/framework/resiliency/monitoring#early-warning-system).
 
 ## Metered metrics monitoring
 
 The basic Azure Monitor billing model is a cloud-friendly, consumption-based pricing ("pay-as-you-go"). You only pay for what you use. Pricing details are available for [metrics](/pricing/details/monitor/) as well as alerting, notifications, Log Analytics and Application Insights.
 
-If you are actively using Azure services, use Azure to monitor your [usage and estimated costs](/azure/azure-monitor/platform/usage-estimated-costs).
+If you are actively using Azure services, use Azure to monitor your [usage and estimated costs](https://docs.microsoft.com/azure/azure-monitor/platform/usage-estimated-costs).
 
-If you have not yet purchased an Azure monitoring tool, see [Azure Monitor pricing](/pricing/details/monitor/) for pricing details and FAQs. You can also use the [Pricing Calculator](/pricing/calculator/?service=monitor) to determine your pricing. The Pricing Calculator will help you estimate your likely costs based on your expected utilization.
+If you have not yet purchased Azure Monitor, see [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/) for pricing details and FAQs. You can also use the [Pricing Calculator](https://azure.microsoft.com/pricing/calculator/) to determine your pricing. The Pricing Calculator will help you estimate your likely costs based on your expected utilization.
 
 ## Application level monitoring
 
-Instrumentation of your code allows precise detection of under-performing pieces when load or stress tests are applied. It is critical to have this data available to improve and identify performance opportunities in the application code. APM technology, such as [Application Insights](/azure/azure-monitor/app/app-insights-overview), can be used to manage the performance and availability of the application, aggregating application level logs and events for subsequent interpretation.
+Application Performance Monitoring (APM) technology, such as [Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview), can be used to manage the performance and availability of the application, aggregating application level logs and events for subsequent interpretation. It's designed to help you continuously improve performance and usability. For example, instrumentation of your code allows precise detection of under-performing pieces when load or stress tests are applied. It is critical to have this data available to improve and identify performance opportunities in the application code.
 
 Here are some questions that can help maximize your application level monitoring:
 
@@ -126,10 +128,10 @@ Clear retention times should be defined to allow for suitable historic analysis 
 - Configure the auto scaling rules for those services that include it.
 - Create alert rules for the services that could be scaled manually.
 - Monitor your environment to make sure that autoscaling is working as expected. For example, watch out for scaling events from the telemetry coming out of the management plane.
-- Monitor web applications using [Azure Application Insights](/azure/azure-monitor/learn/quick-monitor-portal).
-- [Monitor network performance](/azure/azure-monitor/insights/network-performance-monitor).
-  - Consider reviewing as applicable, [network performance monitor](/azure/azure-monitor/insights/network-performance-monitor-performance-monitor), [service connectivity monitor](/azure/azure-monitor/insights/network-performance-monitor-service-connectivity), and [ExpressRoute monitor](/azure/azure-monitor/insights/network-performance-monitor-expressroute).
-- For long-term storage, consider [archiving of the Monitoring Data](/azure/azure-monitor/learn/tutorial-archive-data).
-- Track activities using [Azure Security and Audit Logs](/azure/security/fundamentals/log-audit).
+- Monitor web applications using Azure Application Insights.
+- Monitor network performance.
+  - Consider reviewing as applicable, [network performance monitor](https://docs.microsoft.com/azure/azure-monitor/insights/network-performance-monitor-performance-monitor), [service connectivity monitor](https://docs.microsoft.com/azure/azure-monitor/insights/network-performance-monitor-service-connectivity), and [ExpressRoute monitor](/azure/azure-monitor/insights/network-performance-monitor-expressroute).
+- For long-term storage, consider archiving of the Monitoring Data.
+- Track activities using [Azure Security and Audit Logs](https://docs.microsoft.com/azure/security/fundamentals/log-audit).
 
 <!--Add Next Steps link to Caching data for performance optimization in Optimize -->
