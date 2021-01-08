@@ -17,6 +17,6 @@ products:
   - azure-storage
   - dotnet
   - github
-thumbnailUrl: /azure/architecture/browse/thumbs/gridwich-storage.png
+thumbnailUrl: /azure/architecture/browse/thumbs/request-response.png
 content: |
    [!include[](gridwich-storage-service-content.md)]
