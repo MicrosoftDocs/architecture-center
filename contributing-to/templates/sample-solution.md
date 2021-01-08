@@ -1,11 +1,12 @@
 ---
 title: <Article Title>
+titleSuffix: Azure Example Scenarios
 description: <Article Description>
 author: <github username>
 ms.date: <publish or update date - mm/dd/yyyy>
 ms.service = architecture-center
 ms.topic = conceptual
-ms.subservice = solution-idea
+ms.subservice = example-scenario
 ---
 
 # Article Title
