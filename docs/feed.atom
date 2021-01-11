@@ -2,11 +2,36 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id/>
     <title>Azure Architecture Center</title>
-    <updated>2021-01-04T20:59:56.840Z</updated>
+    <updated>2021-01-11T14:20:56.139Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <subtitle>Updated articles for Azure Architecture Center</subtitle>
+    <rights>https://docs.microsoft.com/en-us/legal/termsofuse</rights>
     <category term="new"/>
     <category term="updated"/>
+    <entry>
+        <title type="html"><![CDATA[Master Data Management with Azure and CluedIn]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/reference-architectures/data/cluedin</id>
+        <link href="https://docs.microsoft.com/azure/architecture/reference-architectures/data/cluedin"/>
+        <updated>2021-01-07T04:12:02.000Z</updated>
+        <summary type="html"><![CDATA[Use CluedIn eventual connectivity data integration to blend data from many siloed data sources and prepare it for analytics and business operations.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Background jobs guidance]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/best-practices/background-jobs</id>
+        <link href="https://docs.microsoft.com/azure/architecture/best-practices/background-jobs"/>
+        <updated>2021-01-07T01:20:42.000Z</updated>
+        <summary type="html"><![CDATA[Learn about background tasks that run independently of the user interface, such as batch jobs, intensive processing tasks, and long-running processes.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Tradeoffs for performance efficiency]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/framework/scalability/tradeoffs</id>
+        <link href="https://docs.microsoft.com/azure/architecture/framework/scalability/tradeoffs"/>
+        <updated>2021-01-06T22:20:47.000Z</updated>
+        <summary type="html"><![CDATA[Tradeoffs for performance efficiency]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Enterprise chatbot disaster recovery]]></title>
         <id>https://docs.microsoft.com/azure/architecture/solution-ideas/articles/enterprise-chatbot-disaster-recovery</id>
@@ -661,6 +686,14 @@
         <link href="https://docs.microsoft.com/azure/architecture/example-scenario/magento/magento-azure"/>
         <updated>2020-10-02T15:16:27.000Z</updated>
         <summary type="html"><![CDATA[Deploy Magento e-commerce platform to Azure Kubernetes Service (AKS), and learn about considerations for hosting Magento on Azure.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Web app private connectivity to Azure SQL database]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/example-scenario/private-web-app/private-web-app</id>
+        <link href="https://docs.microsoft.com/azure/architecture/example-scenario/private-web-app/private-web-app"/>
+        <updated>2020-10-01T18:35:01.000Z</updated>
+        <summary type="html"><![CDATA[Lock down access to an Azure SQL Database with Azure Private Link connectivity from a multi-tenant Azure App Service through regional VNet Integration.]]></summary>
         <category label="new" term="new"/>
     </entry>
     <entry>
