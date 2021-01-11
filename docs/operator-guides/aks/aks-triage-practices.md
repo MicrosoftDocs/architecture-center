@@ -27,7 +27,7 @@ Common causes addressed in this series include:
 - Admission control pipeline is blocking a large number of requests to the API server.
 - The cluster doesn't have permissions to pull from the appropriate container registry.
 
-It’s not intended to resolve specific issues. For information about troubleshooting specific issues,  [AKS Common Issues](/azure/aks/troubleshooting). 
+This series isn't intended to resolve specific issues. For information about troubleshooting specific issues, see [AKS Common Issues](/azure/aks/troubleshooting).
 
 ## In the triage practices series
 
@@ -41,10 +41,7 @@ It’s not intended to resolve specific issues. For information about troublesho
 
 
 ## Related links
-[Day-2 operations](https://dzone.com/articles/defining-day-2-operations)
-
-[AKS periscope](https://github.com/Azure/aks-periscope)
-
-[AKS roadmap](https://aka.ms/aks/roadmap)
-
-[AKS documentation](/azure/aks)
+- [Day-2 operations](https://dzone.com/articles/defining-day-2-operations)
+- [AKS periscope](https://github.com/Azure/aks-periscope)
+- [AKS roadmap](https://aka.ms/aks/roadmap)
+- [AKS documentation](/azure/aks)

@@ -171,7 +171,14 @@ The following table describes characteristics of various AKS upgrade and patchin
 - Cluster auto upgrade is in preview. For more information, see [Set auto-upgrade channel](/azure/aks/upgrade-cluster#set-auto-upgrade-channel).
 - Node image auto upgrade is in development. For more information, see [Automatic Node Image Upgrade for node versions](https://github.com/Azure/AKS/issues/1486).
 
-## Next steps
+## See also
+- [AKS Day-2 Operations Guide](day-2-operations-guide.md)
+- [AKS triage practices](triage-practices.md)
+- [AKS common issues](/azure/aks/troubleshooting?bc=%2fazure%2farchitecture%2fbread%2ftoc.json&toc=%2fazure%2farchitecture%2ftoc.json)
 
-- [AKS Roadmap](https://aka.ms/aks/roadmap)
+## Related links
+
 - [AKS product documentation](/azure/aks)
+- [AKS Roadmap](https://aka.ms/aks/roadmap)
+- [Defining Day-2 Operations](https://dzone.com/articles/defining-day-2-operations)
+
