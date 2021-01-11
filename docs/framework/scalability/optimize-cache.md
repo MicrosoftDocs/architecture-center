@@ -47,10 +47,10 @@ Azure CDN offers the following key features:
 
 - [**Dynamic site acceleration (DSA)**](https://docs.microsoft.com/azure/cdn/cdn-dynamic-site-acceleration) - Provide users with a fast, reliable, and personalized web experience, independent of their browser, location, device, or network.
 - [**CDN caching rules**](https://docs.microsoft.com/azure/cdn/cdn-caching-rules) - Control Azure CDN caching behavior.
-- [**HTTPS custom domain support**](/azure/cdn/cdn-custom-ssl?tabs=option-1-default-enable-https-with-a-cdn-managed-certificate) - Deliver your sensitive data securely when it is sent across the internet and protect your web applications from attacks.
-- [**Azure diagnostics logs**](/azure/cdn/cdn-azure-diagnostic-logs) - Export basic usage metrics from your CDN endpoint to different kinds sources so that you can consume them in a customized way.
-- [**File compression**](/azure/cdn/cdn-improve-performance) - Improve file transfer speed and increase page-load performance by reducing a file's size before it is sent from the server.
-- [**Geo-filtering**](/azure/cdn/cdn-restrict-access-by-country) - Restrict access to your content by country/region by creating rules on specific paths on your CDN endpoint.
+- [**HTTPS custom domain support**](https://docs.microsoft.com/azure/cdn/cdn-custom-ssl?tabs=option-1-default-enable-https-with-a-cdn-managed-certificate) - Deliver your sensitive data securely when it is sent across the internet and protect your web applications from attacks.
+- [**Azure diagnostics logs**](https://docs.microsoft.com/azure/cdn/cdn-azure-diagnostic-logs) - Export basic usage metrics from your CDN endpoint to different kinds sources so that you can consume them in a customized way.
+- [**File compression**](https://docs.microsoft.com/azure/cdn/cdn-improve-performance) - Improve file transfer speed and increase page-load performance by reducing a file's size before it is sent from the server.
+- [**Geo-filtering**](https://docs.microsoft.com/azure/cdn/cdn-restrict-access-by-country) - Restrict access to your content by country/region by creating rules on specific paths on your CDN endpoint.
 
 ## Next steps
 > [!div class="nextstepaction"]
