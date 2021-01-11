@@ -23,13 +23,13 @@ A best practice is to plan for a load buffer to accommodate random spikes withou
 
 Load testing measures system performance as the workload increases. It identifies where and when your application breaks, so you can fix the issue before shipping to production. It does this by testing system behavior under typical and heavy loads. The following are key points to consider for load testing:
 
-- **Know the Azure service limits** - Different Azure services have *soft* and *hard* limits associated with them. The terms soft limit and hard limit describe the current, adjustable service limit (soft limit) and the maximum limit (hard limit). Understand the limits for the services you consume so that you are not blocked if you need to exceed them. For a list of the most common Azure limits, see [Azure subscription and service limits, quotas, and constraints](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits).
+- **Know the Azure service limits** - Different Azure services have *soft* and *hard* limits associated with them. The terms soft limit and hard limit describe the current, adjustable service limit (soft limit) and the maximum limit (hard limit). Understand the limits for the services you consume so that you are not blocked if you need to exceed them. For a list of the most common Azure limits, see [Azure subscription and service limits, quotas, and constraints](/azure/azure-resource-manager/management/azure-subscription-service-limits).
 
   :::image type="icon" source="../../_images/github.png" border="false"::: The [ResourceLimits](https://github.com/mspnp/samples/tree/master/OperationalExcellence/ResourceLimits) sample shows how to query the limits and quotas for commonly used resources.
 
 - **Measure typical loads** - Knowing the typical and maximum loads on your system helps you understand when something is operating outside of its designed limits.  Monitor traffic to understand application behavior.
 
-- **Understand application behavior under various scales** - Load test your application to understand how it performs at various scales. First, test to see how the application performs under a typical load. Then, test to see how it performs under load using different scaling operations. To get additional insight into how to evaluate your application as the amount of traffic sent to it increases, see [Autoscale best practices](https://docs.microsoft.com/azure/azure-monitor/platform/autoscale-best-practices).
+- **Understand application behavior under various scales** - Load test your application to understand how it performs at various scales. First, test to see how the application performs under a typical load. Then, test to see how it performs under load using different scaling operations. To get additional insight into how to evaluate your application as the amount of traffic sent to it increases, see [Autoscale best practices](/azure/azure-monitor/platform/autoscale-best-practices).
 
 ## Stress testing
 
@@ -43,15 +43,15 @@ In addition to stress testing through increased load, you can stress test by red
 
 ## Multiregion testing
 
-A multiregion architecture can provide higher availability than deploying to a single region. If a regional outage affects the primary region, you can use [Front Door](https://docs.microsoft.com/azure/frontdoor/front-door-overview) to use the secondary region. This architecture can also help if an individual subsystem of the application fails.
+A multiregion architecture can provide higher availability than deploying to a single region. If a regional outage affects the primary region, you can use [Front Door](/azure/frontdoor/front-door-overview) to use the secondary region. This architecture can also help if an individual subsystem of the application fails.
 
-Test the amount of time it would take for users to be rerouted to the paired region so that the region doesn't fail. To learn more about routing, see [Front Door routing methods](https://docs.microsoft.com/azure/frontdoor/front-door-routing-methods#priority-based-traffic-routing). Typically, a planned test failover can help determine how much time would be required to fully scale to support the redirected load.
+Test the amount of time it would take for users to be rerouted to the paired region so that the region doesn't fail. To learn more about routing, see [Front Door routing methods](/azure/frontdoor/front-door-routing-methods#priority-based-traffic-routing). Typically, a planned test failover can help determine how much time would be required to fully scale to support the redirected load.
 
 ## Configure the environment based on testing results
 
 Once you have performed testing and found an acceptable operational margin and response under increased levels of load, configure the environment to sustain performance efficiency. Scale out or scale in to handle increases and decreases in load. For example, you may know that you will encounter high levels of traffic during the day and low levels on weekends. You may configure the environment to scale out for increases in load or scale in for decreases before the load actually changes.
 
-For more information on autoscaling, see [Design for scaling](https://docs.microsoft.com/azure/architecture/framework/scalability/design-scale) in the Performance Efficiency pillar.
+For more information on autoscaling, see [Design for scaling](./design-scale.md) in the Performance Efficiency pillar.
 
 > [!NOTE]
 > Ensure that a rule has been configured to scale the environment back down once load reaches below the set thresholds. This will save you money.
@@ -59,4 +59,4 @@ For more information on autoscaling, see [Design for scaling](https://docs.micro
 ## Next steps
 
 >[!div class="nextstepaction"]
->[Testing tools](https://docs.microsoft.com/azure/architecture/framework/scalability/test-tools)
+>[Testing tools](./test-tools.md)

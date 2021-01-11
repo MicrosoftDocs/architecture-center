@@ -39,7 +39,7 @@ Many solutions provide continuous integration pipeline capabilities. This articl
 
 To learn how to create a continuous integration pipeline, see these articles:
 
-- [Azure DevOps: Create your first pipeline](https://docs.microsoft.com/azure/devops/pipelines/create-first-pipeline?view=azure-devops&preserve-view=true)
+- [Azure DevOps: Create your first pipeline](/azure/devops/pipelines/create-first-pipeline?preserve-view=true&view=azure-devops)
 - [GitHub Actions: Setting up continuous integration using workflow tempaltes](https://docs.github.com/en/free-pro-team@latest/actions/guides/setting-up-continuous-integration-using-workflow-templates)
 
 ### Source Control Integration
@@ -92,7 +92,7 @@ Many developers like to show that they're keeping their code quality high by dis
 
 To learn how to display badges in your repositories, see these articles:
 
-- [Add an Azure Pipeline status badge to your repository](https://docs.microsoft.com/azure/devops/pipelines/create-first-pipeline?view=azure-devops&tabs=java%2Ctfs-2018-2%2Cbrowser&preserve-view=true#add-a-status-badge-to-your-repository).
+- [Add an Azure Pipeline status badge to your repository](/azure/devops/pipelines/create-first-pipeline?preserve-view=true&tabs=java%2ctfs-2018-2%2cbrowser&view=azure-devops#add-a-status-badge-to-your-repository).
 - [Add a GitHub workflow status badge to your repository](https://docs.github.com/en/free-pro-team@latest/actions/managing-workflow-runs/adding-a-workflow-status-badge).
 
 ## Next steps

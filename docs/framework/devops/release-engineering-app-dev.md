@@ -43,7 +43,7 @@ Many applications and solutions are built on Linux. Windows Subsystem for Linux 
 
 **Learn more**
 
-[Documentation: Windows Subsystem for Linux Documentation](https://docs.microsoft.com/windows/wsl/)
+[Documentation: Windows Subsystem for Linux Documentation](/windows/wsl/)
 
 ### Bridge to Kubernetes
 
@@ -59,8 +59,8 @@ Some features of Bridge:
 
 **Learn more**
 
-- [Documentation: Use Bridge to Kubernetes with Visual Studio Code](https://docs.microsoft.com/azure/dev-spaces/how-vs-code-works-with-dev-spaces)
-- [Documentation: Use Bridge to Kubernetes with Visual Studio](https://docs.microsoft.com/visualstudio/containers/bridge-to-kubernetes?view=vs-2019&preserve-view=true)
+- [Documentation: Use Bridge to Kubernetes with Visual Studio Code](/azure/dev-spaces/how-vs-code-works-with-dev-spaces)
+- [Documentation: Use Bridge to Kubernetes with Visual Studio](/visualstudio/containers/bridge-to-kubernetes?preserve-view=true&view=vs-2019)
 
 ## Source control
 
@@ -86,7 +86,7 @@ Using source control systems, you can create your own copies of the software sou
 
 As updates are made to software and infrastructure configurations, version control software allows us to propose these changes before merging them into the source. During the proposal, peers can review the changes, recommend updates, and approve the changes. Source control solutions provide an excellent platform for collaboration on changes to the software.
 
-To learn more about using Git, visit the [DevOps Resource Center](https://docs.microsoft.com/azure/devops/learn/git/what-is-git).
+To learn more about using Git, visit the [DevOps Resource Center](/azure/devops/learn/git/what-is-git).
 
 ### GitHub
 
@@ -102,7 +102,7 @@ Azure DevOps is a collection of services for building, collaborating on, testing
 
 **Learn more**
 
-[Documentation: Azure Repos](https://docs.microsoft.com/azure/devops/repos/?view=azure-devops&preserve-view=true)
+[Documentation: Azure Repos](/azure/devops/repos/?preserve-view=true&view=azure-devops)
 
 ## Next steps
 

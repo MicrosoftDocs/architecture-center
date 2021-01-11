@@ -40,7 +40,7 @@ This approach is secure because Azure handles the management of the underlying c
 >
 > ![GitHub logo](../../_images/github.svg) [GitHub: Azure Kubernetes Service (AKS) Secure Baseline Reference Implementation](https://github.com/mspnp/aks-secure-baseline).
 >
-> The design considerations are described in [Azure Kubernetes Service (AKS) production baseline](/azure/architecture/reference-architectures/containers/aks/secure-baseline-aks).
+> The design considerations are described in [Azure Kubernetes Service (AKS) production baseline](../../reference-architectures/containers/aks/secure-baseline-aks.yml).
 
 
 **What kind of authentication is required by application APIs?**
@@ -95,7 +95,7 @@ For more information, see [hybrid identity providers](/azure/active-directory/hy
 Remove the use of passwords, when possible. Also, require the same set of credentials to sign in and access the resources on-premises or in the cloud. This requirement is crucial for accounts that require passwords, such as admin accounts. 
 
 Here are some methods of authentication. The list is ordered by highest cost/difficulty to attack (strongest/preferred options) to lowest cost/difficult to attack: 
-- Passwordless authentication. Some examples of this method include [Windows Hello](https://aka.ms/HelloForBusiness) or [Authenticator App](/azure/active-directory/authentication/howto-authentication-phone-sign-in). 
+- Passwordless authentication. Some examples of this method include [Windows Hello](/windows/security/identity-protection/hello-for-business/hello-identity-verification) or [Authenticator App](/azure/active-directory/authentication/howto-authentication-phone-sign-in). 
 - Multifactor authentication. Although this method is more effective than passwords, we recommend that you avoid relying on SMS text message-based MFA. For more information, see [Enable per-user Azure Multi-Factor Authentication to secure sign-in events](/azure/active-directory/authentication/howto-mfa-userstates).
 - Managed Identities. See [Use identity-based authentication](#use-identity-based-authentication).
 

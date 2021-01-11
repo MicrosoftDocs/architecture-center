@@ -316,11 +316,11 @@ If you have MCAS, you can use Conditional Access to configure MCAS session polic
 
 ## See also
 
-- For in-depth coverage and comparison of Azure and AWS features, see the [Azure for AWS professionals](/azure/architecture/aws-professional/) content set.
+- For in-depth coverage and comparison of Azure and AWS features, see the [Azure for AWS professionals](../../aws-professional/index.md) content set.
 - For security guidance from AWS, see [Best practices for securing AWS accounts and resources](https://aws.amazon.com/premiumsupport/knowledge-center/security-best-practices/).
 - For the latest Microsoft security information, see [www.microsoft.com/security](https://www.microsoft.com/security).
 - For full details of how to implement and manage Azure AD, see [Securing Azure environments with Azure Active Directory](https://aka.ms/AzureADSecuredAzure).
-- [Security and identity on Azure and AWS](/azure/architecture/aws-professional/security-identity).
+- [Security and identity on Azure and AWS](../../aws-professional/security-identity.md).
 - [AWS tutorial: Azure AD with IDP SSO](https://docs.aws.amazon.com/singlesignon/latest/userguide/azure-ad-idp.html).
 - [Microsoft tutorial: SSO for AWS](/azure/active-directory/saas-apps/amazon-web-service-tutorial).
 - [PIM deployment plan](/azure/active-directory/privileged-identity-management/pim-deployment-plan).

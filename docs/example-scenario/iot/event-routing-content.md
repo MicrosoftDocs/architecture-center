@@ -1,8 +1,5 @@
-
-
-
 ## Motivations
-In an Internet of Things (IoT) solution, IoT devices send [events](https://docs.microsoft.com/azure/architecture/example-scenario/iot/introduction-to-solutions#events) (notifications, acknowledgments, telemetry) to application to gain insights. Applications may require specific subsets of events for processing or storage at different end points. These events may also need to be routed to different services for further processing. As the IoT solution scales out, the number of devices, volume of events, variety of events and different services also varies. A flexible, scalable, consistent, and reliable method to route events is necessary to serve this pattern.
+In an Internet of Things (IoT) solution, IoT devices send [events](./introduction-to-solutions.yml#events) (notifications, acknowledgments, telemetry) to application to gain insights. Applications may require specific subsets of events for processing or storage at different end points. These events may also need to be routed to different services for further processing. As the IoT solution scales out, the number of devices, volume of events, variety of events and different services also varies. A flexible, scalable, consistent, and reliable method to route events is necessary to serve this pattern.
 
 ## Use cases
 A retail outlet is monitoring the fridges for their frozen food section. 
@@ -38,7 +35,4 @@ This pattern is not recommended for:
 
 
 ## See also
-[Azure IoT Hub message routing](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-d2c)
-
-
-
+[Azure IoT Hub message routing](/azure/iot-hub/iot-hub-devguide-messages-d2c)
