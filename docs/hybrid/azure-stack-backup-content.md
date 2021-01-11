@@ -303,7 +303,7 @@ MABS and Azure Backup enforce encryption of backups at rest and in transit:
 
 Azure Recovery Services vault offers a number of mechanisms that further protect online backups, including:
 
-- Azure role-based access control (RBAC). RBAC allows for delegating and segregating responsibilities according to the principle of least privilege. There are three Azure Backup-related built-in roles that restrict access to backup management operations:
+- Azure role-based access control (Azure RBAC). Azure RBAC allows for delegating and segregating responsibilities according to the principle of least privilege. There are three Azure Backup-related built-in roles that restrict access to backup management operations:
   - Backup Contributor. Provides access to create and manage backups, with the exception of deleting Recovery Services vault and delegating access to others.
   - Backup Operator. Provides access equivalent to that of the Backup Contributor, with the exception of removing backups and managing backup policies.
   - Backup Reader. Provides access to monitor backup management operations.

@@ -175,13 +175,13 @@ Resource contention can affect the availability of a service. Define resource co
 
 Use resource quotas to limit the total resources allowed for a namespace. That way, the front end can't starve the backend services for resources or vice-versa.
 
-## Role based access control (RBAC)
+## Role-based access control (RBAC)
 
 Kubernetes and Azure both have mechanisms for role-based access control (RBAC):
 
 - Azure RBAC controls access to resources in Azure, including the ability to create new Azure resources. Permissions can be assigned to users, groups, or service principals. (A service principal is a security identity used by applications.)
 
-- Kubernetes RBAC controls permissions to the Kubernetes API. For example, creating pods and listing pods are actions that can be authorized (or denied) to a user through RBAC. To assign Kubernetes permissions to users, you create *roles* and *role bindings*:
+- Kubernetes RBAC controls permissions to the Kubernetes API. For example, creating pods and listing pods are actions that can be authorized (or denied) to a user through Kubernetes RBAC. To assign Kubernetes permissions to users, you create *roles* and *role bindings*:
 
   - A Role is a set of permissions that apply within a namespace. Permissions are defined as verbs (get, update, create, delete) on resources (pods, deployments, etc.).
 
@@ -313,7 +313,7 @@ To deploy the reference implementation for this architecture, follow the steps i
 - To learn how we measured the performance of this application, see [Performance tuning scenario: Distributed business transactions](../../../performance/distributed-transaction.md).
 
 [ri]: https://github.com/mspnp/microservices-reference-implementation
-[ri-deploy]: https://github.com/mspnp/microservices-reference-implementation/blob/master/deployment.yml
+[ri-deploy]: https://github.com/mspnp/microservices-reference-implementation/blob/master/deployment.md
 [visio-download]: https://arch-center.azureedge.net/aks-reference-architecture.vsdx
 [aaf-cost]: ../../../framework/cost/overview.md
 [azure-pricing-calculator]: https://azure.microsoft.com/pricing/calculator

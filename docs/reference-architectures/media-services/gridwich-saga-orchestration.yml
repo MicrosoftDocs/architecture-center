@@ -5,7 +5,7 @@ metadata:
   description: Understand the concepts and roles of sagas and saga participants in orchestrating Gridwich workflows.
   author: doodlemania2
   ms.date: 11/12/2020
-  ms.topic: reference-architecture
+  ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: reference-architecture
   ms.custom:
@@ -15,6 +15,6 @@ summary: Understand the concepts and roles of sagas and saga participants in orc
 products:
   - azure
   - github
-thumbnailUrl: /azure/architecture/browse/thumbs/quality-control-saga.png
+thumbnailUrl: /azure/architecture/browse/thumbs/request-response.png
 content: |
    [!include[](gridwich-saga-orchestration-content.md)]

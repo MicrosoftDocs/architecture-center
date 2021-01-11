@@ -14,7 +14,7 @@ As code is developed, updated, or even removed, having a friction-free and safe 
 
 Continuous integration is about ensuring that software is ready for deployment but does not include the deployment itself. This article covers the basics of continuous integration and offers links and examples for more in-depth content.
 
-## Continious integration
+## Continuous integration
 
 Continuous integration is a software development practice under which developers integrate software updates into a source control system on a regular cadence. The continuous integration process starts when an engineer creates a pull request signaling to the CI system that code changes are ready to be integrated. Ideally, integration validates the code against several baselines and tests and provides quick feedback to the requesting engineer on the status of these tests. Assuming baseline checks and testing have gone well, the integration process produces and stages assets such as compiled code and container images that will eventually deploy the updated software.
 

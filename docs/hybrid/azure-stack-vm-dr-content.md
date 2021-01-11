@@ -314,7 +314,7 @@ Planning for and implementing disaster recovery of Azure Stack Hub VM-based work
 Make sure there'sa clear understanding of the roles and responsibilities attributed to application owners and operators in the context of protection and recovery. Users are responsible for protecting VMs. Operators are responsible for the operational status of the Azure Stack Hub infrastructure.
 
 >[!Note] 
-> For guidance regarding fine-grained delegation of permissions in Azure Site Recovery scenarios, refer to [Manage Site Recovery access with role-based access control (RBAC).](/azure/site-recovery/site-recovery-role-based-linked-access-control)
+> For guidance regarding fine-grained delegation of permissions in Azure Site Recovery scenarios, refer to [Manage Site Recovery access with Azure role-based access control (Azure RBAC)](/azure/site-recovery/site-recovery-role-based-linked-access-control).
 
 ## Security considerations
 
@@ -331,7 +331,7 @@ Managing disaster recovery of user VM-based workloads in hybrid scenarios warran
   - Azure Storage is encrypted at rest for all storage accounts using 256-bit Advanced Encryption Standard encryption and is Federal Information Processing Standard 140-2 compliant. Encryption is enabled automatically and can't be disabled. By default, encryption uses Microsoft-managed keys, but customers have the option to use their own keys stored in an Azure Key vault.
   - Managed disks of Azure VMs are automatically encrypted by using *server-side encryption of Azure managed disks*, which also applies to their snapshots, by relying on using platform-managed encryption keys.
 
-In addition, you can enforce restricted access to the Azure Storage accounts hosting content of Azure Site Recovery-replicated disks. To do this, enable the managed identity for the Recovery Services vault and assign to that managed identity the following Azure role-based access control (RBAC) roles at the Azure Storage account level:
+In addition, you can enforce restricted access to the Azure Storage accounts hosting content of Azure Site Recovery-replicated disks. To do this, enable the managed identity for the Recovery Services vault and assign to that managed identity the following Azure role-based access control (Azure RBAC) roles at the Azure Storage account level:
 
 - Resource Manager-based storage accounts (standard performance tier):
   - Contributor
@@ -342,7 +342,7 @@ In addition, you can enforce restricted access to the Azure Storage accounts hos
 
 The Azure Recovery Services vault offers mechanisms that further protect its content, including the following protections:
 
-- RBAC. This allows for delegation and segregation of responsibilities according to the principle of least privilege. There are three Azure Site Recovery-related built-in roles that restrict access to Azure Site Recovery operations:
+- Azure RBAC. This allows for delegation and segregation of responsibilities according to the principle of least privilege. There are three Azure Site Recovery-related built-in roles that restrict access to Azure Site Recovery operations:
   - Site Recovery Contributor. This role has all the permissions required to manage Azure Site Recovery operations in an Azure Recovery Services vault. A user with this role, however, can't create or delete the vault or assign access rights to other users. This role is best suited for disaster recovery administrators who can enable and manage disaster recovery for an Azure Stack Hub tenant.
   - Site Recovery Operator. This role has permissions to execute and manage failover and failback operations. A user with this role can't enable or disable replication, create or delete vaults, register new infrastructure, or assign access rights to other users. This role is best suited for a disaster recovery operator who can fail over Azure Stack Hub VMs when instructed by application owners and IT administrators in an actual or simulated disaster scenario.
   - Site Recovery Reader. This role has permissions to track all Azure Site Recovery management operations. This role is best suited for IT staff responsible for monitoring the status of protected Azure Stack Hub VMs and raising support tickets if required. 

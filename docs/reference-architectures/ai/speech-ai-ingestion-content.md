@@ -35,7 +35,7 @@ The architecture uses these Azure services:
 
 [**Azure API Management**](/azure/api-management/api-management-key-concepts) provides secure access to REST APIs. Because only clients authenticated via API Management can request a SAS token, this service provides an additional layer of security in the architecture.
 
-[**Azure Active Directory**](/azure/active-directory/) provides identity management and secured access to resources on the Azure cloud platform. The client in this architecture first needs to authenticate by using Azure AD to be able to access the REST API. The REST API creates the access token for the blob storage by using the Azure AD credentials of the business owner. [Role-based access control](/azure/role-based-access-control/overview) gives the client the minimum access privileges needed to upload audio files.
+[**Azure Active Directory**](/azure/active-directory/) provides identity management and secured access to resources on the Azure cloud platform. The client in this architecture first needs to authenticate by using Azure AD to be able to access the REST API. The REST API creates the access token for the blob storage by using the Azure AD credentials of the business owner. [Azure role-based access control (Azure RBAC)](/azure/role-based-access-control/overview) gives the client the minimum access privileges needed to upload audio files.
 
 [**Azure Key Vault**](/azure/key-vault/key-vault-overview) provides secure storage of secrets and keys. This reference architecture stores the account credentials and other secrets needed to generate the SAS tokens in the key vault. The REST APIs and the speech transcription function access this vault to retrieve the secrets.
 
@@ -74,7 +74,7 @@ The audio files stored in the blob might contain sensitive customer data. If mul
 A SAS token allows you to control:
 
 - Which resources clients can access, because it's created per resource.
-- Which permissions clients have while accessing the resources, via [role-based access control](/rest/api/storageservices/create-user-delegation-sas#assign-permissions-with-rbac). We recommend that you grant the minimum required permissions. The clients in this architecture have write-only access to the blobs. This access level prevents them from reading other clients' audio files, either accidentally or maliciously.
+- Which permissions clients have while accessing the resources, via [Azure role-based access control (Azure RBAC)](/rest/api/storageservices/create-user-delegation-sas#assign-permissions-with-rbac). We recommend that you grant the minimum required permissions. The clients in this architecture have write-only access to the blobs. This access level prevents them from reading other clients' audio files, either accidentally or maliciously.
 - When individual tokens expire. This control limits the window of exposure to the token, which limits the possibility of unauthorized access to the resource. For larger files, the SAS token might expire before the upload finishes. The client can request multiple tokens for the same file. Because only authenticated clients can do so, multiple requests of these tokens don't affect overall security.
 
 See [Grant limited access to Azure Storage resources using shared access signatures (SAS)](/azure/storage/common/storage-sas-overview) for an in-depth discussion of SAS tokens. See [Create a user delegation SAS](/rest/api/storageservices/create-user-delegation-sas) to learn more about user delegation SAS tokens.
@@ -101,7 +101,7 @@ Another way to improve resiliency is to use [Azure Service Bus](/azure/service-b
 
 ## Solution deployment
 
-For information about how to deploy the reference implementation for this architecture, see [the GitHub readme](https://github.com/mspnp/cognitive-services-reference-implementation/blob/master/README.yml).
+For information about how to deploy the reference implementation for this architecture, see [the GitHub readme](https://github.com/mspnp/cognitive-services-reference-implementation/blob/master/README.md).
 
 ## Next steps
 

@@ -137,11 +137,11 @@ az deployment group create -g <resource-group-name> \
 
 Once deployment has finished, open the resource group you specified in the portal. You see a virtual network named `firstVNet` and a NIC named `nic1`. Click `firstVNet`, then click `subnets`. You see the `firstSubnet` that was originally created, and you see the `secondSubnet` that was added in the `updateVNet` resource.
 
-![Original subnet and updated subnet](../_images/firstVNet-subnets.png)
+![Original subnet and updated subnet](../images/vnet-firstsubnet.png)
 
 Then, go back to the resource group and click `nic1` then click `IP configurations`. In the `IP configurations` section, the `subnet` is set to `firstSubnet (10.0.0.0/24)`.
 
-![nic1 IP configurations settings](../_images/nic1-ipconfigurations.png)
+![nic1 IP configurations settings](../images/nic1-ipconfigurations.png)
 
 The original `firstVNet` has been updated instead of re-created. If `firstVNet` had been re-created, `nic1` would not be associated with `firstVNet`.
 

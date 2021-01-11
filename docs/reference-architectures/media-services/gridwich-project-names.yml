@@ -5,7 +5,7 @@ metadata:
   description: 'Learn about Gridwich namespaces and project naming conventions and structure, based on components, capabilities, and technologies.'
   author: doodlemania2
   ms.date: 11/12/2020
-  ms.topic: reference-architecture
+  ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: reference-architecture
   ms.custom:
@@ -15,6 +15,6 @@ summary: 'Learn about Gridwich namespaces and project naming conventions and str
 products:
   - azure
   - dotnet
-thumbnailUrl: ""
+thumbnailUrl: /azure/architecture/browse/thumbs/request-response.png
 content: |
    [!include[](gridwich-project-names-content.md)]

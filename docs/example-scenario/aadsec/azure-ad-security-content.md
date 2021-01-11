@@ -76,7 +76,7 @@ A [conditional access policy](/azure/active-directory/conditional-access/concept
 
 Azure AD can use the following conditional access controls with conditional access policies:
 
-- [Role-based access control (RBAC)](/azure/role-based-access-control/) lets you configure and assign appropriate roles to users who need to do administrative or specialized tasks with Azure resources. You can use RBAC to create or maintain separate dedicated admin-only accounts, scope access to roles you set up, time limit access, or grant access through approval workflows.
+- [Azure role-based access control (Azure RBAC)](/azure/role-based-access-control/) lets you configure and assign appropriate roles to users who need to do administrative or specialized tasks with Azure resources. You can use Azure RBAC to create or maintain separate dedicated admin-only accounts, scope access to roles you set up, time limit access, or grant access through approval workflows.
 
 - [Privileged identity management (PIM)](/azure/active-directory/privileged-identity-management/) helps reduce the attack vector for your organization by letting you add additional monitoring and protection to administrative accounts. With [Azure AD PIM](/azure/active-directory/privileged-identity-management/pim-configure), you can manage and control access to resources within Azure, Azure AD, and other Microsoft 365 services with [just-in-time (JIT) access and just-enough-administration (JEA)](/azure/azure-australia/role-privileged). PIM provides a history of administrative activities and a change log, and alerts you when users are added or removed from roles you define.
   
@@ -145,6 +145,6 @@ Azure Active Directory pricing ranges from free, for features like SSO and MFA, 
 - [Zero Trust security](https://www.microsoft.com/security/business/zero-trust)
 - [Zero Trust Deployment Guide for Microsoft Azure Active Directory](https://www.microsoft.com/security/blog/2020/04/30/zero-trust-deployment-guide-azure-active-directory/)
 - [Overview of the security pillar](../../framework/security/overview.md)
-- [Azure Security Compass](https://github.com/MarkSimos/MicrosoftSecurity/blob/master/Azure%20Security%20Compass%201.1/AzureSecurityCompassIndex.yml)
+- [Azure Security Compass](https://github.com/MarkSimos/MicrosoftSecurity/blob/master/Azure%20Security%20Compass%201.1/AzureSecurityCompassIndex.md)
 - [Azure Active Directory demo tenant](https://demos.microsoft.com/) (requires a Microsoft Partner Network account), or [Enterprise Mobility + Security free trial](https://www.microsoft.com/microsoft-365/enterprise-mobility-security)
 - [Azure Active Directory deployment plans](/azure/active-directory/fundamentals/active-directory-deployment-plans)

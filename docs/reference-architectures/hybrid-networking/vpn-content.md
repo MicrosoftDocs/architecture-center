@@ -247,7 +247,7 @@ Although VPNs can be used to connect virtual networks within Azure, it's not alw
 [linux-vms-pricing]: https://azure.microsoft.com/pricing/details/virtual-machines/linux
 [nagios]: https://www.nagios.org
 [policy-based-routing]: https://en.wikipedia.org/wiki/Policy-based_routing
-[readme]: https://github.com/mspnp/reference-architectures/blob/master/hybrid-networking/vpn/README.yml
+[readme]: https://github.com/mspnp/reference-architectures/blob/master/hybrid-networking/vpn/README.md
 [route-based-routing]: https://en.wikipedia.org/wiki/Static_routing
 [rras-logging]: https://www.petri.com/enable-diagnostic-logging-in-windows-server-2012-r2-routing-and-remote-access
 [sla-for-vpn-gateway]: https://azure.microsoft.com/support/legal/sla/vpn-gateway

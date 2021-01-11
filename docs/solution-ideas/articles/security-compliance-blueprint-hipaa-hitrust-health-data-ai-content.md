@@ -15,7 +15,7 @@
 1. Analyze patient data using Machine Learning, and create a Machine Learning-trained model.
 1. Ingest new patient data in HL7/FHIR format and publish to Azure Functions for processing. Store in SQL Database.
 1. Analyze newly ingested data using the trained Machine Learning model.
-1. Interact with patient data using Power BI while preserving Role-Based Access Control (RBAC).
+1. Interact with patient data using Power BI while preserving Azure role-based access control (Azure RBAC).
 
 ## Components
 
@@ -31,7 +31,7 @@
 * Application Insights: Detect, triage, and diagnose issues in your web apps and services
 * [Azure Monitor](https://azure.microsoft.com/services/monitor): Full observability into your applications, infrastructure, and network
 * [Operation Management Suite](https://www.microsoft.com/cloud-platform/operations-management-suite): A collection of management services that were designed in the cloud from the start
-* [RBAC and built-in roles](/azure/role-based-access-control/built-in-roles): Role-based access control (RBAC) has several built-in role definitions that you can assign to users, groups, and service principals.
+* [Azure RBAC and built-in roles](/azure/role-based-access-control/built-in-roles): Azure role-based access control (Azure RBAC) has several built-in role definitions that you can assign to users, groups, and service principals.
 
 ## Next steps
 

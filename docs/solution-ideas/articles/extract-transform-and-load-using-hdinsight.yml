@@ -19,6 +19,6 @@ azureCategories:
 summary: 'Extract, transform, and load your big data clusters on demand with Hadoop MapReduce and Apache Spark.'
 products:
   - azure
-thumbnailUrl: /azure/architecture/browse/thumbs/extract-transform-and-load-using-hdinsight.svg
+thumbnailUrl: /azure/architecture/browse/thumbs/extract-transform-and-load-using-hdinsight.png
 content: |
    [!include[](extract-transform-and-load-using-hdinsight-content.md)]

@@ -39,7 +39,7 @@ In this reference architecture, HTTPS is enabled for communication with the clus
 
 In this architecture, access to the AKS cluster endpoint is secured using HTTP basic authentication. This allows anybody who knows the username and password to access the endpoint. It's strongly recommended to provide an additional layer of authentication on top of this, for example with [Azure API Management][API].
 
-Traffic between Container Registry and AKS is authenticated using [role-based access control][rbac] (RBAC) to limit access privileges to only those needed.
+Traffic between Container Registry and AKS is authenticated using [Azure role-based access control (Azure RBAC)][rbac] to limit access privileges to only those needed.
 
 ### Separate storage
 

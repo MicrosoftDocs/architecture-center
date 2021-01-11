@@ -5,7 +5,7 @@ metadata:
   description: 'Learn about the components and libraries in the Gridwich clean monolith architecture, and a microservices alternative.'
   author: doodlemania2
   ms.date: 11/12/2020
-  ms.topic: reference-architecture
+  ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: reference-architecture
   ms.custom:
@@ -17,6 +17,6 @@ products:
   - azure-functions
   - dotnet
   - github
-thumbnailUrl: /azure/architecture/browse/thumbs/clean-monolith-components.png
+thumbnailUrl: /azure/architecture/browse/thumbs/request-response.png
 content: |
    [!include[](gridwich-clean-monolith-content.md)]

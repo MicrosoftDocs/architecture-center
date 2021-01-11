@@ -83,7 +83,7 @@ For detailed instructions on viewing and editing the Azure Sentinel Threat Intel
 
 - The Azure Sentinel Threat Intelligence data connectors are currently in public preview. Certain features might not be supported, or might have constrained capabilities. 
 
-- Azure Sentinel uses *role-based access control (RBAC)* to assign built-in roles **Contributor**, **Reader**, and **Responder** to users, groups, and Azure services. These can interact with Azure roles (Owner, Contributor, Reader) and Log Analytics roles (Log Analytics reader, Log Analytics contributor). You can create custom RBAC roles, and use advanced RBAC on the data you store in Azure Sentinel. For more information, see [Permissions in Azure Sentinel](/azure/sentinel/roles).
+- Azure Sentinel uses *Azure role-based access control (Azure RBAC)* to assign built-in roles **Contributor**, **Reader**, and **Responder** to users, groups, and Azure services. These can interact with Azure roles (Owner, Contributor, Reader) and Log Analytics roles (Log Analytics reader, Log Analytics contributor). You can create custom roles, and use advanced Azure RBAC on the data you store in Azure Sentinel. For more information, see [Permissions in Azure Sentinel](/azure/sentinel/roles).
 
 - Azure Sentinel is free for the first 31 days on any Azure Monitor Log Analytics workspace. After that, you can use Pay-As-You-Go or Capacity Reservations models for the data you ingest and store. For details, see [Azure Sentinel pricing](https://azure.microsoft.com/pricing/details/azure-sentinel/).
 

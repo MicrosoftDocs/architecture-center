@@ -353,4 +353,4 @@ Related guidance:
 [tm]: /azure/traffic-manager/traffic-manager-overview
 
 [github]: https://github.com/mspnp/serverless-reference-implementation/tree/v0.1.0-update
-[readme]: https://github.com/mspnp/serverless-reference-implementation/blob/v0.1.0-update/README.yml
+[readme]: https://github.com/mspnp/serverless-reference-implementation/blob/v0.1.0-update/README.md

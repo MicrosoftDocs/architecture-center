@@ -16,7 +16,7 @@ ms.custom:
 
 # Performance tuning scenario: Event streaming with Azure Functions
 
-This article describes how a development team used metrics to find bottlenecks and improve the performance of a distributed system. The article is based on actual load testing that we did for a sample application. The application code is available on [GitHub](https://github.com/mspnp/iot-guidance).
+This article describes how a development team used metrics to find bottlenecks and improve the performance of a distributed system. The article is based on actual load testing that we did for a sample application.
 
 *This article is part of a series. Read the first part [here](./index.md).*
 

@@ -15,6 +15,6 @@ name: IoT measure and control loops
 summary: 'Learn about measure and control loops, an IoT process pattern to keep IoT devices within tolerable ranges.'
 products:
   - azure
-thumbnailUrl: /azure/architecture/browse/thumbs/measure-and-control.svg
+thumbnailUrl: /azure/architecture/browse/thumbs/measure-and-control.png
 content: |
    [!include[](measure-control-loop-content.md)]
