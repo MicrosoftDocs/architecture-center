@@ -2,7 +2,7 @@
 title: Partitioning data for performance optimization
 description: Partitioning considerations for performance optimization
 author: v-aangie
-ms.date: 12/19/2020
+ms.date: 01/11/2021
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected

@@ -2,7 +2,7 @@
 title: Sustain performance efficiency over time
 description: Considerations for sustaining performance optimization over time
 author: v-aangie
-ms.date: 12/29/2020
+ms.date: 01/11/2021
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
