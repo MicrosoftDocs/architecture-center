@@ -29,3 +29,4 @@ The Day-2 Operations Guide assumes that you've deployed the [Azure Kubernetes Se
 
 - [AKS cluster triage practices](aks-triage-practices.md)
 - [Patching and upgrade processes](aks-upgrade-practices.md)
+- [Common issues](/azure/aks/troubleshooting?bc=%2fazure%2farchitecture%2fbread%2ftoc.json&toc=%2fazure%2farchitecture%2ftoc.json)
