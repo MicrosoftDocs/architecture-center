@@ -2,7 +2,7 @@
 title: Monitoring for performance efficiency
 description: None
 author: v-aangie
-ms.date: 01/08/2021
+ms.date: 01/11/2021
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
@@ -134,4 +134,7 @@ Clear retention times should be defined to allow for suitable historic analysis 
 - For long-term storage, consider archiving of the Monitoring Data.
 - Track activities using [Azure Security and Audit Logs](https://docs.microsoft.com/azure/security/fundamentals/log-audit).
 
-<!--Add Next Steps link to Caching data for performance optimization in Optimize -->
+## Next steps
+
+>[!div class="nextstepaction"]
+>[Caching](/azure/architecture/framework/scalability/optimize-cache)
