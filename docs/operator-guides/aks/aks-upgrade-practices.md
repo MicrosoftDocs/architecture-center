@@ -11,7 +11,7 @@ ms.subservice: reference-architecture
 
 # Patching and upgrade guidance
 
-This section of the Azure Kubernetes Service (AKS) Day-2 Operations Guide describes patching and upgrading practices for AKS worker nodes and Kubernetes (K8S) versions.
+This section of the Azure Kubernetes Service (AKS) day-2 operations guide describes patching and upgrading practices for AKS worker nodes and Kubernetes (K8S) versions.
 
 ## Node image upgrades
 
@@ -172,7 +172,7 @@ The following table describes characteristics of various AKS upgrade and patchin
 - Node image auto upgrade is in development. For more information, see [Automatic Node Image Upgrade for node versions](https://github.com/Azure/AKS/issues/1486).
 
 ## See also
-- [AKS Day-2 Operations Guide](day-2-operations-guide.md)
+- [AKS day-2 operations guide](day-2-operations-guide.md)
 - [AKS triage practices](triage-practices.md)
 - [AKS common issues](/azure/aks/troubleshooting?bc=%2fazure%2farchitecture%2fbread%2ftoc.json&toc=%2fazure%2farchitecture%2ftoc.json)
 
