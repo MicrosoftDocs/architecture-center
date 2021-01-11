@@ -2061,7 +2061,7 @@
       "redirect_url": "/azure/architecture/browse/?azure_categories=hybrid"
      },
      {
-       "source_path": "/azure/architecture/framework/scalability/monitoring.md",
+       "source_path": "azure/architecture/framework/scalability/monitoring.md",
        "redirect_url": "/azure/architecture/framework/scalability/monitor",
        "redirect_document_id": false
      } 
