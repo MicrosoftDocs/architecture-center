@@ -29,7 +29,7 @@ One of the challenges to metric data is that it often has limited information to
 
 Most Azure services offer the ability to export logs and metrics to services such as Log Analytics and external service like Splunk. Furthermore, application technologies such as [Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview) can enhance the telemetry coming out of applications. The metrics coming out of Azure services include metrics such as CPU and memory utilization, bandwidth information, current storage utilization information, and more. For more information, see [supported metrics for Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported).
 
-To learn more about Application Insights, see [What does Application Insights monitor?](https:/docs.microsoft.com/azure/azure-monitor/app/app-insights-overview#what-does-application-insights-monitor)
+To learn more about Application Insights, see [What is Application Insights monitor?](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview)
 
 ## Monitoring for reliability
 
@@ -134,4 +134,4 @@ Clear retention times should be defined to allow for suitable historic analysis 
 ## Next steps
 
 >[!div class="nextstepaction"]
->[Caching](/azure/architecture/framework/scalability/optimize-cache)
+>[Caching](./optimize-cache.md)
