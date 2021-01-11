@@ -131,7 +131,3 @@ Clear retention times should be defined to allow for suitable historic analysis 
 - For long-term storage, consider archiving of the Monitoring Data.
 - Track activities using [Azure Security and Audit Logs](https://docs.microsoft.com/azure/security/fundamentals/log-audit).
 
-## Next steps
-
->[!div class="nextstepaction"]
->[Caching](./optimize-cache.md)
