@@ -1,6 +1,6 @@
 ---
 title: Monitoring for performance efficiency
-description: None
+description: Considerations for using monitoring for performance efficiency
 author: v-aangie
 ms.date: 01/11/2021
 ms.topic: conceptual
@@ -62,17 +62,14 @@ Application Performance Monitoring (APM) technology, such as [Application Insigh
 Here are some questions that can help maximize your application level monitoring:
 
 **Are application events correlated across all application components?**
-***
 
 Event correlation between the layers of the application will provide the ability to connect tracing data of the complete application stack. Once this connection is made, you can see a complete picture of where time is spent at each layer. This will typically mean having a tool that can query the repositories of tracing data in correlation to a unique identifier that represents a completed transaction that has flowed through the system.
 
 **Is it possible to evaluate critical application performance targets and non-functional requirements (NFRs)?**
-***
 
 Application level metrics should include end-to-end transaction times of key technical functions, such as database queries, response times for external API calls, failure rates of processing steps, etc.
 
 **Is the end-to-end performance of critical system flows monitored?**
-***
 
 It should be possible to correlate application log events across critical system flows, such as user login, to fully assess the health of key scenarios in the context of targets and NFRs.
 

@@ -2059,6 +2059,11 @@
      {
       "source_path": "docs/browse/hybrid_index.md",
       "redirect_url": "/azure/architecture/browse/?azure_categories=hybrid"
-     } 
+     },
+     {
+       "source_path": "/azure/architecture/framework/scalability/monitoring.md",
+       "redirect url": "docs/browse/scalability_index",
+       "redirect_document_id": false
+     }
     ]
 }
