@@ -16,7 +16,6 @@ azureCategories:
   - ai-machine-learning
 summary: Visual assistant identifies image content and delivers related information. It can read business cards and barcodes and recognize people, places, and objects.
 products:
-  - azure
   - azure-app-service
   - azure-bot-service
   - azure-language-understanding
