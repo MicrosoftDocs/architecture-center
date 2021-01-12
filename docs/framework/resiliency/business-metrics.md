@@ -1,6 +1,6 @@
 ---
 title: Business Metrics
-description: 
+description: Use business metrics to design resilient Azure applications
 author: david-stanford
 ms.date: 10/16/2019
 ms.topic: conceptual
