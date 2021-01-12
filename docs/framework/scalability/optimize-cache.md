@@ -34,7 +34,7 @@ Azure Cache for Redis also improves application performance by supporting common
 
 ## Azure Content Delivery Network (CDN)
 
-A content delivery network (CDN) is a distributed network of servers that can efficiently deliver web content to users. CDNs store cached content on edge servers in point-of-presence (POP) locations that are close to end users, to minimize latency. To learn more about CDN, see [What is a content delivery network on Azure?](https://docs.microsoft.com/azure/cdn/cdn-overview
+A content delivery network (CDN) is a distributed network of servers that can efficiently deliver web content to users. CDNs store cached content on edge servers in point-of-presence (POP) locations that are close to end users, to minimize latency. To learn more about CDN, see [What is a content delivery network on Azure?](https://docs.microsoft.com/azure/cdn/cdn-overview)
 
 Azure CDN offers the following key features:
 
