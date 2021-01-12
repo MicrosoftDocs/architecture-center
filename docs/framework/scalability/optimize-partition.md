@@ -50,4 +50,4 @@ To learn about these strategies, see [Application design considerations](/azure/
 
 ## Next steps
 > [!div class="nextstepaction"]
-> [Tradeoffs]()
+> [Sustain](/azure/architecture/framework/scalability/optimize-sustain)

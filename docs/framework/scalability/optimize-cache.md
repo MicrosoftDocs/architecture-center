@@ -24,24 +24,17 @@ Caching can dramatically improve performance, scalability, and availability. The
 
  Incorporating appropriate caching can also help reduce latency by eliminating repetitive calls to microservices, APIs, and data repositories. The key to using a cache effectively lies in determining the most appropriate data to cache, and caching it at the appropriate time. Data can be added to the cache on demand the first time it is retrieved by an application. This means that the application needs to fetch the data only once from the data store, and that subsequent access can be satisfied by using the cache. To learn more, see [Determine how to cache data effectively](/azure/architecture/best-practices/caching#determine-how-to-cache-data-effectively).
 
-Assess the built-in caching features of Azure services used in your architecture. Azure offers caching services, such as [Azure Cache for Redis](/azure/azure-cache-for-redis/cache-overview) or [Azure CDN](/azure/cdn/cdn-overview).
-
 For details, see [Caching](/azure/architecture/best-practices/caching).
 
 ## Azure Cache for Redis
 
-Azure Cache for Redis improves the performance and scalability of an application. It processes large volumes of application requests by keeping frequently accessed data in the server memory that can be written to and read from quickly. Based on the [Redis](https://redis.io/) software, Azure Cache for Redis brings critical low-latency and high-throughput data storage to modern applications.
+[Azure Cache for Redis](https://docs.microsoft.com/azure/azure-cache-for-redis/cache-overview) improves the performance and scalability of an application. It processes large volumes of application requests by keeping frequently accessed data in the server memory that can be written to and read from quickly. Based on the [Redis](https://redis.io/) software, Azure Cache for Redis brings critical low-latency and high-throughput data storage to modern applications.
 
 Azure Cache for Redis also improves application performance by supporting common application architecture patterns. Some of the most common include data cache and content cache. For the most common patterns and their descriptions, see [Common application architecture patterns](https://docs.microsoft.com/azure/azure-cache-for-redis/cache-overview#key-scenarios).
 
-Optimize Redis cache by doing the following:
-
-- [**Build a custom Redis cache**](/azure/architecture/best-practices/caching#building-a-custom-redis-cache) - Build and host your own Redis servers by using Azure virtual machines.
-- [**Partition a Redis cache**](/azure/architecture/best-practices/caching#partitioning-a-redis-cache) - Improve performance and scalability and reduce latency by splitting the cache across multiple computers to use a variety of approaches for distributing data.
-
 ## Azure Content Delivery Network (CDN)
 
-A content delivery network (CDN) is a distributed network of servers that can efficiently deliver web content to users. CDNs store cached content on edge servers in point-of-presence (POP) locations that are close to end users, to minimize latency. To learn more about CDN, see [What is a content delivery network on Azure?](https://docs.microsoft.com/azure/cdn/cdn-overview)
+A content delivery network (CDN) is a distributed network of servers that can efficiently deliver web content to users. CDNs store cached content on edge servers in point-of-presence (POP) locations that are close to end users, to minimize latency. To learn more about CDN, see [What is a content delivery network on Azure?](https://docs.microsoft.com/azure/cdn/cdn-overview
 
 Azure CDN offers the following key features:
 
@@ -54,4 +47,4 @@ Azure CDN offers the following key features:
 
 ## Next steps
 > [!div class="nextstepaction"]
-> [Optimize](/azure/architecture/framework/scalability/optimize-partition)
+> [Partition](/azure/architecture/framework/scalability/optimize-partition)
