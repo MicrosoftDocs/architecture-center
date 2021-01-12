@@ -16,7 +16,7 @@ metadata:
 name: Threat indicators for cyber threat intelligence in Azure Sentinel
 azureCategories:
   - security
-summary: 'Import threat indicators, view logs, create rules to generate security alerts and incidents, and visualize threat intelligence data with Azure Sentinel.'
+summary: Import threat indicators, view logs, create rules to generate security alerts and incidents, and visualize threat intelligence data with Azure Sentinel.
 products:
   - azure-active-directory
   - azure-logic-apps
