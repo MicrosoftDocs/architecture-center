@@ -18,7 +18,6 @@ azureCategories:
   - databases
 summary: Unlock legacy data with Azure Stack. Create cloud-based applications while integrating and preserving mainframe and core business process application data.
 products:
-  - azure
   - azure-stack
   - azure-web-apps
 thumbnailUrl: /azure/architecture/browse/thumbs/unlock-legacy-data.png
