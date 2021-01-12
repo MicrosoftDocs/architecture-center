@@ -308,8 +308,8 @@ items:
               - name: Testing tools
                 href: framework/scalability/test-tools.md
           - name: Monitoring
-            href: framework/scalability/monitoring.md
-          - name: Optimize 
+            href: framework/scalability/monitor.md
+          - name: Optimize
             items:
               - name: Caching
                 href: framework/scalability/optimize-cache.md
@@ -317,13 +317,11 @@ items:
                 href: framework/scalability/optimize-partition.md
               - name: Sustain
                 href: framework/scalability/optimize-sustain.md 
-          - name: Checklist
-            href: framework/scalability/performance-efficiency.md
-      - name: Reliability
-        items:
-          - name: Overview
-            href: framework/resiliency/overview.md
-          - name: Application design
+          - name: Reliability
+            items:
+              - name: Overview
+                href: framework/resiliency/overview.md
+              - name: Application design
             items:
               - name: Design overview
                 href: framework/resiliency/app-design.md
