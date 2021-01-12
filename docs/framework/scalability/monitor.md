@@ -80,27 +80,22 @@ Log aggregation technologies, such as Azure Log Analytics or Splunk, should be u
 Here are some questions that can help maximize your resource/infrastructure level monitoring:
 
 **Are you collecting Azure Activity Logs within the log aggregation tool?**
-***
 
 Azure Activity Logs provide audit information about when an Azure resource is modified, such as when a virtual machine is started or stopped. This information is useful for the interpretation and troubleshooting of issues. It provides transparency around configuration changes that can be mapped to adverse performance events.
 
 **Is resource level monitoring enforced throughout the application?**
-***
 
 All application resources should be configured to route diagnostic logs and metrics to the chosen log aggregation technology. [Azure Policy](https://docs.microsoft.com/azure/governance/policy/overview) should also be used as a device to ensure the consistent use of diagnostic settings across the application, to enforce the desired configuration for each Azure service.
 
 **Are logs and metrics available for critical internal dependencies?**
-***
 
 To be able to build a robust application health model, ensure there is visibility into the operational state of critical internal dependencies, such as a shared NVA (network virtual appliance) or Express Route connection.
 
 **Are critical external dependencies monitored?**
-***
 
 Monitor critical external dependencies, such as an API service, to ensure operational visibility of performance. For exaMple, a probe could be used to measure the latency of an external API.
 
 ## Data Interpretation & Health Modeling
-***
 
 To build a robust application health model, it is vital that application and resource level data be correlated and evaluated together to optimize the detection of issues and troubleshooting of detected issues. The overall performance can be impacted by both application-level issues as well as resource-level failures. This can also help to distinguish between transient and non-transient faults.
 
@@ -109,12 +104,10 @@ A holistic application health model should be used to quantify what "healthy" an
 Here are some questions that can help maximize your data interpretation and health modeling monitoring:
 
 **Are long-term trends analyzed to predict performance issues before they occur?**
-***
 
 Analytics should be performed across long-term operational data to provide the history of application performance and detect if there have been any regressions. An example of a regression is if the average response times have been slowly increasing over time and getting closer to the maximum target.
 
 **Have retention times been defined for logs and metrics, with housekeeping mechanisms configured?**
-***
 
 Clear retention times should be defined to allow for suitable historic analysis but also control storage costs. Suitable housekeeping tasks should also be used to archive data to cheaper storage or aggregate data for long-term trend analysis.
 
