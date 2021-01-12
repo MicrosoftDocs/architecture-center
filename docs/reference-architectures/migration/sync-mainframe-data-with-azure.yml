@@ -12,20 +12,8 @@ azureCategories:
   - migration
   - databases
 products:
-  - azure
-  - azure-blob-storage
-  - azure-cosmos-db
   - azure-data-factory
-  - azure-data-lake-gen2
-  - azure-data-lake-storage
-  - azure-database-mariadb
-  - azure-database-mysql
-  - azure-database-postgresql
   - azure-databricks
-  - azure-sql-database
-  - azure-sql-managed-instance
-  - azure-synapse-analytics
-  - azure-virtual-machines
 name: Replicate and sync mainframe data in Azure
 summary: Replicate data while modernizing mainframe and midrange systems. Sync on-premises data with Azure data during modernization.
 thumbnailUrl: /azure/architecture/browse/thumbs/sync-mainframe-data-with-azure-thumbnail.png
