@@ -18,7 +18,6 @@ azureCategories:
   - security
 summary: Learn how security operations teams can use Azure Active Directory identity and access features in an adaptive, integrated zero-trust security architecture.
 products:
-  - azure
   - azure-active-directory
   - azure-sentinel
 thumbnailUrl: /azure/architecture/browse/thumbs/architecture.png

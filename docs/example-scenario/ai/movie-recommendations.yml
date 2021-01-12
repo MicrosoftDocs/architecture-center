@@ -21,7 +21,6 @@ azureCategories:
   - media
 summary: Use machine learning and an Azure Data Science Virtual Machine (DSVM) to train a model to automatically generate movie recommendations.
 products:
-  - azure
   - azure-blob-storage
   - azure-container-instances
   - azure-cosmos-db

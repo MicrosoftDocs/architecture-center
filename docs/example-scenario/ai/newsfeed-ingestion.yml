@@ -21,7 +21,6 @@ azureCategories:
   - ai-machine-learning
 summary: Create a pipeline for ingesting and analyzing RSS news feed data using Azure Cosmos DB, Azure Cognitive Services, and other Azure services.
 products:
-  - azure
   - azure-cosmos-db
   - azure-functions
   - azure-search

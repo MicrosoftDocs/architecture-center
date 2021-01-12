@@ -1,7 +1,7 @@
 ### YamlMime:Architecture
 metadata:
   title: Hybrid ETL with Azure Data Factory
-  description: Hybrid ETL with existing on-premises SQL Server Integration Services (SSIS) deployments and Azure Data Factory.
+  description: Create a hybrid ETL with existing on-premises SQL Server Integration Services (SSIS) deployments and Azure Data Factory.
   author: alhieng
   ms.date: 11/20/2019
   ms.category:
@@ -20,10 +20,11 @@ name: Hybrid ETL with Azure Data Factory
 azureCategories:
   - databases
   - hybrid
-summary: Hybrid ETL with existing on-premises SQL Server Integration Services (SSIS) deployments and Azure Data Factory.
+summary: Create a hybrid ETL with existing on-premises SQL Server Integration Services (SSIS) deployments and Azure Data Factory.
 products:
-  - azure
-  - sql-server
+  - azure-blob-storage
+  - azure-data-factory
+  - azure-synapse-analytics
 thumbnailUrl: /azure/architecture/browse/thumbs/architecture-diagram-hybrid-etl-with-adf.png
 content: |
    [!include[](hybrid-etl-with-adf-content.md)]
