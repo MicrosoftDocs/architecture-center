@@ -311,6 +311,14 @@ items:
                 href: framework/scalability/test-tools.md
           - name: Monitoring
             href: framework/scalability/monitoring.md
+          - name: Optimize
+            items:
+              - name: Caching
+                href: framework/scalability/optimize-cache.md
+              - name: Partition
+                href: framework/scalability/optimize-partition.md
+              - name: Sustain
+                href: framework/scalability/optimize-sustain.md 
       - name: Reliability
         items:
           - name: Overview
