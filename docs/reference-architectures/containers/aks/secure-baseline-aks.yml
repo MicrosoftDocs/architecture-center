@@ -25,6 +25,6 @@ products:
   - azure-policy
   - azure-rbac
   - azure-kubernetes-service
-thumbnailUrl: /azure/architecture/browse/thumbs/secure-baseline-architecture.svg
+thumbnailUrl: /azure/architecture/browse/thumbs/secure-baseline-architecture.png
 content: |
    [!include[](secure-baseline-aks-content.md)]

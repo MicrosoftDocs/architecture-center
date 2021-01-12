@@ -23,6 +23,6 @@ products:
   - azure-iot
   - power-bi
   - vs
-thumbnailUrl: /azure/architecture/browse/thumbs/iot-using-cosmos-db.svg
+thumbnailUrl: /azure/architecture/browse/thumbs/iot-using-cosmos-db.png
 content: |
    [!include[](iot-using-cosmos-db-content.md)]

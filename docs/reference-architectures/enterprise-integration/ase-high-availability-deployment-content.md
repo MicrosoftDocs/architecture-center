@@ -116,7 +116,7 @@ The tradeoff for high availability, resilient, and secure system will be increas
 
 ## Deploy the solution
 
-To deploy the reference implementation for this architecture, see the [GitHub readme](https://github.com/mspnp/app-service-environments-ILB-deployments/blob/master/README.yml), and follow the script for *high availability deployment*.
+To deploy the reference implementation for this architecture, see the [GitHub readme](https://github.com/mspnp/app-service-environments-ILB-deployments/blob/master/README.md), and follow the script for *high availability deployment*.
 
 ## Next steps
 

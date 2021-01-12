@@ -33,7 +33,7 @@ The architecture consists of the following components:
 
 - **Azure Blob storage.** The [Windows Azure Storage][configure-storage] Learn how to Azure Blob storage to store the build artifacts that are created and shared with other Jenkins builds.
 
-- **Azure Active Directory (Azure AD).** [Azure AD][azure-ad] supports user authentication, allowing you to set up SSO. Azure AD [service principals][service-principal] define the policy and permissions for each role authorization in the workflow, using [role-based access control][rbac] (RBAC). Each service principal is associated with a Jenkins job.
+- **Azure Active Directory (Azure AD).** [Azure AD][azure-ad] supports user authentication, allowing you to set up SSO. Azure AD [service principals][service-principal] define the policy and permissions for each role authorization in the workflow, using [Azure role-based access control (Azure RBAC)][rbac]. Each service principal is associated with a Jenkins job.
 
 - **Azure Key Vault.** To manage secrets and cryptographic keys used to provision Azure resources when secrets are required, this architecture uses [Azure Key Vault][key-vault]. 
 
@@ -84,7 +84,7 @@ Use the following approaches to help lock down security on a basic Jenkins serve
 
 - Configure read-only access to the Jenkins dashboard by using the [Matrix Authorization Strategy Plugin][matrix].
 
-- Use RBAC to restrict the access of the service principal to the minimum required to run the jobs. This level of security helps limit the scope of damage from a rogue job.
+- Use Azure RBAC to restrict the access of the service principal to the minimum required to run the jobs. This level of security helps limit the scope of damage from a rogue job.
 
 Jenkins jobs often require secrets to access Azure services that require authorization, such as Azure Container Service. Use [Key Vault][key-vault] to manage these secrets securely. Use Key Vault to store service principal credentials, passwords, tokens, and other secrets.
 
@@ -141,7 +141,7 @@ To create a VM and install Jenkins, follow the instructions in the article, [Qui
 [quick-start]: /azure/security-center/security-center-get-started
 [port443]: /azure/virtual-machines/windows/nsg-quickstart-portal
 [premium]: /azure/virtual-machines/linux/premium-storage
-[rbac]: /azure/active-directory/role-based-access-control-what-is
+[rbac]: /azure/role-based-access-control/overview
 [rg]: /azure/azure-resource-manager/resource-group-overview
 [scale]: https://jenkins.io/doc/book/architecting-for-scale
 [scale-agent]: /azure/jenkins/jenkins-azure-vm-agents

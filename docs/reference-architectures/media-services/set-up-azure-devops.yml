@@ -5,7 +5,7 @@ metadata:
   description: 'Set up Azure DevOps projects, repos, pipelines, variable groups, and Azure connections for Gridwich.'
   author: doodlemania2
   ms.date: 11/12/2020
-  ms.topic: reference-architecture
+  ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: reference-architecture
   ms.custom:
@@ -15,6 +15,6 @@ summary: 'Set up Azure DevOps projects, repos, pipelines, variable groups, and A
 products:
   - azure
   - azure-devops
-thumbnailUrl: /azure/architecture/browse/thumbs/approve-secure-file.png
+thumbnailUrl: /azure/architecture/browse/thumbs/request-response.png
 content: |
    [!include[](set-up-azure-devops-content.md)]

@@ -113,7 +113,7 @@ For an in-depth guide to building and scaling a recommender service, see [Build 
 [notebook]: https://github.com/microsoft/recommenders/blob/master/notebooks/00_quick_start/als_movielens.ipynb
 [ref-arch]: ../../reference-architectures/ai/real-time-recommendation.yml
 [regions]: https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines&regions=all
-[setup]: https://github.com/Microsoft/Recommenders/blob/master/SETUP.yml
+[setup]: https://github.com/microsoft/recommenders/blob/master/SETUP.md
 [sla]: https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_8
 [sla-aks]: https://azure.microsoft.com/support/legal/sla/kubernetes-service/v1_0
 [storage-security]: /azure/storage/common/storage-service-encryption
