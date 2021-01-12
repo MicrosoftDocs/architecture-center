@@ -16,7 +16,6 @@ azureCategories:
   - ai-machine-learning
 summary: Use Speech services to transcribe calls and then run full-text searches, detect sentiment and language, and create custom language and acoustic models.
 products:
-  - azure
   - azure-speech
 thumbnailUrl: /azure/architecture/browse/thumbs/speech-services.png
 content: |

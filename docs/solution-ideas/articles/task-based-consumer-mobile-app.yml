@@ -18,7 +18,6 @@ azureCategories:
   - developer-tools
 summary: This mobile app architecture simplifies authentication, stores and syncs data, sends notifications, automates builds and tests, and monitors and analyzes usage.
 products:
-  - azure
   - azure-app-service
   - azure-app-service-mobile
   - xamarin

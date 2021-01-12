@@ -18,7 +18,6 @@ azureCategories:
   - databases
 summary: As data flows into a storage account, use Azure Stack to analyze the data for anomalies or compliance and to display insights in apps.
 products:
-  - azure
   - azure-functions
   - azure-stack
   - azure-storage
