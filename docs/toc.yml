@@ -281,6 +281,8 @@ items:
                 href: framework/devops/release-engineering-rollback.md
           - name: Observability (operational awareness)
             items:
+              - name: Targets
+                href: framework/devops/targets.md
               - name: Monitoring
                 href: framework/devops/monitoring.md
           - name: Checklist
