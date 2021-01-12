@@ -1,4 +1,4 @@
-Data availability and integrity play an important role in mainframe and midrange modernization. [Data-first strategies][Modernize mainframe & midrange data] help to keep data intact and available during migration to Azure. But to avoid impacting applications during modernization, sometimes you need to replicate data quickly or keep on-premises data in sync with Azure databases.
+Data availability and integrity play an important role in mainframe and midrange modernization. [Data-first strategies][Modernize mainframe & midrange data] help to keep data intact and available during migration to Azure. To avoid impacting applications during modernization, sometimes you need to replicate data quickly or keep on-premises data in sync with Azure databases.
 
 This reference architecture outlines an implementation plan for replicating and syncing data during modernization to Azure. It discusses technical aspects like data stores, tools, and services. Specifically, the solution covers:
 
@@ -26,7 +26,7 @@ Mainframe and midrange systems update on-premises application databases on a reg
 
 1. These actions occur throughout the process:
 
-   1. An on-premises data gateway transfers data quickly and securely between on-premises systems and Azure services.
+   1. An on-premises data gateway transfers data quickly and securely between on-premises systems and Azure services. With this configuration, the on-premises data gateway can receive instructions from Azure and replicate data without the on-premises network directly exposing the local data assets.
    1. Azure Data Factory pipelines orchestrate activities that range from data extraction to data loading. You can schedule pipeline activities, start them manually, or automatically trigger them.
 
 1. On-premises databases like Db2 zOS, Db2 for i, and Db2 LUW store the data.
@@ -142,6 +142,8 @@ Keep these points in mind when considering this architecture.
 
 - See [Pooling and failover][Pooling and failover] for information on the failover protection that Microsoft Service for DRDA provides.
 
+- You can cluster the on-premises data gateway and IR to provide higher availability guarantees.
+
 ### Manageability considerations
 
 - When you use an on-premises application gateway, be aware of [limits on read and write operations][Gateway considerations].
@@ -156,11 +158,17 @@ Keep these points in mind when considering this architecture.
 
 - You can [scale out the self-hosted IR][Self-hosted IR compute resource and scaling] by associating the logical instance with multiple on-premises machines in active-active mode.
 
+- You can cluster the on-premises data gateway and IR for scalability.
+
+- Consider [Azure ExpressRoute][Azure ExpressRoute] as a high-scale option if your implementation uses significant bandwidth for initial replication or ongoing changed data replication.
+
 ### Security considerations
 
 - The on-premises data gateway provides data protection during transfers from on-premises to Azure systems.
 
 - See [Network transports and transactions] to learn about the types of client connections that Microsoft Service for DRDA supports.
+
+- Ensure that the security level of the Azure environment that has access to the on-premises data gateway meets the security requirements of the on-premises network.
 
 ## Pricing
 
@@ -186,6 +194,7 @@ Use the [Azure pricing calculator][Azure pricing calculator] to estimate the cos
 [Azure Database for MariaDB]: https://azure.microsoft.com/services/mariadb/
 [Azure Database for PostgreSQL]: https://azure.microsoft.com/services/postgresql/
 [Azure Databricks]: https://azure.microsoft.com/services/databricks/
+[Azure ExpressRoute]: https://azure.microsoft.com/services/expressroute/
 [Azure Marketplace]: https://azuremarketplace.microsoft.com/marketplace/
 [Azure pricing calculator]: https://azure.microsoft.com/pricing/calculator
 [Azure SQL]: https://azure.microsoft.com/services/azure-sql/
