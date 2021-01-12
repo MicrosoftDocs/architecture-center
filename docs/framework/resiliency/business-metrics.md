@@ -45,6 +45,14 @@ The following table shows the potential cumulative downtime for various SLA leve
 | 99.99%  | 1.01 minutes          | 4.32 minutes           | 52.56 minutes         |
 | 99.999% | 6 seconds             | 25.9 seconds           | 5.26 minutes          |
 
+### Identify critical system flows
+
+Understanding critical system flows is vital to assessing overall operational effectiveness and should be used to inform a health model for the application. It can also tell if areas of the application are over or underutilized and should be adjusted to better meet business needs and cost goals.
+
+Critical sub-systems or paths through the application may have higher expectations around availability, recovery, and performance due to the criticality of associated business scenarios and functionality. This also helps to understand if cost will be affected due to these higher needs.
+
+Some less critical components or paths through the application may have lower expectations around availability, recovery, and performance. This can result in cost reduction by choosing lower SKUs with less performance and availability.
+
 ## Recovery metrics
 
 Derive these values by conducting a risk assessment, and make sure you understand the cost and risk of downtime and data loss. These are nonfunctional requirements of a system and should be dictated by business requirements.
