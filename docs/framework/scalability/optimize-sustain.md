@@ -15,7 +15,7 @@ Performance is an indication of the responsiveness of a system to execute any ac
 
 ## Optimize autoscaling
 
-[Autoscaling](/azure/architecture/framework/scalability/design-scale?branch=pr-en-us-2177#use-autoscaling-to-manage-load-increases-and-decreases) is the process of dynamically allocating resources to match performance requirements. As the volume of work grows, an application may need additional resources to maintain the desired performance levels and satisfy service-level agreements (SLAs). As demand slackens and the additional resources are no longer needed, they can be de-allocated to minimize costs.
+[Autoscaling](/azure/architecture/framework/scalability/design-scale#use-autoscaling-to-manage-load-increases-and-decreases) is the process of dynamically allocating resources to match performance requirements. As the volume of work grows, an application may need additional resources to maintain the desired performance levels and satisfy service-level agreements (SLAs). As demand slackens and the additional resources are no longer needed, they can be de-allocated to minimize costs.
 
 To prevent a system from attempting to scale out excessively, and to avoid the costs associated with running many thousands of instances, consider limiting the maximum number of instances that can be automatically added. Most autoscaling mechanisms allow you to specify the minimum and maximum number of instances for a rule. In addition, consider gracefully degrading the functionality that the system provides if the maximum number of instances have been deployed, and the system is still overloaded.
 
