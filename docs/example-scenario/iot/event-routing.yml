@@ -12,8 +12,8 @@ metadata:
 name: IoT event routing
 summary: Learn about using rules to allow for fine-grained routing of events in an IoT solution.
 products:
-  - azure
   - azure-iot
+  - azure-iot-hub
 thumbnailUrl: /azure/architecture/browse/thumbs/event-routing.png
 content: |
    [!include[](event-routing-content.md)]

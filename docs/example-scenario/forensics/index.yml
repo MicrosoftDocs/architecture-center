@@ -18,7 +18,10 @@ azureCategories:
   - security
 summary: Create an infrastructure and workflow to ensure a valid digital evidence Chain of Custody (CoC) for computer forensics in Azure.
 products:
-  - azure
+  - azure-automation
+  - azure-disk-encryption
+  - azure-key-vault
+  - azure-storage-accounts
 thumbnailUrl: /azure/architecture/browse/thumbs/chain-of-custody.png
 content: |
    [!include[](index-content.md)]
