@@ -387,8 +387,16 @@ items:
                     href: framework/security/design-network.md
                   - name: Best practices
                     href: /azure/security/fundamentals/network-best-practices?bc=%2fazure%2farchitecture%2fbread%2ftoc.json&toc=%2fazure%2farchitecture%2ftoc.json
-              - name: Storage
-                href: framework/security/design-storage.md
+              - name: Data protection
+                items:
+                  - name: Checklist
+                    href: framework/security/design-storage.md
+                  - name: Encryption 
+                    href: framework/security/design-storage-encryption.md
+                  - name: Key and secret management
+                    href: framework/security/design-storage-keys.md
+                  - name: Best practices  
+                    href: /azure/security/fundamentals/encryption-overview?bc=%2fazure%2farchitecture%2fbread%2ftoc.json&toc=%2fazure%2farchitecture%2ftoc.json
               - name: Applications and services
                 items:
                   - name: Application security considerations
