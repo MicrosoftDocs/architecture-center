@@ -18,7 +18,6 @@ azureCategories:
   - web
 summary: Learn how to use the Azure Bot Service and Language Understanding service to process commerce customer requests using text and voice and create conversational interfaces for various commerce scenarios.
 products:
-  - azure
   - azure-active-directory-b2c
   - azure-app-service
   - azure-bot-service

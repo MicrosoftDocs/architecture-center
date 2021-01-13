@@ -16,7 +16,6 @@ azureCategories:
   - mixed-reality
 summary: Help employees learn processes and materials effectively by providing persistent holographic instructions mapped to precise locations in physical workspaces.
 products:
-  - azure
   - azure-media-services
   - azure-spatial-anchors
   - azure-video-indexer

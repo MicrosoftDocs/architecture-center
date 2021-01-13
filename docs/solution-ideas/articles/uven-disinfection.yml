@@ -15,7 +15,6 @@ azureCategories:
   - iot
 summary: "BrainLit's UVEN system uses IoT and Azure Sphere to provide smart, safe, secure virus disinfection and healthy, human-optimized lighting."
 products:
-  - azure
   - azure-sphere
 thumbnailUrl: /azure/architecture/browse/thumbs/uven-system.png
 content: |

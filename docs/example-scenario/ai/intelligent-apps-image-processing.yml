@@ -19,7 +19,6 @@ azureCategories:
   - media
 summary: Learn how to build image processing into your applications by using Azure services such as the Computer Vision API and Azure Functions.
 products:
-  - azure
   - azure-blob-storage
   - azure-computer-vision
   - azure-cosmos-db
