@@ -45,6 +45,12 @@ You automatically scale between the minimum and maximum number of instances to r
 
 For more information, see [Autoscaling](/azure/architecture/best-practices/auto-scaling).
 
+### Understand scale targets
+
+Scale operations (horizontal - changing the number of identical instances, vertical - switching to more/less powerful instances) can be fast, but usually take time to complete. It's important to understand how this delay affects the application under load and if degraded performance is acceptable.
+
+For more information, see [Best practices for Autoscale](/azure/azure-monitor/platform/autoscale-best-practices#choose-the-thresholds-carefully-for-all-metric-types).
+
 ## Take advantage of platform autoscaling features
 
 Here's how you can benefit from autoscaling features:

@@ -1,8 +1,8 @@
 ---
 title: What's New in Azure Architecture Center
 description: New and updated articles in Azure Architecture Center
-author: changeUserName
-ms.date: 01/04/2021
+author: doodlemania2
+ms.date: 01/11/2021
 ms.topic: article
 ms.service: architecture-center
 ---
@@ -19,8 +19,14 @@ New and updated articles in Azure Architecture Center
 
 ## January 2021
 
+### New Articles
+
+- [Master Data Management with Azure and CluedIn](/azure/architecture/reference-architectures/data/cluedin)
+
 ### Updated Articles
 
+- [Background jobs guidance](/azure/architecture/best-practices/background-jobs)  ([#13889c62e](https://github.com/MicrosoftDocs/architecture-center/commit/13889c62e))
+- [Tradeoffs for performance efficiency](/azure/architecture/framework/scalability/tradeoffs)  ([#2fab3faaf](https://github.com/MicrosoftDocs/architecture-center/commit/2fab3faaf))
 - [Enterprise chatbot disaster recovery](/azure/architecture/solution-ideas/articles/enterprise-chatbot-disaster-recovery)  ([#c137260b8](https://github.com/MicrosoftDocs/architecture-center/commit/c137260b8))
 
 ## December 2020
@@ -101,7 +107,6 @@ New and updated articles in Azure Architecture Center
 ### New Articles
 
 - [SQL Server 2008 R2 failover cluster in Azure](/azure/architecture/example-scenario/sql-failover/sql-failover-2008r2)
-- [Kafka on Azure](/azure/architecture/solution-ideas/articles/kafka-on-azure)
 - [Secure application&#x27;s configuration and dependencies](/azure/architecture/framework/security/design-app-dependencies)
 - [Application classification for security](/azure/architecture/framework/security/design-apps-considerations)
 - [Application threat analysis](/azure/architecture/framework/security/design-threat-model)
@@ -125,6 +130,7 @@ New and updated articles in Azure Architecture Center
 - [Partitioning in Event Hubs and Kafka](/azure/architecture/reference-architectures/event-hubs/partitioning-in-event-hubs-and-kafka)
 - [Retail - Buy online, pickup in store (BOPIS)](/azure/architecture/example-scenario/iot/vertical-buy-online-pickup-in-store)
 - [Magento e-commerce platform in Azure Kubernetes Service (AKS)](/azure/architecture/example-scenario/magento/magento-azure)
+- [Web app private connectivity to Azure SQL database](/azure/architecture/example-scenario/private-web-app/private-web-app)
 
 ### Updated Articles
 
