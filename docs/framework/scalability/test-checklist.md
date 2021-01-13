@@ -25,7 +25,7 @@ Performance testing helps to maintain systems properly and fix defects before pr
 
 - **Avoid experiencing poor performance with testing**. Two subsets of performance testing, load testing and stress testing, can determine the upper (close to capacity limit) and maximum (point of failure) limit, respectively, of the application's capacity. By performing these tests, you can determine the necessary infrastructure to support the anticipated workloads.
 
-- **plan for a load buffer to accommodate random spikes without overloading the infrastructure**. For example, if a normal system load is 100,000 requests per second, the infrastructure should support 100,000 requests at 80% of total capacity (i.e., 125,000 requests per second). If you anticipate that the application will continue to sustain 100,000 requests per second, and the current SKU (Stock Keeping Unit) introduces latency at 65,000 requests per second, you'll most likely need to upgrade your product to the next higher SKU. If there is a secondary region, you'll need to ensure that it also supports the higher SKU.
+- **Plan for a load buffer to accommodate random spikes without overloading the infrastructure**. For example, if a normal system load is 100,000 requests per second, the infrastructure should support 100,000 requests at 80% of total capacity (i.e., 125,000 requests per second). If you anticipate that the application will continue to sustain 100,000 requests per second, and the current SKU (Stock Keeping Unit) introduces latency at 65,000 requests per second, you'll most likely need to upgrade your product to the next higher SKU. If there is a secondary region, you'll need to ensure that it also supports the higher SKU.
 
 - **Test failover in multiregions**. Test the amount of time it would take for users to be rerouted to the paired region so that the region doesn't fail. Typically, a planned test failover can help determine how much time would be required to fully scale to support the redirected load.
 
@@ -44,3 +44,7 @@ Performance testing helps to maintain systems properly and fix defects before pr
 - **Decide how you will handle local development and testing when some static content is expected to be served from a content delivery network (CDN)**. For example, you could pre-deploy the content to the CDN as part of your build script. Alternatively, use compile directives or flags to control how the application loads the resources. For example, in debug mode, the application could load static resources from a local folder. In release mode, the application would use the CDN.
 
 - **Simulate different workloads on your application and measure application performance for each workload**. This is the best way to figure out what resources you will need to host your application. Use performance indicators to assess whether your application is performing as expected or not.
+
+## Next steps
+> [!div class="nextstepaction"]
+> [Performance testing](/azure/architecture/framework/scalability/performance-test)
