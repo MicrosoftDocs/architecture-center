@@ -18,6 +18,7 @@ summary: Quickly build and launch digital campaigns that automatically scale. Ma
 products:
   - azure-application-insights
   - azure-cache-redis
+  - azure-cdn
   - azure-sql-database
   - azure-web-apps
 thumbnailUrl: /azure/architecture/browse/thumbs/simple-branded-website.png
