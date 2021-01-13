@@ -2,7 +2,7 @@
 metadata:
   title: IoT solution architecture
   titleSuffix: Azure Example Scenarios
-  description: 'Understand the topological relationship between IoT devices, platform, and applications. Learn about Iot gateways, communications protocols, and provisioning.'
+  description: Understand the topological relationship between IoT devices, platform, and applications and learn about IoT gateways, communications protocols, and provisioning.
   author: wamachine
   ms.date: 08/10/2020
   ms.topic: conceptual
@@ -16,10 +16,11 @@ metadata:
 name: IoT solution architecture
 azureCategories:
   - iot
-summary: 'Understand the topological relationship between IoT devices, platform, and applications. Learn about Iot gateways, communications protocols, and provisioning.'
+summary: Understand the topological relationship between IoT devices, platform, and applications and learn about IoT gateways, communications protocols, and provisioning.
 products:
-  - azure
   - azure-iot
+  - azure-event-hubs
+  - azure-iot-hub
 thumbnailUrl: /azure/architecture/browse/thumbs/devices-platform-application.png
 content: |
    [!include[](devices-platform-application-content.md)]

@@ -1,8 +1,8 @@
 ### YamlMime:Architecture
 metadata:
-  title: 'Attestation, authentication, and provisioning'
+  title: Attestation, authentication, and provisioning
   titleSuffix: Azure Example Scenarios
-  description: 'Learn about how devices confirm their identity with, authenticate with, and can be provisioned within Azure IoT Hubs.'
+  description: Learn how devices attest their identity, authenticate, and get provisioned within Azure IoT Hubs.
   author: wamachine
   ms.date: 08/21/2020
   ms.topic: conceptual
@@ -13,14 +13,13 @@ metadata:
   ms.custom:
     - fcp
     - example-scenario
-name: 'Attestation, authentication, and provisioning'
+name: Attestation, authentication, and provisioning
 azureCategories:
   - iot
-summary: 'Learn about how devices confirm their identity with, authenticate with, and can be provisioned within Azure IoT Hubs.'
+summary: Learn how devices attest their identity, authenticate, and get provisioned within Azure IoT Hubs.
 products:
-  - azure
-  - azure-iot
-  - dotnet
+  - azure-iot-hub
+  - azure-iot-dps
 thumbnailUrl: /azure/architecture/browse/thumbs/late-binding-with-dps.png
 content: |
    [!include[](attestation-provisioning-content.md)]
