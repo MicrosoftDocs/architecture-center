@@ -21,10 +21,10 @@ azureCategories:
   - blockchain
 summary: Establish a trusted environment for communication and information sharing without resorting to a centralized database.
 products:
-  - azure
-  - azure-arc
+  - azure-key-vault
+  - azure-load-balancer
   - azure-monitor
-  - github
+  - azure-virtual-machines
 thumbnailUrl: /azure/architecture/browse/thumbs/architecture-decentralized-trust.png
 content: |
    [!include[](decentralized-trust-content.md)]
