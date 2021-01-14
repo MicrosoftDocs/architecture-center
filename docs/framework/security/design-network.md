@@ -14,12 +14,28 @@ ms.custom:
 
 Protect assets by placing controls on network traffic originating in Azure, between on-premises and Azure hosted resources, and traffic to and from Azure. If security measures aren't in place attackers can gain access, for instance, by scanning across public IP ranges. Proper network security controls can provide defense-in-depth elements that help detect, contain, and stop attackers who gain entry into your cloud deployments. 
 
+**How have you secured the network of your workload?**
+***
+
 Here are some recommendations for network security and containment:
 
-- Align network segmentation with overall strategy
-- Centralize network management and security
-- Build a network containment strategy
-- Define an internet edge strategy
+- Segment your network footprint and create secure communication paths between segments. Align the network segmentation with overall enterprise segmentation strategy.
+
+
+## In this section
+Follow these questions to assess the workload at a deeper level. The recommendations in this section are based on using Azure Virtual Networking. 
+
+|Assessment|Description|
+|---|---|
+|[**Does the organization identify and isolate groups of resources from other parts of the organization to aid in detecting and containing adversary movement within the enterprise?**](design-network-segmentation.md)|Create segmentation in your network footprint to group related assets and isolation. Align the network segmentation with the enterprise segmentation strategy.|
+|[**Is the workload infrastructure protected with Azure role-based access control (Azure RBAC)?**](design-identity-control-plane.md)|Azure Resource Manager handles all control plane requests and applies restrictions that you specify through Azure role-based access control (Azure RBAC), Azure Policy, locks.|
+|[**Has role-based and/or resource-based authorization been configured within Azure AD?**](design-identity-authorization.md)|Use a mix of role-based and resource-based authorization. Start with the principle of least privilege and add more actions based your needs.|
+|[**How is the workload authenticated when communicating with Azure platform services?**](design-identity-authentication.md)|Authenticate using Managed Identities, use passwordless protections, and keep all (except critical accounts) identities at a central location.|
+
+## Azure security benchmark
+The Azure Security Benchmark includes a collection of high-impact security recommendations you can use to help secure the services you use in Azure:
+
+> ![Security Benchmark](../../_images/benchmark-security.svg) The questions in this section are aligned to the [Azure Security Benchmarks Network Security](/azure/security/benchmarks/security-controls-v2-network-security).
 
 ## Centralize network management and security
 
