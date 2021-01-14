@@ -8,6 +8,7 @@ metadata:
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: reference-architecture
+  ms.custom: fcp
 azureCategories:
   - migration
   - databases
