@@ -18,9 +18,10 @@ azureCategories:
   - integration
 summary: Provide a high level of preventative medical care with remote patient monitoring from Azure. Analyze large amounts of medical data in a secure environment.
 products:
-  - azure
-  - azure-iot
-  - azure-monitor
+  - azure-cognitive-services
+  - azure-iot-hub
+  - azure-machine-learning
+  - azure-rbac
   - power-bi
 thumbnailUrl: /azure/architecture/browse/thumbs/remote-patient-monitoring.png
 content: |
