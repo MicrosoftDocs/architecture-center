@@ -1,0 +1,22 @@
+### YamlMime:Architecture
+metadata:
+  title: Data integration with Logic Apps and SQL Server
+  titleSuffix: Azure architecture
+  description: Recommended architecture for integrating data through Azure Logic Apps and storing it in an on-premises database using SQL Server.
+  authors: beatrizmayumi, shantnus
+  ms.date: 01/22/2021
+  ms.topic: conceptual
+  ms.custom: fcp
+  ms.service: architecture-center
+  ms.subservice: solution-idea
+azureCategories:
+  - integration
+  - developer-tools
+products:
+  - azure-logic-apps
+  - sql-server
+name: Data integration with Logic Apps and SQL Server
+summary: Recommended architecture for integrating data through Azure Logic Apps and storing it in an on-premises database using SQL Server.
+thumbnailUrl: /azure/architecture/browse/thumbs/logic-apps-data-integration-thumbnail.png
+content: |
+  [!include[](logic-apps-data-integration-content.md)]
