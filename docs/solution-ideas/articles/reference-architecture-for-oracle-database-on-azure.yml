@@ -4,7 +4,7 @@ metadata:
   titleSuffix: Azure Solution Ideas
   author: doodlemania2
   ms.date: 12/16/2019
-  description: This solution architecture illustrates a canonical architecture to achieve high availability for your Oracle Database Enterprise Edition in Azure.
+  description: Use a canonical architecture to achieve high availability for Oracle Database Enterprise Edition in Azure.
   ms.custom: 'acom-architecture, data, Oracle, Oracle Database, Oracle DB, Oracle on Azure, Oracle DB architecture, interactive-diagram, ''https://azure.microsoft.com/solutions/architecture/reference-architecture-for-oracle-database-on-azure/'''
   ms.service: architecture-center
   ms.category:
@@ -16,9 +16,10 @@ name: Running Oracle Databases on Azure
 azureCategories:
   - databases
   - management-and-governance
-summary: This solution architecture illustrates a canonical architecture to achieve high availability for your Oracle Database Enterprise Edition in Azure.
+summary: Use a canonical architecture to achieve high availability for Oracle Database Enterprise Edition in Azure.
 products:
-  - azure
+  - azure-load-balancer
+  - azure-application-gateway
 thumbnailUrl: /azure/architecture/browse/thumbs/reference-architecture-for-oracle-database-on-azure.png
 content: |
    [!include[](reference-architecture-for-oracle-database-on-azure-content.md)]
