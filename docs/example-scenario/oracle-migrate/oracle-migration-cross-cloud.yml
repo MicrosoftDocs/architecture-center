@@ -21,8 +21,10 @@ azureCategories:
   - migration
 summary: Create a connection between your existing Oracle Database and your Azure applications.
 products:
-  - azure
   - azure-expressroute
+  - azure-virtual-machines
+  - azure-virtual-network
+  - azure-vpn-gateway
 thumbnailUrl: /azure/architecture/browse/thumbs/cross-cloud-connectivity.png
 content: |
    [!include[](oracle-migration-cross-cloud-content.md)]
