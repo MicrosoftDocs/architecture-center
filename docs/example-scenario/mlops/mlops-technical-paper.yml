@@ -17,7 +17,7 @@ name: Machine learning operations (MLOps) framework to upscale machine learning 
 azureCategories:
   - developer-tools
   - hybrid
-summary: How the machine learning operations (MLOps) maturity model was applied to implement a machine learning solution for predicting product shipping levels.
+summary: Learn how to apply the machine learning operations (MLOps) maturity model to implement a machine learning solution for predicting product shipping levels.
 products:
   - azure-data-factory
   - azure-machine-learning
