@@ -14,14 +14,11 @@ metadata:
 name: FSLogix for the enterprise
 summary: Learn to build virtual desktop infrastructure solutions at enterprise scale using Microsoft FSLogix.
 products:
-  - azure
   - azure-backup
   - azure-files
+  - azure-netapp-files
+  - azure-private-link
   - azure-storage
-  - github
-  - office
-  - vs
-  - windows
 thumbnailUrl: /azure/architecture/browse/thumbs/fslogix-concept.png
 content: |
    [!include[](windows-virtual-desktop-fslogix-content.md)]

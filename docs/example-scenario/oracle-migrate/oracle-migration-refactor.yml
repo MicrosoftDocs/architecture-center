@@ -21,9 +21,9 @@ azureCategories:
   - migration
 summary: Refactor your Oracle database with Azure Database Migration Service and move it to PostgreSQL.
 products:
-  - azure
   - azure-database-postgresql
   - azure-database-migration
+  - azure-virtual-network
 thumbnailUrl: /azure/architecture/browse/thumbs/refactor.png
 content: |
    [!include[](oracle-migration-refactor-content.md)]

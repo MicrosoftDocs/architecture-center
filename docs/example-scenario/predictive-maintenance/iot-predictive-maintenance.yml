@@ -18,8 +18,11 @@ azureCategories:
   - iot
 summary: Learn how a railway company implemented predictive safety maintenance using machine learning on the Azure intelligent IoT Edge platform.
 products:
-  - azure
+  - azure-blob-storage
+  - azure-cosmos-db
   - azure-iot
+  - azure-iot-hub
+  - azure-pipelines
 thumbnailUrl: /azure/architecture/browse/thumbs/solution-architecture.png
 content: |
    [!include[](iot-predictive-maintenance-content.md)]
