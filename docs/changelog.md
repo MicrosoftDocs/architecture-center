@@ -34,7 +34,7 @@ New and updated articles in Azure Architecture Center
 ### New Articles
 
 - [Advanced Azure Resource Manager template functionality](./guide/azure-resource-manager/advanced-templates/index.md)
-- [Confidential computing on a healthcare platform](./example-scenario/confidential/healthcare-inference.md)
+- [Confidential computing on a healthcare platform](./example-scenario/confidential/healthcare-inference.yml)
 - [Azure AD security for Amazon Web Services (AWS)](./reference-architectures/aws/aws-azure-ad-security.yml)
 - [MCAS and Azure Sentinel for Amazon Web Services (AWS)](./reference-architectures/aws/aws-azure-security-solutions.yml)
 - [Authentication with Azure AD](./framework/security/design-identity-authentication.md)
