@@ -29,7 +29,7 @@ Cost can increase as a result of boosting performance. Many performance factors 
 
 - Using dedicated resources for batch processing long running jobs will increase the cost. You can lower cost by provisioning Spot VMs but be prepared for the job to be interrupted every time Azure evicts the VM.
 
-For cost considerations, see the [Cost Optimization](/azure/architecture/framework/cost/) pillar.
+For cost considerations, see the [Cost Optimization](../cost/index.yml) pillar.
 
 ## Performance efficiency vs. operational excellence
 
@@ -37,11 +37,11 @@ As you determine how to scale your workload to meet the demands placed on it by 
 
 ### Automated performance testing
 
-One operational process that can help to identify performance issues early is [automated performance testing](/azure/architecture/checklist/dev-ops#testing). The impact of a serious performance issue can be as severe as a bug in the code. While automated functional tests can prevent application bugs, they might not detect performance problems. Define acceptable performance goals for metrics such as latency, load times, and resource usage. Include automated performance tests in your release pipeline, to make sure the application meets those goals.
+One operational process that can help to identify performance issues early is [automated performance testing](../../checklist/dev-ops.md#testing). The impact of a serious performance issue can be as severe as a bug in the code. While automated functional tests can prevent application bugs, they might not detect performance problems. Define acceptable performance goals for metrics such as latency, load times, and resource usage. Include automated performance tests in your release pipeline, to make sure the application meets those goals.
 
 ### Fast builds
 
-Another operational process is making sure that your product is in a deployable state through a fast [build](/azure/architecture/framework/devops/release-engineering-performance#build-times) process. Builds provide crucial information about the status of your product.
+Another operational process is making sure that your product is in a deployable state through a fast [build](../devops/release-engineering-performance.md#build-times) process. Builds provide crucial information about the status of your product.
 
 The following can help faster builds:
 
@@ -50,13 +50,13 @@ The following can help faster builds:
 - Scale-out build servers.
 - Optimizing the build.
 
-For an explanation of these items, see [Builds](/azure/architecture/framework/devops/release-engineering-performance#build-times).
+For an explanation of these items, see [Builds](../devops/release-engineering-performance.md#build-times).
 
 ### Monitoring
 
-As you consider making performance improvements, monitoring should be done to verify that your application is running correctly. Monitoring should include the application, platform, and networking. To learn more, see [Monitoring](/azure/architecture/framework/devops/monitoring).
+As you consider making performance improvements, monitoring should be done to verify that your application is running correctly. Monitoring should include the application, platform, and networking. To learn more, see [Monitoring](../devops/monitoring.md).
 
-For operational considerations, see the [Operational Excellence](/azure/architecture/framework/devops/overview) pillar.
+For operational considerations, see the [Operational Excellence](../devops/overview.md) pillar.
 
 ## Performance efficiency vs. reliability
 
@@ -66,36 +66,36 @@ Reliable applications are *resilient* and *highly available* (HA). Resiliency al
 
 Some reliability considerations are:
 
-- Use the [Circuit Breaker](/azure/architecture/patterns/circuit-breaker#related-patterns-and-guidance) pattern to provide stability while the system recovers from a failure and minimizes the impact on performance.
+- Use the [Circuit Breaker](../../patterns/circuit-breaker.md#related-patterns-and-guidance) pattern to provide stability while the system recovers from a failure and minimizes the impact on performance.
 
-- Achieve levels of scale and performance needed for your solution by segregating read and write interfaces by implementing the [CQRS pattern](/azure/architecture/patterns/cqrs).
+- Achieve levels of scale and performance needed for your solution by segregating read and write interfaces by implementing the [CQRS pattern](../../patterns/cqrs.md).
 
-- Often, you can achieve higher availability by adopting an *eventual consistency* model. To learn about selecting the correct data store, see [Use the best data store for the job](/azure/architecture/guide/design-principles/use-the-best-data-store).
+- Often, you can achieve higher availability by adopting an *eventual consistency* model. To learn about selecting the correct data store, see [Use the best data store for the job](../../guide/design-principles/use-the-best-data-store.md).
 
-- If your application requires more storage accounts than are currently available in your subscription, create a new subscription with additional storage accounts. For more information, see [Scalability and performance targets](https://docs.microsoft.com/azure/storage/common/scalability-targets-standard-account).
+- If your application requires more storage accounts than are currently available in your subscription, create a new subscription with additional storage accounts. For more information, see [Scalability and performance targets](/azure/storage/common/scalability-targets-standard-account).
 
 - Avoid scaling up or down. Instead, select a tier and instance size that meet your performance requirements under typical load, and then scale out the instances to handle changes in traffic volume. Scaling up and down may trigger an application restart.
 
 - Create a separate storage account for logs. Don't use the same storage account for logs and application data. This helps to prevent logging from reducing application performance.
 
-- Monitor performance. Use a performance monitoring service such as [New Relic](https://newrelic.com/) or [Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview) to monitor application performance and behavior under load. Performance monitoring gives you real-time insight into the application. It enables you to diagnose issues and perform root-cause analysis of failures.
+- Monitor performance. Use a performance monitoring service such as [New Relic](https://newrelic.com/) or [Application Insights](/azure/azure-monitor/app/app-insights-overview) to monitor application performance and behavior under load. Performance monitoring gives you real-time insight into the application. It enables you to diagnose issues and perform root-cause analysis of failures.
 
-For resiliency, availability, and reliability considerations, see the [Reliability](/azure/architecture/framework/resiliency/overview) pillar.
+For resiliency, availability, and reliability considerations, see the [Reliability](../resiliency/overview.md) pillar.
 
 ## Performance efficiency vs. security
 
 If performance is so poor that the data is unusable, you can consider the data to be inaccessible. From a security perspective, you need to do whatever you can to make sure that your services have optimal uptime and performance.
 
-A popular and effective method for enhancing availability and performance is load balancing. Load balancing is a method of distributing network traffic across servers that are part of a service. It helps performance because the processor, network, and memory overhead for serving requests are distributed across all the load-balanced servers. We recommend that you employ load balancing whenever you can, and as appropriate for your services. For information on load balancing scenarios, see [Optimize uptime and performance](https://docs.microsoft.com/azure/security/fundamentals/network-best-practices#optimize-uptime-and-performance).
+A popular and effective method for enhancing availability and performance is load balancing. Load balancing is a method of distributing network traffic across servers that are part of a service. It helps performance because the processor, network, and memory overhead for serving requests are distributed across all the load-balanced servers. We recommend that you employ load balancing whenever you can, and as appropriate for your services. For information on load balancing scenarios, see [Optimize uptime and performance](/azure/security/fundamentals/network-best-practices#optimize-uptime-and-performance).
 
 Consider these security measures, which impact performance:
 
 - To optimize performance and maximize availability, application code should first try to get OAuth access tokens silently from a cache before attempting to acquire a token from the identity provider. OAuth is a technological standard that allows you to securely share information between services without exposing your password.
 
-- Ensure that you are integrating critical security alerts and logs into SIEMs (security information and event management) without introducing a high volume of low value data. Doing so can increase SIEM cost, false positives, and lower performance. For more information, see [Prioritize alert and log integration](/azure/architecture/framework/security/monitor-audit#prioritize-alert-and-log-integration).
+- Ensure that you are integrating critical security alerts and logs into SIEMs (security information and event management) without introducing a high volume of low value data. Doing so can increase SIEM cost, false positives, and lower performance. For more information, see [Prioritize alert and log integration](../security/monitor-audit.md#prioritize-alert-and-log-integration).
 
-- Use Azure AD Connect to synchronize your on-premises directory with your cloud directory. There are factors that affect the performance of Azure AD Connect. Ensure Azure AD Connect has enough capacity to keep underperforming systems from impeding security and productivity. Large or complex organizations (organizations provisioning more than 100,000 objects) should follow the [recommendations](https://docs.microsoft.com/azure/active-directory/hybrid/whatis-hybrid-identity) to optimize their Azure AD Connect implementation.
+- Use Azure AD Connect to synchronize your on-premises directory with your cloud directory. There are factors that affect the performance of Azure AD Connect. Ensure Azure AD Connect has enough capacity to keep underperforming systems from impeding security and productivity. Large or complex organizations (organizations provisioning more than 100,000 objects) should follow the [recommendations](/azure/active-directory/hybrid/whatis-hybrid-identity) to optimize their Azure AD Connect implementation.
 
-- If you want to gain access to real time performance information at the packet level, use [packet capture](https://docs.microsoft.com/azure/network-watcher/network-watcher-alert-triggered-packet-capture) to set alerts.
+- If you want to gain access to real time performance information at the packet level, use [packet capture](/azure/network-watcher/network-watcher-alert-triggered-packet-capture) to set alerts.
 
-For other security considerations, see the [Security](/azure/architecture/framework/security/overview) pillar.
+For other security considerations, see the [Security](../security/overview.md) pillar.

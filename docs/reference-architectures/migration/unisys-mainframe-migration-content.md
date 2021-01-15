@@ -1,6 +1,3 @@
-
-
-
 Unisys ClearPath mainframe systems are full-featured operating environments that can scale up vertically to handle mission critical workloads. ClearPath mainframe models include Dorado, running Legacy Sperry 1100/2200, and Libra, running Legacy Burroughs A Series/MCP. Emulating, converting, or modernizing these systems into Azure can provide similar or better performance and SLA guarantees, while taking advantage of Azure flexibility, reliability, and future capabilities.
 
 This article describes the conversion technologies that Microsoft partner [Asysco](https://asysco.com/products/) uses to migrate Unisys mainframe workflows to Azure. The Automated Migration Technology (AMT) Framework allows an accelerated move into Azure without rewriting application code or redesigning data architecture. The framework converts legacy code to C#, while maintaining the source code in its original form. Application user interfaces and interactions can be virtually unchanged, minimizing the need for end user retraining.
@@ -104,7 +101,7 @@ You can scale out the server sets to provide more throughput. For more informati
 
 ### Security
 
-- This solution uses an Azure network security group (NSG) to manage traffic between Azure resources. For more information, see [Network security groups](https://docs.microsoft.com/azure/virtual-network/network-security-groups-overview).
+- This solution uses an Azure network security group (NSG) to manage traffic between Azure resources. For more information, see [Network security groups](/azure/virtual-network/network-security-groups-overview).
 
 - [Private Link for Azure SQL Database](/azure/azure-sql/database/private-endpoint-overview) provides a private, direct connection isolated to the Azure networking backbone from the Azure VMs to Azure SQL Database.
 

@@ -1,6 +1,3 @@
-
-
-
 This architecture shows how Azure can provide scale-out performance and high availability that is similar to IBM z/OS mainframe systems with Coupling Facilities (CFs).
 
 CFs are physical devices that connect multiple mainframe servers or Central Electronics Complexes (CECs) with shared memory, letting systems scale out to increase performance. Applications written in languages like COBOL and PL/I seamlessly take advantage of these tightly coupled scale-out features.
@@ -110,7 +107,7 @@ You can scale out the server sets to provide more throughput. For more informati
 
 ### Security
 
-- This solution uses an Azure network security group (NSG) to manage traffic between Azure resources. For more information, see [Network security groups](https://docs.microsoft.com/azure/virtual-network/network-security-groups-overview).
+- This solution uses an Azure network security group (NSG) to manage traffic between Azure resources. For more information, see [Network security groups](/azure/virtual-network/network-security-groups-overview).
 
 - [Private Link for Azure SQL Database](/azure/azure-sql/database/private-endpoint-overview) provides a private, direct connection isolated to the Azure networking backbone from the Azure VMs to Azure SQL Database.
 

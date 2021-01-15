@@ -116,5 +116,5 @@ The CluedIn platform has the following characteristics and considerations:
 
 - For more information about CluedIn, see the [CluedIn website](https://www.cluedin.com/).
 - For CluedIn documentation, see the [CluedIn documentation](http://documentation.cluedin.net/).
-- For an overview of Azure data architecture, see the [Azure Data Architecture Guide](/azure/architecture/data-guide/).
-- For an example end-to-end Azure data platform, see [Azure data platform end-to-end](/azure/architecture/example-scenario/dataplate2e/data-platform-end-to-end).
+- For an overview of Azure data architecture, see the [Azure Data Architecture Guide](../../data-guide/index.md).
+- For an example end-to-end Azure data platform, see [Azure data platform end-to-end](../../example-scenario/dataplate2e/data-platform-end-to-end.yml).

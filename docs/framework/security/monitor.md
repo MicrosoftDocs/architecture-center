@@ -33,9 +33,9 @@ Health modeling refers to the activities that maintain the security posture of a
 We recommend applying as many as of the best practices as early as possible, and then working to retrofit any gaps over time as you mature your security program. 
 
 > [!div class="nextstepaction"]
-> [ Optimize security investments](/azure/architecture/framework/security/governance?branch=master#prioritize-security-best-practices-investments)
+> [ Optimize security investments](./governance.md?branch=master#prioritize-security-best-practices-investments)
 
 Assign stakeholders to use [Secure Score](/azure/security-center/secure-score-security-controls) in Azure Security Center to monitor risk profile and continuously improve security posture. 
 
 > [!div class="nextstepaction"]
-> [Operationalize Azure Secure Score](/azure/architecture/framework/security/governance?branch=master#operationalize-azure-secure-score)
+> [Operationalize Azure Secure Score](./governance.md?branch=master#operationalize-azure-secure-score)
