@@ -2,7 +2,7 @@
 metadata:
   title: Windows Virtual Desktop for the enterprise
   titleSuffix: Azure Example Scenarios
-  description: 'Explore Windows Virtual Desktop, and learn to build virtual desktop infrastructure solutions at enterprise scale.'
+  description: Explore Windows Virtual Desktop and learn to build virtual desktop infrastructure solutions at enterprise scale.
   author: doodlemania2
   ms.date: 07/16/2020
   ms.topic: conceptual
@@ -16,12 +16,11 @@ metadata:
 name: Windows Virtual Desktop for the enterprise
 azureCategories:
   - windows-virtual-desktop
-summary: 'Explore Windows Virtual Desktop, and learn to build virtual desktop infrastructure solutions at enterprise scale.'
+summary: Explore Windows Virtual Desktop and learn to build virtual desktop infrastructure solutions at enterprise scale.
 products:
-  - azure
-  - windows
-  - windows-server
-  - windows-virtual-desktop
+  - azure-active-directory
+  - azure-active-directory-domain
+  - azure-virtual-network
 thumbnailUrl: /azure/architecture/browse/thumbs/windows-virtual-desktop.png
 content: |
    [!include[](windows-virtual-desktop-content.md)]

@@ -2,7 +2,7 @@
 metadata:
   title: Sharing location in real time using low-cost serverless Azure services
   titleSuffix: Azure Example Scenarios
-  description: SignalR configured in server-less mode to work with Azure Function triggered by Service Bus. All of it using .NET Core. This scenario is best used for real time messaging applications where users require a low-cost but robust messaging service.
+  description: In this scenario, learn how to architect a solution that processes changes to underlying data within a web view without the need for a page refresh using real-time services.
   author: talhanaveed
   ms.date: 12/09/2019
   ms.category:
@@ -22,11 +22,11 @@ azureCategories:
   - integration
   - developer-tools
   - hybrid
-summary: SignalR configured in server-less mode to work with Azure Function triggered by Service Bus. All of it using .NET Core. This scenario is best used for real time messaging applications where users require a low-cost but robust messaging service.
+summary: In this scenario, learn how to architect a solution that processes changes to underlying data within a web view without the need for a page refresh using real-time services.
 products:
-  - azure
+  - azure-front-door
   - azure-functions
-  - github
-thumbnailUrl: ""
+  - azure-service-bus
+thumbnailUrl: /azure/architecture/browse/thumbs/archdiagram.jpg
 content: |
    [!include[](index-content.md)]

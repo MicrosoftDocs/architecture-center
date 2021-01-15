@@ -15,11 +15,13 @@ name: Optimize administration of SQL Server instances in on-premises and multi-c
 azureCategories:
   - hybrid
   - databases
-summary: 'Optimize management, maintenance, and monitoring of SQL Server with Azure Arc enabled SQL Server and Azure Arc enabled data services in on-premises and multi-cloud environments.'
+summary: Optimize management, maintenance, and monitoring of SQL Server with Azure Arc enabled SQL Server and Azure Arc enabled data services in on-premises and multi-cloud environments.
 products:
   - azure
   - azure-arc
-  - sql-server
+  - azure-kubernetes-service
+  - azure-resource-manager
+  - azure-sql-managed-instance
 thumbnailUrl: /azure/architecture/browse/thumbs/azure_arc_sql_srvr.png
 content: |
    [!include[](azure-arc-sql-server-content.md)]

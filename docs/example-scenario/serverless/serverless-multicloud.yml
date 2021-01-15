@@ -22,9 +22,7 @@ azureCategories:
   - hybrid
 summary: Develop and deploy serverless microservices across cloud providers with the open-source Serverless Framework and Serverless Multicloud Library.
 products:
-  - azure
   - azure-functions
-  - github
 thumbnailUrl: /azure/architecture/browse/thumbs/multi-cloud-serverless-architecture.png
 content: |
    [!include[](serverless-multicloud-content.md)]
