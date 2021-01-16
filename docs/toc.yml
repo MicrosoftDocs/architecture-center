@@ -1461,6 +1461,8 @@ items:
         href: solution-ideas/articles/homomorphic-encryption-seal.md
       - name: Real-time fraud detection
         href: example-scenario/data/fraud-detection.md
+      - name: Restrict inter-service communications
+        href: example-scenario/service-to-service/restrict-communications.yml
       - name: Secure OBO refresh tokens
         href: example-scenario/secrets/secure-refresh-tokens.md
       - name: Securely managed web apps

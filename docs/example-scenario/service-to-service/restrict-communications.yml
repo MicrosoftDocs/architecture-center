@@ -1,0 +1,23 @@
+### YamlMime:Architecture 
+metadata: 
+  title: Restrict inter-service communications
+  titleSuffix: Azure Architecture 
+  description: Restrict communications between Azure App Service services on both the application and network layers.
+  author: xstof
+  ms.date: 01/14/2021
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: example-scenario
+  ms.custom:
+  - fcp
+  - fasttrack-new
+azureCategories:
+  - security
+products: 
+  - azure
+name: Restrict inter-service communications
+summary: Restrict communications between Azure services on both the application and network layers.
+thumbnailUrl: /azure/architecture/browse/thumbs/service-to-service-architecture.png
+content: | 
+  [!include[](restrict-communications-content.md)] 
+
