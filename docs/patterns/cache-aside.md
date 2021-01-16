@@ -5,10 +5,12 @@ description: Learn how to load data on demand into a cache, which can improve pe
 keywords: design pattern
 author: dragon119
 ms.date: 11/01/2018
-ms.topic: design-pattern
+ms.topic: conceptual
 ms.service: architecture-center
-ms.subservice: cloud-fundamentals
-ms.custom: seodec18
+ms.subservice: design-pattern
+ms.custom:
+  - seodec18
+  - design-pattern
 ---
 
 # Cache-Aside pattern

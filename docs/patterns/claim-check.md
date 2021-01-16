@@ -5,9 +5,11 @@ description: Split a large message into a claim check and a payload to avoid ove
 keywords: design pattern
 author: yorek
 ms.date: 03/05/2019
-ms.topic: design-pattern
+ms.topic: conceptual
 ms.service: architecture-center
-ms.subservice: cloud-fundamentals
+ms.subservice: design-pattern
+ms.custom:
+  - design-pattern
 ---
 
 # Claim-Check Pattern

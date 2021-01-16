@@ -4,11 +4,13 @@ titleSuffix: Azure Application Architecture Guide
 description: Understand the different types of harms, and learn steps to mitigate them.
 author: dcass
 ms.date: 05/18/2020
-ms.topic: guide
+ms.topic: conceptual
 ms.service: architecture-center
 ms.category:
   - fcp
-ms.subservice: reference-architecture
+ms.subservice: guide
+ms.custom:
+  - guide
 ---
 
 # Types of harm 
@@ -163,4 +165,5 @@ Other Responsible AI tools:
 
 Additional references:
 
+- [Downloadable booklet for assessing harms](https://download.microsoft.com/download/d/f/9/df99822c-0b98-4e39-803a-fcd00f1cae56/AssessingHarmsBooklet.pdf)
 - [Value Sensitive Design](https://vsdesign.org/)

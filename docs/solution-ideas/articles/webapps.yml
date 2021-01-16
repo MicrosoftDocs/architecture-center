@@ -1,0 +1,24 @@
+### YamlMime:Architecture
+metadata:
+  title: Build web and mobile applications
+  titleSuffix: Azure Solution Ideas
+  author: doodlemania2
+  ms.date: 06/24/2020
+  description: Build web and mobile applications with an Azure microservices-based architecture. Use this solution inspired by PayMe for Business in e-commerce platforms.
+  ms.custom: 'acom-architecture, fcp'
+  ms.service: architecture-center
+  ms.category:
+    - ai-machine-learning
+  ms.subservice: solution-idea
+name: Build web and mobile applications
+azureCategories:
+  - ai-machine-learning
+summary: Build web and mobile applications with an Azure microservices-based architecture. Use this solution inspired by PayMe for Business in e-commerce platforms.
+products:
+  - azure-cosmos-db
+  - azure-database-mysql
+  - azure-databricks
+  - azure-kubernetes-service
+thumbnailUrl: /azure/architecture/browse/thumbs/webapps.png
+content: |
+   [!include[](webapps-content.md)]

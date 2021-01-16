@@ -1,12 +1,13 @@
 ---
 title: Generate cost reports
 description: Describes ways to gather cost data for reporting purposes
-author:  PageWriter-MSFT
+author: PageWriter-MSFT
 ms.date: 05/12/2020
-ms.topic: article
+ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
-ms.custom: 
+ms.custom:
+  - article
 ---
 
 # Generate cost reports
@@ -37,7 +38,7 @@ Azure Advisor recommendations for cost can highlight the over-provisioned servic
 For more information, see [Advisor cost management recommendations](/azure/advisor/advisor-cost-recommendations).
 
 ## Consumption APIs
-Granular and custom reports can help track cost over time. Azure provides a set of Consumption APIs to generate such reports. These APIs allow you to query and create various cost data. Data includes usage data for Azure services and third-party services through Marketplace, balances, budgets, recommendations on reserved instances, among others. You can configure Azure Role-based Access control policies to allow only a certain set of users or applications access the data.
+Granular and custom reports can help track cost over time. Azure provides a set of Consumption APIs to generate such reports. These APIs allow you to query and create various cost data. Data includes usage data for Azure services and third-party services through Marketplace, balances, budgets, recommendations on reserved instances, among others. You can configure Azure role-based access control (Azure RBAC) policies to allow only a certain set of users or applications access the data.
 
 For example, you want to determine the cost of all resources used in your workload for a given period. One way of getting this data is by querying usage meters and the rate of those meters. You also need to know the billing period of the usage. By combining these APIs, you can estimate the consumption cost.
 

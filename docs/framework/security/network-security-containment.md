@@ -3,9 +3,11 @@ title: Network security and containment in Azure | Microsoft Docs
 description: Review best practices for network security in Azure, including network segmentation, network management, containment strategy, and internet edge strategy.
 author: PageWriter-MSFT
 ms.date: 07/09/2019
-ms.topic: article
+ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
+ms.custom:
+  - article
 ---
 
 # Network security and containment
@@ -272,12 +274,12 @@ downtime will have negative impact on the business.
 An example of advanced DDoS protection is the [Azure DDoS Protection
 Service](/azure/virtual-network/ddos-protection-overview).
 
-The [Windows N-tier application on Azure with SQL Server](../../reference-architectures/n-tier/n-tier-sql-server.md) reference architecture uses DDoS Protection Standard because this option:
+The [Windows N-tier application on Azure with SQL Server](../../reference-architectures/n-tier/n-tier-sql-server.yml) reference architecture uses DDoS Protection Standard because this option:
 - Uses adaptive tuning, based on the application's network traffic patterns, to detect threats. 
 - Guarantees 100% SLA. 
 - Can be cost effective. For example, during a DDoS attack, the first set of attacks cause  the provisioned resources to scale out. For a resource such as a virtual machine scale set, 10 machines can grow to 100, increasing overall costs. With Standard protection, you don't have to worry about the cost of the scaled resources because Azure will provide the cost credit. 
 
-The [Windows N-tier application on Azure with SQL Server](../../reference-architectures/n-tier/n-tier-sql-server.md) reference architecture uses DDoS Protection Standard because this option:
+The [Windows N-tier application on Azure with SQL Server](../../reference-architectures/n-tier/n-tier-sql-server.yml) reference architecture uses DDoS Protection Standard because this option:
 - Uses adaptive tuning, based on the application's network traffic patterns, to detect threats. 
 - Guarantees 100% SLA. 
 - Can be cost effective. For example, during a DDoS attack, the first set of attacks cause  the provisioned resources to scale out. For a resource such as a virtual machine scale set, 10 machines can grow to 100, increasing overall costs. With Standard protection, you don't have to worry about the cost of the scaled resources because Azure will provide the cost credit. 

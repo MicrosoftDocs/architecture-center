@@ -3,9 +3,11 @@ title: Automated Tasks
 description: Automated Tasks
 author: neilpeterson
 ms.date: 10/15/2020
-ms.topic: article
+ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
+ms.custom:
+  - article
 ---
 
 # Automate operational tasks
@@ -14,7 +16,7 @@ Operational tasks can include any action or activity you may perform while manag
 
 Many of these operational tasks can and should be automated. Using scripting technologies and related solutions, you can shift effort from manually performing operational tasks towards building automation for these tasks. In doing so, you achieve so much, including:
 
-- Increase time to perform an action.
+- Reduce time to perform an action.
 - Reduce risk in performing the action.
 - Automated response to events and alerts.
 - Increased human capacity for further innovation.
@@ -23,19 +25,19 @@ When working in Azure, you have many options for automating operational tasks. T
 
 ## Azure Functions 
 
-Azure Functions allows you to run code without managing the underlying infrastructure on where the code is run. Azure functions provide a cost-effective, scalable, and event-driven platform for building applications and running operational tasks. Azure functions support running code written in C#, Java, JavaScript, Python, and PowerShell.
+Azure Functions allows you to run code without managing the underlying infrastructure on where the code is run. Functions provide a cost-effective, scalable, and event-driven platform for building applications and running operational tasks. Functions support running code written in C#, Java, JavaScript, Python, and PowerShell.
 
-When creating a function, a hosting plan is selected. Hosting plans controls how a function app is scaled, resource availability, and availability of advanced features such as virtual network connectivity and startup time. The hosting plan also influences the cost.
+When creating a Function, a hosting plan is selected. Hosting plans controls how a function app is scaled, resource availability, and availability of advanced features such as virtual network connectivity and startup time. The hosting plan also influences the cost.
 
-Azure Functions hosting plans:
+Functions hosting plans:
 
-- **Consumption** - Default hosting plan, pay only function execution time, configurable timeout period, automatic scale.
-- **Premium** - Daster start, VNet connectivity, unlimited execution duration, premium instance sizes, more predictable pricing.
-- **App Service Plan** - Dunctions run on dedicated virtual machines and can use custom images.
+- **Consumption** - Default hosting plan, pay only for Function execution time, configurable timeout period, automatic scale.
+- **Premium** - Faster start, VNet connectivity, unlimited execution duration, premium instance sizes, more predictable pricing.
+- **App Service Plan** - Functions run on dedicated virtual machines and can use custom images.
 
-For full details on consumption plans, see [Azure Functions scale and hosting](https://docs.microsoft.com/azure/azure-functions/functions-scale).
+For full details on consumption plans, see [Azure Functions scale and hosting](/azure/azure-functions/functions-scale).
 
-Azure Functions provide event-driven automation; each function has a trigger associated with it. These triggers are what run the functions. Common triggers include:
+Functions provide event-driven automation; each function has a trigger associated with it. These triggers are what run the functions. Common triggers include:
 
 - **HTTP / Webhook** - Function is run when an HTTP request is received.
 - **Queue** - Function is run when a new message arrives in a message queue.
@@ -46,14 +48,14 @@ Below are example triggers seen in the Azure portal when creating a new function
 
 ![Azure Function triggers as seenin the Azure portal.](../_images/devops/function-triggers.png)
 
-Once an event has occurred that initiates a function, you may also want to consume data from this event or from another source. Once a function has been completed, you may want to publish or push data to an Azure service such as a Blob Storage. Input and output are achieved using input and output bindings. For more information about triggers and bindings, see [Azure Functions triggers and binding concepts](https://docs.microsoft.com/azure/azure-functions/functions-triggers-bindings).
+Once an event has occurred that initiates a Function, you may also want to consume data from this event or from another source. Once a Function has been completed, you may want to publish or push data to an Azure service such as a Blob Storage. Input and output are achieved using input and output bindings. For more information about triggers and bindings, see [Azure Functions triggers and binding concepts](/azure/azure-functions/functions-triggers-bindings).
 
-Both PowerShell and Python are common languages for automating everyday operational tasks. Because Azure Functions supports both of these languages, it is an excellent platform for hosting, running, and auditing automated operational tasks. For example, let's assume that you would like to build a solution to facilitate self-service account creation. An Azure PowerShell function could be used to create the account in Azure Active Directory. An HTTP trigger can be used to initiate the function, and an input binding configured to pull the account details from the HTTP request body. The only remaining piece would be a solution that consumes the account details and creates the HTTP requests against the function.
+Both PowerShell and Python are common languages for automating everyday operational tasks. Because Azure Functions supports both of these languages, it is an excellent platform for hosting, running, and auditing automated operational tasks. For example, let's assume that you would like to build a solution to facilitate self-service account creation. An Azure PowerShell Function could be used to create the account in Azure Active Directory. An HTTP trigger can be used to initiate the Function, and an input binding configured to pull the account details from the HTTP request body. The only remaining piece would be a solution that consumes the account details and creates the HTTP requests against the Function.
 
 **Learn more**
 
-- [Documentation: Azure Functions PowerShell developer guide](https://docs.microsoft.com/azure/azure-functions/functions-reference-powershell)
-- [Documentation: Azure Functions Python developer guide](https://docs.microsoft.com/azure/azure-functions/functions-reference-python)
+- [Documentation: Azure Functions PowerShell developer guide](/azure/azure-functions/functions-reference-powershell)
+- [Documentation: Azure Functions Python developer guide](/azure/azure-functions/functions-reference-python)
 
 
 ## Azure Automation
@@ -73,7 +75,7 @@ As seen in the following image, Azure Automation provides a portal experience fo
 
 **Learn more**
 
-- [Documentation: What is Azure Automation](https://docs.microsoft.com/azure/automation/automation-intro)?
+- [Documentation: What is Azure Automation](/azure/automation/automation-intro)?
 
 ## Scale operations
 
@@ -90,7 +92,7 @@ Some Azure services support automatic scale-out, which is the focus of this sect
 
 ### Azure Monitor autoscale
 
-Azure Monitor autoscale can be used to autoscale Virtual Machine Scale Sets, Cloud Services, App Service Web Apps, and API Management service. To configure scale-out operations for these services, while in the Azure portal, select the service, and then the **Scaling** or **scale-out** under the resource settings. Select **Custom** To configure autoscaling rules. Automatic scale operations can also be configured using an Azure Resource Manager Template, the Azure PowerShell module, and the Azure CLI.
+Azure Monitor autoscale can be used to autoscale Virtual Machine Scale Sets, Cloud Services, App Service Web Apps, and API Management service. To configure scale-out operations for these services, while in the Azure portal, select the service, and then **scale-out** under the resource settings. Select **Custom** To configure autoscaling rules. Automatic scale operations can also be configured using an Azure Resource Manager Template, the Azure PowerShell module, and the Azure CLI.
 
 ![Azure App Service scale configuration as seen in the Azure portal.](../_images/devops/auto-scale.png)
 
@@ -100,7 +102,7 @@ When creating the autoscale rules, configure minimum and maximum instance counts
 
 **Learn more**
 
-- [Documentation: Azure Monitor autoscale overview](https://docs.microsoft.com/azure/azure-monitor/platform/autoscale-overview)
+- [Documentation: Azure Monitor autoscale overview](/azure/azure-monitor/platform/autoscale-overview)
 
 ### Azure Kubernetes Service
 
@@ -196,5 +198,5 @@ See the included documentation for information on fine-grain control for cluster
 
 **Learn more**
 
-- [Documentation: Horizontal pod autoscaling](https://docs.microsoft.com/azure/aks/tutorial-kubernetes-scale#autoscale-pods)
-- [Documentation: AKS cluster autoscaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler)
+- [Documentation: Horizontal pod autoscaling](/azure/aks/tutorial-kubernetes-scale#autoscale-pods)
+- [Documentation: AKS cluster autoscaler](/azure/aks/cluster-autoscaler)

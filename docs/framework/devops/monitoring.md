@@ -3,10 +3,12 @@ title: Monitoring for DevOps
 description: Describes how to monitor your workload to ensure your DevOps infrastructure is working as intended.
 author: david-stanford
 ms.date: 11/01/2019
-ms.topic: article
+ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
-ms.custom: fasttrack-edit
+ms.custom:
+  - fasttrack-edit
+  - article
 ---
 
 # Monitoring for DevOps
@@ -64,6 +66,18 @@ Not only your application components are producing data, but there are many othe
 * **Azure Service Health**: sometimes outages are provoked not by configuration changes, but by glitches in the Azure platform itself. You can find information about any Azure-related problem impacting your application in the Azure Service Health logs.
 * **Azure Advisor**: find here recommendations about how to optimize your Azure platform to reduce costs, improve your security posture, or increase the availability of your environment.
 * **Azure Security Center**: not a focus of this pillar, but to be included for completeness: Azure Security Center can help you to understand whether your Azure resources are configured according to security best practices
+
+## Monitor external dependencies
+
+Just as important as monitoring your applications and Azure infrastructure, monitoring external dependencies is also critical. Ensure that you have solutions to gain insight into the health and availability of external dependencies such as third party services, package repositories, and other related applications.
+
+Azure monitor can have a role in monitoring external dependencies. Azure Monitor can ingest data from several custom data sources, which provides some extensibility into what can be monitored. Utilizing custom data sources for external dependencies provides you with the capabilities of Azure Monitor on virtual any service, endpoint, or software solution. 
+
+To learn more about ingesting data from custom sources, see the following articles.
+
+- [Collect custom logs with Log Analytics agent in Azure Monitor](/azure/azure-monitor/platform/data-sources-custom-logs)
+- [Collecting custom JSON data sources with Log Analytics agent for Linux](/azure/azure-monitor/platform/data-sources-json)
+- [Send log data to Azure Monitor with the HTTP Data Collector API](/azure/azure-monitor/platform/data-collector-api)
 
 ## Monitoring best practices
 

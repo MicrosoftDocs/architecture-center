@@ -4,11 +4,13 @@ titleSuffix: Azure Application Architecture Guide
 description: This technique allows project teams to understand the perceptions and concerns of stakeholders.
 author: dcass
 ms.date: 05/18/2020
-ms.topic: guide
+ms.topic: conceptual
 ms.service: architecture-center
 ms.category:
   - fcp
-ms.subservice: reference-architecture
+ms.subservice: guide
+ms.custom:
+  - guide
 ---
 
 # Community Jury

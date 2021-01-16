@@ -4,9 +4,11 @@ description: Enable an application to announce events to multiple interested con
 keywords: design pattern
 author: alexbuckgit
 ms.date: 12/07/2018
-ms.topic: design-pattern
+ms.topic: conceptual
 ms.service: architecture-center
-ms.subservice: cloud-fundamentals
+ms.subservice: design-pattern
+ms.custom:
+  - design-pattern
 ---
 
 # Publisher-Subscriber pattern
@@ -110,7 +112,7 @@ This pattern might not be useful when:
 ## Example
 
 The following diagram shows an enterprise integration architecture that uses Service Bus to coordinate workflows, and Event Grid to notify subsystems of events that occur.
-For more information, see [Enterprise integration on Azure using message queues and events](../reference-architectures/enterprise-integration/queues-events.md).
+For more information, see [Enterprise integration on Azure using message queues and events](../reference-architectures/enterprise-integration/queues-events.yml).
 
 ![Enterprise integration architecture](../reference-architectures/enterprise-integration/_images/enterprise-integration-queues-events.png)
 

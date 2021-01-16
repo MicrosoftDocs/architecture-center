@@ -3,47 +3,52 @@ title: Chaos engineering
 description: Chaos engineering fundamentals for improving the reliability of a service built on Azure.
 author: absheik
 ms.date: 04/03/2020
-ms.topic: article
+ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
-ms.custom: How do you chaos engineer your applications to ensure they're fault tolerant?
+ms.custom:
+  - How do you chaos-engineer your applications to ensure that they're fault tolerant?
+  - article
 ---
 
 # Chaos engineering
 
-Chaos engineering is a methodology that helps developers attain consistent reliability by hardening services against failures in production. A common way to introduce chaos is to deliberately inject fault that causes system components to fail. The goal is to observe, monitor, respond to, and improve your system's reliability under these circumstances.
+Chaos engineering is a methodology that helps developers attain consistent reliability by hardening services against failures in production. A common way to introduce chaos is to deliberately inject faults that cause system components to fail. The goal is to observe, monitor, respond to, and improve your system's reliability under adverse circumstances.
 
 ## Context
 
-It's very difficult to simulate the characteristics of a service's behavior outside a production environment at scale. The transient nature of a cloud platform exacerbates this problem. Architecting your service to expect failure is a core tenant of a modern service. Chaos engineering embraces the uncertainty of production and strives to precipitate rare, unpredictable, and disruptive outcomes early, so customer impact is minimized.
+It's difficult to simulate the characteristics of a service's behavior at scale outside a production environment. The transient nature of cloud platforms can exacerbate this difficulty. Architecting your service to expect failure is a core approach to creating a modern service. Chaos engineering embraces the uncertainty of the production environment and strives to anticipate rare, unpredictable, and disruptive outcomes, so that you can minimize any potential impact on your customers.
 
 ## Principles
 
-Chaos engineering is aimed at increasing your service’s resiliency and the ability to react to failures. By conducting experiments in a controlled environment, you can identify issues during development and deployment.
+Chaos engineering is aimed at increasing your service’s resiliency and its ability to react to failures. By conducting experiments in a controlled environment, you can identify issues that are likely to arise during development and deployment. During this process, be vigilant in adopting the following guidelines:
 
-- Be Proactive
-- Embrace failure
-- Break the system
-- Identify and address single points of failure early
-- Instill guardrails and graceful mitigations
-- Minimize blast radius
-- Build immunity
-- Chaos engineering should be a part of the development team culture and an ongoing practice, not a short-term tactical effort in response to an outage.
+- Be proactive.
+- Embrace failure.
+- Break the system.
+- Identify and address single points of failure early.
+- Install guardrails and graceful mitigations.
+- Minimize the blast radius.
+- Build immunity.
 
-Development team are partners in the process. They must have resources to triage issues, implement testability required for fault injection, and drive the necessary product changes.
+Chaos engineering should be an integral part of development team culture and an ongoing practice, not a short-term tactical effort in response to a single outage.
+
+Development team members are partners in the process. They must be equipped with the resources to triage issues, implement the testability that's required for fault injection, and drive the necessary product changes.
 
 ## When to apply chaos
-Ideally chaos should be applied all the time.  There is constant change in the environments in which software and hardware runs. So, monitoring the change is key. Constant application of stress or faults on components will help expose issues early before a small issue gets compounded by a number of other factors.
+Ideally, you should apply chaos principles continuously. There's constant change in the environments in which software and hardware run, so monitoring the changes is key. By constantly applying stress or faults on components, you can help expose issues early, before small problems are compounded by a number of other factors.
+
+Apply chaos engineering principles when you're:
 
 - Deploying new code.
 - Adding dependencies.
-- Usage pattern changing.
+- Observing changes in usage patterns.
 - Mitigating problems.
 
 ## Process
-Chaos engineering requires specialized expertise, technology, and practices. Similar to security and performance teams, the model of a central team supporting the service teams is a common effective approach.
+Chaos engineering requires specialized expertise, technology, and practices. As with security and performance teams, the model of a central team supporting the service teams is a common, effective approach.
 
-Here is one way of organizing teams that are practicing simulated handling of potentially catastrophic scenarios under controlled conditions.
+If you plan to practice the simulated handling of potentially catastrophic scenarios under controlled conditions, here's a simplified way to organize your teams:
 
 |Attacker|	Defender|
 |---|---|
@@ -52,70 +57,67 @@ Here is one way of organizing teams that are practicing simulated handling of po
 |	|Mitigate|
 
 ### Goals 
--	Familiarize the members with monitoring tools
--	Recognize outage patterns
--	Learn how to assess the impact
--	Determine the root-cause and mitigate accordingly
--	Practice log analysis
+- Familiarize team members with monitoring tools.
+- Recognize outage patterns.
+- Learn how to assess the impact.
+- Determine the root cause and mitigate accordingly.
+- Practice log analysis.
 
 ### Overall method
-1.	Start with a hypothesis.
-2.	Measure baseline behavior.
-3.	Inject a fault or faults.
-4.	Monitor the resulting behavior.
-5.	Document the process and the observations.
-6.	Identify and act on the result.
+1. Start with a hypothesis.
+1. Measure baseline behavior.
+1. Inject a fault or faults.
+1. Monitor the resulting behavior.
+1. Document the process and observations.
+1. Identify and act on the result.
 
-Validate the process, architecture choices, and code, periodically. Fault injection experiments help confirm that monitoring is in place and alerts are set up, the Directly Responsible Individual (DRI) process is effective, and that documentation and investigation steps are up to date.
--	Challenge system assumptions.
--	Validate change (topology, platform, resources).
--	Use Service Level Agreement (SLA) buffers.
--	Use live-site outages as opportunities.
+Periodically validate your process, architecture choices, and code. By conducting fault-injection experiments, you can confirm that monitoring is in place and alerts are set up, the *directly responsible individual* (DRI) process is effective, and your documentation and investigation processes are up to date. Keep in mind a few key considerations:
+- Challenge system assumptions.
+- Validate change (topology, platform, resources).
+- Use service-level agreement (SLA) buffers.
+- Use live-site outages as opportunities.
 
 ## Best practices
 
-#### Shifting left
+#### Shift left
 
-Experiment early, experiment often. Incorporate fault injection configurations and create resiliency validation gates during your development stages and in the deployment pipeline.
+Shift-left testing means experiment early, experiment often. Incorporate fault-injection configurations and create resiliency-validation gates during the development stages and in the deployment pipeline.
 
-#### Shifting right
-Verify that the service is resilient where it counts in a pre-production or production environment with actual customer load.  Adopt a proactive approach as opposed to reacting to failures. Be a part of determining and controlling requirements for the blast radius.
+#### Shift right
+Shift-right testing means that you verify that the service is resilient where it counts in a pre-production or production environment with actual customer load.  Adopt a proactive approach as opposed to reacting to failures. Be a part of determining and controlling requirements for the blast radius.
 
 #### Blast radius
-Stop the experiment when it goes beyond scope. An expected outcome of experiments is unknown results. Strive to achieve balance between collecting substantial result data while affecting as few production users as possible. The [Bulkhead pattern](../../patterns/bulkhead.md) practices that principle.
+Stop the experiment when it goes beyond scope. Unknown results are an expected outcome of chaos experiments. Strive to achieve balance between collecting substantial result data and affecting as few production users as possible. For an example of this principle in practice, see the [Bulkhead pattern](../../patterns/bulkhead.md) article.
 
-#### Error Budget Testing
-Establish an error budget as an investment in chaos and fault injection. Your error budget is difference between 100% and agreed-upon Service Level Objective (SLO).
+#### Error budget testing
+Establish an error budget as an investment in chaos and fault injection. Your error budget is the difference between achieving 100% of the service-level objective (SLO) and achieving the *agreed-upon* SLO.
 
 ## Considerations
-Here are some considerations based on application of chaos engineering inside Azure.
+The following sections discuss additional considerations about chaos engineering, based on its application inside Azure.
 
 ### Identify faults that are relevant to the development team
-Work closely with the development teams to ensure the relevance of the failures injected. Use past incidents or issues as a guide. Examine dependencies and evaluate the results when those dependencies are removed.
+Work closely with the development teams to ensure the relevance of the injected failures. Use past incidents or issues as a guide. Examine dependencies and evaluate the results when those dependencies are removed.
 
-An external team cannot hypothesize faults for the team. A study of failures from an artificial source may be relevant to the team but the effort must be justified.  
+An external team can't hypothesize faults for your team. A study of failures from an artificial source might be relevant to your team's purposes, but the effort must be justified.  
 
-### Inject the faults in a way that accurately reflects production failures
-Simulate production failures. Treat the injected faults as production-level faults. A tighter limit on the blast radius will enable you to simulate a production environment. Each fault injection effort must have tooling designed explicitly to inject the types of faults that are relevant. Here are two basic ways:
+### Inject faults in a way that accurately reflects production failures
+Simulate production failures. Treat injected faults in the same way that you would treat production-level faults. Enforcing a tighter limit on the blast radius will enable you to simulate a production environment. Each fault-injection effort must be accompanied by tooling that's designed to inject the types of faults that are relevant to your team's scenarios. Here are two basic ways:
 
--	Inject faults in a non-production environment like Canary or Test In Production (TIP).
--	Partition the production service or environment.
+- Inject faults in a non-production environment, such as Canary or Test In Production (TIP).
+- Partition the production service or environment.
 
-Halt all faults and roll state back to its last-known good configuration if the state seems severe.
+Halt all faults and roll back the state to its last-known good configuration if the state seems severe.
 
 ### Build confidence incrementally
-Starting with hardening the core and then expanding out in layers. At each point progress should be locked in with automated regression tests. Each team should have a long-term strategy based on a progression that makes sense for their circumstances.
+Start by hardening the core, and then expand out in layers. At each point, lock in progress with automated regression tests. Each team should have a long-term strategy based on a progression that makes sense for the team's circumstances.
 
-Applying the shift left strategy ensure any obstacles for developer usage are removed and the results of the testing are actionable
+By applying the shift left strategy, you can help ensure that any obstacles to developer usage are removed early and the testing results are actionable.
 
-It must be very low tax.
-It must be easy for developers to understand what happened and fix the issues.  This must fit in their normal workflow easily, not a one-off special activity.
+The process must be very *low tax*. That is, the process must make it easy for developers to understand what happened and to fix the issues. The effort must fit easily into their normal workflow, not burden them with one-off special activities.
 
 ## Faults
 
-Faults that can be leveraged to inject chaos.  
-
-
+The following table lists faults that you can apply to inject chaos. The list represents commonly injected faults and isn't intended to be exhaustive. 
 
 :::row:::
     :::column:::
@@ -656,6 +658,3 @@ Faults that can be leveraged to inject chaos.
         
     :::column-end:::
 :::row-end:::
-
-> [!NOTE]
-> This is not intended to be an exhaustive list, but a representation of commonly injected faults.

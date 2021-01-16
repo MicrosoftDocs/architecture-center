@@ -3,9 +3,11 @@ title: Enforce governance to reduce risks
 description: Security priorities around governance, risk, and compliance.
 author: PageWriter-MSFT
 ms.date: 07/09/2019
-ms.topic: article
+ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
+ms.custom:
+  - article
 ---
 
 <!-- cSpell:ignore NIST -->
@@ -27,7 +29,6 @@ After the policies are set, continuously improve those standards incrementally. 
 ## In this section
 |Article|Description|
 |---|---|
-|[Team roles and responsibilities](design-role-definitions.md)|Define clear lines of responsibility and separation of duties.|
 |[Reference model: Segmentation](design-segmentation.md)|Reference model and strategies of how the functions and teams can be segmented.|
 |[Management groups and permissions](design-management-groups.md)|Strategies using management groups to manage resources across multiple subscriptions consistently and efficiently.|
 |[Regulatory compliance](design-regulatory-compliance.md)|Guidance on standards published by law, authorities, and regulators.|

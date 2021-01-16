@@ -1,0 +1,30 @@
+### YamlMime:Architecture
+metadata:
+  title: Patterns and implementations
+  description: Details about the patterns and implementations used when the commercial software engineer team created the banking system cloud transformation solution.
+  author: doodlemania2
+  ms.author: pnp
+  ms.date: 8/11/2020
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: example-scenario
+  ms.category:
+    - integration
+  ms.custom:
+    - fcp
+    - cse
+    - example-scenario
+name: Patterns and implementations
+azureCategories:
+  - integration
+summary: Details about the patterns and implementations used when the commercial software engineer team created the banking system cloud transformation solution.
+products:
+  - azure-container-registry
+  - azure-cosmos-db
+  - azure-event-hubs
+  - azure-functions
+  - azure-kubernetes-service
+  - azure-pipelines
+thumbnailUrl: /azure/architecture/browse/thumbs/orchestration-based-saga-serverless-arch.png
+content: |
+   [!include[](patterns-and-implementations-content.md)]

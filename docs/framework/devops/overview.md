@@ -3,10 +3,12 @@ title: Overview of the operational excellence pillar
 description: Describes the operational excellence pillar.
 author: david-stanford
 ms.date: 10/21/2019
-ms.topic: overview
+ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
-ms.custom: fasttrack-edit
+ms.custom:
+  - fasttrack-edit
+  - overview
 ---
 
 # Overview of the operational excellence pillar
@@ -28,8 +30,8 @@ These are the disciplines we group in the operational excellence pillar:
 
 <!-- devops disciplines -->
 [monitoring]: ./monitoring.md
-[performance]: ./performance.md
-[deployment]: ./deployment.md
-[iac]: ./iac.md
-[testing]: ./testing.md
+[performance]: ./release-engineering-performance.md
+[deployment]: ./release-engineering-cd.md
+[iac]: ./automation-infrastructure.md
+[testing]: ./release-engineering-testing.md
 [app-design]: ./app-design.md

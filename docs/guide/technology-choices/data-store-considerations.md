@@ -4,9 +4,11 @@ titleSuffix: Azure Application Architecture Guide
 description: General considerations when choosing your data store.
 author: dsk-2015
 ms.date: 08/08/2020
-ms.topic: guide
+ms.topic: conceptual
 ms.service: architecture-center
-ms.subservice: reference-architecture
+ms.subservice: guide
+ms.custom:
+  - guide
 ---
 
 # Criteria for choosing a data store

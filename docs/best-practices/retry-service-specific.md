@@ -4,10 +4,12 @@ titleSuffix: Best practices for cloud applications
 description: Learn about the retry mechanism features for many Azure services. Retry mechanisms differ because services have different characteristics and requirements.
 author: dragon119
 ms.date: 09/16/2020
-ms.topic: best-practice
+ms.topic: conceptual
 ms.service: architecture-center
-ms.subservice: cloud-fundamentals
-ms.custom: seodec18
+ms.subservice: best-practice
+ms.custom:
+  - seodec18
+  - best-practice
 ---
 
 <!-- cSpell:ignore ADAL adonet backoff booksleeve linq timespan servicebus retryable typeof localdb mssqllocaldb autoflushing -->

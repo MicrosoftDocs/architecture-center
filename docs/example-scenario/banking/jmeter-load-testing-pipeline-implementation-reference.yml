@@ -1,0 +1,27 @@
+### YamlMime:Architecture
+metadata:
+  title: JMeter implementation reference for load testing pipeline solution
+  description: This article provides an overview of an implementation for a scalable cloud load testing pipeline.
+  author: doodlemania2
+  ms.author: pnp
+  ms.date: 8/11/2020
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: example-scenario
+  ms.category:
+    - devops
+  ms.custom:
+    - fcp
+    - cse
+    - example-scenario
+name: JMeter implementation reference for load testing pipeline solution
+azureCategories:
+  - devops
+summary: This article provides an overview of an implementation for a scalable cloud load testing pipeline.
+products:
+  - azure-container-instances
+  - azure-container-registry
+  - azure-pipelines
+thumbnailUrl: /azure/architecture/browse/thumbs/load-testing-pipeline-jmeter.png
+content: |
+   [!include[](jmeter-load-testing-pipeline-implementation-reference-content.md)]

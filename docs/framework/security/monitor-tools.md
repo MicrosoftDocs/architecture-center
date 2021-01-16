@@ -1,16 +1,18 @@
 ---
-title: Monitor tools in Azure | Microsoft Docs
+title: Security monitoring tools in Azure
 description: Monitor your data in Azure
 author: v-aangie
 ms.date: 09/20/2020
-ms.topic: article
+ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
+ms.custom:
+  - article
 ---
 
-# Monitor tools
+# Security monitoring tools in Azure
 
-Security provides confidentiality, integrity, and availability assurances against deliberate attacks and abuse of your valuable data and systems. Losing these assurances can negatively impact your business operations and revenue, as well as your organization’s reputation in the marketplace.
+Use security monitoring tools to monitor for anomalous behavior and enable investigation of incidents. 
 
 Use this article to learn how to strengthen your security posture using the following monitor tools:
 
@@ -76,3 +78,10 @@ Organizations that are weak on [*data classification*](/azure/cloud-adoption-fra
 The *data classification* process categorizes data by sensitivity and business impact in order to identify risks. When data is classified, you can manage it in ways that protect sensitive or important data from theft or loss.
 
 With proper *file protection*, you can analyze data flows to gain insight into your business, detect risky behaviors and take corrective measures, track access to documents, and more. The protection technology in AIP uses encryption, identity, and authorization policies. Protection stays with the documents and emails, independently of the location, regardless of whether they are inside or outside your organization, networks, file servers, and applications.
+
+
+## Next steps
+- [Security health modeling](monitor.md)
+- [Security logs and audits](monitor-audit.md)
+- [Security operations in Azure](monitor-security-operations.md)
+- [Check for identity, network, data risks](monitor-security-operations.md)

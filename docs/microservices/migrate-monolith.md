@@ -5,13 +5,15 @@ description: Use a DDD approach to migrate a monolithic application to microserv
 author: lavann
 ms.date: 11/04/2019
 ms.author: pnp
-ms.topic: guide
+ms.topic: conceptual
 ms.service: architecture-center
 ms.category:
   - migration
   - developer-tools
-ms.subservice: reference-architecture
-ms.custom: microservices
+ms.subservice: azure-guide
+ms.custom:
+  - microservices
+  - guide
 ---
 
 # Monoliths to microservices using domain-driven design
@@ -111,7 +113,7 @@ At this stage, the team can begin peeling away the monolithic application and sl
 
 As you continue to peel away the monolith, eventually there will come the point when it no longer needs to exist, and the microservices have been successfully extracted from the monolith. At this point, the anti-corruption layer (glue code) can safely be removed. 
 
-This approach is an example of the [Strangler pattern](../patterns/strangler.md) and allows for a controlled decomposition of a monolith into a set of microservices. Over time, as existing functionality is moved into microservices, the monolith will shrink in size and complexity, to the point that it no longer exists.
+This approach is an example of the [Strangler Fig pattern](../patterns/strangler-fig.md) and allows for a controlled decomposition of a monolith into a set of microservices. Over time, as existing functionality is moved into microservices, the monolith will shrink in size and complexity, to the point that it no longer exists.
 
 ## Next steps
 

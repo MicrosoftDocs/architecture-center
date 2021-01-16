@@ -1,0 +1,26 @@
+### YamlMime:Architecture
+metadata:
+  title: Adding a mobile front-end to a legacy app
+  titleSuffix: Azure Solution Ideas
+  author: doodlemania2
+  ms.date: 12/16/2019
+  description: The solution demonstrates modernizing an existing application by consolidating data from multiple business systems into one place and surfacing it through web and mobile frontends. This is targeted at improving employee productivity and to enable faster decision making.
+  ms.custom: 'acom-architecture, line of business app, lob app, lift and shift cloud strategy, cloud migration, cloud innovation, lift and shift solution, lift and shift strategy, interactive-diagram, ''https://azure.microsoft.com/solutions/architecture/adding-a-modern-web-and-mobile-frontend-to-a-legacy-claims-processing-application/'''
+  ms.service: architecture-center
+  ms.category:
+    - migration
+  ms.subservice: solution-idea
+  social_image_url: /azure/architecture/solution-ideas/articles/media/adding-a-modern-web-and-mobile-frontend-to-a-legacy-claims-processing-application.png
+name: Adding a mobile front-end to a legacy app
+azureCategories:
+  - migration
+summary: The solution demonstrates modernizing an existing application by consolidating data from multiple business systems into one place and surfacing it through web and mobile frontends. This is targeted at improving employee productivity and to enable faster decision making.
+products:
+  - azure
+  - power-bi
+  - sql-server
+  - windows
+  - windows-server
+thumbnailUrl: /azure/architecture/browse/thumbs/adding-a-modern-web-and-mobile-frontend-to-a-legacy-claims-processing-application.png
+content: |
+   [!include[](adding-a-modern-web-and-mobile-frontend-to-a-legacy-claims-processing-application-content.md)]

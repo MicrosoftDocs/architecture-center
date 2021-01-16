@@ -1,0 +1,28 @@
+### YamlMime:Architecture
+metadata:
+  title: Project 15 Open Platform
+  titleSuffix: Azure Solution Ideas
+  author: AltaOhms
+  description: 'Learn how to use Internet of Things technologies of Project 15 to accelerate scientific innovation in species tracking, ecosystem monitoring, and other areas.'
+  ms.date: 11/09/2020
+  ms.custom: 'iot, fcp'
+  ms.service: architecture-center
+  ms.subservice: solution-idea
+  ms.category:
+    - iot
+name: Project 15 Open Platform
+azureCategories:
+  - iot
+summary: 'Learn how to use Internet of Things technologies of Project 15 to accelerate scientific innovation in species tracking, ecosystem monitoring, and other areas.'
+products:
+  - aspnet
+  - azure
+  - azure-functions
+  - azure-iot
+  - azure-maps
+  - github
+  - office
+  - power-bi
+thumbnailUrl: /azure/architecture/browse/thumbs/project-15-ref-architecture.png
+content: |
+   [!include[](project-15-iot-sustainability-content.md)]

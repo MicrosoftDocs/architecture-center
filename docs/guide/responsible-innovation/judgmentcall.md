@@ -4,11 +4,13 @@ titleSuffix: Azure Application Architecture Guide
 description: This is a team-based activity that puts Microsoft AI principles into action.
 author: dcass
 ms.date: 05/12/2020
-ms.topic: guide
+ms.topic: conceptual
 ms.service: architecture-center
 ms.category:
   - fcp
-ms.subservice: reference-architecture
+ms.subservice: guide
+ms.custom:
+  - guide
 ---
 
 # Judgment Call
@@ -28,6 +30,8 @@ The theoretical basis and initial outcomes of the Judgment Call game were presen
 ## Preparation
 
 Judgment Call uses role play to surface ethical concerns in product development so players will anticipate societal impact, write product reviews, and explore mitigations. Players think of what kind of harms and impacts the technology might produce by writing product reviews from the point of view of a stakeholder.
+
+To prepare for this game, download the [printable Judgment Call game kit](https://download.microsoft.com/download/3/3/d/33da5224-fb6e-4591-827d-9c2bd9ac47c2/JudgmentCall_printable.pdf).
 
 ## During the Game
 

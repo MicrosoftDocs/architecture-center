@@ -4,10 +4,12 @@ titleSuffix: Performance antipatterns for cloud apps
 description: Offloading processing to a database server can cause performance and scalability problems.
 author: dragon119
 ms.date: 06/05/2017
-ms.topic: article
+ms.topic: conceptual
 ms.service: architecture-center
-ms.subservice: cloud-fundamentals
-ms.custom: seodec18
+ms.subservice: anti-pattern
+ms.custom:
+  - seodec18
+  - article
 ---
 
 <!-- cSpell:ignore DTUs LTRIM RTRIM RDBMS Linq processingindatabasemonitor -->

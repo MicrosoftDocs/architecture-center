@@ -1,12 +1,13 @@
 ---
 title: Develop a cost model
-description: Do cost modeling to map logical groups of cloud resources to an organization's hierarchy, and then estimate costs for those groups.
-author:  PageWriter-MSFT
+description: Do cost modeling to map logical groups of cloud resources to an organization''s hierarchy, and then estimate costs for those groups.
+author: PageWriter-MSFT
 ms.date: 05/12/2020
-ms.topic: article
+ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
-ms.custom: 
+ms.custom:
+  - article
 ---
 
 # Develop a cost model
@@ -92,11 +93,11 @@ If your workload has depedencies on shared assets like Active Directory, Network
 
 Here are some considerations for determining the governance policies that can assist with cost management. 
 
--	What are the budget constraints set by the company for each business unit?
--	What are policies for the budget alert levels and associated actions?
--	Identify acceptable boundaries for scale, redundancy, and performance against cost. 
--	Assess the limits for security. Don't compromise on security. Premium cloud security features can drive the cost up. It’s not necessary to overinvest. Instead use the cost profile to drive a realistic threat profile. 
--	Identify unrestricted resources. These resources typically need to scale and consume more cost to meet demand.
+- What are the budget constraints set by the company for each business unit?
+- What are policies for the budget alert levels and associated actions?
+- Identify acceptable boundaries for scale, redundancy, and performance against cost. 
+- Assess the limits for security. Don't compromise on security. Premium cloud security features can drive the cost up. It’s not necessary to overinvest. Instead use the cost profile to drive a realistic threat profile. 
+- Identify unrestricted resources. These resources typically need to scale and consume more cost to meet demand.
 
 #### Next step
 > [!div class="nextstepaction"]

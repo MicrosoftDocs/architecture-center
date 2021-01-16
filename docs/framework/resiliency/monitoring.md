@@ -3,10 +3,12 @@ title: Monitoring application health for reliability in Azure
 description: How to use monitoring to improve application reliability in Azure
 author: david-stanford
 ms.date: 10/16/2019
-ms.topic: article
+ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
-ms.custom: How are you ensuring failures are resolved quickly? 
+ms.custom:
+  - How are you ensuring failures are resolved quickly?
+  - article
 ---
 
 # Monitoring application health for reliability in Azure
@@ -65,7 +67,7 @@ Address the following subscription limits with alerts.
 
 :::image type="icon" source="../../_images/github.png" border="false"::: A reference implementation is available on [GitHub](https://github.com/mspnp/serverless-automation/blob/master/src/automation/throttling-responder/deployment.md).
 
-For information about that implementation, see [Event-based cloud automation on Azure](../../reference-architectures/serverless/cloud-automation.md).
+For information about that implementation, see [Event-based cloud automation on Azure](../../reference-architectures/serverless/cloud-automation.yml).
 
 ### Individual services
 
@@ -95,7 +97,7 @@ If your Azure SQL Database tier isn't adequate to handle your application's Data
 
 Sample:
 
-This [reference implementation](https://github.com/mspnp/serverless-automation/blob/master/src/automation/throttling-responder/deployment.md) monitors a Cosmos DB database for throttling. Azure Monitor alerts are triggered when data access requests to Cosmos DB exceed the capacity in Request Units (or RUs). For more context, see the [Reference Architecture](../../reference-architectures/serverless/cloud-automation.md) (Throttling response scenario)
+This [reference implementation](https://github.com/mspnp/serverless-automation/blob/master/src/automation/throttling-responder/deployment.md) monitors a Cosmos DB database for throttling. Azure Monitor alerts are triggered when data access requests to Cosmos DB exceed the capacity in Request Units (or RUs). For more context, see the [Reference Architecture](../../reference-architectures/serverless/cloud-automation.yml) (Throttling response scenario)
 
 
 ## Instrumentation

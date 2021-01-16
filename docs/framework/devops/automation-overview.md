@@ -3,9 +3,11 @@ title: Automation overview of goals, best practices, and types in Azure
 description: Automation overview
 author: v-aangie
 ms.date: 10/15/2020
-ms.topic: article
+ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
+ms.custom:
+  - article
 ---
 
 # Automation overview: Goals, best practices, and types
@@ -17,7 +19,7 @@ Automation has revolutionized how businesses operate and this trend continues to
 - Minimize human error in configuring repetitive tasks.
 - Produce consistent and repeatable results.
 
-To learn more, see [Deployment considerations for automation](https://docs.microsoft.com/azure/architecture/framework/DevOps/deployment#automation).
+To learn more, see [Deployment considerations for automation](./release-engineering-cd.md#automation).
 
 ## Goals of automation
 
@@ -29,7 +31,7 @@ A goal of automation is to make tools that do what humans can do, only better. F
 
 Most automation involves a percentage of *toil*. Toil is the operational work that is related to a process that is manual, repetitive, can be automated, and has minimal value. It is counterproductive to automation but in many organizations, a small amount of toil is unavoidable. It becomes an issue when too much toil slows progress. A project's production velocity will decrease if engineers are continuously interrupted by manual tasks attributed to toil, either planned or unplanned. Too much toil can impact job satisfaction. Engineers become dissatisfied when they find themselves spending too much time on operational toil rather than on other projects.
 
-Automation is the solution to reducing toil. By reducing it, engineers can eliminate future toil and concentrate on innovating and automating business solutions.
+Automation should be developed, and increased, so engineers can eliminate future toil. By reducing toil, engineers can concentrate on innovating business solutions.
 
 For more information, see [Toil automation](https://www.coursera.org/lecture/developing-a-google-sre-culture/toil-automation-BpNqj).
 
@@ -79,9 +81,9 @@ Two popular options for automating operational tasks are:
 - [**Azure functions**](./automation-tasks.md#azure-functions) - Run code without managing the underlying infrastructure on where the code is run.
 - [**Azure automation**](./automation-tasks.md#azure-automation)- Uses a programming language to automate operational tasks in code and executed on demand.
 
-For more information, see [Automation](./automation-tasks.md). To see a Microsoft Incite video, see [Automating Operational and Management Tasks](https://azure.microsoft.com/resources/videos/microsoft-ignite-2015-automating-operational-and-management-tasks-using-azure-automation/).
+For more information, see [Automation](./automation-tasks.md). To see a Microsoft Ignite video, see [Automating Operational and Management Tasks](https://azure.microsoft.com/resources/videos/microsoft-ignite-2015-automating-operational-and-management-tasks-using-azure-automation/).
 
-#### Next steps
+## Next steps
 
 > [!div class="nextstepaction"]
 > [Automate Repeatable Infrastructure](./automation-infrastructure.md)

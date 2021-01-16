@@ -1,11 +1,13 @@
 ---
 title: Repeatable Infrastructure
-description: Repeatable Infrastructure 
+description: Repeatable Infrastructure
 author: neilpeterson
 ms.date: 10/15/2020
-ms.topic: article
+ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
+ms.custom:
+  - article
 ---
 
 # Repeatable Infrastructure
@@ -36,9 +38,9 @@ Azure Resource Manager (ARM) Templates provide an Azure native infrastructure as
 - **Day one resource support** - ARM templates support all Azure resources and resource properties as they are released.
 - **Extensibility** - Azure deployments can be extended using deployment scripts and other automation solutions.
 - **Validation** - Azure deployments are evaluated against a validation API to catch configuration mistakes. 
-- **Testing** - the [ARM template test toolkit](https://docs.microsoft.com/azure/azure-resource-manager/templates/test-toolkit) provides a static code analysis framework for testing ARM templates.
-- **Change preview** - [ARM template what-if](https://docs.microsoft.com/azure/azure-resource-manager/templates/template-deploy-what-if?tabs=azure-powershell) allows you to see what will be changed before deploying an ARM template.
-- **Tooling** - Language service extensions are available for both [Visual Studio Code](https://docs.microsoft.com/azure/azure-resource-manager/templates/quickstart-create-templates-use-visual-studio-code) and [Visual Studio](https://docs.microsoft.com/azure/azure-resource-manager/templates/create-visual-studio-deployment-project) to assist in authoring ARM templates.
+- **Testing** - the [ARM template test toolkit](/azure/azure-resource-manager/templates/test-toolkit) provides a static code analysis framework for testing ARM templates.
+- **Change preview** - [ARM template what-if](/azure/azure-resource-manager/templates/template-deploy-what-if?tabs=azure-powershell) allows you to see what will be changed before deploying an ARM template.
+- **Tooling** - Language service extensions are available for both [Visual Studio Code](/azure/azure-resource-manager/templates/quickstart-create-templates-use-visual-studio-code) and [Visual Studio](/azure/azure-resource-manager/templates/create-visual-studio-deployment-project) to assist in authoring ARM templates.
 
 The following example demonstrates a simple ARM template that deploys a single Azure Storage account. In this example, a single parameter is defined to take in a name for the storage account. Under the resources section, a storage account is defined, the *storageName* parameter is used to provide a name, and the storage account details are defined. See the included documentation for an in-depth explanation of the different sections and configurations for ARM templates.
 
@@ -70,9 +72,9 @@ The following example demonstrates a simple ARM template that deploys a single A
 
 **Learn more**
 
-- [Documentation: What are ARM templates](https://docs.microsoft.com/azure/azure-resource-manager/templates/overview)
-- [Learn module: Deploy consistent infrastructure with ARM Templates](https://docs.microsoft.com/learn/modules/create-azure-resource-manager-template-vs-code/)
-- [Code Samples: ARM templates](https://docs.microsoft.com/samples/mspnp/samples/azure-well-architected-framework-sample-arm-template/)
+- [Documentation: What are ARM templates](/azure/azure-resource-manager/templates/overview)
+- [Learn module: Deploy consistent infrastructure with ARM Templates](/learn/modules/create-azure-resource-manager-template-vs-code/)
+- [Code Samples: ARM templates](/samples/mspnp/samples/azure-well-architected-framework-sample-arm-template/)
 
 ## Automate deployments with Terraform
 
@@ -99,9 +101,9 @@ Take note, the Terraform provider for Azure is an abstraction on top of Azure AP
 
 **Learn more**
 
-- [Documentation: Using Terraform on Azure](https://docs.microsoft.com/azure/developer/terraform/overview)
+- [Documentation: Using Terraform on Azure](/azure/developer/terraform/overview)
 
-#### Next steps
+## Next steps
 
 > [!div class="nextstepaction"]
 > [Automate infrastructure configuration](./automation-configuration.md)

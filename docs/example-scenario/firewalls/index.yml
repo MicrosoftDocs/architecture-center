@@ -1,0 +1,25 @@
+### YamlMime:Architecture
+metadata:
+  title: Azure Firewall Architecture Guide
+  description: Use proven customer engagement practices to design firewalls and proxies in Azure for traditional infrastructure workloads.
+  author: RZomerman
+  ms.date: 05/15/2020
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: example-scenario
+  ms.category:
+    - networking
+  ms.custom:
+    - example-scenario
+name: Azure Firewall Architecture Guide
+azureCategories:
+  - networking
+summary: Use proven customer engagement practices to design firewalls and proxies in Azure for traditional infrastructure workloads.
+products:
+  - azure-api-management
+  - azure-load-balancer
+  - azure-virtual-network
+  - azure-vpn-gateway
+thumbnailUrl: /azure/architecture/browse/thumbs/standard-lb-inbound.png
+content: |
+   [!include[](index-content.md)]

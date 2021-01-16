@@ -1,0 +1,28 @@
+### YamlMime:Architecture
+metadata:
+  title: Choose between virtual network peering and VPN gateways
+  titleSuffix: Azure Reference Architectures
+  description: Compares two ways to connect virtual networks in Azure.
+  author: anavinahar
+  ms.date: 12/13/2019
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.category:
+    - networking
+    - integration
+  ms.subservice: reference-architecture
+  ms.custom:
+    - networking
+    - fcp
+    - reference-architecture
+name: Choose between virtual network peering and VPN gateways
+azureCategories:
+  - networking
+  - integration
+summary: Compares two ways to connect virtual networks in Azure.
+products:
+  - azure
+  - azure-virtual-network
+thumbnailUrl: ""
+content: |
+   [!include[](vnet-peering-content.md)]

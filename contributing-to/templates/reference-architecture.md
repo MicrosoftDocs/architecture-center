@@ -3,6 +3,9 @@ title: Use the H1 (#) title of your article from the top of this section. Both t
 description: A brief summary of your article. This is the description that appears in search engine results. Maximum recommended length is 150-160 characters
 keywords: Comma-separated list of key concepts and terms from your article (optional).
 ms.date: mm/dd/yyyy
+ms.service = architecture-center
+ms.topic = conceptual
+ms.subservice = reference-architecture
 ---
 
 [NOTE: You can find more detailed guidelines about creating reference architectures [here](../reference-architectures.md).]
@@ -13,7 +16,7 @@ _Brief introduction goes here._ [**Deploy this solution**.](#deploy-the-solution
 
 ![alt text](./media/folder_name/architecture-diagram.png)
 
-_Download a [Visio file](https://arch-center.azureedge.net/cdn/architecture.vsdx) that contains this architecture diagram._
+_Download a [Visio file](https://arch-center.azureedge.net/architecture.vsdx) that contains this architecture diagram. This file must be uploaded to `https://arch-center.azureedge.net/`_
 
 ## Architecture
 

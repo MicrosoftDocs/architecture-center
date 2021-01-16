@@ -5,16 +5,18 @@ description: Using load testing to improve the performance of an event streaming
 author: doodlemania2
 ms.author: pnp
 ms.date: 08/27/2019
-ms.topic: article
+ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: cloud-fundamentals
+ms.custom:
+  - article
 ---
 
 <!--cSpell:ignore upsert upserted -->
 
 # Performance tuning scenario: Event streaming with Azure Functions
 
-This article describes how a development team used metrics to find bottlenecks and improve the performance of a distributed system. The article is based on actual load testing that we did for a sample application. The application code is available on [GitHub](https://github.com/mspnp/iot-guidance).
+This article describes how a development team used metrics to find bottlenecks and improve the performance of a distributed system. The article is based on actual load testing that we did for a sample application.
 
 *This article is part of a series. Read the first part [here](./index.md).*
 

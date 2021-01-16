@@ -4,10 +4,12 @@ titleSuffix: Best practices for cloud applications
 description: Guidance for how to separate partitions to be managed and accessed separately.
 author: dragon119
 ms.date: 11/04/2018
-ms.topic: best-practice
+ms.topic: conceptual
 ms.service: architecture-center
-ms.subservice: cloud-fundamentals
-ms.custom: seodec18
+ms.subservice: best-practice
+ms.custom:
+  - seodec18
+  - best-practice
 ---
 
 # Horizontal, vertical, and functional data partitioning
