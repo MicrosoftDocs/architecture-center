@@ -15,6 +15,9 @@ azureCategories:
   - security
 products: 
   - azure
+  - azure-active-directory
+  - azure-app-service
+
 name: Restrict interservice communications
 summary: Restrict communications between Azure services on both the application and network layers.
 thumbnailUrl: /azure/architecture/browse/thumbs/service-to-service-architecture.png

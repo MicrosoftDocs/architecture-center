@@ -15,7 +15,7 @@ The diagram outlines how Service A can communicate in a restricted way to Servic
 
 ### Token-based authorization
 
-Use an OpenID Connect (OIDC)-compatible library like the [Microsoft Authentication Library (MSAL)][msal] to support the [client credentials flow][clientcredsflow]. For more information, see [Scenario: Daemon application that calls web APIs][daemoncallswebapi], and the [sample application for the daemon scenario][daemonsample]).
+Use an OpenID Connect (OIDC)-compatible library like the [Microsoft Authentication Library (MSAL)][msal] to support the [client credentials flow][clientcredsflow]. For more information, see [Scenario: Daemon application that calls web APIs][daemoncallswebapi], and the [sample application for the daemon scenario][daemonsample].
 
 Both Service A and Service B must register in Azure AD, and Service A must have client credentials in either shared secret or certificate form.
 
@@ -27,7 +27,7 @@ Service B has three ways to ensure that only specifically allowed clients, Servi
 
 - **Validate the token appid claim**. Service B can validate the token [appid claim][accesstokenclaims], which identifies the Azure AD-registered application that requested the token. Service B must explicitly check the claim against a known access control caller list.
 - **Check for roles in the token**. Similarly, by checking for the presence of a certain **role** in the incoming token, Service B can ensure that Service A has explicit access permission.
-- **Require user assignment**. Alternatively, Service B's owner or admin can configure Azure AD to [require user assignment][userassignment] to give a token to a service principal. Only applications that have explicit permissions to the Service B application can get a token towards Service B. Service B then doesn't need to do an explicit role check, except if required by business logic.
+- **Require user assignment**. Alternatively, Service B's owner or admin can configure Azure AD to [require user assignment][userassignment] to give a token to a service principal. Only applications that have explicit permissions to the Service B application can get a token toward Service B. Service B then doesn't need to do an explicit role check, unless required by business logic.
    
    To set up the user assignment requirement:
    
@@ -35,8 +35,8 @@ Service B has three ways to ensure that only specifically allowed clients, Servi
    1. [Expose at least one app role][exposeapprole] on Service B, which Service A can ask permission for. The **AllowedMemberTypes** for this role must include `Application`.
    1. [Request app permission][configurepermission] for Service A to the exposed Service B role.
       1. From the **API permissions** section of the Service A app registration, select **Add a permission**, and then select the Service B application from the list.
-      1. On the **Request API permissions** screen, select **Application permissions**, because this is a backend application that runs without a signed-in user. Select the exposed Service B role, and then select **Add permissions**.
-   1. [Grant admin consent][aadpermissiontypes] to the Service A application permissions request. Only an owner or admin of Service B can consent to the Service A request.
+      1. On the **Request API permissions** screen, select **Application permissions**, because this backend application runs without a signed-in user. Select the exposed Service B role, and then select **Add permissions**.
+   1. [Grant admin consent][aadpermissiontypes] to the Service A application permissions request. Only a Service B owner or admin can consent to the Service A permissions request.
 
 ### Service endpoints
 
@@ -63,30 +63,31 @@ There are several alternatives to the example scenario.
 
 Instead of registering as an application with Azure AD, Service A could use a [managed identity][mi] to fetch an access token. Managed identity frees operators from having to manage credentials for an app registration.
 
-While a managed identity would provide an identity for Service A to fetch a token with, it doesn't provide an Azure AD app registration. Service A still needs a proper Azure AD app registration for scenarios where other services need to request an access token towards Service A itself.
+While a managed identity provides an identity for Service A to fetch a token with, it doesn't provide an Azure AD app registration. Service A still needs a proper Azure AD app registration for scenarios where other services need to request an access token towards Service A itself.
 
-Note that you can't assign a managed identity to an app role through the Azure portal, only through the Azure PowerShell command line. For more information, see [Assign a managed identity access to an application role using PowerShell][addmitorole].
+You can't assign a managed identity to an app role through the Azure portal, only through the Azure PowerShell command line. For more information, see [Assign a managed identity access to an application role using PowerShell][addmitorole].
 
 ### Azure Functions
 
-You can host the services in [Azure Functions][functions] instead of App Service. To restrict access on the network layer by using Regional VNet Integration, you need to host the functions in an App Service plan or a Premium Plan. For more information, see [Azure Functions networking options][functionsnetworking].
+You can host the services in [Azure Functions][functions] instead of App Service. To restrict access on the network layer by using Regional VNet Integration, you need to host the Functions apps in an App Service plan or a Premium Plan. For more information, see [Azure Functions networking options][functionsnetworking].
 
 ### App Service built-in authentication and authorization
 
-Performing token validation as part of the application code has the advantage that the authorization code is by design colocated with the rest of the business logic. [App Service built-in authentication and authorization][easyauth], or Easy Auth, can also perform basic token validation before a request makes it to a service. The service then relies on the hosting infrastructure to not accept unauthorized requests.
+Performing token validation as part of the application code has the advantage that the authorization code is by design colocated with the rest of the business logic. [App Service built-in authentication and authorization][easyauth], or Easy Auth, can also perform basic token validation before a request makes it to a service. The service then relies on the hosting infrastructure to reject unauthorized requests.
 
-To configure App Service authentication and authorization, set the authorization behavior to **Log In with Azure Active Directory**. This setting validates tokens and restricts access to valid tokens.
+To configure App Service authentication and authorization, set the authorization behavior to **Log in with Azure Active Directory**. This setting validates tokens and restricts access to valid tokens only.
+
 The downside of using Easy Auth is that the service loses the authentication and authorization protection if it moves elsewhere. While App Service authentication and authorization works for simple scenarios, complex authorization requirements should use logic from within the application code.
 
 ### Service endpoints vs. private endpoints
 
-This scenario uses service endpoints rather than private endpoints because only service endpoints allow [restricting access][accessrestrictions] to a web app from a given subnet. Filtering inbound traffic on private endpoints isn't supported through Network Security Groups (NSGs) or by using App Service access restrictions. Every service with network line-of-sight can communicate with the private endpoint of a web application. This limits private endpoint use for locking down traffic on the network layer.
+This scenario uses service endpoints rather than [private endpoints][privateend] because only service endpoints allow [restricting access][accessrestrictions] to a web app from a given subnet. Filtering inbound traffic on private endpoints isn't supported through Network Security Groups (NSGs) or by using App Service access restrictions. Every service with network line-of-sight can communicate with the private endpoint of a web application. This limits private endpoint usefulness for locking down traffic on the network layer.
 
 ## Considerations
 
-- App Service [Regional VNet Integration][regionalvnet] provides a single integration subnet for each App Service Plan. All web apps on the same plan must integrate with the same subnet and share the same set of private outbound IP addresses. Receiving services won't be able to distinguish which web app the traffic originates from. If identifying the web app is a requirement, the web apps will need to be deployed on separate App Service Plans, each with its own integration subnet.
+- App Service [Regional VNet Integration][regionalvnet] provides a single integration subnet for each App Service Plan. All web apps on the same plan integrate with the same subnet and share the same set of private outbound IP addresses. Receiving services can't distinguish which web app the traffic originates from. If you need to identify the originating web apps, you must deploy the web apps on separate App Service Plans, each with its own integration subnet.
 
-- Every worker instance in an App Service Plan occupies a separate private IP address within the integration subnet. When planning for scale, ensure that the size of the integration subnet is large enough to accommodate the anticipated scale.
+- Every worker instance in an App Service Plan occupies a separate private IP address within the integration subnet. When planning for scale, ensure that the size of the integration subnet is large enough to accommodate the scale you expect.
 
 ## Related resources
 
@@ -103,6 +104,7 @@ The following resources provide more information on the components used in this 
 - [Azure Security Baseline for App Service][securitybaseline]
 
 <!-- links -->
+[privateend]: /azure/private-link/private-endpoint-overview
 [leastpriv]: https://wikipedia.org/wiki/Principle_of_least_privilege
 [appsvcnetworking]: /azure/app-service/networking-features
 [securingwebapp]: https://azure.github.io/AppService/2020/08/14/zero_to_hero_pt6.html
