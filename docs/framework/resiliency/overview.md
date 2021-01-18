@@ -112,7 +112,7 @@ After an application is deployed to production, updates are a possible source of
 - **Log and audit deployments.** If you use staged deployment techniques, more than one version of your application is running in production. Implement a robust logging strategy to capture as much version-specific information as possible.
 - **Document the application release process.** Clearly define and document your release process, and ensure that it's available to the entire operations team.
 
-For more information about application reliability and deployment, see [Deploying Azure applications for resiliency and availability](../devops/deployment.md).
+For more information about application reliability and deployment, see [Deploying Azure applications for resiliency and availability](../devops/release-engineering-cd.md).
 
 ## Monitor application health
 

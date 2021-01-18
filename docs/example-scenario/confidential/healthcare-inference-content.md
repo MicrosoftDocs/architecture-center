@@ -57,7 +57,7 @@ The solution involves the following steps:
 
 - [Confidential Inferencing ONNX Runtime Server Enclave (ONNX RT - Enclave)](https://github.com/microsoft/onnx-server-openenclave) is a host that restricts the ML hosting party from accessing both the inferencing request and its corresponding response.
 
-- [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview) collects and analyzes app telemetry, such as performance metrics and activity logs.
+- [Azure Monitor](/azure/azure-monitor/overview) collects and analyzes app telemetry, such as performance metrics and activity logs.
 
 - [ACR](https://azure.microsoft.com/services/container-registry/) is a service that creates a managed registry. ACR builds, stores, and manages container images and can store containerized machine learning models.
 
