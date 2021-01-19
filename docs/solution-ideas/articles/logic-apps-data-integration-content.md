@@ -15,7 +15,9 @@ Data integration scenarios that can benefit from this solution include:
 
 ## Data Flow
 
-1. Data is consumed in Azure Logic Apps through an HTTP request.
+1. API Management accepts API calls in the form of HTTP requests.
+
+1. API Management securely routes the HTTP requests to Logic Apps.
 
 1. A connection with an on-premises data gateway is established (which is configured on both Azure and the local machine).
 
