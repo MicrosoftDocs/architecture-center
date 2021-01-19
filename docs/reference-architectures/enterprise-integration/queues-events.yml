@@ -1,7 +1,7 @@
 ### YamlMime:Architecture
 metadata:
   title: Enterprise integration using queues and events
-  description: 'Recommended architecture for implementing an enterprise integration pattern with Azure Logic Apps, Azure API Management, Azure Service Bus, and Azure Event Grid.'
+  description: This reference architecture integrates enterprise backend systems, using message queues and events to decouple services for greater scalability and reliability.
   author: mattfarm
   ms.reviewer: 'jonfan, estfan, LADocs'
   ms.date: 12/03/2018
@@ -18,9 +18,10 @@ name: Enterprise integration using queues and events
 azureCategories:
   - integration
   - developer-tools
-summary: 'Recommended architecture for implementing an enterprise integration pattern with Azure Logic Apps, Azure API Management, Azure Service Bus, and Azure Event Grid.'
+summary: This reference architecture integrates enterprise backend systems, using message queues and events to decouple services for greater scalability and reliability.
 products:
-  - azure
+  - azure-event-grid
+  - azure-service-bus
 thumbnailUrl: /azure/architecture/browse/thumbs/enterprise-integration-queues-events.png
 content: |
    [!include[](queues-events-content.md)]

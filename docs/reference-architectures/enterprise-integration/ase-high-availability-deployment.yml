@@ -19,12 +19,13 @@ azureCategories:
   - featured
 summary: Recommended architecture for deploying an enterprise application using App Services Environment in multiple availability zones.
 products:
-  - aspnet
-  - azure
+  - azure-active-directory
+  - azure-application-gateway
+  - azure-cache-redis
   - azure-firewall
   - azure-pipelines
-  - dotnet
-  - github
+  - azure-virtual-network
+
 thumbnailUrl: /azure/architecture/browse/thumbs/ha-ase-deployment.png
 content: |
    [!include[](ase-high-availability-deployment-content.md)]
