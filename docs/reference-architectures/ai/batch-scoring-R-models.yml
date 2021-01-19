@@ -19,8 +19,10 @@ azureCategories:
   - developer-tools
 summary: Perform batch scoring with R models using Azure Batch and a data set based on retail store sales forecasting.
 products:
-  - azure
   - azure-batch
+  - azure-blob-storage
+  - azure-container-instances
+  - azure-logic-apps
   - azure-machine-learning
 thumbnailUrl: /azure/architecture/browse/thumbs/batch-scoring-r-models.png
 content: |

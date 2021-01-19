@@ -1,7 +1,7 @@
 ### YamlMime:Architecture
 metadata:
   title: Azure Automation Update Management
-  description: Manage operating system updates with Update Management in Azure Automation
+  description: Learn how to design a hybrid update management solution to manage updates on both Microsoft Azure and on-premises Windows and Linux computers.
   author: doodlemania2
   ms.date: 07/16/2020
   ms.topic: conceptual
@@ -19,11 +19,13 @@ azureCategories:
   - hybrid
   - management-and-governance
   - networking
-summary: Manage operating system updates with Update Management in Azure Automation
+summary: Learn how to design a hybrid update management solution to manage updates on both Microsoft Azure and on-premises Windows and Linux computers.
 products:
-  - azure
   - azure-automation
-  - windows-server
+  - azure-log-analytics
+  - azure-monitor
+  - azure-resource-manager
+  - azure-virtual-machines
 thumbnailUrl: /azure/architecture/browse/thumbs/azure-update-mgmt.png
 content: |
    [!include[](azure-update-mgmt-content.md)]

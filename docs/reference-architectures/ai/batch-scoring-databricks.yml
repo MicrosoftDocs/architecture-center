@@ -21,11 +21,10 @@ azureCategories:
   - databases
 summary: Build a scalable solution for batch scoring an Apache Spark classification model on a schedule using Azure Databricks.
 products:
-  - azure
+  - azure-active-directory
   - azure-databricks
-  - github
-  - sql-server
-  - vs
+  - azure-data-factory
+  - azure-blob-storage
 thumbnailUrl: /azure/architecture/browse/thumbs/batch-scoring-spark.png
 content: |
    [!include[](batch-scoring-databricks-content.md)]
