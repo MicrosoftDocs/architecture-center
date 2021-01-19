@@ -377,6 +377,8 @@ items:
                     href: framework/security/design-network.md
                   - name: Network segmentation
                     href: framework/security/design-network-segmentation.md
+                  - name: Secure connectivity
+                    href: framework/security/design-network-connectivity.md
                   - name: Containment strategies for organizations
                     href: framework/security/design-network.md
                   - name: Network security review

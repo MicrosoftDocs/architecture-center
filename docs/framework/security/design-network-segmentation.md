@@ -1,6 +1,6 @@
 ---
 title: Network segmentation patterns
-description: Using network level segmentation to secure virtual networks.
+description: Use network level segmentation to secure virtual networks.
 author: tremansdoerfer
 ms.date: 4/30/2020
 ms.topic: conceptual
