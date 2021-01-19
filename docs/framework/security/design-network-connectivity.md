@@ -1,6 +1,6 @@
 ---
 title: Secure network connectivity
-description: Best practices for network security in Azure, including network segmentation, network management, containment strategy, and internet edge strategy.
+description: Best practices for securing access to internet, PaaS services, and on-premises networks.
 author: PageWriter-MSFT
 ms.date: 09/07/2020
 ms.topic: conceptual
@@ -18,7 +18,7 @@ products:
 
 # Secure network connectivity
 
-It's often the case that the workload and the supporting components of a cloud architecture will need to access external assets. These assets can be on-premises, devices outisde the main virtual network, or other Azure resources. Those connections can be over the internet or networks within the your organization.
+It's often the case that the workload and the supporting components of a cloud architecture will need to access external assets. These assets can be on-premises, devices outside the main virtual network, or other Azure resources. Those connections can be over the internet or networks within the organization.
 
 ## Key points
 
@@ -101,7 +101,7 @@ Azure security features are sufficient for common attacks, easy to configure, an
 
 ## Communication with backend services
 
-Most workloads are composed of mutiple tiers where several services can serve each tier. Common examples of tiers are web front ends, business processes, reporting and analysis, backend infrastructure, and so on. 
+Most workloads are composed of multiple tiers where several services can serve each tier. Common examples of tiers are web front ends, business processes, reporting and analysis, backend infrastructure, and so on. 
 
 **How do you configure traffic flow between multiple application tiers?**
 ***
@@ -134,7 +134,7 @@ Use NVAs and Azure Firewall (for supported protocols) as a reverse proxy to rest
 
 ## On-premises to cloud connectivity
 
-In a hybrid archittecture, the workload run partly on-premises and partly in Azure. Have security controls that check traffic entering Azure virtual network from on-premises data center. 
+In a hybrid architecture, the workload runs partly on-premises and partly in Azure. Have security controls that check traffic entering Azure virtual network from on-premises data center. 
 
 **How do you establish cross premises connectivity?**
 ***
@@ -156,7 +156,7 @@ Attackers constantly scan public cloud IP ranges for open management ports and a
 
 Decide whether to route traffic for the internet through on-premises security devices (also called forced tunneling) or allow internet connectivity through cloud-based network security devices.
 
-For production enterprise, allow cloud resources to start and respond to internet request directly through cloud network security devices defined by your [internet edge strategy](#-internet-edge-strategy). This approach fits the Nth datacenter paradigm, that is Azure datacenters are a part of your enterprise. It scales better for an enterprise deployment because it removes hops that add load, latency, and cost.
+For production enterprise, allow cloud resources to start and respond to internet request directly through cloud network security devices defined by your [internet edge strategy](#internet-edge-strategy). This approach fits the Nth datacenter paradigm, that is Azure datacenters are a part of your enterprise. It scales better for an enterprise deployment because it removes hops that add load, latency, and cost.
 
 Another option is to force tunnel all outbound internet traffic from on-premises through site-to-site VPN or is _forced tunneling_, which is achieved through a cross-premise WAN link. Network security teams have greater security and visibility to internet traffic. Even when your resources in the cloud try to respond to incoming requests from the internet, the responses are force tunneled. This option fits a datacenter expansion scenario and can work well for a quick proof of concept, but scales poorly because of the increased traffic load, latency, and cost. For those reasons, we recommend that you avoid [forced tunneling](/azure/vpn-gateway/vpn-gateway-about-forced-tunneling).
 
