@@ -20,8 +20,11 @@ azureCategories:
   - databases
 summary: Create an end-to-end stream processing pipeline in Azure using Azure Databricks.
 products:
-  - azure
+  - azure-cosmos-db  
   - azure-databricks
+  - azure-event-hubs
+  - azure-log-analytics
+  - azure-monitor
 thumbnailUrl: /azure/architecture/browse/thumbs/stream-processing-databricks.png
 content: |
    [!include[](stream-processing-databricks-content.md)]
