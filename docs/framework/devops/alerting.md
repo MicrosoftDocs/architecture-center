@@ -47,4 +47,12 @@ Prioritizing alerts with a specific severity or urgency helps operational teams 
 
 ## Alert dashboarding
 
+The default Alerts page provides a summary of alerts that are created within a particular time range. It displays the total alerts for each severity, with columns that identify the total number of alerts in each state for each severity.
+
+![Azure Monitor alert dashboard as seen in the Azure portal.](../_images/devops/alert-dash.png)
+
+In addition to the default Azure Monitor alert dashboard, custom dashboards can be created using log analytics data. This dashboard can be tailored to reflect the current and past start of all alerts.
+
+For more information on creating dashboards, see [Create and share dashboards of Log Analytics data](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-logs-dashboards).
+
 ## Alert integrations
