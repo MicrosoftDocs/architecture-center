@@ -5,8 +5,11 @@ Interservice communications restrictions are only one part of an overall securit
 ## Architecture
 
 ![Architecture diagram](./media/service-to-service-architecture.svg)
+:::image type="complex" source="/media/service-to-service-architecture.svg" alt-text="Diagram showing both network layer and application layer communications restrictions between two Azure App Service backend services." border="false":::
+In the network layer step 1, Service A uses client credentials to request and receive an OAuth 2.0 token for Service B from Azure Active Directory. In step 2, Service A injects the token into a communications request toward Service B. In step 3, Service B evaluates the access token's aud claim and validates the token. In the application layer, Service A is in an integration subnet in a virtual network. In step 1, Service A uses App Service Regional VNet Integration to communicate only from a private IP address in its integration subnet. In step 2, Service B uses service endpoints to accept communications only from IP addresses in the Service A integration subnet.
+:::image-end:::
 
-The diagram outlines how to restrict communications from App Service Service A to App Service Service B.
+The diagram shows restricted communications from Service A to Service B.
 
 - Both services [register with Azure Active Directory (Azure AD)][appreg], so they can use OAuth 2.0 token-based authorization in the [client credentials flow][clientcredsflow].
 - Service A communicates by using [Regional VNet Integration][regionalvnet] from a private IP address in its virtual network integration subnet.
@@ -20,18 +23,18 @@ An OpenID Connect (OIDC)-compatible library like the [Microsoft Authentication L
 1. Both Service A and Service B register in Azure AD. Service A has client credentials in either shared secret or certificate form.
 1. Service A can use its own client credentials to request and receive an access token for Service B.
 1. Service A injects the token as a *bearer token* in the HTTP Authorization header of a request to Service B, according to the [OAuth 2.0 Bearer Token Usage specification][bearertokenspec].
-1. Service B evaluates the [aud claim][accesstokenclaims] in the token to ensure the request is intended for itself, and [validates the token][tokenvalidation].
+1. Service B [validates the token][tokenvalidation] to ensure that the [aud claim][accesstokenclaims] matches its application.
 
-Service B has three ways to ensure that only specifically allowed clients, Service A in this case, get access:
+Service B uses one of the following methods to ensure that only specifically allowed clients, Service A in this case, can get access:
 
-- **Validate the token appid claim**. Service B can validate the token [appid claim][accesstokenclaims], which identifies the Azure AD-registered application that requested the token. Service B must explicitly check the claim against a known access control caller list.
-- **Check for roles in the token**. Similarly, by checking for the presence of certain *roles* in the incoming token, Service B can ensure that Service A has explicit access permissions.
-- **Require user assignment**. Alternatively, Service B's owner or admin can configure Azure AD to require user assignment to give a token to a service principal. Only applications that have explicit permissions to the Service B application can get a token toward Service B. Service B then doesn't need to do an explicit role check, unless business logic requires it.
+- **Validate the token appid claim**. Service B can validate the token [appid claim][accesstokenclaims], which identifies which Azure AD-registered application requested the token. Service B explicitly checks the claim against a known access control caller list.
+- **Check for roles in the token**. Similarly, Service B can check for certain [roles claims][accesstokenclaims] in the incoming token, to ensure that Service A has explicit access permissions.
+- **Require user assignment**. Alternatively, the Service B owner or admin can configure Azure AD to require *user assignment*, so only applications that have explicit permissions to the Service B application can get a token toward Service B. Service B then doesn't need to check for specific roles, unless business logic requires it.
    
    To set up the user assignment requirement:
    
    1. In Azure AD, [enable user assignment][userassignment] on Service B.
-   1. [Expose at least one app role][exposeapprole] on Service B, which Service A can ask permission for. The **AllowedMemberTypes** for this role must include `Application`.
+   1. [Expose at least one app role][exposeapprole] on Service B that Service A can ask permission for. The **AllowedMemberTypes** for this role must include `Application`.
    1. [Request app permission][configurepermission] for Service A to the exposed Service B role.
       1. From the **API permissions** section of the Service A app registration, select **Add a permission**, and then select the Service B application from the list.
       1. On the **Request API permissions** screen, select [Application permissions][aadpermissiontypes], because this backend application runs without a signed-in user. Select the exposed Service B role, and then select **Add permissions**.
