@@ -22,7 +22,6 @@ azureCategories:
   - hybrid
 summary: Learn how to deploy a secure hybrid network that extends an on-premises network to Azure with a perimeter network between the on-premises network and an Azure virtual network. 
 products:
-  - azure
   - azure-firewall
   - azure-load-balancer
   - azure-virtual-machines
