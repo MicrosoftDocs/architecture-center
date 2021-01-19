@@ -2,12 +2,92 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id/>
     <title>Azure Architecture Center</title>
-    <updated>2021-01-11T14:20:56.139Z</updated>
+    <updated>2021-01-19T14:11:51.423Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <subtitle>Updated articles for Azure Architecture Center</subtitle>
     <rights>https://docs.microsoft.com/legal/termsofuse</rights>
     <category term="new"/>
     <category term="updated"/>
+    <entry>
+        <title type="html"><![CDATA[Data encryption in Azure]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/framework/security/design-storage-encryption</id>
+        <link href="https://docs.microsoft.com/azure/architecture/framework/security/design-storage-encryption"/>
+        <updated>2021-01-13T18:10:59.000Z</updated>
+        <summary type="html"><![CDATA[Protect data in transit and at rest through encryption in Azure.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Key and secret management in Azure]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/framework/security/design-storage-keys</id>
+        <link href="https://docs.microsoft.com/azure/architecture/framework/security/design-storage-keys"/>
+        <updated>2021-01-13T18:10:59.000Z</updated>
+        <summary type="html"><![CDATA[Protect keys by storing in them in managed key store.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Monitoring for performance efficiency]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/framework/scalability/monitor</id>
+        <link href="https://docs.microsoft.com/azure/architecture/framework/scalability/monitor"/>
+        <updated>2021-01-12T03:34:34.000Z</updated>
+        <summary type="html"><![CDATA[Considerations for using monitoring for performance efficiency]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Caching data for performance optimization]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/framework/scalability/optimize-cache</id>
+        <link href="https://docs.microsoft.com/azure/architecture/framework/scalability/optimize-cache"/>
+        <updated>2021-01-12T03:25:06.000Z</updated>
+        <summary type="html"><![CDATA[Caching considerations for performance optimization]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Partitioning data for performance optimization]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/framework/scalability/optimize-partition</id>
+        <link href="https://docs.microsoft.com/azure/architecture/framework/scalability/optimize-partition"/>
+        <updated>2021-01-12T03:25:06.000Z</updated>
+        <summary type="html"><![CDATA[Partitioning considerations for performance optimization]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Sustain performance efficiency over time]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/framework/scalability/optimize-sustain</id>
+        <link href="https://docs.microsoft.com/azure/architecture/framework/scalability/optimize-sustain"/>
+        <updated>2021-01-12T03:25:06.000Z</updated>
+        <summary type="html"><![CDATA[Considerations for sustaining performance optimization over time]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[AKS Day-2 Operations Guide - Patch and upgrade guidance]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/operator-guides/aks/aks-upgrade-practices</id>
+        <link href="https://docs.microsoft.com/azure/architecture/operator-guides/aks/aks-upgrade-practices"/>
+        <updated>2021-01-12T00:58:03.000Z</updated>
+        <summary type="html"><![CDATA[Learn about day-2 patching and upgrading practices for Azure Kubernetes Service (AKS) worker nodes and Kubernetes (K8S) versions.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Azure Kubernetes Service (AKS) day-2 operations guide]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/operator-guides/aks/day-2-operations-guide</id>
+        <link href="https://docs.microsoft.com/azure/architecture/operator-guides/aks/day-2-operations-guide"/>
+        <updated>2021-01-12T00:58:03.000Z</updated>
+        <summary type="html"><![CDATA[Learn about AKS day-2 operations like triage, patching, upgrading, and troubleshooting.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Checklist - Design for performance efficiency]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/framework/scalability/design-checklist</id>
+        <link href="https://docs.microsoft.com/azure/architecture/framework/scalability/design-checklist"/>
+        <updated>2021-01-11T22:48:58.000Z</updated>
+        <summary type="html"><![CDATA[Checklist guidance for design concerns for Azure performance efficiency.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Checklist - Testing for performance efficiency]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/framework/scalability/test-checklist</id>
+        <link href="https://docs.microsoft.com/azure/architecture/framework/scalability/test-checklist"/>
+        <updated>2021-01-11T22:48:58.000Z</updated>
+        <summary type="html"><![CDATA[Checklist guidance for testing concerns for Azure performance efficiency.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Master Data Management with Azure and CluedIn]]></title>
         <id>https://docs.microsoft.com/azure/architecture/reference-architectures/data/cluedin</id>
@@ -15,6 +95,38 @@
         <updated>2021-01-07T04:12:02.000Z</updated>
         <summary type="html"><![CDATA[Use CluedIn eventual connectivity data integration to blend data from many siloed data sources and prepare it for analytics and business operations.]]></summary>
         <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Monitoring for DevOps]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/framework/devops/monitoring</id>
+        <link href="https://docs.microsoft.com/azure/architecture/framework/devops/monitoring"/>
+        <updated>2021-01-14T00:17:24.000Z</updated>
+        <summary type="html"><![CDATA[Describes how to monitor your workload to ensure your DevOps infrastructure is working as intended.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Data protection in Azure]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/framework/security/design-storage</id>
+        <link href="https://docs.microsoft.com/azure/architecture/framework/security/design-storage"/>
+        <updated>2021-01-13T18:10:59.000Z</updated>
+        <summary type="html"><![CDATA[Design considerations about securing and encrypting data storage in Azure.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Business Metrics]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/framework/resiliency/business-metrics</id>
+        <link href="https://docs.microsoft.com/azure/architecture/framework/resiliency/business-metrics"/>
+        <updated>2021-01-12T20:57:02.000Z</updated>
+        <summary type="html"><![CDATA[Use business metrics to design resilient Azure applications]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Design for scaling]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/framework/scalability/design-scale</id>
+        <link href="https://docs.microsoft.com/azure/architecture/framework/scalability/design-scale"/>
+        <updated>2021-01-12T20:16:17.000Z</updated>
+        <summary type="html"><![CDATA[Describes the scaling options for performance efficiency]]></summary>
+        <category label="updated" term="updated"/>
     </entry>
     <entry>
         <title type="html"><![CDATA[Background jobs guidance]]></title>
@@ -53,7 +165,7 @@
         <id>https://docs.microsoft.com/azure/architecture/example-scenario/confidential/healthcare-inference</id>
         <link href="https://docs.microsoft.com/azure/architecture/example-scenario/confidential/healthcare-inference"/>
         <updated>2020-12-16T17:31:19.000Z</updated>
-        <summary type="html"><![CDATA[Learn how to use confidential computing and containers to support a provider-hosted application. Securely collaborate with a hospital and a diagnostic provider.]]></summary>
+        <summary type="html"><![CDATA[Use confidential computing and containers to support a provider-hosted application. Securely collaborate with a hospital and a diagnostic provider.]]></summary>
         <category label="new" term="new"/>
     </entry>
     <entry>
@@ -181,7 +293,7 @@
         <id>https://docs.microsoft.com/azure/architecture/solution-ideas/articles/commerce-chatbot</id>
         <link href="https://docs.microsoft.com/azure/architecture/solution-ideas/articles/commerce-chatbot"/>
         <updated>2020-12-31T03:25:00.000Z</updated>
-        <summary type="html"><![CDATA[Together, the Azure Bot Service and Language Understanding service enable developers to create conversational interfaces for various scenarios like banking, travel, and entertainment. For example, a hotel's concierge can use a bot to enhance traditional e-mail and phone call interactions by validating a customer via Azure Active Directory and using Cognitive Services to better contextually process customer requests using text and voice. The Speech recognition service can be added to support voice commands.]]></summary>
+        <summary type="html"><![CDATA[Learn how to use the Azure Bot Service and Language Understanding service to process commerce customer requests using text and voice and create conversational interfaces for various commerce scenarios.]]></summary>
         <category label="updated" term="updated"/>
     </entry>
     <entry>
@@ -189,14 +301,6 @@
         <id>https://docs.microsoft.com/azure/architecture/reference-architectures/containers/aks/secure-baseline-aks</id>
         <link href="https://docs.microsoft.com/azure/architecture/reference-architectures/containers/aks/secure-baseline-aks"/>
         <updated>2020-12-09T21:22:27.000Z</updated>
-        <summary type="html"><![CDATA[Reference architecture for a baseline infrastructure that deploys an Azure Kubernetes Service (AKS) cluster.]]></summary>
-        <category label="updated" term="updated"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Baseline architecture for an Azure Kubernetes Service (AKS) cluster]]></title>
-        <id>https://docs.microsoft.com/azure/architecture/reference-architectures/containers/aks/secure-baseline-aks</id>
-        <link href="https://docs.microsoft.com/azure/architecture/reference-architectures/containers/aks/secure-baseline-aks"/>
-        <updated>2020-12-09T20:00:45.000Z</updated>
         <summary type="html"><![CDATA[Reference architecture for a baseline infrastructure that deploys an Azure Kubernetes Service (AKS) cluster.]]></summary>
         <category label="updated" term="updated"/>
     </entry>
@@ -209,19 +313,11 @@
         <category label="updated" term="updated"/>
     </entry>
     <entry>
-        <title type="html"><![CDATA[Baseline architecture for an Azure Kubernetes Service (AKS) cluster]]></title>
-        <id>https://docs.microsoft.com/azure/architecture/reference-architectures/containers/aks/secure-baseline-aks</id>
-        <link href="https://docs.microsoft.com/azure/architecture/reference-architectures/containers/aks/secure-baseline-aks"/>
-        <updated>2020-12-04T19:08:22.000Z</updated>
-        <summary type="html"><![CDATA[Reference architecture for a baseline infrastructure that deploys an Azure Kubernetes Service (AKS) cluster.]]></summary>
-        <category label="updated" term="updated"/>
-    </entry>
-    <entry>
         <title type="html"><![CDATA[Use Azure Stack HCI stretched clusters for disaster recovery]]></title>
         <id>https://docs.microsoft.com/azure/architecture/hybrid/azure-stack-hci-dr</id>
         <link href="https://docs.microsoft.com/azure/architecture/hybrid/azure-stack-hci-dr"/>
         <updated>2020-11-30T21:18:15.000Z</updated>
-        <summary type="html"><![CDATA[Disaster recovery with lossless automatic failover of Azure Stack HCI virtualized workloads between two on-premises locations]]></summary>
+        <summary type="html"><![CDATA[This reference architecture illustrates how to design and implement disaster recovery of Azure Stack HCI by using stretched clustering.]]></summary>
         <category label="new" term="new"/>
     </entry>
     <entry>
@@ -229,7 +325,7 @@
         <id>https://docs.microsoft.com/azure/architecture/hybrid/azure-stack-robo</id>
         <link href="https://docs.microsoft.com/azure/architecture/hybrid/azure-stack-robo"/>
         <updated>2020-11-30T21:18:15.000Z</updated>
-        <summary type="html"><![CDATA[Cost-effective approach to implement highly-available virtualized and containerized workloads in Remote Office/Branch Office scenarios]]></summary>
+        <summary type="html"><![CDATA[This reference architecture illustrates how to design infrastructure for highly available virtualized and containerized workloads in Remote Office/Branch Office (ROBO) scenarios.]]></summary>
         <category label="new" term="new"/>
     </entry>
     <entry>
@@ -501,7 +597,7 @@
         <id>https://docs.microsoft.com/azure/architecture/example-scenario/sql-failover/sql-failover-2008r2</id>
         <link href="https://docs.microsoft.com/azure/architecture/example-scenario/sql-failover/sql-failover-2008r2"/>
         <updated>2020-10-29T19:02:54.000Z</updated>
-        <summary type="html"><![CDATA[Learn how to rehost SQL Server 2008 R2 failover clusters on Azure virtual machines. See how to use an Azure shared disk to manage shared storage.]]></summary>
+        <summary type="html"><![CDATA[Learn how to rehost SQL Server 2008 R2 failover clusters on Azure virtual machines and see how to use an Azure shared disk to manage shared storage.]]></summary>
         <category label="new" term="new"/>
     </entry>
     <entry>
@@ -677,7 +773,7 @@
         <id>https://docs.microsoft.com/azure/architecture/example-scenario/iot/vertical-buy-online-pickup-in-store</id>
         <link href="https://docs.microsoft.com/azure/architecture/example-scenario/iot/vertical-buy-online-pickup-in-store"/>
         <updated>2020-10-09T21:48:34.000Z</updated>
-        <summary type="html"><![CDATA[Learn about how Azure IoT can help a retail solution for stores implementing buy online, pickup in store scenarios.]]></summary>
+        <summary type="html"><![CDATA[Learn how to use Azure IoT to enhance a retail solution for stores implementing buy online, pickup in store scenarios.]]></summary>
         <category label="new" term="new"/>
     </entry>
     <entry>
@@ -685,7 +781,7 @@
         <id>https://docs.microsoft.com/azure/architecture/example-scenario/magento/magento-azure</id>
         <link href="https://docs.microsoft.com/azure/architecture/example-scenario/magento/magento-azure"/>
         <updated>2020-10-02T15:16:27.000Z</updated>
-        <summary type="html"><![CDATA[Deploy Magento e-commerce platform to Azure Kubernetes Service (AKS), and learn about considerations for hosting Magento on Azure.]]></summary>
+        <summary type="html"><![CDATA[Deploy the Magento e-commerce platform to Azure Kubernetes Service (AKS), and learn about considerations for hosting Magento on Azure.]]></summary>
         <category label="new" term="new"/>
     </entry>
     <entry>
