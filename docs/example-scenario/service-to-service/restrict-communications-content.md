@@ -4,34 +4,33 @@ Interservice communications restrictions are only one part of an overall securit
 
 ## Architecture
 
-![Architecture diagram](./media/service-to-service-architecture.svg)
-:::image type="complex" source="/media/service-to-service-architecture.svg" alt-text="Diagram showing both network layer and application layer communications restrictions between two Azure App Service backend services." border="false":::
+:::image type="complex" source="./media/service-to-service-architecture.svg" alt-text="Diagram showing both network layer and application layer communications restrictions between two Azure App Service backend services." border="false":::
 In the network layer step 1, Service A uses client credentials to request and receive an OAuth 2.0 token for Service B from Azure Active Directory. In step 2, Service A injects the token into a communications request toward Service B. In step 3, Service B evaluates the access token's aud claim and validates the token. In the application layer, Service A is in an integration subnet in a virtual network. In step 1, Service A uses App Service Regional VNet Integration to communicate only from a private IP address in its integration subnet. In step 2, Service B uses service endpoints to accept communications only from IP addresses in the Service A integration subnet.
 :::image-end:::
 
-The diagram shows restricted communications from Service A to Service B.
+The diagram shows restricted communications from Service A to Service B. Token-based authorization restricts access on the application layer, and service endpoints restrict access on the network layer.
 
-- Both services [register with Azure Active Directory (Azure AD)][appreg], so they can use OAuth 2.0 token-based authorization in the [client credentials flow][clientcredsflow].
-- Service A communicates by using [Regional VNet Integration][regionalvnet] from a private IP address in its virtual network integration subnet.
-- Service B [service endpoints][svcep] restrict inbound communications to those coming from the Service A integration subnet.
-- Token-based authorization restricts access on the application layer, and service endpoints restrict access on the network layer.
+- Both services [register with Azure Active Directory (Azure AD)][appreg], and use OAuth 2.0 token-based authorization in the [client credentials flow][clientcredsflow].
+- Service A communicates by using [Regional VNet Integration][regionalvnet] from a private IP address in its virtual network integration subnet. Service B [service endpoints][svcep] accept inbound communications only from the Service A integration subnet.
+- 
 
 ### Token-based authorization
 
 An OpenID Connect (OIDC)-compatible library like the [Microsoft Authentication Library (MSAL)][msal] supports this token-based client credentials flow. For more information, see [Scenario: Daemon application that calls web APIs][daemoncallswebapi] and the [sample application for the daemon scenario][daemonsample].
 
 1. Both Service A and Service B register in Azure AD. Service A has client credentials in either shared secret or certificate form.
-1. Service A can use its own client credentials to request and receive an access token for Service B.
+1. Service A can use its own client credentials to request an access token for Service B.
+1. Azure AD provides an access token with a Service B audience or [aud][accesstokenclaims] claim.
 1. Service A injects the token as a *bearer token* in the HTTP Authorization header of a request to Service B, according to the [OAuth 2.0 Bearer Token Usage specification][bearertokenspec].
-1. Service B [validates the token][tokenvalidation] to ensure that the [aud claim][accesstokenclaims] matches its application.
+1. Service B [validates the token][tokenvalidation] to ensure that the `aud` claim matches the Service B application.
 
 Service B uses one of the following methods to ensure that only specifically allowed clients, Service A in this case, can get access:
 
-- **Validate the token appid claim**. Service B can validate the token [appid claim][accesstokenclaims], which identifies which Azure AD-registered application requested the token. Service B explicitly checks the claim against a known access control caller list.
-- **Check for roles in the token**. Similarly, Service B can check for certain [roles claims][accesstokenclaims] in the incoming token, to ensure that Service A has explicit access permissions.
+- **Validate the token appid claim**. Service B can validate the token [appid][accesstokenclaims] claim, which identifies which Azure AD-registered application requested the token. Service B explicitly checks the claim against a known access control caller list.
+- **Check for roles in the token**. Similarly, Service B can check for a certain [roles][accesstokenclaims] claim in the incoming token, to ensure that Service A has explicit access permissions.
 - **Require user assignment**. Alternatively, the Service B owner or admin can configure Azure AD to require *user assignment*, so only applications that have explicit permissions to the Service B application can get a token toward Service B. Service B then doesn't need to check for specific roles, unless business logic requires it.
    
-   To set up the user assignment requirement:
+   To set up a user assignment requirement to access Service B:
    
    1. In Azure AD, [enable user assignment][userassignment] on Service B.
    1. [Expose at least one app role][exposeapprole] on Service B that Service A can ask permission for. The **AllowedMemberTypes** for this role must include `Application`.
@@ -42,7 +41,7 @@ Service B uses one of the following methods to ensure that only specifically all
 
 ### Service endpoints
 
-This scenario also restricts communications on the network layer.
+This scenario also restricts communications on the network layer, as the lower half of the diagram shows.
 
 1. The Service A web app uses [Regional VNet Integration][regionalvnet] to route all outbound communications through a private IP address within the IP range of the integration subnet.
 1. Service B has [service endpoints][svcep] that allow inbound communications only from web apps on the integration subnet of Service B.
@@ -100,7 +99,6 @@ This scenario uses service endpoints rather than [private endpoints][privateend]
 - [Zero to Hero: multi-tier web apps][zerotohero]
 - [Azure AD client credentials flow][clientcredsflow]
 - [Service endpoints][svcep]
-- [Microsoft Authentication Library][msal]
 - [App Service Regional VNet Integration][regionalvnet]
 - [Sample application demonstrating client credentials flow for daemon apps][daemonsample]
 - [Azure Security Baseline for App Service][securitybaseline]
