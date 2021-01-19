@@ -13,7 +13,7 @@ ms.custom:
 
 # Checklist - Design for performance efficiency
 
-Application design is critical to handling scale as load increases. Design is part of the Performance Efficiency pillar in the [Microsoft Azure Well-Architected Framework](../index.md). Use this checklist to review your application architecture from a performance design standpoint. 
+Application design is critical to handling scale as load increases. Design is part of the Performance Efficiency pillar in the [Microsoft Azure Well-Architected Framework](../index.md). Use this checklist to review your application architecture from a performance design standpoint.
 
 ## Application design
 

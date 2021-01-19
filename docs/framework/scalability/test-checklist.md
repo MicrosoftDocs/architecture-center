@@ -13,7 +13,7 @@ ms.custom:
 
 # Checklist - Testing for performance efficiency
 
-Performance testing helps to maintain systems properly and fix defects before problems reach system users. It is part of the Performance Efficiency pillar in the [Microsoft Azure Well-Architected Framework](../index.md). Use this checklist to review your application architecture from a performance testing standpoint.
+Performance testing helps to maintain systems properly and fix defects before problems reach system users. It is part of the Performance Efficiency pillar in the [Microsoft Azure Well-Architected Framework](../index.md). Use this checklist to review your application architecture from a performance testing standpoint. 
 
 ## Performance testing
 
