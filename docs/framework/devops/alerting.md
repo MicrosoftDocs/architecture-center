@@ -41,6 +41,10 @@ Prioritizing alerts with a specific severity or urgency helps operational teams 
 
 ![Azure Monitor alert severity as seen in the Azure portal.](../_images/devops/alert-sev.png)
 
+## Alert owners
+
+Having well-defined owners and response playbooks per alert is vital to optimizing operational effectiveness. Alerts don't have to be only technical. For example, the budget owner should be made aware of capacity issues so that budgets can be adjusted and discussed.
+
 ## Alert response
 
 Each Azure Monitor alert can be configured with one or more associated action group. An action group can respond to an Azure Monitor alert in the following ways:

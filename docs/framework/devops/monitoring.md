@@ -104,3 +104,8 @@ Beyond Azure Monitor, you will want to keep an eye on certain events to make sur
 ## Summary
 
 You can use any monitoring platform to manage your Azure resources. Microsoft's first party offering is Azure Monitor, a comprehensive solution for metrics and logs from the infrastructure to the application code, including the ability to trigger alerts and automated actions as well as data visualization.
+
+## Next steps
+
+> [!div class="nextstepaction"]
+> [Observability: Alerting](./alerting.md)
