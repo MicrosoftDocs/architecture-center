@@ -419,18 +419,6 @@ items:
                 href: framework/security/governance.md
               - name: Elevate security capabilities
                 href: framework/security/governance.md
-      - name: Workloads
-        items:
-          - name: Hybrid
-            items:          
-              - name: Overview
-                href: framework/hybrid/hybrid-overview.md
-              - name: Cost
-                href: framework/hybrid/hybrid-cost.md 
-              - name: Operational Excellence
-                href: framework/hybrid/hybrid-opex.md
-              - name: Security
-                href: framework/hybrid/hybrid-security.md  
   - name: Design Patterns
     items:
       - name: Overview
