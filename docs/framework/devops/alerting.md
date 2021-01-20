@@ -2,7 +2,7 @@
 title: Alerting for DevOps
 description: Describes how to use alerts in a well-architected application.
 author: neilpeterson
-ms.date: 01/18/2021
+ms.date: 01/20/2021
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
