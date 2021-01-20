@@ -22,7 +22,7 @@ Alerting depends on the following instrumentation data:
 
 Operators might receive alert information by using many delivery channels such as email, a pager device, or an SMS text message. An alert might also include an indication of how critical a situation is. Many alerting systems support subscriber groups, and all operators who are members of the same group can receive the same set of alerts.
 
-An alerting system should be customizable, and the appropriate values from the underlying instrumentation data can be provided as parameters. This approach enables an operator to filter data and focus on those thresholds or combinations of values that are of interest. Note that in some cases, the raw instrumentation data can be provided to the alerting system. In other situations, it might be more appropriate to supply aggregated data. (For example, an alert can be triggered if the CPU utilization for a node has exceeded 90 percent over the past 10 minutes). The details provided to the alerting system should also include any appropriate summary and context information. This data can help reduce the possibility that false-positive events will trip an alert.
+An alerting system should be customizable, and the appropriate values from the underlying instrumentation data can be provided as parameters. This approach enables an operator to filter data and focus on those thresholds or combinations of interest values. Note that in some cases, the raw instrumentation data can be provided to the alerting system. In other situations, it might be more appropriate to supply aggregated data. (For example, an alert can be triggered if the CPU utilization for a node has exceeded 90 percent over the past 10 minutes). The details provided to the alerting system should also include any appropriate summary and context information. This data can help reduce the possibility that false-positive events will trip an alert.
 
 ## Alert rules and actions
 
@@ -35,15 +35,25 @@ An alert rule can be defined using many different data streams such as [metric v
 
 For more information on alerts, see [Overview of alerts in Microsoft Azure](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-overview)
 
-## Defining owners
-
 ## Alert prioritization
 
 Prioritizing alerts with a specific severity or urgency helps operational teams in cases where multiple events require intervention at the same time. For example, alerts concerning critical system flows might require special attention. When creating an alert, ensure to establish and set the correct priority.
 
 ![Azure Monitor alert severity as seen in the Azure portal.](../_images/devops/alert-sev.png)
 
-## Alert notifications
+## Alert response
+
+Each Azure Monitor alert can be configured with one or more associated action group. An action group can respond to an Azure Monitor alert in the following ways:
+
+- Send an email, SMS message, or push notification
+- Execute an Azure Function
+- Execute an Azure Automaton runbook
+- Execute an Azure Logic App
+- Send a request to a webhook endpoint
+
+Using an Azure Monitor action group, you can raise a notification when an alert is created and respond with automated action.
+
+For more information on using Azure Monitor action groups, see [Create and manage action groups](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups).
 
 ## Alert dashboarding
 
@@ -56,3 +66,7 @@ In addition to the default Azure Monitor alert dashboard, custom dashboards can 
 For more information on creating dashboards, see [Create and share dashboards of Log Analytics data](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-logs-dashboards).
 
 ## Alert integrations
+
+Because of the flexibility provided with Azure Monitor, alerts, and action groups, integration possibilities are essentially limitless. For example, if you have a custom solution that ingests data through an incoming API, this can be engaged with an Azure Monitor action group each time an alert is raised. This flexibility allows for integration with a custom system, ITSM solutions, and other work tracking solutions. Additionally, many partner integrations are ready to use out of the box.
+
+For more information on Azure Monitor partner integrations, see [Azure Monitor partner integrations](https://docs.microsoft.com/azure/azure-monitor/platform/partners#servicenow).
