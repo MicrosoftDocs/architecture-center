@@ -12,7 +12,6 @@ The diagram shows restricted communications from Service A to Service B. Token-b
 
 - Both services [register with Azure Active Directory (Azure AD)][appreg], and use OAuth 2.0 token-based authorization in the [client credentials flow][clientcredsflow].
 - Service A communicates by using [Regional VNet Integration][regionalvnet] from a private IP address in its virtual network integration subnet. Service B [service endpoints][svcep] accept inbound communications only from the Service A integration subnet.
-- 
 
 ### Token-based authorization
 
@@ -41,7 +40,7 @@ Service B uses one of the following methods to ensure that only specifically all
 
 ### Service endpoints
 
-This scenario also restricts communications on the network layer, as the lower half of the diagram shows.
+The lower half of the architectural diagram shows how to restrict interservice communications on the network layer:
 
 1. The Service A web app uses [Regional VNet Integration][regionalvnet] to route all outbound communications through a private IP address within the IP range of the integration subnet.
 1. Service B has [service endpoints][svcep] that allow inbound communications only from web apps on the integration subnet of Service B.
