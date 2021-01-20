@@ -127,4 +127,4 @@ With Azure Firewall Manager preview, you can centrally manage policies across mu
 
 - For best practices about using Azure Firewall in various configurations, see [Azure Firewall Architecture Guide](/azure/architecture/example-scenario/firewalls/).
 
-> Back to the main article: [Networking](design-network.md)
+> Back to the main article: [Network security](design-network.md)

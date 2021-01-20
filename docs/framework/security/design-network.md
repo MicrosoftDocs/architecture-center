@@ -29,8 +29,8 @@ Follow these questions to assess the workload at a deeper level. The recommendat
 
 |Assessment|Description|
 |---|---|
-|[**Does the organization identify and isolate groups of resources from other parts of the organization to aid in detecting and containing adversary movement within the enterprise?**](design-network-segmentation.md)|Create segmentation in your network footprint to group the related assets and isolation. Align the network segmentation with the enterprise segmentation strategy.|accounts) identities at a central location.|
-|[**Should the services of this workload be accessible from public IP addresses**](design-network-connectivity.md)|Use native Azure networking feature to restrict access to individual application services. Explore multiple levels (such as IP filtering or firewall rules) to prevent application services from being accessed by unauthorized actors.|
+|[**Does the organization identify and isolate groups of resources from other parts of the organization to aid in detecting and containing adversary movement within the enterprise?**](design-network-segmentation.md)|Create segmentation in your network footprint to group the related assets and isolation. Align the network segmentation with the enterprise segmentation strategy.
+|[**Should this workload be accessible from public IP addresses**](design-network-connectivity.md)|Use native Azure networking feature to restrict access to individual application services. Explore multiple levels (such as IP filtering or firewall rules) to prevent application services from being accessed by unauthorized actors.|
 
 ## Azure security benchmark
 The Azure Security Benchmark includes a collection of high-impact security recommendations you can use to help secure the services you use in Azure:
@@ -38,10 +38,10 @@ The Azure Security Benchmark includes a collection of high-impact security recom
 > ![Security Benchmark](../../_images/benchmark-security.svg) The questions in this section are aligned to the [Azure Security Benchmarks Network Security](/azure/security/benchmarks/security-controls-v2-network-security).
 
 ## Azure services
-[Azure Virtual Network](/azure/virtual-network/virtual-networks-overview)
-[Azure Firewall](/azure/firewall/overview)
-[Azure ExpressRoute](/azure/expressroute/)
-[Azure Private Link](/azure/private-link/)
+- [Azure Virtual Network](/azure/virtual-network/virtual-networks-overview)
+- [Azure Firewall](/azure/firewall/overview)
+- [Azure ExpressRoute](/azure/expressroute/)
+- [Azure Private Link](/azure/private-link/)
 
 
 ## Reference architecture

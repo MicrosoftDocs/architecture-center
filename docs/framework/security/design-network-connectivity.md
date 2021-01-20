@@ -166,4 +166,4 @@ Another option is to force tunnel all outbound internet traffic from on-premises
 > [Secure endpoints](design-network-endpoints.md)
 
 ## Related links
-It’s challenging to write concise firewall rules for networks where different cloud resources that adapt to the elastic nature of the cloud. Manage access based on identity authentication and authorization controls to protect data and resources and to decide which requests are permitted. For more information, see [Identity and access management considerations](design-identity.md).
+> Go back to the main article: [Network security](design-network.md)
