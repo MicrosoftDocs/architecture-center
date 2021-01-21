@@ -11,12 +11,10 @@ metadata:
   ms.custom:
     - fcp
 name: Gridwich clean monolith architecture
-summary: 'Learn about the components and libraries in the Gridwich clean monolith architecture, and a microservices alternative.'
+summary: Learn about the components and libraries in the Gridwich clean monolith architecture, and a microservices alternative.
 products:
-  - azure
+  - azure-event-grid
   - azure-functions
-  - dotnet
-  - github
 thumbnailUrl: /azure/architecture/browse/thumbs/request-response.png
 content: |
    [!include[](gridwich-clean-monolith-content.md)]
