@@ -284,7 +284,7 @@ items:
               - name: Monitoring
                 href: framework/devops/monitoring.md
               - name: Alerting
-                href: framework/devops/alerting.md
+                href: framework/devops/alerts.md
           - name: Checklist
             href: checklist/dev-ops.md
       - name: Performance Efficiency

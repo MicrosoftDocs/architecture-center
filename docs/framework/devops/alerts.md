@@ -39,7 +39,7 @@ For more information on alerts, see [Overview of alerts in Microsoft Azure](http
 
 Prioritizing alerts with a specific severity or urgency helps operational teams in cases where multiple events require intervention at the same time. For example, alerts concerning critical system flows might require special attention. When creating an alert, ensure to establish and set the correct priority.
 
-![Azure Monitor alert severity as seen in the Azure portal.](../_images/devops/alert-sev.png)
+![Azure Monitor alert severity as seen in the Azure portal.](../_images/devops/alert-severity.png)
 
 ## Alert owners
 
@@ -74,3 +74,10 @@ For more information on creating dashboards, see [Create and share dashboards of
 Because of the flexibility provided with Azure Monitor, alerts, and action groups, integration possibilities are essentially limitless. For example, if you have a custom solution that ingests data through an incoming API, this can be engaged with an Azure Monitor action group each time an alert is raised. This flexibility allows for integration with a custom system, ITSM solutions, and other work tracking solutions. Additionally, many partner integrations are ready to use out of the box.
 
 For information on Azure Monitor and ITSM integration, see [IT Service Management Connector Overview](https://docs.microsoft.com/azure/azure-monitor/platform/itsmc-overview).
+
+## Next steps
+
+Return to the operational excellence overview.
+
+> [!div class="nextstepaction"]
+> [Observability: Alerting](./overview.md)

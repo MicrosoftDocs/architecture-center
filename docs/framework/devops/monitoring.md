@@ -108,4 +108,4 @@ You can use any monitoring platform to manage your Azure resources. Microsoft's 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Observability: Alerting](./alerting.md)
+> [Observability: Alerting](./alerts.md)
