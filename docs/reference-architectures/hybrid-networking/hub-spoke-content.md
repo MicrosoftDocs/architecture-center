@@ -8,14 +8,6 @@ This reference architecture shows how to implement a hub-spoke topology in Azure
 
 Use the following controls to deploy the hub and spoke solution. This deployment includes one hub virtual network, and two peered spokes. An Azure Firewall and Azure Bastion host are also deployed. Optionally, the deployment can include virtual machines in the first spoke network and a VPN gateway.
 
-#### [Azure Portal](#tab/portal)
-
-For this reference, the hub, spoke, and all supporting infrastructure is deployed into a single resource group. 
-
-Use the following button to deploy the reference using the Azure portal.
-
-[![Deploy to Azure](../../_images/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmspnp%2Fsamples%2Fmaster%2FSolutions%2Fazure-hub-spoke%2Fazuredeploy.json)
-
 #### [Azure CLI](#tab/cli)
 
 For this reference, the hub, spoke, and all supporting infrastructure is deployed into a single resource group. Use the following commands to deploy the reference using the Azure CLI.
@@ -50,6 +42,14 @@ Run the following command to deploy the hub and spoke network configuration, VNe
 New-AzResourceGroupDeployment -ResourceGroupName bastion-hub-spoke `
     -TemplateUri https://raw.githubusercontent.com/mspnp/samples/master/solutions/azure-hub-spoke/azuredeploy.json
 ```
+
+#### [Azure Portal](#tab/portal)
+
+For this reference, the hub, spoke, and all supporting infrastructure is deployed into a single resource group. 
+
+Use the following button to deploy the reference using the Azure portal.
+
+[![Deploy to Azure](../../_images/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmspnp%2Fsamples%2Fmaster%2FSolutions%2Fazure-hub-spoke%2Fazuredeploy.json)
 
 --- 
 
