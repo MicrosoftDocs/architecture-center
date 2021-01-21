@@ -4,7 +4,7 @@ metadata:
   titleSuffix: Azure Solution Ideas
   author: doodlemania2
   ms.date: 12/16/2019
-  description: Microservices with AKS
+  description: Azure Kubernetes Service (AKS) simplifies the deployment and management of microservices-based architecture.
   ms.custom: 'acom-architecture, microservices, devops, kubernetes, interactive-diagram, ''https://azure.microsoft.com/solutions/architecture/microservices-with-aks/'''
   ms.service: architecture-center
   ms.category:
@@ -18,10 +18,11 @@ azureCategories:
   - containers
   - devops
   - developer-tools
-summary: Microservices with AKS
+summary: Azure Kubernetes Service (AKS) simplifies the deployment and management of microservices-based architecture.
 products:
-  - azure
+  - azure-container-registry
   - azure-devops
+  - azure-kubernetes-service
   - github
 thumbnailUrl: /azure/architecture/browse/thumbs/microservices-with-aks.png
 content: |
