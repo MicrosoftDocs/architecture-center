@@ -53,9 +53,10 @@ New-AzResourceGroupDeployment -ResourceGroupName bastion-hub-spoke `
 
 --- 
 
-For detailed information on the ARM templates used to deploy this solution, see [Hub and Spoke deployment ARM templates](https://github.com/mspnp/samples/tree/master/solutions/azure-hub-spoke).
+For detailed information on the ARM templates used to deploy this solution, see the following:
 
-> [Hub and Spoke ARM Template](.https://github.com/mspnp/samples/tree/master/solutions/azure-hub-spoke)
+> [!div class="nextstepaction"]
+> [Hub and Spoke ARM Template](https://github.com/mspnp/samples/tree/master/solutions/azure-hub-spoke)
 
 ## Solution benefits
 
