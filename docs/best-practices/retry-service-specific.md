@@ -74,9 +74,7 @@ Cosmos DB is a fully managed multi-model database that supports schemaless JSON 
 
 ### Retry mechanism
 
-The `CosmosClient` class automatically retries failed attempts. To set the number of retries and the maximum wait time, configure [CosmosClientOptions]. If the value of this property is set to 0, there will be no automatic retry on rate limiting requests from the client and the exception needs to be handled at the application level.
-
-Exceptions that the client raises are either beyond the retry policy or are not transient errors.
+The `CosmosClient` class automatically retries failed attempts. To set the number of retries and the maximum wait time, configure [CosmosClientOptions]. Exceptions that the client raises are either beyond the retry policy or are not transient errors.
 If Cosmos DB throttles the client, it returns an HTTP 429 error. Check the status code in the `CosmosException` class.
 
 ### Policy configuration
