@@ -2,7 +2,7 @@
 metadata:
   title: Basic web application
   titleSuffix: Azure Reference Architectures
-  description: Proven practices for deploying web applications that use Azure App Service and Azure SQL Database.
+  description: Learn about proven practices for deploying web applications that use Azure App Service and Azure SQL Database.
   author: doodlemania2
   ms.date: 12/12/2017
   ms.topic: conceptual
@@ -16,10 +16,12 @@ metadata:
 name: Basic web application
 azureCategories:
   - web
-summary: Proven practices for deploying web applications that use Azure App Service and Azure SQL Database.
+summary: Learn about proven practices for deploying web applications that use Azure App Service and Azure SQL Database.
 products:
-  - azure
+  - azure-active-directory
   - azure-app-service
+  - azure-dns
+  - azure-sql-database
   - azure-web-apps
 thumbnailUrl: /azure/architecture/browse/thumbs/basic-web-app.png
 content: |
