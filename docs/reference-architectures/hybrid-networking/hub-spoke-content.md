@@ -10,11 +10,15 @@ Use the following controls to deploy the hub and spoke solution. This deployment
 
 #### [Azure Portal](#tab/portal)
 
+For this reference, the hub, spoke, and all supporting infrastructure is deployed into a single resource group. Use the following button to deploy the reference using the Azure portal.
+
 [![Deploy to Azure](../../_images/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmspnp%2Fsamples%2Fmaster%2FSolutions%2Fazure-hub-spoke%2Fazuredeploy.json)
 
 #### [Azure CLI](#tab/cli)
 
-For this reference, the hub, spoke, and all supporting infrastructure is deployed into a single resource group.
+For this reference, the hub, spoke, and all supporting infrastructure is deployed into a single resource group. Use the following commands to deploy the reference using the Azure CLI.
+
+Use the folloing command to create a resource group for the deployment. Click the **Try it** button to use an embedded shell.
 
 ```azurecli-interactive
 az group create --name hub-spoke --location eastus
@@ -30,9 +34,11 @@ az deployment group create \
 
 #### [PowerShell](#tab/powershell)
 
-For this reference, the hub, spoke, and all supporting infrastructure is deployed into a single resource group.
+For this reference, the hub, spoke, and all supporting infrastructure is deployed into a single resource group. Use the following commands to deploy the reference using the Azure PowerShell module.
 
-```azurecli-interactive
+Use the folloing command to create a resource group for the deployment. Click the **Try it** button to use an embedded shell.
+
+```azurepowershell-interactive
 New-AzResourceGroup -Name hub-spoke -Location eastus
 ```
 
