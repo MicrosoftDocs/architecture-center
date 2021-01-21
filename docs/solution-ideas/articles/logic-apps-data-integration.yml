@@ -2,9 +2,9 @@
 metadata:
   title: Data integration with Logic Apps and SQL Server
   titleSuffix: Azure architecture
-  description: Recommended architecture for integrating data through Azure Logic Apps and storing it in an on-premises database using SQL Server.
+  description: Automate data integration tasks by using Azure Logic Apps. Configure API calls to trigger tasks like storing data in an on-premises SQL Server database.
   authors: beatrizmayumi, shantnus
-  ms.date: 01/22/2021
+  ms.date: 01/21/2021
   ms.topic: conceptual
   ms.custom: fcp
   ms.service: architecture-center
@@ -13,10 +13,11 @@ azureCategories:
   - integration
   - developer-tools
 products:
+  - azure-api-management
   - azure-logic-apps
   - sql-server
 name: Data integration with Logic Apps and SQL Server
-summary: Recommended architecture for integrating data through Azure Logic Apps and storing it in an on-premises database using SQL Server.
+summary: Automate data integration tasks by using Azure Logic Apps. Configure API calls to trigger tasks like storing data in an on-premises SQL Server database.
 thumbnailUrl: /azure/architecture/browse/thumbs/logic-apps-data-integration-thumbnail.png
 content: |
   [!include[](logic-apps-data-integration-content.md)]
