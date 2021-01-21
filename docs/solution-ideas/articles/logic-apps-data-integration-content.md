@@ -1,4 +1,4 @@
-With Azure Logic Apps, it's possible to integrate cloud data into on-premises data storage. For instance, you can use a logic app to store HTTP request data in a SQL Server database. Because Logic Apps functions as a secure Azure API Management endpoint, calls to your API can trigger a variety of data-related tasks. Besides updating on-premises databases, you can also send Teams or email messages.
+With Azure Logic Apps, it's possible to integrate cloud data into on-premises data storage. For instance, a logic app can store HTTP request data in a SQL Server database. Because Logic Apps functions as a secure Azure API Management endpoint, calls to your API can trigger various data-related tasks. Besides updating on-premises databases, you can also send Teams or email messages.
 
 ## Potential use cases
 
@@ -6,7 +6,7 @@ Use this solution to automate data integration tasks you perform in response to 
 
 ## Architecture
 
-:::image type="complex" source="../media/logic-apps-data-integration.png" alt-text="Architecture diagram showing how to use Logic Apps to respond to A P I calls by reading data from or writing data to S Q L Server." border="false":::
+:::image type="complex" source="../media/logic-apps-data-integration.png" alt-text="Architecture diagram showing how to use Logic Apps to respond to A P I calls by updating or accessing S Q L Server." border="false":::
    The diagram contains two boxes, one for Azure components, and one for on-premises components. Outside the Azure box is a data file labeled J S O N. An arrow points from that file into an A P I Management icon that's inside the Azure box. A second arrow points from that icon to a Logic Apps icon that's also inside the Azure box. A third arrow points from that icon to an on-premises data gateway icon that's between the two boxes. A fourth arrow points from the gateway to a SQL Service icon that's inside the on-premises box. A final arrow points from the database icon to a person outside the on-premises box.
 :::image-end:::
 
