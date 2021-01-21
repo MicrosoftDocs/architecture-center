@@ -55,6 +55,8 @@ New-AzResourceGroupDeployment -ResourceGroupName bastion-hub-spoke `
 
 For detailed information on the ARM templates used to deploy this solution, see [Hub and Spoke deployment ARM templates](https://github.com/mspnp/samples/tree/master/solutions/azure-hub-spoke).
 
+> [Hub and Spoke ARM Template](.https://github.com/mspnp/samples/tree/master/solutions/azure-hub-spoke)
+
 ## Solution benefits
 
 The benefits of this topology include:
