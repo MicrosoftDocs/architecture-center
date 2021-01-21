@@ -21,8 +21,7 @@ az group create --name hub-spoke --location eastus
 Run the following command to deploy the hub and spoke network configuration, VNet peerings between the hub and spoke, and a Bastion host
 
 ```azurecli-interactive
-az deployment group create \
-    --resource-group hub-spoke \
+az deployment group create --resource-group hub-spoke \
     --template-uri https://raw.githubusercontent.com/mspnp/samples/master/solutions/azure-hub-spoke/azuredeploy.json
 ```
 
