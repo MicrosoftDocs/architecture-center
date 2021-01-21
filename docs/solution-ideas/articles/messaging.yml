@@ -4,7 +4,7 @@ metadata:
   titleSuffix: Azure Solution Ideas
   author: doodlemania2
   ms.date: 12/16/2019
-  description: In publish and subscribe settings, Azure Cache for Redis can route real-time messages and scale up web communication frameworks like Azure SignalR Service.
+  description: Azure Cache for Redis routes real-time messages in publish and subscribe systems. It also scales up web communication frameworks like Azure SignalR Service.
   ms.custom: 'acom-architecture, app-dev, data, ''https://azure.microsoft.com/solutions/architecture/messaging/'''
   ms.service: architecture-center
   ms.category:
@@ -14,7 +14,7 @@ metadata:
 name: Messaging
 azureCategories:
   - databases
-summary: In publish and subscribe settings, Azure Cache for Redis can route real-time messages and scale up web communication frameworks like Azure SignalR Service.
+summary: Azure Cache for Redis routes real-time messages in publish and subscribe systems. It also scales up web communication frameworks like Azure SignalR Service.
 products:
   - azure-api-apps
   - azure-cache-redis
