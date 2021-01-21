@@ -122,7 +122,7 @@ For additional information on creating virtual network peering, see [Create VNet
 
 If you require connectivity between spokes, consider deploying Azure Firewall or an NVA for routing in the hub and using UDRs in the spoke to forward traffic to the hub. The deployment steps below include an optional step that sets up this configuration. 
 
-![Routing between spokes using Azure Firewall](./images/hub-spoke-resources.png)
+![Routing between spokes using Azure Firewall](./images/spoke-spoke-routing.png)
 
 In this scenario, you must configure the peering connections to **allow forwarded traffic**.
 
