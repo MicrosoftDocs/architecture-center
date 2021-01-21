@@ -279,7 +279,7 @@ items:
                 href: framework/devops/release-engineering-cd.md
               - name: Rollback
                 href: framework/devops/release-engineering-rollback.md
-          - name: Observability (operational awareness)
+          - name: Monitor and alerts
             items:
               - name: Monitoring
                 href: framework/devops/monitoring.md

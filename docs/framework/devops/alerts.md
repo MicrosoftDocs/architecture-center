@@ -80,4 +80,4 @@ For information on Azure Monitor and ITSM integration, see [IT Service Managemen
 Return to the operational excellence overview.
 
 > [!div class="nextstepaction"]
-> [Observability: Alerting](./overview.md)
+> [Operational Excellence Overview](./overview.md)
