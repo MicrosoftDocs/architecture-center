@@ -1,4 +1,4 @@
-This reference architecture shows how to implement a hub-spoke topology in Azure. The *hub* is a virtual network in Azure that acts as a central point of connectivity to your on-premises network. The *spokes* are virtual networks that peer with the hub, and can be used to isolate workloads. Traffic flows between the on-premises datacenter and the hub through an ExpressRoute or VPN gateway connection.
+This reference architecture shows how to implement a hub-spoke topology in Azure. The *hub* is a virtual network in Azure that acts as a central point of connectivity to your on-premises network. The *spokes* are virtual networks that peer with the hub and can be used to isolate workloads. Traffic flows between the on-premises datacenter and the hub through an ExpressRoute or VPN gateway connection.
 
 ![[0]][0]
 
@@ -10,7 +10,9 @@ Use the following controls to deploy the hub and spoke solution. This deployment
 
 #### [Azure Portal](#tab/portal)
 
-For this reference, the hub, spoke, and all supporting infrastructure is deployed into a single resource group. Use the following button to deploy the reference using the Azure portal.
+For this reference, the hub, spoke, and all supporting infrastructure is deployed into a single resource group. 
+
+Use the following button to deploy the reference using the Azure portal.
 
 [![Deploy to Azure](../../_images/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmspnp%2Fsamples%2Fmaster%2FSolutions%2Fazure-hub-spoke%2Fazuredeploy.json)
 
@@ -18,7 +20,7 @@ For this reference, the hub, spoke, and all supporting infrastructure is deploye
 
 For this reference, the hub, spoke, and all supporting infrastructure is deployed into a single resource group. Use the following commands to deploy the reference using the Azure CLI.
 
-Use the folloing command to create a resource group for the deployment. Click the **Try it** button to use an embedded shell.
+Use the following command to create a resource group for the deployment. Click the **Try it** button to use an embedded shell.
 
 ```azurecli-interactive
 az group create --name hub-spoke --location eastus
@@ -36,7 +38,7 @@ az deployment group create \
 
 For this reference, the hub, spoke, and all supporting infrastructure is deployed into a single resource group. Use the following commands to deploy the reference using the Azure PowerShell module.
 
-Use the folloing command to create a resource group for the deployment. Click the **Try it** button to use an embedded shell.
+Use the following command to create a resource group for the deployment. Click the **Try it** button to use an embedded shell.
 
 ```azurepowershell-interactive
 New-AzResourceGroup -Name hub-spoke -Location eastus
@@ -71,13 +73,13 @@ Typical uses for this architecture include:
 
 The architecture consists of the following components.
 
-- **Hub virtual network**. The hub virtual network is the central point of connectivity to your on-premises network and a place to host services that can be consumed by the different workloads hosted in the spoke virtual networks.
-- **Spoke virtual networks**. Spoke virtual networks are used to isolate workloads in their own virtual networks, managed separately from other spokes. Each workload might include multiple tiers, with multiple subnets connected through Azure load balancers.
-- **Virtual network peering**. Two virtual networks can be connected using a [peering connection][vnet-peering]. Peering connections are non-transitive, low latency connections between virtual networks. Once peered, the virtual networks exchange traffic by using the Azure backbone without the need for a router. In a hub and spoke network topology, you use virtual network peering to connect the hub to each spoke. You can peer virtual networks in the same region or different regions. For more information, see [Requirements and constraints][vnet-peering-requirements].
-- **Bastion Host**. 
-- **Azure Firewall**.
+- **Hub virtual network:** The hub virtual network is the central point of connectivity to your on-premises network and a place to host services that can be consumed by the different workloads hosted in the spoke virtual networks.
+- **Spoke virtual networks:** Spoke virtual networks are used to isolate workloads in their own virtual networks, managed separately from other spokes. Each workload might include multiple tiers, with multiple subnets connected through Azure load balancers.
+- **Virtual network peering:** Two virtual networks can be connected using a [peering connection][vnet-peering]. Peering connections are non-transitive, low latency connections between virtual networks. Once peered, the virtual networks exchange traffic by using the Azure backbone without the need for a router.
+- **Bastion Host:** Azure Bastion lets you securely connect to a virtual machine using your browser and the Azure portal. An Azure Bastion host is deployed inside an Azure Virtual Network (VNet) and can access virtual machines in the VNet, or virtual machines in peered VNets.
+- **Azure Firewall:** Azure Firewall is a managed firewall as a service. The Firewall instance is placed in its own subnet.
 - **VPN virtual network gateway or ExpressRoute gateway**. The virtual network gateway enables the virtual network to connect to the VPN device, or ExpressRoute circuit, used for connectivity with your on-premises network. For more information, see [Connect an on-premises network to a Microsoft Azure virtual network][connect-to-an-Azure-vnet].
-- **VPN device**. A device or service that provides external connectivity to the on-premises network. The VPN device may be a hardware device or a software solution such as the Routing and Remote Access Service (RRAS) in Windows Server 2012. For a list of supported VPN appliances and information on configuring selected VPN appliances for connecting to Azure, see [About VPN devices for Site-to-Site VPN Gateway connections][vpn-appliance].
+- **VPN device**. A device or service that provides external connectivity to the on-premises network. The VPN device may be a hardware device or a software solution such as the Routing and Remote Access Service (RRAS) in Windows Server 2012. For more information, see [About VPN devices for Site-to-Site VPN Gateway connections][vpn-appliance].
 
 ## Recommendations
 
@@ -181,9 +183,8 @@ For instance, data transfer from a virtual network in zone 1 to another virtual 
 [hybrid-ha]: ./expressroute-vpn-failover.yml
 [naming conventions]: /azure/guidance/guidance-naming-conventions
 [VN-pricing]: https://azure.microsoft.com/pricing/details/virtual-network
-[vnet-peering]: /azure/virtual-network/virtual-network-peering-overview
 [vnet-peering-limit]: /azure/azure-subscription-service-limits#networking-limits
-[vnet-peering-requirements]: /azure/virtual-network/virtual-network-manage-peering#requirements-and-constraints
+[vnet-peering]: /azure/virtual-network/virtual-network-peering-overview
 [vpn-appliance]: /azure/vpn-gateway/vpn-gateway-about-vpn-devices
 [windows-vm-ra]: ../n-tier/n-tier-sql-server.yml
 [visio-download]: https://arch-center.azureedge.net/hybrid-network-hub-spoke.vsdx
