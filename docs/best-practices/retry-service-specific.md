@@ -74,26 +74,29 @@ Cosmos DB is a fully managed multi-model database that supports schemaless JSON 
 
 ### Retry mechanism
 
-The `DocumentClient` class automatically retries failed attempts. To set the number of retries and the maximum wait time, configure [ConnectionPolicy.RetryOptions]. Exceptions that the client raises are either beyond the retry policy or are not transient errors.
+The `CosmosClient` class automatically retries failed attempts. To set the number of retries and the maximum wait time, configure [CosmosClientOptions]. If the value of this property is set to 0, there will be no automatic retry on rate limiting requests from the client and the exception needs to be handled at the application level.
 
-If Cosmos DB throttles the client, it returns an HTTP 429 error. Check the status code in the `DocumentClientException`.
+Exceptions that the client raises are either beyond the retry policy or are not transient errors.
+If Cosmos DB throttles the client, it returns an HTTP 429 error. Check the status code in the `CosmosException` class.
 
 ### Policy configuration
 
-The following table shows the default settings for the `RetryOptions` class.
+The following table shows the default settings for the `CosmosClientOptions` class.
 
 | Setting | Default value | Description |
 | --- | --- | --- |
-| MaxRetryAttemptsOnThrottledRequests |9 |The maximum number of retries if the request fails because Cosmos DB applied rate limiting on the client. |
-| MaxRetryWaitTimeInSeconds |30 |The maximum retry time in seconds. |
+| MaxRetryAttemptsOnRateLimitedRequests |9 |The maximum number of retries if the request fails because Cosmos DB applied rate limiting on the client. |
+| MaxRetryWaitTimeOnRateLimitedRequests |30 |The maximum retry time in seconds for the Azure Cosmos DD service. |
 
 ### Example
 
 ```csharp
-DocumentClient client = new DocumentClient(new Uri(endpoint), authKey);
-var options = client.ConnectionPolicy.RetryOptions;
-options.MaxRetryAttemptsOnThrottledRequests = 5;
-options.MaxRetryWaitTimeInSeconds = 15;
+CosmosClient cosmosClient = new CosmosClient("connection-string", new CosmosClientOptions()
+{
+    MaxRetryAttemptsOnRateLimitedRequests = 21,
+    MaxRetryWaitTimeOnRateLimitedRequests = TimeSpan.FromSeconds(60)
+});
+
 ```
 
 ### Telemetry
