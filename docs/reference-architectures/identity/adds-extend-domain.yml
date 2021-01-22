@@ -18,7 +18,7 @@ azureCategories:
   - identity
 summary: Use this reference architecture to extend an on-premises Active Directory domain to Azure to provide distributed authentication services.
 products:
-  - azure
+  - azure-active-directory-domain
   - azure-virtual-network
 thumbnailUrl: /azure/architecture/browse/thumbs/adds-extend-domain.png
 content: |

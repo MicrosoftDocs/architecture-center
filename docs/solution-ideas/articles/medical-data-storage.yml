@@ -16,8 +16,10 @@ azureCategories:
   - storage
 summary: Store healthcare data effectively and affordably with cloud-based solutions from Azure. Manage medical records with the highest level of built-in security.
 products:
-  - azure
-  - azure-monitor
+  - azure-blob-storage
+  - azure-data-factory
+  - azure-data-lake
+  - azure-machine-learning
   - power-bi
 thumbnailUrl: /azure/architecture/browse/thumbs/medical-data-storage.png
 content: |
