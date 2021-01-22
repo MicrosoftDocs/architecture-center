@@ -19,8 +19,9 @@ azureCategories:
   - networking
 summary: Compare reference architectures for connecting an on-premises network to Azure.
 products:
-  - azure
   - azure-expressroute
+  - azure-virtual-network
+  - azure-vpn-gateway
 thumbnailUrl: ""
 content: |
    [!include[](index-content.md)]
