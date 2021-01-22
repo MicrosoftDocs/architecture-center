@@ -1,6 +1,6 @@
-The H1 title is a noun phrase that describes the scenario. Don't enter it here, but as the **name** value in the corresponding YAML file.
+> The H1 title is a noun phrase that describes the scenario. Don't enter it here, but as the **name** value in the corresponding YAML file.
 
-(Introductory section - no heading)
+Introductory section - no heading
 
 > This should be an introduction of the business problem and why this scenario was built to solve it.
 >> What industry is the customer in?
