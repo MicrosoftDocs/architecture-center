@@ -21,8 +21,11 @@ azureCategories:
   - hybrid
 summary: How to create a trusted Active Directory domain in Azure.
 products:
-  - azure
   - azure-active-directory
+  - azure-active-directory-domain
+  - azure-expressroute
+  - azure-virtual-network
+  - azure-vpn-gateway
 thumbnailUrl: /azure/architecture/browse/thumbs/adds-forest.png
 content: |
    [!include[](adds-forest-content.md)]

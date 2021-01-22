@@ -18,7 +18,8 @@ azureCategories:
   - media
 summary: This reference architecture shows how to conduct distributed training of deep learning models across clusters of GPU-enabled VMs using Azure Machine Learning.
 products:
-  - azure
+  - azure-blob-storage
+  - azure-container-registry
   - azure-machine-learning
 thumbnailUrl: /azure/architecture/browse/thumbs/distributed_dl_architecture.png
 content: |

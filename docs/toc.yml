@@ -279,10 +279,12 @@ items:
                 href: framework/devops/release-engineering-cd.md
               - name: Rollback
                 href: framework/devops/release-engineering-rollback.md
-          - name: Observability (operational awareness)
+          - name: Monitor and alerts
             items:
               - name: Monitoring
                 href: framework/devops/monitoring.md
+              - name: Alerting
+                href: framework/devops/alerts.md
           - name: Checklist
             href: checklist/dev-ops.md
       - name: Performance Efficiency
@@ -310,15 +312,11 @@ items:
               - name: Testing tools
                 href: framework/scalability/test-tools.md
           - name: Monitoring
-            href: framework/scalability/monitoring.md
-          - name: Optimize
-            items:
-              - name: Caching
-                href: framework/scalability/optimize-cache.md
-              - name: Partition
-                href: framework/scalability/optimize-partition.md
-              - name: Sustain
-                href: framework/scalability/optimize-sustain.md 
+            href: framework/scalability/monitor.md
+          - name: Checklist
+            href: framework/scalability/performance-efficiency.md
+          - name: Tradeoffs 
+            href: framework/scalability/tradeoffs.md
       - name: Reliability
         items:
           - name: Overview
@@ -1509,6 +1507,8 @@ items:
                 href: reference-architectures/migration/unisys-mainframe-migration.yml
               - name: Refactor IBM z/OS mainframe CF on Azure
                 href: reference-architectures/zos/refactor-zos-coupling-facility.yml
+              - name: Replicate and sync mainframe data in Azure
+                href: reference-architectures/migration/sync-mainframe-data-with-azure.yml
       - name: Mixed Reality
         items:
           - name: Architectures

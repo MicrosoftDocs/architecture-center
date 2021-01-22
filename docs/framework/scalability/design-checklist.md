@@ -13,7 +13,7 @@ ms.custom:
 
 # Checklist - Design for performance efficiency
 
-Application design is critical to handling scale as load increases. Design is part of the Performance Efficiency pillar in the [Microsoft Azure Well-Architected Framework](../index.md). Use this checklist to review your application architecture from a performance design standpoint. 
+Application design is critical to handling scale as load increases. Design is part of the Performance Efficiency pillar in the [Microsoft Azure Well-Architected Framework](../index.md). Use this checklist to review your application architecture from a performance design standpoint.
 
 ## Application design
 
@@ -105,3 +105,7 @@ Application design is critical to handling scale as load increases. Design is pa
 - **Use lightweight frameworks**. Carefully choose the APIs and frameworks you use to minimize resource usage, execution time, and overall load on the application. For example, using Web API to handle service requests can reduce the application footprint and increase execution speed, but it may not be suitable for advanced scenarios where the additional capabilities of Windows Communication Foundation are required.
 
 - **Consider minimizing the number of service accounts**. For example, use a specific account to access resources or services that impose a limit on connections, or perform better where fewer connections are maintained. This approach is common for services such as databases, but it can affect the ability to accurately audit operations due to the impersonation of the original user.
+
+## Next steps
+> [!div class="nextstepaction"]
+> [Application design](/azure/architecture/framework/scalability/design-apps)
