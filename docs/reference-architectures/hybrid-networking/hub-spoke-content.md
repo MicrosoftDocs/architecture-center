@@ -71,7 +71,7 @@ The architecture consists of the following components.
 
 - **Hub virtual network:** The hub virtual network is the central point of connectivity to your on-premises network and a place to host services that can be consumed by the different workloads hosted in the spoke virtual networks.
 - **Spoke virtual networks:** Spoke virtual networks are used to isolate workloads in their own virtual networks, managed separately from other spokes. Each workload might include multiple tiers, with multiple subnets connected through Azure load balancers.
-- **Virtual network peering:** Two virtual networks can be connected using a [peering connection][/azure/virtual-network/virtual-network-peering-overview]. Peering connections are non-transitive, low latency connections between virtual networks. Once peered, the virtual networks exchange traffic by using the Azure backbone without the need for a router.
+- **Virtual network peering:** Two virtual networks can be connected using a [peering connection])/azure/virtual-network/virtual-network-peering-overview). Peering connections are non-transitive, low latency connections between virtual networks. Once peered, the virtual networks exchange traffic by using the Azure backbone without the need for a router.
 - **Bastion Host:** Azure Bastion lets you securely connect to a virtual machine using your browser and the Azure portal. An Azure Bastion host is deployed inside an Azure Virtual Network (VNet) and can access virtual machines in the VNet, or virtual machines in peered VNets.
 - **Azure Firewall:** Azure Firewall is a managed firewall as a service. The Firewall instance is placed in its own subnet.
 - **VPN virtual network gateway or ExpressRoute gateway**. The virtual network gateway enables the virtual network to connect to the VPN device, or ExpressRoute circuit, used for connectivity with your on-premises network. For more information, see [Connect an on-premises network to a Microsoft Azure virtual network](/microsoft-365/enterprise/connect-an-on-premises-network-to-a-microsoft-azure-virtual-network?view=o365-worldwide).
@@ -91,10 +91,10 @@ Create a subnet named *GatewaySubnet*, with an address range of /27. The virtual
 
 For more information about setting up the gateway, see the following reference architectures, depending on your connection type:
 
-- [Hybrid network using ExpressRoute]()./expressroute.yml)
-- [Hybrid network using a VPN gateway]()./vpn.yml)
+- [Hybrid network using ExpressRoute](./expressroute.yml)
+- [Hybrid network using a VPN gateway](./vpn.yml)
 
-For higher availability, you can use ExpressRoute plus a VPN for failover. See [Connect an on-premises network to Azure using ExpressRoute with VPN failover]()./expressroute-vpn-failover.yml).
+For higher availability, you can use ExpressRoute plus a VPN for failover. See [Connect an on-premises network to Azure using ExpressRoute with VPN failover](./expressroute-vpn-failover.yml).
 
 A hub-spoke topology can also be used without a gateway if you don't need connectivity with your on-premises network.
 
@@ -138,7 +138,7 @@ For more information, see [Azure Network Watcher](/azure/network-watcher/network
 
 ### Azure Firewall
 
-In this architecture, an Azure Firewall is deployed in the hub network. When compared to network virtual appliances (NVAs), an Azure Firewall can save up to 30-50%. especially when used as a shared solution consumed by multiple workloads. For more information, see [Azure Firewall vs NVA][https://azure.microsoft.com/blog/azure-firewall-and-network-virtual-appliances].
+In this architecture, an Azure Firewall is deployed in the hub network. When compared to network virtual appliances (NVAs), an Azure Firewall can save up to 30-50%. especially when used as a shared solution consumed by multiple workloads. For more information, see [Azure Firewall vs NVA](https://azure.microsoft.com/blog/azure-firewall-and-network-virtual-appliances).
 
 ### Virtual network peering
 
