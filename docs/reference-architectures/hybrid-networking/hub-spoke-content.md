@@ -74,8 +74,8 @@ The architecture consists of the following components.
 - **Virtual network peering:** Two virtual networks can be connected using a [peering connection][/azure/virtual-network/virtual-network-peering-overview]. Peering connections are non-transitive, low latency connections between virtual networks. Once peered, the virtual networks exchange traffic by using the Azure backbone without the need for a router.
 - **Bastion Host:** Azure Bastion lets you securely connect to a virtual machine using your browser and the Azure portal. An Azure Bastion host is deployed inside an Azure Virtual Network (VNet) and can access virtual machines in the VNet, or virtual machines in peered VNets.
 - **Azure Firewall:** Azure Firewall is a managed firewall as a service. The Firewall instance is placed in its own subnet.
-- **VPN virtual network gateway or ExpressRoute gateway**. The virtual network gateway enables the virtual network to connect to the VPN device, or ExpressRoute circuit, used for connectivity with your on-premises network. For more information, see [Connect an on-premises network to a Microsoft Azure virtual network][/microsoft-365/enterprise/connect-an-on-premises-network-to-a-microsoft-azure-virtual-network?view=o365-worldwide].
-- **VPN device**. A device or service that provides external connectivity to the on-premises network. The VPN device may be a hardware device or a software solution such as the Routing and Remote Access Service (RRAS) in Windows Server 2012. For more information, see [About VPN devices for Site-to-Site VPN Gateway connections][/azure/vpn-gateway/vpn-gateway-about-vpn-devices].
+- **VPN virtual network gateway or ExpressRoute gateway**. The virtual network gateway enables the virtual network to connect to the VPN device, or ExpressRoute circuit, used for connectivity with your on-premises network. For more information, see [Connect an on-premises network to a Microsoft Azure virtual network](/microsoft-365/enterprise/connect-an-on-premises-network-to-a-microsoft-azure-virtual-network?view=o365-worldwide).
+- **VPN device**. A device or service that provides external connectivity to the on-premises network. The VPN device may be a hardware device or a software solution such as the Routing and Remote Access Service (RRAS) in Windows Server 2012. For more information, see [About VPN devices for Site-to-Site VPN Gateway connections](/azure/vpn-gateway/vpn-gateway-about-vpn-devices).
 
 ## Recommendations
 
@@ -91,10 +91,10 @@ Create a subnet named *GatewaySubnet*, with an address range of /27. The virtual
 
 For more information about setting up the gateway, see the following reference architectures, depending on your connection type:
 
-- [Hybrid network using ExpressRoute][./expressroute.yml]
-- [Hybrid network using a VPN gateway][./vpn.yml]
+- [Hybrid network using ExpressRoute]()./expressroute.yml)
+- [Hybrid network using a VPN gateway]()./vpn.yml)
 
-For higher availability, you can use ExpressRoute plus a VPN for failover. See [Connect an on-premises network to Azure using ExpressRoute with VPN failover][./expressroute-vpn-failover.yml].
+For higher availability, you can use ExpressRoute plus a VPN for failover. See [Connect an on-premises network to Azure using ExpressRoute with VPN failover]()./expressroute-vpn-failover.yml).
 
 A hub-spoke topology can also be used without a gateway if you don't need connectivity with your on-premises network.
 
@@ -102,7 +102,7 @@ A hub-spoke topology can also be used without a gateway if you don't need connec
 
 Virtual network peering is a non-transitive relationship between two virtual networks. If you require spokes to connect to each other, consider adding a separate peering connection between those spokes.
 
-However, suppose you have several spokes that need to connect with each other. In that case, you will run out of possible peering connections very quickly due to the limitation on the number of virtual network peerings per virtual network. (For more information, see [Networking limits][/azure/azure-subscription-service-limits#networking-limits].) In this scenario, consider using user-defined routes (UDRs) to force traffic destined to a spoke to be sent to Azure Firewall or an NVA acting as a router at the hub. This will allow the spokes to connect to each other.
+However, suppose you have several spokes that need to connect with each other. In that case, you will run out of possible peering connections very quickly due to the limitation on the number of virtual network peerings per virtual network. (For more information, see [Networking limits](/azure/azure-subscription-service-limits#networking-limits). In this scenario, consider using user-defined routes (UDRs) to force traffic destined to a spoke to be sent to Azure Firewall or an NVA acting as a router at the hub. This will allow the spokes to connect to each other.
 
 You can also configure spokes to use the hub gateway to communicate with remote networks. To allow gateway traffic to flow from spoke to hub and connect to remote networks, you must:
 
@@ -132,7 +132,7 @@ Consider what services are shared in the hub to ensure the hub scales for a larg
 
 Use Azure Network Watcher to monitor and troubleshoot the network components, tools like Traffic Analytics will show you the systems in your virtual networks that generate the most traffic so that you can visually identify bottlenecks before they degenerate into problems. Network Performance Manager is the right tool to monitor information about Microsoft ExpressRoute circuits. VPN diagnostics is another tool that can help troubleshoot site-to-site VPN connections connecting your applications to users on-premises.
 
-For more information, see [Azure Network Watcher][/azure/network-watcher/network-watcher-monitoring-overview] in the Azure Well-Architected Framework.
+For more information, see [Azure Network Watcher](/azure/network-watcher/network-watcher-monitoring-overview) in the Azure Well-Architected Framework.
 
 ## Cost considerations
 
@@ -147,4 +147,4 @@ You can use virtual network peering to route traffic between virtual networks by
 - Ingress and egress traffic is charged at both ends of the peered networks. 
 - Different zones have different transfer rates.
 
-For instance, data transfer from a virtual network in zone 1 to another virtual network in zone 2, will incur outbound transfer rate for zone 1 and inbound rate for zone 2. For more information, see [Virtual network pricing][https://azure.microsoft.com/pricing/details/virtual-network].
+For instance, data transfer from a virtual network in zone 1 to another virtual network in zone 2, will incur outbound transfer rate for zone 1 and inbound rate for zone 2. For more information, see [Virtual network pricing](https://azure.microsoft.com/pricing/details/virtual-network).
