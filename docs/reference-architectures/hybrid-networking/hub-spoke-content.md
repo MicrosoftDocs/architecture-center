@@ -57,13 +57,9 @@ For detailed information and additional deployment options, see the ARM Template
 > [!div class="nextstepaction"]
 > [Hub and Spoke ARM Template](https://github.com/mspnp/samples/tree/master/solutions/azure-hub-spoke)
 
-## Solution benefits
+## Use cases
 
 The benefits of this topology include:
-
-- **Cost savings** by centralizing services that can be shared by multiple workloads, such as network virtual appliances (NVAs) and DNS servers, in a single location.
-- **Overcome subscriptions limits** by peering virtual networks from different subscriptions to the central hub.
-- **Separation of concerns** between central IT (SecOps, InfraOps) and workloads (DevOps).
 
 Typical uses for this architecture include:
 
