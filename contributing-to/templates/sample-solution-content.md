@@ -1,17 +1,4 @@
----
-title: <Article title>
-titleSuffix: Azure Example Scenarios
-description: <Write a 100-160 character description that ends with a period and ideally starts with a call to action.>
-author: <github username>
-ms.date: <publish or update date - mm/dd/yyyy>
-ms.service: architecture-center
-ms.topic: conceptual
-ms.subservice: example-scenario
----
-
-# Article title
-
-The title is a noun phrase that describes the scenario.
+The H1 title is a noun phrase that describes the scenario. Enter it as the **name** value in the corresponding YAML file.
 
 > Example: "Insurance claim image classification on Azure"
 
@@ -42,7 +29,7 @@ Architecture diagram goes here_
 
 > What does the solution look like at a high level?
 > Why did we build the solution this way?
-> What will the customer need to bring to this? (Software, skills, etc?)
+> What will the customer need to bring to this?  (Software, skills, etc?)
 > Is there a data flow that should be described?
 
 ### Components
@@ -52,7 +39,7 @@ A bullet list of components in the architecture (including all relevant Azure se
 > Why is each component there?
 > What does it do and why was it necessary?
 
-- Example: [Resource Groups][resource-groups] is a logical container for Azure resources. We use resource groups to organize everything related to this project in the Azure console.
+- Example: [Resource Groups][resource-groups] is a logical container for Azure resources.  We use resource groups to organize everything related to this project in the Azure console.
 
 ### Alternatives
 
@@ -81,13 +68,13 @@ Use this section to talk about alternative Azure services or architectures that 
 
 > (Optional, but greatly encouraged)
 >
-> Is there an example deployment that can show me this in action? What would I need to change to run this in production?
+> Is there an example deployment that can show me this in action?  What would I need to change to run this in production?
 
 ## Pricing
 
 > How much will this cost to run?
 > Are there ways I could save cost?
-> If it scales linearly, then we should break it down by cost/unit. If it does not, why?
+> If it scales linearly, than we should break it down by cost/unit. If it does not, why?
 > What are the components that make up the cost?
 > How does scale affect the cost?
 >
