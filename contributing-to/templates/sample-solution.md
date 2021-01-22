@@ -38,7 +38,7 @@ These other uses cases have similar design patterns:
 
 ## Architecture
 
-Architecture diagram goes here_
+_Architecture diagram goes here_
 
 > What does the solution look like at a high level?
 > Why did we build the solution this way?

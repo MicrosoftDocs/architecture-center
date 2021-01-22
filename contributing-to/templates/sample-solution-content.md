@@ -1,8 +1,4 @@
-The H1 title is a noun phrase that describes the scenario. Enter it as the **name** value in the corresponding YAML file.
-
-> Example: "Insurance claim image classification on Azure"
-
-Avoid naming the scenario after the Azure technologies that are used.
+The H1 title is a noun phrase that describes the scenario. Don't enter it here, but as the **name** value in the corresponding YAML file.
 
 (Introductory section - no heading)
 
@@ -25,7 +21,7 @@ These other uses cases have similar design patterns:
 
 ## Architecture
 
-Architecture diagram goes here_
+_Architecture diagram goes here_
 
 > What does the solution look like at a high level?
 > Why did we build the solution this way?
