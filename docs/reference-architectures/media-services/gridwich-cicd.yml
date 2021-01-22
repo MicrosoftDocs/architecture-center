@@ -13,12 +13,12 @@ metadata:
 name: Gridwich CI/CD pipeline
 summary: Learn about the guiding principles and considerations for the Gridwich continuous integration and continuous delivery (CD/CD) pipeline.
 products:
-  - azure
+  - azure-active-directory
+  - azure-event-grid
   - azure-functions
+  - azure-key-vault
   - azure-pipelines
   - azure-storage
-  - github
-  - vs
 thumbnailUrl: /azure/architecture/browse/thumbs/request-response.png
 content: |
    [!include[](gridwich-cicd-content.md)]
