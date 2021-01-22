@@ -1,0 +1,28 @@
+### YamlMime:Architecture
+metadata:
+  title: Multi-region web app with private connectivity to database
+  titleSuffix: Azure Example Scenarios
+  description: Lock down access to a highly available Azure SQL Database through private connectivity from multi-tenant Azure App Service across Azure regions.
+  author: jelledruyts
+  ms.author: edprice
+  ms.date: 01/29/2021
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: example-scenario
+  ms.custom:
+  - fcp
+  - fasttrack-new
+  - example-scenario
+azureCategories:
+  - databases
+  - networking
+  - security
+products:
+  - azure-app-service
+  - azure-sql-database
+  - azure-web-apps
+name: Multi-region web app with private connectivity to database
+summary: Lock down access to a highly available Azure SQL Database through private connectivity from multi-tenant Azure App Service across Azure regions.
+thumbnailUrl: /azure/architecture/browse/thumbs/hybrid-server-os-mgmt-wac-azure.png
+content: |
+  [!include[](appsvc-private-sql-multiregion-content.md)]
