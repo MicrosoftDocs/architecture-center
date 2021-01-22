@@ -59,8 +59,6 @@ For detailed information and additional deployment options, see the ARM Template
 
 ## Use cases
 
-The benefits of this topology include:
-
 Typical uses for this architecture include:
 
 - Workloads deployed in different environments, such as development, testing, and production, that require shared services such as DNS, IDS, NTP, or AD DS. Shared services are placed in the hub virtual network, while each environment is deployed to a spoke to maintain isolation.
