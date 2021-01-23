@@ -11,9 +11,11 @@ ms.custom:
 azureCategories:
   - hybrid
   - networking
-products:
+product
+:
   - azure-firewall
   - azure-virtual-network
+  - azure-express-route
 ---
 
 # Network segmentation 

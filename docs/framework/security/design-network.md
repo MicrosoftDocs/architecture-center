@@ -20,8 +20,7 @@ Protect assets by placing controls on network traffic originating in Azure, betw
 
 > [!div class="checklist"]
 > - Segment your network footprint and create secure communication paths between segments. Align the network segmentation with overall enterprise segmentation strategy.
-- Protect non-public accessible services with network restrictions / IP firewall.
-- Design security controls that identify and allow expected traffic, access requests, and application communication between segments.
+> - Design security controls that identify and allow or deny traffic, access requests, and application communication between segments. 
 
 
 ## In this section
@@ -31,6 +30,7 @@ Follow these questions to assess the workload at a deeper level. The recommendat
 |---|---|
 |[**Does the organization identify and isolate groups of resources from other parts of the organization to aid in detecting and containing adversary movement within the enterprise?**](design-network-segmentation.md)|Create segmentation in your network footprint to group the related assets and isolation. Align the network segmentation with the enterprise segmentation strategy.
 |[**Should this workload be accessible from public IP addresses**](design-network-connectivity.md)|Use native Azure networking feature to restrict access to individual application services. Explore multiple levels (such as IP filtering or firewall rules) to prevent application services from being accessed by unauthorized actors.|
+|[**Are public endpoints of this workload protected with firewall or WAF (Web Application Firewall)?**](design-network-endpoints.md)|Use Azure Firewall to protect Azure Virtual Network resources. Web Application Firewall (WAF) mitigates the risk of an attacker being able to exploit commonly known security application vulnerabilities like cross-site scripting or SQL injection.|
 
 ## Azure security benchmark
 The Azure Security Benchmark includes a collection of high-impact security recommendations you can use to help secure the services you use in Azure:
