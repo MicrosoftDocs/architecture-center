@@ -19,4 +19,4 @@ name: <The H1 title is a noun phrase that describes the scenario. Avoid naming t
 summary: <Write a summary. Can be same as description.>
 thumbnailUrl: /azure/architecture/browse/thumbs/<browse-png-filename>.png
 content: |
-  [!include[](<article-filenalme>-content.md)]
+  [!include[](<article-filename>-content.md)]
