@@ -77,8 +77,7 @@ Another popular design is when you want Azure Firewall to inspect all traffic an
 
 For more information, see [Firewall and Application Gateway for virtual networks](/azure/architecture/example-scenario/gateway/firewall-application-gateway).
 
-
-Use Azure Security Center to detect misconfiguration risks related to the above.
+It’s challenging to write concise firewall rules for networks where different cloud resources dynamically spin up and down. Use [Azure Security Center](/azure/security-center/) to detect misconfiguration risks.
 
 ### Authentication
 Disable insecure legacy protocols for internet-facing services. 
@@ -120,9 +119,8 @@ Application resources allowing multiple methods to publish app content, such as 
 > [!div class="nextstepaction"]
 > [Data flow](design-network-flow.md)
 
-## Related links
 
-### Relevant product documentation
+### Related links
 - [Azure Firewall](/azure/firewall/overview)
 - [What is Azure Web Application Firewall on Azure Application Gateway?](/azure/web-application-firewall/ag/ag-overview)
 

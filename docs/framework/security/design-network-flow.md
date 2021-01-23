@@ -2,3 +2,6 @@
 . When thinking about network traffic, it’s helpful to distinguish East-West traffic from North-South traffic:
 •	East-West traffic is network traffic within the cluster (service-to service, pod-to-pod). This architecture uses Kubernetes network policies to restrict which pods can communicate, starting from a zero-trust policy and then opening specific communication paths as needed. 
 •	North-South traffic is network traffic from client applications to the backend. This architecture uses Web Application Firewall on Application Gateway to secure incoming (ingress) traffic, and Azure Firewall to secure outgoing (egress) traffic.
+. When thinking about network traffic, it’s helpful to distinguish East-West traffic from North-South traffic:
+•	East-West traffic is network traffic within the cluster (service-to service, pod-to-pod). This architecture uses Kubernetes network policies to restrict which pods can communicate, starting from a zero-trust policy and then opening specific communication paths as needed. 
+•	North-South traffic is network traffic from client applications to the backend. This architecture uses Web Application Firewall on Application Gateway to secure incoming (ingress) traffic, and Azure Firewall to secure outgoing (egress) traffic.

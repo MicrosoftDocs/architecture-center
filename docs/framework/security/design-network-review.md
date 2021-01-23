@@ -14,19 +14,7 @@ ms.custom:
 Assess your workload in areas such as network boundary security, network security, database security,
 data storage security, identity management, and operational security.
 
-**How do you implement DDoS protection?**
-***
 
-**Risk**:  Potential of smaller-scale attack that doesn't trip the platform-level protection.
-
-Azure Virtual Network resources offers **Basic** and **Standard** tiers for DDoS protection. Enable DDoS Protection Standard for all business-critical web application and services. 
-
-The [Windows N-tier application on Azure with SQL Server](../../reference-architectures/n-tier/n-tier-sql-server.yml) reference architecture uses DDoS Protection Standard because this option:
-- Uses adaptive tuning, based on the application's network traffic patterns, to detect threats. 
-- Guarantees 100% SLA. 
-- Can be cost effective. For example, during a DDoS attack, the first set of attacks cause  the provisioned resources to scale out. For a resource such as a virtual machine scale set, 10 machines can grow to 100, increasing overall costs. With Standard protection, you don't have to worry about the cost of the scaled resources because Azure will provide the cost credit. 
-
-For information about Standard DDoS Protection, see [Azure DDoS Protection Service](/azure/virtual-network/ddos-protection-overview).
 
 
 **How do you configure public IPs for which traffic is passed in, and how and where it's translated?**
