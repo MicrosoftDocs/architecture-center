@@ -21,6 +21,7 @@ Protect assets by placing controls on network traffic originating in Azure, betw
 > [!div class="checklist"]
 > - Segment your network footprint and create secure communication paths between segments. Align the network segmentation with overall enterprise segmentation strategy.
 > - Design security controls that identify and allow or deny traffic, access requests, and application communication between segments. 
+> - Protect all public endpoints with Azure Front Door, Application Gateway, Azure Firewall, Azure DDoS Protection.
 
 
 ## In this section

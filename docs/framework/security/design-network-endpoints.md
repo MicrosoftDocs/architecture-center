@@ -1,26 +1,25 @@
 ---
 title: Endpoint security
-description: Best practices for securing access to internet, PaaS services, and on-premises networks.
+description: Best practices for protecting application endpoints.
 author: PageWriter-MSFT
-ms.date: 09/07/2020
+ms.date: 01/22/2020
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
 ms.custom:
   - article
 azureCategories:
-  - hybrid
   - networking
 products:
   - azure-firewall
-  - azure-virtual-network  
+  - azure-application-gateway  
 ---
 
 # Endpoint security
 
-An _endpoint_ is an address exposed by a web application so that external entities can communicate with it. A malicious or an inadvertant interaction with the endpoint can compromise the security of the application and even the entire system. One way to protect the endpoint is by placing filter controls on the network traffic that it receives, such as defining rule sets. A defense in depth approach can further mitigate risks. Include supplemental controls that protect the endpoint if the primary traffic controls fail. 
+An _endpoint_ is an address exposed by a web application so that external entities can communicate with it. A malicious or an inadvertent interaction with the endpoint can compromise the security of the application and even the entire system. One way to protect the endpoint is by placing filter controls on the network traffic that it receives, such as defining rule sets. A defense in depth approach can further mitigate risks. Include supplemental controls that protect the endpoint if the primary traffic controls fail. 
 
-This article describes way in which you can protect web applications with Azure services and features. The links to the service documentation is given in Related links.
+This article describes way in which you can protect web applications with Azure services and features. For product documentation, see Related links.
 
 ## Key points
 - Protect all public endpoints with Azure Front Door, Application Gateway, Azure Firewall, Azure DDoS Protection.
@@ -32,7 +31,7 @@ This article describes way in which you can protect web applications with Azure 
 - Implement an automated and gated CI/CD deployment process.
 
 ## Public endpoints
-A public endpoint receives traffic over the internet. This makes the service easily accessble to attackers. 
+A public endpoint receives traffic over the internet. This makes the service easily accessible to attackers. 
 
 **Are all public endpoints of this workload protected?**
 ***
@@ -57,9 +56,9 @@ Azure Front Door and Azure Content Delivery Network (CDN) also have WAF capabili
 
 ### Azure Firewall
 
-Protect the entire virtual network against potentially malicious traffic from the internet and other external locations. It inspects incoming traffic and only passes the allowed requets to pass through.  
+Protect the entire virtual network against potentially malicious traffic from the internet and other external locations. It inspects incoming traffic and only passes the allowed requests to pass through.  
 
-A common design is to implment a DMZ or a permimeter network in front of the application. The DMZ is a separate subnet with the firewall. 
+A common design is to implement a DMZ or a peremeter network in front of the application. The DMZ is a separate subnet with the firewall. 
 
 > [!TIP]
 > Here are the resources for the preceding example:
@@ -74,9 +73,9 @@ A common design is to implment a DMZ or a permimeter network in front of the app
  
 For example, you want to filter egress traffic. You want to allow connectivity to a specific Azure Storage Account but not others. You'll need fully qualified domain name (FQDN)-based filters. In this case run Firewall and Application Gateway in parallel.
 
-Another popular pattern is when when you want Azure Firewall to inspect all traffic and WAF to protect web traffic, and the application needs to know the client's source IP address. In this case, place Application Gateway in front of Firewall. Conversely, you can place Firewall in front of WAF if you want to inspect and filter traffic before it reaches the Application Gateway.
+Another popular design is when you want Azure Firewall to inspect all traffic and WAF to protect web traffic, and the application needs to know the client's source IP address. In this case, place Application Gateway in front of Firewall. Conversely, you can place Firewall in front of WAF if you want to inspect and filter traffic before it reaches the Application Gateway.
 
-For more information, see [Firewall and Application Gateway for virtual networks](azure/architecture/example-scenario/gateway/firewall-application-gateway).
+For more information, see [Firewall and Application Gateway for virtual networks](/azure/architecture/example-scenario/gateway/firewall-application-gateway).
 
 
 Use Azure Security Center to detect misconfiguration risks related to the above.
@@ -92,7 +91,7 @@ Legacy authentication methods are among the top attack vectors for cloud-hosted 
 
 Enable Distributed Denial of Service (DDoS) mitigations for all business-critical web application and services. DDoS attacks are common and can be debilitating. An attack can completely block access or take down the services. There are two common options:
 
-- DDoS protection at virtual network level. The protection usually focuses on the network (layer 3) level. Azure Virtual Network resources offers **Basic** and **Standard** tiers for DDoS protection. Enable DDoS Protection Standard for all business-critical web application and services. 
+- DDoS protection at virtual network level. The protection usually focuses on the network (layer 3) level. Azure Virtual Network resources offer **Basic** and **Standard** tiers for DDoS protection. Enable DDoS Protection Standard for all business-critical web application and services. 
 
   The [Windows N-tier application on Azure with SQL Server](../../reference-architectures/n-tier/n-tier-sql-server.yml) reference architecture uses DDoS Protection Standard because this option:
   - Uses adaptive tuning, based on the application's network traffic patterns, to detect threats. 
@@ -122,4 +121,10 @@ Application resources allowing multiple methods to publish app content, such as 
 > [Data flow](design-network-flow.md)
 
 ## Related links
+
+### Relevant product documentation
+- [Azure Firewall](/azure/firewall/overview)
+- [What is Azure Web Application Firewall on Azure Application Gateway?](/azure/web-application-firewall/ag/ag-overview)
+
+
 > Go back to the main article: [Network security](design-network.md)

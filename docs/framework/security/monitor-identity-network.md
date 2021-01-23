@@ -14,7 +14,7 @@ ms.custom:
 
 Along with identity-based access control, network-based access control is a top priority for protecting assets. 
 
-Monitor identity-related risk events using adaptive machine learning algorithms, heuristics quickly before the attacker can gain deeper access into the system. Also, monitor all communications between [segments](design-network.md#build-a-network-segmentation-strategy) to detect potential security threats flowing over the wire. 
+Monitor identity-related risk events using adaptive machine learning algorithms, heuristics quickly before the attacker can gain deeper access into the system. Also, monitor all communications between [segments](design-network-segmentation.md) to detect potential security threats flowing over the wire. 
 
 This article describes some considerations that can help monitor the workload for those risks.
 
