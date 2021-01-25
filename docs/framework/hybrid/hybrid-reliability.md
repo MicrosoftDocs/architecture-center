@@ -1,8 +1,8 @@
 ---
 title: Reliability in a hybrid environment
-description: Describes considerations to achieve reliability in a hybrid environment.
+description: Includes guidance and recommendations that apply to the Reliability pillar in a hybrid and multi-cloud environment.
 author: v-aangie
-ms.date: 01/08/2021
+ms.date: 01/27/2021
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected

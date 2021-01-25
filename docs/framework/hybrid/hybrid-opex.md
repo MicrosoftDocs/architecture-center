@@ -1,8 +1,8 @@
 ---
 title: Operational excellence in a hybrid environment
-description: Describes considerations to achieve operational excellence in a hybrid environment.
+description: Includes guidance and recommendations that apply to the Operational Excellence pillar in a hybrid and multi-cloud environment.
 author: v-aangie
-ms.date: 01/08/2021
+ms.date: 01/27/2021
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
@@ -72,7 +72,7 @@ Utilize Arc Jumpstart, Arc Reference Architectures, and HCI Reference Architectu
 ## Monitoring
 
 - **Connect Machines agent overview of Azure Arc**
-   - Connect machines from Azure Portal
+   - Connect machines from Azure portal
    - At scale using service principal
    - Connect to Azure Arc with PowerShell DSC
    - Connect machines from WAC

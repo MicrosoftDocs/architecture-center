@@ -432,7 +432,7 @@ items:
           - name: Workloads
             items:
               - name: Hybrid
-               items:          
+                items:          
                   - name: Overview
                     href: framework/hybrid/hybrid-overview.md
                   - name: Cost

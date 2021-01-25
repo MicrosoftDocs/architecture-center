@@ -1,8 +1,8 @@
 ---
 title: Cost optimization in a hybrid environment
-description: Describes considerations to optimize cost in a hybrid environment.
+description: Includes guidance and recommendations that apply to the Cost pillar in a hybrid and multi-cloud environment.
 author: v-aangie
-ms.date: 01/07/2021
+ms.date: 01/27/2021
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected

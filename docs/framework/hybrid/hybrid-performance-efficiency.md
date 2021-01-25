@@ -1,8 +1,8 @@
 ---
 title: Performance efficiency in a hybrid environment
-description: Describes considerations to achieve performance efficiency in a hybrid environment.
+description: Includes guidance and recommendations that apply to the Performance Efficiency pillar in a hybrid and multi-cloud environment.
 author: v-aangie
-ms.date: 01/07/2021
+ms.date: 01/27/2021
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
@@ -24,7 +24,7 @@ There are four ways to connect machines:
 - Manual installation
 - Script-based installation
 - Connect machines at scale using service principal
-- Installation using Windows Powershell DSC
+- Installation using Windows PowerShell DSC
 
 After connecting the machines, you can then manage the VM extensions all from Azure, which provides consistent extension management between Azure and non-Azure VMs. In Azure you can use Azure Automation State Configuration to centrally store configurations and maintain the desired state of Arc enabled servers through the DSC VM extension. You can also collect log data for analysis with Azure Monitor Logs enabled through the Log Analytics agent VM extension. Wit Azure Monitor, you can analyze the performance of your Windows and Linux VMs and monitor their processes and dependencies on other resources and external processes.
 

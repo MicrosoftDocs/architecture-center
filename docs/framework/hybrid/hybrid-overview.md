@@ -1,6 +1,6 @@
 ---
 title: Overview of a hybrid environment
-description: Introduces the hybrid model for the WAF 5 pillars
+description: Includes guidance and recommendations that apply each of the five pillars in a hybrid and multi-cloud environment.
 author: v-aangie
 ms.date: 01/07/2021
 ms.topic: conceptual
@@ -15,11 +15,11 @@ Customer environments are becoming increasingly complex, with many applications 
 
 Azure uniquely helps you meet these challenges, giving you the flexibility to innovate anywhere in your hybrid environment while operating seamlessly and securely. The Well-Architected Framework includes a hybrid description for each of the five pillars: cost optimization, operational excellence, performance efficiency, reliability, and security.
 
-The hybrid model offers three solutions that allow you to extend Azure management to any infrastructure, run Azure data services anywhere, and Modernize your datacenters in your hybrid environment.
+Adopting a hybrid model offers multiple solutions, enabling you to extend Azure management to any infrastructure, run Azure data services anywhere, and Modernize your datacenters in your hybrid environment.
 
 ## Extend Azure management to any infrastructure
 
-Use *Azure Arc management* to extend Azure management to any infrastructure in a hybrid environment. Key features of Azure Arc management are:
+Use *Azure Arc enable infrastructure* to extend Azure management to any infrastructure in a hybrid environment. Key features of Azure Arc management are:
 
 - **Unified Operations** <!--CAF Overlap... Link off to https://review.docs.microsoft.com/en-us/azure/cloud-adoption-framework/scenarios/unified-operations/unified-operations?branch=pr-en-us-884 -->
    - Organize resources such as virtual machines, Kubernetes clusters and Azure services deployed across your entire IT environment.
@@ -33,7 +33,7 @@ Use *Azure Arc management* to extend Azure management to any infrastructure in a
 
 ## Run Azure data services anywhere
 
-Use *Azure Arc data* to run Azure data services anywhere in a hybrid environment. Key features of Azure Arc data are:
+Use *Azure Arc enabled data services* to run Azure data services anywhere in a hybrid environment. Key features of Azure Arc enabled data services are:
 
 - Run Azure data services on any Kubernetes cluster deployed on any hardware.
 - Gain cloud automation benefits, always up-to-date innovation in Azure data services, unified management of your on-premises and cloud data assets with a cloud billing model across both environments.
