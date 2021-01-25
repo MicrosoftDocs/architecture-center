@@ -1507,6 +1507,8 @@ items:
                 href: reference-architectures/migration/unisys-mainframe-migration.yml
               - name: Refactor IBM z/OS mainframe CF on Azure
                 href: reference-architectures/zos/refactor-zos-coupling-facility.yml
+              - name: Replicate and sync mainframe data in Azure
+                href: reference-architectures/migration/sync-mainframe-data-with-azure.yml
       - name: Mixed Reality
         items:
           - name: Architectures
