@@ -19,7 +19,7 @@ Adopting a hybrid model offers multiple solutions, enabling you to extend Azure 
 
 ## Extend Azure management to any infrastructure
 
-Use *Azure Arc enable infrastructure* to extend Azure management to any infrastructure in a hybrid environment. Key features of Azure Arc management are:
+Use *Azure Arc enabled infrastructure* to extend Azure management to any infrastructure in a hybrid environment. Key features of Azure Arc enabled infrastructure are:
 
 - **Unified Operations** <!--CAF Overlap... Link off to https://review.docs.microsoft.com/en-us/azure/cloud-adoption-framework/scenarios/unified-operations/unified-operations?branch=pr-en-us-884 -->
    - Organize resources such as virtual machines, Kubernetes clusters and Azure services deployed across your entire IT environment.
