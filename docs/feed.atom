@@ -2,12 +2,28 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id/>
     <title>Azure Architecture Center</title>
-    <updated>2021-01-19T14:11:51.423Z</updated>
+    <updated>2021-01-25T19:36:34.832Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <subtitle>Updated articles for Azure Architecture Center</subtitle>
     <rights>https://docs.microsoft.com/legal/termsofuse</rights>
     <category term="new"/>
     <category term="updated"/>
+    <entry>
+        <title type="html"><![CDATA[Replicate and sync mainframe data in Azure]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/reference-architectures/migration/sync-mainframe-data-with-azure</id>
+        <link href="https://docs.microsoft.com/azure/architecture/reference-architectures/migration/sync-mainframe-data-with-azure"/>
+        <updated>2021-01-22T22:18:38.000Z</updated>
+        <summary type="html"><![CDATA[Replicate data while modernizing mainframe and midrange systems. Sync on-premises data with Azure data during modernization.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Alerting for DevOps]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/framework/devops/alerts</id>
+        <link href="https://docs.microsoft.com/azure/architecture/framework/devops/alerts"/>
+        <updated>2021-01-21T17:32:11.000Z</updated>
+        <summary type="html"><![CDATA[Describes how to use alerts in a well-architected application.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Data encryption in Azure]]></title>
         <id>https://docs.microsoft.com/azure/architecture/framework/security/design-storage-encryption</id>
@@ -309,7 +325,7 @@
         <id>https://docs.microsoft.com/azure/architecture/solution-ideas/articles/project-15-iot-sustainability</id>
         <link href="https://docs.microsoft.com/azure/architecture/solution-ideas/articles/project-15-iot-sustainability"/>
         <updated>2020-12-08T16:22:16.000Z</updated>
-        <summary type="html"><![CDATA[Learn how to use Internet of Things technologies of Project 15 to accelerate scientific innovation in species tracking, ecosystem monitoring, and other areas.]]></summary>
+        <summary type="html"><![CDATA[Use Internet of Things technologies with the Project 15 Open Platform to accelerate innovation in species tracking, ecosystem monitoring, and other areas.]]></summary>
         <category label="updated" term="updated"/>
     </entry>
     <entry>
@@ -357,7 +373,7 @@
         <id>https://docs.microsoft.com/azure/architecture/solution-ideas/articles/project-15-iot-sustainability</id>
         <link href="https://docs.microsoft.com/azure/architecture/solution-ideas/articles/project-15-iot-sustainability"/>
         <updated>2020-11-20T20:27:26.000Z</updated>
-        <summary type="html"><![CDATA[Learn how to use Internet of Things technologies of Project 15 to accelerate scientific innovation in species tracking, ecosystem monitoring, and other areas.]]></summary>
+        <summary type="html"><![CDATA[Use Internet of Things technologies with the Project 15 Open Platform to accelerate innovation in species tracking, ecosystem monitoring, and other areas.]]></summary>
         <category label="new" term="new"/>
     </entry>
     <entry>
@@ -437,7 +453,7 @@
         <id>https://docs.microsoft.com/azure/architecture/reference-architectures/media-services/gridwich-architecture</id>
         <link href="https://docs.microsoft.com/azure/architecture/reference-architectures/media-services/gridwich-architecture"/>
         <updated>2020-11-16T00:05:26.000Z</updated>
-        <summary type="html"><![CDATA[Learn about a stateless action execution workflow that ingests, processes, and delivers media assets using two new methods, Terraform Sandwiches and Event Grid Sandwiches.]]></summary>
+        <summary type="html"><![CDATA[Learn about a stateless action execution workflow that ingests, processes, and delivers media assets using Terraform Sandwiches and Event Grid Sandwiches.]]></summary>
         <category label="new" term="new"/>
     </entry>
     <entry>
@@ -765,7 +781,7 @@
         <id>https://docs.microsoft.com/azure/architecture/reference-architectures/event-hubs/partitioning-in-event-hubs-and-kafka</id>
         <link href="https://docs.microsoft.com/azure/architecture/reference-architectures/event-hubs/partitioning-in-event-hubs-and-kafka"/>
         <updated>2020-10-12T21:02:26.000Z</updated>
-        <summary type="html"><![CDATA[Learn about partitioning in Kafka and Event Hubs with Kafka. See how many partitions to use in ingestion pipelines and how to assign events to partitions.]]></summary>
+        <summary type="html"><![CDATA[Learn about partitioning in Kafka and Event Hubs with Kafka, see how many partitions to use in ingestion pipelines, and also see how to assign events to partitions.]]></summary>
         <category label="new" term="new"/>
     </entry>
     <entry>
@@ -782,14 +798,6 @@
         <link href="https://docs.microsoft.com/azure/architecture/example-scenario/magento/magento-azure"/>
         <updated>2020-10-02T15:16:27.000Z</updated>
         <summary type="html"><![CDATA[Deploy the Magento e-commerce platform to Azure Kubernetes Service (AKS), and learn about considerations for hosting Magento on Azure.]]></summary>
-        <category label="new" term="new"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Web app private connectivity to Azure SQL database]]></title>
-        <id>https://docs.microsoft.com/azure/architecture/example-scenario/private-web-app/private-web-app</id>
-        <link href="https://docs.microsoft.com/azure/architecture/example-scenario/private-web-app/private-web-app"/>
-        <updated>2020-10-01T18:35:01.000Z</updated>
-        <summary type="html"><![CDATA[Lock down access to an Azure SQL Database with Azure Private Link connectivity from a multi-tenant Azure App Service through regional VNet Integration.]]></summary>
         <category label="new" term="new"/>
     </entry>
     <entry>
