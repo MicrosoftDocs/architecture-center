@@ -93,6 +93,18 @@ Summary of DNS resolution in this case:
 - Primary region: `sql-failovergroup.database.windows.net => sql-secondary.database.windows.net => sql-secondary.privatelink.database.windows.net => 10.1.1.5`
 - Secondary region: `sql-failovergroup.database.windows.net => sql-secondary.database.windows.net => sql-secondary.privatelink.database.windows.net => 10.2.1.4`
 
+## Components
+
+- [App Service][App Service overview] provides a framework for building, deploying, and scaling web apps. This platform offers built-in infrastructure maintenance, security patching, and scaling.
+
+- [Azure SQL Database][What is Azure SQL Database?] is a general-purpose relational database managed service that supports relational data, spatial data, JSON, and XML.
+
+- [Azure Virtual Network][What is Azure Virtual Network?] is the fundamental building block for private networks in Azure. Azure resources like virtual machines (VMs) can securely communicate with each other, the internet, and on-premises networks through Virtual Networks.
+
+- [Azure Private Link][What is Azure Private Link?] provides a private endpoint in a Virtual Network for connectivity to Azure PaaS services like Azure Storage and SQL Database, or to customer or partner services.
+
+- [Traffic Manager][What is Traffic Manager?] is a DNS-based traffic load balancer. This service distributes traffic to public-facing applications across global Azure regions. Traffic Manager also provides public endpoints with high availability and quick responsiveness.
+
 ## Considerations
 
 In general, the same considerations apply as with the [single-region version](https://docs.microsoft.com/azure/architecture/example-scenario/private-web-app/private-web-app). However, the "global peering" limitation mentioned as a consideration there is explicitly resolved here by deploying the additional private endpoints in the remote regions. This allows you to achieve a higher availability than with a single-region deployment.
@@ -137,3 +149,9 @@ At this point, the apps in both regions should be able to connect to both databa
 For more information on database replication and high availability, see the [Overview of business continuity with Azure SQL Database](https://docs.microsoft.com/azure/azure-sql/database/business-continuity-high-availability-disaster-recover-hadr-overview).
 
 For more information on inbound and outbound scenarios for App Service, and which features to use in which cases, see the [App Service networking features overview](/azure/app-service/networking-features).
+
+[App Service overview]: https://docs.microsoft.com/azure/app-service/overview
+[What is Azure Private Link?]: https://docs.microsoft.com/azure/private-link/private-link-overview
+[What is Azure SQL Database?]: https://docs.microsoft.com/azure/azure-sql/database/sql-database-paas-overview
+[What is Azure Virtual Network?]: https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview
+[What is Traffic Manager?]: https://docs.microsoft.com/azure/traffic-manager/traffic-manager-overview
