@@ -91,6 +91,15 @@ This scenario uses service endpoints rather than [private endpoints][privateend]
 
 - Every worker instance in an App Service Plan occupies a separate private IP address within the integration subnet. To plan for scale, ensure that the integration subnet is large enough to accommodate the scale you expect.
 
+## Pricing
+
+Pricing for this scenario depends on your specific infrastructure. Azure AD capabilities can be free, so the costs amount to the requirements for your App Service or other hosting plan, as described in [Alternatives](#alternatives) and [Considerations](#considerations). To calculate costs for your scenario, see the [Azure pricing calculator][pricing].
+
+## Next steps
+
+- [Message encoding considerations for cloud applications](../../best-practices/message-encode.md)
+- [Enterprise deployment using App Services Environment](../../reference-architectures/enterprise-integration/ase-standard-deployment.md)
+- [Web app private connectivity to Azure SQL database](../private-web-app/private-web-app.md)
 ## Related resources
 
 - [App Service networking features][appsvcnetworking]
@@ -124,6 +133,7 @@ This scenario uses service endpoints rather than [private endpoints][privateend]
 [leastpriv]: https://wikipedia.org/wiki/Principle_of_least_privilege
 [mi]: /azure/active-directory/managed-identities-azure-resources/overview
 [msal]: /azure/active-directory/develop/msal-overview
+[pricing]: https://azure.microsoft.com/pricing/calculator/
 [privateend]: /azure/private-link/private-endpoint-overview
 [privep]: /azure/app-service/networking/private-endpoint
 [regionalvnet]: /azure/app-service/web-sites-integrate-with-vnet#regional-vnet-integration

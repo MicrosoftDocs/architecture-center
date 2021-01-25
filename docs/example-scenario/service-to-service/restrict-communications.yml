@@ -1,10 +1,10 @@
 ### YamlMime:Architecture 
 metadata: 
   title: Restrict interservice communications
-  titleSuffix: Azure Architecture 
+  titleSuffix: Azure Example Scenario
   description: Restrict communications between two Azure App Service backend services on both the application and network layers.
   author: xstof
-  ms.date: 01/20/2021
+  ms.date: 01/25/2021
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: example-scenario
