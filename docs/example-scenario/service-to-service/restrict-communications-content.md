@@ -98,8 +98,9 @@ Pricing for this scenario depends on your specific infrastructure. Azure AD capa
 ## Next steps
 
 - [Message encoding considerations for cloud applications](../../best-practices/message-encode.md)
-- [Enterprise deployment using App Services Environment](../../reference-architectures/enterprise-integration/ase-standard-deployment.md)
-- [Web app private connectivity to Azure SQL database](../private-web-app/private-web-app.md)
+- [Enterprise deployment using App Services Environment](../../reference-architectures/enterprise-integration/ase-standard-deployment.yml)
+- [Web app private connectivity to Azure SQL database](../private-web-app/private-web-app.yml)
+
 ## Related resources
 
 - [App Service networking features][appsvcnetworking]
