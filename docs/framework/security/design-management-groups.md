@@ -42,7 +42,7 @@ For the preceding example, an approach is to use these management groups:
 > [!CAUTION]
 > Be careful when using the root management group because the policies can affect all resources on Azure and potentially cause downtime or other negative impacts. For considerations, see [Use root management group with caution](/azure/architecture/framework/security/design-management-groups#use-root-management-group-with-caution) later in this article.
 >
-> For complete guidance about using management groups for an enterprise, see [Management group and subscription organization](/azure/cloud-adoption-framework/ready/enterprise-scale/management-group-and-subscription-organization).
+> For complete guidance about using management groups for an enterprise, see [CAF: Management group and subscription organization](/azure/cloud-adoption-framework/ready/enterprise-scale/management-group-and-subscription-organization).
 
 
 ## Azure role assignment 
@@ -104,7 +104,7 @@ Use the **Service Administrator** role only for emergencies and initial setup. D
 ## Use root management group with caution
 Use the root management group to drive consistency across the enterprise by applying policies, permissions, tags, across all subscriptions. This group can affect every all resources on Azure and potentially cause downtime or other negative impacts. 
 
-Select enterprise-wide identities that have a clear requirement to be applied across every resources. These requirements could be for regulatory reasons. Also, select identities that have near-zero negative impact on operations. For example, policy with audit effect, tag assignment, Azure RBAC permissions assignments that have been carefully reviewed.
+Select enterprise-wide identities that have a clear requirement to be applied across all resources. These requirements could be for regulatory reasons. Also, select identities that have near-zero negative impact on operations. For example, policy with audit effect, tag assignment, Azure RBAC permissions assignments that have been carefully reviewed.
 
 Use a dedicated service principal name (SPN) to execute management group management operations, subscription management operations, and role assignment. SPN reduces the number of users who have elevated rights and follows least-privilege guidelines. Assign the **User Access Administrator** at the root management group scope (/) to grant the SPN just mentioned access at the root level. After the SPN is granted permissions, the **User Access Administrator** role can be safely removed. In this way, only the SPN is part of the **User Access Administrator** role.
 
