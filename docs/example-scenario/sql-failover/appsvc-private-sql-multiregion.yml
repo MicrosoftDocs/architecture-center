@@ -4,7 +4,6 @@ metadata:
   titleSuffix: Azure Example Scenarios
   description: Lock down access to a highly available Azure SQL Database through private connectivity from multi-tenant Azure App Service across Azure regions.
   author: jelledruyts
-  ms.author: edprice
   ms.date: 01/29/2021
   ms.topic: conceptual
   ms.service: architecture-center

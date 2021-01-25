@@ -5,13 +5,22 @@ To offer high availability, this solution:
 - Deploys a secondary instance of the solution in another Azure region.
 - [Uses auto-failover groups for geo-replication and high availability of the database](https://docs.microsoft.com/azure/azure-sql/database/auto-failover-group-overview).
 
-As with the single-region scenario, the web apps can securely connect to both backend databases over a fully private connection. The public internet can't reach any of the database servers. This setup eliminates a common attack vector.
+As with the single-region scenario, the web apps can securely connect to both backend databases over a fully private connection. The public internet can't access any of the database servers. This setup eliminates a common attack vector.
 
 ## Potential use cases
 
-Exactly as with the single-region version, this approach is not limited to just Azure SQL Database: this scenario can also be used with other application dependencies like Azure Storage, Azure Cosmos DB, Azure Cognitive Search, Azure Event Grid, Function Apps, other Web Apps, or really any other service that supports an [Azure Private Endpoint](/azure/private-link/private-endpoint-overview#private-link-resource) for inbound connectivity.
+As with the single-region version, this approach isn't limited to Azure SQL Database. You can also use this scenario with any service that supports an [Azure Private Endpoint](/azure/private-link/private-endpoint-overview#private-link-resource) for inbound connectivity. Examples include:
+
+- Azure Storage
+- Azure Cosmos DB
+- Azure Cognitive Search
+- Azure Event Grid
+- Function Apps
+- Other web apps
 
 ## Failover approaches
+
+You can achieve high availability in various ways.
 
 ### Complete region failover
 
@@ -92,19 +101,32 @@ As far as cost is concerned, this scenario effectively doubles the cost of the s
 
 ## Deploy this scenario
 
-The two regions can first be deployed separately by following the steps detailed in the [single-region version](https://docs.microsoft.com/azure/architecture/example-scenario/private-web-app/private-web-app#deploy-this-scenario), taking the following remarks into account:
+Follow these steps to deploy this scenario:
 
-- Because the Azure resource representing a Private DNS Zone is named after the actual DNS zone name (for example, `privatelink.database.windows.net`), and you cannot have different Private DNS Zones with the same name within a single Resource Group, you will need at least two Resource Groups for this complete scenario; it's recommended to deploy all resources that are hosted in the same Azure region into the same Resource Group.
-- Although not technically required, it's recommended to choose non-overlapping IP address ranges for the Virtual Networks in both regions to avoid confusion (especially if you are planning on peering the networks for other reasons later on).
-- You should only create the logical SQL Server in the secondary region and not the SQL Database itself: the secondary database will automatically be created and replicated when setting up the SQL failover group.
+1. Deploy the two regions separately by following the steps in the [single-region version](https://docs.microsoft.com/azure/architecture/example-scenario/private-web-app/private-web-app#deploy-this-scenario). But take the following remarks into account:
 
-After each individual region was deployed, [create the SQL failover group](https://docs.microsoft.com/azure/azure-sql/database/failover-group-add-single-database-tutorial#2---create-the-failover-group) to have the database replicated across the two regions, and ensure the application uses the failover group DNS name in its connection string.
+   - You need at least two resource groups for this complete scenario for these reasons:
 
-Finally, deploy and configure the additional cross-regional private endpoints for both databases:
+     - The Azure resource that represents a private DNS zone uses the actual DNS zone name (for example, `privatelink.database.windows.net`).
+     - You can't have different private DNS zones with the same name within a single resource group.
+  
+     It's best to deploy all resources that you host in the same Azure region into the same resource group.
 
-1. [Create an additional private endpoint for each database](https://docs.microsoft.com/azure/private-link/create-private-endpoint-portal#create-a-private-endpoint), but this time take care to select the subnet in the Virtual Network in the *other* region.
-1. Look up the IP address for the newly created private endpoint in the local Virtual Network (for example, `10.1.1.5` for the secondary database as exposed in the primary region and `10.2.1.5` for the primary database as exposed in the secondary region).
-1. Add that IP address as an A record to the `privatelink.database.windows.net` Private DNS Zone linked to the local Virtual Network (for example, set `sql-secondary` to `10.1.1.5` in the primary region and `sql-primary` to `10.2.1.5` in the secondary region).
+   - To avoid confusion, choose non-overlapping IP address ranges for the virtual networks in both regions. This approach isn't required but is best if you plan on peering the networks for other reasons later on.
+
+   - Only create the logical SQL Server in the secondary region. Don't create the SQL Database itself. The process of setting up the SQL failover group automatically creates and replicates the secondary database.
+
+1. [Create the SQL failover group](https://docs.microsoft.com/azure/azure-sql/database/failover-group-add-single-database-tutorial#2---create-the-failover-group). This step replicates the database across the two regions. Ensure the application uses the failover group DNS name in its connection string.
+
+1. Deploy and configure the additional cross-regional private endpoints for both databases:
+
+   1. [Create an additional private endpoint for each database](https://docs.microsoft.com/azure/private-link/create-private-endpoint-portal#create-a-private-endpoint). But select the subnet in the virtual network in the *other* region.
+   1. Look up the IP address for the newly created private endpoint in the local virtual network. For example:
+
+      - In the primary region, the address for the secondary database might be `10.1.1.5`.
+      - In the secondary region, the address for the primary database might be `10.2.1.5`.
+
+   1. Add that IP address as an A record to the `privatelink.database.windows.net` private DNS zone that's linked to the local virtual network. For example, set `sql-secondary` to `10.1.1.5` in the primary region and `sql-primary` to `10.2.1.5` in the secondary region.
 
    ![Screenshot showing adding the A record for the secondary database in the primary region](media/appsvc-private-sql-multiregion-privatezone.png)
 
