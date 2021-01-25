@@ -27,7 +27,7 @@ In the example reference, there are enterprise-wide resources used by all segmen
 
 ![Segment services](images/ref-segment.png)
 
-The recommended approach is to use these management groups:
+For the preceding example, an approach is to use these management groups:
 
 - Root management group for enterprise-wide resources.
 
@@ -38,6 +38,11 @@ The recommended approach is to use these management groups:
     Use a separate management group for teams with limited scope of responsibility. This group is typically required because of organizational boundaries or regulatory requirements.
 
 - Root or segment management group for the core set of services.  
+
+> [!CAUTION]
+> Be careful when using the root management group because the policies can affect all resources on Azure and potentially cause downtime or other negative impacts. For considerations, see [Use root management group with caution](/azure/architecture/framework/security/design-management-groups#use-root-management-group-with-caution) later in this article.
+>
+> For complete guidance about using management groups for an enterprise, see [Management group and subscription organization](/azure/cloud-adoption-framework/ready/enterprise-scale/management-group-and-subscription-organization).
 
 
 ## Azure role assignment 
