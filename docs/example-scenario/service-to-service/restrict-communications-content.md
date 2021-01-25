@@ -93,7 +93,9 @@ This scenario uses service endpoints rather than [private endpoints][privateend]
 
 ## Pricing
 
-Pricing for this scenario depends on your specific infrastructure. Azure AD capabilities can be free, so the costs amount to the requirements for your App Service or other hosting plan, as described in [Alternatives](#alternatives) and [Considerations](#considerations). To calculate costs for your scenario, see the [Azure pricing calculator][pricing].
+Pricing for this scenario depends on your specific infrastructure and requirements. Azure AD has Free up to Premium tiers, depending on needs. Costs for Azure App Service or other hosts vary with your specific scale and security requirements, as described in [Alternatives](#alternatives) and [Considerations](#considerations).
+
+To calculate costs for your scenario, see the [Azure pricing calculator][pricing].
 
 ## Next steps
 
