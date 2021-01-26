@@ -21,6 +21,6 @@ azureCategories:
 summary: Compare options for integrating your on-premises Active Directory (AD) environment with an Azure network.
 products:
   - azure-active-directory
-thumbnailUrl: ""
+thumbnailUrl: /azure/architecture/browse/thumbs/default.png
 content: |
    [!include[](index-content.md)]

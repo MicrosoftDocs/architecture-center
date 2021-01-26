@@ -22,7 +22,7 @@ products:
   - power-apps
   - power-automate
   - power-bi
-  - powerapps
+  - power-apps
 thumbnailUrl: /azure/architecture/browse/thumbs/custom-business-processes.png
 content: |
    [!include[](custom-business-processes-content.md)]

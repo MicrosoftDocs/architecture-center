@@ -24,6 +24,6 @@ products:
   - azure-active-directory
   - azure-virtual-network
   - azure-vpn-gateway
-thumbnailUrl: ""
+thumbnailUrl: /azure/architecture/browse/thumbs/default.png
 content: |
    [!include[](vnet-peering-content.md)]
