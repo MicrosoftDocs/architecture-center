@@ -4,19 +4,16 @@ metadata:
   titleSuffix: Azure Architecture Center
   author: jocontr
   ms.date: 07/05/2020
-  description: 'Learn how machine teaching incorporates artificial intelligence, machine learning, deep reinforcement learning, and subject matter expertise.'
+  description: Machine teaching incorporates artificial intelligence, machine learning, deep reinforcement learning, subject matter expertise, and simulated environment data.
   ms.custom: pcp
   ms.category:
     - ai-machine-learning
 name: Machine teaching
 azureCategories:
   - ai-machine-learning
-summary: 'Learn how machine teaching incorporates artificial intelligence, machine learning, deep reinforcement learning, and subject matter expertise.'
+summary: Machine teaching incorporates artificial intelligence, machine learning, deep reinforcement learning, subject matter expertise, and simulated environment data.
 products:
   - azure
-  - dynamics
-  - github
-  - vs
 thumbnailUrl: /azure/architecture/browse/thumbs/machine-teaching-1-4.png
 content: |
    [!include[](machine-teaching-content.md)]

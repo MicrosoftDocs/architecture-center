@@ -20,8 +20,8 @@ azureCategories:
   - networking
 summary: Troubleshoot a VPN gateway connection between an on-premises network and Azure.
 products:
-  - azure
   - azure-virtual-network
-thumbnailUrl: ""
+  - azure-vpn-gateway
+thumbnailUrl: /azure/architecture/browse/thumbs/default.png
 content: |
    [!include[](troubleshoot-vpn-content.md)]
