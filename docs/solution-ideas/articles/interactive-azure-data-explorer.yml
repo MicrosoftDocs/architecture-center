@@ -2,7 +2,7 @@
 metadata:
   title: Azure Data Explorer interactive analytics
   titleSuffix: Azure Solution Ideas
-  description: Use interactive analytics in Azure Data Explorer to explore raw structured, semi-structured, and unstructured data with ad hoc, interactive, and fast queries.
+  description: Use interactive analytics in Azure Data Explorer. Examine structured, semi-structured, and unstructured data with improvised, interactive, and fast queries.
   author: orspod
   ms.date: 08/11/2020
   ms.service: architecture-center
@@ -16,7 +16,7 @@ name: Azure Data Explorer interactive analytics
 azureCategories:
   - analytics
   - iot
-summary: Use interactive analytics in Azure Data Explorer to explore raw structured, semi-structured, and unstructured data with ad hoc, interactive, and fast queries.
+summary: Use interactive analytics in Azure Data Explorer. Examine structured, semi-structured, and unstructured data with improvised, interactive, and fast queries.
 products:
   - azure-data-explorer
   - azure-data-factory
