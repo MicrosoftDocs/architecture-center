@@ -1,6 +1,6 @@
 ---
-title: Performance efficiency in a hybrid environment
-description: Includes guidance and recommendations that apply to the Performance Efficiency pillar in a hybrid and multi-cloud environment.
+title: Performance efficiency in a hybrid workload
+description: Includes guidance and recommendations that apply to the Performance Efficiency pillar in a hybrid and multi-cloud workload.
 author: v-aangie
 ms.date: 01/27/2021
 ms.topic: conceptual
@@ -9,7 +9,7 @@ ms.subservice: well-architected
 ms.custom:
 ---
 
-# Performance efficiency in a hybrid environment
+# Performance efficiency in a hybrid workload
 
 Performance efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. In a hybrid environment, it is important to consider how you manage your on-premises or multicloud workloads to ensure they can meet the demands for scale. You have options to scale up into the cloud when your on-premises resources reach capacity. Scale up, down, and scale out your databases without application downtime.
 

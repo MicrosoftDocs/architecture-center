@@ -1,6 +1,6 @@
 ---
-title: Overview of a hybrid environment
-description: Includes guidance and recommendations that apply each of the five pillars in a hybrid and multi-cloud environment.
+title: Overview of a hybrid workload
+description: Includes guidance and recommendations that apply to each of the five pillars in a hybrid and multi-cloud workload.
 author: v-aangie
 ms.date: 01/07/2021
 ms.topic: conceptual

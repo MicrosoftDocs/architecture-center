@@ -1,6 +1,6 @@
 ---
-title: Operational excellence in a hybrid environment
-description: Includes guidance and recommendations that apply to the Operational Excellence pillar in a hybrid and multi-cloud environment.
+title: Operational excellence in a hybrid workload
+description: Includes guidance and recommendations that apply to the Operational Excellence pillar in a hybrid and multi-cloud workload.
 author: v-aangie
 ms.date: 01/27/2021
 ms.topic: conceptual
@@ -9,7 +9,7 @@ ms.subservice: well-architected
 ms.custom:
 ---
 
-# Operational excellence in a hybrid environment
+# Operational excellence in a hybrid workload
 
 Operational excellence consists of the operations processes that keep a system running in production.
 

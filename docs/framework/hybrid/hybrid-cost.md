@@ -1,5 +1,5 @@
 ---
-title: Cost optimization in a hybrid environment
+title: Cost optimization in a hybrid workload
 description: Includes guidance and recommendations that apply to the Cost pillar in a hybrid and multi-cloud environment.
 author: v-aangie
 ms.date: 01/27/2021
@@ -9,7 +9,7 @@ ms.subservice: well-architected
 ms.custom:
 ---
 
-# Cost optimization in a hybrid environment
+# Cost optimization in a hybrid workload
 
 ## Workload definitions
 

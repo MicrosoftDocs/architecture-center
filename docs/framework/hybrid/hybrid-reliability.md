@@ -1,6 +1,6 @@
 ---
-title: Reliability in a hybrid environment
-description: Includes guidance and recommendations that apply to the Reliability pillar in a hybrid and multi-cloud environment.
+title: Reliability in a hybrid workload
+description: Includes guidance and recommendations that apply to the Reliability pillar in a hybrid and multi-cloud workload.
 author: v-aangie
 ms.date: 01/27/2021
 ms.topic: conceptual
@@ -9,7 +9,7 @@ ms.subservice: well-architected
 ms.custom:
 ---
 
-# Reliability in a hybrid environment
+# Reliability in a hybrid workload
 
 In the cloud, we acknowledge up front that failures will happen. Instead of trying to prevent failures altogether, the goal is to minimize the effects of a single failing component. While historically you may have purchased levels of redundant higher-end hardware to minimize the chance of an entire application platform failing, in the cloud, we acknowledge up front that failures will happen.
 

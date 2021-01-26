@@ -1,6 +1,6 @@
 ---
-title: Security in a hybrid environment
-description: Includes guidance and recommendations that apply to the Security pillar in a hybrid and multi-cloud environment.
+title: Security in a hybrid workload
+description: Includes guidance and recommendations that apply to the Security pillar in a hybrid and multi-cloud workload.
 author: v-aangie
 ms.date: 01/27/2021
 ms.topic: conceptual
@@ -9,7 +9,7 @@ ms.subservice: well-architected
 ms.custom:
 ---
 
-# Security in a hybrid environment
+# Security in a hybrid workload
 
 Security includes protecting applications and data from threats.
 
