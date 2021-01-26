@@ -316,7 +316,6 @@ items:
               - name: Testing tools
                 href: framework/scalability/test-tools.md
           - name: Monitoring
-<<<<<<< HEAD
             href: framework/scalability/monitoring.md
           - name: Performance Efficiency patterns
             href: framework/scalability/performance-efficiency-patterns.md
@@ -324,13 +323,10 @@ items:
             href: framework/scalability/performance-efficiency.md
           - name: Performance Efficiency patterns
             href: framework/scalability/performance-efficiency-patterns.md
-=======
-            href: framework/scalability/monitor.md
           - name: Checklist
             href: framework/scalability/performance-efficiency.md
           - name: Tradeoffs 
             href: framework/scalability/tradeoffs.md
->>>>>>> master
       - name: Reliability
         items:
           - name: Overview
