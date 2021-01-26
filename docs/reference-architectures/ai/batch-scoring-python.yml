@@ -3,7 +3,7 @@ metadata:
   title: Batch scoring of Python models on Azure
   description: Build a scalable solution for batch scoring models on a schedule in parallel using Azure Machine Learning.
   author: njray
-  ms.date: 01/30/2019
+  ms.date: 01/26/2021
   ms.topic: conceptual
   ms.service: architecture-center
   ms.category:
