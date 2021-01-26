@@ -7,6 +7,7 @@ ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
 ms.custom:
+  - e2e-hybrid
 ---
 
 # Reliability in a hybrid workload
