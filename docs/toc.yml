@@ -283,8 +283,6 @@ items:
             items:
               - name: Monitoring
                 href: framework/devops/monitoring.md
-              - name: Operational Excellence patterns
-                href: framework/devops/devops-patterns.md  
               - name: Alerting
                 href: framework/devops/alerts.md
           - name: Checklist
@@ -317,10 +315,6 @@ items:
                 href: framework/scalability/test-tools.md
           - name: Monitoring
             href: framework/scalability/monitoring.md
-          - name: Performance Efficiency patterns
-            href: framework/scalability/performance-efficiency-patterns.md
-          - name: Checklist
-            href: framework/scalability/performance-efficiency.md
           - name: Performance Efficiency patterns
             href: framework/scalability/performance-efficiency-patterns.md
           - name: Checklist
