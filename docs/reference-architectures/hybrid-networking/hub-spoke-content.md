@@ -6,11 +6,9 @@ The benefits of using a hub and spoke configuration include cost savings, overco
 
 ## Reference deployment
 
-Use the following controls to deploy the hub and spoke solution. This deployment includes one hub virtual network, and two peered spokes. An Azure Firewall and Azure Bastion host are also deployed. Optionally, the deployment can include virtual machines in the first spoke network and a VPN gateway.
+This deployment includes one hub virtual network and two peered spokes. An Azure Firewall and Azure Bastion host are also deployed. Optionally, the deployment can include virtual machines in the first spoke network and a VPN gateway.
 
 #### [Azure CLI](#tab/cli)
-
-For this reference, the hub, spoke, and all supporting infrastructure is deployed into a single resource group. Use the following commands to deploy the reference using the Azure CLI.
 
 Use the following command to create a resource group for the deployment. Click the **Try it** button to use an embedded shell.
 
@@ -27,8 +25,6 @@ az deployment group create --resource-group hub-spoke \
 
 #### [PowerShell](#tab/powershell)
 
-For this reference, the hub, spoke, and all supporting infrastructure is deployed into a single resource group. Use the following commands to deploy the reference using the Azure PowerShell module.
-
 Use the following command to create a resource group for the deployment. Click the **Try it** button to use an embedded shell.
 
 ```azurepowershell-interactive
@@ -43,8 +39,6 @@ New-AzResourceGroupDeployment -ResourceGroupName hub-spoke `
 ```
 
 #### [Azure Portal](#tab/portal)
-
-For this reference, the hub, spoke, and all supporting infrastructure is deployed into a single resource group. 
 
 Use the following button to deploy the reference using the Azure portal.
 
@@ -72,7 +66,7 @@ The architecture consists of the following components.
 - **Hub virtual network:** The hub virtual network is the central point of connectivity to your on-premises network and a place to host services that can be consumed by the different workloads hosted in the spoke virtual networks.
 - **Spoke virtual networks:** Spoke virtual networks are used to isolate workloads in their own virtual networks, managed separately from other spokes. Each workload might include multiple tiers, with multiple subnets connected through Azure load balancers.
 - **Virtual network peering:** Two virtual networks can be connected using a [peering connection])/azure/virtual-network/virtual-network-peering-overview). Peering connections are non-transitive, low latency connections between virtual networks. Once peered, the virtual networks exchange traffic by using the Azure backbone without the need for a router.
-- **Bastion Host:** Azure Bastion lets you securely connect to a virtual machine using your browser and the Azure portal. An Azure Bastion host is deployed inside an Azure Virtual Network (VNet) and can access virtual machines in the VNet, or virtual machines in peered VNets.
+- **Bastion Host:** Azure Bastion lets you securely connect to a virtual machine using your browser and the Azure portal. An Azure Bastion host is deployed inside an Azure Virtual Network and can access virtual machines in the VNet, or virtual machines in peered VNets.
 - **Azure Firewall:** Azure Firewall is a managed firewall as a service. The Firewall instance is placed in its own subnet.
 - **VPN virtual network gateway or ExpressRoute gateway**. The virtual network gateway enables the virtual network to connect to the VPN device, or ExpressRoute circuit, used for connectivity with your on-premises network. For more information, see [Connect an on-premises network to a Microsoft Azure virtual network](/microsoft-365/enterprise/connect-an-on-premises-network-to-a-microsoft-azure-virtual-network?view=o365-worldwide).
 - **VPN device**. A device or service that provides external connectivity to the on-premises network. The VPN device may be a hardware device or a software solution such as the Routing and Remote Access Service (RRAS) in Windows Server 2012. For more information, see [About VPN devices for Site-to-Site VPN Gateway connections](/azure/vpn-gateway/vpn-gateway-about-vpn-devices).
@@ -116,17 +110,17 @@ For additional information on creating virtual network peering, see [Create VNet
 
 ### Spoke connectivity
 
-If you require connectivity between spokes, consider deploying Azure Firewall or an NVA for routing in the hub and using UDRs in the spoke to forward traffic to the hub. The deployment steps below include an optional step that sets up this configuration. 
+If you require connectivity between spokes, consider deploying an Azure Firewall or other network virtual appliance and crate routes to forward traffic from the spoke to the firewall / nva, which can then route to the second spoke. In this scenario, you must configure the peering connections to **allow forwarded traffic**.
 
 ![Routing between spokes using Azure Firewall](./images/spoke-spoke-routing.png)
 
-In this scenario, you must configure the peering connections to **allow forwarded traffic**.
+You can also use a VPN gateway to route traffic between spokes, although this will impact latency and throughput. See [Configure VPN gateway transit for virtual network peering](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-peering-gateway-transit) for configuration details.
 
-You can also use a VPN gateway to route traffic between spokes, although this will impact latency and throughput.
-
-Consider what services are shared in the hub to ensure the hub scales for a larger number of spokes. For instance, if your hub provides firewall services, consider the bandwidth limits of your firewall solution when adding multiple spokes. You might want to move some of these shared services to a second level of hubs.
+Consider what services are shared in the hub to ensure the hub scales for a larger number of spokes. For instance, if your hub provides firewall services, consider your firewall solution's bandwidth limits when adding multiple spokes. You might want to move some of these shared services to a second level of hubs.
 
 ## Operational considerations
+
+Consider the following when deploying and managing hub and spoke networks.
 
 ### Network monitoring
 
@@ -138,7 +132,7 @@ For more information, see [Azure Network Watcher](/azure/network-watcher/network
 
 ### Azure Firewall
 
-In this architecture, an Azure Firewall is deployed in the hub network. When compared to network virtual appliances (NVAs), an Azure Firewall can save up to 30-50%. especially when used as a shared solution consumed by multiple workloads. For more information, see [Azure Firewall vs NVA](https://azure.microsoft.com/blog/azure-firewall-and-network-virtual-appliances).
+In this architecture, an Azure Firewall is deployed in the hub network. When used as a shared solution and consumed by multiple workloads, an Azure Firewall can save up to 30-50% over other network virtual appliiances. For more information, see [Azure Firewall vs NVA](https://azure.microsoft.com/blog/azure-firewall-and-network-virtual-appliances).
 
 ### Virtual network peering
 
