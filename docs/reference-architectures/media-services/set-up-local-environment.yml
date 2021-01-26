@@ -13,11 +13,8 @@ metadata:
 name: Gridwich local development environment setup
 summary: Set up a local development environment to work with Gridwich.
 products:
-  - azure
   - azure-devops
-  - dotnet
-  - github
-  - windows
-thumbnailUrl: ""
+  - azure-key-vault
+thumbnailUrl: /azure/architecture/browse/thumbs/request-response.png
 content: |
    [!include[](set-up-local-environment-content.md)]

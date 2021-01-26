@@ -57,19 +57,18 @@ The considerations and best practices in this section are based on these Azure s
 ## Reference architecture
 Here are some reference architectures related to identity and access management:
 
-[Integrate on-premises AD domains with Azure AD](/azure/architecture/reference-architectures/identity/azure-ad/)
+[Integrate on-premises AD domains with Azure AD](../../reference-architectures/identity/azure-ad.yml)
 
-[Integrate on-premises AD with Azure](/azure/architecture/reference-architectures/identity/)
+[Integrate on-premises AD with Azure](../../reference-architectures/identity/index.yml)
 
 
 ## Next steps
 We recommend applying as many as of the best practices as early as possible, and then working to retrofit any gaps over time as you mature your security program. 
 
 > [!div class="nextstepaction"]
-> [Monitor identity, network, data risks](/azure/architecture/framework/security/monitor-identity-network)
+> [Monitor identity, network, data risks](./monitor-identity-network.md)
 
 ## Related links
 [Five steps to securing your identity infrastructure](/azure/security/fundamentals/steps-secure-identity)
 
 > Go back to the main article: [Security](overview.md)
-

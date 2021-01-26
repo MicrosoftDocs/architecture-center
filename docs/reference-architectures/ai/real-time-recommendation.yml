@@ -21,9 +21,10 @@ azureCategories:
   - databases
 summary: Use machine learning to automate recommendations using Azure Databricks and Azure Data Science Virtual Machines (DSVM) to train a model on Azure.
 products:
-  - azure
+  - azure-cosmos-db
   - azure-databricks
-  - github
+  - azure-kubernetes-service
+  - azure-machine-learning
 thumbnailUrl: /azure/architecture/browse/thumbs/recommenders-architecture.png
 content: |
    [!include[](real-time-recommendation-content.md)]

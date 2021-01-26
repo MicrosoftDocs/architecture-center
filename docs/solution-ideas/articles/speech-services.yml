@@ -4,7 +4,7 @@ metadata:
   titleSuffix: Azure Solution Ideas
   author: doodlemania2
   ms.date: 12/16/2019
-  description: A custom acoustic model helps Speech Services understand speakers even with background noise or poor phone connections.
+  description: Use Speech services to transcribe calls and then run full-text searches, detect sentiment and language, and create custom language and acoustic models.
   ms.custom: 'acom-architecture, speech service, speech, services, interactive-diagram, ''https://azure.microsoft.com/solutions/architecture/speech-services/'''
   ms.service: architecture-center
   ms.category:
@@ -14,9 +14,9 @@ metadata:
 name: Speech Services
 azureCategories:
   - ai-machine-learning
-summary: A custom acoustic model helps Speech Services understand speakers even with background noise or poor phone connections.
+summary: Use Speech services to transcribe calls and then run full-text searches, detect sentiment and language, and create custom language and acoustic models.
 products:
-  - azure
+  - azure-speech
 thumbnailUrl: /azure/architecture/browse/thumbs/speech-services.png
 content: |
    [!include[](speech-services-content.md)]

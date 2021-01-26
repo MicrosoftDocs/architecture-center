@@ -1,6 +1,3 @@
-
-
-
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
 Azure Bot Service can be easily combined with Language Understanding to build powerful enterprise productivity bots, allowing organizations to streamline common work activities by integrating external systems, such as Microsoft 365 calendar, customer cases stored in Dynamics CRM and much more.
@@ -35,8 +32,8 @@ Key technologies used to implement this architecture:
 
 ## Next Steps
 
-* [Artificial intelligence (AI) - Architectural overview](/azure/architecture/data-guide/big-data/ai-overview)
-* [Choosing a Microsoft cognitive services technology](/azure/architecture/data-guide/technology-choices/cognitive-services)
+* [Artificial intelligence (AI) - Architectural overview](../../data-guide/big-data/ai-overview.md)
+* [Choosing a Microsoft cognitive services technology](../../data-guide/technology-choices/cognitive-services.md)
 * [What are Azure Cognitive Services?](/azure/cognitive-services/what-are-cognitive-services)
 * [What is the Speech service?](/azure/cognitive-services/speech-service/overview)
 * [What is QnA Maker?](/azure/cognitive-services/QnAMaker/Overview/overview)
@@ -47,6 +44,6 @@ Key technologies used to implement this architecture:
 
 Fully deployable architectures:
 
-* [Chatbot for hotel reservations](/azure/architecture/example-scenario/ai/commerce-chatbot)
-* [Build an enterprise-grade conversational bot](/azure/architecture/reference-architectures/ai/conversational-bot)
-* [Speech-to-text conversion](/azure/architecture/reference-architectures/ai/speech-ai-ingestion)
+* [Chatbot for hotel reservations](../../example-scenario/ai/commerce-chatbot.yml)
+* [Build an enterprise-grade conversational bot](../../reference-architectures/ai/conversational-bot.yml)
+* [Speech-to-text conversion](../../reference-architectures/ai/speech-ai-ingestion.yml)

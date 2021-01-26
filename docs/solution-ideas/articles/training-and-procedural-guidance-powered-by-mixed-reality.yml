@@ -4,7 +4,7 @@ metadata:
   titleSuffix: Azure Solution Ideas
   author: doodlemania2
   ms.date: 12/16/2019
-  description: 'Enable your team and employees to learn new processes and materials faster, with fewer errors, and greater confidence by providing persistent holographic instructions mapped to precise locations in their physical workspace.'
+  description: Help employees learn processes and materials effectively by providing persistent holographic instructions mapped to precise locations in physical workspaces.
   ms.custom: 'acom-architecture, ai-ml, Azure Spatial Anchors, Azure Active Directory, Azure Cosmos DB, Azure App Service, Media Services, Microsoft HoloLens, Video Indexer, interactive-diagram, ''https://azure.microsoft.com/solutions/architecture/training-and-procedural-guidance-powered-by-mixed-reality/'''
   ms.service: architecture-center
   ms.category:
@@ -14,9 +14,11 @@ metadata:
 name: Training and procedural guidance powered by mixed reality
 azureCategories:
   - mixed-reality
-summary: 'Enable your team and employees to learn new processes and materials faster, with fewer errors, and greater confidence by providing persistent holographic instructions mapped to precise locations in their physical workspace.'
+summary: Help employees learn processes and materials effectively by providing persistent holographic instructions mapped to precise locations in physical workspaces.
 products:
-  - azure
+  - azure-media-services
+  - azure-spatial-anchors
+  - azure-video-indexer
 thumbnailUrl: /azure/architecture/browse/thumbs/training-and-procedural-guidance-powered-by-mixed-reality.png
 content: |
    [!include[](training-and-procedural-guidance-powered-by-mixed-reality-content.md)]

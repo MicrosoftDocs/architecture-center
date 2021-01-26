@@ -1,6 +1,3 @@
-
-
-
 In this reference architecture, we’ll build a baseline infrastructure that deploys an Azure Kubernetes Service (AKS) cluster. This article includes recommendations for networking, security, identity, management, and monitoring of the cluster based on an organization’s business requirements. 
 
 ![GitHub logo](../../../_images/github.png) An implementation of this architecture is available on [GitHub: Azure Kubernetes Service (AKS) Secure Baseline Reference Implementation](https://github.com/mspnp/aks-secure-baseline). You can use it as a starting point and configure it as per your needs.
@@ -547,7 +544,7 @@ Monitor your container infrastructure for both active threats and potential secu
 
 ## Cluster and workload operations (DevOps)
 
-Here are some considerations. For more information, see the [Operational Excellence](../../../framework/devops/deployment.md) pillar.
+Here are some considerations. For more information, see the [Operational Excellence](../../../framework/devops/release-engineering-cd.md) pillar.
 
 ### Isolate workload responsibilities
 

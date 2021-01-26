@@ -1,8 +1,8 @@
 ---
 title: What's New in Azure Architecture Center
 description: New and updated articles in Azure Architecture Center
-author: changeUserName
-ms.date: 01/04/2021
+author: doodlemania2
+ms.date: 01/25/2021
 ms.topic: article
 ms.service: architecture-center
 ---
@@ -19,8 +19,30 @@ New and updated articles in Azure Architecture Center
 
 ## January 2021
 
+### New Articles
+
+- [Replicate and sync mainframe data in Azure](/azure/architecture/reference-architectures/migration/sync-mainframe-data-with-azure)
+- [Alerting for DevOps](/azure/architecture/framework/devops/alerts)
+- [Data encryption in Azure](/azure/architecture/framework/security/design-storage-encryption)
+- [Key and secret management in Azure](/azure/architecture/framework/security/design-storage-keys)
+- [Monitoring for performance efficiency](/azure/architecture/framework/scalability/monitor)
+- [Caching data for performance optimization](/azure/architecture/framework/scalability/optimize-cache)
+- [Partitioning data for performance optimization](/azure/architecture/framework/scalability/optimize-partition)
+- [Sustain performance efficiency over time](/azure/architecture/framework/scalability/optimize-sustain)
+- [AKS Day-2 Operations Guide - Patch and upgrade guidance](/azure/architecture/operator-guides/aks/aks-upgrade-practices)
+- [Azure Kubernetes Service (AKS) day-2 operations guide](/azure/architecture/operator-guides/aks/day-2-operations-guide)
+- [Checklist - Design for performance efficiency](/azure/architecture/framework/scalability/design-checklist)
+- [Checklist - Testing for performance efficiency](/azure/architecture/framework/scalability/test-checklist)
+- [Master Data Management with Azure and CluedIn](/azure/architecture/reference-architectures/data/cluedin)
+
 ### Updated Articles
 
+- [Monitoring for DevOps](/azure/architecture/framework/devops/monitoring)  ([#ad603400e](https://github.com/MicrosoftDocs/architecture-center/commit/ad603400e))
+- [Data protection in Azure](/azure/architecture/framework/security/design-storage)  ([#bd8084fcf](https://github.com/MicrosoftDocs/architecture-center/commit/bd8084fcf))
+- [Business Metrics](/azure/architecture/framework/resiliency/business-metrics)  ([#fb285c5fb](https://github.com/MicrosoftDocs/architecture-center/commit/fb285c5fb))
+- [Design for scaling](/azure/architecture/framework/scalability/design-scale)  ([#65a7ef214](https://github.com/MicrosoftDocs/architecture-center/commit/65a7ef214))
+- [Background jobs guidance](/azure/architecture/best-practices/background-jobs)  ([#13889c62e](https://github.com/MicrosoftDocs/architecture-center/commit/13889c62e))
+- [Tradeoffs for performance efficiency](/azure/architecture/framework/scalability/tradeoffs)  ([#2fab3faaf](https://github.com/MicrosoftDocs/architecture-center/commit/2fab3faaf))
 - [Enterprise chatbot disaster recovery](/azure/architecture/solution-ideas/articles/enterprise-chatbot-disaster-recovery)  ([#c137260b8](https://github.com/MicrosoftDocs/architecture-center/commit/c137260b8))
 
 ## December 2020
@@ -49,9 +71,7 @@ New and updated articles in Azure Architecture Center
 - [Enterprise Productivity Chatbot](/azure/architecture/solution-ideas/articles/enterprise-productivity-chatbot)  ([#c81a8e78e](https://github.com/MicrosoftDocs/architecture-center/commit/c81a8e78e))
 - [Commerce Chatbot](/azure/architecture/solution-ideas/articles/commerce-chatbot)  ([#e4e4351a8](https://github.com/MicrosoftDocs/architecture-center/commit/e4e4351a8))
 - [Baseline architecture for an Azure Kubernetes Service (AKS) cluster](/azure/architecture/reference-architectures/containers/aks/secure-baseline-aks)  ([#6de1b59b3](https://github.com/MicrosoftDocs/architecture-center/commit/6de1b59b3))
-- [Baseline architecture for an Azure Kubernetes Service (AKS) cluster](/azure/architecture/reference-architectures/containers/aks/secure-baseline-aks)  ([#c8f74b936](https://github.com/MicrosoftDocs/architecture-center/commit/c8f74b936))
 - [Project 15 Open Platform](/azure/architecture/solution-ideas/articles/project-15-iot-sustainability)  ([#758bad165](https://github.com/MicrosoftDocs/architecture-center/commit/758bad165))
-- [Baseline architecture for an Azure Kubernetes Service (AKS) cluster](/azure/architecture/reference-architectures/containers/aks/secure-baseline-aks)  ([#32842d421](https://github.com/MicrosoftDocs/architecture-center/commit/32842d421))
 
 ## November 2020
 
@@ -101,7 +121,6 @@ New and updated articles in Azure Architecture Center
 ### New Articles
 
 - [SQL Server 2008 R2 failover cluster in Azure](/azure/architecture/example-scenario/sql-failover/sql-failover-2008r2)
-- [Kafka on Azure](/azure/architecture/solution-ideas/articles/kafka-on-azure)
 - [Secure application&#x27;s configuration and dependencies](/azure/architecture/framework/security/design-app-dependencies)
 - [Application classification for security](/azure/architecture/framework/security/design-apps-considerations)
 - [Application threat analysis](/azure/architecture/framework/security/design-threat-model)

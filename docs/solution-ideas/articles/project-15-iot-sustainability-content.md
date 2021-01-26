@@ -1,6 +1,3 @@
-
-
-
 The mission of [Project 15 from Microsoft][Project 15 from Microsoft] is to empower scientists and conservationists around the world. The project pairs conservation teams with a community of developers, students, and Microsoft partners. Backed by the power of Azure and an Internet of Things (IoT) open platform, the project helps these teams capture and analyze the data they need to preserve critical species and ecosystems.
 
 A key part of these solutions is the Project 15 Open Platform, which Microsoft designed and built. This open-source software connects to the cloud and securely manages devices that conservation projects use. Its architecture serves as a reference for building end-to-end IoT solutions.
@@ -134,25 +131,25 @@ Various Azure services and configurations make up the Project 15 Open Platform:
 [AI for Earth]: https://www.microsoft.com/ai/ai-for-earth
 [API Apps]: https://azure.microsoft.com/services/app-service/api/
 [App Service]: https://azure.microsoft.com/services/app-service/
-[Azure AD]: https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis
+[Azure AD]: /azure/active-directory/fundamentals/active-directory-whatis
 [Azure Defender]: https://azure.microsoft.com/services/azure-defender/
 [Azure Digital Twins]: https://azure.microsoft.com/services/digital-twins/
 [Azure Maps]: https://azure.microsoft.com/services/azure-maps/
-[Azure SignalR Service]: https://docs.microsoft.com/aspnet/signalr/overview/getting-started/introduction-to-signalr
-[Blob Storage]: https://docs.microsoft.com/azure/storage/blobs/storage-blobs-introduction
+[Azure SignalR Service]: /aspnet/signalr/overview/getting-started/introduction-to-signalr
+[Blob Storage]: /azure/storage/blobs/storage-blobs-introduction
 [Deploying Project 15 from Microsoft Open Platform]: https://microsoft.github.io/project15/Deploy/Deployment.html
-[device provisioning service of IoT Hub]: https://docs.microsoft.com/azure/iot-dps/
-[Event Hubs]: https://docs.microsoft.com/azure/event-hubs/event-hubs-about
+[device provisioning service of IoT Hub]: /azure/iot-dps/
+[Event Hubs]: /azure/event-hubs/event-hubs-about
 [Event Grid]: https://azure.microsoft.com/services/event-grid/
 [Functions]: https://azure.microsoft.com/services/functions/
-[Introduction to Azure IoT]: https://docs.microsoft.com/learn/paths/introduction-to-azure-iot/
+[Introduction to Azure IoT]: /learn/paths/introduction-to-azure-iot/
 [IoT Hub]: https://azure.microsoft.com/services/iot-hub/
 [Logic Apps]: https://azure.microsoft.com/services/logic-apps/
-[Machine Learning]: https://docs.microsoft.com/azure/machine-learning/overview-what-is-azure-ml
-[Microsoft learning channels]: https://docs.microsoft.com/learn/
+[Machine Learning]: /azure/machine-learning/overview-what-is-azure-ml
+[Microsoft learning channels]: /learn/
 [Microsoft & Sustainability]: https://www.microsoft.com/sustainability
-[Notification Hubs]: https://docs.microsoft.com/azure/notification-hubs/notification-hubs-push-notification-overview
-[Power BI]: https://docs.microsoft.com/power-bi/fundamentals/power-bi-overview
+[Notification Hubs]: /azure/notification-hubs/notification-hubs-push-notification-overview
+[Power BI]: /power-bi/fundamentals/power-bi-overview
 [Project 15 on GitHub]: https://aka.ms/project15code
 [Project 15 from Microsoft]: https://aka.ms/project15
 [Project 15 Open Platform Developer Guide]: https://microsoft.github.io/project15/Developer-Guide/DeveloperGuide.html

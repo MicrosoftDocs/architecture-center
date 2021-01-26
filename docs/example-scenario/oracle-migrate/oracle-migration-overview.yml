@@ -21,9 +21,10 @@ azureCategories:
   - migration
 summary: Learn about Oracle database migration paths and the methods you use to migrate your schema to SQL or PostgreSQL.
 products:
-  - azure
-  - github
-  - sql-server
+  - azure-database-migration
+  - azure-managed-applications
+  - azure-sql-database
+  - azure-virtual-machines
 thumbnailUrl: /azure/architecture/browse/thumbs/oracle-migration-process-to-sql-pg.png
 content: |
    [!include[](oracle-migration-overview-content.md)]

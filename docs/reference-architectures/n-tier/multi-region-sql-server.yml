@@ -21,13 +21,10 @@ azureCategories:
   - management-and-governance
 summary: Deploy an application on Azure virtual machines in multiple regions for high availability and resiliency.
 products:
-  - azure
-  - azure-devops
   - azure-monitor
-  - sql-server
-  - vs
-  - windows
-  - windows-server
+  - azure-traffic-manager
+  - azure-sql-database
+  - azure-virtual-machines
 thumbnailUrl: /azure/architecture/browse/thumbs/multi-region-sql-server.png
 content: |
    [!include[](multi-region-sql-server-content.md)]

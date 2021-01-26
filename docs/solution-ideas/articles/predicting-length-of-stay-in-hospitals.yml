@@ -4,7 +4,7 @@ metadata:
   titleSuffix: Azure Solution Ideas
   author: doodlemania2
   ms.date: 12/16/2019
-  description: This solution enables a predictive model for Length of Stay for in-hospital admissions. Length of Stay (LOS) is defined in number of days from the initial admit date to the date that the patient is discharged from any given hospital facility.
+  description: Length of stay predictions for hospital admissions can enhance care quality and operational workload efficiency and reduce readmissions.
   ms.custom: 'acom-architecture, artificial intelligence, solution architectures, Azure, ai gallery, ''https://azure.microsoft.com/solutions/architecture/predicting-length-of-stay-in-hospitals/'''
   ms.service: architecture-center
   ms.category:
@@ -16,10 +16,10 @@ name: Predicting Length of Stay in Hospitals
 azureCategories:
   - analytics
   - ai-machine-learning
-summary: This solution enables a predictive model for Length of Stay for in-hospital admissions. Length of Stay (LOS) is defined in number of days from the initial admit date to the date that the patient is discharged from any given hospital facility.
+summary: Length of stay predictions for hospital admissions can enhance care quality and operational workload efficiency and reduce readmissions.
 products:
-  - azure
-  - office
+  - azure-data-science-vm
+  - power-bi
   - sql-server
 thumbnailUrl: /azure/architecture/browse/thumbs/predicting-length-of-stay-in-hospitals.png
 content: |

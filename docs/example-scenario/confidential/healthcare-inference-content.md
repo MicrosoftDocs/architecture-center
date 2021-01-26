@@ -1,18 +1,3 @@
----
-title: Confidential computing on a healthcare platform
-titleSuffix: Azure Kubernetes Service example scenarios
-description: Learn how to use confidential computing and containers to support a provider-hosted application. Securely collaborate with a hospital and a diagnostic provider.
-author: agowdamsft
-ms.author: amgowda
-ms.date: 12/11/2020
-ms.topic: conceptual
-ms.service: architecture-center
-ms.subservice: example-scenario
-ms.custom:
-- fcp
----
-# Confidential computing on a healthcare platform
-
 When organizations collaborate, they share information. But most parties don't want to give other parties access to all parts of the data. Mechanisms exist for safeguarding data at rest and in transit. However, encrypting data in use poses different challenges. This article presents a solution that Azure confidential computing (ACC) offers for encrypting in-use data.
 
 By using confidential computing and containers, the solution provides a way for a provider-hosted application to securely collaborate with a hospital and a third-party diagnostic provider. Azure Kubernetes Service (AKS) hosts confidential computing nodes. Azure Attestation establishes trust with the diagnostic provider. By using these Azure components, the architecture isolates the sensitive data of the hospital patients while the specific shared data is being processed in the cloud. The hospital data is then inaccessible to the diagnostic provider. Through this architecture, the provider-hosted application can also take advantage of advanced analytics. The diagnostic provider makes these analytics available as confidential computing services of machine learning (ML) applications.
@@ -72,7 +57,7 @@ The solution involves the following steps:
 
 - [Confidential Inferencing ONNX Runtime Server Enclave (ONNX RT - Enclave)](https://github.com/microsoft/onnx-server-openenclave) is a host that restricts the ML hosting party from accessing both the inferencing request and its corresponding response.
 
-- [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview) collects and analyzes app telemetry, such as performance metrics and activity logs.
+- [Azure Monitor](/azure/azure-monitor/overview) collects and analyzes app telemetry, such as performance metrics and activity logs.
 
 - [ACR](https://azure.microsoft.com/services/container-registry/) is a service that creates a managed registry. ACR builds, stores, and manages container images and can store containerized machine learning models.
 

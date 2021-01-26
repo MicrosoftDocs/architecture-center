@@ -1,23 +1,8 @@
----
-title: Azure AD security for Amazon Web Services (AWS)
-titleSuffix: Azure Reference Architectures
-description: Learn how Azure Active Directory (Azure AD) can help secure and protect Amazon Web Services (AWS) account identities and access.
-author: doodlemania2
-ms.date: 12/10/2020
-ms.topic: conceptual
-ms.service: architecture-center
-ms.subservice: reference-architecture
-ms.custom:
-- fcp
----
-
-# Azure AD identity and access management for AWS
-
 Amazon Web Services (AWS) accounts that support critical workloads and highly sensitive information need strong identity protection and access control. Azure Active Directory (Azure AD) is a cloud-based, comprehensive, centralized identity and access management solution that can help secure and protect AWS accounts and environments. Azure AD provides centralized *single sign-on (SSO)* and strong authentication through *multi-factor authentication (MFA)* and *Conditional Access* policies. Azure AD supports AWS role-based identities and access control.
 
 Many organizations that use AWS already rely on Azure AD for Microsoft 365 or hybrid cloud identity and access protection. These organizations can quickly and easily deploy Azure AD for their AWS accounts, often without additional cost. Other, [advanced Azure AD features](#advanced-azure-ad-identity-management) like Privileged Identity Management (PIM) and Advanced Identity Protection can help protect the most sensitive AWS accounts.
 
-Azure AD easily integrates with other Microsoft security solutions like Microsoft Cloud App Security (MCAS) and Azure Sentinel. For more information, see [MCAS and Azure Sentinel for AWS](aws-azure-security-solutions.md). Microsoft security solutions are extensible and have multiple levels of protection. Organizations can implement one or more of these solutions along with other types of protection for a full security architecture that protects current and future AWS deployments.
+Azure AD easily integrates with other Microsoft security solutions like Microsoft Cloud App Security (MCAS) and Azure Sentinel. For more information, see [MCAS and Azure Sentinel for AWS](aws-azure-security-solutions.yml). Microsoft security solutions are extensible and have multiple levels of protection. Organizations can implement one or more of these solutions along with other types of protection for a full security architecture that protects current and future AWS deployments.
 
 This article provides AWS identity architects, administrators, and security analysts with immediate insights and detailed guidance for deploying Azure AD identity and access solutions for AWS. You can configure and test these solutions without impacting your existing identity providers and AWS account users until you're ready to switch over.
 
@@ -327,15 +312,15 @@ You might need to create several Conditional Access policies to meet business ne
 
 Once you enable Conditional Access, you can impose additional controls such as PAM and just-in-time (JIT) provisioning. For more information, see [What is automated SaaS app user provisioning in Azure AD](/azure/active-directory/app-provisioning/user-provisioning).
 
-If you have MCAS, you can use Conditional Access to configure MCAS session policies. For more information, see [Configure Azure AD session policies for AWS activities](aws-azure-security-solutions.md#configure-mcas-monitoring-policies-for-aws-activities).
+If you have MCAS, you can use Conditional Access to configure MCAS session policies. For more information, see [Configure Azure AD session policies for AWS activities](aws-azure-security-solutions.yml#configure-mcas-monitoring-policies-for-aws-activities).
 
 ## See also
 
-- For in-depth coverage and comparison of Azure and AWS features, see the [Azure for AWS professionals](/azure/architecture/aws-professional/) content set.
+- For in-depth coverage and comparison of Azure and AWS features, see the [Azure for AWS professionals](../../aws-professional/index.md) content set.
 - For security guidance from AWS, see [Best practices for securing AWS accounts and resources](https://aws.amazon.com/premiumsupport/knowledge-center/security-best-practices/).
 - For the latest Microsoft security information, see [www.microsoft.com/security](https://www.microsoft.com/security).
 - For full details of how to implement and manage Azure AD, see [Securing Azure environments with Azure Active Directory](https://aka.ms/AzureADSecuredAzure).
-- [Security and identity on Azure and AWS](/azure/architecture/aws-professional/security-identity).
+- [Security and identity on Azure and AWS](../../aws-professional/security-identity.md).
 - [AWS tutorial: Azure AD with IDP SSO](https://docs.aws.amazon.com/singlesignon/latest/userguide/azure-ad-idp.html).
 - [Microsoft tutorial: SSO for AWS](/azure/active-directory/saas-apps/amazon-web-service-tutorial).
 - [PIM deployment plan](/azure/active-directory/privileged-identity-management/pim-deployment-plan).

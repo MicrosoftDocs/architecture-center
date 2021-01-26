@@ -13,7 +13,8 @@ metadata:
 name: Create a Gridwich environment
 summary: Use the ci_cd_ext_release or tf_destroy_env pipelines to create or delete cloud development or testing environments.
 products:
-  - azure
-thumbnailUrl: /azure/architecture/browse/thumbs/run-pipeline-dialog.png
+  - azure-devops
+  - azure-storage-accounts
+thumbnailUrl: /azure/architecture/browse/thumbs/request-response.png
 content: |
    [!include[](create-delete-cloud-environment-content.md)]

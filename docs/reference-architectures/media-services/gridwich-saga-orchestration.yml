@@ -13,8 +13,8 @@ metadata:
 name: Gridwich saga orchestration
 summary: Understand the concepts and roles of sagas and saga participants in orchestrating Gridwich workflows.
 products:
-  - azure
-  - github
-thumbnailUrl: /azure/architecture/browse/thumbs/quality-control-saga.png
+  - azure-media-services
+  - azure-storage
+thumbnailUrl: /azure/architecture/browse/thumbs/request-response.png
 content: |
    [!include[](gridwich-saga-orchestration-content.md)]

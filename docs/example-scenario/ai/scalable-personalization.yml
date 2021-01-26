@@ -22,8 +22,11 @@ azureCategories:
   - featured
 summary: Use machine learning to automate content-based personalization for customers.
 products:
-  - azure
+  - azure-blob-storage
+  - azure-container-registry
   - azure-databricks
+  - azure-kubernetes-service
+  - azure-machine-learning
 thumbnailUrl: /azure/architecture/browse/thumbs/architecture-scalable-personalization.png
 content: |
    [!include[](scalable-personalization-content.md)]

@@ -13,11 +13,9 @@ metadata:
 name: Gridwich request-response messages
 summary: Learn about the specific Event Grid events that form the request-response sequence for different Gridwich operations.
 products:
-  - azure
+  - azure-logic-apps
+  - azure-media-services
   - azure-storage
-  - dotnet
-  - github
-  - windows
-thumbnailUrl: ""
+thumbnailUrl: /azure/architecture/browse/thumbs/request-response.png
 content: |
    [!include[](gridwich-message-formats-content.md)]

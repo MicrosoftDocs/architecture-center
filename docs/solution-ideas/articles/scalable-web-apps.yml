@@ -4,7 +4,7 @@ metadata:
   titleSuffix: Azure Solution Ideas
   author: doodlemania2
   ms.date: 12/16/2019
-  description: 'scalable web apps, azure redis cache, session data cache, user cookie cache, azure cache for redis'
+  description: Improve app performance by using Azure Cache for Redis to improve responsiveness and handle increasing loads with fewer web-compute resources.
   ms.custom: 'acom-architecture, web-app, scalability, ''https://azure.microsoft.com/solutions/architecture/scalable-web-apps/'''
   ms.service: architecture-center
   ms.category:
@@ -14,9 +14,10 @@ metadata:
 name: Scalable Web Apps
 azureCategories:
   - web
-summary: 'scalable web apps, azure redis cache, session data cache, user cookie cache, azure cache for redis'
+summary: Improve app performance by using Azure Cache for Redis to improve responsiveness and handle increasing loads with fewer web-compute resources.
 products:
-  - azure
+  - azure-cache-redis
+  - azure-web-apps
 thumbnailUrl: /azure/architecture/browse/thumbs/scalable-web-apps.svg
 content: |
    [!include[](scalable-web-apps-content.md)]

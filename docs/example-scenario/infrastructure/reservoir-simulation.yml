@@ -19,10 +19,9 @@ azureCategories:
   - compute
 summary: Run OPM Flow reservoir simulation software and OPM ResInsight visualization software on an Azure HPC compute cluster and visualization VM.
 products:
-  - azure
   - azure-cyclecloud
-  - azure-storage
-  - dynamics
+  - azure-key-vault
+  - azure-virtual-machines
 thumbnailUrl: /azure/architecture/browse/thumbs/architecture-hpc-reservoir-simulation.png
 content: |
    [!include[](reservoir-simulation-content.md)]

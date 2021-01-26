@@ -34,3 +34,13 @@ Security provides confidentiality, integrity, and availability assurances agains
 |          [Security Strategy Guidance](https://docs.microsoft.com/azure/cloud-adoption-framework/strategy/define-security-strategy)          |                                                        Building and updating a security strategy for cloud adoption and modern threat environment                                                       |
 |          [Security Roles and Responsibilities](https://docs.microsoft.com/azure/cloud-adoption-framework/organize/cloud-security)          |                                                        Guidance on security roles and responsibilities including definitions of mission/outcome for each organizational function and how each should evolve with the adoption of cloud.           |
 |          [Getting Started Guide for Security](https://docs.microsoft.com/azure/cloud-adoption-framework/get-started/security)          |                                                        Guidance for planning and implementing security throughout cloud adoption         |
+
+### Security Resiliency
+
+Achieving security resilience requires a combination of preventive measures to block attacks, responsive measures detect and quickly remediate active attacks, and governance to ensure consistent application of best practices.
+
+- **Security strategy** should include lessons learned described in [security strategy guidance](https://docs.microsoft.com/azure/cloud-adoption-framework/strategy/define-security-strategy).
+- **Azure security configurations** should align to the best practices and controls in the [Azure Security Benchmark (ASB)](https://docs.microsoft.com/azure/security/benchmarks/). Security configurations for Azure services should align to the [Security baselines for Azure](https://docs.microsoft.com/azure/security/benchmarks/security-baselines-overview) in the ASB.
+- **Azure architectures** should integrate native security capabilities to protect and monitor workloads including [Azure Defender](https://docs.microsoft.com/azure/security-center/azure-defender), [Azure DDoS protection](https://docs.microsoft.com/azure/ddos-protection/ddos-protection-overview), [Azure Firewall](https://docs.microsoft.com/azure/firewall/), and [Azure Web Application Firewall (WAF)](https://docs.microsoft.com/azure/web-application-firewall/).
+
+For a more detailed discussion, see the [Cybersecurity Resilience](/https://docs.microsoft.com/security/ciso-workshop/ciso-workshop-module-1#part-2-cybersecurity-resilience-1350) module in the CISO workshop.

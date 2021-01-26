@@ -20,8 +20,12 @@ azureCategories:
   - developer-tools
 summary: Build a scalable solution for batch scoring models on a schedule in parallel using Azure Machine Learning.
 products:
-  - azure
+  - azure-blob-storage
+  - azure-container-registry
+  - azure-event-hubs
   - azure-machine-learning
+  - azure-sql-database
+  - azure-stream-analytics
 thumbnailUrl: /azure/architecture/browse/thumbs/batch-scoring-python.png
 content: |
    [!include[](batch-scoring-python-content.md)]

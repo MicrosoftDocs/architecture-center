@@ -14,8 +14,10 @@ metadata:
 name: Virtual network integrated serverless microservices
 summary: Learn about an end-to-end solution for health records management that uses Azure Functions microservices integrated with other services via a virtual network.
 products:
-  - azure
+  - azure-api-management
+  - azure-cosmos-db
   - azure-functions
+  - azure-key-vault
   - azure-virtual-network
 thumbnailUrl: /azure/architecture/browse/thumbs/virtual-network-microservices.png
 content: |

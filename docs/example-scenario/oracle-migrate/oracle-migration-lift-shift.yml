@@ -21,8 +21,8 @@ azureCategories:
   - migration
 summary: Lift and shift your Oracle database from an Oracle environment to Azure Virtual Machines.
 products:
-  - azure
   - azure-backup
+  - azure-virtual-machines
 thumbnailUrl: /azure/architecture/browse/thumbs/lift-shift-azure-vms.png
 content: |
    [!include[](oracle-migration-lift-shift-content.md)]

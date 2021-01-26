@@ -13,10 +13,9 @@ metadata:
 name: Gridwich variable flow
 summary: Learn how Gridwich converts Azure Pipelines pipeline variable group variables to Terraform variables.
 products:
-  - azure
-  - azure-devops
+  - azure-key-vault
+  - azure-media-services
   - azure-pipelines
-  - github
-thumbnailUrl: ""
+thumbnailUrl: /azure/architecture/browse/thumbs/request-response.png
 content: |
    [!include[](variable-group-terraform-flow-content.md)]
