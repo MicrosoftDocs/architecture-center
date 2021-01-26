@@ -115,7 +115,7 @@ As far as cost is concerned, this scenario effectively doubles the cost of the s
 
 Follow these steps to deploy this scenario:
 
-1. Deploy the two regions separately by following the steps in the [single-region version](https://docs.microsoft.com/azure/architecture/example-scenario/private-web-app/private-web-app#deploy-this-scenario). But take the following remarks into account:
+1. Deploy the two regions separately by following the steps in the [single-region version](https://docs.microsoft.com/azure/architecture/example-scenario/private-web-app/private-web-app#deploy-this-scenario). But note the following points:
 
    - You need at least two resource groups for this complete scenario for these reasons:
 
@@ -132,17 +132,23 @@ Follow these steps to deploy this scenario:
 
 1. Deploy and configure the additional cross-regional private endpoints for both databases:
 
-   1. [Create an additional private endpoint for each database](https://docs.microsoft.com/azure/private-link/create-private-endpoint-portal#create-a-private-endpoint). But select the subnet in the virtual network in the *other* region.
+   1. [Create an additional private endpoint for each database](https://docs.microsoft.com/azure/private-link/create-private-endpoint-portal#create-a-private-endpoint), but select the subnet in the virtual network in the *other* region.
    1. Look up the IP address for the newly created private endpoint in the local virtual network. For example:
 
       - In the primary region, the address for the secondary database might be `10.1.1.5`.
       - In the secondary region, the address for the primary database might be `10.2.1.5`.
 
-   1. Add that IP address as an A record to the `privatelink.database.windows.net` private DNS zone that's linked to the local virtual network. For example, set `sql-secondary` to `10.1.1.5` in the primary region and `sql-primary` to `10.2.1.5` in the secondary region.
+   1. Add that IP address as an A record to the `privatelink.database.windows.net` private DNS zone that's linked to the local virtual network. For example:
+   
+      - In the primary region, set `sql-secondary` to `10.1.1.5`.
+      - In the seconday region, set `sql-primary` to `10.2.1.5`.
 
    ![Screenshot showing adding the A record for the secondary database in the primary region](media/appsvc-private-sql-multiregion-privatezone.png)
 
-At this point, the apps in both regions should be able to connect to both databases over their private endpoints, and both apps should transparently continue to function even if the database fails over to the other region.
+At this point:
+
+- The apps in both regions should be able to connect to both databases over their private endpoints.
+- Both apps should transparently continue to function even if the database fails over to the other region.
 
 ## Related resources
 
