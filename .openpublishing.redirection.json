@@ -1734,22 +1734,22 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "docs/patterns/category/resiliency.md",
+      "source_path": "azure/architecture/patterns/category/resiliency",
       "redirect_url": "/azure/framework/resiliency/reliability-patterns",
       "redirect_document_id": false
     },
     {
-      "source_path": "docs/patterns/category/availability.md",
+      "source_path": "azure/architecture/patterns/category/availability",
       "redirect_url": "/azure/framework/resiliency/reliability-patterns",
       "redirect_document_id": false
     },
     {
-      "source_path": "docs/patterns/category/performance-scalability.md",
+      "source_path": "azure/architecture/patterns/category/performance-scalability",
       "redirect_url": "/azure/framework/resiliency/reliability-patterns",
       "redirect_document_id": false
     },
     {
-      "source_path": "docs/patterns/category/security.md",
+      "source_path": "azure/architecture/patterns/category/security",
       "redirect_url": "/azure/framework/resiliency/reliability-patterns",
       "redirect_document_id": false
     },
