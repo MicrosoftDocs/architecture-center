@@ -21,7 +21,7 @@ products:
   - azure-functions
   - power-apps
   - power-automate
-  - powerapps
+  - power-apps
 thumbnailUrl: /azure/architecture/browse/thumbs/front-end.png
 content: |
    [!include[](front-end-content.md)]
