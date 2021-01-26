@@ -1327,7 +1327,7 @@ items:
                     href: example-scenario/iot/measure-control-loop.yml
                   - name: Monitor and manage loop
                     href: example-scenario/iot/monitor-manage-loop.yml
-                   - name: Analyze and optimize loop
+                  - name: Analyze and optimize loop
                     href: example-scenario/iot/analyze-optimize-loop.yml
                   - name: Event routing
                     href: example-scenario/iot/event-routing.yml
