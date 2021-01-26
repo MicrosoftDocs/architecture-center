@@ -38,7 +38,7 @@ New-AzResourceGroupDeployment -ResourceGroupName hub-spoke `
     -TemplateUri https://raw.githubusercontent.com/mspnp/samples/master/solutions/azure-hub-spoke/azuredeploy.json
 ```
 
-#### [Azure Portal](#tab/portal)
+#### [Azure portal](#tab/portal)
 
 Use the following button to deploy the reference using the Azure portal.
 
@@ -102,7 +102,7 @@ A hub-spoke topology can also be used without a gateway if you don't need connec
 
 Virtual network peering is a non-transitive relationship between two virtual networks. If you require spokes to connect to each other, consider adding a separate peering connection between those spokes.
 
-However, suppose you have several spokes that need to connect with each other. In that case, you will run out of possible peering connections very quickly due to the limitation on the number of virtual network peerings per virtual network. (For more information, see [Networking limits](/azure/azure-subscription-service-limits#networking-limits). In this scenario, consider using user-defined routes (UDRs) to force traffic destined to a spoke to be sent to Azure Firewall or an NVA acting as a router at the hub. This will allow the spokes to connect to each other.
+However, suppose you have several spokes that need to connect with each other. In that case, you will run out of possible peering connections very quickly due to the limitation on the number of virtual network peerings per virtual network. (For more information, see [Networking limits](/azure/azure-subscription-service-limits#networking-limits). In this scenario, consider using user-defined routes (UDRs) to force traffic destined to a spoke to be sent to Azure Firewall or an network virtual appliance acting as a router at the hub. This will allow the spokes to connect to each other.
 
 You can also configure spokes to use the hub gateway to communicate with remote networks. To allow gateway traffic to flow from spoke to hub and connect to remote networks, you must:
 
@@ -114,7 +114,7 @@ For additional information on creating virtual network peering, see [Create VNet
 
 ### Spoke connectivity
 
-If you require connectivity between spokes, consider deploying an Azure Firewall or other network virtual appliance and crate routes to forward traffic from the spoke to the firewall / nva, which can then route to the second spoke. In this scenario, you must configure the peering connections to **allow forwarded traffic**.
+If you require connectivity between spokes, consider deploying an Azure Firewall or other network virtual appliance and crate routes to forward traffic from the spoke to the firewall / network virtual appliance, which can then route to the second spoke. In this scenario, you must configure the peering connections to **allow forwarded traffic**.
 
 ![Routing between spokes using Azure Firewall](./images/spoke-spoke-routing.png)
 
@@ -138,7 +138,7 @@ Consider the following cost-related items when deploying and managing hub and sp
 
 ### Azure Firewall
 
-In this architecture, an Azure Firewall is deployed in the hub network. When used as a shared solution and consumed by multiple workloads, an Azure Firewall can save up to 30-50% over other network virtual appliiances. For more information, see [Azure Firewall vs NVA](https://azure.microsoft.com/blog/azure-firewall-and-network-virtual-appliances).
+In this architecture, an Azure Firewall is deployed in the hub network. When used as a shared solution and consumed by multiple workloads, an Azure Firewall can save up to 30-50% over other network virtual appliance. For more information, see [Azure Firewall vs network virtual appliance](https://azure.microsoft.com/blog/azure-firewall-and-network-virtual-appliances).
 
 ### Virtual network peering
 
