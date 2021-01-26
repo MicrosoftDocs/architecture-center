@@ -112,8 +112,6 @@ You can also configure spokes to use the hub gateway to communicate with remote 
 
 For additional information on creating virtual network peering, see [Create VNet peerings](/azure/virtual-network/virtual-network-manage-peering#create-a-peering).
 
-## Considerations
-
 ### Spoke connectivity
 
 If you require connectivity between spokes, consider deploying an Azure Firewall or other network virtual appliance and crate routes to forward traffic from the spoke to the firewall / nva, which can then route to the second spoke. In this scenario, you must configure the peering connections to **allow forwarded traffic**.
