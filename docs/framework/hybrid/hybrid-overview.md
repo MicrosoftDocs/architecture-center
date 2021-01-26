@@ -59,7 +59,7 @@ Use *Azure Arc management* to extend Azure management to all assets in your work
    - Empower developers with self-service and choice of tools.
    - Standardize change control with configuration management systems, such as GitOps and DSC.
 
-- **Scale across workloads with [Unified Operations](https://docs.microsoft.com/en-us/azure/cloud-adoption-framework/scenarios/unified-operations/unified-operations))**
+- **Scale across workloads with [Unified Operations](https://docs.microsoft.com/azure/cloud-adoption-framework/scenarios/unified-operations/unified-operations)**
    - Organize resources such as virtual machines, Kubernetes clusters and Azure services deployed across your entire IT environment.
    - Manage and govern resources with a single pane of glass from Azure.
    - Integrate with Azure Lighthouse for managed service provider support.
