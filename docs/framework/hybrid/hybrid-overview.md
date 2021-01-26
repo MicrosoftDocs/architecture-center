@@ -46,7 +46,7 @@ Use *Azure Arc enabled data services* to run Azure data services anywhere to sup
 
 Use the *Azure Stack family* to modernize applications without ever leaving the datacenter. Key features of the Azure Stack family are:
 
-- Extend Azure to your om-premises workloads with Azure Stack Hub. Build and run cloud apps on premises, in connected or disconnected scenarios, to meet regulatory or technical requirements.
+- Extend Azure to your on-premises workloads with Azure Stack Hub. Build and run cloud apps on premises, in connected or disconnected scenarios, to meet regulatory or technical requirements.
 - Use Azure Stack HCI to run virtualized workloads on premises and easily connect to Azure to access cloud management and security services.
 - Build and run your intelligent edge solutions on Azure Stack Edge, an Azure managed appliance to run machine learning models and compute at the edge to get results quickly—and close to where data is being generated. Easily transfer the full data set to Azure for further analysis or archive.
 
@@ -59,7 +59,7 @@ Use *Azure Arc management* to extend Azure management to all assets in your work
    - Empower developers with self-service and choice of tools.
    - Standardize change control with configuration management systems, such as GitOps and DSC.
 
-- **Scale across workloads with [Unified Operations](https://docs.microsoft.com/azure/cloud-adoption-framework/scenarios/unified-operations/unified-operations)**
+- **Scale across workloads with [Unified Operations](https://docs.microsoft.com/en-us/azure/cloud-adoption-framework/scenarios/unified-operations/unified-operations))**
    - Organize resources such as virtual machines, Kubernetes clusters and Azure services deployed across your entire IT environment.
    - Manage and govern resources with a single pane of glass from Azure.
    - Integrate with Azure Lighthouse for managed service provider support.
