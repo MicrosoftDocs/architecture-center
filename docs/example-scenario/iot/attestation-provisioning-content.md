@@ -35,4 +35,4 @@ Consider the combinations of [Azure IoT Hub supported authentication protocols](
 - Web socket variants of AMQP and MQTT aren't supported with X.509 CA certificates in IoT Hub.
 
 ### See also
-- [Device Authentication using X.509 CA Certificates](https://docs.microsoft.com/en-gb/azure/iot-hub/iot-hub-x509ca-overview)
+- [Device Authentication using X.509 CA Certificates](/azure/iot-hub/iot-hub-x509ca-overview)
