@@ -56,11 +56,11 @@ When you operate on Azure, you have many segmentation options.
 
 ![Resource Flowchart](./images/resource-flowchart.png)
 
-1. [Subscription](/azure/cost-management-billing/manage/create-subscription) : A high-level construct, which provides platform powered separation between entities. It's intended to carve out boundaries between large organizations within a company and communication between resources in different subscriptions needs to be explicitly provisioned.
+1. [Subscription](/azure/cost-management-billing/manage/create-subscription): A high-level construct, which provides platform powered separation between entities. It's intended to carve out boundaries between large organizations within a company and communication between resources in different subscriptions needs to be explicitly provisioned.
 
-2. [Virtual Network (VNets)](/azure/virtual-network/virtual-networks-overview) : Created within a subscription in private address spaces. They provide network level containment of resources with no traffic allowed by default between any two virtual networks. Like subscriptions, any communication between virtual networks needs to be explicitly provisioned.
+2. [Virtual Network (VNets)](/azure/virtual-network/virtual-networks-overview): Created within a subscription in private address spaces. They provide network level containment of resources with no traffic allowed by default between any two virtual networks. Like subscriptions, any communication between virtual networks needs to be explicitly provisioned.
 
-3. [Network Security Groups (NSG)](/azure/virtual-network/security-overview) : An access control mechanisms for controlling traffic between resources within a virtual network and also with external networks, such as the internet, other virtual networks. NSGs can take your segmentation strategy to a granular level by creating perimeters for a subnet, a VM, or a group of VMs.  
+3. [Network Security Groups (NSG)](/azure/virtual-network/security-overview): An access control mechanisms for controlling traffic between resources within a virtual network and also with external networks, such as the internet, other virtual networks. NSGs can take your segmentation strategy to a granular level by creating perimeters for a subnet, a VM, or a group of VMs. For information about possible operations with subnets in Azure, see [Subnets (Azure Virtual Networks)](/rest/api/virtualnetwork/subnets).
 
 4. [Application Security Groups (ASGs)](/azure/virtual-network/application-security-groups): Similar to NSGs but are referenced with an application context. It allows you to group a set of VMs under an application tag and define traffic rules that are then applied to each of the underlying VMs.  
 
