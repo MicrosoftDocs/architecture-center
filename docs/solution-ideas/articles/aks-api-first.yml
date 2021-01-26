@@ -4,7 +4,7 @@ metadata:
   titleSuffix: Azure Solution Ideas
   author: doodlemania2
   ms.date: 04/17/2020
-  description: 'Adapt, evolve, and allow faster innovation to turn opportunities into strategic advantages.'
+  description: Learn how to create API gateway and developer portals in minutes, handle data schema and adapt to rapid changes, and connect to back-end services anywhere.
   ms.custom: acom-architecture
   ms.service: architecture-center
   ms.category:
@@ -15,11 +15,13 @@ metadata:
 name: API-first SaaS business model
 azureCategories:
   - containers
-summary: 'Adapt, evolve, and allow faster innovation to turn opportunities into strategic advantages.'
+summary: Learn how to create API gateway and developer portals in minutes, handle data schema and adapt to rapid changes, and connect to back-end services anywhere.
 products:
-  - azure
+  - azure-api-management
+  - azure-cosmos-db
   - azure-functions
-  - azure-storage
+  - azure-kubernetes-service
+  - azure-sql-database
 thumbnailUrl: /azure/architecture/browse/thumbs/aks-api-first.png
 content: |
    [!include[](aks-api-first-content.md)]
