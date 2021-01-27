@@ -41,7 +41,7 @@ Running applications in an emulator on Azure has several benefits, such as reduc
   
 - [Azure ExpressRoute](/azure/expressroute/expressroute-introduction) lets you extend your on-premises networks into the Microsoft cloud over a private connection facilitated by a connectivity provider. With ExpressRoute, you can establish connections to Microsoft cloud services like Microsoft Azure and Microsoft 365.
   
-- [Stromasys Charon-SSP](https://azuremarketplace.microsoft.com/marketplace/apps/stromasys.virtual_sparc_in_azure_cloud) emulator recreates the SPARC virtual hardware layer on industry standard x86-64 computer systems and VMs. The virtual SPARC virtual hardware layer is compatible with any Sun software running on it, so there's no need for code conversion or source code. Charon-SSP is fully compatible with SPARC storage, Ethernet, and serial I/O hardware.
+- [Stromasys Charon-SSP](https://www.stromasys.com/solutions/charon-ssp) emulator recreates the SPARC virtual hardware layer on industry standard x86-64 computer systems and VMs. The virtual SPARC virtual hardware layer is compatible with any Sun software running on it, so there's no need for code conversion or source code. Charon-SSP is fully compatible with SPARC storage, Ethernet, and serial I/O hardware.
 
 ## Next steps
 

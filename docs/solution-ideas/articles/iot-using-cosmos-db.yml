@@ -4,7 +4,7 @@ metadata:
   titleSuffix: Azure Solution Ideas
   author: khilscher
   ms.date: 03/23/2020
-  description: Scale instantly and elastically to accommodate diverse and unpredictable IoT workloads without sacrificing ingestion or query performance.
+  description: Azure Cosmos DB scales instantly and elastically to accommodate diverse and unpredictable IoT workloads without sacrificing ingestion or query performance.
   ms.custom: 'acom-architecture, iot, Cosmos DB, ''https://azure.microsoft.com/solutions/architecture/iot-using-cosmos-db/'''
   ms.service: architecture-center
   ms.subservice: solution-idea
@@ -15,14 +15,13 @@ name: IoT using Cosmos DB
 azureCategories:
   - iot
   - databases
-summary: Scale instantly and elastically to accommodate diverse and unpredictable IoT workloads without sacrificing ingestion or query performance.
+summary: Azure Cosmos DB scales instantly and elastically to accommodate diverse and unpredictable IoT workloads without sacrificing ingestion or query performance.
 products:
-  - azure
+  - azure-cosmos-db
   - azure-databricks
   - azure-functions
-  - azure-iot
+  - azure-iot-hub
   - power-bi
-  - vs
 thumbnailUrl: /azure/architecture/browse/thumbs/iot-using-cosmos-db.png
 content: |
    [!include[](iot-using-cosmos-db-content.md)]

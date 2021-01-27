@@ -4,19 +4,16 @@ metadata:
   titleSuffix: Azure Example Scenarios
   author: jocontr
   ms.date: 07/13/2020
-  description: 'Learn about homomorphic encryption, and get an overview and example of how to use the Microsoft SEAL encryption library.'
+  description: Use the Microsoft Simple Encrypted Arithmetic Library (SEAL) to implement homomorphic encryption so that you can run computations directly on encrypted data.
   ms.category:
     - security
   ms.custom: 'encryption, homomorphic encryption, Microsoft SEAL, security, ''https://azure.microsoft.com/solutions/architecture/homomorphic-encryption-lab/'' - fcp'
 name: Homomorphic encryption with SEAL
 azureCategories:
   - security
-summary: 'Learn about homomorphic encryption, and get an overview and example of how to use the Microsoft SEAL encryption library.'
+summary: Use the Microsoft Simple Encrypted Arithmetic Library (SEAL) to implement homomorphic encryption so that you can run computations directly on encrypted data.
 products:
   - dotnet
-  - expression
-  - github
-  - windows
 thumbnailUrl: /azure/architecture/browse/thumbs/seal.png
 content: |
    [!include[](homomorphic-encryption-seal-content.md)]

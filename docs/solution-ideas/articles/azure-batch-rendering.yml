@@ -20,9 +20,10 @@ azureCategories:
   - media
 summary: Optimize the media rendering process with a step-by-step HPC solution architecture from Azure that combines Azure CycleCloud and HPC Cache.
 products:
-  - azure
   - azure-batch
   - azure-cyclecloud
+  - azure-fxt-edge-filer
+  - azure-vm-scalesets
 thumbnailUrl: /azure/architecture/browse/thumbs/azure-batch-rendering.png
 content: |
    [!include[](azure-batch-rendering-content.md)]

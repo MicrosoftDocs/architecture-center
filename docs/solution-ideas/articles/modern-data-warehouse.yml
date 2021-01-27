@@ -19,7 +19,7 @@ products:
   - azure-blob-storage
   - azure-data-factory
   - azure-databricks
-  - azure-sql-data-warehouse
+  - azure-synapse-analytics
   - azure-synapse-analytics
 thumbnailUrl: /azure/architecture/browse/thumbs/modern-data-warehouse.png
 content: |

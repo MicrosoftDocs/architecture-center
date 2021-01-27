@@ -2,7 +2,7 @@
 title: What's New in Azure Architecture Center
 description: New and updated articles in Azure Architecture Center
 author: doodlemania2
-ms.date: 01/19/2021
+ms.date: 01/25/2021
 ms.topic: article
 ms.service: architecture-center
 ---
@@ -21,6 +21,8 @@ New and updated articles in Azure Architecture Center
 
 ### New Articles
 
+- [Replicate and sync mainframe data in Azure](/azure/architecture/reference-architectures/migration/sync-mainframe-data-with-azure)
+- [Alerting for DevOps](/azure/architecture/framework/devops/alerts)
 - [Data encryption in Azure](/azure/architecture/framework/security/design-storage-encryption)
 - [Key and secret management in Azure](/azure/architecture/framework/security/design-storage-keys)
 - [Monitoring for performance efficiency](/azure/architecture/framework/scalability/monitor)
@@ -142,7 +144,6 @@ New and updated articles in Azure Architecture Center
 - [Partitioning in Event Hubs and Kafka](/azure/architecture/reference-architectures/event-hubs/partitioning-in-event-hubs-and-kafka)
 - [Retail - Buy online, pickup in store (BOPIS)](/azure/architecture/example-scenario/iot/vertical-buy-online-pickup-in-store)
 - [Magento e-commerce platform in Azure Kubernetes Service (AKS)](/azure/architecture/example-scenario/magento/magento-azure)
-- [Web app private connectivity to Azure SQL database](/azure/architecture/example-scenario/private-web-app/private-web-app)
 
 ### Updated Articles
 
