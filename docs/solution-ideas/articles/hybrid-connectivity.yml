@@ -4,7 +4,7 @@ metadata:
   titleSuffix: Azure Solution Ideas
   author: doodlemania2
   ms.date: 09/01/2020
-  description: 'Azure''s Hybrid Connection is a foundational blueprint that is applicable to most Azure Stack Hub solutions, allowing you to establish connectivity for any application that involves communications between the Azure public cloud and on-premises Azure Stack Hub components.'
+  description: Use a hybrid connection for Azure Stack Hub solutions with apps that communicate with the Azure public cloud and on-premises Azure Stack Hub components.
   ms.custom: 'acom-architecture, Hybrid Connection, Azure Hybrid Connection, Hybrid Network, Azure Hybrid Network, hybrid-infrastructure, interactive-diagram, networking, ''https://azure.microsoft.com/solutions/architecture/hybrid-connectivity/'''
   ms.service: architecture-center
   ms.category:
@@ -16,11 +16,12 @@ name: Hybrid Connection
 azureCategories:
   - hybrid
   - networking
-summary: 'Azure''s Hybrid Connection is a foundational blueprint that is applicable to most Azure Stack Hub solutions, allowing you to establish connectivity for any application that involves communications between the Azure public cloud and on-premises Azure Stack Hub components.'
+summary: Use a hybrid connection for Azure Stack Hub solutions with apps that communicate with the Azure public cloud and on-premises Azure Stack Hub components.
 products:
-  - azure
-  - azure-stack
-  - windows
+  - azure-stack-hub
+  - azure-virtual-machines
+  - azure-virtual-network
+  - azure-vpn-gateway
 thumbnailUrl: /azure/architecture/browse/thumbs/hybrid-connectivity.png
 content: |
    [!include[](hybrid-connectivity-content.md)]
