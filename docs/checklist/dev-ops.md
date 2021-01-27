@@ -155,4 +155,4 @@ For more about DevOps, see [What is DevOps?][what-is-devops] on the Visual Studi
 [rbac]: /azure/role-based-access-control/overview
 [resource-manager]: /azure/azure-resource-manager
 [trunk-based]: https://trunkbaseddevelopment.com
-[what-is-devops]: https://www.visualstudio.com/learn/what-is-devops
+[what-is-devops]: https://azure.microsoft.com/overview/what-is-devops

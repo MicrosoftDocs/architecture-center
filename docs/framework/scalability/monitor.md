@@ -49,7 +49,7 @@ Monitor your application for early warning signs that might require proactive in
 
 ## Metered metrics monitoring
 
-The basic Azure Monitor billing model is a cloud-friendly, consumption-based pricing ("pay-as-you-go"). You only pay for what you use. Pricing details are available for [metrics](/pricing/details/monitor/) as well as alerting, notifications, Log Analytics and Application Insights.
+The basic Azure Monitor billing model is a cloud-friendly, consumption-based pricing ("pay-as-you-go"). You only pay for what you use. Pricing details are available for [metrics](https://azure.microsoft.com/pricing/details/monitor/) as well as alerting, notifications, Log Analytics and Application Insights.
 
 If you are actively using Azure services, use Azure to monitor your [usage and estimated costs](https://docs.microsoft.com/azure/azure-monitor/platform/usage-estimated-costs).
 
