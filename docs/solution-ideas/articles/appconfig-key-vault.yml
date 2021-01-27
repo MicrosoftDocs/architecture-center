@@ -17,11 +17,9 @@ azureCategories:
   - management-and-governance
 summary: Use Azure App Configuration and Azure Key Vault to create a centralized and secured configuration service for apps.
 products:
-  - aspnet
-  - azure
-  - azure-functions
-  - vs
-  - windows
+  - azure-active-directory
+  - azure-app-configuration
+  - azure-key-vault
 thumbnailUrl: /azure/architecture/browse/thumbs/appconfig-development.png
 content: |
    [!include[](appconfig-key-vault-content.md)]
