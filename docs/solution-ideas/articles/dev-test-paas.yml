@@ -4,7 +4,7 @@ metadata:
   titleSuffix: Azure Solution Ideas
   author: doodlemania2
   ms.date: 09/17/2020
-  description: 'Learn how to configure a DevTest and DevOps infrastructure for development, testing, and deploying PaaS-based software.'
+  description: Combine Azure platform as a service (PaaS) resources with DevTest and DevOps practices to support rapid iteration cycles and reduced overhead.
   ms.custom:
     - fcp
   ms.service: architecture-center
@@ -16,11 +16,12 @@ name: DevTest and DevOps for PaaS solutions
 azureCategories:
   - devops
   - management-and-governance
-summary: 'Learn how to configure a DevTest and DevOps infrastructure for development, testing, and deploying PaaS-based software.'
+summary: Combine Azure platform as a service (PaaS) resources with DevTest and DevOps practices to support rapid iteration cycles and reduced overhead.
 products:
-  - azure
+  - azure-boards
   - azure-devops
-  - azure-devtest-labs
+  - azure-pipelines
+  - github
 thumbnailUrl: /azure/architecture/browse/thumbs/dev-test-paas.png
 content: |
    [!include[](dev-test-paas-content.md)]

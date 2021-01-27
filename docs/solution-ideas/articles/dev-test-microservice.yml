@@ -4,7 +4,7 @@ metadata:
   titleSuffix: Azure Solution Ideas
   author: doodlemania2
   ms.date: 09/17/2020
-  description: 'Learn how to configure a DevTest and DevOps infrastructure for development, testing, and deploying microservice-based software.'
+  description: Configure a DevTest and DevOps infrastructure for development, testing, and deploying microservice-based software.
   ms.custom:
     - fcp
   ms.service: architecture-center
@@ -16,17 +16,13 @@ name: DevTest and DevOps for microservice solutions
 azureCategories:
   - devops
   - management-and-governance
-summary: 'Learn how to configure a DevTest and DevOps infrastructure for development, testing, and deploying microservice-based software.'
+summary: Configure a DevTest and DevOps infrastructure for development, testing, and deploying microservice-based software.
 products:
-  - azure
   - azure-boards
-  - azure-devops
-  - azure-monitor
+  - azure-container-registry
+  - azure-kubernetes-service
   - azure-pipelines
-  - azure-repos
-  - dotnet
   - github
-  - vs
 thumbnailUrl: /azure/architecture/browse/thumbs/dev-test-microservice.png
 content: |
    [!include[](dev-test-microservice-content.md)]
