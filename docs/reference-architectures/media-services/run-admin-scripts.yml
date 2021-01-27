@@ -13,11 +13,14 @@ metadata:
 name: Gridwich pipeline-generated admin scripts
 summary: Learn about the Gridwich pipeline-generated admin scripts and how to run them.
 products:
-  - azure
-  - azure-devops
+  - azure-active-directory
+  - azure-event-grid
+  - azure-functions
+  - azure-key-vault
+  - azure-logic-apps
+  - azure-media-services
   - azure-pipelines
   - azure-storage
-  - github
 thumbnailUrl: /azure/architecture/browse/thumbs/request-response.png
 content: |
    [!include[](run-admin-scripts-content.md)]

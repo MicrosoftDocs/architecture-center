@@ -25,7 +25,7 @@ products:
   - azure-container-instances
   - azure-cosmos-db
   - azure-data-science-vm
-  - azure-machine-learning-service
+  - azure-machine-learning
 
 thumbnailUrl: /azure/architecture/browse/thumbs/architecture-movie-recommender.png
 content: |

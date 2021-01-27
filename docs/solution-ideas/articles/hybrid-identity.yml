@@ -4,7 +4,7 @@ metadata:
   titleSuffix: Azure Solution Ideas
   author: doodlemania2
   ms.date: 09/01/2020
-  description: The Hybrid Identity blueprint enables teams to manage applications and user identity consistently across clouds with the utilization of Azure Stack Hub
+  description: Manage applications and user identity across clouds with Azure Stack Hub. Use the hybrid identity blueprint for on-premises apps that interact with the cloud.
   ms.custom: 'acom-architecture, Hybrid Identity, Azure Hybrid Identity, Service Principles, Azure Active Directory, Azure Active Directory Tenant, interactive-diagram, hybrid-infrastructure, ''https://azure.microsoft.com/solutions/architecture/hybrid-identity/'''
   ms.service: architecture-center
   ms.category:
@@ -16,11 +16,11 @@ name: Hybrid Identity
 azureCategories:
   - identity
   - hybrid
-summary: The Hybrid Identity blueprint enables teams to manage applications and user identity consistently across clouds with the utilization of Azure Stack Hub
+summary: Manage applications and user identity across clouds with Azure Stack Hub. Use the hybrid identity blueprint for on-premises apps that interact with the cloud.
 products:
-  - azure
-  - azure-stack
-  - windows
+  - azure-active-directory
+  - azure-stack-hub
+  - azure-virtual-machines
 thumbnailUrl: /azure/architecture/browse/thumbs/hybrid-identity.png
 content: |
    [!include[](hybrid-identity-content.md)]
