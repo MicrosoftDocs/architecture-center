@@ -15,15 +15,14 @@ Operational excellence consists of the operations processes that keep a system r
 
 Be sure to utilize hybrid reference architectures from this section. They can also be found in the Azure Architecture Center, [Hybrid and Multicloud](/azure/architecture/browse/?azure_categories=hybrid) category.
 
-
-## Monitor your entire IT estate<!--CAF Overlap "entire IT estate"--> regardless of where your resources are stored.
+## Monitor your hybrid workloads across clouds
 
 - **Azure Arc enabled data services**
    - Better data estate planning and control: Single view of all data assets for easy tracking and IT control over sprawl.<!--CAF Overlap-->
    - Improve IT productivity: No end of support for traditional on-premises database SW, full automation to enable management at scale.<!--CAF Overlap-->
    - Increase IT agility: Policy-driven management to give business users access and freedom to operate within defined enterprise-level policies by IT.<!--CAF Overlap-->
 
-### Azure Arc enabled servers & Kubernetes: Infrastructure management customer needs
+### Manage all of your workload infrastructure with Azure Arc
 
 - **IT Estate visibility and control**<!--CAF Overlap-->
    - Customer's need: "I need to be able to see all my resources in a single location and be able to query through them to gain insights."<!--CAF Overlap-->
@@ -36,7 +35,7 @@ Be sure to utilize hybrid reference architectures from this section. They can al
 - **Increased flexibility when adopting PaaS**
    - Customer's need: "I need to be able to run PaaS services on infrastructure of my choice."
  
-### Modernize datacenter
+### Modernize applications anywhere with Azure Stack HCI
 
 - **Azure Stack Hub**
    - Improve performance: Leverage kernel imbedded architecture to boost your critical workload performance and simplify management.
@@ -107,7 +106,7 @@ VM extensions can be managed using:
    - Linux
    - Windows
 
-### Management capabilities comparison by deployment model<!--CAF Overlap-->
+## Manage data anywhere <!--CAF Overlap-->
 
 ![Management capabilities comparison by deployment model](../_images/hybrid-deployment.png)
   
