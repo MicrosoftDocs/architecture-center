@@ -1,15 +1,17 @@
-This example scenario discusses a highly available solution for a web app with private connectivity to a SQL database. A single-region architecture already exists for a web app with private connectivity to a SQL Database. This solution extends that base architecture by making it highly available. See [Web app private connectivity to Azure SQL database](https://docs.microsoft.com/azure/architecture/example-scenario/private-web-app/private-web-app) for more information on the base architecture. In particular, see alternatives and specific considerations that also apply to this solution. (*Maybe move the last sentence into a considerations section.*)
+This example scenario discusses a highly available solution for a web app with private connectivity to a SQL database. A single-region architecture already exists for a web app with private connectivity to a SQL Database. This solution extends that base architecture by making it highly available.
+
+See [Web app private connectivity to Azure SQL database](https://docs.microsoft.com/azure/architecture/example-scenario/private-web-app/private-web-app) for more information on the base architecture. In particular, see alternatives and specific considerations that also apply to this solution. (*Maybe move the last sentence into a considerations section.*)
 
 To offer high availability, this solution:
 
 - Deploys a secondary instance of the solution in another Azure region.
 - [Uses auto-failover groups for geo-replication and high availability of the database](https://docs.microsoft.com/azure/azure-sql/database/auto-failover-group-overview).
 
-As with the single-region scenario, the web apps can securely connect to both backend databases over a fully private connection. The public internet can't access any of the database servers. This setup eliminates a common attack vector.
+(*Move this paragraph to security considerations?*) As with the single-region scenario, the web apps can securely connect to both backend databases over a fully private connection. The public internet can't access any of the database servers. This setup eliminates a common attack vector.
 
 ## Potential use cases
 
-As with the single-region version, this approach isn't limited to Azure SQL Database. You can also use this scenario with any service that supports an [Azure Private Endpoint](/azure/private-link/private-endpoint-overview#private-link-resource) for inbound connectivity. Examples include:
+As with the single-region version (*change wording to avoid repitition*), this approach isn't limited to Azure SQL Database. You can also use this scenario with any service that supports an [Azure Private Endpoint](/azure/private-link/private-endpoint-overview#private-link-resource) for inbound connectivity. Examples include:
 
 - Azure Storage
 - Azure Cosmos DB
@@ -20,15 +22,15 @@ As with the single-region version, this approach isn't limited to Azure SQL Data
 
 ## Failover approaches
 
-You can achieve high availability in various ways.
+There are different ways to achieve high availability.
 
 ### Complete region failover
 
-One approach to high availability is to design your architecture to fail over the complete region in case of a failure in a single component, as detailed in the [Highly available multi-region web application](https://docs.microsoft.com/azure/architecture/reference-architectures/app-service-web-app/multi-region) reference architecture.
+In one high availability approach, the architecture fails over the complete region in case of a failure in a single component, as detailed in the [Highly available multi-region web application](https://docs.microsoft.com/azure/architecture/reference-architectures/app-service-web-app/multi-region) reference architecture.
 
 For example, when there is an issue with just the web app in the primary region, a database failover can be triggered and at the same time all traffic can be shifted to the app in the secondary region (for example, using [Traffic Manager](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-overview) or [Azure Front Door](https://docs.microsoft.com/azure/frontdoor/front-door-overview)). This is simpler to reason about because there is no cross-region connectivity required, and you treat your entire solution as an isolated [deployment stamp](https://docs.microsoft.com/azure/architecture/patterns/deployment-stamp) which moves from one region to another as one unit.
 
-The main disadvantage with this approach however is that triggering a [database failover can cause some data loss](https://docs.microsoft.com/azure/azure-sql/database/business-continuity-high-availability-disaster-recover-hadr-overview#fail-over-to-a-geo-replicated-secondary-database) due to the asynchronous nature of database replication. In this case, where only the app had an issue and the database was fine, this data loss could have been avoided.
+The main disadvantage with this approach however is that triggering a [database failover can cause some data loss](https://docs.microsoft.com/azure/azure-sql/database/business-continuity-high-availability-disaster-recover-hadr-overview#fail-over-to-a-geo-replicated-secondary-database) due to the asynchronous nature of database replication. In this case, only the app has an issue, not the database. So it's possible to avoid this data loss.
 
 In the other failure scenario where the app is running fine but the database has an issue, it could be a good idea to detect an automatic failover that was triggered in the database and use that to redirect all app traffic to the other region. Because the database failover (and therefore potential data loss) has happened anyway, there is nothing more to avoid and moving the app to the secondary region again keeps everything running locally without cross-region connectivity.
 
@@ -39,6 +41,19 @@ As an alternative to a complete region failover, you can also consider failing o
 The main disadvantage with this approach is the fact that cross-region connectivity implies latency, since every app request to the database must now go across the Azure network backbone into a remote Azure region, rather than staying local within the region. Depending on requirements, this can likely be tolerated for some period of time while the failed app or database is restored and connectivity can go back to normal inside the same region.
 
 The partial region failover scenario is the focus of the remainder of this article.
+
+### Two private endpoints for each database
+
+Note that per the documentation on making [App Service work with Azure DNS private zones](https://docs.microsoft.com/azure/app-service/web-sites-integrate-with-vnet#azure-dns-private-zones), the web app needs the `WEBSITE_VNET_ROUTE_ALL` configuration setting to be `1` for the DNS resolution to work correctly within the region. (*Elaborate. What does that setting specify?*)
+
+For cross-region private connectivity, however, this is not enough. [Global peering](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview) between the Virtual Networks is not an option, because with App Service regional VNet integration, [you can't reach resources across global peering connections](https://docs.microsoft.com/azure/app-service/web-sites-integrate-with-vnet#regional-vnet-integration). This means that when the database would fail over to the secondary region, the web app in the primary region cannot reach the private endpoint of the database in the secondary region.
+
+In this architecture, we overcome that limitation by giving each database not one but *two* private endpoints: one in each region, resulting in four private endpoints in total. This works well because:
+
+- [You can create multiple private endpoints for the same resource](https://docs.microsoft.com/azure/private-link/private-link-faq#can-i-connect-my-service-to-multiple-private-endpoints), meaning that it's allowed to expose two private endpoints for the same database.
+- [A private endpoint in one region can connect to an Azure PaaS resource in another region](https://docs.microsoft.com/azure/private-link/private-link-faq#can-private-endpoint-connect-to-azure-paas-resources-across-azure-regions); in this case a private endpoint for the primary database can be created in the secondary region and vice versa.
+- [You can create multiple private endpoints in the same Virtual Network](https://docs.microsoft.com/azure/private-link/private-link-faq#can-i-create-multiple-private-endpoints-in-same-vnet-can-they-connect-to-different-services), meaning that the private endpoints for both database instances can exist in the same network, [even in the same subnet](https://docs.microsoft.com/azure/private-link/private-link-faq#do-i-require-a-dedicated-subnet-for-private-endpoints).
+
 
 ## Architecture
 
@@ -51,21 +66,13 @@ Within each region, local connectivity happens exactly like in the [single-regio
 1. The web app connects to the Azure SQL Database private endpoint presented inside the **PrivateLinkSubnet** of the Virtual Network.
 1. The database firewall allows only traffic coming from the private endpoint on the **PrivateLinkSubnet** to connect, making the database inaccessible from the public internet (but accessible from anything inside or connected to the Virtual Network).
 
-Note that per the documentation on making [App Service work with Azure DNS private zones](https://docs.microsoft.com/azure/app-service/web-sites-integrate-with-vnet#azure-dns-private-zones), the web app needs the `WEBSITE_VNET_ROUTE_ALL` configuration setting with value `1` to make the DNS resolution work correctly within the region.
 
-For cross-region private connectivity, however, this is not enough. You could set up [global peering](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview) between the Virtual Networks, but App Service regional VNet integration has a limitation that [you can't reach resources across global peering connections](https://docs.microsoft.com/azure/app-service/web-sites-integrate-with-vnet#regional-vnet-integration). This means that when the database would fail over to the secondary region, the web app in the primary region cannot reach the private endpoint of the database in the secondary region.
 
-In this architecture, we overcome that limitation by giving each database not one but *two* private endpoints: one in each region, resulting in four private endpoints in total. This works well because:
-
-- [You can create multiple private endpoints for the same resource](https://docs.microsoft.com/azure/private-link/private-link-faq#can-i-connect-my-service-to-multiple-private-endpoints), meaning that it's allowed to expose two private endpoints for the same database.
-- [A private endpoint in one region can connect to an Azure PaaS resource in another region](https://docs.microsoft.com/azure/private-link/private-link-faq#can-private-endpoint-connect-to-azure-paas-resources-across-azure-regions); in this case a private endpoint for the primary database can be created in the secondary region and vice versa.
-- [You can create multiple private endpoints in the same Virtual Network](https://docs.microsoft.com/azure/private-link/private-link-faq#can-i-create-multiple-private-endpoints-in-same-vnet-can-they-connect-to-different-services), meaning that the private endpoints for both database instances can exist in the same network, [even in the same subnet](https://docs.microsoft.com/azure/private-link/private-link-faq#do-i-require-a-dedicated-subnet-for-private-endpoints).
-
-## Connectivity flows
+### Connectivity flows
 
 The web app in both regions is configured with a connection string where the `Server` host name refers to the DNS name of the SQL failover group, for example `Server=tcp:sql-failovergroup.database.windows.net,1433;Initial Catalog=...`. The exact same connection string is used in both regions, and does not have to be changed at any time (not even when the database needs to fail over).
 
-### Regular case: primary database is active
+#### Regular case: primary database is active
 
 As we're using a SQL failover group, the DNS name of `sql-failovergroup.database.windows.net` resolves to the host name of the currently active database, in this case `sql-primary.database.windows.net`. Given that the database has private endpoints enabled, this DNS name will in turn resolve to `sql-primary.privatelink.database.windows.net` (note the intermediary `privatelink` subdomain that was added). From there, which IP address this host name will resolve into depends on the Private DNS Zone deployed in each region.
 
@@ -78,7 +85,7 @@ Summary of DNS resolution in this case:
 - Primary region: `sql-failovergroup.database.windows.net => sql-primary.database.windows.net => sql-primary.privatelink.database.windows.net => 10.1.1.4`
 - Secondary region: `sql-failovergroup.database.windows.net => sql-primary.database.windows.net => sql-primary.privatelink.database.windows.net => 10.2.1.5`
 
-### Failover case: secondary database becomes active
+#### Failover case: secondary database becomes active
 
 If the database fails over, the SQL failover group's DNS record will change and now resolve to the newly active database in the secondary region, i.e. `sql-secondary.database.windows.net`. Again, since the secondary database also has private endpoints enabled, this resolves to `sql-secondary.privatelink.database.windows.net`.
 
@@ -93,7 +100,7 @@ Summary of DNS resolution in this case:
 - Primary region: `sql-failovergroup.database.windows.net => sql-secondary.database.windows.net => sql-secondary.privatelink.database.windows.net => 10.1.1.5`
 - Secondary region: `sql-failovergroup.database.windows.net => sql-secondary.database.windows.net => sql-secondary.privatelink.database.windows.net => 10.2.1.4`
 
-## Components
+### Components
 
 - [App Service][App Service overview] provides a framework for building, deploying, and scaling web apps. This platform offers built-in infrastructure maintenance, security patching, and scaling.
 
@@ -105,11 +112,11 @@ Summary of DNS resolution in this case:
 
 - [Traffic Manager][What is Traffic Manager?] is a DNS-based traffic load balancer. This service distributes traffic to public-facing applications across global Azure regions. Traffic Manager also provides public endpoints with high availability and quick responsiveness.
 
+### Alternatives
+
 ## Considerations
 
 In general, the same considerations apply as with the [single-region version](https://docs.microsoft.com/azure/architecture/example-scenario/private-web-app/private-web-app). However, the "global peering" limitation mentioned as a consideration there is explicitly resolved here by deploying the additional private endpoints in the remote regions. This allows you to achieve a higher availability than with a single-region deployment.
-
-As far as cost is concerned, this scenario effectively doubles the cost of the single-region version, unless you use a scaled-down version of the App Service Plan in the secondary (standby) region and scale it up only when it becomes the active region. The database in the secondary region *must* be configured with the same service tier as called out in the [documentation for Azure SQL Database geo-replication](https://docs.microsoft.com/azure/azure-sql/database/active-geo-replication-overview#configuring-secondary-database), otherwise the secondary may not be able to keep up with the replication changes. An additional factor is the [egress bandwidth cost](https://azure.microsoft.com/pricing/details/bandwidth/) in case there is cross-region traffic, as network traffic between Azure regions is charged.
 
 ## Deploy this scenario
 
@@ -149,6 +156,12 @@ At this point:
 
 - The apps in both regions should be able to connect to both databases over their private endpoints.
 - Both apps should transparently continue to function even if the database fails over to the other region.
+
+## Pricing
+
+This scenario effectively doubles the cost of the single-region version, unless you use a scaled-down version of the App Service Plan in the secondary (standby) region and scale it up only when it becomes the active region. The database in the secondary region *must* be configured with the same service tier as called out in the [documentation for Azure SQL Database geo-replication](https://docs.microsoft.com/azure/azure-sql/database/active-geo-replication-overview#configuring-secondary-database), otherwise the secondary may not be able to keep up with the replication changes. An additional factor is the [egress bandwidth cost](https://azure.microsoft.com/pricing/details/bandwidth/) in case there is cross-region traffic, as network traffic between Azure regions is charged.
+
+## Next steps
 
 ## Related resources
 
