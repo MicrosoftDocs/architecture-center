@@ -4,7 +4,7 @@ metadata:
   titleSuffix: Azure Solution Ideas
   author: doodlemania2
   ms.date: 08/24/2020
-  description: This example demonstrates how you can deploy portals that automate manual or paper-based processes and surface rich user experience. Leverage Azure API management and Azure Functions to connect custom APIs which tap into your legacy systems.
+  description: This example demonstrates how you can deploy portals that automate manual or paper-based processes and surface rich user experience.
   ms.service: architecture-center
   ms.category:
     - mobile
@@ -14,15 +14,17 @@ metadata:
 name: Custom Business Processes
 azureCategories:
   - mobile
-summary: This example demonstrates how you can deploy portals that automate manual or paper-based processes and surface rich user experience. Leverage Azure API management and Azure Functions to connect custom APIs which tap into your legacy systems.
+summary: This example demonstrates how you can deploy portals that automate manual or paper-based processes and surface rich user experience.
 products:
-  - azure
+  - azure-api-management
+  - azure-bot-service
+  - azure-cosmos-db
+  - azure-data-factory
+  - azure-data-lake-storage
+  - azure-event-hubs
   - azure-functions
+  - azure-sql-database
   - azure-storage
-  - power-apps
-  - power-automate
-  - power-bi
-  - power-apps
 thumbnailUrl: /azure/architecture/browse/thumbs/custom-business-processes.png
 content: |
    [!include[](custom-business-processes-content.md)]

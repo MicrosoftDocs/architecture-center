@@ -16,7 +16,13 @@ azureCategories:
   - databases
 summary: 'data cache, data cache with azure cache for redis, azure database, cosmos db'
 products:
-  - azure
+  - azure-cache-redis
+  - azure-cosmos-db
+  - azure-database-mysql
+  - azure-database-postgresql
+  - azure-sql-database
+  - azure-storage
+  - azure-web-apps
 thumbnailUrl: /azure/architecture/browse/thumbs/data-cache-with-redis-cache.png
 content: |
    [!include[](data-cache-with-redis-cache-content.md)]

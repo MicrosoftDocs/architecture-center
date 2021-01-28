@@ -13,9 +13,10 @@ azureCategories:
   - ai-machine-learning
 summary: Learn how to use Azure Cognitive Search pre-built skills and custom extensibility to enrich large unstructured data sets into indexable structured data.
 products:
-  - azure
+  - azure-app-service
+  - azure-blob-storage
+  - azure-cognitive-search
   - azure-functions
-  - github
 thumbnailUrl: /azure/architecture/browse/thumbs/cognitive-search.png
 content: |
    [!include[](cognitive-search-with-skillsets-content.md)]

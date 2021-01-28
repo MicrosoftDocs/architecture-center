@@ -19,11 +19,13 @@ azureCategories:
   - hybrid
 summary: The tools provided in Azure allow for the implementation of a DevOps strategy that capably manages both cloud and on-premises environments in tandem.
 products:
-  - azure
+  - azure-active-directory
   - azure-boards
+  - azure-key-vault
   - azure-monitor
   - azure-pipelines
-  - github
+  - azure-sql-database
+  - azure-web-apps
 thumbnailUrl: /azure/architecture/browse/thumbs/devops-in-a-hybrid-environment.png
 content: |
    [!include[](devops-in-a-hybrid-environment-content.md)]
