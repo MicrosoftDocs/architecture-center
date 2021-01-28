@@ -17,6 +17,7 @@ azureCategories:
 summary: Run multi-channel digital marketing websites on one platform. Start and stop campaigns on demand. Manage site and campaign performance with Episerver.
 products:
   - azure-cache-redis
+  - azure-cdn
   - azure-monitor
   - azure-sql-database
   - azure-traffic-manager

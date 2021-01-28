@@ -4,7 +4,7 @@ metadata:
   titleSuffix: Azure Solution Ideas
   author: sowmyans
   ms.date: 05/19/2020
-  description: 'Use Azure Functions Durable Functions to orchestrate, deploy, and run serverless batch processing jobs in Azure Container Instances (ACI) containers.'
+  description: Use Azure Functions Durable Functions to orchestrate, deploy, and run serverless batch processing jobs in Azure Container Instances (ACI) containers.
   ms.custom: fcp
   ms.subservice: solution-idea
   ms.category:
@@ -14,13 +14,13 @@ name: Serverless batch processing with Durable Functions in Azure Container Inst
 azureCategories:
   - compute
   - containers
-summary: 'Use Azure Functions Durable Functions to orchestrate, deploy, and run serverless batch processing jobs in Azure Container Instances (ACI) containers.'
+summary: Use Azure Functions Durable Functions to orchestrate, deploy, and run serverless batch processing jobs in Azure Container Instances (ACI) containers.
 products:
-  - azure
+  - azure-container-instances
+  - azure-container-registry
   - azure-functions
-  - dotnet
-  - github
-  - vs
+  - azure-kubernetes-service
+  - azure-service-fabric
 thumbnailUrl: /azure/architecture/browse/thumbs/durable-function-aci.png
 content: |
    [!include[](durable-functions-containers-content.md)]
