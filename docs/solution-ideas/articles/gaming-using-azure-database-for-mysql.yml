@@ -4,7 +4,7 @@ metadata:
   titleSuffix: Azure Solution Ideas
   author: doodlemania2
   ms.date: 12/16/2019
-  description: Scale your databases elastically to accommodate unpredictable bursts of traffic and deliver low-latency multi-player experiences.
+  description: Use Azure Database for MySQL for gaming solutions so that databases scale elastically with traffic bursts and deliver low-latency multi-player experiences.
   ms.custom: 'acom-architecture, mysql, use cases, azure, solutions, gaming, scalability, ''https://azure.microsoft.com/solutions/architecture/gaming-using-azure-database-for-mysql/'''
   ms.service: architecture-center
   ms.category:
@@ -14,9 +14,13 @@ metadata:
 name: Gaming using Azure Database for MySQL
 azureCategories:
   - databases
-summary: Scale your databases elastically to accommodate unpredictable bursts of traffic and deliver low-latency multi-player experiences.
+summary: Use Azure Database for MySQL for gaming solutions so that databases scale elastically with traffic bursts and deliver low-latency multi-player experiences.
 products:
-  - azure
+  - azure-api-apps
+  - azure-cdn
+  - azure-database-mysql
+  - azure-hdinsight
+  - azure-storage
 thumbnailUrl: /azure/architecture/browse/thumbs/gaming-using-azure-database-for-mysql.png
 content: |
    [!include[](gaming-using-azure-database-for-mysql-content.md)]
