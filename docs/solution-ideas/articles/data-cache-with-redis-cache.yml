@@ -4,7 +4,7 @@ metadata:
   titleSuffix: Azure Solution Ideas
   author: doodlemania2
   ms.date: 12/16/2019
-  description: 'data cache, data cache with azure cache for redis, azure database, cosmos db'
+  description: Store and share database query results, session states, static contents, and more using a common cache-aside pattern.
   ms.custom: 'acom-architecture, data, ''https://azure.microsoft.com/solutions/architecture/data-cache-with-redis-cache/'''
   ms.service: architecture-center
   ms.category:
@@ -14,7 +14,7 @@ metadata:
 name: Data cache
 azureCategories:
   - databases
-summary: 'data cache, data cache with azure cache for redis, azure database, cosmos db'
+summary: Store and share database query results, session states, static contents, and more using a common cache-aside pattern.
 products:
   - azure-cache-redis
   - azure-cosmos-db
