@@ -39,7 +39,7 @@ This article covers the following Azure services that support the R language:
 |[Azure Machine Learning](#azure-machine-learning)                | cloud service that you use to train, deploy, automate, and manage machine learning models
 |[Azure Machine Learning Studio (classic)](#azure-machine-learning-studio)  |run custom R scripts in Azure's machine learning experiments                      |
 |[Azure Batch](#azure-batch)                                      |offers a variety options for economically running R code across many nodes in a cluster|
-|[Azure SQL Managed Instance](#azure-sql-managed-instance)        |run Python and R scripts inside of the SQL Server database engine                  |
+|[Azure SQL Managed Instance](#azure-sql-managed-instance)        |run R and Python scripts inside of the SQL Server database engine                  |
 
 ## Data Science Virtual Machine
 
@@ -110,9 +110,9 @@ A third option is to use the [Azure Distributed Data Engineering Toolkit](https:
 
 ## Azure SQL Managed Instance
 
-[Azure SQL Managed Instance](https://azure.microsoft.com/services/azure-sql/sql-managed-instance/) is Microsoft's intelligent, scalable, cloud database service.  It allows you to use the full power of SQL Server without any hassle of setting up the infrastructure.  This includes [Machine Learning Services](https://docs.microsoft.com/azure/azure-sql/managed-instance/machine-learning-services-overview) which contains Microsoft Python and R packages for high-performance predictive analytics and machine learning.
+[Azure SQL Managed Instance](https://azure.microsoft.com/services/azure-sql/sql-managed-instance/) is Microsoft's intelligent, scalable, cloud database service.  It allows you to use the full power of SQL Server without any hassle of setting up the infrastructure.  This includes [Machine Learning Services](https://docs.microsoft.com/azure/azure-sql/managed-instance/machine-learning-services-overview) which contains Microsoft R and Python packages for high-performance predictive analytics and machine learning.
 
-Machine Learning Services offers an embedded, predictive analytics and data science engine that can execute Python and R code within a SQL Server database. Instead of extracting data from the database and loading it into the Python/R environment, you load your Python/R code directly into the database and let it run right alongside the data. The relational data can be used in stored procedures, as T-SQL scripts containing Python/R statements, or as Python/R code containing T-SQL.
+Machine Learning Services offers an embedded, predictive analytics and data science engine that can execute R/Python code within a SQL Server database. Instead of extracting data from the database and loading it into the R/Python environment, you load your R/Python code directly into the database and let it run right alongside the data. The relational data can be used in stored procedures, as T-SQL scripts containing R/Python statements, or as R/Python code containing T-SQL.
 
 While Machine Learning Services has been part of on-premises SQL Server since 2016, it is relatively new to Azure SQL Managed Instance.
 
