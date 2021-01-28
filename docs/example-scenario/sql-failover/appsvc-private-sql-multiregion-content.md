@@ -48,7 +48,7 @@ Note that per the documentation on making [App Service work with Azure DNS priva
 
 For cross-region private connectivity, however, this is not enough. [Global peering](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview) between the Virtual Networks is not an option, because with App Service regional VNet integration, [you can't reach resources across global peering connections](https://docs.microsoft.com/azure/app-service/web-sites-integrate-with-vnet#regional-vnet-integration). This means that when the database would fail over to the secondary region, the web app in the primary region cannot reach the private endpoint of the database in the secondary region.
 
-In this architecture, we overcome that limitation by giving each database not one but *two* private endpoints: one in each region, resulting in four private endpoints in total. This works well because:
+This architecture overcomes that limitation. Instead of one private endpoint, each database has *two* private endpoints, with one in each region. In total, the solution contains four private endpoints. This approach works well because:
 
 - [You can create multiple private endpoints for the same resource](https://docs.microsoft.com/azure/private-link/private-link-faq#can-i-connect-my-service-to-multiple-private-endpoints), meaning that it's allowed to expose two private endpoints for the same database.
 - [A private endpoint in one region can connect to an Azure PaaS resource in another region](https://docs.microsoft.com/azure/private-link/private-link-faq#can-private-endpoint-connect-to-azure-paas-resources-across-azure-regions); in this case a private endpoint for the primary database can be created in the secondary region and vice versa.
