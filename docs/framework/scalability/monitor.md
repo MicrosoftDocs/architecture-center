@@ -77,7 +77,6 @@ Application level metrics should include end-to-end transaction times of key tec
 It should be possible to correlate application log events across critical system flows, such as user login, to fully assess the health of key scenarios in the context of targets and NFRs.
 
 ## Resource/Infrastructure Level Monitoring
-***
 
 Log aggregation technologies, such as Azure Log Analytics or Splunk, should be used to collate logs and metrics across all application components, including infrastructural components, for subsequent evaluation. Resources may include Azure IaaS and PaaS services as well as third-party appliances such as firewalls or Anti-Malware solutions used in the application. For example, if Azure Event Hub is used, the Diagnostic Settings should be configured to push logs and metrics to the data sink.
 
