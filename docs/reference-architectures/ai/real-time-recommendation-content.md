@@ -64,7 +64,7 @@ If you don't plan to use Spark, or you have a smaller workload where you don't n
 
 During training, provision a larger fixed-size Spark cluster in Azure Databricks or configure [autoscaling][autoscaling]. When autoscaling is enabled, Databricks monitors the load on your cluster and scales up and downs when required. Provision or scale out a larger cluster if you have a large data size and you want to reduce the amount of time it takes for data preparation or modeling tasks.
 
-Scale the AKS cluster to meet your performance and throughput requirements. Take care to scale up the number of [pods][scale] to fully utilize the cluster, and to scale the [nodes][nodes] of the cluster to meet the demand of your service. You can also set autoscaling, see [Deploy a model to an Azure Kubernetes Service cluster][blog].
+Scale the AKS cluster to meet your performance and throughput requirements. Take care to scale up the number of [pods][scale] to fully utilize the cluster, and to scale the [nodes][nodes] of the cluster to meet the demand of your service. You can also set autoscaling on AKS cluster, see [Deploy a model to an Azure Kubernetes Service cluster][blog].
 
 To manage Azure Cosmos DB performance, estimate the number of reads required per second, and provision the number of [RUs per second][ru] (throughput) needed. Use best practices for [partitioning and horizontal scaling][partition-data].
 
