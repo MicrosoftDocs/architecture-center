@@ -32,7 +32,8 @@ Helping our customers design and architect new solutions is core to the Azure Ar
 
 ### November 2020
 The folder structure of our collection of Azure architecture icons has changed. The FAQs and Terms of Use PDF files appear in the first level when you download the SVG icons below. The files in the icons folder are the same except there is no longer a CXP folder. If you encounter any issues, let us know.
-### January 20201
+
+### January 2021
 There are ~26 icons that have been added to the existing set. The download file name has been updated to Azure_Public_Service_Icons_V4.zip
 
 ## Terms
