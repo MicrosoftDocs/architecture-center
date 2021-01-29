@@ -25,8 +25,7 @@ the primary and secondary (replica) SAP HANA systems. HSR is also used for cross
 (SLA). For even higher availability, consider [Availability Zones](/azure/virtual-machines/workloads/sap/sap-ha-availability-zones).
 
 **Load balancers.** To direct traffic to virtual machines in the database tier, [Azure Standard Load Balancer](/azure/load-balancer/load-balancer-overview) is used. This option supports [Availability Zones](/azure/load-balancer/load-balancer-standard-availability-zones)
-for scenarios that need higher application availability (not shown in this
-architecture).
+for scenarios that need higher application availability. It is important to highlight that Standard Load Balancer are secure by default and every Virtual Machine behind it won't have outbound internet connectivity. To enable outboud internet there are special considerations about [Standard Load Balancers](/azure/virtual-machines/workloads/sap/high-availability-guide-standard-load-balancer-outbound-connections)
 
 **Network security groups.** To restrict incoming, outgoing, and intra-subnet traffic in the virtual network, you can define [network security groups](/azure/virtual-network/security-overview) (NSGs) for subnets or individual virtual machines.
 
@@ -53,7 +52,7 @@ with the database. We recommend using Azure [proximity placement groups](/azure/
 ### Load balancer
 
 We recommend using the Standard Load Balancer and enabling [high availability ports](/azure/load-balancer/load-balancer-ha-ports-overview).
-This setup avoids the need to configure load-balancing rules for many SAP ports. With [Standard Load Balancer](/azure/load-balancer/load-balancer-overview#why-use-azure-load-balancer), you can also create a high availability solution across [Azure Availability Zones](/azure/availability-zones/az-overview). Alternatively, you can use Azure Basic Load Balancer—it’s offered at no charge but does not support zones and has no SLA.
+This setup avoids the need to configure load-balancing rules for many SAP ports. With [Standard Load Balancer](/azure/load-balancer/load-balancer-overview#why-use-azure-load-balancer), you can also create a high availability solution across [Azure Availability Zones](/azure/availability-zones/az-overview). It is important to highlight that Standard Load Balancer are secure by default and every Virtual Machine behind it won't have outbound internet connectivity. To enable outboud internet there are special considerations about [Standard Load Balancers](/azure/virtual-machines/workloads/sap/high-availability-guide-standard-load-balancer-outbound-connections). Alternatively, you can use Azure Basic Load Balancer—it’s offered at no charge but does not support zones and has no SLA.
 
 For SAP HANA database clusters, you must enable Direct Server Return (DSR), also known as Floating IP. This feature allows the server to respond to the IP
 address of the load balancer front end. This direct connection keeps the load balancer from becoming the bottleneck in the path of data transmission. If
@@ -127,7 +126,7 @@ Azure NetApp Files supports snapshots for fast backup, recovery, and local repli
 
 ### Azure Site Recovery
 
-You can use [Azure Site Recovery](/azure/site-recovery/site-recovery-sap) to automatically replicate your production configuration in a secondary location. Then, to extend your recovery plans, you can use customized [deployment scripts](/azure/site-recovery/site-recovery-runbook-automation). For example, Site Recovery first deploys the virtual machines in availability sets and then runs your custom scripts to attach the existing (prebuilt) load balancer (which already has the back-end pool defined), to the network interface card (NIC) of the failover virtual machines. An example of the custom Site Recovery Automation Runbooks script is available on [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/asr-automation-recovery).
+You can use [Azure Site Recovery](/azure/site-recovery/site-recovery-sap) to automatically replicate your production configuration in a secondary location. Then, to extend your recovery plans, you can use customized [deployment scripts](/azure/site-recovery/site-recovery-runbook-automation). An example of the custom Site Recovery Automation Runbooks script is available on [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/asr-automation-recovery).
 
 > [!NOTE]
 > As of this writing, Site Recovery does not support the replication of virtual machines in proximity placement groups. Make sure to verify your target region’s [resource capacity](/azure/site-recovery/azure-to-azure-common-questions#capacity). Like all Azure services, Site Recovery continues to add features and capabilities. For the latest information about Azure-to-Azure replication, see the [support matrix](/azure/site-recovery/azure-to-azure-support-matrix).
