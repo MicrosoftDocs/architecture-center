@@ -25,9 +25,6 @@ Profile Container is used to redirect the full user profile. Profile Container i
 
 There are several reasons why Profile Container and Office Container may be used together. For more information, read the comparison of [Profile Container vs. Office Container](/fslogix/profile-container-office-container-cncpt).
 
-> [!NOTE]
-> The recommendation in Windows Virtual Desktop is to use Profile Container without Office Container for a simpler and therefore, a more robust solution.
-
 ### Multiple profile connections
 
 [Concurrent or multiple connections](/fslogix/configure-concurrent-multiple-connections-ht) refers to a user connected to multiple sessions, in either multiple hosts or the same host, concurrently using the same profile. This should not be confused with the term *multi-session*, which refers to an operating system that supports multiple users to connect simultaneously.
