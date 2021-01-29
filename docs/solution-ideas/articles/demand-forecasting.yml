@@ -4,7 +4,7 @@ metadata:
   titleSuffix: Azure Solution Ideas
   author: doodlemania2
   ms.date: 12/16/2019
-  description: Accurately forecasting spikes in demand for products and services can give a company a competitive advantage. This solution focuses on demand forecasting within the energy sector.
+  description: This solution focuses on demand forecasting within the energy sector which can give a company a competitive advantage.
   ms.custom: 'acom-architecture, artificial intelligence, solution architectures, Azure, ai gallery, ''https://azure.microsoft.com/solutions/architecture/demand-forecasting/'''
   ms.service: architecture-center
   ms.category:
@@ -16,10 +16,13 @@ name: Demand Forecasting
 azureCategories:
   - analytics
   - ai-machine-learning
-summary: Accurately forecasting spikes in demand for products and services can give a company a competitive advantage. This solution focuses on demand forecasting within the energy sector.
+summary: This solution focuses on demand forecasting within the energy sector which can give a company a competitive advantage. 
 products:
-  - azure
-  - power-bi
+  - azure-data-factory
+  - azure-event-hubs
+  - azure-machine-learning
+  - azure-sql-database
+  - azure-stream-analytics
 thumbnailUrl: /azure/architecture/browse/thumbs/demand-forecasting.png
 content: |
    [!include[](demand-forecasting-content.md)]
