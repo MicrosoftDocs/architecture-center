@@ -2,25 +2,25 @@
 
 
 
-## Role of Master Data Management
+Azure is used as the core of many digital transformation programs, but it is dependent on the quality and consistency of data from multiple sources – business applications, databases, data feeds, etc. – and delivers value through business intelligence, analytics, machine learning and more. Profisee’s MDM solution completes the Azure Data Estate with a practical method to ‘align and combine’ data from multiple sources by enforcing consistent data standards on source data (match, merge, standardize, verify, correct). Native integration with Azure Data Factory and other Azure Data Services further streamlines this process to accelerate the delivery Azure business benefits.
 
-Azure is used as the core of many digital transformation programs, but it is dependent on the quality and consistency of data from multiple sources – business applications, databases, data feeds, etc. – and delivers value through business intelligence, analytics, machine learning and more. Profisee’s MDM solution completes the Azure Data Estate with a fast, affordable, and scalable method to ‘align and combine’ data from multiple sources by enforcing consistent data standards on source data (match, merge, standardize, verify, correct). Native integration with Azure Data Factory and other Azure Data Services further streamlines this process to accelerate the delivery Azure business benefits.
+
 
 A core aspect of how MDM solutions function is that they combine data from multiple sources to create a ‘Golden Record Master’ containing the best-known and trusted data for each record. This is built out domain-by-domain according to requirements, but nearly always requires multiple domains. Common domains are customer, product, and location but domains can represent anything from reference data to contracts and drug names. In general, the better domain coverage that can be built out relative to the broad Azure data requirements the better.  
 
 
 
-## Reference Architecture
-
 This architectural pattern demonstrates how Master Data Management can be incorporated into the Azure Data Services ecosystem to improve the quality of data used for analytics and operational decision making. Master Data Management solves several common challenges including the identification and management of duplicate data (match and merge), flagging, and resolving data quality issues, standardizing, and enriching data, and the ability for data stewards to proactively manage and improve the data. This pattern presents a modern approach to MDM, with all technologies deployable natively in Azure, including Profisee which can be deployed via containers and orchestrated with Azure Kubernetes Service.
 
  
 
-## Data flow
+## Architecture
 
  
 
 ![Mdm Profisee Data Flow](./images/mdm-profisee-data-flow.png)
+
+#### Data Flow
 
 1. **Source Data Load** – Source data from business applications is copied to Azure Data Lake, where it is initially stored for further transformation and use in downstream analytics. Source data can generally be classified into one of three categories:
    1. Structured master data – The information that describes customers, products, locations, etc. Master data is low volume, high complexity, and changes slowly over time, is often the data that organizations struggle the most with data quality.
@@ -219,12 +219,55 @@ Financial organizations rely heavily on data for critical activities such as mon
 
 * Delays in producing end of period financial reports
 
- 
 
-More information:
 
-* [Link to ADF Templates for Profisee on GitHub](https://github.com/profisee/azuredatafactory)
+## Alternatives
 
-* [Link to PaaS deployment of Profisee to Azure on GitHub](https://github.com/Profisee/kubernetes/tree/master/Azure-ARM)
+Absent a purpose-built Master Data Management application, some of the technical capabilities needed to build a Master Data Management solution may be found within the Azure ecosystem.
 
-* [For more information on Profisee on Azure](https://profisee.com/profisee-microsoft/)
+- Data Quality - When loading to an analytics platform, data quality can be built into integration processes. For example, applying data quality transformations in an [Azure Data Factory](https://azure.microsoft.com/en-us/services/data-factory/) pipeline can be accomplished with hardcoded scripts. 
+- Data Standardization and Enrichment - [Azure Maps](https://azure.microsoft.com/en-us/services/azure-maps/) is available to provide data verification and standardization for address data. These can be leveraged in Azure Functions and/or Azure Data Factory.  Standardization of other data may require development of hardcoded scripts.   
+- Duplicate Data Management - Azure Data Factory can be used to [deduplicate rows](https://docs.microsoft.com/en-us/azure/data-factory/how-to-data-flow-dedupe-nulls-snippets) where sufficient identifiers are available for an exact match.  In this case the logic to merge matched with appropriate survivorship would likely require custom hardcoded scripts.
+- Data Stewardship - [Power Apps](https://powerapps.microsoft.com/en-us/) can be used to quickly develop simple data stewardship solutions to manage data in Azure, along with appropriate user interfaces for review, workflow, alerts and validations. 
+
+
+
+## Considerations
+
+### Availability
+
+Profisee runs natively on Azure Kubernetes Services and Azure SQL Database. Both services offer out of the box capabilities to support High Availability.
+
+### Scalability
+
+Profisee runs natively on Azure Kubernetes Services and Azure SQL Database. Azure Kubernetes Services can be configured to scale Profisee up and out, depending on need. Azure SQL Database can be deployed in numerous configurations to balance performance, scalability, and costs.
+
+### Security
+
+Profisee authenticates users using OpenID Connect, which implements an OAuth 2.0 authentication flow. Most organizations configure Profisee to authenticate users against Azure Active Directory, ensuring enterprise policies for authentication can be applied and enforced.
+
+
+
+## Deploy This Scenario
+
+To deploy this scenario:
+
+1. Deploy Profisee into Azure using an [ARM template](https://github.com/Profisee/kubernetes/tree/master/Azure-ARM)
+2. Create an [Azure Data Factory](https://docs.microsoft.com/en-us/azure/data-factory/quickstart-create-data-factory-portal)
+3. Configure your Azure Data Factory to [connect to a Git repository](https://docs.microsoft.com/en-us/azure/data-factory/source-control)
+4. Add [Profisee's Azure Data Factory templates](https://github.com/profisee/azuredatafactory)
+5. Create a new Pipeline [using a Template](https://docs.microsoft.com/en-us/azure/data-factory/solution-templates-introduction)
+
+## Pricing
+
+Running costs will consist of software license and Azure consumption.  Contact  https://profisee.com/contact/ for information.
+
+## Next Steps
+
+Understand the capabilities of the [REST Copy Connector](https://docs.microsoft.com/en-us/azure/data-factory/connector-rest) in Azure Data Factory
+
+Learn more about [Profisee running natively in Azure](https://profisee.com/profisee-microsoft/) 
+
+Learn how to deploy Profisee to Azure using an [ARM template](https://github.com/Profisee/kubernetes/tree/master/Azure-ARM) 
+
+View the [Profisee Azure Data Factory templates](https://github.com/profisee/azuredatafactory) 
