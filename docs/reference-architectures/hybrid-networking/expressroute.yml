@@ -3,7 +3,7 @@ metadata:
   title: Extend an on-premises network using ExpressRoute
   description: Implement a secure site-to-site network architecture that spans an Azure virtual network and an on-premises network connected using Azure ExpressRoute.
   author: doodlemania2
-  ms.date: 07/23/2019
+  ms.date: 01/31/2021
   ms.topic: conceptual
   ms.service: architecture-center
   ms.category:
