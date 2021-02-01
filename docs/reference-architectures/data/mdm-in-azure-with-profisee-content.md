@@ -133,7 +133,7 @@ As illustrated above, Master Data Management addresses several common challenges
 | Duplicate  Data Management           | Duplicate  records that exist within and across applications are identified and grouped  based on existing unique identifiers. This requires identifiers to be shared  across systems (ex. SSN, email, etc.), and these can only be matched and  grouped when identical. More sophisticated approaches require significant  investments in integration engineering. | Built-in  machine learning matching capabilities identify duplicate records within and  across systems, generating a golden record to represent the group. This  enables records to be “fuzzy matched”, grouping records that are similar,  with explainable results. Groups can be managed in scenarios where the ML  engine is unable to form a group with high confidence. |
 | Data  Stewardship                    | Data  stewardship activities are confined to updating data in the source  applications (ERP, CRM, etc.). Typically, issues are discovered when  performing analytics such as missing, incomplete, or incorrect data. The  issues are corrected in the source application, and then are updated in the  analytics solution during the next update. Any new information to manage must  be added to source applications, which can take time and be costly. | MDM solutions  have built-in data stewardship capabilities, enabling users to access and  manage data. Ideally, the system is configured to flag issues and prompt data  stewards to correct them. New information or hierarchies can be quickly  configured in the solution so that they can be managed by data stewards. |
 
-## Master Data Management Use Cases
+## Master Data Management use cases
 
 While there are numerous use cases for Master Data Management, there are a small number of use cases that cover most real-world MDM implementations. Note that although these use cases are focused on a single domain, they are unlikely to be built from only that domain. In other words, even these focused use cases are most likely to include multiple master data domains.
 
@@ -206,15 +206,15 @@ Profisee authenticates users using OpenID Connect, which implements an OAuth 2.0
 
 
 
-## Deploy This Scenario
+## Deploy the scenario
 
 To deploy this scenario:
 
-1. Deploy Profisee into Azure using an [ARM template](https://github.com/Profisee/kubernetes/tree/master/Azure-ARM)
-2. Create an [Azure Data Factory](https://docs.microsoft.com/en-us/azure/data-factory/quickstart-create-data-factory-portal)
-3. Configure your Azure Data Factory to [connect to a Git repository](https://docs.microsoft.com/en-us/azure/data-factory/source-control)
-4. Add [Profisee's Azure Data Factory templates](https://github.com/profisee/azuredatafactory)
-5. Create a new Pipeline [using a Template](https://docs.microsoft.com/en-us/azure/data-factory/solution-templates-introduction)
+1. Deploy Profisee into Azure using an [ARM template](https://github.com/Profisee/kubernetes/tree/master/Azure-ARM).
+2. Create an [Azure Data Factory](https://docs.microsoft.com/azure/data-factory/quickstart-create-data-factory-portal).
+3. Configure your Azure Data Factory to [connect to a Git repository](https://docs.microsoft.com/azure/data-factory/source-control).
+4. Add [Profisee's Azure Data Factory templates](https://github.com/profisee/azuredatafactory).
+5. Create a new Pipeline [using a template](https://docs.microsoft.com/azure/data-factory/solution-templates-introduction).
 
 ## Pricing
 
@@ -222,7 +222,7 @@ Running costs will consist of software license and Azure consumption.  Contact  
 
 ## Next steps
 
-Understand the capabilities of the [REST Copy Connector](https://docs.microsoft.com/en-us/azure/data-factory/connector-rest) in Azure Data Factory
+Understand the capabilities of the [REST Copy Connector](https://docs.microsoft.com/azure/data-factory/connector-rest) in Azure Data Factory
 
 Learn more about [Profisee running natively in Azure](https://profisee.com/profisee-microsoft/) 
 
