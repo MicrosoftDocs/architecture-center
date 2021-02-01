@@ -36,7 +36,7 @@ Other relevant use cases include:
 - [General purpose virtual machines](/azure/virtual-machines/linux/sizes-general) running CentOS handle more traditional workloads such as web applications.
 - [Application Gateway](/azure/application-gateway/overview) load balances the requests coming into the web servers.
 - [Azure Kubernetes Service (AKS)](/azure/aks/intro-kubernetes) is used to run scalable workloads at a lower cost for simulations that don't require the high end capabilities of HPC or GPU virtual machines.
-- [Altair PBS Works Suite](https://www.pbsworks.com/PBSProduct.aspx?n=PBS-Works-Suite&c=Overview-and-Capabilities) orchestrates the HPC workflow, ensuring that enough virtual machine instances are available to handle the current load. It also deallocates virtual machines when demand is lower to reduce costs.
+- [Altair PBS Works Suite](https://www.altair.com/pbs-works/) orchestrates the HPC workflow, ensuring that enough virtual machine instances are available to handle the current load. It also deallocates virtual machines when demand is lower to reduce costs.
 - [Blob storage](/azure/storage/blobs/storage-blobs-introduction) stores files that support the scheduled jobs.
 
 ### Alternatives
