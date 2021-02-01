@@ -2,8 +2,8 @@
 metadata:
   title: PaaS Master Data Management in Azure with Data Factory and Profisee
   titleSuffix: Azure Architectures
-  description: Profisee Master Data Management is a cloud-native PaaS MDM platform that is integrated with Azure Data Factory to combine data from multiple sources and deliver high quality, trusted data for Azure Synapse and all analytic applications, including PowerBI and Azure Machine Learning.
-  author: [pdevito3]
+  description: Integrate Profisee Master Data Management with Azure Data Factory to deliver high-quality, trusted data for Azure Synapse and all analytic applications.
+  author: doodlemania2
   ms.date: 01/25/2021
   ms.topic: conceptual
   ms.service: architecture-center
@@ -21,11 +21,10 @@ products:
   - azure-sql-managed-instance
   - azure-synapse-analytics
   - power-bi
-  - azure-purview
   - azure-data-lake
   - azure-active-directory
 name: PaaS Master Data Management in Azure with Data Factory and Profisee
-summary: Profisee Master Data Management is a cloud-native PaaS MDM platform that is integrated with Azure Data Factory to combine data from multiple sources and deliver high quality, trusted data for Azure Synapse and all analytic applications, including PowerBI and Azure Machine Learning.
+summary: Integrate Profisee Master Data Management with Azure Data Factory to deliver high-quality, trusted data for Azure Synapse and all analytic applications.
 thumbnailUrl: /azure/architecture/browse/thumbs/mdm-in-azure-with-profisee.png
 content: |
   [!include[](mdm-in-azure-with-profisee-content.md)]
