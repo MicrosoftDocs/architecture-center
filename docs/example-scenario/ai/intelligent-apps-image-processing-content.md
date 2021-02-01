@@ -31,20 +31,21 @@ This scenario covers the back-end components of a web or mobile application. Dat
 
 - [Computer Vision API](/azure/cognitive-services/computer-vision/home) is part of the Cognitive Services suite and is used to retrieve information about each image.
 - [Azure Functions](/azure/azure-functions/functions-overview) provides the back-end API for the web application, as well as the event processing for uploaded images.
-- [Event Grid](/azure/event-grid/overview) triggers an event when a new image is uploaded to blob storage. The image is then processed with Azure functions.
+- [Event Grid](/azure/event-grid/overview) triggers an event when a new image is uploaded to blob storage. The image is then processed with Azure functions. 
 - [Blob storage](/azure/storage/blobs/storage-blobs-introduction) stores all of the image files that are uploaded into the web application, as well any static files that the web application consumes.
 - [Cosmos DB](/azure/cosmos-db/introduction) stores metadata about each image that is uploaded, including the results of the processing from Computer Vision API.
 
 ## Alternatives
 
 - [Custom Vision Service](/azure/cognitive-services/custom-vision-service/home). The Computer Vision API returns a set of [taxonomy-based categories][cv-categories]. If you need to process information that isn't returned by the Computer Vision API, consider the Custom Vision Service, which lets you build custom image classifiers.
-- [Cognitive Search](/azure/search/search-what-is-azure-search) (formely Azure Search). If your use case involves querying the metadata to find images that meet specific criteria, consider using Cognitive Search. Currently in preview, [Cognitive search](/azure/search/cognitive-search-concept-intro) seamlessly integrates this workflow.
+- [Cognitive Search](/azure/search/search-what-is-azure-search) (formerly Azure Search). If your use case involves querying the metadata to find images that meet specific criteria, consider using Cognitive Search. Currently in preview, [Cognitive search](/azure/search/cognitive-search-concept-intro) seamlessly integrates this workflow.
+- [Logic Apps](/azure/logic-apps/quickstart-create-first-logic-app-workflow). If you don't need to react in real-time on added files to a blob, you might consider using Logic Apps. A logic app which can check if a file was added might be start by the [recurrence trigger or sliding windows trigger](/azure/logic-apps/concepts-schedule-automated-recurring-tasks-workflows).
 
 ## Considerations
 
 ### Scalability
 
-The majority of the components used in this example scenario are managed services that will automatically scale. A couple notable exceptions: Azure Functions has a limit of a maximum of 200 instances. If you need to scale beyond this limit, consider multiple regions or app plans.
+The majority of the components used in this example scenario are managed services that will automatically scale. A couple of notable exceptions: Azure Functions has a limit of a maximum of 200 instances. If you need to scale beyond this limit, consider multiple regions or app plans.
 
 You can provision Cosmos DB to [autoscale](/azure/cosmos-db/how-to-provision-autoscale-throughput?tabs=api-async) for SQL API only. If you plan to use other APIs see guidance on estimating your requirements, see [request units](/azure/cosmos-db/request-units) in our documentation. To fully take advantage of the scaling in Cosmos DB, understand how [partition keys](/azure/cosmos-db/partition-data) work in Cosmos DB.
 
@@ -76,7 +77,13 @@ We have provided three sample cost profiles based on amount of traffic (we assum
 
 ## Related resources
 
-For a guided learning path, see [Build a serverless web app in Azure][serverless].
+For a guided learning path, see:
+- [Build a serverless web app in Azure][serverless].
+- [Classify images with the Custom Vision service](/learn/modules/classify-images-custom-vision/)
+- [Use AI to recognize objects in images by using the Custom Vision service](/learn/modules/train-custom-vision-ai/)
+- [Classify endangered bird species with Custom Vision](/learn/modules/cv-classify-bird-species/)
+- [Classify images with the Microsoft Custom Vision Service](/learn/modules/classify-images-with-custom-vision-service/)
+- [Detect objects in images with the Custom Vision service](/learn/modules/detect-objects-images-custom-vision/)
 
 Before deploying this example scenario in a production environment, review recommended practices for [optimizing the performance and reliability of Azure Functions][functions-best-practices].
 
