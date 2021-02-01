@@ -155,12 +155,29 @@ For data at rest, encryption provides security as follows:
 
 - Along with the SAP HANA native encryption technology, consider using an encryption solution from a partner that supports customer-managed keys.
 
-- To encrypt virtual machine disks, you can use [Azure Disk Encryption](/azure/virtual-machines/linux/disk-encryption-overview). The solution also works with Azure Key Vault to help you control and manage the disk-encryption keys and secrets in your key vault subscription.
+- To encrypt virtual machine disks, you can use [Azure Disk Encryption](/azure/virtual-machines/linux/disk-encryption-overview). The solution also works with Azure Key Vault to help you control and manage the disk-encryption keys and secrets in your key vault subscription. Our recommended approach to encrypting your SAP data at rest is as follows:
+  - Azure Disk Encryption for SAP Application servers – operating system disk and data disks.
+  - Azure Disk Encryption for SAP Database servers – operating system disks and those data disk not used by the DBMS.
+  - SAP Database servers - leverage Transparent Data Encryption offered by the DBMS provider, for instance **SAP HANA native encryption technology**, to secure your data and log files and to ensure the backups are also encrypted.
 
 - Data in Azure physical storage is automatically encrypted at rest with an Azure managed key.
 
 > [!NOTE]
 > Do not use the SAP HANA data-at-rest encryption with Azure Disk Encryption on the same storage volume. Also, operating system boot disks for Linux virtual machines do not support Azure Disk Encryption, nor does Site Recovery yet support Azure Disk Encryption-attached data disks on Linux.
+
+For network security, use NSG and Azure Firewall or a NVA as follows:
+
+- Use [Network security Groups (NSG)](https://docs.microsoft.com/en-us/azure/virtual-network/network-security-groups-overview) to protect and control traffic between subnets and application/database layers.
+
+- Use [Azure Firewall](https://docs.microsoft.com/en-us/azure/firewall/overview) or Network Virtual Applicance (NVA) to inspect and control the routing of traffic from the Hub VNet to the spoke VNet where your SAP applications reside, and also control your outbound internet connectivity.
+
+For User and Authorization, implement Role-Based Access Control and Resource Locks as follows:
+
+- Follow the least privilege principle, using [Role-Based Access Control (RBAC)](https://docs.microsoft.com/en-us/azure/role-based-access-control/overview) for assigning administrative privileges at the IaaS level resources that host for your SAP solution on Azure. Basically its main purpose is for segregation and control of duties for your users/group and grant only the amount of access that is needed to perform their jobs for resources.
+
+- Use [Resource Locks](https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/lock-resources) to avoid risk of accidental or through malicious intention whereby an administrator may delete or modify critical Azure resources that your SAP solution is residing on.
+
+More security recommendations can be found at theses [Microsoft](https://azure.microsoft.com/en-us/blog/sap-on-azure-architecture-designing-for-security/) and [SAP](https://blogs.sap.com/2019/07/21/sap-security-operations-on-azure/) articles.
 
 ## Communities
 
