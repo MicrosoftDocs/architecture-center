@@ -12,7 +12,7 @@ A charged off loan is a loan that is declared by a creditor (usually a lending i
 
 ## Data Flow
 
-1. Create some data and define data sources
+1. Create some data and define data sources for the ML prediction
 1. Run a logistic regression over the data using the local compute (or spark) context to predict loan charge off variable
 1. Use Azure HDInsights spark connector to connect to the table
 1. Use Power BI to interpret this data and create new visualizations
