@@ -204,7 +204,9 @@ After deployment completes, you can test connectivity from the simulated on-prem
 [azbb]: https://github.com/mspnp/template-building-blocks/wiki/Install-Azure-Building-Blocks
 [dsc-overview]: /powershell/scripting/dsc/overview/overview?view=powershell-7
 [ad-ds-operations-masters]: /windows-server/identity/ad-ds/plan/planning-operations-master-role-placement
-[ad-ds-ports]: /troubleshoot/windows-server/identity/config-firewall-for-ad-domains-and-trusts 
+
+[ad-ds-ports]: /troubleshoot/windows-server/identity/config-firewall-for-ad-domains-and-trusts  
+
 
 [arm-template]: /azure/azure-resource-manager/resource-group-overview#resource-groups
 [availability-set]: /azure/virtual-machines/windows/tutorial-availability-sets
