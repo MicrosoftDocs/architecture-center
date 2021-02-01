@@ -12,6 +12,11 @@ A charged off loan is a loan that is declared by a creditor (usually a lending i
 
 ## Data Flow
 
+1. Create some data and define data sources
+1. Run a logistic regression over the data using the local compute (or spark) context to predict loan charge off variable
+1. Use Azure HDInsights spark connector to connect to the table
+1. Use Power BI to interpret this data and create new visualizations
+
 ## Description
 
 This solution will create an HDInsight Spark cluster with Microsoft R Server. This cluster will contain 2 head nodes, 2 worker nodes, and 1 edge node with a total of 32 cores. The approximate cost for this HDInsight Spark cluster is $8.29/hour. Billing starts once a cluster is created and stops when the cluster is deleted. Billing is pro-rated per minute, so you should always delete your cluster when it is no longer in use. Use the Deployments page to delete the entire solution once you are done.
