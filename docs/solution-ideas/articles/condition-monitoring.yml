@@ -21,8 +21,13 @@ azureCategories:
   - containers
 summary: This example demonstrates how manufacturers can connect their assets to the cloud using OPC UA and the Industrial Components.
 products:
-  - azure
+  - azure-data-lake
+  - azure-event-hubs
   - azure-functions
+  - azure-iot-edge
+  - azure-iot-hub
+  - azure-stream-analytics
+  - azure-time-series-insights
 thumbnailUrl: /azure/architecture/browse/thumbs/condition-monitoring.png
 content: |
    [!include[](condition-monitoring-content.md)]

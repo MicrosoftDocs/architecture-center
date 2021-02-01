@@ -17,7 +17,7 @@ azureCategories:
   - ai-machine-learning
 summary: Knowledge mining can help organizations to scour thousands of pages of sources to create an accurate bid.
 products:
-  - azure
+  - azure-cognitive-search
 thumbnailUrl: /azure/architecture/browse/thumbs/contract-management.png
 content: |
    [!include[](contract-management-content.md)]

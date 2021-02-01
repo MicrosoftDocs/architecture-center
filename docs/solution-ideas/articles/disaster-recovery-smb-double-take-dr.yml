@@ -4,7 +4,7 @@ metadata:
   titleSuffix: Azure Solution Ideas
   author: doodlemania2
   ms.date: 12/16/2019
-  description: Small and medium businesses can inexpensively implement disaster recovery to the cloud by using a partner solution like Double-Take DR.
+  description: Small-sized and medium-sized businesses can inexpensively implement cloud-based disaster recovery solutions by using a partner solution like Double-Take DR.
   ms.custom: 'acom-architecture, ''https://azure.microsoft.com/solutions/architecture/disaster-recovery-smb-double-take-dr/'''
   ms.service: architecture-center
   ms.category:
@@ -14,10 +14,12 @@ metadata:
 name: SMB disaster recovery with Double-Take DR
 azureCategories:
   - management-and-governance
-summary: Small and medium businesses can inexpensively implement disaster recovery to the cloud by using a partner solution like Double-Take DR.
+summary: Small-sized and medium-sized businesses can inexpensively implement cloud-based disaster recovery solutions by using a partner solution like Double-Take DR.
 products:
-  - azure
   - azure-traffic-manager
+  - azure-virtual-network
+  - azure-vpn-gateway
+  - sql-server
 thumbnailUrl: /azure/architecture/browse/thumbs/disaster-recovery-smb-double-take-dr.png
 content: |
    [!include[](disaster-recovery-smb-double-take-dr-content.md)]

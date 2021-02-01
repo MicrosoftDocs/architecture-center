@@ -27,7 +27,7 @@ Microsoft hosts Wildbook on Azure and makes Wild Me's open-source algorithms ava
 For more information about Wildbook, see the following links:
 
 - [Video: Fighting extinction with Microsoft AI and citizen science](https://youtu.be/rQqao37u1wU)
-- [Wildbook open-source code projects](https://github.com/wildbookorg)
+- [Wildbook open-source code projects](https://github.com/WildMeOrg/Wildbook)
 
 ## Architecture
 
