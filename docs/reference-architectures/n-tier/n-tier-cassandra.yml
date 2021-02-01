@@ -21,13 +21,11 @@ azureCategories:
   - management-and-governance
 summary: Run Linux virtual machines for an N-tier architecture with Apache Cassandra in Microsoft Azure.
 products:
-  - azure
-  - azure-devops
   - azure-dns
+  - azure-load-balancer
   - azure-monitor
-  - github
-  - vs
-  - windows
+  - azure-virtual-machines
+  - azure-virtual-network
 thumbnailUrl: /azure/architecture/browse/thumbs/n-tier-cassandra.png
 content: |
    [!include[](n-tier-cassandra-content.md)]

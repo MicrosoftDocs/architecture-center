@@ -4,7 +4,7 @@ metadata:
   titleSuffix: Azure Solution Ideas
   author: doodlemania2
   ms.date: 04/17/2020
-  description: Ingest and analyze high volumes of IoT data and generate real-time recommendations
+  description: Learn how to ingest and analyze high volumes of IoT data and generate real-time recommendations and insights.
   ms.custom: acom-architecture
   ms.service: architecture-center
   ms.category:
@@ -19,12 +19,19 @@ azureCategories:
   - containers
   - iot
   - analytics
-summary: Ingest and analyze high volumes of IoT data and generate real-time recommendations
+summary: Learn how to ingest and analyze high volumes of IoT data and generate real-time recommendations and insights.
 products:
-  - azure
+  - azure-api-management
+  - azure-cache-redis
+  - azure-container-registry
+  - azure-cosmos-db
+  - azure-database-postgresql
   - azure-databricks
   - azure-hdinsight
+  - azure-key-vault
+  - azure-kubernetes-service
   - azure-pipelines
+  - azure-web-apps
 thumbnailUrl: /azure/architecture/browse/thumbs/aks-iot-data-streaming.png
 content: |
    [!include[](aks-iot-data-streaming-content.md)]

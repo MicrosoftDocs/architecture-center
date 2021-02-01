@@ -3,7 +3,7 @@ metadata:
   title: IoT Connected Platform for COVID-19 detection and prevention
   titleSuffix: Azure Solution Ideas
   author: doodlemania2
-  description: 'Deploy a connected ecosystem of intelligent IoT Edge devices, Azure services, and cloud-powered apps to create safe and healthy public spaces.'
+  description: Deploy a connected ecosystem of intelligent IoT Edge devices, Azure services, and cloud-powered apps to create safe and healthy public spaces.
   ms.date: 06/12/2020
   ms.custom: 'iot, fcp'
   ms.service: architecture-center
@@ -13,15 +13,13 @@ metadata:
 name: IoT Connected Platform for COVID-19 detection and prevention
 azureCategories:
   - iot
-summary: 'Deploy a connected ecosystem of intelligent IoT Edge devices, Azure services, and cloud-powered apps to create safe and healthy public spaces.'
+summary: Deploy a connected ecosystem of intelligent IoT Edge devices, Azure services, and cloud-powered apps to create safe and healthy public spaces.
 products:
-  - azure
   - azure-databricks
-  - azure-iot
-  - azure-maps
-  - azure-monitor
-  - office
-  - power-bi
+  - azure-iot-edge
+  - azure-iot-hub
+  - azure-kubernetes-service
+  - azure-stream-analytics
 thumbnailUrl: /azure/architecture/browse/thumbs/insight-connected-platform.png
 content: |
    [!include[](iot-connected-platform-content.md)]

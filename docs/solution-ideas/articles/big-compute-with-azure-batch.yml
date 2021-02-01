@@ -4,7 +4,7 @@ metadata:
   titleSuffix: Azure Solution Ideas
   author: doodlemania2
   ms.date: 12/16/2019
-  description: Explore Big Compute solutions with Azure Batch. Use HPC cloud systems for cloud-native application and batch processing.
+  description: Explore Big Compute solutions with Azure Batch and use HPC cloud systems for cloud-native application and batch processing.
   ms.custom: 'acom-architecture, hpc, big compute solutions, interactive-diagram, ''https://azure.microsoft.com/solutions/architecture/big-compute-with-azure-batch/'''
   ms.service: architecture-center
   ms.category:
@@ -16,10 +16,11 @@ name: HPC System and Big Compute Solutions
 azureCategories:
   - compute
   - storage
-summary: Explore Big Compute solutions with Azure Batch. Use HPC cloud systems for cloud-native application and batch processing.
+summary: Explore Big Compute solutions with Azure Batch and use HPC cloud systems for cloud-native application and batch processing.
 products:
-  - azure
   - azure-batch
+  - azure-storage-accounts
+  - azure-virtual-machines
 thumbnailUrl: /azure/architecture/browse/thumbs/big-compute-with-azure-batch.png
 content: |
    [!include[](big-compute-with-azure-batch-content.md)]

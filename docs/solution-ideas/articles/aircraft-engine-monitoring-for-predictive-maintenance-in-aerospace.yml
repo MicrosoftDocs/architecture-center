@@ -18,8 +18,12 @@ azureCategories:
   - ai-machine-learning
 summary: Microsoft Azure's Predictive Maintenance solution demonstrates how to combine real-time aircraft data with analytics to monitor aircraft health.
 products:
-  - azure
-  - power-bi
+  - azure-data-factory
+  - azure-event-hubs
+  - azure-hdinsight
+  - azure-machine-learning
+  - azure-stream-analytics
+  - azure-sql-database
 thumbnailUrl: /azure/architecture/browse/thumbs/aircraft-engine-monitoring-for-predictive-maintenance-in-aerospace.png
 content: |
    [!include[](aircraft-engine-monitoring-for-predictive-maintenance-in-aerospace-content.md)]

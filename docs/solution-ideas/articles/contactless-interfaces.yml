@@ -17,9 +17,11 @@ azureCategories:
   - ai-machine-learning
 summary: Combine intelligent and perceptive edge devices with the storage and computing power of the cloud to create touch-free interfaces.
 products:
-  - azure
-  - azure-iot
+  - azure-cognitive-services
+  - azure-iot-edge
+  - azure-iot-hub
   - azure-storage
+  - azure-machine-learning
 thumbnailUrl: /azure/architecture/browse/thumbs/avanade-contactless.png
 content: |
    [!include[](contactless-interfaces-content.md)]
