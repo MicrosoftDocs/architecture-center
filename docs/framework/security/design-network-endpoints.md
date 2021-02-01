@@ -12,7 +12,8 @@ azureCategories:
   - networking
 products:
   - azure-firewall
-  - azure-application-gateway  
+  - azure-application-gateway
+  - azure-ddos-protection  
 ---
 
 # Endpoint security
@@ -85,21 +86,34 @@ Legacy authentication methods are among the top attack vectors for cloud-hosted 
 
 ## Mitigate DDoS attacks
 
+In a distributed denial-of-service (DDoS) attack, the server is overloaded with with fake traffic. DDoS attacks are common and can be debilitating. An attack can completely block access or take down the services. Enable DDoS mitigations for all business-critical web application and services.
+
+Azure provides DDoS protection in two tiers: **Basic** and **Standard**. 
+
+**Basic** is integrated with Azure services and is available at no additional cost. The tier protects through always-on traffic monitoring and real-time mitigation. 
+
+**Standard** has advanced features over **Basic** including logging, alerting, and telemetry.
+
 **How do you implement DDoS protection?**
 ***
 
-Enable Distributed Denial of Service (DDoS) mitigations for all business-critical web application and services. DDoS attacks are common and can be debilitating. An attack can completely block access or take down the services. There are two common options:
+Here are some common options:
 
-- DDoS protection at virtual network level. The protection usually focuses on the network (layer 3) level. Azure Virtual Network resources offer **Basic** and **Standard** tiers for DDoS protection. Enable DDoS Protection Standard for all business-critical web application and services. 
+- DDoS protection at virtual network level. The protection usually focuses on the network (layer 3) level. Azure Virtual Network resources offer both **Basic** and **Standard**. 
 
   The [Windows N-tier application on Azure with SQL Server](../../reference-architectures/n-tier/n-tier-sql-server.yml) reference architecture uses DDoS Protection Standard because this option:
   - Uses adaptive tuning, based on the application's network traffic patterns, to detect threats. 
   - Guarantees 100% SLA. 
   - Can be cost effective. For example, during a DDoS attack, the first set of attacks cause  the provisioned resources to scale out. For a resource such as a virtual machine scale set, 10 machines can grow to 100, increasing overall costs. With Standard protection, you don't have to worry about the cost of the scaled resources because Azure will provide the cost credit. 
 
+  For information about Standard DDoS Protection, see [Azure DDoS Protection Service](/azure/virtual-network/ddos-protection-overview).
+
+- DDoS protection with caching. Consider CDN as another layer of protection. With CDN, infrequently changing content is copied from the backend server and cached on servers in various location. A request doesn't need to communicate with the backend server and request times are significantly reduced. In case of a DDoS attack, a CDN intercepts the traffic and stops it from reaching the backend server. That way, the application doesn't experience downtime and negatively impact business. 
+
+  Azure CDN has integrated DDoS protection through the **Basic** DDoS tier. For more information, see [Azure CDN DDoS Protection](/azure/cdn/cdn-ddos).
+
 - DDoS protection at higher levels that profile your services. This option provides a baseline for your deployments and then uses machine learning techniques to detect anomalous traffic and proactively protects based on protection level set prior to service degradation. Adopt the advance protection for any services where downtime will negatively impact the business.
 
-For information about Standard DDoS Protection, see [Azure DDoS Protection Service](/azure/virtual-network/ddos-protection-overview).
 
 ## Adopt DevOps
 
@@ -108,7 +122,7 @@ Developers shouldn't publish their code directly to app servers.
 **Does the organization have an CI/CD process for publishing code in this workload?**
 ***
 
-Implement lifecycle of continuous integration, continuous delivery (CI/CD) for applications. Have processes and tools in place that aid in an automated and gated CD/CD deployment process.
+Implement lifecycle of continuous integration, continuous delivery (CI/CD) for applications. Have processes and tools in place that aid in an automated and gated CI/CD deployment process.
 
 **How are the publishing methods secured?**
 ***
@@ -119,10 +133,10 @@ Application resources allowing multiple methods to publish app content, such as 
 > [!div class="nextstepaction"]
 > [Data flow](design-network-flow.md)
 
-
 ### Related links
 - [Azure Firewall](/azure/firewall/overview)
 - [What is Azure Web Application Firewall on Azure Application Gateway?](/azure/web-application-firewall/ag/ag-overview)
+- [Azure DDoS Protection Standard](/azure/ddos-protection/)
 
 
 > Go back to the main article: [Network security](design-network.md)
