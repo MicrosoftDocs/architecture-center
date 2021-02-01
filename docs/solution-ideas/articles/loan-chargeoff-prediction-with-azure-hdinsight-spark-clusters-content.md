@@ -8,8 +8,8 @@ A charged off loan is a loan that is declared by a creditor (usually a lending i
 ## Architecture
 
 ![Architecture diagram](../media/loan-chargeoff-prediction-with-azure-hdinsight-spark-clusters.png)
-*Download an [SVG](../media/loan-chargeoff-prediction-with-azure-hdinsight-spark-clusters.svg) of this architecture.*
 
+Download an [SVG](../media/loan-chargeoff-prediction-with-azure-hdinsight-spark-clusters.svg) of this architecture.
 ## Data Flow
 
 1. Create some data and define data sources for the ML prediction
