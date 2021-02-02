@@ -145,7 +145,7 @@ Azure Backup offers a simple, enterprise-grade solution for workloads running on
 
 To monitor your workloads on Azure, [Azure Monitor](/azure/azure-monitor/overview) offers a comprehensive solution for collecting, analyzing, and acting on telemetry from your cloud and on-premises environments.
 
-To provide SAP-based monitoring of resources and service performance of the SAP infrastructure, the [Azure SAP Enhanced Monitoring](/azure/virtual-machines/workloads/sap/deployment-guide#d98edcd3-f2a1-49f7-b26a-07448ceb60ca) Extension is used. This extension feeds Azure monitoring statistics into the SAP application for operating system monitoring and DBA Cockpit functions. SAP enhanced monitoring is a mandatory prerequisite for running SAP on Azure. For details, see [SAP Note 2191498](https://launchpad.support.sap.com/#/notes/2191498), “SAP on Linux with Azure: Enhanced Monitoring.”
+To provide SAP-based monitoring of supported Azure infrastructure and database, Azure monitor for SAP solutions (preview) is being used. [Azure monitor for SAP solutions](/azure/virtual-machines/workloads/sap/azure-monitor-overview). Azure Monitor for SAP Solutions are providing a simple setup experience and the customer can collect telemetry data from Azure resources, then correlate data to various monitoring KPIs and helping the troubleshooting.
 
 ## Security considerations
 
