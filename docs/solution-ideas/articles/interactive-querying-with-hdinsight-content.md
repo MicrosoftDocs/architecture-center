@@ -3,7 +3,7 @@
 
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-Perform fast, interactive SQL queries at scale over structured or unstructured data with Apache Hive LLAP.
+Perform fast, interactive SQL like queries at scale over structured or unstructured data with Apache Hive LLAP on Azure HDInsight.
 
 ## Architecture
 
