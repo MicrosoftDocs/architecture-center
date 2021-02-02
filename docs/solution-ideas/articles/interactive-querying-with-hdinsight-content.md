@@ -19,5 +19,5 @@ Perform fast, interactive SQL queries at scale over structured or unstructured d
 * [Power BI](/power-bi/fundamentals/power-bi-overview) is a suite of business analytics tools that deliver insights throughout your organization. Connect to hundreds of data sources, simplify data prep, and drive adhoc analysis. 
 
 ## See Also
-* [Create a data pipeline to derive sales insights in Azure HDInsight] (/azure/hdinsight/hdinsight-sales-insights-etl) build an end-to-end data pipeline that performs extract, transform, and load (ETL) operations.
+* [Create a data pipeline to derive sales insights in Azure HDInsight](/azure/hdinsight/hdinsight-sales-insights-etl) build an end-to-end data pipeline that performs extract, transform, and load (ETL) operations.
 * [Visualize Apache Hive data with Microsoft Power BI](/azure/hdinsight/hadoop/apache-hadoop-connect-hive-power-bi) learn how to connect Microsoft Power BI Desktop to Azure HDInsight using ODBC and visualize Apache Hive data.
