@@ -144,12 +144,12 @@ Make sure to configure the following antivirus exclusions for FSLogix Profile Co
   - %ProgramFiles%\FSLogix\Apps\frxdrv.sys
   - %ProgramFiles%\FSLogix\Apps\frxdrvvt.sys
   - %ProgramFiles%\FSLogix\Apps\frxccd.sys
-  - %TEMP%\*.VHD
-  - %TEMP%\*.VHDX
-  - %Windir%\TEMP\*.VHD
-  - %Windir%\TEMP\*.VHDX
-  - \\\storageaccount.file.core.windows.net\share\*\*.VHD
-  - \\\storageaccount.file.core.windows.net\share\*\*.VHDX
+  - %TEMP%\\*.VHD
+  - %TEMP%\\*.VHDX
+  - %Windir%\TEMP\\*.VHD
+  - %Windir%\TEMP\\*.VHDX
+  - \\\storageaccount.file.core.windows.net\share\\*\*.VHD
+  - \\\storageaccount.file.core.windows.net\share\\*\*.VHDX
 
 - Exclude processes:
 
