@@ -2,7 +2,7 @@
 title: Network segmentation patterns
 description: Use network level segmentation to secure virtual networks.
 author: tremansdoerfer
-ms.date: 01/22/2020
+ms.date: 02/03/2021
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
@@ -11,8 +11,7 @@ ms.custom:
 azureCategories:
   - hybrid
   - networking
-product
-:
+product:
   - azure-firewall
   - azure-virtual-network
   - azure-express-route

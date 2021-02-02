@@ -20,7 +20,7 @@ This article describes some considerations that can help monitor the workload fo
 
 ## Key points
 - View identity related risks in Azure Active Directory (Azure AD) reporting and Azure AD Identity Protection.
-- Obfuscate Personally Identifiable Information (PII) by using PII Detection cognitive skill.
+- Obfuscate personal information by using PII Detection cognitive skill.
 - Enable logs (including raw traffic) from your network devices. 
 - Set alerts and gain access to real-time performance information at the packet level. 
 
@@ -30,15 +30,15 @@ Most security incidents take place after an attacker initially gains access usin
 
 Suppose an attacker gains access using a stolen identity. Even though the identity has low privileges, the attacker can use it to traverse laterally and gain access to more privileged identities. This way the attacker can control access to the target data or systems.
 
-**Does the organization actively monitor identity related risk events related to potentially compromised identities?**
+**Does the organization actively monitor identity-related risk events related to potentially compromised identities?**
 ***
 
 Monitor identity-related risk events on potentially compromised identities and remediate those risks. 
 Review the reported risk events in these ways:
 
-- Azure AD reporting. For information see [users at risk security report](/azure/active-directory/reports-monitoring/concept-user-at-risk) and the [risky sign-ins security report](/azure/active-directory/reports-monitoring/concept-risky-sign-ins).
+- Azure AD reporting. For information, see [users at risk security report](/azure/active-directory/reports-monitoring/concept-user-at-risk) and the [risky sign-ins security report](/azure/active-directory/reports-monitoring/concept-risky-sign-ins).
 - Use the reporting capabilities of [Azure Active Directory Identity Protection](/azure/active-directory/active-directory-identityprotection).
-- Use the Identity Protection risk events API to gain get programmatic access to security detections by using Microsoft Graph. See [riskDetection](/graph/api/resources/riskdetection?view=graph-rest-1.0&preserve-view=true) and [riskyUser](/graph/api/resources/riskyuser?view=graph-rest-1.0&preserve-view=true) APIs.
+- Use the Identity Protection risk events API to get programmatic access to security detections by using Microsoft Graph. See [riskDetection](/graph/api/resources/riskdetection?view=graph-rest-1.0&preserve-view=true) and [riskyUser](/graph/api/resources/riskyuser?view=graph-rest-1.0&preserve-view=true) APIs.
 
 Azure AD uses adaptive machine learning algorithms, heuristics, and known compromised credentials (username/password pairs) to detect suspicious actions that are related to your user accounts. These username/password pairs come from monitoring public and dark web and by working with security researchers, law enforcement, security teams at Microsoft, and others. 
 
@@ -49,7 +49,7 @@ Remediate risks by manually addressing each reported account or by setting up a 
 **Is Personally Identifiable Information (PII) detected and removed/obfuscated automatically?**
 ***
 
-Be cautious when logging sensitive application information. Don't store PII (contact information, payment information etc.), any application logs. Apply protective measures, such as obfuscation. Machine learning tools like Cognitive Search PII detection can help with this. For more information, see [PII Detection cognitive skill](/azure/search/cognitive-search-skill-pii-detection).
+Be cautious when logging sensitive application information. Don't store PII (contact information, payment information, and so on), any application logs. Apply protective measures, such as obfuscation. Machine learning tools like Cognitive Search PII detection can help with this measure. For more information, see [PII Detection cognitive skill](/azure/search/cognitive-search-skill-pii-detection).
 
 
 ## Enable network visibility

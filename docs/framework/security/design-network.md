@@ -2,7 +2,7 @@
 title: Network security strategies
 description: Best practices for network security in Azure, including network segmentation, network management, containment strategy, and internet edge strategy.
 author: PageWriter-MSFT
-ms.date: 09/07/2020
+ms.date: 02/03/2021
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
@@ -22,6 +22,10 @@ Protect assets by placing controls on network traffic originating in Azure, betw
 > - Segment your network footprint and create secure communication paths between segments. Align the network segmentation with overall enterprise segmentation strategy.
 > - Design security controls that identify and allow or deny traffic, access requests, and application communication between segments. 
 > - Protect all public endpoints with Azure Front Door, Application Gateway, Azure Firewall, Azure DDoS Protection.
+> - Mitigate DDoS attacks with DDoS **Standard** protection for critical workloads.
+> - Prevent direct internet access of virtual machines.
+> - Control network traffic between subnets (east-west) and application tiers (north-south).
+> - Protect from data exfiltration attacks through a defense-in-depth approach with controls at each layer.
 
 
 ## In this section
@@ -32,6 +36,7 @@ Follow these questions to assess the workload at a deeper level. The recommendat
 |[**How does the organization implement network segmentation to detect and contain adversary movement?**](design-network-segmentation.md)|Create segmentation in your network footprint to group the related assets and isolation. Align the network segmentation with the enterprise segmentation strategy.
 |[**Should this workload be accessible from public IP addresses?**](design-network-connectivity.md)|Use native Azure networking feature to restrict access to individual application services. Explore multiple levels (such as IP filtering or firewall rules) to prevent application services from being accessed by unauthorized actors.|
 |[**Are public endpoints of this workload protected?**](design-network-endpoints.md)|Use Azure Firewall to protect Azure Virtual Network resources. Web Application Firewall (WAF) mitigates the risk of an attacker being able to exploit commonly known security application vulnerabilities like cross-site scripting or SQL injection.|
+|[**Is the traffic between subnets, Azure components and tiers of the workload managed and secured?**](design-network-flow.md)|Place controls between subnets of a VNet. Detect threats by allowing or denying ingress and egress traffic.|
 
 ## Azure security benchmark
 The Azure Security Benchmark includes a collection of high-impact security recommendations you can use to help secure the services you use in Azure:
@@ -43,7 +48,6 @@ The Azure Security Benchmark includes a collection of high-impact security recom
 - [Azure Firewall](/azure/firewall/overview)
 - [Azure ExpressRoute](/azure/expressroute/)
 - [Azure Private Link](/azure/private-link/)
-- [Windows N-tier application on Azure with SQL Server](../../reference-architectures/n-tier/n-tier-sql-server.yml)
 
 ## Reference architecture
 Here are some reference architectures related to network security:
@@ -51,6 +55,8 @@ Here are some reference architectures related to network security:
 - [Hub-spoke network topology in Azure](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke)
 - [Deploy highly available NVAs](/azure/architecture/reference-architectures/dmz/nva-ha)
 - [Windows N-tier application on Azure with SQL Server](../../reference-architectures/n-tier/n-tier-sql-server.yml)
+- [Azure Kubernetes Service (AKS) production baseline](/azure/architecture/reference-architectures/containers/aks/secure-baseline-aks)
+
 
 ## Next steps
 
@@ -61,7 +67,7 @@ Monitor the communication between segments. Use data to identify anomalies, set 
 
 ## Related links
 
-Combine network controls with application, identity, and other technical control types. This approach is effective in preventing, detecting, and responding to threats outside the networks you control. For more information see these articles:
+Combine network controls with application, identity, and other technical control types. This approach is effective in preventing, detecting, and responding to threats outside the networks you control. For more information, see these articles:
 - [Applications and services security](design-apps-services.md)
 - [Identity and access management considerations](design-identity.md)
 - [Data protection](design-storage.md)

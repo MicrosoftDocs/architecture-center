@@ -381,6 +381,8 @@ items:
                     href: framework/security/design-network-connectivity.md
                   - name: Application endpoints
                     href: framework/security/design-network-endpoints.md
+                  - name: Data flow
+                    href: framework/security/design-network-flow.md
                   - name: Network security review
                     href: framework/security/design-network-review.md                    
                   - name: Best practices

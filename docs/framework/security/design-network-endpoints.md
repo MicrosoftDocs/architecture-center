@@ -2,7 +2,7 @@
 title: Endpoint security
 description: Best practices for protecting application endpoints.
 author: PageWriter-MSFT
-ms.date: 01/22/2020
+ms.date: 02/03/2021
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
@@ -18,21 +18,21 @@ products:
 
 # Endpoint security
 
-An _endpoint_ is an address exposed by a web application so that external entities can communicate with it. A malicious or an inadvertent interaction with the endpoint can compromise the security of the application and even the entire system. One way to protect the endpoint is by placing filter controls on the network traffic that it receives, such as defining rule sets. A defense in depth approach can further mitigate risks. Include supplemental controls that protect the endpoint if the primary traffic controls fail. 
+An _endpoint_ is an address exposed by a web application so that external entities can communicate with it. A malicious or an inadvertent interaction with the endpoint can compromise the security of the application and even the entire system. One way to protect the endpoint is by placing filter controls on the network traffic that it receives, such as defining rule sets. A defense-in-depth approach can further mitigate risks. Include supplemental controls that protect the endpoint if the primary traffic controls fail. 
 
 This article describes way in which you can protect web applications with Azure services and features. For product documentation, see Related links.
 
 ## Key points
 - Protect all public endpoints with Azure Front Door, Application Gateway, Azure Firewall, Azure DDoS Protection.
 - Use web application firewall (WAF) to protect web workloads.
-- Protect workload publishing methods and restrict those not in use.
+- Protect workload publishing methods and restrict ways that are not in use.
 - Implement an automated and gated CD/CD deployment process.
 - Mitigate DDoS attacks. Use Standard protection for critical workloads where outage would have business impact. Also consider CDN as another layer of protection.
-- Develop process and procedures to prevent direct Internet access of virtual machines (such as proxy or firewall) with logging and monitoring to enforce policies.
+- Develop processes and procedures to prevent direct internet access of virtual machines (such as proxy or firewall) with logging and monitoring to enforce policies.
 - Implement an automated and gated CI/CD deployment process.
 
 ## Public endpoints
-A public endpoint receives traffic over the internet. This makes the service easily accessible to attackers. 
+A public endpoint receives traffic over the internet. The endpoints make the service easily accessible to attackers. 
 
 **Are all public endpoints of this workload protected?**
 ***
@@ -41,13 +41,13 @@ An initial design decision is to assess whether you need a public endpoint at al
 
 ### Web application firewalls (WAFs) 
 
-WAFs provide a basic level of security for web applications.  WAFs are appropriate if the organizations that have invested in application security as WAFs provide a valuable additional defense in depth mitigation. 
+WAFs provide a basic level of security for web applications.  WAFs are appropriate if the organizations that have invested in application security as WAFs provide additional defense-in-depth mitigation. 
 
-WAFs mitigate the risk of an attacker being able to exploit commonly seen security vulnerabilities for applications. WAFs provide a basic level of security for web applications. This mechanism is an important mitigation because attackers target web applications for an ingress point into an organization (similar to a client endpoint).
+WAFs mitigate the risk of an attacker to exploit commonly seen security vulnerabilities for applications. WAFs provide a basic level of security for web applications. This mechanism is an important mitigation because attackers target web applications for an ingress point into an organization (similar to a client endpoint).
 
 Azure Application Gateway has WAF capabilities to inspect web traffic and detect attacks at the HTTP layer. It's a load balancer and HTTP(S) full reverse proxy that can do secure socket layer (SSL) encryption and decryption. 
   
-For example, your workload is hosted in Application Service Environments(ILB ASE). The APIs are consolidated internally and exposed to external users. This external exposure could be achieved using an Application Gateway. This service is a load balancer that forwards request to the internal API Management service, which in turn consumes the APIs deployed in the ASE. Application Gateway is also configured over port 443 for secured and reliable outbound calls.
+For example, your workload is hosted in Application Service Environments(ILB ASE). The APIs are consolidated internally and exposed to external users. This external exposure could be achieved using an Application Gateway. This service is a load balancer. It forwards request to the internal API Management service, which in turn consumes the APIs deployed in the ASE. Application Gateway is also configured over port 443 for secured and reliable outbound calls.
 
 > [!TIP]
 >
@@ -59,7 +59,7 @@ Azure Front Door and Azure Content Delivery Network (CDN) also have WAF capabili
 
 Protect the entire virtual network against potentially malicious traffic from the internet and other external locations. It inspects incoming traffic and only passes the allowed requests to pass through.  
 
-A common design is to implement a DMZ or a peremeter network in front of the application. The DMZ is a separate subnet with the firewall. 
+A common design is to implement a DMZ or a perimeter network in front of the application. The DMZ is a separate subnet with the firewall. 
 
 > [!TIP]
 > Here are the resources for the preceding example:
@@ -82,11 +82,11 @@ It’s challenging to write concise firewall rules for networks where different 
 
 ### Authentication
 Disable insecure legacy protocols for internet-facing services. 
-Legacy authentication methods are among the top attack vectors for cloud-hosted services. Those methods don’t support additional factors beyond passwords and are prime targets for password spraying, dictionary, or brute force attacks.  
+Legacy authentication methods are among the top attack vectors for cloud-hosted services. Those methods don’t support other factors beyond passwords and are prime targets for password spraying, dictionary, or brute force attacks.  
 
 ## Mitigate DDoS attacks
 
-In a distributed denial-of-service (DDoS) attack, the server is overloaded with with fake traffic. DDoS attacks are common and can be debilitating. An attack can completely block access or take down the services. Enable DDoS mitigations for all business-critical web application and services.
+In a distributed denial-of-service (DDoS) attack, the server is overloaded with fake traffic. DDoS attacks are common and can be debilitating. An attack can completely block access or take down the services. Enable DDoS mitigations for all business-critical web application and services.
 
 Azure provides DDoS protection in two tiers: **Basic** and **Standard**. 
 
@@ -108,11 +108,11 @@ Here are some common options:
 
   For information about Standard DDoS Protection, see [Azure DDoS Protection Service](/azure/virtual-network/ddos-protection-overview).
 
-- DDoS protection with caching. Consider CDN as another layer of protection. With CDN, infrequently changing content is copied from the backend server and cached on servers in various location. A request doesn't need to communicate with the backend server and request times are significantly reduced. In case of a DDoS attack, a CDN intercepts the traffic and stops it from reaching the backend server. That way, the application doesn't experience downtime and negatively impact business. 
+- DDoS protection with caching. Consider content delivery network (CDN) as another layer of protection. With CDN, infrequently changing content is copied from the backend server and cached on servers in various locations. A request doesn't need to communicate with the backend server and request times are significantly reduced. In a DDoS attack, a CDN intercepts the traffic and stops it from reaching the backend server. That way, the application doesn't experience downtime that can  negatively impact business. 
 
   Azure CDN has integrated DDoS protection through the **Basic** DDoS tier. For more information, see [Azure CDN DDoS Protection](/azure/cdn/cdn-ddos).
 
-- DDoS protection at higher levels that profile your services. This option provides a baseline for your deployments and then uses machine learning techniques to detect anomalous traffic and proactively protects based on protection level set prior to service degradation. Adopt the advance protection for any services where downtime will negatively impact the business.
+- DDoS protection at higher levels that profile your services. This option provides a baseline for your deployments and then uses machine learning techniques to detect anomalous traffic. Also, proactively protects based on the set protection level before service degradation. Adopt the advance protection for any services where downtime will negatively impact the business.
 
 
 ## Adopt DevOps

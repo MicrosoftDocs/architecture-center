@@ -2,7 +2,7 @@
 title: Data flow security
 description: Best practices for protecting a workload  from data exfiltration.
 author: PageWriter-MSFT
-ms.date: 01/22/2020
+ms.date: 02/03/2021
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
@@ -16,7 +16,7 @@ products:
 
 # Data flow security
 
-Protect data anywhere it goes including cloud services, mobile devices, workstations, or collaboration platforms. In addition to using strong access control and encryption, technology, apply strong network controls. 
+Protect data anywhere it goes including cloud services, mobile devices, workstations, or collaboration platforms. In addition to using strong access control and encryption, apply strong network controls that detect, monitor, and contain attacks. 
 
 ## Key points
 
@@ -33,7 +33,7 @@ When analyzing the network flow, distinguish between east-west traffic from nort
 
 - **North-south traffic**
     
-    _North-west_ refers to traffic that flows in and out of the a datacenter. For example traffic from  an application to a backend service. This type is a typical target for attack vectors because traffic can flow over the public internet. Proper network controls must be in place so that the queries to and from a data center are secure.
+    _North-west_ refers to traffic that flows in and out of a datacenter. For example, traffic from  an application to a backend service. This type is a typical target for attack vectors because traffic can flow over the public internet. Proper network controls must be in place so that the queries to and from a data center are secure.
 
     Consider a typical flow in an Azure Kubernetes Service (AKS) cluster. The cluster receives incoming (ingress) traffic from HTTP requests. The cluster can also send outgoing (egress) traffic to send queries to other services such as pulling a container image.
 
@@ -41,9 +41,9 @@ When analyzing the network flow, distinguish between east-west traffic from nort
 
 - **East-west traffic**
 
-    _East-west_ traffic refers to traffic between or within data centers. In this type, several resources of the network infrastructure communicate with each other. Those resources can be virtual networks, subnets within those virtual networks. Security of east-west traffic can get overlooked even though it constitutes a large portion of the workload traffic. It's assumed that the infrastructure firewalls and sufficient to block attacks. Make sure that there are proper network access controls between network resources.
+    _East-west_ traffic refers to traffic between or within data centers. In this type, several resources of the network infrastructure communicate with each other. Those resources can be virtual networks, subnets within those virtual networks. Security of east-west traffic can get overlooked even though it makes up a large portion of the workload traffic. It's assumed that the infrastructure firewalls are sufficient to block attacks. Make sure there are proper network access controls between network resources.
 
-    Extending the example of the AKS cluster to this concept, east-West traffic is network traffic within the cluster. For example,  communication between the ingress controller and the workload. Also, if your workload is composed of multiple applications, communication between those applications would fall into this category. 
+    Extending the example of the AKS cluster to this concept, east-West traffic is network traffic within the cluster. For example,  communication between the ingress controller and the workload. If your workload is composed of multiple applications, communication between those applications would fall into this category. 
 
     By using Kubernetes network policies, you can restrict which pods can communicate, starting from a zero-trust policy and then opening specific communication paths as needed.
 
@@ -56,19 +56,21 @@ When analyzing the network flow, distinguish between east-west traffic from nort
 
 ## Data exfiltration
 
-Data exfiltration is a common attack where an internal or external malicious actor performs an unauthorized data transfer. Lack of network controls is a common way to gain access.
+Data exfiltration is a common attack where an internal or external malicious actor does an unauthorized data transfer. Lack of network controls is a common way to gain access.
 
 **Are there controls in the workload design to detect and protect from data exfiltration?**
 ***
-Choose a defense-in-depth design that can protect nework communications at various layers, such as a hub-spoke topology. Azure provides several controls to support the layered design. 
+Choose a defense-in-depth design that can protect network communications at various layers, such as a hub-spoke topology. Azure provides several controls to support the layered design. 
 - Use Azure Firewall to allow or deny traffic using layer 3 to layer 7 controls. 
 - Use Azure Virtual Network User Defined Routes (UDR) to control next hop for traffic. 
-- Control traffic through Network Security Groups (NSGs) between resources within a virtual network and also with external networks, such as the internet, other virtual networks.
+- Control traffic with Network Security Groups (NSGs) between resources within a virtual network, internet, and other virtual networks.
 - Secure the endpoints through Azure PrivateLink and Private Endpoints.
 - Detect and protect at deep levels through packet inspection. 
 - Detect attacks and respond to alerts through Azure Sentinel and Azure Security Center.
 
-> [!IMPORTANT] Network controls are not sufficient in blocking data exfiltration attempts. Harden the protect with proper with identity controls, key protection, and encryption. For more information, see these sections:
+> [!IMPORTANT] 
+>
+>Network controls are not sufficient in blocking data exfiltration attempts. Harden the protect with proper with identity controls, key protection, and encryption. For more information, see these sections:
 > - [Data protection considerations](design-storage.md)
 > - [Identity and access management considerations](design-identity.md)
 
