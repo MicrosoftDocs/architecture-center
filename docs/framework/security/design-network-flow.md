@@ -1,7 +1,86 @@
+---
+title: Data flow security
+description: Best practices for protecting a workload  from data exfiltration.
+author: PageWriter-MSFT
+ms.date: 01/22/2020
+ms.topic: conceptual
+ms.service: architecture-center
+ms.subservice: well-architected
+ms.custom:
+  - article
+azureCategories:
+  - networking
+products:
+  - azure-virtual-network
+---
 
-. When thinking about network traffic, it’s helpful to distinguish East-West traffic from North-South traffic:
-•	East-West traffic is network traffic within the cluster (service-to service, pod-to-pod). This architecture uses Kubernetes network policies to restrict which pods can communicate, starting from a zero-trust policy and then opening specific communication paths as needed. 
-•	North-South traffic is network traffic from client applications to the backend. This architecture uses Web Application Firewall on Application Gateway to secure incoming (ingress) traffic, and Azure Firewall to secure outgoing (egress) traffic.
-. When thinking about network traffic, it’s helpful to distinguish East-West traffic from North-South traffic:
-•	East-West traffic is network traffic within the cluster (service-to service, pod-to-pod). This architecture uses Kubernetes network policies to restrict which pods can communicate, starting from a zero-trust policy and then opening specific communication paths as needed. 
-•	North-South traffic is network traffic from client applications to the backend. This architecture uses Web Application Firewall on Application Gateway to secure incoming (ingress) traffic, and Azure Firewall to secure outgoing (egress) traffic.
+# Data flow security
+
+Protect data anywhere it goes including cloud services, mobile devices, workstations, or collaboration platforms. In addition to using strong access control and encryption, technology, apply strong network controls. 
+
+## Key points
+
+- Control network traffic between subnets (east-west) and application tiers (north-south).
+- Apply a layered defense-in-depth approach that starts with Zero-Trust policies.
+- Use a cloud application security broker (CASB).
+
+## East-west and north-south traffic
+
+When analyzing the network flow, distinguish between east-west traffic from north-south traffic. Most cloud architectures use a combination of both types.
+
+**Is the traffic between subnets, Azure components and tiers of the workload managed and secured?**
+***
+
+- **North-south traffic**
+    
+    _North-west_ refers to traffic that flows in and out of the a datacenter. For example traffic from  an application to a backend service. This type is a typical target for attack vectors because traffic can flow over the public internet. Proper network controls must be in place so that the queries to and from a data center are secure.
+
+    Consider a typical flow in an Azure Kubernetes Service (AKS) cluster. The cluster receives incoming (ingress) traffic from HTTP requests. The cluster can also send outgoing (egress) traffic to send queries to other services such as pulling a container image.
+
+    Your design can use Web Application Firewall on Application Gateway to secure ingress traffic, and Azure Firewall to secure outgoing (egress) traffic.
+
+- **East-west traffic**
+
+    _East-west_ traffic refers to traffic between or within data centers. In this type, several resources of the network infrastructure communicate with each other. Those resources can be virtual networks, subnets within those virtual networks. Security of east-west traffic can get overlooked even though it constitutes a large portion of the workload traffic. It's assumed that the infrastructure firewalls and sufficient to block attacks. Make sure that there are proper network access controls between network resources.
+
+    Extending the example of the AKS cluster to this concept, east-West traffic is network traffic within the cluster. For example,  communication between the ingress controller and the workload. Also, if your workload is composed of multiple applications, communication between those applications would fall into this category. 
+
+    By using Kubernetes network policies, you can restrict which pods can communicate, starting from a zero-trust policy and then opening specific communication paths as needed.
+
+> [!TIP]
+> Here are the resources for the preceding AKS example:
+>
+> ![GitHub logo](../../_images/github.svg) [GitHub: Azure Kubernetes Service (AKS) Secure Baseline Reference Implementation](https://github.com/mspnp/aks-secure-baseline).
+>
+> The design considerations are described in [Azure Kubernetes Service (AKS) production baseline](/azure/architecture/reference-architectures/containers/aks/secure-baseline-aks).
+
+## Data exfiltration
+
+Data exfiltration is a common attack where an internal or external malicious actor performs an unauthorized data transfer. Lack of network controls is a common way to gain access.
+
+**Are there controls in the workload design to detect and protect from data exfiltration?**
+***
+Choose a defense-in-depth design that can protect nework communications at various layers, such as a hub-spoke topology. Azure provides several controls to support the layered design. 
+- Use Azure Firewall to allow or deny traffic using layer 3 to layer 7 controls. 
+- Use Azure Virtual Network User Defined Routes (UDR) to control next hop for traffic. 
+- Control traffic through Network Security Groups (NSGs) between resources within a virtual network and also with external networks, such as the internet, other virtual networks.
+- Secure the endpoints through Azure PrivateLink and Private Endpoints.
+- Detect and protect at deep levels through packet inspection. 
+- Detect attacks and respond to alerts through Azure Sentinel and Azure Security Center.
+
+> [!IMPORTANT] Network controls are not sufficient in blocking data exfiltration attempts. Harden the protect with proper with identity controls, key protection, and encryption. For more information, see these sections:
+> - [Data protection considerations](design-storage.md)
+> - [Identity and access management considerations](design-identity.md)
+
+**Have you considered a cloud application security broker (CASB) for this workload?**
+***
+
+CASBs provide a central point of control for enforcing policies. They  provide rich visibility, control over data travel, and sophisticated analytics to identify and combat cyberthreats across all Microsoft and third-party cloud services.
+
+## Related links
+- [Azure Firewall](/azure/firewall/overview)
+- [Network Security Groups (NSG)](/azure/virtual-network/security-overview)
+- [What is Azure Web Application Firewall on Azure Application Gateway?](/azure/web-application-firewall/ag/ag-overview)
+- [What is Azure Private Link?](/azure/private-link/private-link-overview)
+
+> Go back to the main article: [Network security](design-network.md)

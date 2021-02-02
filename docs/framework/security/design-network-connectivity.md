@@ -123,7 +123,7 @@ Common approaches for accessing PaaS services are Service Endpoints or Private L
 
 With Service Endpoints, the communication path is secure because you can reach the PaaS endpoint without needing a public IP address on the VNet. Most PaaS services support communication through service endpoints. For a list of generally available services, see [Virtual Network service endpoints](/azure/virtual-network/virtual-network-service-endpoints-overview).
 
-Another mechanism is through Azure Private Link. Private Endpoint uses a private IP address from your VNet, effectively bringing the service into your VNet. For details, see [What is Azure Private Link?](/azure/private-link/private-link-overview)
+Another mechanism is through Azure Private Link. Private Endpoint uses a private IP address from your VNet, effectively bringing the service into your VNet. For details, see [What is Azure Private Link?](/azure/private-link/private-link-overview).
 
 Service Endpoints provide service level access to a PaaS service, whereas Private Link provides direct access to a specific PaaS resource to mitigate data exfiltration risks, such as malicious admin access. Private Link is a paid service and has meters for inbound and outbound data processed. Private Endpoints are charged as well.
 
