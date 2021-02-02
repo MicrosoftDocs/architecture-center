@@ -9,3 +9,7 @@ Perform fast, interactive SQL queries at scale over structured or unstructured d
 
 ![Architecture Diagram](../media/interactive-querying-with-hdinsight.png)
 *Download an [SVG](../media/interactive-querying-with-hdinsight.svg) of this architecture.*
+
+## Data Flow
+## Components
+## See Also
