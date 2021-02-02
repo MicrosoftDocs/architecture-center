@@ -18,8 +18,10 @@ azureCategories:
   - analytics
 summary: Learn how to use Azure Machine Learning to predict failures before they happen with real-time assembly line data.
 products:
-  - azure
-  - power-bi
+  - azure-event-hubs
+  - azure-machine-learning
+  - azure-stream-analytics
+  - azure-synapse-analytics
 thumbnailUrl: /azure/architecture/browse/thumbs/defect-prevention-with-predictive-maintenance.png
 content: |
    [!include[](defect-prevention-with-predictive-maintenance-content.md)]
