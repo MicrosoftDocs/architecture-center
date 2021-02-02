@@ -24,7 +24,7 @@ Throughout the health and life sciences industry, organizations are adopting a *
 
 ## Architecture
 
-![Consumer health portal architecture](/images/Consumer_Health_Portal_1.0.png)
+![Consumer health portal architecture](./images/consumer_health_portal.png)
 
 In this solution, we leverage the global footprint of Azure Front Door and edge security features of Azure Web Application Firewall (WAF) to authenticate the inbound data. The authenticated data is then routed by Azure API Management (APIM) to either the front-end interface for the users on the Azure App Service, or APIs hosted in Azure Functions.
 
@@ -90,7 +90,7 @@ This solution is currently designed as a single-region deployment. If your scena
 
 - Azure App Service and Functions will need to be deployed seperately to additional regions. This can be done within your [CI/CD pipeline](https://azure.microsoft.com/en-in/solutions/architecture/azure-devops-continuous-integration-and-continuous-deployment-for-azure-web-apps/) by creating a parallel deployment. Additionally, you can reference this [Highly available multi-region web application](https://docs.microsoft.com/azure/architecture/reference-architectures/app-service-web-app/multi-region) reference architecture. 
 
-- Depending on the requirement for RTO (recovery time objective), Azure Blob Storage could either be configured as Geo-redundant storage (GRS) or Read-access Geo-Redundnant (RA-GRS) storage to allow reads directly from the alternate region. To read more, please refernece the [Azure Storage Redundancy](https://docs.microsoft.com/azure/storage/common/storage-redundancy) documentation. 
+- Depending on the requirement for RTO (recovery time objective), Azure Blob Storage could either be configured as Geo-redundant storage (GRS) or Read-access Geo-Redundnant (RA-GRS) storage to allow reads directly from the alternate region. To read more, please reference the [Azure Storage Redundancy](https://docs.microsoft.com/azure/storage/common/storage-redundancy) documentation. 
 
 - Azure Key Vault has multiple layers of [availability and redundancy](https://docs.microsoft.com/azure/key-vault/general/disaster-recovery-guidance) built-in to the service.
 
