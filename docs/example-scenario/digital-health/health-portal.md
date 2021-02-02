@@ -4,9 +4,11 @@ titleSuffix: Azure Example Workloads
 description: Describes an architecture for a consumer health portal.
 author: matthansen0
 ms.date: 02/01/2021
-ms.service = architecture-center
-ms.topic = conceptual
-ms.subservice = example-scenario
+ms.service: architecture-center
+ms.topic: conceptual
+ms.subservice: example-scenario
+ms.category:
+    - fcp
 ---
 
 # Consumer Health Portal on Azure
@@ -22,18 +24,18 @@ Throughout the health and life sciences industry, organizations are adopting a *
 
 ## Architecture
 
-<img src="images\Consumer_Health_Portal_1.0.png" width="75%"/>
+![Consumer health portal architecture](/images/Consumer_Health_Portal_1.0.png)
 
 In this solution, we leverage the global footprint of Azure Front Door and edge security features of Azure Web Application Firewall (WAF) to authenticate the inbound data. The authenticated data is then routed by Azure API Management (APIM) to either the front-end interface for the users on the Azure App Service, or APIs hosted in Azure Functions.
 
-The primary backend data service used is Azure Cosmos DB. The multi-model abilities of Cosmos DB, in addition to its scalability and security, allow flexibility for any type of consumer health portal. Any data that is not in a record format is stored in Azure Blob Storage as an object. This could include data such as, medical images, photos taken by the consumer, uploaded documents, archived data, and so on. Blob storage allows you to affordable store large volumes of unstructured data, potentially impacting cost and performance of Cosmos DB (TBD: How so? Does it lower?).
+The primary backend data service used is Azure Cosmos DB. The multi-model abilities of Cosmos DB, in addition to its scalability and security, allow flexibility for any type of consumer health portal. Any data that is not in a record format is stored in Azure Blob Storage as an object. This could include data such as, medical images, photos taken by the consumer, uploaded documents, archived data, and so on. Blob storage allows you to affordable store large volumes of unstructured data, potentially impacting cost and performance of Cosmos DB (**TBD**: How so? Does it lower?).
 
 
 ### Components
 
 - [Azure HIPPA HITRUST 9.2 blueprint](https://docs.microsoft.com/azure/governance/blueprints/samples/hipaa-hitrust-9-2) is an [Azure blueprint](https://docs.microsoft.com/azure/governance/blueprints/) that uses [Azure Policy](https://docs.microsoft.com/azure/governance/policy/overview). It helps assess HIPPA HITRUST 9.2 controls and deploy a core set of policies for Azure workloads. While this does not give full compliance coverage for HIPPA HITRUST, it is a great place to start and add additional controls where applicable and necessary. Compliance with the policy initiatives can also be visualized in this blueprint as well as in Azure Defender.
 
-- [Azure Front Door](https://azure.microsoft.com/services/frontdoor/) is used to manage at-scale edge traffic, and to increase performance for end-users by presenting an endpoint at Microsoft points of presence(TBD: Could we say this instead?: presenting endpoints all around the world.) all around the world. This is a cloud-native technology which doesn't require any licensing; you pay for only what you use. In this workload scenario, Azure Front Door serves as the ingress point for all traffic to the consumer health portal.
+- [Azure Front Door](https://azure.microsoft.com/services/frontdoor/) is used to manage at-scale edge traffic, and to increase performance for end-users by presenting an endpoint at Microsoft points of presence(**TBD**: Could we say this instead?: presenting endpoints all around the world.) all around the world. This is a cloud-native technology which doesn't require any licensing; you pay for only what you use. In this workload scenario, Azure Front Door serves as the ingress point for all traffic to the consumer health portal.
   
 - [Azure Web Application Firewall](https://azure.microsoft.com/services/web-application-firewall/) protects applications from common web-based attacks such as OWASP vulnerabilities, SQL injections, cross-site scripting, and others. This is a cloud-native technology which doesn't require any licensing and is pay-as-you-use.
   
@@ -70,9 +72,9 @@ The primary backend data service used is Azure Cosmos DB. The multi-model abilit
 ### Alternatives
 
 - [SendGrid for Email](https://azuremarketplace.microsoft.com/marketplace/apps/SendGrid.SendGrid?tab=Overview) - 
-Twillo's SendGrid may be used as an alternative for email notifications. SendGrid has direct marketplace integration in Azure. However, if customers already have an Office 365 subscription and if they plan on sending a large number of emails, using Office 365 integration could be a more cost effective solution. If your application is sending very few emails (TBD incomplete statement?).
+Twillo's SendGrid may be used as an alternative for email notifications. SendGrid has direct marketplace integration in Azure. However, if customers already have an Office 365 subscription and if they plan on sending a large number of emails, using Office 365 integration could be a more cost effective solution. If your application is sending very few emails (**TBD** incomplete statement?).
 
-- [Azure API for FHIR](https://azure.microsoft.com/services/azure-api-for-fhir/) for interoperability of medical records, using HL7 or FHIR communication standards. If your application needs to receive or transmit medical records from other systems, for instance if this were a portal for Medical Provider. (TBD: incomplete statement)
+- [Azure API for FHIR](https://azure.microsoft.com/services/azure-api-for-fhir/) for interoperability of medical records, using HL7 or FHIR communication standards. If your application needs to receive or transmit medical records from other systems, for instance if this were a portal for medical providers (**TBD**: incomplete statement).
 
 - [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/) to ingest device data. If the portal is the front-end for a solution which collects data from a wearable or any other medical device, IoT Hub should be used to ingest this data. For more information, read the "INGEST" process of the [Remote Patient Monitoring Solutions](https://docs.microsoft.com/azure/architecture/solution-ideas/articles/remote-patient-monitoring) architecture. 
 
@@ -96,7 +98,7 @@ This solution is currently designed as a single-region deployment. If your scena
 
 ### Security considerations
 
-(TBD: are there any security considerations specific to this architecture?)
+(**TBD**: are there any security considerations specific to this architecture?)
 
 For best practices on security for each of the services used in this solution, please reference the documentation below.
 
@@ -124,18 +126,12 @@ To get started, you can view the Azure Calculator Generic Estimate [here](https:
 
 ## Next steps
 
-(TBD) 
+(**TBD**) 
 
 > Where should I go next if I want to start building this?
 > Are there any reference architectures that help me build this?
 
 ## Related resources
-
-(TBD)
-
-> Are there any relevant case studies or customers doing something similar?
-> Is there any other documentation that might be useful?
-> Are there product documents that go into more detail on specific technologies not already linked
 
 <!-- links -->
 
