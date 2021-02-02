@@ -3,7 +3,8 @@ metadata:
   title: <Article title, which becomes the title metadata>
   titleSuffix: Azure Example Scenarios
   description: <Write a 100-160 character description that ends with a period and ideally starts with a call to action. This becomes the browse card description.>
-  author: <github username>
+  author: <contributor's GitHub username. If no GitHub account, use EdPrice-MSFT>
+  ms.author: <contributor's Microsoft alias. If no alias, leave out this metadata as it will be automatically set to pnp by the docfx.json.>
   ms.date: <publish or major update date - mm/dd/yyyy>
   ms.topic: conceptual
   ms.service: architecture-center
@@ -19,4 +20,4 @@ name: <The H1 title is a noun phrase that describes the scenario. Avoid naming t
 summary: <Write a summary. Can be same as description.>
 thumbnailUrl: /azure/architecture/browse/thumbs/<browse-png-filename>.png
 content: |
-  [!include[](<article-filename>-content.md)]
+  [!include[](<sample-solution>-content.md)]
