@@ -16,7 +16,7 @@ products:
 
 # Traffic flow security
 
-Protect data anywhere it goes including cloud services, mobile devices, workstations, or collaboration platforms. In addition to using strong access control and encryption, apply strong network controls that detect, monitor, and contain attacks. 
+Protect data anywhere it goes including cloud services, mobile devices, workstations, or collaboration platforms. In addition to using access control and encryption mechanisms, apply strong network controls that detect, monitor, and contain attacks. 
 
 ## Key points
 
@@ -26,26 +26,26 @@ Protect data anywhere it goes including cloud services, mobile devices, workstat
 
 ## East-west and north-south traffic
 
-When analyzing the network flow, distinguish between east-west traffic from north-south traffic. Most cloud architectures use a combination of both types.
+When analyzing the network flow of a workload, distinguish between east-west traffic from north-south traffic. Most cloud architectures use a combination of both types.
 
 **Is the traffic between subnets, Azure components and tiers of the workload managed and secured?**
 ***
 
 - **North-south traffic**
     
-    _North-west_ refers to traffic that flows in and out of a datacenter. For example, traffic from  an application to a backend service. This type is a typical target for attack vectors because traffic can flow over the public internet. Proper network controls must be in place so that the queries to and from a data center are secure.
+    _North-south_ refers to the traffic that flows in and out of a datacenter. For example, traffic from an application to a backend service. This type of traffic is a typical target for attack vectors because it flows over the public internet. Proper network controls must be in place so that the queries to and from a data center are secure.
 
-    Consider a typical flow in an Azure Kubernetes Service (AKS) cluster. The cluster receives incoming (ingress) traffic from HTTP requests. The cluster can also send outgoing (egress) traffic to send queries to other services such as pulling a container image.
+    Consider a typical flow in an Azure Kubernetes Service (AKS) cluster. The cluster receives incoming (ingress) traffic from HTTP requests. The cluster can also send outgoing (egress) traffic to send queries to other services, such as pulling a container image.
 
     Your design can use Web Application Firewall on Application Gateway to secure ingress traffic, and Azure Firewall to secure outgoing (egress) traffic.
 
 - **East-west traffic**
 
-    _East-west_ traffic refers to traffic between or within data centers. In this type, several resources of the network infrastructure communicate with each other. Those resources can be virtual networks, subnets within those virtual networks. Security of east-west traffic can get overlooked even though it makes up a large portion of the workload traffic. It's assumed that the infrastructure firewalls are sufficient to block attacks. Make sure there are proper network access controls between network resources.
+    _East-west_ traffic refers to traffic between or within data centers. For this type of traffic, several resources of the network infrastructure communicate with each other. Those resources can be virtual networks, subnets within those virtual networks, and so on. Security of east-west traffic can get overlooked even though it makes up a large portion of the workload traffic. It's assumed that the infrastructure firewalls are sufficient to block attacks. Make sure there are proper controls between network resources.
 
-    Extending the example of the AKS cluster to this concept, east-West traffic is network traffic within the cluster. For example,  communication between the ingress controller and the workload. If your workload is composed of multiple applications, communication between those applications would fall into this category. 
+    Extending the example of the AKS cluster to this concept, east-west traffic is the traffic within the cluster. For example, communication between pods, such as the ingress controller and the workload. If your workload is composed of multiple applications, the communication between those applications would fall into this category. 
 
-    By using Kubernetes network policies, you can restrict which pods can communicate, starting from a zero-trust policy and then opening specific communication paths as needed.
+    By using Kubernetes network policies, you can restrict which pods can communicate, starting from a Zero-Trust policy and then opening specific communication paths as needed.
 
 > [!TIP]
 > Here are the resources for the preceding AKS example:
@@ -56,7 +56,7 @@ When analyzing the network flow, distinguish between east-west traffic from nort
 
 ## Data exfiltration
 
-Data exfiltration is a common attack where an internal or external malicious actor does an unauthorized data transfer. Lack of network controls is a common way to gain access.
+Data exfiltration is a common attack where an internal or external malicious actor does an unauthorized data transfer. Most often access is gained because of lack of network controls.
 
 **Are there controls in the workload design to detect and protect from data exfiltration?**
 ***
@@ -70,7 +70,7 @@ Choose a defense-in-depth design that can protect network communications at vari
 
 > [!IMPORTANT] 
 >
->Network controls are not sufficient in blocking data exfiltration attempts. Harden the protect with proper with identity controls, key protection, and encryption. For more information, see these sections:
+>Network controls are not sufficient in blocking data exfiltration attempts. Harden the protection with proper identity controls, key protection, and encryption. For more information, see these sections:
 > - [Data protection considerations](design-storage.md)
 > - [Identity and access management considerations](design-identity.md)
 
