@@ -1,5 +1,5 @@
 ---
-title: Endpoint security
+title: Best practices for endpoint security on Azure
 description: Best practices for protecting application endpoints.
 author: PageWriter-MSFT
 ms.date: 02/03/2021

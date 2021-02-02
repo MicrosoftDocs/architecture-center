@@ -1,5 +1,5 @@
 ---
-title: Secure network connectivity
+title: Azure services for securing network connectivity
 description: Best practices for securing access to internet, PaaS services, and on-premises networks.
 author: PageWriter-MSFT
 ms.date: 02/03/2021
@@ -16,7 +16,7 @@ products:
   - azure-virtual-network  
 ---
 
-# Secure network connectivity
+# Azure services for securing network connectivity
 
 It's often the case that the workload and the supporting components of a cloud architecture will need to access external assets. These assets can be on-premises, devices outside the main virtual network, or other Azure resources. Those connections can be over the internet or networks within the organization.
 
@@ -139,7 +139,7 @@ In a hybrid architecture, the workload runs partly on-premises and partly in Azu
 **How do you establish cross premises connectivity?**
 ***
 
-Use Azure ExpressRoute to set up cross premises connectivity to on-premises networks. This service uses a private, dedicated connection through a third-party connectivity provider. The private connection extends your on-premises network into Azure. Thisway you can reduce the risk of potential of access to company’s information assets on-premises.
+Use Azure ExpressRoute to set up cross premises connectivity to on-premises networks. This service uses a private, dedicated connection through a third-party connectivity provider. The private connection extends your on-premises network into Azure. This way, you can reduce the risk of potential of access to company’s information assets on-premises.
 
 **How do you access VMs?**
 ***
@@ -160,10 +160,20 @@ For production enterprise, allow cloud resources to start and respond to interne
 
 Another option is to force tunnel all outbound internet traffic from on-premises through site-to-site VPN. Or, use a cross-premise WAN link. Network security teams have greater security and visibility to internet traffic. Even when your resources in the cloud try to respond to incoming requests from the internet, the responses are force tunneled. This option fits a datacenter expansion use case and can work well for a quick proof of concept, but scales poorly because of the increased traffic load, latency, and cost. For those reasons, we recommend that you avoid [forced tunneling](/azure/vpn-gateway/vpn-gateway-about-forced-tunneling).
 
-
 ## Next step
 > [!div class="nextstepaction"]
 > [Secure endpoints](design-network-endpoints.md)
 
 ## Related links
+
+For information about controlling next hop for traffic, see [Azure Virtual Network User Defined Routes (UDR)](/azure/virtual-network/virtual-networks-udr-overview).
+
+For information about web application firewalls, see [Application Gateway WAF](/azure/application-gateway/).
+
+For information about Network Appliances from Azure Marketplace, see [Network Appliances](https://azure.microsoft.com/solutions/network-appliances/).
+
+For information about cross premises connectivity, see [Azure site-to-site VPN or ExpressRoute](/azure/security/azure-security-network-security-best-practices).
+
+For information about using VPN/ExpressRoute to access these virtual machines for remote management, see [Disable RDP/SSH access to Azure Virtual Machines](/azure/security/azure-security-network-security-best-practices). 
+
 > Go back to the main article: [Network security](design-network.md)

@@ -1,5 +1,5 @@
 ---
-title: Network segmentation patterns
+title: Implement network segmentation patterns on Azure
 description: Use network level segmentation to secure virtual networks.
 author: tremansdoerfer
 ms.date: 02/03/2021
@@ -17,7 +17,7 @@ product:
   - azure-express-route
 ---
 
-# Network segmentation 
+# Implement network segmentation patterns on Azure 
 
 Create segmentation in your network footprint by defining perimeters. Main reasons for segmentation are: 
 
@@ -127,5 +127,7 @@ With Azure Firewall Manager preview, you can centrally manage policies across mu
 - For information about setting up peering, see [Virtual network peering](/azure/virtual-network/virtual-network-peering-overview).
 
 - For best practices about using Azure Firewall in various configurations, see [Azure Firewall Architecture Guide](/azure/architecture/example-scenario/firewalls/).
+
+- For information about different access policies and control flow within a VNet, see [Azure Virtual Network Subnet](/azure/virtual-network/virtual-network-manage-subnet)
 
 > Back to the main article: [Network security](design-network.md)

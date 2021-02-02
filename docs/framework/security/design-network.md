@@ -1,5 +1,5 @@
 ---
-title: Network security strategies
+title: Network security strategies on Azure
 description: Best practices for network security in Azure, including network segmentation, network management, containment strategy, and internet edge strategy.
 author: PageWriter-MSFT
 ms.date: 02/03/2021

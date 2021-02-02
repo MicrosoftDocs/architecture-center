@@ -1,6 +1,6 @@
 ---
-title: Data flow security
-description: Best practices for protecting a workload  from data exfiltration.
+title: Traffic flow security in Azure
+description: Best practices for protecting a workload from data exfiltration.
 author: PageWriter-MSFT
 ms.date: 02/03/2021
 ms.topic: conceptual
@@ -14,7 +14,7 @@ products:
   - azure-virtual-network
 ---
 
-# Data flow security
+# Traffic flow security
 
 Protect data anywhere it goes including cloud services, mobile devices, workstations, or collaboration platforms. In addition to using strong access control and encryption, apply strong network controls that detect, monitor, and contain attacks. 
 
