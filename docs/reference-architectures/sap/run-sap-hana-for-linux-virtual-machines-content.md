@@ -24,8 +24,7 @@ the primary and secondary (replica) SAP HANA systems. HSR is also used for cross
 **Availability sets.** Virtual machines providing the same service are grouped into a highly available [availability set](/azure/virtual-machines/windows/tutorial-availability-sets) for a higher [service-level agreement](https://azure.microsoft.com/support/legal/sla/virtual-machines)
 (SLA). For even higher availability, consider [Availability Zones](/azure/virtual-machines/workloads/sap/sap-ha-availability-zones).
 
-**Load balancers.** To direct traffic to virtual machines in the database tier, [Azure Standard Load Balancer](/azure/load-balancer/load-balancer-overview) is used. This option supports [Availability Zones](/azure/load-balancer/load-balancer-standard-availability-zones)
-for scenarios that need higher application availability. It is important to highlight that Standard Load Balancer are secure by default and every Virtual Machine behind it won't have outbound internet connectivity. To enable outboud internet there are special considerations about [Standard Load Balancers](/azure/virtual-machines/workloads/sap/high-availability-guide-standard-load-balancer-outbound-connections)
+**Load balancers.** To direct traffic to virtual machines in the database tier, [Azure Standard Load Balancer](/azure/load-balancer/load-balancer-overview) is used. This option supports [Availability Zones](/azure/load-balancer/load-balancer-standard-availability-zones) for scenarios that need higher application availability. It's important to highlight that the Standard Load Balancer is secure by default, and no virtual machines behind the Standard Load Balancer will have outbound internet connectivity. To enable outbound internet in the virtual machines, you must consider your [Standard Load Balancer](/azure/virtual-machines/workloads/sap/high-availability-guide-standard-load-balancer-outbound-connections) configuration.
 
 **Network security groups.** To restrict incoming, outgoing, and intra-subnet traffic in the virtual network, you can define [network security groups](/azure/virtual-network/security-overview) (NSGs) for subnets or individual virtual machines.
 
@@ -52,7 +51,7 @@ with the database. We recommend using Azure [proximity placement groups](/azure/
 ### Load balancer
 
 We recommend using the Standard Load Balancer and enabling [high availability ports](/azure/load-balancer/load-balancer-ha-ports-overview).
-This setup avoids the need to configure load-balancing rules for many SAP ports. With [Standard Load Balancer](/azure/load-balancer/load-balancer-overview#why-use-azure-load-balancer), you can also create a high availability solution across [Azure Availability Zones](/azure/availability-zones/az-overview). It is important to highlight that Standard Load Balancer are secure by default and every Virtual Machine behind it won't have outbound internet connectivity. To enable outboud internet there are special considerations about [Standard Load Balancers](/azure/virtual-machines/workloads/sap/high-availability-guide-standard-load-balancer-outbound-connections). Alternatively, you can use Azure Basic Load Balancer—it’s offered at no charge but does not support zones and has no SLA.
+This setup avoids the need to configure load-balancing rules for many SAP ports. With [Standard Load Balancer](/azure/load-balancer/load-balancer-overview#why-use-azure-load-balancer), you can also create a high availability solution across [Azure Availability Zones](/azure/availability-zones/az-overview). It's important to highlight that the Standard Load Balancer is secure by default, and no virtual machines behind the Standard Load Balancer will have outbound internet connectivity. To enable outbound internet in the virtual machines, you must consider your [Standard Load Balancer](/azure/virtual-machines/workloads/sap/high-availability-guide-standard-load-balancer-outbound-connections) configuration. Alternatively, you can use Azure Basic Load Balancer—it’s offered at no charge but does not support zones and has no SLA.
 
 For SAP HANA database clusters, you must enable Direct Server Return (DSR), also known as Floating IP. This feature allows the server to respond to the IP
 address of the load balancer front end. This direct connection keeps the load balancer from becoming the bottleneck in the path of data transmission. If
@@ -145,7 +144,7 @@ Azure Backup offers a simple, enterprise-grade solution for workloads running on
 
 To monitor your workloads on Azure, [Azure Monitor](/azure/azure-monitor/overview) offers a comprehensive solution for collecting, analyzing, and acting on telemetry from your cloud and on-premises environments.
 
-To provide SAP-based monitoring of supported Azure infrastructure and database, Azure monitor for SAP solutions (preview) is being used. [Azure monitor for SAP solutions](/azure/virtual-machines/workloads/sap/azure-monitor-overview). Azure Monitor for SAP Solutions are providing a simple setup experience and the customer can collect telemetry data from Azure resources, then correlate data to various monitoring KPIs and helping the troubleshooting.
+To provide SAP-based monitoring of supported Azure infrastructure and databases, Azure Monitor for SAP Solutions (preview) is being used. [Azure Monitor for SAP Solutions](/azure/virtual-machines/workloads/sap/azure-monitor-overview) provides a simple setup experience. The customer can collect telemetry data from Azure resources, and then correlate data to various monitoring KPIs, and use data to help with troubleshooting.
 
 ## Security considerations
 
@@ -155,29 +154,29 @@ For data at rest, encryption provides security as follows:
 
 - Along with the SAP HANA native encryption technology, consider using an encryption solution from a partner that supports customer-managed keys.
 
-- To encrypt virtual machine disks, you can use [Azure Disk Encryption](/azure/virtual-machines/linux/disk-encryption-overview). The solution also works with Azure Key Vault to help you control and manage the disk-encryption keys and secrets in your key vault subscription. Our recommended approach to encrypting your SAP data at rest is as follows:
-  - Azure Disk Encryption for SAP Application servers – operating system disk and data disks.
-  - Azure Disk Encryption for SAP Database servers – operating system disks and those data disk not used by the DBMS.
-  - SAP Database servers - leverage Transparent Data Encryption offered by the DBMS provider, for instance **SAP HANA native encryption technology**, to secure your data and log files and to ensure the backups are also encrypted.
+- To encrypt virtual machine disks, you can use [Azure Disk Encryption](/azure/virtual-machines/linux/disk-encryption-overview). The solution also works with Azure Key Vault to help you control and manage the disk-encryption keys and secrets in your Key Vault subscription. Our recommended approach to encrypting your SAP data at rest is as follows:
+  - Azure Disk Encryption for SAP Application servers: Operating system disks and data disks.
+  - Azure Disk Encryption for SAP Database servers: Operating system disks and data disks not used by the DBMS.
+  - SAP Database servers: Use Transparent Data Encryption offered by the DBMS provider (for example, *SAP HANA native encryption technology*) to secure your data and log files and to ensure the backups are also encrypted.
 
 - Data in Azure physical storage is automatically encrypted at rest with an Azure managed key.
 
 > [!NOTE]
 > Do not use the SAP HANA data-at-rest encryption with Azure Disk Encryption on the same storage volume. Also, operating system boot disks for Linux virtual machines do not support Azure Disk Encryption, nor does Site Recovery yet support Azure Disk Encryption-attached data disks on Linux.
 
-For network security, use NSG and Azure Firewall or a NVA as follows:
+For network security, use network security groups (NSGs) and Azure Firewall or a network virtual appliance as follows:
 
-- Use [Network security Groups (NSG)](https://docs.microsoft.com/en-us/azure/virtual-network/network-security-groups-overview) to protect and control traffic between subnets and application/database layers.
+- Use [NSGs](/azure/virtual-network/network-security-groups-overview) to protect and control traffic between subnets and application/database layers.
 
-- Use [Azure Firewall](https://docs.microsoft.com/en-us/azure/firewall/overview) or Network Virtual Applicance (NVA) to inspect and control the routing of traffic from the Hub VNet to the spoke VNet where your SAP applications reside, and also control your outbound internet connectivity.
+- Use [Azure Firewall](/azure/firewall/overview) or Azure network virtual applicance to inspect and control the routing of traffic from the hub virtual network to the spoke virtual network where your SAP applications reside, and also to control your outbound internet connectivity.
 
-For User and Authorization, implement Role-Based Access Control and Resource Locks as follows:
+For User and Authorization, implement role-based access control (RBAC) and resource locks as follows:
 
-- Follow the least privilege principle, using [Role-Based Access Control (RBAC)](https://docs.microsoft.com/en-us/azure/role-based-access-control/overview) for assigning administrative privileges at the IaaS level resources that host for your SAP solution on Azure. Basically its main purpose is for segregation and control of duties for your users/group and grant only the amount of access that is needed to perform their jobs for resources.
+- Follow the least privilege principle, using [RBAC](/azure/role-based-access-control/overview) for assigning administrative privileges at IaaS-level resources that host your SAP solution on Azure. Basically, the main purpose of RBAC is segregation and control of duties for your users/group and to grant only the amount of access to resources that's needed for users to perform their jobs.
 
-- Use [Resource Locks](https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/lock-resources) to avoid risk of accidental or through malicious intention whereby an administrator may delete or modify critical Azure resources that your SAP solution is residing on.
+- Use [resource locks](/azure/azure-resource-manager/management/lock-resources) to avoid risk that's accidental or which might be caused by malicious intention, whereby an administrator may delete or modify critical Azure resources where your SAP solution resides.
 
-More security recommendations can be found at theses [Microsoft](https://azure.microsoft.com/en-us/blog/sap-on-azure-architecture-designing-for-security/) and [SAP](https://blogs.sap.com/2019/07/21/sap-security-operations-on-azure/) articles.
+More security recommendations can be found at theses [Microsoft](https://azure.microsoft.com/blog/sap-on-azure-architecture-designing-for-security/) and [SAP](https://blogs.sap.com/2019/07/21/sap-security-operations-on-azure/) articles.
 
 ## Communities
 
