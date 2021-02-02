@@ -14,7 +14,7 @@ products:
   - azure-virtual-network
 ---
 
-# Traffic flow security
+# Traffic flow security in Azure
 
 Protect data anywhere it goes including cloud services, mobile devices, workstations, or collaboration platforms. In addition to using access control and encryption mechanisms, apply strong network controls that detect, monitor, and contain attacks. 
 
