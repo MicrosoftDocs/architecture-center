@@ -18,7 +18,7 @@ This solution is built on the Azure managed services: [Event Hubs](https://azure
 * [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics): Stream Analytics accepts the input stream from Event Hubs, calls an Azure ML Web Service to do predictions, and sends the stream to Azure Storage and Power BI.
 * [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning): Machine Learning helps you design, test, operationalize, and manage predictive analytics solutions in the cloud and deploy web services that can be called by Stream Analytics and Azure Data Factory.
 * [Storage Accounts](https://azure.microsoft.com/services/storage): Azure Storage stores diagnostic events stream data from Stream Analytics.
-* Azure Data Factory uses [HDInsight](https://azure.microsoft.com/services/hdinsight) to run Hive queries to process the data and load it into Azure SQL Database. As a replacement Databricks can also be used
+* Azure Data Factory uses [HDInsight](https://azure.microsoft.com/services/hdinsight) to run Hive queries to process the data and load it into Azure SQL Database. As a replacement, Azure Databricks also can be used.
 * [Data Factory](https://azure.microsoft.com/services/data-factory) uses HDInsight to process data and load it into Azure SQL Database.
 * [Azure Synapse Analytics](https://azure.microsoft.com/services/synapse-analytics/): Azure Synapse Analytics is used to store and data processed by Data Factory and HDInsight and is accessed by Power BI for analysis of the telemetry data.
 * This solution uses [Power BI](https://powerbi.microsoft.com), but others use [Power BI](https://powerbi.microsoft.com) Embedded to analyze the telemetry data.
