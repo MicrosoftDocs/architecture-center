@@ -417,7 +417,7 @@ items:
                 href: framework/security/monitor-tools.md
               - name: Security operations
                 href: framework/security/monitor-security-operations.md
-              - name: Vaidate and test
+              - name: Validate and test
                 href: framework/security/monitor-test.md
               - name: Review and audit
                 href: framework/security/monitor-audit.md
