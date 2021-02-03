@@ -32,8 +32,6 @@ Health modeling refers to the activities that maintain the security posture of a
 |[**How is the security of the workload validated?**](monitor-test.md)|Test the defense of the workload by simulating real-world attacks. Use penetration testing to simulate one-time attack and red teams to simulate long-term persistent attack groups.|
 
 ## Azure security benchmark
-
-## Azure security benchmark
 The Azure Security Benchmark includes a collection of high-impact security recommendations. Use them to secure the services and processes you use to run the workload in Azure:
 
 > ![Security Benchmark](../../_images/benchmark-security.svg) The questions in this section are aligned to:
