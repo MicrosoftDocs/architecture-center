@@ -46,16 +46,20 @@ Be sure to utilize hybrid reference architectures from this section. They can al
 
 ### Azure Stack HCI use cases
 
-- **Upgrade your infrastructure for remote work using VDI**.
-   - Bring desktops on-premises for low latency and data sovereignty enabling remote work using a brokerage service like Microsoft Remote Desktop Services. With Azure Stack HCI you can scale your resources in a simple predictable way. Provide a secure way to deliver desktop services to a wide range of devices without allowing users to store data locally or upload data from those local devices.
-- **Modernize your remote and branch office, with easier to deploy and manageable technology**.
-   - Use Azure Stack HCI to meet the evolving IT demands of branch offices, retail stores, and field locations. Bring efficient IT to remote locations at the right price by leveraging switchless deployment and 2 node clusters.
-   - Deploy your container-built edge workloads and essential business applications in highly available virtual machines (VMs).
-   - Get a global view of your system’s health Azure Monitor.
-   - Control your enterprise virtual desktop infrastructure configuration in the cloud with an Azure update management solution.
-- **Modernize your high-performance workloads and container enterprise infrastructure Customer**
-   - Use Azure Stack HCI to enable automated deployment, scaling and management of containerized applications by running a Kubernetes cluster on your hyperconverged infrastructure.
- 
+- **Modernize your high-performance workloads and containerized applications**
+
+    - Use Azure Stack HCI to enable automated deployment, scaling and management of containerized applications by running a Kubernetes cluster on your hyperconverged infrastructure.
+
+- **Deploy and manage workloads in remote and branch sites**
+
+    - Use Azure Stack HCI to deploy your container-built edge workloads essential and business applications in highly available virtual machines (VMs).
+	 -	Bring efficient application development and deployment to remote locations at the right price by leveraging switchless deployment and 2 node clusters.
+	 -	Get a global view of your system’s health using Azure Monitor.
+	
+- **Upgrade your infrastructure for remote work using VDI**
+
+    - Bring desktops on-premises for low latency and data sovereignty enabling remote work using a brokerage service like Microsoft Remote Desktop Services. With Azure Stack HCI you can scale your resources in a simple predictable way. Provide a secure way to deliver desktop services to a wide range of devices without allowing users to store data locally or upload data from those local devices.
+
 ## Application design
 
 Utilize Arc Jumpstart, Arc Reference Architectures, and HCI Reference Architectures.
