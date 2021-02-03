@@ -57,17 +57,19 @@ In collaboration with Microsoft, Profisee has developed a set of Azure Data Fact
 
 :::image type="content" source="images/profisee-data-factory-template.png" alt-text="Screenshot that shows MDM Profisee and the Azure Data Factory template.":::
 
-Figure 1 - Azure Data Factory templates for Profisee
-
-### Example Data Factory template – JSON to Profisee over REST
+### Example Data Factory template: JSON to Profisee over REST
 
 The following screenshots illustrate an Azure Data Factory template that copies data from a JSON file in an Azure Data Lake to Profisee via REST. 
 
+The source JSON data is copied:
+
 :::image type="content" source="images/profisee-source-json-data.png" alt-text="Screenshot that shows the source JSON data.":::
+
+Then, data is synced to Profisee via REST:
 
 :::image type="content" source="images/profisee-rest-sync.png" alt-text="Screenshot that shows REST sync to Profisee.":::
 
-For more information, see the  [Azure Data Factory templates for Profisee](https://github.com/profisee/azuredatafactory).
+For more information, see [Azure Data Factory templates for Profisee](https://github.com/profisee/azuredatafactory).
 
 ## MDM processing
 
