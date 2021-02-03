@@ -385,10 +385,16 @@ items:
                     href: /azure/security/fundamentals/identity-management-best-practices?bc=%2fazure%2farchitecture%2fbread%2ftoc.json&toc=%2fazure%2farchitecture%2ftoc.json
               - name: Networking
                 items:
-                  - name: Network security review
-                    href: framework/security/design-network-review.md
-                  - name: Containment strategies for organizations
+                  - name: Checklist
                     href: framework/security/design-network.md
+                  - name: Network segmentation
+                    href: framework/security/design-network-segmentation.md
+                  - name: Connectivity
+                    href: framework/security/design-network-connectivity.md
+                  - name: Application endpoints
+                    href: framework/security/design-network-endpoints.md
+                  - name: Data flow
+                    href: framework/security/design-network-flow.md               
                   - name: Best practices
                     href: /azure/security/fundamentals/network-best-practices?bc=%2fazure%2farchitecture%2fbread%2ftoc.json&toc=%2fazure%2farchitecture%2ftoc.json
               - name: Data protection
