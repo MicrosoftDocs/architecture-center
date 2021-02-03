@@ -25,7 +25,7 @@ As with the single-region version, this approach isn't limited to Azure SQL Data
 
 ## Architecture
 
-![Architecture diagram](./media/appsvc-private-sql-multiregion-solution-architecture.png "Solution Architecture")
+![Architecture diagram](./media/app-service-private-sql-multiregion-solution-architecture.png "Solution Architecture")
 
 ### General case
 
@@ -141,7 +141,7 @@ Summary of DNS resolution:
 
 ### Components
 
-- [Azure App Service][App Service overview] provides a framework for building, deploying, and scaling web apps. This platform offers built-in infrastructure maintenance, security patching, and scaling.
+- [Azure App Service][Azure App Service] and its [Web Apps][Azure Web Apps] feature provide a framework for building, deploying, and scaling web apps. The App Service platform offers built-in infrastructure maintenance, security patching, and scaling.
 
 - [Azure App Service VNet Integration][Integrate your app with an Azure virtual network] connects apps to Azure resources. If you use Azure Virtual Network to set up a non-internet-routable network, the VNet Integration feature gives apps access to those resources. The [regional variation of VNet Integration][Regional VNet Integration] works with virtual networks in the same region as the app.
 
@@ -210,11 +210,11 @@ Follow these steps to deploy this scenario:
       - In the secondary region, the address for the primary database might be `10.2.1.5`.
 
    1. Add that IP address as an A record to the `privatelink.database.windows.net` private DNS zone that's linked to the local virtual network. For example:
-   
+
       - In the primary region, set `sql-secondary` to `10.1.1.5`.
       - In the seconday region, set `sql-primary` to `10.2.1.5`.
 
-   ![Screenshot showing adding the A record for the secondary database in the primary region](media/appsvc-private-sql-multiregion-privatezone.png)
+   ![Screenshot showing adding the A record for the secondary database in the primary region](media/app-service-private-sql-multiregion-privatezone.png)
 
 At this point:
 
@@ -225,8 +225,8 @@ At this point:
 
 This scenario effectively doubles the [cost of the single-region version](https://docs.microsoft.com/azure/architecture/example-scenario/private-web-app/private-web-app#cost). But certain circumstances can affect this estimate:
 
-  - You use a scaled-down version of the App Service Plan in the standby region and scale it up only when it becomes the active region.
-  - You have significant cross-region traffic. [Network traffic between Azure regions incurs charges](https://azure.microsoft.com/pricing/details/bandwidth/).
+- You use a scaled-down version of the App Service Plan in the standby region and scale it up only when it becomes the active region.
+- You have significant cross-region traffic. [Network traffic between Azure regions incurs charges](https://azure.microsoft.com/pricing/details/bandwidth/).
 
 Note that [the primary and secondary database need to use the same service tier](https://docs.microsoft.com/azure/azure-sql/database/active-geo-replication-overview#configuring-secondary-database). Otherwise, the secondary database may not keep up with replication changes.
 
@@ -239,7 +239,8 @@ Note that [the primary and secondary database need to use the same service tier]
 - [App Service networking features overview](/azure/app-service/networking-features): Information on inbound and outbound App Service scenarios and a discussion of which features to use in which cases.
 
 [Alternatives]: /azure/architecture/example-scenario/private-web-app/private-web-app#alternatives
-[App Service overview]: /azure/app-service/overview
+[Azure App Service]: /azure/app-service/
+[Azure Web Apps]: /azure/app-service/overview
 [Complete region failover]: #alternatives
 [Global peering limitation]: /azure/architecture/example-scenario/private-web-app/private-web-app#global-peering
 [Integrate your app with an Azure virtual network]: https://docs.microsoft.com/azure/app-service/web-sites-integrate-with-vnet
