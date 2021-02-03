@@ -1,5 +1,5 @@
 ---
-title: Security health modeling in Azure
+title:  Security monitoring in Azure
 description: Security logging and monitoring are activities related to enabling, acquiring, and storing audit logs for Azure services. 
 author: PageWriter-MSFT
 ms.date: 11/03/2020
@@ -10,7 +10,7 @@ ms.custom:
   - article
 ---
  
-# Security health modeling
+# Security monitoring in Azure
 
 Health modeling refers to the activities that maintain the security posture of a workload through monitoring. These activities can highlight, if the current security practices are effective or are there new requirements. Health modeling can be categorized as follows:
 ## Checklist
@@ -34,7 +34,7 @@ Health modeling refers to the activities that maintain the security posture of a
 ## Azure security benchmark
 
 ## Azure security benchmark
-The Azure Security Benchmark includes a collection of high-impact security recommendations you can use to help secure the services you use in Azure:
+The Azure Security Benchmark includes a collection of high-impact security recommendations. Use them to secure the services and processes you use to run the workload in Azure:
 
 > ![Security Benchmark](../../_images/benchmark-security.svg) The questions in this section are aligned to:
 > - The [Azure Security Benchmarks Logging and threat detection](/azure/security/benchmarks/security-controls-v2-logging-threat-detection).
@@ -42,7 +42,7 @@ The Azure Security Benchmark includes a collection of high-impact security recom
 > 
 
 ## Next steps
-We recommend applying as many as of the best practices as early as possible, and then working to retrofit any gaps over time as you mature your security program. 
+We recommend applying as many best practices as early as possible, and then working to retrofit any gaps over time as you mature your security program. 
 
 > [!div class="nextstepaction"]
 > [ Optimize security investments](./governance.md?branch=master#prioritize-security-best-practices-investments)

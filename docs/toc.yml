@@ -411,7 +411,7 @@ items:
                     href: framework/security/design-app-dependencies.md
           - name: Monitor
             items:
-              - name: Health modeling
+              - name: Checklist
                 href: framework/security/monitor.md
               - name: Tools
                 href: framework/security/monitor-tools.md
