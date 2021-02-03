@@ -20,7 +20,7 @@ This article describes some considerations that can help monitor the workload fo
 
 ## Key points
 - View identity related risks in Azure Active Directory (Azure AD) reporting and Azure AD Identity Protection.
-- Obfuscate personal information by using PII Detection cognitive skill.
+- Obfuscate personal information by using Personally Identifiable Information (PII) Detection cognitive skill.
 - Enable logs (including raw traffic) from your network devices. 
 - Set alerts and gain access to real-time performance information at the packet level. 
 
