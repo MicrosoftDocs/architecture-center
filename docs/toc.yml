@@ -730,6 +730,8 @@ items:
                 href: reference-architectures/data/stream-processing-databricks.yml
               - name: Stream processing with Azure Stream Analytics
                 href: reference-architectures/data/stream-processing-stream-analytics.yml
+              - name: Master data management with Profisee and Azure Data Factory
+                href: reference-architectures/data/profisee-master-data-management-data-factory.yml
               - name: Tiering applications & data for analytics
                 href: solution-ideas/articles/tiered-data-for-analytics.yml
       - name: Blockchain

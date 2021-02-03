@@ -1,8 +1,8 @@
 ### YamlMime:Architecture
 metadata:
-  title: PaaS Master Data Management in Azure with Data Factory and Profisee
+  title: Profisee master data management in Azure with Azure Data Factory
   titleSuffix: Azure Architectures
-  description: Integrate Profisee Master Data Management with Azure Data Factory to deliver high-quality, trusted data for Azure Synapse and all analytic applications.
+  description: Integrate Profisee master data management with Azure Data Factory to deliver high-quality, trusted data for Azure Synapse and all analytic applications.
   author: doodlemania2
   ms.date: 01/25/2021
   ms.topic: conceptual
@@ -23,8 +23,8 @@ products:
   - power-bi
   - azure-data-lake
   - azure-active-directory
-name: PaaS Master Data Management in Azure with Data Factory and Profisee
-summary: Integrate Profisee Master Data Management with Azure Data Factory to deliver high-quality, trusted data for Azure Synapse and all analytic applications.
+name: Profisee master data management in Azure with Data Factory
+summary: Integrate Profisee master data management with Azure Data Factory to deliver high-quality, trusted data for Azure Synapse and all analytic applications.
 thumbnailUrl: /azure/architecture/browse/thumbs/mdm-in-azure-with-profisee.png
 content: |
   [!include[](mdm-in-azure-with-profisee-content.md)]
