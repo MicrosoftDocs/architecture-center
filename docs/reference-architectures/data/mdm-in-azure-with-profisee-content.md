@@ -1,7 +1,3 @@
-# Master Data Management in Azure with Profisee
-
-
-
 Azure is used as the core of many digital transformation programs, but it is dependent on the quality and consistency of data from multiple sources – business applications, databases, data feeds, etc. – and delivers value through business intelligence, analytics, machine learning and more. Profisee’s MDM solution completes the Azure Data Estate with a practical method to ‘align and combine’ data from multiple sources by enforcing consistent data standards on source data (match, merge, standardize, verify, correct). Native integration with Azure Data Factory and other Azure Data Services further streamlines this process to accelerate the delivery Azure business benefits.
 
 
