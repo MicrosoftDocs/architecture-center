@@ -25,6 +25,6 @@ products:
   - azure-active-directory
 name: Profisee master data management in Azure with Data Factory
 summary: Integrate Profisee master data management with Azure Data Factory to deliver high-quality, trusted data for Azure Synapse and all analytic applications.
-thumbnailUrl: /azure/architecture/browse/thumbs/mdm-in-azure-with-profisee.png
+thumbnailUrl: /azure/architecture/browse/thumbs/profisee-master-data-management-data-factory-content.png
 content: |
-  [!include[](mdm-in-azure-with-profisee-content.md)]
+  [!include[](profisee-master-data-management-data-factory-content.md)]
