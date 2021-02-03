@@ -37,7 +37,7 @@ It's recommended that you simulate a one-time attack to detect vulnerabilities. 
 
 [Penetration Testing Execution Standard (PTES)](http://www.pentest-standard.org/index.php/Main_Page) provides guidelines about common scenarios and the activities required to establish a baseline.  
 
-Azure uses shared infrastructure to host your assets and assets belonging to other customers. In a pentesting exercise, the practicers may need access to sensitive data of the entire organization. Follow the rules of engagement to make sure that access is not misused. For guidance about planning and executing simulated attacks, see [Penetration Testing Rules of Engagement](https://www.microsoft.com/en-us/msrc/pentest-rules-of-engagement).
+Azure uses shared infrastructure to host your assets and assets belonging to other customers. In a pentesting exercise, the practitioners may need access to sensitive data of the entire organization. Follow the rules of engagement to make sure that access and the intent is not misused. For guidance about planning and executing simulated attacks, see [Penetration Testing Rules of Engagement](https://www.microsoft.com/msrc/pentest-rules-of-engagement).
 
 
 ## Simulate attacks
@@ -57,7 +57,7 @@ A popular choice for ro simulate realistic attack scenarios is [Office 365 Attac
 
 Threat modeling is a structured process to identify the possible attack vectors. Based on the results, prioritize the risk mitigate efforts. For more information, see [Application threat analysis](design-threat-model.md). 
 
-For more information on current attacks, see the [Microsoft Security Intelligence (SIR)](https://www.microsoft.com/en-us/security/business/security-intelligence-report) report.
+For more information on current attacks, see the [Microsoft Security Intelligence (SIR)](https://www.microsoft.com/security/business/security-intelligence-report) report.
 
 [Microsoft Cloud Red Teaming](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e)
 
