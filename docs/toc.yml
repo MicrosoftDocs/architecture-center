@@ -417,12 +417,14 @@ items:
                     href: framework/security/design-app-dependencies.md
           - name: Monitor
             items:
-              - name: Health modeling
+              - name: Checklist
                 href: framework/security/monitor.md
               - name: Tools
                 href: framework/security/monitor-tools.md
               - name: Security operations
                 href: framework/security/monitor-security-operations.md
+              - name: Validate and test
+                href: framework/security/monitor-test.md
               - name: Review and audit
                 href: framework/security/monitor-audit.md
               - name: Identity and network risks
