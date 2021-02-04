@@ -49,7 +49,7 @@ Use the following button to deploy the reference using the Azure portal.
 For detailed information and additional deployment options, see the ARM Templates used to deploy this solution.
 
 > [!div class="nextstepaction"]
-> [Hub and Spoke ARM Template](https://github.com/mspnp/samples/tree/master/solutions/azure-hub-spoke)
+> [Hub and Spoke ARM Template](https://docs.microsoft.com/samples/mspnp/samples/hub-and-spoke-deployment/)
 
 ## Use cases
 
