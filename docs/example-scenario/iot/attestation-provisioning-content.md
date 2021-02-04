@@ -36,11 +36,10 @@ Consider the combinations of [Azure IoT Hub supported authentication protocols](
 
 ### Next steps
 
-[Set up the IoT Hub Device Provisioning Service with the Azure portal](/azure/iot-dps/quick-setup-auto-provision)
-
-[Provision a symmetric key device using C#](/azure/iot-dps/quick-create-device-symmetric-key-csharp)
-
-[Create and provision an X.509 device using C# device SDK for IoT Hub Device Provisioning Service](/azure/iot-dps/quick-create-simulated-device-x509-csharp)
+- [Set up the IoT Hub Device Provisioning Service with the Azure portal](/azure/iot-dps/quick-setup-auto-provision)
+- [Provision a symmetric key device using C#](/azure/iot-dps/quick-create-device-symmetric-key-csharp)
+- [Create and provision an X.509 device using C# device SDK for IoT Hub Device Provisioning Service](/azure/iot-dps/quick-create-simulated-device-x509-csharp)
 
 ### See also
+
 - [Device Authentication using X.509 CA Certificates](/azure/iot-hub/iot-hub-x509ca-overview)
