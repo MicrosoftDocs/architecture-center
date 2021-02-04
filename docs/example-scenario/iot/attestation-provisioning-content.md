@@ -34,5 +34,11 @@ Consider the combinations of [Azure IoT Hub supported authentication protocols](
 - Although IoT Hub supports X.509 CA authentication, provisioning devices with X.509 CA through DPS provisions them to the IoT Hub as X.509 thumbprint.
 - Web socket variants of AMQP and MQTT aren't supported with X.509 CA certificates in IoT Hub.
 
+### Next Steps
+
+[Set up the IoT Hub Device Provisioning Service with the Azure portal](https://docs.microsoft.com/en-us/azure/iot-dps/quick-setup-auto-provision)
+[Provision a symmetric key device using C#](https://docs.microsoft.com/en-us/azure/iot-dps/quick-create-device-symmetric-key-csharp)
+[Create and provision an X.509 device using C# device SDK for IoT Hub Device Provisioning Service](https://docs.microsoft.com/en-us/azure/iot-dps/quick-create-simulated-device-x509-csharp)
+
 ### See also
 - [Device Authentication using X.509 CA Certificates](/azure/iot-hub/iot-hub-x509ca-overview)
