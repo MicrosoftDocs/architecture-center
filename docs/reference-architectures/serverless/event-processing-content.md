@@ -41,8 +41,6 @@ Cosmos DB is available in 2 different capacity modes:
 - [Serverless][cosmosdb-serverless] for workloads with intermittent or unpredictable traffic and low average-to-peak traffic ratio.
 - [Provisioned throughput][cosmosdb-provisioned], for workloads with sustained traffic requiring predictable performance.
 
-Throughput capacity for Cosmos DB is measured in [Request Units][ru] (RU). In order to scale a Cosmos DB container past 10,000 RU, you must specify a [partition key][partition-key] when you create the container, and include the partition key in every document that you create.
-
 To make sure your workload is scalable, it is important to choose an appropriate [partition key][partition-key] when you create your Cosmos DB containers. Here are some characteristics of a good partition key:
 
 - The key value space is large.
