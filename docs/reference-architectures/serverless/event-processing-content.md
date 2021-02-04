@@ -122,7 +122,7 @@ The deployment shown here resides in a single Azure region. For a more resilient
 
 ## Cost considerations
 
-Use the [Azure Pricing calculator][azure-pricing-calculator] to estimates costs. Here are some other considerations.
+Use the [Azure Pricing calculator][azure-pricing-calculator] to estimates costs. See also the Cost section in [Microsoft Azure Well-Architected Framework][aaf-cost]. Here are some other considerations.
 
 ### Azure Functions
 
@@ -153,9 +153,6 @@ With Cosmos DB, you pay for the operations you perform against the database and 
 In this reference architecture, the function stores exactly one document per device that is sending data. The function continually updates the documents with latest device status, using an upsert operation, which is cost effective in terms of consumed storage. For more information, see [Cosmos DB pricing model][cosmosdb-pricing].
 
 Use the [Cosmos DB capacity calculator][Cosmos-Calculator] to get a quick estimate of the workload cost.
-
-For more information, see the Cost section in [Microsoft Azure Well-Architected Framework][aaf-cost].
-
 
 ## DevOps considerations
 
