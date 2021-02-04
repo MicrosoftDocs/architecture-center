@@ -3,16 +3,18 @@ metadata:
   title: Azure Arc hybrid management and deployment for Kubernetes clusters
   description: Use Azure Arc to register Kubernetes clusters hosted outside of Azure, and using Azure tools to manage these clusters along with clusters hosted in Azure Kubernetes Service.
   author: doodlemania2
+  ms.author: pnp
   ms.date: 07/23/2020
   ms.topic: conceptual
   ms.service: architecture-center
+  ms.subservice: reference-architecture
   ms.category:
     - hybrid
     - management-and-governance
-  ms.subservice: reference-architecture
   ms.custom:
     - fcp
     - reference-architecture
+    - e2e-hybrid
 name: Azure Arc hybrid management and deployment for Kubernetes clusters
 azureCategories:
   - hybrid
