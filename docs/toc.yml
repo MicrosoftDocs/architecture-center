@@ -385,10 +385,16 @@ items:
                     href: /azure/security/fundamentals/identity-management-best-practices?bc=%2fazure%2farchitecture%2fbread%2ftoc.json&toc=%2fazure%2farchitecture%2ftoc.json
               - name: Networking
                 items:
-                  - name: Network security review
-                    href: framework/security/design-network-review.md
-                  - name: Containment strategies for organizations
+                  - name: Checklist
                     href: framework/security/design-network.md
+                  - name: Network segmentation
+                    href: framework/security/design-network-segmentation.md
+                  - name: Connectivity
+                    href: framework/security/design-network-connectivity.md
+                  - name: Application endpoints
+                    href: framework/security/design-network-endpoints.md
+                  - name: Data flow
+                    href: framework/security/design-network-flow.md               
                   - name: Best practices
                     href: /azure/security/fundamentals/network-best-practices?bc=%2fazure%2farchitecture%2fbread%2ftoc.json&toc=%2fazure%2farchitecture%2ftoc.json
               - name: Data protection
@@ -417,12 +423,14 @@ items:
                     href: framework/security/design-app-dependencies.md
           - name: Monitor
             items:
-              - name: Health modeling
+              - name: Checklist
                 href: framework/security/monitor.md
               - name: Tools
                 href: framework/security/monitor-tools.md
               - name: Security operations
                 href: framework/security/monitor-security-operations.md
+              - name: Validate and test
+                href: framework/security/monitor-test.md
               - name: Review and audit
                 href: framework/security/monitor-audit.md
               - name: Identity and network risks
@@ -730,6 +738,8 @@ items:
                 href: reference-architectures/data/stream-processing-databricks.yml
               - name: Stream processing with Azure Stream Analytics
                 href: reference-architectures/data/stream-processing-stream-analytics.yml
+              - name: Profisee master data management with Azure Data Factory
+                href: reference-architectures/data/profisee-master-data-management-data-factory.yml
               - name: Tiering applications & data for analytics
                 href: solution-ideas/articles/tiered-data-for-analytics.yml
       - name: Blockchain
