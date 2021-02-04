@@ -244,7 +244,7 @@ However, the exception to this is if you want to use security groups only for
 network logging. We do not recommend this, but it is an option if you have
 another network access control solution in place.
 
-[Azure Virtual Network subnets](https://almbok.com/office365/microsoft_cloud_it_architecture_resources) can be designed in this way.
+[Azure Virtual Network subnets](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-manage-subnet) can be designed in this way.
 
 ## Mitigate DDoS attacks
 
