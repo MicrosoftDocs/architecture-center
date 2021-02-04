@@ -35,3 +35,16 @@ Create seamless conversational interfaces with all of your internet-accessible d
 1. [Custom Keywords](/azure/cognitive-services/speech-service/speech-devices-sdk-create-kws)
 1. [Language Understanding Service (LUIS)](/azure/cognitive-services/luis/)
 1. [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/)
+
+## Next Steps
+
+1. For detailed documentation on creating an LUIS App and creating intents, refer to the following links:
+    * [Create an LUIS App](https://docs.microsoft.com/en-us/azure/cognitive-services/luis/luis-how-to-start-new-app)
+    * [Add an intent and train LUIS App](https://docs.microsoft.com/en-us/azure/cognitive-services/luis/luis-how-to-add-intents)
+1. For detailed documentation on creating and adding LUIS to bot, refer to the following links:
+   * How to [Create a bot](https://docs.microsoft.com/en-us/azure/bot-service/abs-quickstart?view=azure-bot-service-4.0) with [Azure Bot Service](/azure/bot-service/?view=azure-bot-service-4.0)
+   * [Add natural language understanding (LUIS) to bot](https://docs.microsoft.com/en-us/azure/bot-service/bot-builder-howto-v4-luis?view=azure-bot-service-4.0&tabs=csharp)
+1. For detailed documentation on different communication methods to IoT device using [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/), refer to the following links:
+   * Sending [Cloud to Device commands](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-csharp-csharp-c2d)
+   * Using [Device Twins](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-csharp-csharp-twin-getstarted)
+   * Using [Direct Methods](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-devguide-direct-methods)
