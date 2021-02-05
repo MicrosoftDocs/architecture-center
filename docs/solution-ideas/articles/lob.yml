@@ -2,14 +2,16 @@
 metadata:
   title: Line of Business Extension
   titleSuffix: Azure Solution Ideas
-  author: doodlemania2
-  ms.date: 08/24/2020
   description: Modernize legacy systems by automating processes. Schedule calculations, connect to third party data sources or legacy systems, and process and share data.
+  author: doodlemania2
+  ms.author: pnp
+  ms.date: 08/24/2020
+  ms.topic: conceptual
   ms.service: architecture-center
+  ms.subservice: solution-idea
   ms.category:
     - mobile
     - functions
-  ms.subservice: solution-idea
 name: Line of Business Extension
 azureCategories:
   - mobile
