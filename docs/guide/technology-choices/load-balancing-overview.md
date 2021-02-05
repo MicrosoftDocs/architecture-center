@@ -58,6 +58,34 @@ Here are the main load-balancing services currently available in Azure:
 
 [Azure Load Balancer](/azure/load-balancer/load-balancer-overview) is a high-performance, ultra low-latency Layer 4 load-balancing service (inbound and outbound) for all UDP and TCP protocols. It is built to handle millions of requests per second while ensuring your solution is highly available. Azure Load Balancer is zone-redundant, ensuring high availability across Availability Zones.
 
+
+## Choose a load balancing solution using Azure portal
+
+You can use the Azure Load Balancing page in the Azure portal to help you guide to the right load-balancing solution for your business need. Azure Load Balancing includes the decision making queries described in the workflow of the previous section and can be accessed as follows:
+
+1. Sign in to the [Azure portal at [https://portal.azure.com](https://portal.azure.com).
+1. In the *Search resources, services, and docs* box at the top of the portal, type *load balancing*. When **load balancing** appears in the search results, select it.
+    ![Search for load balancing - Azure portal screenshot](./images/search-load-balancing-2.png)
+1. In the Help me choose page, do one of the following:
+    1. To find the appropriate load  balancing solution for your business, follow instructions in the default **Help me choose** tab.
+      ![Choose an Azure load balancing solution - Azure portal screenshot](./images/load-balancing-help-me-choose.png)
+    1. To learn about the supported protocols and service capabilities of each load balancing service, select the **Service comparisons** tab.
+    1. To access free training on load balancing services, select the **Tutorial** tab.
+     
+## Reference architecture examples
+
+The following table lists various architecture reference articles based on the load-balancing services used as a solution.
+
+|Service(s) |Article |Description |
+|---------|---------|---------|
+|Load Balancer    |  TBD    |   TBD      |
+|Front Door    |  [Sharing location in real time using low-cost serverless Azure services](https://docs.microsoft.com/azure/architecture/example-scenario/signalr/#azure-front-door)       |   TBD      |
+|Application Gateway     |[IaaS: Web application with relational database](https://docs.microsoft.com/azure/architecture/high-availability/ref-arch-iaas-web-and-db)    |    TBD     |
+|Traffic Manager   | [Multi-region N-tier application](https://docs.microsoft.com/azure/architecture/reference-architectures/n-tier/multi-region-sql-server)        |      TBD   |
+|Azure Front Door + Application Gateway     | [Multitenant SaaS on Azure](https://docs.microsoft.com/azure/architecture/example-scenario/multi-saas/multitenant-saas)       |      TBD   |
+|Traffic Manager + Load Balancer    | [Multi-region N-tier application](https://docs.microsoft.com/azure/architecture/reference-architectures/n-tier/multi-region-sql-server)          |  TBD       |
+|Traffic Manager + Application Gateway  | [Multi-region N-tier application](https://docs.microsoft.com/azure/architecture/reference-architectures/n-tier/multi-region-sql-server)       |     TBD    |
+
 ## Decision tree for load balancing in Azure
 
 When selecting the load-balancing options, here are some factors to consider:
@@ -87,33 +115,4 @@ If your application consists of multiple workloads, evaluate each workload separ
 - **IaaS**. Infrastructure as a service (IaaS) is a computing option where you provision the VMs that you need, along with associated network and storage components. IaaS applications require internal load balancing within a virtual network, using Azure Load Balancer.
 
 - **Application-layer processing** refers to special routing within a virtual network. For example, path-based routing within the virtual network across VMs or virtual machine scale sets. For more information, see [When should we deploy an Application Gateway behind Front Door?](/azure/frontdoor/front-door-faq#when-should-we-deploy-an-application-gateway-behind-front-door).
-
-## Choose a load balancing solution using Azure portal
-
-You can use the Azure Load Balancing page in the Azure portal to help you guide to the right load-balancing solution for your business need. Azure Load Balancing includes the decision making queries described in the workflow of the previous section and can be accessed as follows:
-
-1. Sign in to the [Azure portal at [https://portal.azure.com](https://portal.azure.com).
-1. In the *Search resources, services, and docs* box at the top of the portal, type *load balancing*. When **load balancing** appears in the search results, select it.
-    ![Search for load balancing - Azure portal screenshot](./images/load-balancing-search.png)
-1. In the Help me choose page, do one of the following:
-    1. To find the appropriate load  balancing solution for your business, follow instructions in the default **Help me choose** tab.
-      ![Choose an Azure load balancing solution - Azure portal screenshot](./images/load-balancing-search.png)
-    1. To learn about the supported protocols and service capabilities of each load balancing service, select the **Service comparisons** tab.
-       ![Search for load balancing - Azure portal screenshot](./images/load-balancing-search.png)
-    1. To access free training on load balancing services, select the **Tutorial** tab.
-       ![Search for load balancing - Azure portal screenshot](./images/load-balancing-service-comparison.png)
-
-## Reference architecture examples
-
-The following table lists various architecture reference articles based on the load-balancing services used as a solution.
-
-|Service(s) |Article |Description |
-|---------|---------|---------|
-|Front Door    |  [Sharing location in real time using low-cost serverless Azure services](https://docs.microsoft.com/azure/architecture/example-scenario/signalr/#azure-front-door)       |   TBD      |
-|Application Gateway     |[IaaS: Web application with relational database](https://docs.microsoft.com/azure/architecture/high-availability/ref-arch-iaas-web-and-db)    |    TBD     |
-|Traffic Manager   | [Multi-region N-tier application](https://docs.microsoft.com/azure/architecture/reference-architectures/n-tier/multi-region-sql-server)        |      TBD   |
-|Azure Front Door + Application Gateway     | [Multitenant SaaS on Azure](https://docs.microsoft.com/azure/architecture/example-scenario/multi-saas/multitenant-saas)       |      TBD   |
-|Traffic Manager + Load Balancer    | [Multi-region N-tier application](https://docs.microsoft.com/azure/architecture/reference-architectures/n-tier/multi-region-sql-server)          |  TBD       |
-|Traffic Manager + Application Gateway  | [Multi-region N-tier application](https://docs.microsoft.com/azure/architecture/reference-architectures/n-tier/multi-region-sql-server)       |     TBD    |
-
 
