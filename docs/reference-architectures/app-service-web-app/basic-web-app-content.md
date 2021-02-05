@@ -1,13 +1,50 @@
-
-<!-- cSpell:ignore BACPAC DTUs -->
-
-
-
 This reference architecture shows proven practices for a web application that uses [Azure App Service][app-service] and [Azure SQL Database][sql-db]. [**Deploy this solution**](#deploy-the-solution).
 
 ![Reference architecture for a basic web application in Azure](./images/basic-web-app.png)
 
 *Download a [Visio file][visio-download] of this architecture.*
+
+## Reference deployment
+
+This deployment includes one hub virtual network and two peered spokes. An Azure Firewall and Azure Bastion host are also deployed. Optionally, the deployment can include virtual machines in the first spoke network and a VPN gateway.
+
+#### [Azure CLI](#tab/cli)
+
+Use the following command to create a resource group for the deployment. Click the **Try it** button to use an embedded shell.
+
+```azurecli-interactive
+az group create --name basic-web-app --location eastus
+```
+
+Run the following command to deploy the hub and spoke network configuration, VNet peerings between the hub and spoke, and a Bastion host
+
+```azurecli-interactive
+az deployment group create --resource-group basic-web-app  \
+    --template-uri https://raw.githubusercontent.com/mspnp/samples/master/solutions/basic-web-app/azuredeploy.json
+```
+
+#### [PowerShell](#tab/powershell)
+
+Use the following command to create a resource group for the deployment. Click the **Try it** button to use an embedded shell.
+
+```azurepowershell-interactive
+New-AzResourceGroup -Name basic-web-app -Location eastus
+```
+
+Run the following command to deploy the hub and spoke network configuration, VNet peerings between the hub and spoke, and a Bastion host
+
+```azurepowershell-interactive
+New-AzResourceGroupDeployment -ResourceGroupName basic-web-app `
+    -TemplateUri https://raw.githubusercontent.com/mspnp/samples/master/solutions/basic-web-app/azuredeploy.json
+```
+
+#### [Azure portal](#tab/portal)
+
+Use the following button to deploy the reference using the Azure portal.
+
+[![Deploy to Azure](../../_images/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmspnp%2Fsamples%2Fmaster%2Fsolutions%2Fbasic-web-app%2Fazuredeploy.json)
+
+--- 
 
 ## Architecture
 
