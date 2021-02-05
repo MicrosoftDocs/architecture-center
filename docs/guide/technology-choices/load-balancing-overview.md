@@ -3,7 +3,7 @@ title: Overview of Azure load-balancing options
 titleSuffix: Azure Application Architecture Guide
 description: An overview of Azure load-balancing options.
 author: doodlemania2
-ms.date: 04/2/2019
+ms.date: 02/05/2021
 ms.topic: conceptual
 ms.service: architecture-center
 ms.category:
@@ -14,7 +14,7 @@ ms.custom:
   - guide
 ---
 
-# Overview of load-balancing options in Azure
+# Understand Azure Load Balancing
 
 The term *load balancing* refers to the distribution of workloads across multiple computing resources. Load balancing aims to optimize resource use, maximize throughput, minimize response time, and avoid overloading any single resource. It can also improve availability by sharing a workload across redundant computing resources.
 
@@ -87,3 +87,18 @@ If your application consists of multiple workloads, evaluate each workload separ
 - **IaaS**. Infrastructure as a service (IaaS) is a computing option where you provision the VMs that you need, along with associated network and storage components. IaaS applications require internal load balancing within a virtual network, using Azure Load Balancer.
 
 - **Application-layer processing** refers to special routing within a virtual network. For example, path-based routing within the virtual network across VMs or virtual machine scale sets. For more information, see [When should we deploy an Application Gateway behind Front Door?](/azure/frontdoor/front-door-faq#when-should-we-deploy-an-application-gateway-behind-front-door).
+
+## Choose a load balancing solution using Azure portal
+
+You can use the Azure Load Balancing page in the Azure portal to help you guide to the right load-balancing solution for your business need. Azure Load Balancing includes the decision making queries described in the workflow of the previous section and can be accessed as follows:
+
+1. Sign in to the Azure portal
+1. In the *Search resources, services, and docs* box at the top of the portal, type *load balancing*. When **load balancing** appears in the search results, select it.
+    [Search for load balancing - Azure portal screenshot](./images/load-balancing-search.png)
+1. In the Help me choose page, do one of the following:
+    1. To find the appropriate load  balancing solution for your business, follow instructions in the default **Help me choose** tab.
+      [Choose an Azure load balancing solution - Azure portal screenshot](./images/load-balancing-search.png)
+    1. To learn about the supported protocols and service capabilities of each load balancing service, select the **Service comparisons** tab.
+       [Search for load balancing - Azure portal screenshot](./images/load-balancing-search.png)
+    1. To access free training on load balancing services, select the **Tutorial** tab.
+       [Search for load balancing - Azure portal screenshot](./images/load-balancing-service-comparison.png)
