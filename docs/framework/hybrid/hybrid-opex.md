@@ -12,9 +12,13 @@ ms.custom:
 
 # Operational excellence in a hybrid workload
 
-Operational excellence consists of the operations processes that keep a system running in production.
+<!-- comment new content - More devops focus, in-line with the WAF Op Ex content -->
 
-Be sure to utilize hybrid reference architectures from this section. They can also be found in the Azure Architecture Center, [Hybrid and Multicloud](/azure/architecture/browse/?azure_categories=hybrid) category.
+Operational excellence consists of the operations processes that keep a system running in production. Applications must be designed with DevOps principles in mind, and deployments must be reliable and predictable. Use monitoring tools to verify that your application is running correctly and to gather custom business telemetry that will tell you whether your application is being used as intended.
+
+Use _Azure Arc enabled infrastructure_ to add support for cloud [Overview of the operational excellence pillar](../devops/overview.md) practices and tools to any environment. Be sure to utilize reference architectures and other resources from this section that illustrate applying these principles in hybrid and multicloud scenarios. The architectures referenced here can also be found in the Azure Architecture Center, [Hybrid and Multicloud](../../browse/index.yml?azure_categories=hybrid) category.
+
+<!-- end new content -->
 
 ## Monitor your hybrid workloads across clouds
 
@@ -62,18 +66,33 @@ Be sure to utilize hybrid reference architectures from this section. They can al
 
 ## Application design
 
-Utilize Arc Jumpstart, Arc Reference Architectures, and HCI Reference Architectures.
+<!-- new content - More devops focus, in-line with the WAF Op Ex content -->
 
+The introduction of cloud computing had a significant impact on how software is developed, delivered, and run. With _Azure Arc enabled infrastructure_ and Azure Arc components like [Azure Arc enabled Kubernetes](/azure-arc/kubernetes/overview) and [Azure Arc enabled data services](/azure-arc/data/overview) it becomes possible to design cloud native applications with a consistent set of principles and tooling across public cloud, private cloud, and the edge.
+
+Click the following links for architecture details and diagrams that enable application design and DevOps practices consistent with [Operational excellence principles](../devops/principles.md).
+
+- [Azure Arc hybrid management and deployment for Kubernetes clusters](../../hybrid/arc-hybrid-kubernetes.yml)
+- [Run containers in a hybrid environment](../../hybrid/hybrid-containers)
+- [Managing K8 clusters outside of Azure with Azure Arc](https://azure.microsoft.com/resources/videos/kubernetes-app-management-with-azure-arc)
+- [Optimize administration of SQL Server instances in on-premises and multi-cloud environments by leveraging Azure Arc](../../hybrid/azure-arc-sql-server.yml)
+- [Azure Data Studio dashboards](/azure-arc/data/azure-data-studio-dashboards)
 - [microsoft/azure_arc: Azure Arc environments bootstrapping for everyone](https://github.com/microsoft/azure_arc) (in github.com)
-- [Hybrid and Multicloud Architectures - Azure Architecture Center | Microsoft Docs](/azure/architecture/browse/?azure_categories=hybrid#management) - Management
-- [Hybrid and Multicloud Architectures - Azure Architecture Center | Microsoft Docs](/azure/architecture/browse/?azure_categories=hybrid#data) - Data
-- Show design patterns for:
-   - Arc enabled servers
-   - Arc enabled K8s
-   - Arc enabled SQL server
-   - Arc enabled data services
- 
+- [All Azure Architecture Center Hybrid and Multicloud Architectures](../../browse/index.yml?azure_categories=hybrid)
+
+<!-- end new content -->
+
 ## Monitoring
+
+<!-- new content - More devops focus, in-line with the WAF Op Ex content -->
+
+Click the following links for architecture details and diagrams that illustrate [Monitoring for DevOps](../devops/monitoring.md) in a hybrid and multicloud environment.
+
+- [Hybrid availability and performance monitoring](../../hybrid/hybrid-perf-monitoring.yml)
+- [Enable monitoring of Azure Arc enabled Kubernetes cluster](https://docs.microsoft.com/azure/azure-monitorinsights/container-insights-enable-arc-enabled-clusters)
+- [Azure Monitor for containers overview](/azure-monitor/insights/container-insights-overview)
+
+<!-- end new content -->
 
 - **Connect Machines agent overview of Azure Arc**
    - Connect machines from Azure portal
@@ -95,6 +114,17 @@ VM extensions can be managed using:
 
 ## Code deployment
 
+<!-- new content - More devops focus, in-line with the WAF Op Ex content -->
+
+Click the following links for architecture details and diagrams that illustrate [Deployment considerations for DevOps](../devops/release-engineering-cd.md) in a hybrid and multicloud environment.
+
+- [Deploy configurations using GitOps on Arc enabled Kubernetes cluster](https://docs.microsoft.com/en-us/azure/azure-arc/kubernetes/use-gitops-connected-cluster)
+- [Use Azure Policy to apply cluster configurations at scale](https://docs.microsoft.com/en-us/azure/azure-arc/kubernetes/use-azure-policy)
+- [Azure Automation in a hybrid environment](https://docs.microsoft.com/en-us/azure/architecture/hybrid/azure-automation-hybrid)
+- [DevOps in a hybrid environment](https://docs.microsoft.com/en-us/azure/architecture/solution-ideas/articles/devops-in-a-hybrid-environment)
+
+<!-- end new content -->
+
 - **Deploy Azure VM extensions with ARM templates**: [Enable VM extension using Azure Resource Manager template](/azure/azure-arc/servers/manage-vm-extensions-template) (in Azure Arc | Microsoft Docs)
    - Linux
    - Windows
@@ -110,6 +140,10 @@ VM extensions can be managed using:
 - **Deploy Azure Key Vault Extensions**
    - Linux
    - Windows
+
+
+
+
 
 ## Manage data anywhere
 
