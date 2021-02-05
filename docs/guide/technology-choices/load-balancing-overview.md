@@ -94,21 +94,23 @@ You can use the Azure Load Balancing page in the Azure portal to help you guide 
 
 1. Sign in to the [Azure portal at [https://portal.azure.com](https://portal.azure.com).
 1. In the *Search resources, services, and docs* box at the top of the portal, type *load balancing*. When **load balancing** appears in the search results, select it.
-    [Search for load balancing - Azure portal screenshot](./images/load-balancing-search.png)
+    ![Search for load balancing - Azure portal screenshot](./images/load-balancing-search.png)
 1. In the Help me choose page, do one of the following:
     1. To find the appropriate load  balancing solution for your business, follow instructions in the default **Help me choose** tab.
-      [Choose an Azure load balancing solution - Azure portal screenshot](./images/load-balancing-search.png)
+      ![Choose an Azure load balancing solution - Azure portal screenshot](./images/load-balancing-search.png)
     1. To learn about the supported protocols and service capabilities of each load balancing service, select the **Service comparisons** tab.
-       [Search for load balancing - Azure portal screenshot](./images/load-balancing-search.png)
+       ![Search for load balancing - Azure portal screenshot](./images/load-balancing-search.png)
     1. To access free training on load balancing services, select the **Tutorial** tab.
-       [Search for load balancing - Azure portal screenshot](./images/load-balancing-service-comparison.png)
+       ![Search for load balancing - Azure portal screenshot](./images/load-balancing-service-comparison.png)
 
 ## Reference architecture examples
+
+The following table lists various architecture reference articles based on the load-balancing services used as a solution.
 
 |Service(s) |Article |Description |
 |---------|---------|---------|
 |Front Door    |  [Sharing location in real time using low-cost serverless Azure services](https://docs.microsoft.com/azure/architecture/example-scenario/signalr/#azure-front-door)       |   TBD      |
-|Application Gateway     |[IaaS: Web application with relational database](https://docs.microsoft.com/en-us/azure/architecture/high-availability/ref-arch-iaas-web-and-db)    |    TBD     |
+|Application Gateway     |[IaaS: Web application with relational database](https://docs.microsoft.com/azure/architecture/high-availability/ref-arch-iaas-web-and-db)    |    TBD     |
 |Traffic Manager   | [Multi-region N-tier application](https://docs.microsoft.com/azure/architecture/reference-architectures/n-tier/multi-region-sql-server)        |      TBD   |
 |Azure Front Door + Application Gateway     | [Multitenant SaaS on Azure](https://docs.microsoft.com/azure/architecture/example-scenario/multi-saas/multitenant-saas)       |      TBD   |
 |Traffic Manager + Load Balancer    | [Multi-region N-tier application](https://docs.microsoft.com/azure/architecture/reference-architectures/n-tier/multi-region-sql-server)          |  TBD       |
