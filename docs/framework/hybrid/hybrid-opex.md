@@ -12,65 +12,61 @@ ms.custom:
 
 # Operational excellence in a hybrid workload
 
-<!-- comment new content - More devops focus, in-line with the WAF Op Ex content -->
-
 Operational excellence consists of the operations processes that keep a system running in production. Applications must be designed with DevOps principles in mind, and deployments must be reliable and predictable. Use monitoring tools to verify that your application is running correctly and to gather custom business telemetry that will tell you whether your application is being used as intended.
 
-Use _Azure Arc enabled infrastructure_ to add support for cloud [Overview of the operational excellence pillar](../devops/overview.md) practices and tools to any environment. Be sure to utilize reference architectures and other resources from this section that illustrate applying these principles in hybrid and multicloud scenarios. The architectures referenced here can also be found in the Azure Architecture Center, [Hybrid and Multicloud](../../browse/index.yml?azure_categories=hybrid) category.
+Use _Azure Arc enabled infrastructure_ to add support for cloud [Operational Excellence](../devops/overview.md) practices and tools to any environment. Be sure to utilize reference architectures and other resources from this section that illustrate applying these principles in hybrid and multicloud scenarios. The architectures referenced here can also be found in the Azure Architecture Center, [Hybrid and Multicloud](../../browse/index.yml?azure_categories=hybrid) category.
 
-<!-- end new content -->
+## Build cloud native apps anywhere, at scale
 
-## Monitor your hybrid workloads across clouds
+To keep your systems running, many workload teams have architected and designed applications where components are distributed across public cloud services, private clouds, data centers, and edge locations. With Azure Arc enabled Kubernetes, you can accelerate development by using best in class application services with standardized deployment, configuration, security, and observability.
+One of the primary benefits of Azure Arc is facilitating implementation of DevOps principles that apply established development practices to operations. This results in improved agility, without jeopardizing the stability of IT environment.
 
-- **Azure Arc enabled data services**
-   - Better data estate planning and control: Single view of all data assets for easy tracking and IT control over sprawl.
-   - Improve IT productivity: No end of support for traditional on-premises database SW, full automation to enable management at scale.
-   - Increase IT agility: Policy-driven management to give business users access and freedom to operate within defined enterprise-level policies by IT.
+- Centrally code and deploy applications confidently to any Kubernetes distribution in any location.
+- Centrally manage and delegate access for DevOps roles and responsibilities
+- Reduce errors with consistent configuration and policy-driven deployment and operations for applications and Kubernetes clusters 
+- Delegate access for DevOps roles and responsibilities through Azure RBAC. 
+- Reduce errors with consistent policy driven deployment and operations through GitHub and Azure Policy.
 
-### Manage all of your workload infrastructure with Azure Arc
+## Connect Kubernetes clusters to Azure and start deploying using a GitOps model  
 
-- **IT Estate visibility and control**
-   - Customer's need: "I need to be able to see all my resources in a single location and be able to query through them to gain insights."
-- **Cloud-based management**
-   - Customer's need: "I need to be able to modernize my operations by being able to use the same cloud management services on my resources outside of Azure."
-- **Governance**
-   - Customer's need: "I need to be able to ensure consistent configurations in all my resources from a central location."
-- **DevOps and cloud native app deployment flexibility**
-   - Customer's need: "I need to be able to deploy apps’ infra through templates and apps’ configurations through GitOps."
-- **Increased flexibility when adopting PaaS**
-   - Customer's need: "I need to be able to run PaaS services on infrastructure of my choice."
- 
-### Modernize applications anywhere with Azure Stack HCI
+GitOps relies on a Git repository to host files that contain the configuration representing the expected state of a resource. An agent running on the cluster monitors the state of the repository and, when there is a change on the repository, the agent pulls the changed files to the cluster and applies the new configuration.
 
-- **Azure Stack Hub**
-   - Improve performance: Leverage kernel imbedded architecture to boost your critical workload performance and simplify management.
-   - Maintain full flexibility to deploy on-premises to help meet regulatory or policy requirements.
-   - Help meet requirements for tasks like global auditing, financial reporting, foreign exchange trading, and online gaming.
-   - Address latency and connectivity requirements by processing data locally.
+In the context of Azure Arc enabled Kubernetes clusters, a Git repository hosts a configuration of a Kubernetes cluster, including its resources such as pods and deployments. A pod or a set of pods running on the cluster polls the status of the repository and, once it detects a change, it pulls and applies the new configuration to the cluster.
+
+Azure Arc enabled Kubernetes clusters rely on Flux, an open-source GitOps deployment tool to implement the pods responsible for tracking changes to the Git repository you designate and applying them to the local cluster. In addition, the containerized Flux operator also periodically reviews the existing cluster configuration to ensure that it matches the one residing in the Git repository. If there is a configuration drift, the Flux agent remediates it by reapplying the desired configuration.
+
+Each association between an Azure Arc enabled Kubernetes cluster configuration and the corresponding GitOps repository resides in Azure, as part of the Azure Resource Manager resource representing the Azure Arc enabled Kubernetes clusters. You can configure that association via traditional Azure management interfaces, such as the Azure portal or Azure CLI. Alternatively, you can use for this purpose Azure Policy, which automates this process, allowing you to apply it consistently to all resources in entire subscription or individual resource groups you designate.
+
+## Modernize applications anywhere with Azure Kubernetes Service on Azure Stack HCI
+
+If you are looking for a fully managed Kubernetes solution on-premises in your datacenters and/or edge locations, AKS on Azure Stack HCI is a great option. Azure Kubernetes Service on Azure Stack HCI is an on-premises implementation of Azure Kubernetes Service (AKS), which automates running containerized applications at scale. Azure Kubernetes Service is now in preview on Azure Stack HCI and Windows Server 2019 Datacenter, making it quicker to get started hosting Linux and Windows containers in your datacenter.
+
+AKS clusters on Azure Stack HCI can be connected to Azure Arc for centralized management. Once connected, you can deploy your  applications and Azure data services to these clusters and extend Azure services such as Azure Monitor, Azure Policy and Azure Defender.
 
 ### Azure Stack HCI use cases
 
 - **Modernize your high-performance workloads and containerized applications**
 
-    - Use Azure Stack HCI to enable automated deployment, scaling and management of containerized applications by running a Kubernetes cluster on your hyperconverged infrastructure.
+  - Use Azure Stack HCI to enable automated deployment, scaling and management of containerized applications by running a Kubernetes cluster on your hyperconverged infrastructure.
+  - Deploy AKS on Azure Stack HCI using Windows Admin Center or PowerShell
 
 - **Deploy and manage workloads in remote and branch sites**
 
-    - Use Azure Stack HCI to deploy your container-built edge workloads essential and business applications in highly available virtual machines (VMs).
-	 -	Bring efficient application development and deployment to remote locations at the right price by leveraging switchless deployment and 2 node clusters.
-	 -	Get a global view of your system’s health using Azure Monitor.
-	
+  - Use Azure Stack HCI to deploy your container-built edge workloads essential and business applications in highly available virtual machines (VMs).
+  - Bring efficient application development and deployment to remote locations at the right price by leveraging switchless deployment and 2 node clusters.
+  - Get a global view of your system’s health using Azure Monitor.
+
 - **Upgrade your infrastructure for remote work using VDI**
 
-    - Bring desktops on-premises for low latency and data sovereignty enabling remote work using a brokerage service like Microsoft Remote Desktop Services. With Azure Stack HCI you can scale your resources in a simple predictable way. Provide a secure way to deliver desktop services to a wide range of devices without allowing users to store data locally or upload data from those local devices.
+  - Bring desktops on-premises for low latency and data sovereignty enabling remote work using a brokerage service like Microsoft Remote Desktop Services. With Azure Stack HCI you can scale your resources in a simple predictable way. Provide a secure way to deliver desktop services to a wide range of devices without allowing users to store data locally or upload data from those local devices.
 
-## Application design
-
-<!-- new content - More devops focus, in-line with the WAF Op Ex content -->
+## Resources and architectures related to Operational Excellence
 
 The introduction of cloud computing had a significant impact on how software is developed, delivered, and run. With _Azure Arc enabled infrastructure_ and Azure Arc components like [Azure Arc enabled Kubernetes](/azure-arc/kubernetes/overview) and [Azure Arc enabled data services](/azure-arc/data/overview) it becomes possible to design cloud native applications with a consistent set of principles and tooling across public cloud, private cloud, and the edge.
 
 Click the following links for architecture details and diagrams that enable application design and DevOps practices consistent with [Operational excellence principles](../devops/principles.md).
+
+### Application design
 
 - [Azure Arc hybrid management and deployment for Kubernetes clusters](../../hybrid/arc-hybrid-kubernetes.yml)
 - [Run containers in a hybrid environment](../../hybrid/hybrid-containers)
@@ -80,75 +76,22 @@ Click the following links for architecture details and diagrams that enable appl
 - [microsoft/azure_arc: Azure Arc environments bootstrapping for everyone](https://github.com/microsoft/azure_arc) (in github.com)
 - [All Azure Architecture Center Hybrid and Multicloud Architectures](../../browse/index.yml?azure_categories=hybrid)
 
-<!-- end new content -->
+### Monitoring
 
-## Monitoring
-
-<!-- new content - More devops focus, in-line with the WAF Op Ex content -->
-
-Click the following links for architecture details and diagrams that illustrate [Monitoring for DevOps](../devops/monitoring.md) in a hybrid and multicloud environment.
-
-- [Hybrid availability and performance monitoring](../../hybrid/hybrid-perf-monitoring.yml)
 - [Enable monitoring of Azure Arc enabled Kubernetes cluster](https://docs.microsoft.com/azure/azure-monitorinsights/container-insights-enable-arc-enabled-clusters)
 - [Azure Monitor for containers overview](/azure-monitor/insights/container-insights-overview)
 
-<!-- end new content -->
+### Application performance management
 
-- **Connect Machines agent overview of Azure Arc**
-   - Connect machines from Azure portal
-   - At scale using service principal
-   - Connect to Azure Arc with PowerShell DSC
-   - Connect machines from WAC
-- **Monitor hybrid machines with Azure Monitor for VMs**
-   - [Tutorial - Monitor a hybrid machine with Azure Monitor for VMs](/azure/azure-arc/servers/learn/tutorial-enable-vm-insights) (in Azure Arc | Microsoft Docs)
-   - Enable Azure Monitor for VMs --> View data collected
- 
-## Application performance management
+- [Hybrid availability and performance monitoring](../../hybrid/hybrid-perf-monitoring.yml)
 
-VM extensions can be managed using:
-
-- [Azure portal](/azure/azure-arc/servers/manage-vm-extensions-portal)
-- [Azure CLI](/azure/azure-arc/servers/manage-vm-extensions-cli)
-- [Azure PowerShell](/azure/azure-arc/servers/manage-vm-extensions-powershell)
-- [Azure Resource Manager templates](/azure/azure-arc/servers/manage-vm-extensions-template)
-
-## Code deployment
-
-<!-- new content - More devops focus, in-line with the WAF Op Ex content -->
-
-Click the following links for architecture details and diagrams that illustrate [Deployment considerations for DevOps](../devops/release-engineering-cd.md) in a hybrid and multicloud environment.
+### Code deployment
 
 - [Deploy configurations using GitOps on Arc enabled Kubernetes cluster](https://docs.microsoft.com/en-us/azure/azure-arc/kubernetes/use-gitops-connected-cluster)
 - [Use Azure Policy to apply cluster configurations at scale](https://docs.microsoft.com/en-us/azure/azure-arc/kubernetes/use-azure-policy)
 - [Azure Automation in a hybrid environment](https://docs.microsoft.com/en-us/azure/architecture/hybrid/azure-automation-hybrid)
 - [DevOps in a hybrid environment](https://docs.microsoft.com/en-us/azure/architecture/solution-ideas/articles/devops-in-a-hybrid-environment)
 
-<!-- end new content -->
-
-- **Deploy Azure VM extensions with ARM templates**: [Enable VM extension using Azure Resource Manager template](/azure/azure-arc/servers/manage-vm-extensions-template) (in Azure Arc | Microsoft Docs)
-   - Linux
-   - Windows
-- **Deploy Custom Scripts**
-   - Linux
-   - Windows
-- **Deploy PowerShell DSC Extension**
-   - Linux
-   - Windows
-- **Deploy Azure Monitor Dependency Extension agent**
-   - Linux
-   - Windows
-- **Deploy Azure Key Vault Extensions**
-   - Linux
-   - Windows
-
-
-
-
-
-## Manage data anywhere
-
-![Management capabilities comparison by deployment model](../_images/hybrid-deployment.png)
-  
 ## Next steps
 
 >[!div class="nextstepaction"]
