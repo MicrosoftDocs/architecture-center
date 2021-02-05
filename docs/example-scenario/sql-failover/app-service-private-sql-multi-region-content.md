@@ -1,4 +1,4 @@
-This example scenario discusses a highly available solution for a web app with private connectivity to a SQL database. A single-region architecture already exists for a web app with private database connectivity. This solution extends that base architecture by making it highly available.
+This example scenario discusses a [highly available][High availability] solution for a web app with private connectivity to a SQL database. A single-region architecture already exists for a web app with private database connectivity. This solution extends that base architecture by making it highly available.
 
 See [Web app private connectivity to Azure SQL Database][Web app private connectivity to Azure SQL database] for information on the base architecture.
 
@@ -14,7 +14,7 @@ You can achieve high availability with a [complete region failover][Complete reg
 
 ## Potential use cases
 
-With its private connectivity to a SQL database and high availability, this solution has applications in many areas. Examples include the financial, healthcare, and defense industries.
+With private connectivity to a SQL database and high availability, this solution has applications in many areas. Examples include the financial, healthcare, and defense industries.
 
 ## Architecture
 
@@ -87,12 +87,12 @@ The secondary web app is active in either of these cases:
 
 When the secondary web app is active:
 
-- Internet requests arrive at the secondary web app (**1'**).
-- The web app connects to the secondary **AppSvcSubnet** subnet (**2'**).
+- Internet requests arrive at the secondary web app (**1\***).
+- The web app connects to the secondary **AppSvcSubnet** subnet (**2\***).
 - The web app accesses the database:
   - As configured, the Azure DNS private zone in the secondary region resolves `sql-primary.privatelink.database.windows.net` to `10.2.1.5`.
-  - The app connects to the private endpoint of the primary database (**3'**). The virtual network in the secondary region makes that endpoint available. Since that connectivity is local from the web app's point of view, global peering isn't needed.
-- The app and database run in different regions (**4'**). The cross-region traffic results in increased latency.
+  - The app connects to the private endpoint of the primary database (**3\***). The virtual network in the secondary region makes that endpoint available. Since that connectivity is local from the web app's point of view, global peering isn't needed.
+- The app and database run in different regions (**4\***). The cross-region traffic results in increased latency.
 
 Summary of DNS resolution:
 
@@ -113,8 +113,8 @@ In this case:
 - The web app connects to the primary **AppSvcSubnet** subnet (**2**).
 - The web app accesses the database:
   - As configured, the Azure DNS private zone in the primary region resolves `sql-secondary.privatelink.database.windows.net` to `10.1.1.5`.
-  - The app connects to the local private endpoint of the secondary database (**3''**).
-- The app and database run in different regions (**4''**). The cross-region traffic results in increased latency.
+  - The app connects to the local private endpoint of the secondary database (**3\*\***).
+- The app and database run in different regions (**4\*\***). The cross-region traffic results in increased latency.
 
 Summary of DNS resolution:
 
@@ -124,12 +124,12 @@ Summary of DNS resolution:
 
 In this case:
 
-- Internet requests arrive at the secondary web app (**1'**).
-- The web app connects to the secondary **AppSvcSubnet** subnet (**2'**).
+- Internet requests arrive at the secondary web app (**1\***).
+- The web app connects to the secondary **AppSvcSubnet** subnet (**2\***).
 - The web app accesses the database:
   - As configured, the Azure DNS private zone in the secondary region resolves `sql-secondary.privatelink.database.windows.net` to `10.2.1.4`.
-  - The app connects to the private endpoint of the secondary database (**3'''**).
-- The app and database run in the same region (**4'''**).
+  - The app connects to the private endpoint of the secondary database (**3\*\*\***).
+- The app and database run in the same region (**4\*\*\***).
 
 Summary of DNS resolution:
 
@@ -141,7 +141,7 @@ Summary of DNS resolution:
 
 - [App Service VNet Integration][Integrate your app with an Azure virtual network] connects apps to Azure resources. If you use Virtual Network to set up a non-internet-routable network, the VNet Integration feature gives apps access to resources in that network. The [regional variation of VNet Integration][Regional VNet Integration] works with virtual networks in the same region as the app.
 
-- An [Azure DNA private zone][What is a private Azure DNS zone] contains records that you can't resolve from the internet. DNS resolution only works from virtual networks that are linked to the private zone.
+- An [Azure DNS private zone][What is a private Azure DNS zone] contains records that you can't resolve from the internet. DNS resolution only works from virtual networks that are linked to the private zone.
 
 - [Azure Private Endpoint][What is Azure Private Endpoint?] is a network interface that connects privately and securely to a service that Private Link powers.
 
@@ -149,9 +149,9 @@ Summary of DNS resolution:
 
 - [SQL Database][What is Azure SQL Database?] is a general-purpose relational database managed service that supports relational data, spatial data, JSON, and XML.
 
-- [Virtual Network][What is Azure Virtual Network?] is the fundamental building block for private networks in Azure. Azure resources like virtual machines (VMs) can securely communicate with each other, the internet, and on-premises networks through Virtual Network.
-
 - [Traffic Manager][What is Traffic Manager?] is a DNS-based traffic load balancer. This service distributes traffic to public-facing applications across global Azure regions. Traffic Manager also provides public endpoints with high availability and quick responsiveness.
+
+- [Virtual Network][What is Azure Virtual Network?] is the fundamental building block for private networks in Azure. Azure resources like virtual machines (VMs) can securely communicate with each other, the internet, and on-premises networks through Virtual Network.
 
 ### Alternatives
 
@@ -269,6 +269,7 @@ At this point:
 [Do I require a dedicated subnet for private endpoints?]: /azure/private-link/private-link-faq#do-i-require-a-dedicated-subnet-for-private-endpoints
 [Fail over to a geo-replicated secondary database]: /azure/azure-sql/database/business-continuity-high-availability-disaster-recover-hadr-overview#fail-over-to-a-geo-replicated-secondary-database
 [Global peering limitation]: /azure/architecture/example-scenario/private-web-app/private-web-app#global-peering
+[High availability]: https://wikipedia.org/wiki/High_availability
 [Highly available multi-region web application]: /azure/architecture/reference-architectures/app-service-web-app/multi-region
 [How to set up Private Link for Azure SQL Database]: /azure/azure-sql/database/private-endpoint-overview#how-to-set-up-private-link-for-azure-sql-database
 [Integrate your app with an Azure virtual network]: /azure/app-service/web-sites-integrate-with-vnet
