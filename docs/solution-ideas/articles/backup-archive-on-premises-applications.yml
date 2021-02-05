@@ -12,7 +12,11 @@ metadata:
   ms.category:
     - storage
     - hybrid
-  ms.custom: 'acom-architecture, bcdr, e2e-hybrid, ''https://azure.microsoft.com/solutions/architecture/backup-archive-on-premises-applications/'''
+  ms.custom:
+    - acom-architecture
+    - bcdr
+    - e2e-hybrid
+    - 'https://azure.microsoft.com/solutions/architecture/backup-archive-on-premises-applications/'
 name: Back up on-premises applications and data to cloud
 azureCategories:
   - storage
