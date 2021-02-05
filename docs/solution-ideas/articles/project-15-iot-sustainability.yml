@@ -2,14 +2,18 @@
 metadata:
   title: Project 15 Open Platform
   titleSuffix: Azure Solution Ideas
-  author: AltaOhms
   description: Use Internet of Things technologies with the Project 15 Open Platform to accelerate innovation in species tracking, ecosystem monitoring, and other areas.
+  author: AltaOhms
+  ms.author: pnp
   ms.date: 11/09/2020
-  ms.custom: 'iot, fcp'
+  ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: solution-idea
   ms.category:
     - iot
+  ms.custom:
+    - iot
+    - fcp
 name: Project 15 Open Platform
 azureCategories:
   - iot
