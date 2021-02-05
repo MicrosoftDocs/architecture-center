@@ -52,6 +52,8 @@ WAF and Firewall-wise, the same level or protection could be delivered by differ
 
 [Azure Front Door](https://docs.microsoft.com/en-us/azure/frontdoor/front-door-overview#:~:text=Azure%20Front%20Door%20is%20a,and%20widely%20scalable%20web%20applications.&text=Front%20Door%20provides%20a%20range,needs%20and%20automatic%20failover%20scenarios.), [Azure Firewall](https://docs.microsoft.com/en-us/azure/firewall/overview), third-part solutions like [Barracuda](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/barracudanetworks.waf?tab=overview), and others available in [Azure Marketplace](https://azure.microsoft.com/en-us/marketplace/), are some of the options.
 
+It would also be possible to manage certificates and passowords by leveraging [Azure Key Vault](https://docs.microsoft.com/en-us/azure/key-vault/general/basic-concepts) service.
+
 
 ## Implementation considerations
 
@@ -65,13 +67,7 @@ WAF and Firewall-wise, the same level or protection could be delivered by differ
 
 ### Availability, Scalability, and Security
 
-> How do I need to think about managing, maintaining, and monitoring this long term?
-
-> Are there any size considerations around this specific solution?
-> What scale does this work at?
-> At what point do things break or not make sense for this architecture?
-
-> Are there any security considerations (past the typical) that I should know about this?
+Couple aspects 
 
 ## Deployment
 
@@ -305,10 +301,10 @@ $apimPoolPortalSetting = New-AzApplicationGatewayBackendHttpSettings `
     -RequestTimeout 180
 ```
 
-### Configuring backend IP address pool with internal IP of APIM
+### Mapping backend pool IP with APIM's internal IP
 
 ```
-# Step 9a - configure backend IP address pool with internal IP of APIM
+# Step 9a - Mapping backend pool IP with APIM's internal IP
 $apimProxyBackendPool = New-AzApplicationGatewayBackendAddressPool `
     -Name "apimbackend" `
     -BackendIPAddresses $apimService.PrivateIPAddresses[0]
@@ -319,6 +315,110 @@ $sinkpool = New-AzApplicationGatewayBackendAddressPool -Name "sinkpool"
 $apimProxyBackendPool = New-AzApplicationGatewayBackendAddressPool `
     -Name "apimbackend" `
     -BackendIPAddresses $apimService.PrivateIPAddresses[0]
+```
+
+### Allowing external access to APIM's developer portal
+```
+# Step 10 - create a routing rule to allow external Internet access to the developer portal
+$rule01 = New-AzApplicationGatewayRequestRoutingRule `
+    -Name "apim-portal-rule" `
+    -RuleType Basic `
+    -HttpListener $portalListener `
+    -BackendAddressPool $apimProxyBackendPool `
+    -BackendHttpSettings $apimPoolPortalSetting
+```
+
+### Configuring and deploying AG
+
+```
+# Step 11 - change App Gateway SKU and instances (# instances can be configured as required)
+$sku = New-AzApplicationGatewaySku -Name "{waf-sku-name}" -Tier "WAF" -Capacity {instances-number}
+
+# Step 12 - configure WAF to be in prevention mode
+$config = New-AzApplicationGatewayWebApplicationFirewallConfiguration `
+    -Enabled $true `
+    -FirewallMode "Detection"
+
+# Deploy the App Gateway
+$appgwName = "{ag-name}"
+
+$appgw = New-AzApplicationGateway `
+    -Name $appgwName `
+    -ResourceGroupName $resGroupName `
+    -Location $location `
+    -BackendAddressPools $apimProxyBackendPool, $sinkpool `
+    -BackendHttpSettingsCollection $apimPoolSetting, $apimPoolPortalSetting `
+    -FrontendIpConfigurations $fipconfig01 `
+    -GatewayIpConfigurations $gipconfig `
+    -FrontendPorts $fp01 `
+    -HttpListeners $listener, $portalListener `
+    -RequestRoutingRules $rule01 `
+    -Sku $sku `
+    -WebApplicationFirewallConfig $config `
+    -SslCertificates $cert, $certPortal `
+    -AuthenticationCertificates $authcert `
+    -Probes $apimprobe, $apimPortalProbe
+```
+
+### Configuring redirection rules
+
+```
+# Get existing Application Gateway config
+$appgw = Get-AzApplicationGateway `
+    -ResourceGroupName $resGroupName `
+    -Name $appgwName
+
+$listener = Get-AzApplicationGatewayHttpListener `
+    -Name "apim-api-listener" `
+    -ApplicationGateway $appgw
+
+$sinkpool = Get-AzApplicationGatewayBackendAddressPool `
+    -ApplicationGateway $appgw `
+    -Name "sinkpool"
+
+$pool = Get-AzApplicationGatewayBackendAddressPool `
+    -ApplicationGateway $appgw `
+    -Name "apimbackend"
+
+$poolSettings = Get-AzApplicationGatewayBackendHttpSettings `
+    -ApplicationGateway $appgw `
+    -Name "apim-api-poolsetting"
+
+$pathRule = New-AzApplicationGatewayPathRuleConfig `
+    -Name "external" `
+    -Paths "/external/*" `
+    -BackendAddressPool $pool `
+    -BackendHttpSettings $poolSettings
+
+$appgw = Add-AzApplicationGatewayUrlPathMapConfig `
+    -ApplicationGateway $appgw `
+    -Name "external-urlpathmapconfig" `
+    -PathRules $pathRule `
+    -DefaultBackendAddressPool $sinkpool `
+    -DefaultBackendHttpSettings $poolSettings
+
+$appgw = Set-AzApplicationGateway `
+    -ApplicationGateway $appgw
+
+$pathmap = Get-AzApplicationGatewayUrlPathMapConfig `
+    -ApplicationGateway $appgw `
+    -Name "external-urlpathmapconfig"
+
+$appgw = Add-AzApplicationGatewayRequestRoutingRule `
+    -ApplicationGateway $appgw `
+    -Name "apim-api-external-rule" `
+    -RuleType PathBasedRouting `
+    -HttpListener $listener `
+    -BackendAddressPool $Pool `
+    -BackendHttpSettings $poolSettings `
+    -UrlPathMap $pathMap
+```
+
+### Updating AG with the new configuration
+
+```
+$appgw = Set-AzApplicationGateway `
+    -ApplicationGateway $appgw
 ```
 
 ## Pricing
