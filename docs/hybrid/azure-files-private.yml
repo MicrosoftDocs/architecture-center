@@ -1,17 +1,19 @@
 ### YamlMime:Architecture
 metadata:
   title: Azure enterprise cloud file share
-  title-suffix: Azure Architecture Center
   description: Learn about an enterprise-level cloud file sharing solution that uses Azure Files, Azure File Sync, Azure Private DNS, and Azure Private Endpoint.
   author: huangyingting
+  ms.author: pnp
   ms.date: 11/15/2020
   ms.topic: conceptual
   ms.service: architecture-center
+  ms.subservice: reference-architecture
   ms.category:
     - hybrid
     - storage
-  ms.subservice: reference-architecture
-  ms.custom: fcp
+  ms.custom:
+    - fcp
+    - e2e-hybrid
 name: Azure enterprise cloud file share
 azureCategories:
   - hybrid

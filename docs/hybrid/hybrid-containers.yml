@@ -3,16 +3,18 @@ metadata:
   title: Run containers in a hybrid environment
   description: This reference architecture illustrates how developers can create, manage, and monitor deployed containers in the public cloud, across multiple clouds, and on-premises.
   author: doodlemania2
+  ms.author: pnp
   ms.date: 06/29/2020
   ms.topic: conceptual
   ms.service: architecture-center
+  ms.subservice: reference-architecture
   ms.category:
     - hybrid
     - devops
-  ms.subservice: reference-architecture
   ms.custom:
     - fcp
     - reference-architecture
+    - e2e-hybrid
 name: Run containers in a hybrid environment
 azureCategories:
   - hybrid
