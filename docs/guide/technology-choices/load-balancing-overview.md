@@ -92,7 +92,7 @@ If your application consists of multiple workloads, evaluate each workload separ
 
 You can use the Azure Load Balancing page in the Azure portal to help you guide to the right load-balancing solution for your business need. Azure Load Balancing includes the decision making queries described in the workflow of the previous section and can be accessed as follows:
 
-1. Sign in to the Azure portal
+1. Sign in to the [Azure portal at [https://portal.azure.com](https://portal.azure.com).
 1. In the *Search resources, services, and docs* box at the top of the portal, type *load balancing*. When **load balancing** appears in the search results, select it.
     [Search for load balancing - Azure portal screenshot](./images/load-balancing-search.png)
 1. In the Help me choose page, do one of the following:
@@ -102,3 +102,16 @@ You can use the Azure Load Balancing page in the Azure portal to help you guide 
        [Search for load balancing - Azure portal screenshot](./images/load-balancing-search.png)
     1. To access free training on load balancing services, select the **Tutorial** tab.
        [Search for load balancing - Azure portal screenshot](./images/load-balancing-service-comparison.png)
+
+## Reference architecture examples
+
+|Service(s) |Article |Description |
+|---------|---------|---------|
+|Front Door    |  [Sharing location in real time using low-cost serverless Azure services](https://docs.microsoft.com/azure/architecture/example-scenario/signalr/#azure-front-door)       |   TBD      |
+|Application Gateway     |[IaaS: Web application with relational database](https://docs.microsoft.com/en-us/azure/architecture/high-availability/ref-arch-iaas-web-and-db)    |    TBD     |
+|Traffic Manager   | [Multi-region N-tier application](https://docs.microsoft.com/azure/architecture/reference-architectures/n-tier/multi-region-sql-server)        |      TBD   |
+|Azure Front Door + Application Gateway     | [Multitenant SaaS on Azure](https://docs.microsoft.com/azure/architecture/example-scenario/multi-saas/multitenant-saas)       |      TBD   |
+|Traffic Manager + Load Balancer    | [Multi-region N-tier application](https://docs.microsoft.com/azure/architecture/reference-architectures/n-tier/multi-region-sql-server)          |  TBD       |
+|Traffic Manager + Application Gateway  | [Multi-region N-tier application](https://docs.microsoft.com/azure/architecture/reference-architectures/n-tier/multi-region-sql-server)       |     TBD    |
+
+
