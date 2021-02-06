@@ -3,7 +3,7 @@ metadata:
   title: Real-time scoring of R machine learning models
   description: Implement a real-time prediction service in R using Machine Learning Server running in Azure Kubernetes Service (AKS).
   author: njray
-  ms.date: 12/10/2019
+  ms.date: 02/06/2020
   ms.topic: conceptual
   ms.service: architecture-center
   ms.category:
