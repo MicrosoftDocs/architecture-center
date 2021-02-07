@@ -35,17 +35,18 @@ The DevOps pillar of the SAP on Azure Architecture Guide covers operational and 
 
 ### Automation
 
-To reduce the chance of human error and to improve reliability, SAP deployments in Azure should be automated. Trying to set up the infrastructure manually for individual SAP deployments is not only tedious but also prone to error—and it can take hours or days if multiple SAP installations are required. So, for a predictable, efficient deployment process, it makes sense to automate your Azure infrastructure deployments and SAP software installations as much as possible.
+To reduce the chance of human error, improve reliability and achieve higher standardization, SAP deployments in Azure should be automated. Trying to set up the infrastructure manually for individual SAP deployments is not only tedious but also prone to error—and it can take hours or days if multiple SAP installations are required. So, for a predictable, efficient deployment process, it makes sense to automate your Azure infrastructure deployments and SAP software installations as much as possible.
 
 Embracing a DevOps paradigm means using an infrastructure-as-code (IaC) approach to building new SAP environments as needed. IaC is a key consideration in SAP project landscapes.
 
 |Manual deployment pains  | Automated deployment gains |
 |---------------------------|----------------------------|
-|- Requires specialized knowledge in many domains outside of SAP |- Works immediately and requires little domain knowledge|
-|- Takes a lot of time—from one month to many months, depending on the size of the SAP landscape |- Takes from 30 minutes to a couple of hours|
-|- Is very expensive |- Provides free resources—like these [SAP HANA templates](https://github.com/Azure/sap-hana) on GitHub|
+|- Requires specialized knowledge in many domains outside of SAP |- Works immediately after some initial preparation time and requires little domain knowledge|
+|- can take a lot of time depending on the size of the SAP landscape, depending on the size of the SAP landscape |- consumes predictable time from 30 minutes to a couple of hours|
+|- can be expensive |- Provides free resources—like these [SAP HANA templates](https://github.com/Azure/sap-hana) on GitHub|
 |- Limits testing—it's harder to inject tests in the process |- Provides templates that include test instrumentation during deployment and migration|
 |- Makes it tedious and time-consuming to scale and customize the environment |- Makes it easy to scale up, down, and out, and new deployment templates are available|
+|- can lead to unwanted variations in design |- once defined the standards are applied with each deployment
 
 ### Monitoring
 
@@ -151,11 +152,13 @@ Your SAP data is likely the treasure of your organization's technical footprint.
 
 SAP on Azure is delivered in the infrastructure as a service (IaaS) cloud model. This means security protections are built into the service by Microsoft at the level of the physical datacenter, physical network, physical host, and hypervisor. For the areas above the hypervisor—such as the guest operating system for SAP—you need to carefully evaluate the services and technologies you select to ensure you are providing the proper security controls for your architecture.
 
-For authentication, you can take advantage of [Azure Active Directory](/azure/active-directory/) (Azure AD) to enable single sign-on (SSO) to your [SAP S/4HANA Fiori Launchpad](https://blogs.sap.com/2017/02/20/your-s4hana-environment-part-7-fiori-launchpad-saml-single-sing-on-with-azure-ad/). Azure AD also works with SAP Cloud Platform (SCP) to provide SSO for your SCP services (that also run on Azure).
+For authentication, you can take advantage of [Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/) (Azure AD) with SAML to sign on to your SAP [NetWeaver](https://docs.microsoft.com/en-us/azure/active-directory/saas-apps/sap-netweaver-tutorial) or [HANA](https://docs.microsoft.com/en-us/azure/active-directory/saas-apps/saphana-tutorial), also use SSO for other SAP services like [Fiori Launchpad](https://docs.microsoft.com/en-us/azure/active-directory/saas-apps/sap-fiori-tutorial), [SAP Cloud Platform](https://docs.microsoft.com/en-us/azure/active-directory/saas-apps/sap-hana-cloud-platform-tutorial) or [SuccessFactors](https://docs.microsoft.com/en-us/azure/active-directory/saas-apps/successfactors-tutorial) can be configured. 
 
 [Network security groups](/azure/virtual-network/security-overview) (NSGs) allow you to filter network traffic to and from resources in your
 [virtual network](/azure/virtual-network/virtual-networks-overview). You can define NSG rules to allow or deny access to your SAP services—for
 instance, allowing access to the SAP application ports from on-premises IP addresses ranges and denying public internet access.
+
+[Application security groups](https://docs.microsoft.com/en-us/azure/virtual-network/application-security-groups) (ASG) also work as a filter for network traffic to and from SAP resources and allow additional network security based policies on application level. Additional granularity of security policies for SAP workloads can be achieved using ASG. 
 
 With regard to data integrity, [Azure Disk Encryption](/azure/security/azure-security-disk-encryption-faq) helps you encrypt your SAP virtual machine disks. Both the operating system and data volumes can be encrypted at rest in storage.
 
