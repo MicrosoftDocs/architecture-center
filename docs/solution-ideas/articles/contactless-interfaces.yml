@@ -2,15 +2,19 @@
 metadata:
   title: Contactless IoT interfaces with Azure intelligent edge
   titleSuffix: Azure Solution Ideas
-  author: doodlemania2
   description: Combine intelligent and perceptive edge devices with the storage and computing power of the cloud to create touch-free interfaces.
+  author: doodlemania2
+  ms.author: pnp
   ms.date: 06/06/2020
-  ms.custom: 'iot, fcp'
+  ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: solution-idea
   ms.category:
     - iot
     - ai-machine-learning
+  ms.custom:
+    - iot
+    - fcp
 name: Contactless IoT interfaces with Azure intelligent edge
 azureCategories:
   - iot
