@@ -76,34 +76,88 @@ The monitoring and diagnostics process has several distinct phases:
 
 The resiliency pillar of the SAP on Azure Architecture Guide refers to the operational stability and business continuity you need to run mission-critical, tier-1 SAP applications. Designing for availability ensures SAP application uptime in the event of localized software or hardware failures.
 
-In production environments, it’s important to guard against a single point of failure. We recommend deploying the virtual machines that run SAP Central Services and databases in [availability sets](/azure/virtual-machines/availability) or [Availability Zones](/azure/virtual-machines/workloads/sap/sap-ha-availability-zones), which help protect applications against planned maintenance events and unplanned
-outages.
+In production environments, it’s important to guard against a single point of failure for each application and infrastructure component. This can be achieved by the principles of isolation and redundancy.
+
+- **Isolation.** Ensure that all components involved are isolated on an application and infrastructure layer.
+
+- **Redundancy.** Ensure that all components involved are redundantly available on an application and infrastructure layer.
+
+Keeping these basic principles in mind, the recommendation would be to implement 3-tier systems across the SAP landscapes, ensuring that all application components involved are isolated from each other and can achieve high-availability through redundancy.
+
+We recommend deploying the virtual machines that run SAP Central Services and databases in Availability Sets or Availability Zones, which help protect applications against planned maintenance events and unplanned outages.  
 
 When applying resiliency to the SAP application servers, we recommend using fewer, smaller servers instead of one larger application server. The practice is to configure the guest operating system’s cluster technologies, such as Windows Failover Cluster or Linux Pacemaker, to help ensure short failover times of the SAP Central Services and database management system (DBMS). To ensure there is no (or minimal) data loss, the best practice is to configure DBMS synchronous or asynchronous replication depending on the scenario.
 
-### Resiliency against data loss
+### Application server resiliency
 
-Designing for resiliency means recovering from data loss. That might mean recovering from a logical error on the SAP database, a large-scale disaster, or the loss of a complete Azure region. When designing for recoverability, it is necessary to understand the Recovery Point Objective (RPO) and Recovery Time Objective (RTO) of your SAP application.
+Resiliency for the SAP application server layer can be achieved through redundancy.  You can configure multiple dialog instances on different instances of Azure virtual machines, with a minimum of 2 application servers.
+
+We recommend deploying the Azure virtual machines that run the SAP application servers in the same [Azure Availability Set](/azure/virtual-machines/availability#availability-sets).  By placing the SAP application servers of a SAP system inside the same Azure Availability Set, this will ensure the following:
+
+- The Azure virtual machines will not be a part of the same update domain, avoiding simultaneous downtime.
+
+- The Azure virtual machines will not be a part of the same fault domain, avoiding shared physical layers between the Azure virtual machines.
+
+From a disaster recovery perspective, [Azure-to-Azure Site Recovery](/azure/site-recovery/site-recovery-sap) can be used as part of an efficient, cost-conscious disaster recovery solution.
+
+For more information, see [High-availability architecture for SAP application servers](/azure/virtual-machines/workloads/sap/sap-high-availability-architecture-scenarios#high-availability-architecture-for-sap-application-servers).
+
+### Central services resiliency
+
+The SAP central services layer, consisting out of SAP (A)SCS/ERS (Linux only), are considered as a single point of failure (SPOF) of which the components must be set-up high-available to achieve resiliency.  The solution consists out of creating a cluster of the SAP central services layer, supported by a compatible shared storage technology.
+
+Depending on the operating system and available shared storage technology in General Availability (GA) or Private/Public Preview, various options are available.
+
+For more information, see [High-availability architecture for an SAP ASCS/SCS instance on Windows](/azure/virtual-machines/workloads/sap/sap-high-availability-architecture-scenarios#high-availability-architecture-for-an-sap-ascsscs-instance-on-windows) and [High-availability architecture for an SAP ASCS/SCS instance on Linux](/azure/virtual-machines/workloads/sap/sap-high-availability-architecture-scenarios#high-availability-architecture-for-an-sap-ascsscs-instance-on-linux).
 
 ### Database resiliency
 
-On the database layer, asynchronous replication can be used to replicate your production data from your primary region to your disaster recovery region. On the SAP application layer, [Azure-to-Azure Site Recovery](/azure/site-recovery/site-recovery-sap) can be used as part of an efficient, cost-conscious disaster recovery solution.
+On the database layer, production data can be replicated within the region or between primary and disaster recovery region (Synchronous in case of high availability or Asynchronous in case of DR replication).  Depending on the choice of DBMS and required business SLA’s, different database methods can be utilized.
 
+When designing a resilient architecture for the database layer, consider the following:
+
+- **Resiliency against data loss.** Designing for resiliency means recovering from data loss. That might mean recovering from a logical error on the SAP database, a large-scale disaster, or the loss of a complete Azure region. When designing for recoverability, it is necessary to understand the Recovery Point Objective (RPO) and Recovery Time Objective (RTO) of your SAP application.
 It is essential to carefully consider both availability and recoverability within the design of the SAP deployment architecture. This will protect your business from financial losses resulting in downtime and data loss.
+
+- **Use of synchronous replication.** When there is a business need of RPO = 0, meaning no data loss in case of a failure, we need to consider synchronous replication on the database layer and design accordingly.  This results in a system where every transaction needs to be committed on at least both sides of the highly-available databases.
+Latency between the two DBMS instances need to be measured and considered carefully.  The higher the network latency, the more likely it will affect the scalability of your workload.
+This is especially important when deciding to use [Availability Zones](/azure/availability-zones/az-overview) where workloads can be separated in an Azure region in unique physical locations.  As the physical distance between these locations, so will the network latency.
+
+For more information, see [General Azure Virtual Machines DBMS deployment for SAP workload](/azure/virtual-machines/workloads/sap/dbms_guide_general) and its listed recommendations per DBMS. 
+
+### Backup resiliency
+
+In addition to a resilient architecture, including high-availability and disaster-recovery capabilities, mission critical environments need to implement a backup solution as well.
+
+SAP HANA specifically offers a backup API called backint, allowing backup solutions to backup directly on the database layer.
+
+Several certified third-party backup solutions exist in the [Azure Marketplace](https://azuremarketplace.microsoft.com/), offering vendor- and SAP-certified backup capabilities.
+
+Storage solutions such as Azure NetApp Files can backup critical data through the capabilities of snapshots.
+
+Azure Backup is Azure’s native backup solution: 
+
+- Native SAP HANA backups through the backint connector.
+- Ability to create an application consistent backup using disks snapshots of Azure Premium storage.
+- Backup and restore of Azure VM data through the Azure portal.  Cross-region restore provides the possibility to restore Azure VM’s to a paired secondary region.
+- Long-term retention, allowing to retain backups years for compliance and audit needs.
+- Backup Management from the Azure Portal.
+
+For more information on SAP HANA backup capabilities, see [SAP HANA backup overview](/azure/virtual-machines/workloads/sap/sap-hana-backup-guide).
+
+For more information on Azure Backup, see [Azure Backup service documentation](/azure/backup).
 
 ### Resiliency guidance
 
-[Designing reliable Azure applications](/azure/architecture/framework/resiliency/overview)
-
-[Design patterns for resiliency](/azure/architecture/framework/resiliency/reliability-patterns)
-
 [Azure Virtual Machines high availability for SAP NetWeaver](/azure/virtual-machines/workloads/sap/sap-high-availability-guide-start)
 
-Best practices:
+[SAP HANA high availability for Azure virtual machines](/azure/virtual-machines/workloads/sap/sap-hana-availability-overview)
 
-- [Transient fault handling](../../best-practices/transient-faults.md)
+[SAP HANA Large Instances high availability and disaster recovery on Azure](/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery)
 
-- [Retry guidance for specific services](../../best-practices/retry-service-specific.md)
+[Azure Site Recovery for SAP workloads](/azure/site-recovery/site-recovery-sap)
+
+[Backup guide for SAP HANA on Azure Virtual Machines](/azure/virtual-machines/workloads/sap/sap-hana-backup-guide)
 
 ## Scalability
 
@@ -117,7 +171,9 @@ The scalability pillar of the SAP on Azure Architecture Guide describes performa
 
 The agility of Azure allows you to scale your SAP system with ease. For example, you can increase the compute capacity of the database server or scale horizontally by adding application servers when demand arises. You can also temporarily bulk up your infrastructure to accelerate your SAP migration throughput and reduce the downtime.
 
-For the SAP database layer, use Premium Azure Managed Disks to benefit from high-performance and low-latency I/O. You may need to build a RAID-0 stripe to aggregate IOPS and throughput to meet your application needs. For details about storage best practices for SAP HANA workloads, see [SAP HANA infrastructure configurations and operations on Azure](/azure/virtual-machines/workloads/sap/hana-vm-operations).
+Consider the use of SAP redundancy features such as logon groups and batch server groups to assign application servers to.  Per group definition, SAP can dispatch automatically the workload to multiple application server instances, giving your system the capability to (automatically) scale-out or scale-in when demand increases or decreases.
+
+For the SAP database layer, use Premium Azure Managed Disks as a minimum to benefit from high-performance and low-latency I/O. You may need to build a RAID-0 stripe to aggregate IOPS and throughput to meet your application needs. For details about storage best practices for SAP HANA workloads, see [SAP HANA infrastructure configurations and operations on Azure](/azure/virtual-machines/workloads/sap/hana-vm-operations).
 
 We recommend using an [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute/) circuit or a virtual private network (VPN) between on-premises resources and Azure. These connections benefit SAP users and the application interfaces that connect to your SAP applications on Azure. For production SAP applications in Azure, we recommend ExpressRoute to create a private, dedicated connection that offers reliability, faster speed, lower latency, and tighter security than site-to-site VPN.
 
@@ -130,21 +186,19 @@ Be mindful of latency-sensitive interfaces between SAP and non-SAP applications.
 
 ### Scalability guidance
 
-Run SAP HANA for Linux virtual machines in a scale-up architecture on Azure
+Scale-up / Scale-out:
 
-[Design patterns for performance efficiency](/azure/architecture/framework/scalability/performance-efficiency-patterns)
+[Run SAP HANA for Linux virtual machines in a scale-up architecture on Azure](/architecture/reference-architectures/sap/run-sap-hana-for-linux-virtual-machines)
+
+[Configuring Azure infrastructure for SAP HANA scale-out](/azure/virtual-machines/workloads/sap/hana-vm-operations#configuring-azure-infrastructure-for-sap-hana-scale-out)
 
 Best practices:
 
-- [Autoscaling](../../best-practices/auto-scaling.md)
+- [SAP Application Server AutoScaling in Azure](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/sap-application-server-autoscaling-in-azure/ba-p/1845306)
 
-- [Background jobs](../../best-practices/background-jobs.md)
+- [SAP HANA Azure virtual machine storage configuration](/azure/virtual-machines/workloads/sap/hana-vm-operations-storage)
 
-- [Caching](../../best-practices/caching.md)
-
-- [Content delivery networks](../../best-practices/cdn.md)
-
-- [Data partitioning](../../best-practices/data-partitioning.md)
+- [Use of Proximity Placement Groups to achieve optimal network latency with SAP applications](/azure/virtual-machines/workloads/sap/sap-proximity-placement-scenarios)
 
 ## Security
 
