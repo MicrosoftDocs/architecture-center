@@ -103,6 +103,14 @@ Take note, the Terraform provider for Azure is an abstraction on top of Azure AP
 
 - [Documentation: Using Terraform on Azure](/azure/developer/terraform/overview)
 
+## Manual deployment
+
+Manual deployment steps introduce significant risks where human error is concerned and also increases overall deployment times. However, in some cases, manual steps may be required. For these cases, ensure that any manual steps are documented, including roles and responsibilities.
+
+## Hotfix process
+
+In some cases, you may have an unplanned deployment need. For instance, to deploy critical hotfixes or security remediation patches. A defined process for unplanned deployments can help prevent service availability and other deployment issues during these critical events. 
+
 ## Next steps
 
 > [!div class="nextstepaction"]
