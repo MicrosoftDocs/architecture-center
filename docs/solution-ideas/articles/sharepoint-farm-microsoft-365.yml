@@ -12,7 +12,17 @@ metadata:
   ms.category:
     - web
     - hybrid
-  ms.custom: 'acom-architecture, hybrid-infrastructure, sharepoint hybrid, sharepoint hybrid architecture, sharepoint farm solution, microsoft 365 sharepoint hybrid, sharepoint hybrid solution, interactive-diagram, e2e-hybrid, ''https://azure.microsoft.com/solutions/architecture/sharepoint-farm-microsoft-365/'''
+  ms.custom:
+    - acom-architecture
+    - hybrid-infrastructure
+    - sharepoint hybrid
+    - sharepoint hybrid architecture
+    - sharepoint farm solution
+    - microsoft 365 sharepoint hybrid
+    - sharepoint hybrid solution
+    - interactive-diagram
+    - e2e-hybrid
+    - 'https://azure.microsoft.com/solutions/architecture/sharepoint-farm-microsoft-365/'
   social_image_url: /azure/architecture/solution-ideas/articles/media/sharepoint-farm-microsoft-365.png
 name: Hybrid SharePoint Farm with Microsoft 365
 azureCategories:
