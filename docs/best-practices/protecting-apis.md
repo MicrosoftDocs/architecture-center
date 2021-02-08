@@ -36,6 +36,8 @@ Finally, at the APIM level, we will have our APIs set up to accept calls under t
 * `api.{some-domain}/external/*`
 * `api.{some-domain}/internal/*`
 
+> This implementation doesn't take in consideration the underlying services of the proposed architecture, meaning, App Service Environment, SQL Databases, Azure Kubernetes services, and such. They are illustrative assets only that showcases what could be done as a broader solution. Only the grey-grounded area will be discussed.
+
 ### Components
 
 - [Azure Resource Groups](https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/manage-resource-groups-portal) is a logical container for Azure resources.  We use resource groups to organize everything related to this project in the Azure console.
@@ -61,13 +63,23 @@ It would also be possible to manage certificates and passowords by leveraging [A
 
 * **Private (internal) deployment model**. That model will allow the implementahtion of APIM connected to an existing VNet, making it reachable from the inside of the network context only. In order to have this feature turned on, either "Development" or "Production" APIM's tiers have to be picked. 
   
-* **Certificates**. PFX certificates are required for the SSL termination in AG. In order to get the solution in place, br advised you got to have them available  before hand.
+* **Certificates**. PFX certificates are required for the SSL termination in AG. In order to get the solution in place, be advised you got to have them available  before hand.
 
 * **CNAME records**. Additionally, CNAME entries could be leveraged to personalize the way people interact with those services.
 
 ### Availability, Scalability, and Security
 
-Couple aspects 
+In order to make this architecture reliable and highly responsive over time, the following recommendations apply:
+
+* **AG's autoscale feature turned on**. Because Application Gateway will serve as entry point for this architecture and also, because we're turning on the WAF feature (which requires additional processing power for each request analysis), it will be critical to make sure the service can expand its computational capacity as it goes. You can see how to enable this by following [this link](https://docs.microsoft.com/en-us/azure/application-gateway/tutorial-autoscale-ps#specify-autoscale).
+
+* **AG's zone redundance**. An AG or WAF deployment can span multiple Availability Zones, removing the need to provision separate Application Gateway instances in each zone with a Traffic Manager. You can choose a single zone or multiple zones where Application Gateway instances are deployed, which makes it more resilient to zone failure. That's a important recommendation towards to have a resiliant solution for AG.
+
+* **AG's subnet sizing**. A given AG will always request one private address per instance, plus another private IP address if a private front-end IP is configured. Also, it takes five IPs per instance from the subnet where it will be deployed so, to properly deploy AG for the architecture, please, make sure the subnet where it will be sitting onto has enough space for the service to grow. Please, refer to [this article](https://docs.microsoft.com/en-us/azure/application-gateway/configuration-infrastructure) for details.
+
+* **APIM autoscaling feature turned on**. To support highly concurrent scenarios, we recommend enabling the autoscale feature in APIM. This will enable the service to expand its capabilities to quickly respond a growing number of income requests on-the-fly. [This article](https://docs.microsoft.com/en-us/azure/api-management/api-management-howto-autoscale) shows how to enable the autoscale feature within the service.
+
+* **Security guidelines for APIM**. APIM-wise, in order to fortify the communication through APIM moving forward, we recommend you take a look at the "[Azure security baseline for API Management](https://docs.microsoft.com/en-us/azure/api-management/security-baseline)" article.
 
 ## Deployment
 
@@ -423,26 +435,9 @@ $appgw = Set-AzApplicationGateway `
 
 ## Pricing
 
-> How much will this cost to run?
-> Are there ways I could save cost?
-> If it scales linearly, than we should break it down by cost/unit.  If it does not, why?
-> What are the components that make up the cost?
-> How does scale effect the cost?
->
-> Link to the pricing calculator with all of the components in the architecture included, even if they're a $0 or $1 usage.
-> If it makes sense, include a small/medium/large configurations.  Describe what needs to be changed as you move to larger sizes
+The total cost of this architecture running will depend on the various configuration aspects, like services' tiers, scalability as it goes (meaning, number of instances dynamically allocated by the service to support a given demand), automation scripts (will this run 24x7 or just few hours a month?) so on, so forth.
 
-## Next steps
+To have an accurate view of the pricing for this, we recommend go after every of the aspect mentioned in above's paragraph, and once you have a definition in place, go to the [Azure Pricing Calculator](https://azure.microsoft.com/en-us/pricing/calculator/) service, pull up all the definitions you have settled and then, have a view about pricing.
 
-> Where should I go next if I want to start building this?
-> Are there any reference architectures that help me build this?
-
-## Related resources
-
-> Are there any relevant case studies or customers doing something similar?
-> Is there any other documentation that might be useful?
-> Are there product documents that go into more detail on specific technologies not already linked
-
-<!-- links -->
 
 [calculator]: https://azure.com/e/
