@@ -435,9 +435,9 @@ items:
                 href: framework/security/governance.md
               - name: Elevate security capabilities
                 href: framework/security/governance.md
-      - name: Hybrid
+      - name: Workloads
         items:          
-          - name: Workloads
+          - name: Hybrid
             items:
               - name: Overview
                 href: framework/hybrid/hybrid-overview.md
