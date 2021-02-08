@@ -36,3 +36,7 @@ Preemptively scaling based on historical data can ensure your application has co
 ## Automated scale operations
 
 Fluctuation in application traffic is expected. To ensure optimal operation conditions are maintained, such variations should be met by automated scalability operations. While Auto-scaling enables a PaaS or IaaS service to scale within a pre-configured range of resources, provisioning or de-provisioning capacity is more advanced and complex, for example, adding additional scale units like additional clusters, compute instances, or deployments. The process should be codified, automated, and the effects of adding/removing capacity should be well understood. To learn more [review repeatable infrastructure](/azure/architecture/framework/devops/automation-infrastructure).
+
+## Application health and capacity
+
+Any change in the health state of application components can influence the capacity demands on other components. These impacts need to be fully understood, and auto-scaling measures need to be in place to handle those. For example, if an outage in an external API is mitigated by writing messages into a retry queue, this queue will get sudden spikes in the load that it will need to handle.
