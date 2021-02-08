@@ -14,7 +14,17 @@ metadata:
     - storage
     - hybrid
     - integration
-  ms.custom: 'acom-architecture, risk analysis template, risk analysis solution, hpc risk analysis, hybrid risk analysis, interactive-diagram, hpc, finance, e2e-hybrid, ''https://azure.microsoft.com/solutions/architecture/hpc-risk-analysis/'''
+  ms.custom:
+    - acom-architecture
+    - risk analysis template
+    - risk analysis solution
+    - hpc risk analysis
+    - hybrid risk analysis
+    - interactive-diagram
+    - hpc
+    - finance
+    - e2e-hybrid
+    - 'https://azure.microsoft.com/solutions/architecture/hpc-risk-analysis/'
   social_image_url: /azure/architecture/solution-ideas/articles/media/hpc-risk-analysis.png
 name: HPC Risk Analysis Template - Solution Architecture
 azureCategories:

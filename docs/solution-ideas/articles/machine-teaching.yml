@@ -2,12 +2,17 @@
 metadata:
   title: Machine teaching
   titleSuffix: Azure Architecture Center
-  author: jocontr
-  ms.date: 07/05/2020
   description: Machine teaching incorporates artificial intelligence, machine learning, deep reinforcement learning, subject matter expertise, and simulated environment data.
-  ms.custom: pcp
+  author: jocontr
+  ms.author: pnp
+  ms.date: 07/05/2020
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: solution-idea
   ms.category:
     - ai-machine-learning
+  ms.custom:
+    - pcp
 name: Machine teaching
 azureCategories:
   - ai-machine-learning
