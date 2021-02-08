@@ -3,25 +3,29 @@
 
 The SAP on Azure Architecture Guide describes a set of guiding tenets that are used to help ensure the quality of SAP workloads running on Azure. This guide is based on the [Microsoft Azure Well-Architected Framework](../../framework/index.md), but the recommendations are specific to deployments of SAP solutions. A solid architectural foundation starts with five pillars of excellence: cost, DevOps, resiliency, scalability, and security.
 
-Microsoft and SAP work in [partnership](https://blogs.microsoft.com/blog/2019/05/09/microsoft-partners-with-sap-as-the-first-global-cloud-provider-to-launch-project-embrace/) to provide a clear roadmap for organizations that want to innovate in the cloud. Azure supports SAP applications on Linux and Windows across development, test, and production environments. Our customers run SAP deployments of all sizes on Azure—including SAP NetWeaver, SAP S/4HANA, SAP BW/4HANA, SAP BI, and SAP HANA in scale-up and scale-out scenarios.
+Microsoft and SAP work in [partnership](https://blogs.microsoft.com/blog/2019/05/09/microsoft-partners-with-sap-as-the-first-global-cloud-provider-to-launch-project-embrace/) to provide a clear roadmap for organizations that want to innovate in the cloud. Azure supports SAP applications on Linux and Windows across development, test, and production environments. Our customers run SAP deployments of all sizes on Azure—including SAP NetWeaver an all SAP supported Database Management Systems, SAP S/4HANA, SAP BW/4HANA, SAP BI, and SAP HANA in scale-up and scale-out scenarios. 
 
 One way to get started is to run through the [Azure Well-Architected Review](/assessments/?id=azure-architecture-review&mode=pre-assessment).
 
 ## Cost
 
-When you move SAP solutions to Azure, you have the opportunity to perform an SAP system rationalization. This assessment takes place at the beginning of your journey to Azure and continues throughout.
+When you move your workloads to the cloud you have multiple aspect which can help to reduce costs of the overall solution. A lot of them a covered in the Azure Well-Architected Framework under the [pillar of cost optimization](https://docs.microsoft.com/azure/architecture/framework/cost/). When you move SAP solutions to Azure, you have the additional opportunity to perform cost optimization. You can start a **rationalization** of your landscape or there ist the chance to **rearchitecture** or substitute components, especially when moving from Business Suite to S/4HANA during your journey to the cloud. All these actions take place at the beginning of your journey to Azure and continues throughout.
 
-System rationalization answers cost-related questions. For example, do you need to move all SAP systems, or can you decommission those which are no longer used? Is it more cost-efficient to refactor certain workloads—or more timely to lift and shift?
+System rationalization answers cost-related questions. For example, do you need to move all SAP systems, or can you decommission those which are no longer used? Is it more cost-efficient to refactor certain workloads—or more timely to lift and shift? Do you really need a system as big as you sized it on premises?
 
 To see how Microsoft IT answered these questions, read about how the team decommissioned approximately 60 virtual machines as part of our own [SAP migration to Azure](https://www.microsoft.com/itshowcase/blog/hello-azure-unpacking-microsoft-moved-sap-workload-cloud/).
 
-An efficient approach eliminates waste within your SAP deployment on Azure and helps lower costs and ease operations. For example, after your SAP go-live in Azure, review the sizing. Based on utilization, can you reduce the size of the virtual machines for your SAP landscapes? Can you detach disks that are no longer being used?
+An efficient approach eliminates waste within your SAP deployment on Azure and helps lower costs and ease operations. For example, after your go-live in Azure, review the sizing. Based on utilization, can you reduce the size of the virtual machines for your landscapes? Can you detach disks that are no longer being used?
 
-Another way to reduce costs is to deallocate or “snooze” virtual machines. If you run your SAP sandbox systems 10 hours a day, Monday through Friday, instead of around the clock every day, you might reduce your costs up to approximately 70 percent in a pay-as-you-go model. When your SAP applications need to run all the time, opt for [Azure Reserved Instances](https://azure.microsoft.com/pricing/reserved-vm-instances/) to also help drive down costs.
+Bringing rationalization together with a potential rearchitecture of the overall business solution is also an appropriate way of reducing costs. There is the potential to move business process to SaaS services.
+
+### Continuous cost management
+
+Another way to reduce costs is to deallocate or “snooze” virtual machines. If you run your sandbox systems 10 hours a day, Monday through Friday, instead of around the clock every day, you might reduce your costs up to approximately 70 percent in a pay-as-you-go model. When your SAP applications need to run all the time, opt for [Azure Reserved Instances](https://azure.microsoft.com/pricing/reserved-vm-instances/) to also help drive down costs.
 
 Combining virtual machine [pricing options](https://azure.microsoft.com/pricing/details/virtual-machines/sles-sap/)  can also lower costs. For budget predictability, you an use an Azure Reserved Virtual Machine Instance, an advanced purchase for one or three years in a specified region. For low cost and flexibility, you can pay as you go for compute capacity, which requires no long term-commitment.
 
-As a final note, it’s a good practice to review your Azure operations regularly and look for ways to optimize costs. For example, check to see whether a more cost-effective storage option is available or a newer VM series with a better price-to-performance ratio.
+As a final note, it’s a good practice to review your Azure operations regularly and look for ways to optimize costs. For example, check to see whether a more cost-effective storage option is available or a newer VM series with a better price-to-performance ratio. For more details see cost management discipline in the [govern methodology for cloud](https://docs.microsoft.com/azure/cloud-adoption-framework/govern/methodology) as part of the Cloud Adoption Framework.
 
 ### Cost guidance
 
