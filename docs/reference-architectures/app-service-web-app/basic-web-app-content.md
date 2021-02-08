@@ -46,6 +46,11 @@ Use the following button to deploy the reference using the Azure portal.
 
 --- 
 
+For detailed information and additional deployment options, see the ARM Templates used to deploy this solution.
+
+> [!div class="nextstepaction"]
+> [Hub and Spoke ARM Template](https://docs.microsoft.com/samples/mspnp/samples/basic-web-app-deployment/)
+
 ## Architecture
 
 > [!NOTE]
