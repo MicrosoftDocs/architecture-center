@@ -61,11 +61,13 @@ Here are the main load-balancing services currently available in Azure:
 
 ## Choose a load balancing solution using Azure portal
 
-You can use the Azure Load Balancing page in the Azure portal to help you guide to the right load-balancing solution for your business need. Azure Load Balancing includes the decision making queries described in the workflow of the previous section and can be accessed as follows:
+You can use the Azure Load Balancing page in the Azure portal to help you guide to the right load-balancing solution for your business need. Azure Load Balancing includes the decision making queries described in the workflow of the following section and can be accessed as follows:
 
 1. Sign in to the [Azure portal at [https://portal.azure.com](https://portal.azure.com).
 1. In the *Search resources, services, and docs* box at the top of the portal, type *load balancing*. When **Load balancing** appears in the search results, select it.
     ![Search for load balancing - Azure portal screenshot](./images/search-load-balancing-2.png)
+    > [!NOTE] To learn about some of the factors considered in selecting a load-balancing solution, see [Decision tree for laod-balancing in Azure](##decision-tree-for-load-balancing-in-azure) in this article.
+> Information the user should notice even if skimming
 1. In the **Load balancing -help me choose (Preview)** page, do one of the following:
     1. To find the appropriate load-balancing solution for your business, follow instructions in the default **Help me choose** tab.
       ![Choose an Azure load balancing solution - Azure portal screenshot](./images/load-balancing-help-me-choose.png)
@@ -88,7 +90,7 @@ The following table lists various architecture reference articles based on the l
 
 ## Decision tree for load balancing in Azure
 
-When selecting the load-balancing options, here are some factors to consider:
+When selecting the load-balancing options, here are some factors that are considered when you select the **Help me choose** default tab in Azure load balancing:
 
 - **Traffic type**. Is it a web (HTTP/HTTPS) application? Is it public facing or a private application?
 - **Global versus. regional**. Do you need to load balance VMs or containers within a virtual network, or load balance scale unit/deployments across regions, or both?
