@@ -92,7 +92,7 @@ Click the following links for guidance in provisioning:
 
 ## Monitor
 
-- [Managing the Azure Arc enabled servers agent](/azure/azure-arc/servers/manage-agent)  https://docs.microsoft.com/en-us/azure/azure-arc/servers/agent-overview
+- [Managing the Azure Arc enabled servers agent](https://docs.microsoft.com/azure/azure-arc/servers/manage-agent)
    - Bring all your resources into a single system so you can organize and inventory through a variety of Azure scopes, such as Management groups, Subscriptions, and Resource Groups.<!--CAF Overlap-->
    - Create, apply, and enforce standardized and custom tags to keep track of resources.<!--CAF Overlap-->
    - Build powerful queries and search your global portfolio with Azure Resource Graph.<!--CAF Overlap-->
