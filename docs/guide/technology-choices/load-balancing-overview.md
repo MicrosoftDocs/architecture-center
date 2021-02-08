@@ -78,8 +78,8 @@ The following table lists various architecture reference articles based on the l
 
 |Service(s) |Article |Description |
 |---------|---------|---------|
-|Load Balancer    |  TBD    |   TBD      |
-|Front Door    |  [Sharing location in real time using low-cost serverless Azure services](https://docs.microsoft.com/azure/architecture/example-scenario/signalr/#azure-front-door)       |   TBD      |
+|Load Balancer    |  [Load balance virtual machines (VMs) across availability zones](https://docs.microsoft.com/azure/load-balancer/quickstart-load-balancer-standard-public-portal)    |   Load balancing VMs across availability zones helps to protect your apps and data from an unlikely failure or loss of an entire datacenter. With zone-redundancy, one or more availability zones can fail and the data path survives as long as one zone in the region remains healthy.     |
+|Front Door    |  [Sharing location in real time using low-cost serverless Azure services](https://docs.microsoft.com/azure/architecture/example-scenario/signalr/#azure-front-door)       |   A multi-region architecture using Azure Front Foor can provide higher availability than deploying to a single region. If a regional outage affects the primary region, you can use Front Door to fail over to the secondary region.      |
 |Application Gateway     |[IaaS: Web application with relational database](https://docs.microsoft.com/azure/architecture/high-availability/ref-arch-iaas-web-and-db)    |    TBD     |
 |Traffic Manager   | [Multi-region N-tier application](https://docs.microsoft.com/azure/architecture/reference-architectures/n-tier/multi-region-sql-server)        |      TBD   |
 |Azure Front Door + Application Gateway     | [Multitenant SaaS on Azure](https://docs.microsoft.com/azure/architecture/example-scenario/multi-saas/multitenant-saas)       |      TBD   |
