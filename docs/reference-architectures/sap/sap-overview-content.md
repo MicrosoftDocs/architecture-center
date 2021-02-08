@@ -159,7 +159,7 @@ instance, allowing access to the SAP application ports from on-premises IP addre
 
 With regard to data integrity, [Azure Disk Encryption](/azure/security/azure-security-disk-encryption-faq) helps you encrypt your SAP virtual machine disks. Both the operating system and data volumes can be encrypted at rest in storage.
 
-Azure Disk Encryption works with [Azure Key Vault](/azure/key-vault/key-vault-whatis), a service that controls and manages your encryption keys. Many of our SAP customers choose Azure Disk Encryption for their operating system disks and transparent DBMS data encryption for their SAP database files. This approach promotes the integrity of the operating system and helps ensure that database backups are also encrypted.
+Azure Disk Encryption works with [Azure Key Vault](/azure/key-vault/key-vault-whatis), a service that controls and manages your encryption keys. Azure Key Vault supports the SQL server from DBMS point of view. Many of our SAP customers choose Azure Disk Encryption for their operating system disks and transparent DBMS data encryption for their SAP database files. This approach promotes the integrity of the operating system and helps ensure that database backups are also encrypted.
 
 ### Identity management
 
@@ -181,9 +181,13 @@ Cloud applications often use managed services that have access keys. It bears re
 
 ### Data sovereignty and encryption
 
-Make sure that your data remains in the correct geopolitical zone when using highly available regions in Azure. Azure Storage, like [Azure NetApp Files](/azure/azure-netapp-files/azure-netapp-files-introduction), can provide geo-replication based on the concept of a [paired region](/azure/best-practices-availability-paired-regions) in the same geopolitical zone.
+Make sure that your data remains in the correct geopolitical zone when using highly available regions in Azure. Azure Storage, like [Azure NetApp Files](/azure/azure-netapp-files/azure-netapp-files-introduction), can provide geo-replication based on the concept of a [paired region](/azure/best-practices-availability-paired-regions) in the same geopolitical zone. 
 
-We recommend using Key Vault to safeguard cryptographic keys and secrets. You can use Key Vault to encrypt keys and small secrets, like passwords, that use keys stored in hardware security modules (HSMs). Many storage and database services support data encryption at rest, including [Azure Storage](/azure/storage/storage-service-encryption), [Azure SQL Database](/azure/sql-database/sql-database-always-encrypted-azure-key-vault), [Azure Synapse Analytics](/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is), and [Azure Cosmos DB](/azure/cosmos-db/database-security).
+A common feature of cloud-based infrastructures like Azure Storage is that they provide a highly available and durable platform for hosting data and applications. Developers of cloud-based applications must consider carefully how to leverage this platform to maximize those advantages for their users. 
+
+When deciding which redundancy option is best for your scenario, consider the tradeoffs between lower costs and higher availability. In case, customers would like to replicate their SAP on Azure infrastructure to other Azure regions for Business continuity and Disaster recovery purpose, they can achieve the same with Storage replication e.g. GRS  or Disaster Recovery mechanisms e.g. ASR. More details at https://docs.microsoft.com/en-us/azure/storage/common/storage-redundancy  
+
+We recommend using Key Vault to safeguard cryptographic keys and secrets. You can use Key Vault to encrypt keys and small secrets, like passwords, that use keys stored in hardware security modules (HSMs).  Azure Key Vault supports the SQL server from DBMS point of view. Many storage and database services support data encryption at rest, including [Azure Storage](/azure/storage/storage-service-encryption), [Azure SQL Database](/azure/sql-database/sql-database-always-encrypted-azure-key-vault), [Azure Synapse Analytics](/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is), and [Azure Cosmos DB](/azure/cosmos-db/database-security).
 
 ### Security resources
 
