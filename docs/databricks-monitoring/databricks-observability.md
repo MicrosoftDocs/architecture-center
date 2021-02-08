@@ -334,7 +334,7 @@ The prebuilt query names for retrieving Spark metrics are listed below.
         - Task Shuffle Read Time
         - Task Shuffle Write Time
         - Task Throughput (Sum Of Tasks Per Stage)
-        - Tasks Per Executor (sum Of Tasks Per Executor)
+        - Tasks Per Executor (Sum Of Tasks Per Executor)
         - Tasks Per Stage
     :::column-end:::
 :::row-end:::
