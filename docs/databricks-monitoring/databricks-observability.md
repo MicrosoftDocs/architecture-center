@@ -8,7 +8,7 @@ This scenario offers guidance for performance tuning. Since the scenario present
 
 Azure Databricks can send this monitoring data to different logging services, such as Azure Log Analytics.
 
-This scenario outlines the ingestion of a large set of data that's grouped by customer and stored in a gzip file. Detailed logs are unavailable from Azure Databricks outside of the real-time Spark UI, so there needs to be a way to store all the data for each customer, and then benchmark and compare. With a large data scenario, it’s important to find an optimal combination executor pool and VM size for the fastest processing time. For this business scenario, the overall application relies on the speed of ingestion and querying requirements.
+This scenario outlines the ingestion of a large set of data that's grouped by customer and stored in a gzip file. Detailed logs are unavailable from Azure Databricks outside of the real-time Apache Spark™ UI, so there needs to be a way to store all the data for each customer, and then benchmark and compare. With a large data scenario, it’s important to find an optimal combination executor pool and VM size for the fastest processing time. For this business scenario, the overall application relies on the speed of ingestion and querying requirements.
 
 ## Potential use cases
 
@@ -59,7 +59,7 @@ The solution involves the following steps:
 
 Keep these points in mind when considering this architecture:
 
-- Azure Databricks can automatically give the computing resources necessary for a large job, which avoids problems introduced by other solutions. For example, with [Databricks-optimized autoscaling on Apache Spark™](https://databricks.com/blog/2018/05/02/introducing-databricks-optimized-auto-scaling.html), resources may be used suboptimally because of excessive provisioning. Or the number of executors required for a job may not be known.
+- Azure Databricks can automatically give the computing resources necessary for a large job, which avoids problems introduced by other solutions. For example, with [Databricks-optimized autoscaling on Apache Spark](https://databricks.com/blog/2018/05/02/introducing-databricks-optimized-auto-scaling.html), resources may be used suboptimally because of excessive provisioning. Or the number of executors required for a job may not be known.
 
 - A queue message in Azure Queue Storage can be up to 64 KB in size. A queue may contain millions of queue messages, up to the total capacity limit of a storage account.
 
@@ -246,7 +246,7 @@ Next, build a sample app for sending application logs and application metrics fr
 
 1. In your Java IDE, open the Maven project *sample/spark-sample-job/pom.xml* in your local repository.
 1. In IntelliJ IDEA, select **Execute Maven Goal** > **mvn package** to build the Maven project.
-1. In the web portal for your Azure Databricks site, go to the side panel and select **Jobs** > **Create Job**.
+1. In the web portal for your Azure Databricks workspace, go to the side panel and select **Jobs** > **Create Job**.
 1. Enter a name for the sample job, and then select **Set JAR** to display the **Upload JAR to Run** dialog box.
 1. Select **Drop JAR here to upload**, browse to the *sample/spark-sample-job/target* directory, and then open the JAR file (*spark-monitoring-sample-1.0.0.jar*).
 1. In the **Main class** box, enter *com.microsoft.pnp.samplejob.StreamingQueryListenerSampleJob*, and then select **OK**.
