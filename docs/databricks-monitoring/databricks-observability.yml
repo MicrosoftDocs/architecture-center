@@ -22,4 +22,4 @@ name: Observability patterns and metrics for performance tuning
 summary: Learn about how to use observability patterns and metrics to improve the processing performance of a big data system using Azure Databricks.
 thumbnailUrl: /azure/architecture/browse/thumbs/databricks-observability-architecture.png
 content: | 
-  [!include[](databricks-observability.md)]
+  [!include[](databricks-observability-content.md)]
