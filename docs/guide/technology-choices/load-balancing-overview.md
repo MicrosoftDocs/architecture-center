@@ -64,10 +64,10 @@ Here are the main load-balancing services currently available in Azure:
 You can use the Azure Load Balancing page in the Azure portal to help you guide to the right load-balancing solution for your business need. Azure Load Balancing includes the decision making queries described in the workflow of the previous section and can be accessed as follows:
 
 1. Sign in to the [Azure portal at [https://portal.azure.com](https://portal.azure.com).
-1. In the *Search resources, services, and docs* box at the top of the portal, type *load balancing*. When **load balancing** appears in the search results, select it.
+1. In the *Search resources, services, and docs* box at the top of the portal, type *load balancing*. When **Load balancing** appears in the search results, select it.
     ![Search for load balancing - Azure portal screenshot](./images/search-load-balancing-2.png)
-1. In the Help me choose page, do one of the following:
-    1. To find the appropriate load  balancing solution for your business, follow instructions in the default **Help me choose** tab.
+1. In the **Load balancing -help me choose (Preview)** page, do one of the following:
+    1. To find the appropriate load-balancing solution for your business, follow instructions in the default **Help me choose** tab.
       ![Choose an Azure load balancing solution - Azure portal screenshot](./images/load-balancing-help-me-choose.png)
     1. To learn about the supported protocols and service capabilities of each load balancing service, select the **Service comparisons** tab.
     1. To access free training on load balancing services, select the **Tutorial** tab.
