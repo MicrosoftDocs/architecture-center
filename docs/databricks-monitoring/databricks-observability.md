@@ -519,14 +519,14 @@ Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculato
 
 ## Next steps
 
-Read about [performance antipatterns](~/docs/antipatterns/index.md).
+Read about [performance antipatterns](../antipatterns/index.md).
 
 ## Related resources
 
 - [Send Azure Databricks application logs to Azure Monitor](application-logs.md)
 - [Use dashboards to visualize Azure Databricks metrics](dashboards.md)
-- [Best practices for monitoring cloud applications](~/docs/best-practices/monitoring.md)
+- [Best practices for monitoring cloud applications](../best-practices/monitoring.md)
 - [Monitoring Azure Databricks in an Azure Log Analytics workspace](https://github.com/mspnp/spark-monitoring/blob/master/README.md)
 - [Deployment of Azure Log Analytics with Spark metrics](https://github.com/mspnp/spark-monitoring/tree/master/perftools/deployment#deployment-of-log-analytics-with-spark-metrics)
 - [Observability patterns](/dotnet/architecture/cloud-native/observability-patterns)
-- [Retry pattern](~/docs/patterns/retry.md)
+- [Retry pattern](../patterns/retry.md)
