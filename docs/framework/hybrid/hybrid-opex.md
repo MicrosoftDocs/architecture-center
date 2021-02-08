@@ -69,7 +69,7 @@ Click the following links for architecture details and diagrams that enable appl
 ### Application design
 
 - [Azure Arc hybrid management and deployment for Kubernetes clusters](../../hybrid/arc-hybrid-kubernetes.yml)
-- [Run containers in a hybrid environment](../../hybrid/hybrid-containers)
+- [Run containers in a hybrid environment](https://docs.microsoft.com/azure/architecture/hybrid/hybrid-containers)
 - [Managing K8 clusters outside of Azure with Azure Arc](https://azure.microsoft.com/resources/videos/kubernetes-app-management-with-azure-arc)
 - [Optimize administration of SQL Server instances in on-premises and multi-cloud environments by leveraging Azure Arc](../../hybrid/azure-arc-sql-server.yml)
 - [Azure Data Studio dashboards](https://docs.microsoft.com/azure/azure-arc/data/azure-data-studio-dashboards)
@@ -87,17 +87,17 @@ Click the following links for architecture details and diagrams that enable appl
 
 ### Code deployment
 
-- [Deploy configurations using GitOps on Arc enabled Kubernetes cluster](https://docs.microsoft.com/en-us/azure/azure-arc/kubernetes/use-gitops-connected-cluster)
-- [Use Azure Policy to apply cluster configurations at scale](https://docs.microsoft.com/en-us/azure/azure-arc/kubernetes/use-azure-policy)
-- [Azure Automation in a hybrid environment](https://docs.microsoft.com/en-us/azure/architecture/hybrid/azure-automation-hybrid)
-- [DevOps in a hybrid environment](https://docs.microsoft.com/en-us/azure/architecture/solution-ideas/articles/devops-in-a-hybrid-environment)
+- [Deploy configurations using GitOps on Arc enabled Kubernetes cluster](https://docs.microsoft.com/azure/azure-arc/kubernetes/use-gitops-connected-cluster)
+- [Use Azure Policy to apply cluster configurations at scale](https://docs.microsoft.com/azure/azure-arc/kubernetes/use-azure-policy)
+- [Azure Automation in a hybrid environment](https://docs.microsoft.com/azure/architecture/hybrid/azure-automation-hybrid)
+- [DevOps in a hybrid environment](https://docs.microsoft.com/azure/architecture/solution-ideas/articles/devops-in-a-hybrid-environment)
 
 
 ## Manage data anywhere
 
 ![Management capabilities comparison by deployment model](../_images/hybrid-deployment.png)
   
-## Next steps
+## Next step
 
 >[!div class="nextstepaction"]
 >[Performance Efficiency](/azure/architecture/framework/hybrid/hybrid-performance-efficiency)

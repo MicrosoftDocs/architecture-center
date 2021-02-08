@@ -22,10 +22,10 @@ The first steps with Azure Arc are to connect the machines to Azure. To use Azur
 
 There are four ways to connect machines:
 
-- Manual installation
-- Script-based installation
-- Connect machines at scale using service principal
-- Installation using Windows PowerShell DSC
+1. Manual installation
+1. Script-based installation
+1. Connect machines at scale using service principal
+1. Installation using Windows PowerShell DSC
 
 After connecting the machines, you can then manage the VM extensions all from Azure, which provides consistent extension management between Azure and non-Azure VMs. In Azure you can use Azure Automation State Configuration to centrally store configurations and maintain the desired state of Arc enabled servers through the DSC VM extension. You can also collect log data for analysis with Azure Monitor Logs enabled through the Log Analytics agent VM extension. Wit Azure Monitor, you can analyze the performance of your Windows and Linux VMs and monitor their processes and dependencies on other resources and external processes.
 
@@ -42,11 +42,11 @@ You have the flexibility to extend the capacity of the underlying Kubernetes or 
 > [!NOTE]
 > When provisioning a pod, you need to decide which storage class to use for its volumes. Your decision is important from a performance standpoint because an incorrect choice could result in suboptimal performance. 
 
-When planning for deployment of Azure Arc enabled SQL Managed Instance, you should consider a range of factors affecting storage configuration [kubernetes-storage-class-factors](/azure/azure-arc/data/storage-configuration#factors-to-consider-when-choosing-your-storage-configuration) for both [data controller](/azure/azure-arc/data/storage-configuration#data-controller-storage-configuration) and [database instances](/azure/azure-arc/data/storage-configuration#database-instance-storage-configuration).
+When planning for deployment of Azure Arc enabled SQL Managed Instance, you should consider a range of factors affecting storage configuration [kubernetes-storage-class-factors](https://docs.microsoft.com/azure/azure-arc/data/storage-configuration#factors-to-consider-when-choosing-your-storage-configuration) for both [data controller](https://docs.microsoft.com/azure/azure-arc/data/storage-configuration#data-controller-storage-configuration) and [database instances](https://docs.microsoft.com/azure/azure-arc/data/storage-configuration#database-instance-storage-configuration).
 
 ## Azure Stack HCI
 
-With the scope of Azure Arc extended to Azure Stack HCI VMs, you'll be able to [automate their configuration by using Azure VM extensions](/azure/azure-arc/servers/manage-vm-extensions) and evaluate their [compliance with industry regulations and corporate standards by using Azure Policy](/azure/azure-arc/servers/security-controls-policy).
+With the scope of Azure Arc extended to Azure Stack HCI VMs, you'll be able to [automate their configuration by using Azure VM extensions](https://docs.microsoft.com/azure/azure-arc/servers/manage-vm-extensions) and evaluate their [compliance with industry regulations and corporate standards by using Azure Policy](https://docs.microsoft.com/azure/azure-arc/servers/security-controls-policy).
 
 In remote office/branch office scenarios, you must consider storage resiliency versus usage efficiency, versus performance. Planning for Azure Stack HCI volumes involves identifying the optimal balance between resiliency, usage efficiency, and performance. The challenge results from the fact that maximizing one of these characteristics typically has a negative impact on at least one of the other two.
 
