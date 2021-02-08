@@ -97,11 +97,7 @@ resource "azurerm_storage_account" "example" {
 }
 ```
 
-Take note, the Terraform provider for Azure is an abstraction on top of Azure APIs. This abstraction is beneficial because the API complexities are obfuscated. This abstraction comes at a cost; the Terraform provider for Azure does not always provide parity with the Azure APIs' capabilities.
-
-**Learn more**
-
-- [Documentation: Using Terraform on Azure](/azure/developer/terraform/overview)
+Take note, the Terraform provider for Azure is an abstraction on top of Azure APIs. This abstraction is beneficial because the API complexities are obfuscated. This abstraction comes at a cost; the Terraform provider for Azure does not always provide parity with the Azure APIs' capabilities. To learn more about using Terraform on Azure, see [Using Terraform on Azure](/azure/developer/terraform/overview)
 
 ## Manual deployment
 
