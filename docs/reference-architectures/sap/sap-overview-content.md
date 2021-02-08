@@ -92,9 +92,9 @@ It is essential to carefully consider both availability and recoverability withi
 
 ### Resiliency guidance
 
-[Designing reliable Azure applications](/azure/architecture/framework/resiliency/overview.md)
+[Designing reliable Azure applications](/azure/architecture/framework/resiliency/overview)
 
-[Design patterns for resiliency](/azure/architecture/framework/resiliency/reliability-patterns.md)
+[Design patterns for resiliency](/azure/architecture/framework/resiliency/reliability-patterns)
 
 [Azure Virtual Machines high availability for SAP NetWeaver](/azure/virtual-machines/workloads/sap/sap-high-availability-guide-start)
 

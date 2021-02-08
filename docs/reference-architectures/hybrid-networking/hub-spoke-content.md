@@ -49,7 +49,7 @@ Use the following button to deploy the reference using the Azure portal.
 For detailed information and additional deployment options, see the ARM Templates used to deploy this solution.
 
 > [!div class="nextstepaction"]
-> [Hub and Spoke ARM Template](https://github.com/mspnp/samples/tree/master/solutions/azure-hub-spoke)
+> [Hub and Spoke ARM Template](https://docs.microsoft.com/samples/mspnp/samples/hub-and-spoke-deployment/)
 
 ## Use cases
 
@@ -67,7 +67,7 @@ The architecture consists of the following components.
 
 **Spoke virtual networks:** Spoke virtual networks are used to isolate workloads in their own virtual networks, managed separately from other spokes. Each workload might include multiple tiers, with multiple subnets connected through Azure load balancers.
 
-**Virtual network peering:** Two virtual networks can be connected using a [peering connection])/azure/virtual-network/virtual-network-peering-overview). Peering connections are non-transitive, low latency connections between virtual networks. Once peered, the virtual networks exchange traffic by using the Azure backbone without the need for a router.
+**Virtual network peering:** Two virtual networks can be connected using a [peering connection](/azure/virtual-network/virtual-network-peering-overview). Peering connections are non-transitive, low latency connections between virtual networks. Once peered, the virtual networks exchange traffic by using the Azure backbone without the need for a router.
 
 **Bastion Host:** Azure Bastion lets you securely connect to a virtual machine using your browser and the Azure portal. An Azure Bastion host is deployed inside an Azure Virtual Network and can access virtual machines in the VNet, or virtual machines in peered VNets.
 
@@ -102,7 +102,7 @@ A hub-spoke topology can also be used without a gateway if you don't need connec
 
 Virtual network peering is a non-transitive relationship between two virtual networks. If you require spokes to connect to each other, consider adding a separate peering connection between those spokes.
 
-However, suppose you have several spokes that need to connect with each other. In that case, you will run out of possible peering connections very quickly due to the limitation on the number of virtual network peerings per virtual network. (For more information, see [Networking limits](/azure/azure-subscription-service-limits#networking-limits). In this scenario, consider using user-defined routes (UDRs) to force traffic destined to a spoke to be sent to Azure Firewall or an network virtual appliance acting as a router at the hub. This will allow the spokes to connect to each other.
+However, suppose you have several spokes that need to connect with each other. In that case, you will run out of possible peering connections very quickly due to the limitation on the number of virtual network peerings per virtual network. (For more information, see [Networking limits](/azure/azure-subscription-service-limits#networking-limits). In this scenario, consider using user-defined routes (UDRs) to force traffic destined to a spoke to be sent to Azure Firewall or a network virtual appliance acting as a router at the hub. This will allow the spokes to connect to each other.
 
 You can also configure spokes to use the hub gateway to communicate with remote networks. To allow gateway traffic to flow from spoke to hub and connect to remote networks, you must:
 
@@ -114,7 +114,7 @@ For additional information on creating virtual network peering, see [Create VNet
 
 ### Spoke connectivity
 
-If you require connectivity between spokes, consider deploying an Azure Firewall or other network virtual appliance and crate routes to forward traffic from the spoke to the firewall / network virtual appliance, which can then route to the second spoke. In this scenario, you must configure the peering connections to **allow forwarded traffic**.
+If you require connectivity between spokes, consider deploying an Azure Firewall or other network virtual appliance and create routes to forward traffic from the spoke to the firewall / network virtual appliance, which can then route to the second spoke. In this scenario, you must configure the peering connections to **allow forwarded traffic**.
 
 ![Routing between spokes using Azure Firewall](./images/spoke-spoke-routing.png)
 

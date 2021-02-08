@@ -2,28 +2,35 @@
 metadata:
   title: Demand Forecasting and Price Optimization
   titleSuffix: Azure Solution Ideas
+  description: This solution addresses the challenges raised above by utilizing historical transaction data to train a demand forecasting model.
   author: doodlemania2
+  ms.author: pnp
   ms.date: 12/16/2019
-  description: Pricing is recognized as a pivotal determinant of success in many industries and can be one of the most challenging tasks. Companies often struggle with several aspects of the pricing process, including accurately forecasting the financial impact of potential tactics, taking reasonable consideration of core business constraints, and fairly validating the executed pricing decisions. Expanding product offerings add further computational requirements to make real-time pricing decisions, compounding the
-    difficulty of this already overwhelming task.
-  ms.custom: 'acom-architecture, anomaly-detection, artificial intelligence, solution architectures, Azure, ai gallery, ''https://azure.microsoft.com/solutions/architecture/demand-forecasting-and-price-optimization/'''
+  ms.topic: conceptual
   ms.service: architecture-center
+  ms.subservice: solution-idea
   ms.category:
     - analytics
     - ai-machine-learning
-  ms.subservice: solution-idea
+  ms.custom:
+    - acom-architecture
+    - anomaly-detection
+    - artificial intelligence
+    - solution architectures
+    - Azure
+    - ai gallery
+    - 'https://azure.microsoft.com/solutions/architecture/demand-forecasting-and-price-optimization/'
   social_image_url: /azure/architecture/solution-ideas/articles/media/demand-forecasting-and-price-optimization.png
 name: Demand Forecasting and Price Optimization
 azureCategories:
   - analytics
   - ai-machine-learning
-summary: Pricing is recognized as a pivotal determinant of success in many industries and can be one of the most challenging tasks. Companies often struggle with several aspects of the pricing process, including accurately forecasting the financial impact of potential tactics, taking reasonable consideration of core business constraints, and fairly validating the executed pricing decisions. Expanding product offerings add further computational requirements to make real-time pricing decisions, compounding the
-  difficulty of this already overwhelming task.
+summary: This solution addresses the challenges raised above by utilizing historical transaction data to train a demand forecasting model.
 products:
-  - azure
+  - azure-blob-storage
+  - azure-data-factory
   - azure-hdinsight
-  - github
-  - power-bi
+  - azure-web-apps
 thumbnailUrl: /azure/architecture/browse/thumbs/demand-forecasting-and-price-optimization.png
 content: |
    [!include[](demand-forecasting-and-price-optimization-content.md)]

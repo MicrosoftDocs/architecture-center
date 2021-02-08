@@ -4,6 +4,7 @@ metadata:
   description: This reference architecture shows recommended practices for tuning the hyperparameters (training parameters) of a scikit-learn Python model.
   author: fboylu
   ms.date: 07/17/2019
+  ms.topic: conceptual
   ms.service: architecture-center
   ms.category:
     - ai-machine-learning

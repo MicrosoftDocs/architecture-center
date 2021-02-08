@@ -22,7 +22,7 @@ This approach can also be used to:
 
 ## Architecture
 
-![Architecture for a data warehousing and analysis scenario in Azure][architecture]
+![Azure Architecture](/DataWarehousing.png)
 
 The data flows through the solution as follows:
 
