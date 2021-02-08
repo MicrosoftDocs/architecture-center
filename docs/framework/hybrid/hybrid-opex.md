@@ -79,7 +79,7 @@ Click the following links for architecture details and diagrams that enable appl
 ### Monitoring
 
 - [Enable monitoring of Azure Arc enabled Kubernetes cluster](https://docs.microsoft.com/azure/azure-monitor/insights/container-insights-enable-arc-enabled-clusters)
-- [Azure Monitor for containers overview](/azure/azure-monitor/insights/container-insights-overview)
+- [Azure Monitor for containers overview](https://docs.microsoft.com/azure/azure-monitor/insights/container-insights-overview)
 
 ### Application performance management
 
