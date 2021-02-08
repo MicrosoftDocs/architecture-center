@@ -32,3 +32,9 @@ Autoscaling rules that use a detection mechanism based on a measured trigger att
 ## Preemptively scaling based on trends
 
 Preemptively scaling based on historical data can ensure your application has consistent performance, even though your metrics have not yet indicated the need to scale. If you can predict the load on the application, consider using scheduled autoscaling, which adds and removes instances to meet anticipated peaks in demand. To learn more [review autoscaling guidance](../../best-practices/auto-scaling.md).
+
+## Automated scale operations
+
+Fluctuation in application traffic is expected. To ensure optimal operation conditions are maintained, such variations should be met by automated scalability operations. The significance of automatic capacity responses underpinned by a robust capacity model was highlighted by the COVID-19 crisis, where many applications experienced severe traffic variations. While Auto-scaling enables a PaaS or IaaS service to scale within a pre-configured range of resources, provisioning or de-provisioning capacity is more advanced and complex, for example, adding additional scale units like additional clusters, compute instances, or deployments. The process should be codified, automated, and the effects of adding/removing capacity should be well understood.
+
+For more information on using automaton to provision and de-provision capacity, see [Repeatable Infrastructure](/azure/architecture/framework/devops/automation-infrastructure).
