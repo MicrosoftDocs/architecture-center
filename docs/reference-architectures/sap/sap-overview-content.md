@@ -46,11 +46,11 @@ Embracing a DevOps paradigm means using an infrastructure-as-code (IaC) approach
 |Manual deployment pains  | Automated deployment gains |
 |---------------------------|----------------------------|
 |- Requires specialized knowledge in many domains outside of SAP |- Works immediately after some initial preparation time and requires little domain knowledge|
-|- can take a lot of time depending on the size of the SAP landscape, depending on the size of the SAP landscape |- consumes predictable time from 30 minutes to a couple of hours|
-|- can be expensive |- Provides free resources—like these [SAP HANA templates](https://github.com/Azure/sap-hana) on GitHub|
+|- Can take a lot of time depending on the size of the SAP landscape, depending on the size of the SAP landscape |- Consumes predictable time from 30 minutes to a couple of hours|
+|- Can be expensive |- Provides free resources—like these [SAP HANA templates](https://github.com/Azure/sap-hana) on GitHub|
 |- Limits testing—it's harder to inject tests in the process |- Provides templates that include test instrumentation during deployment and migration|
 |- Makes it tedious and time-consuming to scale and customize the environment |- Makes it easy to scale up, down, and out, and new deployment templates are available|
-|- can lead to unwanted variations in design |- once defined the standards are applied with each deployment
+|- Can lead to unwanted variations in design |- Once defined the standards are applied with each deployment
 
 ### Monitoring
 
