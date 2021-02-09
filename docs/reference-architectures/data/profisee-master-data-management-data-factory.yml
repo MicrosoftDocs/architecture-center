@@ -4,10 +4,13 @@ metadata:
   titleSuffix: Azure Architectures
   description: Integrate Profisee master data management with Azure Data Factory to deliver high-quality, trusted data for Azure Synapse and all analytic applications.
   author: doodlemania2
+  ms.author: pnp
   ms.date: 01/25/2021
   ms.topic: conceptual
   ms.service: architecture-center
-  ms.custom: fcp
+  ms.subservice: reference-architecture
+  ms.custom:
+    - fcp
 azureCategories:
   - databases
   - management-and-governance
