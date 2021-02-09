@@ -3,13 +3,13 @@
 
 The SAP on Azure Architecture Guide describes a set of guiding tenets that are used to help ensure the quality of SAP workloads running on Azure. This guide is based on the [Microsoft Azure Well-Architected Framework](../../framework/index.md), but the recommendations are specific to deployments of SAP solutions. A solid architectural foundation starts with five pillars of excellence: cost, DevOps, resiliency, scalability, and security.
 
-Microsoft and SAP work in [partnership](https://blogs.microsoft.com/blog/2019/05/09/microsoft-partners-with-sap-as-the-first-global-cloud-provider-to-launch-project-embrace/) to provide a clear roadmap for organizations that want to innovate in the cloud. Azure supports SAP applications on Linux and Windows across development, test, and production environments. Our customers run SAP deployments of all sizes on Azure—including SAP NetWeaver an all SAP supported Database Management Systems, SAP S/4HANA, SAP BW/4HANA, SAP BI, and SAP HANA in scale-up and scale-out scenarios. 
+Microsoft and SAP work in [partnership](https://blogs.microsoft.com/blog/2019/05/09/microsoft-partners-with-sap-as-the-first-global-cloud-provider-to-launch-project-embrace/) to provide a clear roadmap for organizations that want to innovate in the cloud. Azure supports SAP applications on Linux and Windows across development, test, and production environments. Our customers run SAP deployments of all sizes on Azure—including SAP NetWeaver an all supported Database Management Systems, SAP S/4HANA, BW/4HANA,  BI, and HANA in scale-up and scale-out scenarios. 
 
 One way to get started is to run through the [Azure Well-Architected Review](/assessments/?id=azure-architecture-review&mode=pre-assessment).
 
 ## Cost
 
-When you move your workloads to the cloud you have multiple aspect which can help to reduce costs of the overall solution. A lot of them a covered in the Azure Well-Architected Framework under the [pillar of cost optimization](https://docs.microsoft.com/azure/architecture/framework/cost/). When you move SAP solutions to Azure, you have the additional opportunity to perform cost optimization. You can start a **rationalization** of your landscape or there ist the chance to **rearchitecture** or substitute components, especially when moving from Business Suite to S/4HANA during your journey to the cloud. All these actions take place at the beginning of your journey to Azure and continues throughout.
+When you move your workloads to the cloud you have multiple aspects which can help to reduce costs of the overall solution. A lot of them are covered in the Azure Well-Architected Framework under the [pillar of cost optimization](https://docs.microsoft.com/azure/architecture/framework/cost/). When you move SAP solutions to Azure, you have the additional opportunity to perform cost optimization. You can start a **rationalization** of your landscape or there ist the chance to **rearchitecture** or substitute components, especially when moving from Business Suite to S/4HANA during your journey to the cloud. All these actions take place at the beginning of your journey to Azure and continues throughout.
 
 System rationalization answers cost-related questions. For example, do you need to move all SAP systems, or can you decommission those which are no longer used? Is it more cost-efficient to refactor certain workloads—or more timely to lift and shift? Do you really need a system as big as you sized it on premises?
 
@@ -108,7 +108,7 @@ For more information, see [High-availability architecture for SAP application se
 
 ### Central services resiliency
 
-The SAP central services layer, consisting out of SAP (A)SCS/ERS (Linux only), are considered as a single point of failure (SPOF) of which the components must be set-up high-available to achieve resiliency.  The solution consists out of creating a cluster of the SAP central services layer, supported by a compatible shared storage technology.
+The SAP central services layer, consisting out of (A)SCS/ERS (Linux only), are considered as a single point of failure (SPOF) of which the components must be set-up high-available to achieve resiliency.  The solution consists out of creating a cluster of the SAP central services layer, supported by a compatible shared storage technology.
 
 Depending on the operating system and available shared storage technology in General Availability (GA) or Private/Public Preview, various options are available.
 
