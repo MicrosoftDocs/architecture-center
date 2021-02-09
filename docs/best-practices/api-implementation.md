@@ -8,7 +8,6 @@ ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: best-practice
 ms.custom:
-  - seodec18
   - best-practice
 social_image_url: /azure/architecture/best-practices/media types that the client can handle, such as `image/jpeg, image/gif, image/png
 ---

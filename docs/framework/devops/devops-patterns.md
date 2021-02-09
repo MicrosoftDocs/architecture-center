@@ -8,7 +8,6 @@ ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
 ms.custom:
-  - seodec18
   - design-pattern
 keywords: design pattern
 ---

@@ -8,7 +8,6 @@ ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: anti-pattern
 ms.custom:
-  - seodec18
   - article
 ---
 
