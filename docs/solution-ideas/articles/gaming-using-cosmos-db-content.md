@@ -42,4 +42,4 @@ This architecture includes the following components:
 
 - Azure Functions are serverless compute options that allow applications to run on-demand without having to manage infrastructure.
 
-- Azure Notification Hubs is a massively scalable push notification engine for quickly sending notifications to variety of mobile devices and platforms.
+- [Azure Notification Hubs](https://azure.microsoft.com/en-us/services/notification-hubs/#overview) is a massively scalable push notification engine for quickly sending notifications to variety of mobile devices and platforms.
