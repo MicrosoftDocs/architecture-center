@@ -26,7 +26,7 @@ Profile Container is used to redirect the full user profile. Profile Container i
 There are several reasons why Profile Container and Office Container may be used together. For more information, read the comparison of [Profile Container vs. Office Container](/fslogix/profile-container-office-container-cncpt).
 
 > [!NOTE]
-> The recommendation in Windows Virtual Desktop is to use Profile Container without Office Container for a simpler and therefore, a more robust solution.
+> The recommendation in Windows Virtual Desktop is to use Profile Container without Office Container unless you are planning for specific Business Continuity and Disaster Recovery (BCDR) scenarios as described in this [section](/disaster-recovery).
 
 ### Multiple profile connections
 
@@ -128,7 +128,7 @@ We recommend keeping native profile folder locations in the FSLogix profile cont
 
 ### Teams exclusions
 
-Exclude the following from the Teams caching folder, %appdata%/Microsoft/Teams. Excluding [these items](/microsoftteams/teams-for-vdi#teams-cached-content-exclusion-list-for-non-persistent-setup) helps reduce the user caching size to further optimize your non-persistent setup.
+Exclude the following from the Teams caching folder, %appdata%\Microsoft\Teams. Excluding [these items](/microsoftteams/teams-for-vdi#teams-cached-content-exclusion-list-for-non-persistent-setup) helps reduce the user caching size to further optimize your non-persistent setup.
 
 - Media-stack folder
 - meeting-addin\Cache (%appdata%\Microsoft\Teams\meeting-addin\Cache)
@@ -177,9 +177,13 @@ There are a number of considerations when implementing Cloud Cache. It should:
 
 Because of the resource utilization, it may be more cost effective to consider alternate backup/disaster recovery solutions for FSLogix profile containers. Cloud Cache is generally used when one of its features provides unique value, such as real-time profile high availability. If an environment can be adequately serviced with an alternate form of backup, it is often more economical than Cloud Cache.
 
-## Disaster recovery
+## Business Continuity and Disaster Recovery (BCDR)
 
-Large multi-national Windows Virtual Desktop deployments could require availability of the users profile across different regions. So it's important to have the same profile available in the Azure region of the host pool.
+In an Enterprise architecture, it is common to make user profiles resilient. To configure an FSLogix profile solution to make this as efficient as possible the amount of data being moved around should be reduced to the bare minimum.
+
+- The first step to create an efficient FSLogix profile solution is the use of [OneDrive Folder Backup](https://docs.microsoft.com/en-us/onedrive/redirect-known-folders) to put document based profile folders into OneDrive. This means you can take advantage of built-in OneDrive features to protect the users documents.
+
+- In order to reduce the amount of data needing to be independently replicated, archived and restored you should also split out the Office cache data into the O365 disk as the cache data often comprises by far the majority of the profile data capacity used. As the O365 disk only contains cache data, the source for which is safely stored in the cloud you do not need to make this data resilient. Once the documents and cache are separated from the Profile disk, you should then enact your replication archive and restore policies on this much smaller capacity disk.
 
 - Azure Files offers the replication option of a storage account fail-over against the other region configured in your storage account redundancy plan. This is only supported for the standard storage account type using Geo-Redundent Storage (GRS). Other options to use are AzCopy or any other file copy mechanism such as *RoboCopy*.
 
