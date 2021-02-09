@@ -20,6 +20,12 @@ Use this solution to automate data integration tasks you perform in response to 
 
 1. SQL Server stores the data and makes it available to apps that users access.
 
+## Alternatives
+
+The architecture can use some alternative components. You may want to consider the following: 
+
+To make your SQL server fully managed and up to date, while allowing you to use your SQL skills in the cloud, consider migrating your on-premises SQL server to Azure. To get started, explore the [Azure Database Migration Service](https://azure.microsoft.com/en-gb/services/database-migration/).
+
 ## Components
 
 This architecture uses the following components:
@@ -47,6 +53,7 @@ With the serverless model that Logic Apps uses, the service automatically scales
 ### Security considerations
 
 - The on-premises data gateway provides data protection during transfers between on-premises and Azure systems.
+- Since the Logic App should only be invoked via API Management, consider restricting the inbound IP addresses to the Azure Address range.
 - API Management secures mobile infrastructure by:
 
   - gating access with API keys.
