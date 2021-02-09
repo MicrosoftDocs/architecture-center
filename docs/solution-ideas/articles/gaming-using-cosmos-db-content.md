@@ -11,11 +11,11 @@ This gaming solution architecture elastically scales your database to accommodat
 *Download an [SVG](../media/gaming-using-cosmos-db.svg) of this architecture.*
 
 ## Data Flow
-Azure Traffic Manager routes a user's game traffic to the APIs managed by Azure API Management and hosted in Azure App Service.
-Azure CDN serves static images and content to the user that are stored in Azure Blob Storage
-Azure Cosmos DB stores game state data
-Azure Databricks correlates, cleanses and transforms game state data.
-Azure Functions processes the insights derived from Azure Databricks and pushes notifications using Azure Notification Hubs to mobile devices 
+1. Azure Traffic Manager routes a user's game traffic to the APIs managed by Azure API Management and hosted in Azure App Service.
+2. Azure CDN serves static images and content to the user that are stored in Azure Blob Storage
+3. Azure Cosmos DB stores game state data
+4. Azure Databricks correlates, cleanses and transforms game state data.
+5. Azure Functions processes the insights derived from Azure Databricks and pushes notifications using Azure Notification Hubs to mobile devices 
 
 ## Components
 
