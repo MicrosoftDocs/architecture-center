@@ -2,15 +2,24 @@
 metadata:
   title: Quality Assurance
   titleSuffix: Azure Solution Ideas
-  author: doodlemania2
-  ms.date: 12/16/2019
   description: Build a quality assurance system that collects data and improves productivity by identifying potential problems in a manufacturing pipeline before they occur.
-  ms.custom: 'acom-architecture, artificial intelligence, solution architectures, Azure, ai gallery, anomaly-detection, ''https://azure.microsoft.com/solutions/architecture/quality-assurance/'''
+  author: doodlemania2
+  ms.author: pnp
+  ms.date: 12/16/2019
+  ms.topic: conceptual
   ms.service: architecture-center
+  ms.subservice: solution-idea
   ms.category:
     - ai-machine-learning
     - integration
-  ms.subservice: solution-idea
+  ms.custom:
+    - acom-architecture
+    - artificial intelligence
+    - solution architectures
+    - Azure
+    - ai gallery
+    - anomaly-detection
+    - 'https://azure.microsoft.com/solutions/architecture/quality-assurance/'
   social_image_url: /azure/architecture/solution-ideas/articles/media/quality-assurance.png
 name: Quality Assurance
 azureCategories:

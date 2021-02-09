@@ -12,7 +12,15 @@ metadata:
   ms.category:
     - ai-machine-learning
     - hybrid
-  ms.custom: 'acom-architecture, ai at the edge, azure stack edge, edge ai, offline machine learning, interactive-diagram, e2e-hybrid, ''https://azure.microsoft.com/solutions/architecture/ai-at-the-edge-disconnected/'''
+  ms.custom:
+    - acom-architecture
+    - ai at the edge
+    - azure stack edge
+    - edge ai
+    - offline machine learning
+    - interactive-diagram
+    - e2e-hybrid
+    - 'https://azure.microsoft.com/solutions/architecture/ai-at-the-edge-disconnected/'
   social_image_url: /azure/architecture/solution-ideas/articles/media/ai-at-the-edge-disconnected.png
 name: AI at the Edge with Azure Stack Hub - disconnected
 azureCategories:

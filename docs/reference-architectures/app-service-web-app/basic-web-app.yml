@@ -7,9 +7,9 @@ metadata:
   ms.date: 02/09/2021
   ms.topic: conceptual
   ms.service: architecture-center
+  ms.subservice: reference-architecture
   ms.category:
     - web
-  ms.subservice: reference-architecture
   ms.custom:
     - seodec18
     - reference-architecture

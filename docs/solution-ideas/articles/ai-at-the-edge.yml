@@ -12,7 +12,16 @@ metadata:
   ms.category:
     - ai-machine-learning
     - hybrid
-  ms.custom: 'ai-ml, acom-architecture, ai at the edge, azure stack edge, edge ai, machine learning, interactive-diagram, e2e-hybrid, ''https://azure.microsoft.com/solutions/architecture/ai-at-the-edge/'''
+  ms.custom:
+    - ai-ml
+    - acom-architecture
+    - ai at the edge
+    - azure stack edge
+    - edge ai
+    - machine learning
+    - interactive-diagram
+    - e2e-hybrid
+    - 'https://azure.microsoft.com/solutions/architecture/ai-at-the-edge/'
   social_image_url: /azure/architecture/solution-ideas/articles/media/ai-at-the-edge.png
 name: AI at the Edge with Azure Stack Hub
 azureCategories:

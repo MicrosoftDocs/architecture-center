@@ -12,7 +12,17 @@ metadata:
   ms.category:
     - hybrid
     - networking
-  ms.custom: 'acom-architecture, Hybrid Connection, Azure Hybrid Connection, Hybrid Network, Azure Hybrid Network, hybrid-infrastructure, interactive-diagram, networking, e2e-hybrid, ''https://azure.microsoft.com/solutions/architecture/hybrid-connectivity/'''
+  ms.custom:
+    - acom-architecture
+    - Hybrid Connection
+    - Azure Hybrid Connection
+    - Hybrid Network
+    - Azure Hybrid Network
+    - hybrid-infrastructure
+    - interactive-diagram
+    - networking
+    - e2e-hybrid
+    - 'https://azure.microsoft.com/solutions/architecture/hybrid-connectivity/'
   social_image_url: /azure/architecture/solution-ideas/articles/media/hybrid-connectivity.png
 name: Hybrid Connection
 azureCategories:

@@ -2,12 +2,17 @@
 metadata:
   title: AI enrichment with Azure Cognitive Search
   titleSuffix: Azure Example Scenarios
-  author: jocontr
-  ms.date: 06/01/2020
   description: Learn how to use Azure Cognitive Search pre-built skills and custom extensibility to enrich large unstructured data sets into indexable structured data.
-  ms.custom: fcp
+  author: jocontr
+  ms.author: pnp
+  ms.date: 06/01/2020
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: solution-idea
   ms.category:
     - ai-machine-learning
+  ms.custom:
+    - fcp
 name: AI enrichment with Azure Cognitive Search
 azureCategories:
   - ai-machine-learning
