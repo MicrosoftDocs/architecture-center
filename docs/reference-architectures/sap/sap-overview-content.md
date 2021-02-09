@@ -216,7 +216,7 @@ For authentication, you can take advantage of [Azure Active Directory](https://d
 [virtual network](/azure/virtual-network/virtual-networks-overview). You can define NSG rules to allow or deny access to your SAP services—for
 instance, allowing access to the SAP application ports from on-premises IP addresses ranges and denying public internet access.
 
-[Application security groups](https://docs.microsoft.com/en-us/azure/virtual-network/application-security-groups) (ASG) also work as a filter for network traffic to and from SAP resources and allow additional network security based policies on application level. Additional granularity of security policies for SAP workloads can be achieved using ASG. 
+[Application security groups](https://docs.microsoft.com/azure/virtual-network/application-security-groups) (ASG) allow to group applications and apply network security based policies on application level instead of maintaining individual network cards. Additional granularity of security policies for SAP workloads can be achieved using ASG. 
 
 With regard to data integrity, [Azure Disk Encryption](/azure/security/azure-security-disk-encryption-faq) helps you encrypt your SAP virtual machine disks. Both the operating system and data volumes can be encrypted at rest in storage.
 
