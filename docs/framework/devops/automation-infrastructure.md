@@ -97,11 +97,15 @@ resource "azurerm_storage_account" "example" {
 }
 ```
 
-Take note, the Terraform provider for Azure is an abstraction on top of Azure APIs. This abstraction is beneficial because the API complexities are obfuscated. This abstraction comes at a cost; the Terraform provider for Azure does not always provide parity with the Azure APIs' capabilities.
+Take note, the Terraform provider for Azure is an abstraction on top of Azure APIs. This abstraction is beneficial because the API complexities are obfuscated. This abstraction comes at a cost; the Terraform provider for Azure does not always provide parity with the Azure APIs' capabilities. To learn more about using Terraform on Azure, see [Using Terraform on Azure](/azure/developer/terraform/overview)
 
-**Learn more**
+## Manual deployment
 
-- [Documentation: Using Terraform on Azure](/azure/developer/terraform/overview)
+Manual deployment steps introduce significant risks where human error is concerned and also increases overall deployment times. However, in some cases, manual steps may be required. For these cases, ensure that any manual steps are documented, including roles and responsibilities.
+
+## Hotfix process
+
+In some cases, you may have an unplanned deployment need. For instance, to deploy critical hotfixes or security remediation patches. A defined process for unplanned deployments can help prevent service availability and other deployment issues during these critical events. 
 
 ## Next steps
 
