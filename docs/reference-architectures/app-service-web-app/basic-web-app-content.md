@@ -1,4 +1,4 @@
-This reference architecture shows proven practices for a web application that uses [Azure App Service][app-service] and [Azure SQL Database][sql-db].
+This reference architecture shows proven practices for a web application that uses [Azure App Service](/azure/app-service) and [Azure SQL Database][sql-db].
 
 ![Reference architecture for a basic web application in Azure](./images/basic-web-app.png)
 
@@ -16,7 +16,7 @@ Use the following command to create a resource group for the deployment. Click t
 az group create --name basic-web-app --location eastus
 ```
 
-Run the following command to deploy the hub and spoke network configuration, VNet peerings between the hub and spoke, and a Bastion host
+Run the following command to deploy the web application and supporting infrastructure. When prompted, enter a user name and password. These values are used for accessing the Azure SQL Database instance.
 
 ```azurecli-interactive
 az deployment group create --resource-group basic-web-app  \
@@ -31,7 +31,7 @@ Use the following command to create a resource group for the deployment. Click t
 New-AzResourceGroup -Name basic-web-app -Location eastus
 ```
 
-Run the following command to deploy the hub and spoke network configuration, VNet peerings between the hub and spoke, and a Bastion host
+Run the following command to deploy the web application and supporting infrastructure. When prompted, enter a user name and password. These values are used for accessing the Azure SQL Database instance.
 
 ```azurepowershell-interactive
 New-AzResourceGroupDeployment -ResourceGroupName basic-web-app `
@@ -55,19 +55,17 @@ For detailed information and additional deployment options, see the ARM Template
 
 The architecture consists of the following components.
 
-**App Service app**. [Azure App Service][app-service] is a fully managed platform for creating and deploying cloud applications.
+**App Service plan**: An [App Service plan](/azure/app-service/azure-web-sites-web-hosting-plans-in-depth-overview) provides the managed virtual machines (VMs) that host your app. All apps associated with a plan run on the same VM instances.
 
-**App Service plan**. An [App Service plan][app-service-plans] provides the managed virtual machines (VMs) that host your app. All apps associated with a plan run on the same VM instances.
+**App Service app**: [Azure App Service](/azure/app-service) is a fully managed platform for creating and deploying cloud applications.
 
-**Deployment slots**.  A [deployment slot][deployment-slots] lets you stage a deployment and then swap it with the production deployment. That way, you avoid deploying directly into production. See the [Manageability](#manageability-considerations) section for specific recommendations.
+**Deployment slots**: A [deployment slot][deployment-slots] lets you stage a deployment and then swap it with the production deployment. That way, you avoid deploying directly into production. See the [Manageability](#manageability-considerations) section for specific recommendations.
 
-**IP address**. The App Service app has a public IP address and a domain name. The domain name is a subdomain of `azurewebsites.net`, such as `contoso.azurewebsites.net`.
+**IP address**: The App Service app has a public IP address and a domain name. The domain name is a subdomain of `azurewebsites.net`, such as `contoso.azurewebsites.net`.
 
-**Azure DNS**. [Azure DNS][azure-dns] is a hosting service for DNS domains, providing name resolution using Microsoft Azure infrastructure. By hosting your domains in Azure, you can manage your DNS records using the same credentials, APIs, tools, and billing as your other Azure services. To use a custom domain name (such as `contoso.com`) create DNS records that map the custom domain name to the IP address. For more information, see [Configure a custom domain name in Azure App Service][custom-domain-name].
+**Azure DNS**: [Azure DNS](/azure/dns/dns-overview) is a hosting service for DNS domains, providing name resolution using Microsoft Azure infrastructure. By hosting your domains in Azure, you can manage your DNS records using the same credentials, APIs, tools, and billing as your other Azure services. To use a custom domain name (such as `contoso.com`) create DNS records that map the custom domain name to the IP address. For more information, see [Configure a custom domain name in Azure App Service](/azure/app-service-web/web-sites-custom-domain-name).
 
-**Azure SQL Database**. [SQL Database][sql-db] is a relational database-as-a-service in the cloud. SQL Database shares its code base with the Microsoft SQL Server database engine. Depending on your application requirements, you can also use [Azure Database for MySQL](/azure/mysql) or [Azure Database for PostgreSQL](/azure/postgresql). These are fully managed database services, based on the open-source MySQL Server and Postgres database engines, respectively.
-
-**Logical server**. In Azure SQL Database, a logical server hosts your databases. You can create multiple databases per logical server.
+**Azure SQL Database**: [SQL Database][sql-db] is a relational database-as-a-service in the cloud. SQL Database shares its code base with the Microsoft SQL Server database engine. Depending on your application requirements, you can also use [Azure Database for MySQL](/azure/mysql) or [Azure Database for PostgreSQL](/azure/postgresql). These are fully managed database services, based on the open-source MySQL Server and Postgres database engines, respectively.
 
 ## Recommendations
 
@@ -75,17 +73,17 @@ Your requirements might differ from the architecture described here. Use the rec
 
 ### App Service plan
 
-Use **Free** and **Shared** (preview) tiers for testing purposes because the shared resources cannot scale out. The two tiers provide different options within your budget.  Run your production workload on **Basic**, **Standard**, and **Premium** tiers because the app runs on dedicated virtual machine instances and has allocated resources that can scale out. App Service plans are billed on a per second basis.
+Use **Free** and **Shared** (preview) tiers for testing purposes because the shared resources cannot scale out. The two tiers provide different options within your budget. Run your production workload on **Basic**, **Standard**, and **Premium** tiers because the app runs on dedicated virtual machine instances and has allocated resources that can scale out. App Service plans are billed on a per second basis.
 
 For more information, see [How much does my App Service plan cost?](/azure/app-service/overview-hosting-plans#how-much-does-my-app-service-plan-cost)
 
-Use the Standard or Premium tiers, because they support scale-out, autoscale, and secure sockets layer (SSL). Each tier supports several *instance sizes* that differ by number of cores and memory. You can change the tier or instance size after you create a plan. For more information about App Service plans, see [App Service Pricing][app-service-plans-tiers].
+Use the Standard or Premium tiers, because they support scale-out, autoscale, and secure sockets layer (SSL). Each tier supports several *instance sizes* that differ by number of cores and memory. You can change the tier or instance size after you create a plan. For more information about App Service plans, see [App Service Pricing](https://azure.microsoft.com/pricing/details/app-service).
 
 You are charged for the instances in the App Service plan, even if the app is stopped. Make sure to delete plans that you aren't using (for example, test deployments).
 
 ### SQL Database
 
-A logical server group makes administrative tasks simple. Each database within the group is deployed with a specific  [service tier][sql-db-service-tiers]. Within each group, the databases cannot share resources. There are no compute costs for the server but for each database, you need to specify the tier. Therefore, because of the dedicated resources the performance might be better but the cost can be higher.
+A logical server group makes administrative tasks simple. Each database within the group is deployed with a specific [service tier][sql-db-service-tiers]. Within each group, the databases cannot share resources. There are no compute costs for the server but for each database, you need to specify the tier. Therefore, because of the dedicated resources the performance might be better but the cost can be higher.
 
 Use the [V12 version][sql-db-v12] of SQL Database. SQL Database supports Basic, Standard, and Premium [service tiers][sql-db-service-tiers], with multiple performance levels within each tier measured in [Database Transaction Units (DTUs)][sql-dtu]. Perform capacity planning and choose a tier and performance level that meets your requirements.
 
@@ -111,9 +109,9 @@ There are two ways to scale an App Service app:
 
 - *Scale out*, which means adding instances to handle increased load. Each pricing tier has a maximum number of instances.
 
-  You can scale out manually by changing the instance count, or use [autoscaling][web-app-autoscale] to have Azure automatically add or remove instances based on a schedule and/or performance metrics. Each scale operation happens quickly&mdash;typically within seconds.
+You can scale out manually by changing the instance count, or use [autoscaling][web-app-autoscale] to have Azure automatically add or remove instances based on a schedule and/or performance metrics. Each scale operation happens quickly&mdash;typically within seconds.
 
-  To enable autoscaling, create an autoscale *profile* that defines the minimum and maximum number of instances. Profiles can be scheduled. For example, you might create separate profiles for weekdays and weekends. Optionally, a profile contains rules for when to add or remove instances. (Example: Add two instances if CPU usage is above 70% for 5 minutes.)
+To enable autoscaling, create an autoscale *profile* that defines the minimum and maximum number of instances. Profiles can be scheduled. For example, you might create separate profiles for weekdays and weekends. Optionally, a profile contains rules for when to add or remove instances. (Example: Add two instances if CPU usage is above 70% for 5 minutes.)
 
 Recommendations for scaling a web app:
 
@@ -128,11 +126,7 @@ If you need a higher service tier or performance level for SQL Database, you can
 
 ## Availability considerations
 
-At the time of writing, the service level agreement (SLA) for App Service is 99.95% and the SLA for SQL Database is 99.99% for Basic, Standard, and Premium tiers.
-
-> [!NOTE]
-> The App Service SLA applies to both single and multiple instances.
->
+At the time of writing, the service level agreement (SLA) for App Service is 99.95% and the SLA for SQL Database is 99.99% for Basic, Standard, and Premium tiers. The App Service SLA applies to both single and multiple instances.
 
 ### Backups
 
@@ -159,7 +153,7 @@ For more information, see [Azure Resource Manager overview](/azure/azure-resourc
 
 ## DevOps considerations
 
-In this architecture you use an [Azure Resource Manager template][arm-template] for provisioning the Azure resources and its dependencies. Since this is a single web application, all the resources are isolated in the same basic workload, that makes it easier to associate the workload's specific resources to a team, so that the team can independently manage all aspects of those resources. This isolation enables the DevOps team to perform continuous integration and continuous delivery (CI/CD). Also, you can use different [Azure Resource Manager templates][arm-template] and integrate them with Azure DevOps Services to provision different environments in minutes, for example to replicate production like scenarios or load testing environments only when needed, saving cost.
+In this architecture you use an [Azure Resource Manager template](/azure/azure-resource-manager/resource-group-overview#resource-groups) for provisioning the Azure resources and its dependencies. Since this is a single web application, all the resources are isolated in the same basic workload, that makes it easier to associate the workload's specific resources to a team, so that the team can independently manage all aspects of those resources. This isolation enables the DevOps team to perform continuous integration and continuous delivery (CI/CD). Also, you can use different ARM Templates and integrate them with Azure DevOps Services to provision different environments in minutes, for example to replicate production like scenarios or load testing environments only when needed, saving cost.
 
 Provision multiple instances of the web application, so it does not depend on a single instance which could create a single point of failure. Also multiple instances improve resiliency and scalability.
 
@@ -167,7 +161,7 @@ Provision multiple instances of the web application, so it does not depend on a 
 
 Deployment involves two steps:
 
-1. Provisioning the Azure resources. We recommend that you use [Azure Resource Manager templates][arm-template] for this step. Templates make it easier to automate deployments via PowerShell or the Azure CLI.
+1. Provisioning the Azure resources. We recommend that you use [Azure Resource Manager templates](/azure/azure-resource-manager/resource-group-overview#resource-groups) for this step. Templates make it easier to automate deployments via PowerShell or the Azure CLI.
 2. Deploying the application (code, binaries, and content files). You have several options, including deploying from a local Git repository, using Visual Studio, or continuous deployment from cloud-based source control. See [Deploy your app to Azure App Service][deploy].
 
 An App Service app always has one deployment slot named `production`, which represents the live production site. We recommend creating a staging slot for deploying updates. The benefits of using a staging slot include:
@@ -185,7 +179,7 @@ Don't use slots on your production deployment for testing because all apps withi
 
 ### Configuration
 
-Store configuration settings as [app settings][app-settings]. Define the app settings in your Resource Manager templates, or using PowerShell. At runtime, app settings are available to the application as environment variables.
+Store configuration settings as [app settings](/azure/app-service-web/web-sites-configure). Define the app settings in your Resource Manager templates, or using PowerShell. At runtime, app settings are available to the application as environment variables.
 
 Never check passwords, access keys, or connection strings into source control. Instead, pass these as parameters to a deployment script that stores these values as app settings.
 
@@ -193,11 +187,11 @@ When you swap a deployment slot, the app settings are swapped by default. If you
 
 ### Diagnostics and monitoring
 
-Enable [diagnostics logging][diagnostic-logs], including application logging and web server logging. Configure logging to use Blob storage. For performance reasons, create a separate storage account for diagnostic logs. Don't use the same storage account for logs and application data. For more detailed guidance on logging, see [Monitoring and diagnostics guidance][monitoring-guidance].
+Enable [diagnostics logging][diagnostic-logs], including application logging and web server logging. Configure logging to use Azure Log Analytics. For more detailed guidance on logging, see [Monitoring and diagnostics guidance][monitoring-guidance].
 
-Use a service such as [New Relic][new-relic] or [Application Insights][app-insights] to monitor application performance and behavior under load. Be aware of the [data rate limits][app-insights-data-rate] for Application Insights.
+Use a service such as [New Relic][new-relic] or [Application Insights](/azure/application-insights/app-insights-overview) to monitor application performance and behavior under load. Be aware of the [data rate limits](/azure/application-insights/app-insights-pricing) for Application Insights.
 
-Perform load testing, using a tool such as [Azure DevOps][azure-devops] or [Visual Studio Team Foundation Server][tfs]. For a general overview of performance analysis in cloud applications, see [Performance Analysis Primer][perf-analysis].
+Perform load testing, using a tool such as [Azure DevOps](/azure/devops) or [Visual Studio Team Foundation Server][tfs]. For a general overview of performance analysis in cloud applications, see [Performance Analysis Primer][perf-analysis].
 
 Tips for troubleshooting your application:
 
@@ -206,12 +200,11 @@ Tips for troubleshooting your application:
 - The [Kudu dashboard][kudu] has several tools for monitoring and debugging your application. For more information, see [Azure Websites online tools you should know about][kudu] (blog post). You can reach the Kudu dashboard from the Azure portal. Open the blade for your app and click **Tools**, then click **Kudu**.
 - If you use Visual Studio, see the article [Troubleshoot a web app in Azure App Service using Visual Studio][troubleshoot-web-app] for debugging and troubleshooting tips.
 
-
-For more information, see the DevOps section in [Azure Well-Architected Framework][AAF-devops].
+For more information, see the DevOps section in [Azure Well-Architected Framework](../../framework/devops/overview.md).
 
 ## Security considerations
 
-This section lists security considerations that are specific to the Azure services described in this article. It's not a complete list of security best practices. For some additional security considerations, see [Secure an app in Azure App Service][app-service-security].
+This section lists security considerations that are specific to the Azure services described in this article. It's not a complete list of security best practices. For some additional security considerations, see [Secure an app in Azure App Service](/azure/app-service-web/web-sites-security).
 
 ### SQL Database auditing
 
@@ -219,7 +212,7 @@ Auditing can help you maintain regulatory compliance and get insight into discre
 
 ### Deployment slots
 
-Each deployment slot has a public IP address. Secure the nonproduction slots using [Azure Active Directory login][aad-auth] so that only members of your development and DevOps teams can reach those endpoints.
+Each deployment slot has a public IP address. Secure the nonproduction slots using [Azure Active Directory login](/azure/app-service-mobile/app-service-mobile-how-to-configure-active-directory-authentication) so that only members of your development and DevOps teams can reach those endpoints.
 
 ### Logging
 
@@ -235,9 +228,9 @@ As a security best practice, your app should enforce HTTPS by redirecting HTTP r
 
 We recommend authenticating through an identity provider (IDP), such as Azure AD, Facebook, Google, or Twitter. Use OAuth 2 or OpenID Connect (OIDC) for the authentication flow. Azure AD provides functionality to manage users and groups, create application roles, integrate your on-premises identities, and consume backend services such as Microsoft 365 and Skype for Business.
 
-Avoid having the application manage user logins and credentials directly, as it creates a potential attack surface.  At a minimum, you would need to have email confirmation, password recovery, and multi-factor authentication; validate password strength; and store password hashes securely. The large identity providers handle all of those things for you, and are constantly monitoring and improving their security practices.
+Avoid having the application manage user logins and credentials directly, as it creates a potential attack surface. At a minimum, you would need to have email confirmation, password recovery, and multi-factor authentication; validate password strength; and store password hashes securely. The large identity providers handle all of those things for you, and are constantly monitoring and improving their security practices.
 
-Consider using [App Service authentication][app-service-auth] to implement the OAuth/OIDC authentication flow. The benefits of App Service authentication include:
+Consider using [App Service authentication](/azure/app-service-api/app-service-api-authentication) to implement the OAuth/OIDC authentication flow. The benefits of App Service authentication include:
 
 - Easy to configure.
 - No code is required for simple authentication scenarios.
@@ -251,38 +244,8 @@ Some limitations of App Service authentication:
 - If you use more than one IDP, there is no built-in mechanism for home realm discovery.
 - For multi-tenant scenarios, the application must implement the logic to validate the token issuer.
 
-## Deploy the solution
-
-An example Resource Manager template for this architecture is [available on GitHub][paas-basic-arm-template].
-
-To deploy the template using PowerShell, run the following commands:
-
-```powershell
-New-AzResourceGroup -Name <resource-group-name> -Location "West US"
-
-$parameters = @{"appName"="<app-name>";"environment"="dev";"locationShort"="uw";"databaseName"="app-db";"administratorLogin"="<admin>";"administratorLoginPassword"="<password>"}
-
-New-AzResourceGroupDeployment -Name <deployment-name> -ResourceGroupName <resource-group-name> -TemplateFile .\PaaS-Basic.json -TemplateParameterObject  $parameters
-```
-
-For more information, see [Deploy resources with Azure Resource Manager templates][deploy-arm-template].
-
 <!-- links -->
 
-[aad-auth]: /azure/app-service-mobile/app-service-mobile-how-to-configure-active-directory-authentication
-[AAF-devops]: ../../framework/devops/overview.md
-[app-insights]: /azure/application-insights/app-insights-overview
-[app-insights-data-rate]: /azure/application-insights/app-insights-pricing
-[app-service]: /azure/app-service
-[app-service-auth]: /azure/app-service-api/app-service-api-authentication
-[app-service-plans]: /azure/app-service/azure-web-sites-web-hosting-plans-in-depth-overview
-[app-service-plans-tiers]: https://azure.microsoft.com/pricing/details/app-service
-[app-service-security]: /azure/app-service-web/web-sites-security
-[app-settings]: /azure/app-service-web/web-sites-configure
-[arm-template]: /azure/azure-resource-manager/resource-group-overview#resource-groups
-[azure-devops]: /azure/devops
-[azure-dns]: /azure/dns/dns-overview
-[custom-domain-name]: /azure/app-service-web/web-sites-custom-domain-name
 [deploy]: /azure/app-service-web/web-sites-deploy
 [deploy-arm-template]: /azure/resource-group-template-deploy
 [deployment-slots]: /azure/app-service-web/web-sites-staged-publishing
