@@ -20,13 +20,7 @@ Use this solution to automate data integration tasks you perform in response to 
 
 1. SQL Server stores the data and makes it available to apps that users access.
 
-## Alternatives
-
-The architecture can use some alternative components. You may want to consider the following: 
-
-To make your SQL server fully managed and up to date, while allowing you to use your SQL skills in the cloud, consider migrating your on-premises SQL server to Azure. To get started, explore the [Azure Database Migration Service](https://azure.microsoft.com/en-gb/services/database-migration/).
-
-## Components
+### Components
 
 This architecture uses the following components:
 
@@ -37,6 +31,13 @@ This architecture uses the following components:
 - An [on-premises data gateway][On-premises data gateway] acts as a bridge that connects on-premises data with cloud services like Logic Apps. Typically, you install the gateway on a dedicated on-premises virtual machine. The cloud services can then securely use on-premises data.
 
 - [SQL Server][SQL Server] provides a solution for storing and querying structured and unstructured data. This database engine features industry-leading performance and security.
+
+### Alternatives
+
+A few alternatives exist for this solution:
+
+- Instead of using an on-premises instance of SQL Server, consider migrating to an up-to-date, fully managed Azure database service. [The SQL Server connector that Logic Apps uses also works for Azure SQL Database and Azure SQL Managed Instance][Automate workflows for a SQL database by using Azure Logic Apps]. To get started with migration, see [Azure Database Migration Service][Azure Database Migration Service].
+- For complex automation tasks, consider [using Azure Functions instead of Logic Apps][Compare Azure Functions and Azure Logic Apps].
 
 ## Considerations
 
@@ -53,16 +54,25 @@ With the serverless model that Logic Apps uses, the service automatically scales
 ### Security considerations
 
 - The on-premises data gateway provides data protection during transfers between on-premises and Azure systems.
-- Since the Logic App should only be invoked via API Management, consider restricting the inbound IP addresses to the Azure Address range.
+- Since API Management is the only client that should call your logic app, consider [restricting its inbound IP addresses][Restrict inbound IP addresses]. You can configure your logic app to only accept requests from the IP address of your API Management service instance.
 - API Management secures mobile infrastructure by:
 
-  - gating access with API keys.
-  - preventing DOS attacks by using throttling.
-  - using advanced security policies like JWT token validation.
+  - Gating access with API keys.
+  - Preventing DOS attacks by using throttling.
+  - Using advanced security policies like JWT token validation.
 
 ## Pricing
 
-Use the [Azure pricing calculator][Azure pricing calculator] to estimate the cost of implementing this solution.
+To explore the cost of running this solution, use the [Azure pricing calculator][Azure pricing calculator], which preconfigures all Azure services.
+
+A [sample profile is available for estimating monthly costs][Monthly cost profile]. It includes the following components:
+
+- API Management, standard tier: $686.71 per month
+- Logic Apps:
+  - Action executions, with 10,000 executions per day and 31 days per month: $7.75 per month
+  - Standard connector executions, with 10,000 executions per day and 31 days per month: $38.75 per month
+
+The profile doesn't include the following components: A one-time cost of $899 for a [standard SQL Server database][Standard SQL Server database].
 
 ## Next steps
 
@@ -71,14 +81,25 @@ Use the [Azure pricing calculator][Azure pricing calculator] to estimate the cos
 - [Install on-premises data gateway for Azure Logic Apps][Install on-premises data gateway for Azure Logic Apps].
 - [Connect to on-premises data sources from Azure Logic Apps][Connect to on-premises data sources from Azure Logic Apps].
 
+## Related resources
+- Maybe general info on Logic Apps
+- Maybe general info on API Management
+- Maybe general info on other components
+
+[Automate workflows for a SQL database by using Azure Logic Apps]: /azure/connectors/connectors-create-api-sqlazure
 [Azure API Management]: /azure/api-management/api-management-key-concepts
+[Azure Database Migration Service]: https://azure.microsoft.com/services/database-migration/
 [Azure Logic Apps]: /azure/logic-apps/logic-apps-overview
 [Azure pricing calculator]: https://azure.microsoft.com/pricing/calculator/
+[Compare Azure Functions and Azure Logic Apps]: /azure/azure-functions/functions-compare-logic-apps-ms-flow-webjobs#compare-azure-functions-and-azure-logic-apps
 [Connect to on-premises data sources from Azure Logic Apps]: /azure/logic-apps/logic-apps-gateway-connection
 [Import a Logic App as an API]: /azure/api-management/import-logic-app-as-api
 [Install a gateway cluster]: /data-integration/gateway/service-gateway-install
 [Install on-premises data gateway for Azure Logic Apps]: /azure/logic-apps/logic-apps-gateway-install
 [Limits on read and write operations with the on-premises data gateway]: /data-integration/gateway/service-gateway-onprem#considerations
+[Monthly cost profile]: https://azure.com/e/52cf34ecad9d4b5c8de7f1951948e5d4
 [On-premises data gateway]: /power-bi/connect-data/service-gateway-onprem
 [On-premises data gateways documentation]: /data-integration/gateway/
+[Restrict inbound IP addresses]: /azure/logic-apps/logic-apps-securing-a-logic-app#restrict-inbound-ip-addresses
+[Standard SQL Server database]: https://www.microsoft.com/sql-server/sql-server-2019-pricing#OneGDCWeb-ContentPlacementWithRichBlock-pp5ed24
 [SQL Server]: /sql/?view=sql-server-ver15
