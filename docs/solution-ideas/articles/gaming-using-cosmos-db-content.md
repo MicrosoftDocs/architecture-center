@@ -9,15 +9,29 @@ This gaming solution architecture elastically scales your database to accommodat
 
 This architecture includes the following components:
 
-Web app. A typical modern application might include both a website and one or more RESTful web APIs. A web API might be consumed by browser clients through AJAX, by native client applications, or by server-side applications. For considerations on designing web APIs, see API design guidance.
-Front Door. Front Door is a layer 7 load balancer. In this architecture, it routes HTTP requests to the web front end. Front Door also provides a web application firewall (WAF) that protects the application from common exploits and vulnerabilities.
-Function App. Use Function Apps to run background tasks. Functions are invoked by a trigger, such as a timer event or a message being placed on queue. For long-running stateful tasks, use Durable Functions.
-Queue. In the architecture shown here, the application queues background tasks by putting a message onto an Azure Queue storage queue. The message triggers a function app. Alternatively, you can use Service Bus queues. For a comparison, see Azure Queues and Service Bus queues - compared and contrasted.
-Cache. Store semi-static data in Azure Cache for Redis.
-CDN. Use Azure Content Delivery Network (CDN) to cache publicly available content for lower latency and faster delivery of content.
-Data storage. Use Azure SQL Database for relational data. For non-relational data, consider Cosmos DB.
-Azure Cognitive Search. Use Azure Cognitive Search to add search functionality such as search suggestions, fuzzy search, and language-specific search. Azure Search is typically used in conjunction with another data store, especially if the primary data store requires strict consistency. In this approach, store authoritative data in the other data store and the search index in Azure Search. Azure Search can also be used to consolidate a single search index from multiple data stores.
-Azure DNS. Azure DNS is a hosting service for DNS domains, providing name resolution using Microsoft Azure infrastructure. By hosting your domains in Azure, you can manage your DNS records using the same credentials, APIs, tools, and billing as your other Azure services.
+Azure Traffic Manager is a DNS based load balancer that controls the distribution of user traffic for service endpoints in different Azure regions. During normal operations, it routes requests to the primary region. If that region becomes unavailable, Traffic Manager can fail over to secondary region as needed.
+
+Azure API Management provides an API gateway that sits in front of the Gaming APIs. API Management also be used to implement concerns such as:
+Enforcing usage quotas and rate limits
+Validating OAuth tokens for authentication
+Enabling cross-origin requests (CORS)
+Caching responses
+Monitoring and logging requests
+
+App Services hosts API applications allowing autoscale and high availability without having to manage infrastructure.
+
+Azure CDN delivers static, cached content from locations close to users to reduce latency.
+
+Azure Blob Storage are optimized to store large amounts of unstructured data, such game state as well as gaming media.
+
+Azure Cosmos DB is a fully managed NoSQL database service for building and modernizing scalable, high performance applications.
+
+Azure Databricks is an Apache Spark-based analytics platform optimized for the Microsoft Azure cloud services platform. Databricks is used to correlate game data, and also to cleanse, enrich and transform data.
+
+Azure Functions exposes the insights derived from Azure Databricks and Cosmos DB and make them accessible through web and mobile apps.
+
+Azure Notification Hubs is a massively scalable push notification engine for quickly sending notifications to variety of mobile devices and platforms.
+
 
 ![Architecture Diagram](../media/gaming-using-cosmos-db.png)
 *Download an [SVG](../media/gaming-using-cosmos-db.svg) of this architecture.*
