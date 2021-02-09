@@ -6,7 +6,7 @@ This reference architecture shows proven practices for a web application that us
 
 ## Reference deployment
 
-This architecture includes an Azure App Service plan and an empty application, Azure SQL Database, Azure Key Vault for storing the database connection string, and Azure Monitor for logging, monitoring, and alerting. This architecture does not focus on application development and does not assume any particular application framework. The goal is to understand how various Azure services fit together.
+This architecture includes an Azure App Service plan and an empty application, Azure SQL Database, Azure Key Vault for storing the database connection string, and Azure Monitor for logging, monitoring, and alerting.
 
 #### [Azure CLI](#tab/cli)
 
