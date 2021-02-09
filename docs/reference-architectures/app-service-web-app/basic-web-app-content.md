@@ -1,4 +1,4 @@
-This reference architecture shows proven practices for a web application that uses [Azure App Service][app-service] and [Azure SQL Database][sql-db]. [**Deploy this solution**](#deploy-the-solution).
+This reference architecture shows proven practices for a web application that uses [Azure App Service][app-service] and [Azure SQL Database][sql-db].
 
 ![Reference architecture for a basic web application in Azure](./images/basic-web-app.png)
 
@@ -6,7 +6,7 @@ This reference architecture shows proven practices for a web application that us
 
 ## Reference deployment
 
-This deployment includes one hub virtual network and two peered spokes. An Azure Firewall and Azure Bastion host are also deployed. Optionally, the deployment can include virtual machines in the first spoke network and a VPN gateway.
+This architecture includes an Azure App Service plan and an empty application, Azure SQL Database, Azure Key Vault for storing the database connection string, and Azure Monitor for logging, monitoring, and alerting. This architecture does not focus on application development and does not assume any particular application framework. The goal is to understand how various Azure services fit together.
 
 #### [Azure CLI](#tab/cli)
 
@@ -53,31 +53,21 @@ For detailed information and additional deployment options, see the ARM Template
 
 ## Architecture
 
-> [!NOTE]
-> This architecture does not focus on application development, and does not assume any particular application framework. The goal is to understand how various Azure services fit together.
->
+The architecture consists of the following components.
 
-The architecture has the following components:
+**App Service app**. [Azure App Service][app-service] is a fully managed platform for creating and deploying cloud applications.
 
-- **Resource group**. A [resource group](/azure/azure-resource-manager/resource-group-overview) is a logical container for Azure resources.
+**App Service plan**. An [App Service plan][app-service-plans] provides the managed virtual machines (VMs) that host your app. All apps associated with a plan run on the same VM instances.
 
-- **App Service app**. [Azure App Service][app-service] is a fully managed platform for creating and deploying cloud applications.
+**Deployment slots**.  A [deployment slot][deployment-slots] lets you stage a deployment and then swap it with the production deployment. That way, you avoid deploying directly into production. See the [Manageability](#manageability-considerations) section for specific recommendations.
 
-- **App Service plan**. An [App Service plan][app-service-plans] provides the managed virtual machines (VMs) that host your app. All apps associated with a plan run on the same VM instances.
+**IP address**. The App Service app has a public IP address and a domain name. The domain name is a subdomain of `azurewebsites.net`, such as `contoso.azurewebsites.net`.
 
-- **Deployment slots**.  A [deployment slot][deployment-slots] lets you stage a deployment and then swap it with the production deployment. That way, you avoid deploying directly into production. See the [Manageability](#manageability-considerations) section for specific recommendations.
+**Azure DNS**. [Azure DNS][azure-dns] is a hosting service for DNS domains, providing name resolution using Microsoft Azure infrastructure. By hosting your domains in Azure, you can manage your DNS records using the same credentials, APIs, tools, and billing as your other Azure services. To use a custom domain name (such as `contoso.com`) create DNS records that map the custom domain name to the IP address. For more information, see [Configure a custom domain name in Azure App Service][custom-domain-name].
 
-- **IP address**. The App Service app has a public IP address and a domain name. The domain name is a subdomain of `azurewebsites.net`, such as `contoso.azurewebsites.net`.
+**Azure SQL Database**. [SQL Database][sql-db] is a relational database-as-a-service in the cloud. SQL Database shares its code base with the Microsoft SQL Server database engine. Depending on your application requirements, you can also use [Azure Database for MySQL](/azure/mysql) or [Azure Database for PostgreSQL](/azure/postgresql). These are fully managed database services, based on the open-source MySQL Server and Postgres database engines, respectively.
 
-- **Azure DNS**. [Azure DNS][azure-dns] is a hosting service for DNS domains, providing name resolution using Microsoft Azure infrastructure. By hosting your domains in Azure, you can manage your DNS records using the same credentials, APIs, tools, and billing as your other Azure services. To use a custom domain name (such as `contoso.com`) create DNS records that map the custom domain name to the IP address. For more information, see [Configure a custom domain name in Azure App Service][custom-domain-name].
-
-- **Azure SQL Database**. [SQL Database][sql-db] is a relational database-as-a-service in the cloud. SQL Database shares its code base with the Microsoft SQL Server database engine. Depending on your application requirements, you can also use [Azure Database for MySQL](/azure/mysql) or [Azure Database for PostgreSQL](/azure/postgresql). These are fully managed database services, based on the open-source MySQL Server and Postgres database engines, respectively.
-
-- **Logical server**. In Azure SQL Database, a logical server hosts your databases. You can create multiple databases per logical server.
-
-- **Azure Storage**. Create an Azure storage account with a blob container to store diagnostic logs.
-
-- **Azure Active Directory (Azure AD)**. Use Azure AD or another identity provider for authentication.
+**Logical server**. In Azure SQL Database, a logical server hosts your databases. You can create multiple databases per logical server.
 
 ## Recommendations
 
