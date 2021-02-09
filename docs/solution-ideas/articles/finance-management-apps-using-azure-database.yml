@@ -1,0 +1,37 @@
+### YamlMime:Architecture
+metadata:
+  title: Finance management apps using Azure Database
+  titleSuffix: Azure Solution Ideas
+  description: Use Azure Database to securely store critical data and provide users with high-value analytics and insights over aggregated data.
+  author: woutervanranst
+  ms.author: pnp
+  ms.date: 02/09/2021
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: solution-idea
+  ms.category:
+    - databases
+    - analytics
+  ms.custom:
+    - acom-architecture
+    - mysql
+    - postgresql
+    - analytics
+    - use cases
+    - azure
+    - solutions
+    - 'https://azure.microsoft.com/solutions/architecture/finance-management-apps-using-azure-database/'
+  social_image_url: /azure/architecture/solution-ideas/articles/media/finance-management-apps-using-azure-database.png
+name: Finance management apps using Azure Database
+azureCategories:
+  - databases
+  - analytics
+summary: Use Azure Database to securely store critical data and provide users with high-value analytics and insights over aggregated data.
+products:
+  - azure-database-mysql
+  - azure-database-postgresql
+  - azure-app-service
+  - power-bi
+thumbnailUrl: /azure/architecture/browse/thumbs/finance-management-apps-using-azure-database.png
+content: |
+   [!include[](finance-management-apps-using-azure-database.md)]

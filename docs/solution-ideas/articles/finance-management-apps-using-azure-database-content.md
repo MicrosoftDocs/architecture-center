@@ -7,5 +7,6 @@ Securely store critical data and provide high-value analytics and insights over 
 
 ## Architecture
 
-![Architecture Diagram](../media/finance-management-apps-using-azure-database-for-mysql.png)
-*Download an [SVG](../media/finance-management-apps-using-azure-database-for-mysql.svg) of this architecture.*
+![Architecture Diagram](../media/finance-management-apps-using-azure-database.png)
+*Download an [SVG](../media/finance-management-apps-using-azure-database.svg) of this architecture.*
+
