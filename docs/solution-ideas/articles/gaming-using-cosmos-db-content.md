@@ -7,6 +7,11 @@ This gaming solution architecture elastically scales your database to accommodat
 
 ## Architecture
 
+![Architecture Diagram](../media/gaming-using-cosmos-db.png)
+*Download an [SVG](../media/gaming-using-cosmos-db.svg) of this architecture.*
+
+## Components
+
 This architecture includes the following components:
 
 Azure Traffic Manager is a DNS based load balancer that controls the distribution of user traffic for service endpoints in different Azure regions. During normal operations, it routes requests to the primary region. If that region becomes unavailable, Traffic Manager can fail over to secondary region as needed.
@@ -32,6 +37,3 @@ Azure Functions exposes the insights derived from Azure Databricks and Cosmos DB
 
 Azure Notification Hubs is a massively scalable push notification engine for quickly sending notifications to variety of mobile devices and platforms.
 
-
-![Architecture Diagram](../media/gaming-using-cosmos-db.png)
-*Download an [SVG](../media/gaming-using-cosmos-db.svg) of this architecture.*
