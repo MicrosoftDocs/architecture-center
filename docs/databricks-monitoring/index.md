@@ -9,6 +9,8 @@ ms.subservice: azure-guide
 ms.category:
   - management-and-governance
   - databases
+products:
+  - azure-databricks
 ---
 
 # Monitoring Azure Databricks

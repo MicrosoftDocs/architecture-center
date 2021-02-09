@@ -7,6 +7,9 @@ ms.date: 05/17/2017
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: best-practice
+products:
+  - azure-vm-scalesets
+  - azure-monitor
 ms.custom:
   - best-practice
 ---

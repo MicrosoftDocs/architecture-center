@@ -7,6 +7,8 @@ ms.date: 11/04/2018
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: best-practice
+products:
+  - azure-table-storage
 ms.custom:
   - best-practice
 ---

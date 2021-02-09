@@ -7,6 +7,9 @@ ms.date: 06/05/2017
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: anti-pattern
+products:
+  - azure-sql-database
+  - azure-app-service
 ms.custom:
   - article
 ---

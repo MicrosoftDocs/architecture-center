@@ -10,6 +10,9 @@ ms.service: architecture-center
 ms.subservice: cloud-fundamentals
 ms.workload: data-services
 ms.devlang: R
+products:
+  - azure-machine-learning
+  - azure-data-science-vm
 ms.custom:
   - article
 ---

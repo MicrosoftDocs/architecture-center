@@ -6,6 +6,8 @@ ms.date: 05/21/2020
 ms.topic: reference
 ms.service: architecture-center
 ms.subservice: cloud-fundamentals
+products:
+  - azure-active-directory
 ---
 
 # Security and identity on Azure and AWS

@@ -7,6 +7,8 @@ ms.date: 01/12/2018
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: best-practice
+products:
+  - aspnet
 ms.custom:
   - best-practice
 ---

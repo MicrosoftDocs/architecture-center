@@ -9,6 +9,9 @@ ms.subservice: azure-guide
 ms.category:
   - databases
   - management-and-governance
+products:
+  - azure-databricks
+  - azure-monitor
 ---
 
 <!-- cSpell:ignore Grafana perftools loganalytics bitnami sparkmonitoring LOGTYPE -->

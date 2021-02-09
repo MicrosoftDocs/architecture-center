@@ -11,6 +11,9 @@ ms.category:
   - developer-tools
   - management-and-governance
   - featured
+products:
+  - azure-databricks
+  - azure-monitor
 ---
 
 <!-- cSpell:ignore Dropwizard loganalytics samplejob appender jconfiguration kusto rowcounter -->
