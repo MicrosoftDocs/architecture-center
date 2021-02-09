@@ -10,6 +10,13 @@ This gaming solution architecture elastically scales your database to accommodat
 ![Architecture Diagram](../media/gaming-using-cosmos-db.png)
 *Download an [SVG](../media/gaming-using-cosmos-db.svg) of this architecture.*
 
+## Data Flow
+Azure Traffic Manager routes a user's game traffic to the APIs managed by Azure API Management and hosted in Azure App Service.
+Azure CDN serves static images and content to the user that are stored in Azure Blob Storage
+Azure Cosmos DB stores game state data
+Azure Databricks correlates, cleanses and transforms game state data.
+Azure Functions processes the insights derived from Azure Databricks and pushes notifications using Azure Notification Hubs to mobile devices 
+
 ## Components
 
 This architecture includes the following components:
@@ -31,9 +38,8 @@ Azure Blob Storage are optimized to store large amounts of unstructured data, su
 
 Azure Cosmos DB is a fully managed NoSQL database service for building and modernizing scalable, high performance applications.
 
-Azure Databricks is an Apache Spark-based analytics platform optimized for the Microsoft Azure cloud services platform. Databricks is used to correlate game data, and also to cleanse, enrich and transform data.
+Azure Databricks is an Apache Spark-based analytics platform optimized for the Microsoft Azure cloud services platform. 
 
-Azure Functions exposes the insights derived from Azure Databricks and Cosmos DB and make them accessible through web and mobile apps.
+Azure Functions are serverless compute options that allow applications to run on-demand without having to manage infrastructure.
 
 Azure Notification Hubs is a massively scalable push notification engine for quickly sending notifications to variety of mobile devices and platforms.
-
