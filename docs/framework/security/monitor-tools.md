@@ -34,7 +34,7 @@ For frequently asked questions on Azure Security Center, see [FAQ - General Ques
 
 ## Detect threats early
 
-Your business may be experiencing increasingly sophisticated attacks, increasing volumes of alerts, and long resolution timeframes.
+Your business may be experiencing increasingly sophisticated attacks, increasing volumes of alerts, and long resolution time frames.
 
 To combat these issues, [Azure Sentinel](/azure/sentinel/overview) uses intelligent security analytics and threat intelligence to provide a single solution for alert detection, threat visibility, [proactive hunting](https://techcommunity.microsoft.com/t5/microsoft-security-and/threat-hunting-simplified-with-microsoft-threat-protection/ba-p/1216909), and threat response.
 
