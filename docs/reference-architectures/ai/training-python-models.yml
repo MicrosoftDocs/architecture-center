@@ -3,13 +3,15 @@ metadata:
   title: Training Python models on Azure
   description: This reference architecture shows recommended practices for tuning the hyperparameters (training parameters) of a scikit-learn Python model.
   author: fboylu
+  ms.author: pnp
   ms.date: 07/17/2019
   ms.topic: conceptual
   ms.service: architecture-center
+  ms.subservice: reference-architecture
   ms.category:
     - ai-machine-learning
-  ms.subservice: reference-architecture
-  ms.custom: azcat-ai
+  ms.custom:
+    - azcat-ai
 name: Training Python models on Azure
 azureCategories:
   - ai-machine-learning
