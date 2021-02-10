@@ -10,7 +10,7 @@ A charged off loan is a loan that is declared by a creditor (usually a lending i
 ![Architecture diagram](../media/loan-chargeoff-prediction-with-azure-hdinsight-spark-clusters.png)
 
 Download an [SVG](../media/loan-chargeoff-prediction-with-azure-hdinsight-spark-clusters.svg) of this architecture.
-## Data Flow
+## Data flow
 
 1. Create some data and define data sources for the ML prediction
 1. Run a logistic regression over the data using the local compute (or spark) context to predict loan charge off variable
@@ -28,7 +28,7 @@ There are multiple benefits for lending institutions to equip with loan chargeof
 
 This solution template demonstrates a solution end to end to run predictive analytics on loan data and produce scoring on chargeoff probability. A PowerBI report will also walk through the analysis and trend of credit loans and prediction of chargeoff probability.
 
-## Business Perspective
+## Business perspective
 
 This loan chargeoff prediction uses a simulated loan history data to predict probability of loan chargeoff in the immediate future (next three months). The higher the score, the higher is the probability of the loan getting charged-off in the future.
 
@@ -38,7 +38,7 @@ Microsoft R Server on HDInsight Spark clusters provides distributed and scalable
 
 Power BI also presents visual summaries of the loan payments and chargeoff predictions (shown here with simulated data). You can try out this dashboard by clicking the "Try it Now" button to the right.
 
-## Data Scientist Perspective
+## Data scientist perspective
 
 This solution template walks through the end-to-end process of how to develop predict analytics using a set of simulated loan history data to predict loan chargeoff risk. The data contains information like loan holder demographic data, loan amount, contractual loan duration and loan payment history. The solution template also includes a set of R scripts that perform data processing, feature engineering, and several different algorithms to train the data, and finally select the best performant model to score the data to produce probability score for each loan. The solution also include scripts to deploy the model as a web service (on the edge node) and consuming the web service remotely with Microsoft R Server on Azure HDInsight Spark clusters.
 
@@ -48,7 +48,7 @@ Data scientists who are testing this solution can work with the provided R code 
 * [Azure HDInsights](/azure/hdinsight/hdinsight-overview): Azure HDInsight is a managed, full-spectrum, open-source analytics service in the cloud for enterprises. You can use open-source frameworks such as Hadoop, Apache Spark, Apache Hive, LLAP, Apache Kafka, Apache Storm, R, and more.
 * [Power BI](https://powerbi.microsoft.com) provides an interactive dashboard with visualization that uses data stored in SQL Server to drive decisions on the predictions.
 
-## See Also
-* [R developer's guide to Azure](/azure/architecture/data-guide/technology-choices/r-developers-guide) This article provides an overview of the various ways that data scientists can use their existing skills with the R programming language in Azure.
-* [Analyze Apache Spark data using Power BI in HDInsight](/azure/hdinsight/spark/apache-spark-use-bi-tools) How to use Microsoft Power BI to visualize data in an Apache Spark cluster in Azure HDInsight.
-* [Operationalize ML Services cluster on Azure HDInsight](/azure/hdinsight/r-server/r-server-operationalize) Operationalize the model to make predictions using ML Services cluster on Azure HDInsight
+## See also
+* [R developer's guide to Azure](/azure/architecture/data-guide/technology-choices/r-developers-guide): This article provides an overview of the various ways that data scientists can use their existing skills with the R programming language in Azure.
+* [Analyze Apache Spark data using Power BI in HDInsight](/azure/hdinsight/spark/apache-spark-use-bi-tools): How to use Microsoft Power BI to visualize data in an Apache Spark cluster in Azure HDInsight.
+* [Operationalize ML Services cluster on Azure HDInsight](/azure/hdinsight/r-server/r-server-operationalize): Operationalize the model to make predictions using an ML Services cluster on Azure HDInsight.
