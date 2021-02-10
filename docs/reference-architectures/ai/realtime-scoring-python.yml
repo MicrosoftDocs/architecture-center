@@ -4,13 +4,14 @@ metadata:
   titleSuffix: Azure Reference Architectures
   description: This reference architecture shows how to deploy Python models as web services to make real-time predictions using the Azure Machine Learning.
   author: msalvaris
+  ms.author: pnp
   ms.date: 01/28/2019
   ms.topic: conceptual
   ms.service: architecture-center
+  ms.subservice: reference-architecture
   ms.category:
     - ai-machine-learning
     - developer-tools
-  ms.subservice: reference-architecture
   ms.custom:
     - azcat-ai
     - reference-architecture
