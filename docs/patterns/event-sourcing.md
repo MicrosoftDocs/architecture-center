@@ -157,9 +157,10 @@ The following patterns and guidance might also be relevant when implementing thi
 - [Data Partitioning Guidance](/previous-versions/msp-n-p/dn589795(v=pandp.10)). Data is often partitioned when using event sourcing to improve scalability, reduce contention, and optimize performance. Describes how to divide data into discrete partitions, and the issues that can arise.
 
 ## Community resources
-
-Martin Fowler's blog:
-- [Event Sourcing](https://martinfowler.com/eaaDev/EventSourcing.html)
-- [Snapshot on Martin Fowler’s Enterprise Application Architecture website](https://martinfowler.com/eaaDev/Snapshot.html)
-
 - [Object-relational impedance mismatch](https://en.wikipedia.org/wiki/Object-relational_impedance_mismatch)
+
+- Martin Fowler's blog:
+  - [Event Sourcing](https://martinfowler.com/eaaDev/EventSourcing.html)
+  - [Snapshot on Martin Fowler’s Enterprise Application Architecture website](https://martinfowler.com/eaaDev/Snapshot.html)
+
+
