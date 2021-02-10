@@ -1633,6 +1633,8 @@ items:
             items:
               - name: Basic web application
                 href: reference-architectures/app-service-web-app/basic-web-app.yml
+              - name: Consumer health portal
+                href: example-scenario/digital-health/health-portal.yml
               - name: Deployment in App Service Environments
                 items:
                   - name: Standard deployment
