@@ -27,4 +27,4 @@ Cloud applications run in a remote datacenter where you do not have full control
 |              [Gateway Routing](../gateway-routing.md)              |                                   Route requests to multiple services using a single endpoint.                                    |
 |   [Health Endpoint Monitoring](../health-endpoint-monitoring.md)   |   Implement functional checks in an application that external tools can access through exposed endpoints at regular intervals.    |
 |                      [Sidecar](../sidecar.md)                      |         Deploy components of an application into a separate process or container to provide isolation and encapsulation.          |
-|                    [Strangler](../strangler.md)                    | Incrementally migrate a legacy system by gradually replacing specific pieces of functionality with new applications and services. |
+|                    [Strangler Fig](../strangler-fig.md)                    | Incrementally migrate a legacy system by gradually replacing specific pieces of functionality with new applications and services. |

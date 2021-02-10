@@ -1,0 +1,35 @@
+### YamlMime:Architecture
+metadata:
+  title: Discovery Hub with Cloud Scale Analytics
+  titleSuffix: Azure Solution Ideas
+  description: Use Discovery Hub to define a modern data estate that is ready for cloud scale analytics using a graphical user interface, with definitions stored in a metadata repository.
+  author: doodlemania2
+  ms.author: pnp
+  ms.date: 12/16/2019
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: solution-idea
+  ms.category:
+    - analytics
+    - databases
+  ms.custom:
+    - acom-architecture
+    - Azure Discovery Hub
+    - Cloud Scale Analytics
+    - data warehouse analytics
+    - interactive-diagram
+    - 'https://azure.microsoft.com/solutions/architecture/cloud-scale-analytics-with-discovery-hub/'
+  social_image_url: /azure/architecture/solution-ideas/articles/media/cloud-scale-analytics-with-discovery-hub.png
+name: Discovery Hub with Cloud Scale Analytics
+azureCategories:
+  - analytics
+  - databases
+summary: Use Discovery Hub to define a modern data estate that is ready for cloud scale analytics using a graphical user interface, with definitions stored in a metadata repository.
+products:
+  - azure-analysis-services
+  - azure-data-lake-storage
+  - azure-databricks
+  - azure-synapse-analytics
+thumbnailUrl: /azure/architecture/browse/thumbs/cloud-scale-analytics-with-discovery-hub.png
+content: |
+   [!include[](cloud-scale-analytics-with-discovery-hub-content.md)]

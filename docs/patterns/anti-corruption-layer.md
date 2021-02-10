@@ -57,4 +57,4 @@ This pattern may not be suitable if there are no significant semantic difference
 
 ## Related guidance
 
-- [Strangler pattern](./strangler.md)
+- [Strangler Fig pattern](./strangler-fig.md)

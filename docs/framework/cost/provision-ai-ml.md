@@ -42,17 +42,17 @@ For more information, see these articles:
 
 #### Reference architecture
 
--   [Training of Python scikit-learn and deep learning models on Azure](../../reference-architectures/ai/training-python-models.md)
--   [Distributed training of deep learning models on Azure](../../reference-architectures/ai/training-deep-learning.md)
--   [Batch scoring of Python machine learning models on Azure](../../reference-architectures/ai/batch-scoring-python.md)
--   [Batch scoring of deep learning models on Azure](../../reference-architectures/ai/batch-scoring-deep-learning.md)
--   [Real-time scoring of Python scikit-learn and deep learning models on Azure](../../reference-architectures/ai/realtime-scoring-python.md)
--   [Machine learning operationalization (MLOps) for Python models using Azure MachineLearning](../../reference-architectures/ai/mlops-python.md)
--   [Batch scoring of R machine learning models on Azure](../../reference-architectures/ai/batch-scoring-r-models.md)
--   [Real-time scoring of R machine learning models on Azure](../../reference-architectures/ai/realtime-scoring-r.md)
--   [Batch scoring of Spark machine learning models on Azure Databricks](../../reference-architectures/ai/batch-scoring-databricks.md)
--   [Enterprise-grade conversational bot](../../reference-architectures/ai/conversational-bot.md)
--   [Build a real-time recommendation API on Azure](../../reference-architectures/ai/real-time-recommendation.md)
+-   [Training of Python scikit-learn and deep learning models on Azure](../../reference-architectures/ai/training-python-models.yml)
+-   [Distributed training of deep learning models on Azure](../../reference-architectures/ai/training-deep-learning.yml)
+-   [Batch scoring of Python machine learning models on Azure](../../reference-architectures/ai/batch-scoring-python.yml)
+-   [Batch scoring of deep learning models on Azure](../../reference-architectures/ai/batch-scoring-deep-learning.yml)
+-   [Real-time scoring of Python scikit-learn and deep learning models on Azure](../../reference-architectures/ai/realtime-scoring-python.yml)
+-   [Machine learning operationalization (MLOps) for Python models using Azure MachineLearning](../../reference-architectures/ai/mlops-python.yml)
+-   [Batch scoring of R machine learning models on Azure](../../reference-architectures/ai/batch-scoring-r-models.yml)
+-   [Real-time scoring of R machine learning models on Azure](../../reference-architectures/ai/realtime-scoring-r.yml)
+-   [Batch scoring of Spark machine learning models on Azure Databricks](../../reference-architectures/ai/batch-scoring-databricks.yml)
+-   [Enterprise-grade conversational bot](../../reference-architectures/ai/conversational-bot.yml)
+-   [Build a real-time recommendation API on Azure](../../reference-architectures/ai/real-time-recommendation.yml)
 
 ## Azure Cognitive services
 The billing depends on the type of service. The charges are based on the number of transactions for each type of operation specific to a service. Certain number of transactions are free. If you need additional transactions, choose from the **Standard** instances.
@@ -60,7 +60,7 @@ For more information, see
 - [Cognitive services pricing calculator](https://azure.microsoft.com/pricing/calculator/)
 - [Cognitive services pricing](https://azure.microsoft.com/pricing/details/cognitive-services/)
 #### Reference architecture
-[Build an enterprise-grade conversational bot](../../reference-architectures/ai/conversational-bot.md)
+[Build an enterprise-grade conversational bot](../../reference-architectures/ai/conversational-bot.yml)
 
 
 ## Azure Bot Service
@@ -70,4 +70,4 @@ The Azure Bot Service is a managed service purpose-built for enterprise-grade bo
 For a Web App Bot, an [Azure App Service](https://azure.microsoft.com/pricing/details/app-service/) is provisioned to host the bot. Also, an instance of [Application Insights](https://azure.microsoft.com/pricing/details/application-insights/) is provisioned. You're charged for as per the pricing of those individual services. 
 
 #### Reference architecture
-[Enterprise-grade conversational bot](../../reference-architectures/ai/conversational-bot.md)
+[Enterprise-grade conversational bot](../../reference-architectures/ai/conversational-bot.yml)

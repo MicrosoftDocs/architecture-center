@@ -116,12 +116,12 @@ For more information about running N-tier applications on Azure:
 
 [autoscaling]: ../../best-practices/auto-scaling.md
 [caching]: ../../best-practices/caching.md
-[dmz]: ../../reference-architectures/dmz/secure-vnet-dmz.md
-[ha-nva]: ../../reference-architectures/dmz/nva-ha.md
-[hybrid-network]: ../../reference-architectures/hybrid-networking/index.md
-[identity]: ../../reference-architectures/identity/index.md
-[multiregion-linux]: ../../reference-architectures/n-tier/n-tier-cassandra.md
-[multiregion-windows]: ../../reference-architectures/n-tier/multi-region-sql-server.md
-[n-tier-linux]: ../../reference-architectures/n-tier/n-tier-cassandra.md
-[n-tier-windows-SQL]: ../../reference-architectures/n-tier/n-tier-sql-server.md
+[dmz]: ../../reference-architectures/dmz/secure-vnet-dmz.yml
+[ha-nva]: ../../reference-architectures/dmz/nva-ha.yml
+[hybrid-network]: ../../reference-architectures/hybrid-networking/index.yml
+[identity]: ../../reference-architectures/identity/index.yml
+[multiregion-linux]: ../../reference-architectures/n-tier/n-tier-cassandra.yml
+[multiregion-windows]: ../../reference-architectures/n-tier/multi-region-sql-server.yml
+[n-tier-linux]: ../../reference-architectures/n-tier/n-tier-cassandra.yml
+[n-tier-windows-SQL]: ../../reference-architectures/n-tier/n-tier-sql-server.yml
 [sql-always-on]: /sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server

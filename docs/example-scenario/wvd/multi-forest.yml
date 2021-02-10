@@ -1,0 +1,24 @@
+### YamlMime:Architecture
+metadata:
+  title: Multiple forests with AD DS and Azure AD
+  titleSuffix: Azure Example Scenarios
+  description: This article describes an example workload of creating multiple Active Directory forests with Windows Virtual Desktop.
+  author: nehalineogi
+  ms.date: 08/31/2020
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: example-scenario
+  ms.custom:
+    - fcp
+    - example-scenario
+name: Multiple forests with AD DS and Azure AD
+summary: This article describes an example workload of creating multiple Active Directory forests with Windows Virtual Desktop.
+products:
+  - azure-active-directory
+  - azure-active-directory-domain
+  - azure-expressroute
+  - azure-files
+  - azure-storage
+thumbnailUrl: /azure/architecture/browse/thumbs/two-forest-hybrid.png
+content: |
+   [!include[](multi-forest-content.md)]

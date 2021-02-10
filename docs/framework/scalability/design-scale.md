@@ -19,7 +19,7 @@ Planning for growth starts with understanding your current workloads. This can h
 
 Perform load tests and stress tests to determine the necessary infrastructure to support the predicted spikes in workloads. A good plan includes incorporating a buffer to accommodate for random spikes.
 
-For more information on how to determine the upper and maximum limits of an application's capacity, see [Performance testing](https://review.docs.microsoft.com/azure/architecture/framework/scalability/performance-testing) in the Performance Efficiency pillar.
+For more information on how to determine the upper and maximum limits of an application's capacity, see [Performance testing](./performance-test.md) in the Performance Efficiency pillar.
 
 Another critical component of planning for scale is to make sure the region that hosts your application supports the necessary capacity required to accommodate load increase. If you are using a multiregion architecture, make sure the secondary regions can also support the increase. A region can offer the product but may not support the predicted load increase without the necessary SKUs (Stock Keeping Units) so you need to verify this.
 
@@ -31,7 +31,7 @@ Then, check the SKUs available in the Azure portal.
 
 ### Add scale units
 
-For each resource, know the upper scaling limits, and use [sharding](https://docs.microsoft.com/azure/azure-sql/database/elastic-scale-introduction#sharding) or decomposition to go beyond those limits. Design the application so that it's easily scaled by adding one or more [scale units](https://docs.microsoft.com/archive/msdn-magazine/2017/february/azure-inside-the-azure-app-service-architecture#what-is-an-app-service-scale-unit). Determine the scale units for the system in terms of well-defined sets of resources.
+For each resource, know the upper scaling limits, and use [sharding](/azure/azure-sql/database/elastic-scale-introduction#sharding) or decomposition to go beyond those limits. Design the application so that it's easily scaled by adding one or more scale units, such as by using the [Deployment Stamps pattern](../../patterns/deployment-stamp.md). Determine the scale units for the system in terms of well-defined sets of resources.
 
 The next step might be to use built-in scaling features or tools to understand which resources need to scale concurrently with other resources. For example, adding X number of front-end VMs might require Y number of additional queues and Z number of storage accounts to handle the additional workload. So a scale unit could consist of X VM instances, Y queues, and Z storage accounts.
 
@@ -43,7 +43,13 @@ You automatically scale between the minimum and maximum number of instances to r
 
 ![Autoscale](../_images/design-autoscale.png)
 
-For more information, see [Autoscaling](https://docs.microsoft.com/azure/architecture/best-practices/auto-scaling).
+For more information, see [Autoscaling](../../best-practices/auto-scaling.md).
+
+### Understand scale targets
+
+Scale operations (horizontal - changing the number of identical instances, vertical - switching to more/less powerful instances) can be fast, but usually take time to complete. It's important to understand how this delay affects the application under load and if degraded performance is acceptable.
+
+For more information, see [Best practices for Autoscale](/azure/azure-monitor/platform/autoscale-best-practices#choose-the-thresholds-carefully-for-all-metric-types).
 
 ## Take advantage of platform autoscaling features
 
@@ -56,7 +62,7 @@ Here's how you can benefit from autoscaling features:
 > [!NOTE]
 > Providing your application is explicitly designed to handle some of its instances being terminated, remember to use autoscaling to scale down/in resources that are no longer necessary for the given load in order to reduce operational costs.
 
-For more information, see [Autoscaling](https://review.docs.microsoft.com/azure/architecture/best-practices/auto-scaling).
+For more information, see [Autoscaling](../../best-practices/auto-scaling.md).
 
 ## Autoscale CPU or memory-intensive applications
 
@@ -66,28 +72,28 @@ For example, you may have an application that processes images, videos or music.
 
 ## Autoscale with Azure compute services
 
-The way autoscaling works is that metrics are collected for the resource (CPU and memory utilization) and the application (requests queued and requests per second). Rules can then be created to add and remove instances depending on how the rule evaluates. An [App Services](https://docs.microsoft.com/azure/app-service/overview-hosting-plans#how-does-my-app-run-and-scale) App Plan allows autoscale rules to be set for scale-out/scale-in and scale-up/scale-down. Scaling also applies to [Azure Automation](https://docs.microsoft.com/azure/automation/automation-intro).
+The way autoscaling works is that metrics are collected for the resource (CPU and memory utilization) and the application (requests queued and requests per second). Rules can then be created to add and remove instances depending on how the rule evaluates. An [App Services](/azure/app-service/overview-hosting-plans#how-does-my-app-run-and-scale) App Plan allows autoscale rules to be set for scale-out/scale-in and scale-up/scale-down. Scaling also applies to [Azure Automation](/azure/automation/automation-intro).
 
 :::image type="icon" source="../_images/github.png" border="false"::: The [Application Service autoscaling](https://github.com/mspnp/samples/tree/master/PerformanceEfficiency/AppServiceAutoscalingSample) sample shows how to create an Azure App Service plan which includes an Azure App Service.
 
-[Azure Kubernetes Service](https://docs.microsoft.com/azure/aks/intro-kubernetes) (AKS) offers two levels of autoscale:
+[Azure Kubernetes Service](/azure/aks/intro-kubernetes) (AKS) offers two levels of autoscale:
 
 - **Horizontal autoscale** - Can be enabled on service containers to add more or fewer pod instances within the cluster.
 - **Cluster autoscale** - Can be enabled on the agent VM instances running an agent node-pool to add more or remove VM instances dynamically.
 
 Other Azure services include the following:
 
-- [**Azure Service Fabric**](https://docs.microsoft.com/azure/service-fabric/service-fabric-overview) - Virtual machine scale sets offer autoscale capabilities for true IaaS scenarios.
-- [**Azure App Gateway**](https://docs.microsoft.com/azure/application-gateway/overview) and [**Azure API Management**](https://docs.microsoft.com/azure/api-management/api-management-key-concepts) - PaaS offerings for ingress services that enable autoscale.
-- [**Azure Functions**](https://docs.microsoft.com/azure/azure-functions/functions-overview), [**Azure Logic Apps**](https://docs.microsoft.com/azure/logic-apps/logic-apps-overview), and [**App Services**](https://docs.microsoft.com/azure/app-service/overview) - Serverless pay-per-use consumption modeling that inherently provide autoscaling capabilities.
-- [**Azure SQL Database**](https://docs.microsoft.com/archive/blogs/sqlserverstorageengine/azure-sql-database-scalability) - PaaS platform to change performance characteristics of a database on the fly and assign more resources when needed or release the resources when they are not needed. Allows [scaling up/down](https://docs.microsoft.com/archive/blogs/sqlserverstorageengine/azure-sql-database-scalability#scaling-updown), [read scale-out](https://docs.microsoft.com/archive/blogs/sqlserverstorageengine/azure-sql-database-scalability#read-scale-out), and [global scale-out/sharding](https://docs.microsoft.com/archive/blogs/sqlserverstorageengine/azure-sql-database-scalability#global-scale-outsharding) capabilities.
+- [**Azure Service Fabric**](/azure/service-fabric/service-fabric-overview) - Virtual machine scale sets offer autoscale capabilities for true IaaS scenarios.
+- [**Azure App Gateway**](/azure/application-gateway/overview) and [**Azure API Management**](/azure/api-management/api-management-key-concepts) - PaaS offerings for ingress services that enable autoscale.
+- [**Azure Functions**](/azure/azure-functions/functions-overview), [**Azure Logic Apps**](/azure/logic-apps/logic-apps-overview), and [**App Services**](/azure/app-service/overview) - Serverless pay-per-use consumption modeling that inherently provide autoscaling capabilities.
+- [**Azure SQL Database**](/archive/blogs/sqlserverstorageengine/azure-sql-database-scalability) - PaaS platform to change performance characteristics of a database on the fly and assign more resources when needed or release the resources when they are not needed. Allows [scaling up/down](/archive/blogs/sqlserverstorageengine/azure-sql-database-scalability#scaling-updown), [read scale-out](/archive/blogs/sqlserverstorageengine/azure-sql-database-scalability#read-scale-out), and [global scale-out/sharding](/archive/blogs/sqlserverstorageengine/azure-sql-database-scalability#global-scale-outsharding) capabilities.
 
-Each service documents its autoscale capabilities. Review [Autoscale overview](https://docs.microsoft.com/azure/azure-monitor/platform/autoscale-overview) for a general discussion on Azure platform autoscale.
+Each service documents its autoscale capabilities. Review [Autoscale overview](/azure/azure-monitor/platform/autoscale-overview) for a general discussion on Azure platform autoscale.
 
 > [!NOTE]
-> If your application does not have built-in ability to autoscale, or isn't configured to scale out automatically as load increases, it's possible that your application's services will fail if they become saturated with user requests. See [Azure Automation](https://docs.microsoft.com/azure/virtual-desktop/set-up-scaling-script) for possible solutions.
+> If your application does not have built-in ability to autoscale, or isn't configured to scale out automatically as load increases, it's possible that your application's services will fail if they become saturated with user requests. See [Azure Automation](/azure/virtual-desktop/set-up-scaling-script) for possible solutions.
 
 ## Next steps
 
 >[!div class="nextstepaction"]
->[Plan for capacity](https://docs.microsoft.com/azure/architecture/framework/scalability/design-capacity)
+>[Plan for capacity](./design-capacity.md)

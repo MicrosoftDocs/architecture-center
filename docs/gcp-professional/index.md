@@ -143,7 +143,7 @@ Region Pairs in Azure
 
 - [Regions for virtual machines in Azure](/azure/virtual-machines/linux/regions)
 - [Availability options for virtual machines in Azure](/azure/virtual-machines/linux/availability)
-- [High availability for Azure applications](../example-scenario/infrastructure/multi-tier-app-disaster-recovery.md)
+- [High availability for Azure applications](../example-scenario/infrastructure/multi-tier-app-disaster-recovery.yml)
 - [Failure and disaster recovery for Azure applications](../framework/resiliency/backup-and-recovery.md)
 - [Planned maintenance for Linux virtual machines in Azure](/azure/virtual-machines/linux/maintenance-and-updates)
 
@@ -157,4 +157,4 @@ Not all Azure products and services are available in all regions. Consult the [P
 
 - [Get started with Azure](https://azure.microsoft.com/get-started)
 - [Azure solution architectures](https://azure.microsoft.com/solutions/architecture)
-- [Azure Reference Architectures](../browse/index.md)
+- [Azure Reference Architectures](../browse/index.yml)

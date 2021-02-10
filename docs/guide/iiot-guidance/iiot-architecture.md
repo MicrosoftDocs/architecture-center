@@ -169,7 +169,7 @@ IoT Hub supports the following [protocols](/azure/iot-hub/iot-hub-devguide-proto
 - AMQP over WebSockets, and
 - HTTPS.
 
-If the industrial device or system supports any of these protocols, it can send data directly to IoT Hub. In most industrial environments, this is not permissible because of PCN firewalls and network security policies (ISA 95, ISA 99). In such cases, an Azure IoT Edge field gateway can be installed in a [DMZ](../../reference-architectures/dmz/secure-vnet-dmz.md) between the PCN and the Internet.
+If the industrial device or system supports any of these protocols, it can send data directly to IoT Hub. In most industrial environments, this is not permissible because of PCN firewalls and network security policies (ISA 95, ISA 99). In such cases, an Azure IoT Edge field gateway can be installed in a [DMZ](../../reference-architectures/dmz/secure-vnet-dmz.yml) between the PCN and the Internet.
 
 ## Next steps
 

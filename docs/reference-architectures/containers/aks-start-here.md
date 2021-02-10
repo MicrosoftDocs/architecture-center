@@ -3,9 +3,11 @@ title: Azure Kubernetes Service (AKS) solution journey
 titleSuffix: Azure Architecture Center
 description: An overview of Microsoft''s Azure Kubernetes Service (AKS) guidance offerings ranging from "just starting out", to production, and through sustained operations.
 author: ckittel
+ms.author: pnp
 ms.date: 09/10/2020
 ms.topic: conceptual
 ms.service: architecture-center
+ms.subservice: reference-architecture
 ms.custom:
   - overview
 ---
@@ -39,11 +41,11 @@ You understand the benefits and trade-offs of Kubernetes, and have decided that 
 **Microsoft's AKS Baseline Cluster** is the starting point to help you build production-ready AKS clusters. We recommend you start from this baseline implementation and modify it to align to your workload's specific needs and [Well-Architected Framework](../../framework/index.md) priorities.
 
 > [!div class="nextstepaction"]
-> [Microsoft's AKS Baseline Cluster](../../reference-architectures/containers/aks/secure-baseline-aks.md)
+> [Microsoft's AKS Baseline Cluster](../../reference-architectures/containers/aks/secure-baseline-aks.yml)
 
 ### Best practices
 
-As part of on going operations, you may wish to spot check your cluster against current recommended best practices. The best place to start is to ensure your cluster is aligned with Microsoft's [AKS Baseline Cluster](../../reference-architectures/containers/aks/secure-baseline-aks.md).
+As part of on going operations, you may wish to spot check your cluster against current recommended best practices. The best place to start is to ensure your cluster is aligned with Microsoft's [AKS Baseline Cluster](../../reference-architectures/containers/aks/secure-baseline-aks.yml).
 
 See [Best Practices for Cluster Operations](/azure/aks/best-practices) and [Best Practices for AKS Workloads](/azure/aks/best-practices#developer-best-practices).
 
@@ -75,10 +77,10 @@ The typical AKS solution journey depicted above ranges from learning about AKS t
 
 If you're seeking additional reference material that use AKS as their foundation, here are a few to consider.
 
-* [Microservices architecture on AKS](../../reference-architectures/containers/aks-microservices/aks-microservices.md)
-* [Secure DevOps for AKS](../../solution-ideas/articles/secure-devops-for-kubernetes.md)
-* [Building a telehealth system](../../example-scenario/apps/telehealth-system.md)
-* [CI/CD pipeline for container-based workloads](../../example-scenario/apps/devops-with-aks.md)
+* [Microservices architecture on AKS](../../reference-architectures/containers/aks-microservices/aks-microservices.yml)
+* [Secure DevOps for AKS](../../solution-ideas/articles/secure-devops-for-kubernetes.yml)
+* [Building a telehealth system](../../example-scenario/apps/telehealth-system.yml)
+* [CI/CD pipeline for container-based workloads](../../example-scenario/apps/devops-with-aks.yml)
 
 ### Azure Arc
 

@@ -1,0 +1,32 @@
+### YamlMime:Architecture
+metadata:
+  title: HPC cluster deployed in the cloud
+  titleSuffix: Azure Solution Ideas
+  description: Run high performance computing (HPC) applications in Azure with a low-maintenance solution that includes the head node, compute nodes, and storage nodes.
+  author: doodlemania2
+  ms.author: pnp
+  ms.date: 12/16/2019
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: solution-idea
+  ms.category:
+    - compute
+    - storage
+  ms.custom:
+    - acom-architecture
+    - hpc
+    - 'https://azure.microsoft.com/solutions/architecture/hpc-cluster/'
+  social_image_url: /azure/architecture/solution-ideas/articles/media/hpc-cluster.png
+name: HPC cluster deployed in the cloud
+azureCategories:
+  - compute
+  - storage
+summary: Run high performance computing (HPC) applications in Azure with a low-maintenance solution that includes the head node, compute nodes, and storage nodes.
+products:
+  - azure-blob-storage
+  - azure-vm-scalesets
+  - azure-virtual-machines
+  - azure-virtual-network
+thumbnailUrl: /azure/architecture/browse/thumbs/hpc-cluster.png
+content: |
+   [!include[](hpc-cluster-content.md)]

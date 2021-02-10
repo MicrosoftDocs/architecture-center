@@ -1,0 +1,27 @@
+### YamlMime:Architecture
+metadata:
+  title: Machine Learning Operations maturity model
+  description: A detailed explanation of the MLOps maturity model stages which lists defining characteristics of each stage.
+  author: doodlemania2
+  ms.author: pnp
+  ms.date: 07/07/2020
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: example-scenario
+  ms.category:
+    - developer-tools
+    - hybrid
+  ms.custom:
+    - fcp
+    - cse
+    - e2e-hybrid
+name: Machine Learning Operations maturity model
+azureCategories:
+  - developer-tools
+  - hybrid
+summary: A detailed explanation of the MLOps maturity model stages which lists defining characteristics of each stage.
+products:
+  - azure-machine-learning
+thumbnailUrl: /azure/architecture/browse/thumbs/data-science-initial-methodology.png
+content: |
+   [!include[](mlops-maturity-model-content.md)]

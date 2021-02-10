@@ -1,0 +1,33 @@
+### YamlMime:Architecture
+metadata:
+  title: DevTest and DevOps for IaaS solutions
+  titleSuffix: Azure Solution Ideas
+  description: Learn how to configure a DevTest and DevOps infrastructure for development, testing, and deploying IaaS-based software.
+  author: doodlemania2
+  ms.author: pnp
+  ms.date: 09/17/2020
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: solution-idea
+  ms.category:
+    - devops
+    - management-and-governance
+  ms.custom:
+    - fcp
+name: DevTest and DevOps for IaaS solutions
+azureCategories:
+  - devops
+  - management-and-governance
+summary: Learn how to configure a DevTest and DevOps infrastructure for development, testing, and deploying IaaS-based software.
+products:
+  - azure-active-directory
+  - azure-boards
+  - azure-devops
+  - azure-devtest-labs
+  - azure-key-vault
+  - azure-monitor
+  - azure-pipelines
+  - azure-policy
+thumbnailUrl: /azure/architecture/browse/thumbs/dev-test-iaas.png
+content: |
+   [!include[](dev-test-iaas-content.md)]

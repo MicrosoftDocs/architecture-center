@@ -148,7 +148,7 @@ functions:
 | **Network Management**               | *Typically existing network operations team.* Enterprise-wide virtual network and subnet allocation. |
 | **Server Endpoint Security**         | *Typically IT operations, security, or jointly.* Monitor and remediate server security (patching, configuration, endpoint security, etc.). |
 | **Incident Monitoring and Response** | *Typically security operations team.* Investigate and remediate security incidents in Security Information and Event Management (SIEM) or source console.|
-| **Policy Management**                | *Typically GRC team + Architecture.* Set Direction for use of Role-Based Access Control (RBAC), Azure Security Center, Administrator protection strategy, and Azure Policy to govern Azure resources. |
+| **Policy Management**                | *Typically GRC team + Architecture.* Set Direction for use of Azure role-based access control (Azure RBAC), Azure Security Center, Administrator protection strategy, and Azure Policy to govern Azure resources. |
 | **Identity Security and Standards**  | *Typically Security Team + Identity Team jointly.* Set direction for Azure AD directories, PIM/PAM usage, MFA, password/synchronization configuration, Application Identity Standards. |
 
 
@@ -406,11 +406,11 @@ Root management group guidance:
         restrictions related to data sovereignty).
 
     -   **Near-zero potential negative impact** on operations such as policy
-        with audit effect, Tag assignment, RBAC permissions assignments that
+        with audit effect, Tag assignment, Azure RBAC permissions assignments that
         have been carefully reviewed.
 
 - **Test First -** Carefully test all enterprise-wide changes on the root
-    management group before applying (policy, tags, RBAC model, etc.) using a
+    management group before applying (policy, tags, Azure RBAC model, etc.) using a
 
     -   **Test Lab -** Representative lab tenant or lab segment in production
         tenant.
@@ -459,7 +459,7 @@ For Azure, you can enforce policies by,
 
 
 
-One way of managing VMs in the virtual network is by using [Azure Bastion](/azure/bastion/). This service allows you to log into VMs in the virtual network through SSH or remote desktop protocol (RDP) without exposing the VMs directly to the internet. To see a reference architecture that uses Bastion, see [Network DMZ between Azure and an on-premises datacenter](../../reference-architectures/dmz/secure-vnet-dmz.md).
+One way of managing VMs in the virtual network is by using [Azure Bastion](/azure/bastion/). This service allows you to log into VMs in the virtual network through SSH or remote desktop protocol (RDP) without exposing the VMs directly to the internet. To see a reference architecture that uses Bastion, see [Network DMZ between Azure and an on-premises datacenter](../../reference-architectures/dmz/secure-vnet-dmz.yml).
 
 ## Assign incident notification contact
 
@@ -519,7 +519,7 @@ business initiatives, protecting information, and so on.
 Utilize the Azure Blueprint service to rapidly and consistently deploy
 application environments that are compliant with your organization’s policies
 and external regulations. [Azure Blueprint Service](/azure/governance/blueprints/)
-automates deployment of environments including RBAC roles, policies, resources
+automates deployment of environments including Azure roles, policies, resources
 (VM/Net/Storage/etc.), and more. Azure Blueprints builds on Microsoft’s
 significant investment into the Azure Resource Manager to standardize
 resource deployment in Azure and enable resource deployment and governance based
@@ -598,7 +598,7 @@ There are two places where you review reported risk events:
     reporting capabilities of [Azure Active Directory Identity
     Protection](/azure/active-directory/active-directory-identityprotection).
 
-In addition, you can use the [Identity Protection risk events API](/graph/api/resources/identityriskevent?view=graph-rest-beta) to
+In addition, you can use the [Identity Protection risk events API](/graph/api/resources/identityriskevent?view=graph-rest-beta&preserve-view=true) to
 gain programmatic access to security detections using Microsoft Graph.
 
 Remediate these risks by manually addressing each reported account or by setting

@@ -39,5 +39,5 @@ The articles listed here present a structured approach for designing, building, 
 
 ## Microservices reference architectures for Azure
 
-- [Microservices architecture on Azure Kubernetes Service (AKS)](../reference-architectures/containers/aks-microservices/aks-microservices.md)
-- [Microservices architecture on Azure Service Fabric](../reference-architectures/microservices/service-fabric.md)
+- [Microservices architecture on Azure Kubernetes Service (AKS)](../reference-architectures/containers/aks-microservices/aks-microservices.yml)
+- [Microservices architecture on Azure Service Fabric](../reference-architectures/microservices/service-fabric.yml)

@@ -1,6 +1,6 @@
 ---
 title: Data Management for Reliability
-description: 
+description: Data Management for Reliability
 author: david-stanford
 ms.date: 10/16/2019
 ms.topic: conceptual
@@ -61,7 +61,7 @@ A variety of options are available for recovery and high availability for SQL Se
 
 Alternatively, you can use SQL Always On Availability Groups for high availability by creating a single availability group that includes the SQL Server instances in both regions. 
 
-As an example, [Multi-region N-tier application](../../reference-architectures/n-tier/multi-region-sql-server.md) reference architecture shows a set of practices for running an N-tier application in multiple Azure regions to achieve availability and a robust disaster recovery infrastructure. It uses a SQL Server Always On Availability Group and Azure Traffic Manager.
+As an example, [Multi-region N-tier application](../../reference-architectures/n-tier/multi-region-sql-server.yml) reference architecture shows a set of practices for running an N-tier application in multiple Azure regions to achieve availability and a robust disaster recovery infrastructure. It uses a SQL Server Always On Availability Group and Azure Traffic Manager.
 
 
 ## Storage resiliency

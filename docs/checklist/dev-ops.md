@@ -113,7 +113,7 @@ After the initial release, you should run performance and capacity tests wheneve
 
 Containers also create an abstraction layer between the application and the underlying operating system, which provides consistency across environments. This abstraction can also isolate a container from other processes or applications running on a host.
 
-**Implement resiliency and self-healing.** Resiliency is the ability of an application to recover from failures. Strategies for resiliency include retrying transient failures, and failing over to a secondary instance or even another region. For more information, see [Designing reliable Azure applications](../framework/resiliency/app-design.md)
+**Implement resiliency and self-healing.** Resiliency is the ability of an application to recover from failures. Strategies for resiliency include retrying transient failures, and failing over to a secondary instance or even another region. For more information, see [Designing reliable Azure applications](https://docs.microsoft.com/azure/architecture/framework/resiliency/app-design)
 . Instrument your applications so that issues are reported immediately and you can manage outages or other system failures.
 
 **Have an operations manual.** An operations manual or *runbook* documents the procedures and management information needed for operations staff to maintain a system. Also document any operations scenarios and mitigation plans that might come into play during a failure or other disruption to your service. Create this documentation during the development process, and keep it up to date afterwards. This is a living document, and should be reviewed, tested, and improved regularly.
@@ -130,7 +130,7 @@ Shared documentation is critical. Encourage team members to contribute and share
 
 **Follow least-privilege principles when granting access to resources.** Carefully manage access to resources. Access should be denied by default, unless a user is explicitly given access to a resource. Only grant a user access to what they need to complete their tasks. Track user permissions and perform regular security audits.
 
-**Use role-based access control.** Assigning user accounts and access to resources should not be a manual process. Use [role-based access control][rbac] (RBAC) grant access based on [Azure Active Directory][azure-ad] identities and groups.
+**Use Azure role-based access control.** Assigning user accounts and access to resources should not be a manual process. Use [Azure role-based access control (Azure RBAC)][rbac] grant access based on [Azure Active Directory][azure-ad] identities and groups.
 
 **Use a bug tracking system to track issues.** Without a good way to track issues, it's easy to miss items, duplicate work, or introduce additional problems. Don't rely on informal person-to-person communication to track the status of bugs. Use a bug tracking tool to record details about problems, assign resources to address them, and provide an audit trail of progress and status.
 
@@ -152,7 +152,7 @@ For more about DevOps, see [What is DevOps?][what-is-devops] on the Visual Studi
 [dev-test]: https://azure.microsoft.com/solutions/dev-test
 [feature-toggles]: https://www.martinfowler.com/articles/feature-toggles.html
 [oms]: https://www.microsoft.com/cloud-platform/operations-management-suite
-[rbac]: /azure/active-directory/role-based-access-control-what-is
+[rbac]: /azure/role-based-access-control/overview
 [resource-manager]: /azure/azure-resource-manager
 [trunk-based]: https://trunkbaseddevelopment.com
-[what-is-devops]: https://www.visualstudio.com/learn/what-is-devops
+[what-is-devops]: https://azure.microsoft.com/overview/what-is-devops

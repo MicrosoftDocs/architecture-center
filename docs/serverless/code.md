@@ -99,8 +99,8 @@ Web app:
 
 This application is based on two reference architectures, corresponding to the two functional blocks described above:
 
-- [Serverless event processing using Azure Functions](../reference-architectures/serverless/event-processing.md)
-- [Serverless web application on Azure](../reference-architectures/serverless/web-app.md)
+- [Serverless event processing using Azure Functions](../reference-architectures/serverless/event-processing.yml)
+- [Serverless web application on Azure](../reference-architectures/serverless/web-app.yml)
 
 You can read those articles to learn more about the high-level architecture, the Azure services that are used in the solution, and considerations for scalability, security, and reliability.
 
@@ -132,7 +132,7 @@ This class has several dependencies, which are injected into the constructor usi
 
 - The `ITelemetryProcessor` and `IStateChangeProcessor` interfaces define two helper objects. As we'll see, these objects do most of the work.
 
-- The [TelemetryClient](/dotnet/api/microsoft.applicationinsights.telemetryclient?view=azure-dotnet) is part of the Application Insights SDK. It is used to send custom application metrics to Application Insights.
+- The [TelemetryClient](/dotnet/api/microsoft.applicationinsights.telemetryclient?view=azure-dotnet&preserve-view=true) is part of the Application Insights SDK. It is used to send custom application metrics to Application Insights.
 
 Later, we'll look at how to configure the dependency injection. For now, just assume these dependencies exist.
 
@@ -628,13 +628,13 @@ namespace DroneStatusFunctionApp
 }
 ```
 
-For more information about authentication and authorization in this application, see the [Security considerations](../reference-architectures/serverless/web-app.md#security-considerations) section of the reference architecture.
+For more information about authentication and authorization in this application, see the [Security considerations](../reference-architectures/serverless/web-app.yml#security-considerations) section of the reference architecture.
 
 ## Next steps
 
 Once you get a feel for how this reference solution works, learn best practices and recommendations for similar solutions.
-- For a serverless event ingestion solution, see [Serverless event processing using Azure Functions](../reference-architectures/serverless/event-processing.md). 
-- For a serverless web app, see [Serverless web application on Azure](../reference-architectures/serverless/web-app.md).
+- For a serverless event ingestion solution, see [Serverless event processing using Azure Functions](../reference-architectures/serverless/event-processing.yml). 
+- For a serverless web app, see [Serverless web application on Azure](../reference-architectures/serverless/web-app.yml).
 
 Azure Functions is just one Azure compute option. For help with choosing a compute technology, see [Choose an Azure compute service for your application](../guide/technology-choices/compute-decision-tree.md).
 

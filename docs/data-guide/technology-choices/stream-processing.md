@@ -42,7 +42,7 @@ For real-time processing scenarios, begin choosing the appropriate service for y
 
 - Do you need built-in support for temporal processing or windowing?
 
-- Does your data arrive in formats besides Avro, JSON, or CSV? If yes, consider options support any format using custom code.
+- Does your data arrive in formats besides Avro, JSON, or CSV? If yes, consider options that support any format using custom code.
 
 - Do you need to scale your processing beyond 1 GB/s? If yes, consider the options that scale with the cluster size.
 

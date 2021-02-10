@@ -1,0 +1,33 @@
+### YamlMime:Architecture
+metadata:
+  title: Data cache
+  titleSuffix: Azure Solution Ideas
+  description: Store and share database query results, session states, static contents, and more using a common cache-aside pattern.
+  author: doodlemania2
+  ms.author: pnp
+  ms.date: 12/16/2019
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: solution-idea
+  ms.category:
+    - databases
+  ms.custom:
+    - acom-architecture
+    - data
+    - 'https://azure.microsoft.com/solutions/architecture/data-cache-with-redis-cache/'
+  social_image_url: /azure/architecture/solution-ideas/articles/media/data-cache-with-redis-cache.png
+name: Data cache
+azureCategories:
+  - databases
+summary: Store and share database query results, session states, static contents, and more using a common cache-aside pattern.
+products:
+  - azure-cache-redis
+  - azure-cosmos-db
+  - azure-database-mysql
+  - azure-database-postgresql
+  - azure-sql-database
+  - azure-storage
+  - azure-web-apps
+thumbnailUrl: /azure/architecture/browse/thumbs/data-cache-with-redis-cache.png
+content: |
+   [!include[](data-cache-with-redis-cache-content.md)]

@@ -26,11 +26,15 @@ Helping our customers design and architect new solutions is core to the Azure Ar
 
 ![Example architecture diagram showing multiple services connected together with numbered steps.](../solution-ideas/media/advanced-analytics-on-big-data.png)
 
-[Browse all Azure architectures](../browse/index.md) to view other examples.
+[Browse all Azure architectures](../browse/index.yml) to view other examples.
 
 ## Icon updates
 
-As of November 2020, the folder structure of our collection of Azure architecture icons has changed. The FAQs and Terms of Use PDF files appear in the first level when you download the SVG icons below. The files in the icons folder are the same except there is no longer a CXP folder. If you encounter any issues, let us know.
+### November 2020
+The folder structure of our collection of Azure architecture icons has changed. The FAQs and Terms of Use PDF files appear in the first level when you download the SVG icons below. The files in the icons folder are the same except there is no longer a CXP folder. If you encounter any issues, let us know.
+
+### January 2021
+There are ~26 icons that have been added to the existing set. The download file name has been updated to Azure_Public_Service_Icons_V4.zip
 
 ## Terms
 
@@ -41,4 +45,4 @@ I agree to the above terms
 </div>
 
  > [!div class="button"]
- > [Download SVG icons](https://arch-center.azureedge.net/icons/Azure_Public_Service_Icons_V3.zip)
+ > [Download SVG icons](https://arch-center.azureedge.net/icons/Azure_Public_Service_Icons_V4.zip)

@@ -19,7 +19,7 @@ Automation has revolutionized how businesses operate and this trend continues to
 - Minimize human error in configuring repetitive tasks.
 - Produce consistent and repeatable results.
 
-To learn more, see [Deployment considerations for automation](./deployment.md#automation).
+To learn more, see [Deployment considerations for automation](./release-engineering-cd.md#automation).
 
 ## Goals of automation
 

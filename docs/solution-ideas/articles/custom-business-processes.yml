@@ -1,0 +1,32 @@
+### YamlMime:Architecture
+metadata:
+  title: Custom Business Processes
+  titleSuffix: Azure Solution Ideas
+  description: This example demonstrates how you can deploy portals that automate manual or paper-based processes and surface rich user experience.
+  author: doodlemania2
+  ms.author: pnp
+  ms.date: 08/24/2020
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: solution-idea
+  ms.category:
+    - mobile
+    - apim
+    - functions
+name: Custom Business Processes
+azureCategories:
+  - mobile
+summary: This example demonstrates how you can deploy portals that automate manual or paper-based processes and surface rich user experience.
+products:
+  - azure-api-management
+  - azure-bot-service
+  - azure-cosmos-db
+  - azure-data-factory
+  - azure-data-lake-storage
+  - azure-event-hubs
+  - azure-functions
+  - azure-sql-database
+  - azure-storage
+thumbnailUrl: /azure/architecture/browse/thumbs/custom-business-processes.png
+content: |
+   [!include[](custom-business-processes-content.md)]

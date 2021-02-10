@@ -100,7 +100,7 @@ private void LoadFromCache()
 }
 ```
 
-Whenever ADAL access the cache, it fires an `AfterAccess` event. If the cache data has changed, the `HasStateChanged` property is true. In that case, update the backing store to reflect the change, and then set `HasStateChanged` to false.
+Whenever ADAL accesses the cache, it fires an `AfterAccess` event. If the cache data has changed, the `HasStateChanged` property is true. In that case, update the backing store to reflect the change, and then set `HasStateChanged` to false.
 
 ```csharp
 public void AfterAccessNotification(TokenCacheNotificationArgs args)

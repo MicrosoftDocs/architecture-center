@@ -10,24 +10,13 @@ ms.subservice:
 ---
 
 
-# Azure Kubernetes Services (AKS) Day 2 Operations Guide
-
-After releasing your Azure Kubernetes Service-hosted application, prepare for _day-2 operations_. The term refers to the ongoing maintainence of the deployed assets and rollout of upgrades. The operations can help you:
-- Keep up to date with your service-level agreement (SLA) or Service-level objective (SLO) requirements.
-- Troubleshoot customer support requests.
-- Stay current with the latest platform features and security updates.
-- Plan for future growth. 
-
-## Prerequisites
-The best practices for day-2 operations assume that you've deployed the [Azure Kubernetes Service (AKS) Baseline](../../reference-architectures/containers/aks/secure-baseline-aks.md) architecture as an example of a production cluster. 
-
-## Triage practices
+# Triage practices
 
 It's often challenging to do root-cause analysis given the different aspects of an AKS cluster. When triaging issues, consider a top-down approach on the cluster hierarchy. Start at the cluster level and drill down if necessary.
 
 ![AKS cluster components](./images/kube-components.svg)
 
-In this series, we'll walk you through the thought process of this approach. The articles show examples using a set of tools and dashboards, and how they can highlight some symptoms. 
+In the triage practices series, we'll walk you through the thought process of this approach. The articles show examples using a set of tools and dashboards, and how they can highlight some symptoms. 
 
 Common causes addressed in this series include:
 - Network and connectivity problems caused by improper configuration.
@@ -38,9 +27,9 @@ Common causes addressed in this series include:
 - Admission control pipeline is blocking a large number of requests to the API server.
 - The cluster doesn't have permissions to pull from the appropriate container registry.
 
-It’s not intended to resolve specific issues. For information about troubleshooting specific issues,  [AKS Common Issues](/azure/aks/troubleshooting). 
+This series isn't intended to resolve specific issues. For information about troubleshooting specific issues, see [AKS Common Issues](/azure/aks/troubleshooting).
 
-## In this series
+## In the triage practices series
 
 |Step|Description|
 |---|---|
@@ -52,10 +41,7 @@ It’s not intended to resolve specific issues. For information about troublesho
 
 
 ## Related links
-[Day-2 operations](https://dzone.com/articles/defining-day-2-operations)
-
-[AKS periscope](https://github.com/Azure/aks-periscope)
-
-[AKS roadmap](https://aka.ms/aks/roadmap)
-
-[AKS documentation](/azure/aks)
+- [Day-2 operations](https://dzone.com/articles/defining-day-2-operations)
+- [AKS periscope](https://github.com/Azure/aks-periscope)
+- [AKS roadmap](https://aka.ms/aks/roadmap)
+- [AKS documentation](/azure/aks)

@@ -43,7 +43,7 @@ Identify your business needs, and build your reliability plan to address them. C
 
 - **Identify workloads and usage.** A *workload* is a distinct capability or task that is logically separated from other tasks, in terms of business logic and data storage requirements. Each workload has different requirements for availability, scalability, data consistency, and disaster recovery.
 - **Plan for usage patterns.** *Usage patterns* also play a role in requirements. Identify differences in requirements during critical and non-critical periods. For example, a tax-filing application can't fail during a filing deadline. To ensure uptime, plan redundancy across several regions in case one fails. Conversely, to minimize costs during non-critical periods, you can run your application in a single region.
-- **Identify critical components and paths.** Not all components of your system might be as important as others. For example, you might have an optional component that adds incremental value, but that the workload can run without if necessary. Understand where these components are, and conversely, where the critical parts of your workload are. This will help to scope your availability and reliablity metrics and to plan your recovery strategies to prioritise the highest-importance components.
+- **Identify critical components and paths.** Not all components of your system might be as important as others. For example, you might have an optional component that adds incremental value, but that the workload can run without if necessary. Understand where these components are, and conversely, where the critical parts of your workload are. This will help to scope your availability and reliability metrics and to plan your recovery strategies to prioritize the highest-importance components.
 - **Establish availability metrics &mdash; *mean time to recovery* (MTTR) and *mean time between failures* (MTBF).** MTTR is the average time it takes to restore a component after a failure. MTBF is how long a component can reasonably expect to last between outages. Use these measures to determine where to add redundancy and to determine service-level agreements (SLAs) for customers.
 - **Establish recovery metrics &mdash; recovery time objective (RTO) and recovery point objective (RPO).** *RTO* is the maximum acceptable time an application can be unavailable after an incident. *RPO* is the maximum duration of data loss that is acceptable during a disaster. To derive these values, conduct a risk assessment and make sure you understand the cost and risk of downtime or data loss in your organization.
     > [!NOTE]
@@ -53,7 +53,7 @@ Identify your business needs, and build your reliability plan to address them. C
 
     Define your own target SLAs for each workload in your solution, so you can determine whether the architecture meets the business requirements. For example, if a workload requires 99.99 percent uptime but depends on a service with a 99.9 percent SLA, that service can't be a single point of failure in the system.
 
-For more information about developing requirements for reliable applications, see [Application design for resiliency](./app-design.md).
+For more information about developing requirements for reliable applications, see [Application design for resiliency](/azure/architecture/framework/scalability/design-apps).
 
 ## Use architectural best practices
 
@@ -64,7 +64,7 @@ During the architectural phase, focus on implementing practices that meet your b
 - **Design for scalability.** A cloud application must be able to scale to accommodate changes in usage. Begin with discrete components, and design the application to respond automatically to load changes whenever possible. Keep scaling limits in mind during design so you can expand easily in the future.
 - **Plan for subscription and service requirements.** You might need additional subscriptions to provision enough resources to meet your business requirements for storage, connections, throughput, and more.
 - **Use load-balancing to distribute requests.** Load-balancing distributes your application's requests to healthy service instances by removing unhealthy instances from rotation.
-- **Implement resiliency strategies.** *Resiliency* is the ability of a system to recover from failures and continue to function. Implement [resiliency design patterns](../../patterns/category/resiliency.md), such as isolating critical resources, using compensating transactions, and performing asynchronous operations whenever possible.
+- **Implement resiliency strategies.** *Resiliency* is the ability of a system to recover from failures and continue to function. Implement [resiliency design patterns](https://github.com/MicrosoftDocs/architecture-center/blob/live/docs/patterns/category/resiliency.md), such as isolating critical resources, using compensating transactions, and performing asynchronous operations whenever possible.
 - **Build availability requirements into your design.** *Availability* is the proportion of time your system is functional and working. Take steps to ensure that application availability conforms to your service-level agreement. For example, avoid single points of failure, decompose workloads by service-level objective, and throttle high-volume users.
 - **Manage your data.** How you store, back up, and replicate data is critical.
 
@@ -112,7 +112,7 @@ After an application is deployed to production, updates are a possible source of
 - **Log and audit deployments.** If you use staged deployment techniques, more than one version of your application is running in production. Implement a robust logging strategy to capture as much version-specific information as possible.
 - **Document the application release process.** Clearly define and document your release process, and ensure that it's available to the entire operations team.
 
-For more information about application reliability and deployment, see [Deploying Azure applications for resiliency and availability](../devops/deployment.md).
+For more information about application reliability and deployment, see [Deploying Azure applications for resiliency and availability](../devops/release-engineering-cd.md).
 
 ## Monitor application health
 

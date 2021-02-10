@@ -16,7 +16,7 @@
                 "pricing-guidance"
             ],
             "type": "example-workload",
-            "file_url": "example-scenario/infrastructure/video-rendering.md",
+            "file_url": "example-scenario/infrastructure/video-rendering.yml",
             "http_url": "/azure/architecture/example-scenario/infrastructure/video-rendering",
             "word_count": 1271,
             "read_time": "5 min read",
@@ -57,7 +57,7 @@
                 "pricing-guidance"
             ],
             "type": "example-workload",
-            "file_url": "example-scenario/apps/hpc-saas.md",
+            "file_url": "example-scenario/apps/hpc-saas.yml",
             "http_url": "/azure/architecture/example-scenario/apps/hpc-saas",
             "word_count": 1106,
             "read_time": "5 min read",
@@ -598,7 +598,7 @@
                 "sql"
             ],
             "type": "reference-architecture",
-            "file_url": "reference-architectures/data/enterprise-bi-adf.md",
+            "file_url": "reference-architectures/data/enterprise-bi-adf.yml",
             "http_url": "/azure/architecture/reference-architectures/data/enterprise-bi-adf",
             "word_count": 3077,
             "read_time": "13 min read",
@@ -813,7 +813,7 @@
                 "reference-architecture"
             ],
             "type": "reference-architecture",
-            "file_url": "reference-architectures/iot.md",
+            "file_url": "reference-architectures/iot.yml",
             "http_url": "/azure/architecture/reference-architectures/iot",
             "word_count": 2920,
             "read_time": "12 min read",
@@ -1058,7 +1058,7 @@
                 "reference-architecture"
             ],
             "type": "reference-architecture",
-            "file_url": "reference-architectures/enterprise-integration/basic-enterprise-integration.md",
+            "file_url": "reference-architectures/enterprise-integration/basic-enterprise-integration.yml",
             "http_url": "/azure/architecture/reference-architectures/enterprise-integration/basic-enterprise-integration",
             "word_count": 2325,
             "read_time": "9 min read",
@@ -1088,7 +1088,7 @@
                 "visio-diagram"
             ],
             "type": "reference-architecture",
-            "file_url": "reference-architectures/app-service-web-app/basic-web-app.md",
+            "file_url": "reference-architectures/app-service-web-app/basic-web-app.yml",
             "http_url": "/azure/architecture/reference-architectures/app-service-web-app/basic-web-app",
             "word_count": 2874,
             "read_time": "11 min read",
@@ -1548,7 +1548,7 @@
                 "pricing-guidance"
             ],
             "type": "example-workload",
-            "file_url": "example-scenario/apps/telehealth-system.md",
+            "file_url": "example-scenario/apps/telehealth-system.yml",
             "http_url": "/azure/architecture/example-scenario/apps/telehealth-system",
             "word_count": 1668,
             "read_time": "7 min read",
@@ -1817,7 +1817,7 @@
                 "pricing-guidance"
             ],
             "type": "example-workload",
-            "file_url": "example-scenario/apps/devops-with-aks.md",
+            "file_url": "example-scenario/apps/devops-with-aks.yml",
             "http_url": "/azure/architecture/example-scenario/apps/devops-with-aks",
             "word_count": 1610,
             "read_time": "7 min read",
@@ -2274,7 +2274,7 @@
                 "reference-architecture"
             ],
             "type": "reference-architecture",
-            "file_url": "reference-architectures/hybrid-networking/index.md",
+            "file_url": "reference-architectures/hybrid-networking/index.yml",
             "http_url": "/azure/architecture/reference-architectures/hybrid-networking",
             "word_count": 519,
             "read_time": "2 min read",
@@ -2303,7 +2303,7 @@
                 "visio-diagram"
             ],
             "type": "reference-architecture",
-            "file_url": "reference-architectures/hybrid-networking/expressroute-vpn-failover.md",
+            "file_url": "reference-architectures/hybrid-networking/expressroute-vpn-failover.yml",
             "http_url": "/azure/architecture/reference-architectures/hybrid-networking/expressroute-vpn-failover",
             "word_count": 1060,
             "read_time": "5 min read",
@@ -2540,7 +2540,7 @@
                 "visio-diagram"
             ],
             "type": "reference-architecture",
-            "file_url": "reference-architectures/identity/adds-forest.md",
+            "file_url": "reference-architectures/identity/adds-forest.yml",
             "http_url": "/azure/architecture/reference-architectures/identity/adds-forest",
             "word_count": 1514,
             "read_time": "6 min read",
@@ -3243,7 +3243,7 @@
                 "visio-diagram"
             ],
             "type": "reference-architecture",
-            "file_url": "reference-architectures/identity/adds-extend-domain.md",
+            "file_url": "reference-architectures/identity/adds-extend-domain.yml",
             "http_url": "/azure/architecture/reference-architectures/identity/adds-extend-domain",
             "word_count": 2071,
             "read_time": "8 min read",
@@ -3303,7 +3303,7 @@
                 "seodec18"
             ],
             "type": "reference-architecture",
-            "file_url": "reference-architectures/dmz/nva-ha.md",
+            "file_url": "reference-architectures/dmz/nva-ha.yml",
             "http_url": "/azure/architecture/reference-architectures/dmz/nva-ha",
             "word_count": 1607,
             "read_time": "7 min read",
@@ -3387,7 +3387,7 @@
                 "seodec18"
             ],
             "type": "example-workload",
-            "file_url": "example-scenario/apps/devops-dotnet-webapp.md",
+            "file_url": "example-scenario/apps/devops-dotnet-webapp.yml",
             "http_url": "/azure/architecture/example-scenario/apps/devops-dotnet-webapp",
             "word_count": 1127,
             "read_time": "5 min read",
@@ -3478,7 +3478,7 @@
             "components": [
                 "<p><a href=\"https://docs.microsoft.com/azure/devops/boards/github/connect-to-github?view=azure-devops\">Azure Boards</a>: Use Azure Board to plan work and track its progress, using Agile tools such as Kanban boards.</p>",
                 "<p>Source code is hosted on <a href=\"https://github.com/enterprise\">GitHub Enterprise</a>, where developers can collaborate within your organization and the open source communities. GitHub Enterprise offers advanced security features to identify vulnerabilities in the code you write and in open source dependencies.</p>",
-                "<p><a href=\"https://docs.microsoft.com/azure/devops/pipelines/?view=azure-devops\">Azure Pipelines</a>  runs Continuous Integration and Continuous Delivery jobs for your application, as well as the creation of your infrastructure with the integration with Terraform.</p>",
+                "<p><a href=\"https://docs.microsoft.com/azure/devops/pipelines/?view=azure-devops&preserve-view=true\">Azure Pipelines</a>  runs Continuous Integration and Continuous Delivery jobs for your application, as well as the creation of your infrastructure with the integration with Terraform.</p>",
                 "<p>You can use <a href=\"https://docs.microsoft.com/azure/key-vault/basic-concepts\">Azure Key Vault</a> to store certificates, connection strings, tokens, and other secrets. These are read by your application at run-time, so they're abstracted away from your developers</p>",
                 "<p><a href=\"https://docs.microsoft.com/azure/terraform/terraform-install-configure\">Terraform</a> is a third-party product developed by HashiCorp that allows infrastructure automation on Azure, on-premises, and other environments</p>",
                 "<p>Using <a href=\"https://docs.microsoft.com/azure/azure-monitor/overview\">Azure Monitor</a> lets you get insights on the availability and performance of your application and infrastructure.</p>",
@@ -3511,7 +3511,7 @@
                 "solution-idea"
             ],
             "type": "solution-idea",
-            "file_url": "solution-ideas/articles/devsecops-in-azure.md",
+            "file_url": "solution-ideas/articles/devsecops-in-azure.yml",
             "http_url": "/azure/architecture/solution-ideas/articles/devsecops-in-azure",
             "word_count": 778,
             "read_time": "4 min read",
@@ -3772,7 +3772,7 @@
                 "sap"
             ],
             "type": "example-workload",
-            "file_url": "example-scenario/apps/sap-dev-test.md",
+            "file_url": "example-scenario/apps/sap-dev-test.yml",
             "http_url": "/azure/architecture/example-scenario/apps/sap-dev-test",
             "word_count": 716,
             "read_time": "4 min read",
@@ -3902,7 +3902,7 @@
                 "pricing-guidance"
             ],
             "type": "example-workload",
-            "file_url": "example-scenario/infrastructure/image-modeling.md",
+            "file_url": "example-scenario/infrastructure/image-modeling.yml",
             "http_url": "/azure/architecture/example-scenario/infrastructure/image-modeling",
             "word_count": 1573,
             "read_time": "7 min read",
@@ -4088,7 +4088,7 @@
                 "web-apps"
             ],
             "type": "example-workload",
-            "file_url": "example-scenario/apps/ecommerce-scenario.md",
+            "file_url": "example-scenario/apps/ecommerce-scenario.yml",
             "http_url": "/azure/architecture/example-scenario/apps/ecommerce-scenario",
             "word_count": 1468,
             "read_time": "6 min read",
@@ -4406,7 +4406,7 @@
                 "reference-architecture"
             ],
             "type": "reference-architecture",
-            "file_url": "reference-architectures/enterprise-integration/queues-events.md",
+            "file_url": "reference-architectures/enterprise-integration/queues-events.yml",
             "http_url": "/azure/architecture/reference-architectures/enterprise-integration/queues-events",
             "word_count": 1062,
             "read_time": "5 min read",
@@ -4507,7 +4507,7 @@
                 "visio-diagram"
             ],
             "type": "reference-architecture",
-            "file_url": "reference-architectures/hybrid-networking/expressroute.md",
+            "file_url": "reference-architectures/hybrid-networking/expressroute.yml",
             "http_url": "/azure/architecture/reference-architectures/hybrid-networking/expressroute",
             "word_count": 3046,
             "read_time": "13 min read",
@@ -4542,7 +4542,7 @@
                 "visio-diagram"
             ],
             "type": "reference-architecture",
-            "file_url": "reference-architectures/hybrid-networking/vpn.md",
+            "file_url": "reference-architectures/hybrid-networking/vpn.yml",
             "http_url": "/azure/architecture/reference-architectures/hybrid-networking/vpn",
             "word_count": 2866,
             "read_time": "11 min read",
@@ -4575,7 +4575,7 @@
                 "visio-diagram"
             ],
             "type": "reference-architecture",
-            "file_url": "reference-architectures/identity/adfs.md",
+            "file_url": "reference-architectures/identity/adfs.yml",
             "http_url": "/azure/architecture/reference-architectures/identity/adfs",
             "word_count": 3313,
             "read_time": "13 min read",
@@ -5359,7 +5359,7 @@
                 "visio-diagram"
             ],
             "type": "reference-architecture",
-            "file_url": "reference-architectures/app-service-web-app/multi-region.md",
+            "file_url": "reference-architectures/app-service-web-app/multi-region.yml",
             "http_url": "/azure/architecture/reference-architectures/app-service-web-app/multi-region",
             "word_count": 1885,
             "read_time": "8 min read",
@@ -5423,7 +5423,7 @@
                 "visio-diagram"
             ],
             "type": "reference-architecture",
-            "file_url": "reference-architectures/hybrid-networking/hub-spoke.md",
+            "file_url": "reference-architectures/hybrid-networking/hub-spoke.yml",
             "http_url": "/azure/architecture/reference-architectures/hybrid-networking/hub-spoke",
             "word_count": 1727,
             "read_time": "7 min read",
@@ -5966,7 +5966,7 @@
                 "visio-diagram"
             ],
             "type": "reference-architecture",
-            "file_url": "reference-architectures/dmz/secure-vnet-dmz.md",
+            "file_url": "reference-architectures/dmz/secure-vnet-dmz.yml",
             "http_url": "/azure/architecture/reference-architectures/dmz/secure-vnet-dmz",
             "word_count": 2138,
             "read_time": "9 min read",
@@ -6119,7 +6119,7 @@
                 "visio-diagram"
             ],
             "type": "reference-architecture",
-            "file_url": "reference-architectures/identity/azure-ad.md",
+            "file_url": "reference-architectures/identity/azure-ad.yml",
             "http_url": "/azure/architecture/reference-architectures/identity/azure-ad",
             "word_count": 3359,
             "read_time": "13 min read",
@@ -6148,7 +6148,7 @@
                 "seodec18"
             ],
             "type": "reference-architecture",
-            "file_url": "reference-architectures/identity/index.md",
+            "file_url": "reference-architectures/identity/index.yml",
             "http_url": "/azure/architecture/reference-architectures/identity",
             "word_count": 939,
             "read_time": "4 min read",
@@ -6242,7 +6242,7 @@
                 "web-app"
             ],
             "type": "example-workload",
-            "file_url": "example-scenario/apps/ecommerce-search.md",
+            "file_url": "example-scenario/apps/ecommerce-search.yml",
             "http_url": "/azure/architecture/example-scenario/apps/ecommerce-search",
             "word_count": 1485,
             "read_time": "6 min read",
@@ -6415,7 +6415,7 @@
                 "pricing-guidance"
             ],
             "type": "example-workload",
-            "file_url": "example-scenario/data/big-data-with-iot.md",
+            "file_url": "example-scenario/data/big-data-with-iot.yml",
             "http_url": "/azure/architecture/example-scenario/data/big-data-with-iot",
             "word_count": 1199,
             "read_time": "5 min read",
@@ -6817,7 +6817,7 @@
                 "pricing-guidance"
             ],
             "type": "example-workload",
-            "file_url": "example-scenario/infrastructure/linux-vdi-citrix.md",
+            "file_url": "example-scenario/infrastructure/linux-vdi-citrix.yml",
             "http_url": "/azure/architecture/example-scenario/infrastructure/linux-vdi-citrix",
             "word_count": 1293,
             "read_time": "5 min read",
@@ -7420,7 +7420,7 @@
                 "visio-diagram"
             ],
             "type": "reference-architecture",
-            "file_url": "reference-architectures/containers/aks-microservices/aks-microservices.md",
+            "file_url": "reference-architectures/containers/aks-microservices/aks-microservices.yml",
             "http_url": "/azure/architecture/reference-architectures/containers/aks-microservices/aks-microservices",
             "word_count": 4228,
             "read_time": "17 min read",
@@ -7449,7 +7449,7 @@
                 "xml"
             ],
             "type": "reference-architecture",
-            "file_url": "reference-architectures/microservices/service-fabric.md",
+            "file_url": "reference-architectures/microservices/service-fabric.yml",
             "http_url": "/azure/architecture/reference-architectures/microservices/service-fabric",
             "word_count": 5601,
             "read_time": "22 min read",
@@ -7559,7 +7559,7 @@
                 "web-apps"
             ],
             "type": "example-workload",
-            "file_url": "example-scenario/apps/apim-api-scenario.md",
+            "file_url": "example-scenario/apps/apim-api-scenario.yml",
             "http_url": "/azure/architecture/example-scenario/apps/apim-api-scenario",
             "word_count": 1081,
             "read_time": "5 min read",
@@ -7755,7 +7755,7 @@
                 "visio-diagram"
             ],
             "type": "reference-architecture",
-            "file_url": "reference-architectures/n-tier/multi-region-sql-server.md",
+            "file_url": "reference-architectures/n-tier/multi-region-sql-server.yml",
             "http_url": "/azure/architecture/reference-architectures/n-tier/multi-region-sql-server",
             "word_count": 2443,
             "read_time": "10 min read",
@@ -7791,7 +7791,7 @@
                 "web-apps"
             ],
             "type": "example-workload",
-            "file_url": "example-scenario/infrastructure/multi-tier-app-disaster-recovery.md",
+            "file_url": "example-scenario/infrastructure/multi-tier-app-disaster-recovery.yml",
             "http_url": "/azure/architecture/example-scenario/infrastructure/multi-tier-app-disaster-recovery",
             "word_count": 1197,
             "read_time": "5 min read",
@@ -7906,7 +7906,7 @@
                 "visio-diagram"
             ],
             "type": "reference-architecture",
-            "file_url": "reference-architectures/n-tier/n-tier-cassandra.md",
+            "file_url": "reference-architectures/n-tier/n-tier-cassandra.yml",
             "http_url": "/azure/architecture/reference-architectures/n-tier/n-tier-cassandra",
             "word_count": 2862,
             "read_time": "11 min read",
@@ -8241,7 +8241,7 @@
                 "github"
             ],
             "type": "example-workload",
-            "file_url": "example-scenario/oracle-migrate/oracle-migration-overview.md",
+            "file_url": "example-scenario/oracle-migrate/oracle-migration-overview.yml",
             "http_url": "/azure/architecture/example-scenario/oracle-migrate/oracle-migration-overview",
             "word_count": 591,
             "read_time": "3 min read",
@@ -8816,7 +8816,7 @@
                 "pricing-guidance"
             ],
             "type": "example-workload",
-            "file_url": "example-scenario/data/realtime-analytics-vehicle-iot.md",
+            "file_url": "example-scenario/data/realtime-analytics-vehicle-iot.yml",
             "http_url": "/azure/architecture/example-scenario/data/realtime-analytics-vehicle-iot",
             "word_count": 1598,
             "read_time": "7 min read",
@@ -8900,7 +8900,7 @@
                 "web-apps"
             ],
             "type": "example-workload",
-            "file_url": "example-scenario/apps/publish-internal-apis-externally.md",
+            "file_url": "example-scenario/apps/publish-internal-apis-externally.yml",
             "http_url": "/azure/architecture/example-scenario/apps/publish-internal-apis-externally",
             "word_count": 1857,
             "read_time": "8 min read",
@@ -9046,7 +9046,7 @@
                 "pricing-guidance"
             ],
             "type": "example-workload",
-            "file_url": "example-scenario/data/fraud-detection.md",
+            "file_url": "example-scenario/data/fraud-detection.yml",
             "http_url": "/azure/architecture/example-scenario/data/fraud-detection",
             "word_count": 957,
             "read_time": "4 min read",
@@ -9392,7 +9392,7 @@
                 "reference-architecture"
             ],
             "type": "reference-architecture",
-            "file_url": "reference-architectures/sap/run-sap-bw4hana-with-linux-virtual-machines.md",
+            "file_url": "reference-architectures/sap/run-sap-bw4hana-with-linux-virtual-machines.yml",
             "http_url": "/azure/architecture/reference-architectures/sap/run-sap-bw4hana-with-linux-virtual-machines",
             "word_count": 2716,
             "read_time": "11 min read",
@@ -9421,7 +9421,7 @@
                 "reference-architecture"
             ],
             "type": "reference-architecture",
-            "file_url": "reference-architectures/sap/run-sap-hana-for-linux-virtual-machines.md",
+            "file_url": "reference-architectures/sap/run-sap-hana-for-linux-virtual-machines.yml",
             "http_url": "/azure/architecture/reference-architectures/sap/run-sap-hana-for-linux-virtual-machines",
             "word_count": 2300,
             "read_time": "10 min read",
@@ -9451,7 +9451,7 @@
                 "visio-diagram"
             ],
             "type": "reference-architecture",
-            "file_url": "reference-architectures/sap/hana-large-instances.md",
+            "file_url": "reference-architectures/sap/hana-large-instances.yml",
             "http_url": "/azure/architecture/reference-architectures/sap/hana-large-instances",
             "word_count": 2914,
             "read_time": "11 min read",
@@ -9484,7 +9484,7 @@
                 "windows"
             ],
             "type": "reference-architecture",
-            "file_url": "reference-architectures/sap/sap-netweaver.md",
+            "file_url": "reference-architectures/sap/sap-netweaver.yml",
             "http_url": "/azure/architecture/reference-architectures/sap/sap-netweaver",
             "word_count": 5422,
             "read_time": "21 min read",
@@ -9515,7 +9515,7 @@
                 "visio-diagram"
             ],
             "type": "example-workload",
-            "file_url": "example-scenario/apps/jenkins.md",
+            "file_url": "example-scenario/apps/jenkins.yml",
             "http_url": "/azure/architecture/example-scenario/apps/jenkins",
             "word_count": 2671,
             "read_time": "10 min read",
@@ -9544,7 +9544,7 @@
                 "seodec18"
             ],
             "type": "reference-architecture",
-            "file_url": "reference-architectures/n-tier/linux-vm.md",
+            "file_url": "reference-architectures/n-tier/linux-vm.yml",
             "http_url": "/azure/architecture/reference-architectures/n-tier/linux-vm",
             "word_count": 2103,
             "read_time": "8 min read",
@@ -9573,7 +9573,7 @@
                 "reference-architecture"
             ],
             "type": "reference-architecture",
-            "file_url": "reference-architectures/n-tier/windows-vm.md",
+            "file_url": "reference-architectures/n-tier/windows-vm.yml",
             "http_url": "/azure/architecture/reference-architectures/n-tier/windows-vm",
             "word_count": 1858,
             "read_time": "7 min read",
@@ -9707,7 +9707,7 @@
                 "pricing-guidance"
             ],
             "type": "example-workload",
-            "file_url": "example-scenario/infrastructure/hpc-cfd.md",
+            "file_url": "example-scenario/infrastructure/hpc-cfd.yml",
             "http_url": "/azure/architecture/example-scenario/infrastructure/hpc-cfd",
             "word_count": 1084,
             "read_time": "5 min read",
@@ -9796,7 +9796,7 @@
                 "sql-server"
             ],
             "type": "solution-idea",
-            "file_url": "solution-ideas/articles/sap-netweaver-on-sql-server.md",
+            "file_url": "solution-ideas/articles/sap-netweaver-on-sql-server.yml",
             "http_url": "/azure/architecture/solution-ideas/articles/sap-netweaver-on-sql-server",
             "word_count": 392,
             "read_time": "2 min read",
@@ -9892,7 +9892,7 @@
                 "visio-diagram"
             ],
             "type": "reference-architecture",
-            "file_url": "reference-architectures/sap/sap-s4hana.md",
+            "file_url": "reference-architectures/sap/sap-s4hana.yml",
             "http_url": "/azure/architecture/reference-architectures/sap/sap-s4hana",
             "word_count": 5618,
             "read_time": "22 min read",
@@ -9929,7 +9929,7 @@
                 "windows"
             ],
             "type": "example-workload",
-            "file_url": "example-scenario/apps/sap-production.md",
+            "file_url": "example-scenario/apps/sap-production.yml",
             "http_url": "/azure/architecture/example-scenario/apps/sap-production",
             "word_count": 1109,
             "read_time": "5 min read",
@@ -9969,7 +9969,7 @@
                 "reference-architecture"
             ],
             "type": "reference-architecture",
-            "file_url": "reference-architectures/sap/sap-overview.md",
+            "file_url": "reference-architectures/sap/sap-overview.yml",
             "http_url": "/azure/architecture/reference-architectures/sap/sap-overview",
             "word_count": 2576,
             "read_time": "11 min read",
@@ -10228,7 +10228,7 @@
                 "web-apps"
             ],
             "type": "example-workload",
-            "file_url": "example-scenario/infrastructure/wordpress.md",
+            "file_url": "example-scenario/infrastructure/wordpress.yml",
             "http_url": "/azure/architecture/example-scenario/infrastructure/wordpress",
             "word_count": 1213,
             "read_time": "5 min read",
@@ -10424,7 +10424,7 @@
                 "visio-diagram"
             ],
             "type": "reference-architecture",
-            "file_url": "reference-architectures/app-service-web-app/scalable-web-app.md",
+            "file_url": "reference-architectures/app-service-web-app/scalable-web-app.yml",
             "http_url": "/azure/architecture/reference-architectures/app-service-web-app/scalable-web-app",
             "word_count": 1659,
             "read_time": "7 min read",
@@ -10547,7 +10547,7 @@
                 "reference-architecture"
             ],
             "type": "reference-architecture",
-            "file_url": "reference-architectures/hybrid-networking/network-level-segmentation.md",
+            "file_url": "reference-architectures/hybrid-networking/network-level-segmentation.yml",
             "http_url": "/azure/architecture/reference-architectures/hybrid-networking/network-level-segmentation",
             "word_count": 1444,
             "read_time": "7 min read",
@@ -10617,7 +10617,7 @@
                 "web-apps"
             ],
             "type": "example-workload",
-            "file_url": "example-scenario/apps/fully-managed-secure-apps.md",
+            "file_url": "example-scenario/apps/fully-managed-secure-apps.yml",
             "http_url": "/azure/architecture/example-scenario/apps/fully-managed-secure-apps",
             "word_count": 2023,
             "read_time": "8 min read",
@@ -10829,7 +10829,7 @@
                 "serverless"
             ],
             "type": "reference-architecture",
-            "file_url": "reference-architectures/serverless/event-processing.md",
+            "file_url": "reference-architectures/serverless/event-processing.yml",
             "http_url": "/azure/architecture/reference-architectures/serverless/event-processing",
             "word_count": 1721,
             "read_time": "7 min read",
@@ -10865,7 +10865,7 @@
                 "serverless"
             ],
             "type": "reference-architecture",
-            "file_url": "reference-architectures/serverless/web-app.md",
+            "file_url": "reference-architectures/serverless/web-app.yml",
             "http_url": "/azure/architecture/reference-architectures/serverless/web-app",
             "word_count": 4014,
             "read_time": "16 min read",
@@ -11194,7 +11194,7 @@
                 "seodec18"
             ],
             "type": "reference-architecture",
-            "file_url": "reference-architectures/data/stream-processing-databricks.md",
+            "file_url": "reference-architectures/data/stream-processing-databricks.yml",
             "http_url": "/azure/architecture/reference-architectures/data/stream-processing-databricks",
             "word_count": 2696,
             "read_time": "11 min read",
@@ -11549,7 +11549,7 @@
                 "reference-architecture"
             ],
             "type": "reference-architecture",
-            "file_url": "reference-architectures/hybrid-networking/troubleshoot-vpn.md",
+            "file_url": "reference-architectures/hybrid-networking/troubleshoot-vpn.yml",
             "http_url": "/azure/architecture/reference-architectures/hybrid-networking/troubleshoot-vpn",
             "word_count": 1751,
             "read_time": "8 min read",
@@ -11765,7 +11765,7 @@
                 "pricing-guidance"
             ],
             "type": "example-workload",
-            "file_url": "example-scenario/infrastructure/service-fabric-microservices.md",
+            "file_url": "example-scenario/infrastructure/service-fabric-microservices.yml",
             "http_url": "/azure/architecture/example-scenario/infrastructure/service-fabric-microservices",
             "word_count": 1386,
             "read_time": "6 min read",
@@ -11929,7 +11929,7 @@
                 "reference-architecture"
             ],
             "type": "reference-architecture",
-            "file_url": "reference-architectures/app-service-web-app/app-monitoring.md",
+            "file_url": "reference-architectures/app-service-web-app/app-monitoring.yml",
             "http_url": "/azure/architecture/reference-architectures/app-service-web-app/app-monitoring",
             "word_count": 1818,
             "read_time": "7 min read",
@@ -11974,7 +11974,7 @@
                 "visio-diagram"
             ],
             "type": "reference-architecture",
-            "file_url": "reference-architectures/n-tier/n-tier-sql-server.md",
+            "file_url": "reference-architectures/n-tier/n-tier-sql-server.yml",
             "http_url": "/azure/architecture/reference-architectures/n-tier/n-tier-sql-server",
             "word_count": 3386,
             "read_time": "13 min read",

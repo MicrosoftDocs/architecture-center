@@ -1,0 +1,23 @@
+### YamlMime:Architecture
+metadata:
+  title: Test Media Services V3 encoding
+  titleSuffix: Azure Reference Architectures
+  description: Test Gridwich Azure Media Services V3 encoding by using the Azure Event Grid Viewer Blazor, or locally.
+  author: doodlemania2
+  ms.author: pnp
+  ms.date: 11/12/2020
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: reference-architecture
+  ms.custom:
+    - fcp
+name: Test Media Services V3 encoding
+summary: Test Gridwich Azure Media Services V3 encoding by using the Azure Event Grid Viewer Blazor, or locally.
+products:
+  - azure-event-grid
+  - azure-functions
+  - azure-media-services
+  - azure-storage
+thumbnailUrl: /azure/architecture/browse/thumbs/request-response.png
+content: |
+   [!include[](test-encoding-content.md)]

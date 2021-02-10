@@ -1,0 +1,39 @@
+### YamlMime:Architecture
+metadata:
+  title: Serverless Computing Solution for LOB Apps
+  titleSuffix: Azure Solution Ideas
+  description: Build and run customer onboarding applications without managing or maintaining infrastructure. Improve developer productivity with this serverless architecture.
+  author: doodlemania2
+  ms.author: pnp
+  ms.date: 12/16/2019
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: solution-idea
+  ms.category:
+    - migration
+    - developer-tools
+  ms.custom:
+    - acom-architecture
+    - line of business app
+    - lob app
+    - lift and shift cloud strategy
+    - cloud migration
+    - cloud innovation
+    - lift and shift solution
+    - lift and shift strategy
+    - interactive-diagram
+    - 'https://azure.microsoft.com/solutions/architecture/onboarding-customers-with-a-cloud-native-serverless-architecture/'
+  social_image_url: /azure/architecture/solution-ideas/articles/media/onboarding-customers-with-a-cloud-native-serverless-architecture.png
+name: Serverless Computing Solution for LOB Apps
+azureCategories:
+  - migration
+  - developer-tools
+summary: Build and run customer onboarding applications without managing or maintaining infrastructure. Improve developer productivity with this serverless architecture.
+products:
+  - azure-cognitive-services
+  - azure-cosmos-db
+  - dynamics-365
+  - power-bi
+thumbnailUrl: /azure/architecture/browse/thumbs/onboarding-customers-with-a-cloud-native-serverless-architecture.png
+content: |
+   [!include[](onboarding-customers-with-a-cloud-native-serverless-architecture-content.md)]

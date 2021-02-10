@@ -3,9 +3,9 @@ title: Choosing a search data store
 description: 
 author: zoinerTejada
 ms.date: 11/30/2020
-ms.topic: guide
+ms.topic: conceptual
 ms.service: architecture-center
-ms.subservice: cloud-fundamentals
+ms.subservice: azure-guide
 ---
 
 # Choosing a search data store in Azure
