@@ -22,7 +22,8 @@ This approach can also be used to:
 
 ## Architecture
 
-![Azure Architecture](../DataWarehousing.png)
+![Azure Architecture](./media/DataWarehousing.png)
+
 
 The data flows through the solution as follows:
 
