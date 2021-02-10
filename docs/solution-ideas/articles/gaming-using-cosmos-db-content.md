@@ -1,7 +1,7 @@
 
 
 
-[!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
+## Architecture
 
 This gaming solution architecture elastically scales your database to accommodate unpredictable bursts of traffic and deliver low-latency multi-player experiences on a global scale. This specific scenario is based on a gaming scenrio, but the design patterns are relevant for many industries requiring the process high-traffic web calls and API requests such as e-commerce, retail, and healthcare.
 
