@@ -6,7 +6,10 @@ author: kevingbb
 ms.date: 10/12/2020
 ms.topic: conceptual
 ms.service: architecture-center
-ms.subservice:
+ms.subservice: operator-guides
+products:
+  - azure-kubernetes-service
+  - azure-monitor
 ---
 
 # Examine the node and pod health

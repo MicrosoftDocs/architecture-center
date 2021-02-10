@@ -2,15 +2,16 @@
 title: Static Content Hosting pattern
 titleSuffix: Cloud Design Patterns
 description: Deploy static content to a cloud-based storage service that can deliver them directly to the client.
-keywords: design pattern
 author: dragon119
 ms.date: 02/24/2020
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: design-pattern
+products:
+  - azure-storage
 ms.custom:
-  - seodec18
   - design-pattern
+keywords: design pattern
 social_image_url: /azure/architecture/patterns/media/orderedList1.png
 ---
 

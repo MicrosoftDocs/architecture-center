@@ -1,15 +1,14 @@
 ---
 title: CQRS pattern
 description: Segregate operations that read data from those that update data.
-keywords: design pattern
 author: dragon119
 ms.date: 02/11/2020
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: design-pattern
 ms.custom:
-  - seodec18
   - design-pattern
+keywords: design pattern
 ---
 
 # Command and Query Responsibility Segregation (CQRS) pattern

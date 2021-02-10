@@ -6,7 +6,9 @@ author: kevingbb
 ms.date: 10/12/2020
 ms.topic: conceptual
 ms.service: architecture-center
-ms.subservice:
+ms.subservice: operator-guides
+products:
+  - azure-kubernetes-service
 ---
 
 # Check the AKS cluster health
@@ -21,7 +23,7 @@ _This article is part of a series. Read the introduction [here](aks-triage-pract
 
 ![AKS Diagnostics](images/aks-diagnostics.png)
 
-**Diagnostics** shows a list of results from various test runs. If there are any issues found, **More info** can show you information about the underlying issue. 
+**Diagnostics** shows a list of results from various test runs. If there are any issues found, **More info** can show you information about the underlying issue.
 
 This image indicates that network and connectivity issues are caused by Azure CNI subnet configuration.
 
@@ -32,5 +34,6 @@ This image indicates that network and connectivity issues are caused by Azure CN
 To learn more about this feature, see [Azure Kubernetes Service Diagnostics overview](/azure/aks/concepts-diagnostics).
 
 ## Next steps
+
 > [!div class="nextstepaction"]
 > [Examine the node and pod health](aks-triage-node-health.md)

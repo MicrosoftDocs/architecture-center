@@ -2,15 +2,16 @@
 title: Event Sourcing pattern
 titleSuffix: Cloud Design Patterns
 description: Use an append-only store to record the full series of events that describe actions taken on data in a domain.
-keywords: design pattern
 author: dragon119
 ms.date: 06/23/2017
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: design-pattern
+products:
+  - office-bookings
 ms.custom:
-  - seodec18
   - design-pattern
+keywords: design pattern
 ---
 
 # Event Sourcing pattern
