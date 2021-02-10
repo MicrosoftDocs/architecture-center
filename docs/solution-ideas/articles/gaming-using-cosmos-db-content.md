@@ -3,7 +3,7 @@
 
 ## Architecture
 
-This gaming solution architecture elastically scales your database to accommodate unpredictable bursts of traffic and deliver low-latency multi-player experiences on a global scale. This specific scenario is based on a gaming scenrio, but the design patterns are relevant for many industries requiring the process high-traffic web calls and API requests such as e-commerce, retail, and healthcare.
+This gaming solution architecture elastically scales your database to accommodate unpredictable bursts of traffic and deliver low-latency multi-player experiences on a global scale. This specific scenario is based on a gaming scenario, but the design patterns are relevant for many industries requiring the process high-traffic web calls and API requests such as e-commerce and retail applications.
 
 ## Architecture
 
@@ -11,11 +11,11 @@ This gaming solution architecture elastically scales your database to accommodat
 *Download an [SVG](../media/gaming-using-cosmos-db.svg) of this architecture.*
 
 ## Data Flow
-1. Azure Traffic Manager routes a user's game traffic to the apps hosted in Azure App Service, Functions or Containers and APIs published via Azure API Management. 
-2. Azure CDN serves static images and game content to the user that are stored in Azure Blob Storage
-3. Azure Cosmos DB stores user's game state data
+1. Azure Traffic Manager routes a user's game traffic to the apps hosted in Azure App Service, Functions or Containers and APIs published via Azure API Gateway. 
+2. Azure CDN serves static images and game content to the user that are stored in Azure Blob Storage.
+3. Azure Cosmos DB stores user's game state data.
 4. Azure Databricks correlates, cleanses and transforms game state data.
-5. Azure Functions processes the insights derived from Azure Databricks and pushes notifications using Azure Notification Hubs to mobile devices 
+5. Azure Functions processes the insights derived from Azure Databricks and pushes notifications using Azure Notification Hubs to mobile devices.
 
 ## Components
 
