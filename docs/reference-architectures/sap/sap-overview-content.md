@@ -308,11 +308,11 @@ The following scenarios outline a few of the common ways SAP solutions are built
             href="/azure/architecture/reference-architectures/sap/sap-s4hana">
             <article class="card has-outline-hover is-relative is-fullheight">
                     <figure class="image has-margin-right-none has-margin-left-none has-margin-top-none has-margin-bottom-none">
-                        <img role="presentation" alt="Diagram shows infrastructure needed to run S A P /4HANA in Linux on Azure." src="./images/sap-s4hana.png">
+                        <img role="presentation" alt="Diagram shows infrastructure needed to run S A P S/4HANA in Linux on Azure." src="./images/sap-s4hana.png">
                     </figure>
                 <div class="card-content has-text-overflow-ellipsis">
                     <div class="has-padding-bottom-none">
-                        <h3 class="is-size-4 has-margin-top-none has-margin-bottom-none has-text-primary">SAP /4HANA in Linux on Azure</h3>
+                        <h3 class="is-size-4 has-margin-top-none has-margin-bottom-none has-text-primary">SAP S/4HANA in Linux on Azure</h3>
                     </div>
                     <div class="is-size-7 has-margin-top-small has-line-height-reset">
                         <p>Proven practices for running SAP S/4HANA in a Linux environment on Azure with high availability.</p>
