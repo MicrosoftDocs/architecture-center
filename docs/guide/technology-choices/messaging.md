@@ -234,7 +234,7 @@ Consider these patterns when implementing asynchronous messaging:
 - [Choreography pattern](../../patterns/choreography.md). This pattern shows how services can use messaging to control the workflow of a business transaction.
 - [Claim-Check Pattern](../../patterns/claim-check.md). This pattern shows how to split a large message into a claim check and a payload.
 
-## Community resource
+## Community resources
 
 [Jonathon Oliver's blog post: Idempotency](https://blog.jonathanoliver.com/idempotency-patterns/)
 

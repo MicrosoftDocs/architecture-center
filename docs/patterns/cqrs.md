@@ -240,4 +240,4 @@ The following patterns and guidance are useful when implementing this pattern:
 ## Community resources
 Martin Fowler's blog posts:
   - [What do you mean by “Event-Driven”?](https://martinfowler.com/articles/201701-event-driven.html)
-  - [CQRS by Martin Fowler](https://martinfowler.com/bliki/CQRS.html)
+  - [CQRS](https://martinfowler.com/bliki/CQRS.html)
