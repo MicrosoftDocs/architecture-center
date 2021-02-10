@@ -37,7 +37,7 @@ The data flows through the solution as follows:
   - [Choosing an analytical data store in Azure](../../data-guide/technology-choices/analytical-data-stores.md)
   - [Choosing a data analytics technology in Azure](../../data-guide/technology-choices/analysis-visualizations-reporting.md)
   
-  ## Next steps
+## Next steps
 
 * [Understand data store models](/azure/architecture/guide/technology-choices/data-store-overview)
 
