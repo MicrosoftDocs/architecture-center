@@ -114,7 +114,7 @@ Here are some common options:
 
 - DDoS protection at higher levels that profile your services. This option provides a baseline for your deployments and then uses machine learning techniques to detect anomalous traffic. Also, proactively protects based on the set protection level before service degradation. Adopt the advance protection for any services where downtime will negatively impact the business.
 
-
+For a list of reference architectures that demonstrate the use of DDoS protection, see [Azure DDoS Protection reference architectures](/azure/ddos-protection/ddos-protection-reference-architectures).
 ## Adopt DevOps
 
 Developers shouldn't publish their code directly to app servers. 
