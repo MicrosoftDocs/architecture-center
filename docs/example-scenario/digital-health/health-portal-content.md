@@ -7,7 +7,7 @@ Throughout the health and life sciences industry, organizations are adopting a *
 
 - Track statistics of a wearable device.
 - Gain access to medical records and engage with a medical provider.
-- Enter times and doses of medications which can be used for refill data or self-tracking of medications.
+- Enter times and doses of medications, which can be used for refill data or self-tracking of medications.
 - Interact with a healthy eating coach for weight loss or diabetes.
 
 ## Architecture
@@ -22,17 +22,17 @@ The primary backend data service used in this architecture is Azure Cosmos DB. T
 
 - [Azure HIPPA HITRUST 9.2 blueprint](https://docs.microsoft.com/azure/governance/blueprints/samples/hipaa-hitrust-9-2) is an [Azure blueprint](https://docs.microsoft.com/azure/governance/blueprints/) that uses [Azure Policy](https://docs.microsoft.com/azure/governance/policy/overview). It helps assess HIPPA HITRUST 9.2 controls and deploy a core set of policies for Azure workloads. While this does not give full compliance coverage for HIPPA HITRUST, it is a great place to start and add additional controls where applicable and necessary. Compliance with the policy initiatives can also be visualized in this blueprint as well as in Azure Defender.
 
-- [Azure Front Door](https://azure.microsoft.com/services/frontdoor/) is used to manage at-scale edge traffic, and to increase performance for end-users by presenting endpoints all around the world. This is a cloud-native technology which doesn't require any licensing; you only pay for what you use. In this workload scenario, Azure Front Door serves as the ingress point for all traffic to the consumer health portal.
+- [Azure Front Door](https://azure.microsoft.com/services/frontdoor/) is used to manage at-scale edge traffic, and to increase performance for end users by presenting endpoints all around the world. This is a cloud-native technology which doesn't require any licensing; you only pay for what you use. In this workload scenario, Azure Front Door serves as the ingress point for all traffic to the consumer health portal.
   
 - [Azure Web Application Firewall](https://azure.microsoft.com/services/web-application-firewall/) protects applications from common web-based attacks such as [OWASP](https://owasp.org) vulnerabilities, SQL injections, cross-site scripting, and others. This is a cloud-native technology which doesn't require any licensing and is pay-as-you-use.
   
-- [Azure API Management](https://azure.microsoft.com/services/api-management/) aids in the publishing, routing, securing, logging, and analytics of APIs. Whether the API is only being used by the end-user or integrated with a third-party for external interoperability, API management allows for flexibility in how APIs are extended and presented.
+- [Azure API Management](https://azure.microsoft.com/services/api-management/) aids in the publishing, routing, securing, logging, and analytics of APIs. Whether the API is only being used by the end-user or integrated with a third party for external interoperability, API management allows for flexibility in how APIs are extended and presented.
   
-- [Azure App Service](https://azure.microsoft.com/services/app-service/) is a service used to host HTTP-based web services. It supports a wide array of languages, can run on Linux or Windows, fully integrates with CI/CD pipelines, and can even run container workloads as a [PaaS](https://azure.microsoft.com/overview/what-is-paas/) offering. App Service allows for both scale-up, as well as scale-out, in addition to having native integration with identity, security, and logging services in Azure. It is able to meet the scaling needs of the consumer health portal while maintaining compliance. In this architecture, it hosts the front-end web portal.
+- [Azure App Service](https://azure.microsoft.com/services/app-service/) is a service used to host HTTP-based web services. It supports a wide array of languages, can run on Linux or Windows, fully integrates with CI/CD pipelines, and can even run container workloads as a [PaaS](https://azure.microsoft.com/overview/what-is-paas/) offering. App Service allows for both scale-up and scale-out, in addition to having native integration with identity, security, and logging services in Azure. It is able to meet the scaling needs of the consumer health portal while maintaining compliance. In this architecture, it hosts the front-end web portal.
   
-- [Azure Function Apps](https://azure.microsoft.com/services/functions/) is a serverless platform solution on Azure that allows developers to write *compute-on-demand* code, without having to maintain any of the underlying systems. In this architecture, Azure Functions can host APIs, as well as any work that needs to be done asynchronously, such as running periodic jobs and computing statistics over a certain period of time.
+- [Azure Function Apps](https://azure.microsoft.com/services/functions/) is a serverless platform solution on Azure that allows developers to write *compute-on-demand* code, without having to maintain any of the underlying systems. In this architecture, Azure Functions can host APIs, and any work that needs to be done asynchronously, such as running periodic jobs and computing statistics over a certain period of time.
 
-- [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) is a fully-managed, multi-model, NoSQL database offering that offers single-digit response times, and guarantees performance at any scale. Each user in the consumer health system will have only data related to themselves, which justifies the use of a NoSQL data structure. Cosmos DB has nearly limitless scale, as well as multi-region read and write. With the drastic growth of the amount of data collected by these types of consumer health systems, Cosmos DB can provide appropriate security, speed, and scale, regardless of whether there are 100 or 1,000,000 active users.
+- [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) is a fully managed, multi-model, NoSQL database offering that offers single-digit response times, and guarantees performance at any scale. Each user in the consumer health system will have only data related to themselves, which justifies the use of a NoSQL data structure. Cosmos DB has nearly limitless scale, as well as multi-region read and write. With the drastic growth of the amount of data collected by these types of consumer health systems, Cosmos DB can provide appropriate security, speed, and scale, regardless of whether there are 100 or 1,000,000 active users.
 
 - [Azure Key Vault](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview) is an Azure native service used for securely storing and accessing secrets, keys, and certificates. Key Vault allows for HSM-backed security, and audited access through Azure Active Directory integrated role-based access controls. Applications should never store keys or secrets locally. This architecture uses Azure Key Vault to store all secrets such as API Keys, passwords, cryptographic keys, and certificates.
   
@@ -46,7 +46,7 @@ The primary backend data service used in this architecture is Azure Cosmos DB. T
   
 - [Azure Notification Hub](https://azure.microsoft.com/services/notification-hubs/) is a simple and scalable push notification engine that enables the ability to send notifications to any mobile platform. A consumer health portal leveraging a mobile app, can integrate with Azure Notification Hub for a cost-effective way to push notifications to users who have installed the app on their mobiles. In this architecture, notifications can be sent to remind users of their appointments, to enter information for disconnected devices, to reach certain health goals, and so on.  
 
-- [Azure Defender](https://azure.microsoft.com/services/security-center/) is the core of security monitoring and posture management for this entire cloud-native solution. Azure Defender integrates with almost all major services on the Azure platform. Its capabilities include security alerts, anomaly detection, best practice reccomendations, regulatory compliance scores, and threat detection. In addition to HIPPA/HITRUST compliance monitoring, and overall Azure Security best practice monitoring, this solution uses the following:
+- [Azure Defender](https://azure.microsoft.com/services/security-center/) is the core of security monitoring and posture management for this entire cloud-native solution. Azure Defender integrates with almost all major services on the Azure platform. Its capabilities include security alerts, anomaly detection, best practice recommendations, regulatory compliance scores, and threat detection. In addition to HIPPA/HITRUST compliance monitoring, and overall Azure Security best practice monitoring, this solution uses the following:
   - [Azure Defender for App Service](https://docs.microsoft.com/azure/security-center/defender-for-app-service-introduction)
   - [Azure Defender for Storage](https://docs.microsoft.com/azure/security-center/defender-for-storage-introduction)
   - [Azure Defender for KeyVault](https://docs.microsoft.com/azure/security-center/defender-for-key-vault-introduction)
@@ -57,7 +57,7 @@ The primary backend data service used in this architecture is Azure Cosmos DB. T
 
 ### Alternatives
 
-- [Twillo's SendGrid](https://azuremarketplace.microsoft.com/marketplace/apps/SendGrid.SendGrid?tab=Overview) may be used as an alternative for email notifications. SendGrid has direct marketplace integration in Azure, is very easy to setup, and has a free tier of email services. However, if customers already have an Office 365 subscription and if they plan on sending a large number of emails, using Office 365 integration could be a more cost effective solution.
+- [Twillo's SendGrid](https://azuremarketplace.microsoft.com/marketplace/apps/SendGrid.SendGrid?tab=Overview) may be used as an alternative for email notifications. SendGrid has direct marketplace integration in Azure, is easy to set up, and has a free tier of email services. However, if customers already have an Office 365 subscription and if they plan on sending a large number of emails, using Office 365 integration could be a more cost effective solution.
 
 - [Azure API for FHIR](https://azure.microsoft.com/services/azure-api-for-fhir/) may be used for interoperability of medical records, using HL7 or FHIR communication standards. This service should be used if your application needs to receive or transmit medical records from other systems. For instance, if this were a portal for medical providers, Azure API for FHIR could integrate with the provider's electronic medical records system directly.
 
@@ -71,11 +71,11 @@ This solution is currently designed as a single-region deployment. If your scena
 
 - Azure API Management is [deployed using CI/CD](https://docs.microsoft.com/azure/api-management/devops-api-development-templates) into a secondary region. You may also leverage the [Multi-Region Deployment capability](https://docs.microsoft.com/azure/cosmos-db/high-availability) of API Management.
 
-- Azure App Service and Functions are deployed seperately to additional regions. This can be done within your [CI/CD pipeline](https://azure.microsoft.com/en-in/solutions/architecture/azure-devops-continuous-integration-and-continuous-deployment-for-azure-web-apps/) by creating a parallel deployment. Please read the [Highly available multi-region web application](https://docs.microsoft.com/azure/architecture/reference-architectures/app-service-web-app/multi-region) for additional reference.
+- Azure App Service and Functions are deployed separately to additional regions. This can be done within your [CI/CD pipeline](https://azure.microsoft.com/en-in/solutions/architecture/azure-devops-continuous-integration-and-continuous-deployment-for-azure-web-apps/) by creating a parallel deployment. Please read the [Highly available multi-region web application](https://docs.microsoft.com/azure/architecture/reference-architectures/app-service-web-app/multi-region) for additional reference.
 
 - Depending on the requirement for RTO (recovery time objective), Azure Blob Storage can either be configured as geo-redundant storage (GRS), or read-access geo-redundant storage (RA-GRS) that allows reads directly from the alternate region. To read more, please read the [Azure Storage redundancy](https://docs.microsoft.com/azure/storage/common/storage-redundancy) article.
 
-- Multiple layers of [availability and redundancy](https://docs.microsoft.com/azure/key-vault/general/disaster-recovery-guidance) built-in to the Azure Key Vault service are leveraged.
+- Multiple layers of [availability and redundancy](https://docs.microsoft.com/azure/key-vault/general/disaster-recovery-guidance) built in to the Azure Key Vault service are leveraged.
 
 ## Security considerations
 
@@ -132,7 +132,7 @@ Pricing for this architecture is largely variable based on the tiers of services
 
 To get started, you can view the Azure Calculator Generic Estimate [here](https://azure.com/e/ff314a92d6f947049b45c117695c3cd2).
 
-Depending on the scale of your workload and requirements for enterprise functionality, using the [consumption tier of Azure API Manangement](https://azure.microsoft.com/pricing/details/api-management/) could bring down the cost.
+Depending on the scale of your workload and requirements for enterprise functionality, using the [consumption tier of Azure API Management](https://azure.microsoft.com/pricing/details/api-management/) could bring down the cost.
 
 ## Next steps
 
