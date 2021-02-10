@@ -30,7 +30,6 @@ The CRUD approach has some limitations:
 
 - Unless there's an additional auditing mechanism that records the details of each operation in a separate log, history is lost.
 
-> For a deeper understanding of the limits of the CRUD approach, see [CRUD, Only When You Can Afford It](/archive/blogs/maarten_mullender/crud-only-when-you-can-afford-it-revisited).
 
 ## Solution
 
@@ -156,3 +155,7 @@ The following patterns and guidance might also be relevant when implementing thi
 - [Data Consistency Primer](/previous-versions/msp-n-p/dn589800(v=pandp.10)). When using event sourcing with a separate read store or materialized views, the read data won't be immediately consistent, instead it'll be only eventually consistent. Summarizes the issues surrounding maintaining consistency over distributed data.
 
 - [Data Partitioning Guidance](/previous-versions/msp-n-p/dn589795(v=pandp.10)). Data is often partitioned when using event sourcing to improve scalability, reduce contention, and optimize performance. Describes how to divide data into discrete partitions, and the issues that can arise.
+
+## Community resource
+
+[Martin Fowler's blog post: Event Sourcing](https://martinfowler.com/eaaDev/EventSourcing.html)
