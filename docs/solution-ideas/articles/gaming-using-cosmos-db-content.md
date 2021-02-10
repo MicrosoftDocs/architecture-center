@@ -21,7 +21,7 @@ This gaming solution architecture elastically scales your database to accommodat
 
 This architecture includes the following components:
 
-- [Azure Traffic Manager](https://docs.microsoft.com/en-us/azure/traffic-manager/) is a DNS based load balancer that controls the distribution of user traffic for service endpoints in different Azure regions. During normal operations, it routes requests to the primary region. If that region becomes unavailable, Traffic Manager can fail over to secondary region as needed.
+- [Azure Traffic Manager](/azure/traffic-manager/) is a DNS-based load balancer that controls the distribution of user traffic for service endpoints in different Azure regions. During normal operations, it routes requests to the primary region. If that region becomes unavailable, Traffic Manager can fail over to secondary region as needed.
 
 - [Azure API Management](https://azure.microsoft.com/services/api-management/) provides an API gateway that sits in front of the Gaming APIs. API Management also be used to implement concerns such as:
     - Enforcing usage quotas and rate limits
@@ -30,16 +30,16 @@ This architecture includes the following components:
     - Caching responses
     - Monitoring and logging requests
 
-- [Azure App Services](https://docs.microsoft.com/en-us/azure/app-service-web/app-service-web-overview) hosts API applications allowing autoscale and high availability without having to manage infrastructure.
+- [Azure App Service](/azure/app-service-web/app-service-web-overview) hosts API applications allowing autoscale and high availability without having to manage infrastructure.
 
-- [Azure CDN](https://azure.microsoft.com/en-us/services/cdn/) delivers static, cached content from locations close to users to reduce latency.
+- [Azure CDN](https://azure.microsoft.com/services/cdn/) delivers static, cached content from locations close to users to reduce latency.
 
 - [Azure Blob Storage](https://azure.microsoft.com/services/storage/) are optimized to store large amounts of unstructured data, such as static gaming media.
 
 - [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) is a fully managed NoSQL database service for building and modernizing scalable, high performance applications.
 
-- [Azure Databricks](https://azure.microsoft.com/en-us/services/databricks/) is an Apache Spark-based analytics platform optimized for the Microsoft Azure cloud services platform. 
+- [Azure Databricks](https://azure.microsoft.com/services/databricks/) is an Apache Spark-based analytics platform optimized for the Microsoft Azure cloud services platform. 
 
 - [Azure Functions](https://azure.microsoft.com/services/functions/) are serverless compute options that allow applications to run on-demand without having to manage infrastructure.
 
-- [Azure Notification Hubs](https://azure.microsoft.com/en-us/services/notification-hubs/#overview) is a massively scalable push notification engine for quickly sending notifications to variety of mobile devices and platforms.
+- [Azure Notification Hubs](https://azure.microsoft.com/services/notification-hubs/#overview) is a massively scalable push notification engine for quickly sending notifications to variety of mobile devices and platforms.
