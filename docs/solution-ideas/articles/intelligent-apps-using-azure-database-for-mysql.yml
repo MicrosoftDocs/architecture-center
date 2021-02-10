@@ -3,9 +3,9 @@ metadata:
   title: Intelligent apps using Azure Database for MySQL
   titleSuffix: Azure Solution Ideas
   description: Use Azure Database for MySQL to develop sophisticated machine learning and visualization apps that provide analytics and information that you can act on.
-  author: doodlemania2
+  author: mattcowen
   ms.author: pnp
-  ms.date: 12/16/2019
+  ms.date: 09/02/2021
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: solution-idea
