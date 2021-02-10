@@ -1,12 +1,12 @@
-With Azure Logic Apps, it's possible to integrate cloud data into on-premises data storage. For instance, a logic app can store HTTP request data in a SQL Server database. Because Logic Apps functions as a secure Azure API Management endpoint, calls to your API can trigger various data-related tasks. Besides updating on-premises databases, you can also send Teams or email messages.
+With Azure Logic Apps, you can integrate cloud data into on-premises data storage. For instance, a logic app can store HTTP request data in a SQL Server database. Because Logic Apps functions as a secure Azure API Management endpoint, calls to your API can trigger various data-related tasks. Besides updating on-premises databases, you can also send Teams or email messages.
 
 ## Potential use cases
 
-Use this solution to automate data integration tasks you perform in response to API calls.
+Use this solution to automate data integration tasks that you perform in response to API calls.
 
 ## Architecture
 
-:::image type="complex" source="../media/logic-apps-data-integration.png" alt-text="Architecture diagram showing how to use Logic Apps to respond to A P I calls by updating or accessing S Q L Server." border="false":::
+:::image type="complex" source="./media/logic-apps-data-integration.png" alt-text="Architecture diagram showing how to use Logic Apps to respond to A P I calls by updating or accessing S Q L Server." border="false":::
    The diagram contains two boxes, one for Azure components, and one for on-premises components. Outside the Azure box is a data file labeled J S O N. An arrow points from that file into an A P I Management icon that's inside the Azure box. A second arrow points from that icon to a Logic Apps icon that's also inside the Azure box. A third arrow points from that icon to an on-premises data gateway icon that's between the two boxes. A fourth arrow points from the gateway to a SQL Service icon that's inside the on-premises box. A final arrow points from the database icon to a person outside the on-premises box.
 :::image-end:::
 
@@ -54,52 +54,63 @@ With the serverless model that Logic Apps uses, the service automatically scales
 ### Security considerations
 
 - The on-premises data gateway provides data protection during transfers between on-premises and Azure systems.
-- Since API Management is the only client that should call your logic app, consider [restricting its inbound IP addresses][Restrict inbound IP addresses]. You can configure your logic app to only accept requests from the IP address of your API Management service instance.
 - API Management secures mobile infrastructure by:
 
   - Gating access with API keys.
   - Preventing DOS attacks by using throttling.
   - Using advanced security policies like JWT token validation.
+- Since API Management is the only client that should call your logic app, consider [restricting its inbound IP addresses][Restrict inbound IP addresses]. You can configure your logic app to only accept requests from the IP address of your API Management service instance.
 
 ## Pricing
 
-To explore the cost of running this solution, use the [Azure pricing calculator][Azure pricing calculator], which preconfigures all Azure services.
+The following table provides cost profiles and estimates of monthly costs for three implementations of this architecture:
 
-A [sample profile is available for estimating monthly costs][Monthly cost profile]. It includes the following components:
+|Level|API Management|Logic Apps action executions|Logic Apps connector executions|Total monthly cost|Profile|
+|-----|-----|-----|-----|-----|-----|
+|Basic|$147.17|$0.78 (1,000/day)|$3.88 (1,000/day)|$151.82|[Basic profile][Monthly cost profile - basic]|
+|Standard|$686.71|$7.75 (10,000/day)|$38.75 (10,000/day)|$733.21|[Standard profile][Monthly cost profile - standard]|
+|Premium|$2,795.17|$77.50 (100,000/day)|$387.50 (100,000/day)|$3,260.17|[Premium profile][Monthly cost profile - premium]|
 
-- API Management, standard tier: $686.71 per month
+The profiles and estimates include the following components:
+
+- API Management
 - Logic Apps:
-  - Action executions, with 10,000 executions per day and 31 days per month: $7.75 per month
-  - Standard connector executions, with 10,000 executions per day and 31 days per month: $38.75 per month
+  - Action executions
+  - Standard connector executions
 
-The profile doesn't include the following components: A one-time cost of $899 for a [standard SQL Server database][Standard SQL Server database].
+The monthly prices don't include the [one-time cost of a SQL Server database][SQL Server 2019 pricing].
+
+To adjust the parameters and explore the cost of running this solution in your environment, use the [Azure pricing calculator][Azure pricing calculator].
 
 ## Next steps
 
 - [Import a Logic App as an API][Import a Logic App as an API].
-- [On-premises data gateways documentation][On-premises data gateways documentation].
-- [Install on-premises data gateway for Azure Logic Apps][Install on-premises data gateway for Azure Logic Apps].
+- [Install an on-premises data gateway for Azure Logic Apps][Install on-premises data gateway for Azure Logic Apps].
 - [Connect to on-premises data sources from Azure Logic Apps][Connect to on-premises data sources from Azure Logic Apps].
 
 ## Related resources
-- Maybe general info on Logic Apps
-- Maybe general info on API Management
-- Maybe general info on other components
+
+- [Azure Serverless: Overview for building cloud-based apps and solutions with Azure Logic Apps and Azure Functions][Azure Serverless: Overview for building cloud-based apps and solutions with Azure Logic Apps and Azure Functions].
+- [Automate workflows for a SQL database by using Azure Logic Apps][Automate workflows for a SQL database by using Azure Logic Apps].
+- [Overview of on-premises data gateways][On-premises data gateways documentation].
 
 [Automate workflows for a SQL database by using Azure Logic Apps]: /azure/connectors/connectors-create-api-sqlazure
 [Azure API Management]: /azure/api-management/api-management-key-concepts
 [Azure Database Migration Service]: https://azure.microsoft.com/services/database-migration/
 [Azure Logic Apps]: /azure/logic-apps/logic-apps-overview
 [Azure pricing calculator]: https://azure.microsoft.com/pricing/calculator/
+[Azure Serverless: Overview for building cloud-based apps and solutions with Azure Logic Apps and Azure Functions]: /azure/logic-apps/logic-apps-serverless-overview
 [Compare Azure Functions and Azure Logic Apps]: /azure/azure-functions/functions-compare-logic-apps-ms-flow-webjobs#compare-azure-functions-and-azure-logic-apps
 [Connect to on-premises data sources from Azure Logic Apps]: /azure/logic-apps/logic-apps-gateway-connection
 [Import a Logic App as an API]: /azure/api-management/import-logic-app-as-api
 [Install a gateway cluster]: /data-integration/gateway/service-gateway-install
 [Install on-premises data gateway for Azure Logic Apps]: /azure/logic-apps/logic-apps-gateway-install
 [Limits on read and write operations with the on-premises data gateway]: /data-integration/gateway/service-gateway-onprem#considerations
-[Monthly cost profile]: https://azure.com/e/52cf34ecad9d4b5c8de7f1951948e5d4
-[On-premises data gateway]: /power-bi/connect-data/service-gateway-onprem
+[Monthly cost profile - basic]: https://azure.com/e/aadf2d9bbe7443378c5fe429791dcf73
+[Monthly cost profile - premium]: https://azure.com/e/071417b6c2d44062b4791e016230f001
+[Monthly cost profile - standard]: https://azure.com/e/afa93fbed30749cab64db4d2779837ee
+[On-premises data gateway]: /data-integration/gateway/service-gateway-onprem
 [On-premises data gateways documentation]: /data-integration/gateway/
 [Restrict inbound IP addresses]: /azure/logic-apps/logic-apps-securing-a-logic-app#restrict-inbound-ip-addresses
-[Standard SQL Server database]: https://www.microsoft.com/sql-server/sql-server-2019-pricing#OneGDCWeb-ContentPlacementWithRichBlock-pp5ed24
+[SQL Server 2019 pricing]: https://www.microsoft.com/sql-server/sql-server-2019-pricing
 [SQL Server]: /sql/?view=sql-server-ver15
