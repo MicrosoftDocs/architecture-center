@@ -1,18 +1,5 @@
----
-title: Consumer health portal
-titleSuffix: Azure Example Workloads
-description: Describes an architecture for a consumer health portal.
-author: matthansen0
-ms.date: 02/12/2021
-ms.service: architecture-center
-ms.topic: conceptual
-ms.subservice: example-scenario
-ms.author: mahans
-ms.category:
-    - fcp
----
 
-# Consumer health portal on Azure
+
 
 Throughout the health and life sciences industry, organizations are adopting a *digital health* strategy. One of the core pillars and a necessary component of a digital health solution is a *consumer health portal*. A consumer health portal may be used for tracking progress and statistics from a wearable device, engaging with a medical provider, or even tracking healthy eating habits. This article describes a typical architecture of such a portal, that aligns with the pillars of the [Azure Well Architected Framework](https://docs.microsoft.com/azure/architecture/framework/). You may choose to customize this architecture to meet your particular needs.
 
