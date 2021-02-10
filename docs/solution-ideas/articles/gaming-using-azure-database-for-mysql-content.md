@@ -10,8 +10,8 @@ This gaming solution architecture elastically scales your database to accommodat
 ## Data Flow
 1. Azure Traffic Manager routes a user's game traffic to the apps hosted in Azure App Service, Functions or Containers and APIs published via Azure API Gateway. 
 2. Azure CDN serves static images and game content to the user that are stored in Azure Blob Storage.
-3. Azure Database for MySQL stores user's game state data in a transactional database hosted.
-4. Azure HDInsights correlates, cleanses and transforms game state data.
+3. Azure Database for MySQL stores user's game  data in a transactional database hosted.
+4. The data from Azure Database for MySQL are processed using Azure Databricks and stored in the analytics platform.
 5. (Optional) Use Power BI to interpret this data and create new visualizations
 
 ## Components
