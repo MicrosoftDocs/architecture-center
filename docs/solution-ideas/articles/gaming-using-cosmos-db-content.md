@@ -34,7 +34,7 @@ This architecture includes the following components:
 
 - [Azure CDN](https://azure.microsoft.com/en-us/services/cdn/) delivers static, cached content from locations close to users to reduce latency.
 
-- [Azure Blob Storage](https://azure.microsoft.com/services/storage/) are optimized to store large amounts of unstructured data, such game state as well as gaming media.
+- [Azure Blob Storage](https://azure.microsoft.com/services/storage/) are optimized to store large amounts of unstructured data, such as static gaming media.
 
 - [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) is a fully managed NoSQL database service for building and modernizing scalable, high performance applications.
 
