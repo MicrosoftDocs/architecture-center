@@ -5,9 +5,9 @@ author: doodlemania2
 ms.date: 02/25/2019
 ms.topic: conceptual
 ms.service: architecture-center
+ms.subservice: azure-guide
 ms.category:
   - developer-tools
-ms.subservice: azure-guide
 ms.custom:
   - microservices
   - guide

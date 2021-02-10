@@ -5,9 +5,12 @@ author: doodlemania2
 ms.date: 04/11/2019
 ms.topic: conceptual
 ms.service: architecture-center
+ms.subservice: azure-guide
 ms.category:
   - containers
-ms.subservice: azure-guide
+products:
+  - azure-kubernetes-service
+  - azure-container-registry
 ms.custom:
   - microservices
   - guide

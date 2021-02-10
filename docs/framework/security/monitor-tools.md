@@ -6,13 +6,17 @@ ms.date: 09/20/2020
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
+products:
+  - azure-security-center
+  - azure-sentinel
+  - m365-security-center
 ms.custom:
   - article
 ---
 
 # Security monitoring tools in Azure
 
-Use security monitoring tools to monitor for anomalous behavior and enable investigation of incidents. 
+Use security monitoring tools to monitor for anomalous behavior and enable investigation of incidents.
 
 Use this article to learn how to strengthen your security posture using the following monitor tools:
 
@@ -79,8 +83,8 @@ The *data classification* process categorizes data by sensitivity and business i
 
 With proper *file protection*, you can analyze data flows to gain insight into your business, detect risky behaviors and take corrective measures, track access to documents, and more. The protection technology in AIP uses encryption, identity, and authorization policies. Protection stays with the documents and emails, independently of the location, regardless of whether they are inside or outside your organization, networks, file servers, and applications.
 
-
 ## Next steps
+
 - [Security health modeling](monitor.md)
 - [Security logs and audits](monitor-audit.md)
 - [Security operations in Azure](monitor-security-operations.md)
