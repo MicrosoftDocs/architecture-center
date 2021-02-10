@@ -21,7 +21,7 @@ This gaming solution architecture elastically scales your database to accommodat
 
 This architecture includes the following components:
 
-- [Azure Traffic Manager]( is a DNS based load balancer that controls the distribution of user traffic for service endpoints in different Azure regions. During normal operations, it routes requests to the primary region. If that region becomes unavailable, Traffic Manager can fail over to secondary region as needed.
+- [Azure Traffic Manager](https://docs.microsoft.com/en-us/azure/traffic-manager/) is a DNS based load balancer that controls the distribution of user traffic for service endpoints in different Azure regions. During normal operations, it routes requests to the primary region. If that region becomes unavailable, Traffic Manager can fail over to secondary region as needed.
 
 - [Azure API Management](https://azure.microsoft.com/services/api-management/) provides an API gateway that sits in front of the Gaming APIs. API Management also be used to implement concerns such as:
     - Enforcing usage quotas and rate limits
