@@ -45,7 +45,7 @@ This solution template walks through the end-to-end process of how to develop pr
 Data scientists who are testing this solution can work with the provided R code from the browser-based Open Source Edition of RStudio Server that runs on the Edge Node of the ML Services on Azure HDInsight cluster. By [setting the compute context](/azure/hdinsight/hdinsight-hadoop-r-server-compute-contexts) the user can decide where the computation will be performed: locally on the edge node, or distributed across the nodes in the Spark cluster. All the R code can also be found in public GitHub repository. Have fun!
 
 ## Components
-* [Azure HDInsights](/azure/hdinsight/hdinsight-overview): Azure HDInsight is a managed, full-spectrum, open-source analytics service in the cloud for enterprises. You can use open-source frameworks such as Hadoop, Apache Spark, Apache Hive, LLAP, Apache Kafka, Apache Storm, R, and more.
+* [Azure HDInsight](/azure/hdinsight/hdinsight-overview): Azure HDInsight is a managed, full-spectrum, open-source analytics service in the cloud for enterprises. You can use open-source frameworks such as Hadoop, Apache Spark, Apache Hive, LLAP, Apache Kafka, Apache Storm, R, and more.
 * [Power BI](https://powerbi.microsoft.com) provides an interactive dashboard with visualization that uses data stored in SQL Server to drive decisions on the predictions.
 
 ## See also
