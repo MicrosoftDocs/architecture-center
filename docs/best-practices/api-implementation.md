@@ -153,7 +153,7 @@ public IHttpActionResult DeleteCustomer(int id)
         // with status code 404 (Not Found)
         if (customerToDelete == null)
         {
-                return NotFound();
+            return NotFound();
         }
 
         // Remove the customer from the repository
