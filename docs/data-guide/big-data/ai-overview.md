@@ -6,6 +6,8 @@ ms.date: 04/14/2020
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
+products:
+  - azure-machine-learning
 ms.custom:
   - guide
 ---

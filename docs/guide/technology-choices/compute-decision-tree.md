@@ -5,9 +5,12 @@ author: doodlemania2
 ms.date: 01/10/2020
 ms.topic: conceptual
 ms.service: architecture-center
+ms.subservice: guide
 ms.category:
   - compute
-ms.subservice: guide
+products:
+  - azure-app-service
+  - azure-kubernetes-service
 ms.custom:
   - guide
 ---

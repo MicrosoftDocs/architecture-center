@@ -1,7 +1,4 @@
-
-<!-- cSpell:ignore lbrader HANA Fiori -->
-
-
+<!-- cSpell:ignore HANA Fiori -->
 
 This reference architecture shows a set of proven practices for running S/4HANA and Suite on HANA in a high availability environment that supports disaster recovery on Azure. The Fiori information applies only to S/4HANA applications.
 
@@ -437,7 +434,7 @@ apply when deciding to deploy resources across Availability Zones, including:
 disaster recovery (DR) strategy. The distance between zones is too close.
 Typical DR regions should be at least 100 miles away from the primary region.
 
-**Active/passive deployment example**
+**Active/passive deployment example:**
 
 In this example deployment, the
 [active/passive](/azure/virtual-machines/workloads/sap/sap-ha-availability-zones#activepassive-deployment)
@@ -452,7 +449,7 @@ will run in zone 2. The passive application servers in zone 2 get activated.
 With all components of this SAP system collocated in the same zone, network
 latency is minimized.
 
-**Active/active deployment example**
+**Active/active deployment example:**
 
 In an
 [active/active](/azure/virtual-machines/workloads/sap/sap-ha-availability-zones#activeactive-deployment)
@@ -471,6 +468,7 @@ for application processing.
 ## Disaster recovery considerations
 
 Every tier in the SAP application stack uses a different approach to provide DR protection.
+
 ### Application servers tier
 
 SAP application servers do not contain business data. On Azure, a simple DR
@@ -578,7 +576,6 @@ In this architecture, Azure ExpressRoute is the networking service used for crea
 
 All inbound data transfer is free. All outbound data transfer is charged based on a pre-determined rate. See [Azure ExpressRoute pricing][expressroute-pricing] For more info.
 
-
 ## Management and operations considerations
 
 ### Backup
@@ -588,13 +585,11 @@ to use any existing backup solutions you already have. Azure provides two native
 approaches to backup. You can back up [SAP HANA on virtual
 machines](/azure/virtual-machines/workloads/sap/sap-hana-backup-guide),
 and use [Azure Backup on the file
-level](/azure/virtual-machines/workloads/sap/sap-hana-backup-file-level). Azure Backup is now [BackInt certified](https://www.sap.com/dmc/exp/2013_09_adpd/enEN/#/d/solutions?id=8f3fd455-a2d7-4086-aa28-51d8870acaa5) by SAP. 
-See also the [Azure Backup
+level](/azure/virtual-machines/workloads/sap/sap-hana-backup-file-level). Azure Backup is now [BackInt certified](https://www.sap.com/dmc/exp/2013_09_adpd/enEN/#/d/solutions?id=8f3fd455-a2d7-4086-aa28-51d8870acaa5) by SAP. See also the [Azure Backup
 FAQ](/azure/backup/backup-azure-backup-faq).
 
 > [!NOTE]
-> As of this writing, only HANA single container deployments support
-Azure storage snapshot.
+> As of this writing, only HANA single container deployments support Azure storage snapshot.
 
 ### Identity management
 
@@ -615,8 +610,7 @@ To provide SAP-based monitoring of resources and service performance of the SAP 
 
 ## Security considerations
 
-SAP has its own Users Management Engine (UME) to control role-based access and
-authorization within the SAP application and databases. For details, see [SAP HANA Security: An Overview](https://archive.sap.com/documents/docs/DOC-62943).
+SAP has its own Users Management Engine (UME) to control role-based access and authorization within the SAP application and databases. For details, see [SAP HANA Security: An Overview](https://archive.sap.com/documents/docs/DOC-62943).
 
 For additional network security, consider implementing a [network DMZ](../../reference-architectures/dmz/secure-vnet-dmz.yml), which uses a network virtual appliance to create a firewall in front of the subnet for the Web Dispatcher and Fiori Front-End Server pools.
 

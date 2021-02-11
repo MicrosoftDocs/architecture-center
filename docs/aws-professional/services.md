@@ -2,14 +2,15 @@
 title: AWS to Azure services comparison
 titleSuffix: Azure Architecture Center
 description: Compare Azure cloud services to Amazon Web Services (AWS) for multicloud solutions or migration to Azure.
-keywords: cloud services comparison, cloud services compared, multicloud, compare Azure AWS, compare Azure and AWS, compare AWS and Azure, IT capabilities
 author: doodlemania2
 ms.author: pnp
 ms.date: 11/11/2020
 ms.topic: reference
 ms.service: architecture-center
 ms.subservice: cloud-fundamentals
-ms.custom: fcp
+ms.custom:
+  - fcp
+keywords: cloud services comparison, cloud services compared, multicloud, compare Azure AWS, compare Azure and AWS, compare AWS and Azure, IT capabilities
 ---
 
 <!-- cSpell:ignore Alexa Rekognition Cognito ElastiCache Greengrass Firehose -->
@@ -82,7 +83,7 @@ For an overview of Azure for AWS users, see [Introduction to Azure for AWS profe
 
 | AWS service | Azure service | Description |
 | ----------- | ------------- | ----------- |
-| [EMR](https://aws.amazon.com/emr/) | [Azure Data Explorer](https://azure.microsoft.com/en-au/services/data-explorer/) | Fully managed, low latency, distributed big data analytics platform to run complex queries across petabytes of data. |
+| [EMR](https://aws.amazon.com/emr/) | [Azure Data Explorer](https://azure.microsoft.com/services/data-explorer/) | Fully managed, low latency, distributed big data analytics platform to run complex queries across petabytes of data. |
 | [EMR](https://aws.amazon.com/emr/) | [Databricks](https://azure.microsoft.com/services/databricks/) | Apache Spark-based analytics platform. |
 | [EMR](https://aws.amazon.com/emr/) | [HDInsight](https://azure.microsoft.com/services/hdinsight/) | Managed Hadoop service. Deploy and manage Hadoop clusters in Azure. |
 | [EMR](https://aws.amazon.com/emr/) | [Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage/) | Massively scalable, secure data lake functionality built on Azure Blob Storage. |
@@ -91,12 +92,10 @@ For an overview of Azure for AWS users, see [Introduction to Azure for AWS profe
 
 <ul class="grid">
 
-
 [!INCLUDE [Azure data platform end-to-end](../../includes/cards/data-platform-end-to-end.md)]
 [!INCLUDE [Campaign Optimization with Azure HDInsight Spark Clusters](../../includes/cards/campaign-optimization-with-azure-hdinsight-spark-clusters.md)]
 
 </ul>
-
 
 [view all](../browse/index.yml?azure_categories=databases)
 
@@ -112,8 +111,8 @@ For an overview of Azure for AWS users, see [Introduction to Azure for AWS profe
 
 | AWS service | Azure service | Description |
 | ----------- | ------------- | ----------- |
-| [Kinesis Analytics](https://aws.amazon.com/kinesis/data-analytics/) | [Stream Analytics](https://azure.microsoft.com/services/stream-analytics/) <br/><br/> [Azure Data Explorer](https://azure.microsoft.com/en-au/services/data-explorer/) <br/><br/> [Data Lake Analytics](https://azure.microsoft.com/services/data-lake-analytics/) <br/><br/>[Data Lake Store](https://azure.microsoft.com/services/data-lake-store/) | Storage and analysis platforms that create insights from large quantities of data, or data that originates from many sources. |
-| [QuickSight](https://aws.amazon.com/quicksight/) | [Power BI](https://powerbi.microsoft.com/) | Business intelligence tools that build visualizations, perform ad hoc analysis, and develop business insights from data. 
+| [Kinesis Analytics](https://aws.amazon.com/kinesis/data-analytics/) | [Stream Analytics](https://azure.microsoft.com/services/stream-analytics/) <br/><br/> [Azure Data Explorer](https://azure.microsoft.com/services/data-explorer/) <br/><br/> [Data Lake Analytics](https://azure.microsoft.com/services/data-lake-analytics/) <br/><br/>[Data Lake Store](https://azure.microsoft.com/services/data-lake-store/) | Storage and analysis platforms that create insights from large quantities of data, or data that originates from many sources. |
+| [QuickSight](https://aws.amazon.com/quicksight/) | [Power BI](https://powerbi.microsoft.com/) | Business intelligence tools that build visualizations, perform ad hoc analysis, and develop business insights from data.
 | [CloudSearch](https://aws.amazon.com/cloudsearch/) | [Cognitive Search](https://azure.microsoft.com/services/search/) | Delivers full-text search and related search analytics and capabilities. |
 | [Athena](https://aws.amazon.com/athena/) | [Data Lake Analytics](https://azure.microsoft.com/services/data-lake-analytics/) | Provides a serverless interactive query service that uses standard SQL for analyzing databases. |
 
@@ -299,7 +298,7 @@ In addition to front-end testing, the [Azure DevTest Labs](https://azure.microso
 | [Global Accelerator](https://aws.amazon.com/global-accelerator/) | [Cross-regional load balancer](/azure/load-balancer/cross-region-overview) | Distribute and load balance traffic across multiple Azure regions via a single, static, global anycast public IP address. |
 | [LightSail](https://aws.amazon.com/lightsail/) | [App Service](https://azure.microsoft.com/services/app-service/) | Build, deploy, and scale web apps on a fully managed platform. |
 
-#### Web architectures
+### Web architectures
 
 <ul class="grid">
 

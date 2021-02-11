@@ -6,10 +6,12 @@ author: doodlemania2
 ms.date: 02/05/2021
 ms.topic: conceptual
 ms.service: architecture-center
+ms.subservice: guide
 ms.category:
   - web
   - compute
-ms.subservice: guide
+products:
+  - azure-load-balancer
 ms.custom:
   - guide
 ---
