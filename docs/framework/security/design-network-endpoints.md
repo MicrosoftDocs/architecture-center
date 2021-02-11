@@ -86,35 +86,26 @@ Legacy authentication methods are among the top attack vectors for cloud-hosted 
 
 ## Mitigate DDoS attacks
 
-In a distributed denial-of-service (DDoS) attack, the server is overloaded with fake traffic. DDoS attacks are common and can be debilitating. An attack can completely block access or take down the services. Enable DDoS mitigation for all business-critical web application and services.
-
-Azure provides DDoS protection in two tiers: **Basic** and **Standard**. 
-
-**Basic** is integrated with Azure services and is available at no additional cost. The tier protects through always-on traffic monitoring and real-time mitigation. 
-
-**Standard** has advanced features over **Basic** including logging, alerting, and telemetry.	
+In a distributed denial-of-service (DDoS) attack, the server is overloaded with fake traffic. DDoS attacks are common and can be debilitating. An attack can completely block access or take down the services. Make sure all business-critical web application and services have DDoS mitigation beyond default defenses so that the application doesn't experience downtime that can negatively impact business.
 
 **How do you implement DDoS protection?**	
 ***	
 
-Here are some common options:	
+Here are some considerations:
 
-- DDoS protection at virtual network level. The protection usually focuses on the network (layer 3) level. Azure Virtual Network resources offer both **Basic** and **Standard**. 	
+- DDoS protection at the infrastructure level in which your workload runs. Azure infrastructure has built-in defenses for DDoS attacks.
+- DDoS protection at the network (layer 3) layer. Azure provides additional DDoS protection for services provisioned in a virtual network.
+- DDoS protection with caching. Content delivery network (CDN) can add another layer of protection. In a DDoS attack, a CDN intercepts the traffic and stops it from reaching the backend server. Azure CDN is natively protected. Azure also supports popular CDNs that are protected with proprietary DDoS mitigation platform. 
+- Advanced DDoS protection. Consider features with advanced monitoring techniques that use machine learning to detect anomalous traffic. The interactions with the workload can be actively protected based on the configured level before service degradation occurs. 
 
-  The [Windows N-tier application on Azure with SQL Server](../../reference-architectures/n-tier/n-tier-sql-server.yml) reference architecture uses DDoS Protection Standard because this option:	
-  - Uses adaptive tuning, based on the application's network traffic patterns, to detect threats. 	
-  - Guarantees 100% SLA. 	
-  - Can be cost effective. For example, during a DDoS attack, the first set of attacks cause  the provisioned resources to scale out. For a resource such as a virtual machine scale set, 10 machines can grow to 100, increasing overall costs. With Standard protection, you don't have to worry about the cost of the scaled resources because Azure will provide the cost credit. 	
+For example, the [Windows N-tier application on Azure with SQL Server](../../reference-architectures/n-tier/n-tier-sql-server.yml) reference architecture uses Azure DDoS Protection Standard because this option:	
+- Uses adaptive tuning, based on the application's network traffic patterns, to detect threats. 	
+- Guarantees 100% SLA. 	
+- Can be cost effective. For example, during a DDoS attack, the first set of attacks cause the provisioned resources to scale out. For a resource such as a virtual machine scale set, 10 machines can grow to 100, increasing overall costs. With Standard protection, you don't have to worry about the cost of the scaled resources because Azure will provide the cost credit. 	
 
-  For information about Standard DDoS Protection, see [Azure DDoS Protection Service](/azure/virtual-network/ddos-protection-overview).	
+For information about Azure DDoS Protection services, see [Azure DDoS Protection Standard documentation](/azure/ddos-protection/).
 
-- DDoS protection with caching. Consider content delivery network (CDN) as another layer of protection. With CDN, infrequently changing content is copied from the backend server and cached on servers in various locations. A request doesn't need to communicate with the backend server and request times are significantly reduced. In a DDoS attack, a CDN intercepts the traffic and stops it from reaching the backend server. That way, the application doesn't experience downtime that can  negatively impact business. 	
 
-  Azure CDN has integrated DDoS protection through the **Basic** DDoS tier. For more information, see [Azure CDN DDoS Protection](/azure/cdn/cdn-ddos).	
-
-- DDoS protection at higher levels that profile your services. This option provides a baseline for your deployments and then uses machine learning techniques to detect anomalous traffic. Also, proactively protects based on the set protection level before service degradation. Adopt the advance protection for any services where downtime will negatively impact the business.
-
-For a list of reference architectures that demonstrate the use of DDoS protection, see [Azure DDoS Protection reference architectures](/azure/ddos-protection/ddos-protection-reference-architectures).
 ## Adopt DevOps
 
 Developers shouldn't publish their code directly to app servers. 
