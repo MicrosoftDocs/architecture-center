@@ -68,9 +68,7 @@ items:
           - name: Choose a load balancing service
             href: guide/technology-choices/load-balancing-overview.md
           - name: Choose a messaging service
-            items:
-              - name: Asynchronous messaging options in Azure
-                href: guide/technology-choices/messaging.md
+            href: guide/technology-choices/messaging.md
       - name: Best practices for cloud applications
         items:
           - name: API design
