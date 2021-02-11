@@ -1,4 +1,4 @@
-A development team may use observability patterns and metrics to find bottlenecks and improve the performance of a big data system. The team will have to do load testing of a high-volume stream of metrics on a high-scale application.
+Your development team can use observability patterns and metrics to find bottlenecks and improve the performance of a big data system. Your team has to do load testing of a high-volume stream of metrics on a high-scale application.
 
 This scenario offers guidance for performance tuning. Since the scenario presents a performance challenge for logging per customer, it uses Azure Databricks, which can monitor these items robustly:
 
@@ -8,24 +8,24 @@ This scenario offers guidance for performance tuning. Since the scenario present
 
 Azure Databricks can send this monitoring data to different logging services, such as Azure Log Analytics.
 
-This scenario outlines the ingestion of a large set of data that's grouped by customer and stored in a gzip file. Detailed logs are unavailable from Azure Databricks outside of the real-time Apache Spark™ UI, so there needs to be a way to store all the data for each customer, and then benchmark and compare. With a large data scenario, it’s important to find an optimal combination executor pool and VM size for the fastest processing time. For this business scenario, the overall application relies on the speed of ingestion and querying requirements.
+This scenario outlines the ingestion of a large set of data that has been grouped by customer and stored in a GZIP archive file. Detailed logs are unavailable from Azure Databricks outside of the real-time Apache Spark™ user interface, so your team needs a way to store all the data for each customer, and then benchmark and compare. With a large data scenario, it’s important to find an optimal combination executor pool and virtual machine (VM) size for the fastest processing time. For this business scenario, the overall application relies on the speed of ingestion and querying requirements, so that system throughput doesn't degrade unexpectedly with increasing work volume. The scenario must guarantee that the system meets service-level agreements (SLAs) that are established with your customers.
 
 ## Potential use cases
 
 Scenarios that can benefit from this solution include:
 
 - System health monitoring.
-- Performance maintenance so that system throughput doesn't degrade unexpectedly with increasing work volume, guaranteeing the system meets service-level agreements (SLAs) that are established with customers.
+- Performance maintenance.
 - Monitoring day-to-day system usage.
 - Spotting trends that might cause future problems if unaddressed.
 
 ## Architecture
 
-:::image type="content" source="_images/databricks-observability-architecture.png" alt-text="Diagram of performance tuning using observability patterns with Azure Databricks, Azure Monitor, Azure Log Analytics, and Azure Data Lake Storage.":::
+:::image type="content" source="_images/databricks-observability-architecture.png" alt-text="Diagram of performance tuning using observability patterns with Azure Databricks, Azure Monitor, Azure Log Analytics, and Azure Data Lake Storage." border="false":::
 
 The solution involves the following steps:
 
-1. The server sends a large gzip file that's grouped by customer to the *Source* folder in Azure Data Lake Storage (ADLS).
+1. The server sends a large GZIP file that's grouped by customer to the **Source** folder in Azure Data Lake Storage (ADLS).
 
 2. ADLS then sends a successfully extracted customer file to Azure Event Grid, which turns the customer file data into several messages.
 
@@ -35,37 +35,37 @@ The solution involves the following steps:
 
 5. Azure Databricks unpacks and processes queue data into a processed file that it sends back to ADLS:
 
-    1. If the processed file is valid, it goes in the *Landing* folder.
+    1. If the processed file is valid, it goes in the **Landing** folder.
 
-    1. Otherwise, the file goes in the *Bad* folder tree. Initially, the file goes in the *Retry* subfolder, and ADLS attempts customer file processing again (step 2). If a pair of retry attempts still leads to Azure Databricks returning processed files that aren't valid, the processed file goes in the *Failure* subfolder.
+    1. Otherwise, the file goes in the **Bad** folder tree. Initially, the file goes in the **Retry** subfolder, and ADLS attempts customer file processing again (step 2). If a pair of retry attempts still leads to Azure Databricks returning processed files that aren't valid, the processed file goes in the **Failure** subfolder.
 
 6. As Azure Databricks unpacks and processes data in the previous step, it also sends application logs and metrics to Azure Monitor for storage.
 
-7. In an Azure Log Analytics workspace, Kusto queries are done on the application logs and metrics from Azure Monitor for troubleshooting and deep diagnostics.
+7. An Azure Log Analytics workspace applies Kusto queries on the application logs and metrics from Azure Monitor for troubleshooting and deep diagnostics.
 
-8. Azure Dashboard is employed to display visualizations of the logs and metrics using the query results.
+8. An Azure portal dashboard displays visualizations of the logs and metrics using the query results.
 
 ### Components
 
 - [Azure Data Lake Storage](/azure/storage/blobs/data-lake-storage-introduction) is a set of capabilities dedicated to big data analytics.
 - [Azure Event Grid](/azure/event-grid/overview) allows a developer to easily build applications with event-based architectures.
-- [Azure Queue Storage](/azure/storage/queues/storage-queues-introduction) is a service for storing large numbers of messages. It allows access to messages from anywhere in the world through authenticated calls using HTTP or HTTPS. Queues are commonly used to create a backlog of work to process asynchronously.
+- [Azure Queue Storage](/azure/storage/queues/storage-queues-introduction) is a service for storing large numbers of messages. It allows access to messages from anywhere in the world through authenticated calls using HTTP or HTTPS. You can use queues to create a backlog of work to process asynchronously.
 - [Azure Databricks](/azure/databricks/scenarios/what-is-azure-databricks) is a data analytics platform optimized for Azure cloud services. One of the two environments Azure Databricks offers for developing data-intensive applications is [Azure Databricks Workspace](/azure/databricks/scenarios/what-is-azure-databricks-ws), an Apache Spark-based unified analytics engine for large-scale data processing.
 - [Azure Monitor](/azure/azure-monitor/overview) collects and analyzes app telemetry, such as performance metrics and activity logs.
 - [Azure Log Analytics](/azure/azure-monitor/log-query/log-analytics-overview) is a tool used to edit and run log queries with data.
-- [Azure Dashboard](/azure/azure-portal/azure-portal-dashboards) is a focused and organized view of cloud resources in the Azure portal.
+- [Azure portal dashboards](/azure/azure-portal/azure-portal-dashboards) are a focused and organized view of cloud resources in the Azure portal.
 
 ## Considerations
 
 Keep these points in mind when considering this architecture:
 
-- Azure Databricks can automatically give the computing resources necessary for a large job, which avoids problems introduced by other solutions. For example, with [Databricks-optimized autoscaling on Apache Spark](https://databricks.com/blog/2018/05/02/introducing-databricks-optimized-auto-scaling.html), resources may be used suboptimally because of excessive provisioning. Or the number of executors required for a job may not be known.
+- Azure Databricks can automatically allocate the computing resources necessary for a large job, which avoids problems that other solutions introduce. For example, with [Databricks-optimized autoscaling on Apache Spark](https://databricks.com/blog/2018/05/02/introducing-databricks-optimized-auto-scaling.html), excessive provisioning may cause the suboptimal use of resources. Or you might not know the number of executors required for a job.
 
 - A queue message in Azure Queue Storage can be up to 64 KB in size. A queue may contain millions of queue messages, up to the total capacity limit of a storage account.
 
 ## Deploy this scenario
 
-To get all the logs and information of the process, you'll need to set up Azure Log Analytics and the Azure Databricks monitoring library. The monitoring library streams Apache Spark level events and Spark Structured Streaming metrics from your jobs to Azure Monitor. You don't need to make any changes to your application code for these events and metrics.
+To get all the logs and information of the process, set up Azure Log Analytics and the Azure Databricks monitoring library. The monitoring library streams Apache Spark level events and Spark Structured Streaming metrics from your jobs to Azure Monitor. You don't need to make any changes to your application code for these events and metrics.
 
 The procedures to set up performance tuning for a big data system are as follows:
 
@@ -79,17 +79,30 @@ The procedures to set up performance tuning for a big data system are as follows
 1. Use visualizations to assess performance tuning options.
 
 > [!NOTE]
-> The deployment steps described here apply only to Azure Databricks, Azure Monitor, Azure Log Analytics, and Azure Dashboard. Deployment of the other components isn't covered in this article.
+> The deployment steps described here apply only to Azure Databricks, Azure Monitor, Azure Log Analytics, and Azure portal dashboards. Deployment of the other components isn't covered in this article.
 
-### Create Azure Databricks workspace
+### Prerequisites
+
+- An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/).
+- An integrated development environment (IDE) with:
+  - [Java Development Kit (JDK)](https://www.oracle.com/java/technologies/javase-downloads.html) version 1.8 or higher.
+  - [Scala programming language](https://www.scala-lang.org/) SDK version 2.11 or higher.
+  - [Apache Maven](https://maven.apache.org/) version 3.5.4 or higher.
+
+  For this article, install the Community Edition of [IntelliJ IDEA](https://www.jetbrains.com/idea/download/). JDK and Maven support are built into IntelliJ IDEA, but you'll have to add the [Scala plug-in](https://plugins.jetbrains.com/plugin/1347-scala).
+- [Python](https://www.python.org/downloads/windows/) 2 (version 2.7.9 or higher) or 3 (version 3.6 or higher).
+- [Azure CLI](/cli/azure) version 2.0 or higher.
+- The [Azure CLI extensions](/cli/azure/azure-cli-extensions-overview) for `databricks` and `log-analytics`.
+- [Azure Databricks CLI](/azure/databricks/dev-tools/cli/).
+- A local copy of the [mspnp/spark-monitoring](https://github.com/mspnp/spark-monitoring) GitHub repository.
+
+### Create an Azure Databricks workspace
 
 The first procedure involves creating your own Azure Databricks workspace:
 
-1. Connect to [Azure CLI](/cli/azure) by entering `az login` and following the sign-in instructions.
+1. Connect to Azure CLI by entering `az login` and following the sign-in instructions.
 
-1. In the scripting console, add the **databricks** extension to Azure CLI by entering `az extension add --name databricks --upgrade`.
-
-1. Use the [az databricks workspace create](/cli/azure/ext/databricks/databricks/workspace#ext_databricks_az_databricks_workspace_create) command shown below to create the new workspace for Azure Databricks:
+1. Use the [az databricks workspace create](/cli/azure/ext/databricks/databricks/workspace#ext_databricks_az_databricks_workspace_create) command below to create the new workspace for Azure Databricks. If you don't already have an Azure resource group to create the workspace in, create a new Azure resource group first with the [az group create](/cli/azure/group#az_group_create) command.
 
     ```azurecli
     # Make a new resource group to hold the databricks workspace. (Skip if you already have an RG.)
@@ -101,25 +114,17 @@ The first procedure involves creating your own Azure Databricks workspace:
         --sku <premium-standard-or-trial>
     ```
 
-1. In the console output, copy and save the string from the `workspaceUrl` output line. You'll use this URL string to access your workspace's web portal. Also, in the `id` output line's string, copy and save the GUID immediately following the `/subscriptions/` prefix. This value is your Azure subscription ID.
+1. In the console output, copy and save the string from the `workspaceUrl` output line. Use this URL string to access your workspace's web portal. Also, in the `id` output line's string, copy and save the GUID immediately following the `/subscriptions/` prefix. This value is your Azure subscription ID.
 
-### Create Azure Log Analytics workspace
+### Create an Azure Log Analytics workspace
 
-Now create an Azure Log Analytics workspace to store the logs and the prebuilt Spark metrics queries. Instead of using the [normal method for creating a Log Analytics workspace](/azure/azure-monitor/learn/quick-create-workspace), this process uses an Azure Resource Manager (ARM) template that also creates the prebuilt queries.
+Now create an Azure Log Analytics workspace to store the logs and the prebuilt Spark metrics queries. Instead of using the [**Log Analytics workspaces** menu in the Azure portal](/azure/azure-monitor/learn/quick-create-workspace) to create a Log Analytics workspace, use an Azure Resource Manager (ARM) template that also creates the prebuilt queries.
 
 To set up an Azure Log Analytics workspace:
 
-1. In a scripting console such as Git Bash, clone the [mspnp/spark-monitoring](https://github.com/mspnp/spark-monitoring) GitHub repository onto your computer:
+1. In a scripting console, go to the root directory of the *spark-monitoring* repository on your local computer.
 
-    ```bash
-    git clone https://github.com/mspnp/spark-monitoring.git
-    ```
-
-1. Go to the root directory of the cloned repository.
-
-1. Using the [az extension add](/cli/azure/extension#az_extension_add) command, install the **log-analytics** extension to Azure CLI by entering `az extension add --name log-analytics --upgrade`.
-
-1. Using the [az deployment group create](/cli/azure/deployment/group#az_deployment_group_create) command, deploy the ARM template provided by the repository (the *logAnalyticsDeploy.json* file in the *perftools/deployment/loganalytics* path). The ARM template creates a Log Analytics workspace that includes prebuilt queries for gathering Spark metrics. If you don't already have an Azure resource group to deploy the ARM template in, you can create a new Azure resource group first with the [az group create](/cli/azure/group#az_group_create) command.
+1. Using the [az deployment group create](/cli/azure/deployment/group#az_deployment_group_create) command below, deploy the ARM template provided by the repository (the *logAnalyticsDeploy.json* file in the *perftools/deployment/loganalytics* path). The ARM template creates a Log Analytics workspace that includes prebuilt queries for gathering Spark metrics.
 
     ```azurecli
     # Create a new resource group for template deployment. (Skip if you already have an RG.)
@@ -155,26 +160,19 @@ To set up an Azure Log Analytics workspace:
     > [!NOTE]
     > You can also find the workspace ID, primary key, and secondary key on the [Azure portal](https://portal.azure.com). Search for and select the **Log Analytics workspaces**, and select the name of your workspace. Then in the menu pane, under **Settings**, select **Agents management** to view and copy those values.
 
-### Build Azure Databricks monitoring library
+### Build the Azure Databricks monitoring library
 
 Next, build the Azure Databricks monitoring library, which consists of Java Archive (JAR) files for a couple of Spark listener projects.
 
-1. Install an integrated development environment (IDE) with the following components:
-    - [Java Development Kit (JDK)](https://www.oracle.com/java/technologies/javase-downloads.html) version 1.8 or higher
-    - [Scala programming language](https://www.scala-lang.org/) SDK version 2.11 or higher
-    - [Apache Maven](https://maven.apache.org/) version 3.5.4 or higher
-
-    For this article, install the Community Edition of [IntelliJ IDEA](https://www.jetbrains.com/idea/download/). Maven support is built into IntelliJ IDEA, but you'll have to add the [Scala plug-in](https://plugins.jetbrains.com/plugin/1347-scala) to that IDE.
-
-1. In the IDE, open as a project the Maven project object model (POM) file *src/pom.xml* (from the root directory of your local repository). This action imports the *spark-listeners* and *spark-listeners-loganalytics* projects.
+1. In IntelliJ IDEA, open as a project the Maven project object model (POM) file *src/pom.xml* (from the root directory of your local repository). This action imports the *spark-listeners* and *spark-listeners-loganalytics* projects.
 
 1. Activate a single Maven profile that corresponds to the versions of the Scala/Spark combination that is being used. By default, the Scala 2.12 and Spark 3.0.1 profile is active. In IntelliJ IDEA, select **View** > **Tool Windows** > **Maven**, expand **Profiles**, and then explicitly select **scala-2.12_spark-3.0.1**.
 
-1. Execute the Maven package phase on the project you just opened in the IDE. In IntelliJ IDEA, in the Maven tool window, select the **Execute Maven Goal** icon, and then select or enter **mvn package**. This action builds JAR files for the two imported projects, under the following names in the *src/target* directory:
+1. Execute the Maven package phase on the project you just opened. In IntelliJ IDEA, in the Maven tool window, select the **Execute Maven Goal** icon, and then select or enter **mvn package**. This action builds JAR files for the two imported projects, under the following names in the *src/target* directory:
     - *spark-listeners_\<spark-version>_\<scala-version>-\<project-version>.jar*
     - *spark-listeners-loganalytics_\<spark-version>_\<scala-version>-\<project-version>.jar*
 
-### Configure Azure Databricks workspace
+### Configure an Azure Databricks workspace
 
 Configure the Azure Databricks workspace by copying the monitoring library's JAR files and the init script into Databricks.
 
@@ -212,8 +210,6 @@ Configure the Azure Databricks workspace by copying the monitoring library's JAR
 
 1. Copy the token string that appears (which begins with `dapi` and a 32-character hexadecimal value), and  select **Done**. Then save the token string all by itself in a new file.
 
-1. In a scripting console, install the [Azure Databricks CLI](/azure/databricks/dev-tools/cli/) using the Python command `pip install databricks-cli`.
-
 1. In the Azure Databricks CLI, enter the [DBFS](/azure/databricks/dev-tools/cli/dbfs-cli) command `dbfs configure` shown below to set up the CLI for use:
 
     ```Azure Databricks CLI
@@ -229,7 +225,7 @@ Configure the Azure Databricks workspace by copying the monitoring library's JAR
     dbfs cp --overwrite --recursive src/target/ dbfs:/databricks/spark-monitoring/
     ```
 
-### Create and configure Azure Databricks cluster
+### Create and configure an Azure Databricks cluster
 
 Return to the web portal for your Azure Databricks workspace to create and configure a new Databricks cluster.
 
@@ -244,8 +240,8 @@ Return to the web portal for your Azure Databricks workspace to create and confi
 
 Next, build a sample app for sending application logs and application metrics from Azure Databricks to Azure Monitor. Then set up a Databricks job for running the sample app.
 
-1. In your Java IDE, open the Maven project *sample/spark-sample-job/pom.xml* in your local repository.
-1. In IntelliJ IDEA, select **Execute Maven Goal** > **mvn package** to build the Maven project.
+1. In IntelliJ IDEA, open the Maven project *sample/spark-sample-job/pom.xml* in your local repository.
+1. Select **Execute Maven Goal** > **mvn package** to build the Maven project.
 1. In the web portal for your Azure Databricks workspace, go to the side panel and select **Jobs** > **Create Job**.
 1. Enter a name for the sample job, and then select **Set JAR** to display the **Upload JAR to Run** dialog box.
 1. Select **Drop JAR here to upload**, browse to the *sample/spark-sample-job/target* directory, and then open the JAR file (*spark-monitoring-sample-1.0.0.jar*).
@@ -253,11 +249,11 @@ Next, build a sample app for sending application logs and application metrics fr
 
 To run the Databricks job, select **Jobs**, and then in the row for your sample job, go to the **Action** column and select the **Run Now** icon. Let the sample job run for a few minutes. When the job runs, you can view the application logs and metrics in your Log Analytics workspace. After you verify that the metrics appear, stop the sample application job.
 
-### View and query logs and metrics in Azure Log Analytics
+### View and query the logs and metrics in Azure Log Analytics
 
 While the sample job is running in Azure Databricks, you can use Azure Log Analytics to view the event types (logs and metrics) produced by that job. You can also view and run the prebuilt Spark metrics queries or your own custom queries.
 
-#### View event types
+#### View the event types
 
 To see the list of event types:
 
@@ -341,9 +337,9 @@ The prebuilt query names for retrieving Spark metrics are listed below.
 
 When you select a query, the definition appears in the top middle pane. Select **Run** to execute the query. The query results appear in the bottom middle pane, in the **Results** tab. You can see a visualization of the query results if you select the **Chart** tab.
 
-#### Add query results or visualizations to dashboard
+#### Add the query results or visualizations to the dashboard
 
-To add a list of query results or a chart visualization to an Azure dashboard:
+To add a list of query results or a chart visualization to an Azure portal dashboard:
 
 1. Select **Pin to dashboard**.
 1. Choose to use a **Private** or **Shared** dashboard.
@@ -437,35 +433,35 @@ The following sections contain the typical metrics used in this scenario for mon
 | Spilled memory per host | Average spilled memory per executor | MB per minute |
 | Monitor data skew impact on duration | Measure range and difference of 70th-90th percentile and 90th-100th percentile in tasks duration | Net difference among 100%, 90%, and 70%; percentage difference among 100%, 90%, and 70% |
 
-Decide how to relate the customer input, which was combined into a gzip archive file, to a particular Azure Databricks output file, since Azure Databricks handles the whole batch operation as a unit. Here, you apply granularity to the tracing. You also use custom metrics to trace one output file to the original input file.
+Decide how to relate the customer input, which was combined into a GZIP archive file, to a particular Azure Databricks output file, since Azure Databricks handles the whole batch operation as a unit. Here, you apply granularity to the tracing. You also use custom metrics to trace one output file to the original input file.
 
 For more detailed definitions of each metric, see [Visualizations in the dashboards](dashboards.md#visualizations-in-the-dashboards) on this website, or see the [Metrics](http://spark.apache.org/docs/latest/monitoring.html#metrics) section in the Apache Spark documentation.
 
-### Assess performance tuning options
+## Assess performance tuning options
+
+### Baseline definition
 
 You and your development team should establish a baseline, so that you can compare future states of the application.
 
-#### Baseline definition
-
-Try to measure the performance of your application quantitatively. In this scenario, the key metric is job latency, which is typical of most data preprocessing and ingestion. Attempt to accelerate the data processing time and focus on measuring latency, as in the chart below:
+Measure the performance of your application quantitatively. In this scenario, the key metric is job latency, which is typical of most data preprocessing and ingestion. Attempt to accelerate the data processing time and focus on measuring latency, as in the chart below:
 
 :::image type="content" source="_images/databricks-observability-job-latency.png" alt-text="Job latency chart for performance tuning. The chart measures job latency per minute (0-50 seconds) while the application is running.":::
 
-You want to measure the execution latency for a job: a coarse view on the overall job performance, and the job execution duration from start to completion (microbatch time). In the chart above, at the 19:30 mark, it takes about 40 seconds in duration to process the job.
+Measure the execution latency for a job: a coarse view on the overall job performance, and the job execution duration from start to completion (microbatch time). In the chart above, at the 19:30 mark, it takes about 40 seconds in duration to process the job.
 
 If you look further into those 40 seconds, you see the data below for stages:
 
 :::image type="content" source="_images/databricks-observability-stage-latency.png" alt-text="Stage latency chart for performance tuning. The chart measures stage latency per minute (0-30 seconds) while the application is running.":::
 
-At the 19:30 mark, there are two stages: an orange stage of 10 seconds, and a green stage at 30 seconds. You want to monitor whether a stage spikes, because a spike indicates a delay in a stage.
+At the 19:30 mark, there are two stages: an orange stage of 10 seconds, and a green stage at 30 seconds. Monitor whether a stage spikes, because a spike indicates a delay in a stage.
 
-So then you want to investigate when a certain stage is running slowly. In the partitioning scenario, there are typically at least two stages: one stage to read a file, and the other stage to shuffle, partition, and write the file.  If you have high stage latency mostly in the writing stage, you might have a bottleneck problem during partitioning.
+Investigate when a certain stage is running slowly. In the partitioning scenario, there are typically at least two stages: one stage to read a file, and the other stage to shuffle, partition, and write the file.  If you have high stage latency mostly in the writing stage, you might have a bottleneck problem during partitioning.
 
 :::image type="content" source="_images/databricks-observability-task-latency-per-stage.png" alt-text="Task latency per stage chart for performance tuning, at the 90th percentile. The chart measures latency (0.032-16 seconds) while the app is running.":::
 
 Observe the tasks as the stages in a job execute sequentially, with earlier stages blocking later stages. Within a stage, if one task executes a shuffle partition slower than other tasks, all tasks in the cluster must wait for the slower task to finish for the stage to complete. Tasks are then a way to monitor data skew and possible bottlenecks. In the chart above, you can see that all of the tasks are evenly distributed.
 
-Now monitor the processing time. Because we have a streaming scenario, look at the streaming throughput.
+Now monitor the processing time. Because you have a streaming scenario, look at the streaming throughput.
 
 :::image type="content" source="_images/databricks-observability-streaming-throughput-latency.png" alt-text="Streaming throughput/latency chart for performance tuning. The chart measures throughput (105-135 K) and latency per batch while the app is running.":::
 
@@ -473,15 +469,15 @@ In the streaming throughput/batch latency chart above, the orange line represent
 
 Because the processing rate doesn't match the input rate in the graph, look to improve the process rate to cover the input rate fully. One possible reason might be the imbalance of customer data in each partition key that leads to a bottleneck. For a next step and potential solution, take advantage of the scalability of Azure Databricks.
 
-#### Partitioning investigation
+### Partitioning investigation
 
-First, further identify the correct number of scaling executors we need with Azure Databricks. Apply the rule of thumb of assigning each partition with a dedicated CPU in running executors. For instance, if you have 200 partition keys, the number of CPUs multiplied by the number of executors should equal 200. (For example, eight CPUs combined with 25 executors would be a good match.) With 200 partition keys, each executor can work only on one task, which reduces the chance of a bottleneck.
+First, further identify the correct number of scaling executors that you need with Azure Databricks. Apply the rule of thumb of assigning each partition with a dedicated CPU in running executors. For instance, if you have 200 partition keys, the number of CPUs multiplied by the number of executors should equal 200. (For example, eight CPUs combined with 25 executors would be a good match.) With 200 partition keys, each executor can work only on one task, which reduces the chance of a bottleneck.
 
-Because there are some slow partitions in this scenario, you would investigate the high variance in tasks duration. Check for any spikes in task duration. One task will handle one partition. If a task requires more time, the partition may be too large and cause a bottleneck.
+Because some slow partitions are in this scenario, investigate the high variance in tasks duration. Check for any spikes in task duration. One task handles one partition. If a task requires more time, the partition may be too large and cause a bottleneck.
 
 :::image type="content" source="_images/databricks-observability-check-skew.png" alt-text="List of results of a check skew query for performance tuning. The query is used for a partitioning investigation.":::
 
-#### Error tracing
+### Error tracing
 
 Add a dashboard for error tracing so that you can spot customer-specific data failures. In data preprocessing, there are times when files are corrupted, and records within a file don't match the data schema. The following dashboard catches many bad files and bad records.
 
@@ -489,22 +485,22 @@ Add a dashboard for error tracing so that you can spot customer-specific data fa
 
 This dashboard displays the error count, error message, and task ID for debugging. In the message, you can easily trace the error back to the error file. There are several files in error while reading. You review the top timeline and investigate at the specific points in our graph (16:20 and 16:40).
 
-#### Other bottlenecks
+### Other bottlenecks
 
 For more examples and guidance, see [Troubleshoot performance bottlenecks in Azure Databricks](performance-troubleshooting.md).
 
-#### Summary
+### Performance tuning assessment summary
 
-For this scenario, the following issues were identified:
+For this scenario, these metrics identified the following observations:
 
 - In the stage latency chart, writing stages take most of the processing time.
 - In the task latency chart, task latency is stable.
 - In the streaming throughput chart, the output rate is lower than the input rate at some points.
 - In the task’s duration table, there's task variance because of imbalance of customer data.
-- Match the scaling executors with the number of partitions to get optimized performance in partitioning stage.
+- To get optimized performance in the partitioning stage, the number of scaling executors should match the number of partitions.
 - There are tracing errors, such as bad files and bad records.
 
-To diagnose these issues, the development team relied on the following metrics:
+To diagnose these issues, you used the following metrics:
 
 - Job latency
 - Stage latency
