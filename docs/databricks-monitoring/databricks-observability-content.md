@@ -515,7 +515,7 @@ Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculato
 
 ## Next steps
 
-Read about [performance antipatterns](../antipatterns/index.md).
+Read the [Log Analytics tutorial](/azure/azure-monitor/log-query/log-analytics-tutorial).
 
 ## Related resources
 
