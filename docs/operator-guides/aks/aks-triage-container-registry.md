@@ -6,7 +6,7 @@ author: kevingbb
 ms.date: 10/12/2020
 ms.topic: conceptual
 ms.service: architecture-center
-ms.subservice: operator-guides
+ms.subservice: guide
 products:
   - azure-kubernetes-service
 ---

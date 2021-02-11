@@ -4,7 +4,7 @@ description: The sequential convoy cloud design pattern allows for first-in-firs
 author: brandonh-msft
 ms.author: hurlburb
 ms.date: 12/14/2019
-ms.topic: XXXX
+ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: design-pattern
 keywords: serverless, biztalk, sequential convoy, fifo, functions, messaging

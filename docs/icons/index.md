@@ -4,10 +4,9 @@ titleSuffix: Azure Architecture Center
 description: Icons for use in building architecture diagrams for Azure
 author: doodlemania2
 ms.date: 11/04/2020
-ms.topic: XXXX
 ms.service: architecture-center
-ms.subservice: XXXX
 ---
+
 # Azure architecture icons
 
 Helping our customers design and architect new solutions is core to the Azure Architecture Center’s mission. Architecture diagrams like those included in our guidance can help communicate design decisions and the relationships between components of a given workload. On this page you will find an official collection of Azure architecture icons including Azure product icons to help you build a custom architecture diagram for your next solution.
