@@ -3,7 +3,7 @@ metadata:
   title: Retail Assistant with Visual Capabilities
   titleSuffix: Azure Solution Ideas
   author: doodlemania2
-  ms.date: 12/16/2019
+  ms.date: 02/11/2021
   description: Use Azure services with a retail assistant or vacation planner to improve interactions with customers and provide suggestions based on visual information.
   ms.custom: 'acom-architecture, ai-ml, chatbot, ecommerce, retail assistant, cognitive services, vacation planner, visual capabilities, interactive-diagram, ''https://azure.microsoft.com/solutions/architecture/retail-assistant-or-vacation-planner-with-visual-capabilities/'''
   ms.service: architecture-center
