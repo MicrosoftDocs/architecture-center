@@ -4,7 +4,7 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
 
-This reference architecture shows how to deploy an e-commerce web site on Azure using Azure CosmosDB as data store. Azure CosmosDB is used to store product catalogue and sessions state. 
+This reference architecture shows how to deploy an e-commerce web site on Azure using Azure CosmosDB as data store. Azure CosmosDB is used to store products and session state. 
 
 This archietcture also supports in-depth queries over diverse product catalogs, traffic spikes, and rapidly changing inventory.
 
