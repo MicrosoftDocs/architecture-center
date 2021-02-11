@@ -3,8 +3,6 @@
 
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-Build secure and scalable e-commerce solutions that meets the demands of both customers and business. Engage customers through customized products and offers, process transactions quickly and securely, and focus on fulfillment and customer service.
-
 This reference architecture shows how to deploy an e-commerce web site on Azure using Azure CosmosDB as data store. Azure CosmosDB is used to store product information and session state. 
 
 This archietcture also supports in-depth queries over diverse product catalogs, traffic spikes, and rapidly changing inventory provided by Azure Search.
