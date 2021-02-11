@@ -68,7 +68,7 @@ You can use the Azure Load Balancing page in the Azure portal to help you guide 
 1. Sign in to the [Azure portal at [https://portal.azure.com](https://portal.azure.com).
 1. In the *Search resources, services, and docs* box at the top of the portal, type *load balancing*. When **Load balancing** appears in the search results, select it.
     ![Search for load balancing - Azure portal screenshot](./images/load-balancing-search.png)
-    > [!NOTE] To learn about some of the factors considered in selecting a load-balancing solution, see [Decision tree for laod-balancing in Azure](##decision-tree-for-load-balancing-in-azure) in this article.
+    > [!NOTE] To learn about some of the factors considered in selecting a load-balancing solution, see [Decision tree for load-balancing in Azure](#decision-tree-for-load-balancing-in-azure) in this article.
 > Information the user should notice even if skimming
 1. In the **Load balancing - help me choose (Preview)** page, do one of the following:
     1. To find the appropriate load-balancing solution for your business, follow instructions in the default **Help me choose** tab.
@@ -121,8 +121,8 @@ If your application consists of multiple workloads, evaluate each workload separ
 - **Application-layer processing** refers to special routing within a virtual network. For example, path-based routing within the virtual network across VMs or virtual machine scale sets. For more information, see [When should we deploy an Application Gateway behind Front Door?](/azure/frontdoor/front-door-faq#when-should-we-deploy-an-application-gateway-behind-front-door).
 
 ## Next steps
-- [Create a public load balancer](/azure/load-balancer/quickstart-load-balancer-standard-public-portal)
-- [Create an internal load balancer](/load-balancer/quickstart-load-balancer-standard-internal-portal)
+- [Load balance internet traffic to virtual machines with Azure Load Balancer](/azure/load-balancer/quickstart-load-balancer-standard-public-portal)
+- [Load balance internal traffic to virtual machines with Azure Load Balancer](/load-balancer/quickstart-load-balancer-standard-internal-portal)
 - [Direct web traffic with Application Gateway](/azure/application-gateway/quick-create-portal)
-- [Create a Traffic Manager profile](/azure/traffic-manager/quickstart-create-traffic-manager-profile)
-- [Create a Front Door for a highly available global web application](/azure/frontdoor/quickstart-create-front-door)
+- [Configure Traffic Manger for global DNS-based load balancing ](/azure/traffic-manager/quickstart-create-traffic-manager-profile)
+- [Configure Front Door for a highly available global web application](/azure/frontdoor/quickstart-create-front-door)
