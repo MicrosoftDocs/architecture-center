@@ -6,6 +6,8 @@ ms.date: 07/27/2019
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
+products:
+  - azure-sql-database
 ms.custom:
   - guide
 ---

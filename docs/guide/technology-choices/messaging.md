@@ -6,10 +6,10 @@ author: PageWriter-MSFT
 ms.date: 10/30/2019
 ms.topic: conceptual
 ms.service: architecture-center
+ms.subservice: guide
 ms.category:
   - integration
   - developer-tools
-ms.subservice: guide
 ms.custom:
   - seonov19
   - guide
@@ -239,3 +239,4 @@ Consider these patterns when implementing asynchronous messaging:
 [Jonathon Oliver's blog post: Idempotency](https://blog.jonathanoliver.com/idempotency-patterns/)
 
 [Martin Fowler's blog post: What do you mean by “Event-Driven”?](https://martinfowler.com/articles/201701-event-driven.html)
+

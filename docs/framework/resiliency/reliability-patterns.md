@@ -2,15 +2,14 @@
 title: Reliability patterns
 titleSuffix: Cloud Design Patterns
 description: Learn about availability, high availability, and resiliency as they relate to reliability.
-keywords: design pattern
 author: v-aangie
 ms.date: 12/08/2020
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
 ms.custom:
-  - seodec18
   - design-pattern
+keywords: design pattern
 ---
 
 # Reliability patterns

@@ -6,6 +6,8 @@ ms.date: 03/16/2020
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: best-practice
+products:
+  - azure-encoding
 ms.custom:
   - guide
 ---

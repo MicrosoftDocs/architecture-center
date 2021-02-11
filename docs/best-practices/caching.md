@@ -7,8 +7,9 @@ ms.date: 05/24/2017
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: best-practice
+products:
+  - azure-cache-redis
 ms.custom:
-  - seodec18
   - best-practice
 ---
 
