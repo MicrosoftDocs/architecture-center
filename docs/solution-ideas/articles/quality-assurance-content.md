@@ -65,7 +65,7 @@ For general guidance on designing resilient solutions, see [Designing resilient 
 ## Related resources
 
 For a guided learning path, see:
-- [Build a serverless web app in Azure][serverless].
+* [Build a serverless web app in Azure][serverless].
 * [Learn how to Implement a Data Streaming Solution with Azure Streaming Analytics](https://docs.microsoft.com/en-us/learn/paths/implement-data-streaming-with-asa/)
 * [Quality Assurance Workshop](https://github.com/Azure/iot-workshop-quality-assurance)
 * [Learn how to Create Predictive models on Azure](https://docs.microsoft.com/en-us/learn/paths/create-no-code-predictive-models-azure-machine-learning/)
