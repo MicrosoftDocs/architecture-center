@@ -65,10 +65,10 @@ You can use the Azure Load Balancing page in the Azure portal to help you guide 
 
 1. Sign in to the [Azure portal at [https://portal.azure.com](https://portal.azure.com).
 1. In the *Search resources, services, and docs* box at the top of the portal, type *load balancing*. When **Load balancing** appears in the search results, select it.
-    ![Search for load balancing - Azure portal screenshot](./images/search-load-balancing-2.png)
+    ![Search for load balancing - Azure portal screenshot](./images/load-balancing-search.png)
     > [!NOTE] To learn about some of the factors considered in selecting a load-balancing solution, see [Decision tree for laod-balancing in Azure](##decision-tree-for-load-balancing-in-azure) in this article.
 > Information the user should notice even if skimming
-1. In the **Load balancing -help me choose (Preview)** page, do one of the following:
+1. In the **Load balancing - help me choose (Preview)** page, do one of the following:
     1. To find the appropriate load-balancing solution for your business, follow instructions in the default **Help me choose** tab.
       ![Choose an Azure load balancing solution - Azure portal screenshot](./images/load-balancing-help-me-choose.png)
     1. To learn about the supported protocols and service capabilities of each load balancing service, select the **Service comparisons** tab.
@@ -82,7 +82,7 @@ The following table lists various architecture reference articles based on the l
 |---------|---------|---------|
 |Load Balancer    |  [Load balance virtual machines (VMs) across availability zones](https://docs.microsoft.com/azure/load-balancer/quickstart-load-balancer-standard-public-portal)    |   Load balancing VMs across availability zones helps to protect your apps and data from an unlikely failure or loss of an entire datacenter. With zone-redundancy, one or more availability zones can fail and the data path survives as long as one zone in the region remains healthy.     |
 |Front Door    |  [Sharing location in real time using low-cost serverless Azure services](https://docs.microsoft.com/azure/architecture/example-scenario/signalr/#azure-front-door)       |   A multi-region architecture using Azure Front Foor can provide higher availability than deploying to a single region. If a regional outage affects the primary region, you can use Front Door to fail over to the secondary region.      |
-|Application Gateway     |[IaaS: Web application with relational database](https://docs.microsoft.com/azure/architecture/high-availability/ref-arch-iaas-web-and-db)    |    TBD     |
+|Application Gateway     |[IaaS: Web application with relational database](https://docs.microsoft.com/azure/architecture/high-availability/ref-arch-iaas-web-and-db)    |   This reference architecture guide illustrates how to use resources spread across multiple zones to provide a high availability (HA) architecture for hosting an Infrastructure as a Service (IaaS) web application and SQL Server database.     |
 |Traffic Manager   | [Multi-region N-tier application](https://docs.microsoft.com/azure/architecture/reference-architectures/n-tier/multi-region-sql-server)        |      TBD   |
 |Azure Front Door + Application Gateway     | [Multitenant SaaS on Azure](https://docs.microsoft.com/azure/architecture/example-scenario/multi-saas/multitenant-saas)       |      TBD   |
 |Traffic Manager + Load Balancer    | [Multi-region N-tier application](https://docs.microsoft.com/azure/architecture/reference-architectures/n-tier/multi-region-sql-server)          |  TBD       |
@@ -118,3 +118,9 @@ If your application consists of multiple workloads, evaluate each workload separ
 
 - **Application-layer processing** refers to special routing within a virtual network. For example, path-based routing within the virtual network across VMs or virtual machine scale sets. For more information, see [When should we deploy an Application Gateway behind Front Door?](/azure/frontdoor/front-door-faq#when-should-we-deploy-an-application-gateway-behind-front-door).
 
+## Next steps
+- [Create a public load balancer](/azure/load-balancer/quickstart-load-balancer-standard-public-portal)
+- [Create an internal load balancer](/load-balancer/quickstart-load-balancer-standard-internal-portal)
+- [Direct web traffic with Application Gateway](/azure/application-gateway/quick-create-portal)
+- [Create a Traffic Manager profile](/azure/traffic-manager/quickstart-create-traffic-manager-profile)
+- [Create a Front Door for a highly available global web application](/azure/frontdoor/quickstart-create-front-door)
