@@ -2,7 +2,7 @@
 title: What's New in Azure Architecture Center
 description: New and updated articles in Azure Architecture Center
 author: doodlemania2
-ms.date: 01/25/2021
+ms.date: 02/08/2021
 ms.topic: article
 ms.service: architecture-center
 ---
@@ -17,10 +17,37 @@ ms.service: architecture-center
 
 New and updated articles in Azure Architecture Center
 
+## February 2021
+
+### New Articles
+
+- [Azure services for securing network connectivity](/azure/architecture/framework/security/design-network-connectivity)
+- [Best practices for endpoint security on Azure](/azure/architecture/framework/security/design-network-endpoints)
+- [Traffic flow security in Azure](/azure/architecture/framework/security/design-network-flow)
+- [Implement network segmentation patterns on Azure](/azure/architecture/framework/security/design-network-segmentation)
+- [Profisee master data management with Azure Data Factory](/azure/architecture/reference-architectures/data/profisee-master-data-management-data-factory)
+- [Azure security test practices](/azure/architecture/framework/security/monitor-test)
+
+### Updated Articles
+
+- [Attestation, authentication, and provisioning](/azure/architecture/example-scenario/iot/attestation-provisioning)  ([#c68ae5ffd](https://github.com/MicrosoftDocs/architecture-center/commit/c68ae5ffd))
+- [Controlling IoT devices using a Voice Assistant](/azure/architecture/solution-ideas/articles/iot-controlling-devices-with-voice-assistant)  ([#c68ae5ffd](https://github.com/MicrosoftDocs/architecture-center/commit/c68ae5ffd))
+- [Serverless event processing](/azure/architecture/reference-architectures/serverless/event-processing)  ([#d7256cda4](https://github.com/MicrosoftDocs/architecture-center/commit/d7256cda4))
+- [Security monitoring in Azure](/azure/architecture/framework/security/monitor)  ([#9022aaa34](https://github.com/MicrosoftDocs/architecture-center/commit/9022aaa34))
+- [Run SAP HANA for Linux virtual machines in a scale-up architecture on Azure](/azure/architecture/reference-architectures/sap/run-sap-hana-for-linux-virtual-machines)  ([#22f51f8aa](https://github.com/MicrosoftDocs/architecture-center/commit/22f51f8aa))
+- [Interactive querying with HDInsight](/azure/architecture/solution-ideas/articles/interactive-querying-with-hdinsight)  ([#22f51f8aa](https://github.com/MicrosoftDocs/architecture-center/commit/22f51f8aa))
+- [Loan ChargeOff Prediction with Azure HDInsight Spark Clusters](/azure/architecture/solution-ideas/articles/loan-chargeoff-prediction-with-azure-hdinsight-spark-clusters)  ([#22f51f8aa](https://github.com/MicrosoftDocs/architecture-center/commit/22f51f8aa))
+
 ## January 2021
 
 ### New Articles
 
+- [Restrict interservice communications](/azure/architecture/example-scenario/service-to-service/restrict-communications)
+- [Operational Excellence patterns](/azure/architecture/framework/devops/devops-patterns)
+- [Reliability patterns](/azure/architecture/framework/resiliency/reliability-patterns)
+- [Performance Efficiency patterns](/azure/architecture/framework/scalability/performance-efficiency-patterns)
+- [Security patterns](/azure/architecture/framework/security/security-patterns)
+- [Cloud design patterns](/azure/architecture/patterns/index-patterns)
 - [Replicate and sync mainframe data in Azure](/azure/architecture/reference-architectures/migration/sync-mainframe-data-with-azure)
 - [Alerting for DevOps](/azure/architecture/framework/devops/alerts)
 - [Data encryption in Azure](/azure/architecture/framework/security/design-storage-encryption)
@@ -37,6 +64,8 @@ New and updated articles in Azure Architecture Center
 
 ### Updated Articles
 
+- [Backup and disaster recover for Azure applications](/azure/architecture/framework/resiliency/backup-and-recovery)  ([#3ca257b3d](https://github.com/MicrosoftDocs/architecture-center/commit/3ca257b3d))
+- [Field and cloud edge gateways](/azure/architecture/example-scenario/iot/field-cloud-edge-gateways)  ([#49a77e199](https://github.com/MicrosoftDocs/architecture-center/commit/49a77e199))
 - [Monitoring for DevOps](/azure/architecture/framework/devops/monitoring)  ([#ad603400e](https://github.com/MicrosoftDocs/architecture-center/commit/ad603400e))
 - [Data protection in Azure](/azure/architecture/framework/security/design-storage)  ([#bd8084fcf](https://github.com/MicrosoftDocs/architecture-center/commit/bd8084fcf))
 - [Business Metrics](/azure/architecture/framework/resiliency/business-metrics)  ([#fb285c5fb](https://github.com/MicrosoftDocs/architecture-center/commit/fb285c5fb))
@@ -87,7 +116,7 @@ New and updated articles in Azure Architecture Center
 - [Security logs and audits](/azure/architecture/framework/security/monitor-audit)
 - [Check for identity, network, data risks](/azure/architecture/framework/security/monitor-identity-network)
 - [Security operations in Azure](/azure/architecture/framework/security/monitor-security-operations)
-- [Security health modeling in Azure](/azure/architecture/framework/security/monitor)
+- [Security monitoring in Azure](/azure/architecture/framework/security/monitor)
 - [Azure enterprise cloud file share](/azure/architecture/hybrid/azure-files-private)
 - [Modernize mainframe &amp; midrange data](/azure/architecture/reference-architectures/migration/modernize-mainframe-data-to-azure)
 - [IoT event routing](/azure/architecture/example-scenario/iot/event-routing)
@@ -115,45 +144,4 @@ New and updated articles in Azure Architecture Center
 - [Process real-time vehicle data using IoT](/azure/architecture/example-scenario/data/realtime-analytics-vehicle-iot)  ([#beeba69f6](https://github.com/MicrosoftDocs/architecture-center/commit/beeba69f6))
 - [Security monitoring tools in Azure](/azure/architecture/framework/security/monitor-tools)  ([#4f3a35043](https://github.com/MicrosoftDocs/architecture-center/commit/4f3a35043))
 - [Building a CI/CD pipeline for microservices on Kubernetes](/azure/architecture/microservices/ci-cd-kubernetes)  ([#c0135f775](https://github.com/MicrosoftDocs/architecture-center/commit/c0135f775))
-
-## October 2020
-
-### New Articles
-
-- [SQL Server 2008 R2 failover cluster in Azure](/azure/architecture/example-scenario/sql-failover/sql-failover-2008r2)
-- [Secure application&#x27;s configuration and dependencies](/azure/architecture/framework/security/design-app-dependencies)
-- [Application classification for security](/azure/architecture/framework/security/design-apps-considerations)
-- [Application threat analysis](/azure/architecture/framework/security/design-threat-model)
-- [AKS triage - cluster health](/azure/architecture/operator-guides/aks/aks-triage-cluster-health)
-- [AKS triage - container registry connectivity](/azure/architecture/operator-guides/aks/aks-triage-container-registry)
-- [AKS triage - admission controllers](/azure/architecture/operator-guides/aks/aks-triage-controllers)
-- [AKS triage - workload deployments](/azure/architecture/operator-guides/aks/aks-triage-deployment)
-- [AKS triage - node health](/azure/architecture/operator-guides/aks/aks-triage-node-health)
-- [Azure Kubernetes Service (AKS) operations triage](/azure/architecture/operator-guides/aks/aks-triage-practices)
-- [Alerts in IoT Edge Vision](/azure/architecture/guide/iot-edge-vision/alerts)
-- [Camera selection for IoT Edge Vision](/azure/architecture/guide/iot-edge-vision/camera)
-- [Hardware for IoT Edge Vision](/azure/architecture/guide/iot-edge-vision/hardware)
-- [Image storage in IoT Edge Vision](/azure/architecture/guide/iot-edge-vision/image-storage)
-- [Azure IoT Edge Vision](/azure/architecture/guide/iot-edge-vision)
-- [Machine learning in IoT Edge Vision](/azure/architecture/guide/iot-edge-vision/machine-learning)
-- [User interface in IoT Edge Vision](/azure/architecture/guide/iot-edge-vision/user-interface)
-- [Configure infrastructure](/azure/architecture/framework/devops/automation-configuration)
-- [Repeatable Infrastructure](/azure/architecture/framework/devops/automation-infrastructure)
-- [Automation overview of goals, best practices, and types in Azure](/azure/architecture/framework/devops/automation-overview)
-- [Automated Tasks](/azure/architecture/framework/devops/automation-tasks)
-- [Partitioning in Event Hubs and Kafka](/azure/architecture/reference-architectures/event-hubs/partitioning-in-event-hubs-and-kafka)
-- [Retail - Buy online, pickup in store (BOPIS)](/azure/architecture/example-scenario/iot/vertical-buy-online-pickup-in-store)
-- [Magento e-commerce platform in Azure Kubernetes Service (AKS)](/azure/architecture/example-scenario/magento/magento-azure)
-
-### Updated Articles
-
-- [Azure identity and access management considerations](/azure/architecture/framework/security/design-identity)  ([#2a1154709](https://github.com/MicrosoftDocs/architecture-center/commit/2a1154709))
-- [Regulatory compliance](/azure/architecture/framework/security/design-regulatory-compliance)  ([#2a1154709](https://github.com/MicrosoftDocs/architecture-center/commit/2a1154709))
-- [Computer forensics Chain of Custody in Azure](/azure/architecture/example-scenario/forensics)  ([#909b776f4](https://github.com/MicrosoftDocs/architecture-center/commit/909b776f4))
-- [Overview of the performance efficiency pillar](/azure/architecture/framework/scalability/overview)  ([#ed89cf6ab](https://github.com/MicrosoftDocs/architecture-center/commit/ed89cf6ab))
-- [Azure Kubernetes Service (AKS) solution journey](/azure/architecture/reference-architectures/containers/aks-start-here)  ([#b63ab6a9f](https://github.com/MicrosoftDocs/architecture-center/commit/b63ab6a9f))
-- [GCP to Azure Services Comparison](/azure/architecture/gcp-professional/services)  ([#a45091c00](https://github.com/MicrosoftDocs/architecture-center/commit/a45091c00))
-- [Resiliency patterns](/azure/architecture/patterns/category/resiliency)  ([#b5201626c](https://github.com/MicrosoftDocs/architecture-center/commit/b5201626c))
-- [Choosing an Azure compute service](/azure/architecture/guide/technology-choices/compute-decision-tree)  ([#a64329288](https://github.com/MicrosoftDocs/architecture-center/commit/a64329288))
-- [Security patterns](/azure/architecture/patterns/category/security)  ([#13add8a06](https://github.com/MicrosoftDocs/architecture-center/commit/13add8a06))
 

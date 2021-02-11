@@ -35,3 +35,18 @@ Create seamless conversational interfaces with all of your internet-accessible d
 1. [Custom Keywords](/azure/cognitive-services/speech-service/speech-devices-sdk-create-kws)
 1. [Language Understanding Service (LUIS)](/azure/cognitive-services/luis/)
 1. [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/)
+
+## See also
+
+- To learn how to create a LUIS app and add intents to your app, see these articles:
+    * [Create a LUIS app](/azure/cognitive-services/luis/luis-how-to-start-new-app)
+    * [Add an intent and train a LUIS app](/azure/cognitive-services/luis/luis-how-to-add-intents)
+- Learn more about adding a LUIS app to a bot, including:
+   * How to [create a bot](/azure/bot-service/abs-quickstart?view=azure-bot-service-4.0) by using the [Azure Bot Service](/azure/bot-service/?view=azure-bot-service-4.0)
+   * How to [add natural language understanding (LUIS) to a bot](/azure/bot-service/bot-builder-howto-v4-luis?view=azure-bot-service-4.0&tabs=csharp)
+- Learn about various methods you can use to send commands to an IoT device by using [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/), including:
+   * Sending [cloud-to-device commands](/azure/iot-hub/iot-hub-csharp-csharp-c2d)
+   * Using [device twins](/azure/iot-hub/iot-hub-csharp-csharp-twin-getstarted)
+   * Using [direct methods](/azure/iot-hub/iot-hub-devguide-direct-methods) 
+- Learn how to [build an enterprise-grade conversational bot](/azure/architecture/reference-architectures/ai/conversational-bot) by using the [Azure Bot Service](/azure/bot-service/?view=azure-bot-service-4.0).
+- To learn more about developing solutions by using IoT Hub, see the [Azure Iot Hub developer guide](/azure/iot-hub/iot-hub-devguide).
