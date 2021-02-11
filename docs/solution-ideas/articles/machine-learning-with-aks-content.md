@@ -18,3 +18,18 @@ Training of models using large datasets is a complex and resource intensive task
 1. Serve production model using Kubeflow, promoting a consistent environment across test, control and production
 1. AKS supports GPU enabled VM
 1. Developer can build features querying the model running in AKS cluster
+
+## Components
+
+- [Azure Blob Storage](/azure/storage/blobs/)
+- [Azure Container Registry](/services/container-registry/)
+- [Azure Kubernetes Service](/services/kubernetes-service/)
+- [Azure Machine Learning](/services/machine-learning/)
+
+## Next steps
+
+- [Artificial intelligence (AI) - Architectural overview](../data-guide/big-data/ai-overview.md)
+- [Azure Machine Learning documentation](/azure/machine-learning/)
+- [Azure Kubernetes Service (AKS) documentation](/azure/aks)
+- [Distributed training of deep learning models on Azure](../reference-architectures/ai/training-deep-learning.md)
+- [Training Python models on Azure](../reference-architectures/ai/training-python-models.md)

@@ -14,13 +14,13 @@ By combining deep learning and natural language processing (NLP) with data on si
 
 ## Components
 
-* Microsoft SQL Server: Data is stored, structured, and indexed using Microsoft SQL Server.
-* GPU based Azure Data Science Virtual Machine: The core development environment is the Microsoft Windows Server 2016 GPU DSVM NC24.
-* Azure Machine Learning Workbench: The Workbench is used for data cleaning and transformation, and it serves as the primary interface to the Experimentation and Model Management services.
-* Azure Machine Learning Experimentation Service: The Experimentation Service is used for model training, including hyperparameter tuning.
-* Azure Machine Learning Model Management Service: The Model Management service is used for deployment of the final model, including scaling out to a Kubernetes-managed Azure cluster.
-* Jupyter Notebooks on Azure Data Science VM: Jupyter Notebooks is used as the base IDE for the model, which was developed in Python.
-* Azure Container Registry: The Model Management Service creates and packages real-time web services as Docker containers. These containers are uploaded and registered via Azure Container Registry.
+* [Microsoft SQL Server](/sql/): Data is stored, structured, and indexed using Microsoft SQL Server.
+* [GPU based Azure Data Science Virtual Machine](/azure/machine-learning/data-science-virtual-machine/): The core development environment is the Microsoft Windows Server 2016 GPU DSVM NC24.
+* [Azure Machine Learning Workbench](/azure/machine-learning/): The Workbench is used for data cleaning and transformation, and it serves as the primary interface to the Experimentation and Model Management services.
+* [Azure Machine Learning Experimentation Service](/azure/machine-learning/): The Experimentation Service is used for model training, including hyperparameter tuning.
+* [Azure Machine Learning Model Management Service](/azure/machine-learning/): The Model Management service is used for deployment of the final model, including scaling out to a Kubernetes-managed Azure cluster.
+* [Jupyter Notebooks on Azure Data Science VM](/azure/machine-learning/data-science-virtual-machine/reference-ubuntu-vm): Jupyter Notebooks is used as the base IDE for the model, which was developed in Python.
+* [Azure Container Registry](/services/container-registry/): The Model Management Service creates and packages real-time web services as Docker containers. These containers are uploaded and registered via Azure Container Registry.
 * [Azure Kubernetes Service (AKS)](https://azure.microsoft.com/services/kubernetes-service): Deployment for this solution uses Azure Kubernetes Service running a Kubernetes-managed cluster. The containers are deployed from images stored in Azure Container Registry.
 
 ## Next steps
