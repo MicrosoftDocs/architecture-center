@@ -24,8 +24,8 @@ Key technologies used to implement this architecture:
 * [Azure App Service](https://azure.microsoft.com/services/app-service)
 * [Azure Bot Service](https://azure.microsoft.com/services/bot-service)
 * [Azure Cognitive Services Language Understanding](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service)
-* [Azure Bing Visual Search API](/azure/cognitive-services/bing-visual-search/)
-* [Azure Custom Search API](/azure/cognitive-services/bing-custom-search/)
+* [Azure Bing Visual Search API](/azure/cognitive-services/bing-visual-search)
+* [Azure Custom Search API](/azure/cognitive-services/bing-custom-search)
 
 ## Next Steps
 
@@ -33,5 +33,5 @@ Key technologies used to implement this architecture:
 * [Choosing a Microsoft cognitive services technology](../../data-guide/technology-choices/cognitive-services.md)
 * [What are Azure Cognitive Services?](/azure/cognitive-services/what-are-cognitive-services)
 * [What is Language Understanding (LUIS)?](/azure/cognitive-services/luis/what-is-luis)
-* [What is the Azure Bing Search API?](/azure/cognitive-services/bing-web-search/)
+* [What is the Azure Bing Search API?](/azure/cognitive-services/bing-web-search)
 * [Introduction to Bot Framework Composer](/composer/introduction)
