@@ -4,9 +4,9 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
 
-This reference architecture shows how to deploy an e-commerce web site on Azure using Azure CosmosDB as data store. Azure CosmosDB is used to store products and session state. 
+This reference architecture shows how to deploy an e-commerce web site on Azure using Azure CosmosDB as data store. Azure CosmosDB is used to store product information and session state. 
 
-This archietcture also supports in-depth queries over diverse product catalogs, traffic spikes, and rapidly changing inventory.
+This archietcture also supports in-depth queries over diverse product catalogs, traffic spikes, and rapidly changing inventory provided by Azure Search.
 
 ![Architecture Diagram](../media/retail-and-e-commerce-using-cosmos-db.png)
 *Download an [SVG](../media/retail-and-e-commerce-using-cosmos-db.svg) of this architecture.*
@@ -15,13 +15,13 @@ This archietcture also supports in-depth queries over diverse product catalogs, 
 
 The architecture has following components
 
-**Azure Kubernetes Service** (AKS). AKS is an Azure service that deploys a managed Kubernetes cluster.
+**Azure Web App**  Azure web app is used to host the e-commerce web application.
 
+**Azure CosmosDB** Azure CosmosDB stores the products and the session state.
 
-### Microservices
+**Azure Storage** Static product images are stored in Azure Storage Account.
 
-### Data storage
-
+**Azure Search** Search functionality is provided by Azure Search
 
 
 ## Next steps
