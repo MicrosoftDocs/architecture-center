@@ -24,8 +24,8 @@ Key technologies used to implement this architecture:
 * [Azure App Service](https://azure.microsoft.com/services/app-service)
 * [Azure Bot Service](https://azure.microsoft.com/services/bot-service)
 * [Azure Cognitive Services Language Understanding](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service)
-* [Azure Bing Visual Search API](https://docs.microsoft.com/en-us/azure/cognitive-services/bing-visual-search/)
-* [Azure Custom Search API](https://docs.microsoft.com/en-us/azure/cognitive-services/bing-custom-search/)
+* [Azure Bing Visual Search API](https://docs.microsoft.com/azure/cognitive-services/bing-visual-search/)
+* [Azure Custom Search API](https://docs.microsoft.com/azure/cognitive-services/bing-custom-search/)
 
 ## Next Steps
 
