@@ -68,9 +68,7 @@ items:
           - name: Choose a load balancing service
             href: guide/technology-choices/load-balancing-overview.md
           - name: Choose a messaging service
-            items:
-              - name: Asynchronous messaging options in Azure
-                href: guide/technology-choices/messaging.md
+            href: guide/technology-choices/messaging.md
       - name: Best practices for cloud applications
         items:
           - name: API design
@@ -1663,6 +1661,8 @@ items:
             items:
               - name: Basic web application
                 href: reference-architectures/app-service-web-app/basic-web-app.yml
+              - name: Consumer health portal
+                href: example-scenario/digital-health/health-portal.yml
               - name: Deployment in App Service Environments
                 items:
                   - name: Standard deployment
