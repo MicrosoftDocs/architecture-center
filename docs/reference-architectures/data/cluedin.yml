@@ -4,10 +4,13 @@ metadata:
   titleSuffix: Azure Architectures
   description: Use CluedIn eventual connectivity data integration to blend data from many siloed data sources and prepare it for analytics and business operations.
   author: doodlemania2
+  ms.author: pnp
   ms.date: 01/04/2021
   ms.topic: conceptual
   ms.service: architecture-center
-  ms.custom: fcp
+  ms.subservice: reference-architecture
+  ms.custom:
+    - fcp
 azureCategories:
   - databases
   - management-and-governance
@@ -31,4 +34,3 @@ summary: Use the CluedIn eventual connectivity data integration technique to sea
 thumbnailUrl: /azure/architecture/browse/thumbs/cluedin-architecture-small.png
 content: |
   [!include[](cluedin-content.md)]
-

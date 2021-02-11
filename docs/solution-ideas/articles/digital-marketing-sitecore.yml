@@ -2,24 +2,30 @@
 metadata:
   title: Scalable Sitecore marketing website
   titleSuffix: Azure Solution Ideas
+  description: The Sitecore Experience Platform (xP) provides the data, integrated tools, and automation needed to engage customers throughout an iterative life cycle.
   author: doodlemania2
+  ms.author: pnp
   ms.date: 12/16/2019
-  description: 'With the Sitecore Experience Platform (xP), you have at your fingertips the complete data, integrated tools, and automation capabilities to engage your customers throughout an iterative life cycle-the technology foundation necessary to win customers for life.'
-  ms.custom: 'acom-architecture, web-apps, ''https://azure.microsoft.com/solutions/architecture/digital-marketing-sitecore/'''
+  ms.topic: conceptual
   ms.service: architecture-center
+  ms.subservice: solution-idea
   ms.category:
     - web
-  ms.subservice: solution-idea
+  ms.custom:
+    - acom-architecture
+    - web-apps
+    - 'https://azure.microsoft.com/solutions/architecture/digital-marketing-sitecore/'
   social_image_url: /azure/architecture/solution-ideas/articles/media/digital-marketing-sitecore.png
 name: Scalable Sitecore marketing website
 azureCategories:
   - web
-summary: 'With the Sitecore Experience Platform (xP), you have at your fingertips the complete data, integrated tools, and automation capabilities to engage your customers throughout an iterative life cycle-the technology foundation necessary to win customers for life.'
+summary: The Sitecore Experience Platform (xP) provides the data, integrated tools, and automation needed to engage customers throughout an iterative life cycle.
 products:
-  - azure
+  - azure-cache-redis
+  - azure-cognitive-search
   - azure-monitor
-  - azure-web-apps
   - azure-sql-database
+  - azure-web-apps
 thumbnailUrl: /azure/architecture/browse/thumbs/digital-marketing-sitecore.png
 content: |
    [!include[](digital-marketing-sitecore-content.md)]

@@ -1,14 +1,15 @@
 ---
-title: Use the H1 (#) title of your article from the top of this section. Both titles should be identical. Maximum recommended length is 60 characters
-description: A brief summary of your article. This is the description that appears in search engine results. Maximum recommended length is 150-160 characters
-keywords: Comma-separated list of key concepts and terms from your article (optional).
-ms.date: mm/dd/yyyy
-ms.service = architecture-center
-ms.topic = conceptual
-ms.subservice = reference-architecture
+title: <Use the H1 title of your article. Maximum recommended length is 60 characters>
+titleSuffix: Azure Reference Architectures
+description: <A brief summary of your article. This is the description that appears in search engine results. Maximum recommended length is 150-160 characters.>
+author: <github username>
+ms.date: <publish or update date - mm/dd/yyyy>
+ms.service: architecture-center
+ms.topic: conceptual
+ms.subservice: reference-architecture
 ---
 
-[NOTE: You can find more detailed guidelines about creating reference architectures [here](../reference-architectures.md).]
+[NOTE: You can find detailed guidelines about creating reference architectures [here](../reference-architectures.md).]
 
 # Article title
 

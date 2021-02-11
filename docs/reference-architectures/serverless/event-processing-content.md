@@ -18,7 +18,7 @@ This reference architecture shows a [serverless](https://azure.microsoft.com/sol
 
 Function Apps are suitable for processing individual records from Event Hubs. For more complex stream processing scenarios, consider Apache Spark using Azure Databricks, or Azure Stream Analytics.
 
-**Cosmos DB**. [Cosmos DB][cosmosdb] is a multi-model database service. For this scenario, the event-processing function stores JSON records, using the Cosmos DB [SQL API][cosmosdb-sql].
+**Cosmos DB**. [Cosmos DB][cosmosdb] is a multi-model database service that is available in a serverless, consumption-based mode. For this scenario, the event-processing function stores JSON records, using the Cosmos DB [SQL API][cosmosdb-sql].
 
 **Queue storage**. [Queue storage][queue] is used for dead letter messages. If an error occurs while processing an event, the function stores the event data in a dead letter queue for later processing. For more information, see [Resiliency Considerations](#resiliency-considerations).
 
@@ -36,13 +36,16 @@ The [Event Hub trigger][eh-trigger] in the function app scales according to the 
 
 ### Cosmos DB
 
-Throughput capacity for Cosmos DB is measured in [Request Units][ru] (RU). In order to scale a Cosmos DB container past 10,000 RU, you must specify a [partition key][partition-key] when you create the container, and include the partition key in every document that you create.
+Cosmos DB is available in 2 different capacity modes:
 
-Here are some characteristics of a good partition key:
+- [Serverless][cosmosdb-serverless] for workloads with intermittent or unpredictable traffic and low average-to-peak traffic ratio.
+- [Provisioned throughput][cosmosdb-provisioned], for workloads with sustained traffic requiring predictable performance.
+
+To make sure your workload is scalable, it is important to choose an appropriate [partition key][partition-key] when you create your Cosmos DB containers. Here are some characteristics of a good partition key:
 
 - The key value space is large.
 - There will be an even distribution of reads/writes per key value, avoiding hot keys.
-- The maximum data stored for any single key value will not exceed the maximum physical partition size (10 GB).
+- The maximum data stored for any single key value will not exceed the maximum physical partition size (20 GB).
 - The partition key for a document won't change. You can't update the partition key on an existing document.
 
 In the scenario for this reference architecture, the function stores exactly one document per device that is sending data. The function continually updates the documents with latest device status, using an upsert operation. Device ID is a good partition key for this scenario, because writes will be evenly distributed across the keys, and the size of each partition will be strictly bounded, because there is a single document for each key value. For more information about partition keys, see [Partition and scale in Azure Cosmos DB][cosmosdb-scale].
@@ -119,7 +122,7 @@ The deployment shown here resides in a single Azure region. For a more resilient
 
 ## Cost considerations
 
-Use the [Azure Pricing calculator][azure-pricing-calculator] to estimates costs. Here are some other considerations.
+Use the [Azure Pricing calculator][azure-pricing-calculator] to estimates costs. See also the Cost section in [Microsoft Azure Well-Architected Framework][aaf-cost]. Here are some other considerations.
 
 ### Azure Functions
 
@@ -135,19 +138,21 @@ Azure Functions supports two hosting models.
 
 In this architecture, each event that arrives on Event Hubs, triggers a function that processes that event. From a cost perspective, the recommendation is to use **consumption plan** because you pay only for the compute resources you use.
 
-
 ### Azure Cosmos DB
 
-Azure Cosmos DB bills for provisioned throughput and consumed storage by hour. Provisioned throughput is expressed in Request Units per second (RU/s), which can be used for typical database operations, such as inserts, reads. The price is based on the capacity in RU/s that you reserve. Also, you have to reserve a minimum of 400 RUs per container, where a concurrent read of 1KB document consumes 1 RU. If your app does not need to be this intensive, consider using a single container because each container has a fixed cost.
+With Cosmos DB, you pay for the operations you perform against the database and for the storage consumed by your data.
+
+- **Database operations**: The way you get charged for your database operations depends on the type of Azure Cosmos DB account you are using.
+
+  - In [serverless][cosmosdb-serverless] mode, you don't have to provision any throughput when creating resources in your Azure Cosmos account. At the end of your billing period, you get billed for the amount of [Request Units][ru] that has been consumed by your database operations.
+
+  - In [provisioned throughput][cosmosdb-provisioned] mode, you specify the throughput that you need in [Request Units][ru] per second (RU/s), and get billed hourly for the maximum provisioned throughput for a given hour. **Note**: Because the provisioned throughput model dedicates resources to your container or database, you will be charged for the throughput you have provisioned even if you don't run any workloads.
+
+- **Storage**: You are billed a flat rate for the total amount of storage (in GBs) consumed by your data and indexes for a given hour.
 
 In this reference architecture, the function stores exactly one document per device that is sending data. The function continually updates the documents with latest device status, using an upsert operation, which is cost effective in terms of consumed storage. For more information, see [Cosmos DB pricing model][cosmosdb-pricing].
 
-Storage is billed for each GB used for your stored data and index. 
-
 Use the [Cosmos DB capacity calculator][Cosmos-Calculator] to get a quick estimate of the workload cost.
-
-For more information, see the Cost section in [Microsoft Azure Well-Architected Framework][aaf-cost].
-
 
 ## DevOps considerations
 
@@ -185,6 +190,8 @@ To learn more about the reference implementation, read [Code walkthrough: Server
 [cosmosdb-scale]: /azure/cosmos-db/partition-data
 [cosmosdb-pricing]: https://azure.microsoft.com/pricing/details/cosmos-db/
 [cosmosdb-sql]: /azure/cosmos-db/sql-api-introduction
+[cosmosdb-serverless]: /azure/cosmos-db/serverless
+[cosmosdb-provisioned]: /azure/cosmos-db/set-throughput
 [Cost-Calculator]: https://azure.microsoft.com/pricing/calculator/
 [eh]: /azure/event-hubs/
 [eh-autoscale]: /azure/event-hubs/event-hubs-auto-inflate

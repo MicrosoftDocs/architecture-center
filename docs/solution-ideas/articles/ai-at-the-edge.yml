@@ -2,15 +2,26 @@
 metadata:
   title: AI at the Edge with Azure Stack Hub
   titleSuffix: Azure Solution Ideas
-  author: doodlemania2
-  ms.date: 09/01/2020
   description: Bring your trained AI model to the edge with Azure Stack Hub and integrate it with your applications for low-latency intelligence.
-  ms.custom: 'ai-ml, acom-architecture, ai at the edge, azure stack edge, edge ai, machine learning, interactive-diagram, ''https://azure.microsoft.com/solutions/architecture/ai-at-the-edge/'''
+  author: doodlemania2
+  ms.author: pnp
+  ms.date: 09/01/2020
+  ms.topic: conceptual
   ms.service: architecture-center
+  ms.subservice: solution-idea
   ms.category:
     - ai-machine-learning
     - hybrid
-  ms.subservice: solution-idea
+  ms.custom:
+    - ai-ml
+    - acom-architecture
+    - ai at the edge
+    - azure stack edge
+    - edge ai
+    - machine learning
+    - interactive-diagram
+    - e2e-hybrid
+    - 'https://azure.microsoft.com/solutions/architecture/ai-at-the-edge/'
   social_image_url: /azure/architecture/solution-ideas/articles/media/ai-at-the-edge.png
 name: AI at the Edge with Azure Stack Hub
 azureCategories:
