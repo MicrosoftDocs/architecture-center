@@ -21,13 +21,13 @@ There are three steps: Ingest, Enrich and Exploration. First, the unstructured a
 
 Key technologies used to implement tools for technical content review and research
 
-- [Azure Cognitive Search](/azure/search/)
-- [Microsoft Computer Vision API](https://azure.microsoft.com/services/cognitive-services/computer-vision/)
-- [Microsoft Face API](https://azure.microsoft.com/services/cognitive-services/face/)
-- [Web API custom skill interface](/azure/search/cognitive-search-custom-skill-interface)
+* [Azure Cognitive Search](/azure/search/)
+* [Microsoft Computer Vision API](https://azure.microsoft.com/services/cognitive-services/computer-vision/)
+* [Microsoft Face API](https://azure.microsoft.com/services/cognitive-services/face/)
+* [Web API custom skill interface](/azure/search/cognitive-search-custom-skill-interface)
 
 ## Next steps
 
-- [Artificial intelligence (AI) - Architectural overview](../data-guide/big-data/ai-overview.md)
-- Use the [Knowledge Mining Solution Accelerator](/samples/azure-samples/azure-search-knowledge-mining/azure-search-knowledge-mining/) to build an initial knowledge mining prototype with Azure Cognitive Search.
-- [How to add a custom skill to an Azure Cognitive Search enrichment pipeline](/azure/search/cognitive-search-custom-skill-interface)
+* [Artificial intelligence (AI) - Architectural overview](../../data-guide/big-data/ai-overview.md)
+* Use the [Knowledge Mining Solution Accelerator](/samples/azure-samples/azure-search-knowledge-mining/azure-search-knowledge-mining/) to build an initial knowledge mining prototype with Azure Cognitive Search
+* [How to add a custom skill to an Azure Cognitive Search enrichment pipeline](/azure/search/cognitive-search-custom-skill-interface)

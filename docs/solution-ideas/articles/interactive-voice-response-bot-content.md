@@ -43,17 +43,17 @@ The "Deploy" button on this page will launch a workflow that deploys an instance
 
 ## Components
 
-- [Azure Bot Service](/services/bot-service)
-- [Azure Cognitive Search](/azure/search/)
-- [Azure Cognitive Services](/services/cognitive-services/) for Bing Speech
-- [Azure Cognitive Services Language Understanding](/services/cognitive-services/language-understanding-intelligent-service/)
-- [Azure Cosmos DB](/azure/cosmos-db/)
-- [Azure SQL Database](/services/sql-database)
-- [Azure Web App Service](/services/app-service/web/)
+* [Azure Bot Service](/services/bot-service)
+* [Azure Cognitive Search](/azure/search/)
+* [Azure Cognitive Services](/services/cognitive-services/) for Bing Speech
+* [Azure Cognitive Services Language Understanding](/services/cognitive-services/language-understanding-intelligent-service/)
+* [Azure Cosmos DB](/azure/cosmos-db/)
+* [Azure SQL Database](/services/sql-database)
+* [Azure Web App Service](/services/app-service/web/)
 
 ## Next steps
 
-- [Artificial intelligence (AI) - Architectural overview](../data-guide/big-data/ai-overview.md)
-- [Build an enterprise-grade conversational bot](../reference-architectures/ai/conversational-bot)
-- [Speech-to-text conversion](../reference-architectures/ai/speech-ai-ingestion.md)
-- [Speech Services](speech-services.md)
+* [Artificial intelligence (AI) - Architectural overview](../../data-guide/big-data/ai-overview.md)
+* [Build an enterprise-grade conversational bot](/azure/architecture/reference-architectures/ai/conversational-bot)
+* [Speech-to-text conversion](/azure/architecture/reference-architectures/ai/speech-ai-ingestion)
+* [Speech Services](/azure/architecture/solution-ideas/articles/speech-services)
