@@ -8,11 +8,11 @@ metadata:
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: example-scenario
+  ms.category:
+    - ai-machine-learning
   ms.custom:
     - fcp
     - example-scenario
-  ms.category:
-    - ai-machine-learning
 name: Vision classifier model with Azure Custom Vision Cognitive Service
 azureCategories:
   - ai-machine-learning

@@ -1,11 +1,14 @@
 ---
 title: Data encryption in Azure
-description: Protect data in transit and at rest through encryption in Azure. 
+description: Protect data in transit and at rest through encryption in Azure.
 author: PageWriter-MSFT
 ms.date: 12/03/2020
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
+products:
+  - azure-storage
+  - azure-active-directory
 ms.custom:
   - article
 ---

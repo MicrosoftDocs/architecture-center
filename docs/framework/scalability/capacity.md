@@ -1,11 +1,13 @@
 ---
 title: Capacity
-description:
+description: Ensure that your Azure architecture provides sufficient capacity.
 author: david-stanford
 ms.date: 10/16/2019
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
+products:
+  - azure-blob-storage
 ms.custom:
   - How are you ensuring you have sufficient Capacity?
   - article
