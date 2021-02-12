@@ -3,7 +3,7 @@ title: Overview of Azure load-balancing options
 titleSuffix: Azure Application Architecture Guide
 description: An overview of Azure load-balancing options.
 author: EdPrice-MSFT
-ms.date: 02/05/2021
+ms.date: 02/12/2021
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: guide
@@ -19,7 +19,10 @@ ms.custom:
 # Understand Azure Load Balancing
 
 The term *load balancing* refers to the distribution of workloads across multiple computing resources. Load balancing aims to optimize resource use, maximize throughput, minimize response time, and avoid overloading any single resource. It can also improve availability by sharing a workload across redundant computing resources.
-This article describes how you can use the Azure Load Balancing hub page in the Azure portal to determine an appropriate load-balancing solution for your business needs based on the various load-balancing services available in Azure - Application Gateway, Front Door, Load Balancer, and Traffic Manager.
+
+Azure provides various load balancing services that you can use to distribute your workloads across multiple computing resources - Application Gateway, Front Door, Load Balancer, and Traffic Manager. 
+
+This article describes how you can use the Azure Load Balancing hub page in the Azure portal to determine an appropriate load-balancing solution for your business needs.
 
 ## Overview
 
