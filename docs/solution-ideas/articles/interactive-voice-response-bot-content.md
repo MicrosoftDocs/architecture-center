@@ -43,13 +43,13 @@ The "Deploy" button on this page will launch a workflow that deploys an instance
 
 ## Components
 
-* [Azure Bot Service](/services/bot-service)
+* [Azure Bot Service](https://azure.microsoft.com/services/bot-services/)
 * [Azure Cognitive Search](/azure/search/)
-* [Azure Cognitive Services](/services/cognitive-services/) for Bing Speech
-* [Azure Cognitive Services Language Understanding](/services/cognitive-services/language-understanding-intelligent-service/)
+* [Azure Cognitive Services](https://azure.microsoft.com/services/cognitive-services/) for Bing Speech
+* [Azure Cognitive Services Language Understanding](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/)
 * [Azure Cosmos DB](/azure/cosmos-db/)
-* [Azure SQL Database](/services/sql-database)
-* [Azure Web App Service](/services/app-service/web/)
+* [Azure SQL Database](https://azure.microsoft.com/services/sql-database/)
+* [Azure Web App Service](https://azure.microsoft.com/services/app-service/web/)
 
 ## Next steps
 

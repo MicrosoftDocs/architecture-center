@@ -18,8 +18,8 @@ Using this solution to automate failure detection instead of relying solely on h
 
 * [Azure Blob Storage](/azure/storage/blobs/): Data is ingested and stored in Azure Blob Storage.
 * [GPU based Azure Data Science Virtual Machine](/azure/machine-learning/data-science-virtual-machine/): The core development environment is the Azure Ubuntu-based GPU DSVM. The data is pulled from blob onto an Azure virtual hard disk (VHD) attached to the DSVM. On that VHD, the data is processed, the images are featurized using a Deep Neural Network, and a Boosted Tree model is trained. DSVM IPython Notebook server is used for solution development.
-* [Microsoft Machine Learning for Apache Spark HDInsight Spark Cluster](/services/hdinsight/): As an alternative to DSVM-based training, for big datasets, we use MMLSpark to build a highly scalable training solution.
-* [Azure Container Registry](/services/container-registry/): The model and web application are packaged into a Docker image and written to Azure Container Registry.
+* [Microsoft Machine Learning for Apache Spark HDInsight Spark Cluster](/azure/hdinsight/r-server/r-server-overview): As an alternative to DSVM-based training, for big datasets, we use MMLSpark to build a highly scalable training solution.
+* [Azure Container Registry](/azure/container-registry/): The model and web application are packaged into a Docker image and written to Azure Container Registry.
 * [Azure Machine Learning Model Management Service](/azure/machine-learning/): Azure Machine Learning Model Management service is used to deploy and manage the final model on a VM and to scale out using Azure Kubernetes Service to a Kubernetes managed Azure cluster. A predictive web service and a Java ETL service are also written onto the VM, each in its own container.
 * [Azure Kubernetes Service (AKS)](https://azure.microsoft.com/services/kubernetes-service): Deployment for this solution uses Azure Kubernetes Service running a Kubernetes-managed cluster. The containers are deployed from images stored in Azure Container Registry.
 

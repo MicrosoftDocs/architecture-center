@@ -20,7 +20,7 @@ By combining deep learning and natural language processing (NLP) with data on si
 * [Azure Machine Learning Experimentation Service](/azure/machine-learning/): The Experimentation Service is used for model training, including hyperparameter tuning.
 * [Azure Machine Learning Model Management Service](/azure/machine-learning/): The Model Management service is used for deployment of the final model, including scaling out to a Kubernetes-managed Azure cluster.
 * [Jupyter Notebooks on Azure Data Science VM](/azure/machine-learning/data-science-virtual-machine/reference-ubuntu-vm): Jupyter Notebooks is used as the base IDE for the model, which was developed in Python.
-* [Azure Container Registry](/services/container-registry/): The Model Management Service creates and packages real-time web services as Docker containers. These containers are uploaded and registered via Azure Container Registry.
+* [Azure Container Registry](/azure/container-registry/): The Model Management Service creates and packages real-time web services as Docker containers. These containers are uploaded and registered via Azure Container Registry.
 * [Azure Kubernetes Service (AKS)](https://azure.microsoft.com/services/kubernetes-service): Deployment for this solution uses Azure Kubernetes Service running a Kubernetes-managed cluster. The containers are deployed from images stored in Azure Container Registry.
 
 ## Next steps

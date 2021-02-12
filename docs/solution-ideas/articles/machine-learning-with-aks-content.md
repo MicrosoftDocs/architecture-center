@@ -22,9 +22,9 @@ Training of models using large datasets is a complex and resource intensive task
 ## Components
 
 * [Azure Blob Storage](/azure/storage/blobs/)
-* [Azure Container Registry](/services/container-registry/)
-* [Azure Kubernetes Service](/services/kubernetes-service/)
-* [Azure Machine Learning](/services/machine-learning/)
+* [Azure Container Registry](/azure/container-registry/)
+* [Azure Kubernetes Service](https://azure.microsoft.com/services/container-registry/)
+* [Azure Machine Learning](https://azure.microsoft.com/en-us/services/machine-learning/)
 
 ## Next steps
 
