@@ -5,9 +5,12 @@ author: maggsl
 ms.date: 06/16/2020
 ms.topic: conceptual
 ms.service: architecture-center
+ms.subservice: reference-architecture
 ms.category:
   - solutions
-ms.subservice: reference-architecture
+products:
+  - azure-load-balancer
+  - azure-application-gateway
 ms.custom:
   - high-availability
   - fcp
