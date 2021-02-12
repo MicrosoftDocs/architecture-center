@@ -8,16 +8,17 @@ The Azure Event Grid can be used as an essential building block in automation of
 ## Architecture
 
 ![Architecture Diagram](../media/ops-automation-using-event-grid.png)
+
 *Download an [SVG](../media/ops-automation-using-event-grid.svg) of this architecture.*
 
-## Data Flow
+## Data flow
 
-1. An User is deploying a new resource in Azure
-2. The deployment creates the resource (in this sample a VM)
-3. The deployment triggers the Event Grid
-4. The event is fired an the subscriber Automation Account receives the event
-5. The Automation Account applies e.g. a tag to the new deployed resource
-6. The event can optional also been consumed by a LogicApp and the LogicApp could for example make an entry in a operation tools.
+1. A user deploys a new resource in Azure.
+2. The deployment creates the resource (in this sample, a VM).
+3. The deployment triggers the Event Grid.
+4. The event is fired, and the subscriber Automation account receives the event.
+5. The Automation account applies a tag to the new deployed resource (a task example).
+6. The event can optionally also be consumed by a Logic App, and the Logic App could make an entry in an operation tool (for example).
 
 ## Components
 
@@ -25,7 +26,7 @@ The Azure Event Grid can be used as an essential building block in automation of
 - [Azure Automation account](/azure/automation/automation-quickstart-create-account)
 - [Azure Logic Apps](/azure/logic-apps/logic-apps-overview)
 
-## Next Steps
+## Next steps
 
 Review some of these guides:
 
