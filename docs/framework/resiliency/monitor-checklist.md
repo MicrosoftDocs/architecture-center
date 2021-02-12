@@ -48,3 +48,11 @@ Monitoring and diagnostics are crucial for resiliency. If something fails, you n
 
 - [Hybrid availability and performance monitoring](https://docs.microsoft.com/azure/architecture/hybrid/hybrid-perf-monitoring)
 - [Unified logging for microservices applications](https://docs.microsoft.com/azure/architecture/example-scenario/logging/unified-logging)
+- 
+## Next step
+
+>[!div class="nextstepaction"]
+>[Monitoring](/azure/architecture/framework/resiliency/monitoring)
+
+## Related links
+
