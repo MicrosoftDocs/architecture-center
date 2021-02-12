@@ -316,6 +316,8 @@ Use the [Azure pricing calculator][azure-pricing-calculator] to estimate costs.
 
 For more information, see the cost section in [Microsoft Azure Well-Architected Framework][aaf-cost].
 
+If your workload requires additional memory and fewer CPUs, consider using one of the [constrained vCPU Virtual Machine](/azure/virtual-machines/constrained-vcpu) sizes to reduce software licensing costs that are per-vCPU.
+
 ### Virtual machines
 
 This architecture uses virtual machines for the application tier and database tier. SAP NetWeaver tier uses Windows virtual machines to run SAP services and applications. The database tier runs AnyDB as the database, such as Microsoft SQL Server, Oracle, or IBM DB2. Virtual machines are also used as jumpboxes for management.
@@ -332,9 +334,13 @@ Use [Azure Spot VMs][az-spot-vms] to run workloads that can be interrupted and d
 - Test environments, including continuous integration and continuous delivery workloads.
 - Large-scale stateless applications.
 
+If you require additional control over maintenance events or hardware isolation, for either performance or compliance reasons, consider deploying your Virtual Machines on [Dedicated Hosts](/azure/virtual-machines/dedicated-hosts).
+
 ### Virtual machines and availability sets
 
 For all pools and clusters (Web Dispatcher, SAP application servers, Central Services, and database) the virtual machines are grouped into separate availability sets. There is no cost for the availability set. You only pay for each VM instance that you create.
+
+If you are deploying the workload across Availability Zones, then Availability Sets are not required.
 
 ### Azure Load Balancer
 
