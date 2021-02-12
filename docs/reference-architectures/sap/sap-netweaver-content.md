@@ -290,9 +290,11 @@ Support access within the applications themselves through the services that SAP 
 
 [Azure Monitor](/azure/azure-monitor/overview), which now includes Azure Log Analytics and Azure Application Insights, provides sophisticated tools for collecting and analyzing telemetry so you can maximize the performance and availability of your cloud and on-premises resources and applications. Azure Monitor can be used to monitor and alert administrators of infrastructure and application anomalies and to automate reactions to predefined conditions.
 
-For an Azure-native, end-to-end monitoring solution for SAP Netweaver, utilise [Azure Monitor for SAP](/azure/virtual-machines/workloads/sap/azure-monitor-overview).
+To provide SAP-based monitoring of resources and service performance of the SAP infrastructure, use the [Azure SAP Enhanced Monitoring](/azure/virtual-machines/workloads/sap/deployment-guide) extension. This extension feeds Azure monitoring statistics into the SAP application for operating system monitoring and DBA Cockpit functions. SAP enhanced monitoring is a mandatory prerequisite to run SAP on Azure. For details, see [SAP note 2191498](https://launchpad.support.sap.com/#/notes/2191498) – "SAP on Linux with Azure: Enhanced Monitoring." (To access the SAP notes, you must have an SA Service Marketplace account.)
 
-Whilst this provides a comprehensive initial set of metrics and telemetry for monitoring, the metric definitions are stored as SQL queries in JSON and can be modified to meet your requirements. The starting set of metrics is available on GitHub [here](https://github.com/Azure/AzureMonitorForSAPSolutions/blob/master/sapmon/content/SapNetweaver.json).
+The future direction for an Azure-native, end-to-end monitoring solution for SAP Netweaver is [Azure Monitor for SAP](/azure/virtual-machines/workloads/sap/azure-monitor-overview). Note that this is currently in Public Preview and is only available in a limited set of regions, so you should carefully evaluate if it meets your requirements.
+
+Azure Monitor for SAP provides a comprehensive initial set of metrics and telemetry for monitoring, and the metric definitions are stored as SQL queries in JSON and can be modified to meet your requirements. The starting set of metrics is available on GitHub [here](https://github.com/Azure/AzureMonitorForSAPSolutions/blob/master/sapmon/content/SapNetweaver.json).
 
 ## Security considerations
 
