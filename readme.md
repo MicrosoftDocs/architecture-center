@@ -1,93 +1,71 @@
-> The H1 title is a noun phrase that describes the scenario. Don't enter it here, but as the **name** value in the corresponding YAML file.
+# Multi-cloud Distributed Ledger (DLT)
 
-Introductory section - no heading
-
-> This should be an introduction of the business problem and why this scenario was built to solve it.
->> What industry is the customer in?
->> What prompted them to solve the problem?
->> What services were used in building out this solution?
->> What does this example scenario show? What are the customer's goals?
-
-> What were the benefits of implementing the solution described below?
+Introduction
+Blockchain and DLT networks are multi-party systems. Each party has their own tools, methodology and probably preferred cloud provider. Although cloud Blockchain-as-a-service offerings (BaaS) can save a lot of Infrastructure management efforts, it assumes that all party will be in the same Cloud and it sometimes have limits to the number of nodes in a single consortium.
 
 ## Potential use cases
+Imagine two parties join forces to build a blockchain network between them. ‘Party A’ uses Azure, and “Party B” uses their own private cloud infrastructure or other cloud provider. 
+In this scenario, managed blockchain is only useful if all party join the same infrastructure. For these scenarios, we need to build a standard platform across different infrastructure. 
+This platform must have standard visibility, operations, and compliance across a wide range of resources and locations regardless of the hosting infrastructure.
 
-> Are there any other use cases or industries where this would be a fit?
-> How similar or different are they to what's in this article?
-
-These other uses cases have similar design patterns:
-
-- List of example use cases
-
+The benefits of using this approach are:
+-	Supports heterogeneous deployments in a multi-cloud, multi-owner model where each node is completely owned and managed by separate organizations.
+-	Centrally manage and monitor the Network status and compliance.
+ 
 ## Architecture
+This reference Architecture provides a cloud agnostic & multi-party DLT Network. It Supports heterogeneous deployments in a multi-cloud, multi-owner model where each owner can host their nodes anywhere but be part of the network.
 
-_Architecture diagram goes here_
+This architecture uses a three-party example, each party host their nodes in different location. As below:
+-	Party A: Uses Azure Kubernetes Service.
+-	Party B: Uses GCP GKE.
+-	Party C: Uses AWS GKE.
 
-> What does the solution look like at a high level?
-> Why did we build the solution this way?
-> What will the customer need to bring to this?  (Software, skills, etc?)
-> Is there a data flow that should be described?
+<p align="center">
+  <img src="images/MultiCloudDLTArchitecture.PNG">
+</p>
+
+
+ 
 
 ### Components
+Kubernetes as the standard infrastructure to host both the Ledger and the Application.
+-	This architecture assumes you have three managed Kubernetes clusters in Azure AKS, AWS EKS and GCP GKE already. You can have your cluster virtually anywhere.
 
-A bullet list of components in the architecture (including all relevant Azure services) with links to the product documentation.
+Blockchain Automation Framework (BAF). BAF provides a consistent means by which developers can deploy production-ready distributed networks across public and private cloud providers.
+-	BAF is a great framework for managing the deployment but it doesn’t cater for central infrastructure management and monitoring.
+-	BAF currently support the following DLT: Quorum, Corda & Hyperledger.
 
-> Why is each component there?
-> What does it do and why was it necessary?
+Azure Arc enabled Kubernetes to centrally manage Kubernetes clusters in any location. 
+-	Azure Arc enabled Kubernetes works with any Cloud Native Computing Foundation (CNCF) certified Kubernetes cluster such as AKS-engine on Azure, AKS-engine on Azure Stack Hub, GKE, EKS and VMware vSphere cluster.
 
-- Example: [Resource Groups][resource-groups] is a logical container for Azure resources.  We use resource groups to organize everything related to this project in the Azure console.
+Ambassador API Gateway for cross-node communication.
 
-### Alternatives
+HashiCorp Vault. BAF use it as the certificate and key storage solution; so to use BAF, at least one Vault server should be available. BAF recommends one Vault per organization for production-ready projects.
 
-Use this section to talk about alternative Azure services or architectures that you might consider for this solution. Include the reasons why you might choose these alternatives.
-
-> What alternative technologies were considered and why didn't we use them?
+Shared Artifacts:
+-	Azure DevOps to provide Application & Infrastructure and lifecycle management.
+-	Ansible Controller on an Azure Linux VM. This will be used as custom CI/CD agent on Azure DevOps.
+-	Docker container registry: to pull ledger specific images.
+-	Azure Container registry. To store & share private application-related container images.
 
 ## Considerations
+Although Kubernetes clusters can be managed and monitor via Azure Arc, each cluster must cater for High availability, scalability, and disaster recovery independently.
+For Azure AKS best practices, we recommend considering AKS Baseline. Similar best practices guidance can be found for other cloud providers.
 
-> Are there any lessons learned from running this that would be helpful for new customers?  What went wrong when building it out?  What went right?
-> How do I need to think about managing, maintaining, and monitoring this long term?
-
-### Availability
-
-### Scalability
-
-> Are there any size considerations around this specific solution?
-> What scale does this work at?
-> At what point do things break or not make sense for this architecture?
 
 ### Security
-
-> Are there any security considerations (past the typical) that I should know about this?
+Cross-node communication but you may use cloud native API Gateway over internet. You may use cloud native API Gateway like Azure API Management or alternatively use External-DNS like AzureDNS.
 
 ## Deploy this scenario
-
-> (Optional, but greatly encouraged)
->
-> Is there an example deployment that can show me this in action?  What would I need to change to run this in production?
+1.	Create the Kubernetes clusters.
+o	Onboard existing Cluster to Azure Arc.
+o	Create & Onboard Amazon Elastic Kubernetes Service.
+o	Create & Onboard Google Kubernetes Engine.
+2.	Create an Azure DevOps Org and project
+3.	Create and Ansible Controller VM in Azure
+4.	Follow steps for installing and configuring BAF Prerequisites
 
 ## Pricing
+For Azure Resources costs, you can use Azure pricing calculator.
+Note: Azure Arc enabled Kubernetes In the current preview phase. Azure Arc enabled Kubernetes is offered at no additional cost.
 
-> How much will this cost to run?
-> Are there ways I could save cost?
-> If it scales linearly, than we should break it down by cost/unit. If it does not, why?
-> What are the components that make up the cost?
-> How does scale affect the cost?
->
-> Link to the pricing calculator with all of the components in the architecture included, even if they're a $0 or $1 usage.
-> If it makes sense, include small/medium/large configurations. Describe what needs to be changed as you move to larger sizes
-
-## Next steps
-
-> Where should I go next if I want to start building this?
-> Are there any reference architectures that help me build this?
-
-## Related resources
-
-> Are there any relevant case studies or customers doing something similar?
-> Is there any other documentation that might be useful?
-> Are there product documents that go into more detail on specific technologies not already linked
-
-<!-- links -->
-
-[calculator]: https://azure.com/e/
