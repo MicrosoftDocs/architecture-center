@@ -24,7 +24,7 @@ The following components are required.
 
 **Virtual machines.** This architecture uses virtual machines for the application tier and database tier, grouped as follows:
 
-- **SAP NetWeaver.** The application tier uses Windows virtual machines to run SAP Central Services and SAP application servers. The VMs that run Central Services are configured as a Windows Server Failover Cluster for high availability, supported by Windows Scale Out File Server (SOFS) with Storage Space Direct (S2D).
+- **SAP NetWeaver.** The application tier uses Windows virtual machines to run SAP Central Services and SAP application servers. The VMs that run Central Services are configured as a Windows Server Failover Cluster for high availability, supported by Windows Scale Out File Server (SOFS) with Storage Space Direct (S2D) or Azure Shared Disks.
 
 - **AnyDB.** The database tier runs AnyDB as the database, such as Microsoft SQL Server, Oracle, or IBM DB2.
 
