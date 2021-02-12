@@ -1,4 +1,4 @@
-\# Multi-cloud Distributed Ledger (DLT)
+# Multi-cloud Distributed Ledger (DLT)
 
 Introduction
 
@@ -9,7 +9,7 @@ of Infrastructure management efforts, it assumes that all party will be
 in the same Cloud and it sometimes have limits to the number of nodes in
 a single consortium.
 
-\#\# Potential use cases
+## Potential use cases
 
 Imagine two parties join forces to build a blockchain network between
 them. 'Party A' uses Azure, and "Party B" uses their own private cloud
@@ -31,7 +31,7 @@ The benefits of using this approach are:
 
 -   Centrally manage and monitor the Network status and compliance.
 
-\#\# Architecture
+## Architecture
 
 This reference Architecture provides a cloud agnostic & multi-party DLT
 Network. It Supports heterogeneous deployments in a multi-cloud,
@@ -47,11 +47,12 @@ nodes in different location. As below:
 
 -   Party C: Uses AWS GKE.
 
-![Multi-cloud DLT Reference
-Architecture](media/image1.png){width="6.268055555555556in"
-height="5.5055555555555555in"}
+<p align="center">
+  <img src="images/MultiCloudDLTArchitecture.PNG">
+</p>
 
-\#\#\# Components
+
+### Components
 
 [Kubernetes](https://kubernetes.io/) as the standard infrastructure to
 host both the Ledger and the Application.
@@ -102,7 +103,7 @@ Shared Artifacts:
 -   Azure Container registry. To store & share private
     application-related container images.
 
-\#\# Considerations
+## Considerations
 
 Although Kubernetes clusters can be managed and monitor via Azure Arc,
 each cluster must cater for High availability, scalability, and disaster
@@ -112,7 +113,7 @@ For Azure AKS best practices, we recommend considering [AKS
 Baseline](https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/containers/aks/secure-baseline-aks).
 Similar best practices guidance can be found for other cloud providers.
 
-\#\#\# Security
+### Security
 
 Cross-node communication but you may use cloud native API Gateway over
 internet. You may use cloud native API Gateway like [Azure API
@@ -124,7 +125,7 @@ or alternatively use
 Private Connection can also be achieved over IPSec with tools like
 \[Submariner\](<https://github.com/submariner-io/submariner)>)
 
-\#\# Deploy this scenario
+## Deploy this scenario
 
 1.  Create the Kubernetes clusters.
 
@@ -143,7 +144,7 @@ Private Connection can also be achieved over IPSec with tools like
 4.  Follow steps for installing and configuring [BAF
     Prerequisites](https://blockchain-automation-framework.readthedocs.io/en/latest/prerequisites.html)
 
-\#\# Pricing
+## Pricing
 
 For Azure Resources costs, you can use [Azure pricing
 calculator](https://azure.microsoft.com/en-gb/pricing/calculator/).
