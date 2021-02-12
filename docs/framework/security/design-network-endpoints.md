@@ -6,14 +6,14 @@ ms.date: 02/03/2021
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
-ms.custom:
-  - article
 azureCategories:
   - networking
 products:
   - azure-firewall
   - azure-application-gateway
-  - azure-ddos-protection  
+  - azure-ddos-protection
+ms.custom:
+  - article
 ---
 
 # Best practices for endpoint security on Azure

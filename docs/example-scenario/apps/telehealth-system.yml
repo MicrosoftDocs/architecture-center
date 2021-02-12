@@ -5,12 +5,12 @@ metadata:
   author: doodlemania2
   ms.author: jeanyd
   ms.date: 05/25/2019
-  ms.category:
-    - containers
-    - databases
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: example-scenario
+  ms.category:
+    - containers
+    - databases
   ms.custom:
     - database-team
     - healthcare

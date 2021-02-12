@@ -1,13 +1,14 @@
 ---
 title: Azure for GCP professionals
 description: Understand the basics of Microsoft Azure accounts, platform, and services. Also learn key similarities and differences between the GCP and Azure platforms. Take advantage of your GCP experience in Azure.
-keywords: GCP experts, Azure comparison, GCP comparison, difference between Azure and GCP, Azure and GCP
 author: doodlemania2
 ms.date: 03/15/2020
 ms.topic: reference
 ms.service: architecture-center
 ms.subservice: cloud-fundamentals
-ms.custom: fcp
+ms.custom:
+  - fcp
+keywords: GCP experts, Azure comparison, GCP comparison, difference between Azure and GCP, Azure and GCP
 ---
 
 # Azure for GCP Professionals

@@ -6,6 +6,9 @@ ms.date: 01/19/2021
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
+products:
+  - azure-synapse-analytics
+  - azure-data-lake
 ms.custom:
   - guide
 ---

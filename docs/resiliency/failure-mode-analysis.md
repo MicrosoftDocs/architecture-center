@@ -6,6 +6,8 @@ ms.date: 05/07/2018
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
+products:
+  - azure-app-service
 ms.custom:
   - resiliency
   - article
