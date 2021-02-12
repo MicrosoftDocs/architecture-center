@@ -24,7 +24,7 @@ The following components are required.
 
 **Virtual machines.** This architecture uses virtual machines for the application tier and database tier, grouped as follows:
 
-- **SAP NetWeaver.** The application tier uses Windows virtual machines to run SAP Central Services and SAP application servers. The VMs that run Central Services are configured as a Windows Server Failover Cluster for high availability, supported by Windows Scale Out File Server (SOFS) with Storage Space Direct (S2D).
+- **SAP NetWeaver.** The application tier uses Windows virtual machines to run SAP Central Services and SAP application servers. The VMs that run Central Services are configured as a Windows Server Failover Cluster for high availability, supported by Windows Scale Out File Server (SOFS) with Storage Space Direct (S2D) or Azure Shared Disks.
 
 - **AnyDB.** The database tier runs AnyDB as the database, such as Microsoft SQL Server, Oracle, or IBM DB2.
 
@@ -71,7 +71,9 @@ The SAP SMLG transaction is commonly used to manage logon groups for ABAP applic
 
 This reference architecture runs Central Services on VMs in the application tier. Central Services is a potential single point of failure (SPOF) when deployed to a single VM. To implement a highly available solution, use either a file-share cluster or a shared-disk cluster.
 
-For file-share clusters, implement the high availability file share on the Central Service instances by using WSFC with [Scale Out File Server](https://techcommunity.microsoft.com/t5/Running-SAP-Applications-on-the/File-Server-with-SOFS-and-S2D-as-an-Alternative-to-Cluster/ba-p/368111) (SOFS) and the [Storage Spaces Direct](https://blogs.sap.com/2018/03/07/your-sap-on-azure-part-5-ascs-high-availability-with-storage-spaces-direct) (S2D) feature in Windows Server 2016 and later. This solution also supports [Windows clusters](/azure/virtual-machines/workloads/sap/sap-high-availability-guide-wsfc-file-share) using a file share served up by SOFS as the Cluster Shared Volume (CSV).
+For file-share clusters, implement the high availability file share on the Central Service instances by using WSFC with [Scale Out File Server](https://techcommunity.microsoft.com/t5/Running-SAP-Applications-on-the/File-Server-with-SOFS-and-S2D-as-an-Alternative-to-Cluster/ba-p/368111) (SOFS) and the [Storage Spaces Direct](https://blogs.sap.com/2018/03/07/your-sap-on-azure-part-5-ascs-high-availability-with-storage-spaces-direct) (S2D) feature in Windows Server 2016 and later. This solution also supports [Windows clusters](/azure/virtual-machines/workloads/sap/sap-high-availability-guide-wsfc-file-share) using a file share served up by SOFS as the Cluster Shared Volume (CSV). 
+
+Alternatively, it's recommended to use [Azure Shared Disk](/azure/virtual-machines/disks-shared#linux) to set up a [Windows Server Failover Cluster for SAP Central Services Cluster](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/sap-high-availability-infrastructure-wsfc-shared-disk).
 
 To deploy a Windows cluster with the traditional shared-disk, use [SIOS DataKeeper Cluster Edition](https://azuremarketplace.microsoft.com/marketplace/apps/sios_datakeeper.sios-datakeeper-8) from SIOS Technology Corp., which replicates contents from independent disks attached to the ASCS cluster nodes, and then presents the disks as a CSV to the cluster software.
 
@@ -125,7 +127,7 @@ The [SAP Web Dispatcher](https://help.sap.com/doc/saphelp_nw73ehp1/7.31.19/en-US
 
 [Azure Load Balancer](https://azure.microsoft.com/blog/azure-load-balancer-new-distribution-mode) is a network transmission layer service (layer 4), which balances traffic by a 5-tuple hash from the data streams (based on source IP, source port, destination IP, destination port, and protocol type). In SAP deployments on Azure, it's used in cluster setups to direct traffic to the primary service instance or the healthy node in case of a fault.
 
-We recommend using [Azure Standard Load Balancer](/azure/load-balancer/load-balancer-standard-overview) for all SAP scenarios. If virtual machines in the backend pool require public outbound connectivity, or if they are used in an Azure zone deployment, the standard load balancers require [additional configurations](/azure/virtual-machines/workloads/sap/high-availability-guide-standard-load-balancer-outbound-connections).
+We recommend using [Azure Standard Load Balancer](/azure/load-balancer/load-balancer-standard-overview) for all SAP scenarios. If virtual machines in the backend pool require public outbound connectivity, or if they are used in an Azure zone deployment, the standard load balancers require [additional configurations](/azure/virtual-machines/workloads/sap/high-availability-guide-standard-load-balancer-outbound-connections) once it's secure by default and won't allow outboud connectivity unless you explict configure it. 
 
 For traffic from SAP GUI clients connecting to an SAP server via DIAG protocol or Remote Function Calls (RFC), the Central Services message server balances the load through SAP application server [logon groups](https://wiki.scn.sap.com/wiki/display/SI/ABAP+Logon+Group+based+Load+Balancing). No additional load balancer is needed.
 
@@ -134,6 +136,9 @@ For traffic from SAP GUI clients connecting to an SAP server via DIAG protocol o
 Some customers use standard storage for their application servers. Because standard managed disks are not supported ([SAP Note 1928533](http://service.sap.com/sap/support/notes/1928533) *SAP logon required*), we recommend using Premium [Azure Managed Disks](/azure/storage/storage-managed-disks-overview) in all cases. Note that a recent update to [SAP note 2015553](https://launchpad.support.sap.com/#/notes/2015553) excludes the use of Standard HDD Storage and Standard SSD Storage for a few specific use cases.
 
 Because application servers do not host any business data, you can also use the smaller P4 and P6 Premium disks to help minimize cost and benefit from the [single instance VM SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_6) in case of a central SAP stack installation.
+
+For High-Availability scenarios [Azure Shared Disks](https://docs.microsoft.com/azure/virtual-machines/disks-shared) are available on Premium SSD and Ultra SSD [Azure Managed
+Disks](/azure/storage/storage-managed-disks-overview). Azure Shared Disks can be used with Windows Server, SUSE Enterprise Linux 15 SP 1 and above, or SUSE Enterprise Linux For SAP. 
 
 Azure Storage is also used by [Cloud Witness](/windows-server/failover-clustering/deploy-cloud-witness) to maintain quorum with a device in a remote Azure region, away from the primary region where the cluster resides.
 
@@ -184,7 +189,7 @@ High availability of the Central Services is implemented with Windows Server Fai
 
 WSFC supports the use of file shares served up by the [Scale Out File Server](https://techcommunity.microsoft.com/t5/Running-SAP-Applications-on-the/High-Available-ASCS-for-Windows-on-File-Share-8211-Shared-Disk/ba-p/368087?advanced=false&collapse_discussion=true&q=ascs%20sofs&search_type=thread) (SOFS) as cluster storage. SOFS offers resilient file shares you can use as a cluster shared volume (CSV) for the Windows cluster. A SOFS cluster can be shared among multiple SAP Central Services. As of this writing, SOFS is used only for high availability design within one Azure zone (it's not supported when deployed across zones). For disaster recovery (DR) purposes, Azure Site Recovery supports the replication of the entire SOFS cluster to a remote region.
 
-Shared disks are not possible on Azure. If a cluster shared disk is preferred, SIOS DataKeeper can be used to replicate the content of independent disks attached to the cluster nodes and to abstract the drives as a CSV for the cluster manager. For implementation details, see [Clustering SAP ASCS on Azure](https://techcommunity.microsoft.com/t5/Running-SAP-Applications-on-the/Clustering-SAP-ASCS-Instance-using-Windows-Server-Failover/ba-p/367898).
+There are two ways to set up  cluster with Shared disks on Azure. First, it's recommended to use [Azure Shared Disk](/azure/virtual-machines/disks-shared) to set up a [Windows Server Failover Cluster for SAP Central Services Cluster](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/sap-high-availability-infrastructure-wsfc-shared-disk). Alternatively, SIOS DataKeeper can be used to replicate the content of independent disks attached to the cluster nodes and to abstract the drives as a CSV for the cluster manager. For implementation details, see [Clustering SAP ASCS on Azure](https://techcommunity.microsoft.com/t5/Running-SAP-Applications-on-the/Clustering-SAP-ASCS-Instance-using-Windows-Server-Failover/ba-p/367898)..
 
 With the introduction of the Standard Azure Load Balancer SKU, you can now simply enable the [high availability port](/azure/load-balancer/load-balancer-ha-ports-overview) and avoid the need to configure load balancing rules for many SAP ports. Also, in setting up load balancers in general, whether on-premises or on Azure, enable the Direct Server Return (also called Floating IP or DSR) feature to allow for server responses to bypass the load balancer. This direct connection keeps the load balancer from becoming a bottleneck in the path of data transmission. For the SAP ASCS and database clusters, we recommend enabling DSR.
 
@@ -271,7 +276,7 @@ To use Azure Site Recovery to automatically build a fully replicated production 
 Databases are critical workloads that require a low recovery point objective
 (RPO) and long-term retention.
 
-- For SAP on SQL Server, one approach is to use [Azure Backup](https://azure.microsoft.com/blog/azure-backup-for-sql-server-on-azure-vm-public-preview) to back up SQL Server databases running on virtual machines. Another option is to use [Azure File Snapshots](https://azure.microsoft.com/mediahandler/files/resourcefiles/sql-server-data-files-in-microsoft-azure/SQL_Server_Data_Files_in_Microsoft_Azure.pdf) to back up SQL Server database files.
+- For SAP on SQL Server, one approach is to use [Azure Backup](https://docs.microsoft.com/en-us/azure/backup/backup-azure-sql-database) to back up SQL Server databases running on virtual machines. Another option is to use [Azure File Snapshots](https://azure.microsoft.com/mediahandler/files/resourcefiles/sql-server-data-files-in-microsoft-azure/SQL_Server_Data_Files_in_Microsoft_Azure.pdf) to back up SQL Server database files.
 
 - For SAP on Oracle/Windows, see the "Backup/restore" section in [Azure VM DBMS Deployment for SAP](/azure/virtual-machines/workloads/sap/dbms_guide_oracle).
 
