@@ -9,8 +9,8 @@ Surfacing offers that are customized for the user has become essential to buildi
 
 ## Architecture
 
-![Architecture diagram](../media/personalized-offers.png)
-*Download an [SVG](../media/personalized-offers.svg) of this architecture.*
+![Architecture diagram](../media/personalised_offers.png)
+*Download an [PNG](../media/personalised_offers.png) of this architecture.*
 
 ## Description
 
