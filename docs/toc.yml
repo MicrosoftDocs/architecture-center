@@ -326,7 +326,7 @@ items:
               - name: Design
                 items: 
                   - name: Checklist
-                    href: framework/resiliency/design.checklist.md
+                    href: framework/resiliency/design-checklist.md
                   - name: Application design
                     href: framework/resiliency/app-design.md
                   - name: Requirements
@@ -348,7 +348,7 @@ items:
                   - name: Chaos engineering
                     href: framework/resiliency/chaos-engineering.md
                   - name: Best practices
-                    href: framework/resilienccy/test-best-practices.md
+                    href: framework/resiliency/test-best-practices.md
               - name: Monitoring
                 items:
                   - name: Checklist
@@ -364,7 +364,7 @@ items:
               - name: Reliability patterns
                 href: framework/resiliency/reliability-patterns.md
               - name: Tradeoffs
-                href: ramework/resiliency/tradeoffs.md   
+                href: framework/resiliency/tradeoffs.md   
       - name: Security
         items:
           - name: About
