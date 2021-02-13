@@ -3,7 +3,7 @@ metadata:
   title: Personalized Offers
   titleSuffix: Azure Solution Ideas
   author: doodlemania2
-  ms.date: 12/16/2019
+  ms.date: 13/02/2021
   description: Build intelligent marketing systems that provide customer-tailored content by using machine learning models that analyze data from multiple sources.
   ms.custom: 'acom-architecture, artificial intelligence, solution architectures, Azure, ai gallery, interactive-diagram, ''https://azure.microsoft.com/solutions/architecture/personalized-offers/'''
   ms.service: architecture-center
