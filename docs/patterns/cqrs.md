@@ -236,8 +236,8 @@ The following patterns and guidance are useful when implementing this pattern:
 
 - The patterns & practices guide [CQRS Journey](/previous-versions/msp-n-p/jj554200(v=pandp.10)). In particular, [Introducing the Command Query Responsibility Segregation pattern](/previous-versions/msp-n-p/jj591573(v=pandp.10)) explores the pattern and when it's useful, and [Epilogue: Lessons Learned](/previous-versions/msp-n-p/jj591568(v=pandp.10)) helps you understand some of the issues that come up when using this pattern.
 
-## Community resources
 
+## Community resources
 Martin Fowler's blog posts:
   - [What do you mean by “Event-Driven”?](https://martinfowler.com/articles/201701-event-driven.html)
   - [CQRS](https://martinfowler.com/bliki/CQRS.html)
