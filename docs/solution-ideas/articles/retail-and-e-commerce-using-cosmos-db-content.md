@@ -20,10 +20,5 @@ The architecture has following components
 
 **Azure Storage** Static product images are stored in Azure Storage Account.
 
-**Azure Search** Search functionality is provided by Azure Search
+**Azure Search** Azure search provides search over products
 
-
-## Next steps
-
-- To learn about monitoring this architecture, see [Monitoring a microservices architecture in Azure Kubernetes Service (AKS)](../../../microservices/logging-monitoring.md).
-- To learn how we measured the performance of this application, see [Performance tuning scenario: Distributed business transactions](../../../performance/distributed-transaction.md).
