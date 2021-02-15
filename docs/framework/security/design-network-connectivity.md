@@ -6,14 +6,14 @@ ms.date: 02/03/2021
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
-ms.custom:
-  - article
 azureCategories:
   - hybrid
   - networking
 products:
   - azure-firewall
-  - azure-virtual-network  
+  - azure-virtual-network
+ms.custom:
+  - article
 ---
 
 # Azure services for securing network connectivity
@@ -27,7 +27,7 @@ It's often the case that the workload and the supporting components of a cloud a
 - Use Service Endpoints or Private Link for accessing Azure PaaS services.
 - Use Azure Firewall to protect against data exfiltration attacks.
 - Restrict access to backend services to a minimal set of public IP addresses, only those services that really need it.
-- Use Azure controls over third-party solutions for basic security needs. They're easy to configure and scale. 
+- Use Azure controls over third-party solutions for basic security needs. They're easy to configure and scale.
 - Define access policies based on the type of workload and control flow between the different application tiers.
 
 ## Connectivity between network segments
@@ -42,12 +42,12 @@ A VNet is segmented into subnets based on business requirements. Provide proper 
 
 **How do you isolate and protect traffic within the workload VNet?**
 ***
-To secure communication within a VNet, set rules that inspect traffic. Then, allows or denies traffic to, or from specific sources and routes them to the specified destinations. 
+To secure communication within a VNet, set rules that inspect traffic. Then, allows or denies traffic to, or from specific sources and routes them to the specified destinations.
 >![Task](../../_images/i-best-practices.svg) Review the rule set and confirm that the required services are not unintentionally blocked.
 
 For traffic between subnets, the recommended way is through [Network Security Groups (NSG)](/azure/virtual-network/security-overview). Define rules on each NSG that checks traffic to and from single IP address, multiple IP addresses, or entire subnets.
 
-Another way is to use network virtual appliances (NVAs) that check inbound (ingress) and outbound (egress) traffic and filters based on rules. 
+Another way is to use network virtual appliances (NVAs) that check inbound (ingress) and outbound (egress) traffic and filters based on rules.
 
 **How do you route network traffic through NVAs for security boundary policy enforcement, auditing, and inspection?**
 ***
@@ -57,7 +57,6 @@ Use User Defined Routes (UDR) to control the next hop for traffic between Azure,
 For example, you need to inspect all ingress traffic from a public load balancer. One way is to host an NVA in a subnet that allows traffic only if certain criteria is met. That traffic is sent to the subnet that hosts an internal load balancer that routes that traffic to the backend services.  
 
 You can also use NVAs for egress traffic. For instance, all workload traffic is routed by using UDR to another subnet. That subnet has an internal load balancer that distributes requests to the NVA (or a set of NVAs). These NVAs direct traffic to the internet using their individual public IP addresses.
-
 
 > [!TIP]
 > Here are the resources for the preceding example:
@@ -83,7 +82,7 @@ Plan your subnets based on roles and functions that use same protocols. That way
 
 Don't use all open rules that allow inbound and outbound traffic to and from 0.0.0.0-255.255.255.255. Use a least privilege approach and only allow relevant protocols. It will reduce your overall network attack surface on the subnet. All open rules provide a false sense of security because such a rule enforces no security.
 
-The exception is when you want to use security groups only for network logging purposes. 
+The exception is when you want to use security groups only for network logging purposes.
 
 ## Internet edge traffic
 
@@ -101,7 +100,7 @@ Azure security features are sufficient for common attacks, easy to configure, an
 
 ## Communication with backend services
 
-Most workloads are composed of multiple tiers where several services can serve each tier. Common examples of tiers are web front ends, business processes, reporting and analysis, backend infrastructure, and so on. 
+Most workloads are composed of multiple tiers where several services can serve each tier. Common examples of tiers are web front ends, business processes, reporting and analysis, backend infrastructure, and so on.
 
 **How do you configure traffic flow between multiple application tiers?**
 ***
@@ -114,7 +113,7 @@ Web applications typically have one public entry point and don't expose subseque
 
 ## Connection with Azure PaaS services
 
-The workload will often need to communicate with other Azure services. For example, it might need to get secrets from Azure Key Vault. Avoid making connections over the public internet. 
+The workload will often need to communicate with other Azure services. For example, it might need to get secrets from Azure Key Vault. Avoid making connections over the public internet.
 
 **Does the workload use secure ways to access Azure PaaS services?**
 ***
@@ -134,7 +133,7 @@ Use NVAs and Azure Firewall (for supported protocols) as a reverse proxy to rest
 
 ## On-premises to cloud connectivity
 
-In a hybrid architecture, the workload runs partly on-premises and partly in Azure. Have security controls that check traffic entering Azure virtual network from on-premises data center. 
+In a hybrid architecture, the workload runs partly on-premises and partly in Azure. Have security controls that check traffic entering Azure virtual network from on-premises data center.
 
 **How do you establish cross premises connectivity?**
 ***
@@ -161,6 +160,7 @@ For production enterprise, allow cloud resources to start and respond to interne
 Another option is to force tunnel all outbound internet traffic from on-premises through site-to-site VPN. Or, use a cross-premise WAN link. Network security teams have greater security and visibility to internet traffic. Even when your resources in the cloud try to respond to incoming requests from the internet, the responses are force tunneled. This option fits a datacenter expansion use case and can work well for a quick proof of concept, but scales poorly because of the increased traffic load, latency, and cost. For those reasons, we recommend that you avoid [forced tunneling](/azure/vpn-gateway/vpn-gateway-about-forced-tunneling).
 
 ## Next step
+
 > [!div class="nextstepaction"]
 > [Secure endpoints](design-network-endpoints.md)
 
@@ -174,6 +174,6 @@ For information about Network Appliances from Azure Marketplace, see [Network Ap
 
 For information about cross premises connectivity, see [Azure site-to-site VPN or ExpressRoute](/azure/security/azure-security-network-security-best-practices).
 
-For information about using VPN/ExpressRoute to access these virtual machines for remote management, see [Disable RDP/SSH access to Azure Virtual Machines](/azure/security/azure-security-network-security-best-practices). 
+For information about using VPN/ExpressRoute to access these virtual machines for remote management, see [Disable RDP/SSH access to Azure Virtual Machines](/azure/security/azure-security-network-security-best-practices).
 
 > Go back to the main article: [Network security](design-network.md)

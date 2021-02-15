@@ -8,11 +8,11 @@ metadata:
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: example-scenario
+  ms.category:
+    - iot
   ms.custom:
     - fcp
     - example-scenario
-  ms.category:
-    - iot
 name: IoT solution architecture
 azureCategories:
   - iot

@@ -6,9 +6,9 @@ author: dcass
 ms.date: 05/18/2020
 ms.topic: conceptual
 ms.service: architecture-center
+ms.subservice: guide
 ms.category:
   - fcp
-ms.subservice: guide
 ms.custom:
   - guide
 ---
@@ -153,4 +153,3 @@ Explore the following references for detailed information on this method:
   - [Jury specification](https://www.connectedhealthcities.org/wp-content/uploads/2018/06/A1-Reasonable-expectations-citizens-jury-specification-v1.pdf)
   - [Juror's report](https://www.connectedhealthcities.org/wp-content/uploads/2018/06/C1-NDG-CJ-jurors-report-final.pdf)
 - Case study: [Community Jury at Microsoft](https://hits.microsoft.com/Study/6014413)
-

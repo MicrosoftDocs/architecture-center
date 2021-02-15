@@ -4,6 +4,7 @@ metadata:
   titleSuffix: Azure Reference Architectures
   description: Use the ci_cd_ext_release or tf_destroy_env pipelines to create or delete cloud development or testing environments.
   author: doodlemania2
+  ms.author: pnp
   ms.date: 11/12/2020
   ms.topic: conceptual
   ms.service: architecture-center

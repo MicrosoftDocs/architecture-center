@@ -1,15 +1,14 @@
 ---
 title: CQRS pattern
 description: Segregate operations that read data from those that update data.
-keywords: design pattern
 author: dragon119
 ms.date: 02/11/2020
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: design-pattern
 ms.custom:
-  - seodec18
   - design-pattern
+keywords: design pattern
 ---
 
 # Command and Query Responsibility Segregation (CQRS) pattern
@@ -48,7 +47,7 @@ Having separate query and update models simplifies the design and implementation
 
 For greater isolation, you can physically separate the read data from the write data. In that case, the read database can use its own data schema that is optimized for queries. For example, it can store a [materialized view](./materialized-view.md) of the data, in order to avoid complex joins or complex O/RM mappings. It might even use a different type of data store. For example, the write database might be relational, while the read database is a document database.
 
-If separate read and write databases are used, they must be kept in sync. Typically this is accomplished by having the write model publish an event whenever it updates the database. Updating the database and publishing the event must occur in a single transaction.
+If separate read and write databases are used, they must be kept in sync. Typically this is accomplished by having the write model publish an event whenever it updates the database. For more information about using events, see [Event-driven architecture style](../guide/architecture-styles/event-driven.md). Updating the database and publishing the event must occur in a single transaction.
 
 ![A CQRS architecture with separate read and write stores](./_images/command-and-query-responsibility-segregation-cqrs-separate-stores.png)
 
@@ -237,4 +236,9 @@ The following patterns and guidance are useful when implementing this pattern:
 
 - The patterns & practices guide [CQRS Journey](/previous-versions/msp-n-p/jj554200(v=pandp.10)). In particular, [Introducing the Command Query Responsibility Segregation pattern](/previous-versions/msp-n-p/jj591573(v=pandp.10)) explores the pattern and when it's useful, and [Epilogue: Lessons Learned](/previous-versions/msp-n-p/jj591568(v=pandp.10)) helps you understand some of the issues that come up when using this pattern.
 
-- The post [CQRS by Martin Fowler](https://martinfowler.com/bliki/CQRS.html), which explains the basics of the pattern and links to other useful resources.
+## Community resources
+
+Martin Fowler's blog posts:
+  - [What do you mean by “Event-Driven”?](https://martinfowler.com/articles/201701-event-driven.html)
+  - [CQRS](https://martinfowler.com/bliki/CQRS.html)
+

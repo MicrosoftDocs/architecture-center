@@ -8,11 +8,11 @@ metadata:
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: example-scenario
+  ms.category:
+    - networking
   ms.custom:
     - fcp
     - example-scenario
-  ms.category:
-    - networking
 name: Firewall and Application Gateway for virtual networks
 azureCategories:
   - networking

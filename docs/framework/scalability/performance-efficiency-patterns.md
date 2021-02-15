@@ -2,15 +2,14 @@
 title: Performance Efficiency patterns
 titleSuffix: Cloud Design Patterns
 description: Use these performance efficiency patterns to address variable workloads and peaks in activity for cloud applications.
-keywords: design pattern
 author: dragon119
 ms.date: 08/27/2019
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
 ms.custom:
-  - seodec18
   - design-pattern
+keywords: design pattern
 ---
 
 # Performance Efficiency patterns

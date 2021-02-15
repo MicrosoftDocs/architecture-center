@@ -4,6 +4,7 @@ metadata:
   titleSuffix: Azure Reference Architectures
   description: Test Gridwich Azure Media Services V3 encoding by using the Azure Event Grid Viewer Blazor, or locally.
   author: doodlemania2
+  ms.author: pnp
   ms.date: 11/12/2020
   ms.topic: conceptual
   ms.service: architecture-center

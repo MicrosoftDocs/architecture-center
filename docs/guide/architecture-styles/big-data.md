@@ -7,6 +7,8 @@ ms.date: 11/20/2019
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: guide
+products:
+  - azure-data-lake-analytics
 ms.custom:
   - seojan19
   - IoT
