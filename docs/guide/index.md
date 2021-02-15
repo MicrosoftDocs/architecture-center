@@ -3,10 +3,10 @@ title: Azure Application Architecture Guide
 description: A structured approach for designing applications on Azure that are scalable, resilient, and highly available
 author: doodlemania2
 ms.author: pnp
+ms.date: 01/08/2020
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: guide
-ms.date: 01/08/2020
 ms.custom:
   - guide
 ---

@@ -6,9 +6,9 @@ author: dcass
 ms.date: 05/18/2020
 ms.topic: conceptual
 ms.service: architecture-center
+ms.subservice: guide
 ms.category:
   - fcp
-ms.subservice: guide
 ms.custom:
   - guide
 ---

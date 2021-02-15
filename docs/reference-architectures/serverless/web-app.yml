@@ -13,7 +13,6 @@ metadata:
     - web
     - developer-tools
   ms.custom:
-    - seodec18
     - serverless
     - reference-architecture
 name: Serverless web application

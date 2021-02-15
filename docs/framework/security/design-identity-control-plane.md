@@ -6,6 +6,8 @@ ms.date: 07/09/2019
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
+products:
+  - azure-rbac
 ms.custom:
   - article
 ---

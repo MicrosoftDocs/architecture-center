@@ -13,7 +13,6 @@ metadata:
     - web
     - management-and-governance
   ms.custom:
-    - seodec18
     - reference-architecture
 name: N-tier application with Apache Cassandra
 azureCategories:

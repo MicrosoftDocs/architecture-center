@@ -6,6 +6,9 @@ ms.date: 08/24/2020
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
+products:
+  - azure-synapse-analytics
+  - azure-databricks
 ms.custom:
   - article
 ---
