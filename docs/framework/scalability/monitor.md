@@ -6,6 +6,8 @@ ms.date: 01/28/2021
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
+products:
+  - azure-monitor
 ms.custom:
   - fasttrack-edit
   - article
@@ -132,4 +134,3 @@ Clear retention times should be defined to allow for suitable historic analysis 
   - Consider reviewing as applicable, [network performance monitor](https://docs.microsoft.com/azure/azure-monitor/insights/network-performance-monitor-performance-monitor), [service connectivity monitor](https://docs.microsoft.com/azure/azure-monitor/insights/network-performance-monitor-service-connectivity), and [ExpressRoute monitor](https://docs.microsoft.com/azure/azure-monitor/insights/network-performance-monitor-expressroute).
 - For long-term storage, consider archiving of the Monitoring Data.
 - Track activities using [Azure Security and Audit Logs](https://docs.microsoft.com/azure/security/fundamentals/log-audit).
-
