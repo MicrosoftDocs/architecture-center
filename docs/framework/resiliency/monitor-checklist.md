@@ -52,7 +52,7 @@ Monitoring and diagnostics are crucial for resiliency. If something fails, you n
 ## Next step
 
 >[!div class="nextstepaction"]
->[Monitoring](/azure/architecture/framework/resiliency/monitoring)
+>[Application health](/azure/architecture/framework/resiliency/monitoring)
 
 ## Related links
 
