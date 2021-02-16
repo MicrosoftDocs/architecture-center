@@ -16,7 +16,7 @@ The architecture has following components
 
 **Azure CosmosDB** Azure CosmosDB stores the products and the session state.
 
-**Azure Storage** Static product images are stored in Azure Storage Account.
+**Azure Storage** Static product images and other static contents are stored in Azure Storage Account.
 
 **Azure Search** Azure search provides search over products
 
