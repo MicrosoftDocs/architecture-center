@@ -327,10 +327,10 @@ items:
                 items: 
                   - name: Checklist
                     href: framework/resiliency/design-checklist.md
-                  - name: Application design
-                    href: framework/resiliency/app-design.md
                   - name: Requirements
                     href: framework/resiliency/design-requirements.md
+                  - name: Application design
+                    href: framework/resiliency/app-design.md
                   - name: Resiliency & dependencies
                     href: framework/resiliency/design-resiliency.md  
                   - name: Best practices

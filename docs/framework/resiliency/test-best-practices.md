@@ -58,9 +58,6 @@ Configure and test health probes for your load balancers and traffic managers. E
 
 Achieve levels of scale and performance needed for your solution by segregating read and write interfaces by implementing the Command and Query Responsibility Segregation (CQRS) pattern.
 
-
-
-
 ## Next step
 
 >[!div class="nextstepaction"]
