@@ -12,19 +12,16 @@ Event Grid connects your app with other services. For example, create an applica
 
 ## Data Flow
 
-1. Bring together all your structured, unstructured and semi-structured data (logs, files, and media) using Azure Data Factory to Azure Data Lake Storage.
-1. Use Azure Databricks to clean and transform the structureless datasets and combine them with structured data from operational databases or data warehouses.
-1. Use scalable machine learning/deep learning techniques, to derive deeper insights from this data using Python, R or Scala, with inbuilt notebook experiences in Azure Databricks.
-1. Leverage native connectors between Azure Databricks and Azure Synapse Analytics to access and move data at scale.
-1. Power users take advantage of the inbuilt capabilities of Azure Databricks to perform root cause determination and raw data analysis.
-1. Query and report on data in [Power BI](/azure/analysis-services/analysis-services-connect-pbi).
-1. Take the insights from Azure Databricks to Cosmos DB to make them accessible through web and mobile apps.
+1. Configure different event sources (Blob Storage, Azure Cache for Redis, App Configuration, Event Hubs, Key Vault, Service Bus) subscribe to event grid topic.
+1. Triggers event sources from various scenarios including different actions perform on the event sources.  
+1. Use Azure Event Grid to support for the events coming from different Azure services.
+1. Leverages different event handlers (Azure Functions, Event Hubs, Logic Apps, Blob Storage, Web Hook, Power Automate) to handle different use cases.
+1. Use different types of actions to handle the result of the event handlers like blob storage and email for alert.
 
 ## Components
 
 * [Azure Event Grid](https://azure.microsoft.com/services/event-grid/) get reliable event delivery at massive scale.
 * [Azure Blob storage](https://azure.microsoft.com/services/storage/blobs) is a Massively scalable object storage for any type of unstructured data-images, videos, audio, documents, and more-easily and cost-effectively.
-* [Azure Kubernetes Service (AKS)](https://azure.microsoft.com/services/kubernetes-service): Simplify the deployment, management, and operations of Kubernetes
 * [Azure Cache for Redis](https://azure.microsoft.com/services/cache/): A fully managed, open source–compatible in-memory data store to power fast, scalable applications.
 * [Azure App Configuration](https://azure.microsoft.com/services/app-configuration/) store configuration for all your Azure apps in a universal, hosted location.
 * [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs) stream millions of events per second from any source to build dynamic data pipelines and immediately respond to business challenges.
@@ -39,7 +36,6 @@ Event Grid connects your app with other services. For example, create an applica
 
 * [Azure Event Grid documentation](/azure/event-grid)
 * [Azure Blob Storage documentation](/azure/storage/blobs/)
-* [Azure Kubernetes Service (AKS) documentation](/azure/aks)
 * [Azure Cache for Redis documentation](/azure/azure-cache-for-redis/)
 * [Azure App Configuration](/azure/azure-app-configuration/)
 * [Azure Event Hubs documentation](/azure/event-hubs)
