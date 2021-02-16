@@ -3,7 +3,7 @@
 
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-This reference architecture shows how to deploy an e-commerce web site on Azure. The e-commerce web site is hosted on Azure Web App and uses Azure CosmosDB Azure CosmosDB as data store for storing product information and session state. Azure Search provides search functionality over diverse product catalogs, traffic spikes, and rapidly changing inventory.
+This reference architecture shows how to deploy an e-commerce web site on Azure. The e-commerce web site is hosted on Azure Web App and uses Azure CosmosDB as data store for  product information and session state. Azure Search provides search functionality over diverse product catalogs, traffic spikes, and rapidly changing inventory.
 
 ![Architecture Diagram](../media/retail-and-e-commerce-using-cosmos-db.png)
 *Download an [SVG](../media/retail-and-e-commerce-using-cosmos-db.svg) of this architecture.*
