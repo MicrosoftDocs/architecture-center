@@ -12,9 +12,9 @@ ms.custom:
 
 # Cost optimization in a hybrid workload
 
-A key benefit of hybrid cloud environments is the ability to scale dynamically and back up resources in the cloud, avoiding the capital expenditures of a secondary datacenter. However, when workloads sit in both on-premises and cloud environments, it can be challenging to have visibility into the cost. With Azure's hybrid technologies, you can define policies and constraints for both on-premises and cloud workloads with Azure Arc. By utilizing Azure Policy, you're able to enfource organizational standards for your workload and the entire IT estate.
+A key benefit of hybrid cloud environments is the ability to scale dynamically and back up resources in the cloud, avoiding the capital expenditures of a secondary datacenter. However, when workloads sit in both on-premises and cloud environments, it can be challenging to have visibility into the cost. With Azure's hybrid technologies, you can define policies and constraints for both on-premises and cloud workloads with Azure Arc. By utilizing Azure Policy, you're able to enforce organizational standards for your workload and the entire IT estate.
 
-Azure Arc helps minimize or even eliminate the need for on-premises management and monitoring systems, which reduces operational complexity and cost, especially in large, diverse, and distributed environments. This helps offset additional costs associated with Azure Arc-related services. For example, advanced data security for Azure Arc enabled SQL Server instance requires Azure Defender functionality of Azure Security Center, which has [pricing implications](https://azure.microsoft.com/pricing/details/security-center/). 
+Azure Arc helps minimize or even eliminate the need for on-premises management and monitoring systems, which reduces operational complexity and cost, especially in large, diverse, and distributed environments. This helps offset additional costs associated with Azure Arc-related services. For example, advanced data security for Azure Arc enabled SQL Server instance requires Azure Defender functionality of Azure Security Center, which has [pricing implications](https://azure.microsoft.com/pricing/details/security-center/).
 
 Other considerations are described in the [Principles of cost optimization](/azure/architecture/framework/cost/design-model) section in the Microsoft Azure Well-Architected Framework.
 
@@ -72,7 +72,7 @@ Azure Stack HCI can help in cost-savings by using your existing Hyper-V and Wind
 
 Use Azure Stack HCI to modernize on-prem workloads with hyperconverged infra. Azure Stack HCI billing is based on a monthly subscription fee per physical processor core, not a perpetual license. When customers connect to Azure, the number of cores used is automatically uploaded and assessed for billing purposes. Cost doesn’t vary with consumption beyond the physical processor cores. This means that more VMs don’t cost more, and customers who are able to run denser virtual environments are rewarded.
 
-If you are currently using VMware, you can take advantage of cost savings only available with Azure VMware Solution. Easily move VMware workloads to Azure and increase your producitivty with elasticity, scale, and fast provisioning cycles. This will help enhance your workloads with the full rnage of Azure compute, monitor, backup, database, IoT, and AI services. 
+If you are currently using VMware, you can take advantage of cost savings only available with Azure VMware Solution. Easily move VMware workloads to Azure and increase your productivity with elasticity, scale, and fast provisioning cycles. This will help enhance your workloads with the full range of Azure compute, monitor, backup, database, IoT, and AI services. 
 
 Lastly, you can slowly begin migrating out of your datacenter and use Azure Arc while you're migrating to project everything into Azure.
 
