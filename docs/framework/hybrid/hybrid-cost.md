@@ -2,7 +2,7 @@
 title: Cost optimization in a hybrid workload
 description: Includes guidance and recommendations that apply to the Cost pillar in a hybrid and multi-cloud environment.
 author: v-aangie
-ms.date: 02/03/2021
+ms.date: 02/18/2021
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
@@ -11,6 +11,12 @@ ms.custom:
 ---
 
 # Cost optimization in a hybrid workload
+
+A key benefit of hybrid cloud environments is the ability to scale dynamically and back up resources in the cloud, avoiding the capital expenditures of a secondary datacenter. However, when workloads sit in both on-premises and cloud environments, it can be challenging to have visibility into the cost. With Azure's hybrid technologies, you can define policies and constraints for both on-premises and cloud workloads with Azure Arc. By utilizing Azure Policy, you're able to enfource organizational standards for your workload and the entire IT estate. 
+
+Azure Arc helps minimize or even eliminate the need for on-premises management and monitoring systems, which reduces operational complexity and cost, especially in large, diverse, and distributed environments. This helps offset additional costs associated with Azure Arc-related services. For example, advanced data security for Azure Arc enabled SQL Server instance requires Azure Defender functionality of Azure Security Center, which has [pricing implications](https://azure.microsoft.com/pricing/details/security-center/). 
+
+Other considerations are described in the [Principles of cost optimization](/azure/architecture/framework/cost/design-model) section in the Microsoft Azure Well-Architected Framework.
 
 ## Workload definitions
 
@@ -48,9 +54,9 @@ For budget concerns, you get a considerable amount of functionality at no cost t
 - **Save time with unified management<!--CAF Overlap "unified management"-->** for your on-premises and cloud workloads by projecting them all into Azure.
 - **Automate and delegate** remediation of incidents and problems to service teams without IT intervention.<!--CAF Overlap-->
  
-## Design resources on Azure Architecture Center (AAC)
+## Azure Architecture Center (AAC) resources related to hybrid cost
 
-Click the following links for architecture details and diagrams.
+Optimize administration of SQL Server instances in on-premises and multi-cloud environments by using Azure Arc: https://docs.microsoft.com/azure/architecture/hybrid/azure-arc-sql-server
 
 - [Manage configurations for Azure Arc enabled servers](/azure/architecture/hybrid/azure-arc-hybrid-config)
 - [Azure Arc hybrid management and deployment for Kubernetes clusters](/azure/architecture/hybrid/arc-hybrid-kubernetes)
@@ -60,25 +66,26 @@ Click the following links for architecture details and diagrams.
 - [Use Azure Stack HCI switchless interconnect and lightweight quorum for Remote Office/Branch Office](/azure/architecture/hybrid/azure-stack-robo)
 - [Archive on-premises data to cloud](/azure/architecture/solution-ideas/articles/backup-archive-on-premises)
  
-## Workload considerations
-
-- Virtual machines
-- Managed PaaS services
-- Container-based applications
-   - Kubernetes could be both self-managed in on-premises, and managed Kubernetes deployments in the cloud.
-
 ## Infrastructure Decisions
 
-- Use Azure Stack HCI to modernize on-prem workloads with hyperconverged infra. Azure Stack HCI billing is based on a monthly subscription fee per physical processor core, not a perpetual license. When customers connect to Azure, the number of cores used is automatically uploaded and assessed for billing purposes. Cost doesn’t vary with consumption beyond the physical processor cores. This means that more VMs don’t cost more, and customers who are able to run denser virtual environments are rewarded.
+Azure Stack HCI can help in cost-savings by using your existing Hyper-V and Windows Server skills to consolidate aging servers and storage. Azure Stack HCI pricing follows the monthly subscription billing model, with a flat rate per physical processor core in an Azure Stack HCI cluster.
 
-You can use AVS if you're locked in with VMware, or use Azure Arc on any infrastructure of your choice. Slowly begin migrating out of your datacenter and use Azure Arc while you're migrating to project everything into Azure.<!--CAF Overlap-->
+Use Azure Stack HCI to modernize on-prem workloads with hyperconverged infra. Azure Stack HCI billing is based on a monthly subscription fee per physical processor core, not a perpetual license. When customers connect to Azure, the number of cores used is automatically uploaded and assessed for billing purposes. Cost doesn’t vary with consumption beyond the physical processor cores. This means that more VMs don’t cost more, and customers who are able to run denser virtual environments are rewarded.
+
+If you are currently using VMware, you can take advantage of cost savings only available with Azure VMware Solution. Easily move VMware workloads to Azure and increase your producitivty with elasticity, scale, and fast provisioning cycles. This will help enhance your workloads with the full rnage of Azure compute, monitor, backup, database, IoT, and AI services. 
+
+Lastly, you can slowly begin migrating out of your datacenter and use Azure Arc while you're migrating to project everything into Azure.
 
 ### Capacity planning
+
+Check out our checklist under the [Cost Optimization pillar](/azure/architecture/framework/cost/design-checklist) in the Well-Framework to learn more about capacity planning, and build a checklist to design cost-effective workloads. 
 
 - Define SLAs
 - Determine regulatory needs
 
 ## Provision
+
+One advantage of cloud computing is the ability to use the PaaS model. And in some cases, PaaS services can be cheaper than managing VMs on your own. Some workloads cannot be moved to the cloud though for regulatory or latency reasons. Therefore, using a service like Azure Arc enabled  services allows you to flexibly use cloud innovation where you need it by deploying Azure services anywhere. 
 
 Click the following links for guidance in provisioning:
 
@@ -90,7 +97,9 @@ Click the following links for guidance in provisioning:
    - Run your VMware workloads natively on Azure.
 - [Azure Stack Hub pricing](https://azure.microsoft.com/pricing/details/azure-stack/hub/)
 
-## Monitor
+## Monitor and optimize
+
+Treat cost monitoring and optimization as a process, rather than a point-in-time activity. You can conduct regular cost reviews and forecast the capacity needs so that you can provision resources dynamically and sale with demand.
 
 - [Managing the Azure Arc enabled servers agent](https://docs.microsoft.com/azure/azure-arc/servers/manage-agent/)
    - Bring all your resources into a single system so you can organize and inventory through a variety of Azure scopes, such as Management groups, Subscriptions, and Resource Groups.<!--CAF Overlap-->

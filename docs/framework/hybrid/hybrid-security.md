@@ -2,7 +2,7 @@
 title: Security in a hybrid workload
 description: Includes guidance and recommendations that apply to the Security pillar in a hybrid and multi-cloud workload.
 author: v-aangie
-ms.date: 02/08/2021
+ms.date: 02/18/2021
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
@@ -12,15 +12,21 @@ ms.custom:
 
 # Security in a hybrid workload
 
-Security includes protecting applications and data from threats.
+Security is one of the most important aspects of any architecture. Particularly in hybrid and multicloud environments, an architecture built on good security practices should be resilient to attacks and provide confidentiality, integrity, and availability. To assess your workload using the tenets found in the Microsoft Azure Well-Architected Framework, see the [Microsoft Azure Well-Architected Review](/assessments/?id=azure-architecture-review&mode=pre-assessment).
+
+Azure Security Center can monitor on-premises systems, Azure VMs, Azure Monitor resources, and even VMs hosted by other cloud providers. To support that functionality, the standard fee-based tier of Azure Security Center is needed. We recommend that you use the 30-day free trial to validate your requirements. Security Center's operational process won’t interfere with your normal operational procedures. Instead, it passively monitors your deployments and provides recommendations based on the security policies you enable.
+
+Azure Sentinel can help simplify data collection across different sources, including Azure, on-premises solutions, and across clouds using built-in connectors. Azure Sentinel works to collect data at cloud scale—across all users, devices, applications, and infrastructure, both on-premises and in multiple clouds.
 
 ## Azure Architecture Center (AAC) resources
 
 - [Hybrid Security Monitoring using Azure Security Center and Azure Sentinel](/azure/architecture/hybrid/hybrid-security-monitoring)<!--CAF Overlap-->
 - [DevSecOps in Azure](/azure/architecture/solution-ideas/articles/devsecops-in-azure)
 - [Optimize administration of SQL Server instances in on-premises and multi-cloud environments by leveraging Azure Arc](/azure/architecture/hybrid/azure-arc-sql-server)<!--CAF Overlap-->
+- [Implement a secure hybrid network](/azure/architecture/reference-architectures/dmz/secure-vnet-dmz)
+- [Securely managed web applications](/azure/architecture/example-scenario/apps/fully-managed-secure-apps)
 
-## Principals
+## Principles
 
 ### Azure Arc management security capabilities
 
@@ -66,11 +72,4 @@ A stretched Azure Stack HCI cluster relies on Storage Replica to perform synchro
 - Across products: Integrate with Azure Sentinel, Azure Defender.<!--CAF Overlap-->
 - Bring Azure Security Center to your on-prem data and servers with Arc.<!--CAF Overlap-->
 - Set security policies, resource boundaries, and RBAC for workloads across the hybrid infra.<!--CAF Overlap-->
-- Proper admin roles for read, modify, re-onboard, and delete a machine,<!--CAF Overlap-->
- 
-## Optimize
-
-### Arc servers 
-- Implement change tracking and inventory with Azure Automation Change Tracking and Inventory for Arc enabled servers.<!--CAF Overlap-->
-- Network configurations.<!--CAF Overlap-->
- 
+- Proper admin roles for read, modify, re-onboard, and delete a machine.<!--CAF Overlap-->

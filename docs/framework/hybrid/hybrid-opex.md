@@ -2,7 +2,7 @@
 title: Operational excellence in a hybrid workload
 description: Includes guidance and recommendations that apply to the Operational Excellence pillar in a hybrid and multi-cloud workload.
 author: v-aangie
-ms.date: 02/08/2021
+ms.date: 02/18/2021
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
@@ -84,14 +84,6 @@ Click the following links for architecture details and diagrams that enable appl
 ### Application performance management
 
 - [Hybrid availability and performance monitoring](../../hybrid/hybrid-perf-monitoring.yml)
-
-### Code deployment
-
-- [Deploy configurations using GitOps on Arc enabled Kubernetes cluster](https://docs.microsoft.com/azure/azure-arc/kubernetes/use-gitops-connected-cluster)
-- [Use Azure Policy to apply cluster configurations at scale](https://docs.microsoft.com/azure/azure-arc/kubernetes/use-azure-policy)
-- [Azure Automation in a hybrid environment](https://docs.microsoft.com/azure/architecture/hybrid/azure-automation-hybrid)
-- [DevOps in a hybrid environment](https://docs.microsoft.com/azure/architecture/solution-ideas/articles/devops-in-a-hybrid-environment)
-
 
 ## Manage data anywhere
 
