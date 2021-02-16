@@ -25,6 +25,7 @@ Training of models using large datasets is a complex and resource intensive task
 * [Azure Container Registry](/azure/container-registry/)
 * [Azure Kubernetes Service](https://azure.microsoft.com/services/container-registry/)
 * [Azure Machine Learning](https://azure.microsoft.com/en-us/services/machine-learning/)
+* [Azure Data Science Virtual Machine](/azure/machine-learning/data-science-virtual-machine/)
 
 ## Next steps
 
