@@ -70,5 +70,5 @@ Azure Stack HCI provides multiple levels of resiliency, but because of its hyper
 
 ## Next steps
 
->[!div class="nextstepaction"] 
+>[!div class="nextstepaction"]
 >[Security](/azure/architecture/framework/hybrid/hybrid-security)

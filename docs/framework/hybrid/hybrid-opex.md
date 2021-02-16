@@ -22,9 +22,9 @@ To keep your systems running, many workload teams have architected and designed 
 One of the primary benefits of Azure Arc is facilitating implementation of DevOps principles that apply established development practices to operations. This results in improved agility, without jeopardizing the stability of IT environment.
 
 - Centrally code and deploy applications confidently to any Kubernetes distribution in any location.
-- Centrally manage and delegate access for DevOps roles and responsibilities
-- Reduce errors with consistent configuration and policy-driven deployment and operations for applications and Kubernetes clusters 
-- Delegate access for DevOps roles and responsibilities through Azure RBAC. 
+- Centrally manage and delegate access for DevOps roles and responsibilities.
+- Reduce errors with consistent configuration and policy-driven deployment and operations for applications and Kubernetes clusters.
+- Delegate access for DevOps roles and responsibilities through Azure RBAC.
 - Reduce errors with consistent policy driven deployment and operations through GitHub and Azure Policy.
 
 ## Connect Kubernetes clusters to Azure and start deploying using a GitOps model  

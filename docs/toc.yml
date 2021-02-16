@@ -447,7 +447,7 @@ items:
             items:
               - name: Overview
                 href: framework/hybrid/hybrid-overview.md
-              - name: Cost
+              - name: Cost Optimization
                 href: framework/hybrid/hybrid-cost.md 
               - name: Operational Excellence
                 href: framework/hybrid/hybrid-opex.md
