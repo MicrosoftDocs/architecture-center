@@ -2,7 +2,7 @@
 title: What's New in Azure Architecture Center
 description: New and updated articles in Azure Architecture Center
 author: doodlemania2
-ms.date: 02/08/2021
+ms.date: 02/15/2021
 ms.topic: article
 ms.service: architecture-center
 ---
@@ -10,10 +10,10 @@ ms.service: architecture-center
 
 # What's new in Azure Architecture Center [![Download Feed](data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABmJLR0QA/wD/AP+gvaeTAAACw0lEQVQ4jW2STWhcVRTHf+d+vM5MQ5vUvAG1naSNikI1UKuVVNGFolDduDBdtI0IhQa6KNoiQnGhLvwAtxJXEVRQIhSpoksXgpDG1H4tWrGW0DZMkxnRdCZv3rv3uJg0GOLhXs5d3N/h/z/nCMC5I4Ov9qXph0ZMvzGIGEGMIAJigNW3oKh22sVC40b9xM5P/vxMLowPjlXvrU1mi02sE4w3WC8Yt/6KFYztFu+EMtdmr47J3MnddVpZuqE6wMYnR9GlOmH+InH+PMbq/8JiIHSURl3rziW+X7MOti+lsvcAd0JbTfJzUxS/fYHE5XVwyCJJ2acGEOMNsrxIdv47irlZiAVS6SN54jDlg1O4bY+ug4ssogGR+fdG1ObtNV7txk34nfvwj72GlHohFoSfPyC/eHoVDlkkNyWMGDBOSGqPsOnIKSovf4y//2nCpW/Iv95PvPkrGIfd+yZUd63CRRZBwYisNMk7TO9W3I6nSJ59m9Lol0hPSvjxGPH6GTCODS+8S6RMkUVirsSoGFYU0LhCduooxcwkZP8gvQP4lz4lVmosn34Lvd1AKltI9owRcyXkikYwIt0Com3izTOEmQnyqf3orUvgy/jn3ydfuk3rpwkAKntGidESOhGi/seCFfzwK/hnTiJJmc73b6CtJmbzVtyDL9Ka/hbNM6TUgxvcTcwVVboWxAo2HcKNvI55YB+ya5zirwbZzFcA+IeeI7TaZL9PA5DUhomFol0FqLECy03oLAEQF69RZJHOlV8AcNUhQq7kt+YAsJurxEJBReX6O4/X+++2qRiI/i60fA/ZH7OELBC0hB8aIRawNP0DrnofNt1OvjBP+/JZkm09dbkwPjg2MLxj0mlrzZLcGVXIldBZGVuhK9KhUttCs3HjkACcPbz9YLWWfuScrRKRGLqfNK7NqHaP1/rfC4vHH564+vm/Fu5mkriuRlEAAAAASUVORK5CYII=)](/azure/architecture/feed.atom)
 
+
 <link rel="alternate" type="application/atom+xml"
   title="New and updated articles in Azure Architecture Center"
   href="/azure/architecture/feed.atom" />
-
 
 New and updated articles in Azure Architecture Center
 
@@ -26,33 +26,42 @@ New and updated articles in Azure Architecture Center
 - [Traffic flow security in Azure](/azure/architecture/framework/security/design-network-flow)
 - [Implement network segmentation patterns on Azure](/azure/architecture/framework/security/design-network-segmentation)
 - [Profisee master data management with Azure Data Factory](/azure/architecture/reference-architectures/data/profisee-master-data-management-data-factory)
+- [Consumer health portal on Azure](/azure/architecture/example-scenario/digital-health/health-portal)
 - [Azure security test practices](/azure/architecture/framework/security/monitor-test)
 
 ### Updated Articles
 
-- [Attestation, authentication, and provisioning](/azure/architecture/example-scenario/iot/attestation-provisioning)  ([#c68ae5ffd](https://github.com/MicrosoftDocs/architecture-center/commit/c68ae5ffd))
-- [Controlling IoT devices using a Voice Assistant](/azure/architecture/solution-ideas/articles/iot-controlling-devices-with-voice-assistant)  ([#c68ae5ffd](https://github.com/MicrosoftDocs/architecture-center/commit/c68ae5ffd))
-- [Serverless event processing](/azure/architecture/reference-architectures/serverless/event-processing)  ([#d7256cda4](https://github.com/MicrosoftDocs/architecture-center/commit/d7256cda4))
 - [Security monitoring in Azure](/azure/architecture/framework/security/monitor)  ([#9022aaa34](https://github.com/MicrosoftDocs/architecture-center/commit/9022aaa34))
 - [Run SAP HANA for Linux virtual machines in a scale-up architecture on Azure](/azure/architecture/reference-architectures/sap/run-sap-hana-for-linux-virtual-machines)  ([#22f51f8aa](https://github.com/MicrosoftDocs/architecture-center/commit/22f51f8aa))
 - [Interactive querying with HDInsight](/azure/architecture/solution-ideas/articles/interactive-querying-with-hdinsight)  ([#22f51f8aa](https://github.com/MicrosoftDocs/architecture-center/commit/22f51f8aa))
-- [Loan ChargeOff Prediction with Azure HDInsight Spark Clusters](/azure/architecture/solution-ideas/articles/loan-chargeoff-prediction-with-azure-hdinsight-spark-clusters)  ([#22f51f8aa](https://github.com/MicrosoftDocs/architecture-center/commit/22f51f8aa))
+- [Loan charge-off prediction with Azure HDInsight Spark clusters](/azure/architecture/solution-ideas/articles/loan-chargeoff-prediction-with-azure-hdinsight-spark-clusters)  ([#22f51f8aa](https://github.com/MicrosoftDocs/architecture-center/commit/22f51f8aa))
+- [Run SAP BW/4HANA with Linux virtual machines on Azure](/azure/architecture/reference-architectures/sap/run-sap-bw4hana-with-linux-virtual-machines)  ([#c6bd4aa54](https://github.com/MicrosoftDocs/architecture-center/commit/c6bd4aa54))
+- [Azure identity and access management considerations](/azure/architecture/framework/security/design-identity)  ([#1fddfae3d](https://github.com/MicrosoftDocs/architecture-center/commit/1fddfae3d))
+- [AKS triage - node health](/azure/architecture/operator-guides/aks/aks-triage-node-health)  ([#1fddfae3d](https://github.com/MicrosoftDocs/architecture-center/commit/1fddfae3d))
+- [Asynchronous messaging options in Azure](/azure/architecture/guide/technology-choices/messaging)  ([#41fcaf2f4](https://github.com/MicrosoftDocs/architecture-center/commit/41fcaf2f4))
+- [Event Sourcing pattern](/azure/architecture/patterns/event-sourcing)  ([#41fcaf2f4](https://github.com/MicrosoftDocs/architecture-center/commit/41fcaf2f4))
+- [Intelligent apps using Azure Database for MySQL](/azure/architecture/solution-ideas/articles/intelligent-apps-using-azure-database-for-mysql)  ([#5f989d44b](https://github.com/MicrosoftDocs/architecture-center/commit/5f989d44b))
+- [SAP on Azure Architecture Guide](/azure/architecture/reference-architectures/sap/sap-overview)  ([#2f9fca44b](https://github.com/MicrosoftDocs/architecture-center/commit/2f9fca44b))
+- [Capacity](/azure/architecture/framework/scalability/capacity)  ([#ad3b5835c](https://github.com/MicrosoftDocs/architecture-center/commit/ad3b5835c))
+- [Attestation, authentication, and provisioning](/azure/architecture/example-scenario/iot/attestation-provisioning)  ([#c68ae5ffd](https://github.com/MicrosoftDocs/architecture-center/commit/c68ae5ffd))
+- [Controlling IoT devices using a Voice Assistant](/azure/architecture/solution-ideas/articles/iot-controlling-devices-with-voice-assistant)  ([#c68ae5ffd](https://github.com/MicrosoftDocs/architecture-center/commit/c68ae5ffd))
+- [Serverless event processing](/azure/architecture/reference-architectures/serverless/event-processing)  ([#d7256cda4](https://github.com/MicrosoftDocs/architecture-center/commit/d7256cda4))
 
 ## January 2021
 
 ### New Articles
 
-- [Restrict interservice communications](/azure/architecture/example-scenario/service-to-service/restrict-communications)
 - [Operational Excellence patterns](/azure/architecture/framework/devops/devops-patterns)
 - [Reliability patterns](/azure/architecture/framework/resiliency/reliability-patterns)
 - [Performance Efficiency patterns](/azure/architecture/framework/scalability/performance-efficiency-patterns)
 - [Security patterns](/azure/architecture/framework/security/security-patterns)
 - [Cloud design patterns](/azure/architecture/patterns/index-patterns)
+- [Monitoring for performance efficiency](/azure/architecture/framework/scalability/monitor)
+- [Restrict interservice communications](/azure/architecture/example-scenario/service-to-service/restrict-communications)
 - [Replicate and sync mainframe data in Azure](/azure/architecture/reference-architectures/migration/sync-mainframe-data-with-azure)
 - [Alerting for DevOps](/azure/architecture/framework/devops/alerts)
 - [Data encryption in Azure](/azure/architecture/framework/security/design-storage-encryption)
 - [Key and secret management in Azure](/azure/architecture/framework/security/design-storage-keys)
-- [Monitoring for performance efficiency](/azure/architecture/framework/scalability/monitor)
 - [Caching data for performance optimization](/azure/architecture/framework/scalability/optimize-cache)
 - [Partitioning data for performance optimization](/azure/architecture/framework/scalability/optimize-partition)
 - [Sustain performance efficiency over time](/azure/architecture/framework/scalability/optimize-sustain)
@@ -64,10 +73,10 @@ New and updated articles in Azure Architecture Center
 
 ### Updated Articles
 
+- [Data protection in Azure](/azure/architecture/framework/security/design-storage)  ([#bd8084fcf](https://github.com/MicrosoftDocs/architecture-center/commit/bd8084fcf))
 - [Backup and disaster recover for Azure applications](/azure/architecture/framework/resiliency/backup-and-recovery)  ([#3ca257b3d](https://github.com/MicrosoftDocs/architecture-center/commit/3ca257b3d))
 - [Field and cloud edge gateways](/azure/architecture/example-scenario/iot/field-cloud-edge-gateways)  ([#49a77e199](https://github.com/MicrosoftDocs/architecture-center/commit/49a77e199))
 - [Monitoring for DevOps](/azure/architecture/framework/devops/monitoring)  ([#ad603400e](https://github.com/MicrosoftDocs/architecture-center/commit/ad603400e))
-- [Data protection in Azure](/azure/architecture/framework/security/design-storage)  ([#bd8084fcf](https://github.com/MicrosoftDocs/architecture-center/commit/bd8084fcf))
 - [Business Metrics](/azure/architecture/framework/resiliency/business-metrics)  ([#fb285c5fb](https://github.com/MicrosoftDocs/architecture-center/commit/fb285c5fb))
 - [Design for scaling](/azure/architecture/framework/scalability/design-scale)  ([#65a7ef214](https://github.com/MicrosoftDocs/architecture-center/commit/65a7ef214))
 - [Background jobs guidance](/azure/architecture/best-practices/background-jobs)  ([#13889c62e](https://github.com/MicrosoftDocs/architecture-center/commit/13889c62e))
@@ -79,21 +88,21 @@ New and updated articles in Azure Architecture Center
 ### New Articles
 
 - [Advanced Azure Resource Manager template functionality](/azure/architecture/guide/azure-resource-manager/advanced-templates)
-- [Confidential computing on a healthcare platform](/azure/architecture/example-scenario/confidential/healthcare-inference)
-- [Azure AD security for Amazon Web Services (AWS)](/azure/architecture/reference-architectures/aws/aws-azure-ad-security)
-- [MCAS and Azure Sentinel for Amazon Web Services (AWS)](/azure/architecture/reference-architectures/aws/aws-azure-security-solutions)
 - [Authentication with Azure AD](/azure/architecture/framework/security/design-identity-authentication)
 - [Authorization with Azure AD](/azure/architecture/framework/security/design-identity-authorization)
 - [Azure control plane security](/azure/architecture/framework/security/design-identity-control-plane)
 - [Team roles and responsibilities](/azure/architecture/framework/security/design-identity-role-definitions)
-- [Operational excellence design principles](/azure/architecture/framework/devops/principles)
-- [Performance testing](/azure/architecture/framework/scalability/performance-test)
-- [Testing tools](/azure/architecture/framework/scalability/test-tools)
-- [Refactor IBM z/OS mainframe Coupling Facility (CF) to Azure](/azure/architecture/reference-architectures/zos/refactor-zos-coupling-facility)
 - [Design scalable Azure applications](/azure/architecture/framework/scalability/design-apps)
 - [Plan for capacity](/azure/architecture/framework/scalability/design-capacity)
 - [Design Azure applications for efficiency](/azure/architecture/framework/scalability/design-efficiency)
 - [Design for scaling](/azure/architecture/framework/scalability/design-scale)
+- [Confidential computing on a healthcare platform](/azure/architecture/example-scenario/confidential/healthcare-inference)
+- [Azure AD security for Amazon Web Services (AWS)](/azure/architecture/reference-architectures/aws/aws-azure-ad-security)
+- [MCAS and Azure Sentinel for Amazon Web Services (AWS)](/azure/architecture/reference-architectures/aws/aws-azure-security-solutions)
+- [Operational excellence design principles](/azure/architecture/framework/devops/principles)
+- [Performance testing](/azure/architecture/framework/scalability/performance-test)
+- [Testing tools](/azure/architecture/framework/scalability/test-tools)
+- [Refactor IBM z/OS mainframe Coupling Facility (CF) to Azure](/azure/architecture/reference-architectures/zos/refactor-zos-coupling-facility)
 
 ### Updated Articles
 
@@ -106,17 +115,17 @@ New and updated articles in Azure Architecture Center
 
 ### New Articles
 
-- [Use Azure Stack HCI stretched clusters for disaster recovery](/azure/architecture/hybrid/azure-stack-hci-dr)
-- [Use Azure Stack HCI switchless interconnect and lightweight quorum for Remote Office/Branch Office](/azure/architecture/hybrid/azure-stack-robo)
 - [Release Engineering Application Development](/azure/architecture/framework/devops/release-engineering-app-dev)
 - [Release Engineering Continuous integration](/azure/architecture/framework/devops/release-engineering-ci)
 - [Release Engineering Rollback](/azure/architecture/framework/devops/release-engineering-rollback)
-- [Project 15 Open Platform](/azure/architecture/solution-ideas/articles/project-15-iot-sustainability)
-- [Unisys mainframe migration](/azure/architecture/reference-architectures/migration/unisys-mainframe-migration)
 - [Security logs and audits](/azure/architecture/framework/security/monitor-audit)
 - [Check for identity, network, data risks](/azure/architecture/framework/security/monitor-identity-network)
 - [Security operations in Azure](/azure/architecture/framework/security/monitor-security-operations)
 - [Security monitoring in Azure](/azure/architecture/framework/security/monitor)
+- [Use Azure Stack HCI stretched clusters for disaster recovery](/azure/architecture/hybrid/azure-stack-hci-dr)
+- [Use Azure Stack HCI switchless interconnect and lightweight quorum for Remote Office/Branch Office](/azure/architecture/hybrid/azure-stack-robo)
+- [Project 15 Open Platform](/azure/architecture/solution-ideas/articles/project-15-iot-sustainability)
+- [Unisys mainframe migration](/azure/architecture/reference-architectures/migration/unisys-mainframe-migration)
 - [Azure enterprise cloud file share](/azure/architecture/hybrid/azure-files-private)
 - [Modernize mainframe &amp; midrange data](/azure/architecture/reference-architectures/migration/modernize-mainframe-data-to-azure)
 - [IoT event routing](/azure/architecture/example-scenario/iot/event-routing)
@@ -140,8 +149,8 @@ New and updated articles in Azure Architecture Center
 
 ### Updated Articles
 
+- [Security monitoring tools in Azure](/azure/architecture/framework/security/monitor-tools)  ([#4f3a35043](https://github.com/MicrosoftDocs/architecture-center/commit/4f3a35043))
 - [Choosing a data storage technology](/azure/architecture/data-guide/technology-choices/data-storage)  ([#4128cc2d9](https://github.com/MicrosoftDocs/architecture-center/commit/4128cc2d9))
 - [Process real-time vehicle data using IoT](/azure/architecture/example-scenario/data/realtime-analytics-vehicle-iot)  ([#beeba69f6](https://github.com/MicrosoftDocs/architecture-center/commit/beeba69f6))
-- [Security monitoring tools in Azure](/azure/architecture/framework/security/monitor-tools)  ([#4f3a35043](https://github.com/MicrosoftDocs/architecture-center/commit/4f3a35043))
 - [Building a CI/CD pipeline for microservices on Kubernetes](/azure/architecture/microservices/ci-cd-kubernetes)  ([#c0135f775](https://github.com/MicrosoftDocs/architecture-center/commit/c0135f775))
 
