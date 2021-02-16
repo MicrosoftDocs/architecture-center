@@ -4,13 +4,14 @@ metadata:
   titleSuffix: Azure Reference Architectures
   description: Compare two ways to connect virtual networks in Azure.
   author: anavinahar
+  ms.author: pnp
   ms.date: 12/13/2019
   ms.topic: conceptual
   ms.service: architecture-center
+  ms.subservice: reference-architecture
   ms.category:
     - networking
     - integration
-  ms.subservice: reference-architecture
   ms.custom:
     - networking
     - fcp

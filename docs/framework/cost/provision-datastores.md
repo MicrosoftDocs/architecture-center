@@ -6,6 +6,8 @@ ms.date: 08/25/2020
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
+products:
+  - azure-sql-database
 ms.custom:
   - article
 ---

@@ -10,6 +10,7 @@ This solution is built on the Azure managed services: [Event Hubs](https://azure
 ## Architecture
 
 ![Architecture Diagram](../media/predictive-insights-with-vehicle-telematics.png)
+
 *Download an [SVG](../media/predictive-insights-with-vehicle-telematics.svg) of this architecture.*
 
 ## Components

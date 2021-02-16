@@ -49,7 +49,7 @@ Use the following button to deploy the reference using the Azure portal.
 For detailed information and additional deployment options, see the ARM Templates used to deploy this solution.
 
 > [!div class="nextstepaction"]
-> [Hub and Spoke ARM Template](https://github.com/mspnp/samples/tree/master/solutions/azure-hub-spoke)
+> [Hub and Spoke ARM Template](https://docs.microsoft.com/samples/mspnp/samples/hub-and-spoke-deployment/)
 
 ## Use cases
 
@@ -114,7 +114,7 @@ For additional information on creating virtual network peering, see [Create VNet
 
 ### Spoke connectivity
 
-If you require connectivity between spokes, consider deploying an Azure Firewall or other network virtual appliance and crate routes to forward traffic from the spoke to the firewall / network virtual appliance, which can then route to the second spoke. In this scenario, you must configure the peering connections to **allow forwarded traffic**.
+If you require connectivity between spokes, consider deploying an Azure Firewall or other network virtual appliance and create routes to forward traffic from the spoke to the firewall / network virtual appliance, which can then route to the second spoke. In this scenario, you must configure the peering connections to **allow forwarded traffic**.
 
 ![Routing between spokes using Azure Firewall](./images/spoke-spoke-routing.png)
 
