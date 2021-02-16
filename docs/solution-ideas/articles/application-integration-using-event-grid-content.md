@@ -8,6 +8,7 @@ Event Grid connects your app with other services. For example, create an applica
 ## Architecture
 
 ![Architecture Diagram](../media/application-integration-using-event-grid.png)
+
 *Download an [SVG](../media/application-integration-using-event-grid.svg) of this architecture.*
 
 ## Data Flow
