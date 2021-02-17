@@ -10,13 +10,15 @@ metadata:
   ms.subservice: reference-architecture
   ms.category:
     - identity
+    - hybrid
   ms.custom:
-    - seodec18
     - identity
     - reference-architecture
+    - e2e-hybrid
 name: Deploy AD DS in an Azure virtual network
 azureCategories:
   - identity
+  - hybrid
 summary: Use this reference architecture to extend an on-premises Active Directory domain to Azure to provide distributed authentication services.
 products:
   - azure-active-directory-domain

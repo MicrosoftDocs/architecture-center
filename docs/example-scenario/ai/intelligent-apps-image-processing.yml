@@ -4,15 +4,15 @@ metadata:
   description: Learn how to build image processing into your applications by using Azure services such as the Computer Vision API and Azure Functions.
   author: david-stanford
   ms.date: 02/01/2021
-  ms.category:
-    - ai-machine-learning
-    - media
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: example-scenario
-  social_image_url: /azure/architecture/example-scenario/ai/media/architecture-intelligent-apps-image-processing.png
+  ms.category:
+    - ai-machine-learning
+    - media
   ms.custom:
     - example-scenario
+  social_image_url: /azure/architecture/example-scenario/ai/media/architecture-intelligent-apps-image-processing.png
 name: Image classification on Azure
 azureCategories:
   - ai-machine-learning

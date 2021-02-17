@@ -1,6 +1,6 @@
 ---
-title:  Security monitoring in Azure
-description: Security logging and monitoring are activities related to enabling, acquiring, and storing audit logs for Azure services. 
+title: Security monitoring in Azure
+description: Security logging and monitoring are activities related to enabling, acquiring, and storing audit logs for Azure services.
 author: PageWriter-MSFT
 ms.date: 11/03/2020
 ms.topic: conceptual
