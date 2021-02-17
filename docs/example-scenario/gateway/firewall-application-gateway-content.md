@@ -9,7 +9,7 @@ To secure Azure application workloads, you use protective measures like authenti
 
 These Azure services are complementary. One or the other may be best for your workloads, or you can use them together for optimal protection at both the network and application layers. Use the following decision tree and the examples in this article to determine the best security option for your application's virtual network.
 
-Azure Firewall and Azure Application Gateway leverage different technologies, and support securization of different flows:
+Azure Firewall and Azure Application Gateway leverage different technologies, and support securitization of different flows:
 
 |Application Flow| Can be filtered by Azure Firewall | Can be filtered by WAF on Application Gateway |
 | --- | :---: |:---: |
@@ -74,7 +74,11 @@ In this design, Azure Firewall inspects both incoming connections from the publi
 
 ## Application Gateway only
 
-This design covers the use case when only web applications exist in the virtual network, and inspecting outbound traffic with Network Security Groups (NSGs) is considered as enough protection for outbound flows to the Internet. Note that this is not a recommended design, since using Azure Firewall to control outbound flows (instead of only NSGs) will prevent certain attack scenarios such as data exfiltration, where you make sure that your workloads are only sending data to an approved list of URLs.
+This design covers the use case when only web applications exist in the virtual network, and inspecting outbound traffic with Network Security Groups (NSGs) is considered as enough protection for outbound flows to the Internet.
+
+ >[!NOTE]
+ > This is not a recommended design since using Azure Firewall to control outbound flows (instead of only NSGs) will prevent certain attack scenarios such as data exfiltration, where you make sure that your workloads are only sending data to an approved list of URLs.
+ 
 
 The main difference from the previous design with only the Azure Firewall is that the Application Gateway doesn't act as a routing device with NAT, but behaves as a full reverse application proxy. That is, Application Gateway terminates the web session from the client, and establishes a separate session with one of its backend servers.
 
