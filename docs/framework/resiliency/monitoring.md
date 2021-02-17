@@ -2,7 +2,7 @@
 title: Monitoring application health for reliability
 description: How to use application health monitoring to improve application reliability in Azure
 author: v-aangie
-ms.date: 02/12/2021
+ms.date: 02/17/2021
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
@@ -113,9 +113,9 @@ Analyze data consolidated in these data stores to troubleshoot issues and gain a
 
 ## Related links
 
-- For information on dashboards, see [Azure dashboards](/azure/azure-portal/azure-portal-dashboards)
-- For information on virtual machine sizes, see [Sizes for virtual machines in Azure](/azure/virtual-machines/sizes)
-- For information on scale sets, see [virtual machine scale sets overview](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-overview)
-- For information on dependency tracking, see [Dependency Tracking in Azure Application Insights](/azure/azure-monitor/app/asp-net-dependencies)
+- For information on dashboards, see [Azure dashboards](/azure/azure-portal/azure-portal-dashboards).
+- For information on virtual machine sizes, see [Sizes for virtual machines in Azure](/azure/virtual-machines/sizes).
+- For information on scale sets, see [virtual machine scale sets overview](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-overview).
+- For information on dependency tracking, see [Dependency Tracking in Azure Application Insights](/azure/azure-monitor/app/asp-net-dependencies).
 
 Go back to the main article: [Monitoring](monitor-checklist.md)

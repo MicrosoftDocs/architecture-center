@@ -2,7 +2,7 @@
 title: Health modelling for reliability
 description: How to use application health modelling to improve application reliability in Azure
 author: v-aangie
-ms.date: 02/12/2021
+ms.date: 02/17/2021
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected

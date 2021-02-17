@@ -2,7 +2,7 @@
 title: Monitoring for reliability
 description: Describes considerations for reliability in application monitoring.
 author: v-aangie
-ms.date: 02/12/2021
+ms.date: 02/17/2021
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
@@ -56,3 +56,5 @@ Monitoring and diagnostics are crucial for resiliency. If something fails, you n
 
 ## Related links
 
+- [Azure Monitor](https://azure.microsoft.com/services/monitor/)
+- [Continuous monitoring](/azure/azure-monitor/continuous-monitoring)
