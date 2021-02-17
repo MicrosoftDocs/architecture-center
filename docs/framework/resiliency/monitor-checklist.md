@@ -37,11 +37,11 @@ Monitoring and diagnostics are crucial for resiliency. If something fails, you n
 
 ## Azure services for monitoring
 
-- [Azure Monitor](/azure/azure-monitor/overview)
-- [Application Insights](/azure/azure-monitor/app/app-insights-overview)
-- [Azure Service Health](/azure/service-health/overview)
-- [Azure Resource Health](/azure/service-health/resource-health-overview)
-- [Azure Resource Manager](/azure-resource-manager/management/overview)
+- [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview)
+- [Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview)
+- [Azure Service Health](https://docs.microsoft.com/azure/service-health/service-health-overview)
+- [Azure Resource Health](https://docs.microsoft.com/azure/service-health/resource-health-overview)
+- [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/management/overview)
 - [Azure Policy](https://docs.microsoft.com/azure/governance/policy/overview)
 
 ## Reference architecture

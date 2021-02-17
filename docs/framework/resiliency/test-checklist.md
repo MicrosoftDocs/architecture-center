@@ -46,26 +46,25 @@ Follow these questions to assess the workload at a deeper level.
 
 ## Azure services
 
-- [Azure Site Recovery](/azure/site-recovery/)
+- [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview)
 - [Azure Pipelines](https://docs.microsoft.com/azure/devops/pipelines/get-started/what-is-azure-pipelines?view=azure-devops)
-- [Azure Traffic Manager](/azure/traffic-manager/traffic-manager-overview/)
-- [Azure Load Balancer](/azure/load-balancer/load-balancer-overview/)
+- [Azure Traffic Manager](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-overview)
+- [Azure Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview)
 
 ## Reference architecture
 
 - [Failure Mode Analysis for Azure applications](https://docs.microsoft.com/azure/architecture/resiliency/failure-mode-analysis)
-- [SMB disaster recovery with Azure Site Recovery](https://docs.microsoft.com/azure/architecture/solution-ideas/articles/disaster-recovery-smb-azure-site-recovery)
 - [High availability and disaster recovery scenarios for IaaS apps](https://docs.microsoft.com/azure/architecture/example-scenario/infrastructure/iaas-high-availability-disaster-recovery)
 - [Back up files and applications on Azure Stack Hub](https://docs.microsoft.com/azure/architecture/hybrid/azure-stack-backup)
 
 ## Next step
 
 >[!div class="nextstepaction"]
->[Testing](/azure/architecture/framework/resiliency/testing)
+>[Resiliency testing](/azure/architecture/framework/resiliency/testing)
 
 ## Related links
 
-- [Performance testing](/azure/architecture/framework/scalability/performance-test)
-- [Chaos engineering](/azure/architecture/framework/resilency/chaos-engineering)
-- [Failure and disaster recovery for Azure applications](/azure/architecture/framework/resiliency/backup-and-recovery)
-- [Testing your application and Azure environment](/azure/architecture/framework/devops/release-engineering-testing)
+- For information on performance testing, see [Performance testing](/azure/architecture/framework/scalability/performance-test).
+- For information on chaos engineering, see [Chaos engineering](/azure/architecture/framework/resiliency/chaos-engineering).
+- For information on failure and disaster recovery, see [Failure and disaster recovery for Azure applications](/azure/architecture/framework/resiliency/backup-and-recovery).
+- For information on testing applications, see [Testing your application and Azure environment](/azure/architecture/framework/devops/release-engineering-testing).

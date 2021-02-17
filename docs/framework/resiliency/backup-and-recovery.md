@@ -13,9 +13,9 @@ ms.custom:
 
 # Backup and disaster recovery for Azure applications
 
-In the cloud, we acknowledge up front that failures will happen. Instead of trying to prevent failures altogether, the goal is to minimize the effects of a single failing component. Testing is one way to minimize these effects. You should automate testing you applications where possible, but you need to be prepared for when they fail. When this happens, having backup and recovery strategies becomes important.
-
 *Disaster recovery* is the process of restoring application functionality in the wake of a catastrophic loss.
+
+In the cloud, we acknowledge up front that failures will happen. Instead of trying to prevent failures altogether, the goal is to minimize the effects of a single failing component. Testing is one way to minimize these effects. You should automate testing you applications where possible, but you need to be prepared for when they fail. When this happens, having backup and recovery strategies becomes important.
 
 Your tolerance for reduced functionality during a disaster is a business decision that varies from one application to the next. It might be acceptable for some applications to be unavailable or to be partially available with reduced functionality or delayed processing for a period of time. For other applications, any reduced functionality is unacceptable.
 
@@ -44,7 +44,7 @@ Consider the following suggestions when creating and testing your disaster recov
 - Train operations staff to execute the plan.
 - Perform regular disaster simulations to validate and improve the plan.
 
-If you're using [Azure Site Recovery](/azure/site-recovery/) to replicate virtual machines (VMs), create a fully automated recovery plan to fail over the entire application.
+If you're using [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview) to replicate virtual machines (VMs), create a fully automated recovery plan to fail over the entire application.
 
 ## Operational readiness testing
 
@@ -56,11 +56,11 @@ Automated operational responses should be tested frequently as part of the norma
 
 Test failover and failback to verify that your application's dependent services come back up in a synchronized manner during disaster recovery. Changes to systems and operations may affect failover and failback functions, but the impact may not be detected until the main system fails or becomes overloaded. Test failover capabilities *before* they are required to compensate for a live problem. Also, be sure that dependent services failover and failback in the correct order.
 
-If you are using [Azure Site Recovery](/azure/site-recovery/) to replicate VMs, run disaster recovery drills periodically by testing failovers to validate your replication strategy. A test failover does not affect the ongoing VM replication or your production environment. For more information, see [Run a disaster recovery drill to Azure](/azure/site-recovery/site-recovery-test-failover-to-azure).
+If you are using [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview) to replicate VMs, run disaster recovery drills periodically by testing failovers to validate your replication strategy. A test failover does not affect the ongoing VM replication or your production environment. For more information, see [Run a disaster recovery drill to Azure](https://docs.microsoft.com/azure/site-recovery/site-recovery-test-failover-to-azure).
 
 ## Dependent service outage
 
-For each dependent service, you should understand the implications of service disruption and the way that the application will respond. Many services include features that support resiliency and availability, so evaluating each service independently is likely to improve your disaster recovery plan. For example, Azure Event Hubs supports [failing over](/azure/event-hubs/event-hubs-geo-dr#setup-and-failover-flow) to the secondary namespace.
+For each dependent service, you should understand the implications of service disruption and the way that the application will respond. Many services include features that support resiliency and availability, so evaluating each service independently is likely to improve your disaster recovery plan. For example, Azure Event Hubs supports [failing over](https://docs.microsoft.com/azure/event-hubs/event-hubs-geo-dr#setup-and-failover-flow) to the secondary namespace.
 
 ## Network outage
 
@@ -83,19 +83,17 @@ When automating failover procedures, ensure that the tooling used for orchestrat
 
 Many alternative strategies are available for implementing distributed compute across regions. These must be tailored to the specific business requirements and circumstances of the application. At a high level, the approaches can be divided into the following categories:
 
-- **Redeploy on disaster**: In this approach, the application is redeployed from scratch at the time of disaster. This is appropriate for non-critical applications that don’t require a guaranteed recovery time. [Redeploy to a new region](../../example-scenario/apps/devops-dotnet-webapp.yml)
+- **Redeploy on disaster**: In this approach, the application is redeployed from scratch at the time of disaster. This is appropriate for non-critical applications that don’t require a guaranteed recovery time.
 
-- **Warm Spare (Active/Passive)**: A secondary hosted service is created in an alternate region, and roles are deployed to guarantee minimal capacity; however, the roles don’t receive production traffic. This approach is useful for applications that have not been designed to distribute traffic across regions. [Basic Web Application example](../../reference-architectures/app-service-web-app/basic-web-app.yml#availability-considerations), [Replicate VM to another region](/azure/site-recovery/azure-to-azure-quickstart)
+- **Warm Spare (Active/Passive)**: A secondary hosted service is created in an alternate region, and roles are deployed to guarantee minimal capacity; however, the roles don’t receive production traffic. This approach is useful for applications that have not been designed to distribute traffic across regions.
 
-- **Hot Spare (Active/Active)**: The application is designed to receive production load in multiple regions. The cloud services in each region might be configured for higher capacity than required for disaster recovery purposes. Alternatively, the cloud services might scale-out as necessary at the time of a disaster and failover. This approach requires substantial investment in application design, but it has significant benefits. These include low and guaranteed recovery time, continuous testing of all recovery locations, and efficient usage of capacity. [Multi-tier DR example](../../example-scenario/infrastructure/multi-tier-app-disaster-recovery.yml)
+- **Hot Spare (Active/Active)**: The application is designed to receive production load in multiple regions. The cloud services in each region might be configured for higher capacity than required for disaster recovery purposes. Alternatively, the cloud services might scale-out as necessary at the time of a disaster and failover. This approach requires substantial investment in application design, but it has significant benefits. These include low and guaranteed recovery time, continuous testing of all recovery locations, and efficient usage of capacity.
 
 ## Plan for regional failures
 
 Azure is divided physically and logically into units called regions. A region consists of one or more data centers in close proximity.
 
 Under rare circumstances, it is possible that facilities in an entire region can become inaccessible, for example, due to network failures. Or, facilities can be lost entirely, for example, due to a natural disaster. Azure has capabilities for creating applications that are distributed across regions. Such distribution helps to minimize the possibility that a failure in one region could affect other regions.
-
-For guidance on specific Azure services, see [Recover from loss of an Azure region](/azure/architecture/framework/resiliency/recovery-loss-azure-region).
 
 ## Next step
 
@@ -104,7 +102,7 @@ For guidance on specific Azure services, see [Recover from loss of an Azure regi
 
 ## Related links
 
-- For guidance on specific Azure recovery services, see [Recover from loss of an Azure region](/azure/architecture/framework/resiliency/recovery-loss-azure-region.md) for guidance on specific Azure services.
-- For information on testing failovers, see [Run a disaster recovery drill to Azure](/azure/site-recovery/site-recovery-test-failover-to-azure).
+- For information on testing failovers, see [Run a disaster recovery drill to Azure](https://docs.microsoft.com/azure/site-recovery/site-recovery-test-failover-to-azure).
+- For information on Event Hubs, see [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/).
 
-- Go back to the main article: [Testing](test-checklist.md)
+Go back to the main article: [Testing](test-checklist.md)

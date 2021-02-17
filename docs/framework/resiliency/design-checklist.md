@@ -35,9 +35,9 @@ Follow these questions to assess the workload at a deeper level.
 
 | Assessment | Description |
 | ------------- | ------------- |
-| [How will you design Azure applications to ensure reliability?](/azure/architecture/framework/scalability/app-design) | Consider how systems use Availability Zones, perform scalability, respond to failure, and other strategies that optimize reliability in application design.
-| [What decisions have been taken to ensure that reliability requirements are met?](/azure/architecture/framework/scalability/design-requirements) | Target and non-functional requirements such as availability and recovery targets allow you to measure the uptime and downtime of your workloads.
-| [Have you identified all possible failure points and dependencies for applications?](/azure/architecture/framework/scalability/design-resiliency) | Validate that the application can operate effectively in the absence of its dependencies, and minimize downtime.
+| [How will you design Azure applications to ensure reliability?](/azure/architecture/framework/resiliency/app-design) | Consider how systems use Availability Zones, perform scalability, respond to failure, and other strategies that optimize reliability in application design.
+| [What decisions have been taken to ensure that reliability requirements are met?](/azure/architecture/framework/resiliency/design-requirements) | Target and non-functional requirements such as availability and recovery targets allow you to measure the uptime and downtime of your workloads.
+| [Have you identified all possible failure points and dependencies for applications?](/azure/architecture/framework/resilirncy/design-resiliency) | Validate that the application can operate effectively in the absence of its dependencies, and minimize downtime.
 
 ## Azure services
 
@@ -57,17 +57,12 @@ Follow these questions to assess the workload at a deeper level.
 ## Next step
 
 >[!div class="nextstepaction"]
->[Targets & non-functional requirements](/azure/architecture/framework/resiliency/design-requirements)
+>[Target & non-functional requirements](/azure/architecture/framework/resiliency/design-requirements)
 
 ## Related links
 
-- [Minimize coordination](https://docs.microsoft.com/azure/architecture/guide/design-principles/minimize-coordination)
-- [Failure Mode Analysis for Azure applications](https://docs.microsoft.com/azure/architecture/resiliency/failure-mode-analysis)
 - [Use platform as a service (PaaS) options](https://docs.microsoft.com/azure/architecture/guide/design-principles/managed-services)  
 - [Design to scale out](/azure/architecture/guide/design-principles/scale-out)
 - [Workload availability targets](/azure/architecture/framework/resiliency/business-metrics).
 - [Building solutions for high availability using Availability Zones](https://docs.microsoft.com/azure/architecture/high-availability/building-solutions-for-high-availability)
-- [Load Balancer health probes](https://docs.microsoft.com/azure/load-balancer/load-balancer-custom-probe-overview)
-- [Deploy highly available network virtual appliances](https://docs.microsoft.com/azure/architecture/reference-architectures/dmz/nva-ha)
-- [Failure Mode Analysis for Azure applications](https://docs.microsoft.com/azure/architecture/resiliency/failure-mode-analysis)
-- [Make all things redundant](https://docs.microsoft.com/azure/architecture/guide/design-principles/redundancy)- 
+- [Make all things redundant](https://docs.microsoft.com/azure/architecture/guide/design-principles/redundancy)

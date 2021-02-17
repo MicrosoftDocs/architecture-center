@@ -2,7 +2,7 @@
 title: Principles of the reliability pillar
 description: Describes the principles of the reliability pillar.
 author: v-aangie
-ms.date: 02/08/2021
+ms.date: 02/17/2021
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
@@ -17,7 +17,7 @@ Building a reliable application in the cloud is different from traditional appli
 
 These critical design principles are used as lenses to assess the Reliability of an application deployed on Azure. They provide a framework for the application assessment questions that follow.
 
-To assess your workload using the tenets found in the Microsoft Azure Well-Architected Framework, see the [Microsoft Azure Well-Architected Review](/assessments/?id=azure-architecture-review&mode=pre-assessment).
+To assess your workload using the tenets found in the Microsoft Azure Well-Architected Framework, see the [Microsoft Azure Well-Architected Review](https://docs.microsoft.com/assessments/).
 
 - **Define and test availability and recovery targets -** Availability targets, such as Service Level Agreements (SLA) and Service Level Objectives (SLO), and Recovery targets, such as Recovery Time Objectives (RTO) and Recovery Point Objectives (RPO), should be defined and tested to ensure application reliability aligns with business requirements.
 
@@ -48,4 +48,4 @@ To assess your workload using the tenets found in the Microsoft Azure Well-Archi
 ## Next step
 
 >[!div class="nextstepaction"]
->[Checklist](/azure/architecture/framework/reliability/design-checklist)
+>[Design](/azure/architecture/framework/resiliency/design-checklist)

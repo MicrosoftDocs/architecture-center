@@ -2,7 +2,7 @@
 title: Testing applications for availability and resiliency
 description: Testing is an iterative process. Test the application, measure the outcome, analyze and address any failures that result, and repeat the process.
 author: v-aangie
-ms.date: 02/12/2021
+ms.date: 02/17/2021
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
@@ -42,11 +42,11 @@ Run tests in production using both synthetic and real user data. Test and produc
 
 As part of your test plan, include:
 
-- [Chaos engineering](/azure/architecture/framework/resilency/chaos-engineering)
+- [Chaos engineering](/azure/architecture/framework/resiliency/chaos-engineering)
 - [Automated pre-deployment testing](/azure/architecture/checklist/dev-ops#testing)
 - [Fault injection testing](#fault-injection-testing)
 - [Peak load testing](/azure/architecture/framework/scalability/performance-test#load-testing)
-- [Disaster recovery testing](/azure/architecture/feamework/resiliency/backup-and-recovery#failover)
+- [Disaster recovery testing](/azure/architecture/framework/resiliency/backup-and-recovery#failover)
 
 ## Performance testing
 
@@ -97,7 +97,7 @@ Load testing is crucial for identifying failures that only happen under load, su
 
 - For more test types, see [Test types](https://docs.microsoft.com/azure/architecture/checklist/dev-ops#testing).
 - To learn about load and stress tests, see [Performance testing](/azure/architecture/framework/scalability/performance-test).
-- To learn about chaos testing, see [Chaos engineering](/azure/architecture/framework/resilency/chaos-engineering).
+- To learn about chaos testing, see [Chaos engineering](/azure/architecture/framework/resiliency/chaos-engineering).
 - For more information about failure scenarios, see [Failure and disaster recovery for Azure applications](/azure/architecture/framework/resiliency/backup-and-recovery).
 
 - Go back to the main article: [Testing](test-checklist.md)

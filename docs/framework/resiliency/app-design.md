@@ -72,8 +72,8 @@ Understanding the subscription landscape of the application and how components a
 
 ## Related links
 
-- For information on minimizing dependencies, see [Minimize coordination](https://docs.microsoft.com/azure/architecture/guide/design-principles/minimize-coordination)
-- For more information on fault-points and fault-modes, see [Failure Mode Analysis for Azure applications](https://docs.microsoft.com/azure/architecture/resiliency/failure-mode-analysis)
-- For information on managed services, see [Use platform as a service (PaaS) options](https://docs.microsoft.com/azure/architecture/guide/design-principles/managed-services)
+- For information on minimizing dependencies, see [Minimize coordination](https://docs.microsoft.com/azure/architecture/guide/design-principles/minimize-coordination).
+- For more information on fault-points and fault-modes, see [Failure Mode Analysis for Azure applications](https://docs.microsoft.com/azure/architecture/resiliency/failure-mode-analysis).
+- For information on managed services, see [Use platform as a service (PaaS) options](https://docs.microsoft.com/azure/architecture/guide/design-principles/managed-services).
 
 > Go back to the main article: [Design](design-checklist.md)

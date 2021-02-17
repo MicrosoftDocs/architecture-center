@@ -2,7 +2,7 @@
 title: Resiliency and dependencies
 description: Describes failure mode analysis and the impact of dependencies on failure.
 author: v-aangie
-ms.date: 02/08/2021
+ms.date: 02/17/2021
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
@@ -25,7 +25,7 @@ Building failure recovery into the system should be part of the architecture and
 
 Failure mode analysis (FMA) is a process for building resiliency into a system, by identifying possible failure points in the system. The FMA should be part of the architecture and design phases, so that you can build failure recovery into the system from the beginning.
 
-Identify all fault-points and fault-modes. Fault-points describe the elements within an application architecture which are capable of failing, while fault-modes capture the various ways by which a fault-point may fail. To ensure an application is resilient to end-to-end failures, it is essential that all fault-points and fault-modes are understood and operationalized. To learn more, see [Failure Mode Analysis for Azure applications](https://docs.microsoft.com/azure/architecture/resiliency/failure-mode-analysis).
+Identify all fault-points and fault-modes. Fault-points describe the elements within an application architecture which are capable of failing, while fault-modes capture the various ways by which a fault-point may fail. To ensure an application is resilient to end-to-end failures, it is essential that all fault-points and fault-modes are understood and operationalized. To learn more, see [Failure mode analysis for Azure applications](https://docs.microsoft.com/azure/architecture/resiliency/failure-mode-analysis).
 
 Eliminate all single point of failure. A single point of failure describes a specific fault-point which if it where to fail, would bring down the entire application. Single points of failure introduce significant risk since any failure of this component will cause an application outage. To learn more, see [Make all things redundant](https://docs.microsoft.com/azure/architecture/guide/design-principles/redundancy).
 
@@ -57,9 +57,9 @@ The usage of platform level dependencies such as Azure Active Directory must als
 
 ## Related links
 
-- For information on failure mode analysis, see [Failure Mode Analysis for Azure applications](https://docs.microsoft.com/azure/architecture/resiliency/failure-mode-analysis)
-- For information on single point of failure, see [Make all things redundant](https://docs.microsoft.com/azure/architecture/guide/design-principles/redundancy)
-- For information on fault-points and fault-modes, see [Failure Mode Analysis for Azure applications](https://docs.microsoft.com/azure/architecture/resiliency/failure-mode-analysis)
-- For information on minimizing dependencies, see [Minimize coordination](https://docs.microsoft.com/azure/architecture/guide/design-principles/minimize-coordination)
+- For information on failure mode analysis, see [Failure mode analysis for Azure applications](https://docs.microsoft.com/azure/architecture/resiliency/failure-mode-analysis).
+- For information on single point of failure, see [Make all things redundant](https://docs.microsoft.com/azure/architecture/guide/design-principles/redundancy).
+- For information on fault-points and fault-modes, see [Failure Mode Analysis for Azure applications](https://docs.microsoft.com/azure/architecture/resiliency/failure-mode-analysis).
+- For information on minimizing dependencies, see [Minimize coordination](https://docs.microsoft.com/azure/architecture/guide/design-principles/minimize-coordination).
 
 Go back to the main article: [Design](design-checklist.md)

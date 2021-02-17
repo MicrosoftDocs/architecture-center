@@ -18,11 +18,18 @@ The health model should not treat all failures the same. For example, the health
 > [!NOTE]
 > The health model should clearly distinguish between expected-transient but recoverable failures and a true disaster state.
 
+## Key points
+
+- Know how to tell if an application is healthy or unhealthy.
+- Understand the impact of logs in diagnostic data.
+- Ensure the consistent use of diagnostic settings across the application.
+- Use critical system flows in your health model.
+
 ## Healthy and unhealthy states
 
 A health model qualifies what *healthy* and *unhealthy* states represent for the application. A holistic application health model should be used to quantify what healthy and unhealthy states represent across all application components. It's highly recommended that a "traffic light" model be used to indicate a green/healthy state when key non-functional requirements and targets are fully satisfied and resources are optimally utilized. For example, 95 percent of requests are processed in <= 500ms with AKS node utilization at x% etc. Once established, this health model should inform critical monitoring metrics across system components and operational sub-system composition.
 
-The overall health state can be impacted by both application level issues and resource level failures. [Telemetry correlation](/azure/azure-monitor/app/correlation) should be used to ensure transactions can be mapped through the end-to-end application and critical system flows, as this is vital to root cause analysis for failures. Platform level metrics and logs such as CPU percentage, network in/out, and disk operations/sec should be collected from the application to inform a health model and detect/predict issues. This can also help to distinguish between transient and non-transient faults.
+The overall health state can be impacted by both application level issues and resource level failures. [Telemetry correlation](https://docs.microsoft.com/en-us/azure/azure-monitor/app/correlation) should be used to ensure transactions can be mapped through the end-to-end application and critical system flows, as this is vital to root cause analysis for failures. Platform level metrics and logs such as CPU percentage, network in/out, and disk operations/sec should be collected from the application to inform a health model and detect/predict issues. This can also help to distinguish between transient and non-transient faults.
 
 ## Quantify application states
 
@@ -44,7 +51,7 @@ Application logs are an important source of diagnostics data. To gain insight wh
 
 - **Separate application logging from auditing.** Audit records are commonly maintained for compliance or regulatory requirements and must be complete. To avoid dropped transactions, maintain audit logs separately from diagnostic logs.
 
-All application resources should be configured to route diagnostic logs and [metrics](/azure/azure-monitor/platform/data-platform-metrics) to the chosen log aggregation technology. [Azure Policy](https://azure.microsoft.com/services/azure-policy/) should also be used as a device to ensure the consistent use of diagnostic settings across the application, to enforce the desired configuration for each Azure service.
+All application resources should be configured to route diagnostic logs and metrics to the chosen log aggregation technology. [Azure Policy](https://azure.microsoft.com/services/azure-policy/) should also be used as a device to ensure the consistent use of diagnostic settings across the application, to enforce the desired configuration for each Azure service.
 
 Application level events should be automatically correlated with resource level metrics to quantify the current application state. The overall health state can be impacted by both application level issues as well as resource level failures. [Telemetry correlation](/azure/azure-monitor/app/correlation) should be used to ensure transactions can be mapped through the end-to-end application and critical system flows, as this is vital to root cause analysis (RCA) for failures. Platform level metrics and logs such as CPU percentage, network in/out, and disk operations/sec should be collected from the application to inform a health model and detect/predict issues. This can also help to distinguish between transient and non-transient faults.
 
@@ -75,8 +82,7 @@ Check functions can run processes to ensure that they produce valid results, mea
 
 ## Related links
 
-- For information on monitoring metrics, see [Azure Monitor Metrics overview](/azure/azure-monitor/platform/data-platform-metrics).
-- For information on using Application Insights, see [Instrumenting an application with Application Insights](/azure/azure-monitor/app/app-insights-overview).
-- For information on telemetry correlation, see [Telemetry correlation in Application Insights](/azure/azure-monitor/app/correlation).
+- For information on monitoring metrics, see [Azure Monitor Metrics overview](https://docs.microsoft.com/azure/azure-monitor/essentials/data-platform-metrics).
+- For information on using Application Insights, see [What is Application Insights?](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview)
 
 Go back to the main article: [Monitoring](monitor-checklist.md)
