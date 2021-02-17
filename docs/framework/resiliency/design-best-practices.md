@@ -2,7 +2,7 @@
 title: Best practices for designing reliability in Azure applications
 description: Describes best practices for designing reliability in Azure applications.
 author: v-aangie
-ms.date: 02/08/2021
+ms.date: 02/17/2021
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected

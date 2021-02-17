@@ -2,7 +2,7 @@
 title: Design reliable Azure applications
 description: Describes design considerations for making sure applications are resilient to failure.
 author: v-aangie
-ms.date: 02/08/2021
+ms.date: 02/17/2021
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
@@ -13,7 +13,7 @@ ms.custom:
 
 # Design reliable Azure applications
 
-Building a reliable application in the cloud is different from traditional application development. While historically you may have purchased levels of redundant higher-end hardware to minimize the chance of an entire application platform failing, in the cloud, we acknowledge up front that failures will happen. Instead of trying to prevent failures altogether, the goal is to minimize the effects of a single failing component.
+Building a reliable application in the cloud is different from traditional application development. While historically you may have purchased levels of redundant higher-end hardware to minimize the chance of an entire application platform failing, in the cloud, we acknowledge up front that failures will happen. Instead of trying to prevent failures altogether, the goal is to minimize the effects of a single failing component. Failures you can expect here are inherent to highly distributed systems, not a feature of Azure.
 
 ## Key Points
 
@@ -23,14 +23,14 @@ Building a reliable application in the cloud is different from traditional appli
 - Design to scale out.
 - Validate that required capacity is within Azure service scale limits and quotas.
 
-Your workload should support multi-region deployments. Multiple regions should be used for failover purposes in a disaster state. Additional cost needs to be taken into consideration. Examples of cost needs are data and networking, and services such as Azure Site Recovery (ASR).
+## Use Availability Zones within a region
+
+If your requirements demand an even greater failure isolation than Availability Zones alone can offer, consider deploying to multiple regions. Multiple regions should be used for failover purposes in a disaster state. Additional cost needs to be taken into consideration. Examples of cost needs are data and networking, and services such as Azure Site Recovery (ASR).
 
 Design your application architecture to use *Availability Zones* within a region. Availability Zones can be used to optimize application availability within a region by providing datacenter level fault tolerance. However, the application architecture must not share dependencies between zones to use them effectively.
 
 > [!NOTE]
 > Availability Zones may introduce performance and cost considerations for applications which are extremely "chatty" across zones given the implied physical separation between each zone and inter-zone bandwidth charges. This also means that Availability Zones can be considered to get higher SLA for lower cost.
-
-Use Availability Zones where applicable to improve reliability and optimize costs. To learn more, see [Regions and Availability Zones](https://docs.microsoft.com/azure/availability-zones/az-overview#availability-zones).
 
 Consider if component proximity is required for application performance reasons. If all or part of the application is highly sensitive to latency, it may mandate component co-locality which can limit the applicability of multi-region and multi-zone strategies.
 
@@ -43,6 +43,7 @@ Define an availability strategy to capture how the application remains available
 In addition to an availability strategy, define a Business Continuity Disaster Recovery (BCDR) strategy for the application and/or its key scenarios. A disaster recovery strategy should capture how the application responds to a disaster situation such as a regional outage or the loss of a critical platform service, using either a re-deployment, warm-spare active-passive, or hot-spare active-active approach.
 
 To drive cost down consider splitting application components and data into groups. For example:
+
 1. Must protect
 1. Nice to protect
 1. Ephemeral/can be rebuilt/lost, instead of protecting all data with the same policy

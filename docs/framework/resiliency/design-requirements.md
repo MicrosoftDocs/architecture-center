@@ -2,7 +2,7 @@
 title: Target and non-functional requirements
 description: Describes reliability targets for availability, recovery, and non-functional requirements.
 author: v-aangie
-ms.date: 02/08/2021
+ms.date: 02/17/2021
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
@@ -46,6 +46,9 @@ Availability targets for any dependencies leveraged by the application should be
 
 A composite SLA captures the end-to-end SLA across all application components and dependencies. It is calculated using the individual SLAs of Azure services housing application components and provides an important indicator of designed availability in relation to customer expectations and targets. Make sure the composite SLA of all components and dependencies on the critical paths are understood. To learn more, see [Composite SLAs](https://docs.microsoft.com/azure/architecture/framework/resiliency/business-metrics#understand-service-level-agreements).
 
+> [!MOTE]
+> if you have contractual commitments to an SLA for your Azure solution, additional allowances on top of the Azure composite SLA must be made to accommodate outages caused by code-level issues and deployments. This is often overlooked and customers directly put the composite SLA forward to their customers.
+
 **Are availability targets considered while the system is running in disaster recovery mode?**
 ***
 
@@ -65,11 +68,15 @@ Recovery targets are nonfunctional requirements of a system and should be dictat
 
 ## Meet application platform requirements
 
-Azure application platform services offer resiliency features to support application reliability, though they may only be applicable at a certain SKU. For example, Service Bus Premium SKU provides predictable latency and throughput to mitigate noisy neighbor scenarios. It also provides the ability to automatically scale and replicate metadata to another Service Bus instance for failover purposes. To learn more, see [Azure Service Bus Premium SKU](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-premium-messaging).
+Azure application platform services offer resiliency features to support application reliability, though they may only be applicable at a certain SKU and configuration/deployment. For example, an SLA is dependent on the number of instances deployed or a certain feature enabled. It is recommended that you review the SLA for services used. For example, Service Bus Premium SKU provides predictable latency and throughput to mitigate noisy neighbor scenarios. It also provides the ability to automatically scale and replicate metadata to another Service Bus instance for failover purposes.
+
+To learn more, see [Azure Service Bus Premium SKU](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-premium-messaging).
 
 ### Multiple and paired regions
 
-An application platform should be deployed across multiple regions. The ability to respond to disaster scenarios for overall compute platform availability and application resiliency is dependant on the use of multiple regions or other deployment locations.
+An application platform should be deployed across multiple regions if the requirements dictate. Covering the requirements using zones is cheaper and less complex. Regional isolation should be an extra measure if the SLAs given by the single region cross-zone setup are insufficient or if required by a geographical spread of users.
+
+The ability to respond to disaster scenarios for overall compute platform availability and application resiliency is dependant on the use of multiple regions or other deployment locations.
 
 Use paired regions that exist within the same geography and provide native replication features for recovery purposes, such as Geo-Redundant Storage (GRS) asynchronous replication. In the event of planned maintenance, updates to a region will be performed sequentially only. To learn more, see [Business continuity with Azure Paired Regions](https://docs.microsoft.com/azure/best-practices-availability-paired-regions).
 
@@ -129,7 +136,7 @@ Consider these guidelines to ensure connection availability and improve reliabil
 
 - **Use a global load balancer used to distribute traffic and/or failover across regions.** Azure Front Door, Azure Traffic Manager, or third-party CDN services can be used to direct inbound requests to external-facing application endpoints deployed across multiple regions. It is important to note that Traffic Manager is a DNS based load balancer, so failover must wait for DNS propagation to occur. A sufficiently low TTL (Time To Live) value should be used for DNS records, though not all ISPs may honor this. For application scenarios requiring transparent failover, Azure Front Door should be used. To learn more, see [Disaster Recovery using Azure Traffic Manager](https://docs.microsoft.com/azure/networking/disaster-recovery-dns-traffic-manager) and [Azure Front Door routing architecture](https://docs.microsoft.com/azure/frontdoor/front-door-routing-architecture).
 
-- **For cross-premises connectivity (ExpressRoute or VPN) ensure there redundant connections from different locations.** At least two redundant connections should be established across two or more Azure regions and peering locations to ensure there are no single points of failure. An active/active load-shared configuration provides path diversity and promotes availability of network connection paths. To learn more, see [(ross-network connectivity](https://docs.microsoft.com/azure/expressroute/cross-network-connectivity).
+- **For cross-premises connectivity (ExpressRoute or VPN) ensure there redundant connections from different locations.** At least two redundant connections should be established across two or more Azure regions and peering locations to ensure there are no single points of failure. An active/active load-shared configuration provides path diversity and promotes availability of network connection paths. To learn more, see [(Cross-network connectivity](https://docs.microsoft.com/azure/expressroute/cross-network-connectivity).
 
 - **Simulate a failure path to ensure connectivity is available over alternative paths.** The failure of a connection path onto other connection paths should be tested to validate connectivity and operational effectiveness. Using Site-to-Site VPN connectivity as a backup path for ExpressRoute provides an additional layer of network resiliency for cross-premises connectivity. To learn more, see [Using site-to-site VPN as a backup for ExpressRoute private peering](https://docs.microsoft.com/azure/expressroute/use-s2s-vpn-as-backup-for-expressroute-privatepeering).
 

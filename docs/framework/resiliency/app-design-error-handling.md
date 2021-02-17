@@ -2,7 +2,7 @@
 title: Error handling for resilient applications in Azure
 description: Best practices for handling errors in a resilient way
 author: v-aangie
-ms.date: 02/12/2021
+ms.date: 02/17/2021
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
@@ -15,7 +15,7 @@ ms.custom:
 
 Ensuring your application can recover from errors is critical when working in a distributed system. You test your applications to prevent errors and failure, but you need to be prepared for when applications encounter issues or fail. Understanding how to handle errors and prevent potential failure becomes important, as testing doesn't always catch everything.
 
-One of the leading causes of application downtime is human error, whether that be due to the deployment of insufficiently tested software to misconfiguration. To minimize the possibility and impact of human errors, it is vital to strive for automation in all aspects of a cloud solution to improve reliability with automated testing, deployment, and management.
+Many things in a distributed system are outside your span of control and your means to test. This can be the underlying cloud infrastructure, third party runtime dependencies, etc. You can be sure something will fail eventually, so you need to prepare for that.
 
 ## Key points
 
@@ -43,11 +43,11 @@ Leverage design patterns that encapsulate robust timeout strategies like [Choreo
 
 ## Cascading Failures
 
-The [Circuit Breaker pattern](../../patterns/circuit-breaker.md#related-patterns-and-guidance) provides stability while the system recovers from a failure and minimizes the impact on performance. It can help to maintain the response time of the system by quickly rejecting a request for an operation that's likely to fail, rather than waiting for the operation to time out, or never return.
+The [Circuit Breaker pattern](../../patterns/circuit-breaker.md#related-patterns-and-guidance) provides stability while the system recovers from a failure and minimizes the impact on performance. It can help to maintain the response time of the system by quickly rejecting a request for an operation that's likely to fail, rather than waiting for the operation to time out, or never return. 
+
+A circuit breaker might be able to test the health of a service by sending a request to an endpoint exposed by the service. The service should return information indicating its status.
 
 [Retry pattern](../../patterns/retry.md). Describes how an application can handle anticipated temporary failures when it tries to connect to a service or network resource by transparently retrying an operation that has previously failed.
-
-[Health Endpoint Monitoring pattern](/azure/architecture/patterns/health-endpoint-monitoring). A circuit breaker might be able to test the health of a service by sending a request to an endpoint exposed by the service. The service should return information indicating its status.
 
 :::image type="icon" source="../../_images/github.png" border="false"::: Samples related to this pattern are [here](https://github.com/mspnp/samples/tree/master/Reliability/RetryPatternSample). 
 

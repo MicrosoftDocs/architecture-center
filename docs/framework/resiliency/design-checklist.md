@@ -2,7 +2,7 @@
 title: Design for reliability
 description: Describes considerations for reliability in application design.
 author: v-aangie
-ms.date: 02/08/2021
+ms.date: 02/17/2021
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected

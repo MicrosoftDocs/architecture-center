@@ -2,7 +2,7 @@
 title: Backup and disaster recovery for Azure applications
 description: Overview of disaster recovery approaches in Azure
 author: v-aangie
-ms.date: 02/12/2021
+ms.date: 02/17/2021
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
@@ -76,6 +76,8 @@ In a reduced functionality scenario:
 ## Recovery automation
 
 The steps required to recover or failover the application to a secondary Azure region in failure situations should be codified, preferably in an automated manner, to ensure capabilities exist to effectively respond to an outage in a way that limits impact. Similar codified steps should also exist to capture the process required to failback the application to the primary region once a failover triggering issue has been addressed.
+
+When automating failover procedures, ensure that the tooling used for orchestrating the failover are also considered in the failover strategy. For example, if you run your failover from Jenkins running on a VM, you'll be in trouble if that virtual machine is part of the outage. Azure DevOps projects are scoped to a region too.
 
 ## Backup strategy
 
