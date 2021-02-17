@@ -71,12 +71,12 @@ Check functions can run processes to ensure that they produce valid results, mea
 ## Next step
 
 >[!div class="nextstepaction"]
->[Best practices](/azure/architecture/best-practices/monitoring)
+>[Best practices](/azure/architecture/framework/resiliency/monitor-best-practices)
 
 ## Related links
 
-- For information on monitoring metrics, see [Azure Monitor Metrics overview](/azure/azure-monitor/platform/data-platform-metrics)
-- For information on using Application Insights, see [Instrumenting an application with Application Insights](/azure/azure-monitor/app/app-insights-overview)
-- For information on telemetry correlation, see [Telemetry correlation in Application Insights](/azure/azure-monitor/app/correlation)
+- For information on monitoring metrics, see [Azure Monitor Metrics overview](/azure/azure-monitor/platform/data-platform-metrics).
+- For information on using Application Insights, see [Instrumenting an application with Application Insights](/azure/azure-monitor/app/app-insights-overview).
+- For information on telemetry correlation, see [Telemetry correlation in Application Insights](/azure/azure-monitor/app/correlation).
 
 Go back to the main article: [Monitoring](monitor-checklist.md)

@@ -68,7 +68,7 @@ Azure allows a maximum number of storage accounts per subscription. If your appl
 
 An Azure infrastructure as a service (IaaS) virtual machine supports attaching a number of data disks, depending on several factors, including the virtual machine size and the type of storage account. If your application exceeds the scalability targets for virtual machine disks, provision additional storage accounts and create the virtual machine disks there. For more information, see [Scalability and performance targets for VM disks](/azure/virtual-machines/windows/disk-scalability-targets).
 
-### Virtual maachine size
+### Virtual machine size
 
 If the actual CPU, memory, disk, and I/O of your virtual machines approach the limits of the virtual machine size, your application may experience capacity issues. To correct the issues, increase the virtual machine size.
 

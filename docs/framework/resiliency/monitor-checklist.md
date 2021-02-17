@@ -42,13 +42,13 @@ Monitoring and diagnostics are crucial for resiliency. If something fails, you n
 - [Azure Service Health](/azure/service-health/overview)
 - [Azure Resource Health](/azure/service-health/resource-health-overview)
 - [Azure Resource Manager](/azure-resource-manager/management/overview)
-- [Azure Policy](/azure/governance/policy/overview)
+- [Azure Policy](https://docs.microsoft.com/azure/governance/policy/overview)
 
 ## Reference architecture
 
 - [Hybrid availability and performance monitoring](https://docs.microsoft.com/azure/architecture/hybrid/hybrid-perf-monitoring)
 - [Unified logging for microservices applications](https://docs.microsoft.com/azure/architecture/example-scenario/logging/unified-logging)
-- 
+
 ## Next step
 
 >[!div class="nextstepaction"]
@@ -57,4 +57,4 @@ Monitoring and diagnostics are crucial for resiliency. If something fails, you n
 ## Related links
 
 - [Azure Monitor](https://azure.microsoft.com/services/monitor/)
-- [Continuous monitoring](/azure/azure-monitor/continuous-monitoring)
+- [Continuous monitoring](https://docs.microsoft.com/azure/azure-monitor/continuous-monitoring)
