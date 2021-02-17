@@ -130,11 +130,11 @@ Private Connection can also be achieved over IPSec with tools like
 
 1.  Create the Kubernetes clusters.
 
-    -   Onboard existing Cluster to Azure Arc.
-
-    -   Create & Onboard Amazon Elastic Kubernetes Service.
-
-    -   Create & Onboard Google Kubernetes Engine.
+  - [Onboard existing Cluster to Azure Arc](https://azurearcjumpstart.io/azure_arc_jumpstart/azure_arc_k8s/general/onboard_k8s/)
+  
+  - [Create & Onboard Amazon Elastic Kubernetes Service](https://azurearcjumpstart.io/azure_arc_jumpstart/azure_arc_k8s/eks/eks_terraform/)
+  
+  - [Create & Onboard Google Kubernetes Engine](https://azurearcjumpstart.io/azure_arc_jumpstart/azure_arc_k8s/gke/gke_terraform/)
 
 2.  [Create an Azure DevOps Org and
     project](https://docs.microsoft.com/en-us/azure/devops/organizations/accounts/create-organization?view=azure-devops)
