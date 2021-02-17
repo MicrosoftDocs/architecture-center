@@ -5,9 +5,10 @@ Introduction
 Blockchain and DLT networks are multi-party systems. Each party has
 their own tools, methodology and probably preferred cloud provider.
 Although cloud Blockchain-as-a-service offerings (BaaS) can save a lot
-of Infrastructure management efforts, it assumes that all party will be
-in the same Cloud and it sometimes have limits to the number of nodes in
-a single consortium.
+of Infrastructure management efforts, it sometimes assumes that all parties will be
+in the same Cloud or you may have limited region availability, scale or network segrargation.
+
+If you want to build cross-cloud blockchain solution with more control and portability in mind , this is waht this article is trying to explore.
 
 ## Potential use cases
 
