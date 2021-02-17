@@ -61,6 +61,6 @@ Achieve levels of scale and performance needed for your solution by segregating 
 ## Next step
 
 >[!div class="nextstepaction"]
->[Monitoring](/azure/architecture/framework/resiliency/monitoring)
+>[Monitoring](/azure/architecture/framework/resiliency/monitor-checklist)
 
 > Go back to the main article: [Testing](test-checklist.md)
