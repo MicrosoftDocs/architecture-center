@@ -82,7 +82,7 @@ This example scenario though talks more about configuration, the APIs hosted on 
 
 ### Deployment and putting the pieces together
 
-[![Deploy to Azure](https://azuredeploy.net/deploybutton.svg)](https://deploy.azure.com/?repository=https://github.com/ssarwa/API-Management-ASE-AppGateway)
+[![Deploy to Azure](https://azuredeploy.net/deploybutton.svg)](https://github.com/ssarwa/API-Management-ASE-AppGateway)
 
 The components deployed using the above Resource Manager template needs to be further configured as below
 

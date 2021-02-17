@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id/>
     <title>Azure Architecture Center</title>
-    <updated>2021-02-08T16:16:42.477Z</updated>
+    <updated>2021-02-15T14:26:06.552Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <subtitle>Updated articles for Azure Architecture Center</subtitle>
     <rights>https://docs.microsoft.com/legal/termsofuse</rights>
@@ -49,36 +49,20 @@
         <category label="new" term="new"/>
     </entry>
     <entry>
+        <title type="html"><![CDATA[Consumer health portal on Azure]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/example-scenario/digital-health/health-portal</id>
+        <link href="https://docs.microsoft.com/azure/architecture/example-scenario/digital-health/health-portal"/>
+        <updated>2021-02-10T23:11:48.000Z</updated>
+        <summary type="html"><![CDATA[Describes an architecture for consumer health portal in a digital health solution.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
         <title type="html"><![CDATA[Azure security test practices]]></title>
         <id>https://docs.microsoft.com/azure/architecture/framework/security/monitor-test</id>
         <link href="https://docs.microsoft.com/azure/architecture/framework/security/monitor-test"/>
         <updated>2021-02-03T19:27:21.000Z</updated>
         <summary type="html"><![CDATA[Test and validate the workload frequently to detect attacks.]]></summary>
         <category label="new" term="new"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Attestation, authentication, and provisioning]]></title>
-        <id>https://docs.microsoft.com/azure/architecture/example-scenario/iot/attestation-provisioning</id>
-        <link href="https://docs.microsoft.com/azure/architecture/example-scenario/iot/attestation-provisioning"/>
-        <updated>2021-02-07T13:54:10.000Z</updated>
-        <summary type="html"><![CDATA[Learn how devices attest their identity, authenticate, and get provisioned within Azure IoT Hubs.]]></summary>
-        <category label="updated" term="updated"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Controlling IoT devices using a Voice Assistant]]></title>
-        <id>https://docs.microsoft.com/azure/architecture/solution-ideas/articles/iot-controlling-devices-with-voice-assistant</id>
-        <link href="https://docs.microsoft.com/azure/architecture/solution-ideas/articles/iot-controlling-devices-with-voice-assistant"/>
-        <updated>2021-02-07T13:54:10.000Z</updated>
-        <summary type="html"><![CDATA[Control smart devices by using Azure Speech Service, Language Understanding Service (LUIS), and Azure Bot Service to create natural conversational interfaces.]]></summary>
-        <category label="updated" term="updated"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Serverless event processing]]></title>
-        <id>https://docs.microsoft.com/azure/architecture/reference-architectures/serverless/event-processing</id>
-        <link href="https://docs.microsoft.com/azure/architecture/reference-architectures/serverless/event-processing"/>
-        <updated>2021-02-04T18:53:34.000Z</updated>
-        <summary type="html"><![CDATA[This article presents a reference architecture for serverless event ingestion and processing using Azure Functions.]]></summary>
-        <category label="updated" term="updated"/>
     </entry>
     <entry>
         <title type="html"><![CDATA[Security monitoring in Azure]]></title>
@@ -105,7 +89,7 @@
         <category label="updated" term="updated"/>
     </entry>
     <entry>
-        <title type="html"><![CDATA[Loan ChargeOff Prediction with Azure HDInsight Spark Clusters]]></title>
+        <title type="html"><![CDATA[Loan charge-off prediction with Azure HDInsight Spark clusters]]></title>
         <id>https://docs.microsoft.com/azure/architecture/solution-ideas/articles/loan-chargeoff-prediction-with-azure-hdinsight-spark-clusters</id>
         <link href="https://docs.microsoft.com/azure/architecture/solution-ideas/articles/loan-chargeoff-prediction-with-azure-hdinsight-spark-clusters"/>
         <updated>2021-02-03T16:54:18.000Z</updated>
@@ -113,12 +97,92 @@
         <category label="updated" term="updated"/>
     </entry>
     <entry>
-        <title type="html"><![CDATA[Restrict interservice communications]]></title>
-        <id>https://docs.microsoft.com/azure/architecture/example-scenario/service-to-service/restrict-communications</id>
-        <link href="https://docs.microsoft.com/azure/architecture/example-scenario/service-to-service/restrict-communications"/>
-        <updated>2021-01-30T00:13:48.000Z</updated>
-        <summary type="html"><![CDATA[Restrict communications between two Azure App Service backend services on both the application and network layers.]]></summary>
-        <category label="new" term="new"/>
+        <title type="html"><![CDATA[Run SAP BW/4HANA with Linux virtual machines on Azure]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/reference-architectures/sap/run-sap-bw4hana-with-linux-virtual-machines</id>
+        <link href="https://docs.microsoft.com/azure/architecture/reference-architectures/sap/run-sap-bw4hana-with-linux-virtual-machines"/>
+        <updated>2021-02-13T17:09:37.000Z</updated>
+        <summary type="html"><![CDATA[Learn about the SAP BW/4HANA application tier and how it's suitable for a small-scale production environment of SAP BW/4HANA on Azure where high availability is a priority.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Azure identity and access management considerations]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/framework/security/design-identity</id>
+        <link href="https://docs.microsoft.com/azure/architecture/framework/security/design-identity"/>
+        <updated>2021-02-11T19:14:35.000Z</updated>
+        <summary type="html"><![CDATA[Use Azure Active Directory (Azure AD) to grant access based on identity authentication and authorization.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[AKS triage - node health]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/operator-guides/aks/aks-triage-node-health</id>
+        <link href="https://docs.microsoft.com/azure/architecture/operator-guides/aks/aks-triage-node-health"/>
+        <updated>2021-02-11T19:14:35.000Z</updated>
+        <summary type="html"><![CDATA[Triage step to verify the node and pod health.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Asynchronous messaging options in Azure]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/guide/technology-choices/messaging</id>
+        <link href="https://docs.microsoft.com/azure/architecture/guide/technology-choices/messaging"/>
+        <updated>2021-02-10T23:57:06.000Z</updated>
+        <summary type="html"><![CDATA[Overview of choosing asynchronous messaging for Azure apps.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Event Sourcing pattern]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/patterns/event-sourcing</id>
+        <link href="https://docs.microsoft.com/azure/architecture/patterns/event-sourcing"/>
+        <updated>2021-02-10T23:57:06.000Z</updated>
+        <summary type="html"><![CDATA[Use an append-only store to record the full series of events that describe actions taken on data in a domain.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Intelligent apps using Azure Database for MySQL]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/solution-ideas/articles/intelligent-apps-using-azure-database-for-mysql</id>
+        <link href="https://docs.microsoft.com/azure/architecture/solution-ideas/articles/intelligent-apps-using-azure-database-for-mysql"/>
+        <updated>2021-02-10T20:32:35.000Z</updated>
+        <summary type="html"><![CDATA[Use Azure Database for MySQL to develop sophisticated machine learning and visualization apps that provide analytics and information that you can act on.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[SAP on Azure Architecture Guide]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/reference-architectures/sap/sap-overview</id>
+        <link href="https://docs.microsoft.com/azure/architecture/reference-architectures/sap/sap-overview"/>
+        <updated>2021-02-10T18:46:36.000Z</updated>
+        <summary type="html"><![CDATA[This article describes a set of guiding tenets that are used to help ensure the quality of SAP workloads running on Azure]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Capacity]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/framework/scalability/capacity</id>
+        <link href="https://docs.microsoft.com/azure/architecture/framework/scalability/capacity"/>
+        <updated>2021-02-08T21:21:19.000Z</updated>
+        <summary type="html"><![CDATA[Ensure that your Azure architecture provides sufficient capacity.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Attestation, authentication, and provisioning]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/example-scenario/iot/attestation-provisioning</id>
+        <link href="https://docs.microsoft.com/azure/architecture/example-scenario/iot/attestation-provisioning"/>
+        <updated>2021-02-07T13:54:10.000Z</updated>
+        <summary type="html"><![CDATA[Learn how devices attest their identity, authenticate, and get provisioned within Azure IoT Hubs.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Controlling IoT devices using a Voice Assistant]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/solution-ideas/articles/iot-controlling-devices-with-voice-assistant</id>
+        <link href="https://docs.microsoft.com/azure/architecture/solution-ideas/articles/iot-controlling-devices-with-voice-assistant"/>
+        <updated>2021-02-07T13:54:10.000Z</updated>
+        <summary type="html"><![CDATA[Control smart devices by using Azure Speech Service, Language Understanding Service (LUIS), and Azure Bot Service to create natural conversational interfaces.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Serverless event processing]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/reference-architectures/serverless/event-processing</id>
+        <link href="https://docs.microsoft.com/azure/architecture/reference-architectures/serverless/event-processing"/>
+        <updated>2021-02-04T18:53:34.000Z</updated>
+        <summary type="html"><![CDATA[This article presents a reference architecture for serverless event ingestion and processing using Azure Functions.]]></summary>
+        <category label="updated" term="updated"/>
     </entry>
     <entry>
         <title type="html"><![CDATA[Operational Excellence patterns]]></title>
@@ -161,6 +225,22 @@
         <category label="new" term="new"/>
     </entry>
     <entry>
+        <title type="html"><![CDATA[Monitoring for performance efficiency]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/framework/scalability/monitor</id>
+        <link href="https://docs.microsoft.com/azure/architecture/framework/scalability/monitor"/>
+        <updated>2021-01-12T03:34:34.000Z</updated>
+        <summary type="html"><![CDATA[Considerations for using monitoring for performance efficiency]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Restrict interservice communications]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/example-scenario/service-to-service/restrict-communications</id>
+        <link href="https://docs.microsoft.com/azure/architecture/example-scenario/service-to-service/restrict-communications"/>
+        <updated>2021-01-30T00:13:48.000Z</updated>
+        <summary type="html"><![CDATA[Restrict communications between two Azure App Service backend services on both the application and network layers.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
         <title type="html"><![CDATA[Replicate and sync mainframe data in Azure]]></title>
         <id>https://docs.microsoft.com/azure/architecture/reference-architectures/migration/sync-mainframe-data-with-azure</id>
         <link href="https://docs.microsoft.com/azure/architecture/reference-architectures/migration/sync-mainframe-data-with-azure"/>
@@ -190,14 +270,6 @@
         <link href="https://docs.microsoft.com/azure/architecture/framework/security/design-storage-keys"/>
         <updated>2021-01-13T18:10:59.000Z</updated>
         <summary type="html"><![CDATA[Protect keys by storing in them in managed key store.]]></summary>
-        <category label="new" term="new"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Monitoring for performance efficiency]]></title>
-        <id>https://docs.microsoft.com/azure/architecture/framework/scalability/monitor</id>
-        <link href="https://docs.microsoft.com/azure/architecture/framework/scalability/monitor"/>
-        <updated>2021-01-12T03:34:34.000Z</updated>
-        <summary type="html"><![CDATA[Considerations for using monitoring for performance efficiency]]></summary>
         <category label="new" term="new"/>
     </entry>
     <entry>
@@ -265,6 +337,14 @@
         <category label="new" term="new"/>
     </entry>
     <entry>
+        <title type="html"><![CDATA[Data protection in Azure]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/framework/security/design-storage</id>
+        <link href="https://docs.microsoft.com/azure/architecture/framework/security/design-storage"/>
+        <updated>2021-01-13T18:10:59.000Z</updated>
+        <summary type="html"><![CDATA[Design considerations about securing and encrypting data storage in Azure.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
         <title type="html"><![CDATA[Backup and disaster recover for Azure applications]]></title>
         <id>https://docs.microsoft.com/azure/architecture/framework/resiliency/backup-and-recovery</id>
         <link href="https://docs.microsoft.com/azure/architecture/framework/resiliency/backup-and-recovery"/>
@@ -286,14 +366,6 @@
         <link href="https://docs.microsoft.com/azure/architecture/framework/devops/monitoring"/>
         <updated>2021-01-14T00:17:24.000Z</updated>
         <summary type="html"><![CDATA[Describes how to monitor your workload to ensure your DevOps infrastructure is working as intended.]]></summary>
-        <category label="updated" term="updated"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Data protection in Azure]]></title>
-        <id>https://docs.microsoft.com/azure/architecture/framework/security/design-storage</id>
-        <link href="https://docs.microsoft.com/azure/architecture/framework/security/design-storage"/>
-        <updated>2021-01-13T18:10:59.000Z</updated>
-        <summary type="html"><![CDATA[Design considerations about securing and encrypting data storage in Azure.]]></summary>
         <category label="updated" term="updated"/>
     </entry>
     <entry>
@@ -345,30 +417,6 @@
         <category label="new" term="new"/>
     </entry>
     <entry>
-        <title type="html"><![CDATA[Confidential computing on a healthcare platform]]></title>
-        <id>https://docs.microsoft.com/azure/architecture/example-scenario/confidential/healthcare-inference</id>
-        <link href="https://docs.microsoft.com/azure/architecture/example-scenario/confidential/healthcare-inference"/>
-        <updated>2020-12-16T17:31:19.000Z</updated>
-        <summary type="html"><![CDATA[Use confidential computing and containers to support a provider-hosted application. Securely collaborate with a hospital and a diagnostic provider.]]></summary>
-        <category label="new" term="new"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Azure AD security for Amazon Web Services (AWS)]]></title>
-        <id>https://docs.microsoft.com/azure/architecture/reference-architectures/aws/aws-azure-ad-security</id>
-        <link href="https://docs.microsoft.com/azure/architecture/reference-architectures/aws/aws-azure-ad-security"/>
-        <updated>2020-12-15T23:29:03.000Z</updated>
-        <summary type="html"><![CDATA[Learn how Azure Active Directory (Azure AD) can help secure and protect Amazon Web Services (AWS) account identities and access.]]></summary>
-        <category label="new" term="new"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[MCAS and Azure Sentinel for Amazon Web Services (AWS)]]></title>
-        <id>https://docs.microsoft.com/azure/architecture/reference-architectures/aws/aws-azure-security-solutions</id>
-        <link href="https://docs.microsoft.com/azure/architecture/reference-architectures/aws/aws-azure-security-solutions"/>
-        <updated>2020-12-15T23:29:03.000Z</updated>
-        <summary type="html"><![CDATA[Learn how Microsoft Cloud App Security (MCAS) and Azure Sentinel can help secure and protect Amazon Web Services (AWS) account access and environments.]]></summary>
-        <category label="new" term="new"/>
-    </entry>
-    <entry>
         <title type="html"><![CDATA[Authentication with Azure AD]]></title>
         <id>https://docs.microsoft.com/azure/architecture/framework/security/design-identity-authentication</id>
         <link href="https://docs.microsoft.com/azure/architecture/framework/security/design-identity-authentication"/>
@@ -398,38 +446,6 @@
         <link href="https://docs.microsoft.com/azure/architecture/framework/security/design-identity-role-definitions"/>
         <updated>2020-12-11T21:24:40.000Z</updated>
         <summary type="html"><![CDATA[Define clear lines of responsibility and separation of duties.]]></summary>
-        <category label="new" term="new"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Operational excellence design principles]]></title>
-        <id>https://docs.microsoft.com/azure/architecture/framework/devops/principles</id>
-        <link href="https://docs.microsoft.com/azure/architecture/framework/devops/principles"/>
-        <updated>2020-12-08T17:31:26.000Z</updated>
-        <summary type="html"><![CDATA[Operational Excellence Design Principles]]></summary>
-        <category label="new" term="new"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Performance testing]]></title>
-        <id>https://docs.microsoft.com/azure/architecture/framework/scalability/performance-test</id>
-        <link href="https://docs.microsoft.com/azure/architecture/framework/scalability/performance-test"/>
-        <updated>2020-12-02T19:13:04.000Z</updated>
-        <summary type="html"><![CDATA[Describes testing considerations for performance efficiency]]></summary>
-        <category label="new" term="new"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Testing tools]]></title>
-        <id>https://docs.microsoft.com/azure/architecture/framework/scalability/test-tools</id>
-        <link href="https://docs.microsoft.com/azure/architecture/framework/scalability/test-tools"/>
-        <updated>2020-12-02T19:13:04.000Z</updated>
-        <summary type="html"><![CDATA[Describes testing tools for performance efficiency]]></summary>
-        <category label="new" term="new"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Refactor IBM z/OS mainframe Coupling Facility (CF) to Azure]]></title>
-        <id>https://docs.microsoft.com/azure/architecture/reference-architectures/zos/refactor-zos-coupling-facility</id>
-        <link href="https://docs.microsoft.com/azure/architecture/reference-architectures/zos/refactor-zos-coupling-facility"/>
-        <updated>2020-12-02T18:02:08.000Z</updated>
-        <summary type="html"><![CDATA[Learn how Azure services and components can provide scale-out performance comparable to IBM z/OS mainframe CF and Parallel Sysplex capabilities.]]></summary>
         <category label="new" term="new"/>
     </entry>
     <entry>
@@ -465,6 +481,62 @@
         <category label="new" term="new"/>
     </entry>
     <entry>
+        <title type="html"><![CDATA[Confidential computing on a healthcare platform]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/example-scenario/confidential/healthcare-inference</id>
+        <link href="https://docs.microsoft.com/azure/architecture/example-scenario/confidential/healthcare-inference"/>
+        <updated>2020-12-16T17:31:19.000Z</updated>
+        <summary type="html"><![CDATA[Use confidential computing and containers to support a provider-hosted application. Securely collaborate with a hospital and a diagnostic provider.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Azure AD security for Amazon Web Services (AWS)]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/reference-architectures/aws/aws-azure-ad-security</id>
+        <link href="https://docs.microsoft.com/azure/architecture/reference-architectures/aws/aws-azure-ad-security"/>
+        <updated>2020-12-15T23:29:03.000Z</updated>
+        <summary type="html"><![CDATA[Learn how Azure Active Directory (Azure AD) can help secure and protect Amazon Web Services (AWS) account identities and access.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[MCAS and Azure Sentinel for Amazon Web Services (AWS)]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/reference-architectures/aws/aws-azure-security-solutions</id>
+        <link href="https://docs.microsoft.com/azure/architecture/reference-architectures/aws/aws-azure-security-solutions"/>
+        <updated>2020-12-15T23:29:03.000Z</updated>
+        <summary type="html"><![CDATA[Learn how Microsoft Cloud App Security (MCAS) and Azure Sentinel can help secure and protect Amazon Web Services (AWS) account access and environments.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Operational excellence design principles]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/framework/devops/principles</id>
+        <link href="https://docs.microsoft.com/azure/architecture/framework/devops/principles"/>
+        <updated>2020-12-08T17:31:26.000Z</updated>
+        <summary type="html"><![CDATA[Operational Excellence Design Principles]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Performance testing]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/framework/scalability/performance-test</id>
+        <link href="https://docs.microsoft.com/azure/architecture/framework/scalability/performance-test"/>
+        <updated>2020-12-02T19:13:04.000Z</updated>
+        <summary type="html"><![CDATA[Describes testing considerations for performance efficiency]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Testing tools]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/framework/scalability/test-tools</id>
+        <link href="https://docs.microsoft.com/azure/architecture/framework/scalability/test-tools"/>
+        <updated>2020-12-02T19:13:04.000Z</updated>
+        <summary type="html"><![CDATA[Describes testing tools for performance efficiency]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Refactor IBM z/OS mainframe Coupling Facility (CF) to Azure]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/reference-architectures/zos/refactor-zos-coupling-facility</id>
+        <link href="https://docs.microsoft.com/azure/architecture/reference-architectures/zos/refactor-zos-coupling-facility"/>
+        <updated>2020-12-02T18:02:08.000Z</updated>
+        <summary type="html"><![CDATA[Learn how Azure services and components can provide scale-out performance comparable to IBM z/OS mainframe CF and Parallel Sysplex capabilities.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
         <title type="html"><![CDATA[Enterprise Productivity Chatbot]]></title>
         <id>https://docs.microsoft.com/azure/architecture/solution-ideas/articles/enterprise-productivity-chatbot</id>
         <link href="https://docs.microsoft.com/azure/architecture/solution-ideas/articles/enterprise-productivity-chatbot"/>
@@ -497,22 +569,6 @@
         <category label="updated" term="updated"/>
     </entry>
     <entry>
-        <title type="html"><![CDATA[Use Azure Stack HCI stretched clusters for disaster recovery]]></title>
-        <id>https://docs.microsoft.com/azure/architecture/hybrid/azure-stack-hci-dr</id>
-        <link href="https://docs.microsoft.com/azure/architecture/hybrid/azure-stack-hci-dr"/>
-        <updated>2020-11-30T21:18:15.000Z</updated>
-        <summary type="html"><![CDATA[This reference architecture illustrates how to design and implement disaster recovery of Azure Stack HCI by using stretched clustering.]]></summary>
-        <category label="new" term="new"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Use Azure Stack HCI switchless interconnect and lightweight quorum for Remote Office/Branch Office]]></title>
-        <id>https://docs.microsoft.com/azure/architecture/hybrid/azure-stack-robo</id>
-        <link href="https://docs.microsoft.com/azure/architecture/hybrid/azure-stack-robo"/>
-        <updated>2020-11-30T21:18:15.000Z</updated>
-        <summary type="html"><![CDATA[This reference architecture illustrates how to design infrastructure for highly available virtualized and containerized workloads in Remote Office/Branch Office (ROBO) scenarios.]]></summary>
-        <category label="new" term="new"/>
-    </entry>
-    <entry>
         <title type="html"><![CDATA[Release Engineering Application Development]]></title>
         <id>https://docs.microsoft.com/azure/architecture/framework/devops/release-engineering-app-dev</id>
         <link href="https://docs.microsoft.com/azure/architecture/framework/devops/release-engineering-app-dev"/>
@@ -534,22 +590,6 @@
         <link href="https://docs.microsoft.com/azure/architecture/framework/devops/release-engineering-rollback"/>
         <updated>2020-11-23T18:18:49.000Z</updated>
         <summary type="html"><![CDATA[Release Engineering Rollback]]></summary>
-        <category label="new" term="new"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Project 15 Open Platform]]></title>
-        <id>https://docs.microsoft.com/azure/architecture/solution-ideas/articles/project-15-iot-sustainability</id>
-        <link href="https://docs.microsoft.com/azure/architecture/solution-ideas/articles/project-15-iot-sustainability"/>
-        <updated>2020-11-20T20:27:26.000Z</updated>
-        <summary type="html"><![CDATA[Use Internet of Things technologies with the Project 15 Open Platform to accelerate innovation in species tracking, ecosystem monitoring, and other areas.]]></summary>
-        <category label="new" term="new"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Unisys mainframe migration]]></title>
-        <id>https://docs.microsoft.com/azure/architecture/reference-architectures/migration/unisys-mainframe-migration</id>
-        <link href="https://docs.microsoft.com/azure/architecture/reference-architectures/migration/unisys-mainframe-migration"/>
-        <updated>2020-11-18T15:36:17.000Z</updated>
-        <summary type="html"><![CDATA[Learn about options for using the Asysco Automated Migration Technology (AMT) Framework to migrate Unisys mainframe workloads to Azure.]]></summary>
         <category label="new" term="new"/>
     </entry>
     <entry>
@@ -582,6 +622,38 @@
         <link href="https://docs.microsoft.com/azure/architecture/framework/security/monitor"/>
         <updated>2020-11-17T20:24:36.000Z</updated>
         <summary type="html"><![CDATA[Security logging and monitoring are activities related to enabling, acquiring, and storing audit logs for Azure services.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Use Azure Stack HCI stretched clusters for disaster recovery]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/hybrid/azure-stack-hci-dr</id>
+        <link href="https://docs.microsoft.com/azure/architecture/hybrid/azure-stack-hci-dr"/>
+        <updated>2020-11-30T21:18:15.000Z</updated>
+        <summary type="html"><![CDATA[This reference architecture illustrates how to design and implement disaster recovery of Azure Stack HCI by using stretched clustering.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Use Azure Stack HCI switchless interconnect and lightweight quorum for Remote Office/Branch Office]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/hybrid/azure-stack-robo</id>
+        <link href="https://docs.microsoft.com/azure/architecture/hybrid/azure-stack-robo"/>
+        <updated>2020-11-30T21:18:15.000Z</updated>
+        <summary type="html"><![CDATA[This reference architecture illustrates how to design infrastructure for highly available virtualized and containerized workloads in Remote Office/Branch Office (ROBO) scenarios.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Project 15 Open Platform]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/solution-ideas/articles/project-15-iot-sustainability</id>
+        <link href="https://docs.microsoft.com/azure/architecture/solution-ideas/articles/project-15-iot-sustainability"/>
+        <updated>2020-11-20T20:27:26.000Z</updated>
+        <summary type="html"><![CDATA[Use Internet of Things technologies with the Project 15 Open Platform to accelerate innovation in species tracking, ecosystem monitoring, and other areas.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Unisys mainframe migration]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/reference-architectures/migration/unisys-mainframe-migration</id>
+        <link href="https://docs.microsoft.com/azure/architecture/reference-architectures/migration/unisys-mainframe-migration"/>
+        <updated>2020-11-18T15:36:17.000Z</updated>
+        <summary type="html"><![CDATA[Learn about options for using the Asysco Automated Migration Technology (AMT) Framework to migrate Unisys mainframe workloads to Azure.]]></summary>
         <category label="new" term="new"/>
     </entry>
     <entry>
@@ -745,6 +817,14 @@
         <category label="new" term="new"/>
     </entry>
     <entry>
+        <title type="html"><![CDATA[Security monitoring tools in Azure]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/framework/security/monitor-tools</id>
+        <link href="https://docs.microsoft.com/azure/architecture/framework/security/monitor-tools"/>
+        <updated>2020-11-17T20:24:36.000Z</updated>
+        <summary type="html"><![CDATA[Monitor your data in Azure]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
         <title type="html"><![CDATA[Choosing a data storage technology]]></title>
         <id>https://docs.microsoft.com/azure/architecture/data-guide/technology-choices/data-storage</id>
         <link href="https://docs.microsoft.com/azure/architecture/data-guide/technology-choices/data-storage"/>
@@ -758,14 +838,6 @@
         <link href="https://docs.microsoft.com/azure/architecture/example-scenario/data/realtime-analytics-vehicle-iot"/>
         <updated>2020-11-17T21:24:10.000Z</updated>
         <summary type="html"><![CDATA[This example builds a real-time data ingestion/processing pipeline to ingest and process messages from IoT devices into a big data analytic platform in Azure.]]></summary>
-        <category label="updated" term="updated"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Security monitoring tools in Azure]]></title>
-        <id>https://docs.microsoft.com/azure/architecture/framework/security/monitor-tools</id>
-        <link href="https://docs.microsoft.com/azure/architecture/framework/security/monitor-tools"/>
-        <updated>2020-11-17T20:24:36.000Z</updated>
-        <summary type="html"><![CDATA[Monitor your data in Azure]]></summary>
         <category label="updated" term="updated"/>
     </entry>
     <entry>
