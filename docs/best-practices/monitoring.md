@@ -9,6 +9,7 @@ ms.service: architecture-center
 ms.subservice: best-practice
 ms.custom:
   - best-practice
+  - internal-intro
 ---
 
 <!-- cSpell:ignore SIEM HDFS SSDT -->

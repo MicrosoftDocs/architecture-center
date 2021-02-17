@@ -13,6 +13,7 @@ metadata:
     - databases
   ms.custom:
     - reference-architecture
+    - internal-intro
 name: Stream processing with Azure Stream Analytics
 azureCategories:
   - analytics

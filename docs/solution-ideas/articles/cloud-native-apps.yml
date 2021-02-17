@@ -15,6 +15,7 @@ metadata:
     - mobile
   ms.custom:
     - fcp
+    - internal-intro
 name: Build cloud native applications
 azureCategories:
   - databases

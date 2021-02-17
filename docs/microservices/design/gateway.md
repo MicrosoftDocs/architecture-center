@@ -14,6 +14,7 @@ products:
 ms.custom:
   - microservices
   - guide
+  - internal-intro
 ---
 
 # Using API gateways in microservices
