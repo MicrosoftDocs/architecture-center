@@ -2,6 +2,7 @@
 
 
 Azure Cognitive Services offers many possibilities for Artificial Intelligence (AI) solutions. One of them is [Azure Custom Vision](/azure/cognitive-services/custom-vision-service/), which allows you to build, deploy, and improve your image classifiers. This architecture uses Custom Vision to classify images taken by a simulated drone. It provides a way to combine AI and the Internet of Things (IoT).
+Azure Custom Vision can also be used for object detection purpose.
 
 ## Potential use case
 
@@ -16,7 +17,7 @@ In a practical application of the lab, an actual drone replaces the Microsoft Ai
 1. Use AirSim's 3D-rendered environment to take images taken with the drone. Use the images as the training dataset.
 1. Import and tag the dataset in a Custom Vision project. The cognitive service trains and tests the model.
 1. Export the model into TensorFlow format so you can use it locally.
-
+1. The model might also be depoled to the [container](https://docs.microsoft.com/en-us/azure/iot-edge/tutorial-deploy-custom-vision?view=iotedge-2018-06) or to a [mobile devices](https://docs.microsoft.com/en-us/azure/cognitive-services/custom-vision-service/export-your-model)
 ## Components
 
 ### Microsoft AirSim Drone simulator
