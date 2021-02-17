@@ -23,6 +23,6 @@ products:
   - azure
   - azure-virtual-machines
   - azure-linux-vm
-thumbnailUrl: /azure/architecture/browse/thumbs/sap-hana-scaleup.png
+thumbnailUrl: /azure/architecture/browse/thumbs/sap-hana-scale-up.png
 content: |
    [!include[](run-sap-hana-for-linux-virtual-machines-content.md)]
