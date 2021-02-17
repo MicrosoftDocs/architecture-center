@@ -358,7 +358,7 @@ items:
                   - name: Health modelling
                     href: framework/resiliency/monitor-model.md
                   - name: Best practices
-                    href: framework/resiliency/monitor-best-practices
+                    href: framework/resiliency/monitor-best-practices.md
               - name: Optimize
                 items:
                   - name: Performance optimization  
