@@ -358,17 +358,9 @@ items:
                   - name: Health modelling
                     href: framework/resiliency/monitor-model.md
                   - name: Best practices
-                    href: framework/resiliency/monitor-best-practices.md
-              - name: Optimize
-                items:
-                  - name: Performance optimization  
-                    href: framework/resiliency/optimize-performance.md
-                  - name: Security optimization
-                    href: framework/resiliency/optimize-security.md        
+                    href: framework/resiliency/monitor-best-practices.md                     
               - name: Reliability patterns
-                href: framework/resiliency/reliability-patterns.md
-              - name: Tradeoffs
-                href: framework/resiliency/tradeoffs.md   
+                href: framework/resiliency/reliability-patterns.md                   
       - name: Security
         items:
           - name: About

@@ -2,7 +2,7 @@
 title: Optimize for security
 description: How to optimize for application security reliability in Azure
 author: v-aangie
-ms.date: 02/19/2021
+ms.date: 02/18/2021
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
