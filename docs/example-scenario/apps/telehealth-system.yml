@@ -15,6 +15,7 @@ metadata:
     - database-team
     - healthcare
     - example-scenario
+    - internal-intro
   social_image_url: /azure/architecture/example-scenario/apps/media/architecture-telehealth-system.png
 name: Building a telehealth system on Azure
 azureCategories:

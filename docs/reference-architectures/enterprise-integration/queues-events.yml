@@ -18,6 +18,7 @@ metadata:
   ms.custom:
     - integration-services
     - reference-architecture
+    - internal-intro
 name: Enterprise integration using queues and events
 azureCategories:
   - integration

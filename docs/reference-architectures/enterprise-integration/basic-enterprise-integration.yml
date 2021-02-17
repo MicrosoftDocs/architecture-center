@@ -20,6 +20,7 @@ metadata:
   ms.custom:
     - integration-services
     - reference-architecture
+    - internal-intro
 name: Basic enterprise integration on Azure
 azureCategories:
   - integration

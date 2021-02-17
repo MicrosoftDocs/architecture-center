@@ -13,6 +13,7 @@ metadata:
     - compute
   ms.custom:
     - reference-architecture
+    - internal-intro
 name: Run a Windows VM on Azure
 azureCategories:
   - compute

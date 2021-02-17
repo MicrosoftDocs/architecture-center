@@ -16,6 +16,7 @@ metadata:
     - seojul20
     - containers
     - reference-architecture
+    - internal-intro
 name: Baseline architecture for an Azure Kubernetes Service (AKS) cluster
 azureCategories:
   - containers

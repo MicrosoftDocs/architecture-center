@@ -15,6 +15,7 @@ metadata:
   ms.custom:
     - serverless
     - reference-architecture
+    - internal-intro
 name: Serverless web application
 azureCategories:
   - web
