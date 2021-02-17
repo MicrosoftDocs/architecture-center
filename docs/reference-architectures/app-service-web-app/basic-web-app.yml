@@ -12,6 +12,7 @@ metadata:
     - web
   ms.custom:
     - reference-architecture
+    - internal-intro
 name: Basic web application
 azureCategories:
   - web

@@ -11,6 +11,7 @@ products:
   - azure-cache-redis
 ms.custom:
   - best-practice
+  - internal-intro
 ---
 
 <!-- cSpell:ignore BSON keyspace INCRBY DECR DECRBY GETSET MGET MSET SADD SMEMBERS SDIFF SUNION ZADD LPUSH RPUSH LPOP RPOP LRANGE RRANGE -->

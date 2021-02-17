@@ -15,6 +15,7 @@ metadata:
     - fcp
     - reference-architecture
     - e2e-hybrid
+    - internal-intro
 name: Deploy AI and machine learning at the edge by using Azure Stack Edge
 azureCategories:
   - hybrid

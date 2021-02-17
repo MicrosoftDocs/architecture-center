@@ -16,6 +16,7 @@ metadata:
     - web-apps
     - app-modernization
     - example-scenario
+    - internal-intro
   social_image_url: ./media/architecture-publish-internal-apis-externally.png
 name: Publishing internal APIs to external users
 azureCategories:
