@@ -16,6 +16,7 @@ metadata:
     - reference-architecture
     - e2e-hybrid
     - internal-intro
+    - ai-machine-learning
 name: Deploy AI and machine learning at the edge by using Azure Stack Edge
 azureCategories:
   - hybrid
@@ -28,4 +29,4 @@ products:
   - azure-stack-edge
 thumbnailUrl: /azure/architecture/browse/thumbs/deploy-ai-ml-azure-stack-edge.png
 content: |
-   [!include[](deploy-ai-ml-azure-stack-edge-content.md)]
+  [!include[](deploy-ai-ml-azure-stack-edge-content.md)]

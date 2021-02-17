@@ -19,6 +19,7 @@ metadata:
     - ai gallery
     - interactive-diagram
     - 'https://azure.microsoft.com/solutions/architecture/personalized-offers/'
+    - ai-machine-learning
   social_image_url: /azure/architecture/solution-ideas/articles/media/personalized-offers.png
 name: Personalized Offers
 azureCategories:
@@ -32,4 +33,4 @@ products:
   - azure-stream-analytics
 thumbnailUrl: /azure/architecture/browse/thumbs/personalized-offers.png
 content: |
-   [!include[](personalized-offers-content.md)]
+  [!include[](personalized-offers-content.md)]

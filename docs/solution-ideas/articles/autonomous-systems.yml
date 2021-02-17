@@ -13,6 +13,7 @@ metadata:
     - ai-machine-learning
   ms.custom:
     - pcp
+    - ai-machine-learning
 name: Machine teaching with the Microsoft Autonomous Systems platform
 azureCategories:
   - ai-machine-learning
@@ -23,4 +24,4 @@ products:
   - azure-storage
 thumbnailUrl: /azure/architecture/browse/thumbs/machine-teaching-1-2.png
 content: |
-   [!include[](autonomous-systems-content.md)]
+  [!include[](autonomous-systems-content.md)]

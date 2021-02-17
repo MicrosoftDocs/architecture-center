@@ -15,6 +15,7 @@ metadata:
     - acom-architecture
     - fcp
     - internal-intro
+    - ai-machine-learning
 name: Build web and mobile applications
 azureCategories:
   - ai-machine-learning
@@ -26,4 +27,4 @@ products:
   - azure-kubernetes-service
 thumbnailUrl: /azure/architecture/browse/thumbs/webapps.png
 content: |
-   [!include[](webapps-content.md)]
+  [!include[](webapps-content.md)]

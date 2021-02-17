@@ -14,6 +14,7 @@ metadata:
     - azcat-ai
     - AI
     - example-scenario
+    - ai-machine-learning
   social_image_url: /azure/architecture/example-scenario/ai/media/architecture-movie-recommender.png
 name: Movie recommendations on Azure
 azureCategories:
@@ -29,4 +30,4 @@ products:
 
 thumbnailUrl: /azure/architecture/browse/thumbs/architecture-movie-recommender.png
 content: |
-   [!include[](movie-recommendations-content.md)]
+  [!include[](movie-recommendations-content.md)]
