@@ -5,8 +5,8 @@
 
 ## Architecture
 
-![Architecture diagram](/docs/solution-ideas/media/AnomalyDetector.PNG)
-*Download an [SVG](/docs/solution-ideas/media/AnomalyDetector.svg) of this architecture.*
+![Architecture diagram](/docs/solution-ideas/media/anomaly-detector.png)
+*Download an [SVG](/docs/solution-ideas/media/anomaly-detector.svg) of this architecture.*
 
 ## Data Flow
 
