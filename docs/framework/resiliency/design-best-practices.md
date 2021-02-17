@@ -59,6 +59,6 @@ A cloud application must be able to scale to accommodate changes in usage. Begin
 ## Next step
 
 >[!div class="nextstepaction"]
->[Testing](/azure/architecture/framework/resiliency/testing)
+>[Testing](/azure/architecture/framework/resiliency/test-checklist)
 
 > Go back to the main article: [Design](design-checklist.md)
