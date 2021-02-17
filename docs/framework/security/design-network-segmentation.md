@@ -106,7 +106,7 @@ With Azure Firewall Manager preview, you can centrally manage policies across mu
 >
 > ![GitHub logo](../../_images/github.svg) [GitHub: Hub and Spoke Topology Sandbox](https://github.com/Azure/azure-quickstart-templates/tree/master/101-hub-and-spoke-sandbox).
 >
-> The design considerations are described in [Hub-spoke network topology in Azure](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke).
+> The design considerations are described in [Hub-spoke network topology in Azure](../../reference-architectures/hybrid-networking/hub-spoke.yml).
 
 ## Pattern comparison
 
@@ -127,7 +127,7 @@ With Azure Firewall Manager preview, you can centrally manage policies across mu
 
 - For information about setting up peering, see [Virtual network peering](/azure/virtual-network/virtual-network-peering-overview).
 
-- For best practices about using Azure Firewall in various configurations, see [Azure Firewall Architecture Guide](/azure/architecture/example-scenario/firewalls/).
+- For best practices about using Azure Firewall in various configurations, see [Azure Firewall Architecture Guide](../../example-scenario/firewalls/index.yml).
 
 - For information about different access policies and control flow within a VNet, see [Azure Virtual Network Subnet](/azure/virtual-network/virtual-network-manage-subnet)
 
