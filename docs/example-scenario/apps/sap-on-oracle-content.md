@@ -1,7 +1,7 @@
 
 
 
-SAP system on Oracle Database is one of the very popular deployment patterns in the SAP world. This article describes a typical architecture of SAP on Oracle on Azure, that aligns with the pillars of the [Azure Well Architected Framework](https://docs.microsoft.com/en-us/azure/architecture/framework/).
+SAP system on Oracle Database is one of the popular deployment patterns in the SAP world. This article describes a typical architecture of SAP on Oracle on Azure, that aligns with the pillars of the [Azure Well Architected Framework](https://docs.microsoft.com/en-us/azure/architecture/framework/).
 
 ## Architecture
 
@@ -10,7 +10,7 @@ SAP system on Oracle Database is one of the very popular deployment patterns in 
 
 ## Components
 
-The reference architecture describes a typical SAP production system running on Oracle database on Azure. The key components of the architecture are mentioned below. The architecture and its components can be customized based on the requirements (e.g. RPO/RTO, System Role etc.). The considerations associated with each of the components highlight some of customizing options and the recommendations are based on the best practices for running SAP on Oracle database on Azure.
+The reference architecture describes a typical SAP production system running on Oracle database on Azure. The key components of the architecture are mentioned below. The architecture and its components can be customized based on the requirements (For example, RPO/RTO, System Role etc.). The considerations associated with each of the components highlight some of customizing options and the recommendations are based on the best practices for running SAP on Oracle database on Azure.
 
 ### SAP Presentation Layer
 
@@ -27,16 +27,16 @@ Below are the considerations and recommendations around presentation layer of th
 
 Quality of Response time | Measured Response time
 ---| ---
-Best | <80ms
-Better | <150ms
-Good | <220ms
-Bad | >220ms
+Best | <80 ms
+Better | <150 ms
+Good | <220 ms
+Bad | >220 ms
 
 ### Networking
 
 The reference architecture uses Azure ExpressRoute to connect customer on-premises DC to both the primary and the DR regions of Azure.
 
-The SAP application servers, central services and enqueue replication server are deployed in the Application subnet and Oracle database together with [Oracle Data Guard FSFO (Fast-Start Fail Over)](https://www.oracle.com/technical-resources/articles/smiley-fsfo.html) observer is deployed in the database subnet within a virtual network in Azure subscription (also known as SAP Landing Zone). Both the subnets are protected through Network Security Group (NSG).
+The SAP application servers, central services, and enqueue replication server are deployed in the Application subnet and Oracle database together with [Oracle Data Guard FSFO (Fast-Start Fail Over)](https://www.oracle.com/technical-resources/articles/smiley-fsfo.html) observer is deployed in the database subnet within a virtual network in Azure subscription (also known as SAP Landing Zone). Both the subnets are protected through Network Security Group (NSG).
 
 Below are the considerations and recommendations around networking component of the architecture.
 
@@ -56,15 +56,15 @@ Below are the considerations and recommendations around networking component of 
 
 In the reference architecture, SAP Application servers are deployed in the availability set together with Oracle Database and Central Services within an Azure zone. The identical deployment pattern is replicated in the other zone of the primary region for high availability.
 
-The third zone is used for deploying Primary Oracle FSFO observer and 1st zone i.e., the one where primary Oracle database is running, is used for Secondary Oracle FSFO deployment.
+The third zone is used for deploying Primary Oracle FSFO observer and first zone i.e., the one where primary Oracle database is running, is used for Secondary Oracle FSFO deployment.
 
 Below are the considerations and recommendations around virtual machine component of the architecture.
 
 #### Considerations
 
 - Based on sizing requirements, Azure VM can be selected from the list of SAP certified VMs mentioned in the [SAP note 1928533](https://launchpad.support.sap.com/#/notes/1928533).
-- Only Windows Server and Oracle Linux are the certified and supported operating systems for Oracle databases and Oracle Client binaries. Therefore, SAP Application and Database server’s operating system is restricted to Windows Server and Oracle Linux. However, the central cervices, which don’t run any Oracle binaries can run on any of the operating system mentioned in the [SAP note 1928533](https://launchpad.support.sap.com/#/notes/1928533).
-- Pacemaker clustering solution is not supported on Oracle Linux on Azure. One of the alternative for this is [SIOS Protection Suite for Linux](https://us.sios.com/sap-clustering/).
+- Only Windows Server and Oracle Linux are the certified and supported operating systems for Oracle databases and Oracle Client binaries. Therefore, SAP Application and Database server’s operating system is restricted to Windows Server and Oracle Linux. However, the central cervices, which don’t run any Oracle binaries can run on any of the operating systems mentioned in the [SAP note 1928533](https://launchpad.support.sap.com/#/notes/1928533).
+- Pacemaker clustering solution is not supported on Oracle Linux on Azure. One of the alternatives for this is [SIOS Protection Suite for Linux](https://us.sios.com/sap-clustering/).
 - There are few restrictions around usage of Oracle products on Azure. Refer [SAP Note – 2039619](https://launchpad.support.sap.com/#/notes/2039619) for details.
 
 #### Recommendations
@@ -79,7 +79,7 @@ Below are the considerations and recommendations around virtual machine componen
 
 ### Storage
 
-The architecture uses Azure managed disk for Azure VM disks and Azure Files for shared storage. Below are the considerations and recommendations around storage component of the architecture.
+The architecture uses Azure-managed disks for Azure VM disks and Azure Files for shared storage. Below are the considerations and recommendations around storage component of the architecture.
 
 #### Considerations
 
@@ -87,7 +87,7 @@ The architecture uses Azure managed disk for Azure VM disks and Azure Files for 
 - Azure Files (In Preview), Azure Shared Disk and Azure NetApp files can be used for shared file systems.
 - Oracle database is supported on both ASM and Non-ASM File systems on Azure.
 - Be aware of some of the [limitations](https://docs.microsoft.com/en-us/azure/virtual-machines/disks-enable-ultra-ssd?tabs=azure-portal) of Azure Ultra SSD, when using Ultra SSD for database storage.
-- Azure NetApp files does not currently support Availability Zones.
+- Azure NetApp files do not currently support Availability Zones.
 
 ##### Recommendations
 
@@ -100,12 +100,12 @@ The architecture uses Azure managed disk for Azure VM disks and Azure Files for 
     - Enable read-only caching for all the data disks.
     - Enable write accelerator (for write caching) for all the log disks when using premium SSD with M series.
     - For production/performance critical SAP on Oracle deployment with E series VMs, use ultra SSD for log disks and can use premium SSD for data disks.
-    - For non-prod systems/non-performance critical SAP on Oracle deployment you can replace the Premium managed disk with Standard SSD.
+    - For non-prod systems/non-performance critical SAP on Oracle deployment you can replace the Premium-managed disk with Standard SSD.
 - Can use [premium SSD performance tiering](https://docs.microsoft.com/en-gb/azure/virtual-machines/disks-performance-tiers-portal) to temporary increase the performance offerings from the premium SSD.
 
 ### Security
 
-In Azure, security is a shared responsibility between Microsoft and Customer. SAP on Oracle deployment fits into the IaaS vertical of the [shared responsibility model](https://blogs.sap.com/2019/07/21/sap-security-operations-on-azure/). Microsoft Azure take care of security ranging from the physical datacenter, network, hosts and up to hypervisor layer. The security responsibility of anything above the hypervisor belongs to customer.
+In Azure, security is a shared responsibility between Microsoft and Customer. SAP on Oracle deployment fits into the IaaS vertical of the [shared responsibility model](https://blogs.sap.com/2019/07/21/sap-security-operations-on-azure/). Microsoft Azure takes care of security ranging from the physical datacenter, network, hosts and up to hypervisor layer. The security responsibility of anything above the hypervisor belongs to customer.
 
 ![Azure Shared Responsibility Model](./media/azure-shared-responsibility-model.png)
 *Figure – Azure Shared Responsibility Model*
@@ -124,16 +124,16 @@ The overall solution is integrated into [Azure Security Center](https://docs.mic
 
 #### Considerations
 
-- Azure Disk Encryption can be achieved with both Microsoft Managed Key and Customer Managed Key options. Please refer - [ADE support for VMs and Operating System based on Windows](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/disk-encryption-overview#supported-vms-and-operating-systems) and [ADE support for VMs and Operating System based on Linux](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/disk-encryption-overview#supported-vms-and-operating-systems) to understand ADE supported scenarios.
+- Azure Disk Encryption can be achieved with both Microsoft-Managed Key and Customer-Managed Key options. Refer - [ADE support for VMs and Operating System based on Windows](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/disk-encryption-overview#supported-vms-and-operating-systems) and [ADE support for VMs and Operating System based on Linux](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/disk-encryption-overview#supported-vms-and-operating-systems) to understand ADE supported scenarios.
 
 #### Recommendations
 
 - SAP whitepaper [Security Recommendations: A Practical Guide for Securing SAP® Solutions](https://www.sap.com/documents/2017/03/14cf06b2-af7c-0010-82c7-eda71af511fa.html) describes a good framework for SAP Solution Security.
-- Enable Single-Sign-On (SSO) for user authentication from SAPGUI and browser based SAP access.
-- Use security hardened operating system images for provisioning Azure VMs. Please refer to the latest [CIS benchmarks](https://www.cisecurity.org/benchmark/azure/) for the latest recommendations. 
+- Enable Single-Sign-On (SSO) for user authentication from SAPGUI and browser-based SAP access.
+- Use security hardened operating system images for provisioning Azure VMs. Refer to the latest [CIS benchmarks](https://www.cisecurity.org/benchmark/azure/) for the latest recommendations. 
 - Implement Encryption-at-rest for - 
     - Oracle Database - It’s recommended to use Oracle Transparent Data Encryption (TDE) for Oracle Database Encryption.
-    - Managed Disks – use Azure Disk Encryption with Microsoft or Customer Managed Keys.
+    - Managed Disks – use Azure Disk Encryption with Microsoft or Customer-Managed Keys.
     - Backups – All the backed-up data to Azure is encrypted by default.
 - Implement Encryption-in-transit – 
     - Use TLS for encrypting HTTP communications and SNC for DIAG/RFC communications.
@@ -178,7 +178,7 @@ Below are the considerations and recommendations related to HA/DR setup -
 
 Architecture Component | High Availability | Disaster Recovery
 ---|---|---
-SAP Central Services | Linux Cluster Solution -or- Windows Server Failover Cluster etc. | Azure Site Recovery*, Rsync etc.
+SAP Central Services | Linux Cluster Solution -or- Windows Server Failover Cluster etc. | Azure Site Recovery*, RSYNC etc.
 SAP Application Server | VMs in availability Set distributed between Availability Zones behind Azure standard load balancer. | Azure Site Recovery*
 Oracle Database Server | Synchronous Oracle Data Guard replication between Oracle databases in availability zones. | Asynchronous Oracle Data Guard replication between Oracle databases in two regions.
 Oracle Observer | VMs distributed between Availability Zones – or – VMs in availability set. | -
@@ -194,12 +194,12 @@ The reference architecture uses Azure Backup for backing up Azure VMs and Oracle
 
 #### Considerations
 
-- There are multiple ways to perform SAP Oracle database backup on Azure. This includes traditional methods like SAP BRTools, Oracle RMAN, SAP Backint certified 3rd party backup solutions, Azure native PaaS solution Azure Backup etc.
+- There are multiple ways to perform SAP Oracle database backup on Azure. This includes traditional methods like SAP BRTools, Oracle RMAN, SAP Backint certified third party backup solutions, Azure native PaaS solution Azure Backup etc.
 - Azure Backup offers a simple, enterprise-grade solution for workloads running on virtual machines. For more information, refer to [Oracle database backup using Azure Backup](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/oracle/oracle-database-backup-azure-backup?tabs=azure-portal).
 
 #### Recommendations
 
-- It is strongly recommended to store a copy of mission critical SAP systems (e.g. SAP Production Systems) backup in the DR region i.e. cross-region backup storage. In Azure, this is easily achieved by using Geo Redundant Storage (GRS) storage type.
+- It is recommended to store a copy of mission critical SAP systems (for example, SAP Production Systems) backup in the DR region i.e. cross-region backup storage. In Azure, this is easily achieved by using Geo Redundant Storage (GRS) storage type.
 
 ### Monitoring
 
@@ -212,7 +212,7 @@ Below are the considerations and recommendations related to monitoring aspects o
 DB*/ SM*/ST* SAP transactions.
 - Azure VMs running SAP application and databases can be monitored using Azure Monitor and Linux Pacemaker cluster can be monitored using [Azure Monitor for SAP (preview)](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/azure-monitor-providers#provider-type-high-availability-cluster).
 - Azure Network Watcher can be used for Network Monitoring.
-- Metrics and Logs from the Azure Monitor can be cascaded to Azure log Analytics workspace and co-related with other KPIs for different use cases.
+- Metrics and Logs from the Azure Monitor can be cascaded to Azure log Analytics workspace and corelated with other KPIs for different use cases.
 - Azure Security Center and Azure Sentinel can be used for security monitoring and audit logging.
 
 #### Recommendations
@@ -221,11 +221,11 @@ DB*/ SM*/ST* SAP transactions.
 
 ### Cost Optimization
 
-Here are some of the cost optimization measures which can be adopted to achieve cost efficiencies in the solution.
+Here are some of the cost optimization measures that can be adopted to achieve cost efficiencies in the solution.
 
 #### Considerations
 
-- Based on SAP sizing requirements, consider using SAP certified Intel or AMD based VMs (different pricing).
+- Based on SAP sizing requirements, consider using SAP certified Intel or AMD-based VMs (different pricing).
 - Consider [Azure Managed disk reservation](https://docs.microsoft.com/en-gb/azure/cost-management-billing/reservations/understand-disk-reservations) to lower your disk storage cost.
 - Consider not deploying the central services cluster in the DR region if the database is not following the high-availability pattern.
 
