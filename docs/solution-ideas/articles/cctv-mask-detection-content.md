@@ -55,4 +55,5 @@ For more information:
 - [What is Azure Digital Twins?](/azure/digital-twins/overview)
 - [Azure Stream Analytics on IoT Edge](/azure/stream-analytics/stream-analytics-edge)
 - [Store data at the edge with Azure Blob Storage on IoT Edge](/azure/iot-edge/how-to-store-data-blob)
-- [visio-download]: https://arch-center.azureedge.net/aks-reference-architecture.vsdx
+
+[visio-download]:cctv-mask-detection-content-visio.vsdx
