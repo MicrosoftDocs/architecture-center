@@ -1,6 +1,4 @@
 
-
-
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
 DevOps and Kubernetes are better together. Implementing secure DevOps together with Kubernetes on Azure, you can achieve the balance between speed and security and deliver code faster at scale. Put guardrails around the development processes using CI/CD with dynamic policy controls and accelerate feedback loop with constant monitoring. Use Azure Pipelines to deliver fast while ensuring enforcement of critical policies with Azure Policy. Azure provides you real-time observability for your build and release pipelines, and the ability to apply compliance audit and reconfigurations easily.
@@ -11,26 +9,6 @@ DevOps and Kubernetes are better together. Implementing secure DevOps together w
 *Download an [SVG](../media/secure-devops-for-kubernetes.svg) of this architecture.*
 
 <!-- markdownlint-disable MD033 -->
-
-<div class="architecture-tooltip-content" id="architecture-tooltip-1">
-<p>Developers rapidly iterate, test, and debug different parts of an application together in the same Kubernetes cluster</p>
-</div>
-
-<div class="architecture-tooltip-content" id="architecture-tooltip-2">
-<p>Code is merged into a GitHub repository, after which automated builds and tests are run by Azure Pipelines</p>
-</div>
-
-<div class="architecture-tooltip-content" id="architecture-tooltip-4">
-<p>Code is merged into a GitHub repository, after which automated builds and tests are run by Azure Pipelines</p>
-</div>
-
-<div class="architecture-tooltip-content" id="architecture-tooltip-6">
-<p>Release pipeline automatically executes pre-defined deployment strategy with each code change</p>
-</div>
-
-<div class="architecture-tooltip-content" id="architecture-tooltip-8">
-<p>App telemetry, container health monitoring, and real-time log analytics are obtained using Azure Monitor</p>
-</div>
 
 ## Data Flow
 
