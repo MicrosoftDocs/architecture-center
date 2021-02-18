@@ -1,7 +1,7 @@
 
 
 
-SAP system on Oracle Database is one of the very popular deployment pattern in the SAP world. This article describes a typical architecture of SAP on Oracle on Azure, that aligns with the pillars of the [Azure Well Architected Framework](https://docs.microsoft.com/en-us/azure/architecture/framework/).
+SAP system on Oracle Database is one of the very popular deployment patterns in the SAP world. This article describes a typical architecture of SAP on Oracle on Azure, that aligns with the pillars of the [Azure Well Architected Framework](https://docs.microsoft.com/en-us/azure/architecture/framework/).
 
 ## Architecture
 
@@ -43,7 +43,7 @@ Below are the considerations and recommendations around networking component of 
 #### Considerations
 
 - Site-to-Site (S2S) VPN or Azure ExpressRoute can be used for connecting customer on-premises DC to Azure.
-- Azure standard load balancer must be used as a network load balancer.
+- Azure Standard Load Balancer must be used as a network load balancer.
 
 #### Recommendations
 
@@ -54,9 +54,9 @@ Below are the considerations and recommendations around networking component of 
 
 ### Virtual Machine
 
-In the reference architecture, SAP Application servers are deployed in the availability set together with Oracle Database and Central Services within an Azure zone. The identical deployment pattern is replicated in the other zone of the primary region for high-availability.
+In the reference architecture, SAP Application servers are deployed in the availability set together with Oracle Database and Central Services within an Azure zone. The identical deployment pattern is replicated in the other zone of the primary region for high availability.
 
-The third zone is used for deploying Primary Oracle FSFO observer and 1st zone i.e. the one where primary Oracle database is running, is used for Secondary Oracle FSFO deployment.
+The third zone is used for deploying Primary Oracle FSFO observer and 1st zone i.e., the one where primary Oracle database is running, is used for Secondary Oracle FSFO deployment.
 
 Below are the considerations and recommendations around virtual machine component of the architecture.
 
@@ -83,7 +83,7 @@ The architecture uses Azure managed disk for Azure VM disks and Azure Files for 
 
 #### Considerations
 
-- Azure Manged Disks and [Azure NetApp Files](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/oracle/oracle-database-backup-strategies#azure-netapp-files) are the storage solutions for Oracle databases on Azure. Refer [SAP Note – 2039619](https://launchpad.support.sap.com/#/notes/2039619) to understand the possible supported combinations of Operating systems, Oracle products and the storage solutions.
+- Azure Managed Disks and [Azure NetApp Files](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/oracle/oracle-database-backup-strategies#azure-netapp-files) are the storage solutions for Oracle databases on Azure. Refer [SAP Note – 2039619](https://launchpad.support.sap.com/#/notes/2039619) to understand the possible supported combinations of Operating systems, Oracle products and the storage solutions.
 - Azure Files (In Preview), Azure Shared Disk and Azure NetApp files can be used for shared file systems.
 - Oracle database is supported on both ASM and Non-ASM File systems on Azure.
 - Be aware of some of the [limitations](https://docs.microsoft.com/en-us/azure/virtual-machines/disks-enable-ultra-ssd?tabs=azure-portal) of Azure Ultra SSD, when using Ultra SSD for database storage.
@@ -105,7 +105,7 @@ The architecture uses Azure managed disk for Azure VM disks and Azure Files for 
 
 ### Security
 
-In Azure, Security is a shared responsibility between Microsoft and Customer. SAP on Oracle deployment fits into the IaaS vertical of the [shared responsibility model](https://blogs.sap.com/2019/07/21/sap-security-operations-on-azure/). Microsoft Azure take care of security ranging from the physical datacenter, network, hosts and up to hypervisor layer. The security responsibility of anything above the hypervisor belongs to customer.
+In Azure, security is a shared responsibility between Microsoft and Customer. SAP on Oracle deployment fits into the IaaS vertical of the [shared responsibility model](https://blogs.sap.com/2019/07/21/sap-security-operations-on-azure/). Microsoft Azure take care of security ranging from the physical datacenter, network, hosts and up to hypervisor layer. The security responsibility of anything above the hypervisor belongs to customer.
 
 ![Azure Shared Responsibility Model](./media/azure-shared-responsibility-model.png)
 *Figure – Azure Shared Responsibility Model*
@@ -157,12 +157,12 @@ The considerations and recommendations around scalability are -
 
 ### High Availability & Disaster Recovery
 
-SAP application servers in availability set behind standard load balancer and SAP central services in cluster construct the high-availability solution of SAP application layer.
+SAP application servers in availability set behind standard load balancer and SAP central services in cluster construct the high availability solution of SAP application layer.
 
-The high-availability in database layer is achieved through synchronous database replication between Oracle databases in two zones. The database failover between Azure zones is automated using Oracle Data Guard FSFO (Fast-Start Failover) Observer.
+The high availability in database layer is achieved through synchronous database replication between Oracle databases in two zones. The database failover between Azure zones is automated using Oracle Data Guard FSFO (Fast-Start Failover) Observer.
 The disaster-recovery of the application layer is achieved through Azure Site Recovery replication and database layer through asynchronous database replication between Azure regions.
 
-For cost-effectiveness, SAP Central Services clustering is not deployed in the DR region. The Azure Site Replication replication is enabled only from SAP Central Services but not from SAP ERS server.
+For cost-effectiveness, SAP Central Services clustering is not deployed in the DR region. The Azure Site Recovery replication is enabled only from SAP Central Services but not from SAP ERS server.
 
 Below are the considerations and recommendations related to HA/DR setup - 
 
