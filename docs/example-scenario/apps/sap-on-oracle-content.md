@@ -10,11 +10,11 @@ SAP system on Oracle Database is one of the very popular deployment pattern in t
 
 ## Components
 
-The reference architecture describes a typical SAP production system running on Oracle database on Azure. The key components of the architecture are mentioned below. The architecture and its components can be customized based on the requirements (e.g. RPO/RTO, System Role etc.). The considerations associated with each of the components highlight some of customizing options and the recommendations are based on the best practises for running SAP on Oracle database on Azure.
+The reference architecture describes a typical SAP production system running on Oracle database on Azure. The key components of the architecture are mentioned below. The architecture and its components can be customized based on the requirements (e.g. RPO/RTO, System Role etc.). The considerations associated with each of the components highlight some of customizing options and the recommendations are based on the best practices for running SAP on Oracle database on Azure.
 
 ### SAP Presentation Layer
 
-The presentation layer (SAPGUI, SAP NetWeaver Business Client, Browser etc.) of the reference architecture reside in the user workstation (laptop, desktop etc.), which connects to Azure via on-premise datacentre. 
+The presentation layer (SAPGUI, SAP NetWeaver Business Client, Browser etc.) of the reference architecture reside in the user workstation (laptop, desktop etc.), which connects to Azure via on-premise datacenter. 
 Below are the considerations and recommendations around presentation layer of the architecture.
 
 #### Considerations
@@ -36,7 +36,7 @@ Bad | >220ms
 
 The reference architecture uses Azure ExpressRoute to connect customer on-premises DC to both the primary and the DR regions of Azure.
 
-The SAP application servers, central services and enqueue replication server are deployed in the Application subnet and Oracle database together with [Oracle Data Guard FSFO (Fast-Start Fail Over)](https://www.oracle.com/technical-resources/articles/smiley-fsfo.html) observer is deployed in the database subnet within a virtual network in Azure subscription (aka SAP Landing Zone). Both the subnets are protected through Network Security Group (NSG).
+The SAP application servers, central services and enqueue replication server are deployed in the Application subnet and Oracle database together with [Oracle Data Guard FSFO (Fast-Start Fail Over)](https://www.oracle.com/technical-resources/articles/smiley-fsfo.html) observer is deployed in the database subnet within a virtual network in Azure subscription (also known as SAP Landing Zone). Both the subnets are protected through Network Security Group (NSG).
 
 Below are the considerations and recommendations around networking component of the architecture.
 
@@ -105,7 +105,7 @@ The architecture uses Azure managed disk for Azure VM disks and Azure Files for 
 
 ### Security
 
-In Azure, Security is a shared responsibility between Microsoft and Customer. SAP on Oracle deployment fits into the IaaS vertical of the [shared responsibility model](https://blogs.sap.com/2019/07/21/sap-security-operations-on-azure/). Microsoft Azure take care of security ranging from the physical datacentre, network, hosts and up to hypervisor layer. The security responsibility of anything above the hypervisor belongs to customer.
+In Azure, Security is a shared responsibility between Microsoft and Customer. SAP on Oracle deployment fits into the IaaS vertical of the [shared responsibility model](https://blogs.sap.com/2019/07/21/sap-security-operations-on-azure/). Microsoft Azure take care of security ranging from the physical datacenter, network, hosts and up to hypervisor layer. The security responsibility of anything above the hypervisor belongs to customer.
 
 ![Azure Shared Responsibility Model](./media/Azure-shared-responsibility-model.png)
 *Figure – Azure Shared Responsibility Model*
@@ -138,7 +138,7 @@ The overall solution is integrated into [Azure Security Center](https://docs.mic
 - Implement Encryption-in-transit – 
     - Use TLS for encrypting HTTP communications and SNC for DIAG/RFC communications.
 - Use Azure Bastion (PaaS) for secure and seamless RDP/SSH connectivity to your VMs directly in the Azure portal over SSL.
-- Enable Azure Security Centre (ASC) Standard for SAP on Azure subscriptions.
+- Enable Azure Security Center (ASC) Standard for SAP on Azure subscriptions.
 - Enable resource locking to prevent accidental deletion of the deployed Azure resource.
 
 ### Scalability
@@ -162,7 +162,7 @@ SAP application servers in availability set behind standard load balancer and SA
 The high-availability in database layer is achieved through synchronous database replication between Oracle databases in two zones. The database failover between Azure zones is automated using Oracle Data Guard FSFO (Fast-Start Failover) Observer.
 The disaster-recovery of the application layer is achieved through Azure Site Recovery replication and database layer through asynchronous database replication between Azure regions.
 
-For cost-effectiveness, SAP Central Services clustering is not deployed in the DR region. The ASR replication is enabled only from SAP Central Services but not from SAP ERS server.
+For cost-effectiveness, SAP Central Services clustering is not deployed in the DR region. The Azure Site Replication replication is enabled only from SAP Central Services but not from SAP ERS server.
 
 Below are the considerations and recommendations related to HA/DR setup - 
 
@@ -213,7 +213,7 @@ DB*/ SM*/ST* SAP transactions.
 - Azure VMs running SAP application and databases can be monitored using Azure Monitor and Linux Pacemaker cluster can be monitored using [Azure Monitor for SAP (preview)](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/azure-monitor-providers#provider-type-high-availability-cluster).
 - Azure Network Watcher can be used for Network Monitoring.
 - Metrics and Logs from the Azure Monitor can be cascaded to Azure log Analytics workspace and co-related with other KPIs for different use cases.
-- Azure Security Centre and Azure Sentinel can be used for security monitoring and audit logging.
+- Azure Security Center and Azure Sentinel can be used for security monitoring and audit logging.
 
 #### Recommendations
 
