@@ -27,7 +27,7 @@ Use the AKS virtual node to provision pods inside ACI that start in seconds. Thi
 
 ## Next Steps
 
-- To learn about hosting Microservices on AKS, see [Microservices architecture on Azure Kubernetes Service (AKS)](https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/containers/aks-microservices/aks-microservices).
+- To learn about how to run a serverless Kubernetes cluster by bridging AKS and ACI through the Virtual-Kubelet, see [Microservices architecture on Azure Kubernetes Service (AKS)](https://azure.microsoft.com/en-us/resources/videos/ignite-2018-run-a-serverless-kubernetes-cluster-by-bridging-aks-and-aci-through-the-virtual-kubelet/).
 - The see the AKS product roadmap, see [Azure Kubernetes Service Roadmap on GitHub](https://github.com/Azure/AKS/projects/1).
 
 ## Related articles
