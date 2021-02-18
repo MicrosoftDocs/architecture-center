@@ -144,13 +144,11 @@ Azure Backup offers a simple, enterprise-grade solution for workloads running on
 
 To monitor your workloads on Azure, [Azure Monitor](/azure/azure-monitor/overview) offers a comprehensive solution for collecting, analyzing, and acting on telemetry from your cloud and on-premises environments.
 
-<<<<<<< HEAD
 To provide SAP-based monitoring of supported Azure infrastructure and databases, Azure Monitor for SAP Solutions (preview) is being used. [Azure Monitor for SAP Solutions](/azure/virtual-machines/workloads/sap/azure-monitor-overview) provides a simple setup experience. The customer can collect telemetry data from Azure resources, and then correlate data to various monitoring KPIs, and use data to help with troubleshooting.
 
-=======
 To provide SAP-based monitoring of resources and service performance of the SAP infrastructure, the [Azure SAP Enhanced Monitoring](/azure/virtual-machines/workloads/sap/deployment-guide#d98edcd3-f2a1-49f7-b26a-07448ceb60ca) Extension is used. This extension feeds Azure monitoring statistics into the SAP application for operating system monitoring and DBA Cockpit functions. SAP enhanced monitoring is a mandatory prerequisite for running SAP on Azure. For details, see [SAP Note 2191498](https://launchpad.support.sap.com/#/notes/2191498), “SAP on Linux with Azure: Enhanced Monitoring.”
 To monitor SAP application and associated infrastructures, Azure Monitor for SAP Solutions (preview) can be used. [Azure Monitor for SAP Solutions](/azure/virtual-machines/workloads/sap/azure-monitor-overview) provides a simple setup experience. The customer can collect telemetry data from Azure resources, and then correlate data to various monitoring KPIs, and use data to help with troubleshooting
->>>>>>> 3e2d2c3832a82e36df469b6f4b4bbc429308b77d
+
 ## Security considerations
 
 Many security measures are used to protect the confidentiality, integrity, and availability of an SAP landscape. For example, to secure user access, SAP has its own User Management Engine (UME) to control role-based access and authorization within the SAP application and databases. For details, see [SAP HANA Security—An Overview](https://archive.sap.com/documents/docs/DOC-62943).
