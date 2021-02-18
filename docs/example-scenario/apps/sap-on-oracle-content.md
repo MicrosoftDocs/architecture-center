@@ -5,7 +5,7 @@ SAP system on Oracle Database is one of the very popular deployment pattern in t
 
 ## Architecture
 
-![Architecture overview of a production SAP system on Oracle on Azure](./media/SAP-on-Oracle-Architecture.png)
+![Architecture overview of a production SAP system on Oracle on Azure](./media/sap-on-oracle-architecture.png)
 *Figure – Architecture Diagram of SAP on Oracle Database on Azure*
 
 ## Components
@@ -14,7 +14,7 @@ The reference architecture describes a typical SAP production system running on 
 
 ### SAP Presentation Layer
 
-The presentation layer (SAPGUI, SAP NetWeaver Business Client, Browser etc.) of the reference architecture reside in the user workstation (laptop, desktop etc.), which connects to Azure via on-premise datacenter. 
+The presentation layer (SAPGUI, SAP NetWeaver Business Client, Browser etc.) of the reference architecture reside in the user workstation (laptop, desktop etc.), which connects to Azure via on-premises datacenter. 
 Below are the considerations and recommendations around presentation layer of the architecture.
 
 #### Considerations
@@ -71,7 +71,7 @@ Below are the considerations and recommendations around virtual machine componen
 
 - Use [constrained core VMs](https://docs.microsoft.com/en-us/azure/virtual-machines/constrained-vcpu?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json) for hosting Oracle databases on Azure VMs for cost efficiency.
 
-![Azure VM recommendations for SAP on Oracle Workload](./media/SAP-on-Oracle-Compute-Recommendations.png)
+![Azure VM recommendations for SAP on Oracle Workload](./media/sap-on-oracle-compute-recommendations.png)
 *Figure – Azure compute recommendations for SAP on Oracle Database*
 
 - Use availability zones together with availability set for Azure VMs deployment. Perform [latency check between availability zones](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/sap-ha-availability-zones#network-latency-between-and-within-zones) to ensure that it meets the latency requirement for cross zone communication.
@@ -93,7 +93,7 @@ The architecture uses Azure managed disk for Azure VM disks and Azure Files for 
 
 - The below mentioned decision tree can help in the selection of right storage solution based on requirement.
 
-![Azure Storage recommendations for SAP on Oracle Workload](./media/SAP-on-Oracle-Storage-Recommendations.png)
+![Azure Storage recommendations for SAP on Oracle Workload](./media/sap-on-oracle-storage-recommendations.png)
 *Figure – Azure storage recommendations for SAP on Oracle Database*
 
 - For VM running Oracle database – 
@@ -107,7 +107,7 @@ The architecture uses Azure managed disk for Azure VM disks and Azure Files for 
 
 In Azure, Security is a shared responsibility between Microsoft and Customer. SAP on Oracle deployment fits into the IaaS vertical of the [shared responsibility model](https://blogs.sap.com/2019/07/21/sap-security-operations-on-azure/). Microsoft Azure take care of security ranging from the physical datacenter, network, hosts and up to hypervisor layer. The security responsibility of anything above the hypervisor belongs to customer.
 
-![Azure Shared Responsibility Model](./media/Azure-shared-responsibility-model.png)
+![Azure Shared Responsibility Model](./media/azure-shared-responsibility-model.png)
 *Figure – Azure Shared Responsibility Model*
 
 In the reference architecture, the applications (SAP & Oracle software) are deployed on the Azure VMs running security hardened operating system images.
