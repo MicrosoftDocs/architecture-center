@@ -2,7 +2,7 @@
 title: Reliability in a hybrid workload
 description: Includes guidance and recommendations that apply to the Reliability pillar in a hybrid and multi-cloud workload.
 author: v-aangie
-ms.date: 02/18/2021
+ms.date: 02/19/2021
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected

@@ -2,7 +2,7 @@
 title: Overview of a hybrid workload
 description: Includes guidance and recommendations that apply to each of the five pillars in a hybrid and multi-cloud workload.
 author: v-aangie
-ms.date: 02/18/2021
+ms.date: 02/19/2021
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
@@ -12,7 +12,7 @@ ms.custom:
 
 # Overview of a hybrid workload
 
-Customer workloads are becoming increasingly complex, with many applications often running on different hardware across on-premises, multicloud, and the edge. Managing these disparate workload architectures, ensuring uncompromised security, and enabling developer agility are critical to success. 
+Customer workloads are becoming increasingly complex, with many applications often running on different hardware across on-premises, multicloud, and the edge. Managing these disparate workload architectures, ensuring uncompromised security, and enabling developer agility are critical to success.
 
 Azure uniquely helps you meet these challenges, giving you the flexibility to innovate anywhere in your hybrid environment while operating seamlessly and securely. The Well-Architected Framework includes a hybrid description for each of the five pillars: cost optimization, operational excellence, performance efficiency, reliability, and security. These descriptions create clarity on the considerations needed for your workloads to operate effectively across hybrid environments.
 
@@ -25,7 +25,7 @@ Adopting a hybrid model offers multiple solutions that enable you to confidently
 
 Use *Azure Arc enabled infrastructure* to extend Azure management to any infrastructure in a hybrid environment. Key features of Azure Arc enabled infrastructure are:
 
-- **Unified Operations** <!--CAF Overlap... Use sawe link below to https://review.docs.microsoft.com/en-us/azure/cloud-adoption-framework/scenarios/unified-operations/unified-operations?branch=pr-en-us-884 -->
+- **Unified Operations**
    - Organize resources such as virtual machines, Kubernetes clusters and Azure services deployed across your entire IT environment.
    - Manage and govern resources with a single pane of glass from Azure.
    - Integrated with Azure Lighthouse for managed service provider support.
@@ -65,7 +65,7 @@ Use *Azure Arc management* to extend Azure management to all assets in your work
    - Manage and govern resources with a single pane of glass from Azure.
    - Integrate with Azure Lighthouse for managed service provider support.
 
-## Next step
+## Next steps
 
 >[!div class="nextstepaction"]
 >[Cost optimization](/azure/architecture/framework/hybrid/hybrid-cost)

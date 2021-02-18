@@ -2,7 +2,7 @@
 title: Cost optimization in a hybrid workload
 description: Includes guidance and recommendations that apply to the Cost pillar in a hybrid and multi-cloud environment.
 author: v-aangie
-ms.date: 02/18/2021
+ms.date: 02/19/2021
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
@@ -22,20 +22,20 @@ Other considerations are described in the [Principles of cost optimization](/azu
 
 Define the following for your workloads:
 
-- **Monitor cloud spend with hybrid workloads**. Track cost trends and forecast future spend in dashboards in Azure of your on-prem data estates with Azure Arc.<!--CAF Overlap-->
-- **Keep within cost constraints**.<!--CAF Overlap-->
-   - Create, apply, and enforce standardized and custom tags and policies.<!--CAF Overlap-->
-   - Enforce run-time conformance and audit resources with Azure Policy.<!--CAF Overlap-->
+- **Monitor cloud spend with hybrid workloads**. Track cost trends and forecast future spend in dashboards in Azure of your on-prem data estates with Azure Arc.
+- **Keep within cost constraints**.
+   - Create, apply, and enforce standardized and custom tags and policies.
+   - Enforce run-time conformance and audit resources with Azure Policy.
 - **Choose a flexible billing model**. With Azure Arc enabled data services, you can use existing hardware with the addition of an operating expense (OPEX) model.
 
 ## Functionality
 
-For budget concerns, you get a considerable amount of functionality at no cost that you can use across all of your servers and cluster<!--CAF Overlap "across all of your servers and cluster"--> with Azure Arc enabled servers. You can turn on additional Azure services to each workload as you need them, or not at all.
+For budget concerns, you get a considerable amount of functionality at no cost that you can use across all of your servers and cluster with Azure Arc enabled servers. You can turn on additional Azure services to each workload as you need them, or not at all.
 
 - **Free Core Azure Arc capabilities**
-   - Update, management<!--CAF Overlap-->
-   - Search index<!--CAF Overlap-->
-   - Group, tags<!--CAF Overlap-->
+   - Update, management
+   - Search index
+   - Group, tags
    - Portal
    - Templates, extensions
    - RBAC, subscriptions
@@ -51,9 +51,9 @@ For budget concerns, you get a considerable amount of functionality at no cost t
 ### Tips
 
 - **Start slow**. Light up new capabilities as needed. Most of Azure Arc's resources are free to start.
-- **Save time with unified management<!--CAF Overlap "unified management"-->** for your on-premises and cloud workloads by projecting them all into Azure.
-- **Automate and delegate** remediation of incidents and problems to service teams without IT intervention.<!--CAF Overlap-->
- 
+- **Save time with unified management** for your on-premises and cloud workloads by projecting them all into Azure.
+- **Automate and delegate** remediation of incidents and problems to service teams without IT intervention.
+
 ## Azure Architecture Center (AAC) resources related to hybrid cost
 
 Optimize administration of SQL Server instances in on-premises and multi-cloud environments by using Azure Arc: https://docs.microsoft.com/azure/architecture/hybrid/azure-arc-sql-server
@@ -102,12 +102,12 @@ Click the following links for guidance in provisioning:
 Treat cost monitoring and optimization as a process, rather than a point-in-time activity. You can conduct regular cost reviews and forecast the capacity needs so that you can provision resources dynamically and sale with demand.
 
 - [Managing the Azure Arc enabled servers agent](https://docs.microsoft.com/azure/azure-arc/servers/manage-agent/)
-   - Bring all your resources into a single system so you can organize and inventory through a variety of Azure scopes, such as Management groups, Subscriptions, and Resource Groups.<!--CAF Overlap-->
-   - Create, apply, and enforce standardized and custom tags to keep track of resources.<!--CAF Overlap-->
-   - Build powerful queries and search your global portfolio with Azure Resource Graph.<!--CAF Overlap-->
+   - Bring all your resources into a single system so you can organize and inventory through a variety of Azure scopes, such as Management groups, Subscriptions, and Resource Groups.
+   - Create, apply, and enforce standardized and custom tags to keep track of resources.
+   - Build powerful queries and search your global portfolio with Azure Resource Graph.
 - With [Azure Stack HCI](https://azure.microsoft.com/en-us/pricing/details/azure-stack/hci/)
-   - Costs for datacenter real estate, electricity, personnel, and servers can be reduced or eliminated.<!--CAF Overlap-->
-   - Costs are now part of OPEX, which can be scaled as needed.<!--CAF Overlap-->
+   - Costs for datacenter real estate, electricity, personnel, and servers can be reduced or eliminated.
+   - Costs are now part of OPEX, which can be scaled as needed.
 
 ## Next steps
 

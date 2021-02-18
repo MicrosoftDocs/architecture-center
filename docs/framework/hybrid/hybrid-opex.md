@@ -2,7 +2,7 @@
 title: Operational excellence in a hybrid workload
 description: Includes guidance and recommendations that apply to the Operational Excellence pillar in a hybrid and multi-cloud workload.
 author: v-aangie
-ms.date: 02/18/2021
+ms.date: 02/19/2021
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
@@ -89,7 +89,7 @@ Click the following links for architecture details and diagrams that enable appl
 
 ![Management capabilities comparison by deployment model](../_images/hybrid-deployment.png)
   
-## Next step
+## Next steps
 
 >[!div class="nextstepaction"]
 >[Performance Efficiency](/azure/architecture/framework/hybrid/hybrid-performance-efficiency)
