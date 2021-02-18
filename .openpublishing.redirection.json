@@ -2077,11 +2077,11 @@
      },
      {
       "source path": "docs/framework/resiliency/business-metrics.md",
-      "redirect_url": "/azure/architecture/framework/resiliency/business-metrics" 
+      "redirect_url": "/azure/architecture/framework/resiliency/design-checklist" 
      },
      {
       "source path": "docs/framework/resiliency/data-management.md",
-      "redirect_url": "/azure/architecture/framework/resiliency/data-management"
+      "redirect_url": "/azure/architecture/framework/resiliency/design-checklist"
      }, 
      {
        "source_path": "docs/framework/scalability/monitoring.md",
