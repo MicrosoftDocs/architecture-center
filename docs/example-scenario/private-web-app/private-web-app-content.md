@@ -105,7 +105,7 @@ For example, deployments or urgent manual connections from SQL Server Management
 
 Azure Private Link supporting Azure SQL Database is available in all public and government regions.
 
-Private Link introduces an additional component and availability consideration into the architecture. The Private Link service has an [availability SLA of 99.99%](https://azure.microsoft.com/support/legal/sla/private-link/), which must be taken into account when calculating the [composite SLA of the entire solution](../../framework/resiliency/business-metrics.md#composite-slas).
+Private Link introduces an additional component and availability consideration into the architecture. The Private Link service has an [availability SLA of 99.99%](https://azure.microsoft.com/support/legal/sla/private-link/), which must be taken into account when calculating the composite SLA of the entire solution.
 
 #### Global peering
 
