@@ -1607,6 +1607,8 @@ items:
                 href: solution-ideas/articles/sap-netweaver-on-sql-server.yml
               - name: SAP deployment using an Oracle DB
                 href: example-scenario/apps/sap-production.yml
+              - name: SAP System on Oracle Database on Azure
+                href: example-scenario/apps/sap-on-oracle.yml
               - name: Dev/test for SAP
                 href: example-scenario/apps/sap-dev-test.yml
       - name: Security
