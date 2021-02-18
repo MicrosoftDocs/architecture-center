@@ -25,7 +25,7 @@ Use AKS to simplify the deployment and management of microservices based archite
 
 - [Azure Kubernetes Service](https://azure.microsoft.com/services/kubernetes-service/) offers fully managed Kubernetes clusters for deployment, scaling, and management of containerized applications.
 - [Azure Container Registry](https://docs.microsoft.com/en-us/azure/container-registry/) is a managed, private Docker registry service on Azure. Use Container Registry to store private Docker images, which are deployed to the cluster. 
-- [GitHub][GitHub] provides a code-hosting platform that developers can use for collaborating on both open-source and [inner-source][Inner source] projects.
+- [GitHub](https://github.com/) provides a code-hosting platform that developers can use for collaborating on both open-source and [inner-source][Inner source] projects.
 - [Azure Pipelines](https://docs.microsoft.com/en-us/azure/devops/pipelines/ecosystems/kubernetes/aks-template?view=azure-devops) Pipelines is part of Azure DevOps Services that is used to run automated builds, tests, and deployments. Every time code is changed in the code repository, Azure DevOps pipeline continuously builds container images, pushed to your Azure Container Registry, and the manifests are then deployed to your Azure Kubernetes Service cluster.
 - [Azure Active Directory](https://docs.microsoft.com/en-us/azure/aks/manage-azure-rbac). When AKS is integrated with Azure Active Directory, it allows to use Azure AD users, groups, or service principals as subjects in Kubernetes RBAC to manage AKS resources securely.
 - [Azure Database for MySQL](https://azure.microsoft.com/en-us/services/mysql/) is a fully managed MySQL Database service on Azure to store stateful data.
