@@ -14,6 +14,7 @@ products:
   - azure-load-balancer
 ms.custom:
   - guide
+  - internal-intro
 ---
 
 # Modernize enterprise applications with Azure Service Fabric
@@ -165,23 +166,23 @@ A scale set associated with a node type can reliably scale out to 100 VM instanc
 
 Service Fabric supports with two networking modes for containerized applications; nat and Open. For large enterprise clusters that host multiple applications, use the Open mode. For more information, see [Container Networking and Constraints](#container-networking-and-constraints).
 
-- **nat**
+- **NAT**
 
-    By default, the cluster brings up containers by using a NAT-bridge mode to the host VM. The NAT bridge routes requests over a defined port to the container. With this mode, only one IP address is needed per host VM for the host's primary NIC.
+  By default, the cluster brings up containers by using a NAT-bridge mode to the host VM. The NAT bridge routes requests over a defined port to the container. With this mode, only one IP address is needed per host VM for the host's primary NIC.
 
-    To route traffic to each application container, a unique port is exposed through the load balancer. However, that port is exposed to end users. If you don't want the port exposed, provide a URL rewrite mechanism. Rewrite the application domain name with a unique application port. Traffic is routed to the load balancer that front ends the cluster. One option for the rewrite mechanism is [Azure Application Gateway](/azure/application-gateway/).
+  To route traffic to each application container, a unique port is exposed through the load balancer. However, that port is exposed to end users. If you don't want the port exposed, provide a URL rewrite mechanism. Rewrite the application domain name with a unique application port. Traffic is routed to the load balancer that front ends the cluster. One option for the rewrite mechanism is [Azure Application Gateway](/azure/application-gateway/).
 
-    Another benefit of this approach is simplistic load balancing with Azure Load Balancer. The load balancer's probe mechanism balance traffic across the VM instances that are running the application's containers.
+  Another benefit of this approach is simplistic load balancing with Azure Load Balancer. The load balancer's probe mechanism balance traffic across the VM instances that are running the application's containers.
 
 - **Open**
 
-    The **Open** mode assigns an IP address to each running container on the host VM from the cluster's virtual network subnet. Each host is pre-allocated with a set of IP addresses. Each container on the host is assigned an IP from the virtual network range. You can configure this mode in the cluster Azure Resource Manager template during cluster creation. The example infrastructure demonstrates the **Open** mode.
+  The **Open** mode assigns an IP address to each running container on the host VM from the cluster's virtual network subnet. Each host is pre-allocated with a set of IP addresses. Each container on the host is assigned an IP from the virtual network range. You can configure this mode in the cluster Azure Resource Manager template during cluster creation. The example infrastructure demonstrates the **Open** mode.
 
-    Benefits of the Open mode:
+  Benefits of the Open mode:
 
-    - Makes connecting to application containers simple.
-    - Provides application traceability that is, the assigned enterprise-friendly IP is constant for the life of the container.
-    - Is efficient with Windows containers.
+  - Makes connecting to application containers simple.
+  - Provides application traceability that is, the assigned enterprise-friendly IP is constant for the life of the container.
+  - Is efficient with Windows containers.
 
 There are downsides:
 
@@ -288,7 +289,7 @@ The key aspect of the ingress reverse proxy is inspecting inbound traffic and re
 For example, application A is registered with the Service Fabric DNS service with the domain name: appA.container.myorg.com. External users access the application with `https://appA.myorg.com`. Use public or organizational DNS and register appA.myorg.com to point to the public IP for the application node type.
 
 1. Requests for appA.myorg.com are routed to the Service Fabric cluster and handed off to the ARR container listening on port 443. Service Fabric and Azure Load Balancer set that configuration value when the ARR container is deployed.  
-2. When ARR gets the request, it has a condition to look for any request with the pattern='*.*.*', and its action rewrites the request to https://{C:1}.container.{C:2}.{C:3}/{REQUEST_URI}. Because the ARR is running in the cluster, the Service Fabric DNS service is invoked. The service returns the destination container IP address.
+2. When ARR gets the request, it has a condition to look for any request with the pattern='*.*.*', and its action rewrites the request to `https://{C:1}.container.{C:2}.{C:3}/{REQUEST_URI}`. Because the ARR is running in the cluster, the Service Fabric DNS service is invoked. The service returns the destination container IP address.
 3. The request is routed to the destination container. Certificates can be used for the initial request to ARR and the rewrite to the destination container.
 
 Here is an example ApplicationManifest.xml for Container A in the example infrastructure.
@@ -390,7 +391,7 @@ Here are some articles about container security:
 
 [Service Fabric application and service security](/azure/service-fabric/service-fabric-application-and-service-security)
 
-[Set up an encryption certificate and encrypt secrets on Windows clusters](/azure/service-fabric/service-fabric-application-secret-management-windows) 
+[Set up an encryption certificate and encrypt secrets on Windows clusters](/azure/service-fabric/service-fabric-application-secret-management-windows)
 
 ## Logging and monitoring
 

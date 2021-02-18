@@ -13,6 +13,7 @@ metadata:
   ms.custom:
     - fcp
     - example-scenario
+    - internal-intro
 name: Firewall and Application Gateway for virtual networks
 azureCategories:
   - networking
