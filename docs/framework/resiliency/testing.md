@@ -17,7 +17,7 @@ Applications should be tested to ensure *availability* and *resiliency*. Availab
 
 Being able to measure availability and resiliency can answer questions like, How much downtime is acceptable? How much does potential downtime cost your business? What are your availability requirements? How much do you invest in making your application highly available? What is the risk versus the cost? Testing plays a critical role in making sure your applications can meet these requirements.
 
-## Key Points
+## Key points
 
 - Test regularly to validate existing thresholds, targets and assumptions.
 - Automate testing as much as possible.

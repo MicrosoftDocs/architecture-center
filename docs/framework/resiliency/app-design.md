@@ -44,9 +44,9 @@ In addition to an availability strategy, define a Business Continuity Disaster R
 
 To drive cost down consider splitting application components and data into groups. For example:
 
-1. Must protect
-1. Nice to protect
-1. Ephemeral/can be rebuilt/lost, instead of protecting all data with the same policy
+- Must protect
+- Nice to protect
+- Ephemeral/can be rebuilt/lost, instead of protecting all data with the same policy
 
 ## Considerations for improving reliability
 

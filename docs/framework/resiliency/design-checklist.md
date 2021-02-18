@@ -46,7 +46,7 @@ Follow these questions to assess the workload at a deeper level.
 - [Azure Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview)
 - [Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-overview)
 - [Kubernetes Service (AKS)](https://docs.microsoft.com/azure/aks/intro-kubernetes)
-- [Azure Site Recovery (ASR)](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview)
+- [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview)
 
 ## Reference architecture
 

@@ -2076,6 +2076,16 @@
       "redirect_url": "/azure/architecture/browse/?azure_categories=hybrid"
      },
      {
+      "source path": "docs/framework/resiliency/business-metrics.md",
+      "redirect_url": "/azure/architecture/framework/resiliency/business-metrics", 
+      "redirect_document_id": false
+     },
+     {
+      "source path": "docs/framework/resiliency/data-management.md"
+      "redirect_url:/azure/architecture/framework/resiliency/data-management",
+      "redirect_document_id": false
+     }, 
+     {
        "source_path": "docs/framework/scalability/monitoring.md",
        "redirect_url": "/azure/architecture/framework/scalability/monitor",
        "redirect_document_id": false

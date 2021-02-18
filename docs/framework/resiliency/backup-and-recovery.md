@@ -19,7 +19,7 @@ In the cloud, we acknowledge up front that failures will happen. Instead of tryi
 
 Your tolerance for reduced functionality during a disaster is a business decision that varies from one application to the next. It might be acceptable for some applications to be unavailable or to be partially available with reduced functionality or delayed processing for a period of time. For other applications, any reduced functionality is unacceptable. 
 
-## Key Points
+## Key points
 
 - Create and test a disaster recovery plan on a regular basis using key failure scenarios.
 - Design disaster recovery strategy to run most applications with reduced functionality.
@@ -77,7 +77,7 @@ In a reduced functionality scenario:
 
 The steps required to recover or failover the application to a secondary Azure region in failure situations should be codified, preferably in an automated manner, to ensure capabilities exist to effectively respond to an outage in a way that limits impact. Similar codified steps should also exist to capture the process required to failback the application to the primary region once a failover triggering issue has been addressed.
 
-When automating failover procedures, ensure that the tooling used for orchestrating the failover are also considered in the failover strategy. For example, if you run your failover from Jenkins running on a VM, you'll be in trouble if that virtual machine is part of the outage. Azure DevOps projects are scoped to a region too.
+When automating failover procedures, ensure that the tooling used for orchestrating the failover are also considered in the failover strategy. For example, if you run your failover from Jenkins running on a VM, you'll be in trouble if that virtual machine is part of the outage. Azure DevOps Projects are scoped to a region too.
 
 ## Backup strategy
 

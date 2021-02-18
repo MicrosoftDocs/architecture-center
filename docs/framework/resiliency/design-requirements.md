@@ -15,7 +15,7 @@ Target and non-functional requirements such as *availability targets* and *recov
 
 Building resiliency (recovering from failures) and availability (running in a healthy state without significant downtime) into your apps begins with gathering requirements. For example, how much downtime is acceptable? How much does potential downtime cost your business? What are your customer's availability requirements? How much do you invest in making your application highly available? What is the risk versus the cost?
 
-## Key Points
+## Key points
 
 - Determine the acceptable level of uptime for your workloads.
 - Determine how long workloads can be unavailable and how much data is acceptable to lose during a disaster.
@@ -46,7 +46,7 @@ Availability targets for any dependencies leveraged by the application should be
 
 A composite SLA captures the end-to-end SLA across all application components and dependencies. It is calculated using the individual SLAs of Azure services housing application components and provides an important indicator of designed availability in relation to customer expectations and targets. Make sure the composite SLA of all components and dependencies on the critical paths are understood. To learn more, see [Composite SLAs](https://docs.microsoft.com/azure/architecture/framework/resiliency/business-metrics#understand-service-level-agreements).
 
-> [!MOTE]
+> [!NOTE]
 > if you have contractual commitments to an SLA for your Azure solution, additional allowances on top of the Azure composite SLA must be made to accommodate outages caused by code-level issues and deployments. This is often overlooked and customers directly put the composite SLA forward to their customers.
 
 **Are availability targets considered while the system is running in disaster recovery mode?**
@@ -94,7 +94,7 @@ An Availability Set (AS) is a logical construct to inform Azure that it should d
 To ensure application platform reliability, it is vital that the application be hosted across at least two nodes to ensure there are no single points of failure. Ideally An n+1 model should be applied for compute availability where n is the number of instances required to support application availability and performance requirements. 
 
 > [!NOTE]
-> Higher SLAs provided for virtual machines and associated related platform services, require at least two replica nodes deployed to either an Availability Set or across two or more Availability Zones. T learn more, see [SLA for Virtual Machines](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_9/).
+> Higher SLAs provided for virtual machines and associated related platform services, require at least two replica nodes deployed to either an Availability Set or across two or more Availability Zones. To learn more, see [SLA for Virtual Machines](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_9/).
 
 **How is the client traffic routed to the application in the case of region, zone or network outage?**
 ***
@@ -111,9 +111,9 @@ Data types should be categorized by data consistency requirements. Data consiste
 
 CAP theorem proves that it is impossible for a distributed data store to simultaneously provide more than two guarantees across:
 
-1. **Consistency -** Every read receives the most recent write or an error.
-1. **Availability -** Very request receives a non-error response, without the guarantee that it contains the most recent write.
-1. **Partition tolerance -** A system continues to operate despite an arbitrary number of transactions being dropped or delayed by the network between nodes.
+- **Consistency -** Every read receives the most recent write or an error.
+- **Availability -** Very request receives a non-error response, without the guarantee that it contains the most recent write.
+- **Partition tolerance -** A system continues to operate despite an arbitrary number of transactions being dropped or delayed by the network between nodes.
 
 Determining which of these guarantees are most important in the context of application requirements is critical.
 

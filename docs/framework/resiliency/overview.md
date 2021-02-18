@@ -15,7 +15,9 @@ ms.custom:
 
 Building a reliable application in the cloud is different from traditional application development. While historically you may have purchased levels of redundant higher-end hardware to minimize the chance of an entire application platform failing, in the cloud, we acknowledge up front that failures will happen. Instead of trying to prevent failures altogether, the goal is to minimize the effects of a single failing component.
 
-These critical design principles are used as lenses to assess the Reliability of an application deployed on Azure. They provide a framework for the application assessment questions that follow.
+## Application framework
+
+These critical principles are used as lenses to assess the reliability of an application deployed on Azure. They provide a framework for the application assessment questions that follow.
 
 To assess your workload using the tenets found in the Microsoft Azure Well-Architected Framework, see the [Microsoft Azure Well-Architected Review](https://docs.microsoft.com/assessments/).
 
@@ -44,7 +46,7 @@ To assess your workload using the tenets found in the Microsoft Azure Well-Archi
 - **Test for fault tolerance -** Application workloads should be tested to validate reliability against defined reliability targets.
 
 - **Monitor and measure application health -** Monitoring and measuring application availability is vital to qualifying overall application health and progress towards defined reliability targets.
- 
+
 ## Next step
 
 >[!div class="nextstepaction"]

@@ -132,7 +132,7 @@ as a service (IaaS) resource, like a VM or managed disk, as illustrated.
 
 ![Zonal architecture](./images/high-availability-002.png)
 
-*For example, zonal load balancer, VM, managed disks, VM scale sets.*
+*For example, zonal load balancer, VM, managed disks, virtual machine scale sets.*
 
 In the illustration, each VM and load balancer (LB) are deployed to a specific
 zone.

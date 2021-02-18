@@ -13,7 +13,7 @@ ms.custom:
 
 Building failure recovery into the system should be part of the architecture and design phases from the beginning to avoid the risk of failure. Dependencies are required for the application to fully operate.
 
-## Key Points
+## Key points
 
 - Identify possible failure points in the system with failure mode analysis.
 - Eliminate all single point of failure.

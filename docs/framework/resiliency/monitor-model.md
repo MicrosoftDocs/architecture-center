@@ -37,7 +37,7 @@ Application level events should be automatically correlated with resource level 
 
 Telemetry correlation should be used to ensure transactions can be mapped through the end-to-end application and critical system flows, as this is vital to root cause analysis for failures. Platform level metrics and logs such as CPU percentage, network in/out, and disk operations/sec should be collected from the application to inform a health model and detect/predict issues(Telemetry correlation). This can also help to distinguish between transient and non-transient faults.
 
-## Application Logs
+## Application logs
 
 Application logs are an important source of diagnostics data. To gain insight when you need it most, follow these best practices for application logging:
 
