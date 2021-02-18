@@ -25,11 +25,11 @@ Use AKS to simplify the deployment and management of microservices based archite
 
 - [Azure Kubernetes Service](https://azure.microsoft.com/services/kubernetes-service/) offers fully managed Kubernetes clusters for deployment, scaling, and management of containerized applications.
 - [Azure Container Registry](https://docs.microsoft.com/en-us/azure/container-registry/) is a managed, private Docker registry service on Azure. Use Container Registry to store private Docker images, which are deployed to the cluster. 
-- [Azure Database for MySQL](https://azure.microsoft.com/en-us/services/mysql/) is a fully managed MySQL Database service on Azure to store stateful data
+- [Azure Pipelines](https://docs.microsoft.com/en-us/azure/devops/pipelines/ecosystems/kubernetes/aks-template?view=azure-devops) Pipelines is part of Azure DevOps Services that is used to run automated builds, tests, and deployments. Every time code is changed in the code repository, Azure DevOps pipeline continuously builds container images, pushed to your Azure Container Registry, and the manifests are then deployed to your Azure Kubernetes Service cluster.
 - [Azure Active Directory](https://docs.microsoft.com/en-us/azure/aks/manage-azure-rbac). When AKS is integrated with Azure Active Directory, it allows to use Azure AD users, groups, or service principals as subjects in Kubernetes RBAC to manage AKS resources securely.
-- Azure Pipelines. Pipelines is part of Azure DevOps Services and runs automated builds, tests, and deployments. You can also use third-party CI/CD solutions such as Jenkins.
-
-- 
+- [Azure Database for MySQL](https://azure.microsoft.com/en-us/services/mysql/) is a fully managed MySQL Database service on Azure to store stateful data.
+- [Azure SQL Database](https://docs.microsoft.com/en-us/azure/azure-sql/database/sql-database-paas-overview) is a fully managed and intelligent relational database service built for the cloud. With SQL Database, you can create a highly available and high-performance data storage layer for modern cloud applications.
+- [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) is a fully managed NoSQL database service for building and modernizing scalable, high performance applications.
 
 ## Next Steps
 
