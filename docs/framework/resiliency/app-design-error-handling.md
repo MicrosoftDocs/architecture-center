@@ -15,7 +15,7 @@ ms.custom:
 
 Ensuring your application can recover from errors is critical when working in a distributed system. You test your applications to prevent errors and failure, but you need to be prepared for when applications encounter issues or fail. Understanding how to handle errors and prevent potential failure becomes important, as testing doesn't always catch everything.
 
-Many things in a distributed system are outside your span of control and your means to test. This can be the underlying cloud infrastructure, third party runtime dependencies, etc. You can be sure something will fail eventually, so you need to prepare for that.
+Many things in a distributed system are outside your span of control and your means to test. This can be the underlying cloud infrastructure, third party runtime dependencies, etc. You can be sure something will fail eventually, so you need to prepare for that. 
 
 ## Key points
 

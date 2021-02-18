@@ -97,6 +97,6 @@ Load testing is crucial for identifying failures that only happen under load, su
 
 - For more test types, see [Test types](https://docs.microsoft.com/azure/architecture/checklist/dev-ops#testing).
 - To learn about load and stress tests, see [Performance testing](/azure/architecture/framework/scalability/performance-test).
-- To learn about chaos testing, see [Chaos engineering](/azure/architecture/framework/resiliency/chaos-engineering).
+- To learn about chaos testing, see [Chaos engineering](/azure/architecture/framework/resiliency/chaos-engineering). 
 
  Go back to the main article: [Testing](test-checklist.md)

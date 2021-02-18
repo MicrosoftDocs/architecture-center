@@ -13,7 +13,7 @@ ms.custom:
 
 This article lists Azure best practices to enhance monitoring Azure applications for reliability. These best practices are derived from our experience with Azure reliability and the experiences of customers like yourself.
 
-Implement these best practices for monitoring and alerts in your application so you can detect failures and alert an operator to fix them.
+Implement these best practices for monitoring and alerts in your application so you can detect failures and alert an operator to fix them. 
 
 ## Implement health probes and check functions
 

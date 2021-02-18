@@ -164,6 +164,6 @@ Consider these guidelines to ensure connection availability and improve reliabil
 - To understand business metrics to design resilient Azure applications, see [Workload availability targets](/azure/architecture/framework/resiliency/business-metrics).
 - For information on Availability Zones, see [Building solutions for high availability using Availability Zones](https://docs.microsoft.com/azure/architecture/high-availability/building-solutions-for-high-availability).
 - For information on health probes, see [Load Balancer health probes](https://docs.microsoft.com/azure/load-balancer/load-balancer-custom-probe-overview) and [Health Endpoint Monitoring Pattern](https://docs.microsoft.com/azure/architecture/patterns/health-endpoint-monitoring).
-- To learn about connectivity risk, see [Deploy highly available network virtual appliances](https://docs.microsoft.com/azure/architecture/reference-architectures/dmz/nva-ha).
+- To learn about connectivity risk, see [Deploy highly available network virtual appliances](https://docs.microsoft.com/azure/architecture/reference-architectures/dmz/nva-ha). 
 
 > Go back to the main article: [Design](design-checklist.md)

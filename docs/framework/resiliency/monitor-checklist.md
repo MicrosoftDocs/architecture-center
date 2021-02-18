@@ -42,7 +42,7 @@ Monitoring and diagnostics are crucial for resiliency. If something fails, you n
 - [Azure Service Health](https://docs.microsoft.com/azure/service-health/service-health-overview)
 - [Azure Resource Health](https://docs.microsoft.com/azure/service-health/resource-health-overview)
 - [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/management/overview)
-- [Azure Policy](https://docs.microsoft.com/azure/governance/policy/overview)
+- [Azure Policy](https://docs.microsoft.com/azure/governance/policy/overview) 
 
 ## Reference architecture
 

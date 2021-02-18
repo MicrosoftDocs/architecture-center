@@ -65,4 +65,4 @@ Follow these questions to assess the workload at a deeper level.
 - [Design to scale out](/azure/architecture/guide/design-principles/scale-out)
 - [Workload availability targets](/azure/architecture/framework/resiliency/business-metrics).
 - [Building solutions for high availability using Availability Zones](https://docs.microsoft.com/azure/architecture/high-availability/building-solutions-for-high-availability)
-- [Make all things redundant](https://docs.microsoft.com/azure/architecture/guide/design-principles/redundancy)
+- [Make all things redundant](https://docs.microsoft.com/azure/architecture/guide/design-principles/redundancy) 

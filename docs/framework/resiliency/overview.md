@@ -48,4 +48,4 @@ To assess your workload using the tenets found in the Microsoft Azure Well-Archi
 ## Next step
 
 >[!div class="nextstepaction"]
->[Design](/azure/architecture/framework/resiliency/design-checklist)
+>[Design](/azure/architecture/framework/resiliency/design-checklist) 

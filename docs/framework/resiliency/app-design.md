@@ -13,7 +13,7 @@ ms.custom:
 
 # Design reliable Azure applications
 
-Building a reliable application in the cloud is different from traditional application development. While historically you may have purchased levels of redundant higher-end hardware to minimize the chance of an entire application platform failing, in the cloud, we acknowledge up front that failures will happen. Instead of trying to prevent failures altogether, the goal is to minimize the effects of a single failing component. Failures you can expect here are inherent to highly distributed systems, not a feature of Azure.
+Building a reliable application in the cloud is different from traditional application development. While historically you may have purchased levels of redundant higher-end hardware to minimize the chance of an entire application platform failing, in the cloud, we acknowledge up front that failures will happen. Instead of trying to prevent failures altogether, the goal is to minimize the effects of a single failing component. Failures you can expect here are inherent to highly distributed systems, not a feature of Azure. 
 
 ## Key Points
 

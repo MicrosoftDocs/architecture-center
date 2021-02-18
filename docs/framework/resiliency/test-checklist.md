@@ -67,4 +67,4 @@ Follow these questions to assess the workload at a deeper level.
 - For information on performance testing, see [Performance testing](/azure/architecture/framework/scalability/performance-test).
 - For information on chaos engineering, see [Chaos engineering](/azure/architecture/framework/resiliency/chaos-engineering).
 - For information on failure and disaster recovery, see [Failure and disaster recovery for Azure applications](/azure/architecture/framework/resiliency/backup-and-recovery).
-- For information on testing applications, see [Testing your application and Azure environment](/azure/architecture/framework/devops/release-engineering-testing).
+- For information on testing applications, see [Testing your application and Azure environment](/azure/architecture/framework/devops/release-engineering-testing). 
