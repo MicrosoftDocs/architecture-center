@@ -2081,8 +2081,8 @@
       "redirect_document_id": false
      },
      {
-      "source path": "docs/framework/resiliency/data-management.md"
-      "redirect_url:/azure/architecture/framework/resiliency/data-management",
+      "source path": "docs/framework/resiliency/data-management.md",
+      "redirect_url": "/azure/architecture/framework/resiliency/data-management",
       "redirect_document_id": false
      }, 
      {
