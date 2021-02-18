@@ -275,6 +275,8 @@ When implementing high availability for Central Services using SOFS or SIOS, Sit
 
 DR is best implemented with a database's integrated replication technology. For example, with SQL Server, we recommend using the Always On availability groups feature to establish a replica in a remote region and replicating transactions asynchronously with manual failover. Asynchronous replication avoids an impact to the performance of interactive workloads at the primary site. With a manual failover, someone can then evaluate the DR impact and decide if operating from the DR site is justified.
 
+If you are utilising Azure NetApp Files for your database storage, it may be possible to use [Cross-Region Replication](/azure/azure-netapp-files/cross-region-replication-introduction) to replicate data to a secondary region. Note that this feature is in Preview at the time of writing, so evaluate if this meets your requirements for Production workloads.
+
 ### DR for shared services
 
 Many IT services are shared by all your deployed cloud assets, such as administrative jumpboxes, cloud-based directory services, backup, and monitoring services. Replicate your shared services into the DR region using whatever means the services provide.
