@@ -21,7 +21,7 @@ Use AKS to simplify the deployment and management of microservices based archite
 1. Microservices use databases to store and retrieve information
 1. Administrator accesses via a separate admin portal
 
-### Components
+## Components
 
 - [Azure Kubernetes Service](https://azure.microsoft.com/services/kubernetes-service/) offers fully managed Kubernetes clusters for deployment, scaling, and management of containerized applications.
 - [Azure Container Registry](https://docs.microsoft.com/en-us/azure/container-registry/) is a managed, private Docker registry service on Azure. Use Container Registry to store private Docker images, which are deployed to the cluster. 
