@@ -307,7 +307,7 @@ Microsoft products aren't the only choice to implement web application firewall 
 - When using NVAs in Azure, use *active-active* and *autoscaling* setups, so these appliances aren't a bottleneck for applications running in the virtual network.
 
 [azfw-overview]: /azure/firewall/overview
-[azfw-premium]: /azure/firewall/premium-overview
+[azfw-premium]: /azure/firewall/premium-features
 [azfw-docs]: /azure/firewall/
 [azfw-dnat]: /azure/firewall/tutorial-firewall-dnat
 [azfw-snat]: /azure/firewall/snat-private-range
