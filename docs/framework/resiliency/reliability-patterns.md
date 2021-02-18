@@ -2,22 +2,21 @@
 title: Reliability patterns
 titleSuffix: Cloud Design Patterns
 description: Learn about availability, high availability, and resiliency as they relate to reliability.
-keywords: design pattern
 author: v-aangie
 ms.date: 12/08/2020
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
 ms.custom:
-  - seodec18
   - design-pattern
+keywords: design pattern
 ---
 
 # Reliability patterns
 
 ## Availability
 
-Availability is measured as a percentage of uptime, and defines the proportion of time that a system is functional and working. Availability is affected by system errors, infrastructure problems, malicious attacks, and system load. Cloud applications typically provide users with a service level agreement (SLA), which means that applications must be designed and implemented to maximize availability.
+Availability is measured as a percentage of uptime, and defines the proportion of time that a system is functional and working. Availability is affected by system errors, infrastructure problems, malicious attacks, and system load. Cloud applications typically provide users with a service level agreement (SLA), which means that applications must be designed and implemented to maximize availability. 
 
 |                            Pattern                             |                                                           Summary                                                            |
 |----------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------|

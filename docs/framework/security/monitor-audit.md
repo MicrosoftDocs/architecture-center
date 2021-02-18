@@ -1,11 +1,13 @@
 ---
 title: Security logs and audits
-description: Security logging and monitoring focuses on activities related to enabling, acquiring, and storing audit logs for Azure services. 
+description: Security logging and monitoring focuses on activities related to enabling, acquiring, and storing audit logs for Azure services.
 author: PageWriter-MSFT
 ms.date: 11/03/2020
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
+products:
+  - azure-monitor
 ms.custom:
   - article
 ---

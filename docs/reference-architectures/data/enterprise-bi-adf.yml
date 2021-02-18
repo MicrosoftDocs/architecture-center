@@ -13,7 +13,6 @@ metadata:
     - databases
     - integration
   ms.custom:
-    - seodec18
     - reference-architecture
 name: Automated enterprise BI
 azureCategories:

@@ -14,6 +14,7 @@ metadata:
   ms.custom:
     - acom-architecture
     - fcp
+    - internal-intro
 name: Build web and mobile applications
 azureCategories:
   - ai-machine-learning

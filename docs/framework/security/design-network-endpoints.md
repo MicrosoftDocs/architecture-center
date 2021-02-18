@@ -6,14 +6,14 @@ ms.date: 02/03/2021
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
-ms.custom:
-  - article
 azureCategories:
   - networking
 products:
   - azure-firewall
   - azure-application-gateway
-  - azure-ddos-protection  
+  - azure-ddos-protection
+ms.custom:
+  - article
 ---
 
 # Best practices for endpoint security on Azure
@@ -66,7 +66,7 @@ A common design is to implement a DMZ or a perimeter network in front of the app
 >
 > ![GitHub logo](../../_images/github.svg) [GitHub: DMZ between Azure and your on-premises datacenter](https://github.com/mspnp/reference-architectures/tree/master/dmz/secure-vnet-hybrid).
 >
-> The design considerations are described in [Deploy highly available NVAs](/architecture/reference-architectures/dmz/secure-vnet-dmz).
+> The design considerations are described in [Deploy highly available NVAs](/azure/architecture/reference-architectures/dmz/nva-ha).
 
 ### Combination approach
 

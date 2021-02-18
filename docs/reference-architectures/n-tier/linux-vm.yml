@@ -12,8 +12,8 @@ metadata:
   ms.category:
     - compute
   ms.custom:
-    - seodec18
     - reference-architecture
+    - internal-intro
 name: Run a Linux VM on Azure
 azureCategories:
   - compute

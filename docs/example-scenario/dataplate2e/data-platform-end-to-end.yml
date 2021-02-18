@@ -5,12 +5,12 @@ metadata:
   description: This example scenario demonstrates how to use the extensive family of Azure Data Services to build a modern data platform capable of handling the most common data challenges in an organization.
   author: fabragaMS
   ms.date: 01/31/2020
-  ms.category:
-    - databases
-    - analytics
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: example-scenario
+  ms.category:
+    - databases
+    - analytics
   ms.custom:
     - fcp
     - data-analytics

@@ -15,7 +15,7 @@ ms.custom:
 
 ## Workload availability targets
 
-Define your own target SLAs for each workload in your solution so you can determine whether the architecture meets the business requirements.
+Define your own target SLAs for each workload in your solution so you can determine whether the architecture meets the business requirements. 
 
 ### Consider cost and complexity
 

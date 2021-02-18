@@ -26,7 +26,7 @@ Profile Container is used to redirect the full user profile. Profile Container i
 There are several reasons why Profile Container and Office Container may be used together. For more information, read the comparison of [Profile Container vs. Office Container](/fslogix/profile-container-office-container-cncpt).
 
 > [!NOTE]
-> The recommendation in Windows Virtual Desktop is to use Profile Container without Office Container for a simpler and therefore, a more robust solution.
+> The recommendation in Windows Virtual Desktop is to use Profile Container without Office Container unless you are planning for specific Business Continuity and Disaster Recovery (BCDR) scenarios as described in the Disaster Recovery section below.
 
 ### Multiple profile connections
 
@@ -128,7 +128,7 @@ We recommend keeping native profile folder locations in the FSLogix profile cont
 
 ### Teams exclusions
 
-Exclude the following from the Teams caching folder, %appdata%/Microsoft/Teams. Excluding [these items](/microsoftteams/teams-for-vdi#teams-cached-content-exclusion-list-for-non-persistent-setup) helps reduce the user caching size to further optimize your non-persistent setup.
+Exclude the following from the Teams caching folder, %appdata%\Microsoft\Teams. Excluding [these items](/microsoftteams/teams-for-vdi#teams-cached-content-exclusion-list-for-non-persistent-setup) helps reduce the user caching size to further optimize your non-persistent setup.
 
 - Media-stack folder
 - meeting-addin\Cache (%appdata%\Microsoft\Teams\meeting-addin\Cache)
@@ -148,9 +148,13 @@ Make sure to configure the following antivirus exclusions for FSLogix Profile Co
   - %TEMP%\\*.VHDX
   - %Windir%\TEMP\\*.VHD
   - %Windir%\TEMP\\*.VHDX
-  - \\\storageaccount.file.core.windows.net\share\\*\*.VHD
-  - \\\storageaccount.file.core.windows.net\share\\*\*.VHDX
-
+  - \\\storageaccount.file.core.windows.net\share\\*.VHD
+  - \\\storageaccount.file.core.windows.net\share\\*.VHDX
+  - %ProgramData%\FSLogix\Cache\\*.VHD (addional - only if you use Cloud Cache)
+  - %ProgramData%\FSLogix\Cache\\*.VHDX (addional - only if you use Cloud Cache)
+  - %ProgramData%\FSLogix\Proxy\\*.VHD (addional - only if you use Cloud Cache)
+  - %ProgramData%\FSLogix\Proxy\\*.VHDX (addional - only if you use Cloud Cache)
+  
 - Exclude processes:
 
   - %ProgramFiles%\FSLogix\Apps\frxccd.exe
@@ -179,11 +183,15 @@ Because of the resource utilization, it may be more cost effective to consider a
 
 ## Disaster recovery
 
-Large multi-national Windows Virtual Desktop deployments could require availability of the users profile across different regions. So it's important to have the same profile available in the Azure region of the host pool.
+In an Enterprise architecture, it is common to make user profiles resilient. To configure an FSLogix profile solution to make this as efficient as possible the amount of data being moved around should be reduced to the bare minimum.
 
-- Azure Files offers the replication option of a storage account fail-over against the other region configured in your storage account redundancy plan. This is only supported for the standard storage account type using Geo-Redundent Storage (GRS). Other options to use are AzCopy or any other file copy mechanism such as *RoboCopy*.
+-	The first step to create an efficient FSLogix profile solution is the use of [OneDrive Folder Backup](https://docs.microsoft.com/en-us/onedrive/redirect-known-folders) to put document based profile folders into OneDrive. This means you can take advantage of built-in OneDrive features to protect the users documents.
 
-- Azure NetApp Files offers cross-region replication. With this feature, you are able to replicate your FSLogix file share to another region over the Azure backbone.
+-	In order to reduce the amount of data needing to be independently replicated, archived and restored you should also split out the Office cache data into the Office Container as the cache data often comprises by far the majority of the profile data capacity used. As the Office Container only contains cache data, the source for which is safely stored in the cloud you do not need to make this data resilient. Once the documents and cache are separated from the Profile Container, you should then enact your replication archive and restore policies on this much smaller capacity disk.
+
+-	Azure Files offers the replication option of a storage account fail-over against the other region configured in your storage account redundancy plan. This is only supported for the standard storage account type using Geo-Redundent Storage (GRS). Other options to use are AzCopy or any other file copy mechanism such as *RoboCopy*.
+
+-	Azure NetApp Files offers cross-region replication. With this feature, you are able to replicate your FSLogix file share to another region over the Azure backbone.
 
 ## Backup and restore
 

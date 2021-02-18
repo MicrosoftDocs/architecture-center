@@ -11,7 +11,7 @@ Create seamless conversational interfaces with all of your internet-accessible d
 
 ![Architecture diagram](../media/controlling-iot-devices-using-voice.svg)
 
-## Data Flow
+## Data flow
 
 1. Using voice, the user asks the voice assistant app to turn on the exterior house lights.
 1. Using the Speech SDK, the app connects to Direct Line Speech. If keywords are confirmed by Keyword Verification, the speech is transcribed to text and sent to the Bot Service.
@@ -36,7 +36,7 @@ Create seamless conversational interfaces with all of your internet-accessible d
 1. [Language Understanding Service (LUIS)](/azure/cognitive-services/luis/)
 1. [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/)
 
-## See also
+## Next steps
 
 - To learn how to create a LUIS app and add intents to your app, see these articles:
     * [Create a LUIS app](/azure/cognitive-services/luis/luis-how-to-start-new-app)
