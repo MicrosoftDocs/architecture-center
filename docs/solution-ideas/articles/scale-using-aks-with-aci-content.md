@@ -27,7 +27,7 @@ Use the AKS virtual node to provision pods inside ACI that start in seconds. Thi
 
 ## Next Steps
 
-- To learn about how to run a serverless Kubernetes cluster by bridging AKS and ACI through the Virtual-Kubelet, see [Run a serverless Kubernetes cluster by bridging AKS and ACI through the Virtual-Kubelet](https://azure.microsoft.com/en-us/resources/videos/ignite-2018-run-a-serverless-kubernetes-cluster-by-bridging-aks-and-aci-through-the-virtual-kubelet/).
+- To learn about how to run a Kubernetes cluster by bridging AKS and ACI through the Virtual-Kubelet, see [Run a serverless Kubernetes cluster by bridging AKS and ACI through the Virtual-Kubelet](https://azure.microsoft.com/en-us/resources/videos/ignite-2018-run-a-serverless-kubernetes-cluster-by-bridging-aks-and-aci-through-the-virtual-kubelet/).
 - The see the AKS product roadmap, see [Azure Kubernetes Service Roadmap on GitHub](https://github.com/Azure/AKS/projects/1).
 
 ## Related articles
