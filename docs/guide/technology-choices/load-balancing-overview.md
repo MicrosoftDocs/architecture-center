@@ -3,7 +3,7 @@ title: Overview of Azure load-balancing options
 titleSuffix: Azure Application Architecture Guide
 description: An overview of Azure load-balancing options.
 author: EdPrice-MSFT
-ms.date: 02/12/2021
+ms.date: 02/18/2021
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: guide
