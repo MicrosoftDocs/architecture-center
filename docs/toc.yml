@@ -355,7 +355,7 @@ items:
                     href: framework/resiliency/monitor-checklist.md
                   - name: Application health
                     href: framework/resiliency/monitoring.md
-                  - name: Health modelling
+                  - name: Health modeling
                     href: framework/resiliency/monitor-model.md
                   - name: Best practices
                     href: framework/resiliency/monitor-best-practices.md

@@ -1,6 +1,6 @@
 ---
-title: Health modelling for reliability
-description: How to use application health modelling to improve application reliability in Azure
+title: Health modeling for reliability
+description: How to use application health modeling to improve application reliability in Azure
 author: v-aangie
 ms.date: 02/17/2021
 ms.topic: conceptual
@@ -9,7 +9,7 @@ ms.subservice: well-architected
 ms.custom:
 ---
 
-# Health modelling for reliability
+# Health modeling for reliability
 
 The health model should be able to surface the health of critical system flows or key subsystems to ensure appropriate operational prioritization is applied. For example, the health model should be able to represent the current state of the user login transaction flow.
 
@@ -29,7 +29,7 @@ The health model should not treat all failures the same. For example, the health
 
 A health model qualifies what *healthy* and *unhealthy* states represent for the application. A holistic application health model should be used to quantify what healthy and unhealthy states represent across all application components. It's highly recommended that a "traffic light" model be used to indicate a green/healthy state when key non-functional requirements and targets are fully satisfied and resources are optimally utilized. For example, 95 percent of requests are processed in <= 500ms with AKS node utilization at x% etc. Once established, this health model should inform critical monitoring metrics across system components and operational sub-system composition.
 
-The overall health state can be impacted by both application level issues and resource level failures. [Telemetry correlation](https://docs.microsoft.com/azure/azure-monitor/app/correlation) should be used to ensure transactions can be mapped through the end-to-end application and critical system flows, as this is vital to root cause analysis for failures. Platform level metrics and logs such as CPU percentage, network in/out, and disk operations/sec should be collected from the application to inform a health model and detect/predict issues. This can also help to distinguish between transient and non-transient faults. 
+The overall health state can be impacted by both application level issues and resource level failures. [Telemetry correlation](https://docs.microsoft.com/azure/azure-monitor/app/correlation) should be used to ensure transactions can be mapped through the end-to-end application and critical system flows, as this is vital to root cause analysis for failures. Platform level metrics and logs such as CPU percentage, network in/out, and disk operations/sec should be collected from the application to inform a health model and detect/predict issues. This can also help to distinguish between transient and non-transient faults.
 
 ## Quantify application states
 

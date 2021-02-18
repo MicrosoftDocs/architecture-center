@@ -25,9 +25,9 @@ Building resiliency (recovering from failures) and availability (running in a he
 
 ## Availability targets
 
-A Service Level Agreement (SLA), is an availability target that represents a commitment around performance and availability of the application. Understanding the SLA of individual components within the system is essential in order to define reliability targets. Knowing the SLA of dependencies will also provide a justifications for additional spend when making the dependencies highly available and with proper support contracts. Availability targets for any dependencies leveraged by the application should be understood and ideally align with application targets should also be considered.
+A Service Level Agreement (SLA), is an availability target that represents a commitment around performance and availability of the application. Understanding the SLA of individual components within the system is essential in order to define reliability targets. Knowing the SLA of dependencies will also provide a justification for additional spend when making the dependencies highly available and with proper support contracts. Availability targets for any dependencies leveraged by the application should be understood and ideally align with application targets should also be considered.
 
-Understanding your availability expectations is vital to reviewing overall operations for the application. For example, if you are striving to achieve an application Service Level Objective (SLO) of 99.999%, the level of inherent operational actionality required by the application is going to be far greater than if an SLO of 99.9% was the goal.
+Understanding your availability expectations is vital to reviewing overall operations for the application. For example, if you are striving to achieve an application Service Level Objective (SLO) of 99.999%, the level of inherent operational action required by the application is going to be far greater than if an SLO of 99.9% was the goal.
 
 Monitoring and measuring application availability is vital to qualifying overall application health and progress towards defined targets. Make sure you measure and monitor key targets such as:
 
@@ -76,7 +76,7 @@ To learn more, see [Azure Service Bus Premium SKU](https://docs.microsoft.com/az
 
 An application platform should be deployed across multiple regions if the requirements dictate. Covering the requirements using zones is cheaper and less complex. Regional isolation should be an extra measure if the SLAs given by the single region cross-zone setup are insufficient or if required by a geographical spread of users.
 
-The ability to respond to disaster scenarios for overall compute platform availability and application resiliency is dependant on the use of multiple regions or other deployment locations.
+The ability to respond to disaster scenarios for overall compute platform availability and application resiliency depends on the use of multiple regions or other deployment locations.
 
 Use paired regions that exist within the same geography and provide native replication features for recovery purposes, such as Geo-Redundant Storage (GRS) asynchronous replication. In the event of planned maintenance, updates to a region will be performed sequentially only. To learn more, see [Business continuity with Azure Paired Regions](https://docs.microsoft.com/azure/best-practices-availability-paired-regions).
 
@@ -134,7 +134,7 @@ Consider these guidelines to ensure connection availability and improve reliabil
 
 ### Connectivity
 
-- **Use a global load balancer used to distribute traffic and/or failover across regions.** Azure Front Door, Azure Traffic Manager, or third-party CDN services can be used to direct inbound requests to external-facing application endpoints deployed across multiple regions. It is important to note that Traffic Manager is a DNS based load balancer, so failover must wait for DNS propagation to occur. A sufficiently low TTL (Time To Live) value should be used for DNS records, though not all ISPs may honor this. For application scenarios requiring transparent failover, Azure Front Door should be used. To learn more, see [Disaster Recovery using Azure Traffic Manager](https://docs.microsoft.com/azure/networking/disaster-recovery-dns-traffic-manager) and [Azure Front Door routing architecture](https://docs.microsoft.com/azure/frontdoor/front-door-routing-architecture).
+- **Use a global load balancer used to distribute traffic and/or failover across regions.** Azure Front Door, Azure Traffic Manager, or third-party CDN services can be used to direct inbound requests to external-facing application endpoints deployed across multiple regions. It is important to note that Traffic Manager is a DNS-based load balancer, so failover must wait for DNS propagation to occur. A sufficiently low TTL (Time To Live) value should be used for DNS records, though not all ISPs may honor this. For application scenarios requiring transparent failover, Azure Front Door should be used. To learn more, see [Disaster Recovery using Azure Traffic Manager](https://docs.microsoft.com/azure/networking/disaster-recovery-dns-traffic-manager) and [Azure Front Door routing architecture](https://docs.microsoft.com/azure/frontdoor/front-door-routing-architecture).
 
 - **For cross-premises connectivity (ExpressRoute or VPN) ensure there redundant connections from different locations.** At least two redundant connections should be established across two or more Azure regions and peering locations to ensure there are no single points of failure. An active/active load-shared configuration provides path diversity and promotes availability of network connection paths. To learn more, see [Cross-network connectivity](https://docs.microsoft.com/azure/expressroute/cross-network-connectivity).
 

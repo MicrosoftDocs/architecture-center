@@ -13,7 +13,7 @@ ms.custom:
 
 # Design reliable Azure applications
 
-Building a reliable application in the cloud is different from traditional application development. While historically you may have purchased levels of redundant higher-end hardware to minimize the chance of an entire application platform failing, in the cloud, we acknowledge up front that failures will happen. Instead of trying to prevent failures altogether, the goal is to minimize the effects of a single failing component. Failures you can expect here are inherent to highly distributed systems, not a feature of Azure. 
+Building a reliable application in the cloud is different from traditional application development. While historically you may have purchased levels of redundant higher-end hardware to minimize the chance of an entire application platform failing, in the cloud, we acknowledge up front that failures will happen. Instead of trying to prevent failures altogether, the goal is to minimize the effects of a single failing component. Failures you can expect here are inherent to highly distributed systems, not a feature of Azure.
 
 ## Key Points
 
@@ -25,7 +25,7 @@ Building a reliable application in the cloud is different from traditional appli
 
 ## Use Availability Zones within a region
 
-If your requirements demand an even greater failure isolation than Availability Zones alone can offer, consider deploying to multiple regions. Multiple regions should be used for failover purposes in a disaster state. Additional cost needs to be taken into consideration. Examples of cost needs are data and networking, and services such as Azure Site Recovery (ASR).
+If your requirements demand an even greater failure isolation than Availability Zones alone can offer, consider deploying to multiple regions. Multiple regions should be used for failover purposes in a disaster state. Additional cost needs to be taken into consideration. Examples of cost needs are data and networking, and services such as Azure Site Recovery.
 
 Design your application architecture to use *Availability Zones* within a region. Availability Zones can be used to optimize application availability within a region by providing datacenter level fault tolerance. However, the application architecture must not share dependencies between zones to use them effectively.
 
@@ -53,9 +53,9 @@ To drive cost down consider splitting application components and data into group
 **Is the application designed to use managed services?**
 ***
 
-Azure managed services provide native resiliency capabilities to support overall application reliability. Platform as a service (PaaS) offerings should be used to leverage these capabilities. PaaS options are easier to configure and administer. You don't need to provision VMs, set up VNets, manage patches and updates, and all of the other overhead associated with running software on a VM. To learn more, see [Use managed services](https://docs.microsoft.com/azure/architecture/guide/design-principles/managed-services).
+Azure-managed services provide native resiliency capabilities to support overall application reliability. Platform as a service (PaaS) offerings should be used to leverage these capabilities. PaaS options are easier to configure and administer. You don't need to provision VMs, set up VNets, manage patches and updates, and all of the other overhead associated with running software on a VM. To learn more, see [Use managed services](https://docs.microsoft.com/azure/architecture/guide/design-principles/managed-services).
 
-**Has the application been designed to scale-out?**
+**Has the application been designed to scale out?**
 ***
 
 Azure provides elastic scalability and you should design to scale out. However, applications must leverage a scale-unit approach to navigate service and subscription limits to ensure that individual components and the application as a whole can scale horizontally. Don't forget about scale in, which is important to drive cost down. For example, scale in and out for App Service is done via rules. Often customers write scale out rules and never write scale in rules. This leaves the App Service more expensive.

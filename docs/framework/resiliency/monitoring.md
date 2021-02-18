@@ -117,7 +117,7 @@ Analyze data consolidated in these data stores to troubleshoot issues and gain a
 ## Next step
 
 >[!div class="nextstepaction"]
->[Health modelling](/azure/architecture/framework/resiliency/monitor-model)
+>[Health modeling](/azure/architecture/framework/resiliency/monitor-model)
 
 ## Related links
 
