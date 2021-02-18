@@ -267,8 +267,9 @@ Some considerations for this topology include:
 - Usually, Azure Firewall, Application Gateway, and API Management gateway components all go to the hub virtual network.
 - Having the Azure Application Gateway in a spoke would be difficult in some designs, because you can't have a default route like `0.0.0.0/0` in the Application Gateway subnet with a next hop to anything other than the internet.
 - You can still define backend servers in the Application Gateway, even if they're in a peered virtual network.
-- Pay special attention to UDRs in the spoke networks. When the application server receives traffic from a specific Azure Firewall instance, like the `.7` address in the previous examples, it should send return traffic back to the same instance. If a UDR in the spoke sends traffic addressed to the hub to the Azure Firewall IP address, like the `.4` address in the previous examples, return packets might end up on a different Azure Firewall instance, causing asymmetric routing.
-- A route table isn't always needed, but you need to verify that the next hop for the Azure Application Gateway subnet and the Azure Firewall subnet is the virtual network.
+- Pay special attention to UDRs in the spoke networks: When an application server in a spoke receives traffic from a specific Azure Firewall instance, like the `192.168.100.7` address in the previous examples, it should send return traffic back to the same instance. If a UDR in the spoke sets the next hop of traffic addressed to the hub to the Azure Firewall IP address (`192.168.100.4` in the diagrams above), return packets might end up on a different Azure Firewall instance, causing asymmetric routing. Make sure that if you have UDRs in the spoke VNets to send traffic to shared services in the hub through the Azure Firewall, these UDRs do not include the prefix of the Azure Firewall subnet.
+- The previous recommendation applies equally to the Application Gateway subnet and any other Network Virtual Appliances or reverse proxies that might be deployed in the hub VNet.
+- Note that you cannot set the next hop for the Application Gateway or Azure Firewall subnets by means of static routes with a next hop type of `Virtual Network`, since this next hop type is only valid in the local VNet, and not across VNet peerings. See more information about User Defined Routes and next hop types in [Virtual network traffic routing][udr].
 
 ## Integration with other Azure products
 
@@ -328,6 +329,7 @@ Microsoft products aren't the only choice to implement web application firewall 
 [azure-virtual-network]: https://azure.microsoft.com/services/virtual-network/
 [web-application-firewall]: https://azure.microsoft.com/services/web-application-firewall/
 [nat]: /azure/virtual-network/nat-overview
+[udr]: /azure/virtual-network/virtual-networks-udr-overview
 [expressroute]: https://azure.microsoft.com/services/expressroute/
 [apim]: https://azure.microsoft.com/services/api-management/
 [app-gws]: https://microservices.io/patterns/apigateway.html
