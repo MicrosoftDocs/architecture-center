@@ -297,6 +297,8 @@ Databases are critical workloads that require a low recovery point objective
 
 - For SAP on Oracle/Windows, see the "Backup/restore" section in [Azure VM DBMS Deployment for SAP](/azure/virtual-machines/workloads/sap/dbms_guide_oracle).
 
+- For other databases, please see the backup recommendations for your database provider. If the database supports the Windows Volume Shadow Copy Service (VSS) then application-consistent backups using VSS snapshots
+
 ### Identity management
 
 Use a centralized identity management system to control access to resources at
