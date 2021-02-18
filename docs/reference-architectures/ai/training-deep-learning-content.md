@@ -130,7 +130,10 @@ The output from this architecture is a trained model that is saved to a Blob sto
 
 - [Real-time scoring of Python scikit-learn and deep learning models on Azure][real-time-scoring]
 - [Batch scoring on Azure for deep learning models][batch-scoring]
-- [Azure Machine Learning Cheat Sheet - Distributed GPU Training][distr-training]
+
+You may also find the following resources useful:
+- [Azure Machine Learning Cheat Sheet - distributed GPU training][distr-training]
+- [Azure Machine Learning - distributed training examples][distr-training-examples]
 
 <!-- links -->
 
@@ -169,3 +172,4 @@ The output from this architecture is a trained model that is saved to a Blob sto
 [aml-arm]: https://github.com/Azure/azure-quickstart-templates/blob/master/201-machine-learning-advanced/azuredeploy.json
 [data-encryption]: /azure/machine-learning/concept-data-encryption
 [distr-training]: https://azure.github.io/azureml-examples/docs/cheatsheet/distributed-training/
+[distr-training-examples]: https://github.com/Azure/azureml-examples
