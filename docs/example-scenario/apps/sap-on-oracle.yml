@@ -1,15 +1,15 @@
 ### YamlMime:Architecture
 metadata:
   title: SAP System on Oracle Database on Azure
-  description: This article describe SAP on Oracle Database on Azure deployment pattern.
+  description: This article describe SAP on Oracle Database on Azure deployment patterns.
   author: shekhag
   ms.date: 17/02/2021
-  ms.category:
-    - databases
-    - compute
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: example-scenario
+  ms.category:
+    - databases
+    - compute
   ms.custom:
     - fasttrack
     - SAP
@@ -23,7 +23,7 @@ name: SAP System on Oracle Database on Azure
 azureCategories:
   - databases
   - compute
-summary: This article describe SAP on Oracle Database on Azure deployment pattern.
+summary: This article describe SAP on Oracle Database on Azure deployment patterns.
 products:
   - azure-expressroute
   - azure-virtual-machines
