@@ -78,11 +78,13 @@ The SAP SMLG transaction is commonly used to manage logon groups for ABAP applic
 
 This reference architecture runs Central Services on VMs in the application tier. Central Services is a potential single point of failure (SPOF) when deployed to a single VM. To implement a highly available solution, use either a file-share cluster or a shared-disk cluster.
 
-For file-share clusters, implement the high availability file share on the Central Service instances by using WSFC with [Scale Out File Server](https://techcommunity.microsoft.com/t5/Running-SAP-Applications-on-the/File-Server-with-SOFS-and-S2D-as-an-Alternative-to-Cluster/ba-p/368111) (SOFS) and the [Storage Spaces Direct](https://blogs.sap.com/2018/03/07/your-sap-on-azure-part-5-ascs-high-availability-with-storage-spaces-direct) (S2D) feature in Windows Server 2016 and later. This solution also supports [Windows clusters](/azure/virtual-machines/workloads/sap/sap-high-availability-guide-wsfc-file-share) using a file share served up by SOFS as the Cluster Shared Volume (CSV). 
+For file-share clusters, there are several different options. The recommendation is to utilise [Azure Files](/azure/storage/files/storage-files-introduction) as fully-managed, cloud native SMB or NFS shares. An alternative to Azure Files is [Azure NetApp Files](/azure/azure-netapp-files/azure-netapp-files-introduction), which offers high-performance, enterprise-class NFS and SMB shares.
 
-Alternatively, it's recommended to use [Azure Shared Disk](/azure/virtual-machines/disks-shared#linux) to set up a [Windows Server Failover Cluster for SAP Central Services Cluster](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/sap-high-availability-infrastructure-wsfc-shared-disk).
+It is also possible to implement the high availability file share on the Central Service instances by using WSFC with [Scale Out File Server](https://techcommunity.microsoft.com/t5/Running-SAP-Applications-on-the/File-Server-with-SOFS-and-S2D-as-an-Alternative-to-Cluster/ba-p/368111) (SOFS) and the [Storage Spaces Direct](https://blogs.sap.com/2018/03/07/your-sap-on-azure-part-5-ascs-high-availability-with-storage-spaces-direct) (S2D) feature in Windows Server 2016 and later. This solution also supports [Windows clusters](/azure/virtual-machines/workloads/sap/sap-high-availability-guide-wsfc-file-share) using a file share served up by SOFS as the Cluster Shared Volume (CSV).
 
-To deploy a Windows cluster with the traditional shared-disk, use [SIOS DataKeeper Cluster Edition](https://azuremarketplace.microsoft.com/marketplace/apps/sios_datakeeper.sios-datakeeper-8) from SIOS Technology Corp., which replicates contents from independent disks attached to the ASCS cluster nodes, and then presents the disks as a CSV to the cluster software.
+If you prefer to utilise shared disks, it's recommended to use [Azure Shared Disk](/azure/virtual-machines/disks-shared#linux) to set up a [Windows Server Failover Cluster for SAP Central Services Cluster](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/sap-high-availability-infrastructure-wsfc-shared-disk).
+
+There are also third-party offerings such as [SIOS DataKeeper Cluster Edition](https://azuremarketplace.microsoft.com/marketplace/apps/sios_datakeeper.sios-datakeeper-8) from SIOS Technology Corp., which replicates contents from independent disks attached to the ASCS cluster nodes, and then presents the disks as a CSV to the cluster software.
 
 To lower infrastructure costs, Microsoft supports multiple ASCS instances with different [system IDs](/azure/virtual-machines/workloads/sap/sap-high-availability-multi-sid) (SID) deployed on one Windows cluster over multiple file shares served up by the same [SOFS cluster](https://techcommunity.microsoft.com/t5/Running-SAP-Applications-on-the/File-Server-with-SOFS-and-S2D-as-an-Alternative-to-Cluster/ba-p/368111).
 
@@ -153,6 +155,8 @@ For the backup data store, we recommend using Azure [cool and archive access tie
 
 [Ultra disks](/azure/virtual-machines/linux/disks-enable-ultra-ssd)
 greatly reduce disk latency and benefit performance-critical applications, such as the SAP database servers. Compare [block storage](/azure/virtual-machines/windows/disks-types) options in Azure.
+
+For a highly-available, high performance shared data store, utilise [Azure NetApp Files](/azure/azure-netapp-files/azure-netapp-files-introduction). This is particularly relevant for the database tier when using [Oracle](/azure/azure-netapp-files/performance-oracle-single-volumes), and also for [hosting application data](/azure/virtual-machines/workloads/sap/high-availability-guide-windows-netapp-files-smb).
 
 ## Performance considerations
 
