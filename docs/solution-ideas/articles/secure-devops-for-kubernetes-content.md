@@ -22,5 +22,22 @@ DevOps and Kubernetes are better together. Implementing secure DevOps together w
 1. App telemetry, container health monitoring, and real-time log analytics are obtained using Azure Monitor.
 1. Insights used to address issues and fed into next sprint plans.
 
+## Components
 
-[Build and deploy to Azure Kubernetes Service](/azure/devops/pipelines/ecosystems/kubernetes/aks-template?view=azure-devops)
+* Source code is hosted on [GitHub Enterprise](https://help.github.com/en/github), where developers can collaborate within your organization and the open-source communities. GitHub Enterprise offers advanced security features to identify vulnerabilities in the code you write and in open-source dependencies
+* [Azure Pipelines](/azure/devops/pipelines/get-started/pipelines-get-started?view=azure-devops) is a service that provides Continuous Integration and Continuous Delivery jobs, to build and release your application automatically.
+* Host your Docker container images on [Azure Container Registry](/azure/container-registry/container-registry-concepts). This service includes container image scanning with the integration with Azure Security Center.
+* [Azure Kubernetes Service](/azure/aks/intro-kubernetes) offers a Kubernetes cluster that is fully managed by Azure, to ensure availability and security of your infrastructure.
+* [Azure Policy](/azure/governance/policy/overview) lets you create, assign, and manage policies. These policies enforce different rules and effects over your resources, so those resources stay compliant with your corporate standards and service level agreements. It integrates with Azure Kubernetes Service too.
+* Using [Azure Monitor](/azure/azure-monitor/overview) lets you get insights on the availability and performance of your application and infrastructure. It also gives you access to signals to monitor your solution's health and spot abnormal activity early.
+
+## Next Steps
+
+- To learn about hosting Microservices on AKS, see [Microservices architecture on Azure Kubernetes Service (AKS)](https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/containers/aks-microservices/aks-microservices).
+- The see the AKS product roadmap, see [Azure Kubernetes Service Roadmap on GitHub](https://github.com/Azure/AKS/projects/1).
+
+## Related articles
+
+- If you need a refresher in Kubernetes, complete the [Azure Kubernetes Service Workshop](https://docs.microsoft.com/en-us/learn/modules/aks-workshop/) to deploy a multi-container application to Kubernetes on Azure Kubernetes Service (AKS).
+
+- [Build and deploy to Azure Kubernetes Service](/azure/devops/pipelines/ecosystems/kubernetes/aks-template?view=azure-devops)
