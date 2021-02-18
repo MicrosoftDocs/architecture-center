@@ -34,7 +34,7 @@ Use AKS to simplify the deployment and management of microservices based archite
 
 ## Next Steps
 
-- To learn about hosting Microservices on AKS, see [Microservices architecture on Azure Kubernetes Service (AKS)](../aks-microservices/aks-microservices.yml).
+- To learn about hosting Microservices on AKS, see [Microservices architecture on Azure Kubernetes Service (AKS)](https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/containers/aks-microservices/aks-microservices).
 - The see the AKS product roadmap, see [Azure Kubernetes Service Roadmap on GitHub](https://github.com/Azure/AKS/projects/1).
 
 ## Related articles
