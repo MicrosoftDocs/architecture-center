@@ -13,6 +13,7 @@ metadata:
     - ai-machine-learning
   ms.custom:
     - acom-architecture
+    - ai-machine-learning
   social_image_url: /azure/architecture/solution-ideas/articles/media/digital-asset-management.png
 name: Digital Asset Management
 azureCategories:
@@ -24,4 +25,4 @@ products:
   - azure-face
 thumbnailUrl: /azure/architecture/browse/thumbs/digital-asset-management.png
 content: |
-   [!include[](digital-asset-management-content.md)]
+  [!include[](digital-asset-management-content.md)]

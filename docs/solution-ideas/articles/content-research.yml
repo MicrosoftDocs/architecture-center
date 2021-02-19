@@ -13,6 +13,7 @@ metadata:
     - ai-machine-learning
   ms.custom:
     - acom-architecture
+    - ai-machine-learning
   social_image_url: /azure/architecture/solution-ideas/articles/media/content-research.png
 name: Content Research
 azureCategories:
@@ -22,4 +23,4 @@ products:
   - azure-cognitive-search
 thumbnailUrl: /azure/architecture/browse/thumbs/content-research.png
 content: |
-   [!include[](content-research-content.md)]
+  [!include[](content-research-content.md)]

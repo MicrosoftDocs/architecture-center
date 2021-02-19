@@ -17,6 +17,7 @@ metadata:
     - luis
     - interactive-diagram
     - 'https://azure.microsoft.com/solutions/architecture/enterprise-productivity-chatbot/'
+    - ai-machine-learning
   social_image_url: /azure/architecture/solution-ideas/articles/media/enterprise-productivity-chatbot.png
 name: Enterprise Productivity Chatbot
 azureCategories:
@@ -30,4 +31,4 @@ products:
   - azure-monitor
 thumbnailUrl: /azure/architecture/browse/thumbs/enterprise-productivity-chatbot.png
 content: |
-   [!include[](enterprise-productivity-chatbot-content.md)]
+  [!include[](enterprise-productivity-chatbot-content.md)]

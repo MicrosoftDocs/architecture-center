@@ -15,6 +15,7 @@ metadata:
     - AI
     - example-scenario
     - internal-intro
+    - ai-machine-learning
   social_image_url: /azure/architecture/example-scenario/ai/media/mass-ingestion-newsfeeds-architecture.png
 name: Mass ingestion and analysis of news feeds on Azure
 azureCategories:
@@ -28,4 +29,4 @@ products:
   - azure-storage
 thumbnailUrl: /azure/architecture/browse/thumbs/mass-ingestion-newsfeeds-architecture.png
 content: |
-   [!include[](newsfeed-ingestion-content.md)]
+  [!include[](newsfeed-ingestion-content.md)]

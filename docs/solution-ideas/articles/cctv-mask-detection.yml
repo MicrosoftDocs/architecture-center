@@ -15,6 +15,7 @@ metadata:
   ms.custom:
     - iot
     - fcp
+    - ai-machine-learning
 name: COVID-19 Safe Solutions with IoT Edge
 azureCategories:
   - iot
@@ -30,4 +31,4 @@ products:
   - azure-stream-analytics
 thumbnailUrl: /azure/architecture/browse/thumbs/bosch-cctv-mask-detection.png
 content: |
-   [!include[](cctv-mask-detection-content.md)]
+  [!include[](cctv-mask-detection-content.md)]
