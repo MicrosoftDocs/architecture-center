@@ -67,31 +67,31 @@ Keep these points in mind when considering this architecture:
 
 To get all the logs and information of the process, set up Azure Log Analytics and the Azure Databricks monitoring library. The monitoring library streams Apache Spark level events and Spark Structured Streaming metrics from your jobs to Azure Monitor. You don't need to make any changes to your application code for these events and metrics.
 
-The procedures to set up performance tuning for a big data system are as follows:
+The steps to set up performance tuning for a big data system are as follows:
 
 1. In the Azure portal, [create an Azure Databricks workspace](/azure/databricks/scenarios/quickstart-create-databricks-workspace-portal). Copy and save the Azure subscription ID (a GUID), resource group name, Databricks workspace name, and workspace portal URL for later use.
-1. In a web browser, go to the Databricks workspace URL and [generate a Databricks personal access token](/azure/databricks/dev-tools/api/latest/authentication#--generate-a-personal-access-token). Copy the token string that appears (which begins with `dapi` and a 32-character hexadecimal value) for later use.
-1. Clone the [mspnp/spark-monitoring](https://github.com/mspnp/spark-monitoring) GitHub repository onto your local computer. This repository has the source code for the following:
-    - The Azure Resource Manager (ARM) template for creating an Azure Log Analytics workspace that contains prebuilt queries for collecting Spark metrics
+1. In a web browser, go to the Databricks workspace URL and [generate a Databricks personal access token](/azure/databricks/dev-tools/api/latest/authentication#--generate-a-personal-access-token). Copy and save the token string that appears (which begins with `dapi` and a 32-character hexadecimal value) for later use.
+1. Clone the [mspnp/spark-monitoring](https://github.com/mspnp/spark-monitoring) GitHub repository onto your local computer. This repository has the source code for the following components:
+    - The Azure Resource Manager (ARM) template for creating an Azure Log Analytics workspace, which also installs prebuilt queries for collecting Spark metrics
     - Azure Databricks monitoring libraries
-    - The sample application for sending application metrics and application logs to Azure Monitor
-1. Using the [Azure CLI](/cli/azure) command for deploying an ARM template, [create an Azure Log Analytics workspace with prebuilt Spark metric queries](https://github.com/mspnp/spark-monitoring/blob/master/perftools/deployment/readme.md#step-1-deploy-log-analytics-with-spark-metrics).
+    - The sample application for sending application metrics and application logs from Azure Databricks to Azure Monitor
+1. Using the [Azure CLI](/cli/azure) command for deploying an ARM template, [create an Azure Log Analytics workspace with prebuilt Spark metric queries](https://github.com/mspnp/spark-monitoring/blob/master/perftools/deployment/readme.md#step-1-deploy-log-analytics-with-spark-metrics). From the command output, copy and save the generated name for the new Log Analytics workspace (in the format *spark-monitoring-\<randomized-string>*).
 1. In the Azure portal, copy and save your Log Analytics [workspace ID and key](/azure/azure-monitor/agents/log-analytics-agent#workspace-id-and-key) for later use.
-1. Install the Community Edition of [IntelliJ IDEA](https://www.jetbrains.com/idea/download/), which has built-in support for the [Java Development Kit (JDK)](https://www.oracle.com/java/technologies/javase-downloads.html) and [Apache Maven](https://maven.apache.org/). Add the [Scala plug-in](https://plugins.jetbrains.com/plugin/1347-scala).
-1. Using IntelliJ IDEA, [build the Azure Databricks monitoring libraries](https://github.com/mspnp/spark-monitoring/blob/master/README.md#option-2-maven).
+1. Install the Community Edition of [IntelliJ IDEA](https://www.jetbrains.com/idea/download/), an integrated development environment (IDE) that has built-in support for the [Java Development Kit](https://www.oracle.com/java/technologies/javase-downloads.html) (JDK) and [Apache Maven](https://maven.apache.org/). Add the [Scala plug-in](https://plugins.jetbrains.com/plugin/1347-scala).
+1. Using IntelliJ IDEA, [build the Azure Databricks monitoring libraries](https://github.com/mspnp/spark-monitoring/blob/master/README.md#option-2-maven). To do the actual build step, select **View** > **Tool Windows** > **Maven** to show the Maven tools window, and then select **Execute Maven Goal** > **mvn package**.
 1. Using a [Python](https://www.python.org/downloads/windows/) package installation tool, install the [Azure Databricks CLI](/azure/databricks/dev-tools/cli/) and set up authentication with the Databricks personal access token you copied earlier.
-1. [Configure the Azure Databricks workspace](https://github.com/mspnp/spark-monitoring/blob/master/README.md#configure-the-databricks-workspace) by modifying the Databricks init script with the Databricks and Log Analytics values you copied earlier, and then using Azure Databricks CLI to copy the init script and the Azure Databricks monitoring libraries to your Databricks workspace.
+1. [Configure the Azure Databricks workspace](https://github.com/mspnp/spark-monitoring/blob/master/README.md#configure-the-databricks-workspace) by modifying the Databricks init script with the Databricks and Log Analytics values you copied earlier, and then using the Azure Databricks CLI to copy the init script and the Azure Databricks monitoring libraries to your Databricks workspace.
 1. In your Databricks workspace portal, [create and configure an Azure Databricks cluster](https://github.com/mspnp/spark-monitoring/blob/master/README.md#create-and-configure-the-azure-databricks-cluster).
-1. [Build and run the sample application](https://github.com/mspnp/spark-monitoring/blob/master/README.md#run-the-sample-job-optional), which generates sample logs and metrics for Azure Monitor.
-1. While the sample job is running in Azure Databricks, view and query the event types (application logs and metrics) in the [Azure Log Analytics interface](/azure/azure-monitor/logs/log-analytics-overview#log-analytics-interface):
-    1. Select **Tables** > **Custom Logs** to view the logs for Spark listener events (**SparkListenerEvent_CL**), Spark logging events (**SparkLoggingEvent_CL**), and Spark metrics (**SparkMetric_CL**).
+1. In IntelliJ IDEA, [build the sample application](https://github.com/mspnp/spark-monitoring/blob/master/README.md#run-the-sample-job-optional) using Maven. Then in your Databricks workspace portal, run the sample application to generate sample logs and metrics for Azure Monitor.
+1. While the sample job is running in Azure Databricks, go to the Azure portal to view and query the event types (application logs and metrics) in the [Log Analytics interface](/azure/azure-monitor/logs/log-analytics-overview#log-analytics-interface):
+    1. Select **Tables** > **Custom Logs** to view the table schema for Spark listener events (**SparkListenerEvent_CL**), Spark logging events (**SparkLoggingEvent_CL**), and Spark metrics (**SparkMetric_CL**).
     1. Select **Query explorer** > **Saved Queries** > **Spark Metrics** to view and run the queries that were added when you created the Log Analytics workspace.
 
-    Read more about viewing and running prebuilt and custom queries in the section below.
+    Read more about viewing and running prebuilt and custom queries in the next section.
 
-### Querying the logs and metrics in Azure Log Analytics
+## Query the logs and metrics in Azure Log Analytics
 
-#### Access prebuilt queries
+### Access prebuilt queries
 
 The prebuilt query names for retrieving Spark metrics are listed below.
 
@@ -143,7 +143,7 @@ The prebuilt query names for retrieving Spark metrics are listed below.
     :::column-end:::
 :::row-end:::
 
-#### Write custom queries
+### Write custom queries
 
 You can also write your own queries in [Kusto Query Language (KQL)](/azure/data-explorer/kql-quick-reference). Just select the top middle pane, which is editable, and customize the query to meet your needs.
 
@@ -179,7 +179,7 @@ SparkMetric_CL
 | summarize max(memUsed_GB) by tostring(name_s), bin(TimeGenerated, 1m)
 ```
 
-#### Query terminology
+### Query terminology
 
 The following table explains some of the terms that are used when you construct a query of application logs and metrics.
 
@@ -194,7 +194,7 @@ The following table explains some of the terms that are used when you construct 
 
 The following sections contain the typical metrics used in this scenario for monitoring system throughput, Spark job running status, and system resources usage.
 
-##### System throughput
+#### System throughput
 
 | Name | Measurement | Units |
 |------|-------------|-------|
@@ -206,7 +206,7 @@ The following sections contain the typical metrics used in this scenario for mon
 | Task duration | Average finished tasks duration per minute | Duration(s) per minute |
 | Task count | Average number of finished tasks per minute | Number of tasks per minute |
 
-##### Spark job running status
+#### Spark job running status
 
 | Name | Measurement | Units |
 |------|-------------|-------|
@@ -214,7 +214,7 @@ The following sections contain the typical metrics used in this scenario for mon
 | Number of running executors | Number of running executors per minute | Number of running executors |
 | Error trace | All error logs with `Error` level and the corresponding tasks/stage ID (shown in `thread_name_s`) |  |
 
-##### System resources usage
+#### System resources usage
 
 | Name | Measurement | Units |
 |------|-------------|-------|
