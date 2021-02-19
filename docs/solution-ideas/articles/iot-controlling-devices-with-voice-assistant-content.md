@@ -1,4 +1,3 @@
-
 <!-- cSpell:ignore khilscher -->
 
 
@@ -48,5 +47,5 @@ Create seamless conversational interfaces with all of your internet-accessible d
    * Sending [cloud-to-device commands](/azure/iot-hub/iot-hub-csharp-csharp-c2d)
    * Using [device twins](/azure/iot-hub/iot-hub-csharp-csharp-twin-getstarted)
    * Using [direct methods](/azure/iot-hub/iot-hub-devguide-direct-methods) 
-- Learn how to [build an enterprise-grade conversational bot](/azure/architecture/reference-architectures/ai/conversational-bot) by using the [Azure Bot Service](/azure/bot-service/?view=azure-bot-service-4.0).
+- Learn how to [build an enterprise-grade conversational bot](../../reference-architectures/ai/conversational-bot.yml) by using the [Azure Bot Service](/azure/bot-service/?view=azure-bot-service-4.0).
 - To learn more about developing solutions by using IoT Hub, see the [Azure Iot Hub developer guide](/azure/iot-hub/iot-hub-devguide).

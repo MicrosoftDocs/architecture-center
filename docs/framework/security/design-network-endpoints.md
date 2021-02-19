@@ -51,7 +51,7 @@ For example, your workload is hosted in Application Service Environments(ILB ASE
 
 > [!TIP]
 >
-> The design considerations for the preceding example are described in [Publishing internal APIs to external users](/azure/architecture/example-scenario/apps/publish-internal-apis-externally).
+> The design considerations for the preceding example are described in [Publishing internal APIs to external users](../../example-scenario/apps/publish-internal-apis-externally.yml).
   
 Azure Front Door and Azure Content Delivery Network (CDN) also have WAF capabilities. 
 
@@ -66,7 +66,7 @@ A common design is to implement a DMZ or a perimeter network in front of the app
 >
 > ![GitHub logo](../../_images/github.svg) [GitHub: DMZ between Azure and your on-premises datacenter](https://github.com/mspnp/reference-architectures/tree/master/dmz/secure-vnet-hybrid).
 >
-> The design considerations are described in [Deploy highly available NVAs](/azure/architecture/reference-architectures/dmz/nva-ha).
+> The design considerations are described in [Deploy highly available NVAs](../../reference-architectures/dmz/nva-ha.yml).
 
 ### Combination approach
 
@@ -76,7 +76,7 @@ For example, you want to filter egress traffic. You want to allow connectivity t
 
 Another popular design is when you want Azure Firewall to inspect all traffic and WAF to protect web traffic, and the application needs to know the client's source IP address. In this case, place Application Gateway in front of Firewall. Conversely, you can place Firewall in front of WAF if you want to inspect and filter traffic before it reaches the Application Gateway.
 
-For more information, see [Firewall and Application Gateway for virtual networks](/azure/architecture/example-scenario/gateway/firewall-application-gateway).
+For more information, see [Firewall and Application Gateway for virtual networks](../../example-scenario/gateway/firewall-application-gateway.yml).
 
 It’s challenging to write concise firewall rules for networks where different cloud resources dynamically spin up and down. Use [Azure Security Center](/azure/security-center/) to detect misconfiguration risks.
 
