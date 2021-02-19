@@ -13,6 +13,7 @@ metadata:
     - management-and-governance
   ms.custom:
     - reference-architecture
+    - internal-intro
 name: Highly available multi-region web application
 azureCategories:
   - web

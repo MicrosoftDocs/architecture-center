@@ -18,6 +18,7 @@ metadata:
     - reference-architecture
     - 2021-deployment
     - e2e-hybrid
+    - internal-intro
 name: Hub-spoke network topology in Azure
 azureCategories:
   - networking

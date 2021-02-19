@@ -13,6 +13,7 @@ metadata:
     - ai-machine-learning
   ms.custom:
     - fcp
+    - internal-intro
 name: AI enrichment with Azure Cognitive Search
 azureCategories:
   - ai-machine-learning

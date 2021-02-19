@@ -13,6 +13,7 @@ metadata:
   ms.custom:
     - fcp
     - example-scenario
+    - internal-intro
 name: Windows Virtual Desktop for the enterprise
 azureCategories:
   - windows-virtual-desktop
