@@ -2,19 +2,28 @@
 metadata:
   title: AI for Earth
   titleSuffix: Azure Example Scenarios
+  description: Learn how to use the AI for Earth APIs to help build solutions for environmental problems and see other AI for Earth projects and initiatives.
   author: jocontr
+  ms.author: pnp
   ms.date: 06/23/2020
-  description: Learn how to use the AI for Earth APIs to help build solutions for environmental problems. See other AI for Earth projects and initiatives.
-  ms.custom: 'fcp, aischool'
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: solution-idea
   ms.category:
     - ai-machine-learning
+  ms.custom:
+    - fcp
+    - aischool
 name: AI for Earth
 azureCategories:
   - ai-machine-learning
-summary: Learn how to use the AI for Earth APIs to help build solutions for environmental problems. See other AI for Earth projects and initiatives.
+summary: Learn how to use the AI for Earth APIs to help build solutions for environmental problems and see other AI for Earth projects and initiatives.
 products:
-  - azure
+  - azure-backup
+  - azure-blob-storage
+  - azure-container-registry
   - azure-notebooks
+  - azure-open-datasets
 thumbnailUrl: /azure/architecture/browse/thumbs/wildbook-network-diagram.png
 content: |
    [!include[](ai-for-earth-content.md)]

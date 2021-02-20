@@ -2,25 +2,38 @@
 metadata:
   title: Hybrid Connection
   titleSuffix: Azure Solution Ideas
+  description: Use a hybrid connection for Azure Stack Hub solutions with apps that communicate with the Azure public cloud and on-premises Azure Stack Hub components.
   author: doodlemania2
+  ms.author: pnp
   ms.date: 09/01/2020
-  description: 'Azure''s Hybrid Connection is a foundational blueprint that is applicable to most Azure Stack Hub solutions, allowing you to establish connectivity for any application that involves communications between the Azure public cloud and on-premises Azure Stack Hub components.'
-  ms.custom: 'acom-architecture, Hybrid Connection, Azure Hybrid Connection, Hybrid Network, Azure Hybrid Network, hybrid-infrastructure, interactive-diagram, networking, ''https://azure.microsoft.com/solutions/architecture/hybrid-connectivity/'''
+  ms.topic: conceptual
   ms.service: architecture-center
+  ms.subservice: solution-idea
   ms.category:
     - hybrid
     - networking
-  ms.subservice: solution-idea
+  ms.custom:
+    - acom-architecture
+    - Hybrid Connection
+    - Azure Hybrid Connection
+    - Hybrid Network
+    - Azure Hybrid Network
+    - hybrid-infrastructure
+    - interactive-diagram
+    - networking
+    - e2e-hybrid
+    - 'https://azure.microsoft.com/solutions/architecture/hybrid-connectivity/'
   social_image_url: /azure/architecture/solution-ideas/articles/media/hybrid-connectivity.png
 name: Hybrid Connection
 azureCategories:
   - hybrid
   - networking
-summary: 'Azure''s Hybrid Connection is a foundational blueprint that is applicable to most Azure Stack Hub solutions, allowing you to establish connectivity for any application that involves communications between the Azure public cloud and on-premises Azure Stack Hub components.'
+summary: Use a hybrid connection for Azure Stack Hub solutions with apps that communicate with the Azure public cloud and on-premises Azure Stack Hub components.
 products:
-  - azure
-  - azure-stack
-  - windows
+  - azure-stack-hub
+  - azure-virtual-machines
+  - azure-virtual-network
+  - azure-vpn-gateway
 thumbnailUrl: /azure/architecture/browse/thumbs/hybrid-connectivity.png
 content: |
    [!include[](hybrid-connectivity-content.md)]

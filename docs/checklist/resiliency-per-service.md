@@ -7,6 +7,8 @@ ms.date: 11/26/2018
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
+products:
+  - azure-app-service
 ms.custom:
   - resiliency
   - checklist
@@ -16,7 +18,7 @@ ms.custom:
 
 # Resiliency checklist for specific Azure services
 
-Resiliency is the ability of a system to recover from failures and continue to function. Every technology has its own particular failure modes, which you must consider when designing and implementing your application. Use this checklist to review the resiliency considerations for specific Azure services. For more information about designing resilient applications, see [Design reliable Azure applications](../framework/resiliency/app-design.md).
+Resiliency is the ability of a system to recover from failures and continue to function. Every technology has its own particular failure modes, which you must consider when designing and implementing your application. Use this checklist to review the resiliency considerations for specific Azure services. For more information about designing resilient applications, see [Design reliable Azure applications](https://docs.microsoft.com/azure/architecture/framework/resiliency/app-design).
 
 ## App Service
 

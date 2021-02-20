@@ -1,6 +1,6 @@
 ---
 title: Designing resilient Azure applications
-description: 
+description: Design considerations for making sure applications are resilient to failure
 author: david-stanford
 ms.date: 10/16/2019
 ms.topic: conceptual
@@ -28,7 +28,7 @@ Choose the right subscription and service features for your app by working throu
 
 This section describes some common resiliency strategies. Most of these strategies are not limited to a particular technology. The descriptions summarize the general idea behind each technique and include links to further reading.
 
-- **Implement resiliency patterns** for remote operations, where appropriate. If your application depends on communication between remote services, follow [design patterns](../../patterns/category/resiliency.md) for dealing with transient failures.
+- **Implement resiliency patterns** for remote operations, where appropriate. If your application depends on communication between remote services, follow [design patterns](../../framework/resiliency/reliability-patterns.md) for dealing with transient failures.
 
 - **Retry transient failures.** These can be caused by momentary loss of network connectivity, a dropped database connection, or a timeout when a service is busy. Often, a transient failure can be resolved by retrying the request.
 

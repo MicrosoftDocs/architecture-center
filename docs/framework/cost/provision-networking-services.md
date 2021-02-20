@@ -6,6 +6,9 @@ ms.date: 05/14/2020
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
+products:
+  - azure-application-gateway
+  - azure-load-balancer
 ms.custom:
   - article
 ---

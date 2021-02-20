@@ -4,13 +4,14 @@ metadata:
   titleSuffix: Azure Reference Architectures
   description: This reference architecture shows how to apply neural style transfer to a video, using Azure Machine Learning.
   author: jiata
+  ms.author: pnp
   ms.date: 02/06/2019
   ms.topic: conceptual
   ms.service: architecture-center
+  ms.subservice: reference-architecture
   ms.category:
     - ai-machine-learning
     - media
-  ms.subservice: reference-architecture
   ms.custom:
     - azcat-ai
     - reference-architecture

@@ -6,7 +6,8 @@ ms.date: 12/01/2020
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
-ms.custom: references_regions
+ms.custom:
+  - references_regions
 ---
 
 # Design for scaling

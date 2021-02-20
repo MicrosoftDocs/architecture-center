@@ -35,7 +35,7 @@ ms.custom:
 
 - Services should have loose coupling and high functional cohesion. Functions that are likely to change together should be packaged and deployed together. If they reside in separate services, those services end up being tightly coupled, because a change in one service will require updating the other service. Overly chatty communication between two services may be a symptom of tight coupling and low cohesion.
 
-- Isolate failures. Use resiliency strategies to prevent failures within a service from cascading. See [Resiliency patterns][resiliency-patterns] and [Designing reliable applications][resiliency-overview].
+- Isolate failures. Use resiliency strategies to prevent failures within a service from cascading. See [Resiliency patterns](/azure/architecture/framework/resiliency/reliability-patterns) and [Designing reliable applications](/azure/architecture/framework/resiliency/overview).
 
 ## Next steps
 
@@ -44,4 +44,4 @@ For detailed guidance about building a microservices architecture on Azure, see 
 <!-- links -->
 
 [resiliency-overview]: ../../framework/resiliency/overview.md
-[resiliency-patterns]: ../../patterns/category/resiliency.md
+[resiliency-patterns]: ../../framework/resiliency/reliability-patterns.md
