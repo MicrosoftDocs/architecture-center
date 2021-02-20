@@ -7,6 +7,8 @@ ms.date: 11/26/2019
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: design-pattern
+products:
+  - azure-front-door
 ms.custom:
   - fasttrack-new
   - fcp

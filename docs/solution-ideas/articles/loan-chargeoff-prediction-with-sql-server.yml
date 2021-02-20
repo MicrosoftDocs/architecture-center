@@ -2,24 +2,33 @@
 metadata:
   title: Loan ChargeOff Prediction with SQL Server
   titleSuffix: Azure Solution Ideas
+  description: Build and deploy a machine learning model with SQL Server 2016 with R Services to predict whether a bank loan will soon need to be charged off.
   author: doodlemania2
+  ms.author: pnp
   ms.date: 12/16/2019
-  description: This solution demonstrates how to build and deploy a machine learning model with SQL Server 2016 with R Services to predict if a Bank loan will need to be charged off within next 3 months
-  ms.custom: 'acom-architecture, finance, artificial intelligence, solution architectures, Azure, ai gallery, ''https://azure.microsoft.com/solutions/architecture/loan-chargeoff-prediction-with-sql-server/'''
+  ms.topic: conceptual
   ms.service: architecture-center
+  ms.subservice: solution-idea
   ms.category:
     - databases
     - ai-machine-learning
-  ms.subservice: solution-idea
+  ms.custom:
+    - acom-architecture
+    - finance
+    - artificial intelligence
+    - solution architectures
+    - Azure
+    - ai gallery
+    - 'https://azure.microsoft.com/solutions/architecture/loan-chargeoff-prediction-with-sql-server/'
   social_image_url: /azure/architecture/solution-ideas/articles/media/loan-chargeoff-prediction-with-sql-server.png
 name: Loan ChargeOff Prediction with SQL Server
 azureCategories:
   - databases
   - ai-machine-learning
-summary: This solution demonstrates how to build and deploy a machine learning model with SQL Server 2016 with R Services to predict if a Bank loan will need to be charged off within next 3 months
+summary: Build and deploy a machine learning model with SQL Server 2016 with R Services to predict whether a bank loan will soon need to be charged off.
 products:
-  - azure
-  - office
+  - azure-data-science-vm
+  - power-bi
   - sql-server
 thumbnailUrl: /azure/architecture/browse/thumbs/loan-chargeoff-prediction-with-sql-server.png
 content: |

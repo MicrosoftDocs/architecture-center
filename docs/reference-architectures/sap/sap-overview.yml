@@ -1,26 +1,30 @@
 ### YamlMime:Architecture
 metadata:
   title: SAP on Azure Architecture Guide
-  description: 'This guide is based on the Microsoft Azure Well-Architected Framework, but the recommendations are specific to deployments of SAP solutions.'
+  description: This article describes a set of guiding tenets that are used to help ensure the quality of SAP workloads running on Azure
   author: maggsl
+  ms.author: pnp
   ms.date: 06/10/2020
   ms.topic: conceptual
   ms.service: architecture-center
-  ms.custom:
-    - fcp
-    - reference-architecture
+  ms.subservice: reference-architecture
   ms.category:
     - databases
     - compute
-  ms.subservice: reference-architecture
+  ms.custom:
+    - fcp
+    - reference-architecture
 name: SAP on Azure Architecture Guide
 azureCategories:
   - databases
   - compute
-summary: 'This guide is based on the Microsoft Azure Well-Architected Framework, but the recommendations are specific to deployments of SAP solutions.'
+summary: This article describes a set of guiding tenets that are used to help ensure the quality of SAP workloads running on Azure
 products:
-  - azure
+  - azure-active-directory
+  - azure-expressroute
+  - azure-managed-disks
   - azure-sap
+  - azure-virtual-machines
 thumbnailUrl: /azure/architecture/browse/thumbs/sap-overview-architecture-diagram.png
 content: |
    [!include[](sap-overview-content.md)]

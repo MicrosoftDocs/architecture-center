@@ -1,16 +1,17 @@
 ### YamlMime:Architecture
 metadata:
   title: Windows N-tier application on Azure
-  description: 'Implement a multi-tier architecture on Azure for availability, security, scalability, and manageability.'
+  description: Implement a multi-tier architecture on Azure for availability, security, scalability, and manageability.
   author: doodlemania2
+  ms.author: pnp
   ms.date: 09/25/2020
   ms.topic: conceptual
   ms.service: architecture-center
+  ms.subservice: reference-architecture
   ms.category:
     - databases
     - web
     - management-and-governance
-  ms.subservice: reference-architecture
   ms.custom:
     - reference-architecture
 name: Windows N-tier application on Azure
@@ -18,9 +19,11 @@ azureCategories:
   - databases
   - web
   - management-and-governance
-summary: 'Implement a multi-tier architecture on Azure for availability, security, scalability, and manageability.'
+summary: Implement a multi-tier architecture on Azure for availability, security, scalability, and manageability.
 products:
-  - azure
+  - azure-blob-storage
+  - azure-dns
+  - azure-load-balancer
   - azure-virtual-network
   - azure-virtual-machines
 thumbnailUrl: /azure/architecture/browse/thumbs/n-tier-sql-server.png

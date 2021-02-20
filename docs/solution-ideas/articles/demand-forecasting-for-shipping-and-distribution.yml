@@ -2,28 +2,35 @@
 metadata:
   title: Demand Forecasting for Shipping and Distribution
   titleSuffix: Azure Solution Ideas
+  description: This solution addresses the challenges raised above by utilizing historical transaction data to train a demand forecasting model for shipping and distribution.
   author: doodlemania2
+  ms.author: pnp
   ms.date: 12/16/2019
-  description: 'Use historical demand data to forecast future periods across various customers, products and destinations.'
-  ms.custom: 'acom-architecture, artificial intelligence, solution architectures, Azure, ai gallery, ''https://azure.microsoft.com/solutions/architecture/demand-forecasting-for-shipping-and-distribution/'''
+  ms.topic: conceptual
   ms.service: architecture-center
+  ms.subservice: solution-idea
   ms.category:
     - analytics
     - ai-machine-learning
-  ms.subservice: solution-idea
+  ms.custom:
+    - acom-architecture
+    - artificial intelligence
+    - solution architectures
+    - Azure
+    - ai gallery
+    - 'https://azure.microsoft.com/solutions/architecture/demand-forecasting-for-shipping-and-distribution/'
   social_image_url: /azure/architecture/solution-ideas/articles/media/demand-forecasting-for-shipping-and-distribution.png
 name: Demand Forecasting for Shipping and Distribution
 azureCategories:
   - analytics
   - ai-machine-learning
-summary: 'Use historical demand data to forecast future periods across various customers, products and destinations.'
+summary: This solution addresses the challenges raised above by utilizing historical transaction data to train a demand forecasting model for shipping and distribution.
 products:
-  - azure
+  - azure-blob-storage
+  - azure-data-factory
   - azure-functions
-  - dynamics
-  - github
-  - power-bi
-  - sql-server
+  - azure-hdinsight
+  - azure-web-apps
 thumbnailUrl: /azure/architecture/browse/thumbs/demand-forecasting-for-shipping-and-distribution.png
 content: |
    [!include[](demand-forecasting-for-shipping-and-distribution-content.md)]

@@ -36,7 +36,7 @@ The following recommendations apply for most scenarios. Follow these recommendat
 Select a suitable ExpressRoute connectivity provider for your location. To get a list of connectivity providers available at your location, use the following Azure PowerShell command:
 
 ```powershell
-Get-AzureRmExpressRouteServiceProvider
+Get-AzExpressRouteServiceProvider
 ```
 
 ExpressRoute connectivity providers connect your datacenter to Microsoft in the following ways:
@@ -58,7 +58,7 @@ Create an ExpressRoute circuit as follows:
 1. Run the following PowerShell command:
 
     ```powershell
-    New-AzureRmExpressRouteCircuit -Name <<circuit-name>> -ResourceGroupName <<resource-group>> -Location <<location>> -SkuTier <<sku-tier>> -SkuFamily <<sku-family>> -ServiceProviderName <<service-provider-name>> -PeeringLocation <<peering-location>> -BandwidthInMbps <<bandwidth-in-mbps>>
+    New-AzExpressRouteCircuit -Name <<circuit-name>> -ResourceGroupName <<resource-group>> -Location <<location>> -SkuTier <<sku-tier>> -SkuFamily <<sku-family>> -ServiceProviderName <<service-provider-name>> -PeeringLocation <<peering-location>> -BandwidthInMbps <<bandwidth-in-mbps>>
     ```
 
 2. Send the `ServiceKey` for the new circuit to the service provider.
@@ -66,7 +66,7 @@ Create an ExpressRoute circuit as follows:
 3. Wait for the provider to provision the circuit. To verify the provisioning state of a circuit, run the following PowerShell command:
 
     ```powershell
-    Get-AzureRmExpressRouteCircuit -Name <<circuit-name>> -ResourceGroupName <<resource-group>>
+    Get-AzExpressRouteCircuit -Name <<circuit-name>> -ResourceGroupName <<resource-group>>
     ```
 
     The `Provisioning state` field in the `Service Provider` section of the output will change from `NotProvisioned` to `Provisioned` when the circuit is ready.
@@ -83,9 +83,9 @@ Create an ExpressRoute circuit as follows:
     2. Configure routing for the ExpressRoute circuit. Run the following PowerShell commands for each type of peering you want to configure (private and Microsoft). For more information, see [Create and modify routing for an ExpressRoute circuit][configure-expressroute-routing].
 
         ```powershell
-        Set-AzureRmExpressRouteCircuitPeeringConfig -Name <<peering-name>> -Circuit <<circuit-name>> -PeeringType <<peering-type>> -PeerASN <<peer-asn>> -PrimaryPeerAddressPrefix <<primary-peer-address-prefix>> -SecondaryPeerAddressPrefix <<secondary-peer-address-prefix>> -VlanId <<vlan-id>>
+        Set-AzExpressRouteCircuitPeeringConfig -Name <<peering-name>> -ExpressRouteCircuit <<circuit-name>> -PeeringType <<peering-type>> -PeerASN <<peer-asn>> -PrimaryPeerAddressPrefix <<primary-peer-address-prefix>> -SecondaryPeerAddressPrefix <<secondary-peer-address-prefix>> -VlanId <<vlan-id>>
 
-        Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit <<circuit-name>>
+        Set-AzExpressRouteCircuit -ExpressRouteCircuit <<circuit-name>>
         ```
 
     3. Reserve another pool of valid public IP addresses to use for network address translation (NAT) for Microsoft peering. It is recommended to have a different pool for each peering. Specify the pool to your connectivity provider, so they can configure border gateway protocol (BGP) advertisements for those ranges.
@@ -93,9 +93,9 @@ Create an ExpressRoute circuit as follows:
 5. Run the following PowerShell commands to link your private VNet(s) to the ExpressRoute circuit. For more information, see [Link a virtual network to an ExpressRoute circuit][link-vnet-to-expressroute].
 
     ```powershell
-    $circuit = Get-AzureRmExpressRouteCircuit -Name <<circuit-name>> -ResourceGroupName <<resource-group>>
-    $gw = Get-AzureRmVirtualNetworkGateway -Name <<gateway-name>> -ResourceGroupName <<resource-group>>
-    New-AzureRmVirtualNetworkGatewayConnection -Name <<connection-name>> -ResourceGroupName <<resource-group>> -Location <<location> -VirtualNetworkGateway1 $gw -PeerId $circuit.Id -ConnectionType ExpressRoute
+    $circuit = Get-AzExpressRouteCircuit -Name <<circuit-name>> -ResourceGroupName <<resource-group>>
+    $gw = Get-AzVirtualNetworkGateway -Name <<gateway-name>> -ResourceGroupName <<resource-group>>
+    New-AzVirtualNetworkGatewayConnection -Name <<connection-name>> -ResourceGroupName <<resource-group>> -Location <<location> -VirtualNetworkGateway1 $gw -PeerId $circuit.Id -ConnectionType ExpressRoute
     ```
 
 You can connect multiple VNets located in different regions to the same ExpressRoute circuit, as long as all VNets and the ExpressRoute circuit are located within the same geopolitical region.
@@ -105,7 +105,7 @@ You can connect multiple VNets located in different regions to the same ExpressR
 If a previously functioning ExpressRoute circuit now fails to connect, in the absence of any configuration changes on-premises or within your private VNet, you may need to contact the connectivity provider and work with them to correct the issue. Use the following PowerShell commands to verify that the ExpressRoute circuit has been provisioned:
 
 ```powershell
-Get-AzureRmExpressRouteCircuit -Name <<circuit-name>> -ResourceGroupName <<resource-group>>
+Get-AzExpressRouteCircuit -Name <<circuit-name>> -ResourceGroupName <<resource-group>>
 ```
 
 The output of this command shows several properties for your circuit, including `ProvisioningState`, `CircuitProvisioningState`, and `ServiceProviderProvisioningState` as shown below.
@@ -124,7 +124,7 @@ ServiceProviderProvisioningState : NotProvisioned
 If the `ProvisioningState` is not set to `Succeeded` after you tried to create a new circuit, remove the circuit by using the command below and try to create it again.
 
 ```powershell
-Remove-AzureRmExpressRouteCircuit -Name <<circuit-name>> -ResourceGroupName <<resource-group>>
+Remove-AzExpressRouteCircuit -Name <<circuit-name>> -ResourceGroupName <<resource-group>>
 ```
 
 If your provider had already provisioned the circuit, and the `ProvisioningState` is set to `Failed`, or the `CircuitProvisioningState` is not `Enabled`, contact your provider for further assistance.
@@ -133,7 +133,7 @@ If your provider had already provisioned the circuit, and the `ProvisioningState
 
 ExpressRoute circuits provide a high bandwidth path between networks. Generally, the higher the bandwidth the greater the cost.
 
-ExpressRoute offers two [pricing plans][expressroute-pricing] to customers, a metered plan and an unlimited data plan. Charges vary according to circuit bandwidth. Available bandwidth will likely vary from provider to provider. Use the `Get-AzureRmExpressRouteServiceProvider` cmdlet to see the providers available in your region and the bandwidths that they offer.
+ExpressRoute offers two [pricing plans][expressroute-pricing] to customers, a metered plan and an unlimited data plan. Charges vary according to circuit bandwidth. Available bandwidth will likely vary from provider to provider. Use the `Get-AzExpressRouteServiceProvider` cmdlet to see the providers available in your region and the bandwidths that they offer.
 
 A single ExpressRoute circuit can support a certain number of peerings and VNet links. See [ExpressRoute limits](/azure/azure-subscription-service-limits) for more information.
 
@@ -152,9 +152,9 @@ Although some providers allow you to change your bandwidth, make sure you pick a
 - Increase the bandwidth. You should avoid this option as much as possible, and not all providers allow you to increase bandwidth dynamically. But if a bandwidth increase is needed, check with your provider to verify they support changing ExpressRoute bandwidth properties via PowerShell commands. If they do, run the commands below.
 
     ```powershell
-    $ckt = Get-AzureRmExpressRouteCircuit -Name <<circuit-name>> -ResourceGroupName <<resource-group>>
+    $ckt = Get-AzExpressRouteCircuit -Name <<circuit-name>> -ResourceGroupName <<resource-group>>
     $ckt.ServiceProviderProperties.BandwidthInMbps = <<bandwidth-in-mbps>>
-    Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
+    Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt
     ```
 
     You can increase the bandwidth without loss of connectivity. Downgrading the bandwidth will result in disruption in connectivity, because you must delete the circuit and recreate it with the new configuration.
@@ -162,13 +162,13 @@ Although some providers allow you to change your bandwidth, make sure you pick a
 - Change your pricing plan and/or upgrade to Premium. To do so, run the following commands. The `Sku.Tier` property can be `Standard` or `Premium`; the `Sku.Name` property can be `MeteredData` or `UnlimitedData`.
 
     ```powershell
-    $ckt = Get-AzureRmExpressRouteCircuit -Name <<circuit-name>> -ResourceGroupName <<resource-group>>
+    $ckt = Get-AzExpressRouteCircuit -Name <<circuit-name>> -ResourceGroupName <<resource-group>>
 
     $ckt.Sku.Tier = "Premium"
     $ckt.Sku.Family = "MeteredData"
     $ckt.Sku.Name = "Premium_MeteredData"
 
-    Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
+    Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt
     ```
 
     > [!IMPORTANT]
