@@ -4,15 +4,9 @@ metadata:
   titleSuffix: Azure Solution Ideas
   description: Build intelligent marketing systems that provide customer-tailored content by using machine learning models that analyze data from multiple sources.
   author: doodlemania2
-<<<<<<< HEAD
-  ms.date: 13/02/2021
-  description: Build intelligent marketing systems that provide customer-tailored content by using machine learning models that analyze data from multiple sources.
-  ms.custom: 'acom-architecture, artificial intelligence, solution architectures, Azure, ai gallery, interactive-diagram, ''https://azure.microsoft.com/solutions/architecture/personalized-offers/'''
-=======
   ms.author: pnp
-  ms.date: 12/16/2019
+  ms.date: 20/02/2021
   ms.topic: conceptual
->>>>>>> master
   ms.service: architecture-center
   ms.subservice: solution-idea
   ms.category:
