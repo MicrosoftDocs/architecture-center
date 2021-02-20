@@ -46,6 +46,15 @@ Resiliency is the ability of a system to recover from failures and continue to f
 
 **Monitor performance.** Use a performance monitoring service such as [New Relic](https://newrelic.com) or [Application Insights](/azure/application-insights/app-insights-overview) to monitor application performance and behavior under load.  Performance monitoring gives you real-time insight into the application. It enables you to diagnose issues and perform root-cause analysis of failures.
 
+
+## Azure Load Balancer
+
+**Select Standard SKU** Standard Load Balancer providens a dimention of reliability that Basic does not - that of availability zones and zone resiliency. This means when a zone goes down, your zone-redundant Standard Load Balancer will not be impacted. This ensures your deployments can withstand zone failures within a region. In addition, Standard Load Balancer supports global load balancing ensuring your application is not impacted by region failures either.
+
+**Provision at least two instances** Deploy Azure LB with at least two instances in the backend. A single instance could result in a single point of failure.
+
+**Use outbound rules** Outbound rules ensure that you are not faced with connection failures as a result of SNAT port exhaustion. [Learn more about outbound connecitivty.](https://docs.microsoft.com/azure/load-balancer/outbound-rules) While outbound rules will help improve the solution for small to mid size deployments. For production workloads, we recommend coupling Standard Load Balancer or any subnet deployment with [VNet NAT](https://docs.microsoft.com/azure/virtual-network/nat-overview).
+
 ## Application Gateway
 
 **Provision at least two instances.** Deploy Application Gateway with at least two instances. A single instance is a single point of failure. Use two or more instances for redundancy and scalability. In order to qualify for the [SLA](https://azure.microsoft.com/support/legal/sla/application-gateway), you must provision two or more medium or larger instances.
