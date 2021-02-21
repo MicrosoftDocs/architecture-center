@@ -8,7 +8,7 @@ Although cloud Blockchain-as-a-service offerings (BaaS) can save a lot
 of Infrastructure management efforts, it sometimes assumes that all parties will be
 in the same Cloud or you may have limited region availability, scale or network segrargation.
 
-If you want to build cross-cloud blockchain solution with more control and portability in mind , this is waht this article is trying to explore.
+If you want to build cross-cloud blockchain solutions with more control and portability in mind , this is what this article is trying to explore.
 
 ## Potential use cases
 
@@ -128,9 +128,9 @@ Private Connection can also be achieved over IPSec with tools like
 
 ## Deploy this scenario
 
-1.  Create the Kubernetes clusters. In this scenario, create one cluster in AKS, GKE and EKS.
+1.  Create managed Kubernetes clusters. In this scenario, create one cluster in AKS, GKE and EKS.
 
-2.  Onboard cluster to Azure Arc
+2.  Onboard clusters to Azure Arc
 
       - [Onboard existing Cluster to Azure Arc](https://azurearcjumpstart.io/azure_arc_jumpstart/azure_arc_k8s/general/onboard_k8s/)
 
