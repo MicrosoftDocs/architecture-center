@@ -19,6 +19,7 @@ metadata:
     - luis
     - interactive-diagram
     - 'https://azure.microsoft.com/solutions/architecture/commerce-chatbot/'
+    - ai-machine-learning
   social_image_url: /azure/architecture/solution-ideas/articles/media/commerce-chatbot.png
 name: Commerce Chatbot
 azureCategories:
@@ -32,4 +33,4 @@ products:
   - azure-language-understanding
 thumbnailUrl: /azure/architecture/browse/thumbs/commerce-chatbot.png
 content: |
-   [!include[](commerce-chatbot-content.md)]
+  [!include[](commerce-chatbot-content.md)]

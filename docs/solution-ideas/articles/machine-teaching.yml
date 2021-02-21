@@ -13,6 +13,7 @@ metadata:
     - ai-machine-learning
   ms.custom:
     - pcp
+    - ai-machine-learning
 name: Machine teaching
 azureCategories:
   - ai-machine-learning
@@ -21,4 +22,4 @@ products:
   - azure
 thumbnailUrl: /azure/architecture/browse/thumbs/machine-teaching-1-4.png
 content: |
-   [!include[](machine-teaching-content.md)]
+  [!include[](machine-teaching-content.md)]

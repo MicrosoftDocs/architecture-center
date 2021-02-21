@@ -15,6 +15,7 @@ metadata:
     - azcat-ai
     - reference-architecture
     - internal-intro
+    - ai-machine-learning
 name: Build an enterprise-grade conversational bot
 azureCategories:
   - ai-machine-learning
@@ -35,4 +36,4 @@ products:
   - azure-search
 thumbnailUrl: /azure/architecture/browse/thumbs/conversational-bot-logical.png
 content: |
-   [!include[](conversational-bot-content.md)]
+  [!include[](conversational-bot-content.md)]

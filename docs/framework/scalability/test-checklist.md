@@ -21,7 +21,7 @@ Performance testing helps to maintain systems properly and fix defects before pr
 
 - **Identify a path forward to leveraging existing tests or the creation of new tests**. There are different types of performance testing: load testing, stress testing, API testing, client-side/browser testing, etc. It is important that you understand and articulate the different types of tests, along with their advantages and disadvantages, to the customer.
 
-- **Perform testing in all stages in the development and deployment life cycle**.  Application code, infrastructure automation, and fault tolerance should all be tested. This can ensure that the application will perform as expected in every situation. You'll want to test early enough in the application life cycle to catch and fix errors. Errors are cheaper to repair when caught early and can be expensive or impossible to fix later. To learn more, see [Testing your application and Azure environment](/azure/architecture/framework/devops/release-engineering-testing).
+- **Perform testing in all stages in the development and deployment life cycle**.  Application code, infrastructure automation, and fault tolerance should all be tested. This can ensure that the application will perform as expected in every situation. You'll want to test early enough in the application life cycle to catch and fix errors. Errors are cheaper to repair when caught early and can be expensive or impossible to fix later. To learn more, see [Testing your application and Azure environment](../devops/release-engineering-testing.md).
 
 - **Avoid experiencing poor performance with testing**. Two subsets of performance testing, load testing and stress testing, can determine the upper (close to capacity limit) and maximum (point of failure) limit, respectively, of the application's capacity. By performing these tests, you can determine the necessary infrastructure to support the anticipated workloads.
 
@@ -47,4 +47,4 @@ Performance testing helps to maintain systems properly and fix defects before pr
 
 ## Next steps
 > [!div class="nextstepaction"]
-> [Performance testing](/azure/architecture/framework/scalability/performance-test)
+> [Performance testing](./performance-test.md)

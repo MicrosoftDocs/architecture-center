@@ -14,6 +14,7 @@ metadata:
   ms.custom:
     - azcat-ai
     - reference-architecture
+    - ai-machine-learning
 name: Batch scoring with R Models on Azure
 azureCategories:
   - ai-machine-learning
@@ -27,4 +28,4 @@ products:
   - azure-machine-learning
 thumbnailUrl: /azure/architecture/browse/thumbs/batch-scoring-r-models.png
 content: |
-   [!include[](batch-scoring-R-models-content.md)]
+  [!include[](batch-scoring-R-models-content.md)]
