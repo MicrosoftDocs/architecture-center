@@ -128,7 +128,9 @@ Private Connection can also be achieved over IPSec with tools like
 
 ## Deploy this scenario
 
-1.  Create the Kubernetes clusters.
+1.  Create the Kubernetes clusters. In this scenario, create one cluster in AKS, GKE and EKS.
+
+2.  Onboard cluster to Azure Arc
 
       - [Onboard existing Cluster to Azure Arc](https://azurearcjumpstart.io/azure_arc_jumpstart/azure_arc_k8s/general/onboard_k8s/)
 
@@ -136,13 +138,13 @@ Private Connection can also be achieved over IPSec with tools like
 
       - [Create & Onboard Google Kubernetes Engine](https://azurearcjumpstart.io/azure_arc_jumpstart/azure_arc_k8s/gke/gke_terraform/)
 
-2.  [Create an Azure DevOps Org and
+3.  [Create an Azure DevOps Org and
     project](https://docs.microsoft.com/en-us/azure/devops/organizations/accounts/create-organization?view=azure-devops)
 
-3.  Create and [Ansible Controller VM in
+4.  Create and [Ansible Controller VM in
     Azure](https://azuredevopslabs.com/labs/vstsextend/ansible/)
 
-4.  Follow steps for installing and configuring [BAF
+5.  Follow steps for installing and configuring [BAF
     Prerequisites](https://blockchain-automation-framework.readthedocs.io/en/latest/prerequisites.html)
 
 ## Pricing
