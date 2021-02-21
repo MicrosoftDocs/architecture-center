@@ -46,7 +46,7 @@ nodes in different location. As below:
 
 -   Party B: Uses GCP GKE.
 
--   Party C: Uses AWS GKE.
+-   Party C: Uses AWS EKS.
 
 <p align="center">
   <img src="images/MultiCloudDLTArchitecture.PNG">
@@ -96,7 +96,7 @@ Shared Artifacts:
 -   [Azure DevOps](https://dev.azure.com/) to provide Application &
     Infrastructure and lifecycle management.
 
--   Ansible Controller on an Azure Linux VM. This will be used as custom
+-   [Ansible Controller on an Azure Linux VM](https://azuredevopslabs.com/labs/vstsextend/ansible/). This will be used as custom
     CI/CD agent on Azure DevOps.
 
 -   Docker container registry: to pull ledger specific images.
