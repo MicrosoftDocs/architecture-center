@@ -138,14 +138,15 @@ Private Connection can also be achieved over IPSec with tools like
 
       - [Create & Onboard Google Kubernetes Engine](https://azurearcjumpstart.io/azure_arc_jumpstart/azure_arc_k8s/gke/gke_terraform/)
 
-3.  [Create an Azure DevOps Org and
-    project](https://docs.microsoft.com/en-us/azure/devops/organizations/accounts/create-organization?view=azure-devops)
+3.  Follow steps for installing and configuring [BAF
+    Prerequisites](https://blockchain-automation-framework.readthedocs.io/en/latest/prerequisites.html). 
+    
+4.  (Optional) [Create an Azure DevOps Org and
+    project](https://docs.microsoft.com/en-us/azure/devops/organizations/accounts/create-organization?view=azure-devops) then clone BAF repo into the new Azure DevOps project.
 
-4.  Create and [Ansible Controller VM in
-    Azure](https://azuredevopslabs.com/labs/vstsextend/ansible/)
+5.  (Optional) Create and [Ansible Controller VM in
+    Azure](https://azuredevopslabs.com/labs/vstsextend/ansible/). This will be the custom build agent used to deply BAF components.
 
-5.  Follow steps for installing and configuring [BAF
-    Prerequisites](https://blockchain-automation-framework.readthedocs.io/en/latest/prerequisites.html)
 
 ## Pricing
 
