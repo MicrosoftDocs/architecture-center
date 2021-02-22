@@ -5,7 +5,7 @@ metadata:
   description: Implement a continuous integration (CI), continuous delivery (CD), and retraining pipeline for an AI application using Azure DevOps and Azure Machine Learning.
   author: praneet22
   ms.author: pnp
-  ms.date: 05/09/2019
+  ms.date: 02/22/2021
   ms.topic: conceptual
   ms.service: architecture-center
   ms.category:
