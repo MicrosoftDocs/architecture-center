@@ -42,11 +42,11 @@ Traffic Manager operates at the DNS layer to quickly and efficiently direct appl
 - **Multiple Azure regions** Use at least two Azure regions to achieve higher availability. You can deploy your application across multiple Azure regions in in active/passive or active/active configurations.
 
 - **Resource groups:** [Resource groups](/azure/azure-resource-manager/management/overview) are used to group Azure resources so they can be managed by lifetime, owner, or other criteria.
-- **Availability zones:** [Availability zones](/azure/availability-zones/az-overview) are physical locations within an Azure region. Each zone consists of one or more data centres with independent power, cooling, and networking. By placing VMs across zones, the application becomes resilient to failures within a zone.
+- **Availability zones:** [Availability zones](/azure/availability-zones/az-overview) are physical locations within an Azure region. Each zone consists of one or more data centers with independent power, cooling, and networking. By placing VMs across zones, the application becomes resilient to failures within a zone.
 
 ### Networking and load balancing
 
-- **Virtual network and subnets:**. Azure VM and specific Azure resources (such as Azure App Gateway or Azure Load Balancer) are deployed into a virtual network that can be segmented into subnets. Create a separate subnet for each tier.
+- **Virtual network and subnets:** Azure VM and specific Azure resources (such as Azure App Gateway or Azure Load Balancer) are deployed into a virtual network that can be segmented into subnets. Create a separate subnet for each tier.
  
 - **Azure Traffic Manager:** [Traffic Manager](/azure/traffic-manager/traffic-manager-overview) is a DNS-based traffic load balancer that distributes traffic optimally to services across global Azure regions while providing high availability and responsiveness. For more information, see the section [Traffic Manager configuration](/azure/architecture/reference-architectures/n-tier/multi-region-sql-server#traffic-manager-configuration).
  
@@ -60,7 +60,7 @@ Traffic Manager operates at the DNS layer to quickly and efficiently direct appl
  
 - **Azure DNS:** [Azure DNS](/azure/dns/dns-overview) is a hosting service for DNS domains. It provides name resolution using Microsoft Azure infrastructure. By hosting your domains in Azure, you can manage your DNS records using the same credentials, APIs, tools, and billing as your other Azure services.
  
-- **Virtual network peering.:** [Virtual network peering](/azure/virtual-network/virtual-network-peering-overview) enables you to seamlessly connect two or more virtual networks in Azure. The virtual networks appear as one for connectivity purposes. The traffic between virtual machines in peered virtual networks uses the Microsoft backbone infrastructure. Make sure that address space of the virtual networks do not overlap.
+- **Virtual network peering:** [Virtual network peering](/azure/virtual-network/virtual-network-peering-overview) enables you to seamlessly connect two or more virtual networks in Azure. The virtual networks appear as one for connectivity purposes. The traffic between virtual machines in peered virtual networks uses the Microsoft backbone infrastructure. Make sure that the address space of the virtual networks do not overlap.
  
 - **Azure Bastion:** [Azure Bastion](/azure/bastion/bastion-overview) provides secure and seamless Remote Desktop Protocol (RDP) and Secure Shell (SSH) access to the VMs within the VNet. This provides access while limiting the exposed public IP addresses of the VMs with the VNet. Azure Bastion provides a cost-effective alternative to a provisioned VM to provide access to all VMs within the same virtual network.
  
