@@ -49,7 +49,7 @@ nodes in different location. As below:
 -   Party C: Uses AWS EKS.
 
 <p align="center">
-  <img src="images/MultiCloudDLTArchitecture.PNG">
+  <img src="images/MultiCloud-DLT.svg">
 </p>
 
 
