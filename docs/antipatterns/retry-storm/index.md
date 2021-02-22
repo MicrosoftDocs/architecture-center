@@ -45,7 +45,7 @@ Client applications should follow some best practices to avoid causing a retry s
 - Consider using the circuit breaker pattern.
 - Obey the `retry-after` header when provided by a server, e.g. from 429s.
 - Consider batching requests and using request pooling where available. Many SDKs do this on your behalf. This will reduce the total number of outbound connection attempts your application makes, although you still need to be careful not to retry these connections too.
-- Use a library like Polly.
+- Use a library like [Polly](https://github.com/App-vNext/Polly) (for .NET) or [retry](https://www.npmjs.com/package/retry) (for JS).
 
 Services can also protect themselves against retry storms.
 
