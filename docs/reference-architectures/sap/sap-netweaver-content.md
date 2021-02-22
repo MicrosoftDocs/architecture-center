@@ -1,7 +1,7 @@
 
 <!-- cSpell:ignore lbrader netweaver jumpbox jumpboxes ACLs HANA SOFS SWDs SMLG ABAP SAPGUI SAPGUIs SPOF WSFC ASCS MSEE Iperf SIOS sapmnt -->
 
-
+# SAP Netweaver on Windows
 
 This reference architecture shows a set of proven practices for running SAP NetWeaver in a Windows environment on Azure with high availability. The database is AnyDB, the SAP term for any supported database management system (DBMS) besides SAP HANA.
 
@@ -10,11 +10,10 @@ The fist diagram describe SAP Netweaver in a Windows environment on a Availabili
 
 _Download a [Visio file](https://arch-center.azureedge.net/sap-netweaver-AVSet-Netapp-PPG.vsdx) of this architecture._
 
-The second diagram describe SAP Netweaver in a Windows environment on a Availability Zone model for improved resilence:
-![Reference architecture for SAP NetWeaver (Windows) for AnyDB on Azure VMs with Availabity Zones](./images/sap-netweaver-av-zones.jpg)
+The second diagram describe SAP Netweaver in a Windows environment on a Availability Zone model for improved resilience:
+![Reference architecture for SAP NetWeaver (Windows) for AnyDB on Azure VMs with Availability Zones](./images/sap-netweaver-av-zones.jpg)
 
 _Download a [Visio file](https://arch-center.azureedge.net/sap-netweaver-AVZones.vsdx) of this architecture._
-
 
 > [!NOTE]
 > Deploying this reference architecture requires appropriate licensing of SAP products and other non-Microsoft technologies.
@@ -136,7 +135,7 @@ The [SAP Web Dispatcher](https://help.sap.com/doc/saphelp_nw73ehp1/7.31.19/en-US
 
 [Azure Load Balancer](https://azure.microsoft.com/blog/azure-load-balancer-new-distribution-mode) is a network transmission layer service (layer 4), which balances traffic by a 5-tuple hash from the data streams (based on source IP, source port, destination IP, destination port, and protocol type). In SAP deployments on Azure, it's used in cluster setups to direct traffic to the primary service instance or the healthy node in case of a fault.
 
-We recommend using [Azure Standard Load Balancer](/azure/load-balancer/load-balancer-standard-overview) for all SAP scenarios. If virtual machines in the backend pool require public outbound connectivity, or if they are used in an Azure zone deployment, the standard load balancers require [additional configurations](/azure/virtual-machines/workloads/sap/high-availability-guide-standard-load-balancer-outbound-connections) once it's secure by default and won't allow outboud connectivity unless you explict configure it. 
+We recommend using [Azure Standard Load Balancer](/azure/load-balancer/load-balancer-standard-overview) for all SAP scenarios. If virtual machines in the backend pool require public outbound connectivity, or if they are used in an Azure zone deployment, the standard load balancers require [additional configurations](/azure/virtual-machines/workloads/sap/high-availability-guide-standard-load-balancer-outbound-connections) once it's secure by default and won't allow outbound connectivity unless you explicitly configure it.
 
 For traffic from SAP GUI clients connecting to an SAP server via DIAG protocol or Remote Function Calls (RFC), the Central Services message server balances the load through SAP application server [logon groups](https://wiki.scn.sap.com/wiki/display/SI/ABAP+Logon+Group+based+Load+Balancing). No additional load balancer is needed.
 
@@ -147,7 +146,7 @@ Some customers use standard storage for their application servers. Because stand
 Because application servers do not host any business data, you can also use the smaller P4 and P6 Premium disks to help minimize cost and benefit from the [single instance VM SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_6) in case of a central SAP stack installation.
 
 For High-Availability scenarios [Azure Shared Disks](https://docs.microsoft.com/azure/virtual-machines/disks-shared) are available on Premium SSD and Ultra SSD [Azure Managed
-Disks](/azure/storage/storage-managed-disks-overview). Azure Shared Disks can be used with Windows Server, SUSE Enterprise Linux 15 SP 1 and above, or SUSE Enterprise Linux For SAP. 
+Disks](/azure/storage/storage-managed-disks-overview). Azure Shared Disks can be used with Windows Server, SUSE Enterprise Linux 15 SP 1 and above, or SUSE Enterprise Linux For SAP.
 
 Azure Storage is also used by [Cloud Witness](/windows-server/failover-clustering/deploy-cloud-witness) to maintain quorum with a device in a remote Azure region, away from the primary region where the cluster resides.
 
@@ -275,7 +274,7 @@ When implementing high availability for Central Services using SOFS or SIOS, Sit
 
 DR is best implemented with a database's integrated replication technology. For example, with SQL Server, we recommend using the Always On availability groups feature to establish a replica in a remote region and replicating transactions asynchronously with manual failover. Asynchronous replication avoids an impact to the performance of interactive workloads at the primary site. With a manual failover, someone can then evaluate the DR impact and decide if operating from the DR site is justified.
 
-If you are utilising Azure NetApp Files for your database storage, it may be possible to use [Cross-Region Replication](/azure/azure-netapp-files/cross-region-replication-introduction) to replicate data to a secondary region. Note that this feature is in Preview at the time of writing, so evaluate if this meets your requirements for Production workloads.
+If you are utilizing Azure NetApp Files for your database storage, it may be possible to use [Cross-Region Replication](/azure/azure-netapp-files/cross-region-replication-introduction) to replicate data to a secondary region. Note that this feature is in Preview at the time of writing, so evaluate if this meets your requirements for Production workloads.
 
 ### DR for shared services
 
