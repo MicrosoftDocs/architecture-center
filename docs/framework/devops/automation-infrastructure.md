@@ -58,7 +58,7 @@ IaC can help with managing your environments. Most organizations have to maintai
 ### Better understand your cloud resources
 IaC can also help you better understand the state of your resources.
 
-**Audit changes.** Changes to your IaC configurations will be version-controlled. This means you can review each change that has happened, and understand who made it and when. This can be helpful if you're trying to understand why a resource is configured a specific way.
+**Audit changes.** Changes to your IaC configurations will be version-controlled in the same way as your code, such as through Git's version history. This means you can review each change that has happened, and understand who made it and when. This can be helpful if you're trying to understand why a resource is configured a specific way.
 
 **Metadata.** Many types of IaC configurations let you add metadata, like code comments, to help explain why something is done a particular way. If your organization has a culture of documenting your code, apply the same principles to your infrastructure code.
 
