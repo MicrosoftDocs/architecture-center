@@ -1,16 +1,16 @@
 
-<!-- cSpell:ignore lbrader netweaver jumpbox jumpboxes ACLs HANA SOFS SWDs SMLG ABAP SAPGUI SAPGUIs SPOF WSFC ASCS MSEE Iperf SIOS sapmnt -->
+<!-- cSpell:ignore lbrader netweaver jump-box jump-boxes ACLs HANA SOFS SWDs SMLG ABAP SAPGUI SAPGUIs SPOF WSFC ASCS MSEE Iperf SIOS sapmnt -->
 
 # SAP Netweaver on Windows
 
 This reference architecture shows a set of proven practices for running SAP NetWeaver in a Windows environment on Azure with high availability. The database is AnyDB, the SAP term for any supported database management system (DBMS) besides SAP HANA.
 
-The fist diagram describe SAP Netweaver in a Windows environment on a Availability Set model using Azure NetApp files for the Shared Files layer and Proximity Placement Group for improved performance:
+The first diagram describes SAP Netweaver in a Windows environment in an Availability Set model using Azure NetApp files for the Shared Files layer and Proximity Placement Group for improved performance:
 ![Reference architecture for SAP NetWeaver (Windows) for AnyDB on Azure VMs with Availability Sets](./images/sap-netweaver-availability-set-proximity-placement-group-netapp.jpg)
 
 _Download a [Visio file](https://arch-center.azureedge.net/sap-netweaver-AVSet-Netapp-PPG.vsdx) of this architecture._
 
-The second diagram describe SAP Netweaver in a Windows environment on a Availability Zone model for improved resilience:
+The second diagram describes SAP Netweaver in a Windows environment in an Availability Zone model for improved resilience:
 ![Reference architecture for SAP NetWeaver (Windows) for AnyDB on Azure VMs with Availability Zones](./images/sap-netweaver-availability-zones.jpg)
 
 _Download a [Visio file](https://arch-center.azureedge.net/sap-netweaver-AVZones.vsdx) of this architecture._
@@ -26,7 +26,7 @@ The following components are required.
 
 **Virtual network.** The [Azure Virtual Network](/azure/virtual-network/virtual-networks-overview)(VNet) service securely connects Azure resources to each other. In this architecture, the virtual network connects to an on-premises environment through a virtual private network (VPN) gateway deployed in the hub of a [hub-spoke topology](../../reference-architectures/hybrid-networking/hub-spoke.yml). The spoke is the VNet used for the SAP applications and the database tiers.
 
-**Virtual network peering.** This architecture uses a hub-and-spoke networking topology with multiple VNets that are [peered together](/azure/virtual-network/virtual-network-peering-overview). This topology offers network segmentation and isolation for services deployed on Azure. Peering enables transparent connectivity between peered VNets through the Microsoft backbone network and does not incur a performance penalty if deployed within a single region. The VNet is subdivided into separate subnets for each tier-application (SAP NetWeaver), database, and shared services (such as a jumpbox and Active Directory).
+**Virtual network peering.** This architecture uses a hub-and-spoke networking topology with multiple VNets that are [peered together](/azure/virtual-network/virtual-network-peering-overview). This topology offers network segmentation and isolation for services deployed on Azure. Peering enables transparent connectivity between peered VNets through the Microsoft backbone network and does not incur a performance penalty if deployed within a single region. The VNet is subdivided into separate subnets for each tier-application (SAP NetWeaver), database, and shared services (such as a jump-box and Active Directory).
 
 **Virtual machines.** This architecture uses virtual machines for the application tier and database tier, grouped as follows:
 
@@ -34,7 +34,7 @@ The following components are required.
 
 - **AnyDB.** The database tier runs AnyDB as the database, such as Microsoft SQL Server, Oracle, or IBM DB2.
 
-- **Jumpbox.** Also called a bastion host. This secure virtual machine on the network is used by administrators to connect to the other virtual machines and is typically a part of shared services, such as domain controllers and backup services. If Secure Shell (SSH) and Remote Desktop Protocol (RDP) are the only services used for server administration, an [Azure Bastion](/azure/bastion/bastion-overview) host is an alternative, but if other management tools are used, such as SQL Server Management Studio or SAP Front End, use a traditional, self-deployed jumpbox.
+- **Jump-box.** Also called a bastion host. This secure virtual machine on the network is used by administrators to connect to the other virtual machines and is typically a part of shared services, such as domain controllers and backup services. If Secure Shell (SSH) and Remote Desktop Protocol (RDP) are the only services used for server administration, an [Azure Bastion](/azure/bastion/bastion-overview) host is an alternative, but if other management tools are used, such as SQL Server Management Studio or SAP Front End, use a traditional, self-deployed jump-box.
 
 - **Windows Server Active Directory domain controllers.** The domain controllers are used on all virtual machines and users in the domain for identity management.
 
@@ -77,11 +77,11 @@ The SAP SMLG transaction is commonly used to manage logon groups for ABAP applic
 
 This reference architecture runs Central Services on VMs in the application tier. Central Services is a potential single point of failure (SPOF) when deployed to a single VM. To implement a highly available solution, use either a file-share cluster or a shared-disk cluster.
 
-For file-share clusters, there are several different options. The recommendation is to utilise [Azure Files](/azure/storage/files/storage-files-introduction) as fully-managed, cloud native SMB or NFS shares. An alternative to Azure Files is [Azure NetApp Files](/azure/azure-netapp-files/azure-netapp-files-introduction), which offers high-performance, enterprise-class NFS and SMB shares.
+For file-share clusters, there are several different options. The recommendation is to utilize [Azure Files](/azure/storage/files/storage-files-introduction) as fully-managed, cloud native SMB or NFS shares. An alternative to Azure Files is [Azure NetApp Files](/azure/azure-netapp-files/azure-netapp-files-introduction), which offers high-performance, enterprise-class NFS and SMB shares.
 
 It is also possible to implement the high availability file share on the Central Service instances by using WSFC with [Scale Out File Server](https://techcommunity.microsoft.com/t5/Running-SAP-Applications-on-the/File-Server-with-SOFS-and-S2D-as-an-Alternative-to-Cluster/ba-p/368111) (SOFS) and the [Storage Spaces Direct](https://blogs.sap.com/2018/03/07/your-sap-on-azure-part-5-ascs-high-availability-with-storage-spaces-direct) (S2D) feature in Windows Server 2016 and later. This solution also supports [Windows clusters](/azure/virtual-machines/workloads/sap/sap-high-availability-guide-wsfc-file-share) using a file share served up by SOFS as the Cluster Shared Volume (CSV).
 
-If you prefer to utilise shared disks, it's recommended to use [Azure Shared Disk](/azure/virtual-machines/disks-shared#linux) to set up a [Windows Server Failover Cluster for SAP Central Services Cluster](/azure/virtual-machines/workloads/sap/sap-high-availability-infrastructure-wsfc-shared-disk).
+If you prefer to utilize shared disks, it's recommended to use [Azure Shared Disk](/azure/virtual-machines/disks-shared#linux) to set up a [Windows Server Failover Cluster for SAP Central Services Cluster](/azure/virtual-machines/workloads/sap/sap-high-availability-infrastructure-wsfc-shared-disk).
 
 There are also third-party offerings such as [SIOS DataKeeper Cluster Edition](https://azuremarketplace.microsoft.com/marketplace/apps/sios_datakeeper.sios-datakeeper-8) from SIOS Technology Corp., which replicates contents from independent disks attached to the ASCS cluster nodes, and then presents the disks as a CSV to the cluster software.
 
@@ -155,7 +155,7 @@ For the backup data store, we recommend using Azure [cool and archive access tie
 [Ultra disks](/azure/virtual-machines/linux/disks-enable-ultra-ssd)
 greatly reduce disk latency and benefit performance-critical applications, such as the SAP database servers. Compare [block storage](/azure/virtual-machines/windows/disks-types) options in Azure.
 
-For a highly-available, high performance shared data store, utilise [Azure NetApp Files](/azure/azure-netapp-files/azure-netapp-files-introduction). This is particularly relevant for the database tier when using [Oracle](/azure/azure-netapp-files/performance-oracle-single-volumes), and also for [hosting application data](/azure/virtual-machines/workloads/sap/high-availability-guide-windows-netapp-files-smb).
+For a highly-available, high-performance shared data store, utilize [Azure NetApp Files](/azure/azure-netapp-files/azure-netapp-files-introduction). This is particularly relevant for the database tier when using [Oracle](/azure/azure-netapp-files/performance-oracle-single-volumes), and also for [hosting application data](/azure/virtual-machines/workloads/sap/high-availability-guide-windows-netapp-files-smb).
 
 ## Performance considerations
 
@@ -201,7 +201,7 @@ For internet facing communications a stand-alone solution in DMZ would be the re
 
 High availability of the Central Services is implemented with Windows Server Failover Cluster (WSFC). When deployed on Azure, the cluster storage for the failover cluster can be configured using two approaches: either a clustered shared volume or a file share.
 
-The recommendation is to utilise [Azure Files](/azure/storage/files/storage-files-introduction) as fully-managed, cloud native SMB or NFS shares. An alternative to Azure Files is [Azure NetApp Files](/azure/azure-netapp-files/azure-netapp-files-introduction), which offers high-performance, enterprise-class NFS and SMB shares.
+The recommendation is to utilize [Azure Files](/azure/storage/files/storage-files-introduction) as fully-managed, cloud native SMB or NFS shares. An alternative to Azure Files is [Azure NetApp Files](/azure/azure-netapp-files/azure-netapp-files-introduction), which offers high-performance, enterprise-class NFS and SMB shares.
 
 WSFC supports the use of file shares served up by the [Scale Out File Server](https://techcommunity.microsoft.com/t5/Running-SAP-Applications-on-the/High-Available-ASCS-for-Windows-on-File-Share-8211-Shared-Disk/ba-p/368087?advanced=false&collapse_discussion=true&q=ascs%20sofs&search_type=thread) (SOFS) as cluster storage. SOFS offers resilient file shares you can use as a cluster shared volume (CSV) for the Windows cluster. A SOFS cluster can be shared among multiple SAP Central Services. As of this writing, SOFS is used only for high availability design within one Azure zone (it's not supported when deployed across zones). For disaster recovery (DR) purposes, Azure Site Recovery supports the replication of the entire SOFS cluster to a remote region.
 
@@ -238,7 +238,7 @@ Several [considerations](/azure/virtual-machines/workloads/sap/sap-ha-availabili
 
 **Active/inactive deployment example:**
 
-In this example deployment, the [active/passive](/azure/virtual-machines/workloads/sap/sap-ha-availability-zones#activepassive-deployment) status refers to the application service state within the zones. In the application layer, all four active application servers of the SAP system are in zone 1. Another set of four passive application servers are built in zone 2 yet shut down, only to be activated when needed.
+In this example deployment, the [active/passive](/azure/virtual-machines/workloads/sap/sap-ha-availability-zones#activepassive-deployment) status refers to the application service state within the zones. In the application layer, all four active application servers of the SAP system are in zone 1. Another set of four passive application servers are built in zone 2 yet shutdown, only to be activated when needed.
 
 The two-node clusters for Central Services and the database services are stretched across two zones. In the event zone 1 fails, the Central Services and database services will run in zone 2. The passive application servers in zone 2 get activated. With all components of this SAP system now collocated in the same zone, network latency is minimized.
 
@@ -278,7 +278,7 @@ If you are utilizing Azure NetApp Files for your database storage, it may be pos
 
 ### DR for shared services
 
-Many IT services are shared by all your deployed cloud assets, such as administrative jumpboxes, cloud-based directory services, backup, and monitoring services. Replicate your shared services into the DR region using whatever means the services provide.
+Many IT services are shared by all your deployed cloud assets, such as administrative jump-boxes, cloud-based directory services, backup, and monitoring services. Replicate your shared services into the DR region using whatever means the services provide.
 
 ### Automated DR with Azure Site Recovery
 
@@ -347,7 +347,7 @@ If your workload requires additional memory and fewer CPUs, consider using one o
 
 ### Virtual machines
 
-This architecture uses virtual machines for the application tier and database tier. SAP NetWeaver tier uses Windows virtual machines to run SAP services and applications. The database tier runs AnyDB as the database, such as Microsoft SQL Server, Oracle, or IBM DB2. Virtual machines are also used as jumpboxes for management.
+This architecture uses virtual machines for the application tier and database tier. SAP NetWeaver tier uses Windows virtual machines to run SAP services and applications. The database tier runs AnyDB as the database, such as Microsoft SQL Server, Oracle, or IBM DB2. Virtual machines are also used as jump-boxes for management.
 
 There are several payment options for virtual machines in general:
 
