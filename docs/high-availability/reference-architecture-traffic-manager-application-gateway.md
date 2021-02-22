@@ -26,7 +26,7 @@ In this scenario, the application consists of three layers.
 - **Business tier:** Processes the user interactions and makes logical decisions about the next steps. This layer connects the web tier and the data tier.
 - **Data tier:** Stores the application data. Either a database, object storage, or file storage is typically used.
 
-![Azure Availability Zones 1-3](./images/high-availability-multi-region.png)
+![Multi-region load balancing with Application Gateway and Traffic Manager](./images/high-availability-multi-region.png)
 
 >[!NOTE]
 > Azure provides a suite of fully managed load-balancing solutions for your scenarios. If you are looking for Transport Layer Security (TLS) protocol termination ("SSL offload") or per-HTTP/HTTPS request, application-layer processing, review [Azure Application Gateway](/azure/application-gateway/overview). If you are looking for regional load balancing, review [Azure Load Balancer](/azure/load-balancer/load-balancer-overview). Your end-to-end scenarios might benefit from combining these solutions as needed.
