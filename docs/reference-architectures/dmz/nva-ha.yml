@@ -12,7 +12,6 @@ metadata:
     - networking
     - management-and-governance
   ms.custom:
-    - seodec18
     - networking
     - reference-architecture
 name: Deploy highly available NVAs

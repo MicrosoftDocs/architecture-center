@@ -2,15 +2,16 @@
 title: Event Sourcing pattern
 titleSuffix: Cloud Design Patterns
 description: Use an append-only store to record the full series of events that describe actions taken on data in a domain.
-keywords: design pattern
 author: dragon119
 ms.date: 06/23/2017
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: design-pattern
+products:
+  - office-bookings
 ms.custom:
-  - seodec18
   - design-pattern
+keywords: design pattern
 ---
 
 # Event Sourcing pattern
@@ -156,11 +157,13 @@ The following patterns and guidance might also be relevant when implementing thi
 
 - [Data Partitioning Guidance](/previous-versions/msp-n-p/dn589795(v=pandp.10)). Data is often partitioned when using event sourcing to improve scalability, reduce contention, and optimize performance. Describes how to divide data into discrete partitions, and the issues that can arise.
 
+
 ## Community resources
 - [Object-relational impedance mismatch](https://en.wikipedia.org/wiki/Object-relational_impedance_mismatch)
 
 - Martin Fowler's blog:
   - [Event Sourcing](https://martinfowler.com/eaaDev/EventSourcing.html)
   - [Snapshot on Martin Fowler’s Enterprise Application Architecture website](https://martinfowler.com/eaaDev/Snapshot.html)
+
 
 

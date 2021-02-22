@@ -7,6 +7,8 @@ ms.date: 01/11/2021
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: reference-architecture
+products:
+  - azure-kubernetes-service
 ---
 
 # Patching and upgrade guidance
@@ -181,4 +183,3 @@ The following table describes characteristics of various AKS upgrade and patchin
 - [AKS product documentation](/azure/aks)
 - [AKS Roadmap](https://aka.ms/aks/roadmap)
 - [Defining Day-2 Operations](https://dzone.com/articles/defining-day-2-operations)
-

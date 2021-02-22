@@ -12,8 +12,8 @@ metadata:
     - web
     - management-and-governance
   ms.custom:
-    - seodec18
     - reference-architecture
+    - internal-intro
 name: Highly available multi-region web application
 azureCategories:
   - web

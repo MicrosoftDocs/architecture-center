@@ -7,9 +7,11 @@ ms.date: 05/24/2017
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: best-practice
+products:
+  - azure-cache-redis
 ms.custom:
-  - seodec18
   - best-practice
+  - internal-intro
 ---
 
 <!-- cSpell:ignore BSON keyspace INCRBY DECR DECRBY GETSET MGET MSET SADD SMEMBERS SDIFF SUNION ZADD LPUSH RPUSH LPOP RPOP LRANGE RRANGE -->

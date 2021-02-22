@@ -6,6 +6,8 @@ ms.date: 02/25/2020
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
+products:
+  - azure-hdinsight
 ms.custom:
   - guide
 ---

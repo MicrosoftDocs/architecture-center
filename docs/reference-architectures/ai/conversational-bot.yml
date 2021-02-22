@@ -14,6 +14,7 @@ metadata:
   ms.custom:
     - azcat-ai
     - reference-architecture
+    - internal-intro
 name: Build an enterprise-grade conversational bot
 azureCategories:
   - ai-machine-learning

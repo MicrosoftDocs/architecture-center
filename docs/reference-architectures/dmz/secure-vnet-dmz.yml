@@ -13,10 +13,10 @@ metadata:
     - security
     - hybrid
   ms.custom:
-    - seodec18
     - networking
     - reference-architecture
     - e2e-hybrid
+    - internal-intro
 name: Implement a secure hybrid network
 azureCategories:
   - networking

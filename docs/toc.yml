@@ -321,34 +321,46 @@ items:
             href: framework/scalability/tradeoffs.md
       - name: Reliability
         items:
-          - name: Overview
-            href: framework/resiliency/overview.md
-          - name: Application design
-            items:
-              - name: Design overview
-                href: framework/resiliency/app-design.md
-              - name: Error handling
-                href: framework/resiliency/app-design-error-handling.md
-              - name: Failure mode analysis
-                href: resiliency/failure-mode-analysis.md
-          - name: Backup and recovery
-            href: framework/resiliency/backup-and-recovery.md
-          - name: Business metrics
-            href: framework/resiliency/business-metrics.md
-          - name: Chaos engineering
-            href: framework/resiliency/chaos-engineering.md
-          - name: Data management
-            href: framework/resiliency/data-management.md
-          - name: Monitoring and disaster recovery
-            href: framework/resiliency/monitoring.md
-          - name: Recover from a region-wide service disruption
-            href: resiliency/recovery-loss-azure-region.md
-          - name: Resiliency testing
-            href: framework/resiliency/testing.md
-          - name: Checklist
-            href: checklist/resiliency-per-service.md
-          - name: Reliability patterns
-            href: framework/resiliency/reliability-patterns.md  
+              - name: Principles
+                href: framework/resiliency/overview.md
+              - name: Design
+                items: 
+                  - name: Checklist
+                    href: framework/resiliency/design-checklist.md
+                  - name: Requirements
+                    href: framework/resiliency/design-requirements.md
+                  - name: Application design
+                    href: framework/resiliency/app-design.md
+                  - name: Resiliency & dependencies
+                    href: framework/resiliency/design-resiliency.md  
+                  - name: Best practices
+                    href: framework/resiliency/design-best-practices.md
+              - name: Testing
+                items:
+                  - name: Checklist
+                    href: framework/resiliency/test-checklist.md
+                  - name: Resiliency testing
+                    href: framework/resiliency/testing.md
+                  - name: Backup & recovery
+                    href: framework/resiliency/backup-and-recovery.md
+                  - name: Error handling
+                    href: framework/resiliency/app-design-error-handling.md
+                  - name: Chaos engineering
+                    href: framework/resiliency/chaos-engineering.md
+                  - name: Best practices
+                    href: framework/resiliency/test-best-practices.md
+              - name: Monitoring
+                items:
+                  - name: Checklist
+                    href: framework/resiliency/monitor-checklist.md
+                  - name: Application health
+                    href: framework/resiliency/monitoring.md
+                  - name: Health modeling
+                    href: framework/resiliency/monitor-model.md
+                  - name: Best practices
+                    href: framework/resiliency/monitor-best-practices.md
+              - name: Reliability patterns
+                href: framework/resiliency/reliability-patterns.md
       - name: Security
         items:
           - name: About
@@ -1607,6 +1619,8 @@ items:
                 href: solution-ideas/articles/sap-netweaver-on-sql-server.yml
               - name: SAP deployment using an Oracle DB
                 href: example-scenario/apps/sap-production.yml
+              - name: SAP System on Oracle Database on Azure
+                href: example-scenario/apps/sap-on-oracle.yml
               - name: Dev/test for SAP
                 href: example-scenario/apps/sap-dev-test.yml
       - name: Security

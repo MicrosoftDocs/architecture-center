@@ -24,6 +24,7 @@ This approach can also be used to:
 
 ![Azure Architecture](./media/DataWarehousing.png)
 
+
 The data flows through the solution as follows:
 
 1. For each data source, any updates are exported periodically into a staging area in Azure Blob storage.

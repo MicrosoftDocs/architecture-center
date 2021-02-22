@@ -6,23 +6,22 @@ author: dcass
 ms.date: 05/18/2020
 ms.topic: conceptual
 ms.service: architecture-center
+ms.subservice: guide
 ms.category:
   - fcp
-ms.subservice: guide
 ms.custom:
   - guide
 ---
 
-# Types of harm 
+# Types of harm
 
 This article creates awareness for the different types of harms, so that appropriate mitigation steps can be implemented.
 
 ## Risk of injury
 
-### Physical injury 
+### Physical injury
 
 Consider how technology could hurt people or create dangerous environments.
-
 
 > |Harm|Description|Consideration(s)|Example|
 > |-------------|----------|---------|---------|
@@ -151,10 +150,10 @@ Use the Harms Model you developed to guide your product development work:
 
 - Seek more information from stakeholders that you identified as potentially experiencing harm.
 - Develop and validate hypothesis for addressing the areas you identified as having the highest potential for harm.
-- Integrate the insights into your decisions throughout the technology development process: data collection and model training, system architecture, user experience design, product documentation, feedback loops, and communication capabilities and limitations of the technology. 
+- Integrate the insights into your decisions throughout the technology development process: data collection and model training, system architecture, user experience design, product documentation, feedback loops, and communication capabilities and limitations of the technology.
 - Explore [Community Jury](../community-jury/index.md).
 - Assess and mitigate unfairness using Azure Machine Learning and the open-source [FairLearn package](/azure/machine-learning/concept-fairness-ml).
- 
+
 Other Responsible AI tools:
 
 - [Responsible AI resource center](https://www.microsoft.com/ai/responsible-ai-resources?activetab=pivot1%3aprimaryr4)

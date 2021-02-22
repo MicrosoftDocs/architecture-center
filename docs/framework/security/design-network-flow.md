@@ -6,12 +6,12 @@ ms.date: 02/03/2021
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
-ms.custom:
-  - article
 azureCategories:
   - networking
 products:
   - azure-virtual-network
+ms.custom:
+  - article
 ---
 
 # Traffic flow security in Azure
