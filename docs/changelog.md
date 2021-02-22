@@ -2,7 +2,7 @@
 title: What's New in Azure Architecture Center
 description: New and updated articles in Azure Architecture Center
 author: doodlemania2
-ms.date: 02/15/2021
+ms.date: 02/22/2021
 ms.topic: article
 ms.service: architecture-center
 ---
@@ -26,15 +26,42 @@ New and updated articles in Azure Architecture Center
 - [Traffic flow security in Azure](./framework/security/design-network-flow.md)
 - [Implement network segmentation patterns on Azure](./framework/security/design-network-segmentation.md)
 - [Profisee master data management with Azure Data Factory](./reference-architectures/data/profisee-master-data-management-data-factory.yml)
+- [Cost optimization in a hybrid workload](./framework/hybrid/hybrid-cost.md)
+- [Operational excellence in a hybrid workload](./framework/hybrid/hybrid-opex.md)
+- [Overview of a hybrid workload](./framework/hybrid/hybrid-overview.md)
+- [Performance efficiency in a hybrid workload](./framework/hybrid/hybrid-performance-efficiency.md)
+- [Reliability in a hybrid workload](./framework/hybrid/hybrid-reliability.md)
+- [Security in a hybrid workload](./framework/hybrid/hybrid-security.md)
+- [Best practices for designing reliability in Azure applications](./framework/resiliency/design-best-practices.md)
+- [Design for reliability](./framework/resiliency/design-checklist.md)
+- [Target and non-functional requirements](./framework/resiliency/design-requirements.md)
+- [Resiliency and dependencies](./framework/resiliency/design-resiliency.md)
+- [Monitoring best practices for reliability in Azure applications](./framework/resiliency/monitor-best-practices.md)
+- [Monitoring for reliability](./framework/resiliency/monitor-checklist.md)
+- [Health modeling for reliability](./framework/resiliency/monitor-model.md)
+- [Testing best practices for reliability in Azure applications](./framework/resiliency/test-best-practices.md)
+- [Testing for reliability](./framework/resiliency/test-checklist.md)
+- [SAP System on Oracle Database on Azure](./example-scenario/apps/sap-on-oracle.yml)
 - [Consumer health portal on Azure](./example-scenario/digital-health/health-portal.yml)
 - [Azure security test practices](./framework/security/monitor-test.md)
 
 ### Updated Articles
 
+- [Error handling for resilient applications in Azure](./framework/resiliency/app-design-error-handling.md)  ([#ab0252856](https://github.com/MicrosoftDocs/architecture-center/commit/ab0252856))
+- [Testing applications for availability and resiliency](./framework/resiliency/testing.md)  ([#ab0252856](https://github.com/MicrosoftDocs/architecture-center/commit/ab0252856))
+- [SAP S/4HANA in Linux on Azure](./reference-architectures/sap/sap-s4hana.yml)  ([#d40445bc9](https://github.com/MicrosoftDocs/architecture-center/commit/d40445bc9))
 - [Security monitoring in Azure](./framework/security/monitor.md)  ([#9022aaa34](https://github.com/MicrosoftDocs/architecture-center/commit/9022aaa34))
 - [Run SAP HANA for Linux virtual machines in a scale-up architecture on Azure](./reference-architectures/sap/run-sap-hana-for-linux-virtual-machines.yml)  ([#22f51f8aa](https://github.com/MicrosoftDocs/architecture-center/commit/22f51f8aa))
 - [Interactive querying with HDInsight](./solution-ideas/articles/interactive-querying-with-hdinsight.yml)  ([#22f51f8aa](https://github.com/MicrosoftDocs/architecture-center/commit/22f51f8aa))
 - [Loan charge-off prediction with Azure HDInsight Spark clusters](./solution-ideas/articles/loan-chargeoff-prediction-with-azure-hdinsight-spark-clusters.yml)  ([#22f51f8aa](https://github.com/MicrosoftDocs/architecture-center/commit/22f51f8aa))
+- [Resiliency checklist for Azure services](./checklist/resiliency-per-service.md)  ([#7cdb50680](https://github.com/MicrosoftDocs/architecture-center/commit/7cdb50680))
+- [Overview of Azure load-balancing options](./guide/technology-choices/load-balancing-overview.md)  ([#e03196c5f](https://github.com/MicrosoftDocs/architecture-center/commit/e03196c5f))
+- [Application integration using Event Grid](./solution-ideas/articles/application-integration-using-event-grid.yml)  ([#59dad762b](https://github.com/MicrosoftDocs/architecture-center/commit/59dad762b))
+- [Firewall and Application Gateway for virtual networks](./example-scenario/gateway/firewall-application-gateway.yml)  ([#5878d41a2](https://github.com/MicrosoftDocs/architecture-center/commit/5878d41a2))
+- [Checklist - Optimize cost](./framework/cost/optimize-checklist.md)  ([#ebeea2501](https://github.com/MicrosoftDocs/architecture-center/commit/ebeea2501))
+- [Gaming using Azure Database for MySQL](./solution-ideas/articles/gaming-using-azure-database-for-mysql.yml)  ([#89bf505fa](https://github.com/MicrosoftDocs/architecture-center/commit/89bf505fa))
+- [Gaming using Cosmos DB](./solution-ideas/articles/gaming-using-cosmos-db.yml)  ([#89bf505fa](https://github.com/MicrosoftDocs/architecture-center/commit/89bf505fa))
+- [FSLogix for the enterprise](./example-scenario/wvd/windows-virtual-desktop-fslogix.yml)  ([#0e5401839](https://github.com/MicrosoftDocs/architecture-center/commit/0e5401839))
 - [Run SAP BW/4HANA with Linux virtual machines on Azure](./reference-architectures/sap/run-sap-bw4hana-with-linux-virtual-machines.yml)  ([#c6bd4aa54](https://github.com/MicrosoftDocs/architecture-center/commit/c6bd4aa54))
 - [Azure identity and access management considerations](./framework/security/design-identity.md)  ([#1fddfae3d](https://github.com/MicrosoftDocs/architecture-center/commit/1fddfae3d))
 - [AKS triage - node health](./operator-guides/aks/aks-triage-node-health.md)  ([#1fddfae3d](https://github.com/MicrosoftDocs/architecture-center/commit/1fddfae3d))
@@ -74,7 +101,7 @@ New and updated articles in Azure Architecture Center
 ### Updated Articles
 
 - [Data protection in Azure](./framework/security/design-storage.md)  ([#bd8084fcf](https://github.com/MicrosoftDocs/architecture-center/commit/bd8084fcf))
-- [Backup and disaster recover for Azure applications](./framework/resiliency/backup-and-recovery.md)  ([#3ca257b3d](https://github.com/MicrosoftDocs/architecture-center/commit/3ca257b3d))
+- [Backup and disaster recovery for Azure applications](./framework/resiliency/backup-and-recovery.md)  ([#3ca257b3d](https://github.com/MicrosoftDocs/architecture-center/commit/3ca257b3d))
 - [Field and cloud edge gateways](./example-scenario/iot/field-cloud-edge-gateways.yml)  ([#49a77e199](https://github.com/MicrosoftDocs/architecture-center/commit/49a77e199))
 - [Monitoring for DevOps](./framework/devops/monitoring.md)  ([#ad603400e](https://github.com/MicrosoftDocs/architecture-center/commit/ad603400e))
 - [Business Metrics](./framework/resiliency/business-metrics.md)  ([#fb285c5fb](https://github.com/MicrosoftDocs/architecture-center/commit/fb285c5fb))
@@ -153,3 +180,4 @@ New and updated articles in Azure Architecture Center
 - [Choosing a data storage technology](./data-guide/technology-choices/data-storage.md)  ([#4128cc2d9](https://github.com/MicrosoftDocs/architecture-center/commit/4128cc2d9))
 - [Process real-time vehicle data using IoT](./example-scenario/data/realtime-analytics-vehicle-iot.yml)  ([#beeba69f6](https://github.com/MicrosoftDocs/architecture-center/commit/beeba69f6))
 - [Building a CI/CD pipeline for microservices on Kubernetes](./microservices/ci-cd-kubernetes.md)  ([#c0135f775](https://github.com/MicrosoftDocs/architecture-center/commit/c0135f775))
+

@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id/>
     <title>Azure Architecture Center</title>
-    <updated>2021-02-15T14:26:06.552Z</updated>
+    <updated>2021-02-22T15:01:26.320Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <subtitle>Updated articles for Azure Architecture Center</subtitle>
     <rights>https://docs.microsoft.com/legal/termsofuse</rights>
@@ -49,6 +49,134 @@
         <category label="new" term="new"/>
     </entry>
     <entry>
+        <title type="html"><![CDATA[Cost optimization in a hybrid workload]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/framework/hybrid/hybrid-cost</id>
+        <link href="https://docs.microsoft.com/azure/architecture/framework/hybrid/hybrid-cost"/>
+        <updated>2021-02-19T04:05:50.000Z</updated>
+        <summary type="html"><![CDATA[Includes guidance and recommendations that apply to the Cost pillar in a hybrid and multi-cloud environment.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Operational excellence in a hybrid workload]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/framework/hybrid/hybrid-opex</id>
+        <link href="https://docs.microsoft.com/azure/architecture/framework/hybrid/hybrid-opex"/>
+        <updated>2021-02-19T04:05:50.000Z</updated>
+        <summary type="html"><![CDATA[Includes guidance and recommendations that apply to the Operational Excellence pillar in a hybrid and multi-cloud workload.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Overview of a hybrid workload]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/framework/hybrid/hybrid-overview</id>
+        <link href="https://docs.microsoft.com/azure/architecture/framework/hybrid/hybrid-overview"/>
+        <updated>2021-02-19T04:05:50.000Z</updated>
+        <summary type="html"><![CDATA[Includes guidance and recommendations that apply to each of the five pillars in a hybrid and multi-cloud workload.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Performance efficiency in a hybrid workload]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/framework/hybrid/hybrid-performance-efficiency</id>
+        <link href="https://docs.microsoft.com/azure/architecture/framework/hybrid/hybrid-performance-efficiency"/>
+        <updated>2021-02-19T04:05:50.000Z</updated>
+        <summary type="html"><![CDATA[Includes guidance and recommendations that apply to the Performance Efficiency pillar in a hybrid and multi-cloud workload.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Reliability in a hybrid workload]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/framework/hybrid/hybrid-reliability</id>
+        <link href="https://docs.microsoft.com/azure/architecture/framework/hybrid/hybrid-reliability"/>
+        <updated>2021-02-19T04:05:50.000Z</updated>
+        <summary type="html"><![CDATA[Includes guidance and recommendations that apply to the Reliability pillar in a hybrid and multi-cloud workload.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Security in a hybrid workload]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/framework/hybrid/hybrid-security</id>
+        <link href="https://docs.microsoft.com/azure/architecture/framework/hybrid/hybrid-security"/>
+        <updated>2021-02-19T04:05:50.000Z</updated>
+        <summary type="html"><![CDATA[Includes guidance and recommendations that apply to the Security pillar in a hybrid and multi-cloud workload.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Best practices for designing reliability in Azure applications]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/framework/resiliency/design-best-practices</id>
+        <link href="https://docs.microsoft.com/azure/architecture/framework/resiliency/design-best-practices"/>
+        <updated>2021-02-18T17:37:11.000Z</updated>
+        <summary type="html"><![CDATA[Describes best practices for designing reliability in Azure applications.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Design for reliability]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/framework/resiliency/design-checklist</id>
+        <link href="https://docs.microsoft.com/azure/architecture/framework/resiliency/design-checklist"/>
+        <updated>2021-02-18T17:37:11.000Z</updated>
+        <summary type="html"><![CDATA[Describes considerations for reliability in application design.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Target and non-functional requirements]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/framework/resiliency/design-requirements</id>
+        <link href="https://docs.microsoft.com/azure/architecture/framework/resiliency/design-requirements"/>
+        <updated>2021-02-18T17:37:11.000Z</updated>
+        <summary type="html"><![CDATA[Describes reliability targets for availability, recovery, and non-functional requirements.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Resiliency and dependencies]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/framework/resiliency/design-resiliency</id>
+        <link href="https://docs.microsoft.com/azure/architecture/framework/resiliency/design-resiliency"/>
+        <updated>2021-02-18T17:37:11.000Z</updated>
+        <summary type="html"><![CDATA[Describes failure mode analysis and the impact of dependencies on failure.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Monitoring best practices for reliability in Azure applications]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/framework/resiliency/monitor-best-practices</id>
+        <link href="https://docs.microsoft.com/azure/architecture/framework/resiliency/monitor-best-practices"/>
+        <updated>2021-02-18T17:37:11.000Z</updated>
+        <summary type="html"><![CDATA[Best practices for reliability monitoring in Azure applications]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Monitoring for reliability]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/framework/resiliency/monitor-checklist</id>
+        <link href="https://docs.microsoft.com/azure/architecture/framework/resiliency/monitor-checklist"/>
+        <updated>2021-02-18T17:37:11.000Z</updated>
+        <summary type="html"><![CDATA[Describes considerations for reliability in application monitoring.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Health modeling for reliability]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/framework/resiliency/monitor-model</id>
+        <link href="https://docs.microsoft.com/azure/architecture/framework/resiliency/monitor-model"/>
+        <updated>2021-02-18T17:37:11.000Z</updated>
+        <summary type="html"><![CDATA[How to use application health modeling to improve application reliability in Azure]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Testing best practices for reliability in Azure applications]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/framework/resiliency/test-best-practices</id>
+        <link href="https://docs.microsoft.com/azure/architecture/framework/resiliency/test-best-practices"/>
+        <updated>2021-02-18T17:37:11.000Z</updated>
+        <summary type="html"><![CDATA[Best practices for reliability testing in Azure applications]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Testing for reliability]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/framework/resiliency/test-checklist</id>
+        <link href="https://docs.microsoft.com/azure/architecture/framework/resiliency/test-checklist"/>
+        <updated>2021-02-18T17:37:11.000Z</updated>
+        <summary type="html"><![CDATA[Describes considerations for reliability in application testing.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[SAP System on Oracle Database on Azure]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/example-scenario/apps/sap-on-oracle</id>
+        <link href="https://docs.microsoft.com/azure/architecture/example-scenario/apps/sap-on-oracle"/>
+        <updated>2021-02-18T16:27:25.000Z</updated>
+        <summary type="html"><![CDATA[This article describe SAP on Oracle Database on Azure deployment patterns.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
         <title type="html"><![CDATA[Consumer health portal on Azure]]></title>
         <id>https://docs.microsoft.com/azure/architecture/example-scenario/digital-health/health-portal</id>
         <link href="https://docs.microsoft.com/azure/architecture/example-scenario/digital-health/health-portal"/>
@@ -63,6 +191,30 @@
         <updated>2021-02-03T19:27:21.000Z</updated>
         <summary type="html"><![CDATA[Test and validate the workload frequently to detect attacks.]]></summary>
         <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Error handling for resilient applications in Azure]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/framework/resiliency/app-design-error-handling</id>
+        <link href="https://docs.microsoft.com/azure/architecture/framework/resiliency/app-design-error-handling"/>
+        <updated>2021-02-18T17:37:11.000Z</updated>
+        <summary type="html"><![CDATA[Best practices for handling errors in a resilient way]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Testing applications for availability and resiliency]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/framework/resiliency/testing</id>
+        <link href="https://docs.microsoft.com/azure/architecture/framework/resiliency/testing"/>
+        <updated>2021-02-18T17:37:11.000Z</updated>
+        <summary type="html"><![CDATA[Testing is an iterative process. Test the application, measure the outcome, analyze and address any failures that result, and repeat the process.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[SAP S/4HANA in Linux on Azure]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/reference-architectures/sap/sap-s4hana</id>
+        <link href="https://docs.microsoft.com/azure/architecture/reference-architectures/sap/sap-s4hana"/>
+        <updated>2021-02-18T16:27:25.000Z</updated>
+        <summary type="html"><![CDATA[Proven practices for running SAP S/4HANA in a Linux environment on Azure with high availability.]]></summary>
+        <category label="updated" term="updated"/>
     </entry>
     <entry>
         <title type="html"><![CDATA[Security monitoring in Azure]]></title>
@@ -94,6 +246,70 @@
         <link href="https://docs.microsoft.com/azure/architecture/solution-ideas/articles/loan-chargeoff-prediction-with-azure-hdinsight-spark-clusters"/>
         <updated>2021-02-03T16:54:18.000Z</updated>
         <summary type="html"><![CDATA[By using Azure HDInsight R Server, a lending institution can use machine learning to predict the likelihood of loans getting charged off.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Resiliency checklist for Azure services]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/checklist/resiliency-per-service</id>
+        <link href="https://docs.microsoft.com/azure/architecture/checklist/resiliency-per-service"/>
+        <updated>2021-02-20T00:46:22.000Z</updated>
+        <summary type="html"><![CDATA[Resiliency is the ability to recover from failures and continue to function. Use this checklist to review the resiliency considerations for Azure services.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Overview of Azure load-balancing options]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/guide/technology-choices/load-balancing-overview</id>
+        <link href="https://docs.microsoft.com/azure/architecture/guide/technology-choices/load-balancing-overview"/>
+        <updated>2021-02-19T21:45:34.000Z</updated>
+        <summary type="html"><![CDATA[An overview of Azure load-balancing options.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Application integration using Event Grid]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/solution-ideas/articles/application-integration-using-event-grid</id>
+        <link href="https://docs.microsoft.com/azure/architecture/solution-ideas/articles/application-integration-using-event-grid"/>
+        <updated>2021-02-19T19:51:46.000Z</updated>
+        <summary type="html"><![CDATA[This scenario shows you how to create an application topic to send your app's event data to Event Grid and take advantage of its reliable delivery, advanced routing, and direct integration with Azure.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Firewall and Application Gateway for virtual networks]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/example-scenario/gateway/firewall-application-gateway</id>
+        <link href="https://docs.microsoft.com/azure/architecture/example-scenario/gateway/firewall-application-gateway"/>
+        <updated>2021-02-17T17:00:59.000Z</updated>
+        <summary type="html"><![CDATA[Learn about options and best practices for using Azure Firewall and Azure Application Gateway security in virtual networks.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Checklist - Optimize cost]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/framework/cost/optimize-checklist</id>
+        <link href="https://docs.microsoft.com/azure/architecture/framework/cost/optimize-checklist"/>
+        <updated>2021-02-17T16:58:36.000Z</updated>
+        <summary type="html"><![CDATA[Use these checklist considerations to help monitor and optimize workloads by using the right resources and sizes.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Gaming using Azure Database for MySQL]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/solution-ideas/articles/gaming-using-azure-database-for-mysql</id>
+        <link href="https://docs.microsoft.com/azure/architecture/solution-ideas/articles/gaming-using-azure-database-for-mysql"/>
+        <updated>2021-02-17T15:55:41.000Z</updated>
+        <summary type="html"><![CDATA[Use Azure Database for MySQL for gaming solutions so that databases scale elastically with traffic bursts and deliver low-latency multi-player experiences.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Gaming using Cosmos DB]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/solution-ideas/articles/gaming-using-cosmos-db</id>
+        <link href="https://docs.microsoft.com/azure/architecture/solution-ideas/articles/gaming-using-cosmos-db"/>
+        <updated>2021-02-17T15:55:41.000Z</updated>
+        <summary type="html"><![CDATA[Elastically scale your database to accommodate unpredictable bursts of traffic and deliver low-latency, multi-player experiences on a global scale.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[FSLogix for the enterprise]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/example-scenario/wvd/windows-virtual-desktop-fslogix</id>
+        <link href="https://docs.microsoft.com/azure/architecture/example-scenario/wvd/windows-virtual-desktop-fslogix"/>
+        <updated>2021-02-17T15:52:46.000Z</updated>
+        <summary type="html"><![CDATA[Learn to build virtual desktop infrastructure solutions at enterprise scale using Microsoft FSLogix.]]></summary>
         <category label="updated" term="updated"/>
     </entry>
     <entry>
@@ -345,7 +561,7 @@
         <category label="updated" term="updated"/>
     </entry>
     <entry>
-        <title type="html"><![CDATA[Backup and disaster recover for Azure applications]]></title>
+        <title type="html"><![CDATA[Backup and disaster recovery for Azure applications]]></title>
         <id>https://docs.microsoft.com/azure/architecture/framework/resiliency/backup-and-recovery</id>
         <link href="https://docs.microsoft.com/azure/architecture/framework/resiliency/backup-and-recovery"/>
         <updated>2021-01-28T19:05:24.000Z</updated>
