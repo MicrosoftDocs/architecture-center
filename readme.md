@@ -1,7 +1,5 @@
 # Multi-cloud Distributed Ledger (DLT)
 
-Introduction
-
 Blockchain and DLT networks are multi-party systems. Each party has
 their own tools, methodology and probably preferred cloud provider.
 Although cloud Blockchain-as-a-service offerings (BaaS) can save a lot
