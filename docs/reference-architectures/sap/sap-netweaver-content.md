@@ -6,12 +6,12 @@
 This reference architecture shows a set of proven practices for running SAP NetWeaver in a Windows environment on Azure with high availability. The database is AnyDB, the SAP term for any supported database management system (DBMS) besides SAP HANA.
 
 The fist diagram describe SAP Netweaver in a Windows environment on a Availability Set model using Azure NetApp files for the Shared Files layer and Proximity Placement Group for improved performance:
-![Reference architecture for SAP NetWeaver (Windows) for AnyDB on Azure VMs with Availability Sets](./images/sap-netweaver-av-set-ppg-netapp.jpg)
+![Reference architecture for SAP NetWeaver (Windows) for AnyDB on Azure VMs with Availability Sets](./images/sap-netweaver-availability-set-proximity-placement-group-netapp.jpg)
 
 _Download a [Visio file](https://arch-center.azureedge.net/sap-netweaver-AVSet-Netapp-PPG.vsdx) of this architecture._
 
 The second diagram describe SAP Netweaver in a Windows environment on a Availability Zone model for improved resilience:
-![Reference architecture for SAP NetWeaver (Windows) for AnyDB on Azure VMs with Availability Zones](./images/sap-netweaver-av-zones.jpg)
+![Reference architecture for SAP NetWeaver (Windows) for AnyDB on Azure VMs with Availability Zones](./images/sap-netweaver-availability-zones.jpg)
 
 _Download a [Visio file](https://arch-center.azureedge.net/sap-netweaver-AVZones.vsdx) of this architecture._
 
