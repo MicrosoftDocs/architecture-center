@@ -929,6 +929,8 @@ items:
                     href: databricks-monitoring/dashboards.md
                   - name: Troubleshoot performance bottlenecks
                     href: databricks-monitoring/performance-troubleshooting.md
+                  - name: Observability patterns and metrics for performance tuning
+                    href: databricks-monitoring/databricks-observability.yml
               - name: Transfer data to and from Azure
                 href: data-guide/scenarios/data-transfer.md
               - name: Extend on-premises data solutions to Azure
