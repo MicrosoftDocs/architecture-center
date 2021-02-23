@@ -2,22 +2,32 @@
 metadata:
   title: Enterprise Productivity Chatbot
   titleSuffix: Azure Solution Ideas
+  description: Use Azure Bot Service and Language Understanding to build powerful enterprise productivity bots. Streamline common tasks by integrating external systems.
   author: doodlemania2
+  ms.author: pnp
   ms.date: 12/16/2019
-  description: 'Azure Bot Service can be easily combined with Language Understanding to build powerful enterprise productivity bots, allowing organizations to streamline common work activities by integrating external systems, such as Microsoft 365 calendar, customer cases stored in Dynamics CRM and much more.'
-  ms.custom: 'acom-architecture, bot service, luis, interactive-diagram, ''https://azure.microsoft.com/solutions/architecture/enterprise-productivity-chatbot/'''
+  ms.topic: conceptual
   ms.service: architecture-center
+  ms.subservice: solution-idea
   ms.category:
     - ai-machine-learning
-  ms.subservice: solution-idea
+  ms.custom:
+    - acom-architecture
+    - bot service
+    - luis
+    - interactive-diagram
+    - 'https://azure.microsoft.com/solutions/architecture/enterprise-productivity-chatbot/'
   social_image_url: /azure/architecture/solution-ideas/articles/media/enterprise-productivity-chatbot.png
 name: Enterprise Productivity Chatbot
 azureCategories:
   - ai-machine-learning
-summary: 'Azure Bot Service can be easily combined with Language Understanding to build powerful enterprise productivity bots, allowing organizations to streamline common work activities by integrating external systems, such as Microsoft 365 calendar, customer cases stored in Dynamics CRM and much more.'
+summary: Use Azure Bot Service and Language Understanding to build powerful enterprise productivity bots. Streamline common tasks by integrating external systems.
 products:
-  - azure
-  - dynamics
+  - azure-active-directory
+  - azure-bot-service
+  - azure-cognitive-services
+  - azure-language-understanding
+  - azure-monitor
 thumbnailUrl: /azure/architecture/browse/thumbs/enterprise-productivity-chatbot.png
 content: |
    [!include[](enterprise-productivity-chatbot-content.md)]

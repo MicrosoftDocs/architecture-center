@@ -54,7 +54,7 @@ We recommend that you create an AD DS site including the subnets defined for you
 
 ### Active Directory operations masters
 
-The operations masters role can be assigned to AD DS domain controllers to support consistency checking between instances of replicated AD DS databases. There are five operations master roles: schema master, domain naming master, relative identifier master, primary domain controller master emulator, and infrastructure master. For more information about these roles, see [What are Operations Masters?][ad-ds-operations-masters].
+The operations masters role can be assigned to AD DS domain controllers to support consistency checking between instances of replicated AD DS databases. There are five operations master roles: schema master, domain naming master, relative identifier master, primary domain controller master emulator, and infrastructure master. For more information about these roles, see [Planning Operations Master Role Placement][ad-ds-operations-masters].
 
 We recommend you do not assign operations masters roles to the domain controllers deployed in Azure.
 
@@ -68,7 +68,7 @@ AD DS is designed for scalability. You don't need to configure a load balancer o
 
 ## Availability considerations
 
-Deploy the VMs running AD DS into an [availability set][availability-set]. Also, consider assigning the role of [standby operations master][standby-operations-masters] to at least one server, and possibly more depending on your requirements. A standby operations master is an active copy of the operations master that can be used in place of the primary operations masters server during failover.
+Deploy the VMs running AD DS into an [availability set][availability-set]. Also, consider assigning the role of [standby operations master][ad-ds-operations-masters] to at least one server, and possibly more depending on your requirements. A standby operations master is an active copy of the operations master that can be used in place of the primary operations masters server during failover.
 
 ## Manageability considerations
 
@@ -203,8 +203,10 @@ After deployment completes, you can test connectivity from the simulated on-prem
 [adfs]: ./adfs.yml
 [azbb]: https://github.com/mspnp/template-building-blocks/wiki/Install-Azure-Building-Blocks
 [dsc-overview]: /powershell/scripting/dsc/overview/overview?view=powershell-7
-[ad-ds-operations-masters]: /previous-versions/windows/it-pro/windows-server-2003/cc779716(v=ws.10)
-[ad-ds-ports]: /previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd772723(v=ws.10)
+[ad-ds-operations-masters]: /windows-server/identity/ad-ds/plan/planning-operations-master-role-placement
+
+[ad-ds-ports]: /troubleshoot/windows-server/identity/config-firewall-for-ad-domains-and-trusts  
+
 
 [arm-template]: /azure/azure-resource-manager/resource-group-overview#resource-groups
 [availability-set]: /azure/virtual-machines/windows/tutorial-availability-sets
@@ -224,9 +226,8 @@ After deployment completes, you can test connectivity from the simulated on-prem
 [azure-pricing-calculator]: https://azure.microsoft.com/pricing/calculator
 [GitHub]: https://github.com/mspnp/identity-reference-architectures/tree/master/adds-extend-domain
 [microsoft_systems_center]: https://www.microsoft.com/download/details.aspx?id=50013
-[monitoring_ad]: /previous-versions/windows/it-pro/windows-2000-server/bb727046(v=technet.10)
+[monitoring_ad]: /windows-server/identity/ad-ds/plan/security-best-practices/monitoring-active-directory-for-signs-of-compromise
 [security-considerations]: #security-considerations
 [set-a-static-ip-address]: /azure/virtual-network/virtual-networks-static-private-ip-arm-pportal
-[standby-operations-masters]: /previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc794737(v=ws.10)
 [visio-download]: https://arch-center.azureedge.net/identity-architectures.vsdx
 [vm-windows-sizes]: /azure/virtual-machines/sizes

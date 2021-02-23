@@ -1,0 +1,24 @@
+### YamlMime:Architecture
+metadata:
+  title: Replicate and sync mainframe data in Azure
+  titleSuffix: Azure architecture
+  description: Replicate data while modernizing mainframe and midrange systems. Sync on-premises data with Azure data during modernization.
+  author: doodlemania2
+  ms.author: pnp
+  ms.date: 12/29/2020
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: reference-architecture
+  ms.custom:
+    - fcp
+azureCategories:
+  - migration
+  - databases
+products:
+  - azure-data-factory
+  - azure-databricks
+name: Replicate and sync mainframe data in Azure
+summary: Replicate data while modernizing mainframe and midrange systems. Sync on-premises data with Azure data during modernization.
+thumbnailUrl: /azure/architecture/browse/thumbs/sync-mainframe-data-with-azure-thumbnail.png
+content: |
+  [!include[](sync-mainframe-data-with-azure-content.md)]

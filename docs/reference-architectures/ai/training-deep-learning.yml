@@ -8,11 +8,13 @@ metadata:
   ms.topic: conceptual
   ms.custom: azcat-ai
   ms.service: architecture-center
+  ms.subservice: reference-architecture
   ms.category:
     - ai-machine-learning
     - compute
     - media
-  ms.subservice: reference-architecture
+  ms.custom:
+    - azcat-ai
 name: Distributed training of deep learning models on Azure
 azureCategories:
   - ai-machine-learning

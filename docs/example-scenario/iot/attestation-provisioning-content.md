@@ -33,3 +33,13 @@ Consider the combinations of [Azure IoT Hub supported authentication protocols](
 - Revoking certificates through DPS doesn't prevent currently provisioned devices from continuing to authenticate with IoT Hub. After revoking a certificate in DPS, also remove the device from the IoT Hub, either manually through the portal dashboard or programmatically using [Registry Manager APIs](/dotnet/api/microsoft.azure.devices.registrymanager?view=azure-dotnet).
 - Although IoT Hub supports X.509 CA authentication, provisioning devices with X.509 CA through DPS provisions them to the IoT Hub as X.509 thumbprint.
 - Web socket variants of AMQP and MQTT aren't supported with X.509 CA certificates in IoT Hub.
+
+### Next steps
+
+- [Set up the IoT Hub Device Provisioning Service with the Azure portal](/azure/iot-dps/quick-setup-auto-provision)
+- [Provision a symmetric key device using C#](/azure/iot-dps/quick-create-device-symmetric-key-csharp)
+- [Create and provision an X.509 device using C# device SDK for IoT Hub Device Provisioning Service](/azure/iot-dps/quick-create-simulated-device-x509-csharp)
+
+### See also
+
+- [Device Authentication using X.509 CA Certificates](/azure/iot-hub/iot-hub-x509ca-overview)
