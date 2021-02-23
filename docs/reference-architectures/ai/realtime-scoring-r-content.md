@@ -45,7 +45,7 @@ The primary difference between keys and tokens is that keys are static and can b
 
 ## Monitoring and logging considerations
 
-Azure Application Insights can be used to monitor models deployed to web service endpoints in Azure Kubernetes Service (AKS) using Azure Machine Learning. The data collected from the endpoint includes:
+Azure Application Insights can be used to monitor models deployed to web service endpoints in [Azure Kubernetes Service (AKS)][aks] using Azure Machine Learning. The data collected from the endpoint includes:
 Output data
 Responses
 Request rates, response times, and failure rates
@@ -57,10 +57,18 @@ Exceptions
 
 The main cost consideration in this architecture is the Kubernetes cluster's compute resources. The cluster must be large enough to handle the expected request volume at peak times, but this approach leaves resources idle at other times.
 
+## Related resources
+
+- [Azure Machine Learning Documentation][aml-docs].
+- [Azure Machine Learning SDK for R][r-sdk]
+- [Baseline architecture for an Azure Kubernetes Service (AKS) cluster][aks-baseline]
+
+<!-- links -->
 [aml]: https://docs.microsoft.com/en-us/azure/machine-learning/overview-what-is-azure-ml
-[API]: /azure/api-management/api-management-key-concepts
-[ACR]: /azure/container-registry/container-registry-intro
-[AKS]: /azure/aks/intro-kubernetes
+[aml-docs]: https://docs.microsoft.com/en-us/azure/machine-learning/
+[acr]: /azure/container-registry/container-registry-intro
+[aks]: /azure/aks/intro-kubernetes
+[aks-baseline]: https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/containers/aks/secure-baseline-aks
 [docker]: https://docs.docker.com/registry/spec/api
-[K-API]: https://kubernetes.io/docs/reference
+[r-sdk]: https://azure.github.io/azureml-sdk-for-r/index.html
 [0]: ./_images/realtime-scoring-r.png
