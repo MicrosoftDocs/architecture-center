@@ -64,22 +64,22 @@ With the serverless model that Logic Apps uses, the service automatically scales
 
 ## Pricing
 
-The following table provides cost profiles and estimates of monthly costs for three implementations of this architecture:
+The following table provides cost profiles for three implementations of this architecture:
 
-|Level|API Management|Logic Apps action executions|Logic Apps connector executions|Total monthly cost|Profile|
-|-----|-----|-----|-----|-----|-----|
-|Basic|$147.17|$0.78 (1,000/day)|$3.88 (1,000/day)|$151.82|[Basic profile][Monthly cost profile - basic]|
-|Standard|$686.71|$7.75 (10,000/day)|$38.75 (10,000/day)|$733.21|[Standard profile][Monthly cost profile - standard]|
-|Premium|$2,795.17|$77.50 (100,000/day)|$387.50 (100,000/day)|$3,260.17|[Premium profile][Monthly cost profile - premium]|
+|API Management|Logic Apps action executions|Logic Apps connector executions|Profile|
+|-----|-----|-----|-----|
+|Basic|1,000/day|1,000/day|[Basic profile][Monthly cost profile - basic]|
+|Standard|10,000/day|10,000/day|[Standard profile][Monthly cost profile - standard]|
+|Premium|100,000/day|100,000/day|[Premium profile][Monthly cost profile - premium]|
 
-The profiles and estimates include the following components:
+The profiles include the following components:
 
 - API Management
 - Logic Apps:
   - Action executions
   - Standard connector executions
 
-The monthly prices don't include the [costs of a SQL Server database][SQL Server 2019 pricing].
+The profiles don't include the [costs of a SQL Server database][SQL Server 2019 pricing].
 
 To adjust the parameters and explore the cost of running this solution in your environment, use the [Azure pricing calculator][Azure pricing calculator].
 
