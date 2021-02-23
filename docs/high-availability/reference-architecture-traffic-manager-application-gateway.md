@@ -64,8 +64,6 @@ Traffic Manager operates at the DNS layer to quickly and efficiently direct appl
  
 - **Azure Bastion:** [Azure Bastion](/azure/bastion/bastion-overview) provides secure and seamless Remote Desktop Protocol (RDP) and Secure Shell (SSH) access to the VMs within the VNet. This provides access while limiting the exposed public IP addresses of the VMs with the VNet. Azure Bastion provides a cost-effective alternative to a provisioned VM to provide access to all VMs within the same virtual network.
  
-
-
 ## Recommendations
 
 A multi-region architecture can provide higher availability than deploying to a single region. If a regional outage affects the primary region, you can use Traffic Manager to fail over to the secondary region. This architecture can also help if an individual subsystem of the application fails.
@@ -110,7 +108,9 @@ Availability Zones provide high resiliency within a single region. If you need e
 Application Gateway v1 SKU supports high-availability scenarios when you've deployed two or more instances. Azure distributes these instances across update and fault domains to ensure that instances don't all fail at the same time. The v1 SKU supports scalability by adding multiple instances of the same gateway to share the load.
 
 Application Gateway v2 SKU automatically ensures that new instances are spread across fault domains and update domains. If you choose zone redundancy, the newest instances are also spread across availability zones to offer zonal failure resiliency.
+
 ### Health probes
+
 Azure Application Gateway and Azure Load Balancer both use health probes to monitor the availability of VM instances.
 - Application Gateway always uses an HTTP probe.
 - Load Balancer can test either HTTP or TCP. Generally, if a VM runs an HTTP server, use an HTTP probe. Otherwise, use TCP.
@@ -118,8 +118,9 @@ Azure Application Gateway and Azure Load Balancer both use health probes to moni
 If a probe can't reach an instance within a timeout period, the gateway or load balancer stops sending traffic to that VM. The probe continues to check and will return the VM to the back-end pool if the VM becomes available again. HTTP probes send an HTTP GET request to a specified path and listen for an HTTP 200 response. This path can be the root path ("/"), or a health-monitoring endpoint that implements some custom logic to check the health of the application. The endpoint must allow anonymous HTTP requests.
 
 For more information about health probes, see:
-•	[Load Balancer health probes](/load-balancer/load-balancer-custom-probe-overview)
-•	[Application Gateway health monitoring overview](/azure/application-gateway/application-gateway-probe-overview)
+-	[Load Balancer health probes](/load-balancer/load-balancer-custom-probe-overview)
+-	[Application Gateway health monitoring overview](/azure/application-gateway/application-gateway-probe-overview)
+
 For considerations about designing a health probe endpoint, see [Health Endpoint Monitoring pattern](/azure/architecture/patterns/health-endpoint-monitoring).
 
 ## Cost considerations
