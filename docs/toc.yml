@@ -1301,6 +1301,8 @@ items:
             items:
               - name: Basic enterprise integration on Azure
                 href: reference-architectures/enterprise-integration/basic-enterprise-integration.yml
+              - name: Data integration with Logic Apps and SQL Server
+                href: example-scenario/integration/logic-apps-data-integration.yml
               - name: Enterprise business intelligence
                 href: reference-architectures/data/enterprise-bi-synapse.yml
               - name: Enterprise integration using queues and events
