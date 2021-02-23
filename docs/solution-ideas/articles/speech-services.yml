@@ -5,7 +5,7 @@ metadata:
   description: Use Speech services to transcribe calls and then run full-text searches, detect sentiment and language, and create custom language and acoustic models.
   author: doodlemania2
   ms.author: pnp
-  ms.date: 12/16/2019
+  ms.date: 02/23/2021
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: solution-idea
