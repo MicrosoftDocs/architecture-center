@@ -66,7 +66,22 @@ From a service's perspective, symptoms of this problem could include a large num
 
 ## Example diagnosis
 
-(to be confirmed - possibly App Insights dashboards or similar)
+### Client side
+
+Metrics - Dependency failures; split by remote dependency name
+
+![Screenshot of Applicatoin Insights showing 21k dependency failures to a single dependency within a 30-minute period](_images/ClientApplicationInsights.png)
+
+### Server side
+
+```kusto
+AzureDiagnostics
+| where ResourceType == "FRONTDOORS" and Category == "FrontdoorAccessLog"
+| where TimeGenerated > ago(1h)
+| summarize count() by bin(TimeGenerated, 1d), clientIp_s
+```
+
+![Screenshot of Log Analytics showing 81,608 inbound connections to Front Door from a single IP address within a one-hour period](_images/ServerLogAnalytics.png)
 
 ## Related resources
 
