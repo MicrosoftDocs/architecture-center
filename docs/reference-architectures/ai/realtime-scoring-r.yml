@@ -6,11 +6,11 @@ metadata:
   ms.date: 24/02/2021
   ms.topic: conceptual
   ms.service: architecture-center
+  ms.subservice: reference-architecture
   ms.category:
     - ai-machine-learning
     - developer-tools
     - containers
-  ms.subservice: reference-architecture
   ms.custom:
     - azcat-ai
     - reference-architecture

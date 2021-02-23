@@ -6,10 +6,10 @@ author: maggsl
 ms.date: 04/07/2020
 ms.topic: conceptual
 ms.service: architecture-center
+ms.subservice: azure-guide
 ms.category:
   - management-and-governance
   - solutions
-ms.subservice: azure-guide
 ms.custom:
   - high-availability
   - fasttrack-edit

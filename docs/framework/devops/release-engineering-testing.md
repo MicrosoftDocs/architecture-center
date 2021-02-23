@@ -6,7 +6,6 @@ ms.date: 10/21/2019
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
-ms.custom: 
 ---
 
 # Testing your application and Azure environment

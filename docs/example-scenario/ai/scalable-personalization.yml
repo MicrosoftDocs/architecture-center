@@ -5,12 +5,12 @@ metadata:
   author: gramhagen
   ms.author: scgraham
   ms.date: 05/31/2019
-  ms.category:
-    - ai-machine-learning
-    - featured
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: example-scenario
+  ms.category:
+    - ai-machine-learning
+    - featured
   ms.custom:
     - azcat-ai
     - AI

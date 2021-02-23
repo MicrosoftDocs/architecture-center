@@ -53,7 +53,7 @@ Identify your business needs, and build your reliability plan to address them. C
 
     Define your own target SLAs for each workload in your solution, so you can determine whether the architecture meets the business requirements. For example, if a workload requires 99.99 percent uptime but depends on a service with a 99.9 percent SLA, that service can't be a single point of failure in the system.
 
-For more information about developing requirements for reliable applications, see [Application design for resiliency](/azure/architecture/framework/resiliency/design-apps.md).
+For more information about developing requirements for reliable applications, see [Application design for resiliency](/azure/architecture/framework/scalability/design-apps).
 
 ## Use architectural best practices
 
@@ -64,7 +64,7 @@ During the architectural phase, focus on implementing practices that meet your b
 - **Design for scalability.** A cloud application must be able to scale to accommodate changes in usage. Begin with discrete components, and design the application to respond automatically to load changes whenever possible. Keep scaling limits in mind during design so you can expand easily in the future.
 - **Plan for subscription and service requirements.** You might need additional subscriptions to provision enough resources to meet your business requirements for storage, connections, throughput, and more.
 - **Use load-balancing to distribute requests.** Load-balancing distributes your application's requests to healthy service instances by removing unhealthy instances from rotation.
-- **Implement resiliency strategies.** *Resiliency* is the ability of a system to recover from failures and continue to function. Implement [resiliency design patterns](/azure/architecture/framework/resiliency/resiliency-patterns.md), such as isolating critical resources, using compensating transactions, and performing asynchronous operations whenever possible.
+- **Implement resiliency strategies.** *Resiliency* is the ability of a system to recover from failures and continue to function. Implement [resiliency design patterns](https://github.com/MicrosoftDocs/architecture-center/blob/live/docs/patterns/category/resiliency.md), such as isolating critical resources, using compensating transactions, and performing asynchronous operations whenever possible.
 - **Build availability requirements into your design.** *Availability* is the proportion of time your system is functional and working. Take steps to ensure that application availability conforms to your service-level agreement. For example, avoid single points of failure, decompose workloads by service-level objective, and throttle high-volume users.
 - **Manage your data.** How you store, back up, and replicate data is critical.
 

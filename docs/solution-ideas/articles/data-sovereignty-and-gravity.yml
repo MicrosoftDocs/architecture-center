@@ -2,25 +2,38 @@
 metadata:
   title: Custom Data Sovereignty & Data Gravity Requirements
   titleSuffix: Azure Solution Ideas
+  description: Learn how to set custom data sovereignty and data gravity requirements in the cloud with Azure Stack.
   author: doodlemania2
+  ms.author: pnp
   ms.date: 12/16/2019
-  description: Learn how to set custom data sovereignty and data gravity requirements in the cloud with Azure Stack. Find a step-by-step flow chart to implement this solution.
-  ms.custom: 'acom-architecture, cloud data sovereignty, data gravity cloud, azure data sovereignty, data gravity, data sovereignty, data sovereignty requirements, interactive-diagram, ''https://azure.microsoft.com/solutions/architecture/data-sovereignty-and-gravity/'''
+  ms.topic: conceptual
   ms.service: architecture-center
+  ms.subservice: solution-idea
   ms.category:
     - management-and-governance
     - databases
-  ms.subservice: solution-idea
+  ms.custom:
+    - acom-architecture
+    - cloud data sovereignty
+    - data gravity cloud
+    - azure data sovereignty
+    - data gravity
+    - data sovereignty
+    - data sovereignty requirements
+    - interactive-diagram
+    - 'https://azure.microsoft.com/solutions/architecture/data-sovereignty-and-gravity/'
   social_image_url: /azure/architecture/solution-ideas/articles/media/data-sovereignty-and-gravity.png
 name: Custom Data Sovereignty & Data Gravity Requirements
 azureCategories:
   - management-and-governance
   - databases
-summary: Learn how to set custom data sovereignty and data gravity requirements in the cloud with Azure Stack. Find a step-by-step flow chart to implement this solution.
+summary: Learn how to set custom data sovereignty and data gravity requirements in the cloud with Azure Stack.
 products:
-  - azure
   - azure-functions
+  - azure-sql-database
   - azure-stack
+  - azure-virtual-network
+  - azure-vpn-gateway
 thumbnailUrl: /azure/architecture/browse/thumbs/data-sovereignty-and-gravity.png
 content: |
    [!include[](data-sovereignty-and-gravity-content.md)]

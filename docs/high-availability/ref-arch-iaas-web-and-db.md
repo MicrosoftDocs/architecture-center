@@ -5,9 +5,12 @@ author: maggsl
 ms.date: 06/16/2020
 ms.topic: conceptual
 ms.service: architecture-center
+ms.subservice: reference-architecture
 ms.category:
   - solutions
-ms.subservice: reference-architecture
+products:
+  - azure-load-balancer
+  - azure-application-gateway
 ms.custom:
   - high-availability
   - fcp
@@ -126,12 +129,9 @@ Availability Zones provide high resilience within a single region. If you need e
 
 Not all regions support Availability Zones, and not all VM sizes are supported in all zones. Run the following Azure CLI command to find the supported zones for each VM size within a region:
 
-~~~bash
-az vm list-skus --resource-type virtualMachines --zone false --location
-\<location\> \\
-
-\--query "[].{Name:name, Zones:locationInfo[].zones[] \| join(','\@)}" -o tabl
-~~~
+```azurecli
+az vm list-skus --resource-type virtualMachines --zone false --location eastus -o table
+```
 
 Virtual machine scale sets automatically use placement groups, which act as an implicit availability set. For more information about placement groups, see [Working with large virtual machine scale sets](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups).
 

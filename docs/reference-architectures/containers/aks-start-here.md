@@ -3,9 +3,13 @@ title: Azure Kubernetes Service (AKS) solution journey
 titleSuffix: Azure Architecture Center
 description: An overview of Microsoft''s Azure Kubernetes Service (AKS) guidance offerings ranging from "just starting out", to production, and through sustained operations.
 author: ckittel
+ms.author: pnp
 ms.date: 09/10/2020
 ms.topic: conceptual
 ms.service: architecture-center
+ms.subservice: reference-architecture
+products:
+  - azure-kubernetes-service
 ms.custom:
   - overview
 ---

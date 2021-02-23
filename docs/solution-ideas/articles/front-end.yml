@@ -2,26 +2,27 @@
 metadata:
   title: Web and Mobile Front Ends
   titleSuffix: Azure Solution Ideas
+  description: Accelerate development with a visual designer. Use Azure Functions for low-latency processing and Azure Power Apps and Power Automate for out-of-box connectors.
   author: doodlemania2
+  ms.author: pnp
   ms.date: 08/24/2020
-  description: This example scenario demonstrates how you can accelerate frontend and business process development with drag and drop visual designer.
+  ms.topic: conceptual
   ms.service: architecture-center
+  ms.subservice: solution-idea
   ms.category:
     - mobile
     - web
     - front
-  ms.subservice: solution-idea
 name: Web and Mobile Front Ends
 azureCategories:
   - mobile
   - web
-summary: This example scenario demonstrates how you can accelerate frontend and business process development with drag and drop visual designer.
+summary: Accelerate development with a visual designer. Use Azure Functions for low-latency processing and Azure Power Apps and Power Automate for out-of-box connectors.
 products:
-  - azure
   - azure-functions
+  - azure-table-storage
   - power-apps
   - power-automate
-  - power-apps
 thumbnailUrl: /azure/architecture/browse/thumbs/front-end.png
 content: |
    [!include[](front-end-content.md)]
