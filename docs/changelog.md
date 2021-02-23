@@ -2,7 +2,7 @@
 title: What's New in Azure Architecture Center
 description: New and updated articles in Azure Architecture Center
 author: doodlemania2
-ms.date: 02/22/2021
+ms.date: 02/23/2021
 ms.topic: article
 ms.service: architecture-center
 ---
@@ -10,6 +10,9 @@ ms.service: architecture-center
 
 # What's new in Azure Architecture Center [![Download Feed](data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABmJLR0QA/wD/AP+gvaeTAAACw0lEQVQ4jW2STWhcVRTHf+d+vM5MQ5vUvAG1naSNikI1UKuVVNGFolDduDBdtI0IhQa6KNoiQnGhLvwAtxJXEVRQIhSpoksXgpDG1H4tWrGW0DZMkxnRdCZv3rv3uJg0GOLhXs5d3N/h/z/nCMC5I4Ov9qXph0ZMvzGIGEGMIAJigNW3oKh22sVC40b9xM5P/vxMLowPjlXvrU1mi02sE4w3WC8Yt/6KFYztFu+EMtdmr47J3MnddVpZuqE6wMYnR9GlOmH+InH+PMbq/8JiIHSURl3rziW+X7MOti+lsvcAd0JbTfJzUxS/fYHE5XVwyCJJ2acGEOMNsrxIdv47irlZiAVS6SN54jDlg1O4bY+ug4ssogGR+fdG1ObtNV7txk34nfvwj72GlHohFoSfPyC/eHoVDlkkNyWMGDBOSGqPsOnIKSovf4y//2nCpW/Iv95PvPkrGIfd+yZUd63CRRZBwYisNMk7TO9W3I6nSJ59m9Lol0hPSvjxGPH6GTCODS+8S6RMkUVirsSoGFYU0LhCduooxcwkZP8gvQP4lz4lVmosn34Lvd1AKltI9owRcyXkikYwIt0Com3izTOEmQnyqf3orUvgy/jn3ydfuk3rpwkAKntGidESOhGi/seCFfzwK/hnTiJJmc73b6CtJmbzVtyDL9Ka/hbNM6TUgxvcTcwVVboWxAo2HcKNvI55YB+ya5zirwbZzFcA+IeeI7TaZL9PA5DUhomFol0FqLECy03oLAEQF69RZJHOlV8AcNUhQq7kt+YAsJurxEJBReX6O4/X+++2qRiI/i60fA/ZH7OELBC0hB8aIRawNP0DrnofNt1OvjBP+/JZkm09dbkwPjg2MLxj0mlrzZLcGVXIldBZGVuhK9KhUttCs3HjkACcPbz9YLWWfuScrRKRGLqfNK7NqHaP1/rfC4vHH564+vm/Fu5mkriuRlEAAAAASUVORK5CYII=)](/azure/architecture/feed.atom)
 
+The Azure Architecture Center (AAC) helps you design, build, and operate solutions on Azure. Learn about the cloud architectural styles and design patterns. Use the technology choices and guides to decide the services that are right for your solution. The guidance is based on all aspects of building for the cloud, such as operations, security, reliability, performance, and cost optimization.
+
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RWxOYN]
 
 <link rel="alternate" type="application/atom+xml"
   title="New and updated articles in Azure Architecture Center"
