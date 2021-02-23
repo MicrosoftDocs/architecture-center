@@ -176,7 +176,9 @@ In general, the [considerations that apply to the single-region version][Conside
 
 ### Availability considerations
 
-This solution deploys additional private endpoints in the remote regions. As a result, this solution overcomes the [global peering limitation][Global peering limitation] that applies to the single-region version. This approach also achieves a higher availability than a single-region deployment does.
+- This solution deploys additional private endpoints in the remote regions. As a result, this solution overcomes the [global peering limitation][Global peering limitation] that applies to the single-region version. This approach also achieves a higher availability than a single-region deployment does.
+
+- From the point of view of the web app, you can use this architecture in either an active-passive configuration or an active-active configuration. With an active-active approach, Traffic Manager routes traffic to both regions simultaneously.
 
 ### Performance considerations
 
@@ -248,6 +250,8 @@ At this point:
 
 - [App Service networking features overview][App Service networking features]: Information on inbound and outbound App Service scenarios and a discussion of which features to use in which cases.
 
+- [Multi-region N-tier application][Multi-region N-tier application]: An architecture that's similar to this one but doesn't provide private connectivity to the SQL instances.
+
 [Alternatives to the single-region version]: /azure/architecture/example-scenario/private-web-app/private-web-app#alternatives
 [App Service networking features]: /azure/app-service/networking-features
 [Azure App Service]: /azure/app-service/
@@ -273,6 +277,7 @@ At this point:
 [Highly available multi-region web application]: /azure/architecture/reference-architectures/app-service-web-app/multi-region
 [How to set up Private Link for Azure SQL Database]: /azure/azure-sql/database/private-endpoint-overview#how-to-set-up-private-link-for-azure-sql-database
 [Integrate your app with an Azure virtual network]: /azure/app-service/web-sites-integrate-with-vnet
+[Multi-region N-tier application]: /azure/architecture/reference-architectures/n-tier/multi-region-sql-server
 [Overview of business continuity with Azure SQL Database]: /azure/azure-sql/database/business-continuity-high-availability-disaster-recover-hadr-overview
 [Private link resource]: /azure/private-link/private-endpoint-overview#private-link-resource
 [Regional VNet Integration]: /azure/app-service/web-sites-integrate-with-vnet#regional-vnet-integration
