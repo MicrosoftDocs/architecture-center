@@ -85,15 +85,20 @@ To adjust the parameters and explore the cost of running this solution in your e
 
 ## Next steps
 
-- [Import a Logic App as an API][Import a Logic App as an API].
-- [Install an on-premises data gateway for Azure Logic Apps][Install on-premises data gateway for Azure Logic Apps].
-- [Connect to on-premises data sources from Azure Logic Apps][Connect to on-premises data sources from Azure Logic Apps].
+- [Import a Logic App as an API][Import a Logic App as an API]
+- [Install an on-premises data gateway for Azure Logic Apps][Install on-premises data gateway for Azure Logic Apps]
+- [Connect to on-premises data sources from Azure Logic Apps][Connect to on-premises data sources from Azure Logic Apps]
 
 ## Related resources
 
-- [Azure Serverless: Overview for building cloud-based apps and solutions with Azure Logic Apps and Azure Functions][Azure Serverless: Overview for building cloud-based apps and solutions with Azure Logic Apps and Azure Functions].
-- [Automate workflows for a SQL database by using Azure Logic Apps][Automate workflows for a SQL database by using Azure Logic Apps].
-- [On-premises data gateway documentation][On-premises data gateways documentation].
+- [Azure Serverless: Overview for building cloud-based apps and solutions with Azure Logic Apps and Azure Functions][Azure Serverless: Overview for building cloud-based apps and solutions with Azure Logic Apps and Azure Functions]
+- [Automate workflows for a SQL database by using Azure Logic Apps][Automate workflows for a SQL database by using Azure Logic Apps]
+- [On-premises data gateway documentation][On-premises data gateways documentation]
+- Similar architectures:
+
+  - [On-premises data gateway for Azure Logic Apps][On-premises data gateway for Azure Logic Apps]: A logic app triggered by Azure Spring Cloud that connects to an on-premises SQL Server instance.
+  - [Enterprise integration using queues and events][Enterprise integration using queues and events]: Logic apps that respond to API calls by integrating backend systems.
+  - [Serverless web application][Serverless web application]: A serverless web app that uses Azure Functions to read database data.
 
 [Automate workflows for a SQL database by using Azure Logic Apps]: /azure/connectors/connectors-create-api-sqlazure
 [Azure API Management]: /azure/api-management/api-management-key-concepts
@@ -106,6 +111,7 @@ To adjust the parameters and explore the cost of running this solution in your e
 [Azure SQL Managed Instance]: /azure/azure-sql/managed-instance/sql-managed-instance-paas-overview
 [Compare Azure Functions and Azure Logic Apps]: /azure/azure-functions/functions-compare-logic-apps-ms-flow-webjobs#compare-azure-functions-and-azure-logic-apps
 [Connect to on-premises data sources from Azure Logic Apps]: /azure/logic-apps/logic-apps-gateway-connection
+[Enterprise integration using queues and events]: /azure/architecture/reference-architectures/enterprise-integration/queues-events
 [Import a Logic App as an API]: /azure/api-management/import-logic-app-as-api
 [Install a gateway cluster]: /data-integration/gateway/service-gateway-install#add-another-gateway-to-create-a-cluster
 [Install on-premises data gateway for Azure Logic Apps]: /azure/logic-apps/logic-apps-gateway-install
@@ -115,6 +121,8 @@ To adjust the parameters and explore the cost of running this solution in your e
 [Monthly cost profile - standard]: https://azure.com/e/afa93fbed30749cab64db4d2779837ee
 [On-premises data gateway]: /data-integration/gateway/service-gateway-onprem
 [On-premises data gateways documentation]: /data-integration/gateway/
+[On-premises data gateway for Azure Logic Apps]: /azure/architecture/hybrid/gateway-logic-apps
 [Restrict inbound IP addresses]: /azure/logic-apps/logic-apps-securing-a-logic-app#restrict-inbound-ip-addresses
+[Serverless web application]: /azure/architecture/reference-architectures/serverless/web-app
 [SQL Server 2019 pricing]: https://www.microsoft.com/sql-server/sql-server-2019-pricing
 [SQL Server]: /sql/?view=sql-server-ver15
