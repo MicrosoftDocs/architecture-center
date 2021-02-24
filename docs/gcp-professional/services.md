@@ -1,13 +1,16 @@
 ---
 title: GCP to Azure Services Comparison
 description: Understand the differences between specific GCP and Azure services.
-keywords: GCP experts, Azure comparison, GCP comparison, difference between Azure and GCP, Azure and GCP
 author: doodlemania2
 ms.date: 03/15/2020
 ms.topic: reference
 ms.service: architecture-center
 ms.subservice: cloud-fundamentals
-ms.custom: fcp
+products:
+  - azure-machine-learning
+ms.custom:
+  - fcp
+keywords: GCP experts, Azure comparison, GCP comparison, difference between Azure and GCP, Azure and GCP
 ---
 
 # GCP to Azure services comparison

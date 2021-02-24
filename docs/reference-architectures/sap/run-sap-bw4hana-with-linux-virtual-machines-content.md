@@ -51,7 +51,7 @@ This architecture makes use of the following components:
 
 - [Azure Managed Disks.](/azure/virtual-machines/windows/managed-disks-overview) Premium or Ultra storage disks are recommended. These storage types provide data persistence for virtual machines with the SAP workload.
 
-- [Azure NetApp Files](/azure/virtual-machines/workloads/sap/high-availability-guide-suse-netapp-files) supports shared storage when using a cluster or when you need high-performance storage capable of hosting SAP HANA data and log files.
+- [Azure NetApp Files](/azure/virtual-machines/workloads/sap/high-availability-guide-suse-netapp-files) supports shared storage when using a cluster or when you need high-performance storage capable of hosting SAP HANA data and log files. Its a fully managed and scalable enough to meet the demands of most applications. It gives bare-metal performance, sub-millisecond latency, and integrated data management for your complex enterprise workloads on SAP HANA, high-performance computing, LOB applications, high-performance file shares, and virtual desktop infrastructure.
 
 - [Power BI](/power-bi/fundamentals/power-bi-overview) enables users to access and visualize SAP BW/4HANA data from their Windows desktop. Note that installation requires the [SAP BW Connector](/power-bi/desktop-sap-bw-connector) (implementation 2.0).
 
@@ -179,6 +179,12 @@ As a software load balancer, Web Dispatcher offers application layer services (r
 For traffic from SAP GUI clients connecting an SAP server via DIAG protocol or Remote Function Calls (RFC), the Central Services message server balances the load through SAP application server [logon groups](https://wiki.scn.sap.com/wiki/display/SI/ABAP+Logon+Group+based+Load+Balancing).
 No additional load balancer is needed.
 
+The Web Dispatcher component is used as a load balancer for SAP traffic among the SAP application servers. To achieve [high availability of the SAP Web Dispatcher](https://help.sap.com/doc/saphelp_nw73ehp1/7.31.19/en-US/48/9a9a6b48c673e8e10000000a42189b/frameset.htm), Azure Load Balancer implements either the failover cluster or the parallel Web Dispatcher setup.
+
+For internet facing communications a stand-alone solution in DMZ would be the recommended architecture to satisfy security concerns.
+
+[Embedded Web Dispatcher](https://help.sap.com/viewer/00b4e4853ef3494da20ebcaceb181d5e/LATEST/en-US/2e708e2d42134b4baabdfeae953b24c5.html) on ASCS is a special option, and proper sizing due to additional workload on ASCS should be taken into account.
+
 ### Central Services
 
 To protect the [availability of SAP Central Services](/azure/virtual-machines/workloads/sap/sap-planning-supported-configurations#high-availability-for-sap-central-service) (ASCS) on Azure Linux virtual machines, you must use the appropriate high availability extension (HAE) for your selected Linux distribution. HAE delivers Linux clustering software and OS-specific integration components for implementation.
@@ -200,6 +206,14 @@ depending on your requirements. SAP application servers do not contain business 
 To maximize the availability and performance of applications and services, use [Azure Monitor](/azure/azure-monitor/overview), a comprehensive solution for collecting, analyzing, and acting on telemetry from your cloud and on-premises environments.
 
 To provide SAP-based monitoring of resources and service performance of the SAP infrastructure, use the [Azure SAP Enhanced Monitoring](/azure/virtual-machines/workloads/sap/deployment-guide#d98edcd3-f2a1-49f7-b26a-07448ceb60ca) extension. For details, see [SAP Note 2191498](https://launchpad.support.sap.com/#/notes/2191498), “SAP on Linux with Azure: Enhanced Monitoring.”
+
+[Azure Monitor](/azure/azure-monitor/overview), which now includes Azure Log Analytics and Azure Application Insights, provides sophisticated tools for collecting and analyzing telemetry so you can maximize the performance and availability of your cloud and on-premises resources and applications. Azure Monitor can be used to monitor and alert administrators of infrastructure and application anomalies and to automate reactions to predefined conditions.
+ 
+To provide SAP-based monitoring of resources and service performance of the SAP infrastructure, use the [Azure SAP Enhanced Monitoring](/azure/virtual-machines/workloads/sap/deployment-guide) extension. This extension feeds Azure monitoring statistics into the SAP application for operating system monitoring and DBA Cockpit functions. SAP enhanced monitoring is a mandatory prerequisite to run SAP on Azure. For details, see [SAP note 2191498](https://launchpad.support.sap.com/#/notes/2191498) – "SAP on Linux with Azure: Enhanced Monitoring." (To access the SAP notes, you must have an SA Service Marketplace account.)
+ 
+The future direction for an Azure-native, end-to-end monitoring solution for SAP BW/4HANA is [Azure Monitor for SAP](/azure/virtual-machines/workloads/sap/azure-monitor-overview). Note that this is currently inPublic Preview and is only available in a limited set of regions, so you should carefully evaluate if it meets your requirements.
+ 
+Azure Monitor for SAP provides a comprehensive initial set of metrics and telemetry for monitoring, and the metric definitions are stored as SQL queries in JSON and can be modified to meet your requirements. The starting set of metrics is available on GitHub [here](https://github.com/Azure/AzureMonitorForSAPSolutions/blob/master/sapmon/content/SapHana.json).
 
 ## Backup
 

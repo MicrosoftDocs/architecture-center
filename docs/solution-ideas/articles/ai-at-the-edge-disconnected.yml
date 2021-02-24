@@ -2,19 +2,30 @@
 metadata:
   title: AI at the Edge with Azure Stack Hub - disconnected
   titleSuffix: Azure Solution Ideas
-  author: doodlemania2
-  ms.date: 09/01/2020
   description: This workflow will help you harness the power of edge AI when disconnected from the internet and move your AI models to the edge with a solution architecture that includes Azure Stack.
-  ms.custom: 'acom-architecture, ai at the edge, azure stack edge, edge ai, offline machine learning, interactive-diagram, ''https://azure.microsoft.com/solutions/architecture/ai-at-the-edge-disconnected/'''
+  author: doodlemania2
+  ms.author: pnp
+  ms.date: 09/01/2020
+  ms.topic: conceptual
   ms.service: architecture-center
+  ms.subservice: solution-idea
   ms.category:
     - ai-machine-learning
     - hybrid
-  ms.subservice: solution-idea
+  ms.custom:
+    - acom-architecture
+    - ai at the edge
+    - azure stack edge
+    - edge ai
+    - offline machine learning
+    - interactive-diagram
+    - e2e-hybrid
+    - 'https://azure.microsoft.com/solutions/architecture/ai-at-the-edge-disconnected/'
   social_image_url: /azure/architecture/solution-ideas/articles/media/ai-at-the-edge-disconnected.png
 name: AI at the Edge with Azure Stack Hub - disconnected
 azureCategories:
   - ai-machine-learning
+  - hybrid
 summary: This workflow will help you harness the power of edge AI when disconnected from the internet and move your AI models to the edge with a solution architecture that includes Azure Stack.
 products:
   - azure-hdinsight

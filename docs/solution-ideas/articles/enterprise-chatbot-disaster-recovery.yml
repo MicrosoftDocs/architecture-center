@@ -2,27 +2,28 @@
 metadata:
   title: Enterprise chatbot disaster recovery
   titleSuffix: Azure Solution Ideas
+  description: Set up disaster recovery and high availability for Azure services in an enterprise-grade conversational bot (chatbot).
   author: sowmyans
+  ms.author: pnp
   ms.date: 06/22/2020
-  description: Learn how to set up disaster recovery and high availability for Azure services in an enterprise-grade conversational bot.
-  ms.custom:
-    - fcp
+  ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: solution-idea
   ms.category:
     - ai-machine-learning
     - management-and-governance
+  ms.custom:
+    - fcp
 name: Enterprise chatbot disaster recovery
 azureCategories:
   - ai-machine-learning
   - management-and-governance
-summary: Learn how to set up disaster recovery and high availability for Azure services in an enterprise-grade conversational bot.
+summary: Set up disaster recovery and high availability for Azure services in an enterprise-grade conversational bot (chatbot).
 products:
-  - azure
-  - azure-search
-  - azure-storage
-  - github
-  - vs
+  - azure-bot-service
+  - azure-front-door
+  - azure-monitor
+  - azure-traffic-manager
 thumbnailUrl: /azure/architecture/browse/thumbs/chatbot-dr.png
 content: |
    [!include[](enterprise-chatbot-disaster-recovery-content.md)]

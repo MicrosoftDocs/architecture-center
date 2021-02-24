@@ -2,15 +2,23 @@
 metadata:
   title: Instant Broadcasting on Serverless Architecture
   titleSuffix: Azure Solution Ideas
-  author: doodlemania2
-  ms.date: 12/16/2019
   description: Simplify one-to-many real-time communication and updates by using SignalR Service and the serverless code of Azure Functions.
-  ms.custom: 'acom-architecture, serverless, signalr service, media, interactive-diagram, ''https://azure.microsoft.com/solutions/architecture/instant-broadcasting-on-serverless-architecture/'''
+  author: doodlemania2
+  ms.author: pnp
+  ms.date: 12/16/2019
+  ms.topic: conceptual
   ms.service: architecture-center
+  ms.subservice: solution-idea
   ms.category:
     - media
     - developer-tools
-  ms.subservice: solution-idea
+  ms.custom:
+    - acom-architecture
+    - serverless
+    - signalr service
+    - media
+    - interactive-diagram
+    - 'https://azure.microsoft.com/solutions/architecture/instant-broadcasting-on-serverless-architecture/'
   social_image_url: /azure/architecture/solution-ideas/articles/media/instant-broadcasting-on-serverless-architecture.png
 name: Instant Broadcasting on Serverless Architecture
 azureCategories:

@@ -4,17 +4,18 @@ metadata:
   titleSuffix: Azure Reference Architectures
   description: Implement a highly available and secure site-to-site network architecture that spans an Azure virtual network and an on-premises network connected using ExpressRoute with VPN gateway failover.
   author: telmosampaio
+  ms.author: pnp
   ms.date: 10/22/2017
   ms.topic: conceptual
   ms.service: architecture-center
+  ms.subservice: reference-architecture
   ms.category:
     - hybrid
     - networking
-  ms.subservice: reference-architecture
   ms.custom:
-    - seodec18
     - networking
     - reference-architecture
+    - e2e-hybrid
 name: Connect an on-premises network to Azure using ExpressRoute
 azureCategories:
   - hybrid

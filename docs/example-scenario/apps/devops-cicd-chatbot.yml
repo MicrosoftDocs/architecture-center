@@ -7,15 +7,15 @@ metadata:
   ms.date: 03/25/2020
   ms.topic: conceptual
   ms.service: architecture-center
+  ms.subservice: example-scenario
+  ms.category:
+    - devops
+    - ai-machine-learning
   ms.custom:
     - fasttrack
     - fcp
     - example-scenario
-  ms.category:
-    - devops
-    - ai-machine-learning
   social_image_url: /azure/architecture/example-scenario/apps/media/deployment-flow.png
-  ms.subservice: example-scenario
 name: Build a CI/CD pipeline for chatbots with ARM templates
 azureCategories:
   - devops
