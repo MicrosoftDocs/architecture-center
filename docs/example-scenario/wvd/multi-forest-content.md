@@ -15,7 +15,7 @@ The following are some relevant use cases for this architecture:
 
 ## Architecture
 
-![WVD Multiple AD Forests architecture diagram](images/two-forest-hybrid.png)
+![WVD Multiple AD Forests architecture diagram](images/vwd-multi-forest.png)
 *Download a [Visio file][visio-download] of this architecture*
 
 ## Scenario
