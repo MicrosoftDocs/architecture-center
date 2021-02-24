@@ -2,8 +2,8 @@
 metadata:
   title: Optimize Marketing with Machine Learning
   titleSuffix: Azure Solution Ideas
-  author: doodlemania2
-  ms.date: 12/16/2019
+  author: nfmoore
+  ms.date: 02/24/2021
   description: Build a machine-learning model with SQL Server 2016 with R Services that optimizes big data marketing campaigns.
   ms.custom: 'acom-architecture, machine learning r, ai-ml, machine learning in marketing, machine learning marketing, ''https://azure.microsoft.com/solutions/architecture/optimize-marketing-with-machine-learning/'''
   ms.service: architecture-center
