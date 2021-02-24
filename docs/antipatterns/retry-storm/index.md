@@ -27,10 +27,10 @@ public async Task<string> GetDataFromServer()
     while(true)
     {
         var result = await httpClient.GetAsync(string.Format("http://{0}:8080/api/...", hostName));
-        if (! result.IsSuccessStatusCode) continue;
-
-        // ... Process result.
+        if (result.IsSuccessStatusCode) break;
     }
+
+    // ... Process result.
 }
 ```
 
