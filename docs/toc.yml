@@ -929,6 +929,8 @@ items:
                     href: databricks-monitoring/dashboards.md
                   - name: Troubleshoot performance bottlenecks
                     href: databricks-monitoring/performance-troubleshooting.md
+                  - name: Observability patterns and metrics for performance tuning
+                    href: databricks-monitoring/databricks-observability.yml
               - name: Transfer data to and from Azure
                 href: data-guide/scenarios/data-transfer.md
               - name: Extend on-premises data solutions to Azure
@@ -1299,6 +1301,8 @@ items:
             items:
               - name: Basic enterprise integration on Azure
                 href: reference-architectures/enterprise-integration/basic-enterprise-integration.yml
+              - name: Data integration with Logic Apps and SQL Server
+                href: example-scenario/integration/logic-apps-data-integration.yml
               - name: Enterprise business intelligence
                 href: reference-architectures/data/enterprise-bi-synapse.yml
               - name: Enterprise integration using queues and events

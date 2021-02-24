@@ -11,6 +11,7 @@ ms.category:
   - developer-tools
 products:
   - azure-application-gateway
+  - azure-api-management
 ms.custom:
   - microservices
   - guide
