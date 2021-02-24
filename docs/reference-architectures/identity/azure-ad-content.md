@@ -186,7 +186,7 @@ For more information and tips for managing Azure AD Connect, see [Azure AD Conne
 
 Use conditional access control to deny authentication requests from unexpected sources:
 
-- Trigger [Azure Multi-Factor Authentication (MFA)][azure-multifactor-authentication] if a user attempts to connect from a untrusted location such as across the Internet instead of a trusted network.
+- Trigger [Azure Active Directory Multi-Factor Authentication (MFA)][azure-multifactor-authentication] if a user attempts to connect from a untrusted location such as across the Internet instead of a trusted network.
 
 - Use the device platform type of the user (iOS, Android, Windows Mobile, Windows) to determine access policy to applications and features.
 
