@@ -35,14 +35,14 @@ To achieve continuous integration, use software solutions to manage, integrate, 
 
 A continuous integration pipeline involves a piece of software, in many cases, cloud-hosted, that provides a platform for running automated tests, compliance scans, reporting, and all additional components that make up the continuous integration process. In most cases, the pipeline software is attached to source control such that when pull requests are created or software is merged into a specific branch, and the continuous integration pipeline is run. Source control integration also provides the opportunity for providing CI feedback directly on the pull request.
 
-Many solutions provide continuous integration pipeline capabilities. This article touches on both Azure DevOps Pipelines and GitHub actions and provides links to find more information.
+Many solutions provide continuous integration pipeline capabilities. This article touches on both Azure Pipelines and GitHub actions and provides links to find more information.
 
 **Learn more**
 
 To learn how to create a continuous integration pipeline, see these articles:
 
 - [Azure DevOps: Create your first pipeline](/azure/devops/pipelines/create-first-pipeline?preserve-view=true&view=azure-devops)
-- [GitHub Actions: Setting up continuous integration using workflow tempaltes](https://docs.github.com/en/free-pro-team@latest/actions/guides/setting-up-continuous-integration-using-workflow-templates)
+- [GitHub Actions: Setting up continuous integration using workflow templates](https://docs.github.com/en/free-pro-team@latest/actions/guides/setting-up-continuous-integration-using-workflow-templates)
 
 ### Source Control Integration
 
