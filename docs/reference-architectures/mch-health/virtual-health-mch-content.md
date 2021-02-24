@@ -41,7 +41,7 @@ The following recommendations apply for most scenarios. Follow these recommendat
 
 _Recommendations for deploying or configuring components of this architecture._
 
-_This section is followed by considerations that are loosely based on the [Well Architected Framework pillars](https://docs.microsoft.com/azure/architecture/framework/). Not all considerations will apply to every architecture, as there are trade-offs._
+_This section is followed by considerations that are loosely based on the [Well Architected Framework pillars](https://docs.microsoft.com/en-us/azure/architecture/framework/). Not all considerations will apply to every architecture, as there are trade-offs._
 
 ## Security considerations
 
