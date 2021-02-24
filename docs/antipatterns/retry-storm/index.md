@@ -54,8 +54,8 @@ Services can also protect themselves against retry storms.
 
 ## Considerations
 
-- Clients should consider the type of error returned. If you get a 4xx-class HTTP error, retrying is generally not going to help.
-- Consider the length of time that makes sense for your application to re-attempt connections.
+- Clients should consider the type of error returned. Some error types do not indicate a failure of the service, but instead indicate that the client sent an invalid request. For example, if a client application receives a `400 Bad Request` error response, retrying the same request is generally not going to help.
+- Clients should consider the length of time that makes sense to re-attempt connections. This will be driven by your business requirements and whether you can reasonably propagate an error back to a user or caller. In most applications, retrying for a few seconds or minutes is sufficient.
 
 ## How to detect the problem
 
@@ -65,20 +65,31 @@ From a service's perspective, symptoms of this problem could include a large num
 
 ## Example diagnosis
 
-### Client side
+The following sections illustrate one approach to detecting a potential retry storm, but on the client side and the service side.
 
-Metrics - Dependency failures; split by remote dependency name
+### Identifying from client telemetry
+
+[Azure Application Insights](/azure/azure-monitor/app/app-insights-overview) records telemetry from applications and makes this available for querying and visualization. Outbound connections are tracked as dependencies, and these can be accessed and charted to identify when a client is making a large number of outbound requests to the same service. In many cases this indicates the client is retrying too frequently.
+
+The following graph was obtained by using the Metrics tab within the Application Insights portal, and displaying the _Dependency failures_ metric split by _Remote dependency name_. This illustrates a scenario where there were a large number (over 21,000) of failed connection attempts to a dependency within a short time.
 
 ![Screenshot of Applicatoin Insights showing 21k dependency failures to a single dependency within a 30-minute period](_images/ClientApplicationInsights.png)
 
-### Server side
+### Identifying from server telemetry
+
+Server applications may also be able to detect large numbers of connections from a single client. In the following example, Azure Front Door acts as a gateway for an application, and [has been configured to log](/azure/frontdoor/front-door-diagnostics#diagnostic-logging) all requests to a Log Analytics workspace.
+
+The following Kusto query can be executed against Log Analytics to identify client IP addresses that have sent large numbers of requests to the application within the last day.
 
 ```kusto
 AzureDiagnostics
 | where ResourceType == "FRONTDOORS" and Category == "FrontdoorAccessLog"
-| where TimeGenerated > ago(1h)
-| summarize count() by bin(TimeGenerated, 1d), clientIp_s
+| where TimeGenerated > ago(1d)
+| summarize count() by bin(TimeGenerated, 1h), clientIp_s
+| order by count_ desc
 ```
+
+Executing this query during a retry storm shows a large number of connection attempts from a single IP address.
 
 ![Screenshot of Log Analytics showing 81,608 inbound connections to Front Door from a single IP address within a one-hour period](_images/ServerLogAnalytics.png)
 
