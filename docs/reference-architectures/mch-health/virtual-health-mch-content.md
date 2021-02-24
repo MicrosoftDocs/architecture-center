@@ -1,3 +1,5 @@
+## Architecture
+
 Improving clinical and operational insights in healthcare is extremely important in the virtual world. This includes connecting data from across systems, creating insights to predict risk and help improve patient care, quality assurance, and operational efficiencies. 
 
 ![alt text](./images/virtual-health-solutions.png)
