@@ -84,6 +84,10 @@ The following image shows the test results as seen in the Azure DevOps portal.
 
 ![Image of Azure DevOps pipeline tests in the Azure DevOps portal.](../_images/devops/ado-tests.png)
 
+#### Failed tests
+
+Failed tests should temporarily block a deployment and lead to a deeper analysis of what has happened and to either a refinement of the test or an improvement of the change that caused the test to fail.
+
 #### CI Result Badges
 
 Many developers like to show that they're keeping their code quality high by displaying a status badge in their repo. The following image shows an Azure Pipelines badge as displayed on the Readme file for an open-source project on GitHub.
