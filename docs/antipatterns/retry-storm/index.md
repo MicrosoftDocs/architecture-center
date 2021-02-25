@@ -1,7 +1,7 @@
 ---
 title: Retry Storm antipattern
 titleSuffix: Performance antipatterns for cloud apps
-description: Avoid retrying failed requests to a server too often.
+description: Avoid retrying failed requests to a service too often.
 author: johndowns
 ms.date: 02/23/2021
 ms.topic: conceptual
@@ -54,14 +54,14 @@ Services should also protect themselves against retry storms.
 
 ## Considerations
 
-- Clients should consider the type of error returned. Some error types don't indicate a failure of the service, but instead indicate that the client sent an invalid request. For example, if a client application receives a `400 Bad Request` error response, retrying the same request is generally not going to help.
+- Clients should consider the type of error returned. Some error types don't indicate a failure of the service, but instead indicate that the client sent an invalid request. For example, if a client application receives a `400 Bad Request` error response, retrying the same request probably is not going to help since the server is telling you that your request is not valid.
 - Clients should consider the length of time that makes sense to reattempt connections. The length of time you should retry for will be driven by your business requirements and whether you can reasonably propagate an error back to a user or caller. In most applications, retrying for a few seconds or minutes is sufficient.
 
 ## How to detect the problem
 
 From a client's perspective, symptoms of this problem could include very long response or processing times, along with telemetry that indicates repeated attempts to retry the connection.
 
-From a service's perspective, symptoms of this problem could include a large number of requests from one client within a short period of time, or a large number of requests from a single client while recovering from outages. It could also manifest as difficulty when recovering the service, or ongoing cascading failures of the service right after a fault has been repaired.
+From a service's perspective, symptoms of this problem could include a large number of requests from one client within a short period of time, or a large number of requests from a single client while recovering from outages. Symptoms could also include difficulty when recovering the service, or ongoing cascading failures of the service right after a fault has been repaired.
 
 ## Example diagnosis
 
