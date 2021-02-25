@@ -106,7 +106,7 @@ GitHub is a popular source control system that uses Git. In addition to core Git
 
 ### Azure Repos
 
-Azure DevOps is a collection of services for building, collaborating on, testing, and delivering software to any environment. Azure DevOps services include Azure Repos, which is a source control system. Using Azure Repos includes unlimited free private Git repositories. Standard Git powers Azure Repos, and you can use clients and tools of your choice for working with them.
+Azure DevOps is a collection of services for building, collaborating on, testing, and delivering software to any environment. Azure DevOps Services include Azure Repos, which is a source control system. Using Azure Repos includes unlimited free private Git repositories. Standard Git powers Azure Repos, and you can use clients and tools of your choice for working with them.
 
 **Learn more**
 
