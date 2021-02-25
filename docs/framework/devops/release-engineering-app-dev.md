@@ -64,6 +64,12 @@ Some features of Bridge:
 - [Documentation: Use Bridge to Kubernetes with Visual Studio Code](/azure/dev-spaces/how-vs-code-works-with-dev-spaces)
 - [Documentation: Use Bridge to Kubernetes with Visual Studio](/visualstudio/containers/bridge-to-kubernetes?preserve-view=true&view=vs-2019)
 
+### Other tools
+
+The tooling ecosystem for container management is rich with options. Here are a few additional tools to consider while developing container-based applications.
+
+[Podman](https://developers.redhat.com/articles/podman-next-generation-linux-container-tools) - an open-source tool for working with containers.
+
 ## Source control
 
 Source control management (SCM) systems provide a way to control, collaborate, and peer review software changes. As software is merged into source control, the system helps manage code conflicts. Ultimately, source control provides a running history of the software, modification, and contributors. Whether a piece of software is open-sourced or private, using source control software has become a standardized method of managing software development. As detailed in later sections of the Well-Architected Framework, source control systems can also be enlightened with integrated testing, security, and release practices. As cloud practices are adopted and because so much of the cloud infrastructure is managed through code, version control systems are also becoming an integral part of infrastructure management. 
