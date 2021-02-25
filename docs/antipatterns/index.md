@@ -40,6 +40,7 @@ Here is the list of the antipatterns that we've identified:
 | [Improper Instantiation][ImproperInstantiation] | Repeatedly creating and destroying objects that are designed to be shared and reused. |
 | [Monolithic Persistence][MonolithicPersistence] | Using the same data store for data with very different usage patterns. |
 | [No Caching][NoCaching] | Failing to cache data. |
+| [Retry Storm][RetryStorm] | Retrying failed requests to a server too often. |
 | [Synchronous I/O][SynchronousIO] | Blocking the calling thread while I/O completes. |
 
 ## Next steps
@@ -55,4 +56,5 @@ For more about performance tuning, see [Performance tuning a distributed applica
 [ImproperInstantiation]: ./improper-instantiation/index.md
 [MonolithicPersistence]: ./monolithic-persistence/index.md
 [NoCaching]: ./no-caching/index.md
+[RetryStorm]: ./retry-storm/index.md
 [SynchronousIO]: ./synchronous-io/index.md
