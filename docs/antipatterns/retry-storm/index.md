@@ -17,7 +17,7 @@ When a service is unavailable or busy, having clients retry their connections to
 
 ## Problem description
 
-In the cloud, services sometimes experience problems and become unavailable to clients, or have to throttle or rate limit their clients. While it's a good practice for clients to retry failed connections to services, it's important they not to retry too frequently or for too long. Retries within a short period of time are unlikely to succeed since the services likely will not have recovered. Also, services can be put under even more stress when lots of connection attempts are made while they're trying to recover, and repeated connection attempts may even overwhelm the service and make the underlying problem worse.
+In the cloud, services sometimes experience problems and become unavailable to clients, or have to throttle or rate limit their clients. While it's a good practice for clients to retry failed connections to services, it's important they do not retry too frequently or for too long. Retries within a short period of time are unlikely to succeed since the services likely will not have recovered. Also, services can be put under even more stress when lots of connection attempts are made while they're trying to recover, and repeated connection attempts may even overwhelm the service and make the underlying problem worse.
 
 The following example illustrates a scenario where a client connects to a server-based API. If the request doesn't succeed, then the client retries immediately, and keeps retrying forever. Often this sort of behavior is more subtle than in this example, but the same principle applies.
 
@@ -39,14 +39,14 @@ public async Task<string> GetDataFromServer()
 Client applications should follow some best practices to avoid causing a retry storm.
 
 - Cap the number of retry attempts, and don't keep retrying for a long period of time. While it might seem easy to write a `while(true)` loop, you almost certainly don't want to actually retry for a long period of time, since the situation that led to the request being initiated has probably changed. In most applications, retrying for a few seconds or minutes is sufficient.
-- Pause between retry attempts. If a service is unavailable, retrying immediately is unlikely to succeed. Gradually increase the amount of time you wait between attempts, for example by using an exponential backoff strategy.
-- Gracefully handle errors. If the service isn't responding, consider whether it makes sense to abort the attempt and return an error back to the user or caller of your component. Consider these failure scenarios when designing your solution.
+- Pause between retry attempts. If a service is unavailable, retrying immediately is unlikely to succeed. Gradually increase the amount of time you wait between attempts, for example by using an [exponential backoff strategy](../../best-practices/retry-service-specific.md#examples-2).
+- Gracefully handle errors. If the service isn't responding, consider whether it makes sense to abort the attempt and return an error back to the user or caller of your component. Consider these failure scenarios when designing your application.
 - Consider using the [Circuit Breaker pattern](https://docs.microsoft.com/azure/architecture/patterns/circuit-breaker), which is designed specifically to help avoid retry storms.
 - If the server provides a `retry-after` response header, make sure you don't attempt to retry until the specified time period has elapsed.
-- Use official SDKs when communicating to Azure services. These SDKs have built-in retry policies and protections against causing or contributing to retry storms. If you're communicating with a service that doesn't have an SDK, or where the SDK doesn't handle retry logic correctly, consider using a library like [Polly](https://github.com/App-vNext/Polly) (for .NET) or [retry](https://www.npmjs.com/package/retry) (for JavaScript) to handle your retry logic correctly and avoid writing the code yourself.
-- Consider batching requests and using request pooling where available. Many SDKs handle request batching and connection pooling on your behalf, which will reduce the total number of outbound connection attempts your application makes, although you still need to be careful not to retry these connections too.
+- Use official SDKs when communicating to Azure services. These SDKs generally have built-in retry policies and protections against causing or contributing to retry storms. If you're communicating with a service that doesn't have an SDK, or where the SDK doesn't handle retry logic correctly, consider using a library like [Polly](https://github.com/App-vNext/Polly) (for .NET) or [retry](https://www.npmjs.com/package/retry) (for JavaScript) to handle your retry logic correctly and avoid writing the code yourself.
+- Consider batching requests and using request pooling where available. Many SDKs handle request batching and connection pooling on your behalf, which will reduce the total number of outbound connection attempts your application makes, although you still need to be careful not to retry these connections too frequently.
 
-Services can also protect themselves against retry storms.
+Services should also protect themselves against retry storms.
 
 - Add a gateway layer so you can shut off connections during an incident. This is an example of the [Bulkhead pattern](../../patterns/bulkhead.md). Azure provides many different gateway services for different types of solutions including [Front Door](https://azure.microsoft.com/services/frontdoor/), [Application Gateway](https://azure.microsoft.com/services/application-gateway/), and [API Management](https://azure.microsoft.com/services/api-management/).
 - Throttle requests at your gateway, which ensures you won't accept so many requests that your back-end components can't continue to operate.
@@ -61,7 +61,7 @@ Services can also protect themselves against retry storms.
 
 From a client's perspective, symptoms of this problem could include very long response or processing times, along with telemetry that indicates repeated attempts to retry the connection.
 
-From a service's perspective, symptoms of this problem could include a large number of requests from one client within a short period of time, or in difficulty recovering from outages.
+From a service's perspective, symptoms of this problem could include a large number of requests from one client within a short period of time, or a large number of requests from a single client while recovering from outages. It could also manifest as difficulty when recovering the service, or ongoing cascading failures of the service right after a fault has been repaired.
 
 ## Example diagnosis
 
