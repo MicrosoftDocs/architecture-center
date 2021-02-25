@@ -73,7 +73,7 @@ The following sections illustrate one approach to detecting a potential retry st
 
 The following graph was taken from the Metrics tab within the Application Insights portal, and displaying the _Dependency failures_ metric split by _Remote dependency name_. This illustrates a scenario where there were a large number (over 21,000) of failed connection attempts to a dependency within a short time.
 
-![Screenshot of Applicatoin Insights showing 21k dependency failures to a single dependency within a 30-minute period](_images/ClientApplicationInsights.png)
+![Screenshot of Application Insights showing 21k dependency failures to a single dependency within a 30-minute period](_images/client-application-insights.png)
 
 ### Identifying from server telemetry
 
@@ -91,7 +91,7 @@ AzureDiagnostics
 
 Executing this query during a retry storm shows a large number of connection attempts from a single IP address.
 
-![Screenshot of Log Analytics showing 81,608 inbound connections to Front Door from a single IP address within a one-hour period](_images/ServerLogAnalytics.png)
+![Screenshot of Log Analytics showing 81,608 inbound connections to Front Door from a single IP address within a one-hour period](_images/server-log-analytics.png)
 
 ## Related resources
 
