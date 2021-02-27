@@ -147,10 +147,10 @@ Make sure to configure the following antivirus exclusions for FSLogix Profile Co
   - %Windir%\TEMP\\*.VHDX
   - \\\storageaccount.file.core.windows.net\share\\*.VHD
   - \\\storageaccount.file.core.windows.net\share\\*.VHDX
-  - %ProgramData%\FSLogix\Cache\\*.VHD (addional - only if you use Cloud Cache)
-  - %ProgramData%\FSLogix\Cache\\*.VHDX (addional - only if you use Cloud Cache)
-  - %ProgramData%\FSLogix\Proxy\\*.VHD (addional - only if you use Cloud Cache)
-  - %ProgramData%\FSLogix\Proxy\\*.VHDX (addional - only if you use Cloud Cache)
+  - %ProgramData%\FSLogix\Cache\\*.VHD (additional - only if you use Cloud Cache)
+  - %ProgramData%\FSLogix\Cache\\*.VHDX (additional - only if you use Cloud Cache)
+  - %ProgramData%\FSLogix\Proxy\\*.VHD (additional - only if you use Cloud Cache)
+  - %ProgramData%\FSLogix\Proxy\\*.VHDX (additional - only if you use Cloud Cache)
   
 - Exclude processes:
 
