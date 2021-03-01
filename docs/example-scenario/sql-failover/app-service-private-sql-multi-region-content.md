@@ -184,7 +184,7 @@ In general, the [considerations that apply to the single-region version][Conside
 
 A partial region failover involves cross-region connectivity, which increases latency. Instead of staying within a single region, app requests to the database cross the Azure network backbone into a remote Azure region.
 
-Some implementations can temporarily tolerate this behavior. After the failed app or database is restored, connectivity returns to normal, inside a single region. However, in environments with strict latency requirements, even short-lived cross-region connectivity may pose a problem.
+Some implementations can temporarily tolerate this behavior. After the failed app or database is restored, connectivity returns to normal inside a single region. However, in environments with strict latency requirements, even short-lived cross-region connectivity may pose a problem.
 
 ### Security considerations
 
