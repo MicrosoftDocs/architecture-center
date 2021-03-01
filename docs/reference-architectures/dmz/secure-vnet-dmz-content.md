@@ -1,11 +1,60 @@
 
 
 
-This reference architecture shows a secure hybrid network that extends an on-premises network to Azure. The architecture implements a DMZ, also called a *perimeter network*, between the on-premises network and an Azure virtual network. All inbound and outbound traffic passes through Azure Firewall. [**Deploy this solution**](#deploy-the-solution).
+This reference architecture shows a secure hybrid network that extends an on-premises network to Azure. The architecture implements a DMZ, also called a *perimeter network*, between the on-premises network and an Azure virtual network. All inbound and outbound traffic passes through Azure Firewall.
 
 ![Secure hybrid network architecture](./images/dmz-private.png)
 
 *Download a [Visio file][visio-download] of this architecture.*
+
+## Reference deployment
+
+This deployment includes one hub virtual network and two peered spokes. An Azure Firewall and Azure Bastion host are also deployed. Optionally, the deployment can include virtual machines in the first spoke network and a VPN gateway.
+
+#### [Azure CLI](#tab/cli)
+
+Use the following command to create a resource group for the deployment. Click the **Try it** button to use an embedded shell.
+
+```azurecli-interactive
+az group create --name hub-spoke --location eastus
+```
+
+Run the following command to deploy the hub and spoke network configuration, VNet peerings between the hub and spoke, and a Bastion host
+
+```azurecli-interactive
+az deployment group create --resource-group hub-spoke \
+    --template-uri https://raw.githubusercontent.com/mspnp/samples/master/solutions/azure-hub-spoke/azuredeploy.json
+```
+
+#### [PowerShell](#tab/powershell)
+
+Use the following command to create a resource group for the deployment. Click the **Try it** button to use an embedded shell.
+
+```azurepowershell-interactive
+New-AzResourceGroup -Name hub-spoke -Location eastus
+```
+
+Run the following command to deploy the hub and spoke network configuration, VNet peerings between the hub and spoke, and a Bastion host
+
+```azurepowershell-interactive
+New-AzResourceGroupDeployment -ResourceGroupName hub-spoke `
+    -TemplateUri https://raw.githubusercontent.com/mspnp/samples/master/solutions/azure-hub-spoke/azuredeploy.json
+```
+
+#### [Azure portal](#tab/portal)
+
+Use the following button to deploy the reference using the Azure portal.
+
+[![Deploy to Azure](../../_images/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmspnp%2Fsamples%2Fmaster%2Fsolutions%2Fazure-hub-spoke%2Fazuredeploy.json)
+
+--- 
+
+For detailed information and additional deployment options, see the ARM Templates used to deploy this solution.
+
+> [!div class="nextstepaction"]
+> [Hub and Spoke ARM Template](/samples/mspnp/samples/hub-and-spoke-deployment/)
+
+## Use cases
 
 This architecture requires a connection to your on-premises datacenter, using either a [VPN gateway][ra-vpn] or an [ExpressRoute][ra-expressroute] connection. Typical uses for this architecture include:
 
@@ -147,66 +196,6 @@ All traffic that occurs within the boundaries of a virtual network is free. So i
 Basic load balancing between virtual machines that reside in the same virtual network is free.
 
 In this architecture, internal load balancers are used to load balance traffic inside a virtual network. 
-
-## Deploy the solution
-
-A deployment for a reference architecture that implements these recommendations is available on [GitHub][github-folder].
-
-### Prerequisites
-
-[!INCLUDE [ref-arch-prerequisites.md](../../../includes/ref-arch-prerequisites.md)]
-
-### Deploy resources
-
-1. Navigate to the `/dmz/secure-vnet-hybrid` folder of the reference architectures GitHub repository.
-
-2. Run the following command:
-
-    ```bash
-    azbb -s <subscription_id> -g <resource_group_name> -l <region> -p onprem.json --deploy
-    ```
-
-3. Run the following command:
-
-    ```bash
-    azbb -s <subscription_id> -g <resource_group_name> -l <region> -p secure-vnet-hybrid.json --deploy
-    ```
-
-### Connect the on-premises and Azure gateways
-
-In this step, you will connect the two local network gateways.
-
-1. In the Azure portal, navigate to the resource group that you created.
-
-2. Find the resource named `ra-vpn-vgw-pip` and copy the IP address shown in the **Overview** blade.
-
-3. Find the resource named `onprem-vpn-lgw`.
-
-4. Click the **Configuration** blade. Under **IP address**, paste in the IP address from step 2.
-
-    ![Screenshot of the IP Address field](./images/local-net-gw.png)
-
-5. Click **Save** and wait for the operation to complete. It can take about 5 minutes.
-
-6. Find the resource named `onprem-vpn-gateway1-pip`. Copy the IP address shown in the **Overview** blade.
-
-7. Find the resource named `ra-vpn-lgw`.
-
-8. Click the **Configuration** blade. Under **IP address**, paste in the IP address from step 6.
-
-9. Click **Save** and wait for the operation to complete.
-
-10. To verify the connection, go to the **Connections** blade for each gateway. The status should be **Connected**.
-
-### Verify that network traffic reaches the web tier
-
-1. In the Azure portal, navigate to the resource group that you created.
-
-2. Find the resource named `fe-config1-web`, which is the load balancer in front of web tier. Copy the private IP address from the **Overview** blade.
-
-3. Find the VM named `jb-vm1`. This VM represents the on-premises network. Click **Connect** and use Remote Desktop to connect to the VM. The user name and password are specified in the onprem.json file.
-
-4. From the Remote Desktop Session, open a web browser and navigate to the IP address from step 2. You should see the default Apache2 server home page.
 
 ## Next steps
 
