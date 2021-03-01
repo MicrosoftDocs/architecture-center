@@ -77,11 +77,11 @@ You can use the Azure Load Balancing page in the Azure portal to help you guide 
     > To learn about some of the factors considered in selecting a load-balancing solution, see [Decision tree for load-balancing in Azure](#decision-tree-for-load-balancing-in-azure) in this article.
 
 1. In the **Load balancing - help me choose (Preview)** page, do one of the following:
-    1. To find the appropriate load-balancing solution for your business, follow instructions in the default **Help me choose** tab.
+    - To find the appropriate load-balancing solution for your business, follow instructions in the default **Help me choose** tab.
       
-    ![Choose an Azure load balancing solution - Azure portal screenshot](./images/load-balancing-help-me-choose.png)
-    1. To learn about the supported protocols and service capabilities of each load balancing service, select the **Service comparisons** tab.
-    1. To access free training on load balancing services, select the **Tutorial** tab.
+        ![Choose an Azure load balancing solution - Azure portal screenshot](./images/load-balancing-help-me-choose.png)
+    - To learn about the supported protocols and service capabilities of each load balancing service, select the **Service comparisons** tab.
+    - To access free training on load balancing services, select the **Tutorial** tab.
      
 ## Reference architecture examples
 
