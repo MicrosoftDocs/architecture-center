@@ -1,5 +1,5 @@
 ---
-title: Responsible Innovation
+title: Responsible Innovation toolkit
 titleSuffix: Azure Application Architecture Guide
 description: Responsible Innovation is a commitment to put people first in the development of technology by understanding the stakeholders and impact of your technology
 author: dcass
@@ -11,6 +11,12 @@ ms.category:
   - fcp
 ms.custom:
   - guide
+  - seo-aac-fy21q3
+keywords:
+  - "Innovation toolkit"
+  - "responsible innovation"
+  - "innovation best practices"
+  - "threat modeling"
 ---
 
 # Responsible Innovation: A Best Practices Toolkit

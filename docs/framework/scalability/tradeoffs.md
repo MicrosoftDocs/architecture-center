@@ -1,6 +1,6 @@
 ---
 title: Tradeoffs for performance efficiency
-description: Tradeoffs for performance efficiency
+description: Discover the pros and cons of performance optimization. Learn about tradeoffs between performance efficiency, operational excellence, reliability, scalability, and more.  
 author: v-aangie
 ms.date: 01/07/2021
 ms.topic: conceptual
@@ -9,15 +9,21 @@ ms.subservice: well-architected
 ms.custom:
   - What scalability tradeoffs are you making?
   - article
+  - seo-aac-fy21q3
+keywords:
+  - "Performance efficiency"
+  - "cost efficiency"
+  - "performance optimization"
+  - "operational excellence"
 ---
 
 # Tradeoffs for performance efficiency
 
-As you design the workload, consider tradeoffs between performance optimization and other aspects of the design, such as cost, operability, reliability, and security.
+As you design the workload, consider tradeoffs between performance optimization and other aspects of the design, such as cost efficiency, operability, reliability, and security.
 
-## Performance efficiency vs. cost
+## Performance efficiency vs. cost efficiency
 
-Cost can increase as a result of boosting performance. Many performance factors impact cost. 
+Cost can increase as a result of boosting performance. Here are a few factors to consider when optimizing for performance and how they impact cost:
 
 - Avoid cost estimation of a workload at consistently high utilization. Consumption-based pricing will be more expensive that the equivalent provisioned pricing. Smooth out the peaks to get a consistent flow of compute and data. Ideally, use manual and autoscaling to find the right balance. Scaling up is generally more expensive than scaling out.
 
@@ -41,7 +47,7 @@ One operational process that can help to identify performance issues early is [a
 
 ### Fast builds
 
-Another operational process is making sure that your product is in a deployable state through a fast [build](../devops/release-engineering-performance.md#build-times) process. Builds provide crucial information about the status of your product.
+Another operational efficiency process is making sure that your product is in a deployable state through a fast [build](../devops/release-engineering-performance.md#build-times) process. Builds provide crucial information about the status of your product.
 
 The following can help faster builds:
 
@@ -52,7 +58,7 @@ The following can help faster builds:
 
 For an explanation of these items, see [Builds](../devops/release-engineering-performance.md#build-times).
 
-### Monitoring
+### Monitoring performance optimization
 
 As you consider making performance improvements, monitoring should be done to verify that your application is running correctly. Monitoring should include the application, platform, and networking. To learn more, see [Monitoring](../devops/monitoring.md).
 
