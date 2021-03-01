@@ -1759,5 +1759,7 @@ items:
                 href: solution-ideas/articles/business-central.yml
               - name: Azure Functions in a hybrid environment
                 href: hybrid/azure-functions-hybrid.yml
+              - name: Microservices with Azure Spring Cloud
+                href: https://docs.microsoft.com/azure/spring-cloud/spring-cloud-reference-architecture
   - name: Cloud Adoption Framework
     href: /azure/cloud-adoption-framework
