@@ -20,7 +20,7 @@ Deploying Enterprise Server on Azure VMs can help businesses:
 
 ## Architecture
 
-![Diagram showing Micro Focus Enterprise Server 6.0 deployed in a hybrid configuration with Azure VMs and regional disaster recovery.](media/magento-architecture.png)
+![Diagram showing Micro Focus Enterprise Server 6.0 deployed in a hybrid configuration with Azure VMs and regional disaster recovery.](media/micro-focus-enterprise-server.png)
 
 1. Enterprise Server on-premises users interact with Enterprise Server applications through Micro Focus Reflection Desktop terminal emulator, Reflection for the Web, and Reflection Mobile. IBM 3270 terminal access can use any 3270 emulator.
    
