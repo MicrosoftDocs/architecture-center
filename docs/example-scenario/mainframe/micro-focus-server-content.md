@@ -1,6 +1,6 @@
 Micro Focus Enterprise Server 6.0 is an application deployment environment for IBM z/OS mainframe applications. Enterprise Server can help you modernize and integrate your mainframe applications with technologies like .NET and Java. Enterprise Server also supports application flexibility across Linux and Windows with containerized or virtual machine (VM) deployments on Azure.
 
-This sample solution is a prescriptive, well architected example of a Micro Focus Enterprise Server 6.0 VM-based deployment in Azure. The solution implements high availability (HA) and disaster recovery (DR) by using a secondary Azure failover region. The failover region uses Azure Site Recovery for the VMs in the application tier, and a SQL Server Always On configuration for the data tier. A Micro Focus Performance Availability Cluster (PAC) boosts VM performance, availability, and scalability.
+This sample solution is a prescriptive, well-architected example of a Micro Focus Enterprise Server 6.0 VM-based deployment in Azure. The solution implements high availability (HA) and disaster recovery (DR) by using a secondary Azure failover region. The failover region uses Azure Site Recovery for the VMs in the application tier, and a SQL Server Always On configuration for the data tier. A Micro Focus Performance Availability Cluster (PAC) boosts VM performance, availability, and scalability.
 
 <!--For a similar scenario that uses Azure Kubernetes Service (AKS) for containerized applications, see []().-->
 
@@ -40,7 +40,7 @@ Deploying Enterprise Server on Azure VMs can help businesses:
    
 1. A Performance and Availability Cluster (PAC) configures Enterprise Server instances in a scale-out architecture using VM [availability sets](/azure/virtual-machines/availability#availability-sets). In a PAC, several Enterprise Server instances work together as a single logical entity. A PAC has several advantages over a single scale-up Enterprise Server instance:
    
-   - Distributed instances are more resistent to hardware or network issues.
+   - Distributed instances are more resistant to hardware or network issues.
    - Several instances working together perform better, maximize throughput, and provide for future horizontal scaling.
    - The instances share synchronized user and system data, using a data store called a Scale-Out Repository (SOR). The data store uses Azure Cache for Redis to improve performance and scalability.
    
@@ -60,7 +60,7 @@ This solution uses the following Azure components:
 
 - [Azure Bastion](https://azure.microsoft.com/services/azure-bastion/) provides secure and seamless RDP and SSH access to your VMs by using SSL, without exposing public IP addresses.
 
-- [Azure Load Balancer](/azure/load-balancer/load-balancer-overview) distributes incoming network traffic across backend resources or servers according to configured load balancing rules and health probes.
+- [Azure Load Balancer](/azure/load-balancer/load-balancer-overview) distributes incoming network traffic across backend resources or servers according to configured load-balancing rules and health probes.
 
 - [Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines/) are on-demand, scalable computing resources in Azure. Azure Virtual Machines gives you the flexibility of virtualization without having to buy and maintain the physical hardware that runs it.
   
@@ -86,7 +86,7 @@ PACs and availability sets for Azure VMs ensure enough VMs are available to meet
 
 ### Performance considerations
 
-Azure Cache for Redis and Azure Storage accounts maintain the operations of critical components. These features provide high performance for data reads and writes, hot storage access, and long term data storage.
+Azure Cache for Redis and Azure Storage accounts maintain the operations of critical components. These features provide high performance for data reads and writes, hot storage access, and long-term data storage.
 
 ### Scalability considerations
 
@@ -103,7 +103,7 @@ To estimate and calculate costs for your implementation of this solution, use th
 - Azure services like Application Gateway, Virtual Network, Load Balancer, and Azure Bastion are free with your Azure subscription. You pay for usage and traffic.
 - Azure Site Recovery charges per protected instance.
 - Most enterprises already have a Microsoft Active Directory implementation, but if you don't, Premium Azure AD is low cost.
-- For Premium SSD or Ultra VM managed storage disks pricing, see [Managed Disks pricing](https://azure.microsoft.com/pricing/details/managed-disks/). Calculate VM needs based on your traffic hours, load, and storage requirements. Micro Focus Enterprise Server in Azure helps you optimize costs by turning off VMs when not in use, and scripting a schedule for known usage patterns.
+- For Premium SSD or Ultra managed storage disks pricing, see [Managed Disks pricing](https://azure.microsoft.com/pricing/details/managed-disks/). Calculate VM needs based on your traffic hours, load, and storage requirements. Micro Focus Enterprise Server in Azure helps you optimize costs by turning off VMs when not in use, and scripting a schedule for known usage patterns.
 - [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/) lets you use your on-premises SQL Server licenses on Azure. For more information, see the [Azure Hybrid Benefit FAQ](https://azure.microsoft.com/pricing/hybrid-benefit/faq).
 
 ## Next steps
