@@ -72,7 +72,7 @@ This solution uses the following Azure components:
 
 - [Azure Cache for Redis](/azure/azure-cache-for-redis/cache-overview) improves performance and scalability for applications that use backend data stores heavily. Azure Cache for Redis keeps frequently accessed data, like session state and SOR, in server memory for fast access and throughput.
 
-- [SQL Server on Azure VMs](/azure/azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview) lets you use full versions of SQL Server in the cloud without having to manage on-premises hardware. Enterprise Server requires the [SQL Server IaaS Agent extension](/azure/azure-sql/virtual-machines/windows/sql-server-iaas-agent-extension-automate-management)infrastructure-as-a-service for deployments that have heterogeneous distributed transactions.
+- [SQL Server on Azure VMs](/azure/azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview) lets you use full versions of SQL Server in the cloud without having to manage on-premises hardware. Enterprise Server requires the [SQL Server IaaS Agent extension](/azure/azure-sql/virtual-machines/windows/sql-server-iaas-agent-extension-automate-management) for deployments that have heterogeneous distributed transactions.
 
 - [Azure Site Recovery](/azure/site-recovery/site-recovery-overview) keeps applications and workloads running during outages by replicating VMs from a primary site to a secondary location.
 
@@ -86,7 +86,7 @@ PACs and availability sets for Azure VMs ensure enough VMs are available to meet
 
 ### Performance considerations
 
-Azure Cache for Redis and Azure Storage accounts maintain the operations of critical components. These features provide high performance for data reads and writes, hot storage access, and long-term data storage.
+Azure Cache for Redis and Azure Storage accounts maintain critical component operations. These features provide high performance for data reads and writes, hot storage access, and long-term data storage.
 
 ### Scalability considerations
 
