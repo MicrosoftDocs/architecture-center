@@ -82,11 +82,15 @@ The following considerations, based on the [Microsoft Azure Well-Architected Fra
 
 ### Availability considerations
 
-PACs and availability sets for Azure VMs ensure enough VMs are available to meet mission-critical batch process needs. SQL Server Always On Availability Groups and Azure Site Recovery provide reliability with HA and DR across geographic regions.
+- PACs and availability sets for Azure VMs ensure enough VMs are available to meet mission-critical batch process needs.
+
+- SQL Server Always On Availability Groups and Azure Site Recovery provide reliability with HA and DR across geographic regions.
 
 ### Performance considerations
 
-Azure Cache for Redis and Azure Storage accounts maintain critical component operations. These features provide high performance for data reads and writes, hot storage access, and long-term data storage.
+- The PAC enables horizontally scaling according to application load.
+
+- Azure Cache for Redis and Azure Storage accounts maintain critical component operations. These features provide high performance for data reads and writes, hot storage access, and long-term data storage.
 
 ### Scalability considerations
 
@@ -110,7 +114,7 @@ To estimate and calculate costs for your implementation of this solution, use th
 
 - [Refactor IBM z/OS mainframe Coupling Facility (CF) to Azure](/azure/architecture/reference-architectures/zos/refactor-zos-coupling-facility).
 - [Replicate and sync mainframe data in Azure](/azure/architecture/reference-architectures/migration/sync-mainframe-data-with-azure).
-- Learn more about the [Microsoft Azure Well-Architected Framework](/azure/architecture/framework/).
+- See the [Microsoft Azure Well-Architected Framework](/azure/architecture/framework/) for more information about cost optimization for [VM instances](/azure/architecture/framework/cost/optimize-vm).
 - For more information, please contact <legacy2azure@microsoft.com>.
 
 ## Related resources
