@@ -1685,6 +1685,8 @@ items:
                 href: example-scenario/apps/fully-managed-secure-apps.yml
               - name: Web app private database connectivity
                 href: example-scenario/private-web-app/private-web-app.yml
+              - name: Multi-region app with private database connectivity
+                href: example-scenario/sql-failover/app-service-private-sql-multi-region.yml
               - name: Virtual network integrated microservices
                 href: example-scenario/integrated-multiservices/virtual-network-integration.yml
               - name: Virtual Network security options
