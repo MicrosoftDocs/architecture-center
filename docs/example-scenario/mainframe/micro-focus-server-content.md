@@ -24,7 +24,7 @@ Deploying Enterprise Server on Azure VMs can help businesses:
 
 1. Enterprise Server on-premises users interact with Enterprise Server applications through Micro Focus Reflection Desktop terminal emulator, Reflection for the Web, and Reflection Mobile. IBM 3270 terminal access can use any 3270 emulator.
    
-   Reflection Desktop is a secure, manageable, and easy to use Windows-based terminal emulator that connects users to IBM, UNIX, Linux, OpenVMS, HP 3000, and HP NonStop systems. Reflection for Web provides Reflection features and functionality through a web interface, and Reflection Mobile provides Reflection features and functionality through a mobile interface.
+   Reflection Desktop is a secure, manageable, and easy to use Windows-based terminal emulator that connects users to IBM, UNIX, Linux, OpenVMS, HP 3000, and HP NonStop systems. Reflection for the Web provides Reflection features and functionality through a web interface, and Reflection Mobile provides Reflection features and functionality through a mobile interface.
    
 1. On-premises users access the system over Azure ExpressRoute. Web-based users use ports 5555 (optional), 9003, 86, and 80. Remote desktop protocol (RDP) access uses port 3389. Port 3270 is open for 3270-based terminals and terminal emulators. For access to the Enterprise Server Common Web Administration (ESCWA) administration tool, 3270 traffic can use any appropriately configured port.
    
@@ -88,7 +88,7 @@ The following considerations, based on the [Microsoft Azure Well-Architected Fra
 
 ### Performance considerations
 
-- The PAC enables horizontally scaling according to application load.
+- The PAC enables horizontal scaling according to application load.
 
 - Azure Cache for Redis and Azure Storage accounts maintain critical component operations. These features provide high performance for data reads and writes, hot storage access, and long-term data storage.
 
