@@ -6,7 +6,7 @@ Through machine learning informed by historical campaign data, this solution hel
 
 Optimizing your campaigns with machine learning helps improve both sales leads and revenue generation and can provide strong ROI for your marketing investment.
 
-In this solution, a model will be created and registered to an Azure Machine Learning workspace. The model will be consumed from the Azure Machine Learning model registry for deployment in Azure Synapse SQL pools and launch predictions to enrich the data. Power BI will be used to connect to the Azure Synapse Analytics instance to visualize the data. 
+In this solution, a model will be created and registered to an Azure Machine Learning workspace. The model will be consumed from the Azure Machine Learning model registry for deployment in Azure Synapse SQL pools and launch predictions to enrich the data. Power BI will be used to connect to the Azure Synapse Analytics instance to visualize the data.
 
 ## Architecture
 
@@ -19,16 +19,16 @@ In this solution, a model will be created and registered to an Azure Machine Lea
 * [Azure Synapse Analytics][synapse-overview] is an integrated analytics service that accelerates time to insight across data warehouses and big data systems. In this solution, Azure Synapse Analytics will enrich data in dedicated SQL pools with the model registered in AML via a stored procedure.
 * [Power BI][pbi-overview] provides an interactive dashboard with visualizations that use data stored in Azure Synapse Analytics to drive decisions on the predictions.
 
-
 ## Related resources
+
 * [Azure Machine Learning documentation][aml-docs]
 * [Azure Synapse Analytics documentation][synapse-docs]
 * [Power BI documentation][pbi-docs]
 * [Train machine learning models in Azure Synapse Analytics][apache-spark-machine-learning-training]
 * [Machine learning model scoring for dedicated SQL pools in Azure Synapse Analytics][tutorial-sql-pool-model-scoring-wizard]
 
-
 ## Learn More
+
 * [Create machine learning models][ms-learn-create-ml]
 * [Build AI solutions with Azure Machine Learning][ms-learn-build-ai-solutions]
 * [Data integration at scale with Azure Data Factory or Azure Synapse Pipeline][ms-learn-synapse-data-integration]
@@ -36,14 +36,14 @@ In this solution, a model will be created and registered to an Azure Machine Lea
 <!-- links -->
 [architecture-png]: ../media/optimize-marketing-with-machine-learning.png
 [architecture-svg]: ../media/optimize-marketing-with-machine-learning.png
-[synapse-docs]: https://docs.microsoft.com/en-us/azure/synapse-analytics/
-[aml-docs]: https://docs.microsoft.com/en-us/azure/machine-learning/
-[pbi-docs]: https://docs.microsoft.com/en-us/power-bi/
-[synapse-overview]: https://docs.microsoft.com/en-us/azure/synapse-analytics/overview-what-is
-[aml-overview]: https://docs.microsoft.com/en-us/azure/machine-learning/overview-what-is-azure-ml
-[apache-spark-machine-learning-training]: https://docs.microsoft.com/en-us/azure/synapse-analytics/spark/apache-spark-machine-learning-training
-[tutorial-sql-pool-model-scoring-wizard]: https://docs.microsoft.com/en-us/azure/synapse-analytics/machine-learning/tutorial-sql-pool-model-scoring-wizard
-[pbi-overview]: https://docs.microsoft.com/en-us/power-bi/fundamentals/power-bi-overview
-[ms-learn-create-ml]: https://docs.microsoft.com/en-us/learn/paths/create-machine-learn-models/
-[ms-learn-build-ai-solutions]: https://docs.microsoft.com/en-us/learn/paths/build-ai-solutions-with-azure-ml-service/
-[ms-learn-synapse-data-integration]: https://docs.microsoft.com/en-us/learn/paths/data-integration-scale-azure-data-factory/
+[synapse-docs]: /azure/synapse-analytics/
+[aml-docs]: /azure/machine-learning/
+[pbi-docs]: /power-bi/
+[synapse-overview]: /azure/synapse-analytics/overview-what-is
+[aml-overview]: /azure/machine-learning/overview-what-is-azure-ml
+[apache-spark-machine-learning-training]: /azure/synapse-analytics/spark/apache-spark-machine-learning-training
+[tutorial-sql-pool-model-scoring-wizard]: /azure/synapse-analytics/machine-learning/tutorial-sql-pool-model-scoring-wizard
+[pbi-overview]: /power-bi/fundamentals/power-bi-overview
+[ms-learn-create-ml]: /learn/paths/create-machine-learn-models/
+[ms-learn-build-ai-solutions]: /learn/paths/build-ai-solutions-with-azure-ml-service/
+[ms-learn-synapse-data-integration]: /learn/paths/data-integration-scale-azure-data-factory/

@@ -2,10 +2,10 @@
 metadata:
   title: Optimize Marketing with Machine Learning
   titleSuffix: Azure Solution Ideas
-  author: nfmoore
-  ms.date: 02/24/2021
   description: Build a machine-learning model with Azure Machine Learning, Azure Synapse Analytics and Power BI that optimizes big data marketing campaigns.
-  ms.custom: 'acom-architecture, machine learning r, ai-ml, machine learning in marketing, machine learning marketing, ''https://azure.microsoft.com/solutions/architecture/optimize-marketing-with-machine-learning/'''
+  author: nfmoore
+  ms.author: pnp
+  ms.date: 02/24/2021
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: solution-idea
