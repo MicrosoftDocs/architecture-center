@@ -16,7 +16,7 @@ In a practical application of the lab, an actual drone replaces the Microsoft Ai
 1. Use AirSim's 3D-rendered environment to take images taken with the drone. Use the images as the training dataset.
 1. Import and tag the dataset in a Custom Vision project. The cognitive service trains and tests the model.
 1. Export the model into TensorFlow format so you can use it locally.
-1. The model might also be deployed to a [container](/azure/iot-edge/tutorial-deploy-custom-vision?view=iotedge-2018-06) or to [mobile devices](/azure/cognitive-services/custom-vision-service/export-your-model).
+1. The model can also be deployed to a [container](/azure/iot-edge/tutorial-deploy-custom-vision?view=iotedge-2018-06) or to [mobile devices](/azure/cognitive-services/custom-vision-service/export-your-model).
 
 ## Components
 
