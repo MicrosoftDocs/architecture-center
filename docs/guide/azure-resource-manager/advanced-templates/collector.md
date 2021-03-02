@@ -5,10 +5,12 @@ author: PeterTaylor9999
 ms.date: 10/30/2018
 ms.topic: conceptual
 ms.service: architecture-center
+ms.subservice: azure-guide
 ms.category:
   - developer-tools
   - devops
-ms.subservice: azure-guide
+products:
+  - azure-resource-manager
 ms.custom:
   - article
 ---

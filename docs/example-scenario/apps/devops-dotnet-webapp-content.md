@@ -108,12 +108,12 @@ Review the following resources to learn more about CI/CD and Azure DevOps:
 [architecture]: ./media/architecture-devops-dotnet-webapp.svg
 [chef]: /azure/chef
 [desired-state-configuration]: /azure/automation/automation-dsc-overview
-[devops-microsoft]: /azure/devops/devops-at-microsoft
+[devops-microsoft]: https://azure.microsoft.com/solutions/devops/devops-at-microsoft
 [devops-with-vsts]: https://www.azuredevopslabs.com/labs/vstsextend/azuredevopsprojectdotnet
 [devops-checklist]: ../../checklist/dev-ops.md
 [application-insights]: https://azure.microsoft.com/services/application-insights
 [jenkins-on-azure]: /azure/jenkins
-[devops-whatis]: /azure/devops/what-is-devops
+[devops-whatis]: /azure/devops/learn/what-is-devops
 [download-keyvault-secrets]: /vsts/pipelines/tasks/deploy/azure-key-vault?view=vsts
 [vsts]: /azure/devops
 [web-apps]: /azure/app-service/app-service-web-overview

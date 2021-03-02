@@ -2,26 +2,29 @@
 metadata:
   title: Azure Data Explorer interactive analytics
   titleSuffix: Azure Solution Ideas
-  description: Interactive Analytics with Azure Data Explorer focuses on its integration with the rest of the data platform ecosystem.
+  description: Use interactive analytics in Azure Data Explorer. Examine structured, semi-structured, and unstructured data with improvised, interactive, and fast queries.
   author: orspod
+  ms.author: pnp
   ms.date: 08/11/2020
+  ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: solution-idea
-  ms.custom:
-    - fcp
   ms.category:
     - analytics
     - iot
+  ms.custom:
+    - fcp
 name: Azure Data Explorer interactive analytics
 azureCategories:
   - analytics
   - iot
-summary: Interactive Analytics with Azure Data Explorer focuses on its integration with the rest of the data platform ecosystem.
+summary: Use interactive analytics in Azure Data Explorer. Examine structured, semi-structured, and unstructured data with improvised, interactive, and fast queries.
 products:
-  - azure
-  - azure-iot
+  - azure-data-explorer
+  - azure-data-factory
+  - azure-event-hubs
+  - azure-iot-hub
   - azure-storage
-  - power-bi
 thumbnailUrl: /azure/architecture/browse/thumbs/interactive-azure-data-explorer.png
 content: |
    [!include[](interactive-azure-data-explorer-content.md)]

@@ -2,14 +2,24 @@
 metadata:
   title: Visual Assistant
   titleSuffix: Azure Solution Ideas
-  author: doodlemania2
-  ms.date: 12/16/2019
   description: Visual assistant identifies image content and delivers related information. It can read business cards and barcodes and recognize people, places, and objects.
-  ms.custom: 'acom-architecture, ai-ml, visual assistant, cognitive services, visual capabilities, visual assistant scenarios, interactive-diagram, ''https://azure.microsoft.com/solutions/architecture/visual-assistant/'''
+  author: doodlemania2
+  ms.author: pnp
+  ms.date: 12/16/2019
+  ms.topic: conceptual
   ms.service: architecture-center
+  ms.subservice: solution-idea
   ms.category:
     - ai-machine-learning
-  ms.subservice: solution-idea
+  ms.custom:
+    - acom-architecture
+    - ai-ml
+    - visual assistant
+    - cognitive services
+    - visual capabilities
+    - visual assistant scenarios
+    - interactive-diagram
+    - 'https://azure.microsoft.com/solutions/architecture/visual-assistant/'
   social_image_url: /azure/architecture/solution-ideas/articles/media/visual-assistant.png
 name: Visual Assistant
 azureCategories:

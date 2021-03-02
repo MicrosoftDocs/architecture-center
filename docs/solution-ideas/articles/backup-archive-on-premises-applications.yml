@@ -2,24 +2,30 @@
 metadata:
   title: Back up on-premises applications and data to cloud
   titleSuffix: Azure Solution Ideas
+  description: Use this architecture to back up on-premises applications and data with Azure Backup and Blob storage applications.
   author: doodlemania2
+  ms.author: pnp
   ms.date: 12/16/2019
-  description: Back up on-premises applications and data with Azure Backup and Blob storage applications. Read documentation on implementing these archiving solutions today.
-  ms.custom: 'acom-architecture, bcdr, ''https://azure.microsoft.com/solutions/architecture/backup-archive-on-premises-applications/'''
+  ms.topic: conceptual
   ms.service: architecture-center
+  ms.subservice: solution-idea
   ms.category:
     - storage
     - hybrid
-  ms.subservice: solution-idea
+  ms.custom:
+    - acom-architecture
+    - bcdr
+    - e2e-hybrid
+    - 'https://azure.microsoft.com/solutions/architecture/backup-archive-on-premises-applications/'
 name: Back up on-premises applications and data to cloud
 azureCategories:
   - storage
   - hybrid
-summary: Back up on-premises applications and data with Azure Backup and Blob storage applications. Read documentation on implementing these archiving solutions today.
+summary: Use this architecture to back up on-premises applications and data with Azure Backup and Blob storage applications.
 products:
-  - azure
   - azure-backup
-  - dotnet
+  - azure-blob-storage
+  - azure-virtual-machines
 thumbnailUrl: /azure/architecture/browse/thumbs/backup-archive-cloud-application.png
 content: |
    [!include[](backup-archive-on-premises-applications-content.md)]

@@ -2,28 +2,29 @@
 metadata:
   title: DevSecOps in GitHub
   titleSuffix: Azure Solution Ideas
+  description: Learn how GitHub tools make security practices an integral part of DevOps while maintaining efficiency and see how to use these tools within an Azure framework.
   author: fmigacz
+  ms.author: fmigacz
   ms.date: 09/01/2020
-  description: Learn how GitHub tools make security practices an integral part of DevOps while maintaining efficiency. See how to use these tools within an Azure framework.
-  ms.custom: fcp
+  ms.topic: conceptual
   ms.service: architecture-center
+  ms.subservice: solution-idea
   ms.category:
     - devops
     - security
-  ms.subservice: solution-idea
-  ms.author: fmigacz
+  ms.custom:
+    - fcp
   social_image_url: /azure/architecture/solution-ideas/media/devsecops-in-github-data-flow.png
 name: DevSecOps in GitHub
 azureCategories:
   - devops
   - security
-summary: Learn how GitHub tools make security practices an integral part of DevOps while maintaining efficiency. See how to use these tools within an Azure framework.
+summary: Learn how GitHub tools make security practices an integral part of DevOps while maintaining efficiency and see how to use these tools within an Azure framework.
 products:
-  - azure
+  - azure-active-directory
   - azure-monitor
   - azure-policy
-  - github
-  - vs
+  - azure-security-center
 thumbnailUrl: /azure/architecture/browse/thumbs/devsecops-in-github-data-flow.png
 content: |
    [!include[](devsecops-in-github-content.md)]

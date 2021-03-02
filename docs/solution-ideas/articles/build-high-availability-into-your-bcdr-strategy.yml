@@ -2,26 +2,38 @@
 metadata:
   title: Build high availability into your BCDR strategy
   titleSuffix: Azure Solution Ideas
+  description: Learn how to build high availability of services into your business continuity and disaster recovery strategy.
   author: doodlemania2
+  ms.author: pnp
   ms.date: 12/16/2019
-  description: 'Virtual machines (VMs) are physically separated across zones, and a virtual network is created using load balancers at each site. These locations are close enough for high availability replication, so your applications stay running, despite any issues at the physical locations.'
-  ms.custom: 'acom-architecture, bcdr, availability, strategy, interactive-diagram, ''https://azure.microsoft.com/solutions/architecture/build-high-availability-into-your-bcdr-strategy/'''
+  ms.topic: conceptual
   ms.service: architecture-center
+  ms.subservice: solution-idea
   ms.category:
     - management-and-governance
     - networking
     - hybrid
-  ms.subservice: solution-idea
+  ms.custom:
+    - acom-architecture
+    - bcdr
+    - availability
+    - strategy
+    - interactive-diagram
+    - e2e-hybrid
+    - 'https://azure.microsoft.com/solutions/architecture/build-high-availability-into-your-bcdr-strategy/'
   social_image_url: /azure/architecture/solution-ideas/articles/media/build-high-availability-into-your-bcdr-strategy.png
 name: Build high availability into your BCDR strategy
 azureCategories:
   - management-and-governance
   - networking
   - hybrid
-summary: 'Virtual machines (VMs) are physically separated across zones, and a virtual network is created using load balancers at each site. These locations are close enough for high availability replication, so your applications stay running, despite any issues at the physical locations.'
+summary: Learn how to build high availability of services into your business continuity and disaster recovery strategy.
 products:
-  - azure
-  - windows
+  - azure-load-balancer
+  - azure-sql-database
+  - azure-virtual-machines
+  - azure-virtual-network
+  - azure-web-apps
 thumbnailUrl: /azure/architecture/browse/thumbs/build-high-availability-into-your-bcdr-strategy.png
 content: |
    [!include[](build-high-availability-into-your-bcdr-strategy-content.md)]
