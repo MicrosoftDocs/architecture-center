@@ -21,7 +21,7 @@ keywords:
 
 # Responsible Innovation: A Best Practices Toolkit
 
-*Responsible innovation* is a toolkit that helps developers be good stewards for the future of science and its effect on society. This toolkit provides a set of practices in development, for anticipating and addressing the potential negative impacts of technology on people. We are sharing this as an early stage practice for feedback and learning.
+*Responsible innovation* is a toolkit that helps developers become good stewards for the future of science and its effect on society. This toolkit provides a set of practices in development, for anticipating and addressing the potential negative impacts of technology on people. We are sharing this as an early stage practice for feedback and learning.
 
 ## Judgment Call
 
