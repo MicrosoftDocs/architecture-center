@@ -1189,7 +1189,7 @@ items:
             items:
               - name: Highly available multi-region web application
                 href: reference-architectures/app-service-web-app/multi-region.yml
-              - name: IaaS: Web application with relational database
+              - name: "IaaS: Web application with relational database"
                 href: high-availability/ref-arch-iaas-web-and-db.md
               - name: Multi-region N-tier application
                 href: reference-architectures/n-tier/multi-region-sql-server.yml
