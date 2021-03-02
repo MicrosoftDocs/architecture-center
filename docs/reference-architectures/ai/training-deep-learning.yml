@@ -4,8 +4,9 @@ metadata:
   description: This reference architecture shows how to conduct distributed training of deep learning models across clusters of GPU-enabled VMs using Azure Machine Learning.
   author: msalvaris
   ms.author: pnp
-  ms.date: 06/05/2019
+  ms.date: 02/16/2021
   ms.topic: conceptual
+  ms.custom: azcat-ai
   ms.service: architecture-center
   ms.subservice: reference-architecture
   ms.category:
