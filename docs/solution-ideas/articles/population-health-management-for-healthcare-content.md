@@ -39,6 +39,6 @@ Once the solution is deployed to the subscription, you can see the various servi
 ## Next steps
 
 * [Artificial intelligence (AI) - Architectural overview](../../data-guide/big-data/ai-overview.md)
-* [Business Process Management](business-process-management.md)
-* [Predict Length of Stay and Patient Flow](predict-length-of-stay-and-patient-flow-with-healthcare-analytics.md)
-* [Remote Patient Monitoring Solutions](remote-patient-monitoring.md)
+* [Business Process Management](/azure/architecture/solution-ideas/articles/business-process-management)
+* [Predict Length of Stay and Patient Flow](/azure/architecture/solution-ideas/articles/predict-length-of-stay-and-patient-flow-with-healthcare-analytics)
+* [Remote Patient Monitoring Solutions](/azure/architecture/solution-ideas/articles/remote-patient-monitoring)

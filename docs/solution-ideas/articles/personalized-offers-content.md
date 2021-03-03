@@ -47,7 +47,7 @@ For post deployment instructions and more details on the technical implementatio
 
 * [Artificial intelligence (AI) - Architectural overview](../../data-guide/big-data/ai-overview.md)
 * [Azure Machine Learning documentation](/azure/machine-learning/)
-* [Movie recommendations on Azure](../example-scenario/ai/movie-recommendations.md)
-* [Personalized marketing solutions](personalized-marketing.md)
-* [Product recommendations for retail using Azure](product-recommendations.md)
-* [Build a Real-time Recommendation API on Azure](../ai/real-time-recommendation.md)
+* [Movie recommendations on Azure](/azure/architecture/reference-architectures/ai/movie-recommendations)
+* [Personalized marketing solutions](/azure/architecture/solution-ideas/articles/personalized-marketing)
+* [Product recommendations for retail using Azure](/azure/architecture/solution-ideas/articles/product-recommendations)
+* [Build a Real-time Recommendation API on Azure](/azure/architecture/reference-architectures/ai/real-time-recommendation)

@@ -27,6 +27,6 @@ The retail assistant or vacation planner can help your customers have interactio
 ## Next steps
 
 * [Artificial intelligence (AI) - Architectural overview](../../data-guide/big-data/ai-overview.md)
-* [Commerce Chatbot](commerce-chatbot.md)
-* [Product recommendations for retail using Azure](product-recommendations.md)
-* [Visual Assistant](visual-assistant.md)
+* [Commerce Chatbot](/azure/architecture/reference-architectures/ai/commerce-chatbot)
+* [Product recommendations for retail using Azure](/azure/architecture/reference-architectures/ai/product-recommendations)
+* [Visual Assistant](/azure/architecture/reference-architectures/ai/visual-assistant)

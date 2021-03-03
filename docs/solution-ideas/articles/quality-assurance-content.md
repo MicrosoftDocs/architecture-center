@@ -38,5 +38,5 @@ The Cortana Intelligence Suite provides advanced analytics tools through Microso
 
 * [Artificial intelligence (AI) - Architectural overview](../../data-guide/big-data/ai-overview.md)
 * [Azure Machine Learning documentation](/azure/machine-learning/)
-* [Defect prevention with predictive maintenance](defect-prevention-with-predictive-maintenance.md)
-* [Predictive Maintenance](predictive-maintenance.md)
+* [Defect prevention with predictive maintenance](/azure/architecture/reference-architectures/ai/defect-prevention-with-predictive-maintenance)
+* [Predictive Maintenance](/azure/architecture/reference-architectures/ai/predictive-maintenance)
