@@ -32,3 +32,21 @@ This solution addresses the above problems by:
 1. A Spark job running in HDInsight merges the latest customer browsing data with historical purchase and demographic data to build a consolidated user profile
 1. A second Spark job scores each customer profile against a machine learning model to predict future purchasing patterns (in other words, is a given customer likely to make a purchase in the next 30 days, and if so, in which product category?)
 1. Predictions and other profile data are visualized and shared as charts and tables in Power BI Online
+
+## Components
+
+* [Azure Blob Storage](/azure/storage/blobs/)
+* [Azure Event Hub](/azure/event-hubs/)
+* [Azure Machine Learning](https://azure.microsoft.com/en-us/services/machine-learning/)
+* [Azure SQL Database](https://azure.microsoft.com/services/sql-database/)
+* [Azure Stream Analytics](/azure/stream-analytics/)
+* [Power BI Dashboard](/power-bi/create-reports/)
+
+## Next steps
+
+* [Artificial intelligence (AI) - Architectural overview](../../data-guide/big-data/ai-overview.md)
+* [Azure Machine Learning documentation](/azure/machine-learning/)
+* [Movie recommendations on Azure](../example-scenario/ai/movie-recommendations.md)
+* [Personalized marketing solutions](personalized-marketing.md)
+* [Personalized Offers](personalized-offers.md)
+* [Build a Real-time Recommendation API on Azure](../ai/real-time-recommendation.md)

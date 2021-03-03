@@ -19,3 +19,17 @@ Visual assistant provides rich information based on content of the image with ca
 1. Bot gets additional information for barcodes.
 1. Optionally Bot gets more information on barcodes/queries exclusively from your domain through the Bing Custom Search API.
 1. Assistant renders similar products/destinations from your domain or provides more information around celebrity/place/monuments/artworks.
+
+## Components
+
+* [Azure App Service](/azure/app-service/)
+* [Azure Bot Service](/services/bot-services/)
+* [Azure Language Understanding](/services/cognitive-services/language-understanding-intelligent-service/)
+* [Bing Search](/bing/search-apis/bing-web-search/bing-api-comparison), including Bing Custom search, Bing Entity search, Bing Visual search, and Bing web search
+
+## Next steps
+
+* [Artificial intelligence (AI) - Architectural overview](../../data-guide/big-data/ai-overview.md)
+* [Image classification on Azure](example-scenario/ai/intelligent-apps-image-processing.md)
+* [Interactive Voice Response Bot](interactive-voice-response-bot.md)
+* [Retail Assistant with Visual Capabilities](retail-assistant-or-vacation-planner-with-visual-capabilities.md)

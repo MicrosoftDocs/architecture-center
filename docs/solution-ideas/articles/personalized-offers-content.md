@@ -31,3 +31,23 @@ For post deployment instructions and more details on the technical implementatio
 1. Raw user activity data (Product and Offer Clicks), Offers made to users, and performance data (for Azure Functions and Azure Machine Learning) are sent to Azure Event Hub.
 1. The offer is returned to the User. In our simulation this is done by writing to an Azure Storage Queue and picked up by an Azure Function in order to produce the next user action.
 1. Azure Stream Analytics analyzes the data to provide near real-time analytics on the input stream from the Azure Event Hub. The aggregated data is sent to Azure DocumentDB. The raw data is sent to Azure Data Lake Storage.
+
+## Components
+
+* [Azure Cache for Redis](/azure/azure-cache-for-redis/)
+* [Azure CosmosDB](/azure/cosmos-db/)
+* [Azure Event Hub](/azure/event-hubs/)
+* [Azure Functions](/azure/azure-functions/)
+* [Azure Machine Learning](https://azure.microsoft.com/en-us/services/machine-learning/)
+* [Azure Storage](/azure/storage/)
+* [Azure Stream Analytics](/azure/stream-analytics/)
+* [Power BI Dashboard](/power-bi/create-reports/)
+
+## Next steps
+
+* [Artificial intelligence (AI) - Architectural overview](../../data-guide/big-data/ai-overview.md)
+* [Azure Machine Learning documentation](/azure/machine-learning/)
+* [Movie recommendations on Azure](../example-scenario/ai/movie-recommendations.md)
+* [Personalized marketing solutions](personalized-marketing.md)
+* [Product recommendations for retail using Azure](product-recommendations.md)
+* [Build a Real-time Recommendation API on Azure](../ai/real-time-recommendation.md)

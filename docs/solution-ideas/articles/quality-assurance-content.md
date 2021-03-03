@@ -24,3 +24,19 @@ The Cortana Intelligence Suite provides advanced analytics tools through Microso
   2. This synthetic data feeds into the Azure Event Hubs as data points/events, that will be consumed in the rest of the solution flow and stored in Azure Synapse Analytics.
   3. There are 2 Azure Stream Analytics jobs used in this pattern to provide near real-time analytics on the input stream from the Azure Event Hub. Both jobs filter through the input data and pass the data points along to a Azure Machine Learning endpoint sending the results to a Power BI Dashboard.
   4. Finally, Power BI is used for results visualization.
+
+## Components
+
+* [Azure Event Hub](/azure/event-hubs/)
+* [Azure Machine Learning](https://azure.microsoft.com/en-us/services/machine-learning/)
+* [Azure SQL Database](https://azure.microsoft.com/services/sql-database/)
+* [Azure Stream Analytics](/azure/stream-analytics/)
+* [Azure Synapse Analytics](/azure/synapse-analytics/)
+* [Power BI Dashboard](/power-bi/create-reports/)
+
+## Next steps
+
+* [Artificial intelligence (AI) - Architectural overview](../../data-guide/big-data/ai-overview.md)
+* [Azure Machine Learning documentation](/azure/machine-learning/)
+* [Defect prevention with predictive maintenance](defect-prevention-with-predictive-maintenance.md)
+* [Predictive Maintenance](predictive-maintenance.md)
