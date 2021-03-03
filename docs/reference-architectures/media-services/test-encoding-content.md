@@ -1,9 +1,9 @@
 
+Testing an application is an integral part of the application development life cycle. Testing ensures that your application or service will perform as expected when published. 
 
+You can test your deployed application in Azure or locally, and in both cases, you can monitor the events sent to the topic.
 
-You can test a deployed application in Azure or locally. In both cases, you monitor the events sent to the topic.
-
-## Test in Azure
+## How to test Gridwich projects in Azure
 
 1. Use the following URL to open the Event Grid Viewer app:
    
@@ -53,7 +53,7 @@ You can test a deployed application in Azure or locally. In both cases, you moni
    
    ![Screenshot showing a Success event.](media/success-viewer.png)
    
-## Test locally
+## How to test Gridwich projects locally
 
 Make sure your Gridwich project and pipelines are in place, and developer permissions are set up. For more information, see [Gridwich Azure DevOps setup](set-up-azure-devops.yml). 
 
