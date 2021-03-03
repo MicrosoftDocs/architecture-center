@@ -1,8 +1,8 @@
 ---
 title: Forecast Energy and Power Demand
 titleSuffix: Azure Solution Ideas
-author: doodlemania2
-ms.date: 12/16/2019
+author: cartacios
+ms.date: 3/2/2021
 description: Learn how Microsoft Azure can help accurately forecast spikes in demand for energy products and services to give your company a competitive advantage.
 ms.custom: acom-architecture, energy demand, power forecast, energy forecast, ai-ml, 'https://azure.microsoft.com/solutions/architecture/forecast-energy-power-demand/'
 ms.service: architecture-center
@@ -28,12 +28,10 @@ This solution is built on the Azure managed services: [Azure Stream Analytics](h
 
 ## Components
 
-* [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics): Stream Analytics aggregates energy consumption data in near real-time to write to Power BI.
-* [Event Hubs](https://azure.microsoft.com/services/event-hubs) ingests raw energy consumption data and passes it on to Stream Analytics.
-* [Machine Learning Studio](https://azure.microsoft.com/services/machine-learning-studio): Machine Learning forecasts the energy demand of a particular region given the inputs received.
-* [Azure SQL Database](https://azure.microsoft.com/services/sql-database): SQL Database stores the prediction results received from Azure Machine Learning. These results are then consumed in the Power BI dashboard.
-* [Data Factory](https://azure.microsoft.com/services/data-factory) handles orchestration and scheduling of the hourly model retraining.
-* [Power BI](https://powerbi.microsoft.com) visualizes energy consumption data from Stream Analytics as well as predicted energy demand from SQL Database.
+* [Azure Data Factory](https://azure.microsoft.com/services/data-factory): Handle data manipulation and preparation.
+* [Azure Automated Machine Learning](https://azure.microsoft.com/services/machine-learning/automatedml): Leverage Azure ML to forecast the energy demand of a particular region.
+* [MLOps](https://azure.microsoft.com/services/machine-learning/mlops): Design, deploy, and manage production model workflows.
+* [Power BI](https://docs.microsoft.com/power-bi/connect-data/service-aml-integrate): Consume model prediction results in Power BI.
 
 ## Next steps
 
