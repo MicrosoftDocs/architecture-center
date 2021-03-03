@@ -9,12 +9,12 @@ This solution idea also applies to mergers and acquisitions, organization rebran
 
 ## Architecture
 
-![WVD Multiple AD Forests architecture diagram](images/two-forest-to-azure-no-private-connectivity.png)
+![WVD Multiple AD Forests architecture diagram](images/vwd-multi-forest-aadds.png)
 *Download a [Visio file][visio-download] of this architecture*
 
 ## Data flow
 
-The following steps show how the data flows in this architecture in the form of identity.
+The following steps show howc the data flows in this architecture in the form of identity.
 
 1. Complex hybrid on-premises Active Directory environments are present, with two or more AD forests. Domains live in separate forests, with distinct UPN suffixes. For example, *companyA.local* with UPN suffix *companyA.com*, *companyB.local* with UPN suffix *CompanyB.com*, and an additional UPN suffix *newcompanyAB.com*.
 1. Instead of using customer-managed domain controllers whether on-premises or on Azure (that is, Azure IaaS domain controllers), [the two cloud-managed domain controllers provided by Azure AD DS](/azure/active-directory-domain-services/overview#how-does-azure-ad-ds-work) are used.
