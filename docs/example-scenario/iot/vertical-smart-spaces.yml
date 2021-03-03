@@ -1,0 +1,32 @@
+### YamlMime:Architecture
+metadata:
+  title: 'Smart Building - Smart Spaces'
+  titleSuffix: Azure Example Scenarios
+  description: Learn how to use Azure IoT to enhance building to increase employee satisfaction and optimiza space.
+  author: teodelas
+  ms.date: 10/1/2020
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: example-scenario
+  ms.category:
+    - iot
+  ms.custom:
+    - fcp
+    - example-scenario
+name: 'Smart Building - Smart Spaces'
+azureCategories:
+  - iot
+summary: Learn how to use Azure IoT to enhance building to increase employee satisfaction and optimiza space
+products:
+  - azure-stack-edge
+  - azure-stream-analytics
+  - azure-functions
+  - azure-iot
+  - azure-synapse
+  - azure-maps
+  - azure-storage
+  - azure-machine-learning
+  - azure-logic-apps
+thumbnailUrl: /azure/architecture/browse/thumbs/smartspaces.png
+content: |
+   [!include[](vertical-smart-spaces.md)]
