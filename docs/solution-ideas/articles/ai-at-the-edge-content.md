@@ -10,7 +10,7 @@ With the Azure AI tools, edge, and cloud platform, edge intelligence is possible
 ![Architecture diagram](../media/ai-at-the-edge.png)
 *Download an [SVG](../media/ai-at-the-edge.svg) of this architecture.*
 
-## Data Flow
+## Data flow
 
 1. Data scientists train a model using Azure Machine Learning workbench and an HDInsight cluster. The model is containerized and put into an Azure Container Registry.
 1. The model is deployed to a Kubernetes cluster on Azure Stack Hub.
@@ -36,26 +36,23 @@ Key technologies used to implement this architecture:
 
 ## Next steps
 
-* [Azure Machine Learning documentation](/azure/machine-learning/service)
-* [HDInsight documentation](/azure/hdinsight)
-* [Container Registry documentation](/azure/container-registry)
-* [Azure Kubernetes Service (AKS) documentation](/azure/aks)
-* [Storage documentation](/azure/storage)
-* [Azure Stack Hub documentation](/azure/azure-stack/user/azure-stack-solution-machine-learning)
-* [Azure Stack Hub Deployment Options](/azure/azure-stack/operator/azure-stack-overview)
-* [App Service documentation](/azure/app-service/)
-
-## Additional Resources
-
-* [AKS Engine on Azure Stack Hub](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md)
-* [Azure Samples - Edge Intelligence on Azure Stack Hub](https://github.com/Azure-Samples/azure-intelligent-edge-patterns/tree/master/factory-ai-vision)
-* [Azure Samples -Azure Stack Hub Foundation](https://github.com/Azure-Samples/Azure-Stack-Hub-Foundation-Core)
-
-## Related Resources
-
 * Want to learn more? Check out the related Learn pathway: [Microsoft Learn Azure Stack Module](/learn/modules/intro-to-azure-stack/)
 * Get Microsoft Certified for Azure Stack Hub with the [Azure Stack Hub Operator Associate](/learn/certifications/azure-stack-hub-operator/) certification
 * How to [install the AKS Engine on Linux in Azure Stack Hub](/azure-stack/user/azure-stack-kubernetes-aks-engine-deploy-linux)
 * How to [install the AKS Engine on Windows in Azure Stack Hub](/azure-stack/user/azure-stack-kubernetes-aks-engine-deploy-windows)
 * Deploy your ML models to an Edge device with [Azure Stack Edge Devices](https://azure.microsoft.com/products/azure-stack/edge/#devices)
 * Innovate further and deploy [Azure Cognitive Services (Speech, Language, Decision, Vision) containers to Azure Stack Hub](/azure-stack/user/azure-stack-solution-template-cognitive-services/)
+
+## Related resources
+
+* [App Service documentation](/azure/app-service/)
+* [Azure Kubernetes Service (AKS) documentation](/azure/aks)
+* [Azure Machine Learning documentation](/azure/machine-learning/service)
+* [Azure Stack Hub documentation](/azure/azure-stack/user/azure-stack-solution-machine-learning)
+* [Azure Stack Hub Deployment Options](/azure/azure-stack/operator/azure-stack-overview)
+* [Container Registry documentation](/azure/container-registry)
+* [HDInsight documentation](/azure/hdinsight)
+* [Storage documentation](/azure/storage)
+* [AKS Engine on Azure Stack Hub (on GitHub)](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md)
+* [Azure Samples - Edge Intelligence on Azure Stack Hub (on GitHub)](https://github.com/Azure-Samples/azure-intelligent-edge-patterns/tree/master/factory-ai-vision)
+* [Azure Samples -Azure Stack Hub Foundation (on GitHub)](https://github.com/Azure-Samples/Azure-Stack-Hub-Foundation-Core)
