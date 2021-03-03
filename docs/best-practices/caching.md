@@ -4,10 +4,14 @@ titleSuffix: Best practices for cloud applications
 description: Learn how caching can improve the performance and scalability of a system by copying frequently accessed data to fast storage close to the application.
 author: dragon119
 ms.date: 05/24/2017
-ms.topic: best-practice
+ms.topic: conceptual
 ms.service: architecture-center
-ms.subservice: cloud-fundamentals
-ms.custom: seodec18
+ms.subservice: best-practice
+products:
+  - azure-cache-redis
+ms.custom:
+  - best-practice
+  - internal-intro
 ---
 
 <!-- cSpell:ignore BSON keyspace INCRBY DECR DECRBY GETSET MGET MSET SADD SMEMBERS SDIFF SUNION ZADD LPUSH RPUSH LPOP RPOP LRANGE RRANGE -->

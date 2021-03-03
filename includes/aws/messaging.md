@@ -9,7 +9,7 @@ ms.service: architecture-center
 |-------------|---------------|-------------|
 | [Simple Queue Service (SQS)](https://aws.amazon.com/sqs/) | [Queue Storage](https://azure.microsoft.com/services/storage/queues/) | Provides a managed message queueing service for communicating between decoupled application components. |
 | [Simple Queue Service (SQS)](https://aws.amazon.com/sqs/) | [Service Bus](https://azure.microsoft.com/services/service-bus/) | Supports a set of cloud-based, message-oriented middleware technologies including reliable message queuing and durable publish/subscribe messaging. |
-| [Simple Notification Service](https://aws.amazon.com/sns/) | [Event Grid](https://azure.microsoft.com/services/event-grid/) | A fully managed event routing service that allows for uniform event consumption using a publish/subscribe model. |
+| [Amazon EventBridge](https://aws.amazon.com/eventbridge/) | [Event Grid](https://azure.microsoft.com/services/event-grid/) | A fully managed event routing service that allows for uniform event consumption using a publish/subscribe model. |
 
 ### Messaging architectures
 

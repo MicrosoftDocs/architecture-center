@@ -1,0 +1,34 @@
+### YamlMime:Architecture
+metadata:
+  title: Hybrid Security Monitoring using Azure Security Center and Azure Sentinel
+  description: Use Azure Security Center and Azure Sentinel to monitor the security configuration and telemetry of on-premises and Azure operating system workloads.
+  author: doodlemania2
+  ms.author: pnp
+  ms.date: 08/19/2020
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: reference-architecture
+  ms.category:
+    - hybrid
+    - monitoring
+    - security
+  ms.custom:
+    - fcp
+    - reference-architecture
+    - e2e-hybrid
+    - internal-intro
+name: Hybrid Security Monitoring using Azure Security Center and Azure Sentinel
+azureCategories:
+  - hybrid
+  - security
+summary: Use Azure Security Center and Azure Sentinel to monitor the security configuration and telemetry of on-premises and Azure operating system workloads.
+products:
+  - azure-log-analytics
+  - azure-monitor
+  - azure-security-center
+  - azure-sentinel
+  - azure-stack
+
+thumbnailUrl: /azure/architecture/browse/thumbs/hybrid-security-monitoring.png
+content: |
+   [!include[](hybrid-security-monitoring-content.md)]

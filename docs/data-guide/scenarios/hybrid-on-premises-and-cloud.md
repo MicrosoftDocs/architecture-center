@@ -2,10 +2,16 @@
 title: Extending on-premises data solutions to the cloud
 description: Learn about using hybrid cloud environments that span cloud and on-premises datacenters for migrating to the cloud or extending on-premises infrastructures.
 author: zoinerTejada
+ms.author: pnp
 ms.date: 02/12/2018
-ms.topic: guide
+ms.topic: conceptual
 ms.service: architecture-center
-ms.subservice: cloud-fundamentals
+ms.subservice: azure-guide
+products:
+  - azure-stack
+ms.custom:
+  - guide
+  - e2e-hybrid
 ---
 
 # Extending on-premises data solutions to the cloud
@@ -93,5 +99,5 @@ For more information, see [Deciding when to use Azure Blob storage, Azure Files,
 
 This article focused on hybrid data solutions, but another consideration is how to extend your on-premises network to Azure. For more information about this aspect of hybrid solutions, see:
 
-- [Choose a solution for connecting an on-premises network to Azure](../../reference-architectures/hybrid-networking/index.md)
-- [Hybrid network reference architectures](../../reference-architectures/hybrid-networking/index.md)
+- [Choose a solution for connecting an on-premises network to Azure](../../reference-architectures/hybrid-networking/index.yml)
+- [Hybrid network reference architectures](../../reference-architectures/hybrid-networking/index.yml)

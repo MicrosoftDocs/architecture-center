@@ -19,7 +19,8 @@ metadata:
     - energy forecast
     - ai-ml
     - 'https://azure.microsoft.com/solutions/architecture/forecast-energy-power-demand/'
-  social_image_url: /azure/architecture/solution-ideas/articles/media/automl-forecast-energy-demand.png
+    - ai-machine-learning
+  social_image_url: /azure/architecture/solution-ideas/articles/media/forecast-energy-power-demand.png
 name: Forecast Energy and Power Demand
 azureCategories:
   - ai-machine-learning

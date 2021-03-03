@@ -3,13 +3,15 @@ title: Data considerations for microservices
 description: Learn about managing data in a microservices architecture. Data integrity and data consistency are critical challenges for microservices.
 author: doodlemania2
 ms.date: 02/25/2019
-ms.topic: guide
+ms.topic: conceptual
 ms.service: architecture-center
+ms.subservice: azure-guide
 ms.category:
   - databases
   - developer-tools
-ms.subservice: reference-architecture
-ms.custom: microservices
+ms.custom:
+  - microservices
+  - guide
 ---
 
 # Data considerations for microservices
@@ -86,3 +88,10 @@ The Package service stores information about all of the packages. The storage re
 - Support simple queries by package ID. No complex joins or requirements for referential integrity.
 
 Because the package data is not relational, a document-oriented database is appropriate, and Cosmos DB can achieve high throughput by using sharded collections. The team that works on the Package service is familiar with the MEAN stack (MongoDB, Express.js, AngularJS, and Node.js), so they select the [MongoDB API](/azure/cosmos-db/mongodb-introduction) for Cosmos DB. That lets them leverage their existing experience with MongoDB, while getting the benefits of Cosmos DB, which is a managed Azure service.
+
+## Next steps
+
+Learn about design patterns that can help mitigate some common challenges in a microservices architecture.
+
+> [!div class="nextstepaction"]
+> [Design patterns for microservices](./patterns.md)

@@ -2,13 +2,14 @@
 title: Pipes and Filters pattern
 titleSuffix: Cloud Design Patterns
 description: Break down a task that performs complex processing into a series of separate elements that can be reused.
-keywords: design pattern
 author: dragon119
 ms.date: 06/23/2017
-ms.topic: design-pattern
+ms.topic: conceptual
 ms.service: architecture-center
-ms.subservice: cloud-fundamentals
-ms.custom: seodec18
+ms.subservice: design-pattern
+ms.custom:
+  - design-pattern
+keywords: design pattern
 ---
 
 # Pipes and Filters pattern

@@ -3,9 +3,13 @@ title: Choosing a natural language processing technology
 description: Choose a natural language processing service for sentiment analysis, topic and language detection, key phrase extraction, and document categorization.
 author: zoinerTejada
 ms.date: 02/25/2020
-ms.topic: guide
+ms.topic: conceptual
 ms.service: architecture-center
-ms.subservice: cloud-fundamentals
+ms.subservice: azure-guide
+products:
+  - azure-hdinsight
+ms.custom:
+  - guide
 ---
 
 # Choosing a natural language processing technology in Azure

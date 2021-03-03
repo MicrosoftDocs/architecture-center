@@ -1,19 +1,21 @@
 ---
 title: Business Metrics
-description: 
+description: Use business metrics to design resilient Azure applications
 author: david-stanford
 ms.date: 10/16/2019
-ms.topic: article
+ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
-ms.custom: Which business metrics have you defined for your application? 
+ms.custom:
+  - Which business metrics have you defined for your application?
+  - article
 ---
 
 # Using business metrics to design resilient Azure applications
 
 ## Workload availability targets
 
-Define your own target SLAs for each workload in your solution so you can determine whether the architecture meets the business requirements.
+Define your own target SLAs for each workload in your solution so you can determine whether the architecture meets the business requirements. 
 
 ### Consider cost and complexity
 
@@ -42,6 +44,16 @@ The following table shows the potential cumulative downtime for various SLA leve
 | 99.95%  | 5 minutes             | 21.6 minutes           | 4.38 hours            |
 | 99.99%  | 1.01 minutes          | 4.32 minutes           | 52.56 minutes         |
 | 99.999% | 6 seconds             | 25.9 seconds           | 5.26 minutes          |
+
+### Identify critical system flows
+
+Understanding critical system flows is vital to assessing overall operational effectiveness and should be used to inform a health model for the application. It can also tell if areas of the application are over or underutilized and should be adjusted to better meet business needs and cost goals.
+
+Critical sub-systems or paths through the application may have higher expectations around availability, recovery, and performance due to the criticality of associated business scenarios and functionality. This also helps to understand if cost will be affected due to these higher needs.
+
+### Identify less critical components
+
+Some less critical components or paths through the application may have lower expectations around availability, recovery, and performance. This can result in cost reduction by choosing lower SKUs with less performance and availability.
 
 ## Recovery metrics
 

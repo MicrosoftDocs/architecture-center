@@ -4,10 +4,12 @@ titleSuffix: Azure Application Architecture Guide
 description: Use these recommendations to guide design, such as defining business objectives and documenting service level agreements and service level objectives.
 author: doodlemania2
 ms.date: 08/30/2018
-ms.topic: guide
+ms.topic: conceptual
 ms.service: architecture-center
-ms.subservice: reference-architecture
-ms.custom: seojan19
+ms.subservice: guide
+ms.custom:
+  - seojan19
+  - guide
 ---
 
 # Build for the needs of the business

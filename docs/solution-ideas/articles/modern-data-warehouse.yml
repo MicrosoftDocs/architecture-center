@@ -1,0 +1,37 @@
+### YamlMime:Architecture
+metadata:
+  title: Modern Data Warehouse Architecture
+  titleSuffix: Azure Solution Ideas
+  description: Bring together all your data with a data warehouse that scales easily. Build operational reports and analytical dashboards to derive insights from the data.
+  author: doodlemania2
+  ms.author: pnp
+  ms.date: 12/16/2019
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: solution-idea
+  ms.category:
+    - databases
+  ms.custom:
+    - acom-architecture
+    - Modern data warehouse
+    - modern data warehouse architecture
+    - Cloud data warehouse
+    - Big Data warehouse
+    - interactive-diagram
+    - pricing-calculator
+    - 'https://azure.microsoft.com/solutions/architecture/modern-data-warehouse/'
+    - internal-intro
+  social_image_url: /azure/architecture/solution-ideas/articles/media/modern-data-warehouse.png
+name: Modern Data Warehouse Architecture
+azureCategories:
+  - databases
+summary: Bring together all your data with a data warehouse that scales easily. Build operational reports and analytical dashboards to derive insights from the data.
+products:
+  - azure-blob-storage
+  - azure-data-factory
+  - azure-databricks
+  - azure-synapse-analytics
+  - azure-synapse-analytics
+thumbnailUrl: /azure/architecture/browse/thumbs/modern-data-warehouse.png
+content: |
+   [!include[](modern-data-warehouse-content.md)]

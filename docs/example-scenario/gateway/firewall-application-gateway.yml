@@ -1,0 +1,30 @@
+### YamlMime:Architecture
+metadata:
+  title: Firewall and Application Gateway for virtual networks
+  titleSuffix: Azure Example Scenarios
+  description: Learn about options and best practices for using Azure Firewall and Azure Application Gateway security in virtual networks.
+  author: erjosito
+  ms.date: 06/26/2020
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: example-scenario
+  ms.category:
+    - networking
+  ms.custom:
+    - fcp
+    - example-scenario
+    - internal-intro
+name: Firewall and Application Gateway for virtual networks
+azureCategories:
+  - networking
+summary: Learn about options and best practices for using Azure Firewall and Azure Application Gateway security in virtual networks.
+products:
+  - azure-application-gateway
+  - azure-firewall
+  - azure-front-door
+  - azure-kubernetes-service
+  - azure-virtual-network
+  - azure-web-application-firewall
+thumbnailUrl: /azure/architecture/browse/thumbs/decision-tree.png
+content: |
+   [!include[](firewall-application-gateway-content.md)]

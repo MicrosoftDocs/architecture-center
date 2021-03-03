@@ -1,0 +1,31 @@
+### YamlMime:Architecture
+metadata:
+  title: Controlling IoT devices using a Voice Assistant
+  titleSuffix: Azure Solution Ideas
+  description: Control smart devices by using Azure Speech Service, Language Understanding Service (LUIS), and Azure Bot Service to create natural conversational interfaces.
+  author: khilscher
+  ms.author: pnp
+  ms.date: 03/23/2020
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: solution-idea
+  ms.category:
+    - iot
+  ms.custom:
+    - acom-architecture
+    - bot service
+    - luis
+    - iot
+    - 'https://azure.microsoft.com/solutions/architecture/iot-devices/'
+name: Controlling IoT devices using a Voice Assistant
+azureCategories:
+  - iot
+summary: Control smart devices by using Azure Speech Service, Language Understanding Service (LUIS), and Azure Bot Service to create natural conversational interfaces.
+products:
+  - azure-bot-service
+  - azure-speech
+  - azure-iot-hub
+  - azure-language-understanding
+thumbnailUrl: /azure/architecture/browse/thumbs/controlling-iot-devices-using-voice.png
+content: |
+   [!include[](iot-controlling-devices-with-voice-assistant-content.md)]

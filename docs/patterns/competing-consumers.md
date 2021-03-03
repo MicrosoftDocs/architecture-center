@@ -2,13 +2,14 @@
 title: Competing Consumers pattern
 titleSuffix: Cloud Design Patterns
 description: Enable multiple concurrent consumers to process messages received on the same messaging channel.
-keywords: design pattern
 author: dragon119
 ms.date: 06/23/2017
-ms.topic: design-pattern
+ms.topic: conceptual
 ms.service: architecture-center
-ms.subservice: cloud-fundamentals
-ms.custom: seodec18
+ms.subservice: design-pattern
+ms.custom:
+  - design-pattern
+keywords: design pattern
 ---
 
 # Competing Consumers pattern

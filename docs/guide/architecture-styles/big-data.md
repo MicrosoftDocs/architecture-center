@@ -4,11 +4,15 @@ titleSuffix: Azure Application Architecture Guide
 description: Describes benefits, challenges, and best practices for Big Data architectures on Azure.
 author: doodlemania2
 ms.date: 11/20/2019
-ms.topic: guide
+ms.topic: conceptual
 ms.service: architecture-center
-ms.subservice: cloud-fundamentals
-ms.custom: seojan19, IoT
-
+ms.subservice: guide
+products:
+  - azure-data-lake-analytics
+ms.custom:
+  - seojan19
+  - IoT
+  - guide
 ---
 
 # Big data architecture style

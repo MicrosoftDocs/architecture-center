@@ -1,14 +1,17 @@
 ---
 title: Compute Resource Consolidation pattern
 titleSuffix: Cloud Design Patterns
-description: Use the Compute Resource Consolidation design pattern to consolidate multiple tasks or operations into a single computational unit. 
-keywords: design pattern
+description: Use the Compute Resource Consolidation design pattern to consolidate multiple tasks or operations into a single computational unit.
 author: dragon119
 ms.date: 06/23/2017
-ms.topic: design-pattern
+ms.topic: conceptual
 ms.service: architecture-center
-ms.subservice: cloud-fundamentals
-ms.custom: seodec18
+ms.subservice: design-pattern
+products:
+  - azure-app-service
+ms.custom:
+  - design-pattern
+keywords: design pattern
 ---
 
 # Compute Resource Consolidation pattern

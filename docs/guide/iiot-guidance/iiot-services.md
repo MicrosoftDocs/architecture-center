@@ -1,15 +1,20 @@
 ---
 title: Services in an Azure Industrial IoT solution
 titleSuffix: Azure Application Architecture Guide
-description: 
+description: Guidance on services in an IIoT analytics solution.
 author: khilscher
-ms.date: 07/17/2020
-ms.topic: guide
-ms.service: architecture-center
 ms.author: kehilsch
+ms.date: 07/17/2020
+ms.topic: conceptual
+ms.service: architecture-center
+ms.subservice: azure-guide
 ms.category:
   - fcp
-ms.subservice: reference-architecture
+products:
+  - azure-functions
+  - azure-logic-apps
+ms.custom:
+  - guide
 ---
 
 # Services in an IIoT analytics solution
@@ -157,7 +162,7 @@ Azure Stream Analytics supports processing events in CSV, JSON, and Avro data fo
 
 Azure Stream Analytics also supports [reference data](/azure/stream-analytics/stream-analytics-use-reference-data), a finite data set that is static or slowly changing in nature, used to perform a lookup or to augment your data streams. A common scenario is exporting asset metadata from your Enterprise Asset Management system and joining it with real-time data coming from those industrial devices.
 
-Stream Analytics is also available as a [module](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft.stream-analytics-on-iot-edge?tab=Overview) on the Azure IoT Edge runtime. This is useful for situations where complex event processing needs to happen at the Edge. As an alternative to Azure Stream Analytics, near real-time Calculation and Rules Engines may be implemented using [Apache Spark Streaming on Azure Databricks](/azure/databricks/getting-started/spark/streaming).
+Stream Analytics is also available as a [module](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft.stream-analytics-on-iot-?tab=Overview) on the Azure IoT Edge runtime. This is useful for situations where complex event processing needs to happen at the Edge. As an alternative to Azure Stream Analytics, near real-time Calculation and Rules Engines may be implemented using [Apache Spark Streaming on Azure Databricks](/azure/databricks/getting-started/spark/streaming).
 
 ## Notifications
 

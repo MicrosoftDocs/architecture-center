@@ -3,9 +3,11 @@ title: Securing data solutions
 description: Learn about data protection, access control, auditing, and Azure services and tools that help you secure data assets.
 author: zoinerTejada
 ms.date: 11/20/2019
-ms.topic: guide
+ms.topic: conceptual
 ms.service: architecture-center
-ms.subservice: cloud-fundamentals
+ms.subservice: azure-guide
+ms.custom:
+  - guide
 ---
 
 # Securing data solutions
@@ -37,7 +39,7 @@ Central to protecting your data in the cloud is a combination of identity manage
 - Enable Single Sign-On (SSO).
 - Deploy password management.
 - Enforce multi-factor authentication for users.
-- Use role based access control (RBAC).
+- Use Azure role-based access control (Azure RBAC).
 - Conditional Access Policies should be configured, which enhances the classic concept of user identity with additional properties related to user location, device type, patch level, and so on.
 - Control locations where resources are created using resource manager.
 - Actively monitor for suspicious activities
@@ -66,7 +68,7 @@ For more information, see [Azure Logging and Auditing](/azure/security/azure-log
 
 ### Access control
 
-Use [role-based access control](/azure/active-directory/role-based-access-control-what-is) (RBAC) to restrict access to Azure resources based on user roles. If you are using Active Directory on-premises, you can [synchronize with Azure AD](/azure/active-directory/active-directory-hybrid-identity-design-considerations-directory-sync-requirements) to provide users with a cloud identity based on their on-premises identity.
+Use [Azure role-based access control (Azure RBAC)](/azure/role-based-access-control/overview) to restrict access to Azure resources based on user roles. If you are using Active Directory on-premises, you can [synchronize with Azure AD](/azure/active-directory/active-directory-hybrid-identity-design-considerations-directory-sync-requirements) to provide users with a cloud identity based on their on-premises identity.
 
 Use [Conditional access in Azure Active Directory](/azure/active-directory/active-directory-conditional-access-azure-portal) to enforce controls on the access to applications in your environment based on specific conditions. For example, your policy statement could take the form of: _When contractors are trying to access our cloud apps from networks that are not trusted, then block access_.
 

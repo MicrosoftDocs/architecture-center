@@ -3,30 +3,31 @@ title: Segmentation strategies
 description: Strategies for creating isolation between technical teams.
 author: PageWriter-MSFT
 ms.date: 09/07/2020
-ms.topic: article
+ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
+ms.custom:
+  - article
 ---
 
 # Segmentation strategies
 
 Segmentation refers to the isolation of resources from other parts of the organization. It's an effective way of detecting and containing adversary movements. 
 
-An approach to segmentation is network isolation. This approach is not recommended because different technical teams are not aligned with the overall business use cases and application workloads. An outcome is complexity especially with on-premises network and leads to broad network firewall exceptions. While network control should be considered as one of the strategies, it must be part of a unified segmentation strategy. 
+One approach to segmentation is network isolation. This approach is not recommended because different technical teams may not be aligned with the business use cases and application workloads. One outcome of such a mismatch is complexity, as especially seen with on-premises networking, and can lead to reduced velocity, or in worse cases, broad network firewall exceptions. Although network control should be considered as a segmentation strategy, it should be part of a unified segmentation strategy. 
 
 An effective segmentation strategy will guide _all_ technical teams (IT, security, applications) to consistently isolate access using networking, applications, identity, and any other access controls. The strategy should aim to:
 
-- Minimize operation friction by aligning to business practices and applications.
-- Contain Risk by adding cost attackers. This is done by:
-    -   Isolating sensitive workloads from compromise of other assets
-    -   Isolating high exposure systems from being used as a pivot to other
-        systems
-- Monitor operations that can lead to potential violations of the integrity of the segments (account usage, unexpected traffic.).
+- Minimize operational friction by aligning to business practices and applications
+- Contain risk by adding cost to attackers. This is done by:
+    -   Isolating sensitive workloads from compromise by other assets.
+    -   Isolating high-exposure systems from being used as a pivot to other systems.
+- Monitor operations that might lead to potential violation of the integrity of the segments (account usage, unexpected traffic).
 
-Here are some recommendations for creating a unified strategy. 
+Here are some recommendations for creating a unified strategy:
 
-- Ensure alignment of technical teams to a single strategy that is based on assessing business risks.
-- Establish a modern perimeter based on zero-trust principles focused on identity, device, applications, and other signals. This will overcome the limitation of network controls to protect new resources and attack types.
+- Ensure alignment of technical teams to a single strategy based on assessing business risks.
+- Establish a modern perimeter based on zero-trust principles, focused on identity, devices, applications, and other signals. This helps overcome limitations of network controls in protecting from new resources and attack types.
 - Reinforce network controls for legacy applications by exploring microsegmentation strategies.
 
 ## Reference model
@@ -36,14 +37,15 @@ Start with this reference model and adapt it to your organization’s needs. Thi
 
 ### Example segments
 Consider isolating shared and individual resources as shown in the preceding image.
-#### Core services segment
-This segment hosts shared services utilized across the organization. These shared services typically include Active Directory Domain Services, DNS/DHCP, System Management Tools hosted on Azure Infrastructure as a Service (IaaS) virtual machines. 
 
-#### Individual segments
-There are other segments that can contain resources based on some criteria. For instance, resources used by a workload application can be contained in a separate segment. Another way is segment by lifecycle stages: development, test, and production. Some resources might intersect, such as applications can use virtual networks used for lifecycle stages. 
+#### Core Services segment
+This segment hosts shared services utilized across the organization. These shared services typically include Active Directory Domain Services, DNS/DHCP, and system management tools hosted on Azure Infrastructure as a Service (IaaS) virtual machines. 
+
+#### Additional segments
+Other segments can contain grouped resources based on certain criteria. For instance, resources that are used by one specific workload or application might be contained in a separate segment. You may also segment or sub-segment by lifecycle stage, like _development_, _test_, and _production_. Some resources might intersect, such as applications, and can use virtual networks for lifecycle stages. 
 
 ### Functions and teams
-These are the main functions for this reference model. Mapping between central functions, responsibilities, and teams are described in [Team roles and responsibilities](design-role-definitions.md). 
+These are the main functions for this reference model. Mapping between central functions, responsibilities, and teams is described in [Team roles and responsibilities](design-identity-role-definitions.md). 
 
 |Function|Scope|Responsibility|
 |---|---|---|

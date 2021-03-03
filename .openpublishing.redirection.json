@@ -152,6 +152,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "docs/framework/devops/iac.md",
+      "redirect_url": "/azure/architecture/framework/devops/automation-infrastructure",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "docs/microservices/domain-analysis.md",
       "redirect_url": "/azure/architecture/microservices/model/domain-analysis",
       "redirect_document_id": true
@@ -1729,13 +1734,28 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "docs/patterns/category/index.md",
-      "redirect_url": "/azure/patterns/category/availability",
+      "source_path": "docs/patterns/category/resiliency.md",
+      "redirect_url": "/azure/architecture/framework/resiliency/reliability-patterns",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/patterns/category/availability.md",
+      "redirect_url": "/azure/architecture/framework/resiliency/reliability-patterns",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/patterns/category/performance-scalability.md",
+      "redirect_url": "/azure/architecture/framework/resiliency/reliability-patterns",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/patterns/category/security.md",
+      "redirect_url": "/azure/architecture/framework/resiliency/reliability-patterns",
       "redirect_document_id": false
     },
     {
       "source_path": "docs/patterns/runtime-reconfiguration.md",
-      "redirect_url": "/azure/architecture/patterns",
+      "redirect_url": "/azure/architecture/patterns", 
       "redirect_document_id": false
     },
     {
@@ -2004,6 +2024,61 @@
       "source_path": "docs/framework/security/applications-services.md",
       "redirect_url": "/azure/architecture/framework/security/design-apps-services",
       "redirect_document_id": false
-     }     
-  ]
+     },
+     {
+      "source_path": "docs/example-scenario/cobalt/cobalt-extensible-cloud-framework.md",
+      "redirect_url": "/azure/architecture/reference-architectures/containers/aks-start-here",
+      "redirect_document_id": false
+     },
+     {
+      "source_path": "docs/example-scenario/bedrock/bedrock-automated-deployments.md",
+      "redirect_url": "/azure/architecture/reference-architectures/containers/aks-start-here",
+      "redirect_document_id": false
+     },
+     {
+      "source_path": "docs/framework/devops/development.md",
+      "redirect_url": "/azure/architecture/framework/devops/release-engineering-app-dev"
+     },
+     {
+      "source_path": "docs/framework/devops/app-design.md",
+      "redirect_url": "/azure/architecture/framework/devops/release-engineering-app-dev"
+     },
+     {
+      "source_path": "docs/framework/devops/testing.md",
+      "redirect_url": "/azure/architecture/framework/devops/release-engineering-testing"
+     },
+     {
+      "source_path": "docs/framework/devops/deployment.md",
+      "redirect_url": "/azure/architecture/framework/devops/release-engineering-cd"
+     },
+     {
+      "source_path": "docs/framework/devops/configuration.md",
+      "redirect_url": "/azure/architecture/framework/devops/overview"
+     },
+     {
+      "source_path": "docs/framework/devops/performance.md",
+      "redirect_url": "/azure/architecture/framework/devops/release-engineering-performance"
+     },
+     {
+      "source_path": "docs/framework/devops/process.md",
+      "redirect_url": "/azure/architecture/framework/devops/overview"
+     },
+     {
+      "source_path": "docs/framework/scalability/app-design.md",
+      "redirect_url": "/azure/architecture/framework/scalability/design-apps"
+     },
+     {
+      "source_path": "docs/patterns/strangler.md",
+      "redirect_url": "/azure/architecture/patterns/strangler-fig"
+     },
+     {
+      "source_path": "docs/browse/hybrid_index.md",
+      "redirect_url": "/azure/architecture/browse/?azure_categories=hybrid"
+     },
+     {
+      "source_path": "docs/framework/scalability/monitoring.md",
+      "redirect_url": "/azure/architecture/framework/scalability/monitor",
+      "redirect_document_id": false
+     } 
+   ]
 }

@@ -14,10 +14,10 @@
             <p>HPC Media Rendering</p>
         </a>
         <ul class="card-content-metadata">
-            <li>12/16/2019</li>
+            <li>11/04/2020</li>
             <li>2 min read</li>
         </ul>
-        <p class="card-content-description">Optimize the media rendering process with a step-by-step HPC solution architecture from Azure that combines Azure CycleCloud and Avere vFXT.</p>
+        <p class="card-content-description">Optimize the media rendering process with a step-by-step HPC solution architecture from Azure that combines Azure CycleCloud and HPC Cache.</p>
         <div class="bottom-to-top-fade is-hidden-mobile"></div>
     </div>
 </article>

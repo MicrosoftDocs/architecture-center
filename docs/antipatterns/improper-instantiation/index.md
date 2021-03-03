@@ -4,10 +4,13 @@ titleSuffix: Performance antipatterns for cloud apps
 description: Avoid continually creating new instances of an object that is meant to be created once and then shared.
 author: dragon119
 ms.date: 06/05/2017
-ms.topic: article
+ms.topic: conceptual
 ms.service: architecture-center
-ms.subservice: cloud-fundamentals
-ms.custom: seodec18
+ms.subservice: anti-pattern
+products:
+  - azure-cache-redis
+ms.custom:
+  - article
 ---
 
 # Improper Instantiation antipattern

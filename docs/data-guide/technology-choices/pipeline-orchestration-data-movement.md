@@ -3,9 +3,13 @@ title: Choosing a data pipeline orchestration technology
 description: Choose an Azure data pipeline orchestration technology to automate pipeline orchestration, control flow, and data movement workflows.
 author: zoinerTejada
 ms.date: 02/12/2018
-ms.topic: guide
+ms.topic: conceptual
 ms.service: architecture-center
-ms.subservice: cloud-fundamentals
+ms.subservice: azure-guide
+products:
+  - azure-data-factory
+ms.custom:
+  - guide
 ---
 
 <!-- cSpell:ignore Oozie HDFS SSMS -->

@@ -4,13 +4,15 @@ titleSuffix: Azure Application Architecture Guide
 description: Overview of choosing asynchronous messaging for Azure apps.
 author: PageWriter-MSFT
 ms.date: 10/30/2019
-ms.topic: guide
+ms.topic: conceptual
 ms.service: architecture-center
+ms.subservice: guide
 ms.category:
   - integration
   - developer-tools
-ms.subservice: reference-architecture
-ms.custom: seonov19
+ms.custom:
+  - seonov19
+  - guide
 ---
 
 # Asynchronous messaging options in Azure
@@ -99,7 +101,7 @@ Service Bus allows a consumer to peek the queue and lock a message from other co
 
 It's the responsibility of the consumer to report the processing status of the message. Only when the consumer marks the message as consumed, Service Bus removes the message from the queue. If a failure, timeout, or crash occurs, Service Bus unlocks the message so that other consumers can retrieve it. This way messages aren't lost in transfer. 
 
-A producer might accidentally send the same message twice. For instance, a producer instance fails after sending a message. Another producer replaces the original instance and sends the message again. Azure Service Bus queues provide a [built-in de-duping capability](/azure/service-bus-messaging/duplicate-detection) that detects and removes duplicate messages. There's still a chance that a message is delivered twice. For example, if a consumer fails while processing, the message is returned to the queue and is retrieved by the same or another consumer. The message processing logic in the consumer should be idempotent so that even if the work is repeated, the state of the system isn't changed. For more information about idempotency, see [Idempotency Patterns](https://blog.jonathanoliver.com/idempotency-patterns/) on Jonathon Oliver's blog.
+A producer might accidentally send the same message twice. For instance, a producer instance fails after sending a message. Another producer replaces the original instance and sends the message again. Azure Service Bus queues provide a [built-in de-duping capability](/azure/service-bus-messaging/duplicate-detection) that detects and removes duplicate messages. There's still a chance that a message is delivered twice. For example, if a consumer fails while processing, the message is returned to the queue and is retrieved by the same or another consumer. The message processing logic in the consumer should be idempotent so that even if the work is repeated, the state of the system isn't changed. 
 
 #### Message ordering
 If you want consumers to get the messages in the order they are sent, Service Bus queues guarantee first-in-first-out (FIFO) ordered delivery by using sessions. A session can have one or more messages. The messages are correlated with the **SessionId** property. Messages that are part of a session, never expire. A session can be locked to a consumer to prevent its messages from being handled by a different consumer. 
@@ -177,7 +179,7 @@ Event Hubs is capable of ingesting millions of events per second. The events are
 #### Pull model
 Like Event Grid, Event Hubs also offers Publisher-Subscriber capabilities. A key difference between Event Grid and Event Hubs is in the way event data is made available to the subscribers. Event Grid pushes the ingested data to the subscribers whereas Event Hub makes the data available in a pull model. As events are received, Event Hubs appends them to the stream. A subscriber manages its cursor and can move forward and back in the stream, select a time offset, and replay a sequence at its pace. 
 
-Stream processors are subscribers that pull data from Event Hubs for the purposes of transformation and statistical analysis. Use [Azure Stream Analytics](../../reference-architectures/data/stream-processing-stream-analytics.md) and [Apache Spark](https://spark.apache.org/) for complex processing such as aggregation over time windows or anomaly detection. 
+Stream processors are subscribers that pull data from Event Hubs for the purposes of transformation and statistical analysis. Use [Azure Stream Analytics](../../reference-architectures/data/stream-processing-stream-analytics.yml) and [Apache Spark](https://spark.apache.org/) for complex processing such as aggregation over time windows or anomaly detection. 
 
 If you want to act on each event per partition, you can pull the data by using [Event Processing Host](/azure/event-hubs/event-hubs-event-processor-host) or by using built in connector such as [Logic Apps](/azure/connectors/connectors-create-api-azure-event-hubs) to provide the transformation logic. Another option is to use [Azure Functions](/azure/azure-functions/).
 
@@ -216,7 +218,7 @@ Combining services can increase the efficiency of your messaging system. For ins
 
 For details about connecting Service Bus to Event Grid, see [Azure Service Bus to Event Grid integration overview](/azure/service-bus-messaging/service-bus-to-event-grid-integration-concept).
 
-The [Enterprise integration on Azure using message queues and events](../../reference-architectures/enterprise-integration/queues-events.md) reference architecture shows an implementation of Service Bus to Event Grid integration.
+The [Enterprise integration on Azure using message queues and events](../../reference-architectures/enterprise-integration/queues-events.yml) reference architecture shows an implementation of Service Bus to Event Grid integration.
 
 Here's another example. Event Grid receives a set of events in which some events require a workflow while others are for notification. The message metadata indicates the type of event. One way is to check the metadata by using the filtering feature in the event subscription. If it requires a workflow, Event Grid sends it to Azure Service Bus queue. The receivers of that queue can take necessary actions. The notification events are sent to Logic Apps to send alert emails. 
 
@@ -231,3 +233,10 @@ Consider these patterns when implementing asynchronous messaging:
 - [Scheduler Agent Supervisor Pattern](../../patterns/scheduler-agent-supervisor.md). Messaging is often used as part of a workflow implementation. This pattern demonstrates how messaging can coordinate a set of actions across a distributed set of services and other remote resources, and enable a system to recover and retry actions that fail.
 - [Choreography pattern](../../patterns/choreography.md). This pattern shows how services can use messaging to control the workflow of a business transaction.
 - [Claim-Check Pattern](../../patterns/claim-check.md). This pattern shows how to split a large message into a claim check and a payload.
+
+## Community resources
+
+[Jonathon Oliver's blog post: Idempotency](https://blog.jonathanoliver.com/idempotency-patterns/)
+
+[Martin Fowler's blog post: What do you mean by “Event-Driven”?](https://martinfowler.com/articles/201701-event-driven.html)
+

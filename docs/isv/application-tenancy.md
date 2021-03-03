@@ -2,13 +2,14 @@
 title: Tenancy model for SaaS applications
 titleSuffix: Azure Example Scenarios
 description: This article describes the application tenancy models available to Software as a Service (SaaS) application builders.
-author: fredderf204 
+author: fredderf204
 ms.date: 09/18/2020
-ms.topic: example-scenario
+ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: example-scenario
 ms.custom:
-- fcp
+  - fcp
+  - example-scenario
 ---
 
 # Tenancy models for SaaS applications

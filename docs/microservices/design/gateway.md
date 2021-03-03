@@ -3,13 +3,19 @@ title: API gateways
 description: An API gateway sits between clients and services and acts as a reverse proxy. Learn how to choose an API gateway technology for a microservice.
 author: doodlemania2
 ms.date: 10/23/2018
-ms.topic: guide
+ms.topic: conceptual
 ms.service: architecture-center
+ms.subservice: azure-guide
 ms.category:
   - web
   - developer-tools
-ms.subservice: reference-architecture
-ms.custom: microservices
+products:
+  - azure-application-gateway
+  - azure-api-management
+ms.custom:
+  - microservices
+  - guide
+  - internal-intro
 ---
 
 # Using API gateways in microservices

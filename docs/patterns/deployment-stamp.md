@@ -4,10 +4,15 @@ titleSuffix: Cloud Design Patterns
 description: Deploy multiple independent copies of application components.
 author: johndowns
 ms.date: 11/26/2019
-ms.topic: design-pattern
+ms.topic: conceptual
 ms.service: architecture-center
-ms.subservice: cloud-fundamentals
-ms.custom: fasttrack-new, fcp
+ms.subservice: design-pattern
+products:
+  - azure-front-door
+ms.custom:
+  - fasttrack-new
+  - fcp
+  - design-pattern
 ---
 
 <!-- cSpell:ignore johndowns myapi backplane -->

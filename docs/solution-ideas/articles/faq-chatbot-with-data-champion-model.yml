@@ -1,0 +1,36 @@
+### YamlMime:Architecture
+metadata:
+  title: FAQ Chatbot with data champion model
+  titleSuffix: Azure Solution Ideas
+  description: Use QnA Maker to maintain a knowledge base of questions and answers. Set up an FAQ chatbot with Bot Service and LUIS that responds to user queries.
+  author: doodlemania2
+  ms.author: pnp
+  ms.date: 12/16/2019
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: solution-idea
+  ms.category:
+    - ai-machine-learning
+  ms.custom:
+    - acom-architecture
+    - chatbot
+    - QnA
+    - QnA Maker
+    - FAQ
+    - FAQ chatbot
+    - interactive-diagram
+    - 'https://azure.microsoft.com/solutions/architecture/faq-chatbot-with-data-champion-model/'
+    - ai-machine-learning
+  social_image_url: /azure/architecture/solution-ideas/articles/media/faq-chatbot-with-data-champion-model.png
+name: FAQ Chatbot with data champion model
+azureCategories:
+  - ai-machine-learning
+summary: Use QnA Maker to maintain a knowledge base of questions and answers. Set up an FAQ chatbot with Bot Service and LUIS that responds to user queries.
+products:
+  - azure-app-service
+  - azure-bot-service
+  - azure-language-understanding
+  - azure-qna-maker
+thumbnailUrl: /azure/architecture/browse/thumbs/faq-chatbot-with-data-champion-model.png
+content: |
+  [!include[](faq-chatbot-with-data-champion-model-content.md)]

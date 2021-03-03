@@ -1,0 +1,31 @@
+### YamlMime:Architecture
+metadata:
+  title: Batch scoring with R Models on Azure
+  description: Perform batch scoring with R models using Azure Batch and a data set based on retail store sales forecasting.
+  author: njray
+  ms.author: pnp
+  ms.date: 03/29/2019
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: reference-architecture
+  ms.category:
+    - ai-machine-learning
+    - developer-tools
+  ms.custom:
+    - azcat-ai
+    - reference-architecture
+    - ai-machine-learning
+name: Batch scoring with R Models on Azure
+azureCategories:
+  - ai-machine-learning
+  - developer-tools
+summary: Perform batch scoring with R models using Azure Batch and a data set based on retail store sales forecasting.
+products:
+  - azure-batch
+  - azure-blob-storage
+  - azure-container-instances
+  - azure-logic-apps
+  - azure-machine-learning
+thumbnailUrl: /azure/architecture/browse/thumbs/batch-scoring-r-models.png
+content: |
+  [!include[](batch-scoring-R-models-content.md)]

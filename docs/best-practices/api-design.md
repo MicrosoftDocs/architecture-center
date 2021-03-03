@@ -4,10 +4,13 @@ titleSuffix: Best practices for cloud applications
 description: Web applications can expose APIs so clients to interact with the application. Well-designed web APIs should support platform independence and service evolution.
 author: dragon119
 ms.date: 01/12/2018
-ms.topic: best-practice
+ms.topic: conceptual
 ms.service: architecture-center
-ms.subservice: cloud-fundamentals
-ms.custom: seodec18
+ms.subservice: best-practice
+products:
+  - aspnet
+ms.custom:
+  - best-practice
 ---
 
 <!-- cSpell:ignore HATEOAS -->

@@ -1,15 +1,19 @@
 ---
 title: CI/CD for a serverless Azure frontend
-description: Learn best practices for a robust CI/CD pipeline for your serverless frontend on Azure. 
+description: Learn best practices for a robust CI/CD pipeline for your serverless frontend on Azure.
 author: dsk-2015
 ms.author: dkshir
 ms.date: 10/20/2019
-ms.topic: guide
+ms.topic: conceptual
 ms.service: architecture-center
+ms.subservice: azure-guide
 ms.category:
   - devops
   - developer-tools
-ms.subservice: reference-architecture
+products:
+  - azure-pipelines
+ms.custom:
+  - guide
 ---
 
 <!-- cSpell:ignore dkshir cicd brotli iname fabrikamdronestatus Jamstack setvariable CDNS -->
@@ -23,13 +27,13 @@ What does CI/CD actually stand for?
 - Continuous Integration allows development teams to integrate code changes in a shared repository almost instantaneously. This ability, coupled with automated build and testing before the changes are integrated, ensures that only fully functional application code is available for deployment.
 - Continuous Delivery allows changes in the source code, configuration, content, and other artifacts to be delivered to production, and ready to be deployed to end-users, as quickly and safely as possible. The process keeps the code in a *deployable state* at all times. A special case of this is *Continuous Deployment*, which includes actual deployment to end users.
 
-This article discusses a CI/CD pipeline for the web frontend of a [serverless reference implementation](../../reference-architectures/serverless/web-app.md). This pipeline is developed using Azure services. The web frontend demonstrates a modern web application, with client-side JavaScript, reusable server-side APIs, and pre-built Markup, alternatively called [Jamstack](https://jamstack.org). You can find the code in [this GitHub repository](https://github.com/mspnp/serverless-reference-implementation/tree/master/src/ClientApp). The readme describes the steps to download, build, and deploy the application.
+This article discusses a CI/CD pipeline for the web frontend of a [serverless reference implementation](../../reference-architectures/serverless/web-app.yml). This pipeline is developed using Azure services. The web frontend demonstrates a modern web application, with client-side JavaScript, reusable server-side APIs, and pre-built Markup, alternatively called [Jamstack](https://jamstack.org). You can find the code in [this GitHub repository](https://github.com/mspnp/serverless-reference-implementation/tree/master/src/ClientApp). The readme describes the steps to download, build, and deploy the application.
 
 The following diagram describes the CI/CD pipeline used in this sample frontend:
 
 ![CI/CD pipeline in Serverless App using Azure services](./images/cicd-serverless-frontend.png)
 
-This article does not discuss the [backend deployment](../../reference-architectures/serverless/web-app.md#back-end-deployment).
+This article does not discuss the [backend deployment](../../reference-architectures/serverless/web-app.yml#back-end-deployment).
 
 ## Prerequisites
 
@@ -47,13 +51,13 @@ The project files for this sample application are kept in GitHub. If you don't h
 
 ## Automate your build and deploy
 
-Using a CI/CD service such as [Azure Pipelines](/azure/devops/pipelines/?view=azure-devops) can help you to automate the build and deploy processes. You can create multiple stages in the pipeline, each stage running based on the result of the previous one. The stages can run in either a [Windows or Linux container](/azure/devops/pipelines/process/container-phases?tabs=yaml&view=azure-devops). The script must make sure the tools and environments are set properly in the container. Azure Pipelines can run a variety of build tools, and can work with quite a few [online version control systems](/azure/devops/pipelines/repos/?view=azure-devops).
+Using a CI/CD service such as [Azure Pipelines](/azure/devops/pipelines/?view=azure-devops&preserve-view=true) can help you to automate the build and deploy processes. You can create multiple stages in the pipeline, each stage running based on the result of the previous one. The stages can run in either a [Windows or Linux container](/azure/devops/pipelines/process/container-phases?tabs=yaml&view=azure-devops&preserve-view=true). The script must make sure the tools and environments are set properly in the container. Azure Pipelines can run a variety of build tools, and can work with quite a few [online version control systems](/azure/devops/pipelines/repos/?view=azure-devops&preserve-view=true).
 
 ### Integrate build tools
 
 Modern build tools can simplify your build process, and provide functionality such as pre-configuration, [minification](https://techterms.com/definition/minification) of the JavaScript files, and static site generation. Static site generators can build markup files before they are deployed to the hosting servers, resulting in a fast user experience. You can select from a variety of these tools, based on the type of your application's programming language and platform, as well as additional functionality needed. [This article](https://blog.logrocket.com/the-best-static-websites-generators-compared-5f1f9eeeaf1a/) provides a list of popular build tools for a modern application.
 
-The sample is a React application, built using [Gatsby.js](https://www.gatsbyjs.org/), which is a static site generator and front-end development framework. These tools can be run locally during development and testing phases, and then integrated with [Azure Pipelines](/azure/devops/pipelines/get-started/what-is-azure-pipelines?view=azure-devops) for the final deployment.
+The sample is a React application, built using [Gatsby.js](https://www.gatsbyjs.org/), which is a static site generator and front-end development framework. These tools can be run locally during development and testing phases, and then integrated with [Azure Pipelines](/azure/devops/pipelines/get-started/what-is-azure-pipelines?view=azure-devops&preserve-view=true) for the final deployment.
 
 The sample uses the Gatsby file [gatsby-ssr.js](https://www.gatsbyjs.org/docs/ssr-apis/) for rendering, and [gatsby-config.js](https://www.gatsbyjs.org/docs/gatsby-config/) for site configuration. Gatsby converts all JavaScript files under the `pages` subdirectory of the `src` folder to HTML files. Additional components go in the `components` subdirectory. The sample also uses the [gatsby-plugin-typescript](https://www.gatsbyjs.org/packages/gatsby-plugin-typescript/) plugin that allows using [TypeScript](https://www.typescriptlang.org/) for type safety, instead of JavaScript.
 
@@ -65,14 +69,14 @@ Automating the build process reduces the human errors that can be introduced in 
 
 #### Build stage
 
-Since the Azure Pipeline is [integrated with GitHub repository](/azure/devops/pipelines/repos/github?tabs=yaml&view=azure-devops), any changes in the tracked directory of the master branch, trigger the first stage of the pipeline, the build stage:
+Since the Azure Pipeline is [integrated with GitHub repository](/azure/devops/pipelines/repos/github?tabs=yaml&view=azure-devops&preserve-view=true), any changes in the tracked directory of the main branch trigger the first stage of the pipeline, the build stage:
 
 ```yaml
 trigger:
   batch: true
   branches:
     include:
-    - master
+    - main
   paths:
     include:
     - src/ClientApp
@@ -116,7 +120,7 @@ This is followed by *tasks* and *scripts* required to successfully build the pro
     ```
 
 - Computing the version of the current build for [cache management](#manage-website-cache),
-- Publishing the built files for use by the [deploy stage](/azure/devops/pipelines/artifacts/pipeline-artifacts?tabs=yaml&view=azure-devops):
+- Publishing the built files for use by the [deploy stage](/azure/devops/pipelines/artifacts/pipeline-artifacts?tabs=yaml&view=azure-devops&preserve-view=true):
 
     ```yaml
         - task: PublishPipelineArtifact@1

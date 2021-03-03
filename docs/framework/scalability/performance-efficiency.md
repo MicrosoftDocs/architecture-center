@@ -4,10 +4,11 @@ titleSuffix: Azure Design Review Framework
 description: Scalability checklist guidance for design concerns for Azure Autoscaling.
 author: dragon119
 ms.date: 01/10/2018
-ms.topic: checklist
+ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
-ms.custom: checklist
+ms.custom:
+  - checklist
 ---
 
 <!-- cSpell:ignore DTOs varchar -->

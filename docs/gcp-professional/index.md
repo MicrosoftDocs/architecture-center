@@ -1,13 +1,14 @@
 ---
 title: Azure for GCP professionals
 description: Understand the basics of Microsoft Azure accounts, platform, and services. Also learn key similarities and differences between the GCP and Azure platforms. Take advantage of your GCP experience in Azure.
-keywords: GCP experts, Azure comparison, GCP comparison, difference between Azure and GCP, Azure and GCP
 author: doodlemania2
 ms.date: 03/15/2020
 ms.topic: reference
 ms.service: architecture-center
 ms.subservice: cloud-fundamentals
-ms.custom: fcp
+ms.custom:
+  - fcp
+keywords: GCP experts, Azure comparison, GCP comparison, difference between Azure and GCP, Azure and GCP
 ---
 
 # Azure for GCP Professionals
@@ -143,7 +144,7 @@ Region Pairs in Azure
 
 - [Regions for virtual machines in Azure](/azure/virtual-machines/linux/regions)
 - [Availability options for virtual machines in Azure](/azure/virtual-machines/linux/availability)
-- [High availability for Azure applications](../example-scenario/infrastructure/multi-tier-app-disaster-recovery.md)
+- [High availability for Azure applications](../example-scenario/infrastructure/multi-tier-app-disaster-recovery.yml)
 - [Failure and disaster recovery for Azure applications](../framework/resiliency/backup-and-recovery.md)
 - [Planned maintenance for Linux virtual machines in Azure](/azure/virtual-machines/linux/maintenance-and-updates)
 
@@ -157,4 +158,4 @@ Not all Azure products and services are available in all regions. Consult the [P
 
 - [Get started with Azure](https://azure.microsoft.com/get-started)
 - [Azure solution architectures](https://azure.microsoft.com/solutions/architecture)
-- [Azure Reference Architectures](../browse/index.md)
+- [Azure Reference Architectures](../browse/index.yml)

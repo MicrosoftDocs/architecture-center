@@ -3,9 +3,11 @@ title: Time series data
 description: Analyze time series data like sensor data, stock prices, click stream data, or app telemetry for historical trends, real-time alerts, or predictive modeling.
 author: zoinerTejada
 ms.date: 04/02/2020
-ms.topic: guide
+ms.topic: conceptual
 ms.service: architecture-center
-ms.subservice: cloud-fundamentals
+ms.subservice: azure-guide
+ms.custom:
+  - guide
 ---
 
 <!-- cSpell:ignore downsample TSDB -->

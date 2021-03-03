@@ -1,0 +1,41 @@
+### YamlMime:Architecture
+metadata:
+  title: CI/CD for Azure VMs
+  titleSuffix: Azure Solution Ideas
+  description: Whether you use ASP.NET, Java, Node.js, or PHP to develop applications, you'll need a CI/CD pipeline to automatically push changes to these virtual machines.
+  author: doodlemania2
+  ms.author: pnp
+  ms.date: 12/16/2019
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: solution-idea
+  ms.category:
+    - devops
+    - compute
+    - web
+  ms.custom:
+    - acom-architecture
+    - devops
+    - continuous integration
+    - continuous delivery
+    - CI/CD
+    - continuous deployment
+    - interactive-diagram
+    - 'https://azure.microsoft.com/solutions/architecture/cicd-for-azure-vms/'
+    - internal-intro
+  social_image_url: /azure/architecture/solution-ideas/articles/media/cicd-for-azure-vms.png
+name: CI/CD for Azure VMs
+azureCategories:
+  - devops
+  - compute
+  - web
+summary: Whether you use ASP.NET, Java, Node.js, or PHP to develop applications, you'll need a CI/CD pipeline to automatically push changes to these virtual machines.
+products:
+  - azure-application-insights
+  - azure-devops
+  - azure-devtest-labs
+  - azure-resource-manager
+  - azure-virtual-machines
+thumbnailUrl: /azure/architecture/browse/thumbs/cicd-for-azure-vms.png
+content: |
+   [!include[](cicd-for-azure-vms-content.md)]

@@ -1,0 +1,34 @@
+### YamlMime:Architecture
+metadata:
+  title: Loan charge-off prediction with Azure HDInsight Spark clusters
+  titleSuffix: Azure Solution Ideas
+  description: By using Azure HDInsight R Server, a lending institution can use machine learning to predict the likelihood of loans getting charged off.
+  author: doodlemania2
+  ms.author: pnp
+  ms.date: 12/16/2019
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: solution-idea
+  ms.category:
+    - databases
+    - analytics
+  ms.custom:
+    - acom-architecture
+    - artificial intelligence
+    - finance
+    - solution architectures
+    - Azure
+    - ai gallery
+    - 'https://azure.microsoft.com/solutions/architecture/loan-chargeoff-prediction-with-azure-hdinsight-spark-clusters/'
+  social_image_url: /azure/architecture/solution-ideas/articles/media/loan-chargeoff-prediction-with-azure-hdinsight-spark-clusters.png
+name: Loan ChargeOff Prediction with Azure HDInsight Spark Clusters
+azureCategories:
+  - databases
+  - analytics
+summary: By using Azure HDInsight R Server, a lending institution can use machine learning to predict the likelihood of loans getting charged off.
+products:
+  - azure-hdinsight-rserver
+  - power-bi
+thumbnailUrl: /azure/architecture/browse/thumbs/loan-chargeoff-prediction-with-azure-hdinsight-spark-clusters.png
+content: |
+   [!include[](loan-chargeoff-prediction-with-azure-hdinsight-spark-clusters-content.md)]

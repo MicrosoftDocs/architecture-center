@@ -1,12 +1,13 @@
 ---
-title: Use cached data 
+title: Use cached data
 description: Optimize by caching data that doesn't change frequently. Caching can result in faster response times.
-author:  PageWriter-MSFT
+author: PageWriter-MSFT
 ms.date: 08/10/2020
-ms.topic: article
+ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
-ms.custom: 
+ms.custom:
+  - article
 ---
 
 # Caching data

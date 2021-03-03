@@ -14,10 +14,10 @@
             <p>Hybrid Identity</p>
         </a>
         <ul class="card-content-metadata">
-            <li>12/16/2019</li>
+            <li>9/01/2020</li>
             <li>1 min read</li>
         </ul>
-        <p class="card-content-description">The Hybrid Identity blueprint enables teams to manage applications and user identity consistently across clouds with the utilization of Azure Stack</p>
+        <p class="card-content-description">The Hybrid Identity blueprint enables teams to manage applications and user identity consistently across clouds with the utilization of Azure Stack Hub</p>
         <div class="bottom-to-top-fade is-hidden-mobile"></div>
     </div>
 </article>

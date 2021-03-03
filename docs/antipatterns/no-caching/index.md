@@ -1,22 +1,31 @@
 ---
 title: No Caching antipattern
 titleSuffix: Performance antipatterns for cloud apps
-description: In a cloud application that handles many concurrent requests, repeatedly fetching the same data can reduce performance and scalability.
+description: Repeatedly fetching the same data, in a cloud application that handles many concurrent requests, can reduce performance and scalability. Reduce latency by detecting and mitigating this no caching antipattern in your application.
 author: dragon119
 ms.date: 06/05/2017
-ms.topic: article
+ms.topic: conceptual
 ms.service: architecture-center
-ms.subservice: cloud-fundamentals
-ms.custom: seodec18
+ms.subservice: anti-pattern
+products:
+  - azure-cache-redis
+ms.custom:
+  - article
+  - seo-aac-fy21q3
+keywords:
+  - "antipattern"
+  - "anti-pattern"
+  - "performance antipattern"
+  - "no caching antipattern"
+  - "caching strategy"
+  - "reduce latency"
 ---
 
 <!-- cSpell:ignore linq -->
 
 # No Caching antipattern
 
-In a cloud application that handles many concurrent requests, repeatedly fetching the same data can reduce performance and scalability.
-
-## Problem description
+Anti-patterns are common design flaws that can break your software or applications under stress situations and should not be overlooked. A *no caching antipattern* occurs when a cloud application that handles many concurrent requests, repeatedly fetches the same data. This can reduce performance and scalability.
 
 When data is not cached, it can cause a number of undesirable behaviors, including:
 
@@ -25,6 +34,8 @@ When data is not cached, it can cause a number of undesirable behaviors, includi
 - Making excessive calls to a remote service that has a service quota and throttles clients past a certain limit.
 
 In turn, these problems can lead to poor response times, increased contention in the data store, and poor scalability.
+
+## Examples of no caching antipattern
 
 The following example uses Entity Framework to connect to a database. Every client request results in a call to the database, even if multiple requests are fetching exactly the same data. The cost of repeated requests, in terms of I/O overhead and data access charges, can accumulate quickly.
 
@@ -54,7 +65,7 @@ This antipattern typically occurs because:
 - An application was migrated from an on-premises system, where network latency was not an issue, and the system ran on expensive high-performance hardware, so caching wasn't considered in the original design.
 - Developers aren't aware that caching is a possibility in a given scenario. For example, developers may not think of using ETags when implementing a web API.
 
-## How to fix the problem
+## How to fix the no caching antipattern
 
 The most popular caching strategy is the *on-demand* or *cache-aside* strategy.
 
@@ -104,7 +115,7 @@ public class CacheService
 
 Notice that the `GetAsync` method now calls the `CacheService` class, rather than calling the database directly. The `CacheService` class first tries to get the item from Azure Cache for Redis. If the value isn't found in the cache, the `CacheService` invokes a lambda function that was passed to it by the caller. The lambda function is responsible for fetching the data from the database. This implementation decouples the repository from the particular caching solution, and decouples the `CacheService` from the database.
 
-## Considerations
+## Considerations for caching strategy
 
 - If the cache is unavailable, perhaps because of a transient failure, don't return an error to the client. Instead, fetch the data from the original data source. However, be aware that while the cache is being recovered, the original data store could be swamped with requests, resulting in timeouts and failed connections. (After all, this is one of the motivations for using a cache in the first place.) Use a technique such as the [Circuit Breaker pattern][circuit-breaker] to avoid overwhelming the data source.
 
@@ -128,7 +139,7 @@ Notice that the `GetAsync` method now calls the `CacheService` class, rather tha
 
 - If the lack of caching is a bottleneck, then adding caching may increase the volume of requests so much that the web front end becomes overloaded. Clients may start to receive HTTP 503 (Service Unavailable) errors. These are an indication that you should scale out the front end.
 
-## How to detect the problem
+## How to detect a no caching antipattern
 
 You can perform the following steps to help identify whether lack of caching is
 causing performance problems:
@@ -193,7 +204,7 @@ WHERE [Extent1].[BusinessEntityId] = @p__linq__0
 
 This is the query that Entity Framework generates in `GetByIdAsync` method shown earlier.
 
-### Implement the solution and verify the result
+### Implement the cache strategy solution and verify the result
 
 After you incorporate a cache, repeat the load tests and compare the results to the earlier load tests without a cache. Here are the load test results after adding a cache to the sample application.
 

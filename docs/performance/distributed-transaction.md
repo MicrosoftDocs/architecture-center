@@ -5,9 +5,11 @@ description: Using load testing to improve the performance of a distributed busi
 author: doodlemania2
 ms.author: pnp
 ms.date: 08/27/2019
-ms.topic: article
+ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: cloud-fundamentals
+ms.custom:
+  - article
 ---
 
 # Performance tuning scenario: Distributed business transactions

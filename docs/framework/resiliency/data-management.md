@@ -1,12 +1,16 @@
 ---
 title: Data Management for Reliability
-description: 
+description: Data Management for Reliability
 author: david-stanford
 ms.date: 10/16/2019
-ms.topic: article
+ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
-ms.custom: How are you managing your data? 
+products:
+  - azure-sql-database
+ms.custom:
+  - How are you managing your data?
+  - article
 ---
 
 # Data Management for Reliability
@@ -15,7 +19,7 @@ ms.custom: How are you managing your data?
 
 ### Azure SQL Database
 
-SQL Database automatically performs a combination of full database backups weekly, differential database backups hourly, and transaction log backups every five - 10 minutes to protect your business from data loss. Use point-in-time restore to restore a database to an earlier time. For more information, see:
+SQL Database automatically performs a combination of full database backups weekly, differential database backups hourly, and transaction log backups every five - 10 minutes to protect your business from data loss. Use point-in-time restore to restore a database to an earlier time. For more information, see: 
 
 - [Recover an Azure SQL database using automated database backups](/azure/sql-database/sql-database-recovery-using-backups)
 
@@ -59,7 +63,7 @@ A variety of options are available for recovery and high availability for SQL Se
 
 Alternatively, you can use SQL Always On Availability Groups for high availability by creating a single availability group that includes the SQL Server instances in both regions. 
 
-As an example, [Multi-region N-tier application](../../reference-architectures/n-tier/multi-region-sql-server.md) reference architecture shows a set of practices for running an N-tier application in multiple Azure regions to achieve availability and a robust disaster recovery infrastructure. It uses a SQL Server Always On Availability Group and Azure Traffic Manager.
+As an example, [Multi-region N-tier application](../../reference-architectures/n-tier/multi-region-sql-server.yml) reference architecture shows a set of practices for running an N-tier application in multiple Azure regions to achieve availability and a robust disaster recovery infrastructure. It uses a SQL Server Always On Availability Group and Azure Traffic Manager.
 
 
 ## Storage resiliency

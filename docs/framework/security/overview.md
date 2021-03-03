@@ -3,10 +3,11 @@ title: Overview of the security pillar
 description: Describes the security pillar
 author: david-stanford
 ms.date: 10/21/2019
-ms.topic: overview
+ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
-ms.custom: 
+ms.custom:
+  - overview
 ---
 
 # Overview of the security pillar

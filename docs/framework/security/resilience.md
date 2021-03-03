@@ -3,9 +3,11 @@ title: Risk reduction with Azure | Microsoft Docs
 description: Applying good security practices and principles should be an ongoing task rather than a static absolute state.
 author: PageWriter-MSFT
 ms.date: 07/15/2019
-ms.topic: article
+ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
+ms.custom:
+  - article
 ---
 
 # How do you keep your organization's risk down

@@ -1,0 +1,35 @@
+### YamlMime:Architecture
+metadata:
+  title: Visual Assistant
+  titleSuffix: Azure Solution Ideas
+  description: Visual assistant identifies image content and delivers related information. It can read business cards and barcodes and recognize people, places, and objects.
+  author: doodlemania2
+  ms.author: pnp
+  ms.date: 12/16/2019
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: solution-idea
+  ms.category:
+    - ai-machine-learning
+  ms.custom:
+    - acom-architecture
+    - ai-ml
+    - visual assistant
+    - cognitive services
+    - visual capabilities
+    - visual assistant scenarios
+    - interactive-diagram
+    - 'https://azure.microsoft.com/solutions/architecture/visual-assistant/'
+    - ai-machine-learning
+  social_image_url: /azure/architecture/solution-ideas/articles/media/visual-assistant.png
+name: Visual Assistant
+azureCategories:
+  - ai-machine-learning
+summary: Visual assistant identifies image content and delivers related information. It can read business cards and barcodes and recognize people, places, and objects.
+products:
+  - azure-app-service
+  - azure-bot-service
+  - azure-language-understanding
+thumbnailUrl: /azure/architecture/browse/thumbs/visual-assistant.png
+content: |
+  [!include[](visual-assistant-content.md)]

@@ -1,12 +1,13 @@
 ---
 title: Conduct cost reviews
 description: Implement cost monitoring to review cloud spend with the intent of establishing cost controls and preventing any misuse.
-author:  PageWriter-MSFT
+author: PageWriter-MSFT
 ms.date: 05/12/2020
-ms.topic: article
+ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
-ms.custom: 
+ms.custom:
+  - article
 ---
 
 # Conduct cost reviews
@@ -28,9 +29,9 @@ Also include members of the technical team. Application owners, systems administ
 
 Cost reviews can be conducted as part of the regular business reviews. It’s recommended that such reviews are scheduled,
 
--	During the billing period. This review is to create an awareness of the estimated pending billing. These reports can be based on [Azure Advisor](/azure/advisor/advisor-cost-recommendations) and [Azure Cost Management – Cost analysis](/azure/cost-management-billing/costs/). 
--	After the billing period. This review shows the actual cost with activity for that month. Use [Balance APIs](/azure/cost-management-billing/manage/consumption-api-overview#balances-api) to generate monthly reports. The APIs can query data  that gets information on balances, new purchases, Azure Marketplace service charges, adjustments, and overage charges.
--	Because of a [budget alert](/azure/cost-management/cost-mgt-alerts-monitor-usage-spending) or Azure Advisor recommendations.
+- During the billing period. This review is to create an awareness of the estimated pending billing. These reports can be based on [Azure Advisor](/azure/advisor/advisor-cost-recommendations) and [Azure Cost Management – Cost analysis](/azure/cost-management-billing/costs/). 
+- After the billing period. This review shows the actual cost with activity for that month. Use [Balance APIs](/azure/cost-management-billing/manage/consumption-api-overview#balances-api) to generate monthly reports. The APIs can query data  that gets information on balances, new purchases, Azure Marketplace service charges, adjustments, and overage charges.
+- Because of a [budget alert](/azure/cost-management/cost-mgt-alerts-monitor-usage-spending) or Azure Advisor recommendations.
 
 Web Direct (pay-as-you-go) and Cloud Solution Provider (CSP) billing occurs monthly. While Enterprise Agreement (EA) billing occurs annually, costs should still be reviewed monthly.
 

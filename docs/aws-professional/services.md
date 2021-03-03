@@ -2,14 +2,15 @@
 title: AWS to Azure services comparison
 titleSuffix: Azure Architecture Center
 description: Compare Azure cloud services to Amazon Web Services (AWS) for multicloud solutions or migration to Azure.
-keywords: cloud services comparison, cloud services compared, multicloud, compare Azure AWS, compare Azure and AWS, compare AWS and Azure, IT capabilities
 author: doodlemania2
 ms.author: pnp
-ms.date: 08/11/2020
+ms.date: 11/11/2020
 ms.topic: reference
 ms.service: architecture-center
 ms.subservice: cloud-fundamentals
-ms.custom: fcp
+ms.custom:
+  - fcp
+keywords: cloud services comparison, cloud services compared, multicloud, compare Azure AWS, compare Azure and AWS, compare AWS and Azure, IT capabilities
 ---
 
 <!-- cSpell:ignore Alexa Rekognition Cognito ElastiCache Greengrass Firehose -->
@@ -44,7 +45,7 @@ For an overview of Azure for AWS users, see [Introduction to Azure for AWS profe
 | [Lex](https://aws.amazon.com/lex/) | [Language Understanding (LUIS)](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/) | Allows your applications to understand user commands contextually. |
 | [Polly](https://aws.amazon.com/polly/), [Transcribe](https://aws.amazon.com/transcribe/) | [Speech Services](https://azure.microsoft.com/services/cognitive-services/speech/) | Enables both Speech to Text, and Text into Speech capabilities. |
 | [Rekognition](https://aws.amazon.com/rekognition/) | [Cognitive Services](https://azure.microsoft.com/services/cognitive-services/) | [Computer Vision](https://azure.microsoft.com/services/cognitive-services/computer-vision/): Extract information from images to categorize and process visual data.<br/><br/> [Face](https://azure.microsoft.com/services/cognitive-services/face/): Detect, identify, and analyze faces in photos. <br/><br/> [Emotions](https://azure.microsoft.com/services/cognitive-services/emotion/): Recognize emotions in images. |
-| [Skills Kit](https://developer.amazon.com/alexa/alexa-skills-kit) | [Virtual Assistant](/azure/bot-service/bot-builder-virtual-assistant-introduction?view=azure-bot-service-4.0) | The Virtual Assistant Template brings together a number of best practices we've identified through the building of conversational experiences and automates integration of components that we've found to be highly beneficial to Bot Framework developers.
+| [Skills Kit](https://developer.amazon.com/alexa/alexa-skills-kit) | [Virtual Assistant](/azure/bot-service/bot-builder-virtual-assistant-introduction?view=azure-bot-service-4.0&preserve-view=true) | The Virtual Assistant Template brings together a number of best practices we've identified through the building of conversational experiences and automates integration of components that we've found to be highly beneficial to Bot Framework developers.
 
 ### AI and machine learning architectures
 
@@ -56,7 +57,7 @@ For an overview of Azure for AWS users, see [Introduction to Azure for AWS profe
 
 </ul>
 
-[view all](../browse/index.md#ai--machine-learning)
+[view all](../browse/index.yml?azure_categories=ai-machine-learning)
 
 ## Big data and analytics
 
@@ -76,12 +77,13 @@ For an overview of Azure for AWS users, see [Introduction to Azure for AWS profe
 
 </ul>
 
-[view all](../browse/index.md#databases)
+[view all](../browse/index.yml?azure_categories=databases)
 
 ### Big data processing
 
 | AWS service | Azure service | Description |
 | ----------- | ------------- | ----------- |
+| [EMR](https://aws.amazon.com/emr/) | [Azure Data Explorer](https://azure.microsoft.com/services/data-explorer/) | Fully managed, low latency, distributed big data analytics platform to run complex queries across petabytes of data. |
 | [EMR](https://aws.amazon.com/emr/) | [Databricks](https://azure.microsoft.com/services/databricks/) | Apache Spark-based analytics platform. |
 | [EMR](https://aws.amazon.com/emr/) | [HDInsight](https://azure.microsoft.com/services/hdinsight/) | Managed Hadoop service. Deploy and manage Hadoop clusters in Azure. |
 | [EMR](https://aws.amazon.com/emr/) | [Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage/) | Massively scalable, secure data lake functionality built on Azure Blob Storage. |
@@ -95,7 +97,7 @@ For an overview of Azure for AWS users, see [Introduction to Azure for AWS profe
 
 </ul>
 
-[view all](../browse/index.md#databases)
+[view all](../browse/index.yml?azure_categories=databases)
 
 ### Data orchestration / ETL
 
@@ -109,8 +111,8 @@ For an overview of Azure for AWS users, see [Introduction to Azure for AWS profe
 
 | AWS service | Azure service | Description |
 | ----------- | ------------- | ----------- |
-| [Kinesis Analytics](https://aws.amazon.com/kinesis/data-analytics/) | [Stream Analytics](https://azure.microsoft.com/services/stream-analytics/) <br/><br/>[Data Lake Analytics](https://azure.microsoft.com/services/data-lake-analytics/) <br/><br/>[Data Lake Store](https://azure.microsoft.com/services/data-lake-store/) | Storage and analysis platforms that create insights from large quantities of data, or data that originates from many sources. |
-| [QuickSight](https://aws.amazon.com/quicksight/) | [Power BI](https://powerbi.microsoft.com/) | Business intelligence tools that build visualizations, perform ad hoc analysis, and develop business insights from data. |
+| [Kinesis Analytics](https://aws.amazon.com/kinesis/data-analytics/) | [Stream Analytics](https://azure.microsoft.com/services/stream-analytics/) <br/><br/> [Azure Data Explorer](https://azure.microsoft.com/services/data-explorer/) <br/><br/> [Data Lake Analytics](https://azure.microsoft.com/services/data-lake-analytics/) <br/><br/>[Data Lake Store](https://azure.microsoft.com/services/data-lake-store/) | Storage and analysis platforms that create insights from large quantities of data, or data that originates from many sources. |
+| [QuickSight](https://aws.amazon.com/quicksight/) | [Power BI](https://powerbi.microsoft.com/) | Business intelligence tools that build visualizations, perform ad hoc analysis, and develop business insights from data.
 | [CloudSearch](https://aws.amazon.com/cloudsearch/) | [Cognitive Search](https://azure.microsoft.com/services/search/) | Delivers full-text search and related search analytics and capabilities. |
 | [Athena](https://aws.amazon.com/athena/) | [Data Lake Analytics](https://azure.microsoft.com/services/data-lake-analytics/) | Provides a serverless interactive query service that uses standard SQL for analyzing databases. |
 
@@ -124,7 +126,7 @@ For an overview of Azure for AWS users, see [Introduction to Azure for AWS profe
 
 </ul>
 
-[view all](../browse/index.md#analytics)
+[view all](../browse/index.yml?azure_categories=analytics)
 
 ## Compute
 
@@ -143,6 +145,7 @@ For an overview of Azure for AWS users, see [Introduction to Azure for AWS profe
 | [Developer Tools](https://aws.amazon.com/products/developer-tools/) | [Developer Tools](https://azure.microsoft.com/tools/) | Collection of tools for building, debugging, deploying, diagnosing, and managing multiplatform scalable apps and services. |
 | [CodeBuild](https://aws.amazon.com/codebuild/) | [DevOps](https://azure.microsoft.com/services/devops/) | Fully managed build service that supports continuous integration and deployment. |
 | [Command Line Interface](https://aws.amazon.com/cli/) | [CLI](/cli/azure/install-azure-cli) <br/><br/>[PowerShell](/powershell/azure/overview) | Built on top of the native REST API across all cloud services, various programming language-specific wrappers provide easier ways to create solutions. |
+| [AWS CloudShell](https://aws.amazon.com/cloudshell/) | [Azure Cloud Shell](/azure/cloud-shell/overview) | Azure Cloud Shell is an interactive, authenticated, browser-accessible shell for managing Azure resources. It gives you the flexibility to choose the shell experience that best suits the way you work, either Bash or PowerShell. |
 | [OpsWorks (Chef-based)](https://aws.amazon.com/opsworks/) | [Automation](https://azure.microsoft.com/services/automation/) | Configures and operates applications of all shapes and sizes, and provides templates to create and manage a collection of resources. |
 | [CloudFormation](https://aws.amazon.com/cloudformation/) | [Resource Manager](https://azure.microsoft.com/features/resource-manager/) <br/><br/>[VM extensions](/azure/virtual-machines/extensions/features-windows?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) <br/><br/>[Azure Automation](https://azure.microsoft.com/services/automation) | Provides a way for users to automate the manual, long-running, error-prone, and frequently repeated IT tasks.
 
@@ -156,7 +159,7 @@ For an overview of Azure for AWS users, see [Introduction to Azure for AWS profe
 
 </ul>
 
-[view all](../browse/index.md#devops)
+[view all](../browse/index.yml?azure_categories=devops)
 
 ## Internet of things (IoT)
 
@@ -177,7 +180,7 @@ For an overview of Azure for AWS users, see [Introduction to Azure for AWS profe
 
 </ul>
 
-[view all](../browse/index.md#devops)
+[view all](../browse/index.yml?azure_categories=iot)
 
 ## Management
 
@@ -223,7 +226,7 @@ In addition to front-end testing, the [Azure DevTest Labs](https://azure.microso
 
 </ul>
 
-[view all](../browse/index.md#mobile)
+[view all](../browse/index.yml?azure_categories=mobile)
 
 ## Networking
 
@@ -236,8 +239,8 @@ In addition to front-end testing, the [Azure DevTest Labs](https://azure.microso
 | AWS service | Azure service | Description |
 | ----------- | ------------- | ----------- |
 | [Identity and Access Management (IAM)](https://aws.amazon.com/iam/) | [Azure Active Directory](https://azure.microsoft.com/services/active-directory/) | Allows users to securely control access to services and resources while offering data security and protection. Create and manage users and groups, and use permissions to allow and deny access to resources. |
-| [Identity and Access Management (IAM)](https://aws.amazon.com/iam/) | [Role Based Access Control](/azure/role-based-access-control/overview) | Role-based access control (RBAC) helps you manage who has access to Azure resources, what they can do with those resources, and what areas they have access to. |
-| [Organizations](https://aws.amazon.com/organizations/) | [Subscription Management + RBAC](/azure/azure-subscription-service-limits) | Security policy and role management for working with multiple accounts. |
+| [Identity and Access Management (IAM)](https://aws.amazon.com/iam/) | [Azure role-based access control](/azure/role-based-access-control/overview) | Azure role-based access control (Azure RBAC) helps you manage who has access to Azure resources, what they can do with those resources, and what areas they have access to. |
+| [Organizations](https://aws.amazon.com/organizations/) | [Subscription Management + Azure RBAC](/azure/azure-subscription-service-limits) | Security policy and role management for working with multiple accounts. |
 | [Multi-Factor Authentication](https://aws.amazon.com/iam/features/mfa/) | [Multi-Factor Authentication](https://azure.microsoft.com/services/multi-factor-authentication/) | Safeguard access to data and applications while meeting user demand for a simple sign-in process. |
 | [Directory Service](https://aws.amazon.com/directoryservice/) | [Azure Active Directory Domain Services](https://azure.microsoft.com/services/active-directory-ds/) | Provides managed domain services such as domain join, group policy, LDAP, and Kerberos/NTLM authentication that are fully compatible with Windows Server Active Directory. |
 | [Cognito](https://aws.amazon.com/cognito/) | [Azure Active Directory B2C](https://azure.microsoft.com/services/active-directory-b2c/) | A highly available, global, identity management service for consumer-facing applications that scales to hundreds of millions of identities. |
@@ -266,7 +269,7 @@ In addition to front-end testing, the [Azure DevTest Labs](https://azure.microso
 | [Certificate Manager](https://aws.amazon.com/certificate-manager/) | [App Service Certificates available on the Portal](https://azure.microsoft.com/blog/internals-of-app-service-certificate/) | Service that allows customers to create, manage, and consume certificates seamlessly in the cloud. |
 | [GuardDuty](https://aws.amazon.com/guardduty/) | [Advanced Threat Protection](https://azure.microsoft.com/features/azure-advanced-threat-protection/) | Detect and investigate advanced attacks on-premises and in the cloud. |
 | [Artifact](https://aws.amazon.com/artifact/) | [Service Trust Portal](https://servicetrust.microsoft.com/) | Provides access to audit reports, compliance guides, and trust documents from across cloud services. |
-| [Shield](https://aws.amazon.com/shield/) | [DDos Protection Service](/azure/security/azure-ddos-best-practices) | Provides cloud services with protection from distributed denial of services (DDoS) attacks. |
+| [Shield](https://aws.amazon.com/shield/) | [DDos Protection Service](/azure/security/fundamentals/ddos-best-practices) | Provides cloud services with protection from distributed denial of services (DDoS) attacks. |
 
 #### Security architectures
 
@@ -278,7 +281,7 @@ In addition to front-end testing, the [Azure DevTest Labs](https://azure.microso
 
 </ul>
 
-[view all](../browse/index.md#security)
+[view all](../browse/index.yml?azure_categories=security)
 
 ## Storage
 
@@ -292,9 +295,10 @@ In addition to front-end testing, the [Azure DevTest Labs](https://azure.microso
 | [API Gateway](https://aws.amazon.com/api-gateway/) | [API Management](https://azure.microsoft.com/services/api-management/) | A turnkey solution for publishing APIs to external and internal consumers. |
 | [CloudFront](https://aws.amazon.com/cloudfront/) | [Content Delivery Network](https://azure.microsoft.com/services/cdn/) | A global content delivery network that delivers audio, video, applications, images, and other files. |
 | [Global Accelerator](https://aws.amazon.com/global-accelerator/) | [Front Door](https://azure.microsoft.com/services/frontdoor/) | Easily join your distributed microservices architectures into a single global application using HTTP load balancing and path-based routing rules. Automate turning up new regions and scale-out with API-driven global actions, and independent fault-tolerance to your back end microservices in Azure-or anywhere. |
+| [Global Accelerator](https://aws.amazon.com/global-accelerator/) | [Cross-regional load balancer](/azure/load-balancer/cross-region-overview) | Distribute and load balance traffic across multiple Azure regions via a single, static, global anycast public IP address. |
 | [LightSail](https://aws.amazon.com/lightsail/) | [App Service](https://azure.microsoft.com/services/app-service/) | Build, deploy, and scale web apps on a fully managed platform. |
 
-#### Web architectures
+### Web architectures
 
 <ul class="grid">
 
@@ -304,7 +308,7 @@ In addition to front-end testing, the [Azure DevTest Labs](https://azure.microso
 
 </ul>
 
-[view all](../browse/index.md#web)
+[view all](../browse/index.yml?azure_categories=web)
 
 ## Miscellaneous
 

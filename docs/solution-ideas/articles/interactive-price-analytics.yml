@@ -1,0 +1,37 @@
+### YamlMime:Architecture
+metadata:
+  title: Interactive Price Analytics
+  titleSuffix: Azure Solution Ideas
+  description: Use transactional history data to develop a pricing strategy. Overcome problems caused by confounding and data sparsity when modeling prices.
+  author: doodlemania2
+  ms.author: pnp
+  ms.date: 12/16/2019
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: solution-idea
+  ms.category:
+    - analytics
+    - ai-machine-learning
+  ms.custom:
+    - acom-architecture
+    - artificial intelligence
+    - analytics
+    - solution architectures
+    - Azure
+    - ai gallery
+    - 'https://azure.microsoft.com/solutions/architecture/interactive-price-analytics/'
+    - ai-machine-learning
+  social_image_url: /azure/architecture/solution-ideas/articles/media/interactive-price-analytics.png
+name: Interactive Price Analytics
+azureCategories:
+  - analytics
+  - ai-machine-learning
+summary: Use transactional history data to develop a pricing strategy. Overcome problems caused by confounding and data sparsity when modeling prices.
+products:
+  - azure-data-factory
+  - azure-machine-learning
+  - office-excel
+  - power-bi
+thumbnailUrl: /azure/architecture/browse/thumbs/interactive-price-analytics.png
+content: |
+  [!include[](interactive-price-analytics-content.md)]

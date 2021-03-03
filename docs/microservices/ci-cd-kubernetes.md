@@ -3,12 +3,17 @@ title: Building a CI/CD pipeline for microservices on Kubernetes
 description: Describes an example CI/CD pipeline for deploying microservices to Azure Kubernetes Service (AKS).
 author: doodlemania2
 ms.date: 04/11/2019
-ms.topic: guide
+ms.topic: conceptual
 ms.service: architecture-center
+ms.subservice: azure-guide
 ms.category:
   - containers
-ms.subservice: reference-architecture
-ms.custom: microservices
+products:
+  - azure-kubernetes-service
+  - azure-container-registry
+ms.custom:
+  - microservices
+  - guide
 ---
 
 <!-- markdownlint-disable MD040 -->
@@ -36,8 +41,8 @@ For purposes of this example, here are some assumptions about the development te
 
 - The code repository is a monorepo, with folders organized by microservice.
 - The team's branching strategy is based on [trunk-based development](https://trunkbaseddevelopment.com/).
-- The team uses [release branches](/azure/devops/repos/git/git-branching-guidance?view=azure-devops#manage-releases) to manage releases. Separate releases are created for each microservice.
-- The CI/CD process uses [Azure Pipelines](/azure/devops/pipelines/?view=azure-devops) to build, test, and deploy the microservices to AKS.
+- The team uses [release branches](/azure/devops/repos/git/git-branching-guidance?view=azure-devops#manage-releases&preserve-view=true) to manage releases. Separate releases are created for each microservice.
+- The CI/CD process uses [Azure Pipelines](/azure/devops/pipelines/?view=azure-devops&preserve-view=true) to build, test, and deploy the microservices to AKS.
 - The container images for each microservice are stored in [Azure Container Registry](/azure/container-registry/).
 - The team uses Helm charts to package each microservice.
 
@@ -117,20 +122,29 @@ Our recommendation is to create a dedicated production cluster along with a sepa
 
 When possible, package your build process into a Docker container. That allows you to build your code artifacts using Docker, without needing to configure the build environment on each build machine. A containerized build process makes it easy to scale out the CI pipeline by adding new build agents. Also, any developer on the team can build the code simply by running the build container.
 
-By using multi-stage builds in Docker, you can define the build environment and the runtime image in a single Dockerfile. For example, here's a Dockerfile that builds an ASP.NET Core application:
+By using multi-stage builds in Docker, you can define the build environment and the runtime image in a single Dockerfile. For example, here's a Dockerfile that builds a .NET application:
 
-```
-FROM microsoft/dotnet:2.2-runtime AS base
+```dockerfile
+FROM mcr.microsoft.com/dotnet/core/runtime:3.1 AS base
 WORKDIR /app
 
-FROM microsoft/dotnet:2.2-sdk AS build
+FROM mcr.microsoft.com/dotnet/core/sdk:3.1 AS build
 WORKDIR /src/Fabrikam.Workflow.Service
 
 COPY Fabrikam.Workflow.Service/Fabrikam.Workflow.Service.csproj .
 RUN dotnet restore Fabrikam.Workflow.Service.csproj
 
 COPY Fabrikam.Workflow.Service/. .
-RUN dotnet build Fabrikam.Workflow.Service.csproj -c Release -o /app
+RUN dotnet build Fabrikam.Workflow.Service.csproj -c release -o /app --no-restore
+
+FROM build AS testrunner
+WORKDIR /src/tests
+
+COPY Fabrikam.Workflow.Service.Tests/*.csproj .
+RUN dotnet restore Fabrikam.Workflow.Service.Tests.csproj
+
+COPY Fabrikam.Workflow.Service.Tests/. .
+ENTRYPOINT ["dotnet", "test", "--logger:trx"]
 
 FROM build AS publish
 RUN dotnet publish Fabrikam.Workflow.Service.csproj -c Release -o /app
@@ -141,15 +155,15 @@ COPY --from=publish /app .
 ENTRYPOINT ["dotnet", "Fabrikam.Workflow.Service.dll"]
 ```
 
-&#11162; See the [source file](https://github.com/mspnp/microservices-reference-implementation/blob/v0.1.0-invoicing/src/shipping/workflow/Dockerfile).
+&#11162; See the [source file](https://github.com/mspnp/microservices-reference-implementation/blob/master/src/shipping/workflow/Dockerfile).
 
-This Dockerfile defines several build stages. Notice that the stage named `base` uses the ASP.NET Core runtime, while the stage named `build` uses the full ASP.NET Core SDK. The `build` stage is used to build the ASP.NET Core project. But the final runtime container is built from `base`, which contains just the runtime and is significantly smaller than the full SDK image.
+This Dockerfile defines several build stages. Notice that the stage named `base` uses the .NET runtime, while the stage named `build` uses the full .NET SDK. The `build` stage is used to build the .NET project. But the final runtime container is built from `base`, which contains just the runtime and is significantly smaller than the full SDK image.
 
 ### Building a test runner
 
 Another good practice is to run unit tests in the container. For example, here is part of a Docker file that builds a test runner:
 
-```
+```dockerfile
 FROM build AS testrunner
 WORKDIR /src/tests
 
@@ -164,7 +178,7 @@ A developer can use this Docker file to run the tests locally:
 
 ```bash
 docker build . -t delivery-test:1 --target=testrunner
-docker run -p 8080:8080 delivery-test:1
+docker run delivery-test:1
 ```
 
 The CI pipeline should also run the tests as part of the build verification step.
@@ -210,7 +224,7 @@ A single microservice may involve multiple Kubernetes configuration files. Updat
 For example, here's part of a YAML file that defines a deployment:
 
 ```yaml
-apiVersion: apps/v1beta2
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: {{ include "package.fullname" . | replace "." "" }}
@@ -245,7 +259,7 @@ helm install $HELM_CHARTS/package/ \
      --name package-v0.1.0
 ```
 
-Although your CI/CD pipeline could install a chart directly to Kubernetes, we recommend creating a chart archive (.tgz file) and pushing the chart to a Helm repository such as Azure Container Registry. For more information, see [Package Docker-based apps in Helm charts in Azure Pipelines](/azure/devops/pipelines/languages/helm?view=azure-devops).
+Although your CI/CD pipeline could install a chart directly to Kubernetes, we recommend creating a chart archive (.tgz file) and pushing the chart to a Helm repository such as Azure Container Registry. For more information, see [Package Docker-based apps in Helm charts in Azure Pipelines](/azure/devops/pipelines/languages/helm?view=azure-devops&preserve-view=true).
 
 Consider deploying Helm to its own namespace and using role-based access control (RBAC) to restrict which namespaces it can deploy to. For more information, see [Role-based Access Control](https://helm.sh/docs/using_helm/#helm-and-role-based-access-control) in the Helm documentation.
 
@@ -260,7 +274,7 @@ helm install <package-chart-name> --version <desiredVersion>
 Another good practice is to provide a change-cause annotation in the deployment template:
 
 ```yaml
-apiVersion: apps/v1beta2
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: {{ include "delivery.fullname" . | replace "." "" }}
@@ -273,7 +287,10 @@ metadata:
 This lets you view the change-cause field for each revision, using the `kubectl rollout history` command. In the previous example, the change-cause is provided as a Helm chart parameter.
 
 ```bash
-$ kubectl rollout history deployments/delivery-v010 -n backend
+kubectl rollout history deployments/delivery-v010 -n backend
+```
+
+```output
 deployment.extensions/delivery-v010
 REVISION  CHANGE-CAUSE
 1         Initial deployment
@@ -282,13 +299,13 @@ REVISION  CHANGE-CAUSE
 You can also use the `helm list` command to view the revision history:
 
 ```bash
-~$ helm list
-NAME            REVISION    UPDATED                     STATUS        CHART            APP VERSION     NAMESPACE
-delivery-v0.1.0 1           Sun Apr  7 00:25:30 2019    DEPLOYED      delivery-v0.1.0  v0.1.0          backend
+helm list
 ```
 
-> [!TIP]
-> Use the `--history-max` flag when initializing Helm. This setting limits the number of revisions that Tiller saves in its history. Tiller stores revision history in configmaps. If you're releasing updates frequently, the configmaps can grow very large unless you limit the history size.
+```output
+NAME            REVISION    UPDATED                     STATUS        CHART            APP VERSION     NAMESPACE
+delivery-v0.1.0 1           Sun Apr  7 00:25:30 2020    DEPLOYED      delivery-v0.1.0  v0.1.0          backend
+```
 
 ## Azure DevOps Pipeline
 
@@ -389,7 +406,7 @@ The output from the CI pipeline is a production-ready container image and an upd
 - Push the release tag to the container registry.
 - Upgrade the Helm chart in the production cluster.
 
-For more information about creating a release pipeline, see [Release pipelines, draft releases, and release options](/azure/devops/pipelines/release/?view=azure-devops).
+For more information about creating a release pipeline, see [Release pipelines, draft releases, and release options](/azure/devops/pipelines/release/?view=azure-devops&preserve-view=true).
 
 The following diagram shows the end-to-end CI/CD process described in this article:
 

@@ -4,11 +4,14 @@ titleSuffix: Azure Example Scenarios
 description: Learn about serverless architecture with Azure Functions, and how to implement serverless Functions adoption.
 author: rogeriohc
 ms.date: 06/22/2020
-ms.topic: guide
+ms.topic: conceptual
 ms.service: architecture-center
-ms.subservice: reference-architecture
+ms.subservice: azure-guide
+products:
+  - azure-functions
 ms.custom:
-- fcp
+  - fcp
+  - guide
 ---
 # Serverless Functions overview
 

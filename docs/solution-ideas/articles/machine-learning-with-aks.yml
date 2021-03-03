@@ -1,0 +1,37 @@
+### YamlMime:Architecture
+metadata:
+  title: Machine Learning model training with AKS
+  titleSuffix: Azure Solution Ideas
+  description: Tools like TensorFlow and Kubeflow simplify the complex, resource-intensive task of training machine learning models that use large datasets.
+  author: doodlemania2
+  ms.author: pnp
+  ms.date: 12/16/2019
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: solution-idea
+  ms.category:
+    - ai-machine-learning
+    - containers
+  ms.custom:
+    - acom-architecture
+    - chat
+    - signalr service
+    - interactive-diagram
+    - devops
+    - microservices
+    - ai-ml
+    - 'https://azure.microsoft.com/solutions/architecture/machine-learning-with-aks/'
+    - ai-machine-learning
+  social_image_url: /azure/architecture/solution-ideas/articles/media/machine-learning-with-aks.png
+name: Machine Learning model training with AKS
+azureCategories:
+  - ai-machine-learning
+  - containers
+summary: Tools like TensorFlow and Kubeflow simplify the complex, resource-intensive task of training machine learning models that use large datasets.
+products:
+  - azure-blob-storage
+  - azure-container-registry
+  - azure-kubernetes-service
+thumbnailUrl: /azure/architecture/browse/thumbs/machine-learning-with-aks.png
+content: |
+  [!include[](machine-learning-with-aks-content.md)]

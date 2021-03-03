@@ -3,10 +3,12 @@ title: Data Management
 description: 
 author: david-stanford
 ms.date: 10/16/2019
-ms.topic: article
+ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
-ms.custom: How are you managing your data to handle scale? 
+ms.custom:
+  - How are you managing your data to handle scale?
+  - article
 ---
 
 # Data Management

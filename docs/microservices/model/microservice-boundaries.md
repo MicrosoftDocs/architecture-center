@@ -3,13 +3,15 @@ title: Identifying microservice boundaries
 description: Learn how to start from a carefully designed domain model to determine the right size for a microservice.
 author: doodlemania2
 ms.date: 02/25/2019
-ms.topic: guide
+ms.topic: conceptual
 ms.service: architecture-center
+ms.subservice: azure-guide
 ms.category:
   - integration
   - developer-tools
-ms.subservice: reference-architecture
-ms.custom: microservices
+ms.custom:
+  - microservices
+  - guide
 ---
 
 # Identifying microservice boundaries

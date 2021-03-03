@@ -1,0 +1,29 @@
+### YamlMime:Architecture
+metadata:
+  title: Development and test environments for SAP workloads on Azure
+  titleSuffix: Azure Example Scenarios
+  description: Learn how to establish non-production development and test environments for SAP NetWeaver on Azure.
+  author: AndrewDibbins
+  ms.date: 07/11/2018
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: example-scenario
+  ms.category:
+    - databases
+  ms.custom:
+    - fasttrack
+    - SAP
+    - example-scenario
+  social_image_url: /azure/architecture/example-scenario/apps/media/architecture-sap-dev-test.png
+name: Development and test environments for SAP workloads on Azure
+azureCategories:
+  - databases
+summary: Learn how to establish non-production development and test environments for SAP NetWeaver on Azure.
+products:
+  - azure-expressroute
+  - azure-virtual-machines
+  - azure-virtual-network
+  - azure-resource-manager
+thumbnailUrl: /azure/architecture/browse/thumbs/architecture-sap-dev-test.png
+content: |
+   [!include[](sap-dev-test-content.md)]

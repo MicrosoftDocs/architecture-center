@@ -4,10 +4,14 @@ titleSuffix: Performance antipatterns for cloud apps
 description: Putting all of an application's data into a single data store can hurt performance.
 author: dragon119
 ms.date: 06/05/2017
-ms.topic: article
+ms.topic: conceptual
 ms.service: architecture-center
-ms.subservice: cloud-fundamentals
-ms.custom: seodec18
+ms.subservice: anti-pattern
+products:
+  - aspnet
+  - azure-cache-redis
+ms.custom:
+  - article
 ---
 
 <!-- cSpell:ignore DTUs -->

@@ -4,10 +4,11 @@ titleSuffix: Azure Design Review Framework
 description: DevOps integrates development, quality assurance, and IT operations and offers processes for delivering software. Assess your DevOps culture and process.
 author: dragon119
 ms.date: 01/10/2018
-ms.topic: checklist
+ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
-ms.custom: checklist
+ms.custom:
+  - checklist
 ---
 
 # DevOps Checklist
@@ -129,7 +130,7 @@ Shared documentation is critical. Encourage team members to contribute and share
 
 **Follow least-privilege principles when granting access to resources.** Carefully manage access to resources. Access should be denied by default, unless a user is explicitly given access to a resource. Only grant a user access to what they need to complete their tasks. Track user permissions and perform regular security audits.
 
-**Use role-based access control.** Assigning user accounts and access to resources should not be a manual process. Use [role-based access control][rbac] (RBAC) grant access based on [Azure Active Directory][azure-ad] identities and groups.
+**Use Azure role-based access control.** Assigning user accounts and access to resources should not be a manual process. Use [Azure role-based access control (Azure RBAC)][rbac] grant access based on [Azure Active Directory][azure-ad] identities and groups.
 
 **Use a bug tracking system to track issues.** Without a good way to track issues, it's easy to miss items, duplicate work, or introduce additional problems. Don't rely on informal person-to-person communication to track the status of bugs. Use a bug tracking tool to record details about problems, assign resources to address them, and provide an audit trail of progress and status.
 
@@ -151,7 +152,7 @@ For more about DevOps, see [What is DevOps?][what-is-devops] on the Visual Studi
 [dev-test]: https://azure.microsoft.com/solutions/dev-test
 [feature-toggles]: https://www.martinfowler.com/articles/feature-toggles.html
 [oms]: https://www.microsoft.com/cloud-platform/operations-management-suite
-[rbac]: /azure/active-directory/role-based-access-control-what-is
+[rbac]: /azure/role-based-access-control/overview
 [resource-manager]: /azure/azure-resource-manager
 [trunk-based]: https://trunkbaseddevelopment.com
-[what-is-devops]: https://www.visualstudio.com/learn/what-is-devops
+[what-is-devops]: https://azure.microsoft.com/overview/what-is-devops

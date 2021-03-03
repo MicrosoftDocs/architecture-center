@@ -1,0 +1,35 @@
+### YamlMime:Architecture
+metadata:
+  title: Interactive Voice Response Bot
+  titleSuffix: Azure Solution Ideas
+  description: Process customer requests with an intelligent interactive voice response (IVR) application. Build automated systems from scratch or extend existing systems.
+  author: doodlemania2
+  ms.author: pnp
+  ms.date: 12/16/2019
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: solution-idea
+  ms.category:
+    - ai-machine-learning
+  ms.custom:
+    - acom-architecture
+    - artificial intelligence
+    - solution architectures
+    - Azure
+    - ai gallery
+    - chatbot
+    - 'https://azure.microsoft.com/solutions/architecture/interactive-voice-response-bot/'
+    - ai-machine-learning
+  social_image_url: /azure/architecture/solution-ideas/articles/media/interactive-voice-response-bot.png
+name: Interactive Voice Response Bot
+azureCategories:
+  - ai-machine-learning
+summary: Process customer requests with an intelligent interactive voice response (IVR) application. Build automated systems from scratch or extend existing systems.
+products:
+  - azure-bot-service
+  - azure-cognitive-search
+  - azure-language-understanding
+  - azure-web-apps
+thumbnailUrl: /azure/architecture/browse/thumbs/interactive-voice-response-bot.png
+content: |
+  [!include[](interactive-voice-response-bot-content.md)]

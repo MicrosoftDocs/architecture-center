@@ -2,18 +2,21 @@
 title: Data Management patterns
 titleSuffix: Cloud Design Patterns
 description: Use these data management patterns for cloud applications. Data management is a key element that influences most of the quality attributes.
-keywords: design pattern
 author: dragon119
 ms.date: 06/23/2017
-ms.topic: design-pattern
+ms.topic: conceptual
 ms.service: architecture-center
-ms.subservice: cloud-fundamentals
-ms.custom: seodec18
+ms.subservice: design-pattern
+ms.custom:
+  - design-pattern
+keywords: design pattern
 ---
 
 # Data Management patterns
 
 Data management is the key element of cloud applications, and influences most of the quality attributes. Data is typically hosted in different locations and across multiple servers for reasons such as performance, scalability or availability, and this can present a range of challenges. For example, data consistency must be maintained, and data will typically need to be synchronized across different locations.
+
+Additionally data should be protected at rest, in transit, and via authorized access mechanisms to maintain security assurances of confidentiality, integrity, and availability. Refer to the Azure Security Benchmark [Data Protection Control](/azure/security/benchmarks/security-controls-v2-data-protection) for more information.
 
 |                        Pattern                         |                                                                  Summary                                                                  |
 |--------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------|

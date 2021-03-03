@@ -1,14 +1,17 @@
 ---
 title: Asynchronous Request-Reply Pattern
 description: Allow decoupling of backend processing from a frontend host, where backend processing needs to be asynchronous, but the frontend still needs a clear response.
-keywords: async, http, https, request, reply, synchronous, asynchronous, queue, cqrs, valet, extreme load, transactional, retry-after, location, 202, accepted
 author: WillEastbury
-ms.date: 10/22/2019
 ms.author: wieastbu
-ms.custom: fasttrack-new, architecture
-ms.topic: design-pattern
+ms.date: 10/22/2019
+ms.topic: conceptual
 ms.service: architecture-center
-ms.subservice: cloud-fundamentals
+ms.subservice: design-pattern
+ms.custom:
+  - fasttrack-new
+  - architecture
+  - design-pattern
+keywords: async, http, https, request, reply, synchronous, asynchronous, queue, cqrs, valet, extreme load, transactional, retry-after, location, 202, accepted
 ---
 
 <!-- cSpell:ignore cqrs WillEastbury wieastbu -->

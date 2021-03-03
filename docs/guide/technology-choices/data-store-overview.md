@@ -4,9 +4,11 @@ titleSuffix: Azure Application Architecture Guide
 description: Describes different data storage models found in Azure data services.
 author: dsk-2015
 ms.date: 08/08/2020
-ms.topic: guide
+ms.topic: conceptual
 ms.service: architecture-center
-ms.subservice: reference-architecture
+ms.subservice: guide
+ms.custom:
+  - guide
 ---
 
 # Understand data store models
@@ -29,10 +31,10 @@ This model is very useful when strong consistency guarantees are important &mdas
 
 ### Azure services
 
-- [Azure SQL Database][sql-db]
-- [Azure Database for MySQL][mysql]
-- [Azure Database for PostgreSQL][postgres]
-- [Azure Database for MariaDB][mariadb]
+- [Azure SQL Database][sql-db] | [(Security Baseline)](/azure/azure-sql/database/security-baseline)
+- [Azure Database for MySQL][mysql] | [(Security Baseline)](/azure/mysql/security-baseline)
+- [Azure Database for PostgreSQL][postgres] | [(Security Baseline)](/azure/postgresql/security-baseline)
+- [Azure Database for MariaDB][mariadb] | [(Security Baseline)](/azure/mariadb/security-baseline)
 
 ### Workload
 
@@ -72,9 +74,9 @@ A single key/value store can be extremely scalable, as the data store can easily
 
 ### Azure services
 
-- [Azure Cosmos DB Table API][cosmos-table], [etcd API (preview)][cosmos-etcd], and [SQL API][cosmos-sql-key-value]
-- [Azure Cache for Redis][redis]
-- [Azure Table Storage][table-storage-classic]
+- [Azure Cosmos DB Table API][cosmos-table], [etcd API (preview)][cosmos-etcd], and [SQL API][cosmos-sql-key-value] | [(Cosmos DB Security Baseline)](/azure/cosmos-db/security-baseline)
+- [Azure Cache for Redis][redis] | [(Security Baseline)](/azure/azure-cache-for-redis/security-baseline)
+- [Azure Table Storage][table-storage-classic] | [(Security Baseline)](/azure/storage/common/security-baseline)
 
 ### Workload
 
@@ -98,7 +100,7 @@ A single key/value store can be extremely scalable, as the data store can easily
 
 ## Document databases
 
-A document database stores a collection of *documents*, where each document consists of named fields and data. The data can be simple values or complex elements such as lists and child collections. Documents are retrieves by unique keys.
+A document database stores a collection of *documents*, where each document consists of named fields and data. The data can be simple values or complex elements such as lists and child collections. Documents are retrieved by unique keys.
 
 Typically, a document contains the data for single entity, such as a customer or an order. A document may contain information that would be spread across several relational tables in an RDBMS. Documents don't need to have the same structure. Applications can store different data in documents as business requirements change.
 
@@ -106,7 +108,7 @@ Typically, a document contains the data for single entity, such as a customer or
 
 ### Azure service
 
-- [Azure Cosmos DB SQL API][cosmos-db]
+- [Azure Cosmos DB SQL API][cosmos-db] | [(Cosmos DB Security Baseline)](/azure/cosmos-db/security-baseline)
 
 ### Workload
 
@@ -141,8 +143,8 @@ This structure makes it straightforward to perform queries such as "Find all emp
 
 ### Azure services
 
-- [Azure Cosmos DB Gremlin API][cosmos-gremlin]
-- [SQL Server][sqlserver]
+- [Azure Cosmos DB Gremlin API][cosmos-gremlin] | [(Security Baseline)](/azure/cosmos-db/security-baseline)
+- [SQL Server][sqlserver] | [(Security Baseline)](/azure/azure-sql/database/security-baseline)
 
 ### Workload
 
@@ -170,12 +172,12 @@ Data analytics stores provide massively parallel solutions for ingesting, storin
 
 ### Azure services
 
-- [Azure Synapse Analytics][sql-dw]
-- [Azure Data Lake][data-lake]
-- [Azure Data Explorer](https://azure.microsoft.com/services/data-explorer/)
+- [Azure Synapse Analytics][sql-dw] | [(Security Baseline)](/azure/synapse-analytics/security-baseline)
+- [Azure Data Lake][data-lake] | [(Security Baseline)](/azure/data-lake-analytics/security-baseline)
+- [Azure Data Explorer](https://azure.microsoft.com/services/data-explorer/) | [(Security Baseline)](/azure/data-explorer/security-baseline)
 - [Azure Analysis Services][analysissvc]
-- [HDInsight][hdinsight]
-- [Azure Databricks][databricks]
+- [HDInsight][hdinsight] | [(Security Baseline)](/azure/hdinsight/security-baseline)
+- [Azure Databricks][databricks] | [(Security Baseline)](/azure/databricks/scenarios/security-baseline)
 
 ### Workload
 
@@ -209,8 +211,8 @@ Read and write operations for a row are usually atomic with a single column-fami
 
 ### Azure services
 
-- [Azure Cosmos DB Cassandra API][cassandra]
-- [HBase in HDInsight][hbase]
+- [Azure Cosmos DB Cassandra API][cassandra] | [(Security Baseline)](/azure/cosmos-db/security-baseline)
+- [HBase in HDInsight][hbase] | [(Security Baseline)](/azure/hdinsight/security-baseline)
 
 ### Workload
 
@@ -249,7 +251,7 @@ Searching can be exact or fuzzy. A fuzzy search finds documents that match a set
 
 ### Azure service
 
-- [Azure Search][search]
+- [Azure Search][search] | [(Security Baseline)](/azure/search/security-baseline)
 
 ### Workload
 
@@ -301,8 +303,8 @@ Object storage is optimized for storing and retrieving large binary objects (ima
 
 ### Azure service
 
-- [Azure Blob Storage][blob]
-- [Azure Data Lake Storage Gen2][datalakegen2]
+- [Azure Blob Storage][blob] | [(Security Baseline)](/azure/storage/common/security-baseline)
+- [Azure Data Lake Storage Gen2][datalakegen2] | [(Security Baseline)](/azure/data-lake-analytics/security-baseline)
 
 ### Workload
 
@@ -328,7 +330,7 @@ Sometimes, using simple flat files can be the most effective means of storing an
 
 ### Azure service
 
-- [Azure Files][file-storage]
+- [Azure Files][file-storage] | [(Security Baseline)](/azure/storage/common/security-baseline)
 
 ### Workload
 

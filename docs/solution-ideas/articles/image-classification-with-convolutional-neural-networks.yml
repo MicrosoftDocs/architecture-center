@@ -1,0 +1,39 @@
+### YamlMime:Architecture
+metadata:
+  title: Image classification with Convolutional Neural Networks
+  titleSuffix: Azure Solution Ideas
+  description: Boost manufacturing productivity by using convolutional neural networks and gradient-boosting decision tree algorithms to automate failure detection.
+  author: doodlemania2
+  ms.author: pnp
+  ms.date: 12/16/2019
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: solution-idea
+  ms.category:
+    - ai-machine-learning
+  ms.custom:
+    - acom-architecture
+    - convolutional neural network
+    - discrete manufacturing
+    - decision tree algorithm
+    - image classification
+    - gradient boosting decision tree
+    - ai-ml
+    - failure detection
+    - automated manufacturing solutions
+    - 'https://azure.microsoft.com/solutions/architecture/image-classification-with-convolutional-neural-networks/'
+    - ai-machine-learning
+  social_image_url: /azure/architecture/solution-ideas/articles/media/image-classification-with-convolutional-neural-networks.png
+name: Image classification with Convolutional Neural Networks
+azureCategories:
+  - ai-machine-learning
+summary: Boost manufacturing productivity by using convolutional neural networks and gradient-boosting decision tree algorithms to automate failure detection.
+products:
+  - azure-blob-storage
+  - azure-container-registry
+  - azure-data-science-vm
+  - azure-kubernetes-service
+  - azure-machine-learning
+thumbnailUrl: /azure/architecture/browse/thumbs/image-classification-with-convolutional-neural-networks.png
+content: |
+  [!include[](image-classification-with-convolutional-neural-networks-content.md)]

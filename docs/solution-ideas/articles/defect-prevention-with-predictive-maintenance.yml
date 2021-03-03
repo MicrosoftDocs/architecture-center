@@ -1,0 +1,36 @@
+### YamlMime:Architecture
+metadata:
+  title: Defect prevention with predictive maintenance
+  titleSuffix: Azure Solution Ideas
+  description: Learn how to use Azure Machine Learning to predict failures before they happen with real-time assembly line data.
+  author: doodlemania2
+  ms.author: pnp
+  ms.date: 12/16/2019
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: solution-idea
+  ms.category:
+    - ai-machine-learning
+    - analytics
+  ms.custom:
+    - acom-architecture
+    - manufacturing control
+    - quality control process
+    - anomaly-detection
+    - manufacturing quality control
+    - 'https://azure.microsoft.com/solutions/architecture/defect-prevention-with-predictive-maintenance/'
+    - ai-machine-learning
+  social_image_url: /azure/architecture/solution-ideas/articles/media/defect-prevention-with-predictive-maintenance.png
+name: Defect prevention with predictive maintenance
+azureCategories:
+  - ai-machine-learning
+  - analytics
+summary: Learn how to use Azure Machine Learning to predict failures before they happen with real-time assembly line data.
+products:
+  - azure-event-hubs
+  - azure-machine-learning
+  - azure-stream-analytics
+  - azure-synapse-analytics
+thumbnailUrl: /azure/architecture/browse/thumbs/defect-prevention-with-predictive-maintenance.png
+content: |
+  [!include[](defect-prevention-with-predictive-maintenance-content.md)]

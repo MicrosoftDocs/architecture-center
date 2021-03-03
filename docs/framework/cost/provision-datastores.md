@@ -1,12 +1,15 @@
 ---
 title: Data store cost estimates
 description: Describes cost strategies for database design
-author:  v-aangie
+author: v-aangie
 ms.date: 08/25/2020
-ms.topic: article
+ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
-ms.custom: 
+products:
+  - azure-sql-database
+ms.custom:
+  - article
 ---
 
 # Data store cost estimates

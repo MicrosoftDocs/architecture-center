@@ -2,14 +2,20 @@
 title: Modernize enterprise applications - Azure Service Fabric
 description: Best practices about moving Windows applications to an Azure compute platform without rewriting. This migration uses container support in Azure Service Fabric.
 author: colincole
-ms.date: 05/01/2019
-ms.topic: guide
 ms.author: pnp
+ms.date: 05/01/2019
+ms.topic: conceptual
 ms.service: architecture-center
+ms.subservice: azure-guide
 ms.category:
   - migration
   - management-and-governance
-ms.subservice: reference-architecture
+products:
+  - azure-load-balancer
+  - azure-service-fabric
+ms.custom:
+  - guide
+  - internal-intro
 ---
 
 # Modernize enterprise applications with Azure Service Fabric
@@ -72,7 +78,7 @@ From an application development perspective, determine the workstation requireme
 
 - [Docker for Windows](https://www.docker.com/docker-windows) is required for developers to containerize and test their applications prior to deployment.
 - Visual Studio Docker support is required. Standardize on the latest version of [Visual Studio](https://visualstudio.microsoft.com/) for the best Docker compatibility.
-- If workstations don't have enough hardware resources to oversee those requirements, use Azure compute resources for speed and productivity gains. An option is the Azure DevTest Labs Service. Docker for Windows, and Visual Studio 2017 require a minimum of 8 GB of memory.
+- If workstations don't have enough hardware resources to oversee those requirements, use Azure compute resources for speed and productivity gains. An option is the Azure DevTest Labs Service. Docker for Windows, and Visual Studio 2019 require a minimum of 8 GB of memory.
 
 ### Networking requirements
 
@@ -94,10 +100,11 @@ After you've determined the applications that meet the selection criteria, conta
 Here are the basic steps for containerizing an application.
 
 1. Open the project in Visual Studio.
-2. Make sure the project compiles and runs locally on the developer workstation.
-3. Add a Dockerfile to the project. This Dockerfile example shows a basic .NET MVC application.
-    ```
-    FROM microsoft/aspnet:4.7
+1. Make sure the project compiles and runs locally on the developer workstation.
+1. Add a Dockerfile to the project. This Dockerfile example shows a basic .NET MVC application.
+
+    ```dockerfile
+    FROM mcr.microsoft.com/dotnet/framework/aspnet:4.8
     ADD PublishOutput/ /inetpub/wwwroot
 
     # add a certificate and configure SSL
@@ -111,11 +118,11 @@ Here are the basic steps for containerizing an application.
     # plugin into SF healthcheck ensuring the container website is running
     HEALTHCHECK --interval=30s --timeout=30s --start-period=60s --retries=3 CMD curl -f http://localhost/ || exit 1
     ```
-4. Test locally by using Docker For Windows. The application must successfully run in a Docker container by using the Visual Studio debug experience. For more information, see [Deploy a .NET app using Docker Compose](/azure/service-fabric/service-fabric-host-app-in-a-container).
 
-5. Build (if needed), tag, and push the tested image to a Docker registry, like the [Azure Container Registry](/azure/container-registry/) service. This example uses an existing Azure Container Registry named MyAcr and Docker build/tag/push to build/deploy appA to the registry.
+1. Test locally by using Docker For Windows. The application must successfully run in a Docker container by using the Visual Studio debug experience. For more information, see [Deploy a .NET app using Docker Compose](/azure/service-fabric/service-fabric-host-app-in-a-container).
+1. Build (if needed), tag, and push the tested image to a container registry, like the [Azure Container Registry](/azure/container-registry/) service. This example uses an existing Azure Container Registry named MyAcr and Docker build/tag/push to build/deploy appA to the registry.
 
-    ```
+    ```bash
     docker login myacr.azurecr.io -u myacr -p <pwd>
     docker build -t appa .
     docker tag appa myacr.azurecr.io/appa:1.0
@@ -125,12 +132,12 @@ Here are the basic steps for containerizing an application.
 The image is tagged with a version number that Service Fabric references when it deploys and versions the container. Azure DevOps encapsulates and executes the manual Docker build/tag/push process. DevOps details are described in the [DevOps and CI/CD](#devops-and-cicd) section.
 
 > [!NOTE]
-> In the preceding example, the base image is "microsoft/aspnet4.7" from DockerHub.
+> In the preceding example, the base image is "mcr.microsoft.com/dotnet/framework/aspnet:4.8" from the Microsoft Container Registry.
 
 Here are some considerations about the base images:
 
 - The base image could be a locked-down custom enterprise image that enforces enterprise requirements. For a shared application, isolation boundaries can be created through credentials or by using separate registry. It's recommended that enterprise-supported docker images be kept separately and stored in an isolated container registry.  
-- Avoid storing the registry login credentials in configuration files. Instead, use (role-based access control) RBAC and [Azure Active Directory service principals](/azure/active-directory/develop/app-objects-and-service-principals) with Azure Container Registry. Provide read-only access to registries depending on your enterprise requirements.
+- Avoid storing the registry login credentials in configuration files. Instead, use role-based access control (RBAC) and [Azure Active Directory service principals](/azure/active-directory/develop/app-objects-and-service-principals) with Azure Container Registry. Provide read-only access to registries depending on your enterprise requirements.
 
 For information about running an IIS ASP.net MVC application in a Windows container, see [Migrating ASP.NET MVC Applications to Windows Containers](/aspnet/mvc/overview/deployment/docker-aspnetmvc).
 
@@ -160,23 +167,23 @@ A scale set associated with a node type can reliably scale out to 100 VM instanc
 
 Service Fabric supports with two networking modes for containerized applications; nat and Open. For large enterprise clusters that host multiple applications, use the Open mode. For more information, see [Container Networking and Constraints](#container-networking-and-constraints).
 
-- **nat**
+- **NAT**
 
-    By default, the cluster brings up containers by using a NAT-bridge mode to the host VM. The NAT bridge routes requests over a defined port to the container. With this mode, only one IP address is needed per host VM for the host's primary NIC.
+  By default, the cluster brings up containers by using a NAT-bridge mode to the host VM. The NAT bridge routes requests over a defined port to the container. With this mode, only one IP address is needed per host VM for the host's primary NIC.
 
-    To route traffic to each application container, a unique port is exposed through the load balancer. However, that port is exposed to end users. If you don't want the port exposed, provide a URL rewrite mechanism. Rewrite the application domain name with a unique application port. Traffic is routed to the load balancer that front ends the cluster. One option for the rewrite mechanism is [Azure Application Gateway](/azure/application-gateway/).
+  To route traffic to each application container, a unique port is exposed through the load balancer. However, that port is exposed to end users. If you don't want the port exposed, provide a URL rewrite mechanism. Rewrite the application domain name with a unique application port. Traffic is routed to the load balancer that front ends the cluster. One option for the rewrite mechanism is [Azure Application Gateway](/azure/application-gateway/).
 
-    Another benefit of this approach is simplistic load balancing with Azure Load Balancer. The load balancer's probe mechanism balance traffic across the VM instances that are running the application's containers.
+  Another benefit of this approach is simplistic load balancing with Azure Load Balancer. The load balancer's probe mechanism balance traffic across the VM instances that are running the application's containers.
 
 - **Open**
 
-    The **Open** mode assigns an IP address to each running container on the host VM from the cluster's virtual network subnet. Each host is pre-allocated with a set of IP addresses. Each container on the host is assigned an IP from the virtual network range. You can configure this mode in the cluster Azure Resource Manager template during cluster creation. The example infrastructure demonstrates the **Open** mode.
+  The **Open** mode assigns an IP address to each running container on the host VM from the cluster's virtual network subnet. Each host is pre-allocated with a set of IP addresses. Each container on the host is assigned an IP from the virtual network range. You can configure this mode in the cluster Azure Resource Manager template during cluster creation. The example infrastructure demonstrates the **Open** mode.
 
-    Benefits of the Open mode:
+  Benefits of the Open mode:
 
-    - Makes connecting to application containers simple.
-    - Provides application traceability that is, the assigned enterprise-friendly IP is constant for the life of the container.
-    - Is efficient with Windows containers.
+  - Makes connecting to application containers simple.
+  - Provides application traceability that is, the assigned enterprise-friendly IP is constant for the life of the container.
+  - Is efficient with Windows containers.
 
 There are downsides:
 
@@ -210,7 +217,7 @@ The Service Fabric Log Analytics workspace and Service Fabric solution provide d
 
 ### Unused container images
 
-Docker images are downloaded to each Service Fabric host and can consume space on the host disk. To free up disk space, consider [image pruning](/azure/service-fabric/service-fabric-get-started-containers#configure-the-runtime-to-remove-unused-container-images) to remove images that are no longer referenced and used by running containers. Configure this option in the Host section of the cluster manifest.
+Container images are downloaded to each Service Fabric host and can consume space on the host disk. To free up disk space, consider [image pruning](/azure/service-fabric/service-fabric-get-started-containers#configure-the-runtime-to-remove-unused-container-images) to remove images that are no longer referenced and used by running containers. Configure this option in the Host section of the cluster manifest.
 
 ### Secrets and certificates management with Key Vault
 
@@ -283,12 +290,12 @@ The key aspect of the ingress reverse proxy is inspecting inbound traffic and re
 For example, application A is registered with the Service Fabric DNS service with the domain name: appA.container.myorg.com. External users access the application with `https://appA.myorg.com`. Use public or organizational DNS and register appA.myorg.com to point to the public IP for the application node type.
 
 1. Requests for appA.myorg.com are routed to the Service Fabric cluster and handed off to the ARR container listening on port 443. Service Fabric and Azure Load Balancer set that configuration value when the ARR container is deployed.  
-2. When ARR gets the request, it has a condition to look for any request with the pattern='*.*.*', and its action rewrites the request to https://{C:1}.container.{C:2}.{C:3}/{REQUEST_URI}. Because the ARR is running in the cluster, the Service Fabric DNS service is invoked. The service returns the destination container IP address.
+2. When ARR gets the request, it has a condition to look for any request with the pattern='*.*.*', and its action rewrites the request to `https://{C:1}.container.{C:2}.{C:3}/{REQUEST_URI}`. Because the ARR is running in the cluster, the Service Fabric DNS service is invoked. The service returns the destination container IP address.
 3. The request is routed to the destination container. Certificates can be used for the initial request to ARR and the rewrite to the destination container.
 
 Here is an example ApplicationManifest.xml for Container A in the example infrastructure.
 
-```
+```xml
 <?xml version="1.0" encoding="utf-8"?>
 <ApplicationManifest ApplicationTypeName="sfapp02Type"
                      ApplicationTypeVersion="1.0.0"
@@ -329,7 +336,7 @@ Here is an example ApplicationManifest.xml for Container A in the example infras
 
 Here is the example ServiceManifest.xml for the containerized application appA.
 
-```
+```xml
 <?xml version="1.0" encoding="utf-8"?>
 <ServiceManifest Name="appAsvcPkg"
                  Version="1.0.0"
@@ -365,11 +372,11 @@ For information about manifests, see [Service Fabric application and service man
 
 ### Environmental configuration
 
-Do not hardcode configuration values in the container image by using [environment variables](/azure/service-fabric/service-fabric-how-to-specify-environment-variables) to pass values to a container. A DevOps pipeline can build a Docker image, test in a test environment, promote to staging (or pre-production), and promote to production. Do not rebuild a docker image for each environment.
+Do not hardcode configuration values in the container image by using [environment variables](/azure/service-fabric/service-fabric-how-to-specify-environment-variables) to pass values to a container. A DevOps pipeline can build a container image, test in a test environment, promote to staging (or pre-production), and promote to production. Do not rebuild an image for each environment.
 
-Docker can pass environment variables directly to a Docker container when running a container. In this example, Docker passes the eShopTitle variable to the eshopweb container:
+Docker can pass environment variables directly to a container when starting one. In this example, Docker passes the eShopTitle variable to the eshopweb container:
 
-```
+```bash
 docker run -p 80:80 -d --name eshoptest -e eShopTitle=SomeName eshopweb:1.0
 ```
 
@@ -385,7 +392,7 @@ Here are some articles about container security:
 
 [Service Fabric application and service security](/azure/service-fabric/service-fabric-application-and-service-security)
 
-[Set up an encryption certificate and encrypt secrets on Windows clusters](/azure/service-fabric/service-fabric-application-secret-management-windows) 
+[Set up an encryption certificate and encrypt secrets on Windows clusters](/azure/service-fabric/service-fabric-application-secret-management-windows)
 
 ## Logging and monitoring
 
@@ -424,8 +431,8 @@ Here are two approaches for getting application logs into Log Analytics.
 
     Each container records any output sent to the command line of a container. Access the output outside the container, which is automatically executed by Container Monitoring Solution.
 
-    ```
-    Docker Logs <ContainerID>
+    ```bash
+    docker logs <ContainerID>
     ```
 
     Move Docker to an attached VM data disk with enough storage to make sure the OS drive doesn't fill up with container logs.
@@ -444,12 +451,12 @@ Application containerization ensures consistency. It makes sure all Service Fabr
 ![Diagram showing how containerized Service Fabric-hosted apps work with DevOps and CI/CD.](images/containersf-devops.png)
 
 - An enterprise may want to control the base container images in a centralized registry. The preceding workflow shows one image registry. There could be multiple registries that are used to share central IT-built enterprise images with application teams. One way to centralize control is for the central IT registry to allow application teams with read-only access to the enterprise base image repository. Application teams each have their own container registry with their Docker files and build off the central IT base image repository.
-- There are various third-party image scanning tools that can plug into this process on Docker push/pulls from the Azure Container Registry. Those solutions are available in Azure Marketplace and referenced in the Azure portal Container Registry blade. For example, Aqua and TwistLock.
+- There are various third-party image scanning tools that can plug into this process on push/pulls from the Azure Container Registry. Those solutions are available in Azure Marketplace and referenced in the Azure portal Container Registry blade. For example, Aqua and TwistLock.
 After the source code is pushed to a git-based repository, set up CI/CD by creating an Azure DevOps build definition, selecting the source repository, and choosing the **Azure Service Fabric Application and Docker Support** template.
 
 ![Azure Service Fabric Application and Docker Support template](images/containersf-devops-template1.png)
 
-The template sets up the build process and tasks for CI/CD by building and containerizing the application, pushing the container image to a Docker registry (Azure Container Registry is the default), and deploying the Service Fabric application with the containerized services to the cluster. Each application code change creates a version of the code and an updated containerized image. Service Fabric's rolling upgrade feature deploys service upgrades gracefully.
+The template sets up the build process and tasks for CI/CD by building and containerizing the application, pushing the container image to a container registry (Azure Container Registry is the default), and deploying the Service Fabric application with the containerized services to the cluster. Each application code change creates a version of the code and an updated containerized image. Service Fabric's rolling upgrade feature deploys service upgrades gracefully.
 
 ![Screenshot showing Service Fabric's rolling upgrade feature for updating manifests.](images/containersf-devops-template2.png)
 

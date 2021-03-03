@@ -4,11 +4,14 @@ titleSuffix: Azure Example Scenarios
 description: Conduct a Proof of Concept or pilot and manage change during serverless adoption with Azure Functions.
 author: rogeriohc
 ms.date: 06/22/2020
-ms.topic: guide
+ms.topic: conceptual
 ms.service: architecture-center
-ms.subservice: reference-architecture
+ms.subservice: azure-guide
+products:
+  - azure-functions
 ms.custom:
-- fcp
+  - fcp
+  - guide
 ---
 # Proof of Concept or pilot
 
@@ -98,4 +101,3 @@ The pilot includes a detailed follow up through surveys or focus groups. The fee
 
 ## Related resources
 [Prosci® change management training](https://www.prosci.com/solutions/training-programs/virtual-change-management-certification-program)
-

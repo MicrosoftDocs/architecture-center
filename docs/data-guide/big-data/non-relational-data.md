@@ -3,9 +3,13 @@ title: Non-relational data and NoSQL
 description: Learn about non-relational databases that store data as key/value pairs, graphs, time series, objects, and other storage models based on data requirements.
 author: zoinerTejada
 ms.date: 02/12/2018
-ms.topic: guide
+ms.topic: conceptual
 ms.service: architecture-center
-ms.subservice: cloud-fundamentals
+ms.subservice: azure-guide
+products:
+  - azure-cosmos-db
+ms.custom:
+  - guide
 ---
 
 # Non-relational data and NoSQL

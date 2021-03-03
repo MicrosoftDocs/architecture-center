@@ -1,16 +1,19 @@
 ---
 title: Building solutions for high availability using Availability Zones
 titleSuffix: High Availability
-description:  The Azure Availability Zones construct was developed to provide a software and networking solution to protect against datacenter failures and to provide increased high availability (HA) to our customers. 
+description: The Azure Availability Zones construct was developed to provide a software and networking solution to protect against datacenter failures and to provide increased high availability (HA) to our customers.
 author: maggsl
 ms.date: 04/07/2020
-ms.topic: article
+ms.topic: conceptual
 ms.service: architecture-center
+ms.subservice: azure-guide
 ms.category:
   - management-and-governance
   - solutions
-ms.subservice: reference-architecture
-ms.custom: high-availability,fasttrack-edit
+ms.custom:
+  - high-availability
+  - fasttrack-edit
+  - article
 ---
 
 <!-- cSpell:ignore lbrader -->
@@ -129,7 +132,7 @@ as a service (IaaS) resource, like a VM or managed disk, as illustrated.
 
 ![Zonal architecture](./images/high-availability-002.png)
 
-*For example, zonal load balancer, VM, managed disks, VM scale sets.*
+*For example, zonal load balancer, VM, managed disks, virtual machine scale sets.*
 
 In the illustration, each VM and load balancer (LB) are deployed to a specific
 zone.
@@ -300,8 +303,7 @@ requirements. Some things to consider include:
 
 - Does your application have specific latency requirements?
 
-For additional guidance, refer to [Microsoft Azure Well-Architected Framework define
-requirements](../framework/resiliency/overview.md#define-requirements).
+For additional guidance, refer to [Principles of the reliability pillar](../framework/resiliency/overview.md).
 
 Depending on the availability needs of an application, the cost and design
 complexity will vary. When building for a VM workload, there will be a cost

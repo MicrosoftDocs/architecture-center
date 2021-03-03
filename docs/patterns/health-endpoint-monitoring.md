@@ -2,13 +2,14 @@
 title: Health Endpoint Monitoring pattern
 titleSuffix: Cloud Design Patterns
 description: Implement functional checks in an application that external tools can access through exposed endpoints at regular intervals.
-keywords: design pattern
 author: dragon119
 ms.date: 06/23/2017
-ms.topic: design-pattern
+ms.topic: conceptual
 ms.service: architecture-center
-ms.subservice: cloud-fundamentals
-ms.custom: seodec18
+ms.subservice: design-pattern
+ms.custom:
+  - design-pattern
+keywords: design pattern
 ---
 
 # Health Endpoint Monitoring pattern

@@ -2,13 +2,14 @@
 title: Anti-Corruption Layer pattern
 titleSuffix: Cloud Design Patterns
 description: Implement a façade or adapter layer between a modern application and a legacy system.
-keywords: design pattern
 author: dragon119
 ms.date: 06/23/2017
-ms.topic: design-pattern
+ms.topic: conceptual
 ms.service: architecture-center
-ms.subservice: cloud-fundamentals
-ms.custom: seodec18
+ms.subservice: design-pattern
+ms.custom:
+  - design-pattern
+keywords: design pattern
 ---
 
 # Anti-Corruption Layer pattern
@@ -55,4 +56,4 @@ This pattern may not be suitable if there are no significant semantic difference
 
 ## Related guidance
 
-- [Strangler pattern](./strangler.md)
+- [Strangler Fig pattern](./strangler-fig.md)

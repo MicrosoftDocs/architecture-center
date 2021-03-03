@@ -6,7 +6,8 @@ ms.date: 03/15/2020
 ms.topic: reference
 ms.service: architecture-center
 ms.subservice: cloud-fundamentals
-ms.custom: fcp
+ms.custom:
+  - fcp
 ---
 
 <!-- cSpell:ignore lbrader CDNs -->

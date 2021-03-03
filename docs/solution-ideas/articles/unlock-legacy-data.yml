@@ -1,0 +1,35 @@
+### YamlMime:Architecture
+metadata:
+  title: Unlock Legacy Data with Azure Stack
+  titleSuffix: Azure Solution Ideas
+  description: Unlock legacy data with Azure Stack. Create cloud-based applications while integrating and preserving mainframe and core business process application data.
+  author: doodlemania2
+  ms.author: pnp
+  ms.date: 12/16/2019
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: solution-idea
+  ms.category:
+    - migration
+    - databases
+  ms.custom:
+    - acom-architecture
+    - data
+    - data preservation
+    - legacy data integration
+    - legacy data
+    - app modernization
+    - interactive-diagram
+    - 'https://azure.microsoft.com/solutions/architecture/unlock-legacy-data/'
+  social_image_url: /azure/architecture/solution-ideas/articles/media/unlock-legacy-data.png
+name: Unlock Legacy Data with Azure Stack
+azureCategories:
+  - migration
+  - databases
+summary: Unlock legacy data with Azure Stack. Create cloud-based applications while integrating and preserving mainframe and core business process application data.
+products:
+  - azure-stack
+  - azure-web-apps
+thumbnailUrl: /azure/architecture/browse/thumbs/unlock-legacy-data.png
+content: |
+   [!include[](unlock-legacy-data-content.md)]

@@ -4,11 +4,15 @@ titleSuffix: Azure Example Scenarios
 description: Learn about serverless reference architectures.
 author: rogeriohc
 ms.date: 06/22/2020
-ms.topic: guide
+ms.topic: conceptual
 ms.service: architecture-center
-ms.subservice: reference-architecture
+ms.subservice: azure-guide
+products:
+  - azure-functions
+  - azure-machine-learning
 ms.custom:
-- fcp
+  - fcp
+  - guide
 ---
 # Serverless Functions reference architectures
 
@@ -95,10 +99,10 @@ This two-part solution describes a hypothetical drone delivery system. Drones se
 - The article [Code walkthrough: Serverless application with Azure Functions](../serverless/code.md) walks you through the code and the design processes.
 
 ### Event-based cloud automation
-Automating workflows and repetitive tasks on the cloud can dramatically improve a DevOps team's productivity. A serverless model is best suited for event-driven automation scenarios. This [event-based automation reference architecture](../reference-architectures/serverless/cloud-automation.md) illustrates two cloud automation scenarios: cost center tagging and throttling response.
+Automating workflows and repetitive tasks on the cloud can dramatically improve a DevOps team's productivity. A serverless model is best suited for event-driven automation scenarios. This [event-based automation reference architecture](../reference-architectures/serverless/cloud-automation.yml) illustrates two cloud automation scenarios: cost center tagging and throttling response.
 
 ### Multicloud with Serverless Framework
-The [Serverless Framework architecture](../example-scenario/serverless/serverless-multicloud.md) describes how the Microsoft Commercial Software Engineering (CSE) team partnered with a global retailer to deploy a highly-available serverless solution across both Azure and Amazon Web Services (AWS) cloud platforms, using the Serverless Framework.
+The [Serverless Framework architecture](../example-scenario/serverless/serverless-multicloud.yml) describes how the Microsoft Commercial Software Engineering (CSE) team partnered with a global retailer to deploy a highly-available serverless solution across both Azure and Amazon Web Services (AWS) cloud platforms, using the Serverless Framework.
 
 ## More serverless Functions reference architectures
 
@@ -106,49 +110,49 @@ The following sections list other serverless and Azure Functions-related referen
 
 ### General
 
-- [Serverless application architectures using Event Grid](../solution-ideas/articles/serverless-application-architectures-using-event-grid.md)
+- [Serverless application architectures using Event Grid](../solution-ideas/articles/serverless-application-architectures-using-event-grid.yml)
 - [Serverless apps using Cosmos DB](https://azure.microsoft.com/solutions/architecture/serverless-apps-using-cosmos-db/)
-- [Serverless event processing using Azure Functions](../reference-architectures/serverless/event-processing.md)
-- [Serverless web application on Azure](../reference-architectures/serverless/web-app.md)
+- [Serverless event processing using Azure Functions](../reference-architectures/serverless/event-processing.yml)
+- [Serverless web application on Azure](../reference-architectures/serverless/web-app.yml)
 - [Serverless Asynchronous Multiplayer Reference Architecture](/gaming/azure/reference-architectures/multiplayer-asynchronous-serverless)
-- [Instant Broadcasting on Serverless Architecture](../solution-ideas/articles/instant-broadcasting-on-serverless-architecture.md)
-- [Building a telehealth system on Azure](../example-scenario/apps/telehealth-system.md)
-- [Custom Data Sovereignty & Data Gravity Requirements](../solution-ideas/articles/data-sovereignty-and-gravity.md)
-- [Sharing location in real time using low-cost serverless Azure services](../example-scenario/signalr/index.md)
+- [Instant Broadcasting on Serverless Architecture](../solution-ideas/articles/instant-broadcasting-on-serverless-architecture.yml)
+- [Building a telehealth system on Azure](../example-scenario/apps/telehealth-system.yml)
+- [Custom Data Sovereignty & Data Gravity Requirements](../solution-ideas/articles/data-sovereignty-and-gravity.yml)
+- [Sharing location in real time using low-cost serverless Azure services](../example-scenario/signalr/index.yml)
 
 
 ### Web and mobile backend
-- [An e-commerce front end](../example-scenario/apps/ecommerce-scenario.md)
-- [Architect scalable e-commerce web app](../solution-ideas/articles/scalable-ecommerce-web-app.md)
-- [Improve scalability in an Azure web application](../reference-architectures/app-service-web-app/scalable-web-app.md)
+- [An e-commerce front end](../example-scenario/apps/ecommerce-scenario.yml)
+- [Architect scalable e-commerce web app](../solution-ideas/articles/scalable-ecommerce-web-app.yml)
+- [Improve scalability in an Azure web application](../reference-architectures/app-service-web-app/scalable-web-app.yml)
 - [Uploading and CDN-preloading static content with Azure Functions](/samples/azure-samples/functions-java-push-static-contents-to-cdn/functions-java-push-static-contents-to-cdn/)
-- [Cross Cloud Scaling Architecture](../solution-ideas/articles/cross-cloud-scaling.md)
-- [Social App for Mobile and Web with Authentication](../solution-ideas/articles/social-mobile-and-web-app-with-authentication.md)
+- [Cross Cloud Scaling Architecture](../solution-ideas/articles/cross-cloud-scaling.yml)
+- [Social App for Mobile and Web with Authentication](../solution-ideas/articles/social-mobile-and-web-app-with-authentication.yml)
 
 ### AI + Machine Learning
-- [Image classification for insurance claims](../example-scenario/ai/intelligent-apps-image-processing.md)
-- [Personalized Offers](../solution-ideas/articles/personalized-offers.md)
-- [Personalized marketing solutions](../solution-ideas/articles/personalized-marketing.md)
-- [Speech transcription with Azure Cognitive Services](../reference-architectures/ai/speech-ai-ingestion.md)
+- [Image classification for insurance claims](../example-scenario/ai/intelligent-apps-image-processing.yml)
+- [Personalized Offers](../solution-ideas/articles/personalized-offers.yml)
+- [Personalized marketing solutions](../solution-ideas/articles/personalized-marketing.yml)
+- [Speech transcription with Azure Cognitive Services](../reference-architectures/ai/speech-ai-ingestion.yml)
 - [Training a Model with AzureML and Azure Functions](/samples/azure-samples/functions-python-azureml-azurefunctions-deeplearning/training-a-model-with-azureml-and-azure-functions/)
 - [Customer Reviews App with Cognitive Services](/samples/azure-samples/functions-customer-reviews/customer-reviews-cognitive-services/)
-- [Enterprise-grade conversational bot](../reference-architectures/ai/conversational-bot.md)
-- [AI at the Edge](../solution-ideas/articles/ai-at-the-edge.md)
-- [Mass ingestion and analysis of news feeds on Azure](../example-scenario/ai/newsfeed-ingestion.md)
-- [HIPPA and HITRUST compliant health data AI](../solution-ideas/articles/security-compliance-blueprint-hipaa-hitrust-health-data-ai.md)
+- [Enterprise-grade conversational bot](../reference-architectures/ai/conversational-bot.yml)
+- [AI at the Edge](../solution-ideas/articles/ai-at-the-edge.yml)
+- [Mass ingestion and analysis of news feeds on Azure](../example-scenario/ai/newsfeed-ingestion.yml)
+- [HIPPA and HITRUST compliant health data AI](../solution-ideas/articles/security-compliance-blueprint-hipaa-hitrust-health-data-ai.yml)
 - [Intelligent Experiences On Containers (AKS, Functions, Keda)](https://github.com/mohamedsaif/IntelligentExperiences.OnContainers)
 
 ### Data and analytics
-- [Application integration using Event Grid](../solution-ideas/articles/application-integration-using-event-grid.md)
-- [Mass ingestion and analysis of news feeds](../example-scenario/ai/newsfeed-ingestion.md)
-- [Tier Applications & Data for Analytics](../solution-ideas/articles/tiered-data-for-analytics.md)
+- [Application integration using Event Grid](../solution-ideas/articles/application-integration-using-event-grid.yml)
+- [Mass ingestion and analysis of news feeds](../example-scenario/ai/newsfeed-ingestion.yml)
+- [Tier Applications & Data for Analytics](../solution-ideas/articles/tiered-data-for-analytics.yml)
 - [Operational analysis and driving process efficiency](/azure/time-series-insights/time-series-insights-update-use-cases#operational-analysis-and-driving-process-efficiency)
 
 ### IoT
-- [Azure IoT reference (SQL DB)](../reference-architectures/iot.md)
-- [Azure IoT reference (Cosmos DB)](../reference-architectures/iot.md)
-- [IoT using Cosmos DB](../solution-ideas/articles/iot-using-cosmos-db.md)
-- [Facilities management powered by mixed reality and IoT](../solution-ideas/articles/facilities-management-powered-by-mixed-reality-and-iot.md)
+- [Azure IoT reference (SQL DB)](../reference-architectures/iot.yml)
+- [Azure IoT reference (Cosmos DB)](../reference-architectures/iot.yml)
+- [IoT using Cosmos DB](../solution-ideas/articles/iot-using-cosmos-db.yml)
+- [Facilities management powered by mixed reality and IoT](../solution-ideas/articles/facilities-management-powered-by-mixed-reality-and-iot.yml)
 - [Complementary Code Pattern for Azure IoT Edge Modules & Cloud Applications](/samples/azure-samples/iot-edge-complementary-code/complementary-code-pattern-for-azure-iot-edge-modules--cloud-applications/)
 
 ### Gaming
@@ -161,7 +165,7 @@ The following sections list other serverless and Azure Functions-related referen
 - [Content Moderation](/gaming/azure/reference-architectures/cognitive-content-moderation)
 - [Text Translation](/gaming/azure/reference-architectures/cognitive-text-translation)
 - [Text to Speech](/gaming/azure/reference-architectures/cognitive-text-to-speech)
-- [Gaming using Cosmos DB](../solution-ideas/articles/gaming-using-cosmos-db.md)
+- [Gaming using Cosmos DB](../solution-ideas/articles/gaming-using-cosmos-db.yml)
 
 ### Automation
 - [Smart scaling for Azure Scale Set with Azure Functions](/samples/azure-samples/azure-scale-set-smart-downscale/smart-scaling-for-azure-scale-set-with-azure-functions/)

@@ -1,0 +1,26 @@
+### YamlMime:Architecture
+metadata:
+  title: Confidential computing on a healthcare platform
+  titleSuffix: Azure Example Scenarios
+  description: Use confidential computing and containers to support a provider-hosted application. Securely collaborate with a hospital and a diagnostic provider.
+  author: agowdamsft
+  ms.author: amgowda
+  ms.date: 12/11/2020
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: example-scenario
+  ms.custom:
+    - fcp
+    - ai-machine-learning
+azureCategories:
+  - ai-machine-learning
+  - containers
+  - security
+products:
+  - azure-attestation
+  - azure-kubernetes-service
+name: Confidential computing on a healthcare platform
+summary: Use confidential computing and containers to support a provider-hosted application. Securely collaborate with a hospital and a diagnostic provider.
+thumbnailUrl: /azure/architecture/browse/thumbs/healthcare-demo-architecture-thumbnail.png
+content: |
+  [!include[](healthcare-inference-content.md)]

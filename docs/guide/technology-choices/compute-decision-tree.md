@@ -3,11 +3,16 @@ title: Choosing an Azure compute service
 description: Use this chart and other information to decide which compute service, or hosting model for computing resources, best suits your application.
 author: doodlemania2
 ms.date: 01/10/2020
-ms.topic: guide
+ms.topic: conceptual
 ms.service: architecture-center
+ms.subservice: guide
 ms.category:
   - compute
-ms.subservice: reference-architecture
+products:
+  - azure-app-service
+  - azure-kubernetes-service
+ms.custom:
+  - guide
 ---
 
 # Choose an Azure compute service for your application
@@ -52,7 +57,10 @@ Cloud services, including Azure services, generally fall into three categories: 
 
 **Platform-as-a-Service** (PaaS) provides a managed hosting environment, where you can deploy your application without needing to manage VMs or networking resources. Azure App Service is a PaaS service.
 
-**Functions-as-a-Service** (FaaS) goes even further in removing the need to worry about the hosting environment. In a FaaS model, you simply deploy your code and the service automatically runs it. Azure Functions are a FaaS service.
+**Functions-as-a-Service** (FaaS) goes even further in removing the need to worry about the hosting environment. In a FaaS model, you simply deploy your code and the service automatically runs it. Azure Functions is a FaaS service.
+
+> [!NOTE]
+> Azure Functions is an [Azure serverless](https://azure.microsoft.com/solutions/serverless/#solutions) compute offering. You may read [Choose the right integration and automation services in Azure](/azure/azure-functions/functions-compare-logic-apps-ms-flow-webjobs) to know how this service compares with other Azure serverless offerings, such as Logic Apps which provides serverless workflows.
 
 There is a spectrum from IaaS to pure PaaS. For example, Azure VMs can autoscale by using virtual machine scale sets. This automatic scaling capability isn't strictly PaaS, but it's the type of management feature found in PaaS services. 
 
@@ -115,6 +123,19 @@ Notes
 | Multi region failover | Traffic manager | Traffic manager | Traffic manager, Multi-Region Cluster | [Azure Front Door](/azure/azure-functions/functions-geo-disaster-recovery) | Traffic manager | Not supported | Not Supported |
 
 For guided learning on Service Guarantees, review [Core Cloud Services - Azure architecture and service guarantees](/learn/modules/explore-azure-infrastructure).
+
+## Security
+
+Review and understand the available security controls and visibility for each service
+
+- [App Service](/azure/app-service/overview-security)
+- [Azure Kubernetes Service](/azure/aks/security-baseline)
+- [Batch](/azure/batch/security-baseline)
+- [Container Instances](/azure/container-instances/security-baseline)
+- [Functions](/azure/azure-functions/security-baseline)
+- [Service Fabric](/azure/service-fabric/security-baseline)
+- [Virtual machine - Windows](/azure/virtual-machines/windows/security-baseline)
+- [Virtual machine - LINUX](/azure/virtual-machines/linux/security-baseline)
 
 ## Other criteria
 

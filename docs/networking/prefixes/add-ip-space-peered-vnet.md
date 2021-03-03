@@ -4,18 +4,19 @@ titleSuffix: Azure Architecture Center
 description: Automation of IP address space additions to peered vNets
 author: randycampbell
 ms.date: 02/01/2020
-ms.topic: article
+ms.topic: conceptual
 ms.service: architecture-center
-ms.subservice: reference-architecture
+ms.subservice: azure-guide
 ms.custom:
-    - fcp
+  - fcp
+  - article
 ---
 
 <!-- cSpell:ignore randycampbell CIDR endregion -->
 
 # Add IP address spaces to peered virtual networks
 
-Many organizations deploy a virtual networking architecture that follows the [Hub and Spoke](../../reference-architectures/hybrid-networking/hub-spoke.md) model. At some point, the hub virtual network might require additional IP address spaces.  However, address ranges can't be added or deleted from a virtual network's address space once it's peered with another virtual network.  To add or remove address ranges, delete the peering, add or remove the address ranges, then re-create the peering manually.  The scripts described in this article can make that process easier.
+Many organizations deploy a virtual networking architecture that follows the [Hub and Spoke](../../reference-architectures/hybrid-networking/hub-spoke.yml) model. At some point, the hub virtual network might require additional IP address spaces.  However, address ranges can't be added or deleted from a virtual network's address space once it's peered with another virtual network.  To add or remove address ranges, delete the peering, add or remove the address ranges, then re-create the peering manually.  The scripts described in this article can make that process easier.
 
 ## Single subscription
 
@@ -34,8 +35,8 @@ Another use case can be where the hub virtual network is in one subscription and
 - Running the script will result in outage or disconnections between the Hub and Spoke virtual networks.  Execute it during an approved maintenance window.
 - Run `Get-Module -ListAvailable Az` to find the installed version.  The script requires the Azure PowerShell module version 1.0.0 or later.  If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-az-ps).
 - If not already connected, run `Connect-AzAccount` to create a connection with Azure.
-- Consider assigning accounts, used for virtual network peering, to the [Network Contributor](/azure/role-based-access-control/built-in-roles?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) role or a [Custom Role](/azure/role-based-access-control/custom-roles) containing the necessary actions found under [virtual network peering permissions](/azure/virtual-network/virtual-network-manage-peering#permissions).
-- Assign accounts used to add IP address spaces, to the [Network Contributor](/azure/role-based-access-control/built-in-roles?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) role or a [Custom Role](/azure/role-based-access-control/custom-roles) containing the necessary actions found under [virtual network permissions](/azure/virtual-network/manage-virtual-network#permissions).
+- Consider assigning accounts, used for virtual network peering, to the [Network Contributor](/azure/role-based-access-control/built-in-roles?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) role or a [custom role](/azure/role-based-access-control/custom-roles) containing the necessary actions found under [virtual network peering permissions](/azure/virtual-network/virtual-network-manage-peering#permissions).
+- Assign accounts used to add IP address spaces, to the [Network Contributor](/azure/role-based-access-control/built-in-roles?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) role or a [custom role](/azure/role-based-access-control/custom-roles) containing the necessary actions found under [virtual network permissions](/azure/virtual-network/manage-virtual-network#permissions).
 - The IP address space that you want to add to the hub virtual network must not overlap with any of the IP address spaces of the spoke virtual networks that you intend to peer with the hub virtual network.
 
 ## Add the IP address range

@@ -1,12 +1,17 @@
 ---
 title: Azure Kubernetes Service (AKS) solution journey
 titleSuffix: Azure Architecture Center
-description: An overview of Microsoft's Azure Kubernetes Service (AKS) guidance offerings ranging from "just starting out", to production, and through sustained operations.
+description: An overview of Microsoft''s Azure Kubernetes Service (AKS) guidance offerings ranging from "just starting out", to production, and through sustained operations.
 author: ckittel
+ms.author: pnp
 ms.date: 09/10/2020
-ms.topic: overview
+ms.topic: conceptual
 ms.service: architecture-center
-ms.subservice:
+ms.subservice: reference-architecture
+products:
+  - azure-kubernetes-service
+ms.custom:
+  - overview
 ---
 
 # Azure Kubernetes Service solution journey
@@ -38,15 +43,22 @@ You understand the benefits and trade-offs of Kubernetes, and have decided that 
 **Microsoft's AKS Baseline Cluster** is the starting point to help you build production-ready AKS clusters. We recommend you start from this baseline implementation and modify it to align to your workload's specific needs and [Well-Architected Framework](../../framework/index.md) priorities.
 
 > [!div class="nextstepaction"]
-> [Microsoft's AKS Baseline Cluster](../../reference-architectures/containers/aks/secure-baseline-aks.md)
+> [Microsoft's AKS Baseline Cluster](../../reference-architectures/containers/aks/secure-baseline-aks.yml)
 
-## Best practices
+### Best practices
 
-As part of on going operations, you may wish to spot check your cluster against current recommended best practices. The best place to start is to ensure your cluster is aligned with Microsoft's [AKS Baseline Cluster](../../reference-architectures/containers/aks/secure-baseline-aks.md).
+As part of on going operations, you may wish to spot check your cluster against current recommended best practices. The best place to start is to ensure your cluster is aligned with Microsoft's [AKS Baseline Cluster](../../reference-architectures/containers/aks/secure-baseline-aks.yml).
 
 See [Best Practices for Cluster Operations](/azure/aks/best-practices) and [Best Practices for AKS Workloads](/azure/aks/best-practices#developer-best-practices).
 
 > You may also consider evaluating a community-driven utility like [The AKS Checklist](https://www.the-aks-checklist.com) as a way of organizing and tracking your alignment to these best practices.
+
+## Operations Guide
+
+Getting your workload deployed on AKS is a great milestone and this is when [day-2 operations](https://dzone.com/articles/defining-day-2-operations) are going to be top-of-mind. **Microsoft's AKS Day 2 Operations Guide** was built for your ease of reference. This will help ensure you are ready to meet the demands of your customers and ensure you are prepared for break-fix situations via optimized triage processes.
+
+> [!div class="nextstepaction"]
+> [Microsoft's AKS Day 2 Operations Guide](../../operator-guides/aks/aks-triage-practices.md)
 
 ## Stay current with AKS
 
@@ -67,10 +79,10 @@ The typical AKS solution journey depicted above ranges from learning about AKS t
 
 If you're seeking additional reference material that use AKS as their foundation, here are a few to consider.
 
-* [Microservices architecture on AKS](../../reference-architectures/containers/aks-microservices/aks-microservices.md)
-* [Secure DevOps for AKS](../../solution-ideas/articles/secure-devops-for-kubernetes.md)
-* [Building a telehealth system](../../example-scenario/apps/telehealth-system.md)
-* [CI/CD pipeline for container-based workloads](../../example-scenario/apps/devops-with-aks.md)
+* [Microservices architecture on AKS](../../reference-architectures/containers/aks-microservices/aks-microservices.yml)
+* [Secure DevOps for AKS](../../solution-ideas/articles/secure-devops-for-kubernetes.yml)
+* [Building a telehealth system](../../example-scenario/apps/telehealth-system.yml)
+* [CI/CD pipeline for container-based workloads](../../example-scenario/apps/devops-with-aks.yml)
 
 ### Azure Arc
 
@@ -85,3 +97,10 @@ If you're a managed service provider, you already use Azure Lighthouse to manage
 
 > [!div class="nextstepaction"]
 > [AKS with Azure Lighthouse](/azure/lighthouse/overview)
+
+### AWS or GCP professionals
+
+These articles provide service mapping and comparison between Azure and other cloud services. This reference can help you ramp up quickly on Azure.
+
+* [Containers and container orchestrators for AWS Professionals](../../aws-professional/compute.md#containers-and-container-orchestrators)
+* [Containers and container orchestrators for GCP Professionals](../../gcp-professional/services.md#containers-and-container-orchestrators)

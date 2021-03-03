@@ -2,13 +2,14 @@
 title: Management and Monitoring patterns
 titleSuffix: Cloud Design Patterns
 description: Use these management and monitoring patterns to support cloud applications, which offer special challenges because the applications run in a remote datacenter.
-keywords: design pattern
 author: dragon119
 ms.date: 06/23/2017
-ms.topic: design-pattern
+ms.topic: conceptual
 ms.service: architecture-center
-ms.subservice: cloud-fundamentals
-ms.custom: seodec18
+ms.subservice: design-pattern
+ms.custom:
+  - design-pattern
+keywords: design pattern
 ---
 
 # Management and Monitoring patterns
@@ -25,4 +26,4 @@ Cloud applications run in a remote datacenter where you do not have full control
 |              [Gateway Routing](../gateway-routing.md)              |                                   Route requests to multiple services using a single endpoint.                                    |
 |   [Health Endpoint Monitoring](../health-endpoint-monitoring.md)   |   Implement functional checks in an application that external tools can access through exposed endpoints at regular intervals.    |
 |                      [Sidecar](../sidecar.md)                      |         Deploy components of an application into a separate process or container to provide isolation and encapsulation.          |
-|                    [Strangler](../strangler.md)                    | Incrementally migrate a legacy system by gradually replacing specific pieces of functionality with new applications and services. |
+|                    [Strangler Fig](../strangler-fig.md)                    | Incrementally migrate a legacy system by gradually replacing specific pieces of functionality with new applications and services. |

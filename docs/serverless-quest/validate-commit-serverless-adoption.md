@@ -4,11 +4,14 @@ titleSuffix: Azure Example Scenarios
 description: Perform activities to validate, commit, and plan serverless Azure Functions deployment.
 author: rogeriohc
 ms.date: 06/22/2020
-ms.topic: guide
+ms.topic: conceptual
 ms.service: architecture-center
-ms.subservice: reference-architecture
+ms.subservice: azure-guide
+products:
+  - azure-functions
 ms.custom:
-- fcp
+  - fcp
+  - guide
 ---
 # Plan for serverless Functions
 

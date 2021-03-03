@@ -4,17 +4,22 @@ titleSuffix: Azure Application Architecture Guide
 description: Use these recommendations to avoid having single points of failure, by building redundancy into your application.
 author: doodlemania2
 ms.date: 08/30/2018
-ms.topic: guide
+ms.topic: conceptual
 ms.service: architecture-center
-ms.subservice: reference-architecture
-ms.custom: seojan19
+ms.subservice: guide
+products:
+  - azure-load-balancer
+  - azure-sql-database
+ms.custom:
+  - seojan19
+  - guide
 ---
 
 # Make all things redundant
 
 ## Build redundancy into your application, to avoid having single points of failure
 
-A resilient application routes around failure. Identify the critical paths in your application. Is there redundancy at each point in the path? If a subsystem fails, will the application fail over to something else?
+A resilient application routes around failure. Identify the critical paths in your application. Is there redundancy at each point in the path? When a subsystem fails, will the application fail over to something else?
 
 ## Recommendations
 
@@ -42,8 +47,8 @@ A resilient application routes around failure. Identify the critical paths in yo
 
 <!-- links -->
 
-[multi-vm-blueprint]: ../../reference-architectures/n-tier/n-tier-sql-server.md
+[multi-vm-blueprint]: ../../reference-architectures/n-tier/n-tier-sql-server.yml
 
 [cosmos-db-geo-replication]: /azure/cosmos-db/distribute-data-globally
-[sql-always-on]: /sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server?view=sql-server-ver15
+[sql-always-on]: /sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server?view=sql-server-ver15&preserve-view=true
 [sql-geo-replication]: /azure/sql-database/sql-database-geo-replication-overview

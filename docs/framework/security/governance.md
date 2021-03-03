@@ -3,9 +3,11 @@ title: Governance, risk, and compliance in Azure | Microsoft Docs
 description: Learn how to define security priorities around governance, risk, and compliance, beginning with definitions of these concepts and how they affect security.
 author: PageWriter-MSFT
 ms.date: 07/09/2019
-ms.topic: article
+ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
+ms.custom:
+  - article
 ---
 
 <!-- cSpell:ignore NIST -->
@@ -53,12 +55,12 @@ then working to retrofit any gaps over time as you mature your security program.
 We recommend evaluating the following considerations when prioritizing which to
 follow first:
 
-- **High business impact and highly exposed systems:** These include systems with direct intrinsic value as well as the systems that provide attackers a path to them. For more information, see [Identify and classify business critical applications](./applications-services.md#identify-and-classify-business-critical-applications).
+- **High business impact and highly exposed systems:** These include systems with direct intrinsic value as well as the systems that provide attackers a path to them. For more information, see [Identify and classify business critical applications](./design-apps-services.md).
 
 - **Easiest to implement mitigations:** Identify quick wins by prioritizing the best practices, which your organization can execute quickly because you already have the required skills, tools, and knowledge to do it (for example, implementing a Web App Firewall (WAF) to protect a legacy application). Be careful not to exclusively use (or overuse) this short-term prioritization method. Doing so can increase your risk by preventing your program from growing and leaving critical risks exposed for extended periods.
 
 Microsoft has provided some prioritized lists of security initiatives to help organizations start with these decisions based on our experience with threats and mitigation initiatives in our own environments and across our customers. See [Module 4a](/office365/securitycompliance/ciso-workshop-module-4a)
-of the [Microsoft CISO Workshop](https://aka.ms/cisoworkshop).
+of the [Microsoft CISO Workshop](/security/ciso-workshop/ciso-workshop).
 
 ## Operationalize Azure Secure Score
 
@@ -124,7 +126,7 @@ applicable regulatory requirements are being followed.
 Ensure all Azure environments that connect to your production
 environment/network apply your organization’s policy and IT governance controls
 for security. You can discover existing connected tenants using a
-[tool](https://aka.ms/magicbutton) provided by Microsoft. Guidance on permissions
+[tool](/azure/role-based-access-control/elevate-access-global-admin?toc=%252fazure%252factive-directory%252fprivileged-identity-management%252ftoc.json) provided by Microsoft. Guidance on permissions
 you may assign to security is in the [Assign privileges for managing the
 environment](#assign-privileges-for-managing-the-environment) section.
 
@@ -146,7 +148,7 @@ functions:
 | **Network Management**               | *Typically existing network operations team.* Enterprise-wide virtual network and subnet allocation. |
 | **Server Endpoint Security**         | *Typically IT operations, security, or jointly.* Monitor and remediate server security (patching, configuration, endpoint security, etc.). |
 | **Incident Monitoring and Response** | *Typically security operations team.* Investigate and remediate security incidents in Security Information and Event Management (SIEM) or source console.|
-| **Policy Management**                | *Typically GRC team + Architecture.* Set Direction for use of Role-Based Access Control (RBAC), Azure Security Center, Administrator protection strategy, and Azure Policy to govern Azure resources. |
+| **Policy Management**                | *Typically GRC team + Architecture.* Set Direction for use of Azure role-based access control (Azure RBAC), Azure Security Center, Administrator protection strategy, and Azure Policy to govern Azure resources. |
 | **Identity Security and Standards**  | *Typically Security Team + Identity Team jointly.* Set direction for Azure AD directories, PIM/PAM usage, MFA, password/synchronization configuration, Application Identity Standards. |
 
 
@@ -404,11 +406,11 @@ Root management group guidance:
         restrictions related to data sovereignty).
 
     -   **Near-zero potential negative impact** on operations such as policy
-        with audit effect, Tag assignment, RBAC permissions assignments that
+        with audit effect, Tag assignment, Azure RBAC permissions assignments that
         have been carefully reviewed.
 
 - **Test First -** Carefully test all enterprise-wide changes on the root
-    management group before applying (policy, tags, RBAC model, etc.) using a
+    management group before applying (policy, tags, Azure RBAC model, etc.) using a
 
     -   **Test Lab -** Representative lab tenant or lab segment in production
         tenant.
@@ -457,7 +459,7 @@ For Azure, you can enforce policies by,
 
 
 
-One way of managing VMs in the virtual network is by using [Azure Bastion](/azure/bastion/). This service allows you to log into VMs in the virtual network through SSH or remote desktop protocol (RDP) without exposing the VMs directly to the internet. To see a reference architecture that uses Bastion, see [Network DMZ between Azure and an on-premises datacenter](../../reference-architectures/dmz/secure-vnet-dmz.md).
+One way of managing VMs in the virtual network is by using [Azure Bastion](/azure/bastion/). This service allows you to log into VMs in the virtual network through SSH or remote desktop protocol (RDP) without exposing the VMs directly to the internet. To see a reference architecture that uses Bastion, see [Network DMZ between Azure and an on-premises datacenter](../../reference-architectures/dmz/secure-vnet-dmz.yml).
 
 ## Assign incident notification contact
 
@@ -517,7 +519,7 @@ business initiatives, protecting information, and so on.
 Utilize the Azure Blueprint service to rapidly and consistently deploy
 application environments that are compliant with your organization’s policies
 and external regulations. [Azure Blueprint Service](/azure/governance/blueprints/)
-automates deployment of environments including RBAC roles, policies, resources
+automates deployment of environments including Azure roles, policies, resources
 (VM/Net/Storage/etc.), and more. Azure Blueprints builds on Microsoft’s
 significant investment into the Azure Resource Manager to standardize
 resource deployment in Azure and enable resource deployment and governance based
@@ -596,7 +598,7 @@ There are two places where you review reported risk events:
     reporting capabilities of [Azure Active Directory Identity
     Protection](/azure/active-directory/active-directory-identityprotection).
 
-In addition, you can use the [Identity Protection risk events API](/graph/api/resources/identityriskevent?view=graph-rest-beta) to
+In addition, you can use the [Identity Protection risk events API](/graph/api/resources/identityriskevent?view=graph-rest-beta&preserve-view=true) to
 gain programmatic access to security detections using Microsoft Graph.
 
 Remediate these risks by manually addressing each reported account or by setting

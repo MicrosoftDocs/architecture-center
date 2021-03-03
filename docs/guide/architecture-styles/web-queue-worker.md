@@ -4,10 +4,14 @@ titleSuffix: Azure Application Architecture Guide
 description: Describes benefits, challenges, and best practices for Web-Queue-Worker architectures on Azure.
 author: doodlemania2
 ms.date: 04/10/2019
-ms.topic: guide
+ms.topic: conceptual
 ms.service: architecture-center
-ms.subservice: cloud-fundamentals
-ms.custom: seojan19
+ms.subservice: guide
+products:
+  - azure-app-service
+ms.custom:
+  - seojan19
+  - guide
 ---
 
 # Web-Queue-Worker architecture style
@@ -98,4 +102,4 @@ For more details, see [App Service web application reference architecture][scala
 [cdn]: ../../best-practices/cdn.md
 [data-partition]: ../../best-practices/data-partitioning.md
 [polyglot]: ../design-principles/use-the-best-data-store.md
-[scalable-web-app]: ../../reference-architectures/app-service-web-app/scalable-web-app.md
+[scalable-web-app]: ../../reference-architectures/app-service-web-app/scalable-web-app.yml

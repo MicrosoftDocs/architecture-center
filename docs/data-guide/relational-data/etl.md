@@ -3,9 +3,14 @@ title: Extract, transform, and load (ETL)
 description: Learn about extract-transform-load (ETL) and extract-load-transform (ELT) data transformation pipelines, and how to use control flows and data flows.
 author: zoinerTejada
 ms.date: 11/20/2019
-ms.topic: guide
+ms.topic: conceptual
 ms.service: architecture-center
-ms.subservice: cloud-fundamentals
+ms.subservice: azure-guide
+products:
+  - azure-synapse-analytics
+  - azure-data-factory
+ms.custom:
+  - guide
 ---
 
 <!-- cSpell:ignore Oozie HDFS deduplicating -->
@@ -88,5 +93,5 @@ Other tools:
 
 The following reference architectures show end-to-end ELT pipelines on Azure:
 
-- [Enterprise BI in Azure with Azure Synapse](../../reference-architectures/data/enterprise-bi-synapse.md)
-- [Automated enterprise BI with Azure Synapse and Azure Data Factory](../../reference-architectures/data/enterprise-bi-adf.md)
+- [Enterprise BI in Azure with Azure Synapse](../../reference-architectures/data/enterprise-bi-synapse.yml)
+- [Automated enterprise BI with Azure Synapse and Azure Data Factory](../../reference-architectures/data/enterprise-bi-adf.yml)

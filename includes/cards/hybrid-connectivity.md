@@ -14,10 +14,10 @@
             <p>Hybrid Connection</p>
         </a>
         <ul class="card-content-metadata">
-            <li>12/16/2019</li>
+            <li>9/01/2020</li>
             <li>2 min read</li>
         </ul>
-        <p class="card-content-description">Azure's Hybrid Connection is a foundational blueprint that is applicable to most Azure Stack solutions, allowing you to establish connectivity for any application that involves communications between the Azure public cloud and on-premises Azure Stack components.</p>
+        <p class="card-content-description">Azure's Hybrid Connection is a foundational blueprint that is applicable to most Azure Stack Hub solutions, allowing you to establish connectivity for any application that involves communications between the Azure public cloud and on-premises Azure Stack Hub components.</p>
         <div class="bottom-to-top-fade is-hidden-mobile"></div>
     </div>
 </article>

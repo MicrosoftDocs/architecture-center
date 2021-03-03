@@ -2,13 +2,17 @@
 title: Choreography
 titleSuffix: Cloud Design Patterns
 description: Let each service decide when and how a business operation is processed, instead of depending on a central orchestrator.
-keywords: design pattern
 author: PageWriter-MSFT
-ms.date: 02/24/2020
 ms.author: pnp
-ms.topic: design-pattern
+ms.date: 02/24/2020
+ms.topic: conceptual
 ms.service: architecture-center
-ms.subservice: cloud-fundamentals
+ms.subservice: design-pattern
+products:
+  - azure-event-grid
+ms.custom:
+  - design-pattern
+keywords: design pattern
 ---
 
 <!-- cSpell:ignore upsert typeof -->

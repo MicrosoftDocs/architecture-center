@@ -1,0 +1,30 @@
+### YamlMime:Architecture
+metadata:
+  title: Stream processing with Azure Databricks
+  titleSuffix: Azure Reference Architectures
+  description: Create an end-to-end stream processing pipeline in Azure using Azure Databricks.
+  author: PeterTaylor9999
+  ms.author: pnp
+  ms.date: 11/30/2018
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: reference-architecture
+  ms.category:
+    - analytics
+    - databases
+  ms.custom:
+    - reference-architecture
+name: Stream processing with Azure Databricks
+azureCategories:
+  - analytics
+  - databases
+summary: Create an end-to-end stream processing pipeline in Azure using Azure Databricks.
+products:
+  - azure-cosmos-db  
+  - azure-databricks
+  - azure-event-hubs
+  - azure-log-analytics
+  - azure-monitor
+thumbnailUrl: /azure/architecture/browse/thumbs/stream-processing-databricks.png
+content: |
+   [!include[](stream-processing-databricks-content.md)]

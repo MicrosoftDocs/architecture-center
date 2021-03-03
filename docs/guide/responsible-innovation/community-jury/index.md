@@ -1,21 +1,31 @@
 ---
 title: Community Jury
 titleSuffix: Azure Application Architecture Guide
-description: This technique allows project teams to understand the perceptions and concerns of stakeholders.
+description: Community jury is a stakeholder collaboration technique that allows project teams to understand the perceptions and concerns of stakeholders, and take actions based on this understanding.
 author: dcass
 ms.date: 05/18/2020
-ms.topic: guide
+ms.topic: conceptual
 ms.service: architecture-center
+ms.subservice: guide
 ms.category:
   - fcp
-ms.subservice: reference-architecture
+ms.custom:
+  - guide
+  - seo-aac-fy21q3
+keywords:
+  - "Community jury"
+  - "stakeholder collaboration"
+  - "citizen jury"
+  - "effective collaboration"
+  - "jury solutions"
+  - "collaborative solutions"
 ---
 
 # Community Jury
 
-Community jury, an adaptation of the [citizen jury](https://jefferson-center.org/about-us/how-we-work/), is a technique where diverse stakeholders impacted by a technology are provided an opportunity to learn about a project, deliberate together, and give feedback on use cases and product design. This technique allows project teams to understand the perceptions and concerns of impacted stakeholders.
+*Community jury*, an adaptation of the [citizen jury](https://jefferson-center.org/about-us/how-we-work/), is a technique where diverse stakeholders impacted by a technology are provided an opportunity to learn about a project, deliberate together, and give feedback on use cases and product design. This technique allows project teams to understand the perceptions and concerns of impacted stakeholders for effective collaboration.
 
-A community jury is different from a focus group or market research; it allows the impacted stakeholders to hear directly from the subject matter experts in the product team, and cocreate solutions to challenging problems with them.
+A community jury is different from a focus group or market research; it allows the impacted stakeholders to hear directly from the subject matter experts in the product team, and cocreate collaborative solutions to challenging problems with them.
 
 ## Benefits
 
@@ -31,7 +41,7 @@ A community jury allows decision-makers to hear directly from the community, and
 
 ### Consensus
 
-By bringing impacted individuals together and providing an opportunity for them to learn and discuss key aspects of the technology, a community jury can identify areas of agreement and build common ground solutions to challenging problems.
+By bringing impacted individuals together and providing collaborative solutions and an opportunity for them to learn and discuss key aspects of the technology, a community jury can identify areas of agreement and build common ground solutions to challenging problems.
 
 ## Community jury contributors
 
@@ -47,7 +57,7 @@ Relevant artifacts could include:
 
 - Documentation of existing protections, planned or in place.
 - Data Flows, for example, what data types collected, who will have access, for how long, with what protections, and so on.
-- Mockups or prototypes of proposed solutions.
+- Mockups or prototypes of proposed stakeholder collaborative solutions.
 
 #### During the Session
 
@@ -58,7 +68,7 @@ Relevant artifacts could include:
 - Customer benefits
 - Harms assessment and socio-technical impact
 - Storyboards
-- Competitive analyses
+- Competitive solutions and analyses
 - Academic or popular media reports
 
 ### Moderator
@@ -101,14 +111,14 @@ Sessions typically last 2-3 hours. Add more or longer deep dive sessions, as nee
 
 1. This step can be any one of the following options:
   
-    - **Deliberation and cocreation** - This option is preferable. Jury members deliberate and co-create solutions with the project team. This is typically 30 to 60 minutes long.
+    - **Deliberation and cocreation** - This option is preferable. Jury members deliberate and co-create effective collaboration solutions with the project team. This is typically 30 to 60 minutes long.
     - **Individual anonymous survey** - Alternatively, conduct an anonymous survey of jury members. Anonymity may allow issues to be raised that would not otherwise be expressed. Use this 30-minute session if there are time constraints.
 
 1. **Following the session** - The moderator produces a study report that describes key insights, concerns, and potential solutions to the concerns.
 
 If the values of different stakeholders were in conflict with each other during the session and the value tensions were left unresolved, the product team would need to brainstorm solutions, and conduct a follow-up session with the jury to determine if the solutions adequately resolve their concerns. 
 
-## Tips to run a successful jury
+## Tips to run a successful, effective, and collaborative jury
 
 - Ensure alignment of goals and outcomes with the project team before planning begins, including deliverables, recruitment strategy, and timeline. Consider including additional subject-matter experts relevant to the project, to address open questions/concerns.
 - The consent to audio and video recording of the jury should follow your company's standard procedures for non-disclosure and consent that is obtained from participants during user research studies.
@@ -151,4 +161,3 @@ Explore the following references for detailed information on this method:
   - [Jury specification](https://www.connectedhealthcities.org/wp-content/uploads/2018/06/A1-Reasonable-expectations-citizens-jury-specification-v1.pdf)
   - [Juror's report](https://www.connectedhealthcities.org/wp-content/uploads/2018/06/C1-NDG-CJ-jurors-report-final.pdf)
 - Case study: [Community Jury at Microsoft](https://hits.microsoft.com/Study/6014413)
-

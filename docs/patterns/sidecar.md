@@ -2,13 +2,14 @@
 title: Sidecar pattern
 titleSuffix: Cloud Design Patterns
 description: Deploy components of an application into a separate process or container to provide isolation and encapsulation.
-keywords: design pattern
 author: dragon119
 ms.date: 06/23/2017
-ms.topic: design-pattern
+ms.topic: conceptual
 ms.service: architecture-center
-ms.subservice: cloud-fundamentals
-ms.custom: seodec18
+ms.subservice: design-pattern
+ms.custom:
+  - design-pattern
+keywords: design pattern
 ---
 
 # Sidecar pattern

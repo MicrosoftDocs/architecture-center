@@ -1,11 +1,11 @@
 ---
 title: Processing free-form text for search
-description: Learn how to use free-form text processing to search and produce useful, actionable data from documents containing paragraphs of text.
+description: 
 author: zoinerTejada
-ms.date: 02/12/2018
-ms.topic: guide
+ms.date: 11/30/2020
+ms.topic: conceptual
 ms.service: architecture-center
-ms.subservice: cloud-fundamentals
+ms.subservice: azure-guide
 ---
 
 # Processing free-form text for search
@@ -25,11 +25,11 @@ Free-form text processing can produce useful, actionable data from large amounts
 
 ## Architecture
 
-In most scenarios, the source text documents are loaded into object storage such as Azure Storage or Azure Data Lake Store. An exception is using full text search within SQL Server or Azure SQL Database. In this case, the document data is loaded into tables managed by the database. Once stored, the documents are processed in a batch to create the index.
+In most scenarios, the source text documents are loaded into object storage such as Azure Storage or Azure Data Lake Store, and then indexed using an external search service. In this scenario, source text documents are physically distinct from a resulting search index that's hosted on a search service. An exception is using full text search within SQL Server or Azure SQL Database. In this case, the document data exists internally in tables managed by the database. Once stored, the documents are processed in a batch to create the index.
 
 ## Technology choices
 
-Options for creating a search index include Azure Search, Elasticsearch, and HDInsight with Solr. Each of these technologies can populate a search index from a collection of documents. Azure Search provides indexers that can automatically populate the index for documents ranging from plain text to Excel and PDF formats. On HDInsight, Apache Solr can index binary files of many types, including plain text, Word, and PDF. Once the index is constructed, clients can access the search interface by means of a REST API.
+Options for creating a search index include Azure Cognitive Search, Elasticsearch, and HDInsight with Solr. Each of these technologies can populate a search index from a collection of documents. Cognitive Search provides indexers that can automatically populate the index for documents ranging from plain text to Excel and PDF formats. You can also attach machine learning models to an indexer to analyze images and unstructured text for searchable content. On HDInsight, Apache Solr can index binary files of many types, including plain text, Word, and PDF. Once the index is constructed, clients can access the search interface by means of a REST API.
 
 If your text data is stored in SQL Server or Azure SQL Database, you can use the full-text search that is built into the database. The database populates the index from text, binary, or XML data stored within the same database. Clients search by using T-SQL queries.
 

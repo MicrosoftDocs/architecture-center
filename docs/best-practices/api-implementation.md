@@ -4,10 +4,14 @@ titleSuffix: Best practices for cloud applications
 description: Learn about best practices for implementing a web API and publishing it to make it available to client applications.
 author: dragon119
 ms.date: 07/13/2016
-ms.topic: best-practice
+ms.topic: conceptual
 ms.service: architecture-center
-ms.subservice: cloud-fundamentals
-ms.custom: seodec18
+ms.subservice: best-practice
+products:
+  - aspnet
+  - azure-encoding
+ms.custom:
+  - best-practice
 social_image_url: /azure/architecture/best-practices/media types that the client can handle, such as `image/jpeg, image/gif, image/png
 ---
 
@@ -151,7 +155,7 @@ public IHttpActionResult DeleteCustomer(int id)
         // with status code 404 (Not Found)
         if (customerToDelete == null)
         {
-                return NotFound();
+            return NotFound();
         }
 
         // Remove the customer from the repository

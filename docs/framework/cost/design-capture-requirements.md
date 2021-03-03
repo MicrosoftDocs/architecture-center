@@ -1,12 +1,13 @@
 ---
-title: Capture cost requirements for an Azure 
+title: Capture cost requirements for an Azure
 description: Learn to enumerate cost requirements and considerations, and how to align costs with business goals.
-author:  PageWriter-MSFT
+author: PageWriter-MSFT
 ms.date: 05/12/2020
-ms.topic: article
+ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
-ms.custom: 
+ms.custom:
+  - article
 ---
 
 # Capture cost requirements
@@ -14,10 +15,10 @@ ms.custom:
 Start your planning with a careful enumeration of requirements. Make sure the needs of the stakeholders are addressed. For strong alignment with business goals, those areas must be defined by the stakeholders and shouldn’t be collected from a vendor.
 
  Capture requirements at these levels:
--	Business workflow
--	Compliance and regulatory
--	Security
--	Availability
+- Business workflow
+- Compliance and regulatory
+- Security
+- Availability
 
 
 **What do you aim to achieve by building your architecture in the cloud?** 
@@ -82,8 +83,8 @@ If your application runs intermittently, consider using Azure Functions in a con
 ***
 
 You may not have a business goal to leave the service running all the time. Doing so will incur a consistent cost. Can you save by shutting down the service or scaling it down outside normal business hours? If you can, 
--	Azure has a rich set of APIs, SDKs, and automation technology that utilizes DevOps and traditional automation principles. Those technologies ensure that the workload is available at an appropriate level of scale as needed.
--	Repurpose some compute and data resources for other tasks that run out of regular business hours. See the [Compute Resource Consolidation](../../patterns/compute-resource-consolidation.md) pattern and consider containers or elastic pools for more compute and data cost flexibility.
+- Azure has a rich set of APIs, SDKs, and automation technology that utilizes DevOps and traditional automation principles. Those technologies ensure that the workload is available at an appropriate level of scale as needed.
+- Repurpose some compute and data resources for other tasks that run out of regular business hours. See the [Compute Resource Consolidation](../../patterns/compute-resource-consolidation.md) pattern and consider containers or elastic pools for more compute and data cost flexibility.
 
 ## Budget for staff education
 Keep the technical staff up to date in cloud management skills so that the invested services are optimally used. 

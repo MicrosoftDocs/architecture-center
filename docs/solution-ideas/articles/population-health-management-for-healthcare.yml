@@ -1,0 +1,37 @@
+### YamlMime:Architecture
+metadata:
+  title: Population Health Management for Healthcare
+  titleSuffix: Azure Solution Ideas
+  description: Use Population Health Management to improve clinical and health outcomes and reduce costs. Track, monitor, and benchmark data with this tool.
+  author: doodlemania2
+  ms.author: pnp
+  ms.date: 12/16/2019
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: solution-idea
+  ms.category:
+    - ai-machine-learning
+  ms.custom:
+    - acom-architecture
+    - artificial intelligence
+    - healthcare
+    - ai-ml
+    - solution architectures
+    - Azure
+    - ai gallery
+    - 'https://azure.microsoft.com/solutions/architecture/population-health-management-for-healthcare/'
+    - ai-machine-learning
+  social_image_url: /azure/architecture/solution-ideas/articles/media/population-health-management-for-healthcare.png
+name: Population Health Management for Healthcare
+azureCategories:
+  - ai-machine-learning
+summary: Use Population Health Management to improve clinical and health outcomes and reduce costs. Track, monitor, and benchmark data with this tool.
+products:
+  - azure-data-factory
+  - azure-data-lake-analytics
+  - azure-event-hubs
+  - azure-stream-analytics
+  - power-bi
+thumbnailUrl: /azure/architecture/browse/thumbs/population-health-management-for-healthcare.png
+content: |
+  [!include[](population-health-management-for-healthcare-content.md)]

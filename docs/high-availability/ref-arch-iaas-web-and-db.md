@@ -1,15 +1,22 @@
 ---
-title: "IaaS: Web application with relational database"
-description:  This reference architecture shows best practices for applying Availability Zones to a web application and Microsoft SQL Server database hosted on virtual machines (VMs) known as a zonal deployment. 
+title: 'IaaS: Web application with relational database'
+description: This reference architecture shows best practices for applying Availability Zones to a web application and Microsoft SQL Server database hosted on virtual machines (VMs) known as a zonal deployment.
 author: maggsl
 ms.date: 06/16/2020
-ms.topic: article
+ms.topic: conceptual
 ms.service: architecture-center
-ms.category: 
-    - solutions
 ms.subservice: reference-architecture
-ms.custom: high-availability, fcp
+ms.category:
+  - solutions
+products:
+  - azure-load-balancer
+  - azure-application-gateway
+ms.custom:
+  - high-availability
+  - fcp
+  - article
 ---
+
 # IaaS: Web application with relational database
 
 Availability Zones are unique physical locations within an Azure region. Each zone is made up of one or more datacenters with independent power, cooling, and networking. The physical separation of availability zones within a region limits the impact to applications and data from zone failures, such as largescale flooding, major/super-storms, and other events that would disrupt site access, safe passage, extended utilities uptime, and the availability of resources. This reference architecture shows best practices for applying Availability Zones to a web application and Microsoft SQL Server database hosted on virtual machines (VMs) known as a zonal deployment.
@@ -22,7 +29,7 @@ The zone-redundant application gateway and zone-redundant load balancer distribu
 
 ![Infographic of Availability Zones architecture](./images/ref-arch-iaas.png)
 
-[*Download a Visio file of this architecture.*](https://archcenter.blob.core.windows.net/cdn/ref-arch-iaas.vsdx)
+[*Download a Visio file of this architecture.*](https://arch-center.azureedge.net/ref-arch-iaas.vsdx)
 
 ## Architecture
 
@@ -74,7 +81,7 @@ The architecture has the following components.
 
 Your requirements might differ from the architecture described here. Use these recommendations as a starting point.
 
-For recommendations on configuring the VMs, see [Run a Windows VM on Azure](../reference-architectures/n-tier/windows-vm.md).
+For recommendations on configuring the VMs, see [Run a Windows VM on Azure](../reference-architectures/n-tier/windows-vm.yml).
 
 For more information about designing virtual networks and subnets, see [Plan and design Azure Virtual Networks](/azure/virtual-network/virtual-network-vnet-plan-design-arm).
 
@@ -93,11 +100,11 @@ Create rules 2 – 3 with higher priority than the first rule, so they override 
 ### SQL Server Always On availability groups
 
 We recommend [Always On availability
-groups](/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server?view=sql-server-ver15) for Microsoft SQL Server high availability. Other tiers connect to the database through an [availability group listener](/sql/database-engine/availability-groups/windows/listeners-client-connectivity-application-failover?view=sql-server-ver15). The listener enables a SQL client to connect without knowing the name of the physical instance of SQL Server. VMs that access the database must be joined to the domain. The client (in this case, another tier) uses DNS to resolve the listener's virtual network name into IP addresses.
+groups](/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server?view=sql-server-ver15&preserve-view=true) for Microsoft SQL Server high availability. Other tiers connect to the database through an [availability group listener](/sql/database-engine/availability-groups/windows/listeners-client-connectivity-application-failover?view=sql-server-ver15&preserve-view=true). The listener enables a SQL client to connect without knowing the name of the physical instance of SQL Server. VMs that access the database must be joined to the domain. The client (in this case, another tier) uses DNS to resolve the listener's virtual network name into IP addresses.
 
 Configure the SQL Server Always On availability group as follows:
 
-- Create a Windows Server Failover Clustering (WSFC) cluster, a SQL Server Always On availability group, and a primary replica. For more information, see [Getting Started with Always On availability groups](/sql/database-engine/availability-groups/windows/getting-started-with-always-on-availability-groups-sql-server?view=sql-server-ver15).
+- Create a Windows Server Failover Clustering (WSFC) cluster, a SQL Server Always On availability group, and a primary replica. For more information, see [Getting Started with Always On availability groups](/sql/database-engine/availability-groups/windows/getting-started-with-always-on-availability-groups-sql-server?view=sql-server-ver15&preserve-view=true).
 
 - Create an internal load balancer with a static private IP address.
 
@@ -112,22 +119,19 @@ When a SQL client tries to connect, the load balancer routes the connection requ
 
 During a failover, existing client connections are closed. After the failover completes, new connections will be routed to the new primary replica.
 
-If your application makes significantly more reads than writes, you can offload some of the read-only queries to a secondary replica. See [Connect to a read-only replica](/sql/database-engine/availability-groups/windows/listeners-client-connectivity-application-failover?view=sql-server-ver15#ConnectToSecondary).
+If your application makes significantly more reads than writes, you can offload some of the read-only queries to a secondary replica. See [Connect to a read-only replica](/sql/database-engine/availability-groups/windows/listeners-client-connectivity-application-failover?view=sql-server-ver15&preserve-view=true#ConnectToSecondary&preserve-view=true).
 
-Test your deployment by [forcing a manual failover](/sql/database-engine/availability-groups/windows/perform-a-forced-manual-failover-of-an-availability-group-sql-server?view=sql-server-ver15) of the availability group.
+Test your deployment by [forcing a manual failover](/sql/database-engine/availability-groups/windows/perform-a-forced-manual-failover-of-an-availability-group-sql-server?view=sql-server-ver15&preserve-view=true) of the availability group.
 
 ## Availability considerations
 
-Availability Zones provide high resilience within a single region. If you need even higher availability, consider replicating the application across two regions, using Azure Traffic Manager for failover. For more information, see [Run an N-tier application in multiple Azure regions for high availability](../reference-architectures/n-tier/multi-region-sql-server.md).
+Availability Zones provide high resilience within a single region. If you need even higher availability, consider replicating the application across two regions, using Azure Traffic Manager for failover. For more information, see [Run an N-tier application in multiple Azure regions for high availability](../reference-architectures/n-tier/multi-region-sql-server.yml).
 
 Not all regions support Availability Zones, and not all VM sizes are supported in all zones. Run the following Azure CLI command to find the supported zones for each VM size within a region:
 
-~~~bash
-az vm list-skus --resource-type virtualMachines --zone false --location
-\<location\> \\
-
-\--query "[].{Name:name, Zones:locationInfo[].zones[] \| join(','\@)}" -o tabl
-~~~
+```azurecli
+az vm list-skus --resource-type virtualMachines --zone false --location eastus -o table
+```
 
 Virtual machine scale sets automatically use placement groups, which act as an implicit availability set. For more information about placement groups, see [Working with large virtual machine scale sets](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups).
 
@@ -189,7 +193,7 @@ Use [network security groups](/azure/virtual-network/virtual-networks-nsg) (NSGs
 
 ### DMZ
 
-Consider adding a network virtual appliance (NVA) to create a DMZ between the internet and the Azure virtual network. NVA is a generic term for a virtual appliance that can perform network-related tasks, such as firewall, packet inspection, auditing, and custom routing. For more information, see [Network DMZ between Azure and an on-premises datacenter](../reference-architectures/dmz/secure-vnet-dmz.md).
+Consider adding a network virtual appliance (NVA) to create a DMZ between the internet and the Azure virtual network. NVA is a generic term for a virtual appliance that can perform network-related tasks, such as firewall, packet inspection, auditing, and custom routing. For more information, see [Network DMZ between Azure and an on-premises datacenter](../reference-architectures/dmz/secure-vnet-dmz.yml).
 
 ### Encryption
 
@@ -198,7 +202,7 @@ Encrypt sensitive data at rest and use [Azure Key Vault](https://azure.microsoft
 ### DDoS protection
 
 The Azure platform provides basic DDoS protection by default. This basic protection is targeted at protecting the Azure infrastructure. Although basic DDoS protection is automatically enabled, we recommend using [DDoS Protection Standard](/azure/virtual-network/ddos-protection-overview).
-Standard protection uses adaptive tuning, based on your application's network traffic patterns, to detect threats. This allows it to apply mitigations against DDoS attacks that might go unnoticed by the infrastructure-wide DDoS policies. Standard protection also provides alerting, telemetry, and analytics through Azure Monitor. For more information, see [Azure DDoS Protection: Best practices and reference architectures](/azure/security/azure-ddos-best-practices).
+Standard protection uses adaptive tuning, based on your application's network traffic patterns, to detect threats. This allows it to apply mitigations against DDoS attacks that might go unnoticed by the infrastructure-wide DDoS policies. Standard protection also provides alerting, telemetry, and analytics through Azure Monitor. For more information, see [Azure DDoS Protection: Best practices and reference architectures](/azure/security/fundamentals/ddos-best-practices).
 
 ## Next steps
 

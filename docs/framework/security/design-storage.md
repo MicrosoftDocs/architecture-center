@@ -1,31 +1,55 @@
 ---
-title: Security storage in Azure | Microsoft Docs
-description: Secure data storage in Azure
+title: Data protection in Azure
+description: Design considerations about securing and encrypting data storage in Azure.
 author: v-aangie
 ms.date: 09/17/2020
-ms.topic: article
+ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
+ms.custom:
+  - article
 ---
 
-# Storage
+# Data protection considerations
 
-Protecting data at rest is required to maintain confidentiality, integrity, and availability assurances across all workloads. Storage in a cloud service like Azure is [architected and implemented](https://azure.microsoft.com/blog/sosp-paper-windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency/) quite differently than on premises solutions to enable massive scaling, modern
-access through REST APIs, and isolation between tenants.
+Classify, protect, and monitor sensitive data assets using access control, encryption, and logging in Azure. Provide controls on data at rest and in transit.  
 
-Granting access to Azure storage is possible through Azure Active Directory (Azure AD) as well as key based authentication mechanisms (Symmetric Shared Key Authentication, or Shared Access Signature (SAS)).
+## Checklist
+**How are you managing encryption for this workload?**
+***
+> [!div class="checklist"]
+> - Use identity based storage access controls.
+> - Use built-in features for data encryption for Azure services.
+> - Classify all stored data and encrypt it.
+> - Protect data moving over a network through encryption at all points so that it's not accessed unauthorized users.
+> - Store keys in managed key vault service with identity-based access control and audit policies.
+> - Rotate keys and other secrets frequently.
+ 
+## In this section
 
-Storage in Azure includes a number of native security design attributes:
+Follow these questions to assess the workload at a deeper level.
 
-- All data is encrypted by the service.
+|Assessment|Description|
+|---|---|
+|[**Do you use industry standard encryption algorithms?**](design-storage-encryption.md)|Avoid using custom encryption algorithms or direct cryptography in your workload.|
+|[**How is data at rest protected?**](design-storage-encryption.md#data-at-rest)|Classify your data at rest and use encryption.|
+|[**How is data in transit secured?**](design-storage-encryption.md#data-in-transit)|Use encrypted network channels (TLS/HTTPS) for all client/server communication.|
+|[**How to authenticate access to your storage**](design-storage-keys.md)|Use identity based storage access controls to enable fine-grained role-based access controls over storage resources.|
+|[**Where are workload secrets (keys, certificates) stored?**](design-storage-keys.md#key-storage)|Store keys and secrets in managed key vault service. |
 
-- Data in the storage system cannot be read by a tenant if it has not been
-    written by that tenant (to mitigate the risk of cross tenant data leakage).
+## Azure security benchmark
 
-- Data will remain only in the region you choose.
+The Azure Security Benchmark includes a collection of high-impact security recommendations you can use to help secure the services you use in Azure:
 
-- The system maintains three synchronous copies of data in the region you choose.
+> ![GitHub logo](../../_images/benchmark-security.svg) The questions in this section are aligned to the Azure Security Benchmarks [Data Protection](/azure/security/benchmarks/security-control-data-protection).
 
-- Detailed activity logging is available on an opt-in basis.
+## Reference architecture
+Here are some reference architectures related to secure storage:
 
-Additional security features can be configured such as a storage firewall to provide an additional layer of access control as well as storage threat protection to detect anomalous access and activities.
+- [Using Azure file shares in a hybrid environment](../../hybrid/azure-file-share.yml)
+
+- [DevSecOps in Azure](../../solution-ideas/articles/devsecops-in-azure.yml)
+
+## Related links
+
+> Back to the main article: [Security](./overview.md)

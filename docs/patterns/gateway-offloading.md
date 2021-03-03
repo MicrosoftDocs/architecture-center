@@ -2,13 +2,14 @@
 title: Gateway Offloading pattern
 titleSuffix: Cloud Design Patterns
 description: Use the Gateway Offloading design pattern to offload shared or specialized service functionality to a gateway proxy.
-keywords: design pattern
 author: dragon119
 ms.date: 06/23/2017
-ms.topic: design-pattern
+ms.topic: conceptual
 ms.service: architecture-center
-ms.subservice: cloud-fundamentals
-ms.custom: seodec18
+ms.subservice: design-pattern
+ms.custom:
+  - design-pattern
+keywords: design pattern
 ---
 
 # Gateway Offloading pattern
@@ -25,9 +26,9 @@ Other common services such as authentication, authorization, logging, monitoring
 
 ## Solution
 
-Offload some features into an API gateway, particularly cross-cutting concerns such as certificate management, authentication, SSL termination, monitoring, protocol translation, or throttling.
+Offload some features into a gateway, particularly cross-cutting concerns such as certificate management, authentication, SSL termination, monitoring, protocol translation, or throttling.
 
-The following diagram shows an API gateway that terminates inbound SSL connections. It requests data on behalf of the original requestor from any HTTP server upstream of the API gateway.
+The following diagram shows a gateway that terminates inbound SSL connections. It requests data on behalf of the original requestor from any HTTP server upstream of the gateway.
 
  ![Diagram of the Gateway Offloading pattern](./_images/gateway-offload.png)
 
@@ -41,10 +42,10 @@ Benefits of this pattern include:
 
 ## Issues and considerations
 
-- Ensure the API gateway is highly available and resilient to failure. Avoid single points of failure by running multiple instances of your API gateway.
+- Ensure the gateway is highly available and resilient to failure. Avoid single points of failure by running multiple instances of your gateway.
 - Ensure the gateway is designed for the capacity and scaling requirements of your application and endpoints. Make sure the gateway does not become a bottleneck for the application and is sufficiently scalable.
 - Only offload features that are used by the entire application, such as security or data transfer.
-- Business logic should never be offloaded to the API gateway.
+- Business logic should never be offloaded to the gateway.
 - If you need to track transactions, consider generating correlation IDs for logging purposes.
 
 ## When to use this pattern

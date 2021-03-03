@@ -3,10 +3,11 @@ title: Principles of cost optimization
 description: Describes the Principles of cost optimization.
 author: david-stanford
 ms.date: 05/13/2020
-ms.topic: overview
+ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
-ms.custom: 
+ms.custom:
+  - overview
 ---
 
 # Principles of cost optimization

@@ -2,13 +2,14 @@
 title: Design and Implementation patterns
 titleSuffix: Cloud Design Patterns
 description: Use these design and implementation patterns to simplify administration, development, and reusability for your cloud application.
-keywords: design pattern
 author: dragon119
 ms.date: 06/23/2017
-ms.topic: design-pattern
+ms.topic: conceptual
 ms.service: architecture-center
-ms.subservice: cloud-fundamentals
-ms.custom: seodec18
+ms.subservice: design-pattern
+ms.custom:
+  - design-pattern
+keywords: design pattern
 ---
 
 # Design and Implementation patterns
@@ -30,4 +31,4 @@ Good design encompasses factors such as consistency and coherence in component d
 |              [Pipes and Filters](../pipes-and-filters.md)              |                                                     Break down a task that performs complex processing into a series of separate elements that can be reused.                                                      |
 |                        [Sidecar](../sidecar.md)                        |                                                  Deploy components of an application into a separate process or container to provide isolation and encapsulation.                                                  |
 |         [Static Content Hosting](../static-content-hosting.md)         |                                                        Deploy static content to a cloud-based storage service that can deliver them directly to the client.                                                        |
-|                      [Strangler](../strangler.md)                      |                                         Incrementally migrate a legacy system by gradually replacing specific pieces of functionality with new applications and services.                                          |
+|                      [Strangler Fig](../strangler-fig.md)                      |                                         Incrementally migrate a legacy system by gradually replacing specific pieces of functionality with new applications and services.                                          |

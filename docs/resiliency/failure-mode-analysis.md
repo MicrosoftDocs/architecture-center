@@ -3,10 +3,14 @@ title: Failure mode analysis
 description: Guidelines for performing a failure mode analysis for cloud solutions based on Azure.
 author: doodlemania2
 ms.date: 05/07/2018
-ms.topic: article
+ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
-ms.custom: resiliency
+products:
+  - azure-app-service
+ms.custom:
+  - resiliency
+  - article
 ---
 
 # Failure mode analysis for Azure applications
@@ -483,7 +487,7 @@ For more information about the FMA process, see [Resilience by design for cloud 
 [azure-activity-logs]: /azure/monitoring-and-diagnostics/monitoring-overview-activity-logs
 [azure-alerts]: /azure/monitoring-and-diagnostics/insights-alerts-portal
 [azure-log-analytics]: /azure/log-analytics/log-analytics-overview
-[BrokeredMessage.TimeToLive]: /dotnet/api/microsoft.servicebus.messaging.brokeredmessage?view=azure-dotnet
+[BrokeredMessage.TimeToLive]: /dotnet/api/microsoft.servicebus.messaging.brokeredmessage?view=azure-dotnet&preserve-view=true
 [cassandra-error-handling]: https://www.datastax.com/dev/blog/cassandra-error-handling-done-right
 [circuit-breaker]: /previous-versions/msp-n-p/dn589784(v=pandp.10)
 [cosmos-db-multi-region]: /azure/cosmos-db/tutorial-global-distribution-sql-api
@@ -494,8 +498,8 @@ For more information about the FMA process, see [Resilience by design for cloud 
 [new-relic]: https://newrelic.com
 [priority-queue-pattern]: /previous-versions/msp-n-p/dn589794(v=pandp.10)
 [queue-based-load-leveling]: /previous-versions/msp-n-p/dn589783(v=pandp.10)
-[QuotaExceededException]: /dotnet/api/microsoft.servicebus.messaging.quotaexceededexception?view=azure-dotnet
-[ra-web-apps-basic]: ../reference-architectures/app-service-web-app/basic-web-app.md
+[QuotaExceededException]: /dotnet/api/microsoft.servicebus.messaging.quotaexceededexception?view=azure-dotnet&preserve-view=true
+[ra-web-apps-basic]: ../reference-architectures/app-service-web-app/basic-web-app.yml
 [redis-monitor]: /azure/azure-cache-for-redis/cache-how-to-monitor
 [redis-retry]: ../best-practices/retry-service-specific.md#azure-cache-for-redis
 [resilience-by-design-pdf]: https://download.microsoft.com/download/D/8/C/D8C599A4-4E8A-49BF-80EE-FE35F49B914D/Resilience_by_Design_for_Cloud_Services_White_Paper.pdf
@@ -504,12 +508,12 @@ For more information about the FMA process, see [Resilience by design for cloud 
 [rm-locks]: /azure/azure-resource-manager/resource-group-lock-resources/
 [sb-dead-letter-queue]: /azure/service-bus-messaging/service-bus-dead-letter-queues/
 [sb-georeplication-sample]: https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.Azure.ServiceBus/GeoReplication
-[sb-messagingexception-class]: /dotnet/api/microsoft.servicebus.messaging.messagingexception?view=azure-dotnet
+[sb-messagingexception-class]: /dotnet/api/microsoft.servicebus.messaging.messagingexception?view=azure-dotnet&preserve-view=true
 [sb-messaging-exceptions]: /azure/service-bus-messaging/service-bus-messaging-exceptions
 [sb-partition]: /azure/service-bus-messaging/service-bus-partitioning
 [sb-poison-message]: /azure/app-service/webjobs-sdk-how-to#automatic-triggers
 [sb-retry]: ../best-practices/retry-service-specific.md#service-bus
-[search-sdk]: /dotnet/api/overview/azure/search?view=azure-dotnet
+[search-sdk]:  /dotnet/api/overview/azure/search?view=azure-dotnet&preserve-view=true
 [scheduler-agent-supervisor]: /previous-versions/msp-n-p/dn589780(v=pandp.10)
 [search-analytics]: /azure/search/search-traffic-analytics
 [sql-db-audit]: /azure/sql-database/sql-database-auditing-get-started
@@ -520,7 +524,7 @@ For more information about the FMA process, see [Resilience by design for cloud 
 [storage-metrics]: /azure/storage/common/monitor-storage
 [storage-replication]: /azure/storage/storage-redundancy
 [Storage.RetryPolicies]: /dotnet/api/microsoft.azure.storage.retrypolicies
-[sys.event_log]: /sql/relational-databases/system-catalog-views/sys-event-log-azure-sql-database?view=azuresqldb-current
+[sys.event_log]: /sql/relational-databases/system-catalog-views/sys-event-log-azure-sql-database?view=azuresqldb-current&preserve-view=true
 [throttling-pattern]: /previous-versions/msp-n-p/dn589798(v=pandp.10)
 [web-jobs]: /azure/app-service-web/web-sites-create-web-jobs
 [web-jobs-shutdown]: /azure/app-service/webjobs-sdk-how-to#cancellation-tokens

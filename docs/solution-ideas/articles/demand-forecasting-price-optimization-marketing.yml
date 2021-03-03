@@ -1,0 +1,34 @@
+### YamlMime:Architecture
+metadata:
+  title: Demand Forecasting + Price Optimization
+  titleSuffix: Azure Solution Ideas
+  description: Predict future customer demand and optimize pricing to maximize profitability using big-data and advanced-analytics services from Microsoft Azure.
+  author: doodlemania2
+  ms.author: pnp
+  ms.date: 12/16/2019
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: solution-idea
+  ms.category:
+    - analytics
+    - ai-machine-learning
+  ms.custom:
+    - acom-architecture
+    - demand forecasting
+    - price optimization
+    - 'https://azure.microsoft.com/solutions/architecture/demand-forecasting-price-optimization-marketing/'
+    - ai-machine-learning
+  social_image_url: /azure/architecture/solution-ideas/articles/media/demand-forecasting-price-optimization-marketing.png
+name: Demand Forecasting + Price Optimization
+azureCategories:
+  - analytics
+  - ai-machine-learning
+summary: Predict future customer demand and optimize pricing to maximize profitability using big-data and advanced-analytics services from Microsoft Azure.
+products:
+  - azure-blob-storage
+  - azure-data-factory
+  - azure-hdinsight
+  - azure-web-apps
+thumbnailUrl: /azure/architecture/browse/thumbs/demand-forecasting-price-optimization-marketing.png
+content: |
+  [!include[](demand-forecasting-price-optimization-marketing-content.md)]

@@ -1,175 +1,79 @@
 ---
-title: Designing resilient Azure applications
-description: 
-author: david-stanford
-ms.date: 10/16/2019
-ms.topic: article
+title: Design reliable Azure applications
+description: Describes design considerations for making sure applications are resilient to failure.
+author: v-aangie
+ms.date: 02/17/2021
+ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
-ms.custom: How have you ensured that your application is resilient to failures? 
+ms.custom:
+  - How have you ensured that your application is resilient to failures?
+  - article
 ---
 
-# Designing resilient Azure applications
+# Design reliable Azure applications
 
-Building *resiliency* (recovering from failures) and *availability* (running in a healthy state without significant downtime) into your apps begins with gathering requirements. For example, how much downtime is acceptable? How much does potential downtime cost your business? What are your customer's availability requirements? How much do you invest in making your application highly available? What is the risk versus the cost?
+Building a reliable application in the cloud is different from traditional application development. While historically you may have purchased levels of redundant higher-end hardware to minimize the chance of an entire application platform failing, in the cloud, we acknowledge up front that failures will happen. Instead of trying to prevent failures altogether, the goal is to minimize the effects of a single failing component. Failures you can expect here are inherent to highly distributed systems, not a feature of Azure.
 
-## Determine subscription and service requirements
+## Key Points
 
-Choose the right subscription and service features for your app by working through these tasks:
+- Use Availability Zones where applicable to improve reliability and optimize costs.
+- Design applications to operate when impacted by failures.
+- Use the native resiliency capabilities of PaaS to support overall application reliability.
+- Design to scale out.
+- Validate that required capacity is within Azure service scale limits and quotas.
 
-- **Evaluate requirements against [Azure subscription and service limits](/azure/azure-subscription-service-limits/).** *Azure subscriptions* have limits on certain resource types, such as number of resource groups, cores, and storage accounts. If your application requirements exceed Azure subscription limits, create another Azure subscription and provision sufficient resources there. Individual Azure services have consumption limits &mdash; for example, limits on storage, throughput, number of connections, requests per second, and other metrics. Your application will fail if it attempts to use resources beyond these limits, resulting in service throttling and possible downtime for affected users. Depending on the specific service and your application requirements, you can often avoid these limits by scaling up (for example, choosing another pricing tier) or scaling out (such as adding new instances).
-- **Determine how many storage accounts you need.** Azure allows a specific number of storage accounts per subscription. For more information, see [Azure subscription and service limits, quotas, and constraints](/azure/azure-subscription-service-limits/#storage-limits).
-- **Select the right service tier for Azure SQL Database.** If your application uses Azure SQL Database, select the appropriate service tier. If the tier cannot handle your application's database transaction unit (DTU) requirements, your data use will be throttled. For more information on selecting the correct service plan, see [SQL Database options and performance: Understand what's available in each service tier](/azure/sql-database/sql-database-service-tiers/).
-- **Provision sufficient request units (RUs) in Azure Cosmos DB**. With Azure Cosmos DB, you pay for the throughput you provision and the storage you consume on an hourly basis. The cost of all database operations is normalized as RUs, which abstracts the system resources such as CPU, IOPS, and memory. For more information, see [Request Units in Azure Cosmos DB](/azure/cosmos-db/request-units).
+## Use Availability Zones within a region
 
-## Resiliency strategies
+If your requirements demand an even greater failure isolation than Availability Zones alone can offer, consider deploying to multiple regions. Multiple regions should be used for failover purposes in a disaster state. Additional cost needs to be taken into consideration. Examples of cost needs are data and networking, and services such as Azure Site Recovery.
 
-This section describes some common resiliency strategies. Most of these strategies are not limited to a particular technology. The descriptions summarize the general idea behind each technique and include links to further reading.
-
-- **Implement resiliency patterns** for remote operations, where appropriate. If your application depends on communication between remote services, follow [design patterns](../../patterns/category/resiliency.md) for dealing with transient failures.
-
-- **Retry transient failures.** These can be caused by momentary loss of network connectivity, a dropped database connection, or a timeout when a service is busy. Often, a transient failure can be resolved by retrying the request.
-
-  - For many Azure services, the client software development kit (SDK) implements automatic retries in a way that is transparent to the caller. See [Retry guidance for specific services](../../best-practices/retry-service-specific.md).
-  - Or implement the [Retry pattern](../../patterns/retry.md) to help the application handle anticipated, temporary failures transparently when it tries to connect to a service or network resource.
-
-  :::image type="icon" source="../../_images/github.png" border="false"::: The [RetryPatternSample](https://github.com/mspnp/samples/tree/master/Reliability/RetryPatternSample) shows an implementation of the retry pattern.
-
-
-- **Use a circuit breaker** to handle faults that might take a variable amount of time to fix. The [Circuit Breaker pattern](../../patterns/circuit-breaker.md) can prevent an application from repeatedly trying an operation that is likely to fail. The circuit breaker wraps calls to a service and tracks the number of recent failures. If the failure count exceeds a threshold, the circuit breaker starts returning an error code without calling the service. This gives the service time to recover and helps avoid cascading failures.
-- **Isolate critical resources.** Failures in one subsystem can sometimes cascade, resulting in failures in other parts of the application. This can happen if a failure prevents resources such as threads or sockets from being freed, leading to resource exhaustion. To avoid this, you can partition a system into isolated groups so that a failure in one partition does not bring down the entire system.
-
-    Here are some examples of this technique, which is sometimes called the [Bulkhead pattern](../../patterns/bulkhead.md):
-
-  - Partition a database (for example, by tenant), and assign a separate pool of web server instances for each partition.
-  - Use separate thread pools to isolate calls to different services. This helps to prevent cascading failures if one of the services fails. For an example, see the Netflix [Hystrix library](https://medium.com/netflix-techblog/introducing-hystrix-for-resiliency-engineering-13531c1ab362).
-  - Use [containers](https://en.wikipedia.org/wiki/Operating-system-level_virtualization) to limit the resources available to a particular subsystem.
-
-      ![Diagram of the Bulkhead pattern](../../framework/_images/bulkhead.png)
-
-- **Apply [*compensating transactions*](../../patterns/compensating-transaction.md)**. A compensating transaction is a transaction that undoes the effects of another completed transaction. In a distributed system, it can be difficult to achieve strong transactional consistency. Compensating transactions help to achieve consistency by using a series of smaller, individual transactions that can be undone at each step. For example, to book a trip, a customer might reserve a car, a hotel room, and a flight. If one of these steps fails, the entire operation fails. Instead of trying to use a single distributed transaction for the entire operation, you can define a compensating transaction for each step.
-- **Implement asynchronous operations, whenever possible.** Synchronous operations can monopolize resources and block other operations while the caller waits for the process to complete. Design each part of your application to allow for asynchronous operations, whenever possible. For more information on how to implement asynchronous programming in C\#, see [Asynchronous Programming](/dotnet/articles/csharp/async).
-
-## Plan for usage patterns
-
-Identify differences in requirements during critical and non-critical periods. Are there certain critical periods when the system must be available? For example, a tax-filing application can't fail during a filing deadline and a video streaming service shouldn't lag during a live event. In these situations, weigh the cost against the risk.
-
-- To ensure uptime and meet service-level agreements (SLAs) in critical periods, plan redundancy across several regions in case one fails, even if it costs more.
-- Conversely, during non-critical periods, run your application in a single region to minimize costs.
-- In some cases, you can mitigate additional expenses by using modern serverless techniques that have consumption-based billing.
-
-## Identify distinct workloads
-
-Cloud solutions typically consist of multiple application *workloads*. A workload is a distinct capability or task that is logically separated from other tasks in terms of business logic and data storage requirements. For example, an e-commerce app might have the following workloads:
-
-- Browse and search a product catalog.
-- Create and track orders.
-- View recommendations.
-
-Each workload has different requirements for availability, scalability, data consistency, and disaster recovery. Make your business decisions by balancing cost versus risk for each workload.
-
-Also decompose workloads by service-level objective. If a service is composed of critical and less-critical workloads, manage them differently and specify the service features and number of instances needed to meet their availability requirements.
-
-## Managing third party services
-
-If your application has dependencies on third-party services, identify how these services can fail and what effect failures will have on your application.
-
-A third-party service might not include monitoring and diagnostics. Log calls to these services and correlate them with your application's health and diagnostic logging using a unique identifier. For more information on proven practices for monitoring and diagnostics, see [Monitoring and diagnostics guidance](../../best-practices/monitoring.md).
-
-See the [Health Endpoint Monitoring pattern](../../patterns/health-endpoint-monitoring.md) for a solution to track this with code samples.
-
-## Monitoring third-party services
-
-If your application has dependencies on third-party services, identify where and how these services can fail and what effect those failures will have on your application. Keep in mind the service-level agreement (SLA) for the third-party service and the effect it might have on your disaster recovery plan.
-
-A third-party service might not provide monitoring and diagnostics capabilities, so it's important to log your invocations of them and to correlate them with your application's health and diagnostic logging using a unique identifier. For more information on proven practices for monitoring and diagnostics, see [Monitoring and diagnostics guidance](../../best-practices/monitoring.md).
-
-## Load balancing
-
-Proper load-balancing allows you to meet availability requirements and to minimize costs associated with availability.
-
-- **Use load-balancing to distribute requests.** Load-balancing distributes your application's requests to healthy service instances by removing unhealthy instances from rotation. If your service uses Azure App Service or Azure Cloud Services, it's already load-balanced for you. However, if your application uses Azure VMs, you need to provision a load-balancer. For more information, see [What is Azure Load Balancer?](/azure/load-balancer/load-balancer-overview/)
-
-  You can use Azure Load Balancer to:
-
-  - Load-balance incoming Internet traffic to your VMs. This configuration is known as a [*public Load Balancer*](/azure/load-balancer/components#frontend-ip-configurations).
-  - Load-balance traffic across VMs inside a virtual network. You can also reach a Load Balancer front end from an on-premises network in a hybrid scenario. Both scenarios use a configuration that is known as an [*internal Load Balancer*](/azure/load-balancer/components#frontend-ip-configurations).
-  - Port forward traffic to an itemized port on specific VMs with inbound network address translation (NAT) rules.
-  - Provide [outbound connectivity](/azure/load-balancer/load-balancer-outbound-connections) for VMs inside your virtual network by using a public Load Balancer.
-
-- **Balance loads across regions with a traffic manager, such as Azure Traffic Manager.** To load-balance traffic across regions requires a traffic management solution, and Azure provides [Traffic Manager](https://azure.microsoft.com/services/traffic-manager/). You can also take advantage of third-party services that provide similar traffic-management capabilities.
-
-## Failure mode analysis
-
-*Failure mode analysis* (FMA) builds resiliency into a system by identifying possible failure points and defining how the application responds to those failures. The FMA should be part of the architecture and design phases, so failure recovery is built into the system from the beginning. The goals of an FMA are to:
-
-- Determine what types of failures an application might experience and how the application detects those failures.
-- Capture the potential effects of each type of failure and determine how the app responds.
-- Plan for logging and monitoring the failure and identify recovery strategies.
-
-Here are some examples of failure modes and detection strategies for a specific failure point &mdash; a call to an external web service:
-
-| Failure mode           | Detection strategy           |
-|------------------------|------------------------------|
-| Service is unavailable | HTTP 5xx                     |
-| Throttling             | HTTP 429 (Too Many Requests) |
-| Authentication         | HTTP 401 (Unauthorized)      |
-| Slow response          | Request times out            |
-
-For more information about the FMA process, with specific recommendations for Azure, see [Failure mode analysis][failure-mode-analysis].
-
-:::image type="icon" source="../../_images/github.png" border="false"::: Related samples are [here](https://github.com/mspnp/samples/tree/master/Reliability/FailureModeAnalysisSample). 
-
-## Operating in multiple regions
-
-If your application is deployed to a single region, in the rare event the entire region becomes unavailable, your application will also be unavailable. This may be unacceptable under the terms of your application's SLA. If so, consider deploying your application and its services across multiple regions. A multi-region deployment can use an active-active pattern (distributing requests across multiple active instances) or an active-passive pattern (keeping a "warm" instance in reserve, in case the primary instance fails)
-
-Many failures are manageable within the same Azure region. However, in the unlikely event of a region-wide service disruption, the locally redundant copies of your data aren't available. If you've enabled geo-replication, there are three additional copies of your blobs and tables in a different region. If Microsoft declares the region lost, Azure remaps all the DNS entries to the secondary region.
+Design your application architecture to use *Availability Zones* within a region. Availability Zones can be used to optimize application availability within a region by providing datacenter level fault tolerance. However, the application architecture must not share dependencies between zones to use them effectively.
 
 > [!NOTE]
-> This process occurs only for region-wide service disruptions and is not within your control. Consider using [Azure Site Recovery](/azure/site-recovery/) to achieve better RPO and RTO. Using Site Recovery, you decide what is an acceptable outage and when to fail over to the replicated VMs.
+> Availability Zones may introduce performance and cost considerations for applications which are extremely "chatty" across zones given the implied physical separation between each zone and inter-zone bandwidth charges. This also means that Availability Zones can be considered to get higher SLA for lower cost.
 
-<!-- -->
+Consider if component proximity is required for application performance reasons. If all or part of the application is highly sensitive to latency, it may mandate component co-locality which can limit the applicability of multi-region and multi-zone strategies.
 
->[!NOTE]
->The selection of the Resource Group location is important. In the event of a regional outage, you will be unable to control resources inside that Resource Group, regardless of what region those resources are actually in (i.e., the resources in the other region(s) will continue to function, but management plane operations will be unavailable.
+## Respond to failure
 
-Your response to a region-wide service disruption depends on your deployment and your disaster recovery plan.
+Avoiding failure is impossible in the public cloud, and as a result applications require resilience to respond to outages and deliver reliability. The application should therefore be designed to operate even when impacted by regional, zonal, service or component failures across critical application scenarios and functionality. Application operations may experience reduced functionality or degraded performance during an outage.
 
-- As a cost-control strategy, for non-critical applications that don't require a guaranteed recovery time, it might make sense to redeploy to a different region.
-- For applications that are hosted in another region with deployed roles but don't distribute traffic across regions (*active/passive deployment*), switch to the secondary hosted service in the alternate region.
-- For applications that have a full-scale secondary deployment in another region (*active/active deployment*), route traffic to that region.
+Define an availability strategy to capture how the application remains available when in a failure state. It should apply across all application components and the application deployment stamp as a whole such as via multi-geo scale-unit deployment approach. There are cost implications as well: More resources need to be provisioned in advance to provide high availability. Active-active setup, while more expensive than single deployment, can balance cost by lowering load on one stamp and reducing the total amount of resources needed.
 
-To learn more about recovering from a region-wide service disruption, see [Recover from a region-wide service disruption](../../resiliency/recovery-loss-azure-region.md).
+In addition to an availability strategy, define a Business Continuity Disaster Recovery (BCDR) strategy for the application and/or its key scenarios. A disaster recovery strategy should capture how the application responds to a disaster situation such as a regional outage or the loss of a critical platform service, using either a re-deployment, warm-spare active-passive, or hot-spare active-active approach.
 
-### VM recovery
+To drive cost down consider splitting application components and data into groups. For example:
 
-For critical apps, plan for recovering VMs in the event of a region-wide service disruption.
+- Must protect
+- Nice to protect
+- Ephemeral/can be rebuilt/lost, instead of protecting all data with the same policy
 
-- Use Azure Backup or another backup method to create cross-region backups that are application consistent. (Replication of the Backup vault must be configured at the time of creation.)
-- Use Site Recovery to replicate across regions for one-click application failover and failover testing.
-- Use Traffic Manager to automate user traffic failover to another region.
+## Considerations for improving reliability
 
-To learn more, see [Recover from a region-wide service disruption, Virtual machines](../../resiliency/recovery-loss-azure-region.md#virtual-machines).
+**Is the application designed to use managed services?**
+***
 
-### Storage recovery
+Azure-managed services provide native resiliency capabilities to support overall application reliability. Platform as a service (PaaS) offerings should be used to leverage these capabilities. PaaS options are easier to configure and administer. You don't need to provision VMs, set up VNets, manage patches and updates, and all of the other overhead associated with running software on a VM. To learn more, see [Use managed services](https://docs.microsoft.com/azure/architecture/guide/design-principles/managed-services).
 
-To protect your storage in the event of a region-wide service disruption:
+**Has the application been designed to scale out?**
+***
 
-- Use geo-redundant storage.
-- Know where your storage is geo-replicated. This affects where you deploy other instances of your data that require regional affinity with your storage.
-- Check data for consistency after failover and, if necessary, restore from a backup.
+Azure provides elastic scalability and you should design to scale out. However, applications must leverage a scale-unit approach to navigate service and subscription limits to ensure that individual components and the application as a whole can scale horizontally. Don't forget about scale in, which is important to drive cost down. For example, scale in and out for App Service is done via rules. Often customers write scale out rules and never write scale in rules. This leaves the App Service more expensive.
 
-To learn more, see [Designing highly available applications using RA-GRS](/azure/storage/common/storage-designing-ha-apps-with-ragrs).
+**Is the application deployed across multiple Azure subscriptions?**
+***
 
-### SQL Database and SQL Server
+Understanding the subscription landscape of the application and how components are organized within or across subscriptions is important when analyzing if relevant subscription limits or quotas can be navigated. Review Azure subscription and service limits to validate that required capacity is within Azure service scale limits and quotas. To learn more, see [Azure subscription and service limits](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits).
 
-Azure SQL Database provides two types of recovery:
+## Next step
 
-- Use geo-restore to restore a database from a backup copy in another region. For more information, see [Recover an Azure SQL database using automated database backups](/azure/sql-database/sql-database-recovery-using-backups).
-- Use active geo-replication to fail over to a secondary database. For more information, see [Creating and using active geo-replication](/azure/sql-database/sql-database-active-geo-replication).
+>[!div class="nextstepaction"]
+>[Resiliency and dependencies](/azure/architecture/framework/resiliency/design-resiliency)
 
-For SQL Server running on VMs, see [High availability and disaster recovery for SQL Server in Azure Virtual Machines](/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-high-availability-dr).
+## Related links
 
-<!-- links -->
-[failure-mode-analysis]: ../../resiliency/failure-mode-analysis.md
+- For information on minimizing dependencies, see [Minimize coordination](https://docs.microsoft.com/azure/architecture/guide/design-principles/minimize-coordination).
+- For more information on fault-points and fault-modes, see [Failure Mode Analysis for Azure applications](https://docs.microsoft.com/azure/architecture/resiliency/failure-mode-analysis).
+- For information on managed services, see [Use platform as a service (PaaS) options](https://docs.microsoft.com/azure/architecture/guide/design-principles/managed-services).
+
+> Go back to the main article: [Design](design-checklist.md)

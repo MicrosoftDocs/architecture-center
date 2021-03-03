@@ -1,0 +1,25 @@
+### YamlMime:Architecture
+metadata:
+  title: Machine teaching
+  titleSuffix: Azure Architecture Center
+  description: Machine teaching incorporates artificial intelligence, machine learning, deep reinforcement learning, subject matter expertise, and simulated environment data.
+  author: jocontr
+  ms.author: pnp
+  ms.date: 07/05/2020
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: solution-idea
+  ms.category:
+    - ai-machine-learning
+  ms.custom:
+    - pcp
+    - ai-machine-learning
+name: Machine teaching
+azureCategories:
+  - ai-machine-learning
+summary: Machine teaching incorporates artificial intelligence, machine learning, deep reinforcement learning, subject matter expertise, and simulated environment data.
+products:
+  - azure
+thumbnailUrl: /azure/architecture/browse/thumbs/machine-teaching-1-4.png
+content: |
+  [!include[](machine-teaching-content.md)]

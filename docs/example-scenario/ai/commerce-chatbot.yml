@@ -1,0 +1,27 @@
+### YamlMime:Architecture
+metadata:
+  title: Chatbot for hotel reservations
+  description: Build a conversational chatbot for commerce applications with Azure Bot Service.
+  author: iainfoulds
+  ms.date: 07/05/2018
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: example-scenario
+  ms.category:
+    - ai-machine-learning
+    - web
+  ms.custom:
+    - example-scenario
+    - ai-machine-learning
+  social_image_url: /azure/architecture/example-scenario/ai/media/architecture-commerce-chatbot.png
+name: Chatbot for hotel reservations
+azureCategories:
+  - ai-machine-learning
+  - web
+summary: Build a conversational chatbot for commerce applications with Azure Bot Service.
+products:
+  - azure
+  - azure-bot-service
+thumbnailUrl: /azure/architecture/browse/thumbs/architecture-commerce-chatbot.png
+content: |
+  [!include[](commerce-chatbot-content.md)]

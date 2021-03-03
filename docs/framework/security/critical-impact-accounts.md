@@ -3,9 +3,13 @@ title: Administration in Azure | Microsoft Docs
 description: Learn about best practices for security of administrator accounts in Azure. Administration introduces some of the highest impact security risks.
 author: PageWriter-MSFT
 ms.date: 07/09/2019
-ms.topic: article
+ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
+products:
+  - azure-active-directory
+ms.custom:
+  - article
 ---
 
 # Administration
@@ -45,9 +49,9 @@ administrative accounts and published prioritized roadmaps for protecting privil
 access that can be used as references for prioritizing mitigations for
 accounts with privileged access.
 
-- [Securing Privileged Access (SPA) roadmap for administrators of on-premises Active Directory](https://aka.ms/SPARoadmap)
+- [Securing Privileged Access (SPA) roadmap for administrators of on-premises Active Directory](/windows-server/identity/securing-privileged-access/securing-privileged-access)
 
-- [Guidance for securing administrators of Azure Active Directory](https://aka.ms/securitysteps)
+- [Guidance for securing administrators of Azure Active Directory](/azure/security/fundamentals/steps-secure-identity)
 
 ## Minimize number of critical impact admins
 
@@ -272,8 +276,8 @@ Customization leads to complexity that increases confusion and makes automation
 more complex, challenging, and fragile. These factors all negatively impact
 security
 
-We recommend that you evaluate the [built-in roles](/azure/active-directory/role-based-access-built-in-roles)
-designed to cover most normal scenarios. [Custom roles](/azure/active-directory/role-based-access-control-custom-roles)
+We recommend that you evaluate the [built-in roles](/azure/role-based-access-control/built-in-roles)
+designed to cover most normal scenarios. [Custom roles](/azure/role-based-access-control/custom-roles)
 are a powerful and sometimes useful capability, but they should be reserved for
 cases when built in roles won't work.
 

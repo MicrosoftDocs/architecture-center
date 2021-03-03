@@ -4,10 +4,13 @@ titleSuffix: Performance antipatterns for cloud apps
 description: Asynchronous work on a large number of background threads can starve other foreground tasks of resources.
 author: dragon119
 ms.date: 06/05/2017
-ms.topic: article
+ms.topic: conceptual
 ms.service: architecture-center
-ms.subservice: cloud-fundamentals
-ms.custom: seodec18
+ms.subservice: anti-pattern
+products:
+  - aspnet
+ms.custom:
+  - article
 ---
 
 <!-- cSpell:ignore workinfrontend workinbackground Hudgens userprofile -->

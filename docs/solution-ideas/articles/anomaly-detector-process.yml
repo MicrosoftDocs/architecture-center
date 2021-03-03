@@ -1,0 +1,35 @@
+### YamlMime:Architecture
+metadata:
+  title: Anomaly Detector Process
+  titleSuffix: Azure Solution Ideas
+  description: Learn about Anomaly Detector and see how anomaly detection models are selected with time-series data.
+  author: doodlemania2
+  ms.author: pnp
+  ms.date: 12/16/2019
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: solution-idea
+  ms.category:
+    - analytics
+    - ai-machine-learning
+  ms.custom:
+    - acom-architecture
+    - anomaly detection process
+    - anomaly detection model
+    - anomaly detector
+    - interactive-diagram
+    - 'https://azure.microsoft.com/solutions/architecture/anomaly-detector-process/'
+    - ai-machine-learning
+  social_image_url: /azure/architecture/solution-ideas/articles/media/anomaly-detector-process.png
+name: Anomaly Detector Process
+azureCategories:
+  - analytics
+  - ai-machine-learning
+summary: Learn about Anomaly Detector and see how anomaly detection models are selected with time-series data.
+products:
+  - azure-databricks
+  - azure-service-bus
+  - azure-storage-accounts
+thumbnailUrl: /azure/architecture/browse/thumbs/anomaly-detector-process.png
+content: |
+  [!include[](anomaly-detector-process-content.md)]

@@ -2,10 +2,15 @@
 title: Choosing a batch processing technology
 description: Compare technology choices for big data batch processing in Azure, including key selection criteria and a capability matrix.
 author: zoinerTejada
-ms.date: 11/20/2019
-ms.topic: guide
+ms.date: 01/19/2021
+ms.topic: conceptual
 ms.service: architecture-center
-ms.subservice: cloud-fundamentals
+ms.subservice: azure-guide
+products:
+  - azure-synapse-analytics
+  - azure-data-lake
+ms.custom:
+  - guide
 ---
 
 # Choosing a batch processing technology in Azure
@@ -85,7 +90,7 @@ The following tables summarize the key differences in capabilities.
 | Relational data store | Yes | Yes | No | No |
 | Pricing model | Per batch job | By cluster hour | By cluster hour | Databricks Unit<sup>2</sup> + cluster hour |
 
-[1] With manual configuration and scaling.
+[1] With manual configuration.
 
 [2] A Databricks Unit (DBU) is a unit of processing capability per hour.
 
@@ -93,7 +98,7 @@ The following tables summarize the key differences in capabilities.
 
 | Capability | Azure Data Lake Analytics | Azure Synapse | HDInsight with Spark | HDInsight with Hive | HDInsight with Hive LLAP | Azure Databricks |
 | --- | --- | --- | --- | --- | --- | --- |
-| Autoscaling | No | No | No | No | No | Yes |
+| Autoscaling | No | No | Yes | Yes | Yes | Yes |
 | Scale-out granularity  | Per job | Per cluster | Per cluster | Per cluster | Per cluster | Per cluster |
 | In-memory caching of data | No | Yes | Yes | No | Yes | Yes |
 | Query from external relational stores | Yes | No | Yes | No | No | Yes |

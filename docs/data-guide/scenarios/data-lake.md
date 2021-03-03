@@ -1,11 +1,13 @@
 ---
 title: Data lakes
-description: Learn about data lake storage repositories, which can hold terabytes and petabytes of data in native, raw format. 
+description: Learn about data lake storage repositories, which can hold terabytes and petabytes of data in native, raw format.
 author: zoinerTejada
 ms.date: 02/12/2018
-ms.topic: guide
+ms.topic: conceptual
 ms.service: architecture-center
-ms.subservice: cloud-fundamentals
+ms.subservice: azure-guide
+ms.custom:
+  - guide
 ---
 
 # Data lakes

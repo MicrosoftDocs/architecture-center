@@ -1,0 +1,34 @@
+### YamlMime:Architecture
+metadata:
+  title: Enterprise Productivity Chatbot
+  titleSuffix: Azure Solution Ideas
+  description: Use Azure Bot Service and Language Understanding to build powerful enterprise productivity bots. Streamline common tasks by integrating external systems.
+  author: doodlemania2
+  ms.author: pnp
+  ms.date: 12/16/2019
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: solution-idea
+  ms.category:
+    - ai-machine-learning
+  ms.custom:
+    - acom-architecture
+    - bot service
+    - luis
+    - interactive-diagram
+    - 'https://azure.microsoft.com/solutions/architecture/enterprise-productivity-chatbot/'
+    - ai-machine-learning
+  social_image_url: /azure/architecture/solution-ideas/articles/media/enterprise-productivity-chatbot.png
+name: Enterprise Productivity Chatbot
+azureCategories:
+  - ai-machine-learning
+summary: Use Azure Bot Service and Language Understanding to build powerful enterprise productivity bots. Streamline common tasks by integrating external systems.
+products:
+  - azure-active-directory
+  - azure-bot-service
+  - azure-cognitive-services
+  - azure-language-understanding
+  - azure-monitor
+thumbnailUrl: /azure/architecture/browse/thumbs/enterprise-productivity-chatbot.png
+content: |
+  [!include[](enterprise-productivity-chatbot-content.md)]

@@ -1,12 +1,16 @@
 ---
 title: Networking resources provisioning
 description: Describes cost strategies for networking design choices
-author:  PageWriter-MSFT
+author: PageWriter-MSFT
 ms.date: 05/14/2020
-ms.topic: article
+ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
-ms.custom: 
+products:
+  - azure-application-gateway
+  - azure-load-balancer
+ms.custom:
+  - article
 ---
 
 # Networking resources provisioning
@@ -21,7 +25,7 @@ Another consideration is Web Application Firewall (WAF) settings. Adding policie
 For more information, see [Azure Front Door Pricing](https://azure.microsoft.com/pricing/details/frontdoor/).
 
 ### Reference architecture
-[Highly available multi-region web application](../../reference-architectures/app-service-web-app/multi-region.md) uses Front Door to route incoming requests to the primary region. If the application running that region becomes unavailable, Front Door fails over to the secondary region.
+[Highly available multi-region web application](../../reference-architectures/app-service-web-app/multi-region.yml) uses Front Door to route incoming requests to the primary region. If the application running that region becomes unavailable, Front Door fails over to the secondary region.
 
 ## Azure Application Gateway
 
@@ -40,9 +44,9 @@ For more information, see:
 -  [Application Gateway pricing](https://azure.microsoft.com/pricing/details/application-gateway/)
 
 ### Reference architecture
-- [Microservices architecture on Azure Kubernetes Service (AKS)](../../reference-architectures/containers/aks-microservices/aks-microservices.md) uses Application Gateway as the ingress controller.
+- [Microservices architecture on Azure Kubernetes Service (AKS)](../../reference-architectures/containers/aks-microservices/aks-microservices.yml) uses Application Gateway as the ingress controller.
 
-- [Securely managed web applications](../../example-scenario/apps/fully-managed-secure-apps.md) uses Application Gateway as a web traffic load balancer operating at Layer 7 that manages traffic to the web application. Web Application Firewall (WAF) is enabled to  enhance security. 
+- [Securely managed web applications](../../example-scenario/apps/fully-managed-secure-apps.yml) uses Application Gateway as a web traffic load balancer operating at Layer 7 that manages traffic to the web application. Web Application Firewall (WAF) is enabled to  enhance security. 
 
 ## Azure ExpressRoute
 There are two main pricing models:
@@ -63,7 +67,7 @@ Calculate your utilization and choose a billing plan. The **Unlimited Data plan*
 For more information, see [Azure ExpressRoute pricing](https://azure.microsoft.com/pricing/details/expressroute).
 
 ### Reference architecture
-[Connect an on-premises network to Azure using ExpressRoute](../../reference-architectures/hybrid-networking/expressroute-vpn-failover.md) connects an Azure virtual network and an on-premises network connected using with VPN gateway failover.
+[Connect an on-premises network to Azure using ExpressRoute](../../reference-architectures/hybrid-networking/expressroute-vpn-failover.yml) connects an Azure virtual network and an on-premises network connected using with VPN gateway failover.
 
 ## Azure Firewall
  
@@ -75,9 +79,8 @@ When compared to network virtual appliances (NVAs), with Azure Firewall you can 
 
 
 ### Reference architecture
-- [Hub-spoke network topology in Azure](../../reference-architectures/hybrid-networking/hub-spoke.md)
-- [Implement a hub-spoke network topology](../../reference-architectures/hybrid-networking/shared-services.md)
-- [Deploy highly available NVAs](../../reference-architectures/dmz/nva-ha.md)
+- [Hub-spoke network topology in Azure](../../reference-architectures/hybrid-networking/hub-spoke.yml)
+- [Deploy highly available NVAs](../../reference-architectures/dmz/nva-ha.yml)
 
 
 ## Azure Load Balancer
@@ -92,11 +95,11 @@ For the **Standard** tier, you are charged only for the number of configured loa
 See [Azure Load Balancer Pricing](https://azure.microsoft.com/pricing/details/load-balancer/) for more information.
 
 ### Reference architecture
-- [Connect an on-premises network to Azure using ExpressRoute](../../reference-architectures/hybrid-networking/expressroute-vpn-failover.md): Multiple subnets are connected through Azure load balancers. 
+- [Connect an on-premises network to Azure using ExpressRoute](../../reference-architectures/hybrid-networking/expressroute-vpn-failover.yml): Multiple subnets are connected through Azure load balancers. 
 
-- [SAP S/4HANA in Linux on Azure](../../reference-architectures/sap/sap-s4hana.md): Distribute traffic to virtual machines in the application-tier subnet.
+- [SAP S/4HANA in Linux on Azure](../../reference-architectures/sap/sap-s4hana.yml): Distribute traffic to virtual machines in the application-tier subnet.
 
-- [Extend an on-premises network using VPN](../../reference-architectures/hybrid-networking/vpn.md) Internal load balancer. Network traffic from the VPN gateway is routed to the cloud application through an internal load balancer. The load balancer is located in the front-end subnet of the application.
+- [Extend an on-premises network using VPN](../../reference-architectures/hybrid-networking/vpn.yml) Internal load balancer. Network traffic from the VPN gateway is routed to the cloud application through an internal load balancer. The load balancer is located in the front-end subnet of the application.
 
 ## Azure VPN Gateway
 
@@ -119,7 +122,7 @@ For more information, see
 - [Bandwidth Pricing Details](https://azure.microsoft.com/pricing/details/bandwidth/).
 
 ### Reference architecture
-- [Extend an on-premises network using VPN](../../reference-architectures/hybrid-networking/vpn.md) connects the virtual network to the on-premises network through a VPN device.
+- [Extend an on-premises network using VPN](../../reference-architectures/hybrid-networking/vpn.yml) connects the virtual network to the on-premises network through a VPN device.
 
 ## Traffic Manager
 Traffic manager uses DNS to route and load balance traffic to service endpoints in different Azure regions. So, an important use case is disaster recovery. In a workload, you can use Traffic Manager to route incoming requests to the primary region. If that region becomes unavailable, Traffic Manager fails over to the secondary region.
@@ -131,7 +134,7 @@ Traffic Manager isn't charged for bandwidth consumption. Billing is based on the
 
 ### Reference architecture
 
-[Multi-region N-tier application](../../reference-architectures/n-tier/multi-region-sql-server.md) uses Traffic Manager to route incoming requests to the primary region. If that region becomes unavailable, Traffic Manager fails over to the secondary region. For more information, see the section [Traffic Manager configuration](../../reference-architectures/n-tier/multi-region-sql-server.md#traffic-manager-configuration).
+[Multi-region N-tier application](../../reference-architectures/n-tier/multi-region-sql-server.yml) uses Traffic Manager to route incoming requests to the primary region. If that region becomes unavailable, Traffic Manager fails over to the secondary region. For more information, see the section [Traffic Manager configuration](../../reference-architectures/n-tier/multi-region-sql-server.yml#traffic-manager-configuration).
 
 ### DNS query charges
 Traffic Manager uses DNS to direct clients to specific service. 

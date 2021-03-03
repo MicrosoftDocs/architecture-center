@@ -3,11 +3,14 @@ title: Troubleshoot performance issues in Azure Databricks
 description: Use Grafana dashboards to troubleshoot performance issues in Azure Databricks.
 author: PeterTaylor9999
 ms.date: 04/02/2019
+ms.topic: conceptual
 ms.service: architecture-center
+ms.subservice: azure-guide
 ms.category:
   - management-and-governance
   - databases
-ms.subservice: reference-architecture
+products:
+  - azure-databricks
 ---
 
 <!-- cSpell:ignore Grafana -->

@@ -1,0 +1,33 @@
+### YamlMime:Architecture
+metadata:
+  title: Building a telehealth system on Azure
+  description: Learn how to build a telehealth system using Azure cloud services that connects a professional healthcare organization to its remote patients.
+  author: doodlemania2
+  ms.author: jeanyd
+  ms.date: 05/25/2019
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: example-scenario
+  ms.category:
+    - containers
+    - databases
+  ms.custom:
+    - database-team
+    - healthcare
+    - example-scenario
+    - internal-intro
+  social_image_url: /azure/architecture/example-scenario/apps/media/architecture-telehealth-system.png
+name: Building a telehealth system on Azure
+azureCategories:
+  - containers
+  - databases
+summary: Learn how to build a telehealth system using Azure cloud services that connects a professional healthcare organization to its remote patients.
+products:
+  - azure-database-postgresql
+  - azure-functions
+  - azure-kubernetes-service
+  - azure-storage
+  - azure-traffic-manager
+thumbnailUrl: /azure/architecture/browse/thumbs/architecture-telehealth-system.png
+content: |
+   [!include[](telehealth-system-content.md)]

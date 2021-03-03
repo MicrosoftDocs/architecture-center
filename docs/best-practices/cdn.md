@@ -4,10 +4,11 @@ titleSuffix: Best practices for cloud applications
 description: Guidance on using Content Delivery Networks (CDNs) to deliver high-bandwidth content hosted in Azure.
 author: dragon119
 ms.date: 02/02/2018
-ms.topic: best-practice
+ms.topic: conceptual
 ms.service: architecture-center
-ms.subservice: cloud-fundamentals
-ms.custom: seodec18
+ms.subservice: best-practice
+ms.custom:
+  - best-practice
 ---
 
 <!-- cSpell:ignore CDNs -->

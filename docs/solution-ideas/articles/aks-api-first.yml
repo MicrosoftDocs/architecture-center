@@ -1,0 +1,29 @@
+### YamlMime:Architecture
+metadata:
+  title: API-first SaaS business model
+  titleSuffix: Azure Solution Ideas
+  description: Learn how to create API gateway and developer portals in minutes, handle data schema and adapt to rapid changes, and connect to back-end services anywhere.
+  author: doodlemania2
+  ms.author: stellal
+  ms.date: 04/17/2020
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: solution-idea
+  ms.category:
+    - containers
+  ms.custom:
+    - acom-architecture
+  social_image_url: /azure/architecture/solution-ideas/media/aks-api-first.png
+name: API-first SaaS business model
+azureCategories:
+  - containers
+summary: Learn how to create API gateway and developer portals in minutes, handle data schema and adapt to rapid changes, and connect to back-end services anywhere.
+products:
+  - azure-api-management
+  - azure-cosmos-db
+  - azure-functions
+  - azure-kubernetes-service
+  - azure-sql-database
+thumbnailUrl: /azure/architecture/browse/thumbs/aks-api-first.png
+content: |
+   [!include[](aks-api-first-content.md)]

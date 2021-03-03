@@ -4,10 +4,13 @@ titleSuffix: Best practices for cloud applications
 description: Learn about the retry mechanism features for many Azure services. Retry mechanisms differ because services have different characteristics and requirements.
 author: dragon119
 ms.date: 09/16/2020
-ms.topic: best-practice
+ms.topic: conceptual
 ms.service: architecture-center
-ms.subservice: cloud-fundamentals
-ms.custom: seodec18
+ms.subservice: best-practice
+products:
+  - azure-active-directory
+ms.custom:
+  - best-practice
 ---
 
 <!-- cSpell:ignore ADAL adonet backoff booksleeve linq timespan servicebus retryable typeof localdb mssqllocaldb autoflushing -->
@@ -72,26 +75,27 @@ Cosmos DB is a fully managed multi-model database that supports schemaless JSON 
 
 ### Retry mechanism
 
-The `DocumentClient` class automatically retries failed attempts. To set the number of retries and the maximum wait time, configure [ConnectionPolicy.RetryOptions]. Exceptions that the client raises are either beyond the retry policy or are not transient errors.
-
-If Cosmos DB throttles the client, it returns an HTTP 429 error. Check the status code in the `DocumentClientException`.
+The `CosmosClient` class automatically retries failed attempts. To set the number of retries and the maximum wait time, configure [CosmosClientOptions][cosmosClientOptions]. Exceptions that the client raises are either beyond the retry policy or are not transient errors.
+If Cosmos DB throttles the client, it returns an HTTP 429 error. Check the status code in the `CosmosException` class.
 
 ### Policy configuration
 
-The following table shows the default settings for the `RetryOptions` class.
+The following table shows the default settings for the `CosmosClientOptions` class.
 
 | Setting | Default value | Description |
 | --- | --- | --- |
-| MaxRetryAttemptsOnThrottledRequests |9 |The maximum number of retries if the request fails because Cosmos DB applied rate limiting on the client. |
-| MaxRetryWaitTimeInSeconds |30 |The maximum retry time in seconds. |
+| MaxRetryAttemptsOnRateLimitedRequests |9 |The maximum number of retries if the request fails because Cosmos DB applied rate limiting on the client. |
+| MaxRetryWaitTimeOnRateLimitedRequests |30 |The maximum retry time in seconds for the Azure Cosmos DB service. |
 
 ### Example
 
 ```csharp
-DocumentClient client = new DocumentClient(new Uri(endpoint), authKey);
-var options = client.ConnectionPolicy.RetryOptions;
-options.MaxRetryAttemptsOnThrottledRequests = 5;
-options.MaxRetryWaitTimeInSeconds = 15;
+CosmosClient cosmosClient = new CosmosClient("connection-string", new CosmosClientOptions()
+{
+    MaxRetryAttemptsOnRateLimitedRequests = 5,
+    MaxRetryWaitTimeOnRateLimitedRequests = TimeSpan.FromSeconds(15)
+});
+
 ```
 
 ### Telemetry
@@ -1182,7 +1186,7 @@ The following are the typical types of retry strategy intervals:
 
 [adal]: /azure/active-directory/develop/active-directory-authentication-libraries
 [autorest]: https://github.com/Azure/autorest/tree/master/docs
-[ConnectionPolicy.RetryOptions]: /dotnet/api/microsoft.azure.documents.client.connectionpolicy.retryoptions?view=azure-dotnet
+[CosmosClientOptions]: /dotnet/api/microsoft.azure.cosmos.cosmosclientoptions?view=azure-dotnet
 [dotnet-foundation]: https://dotnetfoundation.org
 [redis-cache-troubleshoot]: /azure/redis-cache/cache-how-to-troubleshoot
 [SearchIndexClient]: /dotnet/api/microsoft.azure.search.searchindexclient?view=azure-dotnet

@@ -4,10 +4,14 @@ titleSuffix: Best practices for cloud applications
 description: Guidance on how to autoscale to dynamically allocate resources required by an application.
 author: dragon119
 ms.date: 05/17/2017
-ms.topic: best-practice
+ms.topic: conceptual
 ms.service: architecture-center
-ms.subservice: cloud-fundamentals
-ms.custom: seodec18
+ms.subservice: best-practice
+products:
+  - azure-vm-scalesets
+  - azure-monitor
+ms.custom:
+  - best-practice
 ---
 
 # Autoscaling
