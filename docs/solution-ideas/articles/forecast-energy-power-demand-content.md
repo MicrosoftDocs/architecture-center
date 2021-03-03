@@ -1,4 +1,3 @@
-<<<<<<< HEAD:docs/solution-ideas/articles/forecast-energy-power-demand.md
 ---
 title: Forecast Energy and Power Demand
 titleSuffix: Azure Solution Ideas
@@ -15,10 +14,6 @@ social_image_url: /azure/architecture/solution-ideas/articles/media/forecast-ene
 ---
 
 # Forecast Energy and Power Demand
-=======
-
-
->>>>>>> f5f5cbceed192b78e0e703f2a0e7bb7877b6fb69:docs/solution-ideas/articles/forecast-energy-power-demand-content.md
 
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
@@ -33,19 +28,10 @@ This solution is built on the Azure managed services: [Azure Stream Analytics](h
 
 ## Components
 
-<<<<<<< HEAD:docs/solution-ideas/articles/forecast-energy-power-demand.md
 * [Azure Data Factory](https://azure.microsoft.com/services/data-factory): Handle data manipulation and preparation.
 * [Azure Automated Machine Learning](https://azure.microsoft.com/services/machine-learning/automatedml): Leverage Azure ML to forecast the energy demand of a particular region.
 * [MLOps](https://azure.microsoft.com/services/machine-learning/mlops): Design, deploy, and manage production model workflows.
 * [Power BI](https://docs.microsoft.com/power-bi/connect-data/service-aml-integrate): Consume model prediction results in Power BI.
-=======
-* [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics): Stream Analytics aggregates energy consumption data in near real-time to write to Power BI.
-* [Event Hubs](https://azure.microsoft.com/services/event-hubs) ingests raw energy consumption data and passes it on to Stream Analytics.
-* [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning): Machine Learning forecasts the energy demand of a particular region given the inputs received.
-* [Azure SQL Database](https://azure.microsoft.com/services/sql-database): SQL Database stores the prediction results received from Azure Machine Learning. These results are then consumed in the Power BI dashboard.
-* [Data Factory](https://azure.microsoft.com/services/data-factory) handles orchestration and scheduling of the hourly model retraining.
-* [Power BI](https://powerbi.microsoft.com) visualizes energy consumption data from Stream Analytics as well as predicted energy demand from SQL Database.
->>>>>>> f5f5cbceed192b78e0e703f2a0e7bb7877b6fb69:docs/solution-ideas/articles/forecast-energy-power-demand-content.md
 
 ## Next steps
 
