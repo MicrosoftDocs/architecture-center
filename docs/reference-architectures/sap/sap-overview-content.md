@@ -1,6 +1,3 @@
-
-
-
 The SAP on Azure Architecture Guide describes a set of guiding tenets that are used to help ensure the quality of SAP workloads running on Azure. This guide is based on the [Microsoft Azure Well-Architected Framework](../../framework/index.md), but the recommendations are specific to deployments of SAP solutions. A solid architectural foundation starts with five pillars of excellence: cost, DevOps, resiliency, scalability, and security.
 
 Microsoft and SAP work in [partnership](https://blogs.microsoft.com/blog/2019/05/09/microsoft-partners-with-sap-as-the-first-global-cloud-provider-to-launch-project-embrace/) to provide a clear roadmap for organizations that want to innovate in the cloud. Azure supports SAP applications on Linux and Windows across development, test, and production environments. Our customers run SAP deployments of all sizes on Azure—including SAP NetWeaver an all supported Database Management Systems, SAP S/4HANA, BW/4HANA,  BI, and HANA in scale-up and scale-out scenarios. 
@@ -9,7 +6,7 @@ One way to get started is to run through the [Azure Well-Architected Review](/as
 
 ## Cost
 
-When you move your workloads to the cloud, you have multiple aspects which can help to reduce costs of the overall solution. Many of them are covered in the Azure Well-Architected Framework under the [pillar of cost optimization](https://docs.microsoft.com/azure/architecture/framework/cost/). When you move SAP solutions to Azure, you have the additional opportunity to perform cost optimization. You can start a **rationalization** of your landscape or there is the chance to **rearchitecture** or substitute components, especially when moving from Business Suite to S/4HANA during your journey to the cloud. All these actions take place at the beginning of your journey to Azure and continues throughout.
+When you move your workloads to the cloud, you have multiple aspects which can help to reduce costs of the overall solution. Many of them are covered in the Azure Well-Architected Framework under the [pillar of cost optimization](../../framework/cost/index.yml). When you move SAP solutions to Azure, you have the additional opportunity to perform cost optimization. You can start a **rationalization** of your landscape or there is the chance to **rearchitecture** or substitute components, especially when moving from Business Suite to S/4HANA during your journey to the cloud. All these actions take place at the beginning of your journey to Azure and continues throughout.
 
 System rationalization answers cost-related questions. For example, do you need to move all SAP systems, or can you decommission those which are no longer used? Is it more cost-efficient to refactor certain workloads—or more timely to lift and shift? Do you really need a system as large as you sized it on premises?
 
@@ -25,7 +22,7 @@ Another way to reduce costs is to deallocate or “snooze” virtual machines. I
 
 Combining virtual machine [pricing options](https://azure.microsoft.com/pricing/details/virtual-machines/sles-sap/)  can also lower costs. For budget predictability, you can use an Azure Reserved Virtual Machine Instance, an advanced purchase for one or three years in a specified region. For low cost and flexibility, you can pay as you go for compute capacity, which requires no long term-commitment.
 
-As a final note, it’s a good practice to review your Azure operations regularly and look for ways to optimize costs. For example, check to see whether a more cost-effective storage option is available or a newer VM series with a better price-to-performance ratio. For more details, see cost management discipline in the [govern methodology for cloud](https://docs.microsoft.com/azure/cloud-adoption-framework/govern/methodology) as part of the Cloud Adoption Framework.
+As a final note, it’s a good practice to review your Azure operations regularly and look for ways to optimize costs. For example, check to see whether a more cost-effective storage option is available or a newer VM series with a better price-to-performance ratio. For more details, see cost management discipline in the [govern methodology for cloud](/azure/cloud-adoption-framework/govern/methodology) as part of the Cloud Adoption Framework.
 
 ### Cost guidance
 
@@ -210,13 +207,13 @@ Your SAP data is likely the treasure of your organization's technical footprint.
 
 SAP on Azure is delivered in the infrastructure as a service (IaaS) cloud model. This means security protections are built into the service by Microsoft at the level of the physical datacenter, physical network, physical host, and hypervisor. For the areas above the hypervisor—such as the guest operating system for SAP—you need to carefully evaluate the services and technologies you select to ensure you are providing the proper security controls for your architecture.
 
-For authentication, you can take advantage of [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/) (Azure AD) with SAML to sign on to your SAP [NetWeaver](https://docs.microsoft.com/en-us/azure/active-directory/saas-apps/sap-netweaver-tutorial) or [HANA](https://docs.microsoft.com/azure/active-directory/saas-apps/saphana-tutorial), also use SSO for other SAP services like [Fiori Launchpad](https://docs.microsoft.com/azure/active-directory/saas-apps/sap-fiori-tutorial), [SAP Cloud Platform](https://docs.microsoft.com/azure/active-directory/saas-apps/sap-hana-cloud-platform-tutorial), or [SuccessFactors](https://docs.microsoft.com/azure/active-directory/saas-apps/successfactors-tutorial) can be configured. 
+For authentication, you can take advantage of [Azure Active Directory](/azure/active-directory/) (Azure AD) with SAML to sign on to your SAP [NetWeaver](/azure/active-directory/saas-apps/sap-netweaver-tutorial) or [HANA](/azure/active-directory/saas-apps/saphana-tutorial), also use SSO for other SAP services like [Fiori Launchpad](/azure/active-directory/saas-apps/sap-fiori-tutorial), [SAP Cloud Platform](/azure/active-directory/saas-apps/sap-hana-cloud-platform-tutorial), or [SuccessFactors](/azure/active-directory/saas-apps/successfactors-tutorial) can be configured. 
 
 [Network security groups](/azure/virtual-network/security-overview) (NSGs) allow you to filter network traffic to and from resources in your
 [virtual network](/azure/virtual-network/virtual-networks-overview). You can define NSG rules to allow or deny access to your SAP services—for
 instance, allowing access to the SAP application ports from on-premises IP addresses ranges and denying public internet access.
 
-[Application security groups](https://docs.microsoft.com/azure/virtual-network/application-security-groups) (ASG) should be used to make it easier to configure the network security. The ASG can be used in security rules instead of explicit IPs for VMs. And the VMs are then assigned to ASG. This will support the reuse of the same policy over different application landscapes, because of this abstraction layer. 
+[Application security groups](/azure/virtual-network/application-security-groups) (ASG) should be used to make it easier to configure the network security. The ASG can be used in security rules instead of explicit IPs for VMs. And the VMs are then assigned to ASG. This will support the reuse of the same policy over different application landscapes, because of this abstraction layer. 
 
 Regarding data integrity, [Azure Disk Encryption](/azure/security/azure-security-disk-encryption-faq) helps you encrypt your SAP virtual machine disks. Both the operating system and data volumes can be encrypted at rest in storage.
 
@@ -329,7 +326,7 @@ The following scenarios outline a few of the common ways SAP solutions are built
             href="/azure/architecture/reference-architectures/sap/run-sap-hana-for-Linux-virtual-machines">
             <article class="card has-outline-hover is-relative is-fullheight">
                     <figure class="image has-margin-right-none has-margin-left-none has-margin-top-none has-margin-bottom-none">
-                        <img role="presentation" alt="Diagram shows infrastructure needed to run S A P HANA on Linux virtual machines in a scale-up architecture on Azure." src="./images/sap-hana-scaleup.png">
+                        <img role="presentation" alt="Diagram shows infrastructure needed to run S A P HANA on Linux virtual machines in a scale-up architecture on Azure." src="./images/sap-hana-scale-up.png">
                     </figure>
                 <div class="card-content has-text-overflow-ellipsis">
                     <div class="has-padding-bottom-none">

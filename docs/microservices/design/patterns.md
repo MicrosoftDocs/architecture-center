@@ -37,4 +37,4 @@ The goal of microservices is to increase the velocity of application releases, b
 
 [**Strangler Fig**](../../patterns/strangler-fig.md) supports incremental refactoring of an application, by gradually replacing specific pieces of functionality with new services.
 
-For the complete catalog of cloud design patterns on the Azure Architecture Center, see [Cloud Design Patterns](https://docs.microsoft.com/azure/architecture/patterns/).
+For the complete catalog of cloud design patterns on the Azure Architecture Center, see [Cloud Design Patterns](../../patterns/index.md).

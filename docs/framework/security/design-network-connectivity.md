@@ -63,7 +63,7 @@ You can also use NVAs for egress traffic. For instance, all workload traffic is 
 >
 > ![GitHub logo](../../_images/github.svg) [GitHub: Automated failover for network virtual appliances](https://github.com/Azure/ha-nva-fo).
 >
-> The design considerations are described in [Deploy highly available NVAs](/azure/architecture/reference-architectures/dmz/nva-ha).
+> The design considerations are described in [Deploy highly available NVAs](../../reference-architectures/dmz/nva-ha.yml).
 
 Azure Firewall can serve as an NVA. Azure supports third-party network device providers. They're available in Azure Marketplace.
 
