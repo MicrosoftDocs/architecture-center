@@ -24,7 +24,7 @@ Visual assistant provides rich information based on content of the image with ca
 
 * [Azure App Service](https://azure.microsoft.com/services/app-service/): A fully managed HTTP-based service for hosting web apps, REST APIs and mobile backends
 * [Azure Bot Service](https://azure.microsoft.com/services/bot-services/): Develop intelligent, enterprise-grade bots that enrich your customer experience, all while maintaining control of your data
-* [Bing Custom Search](https://www.customsearch.ai/): Build customised search that fits your business needs with Bing's powerful ranking and global-scale search index
+* [Bing Custom Search](https://www.customsearch.ai/): Build customized search that fits your business needs with Bing's powerful ranking and global-scale search index
 * [Bing Entity Search](https://www.microsoft.com/bing/apis/bing-entity-search-api): Infuse a deep knowledge search into your existing content by identifying the most relevant
 * [Bing Visual Search](/azure/cognitive-services/bing-visual-search/overview): Find visual insights from your images
 * [Bing Web Search](https://www.microsoft.com/bing/apis/bing-web-search-api): Bring intelligent search to your apps and harness the ability to comb through billions of webpages, images, videos and news, all with a single API call
@@ -36,7 +36,6 @@ Visual assistant provides rich information based on content of the image with ca
 * Explore the [Bing family of search APIs](/bing/search-apis/bing-web-search/bing-api-comparison) to get started
 * Look through [Bing Search API documentation](/azure/cognitive-services/bing-web-search/) for the reference REST API material
 * [Build in LUIS into your Bot](/azure/bot-service/bot-builder-howto-v4-luis)
-
 
 ## Recommended resources
 
