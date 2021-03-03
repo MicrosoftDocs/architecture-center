@@ -1409,6 +1409,8 @@ items:
                 href: solution-ideas/articles/iot-using-cosmos-db.yml
               - name: Buy online, pick up in store
                 href: example-scenario/iot/vertical-buy-online-pickup-in-store.yml
+              - name: Smart spaces
+                href: example-scenario/iot/vertical-smart-spaces.yml
               - name: Predictive maintenance with IoT
                 href: example-scenario/predictive-maintenance/iot-predictive-maintenance.yml
               - name: Project 15 Open Platform
