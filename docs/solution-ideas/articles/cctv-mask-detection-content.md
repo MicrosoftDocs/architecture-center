@@ -56,4 +56,4 @@ For more information:
 - [Azure Stream Analytics on IoT Edge](/azure/stream-analytics/stream-analytics-edge)
 - [Store data at the edge with Azure Blob Storage on IoT Edge](/azure/iot-edge/how-to-store-data-blob)
 
-[visio-download]:cctv-mask-detection-content-visio.vsdx
+[visio-download]: ./cctv-mask-detection-content-visio.vsdx
