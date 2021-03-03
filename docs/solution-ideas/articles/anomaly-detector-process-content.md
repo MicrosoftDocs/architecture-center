@@ -3,6 +3,9 @@
 
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
+The Anomaly Detector API enables you to monitor and detect abnormalities in your time series data without having to know machine learning. The Anomaly Detector API's algorithms adapt by automatically identifying and applying the best-fitting models to your data, regardless of industry, scenario, or data volume. Using your time series data, the API determines boundaries for anomaly detection, expected values, and which data points are anomalies.
+
+
 ## Architecture
 
 ![Architecture diagram](../media/anomaly-detector-process.png)
@@ -11,14 +14,15 @@
 ## Data Flow
 
 1. Ingests data from the various stores that contain raw data to be monitored by Anomaly Detector.
-2. Aggregates, samples, and computes the raw data to generate the time series, or calls the Anomaly Detector API directly if the time series are already prepared and gets a response with the detection results.
-3. Queues the anomaly related meta data.
-4. Based on the anomaly related meta data, serverless app pick the message from message queue and send the alert about the anomaly.
-5. Stores the anomaly detection meta data.
-6. Visualizes the results of the time series anomaly detection.
+2. Aggregates, samples, and computes the raw data to generate the time series or calls the Anomaly Detector API directly if the time series is already prepared and responds with the detection results.
+3. Queue the anomaly related metadata.
+4. The serverless app picks the message from the message queue based on the anomaly-related metadata and sends the alert about the anomaly.
+5. Stores the anomaly detection metadata.
+6. Visualize the results of the time series anomaly detection.
+
 
 ## Components
-
+Key technologies used to implement this architecture:
 * [Service Bus](https://azure.microsoft.com/services/service-bus): Reliable cloud messaging as a service (MaaS) and simple hybrid integration
 * [Azure Databricks](https://azure.microsoft.com/services/databricks): Fast, easy, and collaborative Apache Spark–based analytics service
 * [Power BI](https://powerbi.microsoft.com): Interactive data visualization BI tools
@@ -54,15 +58,17 @@ For general guidance on designing resilient solutions, see [Designing resilient 
 
 ## Pricing
 
-To explore the cost of running this scenario, see prefiled calculator with all of the services. To see how the pricing would change for your particular use case, change the appropriate variables to match your expected traffic / data volumes.
+To explore the cost of running this scenario, see the prefiled calculator with all of the services. To see how the pricing would change for your particular use case, change the appropriate variables to match your expected traffic / data volumes.
 
-We have provided three sample cost profiles based on amount of traffic (we assume all images are 100 kb in size):
+We have provided three sample cost profiles based on the amount of traffic (we assume all images are 100 kb in size):
 
-- [Example calculator][example-pricing]: this pricing example is calculator with all services in this architecture, except Power BI and custom alerting solution.
+- [Example calculator][example-pricing]: this pricing example is a calculator with all services in this architecture, except Power BI and custom alerting solution.
 
 
 ## Next steps
 
+* [Interactive demo](https://algoevaluation.azurewebsites.net/#/)
+* [Detect and visualize anomalies in your data with the Anomaly Detector API - Demo on Jupyter Notebook](https://github.com/Azure-Samples/AnomalyDetector/tree/master/ipython-notebook)
 * [Identify anomalies by routing data via IoT Hub to a built-in ML model in Azure Stream Analytics](/learn/modules/data-anomaly-detection-using-azure-iot-hub/)
 * [Recipe: Predictive maintenance with the Cognitive Services for Big Data](azure/cognitive-services/big-data/recipes/anomaly-detection)
 * [Service Bus Documentation](/azure/service-bus)
