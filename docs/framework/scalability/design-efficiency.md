@@ -35,7 +35,7 @@ To learn more about queue-based Load Leveling, see [Queue-based Load Leveling pa
 
 ## Optimize with data compression
 
-A well-known optimization best practice for scaling is to use a compression strategy to compress and bundle web pages or API responses. The idea is to shrink the data returned from a page or API back to the browser or client app. Compressing the data returned to clients optimizes network traffic and accelerates the application. .NET has built-in framework support for this technique with GZip compression. For more information, see [Response compression in ASP.NET Core](/aspnet/core/performance/response-compression?preserve-view=true&view=aspnetcore-3.1).
+A well-known optimization best practice for scaling is to use a compression strategy to compress and bundle web pages or API responses. The idea is to shrink the data returned from a page or API back to the browser or client app. Compressing the data returned to clients optimizes network traffic and accelerates the application. [Azure Front Door](/azure/frontdoor/front-door-caching#file-compression) can perform file compression, and .NET has built-in framework support for this technique with GZip compression. For more information, see [Response compression in ASP.NET Core](/aspnet/core/performance/response-compression?preserve-view=true&view=aspnetcore-3.1).
 
 ## Improve scalability with session affinity
 
