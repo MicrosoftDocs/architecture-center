@@ -1,3 +1,5 @@
+## Overview
+
 This reference architecture shows how to implement continuous integration (CI), continuous delivery (CD), and retraining pipeline for an AI application using [Azure DevOps](/azure/devops/user-guide/what-is-azure-devops) and [Azure Machine Learning](/azure/machine-learning/service/overview-what-is-azure-ml). The solution is built on the scikit-learn diabetes dataset but can be easily adapted for any AI scenario and other popular build systems such as Jenkins or Travis.
 
 A reference implementation for this architecture is available on [GitHub][repo].
@@ -48,7 +50,7 @@ The CI pipeline gets triggered every time code is checked in. It publishes an up
 
 - **Data test.** These tests verify that the data samples conform to the expected schema and distribution. Customize this test for other use cases and run it as a separate data sanity pipeline that gets triggered as new data arrives. For example, move the data test task to a *data ingestion pipeline* so you can test it earlier.
 
-> *You should consider enabling DevOps practices for the data used to train the machine learning models, but this is not covered in this article. For more information about the architecture and best practices for CI/CD of a data ingestion pipeline, see [DevOps for a data ingestion pipeline](/azure/machine-learning/how-to-cicd-data-ingestion).*
+> [!NOTE] You should consider enabling DevOps practices for the data used to train the machine learning models, but this is not covered in this article. For more information about the architecture and best practices for CI/CD of a data ingestion pipeline, see [DevOps for a data ingestion pipeline](/azure/machine-learning/how-to-cicd-data-ingestion).
 
 The following one-time tasks occur when setting up the infrastructure for Azure Machine Learning and the Python SDK:
 
@@ -130,4 +132,5 @@ To deploy this reference architecture, follow the steps described in the [Gettin
 [repo]: https://github.com/Microsoft/MLOpsPython
 
 ## Next steps
-* Want to learn more? Check out the related Learn pathway: [Microsoft Learn Start the machine learning lifecycle with MLOps](/learn/modules/start-ml-lifecycle-mlops/)
+
+- Want to learn more? Check out the related Learn pathway: [Microsoft Learn Start the machine learning lifecycle with MLOps](/learn/modules/start-ml-lifecycle-mlops/)
