@@ -10,50 +10,42 @@ This reference architecture shows a secure hybrid network that extends an on-pre
 
 ## Reference deployment
 
-This deployment includes one hub virtual network and two peered spokes. An Azure Firewall and Azure Bastion host are also deployed. Optionally, the deployment can include virtual machines in the first spoke network and a VPN gateway.
+This deployment creates three resource groups, the first holds a mock on-premises network, the second a hub virtual network, and the third a peered spoke network. The mock on-premises network and the hub network are connected using Azure Virtual Network gateways to form a site-to-site connection. This configuration is very similar to how you would connect your on-premises datacenter to Azure. 
+
+#### [Azure portal](#tab/portal)
+
+Azure Virtual Network Gateways can take up to 45 minutes to provision. We recommend using the Azure portal to deploy this reference architecture. Use the following button to do so.
+
+[![Deploy to Azure](../../_images/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fneilpeterson%2Fsamples%2Fsite-to-site-demo%2Fsolutions%2Fsecure-hybrid-network%2Fazuredeploy.json)
+
 
 #### [Azure CLI](#tab/cli)
 
-Use the following command to create a resource group for the deployment. Click the **Try it** button to use an embedded shell.
+Azure Virtual Network Gateways can take up to 45 minutes to provision. We recommend using the Azure portal to deploy this reference architecture. Switch to the Azure portal tab to deploy this reference architecture using the Azure portal.
 
-```azurecli-interactive
-az group create --name hub-spoke --location eastus
-```
+The following Azure CLI command can also be used to deploy the reference architecture; however, be aware that if using Azure Cloud Shell, the session may time out before the deployment has completed.
 
-Run the following command to deploy the hub and spoke network configuration, VNet peerings between the hub and spoke, and a Bastion host
-
-```azurecli-interactive
-az deployment group create --resource-group hub-spoke \
-    --template-uri https://raw.githubusercontent.com/mspnp/samples/master/solutions/azure-hub-spoke/azuredeploy.json
+```azurecli
+az deployment sub create --location eastus \
+    --template-uri https://raw.githubusercontent.com/neilpeterson/samples/site-to-site-demo/solutions/secure-hybrid-network/azuredeploy.json
 ```
 
 #### [PowerShell](#tab/powershell)
 
-Use the following command to create a resource group for the deployment. Click the **Try it** button to use an embedded shell.
+Azure Virtual Network Gateways can take up to 45 minutes to provision. We recommend using the Azure portal to deploy this reference architecture. Switch to the Azure portal tab to deploy this reference architecture using the Azure portal.
 
-```azurepowershell-interactive
-New-AzResourceGroup -Name hub-spoke -Location eastus
+The following Powershell command can also be used to deploy the reference architecture; however, be aware that if using Azure Cloud Shell, the session may time out before the deployment has completed.
+
+```azurepowershell
+New-AzSubscriptionDeployment -Location eastus `
+    -TemplateUri https://raw.githubusercontent.com/neilpeterson/samples/site-to-site-demo/solutions/secure-hybrid-network/azuredeploy.json
 ```
-
-Run the following command to deploy the hub and spoke network configuration, VNet peerings between the hub and spoke, and a Bastion host
-
-```azurepowershell-interactive
-New-AzResourceGroupDeployment -ResourceGroupName hub-spoke `
-    -TemplateUri https://raw.githubusercontent.com/mspnp/samples/master/solutions/azure-hub-spoke/azuredeploy.json
-```
-
-#### [Azure portal](#tab/portal)
-
-Use the following button to deploy the reference using the Azure portal.
-
-[![Deploy to Azure](../../_images/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmspnp%2Fsamples%2Fmaster%2Fsolutions%2Fazure-hub-spoke%2Fazuredeploy.json)
-
 --- 
 
 For detailed information and additional deployment options, see the ARM Templates used to deploy this solution.
 
 > [!div class="nextstepaction"]
-> [Hub and Spoke ARM Template](/samples/mspnp/samples/hub-and-spoke-deployment/)
+> [Secure Hybrid Network](/samples/mspnp/samples/hub-and-spoke-deployment/)
 
 ## Use cases
 
