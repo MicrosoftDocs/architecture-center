@@ -1,6 +1,6 @@
 ### YamlMime:Architecture
 metadata:
-  title: Micro Focus Enterprise Server 6.0 on Azure VMs
+  title: Micro Focus Enterprise Server on Azure VMs
   titleSuffix: Azure Example Scenarios
   description: Optimize, modernize, and streamline IBM z/OS mainframe applications by using Micro Focus Enterprise Server 6.0 on Azure VMs.
   author: EdPrice-MSFT
@@ -12,7 +12,7 @@ metadata:
   ms.custom:
     - fcp
     - example-scenario
-name: Micro Focus Enterprise Server 6.0 on Azure VMs
+name: Micro Focus Enterprise Server on Azure VMs
 summary: Optimize, modernize, and streamline IBM z/OS mainframe applications by using Micro Focus Enterprise Server 6.0 on Azure VMs.
 azureCategories:
   - compute

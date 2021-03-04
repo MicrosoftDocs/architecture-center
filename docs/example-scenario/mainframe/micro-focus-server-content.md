@@ -62,7 +62,7 @@ This solution uses the following Azure components:
 
 - [Azure Load Balancer](/azure/load-balancer/load-balancer-overview) distributes incoming network traffic across backend resources or servers according to configured load-balancing rules and health probes.
 
-- [Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines/) are on-demand, scalable computing resources in Azure. Azure Virtual Machines gives you the flexibility of virtualization without having to buy and maintain the physical hardware that runs it.
+- [Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines/) offers on-demand, scalable computing resources in Azure. Azure Virtual Machines gives you the flexibility of virtualization without having to buy and maintain the physical hardware that runs it.
   
   The Azure VMs that host Enterprise Server use [Azure Managed Disks](/azure/virtual-machines/windows/managed-disks-overview) block-level storage volumes. Available Managed Disk types are Ultra disks, Premium solid-state drives (SSDs), standard SSDs, and standard hard disk drives (HDDs). This solution uses Premium SSDs or Ultra disks.
 
