@@ -70,7 +70,7 @@ We have provided three sample cost profiles based on the amount of traffic (we a
 * [Interactive demo](https://algoevaluation.azurewebsites.net/#/)
 * [Detect and visualize anomalies in your data with the Anomaly Detector API - Demo on Jupyter Notebook](https://github.com/Azure-Samples/AnomalyDetector/tree/master/ipython-notebook)
 * [Identify anomalies by routing data via IoT Hub to a built-in ML model in Azure Stream Analytics](/learn/modules/data-anomaly-detection-using-azure-iot-hub/)
-* [Recipe: Predictive maintenance with the Cognitive Services for Big Data](azure/cognitive-services/big-data/recipes/anomaly-detection)
+* [Recipe: Predictive maintenance with the Cognitive Services for Big Data](/azure/cognitive-services/big-data/recipes/anomaly-detection)
 * [Service Bus Documentation](/azure/service-bus)
 * [Azure Databricks Documentation](/azure/azure-databricks)
 * [Power BI Documentation](/power-bi)
