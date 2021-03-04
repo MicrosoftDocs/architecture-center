@@ -24,8 +24,8 @@ For more information, read how [batch transcription](/azure/cognitive-services/s
 
 ## Components
 
-[Azure Blob Storage](/azure/storage/blobs/)
-[Speech Services](/azure/cognitive-services/Speech-Service/)
+* [Azure Blob Storage](/azure/storage/blobs/)
+* [Speech Services](/azure/cognitive-services/Speech-Service/)
 
 ## Next steps
 
