@@ -21,7 +21,7 @@ The time for the caller to receive a response could range from milliseconds to m
 
 Asynchronous programming is an alternative approach. It enables a remote service to be executed without waiting and blocking resources on the client. This is a critical pattern for enabling cloud scalable software and is available in most modern programming languages and platforms.
 
-There are many ways to inject asynchronous programming into an application design. In a simplest form, remote calls can be asynchronously executed using built-in language constructs like "async/await" in .NET C#. Review a [language construct example](/dotnet/csharp/async). .NET has other built-in platform support for asynchronous programming with [task](/dotnet/standard/asynchronous-programming-patterns/task-based-asynchronous-pattern-tap) and [event](/dotnet/standard/asynchronous-programming-patterns/event-based-asynchronous-pattern-eap) based asynchronous patterns.
+There are many ways to inject asynchronous programming into an application design. For APIs and services that work across the internet, consider using the [Asynchronous Request-Reply pattern](../../patterns/async-request-reply.md). When writing code, remote calls can be asynchronously executed using built-in language constructs like `async`/`await` in .NET C#. Review a [language construct example](/dotnet/csharp/async). .NET has other built-in platform support for asynchronous programming with [task](/dotnet/standard/asynchronous-programming-patterns/task-based-asynchronous-pattern-tap) and [event](/dotnet/standard/asynchronous-programming-patterns/event-based-asynchronous-pattern-eap) based asynchronous patterns.
 
 ## Process faster by queuing and batching requests
 
