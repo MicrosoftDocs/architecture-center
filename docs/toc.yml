@@ -1425,7 +1425,7 @@ items:
                 href: solution-ideas/articles/cctv-mask-detection.yml
               - name: IoT Connected Platform
                 href: solution-ideas/articles/iot-connected-platform.yml
-              - name: IoT data storage and processing for edge workloads
+              - name: IoT Edge data storage and processing
                 href: solution-ideas/articles/data-storage-edge.yml
               - name: IoT using Azure Data Explorer
                 href: solution-ideas/articles/iot-azure-data-explorer.yml

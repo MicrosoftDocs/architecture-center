@@ -1,6 +1,6 @@
 ### YamlMime:Architecture
 metadata:
-  title: Edge networks for IoT data storage and processing
+  title: IoT Edge data storage and processing
   titleSuffix: Azure Solution Ideas
   description: Use edge devices in your IoT implementation to provide quick response, high availability, and high bandwidth.
   author: falloutxAY
@@ -13,7 +13,7 @@ metadata:
   ms.custom:
     - fcp
     - solution-idea
-name: Edge networks for IoT data storage and processing
+name: IoT Edge data storage and processing
 azureCategories:
   - iot
 summary: Use edge devices in your IoT implementation to provide quick response, high availability, and high bandwidth.
