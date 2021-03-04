@@ -169,7 +169,9 @@ The following diagram shows an example of the configuration steps and final poli
 
 ![Diagram showing configuration steps and final role mapping from AWS IAM to Azure AD.](media/role-mapping.png)
 
-## How to deploy Azure AD for AWS SSO
+## Deploy Azure AD for single sign-on to an individual AWS account 
+
+Azure AD supports single sign-on integration with AWS SSO. With AWS SSO you can connect Azure AD to AWS in one place and centrally govern access across hundreds of accounts and AWS SSO integrated applications. This feature enables seamless Azure AD sign-in experience for users to use the AWS CLI.
 
 The following Microsoft security solution procedure implements SSO for the example roles **AWS Administrators** and **AWS Developers**. Repeat this process for any additional roles you need.
 
