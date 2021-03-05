@@ -128,7 +128,7 @@ To prepare for deployment of Azure security solutions, review and record current
    
 1. In the [Azure Active Directory portal](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview), review the Azure AD tenant:
    
-   - Assess **Tenant information** to see whether the tenant has an Azure AD Premium P1 or P2 license. A P2 license provides [Advanced Azure AD identity management](#advanced-azure-ad-identity-management) features.
+   - Assess **Tenant information** to see whether the tenant has an Azure AD Premium P1 or P2 license. A P2 license provides [Advanced Azure AD identity management](https://docs.microsoft.com/azure/architecture/reference-architectures/aws/aws-azure-ad-security#advanced-azure-ad-identity-management-with-aws-accounts) features.
    - Assess **Enterprise applications** to see whether any existing applications use the AWS application type, as shown by `http://aws.amazon.com/` in the **Homepage URL** column.
 
 ### Plan Azure AD deployment
