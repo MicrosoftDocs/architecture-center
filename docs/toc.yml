@@ -373,6 +373,8 @@ items:
                 items:
                   - name: Overview
                     href: framework/security/design-governance.md
+                  - name: Compliance requirements
+                    href: framework/security/design-regulatory-compliance.md                    
                   - name: Segmentation strategy
                     href: framework/security/design-segmentation.md
                   - name: Management groups
@@ -427,8 +429,6 @@ items:
                     href: framework/security/design-threat-model.md
                   - name: Securing PaaS deployments
                     href: /azure/security/fundamentals/paas-deployments?bc=%2fazure%2farchitecture%2fbread%2ftoc.json&toc=%2fazure%2farchitecture%2ftoc.json
-                  - name: Compliance requirements
-                    href: framework/security/design-regulatory-compliance.md
                   - name: Configuration and dependencies
                     href: framework/security/design-app-dependencies.md
           - name: Monitor

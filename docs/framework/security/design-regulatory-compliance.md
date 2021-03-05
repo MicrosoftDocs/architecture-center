@@ -11,24 +11,29 @@ ms.custom:
 ---
 
 # Regulatory compliance
-Cloud architectures can have challenges when strictly applying standards to workloads. This article provides some   security recommendations for adhering to standards.
+A workload can have regulatory requirements. These requirements might need strict security measures that can affect the overall architecture and the selection and configuration of specific PaaS and SaaS services. The requirements also have implications for how the workload should be operationalized.
 
-## Gather regulatory requirements
+## Key points
+- Make sure that all regulatory requirements are known and well understood. 
+- Periodically perform external and,or internal workload security audits.
+- Have compliance checks as part of the workload operations.
+- Use Microsoft Trust Center. 
 
-**What do the law, authorities, and regulators require?**
-***
-Governments and regulatory organizations frequently publish standards to help define good security practices so that organizations can avoid negligence. The purpose and scope of these standards and regulations vary, but the security requirements can influence the design for data protection and retention, data privacy, and system security.
+## Review the requirements
+Governments and regulatory organizations frequently publish standards and updates to help define good security practices so that organizations can avoid negligence. The purpose and scope of these standards and regulations vary, but the security requirements can influence the design for data protection and retention, network access, and system security.
 
-Noncompliance can lead to fines or other business impact. Work with your regulators and carefully review the standards to understand both the intent and the literal wording. Start by answering these questions:
+For example, an Azure Kubernetes Service (AKS) workload that handles credit card transactions is subject to the Payment Card Industry (PCI) standard. One of the requirements prohibits access between the internet and any system component in the cardholder data environment. To provide a restrictive environment, you can choose to host the workload in a private cluster, remove internet access using Private Links, use network security groups (NSGs) rules that define authorized inbound and outbound access, among other choices.
 
-- What are the regulatory requirements for the solution?
+Noncompliance can lead to fines or other business impact. Work with your regulators and carefully review the standard to understand both the intent and the literal wording of each requirement. Here are some questions that may help you understand each requirement.
+
 - How is compliance measured?
-- Who approves that solution meets the requirements?
+- Who approves that the workload meets the requirements?
 - Are there processes for obtaining attestations?
+- What are the documentation requirements?
 
 ## Use the Microsoft Trust Center
 
-Outdated security practices won’t sufficiently protect cloud workloads. Keep checking the [Microsoft Trust Center](https://www.microsoft.com/trust-center) for the latest information, news, and best practices in security, privacy, and compliance. 
+Keep checking the [Microsoft Trust Center](https://www.microsoft.com/trust-center) for the latest information, news, and best practices in security, privacy, and compliance. 
 
 - **Data governance**. Focus on protecting information in cloud services, mobile devices, workstations, or collaboration platforms. Build the security strategy by classifying and labeling information. Use strong access control and encryption technology. 
 - **Compliance offerings**. Microsoft offers a comprehensive set of compliance offerings to help your organization comply with national, regional, and industry-specific requirements governing the collection and use of data. For information, see [Compliance offerings](/microsoft-365/compliance/offering-home).
@@ -42,8 +47,20 @@ Outdated security practices won’t sufficiently protect cloud workloads. Keep c
 
     For more information, see [Shared responsibility in the cloud](/azure/security/fundamentals/shared-responsibility).
 
+## Operational considerations
+
+Regulatory requirements may influence the workload operations. For example, there might be a requirement that operational data, such as application logs and metrics, remain within a certain geo-political region.
+
+Consider automation of deployment and maintenance tasks. This will reduce security and compliance risk by limiting opportunity to introduce human errors during manual tasks.
 
 ## Next steps
 - [Applications and services](design-apps-services.md)
 - [Application classification](design-apps-considerations.md)
 - [Application threat analysis](design-threat-model.md)
+
+## Related links
+
+Azure maintains a compliance portfolio that covers US government, industry specific, and region/country standards. For more information, see [Azure compliance offerings](/azure/compliance/offerings/).
+
+
+> Go back to the main article: [Governance](design-governance.md)
