@@ -1,0 +1,49 @@
+---
+title: Azure landing zone
+description: Security enforcement through standards published by law, authorities, and regulators.
+author: PageWriter-MSFT
+ms.date: 03/05/2021
+ms.topic: conceptual
+ms.service: architecture-center
+ms.subservice: well-architected
+ms.custom:
+  - article
+---
+
+# Azure landing zone
+
+A _landing Zone_ refers to a prepared infrastructure into which a workload can get deployed. For example, a hub and spoke topology. It already has the compute, data sources, access controls, and networking components provisioned. When a workload lands on Azure, the required plumbing is ready; the workload needs to plug into it. 
+
+This approach decouples the governance requirements from the workload requirements. From a security perspective, it supports the zero-trust principle. The landing zone is configured with least privileges and is in compliance with enterprise security. Depending on the design aspects of the workload, for instance networking, communication paths are opened only when necessary. It's crucial that a landing zone is handed over to the workload owner with the security guardrails deployed.
+
+The preceding example is conceptually simple and the implementation can get complicated for an enterprise-scale deployment. This article provides links to articles in Cloud Adoption Framework (CAF) that provides the details about design considerations and best practices.
+
+## Architecture
+For information about an enterprise-scale reference architecture, see [Cloud Adoption Framework enterprise-scale landing zone architecture](/azure/cloud-adoption-framework/ready/enterprise-scale/architecture). The architecture provides design considerations in these critical design areas:
+- [Enterprise Agreement (EA) enrollment and Azure Active Directory tenants](/azure/cloud-adoption-framework/ready/enterprise-enrollment-and-azure-ad-tenants.md)
+- [Identity and access management](./identity-and-access-management.md)
+- [Management group and subscription organization](/azure/cloud-adoption-framework/ready/management-group-and-subscription-organization.md)
+- [Network topology and connectivity](/azure/cloud-adoption-framework/ready/network-topology-and-connectivity.md)
+- [Management and monitoring](./management-and-monitoring.md)
+- [Business continuity and disaster recovery](/azure/cloud-adoption-framework/ready/business-continuity-and-disaster-recovery.md)
+- [Security, governance, and compliance](/azure/cloud-adoption-framework/ready/security-governance-and-compliance.md)
+- [Platform automation and DevOps](/azure/cloud-adoption-framework/ready/platform-automation-and-devops.md)
+
+## Azure services
+**How does the organization consistently deploy environments of this workload that comply with organizational policies?**
+***
+
+Key Azure services that can help in creating a landing zone:
+
+- [Azure Blueprints](/azure/governance/blueprints/overview) sketches a solution's design parameters based on an organization's standards, patterns, and requirements.
+- [Azure Policy](/azure/governance/policy/overview) enforces organizational standards and to assess compliance at-scale.
+- [Azure AD](/services/active-directory/) and [Azure role-based access control (Azure RBAC)](/azure/role-based-access-control/overview) work in conjuction to provide identity and access controls.
+- [Azure Monitor](/azure/active-directory/reports-monitoring/concept-activity-logs-azure-monitor) provides centralized operations for monitoring and viewing logs from all resources provisioned. 
+
+## Next
+Use management groups can manage resources across multiple subscriptions consistently and efficiently. 
+
+> [!div class="nextstepaction"]
+> [Management groups](design-management-groups.md)
+
+> Back to the main article: [Governance](design-governance.md)

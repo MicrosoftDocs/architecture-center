@@ -20,7 +20,7 @@ A workload can have regulatory requirements. These requirements might need stric
 - Use Microsoft Trust Center. 
 
 ## Review the requirements
-Governments and regulatory organizations frequently publish standards and updates to help define good security practices so that organizations can avoid negligence. The purpose and scope of these standards and regulations vary, but the security requirements can influence the design for data protection and retention, network access, and system security.
+Regulatory organizations frequently publish standards and updates to help define good security practices so that organizations can avoid negligence. The purpose and scope of these standards and regulations vary, but the security requirements can influence the design for data protection and retention, network access, and system security.
 
 For example, an Azure Kubernetes Service (AKS) workload that handles credit card transactions is subject to the Payment Card Industry (PCI) standard. One of the requirements prohibits access between the internet and any system component in the cardholder data environment. To provide a restrictive environment, you can choose to host the workload in a private cluster, remove internet access using Private Links, use network security groups (NSGs) rules that define authorized inbound and outbound access, among other choices.
 
