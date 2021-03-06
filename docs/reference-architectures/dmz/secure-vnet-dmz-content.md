@@ -35,6 +35,7 @@ New-AzSubscriptionDeployment -Location eastus `
 Use the following button to deploy the reference using the Azure portal.
 
 [![Deploy to Azure](../../_images/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fneilpeterson%2Fsamples%2Fsite-to-site-demo%2Fsolutions%2Fsecure-hybrid-network%2Fazuredeploy.json)
+
 --- 
 
 For detailed information and additional deployment options, see the ARM Templates used to deploy this solution.
