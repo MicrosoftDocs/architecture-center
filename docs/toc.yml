@@ -371,7 +371,7 @@ items:
             items:
               - name: Governance
                 items:
-                  - name: Overview
+                  - name: Checklist
                     href: framework/security/design-governance.md
                   - name: Compliance requirements
                     href: framework/security/design-regulatory-compliance.md                    
