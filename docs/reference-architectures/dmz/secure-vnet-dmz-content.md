@@ -12,34 +12,29 @@ This reference architecture shows a secure hybrid network that extends an on-pre
 
 This deployment creates three resource groups, the first holds a mock on-premises network, the second a hub virtual network, and the third a peered spoke network. The mock on-premises network and the hub network are connected using Azure Virtual Network gateways to form a site-to-site connection. This configuration is very similar to how you would connect your on-premises datacenter to Azure. 
 
-#### [Azure portal](#tab/portal)
-
-Azure Virtual Network Gateways can take up to 45 minutes to provision. We recommend using the Azure portal to deploy this reference architecture. Use the following button to do so.
-
-[![Deploy to Azure](../../_images/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fneilpeterson%2Fsamples%2Fsite-to-site-demo%2Fsolutions%2Fsecure-hybrid-network%2Fazuredeploy.json)
-
-
 #### [Azure CLI](#tab/cli)
 
-Azure Virtual Network Gateways can take up to 45 minutes to provision. We recommend using the Azure portal to deploy this reference architecture. Switch to the Azure portal tab to deploy this reference architecture using the Azure portal.
+Run the following command to deploy two resource groups and the secure network reference architecture using the Azure CLI.
 
-The following Azure CLI command can also be used to deploy the reference architecture; however, be aware that if using Azure Cloud Shell, the session may time out before the deployment has completed.
-
-```azurecli
+```azurecli-interactive
 az deployment sub create --location eastus \
     --template-uri https://raw.githubusercontent.com/neilpeterson/samples/site-to-site-demo/solutions/secure-hybrid-network/azuredeploy.json
 ```
 
 #### [PowerShell](#tab/powershell)
 
-Azure Virtual Network Gateways can take up to 45 minutes to provision. We recommend using the Azure portal to deploy this reference architecture. Switch to the Azure portal tab to deploy this reference architecture using the Azure portal.
+Run the following command to deploy two resource groups and the secure network reference architecture using PowerShell.
 
-The following Powershell command can also be used to deploy the reference architecture; however, be aware that if using Azure Cloud Shell, the session may time out before the deployment has completed.
-
-```azurepowershell
+```azurepowershell-interactive
 New-AzSubscriptionDeployment -Location eastus `
     -TemplateUri https://raw.githubusercontent.com/neilpeterson/samples/site-to-site-demo/solutions/secure-hybrid-network/azuredeploy.json
 ```
+
+#### [Azure portal](#tab/portal)
+
+Use the following button to deploy the reference using the Azure portal.
+
+[![Deploy to Azure](../../_images/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fneilpeterson%2Fsamples%2Fsite-to-site-demo%2Fsolutions%2Fsecure-hybrid-network%2Fazuredeploy.json)
 --- 
 
 For detailed information and additional deployment options, see the ARM Templates used to deploy this solution.
