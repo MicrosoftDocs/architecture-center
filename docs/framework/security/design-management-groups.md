@@ -71,6 +71,16 @@ You can assign this permission by using:
 
 ### Policy management across some or all resources 
 
+Before defining the policies, consider:
+- How is the organization’s security monitored, audited, and reported? Is there mandatory reporting? 
+- Are the existing security practices are working? 
+- Are there new requirements? 
+- Are there any requirements specific to industry, government, or regulatory requirements?
+
+Designate group(s) (or individual roles) for central functions that affect shared services and applications. 
+
+After the policies are set, continuously improve those standards incrementally. Make sure that the security posture doesn’t degrade over time by having auditing and monitoring compliance. For information about managing security standards of an organization, see [governance, risk, and compliance (GRC)](/azure/cloud-adoption-framework/migrate/azure-best-practices/governance-or-compliance).
+
 Assign appropriate permission to roles that monitor and enforce compliance with external (or internal) regulations, standards, and security policy. The roles and permissions you choose will depend on the organizational culture and expectations of the policy program. 
 
 The reference model assigns **Read Contributor** permissions to roles related to policy management.

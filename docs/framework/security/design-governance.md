@@ -21,22 +21,13 @@ As part of overall design, prioritize where to invest the available resources; f
 ***
 > [!div class="checklist"]
 >
-> - Understand the regulatory requirements and the requirements on operational data that may be used for audits. 
-> - 
-
-
-Before defining the policies, consider:
-- How is the organization’s security monitored, audited, and reported? Is there mandatory reporting? 
-- Are the existing security practices are working? 
-- Are there new requirements? 
-- Are there any requirements specific to industry, government, or regulatory requirements?
-
-Designate group(s) (or individual roles) for central functions that affect shared services and applications. 
-
-After the policies are set, continuously improve those standards incrementally. Make sure that the security posture doesn’t degrade over time by having auditing and monitoring compliance. For information about managing security standards of an organization, see [governance, risk, and compliance (GRC)](/azure/cloud-adoption-framework/migrate/azure-best-practices/governance-or-compliance).
+> - Understand the regulatory requirements and the requirements for operational data that may be used for audits. 
+> - Design the workload within the security controls set in the landing zone into which the deployment is deployed.
 
 ## In this section
-Follow these questions to assess the workload at a deeper level. 
+
+Follow these questions to assess the workload at a deeper level.
+
 |Assessment|Description|
 |---|---|
 |[**Are there any regulatory requirements for this workload?**](design-regulatory-compliance.md)|Understand all regulatory requirements. Check the Microsoft Trust Center for the latest information, news, and best practices in security, privacy, and compliance.|
@@ -44,3 +35,27 @@ Follow these questions to assess the workload at a deeper level.
 |[Reference model: Segmentation](design-segmentation.md)|Reference model and strategies of how the functions and teams can be segmented.|
 |[Management groups and permissions](design-management-groups.md)|Strategies using management groups to manage resources across multiple subscriptions consistently and efficiently.|
 |[Regulatory compliance](design-regulatory-compliance.md)|Guidance on standards published by law, authorities, and regulators.|
+
+## Azure security benchmark
+
+The Azure Security Benchmark includes a collection of high-impact security recommendations you can use to help secure the services you use in Azure:
+
+> ![Security Benchmark](../../_images/benchmark-security.svg) The questions in this section are aligned to these controls:
+>
+> - [Governance and Strategy](/azure/security/benchmarks/security-controls-v2-governance-strategy)
+> - [Posture and vulnerability management](/azure/security/benchmarks/security-controls-v2-posture-vulnerability-management) 
+
+## Reference architecture
+
+Here are some reference architectures related to governance:
+
+[Cloud Adoption Framework enterprise-scale landing zone architecture](/azure/cloud-adoption-framework/ready/enterprise-scale/architecture)
+
+## Next steps
+
+We recommend that you review the practices and tools have you implemented as part of the development cycle.
+
+> [!div class="nextstepaction"]
+> [Application development](./design-apps-services.md)
+
+> Go back to the main article: [Security](overview.md)
