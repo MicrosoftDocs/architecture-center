@@ -53,10 +53,9 @@ Regulatory requirements may influence the workload operations. For example, ther
 
 Consider automation of deployment and maintenance tasks. This will reduce security and compliance risk by limiting opportunity to introduce human errors during manual tasks.
 
-## Next steps
-- [Applications and services](design-apps-services.md)
-- [Application classification](design-apps-considerations.md)
-- [Application threat analysis](design-threat-model.md)
+## Next
+> [!div class="nextstepaction"]
+> [Azure landing zone](design-governance-landing-zone.md)
 
 ## Related links
 
