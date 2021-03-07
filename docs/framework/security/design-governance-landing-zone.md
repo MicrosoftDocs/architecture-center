@@ -12,9 +12,13 @@ ms.custom:
 
 # Azure landing zone
 
-A _landing Zone_ refers to a prepared infrastructure into which a workload can get deployed. For example, a hub and spoke topology. It already has the compute, data sources, access controls, and networking components provisioned. When a workload lands on Azure, the required plumbing is ready; the workload needs to plug into it. 
+A _landing Zone_ refers to a prepared infrastructure into which a workload can get deployed. For example, a hub and spoke topology. It already has the compute, data sources, access controls, and networking components provisioned. When a workload lands on Azure, the required plumbing is ready; the workload needs to plug into it.
 
-This approach decouples the governance requirements from the workload requirements. From a security perspective, it supports the zero-trust principle. The landing zone is configured with least privileges that is in compliance with enterprise security. Depending on the design aspects of the workload, for instance networking, communication paths are opened only when necessary. It's crucial that a landing zone is handed over to the workload owner with the security guardrails deployed.
+From a security perspective, there are several benefits. First, a landing zone offers isolation by creating segments. You can isolate assets at several layers from Azure enrollment down to a subscription that has the resources for the workload. This strategy of having resources within a boundary that is separate from other parts of the organization is an effective way of detecting and containing adversary movements.
+
+Another benefit is consistent adoption of organizational policies. Policies govern which resources can be used and their usage limits. Policies also provide identity controls. Only authenticated and authorized entities are allowed access. This approach decouples the governance requirements from the workload requirements. 
+
+A well-architected landing zone supports the zero-trust principle. The landing zone is configured with least privileges that is in compliance with enterprise security. Depending on the design aspects of the workload, for instance networking, communication paths are opened only when necessary. It's crucial that a landing zone is handed over to the workload owner with the security guardrails deployed.
 
 The preceding example is conceptually simple but the implementation can get complicated for an enterprise-scale deployment. This article provides links to articles in Cloud Adoption Framework (CAF) that describe the design considerations and best practices.
 
