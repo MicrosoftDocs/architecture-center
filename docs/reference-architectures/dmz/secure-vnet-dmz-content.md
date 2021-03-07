@@ -14,27 +14,39 @@ This deployment creates three resource groups, the first holds a mock on-premise
 
 #### [Azure CLI](#tab/cli)
 
-Run the following command to deploy two resource groups and the secure network reference architecture using the Azure CLI.
+Run the following command to deploy two resource groups and the secure network reference architecture using the Azure CLI. When prompted, enter values for an admin user name and password. These values are used to log into the included virtual machines.
 
 ```azurecli-interactive
 az deployment sub create --location eastus \
     --template-uri https://raw.githubusercontent.com/neilpeterson/samples/site-to-site-demo/solutions/secure-hybrid-network/azuredeploy.json
 ```
 
+Once the deployment has completed, the site-to-site connection can be verified by looking at the connection resources. 
+
+![](./images/portal-connections.png)
+
 #### [PowerShell](#tab/powershell)
 
-Run the following command to deploy two resource groups and the secure network reference architecture using PowerShell.
+Run the following command to deploy two resource groups and the secure network reference architecture using PowerShell. When prompted, enter values for an admin user name and password. These values are used to log into the included virtual machines.
 
 ```azurepowershell-interactive
 New-AzSubscriptionDeployment -Location eastus `
     -TemplateUri https://raw.githubusercontent.com/neilpeterson/samples/site-to-site-demo/solutions/secure-hybrid-network/azuredeploy.json
 ```
 
+Once the deployment has completed, the site-to-site connection can be verified by looking at the connection resources. 
+
+![](./images/portal-connections.png)
+
 #### [Azure portal](#tab/portal)
 
 Use the following button to deploy the reference using the Azure portal.
 
 [![Deploy to Azure](../../_images/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fneilpeterson%2Fsamples%2Fsite-to-site-demo%2Fsolutions%2Fsecure-hybrid-network%2Fazuredeploy.json)
+
+Once the deployment has completed, the site-to-site connection can be verified by looking at the connection resources. 
+
+![](./images/portal-connections.png)
 
 --- 
 
