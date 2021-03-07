@@ -3,7 +3,7 @@
 
 This reference architecture shows a secure hybrid network that extends an on-premises network to Azure. The architecture implements a DMZ, also called a *perimeter network*, between the on-premises network and an Azure virtual network. All inbound and outbound traffic passes through Azure Firewall.
 
-[![Secure hybrid network architecture](./images/dmz-private.png)](./images/dmz-private-expanded.png#lightbox)
+[![Secure hybrid network architecture](./images/dmz-private.png)](./images/dmz-private-expanded-two.png#lightbox)
 
 
 *Download a [Visio file][visio-download] of this architecture.*
