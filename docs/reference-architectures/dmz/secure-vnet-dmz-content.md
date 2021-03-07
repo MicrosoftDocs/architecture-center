@@ -21,9 +21,11 @@ az deployment sub create --location eastus \
     --template-uri https://raw.githubusercontent.com/neilpeterson/samples/site-to-site-demo/solutions/secure-hybrid-network/azuredeploy.json
 ```
 
-Once the deployment has completed, the site-to-site connection can be verified by looking at the connection resources. 
+Once the deployment has completed, the site-to-site connection can be verified by looking at the connection resources.
 
 ![](./images/portal-connections.png)
+
+The IIS instance found in the spoke network can be accessed from the virtual machine located in the mock on-prem network. Create a connection to the virtual machine using the included Azure Bastion host, open a web browser, and navigate to the address of the application's network load balancer.
 
 #### [PowerShell](#tab/powershell)
 
@@ -38,6 +40,8 @@ Once the deployment has completed, the site-to-site connection can be verified b
 
 ![](./images/portal-connections.png)
 
+The IIS instance found in the spoke network can be accessed from the virtual machine located in the mock on-prem network. Create a connection to the virtual machine using the included Azure Bastion host, open a web browser, and navigate to the address of the application's network load balancer.
+
 #### [Azure portal](#tab/portal)
 
 Use the following button to deploy the reference using the Azure portal.
@@ -47,6 +51,8 @@ Use the following button to deploy the reference using the Azure portal.
 Once the deployment has completed, the site-to-site connection can be verified by looking at the connection resources. 
 
 ![](./images/portal-connections.png)
+
+The IIS instance found in the spoke network can be accessed from the virtual machine located in the mock on-prem network. Create a connection to the virtual machine using the included Azure Bastion host, open a web browser, and navigate to the address of the application's network load balancer.
 
 --- 
 
