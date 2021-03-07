@@ -14,12 +14,12 @@ ms.custom:
 
 A _landing Zone_ refers to a prepared infrastructure into which a workload can get deployed. For example, a hub and spoke topology. It already has the compute, data sources, access controls, and networking components provisioned. When a workload lands on Azure, the required plumbing is ready; the workload needs to plug into it. 
 
-This approach decouples the governance requirements from the workload requirements. From a security perspective, it supports the zero-trust principle. The landing zone is configured with least privileges and is in compliance with enterprise security. Depending on the design aspects of the workload, for instance networking, communication paths are opened only when necessary. It's crucial that a landing zone is handed over to the workload owner with the security guardrails deployed.
+This approach decouples the governance requirements from the workload requirements. From a security perspective, it supports the zero-trust principle. The landing zone is configured with least privileges that is in compliance with enterprise security. Depending on the design aspects of the workload, for instance networking, communication paths are opened only when necessary. It's crucial that a landing zone is handed over to the workload owner with the security guardrails deployed.
 
-The preceding example is conceptually simple and the implementation can get complicated for an enterprise-scale deployment. This article provides links to articles in Cloud Adoption Framework (CAF) that provides the details about design considerations and best practices.
+The preceding example is conceptually simple and the implementation can get complicated for an enterprise-scale deployment. This article provides links to articles in Cloud Adoption Framework (CAF) that describe the design considerations and best practices.
 
 ## Architecture
-For information about an enterprise-scale reference architecture, see [Cloud Adoption Framework enterprise-scale landing zone architecture](/azure/cloud-adoption-framework/ready/enterprise-scale/architecture). The architecture provides design considerations in these critical design areas:
+For information about an enterprise-scale reference architecture, see [Cloud Adoption Framework enterprise-scale landing zone architecture](/azure/cloud-adoption-framework/ready/enterprise-scale/architecture). The architecture provides considerations in these critical design areas:
 - [Enterprise Agreement (EA) enrollment and Azure Active Directory tenants](/azure/cloud-adoption-framework/ready/enterprise-enrollment-and-azure-ad-tenants.md)
 - [Identity and access management](/azure/cloud-adoption-framework/ready/identity-and-access-management.md)
 - [Management group and subscription organization](/azure/cloud-adoption-framework/ready/management-group-and-subscription-organization.md)
