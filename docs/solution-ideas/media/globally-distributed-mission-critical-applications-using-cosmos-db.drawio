@@ -1,6 +1,6 @@
-<mxfile host="65bd71144e" modified="2021-03-08T07:20:59.650Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Code/1.54.1 Chrome/87.0.4280.141 Electron/11.3.0 Safari/537.36" etag="Mi0CZsfHhVih4sjrLDQI" version="14.2.4" type="embed">
+<mxfile host="65bd71144e" modified="2021-03-08T08:57:35.071Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Code/1.54.1 Chrome/87.0.4280.141 Electron/11.3.0 Safari/537.36" etag="8ApKR5SdFQZg-iAKtHx-" version="14.2.4" type="embed">
     <diagram id="P4lc2FleS_zxADE72_Mb" name="Page-1">
-        <mxGraphModel dx="878" dy="402" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" background="#FFFFFF" math="0" shadow="0">
+        <mxGraphModel dx="702" dy="345" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" background="#FFFFFF" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
@@ -131,7 +131,7 @@
                 <mxCell id="40" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;strokeColor=#828282;fillColor=none;" parent="1" vertex="1">
                     <mxGeometry x="100" y="488" width="242" height="242" as="geometry"/>
                 </mxCell>
-                <mxCell id="43" value="" style="endArrow=none;html=1;entryX=0;entryY=0;entryDx=0;entryDy=0;strokeColor=#828282;exitX=0;exitY=0;exitDx=0;exitDy=0;" parent="1" target="39" edge="1" source="40">
+                <mxCell id="43" value="" style="endArrow=none;html=1;entryX=0;entryY=0;entryDx=0;entryDy=0;strokeColor=#828282;exitX=0;exitY=0;exitDx=0;exitDy=0;" parent="1" source="40" target="39" edge="1">
                     <mxGeometry width="50" height="50" relative="1" as="geometry">
                         <mxPoint x="398" y="695" as="sourcePoint"/>
                         <mxPoint x="446" y="525" as="targetPoint"/>
@@ -220,6 +220,9 @@
                         <mxPoint x="124.90769230769251" y="333" as="sourcePoint"/>
                         <mxPoint x="195.00000000000023" y="266" as="targetPoint"/>
                     </mxGeometry>
+                </mxCell>
+                <mxCell id="Ii1WPeGYDti5Q0p9L9lX-75" value="" style="aspect=fixed;html=1;points=[];align=center;image;fontSize=12;image=img/lib/azure2/databases/Azure_Cosmos_DB.svg;strokeColor=#000000;fontColor=#828282;" vertex="1" parent="1">
+                    <mxGeometry x="667" y="205" width="80" height="80" as="geometry"/>
                 </mxCell>
             </root>
         </mxGraphModel>
