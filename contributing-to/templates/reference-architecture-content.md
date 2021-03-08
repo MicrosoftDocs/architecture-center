@@ -48,3 +48,15 @@ A deployment for a reference architecture that implements these recommendations 
 1. First step
 2. Second step
 3. Third step ...
+
+## Next steps
+
+> Where should I go next if I want to start building this?
+> Are there any other reference architectures that help me build this?
+> Be sure to link to the Architecture Center, to related architecture guides and architectures.
+
+## Related resources
+
+> Are there any relevant case studies or customers doing something similar?
+> Is there any other documentation that might be useful?
+> Are there product documents that go into more detail on specific technologies not already linked?
