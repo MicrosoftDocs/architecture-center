@@ -14,7 +14,9 @@ This deployment creates three resource groups, the first holds a mock on-premise
 
 #### [Azure CLI](#tab/cli)
 
-Run the following command to deploy two resource groups and the secure network reference architecture using the Azure CLI. When prompted, enter values for an admin user name and password. These values are used to log into the included virtual machines.
+Run the following command to deploy two resource groups and the secure network reference architecture using the Azure CLI. 
+
+When prompted, enter values for an admin user name and password. These values are used to log into the included virtual machines.
 
 ```azurecli-interactive
 az deployment sub create --location eastus \
@@ -29,7 +31,9 @@ The IIS instance found in the spoke network can be accessed from the virtual mac
 
 #### [PowerShell](#tab/powershell)
 
-Run the following command to deploy two resource groups and the secure network reference architecture using PowerShell. When prompted, enter values for an admin user name and password. These values are used to log into the included virtual machines.
+Run the following command to deploy two resource groups and the secure network reference architecture using PowerShell. 
+
+When prompted, enter values for an admin user name and password. These values are used to log into the included virtual machines.
 
 ```azurepowershell-interactive
 New-AzSubscriptionDeployment -Location eastus `
