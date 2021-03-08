@@ -15,15 +15,14 @@ Guarantee access to users around the world with the high-availability and low-la
 1. User access the application through the dedicated client.
 1. Traffic Manager will route the user's connection to the best location for accessing the application, based upon a single or nested routing profiles.
 1. In the landed region where the application is hosted the application will handle the session and the connection towards the database.
-1. This application can range from a simple static page up until a microservices oriented application hosted in Kubernetes for instance.
-1. The connection between the application landscape and the Cosmos DB is handled through an Azure Active Directory User who can pick up the the Cosmos DB keys in Key Vault.
-(**Note:** as of Ignite March 2021, we now also support [Azure Active Directory RBAC directly on the Cosmos DB SQL API](https://docs.microsoft.com/en-us/azure/cosmos-db/how-to-setup-rbac))
-1. By using the Azure Cosmos DB multi-homing APIs, your application is aware of the nearest region and can send requests to that region. The nearest region is identified without any configuration changes. As you add and remove regions to and from your Azure Cosmos account, your application does not need to be redeployed or paused, it continues to be highly available at all times.
-Underneath the covers Cosmos DB will handle the global distribution and replication of the data based upon the number of defined regions. As an addition one should also benefit from the Automatic Failover option to failover to the region with the highest failover priority with no user action should a region become unavailable. When automatic failover is enabled, region priority can be modified.
+1. This application can range from a simple static page up until a microservices-oriented application hosted in Kubernetes for instance.
+1. The connection between the application landscape and the Cosmos DB is handled through an Azure Active Directory User who can pick up the Cosmos DB keys in Key Vault.
+1. By using the Azure Cosmos DB multi-homing APIs, your application is aware of the nearest region and can send requests to that region. The nearest region is identified without any configuration changes. As you add and remove regions to and from your Azure Cosmos account, your application doesn't need to be redeployed or paused, it continues to be highly available at all times.
+Underneath the covers, Cosmos DB will handle the global distribution and replication of the data based upon the number of defined regions. As an addition one should also benefit from the Automatic Failover option to fail over to the region with the highest failover priority with no user action should a region become unavailable. When automatic failover is enabled, region priority can be modified.
 
 ## Components
 
-* [Traffic Manager](https://azure.microsoft.com/services/traffic-manager): create DNS based load balancing / routing options for your applications by means of 6 types of DNS-based traffic routing options which can be nested.
+* [Traffic Manager](https://azure.microsoft.com/services/traffic-manager): create DNS-based load balancing / routing options for your applications with of six types of DNS-based traffic routing options, which can be nested.
 * [Azure Active Directory](https://azure.microsoft.com/services/active-directory): Synchronize on-premises directories and enable single sign-on
 * [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db): Globally distributed, multi-model database for any scale
 
@@ -42,8 +41,8 @@ Underneath the covers Cosmos DB will handle the global distribution and replicat
 
 ### Availability
 
-When considering the above approach do note that to achieve high availability on Azure CosmosDB Automatic Failover is also to be considered configured in order in order to keep the running application at it's highest possible provided SLA.
-For the application layer Traffic Manager should be configured with nested profiles. When pushing this design to the max one can scale the different application choices per region. The per region deployment already also takes an HA approach.
+When considering the above approach do note that to achieve high availability on Azure CosmosDB Automatic Failover is also to be considered configured in order to keep the running application at it's highest possible provided SLA.
+For the application layer, Traffic Manager should be configured with nested profiles. When pushing this design to the highest level, one can scale the different application choices per region. The per region deployment already also takes an HA approach.
 
 ### Resiliency
 
@@ -52,11 +51,12 @@ Resiliency is also depending on the consistency level choices you make on your C
 
 ### Scalability
 
-The scaling is based upon many levels in this diagram. For Azure Cosmos DB : Cosmos DB is purpose-built for elastic scale and predictable performance. On the level of the application you need to look at the compute model used. Azure Functions and App Service can autoscale
+The scaling is based upon many levels in this diagram. For Azure Cosmos DB: Azure Cosmos DB is purpose-built for elastic scale and predictable performance. On the level of the application, you need to look at the compute model used. Azure Functions and App Service can autoscale, for Azure Virtual Machines you can use Azure Virtual Machine Scale Sets. When aware of this you should always try to consider a serverless option, when possible.
 
 ### Security
 
-From a security perspective drive towards an identity based system, where Azure Active Directory can be used to secure the access to the environment. In the backend the backend the application is by best design accessed through Managed Identities, although one could also consider the approach of using AAD and Azure Key Vault for securing access.
+From a security perspective drive towards an identity-based system, where Azure Active Directory can be used to secure the access to the environment. In the backend the application is by best design accessed through Managed Identities, although one could also consider the approach of using Azure Active Directory Users and Azure Key Vault for securing access.
+**Note:** as of Ignite March 2021, we now also support [Azure Active Directory RBAC directly on the Cosmos DB SQL API](https://docs.microsoft.com/en-us/azure/cosmos-db/how-to-setup-rbac)
 
 ## Next steps
 
