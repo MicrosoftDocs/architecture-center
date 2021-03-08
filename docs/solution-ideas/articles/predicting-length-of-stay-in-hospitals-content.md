@@ -10,9 +10,9 @@ This solution enables a predictive model for Length of Stay for in-hospital admi
 ![Architecture Diagram](../media/predicting-length-of-stay-in-hospitals.png)
 *Download an [SVG](../media/predicting-length-of-stay-in-hospitals.svg) of this architecture.*
 
-## Description
+## Deployment
 
-For post deployment instructions and more details on the technical implementation, please see the instructions [here](https://github.com/Microsoft/r-server-hospital-length-of-stay).
+For deployment instructions and more details on the technical implementation, please see the [Predicting Length of Stay in Hospitals](https://github.com/Microsoft/r-server-hospital-length-of-stay) GitHub repo.
 
 ## Overview
 
