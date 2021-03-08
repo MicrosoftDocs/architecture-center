@@ -7,8 +7,8 @@ The Anomaly Detector API enables you to monitor and detect abnormalities in your
 
 ## Architecture
 
-![Architecture diagram](/docs/solution-ideas/media/anomaly-detector.png)
-*Download an [SVG](/docs/solution-ideas/media/anomaly-detector.svg) of this architecture.*
+![Architecture diagram](../media/anomaly-detector.png)
+*Download an [SVG](../media/anomaly-detector.svg) of this architecture.*
 
 ## Data Flow
 
@@ -58,7 +58,7 @@ For general guidance on designing resilient solutions, see [Designing resilient 
 
 ## Pricing
 
-To explore the cost of running this scenario, see the prefiled calculator with all of the services. To see how the pricing would change for your particular use case, change the appropriate variables to match your expected traffic / data volumes.
+To explore the cost of running this scenario, see the pre-filled calculator with all of the services. To see how the pricing would change for your particular use case, change the appropriate variables to match your expected traffic / data volumes.
 
 We have provided three sample cost profiles based on the amount of traffic (we assume all images are 100 kb in size):
 

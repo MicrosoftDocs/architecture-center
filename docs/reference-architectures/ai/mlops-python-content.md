@@ -68,7 +68,7 @@ This pipeline covers the following steps:
 
 - **Train model.** The training Python script is executed on the Azure Machine Learning Compute resource to get a new [model](/azure/machine-learning/service/concept-azure-machine-learning-architecture#models) file which is stored in the [run history](/azure/machine-learning/service/concept-azure-machine-learning-architecture#runs). Since training is the most compute-intensive task in an AI project, the solution uses [Azure Machine Learning Compute](/azure/machine-learning/service/how-to-set-up-training-targets#amlcompute).
 
-- **Evaluate model.** A simple evaluation test compares the new model with the existing model. Only when the new model is better does it get promoted. Otherwise, the model is not registered and the pipeline is cancelled.
+- **Evaluate model.** A simple evaluation test compares the new model with the existing model. Only when the new model is better does it get promoted. Otherwise, the model is not registered and the pipeline is canceled.
 
 - **Register model.** The retrained model is registered with the [Azure ML Model registry](/azure/machine-learning/service/concept-azure-machine-learning-architecture). This service provides version control for the models along with metadata tags so they can be easily reproduced.
 
@@ -114,7 +114,7 @@ Scale the retraining pipeline up and down depending on the number of nodes in yo
 
 ## Management considerations
 
-- **Monitor retraining job.** Machine learning pipelines orchestrate retraining across a cluster of machines and provides an easy way to monitor them. Use the [Azure Machine Learning UI](https://ml.azure.com/) and look under the pipelines section for the logs. Alternatively, these logs are also written to blob and can be read from there as well using tools such as [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/).
+- **Monitor retraining job.** Machine learning pipelines orchestrate retraining across a cluster of machines and provide an easy way to monitor them. Use the [Azure Machine Learning UI](https://ml.azure.com/) and look under the pipelines section for the logs. Alternatively, these logs are also written to blob and can be read from there as well using tools such as [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/).
 
 - **Logging.** Azure Machine Learning provides an easy way to log at each step of the machine learning life cycle. The logs are stored in a blob container. For more information, see [Enable logging in Azure Machine Learning](/azure/machine-learning/service/how-to-enable-logging). For richer monitoring, configure [Application Insights](/azure/machine-learning/how-to-enable-app-insights#use-azure-machine-learning-studio-to-configure) to use the logs.
 

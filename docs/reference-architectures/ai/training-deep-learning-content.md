@@ -6,7 +6,7 @@ A reference implementation for this architecture is available on [GitHub][github
 
 **Scenario:** Classifying images is a widely applied technique in computer vision, often tackled by training a convolutional neural network (CNN). For particularly large models with large datasets, the training process can take weeks or months on a single GPU. In some situations, the models are so large that it is not possible to fit reasonable batch sizes onto the GPU. Using distributed training in these situations can shorten the training time.
 
-In this specific scenario, a [ResNet50 CNN model][resnet] is trained using [Horovod][horovod] on the [Imagenet dataset][imagenet] and on synthetic data. The reference implementation shows how to accomplish this task using [TensorFlow][tensorflow].
+In this specific scenario, a [ResNet50 CNN model][resnet] is trained using [Horovod][horovod] on the [ImageNet dataset][imagenet] and on synthetic data. The reference implementation shows how to accomplish this task using [TensorFlow][tensorflow].
 
 There are several ways to train a deep learning model in a distributed fashion, including data-parallel and model-parallel approaches based on synchronous or asynchronous updates. Currently the most common scenario is data-parallel training with synchronous updates. This approach is the easiest to implement and is sufficient for most use cases.
 
@@ -62,11 +62,11 @@ When training deep learning models, an often-overlooked aspect is where the trai
 
 Azure Machine Learning Compute supports many storage options. For best performance it is advisable that you download the data locally to each node. However, this can be cumbersome, because all the nodes must download the data from Blob Storage, and with the ImageNet dataset, this can take a considerable amount of time. By default Azure ML mounts storage such that it caches the data locally. This means, in practice, that after the first epoch the data is read from local storage. This combined with Premium Blob Storage offers a good compromise between ease of use and performance.
 
-Although Azure Machine Learning Compute can mount Standard tier Blob storage using the [blobfuse][blobfuse] adapter, we do not recommend using the Standard tier for distributed training as the performance typically is not good enough to handle the necessary throughput. Use Premium tier as a storage for training data as shown in the architecture diagram above. You may also refer to the following [blog post][premium-storage-comparison] for throughput and latency comparison between the two tiers.
+Although Azure Machine Learning Compute can mount Standard tier Blob storage using the [blobfuse][blobfuse] adapter, we do not recommend using the Standard tier for distributed training as the performance typically is not good enough to handle the necessary throughput. Use Premium tier as storage for training data as shown in the architecture diagram above. You may also refer to the following [blog post][premium-storage-comparison] for throughput and latency comparison between the two tiers.
 
 ## Container registry considerations
 
-Whenever an Azure Machine Learning workspace is provisioned, a set of dependent resources - Blob storage, Key Vault, Container Registry, and Application Insights - is also provisioned. Alternatively, one may use existing Azure resources and associate them with the new Azure Machine learning workspace during its creation. Please refer to the following [arm template][aml-arm] for customization of your Azure Machine Learning workspace.
+Whenever an Azure Machine Learning workspace is provisioned, a set of dependent resources - Blob storage, Key Vault, Container Registry, and Application Insights - is also provisioned. Alternatively, one may use existing Azure resources and associate them with the new Azure Machine learning workspace during its creation. Please refer to the following [ARM template][aml-arm] for customization of your Azure Machine Learning workspace.
 
 By default, Basic tier Azure Container Registry is provisioned. For large-scale deep learning, we recommend that you customize your workspace to use Premium tier Container registry as it offers significantly higher bandwidth that will allow you to quicker pull Docker images across nodes of your training cluster.
 
@@ -90,7 +90,7 @@ In scenarios that use sensitive data, you should consider designating an Azure M
 
 ### Encrypt data at rest and in motion
 
-Encrypt sesnsitive data at rest &mdash; that is, in the Blob storage. Each time data moves from one location to the other, use SSL to secure the data transfer. For more information, see the [Azure Storage security guide][security-guide].
+Encrypt sensitive data at rest &mdash; that is, in the Blob storage. Each time data moves from one location to the other, use SSL to secure the data transfer. For more information, see the [Azure Storage security guide][security-guide].
 
 ### Secure data in a virtual network
 
@@ -118,7 +118,7 @@ Azure Container Registry offers Basic, Standard and Premium. Choose a tier depen
 
 In this architecture, Azure ML Compute is likely the main cost driver. The implementation needs a cluster of GPU compute nodes price of which is determined by their number and the selected VM size. For more information on the VM sizes that include GPUs, see [GPU-optimized virtual machine sizes][gpu-vm-sizes] and [Azure Virtual Machines Pricing][az-vm-pricing]. 
 
-Typically, deep learning workloads checkpoint progress after every (few) epoch(s) to limit the impact of unexpected interruptions to the training. This can be nicely paired with the ability to leverage low-priority VMs for Azure Machine Learning compute clusters. Low-priority VMs use Azure's excess capacity at significantly reduced rates, however, they can be pre-empted if capacity demands increase.
+Typically, deep learning workloads checkpoint progress after every (few) epoch(s) to limit the impact of unexpected interruptions to the training. This can be nicely paired with the ability to leverage low-priority VMs for Azure Machine Learning compute clusters. Low-priority VMs use Azure's excess capacity at significantly reduced rates, however, they can be preempted if capacity demands increase.
 
 ## Deployment
 
@@ -132,6 +132,7 @@ The output from this architecture is a trained model that is saved to a Blob sto
 - [Batch scoring on Azure for deep learning models][batch-scoring]
 
 You may also find the following resources useful:
+
 - [Azure Machine Learning Cheat Sheet - distributed GPU training][distr-training]
 - [Azure Machine Learning - distributed training examples][distr-training-examples]
 
@@ -167,7 +168,7 @@ You may also find the following resources useful:
 [tfrecords]: https://www.tensorflow.org/tutorials/load_data/tf_records
 [petastorm]: https://github.com/uber/petastorm
 [premium-storage]: /azure/storage/blobs/storage-blob-performance-tiers
-[premium-storage-comparison]: https://azure.microsoft.com/en-us/blog/premium-block-blob-storage-a-new-level-of-performance/
+[premium-storage-comparison]: https://azure.microsoft.com/blog/premium-block-blob-storage-a-new-level-of-performance/
 [costs]: /azure/machine-learning/concept-plan-manage-cost
 [aml-arm]: https://github.com/Azure/azure-quickstart-templates/blob/master/201-machine-learning-advanced/azuredeploy.json
 [data-encryption]: /azure/machine-learning/concept-data-encryption

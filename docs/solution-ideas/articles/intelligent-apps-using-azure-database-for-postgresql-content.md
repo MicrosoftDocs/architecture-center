@@ -30,7 +30,7 @@ In this example of an intelligent app, PostgreSQL is the heart of the architectu
 * [Azure Cognitive Services](https://azure.microsoft.com/services/cognitive-services/): Build intelligent application with a suite of AI services and APIs.
 * [Azure Database for PostgreSQL](https://azure.microsoft.com/services/postgresql/): With high availability up to 99.99% SLA and agile scalability, Azure Database for PostgreSQL allows you to focus on innovation.
 * [Azure Machine Learning Studio](/azure/machine-learning/overview-what-is-machine-learning-studio): Train, deploy, and automate ML models in this web portal, covering both code-first and no-code perspectives.
-* [Power BI](https://Power BI.microsoft.com/): Create beautiful visualizations and discover hidden insights in your data with Power BI.
+* [Power BI](https://powerbi.microsoft.com/): Create beautiful visualizations and discover hidden insights in your data with Power BI.
 
 ## Considerations
 
