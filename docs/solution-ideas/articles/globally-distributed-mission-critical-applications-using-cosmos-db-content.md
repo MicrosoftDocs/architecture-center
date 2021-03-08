@@ -8,4 +8,67 @@ Guarantee access to users around the world with the high-availability and low-la
 ## Architecture
 
 ![Architecture Diagram](../media/globally-distributed-mission-critical-applications-using-cosmos-db.png)
-*Download an [SVG](../media/globally-distributed-mission-critical-applications-using-cosmos-db.svg) of this architecture.*
+*Download an [SVG](../media/globally-distributed-mission-critical-applications-using-cosmos-db.svg) or an [Draw.io](../media/globally-distributed-mission-critical-applications-using-cosmos-db.drawio) version of this architecture.*
+
+## Data Flow
+
+1. User access the application through the dedicated client.
+1. Traffic Manager will route the user's connection to the best location for accessing the application, based upon a single or nested routing profiles.
+1. In the landed region where the application is hosted the application will handle the session and the connection towards the database.
+1. This application can range from a simple static page up until a microservices oriented application hosted in Kubernetes for instance.
+1. The connection between the application landscape and the Cosmos DB is handled through an Azure Active Directory User who can pick up the the Cosmos DB keys in Key Vault.
+(**Note:** as of Ignite March 2021, we now also support [Azure Active Directory RBAC directly on the Cosmos DB SQL API](https://docs.microsoft.com/en-us/azure/cosmos-db/how-to-setup-rbac))
+1. By using the Azure Cosmos DB multi-homing APIs, your application is aware of the nearest region and can send requests to that region. The nearest region is identified without any configuration changes. As you add and remove regions to and from your Azure Cosmos account, your application does not need to be redeployed or paused, it continues to be highly available at all times.
+Underneath the covers Cosmos DB will handle the global distribution and replication of the data based upon the number of defined regions. As an addition one should also benefit from the Automatic Failover option to failover to the region with the highest failover priority with no user action should a region become unavailable. When automatic failover is enabled, region priority can be modified.
+
+## Components
+
+* [Traffic Manager](https://azure.microsoft.com/services/traffic-manager): create DNS based load balancing / routing options for your applications by means of 6 types of DNS-based traffic routing options which can be nested.
+* [Azure Active Directory](https://azure.microsoft.com/services/active-directory): Synchronize on-premises directories and enable single sign-on
+* [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db): Globally distributed, multi-model database for any scale
+
+### Compute Options
+
+* [Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines): Create Linux and Windows virtual machines (VMs) in seconds and reduce costs.
+* [Azure Kubernetes Services](https://azure.microsoft.com/en-us/services/kubernetes-service): Highly available, secure, and fully managed Kubernetes service for all your application and microservice base workloads.
+* [App Service](https://azure.microsoft.com/services/app-service): Quickly create powerful cloud apps for web and mobile
+
+### Serverless Options
+
+* [Azure Functions](https://azure.microsoft.com/services/functions): More than just event-driven serverless compute
+* [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps): Quickly build powerful integration solutions
+
+## Considerations
+
+### Availability
+
+When considering the above approach do note that to achieve high availability on Azure CosmosDB Automatic Failover is also to be considered configured in order in order to keep the running application at it's highest possible provided SLA.
+For the application layer Traffic Manager should be configured with nested profiles. When pushing this design to the max one can scale the different application choices per region. The per region deployment already also takes an HA approach.
+
+### Resiliency
+
+For higher resiliency one can also consider Availability zones for Azure Cosmos DB deployments.
+Resiliency is also depending on the consistency level choices you make on your Cosmos DB deployment. Depending on this consistency level you will have a different level of resiliency (see [Consistency, availability, and performance tradeoffs](/azure/cosmos-db/consistency-levels) for more info).
+
+### Scalability
+
+The scaling is based upon many levels in this diagram. For Azure Cosmos DB : Cosmos DB is purpose-built for elastic scale and predictable performance. On the level of the application you need to look at the compute model used. Azure Functions and App Service can autoscale
+
+### Security
+
+From a security perspective drive towards an identity based system, where Azure Active Directory can be used to secure the access to the environment. In the backend the backend the application is by best design accessed through Managed Identities, although one could also consider the approach of using AAD and Azure Key Vault for securing access.
+
+## Next steps
+
+* [Manage an Azure Cosmos DB account](/azure/cosmos-db/how-to-manage-database-account)
+* [Configure multi-region writes in your applications that use Azure Cosmos DB](/azure/cosmos-db/how-to-multi-master)
+* [Distribute your data globally with Azure Cosmos DB](/azure/cosmos-db/distribute-data-globally)
+* [Consistency levels in Azure Cosmos DB](/azure/cosmos-db/consistency-levels)
+* [Manage consistency levels in Azure Cosmos DB](/azure/cosmos-db/how-to-manage-consistency)
+* [Build a .NET web app with Azure Cosmos DB using the SQL API and the Azure portal](/azure/cosmos-db/create-sql-api-dotnet)
+* [Use system-assigned managed identities to access Azure Cosmos DB data](/azure/cosmos-db/managed-identity-based-authentication)
+* [How does Azure Cosmos DB provide high availability](/azure/cosmos-db/high-availability)
+* [Enable automatic failover for your Azure Cosmos account](/azure/cosmos-db/how-to-manage-database-account#automatic-failover)
+* [What is Traffic Manager?](/azure/traffic-manager/traffic-manager-overview)
+* [Traffic Manager routing methods](/azure/traffic-manager/traffic-manager-routing-methods)
+* [Tutorial: Configure the geographic traffic routing method using Traffic Manager](/azure/traffic-manager/traffic-manager-configure-geographic-routing-method)
