@@ -5,11 +5,10 @@
 
 The Anomaly Detector API enables you to monitor and detect abnormalities in your time series data without having to know machine learning. The Anomaly Detector API's algorithms adapt by automatically identifying and applying the best-fitting models to your data, regardless of industry, scenario, or data volume. Using your time series data, the API determines boundaries for anomaly detection, expected values, and which data points are anomalies.
 
-
 ## Architecture
 
-![Architecture diagram](../media/anomaly-detector-process.png)
-*Download an [SVG](../media/anomaly-detector-process.svg) of this architecture.*
+![Architecture diagram](/docs/solution-ideas/media/anomaly-detector.png)
+*Download an [SVG](/docs/solution-ideas/media/anomaly-detector.svg) of this architecture.*
 
 ## Data Flow
 
@@ -20,9 +19,10 @@ The Anomaly Detector API enables you to monitor and detect abnormalities in your
 5. Stores the anomaly detection metadata.
 6. Visualize the results of the time series anomaly detection.
 
-
 ## Components
+
 Key technologies used to implement this architecture:
+
 * [Service Bus](https://azure.microsoft.com/services/service-bus): Reliable cloud messaging as a service (MaaS) and simple hybrid integration
 * [Azure Databricks](https://azure.microsoft.com/services/databricks): Fast, easy, and collaborative Apache Spark–based analytics service
 * [Power BI](https://powerbi.microsoft.com): Interactive data visualization BI tools
@@ -62,8 +62,7 @@ To explore the cost of running this scenario, see the prefiled calculator with a
 
 We have provided three sample cost profiles based on the amount of traffic (we assume all images are 100 kb in size):
 
-- [Example calculator][example-pricing]: this pricing example is a calculator with all services in this architecture, except Power BI and custom alerting solution.
-
+* [Example calculator][example-pricing]: this pricing example is a calculator with all services in this architecture, except Power BI and custom alerting solution.
 
 ## Next steps
 
@@ -76,15 +75,13 @@ We have provided three sample cost profiles based on the amount of traffic (we a
 * [Power BI Documentation](/power-bi)
 * [Storage Documentation](/azure/storage)
 
-
-
 <!-- Links -->
 [Event Grid]: https://azure.microsoft.com/services/event-grid/
 [synapse-analytics]: /azure/sql-data-warehouse/
 [event-hubs]: /azure/event-hubs/event-hubs-for-kafka-ecosystem-overview
 [architecture]: ./media/architecture-intelligent-apps-image-processing.png
 [example-pricing]: https://azure.com/e/48cc24e76c914ecf8fafec1fed0e0e14
-[serverless]: https://docs.microsoft.com/en-us/learn/paths/create-serverless-applications/
+[serverless]: /learn/paths/create-serverless-applications/
 [cv-categories]: /azure/cognitive-services/computer-vision/category-taxonomy
 [resiliency]: ../../framework/resiliency/overview.md
 [security]: /azure/security

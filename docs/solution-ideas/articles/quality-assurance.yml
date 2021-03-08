@@ -20,6 +20,7 @@ metadata:
     - ai gallery
     - anomaly-detection
     - 'https://azure.microsoft.com/solutions/architecture/quality-assurance/'
+    - ai-machine-learning
   social_image_url: /azure/architecture/solution-ideas/articles/media/quality-assurance.png
 name: Quality Assurance
 azureCategories:
@@ -33,4 +34,4 @@ products:
   - power-bi
 thumbnailUrl: /azure/architecture/browse/thumbs/quality-assurance.png
 content: |
-   [!include[](quality-assurance-content.md)]
+  [!include[](quality-assurance-content.md)]

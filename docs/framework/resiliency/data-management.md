@@ -19,7 +19,7 @@ ms.custom:
 
 ### Azure SQL Database
 
-SQL Database automatically performs a combination of full database backups weekly, differential database backups hourly, and transaction log backups every five - 10 minutes to protect your business from data loss. Use point-in-time restore to restore a database to an earlier time. For more information, see:
+SQL Database automatically performs a combination of full database backups weekly, differential database backups hourly, and transaction log backups every five - 10 minutes to protect your business from data loss. Use point-in-time restore to restore a database to an earlier time. For more information, see: 
 
 - [Recover an Azure SQL database using automated database backups](/azure/sql-database/sql-database-recovery-using-backups)
 

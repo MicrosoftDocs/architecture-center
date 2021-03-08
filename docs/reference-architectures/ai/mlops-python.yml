@@ -16,6 +16,7 @@ metadata:
   ms.custom:
     - azcat-ai
     - reference-architecture
+    - ai-machine-learning
 name: MLOps for Python models using Azure Machine Learning
 azureCategories:
   - ai-machine-learning
@@ -33,4 +34,4 @@ products:
   - azure-pipelines
 thumbnailUrl: /azure/architecture/browse/thumbs/ml-ops-python.png
 content: |
-   [!include[](mlops-python-content.md)]
+  [!include[](mlops-python-content.md)]

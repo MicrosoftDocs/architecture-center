@@ -19,12 +19,13 @@ metadata:
     - Azure
     - ai gallery
     - 'https://azure.microsoft.com/solutions/architecture/demand-forecasting/'
+    - ai-machine-learning
   social_image_url: /azure/architecture/solution-ideas/articles/media/demand-forecasting.png
 name: Demand Forecasting
 azureCategories:
   - analytics
   - ai-machine-learning
-summary: This solution focuses on demand forecasting within the energy sector which can give a company a competitive advantage. 
+summary: This solution focuses on demand forecasting within the energy sector which can give a company a competitive advantage.
 products:
   - azure-data-factory
   - azure-event-hubs
@@ -33,4 +34,4 @@ products:
   - azure-stream-analytics
 thumbnailUrl: /azure/architecture/browse/thumbs/demand-forecasting.png
 content: |
-   [!include[](demand-forecasting-content.md)]
+  [!include[](demand-forecasting-content.md)]

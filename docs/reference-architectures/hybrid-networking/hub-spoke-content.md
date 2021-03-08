@@ -49,7 +49,7 @@ Use the following button to deploy the reference using the Azure portal.
 For detailed information and additional deployment options, see the ARM Templates used to deploy this solution.
 
 > [!div class="nextstepaction"]
-> [Hub and Spoke ARM Template](https://docs.microsoft.com/samples/mspnp/samples/hub-and-spoke-deployment/)
+> [Hub and Spoke ARM Template](/samples/mspnp/samples/hub-and-spoke-deployment/)
 
 ## Use cases
 
@@ -118,7 +118,7 @@ If you require connectivity between spokes, consider deploying an Azure Firewall
 
 ![Routing between spokes using Azure Firewall](./images/spoke-spoke-routing.png)
 
-You can also use a VPN gateway to route traffic between spokes, although this will impact latency and throughput. See [Configure VPN gateway transit for virtual network peering](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-peering-gateway-transit) for configuration details.
+You can also use a VPN gateway to route traffic between spokes, although this will impact latency and throughput. See [Configure VPN gateway transit for virtual network peering](/azure/vpn-gateway/vpn-gateway-peering-gateway-transit) for configuration details.
 
 Consider what services are shared in the hub to ensure the hub scales for a larger number of spokes. For instance, if your hub provides firewall services, consider your firewall solution's bandwidth limits when adding multiple spokes. You might want to move some of these shared services to a second level of hubs.
 

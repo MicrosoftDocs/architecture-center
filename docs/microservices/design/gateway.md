@@ -11,9 +11,11 @@ ms.category:
   - developer-tools
 products:
   - azure-application-gateway
+  - azure-api-management
 ms.custom:
   - microservices
   - guide
+  - internal-intro
 ---
 
 # Using API gateways in microservices

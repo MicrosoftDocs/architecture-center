@@ -18,6 +18,7 @@ metadata:
     - devops
     - app-development
     - example-scenario
+    - internal-intro
   social_image_url: /azure/architecture/example-scenario/apps/media/architecture-devops-dotnet-webapp.svg
 name: Design a CI/CD pipeline using Azure DevOps
 azureCategories:

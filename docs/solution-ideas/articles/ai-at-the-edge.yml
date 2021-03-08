@@ -23,6 +23,7 @@ metadata:
     - e2e-hybrid
     - edge intelligence
     - 'https://azure.microsoft.com/solutions/architecture/ai-at-the-edge/'
+    - ai-machine-learning
   social_image_url: /azure/architecture/solution-ideas/articles/media/ai-at-the-edge.png
 name: AI at the Edge with Azure Stack Hub
 azureCategories:
@@ -40,4 +41,4 @@ products:
   - azure-app-service
 thumbnailUrl: /azure/architecture/browse/thumbs/ai-at-the-edge.png
 content: |
-   [!include[](ai-at-the-edge-content.md)]
+  [!include[](ai-at-the-edge-content.md)]

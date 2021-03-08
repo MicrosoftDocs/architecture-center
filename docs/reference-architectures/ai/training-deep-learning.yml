@@ -14,6 +14,7 @@ metadata:
     - media
   ms.custom:
     - azcat-ai
+    - ai-machine-learning
 name: Distributed training of deep learning models on Azure
 azureCategories:
   - ai-machine-learning
@@ -26,4 +27,4 @@ products:
   - azure-machine-learning
 thumbnailUrl: /azure/architecture/browse/thumbs/distributed_dl_architecture.png
 content: |
-   [!include[](training-deep-learning-content.md)]
+  [!include[](training-deep-learning-content.md)]

@@ -98,7 +98,7 @@ conceptualContent:
         url: ./aws-professional/services.md
         itemType: reference
       - text: Cloud Design Patterns
-        url: /azure/architecture/patterns/
+        url: ./patterns/index.md
         itemType: concept
       - text: Web API design
         url: ./best-practices/api-design.md

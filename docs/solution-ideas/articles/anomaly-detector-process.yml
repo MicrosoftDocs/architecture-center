@@ -19,6 +19,7 @@ metadata:
     - anomaly detector
     - interactive-diagram
     - 'https://azure.microsoft.com/solutions/architecture/anomaly-detector-process/'
+    - ai-machine-learning
   social_image_url: /azure/architecture/solution-ideas/articles/media/anomaly-detector-process.png
 name: Anomaly Detector Process
 azureCategories:
@@ -31,4 +32,4 @@ products:
   - azure-storage-accounts
 thumbnailUrl: /azure/architecture/browse/thumbs/anomaly-detector-process.png
 content: |
-   [!include[](anomaly-detector-process-content.md)]
+  [!include[](anomaly-detector-process-content.md)]

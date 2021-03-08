@@ -12,6 +12,7 @@ metadata:
     - web
   ms.custom:
     - example-scenario
+    - ai-machine-learning
   social_image_url: /azure/architecture/example-scenario/ai/media/architecture-commerce-chatbot.png
 name: Chatbot for hotel reservations
 azureCategories:
@@ -23,4 +24,4 @@ products:
   - azure-bot-service
 thumbnailUrl: /azure/architecture/browse/thumbs/architecture-commerce-chatbot.png
 content: |
-   [!include[](commerce-chatbot-content.md)]
+  [!include[](commerce-chatbot-content.md)]
