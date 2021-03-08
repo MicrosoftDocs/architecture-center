@@ -2,12 +2,20 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id/>
     <title>Azure Architecture Center</title>
-    <updated>2021-03-02T14:26:07.172Z</updated>
+    <updated>2021-03-08T14:12:25.428Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <subtitle>Updated articles for Azure Architecture Center</subtitle>
     <rights>https://docs.microsoft.com/legal/termsofuse</rights>
     <category term="new"/>
     <category term="updated"/>
+    <entry>
+        <title type="html"><![CDATA[Micro Focus Enterprise Server on Azure VMs]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/example-scenario/mainframe/micro-focus-server</id>
+        <link href="https://docs.microsoft.com/azure/architecture/example-scenario/mainframe/micro-focus-server"/>
+        <updated>2021-03-05T09:20:05.000Z</updated>
+        <summary type="html"><![CDATA[Optimize, modernize, and streamline IBM z/OS mainframe applications by using Micro Focus Enterprise Server 6.0 on Azure VMs.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Multi-region web app with private connectivity to database]]></title>
         <id>https://docs.microsoft.com/azure/architecture/example-scenario/sql-failover/app-service-private-sql-multi-region</id>
@@ -15,6 +23,62 @@
         <updated>2021-03-02T00:11:26.000Z</updated>
         <summary type="html"><![CDATA[Lock down access to a highly available Azure SQL Database. Connect multi-tenant Azure App Service web apps in different Azure regions to the database privately.]]></summary>
         <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Retail and e-commerce using Cosmos DB]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/solution-ideas/articles/retail-and-e-commerce-using-cosmos-db</id>
+        <link href="https://docs.microsoft.com/azure/architecture/solution-ideas/articles/retail-and-e-commerce-using-cosmos-db"/>
+        <updated>2021-03-03T10:15:44.000Z</updated>
+        <summary type="html"><![CDATA[Use Azure Cosmos DB for retail and e-commerce apps to support in-depth queries over diverse product catalogs, traffic spikes, and rapidly changing inventory.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Extraneous Fetching antipattern]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/antipatterns/extraneous-fetching</id>
+        <link href="https://docs.microsoft.com/azure/architecture/antipatterns/extraneous-fetching"/>
+        <updated>2021-03-02T20:49:14.000Z</updated>
+        <summary type="html"><![CDATA[Retrieving more data than needed for a business operation can result in unnecessary I/O overhead, cause unnecessary I/O overhead, and reduce responsiveness in entity frameworks.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Performance testing and antipatterns]]></title>
+        <id>https://docs.microsoft.com/azure/architecture//antipatterns</id>
+        <link href="https://docs.microsoft.com/azure/architecture//antipatterns"/>
+        <updated>2021-03-02T20:49:14.000Z</updated>
+        <summary type="html"><![CDATA[Build scalability solutions for common stressors by learning about performance antipatterns. These are common practices that are likely to cause scalability problems when an application is under pressure.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[No Caching antipattern]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/antipatterns/no-caching</id>
+        <link href="https://docs.microsoft.com/azure/architecture/antipatterns/no-caching"/>
+        <updated>2021-03-02T20:49:14.000Z</updated>
+        <summary type="html"><![CDATA[Repeatedly fetching the same data, in a cloud application that handles many concurrent requests, can reduce performance and scalability. Reduce latency by detecting and mitigating this no caching antipattern in your application.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Tradeoffs for performance efficiency]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/framework/scalability/tradeoffs</id>
+        <link href="https://docs.microsoft.com/azure/architecture/framework/scalability/tradeoffs"/>
+        <updated>2021-03-02T20:49:14.000Z</updated>
+        <summary type="html"><![CDATA[Discover the pros and cons of performance optimization. Learn about tradeoffs between performance efficiency, operational excellence, reliability, scalability, and more.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Community Jury]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/guide/responsible-innovation/community-jury</id>
+        <link href="https://docs.microsoft.com/azure/architecture/guide/responsible-innovation/community-jury"/>
+        <updated>2021-03-02T20:49:14.000Z</updated>
+        <summary type="html"><![CDATA[Community jury is a stakeholder collaboration technique that allows project teams to understand the perceptions and concerns of stakeholders, and take actions based on this understanding.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Responsible Innovation toolkit]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/guide/responsible-innovation</id>
+        <link href="https://docs.microsoft.com/azure/architecture/guide/responsible-innovation"/>
+        <updated>2021-03-02T20:49:14.000Z</updated>
+        <summary type="html"><![CDATA[Responsible Innovation is a commitment to put people first in the development of technology by understanding the stakeholders and impact of your technology]]></summary>
+        <category label="updated" term="updated"/>
     </entry>
     <entry>
         <title type="html"><![CDATA[Interactive Voice Response Bot]]></title>
@@ -709,7 +773,7 @@
         <id>https://docs.microsoft.com/azure/architecture/framework/scalability/tradeoffs</id>
         <link href="https://docs.microsoft.com/azure/architecture/framework/scalability/tradeoffs"/>
         <updated>2021-01-06T22:20:47.000Z</updated>
-        <summary type="html"><![CDATA[Tradeoffs for performance efficiency]]></summary>
+        <summary type="html"><![CDATA[Discover the pros and cons of performance optimization. Learn about tradeoffs between performance efficiency, operational excellence, reliability, scalability, and more.]]></summary>
         <category label="updated" term="updated"/>
     </entry>
     <entry>
@@ -801,11 +865,11 @@
         <category label="new" term="new"/>
     </entry>
     <entry>
-        <title type="html"><![CDATA[Azure AD security for Amazon Web Services (AWS)]]></title>
+        <title type="html"><![CDATA[Azure Active Directory security for AWS]]></title>
         <id>https://docs.microsoft.com/azure/architecture/reference-architectures/aws/aws-azure-ad-security</id>
         <link href="https://docs.microsoft.com/azure/architecture/reference-architectures/aws/aws-azure-ad-security"/>
         <updated>2020-12-15T23:29:03.000Z</updated>
-        <summary type="html"><![CDATA[Learn how Azure Active Directory (Azure AD) can help secure and protect Amazon Web Services (AWS) account identities and access.]]></summary>
+        <summary type="html"><![CDATA[Learn how Azure Active Directory can help secure and protect Amazon Web Services (AWS) identity management and account access. Discover Microsoft security solutions.]]></summary>
         <category label="new" term="new"/>
     </entry>
     <entry>
