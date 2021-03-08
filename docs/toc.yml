@@ -255,8 +255,6 @@ items:
             href: framework/devops/overview.md
           - name: Principles
             href: framework/devops/principles.md
-          - name: Culture
-            href: framework/devops/culture.md
           - name: Automation
             items:
               - name: Automation Overview
