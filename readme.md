@@ -151,5 +151,3 @@ Private Connection can also be achieved over IPSec with tools like
 For Azure Resources costs, you can use [Azure pricing
 calculator](https://azure.microsoft.com/en-gb/pricing/calculator/).
 
-Note: Azure Arc enabled Kubernetes In the current preview phase. Azure
-Arc enabled Kubernetes is offered at no additional cost.
