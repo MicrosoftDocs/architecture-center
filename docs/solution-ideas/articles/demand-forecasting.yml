@@ -2,7 +2,7 @@
 metadata:
   title: Demand Forecasting
   titleSuffix: Azure Solution Ideas
-  description: This solution focuses on demand forecasting within the energy sector which can give a company a competitive advantage.
+  description: This solution focuses on-demand forecasting within the energy sector, which can give a company a competitive advantage.
   author: doodlemania2
   ms.author: pnp
   ms.date: 02/17/2021
@@ -25,7 +25,7 @@ name: Demand Forecasting
 azureCategories:
   - analytics
   - ai-machine-learning
-summary: This solution focuses on demand forecasting within the energy sector which can give a company a competitive advantage.
+summary: This solution focuses on-demand forecasting within the energy sector, which can give a company a competitive advantage.
 products:
   - azure-data-factory
   - azure-event-hubs

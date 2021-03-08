@@ -3,9 +3,9 @@
 
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-Develop sophisticated, transformational apps using state of the art machine learning algorithms and integrated visualization tools to get actionable insights and analytics.
+Develop sophisticated, transformational apps using state-of-the-art machine learning algorithms and integrated visualization tools to get actionable insights and analytics.
 
-In this example of an intelligent app, PostgreSQL is the heart of the architecture as the main database for a common AIML use case of social media text analysis. PostgreSQL's support for unstructured data, ability to execute parallel queries and declarative partitioning makes it an effective database choice for a highly data-intensive AIML task. Since PostgreSQL is a cloud-based solution, this architecture is not recommended for mobile application, and rather internal downstream analysis.
+In this example of an intelligent app, PostgreSQL is the heart of the architecture as the main database for a common AIML use case of social media text analysis. PostgreSQL's support for unstructured data, ability to execute parallel queries and declarative partitioning makes it an effective database choice for a highly data-intensive AIML task. Since PostgreSQL is a cloud-based solution, this architecture isn't recommended for mobile application, and is more appropriate for downstream analysis.
 
 ## Architecture
 
@@ -20,23 +20,23 @@ In this example of an intelligent app, PostgreSQL is the heart of the architectu
     * The API can detect user language, key phrases used in a review, identify specific named entities and understand how customers really feel about products they purchased.
     * API responses are then saved back to the PostgreSQL database
 1. Deep learning NLP models can then be applied on the API insights from PostgreSQL - or the initial raw data - through Azure Machine Learning Studio
-    * If you're approaching the machine learning component of this architecture with a no-code perspective, you can implement further text analytics operations on the data, like feature hashing, Word2Vector and n-gram extraction. Alternatively, you can use your favorite open-source NLP model if you prefer a code-first approach and run you model as an Experiment in Azure Machine Learning.
-    * Results from this further ML analysis is saved back to PostgreSQL
-1. Finally, human-interpretable insights can be explored in PowerBI through the PostgreSQL connector.
+    * If you're approaching the machine learning component of this architecture with a no-code perspective, you can implement further text analytics operations on the data, like feature hashing, Word2Vector and n-gram extraction. Instead, you can use your favorite open-source NLP model if you prefer a code-first approach and run you model as an Experiment in Azure Machine Learning.
+    * Results from this further ML analysis are saved back to PostgreSQL
+1. Finally, human-interpretable insights can be explored in Power BI through the PostgreSQL connector.
 
 ## Solution Components
 
-* [Azure App Services](https://azure.microsoft.com/services/app-service/): A fully managed platform for quickly building, deploying and scaling web apps and APIs.
+* [Azure App Services](https://azure.microsoft.com/services/app-service/): A fully managed platform for quickly building, deploying, and scaling web apps and APIs.
 * [Azure Cognitive Services](https://azure.microsoft.com/services/cognitive-services/): Build intelligent application with a suite of AI services and APIs.
 * [Azure Database for PostgreSQL](https://azure.microsoft.com/services/postgresql/): With high availability up to 99.99% SLA and agile scalability, Azure Database for PostgreSQL allows you to focus on innovation.
-* [Azure Machine Learning Studio](/azure/machine-learning/overview-what-is-machine-learning-studio): Train, deploy and automate ML models in this web portal, covering both code-first and no-code perspectives.
-* [PowerBI](https://powerbi.microsoft.com/): Create beautiful visualizations and discover hidden insights in your data with PowerBI.
+* [Azure Machine Learning Studio](/azure/machine-learning/overview-what-is-machine-learning-studio): Train, deploy, and automate ML models in this web portal, covering both code-first and no-code perspectives.
+* [Power BI](https://Power BI.microsoft.com/): Create beautiful visualizations and discover hidden insights in your data with Power BI.
 
 ## Considerations
 
-Azure Cognitive Services Text Analytics API has a maximum size of 5120 characters for a single document and a maximum size of a single request being up to 1MB. [View the data and rate limits](/azure/cognitive-services/text-analytics/concepts/data-limits).
+Azure Cognitive Services Text Analytics API has a maximum size of 5120 characters for a single document and a maximum request size of 1 MB. [View the data and rate limits](/azure/cognitive-services/text-analytics/concepts/data-limits).
 
-Depending on the volume and velocity of data being ingressed, you can select 1 of 3 deployment modes; single server, flexible and Hyperscale (Citus). Assuming that you would be mining large workloads of customer opinions and reviews, Hyperscale is a recommended solution. Explore the [When to use Azure Database for PostgreSQL Learn Module](/learn/modules/intro-to-postgres/5-when-to-use-azure-database-postgres) to understand when to use each deployment mode.
+Depending on the volume and velocity of data being ingressed, you can select one of three deployment modes: single server, flexible, and Hyperscale (Citus). Assuming that you would be mining large workloads of customer opinions and reviews, Hyperscale is a recommended solution. Explore the [When to use Azure Database for PostgreSQL Learn Module](/learn/modules/intro-to-postgres/5-when-to-use-azure-database-postgres) to understand when to use each deployment mode.
 
 ## Security
 
@@ -44,21 +44,21 @@ All data in PostgreSQL is automatically [encrypted](/azure/postgresql/concepts-d
 
 ### DevOps
 
-You can configure GitHub Actions to connect to your Azure PostgreSQL database by using its connection string and setting up a workflow. For further information on how to do so, please see [Quickstart: Use GitHub Actions to connect to Azure PostgreSQL](/azure/postgresql/how-to-deploy-github-action).
+You can configure GitHub Actions to connect to your Azure PostgreSQL database by using its connection string and setting up a workflow. For further information on how to do so, see [Quickstart: Use GitHub Actions to connect to Azure PostgreSQL](/azure/postgresql/how-to-deploy-github-action).
 
-Moreover, you're able to automate your Azure Machine Learning lifecycle by using [Azure Pipelines](/azure/devops/pipelines/targets/azure-machine-learning). The [MLOps with Azure ML GitHub repo](https://github.com/Microsoft/MLOpsPython) demonstrates how to operationalize an MLOps workflow and build out a CI/CD pipeline for your project.
+Additionally, you can automate your Azure Machine Learning lifecycle by using [Azure Pipelines](/azure/devops/pipelines/targets/azure-machine-learning). The [MLOps with Azure ML GitHub repo](https://github.com/Microsoft/MLOpsPython) demonstrates how to operationalize an MLOps workflow and build out a CI/CD pipeline for your project.
 
 ### Pricing
 
-Azure Cognitive Services Text Analytics API pricing is dictated by the instance selected and the number of transactions per month. For further details, explore the [pricing calculator for Text Analytics here](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/).
+Azure Cognitive Services Text Analytics API pricing is determined by the instance selected and the number of transactions per month. For further details, explore the [pricing calculator for Text Analytics here](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/).
 
 ## Next Steps
 
 * Call the [Text Analytics REST API using Postman](/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-call-api) synchronously and asynchronously
 * [Explore and test the Text Analytics API v3.0](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0/operations/Languages)
-* [Use DirectQuery to link PostgreSQL to PowerBI](/power-bi/connect-data/desktop-directquery-about)
+* [Use DirectQuery to link PostgreSQL to Power BI](/power-bi/connect-data/desktop-directquery-about)
 * How to create an [Azure Database for PostgreSQL Hyperscale](/azure/postgresql/tutorial-hyperscale-server-group)
-* How to link your [Azure Machine Learning Models in PowerBI](/power-bi/connect-data/service-aml-integrate)
+* How to link your [Azure Machine Learning Models in Power BI](/power-bi/connect-data/service-aml-integrate)
 
 ## Recommended Resources
 

@@ -2,7 +2,7 @@
 metadata:
   title: Energy Supply Optimization
   titleSuffix: Azure Solution Ideas
-  description: This solution provides an Azure-based smart solution, leveraging external open-source tools, that determines the optimal energy unit commitments from various types of energy resources for an energy grid.
+  description: This solution provides an Azure-based smart solution, applying external open-source tools, to determine the optimal energy unit commitments from various energy resources for an energy grid.
   author: doodlemania2
   ms.author: pnp
   ms.date: 01/26/2021
