@@ -27,7 +27,7 @@ Health modeling refers to the activities that maintain the security posture of a
 |---|---|
 |[**How is security monitored in the application context?**](monitor-tools.md)|Use Azure tools and services to monitor your security posture and also remediate incidents.|
 |[**Is access to the control plane and data plane of the application periodically reviewed?**](monitor-identity-network.md)|Monitor network conditions and identity-related risk events regularly.|
-|[**Do you implement security practices and tools during the development lifecycle?**](monitor-audit.md)|Activities related to enabling, acquiring, and storing audit logs for Azure services.|
+|[**How do you monitor and maintain your compliance of this workload?**](monitor-audit.md)|Activities related to enabling, acquiring, and storing audit logs for Azure services.|
 |[**Are operational processes for incident response defined and tested?**](monitor-security-operations.md)|Guidance for the central SecOps team for monitoring security-related telemetry data and investigating security breaches.|
 |[**How is the security of the workload validated?**](monitor-test.md)|Test the defense of the workload by simulating real-world attacks. Use penetration testing to simulate one-time attack and red teams to simulate long-term persistent attack groups.|
 
