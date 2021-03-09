@@ -38,7 +38,7 @@ The architecture uses the following Azure services:
 - [Azure IoT Edge](https://azure.microsoft.com/services/iot-edge/) is a fully managed service built on Azure IoT Hub. It can run your cloud workloads—whether artificial intelligence, Azure and third-party services, or your own business logic—on edge devices via standard containers.
 - [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/) provides highly secure and reliable communication between your IoT application and the devices it manages. It can extend your solution from the cloud to the edge with per-device authentication, built-in device management, and scaled provisioning.
 - [Azure SQL Edge](https://azure.microsoft.com/services/sql-edge/) is a small-footprint, edge-optimized SQL database engine with built-in AI.
-- [Azure Cognitive Services](https://azure.microsoft.com/services/cognitive-services/) is a comprehensive family of AI services and cognitive APIs that your intelligent apps can use. The services can run on IoT edge devices via containers.
+- [Azure Cognitive Services](https://azure.microsoft.com/services/cognitive-services/) is a comprehensive family of AI services and cognitive APIs that your intelligent apps can use. The services can run on IoT Edge devices via containers.
 - [Azure SQL Database](https://azure.microsoft.com/services/sql-database/) is a fully managed relational database with built-in intelligence.
 - [SQL Server on Virtual Machines](https://azure.microsoft.com/services/virtual-machines/sql-server) can run your SQL Server workloads on the cloud at the lowest total cost of ownership.
 - [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) is a fast NoSQL database with open APIs for any scale.
@@ -47,9 +47,9 @@ The architecture uses the following Azure services:
 
 For more information, see the following articles:
 
-- [What is Azure IoT Edge](https://docs.microsoft.com/azure/iot-edge/about-iot-edge).
-- [What is Azure SQL Edge](https://docs.microsoft.com/azure/azure-sql-edge/overview).
-- [Create a solution using Azure SQL Edge - part one](https://docs.microsoft.com/azure/azure-sql-edge/tutorial-deploy-azure-resources).
+- [What is Azure IoT Edge?](https://docs.microsoft.com/azure/iot-edge/about-iot-edge)
+- [What is Azure SQL Edge?](https://docs.microsoft.com/azure/azure-sql-edge/overview)
+- [Create a solution by using Azure SQL Edge - part one](https://docs.microsoft.com/azure/azure-sql-edge/tutorial-deploy-azure-resources)
 
 ## Related resources
 
@@ -57,10 +57,10 @@ The related resources provide further information on edge solutions, including i
 
 ### Guidance
 
-- [Vision with Azure IoT Edge](../../guide/iot-edge-vision/index.md).
-- [Azure Industrial IoT Analytics Guidance](../../guide/iiot-guidance/iiot-architecture.md).
-- [Architectural Considerations in an IIoT Analytics Solution](../../guide/iiot-guidance/iiot-considerations.md).
-- [Field and cloud edge gateways](../../example-scenario/iot/field-cloud-edge-gateways.yml).
+- [Vision with Azure IoT Edge](../../guide/iot-edge-vision/index.md)
+- [Azure Industrial IoT Analytics Guidance](../../guide/iiot-guidance/iiot-architecture.md)
+- [Architectural Considerations in an IIoT Analytics Solution](../../guide/iiot-guidance/iiot-considerations.md)
+- [Field and cloud edge gateways](../../example-scenario/iot/field-cloud-edge-gateways.yml)
 
 ### Architectures
 
