@@ -19,13 +19,21 @@ Generate personalized recommendations for customers in real time, using low-late
 6. Latest Recommendation will be fetched by the e-commerce store UI using Azure Container Service (Recommendation APIs).
 
 **Components**
+
 This architecture includes the following components:
+
 Azure Web App 
+
 Azure Cosmos DB 
+
 Azure Conatiner Instances
+
 Azure DataBricks
 
 **Next Steps**
+
 Welcome to Azure Cosmos DB: https://docs.microsoft.com/en-us/azure/cosmos-db/introduction
+
 Azure Container Instances: https://docs.microsoft.com/en-us/azure/container-instances/container-instances-overview
+
 Azure Web App: https://docs.microsoft.com/en-us/azure/app-service/overview
