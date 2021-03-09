@@ -19,18 +19,22 @@ The retail assistant or vacation planner can help your customers have interactio
 
 ## Components
 
-Key technologies used to implement this architecture:
-
-* [Azure App Service](https://azure.microsoft.com/services/app-service)
-* [Azure Bot Service](https://azure.microsoft.com/services/bot-service)
-* [Azure Cognitive Services Language Understanding](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service)
+* [Azure App Service](/azure/app-service/)
+* [Azure Bot Service](/azure/bot-service/)
+* [Azure Cognitive Services Language Understanding](/azure/cognitive-services/luis/what-is-luis)
 * [Azure Bing Visual Search API](/azure/cognitive-services/bing-visual-search)
 * [Azure Custom Search API](/azure/cognitive-services/bing-custom-search)
 
-## Next Steps
+## Next steps
 
 * [Artificial intelligence (AI) - Architectural overview](../../data-guide/big-data/ai-overview.md)
 * [Choosing a Microsoft cognitive services technology](../../data-guide/technology-choices/cognitive-services.md)
+
+## Related resources
+
+* [Commerce Chatbot](/azure/architecture/reference-architectures/ai/commerce-chatbot)
+* [Product recommendations for retail using Azure](/azure/architecture/reference-architectures/ai/product-recommendations)
+* [Visual Assistant](/azure/architecture/reference-architectures/ai/visual-assistant)
 * [What are Azure Cognitive Services?](/azure/cognitive-services/what-are-cognitive-services)
 * [What is Language Understanding (LUIS)?](/azure/cognitive-services/luis/what-is-luis)
 * [What is the Azure Bing Search API?](/azure/cognitive-services/bing-web-search)

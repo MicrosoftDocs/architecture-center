@@ -22,26 +22,28 @@ Visual assistant provides rich information based on content of the image with ca
 
 ## Components
 
-* [Azure App Service](https://azure.microsoft.com/services/app-service/): A fully managed HTTP-based service for hosting web apps, REST APIs and mobile backends
-* [Azure Bot Service](https://azure.microsoft.com/services/bot-services/): Develop intelligent, enterprise-grade bots that enrich your customer experience, all while maintaining control of your data
-* [Bing Custom Search](https://www.customsearch.ai/): Build customized search that fits your business needs with Bing's powerful ranking and global-scale search index
-* [Bing Entity Search](https://www.microsoft.com/bing/apis/bing-entity-search-api): Infuse a deep knowledge search into your existing content by identifying the most relevant
-* [Bing Visual Search](/azure/cognitive-services/bing-visual-search/overview): Find visual insights from your images
-* [Bing Web Search](https://www.microsoft.com/bing/apis/bing-web-search-api): Bring intelligent search to your apps and harness the ability to comb through billions of webpages, images, videos and news, all with a single API call
-* [Language Understanding Intelligence Service (LUIS)](https://www.luis.ai/): Build natural language into apps, bots and IoT devices
+* [Azure App Service](/azure/app-service/): A fully managed HTTP-based service for hosting web apps, REST APIs and mobile backends
+* [Azure Bot Service](/azure/bot-service/): Develop intelligent, enterprise-grade bots that enrich your customer experience, all while maintaining control of your data
+* [Bing Custom Search](/bing/search-apis/bing-custom-search/overview): Build customized search that fits your business needs with Bing's powerful ranking and global-scale search index
+* [Bing Entity Search](/bing/search-apis/bing-entity-search/overview): Infuse a deep knowledge search into your existing content by identifying the most relevant
+* [Bing Visual Search](/bing/search-apis/bing-visual-search/overview): Find visual insights from your images
+* [Bing Web Search](/bing/search-apis/bing-web-search/overview): Bring intelligent search to your apps and harness the ability to comb through billions of webpages, images, videos and news, all with a single API call
+* [Language Understanding Intelligence Service (LUIS)](/azure/cognitive-services/luis/what-is-luis): Build natural language into apps, bots and IoT devices
 
 ## Next steps
 
 * Let your app detect context that matters to you by training your own [Custom Vision model](/azure/cognitive-services/custom-vision-service/quickstarts/object-detection)
-* Explore the [Bing family of search APIs](/bing/search-apis/bing-web-search/bing-api-comparison) to get started
-* Look through [Bing Search API documentation](/azure/cognitive-services/bing-web-search/) for the reference REST API material
+* Explore the [Bing family of search APIs](/bing/search-apis/bing-web-search/bing-api-comparison)
 * [Build in LUIS into your Bot](/azure/bot-service/bot-builder-howto-v4-luis)
-
-## Recommended resources
-
 * Explore how LUIS works in this [Learn Module](/learn/modules/create-language-model-with-language-understanding/)
-* [Create a LUIS app in Azure](/learn/modules/create-and-publish-a-luis-model/)
 * Learn how to build with [Azure Bot Service](/learn/modules/build-faq-chatbot-qna-maker-azure-bot-service/)
 * Create a Bot that incorporates [both QnA Maker and Azure Bot Service](/learn/paths/create-bots-with-the-azure-bot-service/)
 * Solidify your understanding of LUIS, Azure Bot Service and Bing Visual Search with [Microsoft Certified: AI Fundamentals](/learn/certifications/exams/ai-900)
-* Use your SME knowledge in Azure Cognitive Services and [become an Azure AI Engineer](/learn/certifications/exams/ai-100)
+* Use your knowledge in Azure Cognitive Services and [become a Microsoft Certified: Azure AI Engineer Associate](/learn/certifications/azure-ai-engineer/)
+
+## Recommended resources
+
+* [Artificial intelligence (AI) - Architectural overview](../../data-guide/big-data/ai-overview.md)
+* [Image classification on Azure](/azure/architecture/solution-ideas/articles/example-scenario/ai/intelligent-apps-image-processing)
+* [Interactive Voice Response Bot](/azure/architecture/solution-ideas/articles/interactive-voice-response-bot)
+* [Retail Assistant with Visual Capabilities](/azure/architecture/solution-ideas/articles/retail-assistant-or-vacation-planner-with-visual-capabilities)

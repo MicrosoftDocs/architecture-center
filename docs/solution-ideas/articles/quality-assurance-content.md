@@ -13,40 +13,39 @@ This solution shows how to predict failures using the example of manufacturing p
 *Download an [SVG](../media/quality-assurance.svg) of this architecture.*
 
 ### Data Flow
+
 1. Source system event generator streams data into Azure Event Hub
 2. Event Hub uses Capture to send raw event to Data Lake
 3. A Stream Analytics Job read real-time data from Event Hub
 4. A Stream Analytics Job calls ML model in Azure Machine Learning to predict failure/defect
 5. A Stream Analytics Job sends stream aggregations to Power BI real-time dashboard for operations
 6. A Stream Analytics Job pushes the processed real-time data into Azure Synapse SQL Pool
-7. A Logic Apps sends alerts from streaming data into mobil phone 
-
+7. A Logic Apps sends alerts from streaming data into mobil phone
+8. Power BI is used for results visualization
 
 ### Components
-* [Event Hubs](https://azure.microsoft.com/services/event-hubs) ingests assembly line events and passes them on to Stream Analytics and an Azure ML Web Service.
-* [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics): Stream Analytics accepts the input stream from Event Hubs, calls an Azure ML Web Service to do predictions, and sends the stream to Azure Synapse and Power BI and Logic Apps for alerts.
-* [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning): Machine Learning helps you design, test, operationalize, and manage predictive analytics solutions in the cloud and deploy web 
+
+* [Event Hubs](/azure/event-hubs/) ingests assembly line events and passes them on to Stream Analytics and an Azure ML Web Service.
+* [Azure Stream Analytics](/azure/stream-analytics/): Stream Analytics accepts the input stream from Event Hubs, calls an Azure ML Web Service to do predictions, and sends the stream to Azure Synapse and Power BI and Logic Apps for alerts.
+* [Azure Machine Learning](/azure/machine-learning/): Machine Learning helps you design, test, operationalize, and manage predictive analytics solutions in the cloud and deploy web
 services that can be called by Stream Analytics.
-* [Storage Accounts](https://azure.microsoft.com/services/storage): Azure Storage stores raw events stream data from Event Hub and serves for long term data persistance.
-* [Logic Apps](https://azure.microsoft.com/services/logic-apps): Sends alerts generated from the streaming data into operator device
-* [Synapse Analytics](https://azure.microsoft.com/en-us/services/synapse-analytics/): Store relational data for ad-hoc and planned analytical processing and user analytical queries
-* [Power BI](https://powerbi.microsoft.com/pricing): visualizes real-time operational dashboards and also servers for analytical reports.
+* [Storage Accounts](/azure/storage/): Azure Storage stores raw events stream data from Event Hub and serves for long term data persistance.
+* [Logic Apps](/azure/logic-apps/): Sends alerts generated from the streaming data into operator device
+* [Synapse Analytics](/azure/synapse-analytics/): Store relational data for ad-hoc and planned analytical processing and user analytical queries
+* [Power BI](/power-bi/create-reports/): visualizes real-time operational dashboards and also servers for analytical reports.
 
 ## Alternatives
-- Depending on the scenario the basic architecture can be simplified by removing batch layer - removing Storage for raw events and Azure Synapse for relational data
 
-- [Azure SQL Database](/azure/sql-database/) is a managed relational database-as-a service. Depending on you data volumes and access patterns you may choose Azure SQL Database.
-
-- [Azure Functions](/azure/azure-functions/functions-overviews) provides an effective serverless approach if the workload architecture is centered around fine grained distributed components, requiring minimal dependencies, where individual components are only required to run on demand (not continuously) and orchestration of components is not required.
-
-- [IoT Hub](/azure/iot-hub/about-iot-hub) acts as a central message hub for secure bi-directional communication with per-device identity between the cloud platform and the construction equipment and other site elements. IoT Hub can rapidly collect data for each device for ingestion into the data analytics pipeline.
-
+* Depending on the scenario the basic architecture can be simplified by removing batch layer - removing Storage for raw events and Azure Synapse for relational data
+* [Azure SQL Database](/azure/sql-database/) is a managed relational database-as-a service. Depending on you data volumes and access patterns you may choose Azure SQL Database.
+* [Azure Functions](/azure/azure-functions/functions-overviews) provides an effective serverless approach if the workload architecture is centered around fine grained distributed components, requiring minimal dependencies, where individual components are only required to run on demand (not continuously) and orchestration of components is not required.
+* [IoT Hub](/azure/iot-hub/about-iot-hub) acts as a central message hub for secure bi-directional communication with per-device identity between the cloud platform and the construction equipment and other site elements. IoT Hub can rapidly collect data for each device for ingestion into the data analytics pipeline.
 
 ## Considerations
 
 ### Scalability
 
-The majority of the components used in this example scenario are managed services that scaling based on your current scenario needs. 
+The majority of the components used in this example scenario are managed services that scaling based on your current scenario needs.
 
 For general guidance on designing scalable solutions, see the [performance efficiency checklist][scalability] in the Azure Architecture Center.
 
@@ -62,21 +61,26 @@ All of the components in this scenario are managed, so at a regional level they 
 
 For general guidance on designing resilient solutions, see [Designing resilient applications for Azure][resiliency].
 
+## Next steps
+
+* [Build a serverless web app in Azure][serverless]
+* [Learn how to Create Predictive models on Azure](/learn/paths/create-no-code-predictive-models-azure-machine-learning/)
+* [Learn how to Implement a Data Streaming Solution with Azure Streaming Analytics](/learn/paths/implement-data-streaming-with-asa/)
+* [Quality Assurance Workshop](https://github.com/Azure/iot-workshop-quality-assurance)
+
 ## Related resources
 
-For a guided learning path, see:
-* [Build a serverless web app in Azure][serverless].
-* [Learn how to Implement a Data Streaming Solution with Azure Streaming Analytics](https://docs.microsoft.com/en-us/learn/paths/implement-data-streaming-with-asa/)
-* [Quality Assurance Workshop](https://github.com/Azure/iot-workshop-quality-assurance)
-* [Learn how to Create Predictive models on Azure](https://docs.microsoft.com/en-us/learn/paths/create-no-code-predictive-models-azure-machine-learning/)
-
+* [Artificial intelligence (AI) - Architectural overview](../../data-guide/big-data/ai-overview.md)
+* [Azure Machine Learning documentation](/azure/machine-learning/)
+* [Defect prevention with predictive maintenance](/azure/architecture/reference-architectures/ai/defect-prevention-with-predictive-maintenance)
+* [Predictive Maintenance](/azure/architecture/reference-architectures/ai/predictive-maintenance)
 
 <!-- links -->
 [architecture]: ./media/architecture-intelligent-apps-image-processing.png
 [small-pricing]: https://azure.com/e/ee2cac4c69e84a328b578fcd3a398653
 [medium-pricing]: https://azure.com/e/7c7fc474db344b87aae93bc29ae27108
 [large-pricing]: https://azure.com/e/cbadbca30f8640d6a061f8457a74ba7d
-[serverless]: https://docs.microsoft.com/en-us/learn/paths/create-serverless-applications/
+[serverless]: /learn/paths/create-serverless-applications/
 [cv-categories]: /azure/cognitive-services/computer-vision/category-taxonomy
 [resiliency]: ../../framework/resiliency/overview.md
 [security]: /azure/security
