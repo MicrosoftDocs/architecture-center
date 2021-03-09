@@ -40,7 +40,7 @@ To make sure that the security posture doesn’t degrade over time, have regular
 
 Monitor the security posture of VMs, networks, storage, data services, and various other contributing factors. [Secure Score](/azure/security-center/secure-score-security-controls) in Azure Security Center shows a composite score that represents the security posture at the subscription level. 
 
-![Azure secure score](images/secure-score-tile.png)
+![Azure secure score overview](images/secure-score-tile.png)
 
 View the recommendations to see potential security issues, such as internet connected VMs, or missing security updates, missing endpoint protection or encryption, and more.
 
