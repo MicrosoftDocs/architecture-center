@@ -14,11 +14,9 @@ Considering and improving how software is developed, deployed, operated, and mai
 
 To assess your workload using the tenets found in the Azure Well-Architected Framework, see the [Microsoft Azure Well-Architected Review](/assessments/?id=azure-architecture-review&mode=pre-assessment).
 
-**DevOps methodologies**
+<a id="methodologies">**DevOps methodologies**</a>
 
 The contraction of "Dev" and "Ops" refers to replacing siloed Development and Operations to create multidisciplinary teams that now work together with shared and efficient practices and tools. Essential DevOps practices include agile planning, continuous integration, continuous delivery, and monitoring of applications.
-
-**Separation of roles**
 
 <a id="roles">**Separation of roles**</a>
 
@@ -34,11 +32,11 @@ It is crucial to understand how operations and development teams collaborate to 
 
 The goal of workload isolation is to associate an application's specific resources to a team to independently manage all aspects of those resources.
 
-**Operational lifecycles**
+<a id="lifecycles">**Operational lifecycles**</a>
 
 Reviewing operational incidents where the response and remediation to issues either failed or could have been optimized is vital to improving overall operational effectiveness. Failures provide a valuable learning opportunity, and in some cases, these learnings can also be shared across the entire organization. Finally, Operational procedures should be updated based on outcomes from frequent testing.
 
-**Operational metadata**
+<a id="metadata">**Operational metadata**</a>
 
 Azure Tags provide the ability to associate critical metadata as a name-value pair, such as billing information (e.g., cost center code), environment information (e.g., environment type), with Azure resources, resource groups, and subscriptions. See Tagging Strategies for best practices.
 
