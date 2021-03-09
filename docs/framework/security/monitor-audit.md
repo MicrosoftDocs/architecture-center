@@ -50,7 +50,8 @@ There might be some resources that may not get remediated as the Azure Platform 
 
 ## Evaluate using standard benchmarks
 
-Do you evaluate the security posture of this workload using standard benchmarks?
+**Do you evaluate the security posture of this workload using standard benchmarks?**
+***
 
 Benchmarking enables security program improvement by learning from external organizations. It lets the organization know how its current security state compares to that of other organizations. As an example, the Center for Internet Security (CIS) has created security benchmarks for Azure that map to the CIS Control Framework. Another reference example is the MITRE ATT&CK™ framework that defines the various adversary tactics and techniques based on real-world observations.
 
