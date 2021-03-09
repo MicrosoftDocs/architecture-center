@@ -18,7 +18,9 @@ To assess your workload using the tenets found in the Azure Well-Architected Fra
 
 The contraction of "Dev" and "Ops" refers to replacing siloed Development and Operations to create multidisciplinary teams that now work together with shared and efficient practices and tools. Essential DevOps practices include agile planning, continuous integration, continuous delivery, and monitoring of applications.
 
-[**Separation of roles**](#roles)
+**Separation of roles**
+
+<a id="roles">**Separation of roles**</a>
 
 A DevOps model positions the responsibility of operations with developers. Still, many organizations do not fully embrace DevOps and maintain some degree of team separation between operations and development, either to enforce clear segregation of duties for regulated environments or to share operations as a business function.
 
