@@ -8,6 +8,7 @@ The Anomaly Detector API enables you to monitor and detect abnormalities in your
 ## Architecture
 
 ![Architecture diagram](../media/anomaly-detector.png)
+
 *Download an [SVG](../media/anomaly-detector.svg) of this architecture.*
 
 ## Data Flow
