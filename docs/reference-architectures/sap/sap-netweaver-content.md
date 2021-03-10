@@ -1,8 +1,6 @@
 
 <!-- cSpell:ignore lbrader netweaver jump-box jump-boxes ACLs HANA SOFS SWDs SMLG ABAP SAPGUI SAPGUIs SPOF WSFC ASCS MSEE Iperf SIOS sapmnt -->
 
-# SAP Netweaver on Windows
-
 This reference architecture shows a set of proven practices for running SAP NetWeaver in a Windows environment on Azure with high availability. The database is AnyDB, the SAP term for any supported database management system (DBMS) besides SAP HANA.
 
 The first diagram describes SAP Netweaver in a Windows environment in an Availability Set model using Azure NetApp files for the Shared Files layer and Proximity Placement Group for improved performance:
