@@ -123,7 +123,7 @@ For more information, refer to [Configure Azure Storage firewalls and virtual ne
 
 - [How to create an NFS share](/azure/storage/files/storage-files-how-to-create-nfs-shares) for instructions on getting started with a NFS mount share.
 
-- [Create an FCI with a premium file share](/azure/azure-sql/virtual-machines/windows/failover-cluster-instance-premium-file-share-manually-configure) documentation on creating a FCI with SQL Server on Azure VM.
+- [Enable and create large file shares](/azure/storage/files/storage-files-how-to-create-large-file-share) documentation on creating large file shares upto 100 TiB.
 
 [architectural-diagram]: ./images/azure-file-share.png
 [architectural-diagram-visio-source]: https://arch-center.azureedge.net/azure-file-share.vsdx
