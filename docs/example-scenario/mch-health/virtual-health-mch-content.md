@@ -75,11 +75,17 @@ Since the system is built around patient data, basic security considerations for
 
 This example relies on the security rules set by Dynamics 365 as well as Teams:
 
-- Dynamics 365 security (TBD link)
-- Microsoft Teams security (TBD link)
-- Power Apps security (TBD link)
+- [Dynamics 365 security](https://docs.microsoft.com/learn/modules/recognize-dynamics-365-security/)
+- [Microsoft Teams security](https://docs.microsoft.com/microsoftteams/security-compliance-overview)
 
-For additional security controls, consider using Azure Active Directory and role-based access control. (TBD links)
+In addition, individual services packaged under the MCH bundle provide their own layer of security and compliance:
+
+- [Power Platform compliance and data privacy](https://docs.microsoft.com/power-platform/admin/wp-compliance-data-privacy)
+- [Dataverse security](https://docs.microsoft.com/power-platform/admin/wp-security)
+
+For custom security controls, consider using [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis) and [role-based access control](https://docs.microsoft.com/azure/role-based-access-control/best-practices).
+
+When implementing this solution, keep in mind the [best practices and guidance for Azure security](https://docs.microsoft.com/azure/security/fundamentals/overview).
 
 ## Scalability considerations
 
