@@ -57,18 +57,18 @@ The Astadia and Micro Focus pattern supports several options to move client work
 
 This diagram shows the components that Unisys Sperry OS 1100/2200 mainframe systems typically contain.
 
-:::image type="complex" source="./media/logic-apps-data-integration.png" alt-text="Architecture diagram showing how to use Logic Apps to respond to A P I calls by updating or accessing S Q L Server." border="false":::
+:::image type="complex" source="./media/migrate-unisys-dorado-mainframe-apps-original-architecture.png" alt-text="Architecture diagram showing how to use Logic Apps to respond to A P I calls by updating or accessing S Q L Server." border="false":::
    The diagram contains two boxes, one for Azure components, and one for on-premises components. Outside the Azure box is a data file labeled J S O N. An arrow points from the J S O N file into an A P I Management icon that's inside the Azure box. A second arrow points from the A P I Management icon to a Logic Apps icon that's also inside the Azure box. A third arrow points from the Logic Apps icon to an on-premises data gateway icon that's between the two boxes. A fourth arrow points from the gateway to a SQL Server icon that's inside the on-premises box. A final arrow points from the SQL Server icon to a person outside the on-premises box.
 :::image-end:::
 
 - On-premises users interact with the mainframe (**A**):
 
-  - Admin users interact through UTS Terminal Emulator.
+  - Admin users interact through a UTS terminal emulator.
   - Web interface users interact via a web browser over TLS 1.3 port 443.
 
-  Mainframes use communication standards like IPv4, IPv6, SSL/TLS, Telnet, FTP, and Sockets. In Azure, web browsers replace legacy terminal emulation. On-demand and online users access system resources through these web browsers.
+  Mainframes use communication standards like IPv4, IPv6, SSL/TLS, Telnet, FTP, and sockets. In Azure, web browsers replace legacy terminal emulation. On-demand and online users access system resources through these web browsers.
 
-- Mainframe applications are in COBOL, Fortran, C, MASM, SSG, UCOBOL, and ECL (**B**). In Azure, Micro Focus COBOL recompiles COBOL and other legacy application code to .NET. Micro Focus can also maintain and reprocess original base code whenever that code changes. This architecture doesn't require any changes in the original source code.
+- Mainframe applications are in COBOL, Fortran, C, MASM, SSG, PASCAL, UCOBOL, and ECL (**B**). In Azure, Micro Focus COBOL recompiles COBOL and other legacy application code to .NET. Micro Focus can also maintain and reprocess original base code whenever that code changes. This architecture doesn't require any changes in the original source code.
 
 - Mainframe batch and transaction loads run on application servers (**C**). For transactions, these servers use Transaction Interface Packages (TIPs) or High Volume TIPs (HVTIPs). In the new architecture:
 
@@ -78,9 +78,9 @@ This diagram shows the components that Unisys Sperry OS 1100/2200 mainframe syst
 
 - A dedicated server handles workload automation, scheduling, reporting, and system monitoring (**D**). These functions retain the same platforms in Azure.
 
-- A printer subsystem (**E**) manages on-premises printers.
+- A printer subsystem manages on-premises printers.
 
-- Database management systems (**F**) follow the eXtended Architecture (XA) specification. Mainframes use relational database systems like RDMS and network-based database systems like DMS II and DMS. The new architecture migrates legacy database structures to Azure SQL Database, which provides DR and HA capabilities.
+- Database management systems (**E**) follow the eXtended Architecture (XA) specification. Mainframes use relational database systems like RDMS and network-based database systems like DMS II and DMS. The new architecture migrates legacy database structures to Azure SQL Database, which provides DR and HA capabilities.
 
 F.)	File structures (CIFS, flat files, virtual tape, etc.) map easily to Azure data constructs within structured files and/or blob storage.  Azure Data Factory can be utilized to provide a modern PaaS data transformation service and fully integrate with this architecture pattern.
 
