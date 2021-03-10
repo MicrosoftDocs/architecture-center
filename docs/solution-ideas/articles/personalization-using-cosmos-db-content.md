@@ -22,20 +22,24 @@ Generate personalized recommendations for customers in real time, using low-late
 
 This architecture includes the following components:
 
-[Azure Web App](https://docs.microsoft.com/en-us/azure/app-service/overview)
+[**Azure Web App**](https://docs.microsoft.com/en-us/azure/app-service/overview)-
+Azure App Service is an HTTP-based service for hosting web applications, REST APIs, and mobile back ends. You can develop in your favorite language, be it .NET, .NET Core, Java, Ruby, Node.js, PHP, or Python. Applications run and scale with ease on both Windows and Linux-based environments.
 
-[Azure Cosmos DB](https://docs.microsoft.com/en-us/azure/cosmos-db/introduction) 
+[**Azure Cosmos DB**](https://docs.microsoft.com/en-us/azure/cosmos-db/introduction)- 
+Azure Cosmos DB is a multiple model database that can serve data elastically at a massive scale. Azure Cosmos DB was designed for applications that are globally distributed in a multi-write model.
 
-[Azure Conatiner Instances](https://docs.microsoft.com/en-us/azure/container-instances/container-instances-overview)
+[**Azure Conatiner Instances**](https://docs.microsoft.com/en-us/azure/container-instances/container-instances-overview)-
+Azure Container Instances runs containers on-demand in a serverless Microsoft Azure environment. Azure Container Instances is a low-friction method of running containers that doesn't require a full Docker host or Kubernetes installation.
 
-[Azure DataBricks](https://docs.microsoft.com/en-us/azure/databricks/)
+[**Azure DataBricks**](https://docs.microsoft.com/en-us/azure/databricks/)-
+Azure Databricks is a data analytics platform optimized for the Microsoft Azure cloud services platform. Azure Databricks offers two environments for developing data intensive applications: Azure Databricks SQL Analytics and Azure Databricks Workspace.
 
 **Next Steps**
 
-[What is Azure Web App](https://docs.microsoft.com/en-us/azure/app-service/overview)
+[Basic Web App Azure Reference Architecture](https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/app-service-web-app/basic-web-app?tabs=cli)
 
-[Welcome to Azure Cosmos DB](https://docs.microsoft.com/en-us/azure/cosmos-db/introduction) 
+[Common Azure Cosmos DB Use Cases](https://docs.microsoft.com/en-us/azure/cosmos-db/use-cases) 
 
 [What is Azure Conatiner Instances](https://docs.microsoft.com/en-us/azure/container-instances/container-instances-overview)
 
-[Welcome to Azure DataBricks](https://docs.microsoft.com/en-us/azure/databricks/)
+[Stream Processing with Azure DataBricks](https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/data/stream-processing-databricks)
