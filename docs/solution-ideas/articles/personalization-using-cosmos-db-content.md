@@ -22,18 +22,20 @@ Generate personalized recommendations for customers in real time, using low-late
 
 This architecture includes the following components:
 
-Azure Web App 
+[Azure Web App](https://docs.microsoft.com/en-us/azure/app-service/overview)
 
-Azure Cosmos DB 
+[Azure Cosmos DB](https://docs.microsoft.com/en-us/azure/cosmos-db/introduction) 
 
-Azure Conatiner Instances
+[Azure Conatiner Instances](https://docs.microsoft.com/en-us/azure/container-instances/container-instances-overview)
 
-Azure DataBricks
+[Azure DataBricks](https://docs.microsoft.com/en-us/azure/databricks/)
 
 **Next Steps**
 
-Welcome to Azure Cosmos DB: https://docs.microsoft.com/en-us/azure/cosmos-db/introduction
+[What is Azure Web App](https://docs.microsoft.com/en-us/azure/app-service/overview)
 
-Azure Container Instances: https://docs.microsoft.com/en-us/azure/container-instances/container-instances-overview
+[Welcome to Azure Cosmos DB](https://docs.microsoft.com/en-us/azure/cosmos-db/introduction) 
 
-Azure Web App: https://docs.microsoft.com/en-us/azure/app-service/overview
+[What is Azure Conatiner Instances](https://docs.microsoft.com/en-us/azure/container-instances/container-instances-overview)
+
+[Welcome to Azure DataBricks](https://docs.microsoft.com/en-us/azure/databricks/)
