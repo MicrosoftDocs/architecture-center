@@ -1722,13 +1722,13 @@ items:
               - name: Hybrid file services
                 href: hybrid/hybrid-file-services.yml
           - name: Solution ideas
+            items:
               - name: Media rendering
                 href: solution-ideas/articles/azure-batch-rendering.yml
               - name: Medical data storage
                 href: solution-ideas/articles/medical-data-storage.yml
               - name: HIPAA/HITRUST Health Data and AI
                 href: solution-ideas/articles/security-compliance-blueprint-hipaa-hitrust-health-data-ai.yml
-            items:
       - name: Web
         items:
           - name: Architectures
