@@ -1,14 +1,23 @@
-[from Theano's article]: Unisys ClearPath mainframe systems are full-featured operating environments that can scale up vertically to handle mission critical workloads. ClearPath mainframe models include Dorado, running Legacy Sperry 1100/2200, and Libra, running Legacy Burroughs A Series/MCP. Emulating, converting, or modernizing these systems into Azure can provide similar or better performance and SLA guarantees, while taking advantage of Azure flexibility, reliability, and future capabilities.
+Unisys Dorado mainframe systems are full-featured operating environments that can scale up vertically to handle mission-critical workloads. But emulating or modernizing these systems into Azure can provide similar or better performance and SLA guarantees. Azure systems also offer added flexibility, reliability, and future capabilities.
 
-The Unisys Dorado Mainframe system comprises of several key components which provide the power and ability to scale up vertically to handle mission critical workloads.  Nevertheless, these components can be either be emulated or modernized into Azure and obtain very similar or even improved performance and SLA guarantees.
-This architecture illustrates an example utilizing emulation technologies from two Microsoft Partners, Astadia and Micro Focus.  This approach allows an accelerated move into Azure without rewriting all the application code and redesigning the data architecture from Network-based to Relational-based.  Further, if desired, the application screens and interactions can be virtually unchanged, minimizing the need for end user retraining.
+This architecture uses emulation technologies from two Microsoft partners, Astadia and Micro Focus. The solution provides an accelerated way to move to Azure because there's no need to:
+
+- Rewrite application code.
+- Redesign data architecture or switch from a network-based to a relational-based model.
+- Change application screens. Retaining original user experiences minimizes the need for end-user retraining.
 
 ## Potential use cases
 
-The Astadia and Micro Focus pattern supports several options to move client workloads to Azure:
+Many cases can benefit from the Astadia and Micro Focus pattern:
 
-- Original source code, such as COBOL, on a Unisys Dorado mainframe system cannot be modified due to compliance factors, prohibitive costs, complexity, or other considerations.
-- As a bridge to re-engineering workload modernization, this pattern can provide a “lift-and-shift” of the application layer source code, while providing modern PaaS services and capabilities such as Azure SQL Database with built-in high availability and Azure Data Factory for automated, server-less file routing and transformations.
+- Businesses with Unisys Dorado mainframe systems that can't modify original source code, such as COBOL, due to compliance factors, prohibitive costs, complexity, or other considerations.
+- Organizations looking for approaches to modernizing workloads that offer:
+
+  - A way to lift and shift application layer source code.
+  - Modern platform as a service (PaaS) services and capabilities, including:
+
+    - Azure SQL Database with its built-in high availability.
+    - Azure Data Factory with its automated, server-less file routing and transformation.
 
 ## Architecture
 
@@ -51,9 +60,7 @@ The Astadia and Micro Focus pattern supports several options to move client work
 
 1. Azure Site Recovery provides disaster recovery capabilities. This service mirrors the VMs to a secondary Azure region for quick failover in the rare case of an Azure datacenter failure.
 
-
-
-
+### Legacy architecture
 
 This diagram shows the components that Unisys Sperry OS 1100/2200 mainframe systems typically contain.
 
@@ -82,22 +89,25 @@ This diagram shows the components that Unisys Sperry OS 1100/2200 mainframe syst
 
 - Database management systems (**E**) follow the eXtended Architecture (XA) specification. Mainframes use relational database systems like RDMS and network-based database systems like DMS II and DMS. The new architecture migrates legacy database structures to Azure SQL Database, which provides DR and HA capabilities.
 
-F.)	File structures (CIFS, flat files, virtual tape, etc.) map easily to Azure data constructs within structured files and/or blob storage.  Azure Data Factory can be utilized to provide a modern PaaS data transformation service and fully integrate with this architecture pattern.
-
-
-
+- Mainframe file structures like CIFS, flat files, and virtual tape map easily to Azure data constructs within structured files or blob storage (**F**). Azure Data Factory provides a modern PaaS data transformation service that fully integrates with this architecture pattern.
 
 ### Components
 
 This architecture uses the following components:
 
+- [Azure VMs][What is a virtual machine?] are on-demand, scalable computing resources. An Azure VM provides the flexibility of virtualization but eliminates the maintenance demands of physical hardware.
 
+- [Virtual Network][What is Azure Virtual Network?] is the fundamental building block for private networks in Azure. Through Virtual Network, Azure resources like virtual machines (VMs) can securely communicate with each other, the internet, and on-premises networks. An Azure virtual network is like a traditional network operating in a datacenter. But an Azure virtual network also provides scalability, availability, isolation, and other benefits of Azure's infrastructure.
 
-### Alternatives
+- [Azure Virtual Network interface cards][Create, change, or delete a network interface] provide a way for VMs to communicate with the internet, Azure, and on-premises resources. As this architecture shows, you can add additional network interface cards to the same VM. With this setup, the Solaris child VMs can have their own dedicated network interface device and IP address.
 
-A few alternatives exist for this solution:
+- [Azure SSD managed disks][Introduction to Azure managed disks] are block-level storage volumes that Azure manages. VMs use these disks. Available types include ultra disks, premium solid-state drives (SSD), standard SSDs, and standard hard disk drives (HDD). Premium SSDs or Ultra Disk SSDs work best with this architecture.
 
+- [Azure Files][What is Azure Files?] is a service that's part of [Azure Storage][Introduction to the core Azure Storage services]. Azure Files offers fully managed file shares in the cloud. Azure file shares are accessible via the industry standard Server Message Block (SMB) protocol. You can mount these file shares concurrently by cloud or on-premises deployments. Windows, Linux, and macOS clients can access these file shares.
 
+- [Azure ExpressRoute][What is Azure ExpressRoute?] extends on-premises networks into the Microsoft cloud. By using a connectivity provider, ExpressRoute establishes private connections to Microsoft cloud services like Microsoft Azure and Microsoft 365.
+
+- [Azure SQL Database][What is Azure SQL Database?] is a fully managed platform as a service (PaaS) database engine. With AI-powered, automated features, Azure SQL Database handles database management functions like upgrading, patching, backups, and monitoring. Azure SQL Database offers 99.99 percent availability and runs on the latest stable version of the SQL Server database engine and patched operating system. Because Azure SQL Database offers built-in PaaS capabilities, you can focus on domain-specific database administration and optimization activities that are critical for your business.
 
 ## Considerations
 
@@ -122,6 +132,31 @@ To adjust the parameters and explore the cost of running this solution in your e
 
 ## Next steps
 
-[see some in original doc]
+- Contact [legacy2azure@microsoft.com][Email address for information on migrating legacy systems to Azure] for more information.
+- See the [Azure Friday tech talk with Astadia on mainframe modernization][Azure is the new mainframe].
 
 ## Related resources
+
+- [Mainframe rehosting on Azure virtual machines][Mainframe rehosting on Azure virtual machines]
+- Related reference architectures:
+
+  - [Unisys mainframe migration to Azure using Asysco][Unisys mainframe migration]
+  - [Micro Focus Enterprise Server on Azure VMs][Micro Focus Enterprise Server on Azure VMs]
+  - [Modernize mainframe & midrange data][Modernize mainframe & midrange data]
+  - [Migrate IBM mainframe applications to Azure with TmaxSoft OpenFrame][Migrate IBM mainframe applications to Azure with TmaxSoft OpenFrame]
+
+[Azure is the new mainframe]: https://channel9.msdn.com/Shows/Azure-Friday/Azure-is-the-new-mainframe/
+[Create, change, or delete a network interface]: /azure/virtual-network/virtual-network-network-interface
+[Email address for information on migrating legacy systems to Azure]: mailto:legacy2azure@microsoft.com
+[Introduction to Azure managed disks]: /azure/virtual-machines/managed-disks-overview
+[Introduction to the core Azure Storage services]: /azure/storage/common/storage-introduction
+[Mainframe rehosting on Azure virtual machines]: /azure/virtual-machines/workloads/mainframe-rehosting/overview
+[Micro Focus Enterprise Server on Azure VMs]: azure/architecture/example-scenario/mainframe/micro-focus-server
+[Migrate IBM mainframe applications to Azure with TmaxSoft OpenFrame]: /azure/architecture/solution-ideas/articles/migrate-mainframe-apps-with-tmaxsoft-openframe
+[Modernize mainframe & midrange data]: /azure/architecture/reference-architectures/migration/modernize-mainframe-data-to-azure
+[Unisys mainframe migration]: /azure/architecture/reference-architectures/migration/unisys-mainframe-migration
+[What is Azure ExpressRoute?]: /azure/expressroute/expressroute-introduction
+[What is Azure Files?]: /azure/storage/files/storage-files-introduction
+[What is Azure SQL Database?]: /azure/azure-sql/database/sql-database-paas-overview
+[What is Azure Virtual Network?]: /azure/virtual-network/virtual-networks-overview
+[What is a virtual machine?]: https://azure.microsoft.com/overview/what-is-a-virtual-machine/
