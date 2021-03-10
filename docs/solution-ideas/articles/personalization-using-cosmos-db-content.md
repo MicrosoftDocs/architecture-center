@@ -28,7 +28,7 @@ Azure App Service is an HTTP-based service for hosting web applications, REST AP
 [**Azure Cosmos DB**](https://docs.microsoft.com/en-us/azure/cosmos-db/introduction)- 
 Azure Cosmos DB is a multiple model database that can serve data elastically at a massive scale. Azure Cosmos DB was designed for applications that are globally distributed in a multi-write model.
 
-[**Azure Conatiner Instances**](https://docs.microsoft.com/en-us/azure/container-instances/container-instances-overview)-
+[**Azure Container Instances**](https://docs.microsoft.com/en-us/azure/container-instances/container-instances-overview)-
 Azure Container Instances runs containers on-demand in a serverless Microsoft Azure environment. Azure Container Instances is a low-friction method of running containers that doesn't require a full Docker host or Kubernetes installation.
 
 [**Azure DataBricks**](https://docs.microsoft.com/en-us/azure/databricks/)-
@@ -39,7 +39,5 @@ Azure Databricks is a data analytics platform optimized for the Microsoft Azure 
 [Basic Web App Azure Reference Architecture](https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/app-service-web-app/basic-web-app?tabs=cli)
 
 [Common Azure Cosmos DB Use Cases](https://docs.microsoft.com/en-us/azure/cosmos-db/use-cases) 
-
-[What is Azure Conatiner Instances](https://docs.microsoft.com/en-us/azure/container-instances/container-instances-overview)
 
 [Stream Processing with Azure DataBricks](https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/data/stream-processing-databricks)
