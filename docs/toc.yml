@@ -1421,6 +1421,8 @@ items:
             items:      
               - name: App modernization
                 items:
+                  - name: Micro Focus Enterprise Server on Azure
+                    href: example-scenario/articles/micro-focus-server.yml
                   - name: Migrate IBM applications with TmaxSoft OpenFrame
                     href: solution-ideas/articles/migrate-mainframe-apps-with-tmaxsoft-openframe.yml
                   - name: Refactor IBM z/OS mainframe CF on Azure
