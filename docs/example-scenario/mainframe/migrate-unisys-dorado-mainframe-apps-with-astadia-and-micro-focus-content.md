@@ -124,11 +124,23 @@ This architecture uses the following components:
 
 ## Pricing
 
-The following table provides cost profiles for three implementations of this architecture:
+To estimate the cost of implementing this solution, use the [Azure pricing calculator][Pricing calculator].
 
-The profiles include the following components:
+- Calculate VM needs based on your traffic hours, load, and storage requirements. This solution helps you [optimize VM costs][Virtual machines] by:
 
-To adjust the parameters and explore the cost of running this solution in your environment, use the [Azure pricing calculator][Azure pricing calculator].
+  - Turning off VMs that aren't in use.
+  - Scripting a schedule for known usage patterns.
+
+- Azure services like Virtual Network, Load Balancer, and Azure Bastion are free with your Azure subscription. You pay for usage and traffic.
+- Azure Site Recovery charges per protected instance.
+- For Premium SSD or Ultra managed storage disks pricing, see [Managed Disks pricing][Managed Disks pricing].
+- With Azure Hybrid Benefit, you can use your on-premises SQL Server licenses for Azure SQL Database. For more information, see the Azure Hybrid Benefit FAQ.
+- See [Azure Private Link pricing][Azure Private Link pricing] to estimate costs associated with Private Link.
+- For costs related to ExpressRoute, see [Azure ExpressRoute pricing][Azure ExpressRoute pricing].
+- For Internet Information Services software plan charges, see [Internet Information Services pricing][Internet Information Services pricing].
+
+
+
 
 ## Next steps
 
@@ -145,18 +157,27 @@ To adjust the parameters and explore the cost of running this solution in your e
   - [Modernize mainframe & midrange data][Modernize mainframe & midrange data]
   - [Migrate IBM mainframe applications to Azure with TmaxSoft OpenFrame][Migrate IBM mainframe applications to Azure with TmaxSoft OpenFrame]
 
+[Azure ExpressRoute pricing]: https://azure.microsoft.com/pricing/details/expressroute/
+[Azure Hybrid Benefit]: https://azure.microsoft.com/pricing/hybrid-benefit/
+[Azure Hybrid Benefit FAQ]: https://azure.microsoft.com/pricing/hybrid-benefit/faq/
 [Azure is the new mainframe]: https://channel9.msdn.com/Shows/Azure-Friday/Azure-is-the-new-mainframe/
+[Azure Private Link pricing]: https://azure.microsoft.com/pricing/details/private-link/
 [Create, change, or delete a network interface]: /azure/virtual-network/virtual-network-network-interface
 [Email address for information on migrating legacy systems to Azure]: mailto:legacy2azure@microsoft.com
+[Internet Information Services pricing]: https://azuremarketplace.microsoft.com/marketplace/apps/cloudwhizsolutions.internet-information-server-with-windows-2019-cw?tab=PlansAndPrice
 [Introduction to Azure managed disks]: /azure/virtual-machines/managed-disks-overview
 [Introduction to the core Azure Storage services]: /azure/storage/common/storage-introduction
 [Mainframe rehosting on Azure virtual machines]: /azure/virtual-machines/workloads/mainframe-rehosting/overview
+[Managed Disks pricing]: https://azure.microsoft.com/pricing/details/managed-disks/
 [Micro Focus Enterprise Server on Azure VMs]: azure/architecture/example-scenario/mainframe/micro-focus-server
 [Migrate IBM mainframe applications to Azure with TmaxSoft OpenFrame]: /azure/architecture/solution-ideas/articles/migrate-mainframe-apps-with-tmaxsoft-openframe
 [Modernize mainframe & midrange data]: /azure/architecture/reference-architectures/migration/modernize-mainframe-data-to-azure
+[Pricing calculator]: https://azure.microsoft.com/pricing/calculator/
 [Unisys mainframe migration]: /azure/architecture/reference-architectures/migration/unisys-mainframe-migration
+[Virtual machines]: https://docs.microsoft.com/azure/architecture/framework/cost/optimize-vm
 [What is Azure ExpressRoute?]: /azure/expressroute/expressroute-introduction
 [What is Azure Files?]: /azure/storage/files/storage-files-introduction
 [What is Azure SQL Database?]: /azure/azure-sql/database/sql-database-paas-overview
 [What is Azure Virtual Network?]: /azure/virtual-network/virtual-networks-overview
 [What is a virtual machine?]: https://azure.microsoft.com/overview/what-is-a-virtual-machine/
+
