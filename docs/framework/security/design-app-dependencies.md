@@ -26,7 +26,7 @@ Security of an application that is hosted in Azure is a shared responsibility be
 
 During the design phase, consider the way you store secrets and handle exceptions. Here are some considerations.
 
-**Are application keys and secrets stored securely?**
+<a id="secrets">**Are application keys and secrets stored securely?**</a>
 ***
 
 Configuration within in the application can include secrets like database connection strings, certificate keys, and so on. Do not store secrets in source code or configuration files. Instead keep them in a secure store, such as Azure Key Vault. If you need to store secrets in code, identify them with static code scanning tools. Add the scanning process in your continuous integration (CI) pipeline.
