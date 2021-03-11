@@ -37,7 +37,7 @@ Follow these questions to assess the workload at a deeper level.
 | ------------- | ------------- |
 | [How will you design Azure applications to ensure reliability?](/azure/architecture/framework/resiliency/app-design) | Consider how systems use Availability Zones, perform scalability, respond to failure, and other strategies that optimize reliability in application design.
 | [What decisions have been taken to ensure that reliability requirements are met?](/azure/architecture/framework/resiliency/design-requirements) | Target and non-functional requirements such as availability and recovery targets allow you to measure the uptime and downtime of your workloads.
-| [Have you identified all possible failure points and dependencies for applications?](/azure/architecture/framework/resilirncy/design-resiliency) | Validate that the application can operate effectively in the absence of its dependencies, and minimize downtime.
+| [Have you identified all possible failure points and dependencies for applications?](/azure/architecture/framework/resiliency/design-resiliency) | Validate that the application can operate effectively in the absence of its dependencies, and minimize downtime.
 
 ## Azure services
 
