@@ -7,7 +7,9 @@ ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
 products:
-  - azure-monitor
+  - azure-security-center
+  - azure-policy
+azure-category: management-and-governance
 ms.custom:
   - article
 ---
