@@ -31,4 +31,3 @@ Key technologies used to implement this architecture:
 
 * [Asynchronous messaging options in Azure](/azure/architecture/guide/technology-choices/messaging)
 * [Caching Best Practice](/azure/architecture/best-practices/caching?toc=/azure/redis-cache/toc.json)
-* [Azure Cache for Redis Overview](/azure/azure-cache-for-redis/cache-overview)
