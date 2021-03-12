@@ -44,7 +44,7 @@ The application flow for the deep learning model is as follows:
 5. The web service created by Azure Machine Learning preprocesses the image data and sends it to the model for scoring.
 6. The predicted categories with their scores are returned to the client.
 
-## Architecture'
+## Architecture
 
 This architecture consists of the following components.
 
@@ -90,7 +90,7 @@ Use [Azure Monitor for containers][monitor-containers] to collect metrics and lo
 
 ## Security considerations
 
-Use [Azure Security Center][security-center] to get a central view of the security state of your Azure resources. Security Center monitors potential security issues and provides a comprehensive picture of the security health of your deployment, although it doesn't monitor AKS agent nodes. Security Center is configured per Azure subscription. Enable security data collection as described in [Onboard your Azure subscription to Security Center Standard][get-started]. When data collection is enabled, Security Center automatically scans any VMs created under that subscription.
+Use [Azure Security Center][security-center] to get a central view of the security state of your Azure resources. Security Center monitors potential security issues and provides a comprehensive picture of the security health of your deployment, although it doesn't monitor AKS agent nodes. Security Center is configured per Azure subscription. Enable security data collection as described in [Enable Security Center on your subscriptions][get-started]. When data collection is enabled, Security Center automatically scans any VMs created under that subscription.
 
 **Operations**. To sign in to an AKS cluster using your Azure Active Directory (Azure AD) authentication token, configure AKS to use Azure AD for [user authentication][aad-auth]. Cluster administrators can also configure Kubernetes role-based access control (Kubernetes RBAC) based on a user's identity or directory group membership.
 
@@ -130,7 +130,7 @@ For more information, see the Cost section in [Microsoft Azure Well-Architected 
 
 ## DevOps considerations
 
-In this architecture the scoring images are created by the Machine Learning model and deployed as containers on AKS. You can integrate the entire architecture into a release pipeline for model management and oprationalization, including DevOps tasks for data sanity test, model training on different compute targets, model version management, model deployment as real-time web service, staged deployment to QA/production environments, integration testing and functional testing. 
+In this architecture the scoring images are created by the Machine Learning model and deployed as containers on AKS. You can integrate the entire architecture into a release pipeline for model management and operationalization, including DevOps tasks for data sanity test, model training on different compute targets, model version management, model deployment as a real-time web service, staged deployment to QA/production environments, integration testing and functional testing. 
 The [Machine learning operationalization (MLOps) for Python models using Azure Machine Learning][mlops-ra] reference architecture shows how to implement a continuous integration (CI), continuous delivery (CD), and retraining pipeline for an AI application using Azure DevOps and Azure Machine Learning.
 
 ## Deployment
