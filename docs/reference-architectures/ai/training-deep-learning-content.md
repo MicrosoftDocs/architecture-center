@@ -1,6 +1,6 @@
 This reference architecture shows how to conduct distributed training of deep learning models across clusters of GPU-enabled VMs. The scenario is image classification, but the solution can be generalized to other deep learning scenarios such as segmentation or object detection.
 
-A reference implementation for this architecture is available on [GitHub][github].
+A reference implementation for this architecture is available on [GitHub][github]. 
 
 ![Architecture for distributed deep learning][0]
 
