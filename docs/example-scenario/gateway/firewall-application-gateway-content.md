@@ -272,6 +272,8 @@ Some considerations for this topology include:
 The diagram below shows the situation where a spoke sends back SNATted traffic back to the ALB of an Azure Firewall, hence causing asymmetric routing:
 
 ![Asymmetric routing in hub and spoke](./images/asymmetric_routing.png)
+
+The solution for this asymmetric routing problem is defining UDRs in the spoke that do not contain the Azure Firewall subnet, but only the subnets where the shared services are located. In the example of the previous diagram, the correct UDR in the spoke should only contain 192.168.1.0/24, and not the whole 192.168.0.0/16 as marked in red.
    
 ## Integration with other Azure products
 
