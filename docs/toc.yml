@@ -1471,6 +1471,8 @@ items:
             items:      
               - name: App modernization
                 items:
+                  - name: High-volume batch transaction processing
+                    href: example-scenario/mainframe/process-batch-transactions.yml
                   - name: Micro Focus Enterprise Server on Azure
                     href: example-scenario/mainframe/micro-focus-server.yml
                   - name: Migrate IBM applications with TmaxSoft OpenFrame
