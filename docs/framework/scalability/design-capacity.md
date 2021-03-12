@@ -17,7 +17,7 @@ Azure offers many options to meet capacity requirements as your business grows. 
 
 ## Scale out rather than scaling up
 
-When using cloud technologies it's generally easier, cheaper, and more effective to scale out rather than scaling up. Plan to scale your application tier by adding extra infrastructure to meet demand, and removing it when it's not needed. If you plan to scale up, by increasing the resources allocated to your hosts, you will reach a limit where it becomes cost-prohibitive to scale any further. Scaling up also often requires downtime for your servers to reboot.
+When using cloud technologies, it's generally easier, cheaper, and more effective to scale out, rather than scaling up. Plan to scale your application tier by adding extra infrastructure to meet demand. Be sure to remove the resources when they are not needed. If you plan to scale up, by increasing the resources allocated to your hosts, you will reach a limit, where it becomes cost-prohibitive to scale any further. Scaling up also often requires downtime for your servers to reboot.
 
 ## Prepare infrastructure for large-scale events
 
