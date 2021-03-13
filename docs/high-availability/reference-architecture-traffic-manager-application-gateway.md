@@ -87,7 +87,7 @@ Create rules 2 – 3 with higher priority than the first rule, so they override 
 
 ### Traffic Manager configuration
 Consider the following points when configuring Traffic Manager:
--	**Routing:** Traffic Manager supports several [routing algorithms](/azure/traffic-manager/traffic-manager-routing-methods). For the scenario described in this article, we are using performance routing. Deploying endpoints in two or more locations across the globe can improve the responsiveness of your applications. With the 'Performance' traffic-routing method, you can route traffic to the location that is 'closest' to you. For more information, see [Configure the performance traffic routing method](/traffic-manager/traffic-manager-configure-performance-routing-method). 
+-	**Routing:** Traffic Manager supports several [routing algorithms](/azure/traffic-manager/traffic-manager-routing-methods). For the scenario described in this article, we are using performance routing. Deploying endpoints in two or more locations across the globe can improve the responsiveness of your applications. With the 'Performance' traffic-routing method, you can route traffic to the location that is 'closest' to you. For more information, see [Configure the performance traffic routing method](/azure/traffic-manager/traffic-manager-configure-performance-routing-method). 
 
 In case endpoint A stopped performing as efficiently as endpoint B, customer traffic is automatically routed to endpoint B. Also, if you need more granular control, for example, to choose a preferred failover within a region, you can use Traffic Manager in a nested configuration. 
 
@@ -118,7 +118,7 @@ Azure Application Gateway and Azure Load Balancer both use health probes to moni
 If a probe can't reach an instance within a timeout period, the gateway or load balancer stops sending traffic to that VM. The probe continues to check and will return the VM to the back-end pool if the VM becomes available again. HTTP probes send an HTTP GET request to a specified path and listen for an HTTP 200 response. This path can be the root path ("/"), or a health-monitoring endpoint that implements some custom logic to check the health of the application. The endpoint must allow anonymous HTTP requests.
 
 For more information about health probes, see:
--	[Load Balancer health probes](/load-balancer/load-balancer-custom-probe-overview)
+-	[Load Balancer health probes](/azure/load-balancer/load-balancer-custom-probe-overview)
 -	[Application Gateway health monitoring overview](/azure/application-gateway/application-gateway-probe-overview)
 
 For considerations about designing a health probe endpoint, see [Health Endpoint Monitoring pattern](/azure/architecture/patterns/health-endpoint-monitoring).
