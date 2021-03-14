@@ -40,13 +40,17 @@ Use the following button to deploy the reference using the Azure portal.
 
 [![Deploy to Azure](../../_images/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmspnp%2Fsamples%2Fmaster%2Fsolutions%2Fsecure-hybrid-network%2Fazuredeploy.json)
 
---- 
+---
 
-Once the deployment has completed, the site-to-site connection can be verified by looking at the connection resources. 
+#### Validate deployment
+
+Once the deployment has been completed, verify site-to-site connectivity by looking at the newly created connection resources. While in the Azure portal, search for 'connections' and note that the status of each connection.
 
 ![](./images/portal-connections.png)
 
 The IIS instance found in the spoke network can be accessed from the virtual machine located in the mock on-prem network. Create a connection to the virtual machine using the included Azure Bastion host, open a web browser, and navigate to the address of the application's network load balancer.
+
+#### ARM Template
 
 For detailed information and additional deployment options, see the ARM Templates used to deploy this solution.
 
