@@ -3,7 +3,7 @@
 
 This reference architecture shows a secure hybrid network that extends an on-premises network to Azure. The architecture implements a DMZ, also called a *perimeter network*, between the on-premises network and an Azure virtual network. All inbound and outbound traffic passes through Azure Firewall.
 
-[![Secure hybrid network architecture](./images/dmz-private.png)](./images/dmz-private-expanded-three.png#lightbox)
+[![Secure hybrid network architecture](./images/dmz-private-four.png)](./images/dmz-private-four.png#lightbox)
 
 
 *Download a [Visio file][visio-download] of this architecture.*
@@ -63,7 +63,7 @@ The IIS instance found in the spoke network can be accessed from the virtual mac
 For detailed information and additional deployment options, see the ARM Templates used to deploy this solution.
 
 > [!div class="nextstepaction"]
-> [Secure Hybrid Network](/samples/mspnp/samples/hub-and-spoke-deployment/)
+> [Secure Hybrid Network](/samples/mspnp/samples/secure-hybrid-network/)
 
 ## Use cases
 
