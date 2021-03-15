@@ -145,3 +145,4 @@ Azure Arc agents require the following protocols/ports/outbound URLs to function
 [Deploy Helm Charts using GitOps on Arc enabled Kubernetes cluster]: /azure/azure-arc/kubernetes/use-gitops-with-helm
 [Use managed identities in Azure Kubernetes Service]: /azure/aks/use-managed-identity
 [Principles of cost optimization]: ../framework/cost/overview.md
+[kubernetes]: https://kubernetes.io
