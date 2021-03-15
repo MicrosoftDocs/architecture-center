@@ -23,7 +23,7 @@ This pattern can be useful in situations when:
 
 ## Context and problem
 
-In many modern applications it is vital to consider and implement fault tolerance. In certain situations you may synchronise accounts and contacts for example from one instance of power platform to another. Suppose you have two instances of Dynamics 365 and "Instance A" Synchronises data to "Instance B", and another system which reads data from "Instance A" and sends a payload with unique identifiers or alternate keys to "Instance B". When "Instance B" does not have the data, the user will receive a bad request as the entity with that record does not exist.
+In many modern applications it is vital to consider and implement fault tolerance. In certain situations you may synchronise accounts and contacts for example from one instance of power platform to another. Suppose you have two instances of Dynamics 365 and "Instance A" synchronises data to "Instance B", and another system which reads data from "Instance A" and sends a payload with unique identifiers or alternate keys to "Instance B". When "Instance B" does not have the data, the user will receive a bad request as the entity with that record does not exist.
 
 The following examples show the potential journies for a record submission. 
 
@@ -35,8 +35,8 @@ The following examples show the potential journies for a record submission.
 
 ## Solution
 
-There are a number of possible solutions to this, Not limited to:
-- Pre-Validation Plugin to always Upsert based on the Guid. Pre-Validation happens before any database transactions are started.
+There are a number of possible solutions to this, but not limited to:
+- Pre-Validation Plugin to always Upsert based on the Guid or Alternate key. Pre-Validation happens before any database transactions are started.
 - Custom Process to integrate and pre-create the record before hitting Dynamics 365.
 
 ## Issues and considerations
@@ -48,7 +48,7 @@ There are a number of possible solutions to this, Not limited to:
 
 Use this pattern when you:
 
-- You want to guarantee a record with a given key exists.
+- You want to guarantee a record with a given key exists and do not care that the record is not fully hydrated.
 - You must accept creation even if the data is still not synchronised.
 
 This pattern may not be suitable:
