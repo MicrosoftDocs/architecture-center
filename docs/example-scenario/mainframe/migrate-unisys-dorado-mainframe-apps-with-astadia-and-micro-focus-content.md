@@ -13,11 +13,11 @@ Many cases can benefit from the Astadia and Micro Focus pattern:
 - Businesses with Unisys Dorado mainframe systems that can't modify original source code, such as COBOL, due to compliance factors, prohibitive costs, complexity, or other considerations.
 - Organizations looking for approaches to modernizing workloads that offer:
 
-  - A way to lift and shift application layer source code.
+  - A way to *lift and shift* application layer source code.
   - Modern platform as a service (PaaS) services and capabilities, including:
 
     - Azure SQL Database with its built-in high availability.
-    - Azure Data Factory with its automated, server-less file routing and transformation.
+    - Azure Data Factory with its automated, serverless file routing and transformation.
 
 ## Architecture
 
@@ -29,6 +29,7 @@ Many cases can benefit from the Astadia and Micro Focus pattern:
 
    - After migration, the web application presentation layer remains virtually unchanged. As a result, end users require minimal retraining. Alternatively, you can update the web application presentation layer to align with UX requirements.
    - Azure VM Bastion hosts work to maximize security. When giving administrators access to VMs, these hosts minimize the number of open ports.
+   - ExpressRoute securely connects on-premises and Azure components.
 
 1. The solution uses two sets of two VMs:
 
@@ -45,7 +46,7 @@ Many cases can benefit from the Astadia and Micro Focus pattern:
 
 1. Micro Focus COBOL runs COBOL programs on the Windows server. There's no need to rewrite COBOL code. Micro Focus COBOL can invoke Unisys mainframe facilities through the Astadia emulation components.
 
-1. Astadia OpenDMS emulates the Unisys Dorado mainframe DMS database access technology. With this component, you can *lift and shift* tables and data from relational-based RDMS and network-based DMS databases into Azure SQL Database.
+1. Astadia OpenDMS emulates the Unisys Dorado mainframe DMS database access technology. With this component, you can lift and shift tables and data from relational-based RDMS and network-based DMS databases into Azure SQL Database.
 
 1. Azure Storage Account File Share is mounted on the Windows server VM. COBOL programs then have easy access to the Azure files repository for file processing.
 
@@ -75,7 +76,7 @@ This diagram shows the components that Unisys Sperry OS 1100/2200 mainframe syst
 
   Mainframes use communication standards like IPv4, IPv6, SSL/TLS, Telnet, FTP, and sockets. In Azure, web browsers replace legacy terminal emulation. On-demand and online users access system resources through these web browsers.
 
-- Mainframe applications are in COBOL, Fortran, C, MASM, SSG, PASCAL, UCOBOL, and ECL (**B**). In Azure, Micro Focus COBOL recompiles COBOL and other legacy application code to .NET. Micro Focus can also maintain and reprocess original base code whenever that code changes. This architecture doesn't require any changes in the original source code.
+- Mainframe applications are in COBOL, Fortran, C, MASM, SSG, Pascal, UCOBOL, and ECL (**B**). In Azure, Micro Focus COBOL recompiles COBOL and other legacy application code to .NET. Micro Focus can also maintain and reprocess original base code whenever that code changes. This architecture doesn't require any changes in the original source code.
 
 - Mainframe batch and transaction loads run on application servers (**C**). For transactions, these servers use Transaction Interface Packages (TIPs) or High Volume TIPs (HVTIPs). In the new architecture:
 
@@ -134,6 +135,7 @@ The following considerations, based on the [Microsoft Azure Well-Architected Fra
 ### Availability considerations
 
 - Availability sets for Azure VMs ensure enough VMs are available to meet mission-critical batch process needs.
+- Azure Load Balancer improves reliability by rerouting traffic to the other VM set if the active set fails.
 - Various Azure components provide reliability across geographic regions through HA and DR:
 
   - Azure Site Recovery
@@ -141,17 +143,37 @@ The following considerations, based on the [Microsoft Azure Well-Architected Fra
   - Azure Storage redundancy
   - Azure Files redundancy
 
+### Operational considerations
+
+- Besides scalability and availability, these Azure PaaS components also provide updates to services:
+
+  - Azure SQL Database
+  - Azure Data Factory
+  - Azure Storage
+  - Azure Files
+
+- Consider using [Azure Resource Manager (ARM) templates][What are ARM templates?] to automate deployment of Azure components such as Storage accounts, VMs, and Data Factory.
+
+- Consider using [Azure Monitor][Azure Monitor overview] for additional monitoring in these areas:
+
+  - Tracking the state of your infrastructure.
+  - Monitoring external dependencies.
+  - App troubleshooting and telemetry through [Application Insights][What is Application Insights?].
+  - Network component management through [Network Watcher][What is Azure Network Watcher?].
+
 ### Performance considerations
 
-Azure SQL Database, Azure Storage accounts and other Azure PaaS components provide high performance for:
+- Azure SQL Database, Azure Storage accounts and other Azure PaaS components provide high performance for:
 
-- Data reads and writes.
-- Hot storage access.
-- Long-term data storage.
+  - Data reads and writes.
+  - Hot storage access.
+  - Long-term data storage.
+
+- The use of VMs in this architecture aligns with the framework's [Overview of the performance efficiency pillar], since you can optimize the VM configuration to boost performance.
 
 ### Scalability considerations
 
-Azure PaaS components provide scalability:
+Various Azure PaaS components provide scalability:
 
 - Azure SQL Database
 - Azure Data Factory
@@ -218,6 +240,7 @@ To estimate the cost of implementing this solution, use the [Azure pricing calcu
 [Azure Files Pricing]: https://azure.microsoft.com/pricing/details/storage/files/
 [Azure Hybrid Benefit]: https://azure.microsoft.com/pricing/hybrid-benefit/
 [Azure Hybrid Benefit FAQ]: https://azure.microsoft.com/pricing/hybrid-benefit/faq/
+[Azure Monitor overview]: /azure/azure-monitor/overview
 [Azure is the new mainframe]: https://channel9.msdn.com/Shows/Azure-Friday/Azure-is-the-new-mainframe/
 [Azure Private Link pricing]: https://azure.microsoft.com/pricing/details/private-link/
 [Azure Site Recovery pricing]: https://azure.microsoft.com/pricing/details/site-recovery/
@@ -242,17 +265,21 @@ To estimate the cost of implementing this solution, use the [Azure pricing calcu
 [Migrate IBM mainframe applications to Azure with TmaxSoft OpenFrame]: /azure/architecture/solution-ideas/articles/migrate-mainframe-apps-with-tmaxsoft-openframe
 [Modernize mainframe & midrange data]: /azure/architecture/reference-architectures/migration/modernize-mainframe-data-to-azure
 [Network security groups]: /azure/virtual-network/network-security-groups-overview
+[Overview of the performance efficiency pillar]: https://docs.microsoft.com/azure/architecture/framework/scalability/overview
 [Pricing calculator]: https://azure.microsoft.com/pricing/calculator/
 [Unisys mainframe migration]: /azure/architecture/reference-architectures/migration/unisys-mainframe-migration
 [Optimize VM costs]: https://docs.microsoft.com/azure/architecture/framework/cost/optimize-vm
 [Use auto-failover groups to enable transparent and coordinated failover of multiple databases]: /azure/azure-sql/database/auto-failover-group-overview
 [Virtual Network pricing]: https://azure.microsoft.com/pricing/details/virtual-network/
 [VM pricing]: https://azure.microsoft.com/pricing/details/virtual-machines/linux/
+[What are ARM templates?]: /azure/azure-resource-manager/templates/overview
+[What is Application Insights?]: /azure/azure-monitor/app/app-insights-overview
 [What is Azure Bastion?]: /azure/bastion/bastion-overview
 [What is Azure Data Factory?]: /azure/data-factory/introduction
 [What is Azure ExpressRoute?]: /azure/expressroute/expressroute-introduction
 [What is Azure Files?]: /azure/storage/files/storage-files-introduction
 [What is Azure Load Balancer?]: /azure/load-balancer/load-balancer-overview
+[What is Azure Network Watcher?]: /azure/network-watcher/network-watcher-monitoring-overview
 [What is Azure Private Link?]: /azure/private-link/private-link-overview
 [What is Azure SQL Database?]: /azure/azure-sql/database/sql-database-paas-overview
 [What is Azure Virtual Network?]: /azure/virtual-network/virtual-networks-overview
