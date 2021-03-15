@@ -385,6 +385,12 @@ conceptualContent:
           itemType: get-started
           url:  ./reference-architectures/n-tier/n-tier-sql-server.yml
 
+    - title: Power Platform
+      links:
+        - text: Eventual Consistency for cross instance communication
+          itemType: architecture
+          url: reference-architectures/power-platform/eventually-consistent-instances.md
+
     - title: SAP
       links:
         - text: Overview
