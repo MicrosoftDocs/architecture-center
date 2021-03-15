@@ -23,7 +23,7 @@ This pattern can be useful in situations when:
 
 ## Context and problem
 
-In many modern applications it is vital to consider and implement fault tolerance. In certain situations you may synchronise accounts and contacts for example from one instance of power platform to another. Suppose you have two instances of Dynamics 365 and "Instance A" Synchronises data to "Instance B", and another system which reads data from "Instace A" and sends a payload with unique identifiers or alternate keys to "Instance B". When "Instance B" does not have the data, the user will receive a bad request as the entity with that record does not exist.
+In many modern applications it is vital to consider and implement fault tolerance. In certain situations you may synchronise accounts and contacts for example from one instance of power platform to another. Suppose you have two instances of Dynamics 365 and "Instance A" Synchronises data to "Instance B", and another system which reads data from "Instance A" and sends a payload with unique identifiers or alternate keys to "Instance B". When "Instance B" does not have the data, the user will receive a bad request as the entity with that record does not exist.
 
 The following examples show the potential journies for a record submission. 
 
