@@ -12,6 +12,12 @@ This reference architecture shows a secure hybrid network that extends an on-pre
 
 This deployment creates three resource groups, the first holds a mock on-premises network, the second a hub virtual network, and the third a peered spoke network. The mock on-premises network and the hub network are connected using Azure Virtual Network gateways to form a site-to-site connection. This configuration is very similar to how you would connect your on-premises datacenter to Azure. 
 
+#### [Azure portal](#tab/portal)
+
+Use the following button to deploy the reference using the Azure portal.
+
+[![Deploy to Azure](../../_images/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmspnp%2Fsamples%2Fmaster%2Fsolutions%2Fsecure-hybrid-network%2Fazuredeploy.json)
+
 #### [Azure CLI](#tab/cli)
 
 Run the following command to deploy two resource groups and the secure network reference architecture using the Azure CLI. 
@@ -33,12 +39,6 @@ When prompted, enter values for an admin user name and password. These values ar
 New-AzSubscriptionDeployment -Location eastus `
     -TemplateUri https://raw.githubusercontent.com/mspnp/samples/master/solutions/secure-hybrid-network/azuredeploy.json
 ```
-
-#### [Azure portal](#tab/portal)
-
-Use the following button to deploy the reference using the Azure portal.
-
-[![Deploy to Azure](../../_images/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmspnp%2Fsamples%2Fmaster%2Fsolutions%2Fsecure-hybrid-network%2Fazuredeploy.json)
 
 ---
 
