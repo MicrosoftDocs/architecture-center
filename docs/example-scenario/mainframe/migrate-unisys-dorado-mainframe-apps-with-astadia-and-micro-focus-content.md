@@ -68,7 +68,7 @@ Many cases can benefit from the Astadia and Micro Focus pattern:
 
 This diagram shows the components that Unisys Sperry OS 1100/2200 mainframe systems typically contain:
 
-:::image type="complex" source="./media/migrate-unisys-dorado-mainframe-apps-original-architecture.png" alt-text="Architecture diagram showing the components that make up an Unisys Dorado mainframe system. Examples include users, middleware, servers, and data storage." border="false":::
+:::image type="complex" source="./media/migrate-unisys-dorado-mainframe-apps-original-architecture.png" alt-text="Architecture diagram showing the components that make up a Unisys Dorado mainframe system. Examples include users, middleware, servers, and data storage." border="false":::
    The main part of the diagram is a box that contains several smaller boxes. Those boxes represent communications standards, application servers, data storage, middleware, monitoring components, an operating system, and a printer system. Above the box, icons represent users. Arrows connect the users with the communications box. Below the box, icons represent printers. Arrows connect the printers with the printer system box. Letter labels link parts of the diagram with the description in the document.
 :::image-end:::
 
@@ -86,7 +86,7 @@ This diagram shows the components that Unisys Sperry OS 1100/2200 mainframe syst
   - File Transfer Protocol (FTP)
   - Sockets
   
-  In Azure, web browsers replace legacy terminal emulation. On-demand and online users access system resources through these web browsers.
+  In Azure, web browsers replace legacy terminal emulation. On-demand and online users can use these web browsers to access system resources.
 
 - Mainframe applications are in COBOL, Fortran, C, MASM, SSG, Pascal, UCOBOL, and ECL (**B**). In Azure, Micro Focus COBOL recompiles COBOL and other legacy application code to .NET. Micro Focus can also maintain and reprocess original base code whenever that code changes. This architecture doesn't require any changes in the original source code.
 
