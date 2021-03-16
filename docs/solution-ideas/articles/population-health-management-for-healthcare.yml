@@ -27,7 +27,8 @@ azureCategories:
 summary: Use Population Health Management to improve clinical and health outcomes and reduce costs. Track, monitor, and benchmark data with this tool.
 products:
   - azure-data-factory
-  - azure-data-lake-analytics
+  - azure-databricks
+  - azure-api-fhir
   - azure-event-hubs
   - azure-stream-analytics
   - power-bi
