@@ -21,7 +21,7 @@ Adopting a hybrid model offers multiple solutions that enable you to confidently
 ## Extend Azure management to any infrastructure
 
 > [!TIP]
-> Applying the principles in this article series to each of your workloads will better prepare you for hybrid adoption. For larger or centrally managed organizations, hybrid and multicloud are commonly part of a broader strategic objective. If you need to scale these principle across a portfolio of workloads using hybrid and multicloud environments, you may want to start with the Cloud Adoption Framework's [hybrid and multicloud scenario and best practices](https://docs.microsoft.com/azure/cloud-adoption-framework/scenarios/unified-operations/). Then return to this series to refine each of your workload architectures.
+> Applying the principles in this article series to each of your workloads will better prepare you for hybrid adoption. For larger or centrally managed organizations, hybrid and multicloud are commonly part of a broader strategic objective. If you need to scale these principle across a portfolio of workloads using hybrid and multicloud environments, you may want to start with the Cloud Adoption Framework's [hybrid and multicloud scenario and best practices](/azure/cloud-adoption-framework/scenarios/hybrid/unified-operations). Then return to this series to refine each of your workload architectures.
 
 Use *Azure Arc enabled infrastructure* to extend Azure management to any infrastructure in a hybrid environment. Key features of Azure Arc enabled infrastructure are:
 
@@ -60,7 +60,7 @@ Use *Azure Arc management* to extend Azure management to all assets in your work
    - Empower developers with self-service and choice of tools.
    - Standardize change control with configuration management systems, such as GitOps and DSC.
 
-- **Scale across workloads with [Unified Operations](https://docs.microsoft.com/azure/cloud-adoption-framework/scenarios/unified-operations/unified-operations)**
+- **Scale across workloads with [Unified Operations](/azure/cloud-adoption-framework/scenarios/hybrid/unified-operations)**
    - Organize resources such as virtual machines, Kubernetes clusters and Azure services deployed across your entire IT environment.
    - Manage and govern resources with a single pane of glass from Azure.
    - Integrate with Azure Lighthouse for managed service provider support.
