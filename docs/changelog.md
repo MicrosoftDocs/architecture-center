@@ -2,7 +2,7 @@
 title: What's New in Azure Architecture Center
 description: New and updated articles in Azure Architecture Center
 author: doodlemania2
-ms.date: 03/02/2021
+ms.date: 03/15/2021
 ms.topic: article
 ms.service: architecture-center
 ---
@@ -11,6 +11,8 @@ ms.service: architecture-center
 # What's new in Azure Architecture Center [![Download Feed](data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABmJLR0QA/wD/AP+gvaeTAAACw0lEQVQ4jW2STWhcVRTHf+d+vM5MQ5vUvAG1naSNikI1UKuVVNGFolDduDBdtI0IhQa6KNoiQnGhLvwAtxJXEVRQIhSpoksXgpDG1H4tWrGW0DZMkxnRdCZv3rv3uJg0GOLhXs5d3N/h/z/nCMC5I4Ov9qXph0ZMvzGIGEGMIAJigNW3oKh22sVC40b9xM5P/vxMLowPjlXvrU1mi02sE4w3WC8Yt/6KFYztFu+EMtdmr47J3MnddVpZuqE6wMYnR9GlOmH+InH+PMbq/8JiIHSURl3rziW+X7MOti+lsvcAd0JbTfJzUxS/fYHE5XVwyCJJ2acGEOMNsrxIdv47irlZiAVS6SN54jDlg1O4bY+ug4ssogGR+fdG1ObtNV7txk34nfvwj72GlHohFoSfPyC/eHoVDlkkNyWMGDBOSGqPsOnIKSovf4y//2nCpW/Iv95PvPkrGIfd+yZUd63CRRZBwYisNMk7TO9W3I6nSJ59m9Lol0hPSvjxGPH6GTCODS+8S6RMkUVirsSoGFYU0LhCduooxcwkZP8gvQP4lz4lVmosn34Lvd1AKltI9owRcyXkikYwIt0Com3izTOEmQnyqf3orUvgy/jn3ydfuk3rpwkAKntGidESOhGi/seCFfzwK/hnTiJJmc73b6CtJmbzVtyDL9Ka/hbNM6TUgxvcTcwVVboWxAo2HcKNvI55YB+ya5zirwbZzFcA+IeeI7TaZL9PA5DUhomFol0FqLECy03oLAEQF69RZJHOlV8AcNUhQq7kt+YAsJurxEJBReX6O4/X+++2qRiI/i60fA/ZH7OELBC0hB8aIRawNP0DrnofNt1OvjBP+/JZkm09dbkwPjg2MLxj0mlrzZLcGVXIldBZGVuhK9KhUttCs3HjkACcPbz9YLWWfuScrRKRGLqfNK7NqHaP1/rfC4vHH564+vm/Fu5mkriuRlEAAAAASUVORK5CYII=)](/azure/architecture/feed.atom)
 
 The Azure Architecture Center (AAC) helps you design, build, and operate solutions on Azure. Learn about the cloud architectural styles and design patterns. Use the technology choices and guides to decide the services that are right for your solution. The guidance is based on all aspects of building for the cloud, such as operations, security, reliability, performance, and cost optimization.
+  
+  
 
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RWxOYN]
 
@@ -25,10 +27,37 @@ New and updated articles in Azure Architecture Center
 
 ### New Articles
 
+- [IoT Edge data storage and processing](./solution-ideas/articles/data-storage-edge.yml)
+- [Micro Focus Enterprise Server on Azure VMs](./example-scenario/mainframe/micro-focus-server.yml)
 - [Multi-region web app with private connectivity to database](./example-scenario/sql-failover/app-service-private-sql-multi-region.yml)
 
 ### Updated Articles
 
+- [Secure application&#x27;s configuration and dependencies](./framework/security/design-app-dependencies.md)  ([#0de988c5f](https://github.com/MicrosoftDocs/architecture-center/commit/0de988c5f))
+- [Messaging](./solution-ideas/articles/messaging.yml)  ([#945406bed](https://github.com/MicrosoftDocs/architecture-center/commit/945406bed))
+- [Image classification on Azure](./example-scenario/ai/intelligent-apps-image-processing.yml)  ([#ad521be0d](https://github.com/MicrosoftDocs/architecture-center/commit/ad521be0d))
+- [Distributed training of deep learning models on Azure](./reference-architectures/ai/training-deep-learning.yml)  ([#ad521be0d](https://github.com/MicrosoftDocs/architecture-center/commit/ad521be0d))
+- [AI at the Edge with Azure Stack Hub](./solution-ideas/articles/ai-at-the-edge.yml)  ([#ad521be0d](https://github.com/MicrosoftDocs/architecture-center/commit/ad521be0d))
+- [Anomaly Detector Process](./solution-ideas/articles/anomaly-detector-process.yml)  ([#ad521be0d](https://github.com/MicrosoftDocs/architecture-center/commit/ad521be0d))
+- [Intelligent apps using Azure Database for PostgreSQL](./solution-ideas/articles/intelligent-apps-using-azure-database-for-postgresql.yml)  ([#ad521be0d](https://github.com/MicrosoftDocs/architecture-center/commit/ad521be0d))
+- [Optimize Marketing with Machine Learning](./solution-ideas/articles/optimize-marketing-with-machine-learning.yml)  ([#ad521be0d](https://github.com/MicrosoftDocs/architecture-center/commit/ad521be0d))
+- [Personalization using Cosmos DB](./solution-ideas/articles/personalization-using-cosmos-db.yml)  ([#ad521be0d](https://github.com/MicrosoftDocs/architecture-center/commit/ad521be0d))
+- [Personalized Offers](./solution-ideas/articles/personalized-offers.yml)  ([#ad521be0d](https://github.com/MicrosoftDocs/architecture-center/commit/ad521be0d))
+- [Quality Assurance](./solution-ideas/articles/quality-assurance.yml)  ([#ad521be0d](https://github.com/MicrosoftDocs/architecture-center/commit/ad521be0d))
+- [Retail Assistant with Visual Capabilities](./solution-ideas/articles/retail-assistant-or-vacation-planner-with-visual-capabilities.yml)  ([#ad521be0d](https://github.com/MicrosoftDocs/architecture-center/commit/ad521be0d))
+- [Visual Assistant](./solution-ideas/articles/visual-assistant.yml)  ([#ad521be0d](https://github.com/MicrosoftDocs/architecture-center/commit/ad521be0d))
+- [Population Health Management for Healthcare](./solution-ideas/articles/population-health-management-for-healthcare.yml)  ([#c9d97e7cc](https://github.com/MicrosoftDocs/architecture-center/commit/c9d97e7cc))
+- [Predictive Maintenance](./solution-ideas/articles/predictive-maintenance.yml)  ([#c9d97e7cc](https://github.com/MicrosoftDocs/architecture-center/commit/c9d97e7cc))
+- [Product recommendations for retail using Azure](./solution-ideas/articles/product-recommendations.yml)  ([#c9d97e7cc](https://github.com/MicrosoftDocs/architecture-center/commit/c9d97e7cc))
+- [Speech Services](./solution-ideas/articles/speech-services.yml)  ([#c9d97e7cc](https://github.com/MicrosoftDocs/architecture-center/commit/c9d97e7cc))
+- [Operational excellence design principles](./framework/devops/principles.md)  ([#1b40291dd](https://github.com/MicrosoftDocs/architecture-center/commit/1b40291dd))
+- [Retail and e-commerce using Cosmos DB](./solution-ideas/articles/retail-and-e-commerce-using-cosmos-db.yml)  ([#57565fc35](https://github.com/MicrosoftDocs/architecture-center/commit/57565fc35))
+- [Extraneous Fetching antipattern](./antipatterns/extraneous-fetching/index.md)  ([#d163fb034](https://github.com/MicrosoftDocs/architecture-center/commit/d163fb034))
+- [Performance testing and antipatterns](./antipatterns/index.md)  ([#d163fb034](https://github.com/MicrosoftDocs/architecture-center/commit/d163fb034))
+- [No Caching antipattern](./antipatterns/no-caching/index.md)  ([#d163fb034](https://github.com/MicrosoftDocs/architecture-center/commit/d163fb034))
+- [Tradeoffs for performance efficiency](./framework/scalability/tradeoffs.md)  ([#d163fb034](https://github.com/MicrosoftDocs/architecture-center/commit/d163fb034))
+- [Community Jury](./guide/responsible-innovation/community-jury/index.md)  ([#d163fb034](https://github.com/MicrosoftDocs/architecture-center/commit/d163fb034))
+- [Responsible Innovation toolkit](./guide/responsible-innovation/index.md)  ([#d163fb034](https://github.com/MicrosoftDocs/architecture-center/commit/d163fb034))
 - [Interactive Voice Response Bot](./solution-ideas/articles/interactive-voice-response-bot.yml)  ([#6dd285b14](https://github.com/MicrosoftDocs/architecture-center/commit/6dd285b14))
 - [Machine Learning model training with AKS](./solution-ideas/articles/machine-learning-with-aks.yml)  ([#6dd285b14](https://github.com/MicrosoftDocs/architecture-center/commit/6dd285b14))
 - [Data integration with Logic Apps and SQL Server](./example-scenario/integration/logic-apps-data-integration.yml)  ([#8b0ddb852](https://github.com/MicrosoftDocs/architecture-center/commit/8b0ddb852))
@@ -148,7 +177,7 @@ New and updated articles in Azure Architecture Center
 - [Design Azure applications for efficiency](./framework/scalability/design-efficiency.md)
 - [Design for scaling](./framework/scalability/design-scale.md)
 - [Confidential computing on a healthcare platform](./example-scenario/confidential/healthcare-inference.yml)
-- [Azure AD security for Amazon Web Services (AWS)](./reference-architectures/aws/aws-azure-ad-security.yml)
+- [Azure Active Directory security for AWS](./reference-architectures/aws/aws-azure-ad-security.yml)
 - [MCAS and Azure Sentinel for Amazon Web Services (AWS)](./reference-architectures/aws/aws-azure-security-solutions.yml)
 - [Operational excellence design principles](./framework/devops/principles.md)
 - [Performance testing](./framework/scalability/performance-test.md)

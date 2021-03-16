@@ -55,7 +55,7 @@ A circuit breaker might be able to test the health of a service by sending a req
 
 Configure and test health probes for your load balancers and traffic managers. Ensure that your health endpoint checks the critical parts of the system and responds appropriately.
 
-- For [Azure Traffic Manager](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-overview), the health probe determines whether to fail over to another region. Your health endpoint should check any critical dependencies that are deployed within the same region.
+- For [Azure Front Door](/azure/front-door/front-door-overview) and [Azure Traffic Manager](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-overview), the health probe determines whether to fail over to another region. Your health endpoint should check any critical dependencies that are deployed within the same region.
 - For [Azure Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview), the health probe determines whether to remove a VM from rotation. The health endpoint should report the health of the VM. Don't include other tiers or external services. Otherwise, a failure that occurs outside the VM will cause the load balancer to remove the VM from rotation.
 
 :::image type="icon" source="../../_images/github.png" border="false"::: Samples related to heath probes are [here](https://github.com/mspnp/samples/tree/master/Reliability/HealthProbesSample). 

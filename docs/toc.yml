@@ -712,6 +712,12 @@ items:
                 href: solution-ideas/articles/visual-assistant.yml
       - name: Analytics
         items:
+          - name: Guides
+            items:        
+              - name: Analytical data stores
+                href: data-guide/technology-choices/analytical-data-stores.md
+              - name: Analytics and reporting
+                href: data-guide/technology-choices/analysis-visualizations-reporting.md
           - name: Architectures
             items:
               - name: Automated enterprise BI
@@ -1425,6 +1431,8 @@ items:
                 href: solution-ideas/articles/cctv-mask-detection.yml
               - name: IoT Connected Platform
                 href: solution-ideas/articles/iot-connected-platform.yml
+              - name: IoT Edge data storage and processing
+                href: solution-ideas/articles/data-storage-edge.yml
               - name: IoT using Azure Data Explorer
                 href: solution-ideas/articles/iot-azure-data-explorer.yml
               - name: Light and power for emerging markets
@@ -1445,6 +1453,8 @@ items:
             items:      
               - name: App modernization
                 items:
+                  - name: Micro Focus Enterprise Server on Azure
+                    href: example-scenario/mainframe/micro-focus-server.yml
                   - name: Migrate IBM applications with TmaxSoft OpenFrame
                     href: solution-ideas/articles/migrate-mainframe-apps-with-tmaxsoft-openframe.yml
                   - name: Refactor IBM z/OS mainframe CF on Azure
@@ -1463,56 +1473,54 @@ items:
         items:
           - name: Architectures
             items:
-              - name: Archive on-premises data to cloud
-                href: solution-ideas/articles/backup-archive-on-premises.yml
               - name: Back up cloud applications
                 href: /azure/backup/guidance-best-practices
+              - name: Computer forensics
+                href: example-scenario/forensics/index.yml
+              - name: Highly available SharePoint Server 2016
+                href: reference-architectures/sharepoint/index.yml    
+              - name: Updating Windows VMs in Azure
+                href: example-scenario/wsus/index.yml            
+              - name: Hybrid management
+                items:
+                  - name: Azure Arc hybrid management and deployment for Kubernetes clusters
+                    href: hybrid/arc-hybrid-kubernetes.yml
+                  - name: Azure Automation in a hybrid environment
+                    href: hybrid/azure-automation-hybrid.yml
+                  - name: Azure Automation Update Management
+                    href: hybrid/azure-update-mgmt.yml
+                  - name: Back up files and applications on Azure Stack Hub
+                    href: hybrid/azure-stack-backup.yml
+                  - name: Disaster Recovery for Azure Stack Hub virtual machines
+                    href: hybrid/azure-stack-vm-dr.yml           
+                  - name: Hybrid availability and performance monitoring
+                    href: hybrid/hybrid-perf-monitoring.yml
+                  - name: Manage configurations for Azure Arc enabled servers
+                    href: hybrid/azure-arc-hybrid-config.yml
+                  - name: Manage hybrid Azure workloads using Windows Admin Center
+                    href: hybrid/hybrid-server-os-mgmt.yml     
+          - name: Solution ideas
+            items:
+              - name: Archive on-premises data to cloud
+                href: solution-ideas/articles/backup-archive-on-premises.yml
               - name: Back up on-premises applications
                 href: solution-ideas/articles/backup-archive-on-premises-applications.yml
               - name: Centralize app configuration and security
                 href: solution-ideas/articles/appconfig-key-vault.yml
-              - name: Computer forensics
-                href: example-scenario/forensics/index.yml
-              - name: High availability for BCDR
-                href: solution-ideas/articles/build-high-availability-into-your-bcdr-strategy.yml
               - name: Data Sovereignty & Data Gravity
                 href: solution-ideas/articles/data-sovereignty-and-gravity.yml
               - name: Enterprise-scale disaster recovery
                 href: solution-ideas/articles/disaster-recovery-enterprise-scale-dr.yml
-              - name: Updating Windows VMs in Azure
-                href: example-scenario/wsus/index.yml
-              - name: Highly available SharePoint Server 2016
-                href: reference-architectures/sharepoint/index.yml
+              - name: High availability for BCDR
+                href: solution-ideas/articles/build-high-availability-into-your-bcdr-strategy.yml
               - name: SMB disaster recovery with Azure Site Recovery
                 href: solution-ideas/articles/disaster-recovery-smb-azure-site-recovery.yml
               - name: SMB disaster recovery with Double-Take DR
                 href: solution-ideas/articles/disaster-recovery-smb-double-take-dr.yml
-              - name: Manage configurations for Azure Arc enabled servers
-                href: hybrid/azure-arc-hybrid-config.yml
-              - name: Azure Automation in a hybrid environment
-                href: hybrid/azure-automation-hybrid.yml
-              - name: Back up files and applications on Azure Stack Hub
-                href: hybrid/azure-stack-backup.yml
-              - name: Azure Automation Update Management
-                href: hybrid/azure-update-mgmt.yml
-              - name: Hybrid availability and performance monitoring
-                href: hybrid/hybrid-perf-monitoring.yml
-              - name: Manage hybrid Azure workloads using Windows Admin Center
-                href: hybrid/hybrid-server-os-mgmt.yml
-              - name: Azure Arc hybrid management and deployment for Kubernetes clusters
-                href: hybrid/arc-hybrid-kubernetes.yml
-              - name: Disaster Recovery for Azure Stack Hub virtual machines
-                href: hybrid/azure-stack-vm-dr.yml
       - name: Media
         items:
           - name: Architectures
             items:
-              - name: Instant broadcasting with serverless
-                href: solution-ideas/articles/instant-broadcasting-on-serverless-architecture.yml
-              - name: Live streaming digital media
-                href: solution-ideas/articles/digital-media-live-stream.yml
-              - name: Video-on-demand digital media
-                href: solution-ideas/articles/digital-media-video.yml
               - name: Gridwich media processing system
                 items:
                   - name: Gridwich architecture
@@ -1553,6 +1561,14 @@ items:
                         href: reference-architectures/media-services/maintain-keys.yml
                       - name: Test Media Services V3 encoding
                         href: reference-architectures/media-services/test-encoding.yml
+          - name: Solution ideas
+            items:
+              - name: Instant broadcasting with serverless
+                href: solution-ideas/articles/instant-broadcasting-on-serverless-architecture.yml
+              - name: Live streaming digital media
+                href: solution-ideas/articles/digital-media-live-stream.yml
+              - name: Video-on-demand digital media
+                href: solution-ideas/articles/digital-media-video.yml
       - name: Migration
         items:
           - name: Architectures
@@ -1566,8 +1582,6 @@ items:
                   - name: JMeter implementation reference
                     href: example-scenario/banking/jmeter-load-testing-pipeline-implementation-reference.yml
               - name: Lift and shift LOB apps
-                href: solution-ideas/articles/modern-customer-support-portal-powered-by-an-agile-business-process.yml
-              - name: Lift and shift with AKS
                 href: solution-ideas/articles/modern-customer-support-portal-powered-by-an-agile-business-process.yml
               - name: Oracle database migration
                 items:
@@ -1583,7 +1597,7 @@ items:
                     href: example-scenario/oracle-migrate/oracle-migration-rearchitect.yml
       - name: Mixed Reality
         items:
-          - name: Architectures
+          - name: Solution ideas
             items:
               - name: Mixed reality design reviews
                 href: solution-ideas/articles/collaborative-design-review-powered-by-mixed-reality.yml
@@ -1613,12 +1627,12 @@ items:
             items:
               - name: Add IP spaces to peered virtual networks
                 href: networking/prefixes/add-ip-space-peered-vnet.md
-              - name: Azure Firewall Architecture Guide
+              - name: Azure Firewall architecture guide
                 href: example-scenario/firewalls/index.yml
-          - name: Architectures
-            items:
               - name: Virtual network peering and VPN gateways
                 href: reference-architectures/hybrid-networking/vnet-peering.yml
+          - name: Architectures
+            items:
               - name: Deploy highly available NVAs
                 href: reference-architectures/dmz/nva-ha.yml
               - name: High availability for IaaS apps
@@ -1629,14 +1643,16 @@ items:
                 href: reference-architectures/dmz/secure-vnet-dmz.yml
               - name: Segmenting Virtual Networks
                 href: reference-architectures/hybrid-networking/network-level-segmentation.yml
-              - name: Azure Automation Update Management
-                href: hybrid/azure-update-mgmt.yml
-              - name: Design a hybrid Domain Name System solution with Azure
-                href: hybrid/hybrid-dns-infra.yml
-              - name: Hybrid availability and performance monitoring
-                href: hybrid/hybrid-perf-monitoring.yml
-              - name: Connect standalone servers by using Azure Network Adapter
-                href: hybrid/azure-network-adapter.yml
+              - name: Hybrid networking
+                items:
+                  - name: Azure Automation Update Management
+                    href: hybrid/azure-update-mgmt.yml
+                  - name: Connect standalone servers by using Azure Network Adapter
+                    href: hybrid/azure-network-adapter.yml
+                  - name: Design a hybrid Domain Name System solution with Azure
+                    href: hybrid/hybrid-dns-infra.yml
+                  - name: Hybrid availability and performance monitoring
+                    href: hybrid/hybrid-perf-monitoring.yml
       - name: SAP
         items:
           - name: Overview
@@ -1653,14 +1669,18 @@ items:
                 href: reference-architectures/sap/sap-s4hana.yml
               - name: SAP BW/4HANA in Linux on Azure
                 href: reference-architectures/sap/run-sap-bw4hana-with-linux-virtual-machines.yml
-              - name: SAP NetWeaver on SQL Server
-                href: solution-ideas/articles/sap-netweaver-on-sql-server.yml
               - name: SAP deployment using an Oracle DB
                 href: example-scenario/apps/sap-production.yml
               - name: SAP System on Oracle Database on Azure
                 href: example-scenario/apps/sap-on-oracle.yml
               - name: Dev/test for SAP
                 href: example-scenario/apps/sap-dev-test.yml
+          - name: Solution ideas
+            items:
+              - name: SAP NetWeaver on SQL Server
+                href: solution-ideas/articles/sap-netweaver-on-sql-server.yml
+              - name: SAP S/4 HANA for Large Instances
+                href: solution-ideas/articles/sap-s4-hana-on-hli-with-ha-and-dr.yml
       - name: Security
         items:
           - name: Architectures
@@ -1675,6 +1695,12 @@ items:
                 href: reference-architectures/n-tier/high-security-iaas.yml
               - name: Homomorphic encryption with SEAL
                 href: solution-ideas/articles/homomorphic-encryption-seal.yml
+              - name: Hybrid Security Monitoring using Azure Security Center and Azure Sentinel
+                href: hybrid/hybrid-security-monitoring.yml
+              - name: MCAS and Azure Sentinel security for AWS
+                href: reference-architectures/aws/aws-azure-security-solutions.yml
+              - name: Multi-region app with private database connectivity
+                href: example-scenario/sql-failover/app-service-private-sql-multi-region.yml
               - name: Real-time fraud detection
                 href: example-scenario/data/fraud-detection.yml
               - name: Restrict interservice communications
@@ -1683,21 +1709,21 @@ items:
                 href: example-scenario/secrets/secure-refresh-tokens.yml
               - name: Securely managed web apps
                 href: example-scenario/apps/fully-managed-secure-apps.yml
-              - name: Web app private database connectivity
-                href: example-scenario/private-web-app/private-web-app.yml
-              - name: Multi-region app with private database connectivity
-                href: example-scenario/sql-failover/app-service-private-sql-multi-region.yml
               - name: Virtual network integrated microservices
                 href: example-scenario/integrated-multiservices/virtual-network-integration.yml
               - name: Virtual Network security options
                 href: example-scenario/gateway/firewall-application-gateway.yml
-              - name: Hybrid Security Monitoring using Azure Security Center and Azure Sentinel
-                href: hybrid/hybrid-security-monitoring.yml
-              - name: MCAS and Azure Sentinel security for AWS
-                href: reference-architectures/aws/aws-azure-security-solutions.yml
+              - name: Web app private database connectivity
+                href: example-scenario/private-web-app/private-web-app.yml
       - name: Storage
         items:
           - name: Architectures
+            items:
+              - name: Using Azure file shares in a hybrid environment
+                href: hybrid/azure-file-share.yml
+              - name: Hybrid file services
+                href: hybrid/hybrid-file-services.yml
+          - name: Solution ideas
             items:
               - name: Media rendering
                 href: solution-ideas/articles/azure-batch-rendering.yml
@@ -1705,16 +1731,14 @@ items:
                 href: solution-ideas/articles/medical-data-storage.yml
               - name: HIPAA/HITRUST Health Data and AI
                 href: solution-ideas/articles/security-compliance-blueprint-hipaa-hitrust-health-data-ai.yml
-              - name: Using Azure file shares in a hybrid environment
-                href: hybrid/azure-file-share.yml
-              - name: Hybrid file services
-                href: hybrid/hybrid-file-services.yml
       - name: Web
         items:
           - name: Architectures
             items:
               - name: Basic web application
                 href: reference-architectures/app-service-web-app/basic-web-app.yml
+              - name: Azure Functions in a hybrid environment
+                href: hybrid/azure-functions-hybrid.yml
               - name: Consumer health portal
                 href: example-scenario/digital-health/health-portal.yml
               - name: Deployment in App Service Environments
@@ -1725,20 +1749,32 @@ items:
                     href: reference-architectures/enterprise-integration/ase-high-availability-deployment.yml
               - name: E-commerce front end
                 href: example-scenario/apps/ecommerce-scenario.yml
-              - name: E-commerce website running in ASE
-                href: solution-ideas/articles/ecommerce-website-running-in-secured-ase.yml
-              - name: Highly available SharePoint farm
-                href: solution-ideas/articles/highly-available-sharepoint-farm.yml
-              - name: Hybrid SharePoint farm with Microsoft 365
-                href: solution-ideas/articles/sharepoint-farm-microsoft-365.yml
               - name: Intelligent product search engine for e-commerce
                 href: example-scenario/apps/ecommerce-search.yml
               - name: Magento e-commerce in AKS
                 href: example-scenario/magento/magento-azure.yml
               - name: Migrate a web app using Azure APIM
                 href: example-scenario/apps/apim-api-scenario.yml
-              - name: SAP S/4 HANA for Large Instances
-                href: solution-ideas/articles/sap-s4-hana-on-hli-with-ha-and-dr.yml
+              - name: Scalable and secure WordPress on Azure
+                href: example-scenario/infrastructure/wordpress.yml
+              - name: Scalable order processing
+                href: example-scenario/data/ecommerce-order-processing.yml
+              - name: Scalable web app
+                href: reference-architectures/app-service-web-app/scalable-web-app.yml
+              - name: Serverless web app
+                href: reference-architectures/serverless/web-app.yml
+              - name: Web app monitoring on Azure
+                href: reference-architectures/app-service-web-app/app-monitoring.yml
+              - name: Microservices with Azure Spring Cloud
+                href: https://docs.microsoft.com/azure/spring-cloud/spring-cloud-reference-architecture
+          - name: Solution ideas
+            items:
+              - name: E-commerce website running in ASE
+                href: solution-ideas/articles/ecommerce-website-running-in-secured-ase.yml
+              - name: Highly available SharePoint farm
+                href: solution-ideas/articles/highly-available-sharepoint-farm.yml
+              - name: Hybrid SharePoint farm with Microsoft 365
+                href: solution-ideas/articles/sharepoint-farm-microsoft-365.yml
               - name: Scalable e-commerce web app
                 href: solution-ideas/articles/scalable-ecommerce-web-app.yml
               - name: Scalable Episerver marketing website
@@ -1747,29 +1783,15 @@ items:
                 href: solution-ideas/articles/digital-marketing-sitecore.yml
               - name: Scalable Umbraco CMS web app
                 href: solution-ideas/articles/medium-umbraco-web-app.yml
-              - name: Scalable and secure WordPress on Azure
-                href: example-scenario/infrastructure/wordpress.yml
-              - name: Scalable order processing
-                href: example-scenario/data/ecommerce-order-processing.yml
-              - name: Scalable web app
-                href: reference-architectures/app-service-web-app/scalable-web-app.yml
-              - name: More Scalable web apps
+              - name: Scalable web apps with Redis
                 href: solution-ideas/articles/scalable-web-apps.yml
-              - name: Serverless web app
-                href: reference-architectures/serverless/web-app.yml
               - name: Simple branded website
                 href: solution-ideas/articles/simple-branded-website.yml
               - name: Simple digital marketing website
                 href: solution-ideas/articles/digital-marketing-smb.yml
-              - name: Web app monitoring on Azure
-                href: reference-architectures/app-service-web-app/app-monitoring.yml
-              - name: 'Web and mobile applications with MySQL, Cosmos DB, and Redis'
+              - name: Web and mobile apps with MySQL and Redis
                 href: solution-ideas/articles/webapps.yml
               - name: Dynamics Business Central as a Service on Azure
                 href: solution-ideas/articles/business-central.yml
-              - name: Azure Functions in a hybrid environment
-                href: hybrid/azure-functions-hybrid.yml
-              - name: Microservices with Azure Spring Cloud
-                href: https://docs.microsoft.com/azure/spring-cloud/spring-cloud-reference-architecture
   - name: Cloud Adoption Framework
     href: /azure/cloud-adoption-framework

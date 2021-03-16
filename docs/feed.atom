@@ -2,12 +2,28 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id/>
     <title>Azure Architecture Center</title>
-    <updated>2021-03-02T14:26:07.172Z</updated>
+    <updated>2021-03-15T14:12:30.313Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <subtitle>Updated articles for Azure Architecture Center</subtitle>
     <rights>https://docs.microsoft.com/legal/termsofuse</rights>
     <category term="new"/>
     <category term="updated"/>
+    <entry>
+        <title type="html"><![CDATA[IoT Edge data storage and processing]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/solution-ideas/articles/data-storage-edge</id>
+        <link href="https://docs.microsoft.com/azure/architecture/solution-ideas/articles/data-storage-edge"/>
+        <updated>2021-03-09T04:20:40.000Z</updated>
+        <summary type="html"><![CDATA[Use edge devices in your IoT implementation to provide quick response, high availability, and high bandwidth.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Micro Focus Enterprise Server on Azure VMs]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/example-scenario/mainframe/micro-focus-server</id>
+        <link href="https://docs.microsoft.com/azure/architecture/example-scenario/mainframe/micro-focus-server"/>
+        <updated>2021-03-05T09:20:05.000Z</updated>
+        <summary type="html"><![CDATA[Optimize, modernize, and streamline IBM z/OS mainframe applications by using Micro Focus Enterprise Server 6.0 on Azure VMs.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Multi-region web app with private connectivity to database]]></title>
         <id>https://docs.microsoft.com/azure/architecture/example-scenario/sql-failover/app-service-private-sql-multi-region</id>
@@ -15,6 +31,206 @@
         <updated>2021-03-02T00:11:26.000Z</updated>
         <summary type="html"><![CDATA[Lock down access to a highly available Azure SQL Database. Connect multi-tenant Azure App Service web apps in different Azure regions to the database privately.]]></summary>
         <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Secure application's configuration and dependencies]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/framework/security/design-app-dependencies</id>
+        <link href="https://docs.microsoft.com/azure/architecture/framework/security/design-app-dependencies"/>
+        <updated>2021-03-11T23:00:52.000Z</updated>
+        <summary type="html"><![CDATA[Check the dependencies, frameworks, and libraries.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Messaging]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/solution-ideas/articles/messaging</id>
+        <link href="https://docs.microsoft.com/azure/architecture/solution-ideas/articles/messaging"/>
+        <updated>2021-03-11T15:55:52.000Z</updated>
+        <summary type="html"><![CDATA[Azure Cache for Redis routes real-time messages in publish and subscribe systems. It also scales up web communication frameworks like Azure SignalR Service.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Image classification on Azure]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/example-scenario/ai/intelligent-apps-image-processing</id>
+        <link href="https://docs.microsoft.com/azure/architecture/example-scenario/ai/intelligent-apps-image-processing"/>
+        <updated>2021-03-09T16:50:27.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to build image processing into your applications by using Azure services such as the Computer Vision API and Azure Functions.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Distributed training of deep learning models on Azure]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/reference-architectures/ai/training-deep-learning</id>
+        <link href="https://docs.microsoft.com/azure/architecture/reference-architectures/ai/training-deep-learning"/>
+        <updated>2021-03-09T16:50:27.000Z</updated>
+        <summary type="html"><![CDATA[This reference architecture shows how to conduct distributed training of deep learning models across clusters of GPU-enabled VMs using Azure Machine Learning.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[AI at the Edge with Azure Stack Hub]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/solution-ideas/articles/ai-at-the-edge</id>
+        <link href="https://docs.microsoft.com/azure/architecture/solution-ideas/articles/ai-at-the-edge"/>
+        <updated>2021-03-09T16:50:27.000Z</updated>
+        <summary type="html"><![CDATA[Bring your trained AI model to the edge with Azure Stack Hub and integrate it with your applications for low-latency intelligence.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Anomaly Detector Process]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/solution-ideas/articles/anomaly-detector-process</id>
+        <link href="https://docs.microsoft.com/azure/architecture/solution-ideas/articles/anomaly-detector-process"/>
+        <updated>2021-03-09T16:50:27.000Z</updated>
+        <summary type="html"><![CDATA[Learn about Anomaly Detector and see how anomaly detection models are selected with time-series data.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Intelligent apps using Azure Database for PostgreSQL]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/solution-ideas/articles/intelligent-apps-using-azure-database-for-postgresql</id>
+        <link href="https://docs.microsoft.com/azure/architecture/solution-ideas/articles/intelligent-apps-using-azure-database-for-postgresql"/>
+        <updated>2021-03-09T16:50:27.000Z</updated>
+        <summary type="html"><![CDATA[Use Azure Database for PostgreSQL to develop sophisticated machine learning and visualization apps that provide analytics and information that you can act on.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Optimize Marketing with Machine Learning]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/solution-ideas/articles/optimize-marketing-with-machine-learning</id>
+        <link href="https://docs.microsoft.com/azure/architecture/solution-ideas/articles/optimize-marketing-with-machine-learning"/>
+        <updated>2021-03-09T16:50:27.000Z</updated>
+        <summary type="html"><![CDATA[Build a machine-learning model with Azure Machine Learning, Azure Synapse Analytics and Power BI that optimizes big data marketing campaigns.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Personalization using Cosmos DB]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/solution-ideas/articles/personalization-using-cosmos-db</id>
+        <link href="https://docs.microsoft.com/azure/architecture/solution-ideas/articles/personalization-using-cosmos-db"/>
+        <updated>2021-03-09T16:50:27.000Z</updated>
+        <summary type="html"><![CDATA[Generate personalized recommendations for customers in real time by using low-latency and tunable consistency settings for immediate insights.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Personalized Offers]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/solution-ideas/articles/personalized-offers</id>
+        <link href="https://docs.microsoft.com/azure/architecture/solution-ideas/articles/personalized-offers"/>
+        <updated>2021-03-09T16:50:27.000Z</updated>
+        <summary type="html"><![CDATA[Build intelligent marketing systems that provide customer-tailored content by using machine learning models that analyze data from multiple sources.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Quality Assurance]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/solution-ideas/articles/quality-assurance</id>
+        <link href="https://docs.microsoft.com/azure/architecture/solution-ideas/articles/quality-assurance"/>
+        <updated>2021-03-09T16:50:27.000Z</updated>
+        <summary type="html"><![CDATA[Build a quality assurance system that collects data and improves productivity by identifying potential problems in a manufacturing pipeline before they occur.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Retail Assistant with Visual Capabilities]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/solution-ideas/articles/retail-assistant-or-vacation-planner-with-visual-capabilities</id>
+        <link href="https://docs.microsoft.com/azure/architecture/solution-ideas/articles/retail-assistant-or-vacation-planner-with-visual-capabilities"/>
+        <updated>2021-03-09T16:50:27.000Z</updated>
+        <summary type="html"><![CDATA[Use Azure services with a retail assistant or vacation planner to improve interactions with customers and provide suggestions based on visual information.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Visual Assistant]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/solution-ideas/articles/visual-assistant</id>
+        <link href="https://docs.microsoft.com/azure/architecture/solution-ideas/articles/visual-assistant"/>
+        <updated>2021-03-09T16:50:27.000Z</updated>
+        <summary type="html"><![CDATA[Visual assistant identifies image content and delivers related information. It can read business cards and barcodes and recognize people, places, and objects.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Population Health Management for Healthcare]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/solution-ideas/articles/population-health-management-for-healthcare</id>
+        <link href="https://docs.microsoft.com/azure/architecture/solution-ideas/articles/population-health-management-for-healthcare"/>
+        <updated>2021-03-08T22:17:12.000Z</updated>
+        <summary type="html"><![CDATA[Use Population Health Management to improve clinical and health outcomes and reduce costs. Track, monitor, and benchmark data with this tool.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Predictive Maintenance]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/solution-ideas/articles/predictive-maintenance</id>
+        <link href="https://docs.microsoft.com/azure/architecture/solution-ideas/articles/predictive-maintenance"/>
+        <updated>2021-03-08T22:17:12.000Z</updated>
+        <summary type="html"><![CDATA[This predictive maintenance solution monitors aircraft parts in real time and uses advanced analytics to predict the remaining useful life of engine components.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Product recommendations for retail using Azure]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/solution-ideas/articles/product-recommendations</id>
+        <link href="https://docs.microsoft.com/azure/architecture/solution-ideas/articles/product-recommendations"/>
+        <updated>2021-03-08T22:17:12.000Z</updated>
+        <summary type="html"><![CDATA[Aggregate customer data into complete profiles. Use advanced Azure machine learning models to provide predictive insights on simulated customers.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Speech Services]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/solution-ideas/articles/speech-services</id>
+        <link href="https://docs.microsoft.com/azure/architecture/solution-ideas/articles/speech-services"/>
+        <updated>2021-03-08T22:17:12.000Z</updated>
+        <summary type="html"><![CDATA[Use Speech services to transcribe calls and then run full-text searches, detect sentiment and language, and create custom language and acoustic models.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Operational excellence design principles]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/framework/devops/principles</id>
+        <link href="https://docs.microsoft.com/azure/architecture/framework/devops/principles"/>
+        <updated>2021-03-08T19:51:29.000Z</updated>
+        <summary type="html"><![CDATA[Operational Excellence Design Principles]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Retail and e-commerce using Cosmos DB]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/solution-ideas/articles/retail-and-e-commerce-using-cosmos-db</id>
+        <link href="https://docs.microsoft.com/azure/architecture/solution-ideas/articles/retail-and-e-commerce-using-cosmos-db"/>
+        <updated>2021-03-03T10:15:44.000Z</updated>
+        <summary type="html"><![CDATA[Use Azure Cosmos DB for retail and e-commerce apps to support in-depth queries over diverse product catalogs, traffic spikes, and rapidly changing inventory.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Extraneous Fetching antipattern]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/antipatterns/extraneous-fetching</id>
+        <link href="https://docs.microsoft.com/azure/architecture/antipatterns/extraneous-fetching"/>
+        <updated>2021-03-02T20:49:14.000Z</updated>
+        <summary type="html"><![CDATA[Retrieving more data than needed for a business operation can result in unnecessary I/O overhead, cause unnecessary I/O overhead, and reduce responsiveness in entity frameworks.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Performance testing and antipatterns]]></title>
+        <id>https://docs.microsoft.com/azure/architecture//antipatterns</id>
+        <link href="https://docs.microsoft.com/azure/architecture//antipatterns"/>
+        <updated>2021-03-02T20:49:14.000Z</updated>
+        <summary type="html"><![CDATA[Build scalability solutions for common stressors by learning about performance antipatterns. These are common practices that are likely to cause scalability problems when an application is under pressure.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[No Caching antipattern]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/antipatterns/no-caching</id>
+        <link href="https://docs.microsoft.com/azure/architecture/antipatterns/no-caching"/>
+        <updated>2021-03-02T20:49:14.000Z</updated>
+        <summary type="html"><![CDATA[Repeatedly fetching the same data, in a cloud application that handles many concurrent requests, can reduce performance and scalability. Reduce latency by detecting and mitigating this no caching antipattern in your application.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Tradeoffs for performance efficiency]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/framework/scalability/tradeoffs</id>
+        <link href="https://docs.microsoft.com/azure/architecture/framework/scalability/tradeoffs"/>
+        <updated>2021-03-02T20:49:14.000Z</updated>
+        <summary type="html"><![CDATA[Discover the pros and cons of performance optimization. Learn about tradeoffs between performance efficiency, operational excellence, reliability, scalability, and more.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Community Jury]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/guide/responsible-innovation/community-jury</id>
+        <link href="https://docs.microsoft.com/azure/architecture/guide/responsible-innovation/community-jury"/>
+        <updated>2021-03-02T20:49:14.000Z</updated>
+        <summary type="html"><![CDATA[Community jury is a stakeholder collaboration technique that allows project teams to understand the perceptions and concerns of stakeholders, and take actions based on this understanding.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Responsible Innovation toolkit]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/guide/responsible-innovation</id>
+        <link href="https://docs.microsoft.com/azure/architecture/guide/responsible-innovation"/>
+        <updated>2021-03-02T20:49:14.000Z</updated>
+        <summary type="html"><![CDATA[Responsible Innovation is a commitment to put people first in the development of technology by understanding the stakeholders and impact of your technology]]></summary>
+        <category label="updated" term="updated"/>
     </entry>
     <entry>
         <title type="html"><![CDATA[Interactive Voice Response Bot]]></title>
@@ -709,7 +925,7 @@
         <id>https://docs.microsoft.com/azure/architecture/framework/scalability/tradeoffs</id>
         <link href="https://docs.microsoft.com/azure/architecture/framework/scalability/tradeoffs"/>
         <updated>2021-01-06T22:20:47.000Z</updated>
-        <summary type="html"><![CDATA[Tradeoffs for performance efficiency]]></summary>
+        <summary type="html"><![CDATA[Discover the pros and cons of performance optimization. Learn about tradeoffs between performance efficiency, operational excellence, reliability, scalability, and more.]]></summary>
         <category label="updated" term="updated"/>
     </entry>
     <entry>
@@ -801,11 +1017,11 @@
         <category label="new" term="new"/>
     </entry>
     <entry>
-        <title type="html"><![CDATA[Azure AD security for Amazon Web Services (AWS)]]></title>
+        <title type="html"><![CDATA[Azure Active Directory security for AWS]]></title>
         <id>https://docs.microsoft.com/azure/architecture/reference-architectures/aws/aws-azure-ad-security</id>
         <link href="https://docs.microsoft.com/azure/architecture/reference-architectures/aws/aws-azure-ad-security"/>
         <updated>2020-12-15T23:29:03.000Z</updated>
-        <summary type="html"><![CDATA[Learn how Azure Active Directory (Azure AD) can help secure and protect Amazon Web Services (AWS) account identities and access.]]></summary>
+        <summary type="html"><![CDATA[Learn how Azure Active Directory can help secure and protect Amazon Web Services (AWS) identity management and account access. Discover Microsoft security solutions.]]></summary>
         <category label="new" term="new"/>
     </entry>
     <entry>
