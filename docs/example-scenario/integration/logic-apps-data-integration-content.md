@@ -144,7 +144,7 @@ Explore these strategies for minimizing Logic Apps costs:
 [Connect to on-premises data sources from Azure Logic Apps]: /azure/logic-apps/logic-apps-gateway-connection
 [Disable or enable logic apps]: /azure/logic-apps/manage-logic-apps-with-azure-portal#disable-or-enable-logic-apps
 [Enable Azure Active Directory Open Authentication (Azure AD OAuth)]: /azure/logic-apps/logic-apps-securing-a-logic-app?tabs=azure-portal#enable-azure-active-directory-open-authentication-azure-ad-oauth
-[Enterprise integration using queues and events]: /azure/architecture/reference-architectures/enterprise-integration/queues-events
+[Enterprise integration using queues and events]: ../../reference-architectures/enterprise-integration/queues-events.yml
 [Get started with Power Automate]: /power-automate/getting-started
 [Import a Logic App as an API]: /azure/api-management/import-logic-app-as-api
 [Install a gateway cluster]: /data-integration/gateway/service-gateway-install#add-another-gateway-to-create-a-cluster
@@ -156,11 +156,11 @@ Explore these strategies for minimizing Logic Apps costs:
 [Monthly cost profile - standard]: https://azure.com/e/afa93fbed30749cab64db4d2779837ee
 [On-premises data gateway]: /data-integration/gateway/service-gateway-onprem
 [On-premises data gateways documentation]: /data-integration/gateway/
-[On-premises data gateway for Azure Logic Apps]: /azure/architecture/hybrid/gateway-logic-apps
+[On-premises data gateway for Azure Logic Apps]: ../../hybrid/gateway-logic-apps.yml
 [Restrict access by IP address range]: /azure/logic-apps/logic-apps-securing-a-logic-app?tabs=azure-portal#restrict-access-by-ip-address-range
 [Restrict inbound IP addresses]: /azure/logic-apps/logic-apps-securing-a-logic-app#restrict-inbound-ip-addresses
 [Secure data in run history by using obfuscation]: /azure/logic-apps/logic-apps-securing-a-logic-app?tabs=azure-portal#secure-data-in-run-history-by-using-obfuscation
-[Serverless web application]: /azure/architecture/reference-architectures/serverless/web-app
+[Serverless web application]: ../../reference-architectures/serverless/web-app.yml
 [SQL Server 2019 pricing]: https://www.microsoft.com/sql-server/sql-server-2019-pricing
 [SQL Server]: /sql/?view=sql-server-ver15
 [Stored Procedures (Database Engine)]: /sql/relational-databases/stored-procedures/stored-procedures-database-engine?view=sql-server-ver15
