@@ -188,7 +188,7 @@ The following considerations, based on the [Microsoft Azure Well-Architected Fra
   - Hot storage access.
   - Long-term data storage.
 
-- The use of VMs in this architecture aligns with the framework's [Overview of the performance efficiency pillar], since you can optimize the VM configuration to boost performance.
+- The use of VMs in this architecture aligns with the framework's [performance efficiency pillar][Overview of the performance efficiency pillar], since you can optimize the VM configuration to boost performance.
 
 ### Scalability considerations
 
