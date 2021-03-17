@@ -1,6 +1,6 @@
-This article describes how [Asysco's](https://asysco.com/products/) Automated Migration Technology (AMT) Framework migrates an IBM z/OS mainframe system to the Azure cloud. The AMT Framework converts proprietary IBM z/OS mainframe applications into native .NET applications that run on Windows Server OS virtual machines (VMs). On-premises applications and infrastructure migrate to cost-effective, scalable, secure Azure infrastructure-as-a-service (IaaS) and platform-as-a-service (PaaS) environments.
+This article describes how [Asysco's](https://asysco.com/products/) Automated Migration Technology (AMT) Framework migrates an IBM z/OS mainframe system to the Azure cloud. The AMT Framework converts proprietary IBM z/OS mainframe applications into native .NET applications that run on Windows Server OS virtual machines (VMs). On-premises mainframe resources migrate to cost-effective, scalable, secure Azure infrastructure-as-a-service (IaaS) and platform-as-a-service (PaaS) environments.
 
-Transforming proprietary legacy applications, infrastructures, and processes to standardized, benchmarked cloud technologies enables agile DevOps principles and practices that are today's productivity norm. This transformation of legacy applications and infrastructures leads to more unified business and IT alignment.
+Transforming proprietary legacy applications, infrastructures, and processes to standardized, benchmarked cloud technologies enables agile DevOps principles and practices that are today's productivity norm. The transformation of legacy applications and infrastructures leads to more unified business and IT alignment.
 
 The AMT Framework allows an accelerated move into Azure without rewriting application code or redesigning data architecture. The framework converts legacy code to C#, while maintaining the source code in its original form. Application user interfaces and interactions can remain unchanged, minimizing the need for end user retraining.
 
@@ -22,7 +22,9 @@ The following diagram shows how the typical components of an IBM z/OS mainframe 
    
 1. A web browser to access Azure resources replaces standard mainframe protocols like HTTPS and TN3270 terminal emulation for demand and online users (**A**). Users access web-based applications over TLS port 443. For admin access to the Azure Virtual Machines (VMs), Azure Bastion hosts maximize security by minimizing open ports.
    
-1. The AMT Framework converts mainframe presentation, batch, and transaction loads (**B**) to VM server farms. The VMs use Premium SSD or Ultra managed disks with Accelerated Networking for high performance. Each set of servers can scale out to provide more throughput. For best security and performance, this solution deploys all Azure resources in an Azure Virtual Network, with a network security group (NSG) to help manage traffic.
+1. For security and performance, this solution deploys all Azure resources in an Azure Virtual Network, with a network security group (NSG) to help manage traffic.
+   
+   The AMT Framework converts mainframe presentation, batch, and transaction loads (**B**) to VM server farms. The VMs use Premium SSD or Ultra managed disks with Accelerated Networking for high performance.
    
    - Two sets of two VMs run the web and application layers. Presentation layer code runs in IIS and uses ASP.NET to maintain the z/OS mainframe user-interface screens. You can leave web applications' presentation layers unchanged, to minimize end user retraining, or you can update the presentation layers with modern user experience frameworks.
    
@@ -32,13 +34,15 @@ The following diagram shows how the typical components of an IBM z/OS mainframe 
    
 1. Application code (**C**) converts to AMT COBOL or directly to .NET C#. AMT maintains the original code structure to use as a baseline or for future edits. If code needs changing or editing, AMT can maintain and reprocess the original code, or you can edit the converted C# code directly to advance the code base to new standards.
 
-1. AMT automates migrating all DB2, IMS, and IDMS hierarchical, network, or relational databases (**D**) to Azure SQL Server. AMT Transform converts DMS and RDMS schemas to SQL, and converts WFL/ECLJCL/REXX scripts to open-source VB scripts or Windows PowerShell. AMT Transform also converts all binary or indexed VSAM, flat files, and virtual tape files to Azure Files storage. Private Link for Azure SQL Database provides a private, direct connection from Azure VMs to Azure SQL Database.
+1. AMT automates migrating all DB2, IMS, and IDMS hierarchical, network, or relational databases (**D**) to Azure SQL Server. AMT Transform converts DMS and RDMS schemas to SQL, and converts WFL, ECLJCL, and REXX scripts to open-source VB scripts or Windows PowerShell. Private Link for Azure SQL Database provides a private, direct connection from the Azure VMs to Azure SQL Database.
+   
+   AMT Transform also converts all binary or indexed VSAM, flat files, and virtual tape files to Azure Files storage.
    
 1. Workload automation, scheduling, reporting, and system monitoring functions (**E**) that are Azure-capable can keep their current platforms. This example uses AMT Control Center for operations.
    
    The system can support printers and other legacy system output devices if they have IP addresses connected to the Azure network.
    
-1. Azure Site Recovery mirrors the Azure VMs to a secondary Azure region for quick failover and DR in case of Azure datacenter failure.
+1. Azure Site Recovery mirrors the Azure VMs to a secondary Azure region for quick failover and DR if there is Azure datacenter failure.
 
 ## Components
 
@@ -74,7 +78,7 @@ The following considerations apply to this solution:
 
 ### Availability
 
-[Azure Site Recovery](https://azure.microsoft.com/services/site-recovery/) mirrors the Azure VMs to a secondary Azure region for quick failover and DR in case of Azure datacenter failure. [Azure autofailover group replication](/azure/azure-sql/database/auto-failover-group-overview) provides data protection by managing the database replication and failover to the secondary region.
+[Azure Site Recovery](https://azure.microsoft.com/services/site-recovery/) mirrors the Azure VMs to a secondary Azure region for quick failover and DR if there is Azure datacenter failure. [Azure autofailover group replication](/azure/azure-sql/database/auto-failover-group-overview) provides data protection by managing the database replication and failover to the secondary region.
 
 ### Resiliency
 
@@ -84,7 +88,7 @@ Azure Load Balancer builds resiliency into this solution. If one presentation or
 
 - Asysco has proven single-application scalability equivalent to at least 28,000 million IBM mainframe instructions per second (MIPS).
 
-- You can scale out the VM server sets to provide more throughput. For more information, see [Virtual machine scale sets](/azure/virtual-machine-scale-sets/overview).
+- Each set of servers can scale out to provide more throughput. For information, see [Virtual machine scale sets](/azure/virtual-machine-scale-sets/overview).
 
 ### Security
 
