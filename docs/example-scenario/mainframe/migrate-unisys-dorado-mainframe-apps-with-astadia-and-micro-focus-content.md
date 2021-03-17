@@ -276,7 +276,7 @@ To estimate the cost of implementing this solution, use the [Azure pricing calcu
 [Mainframe rehosting on Azure virtual machines]: /azure/virtual-machines/workloads/mainframe-rehosting/overview
 [Managed Disks pricing]: https://azure.microsoft.com/pricing/details/managed-disks/
 [Micro Focus]: https://www.microfocus.com/home
-[Micro Focus Enterprise Server on Azure VMs]: azure/architecture/example-scenario/mainframe/micro-focus-server
+[Micro Focus Enterprise Server on Azure VMs]: /azure/architecture/example-scenario/mainframe/micro-focus-server
 [Microsoft Azure Well-Architected Framework]: /azure/architecture/framework/
 [Migrate IBM mainframe applications to Azure with TmaxSoft OpenFrame]: /azure/architecture/solution-ideas/articles/migrate-mainframe-apps-with-tmaxsoft-openframe
 [Modernize mainframe & midrange data]: /azure/architecture/reference-architectures/migration/modernize-mainframe-data-to-azure
