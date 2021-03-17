@@ -1,4 +1,4 @@
-Microsoft partner [Asysco's](https://asysco.com/products/) Automated Migration Technology (AMT) Framework converts IBM mainframe applications into native .NET applications, running on Windows Server in Azure infrastructure-as-a-service (IaaS) and platform-as-a-service (PaaS) environments. This approach transforms legacy proprietary infrastructures into more cost-effective, standardized, open technologies, enabling agile DevOps principles that are today's high-productivity norm. This transformation leads away from islands of unique legacy infrastructures, processes, and development to more unified businessand IT alignment.
+Microsoft partner [Asysco's](https://asysco.com/products/) Automated Migration Technology (AMT) Framework converts IBM mainframe applications into native .NET applications, running on Windows Server in Azure infrastructure-as-a-service (IaaS) and platform-as-a-service (PaaS) environments. This approach transforms legacy proprietary infrastructures into more cost-effective, standardized, open technologies, enabling agile DevOps principles that are today's high-productivity norm. This transformation leads away from islands of unique legacy infrastructures, processes, and development to more unified business and IT alignment.
 
 This article describes an example conversion of an IBM mainframe system to Azure using the Asysco AMT Framework. The AMT Framework allows an accelerated move into Azure without rewriting application code or redesigning data architecture. The framework converts legacy code to C#, while maintaining the source code in its original form. Application user interfaces and interactions can be virtually unchanged, minimizing the need for end user retraining.
 
@@ -22,7 +22,7 @@ The following diagram shows how the typical components of an IBM z/OS mainframe 
    
 1. The AMT Framework converts mainframe presentation, batch, and transaction loads (**B**) to VM server farms. The VMs use Premium SSD or Ultra Azure Managed Disks with Accelerated Networking for high performance. Each set of servers scales out to provide more throughput, and can use Azure Site Recovery for high availability (HA) and disaster recovery (DR).
    
-   - Two sets of two VMs run the web and application layers. Presentation layer code runs in IIS and uses ASP.NET to maintain the z/OS mainframe user-interface screens. You can leave web applications' presentation layers virtually unchanged, to minimize end user retraining, or you can update the presentation layers with modern user experience frameworks.
+   - Two sets of two VMs run the web and application layers. Presentation layer code runs in IIS and uses ASP.NET to maintain the z/OS mainframe user-interface screens. You can leave web applications' presentation layers unchanged, to minimize end user retraining, or you can update the presentation layers with modern user experience frameworks.
    
    - Mainframe batch and transaction loads convert to sufficient server farms to handle this type of work.
    
@@ -42,7 +42,7 @@ The following diagram shows how the typical components of an IBM z/OS mainframe 
 
 - [Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines/) provides on-demand, scalable computing resources that give you the flexibility of virtualization without having to buy and maintain physical hardware.
   
-- [Azure Virtual Network](/azure/virtual-network/virtual-networks-overview) is the fundamental building block for Azure private networks. Virtual networks let Azure resources like VMs securely communicate with each other, the internet, and on-premises networks. An Azure Virtual Network is similar to a traditional network on premises, but with the additional benefits of Azure's infrastructure such as scalability, availability, and isolation.
+- [Azure Virtual Network](/azure/virtual-network/virtual-networks-overview) is the fundamental building block for Azure private networks. Virtual networks let Azure resources like VMs securely communicate with each other, the internet, and on-premises networks. An Azure Virtual Network is similar to a traditional network on premises, but with Azure infrastructure benefits like scalability, availability, and isolation.
   
 - [Virtual network interfaces](/azure/virtual-network/virtual-network-network-interface) let Azure VMs communicate with internet, Azure, and on-premises resources. As in this architecture, you can add several network interface cards to one Azure VM, so child VMs can have their own dedicated network interface devices and IP addresses.
   
@@ -76,7 +76,7 @@ The following considerations apply to this solution:
 
 ### Resiliency
 
-Azure Load Balancer builds resiliency into this solution. If one presentation or transaction server fails, the other servers behind the load balancer shoulders the workload.
+Azure Load Balancer builds resiliency into this solution. If one presentation or transaction server fails, the other servers behind the load balancer take on the workload.
 
 ### Scalability
 
