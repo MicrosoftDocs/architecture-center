@@ -11,11 +11,10 @@ metadata:
   ms.subservice: example-scenario
   ms.custom:
     - fcp
-name: IBM z/OS mainframe migration with Asysco
+name: IBM z/OS mainframe migration with Asysco AMT
 summary: See how to use the Asysco Automated Migration Technology (AMT) Framework to migrate IBM z/OS mainframe workloads to Azure.
 products:
-  - azure-bastion
-  - azure-expressroute
+  - azure-load-balancer
   - azure-sql-database
   - azure-virtual-machines
   - azure-virtual-network
