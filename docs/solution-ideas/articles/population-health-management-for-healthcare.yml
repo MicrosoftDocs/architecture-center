@@ -2,8 +2,9 @@
 metadata:
   title: Population Health Management for Healthcare
   titleSuffix: Azure Solution Ideas
-  author: krisbock
-  ms.date: 12/16/2019
+  author: doodlemania2
+  ms.author: krbock
+  ms.date: 03/17/2021
   description: Use Population Health Management to improve clinical and health outcomes and reduce costs. Track, monitor, and benchmark data with this tool.
   ms.custom: 'acom-architecture, artificial intelligence, healthcare, ai-ml, solution architectures, Azure, ''https://azure.microsoft.com/solutions/architecture/population-health-management-for-healthcare/'''
   ms.service: architecture-center
