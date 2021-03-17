@@ -1,4 +1,4 @@
-Microsoft partner [Asysco's](https://asysco.com/products/) Automated Migration Technology (AMT) Framework converts IBM mainframe applications into native .NET applications, running on Windows Server in Azure infrastructure-as-a-service (IaaS) and platform-as-a-service (PaaS) environments. This approach transforms legacy proprietary infrastructures into more cost-effective, standardized, open technologies, enabling agile DevOps principles that are today's high-productivity norm. This transformation leads away from islands of unique legacy infrastructures, processes, and development to more unified business and IT alignment.
+Microsoft partner [Asysco's](https://asysco.com/products/) Automated Migration Technology (AMT) Framework converts IBM mainframe applications into native .NET applications running on Windows Server OS. These applications can run in Azure infrastructure-as-a-service (IaaS) and platform-as-a-service (PaaS) environments. Transforming legacy proprietary infrastructures into more cost-effective, standardized, open technologies enables agile DevOps principles that are today's high-productivity norm. This transformation leads away from islands of unique legacy infrastructures, processes, and development to more unified business and IT alignment.
 
 This article describes an example conversion of an IBM mainframe system to Azure using the Asysco AMT Framework. The AMT Framework allows an accelerated move into Azure without rewriting application code or redesigning data architecture. The framework converts legacy code to C#, while maintaining the source code in its original form. Application user interfaces and interactions can be virtually unchanged, minimizing the need for end user retraining.
 
@@ -10,7 +10,7 @@ Many scenarios can benefit from Asysco AMT. Possibilities include the following 
 - Moving IBM z/OS mainframe workloads to the cloud without the side effects of a complete redevelopment.
 - Migrating mission-critical applications to the cloud while maintaining continuity with on-premises mainframe applications.
 - Implementing Azure's horizontal and vertical scalability.
-- Disaster recovery options.
+- Deploying high availability (HA) and disaster recovery (DR) options.
 
 ## Architecture
 
@@ -18,25 +18,29 @@ The following diagram shows how the typical components of an IBM z/OS mainframe 
 
 ![Diagram showing how Asysco AMT migration maps z/OS mainframe components to Azure capabilities.](media/asysco-zos-migration.svg)
    
-1. A web browser to access Azure resources replaces standard mainframe protocols like HTTPS and TN3270 terminal emulation for demand and online users (**A**). Users access web-based applications over TLS port 443. For admin access to the Azure Virtual Machines (VMs), Azure Bastion hosts maximize security by minimizing open ports.
+1. A web browser to access Azure resources replaces standard mainframe protocols like HTTPS and TN3270 terminal emulation for demand and online users (**A**). Users access web-based applications via Azure ExpressRoute over TLS port 443. For admin access to the Azure Virtual Machines (VMs), Azure Bastion hosts maximize security by minimizing open ports.
    
-1. The AMT Framework converts mainframe presentation, batch, and transaction loads (**B**) to VM server farms. The VMs use Premium SSD or Ultra Azure Managed Disks with Accelerated Networking for high performance. Each set of servers scales out to provide more throughput, and can use Azure Site Recovery for high availability (HA) and disaster recovery (DR).
+1. The AMT Framework converts mainframe presentation, batch, and transaction loads (**B**) to VM server farms. The VMs use Premium SSD or Ultra Azure Managed Disks with Accelerated Networking for high performance. Each set of servers can scale out to provide more throughput.
    
    - Two sets of two VMs run the web and application layers. Presentation layer code runs in IIS and uses ASP.NET to maintain the z/OS mainframe user-interface screens. You can leave web applications' presentation layers unchanged, to minimize end user retraining, or you can update the presentation layers with modern user experience frameworks.
    
    - Mainframe batch and transaction loads convert to sufficient server farms to handle this type of work.
    
-1. The VMs running the web and application layers are fronted by Azure Load Balancers in *active-active* arrangements to spread query traffic. Another Azure Load Balancer fronts the transaction servers for the same purpose. The load balancers build resiliency into the solution. If one presentation or transaction server fails, another server behind the load balancer shoulders the workload.
+1. The VMs running the web and application layers are fronted by Azure Load Balancers in *active-active* arrangements to spread query traffic. Another Azure Load Balancer fronts the transaction servers for the same purpose. The load balancers build resiliency into the solution. If one presentation or transaction server fails, another server behind the load balancer takes on the workload.
    
 1. Application code (**C**) converts to AMT COBOL or directly to .NET C#. AMT maintains the original code structure to use as a baseline or for future edits. If code needs changing or editing, AMT can maintain and reprocess the original code, or you can edit the converted C# code directly to advance the code base to new standards.
 
-1. Asysco data migration tools automate migrating all legacy data structures, like DB2, IMS, and IDMS hierarchical, network, or relational databases (**D**), to Azure SQL Server. Asysco AMT Transform converts DMS and RDMS schemas to SQL, and  WFL/ECLJCL/REXX scripts to open-source VB scripts or Windows PowerShell. Azure SQL Database uses either Hyperscale or Business Critical tiers for high IOPS and high uptime SLA. Private Link for Azure SQL Database provides a private, direct connection from Azure VMs to Azure SQL Database.
+1. Asysco data migration tools automate migrating all legacy DB2, IMS, and IDMS hierarchical, network, or relational databases (**D**) to Azure SQL Server. Asysco AMT Transform converts DMS and RDMS schemas to SQL, and  WFL/ECLJCL/REXX scripts to open-source VB scripts or Windows PowerShell.
    
-   AMT Transform also converts all binary or indexed VSAM, flat files, and virtual tape files migrate to Azure Files. Features like Azure autofailover group replication provide data protection.
+   Azure SQL Database uses either Hyperscale or Business Critical tiers for high IOPS and high uptime SLA. Private Link for Azure SQL Database provides a private, direct connection from Azure VMs to Azure SQL Database.
+   
+   AMT Transform also converts all binary or indexed VSAM, flat files, and virtual tape files to Azure Files. Features like Azure autofailover group replication provide data protection.
    
 1. Workload automation, scheduling, reporting, and system monitoring functions (**E**) that are Azure-capable can keep their current platforms. This example uses AMT Control Center for operations.
-
-1. The system can support printers and other legacy system output devices if they have IP addresses connected to the Azure network.
+   
+   The system can support printers and other legacy system output devices if they have IP addresses connected to the Azure network.
+   
+1. Azure Site Recovery mirrors the Azure VMs to a secondary Azure region for quick failover and DR in case of Azure datacenter failure.
 
 ## Components
 
@@ -96,14 +100,14 @@ Azure Load Balancer builds resiliency into this solution. If one presentation or
 
 - Azure helps avoid unnecessary costs by identifying resource needs, analyzing spending over time, and scaling to meet business needs without overspending. Asysco AMT in Azure runs on Windows VMs, which help you optimize costs by turning off VMs when not in use and scripting schedules for known usage patterns.
 
-- Azure SQL Database should use [Hyperscale or Business Critical](/azure/azure-sql/database/service-tiers-general-purpose-business-critical) SQL Database tiers for high input/output operations per second (IOPS) and high uptime SLA. For pricing information, see [Azure SQL Database pricing](https://azure.microsoft.com/pricing/details/sql-database/single/).
+- Azure SQL Database uses [Hyperscale or Business Critical](/azure/azure-sql/database/service-tiers-general-purpose-business-critical) tiers in this solution, for high input/output operations per second (IOPS) and high uptime SLA. For pricing information, see [Azure SQL Database pricing](https://azure.microsoft.com/pricing/details/sql-database/single/).
 
 - This solution works best with Premium SSDs or Ultra Disk SSDs. For pricing information, see [Managed Disks pricing](https://azure.microsoft.com/pricing/details/managed-disks/).
 
 ## See also
 
 - Visit the Azure Marketplace for information about [Asysco AMT GO](https://azuremarketplace.microsoft.com/marketplace/apps/asyscosoftwarebv.amtvmcc_basic_2019_002?tab=Overview).
-- [MIPS Equivalent Sizing for IBM CICS Cobol Applications Migrated to Microsoft Azure](https://techcommunity.microsoft.com/t5/azure-global/mips-equivalent-sizing-for-ibm-cics-cobol-applications-migrated/ba-p/731665).
+- See the blog post [MIPS Equivalent Sizing for IBM CICS COBOL Applications Migrated to Microsoft Azure](https://techcommunity.microsoft.com/t5/azure-global/mips-equivalent-sizing-for-ibm-cics-cobol-applications-migrated/ba-p/731665).
 
 ## Next steps
 

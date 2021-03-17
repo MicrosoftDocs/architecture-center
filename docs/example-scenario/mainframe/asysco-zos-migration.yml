@@ -1,6 +1,6 @@
 ### YamlMime:Architecture
 metadata:
-  title: Unisys mainframe migration
+  title: IBM z/OS mainframe migration with Asysco
   titleSuffix: Azure Example Scenarios
   description: See how to use the Asysco Automated Migration Technology (AMT) Framework to migrate IBM z/OS mainframe workloads to Azure.
   author: EdPrice-MSFT
@@ -11,7 +11,7 @@ metadata:
   ms.subservice: example-scenario
   ms.custom:
     - fcp
-name: IBM z/OS mainframe migration
+name: IBM z/OS mainframe migration with Asysco
 summary: See how to use the Asysco Automated Migration Technology (AMT) Framework to migrate IBM z/OS mainframe workloads to Azure.
 products:
   - azure-bastion
