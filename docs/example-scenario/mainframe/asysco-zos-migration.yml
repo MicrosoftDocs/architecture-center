@@ -1,0 +1,24 @@
+### YamlMime:Architecture
+metadata:
+  title: Unisys mainframe migration
+  titleSuffix: Azure Example Scenarios
+  description: See how to use the Asysco Automated Migration Technology (AMT) Framework to migrate IBM z/OS mainframe workloads to Azure.
+  author: EdPrice-MSFT
+  ms.author: jfrost
+  ms.date: 03/20/2021
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: example-scenario
+  ms.custom:
+    - fcp
+name: IBM z/OS mainframe migration
+summary: See how to use the Asysco Automated Migration Technology (AMT) Framework to migrate IBM z/OS mainframe workloads to Azure.
+products:
+  - azure-bastion
+  - azure-expressroute
+  - azure-sql-database
+  - azure-virtual-machines
+  - azure-virtual-network
+thumbnailUrl: /azure/architecture/browse/thumbs/zos-components.png
+content: |
+   [!include[](asysco-zos-migration-content.md)]
