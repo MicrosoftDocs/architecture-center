@@ -55,7 +55,7 @@ The architecture consists of the following components:
 
 - **Appointment Queue**. This tool generates an HTML page with data pulled out of the Dataverse, using the [Dynamics 365 Web API](https://docs.microsoft.com/dynamics365/customer-engagement/web-api/about?view=dynamics-ce-odata-9). It presents the provider with information about the appointments scheduled for the day, summary about each, and a link to access the patient information by loading the Care Management app through the Dynamics 365. Note that this tool was developed to support this scenario, and is not included in the MCH package. The data presented by this tool is typically pulled from PAS management and scheduling systems and EMR/EHR records. These systems may have tools integrated to present this data, which can be used in an actual deployment.
 
-- **Care Management**. The Care Management tool is a part of the MCH bundle, and is a Power App deployed through Dynamics 365 from the Microsoft Solution Center. It uses the Common Data Model, that sits within the Microsoft Dataverse. It pulls in the patient data from the EMR/EHR system. A care center's solution might choose to use their own system for their functionality, depending on how they want to present this information.
+- **Care Management**. The Care Management tool is a part of the MCH bundle, and is a Power App deployed through Dynamics 365 from the Microsoft Solution Center. It uses the Common Data Model, that sits within the Microsoft Dataverse. It pulls in the patient data from the EMR/EHR system, and presents the aggregated data in the Teams view. A care center's solution might choose to use their own system for their functionality, depending on how they want to present this information.
 
 - **Power BI Analytics**. This is a custom analytics tool created for this scenario, that generates information derived from the IoMT devices registered for the patients. It pulls in data such as heart rate, blood oxygen level, and so on. The Care Management app uses this data to provide additional information about the patient from their daily activities.
 
@@ -130,7 +130,7 @@ The solution needs to be deployed in stages:
 
 ## Next steps
 
-- Learn more about the Microsoft Cloud for Healthcare at [What is Microsoft Cloud for Healthcare?](https://docs.microsoft.com/en-us/industry/healthcare/overview).
+- Learn more about the Microsoft Cloud for Healthcare at [What is Microsoft Cloud for Healthcare?](https://docs.microsoft.com/en-us/industry/healthcare/overview)
 
 - Learn more about Azure for healthcare offerings at [Azure for Healthcare—Healthcare Solutions](https://azure.microsoft.com/en-us/industries/healthcare/).
 
