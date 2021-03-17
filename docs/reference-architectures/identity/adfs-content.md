@@ -369,10 +369,10 @@ A deployment for this architecture is available on [GitHub][github]. Note that t
 
 ### Next Steps
 
-* [Azure Activity Directory Documentation](/azure/active-directory)
+* [Azure Activity Directory Documentation](https://docs.microsoft.com/azure/active-directory)
 * [Manage Identity in multitenant applications](/azure/architecture/multitenant-identity)
-* [Identity Management Security](/azure/security/fundamentals/identity-management-overview)
-* [Azure Firewall](/azure/firewall/overview)
+* [Identity Management Security](https://docs.microsoft.com/azure/security/fundamentals/identity-management-overview)
+* [Azure Firewall](https://docs.microsoft.com/azure/firewall/overview)
 
 
 <!-- links -->
