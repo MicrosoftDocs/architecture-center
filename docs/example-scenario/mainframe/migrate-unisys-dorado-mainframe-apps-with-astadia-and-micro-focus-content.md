@@ -1,23 +1,23 @@
 Unisys Dorado mainframe systems are full-featured operating environments. You can scale them up vertically to handle mission-critical workloads. But emulating or modernizing these systems into Azure can provide similar or better performance and SLA guarantees. Azure systems also offer added flexibility, reliability, and the benefit of future capabilities.
 
-This architecture uses emulation technology from two Microsoft partners, [Astadia][Astadia] and [Micro Focus][Micro Focus]. The solution provides an accelerated way to move to Azure because there's no need to:
+This architecture uses emulation technology from two Microsoft partners, [Astadia][Astadia] and [Micro Focus][Micro Focus]. The solution provides an accelerated way to move to Azure. There's no need for these steps:
 
-- Rewrite application code.
-- Redesign data architecture or switch from a network-based to a relational-based model.
-- Change application screens.
+- Rewriting application code.
+- Redesigning data architecture or switching from a network-based to a relational-based model.
+- Changing application screens.
 
 ## Potential use cases
 
 Many cases can benefit from the Astadia and Micro Focus pattern:
 
 - Businesses with Unisys Dorado mainframe systems that can't modify original source code, such as COBOL. Reasons include compliance factors, prohibitive costs, complexity, or other considerations.
-- Organizations looking for approaches to modernizing workloads that offer:
+- Organizations looking for approaches to modernizing workloads that offer these capabilities:
 
-  - A way to *lift and shift* application layer source code.
-  - Modern platform as a service (PaaS) services and capabilities, including:
+  - A way to migrate application layer source code.
+  - Modern platform as a service (PaaS) services, including:
 
     - Azure SQL Database with its built-in high availability.
-    - Azure Data Factory with its automated, serverless file routing and transformation.
+    - Azure Data Factory with its automated and serverless file routing and transformation.
 
 ## Architecture
 
@@ -28,32 +28,32 @@ Many cases can benefit from the Astadia and Micro Focus pattern:
 1. Transport Layer Security (TLS) connections that use port 443 provide access to web-based applications:
 
    - To minimize the need for retraining, you can avoid modifying the web application presentation layer during migration. But you can also update the presentation layer to align with UX requirements.
-   - Azure Bastion hosts work to maximize security. When giving administrators access to VMs, these hosts minimize the number of open ports.
+   - Azure Bastion hosts help to maximize security. When giving administrators access to VMs, these hosts minimize the number of open ports.
    - Azure ExpressRoute securely connects on-premises and Azure components.
 
 1. The solution uses two sets of two Azure Virtual Machines (VMs):
 
    - Within each set, one VM runs the web layer, and one runs the application emulation layer.
    - One set of VMs is the primary, active set. The other set is the secondary, passive set.
-   - Azure Load Balancer manages approaching traffic. When the active VM set fails, the passive set comes online. The load balancer then routes traffic to that newly activated set.
+   - Azure Load Balancer distributes approaching traffic. When the active VM set fails, the standby set comes online. The load balancer then routes traffic to that newly activated set.
 
 1. Astadia OpenTS simulates Unisys mainframe screens. This component runs presentation layer code in Internet Information Services (IIS) and uses ASP.NET. OpenTS can either run on its own VM or on the same VM as other Astadia emulation products.
 
-1. OpenMCS is a program from Astadia that emulates:
+1. OpenMCS is a program from Astadia that emulates these components:
 
    - The Unisys Dorado Mainframe Transactional Interface Package (TIP).
    - Other services that Unisys mainframe COBOL programs use.
 
 1. Micro Focus COBOL runs COBOL programs on the Windows server. There's no need to rewrite COBOL code. Micro Focus COBOL can invoke Unisys mainframe facilities through the Astadia emulation components.
 
-1. Astadia OpenDMS emulates the Unisys Dorado mainframe DMS database access technology. With this component, you can lift and shift tables and data into SQL Database from:
+1. Astadia OpenDMS emulates the Unisys Dorado mainframe DMS database access technology. With this component, you can migrate tables and data into SQL Database from these systems:
 
    - Relational-based relational database management systems (RDMSs).
    - Network-based data management software (DMS) databases.
 
 1. An Azure Files share is mounted on the Windows server VM. COBOL programs then have easy access to the Azure Files repository for file processing.
 
-1. With either the Hyperscale or Business Critical service tier, SQL Database provides:
+1. With either the Hyperscale or Business Critical service tier, SQL Database provides these capabilities:
 
    - High input/output operations per second (IOPS).
    - High uptime SLA.
@@ -102,7 +102,7 @@ This diagram shows the components that Unisys Sperry OS 1100/2200 mainframe syst
 
 - Database management systems (**E**) follow the eXtended Architecture (XA) specification. Mainframes use relational database systems like RDMS and network-based database systems like DMS II and DMS. The new architecture migrates legacy database structures to SQL Database, which provides DR and HA capabilities.
 
-- Mainframe file structures include CIFS, flat files, and virtual tape. These file structures map easily to Azure data constructs within structured files or Blob Storage (**F**). Data Factory provides a modern PaaS data transformation service that fully integrates with this architecture pattern.
+- Mainframe file structures include Common Internet File System (CIFS), flat files, and virtual tape. These file structures map easily to Azure data constructs within structured files or Blob Storage (**F**). Data Factory provides a modern PaaS data transformation service that fully integrates with this architecture pattern.
 
 ### Components
 
@@ -182,7 +182,7 @@ The following considerations, based on the [Microsoft Azure Well-Architected Fra
 
 ### Performance considerations
 
-- SQL Database, Storage accounts, and other Azure PaaS components provide high performance for:
+- SQL Database, Storage accounts, and other Azure PaaS components provide high performance in these areas:
 
   - Data reads and writes.
   - Hot storage access.
@@ -207,7 +207,7 @@ All the components in this architecture work with Azure security components as n
 
 To estimate the cost of implementing this solution, use the [Azure pricing calculator][Pricing calculator].
 
-- [VM pricing][VM pricing] depends on your compute capacity. This solution helps you [optimize VM costs][Optimize VM costs] by:
+- [VM pricing][VM pricing] depends on your compute capacity. This solution helps you [optimize VM costs][Optimize VM costs] in these ways:
 
   - Turning off VMs that aren't in use.
   - Scripting a schedule for known usage patterns.
