@@ -16,7 +16,7 @@ Many scenarios can benefit from Asysco AMT. Possibilities include the following 
 
 The following diagram shows how the typical components of an IBM z/OS mainframe system can map and migrate to Azure capabilities.
 
-![Diagram showing how Asysco AMT migration maps z/OS mainframe components to Azure capabilities.](media/asysco-zos-migration.png)
+![Diagram showing how Asysco AMT migration maps z/OS mainframe components to Azure capabilities.](media/asysco-zos-migration.svg)
    
 1. A web browser to access Azure resources replaces standard mainframe protocols like HTTPS and TN3270 terminal emulation for demand and online users (**A**). Users access web-based applications over TLS port 443. For admin access to the Azure Virtual Machines (VMs), Azure Bastion hosts maximize security by minimizing open ports.
    
