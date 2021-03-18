@@ -98,7 +98,8 @@ The architecture uses Azure-managed disks for Azure VM disks and Azure Files for
     - Enable write accelerator (for write caching) for all the log disks when using premium SSD with M series.
     - For production/performance critical SAP on Oracle deployment with E series VMs, use ultra SSD for log disks and can use premium SSD for data disks.
     - For non-prod systems/non-performance critical SAP on Oracle deployment you can replace the Premium-managed disk with Standard SSD.
-- Can use [premium SSD performance tiering](/en-gb/azure/virtual-machines/disks-performance-tiers-portal) to temporary increase the performance offerings from the premium SSD.
+- Can use [premium SSD performance tiering](/azure/virtual-machines/disks-performance-tiers-portal) to temporary increase the performance offerings from the premium SSD.
+
 
 ### Security
 
@@ -223,15 +224,18 @@ Here are some of the cost optimization measures that can be adopted to achieve c
 #### Considerations
 
 - Based on SAP sizing requirements, consider using SAP certified Intel or AMD-based VMs (different pricing).
-- Consider [Azure Managed disk reservation](/en-gb/azure/cost-management-billing/reservations/understand-disk-reservations) to lower your disk storage cost.
+- Consider [Azure Managed disk reservation](/azure/cost-management-billing/reservations/understand-disk-reservations) to lower your disk storage cost.
+
 - Consider not deploying the central services cluster in the DR region if the database is not following the high-availability pattern.
 
 #### Recommendations
 
 - Based on the VM usage profile, aim for rightsizing the Application and DB VMs, and scale as per the SAP load requirements.
 - Based on the system usage profile of different SAP systems of the landscape i.e., Development, Test, Pre-Production and Production, adopt compute cost optimization strategy by choosing either [Azure VM reservations or VM snoozing](https://azure.microsoft.com/en-us/resources/reduce-business-costs-by-snoozing-or-reserving-azure-virtual-machines/).
-- Consider using [Azure Hybrid Benefit](https://azure.microsoft.com/en-gb/pricing/hybrid-benefit/) to use pre-existing on-premises Windows Server, Red Hat or SUSE licenses.
-- For temporary increase (i.e., for finite duration) in storage performance without increasing the storage capacity, consider using [Performance tiering of Premium SSD](/en-gb/azure/virtual-machines/disks-performance-tiers-portal) and Azure NetApp Files.
+- Consider using [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/) to use pre-existing on-premises Windows Server, Red Hat or SUSE licenses.
+
+- For temporary increase (i.e., for finite duration) in storage performance without increasing the storage capacity, consider using [Performance tiering of Premium SSD](/azure/virtual-machines/disks-performance-tiers-portal) and Azure NetApp Files.
+
 
 
 ## Related Resources

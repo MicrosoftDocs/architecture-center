@@ -151,7 +151,7 @@ If the AWS account doesn't have a strong RBAC implementation, start by working o
 
 Azure AD centralizes all authentication and authorization. You can plan and configure user mapping and RBAC without impacting administrators and developers until you're ready to enforce the new methods.
 
-The high-level process for migrating from AWS IAM accounts to Azure AD is as follows. For detailed instructions, see [Deployment](./aws-azure-ad-security.yml#Deploy-Azure-AD-for-single-sign-on-to-an-individual-AWS-account).
+The high-level process for migrating from AWS IAM accounts to Azure AD is as follows. For detailed instructions, see [Deployment](./aws-azure-ad-security.yml#deploy-azure-ad-for-single-sign-on-to-an-individual-aws-account).
 
 1. Map IAM policies to Azure AD roles, and use RBAC to map roles to security groups.
    

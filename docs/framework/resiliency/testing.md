@@ -46,7 +46,7 @@ As part of your test plan, include:
 - [Automated pre-deployment testing](../../checklist/dev-ops.md#testing)
 - [Fault injection testing](#fault-injection-testing)
 - [Peak load testing](../scalability/performance-test.md#load-testing)
-- [Disaster recovery testing](./backup-and-recovery.md#failover)
+- [Disaster recovery testing](./backup-and-recovery.md#failover-and-failback-testing)
 
 ## Performance testing
 
