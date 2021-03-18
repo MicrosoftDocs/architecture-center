@@ -1,3 +1,15 @@
+---
+title: Remediate security risks in Azure Security Center
+description: Remediate the common risks identified by Azure Security Center.
+author: PageWriter-MSFT
+ms.date: 03/18/2020
+ms.topic: conceptual
+ms.service: architecture-center
+ms.subservice: well-architected
+ms.custom:
+  - article
+---
+
 # Remediate security risks in Azure Security Center
 
 Security controls must remain effective against attackers who continuously improve their ways to attack the digital assets of an enterprise. Use the principle of drive continuous improvement to make sure systems are regularly evaluated and improved.

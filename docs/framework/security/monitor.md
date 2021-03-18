@@ -12,7 +12,7 @@ ms.custom:
  
 # Security monitoring and remediation in Azure
 
-Assume that the security controls will fail and Regularly monitor resources to the security posture. These activities can highlight, if the current security practices are effective or are there new requirements. Have remediation strategy in place that quickly responds to vulnerabilities and threats. 
+Regularly monitor resources to maintain the security posture. These activities can highlight, if the current security practices are effective or are there new requirements. Have remediation strategy in place that quickly responds to vulnerabilities and threats. 
 
 ## Checklist
 **How are you monitoring security-related events in this workload?**

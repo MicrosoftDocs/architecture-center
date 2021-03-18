@@ -439,6 +439,8 @@ items:
                 href: framework/security/monitor.md
               - name: Tools
                 href: framework/security/monitor-tools.md
+              - name: Review and remediate 
+                href: framework/security/monitor-remediate.md
               - name: Security operations
                 href: framework/security/monitor-security-operations.md
               - name: Validate and test
