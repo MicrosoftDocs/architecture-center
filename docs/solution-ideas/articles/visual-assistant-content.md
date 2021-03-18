@@ -44,6 +44,6 @@ Visual assistant provides rich information based on content of the image with ca
 ## Recommended resources
 
 * [Artificial intelligence (AI) - Architectural overview](../../data-guide/big-data/ai-overview.md)
-* [Image classification on Azure](/azure/architecture/solution-ideas/articles/example-scenario/ai/intelligent-apps-image-processing)
+* [Image classification on Azure](/azure/architecture/example-scenario/ai/intelligent-apps-image-processing)
 * [Interactive Voice Response Bot](/azure/architecture/solution-ideas/articles/interactive-voice-response-bot)
 * [Retail Assistant with Visual Capabilities](/azure/architecture/solution-ideas/articles/retail-assistant-or-vacation-planner-with-visual-capabilities)
