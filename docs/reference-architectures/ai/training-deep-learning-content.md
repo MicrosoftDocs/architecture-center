@@ -1,6 +1,6 @@
 This reference architecture shows how to conduct distributed training of deep learning models across clusters of GPU-enabled VMs. The scenario is image classification, but the solution can be generalized to other deep learning scenarios such as segmentation or object detection.
 
-A reference implementation for this architecture is available on [GitHub][github].
+A reference implementation for this architecture is available on [GitHub][github]. 
 
 ![Architecture for distributed deep learning][0]
 
@@ -165,7 +165,7 @@ You may also find the following resources useful:
 [security-guide]: /azure/storage/common/storage-security-guide
 [azureml-logging]: /azure/machine-learning/how-to-track-experiments
 [azureml-tensorboard]: https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/track-and-monitor-experiments/tensorboard/tensorboard/tensorboard.ipynb
-[tfrecords]: https://www.tensorflow.org/tutorials/load_data/tf_records
+[tfrecords]: https://www.tensorflow.org/tutorials/load_data/tfrecord
 [petastorm]: https://github.com/uber/petastorm
 [premium-storage]: /azure/storage/blobs/storage-blob-performance-tiers
 [premium-storage-comparison]: https://azure.microsoft.com/blog/premium-block-blob-storage-a-new-level-of-performance/

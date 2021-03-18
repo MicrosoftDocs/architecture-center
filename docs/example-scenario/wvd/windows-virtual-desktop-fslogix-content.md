@@ -218,6 +218,10 @@ The following settings are commonly used by our customers in their desktop virtu
 |VolumeType   |VHDx    |More capabilities for PowerShell and maintenance.    |
 |FlipFlopProfileDirectoryName |1    |Makes it easier to search for the specific profile container user folder on the network share.    |
 
+To manage these registry settings at scale, group policy templates are included with the FSlogix installation package.  Guidance for using these templates can be found in the article [Use FSLogix Group Policy Templates](/fslogix/use-group-policy-templates-ht). 
+
+Note: 'FlipFlopProfileDirectoryName' is managed by the 'swap directory name components' setting if using the GPO template.
+
 ## Next steps
 
 Read the following articles for more information:

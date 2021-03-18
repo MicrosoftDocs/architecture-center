@@ -29,7 +29,7 @@ Here is a screenshot of the example app that consumes the results:
 
 ![Screenshot of the example app](./_images/python-faq-matches.png)
 
-**Scenario 2: Image classification**. This scenario shows how to deploy a Convolutional Neural Network (CNN) model as a web service to provide predictions on images. For this scenario, "Input Data" in the architecture diagram refers to image files. CNNs are very effective in computer vision for tasks such as image classification and object detection. This scenario is designed for the frameworks TensorFlow, Keras (with the TensorFlow back end), and PyTorch. However, it can be generalized to any scenario that uses deep learning models to make real-time predictions.
+**Scenario 2: Image classification**. This scenario shows how to deploy a Convolutional Neural Network (CNN) model as a web service to provide predictions on images. For this scenario, "Input Data" in the architecture diagram refers to image files. CNNs are effective in computer vision for tasks such as image classification and object detection. This scenario is designed for the frameworks TensorFlow, Keras (with the TensorFlow back end), and PyTorch. However, it can be generalized to any scenario that uses deep learning models to make real-time predictions.
 
 This scenario uses a pre-trained ResNet-152 model trained on ImageNet-1K (1,000 classes) dataset to predict which category (see figure below) an image belongs to. These predictions are made in real time using a REST API endpoint.
 
@@ -44,13 +44,13 @@ The application flow for the deep learning model is as follows:
 5. The web service created by Azure Machine Learning preprocesses the image data and sends it to the model for scoring.
 6. The predicted categories with their scores are returned to the client.
 
-## Architecture'
+## Architecture
 
 This architecture consists of the following components.
 
-**[Azure Machine Learning][aml]** is a cloud service that is used to train, deploy, automate and manage machine learning models, all at the broad scale that the cloud provides. It is used in this architecture to manage the deployment of models as well as authentication, routing, and load balancing of the web service.
+**[Azure Machine Learning][aml]** is a cloud service that is used to train, deploy, automate, and manage machine learning models, all at the broad scale that the cloud provides. It is used in this architecture to manage the deployment of models as well as authentication, routing, and load balancing of the web service.
 
-**[Virtual machine][vm]** (VM). The VM is shown as an example of a device &mdash; local or in the cloud &mdash; that can send an HTTP request.
+**[Virtual machine][vm]** (VM). The VM is shown as an example of a device—local or in the cloud—that can send an HTTP request.
 
 **[Azure Kubernetes Service][aks]** (AKS) is used to deploy the application on a Kubernetes cluster. AKS simplifies the deployment and operations of Kubernetes. The cluster can be configured using CPU-only VMs for regular Python models or GPU-enabled VMs for deep learning models.
 
@@ -90,7 +90,7 @@ Use [Azure Monitor for containers][monitor-containers] to collect metrics and lo
 
 ## Security considerations
 
-Use [Azure Security Center][security-center] to get a central view of the security state of your Azure resources. Security Center monitors potential security issues and provides a comprehensive picture of the security health of your deployment, although it doesn't monitor AKS agent nodes. Security Center is configured per Azure subscription. Enable security data collection as described in [Onboard your Azure subscription to Security Center Standard][get-started]. When data collection is enabled, Security Center automatically scans any VMs created under that subscription.
+Use [Azure Security Center][security-center] to get a central view of the security state of your Azure resources. Security Center monitors potential security issues and provides a comprehensive picture of the security health of your deployment, although it doesn't monitor AKS agent nodes. Security Center is configured per Azure subscription. Enable security data collection as described in [Enable Security Center on your subscriptions][get-started]. When data collection is enabled, Security Center automatically scans any VMs created under that subscription.
 
 **Operations**. To sign in to an AKS cluster using your Azure Active Directory (Azure AD) authentication token, configure AKS to use Azure AD for [user authentication][aad-auth]. Cluster administrators can also configure Kubernetes role-based access control (Kubernetes RBAC) based on a user's identity or directory group membership.
 
@@ -130,7 +130,7 @@ For more information, see the Cost section in [Microsoft Azure Well-Architected 
 
 ## DevOps considerations
 
-In this architecture the scoring images are created by the Machine Learning model and deployed as containers on AKS. You can integrate the entire architecture into a release pipeline for model management and oprationalization, including DevOps tasks for data sanity test, model training on different compute targets, model version management, model deployment as real-time web service, staged deployment to QA/production environments, integration testing and functional testing. 
+In this architecture, the scoring images are created by the Machine Learning model and deployed as containers on AKS. You can integrate the entire architecture into a release pipeline for model management and operationalization, including DevOps tasks for data sanity test, model training on different compute targets, model version management, model deployment as a real-time web service, staged deployment to QA/production environments, integration testing, and functional testing. 
 The [Machine learning operationalization (MLOps) for Python models using Azure Machine Learning][mlops-ra] reference architecture shows how to implement a continuous integration (CI), continuous delivery (CD), and retraining pipeline for an AI application using Azure DevOps and Azure Machine Learning.
 
 ## Deployment

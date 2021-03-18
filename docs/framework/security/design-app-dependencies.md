@@ -30,9 +30,6 @@ During the design phase, consider the way you store secrets and handle exception
 ***
 Application configuration information can be stored with the application. We recommend using a dedicated configuration management system such as Azure App Configuration or Azure Key Vault. Thay way, it can be updated independently of the application code.
 
-**Are application keys and secrets stored securely?**
-***
-
 Applications can include secrets like database connection strings, certificate keys, and so on. Do not store secrets in source code or configuration files. Instead keep them in a secure store, such as Azure Key Vault. If you need to store secrets in code, identify them with static code scanning tools. Add the scanning process in your continuous integration (CI) pipeline.
 
 For more information about secret management, see [Key and secret management](design-storage-keys).
@@ -41,6 +38,11 @@ For more information about secret management, see [Key and secret management](de
 ***
 
 When handling application exceptions, make the application fail gracefully and log the error. Do not provide detailed information related to the failure, such as call stack, SQL queries, or out of range errors. This information can provide attackers with valuable information about the internals of the application.
+
+<a id="config-change">**Can configuration settings be changed or modified without rebuilding or redeploying the application?**</a>
+***
+
+Application code and configuration should not share the same lifecycle to enable operational activities that change and update specific configurations without developer involvement or redeployment.
 
 **Is platform-specific information removed from server-client communication?**
 ***
@@ -68,7 +70,12 @@ It's important to be aware of the implications of using third-party frameworks a
 
 - Maintain a list of frameworks and libraries as part of the application inventory. Also, keep track of versions in use.
 
-- Update frameworks and libraries as part of the application lifecycle. Prioritize critical security patches. 
+- Update frameworks and libraries as part of the application lifecycle. Prioritize critical security patches.
+
+<a id="SSL">**Are the expiry dates of SSL/TLS certificates monitored and are processes in place to renew them?**</a>
+***
+
+Tracking expiry dates of SSL/TLS certificates and renewing them in due time is therefore highly critical. Ideally, the process should be automated, although this often depends on leveraged CA. If not automated, sufficient alerting should be applied to ensure expiry dates do not go unnoticed.
 
 ## Referenced Azure services
 
