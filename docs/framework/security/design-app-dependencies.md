@@ -26,10 +26,16 @@ Security of an application that is hosted in Azure is a shared responsibility be
 
 During the design phase, consider the way you store secrets and handle exceptions. Here are some considerations.
 
+**How do is application configuration stored and how does the application access it?**
+***
+Application configuration information can be stored with the application. We recommend using a dedicated configuration management system such as Azure App Configuration or Azure Key Vault. Thay way, it can be updated independently of the application code.
+
 **Are application keys and secrets stored securely?**
 ***
 
-Configuration within in the application can include secrets like database connection strings, certificate keys, and so on. Do not store secrets in source code or configuration files. Instead keep them in a secure store, such as Azure Key Vault. If you need to store secrets in code, identify them with static code scanning tools. Add the scanning process in your continuous integration (CI) pipeline.
+Applications can include secrets like database connection strings, certificate keys, and so on. Do not store secrets in source code or configuration files. Instead keep them in a secure store, such as Azure Key Vault. If you need to store secrets in code, identify them with static code scanning tools. Add the scanning process in your continuous integration (CI) pipeline.
+
+For more information about secret management, see [Key and secret management](design-storage-keys).
 
 **Are errors and exceptions handled properly without exposing that information to users?**
 ***

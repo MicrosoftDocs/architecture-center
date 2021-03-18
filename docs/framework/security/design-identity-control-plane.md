@@ -61,6 +61,7 @@ For critical infrastructure, use management locks to prevent deletion or modific
 Set locks in the DevOps process carefully because modification locks can sometimes block automation. For examples of those blocks and considerations, see [Considerations before applying locks](/azure/azure-resource-manager/management/lock-resources#considerations-before-applying-locks).
 
 ## Application deployment
+
 **Is there a direct access to the application infrastructure through Azure portal, Command-line Interface (CLI), or REST API?**
 ***
 It's recommended that you deploy application infrastructure through automation and CI/CD. To maximize application autonomy and agility, balance restrictive access control on less critical development and test environments.

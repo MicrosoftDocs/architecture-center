@@ -10,22 +10,25 @@ ms.custom:
   - article
 ---
  
-# Security monitoring in Azure
+# Security monitoring and remediation in Azure
 
-Health modeling refers to the activities that maintain the security posture of a workload through monitoring. These activities can highlight, if the current security practices are effective or are there new requirements. Health modeling can be categorized as follows:
+Assume that the security controls will fail and Regularly monitor resources to the security posture. These activities can highlight, if the current security practices are effective or are there new requirements. Have remediation strategy in place that quickly responds to vulnerabilities and threats. 
+
 ## Checklist
+**How are you monitoring security-related events in this workload?**
+***
+
+
 > [!div class="checklist"]
 > - Monitor the workload and the infrastructure in which it runs.
-> - Conduct audits.
-> - Enable, acquire, and store audit logs.
-> - Update and patch security fixes.
-> - Respond to incidents.
-> - Simlulate attacks based on real incidents. 
+> - Discover and remediate common risks to improve secure score in Azure Security Center.
+> - Establish a SecOps team and incident response plan.
 
 ## In this section
 |Assessment|Description|
 |---|---|
 |[**How is security monitored in the application context?**](monitor-tools.md)|Use Azure tools and services to monitor your security posture and also remediate incidents.|
+|[**Does the organization use tools to discover and remediate common risks within Azure tenants?**](monitor-remediate.md)|Azure Security Center provides recommendations for resources that remediate common risks.|
 |[**Is access to the control plane and data plane of the application periodically reviewed?**](monitor-identity-network.md)|Monitor network conditions and identity-related risk events regularly.|
 |[**Do you implement security practices and tools during the development lifecycle?**](monitor-audit.md)|Activities related to enabling, acquiring, and storing audit logs for Azure services.|
 |[**Are operational processes for incident response defined and tested?**](monitor-security-operations.md)|Guidance for the central SecOps team for monitoring security-related telemetry data and investigating security breaches.|
