@@ -7,8 +7,9 @@ ms.date: 11/05/2018
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: best-practice
+products:
+  - azure-virtual-machines
 ms.custom:
-  - seodec18
   - best-practice
 ---
 

@@ -6,6 +6,8 @@ ms.date: 09/02/2020
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
+products:
+  - azure-app-service
 ms.custom:
   - article
 ---

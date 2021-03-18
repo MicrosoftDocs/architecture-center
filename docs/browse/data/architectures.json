@@ -3093,7 +3093,7 @@
             "word_count": 566,
             "read_time": "3 min read",
             "Title": "Demand Forecasting",
-            "MetaDescription": "Accurately forecasting spikes in demand for products and services can give a company a competitive advantage. This solution focuses on demand forecasting within the energy sector.",
+            "MetaDescription": "Accurately forecasting spikes in demand for products and services can give a company a competitive advantage. This solution focuses on-demand forecasting within the energy sector.",
             "category": [
                 "analytics",
                 "ai-machine-learning"
@@ -3102,7 +3102,7 @@
             "imagepath": "C:\\jvPnpRepos\\architecture-center-pr\\docs\\solution-ideas\\media\\demand-forecasting.png",
             "publish_date": "12/16/2019",
             "pricing_guidance": "pricing-info",
-            "Summary": "<p>Accurately forecasting spikes in demand for products and services can give a company a competitive advantage. This solution focuses on demand forecasting within the energy sector.</p>",
+            "Summary": "<p>Accurately forecasting spikes in demand for products and services can give a company a competitive advantage. This solution focuses on-demand forecasting within the energy sector.</p>",
             "Flow": {
                 "FlowStep_A": "The sample data is streamed by newly deployed Azure Web Jobs.",
                 "FlowStep_B": "This synthetic data feeds into the Azure Event Hubs and Azure SQL service as data points or events, that will be used in the rest of the solution flow.",
@@ -4246,7 +4246,7 @@
             "word_count": 577,
             "read_time": "3 min read",
             "Title": "Energy Supply Optimization",
-            "MetaDescription": "This solution provides an Azure-based smart solution, leveraging external open-source tools, that determines the optimal energy unit commitments from various types of energy resources for an energy grid.",
+            "MetaDescription": "This solution provides an Azure-based smart solution, applying external open-source tools, to determine the optimal energy unit commitments from various energy resources for an energy grid.",
             "category": [
                 "ai-machine-learning",
                 "integration"
@@ -4256,7 +4256,7 @@
             "publish_date": "12/16/2019",
             "Summary": "<p>In an energy grid, energy consumers are engaged with various types of energy supplying, trading, and storage components such as substations, batteries, windfarms and solar panels, micro-turbines, as well as demand response bids, to meet their respective demands and minimize the cost of energy commitment. To do so, the grid operator must determine how much energy each type of the resources should commit over a time frame, given the prices of soliciting different types of resources and the capacities and the physical characteristics of them.</p>\n<p>This solution is built upon Cortana Intelligence Suite and external open-source tools, and it computes the optimal energy unit commitments from various types of energy resources. This solution demonstrates the ability of Cortana Intelligence Suite to accommodating external tools, to solve parallelized numerical optimization problems over an Azure Batch of Azure Virtual Machines.</p>",
             "Flow": {
-                "FlowStep_A": "The sample data is streamed by newly deployed Azure Web Jobs. The web job uses resource related data from Azure SQL to generate the simulated data.",
+                "FlowStep_A": "The sample data is streamed by newly deployed Azure Web Jobs. The web job uses resource-related data from Azure SQL to generate the simulated data.",
                 "FlowStep_B": "The data simulator feeds this simulated data into the Azure Storage and writes message in Storage Queue, that will be used in the rest of the solution flow.",
                 "FlowStep_C": "Another Web Job monitors the storage queue and initiate an Azure Batch job once message in the queue is available.",
                 "FlowStep_D": "The Azure Batch service together with Data Science Virtual Machines is used to optimize the energy supply from a particular resource type given the inputs received.",

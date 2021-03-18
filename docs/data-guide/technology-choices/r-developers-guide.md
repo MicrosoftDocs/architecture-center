@@ -3,13 +3,16 @@ title: R developer's guide to Azure - R programming
 description: This article provides an overview of the various ways that data scientists can use their existing skills with the R programming language in Azure. Azure offers many services that R developers can use to extend their data science workloads into the cloud.
 services: machine-learning
 author: AnalyticJeremy
+ms.author: jepeach
+ms.date: 04/02/2020
+ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: cloud-fundamentals
 ms.workload: data-services
 ms.devlang: R
-ms.topic: conceptual
-ms.date: 04/02/2020
-ms.author: jepeach
+products:
+  - azure-machine-learning
+  - azure-data-science-vm
 ms.custom:
   - article
 ---
@@ -110,7 +113,7 @@ A third option is to use the [Azure Distributed Data Engineering Toolkit](https:
 
 ## Azure SQL Managed Instance
 
-[Azure SQL Managed Instance](https://azure.microsoft.com/services/azure-sql/sql-managed-instance/) is Microsoft's intelligent, scalable, cloud database service.  It allows you to use the full power of SQL Server without any hassle of setting up the infrastructure.  This includes [Machine Learning Services](https://docs.microsoft.com/azure/azure-sql/managed-instance/machine-learning-services-overview) which contains Microsoft R and Python packages for high-performance predictive analytics and machine learning.
+[Azure SQL Managed Instance](https://azure.microsoft.com/services/azure-sql/sql-managed-instance/) is Microsoft's intelligent, scalable, cloud database service.  It allows you to use the full power of SQL Server without any hassle of setting up the infrastructure.  This includes [Machine Learning Services](/azure/azure-sql/managed-instance/machine-learning-services-overview) which contains Microsoft R and Python packages for high-performance predictive analytics and machine learning.
 
 Machine Learning Services offers an embedded, predictive analytics and data science engine that can execute R/Python code within a SQL Server database. Instead of extracting data from the database and loading it into the R/Python environment, you load your R/Python code directly into the database and let it run right alongside the data. The relational data can be used in stored procedures, as T-SQL scripts containing R/Python statements, or as R/Python code containing T-SQL.
 

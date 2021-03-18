@@ -5,10 +5,13 @@ author: doodlemania2
 ms.date: 04/06/2020
 ms.topic: conceptual
 ms.service: architecture-center
+ms.subservice: azure-guide
 ms.category:
   - management-and-governance
   - developer-tools
-ms.subservice: azure-guide
+products:
+  - azure-monitor
+  - azure-kubernetes-service
 ms.custom:
   - microservices
   - guide

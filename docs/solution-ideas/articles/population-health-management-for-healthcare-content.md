@@ -25,3 +25,20 @@ The architecture diagram above shows the solution design for Population Health M
 ## Post Deployment Steps
 
 Once the solution is deployed to the subscription, you can see the various services deployed by clicking the resource group name on the final deployment screen. Alternatively you can use [Azure management portal](https://portal.azure.com) to see the resources provisioned in your resource group in your subscription. The source code of the solution as well as manual deployment instructions can be found [here](https://github.com/Azure/cortana-intelligence-population-health-management/tree/master/Azure%20Data%20Lake/ManualDeploymentGuide). The post deployment steps constitute monitoring the health of your deployment and visualizing the Population Health Report in real time as well as the results of the predictions from length of stay model. The post deployment instructions can be found [here](https://github.com/Azure/cortana-intelligence-population-health-management/tree/master/Azure%20Data%20Lake/ManualDeploymentGuide/Visualization).
+
+## Components
+
+* [Azure Blob Storage](/azure/storage/blobs/)
+* [Azure Data Factory](/azure/data-factory/)
+* [Azure Data Lake Analytics](/azure/data-lake-analytics/)
+* [Azure Data Lake Storage](/azure/storage/blobs/data-lake-storage-introduction)
+* [Azure Event Hub](/azure/event-hubs/)
+* [Azure Stream Analytics](/azure/stream-analytics/)
+* [Power BI Dashboard](/power-bi/create-reports/)
+
+## Next steps
+
+* [Artificial intelligence (AI) - Architectural overview](../../data-guide/big-data/ai-overview.md)
+* [Business Process Management](/azure/architecture/solution-ideas/articles/business-process-management)
+* [Predict Length of Stay and Patient Flow](/azure/architecture/solution-ideas/articles/predict-length-of-stay-and-patient-flow-with-healthcare-analytics)
+* [Remote Patient Monitoring Solutions](/azure/architecture/solution-ideas/articles/remote-patient-monitoring)

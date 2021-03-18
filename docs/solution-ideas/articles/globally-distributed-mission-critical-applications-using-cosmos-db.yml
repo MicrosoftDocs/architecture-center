@@ -2,15 +2,28 @@
 metadata:
   title: Globally distributed applications using Cosmos DB
   titleSuffix: Azure Solution Ideas
+<<<<<<< HEAD
   author: t2kx
   ms.date: 02/09/2021
   description: Guarantee access to users around the world with the high-availability and low-latency capabilities built into Microsoft global datacenters.
   ms.custom: 'acom-architecture, app-dev, Cosmos DB, ''https://azure.microsoft.com/solutions/architecture/globally-distributed-mission-critical-applications-using-cosmos-db/'''
+=======
+  description: Guarantee access to users around the world with the high-availability and low-latency capabilities built into Microsoft global datacenters.
+  author: doodlemania2
+  ms.author: pnp
+  ms.date: 12/16/2019
+  ms.topic: conceptual
+>>>>>>> upstream/master
   ms.service: architecture-center
+  ms.subservice: solution-idea
   ms.category:
     - databases
     - management-and-governance
-  ms.subservice: solution-idea
+  ms.custom:
+    - acom-architecture
+    - app-dev
+    - Cosmos DB
+    - 'https://azure.microsoft.com/solutions/architecture/globally-distributed-mission-critical-applications-using-cosmos-db/'
   social_image_url: /azure/architecture/solution-ideas/articles/media/globally-distributed-mission-critical-applications-using-cosmos-db.png
 name: Globally distributed applications using Cosmos DB
 azureCategories:

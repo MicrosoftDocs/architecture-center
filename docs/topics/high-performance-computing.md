@@ -3,12 +3,13 @@ title: High Performance Computing (HPC) on Azure
 description: Learn about High Performance Computing on Azure, which uses many CPU or GPU-based computers to solve complex mathematical tasks.
 author: doodlemania2
 ms.date: 8/14/2019
-ms.custom: fcp
 ms.service: architecture-center
+ms.subservice: reference-architecture
 ms.category:
   - compute
   - storage
-ms.subservice: reference-architecture
+ms.custom:
+  - fcp
 social_image_url: /azure/architecture/topics/media/architecture-hpc-saas.png
 ---
 
@@ -74,31 +75,31 @@ The following scenarios outline a few of the common ways HPC solutions are built
 
 <ul class="columns is-multiline has-margin-left-none has-margin-bottom-none has-padding-top-medium">
     <li class="column is-one-third has-padding-top-small-mobile has-padding-bottom-small">
-        <a class="is-undecorated is-full-height is-block"
-            href="/azure/architecture/example-scenario/apps/hpc-saas">
-            <article class="card has-outline-hover is-relative is-fullheight">
-                    <figure class="image has-margin-right-none has-margin-left-none has-margin-top-none has-margin-bottom-none">
-                        <img role="presentation" alt="Diagram shows example HPC architecture for computer-aided engineering services on Azure." src="../example-scenario/apps/media/architecture-hpc-saas.png">
-                    </figure>
-                <div class="card-content has-text-overflow-ellipsis">
-                    <div class="has-padding-bottom-none">
-                        <h3 class="is-size-4 has-margin-top-none has-margin-bottom-none has-text-primary">Computer-aided engineering services on Azure</h3>
-                    </div>
+        <article class="card has-outline-hover is-relative is-fullheight">
+            <figure class="image has-margin-right-none has-margin-left-none has-margin-top-none has-margin-bottom-none">
+                <a class="is-undecorated is-full-height is-block"
+                 href="/azure/architecture/example-scenario/apps/hpc-saas">
+                 <img role="presentation" alt="Diagram shows example HPC architecture for computer-aided engineering services on Azure." src="../example-scenario/apps/media/architecture-hpc-saas.png">
+                </a>
+             </figure>
+             <div class="card-content has-text-overflow-ellipsis">
+                 <div class="has-padding-bottom-none">
+                     <h3 class="is-size-4 has-margin-top-none has-margin-bottom-none has-text-primary">Computer-aided engineering services on Azure</h3>
+                 </div>
                     <div class="is-size-7 has-margin-top-small has-line-height-reset">
-                        <p>Provide a software-as-a-service (SaaS) platform for computer-aided engineering (CAE) on
-                            Azure.</p>
+                        <p>Provide a software-as-a-service (SaaS) platform for computer-aided engineering (CAE) on Azure.</p>
                     </div>
                 </div>
             </article>
-        </a>
     </li>
     <li class="column is-one-third has-padding-top-small-mobile has-padding-bottom-small">
-        <a class="is-undecorated is-full-height is-block"
-            href="/azure/architecture/example-scenario/infrastructure/hpc-cfd">
-            <article class="card has-outline-hover is-relative is-fullheight">
-                    <figure class="image has-margin-right-none has-margin-left-none has-margin-top-none has-margin-bottom-none">
-                        <img role="presentation" alt="Diagram shows example HPC architecture for computational fluid dynamics simulations on Azure." src="../example-scenario/infrastructure/media/architecture-hpc-cfd.png">
-                    </figure>
+        <article class="card has-outline-hover is-relative is-fullheight">
+            <figure class="image has-margin-right-none has-margin-left-none has-margin-top-none has-margin-bottom-none">
+               <a class="is-undecorated is-full-height is-block"
+                 href="/azure/architecture/example-scenario/infrastructure/hpc-cfd">
+                 <img role="presentation" alt="Diagram shows example HPC architecture for computational fluid dynamics simulations on Azure." src="../example-scenario/infrastructure/media/architecture-hpc-cfd.png">
+                </a>
+                </figure>
                 <div class="card-content has-text-overflow-ellipsis">
                     <div class="has-padding-bottom-none">
                         <h3 class="is-size-4 has-margin-top-none has-margin-bottom-none has-text-primary">Computational fluid dynamics (CFD) simulations on Azure</h3>
@@ -108,25 +109,24 @@ The following scenarios outline a few of the common ways HPC solutions are built
                     </div>
                 </div>
             </article>
-        </a>
     </li>
     <li class="column is-one-third has-padding-top-small-mobile has-padding-bottom-small">
-        <a class="is-undecorated is-full-height is-block"
-            href="/azure/architecture/example-scenario/infrastructure/video-rendering">
-            <article class="card has-outline-hover is-relative is-fullheight">
-                    <figure class="image has-margin-right-none has-margin-left-none has-margin-top-none has-margin-bottom-none">
-                        <img role="presentation" alt="Diagram shows example HPC architecture for 3D video rendering on Azure." src="../example-scenario/infrastructure/media/architecture-video-rendering.png">
-                    </figure>
-                <div class="card-content has-text-overflow-ellipsis">
-                    <div class="has-padding-bottom-none">
-                        <h3 class="is-size-4 has-margin-top-none has-margin-bottom-none has-text-primary">3D video rendering on Azure</h3>
-                    </div>
-                    <div class="is-size-7 has-margin-top-small has-line-height-reset">
-                        <p>Run native HPC workloads in Azure using the Azure Batch service</p>
-                    </div>
-                </div>
-            </article>
-        </a>
+        <article class="card has-outline-hover is-relative is-fullheight">
+          <figure class="image has-margin-right-none has-margin-left-none has-margin-top-none has-margin-bottom-none">
+              <a class="is-undecorated is-full-height is-block"
+              href="/azure/architecture/example-scenario/infrastructure/video-rendering">
+                 <img role="presentation" alt="Diagram shows example HPC architecture for 3D video rendering on Azure." src="../example-scenario/infrastructure/media/architecture-video-rendering.png">
+            </a>
+          </figure>
+          <div class="card-content has-text-overflow-ellipsis">
+             <div class="has-padding-bottom-none">
+                   <h3 class="is-size-4 has-margin-top-none has-margin-bottom-none has-text-primary">3D video rendering on Azure</h3>
+             </div>
+             <div class="is-size-7 has-margin-top-small has-line-height-reset">
+                   <p>Run native HPC workloads in Azure using the Azure Batch service</p>
+             </div>
+          </div>
+       </article>
     </li>
 </ul>
 
@@ -249,7 +249,7 @@ There are a number of workload managers offered in the [Azure Marketplace](https
 
 - [RogueWave CentOS-based HPC](https://azuremarketplace.microsoft.com/marketplace/apps/openlogic.centos-hpc)
 - [SUSE Linux Enterprise Server for HPC](https://azuremarketplace.microsoft.com/marketplace/apps/suse.sles-15-sp1-hpc)
-- [TIBCO Grid Server Engine](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/tibco-software.tibco_datasynapse_gridserver)
+- [TIBCO Datasynapse GridServer](https://azuremarketplace.microsoft.com/marketplace/apps/tibco-software.tibco_datasynapse_gridserver)
 - [Azure Data Science VM for Windows and Linux](/azure/machine-learning/data-science-virtual-machine/overview)
 - [D3View](https://azuremarketplace.microsoft.com/marketplace/apps/xfinityinc.d3view-v5?tab=Overview)
 - [UberCloud](https://azure.microsoft.com/search/marketplace/?q=ubercloud)

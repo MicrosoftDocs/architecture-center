@@ -40,3 +40,20 @@ The "Deploy" button on this page will launch a workflow that deploys an instance
 * Azure Web App hosts the core logic of the bot as a Node.js web app
 * Cosmos DB stores shared session state for every conversation, allowing the web application to scale out in a stateless architecture.
 * Azure SQL stores product inventory and order status
+
+## Components
+
+* [Azure Bot Service](https://azure.microsoft.com/services/bot-services/)
+* [Azure Cognitive Search](/azure/search/)
+* [Azure Cognitive Services](https://azure.microsoft.com/services/cognitive-services/) for Bing Speech
+* [Azure Cognitive Services Language Understanding](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/)
+* [Azure Cosmos DB](/azure/cosmos-db/)
+* [Azure SQL Database](https://azure.microsoft.com/services/sql-database/)
+* [Azure Web App Service](https://azure.microsoft.com/services/app-service/web/)
+
+## Next steps
+
+* [Artificial intelligence (AI) - Architectural overview](../../data-guide/big-data/ai-overview.md)
+* [Build an enterprise-grade conversational bot](/azure/architecture/reference-architectures/ai/conversational-bot)
+* [Speech-to-text conversion](/azure/architecture/reference-architectures/ai/speech-ai-ingestion)
+* [Speech Services](/azure/architecture/solution-ideas/articles/speech-services)

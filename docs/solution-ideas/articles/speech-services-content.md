@@ -21,3 +21,13 @@ For more information, read how [batch transcription](/azure/cognitive-services/s
 1. Stereo files are split into two channels
 1. Mono files undergo diarization to distinguish between speakers
 1. Download the transcription using the transcription ID
+
+## Components
+
+* [Azure Blob Storage](/azure/storage/blobs/)
+* [Speech Services](/azure/cognitive-services/Speech-Service/)
+
+## Next steps
+
+* [Artificial intelligence (AI) - Architectural overview](../../data-guide/big-data/ai-overview.md)
+* [Speech-to-text conversion](/azure/architecture/reference-architectures/ai/speech-ai-ingestion)

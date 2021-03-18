@@ -2,14 +2,19 @@
 metadata:
   title: COVID-19 Safe Solutions with IoT Edge
   titleSuffix: Azure Solution Ideas
-  author: doodlemania2
   description: Learn how to use CCTV, IoT Edge analytics and machine learning, and cloud services to monitor social distancing, mask/PPE use, and occupancy requirements.
+  author: doodlemania2
+  ms.author: pnp
   ms.date: 06/06/2020
-  ms.custom: 'iot, fcp'
+  ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: solution-idea
   ms.category:
     - iot
+    - ai-machine-learning
+  ms.custom:
+    - iot
+    - fcp
     - ai-machine-learning
 name: COVID-19 Safe Solutions with IoT Edge
 azureCategories:
@@ -26,4 +31,4 @@ products:
   - azure-stream-analytics
 thumbnailUrl: /azure/architecture/browse/thumbs/bosch-cctv-mask-detection.png
 content: |
-   [!include[](cctv-mask-detection-content.md)]
+  [!include[](cctv-mask-detection-content.md)]
