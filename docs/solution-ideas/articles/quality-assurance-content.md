@@ -38,7 +38,7 @@ services that can be called by Stream Analytics.
 
 * Depending on the scenario the basic architecture can be simplified by removing batch layer - removing Storage for raw events and Azure Synapse for relational data
 * [Azure SQL Database](/azure/sql-database/) is a managed relational database-as-a service. Depending on you data volumes and access patterns you may choose Azure SQL Database.
-* [Azure Functions](/azure/azure-functions/functions-overviews) provides an effective serverless approach if the workload architecture is centered around fine grained distributed components, requiring minimal dependencies, where individual components are only required to run on demand (not continuously) and orchestration of components is not required.
+* [Azure Functions](/azure/azure-functions/functions-overview) provides an effective serverless approach if the workload architecture is centered around fine grained distributed components, requiring minimal dependencies, where individual components are only required to run on demand (not continuously) and orchestration of components is not required.
 * [IoT Hub](/azure/iot-hub/about-iot-hub) acts as a central message hub for secure bi-directional communication with per-device identity between the cloud platform and the construction equipment and other site elements. IoT Hub can rapidly collect data for each device for ingestion into the data analytics pipeline.
 
 ## Considerations
@@ -72,8 +72,8 @@ For general guidance on designing resilient solutions, see [Designing resilient 
 
 * [Artificial intelligence (AI) - Architectural overview](../../data-guide/big-data/ai-overview.md)
 * [Azure Machine Learning documentation](/azure/machine-learning/)
-* [Defect prevention with predictive maintenance](/azure/architecture/reference-architectures/ai/defect-prevention-with-predictive-maintenance)
-* [Predictive Maintenance](/azure/architecture/reference-architectures/ai/predictive-maintenance)
+* [Defect prevention with predictive maintenance](/azure/architecture/solution-ideas/articles/defect-prevention-with-predictive-maintenance)
+* [Predictive Maintenance](/azure/architecture/solution-ideas/articles/predictive-maintenance)
 
 <!-- links -->
 [architecture]: ./media/architecture-intelligent-apps-image-processing.png
