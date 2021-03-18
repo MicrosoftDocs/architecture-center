@@ -171,7 +171,7 @@ The following considerations, based on the [Microsoft Azure Well-Architected Fra
   - Azure Storage
   - Azure Files
 
-- Consider using [Azure Resource Manager (ARM) templates][What are ARM templates?] to automate deployment of Azure components such as Storage accounts, VMs, and Data Factory.
+- Consider using [Azure Resource Manager templates (ARM templates)][What are ARM templates?] to automate deployment of Azure components such as Storage accounts, VMs, and Data Factory.
 
 - Consider using [Azure Monitor][Azure Monitor overview] to increase monitoring in these areas:
 
