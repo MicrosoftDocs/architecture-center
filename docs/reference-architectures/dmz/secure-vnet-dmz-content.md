@@ -1,16 +1,14 @@
-
-
-
 This reference architecture shows a secure hybrid network that extends an on-premises network to Azure. The architecture implements a DMZ, also called a *perimeter network*, between the on-premises network and an Azure virtual network. All inbound and outbound traffic passes through Azure Firewall.
 
 [![Secure hybrid network architecture](./images/dmz-private.png)](./images/dmz-private.png#lightbox)
-
 
 *Download a [Visio file][visio-download] of this architecture.*
 
 ## Reference deployment
 
-This deployment creates three resource groups, the first holds a mock on-premises network, the second a hub virtual network, and the third a peered spoke network. The mock on-premises network and the hub network are connected using Azure Virtual Network gateways to form a site-to-site connection. This configuration is very similar to how you would connect your on-premises datacenter to Azure. 
+This deployment creates two resource groups; the first holds a mock on-premises network, the second a set of hub and spoke networks. The mock on-premises network and the hub network are connected using Azure Virtual Network gateways to form a site-to-site connection. This configuration is very similar to how you would connect your on-premises datacenter to Azure.
+
+This deployment can take up to 45 minutes to complete. The recommended deployment method is using the portal option found below.
 
 #### [Azure portal](#tab/portal)
 
@@ -24,7 +22,7 @@ Run the following command to deploy two resource groups and the secure network r
 
 When prompted, enter values for an admin user name and password. These values are used to log into the included virtual machines.
 
-```azurecli-interactive
+```azurecli
 az deployment sub create --location eastus \
     --template-uri https://raw.githubusercontent.com/mspnp/samples/master/solutions/secure-hybrid-network/azuredeploy.json
 ```
@@ -35,7 +33,7 @@ Run the following command to deploy two resource groups and the secure network r
 
 When prompted, enter values for an admin user name and password. These values are used to log into the included virtual machines.
 
-```azurepowershell-interactive
+```azurepowershell
 New-AzSubscriptionDeployment -Location eastus `
     -TemplateUri https://raw.githubusercontent.com/mspnp/samples/master/solutions/secure-hybrid-network/azuredeploy.json
 ```
@@ -77,7 +75,7 @@ The architecture consists of the following components.
   > [!NOTE]
   > Depending on the requirements of your VPN connection, you can configure Border Gateway Protocol (BGP) routes to implement the forwarding rules that direct traffic back through the on-premises network.
 
-- **Network security groups**. Use [security groups][nsg] to restrict network traffic within the virtual network. For example, in the deployment provided with this reference architecture, the web tier subnet allows TCP traffic from the on-premises network and from within the virtual network; the business tier allows traffic from the web tier; and the data tier allows traffic from the business tier.
+- **Network security groups**. Use [security groups][nsg] to restrict network traffic within the virtual network. For example, in the deployment provided with this reference architecture, the web tier subnet allows TCP traffic from the on-premises network and from within the virtual network; the business tier allows traffic from the web tier, and the data tier allows traffic from the business tier.
 
 - **Bastion**. [Azure Bastion](/azure/bastion/) allows you to log into VMs in the virtual network through SSH or remote desktop protocol (RDP) without exposing the VMs directly to the internet. Use Bastion to manage the VMs in the virtual network.
 
