@@ -442,7 +442,7 @@ items:
               - name: Tools
                 href: framework/security/monitor-tools.md
               - name: Azure resources
-                href: framework/security/monitor-tools/monitor-resources.md
+                href: framework/security/monitor-resources.md
               - name: Logs and alerts
                 href: framework/security/monitor-logs-alerts.md  
               - name: Compliance review
