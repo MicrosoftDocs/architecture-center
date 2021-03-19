@@ -97,7 +97,7 @@ For more information, see [Tutorial: Create and manage policies to enforce compl
 
 ## Next steps
 > [!div class="nextstepaction"]
-> [Application development](./design-apps-services.md)
+> [Remediate security risks in Azure Security Center](monitor-remediate.md)
 
 ## Related links
 
