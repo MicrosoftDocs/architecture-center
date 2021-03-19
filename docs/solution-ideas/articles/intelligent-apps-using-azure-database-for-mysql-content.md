@@ -18,7 +18,7 @@ The data flows through the solution as follows:
 
 ## Components
 
-- [Azure Functions](/azure-functions/functions-overview)
+- [Azure Functions](/azure/azure-functions/functions-overview)
 - [Event Hubs](/azure/event-hubs/)
 - [Blob storage](/azure/storage/blobs/storage-blobs-introduction)
 - [Text Analytics Api](/azure/cognitive-services/text-analytics/)
