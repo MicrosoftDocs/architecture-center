@@ -1,4 +1,3 @@
-
 <!-- cSpell:ignore lbrader netweaver jump-box jump-boxes ACLs HANA SOFS SWDs SMLG ABAP SAPGUI SAPGUIs SPOF WSFC ASCS MSEE Iperf SIOS sapmnt -->
 
 # SAP Netweaver on Windows
@@ -145,7 +144,7 @@ Some customers use standard storage for their application servers. Because stand
 
 Because application servers do not host any business data, you can also use the smaller P4 and P6 Premium disks to help minimize cost and benefit from the [single instance VM SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_6) in case of a central SAP stack installation.
 
-For High-Availability scenarios [Azure Shared Disks](https://docs.microsoft.com/azure/virtual-machines/disks-shared) are available on Premium SSD and Ultra SSD [Azure Managed
+For High-Availability scenarios [Azure Shared Disks](/azure/virtual-machines/disks-shared) are available on Premium SSD and Ultra SSD [Azure Managed
 Disks](/azure/storage/storage-managed-disks-overview). Azure Shared Disks can be used with Windows Server, SUSE Enterprise Linux 15 SP 1 and above, or SUSE Enterprise Linux For SAP.
 
 Azure Storage is also used by [Cloud Witness](/windows-server/failover-clustering/deploy-cloud-witness) to maintain quorum with a device in a remote Azure region, away from the primary region where the cluster resides.

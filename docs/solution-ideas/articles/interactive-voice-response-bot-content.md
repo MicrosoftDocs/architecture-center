@@ -1,6 +1,3 @@
-
-
-
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
 This solution creates an intelligent interactive voice response (IVR) application that processes customer order requests for bicycles and bicycle accessories. Businesses with no existing IVR solution can easily get started automating requests, or, where existing human-operated systems exist, this solution can be extended to incorporate existing functionality and workflows.
@@ -54,6 +51,6 @@ The "Deploy" button on this page will launch a workflow that deploys an instance
 ## Next steps
 
 * [Artificial intelligence (AI) - Architectural overview](../../data-guide/big-data/ai-overview.md)
-* [Build an enterprise-grade conversational bot](/azure/architecture/reference-architectures/ai/conversational-bot)
-* [Speech-to-text conversion](/azure/architecture/reference-architectures/ai/speech-ai-ingestion)
-* [Speech Services](/azure/architecture/solution-ideas/articles/speech-services)
+* [Build an enterprise-grade conversational bot](../../reference-architectures/ai/conversational-bot.yml)
+* [Speech-to-text conversion](../../reference-architectures/ai/speech-ai-ingestion.yml)
+* [Speech Services](./speech-services.yml)
