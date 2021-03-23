@@ -1,6 +1,3 @@
-
-
-
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
 Visual assistant provides rich information based on content of the image with capabilities such as reading business card, identifying barcode, and recognizing popular people, places, objects, artworks, and monuments.
@@ -44,6 +41,6 @@ Visual assistant provides rich information based on content of the image with ca
 ## Recommended resources
 
 * [Artificial intelligence (AI) - Architectural overview](../../data-guide/big-data/ai-overview.md)
-* [Image classification on Azure](/azure/architecture/example-scenario/ai/intelligent-apps-image-processing)
-* [Interactive Voice Response Bot](/azure/architecture/solution-ideas/articles/interactive-voice-response-bot)
-* [Retail Assistant with Visual Capabilities](/azure/architecture/solution-ideas/articles/retail-assistant-or-vacation-planner-with-visual-capabilities)
+* [Image classification on Azure](/azure/architecture/solution-ideas/articles/example-scenario/ai/intelligent-apps-image-processing)
+* [Interactive Voice Response Bot](./interactive-voice-response-bot.yml)
+* [Retail Assistant with Visual Capabilities](./retail-assistant-or-vacation-planner-with-visual-capabilities.yml)

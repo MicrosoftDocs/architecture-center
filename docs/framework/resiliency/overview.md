@@ -19,7 +19,7 @@ Building a reliable application in the cloud is different from traditional appli
 
 These critical principles are used as lenses to assess the reliability of an application deployed on Azure. They provide a framework for the application assessment questions that follow.
 
-To assess your workload using the tenets found in the Microsoft Azure Well-Architected Framework, see the [Microsoft Azure Well-Architected Review](https://docs.microsoft.com/assessments/).
+To assess your workload using the tenets found in the Microsoft Azure Well-Architected Framework, see the [Microsoft Azure Well-Architected Review](/assessments/).
 
 - **Define and test availability and recovery targets -** Availability targets, such as Service Level Agreements (SLA) and Service Level Objectives (SLO), and Recovery targets, such as Recovery Time Objectives (RTO) and Recovery Point Objectives (RPO), should be defined and tested to ensure application reliability aligns with business requirements.
 
@@ -50,4 +50,4 @@ To assess your workload using the tenets found in the Microsoft Azure Well-Archi
 ## Next step
 
 >[!div class="nextstepaction"]
->[Design](/azure/architecture/framework/resiliency/design-checklist) 
+>[Design](./design-checklist.md)

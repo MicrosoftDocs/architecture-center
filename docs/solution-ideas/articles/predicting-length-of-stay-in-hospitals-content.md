@@ -1,6 +1,3 @@
-
-
-
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
 This solution enables a predictive model for Length of Stay for in-hospital admissions. Length of Stay (LOS) is defined in number of days from the initial admit date to the date that the patient is discharged from any given hospital facility.
@@ -41,7 +38,7 @@ Your Azure subscription used for the deployment will incur consumption charges o
 
 ## Next steps
 
-* Learn more about [SQL Server Machine Learning Services](https://docs.microsoft.com/sql/machine-learning/sql-server-machine-learning-services)
-* Learn more about [Machine Learning](https://docs.microsoft.com/azure/machine-learning/overview-what-is-azure-ml)
-* Learn more about [Power BI](https://docs.microsoft.com/power-bi)
+* Learn more about [SQL Server Machine Learning Services](/sql/machine-learning/sql-server-machine-learning-services)
+* Learn more about [Machine Learning](/azure/machine-learning/overview-what-is-azure-ml)
+* Learn more about [Power BI](/power-bi)
 * Learn more about [Azure Data Science Virtual Machines (DSVMs)](https://azure.microsoft.com/services/virtual-machines/data-science-virtual-machines)

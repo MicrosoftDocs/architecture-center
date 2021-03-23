@@ -1,6 +1,3 @@
-
-
-
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
 This example scenario demonstrates how to use Azure Cache for Redis as a message broker to implement a publish/subscribe asynchronous messaging capability. 
@@ -29,5 +26,5 @@ Key technologies used to implement this architecture:
 
 ## Next Steps
 
-* [Asynchronous messaging options in Azure](/azure/architecture/guide/technology-choices/messaging)
-* [Caching Best Practice](/azure/architecture/best-practices/caching?toc=/azure/redis-cache/toc.json)
+* [Asynchronous messaging options in Azure](../../guide/technology-choices/messaging.md)
+* [Caching Best Practice](../../best-practices/caching.md?toc=%2fazure%2fredis-cache%2ftoc.json)
