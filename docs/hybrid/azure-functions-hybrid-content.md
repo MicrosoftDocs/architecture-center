@@ -85,6 +85,12 @@ Additionally, each virtual network in Azure should also use [virtual network pee
 - The Azure Functions Premium plan is required for Azure Virtual Network connectivity, private site access, service endpoints, and pre-warmed instances.
 - The Azure Functions Premium plan bills on instances instead of consumption. The minimum of a single instance ensures there will be at least some monthly bill even without runs. You can set a maximum instance count to control costs for workloads that may burst in size.
 
+## Next steps
+
+- [Azure App Service Hybrid Connections](/azure/app-service/app-service-hybrid-connections)
+- [Managing hybrid environments with PowerShell](/azure/azure-functions/functions-hybrid-powershell)
+- [Azure Functions to connect to resources in an Azure virtual network](/azure/azure-functions/functions-create-vnet)
+
 [architectural-diagram]: ./images/azure-functions-hybrid.png
 [architectural-diagram-visio-source]: https://arch-center.azureedge.net/azure-functions-hybrid.vsdx
 [azure-arc-kubernetes]: /azure/azure-arc/kubernetes/
