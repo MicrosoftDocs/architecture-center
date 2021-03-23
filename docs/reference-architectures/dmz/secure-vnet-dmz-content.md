@@ -49,7 +49,7 @@ The IIS instance found in the spoke network can be accessed from the virtual mac
 For detailed information and additional deployment options, see the ARM Templates used to deploy this solution.
 
 > [!div class="nextstepaction"]
-> [Secure Hybrid Network](https://github.com/mspnp/samples/tree/master/solutions/secure-hybrid-network)
+> [Secure Hybrid Network](/samples/mspnp/samples/secure-hybrid-network/)
 
 ## Use cases
 

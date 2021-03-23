@@ -44,7 +44,7 @@ Consider the following suggestions when creating and testing your disaster recov
 - Train operations staff to execute the plan.
 - Perform regular disaster simulations to validate and improve the plan.
 
-If you're using [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview) to replicate virtual machines (VMs), create a fully automated recovery plan to fail over the entire application.
+If you're using [Azure Site Recovery](/azure/site-recovery/site-recovery-overview) to replicate virtual machines (VMs), create a fully automated recovery plan to fail over the entire application.
 
 ## Operational readiness testing
 
@@ -56,11 +56,11 @@ Automated operational responses should be tested frequently as part of the norma
 
 Test failover and failback to verify that your application's dependent services come back up in a synchronized manner during disaster recovery. Changes to systems and operations may affect failover and failback functions, but the impact may not be detected until the main system fails or becomes overloaded. Test failover capabilities *before* they are required to compensate for a live problem. Also, be sure that dependent services failover and failback in the correct order.
 
-If you are using [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview) to replicate VMs, run disaster recovery drills periodically by testing failovers to validate your replication strategy. A test failover does not affect the ongoing VM replication or your production environment. For more information, see [Run a disaster recovery drill to Azure](https://docs.microsoft.com/azure/site-recovery/site-recovery-test-failover-to-azure).
+If you are using [Azure Site Recovery](/azure/site-recovery/site-recovery-overview) to replicate VMs, run disaster recovery drills periodically by testing failovers to validate your replication strategy. A test failover does not affect the ongoing VM replication or your production environment. For more information, see [Run a disaster recovery drill to Azure](/azure/site-recovery/site-recovery-test-failover-to-azure).
 
 ## Dependent service outage
 
-For each dependent service, you should understand the implications of service disruption and the way that the application will respond. Many services include features that support resiliency and availability, so evaluating each service independently is likely to improve your disaster recovery plan. For example, Azure Event Hubs supports [failing over](https://docs.microsoft.com/azure/event-hubs/event-hubs-geo-dr#setup-and-failover-flow) to the secondary namespace.
+For each dependent service, you should understand the implications of service disruption and the way that the application will respond. Many services include features that support resiliency and availability, so evaluating each service independently is likely to improve your disaster recovery plan. For example, Azure Event Hubs supports [failing over](/azure/event-hubs/event-hubs-geo-dr#setup-and-failover-flow) to the secondary namespace.
 
 ## Network outage
 
@@ -98,11 +98,11 @@ Under rare circumstances, it is possible that facilities in an entire availabili
 ## Next step
 
 >[!div class="nextstepaction"]
->[Error handling](/azure/architecture/framework/resiliency/app-design-error-handling)
+>[Error handling](./app-design-error-handling.md)
 
 ## Related links
 
-- For information on testing failovers, see [Run a disaster recovery drill to Azure](https://docs.microsoft.com/azure/site-recovery/site-recovery-test-failover-to-azure).
+- For information on testing failovers, see [Run a disaster recovery drill to Azure](/azure/site-recovery/site-recovery-test-failover-to-azure).
 - For information on Event Hubs, see [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/).
 
 Go back to the main article: [Testing](test-checklist.md)
