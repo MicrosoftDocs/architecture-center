@@ -1,6 +1,3 @@
-
-
-
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
 This Predictive Maintenance solution monitors aircraft and predicts the remaining useful life of aircraft engine components.
@@ -45,5 +42,5 @@ The Deploy button will launch a workflow that will deploy an instance of the sol
 
 * [Artificial intelligence (AI) - Architectural overview](../../data-guide/big-data/ai-overview.md)
 * [Azure Machine Learning documentation](/azure/machine-learning/)
-* [Defect prevention with predictive maintenance](/azure/architecture/solution-ideas/articles/defect-prevention-with-predictive-maintenance)
-* [Predictive Marketing with Machine Learning](/azure/architecture/solution-ideas/articles/predictive-marketing-campaigns-with-machine-learning-and-spark)
+* [Defect prevention with predictive maintenance](./defect-prevention-with-predictive-maintenance.yml)
+* [Predictive Marketing with Machine Learning](./predictive-marketing-campaigns-with-machine-learning-and-spark.yml)

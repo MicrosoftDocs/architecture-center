@@ -1768,7 +1768,7 @@ items:
               - name: Web app monitoring on Azure
                 href: reference-architectures/app-service-web-app/app-monitoring.yml
               - name: Microservices with Azure Spring Cloud
-                href: https://docs.microsoft.com/azure/spring-cloud/spring-cloud-reference-architecture
+                href: /azure/spring-cloud/spring-cloud-reference-architecture
           - name: Solution ideas
             items:
               - name: E-commerce website running in ASE

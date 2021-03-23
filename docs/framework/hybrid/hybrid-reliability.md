@@ -50,7 +50,7 @@ Ensure that Azure Arc is supported in your regions by checking supported regions
 
 With Azure Arc enabled SQL Managed Instance, you can deploy individual databases in either a single or multiple pod pattern. For example, the developer or general-purpose pricing tier implements a single pod pattern, while a highly available business critical pricing tier implements a multiple pod pattern. A highly available Azure SQL managed instance uses Always On Availability Groups to replicate the data from one instance to another either synchronously or asynchronously.
 
-With Azure Arc enabled SQL Managed Instance, planning for storage is also critical from the data resiliency standpoint. If there's a hardware failure, an incorrect choice might introduce the risk of total data loss. To avoid such risk, you should consider a range of factors affecting storage configuration [kubernetes-storage-class-factors](https://docs.microsoft.com/azure/azure-arc/data/storage-configuration#factors-to-consider-when-choosing-your-storage-configuration) for both [data controller](https://docs.microsoft.com/azure/azure-arc/data/storage-configuration#data-controller-storage-configuration) and [database instances](https://docs.microsoft.com/azure/azure-arc/data/storage-configuration#database-instance-storage-configuration).
+With Azure Arc enabled SQL Managed Instance, planning for storage is also critical from the data resiliency standpoint. If there's a hardware failure, an incorrect choice might introduce the risk of total data loss. To avoid such risk, you should consider a range of factors affecting storage configuration [kubernetes-storage-class-factors](/azure/azure-arc/data/storage-configuration#factors-to-consider-when-choosing-your-storage-configuration) for both [data controller](/azure/azure-arc/data/storage-configuration#data-controller-storage-configuration) and [database instances](/azure/azure-arc/data/storage-configuration#database-instance-storage-configuration).
 
 Azure Arc enabled SQL Managed Instance provides automatic local backups, regardless of the connectivity mode. In the Directly Connected mode, you also have the option of leveraging Azure Backup for off-site, long-term backup retention.
 
@@ -66,9 +66,9 @@ Site awareness allows you to control placement of virtualized workloads by desig
 
 ### Resiliency limits
 
-Azure Stack HCI provides multiple levels of resiliency, but because of its hyper-converged architecture, that resiliency is subject to limits imposed not only by the [cluster quorum](https://docs.microsoft.com/windows-server/storage/storage-spaces/understand-quorum#cluster-quorum-overview), but also by the [pool quorum](https://docs.microsoft.com/windows-server/storage/storage-spaces/understand-quorum#pool-quorum-overview). You can eliminate this limit by implementing [cluster sets](https://docs.microsoft.com/windows-server/storage/storage-spaces/cluster-sets) in which you combine multiple Azure Stack HCI clusters to create an HCI platform consisting of hundreds of nodes.
+Azure Stack HCI provides multiple levels of resiliency, but because of its hyper-converged architecture, that resiliency is subject to limits imposed not only by the [cluster quorum](/windows-server/storage/storage-spaces/understand-quorum#cluster-quorum-overview), but also by the [pool quorum](/windows-server/storage/storage-spaces/understand-quorum#pool-quorum-overview). You can eliminate this limit by implementing [cluster sets](/windows-server/storage/storage-spaces/cluster-sets) in which you combine multiple Azure Stack HCI clusters to create an HCI platform consisting of hundreds of nodes.
 
 ## Next steps
 
 >[!div class="nextstepaction"]
->[Security](/azure/architecture/framework/hybrid/hybrid-security)
+>[Security](./hybrid-security.md)
