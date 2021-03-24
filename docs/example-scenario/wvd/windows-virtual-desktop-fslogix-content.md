@@ -158,6 +158,50 @@ Make sure to configure the following antivirus exclusions for FSLogix Profile Co
   - %ProgramFiles%\FSLogix\Apps\frxccds.exe
   - %ProgramFiles%\FSLogix\Apps\frxsvc.exe
 
+**PowerShell Script to add these exclusions for Windows Defender:**
+
+```powershell
+
+  # Defender Exclusions for FSLogix
+
+  $Cloudcache = $false             # Set for true if using cloud cache
+  $StorageAcct = "wvdstorageacct"  # Storage Account Name
+
+  $filelist = `
+  "%ProgramFiles%\FSLogix\Apps\frxdrv.sys", `
+  "%ProgramFiles%\FSLogix\Apps\frxdrvvt.sys", `
+  "%ProgramFiles%\FSLogix\Apps\frxccd.sys", `
+  "%TEMP%\*.VHD", `
+  "%TEMP%\*.VHDX", `
+  "%Windir%\TEMP\*.VHD", `
+  "%Windir%\TEMP\*.VHDX", `
+  "\\$Storageacct.file.core.windows.net\share\*.VHD", `
+  "\\$Storageacct.file.core.windows.net\share\*.VHDX"
+
+  $processlist = `
+  "%ProgramFiles%\FSLogix\Apps\frxccd.exe", `
+  "%ProgramFiles%\FSLogix\Apps\frxccds.exe", `
+  "%ProgramFiles%\FSLogix\Apps\frxsvc.exe"
+
+
+  Foreach($item in $filelist){
+
+      Add-MpPreference -ExclusionPath $item
+
+  }
+
+  Foreach($item in $processlist){
+      Add-MpPreference -ExclusionProcess $item
+  }
+
+  If ($Cloudcache){
+      Add-MpPreference -ExclusionPath "%ProgramData%\FSLogix\Cache\*.VHD"
+      Add-MpPreference -ExclusionPath "%ProgramData%\FSLogix\Cache\*.VHDX"
+      Add-MpPreference -ExclusionPath "%ProgramData%\FSLogix\Proxy\*.VHD"
+      Add-MpPreference -ExclusionPath "%ProgramData%\FSLogix\Proxy\*.VHDX"
+    
+```
+
 ## Using Cloud Cache
 
 [Cloud Cache](/fslogix/configure-cloud-cache-tutorial) is an add-on to FSLogix. It uses a local cache to service all reads from a redirected Profile or Office Container, after the first read. Cloud Cache also allows the use of multiple remote locations, which are all continuously updated during the user session, creating true real-time profile replication. Using Cloud Cache can insulate users from short-term loss of connectivity to remote profile containers as the local cache is able to service many profile operations. In case of a provider failure, Cloud Cache provides business continuity.
