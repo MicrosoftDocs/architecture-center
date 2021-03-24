@@ -8,8 +8,7 @@ This solution idea also applies to mergers and acquisitions, organization rebran
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
 ## Architecture
-
-![WVD Multiple AD Forests architecture diagram](images/vwd-multi-forest-aadds.png)
+:::image type="content" source="images/wvd-multi-forest-aadds.png" alt-text="Windows Virtual Desktop with Azure AD Domain Services" lightbox="images/wvd-multi-forest-aadds.png":::
 *Download a [Visio file][visio-download] of this architecture*
 
 ## Data flow
@@ -46,4 +45,4 @@ For more information, see these articles:
 - [Windows Virtual Desktop Documentation](/azure/virtual-desktop/).
 
 <!-- links -->
-[visio-download]: https://arch-center.azureedge.net/WVD-two-forest-to-Azure-AADDS-No-Private-Connectivity.vsdx
+[visio-download]: https://arch-center.azureedge.net/wvd-multi-forest-aadds.vsdx

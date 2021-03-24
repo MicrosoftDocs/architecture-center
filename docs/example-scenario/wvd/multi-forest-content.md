@@ -14,8 +14,7 @@ The following are some relevant use cases for this architecture:
   > The solution idea [Multiple WVD forests using Azure Active Directory Domain Services](./multi-forest-azure-managed.yml) discusses this architecture using the cloud-managed [Azure AD DS](/azure/active-directory-domain-services/overview).
 
 ## Architecture
-
-![WVD Multiple AD Forests architecture diagram](images/vwd-multi-forest-adds.png)
+:::image type="content" source="images/wvd-multi-forest-adds.png" alt-text="Windows Virtual Desktop with AD Domain Services" lightbox="images/wvd-multi-forest-adds.png":::
 *Download a [Visio file][visio-download] of this architecture*
 
 ## Scenario
@@ -104,4 +103,4 @@ For more information, see these articles:
 - [Windows Virtual Desktop Documentation](/azure/virtual-desktop/).
 
 <!-- links -->
-[visio-download]: https://arch-center.azureedge.net/WVD-two-forest-hybrid-Azure.vsdx
+[visio-download]: https://arch-center.azureedge.net/wvd-multi-forest-adds.vsdx
