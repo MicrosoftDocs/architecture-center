@@ -98,7 +98,7 @@ For an in-depth guide to building and scaling a recommender service, see [Build 
 [als]: https://spark.apache.org/docs/latest/ml-collaborative-filtering.html
 [autoscale]: https://docs.azuredatabricks.net/user-guide/clusters/sizing.html#autoscaling
 [blob]: /azure/storage/blobs/storage-blobs-introduction
-[clusters]: https://docs.azuredatabricks.net/user-guide/clusters/configure.html
+[clusters]: https://docs.microsoft.com/azure/databricks/clusters/configure
 [cosmos-db]: /azure/cosmos-db/introduction
 [databricks]: /azure/azure-databricks/what-is-azure-databricks
 [dsvm]: /azure/machine-learning/data-science-virtual-machine/overview
