@@ -20,7 +20,7 @@ Many scenarios can benefit from Asysco AMT migration. Possibilities include the 
    
 The preceding diagram shows how the typical components of an IBM z/OS mainframe system can map and migrate to Azure capabilities.
 
-1. A web browser to access Azure resources replaces standard mainframe protocols like HTTPS and TN3270 terminal emulation for demand and online users (**A**). Users access web-based applications over a private Azure ExpressRoute connection through Transport Layer Security (TLS) port 443.
+1. A web browser to access Azure resources replaces standard mainframe protocols like HTTPS and TN3270 terminal emulation for demand and online users. Users access web-based applications over a private Azure ExpressRoute connection through Transport Layer Security (TLS) port 443.
 
 1. For security and performance, this solution deploys all Azure resources in an Azure Virtual Network, with a network security group to help manage traffic.
    
@@ -36,7 +36,7 @@ The preceding diagram shows how the typical components of an IBM z/OS mainframe 
    
 1. Application code converts to AMT COBOL or directly to .NET C#. AMT maintains the original code structure to use as a baseline or for future edits. If code needs changing or editing, AMT can maintain and reprocess the original code, or you can edit the converted C# code directly to advance the code base to new standards.
 
-1. AMT automates migrating all DB2, IMS, and IDMS hierarchical, network, or relational databases (**D**) to Azure SQL Server. AMT Transform converts DMS and RDMS schemas to SQL, and converts WFL, ECLJCL, and REXX scripts to VBScript or Windows PowerShell. Azure Private Link for Azure SQL Database provides a private, direct connection from the Azure VMs to Azure SQL Database.
+1. AMT automates migrating all DB2, IMS, and IDMS hierarchical, network, or relational databases to Azure SQL Server. AMT Transform converts DMS and RDMS schemas to SQL, and converts WFL, ECLJCL, and REXX scripts to VBScript or Windows PowerShell. Azure Private Link for Azure SQL Database provides a private, direct connection from the Azure VMs to Azure SQL Database.
    
    AMT Transform also converts all binary or indexed VSAM, flat files, and virtual tape files to Azure Files storage.
    
