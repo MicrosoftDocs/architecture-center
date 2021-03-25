@@ -563,6 +563,20 @@ items:
         href: patterns/throttling.md
       - name: Valet Key
         href: patterns/valet-key.md
+  - name: Industry solutions with Azure
+    expanded: true
+    items:
+      - name: Healthcare
+        href: example-scenario/mch-health/virtual-health-mch.yml 
+        items:
+          - name: Virtual visits with Microsoft Cloud for Healthcare
+            href: example-scenario/mch-health/virtual-health-mch.yml 
+          - name: Consumer health portal on Azure
+            href: example-scenario/digital-health/health-portal.yml
+          - name: Building a telehealth system with Azure
+            href: example-scenario/apps/telehealth-system.yml
+          - name: Confidential computing for healthcare
+            href: example-scenario/confidential/healthcare-inference.yml
   - name: Azure categories
     expanded: true
     items:
