@@ -322,11 +322,11 @@ To learn more about Azure Sentinel, refer to the following articles:
 [azure-monitor-storage-pricing]: /azure/azure-monitor/platform/manage-cost-storage
 [azure-security-center]: /azure/security-center/
 [azure-security-center-alerts]: /azure/security-center/alerts-reference#alerts-linux
-[azure-security-center-cloud-smart-alert-correlation]: /azure/security-center/security-center-alerts-cloud-smart
+[azure-security-center-cloud-smart-alert-correlation]: /azure/security-center/security-center-alerts-overview#cloud-smart-alert-correlation-in-azure-security-center-incidents
 [azure-security-center-connect-data]: /azure/sentinel/connect-azure-security-center
 [azure-security-center-coverage]: /azure/security-center/security-center-services?tabs=features-windows
 [azure-security-center-endpoint-protection]: /azure/security-center/security-center-endpoint-protection
-[azure-security-center-faq]: /azure/security-center/security-center-alerts-cloud-smart
+[azure-security-center-faq]: /azure/security-center/security-center-alerts-overview#cloud-smart-alert-correlation-in-azure-security-center-incidents
 [azure-security-center-health-monitoring]: /azure/security-center/security-center-monitoring
 [azure-security-center-planning]: /azure/security-center/security-center-planning-and-operations-guide
 [azure-security-center-pricing]: https://azure.microsoft.com/pricing/details/security-center/
