@@ -158,7 +158,9 @@ Make sure to configure the following antivirus exclusions for FSLogix Profile Co
   - %ProgramFiles%\FSLogix\Apps\frxccds.exe
   - %ProgramFiles%\FSLogix\Apps\frxsvc.exe
 
-**PowerShell Script to add these exclusions for Windows Defender:**
+#### Add exclusions for Windows Defender by using PowerShell
+
+You can use this PowerShell script to add the exclusions for Windows Defender:
 
 ```powershell
   # Defender Exclusions for FSLogix
