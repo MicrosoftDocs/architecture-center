@@ -113,4 +113,3 @@ Treat cost monitoring and optimization as a process, rather than a point-in-time
 
 >[!div class="nextstepaction"]
 >[Operational excellence](./hybrid-opex.md)
-
