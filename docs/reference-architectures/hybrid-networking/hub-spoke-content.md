@@ -38,7 +38,7 @@ New-AzResourceGroupDeployment -ResourceGroupName hub-spoke `
     -TemplateUri https://raw.githubusercontent.com/mspnp/samples/master/solutions/azure-hub-spoke/azuredeploy.json
 ```
 
-#### [Azure Bicep](#tab/bicep)
+#### [Bicep](#tab/bicep)
 
 Use the following command to create a resource group for the deployment. Click the **Try it** button to use an embedded shell.
 
