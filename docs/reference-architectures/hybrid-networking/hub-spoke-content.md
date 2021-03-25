@@ -38,6 +38,26 @@ New-AzResourceGroupDeployment -ResourceGroupName hub-spoke `
     -TemplateUri https://raw.githubusercontent.com/mspnp/samples/master/solutions/azure-hub-spoke/azuredeploy.json
 ```
 
+#### [Azure Bicep](#tab/bicep)
+
+Use the following command to create a resource group for the deployment. Click the **Try it** button to use an embedded shell.
+
+```azurecli-interactive
+az group create --name hub-spoke --location eastus
+```
+
+Use the following command to download the Bicep template.
+
+```azurecli-interactive
+curl https://raw.githubusercontent.com/mspnp/samples/master/solutions/azure-hub-spoke/bicep/main.bicep > main.bicep
+```
+
+Run the following command to deploy the hub and spoke network configuration, VNet peerings between the hub and spoke, and a Bastion host
+
+```azurecli-interactive
+az deployment group create --resource-group hub-spoke --template-file main.bicep
+```
+
 #### [Azure portal](#tab/portal)
 
 Use the following button to deploy the reference using the Azure portal.
