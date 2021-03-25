@@ -99,7 +99,7 @@ Click the following links for guidance in provisioning:
 
 ## Monitor and optimize
 
-Treat cost monitoring and optimization as a process, rather than a point-in-time activity. You can conduct regular cost reviews and forecast the capacity needs so that you can provision resources dynamically and scale with demand.
+Treat cost monitoring and optimization as a process, rather than a point-in-time activity. You can conduct regular cost reviews and forecast the capacity needs so that you can provision resources dynamically and sale with demand.
 
 - [Managing the Azure Arc enabled servers agent](/azure/azure-arc/servers/manage-agent/)
    - Bring all your resources into a single system so you can organize and inventory through a variety of Azure scopes, such as Management groups, Subscriptions, and Resource Groups.
