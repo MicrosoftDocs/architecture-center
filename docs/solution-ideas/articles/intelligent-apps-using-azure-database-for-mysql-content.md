@@ -1,4 +1,3 @@
-
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
 Develop sophisticated, transformational apps using state of the art machine learning algorithms and integrated visualization tools to get actionable insights and analytics.
@@ -19,7 +18,7 @@ The data flows through the solution as follows:
 
 ## Components
 
-- [Azure Functions](/azure-functions/functions-overview)
+- [Azure Functions](/azure/azure-functions/functions-overview)
 - [Event Hubs](/azure/event-hubs/)
 - [Blob storage](/azure/storage/blobs/storage-blobs-introduction)
 - [Text Analytics Api](/azure/cognitive-services/text-analytics/)
@@ -39,12 +38,12 @@ The data flows through the solution as follows:
   
 ## Next steps
 
-* [Understand data store models](/azure/architecture/guide/technology-choices/data-store-overview)
+* [Understand data store models](../../guide/technology-choices/data-store-overview.md)
 
 The following solution ideas feature Azure Database for MySQL:
 
-* [Gaming using Azure Database for MySQL](/azure/architecture/solution-ideas/articles/gaming-using-azure-database-for-mysql)
-* [Retail and e-commerce using Azure Database for MySQL](/azure/architecture/solution-ideas/articles/retail-and-ecommerce-using-azure-database-for-mysql)
-* [Digital marketing using Azure Database for MySQL](/azure/architecture/solution-ideas/articles/digital-marketing-using-azure-database-for-mysql)
-* [Finance management apps using Azure Database for MySQL](/azure/architecture/solution-ideas/articles/finance-management-apps-using-azure-database-for-mysql)
-* [Scalable web and mobile applications using Azure Database for MySQL](/azure/architecture/solution-ideas/articles/scalable-web-and-mobile-applications-using-azure-database-for-mysql)
+* [Gaming using Azure Database for MySQL](./gaming-using-azure-database-for-mysql.yml)
+* [Retail and e-commerce using Azure Database for MySQL](./retail-and-ecommerce-using-azure-database-for-mysql.yml)
+* [Digital marketing using Azure Database for MySQL](./digital-marketing-using-azure-database-for-mysql.yml)
+* [Finance management apps using Azure Database for MySQL](./finance-management-apps-using-azure-database-for-mysql.yml)
+* [Scalable web and mobile applications using Azure Database for MySQL](./scalable-web-and-mobile-applications-using-azure-database-for-mysql.yml)

@@ -14,6 +14,7 @@ metadata:
   ms.custom:
     - fcp
     - aischool
+    - ai-machine-learning
 name: AI for Earth
 azureCategories:
   - ai-machine-learning
@@ -26,4 +27,4 @@ products:
   - azure-open-datasets
 thumbnailUrl: /azure/architecture/browse/thumbs/wildbook-network-diagram.png
 content: |
-   [!include[](ai-for-earth-content.md)]
+  [!include[](ai-for-earth-content.md)]

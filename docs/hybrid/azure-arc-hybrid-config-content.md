@@ -35,9 +35,9 @@ Once configured, the Connected Machine agent sends a regular heartbeat message e
 
 #### Manual installation
 
-You can enable Azure Arc for servers for one or a few Windows or Linux machines in your environment by using the Windows Admin Center tool set or by performing a set of steps manually. You can download the [Windows agent Windows Installer package][windows-agent-download] from the Microsoft Download Center or the Linux agent from [Microsoft's package repository][microsoft-package-repo].
+You can enable Azure Arc enabled servers for one or a few Windows or Linux machines in your environment by using the Windows Admin Center tool set or by performing a set of steps manually. You can download the [Windows agent Windows Installer package][windows-agent-download] from the Microsoft Download Center or the Linux agent from [Microsoft's package repository][microsoft-package-repo].
 
-For more information, refer to [Overview of Azure Arc for servers agent][agent-overview].
+For more information, refer to [Overview of Azure Arc enabled servers agent][agent-overview].
 
 #### Script-based installation
 
@@ -47,7 +47,7 @@ This method requires that you have administrator permissions on the machine to i
 
 #### Connect machines at scale using a service principal
 
-To connect the machines to Azure Arc for servers, you can use an Azure Active Directory service principal instead of using your privileged identity to interactively connect the machine. A service principal is a special, limited management identity that has the minimum permission necessary to connect machines to Azure using the **azcmagent** command. Using a service principal is safer than using a higher privileged account like a Tenant Administrator and follows access control security best practices. The service principal is only used during onboarding. For more information, refer to [Connect hybrid machines to Azure at scale][connect-hybrid-at-scale].
+To connect the machines to Azure Arc enabled servers, you can use an Azure Active Directory service principal instead of using your privileged identity to interactively connect the machine. A service principal is a special, limited management identity that has the minimum permission necessary to connect machines to Azure using the **azcmagent** command. Using a service principal is safer than using a higher privileged account like a Tenant Administrator and follows access control security best practices. The service principal is only used during onboarding. For more information, refer to [Connect hybrid machines to Azure at scale][connect-hybrid-at-scale].
 
 #### Installation using Windows PowerShell DSC
 
@@ -55,14 +55,14 @@ You can automate agent installation and configuration for a Windows computer by 
 
 ### Manage VM extensions
 
-Azure Arc for servers enables you to deploy Azure VM extensions to non-Azure Windows and Linux VMs, providing a consistent extension management experience between Azure and non-Azure VMs. VM extensions allow you to:
+Azure Arc enabled servers enables you to deploy Azure VM extensions to non-Azure Windows and Linux VMs, providing a consistent extension management experience between Azure and non-Azure VMs. VM extensions allow you to:
 
 - Use [Azure Automation State Configuration][Azure Automation State Configuration] to centrally store configurations and maintain the desired state of Arc enabled servers through the DSC VM extension.
 - Collect log data for analysis with Azure Monitor Logs enabled through the Log Analytics agent VM extension.
 - Analyze the performance of your Windows and Linux VMs using Azure Monitor and monitor their processes and dependencies on other resources and external processes.
 - Download and execute scripts on Arc enabled servers using the Custom Script extension.
 
-For more information, refer to [Virtual machine extension management with Azure Arc for servers][manage-vm-extensions].
+For more information, refer to [Virtual machine extension management with Azure Arc enabled servers][manage-vm-extensions].
 
 ### Implement Azure Policy Guest Configuration
 
@@ -108,7 +108,7 @@ The Connected Machine agent for Linux and Windows communicates outbound securely
 ## Manageability considerations
 
 - Consult the list of supported [operated systems][supported operating systems] on the Azure Arc agent overview page.
-- Before configuring your machines with Azure Arc for servers, you should review the Azure Resource Manager [subscription limits][subscription-limits] and [resource group limits][rg-limits] to plan for the number of machines to be connected.
+- Before configuring your machines with Azure Arc enabled servers, you should review the Azure Resource Manager [subscription limits][subscription-limits] and [resource group limits][rg-limits] to plan for the number of machines to be connected.
 
 ## Security considerations
 
@@ -119,6 +119,14 @@ The Connected Machine agent for Linux and Windows communicates outbound securely
 
 - Use the [Azure pricing calculator][pricing-calculator] to estimate costs.
 - Other considerations are described in the [Principles of cost optimization][principles-cost-opt] section in the Microsoft Azure Well-Architected Framework.
+
+## Next steps
+
+* [Learn more about Azure Arc][Azure Arc]
+* [Learn more about Azure virtual machines][Azure virtual machines]
+* [Learn more about Azure Policy Guest Configuration][Azure Policy Guest Configuration]
+* [Learn more about Azure Monitor][Azure Monitor]
+* [Overview of Azure Arc enabled servers agent][agent-overview]
 
 [architectural-diagram]: ./images/azure-arc-hybrid-config.png
 [architectural-diagram-visio-source]: https://arch-center.azureedge.net/azure-arc-hybrid-config.vsdx

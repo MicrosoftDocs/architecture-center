@@ -12,6 +12,7 @@ metadata:
     - ai-machine-learning
   ms.custom:
     - azcat-ai
+    - ai-machine-learning
 name: Training Python models on Azure
 azureCategories:
   - ai-machine-learning
@@ -23,4 +24,4 @@ products:
   - azure-storage
 thumbnailUrl: /azure/architecture/browse/thumbs/training-python-models.png
 content: |
-   [!include[](training-python-models-content.md)]
+  [!include[](training-python-models-content.md)]

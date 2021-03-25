@@ -13,6 +13,7 @@ metadata:
     - ai-machine-learning
   ms.custom:
     - reference-architecture
+    - ai-machine-learning
 name: Speech-to-text conversion
 azureCategories:
   - ai-machine-learning
@@ -28,4 +29,4 @@ products:
   - azure-storage
 thumbnailUrl: /azure/architecture/browse/thumbs/audio-files-upload.png
 content: |
-   [!include[](speech-ai-ingestion-content.md)]
+  [!include[](speech-ai-ingestion-content.md)]

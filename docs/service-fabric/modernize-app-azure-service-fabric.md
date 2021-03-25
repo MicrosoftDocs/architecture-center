@@ -12,6 +12,7 @@ ms.category:
   - management-and-governance
 products:
   - azure-load-balancer
+  - azure-service-fabric
 ms.custom:
   - guide
   - internal-intro

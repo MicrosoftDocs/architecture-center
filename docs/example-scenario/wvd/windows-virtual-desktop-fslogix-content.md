@@ -1,6 +1,3 @@
-
-
-
 This article provides insights on designing, sizing, and implementing a Microsoft FSLogix Profile Container solution for large enterprises, as well as shows how to avoid performance problems in production. This article is an extension of the [Windows Virtual Desktop at enterprise scale](./windows-virtual-desktop.yml) article.
 
 [FSLogix](/fslogix/) is a set of solutions that enhance, enable, and simplify non-persistent Windows computing environments. FSLogix solutions are appropriate for virtual environments in both public and private clouds. These solutions may also be used to create more portable computing sessions when using physical devices.
@@ -150,10 +147,10 @@ Make sure to configure the following antivirus exclusions for FSLogix Profile Co
   - %Windir%\TEMP\\*.VHDX
   - \\\storageaccount.file.core.windows.net\share\\*.VHD
   - \\\storageaccount.file.core.windows.net\share\\*.VHDX
-  - %ProgramData%\FSLogix\Cache\\*.VHD (addional - only if you use Cloud Cache)
-  - %ProgramData%\FSLogix\Cache\\*.VHDX (addional - only if you use Cloud Cache)
-  - %ProgramData%\FSLogix\Proxy\\*.VHD (addional - only if you use Cloud Cache)
-  - %ProgramData%\FSLogix\Proxy\\*.VHDX (addional - only if you use Cloud Cache)
+  - %ProgramData%\FSLogix\Cache\\*.VHD (additional - only if you use Cloud Cache)
+  - %ProgramData%\FSLogix\Cache\\*.VHDX (additional - only if you use Cloud Cache)
+  - %ProgramData%\FSLogix\Proxy\\*.VHD (additional - only if you use Cloud Cache)
+  - %ProgramData%\FSLogix\Proxy\\*.VHDX (additional - only if you use Cloud Cache)
   
 - Exclude processes:
 
@@ -185,7 +182,7 @@ Because of the resource utilization, it may be more cost effective to consider a
 
 In an Enterprise architecture, it is common to make user profiles resilient. To configure an FSLogix profile solution to make this as efficient as possible the amount of data being moved around should be reduced to the bare minimum.
 
--	The first step to create an efficient FSLogix profile solution is the use of [OneDrive Folder Backup](https://docs.microsoft.com/en-us/onedrive/redirect-known-folders) to put document based profile folders into OneDrive. This means you can take advantage of built-in OneDrive features to protect the users documents.
+-	The first step to create an efficient FSLogix profile solution is the use of [OneDrive Folder Backup](/onedrive/redirect-known-folders) to put document based profile folders into OneDrive. This means you can take advantage of built-in OneDrive features to protect the users documents.
 
 -	In order to reduce the amount of data needing to be independently replicated, archived and restored you should also split out the Office cache data into the Office Container as the cache data often comprises by far the majority of the profile data capacity used. As the Office Container only contains cache data, the source for which is safely stored in the cloud you do not need to make this data resilient. Once the documents and cache are separated from the Profile Container, you should then enact your replication archive and restore policies on this much smaller capacity disk.
 
@@ -220,6 +217,10 @@ The following settings are commonly used by our customers in their desktop virtu
 |SizeInMBs    |30000    |Specifies the size of newly created VHD(X) in number of MB. Default value is 30000 MB or 30 GB.   |
 |VolumeType   |VHDx    |More capabilities for PowerShell and maintenance.    |
 |FlipFlopProfileDirectoryName |1    |Makes it easier to search for the specific profile container user folder on the network share.    |
+
+To manage these registry settings at scale, group policy templates are included with the FSlogix installation package.  Guidance for using these templates can be found in the article [Use FSLogix Group Policy Templates](/fslogix/use-group-policy-templates-ht). 
+
+Note: 'FlipFlopProfileDirectoryName' is managed by the 'swap directory name components' setting if using the GPO template.
 
 ## Next steps
 

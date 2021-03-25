@@ -1,9 +1,7 @@
-
-
 To secure Azure application workloads, you use protective measures like authentication and encryption in the applications themselves. You can also add security layers to the virtual machine (VM) networks that host the applications, both to protect inbound flows from users, as well as outbound flows to the Internet that your application might require. This article describes [Azure Virtual Network][azure-virtual-network] security services like Azure Firewall and Azure Application Gateway, when to use each service, and network design options that combine both.
 
 - [Azure Firewall][azfw-overview] is a managed next-generation firewall that offers [network address translation (NAT)][nat]. Azure Firewall bases packet filtering on Internet Protocol (IP) addresses and Transmission Control Protocol and User Datagram Protocol (TCP/UDP) ports, or on application-based HTTP(S) or SQL attributes. Azure Firewall also leverages Microsoft threat intelligence to identify malicious IP addresses. For more information, see the [Azure Firewall documentation][azfw-docs].
-- [Azure Firewall Premium][azfw-premium]: is a new offering that includes all functionality of Azure Firewall Standard plus additional features such as TLS-inspection and IDPS (Intrusion Detection and Protection System)
+- [Azure Firewall Premium][azfw-premium-features]: is a new offering that includes all functionality of Azure Firewall Standard plus additional features such as TLS-inspection and IDPS (Intrusion Detection and Protection System)
 - [Azure Application Gateway][appgw-overview] is a managed web traffic load balancer and HTTP(S) full reverse proxy that can do Secure Socket Layer (SSL) encryption and decryption. Application Gateway also uses Web Application Firewall to inspect web traffic and detect attacks at the HTTP layer. For more information, see the [Application Gateway documentation][appgw-docs].
 - [Azure Web Application Firewall (WAF)][web-application-firewall] is an optional addition to Azure Application Gateway to provide inspection of HTTP request and prevent malicious attacks at the web layer such as SQL Injection or Cross-Site Scripting. For more information, see the [Web Application Firewall documentation][waf-docs].
 
@@ -146,7 +144,7 @@ The packet flow steps for each service are the same as in the previous standalon
 
 In this option, inbound web traffic goes through both Azure Firewall and WAF. The WAF provides protection at the web application layer, and Azure Firewall acts as a central logging and control point and inspects traffic between the Application Gateway and the backend servers. The Application Gateway and Azure Firewall aren't sitting in parallel, but one after the other.
 
-With [Azure Firewall Premium][azfw-premium] this design can support end-to-end scenarios, where the Azure Firewall leverages TLS inspection to perform Intrusion Detection and Prevention (IDPS) on the encrypted traffic between the Application Gateway and the web backend.
+With [Azure Firewall Premium][azfw-premium-features] this design can support end-to-end scenarios, where the Azure Firewall leverages TLS inspection to perform Intrusion Detection and Prevention (IDPS) on the encrypted traffic between the Application Gateway and the web backend.
 
 This design is appropriate for applications that need to know incoming client source IP addresses, for example to serve geolocation-specific content or for logging. Azure Firewall SNATs the incoming traffic, changing the original source IP address. Application Gateway in front of Azure Firewall captures the incoming packet's source IP address in the *X-forwarded-for* header, so the web server can see the original IP address in this header. For more information, see [How an application gateway works][appgw-networking].
 
@@ -161,7 +159,7 @@ The following table summarizes the traffic flows for this scenario:
 
 For web traffic from on-premises or Internet to Azure, the Azure Firewall will inspect flows that have already been allowed by the Web Application Firewall. Depending on whether the Application Gateway encrypts backend traffic (traffic from the Application Gateway to the application servers) or not, you will have two different potential scenarios:
 
-1. The Application Gateway encrypts traffic following zero-trust principles ([End-to-End TLS encryption](https://docs.microsoft.com/azure/application-gateway/ssl-overview#end-to-end-tls-encryption)), the Azure Firewall will receive encrypted traffic. Still, Azure Firewall Standard will be able to apply inspection rules such as L3/L4 filtering in network rules or FQDN (Fully-Qualified Domain Name) filtering in application rules  using the TLS Server Name Indication (SNI) header, and [Azure Firewall Premium][azfw-premium] will provide deeper visibility with IDPS (Intrusion Detection Protection System), such as URL-based filtering for example.
+1. The Application Gateway encrypts traffic following zero-trust principles ([End-to-End TLS encryption](/azure/application-gateway/ssl-overview#end-to-end-tls-encryption)), the Azure Firewall will receive encrypted traffic. Still, Azure Firewall Standard will be able to apply inspection rules such as L3/L4 filtering in network rules or FQDN (Fully-Qualified Domain Name) filtering in application rules  using the TLS Server Name Indication (SNI) header, and [Azure Firewall Premium][azfw-premium-features] will provide deeper visibility with IDPS (Intrusion Detection Protection System), such as URL-based filtering for example.
 1. If the Application Gateway is sending unencrypted traffic to the application servers, the Azure Firewall will see inbound traffic in clear text, and TLS inspection is not needed in the Azure Firewall.
 
 For the rest of the flows (inbound non-HTTP(S) traffic and any outbound traffic) the Azure Firewall will provide IDPS inspection as well as TLS inspection where appropriate, as well as [FQDN-based filtering in network rules][azfw-dns] based on DNS.
@@ -264,12 +262,17 @@ The designs in this article still apply in a *hub and spoke* topology, where sha
 
 Some considerations for this topology include:
 
-- Usually, Azure Firewall, Application Gateway, and API Management gateway components all go to the hub virtual network.
-- Having the Azure Application Gateway in a spoke would be difficult in some designs, because you can't have a default route like `0.0.0.0/0` in the Application Gateway subnet with a next hop to anything other than the internet.
-- You can still define backend servers in the Application Gateway, even if they're in a peered virtual network.
-- Pay special attention to UDRs in the spoke networks. When the application server receives traffic from a specific Azure Firewall instance, like the `.7` address in the previous examples, it should send return traffic back to the same instance. If a UDR in the spoke sends traffic addressed to the hub to the Azure Firewall IP address, like the `.4` address in the previous examples, return packets might end up on a different Azure Firewall instance, causing asymmetric routing.
-- A route table isn't always needed, but you need to verify that the next hop for the Azure Application Gateway subnet and the Azure Firewall subnet is the virtual network.
+- The Azure Firewall is usually deployed in the central hub virtual network, but components such as Azure Application Gateways or Azure API Management gateways are often managed by application teams, and hence they are deployed in the spoke virtual networks.
+- Pay special attention to UDRs in the spoke networks: When an application server in a spoke receives traffic from a specific Azure Firewall instance, like the `192.168.100.7` address in the previous examples, it should send return traffic back to the same instance. If a UDR in the spoke sets the next hop of traffic addressed to the hub to the Azure Firewall IP address (`192.168.100.4` in the diagrams above), return packets might end up on a different Azure Firewall instance, causing asymmetric routing. Make sure that if you have UDRs in the spoke VNets to send traffic to shared services in the hub through the Azure Firewall, these UDRs do not include the prefix of the Azure Firewall subnet.
+- The previous recommendation applies equally to the Application Gateway subnet and any other Network Virtual Appliances or reverse proxies that might be deployed in the hub VNet.
+- Note that you cannot set the next hop for the Application Gateway or Azure Firewall subnets by means of static routes with a next hop type of `Virtual Network`, since this next hop type is only valid in the local VNet, and not across VNet peerings. See more information about User Defined Routes and next hop types in [Virtual network traffic routing][udr].
 
+The diagram below shows the situation where a spoke sends back SNATted traffic back to the ALB of an Azure Firewall, hence causing asymmetric routing:
+
+![Asymmetric routing in hub and spoke](./images/asymmetric_routing.png)
+
+The solution for this asymmetric routing problem is defining UDRs in the spoke that do not contain the Azure Firewall subnet, but only the subnets where the shared services are located. In the example of the previous diagram, the correct UDR in the spoke should only contain 192.168.1.0/24, and not the whole 192.168.0.0/16 as marked in red.
+   
 ## Integration with other Azure products
 
 You can integrate Azure Firewall and Azure Application Gateway with other Azure products and services.
@@ -307,7 +310,7 @@ Microsoft products aren't the only choice to implement web application firewall 
 - When using NVAs in Azure, use *active-active* and *autoscaling* setups, so these appliances aren't a bottleneck for applications running in the virtual network.
 
 [azfw-overview]: /azure/firewall/overview
-[azfw-premium]: /azure/firewall/premium-features
+[azfw-premium-features]: /azure/firewall/premium-features
 [azfw-docs]: /azure/firewall/
 [azfw-dnat]: /azure/firewall/tutorial-firewall-dnat
 [azfw-snat]: /azure/firewall/snat-private-range
@@ -328,6 +331,7 @@ Microsoft products aren't the only choice to implement web application firewall 
 [azure-virtual-network]: https://azure.microsoft.com/services/virtual-network/
 [web-application-firewall]: https://azure.microsoft.com/services/web-application-firewall/
 [nat]: /azure/virtual-network/nat-overview
+[udr]: /azure/virtual-network/virtual-networks-udr-overview
 [expressroute]: https://azure.microsoft.com/services/expressroute/
 [apim]: https://azure.microsoft.com/services/api-management/
 [app-gws]: https://microservices.io/patterns/apigateway.html

@@ -20,6 +20,7 @@ metadata:
     - Azure
     - ai gallery
     - 'https://azure.microsoft.com/solutions/architecture/campaign-optimization-with-azure-hdinsight-spark-clusters/'
+    - ai-machine-learning
   social_image_url: /azure/architecture/solution-ideas/articles/media/campaign-optimization-with-azure-hdinsight-spark-clusters.png
 name: Campaign Optimization with Azure HDInsight Spark Clusters
 azureCategories:
@@ -31,4 +32,4 @@ products:
   - azure-hdinsight
 thumbnailUrl: /azure/architecture/browse/thumbs/campaign-optimization-with-azure-hdinsight-spark-clusters.png
 content: |
-   [!include[](campaign-optimization-with-azure-hdinsight-spark-clusters-content.md)]
+  [!include[](campaign-optimization-with-azure-hdinsight-spark-clusters-content.md)]

@@ -1,6 +1,3 @@
-
-
-
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
 Generate personalized recommendations for customers in real time, using low-latency and tunable consistency settings for immediate insights
@@ -22,17 +19,29 @@ Generate personalized recommendations for customers in real time, using low-late
 
 This architecture includes the following components:
 
-[**Azure Web App**](https://docs.microsoft.com/en-us/azure/app-service/overview)-
-Azure App Service is an HTTP-based service for hosting web applications, REST APIs, and mobile back ends. You can develop in your favorite language, be it .NET, .NET Core, Java, Ruby, Node.js, PHP, or Python. Applications run and scale with ease on both Windows and Linux-based environments.
+* [**Azure Web App**](/azure/app-service/overview) is part of Azure App Service. It is an HTTP-based service for hosting web applications, REST APIs, and mobile back ends. You can develop in your favorite language, be it .NET, .NET Core, Java, Ruby, Node.js, PHP, or Python. Applications run and scale with ease on both Windows and Linux-based environments.
 
-[**Azure Cosmos DB**](https://docs.microsoft.com/en-us/azure/cosmos-db/introduction)- 
-Azure Cosmos DB is a multiple model database that can serve data elastically at a massive scale. Azure Cosmos DB was designed for applications that are globally distributed in a multi-write model.
+* [**Azure Cosmos DB**](/azure/cosmos-db/introduction) is a multiple model database that can serve data elastically at a massive scale. Azure Cosmos DB was designed for applications that are globally distributed in a multi-write model.
 
-[**Azure Container Instances**](https://docs.microsoft.com/en-us/azure/container-instances/container-instances-overview)-
-Azure Container Instances runs containers on-demand in a serverless Microsoft Azure environment. Azure Container Instances is a low-friction method of running containers that doesn't require a full Docker host or Kubernetes installation.
+* [**Change feed**](/azure/cosmos-db/change-feed) provides a persistent record of changes to a container in the order they occur.
 
-[**Azure DataBricks**](https://docs.microsoft.com/en-us/azure/databricks/)-
-Azure Databricks is a data analytics platform optimized for the Microsoft Azure cloud services platform. Azure Databricks offers two environments for developing data intensive applications: Azure Databricks SQL Analytics and Azure Databricks Workspace.
+* [**Azure Container Instances**](/azure/container-instances/container-instances-overview) runs containers on-demand in a serverless Microsoft Azure environment. Azure Container Instances is a low-friction method of running containers that doesn't require a full Docker host or Kubernetes installation.
+
+* [**Azure Kubernetes Service**](/azure/aks) automates deployment, scaling, and management of containerized applications, such as the Recommendation model.
+
+* [**Azure Databricks**](/azure/databricks/) is a data analytics platform optimized for the Microsoft Azure cloud services platform. Azure Databricks offers two environments for developing data intensive applications: Azure Databricks SQL Analytics and Azure Databricks Workspace.
+
+### Considerations
+
+API management, in front of the container service provides a number of benefits such as rate throttling, API versioning, policies.  For further information, please refer to [Azure API Management](/azure/api-management/api-management-key-concepts).
+
+#### Scalability
+
+In Azure Cosmos DB, you can configure either standard (manual) or autoscale provisioned throughput on your databases and containers. Autoscale provisioned throughput in Azure Cosmos DB allows you to scale the throughput (RU/s) of your database or container automatically and instantly. The throughput is scaled based on the usage, without affecting the availability, latency, throughput, or performance of the workload.
+
+Azure Synapse also provides native Apache Spark capabilities and can be considered an alternative option for development and training of a recommendation model.
+
+Scale the AKS cluster to meet your performance and throughput requirements. Take care to scale up the number of pods to fully utilize the cluster, and to scale the nodes of the cluster to meet the demand of your service.
 
 **Next Steps**
 

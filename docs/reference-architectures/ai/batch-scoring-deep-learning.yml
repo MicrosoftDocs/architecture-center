@@ -15,6 +15,7 @@ metadata:
   ms.custom:
     - azcat-ai
     - reference-architecture
+    - ai-machine-learning
 name: Batch scoring for deep learning models
 azureCategories:
   - ai-machine-learning
@@ -27,4 +28,4 @@ products:
   - azure-storage
 thumbnailUrl: /azure/architecture/browse/thumbs/aml-scoring-deep-learning.png
 content: |
-   [!include[](batch-scoring-deep-learning-content.md)]
+  [!include[](batch-scoring-deep-learning-content.md)]
