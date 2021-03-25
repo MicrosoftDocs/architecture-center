@@ -161,9 +161,7 @@ Make sure to configure the following antivirus exclusions for FSLogix Profile Co
 **PowerShell Script to add these exclusions for Windows Defender:**
 
 ```powershell
-
   # Defender Exclusions for FSLogix
-
   $Cloudcache = $false             # Set for true if using cloud cache
   $StorageAcct = "wvdstorageacct"  # Storage Account Name
 
@@ -183,23 +181,16 @@ Make sure to configure the following antivirus exclusions for FSLogix Profile Co
   "%ProgramFiles%\FSLogix\Apps\frxccds.exe", `
   "%ProgramFiles%\FSLogix\Apps\frxsvc.exe"
 
-
   Foreach($item in $filelist){
-
-      Add-MpPreference -ExclusionPath $item
-
-  }
-
+      Add-MpPreference -ExclusionPath $item}
   Foreach($item in $processlist){
-      Add-MpPreference -ExclusionProcess $item
-  }
+      Add-MpPreference -ExclusionProcess $item}
 
   If ($Cloudcache){
       Add-MpPreference -ExclusionPath "%ProgramData%\FSLogix\Cache\*.VHD"
       Add-MpPreference -ExclusionPath "%ProgramData%\FSLogix\Cache\*.VHDX"
       Add-MpPreference -ExclusionPath "%ProgramData%\FSLogix\Proxy\*.VHD"
-      Add-MpPreference -ExclusionPath "%ProgramData%\FSLogix\Proxy\*.VHDX"
-    
+      Add-MpPreference -ExclusionPath "%ProgramData%\FSLogix\Proxy\*.VHDX"}
 ```
 
 ## Using Cloud Cache
