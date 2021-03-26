@@ -1743,6 +1743,8 @@ items:
                 href: reference-architectures/app-service-web-app/basic-web-app.yml
               - name: Azure Functions in a hybrid environment
                 href: hybrid/azure-functions-hybrid.yml
+              - name: Clinical insights with Microsoft Cloud for Healthcare
+                href: example-scenario/mch-health/medical-data-insights.yml
               - name: Consumer health portal
                 href: example-scenario/digital-health/health-portal.yml
               - name: Deployment in App Service Environments
