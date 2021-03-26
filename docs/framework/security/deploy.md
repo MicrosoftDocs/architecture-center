@@ -1,5 +1,5 @@
 ---
-title: Secure deployment and testing in Azure
+title: Secure deployment in Azure
 description: DevOps considerations to ensure security and feature enhancements can be quickly deployed.
 author: PageWriter-MSFT
 ms.date: 03/26/2021
@@ -30,7 +30,7 @@ Those processes allow you to rapidly address the security concerns without waiti
 > - No infrastructure changes, provisioning or configuring, should be done manually outside of IaC.
 
 ## In this section
-Follow these questions to assess the workload at a deeper level. The recommendations in this section are based on using Azure AD.
+Follow these questions to assess the workload at a deeper level. 
 
 |Assessment|Description|
 |---|---|
