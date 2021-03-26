@@ -267,7 +267,7 @@ This deployment requires several deployment steps and manual configuration. For 
 [pip-udr-without-snat]: #pip-udr-switch-with-layer-4-nvas-without-snat
 [udr-overview]: /azure/virtual-network/virtual-networks-udr-overview
 [ha-nva-fo]: https://aka.ms/ha-nva-fo
-[ha-nva-l7-sample]: https://docs.microsoft.com/samples/mspnp/samples/ha-nva/
+[ha-nva-l7-sample]: https://github.com/mspnp/samples/tree/master/solutions/ha-nva
 
 <!-- images -->
 
