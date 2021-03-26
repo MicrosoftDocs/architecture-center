@@ -18,7 +18,7 @@ Have teams, processes, and tools that can quickly deploy security fixes. A _DevO
 
 Continuous integration (CI) is an automated process where code changes trigger the building and testing of the application. Continuous Delivery (CD) is an automated process to build, test, configure, and deploy the application from a build to production environment. 
 
-Those processes allow you to Frapidly address the security concerns without waiting for a longer planning and testing cycle. 
+Those processes allow you to rapidly address the security concerns without waiting for a longer planning and testing cycle. 
 
 ## Checklist
 **Have you adopted a secure DevOps approach to ensure security and feature enhancements can be quickly deployed?**
@@ -36,7 +36,7 @@ Follow these questions to assess the workload at a deeper level. The recommendat
 |---|---|
 |[**Do you clearly define CI/CD roles and permissions for this workload?**](deploy-governance.md)|Define CI/CD permissions so that only users responsible for production releases are able to initiate the process and that only developers can access the source code.|
 |[**Can you roll back or forward code quickly through automated pipelines?**](deploy-code.md)|Automated deployment pipelines should allow for quick roll-forward and roll-back deployments to address critical bugs and code updates outside of the normal deployment lifecycle.|
-|[**Are any resources provisioned or operationally configured manually through user tools such as the Azure Portal or via Azure CLI??**](monitor-test.md)|Always use Infrastructure as code (IaC) to make smallest of changes. This approach makes code easy to track because the provisioned infrastructure can be fully reproduced and reversed.|
+|[**Are any resources provisioned or operationally configured manually through user tools such as the Azure portal or via Azure CLI??**](monitor-test.md)|Always use Infrastructure as code (IaC) to make smallest of changes. This approach makes code easy to track because the provisioned infrastructure can be fully reproduced and reversed.|
 
 
 ## Azure security benchmark
