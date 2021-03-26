@@ -11,7 +11,8 @@ products:
   - azure-storage
 ms.custom:
   - design-pattern
-keywords: design pattern
+keywords:
+  - design pattern
 ---
 
 # Index Table pattern

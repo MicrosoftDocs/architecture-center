@@ -20,7 +20,7 @@ metadata:
     - solution architectures
     - Azure
     - ai gallery
-    - 'https://azure.microsoft.com/solutions/architecture/oil-and-gas-tank-level-forecasting/'
+    - "https://azure.microsoft.com/solutions/architecture/oil-and-gas-tank-level-forecasting/"
   social_image_url: /azure/architecture/solution-ideas/articles/media/oil-and-gas-tank-level-forecasting.png
 name: Oil and Gas Tank Level Forecasting
 azureCategories:

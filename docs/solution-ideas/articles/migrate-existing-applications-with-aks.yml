@@ -19,7 +19,7 @@ metadata:
     - chat
     - signalr service
     - interactive-diagram
-    - 'https://azure.microsoft.com/solutions/architecture/migrate-existing-applications-with-aks/'
+    - "https://azure.microsoft.com/solutions/architecture/migrate-existing-applications-with-aks/"
   social_image_url: /azure/architecture/solution-ideas/articles/media/migrate-existing-applications-with-aks.png
 name: Lift and shift to containers with AKS
 azureCategories:

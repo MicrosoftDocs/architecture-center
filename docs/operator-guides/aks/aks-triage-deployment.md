@@ -9,6 +9,8 @@ ms.service: architecture-center
 ms.subservice: guide
 products:
   - azure-kubernetes-service
+ms.custom:
+  - e2e-aks
 ---
 
 # Check the workload deployments
