@@ -257,10 +257,7 @@ Networking](https://azure.microsoft.com/blog/linux-and-windows-networking-perfor
 This option is available only for supported virtual machines, including D/DSv2,
 D/DSv3, E/ESv3, F/FS, FSv2, and Ms/Mms.
 
-For details about SAP HANA performance requirements, see [SAP note 1943937 -
-Hardware Configuration Check
-Tool](https://launchpad.support.sap.com/#/notes/1943937) (SAP Service
-Marketplace account required for access).
+For details about SAP HANA performance requirements, see [SAP note 1943937 - Hardware Configuration Check Tool](https://launchpad.support.sap.com/#/notes/1943937) (SAP Service Marketplace account required for access).
 
 To achieve high IOPS and disk bandwidth throughput, the common practices in
 storage volume [performance
