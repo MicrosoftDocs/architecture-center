@@ -20,7 +20,7 @@ metadata:
     - use cases
     - azure
     - solutions
-    - 'https://azure.microsoft.com/solutions/architecture/retail-and-ecommerce-using-azure-database-for-mysql/'
+    - "https://azure.microsoft.com/solutions/architecture/retail-and-ecommerce-using-azure-database-for-mysql/"
   social_image_url: /azure/architecture/solution-ideas/articles/media/retail-and-ecommerce-using-azure-database-for-mysql.png
 name: Retail and e-commerce using Azure MySQL
 azureCategories:

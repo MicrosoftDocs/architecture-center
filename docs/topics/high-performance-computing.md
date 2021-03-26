@@ -3,6 +3,7 @@ title: High Performance Computing (HPC) on Azure
 description: Learn about High Performance Computing on Azure, which uses many CPU or GPU-based computers to solve complex mathematical tasks.
 author: doodlemania2
 ms.date: 8/14/2019
+ms.topic: XXXX
 ms.service: architecture-center
 ms.subservice: reference-architecture
 ms.category:

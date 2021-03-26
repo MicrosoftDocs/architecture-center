@@ -21,7 +21,7 @@ metadata:
     - Oracle on Azure
     - Oracle DB architecture
     - interactive-diagram
-    - 'https://azure.microsoft.com/solutions/architecture/reference-architecture-for-oracle-database-on-azure/'
+    - "https://azure.microsoft.com/solutions/architecture/reference-architecture-for-oracle-database-on-azure/"
   social_image_url: /azure/architecture/solution-ideas/articles/media/reference-architecture-for-oracle-database-on-azure.png
 name: Running Oracle Databases on Azure
 azureCategories:

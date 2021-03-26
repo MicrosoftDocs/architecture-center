@@ -17,7 +17,7 @@ metadata:
     - ap-dev
     - devops
     - azure
-    - 'https://azure.microsoft.com/solutions/architecture/ops-automation-using-event-grid/'
+    - "https://azure.microsoft.com/solutions/architecture/ops-automation-using-event-grid/"
   social_image_url: /azure/architecture/solution-ideas/articles/media/ops-automation-using-event-grid.png
 name: Ops automation using Event Grid
 azureCategories:

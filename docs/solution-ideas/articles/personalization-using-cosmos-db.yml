@@ -17,7 +17,7 @@ metadata:
     - Cosmos DB
     - ai-ml
     - data
-    - 'https://azure.microsoft.com/solutions/architecture/personalization-using-cosmos-db/'
+    - "https://azure.microsoft.com/solutions/architecture/personalization-using-cosmos-db/"
     - ai-machine-learning
   social_image_url: /azure/architecture/solution-ideas/articles/media/personalization-using-cosmos-db.png
 name: Personalization using Cosmos DB
