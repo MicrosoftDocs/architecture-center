@@ -10,6 +10,8 @@ ms.subservice: guide
 products:
   - azure-kubernetes-service
   - azure-monitor
+ms.custom:
+  - e2e-aks
 ---
 
 # Examine the node and pod health

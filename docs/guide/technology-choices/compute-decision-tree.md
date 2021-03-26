@@ -13,6 +13,7 @@ products:
   - azure-kubernetes-service
 ms.custom:
   - guide
+  - e2e-aks
 ---
 
 # Choose an Azure compute service for your application
