@@ -1,6 +1,6 @@
 ---
 title: Code deployment security considerations in Azure
-description: Governance for CI/CD pipelines to make sure right access and work is executed. 
+description: Security strategy for automated deployment pipelines. 
 author: PageWriter-MSFT
 ms.date: 03/26/2021
 ms.topic: conceptual
@@ -8,13 +8,13 @@ ms.service: architecture-center
 ms.subservice: well-architected
 product:
   - azure-devops
-azureCategories:
+categories:
   - security
 ---
 
-## Code deployments
+# Code deployments
 
-The automated build and release pipelines should be able to update a workload to a new version seamlessly without breaking dependencies. Augment the automation with processes that allow high priority fixes to get deployed quickly.
+The automated build and release pipelines should update a workload to a new version seamlessly without breaking dependencies. Augment the automation with processes that allow high priority fixes to get deployed quickly.
 
 ## Key points
 
@@ -23,7 +23,7 @@ The automated build and release pipelines should be able to update a workload to
 
 ## Rollback and roll-forward
 
-If something goes wrong, the workload should rollback to a previous working version. N-1 and N+1 refer to rollback and roll-forward versions.
+If something goes wrong, the workload should roll back to a previous working version. N-1 and N+1 refer to roll back and roll-forward versions.
 
 **Can N-1 or N+1 versions be deployed via automated pipelines where N is current deployment version in production?**
 ***
@@ -32,7 +32,7 @@ Because security updates are a high priority, design a pipeline that supports re
 
 A release is typically associated with approval processes with multiple sign-offs, quality gates, and so on. If the workload deployment is small with minimal approvals, you can usually use the same process and pipeline to release a security fix.   
     
-If the approval process is complex and takes a significant amount of time that could delay a fix, consider having an emergency pipeline that might not include all the gated approvals but is able to push out the fix quickly. The pipeline should allow for quick roll-forward and rollback deployments that address security fixes, critical bugs, and code updates outside of the regular deployment life cycle.
+If the approval process is complex and takes a significant amount of time that could delay a fix, consider having an emergency pipeline that might not include all the gated approvals but can push out the fix quickly. The pipeline should allow for quick roll-forward and rollback deployments that address security fixes, critical bugs, and code updates outside of the regular deployment life cycle.
 
 Involve the security team in the planning and design of the DevOps process. Ideally, design an automated pipeline with a degree of flexibility that supports regular and emergency deployments. 
 
