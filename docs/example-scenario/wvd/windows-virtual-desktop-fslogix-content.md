@@ -147,10 +147,10 @@ Make sure to configure the following antivirus exclusions for FSLogix Profile Co
   - %Windir%\TEMP\\*.VHDX
   - \\\storageaccount.file.core.windows.net\share\\*.VHD
   - \\\storageaccount.file.core.windows.net\share\\*.VHDX
-  - %ProgramData%\FSLogix\Cache\\*.VHD (addional - only if you use Cloud Cache)
-  - %ProgramData%\FSLogix\Cache\\*.VHDX (addional - only if you use Cloud Cache)
-  - %ProgramData%\FSLogix\Proxy\\*.VHD (addional - only if you use Cloud Cache)
-  - %ProgramData%\FSLogix\Proxy\\*.VHDX (addional - only if you use Cloud Cache)
+  - %ProgramData%\FSLogix\Cache\\*.VHD (additional - only if you use Cloud Cache)
+  - %ProgramData%\FSLogix\Cache\\*.VHDX (additional - only if you use Cloud Cache)
+  - %ProgramData%\FSLogix\Proxy\\*.VHD (additional - only if you use Cloud Cache)
+  - %ProgramData%\FSLogix\Proxy\\*.VHDX (additional - only if you use Cloud Cache)
   
 - Exclude processes:
 
@@ -217,6 +217,10 @@ The following settings are commonly used by our customers in their desktop virtu
 |SizeInMBs    |30000    |Specifies the size of newly created VHD(X) in number of MB. Default value is 30000 MB or 30 GB.   |
 |VolumeType   |VHDx    |More capabilities for PowerShell and maintenance.    |
 |FlipFlopProfileDirectoryName |1    |Makes it easier to search for the specific profile container user folder on the network share.    |
+
+To manage these registry settings at scale, group policy templates are included with the FSlogix installation package.  Guidance for using these templates can be found in the article [Use FSLogix Group Policy Templates](/fslogix/use-group-policy-templates-ht). 
+
+Note: 'FlipFlopProfileDirectoryName' is managed by the 'swap directory name components' setting if using the GPO template.
 
 ## Next steps
 

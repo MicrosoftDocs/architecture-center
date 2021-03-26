@@ -9,9 +9,9 @@ This architecture shows how to include Azure file shares in your hybrid environm
 
 Typical uses for this architecture include:
 
-- **Replace or supplement on-premises file servers*. All companies use file servers. Azure Files can completely replace or supplement traditional on-premises file servers or network-attached storage devices. With Azure file shares and AD DS authentication, you can migrate data to Azure Files and take the advantage of high availability and scalability while minimizing client changes.
+- **Replace or supplement on-premises file servers**. Azure Files can completely replace or supplement traditional on-premises file servers or network-attached storage devices. With Azure file shares and AD DS authentication, you can migrate data to Azure Files and take the advantage of high availability and scalability while minimizing client changes.
 - **Lift and shift**. Azure Files makes it easy to "lift and shift" applications that expect a file share to store application or user data to the cloud.
-- **Backup and disaster recovery**. You can use Azure file shares as storage for backups or for disaster recovery to improve business continuity. You can use Azure file shares to back up your data from existing file servers while preserving configured Windows discretionary access control lists. Data that's stored on Azure file shares isn't affected by disasters that might affect on-premises locations.
+- **Backup and disaster recovery**. You can use Azure Files as storage for backups or for disaster recovery to improve business continuity. You can use Azure Files to back up your data from existing file servers while preserving configured Windows discretionary access control lists. Data that's stored on Azure file shares isn't affected by disasters that might affect on-premises locations.
 - **Azure File Sync**. With Azure File Sync, Azure file shares can replicate to Windows Server, either on-premises or in the cloud, for performance and distributed caching of data where it's being used.
 
 ## Architecture
@@ -116,6 +116,14 @@ For more information, refer to [Configure Azure Storage firewalls and virtual ne
   - **Standard storage**: Uses HDD-based storage. There is no minimum file share size and with standard storage you pay only for used storage space. In addition, you need to pay for file operations, such as enumerating a directory or reading a file.
   - **Premium storage**: Uses SSD-based storage. The minimum size for a premium file share is 100 gibibytes and you pay per provisioned storage space. When using premium storage, all file operations are free.
 - There are additional costs associated with file share snapshots and outbound data transfers (when transferring data from Azure file shares, inbound data transfer is free). Data transfer costs depend on the actual amount of transferred data and on the stock keeping unit (SKU) of your virtual network gateway (if a virtual network gateway is used). Please refer to [Azure Files Pricing][Azure-Files-Pricing] and [Azure Pricing calculator][Azure-Pricing-calculator] for the actual costs. Be aware that the actual cost varies by Azure region and your individual contract. Contact a Microsoft sales representative for additional information on pricing.
+
+## Next steps
+
+- [How to create an Azure file share](/azure/storage/files/storage-how-to-create-file-share) for instructions on getting started with a SMB share.
+
+- [How to create an NFS share](/azure/storage/files/storage-files-how-to-create-nfs-shares) for instructions on getting started with a NFS mount share.
+
+- [Enable and create large file shares](/azure/storage/files/storage-files-how-to-create-large-file-share) documentation on creating large file shares upto 100 TiB.
 
 [architectural-diagram]: ./images/azure-file-share.png
 [architectural-diagram-visio-source]: https://arch-center.azureedge.net/azure-file-share.vsdx

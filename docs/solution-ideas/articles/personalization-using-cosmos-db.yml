@@ -5,7 +5,7 @@ metadata:
   description: Generate personalized recommendations for customers in real time by using low-latency and tunable consistency settings for immediate insights.
   author: doodlemania2
   ms.author: pnp
-  ms.date: 12/16/2019
+  ms.date: 02/16/2019
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: solution-idea
@@ -29,6 +29,6 @@ products:
   - azure-api-apps
   - azure-container-instances
   - azure-cosmos-db
-thumbnailUrl: /azure/architecture/browse/thumbs/personalization-using-cosmos-db.png
+thumbnailUrl: /azure/architecture/browse/thumbs/personalization-using-cosmos-db.svg
 content: |
   [!include[](personalization-using-cosmos-db-content.md)]

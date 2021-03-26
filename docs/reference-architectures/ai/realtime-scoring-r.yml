@@ -4,7 +4,7 @@ metadata:
   description: Implement a real-time prediction service in R using Machine Learning Server running in Azure Kubernetes Service (AKS).
   author: njray
   ms.author: pnp
-  ms.date: 12/10/2019
+  ms.date: 02/24/2021
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: reference-architecture

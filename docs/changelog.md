@@ -2,7 +2,7 @@
 title: What's New in Azure Architecture Center
 description: New and updated articles in Azure Architecture Center
 author: doodlemania2
-ms.date: 02/23/2021
+ms.date: 03/15/2021
 ms.topic: article
 ms.service: architecture-center
 ---
@@ -11,14 +11,57 @@ ms.service: architecture-center
 # What's new in Azure Architecture Center [![Download Feed](data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABmJLR0QA/wD/AP+gvaeTAAACw0lEQVQ4jW2STWhcVRTHf+d+vM5MQ5vUvAG1naSNikI1UKuVVNGFolDduDBdtI0IhQa6KNoiQnGhLvwAtxJXEVRQIhSpoksXgpDG1H4tWrGW0DZMkxnRdCZv3rv3uJg0GOLhXs5d3N/h/z/nCMC5I4Ov9qXph0ZMvzGIGEGMIAJigNW3oKh22sVC40b9xM5P/vxMLowPjlXvrU1mi02sE4w3WC8Yt/6KFYztFu+EMtdmr47J3MnddVpZuqE6wMYnR9GlOmH+InH+PMbq/8JiIHSURl3rziW+X7MOti+lsvcAd0JbTfJzUxS/fYHE5XVwyCJJ2acGEOMNsrxIdv47irlZiAVS6SN54jDlg1O4bY+ug4ssogGR+fdG1ObtNV7txk34nfvwj72GlHohFoSfPyC/eHoVDlkkNyWMGDBOSGqPsOnIKSovf4y//2nCpW/Iv95PvPkrGIfd+yZUd63CRRZBwYisNMk7TO9W3I6nSJ59m9Lol0hPSvjxGPH6GTCODS+8S6RMkUVirsSoGFYU0LhCduooxcwkZP8gvQP4lz4lVmosn34Lvd1AKltI9owRcyXkikYwIt0Com3izTOEmQnyqf3orUvgy/jn3ydfuk3rpwkAKntGidESOhGi/seCFfzwK/hnTiJJmc73b6CtJmbzVtyDL9Ka/hbNM6TUgxvcTcwVVboWxAo2HcKNvI55YB+ya5zirwbZzFcA+IeeI7TaZL9PA5DUhomFol0FqLECy03oLAEQF69RZJHOlV8AcNUhQq7kt+YAsJurxEJBReX6O4/X+++2qRiI/i60fA/ZH7OELBC0hB8aIRawNP0DrnofNt1OvjBP+/JZkm09dbkwPjg2MLxj0mlrzZLcGVXIldBZGVuhK9KhUttCs3HjkACcPbz9YLWWfuScrRKRGLqfNK7NqHaP1/rfC4vHH564+vm/Fu5mkriuRlEAAAAASUVORK5CYII=)](/azure/architecture/feed.atom)
 
 The Azure Architecture Center (AAC) helps you design, build, and operate solutions on Azure. Learn about the cloud architectural styles and design patterns. Use the technology choices and guides to decide the services that are right for your solution. The guidance is based on all aspects of building for the cloud, such as operations, security, reliability, performance, and cost optimization.
+  
+  
 
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RWxOYN]
+
 
 <link rel="alternate" type="application/atom+xml"
   title="New and updated articles in Azure Architecture Center"
   href="/azure/architecture/feed.atom" />
 
 New and updated articles in Azure Architecture Center
+
+## March 2021
+
+### New Articles
+
+- [IoT Edge data storage and processing](./solution-ideas/articles/data-storage-edge.yml)
+- [Micro Focus Enterprise Server on Azure VMs](./example-scenario/mainframe/micro-focus-server.yml)
+- [Multi-region web app with private connectivity to database](./example-scenario/sql-failover/app-service-private-sql-multi-region.yml)
+
+### Updated Articles
+
+- [Secure application&#x27;s configuration and dependencies](./framework/security/design-app-dependencies.md)  ([#0de988c5f](https://github.com/MicrosoftDocs/architecture-center/commit/0de988c5f))
+- [Messaging](./solution-ideas/articles/messaging.yml)  ([#945406bed](https://github.com/MicrosoftDocs/architecture-center/commit/945406bed))
+- [Image classification on Azure](./example-scenario/ai/intelligent-apps-image-processing.yml)  ([#ad521be0d](https://github.com/MicrosoftDocs/architecture-center/commit/ad521be0d))
+- [Distributed training of deep learning models on Azure](./reference-architectures/ai/training-deep-learning.yml)  ([#ad521be0d](https://github.com/MicrosoftDocs/architecture-center/commit/ad521be0d))
+- [AI at the Edge with Azure Stack Hub](./solution-ideas/articles/ai-at-the-edge.yml)  ([#ad521be0d](https://github.com/MicrosoftDocs/architecture-center/commit/ad521be0d))
+- [Anomaly Detector Process](./solution-ideas/articles/anomaly-detector-process.yml)  ([#ad521be0d](https://github.com/MicrosoftDocs/architecture-center/commit/ad521be0d))
+- [Intelligent apps using Azure Database for PostgreSQL](./solution-ideas/articles/intelligent-apps-using-azure-database-for-postgresql.yml)  ([#ad521be0d](https://github.com/MicrosoftDocs/architecture-center/commit/ad521be0d))
+- [Optimize Marketing with Machine Learning](./solution-ideas/articles/optimize-marketing-with-machine-learning.yml)  ([#ad521be0d](https://github.com/MicrosoftDocs/architecture-center/commit/ad521be0d))
+- [Personalization using Cosmos DB](./solution-ideas/articles/personalization-using-cosmos-db.yml)  ([#ad521be0d](https://github.com/MicrosoftDocs/architecture-center/commit/ad521be0d))
+- [Personalized Offers](./solution-ideas/articles/personalized-offers.yml)  ([#ad521be0d](https://github.com/MicrosoftDocs/architecture-center/commit/ad521be0d))
+- [Quality Assurance](./solution-ideas/articles/quality-assurance.yml)  ([#ad521be0d](https://github.com/MicrosoftDocs/architecture-center/commit/ad521be0d))
+- [Retail Assistant with Visual Capabilities](./solution-ideas/articles/retail-assistant-or-vacation-planner-with-visual-capabilities.yml)  ([#ad521be0d](https://github.com/MicrosoftDocs/architecture-center/commit/ad521be0d))
+- [Visual Assistant](./solution-ideas/articles/visual-assistant.yml)  ([#ad521be0d](https://github.com/MicrosoftDocs/architecture-center/commit/ad521be0d))
+- [Population Health Management for Healthcare](./solution-ideas/articles/population-health-management-for-healthcare.yml)  ([#c9d97e7cc](https://github.com/MicrosoftDocs/architecture-center/commit/c9d97e7cc))
+- [Predictive Maintenance](./solution-ideas/articles/predictive-maintenance.yml)  ([#c9d97e7cc](https://github.com/MicrosoftDocs/architecture-center/commit/c9d97e7cc))
+- [Product recommendations for retail using Azure](./solution-ideas/articles/product-recommendations.yml)  ([#c9d97e7cc](https://github.com/MicrosoftDocs/architecture-center/commit/c9d97e7cc))
+- [Speech Services](./solution-ideas/articles/speech-services.yml)  ([#c9d97e7cc](https://github.com/MicrosoftDocs/architecture-center/commit/c9d97e7cc))
+- [Operational excellence design principles](./framework/devops/principles.md)  ([#1b40291dd](https://github.com/MicrosoftDocs/architecture-center/commit/1b40291dd))
+- [Retail and e-commerce using Cosmos DB](./solution-ideas/articles/retail-and-e-commerce-using-cosmos-db.yml)  ([#57565fc35](https://github.com/MicrosoftDocs/architecture-center/commit/57565fc35))
+- [Extraneous Fetching antipattern](./antipatterns/extraneous-fetching/index.md)  ([#d163fb034](https://github.com/MicrosoftDocs/architecture-center/commit/d163fb034))
+- [Performance testing and antipatterns](./antipatterns/index.md)  ([#d163fb034](https://github.com/MicrosoftDocs/architecture-center/commit/d163fb034))
+- [No Caching antipattern](./antipatterns/no-caching/index.md)  ([#d163fb034](https://github.com/MicrosoftDocs/architecture-center/commit/d163fb034))
+- [Tradeoffs for performance efficiency](./framework/scalability/tradeoffs.md)  ([#d163fb034](https://github.com/MicrosoftDocs/architecture-center/commit/d163fb034))
+- [Community Jury](./guide/responsible-innovation/community-jury/index.md)  ([#d163fb034](https://github.com/MicrosoftDocs/architecture-center/commit/d163fb034))
+- [Responsible Innovation toolkit](./guide/responsible-innovation/index.md)  ([#d163fb034](https://github.com/MicrosoftDocs/architecture-center/commit/d163fb034))
+- [Interactive Voice Response Bot](./solution-ideas/articles/interactive-voice-response-bot.yml)  ([#6dd285b14](https://github.com/MicrosoftDocs/architecture-center/commit/6dd285b14))
+- [Machine Learning model training with AKS](./solution-ideas/articles/machine-learning-with-aks.yml)  ([#6dd285b14](https://github.com/MicrosoftDocs/architecture-center/commit/6dd285b14))
+- [Data integration with Logic Apps and SQL Server](./example-scenario/integration/logic-apps-data-integration.yml)  ([#8b0ddb852](https://github.com/MicrosoftDocs/architecture-center/commit/8b0ddb852))
+- [Overview of Azure load-balancing options](./guide/technology-choices/load-balancing-overview.md)  ([#0e9e32e10](https://github.com/MicrosoftDocs/architecture-center/commit/0e9e32e10))
 
 ## February 2021
 
@@ -29,6 +72,10 @@ New and updated articles in Azure Architecture Center
 - [Traffic flow security in Azure](./framework/security/design-network-flow.md)
 - [Implement network segmentation patterns on Azure](./framework/security/design-network-segmentation.md)
 - [Profisee master data management with Azure Data Factory](./reference-architectures/data/profisee-master-data-management-data-factory.yml)
+- [Retry Storm antipattern](./antipatterns/retry-storm/index.md)
+- [Data integration with Logic Apps and SQL Server](./example-scenario/integration/logic-apps-data-integration.yml)
+- [Multi-region load balancing with Traffic Manager and Application Gateway](./high-availability/reference-architecture-traffic-manager-application-gateway.md)
+- [Observability patterns and metrics for performance tuning](./databricks-monitoring/databricks-observability.yml)
 - [Cost optimization in a hybrid workload](./framework/hybrid/hybrid-cost.md)
 - [Operational excellence in a hybrid workload](./framework/hybrid/hybrid-opex.md)
 - [Overview of a hybrid workload](./framework/hybrid/hybrid-overview.md)
@@ -57,6 +104,9 @@ New and updated articles in Azure Architecture Center
 - [Run SAP HANA for Linux virtual machines in a scale-up architecture on Azure](./reference-architectures/sap/run-sap-hana-for-linux-virtual-machines.yml)  ([#22f51f8aa](https://github.com/MicrosoftDocs/architecture-center/commit/22f51f8aa))
 - [Interactive querying with HDInsight](./solution-ideas/articles/interactive-querying-with-hdinsight.yml)  ([#22f51f8aa](https://github.com/MicrosoftDocs/architecture-center/commit/22f51f8aa))
 - [Loan charge-off prediction with Azure HDInsight Spark clusters](./solution-ideas/articles/loan-chargeoff-prediction-with-azure-hdinsight-spark-clusters.yml)  ([#22f51f8aa](https://github.com/MicrosoftDocs/architecture-center/commit/22f51f8aa))
+- [Release Engineering Application Development](./framework/devops/release-engineering-app-dev.md)  ([#4ce44dc46](https://github.com/MicrosoftDocs/architecture-center/commit/4ce44dc46))
+- [Repeatable Infrastructure](./framework/devops/automation-infrastructure.md)  ([#76d5bba76](https://github.com/MicrosoftDocs/architecture-center/commit/76d5bba76))
+- [Run SAP NetWeaver in Windows on Azure](./reference-architectures/sap/sap-netweaver.yml)  ([#95eae78c8](https://github.com/MicrosoftDocs/architecture-center/commit/95eae78c8))
 - [Resiliency checklist for Azure services](./checklist/resiliency-per-service.md)  ([#7cdb50680](https://github.com/MicrosoftDocs/architecture-center/commit/7cdb50680))
 - [Overview of Azure load-balancing options](./guide/technology-choices/load-balancing-overview.md)  ([#e03196c5f](https://github.com/MicrosoftDocs/architecture-center/commit/e03196c5f))
 - [Application integration using Event Grid](./solution-ideas/articles/application-integration-using-event-grid.yml)  ([#59dad762b](https://github.com/MicrosoftDocs/architecture-center/commit/59dad762b))
@@ -127,7 +177,7 @@ New and updated articles in Azure Architecture Center
 - [Design Azure applications for efficiency](./framework/scalability/design-efficiency.md)
 - [Design for scaling](./framework/scalability/design-scale.md)
 - [Confidential computing on a healthcare platform](./example-scenario/confidential/healthcare-inference.yml)
-- [Azure AD security for Amazon Web Services (AWS)](./reference-architectures/aws/aws-azure-ad-security.yml)
+- [Azure Active Directory security for AWS](./reference-architectures/aws/aws-azure-ad-security.yml)
 - [MCAS and Azure Sentinel for Amazon Web Services (AWS)](./reference-architectures/aws/aws-azure-security-solutions.yml)
 - [Operational excellence design principles](./framework/devops/principles.md)
 - [Performance testing](./framework/scalability/performance-test.md)
@@ -140,47 +190,4 @@ New and updated articles in Azure Architecture Center
 - [Commerce Chatbot](./solution-ideas/articles/commerce-chatbot.yml)  ([#e4e4351a8](https://github.com/MicrosoftDocs/architecture-center/commit/e4e4351a8))
 - [Baseline architecture for an Azure Kubernetes Service (AKS) cluster](./reference-architectures/containers/aks/secure-baseline-aks.yml)  ([#6de1b59b3](https://github.com/MicrosoftDocs/architecture-center/commit/6de1b59b3))
 - [Project 15 Open Platform](./solution-ideas/articles/project-15-iot-sustainability.yml)  ([#758bad165](https://github.com/MicrosoftDocs/architecture-center/commit/758bad165))
-
-## November 2020
-
-### New Articles
-
-- [Release Engineering Application Development](./framework/devops/release-engineering-app-dev.md)
-- [Release Engineering Continuous integration](./framework/devops/release-engineering-ci.md)
-- [Release Engineering Rollback](./framework/devops/release-engineering-rollback.md)
-- [Security logs and audits](./framework/security/monitor-audit.md)
-- [Check for identity, network, data risks](./framework/security/monitor-identity-network.md)
-- [Security operations in Azure](./framework/security/monitor-security-operations.md)
-- [Security monitoring in Azure](./framework/security/monitor.md)
-- [Use Azure Stack HCI stretched clusters for disaster recovery](./hybrid/azure-stack-hci-dr.yml)
-- [Use Azure Stack HCI switchless interconnect and lightweight quorum for Remote Office/Branch Office](./hybrid/azure-stack-robo.yml)
-- [Project 15 Open Platform](./solution-ideas/articles/project-15-iot-sustainability.yml)
-- [Unisys mainframe migration](./reference-architectures/migration/unisys-mainframe-migration.yml)
-- [Azure enterprise cloud file share](./hybrid/azure-files-private.yml)
-- [Modernize mainframe &amp; midrange data](./reference-architectures/migration/modernize-mainframe-data-to-azure.yml)
-- [IoT event routing](./example-scenario/iot/event-routing.yml)
-- [Create a Gridwich environment](./reference-architectures/media-services/create-delete-cloud-environment.yml)
-- [Gridwich cloud media system](./reference-architectures/media-services/gridwich-architecture.yml)
-- [Gridwich CI/CD pipeline](./reference-architectures/media-services/gridwich-cicd.yml)
-- [Gridwich clean monolith architecture](./reference-architectures/media-services/gridwich-clean-monolith.yml)
-- [Gridwich content protection and DRM](./reference-architectures/media-services/gridwich-content-protection-drm.yml)
-- [Logging in Gridwich](./reference-architectures/media-services/gridwich-logging.yml)
-- [Gridwich request-response messages](./reference-architectures/media-services/gridwich-message-formats.yml)
-- [Gridwich project naming and namespaces](./reference-architectures/media-services/gridwich-project-names.yml)
-- [Gridwich saga orchestration](./reference-architectures/media-services/gridwich-saga-orchestration.yml)
-- [Gridwich Storage Service](./reference-architectures/media-services/gridwich-storage-service.yml)
-- [Gridwich keys and secrets management](./reference-architectures/media-services/maintain-keys.yml)
-- [Gridwich Media Services setup and scaling](./reference-architectures/media-services/media-services-setup-scale.yml)
-- [Gridwich pipeline-generated admin scripts](./reference-architectures/media-services/run-admin-scripts.yml)
-- [Gridwich Azure DevOps setup](./reference-architectures/media-services/set-up-azure-devops.yml)
-- [Gridwich local development environment setup](./reference-architectures/media-services/set-up-local-environment.yml)
-- [Test Media Services V3 encoding](./reference-architectures/media-services/test-encoding.yml)
-- [Gridwich variable flow](./reference-architectures/media-services/variable-group-terraform-flow.yml)
-
-### Updated Articles
-
-- [Security monitoring tools in Azure](./framework/security/monitor-tools.md)  ([#4f3a35043](https://github.com/MicrosoftDocs/architecture-center/commit/4f3a35043))
-- [Choosing a data storage technology](./data-guide/technology-choices/data-storage.md)  ([#4128cc2d9](https://github.com/MicrosoftDocs/architecture-center/commit/4128cc2d9))
-- [Process real-time vehicle data using IoT](./example-scenario/data/realtime-analytics-vehicle-iot.yml)  ([#beeba69f6](https://github.com/MicrosoftDocs/architecture-center/commit/beeba69f6))
-- [Building a CI/CD pipeline for microservices on Kubernetes](./microservices/ci-cd-kubernetes.md)  ([#c0135f775](https://github.com/MicrosoftDocs/architecture-center/commit/c0135f775))
 

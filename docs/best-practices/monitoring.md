@@ -7,6 +7,8 @@ ms.date: 07/13/2016
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: best-practice
+products:
+  - azure-monitor
 ms.custom:
   - best-practice
   - internal-intro
