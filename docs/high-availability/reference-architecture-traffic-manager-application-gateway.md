@@ -31,7 +31,7 @@ In this scenario, the application consists of three layers.
 >[!NOTE]
 > Azure provides a suite of fully managed load-balancing solutions for your scenarios. If you are looking for Transport Layer Security (TLS) protocol termination ("SSL offload") or per-HTTP/HTTPS request, application-layer processing, review [Azure Application Gateway](/azure/application-gateway/overview). If you are looking for regional load balancing, review [Azure Load Balancer](/azure/load-balancer/load-balancer-overview). Your end-to-end scenarios might benefit from combining these solutions as needed.
 >
-> For an Azure load-balancing options comparison, see [Overview of load-balancing options in Azure](/azure/architecture/guide/technology-choices/load-balancing-overview).
+> For an Azure load-balancing options comparison, see [Overview of load-balancing options in Azure](../guide/technology-choices/load-balancing-overview.md).
 
 ## Architecture
 
@@ -48,7 +48,7 @@ Traffic Manager operates at the DNS layer to quickly and efficiently direct appl
 
 - **Virtual network and subnets:** Azure VM and specific Azure resources (such as Azure App Gateway or Azure Load Balancer) are deployed into a virtual network that can be segmented into subnets. Create a separate subnet for each tier.
  
-- **Azure Traffic Manager:** [Traffic Manager](/azure/traffic-manager/traffic-manager-overview) is a DNS-based traffic load balancer that distributes traffic optimally to services across global Azure regions while providing high availability and responsiveness. For more information, see the section [Traffic Manager configuration](/azure/architecture/reference-architectures/n-tier/multi-region-sql-server#traffic-manager-configuration).
+- **Azure Traffic Manager:** [Traffic Manager](/azure/traffic-manager/traffic-manager-overview) is a DNS-based traffic load balancer that distributes traffic optimally to services across global Azure regions while providing high availability and responsiveness. For more information, see the section [Traffic Manager configuration](../reference-architectures/n-tier/multi-region-sql-server.yml#traffic-manager-configuration).
  
 - **Azure Application Gateway:** [Azure Application Gateway](/azure/application-gateway/overview) is a layer 7 load balancer. In this architecture, a zone-redundant application gateway routes HTTP requests to the web front end. Application Gateway also provides a Web Application Firewall (WAF) that protects the application from common exploits and vulnerabilities. The v2 SKU of Application Gateway supports cross-zone redundancy. A single Application Gateway deployment can run multiple instances of the gateway. For production workloads, run at least two instances. Note that on this architecture, the public endpoint of the Application Gateways are configured as the Traffic Manager backends.
  
@@ -56,7 +56,7 @@ Traffic Manager operates at the DNS layer to quickly and efficiently direct appl
  
 - **Network security groups (NSGs):** Use [NSGs](/azure/virtual-network/network-security-groups-overview) to restrict network traffic within the virtual network. For example, in the three-tier architecture shown here, the database tier does not accept traffic from the web front end, only from the business tier and the bastion subnet.
  
-- **DDoS Protection:** Although the Azure platform provides basic protection against distributed denial of service (DDoS) attacks, we recommend using [DDoS Protection Standard](/azure/ddos-protection/ddos-protection-overview), which has enhanced DDoS mitigation features. See [Security considerations](/azure/architecture/reference-architectures/n-tier/n-tier-sql-server#security-considerations).
+- **DDoS Protection:** Although the Azure platform provides basic protection against distributed denial of service (DDoS) attacks, we recommend using [DDoS Protection Standard](/azure/ddos-protection/ddos-protection-overview), which has enhanced DDoS mitigation features. See [Security considerations](../reference-architectures/n-tier/n-tier-sql-server.yml#security-considerations).
  
 - **Azure DNS:** [Azure DNS](/azure/dns/dns-overview) is a hosting service for DNS domains. It provides name resolution using Microsoft Azure infrastructure. By hosting your domains in Azure, you can manage your DNS records using the same credentials, APIs, tools, and billing as your other Azure services.
  
@@ -87,11 +87,11 @@ Create rules 2 – 3 with higher priority than the first rule, so they override 
 
 ### Traffic Manager configuration
 Consider the following points when configuring Traffic Manager:
--	**Routing:** Traffic Manager supports several [routing algorithms](/azure/traffic-manager/traffic-manager-routing-methods). For the scenario described in this article, we are using performance routing. Deploying endpoints in two or more locations across the globe can improve the responsiveness of your applications. With the 'Performance' traffic-routing method, you can route traffic to the location that is 'closest' to you. For more information, see [Configure the performance traffic routing method](/traffic-manager/traffic-manager-configure-performance-routing-method). 
+-	**Routing:** Traffic Manager supports several [routing algorithms](/azure/traffic-manager/traffic-manager-routing-methods). For the scenario described in this article, we are using performance routing. Deploying endpoints in two or more locations across the globe can improve the responsiveness of your applications. With the 'Performance' traffic-routing method, you can route traffic to the location that is 'closest' to you. For more information, see [Configure the performance traffic routing method](/azure/traffic-manager/traffic-manager-configure-performance-routing-method). 
 
 In case endpoint A stopped performing as efficiently as endpoint B, customer traffic is automatically routed to endpoint B. Also, if you need more granular control, for example, to choose a preferred failover within a region, you can use Traffic Manager in a nested configuration. 
 
--	**Health probe:** Traffic Manager uses an HTTP (or HTTPS) probe to monitor the availability of each region. The probe checks for an HTTP 200 response for a specified URL path. As a best practice, create an endpoint that reports the overall health of the application, and use this endpoint for the health probe. Otherwise, the probe might report a healthy endpoint when critical parts of the application are failing. For more information, see [Health Endpoint Monitoring pattern](/azure/architecture/patterns/health-endpoint-monitoring).
+-	**Health probe:** Traffic Manager uses an HTTP (or HTTPS) probe to monitor the availability of each region. The probe checks for an HTTP 200 response for a specified URL path. As a best practice, create an endpoint that reports the overall health of the application, and use this endpoint for the health probe. Otherwise, the probe might report a healthy endpoint when critical parts of the application are failing. For more information, see [Health Endpoint Monitoring pattern](../patterns/health-endpoint-monitoring.md).
 
 When Traffic Manager fails over there is a period of time when clients cannot reach the application. The duration is affected by the following factors:
 - The health probe must detect that the primary region has become unreachable.
@@ -118,10 +118,10 @@ Azure Application Gateway and Azure Load Balancer both use health probes to moni
 If a probe can't reach an instance within a timeout period, the gateway or load balancer stops sending traffic to that VM. The probe continues to check and will return the VM to the back-end pool if the VM becomes available again. HTTP probes send an HTTP GET request to a specified path and listen for an HTTP 200 response. This path can be the root path ("/"), or a health-monitoring endpoint that implements some custom logic to check the health of the application. The endpoint must allow anonymous HTTP requests.
 
 For more information about health probes, see:
--	[Load Balancer health probes](/load-balancer/load-balancer-custom-probe-overview)
+-	[Load Balancer health probes](/azure/load-balancer/load-balancer-custom-probe-overview)
 -	[Application Gateway health monitoring overview](/azure/application-gateway/application-gateway-probe-overview)
 
-For considerations about designing a health probe endpoint, see [Health Endpoint Monitoring pattern](/azure/architecture/patterns/health-endpoint-monitoring).
+For considerations about designing a health probe endpoint, see [Health Endpoint Monitoring pattern](../patterns/health-endpoint-monitoring.md).
 
 ## Cost considerations
 Use the [Azure Pricing Calculator](https://azure.microsoft.com/pricing/calculator/) to estimates costs. Here are some other considerations.
@@ -132,7 +132,7 @@ For single VMs pricing options, see [Windows Virtual Machines Pricing](https://a
 
 ### Azure Load Balancer
 You are charged only for the number of configured load-balancing and outbound rules. Inbound NAT rules are free. There is no hourly charge for the Standard Load Balancer when no rules are configured.
-For more information, see the cost section in [Azure Architecture Framework](/azure/architecture/framework/cost/overview).
+For more information, see the cost section in [Azure Architecture Framework](../framework/cost/overview.md).
 
 ### Azure Application Gateway
 The Application Gateway should be provisioned with the v2 SKU and can span multiple Availability Zones. With the v2 SKU, the pricing model is driven by consumption and has two components: Hourly fixed price and a consumption-based cost.
@@ -148,5 +148,5 @@ For more information, see [Virtual Network Pricing](https://azure.microsoft.com/
 
 ## Next steps
 For additional reference architectures using the same technologies, see:
-- [Multi-region N-tier application](/azure/architecture/reference-architectures/n-tier/multi-region-sql-server)
-- [IaaS: Web application with relational database](/azure/architecture/high-availability/ref-arch-iaas-web-and-db)
+- [Multi-region N-tier application](../reference-architectures/n-tier/multi-region-sql-server.yml)
+- [IaaS: Web application with relational database](./ref-arch-iaas-web-and-db.md)

@@ -1,6 +1,3 @@
-
-
-
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
 Training of models using large datasets is a complex and resource intensive task. Use familiar tools such as TensorFlow and Kubeflow to simplify training of Machine Learning models. Your ML models will run in AKS clusters backed by GPU enabled VMs.
@@ -32,5 +29,5 @@ Training of models using large datasets is a complex and resource intensive task
 * [Artificial intelligence (AI) - Architectural overview](../../data-guide/big-data/ai-overview.md)
 * [Azure Machine Learning documentation](/azure/machine-learning/)
 * [Azure Kubernetes Service (AKS) documentation](/azure/aks)
-* [Distributed training of deep learning models on Azure](/azure/architecture/reference-architectures/ai/training-deep-learning)
-* [Training Python models on Azure](/azure/architecture/reference-architectures/ai/training-python-models)
+* [Distributed training of deep learning models on Azure](../../reference-architectures/ai/training-deep-learning.yml)
+* [Training Python models on Azure](../../reference-architectures/ai/training-python-models.yml)
