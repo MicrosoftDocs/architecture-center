@@ -222,7 +222,7 @@ Use the [Azure pricing calculator][Azure pricing calculator] to estimate the cos
 [GDG]: https://www.ibm.com/support/knowledgecenter/zosbasics/com.ibm.zos.zconcepts/zconcepts_175.htm
 [Hyperscale service tier]: /azure/azure-sql/database/service-tier-hyperscale
 [IBM Db2 10.5 for Linux, Unix and Windows documentation]: https://www.ibm.com/support/knowledgecenter/en/SSEPGG_10.5.0/com.ibm.db2.luw.kc.doc/welcome.html
-[IBM Db2 for i]: https://www.ibm.com/support/pages/ibm-db2-i
+[IBM Db2 for i]: https://www.ibm.com/support/pages/db2-ibm-i
 [IBM Db2 for z/OS]: https://www.ibm.com/analytics/db2/zos
 [IDMS]: https://www.broadcom.com/products/mainframe/databases-database-mgmt/idms
 [IMS]: https://www.ibm.com/it-infrastructure/z/ims
