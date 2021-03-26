@@ -43,10 +43,6 @@ Custom build agents add management complexity and can become an attack vector. B
 
 Apply security controls to self-hosted build agents in the same manner as with other Azure IaaS VMs.
 
-> [!div class="nextstepaction"]
-> [Secure code deployments](./deploy-test.md)
-
 ## Related links
 
-
-> Go back to the main article: [Secure deployment and testing in Azure](overview.md)
+> Go back to the main article: [Secure deployment and testing in Azure](deploy.md)
