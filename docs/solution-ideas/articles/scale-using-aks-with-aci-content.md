@@ -23,6 +23,6 @@ Use the AKS virtual node to provision pods inside ACI that start in seconds. Thi
 
 ## Next steps
 
-1. [ Scale with ease using AKS and ACI ](https://azure.microsoft.com/resources/scale-with-ease-using-aks-and-aci/)
-2. [ Scaling options for applications in Azure Kubernetes Service (AKS) ](/azure/aks/concepts-scale)
-3. [ Scale single database resources in Azure SQL Database ](/azure/azure-sql/database/single-database-scale)
+* [ Scale with ease using AKS and ACI ](https://azure.microsoft.com/resources/scale-with-ease-using-aks-and-aci/)
+* [ Scaling options for applications in Azure Kubernetes Service (AKS) ](/azure/aks/concepts-scale)
+* [ Scale single database resources in Azure SQL Database ](/azure/azure-sql/database/single-database-scale)
