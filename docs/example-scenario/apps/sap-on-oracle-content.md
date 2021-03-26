@@ -126,11 +126,11 @@ The overall solution is integrated into [Azure Security Center](/azure/security-
 - SAP whitepaper [Security Recommendations: A Practical Guide for Securing SAP® Solutions](https://www.sap.com/documents/2017/03/14cf06b2-af7c-0010-82c7-eda71af511fa.html) describes a good framework for SAP Solution Security.
 - Enable Single-Sign-On (SSO) for user authentication from SAPGUI and browser-based SAP access.
 - Use security hardened operating system images for provisioning Azure VMs. Refer to the latest [CIS benchmarks](https://www.cisecurity.org/benchmark/azure/) for the latest recommendations. 
-- Implement Encryption-at-rest for:
+- Implement encryption-at-rest for:
   - Oracle Database - It’s recommended to use Oracle Transparent Data Encryption (TDE) for Oracle Database Encryption.
   - Managed Disks – use Azure Disk Encryption with Microsoft or Customer-Managed Keys.
   - Backups – All the backed-up data to Azure is encrypted by default.
-- Implement Encryption-in-transit – 
+- Implement encryption-in-transit for:
   - Use TLS for encrypting HTTP communications and SNC for DIAG/RFC communications.
 - Use Azure Bastion (PaaS) for secure and seamless RDP/SSH connectivity to your VMs directly in the Azure portal over SSL.
 - Enable Azure Security Center (ASC) Standard for SAP on Azure subscriptions.
@@ -140,7 +140,7 @@ The overall solution is integrated into [Azure Security Center](/azure/security-
 
 The scalability in the reference architecture will be achieved through scale-out of application servers and scale-up of database server. 
 
-The considerations and recommendations around scalability are -
+The considerations and recommendations around scalability are:
 
 #### Considerations
 
@@ -159,7 +159,7 @@ The disaster-recovery of the application layer is achieved through Azure Site Re
 
 For cost-effectiveness, SAP Central Services clustering is not deployed in the DR region. The Azure Site Recovery replication is enabled only from SAP Central Services but not from SAP ERS server.
 
-Below are the considerations and recommendations related to HA/DR setup - 
+Below are the considerations and recommendations related to HA/DR setup.
 
 #### Considerations
 
@@ -171,12 +171,12 @@ Below are the considerations and recommendations related to HA/DR setup -
 - Use database native solution for Oracle database replication.
 - Below is the recommended HA/DR solution for the different components of the reference architecture.
 
-Architecture Component | High Availability | Disaster Recovery
----|---|---
-SAP Central Services | Linux Cluster Solution -or- Windows Server Failover Cluster etc. | Azure Site Recovery*, RSYNC etc.
-SAP Application Server | VMs in availability Set distributed between Availability Zones behind Azure standard load balancer. | Azure Site Recovery*
-Oracle Database Server | Synchronous Oracle Data Guard replication between Oracle databases in availability zones. | Asynchronous Oracle Data Guard replication between Oracle databases in two regions.
-Oracle Observer | VMs distributed between Availability Zones – or – VMs in availability set. | -
+| Architecture Component | High Availability | Disaster Recovery |
+|--|--|--|
+| SAP Central Services | Linux Cluster Solution -or- Windows Server Failover Cluster etc. | Azure Site Recovery*, RSYNC etc. |
+| SAP Application Server | VMs in availability Set distributed between Availability Zones behind Azure standard load balancer. | Azure Site Recovery* |
+| Oracle Database Server | Synchronous Oracle Data Guard replication between Oracle databases in availability zones. | Asynchronous Oracle Data Guard replication between Oracle databases in two regions. |
+| Oracle Observer | VMs distributed between Availability Zones – or – VMs in availability set. | - |
 
 > **_*_**  Refer to supported scenarios with [Azure Site Recovery](/azure/site-recovery/azure-to-azure-support-matrix).
 
