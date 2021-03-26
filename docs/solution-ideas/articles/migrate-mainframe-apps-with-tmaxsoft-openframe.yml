@@ -16,11 +16,11 @@ metadata:
     - fcp
     - seo-aac-fy21q3
   keywords:
-    - "Mainframe applications"
-    - "tmaxsoft"
-    - "mainframe migration"
-    - "lift and shift"
-    - "rehosting"
+    - Mainframe applications
+    - tmaxsoft
+    - mainframe migration
+    - lift and shift
+    - rehosting
   social_image_url: /azure/architecture/solution-ideas/media/migrate-mainframe-application-to-azure.png
 name: Migrate IBM mainframe applications to Azure with TmaxSoft OpenFrame
 azureCategories:
