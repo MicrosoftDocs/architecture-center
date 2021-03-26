@@ -47,4 +47,4 @@ To prevent credentials from being stored in the source code or configuration fil
 - Scan all dependencies, such as third-party libraries and framework components, as part of the CI process. Investigate vulnerable components that are flagged by the tool. Combine this task with other code scanning tasks that inspect code churn, test results, and coverage.
 
 > [!div class="nextstepaction"]
-> [Secure code deployments](./monitor-identity-network.md)
+> [Secure infrastructure deployments](./deploy-infrastructure.md)
