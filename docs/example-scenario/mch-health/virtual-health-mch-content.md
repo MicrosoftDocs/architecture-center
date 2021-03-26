@@ -78,7 +78,7 @@ Azure for healthcare services such as Azure API for FHIR and Azure Health Bot, C
 
 Since the system is built around patient data, basic security considerations for private information should be applied when developing this solution:
 
-- Only the required data should flow through the system at any given time. For example, pull in only that data from the EMR/EHR systems that is required to surface for the virtual visit scheduling and management. Review the established [HIPAA compliance rules](https://www.hhs.gov/hipaa/index.html) for guidance on where the patient data should be stored, what can be done with it, and who should have access to it.
+- Only the required data should flow through the system at any given time. For example, pull in only that data from the EMR/EHR systems that is required to surface for the virtual visit scheduling and management. Review the established [HIPAA compliance rules](https://www.hhs.gov/hipaa/index.html) for guidance on where the patient data should be stored, what can be done with it, and who should have access to it. Be aware of the importance of compliance in healthcare while developing your solution. For further guidance, read [Compliance in Microsoft Cloud for Healthcare](https://docs.microsoft.com/industry/healthcare/compliance-overview).
 
 - Only authorized personnel should have access to patient data, and only to the data required for their role. At various points in the system, such as the Care Management and the analytics feeding into it, the Appointment Queue, or the notification systems, care should be taken to authenticate and authorize personnel, and limit their access to only the required patient information.
 
@@ -124,9 +124,11 @@ The solution should be deployed in stages:
 
     1. Power Automate flows should be created to support the care manager notifications.
 
-    1. Patient Portal should be configured. Additional forms might need to be created for elements such as the check-in/consent forms.
+    1. Patient Portal should be configured. Additional forms might need to be created for elements such as the check-in/consent forms. Read [Set up and configure a Patient Access portal](https://docs.microsoft.com/dynamics365/industry/healthcare/configure-portals) for more information.
 
-    1. Azure Health Bot service should be connected to the Dataverse database, and customized for its communication with patients.
+    1. Azure Health Bot service should be connected to the Dataverse database, and customized for its communication with patients. Read [Configure automatic chats using Microsoft Health Bot](https://docs.microsoft.com/dynamics365/industry/healthcare/configure-chatbots) for more information.
+
+    1. See [Configure sync with clinical data using Azure FHIR Sync Agent](https://docs.microsoft.com/dynamics365/industry/healthcare/configure-sync-clinical-data) and [Embed Power BI reports for analytics](https://docs.microsoft.com/dynamics365/industry/healthcare/configure-powerbi-reports) to understand some other configurations that may be required.
 
 1. The additional components that were specifically created for this solution, are not available for production-grade usage. The healthcare facility may need to create its own version of these applications:
   
