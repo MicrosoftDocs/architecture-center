@@ -12,7 +12,8 @@ products:
   - azure-event-grid
 ms.custom:
   - design-pattern
-keywords: design pattern
+keywords:
+  - design pattern
 ---
 
 <!-- cSpell:ignore upsert typeof -->

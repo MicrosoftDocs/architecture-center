@@ -11,7 +11,8 @@ products:
   - azure-app-service
 ms.custom:
   - design-pattern
-keywords: design pattern
+keywords:
+  - design pattern
 ---
 
 # Compute Resource Consolidation pattern
