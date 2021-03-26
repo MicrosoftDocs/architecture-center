@@ -7,7 +7,7 @@ Use the AKS virtual node to provision pods inside ACI that start in seconds. Thi
 ![Architecture Diagram](../media/scale-using-aks-with-aci.png)
 *Download an [SVG](../media/scale-using-aks-with-aci.svg) of this architecture.*
 
-## Data Flow
+## Data flow
 
 1. User registers container in Azure Container Registry
 1. Container images are pulled from the Azure Container Registry
@@ -21,7 +21,7 @@ Use the AKS virtual node to provision pods inside ACI that start in seconds. Thi
 3. [ Azure Container Instances ](/azure/container-instances/container-instances-overview) - You can deploy the model's Docker container image directly to a container group.
 4. [Azure SQL DB ](/azure/azure-sql/database/sql-database-paas-overview) - Azure SQL Database is a fully managed platform as a service (PaaS) database engine that handles most of the database management functions such as upgrading, patching, backups, and monitoring without user involvement.
 
-## Next Steps
+## Next steps
 
 1. [ Scale with ease using AKS and ACI ](https://azure.microsoft.com/resources/scale-with-ease-using-aks-and-aci/)
 2. [ Scaling options for applications in Azure Kubernetes Service (AKS) ](/azure/aks/concepts-scale)
