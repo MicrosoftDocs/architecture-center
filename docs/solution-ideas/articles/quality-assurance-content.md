@@ -14,14 +14,14 @@ This solution shows how to predict failures using the example of manufacturing p
 
 ### Data Flow
 
-1. Source system event generator streams data into Azure Event Hub
-2. Event Hub uses Capture to send raw event to Data Lake
-3. A Stream Analytics Job read real-time data from Event Hub
-4. A Stream Analytics Job calls ML model in Azure Machine Learning to predict failure/defect
-5. A Stream Analytics Job sends stream aggregations to Power BI real-time dashboard for operations
-6. A Stream Analytics Job pushes the processed real-time data into Azure Synapse SQL Pool
-7. A Logic Apps sends alerts from streaming data into mobil phone
-8. Power BI is used for results visualization
+1. Source system event generator streams data into Azure Event Hub.
+2. Event Hub uses Capture to send raw event to Data Lake.
+3. A Stream Analytics Job read real-time data from Event Hub.
+4. A Stream Analytics Job calls ML model in Azure Machine Learning to predict failure/defect.
+5. A Stream Analytics Job sends stream aggregations to Power BI real-time dashboard for operations.
+6. A Stream Analytics Job pushes the processed real-time data into Azure Synapse SQL Pool.
+7. A Logic Apps sends alerts from streaming data to a mobile phone.
+8. Power BI is used for results visualization.
 
 ### Components
 
@@ -29,7 +29,7 @@ This solution shows how to predict failures using the example of manufacturing p
 * [Azure Stream Analytics](/azure/stream-analytics/): Stream Analytics accepts the input stream from Event Hubs, calls an Azure ML Web Service to do predictions, and sends the stream to Azure Synapse and Power BI and Logic Apps for alerts.
 * [Azure Machine Learning](/azure/machine-learning/): Machine Learning helps you design, test, operationalize, and manage predictive analytics solutions in the cloud and deploy web
 services that can be called by Stream Analytics.
-* [Storage Accounts](/azure/storage/): Azure Storage stores raw events stream data from Event Hub and serves for long term data persistance.
+* [Storage Accounts](/azure/storage/): Azure Storage stores raw events stream data from Event Hub and serves for long term data persistence.
 * [Logic Apps](/azure/logic-apps/): Sends alerts generated from the streaming data into operator device
 * [Synapse Analytics](/azure/synapse-analytics/): Store relational data for ad-hoc and planned analytical processing and user analytical queries
 * [Power BI](/power-bi/create-reports/): visualizes real-time operational dashboards and also servers for analytical reports.
