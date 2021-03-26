@@ -7,7 +7,7 @@ Generate personalized recommendations for customers in real time, using low-late
 ![Architecture Diagram](../media/personalization-using-cosmos-db.png)
 *Download an [SVG](../media/personalization-using-cosmos-db.svg) of this architecture.*
 
-**Data Flow**
+## Data flow
 1. Shopper/User signs in to e-commerce app using their own credentials.
 2. Shopper/User places the order and order goes to Azure API Apps.
 3. Data gets stored in Cosmos DB (Customer Order).
@@ -15,7 +15,7 @@ Generate personalized recommendations for customers in real time, using low-late
 5. Using Apache Spark on Azure Data Bricks, data is trained and stored in Cosmos DB (Product+ User Vectors)
 6. Latest Recommendation will be fetched by the e-commerce store UI using Azure Container Service (Recommendation APIs).
 
-**Components**
+## Components
 
 This architecture includes the following components:
 
@@ -31,11 +31,11 @@ This architecture includes the following components:
 
 * [**Azure Databricks**](/azure/databricks/) is a data analytics platform optimized for the Microsoft Azure cloud services platform. Azure Databricks offers two environments for developing data intensive applications: Azure Databricks SQL Analytics and Azure Databricks Workspace.
 
-### Considerations
+## Considerations
 
 API management, in front of the container service provides a number of benefits such as rate throttling, API versioning, policies.  For further information, please refer to [Azure API Management](/azure/api-management/api-management-key-concepts).
 
-#### Scalability
+### Scalability
 
 In Azure Cosmos DB, you can configure either standard (manual) or autoscale provisioned throughput on your databases and containers. Autoscale provisioned throughput in Azure Cosmos DB allows you to scale the throughput (RU/s) of your database or container automatically and instantly. The throughput is scaled based on the usage, without affecting the availability, latency, throughput, or performance of the workload.
 
@@ -43,7 +43,7 @@ Azure Synapse also provides native Apache Spark capabilities and can be consider
 
 Scale the AKS cluster to meet your performance and throughput requirements. Take care to scale up the number of pods to fully utilize the cluster, and to scale the nodes of the cluster to meet the demand of your service.
 
-**Next Steps**
+## Next Steps
 
 [Basic Web App Azure Reference Architecture](https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/app-service-web-app/basic-web-app?tabs=cli)
 
