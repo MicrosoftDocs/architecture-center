@@ -35,8 +35,8 @@ Follow these questions to assess the workload at a deeper level. The recommendat
 |Assessment|Description|
 |---|---|
 |[**Do you clearly define CI/CD roles and permissions for this workload?**](deploy-governance.md)|Define CI/CD permissions so that only users responsible for production releases are able to initiate the process and that only developers can access the source code.|
-|[**Can you roll back or forward versions quickly through automated pipelines?**](deploy-code.md)|Automated deployment pipelines should allow for quick roll-forward and roll-back deployments to address critical bugs and code updates outside of the normal deployment lifecycle.|
-|[**How is the security of the workload validated?**](monitor-test.md)|Test the defense of the workload by simulating real-world attacks. Use penetration testing to simulate one-time attack and red teams to simulate long-term persistent attack groups.|
+|[**Can you roll back or forward code quickly through automated pipelines?**](deploy-code.md)|Automated deployment pipelines should allow for quick roll-forward and roll-back deployments to address critical bugs and code updates outside of the normal deployment lifecycle.|
+|[**Are any resources provisioned or operationally configured manually through user tools such as the Azure Portal or via Azure CLI??**](monitor-test.md)|Always use Infrastructure as code (IaC) to make smallest of changes. This approach makes code easy to track because the provisioned infrastructure can be fully reproduced and reversed.|
 
 
 ## Azure security benchmark
