@@ -26,7 +26,7 @@ In this scenario, the application consists of three layers.
 - **Business tier:** Processes the user interactions and makes logical decisions about the next steps. This layer connects the web tier and the data tier.
 - **Data tier:** Stores the application data. Either a database, object storage, or file storage is typically used.
 
-![Multi-region load balancing with Application Gateway and Traffic Manager](./images/high-availability-multi-region.png)
+![Multi-region load balancing with Application Gateway and Traffic Manager](./images/high-availability_multiregion_2.png)
 
 >[!NOTE]
 > Azure provides a suite of fully managed load-balancing solutions for your scenarios. If you are looking for Transport Layer Security (TLS) protocol termination ("SSL offload") or per-HTTP/HTTPS request, application-layer processing, review [Azure Application Gateway](/azure/application-gateway/overview). If you are looking for regional load balancing, review [Azure Load Balancer](/azure/load-balancer/load-balancer-overview). Your end-to-end scenarios might benefit from combining these solutions as needed.
@@ -35,7 +35,7 @@ In this scenario, the application consists of three layers.
 
 ## Architecture
 
-Traffic Manager operates at the DNS layer to quickly and efficiently direct application traffic based on the routing method of your choice. An example would be sending requests to the closest endpoints, improving the responsiveness of your applications. Whereas Application Gateway load balances HTTP(S) and WebSocket requests to route traffic to backend pool servers. The backend can be public or private endpoints, virtual machines, virtual machine scale sets, app services, or Kubernetes clusters. Traffic can be routed based on attributes of an HTTP request, such as a host name and URI path. The architecture has the following components.
+Traffic Manager operates at the DNS layer to quickly and efficiently direct application traffic based on the routing method of your choice. An example would be sending requests to the closest endpoints, improving the responsiveness of your applications. Whereas Application Gateway load balances HTTP(S) and WebSocket requests to route traffic to backend pool servers. The backend can be public or private endpoints, virtual machines, virtual machine scale sets, app services, or AKS clusters. Traffic can be routed based on attributes of an HTTP request, such as a host name and URI path. The architecture has the following components.
 
 ### General
 
@@ -58,9 +58,9 @@ Traffic Manager operates at the DNS layer to quickly and efficiently direct appl
  
 - **DDoS Protection:** Although the Azure platform provides basic protection against distributed denial of service (DDoS) attacks, we recommend using [DDoS Protection Standard](/azure/ddos-protection/ddos-protection-overview), which has enhanced DDoS mitigation features. See [Security considerations](../reference-architectures/n-tier/n-tier-sql-server.yml#security-considerations).
  
-- **Azure DNS:** [Azure DNS](/azure/dns/dns-overview) is a hosting service for DNS domains. It provides name resolution using Microsoft Azure infrastructure. By hosting your domains in Azure, you can manage your DNS records using the same credentials, APIs, tools, and billing as your other Azure services.
+- **Azure DNS:** [Azure DNS](/azure/dns/dns-overview) is a hosting service for DNS domains. It provides name resolution using Microsoft Azure infrastructure. By hosting your domains in Azure, you can manage your DNS records using the same credentials, APIs, tools, and billing as your other Azure services. Azure DNS also supports [private DNS zones](/https://docs.microsoft.com/en-us/azure/dns/private-dns-overview). Azure DNS Private Zones provide name resolution within a virtual network as well as between virtual networks. The records contained in a private DNS zone are not resolvable from the Internet. DNS resolution against a private DNS zone works only from virtual networks that are linked to it.
  
-- **Virtual network peering:** [Virtual network peering](/azure/virtual-network/virtual-network-peering-overview) enables you to seamlessly connect two or more virtual networks in Azure. The virtual networks appear as one for connectivity purposes. The traffic between virtual machines in peered virtual networks uses the Microsoft backbone infrastructure. Make sure that the address space of the virtual networks do not overlap.
+- **Virtual network peering:** [Virtual network peering](/azure/virtual-network/virtual-network-peering-overview) enables you to seamlessly connect two or more virtual networks in Azure. The virtual networks appear as one for connectivity purposes. The traffic between virtual machines in peered virtual networks uses the Microsoft backbone infrastructure. Make sure that the address space of the virtual networks do not overlap. In this scenario, the virtual networks are peered via Global VNet Peering to allow data replication from the primary region to the secondary region.
  
 - **Azure Bastion:** [Azure Bastion](/azure/bastion/bastion-overview) provides secure and seamless Remote Desktop Protocol (RDP) and Secure Shell (SSH) access to the VMs within the VNet. This provides access while limiting the exposed public IP addresses of the VMs with the VNet. Azure Bastion provides a cost-effective alternative to a provisioned VM to provide access to all VMs within the same virtual network.
  
@@ -84,6 +84,8 @@ Use NSG rules to restrict traffic between tiers. In the architecture shown earli
 3.	Allow inbound traffic from the database-tier subnet itself. This rule allows communication between the database VMs, which is needed for database replication and failover.
 
 Create rules 2 – 3 with higher priority than the first rule, so they override it.
+
+You can use [service tags](/https://docs.microsoft.com/en-us/azure/virtual-network/service-tags-overview) to define network access controls on network security groups or Azure Firewall. See [Application Gateway infrastructure configuration](/https://docs.microsoft.com/en-us/azure/application-gateway/configuration-infrastructure#network-security-groups) for details on Application Gateway NSG requirements.
 
 ### Traffic Manager configuration
 Consider the following points when configuring Traffic Manager:
