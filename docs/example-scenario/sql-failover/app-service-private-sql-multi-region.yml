@@ -10,9 +10,9 @@ metadata:
   ms.service: architecture-center
   ms.subservice: example-scenario
   ms.custom:
-  - fcp
-  - fasttrack-new
-  - example-scenario
+    - fcp
+    - fasttrack-new
+    - example-scenario
 azureCategories:
   - databases
   - networking

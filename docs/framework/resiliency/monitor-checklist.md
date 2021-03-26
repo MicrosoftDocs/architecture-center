@@ -6,7 +6,6 @@ ms.date: 02/17/2021
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
-ms.custom:
 ---
 
 # Monitoring for reliability
@@ -42,7 +41,7 @@ Monitoring and diagnostics are crucial for resiliency. If something fails, you n
 - [Azure Service Health](/azure/service-health/service-health-overview)
 - [Azure Resource Health](/azure/service-health/resource-health-overview)
 - [Azure Resource Manager](/azure/azure-resource-manager/management/overview)
-- [Azure Policy](/azure/governance/policy/overview) 
+- [Azure Policy](/azure/governance/policy/overview)
 
 ## Reference architecture
 
