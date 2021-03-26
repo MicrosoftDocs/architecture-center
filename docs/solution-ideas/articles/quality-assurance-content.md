@@ -29,15 +29,15 @@ This solution shows how to predict failures using the example of manufacturing p
 * [Azure Stream Analytics](/azure/stream-analytics/): Stream Analytics accepts the input stream from Event Hubs, calls an Azure ML Web Service to do predictions, and sends the stream to Azure Synapse and Power BI and Logic Apps for alerts.
 * [Azure Machine Learning](/azure/machine-learning/): Machine Learning helps you design, test, operationalize, and manage predictive analytics solutions in the cloud and deploy web
 services that can be called by Stream Analytics.
-* [Storage Accounts](/azure/storage/): Azure Storage stores raw events stream data from Event Hub and serves for long term data persistence.
+* [Storage Accounts](/azure/storage/): Azure Storage stores raw events stream data from Event Hub and serves for long-term data persistence.
 * [Logic Apps](/azure/logic-apps/): Sends alerts generated from the streaming data into operator device
 * [Synapse Analytics](/azure/synapse-analytics/): Store relational data for ad-hoc and planned analytical processing and user analytical queries
 * [Power BI](/power-bi/create-reports/): visualizes real-time operational dashboards and also servers for analytical reports.
 
 ## Alternatives
 
-* Depending on the scenario the basic architecture can be simplified by removing batch layer - removing Storage for raw events and Azure Synapse for relational data
-* [Azure SQL Database](/azure/sql-database/) is a managed relational database-as-a service. Depending on you data volumes and access patterns you may choose Azure SQL Database.
+* Depending on the scenario, the basic architecture can be simplified by removing batch layer - removing Storage for raw events and Azure Synapse for relational data
+* [Azure SQL Database](/azure/sql-database/) is a managed relational database-as-a service. Depending on your data volumes and access patterns, you may choose Azure SQL Database.
 * [Azure Functions](/azure/azure-functions/functions-overview) provides an effective serverless approach if the workload architecture is centered around fine grained distributed components, requiring minimal dependencies, where individual components are only required to run on demand (not continuously) and orchestration of components is not required.
 * [IoT Hub](/azure/iot-hub/about-iot-hub) acts as a central message hub for secure bi-directional communication with per-device identity between the cloud platform and the construction equipment and other site elements. IoT Hub can rapidly collect data for each device for ingestion into the data analytics pipeline.
 
