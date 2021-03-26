@@ -76,7 +76,7 @@ Azure for healthcare services such as Azure API for FHIR and Azure Health Bot, C
 
 ## Security considerations
 
-Since the system is built around patient data, basic security considerations for Personally Identifiable Information (PII) should be applied when developing this solution:
+Since the system is built around patient data, basic security considerations for private information should be applied when developing this solution:
 
 - Only the required data should flow through the system at any given time. For example, pull in only that data from the EMR/EHR systems that is required to surface for the virtual visit scheduling and management. Review the established [HIPAA compliance rules](https://www.hhs.gov/hipaa/index.html) for guidance on where the patient data should be stored, what can be done with it, and who should have access to it.
 
@@ -84,7 +84,7 @@ Since the system is built around patient data, basic security considerations for
 
 - Modules interacting with patients, such as the Intelligent Assistance and Bookings app, take in, store, and use patient data. Proper access control and authentication at these modules ensures privacy concerns are addressed.
 
-Because of the nature of PII data involved, [security](https://docs.microsoft.com/industry/healthcare/security-overview) and [compliance](https://docs.microsoft.com/industry/healthcare/compliance-overview) form the basic tenets of Microsoft Cloud for Healthcare.
+Because of the nature of private data involved, [security](https://docs.microsoft.com/industry/healthcare/security-overview) and [compliance](https://docs.microsoft.com/industry/healthcare/compliance-overview) form the basic tenets of Microsoft Cloud for Healthcare.
 
 This example also relies on the security rules set by Dynamics 365 and Teams:
 
