@@ -12,7 +12,8 @@ products:
   - azure-blob-storage
 ms.custom:
   - design-pattern
-keywords: design pattern
+keywords:
+  - design pattern
 ---
 
 # Claim-Check Pattern
