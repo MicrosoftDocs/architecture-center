@@ -439,6 +439,8 @@ items:
                 href: framework/security/deploy.md
               - name: Governance considerations
                 href: framework/security/deploy-governance.md
+              - name: Code deployments
+                href: framework/security/deploy-code.md
           - name: Monitor
             items:
               - name: Checklist

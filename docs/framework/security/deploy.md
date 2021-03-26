@@ -1,24 +1,24 @@
 ---
 title: Secure deployment and testing in Azure
-description: Security logging and monitoring are activities related to enabling, acquiring, and storing audit logs for Azure services.
+description: DevOps considerations to ensure security and feature enhancements can be quickly deployed.
 author: PageWriter-MSFT
-ms.date: 11/03/2020
+ms.date: 03/26/2021
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
-ms.custom:
-  - article
+product:
+  - azure-devops
+azureCategories:
+  - security
 ---
  
 # Secure deployment and testing in Azure
 
 Have teams, processes, and tools that can quickly deploy security fixes. A _DevOps_ or multidisciplinary approach is recommended. Multiple teams work together with efficient practices and tools. Essential DevOps practices include change management of the workload through continuous integration, continuous delivery (CI/CD). 
 
-Continuous integration (CI) is an automated process where code changes trigger the building and testing of the application. 
+Continuous integration (CI) is an automated process where code changes trigger the building and testing of the application. Continuous Delivery (CD) is an automated process to build, test, configure, and deploy the application from a build to production environment. 
 
-Continuous Delivery (CD) is an automated process to build, test, configure, and deploy the application from a build to production environment. 
-
-Those processes allow you to rapidly address the security concerns without waiting for a longer planning and testing cycle. 
+Those processes allow you to Frapidly address the security concerns without waiting for a longer planning and testing cycle. 
 
 ## Checklist
 **Have you adopted a secure DevOps approach to ensure security and feature enhancements can be quickly deployed?**
@@ -40,7 +40,7 @@ Follow these questions to assess the workload at a deeper level. The recommendat
 |---|---|
 |[**Do you clearly define CI/CD roles and permissions for this workload?**](deploy-governance.md)|Define CI/CD permissions so that only users responsible for production releases are able to initiate the process and that only developers can access the source code.|
 |[**How is the security of the workload validated?**](monitor-test.md)|Test the defense of the workload by simulating real-world attacks. Use penetration testing to simulate one-time attack and red teams to simulate long-term persistent attack groups.|
-|[**Are any resources provisioned or operationally configured manually through user tools such as the Azure Portal or via Azure CLI?**]()||
+
 
 ## Azure security benchmark
 The Azure Security Benchmark includes a collection of high-impact security recommendations. Use them to secure the services and processes you use to run the workload in Azure:
@@ -66,34 +66,7 @@ Assign stakeholders to use [Secure Score](/azure/security-center/secure-score-se
 
 
 
-## Code deployments
 
-The automated pipelines should be able to update a workload to a new version seamlessly without breaking dependencies. If something goes wrong, the workload should rollback to a previous working version. N-1 and N+1 refer to rollback and roll-forward versions.
-
-**Can N-1 or N+1 versions be deployed via automated pipelines where N is current deployment version in production?**
-***
-
-Because security updates are a high priority, design a pipeline that supports regular updates and critical security fixes. 
-
-A release is typically associated with approval processes with multiple sign-offs, quality gates, and so on. If the workload deployment is small with minimal approvals, you can usually use the same process and pipeline to release a security fix.   
-    
-If the approval process is complex and takes a significant amount of time that could delay a fix, consider having an emergency pipeline that might not include all the gated approvals but is able to push out the fix quickly. The pipeline should allow for quick roll-forward and rollback deployments that address security fixes, critical bugs, and code updates outside of the regular deployment life cycle.
-
-Involve the security team in the planning and design of the DevOps process. Ideally, design an automated pipeline with a degree of flexibility that supports regular and emergency deployments. 
-
-**Are code scanning tools an integrated part of the continuous integration (CI) process for this workload?**
-***
-To prevent credentials from being stored in the source code or configuration files, integrate code scanning tools within the CI/CD pipeline. 
-- During design time, use code analyzers to prevent credentials from getting pushed to the source code repository. For example, .NET Compiler Platform (Roslyn) Analyzers inspect your C# or Visual Basic code. 
-- During the build process, use pipeline add-ons to catch credentials in the source code. An option is [Credential Scanner (CredScan)](https://secdevtools.azurewebsites.net/helpcredscan.html) that is part of Microsoft Security Code Analysis.
-- Scan all dependencies, such as third-party libraries and framework components, as part of the CI process. Investigate vulnerable components that are flagged by the tool. Combine this task with other code scanning tasks that inspect code churn, test results, and coverage.
-
-**Are branch policies used in source control management of this workload? How are they configured?**
-***
-
-Establish branch policies that provide an additional level of control over the code that is commited to the repository. It's a common practice to deny pushes to the main branch if the change isn't approved. For example, you can  require pull-request (PR) with code review before merging the changes by at least one reviewer, other than the change author. 
-
-Having multiple branches is recommended where each branch has a purpose and access level. For example, feature branches are created by developers and are open to push, integration branch requires PR and code-review, and production branch requires additional approval from the team lead before merging.
 
 ## Infrastructure provisioning and configuration
 
