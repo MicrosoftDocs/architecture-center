@@ -6,7 +6,7 @@ ms.date: 03/26/2021
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
-product:
+products:
   - azure-devops
 categories:
   - security
@@ -27,11 +27,7 @@ Those processes allow you to Frapidly address the security concerns without wait
 > - Clearly define CI/CD roles and permissions and minimize the number of people who have access to secure information or resources.
 > - Configure quality gate approvals in DevOps release process.
 > - Integrate code scanning tools within CI/CD pipeline.
-> - Include code scans into CI/CD process that also covers 3rd party dependencies and framework components.
 > - No infrastructure changes, provisioning or configuring, should be done manually outside of IaC.
-> - Implement branch policy strategy that makes sure that the code changes are reviewed.
-> - Respond to incidents.
-> - Simlulate attacks based on real incidents. 
 
 ## In this section
 Follow these questions to assess the workload at a deeper level. The recommendations in this section are based on using Azure AD.

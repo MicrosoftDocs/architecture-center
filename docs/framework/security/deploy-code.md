@@ -6,7 +6,7 @@ ms.date: 03/26/2021
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
-product:
+products:
   - azure-devops
 categories:
   - security
@@ -48,3 +48,8 @@ To prevent credentials from being stored in the source code or configuration fil
 
 > [!div class="nextstepaction"]
 > [Secure infrastructure deployments](./deploy-infrastructure.md)
+
+## Related links
+
+
+> Go back to the main article: [Secure deployment and testing in Azure](overview.md)

@@ -6,7 +6,7 @@ ms.date: 03/26/2021
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
-product:
+products:
   - azure-devops
 categories:
   - security
@@ -14,7 +14,7 @@ categories:
 
 # Infrastructure provisioning considerations in Azure
 
-Azure resources can be provisioned in through code or user tools such as the Azure Portal or via Azure CLI. It's not recommended that resources are provisioned or configured manually. Those methods are error prone and can lead to security gaps. Always use code to make smallest of changes. This approach makes code easy to track because the provisioned infrastructure is fully reproduceable and reversible. 
+Azure resources can be provisioned in through code or user tools such as the Azure portal or via Azure CLI. It's not recommended that resources are provisioned or configured manually. Those methods are error prone and can lead to security gaps. Always use code to make smallest of changes. This approach makes code easy to track because the provisioned infrastructure can be fully reproduced and reversed. 
 
 
 ## Key points
@@ -23,7 +23,7 @@ Azure resources can be provisioned in through code or user tools such as the Azu
 
 ## Infrastructure as code (IaC) 
 
-Make all operational changes and modifications through Infrastructure as code (IaC). IaC is a key DevOps practice, and it's often used in conjunction with continuous delivery. IaC manages the infrastructure - such as networks, virtual machines, and others - with a descriptive model, using a versioning system that is similar to what is used for source code. IaC model generates the same environment every time it is applied. Common examples of IaC are Azure Resource Manager or Terraform.
+Make all operational changes and modifications through Infrastructure as code (IaC). IaC is a key DevOps practice, and it's often used with continuous delivery. IaC manages the infrastructure - such as networks, virtual machines, and others - with a descriptive model, using a versioning system that is similar to what is used for source code. IaC model generates the same environment every time it is applied. Common examples of IaC are Azure Resource Manager or Terraform.
 
 IaC reduces configuration effort and automates full environment deployment. Also, IaC allows you to develop and release changes faster. All those factors enhance the security of the workload.
 
@@ -37,8 +37,16 @@ Store keys and secrets outside of deployment pipeline in a managed key store, su
 
 ## Build environments
 
-**Does the organization apply security controls (e.g. IP firewall restrictions, update management, etc.) to self-hosted build agents for this workload?**
+**Does the organization apply security controls (IP firewall restrictions, update management) to self-hosted build agents for this workload?**
 
-When the organization uses their own build agents it adds management complexity and can become an attack vector. Build machine credentials must be stored securely and file system needs to be cleaned of any temporary build artifacts regularly. Network isolation can be achieved by only allowing outgoing traffic from the build agent, because it's using pull model of communication with Azure DevOps.
+Custom build agents add management complexity and can become an attack vector. Build machine credentials must be stored securely and file system needs to be cleaned of any temporary build artifacts regularly. Network isolation can be achieved by only allowing outgoing traffic from the build agent, because it's using pull model of communication with Azure DevOps.
 
 Apply security controls to self-hosted build agents in the same manner as with other Azure IaaS VMs.
+
+> [!div class="nextstepaction"]
+> [Secure code deployments](./deploy-test.md)
+
+## Related links
+
+
+> Go back to the main article: [Secure deployment and testing in Azure](overview.md)
