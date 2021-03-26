@@ -52,4 +52,4 @@ To prevent credentials from being stored in the source code or configuration fil
 ## Related links
 
 
-> Go back to the main article: [Secure deployment and testing in Azure](overview.md)
+> Go back to the main article: [Secure deployment and testing in Azure](deploy.md)

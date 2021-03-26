@@ -73,4 +73,4 @@ Having multiple branches is recommended where each branch has a purpose and acce
 ## Related links
 
 
-> Go back to the main article: [Secure deployment and testing in Azure](overview.md)
+> Go back to the main article: [Secure deployment and testing in Azure](deploy.md)
