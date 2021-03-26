@@ -16,7 +16,7 @@ metadata:
     - bot service
     - luis
     - interactive-diagram
-    - 'https://azure.microsoft.com/solutions/architecture/enterprise-productivity-chatbot/'
+    - "https://azure.microsoft.com/solutions/architecture/enterprise-productivity-chatbot/"
     - ai-machine-learning
   social_image_url: /azure/architecture/solution-ideas/articles/media/enterprise-productivity-chatbot.png
 name: Enterprise Productivity Chatbot
