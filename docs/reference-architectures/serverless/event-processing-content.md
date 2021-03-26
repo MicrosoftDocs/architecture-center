@@ -1,11 +1,31 @@
 
 
 
-This reference architecture shows a [serverless](https://azure.microsoft.com/solutions/serverless/), event-driven architecture that ingests a stream of data, processes the data, and writes the results to a back-end database.
+These reference architectures show different variations of [serverless](https://azure.microsoft.com/solutions/serverless/), event-driven architecture that ingests a stream of data, processes the data, and writes the results to a back-end database.
+
+## First Reference Architecture
 
 ![GitHub logo](../../_images/github.png) A reference implementation for this architecture is available on [GitHub][github].
 
 ![Reference architecture for serverless event processing using Azure Functions](./_images/serverless-event-processing.png)
+
+## Second Reference Architecture
+
+![GitHub logo](../../_images/github.png) A reference implementation for this architecture is available on [GitHub][<ADD LINK>].
+
+![Reference architecture for serverless event processing using Azure Functions on consumption plan](./_images/serverless-event-stream-core-scenario.png)
+
+## Third Reference Architecture
+
+![GitHub logo](../../_images/github.png) A reference implementation for this architecture is available on [GitHub][<ADD LINK>].
+
+![Reference architecture for serverless event processing using Azure Functions on EP3 plan](./_images/serverless-event-stream-ep3-scenario.png)
+
+## Fourth Reference Architecture
+
+![GitHub logo](../../_images/github.png) A reference implementation for this architecture is available on [GitHub][<ADD LINK>].
+
+![Reference architecture for serverless event processing using Azure Functions on AKS](./_images/serverless-event-stream-aks-scenario.png)
 
 ## Architecture
 
@@ -25,6 +45,237 @@ Function Apps are suitable for processing individual records from Event Hubs. Fo
 **Azure Monitor**. [Monitor][monitor] collects performance metrics about the Azure services deployed in the solution. By visualizing these in a dashboard, you can get visibility into the health of the solution.
 
 **Azure Pipelines**. [Pipelines][pipelines] is a continuous integration (CI) and continuous delivery (CD) service that builds, tests, and deploys the application.
+
+## Monitoring
+
+* Monitoring provides insight into the behaviour and health of your systems
+* It helps to build a holistic view of the environment, give historic trends, correlate diverse factors, and measure changes in performance, consumption, or error rate.
+* Finally, monitoring can be used to setup the next step which is defining and activating alerts.
+
+### Metrics from Azure Monitor
+
+The below metrics will be of interest to capture useful insights for Event Hub
+
+* Incoming requests
+* Outgoing requests
+* Throttled requests
+* Successful requests
+* Incoming messages
+* Outgoing messages
+* Captured messages
+* Incoming bytes
+* Outgoing bytes
+* Captured bytes
+* User errors
+
+![Event Hub metrics](./_images/serverless-eventhub-metrics.png)
+
+The below metrics will be of interest to capture useful insights for Azure Functions
+
+* Function execution count
+* Connections
+* Data in
+* Data out
+* Http server errors
+* Requests
+* Requests in application queue
+* Response time
+
+![Azure Functions metrics](./_images/serverless-functions-metrics.png)
+
+### Using Log Diagnostics to capture insights from above metrics
+
+The different metrics can be used to capture the following insights:
+
+* Rate of requests processed by Event Hubs
+* Rate of requests processed by Azure Functions
+* Total Event Hub throughput
+* User errors
+* Duration of Azure Functions
+* End-to-end latency
+* Latency at each stage
+* Number of messages lost
+* Number of messages processed more than once
+
+Enabling Diagnostic setting for Event Hubs ensures that the necessary metrics are captured and made available in the Log Analytics Workspace. The log and metric categories that we are interested in are
+
+* OperationalLogs
+* AutoScaleLogs
+* KafkaCoordinatorLogs _(for Kafka workloads)_
+* KafkaUserErrorLogs _(for Kafka workloads)_
+* EventHubVNetConnectionEvent
+* AllMetrics
+
+![EH Diagnostic Setting](./_images/serverless-eventhub-diagnostic-setting.png)
+
+The options to stream the logs to Event Hubs can be used if an external system is being used to analyze the logs.
+
+*Constraint:*
+
+The Event Hubs in an Event Hub namespace are represented under a dimension called `EntityName` in Azure Monitor metrics. Data for specific Event Hub can be viewed on the Azure portal instance of Azure Monitor. However, when metric data is routed to Log Diagnostics, currently there is no way to view data per Event Hub by filtering on the `EntityName` dimension.
+
+![EH Dimension Azure Monitor](./_images/serverless-eventhub-dimension-azuremonitor.png)
+
+Thus the only easy resource is to create Event Hubs in different namespaces in order to utilize Log Diagnostics to capture above insights.
+
+### Using Application Insights
+
+Application Insights can be enabled for capturing metrics and custom telemetry from Azure Functions and proves to be another way to get important insights for the Serverless Event Processing scenario using Event Hubs.
+
+![AppInsights Messages](./_images/serverless-appinsights-messages.png)
+
+#### Default Custom Metrics
+
+Custom metrics for Azure Functions are stored in the `customMetrics` table in Application Insights and includes below values spanned over a timeline for different Azure function instances:
+
+* `AvgDurationMs`
+* `MaxDurationMs`
+* `MinDurationMs`
+* `Successes`
+* `Failures`
+* `SuccessRate`
+* `Count`
+
+![AppInsights Custom Metrics](./_images/serverless-appinsights-custom-metrics.png)
+
+These metrics can be used to efficiently calculate the aggregated averages across the multiple function instances invoked in a run.
+
+#### Custom Messages
+
+Custom messages logged in the Azure Function code using the `ILogger` are obtained from the Application Insights `traces` table.
+
+![AppInsights Custom Message](./_images/serverless-appinsights-custom-message.png)
+
+It has important properties like
+
+* `_TimeReceived`
+* `cloud_RoleInstance`
+* `operation_Id`
+* `operation_Name`
+* `message`
+
+If the incoming Event Hub message or EventData[] is logged as a part of this custom `ILogger` message, then that too is made available in AppInsights.
+
+For the Serverless Event Processing scenario, we will be logging the Json serialized message body received from the Event Hub to capture the raw byte array along with SystemProperties like `x-opt-sequence-number`, `x-opt-offset` and `x-opt-enqueued-time`. The `x-opt-enqueued-time` is used to determine when each message was actually received by the Event Hub.
+
+Sample Query
+
+```kql
+traces
+| where timestamp between(min_t .. max_t)
+| where message contains "Body"
+| extend m = parse_json(message))
+| project timestamp = todatetime(m.SystemProperties.["x-opt-enqueued-time"])
+```
+
+Message with Trigger Details is logged by default on Application Insights with the following properties which can be useful to capture insight around messages received per partition, offset and sequence number of message, etc.
+
+_Constraint for Java Azure Functions: [PartitionId is not accessible in Java runtime](https://github.com/Azure/azure-functions-java-library/issues/138).
+
+```kql
+"message": Trigger Details: PartionId: 26, Offset: 17194119200, EnqueueTimeUtc: 2020-11-03T02:14:01.7740000Z, SequenceNumber: 843572, Count: 10,
+```
+
+#### Tracking message flow using Transaction Id with Application Insights
+
+We can view all the telemetry related to a particular transaction using the `Operation Id` value.
+This can be especially useful for capturing the percentile values of average times for messages as it moves through the end to end event stream pipeline.
+
+![Transaction Search Snapshot](./_images/serverless-transaction-search.png)
+
+Query generated for a specific operation id will look like:
+
+![Transaction Search Query](./_images/serverless-transaction-search-log.png)
+
+## Observability
+
+## Capturing Custom Metrics from Azure Functions
+
+### .NET Functions
+
+We have used [Structured Logging](https://docs.microsoft.com/en-us/azure/azure-functions/functions-dotnet-class-library?tabs=v2%2Ccmd#structured-logging) in the dotnet Azure functions for capturing custom dimensions in the Application Insights `traces` table. These custom dimensions can then be used for querying data.
+
+As an example, here is the log statement in the .NET `TransformingFunction`:
+
+```csharp
+log.LogInformation("TransformingFunction: Processed sensorDataJson={sensorDataJson}, " +
+    "partitionId={partitionId}, offset={offset} at {enqueuedTimeUtc}, " +
+    "inputEH_enqueuedTime={inputEH_enqueuedTime}, processedTime={processedTime}, " +
+    "transformingLatencyInMs={transformingLatencyInMs}, processingLatencyInMs={processingLatencyInMs}",
+    sensorDataJson,
+    partitionId,
+    offset,
+    enqueuedTimeUtc,
+    inputEH_enqueuedTime,
+    processedTime,
+    transformingLatencyInMs,
+    processingLatencyInMs);
+```
+
+The resulting logs created on Application Insights contain the above parameters as custom dimensions as shown below:
+
+![Application Insights Custom Dimensions](./_images/serverless-appinsights-custom-dimensions.png)
+
+These can be queried easily as follows:
+
+```kql
+traces
+| where timestamp between(min_t .. max_t)
+// Function name should be of the function consuming from the Event Hub of interest
+| where operation_Name == "{Function_Name}"
+| where message has "{Function_Name}: Processed"
+| project timestamp = todatetime(customDimensions.prop__enqueuedTimeUtc)
+```
+
+_Constraints: In order to make sure we do not affect performance in these tests, we have turned on the sampling settings of Azure Function logs for Application Insights using the `host.json` file as shown below. This means that all statistics captured from logging are considered to be average values and not actual counts._
+
+```json
+"logging": {
+    "applicationInsights": {
+    "samplingExcludedTypes": "Request",
+    "samplingSettings": {
+        "isEnabled": true
+    }
+  }
+}
+```
+
+### Java Functions
+
+At the time of writing this, [Structured Logging](https://docs.microsoft.com/en-us/azure/azure-functions/functions-dotnet-class-library?tabs=v2%2Ccmd#structured-logging) was not supported in Java Azure functions for capturing custom dimensions in the Application Insights `traces` table.
+
+As an example, here is the log statement in the Java `TransformingFunction`:
+
+```java
+LoggingUtilities.logSuccessInfo(context.getLogger(), "TransformingFunction", "SuccessInfo", offset, processedTimeString, dateformatter.format(enqueuedTime), transformingLatency);
+```
+
+The resulting logs created on Application Insights contain the above parameters in message as shown below:
+
+![Application Insights message](./_images/serverless-appinsights-message.png)
+
+These can be queried easily as follows:
+
+```kql
+traces
+| where timestamp between(min_t .. max_t)
+// Function name should be of the function consuming from the Event Hub of interest
+| where operation_Name in ("{Function name}") and message contains "SuccessInfo"
+| project timestamp = todatetime(tostring(parse_json(message).enqueuedTime))
+```
+
+_Constraints: In order to make sure we do not affect performance in these tests, we have turned on the sampling settings of Azure Function logs for Application Insights using the `host.json` file as shown below. This means that all statistics captured from logging are considered to be average values and not actual counts._
+
+```json
+"logging": {
+    "applicationInsights": {
+    "samplingExcludedTypes": "Request",
+    "samplingSettings": {
+        "isEnabled": true
+    }
+  }
+}
+```
 
 ## Scalability considerations
 
@@ -156,7 +407,7 @@ Use the [Cosmos DB capacity calculator][Cosmos-Calculator] to get a quick estima
 
 ## DevOps considerations
 
-Use Infrastructure as code (IaC) when possible. IaC manages the infrastructure, application, and storage resources with a declarative approach like [Azure Resource Manager][arm-template]. That will help in automating deployment using DevOps as a continuous integration and continuous delivery (CI/CD) solution. Templates should be versioned and included as part of the release pipeline. 
+Use Infrastructure as code (IaC) when possible. IaC manages the infrastructure, application, and storage resources with a declarative approach like [Azure Resource Manager][arm-template]. That will help in automating deployment using DevOps as a continuous integration and continuous delivery (CI/CD) solution. Templates should be versioned and included as part of the release pipeline.
 
 When creating templates, group resources as a way to organize and isolate them per workload. A common way to think about workload is a single serveless application or a virtual network. The goal of workload isolation is to associate the resources to a team, so that the DevOps team can independently manage all aspects of those resources and perform CI/CD.
 
@@ -170,7 +421,10 @@ For more information, see the DevOps section in [Microsoft Azure Well-Architecte
 
 ## Deploy the solution
 
-To deploy this reference architecture, view the [GitHub readme][readme].
+* To deploy first reference architecture, view the [GitHub readme][readme].
+* To deploy second reference architecture, view the [GitHub readme][ADD LINK].
+* To deploy third reference architecture, view the [GitHub readme][ADD LINK].
+* To deploy fourth reference architecture, view the [GitHub readme][ADD LINK].
 
 ## Next steps
 
