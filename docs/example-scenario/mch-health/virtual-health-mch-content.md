@@ -124,7 +124,7 @@ The solution should be deployed in stages:
 
     1. Power Automate flows should be created to support the care manager notifications.
 
-    1. Patient Portal should be configured. Additional forms might need to be created for elements such as the check-in/consent forms. Read [Set up and configure a Patient Access portal](https://docs.microsoft.com/dynamics365/industry/healthcare/configure-portals).
+    1. Patient Portal should be configured. Additional forms might need to be created for elements such as the check-in/consent forms. Read [Set up and configure a Patient Access portal](https://docs.microsoft.com/dynamics365/industry/healthcare/configure-portals) for more information.
 
     1. Azure Health Bot service should be connected to the Dataverse database, and customized for its communication with patients. Read [Configure automatic chats using Microsoft Health Bot](https://docs.microsoft.com/dynamics365/industry/healthcare/configure-chatbots) for more information.
 
