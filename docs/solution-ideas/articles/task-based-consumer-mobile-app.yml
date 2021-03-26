@@ -19,7 +19,7 @@ metadata:
     - Mobile App Authentication
     - app-dev
     - interactive-diagram
-    - 'https://azure.microsoft.com/solutions/architecture/task-based-consumer-mobile-app/'
+    - "https://azure.microsoft.com/solutions/architecture/task-based-consumer-mobile-app/"
   social_image_url: /azure/architecture/solution-ideas/articles/media/task-based-consumer-mobile-app.png
 name: Task-Based Consumer Mobile App
 azureCategories:

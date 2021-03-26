@@ -21,7 +21,7 @@ metadata:
     - ai-ml
     - failure detection
     - automated manufacturing solutions
-    - 'https://azure.microsoft.com/solutions/architecture/image-classification-with-convolutional-neural-networks/'
+    - "https://azure.microsoft.com/solutions/architecture/image-classification-with-convolutional-neural-networks/"
     - ai-machine-learning
   social_image_url: /azure/architecture/solution-ideas/articles/media/image-classification-with-convolutional-neural-networks.png
 name: Image classification with Convolutional Neural Networks
