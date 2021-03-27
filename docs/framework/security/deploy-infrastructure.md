@@ -23,7 +23,7 @@ Azure resources can be provisioned in through code or user tools such as the Azu
 
 ## Infrastructure as code (IaC) 
 
-Make all operational changes and modifications through Infrastructure as code (IaC). IaC is a key DevOps practice, and it's often used with continuous delivery. IaC manages the infrastructure - such as networks, virtual machines, and others - with a descriptive model, using a versioning system that is similar to what is used for source code. IaC model generates the same environment every time it is applied. Common examples of IaC are Azure Resource Manager or Terraform.
+Make all operational changes and modifications through Infrastructure as code (IaC). IaC is a key DevOps practice, and it's often used with continuous delivery. IaC manages the infrastructure - such as networks, virtual machines, and others - with a descriptive model, using a versioning system that is similar to what is used for source code. IaC model generates the same environment every time it's applied. Common examples of IaC are Azure Resource Manager or Terraform.
 
 IaC reduces configuration effort and automates full environment deployment. Also, IaC allows you to develop and release changes faster. All those factors enhance the security of the workload.
 
@@ -32,7 +32,7 @@ IaC reduces configuration effort and automates full environment deployment. Also
 **How are credentials, certificates, and other secrets used in the operations for the workload managed during deployment?**
 ***
 
-Store keys and secrets outside of deployment pipeline in a managed key store, such as Azure Key Vault, or in a secure store for the pipeline. When deploying application infrastructure with Azure Resource Manager or Terraform, the process might generate credential and keys. Store them in a managed key store and make sure the deployed resources reference the store. Do not hard code credentials.
+Store keys and secrets outside of deployment pipeline in a managed key store, such as Azure Key Vault. Or, in a secure store for the pipeline. When deploying application infrastructure with Azure Resource Manager or Terraform, the process might generate credential and keys. Store them in a managed key store and make sure the deployed resources reference the store. Do not hard-code credentials.
 
 
 ## Build environments

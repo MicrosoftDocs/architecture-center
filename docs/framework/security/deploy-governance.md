@@ -43,13 +43,13 @@ Minimize the number of people who have access to secure information or resources
 
 - Use separate pipeline identities between pre-production and production environments. If available, take advantage of pipeline features such as Environments to encapsulate last-mile authentication external to the executing pipeline.
 
-- If the pipeline runs infrequently and has high privileges, consider removing standing permissions for that identity. Use just-in-time (JIT) role assignments, time-based, and approval-based role activation. This will mitigate the risks of excessive, unnecessary, or misused access permissions on crucial resources. [Azure AD Privileged Identity Management](/azure/active-directory/privileged-identity-management/pim-configure) supports all those modes of activation.   
+- If the pipeline runs infrequently and has high privileges, consider removing standing permissions for that identity. Use just-in-time (JIT) role assignments, time-based, and approval-based role activation. This strategy will mitigate the risks of excessive, unnecessary, or misused access permissions on crucial resources. [Azure AD Privileged Identity Management](/azure/active-directory/privileged-identity-management/pim-configure) supports all those modes of activation.   
 
 ## Execution scope
 
 Where practical, limit the scope of execution in the pipelines. 
 
-Consider creating a multi-stage pipeline. Divide the work into discrete units and that can be isolated in a separate pipeline. Limit the identities only to the scope of the unit so that it has just enough privileges to do the action. For example, you can have two units, one to deploy and another that builds source code. Only allow the deploy unit to have access to the identity, not the build unit. If the build unit is compromised, it could start tampering with the infrastructure. 
+Consider creating a multi-stage pipeline. Divide the work into discrete units and that can be isolated in a separate pipeline. Limit the identities only to the scope of the unit so that it has minimal  privileges enough to do the action. For example, you can have two units, one to deploy and another that builds source code. Only allow the deploy unit to have access to the identity, not the build unit. If the build unit is compromised, it could start tampering with the infrastructure. 
 
 ## Gated approval process
 
@@ -62,9 +62,9 @@ Make sure that you involve the security team in the planning, design, and DevOps
 **Are branch policies used in source control management of this workload? How are they configured?**
 ***
 
-Establish branch policies that provide an additional level of control over the code that is committed to the repository. It's a common practice to deny pushes to the main branch if the change isn't approved. For example, you can require pull-request (PR) with code review before merging the changes by at least one reviewer, other than the change author. 
+Establish branch policies that provide an extra level of control over the code that is committed to the repository. It's a common practice to deny pushes to the main branch if the change isn't approved. For example, you can require pull-request (PR) with code review before merging the changes by at least one reviewer, other than the change author. 
 
-Having multiple branches is recommended where each branch has a purpose and access level. For example, feature branches are created by developers and are open to push, integration branch requires PR and code-review, and production branch requires additional approval from the team lead before merging.
+Having multiple branches is recommended where each branch has a purpose and access level. For example, feature branches are created by developers and are open to push. Integration branch requires PR and code-review. Production branch requires another approval from the team lead before merging.
 
 > [!div class="nextstepaction"]
 > [Secure code deployments](./deploy-code.md)

@@ -32,7 +32,7 @@ Because security updates are a high priority, design a pipeline that supports re
 
 A release is typically associated with approval processes with multiple sign-offs, quality gates, and so on. If the workload deployment is small with minimal approvals, you can usually use the same process and pipeline to release a security fix.   
     
-If the approval process is complex and takes a significant amount of time that could delay a fix, consider having an emergency pipeline that might not include all the gated approvals but can push out the fix quickly. The pipeline should allow for quick roll-forward and rollback deployments that address security fixes, critical bugs, and code updates outside of the regular deployment life cycle.
+An approval process that is complex and takes a significant amount of time can delay a fix. Consider having an emergency pipeline that might not include all the gated approvals but can push out the fix quickly. The pipeline should allow for quick roll-forward and rollback deployments that address security fixes, critical bugs, and code updates outside of the regular deployment life cycle.
 
 Involve the security team in the planning and design of the DevOps process. Ideally, design an automated pipeline with a degree of flexibility that supports regular and emergency deployments. 
 
