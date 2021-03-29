@@ -12,7 +12,7 @@ _Download a [Visio file](https://arch-center.azureedge.net/virtual-health-soluti
 
 Similar to the Virtual Visit solution, the blue-lined boxes in this architecture diagram represent the Microsoft services that are either the underlying services or add-ons required for [Microsoft Cloud for Healthcare](https://www.microsoft.com/industry/health/microsoft-cloud-for-healthcare?rtc=1), each of which must be licensed separately.
 
-Similar to the previous solution, data flows into this architecture through external medical systems, such as patient and provider schedules, medical records, wearable devices, and so on, and then ingested using the [Azure API for FHIR](https://docs.microsoft.com/azure/healthcare-apis/fhir/overview). The data transposed to the FHIR (or Fast Healthcare Interoperability Resources) standard, is stored in the Microsoft Dataverse in the [Common Data Model (CDM)](https://docs.microsoft.com/common-data-model/) format and then consumed by the rest of the components in this solution. The CDM component is not shown in the architecture for simplicity.
+Similar to the previous solution, data flows into this architecture through external medical systems, such as patient and provider schedules, medical records, wearable devices, and so on, and then ingested using the [Azure API for FHIR](https://docs.microsoft.com/azure/healthcare-apis/fhir/overview). It could also be gathered from other structured/unstructured data sources, such as, financial systems. The data transposed to the FHIR (or Fast Healthcare Interoperability Resources) standard, is stored in the Microsoft Dataverse in the [Common Data Model (CDM)](https://docs.microsoft.com/common-data-model/) format and then consumed by the rest of the components in this solution. The CDM component is not shown in the architecture for simplicity.
 
 This solution requires a large amount of data to be stored for reporting and analytics. Azure Data Lake serves this purpose during data ingestion. Data stored in Data Lake is analyzed using Azure Synapse, for use by the Machine Learning module and Power BI visualizations. (TBD: Difference between Dataverse and Data Lake? In the previous solution, did it need the data to be queried from external sources all the time? What was the role of Dataverse in that solution then?)
 
@@ -22,56 +22,37 @@ This solution also has custom Power BI visualizations for incoming IoMT data, us
 
 If the patient is required to check in to an Emergency Department (ED), the care manager schedules that visit. An ED admin is in charge of taking care of resources and schedules within their department. This solution assists them by providing Power BI reports for resources such as bed usage, intake and readmission events as well as trends. This data is useful to provide more insights on patient readmission rates, which is an important metric for a hospital. These insights may be gathered from the medical data flowing into Azure API for FHIR, such as schedules, patients coming in for specific conditions, patients getting readmitted, and so on. This data is pulled into Azure Synapse, which creates the analyses which are then shown on Teams using Power BI visualizations (TBD correct?). The data and insights relavant for the ED admin are surfaced using the Power BI Teams application, within Teams. *ED Queue*, a custom-built Dynamics 365 web resource, shows a queue of incoming patients at various stages, such as, in-transit, arrived at the ED, going through intake process, assigned a bed/room, and so on. The ED admin can use this information to triage patients based on factors such as, arrival times and criticality of medical condition. These factors may be used as a decision tree using Power Automate flows to automate the tasks required to take care of the patient. These include tasks such as, assign the room or ICU, prepare required medical equipment, order tests specific to their medical condition, and so on. These tasks could be appropriately assigned to available personnel, leading to a timely and efficient patient intake. The solution can help manage the resources such as room, equipment, as well as personnel.
 
+The *specialist* (TBD: Rename pulmonologist to specialist in diagram) persona in this diagram represents the medical provider in charge of reviewing the tests recommended in the ED flow. For example, a patient is admitted and is recommended an X-Ray (TBD spelling?), the pulmologist will review the X-Ray. When the tests are completed, the specialist (TBD which app do they use) get a notification pulled using Power Automate. Test results can be from an unstructured data source, such as X-rays. This data is pulled in via Azure Synapse, and fed into a custom Machine Learning model to interpret the data and make suggestions that will assist the specialist in diagnosing the condition (TBD: is this CELA approved?).
 
+The specialist then works on a recommended care plan for the patient. The *Social Determinants* [canvas app](https://docs.microsoft.com/en-us/powerapps/maker/canvas-apps/get-started-test-drive) uses a standardized questionnaire on socio-economic factors from Americal Medical Association, to predict how well the patient will adhere to the care plan. This helps practioners to make sure the care plan is customized for the patient's temparament for the best possible outcome. This data may be gathered at any point during the patient's current or past visits, and stored in DataVerse to inform any future decisions. In addition to this, the Care Management app in this solution also shows Power BI visualizations for health trends relevant to the patient. These are made using aggregated population health metrics specific to the recommended care plan, demographics prescribed with this plan, social determinants, the severity index of the patient, to guage how different treatment plans have worked out for population similar to the patient profile. The data fed into this visualization in this solution, are gathered from health records stored across the healthcare organization. External data sources such as published data from government researches, may also be used to enrich these insights, and they could be another input to the Azure Data Lake (TBD: to add "Structured data" under the Azure for Healthcare in the diagram). The care plan is stored in the DataVerse for later reference.
 
+When the patient is discharged with the care plan, they are asked to provide a *Satisfaction Survey* (TBD: which app is this?) through the patient portal. This is a [Customer Voice](https://docs.microsoft.com/en-us/dynamics365/customer-voice/help-hub) form. This data is also stored in DataVerse for operational insights into the healthcare facility. The patient is also able to view the care plan recommended by the specialist during the ED visit.
 
-It could also be gathered from other structured/unstructured data such as, financial systems. 
-
-
-
-An established patient can log in securely to the Patient Portal, a website hosted in the Power Apps Portals. In this portal, the patient can talk to an *Intelligent Assistant*. This is an instance of the [Azure Health Bot service](https://docs.microsoft.com/azure/health-bot/) which gathers their symptoms, provides suggestions, and recommends calling to the practitioner, if needed. If the patient chooses to connect to their medical provider, the health bot instance gets the data on providers available for virtual visits and their schedules, from the Dataverse. Once the patient selects a provider and a time, the bot presents their contact information, obtained from the *EMR/EHR* data stored in Dataverse. The patient can validate or change this information, and save the data using the bot.
-
-To schedule an appointment, the health bot instance connects to the Bookings App using the [Microsoft Graph API](https://docs.microsoft.com/graph/overview) and books an appointment on the provider's calendar. An email with the appointment information, is sent to both the parties using Microsoft Outlook. The patient is given instructions to log in to the Patient Portal for the intake process. This process involves confirming or changing their contact, payment, and insurance information, and then signing a consent form for the virtual visit. Once they sign the consent, they are provided the Microsoft Teams link for the appointment.
-
-The provider logs into Teams to check their appointment schedule and summary information for each. Teams presents this information using the *Appointment Queue* application. The provider is then able to start the virtual visit on Teams for the scheduled appointment. During the call, the provider can take notes and add them to the patient's records.
-
-A new note on the patient's medical records triggers a review notification for the care manager assigned to the patient. When the care manager receives this notification, they can log in to Teams, where they are able to see the patients assigned to them, and view the notes. Through the Care Management app, they can make required changes to the patient's care plan.
+The solution also provides reports for an operational overview, represented by the *Hospital Admin* persona. This may pulling in data from all data sources, to gather insights on metrics such as, total number of patients visited in a month, monthly readmission rates, monthly financial overview, staff patient ratio, sentiment score gathered from patient surveys. These Power BI reports are integrated into Teams, and should be customized for the healthcare facilities needs. These reports can also help to alert and deep dive into any operational deficiencies. Azure Synapse is used to create these Power BI reports (TBD: ?). For example, if a healthcare has issues with readmission rates, they can use these reports to figure out the departments that may be having most issues, and help fix the problems. Since these reports are Teams apps, it is easy to share on different channels for each department, creating an easy communication channel. Access to these reports could be controlled by different permission levels per department or user.
 
 ## Components
 
-The architecture consists of the following components:
+This section details the new components used in this architecture, as well as additional roles played by components used in the [Virtual Visit solution](./virtual-health-mch.yml).
 
-- **PAS**. Patient Administration Systems (PAS) are systems that automate the administrative paperwork in healthcare organisations, such as hospitals. They are the core components of the IT infrastructure of such an organization. A PAS records the patient's demographics, such as name, home address, date of birth, and so on. It also records detailed information of all contact the patient had with the hospital, both outpatient and inpatient. With the help of PAS, modern hospitals are able to report and schedule resources across the organization. PAS is a key source of scheduling data in this solution. Since this data is external and may be in a non-standard format, it is important to convert it into a format that is understood by all components of this solution.
-
-- **EMR/EHR**. [Electronic Medical Records (EMR)](https://digital.ahrq.gov/key-topics/electronic-medical-record-systems) and [Electronic Health Records (EHR)](https://www.healthit.gov/faq/what-electronic-health-record-ehr) provide the digital records of a patient's medical and health information, including diagnoses, medications, immunizations, and so on. They can be scoped to a single practice office, such as EMRs, or designed to scope much larger, traveling with the patients to whichever facility they go, such as the EHRs. These are important external data sources in this solution, and may be unstructured non-standard format. As such, this data needs to be converted to a format that can be used by the components in this solution.
-
-- **Azure API for FHIR**. Azure is the first step in the process of bringing data into the Microsoft ecosystem and the Microsoft Cloud for Healthcare. This layer provides a secure interface between external data and internal components of this architecture. The Azure API for FHIR ingests the data coming from disparate sources such as EMR, PAS, devices, whether structured or unstructured, converts it into FHIR and persists in Azure. This data can then be used across the Microsoft Cloud for Healthcare for different services. The Azure API for FHIR is built with security and compliance in mind and specifically designed for PHI (Protected Health Information) data. For more information on this layer, see [Azure for healthcare](https://azure.microsoft.com/industries/healthcare/) and the [Azure API for FHIR](https://docs.microsoft.com/azure/healthcare-apis/fhir/overview).
-
-- **Common Data Model**. With [Common Data Model](https://docs.microsoft.com/common-data-model/), Microsoft provides a standardized metadata definition system, that is extensible and customizable for specific business needs. CDM entities are available for subject areas such as, CRM, Healthcare, Talent, and so on. For details, read the [Common Data Model usage information](https://docs.microsoft.com/common-data-model/use). In addition to these entities, customers can pull in proprietary data by defining that entity table and the underlying fields in the Common Data Model, which can then seamlessly be used with other entities throughout their solution.
+**Azure Synapse Analytics**. This solution uses Azure Synapse to show a potential use of unstructured medical data, such as, medical tests, and using other medical information such as patient history and day-to-day health metrics, by a machine learning algorithm. This algorithm can interpret this medical data to provide machine-generated findings, that may assist medical providers in understanding of the patient's condition.
 
 - **Microsoft Dataverse**. [Dataverse](https://docs.microsoft.com/powerapps/maker/data-platform/data-platform-intro), a relational database that powers Microsoft Dynamics 365, is the repository for the data represented in the Common Data Model. It holds databases for patient information, containing details about their names, family information, medical conditions, medication history, and so on. It also holds the information obtained from any wearable devices used and registered by the patients, as well as, scheduling and management data from the healthcare organization. This data is defined using the Common Data Model.
 
-- **Patient Portal**. This [Power Apps portal](https://docs.microsoft.com/dynamics365/industry/healthcare/use-patient-access#patient-portal) lets patients view their medical records, book appointments, chat with the health bot instance, and so on. This portal can be extended to support other data. This portal is part of Microsoft Cloud for Healthcare, and allows you to easily spin up a portal which can connect with entities in Dataverse, pulling in data such as patient information, care plans, appointments, and so on.
+- **ED Queue**. TBD to write.
 
-- **Intelligent Assistance**. This is an instance of the [Azure Health Bot Service](https://docs.microsoft.com/azure/health-bot/), accessible to patients through the Patient Portal. This health bot instance is loaded within an Azure App Service website. It is customizable, and can be programmed using the scenarios required by the customers. For more information, read [Embed a health bot instance in your application](https://docs.microsoft.com/azure/health-bot/integrations/embed).
+- **Power BI Visualizations**. TBD
 
-- **Bookings App**. Bookings App is a Microsoft 365 service, included in the Microsoft Cloud for Healthcare. It facilitates scheduling of calendar events, and allows creating Teams meetings.
+- **Azure Machine Learning**. TBD
 
-- **Microsoft Outlook**. This solution uses Microsoft Outlook as the email client. The Bookings App that sends the email notification is integrated with Outlook. Alternatively, the healthcare provider's preferred email client may be used.
+- **Customer Voice**. TBD
 
-- **Microsoft Teams**. Microsoft Teams is a component of Microsoft Cloud for Healthcare, and provides the front-end for interactions between the patients, providers, and care managers. Users can use a locally installed version or the web version. For more information on Teams, read the [Microsoft Teams documentation](https://docs.microsoft.com/microsoftteams/).
+- **Unstructured data**. TBD
 
-- **Appointment Queue**. This tool generates an HTML page with data pulled out of the Dataverse, using the [Dynamics 365 Web API](https://docs.microsoft.com/dynamics365/customer-engagement/web-api/about?view=dynamics-ce-odata-9). It presents the provider with information about the appointments scheduled for the day and summary about each. It also provides a link to access the patient information through the Care Management application. Note that the Appointment Queue was developed to support this scenario, and is not a part of Microsoft Cloud for Healthcare. The data sources for this tool, are mainly the PAS systems and EMR/EHR records. If this systems have tools integrated to present this data, those tools may be a replacement for this component in an actual deployment.
-
-- **Care Management**. The Care Management tool is a component of Microsoft Cloud for Healthcare. It is a Power Apps application deployed through Dynamics 365. It pulls in the EMR/EHR patient data stored in the Dataverse in CDM format, and presents an aggregated view in Teams. A care center's solution might choose to use their own system for their functionality, depending on how they want to present this information.
-
-- **Power BI Analytics**. This is an analytics tool created for this scenario, and is not available with Microsoft Cloud for Healthcare. In this solution, it generates information derived from the patient's IoMT devices. This could be data such as heart rate, blood oxygen level, and so on. The Care Management app uses this data to present medical providers with additional insights about their patients based on their daily activities.
-
-- **Connected devices**. These are *Internet of Medical Things (IoMT)* devices, which are smart devices for medical or healthcare use. Examples of IoMT devices include wearables such as Apple Watch or Fitbit, medical or vital monitors, and so on. Patients can provision their devices through Azure, and choose to allow their health care management system to gather this IoMT data for use by their providers. Providers can gain additional insights from such devices, in near real time, and link anomalies such as an elevated heart rate for a period of time, with patient's current symptoms.
-
-- **Automation with Power Automate**. This is a custom tool created to support this scenario, and is not available with Microsoft Cloud for Healthcare. Since this is a virtual visit scenario, the provider might just be an on-call physician and not the patient's regular physician. This tools allows the provider's notes to trigger a Teams notification to the *care manager*. A care manager is the member of the medical team that works as the liaison between the primary care physician (PCP) and the patient, and takes care of long term care management. A notification sent to the care manager, indicating new notes added for the patient, enables them to review and make appropriate changes in the patient's care management after the visit.
+- **Social Determinants**. This is a Power BI Canvas app. TBD: link on how to create.
 
 ## Alternatives
+
+All of the D364 applications in this architecture are tightly integrated with D365, which uses DataVerse as the data source. If these are replaced by non-D365 applications, such as if the existing EHR system has built-in patient monitoring and ED Queue, they can still interact with DataVerse via its RESTful API interface (TBD link?). In reality, some EHRs can be advanced enough to not require any Dynamics365 other than DataVerse. Having it DataVerse is convenient as a single location for aggregated data to be used by multiple components such as PowerBI, Power Automate, Synapse Analytics, Patient Portal, Teams, and so on.
 
 TBD
 
@@ -85,29 +66,9 @@ Pricing information for this architecture is similar to [pricing discussed in th
 
 ## Deploy the solution
 
-The solution should be deployed in stages:
+TBD anything else?
 
-1. Certain products need to be installed as the prerequisites for Microsoft Cloud for Healthcare. See the detailed list on [this article on licensing requirements](https://docs.microsoft.com/dynamics365/industry/healthcare/licensing).
-
-1. Microsoft Cloud for Healthcare can be deployed using instructions provided in the [Deploy Microsoft Cloud for Healthcare solutions powered by Dynamics 365](https://docs.microsoft.com/dynamics365/industry/healthcare/deploy).
-
-1. Microsoft Cloud for Healthcare provides basic components to jumpstart building a virtual health solution, such as, Patient Portal, Teams, Bookings, and so on. The data that will be used to power these building blocks, will need to be customized as per the business needs.
-
-1. The components available in Microsoft Cloud for Healthcare and its prerequisites, need to be customized to support the business needs:
-
-    1. Power Automate flows need to be created to support the care manager notifications.
-
-    1. Patient Portal needs to be configured. Additional forms might need to be created for elements such as the check-in/consent forms.
-
-    1. Azure Health Bot service needs to be connected to the Dataverse database, and customized for its communication with patients.
-
-1. The additional components that were specifically created for this solution, are not available for production-grade usage. The healthcare facility will need to create its own version of these applications:
-  
-    1. Appointment Queue
-
-    1. Automated notifications using Power Automate
-
-    1. Reporting application using Power BI
+The deployment of this solution is similar to the [deployment for Virtual Visits solution](./virtual-health-mch.yml).
 
 ## Next steps
 
