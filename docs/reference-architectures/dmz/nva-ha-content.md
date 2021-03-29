@@ -5,7 +5,7 @@ This article shows several options for how to deploy a set of network virtual ap
 
 **Prerequisites:** This article assumes a basic understanding of Azure networking, [Azure load balancers][lb-overview], and [user-defined routes][udr-overview] (UDRs).
 
-## NVA Conceptual Overview
+## NVA conceptual overview
 
 The following figure illustrates the use of a [single NVA][nva-scenario] for ingress and egress of network traffic.
 
@@ -15,7 +15,7 @@ In this architecture, the NVA provides a secure network boundary by checking all
 
 A single NVA can have have higher availability if you use Premium SSD or Ultra Disk for all Operating System Disks and Data Disks. To achieve even greater availability targets deploy more than one NVA into an Availability Set or into multiple Availability Zones. To understand the service level agreement for individual and multiple VMs, see [SLA for Virtual Machines](https://azure.microsoft.com/support/legal/sla/virtual-machines/).  The highest level of uptime is achieved with multiple NVA VMs deployed across multiple Availability Zones
 
-## HA Architectures Overview
+## HA architectures overview
 
 The following architectures describe the resources and configuration necessary for highly available NVAs:
 
@@ -97,7 +97,7 @@ deployEgressLoadBalancerNva=false
 
 ---
 
-For detailed information and additional deployment options, see the ARM Templates used to deploy this solution.
+For detailed information and additional deployment options, see the Azure Resource Manager (ARM) Templates used to deploy this solution.
 
 > [!div class="nextstepaction"]
 > [Ingress/Egress with layer 7 NVAs ARM Template][ha-nva-l7-sample]
@@ -159,7 +159,7 @@ deployEgressLoadBalancerNva=true
 
 ---
 
-For detailed information and additional deployment options, see the ARM Templates used to deploy this solution.
+For detailed information and additional deployment options, see the Azure Resource Manager (ARM) Templates used to deploy this solution.
 
 > [!div class="nextstepaction"]
 > [Ingress/Egress with layer 7 NVAs ARM Template][ha-nva-l7-sample]
@@ -222,7 +222,7 @@ deployEgressLoadBalancerNva=true
 
 ---
 
-For detailed information and additional deployment options, see the ARM Templates used to deploy this solution.
+For detailed information and additional deployment options, see the Azure Resource Manager (ARM) Templates used to deploy this solution.
 
 > [!div class="nextstepaction"]
 > [Ingress/Egress with layer 7 NVAs ARM Template][ha-nva-l7-sample]
@@ -272,7 +272,7 @@ This deployment requires several deployment steps and manual configuration. For 
 <!-- images -->
 
 [0]: ./images/nva-ha/single-nva.png "Single NVA architecture"
-[HAPortsArch]: ./images/nva-ha/nvaha.png "Diagram of hub-and-spoke virtual network, with NVAs deployed in HA mode"
+[HAPortsArch]: ./images/nva-ha/nva-ha.png "Diagram of hub-and-spoke virtual network, with NVAs deployed in HA mode"
 [1]: ./images/nva-ha/l7-ingress.png "Layer 7 ingress architecture with load balancer"
 [2]: ./images/nva-ha/l7-egress.png "Layer 7 egress architecture with load balancer"
 [3]: ./images/nva-ha/l7-ingress-egress.png "Layer 7 ingress egress"
