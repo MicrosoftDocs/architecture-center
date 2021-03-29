@@ -11,8 +11,7 @@ The reference architecture describes a typical SAP production system running on 
 
 ### SAP Presentation Layer
 
-The presentation layer (SAPGUI, SAP NetWeaver Business Client, Browser etc.) of the reference architecture reside in the user workstation (laptop, desktop etc.), which connects to Azure via on-premises datacenter. 
-Below are the considerations and recommendations around presentation layer of the architecture.
+The presentation layer (SAPGUI, SAP NetWeaver Business Client, Browser etc.) of the reference architecture reside in the user workstation (laptop, desktop etc.), which connects to Azure via on-premises datacenter. Below are the considerations and recommendations around presentation layer of the architecture.
 
 #### Considerations
 
@@ -22,12 +21,12 @@ Below are the considerations and recommendations around presentation layer of th
 
 - While deploying SAP presentation layer, ensure the latency requirement between SAP Application servers and the presentation layer are met. This [SCN Wiki](https://wiki.scn.sap.com/wiki/display/VIRTUALIZATION/Frequently+Asked+Questions%3A+Microsoft+Azure#FrequentlyAskedQuestions:MicrosoftAzure-HowcanItestthelatencybetweenmyhomelocationandthenextAzuredatacenter?) page contains good guiding principles. When defining your strategy, aim to adhere to these latency guidelines:
 
-Quality of Response time | Measured Response time
----| ---
-Best | <80 ms
-Better | <150 ms
-Good | <220 ms
-Bad | >220 ms
+| Quality of Response time | Measured Response time |
+|--|--|
+| Best | <80 ms |
+| Better | <150 ms |
+| Good | <220 ms |
+| Bad | >220 ms |
 
 ### Networking
 
@@ -93,13 +92,12 @@ The architecture uses Azure-managed disks for Azure VM disks and Azure Files for
 ![Azure Storage recommendations for SAP on Oracle Workload](./media/sap-on-oracle-storage-recommendations.png)
 *Figure – Azure storage recommendations for SAP on Oracle Database*
 
-- For VM running Oracle database – 
-    - Enable read-only caching for all the data disks.
-    - Enable write accelerator (for write caching) for all the log disks when using premium SSD with M series.
-    - For production/performance critical SAP on Oracle deployment with E series VMs, use ultra SSD for log disks and can use premium SSD for data disks.
-    - For non-prod systems/non-performance critical SAP on Oracle deployment you can replace the Premium-managed disk with Standard SSD.
+- For VM running Oracle database:
+  - Enable read-only caching for all the data disks.
+  - Enable write accelerator (for write caching) for all the log disks when using premium SSD with M series.
+  - For production/performance critical SAP on Oracle deployment with E series VMs, use ultra SSD for log disks and can use premium SSD for data disks.
+  - For non-prod systems/non-performance critical SAP on Oracle deployment you can replace the Premium-managed disk with Standard SSD.
 - Can use [premium SSD performance tiering](/azure/virtual-machines/disks-performance-tiers-portal) to temporary increase the performance offerings from the premium SSD.
-
 
 ### Security
 
@@ -119,7 +117,6 @@ The solution uses Azure backup for protecting the VMs and the Oracle database, a
 
 The overall solution is integrated into [Azure Security Center](/azure/security-center/security-center-introduction) and [Azure Sentinel](/azure/sentinel/overview).
 
-
 #### Considerations
 
 - Azure Disk Encryption can be achieved with both Microsoft-Managed Key and Customer-Managed Key options. Refer - [ADE support for VMs and Operating System based on Windows](/azure/virtual-machines/windows/disk-encryption-overview#supported-vms-and-operating-systems) and [ADE support for VMs and Operating System based on Linux](/azure/virtual-machines/linux/disk-encryption-overview#supported-vms-and-operating-systems) to understand ADE supported scenarios.
@@ -129,12 +126,12 @@ The overall solution is integrated into [Azure Security Center](/azure/security-
 - SAP whitepaper [Security Recommendations: A Practical Guide for Securing SAP® Solutions](https://www.sap.com/documents/2017/03/14cf06b2-af7c-0010-82c7-eda71af511fa.html) describes a good framework for SAP Solution Security.
 - Enable Single-Sign-On (SSO) for user authentication from SAPGUI and browser-based SAP access.
 - Use security hardened operating system images for provisioning Azure VMs. Refer to the latest [CIS benchmarks](https://www.cisecurity.org/benchmark/azure/) for the latest recommendations. 
-- Implement Encryption-at-rest for - 
-    - Oracle Database - It’s recommended to use Oracle Transparent Data Encryption (TDE) for Oracle Database Encryption.
-    - Managed Disks – use Azure Disk Encryption with Microsoft or Customer-Managed Keys.
-    - Backups – All the backed-up data to Azure is encrypted by default.
-- Implement Encryption-in-transit – 
-    - Use TLS for encrypting HTTP communications and SNC for DIAG/RFC communications.
+- Implement encryption-at-rest for:
+  - Oracle Database - It’s recommended to use Oracle Transparent Data Encryption (TDE) for Oracle Database Encryption.
+  - Managed Disks – use Azure Disk Encryption with Microsoft or Customer-Managed Keys.
+  - Backups – All the backed-up data to Azure is encrypted by default.
+- Implement encryption-in-transit for:
+  - Use TLS for encrypting HTTP communications and SNC for DIAG/RFC communications.
 - Use Azure Bastion (PaaS) for secure and seamless RDP/SSH connectivity to your VMs directly in the Azure portal over SSL.
 - Enable Azure Security Center (ASC) Standard for SAP on Azure subscriptions.
 - Enable resource locking to prevent accidental deletion of the deployed Azure resource.
@@ -143,7 +140,7 @@ The overall solution is integrated into [Azure Security Center](/azure/security-
 
 The scalability in the reference architecture will be achieved through scale-out of application servers and scale-up of database server. 
 
-The considerations and recommendations around scalability are -
+The considerations and recommendations around scalability are:
 
 #### Considerations
 
@@ -162,7 +159,7 @@ The disaster-recovery of the application layer is achieved through Azure Site Re
 
 For cost-effectiveness, SAP Central Services clustering is not deployed in the DR region. The Azure Site Recovery replication is enabled only from SAP Central Services but not from SAP ERS server.
 
-Below are the considerations and recommendations related to HA/DR setup - 
+Below are the considerations and recommendations related to HA/DR setup.
 
 #### Considerations
 
@@ -174,17 +171,16 @@ Below are the considerations and recommendations related to HA/DR setup -
 - Use database native solution for Oracle database replication.
 - Below is the recommended HA/DR solution for the different components of the reference architecture.
 
-Architecture Component | High Availability | Disaster Recovery
----|---|---
-SAP Central Services | Linux Cluster Solution -or- Windows Server Failover Cluster etc. | Azure Site Recovery*, RSYNC etc.
-SAP Application Server | VMs in availability Set distributed between Availability Zones behind Azure standard load balancer. | Azure Site Recovery*
-Oracle Database Server | Synchronous Oracle Data Guard replication between Oracle databases in availability zones. | Asynchronous Oracle Data Guard replication between Oracle databases in two regions.
-Oracle Observer | VMs distributed between Availability Zones – or – VMs in availability set. | -
+| Architecture Component | High Availability | Disaster Recovery |
+|--|--|--|
+| SAP Central Services | Linux Cluster Solution -or- Windows Server Failover Cluster etc. | Azure Site Recovery*, RSYNC etc. |
+| SAP Application Server | VMs in availability Set distributed between Availability Zones behind Azure standard load balancer. | Azure Site Recovery* |
+| Oracle Database Server | Synchronous Oracle Data Guard replication between Oracle databases in availability zones. | Asynchronous Oracle Data Guard replication between Oracle databases in two regions. |
+| Oracle Observer | VMs distributed between Availability Zones – or – VMs in availability set. | - |
 
 > **_*_**  Refer to supported scenarios with [Azure Site Recovery](/azure/site-recovery/azure-to-azure-support-matrix).
 
 - Use Azure Automation Runbook to automate the pre and post steps of the region failover.
-
 
 ### Backup
 
@@ -235,8 +231,6 @@ Here are some of the cost optimization measures that can be adopted to achieve c
 - Consider using [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/) to use pre-existing on-premises Windows Server, Red Hat or SUSE licenses.
 
 - For temporary increase (i.e., for finite duration) in storage performance without increasing the storage capacity, consider using [Performance tiering of Premium SSD](/azure/virtual-machines/disks-performance-tiers-portal) and Azure NetApp Files.
-
-
 
 ## Related Resources
 

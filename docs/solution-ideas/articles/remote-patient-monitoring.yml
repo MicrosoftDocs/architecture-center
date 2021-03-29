@@ -21,7 +21,7 @@ metadata:
     - medical data analysis
     - remote patient monitoring solutions
     - interactive-diagram
-    - 'https://azure.microsoft.com/solutions/architecture/remote-patient-monitoring/'
+    - "https://azure.microsoft.com/solutions/architecture/remote-patient-monitoring/"
     - ai-machine-learning
   social_image_url: /azure/architecture/solution-ideas/articles/media/remote-patient-monitoring.png
 name: Remote Patient Monitoring Solutions

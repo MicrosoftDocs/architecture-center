@@ -17,7 +17,7 @@ metadata:
     - solution architectures
     - Azure
     - ai gallery
-    - 'https://azure.microsoft.com/solutions/architecture/customer-churn-prediction/'
+    - "https://azure.microsoft.com/solutions/architecture/customer-churn-prediction/"
     - ai-machine-learning
   social_image_url: /azure/architecture/solution-ideas/articles/media/customer-churn-prediction.png
 name: Customer Churn Prediction

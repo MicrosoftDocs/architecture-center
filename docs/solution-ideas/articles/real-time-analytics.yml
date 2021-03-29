@@ -19,7 +19,7 @@ metadata:
     - advanced analytics architecture
     - interactive-diagram
     - pricing-calculator
-    - 'https://azure.microsoft.com/solutions/architecture/real-time-analytics/'
+    - "https://azure.microsoft.com/solutions/architecture/real-time-analytics/"
     - internal-intro
   social_image_url: /azure/architecture/solution-ideas/articles/media/real-time-analytics.png
 name: Real Time Analytics on Big Data Architecture

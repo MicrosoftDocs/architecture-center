@@ -13,6 +13,7 @@ metadata:
   ms.custom:
     - microservices
     - reference-architecture
+    - e2e-aks
 name: Microservices architecture on Azure Kubernetes Service (AKS)
 azureCategories:
   - containers

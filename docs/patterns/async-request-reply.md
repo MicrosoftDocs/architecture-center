@@ -11,7 +11,23 @@ ms.custom:
   - fasttrack-new
   - architecture
   - design-pattern
-keywords: async, http, https, request, reply, synchronous, asynchronous, queue, cqrs, valet, extreme load, transactional, retry-after, location, 202, accepted
+keywords:
+  - async
+  - http
+  - https
+  - request
+  - reply
+  - synchronous
+  - asynchronous
+  - queue
+  - cqrs
+  - valet
+  - extreme load
+  - transactional
+  - retry-after
+  - location
+  - 202
+  - accepted
 ---
 
 <!-- cSpell:ignore cqrs WillEastbury wieastbu -->

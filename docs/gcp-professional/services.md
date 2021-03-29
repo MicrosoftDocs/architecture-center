@@ -10,7 +10,12 @@ products:
   - azure-machine-learning
 ms.custom:
   - fcp
-keywords: GCP experts, Azure comparison, GCP comparison, difference between Azure and GCP, Azure and GCP
+keywords:
+  - GCP experts
+  - Azure comparison
+  - GCP comparison
+  - difference between Azure and GCP
+  - Azure and GCP
 ---
 
 # GCP to Azure services comparison

@@ -18,7 +18,7 @@ metadata:
     - Azure
     - ai gallery
     - chatbot
-    - 'https://azure.microsoft.com/solutions/architecture/interactive-voice-response-bot/'
+    - "https://azure.microsoft.com/solutions/architecture/interactive-voice-response-bot/"
     - ai-machine-learning
   social_image_url: /azure/architecture/solution-ideas/articles/media/interactive-voice-response-bot.png
 name: Interactive Voice Response Bot

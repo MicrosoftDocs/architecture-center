@@ -8,7 +8,12 @@ ms.service: architecture-center
 ms.subservice: cloud-fundamentals
 ms.custom:
   - fcp
-keywords: GCP experts, Azure comparison, GCP comparison, difference between Azure and GCP, Azure and GCP
+keywords:
+  - GCP experts
+  - Azure comparison
+  - GCP comparison
+  - difference between Azure and GCP
+  - Azure and GCP
 ---
 
 # Azure for GCP Professionals
