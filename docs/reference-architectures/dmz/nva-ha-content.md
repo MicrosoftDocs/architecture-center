@@ -97,7 +97,7 @@ deployEgressLoadBalancerNva=false
 
 ---
 
-For detailed information and additional deployment options, see the Azure Resource Manager (ARM) Templates used to deploy this solution.
+For detailed information and additional deployment options, see the Azure Resource Manager templates (ARM templates) used to deploy this solution.
 
 > [!div class="nextstepaction"]
 > [Ingress/Egress with layer 7 NVAs ARM Template][ha-nva-l7-sample]
@@ -159,7 +159,7 @@ deployEgressLoadBalancerNva=true
 
 ---
 
-For detailed information and additional deployment options, see the Azure Resource Manager (ARM) Templates used to deploy this solution.
+For detailed information and additional deployment options, see the Azure Resource Manager templates (ARM templates) used to deploy this solution.
 
 > [!div class="nextstepaction"]
 > [Ingress/Egress with layer 7 NVAs ARM Template][ha-nva-l7-sample]
@@ -222,7 +222,7 @@ deployEgressLoadBalancerNva=true
 
 ---
 
-For detailed information and additional deployment options, see the Azure Resource Manager (ARM) Templates used to deploy this solution.
+For detailed information and additional deployment options, see the Azure Resource Manager templates (ARM templates) used to deploy this solution.
 
 > [!div class="nextstepaction"]
 > [Ingress/Egress with layer 7 NVAs ARM Template][ha-nva-l7-sample]
