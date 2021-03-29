@@ -6,7 +6,6 @@ ms.date: 03/26/2021
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
-ms.industry: automotive
 products:
   - azure-devops
 categories:
