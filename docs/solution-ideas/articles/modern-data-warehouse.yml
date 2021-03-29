@@ -19,7 +19,8 @@ metadata:
     - Big Data warehouse
     - interactive-diagram
     - pricing-calculator
-    - 'https://azure.microsoft.com/solutions/architecture/modern-data-warehouse/'
+    - "https://azure.microsoft.com/solutions/architecture/modern-data-warehouse/"
+    - internal-intro
   social_image_url: /azure/architecture/solution-ideas/articles/media/modern-data-warehouse.png
 name: Modern Data Warehouse Architecture
 azureCategories:

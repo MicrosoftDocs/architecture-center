@@ -46,10 +46,10 @@ The Azure Security Benchmark includes a collection of high-impact security recom
 ## Reference architecture
 Here are some reference architectures related to secure storage:
 
-- [Using Azure file shares in a hybrid environment](/azure/architecture/hybrid/azure-file-share)
+- [Using Azure file shares in a hybrid environment](../../hybrid/azure-file-share.yml)
 
-- [DevSecOps in Azure](/azure/architecture/solution-ideas/articles/devsecops-in-azure)
+- [DevSecOps in Azure](../../solution-ideas/articles/devsecops-in-azure.yml)
 
 ## Related links
 
-> Back to the main article: [Security](/azure/architecture/framework/security/overview)
+> Back to the main article: [Security](./overview.md)

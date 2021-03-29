@@ -21,7 +21,8 @@ metadata:
     - gradient boosting decision tree
     - failure detection
     - automated manufacturing solutions
-    - 'https://azure.microsoft.com/solutions/architecture/information-discovery-with-deep-learning-and-nlp/'
+    - "https://azure.microsoft.com/solutions/architecture/information-discovery-with-deep-learning-and-nlp/"
+    - ai-machine-learning
   social_image_url: /azure/architecture/solution-ideas/articles/media/information-discovery-with-deep-learning-and-nlp.png
 name: Information discovery with deep learning and NLP
 azureCategories:
@@ -35,4 +36,4 @@ products:
   - sql-server
 thumbnailUrl: /azure/architecture/browse/thumbs/information-discovery-with-deep-learning-and-nlp.png
 content: |
-   [!include[](information-discovery-with-deep-learning-and-nlp-content.md)]
+  [!include[](information-discovery-with-deep-learning-and-nlp-content.md)]

@@ -54,7 +54,7 @@ Use the [DevOps checklist][devops-checklist] to review your design from a manage
 
 ### Operational excellence guidance
 
-- [Design patterns for operational excellence](/azure/architecture/framework/devops/devops-patterns)
+- [Design patterns for operational excellence](./devops/devops-patterns.md)
 - Best practices: [Monitoring and diagnostics][monitoring]
 
 ## Performance efficiency
@@ -83,7 +83,7 @@ Use the [Performance efficiency checklist](scalability/performance-efficiency.md
 
 ### Performance efficiency guidance
 
-- [Design patterns for performance efficiency](/azure/architecture/framework/scalability/performance-efficiency-patterns)
+- [Design patterns for performance efficiency](./scalability/performance-efficiency-patterns.md)
 - Best practices: [Autoscaling][autoscale], [Background jobs][background-jobs], [Caching][caching], [CDN][cdn], [Data partitioning][data-partitioning]
 
 ## Reliability
@@ -110,7 +110,7 @@ When designing an application to be resilient, you must understand your availabi
 ### Reliability guidance
 
 - [Designing reliable Azure applications][resiliency]
-- [Design patterns for resiliency](/azure/architecture/framework/resiliency/reliability-patterns)
+- [Design patterns for resiliency](./resiliency/reliability-patterns.md)
 - Best practices: [Transient fault handling][transient-fault-handling], [Retry guidance for specific services][retry-service-specific]
 
 ## Security
@@ -165,9 +165,9 @@ Use Key Vault to safeguard cryptographic keys and secrets. By using Key Vault, y
 [trust-center]: https://azure.microsoft.com/support/trust-center
 
 <!-- patterns -->
-[operational-excellence-patterns]: /azure/architecture/framework/devops/devops-patterns.md
+[operational-excellence-patterns]: ./devops/devops-patterns.md
 [resiliency-patterns]:/azure/architecture//framework/resiliency/reliability-patterns.md
-[performance-efficiency-patterns]: /azure/architecture/framework/scalability/performance-efficiency-patterns.md
+[performance-efficiency-patterns]: ./scalability/performance-efficiency-patterns.md
 
 <!-- practices -->
 [autoscale]: ../best-practices/auto-scaling.md

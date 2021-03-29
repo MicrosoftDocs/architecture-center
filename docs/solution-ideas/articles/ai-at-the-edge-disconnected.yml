@@ -20,7 +20,8 @@ metadata:
     - offline machine learning
     - interactive-diagram
     - e2e-hybrid
-    - 'https://azure.microsoft.com/solutions/architecture/ai-at-the-edge-disconnected/'
+    - "https://azure.microsoft.com/solutions/architecture/ai-at-the-edge-disconnected/"
+    - ai-machine-learning
   social_image_url: /azure/architecture/solution-ideas/articles/media/ai-at-the-edge-disconnected.png
 name: AI at the Edge with Azure Stack Hub - disconnected
 azureCategories:
@@ -36,4 +37,4 @@ products:
   - azure-virtual-machines
 thumbnailUrl: /azure/architecture/browse/thumbs/ai-at-the-edge-disconnected.png
 content: |
-   [!include[](ai-at-the-edge-disconnected-content.md)]
+  [!include[](ai-at-the-edge-disconnected-content.md)]

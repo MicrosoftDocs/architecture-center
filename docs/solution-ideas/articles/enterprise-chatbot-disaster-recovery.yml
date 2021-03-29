@@ -14,6 +14,7 @@ metadata:
     - management-and-governance
   ms.custom:
     - fcp
+    - ai-machine-learning
 name: Enterprise chatbot disaster recovery
 azureCategories:
   - ai-machine-learning
@@ -26,4 +27,4 @@ products:
   - azure-traffic-manager
 thumbnailUrl: /azure/architecture/browse/thumbs/chatbot-dr.png
 content: |
-   [!include[](enterprise-chatbot-disaster-recovery-content.md)]
+  [!include[](enterprise-chatbot-disaster-recovery-content.md)]

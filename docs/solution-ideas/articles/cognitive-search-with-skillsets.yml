@@ -13,6 +13,8 @@ metadata:
     - ai-machine-learning
   ms.custom:
     - fcp
+    - internal-intro
+    - ai-machine-learning
 name: AI enrichment with Azure Cognitive Search
 azureCategories:
   - ai-machine-learning
@@ -24,4 +26,4 @@ products:
   - azure-functions
 thumbnailUrl: /azure/architecture/browse/thumbs/cognitive-search.png
 content: |
-   [!include[](cognitive-search-with-skillsets-content.md)]
+  [!include[](cognitive-search-with-skillsets-content.md)]

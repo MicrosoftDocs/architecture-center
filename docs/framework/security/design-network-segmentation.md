@@ -6,24 +6,24 @@ ms.date: 02/03/2021
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
-ms.custom:
-  - article
 azureCategories:
   - hybrid
   - networking
-product:
+products:
   - azure-firewall
   - azure-virtual-network
   - azure-express-route
+ms.custom:
+  - article
 ---
 
-# Implement network segmentation patterns on Azure 
+# Implement network segmentation patterns on Azure
 
-Create segmentation in your network footprint by defining perimeters. Main reasons for segmentation are: 
+Create segmentation in your network footprint by defining perimeters. Main reasons for segmentation are:
 
-- The ability to group related assets that are a part of (or support) workload operations. 
-- Isolation of resources. 
-- Governance policies set by the organization. 
+- The ability to group related assets that are a part of (or support) workload operations.
+- Isolation of resources.
+- Governance policies set by the organization.
 
 Network controls can secure interactions between perimeters. This approach can strengthen the security posture and contain risks in a breach because the controls can detect, contain, and stop attackers from gaining access to entire workload.
 
@@ -36,14 +36,15 @@ This article highlights some Azure networking features that create segments and 
 >Align your network segmentation strategy with the enterprise segmentation model. This will reduce confusion and  challenges with different technical teams (networking, identity, applications, and so on). Each team should not develop their own segmentation and delegation models that don’t align with each other.
 
 ## Key points
+
 - Create software-defined perimeters in your networking footprint and secure communication paths between them.
 - Azure Virtual Networks (VNets) are created in private address spaces. By default no traffic allowed by default between any two VNets. Open paths only when it's really needed.
 - Use Network Security Groups (NSG) to secure communication between resources within a VNet.
 - Use Application Security Groups (ASGs) to define traffic rules for the underlying VMs that run the workload.  
 - Use Azure Firewall to filter traffic flowing between cloud resources, the internet, and on-premise.
 - Place resources in a single VNet, if you don't need to operate in multiple regions.
-- If you need to be in multiple regions, have multiple VNets that are connected through peering. 
-- For advanced configurations, use a hub-spoke topology. A VNet is designated as a hub in a given region for all the other VNets as spokes in that region. 
+- If you need to be in multiple regions, have multiple VNets that are connected through peering.
+- For advanced configurations, use a hub-spoke topology. A VNet is designated as a hub in a given region for all the other VNets as spokes in that region.
 
 ## What is segmentation?
 
@@ -67,7 +68,7 @@ When you operate on Azure, you have many segmentation options.
 
 ## Segmentation patterns
 
-Here are some common patterns for segmenting a workload in Azure from a networking perspective. Each  pattern provides a different type of isolation and connectivity. Choose a pattern based on your organization's needs. 
+Here are some common patterns for segmenting a workload in Azure from a networking perspective. Each  pattern provides a different type of isolation and connectivity. Choose a pattern based on your organization's needs.
 
 ## Pattern 1: Single VNet
 
@@ -80,7 +81,6 @@ In this image, Subnet1 has the database workload. Subnet2 has the web workloads.
 ![Single Virtual Network](./images/single-azure-region.png)
 
 Consider a use case where you have multiple workloads that are placed in separate subnets. You can place controls that will allow one workload to communicate to the backend of another workload.
-
 
 ## Pattern 2: Multiple VNets that communicate through with peering
 
@@ -96,7 +96,7 @@ A VNet is designated as a _hub_ in a given region for all the other VNets as _sp
 
 The recommended native option is Azure Firewall. This option  works across both VNets and subscriptions to govern traffic flows using layer 3 to layer 7 controls. You can define your communication rules and apply them consistently. Here are some examples:
 
-- VNet 1 cannot communicate with VNet 2, but it can communicate VNet 3. 
+- VNet 1 cannot communicate with VNet 2, but it can communicate VNet 3.
 - VNet 1 cannot access public internet except for *.github.com.
 
 With Azure Firewall Manager preview, you can centrally manage policies across multiple Azure Firewalls and enable DevOps teams to further customize local policies.
@@ -106,7 +106,7 @@ With Azure Firewall Manager preview, you can centrally manage policies across mu
 >
 > ![GitHub logo](../../_images/github.svg) [GitHub: Hub and Spoke Topology Sandbox](https://github.com/Azure/azure-quickstart-templates/tree/master/101-hub-and-spoke-sandbox).
 >
-> The design considerations are described in [Hub-spoke network topology in Azure](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke).
+> The design considerations are described in [Hub-spoke network topology in Azure](../../reference-architectures/hybrid-networking/hub-spoke.yml).
 
 ## Pattern comparison
 
@@ -119,14 +119,15 @@ With Azure Firewall Manager preview, you can centrally manage policies across mu
 **Application level protection** | NSG or ASG provides network layer support only.  | Same as a pattern 1. | Azure Firewall supports FQDN filtering for HTTP/S and MSSQL for outbound traffic and across virtual networks.
 
 ## Next step
+
 > [!div class="nextstepaction"]
 > [Secure network connectivity](design-network-connectivity.md)
 
-
 ## Related links
+
 - For information about setting up peering, see [Virtual network peering](/azure/virtual-network/virtual-network-peering-overview).
 
-- For best practices about using Azure Firewall in various configurations, see [Azure Firewall Architecture Guide](/azure/architecture/example-scenario/firewalls/).
+- For best practices about using Azure Firewall in various configurations, see [Azure Firewall Architecture Guide](../../example-scenario/firewalls/index.yml).
 
 - For information about different access policies and control flow within a VNet, see [Azure Virtual Network Subnet](/azure/virtual-network/virtual-network-manage-subnet)
 

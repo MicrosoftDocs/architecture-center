@@ -18,7 +18,8 @@ metadata:
     - solution architectures
     - Azure
     - ai gallery
-    - 'https://azure.microsoft.com/solutions/architecture/demand-forecasting-for-shipping-and-distribution/'
+    - "https://azure.microsoft.com/solutions/architecture/demand-forecasting-for-shipping-and-distribution/"
+    - ai-machine-learning
   social_image_url: /azure/architecture/solution-ideas/articles/media/demand-forecasting-for-shipping-and-distribution.png
 name: Demand Forecasting for Shipping and Distribution
 azureCategories:
@@ -33,4 +34,4 @@ products:
   - azure-web-apps
 thumbnailUrl: /azure/architecture/browse/thumbs/demand-forecasting-for-shipping-and-distribution.png
 content: |
-   [!include[](demand-forecasting-for-shipping-and-distribution-content.md)]
+  [!include[](demand-forecasting-for-shipping-and-distribution-content.md)]

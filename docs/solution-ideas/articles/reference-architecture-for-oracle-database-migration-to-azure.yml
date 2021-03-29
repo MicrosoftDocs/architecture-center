@@ -21,7 +21,7 @@ metadata:
     - Oracle on Azure
     - Oracle DB architecture
     - interactive-diagram
-    - 'https://azure.microsoft.com/solutions/architecture/reference-architecture-for-oracle-database-migration-to-azure/'
+    - "https://azure.microsoft.com/solutions/architecture/reference-architecture-for-oracle-database-migration-to-azure/"
   social_image_url: /azure/architecture/solution-ideas/articles/media/reference-architecture-for-oracle-database-migration-to-azure.png
 name: Oracle Database Migration to Azure
 azureCategories:

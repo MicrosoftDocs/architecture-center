@@ -83,4 +83,4 @@ Guidance for big data architectures is available in the [Azure Data Architecture
 
 [product-category]: https://azure.microsoft.com/product-categories/analytics
 [customer-story]: https://customers.microsoft.com/story/komatsu-manufacturing-azure-iot-hub-japan
-[architecture]: ./media/architecture-big-data-with-iot.png
+[architecture]: ./media/architecture-big-data-with-iot.svg

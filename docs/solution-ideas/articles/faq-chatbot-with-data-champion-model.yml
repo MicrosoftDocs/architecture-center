@@ -19,7 +19,8 @@ metadata:
     - FAQ
     - FAQ chatbot
     - interactive-diagram
-    - 'https://azure.microsoft.com/solutions/architecture/faq-chatbot-with-data-champion-model/'
+    - "https://azure.microsoft.com/solutions/architecture/faq-chatbot-with-data-champion-model/"
+    - ai-machine-learning
   social_image_url: /azure/architecture/solution-ideas/articles/media/faq-chatbot-with-data-champion-model.png
 name: FAQ Chatbot with data champion model
 azureCategories:
@@ -32,4 +33,4 @@ products:
   - azure-qna-maker
 thumbnailUrl: /azure/architecture/browse/thumbs/faq-chatbot-with-data-champion-model.png
 content: |
-   [!include[](faq-chatbot-with-data-champion-model-content.md)]
+  [!include[](faq-chatbot-with-data-champion-model-content.md)]

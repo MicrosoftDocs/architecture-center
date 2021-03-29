@@ -16,7 +16,8 @@ metadata:
     - acom-architecture
     - demand forecasting
     - price optimization
-    - 'https://azure.microsoft.com/solutions/architecture/demand-forecasting-price-optimization-marketing/'
+    - "https://azure.microsoft.com/solutions/architecture/demand-forecasting-price-optimization-marketing/"
+    - ai-machine-learning
   social_image_url: /azure/architecture/solution-ideas/articles/media/demand-forecasting-price-optimization-marketing.png
 name: Demand Forecasting + Price Optimization
 azureCategories:
@@ -30,4 +31,4 @@ products:
   - azure-web-apps
 thumbnailUrl: /azure/architecture/browse/thumbs/demand-forecasting-price-optimization-marketing.png
 content: |
-   [!include[](demand-forecasting-price-optimization-marketing-content.md)]
+  [!include[](demand-forecasting-price-optimization-marketing-content.md)]

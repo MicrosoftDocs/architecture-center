@@ -18,7 +18,7 @@ metadata:
     - azure
     - solutions
     - web-apps
-    - 'https://azure.microsoft.com/solutions/architecture/digital-marketing-using-azure-database-for-mysql/'
+    - "https://azure.microsoft.com/solutions/architecture/digital-marketing-using-azure-database-for-mysql/"
   social_image_url: /azure/architecture/solution-ideas/articles/media/digital-marketing-using-azure-database-for-mysql.png
 name: Digital Marketing using Azure Database for MySQL
 azureCategories:
