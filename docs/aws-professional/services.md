@@ -10,7 +10,14 @@ ms.service: architecture-center
 ms.subservice: cloud-fundamentals
 ms.custom:
   - fcp
-keywords: cloud services comparison, cloud services compared, multicloud, compare Azure AWS, compare Azure and AWS, compare AWS and Azure, IT capabilities
+keywords:
+  - cloud services comparison
+  - cloud services compared
+  - multicloud
+  - compare Azure AWS
+  - compare Azure and AWS
+  - compare AWS and Azure
+  - IT capabilities
 ---
 
 <!-- cSpell:ignore Alexa Rekognition Cognito ElastiCache Greengrass Firehose -->

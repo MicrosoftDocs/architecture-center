@@ -1782,6 +1782,8 @@ items:
         items:
           - name: Architectures
             items:
+              - name: Azure Functions in a hybrid environment
+                href: hybrid/azure-functions-hybrid.yml
               - name: Basic web application
                 href: reference-architectures/app-service-web-app/basic-web-app.yml
               - name: Azure Functions in a hybrid environment
@@ -1808,10 +1810,14 @@ items:
                 href: reference-architectures/app-service-web-app/scalable-web-app.yml
               - name: Serverless web app
                 href: reference-architectures/serverless/web-app.yml
+              - name: Virtual visits with Microsoft Cloud for Healthcare
+                href: example-scenario/mch-health/virtual-health-mch.yml 
               - name: Web app monitoring on Azure
                 href: reference-architectures/app-service-web-app/app-monitoring.yml
           - name: Solution ideas
             items:
+              - name: Dynamics Business Central as a Service on Azure
+                href: solution-ideas/articles/business-central.yml
               - name: E-commerce website running in ASE
                 href: solution-ideas/articles/ecommerce-website-running-in-secured-ase.yml
               - name: Highly available SharePoint farm
@@ -1834,7 +1840,5 @@ items:
                 href: solution-ideas/articles/digital-marketing-smb.yml
               - name: Web and mobile apps with MySQL and Redis
                 href: solution-ideas/articles/webapps.yml
-              - name: Dynamics Business Central as a Service on Azure
-                href: solution-ideas/articles/business-central.yml
   - name: Cloud Adoption Framework
     href: /azure/cloud-adoption-framework

@@ -49,7 +49,7 @@ Key technologies used to implement this architecture:
 * [Azure Kubernetes Service (AKS) documentation](/azure/aks)
 * [Azure Machine Learning documentation](/azure/machine-learning/service)
 * [Azure Stack Hub documentation](/azure/azure-stack/user/azure-stack-solution-machine-learning)
-* [Azure Stack Hub Deployment Options](/azure/azure-stack/operator/azure-stack-overview)
+* [Azure Stack Hub Deployment Options](/azure-stack/operator/azure-stack-overview#deployment-options)
 * [Container Registry documentation](/azure/container-registry)
 * [HDInsight documentation](/azure/hdinsight)
 * [Storage documentation](/azure/storage)

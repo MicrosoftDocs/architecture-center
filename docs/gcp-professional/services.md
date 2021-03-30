@@ -10,7 +10,12 @@ products:
   - azure-machine-learning
 ms.custom:
   - fcp
-keywords: GCP experts, Azure comparison, GCP comparison, difference between Azure and GCP, Azure and GCP
+keywords:
+  - GCP experts
+  - Azure comparison
+  - GCP comparison
+  - difference between Azure and GCP
+  - Azure and GCP
 ---
 
 # GCP to Azure services comparison
@@ -93,7 +98,7 @@ For an overview of Azure for GCP users, see Introduction to [Azure for GCP Profe
 | GCP service | Azure service | Description |
 | --- | --- | --- |
 | [Compute Engine](https://cloud.google.com/compute#documentation) | [Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines/) | Virtual servers allow users to deploy, manage, and maintain OS and server software. Instance types provide combinations of CPU/RAM. Users pay for what they use with the flexibility to change sizes. |
-| [Batch](https://cloud.google.com/kubernetes-engine/docs/concepts/batch) | [Azure Batch](https://azure.microsoft.com/services/batch/) | Run large-scale parallel and high-performance computing applications efficiently in the cloud. |
+| [Batch](https://cloud.google.com/kubernetes-engine/docs/concepts/) | [Azure Batch](https://azure.microsoft.com/services/batch/) | Run large-scale parallel and high-performance computing applications efficiently in the cloud. |
 | [Compute Engine Managed Instance Groups](https://cloud.google.com/compute/docs/instance-groups/) | [Azure Virtual Machine Scale Sets](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-overview) | Allows you to automatically change the number of VM instances. You set defined metric and thresholds that determine if the platform adds or removes instances. |
 | [VMware as a service](https://cloud.google.com/solutions/vmware-as-a-service) | [Azure VMware by CloudSimple](https://azure.microsoft.com/services/azure-vmware-cloudsimple/) | Redeploy and extend your VMware-based enterprise workloads to Azure with Azure VMware Solution by CloudSimple. Keep using the VMware tools you already know to manage workloads on Azure without disrupting network, security, or data protection policies. |
 

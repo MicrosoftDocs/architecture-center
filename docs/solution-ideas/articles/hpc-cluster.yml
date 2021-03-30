@@ -15,7 +15,7 @@ metadata:
   ms.custom:
     - acom-architecture
     - hpc
-    - 'https://azure.microsoft.com/solutions/architecture/hpc-cluster/'
+    - "https://azure.microsoft.com/solutions/architecture/hpc-cluster/"
   social_image_url: /azure/architecture/solution-ideas/articles/media/hpc-cluster.png
 name: HPC cluster deployed in the cloud
 azureCategories:

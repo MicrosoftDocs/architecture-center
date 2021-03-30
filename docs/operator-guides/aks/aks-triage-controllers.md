@@ -9,6 +9,8 @@ ms.service: architecture-center
 ms.subservice: guide
 products:
   - azure-kubernetes-service
+ms.custom:
+  - e2e-aks
 ---
 
 # Validate the admission controllers are working as expected

@@ -13,12 +13,12 @@ ms.custom:
   - article
   - seo-aac-fy21q3
 keywords:
-  - "antipattern"
-  - "anti-pattern"
-  - "performance antipattern"
-  - "no caching antipattern"
-  - "caching strategy"
-  - "reduce latency"
+  - antipattern
+  - anti-pattern
+  - performance antipattern
+  - no caching antipattern
+  - caching strategy
+  - reduce latency
 ---
 
 <!-- cSpell:ignore linq -->

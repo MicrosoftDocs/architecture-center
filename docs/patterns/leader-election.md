@@ -11,7 +11,8 @@ products:
   - azure-hdinsight
 ms.custom:
   - design-pattern
-keywords: design pattern
+keywords:
+  - design pattern
 ---
 
 # Leader Election pattern

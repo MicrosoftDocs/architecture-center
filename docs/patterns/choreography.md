@@ -10,9 +10,12 @@ ms.service: architecture-center
 ms.subservice: design-pattern
 products:
   - azure-event-grid
+categories:
+  - integration
 ms.custom:
   - design-pattern
-keywords: design pattern
+keywords:
+  - design pattern
 ---
 
 <!-- cSpell:ignore upsert typeof -->

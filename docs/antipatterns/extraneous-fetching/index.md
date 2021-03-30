@@ -11,12 +11,12 @@ ms.custom:
   - article
   - seo-aac-fy21q3
 keywords:
-  - "anti-pattern"
-  - "antipattern"
-  - "performance antipattern"
-  - "entity framework"
-  - "extraneous fetching"
-  - "horizontal partitioning"
+  - anti-pattern
+  - antipattern
+  - performance antipattern
+  - entity framework
+  - extraneous fetching
+  - horizontal partitioning
 ---
 
 <!-- cSpell:ignore IQueryable LINQ -->

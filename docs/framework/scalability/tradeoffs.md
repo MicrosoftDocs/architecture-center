@@ -1,6 +1,6 @@
 ---
 title: Tradeoffs for performance efficiency
-description: Discover the pros and cons of performance optimization. Learn about tradeoffs between performance efficiency, operational excellence, reliability, scalability, and more.  
+description: Discover the pros and cons of performance optimization. Learn about tradeoffs between performance efficiency, operational excellence, reliability, scalability, and more.
 author: v-aangie
 ms.date: 01/07/2021
 ms.topic: conceptual
@@ -11,10 +11,10 @@ ms.custom:
   - article
   - seo-aac-fy21q3
 keywords:
-  - "Performance efficiency"
-  - "cost efficiency"
-  - "performance optimization"
-  - "operational excellence"
+  - Performance efficiency
+  - cost efficiency
+  - performance optimization
+  - operational excellence
 ---
 
 # Tradeoffs for performance efficiency
@@ -31,7 +31,7 @@ Cost can increase as a result of boosting performance. Here are a few factors to
 
 - Every render cycle of a payload consumes both compute and memory. You can use caching to reduce load on servers and save with pre-canned storage and bandwidth costs. The savings can be dramatic, especially for static content services.
 
-     - While caching can reduce cost, there are some performance tradeoffs. For example, Azure Traffic Manager pricing is based on the number of DNS (Domain Name Service) queries that reach the service. You can reduce that number through caching and configure how often the cache is refreshed. Relying on the cache that isn't frequently updated will cause longer user failover times if an endpoint is unavailable.
+  - While caching can reduce cost, there are some performance tradeoffs. For example, Azure Traffic Manager pricing is based on the number of DNS (Domain Name Service) queries that reach the service. You can reduce that number through caching and configure how often the cache is refreshed. Relying on the cache that isn't frequently updated will cause longer user failover times if an endpoint is unavailable.
 
 - Using dedicated resources for batch processing long running jobs will increase the cost. You can lower cost by provisioning Spot VMs but be prepared for the job to be interrupted every time Azure evicts the VM.
 
