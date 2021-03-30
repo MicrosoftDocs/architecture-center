@@ -866,11 +866,12 @@ items:
                 href: example-scenario/apps/devops-with-aks.yml
               - name: Magento e-commerce in AKS
                 href: example-scenario/magento/magento-azure.yml
-              - name: Microservices with Azure Spring Cloud
-                href: /azure/spring-cloud/spring-cloud-reference-architecture
-                maintainContext: true
           - name: Solution ideas
             items:
+              - name: API-first SaaS business model with AKS
+                href: solution-ideas/articles/aks-api-first.yml
+              - name: Elastic demand handling with AKS
+                href: solution-ideas/articles/aks-demand-spikes.yml
               - name: Microservices with AKS and Azure DevOps
                 href: solution-ideas/articles/microservices-with-aks.yml
               - name: Secure DevOps for AKS
@@ -1120,9 +1121,12 @@ items:
               - name: Decompose apps with Service Fabric
                 href: example-scenario/infrastructure/service-fabric-microservices.yml
               - name: Event-based cloud automation
-                href: reference-architectures/serverless/cloud-automation.yml
+                href: reference-architectures/serverless/cloud-automation.yml                
               - name: Microservices on Azure Service Fabric
                 href: reference-architectures/microservices/service-fabric.yml
+              - name: Microservices with Azure Spring Cloud
+                href: /azure/spring-cloud/spring-cloud-reference-architecture
+                maintainContext: true
               - name: Multicloud with the Serverless Framework
                 href: example-scenario/serverless/serverless-multicloud.yml
               - name: Serverless event processing
