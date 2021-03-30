@@ -8,7 +8,7 @@ Guarantee access to users around the world with the high-availability and low-la
 ## Architecture
 
 ![Architecture Diagram](../media/globally-distributed-mission-critical-applications-using-cosmos-db.png)
-*Download an [SVG](../media/globally-distributed-mission-critical-applications-using-cosmos-db.svg) or an [Draw.io](../media/globally-distributed-mission-critical-applications-using-cosmos-db.drawio) version of this architecture.*
+*Download an [SVG](../media/globally-distributed-mission-critical-applications-using-cosmos-db.svg) version of this architecture.*
 
 ## Data flow
 
