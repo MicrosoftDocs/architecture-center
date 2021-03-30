@@ -2,12 +2,20 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id/>
     <title>Azure Architecture Center</title>
-    <updated>2021-03-15T14:12:30.313Z</updated>
+    <updated>2021-03-30T14:13:54.500Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <subtitle>Updated articles for Azure Architecture Center</subtitle>
     <rights>https://docs.microsoft.com/legal/termsofuse</rights>
     <category term="new"/>
     <category term="updated"/>
+    <entry>
+        <title type="html"><![CDATA[Virtual health on Microsoft Cloud for Healthcare]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/example-scenario/mch-health/virtual-health-mch</id>
+        <link href="https://docs.microsoft.com/azure/architecture/example-scenario/mch-health/virtual-health-mch"/>
+        <updated>2021-03-26T17:45:23.000Z</updated>
+        <summary type="html"><![CDATA[This article describes an architecture to develop a virtual health solution using Microsoft Cloud for Healthcare.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[IoT Edge data storage and processing]]></title>
         <id>https://docs.microsoft.com/azure/architecture/solution-ideas/articles/data-storage-edge</id>
@@ -31,6 +39,126 @@
         <updated>2021-03-02T00:11:26.000Z</updated>
         <summary type="html"><![CDATA[Lock down access to a highly available Azure SQL Database. Connect multi-tenant Azure App Service web apps in different Azure regions to the database privately.]]></summary>
         <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Deploy highly available NVAs]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/reference-architectures/dmz/nva-ha</id>
+        <link href="https://docs.microsoft.com/azure/architecture/reference-architectures/dmz/nva-ha"/>
+        <updated>2021-03-29T17:16:58.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to deploy network virtual appliances for high availability architectures for ingress, egress, and both in Azure.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[FSLogix for the enterprise]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/example-scenario/wvd/windows-virtual-desktop-fslogix</id>
+        <link href="https://docs.microsoft.com/azure/architecture/example-scenario/wvd/windows-virtual-desktop-fslogix"/>
+        <updated>2021-03-29T16:23:28.000Z</updated>
+        <summary type="html"><![CDATA[Learn to build virtual desktop infrastructure solutions at enterprise scale using Microsoft FSLogix.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Asynchronous Request-Reply Pattern]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/patterns/async-request-reply</id>
+        <link href="https://docs.microsoft.com/azure/architecture/patterns/async-request-reply"/>
+        <updated>2021-03-26T22:11:26.000Z</updated>
+        <summary type="html"><![CDATA[Allow decoupling of backend processing from a frontend host, where backend processing needs to be asynchronous, but the frontend still needs a clear response.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Sequential Convoy]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/patterns/sequential-convoy</id>
+        <link href="https://docs.microsoft.com/azure/architecture/patterns/sequential-convoy"/>
+        <updated>2021-03-26T22:11:26.000Z</updated>
+        <summary type="html"><![CDATA[The sequential convoy cloud design pattern allows for first-in-first-out processing of data in a serverless environment.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[AWS to Azure services comparison]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/aws-professional/services</id>
+        <link href="https://docs.microsoft.com/azure/architecture/aws-professional/services"/>
+        <updated>2021-03-26T22:07:43.000Z</updated>
+        <summary type="html"><![CDATA[Compare Azure cloud services to Amazon Web Services (AWS) for multicloud solutions or migration to Azure.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Personalization using Cosmos DB]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/solution-ideas/articles/personalization-using-cosmos-db</id>
+        <link href="https://docs.microsoft.com/azure/architecture/solution-ideas/articles/personalization-using-cosmos-db"/>
+        <updated>2021-03-26T00:14:58.000Z</updated>
+        <summary type="html"><![CDATA[Generate personalized recommendations for customers in real time by using low-latency and tunable consistency settings for immediate insights.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Bursting from AKS with ACI]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/solution-ideas/articles/scale-using-aks-with-aci</id>
+        <link href="https://docs.microsoft.com/azure/architecture/solution-ideas/articles/scale-using-aks-with-aci"/>
+        <updated>2021-03-26T00:14:58.000Z</updated>
+        <summary type="html"><![CDATA[Use Azure Kubernetes Service virtual node to provision pods inside Azure Container Instances when traffic spikes, eliminating the need for additional servers.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Azure Arc hybrid management and deployment for Kubernetes clusters]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/hybrid/arc-hybrid-kubernetes</id>
+        <link href="https://docs.microsoft.com/azure/architecture/hybrid/arc-hybrid-kubernetes"/>
+        <updated>2021-03-25T16:16:24.000Z</updated>
+        <summary type="html"><![CDATA[Use Azure Arc to register Kubernetes clusters hosted outside of Azure, and using Azure tools to manage these clusters along with clusters hosted in Azure Kubernetes Service.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Manage configurations for Azure Arc enabled servers]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/hybrid/azure-arc-hybrid-config</id>
+        <link href="https://docs.microsoft.com/azure/architecture/hybrid/azure-arc-hybrid-config"/>
+        <updated>2021-03-25T16:16:24.000Z</updated>
+        <summary type="html"><![CDATA[Use Azure Arc to extend Azure Resource Manager capabilities to Windows and Linux machines on any infrastructure.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Using Azure file shares in a hybrid environment]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/hybrid/azure-file-share</id>
+        <link href="https://docs.microsoft.com/azure/architecture/hybrid/azure-file-share"/>
+        <updated>2021-03-25T16:16:24.000Z</updated>
+        <summary type="html"><![CDATA[With identity-based authentication, you can control access to Azure file shares by using Active Directory Directory Services users and groups.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Azure Functions in a hybrid environment]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/hybrid/azure-functions-hybrid</id>
+        <link href="https://docs.microsoft.com/azure/architecture/hybrid/azure-functions-hybrid"/>
+        <updated>2021-03-25T16:16:24.000Z</updated>
+        <summary type="html"><![CDATA[This reference architecture illustrates Azure Functions being utilized from on-premises virtual machines.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Run containers in a hybrid environment]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/hybrid/hybrid-containers</id>
+        <link href="https://docs.microsoft.com/azure/architecture/hybrid/hybrid-containers"/>
+        <updated>2021-03-25T16:16:24.000Z</updated>
+        <summary type="html"><![CDATA[This reference architecture illustrates how developers can create, manage, and monitor deployed containers in the public cloud, across multiple clouds, and on-premises.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Digital Marketing using Azure Database for MySQL]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/solution-ideas/articles/digital-marketing-using-azure-database-for-mysql</id>
+        <link href="https://docs.microsoft.com/azure/architecture/solution-ideas/articles/digital-marketing-using-azure-database-for-mysql"/>
+        <updated>2021-03-25T16:16:24.000Z</updated>
+        <summary type="html"><![CDATA[Use Azure Database for MySQL to engage with customers around the world with rich, personalized digital marketing experiences.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Loan Credit Risk with SQL Server]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/solution-ideas/articles/loan-credit-risk-with-sql-server</id>
+        <link href="https://docs.microsoft.com/azure/architecture/solution-ideas/articles/loan-credit-risk-with-sql-server"/>
+        <updated>2021-03-25T16:16:24.000Z</updated>
+        <summary type="html"><![CDATA[Lending institutions can use the predictive analytics of SQL Server 2016 with R Services to reduce the number of loans to borrowers most likely to default.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Extend on-premises AD FS to Azure]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/reference-architectures/identity/adfs</id>
+        <link href="https://docs.microsoft.com/azure/architecture/reference-architectures/identity/adfs"/>
+        <updated>2021-03-17T14:22:22.000Z</updated>
+        <summary type="html"><![CDATA[Implement a secure hybrid network architecture with Active Directory Federation Service authorization in Azure.]]></summary>
+        <category label="updated" term="updated"/>
     </entry>
     <entry>
         <title type="html"><![CDATA[Secure application's configuration and dependencies]]></title>
@@ -94,14 +222,6 @@
         <link href="https://docs.microsoft.com/azure/architecture/solution-ideas/articles/optimize-marketing-with-machine-learning"/>
         <updated>2021-03-09T16:50:27.000Z</updated>
         <summary type="html"><![CDATA[Build a machine-learning model with Azure Machine Learning, Azure Synapse Analytics and Power BI that optimizes big data marketing campaigns.]]></summary>
-        <category label="updated" term="updated"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Personalization using Cosmos DB]]></title>
-        <id>https://docs.microsoft.com/azure/architecture/solution-ideas/articles/personalization-using-cosmos-db</id>
-        <link href="https://docs.microsoft.com/azure/architecture/solution-ideas/articles/personalization-using-cosmos-db"/>
-        <updated>2021-03-09T16:50:27.000Z</updated>
-        <summary type="html"><![CDATA[Generate personalized recommendations for customers in real time by using low-latency and tunable consistency settings for immediate insights.]]></summary>
         <category label="updated" term="updated"/>
     </entry>
     <entry>

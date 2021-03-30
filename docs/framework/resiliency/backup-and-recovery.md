@@ -91,7 +91,7 @@ Many alternative strategies are available for implementing distributed compute a
 
 ## Plan for regional failures
 
-Azure is divided physically and logically into units called regions. A region consists of one or more data centers in close proximity. Many regions also contain [availability zones](/azure/availability-zones/az-overview), which can be used to provide more resiliency against outages in a single data center. Consider using regions with availability zones to improve the availabilty of your solution.
+Azure is divided physically and logically into units called regions. A region consists of one or more data centers in close proximity. Many regions and services also support [availability zones](/azure/availability-zones/az-overview), which can be used to provide more resiliency against outages in a single data center. Consider using regions with availability zones to improve the availability of your solution.
 
 Under rare circumstances, it is possible that facilities in an entire availability zone or region can become inaccessible, for example, due to network failures. Or, facilities can be lost entirely, for example, due to a natural disaster. Azure has capabilities for creating applications that are distributed across zones and regions. Such distribution helps to minimize the possibility that a failure in one zone or region could affect other zones or regions.
 
