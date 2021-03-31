@@ -31,7 +31,7 @@ Enable, acquire, and store audit logs for Azure services.
 > - Enable DNS query logging.
 > - Enable command-line audit logging.
 
-
+# Logs and alerts
 
 ## Use native logging through Azure Monitor
 

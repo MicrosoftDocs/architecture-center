@@ -443,10 +443,10 @@ items:
                 href: framework/security/monitor-tools.md
               - name: Azure resources
                 href: framework/security/monitor-resources.md
-              - name: Logs and alerts
-                href: framework/security/monitor-logs-alerts.md  
               - name: Compliance review
                 href: framework/security/monitor-audit.md
+              - name: Logs and alerts
+                href: framework/security/monitor-logs-alerts.md                 
               - name: Review and remediate 
                 href: framework/security/monitor-remediate.md                              
               - name: Security operations
