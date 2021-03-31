@@ -21,11 +21,11 @@ The architecture would consist of the Azure managed services: Azure CDN, Webapps
 5. Detect issues, diagnose crashes, and track usage in your web app with Application Insights. Make informed decisions throughout the development lifecycle
 
 ## Components
-*[CMS on Webapp](/azure/app-service/)
-*[Azure CDN](/azure/cdn/)
-*[Azure Database for MySQL](/services/mysql/)
-*[Redis Cache](/azure/azure-cache-for-redis/cache-overview)
-*[Application Insights](/azure/azure-monitor/app/app-insights-overview)
+* [CMS on Webapp](/azure/app-service/)
+* [Azure CDN](/azure/cdn/)
+* [Azure Database for MySQL](/services/mysql/)
+* [Redis Cache](/azure/azure-cache-for-redis/cache-overview)
+* [Application Insights](/azure/azure-monitor/app/app-insights-overview)
 
 ## Next steps
 
