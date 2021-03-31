@@ -22,7 +22,7 @@ This architecture is for high-volume processing of batches of transactions, espe
 
 :::image type="content" source="media/process-batch-transactions.png" alt-text="Diagram of an architecture implemented by using AKS and Service Bus":::
 
-## Architectural annotations
+### Architectural annotations
 
 The numbered circles in the diagram correspond to the numbered steps in the following list.
 
@@ -36,7 +36,7 @@ The numbered circles in the diagram correspond to the numbered steps in the foll
 1. The permanent data layer uses Azure Data Factory for data integration and Azure SQL Managed Instance, business critical performance tier, for high availability. The permanent storage is loosely coupled for easy switching to other database technologies, and for optimization of storage organization (using shards or partitions, for example).
 1. The data solutions (transitional and permanent) use the Azure Storage geo-redundant storage (GRS) option to protect against catastrophic failures.
 
-## Components
+### Components
 
 The architecture uses these components:
 
