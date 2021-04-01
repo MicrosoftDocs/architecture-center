@@ -7,7 +7,7 @@ ms.topic: reference
 ms.service: architecture-center
 ms.subservice: cloud-fundamentals
 ---
-# Multi-cloud security and identity with Azure and AWS
+# Multi-cloud security and identity with Azure and Amazon Web Services (AWS)
 
 ## Overview
 
