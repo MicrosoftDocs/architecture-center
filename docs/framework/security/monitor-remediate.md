@@ -33,6 +33,12 @@ Monitor the security posture of VMs, networks, storage, data services, and vario
 
 There might be some resources that may not get remediated as the Azure Platform evolves. For example, compliance can prevents adoption of new features.
 
+Assign stakeholders to use [Secure Score](/azure/security-center/secure-score-security-controls) in Azure Security Center to monitor risk profile and continuously improve security posture. 
+
+> [!div class="nextstepaction"]
+> [Operationalize Azure Secure Score](./governance.md?branch=master#operationalize-azure-secure-score)
+
+
 **Do you have a process for formally reviewing secure score on Azure Security Center?**
 ***
 
@@ -47,14 +53,6 @@ View the recommendations to see the potential security issues and apply the [Azu
 ![Azure secure score](images/secure-score.png)
 
 The recommendations are grouped by controls. Each recommendation has detailed information such as severity, affected resources, and quick fixes where applicable. Start with high severity items. 
-
-For example, a common risk is the virtual machines don't have vulnerability scanning solutions that check for threats. Azure Security Center reports those machines. You can remediate in Azure Security Center by deploying a scanning solution. Through Azure Defender for servers, you can use the built-in vulnerability scanner for virtual machines. You don't need a license. Instead, you can bring your license for supported partner solutions. 
-
-When conducting remote scans, do not use a single, perpetual, administrative account. Consider implementing JIT (Just In Time) provisioning methodology for the scan account. Credentials for the scan account should be protected, monitored, and used only for vulnerability scans.
-
-> [!NOTE]
->
->Vulnerability assessments are also available for container images, and SQL servers.
 
 Security Center has the capability of exporting results at configured intervals. Compare the results with previous sets to verify that issues have been remediated. 
 

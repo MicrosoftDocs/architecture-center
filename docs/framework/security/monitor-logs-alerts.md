@@ -53,6 +53,13 @@ Use the data to support these activities:
 
 For more information, see [Security alerts and incidents](/azure/security-center/security-center-alerts-overview).
 
+Simulating alerts
+You can simulate alerts by downloading one of the following playbooks:
+
+For Windows: Azure Security Center Playbook: Security Alerts
+
+For Linux: Azure Security Center Playbook: Linux Detections.
+
 ## Centralize logs and alerts
 
 A central view of log and data is recommended. Some advantages include:
