@@ -36,6 +36,11 @@ This solution includes the R code needed by a data scientist in the R folder. It
 
 Your Azure subscription used for the deployment will incur consumption charges on the services used in this solution. For pricing details, visit the [Azure Pricing Page](https://azure.microsoft.com/pricing/calculator).
 
+## Components
+
+* [Azure Machine Learning](/services/machine-learning/)
+* [Power BI](https://powerbi.microsoft.com/en-us/)
+
 ## Next steps
 
 * Learn more about [SQL Server Machine Learning Services](/sql/machine-learning/sql-server-machine-learning-services)

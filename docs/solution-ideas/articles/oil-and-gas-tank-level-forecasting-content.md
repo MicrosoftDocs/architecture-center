@@ -43,3 +43,12 @@ After deployment, see the post deployment instructions.
   4. Azure Synapse Analytics is used to store the prediction results received from Azure Machine Learning. These results are then consumed in the Power BI dashboard.
   5. Azure Data Factory handles orchestration, and scheduling of the hourly model retraining.
   6. Finally, Power BI is used for results visualization, so that users can monitor the tank level from a facility in real time and use the forecast level to prevent spillage.
+
+## Components
+
+* [Azure Data Factory](/services/data-factory/)
+* [Azure Event Hubs](/services/event-hubs/)
+* [Azure Machine Learning](/services/machine-learning/)
+* [Azure Stream Analytics](/services/stream-analytics/)
+* [Azure Synapse Analytics](/services/synapse-analytics/)
+* [Power BI](https://powerbi.microsoft.com/en-us/)

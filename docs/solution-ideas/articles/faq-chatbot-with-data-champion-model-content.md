@@ -19,3 +19,12 @@ The QnA Maker tool makes it easy for the content owners to maintain their knowle
 1. QnA Maker gives the best match to the incoming query
 1. The result is shown to the employee
 1. Data Champions manage and update their QnA Knowledge base based on the feedback from user traffic
+
+## Components
+
+* Application Insights, a feature of [Azure Monitor](/services/monitor/)
+* [Azure Active Directory](/services/active-directory/)
+* [Azure App Service](/services/app-service/)
+* [Azure Bot Services](/services/bot-services/)
+* [Language Understanding (LUIS)](/services/cognitive-services/language-understanding-intelligent-service/)
+* [QnA Maker](/services/cognitive-services/qna-maker/)

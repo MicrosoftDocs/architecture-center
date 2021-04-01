@@ -33,3 +33,11 @@ For post deployment instructions and more details on the technical implementatio
   3. Spark on HDInsight is used to ingest and preprocess the raw data, build and retrain the demand forecasting models, and execute price optimization algorithms.
   4. Azure Data Factory orchestrates and schedules the entire data flow.
   5. Finally, Power BI is used for results visualization, so that users can monitor the results of the sales, predicted future demand as well as recommended optimal prices for a variety of products sold in different stores.
+
+## Components
+
+* [Azure Blob Storage](/services/storage/blobs/)
+* [Azure Data Factory](/services/data-factory/)
+* [Azure Web App](/services/app-service/web/)
+* [Power BI](https://powerbi.microsoft.com/en-us/)
+* Spark on [Azure HDInsight](/services/hdinsight/)
