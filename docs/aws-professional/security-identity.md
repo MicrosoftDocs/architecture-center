@@ -51,7 +51,7 @@ When combined with [Azure Sentinel](/azure/sentinel/), workbooks and playbooks c
 
 ## Consistent end-to-end identity management
 
-Ensure that all processes include an end-to-end view of all clouds as well as on-premises systems and that security and identity personnel are trained on this.
+Ensure that all processes include an end-to-end view of all clouds as well as on-premises systems and that security and identity personnel are trained on these processes.
 
 Using a single identity across Azure AD, AWS Accounts and on-prem services enables this end-to-end strategy and allows for greater security and protection of accounts for privileged and non-privileged accounts. Customers who are currently looking to reduce the burden of maintaining multiple identities in their multi-cloud strategy adopt Azure AD to provide consistent and strong control, auditing and detection of anomalies and abuse of identities in their environment.
 
