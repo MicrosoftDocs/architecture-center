@@ -16,7 +16,7 @@ This solution demonstrates the following capabilities, any of which could be use
 
 ![Clinical insights using Microsoft Cloud for Healthcare](./images/clinical-insights-solution.png)
 
-_Download a [Visio file](https://arch-center.azureedge.net/virtual-health-solution.vsdx) that contains this architecture diagram._
+_Download a [Visio file](https://arch-center.azureedge.net/clinical-insights-solution.vsdx) that contains this architecture diagram._
 
 Similar to the Virtual Visit solution, the blue-lined boxes in this architecture diagram represent the Microsoft services that are either the underlying services or add-ons required for [Microsoft Cloud for Healthcare](https://www.microsoft.com/industry/health/microsoft-cloud-for-healthcare?rtc=1), each of which must be licensed separately.
 

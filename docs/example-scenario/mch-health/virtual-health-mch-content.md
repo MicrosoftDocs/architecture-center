@@ -140,7 +140,9 @@ The solution should be deployed in stages:
 
 ## Next steps
 
-- Learn more about the Microsoft Cloud for Healthcare at [What is Microsoft Cloud for Healthcare?](https://docs.microsoft.com/industry/healthcare/overview)
+- Learn how you can build upon this architecture to get [clinical and medical insights using Microsoft Cloud for Healthcare](./medical-data-insights.yml).
+
+- Learn more about the Microsoft Cloud for Healthcare at [What is Microsoft Cloud for Healthcare?](https://docs.microsoft.com/industry/healthcare/overview).
 
 - Learn more about Azure for healthcare offerings at [Azure for Healthcare—Healthcare Solutions](https://azure.microsoft.com/industries/healthcare/).
 
