@@ -11,17 +11,16 @@ products:
 ---
 # Multi-cloud security and identity with Azure and Amazon Web Services (AWS)
 
-## Overview
 
 Many organizations are finding themselves with a de facto multi-cloud strategy, even if that wasn't their deliberate strategic intention. In a multi-cloud environment, it's critical to ensure consistent security and identity experiences to avoid increased friction for developers, business initiatives and increased organizational risk from cyberattacks taking advantage of security gaps.
 
 Driving security and identity consistency across clouds should include:
 
-- [Multi-cloud identity integration](#multi-cloud-identity-integration)
-- [Strong authentication and explicit trust validation](#strong-authentication-and-explicit-trust-validation)
-- [Cloud Platform Security (multi-cloud)](#cloud-platform-security-multi-cloud)
-- [Privilege Identity Management (Azure)](#privileged-identity-management-azure)
-- [Consistent end-to-end identity management](#consistent-end-to-end-identity-management)
+- Multi-cloud identity integration
+- Strong authentication and explicit trust validation
+- Cloud Platform Security (multi-cloud)
+- Privilege Identity Management (Azure)
+- Consistent end-to-end identity management
 
 ## Multi-cloud identity integration
 
