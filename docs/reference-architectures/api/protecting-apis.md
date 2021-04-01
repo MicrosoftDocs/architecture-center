@@ -47,6 +47,8 @@ WAF and Firewall-wise, the same level or protection could be delivered by differ
 
 It would also be possible to manage certificates and passwords by leveraging [Azure Key Vault](https://docs.microsoft.com/en-us/azure/key-vault/general/basic-concepts) service.
 
+While the solution proposed here focus on the implementation of the whole solution, building blocks, and the process of testing APIs access from both inside and outside APIM's VNet, you can also refer to the article "[Integrate API Management in an internal VNet with Application Gateway](https://docs.microsoft.com/en-us/azure/api-management/api-management-howto-integrate-internal-vnet-appgateway)" to stay focused specifically on the details of the APIM/VNet integration process.
+
 ## Implementation considerations
 
 * **VNet**. In order to communicate with private resources in the backend, both Application Gateway and API Management must be sitting at the same virtual network. This solution assumes you already have a VNet set up with your own resources. Additionally, two subnets are being created to hold up both AG and APIM.
@@ -66,6 +68,8 @@ In order to make this architecture reliable and highly responsive over time, the
 * **AG's zone redundance**. An AG or WAF deployment can span multiple Availability Zones, removing the need to provision separate Application Gateway instances in each zone with a Traffic Manager. You can choose a single zone or multiple zones where Application Gateway instances are deployed, which makes it more resilient to zone failure. That's a important recommendation towards to have a resiliant solution for AG.
 
 * **AG's subnet sizing**. A given AG will always request one private address per instance, plus another private IP address if a private front-end IP is configured. Also, it takes five IPs per instance from the subnet where it will be deployed so, to properly deploy AG for the architecture, please, make sure the subnet where it will be sitting onto has enough space for the service to grow. Please, refer to [this article](https://docs.microsoft.com/en-us/azure/application-gateway/configuration-infrastructure) for details.
+
+* **IP Addresses of API Management in VNet**: In this case, APIM will have two types of IP addresses: public and private. Public IP addresses will be used for internal communication on port 3443. In the external VNet configuration, they are also used for runtime API traffic. When a request is sent from API Management to a public-facing (Internet-facing) backend, a public IP address will be visible as the origin of the request. For details, please refer to [this article](https://docs.microsoft.com/en-us/azure/api-management/api-management-howto-ip-addresses#ip-addresses-of-api-management-service-in-vnet). 
 
 * **APIM autoscaling feature turned on**. To support highly concurrent scenarios, we recommend enabling the autoscale feature in APIM. This will enable the service to expand its capabilities to quickly respond a growing number of income requests on-the-fly. [This article](https://docs.microsoft.com/en-us/azure/api-management/api-management-howto-autoscale) shows how to enable the autoscale feature within the service.
 
