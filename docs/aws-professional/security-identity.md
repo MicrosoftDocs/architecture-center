@@ -55,7 +55,7 @@ Ensure that all processes include an end-to-end view of all clouds as well as on
 
 Using a single identity across Azure AD, AWS Accounts and on-premises services enable this end-to-end strategy and allows for greater security and protection of accounts for privileged and non-privileged accounts. Customers who are currently looking to reduce the burden of maintaining multiple identities in their multi-cloud strategy adopt Azure AD to provide consistent and strong control, auditing, and detection of anomalies and abuse of identities in their environment.
 
-Continued growth of new capabilities across the Azure AD ecosystem will help you stay ahead of threats to your environment as a result of using identities as a common control plane in your multi-cloud environments.
+Continued growth of new capabilities across the Azure AD ecosystem helps you stay ahead of threats to your environment as a result of using identities as a common control plane in your multi-cloud environments.
 
 ## See also
 
