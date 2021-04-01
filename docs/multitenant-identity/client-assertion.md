@@ -5,12 +5,12 @@ author: doodlemania2
 ms.date: 04/02/2020
 ms.topic: conceptual
 ms.service: architecture-center
+ms.subservice: azure-guide
 ms.category:
   - identity
 ms.custom:
   - has-adal-ref
   - guide
-ms.subservice: reference-architecture
 ---
 
 # Use client assertion to get access tokens from Azure AD

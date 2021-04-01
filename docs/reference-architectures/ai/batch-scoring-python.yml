@@ -1,0 +1,33 @@
+### YamlMime:Architecture
+metadata:
+  title: Batch scoring of Python models on Azure
+  description: Build a scalable solution for batch scoring models on a schedule in parallel using Azure Machine Learning.
+  author: njray
+  ms.author: pnp
+  ms.date: 01/26/2021
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: reference-architecture
+  ms.category:
+    - ai-machine-learning
+    - developer-tools
+  ms.custom:
+    - azcat-ai
+    - AI
+    - reference-architecture
+    - ai-machine-learning
+name: Batch scoring of Python models on Azure
+azureCategories:
+  - ai-machine-learning
+  - developer-tools
+summary: Build a scalable solution for batch scoring models on a schedule in parallel using Azure Machine Learning.
+products:
+  - azure-blob-storage
+  - azure-container-registry
+  - azure-event-hubs
+  - azure-machine-learning
+  - azure-sql-database
+  - azure-stream-analytics
+thumbnailUrl: /azure/architecture/browse/thumbs/batch-scoring-python.png
+content: |
+  [!include[](batch-scoring-python-content.md)]

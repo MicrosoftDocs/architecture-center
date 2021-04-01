@@ -1,0 +1,26 @@
+### YamlMime:Architecture
+metadata:
+  title: Auditing, risk, and compliance management
+  titleSuffix: Azure Solution Ideas
+  description: Learn how to use knowledge mining to help attorneys quickly identify entities of importance from discovery documents and flag important ideas across documents.
+  author: doodlemania2
+  ms.author: pracjain
+  ms.date: 12/16/2019
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: solution-idea
+  ms.category:
+    - ai-machine-learning
+  ms.custom:
+    - acom-architecture
+    - ai-machine-learning
+  social_image_url: /azure/architecture/solution-ideas/articles/media/auditing-and-risk-compliance.png
+name: 'Auditing, risk, and compliance management'
+azureCategories:
+  - ai-machine-learning
+summary: Learn how to use knowledge mining to help attorneys quickly identify entities of importance from discovery documents and flag important ideas across documents.
+products:
+  - azure-cognitive-search
+thumbnailUrl: /azure/architecture/browse/thumbs/auditing-and-risk-compliance.png
+content: |
+  [!include[](auditing-and-risk-compliance-content.md)]

@@ -19,7 +19,7 @@ Automation has revolutionized how businesses operate and this trend continues to
 - Minimize human error in configuring repetitive tasks.
 - Produce consistent and repeatable results.
 
-To learn more, see [Deployment considerations for automation](https://docs.microsoft.com/azure/architecture/framework/DevOps/deployment#automation).
+To learn more, see [Deployment considerations for automation](./release-engineering-cd.md#automation).
 
 ## Goals of automation
 
@@ -83,7 +83,7 @@ Two popular options for automating operational tasks are:
 
 For more information, see [Automation](./automation-tasks.md). To see a Microsoft Ignite video, see [Automating Operational and Management Tasks](https://azure.microsoft.com/resources/videos/microsoft-ignite-2015-automating-operational-and-management-tasks-using-azure-automation/).
 
-#### Next steps
+## Next steps
 
 > [!div class="nextstepaction"]
 > [Automate Repeatable Infrastructure](./automation-infrastructure.md)

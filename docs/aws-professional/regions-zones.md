@@ -57,7 +57,7 @@ Azure [geo-redundant storage](/azure/storage/common/storage-redundancy-grs) is a
 
 - [Availability options for virtual machines in Azure](/azure/virtual-machines/linux/availability)
 
-- [High availability for Azure applications](../example-scenario/infrastructure/multi-tier-app-disaster-recovery.md)
+- [High availability for Azure applications](../example-scenario/infrastructure/multi-tier-app-disaster-recovery.yml)
 
 - [Failure and disaster recovery for Azure applications](../framework/resiliency/backup-and-recovery.md)
 

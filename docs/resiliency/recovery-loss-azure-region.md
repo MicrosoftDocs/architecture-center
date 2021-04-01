@@ -13,9 +13,9 @@ ms.custom:
 
 # Recover from a region-wide service disruption
 
-Azure is divided physically and logically into units called regions. A region consists of one or more datacenters in close proximity.
+Azure is divided physically and logically into units called regions. A region consists of one or more data centers in close proximity. Many regions and services also support [availability zones](/azure/availability-zones/az-overview), which can be used to provide more resiliency against outages in a single data center. Consider using regions with availability zones to improve the availability of your solution.
 
-Under rare circumstances, it is possible that facilities in an entire region can become inaccessible, for example due to network failures. Or facilities can be lost entirely, for example due to a natural disaster. This section explains the capabilities of Azure for creating applications that are distributed across regions. Such distribution helps to minimize the possibility that a failure in one region could affect other regions.
+Under rare circumstances, it is possible that facilities in an entire availability zone or region can become inaccessible, for example, due to network failures. Or, facilities can be lost entirely, for example, due to a natural disaster. Azure has capabilities for creating applications that are distributed across zones and regions. Such distribution helps to minimize the possibility that a failure in one zone or region could affect other zones or regions.
 
 ## Cloud services
 
@@ -42,7 +42,7 @@ Many alternative strategies are available for implementing distributed compute a
 
 - **Hot Spare (Active/Active)**: The application is designed to receive production load in multiple regions. The cloud services in each region might be configured for higher capacity than required for disaster recovery purposes. Alternatively, the cloud services might scale out as necessary at the time of a disaster and fail over. This approach requires substantial investment in application design, but it has significant benefits. These include low and guaranteed recovery time, continuous testing of all recovery locations, and efficient usage of capacity.
 
-A complete discussion of distributed design is outside the scope of this document. For more information, see [Disaster Recovery and High Availability for Azure Applications](https://aka.ms/drtechguide).
+A complete discussion of distributed design is outside the scope of this document. For more information, see [Disaster Recovery and High Availability for Azure Applications](../framework/resiliency/backup-and-recovery.md).
 
 ## Virtual machines
 

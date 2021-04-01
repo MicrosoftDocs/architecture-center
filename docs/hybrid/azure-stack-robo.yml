@@ -1,0 +1,34 @@
+### YamlMime:Architecture
+metadata:
+  title: Use Azure Stack HCI switchless interconnect and lightweight quorum for Remote Office/Branch Office
+  description: This reference architecture illustrates how to design infrastructure for highly available virtualized and containerized workloads in Remote Office/Branch Office (ROBO) scenarios.
+  author: doodlemania2
+  ms.author: pnp
+  ms.date: 11/29/2020
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: reference-architecture
+  ms.category:
+    - hybrid
+    - management-and-governance
+  ms.custom:
+    - fcp
+    - e2e-hybrid
+name: Use Azure Stack HCI switchless interconnect and lightweight quorum for Remote Office/Branch Office
+azureCategories:
+  - hybrid
+  - management-and-governance
+summary: This reference architecture illustrates how to design infrastructure for highly available virtualized and containerized workloads in Remote Office/Branch Office (ROBO) scenarios.
+products:
+  - azure-automation
+  - azure-arc
+  - azure-backup
+  - azure-files
+  - azure-monitor
+  - azure-policy
+  - azure-security-center
+  - azure-site-recovery
+  - azure-stack-hci
+thumbnailUrl: /azure/architecture/browse/thumbs/azure_stack_robo.png
+content: |
+   [!include[](azure-stack-robo-content.md)]

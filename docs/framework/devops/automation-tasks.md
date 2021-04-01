@@ -6,6 +6,8 @@ ms.date: 10/15/2020
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
+products:
+  - azure-functions
 ms.custom:
   - article
 ---
@@ -35,7 +37,7 @@ Functions hosting plans:
 - **Premium** - Faster start, VNet connectivity, unlimited execution duration, premium instance sizes, more predictable pricing.
 - **App Service Plan** - Functions run on dedicated virtual machines and can use custom images.
 
-For full details on consumption plans, see [Azure Functions scale and hosting](https://docs.microsoft.com/azure/azure-functions/functions-scale).
+For full details on consumption plans, see [Azure Functions scale and hosting](/azure/azure-functions/functions-scale).
 
 Functions provide event-driven automation; each function has a trigger associated with it. These triggers are what run the functions. Common triggers include:
 
@@ -48,14 +50,14 @@ Below are example triggers seen in the Azure portal when creating a new function
 
 ![Azure Function triggers as seenin the Azure portal.](../_images/devops/function-triggers.png)
 
-Once an event has occurred that initiates a Function, you may also want to consume data from this event or from another source. Once a Function has been completed, you may want to publish or push data to an Azure service such as a Blob Storage. Input and output are achieved using input and output bindings. For more information about triggers and bindings, see [Azure Functions triggers and binding concepts](https://docs.microsoft.com/azure/azure-functions/functions-triggers-bindings).
+Once an event has occurred that initiates a Function, you may also want to consume data from this event or from another source. Once a Function has been completed, you may want to publish or push data to an Azure service such as a Blob Storage. Input and output are achieved using input and output bindings. For more information about triggers and bindings, see [Azure Functions triggers and binding concepts](/azure/azure-functions/functions-triggers-bindings).
 
 Both PowerShell and Python are common languages for automating everyday operational tasks. Because Azure Functions supports both of these languages, it is an excellent platform for hosting, running, and auditing automated operational tasks. For example, let's assume that you would like to build a solution to facilitate self-service account creation. An Azure PowerShell Function could be used to create the account in Azure Active Directory. An HTTP trigger can be used to initiate the Function, and an input binding configured to pull the account details from the HTTP request body. The only remaining piece would be a solution that consumes the account details and creates the HTTP requests against the Function.
 
 **Learn more**
 
-- [Documentation: Azure Functions PowerShell developer guide](https://docs.microsoft.com/azure/azure-functions/functions-reference-powershell)
-- [Documentation: Azure Functions Python developer guide](https://docs.microsoft.com/azure/azure-functions/functions-reference-python)
+- [Documentation: Azure Functions PowerShell developer guide](/azure/azure-functions/functions-reference-powershell)
+- [Documentation: Azure Functions Python developer guide](/azure/azure-functions/functions-reference-python)
 
 
 ## Azure Automation
@@ -75,7 +77,7 @@ As seen in the following image, Azure Automation provides a portal experience fo
 
 **Learn more**
 
-- [Documentation: What is Azure Automation](https://docs.microsoft.com/azure/automation/automation-intro)?
+- [Documentation: What is Azure Automation](/azure/automation/automation-intro)?
 
 ## Scale operations
 
@@ -102,7 +104,7 @@ When creating the autoscale rules, configure minimum and maximum instance counts
 
 **Learn more**
 
-- [Documentation: Azure Monitor autoscale overview](https://docs.microsoft.com/azure/azure-monitor/platform/autoscale-overview)
+- [Documentation: Azure Monitor autoscale overview](/azure/azure-monitor/platform/autoscale-overview)
 
 ### Azure Kubernetes Service
 
@@ -198,5 +200,5 @@ See the included documentation for information on fine-grain control for cluster
 
 **Learn more**
 
-- [Documentation: Horizontal pod autoscaling](https://docs.microsoft.com/azure/aks/tutorial-kubernetes-scale#autoscale-pods)
-- [Documentation: AKS cluster autoscaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler)
+- [Documentation: Horizontal pod autoscaling](/azure/aks/tutorial-kubernetes-scale#autoscale-pods)
+- [Documentation: AKS cluster autoscaler](/azure/aks/cluster-autoscaler)

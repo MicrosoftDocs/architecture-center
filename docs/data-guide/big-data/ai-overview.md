@@ -1,11 +1,13 @@
 ---
 title: Artificial intelligence (AI)
-description: 
+description: Artificial intelligence (AI)
 author: maggsl
 ms.date: 04/14/2020
 ms.topic: conceptual
 ms.service: architecture-center
-ms.subservice: cloud-fundamentals
+ms.subservice: azure-guide
+products:
+  - azure-machine-learning
 ms.custom:
   - guide
 ---
@@ -44,13 +46,13 @@ With many layers in each neural network-and sometimes using multiple neural netw
 
 - [Deep learning versus machine learning](/azure/machine-learning/concept-deep-learning-vs-machine-learning)
 
-- [Distributed training of deep learning models on Azure](../../reference-architectures/ai/training-deep-learning.md)
+- [Distributed training of deep learning models on Azure](../../reference-architectures/ai/training-deep-learning.yml)
 
-- [Batch scoring of deep learning models on Azure](../../reference-architectures/ai/batch-scoring-deep-learning.md)
+- [Batch scoring of deep learning models on Azure](../../reference-architectures/ai/batch-scoring-deep-learning.yml)
 
-- [Training of Python scikit-learn and deep learning models on Azure](../../reference-architectures/ai/training-python-models.md)
+- [Training of Python scikit-learn and deep learning models on Azure](../../reference-architectures/ai/training-python-models.yml)
 
-- [Real-time scoring of Python scikit-learn and deep learning models on Azure](../../reference-architectures/ai/realtime-scoring-python.md)
+- [Real-time scoring of Python scikit-learn and deep learning models on Azure](../../reference-architectures/ai/realtime-scoring-python.yml)
 
 ### Bots
 
@@ -77,10 +79,10 @@ enterprise-grade bot development.
     bots](https://www.microsoft.com/research/publication/responsible-bots/)
 
 - [Azure reference architecture: Enterprise-grade conversational
-    bot](../../reference-architectures/ai/conversational-bot.md)
+    bot](../../reference-architectures/ai/conversational-bot.yml)
 
 - [Example workload: Conversational chatbot for hotel reservations on
-    Azure](../../example-scenario/ai/commerce-chatbot.md)
+    Azure](../../example-scenario/ai/commerce-chatbot.yml)
 
 ### Autonomous systems
 
@@ -201,7 +203,7 @@ Azure.
     developers](/azure/python/)
 
 - [Azure Machine Learning SDK for
-    Python](/python/api/overview/azure/ml/?view=azure-ml-py)
+    Python](/python/api/overview/azure/ml/?view=azure-ml-py&preserve-view=true)
 
 - [Introduction to machine learning with Python and Azure
     Notebooks](/learn/paths/intro-to-ml-with-python/)
@@ -339,7 +341,7 @@ market analyses, and many other applications.
     workloads
 
 - [Azure Machine Learning SDK for
-    Python](/python/api/overview/azure/ml/?view=azure-ml-py)
+    Python](/python/api/overview/azure/ml/?view=azure-ml-py&preserve-view=true)
 
 - [Azure Machine Learning service example notebooks
     (Python).](https://github.com/Azure/MachineLearningNotebooks) A GitHub repo
@@ -383,38 +385,38 @@ and scikit-learn.
 #### Machine learning reference architectures for Azure
 
 - [Training of Python scikit-learn and deep learning models on
-    Azure](../../reference-architectures/ai/training-python-models.md)
+    Azure](../../reference-architectures/ai/training-python-models.yml)
 
 - [Distributed training of deep learning models on
-    Azure](../../reference-architectures/ai/training-deep-learning.md)
+    Azure](../../reference-architectures/ai/training-deep-learning.yml)
 
 - [Batch scoring of Python machine learning models on
-    Azure](../../reference-architectures/ai/batch-scoring-python.md)
+    Azure](../../reference-architectures/ai/batch-scoring-python.yml)
 
 - [Batch scoring of deep learning models on
-    Azure](../../reference-architectures/ai/batch-scoring-deep-learning.md)
+    Azure](../../reference-architectures/ai/batch-scoring-deep-learning.yml)
 
 - [Real-time scoring of Python scikit-learn and deep learning models on
-    Azure](../../reference-architectures/ai/realtime-scoring-python.md)
+    Azure](../../reference-architectures/ai/realtime-scoring-python.yml)
 
 - [Machine learning operationalization (MLOps) for Python models using Azure
     Machine
-    Learning](../../reference-architectures/ai/mlops-python.md)
+    Learning](../../reference-architectures/ai/mlops-python.yml)
 
 - [Batch scoring of R machine learning models on
-    Azure](../../reference-architectures/ai/batch-scoring-r-models.md)
+    Azure](../../reference-architectures/ai/batch-scoring-r-models.yml)
 
 - [Real-time scoring of R machine learning models on
-    Azure](../../reference-architectures/ai/realtime-scoring-r.md)
+    Azure](../../reference-architectures/ai/realtime-scoring-r.yml)
 
 - [Batch scoring of Spark machine learning models on Azure
-    Databricks](../../reference-architectures/ai/batch-scoring-databricks.md)
+    Databricks](../../reference-architectures/ai/batch-scoring-databricks.yml)
 
 - [Enterprise-grade conversational
-    bot](../../reference-architectures/ai/conversational-bot.md)
+    bot](../../reference-architectures/ai/conversational-bot.yml)
 
 - [Build a real-time recommendation API on
-    Azure](../../reference-architectures/ai/real-time-recommendation.md)
+    Azure](../../reference-architectures/ai/real-time-recommendation.yml)
 
 ### Azure automated machine learning
 
@@ -472,9 +474,9 @@ This is a purpose-built bot development environment with out-of-the-box template
 
 - [Azure Bot Service documentation overview](/azure/bot-service/bot-service-overview-introduction)
 
-- [Azure reference architecture: Enterprise-grade conversational bot](../../reference-architectures/ai/conversational-bot.md)
+- [Azure reference architecture: Enterprise-grade conversational bot](../../reference-architectures/ai/conversational-bot.yml)
 
-- [Example workload: Conversational chatbot for hotel reservations on Azure](../../example-scenario/ai/commerce-chatbot.md)
+- [Example workload: Conversational chatbot for hotel reservations on Azure](../../example-scenario/ai/commerce-chatbot.yml)
 
 - [Microsoft Bot Framework](https://dev.botframework.com/)
 
@@ -517,7 +519,7 @@ The Microsoft Machine Learning library for Apache Spark is [MMLSpark](https://g
 
 - [How-to guide: Databricks Runtime for Machine Learning](/azure/databricks/runtime/mlruntime)
 
-- [Batch scoring of Spark machine learning models on Azure Databricks](../../reference-architectures/ai/batch-scoring-databricks.md)
+- [Batch scoring of Spark machine learning models on Azure Databricks](../../reference-architectures/ai/batch-scoring-databricks.yml)
 
 - [Deep learning overview for Azure Databricks](/azure/databricks/applications/deep-learning/)
 

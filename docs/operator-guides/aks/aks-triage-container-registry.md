@@ -6,12 +6,16 @@ author: kevingbb
 ms.date: 10/12/2020
 ms.topic: conceptual
 ms.service: architecture-center
-ms.subservice:
+ms.subservice: guide
+products:
+  - azure-kubernetes-service
+ms.custom:
+  - e2e-aks
 ---
 
 # Verify the connection to the container registry
 
-Make sure that the worker nodes have the correct permission to pull the necessary container images from the container registry. 
+Make sure that the worker nodes have the correct permission to pull the necessary container images from the container registry.
 
 _This article is part of a series. Read the introduction [here](aks-triage-practices.md)._
 
@@ -35,7 +39,7 @@ e5615a90-1767-4a4f-83b6-cecfa0675970  AcrPull  /subscriptions/.../providers/Micr
 If you're using another container registry, check the appropriate **ImagePullSecret** credentials for the registry.
 
 ## Related links
+
 [Import container images to a container registry](/azure/container-registry/container-registry-import-images)
 
 [AKS Roadmap](https://aka.ms/aks/roadmap)
-

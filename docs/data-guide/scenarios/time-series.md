@@ -5,7 +5,7 @@ author: zoinerTejada
 ms.date: 04/02/2020
 ms.topic: conceptual
 ms.service: architecture-center
-ms.subservice: cloud-fundamentals
+ms.subservice: azure-guide
 ms.custom:
   - guide
 ---

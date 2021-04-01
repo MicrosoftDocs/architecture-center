@@ -6,7 +6,7 @@ ms.author: arsenv
 ms.date: 09/19/2019
 ms.topic: conceptual
 ms.service: architecture-center
-ms.subservice: cloud-fundamentals
+ms.subservice: best-practice
 ms.custom:
   - fcp
   - cse
@@ -150,7 +150,7 @@ For information on general Cassandra settings, not specific to Azure, see:
 
 The following reference architecture deploys Cassandra as part of an n-tier configuration:
 
-- [Linux N-tier application in Azure with Apache Cassandra](../reference-architectures/n-tier/n-tier-cassandra.md)
+- [Linux N-tier application in Azure with Apache Cassandra](../reference-architectures/n-tier/n-tier-cassandra.yml)
 
 [dsv2]: /azure/virtual-machines/dv2-dsv2-series-memory
 [dsv3]: /azure/virtual-machines/dv3-dsv3-series

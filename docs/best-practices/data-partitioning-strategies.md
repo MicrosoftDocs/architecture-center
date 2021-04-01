@@ -6,9 +6,10 @@ author: dragon119
 ms.date: 11/04/2018
 ms.topic: conceptual
 ms.service: architecture-center
-ms.subservice: cloud-fundamentals
+ms.subservice: best-practice
+products:
+  - azure-table-storage
 ms.custom:
-  - seodec18
   - best-practice
 ---
 
@@ -308,7 +309,7 @@ For considerations about trade-offs between availability and consistency, see [A
 [Building a Polyglot Solution]: /previous-versions/msp-n-p/dn313279(v=pandp.10)
 [cosmos-db-ru]: /azure/cosmos-db/request-units
 [Data Access for Highly Scalable Solutions: Using SQL, NoSQL, and Polyglot Persistence]: /previous-versions/msp-n-p/dn271399(v=pandp.10)
-[Data consistency primer]: https://aka.ms/Data-Consistency-Primer
+[Data consistency primer]: /previous-versions/msp-n-p/dn589800(v=pandp.10)
 [Data Partitioning Guidance]: /previous-versions/msp-n-p/dn589795(v=pandp.10)
 [Data Types]: https://redis.io/topics/data-types
 [cosmos-db-sql-api]: /azure/cosmos-db/sql-api-introduction

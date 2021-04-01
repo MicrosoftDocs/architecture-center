@@ -5,7 +5,10 @@ author: zoinerTejada
 ms.date: 02/12/2018
 ms.topic: conceptual
 ms.service: architecture-center
-ms.subservice: cloud-fundamentals
+ms.subservice: azure-guide
+products:
+  - power-bi
+  - azure-notebooks
 ms.custom:
   - data-analytics
   - guide

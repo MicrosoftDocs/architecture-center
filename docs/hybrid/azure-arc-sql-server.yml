@@ -1,0 +1,30 @@
+### YamlMime:Architecture
+metadata:
+  title: Optimize administration of SQL Server instances in on-premises and multi-cloud environments by using Azure Arc
+  description: Optimize management, maintenance, and monitoring of SQL Server with Azure Arc enabled SQL Server and Azure Arc enabled data services in on-premises and multi-cloud environments.
+  author: doodlemania2
+  ms.author: pnp
+  ms.date: 11/29/2020
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: reference-architecture
+  ms.category:
+    - hybrid
+    - databases
+  ms.custom:
+    - fcp
+    - e2e-hybrid
+name: Optimize administration of SQL Server instances in on-premises and multi-cloud environments by using Azure Arc
+azureCategories:
+  - hybrid
+  - databases
+summary: Optimize management, maintenance, and monitoring of SQL Server with Azure Arc enabled SQL Server and Azure Arc enabled data services in on-premises and multi-cloud environments.
+products:
+  - azure
+  - azure-arc
+  - azure-kubernetes-service
+  - azure-resource-manager
+  - azure-sql-managed-instance
+thumbnailUrl: /azure/architecture/browse/thumbs/azure_arc_sql_srvr.png
+content: |
+   [!include[](azure-arc-sql-server-content.md)]

@@ -6,9 +6,10 @@ author: dragon119
 ms.date: 11/04/2018
 ms.topic: conceptual
 ms.service: architecture-center
-ms.subservice: cloud-fundamentals
+ms.subservice: best-practice
+products:
+  - azure-blob-storage
 ms.custom:
-  - seodec18
   - best-practice
 ---
 

@@ -12,9 +12,9 @@ ms.custom:
 
 # Configure infrastructure
 
-When working with Azure, many services can be created and configured programmatically using automation or infrastructure as code tooling. These tools access Azure through the exposed REST APIs or what we refer to as the [Azure control plane](https://docs.microsoft.com/azure/azure-resource-manager/management/control-plane-and-data-plane#control-plane). For example, an Azure Network Security Group can be deployed, and security group rules created using an Azure Resource Manager template. The Network Security Group and its configuration are exposed through the Azure control plane and natively accessible.
+When working with Azure, many services can be created and configured programmatically using automation or infrastructure as code tooling. These tools access Azure through the exposed REST APIs or what we refer to as the [Azure control plane](/azure/azure-resource-manager/management/control-plane-and-data-plane#control-plane). For example, an Azure Network Security Group can be deployed, and security group rules created using an Azure Resource Manager template. The Network Security Group and its configuration are exposed through the Azure control plane and natively accessible.
 
-Other configurations, such as installing software on a virtual machine, adding data to a database, or starting pods in an Azure Kubernetes Service cluster cannot be accessed through the Azure control plane. These actions require a different set of configuration tools. We consider these configurations as being on the [Azure data plane](https://docs.microsoft.com/azure/azure-resource-manager/management/control-plane-and-data-plane#data-plane) side, or not exposed through Azure REST APIs. These data plane enables tools to use agents, networking, or other access methods to provide resource-specific configuration options. 
+Other configurations, such as installing software on a virtual machine, adding data to a database, or starting pods in an Azure Kubernetes Service cluster cannot be accessed through the Azure control plane. These actions require a different set of configuration tools. We consider these configurations as being on the [Azure data plane](/azure/azure-resource-manager/management/control-plane-and-data-plane#data-plane) side, or not exposed through Azure REST APIs. These data plane enables tools to use agents, networking, or other access methods to provide resource-specific configuration options. 
 
 For example, when deploying a set of virtual machined to Azure, you may also want to install and configure a web server, stage content, and then make the content available on the internet. Furthermore, if the virtual machine configuration changes and no longer aligns with the configuration definition, you may want a configuration management system to remediate the configuration. Many options are available for these data plane configurations. This document details several and provides links for in-depth information.
 
@@ -42,12 +42,12 @@ az vm extension set \
 
 Use the included code sample to deploy a virtual machine and configure a web server on that machine with the custom script extension.
 
-- [Documentation: Azure virtual machine extensions](https://docs.microsoft.com/azure/virtual-machines/extensions/overview)
-- [Code Samples: Configure VM with script extension during Azure deployment](https://docs.microsoft.com/samples/mspnp/samples/azure-well-architected-framework-sample-custom-script-extension/)
+- [Documentation: Azure virtual machine extensions](/azure/virtual-machines/extensions/overview)
+- [Code Samples: Configure VM with script extension during Azure deployment](/samples/mspnp/samples/azure-well-architected-framework-sample-custom-script-extension/)
 
 ### cloud-init
 
-cloud-init is a known industry tool for configuring Linux virtual machines on first boot. Much like the Azure custom script extension, cloud-init allows you to install packages and run commands on Linux virtual machines. cloud-init can be used for things like software installation, system configurations, and content staging. Azure includes many cloud-init enable Marketplace virtual machine images across many of the most well-known Linux distributions. For a full list, see [cloud-init support for virtual machines in Azure](https://docs.microsoft.com/azure/virtual-machines/linux/using-cloud-init).
+cloud-init is a known industry tool for configuring Linux virtual machines on first boot. Much like the Azure custom script extension, cloud-init allows you to install packages and run commands on Linux virtual machines. cloud-init can be used for things like software installation, system configurations, and content staging. Azure includes many cloud-init enable Marketplace virtual machine images across many of the most well-known Linux distributions. For a full list, see [cloud-init support for virtual machines in Azure](/azure/virtual-machines/linux/using-cloud-init).
 
 To use cloud-init, create a text file named *cloud-init.txt* and enter your cloud-init configuration. In this example, the Nginx package is added to the cloud-init configuration.
 
@@ -80,7 +80,7 @@ az vm create \
 
 **Learn more**
 
-- [Documentation: cloud-init support for virtual machines in Azure](https://docs.microsoft.com/azure/virtual-machines/linux/using-cloud-init#canonical)
+- [Documentation: cloud-init support for virtual machines in Azure](/azure/virtual-machines/linux/using-cloud-init#canonical)
 
 ### Azure deployment script resource
 
@@ -122,7 +122,7 @@ The following example shows an ARM template snippet with the deployment script r
 
 **Learn more**
 
-- [Documentation: Use deployment scripts in templates](https://docs.microsoft.com/azure/azure-resource-manager/templates/deployment-script-template)
+- [Documentation: Use deployment scripts in templates](/azure/azure-resource-manager/templates/deployment-script-template)
 
 ## Configuration Management
 
@@ -156,8 +156,8 @@ Once imported into Azure State Configuration and assigned to nodes, the state co
 
 Use the included code sample to deploy Azure Automation State Configuration and several Azure virtual machines. The virtual machines are also onboarded to state configuration, and a configuration applied.
 
-- [Documentation: Get started with Azure Automation State Configuration](https://docs.microsoft.com/azure/automation/automation-dsc-overview)
-- [Code Sample: Deploy DSC and VMs with an ARM template](https://docs.microsoft.com/samples/mspnp/samples/azure-well-architected-framework-sample-state-configuration/)
+- [Documentation: Get started with Azure Automation State Configuration](/azure/automation/automation-dsc-overview)
+- [Code Sample: Deploy DSC and VMs with an ARM template](/samples/mspnp/samples/azure-well-architected-framework-sample-state-configuration/)
 
 ### Chef
 
@@ -175,7 +175,7 @@ Puppet is an enterprise-ready automation platform that handles the application d
 
 - [Documentation: How Puppet works](https://puppet.com/products/how-puppet-works)
 
-#### Next steps
+## Next steps
 
 > [!div class="nextstepaction"]
 > [Automate operational tasks](./automation-tasks.md)

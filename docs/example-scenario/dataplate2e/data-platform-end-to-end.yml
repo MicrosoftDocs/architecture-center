@@ -1,0 +1,32 @@
+### YamlMime:Architecture
+metadata:
+  title: Azure data platform end-to-end
+  titleSuffix: Azure Example Scenarios
+  description: This example scenario demonstrates how to use the extensive family of Azure Data Services to build a modern data platform capable of handling the most common data challenges in an organization.
+  author: fabragaMS
+  ms.date: 01/31/2020
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: example-scenario
+  ms.category:
+    - databases
+    - analytics
+  ms.custom:
+    - fcp
+    - data-analytics
+    - example-scenario
+  social_image_url: /azure/architecture/example-scenario/dataplate2e/media/azure-data-platform-end-to-end.jpg
+name: Azure data platform end-to-end
+azureCategories:
+  - databases
+  - analytics
+summary: This example scenario demonstrates how to use the extensive family of Azure Data Services to build a modern data platform capable of handling the most common data challenges in an organization.
+products:
+  - azure-cosmos-db
+  - azure-data-factory
+  - azure-databricks
+  - azure-functions
+  - azure-event-hubs
+thumbnailUrl: /azure/architecture/browse/thumbs/azure-data-platform-end-to-end.jpg
+content: |
+   [!include[](data-platform-end-to-end-content.md)]

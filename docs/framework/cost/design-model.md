@@ -93,11 +93,11 @@ If your workload has depedencies on shared assets like Active Directory, Network
 
 Here are some considerations for determining the governance policies that can assist with cost management. 
 
--	What are the budget constraints set by the company for each business unit?
--	What are policies for the budget alert levels and associated actions?
--	Identify acceptable boundaries for scale, redundancy, and performance against cost. 
--	Assess the limits for security. Don't compromise on security. Premium cloud security features can drive the cost up. It’s not necessary to overinvest. Instead use the cost profile to drive a realistic threat profile. 
--	Identify unrestricted resources. These resources typically need to scale and consume more cost to meet demand.
+- What are the budget constraints set by the company for each business unit?
+- What are policies for the budget alert levels and associated actions?
+- Identify acceptable boundaries for scale, redundancy, and performance against cost. 
+- Assess the limits for security. Don't compromise on security. Premium cloud security features can drive the cost up. It’s not necessary to overinvest. Instead use the cost profile to drive a realistic threat profile. 
+- Identify unrestricted resources. These resources typically need to scale and consume more cost to meet demand.
 
 #### Next step
 > [!div class="nextstepaction"]

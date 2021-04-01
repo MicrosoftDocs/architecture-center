@@ -5,10 +5,13 @@ author: doodlemania2
 ms.date: 05/29/2019
 ms.topic: conceptual
 ms.service: architecture-center
+ms.subservice: azure-guide
 ms.category:
   - migration
   - management-and-governance
-ms.subservice: reference-architecture
+products:
+  - aspnet
+  - aspnet-core
 ms.custom:
   - guide
 ---

@@ -1,0 +1,26 @@
+### YamlMime:Architecture
+metadata:
+  title: Content Research
+  titleSuffix: Azure Solution Ideas
+  description: Knowledge mining with a search index makes it easy for customers and employees to locate what they are looking for faster.
+  author: doodlemania2
+  ms.author: pracjain
+  ms.date: 12/16/2019
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: solution-idea
+  ms.category:
+    - ai-machine-learning
+  ms.custom:
+    - acom-architecture
+    - ai-machine-learning
+  social_image_url: /azure/architecture/solution-ideas/articles/media/content-research.png
+name: Content Research
+azureCategories:
+  - ai-machine-learning
+summary: Knowledge mining with a search index makes it easy for customers and employees to locate what they are looking for faster.
+products:
+  - azure-cognitive-search
+thumbnailUrl: /azure/architecture/browse/thumbs/content-research.png
+content: |
+  [!include[](content-research-content.md)]

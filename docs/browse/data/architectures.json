@@ -16,7 +16,7 @@
                 "pricing-guidance"
             ],
             "type": "example-workload",
-            "file_url": "example-scenario/infrastructure/video-rendering.md",
+            "file_url": "example-scenario/infrastructure/video-rendering.yml",
             "http_url": "/azure/architecture/example-scenario/infrastructure/video-rendering",
             "word_count": 1271,
             "read_time": "5 min read",
@@ -57,7 +57,7 @@
                 "pricing-guidance"
             ],
             "type": "example-workload",
-            "file_url": "example-scenario/apps/hpc-saas.md",
+            "file_url": "example-scenario/apps/hpc-saas.yml",
             "http_url": "/azure/architecture/example-scenario/apps/hpc-saas",
             "word_count": 1106,
             "read_time": "5 min read",
@@ -598,7 +598,7 @@
                 "sql"
             ],
             "type": "reference-architecture",
-            "file_url": "reference-architectures/data/enterprise-bi-adf.md",
+            "file_url": "reference-architectures/data/enterprise-bi-adf.yml",
             "http_url": "/azure/architecture/reference-architectures/data/enterprise-bi-adf",
             "word_count": 3077,
             "read_time": "13 min read",
@@ -679,8 +679,8 @@
             "image": "/azure/architecture/hybrid/images/arc-hybrid-kubernetes.png",
             "imagepath": "C:\\jvPnpRepos\\architecture-center-pr\\docs\\hybrid\\images\\arc-hybrid-kubernetes.png",
             "publish_date": "7/23/2020",
-            "Summary": "<p>This reference architecture demonstrates how Azure Arc extends Kubernetes cluster management and configuration across customer data centers, edge locations, and multiple cloud environments. You can use Azure Arc to register Kubernetes clusters hosted outside of Microsoft Azure, and use Azure tools to manage these clusters alongside clusters hosted in Azure Kubernetes Service (AKS).\n<img alt=\"An Azure Arc for Kubernetes topology diagram.\" src=\"https://docs.microsoft.com/azure/architecture/hybrid/images/arc-hybrid-kubernetes.png\" /></p>\n<p><em>Download a <a href=\"https://archcenter.blob.core.windows.net/cdn/arc-hybrid-kubernetes.vsdx\">Visio file</a> of this architecture.</em></p>\n<p>Typical uses for this architecture include:</p>\n<ul>\n<li>Managing on-premises Kubernetes clusters alongside clusters hosted in AKS for inventory, grouping, and tagging.</li>\n<li>Monitoring Kubernetes clusters across hybrid environments using Azure Monitor.</li>\n<li>Deploying and enforcing policies for Kubernetes clusters across hybrid environments using Azure Policy.</li>\n<li>Deploying and enforcing GitOps using Azure Policy.</li>\n</ul>",
-            "visio_diagram": "https://archcenter.blob.core.windows.net/cdn/arc-hybrid-kubernetes.vsdx",
+            "Summary": "<p>This reference architecture demonstrates how Azure Arc extends Kubernetes cluster management and configuration across customer data centers, edge locations, and multiple cloud environments. You can use Azure Arc to register Kubernetes clusters hosted outside of Microsoft Azure, and use Azure tools to manage these clusters alongside clusters hosted in Azure Kubernetes Service (AKS).\n<img alt=\"An Azure Arc for Kubernetes topology diagram.\" src=\"https://docs.microsoft.com/azure/architecture/hybrid/images/arc-hybrid-kubernetes.png\" /></p>\n<p><em>Download a <a href=\"https://arch-center.azureedge.net/arc-hybrid-kubernetes.vsdx\">Visio file</a> of this architecture.</em></p>\n<p>Typical uses for this architecture include:</p>\n<ul>\n<li>Managing on-premises Kubernetes clusters alongside clusters hosted in AKS for inventory, grouping, and tagging.</li>\n<li>Monitoring Kubernetes clusters across hybrid environments using Azure Monitor.</li>\n<li>Deploying and enforcing policies for Kubernetes clusters across hybrid environments using Azure Policy.</li>\n<li>Deploying and enforcing GitOps using Azure Policy.</li>\n</ul>",
+            "visio_diagram": "https://arch-center.azureedge.net/arc-hybrid-kubernetes.vsdx",
             "name": "arc-hybrid-kubernetes",
             "popularity": 0,
             "topic": "Management and Governance",
@@ -708,8 +708,8 @@
             "image": "/azure/architecture/hybrid/images/azure-update-mgmt.png",
             "imagepath": "C:\\jvPnpRepos\\architecture-center-pr\\docs\\hybrid\\images\\azure-update-mgmt.png",
             "publish_date": "7/16/2020",
-            "Summary": "<p>This reference architecture illustrates how to design a hybrid update management solution to manage updates on both Microsoft Azure and on-premises Windows and Linux computers.</p>\n<p><img alt=\"Azure Update management is configuration component of Azure Automation. Windows and Linux computers, both in Azure and on-premises, send assessment information about missing updates to the Log Analytics workspace. Azure Automation then uses that information to create a schedule for automatic deployment of the missing updates.\" src=\"https://docs.microsoft.com/azure/architecture/hybrid/images/azure-update-mgmt.png\" /></p>\n<p><em>Download a <a href=\"https://archcenter.blob.core.windows.net/cdn/azure-update-mgmt.vsdx\">Visio file</a> of this architecture.</em></p>\n<p>Typical uses for this architecture include:</p>\n<ul>\n<li>Managing updates across on-premises and in Azure using the Update Management component of Automation Account.</li>\n<li>Using scheduled deployments to orchestrate the installation of updates within a defined maintenance window.</li>\n</ul>",
-            "visio_diagram": "https://archcenter.blob.core.windows.net/cdn/azure-update-mgmt.vsdx",
+            "Summary": "<p>This reference architecture illustrates how to design a hybrid update management solution to manage updates on both Microsoft Azure and on-premises Windows and Linux computers.</p>\n<p><img alt=\"Azure Update management is configuration component of Azure Automation. Windows and Linux computers, both in Azure and on-premises, send assessment information about missing updates to the Log Analytics workspace. Azure Automation then uses that information to create a schedule for automatic deployment of the missing updates.\" src=\"https://docs.microsoft.com/azure/architecture/hybrid/images/azure-update-mgmt.png\" /></p>\n<p><em>Download a <a href=\"https://arch-center.azureedge.net/azure-update-mgmt.vsdx\">Visio file</a> of this architecture.</em></p>\n<p>Typical uses for this architecture include:</p>\n<ul>\n<li>Managing updates across on-premises and in Azure using the Update Management component of Automation Account.</li>\n<li>Using scheduled deployments to orchestrate the installation of updates within a defined maintenance window.</li>\n</ul>",
+            "visio_diagram": "https://arch-center.azureedge.net/azure-update-mgmt.vsdx",
             "name": "azure-update-mgmt",
             "popularity": 0,
             "topic": "Management and Governance",
@@ -738,8 +738,8 @@
             "image": "/azure/architecture/hybrid/images/azure-automation-hybrid.png",
             "imagepath": "C:\\jvPnpRepos\\architecture-center-pr\\docs\\hybrid\\images\\azure-automation-hybrid.png",
             "publish_date": "7/23/2020",
-            "Summary": "<p>This reference architecture illustrates how to extend automation to on-premises or other cloud providers. It describes the services that must be deployed in Azure to provide automated management and configuration across on-premises or other cloud providers. The same architecture can be applied on Azure virtual machines (VMs) that reside behind a firewall, with outbound connectivity over the 443 TCP port.</p>\n<p><img alt=\"Azure Automation in a hybrid environment\" src=\"https://docs.microsoft.com/azure/architecture/hybrid/images/azure-automation-hybrid.png\" /></p>\n<p><em>Download a <a href=\"https://archcenter.blob.core.windows.net/cdn/azure-automation-hybrid.vsdx\">Visio file</a> of this architecture.</em></p>\n<p>Typical uses for this architecture include:</p>\n<ul>\n<li>Automated management and configuration across Azure, on-premises, or other cloud providers.  </li>\n<li>Automation of Azure virtual machines (VMs) that reside behind a firewall, with outbound connectivity over the 443 TCP port.</li>\n</ul>",
-            "visio_diagram": "https://archcenter.blob.core.windows.net/cdn/azure-automation-hybrid.vsdx",
+            "Summary": "<p>This reference architecture illustrates how to extend automation to on-premises or other cloud providers. It describes the services that must be deployed in Azure to provide automated management and configuration across on-premises or other cloud providers. The same architecture can be applied on Azure virtual machines (VMs) that reside behind a firewall, with outbound connectivity over the 443 TCP port.</p>\n<p><img alt=\"Azure Automation in a hybrid environment\" src=\"https://docs.microsoft.com/azure/architecture/hybrid/images/azure-automation-hybrid.png\" /></p>\n<p><em>Download a <a href=\"https://arch-center.azureedge.net/azure-automation-hybrid.vsdx\">Visio file</a> of this architecture.</em></p>\n<p>Typical uses for this architecture include:</p>\n<ul>\n<li>Automated management and configuration across Azure, on-premises, or other cloud providers.  </li>\n<li>Automation of Azure virtual machines (VMs) that reside behind a firewall, with outbound connectivity over the 443 TCP port.</li>\n</ul>",
+            "visio_diagram": "https://arch-center.azureedge.net/azure-automation-hybrid.vsdx",
             "code_languages": [
                 "powershell"
             ],
@@ -795,10 +795,10 @@
             "image": "/azure/architecture/hybrid/images/azure-functions-hybrid.png",
             "imagepath": "C:\\jvPnpRepos\\architecture-center-pr\\docs\\hybrid\\images\\azure-functions-hybrid.png",
             "publish_date": "6/29/2020",
-            "Summary": "<p>This reference architecture illustrates multiple local branches of an organization that's spread out geographically. Each location is using a Microsoft Azure function app that's configured with the Premium plan in a nearby cloud region. The developers in this architecture are monitoring all the Azure function apps by using Azure Monitor as a single pane of glass.</p>\n<p><img alt=\"The diagram illustrates multiple local virtual machines (VMs) that are connected to Azure Functions in different regions. Developers are monitoring their function apps by using Azure Monitor.\" src=\"https://docs.microsoft.com/azure/architecture/hybrid/images/azure-functions-hybrid.png\" /></p>\n<p><em>Download a <a href=\"https://archcenter.blob.core.windows.net/cdn/azure-functions-hybrid.vsdx\">Visio file</a> of this architecture.</em></p>\n<p>Typical uses for this architecture include:</p>\n<ul>\n<li>Organizations with many physical locations that are connected to a virtual network in Azure to communicate with Azure Functions.</li>\n<li>High-growth workloads that are using Azure Functions locally and maintaining the option to use Azure for any unexpected bursts in work.</li>\n</ul>",
+            "Summary": "<p>This reference architecture illustrates multiple local branches of an organization that's spread out geographically. Each location is using a Microsoft Azure function app that's configured with the Premium plan in a nearby cloud region. The developers in this architecture are monitoring all the Azure function apps by using Azure Monitor as a single pane of glass.</p>\n<p><img alt=\"The diagram illustrates multiple local virtual machines (VMs) that are connected to Azure Functions in different regions. Developers are monitoring their function apps by using Azure Monitor.\" src=\"https://docs.microsoft.com/azure/architecture/hybrid/images/azure-functions-hybrid.png\" /></p>\n<p><em>Download a <a href=\"https://arch-center.azureedge.net/azure-functions-hybrid.vsdx\">Visio file</a> of this architecture.</em></p>\n<p>Typical uses for this architecture include:</p>\n<ul>\n<li>Organizations with many physical locations that are connected to a virtual network in Azure to communicate with Azure Functions.</li>\n<li>High-growth workloads that are using Azure Functions locally and maintaining the option to use Azure for any unexpected bursts in work.</li>\n</ul>",
             "sample_code": true,
             "github_url": "https://github.com/azure/azure-functions-core-tools",
-            "visio_diagram": "https://archcenter.blob.core.windows.net/cdn/azure-functions-hybrid.vsdx",
+            "visio_diagram": "https://arch-center.azureedge.net/azure-functions-hybrid.vsdx",
             "name": "azure-functions-hybrid",
             "popularity": 0,
             "topic": "Web",
@@ -813,7 +813,7 @@
                 "reference-architecture"
             ],
             "type": "reference-architecture",
-            "file_url": "reference-architectures/iot.md",
+            "file_url": "reference-architectures/iot.yml",
             "http_url": "/azure/architecture/reference-architectures/iot",
             "word_count": 2920,
             "read_time": "12 min read",
@@ -932,7 +932,7 @@
             "imagepath": "C:\\jvPnpRepos\\architecture-center-pr\\docs\\hybrid\\images\\azure-stack-backup.png",
             "publish_date": "8/06/2020",
             "alternative_choices": "alternative-solutions",
-            "Summary": "<p>This document describes the architecture and design considerations of a solution that delivers an optimized approach to backup and restore of files and applications of VM-based user workloads hosted on Azure Stack Hub.</p>\n<p><img alt=\"Diagram illustrating backup of Azure Stack Hub files and applications hosted on Azure VMs, running such workloads as SQL Server, SharePoint Server, Exchange Server, File Server, and Active Directory Domain Services domain controllers. The backup relies on Azure Backup Server running on a Windows Server VM, with a geo-replicated Azure Recovery Services vault providing long-term storage. Initial backups can be performed by using Azure Import/Export service. Optionally, Azure ExpressRoute can provide high-bandwidth connectivity to Azure.\" src=\"https://docs.microsoft.com/azure/architecture/hybrid/images/azure-stack-backup.png\" /></p>\n<p><em>Download a <a href=\"https://archcenter.blob.core.windows.net/cdn/azure-stack-backup.vsdx\">Visio file</a> of this architecture.</em></p>\n<p>Backup and restore are essential components of any comprehensive business continuity and disaster recovery strategy. Designing and implementing a consistent and reliable backup approach in a hybrid environment is challenging, but can be considerably simplified through integration with services provided by Microsoft Azure. This applies not only to the workloads running on traditional on-premises infrastructure, but also to those hosted by third-party public and private cloud providers. However, benefits of integration with Azure cloud services are particularly evident when the hybrid environments incorporate Azure Stack portfolio offerings, including the Azure Stack Hub.</p>\n<p>While one of the primary strengths of Azure Stack Hub is its support for the platform-as-a-service (PaaS) model, it also helps customers to modernize their existing infrastructure-as-a-service (IaaS) workloads. Such workloads might include file shares, Microsoft SQL Server databases, Microsoft SharePoint farms, and Microsoft Exchange Server clusters. Migrating them to VMs running on hyperconverged, highly-resilient clusters, with administrative and programming models consistent with Microsoft Azure, results in minimized management and maintenance overhead.</p>\n<p>For implementing backup of files and applications running on Azure Hub Stack VMs, Microsoft recommends a hybrid approach that relies on a combination of cloud and on-premises components to deliver a scalable, performant, resilient, secure, straightforward to manage, and cost-efficient backup solution. The central component of this solution is Microsoft Azure Backup Server (MABS) v3, which is part of the Azure Backup offering. MABS relies on Azure Stack Hub infrastructure for compute, network, and short-term storage resources, while it leverages Azure-based storage to serve as the long-term backup store. This minimizes or eliminates the need to maintain physical backup media such as tapes.</p>\n<blockquote>\n<p>[!Note]\nMABS is based on Microsoft System Center Data Protection Manager (DPM) and provides similar functionality with just a few differences. However, DPM is not supported for use with Azure Stack Hub.</p>\n</blockquote>",
+            "Summary": "<p>This document describes the architecture and design considerations of a solution that delivers an optimized approach to backup and restore of files and applications of VM-based user workloads hosted on Azure Stack Hub.</p>\n<p><img alt=\"Diagram illustrating backup of Azure Stack Hub files and applications hosted on Azure VMs, running such workloads as SQL Server, SharePoint Server, Exchange Server, File Server, and Active Directory Domain Services domain controllers. The backup relies on Azure Backup Server running on a Windows Server VM, with a geo-replicated Azure Recovery Services vault providing long-term storage. Initial backups can be performed by using Azure Import/Export service. Optionally, Azure ExpressRoute can provide high-bandwidth connectivity to Azure.\" src=\"https://docs.microsoft.com/azure/architecture/hybrid/images/azure-stack-backup.png\" /></p>\n<p><em>Download a <a href=\"https://arch-center.azureedge.net/azure-stack-backup.vsdx\">Visio file</a> of this architecture.</em></p>\n<p>Backup and restore are essential components of any comprehensive business continuity and disaster recovery strategy. Designing and implementing a consistent and reliable backup approach in a hybrid environment is challenging, but can be considerably simplified through integration with services provided by Microsoft Azure. This applies not only to the workloads running on traditional on-premises infrastructure, but also to those hosted by third-party public and private cloud providers. However, benefits of integration with Azure cloud services are particularly evident when the hybrid environments incorporate Azure Stack portfolio offerings, including the Azure Stack Hub.</p>\n<p>While one of the primary strengths of Azure Stack Hub is its support for the platform-as-a-service (PaaS) model, it also helps customers to modernize their existing infrastructure-as-a-service (IaaS) workloads. Such workloads might include file shares, Microsoft SQL Server databases, Microsoft SharePoint farms, and Microsoft Exchange Server clusters. Migrating them to VMs running on hyperconverged, highly-resilient clusters, with administrative and programming models consistent with Microsoft Azure, results in minimized management and maintenance overhead.</p>\n<p>For implementing backup of files and applications running on Azure Hub Stack VMs, Microsoft recommends a hybrid approach that relies on a combination of cloud and on-premises components to deliver a scalable, performant, resilient, secure, straightforward to manage, and cost-efficient backup solution. The central component of this solution is Microsoft Azure Backup Server (MABS) v3, which is part of the Azure Backup offering. MABS relies on Azure Stack Hub infrastructure for compute, network, and short-term storage resources, while it leverages Azure-based storage to serve as the long-term backup store. This minimizes or eliminates the need to maintain physical backup media such as tapes.</p>\n<blockquote>\n<p>[!Note]\nMABS is based on Microsoft System Center Data Protection Manager (DPM) and provides similar functionality with just a few differences. However, DPM is not supported for use with Azure Stack Hub.</p>\n</blockquote>",
             "Flow": {
                 "FlowStep_A": "A customer copies the initial backup data to one or more SATA disks by using the AzureOfflineBackupDiskPrep tool.",
                 "FlowStep_B": "The tool automatically generates an Azure Import job and an Azure AD app in the subscription hosting the target Azure Storage account and Azure Recovery Services vault. The purpose of the app is to provide Azure Backup with secure and scoped access to the Azure Import Service, required by the offline seeding process.",
@@ -940,7 +940,7 @@
                 "FlowStep_D": "Azure datacenter staff copies data from SATA disks to the Azure Storage account.",
                 "FlowStep_E": "The workflow triggers a copy from the Azure Storage account to the Azure Recovery Services vault."
             },
-            "visio_diagram": "https://archcenter.blob.core.windows.net/cdn/azure-stack-backup.vsdx",
+            "visio_diagram": "https://arch-center.azureedge.net/azure-stack-backup.vsdx",
             "name": "azure-stack-backup",
             "popularity": 0,
             "topic": "Management and Governance",
@@ -1058,7 +1058,7 @@
                 "reference-architecture"
             ],
             "type": "reference-architecture",
-            "file_url": "reference-architectures/enterprise-integration/basic-enterprise-integration.md",
+            "file_url": "reference-architectures/enterprise-integration/basic-enterprise-integration.yml",
             "http_url": "/azure/architecture/reference-architectures/enterprise-integration/basic-enterprise-integration",
             "word_count": 2325,
             "read_time": "9 min read",
@@ -1088,7 +1088,7 @@
                 "visio-diagram"
             ],
             "type": "reference-architecture",
-            "file_url": "reference-architectures/app-service-web-app/basic-web-app.md",
+            "file_url": "reference-architectures/app-service-web-app/basic-web-app.yml",
             "http_url": "/azure/architecture/reference-architectures/app-service-web-app/basic-web-app",
             "word_count": 2874,
             "read_time": "11 min read",
@@ -1100,10 +1100,10 @@
             "image": "/azure/architecture/reference-architectures/app-service-web-app/images/basic-web-app.png",
             "imagepath": "C:\\jvPnpRepos\\architecture-center-pr\\docs\\reference-architectures\\app-service-web-app\\images\\basic-web-app.png",
             "publish_date": "12/12/2017",
-            "Summary": "<p>This reference architecture shows proven practices for a web application that uses <a href=\"https://docs.microsoft.com/azure/app-service\">Azure App Service</a> and <a href=\"https://docs.microsoft.com/azure/sql-database\">Azure SQL Database</a>. <a href=\"#deploy-the-solution\"><strong>Deploy this solution</strong></a>.</p>\n<p><img alt=\"Reference architecture for a basic web application in Azure\" src=\"https://docs.microsoft.com/azure/architecture/reference-architectures/app-service-web-app/images/basic-web-app.png\" /></p>\n<p><em>Download a <a href=\"https://archcenter.blob.core.windows.net/cdn/app-service-reference-architectures.vsdx\">Visio file</a> of this architecture.</em></p>",
+            "Summary": "<p>This reference architecture shows proven practices for a web application that uses <a href=\"https://docs.microsoft.com/azure/app-service\">Azure App Service</a> and <a href=\"https://docs.microsoft.com/azure/sql-database\">Azure SQL Database</a>. <a href=\"#deploy-the-solution\"><strong>Deploy this solution</strong></a>.</p>\n<p><img alt=\"Reference architecture for a basic web application in Azure\" src=\"https://docs.microsoft.com/azure/architecture/reference-architectures/app-service-web-app/images/basic-web-app.png\" /></p>\n<p><em>Download a <a href=\"https://arch-center.azureedge.net/app-service-reference-architectures.vsdx\">Visio file</a> of this architecture.</em></p>",
             "sample_code": true,
             "github_url": "https://github.com/mspnp/reference-architectures/tree/master/managed-web-app/basic-web-app/Paas-Basic/Templates",
-            "visio_diagram": "https://archcenter.blob.core.windows.net/cdn/app-service-reference-architectures.vsdx",
+            "visio_diagram": "https://arch-center.azureedge.net/app-service-reference-architectures.vsdx",
             "code_languages": [
                 "powershell"
             ],
@@ -1378,7 +1378,7 @@
             "Flow": {},
             "sample_code": true,
             "github_url": "https://github.com/microsoft/botbuilder-dotnet",
-            "visio_diagram": "https://archcenter.blob.core.windows.net/cdn/conversational-bot.vsdx",
+            "visio_diagram": "https://arch-center.azureedge.net/conversational-bot.vsdx",
             "name": "conversational-bot",
             "popularity": 205,
             "topic": "AI + Machine Learning"
@@ -1548,7 +1548,7 @@
                 "pricing-guidance"
             ],
             "type": "example-workload",
-            "file_url": "example-scenario/apps/telehealth-system.md",
+            "file_url": "example-scenario/apps/telehealth-system.yml",
             "http_url": "/azure/architecture/example-scenario/apps/telehealth-system",
             "word_count": 1668,
             "read_time": "7 min read",
@@ -1817,7 +1817,7 @@
                 "pricing-guidance"
             ],
             "type": "example-workload",
-            "file_url": "example-scenario/apps/devops-with-aks.md",
+            "file_url": "example-scenario/apps/devops-with-aks.yml",
             "http_url": "/azure/architecture/example-scenario/apps/devops-with-aks",
             "word_count": 1610,
             "read_time": "7 min read",
@@ -1995,7 +1995,7 @@
                 "FlowStep_E": "Using the sign-in identity, the app sends a request to Azure Key Vault to retrieve the application secret for the **secretURI** that App Configuration sent.",
                 "FlowStep_F": "Upon successful authorization, Key Vault returns the secret value."
             },
-            "visio_diagram": "https://archcenter.blob.core.windows.net/cdn/AppConfig_Development.vsdx",
+            "visio_diagram": "https://arch-center.azureedge.net/AppConfig_Development.vsdx",
             "name": "appconfig-key-vault",
             "popularity": 0,
             "topic": "Security"
@@ -2274,7 +2274,7 @@
                 "reference-architecture"
             ],
             "type": "reference-architecture",
-            "file_url": "reference-architectures/hybrid-networking/index.md",
+            "file_url": "reference-architectures/hybrid-networking/index.yml",
             "http_url": "/azure/architecture/reference-architectures/hybrid-networking",
             "word_count": 519,
             "read_time": "2 min read",
@@ -2303,7 +2303,7 @@
                 "visio-diagram"
             ],
             "type": "reference-architecture",
-            "file_url": "reference-architectures/hybrid-networking/expressroute-vpn-failover.md",
+            "file_url": "reference-architectures/hybrid-networking/expressroute-vpn-failover.yml",
             "http_url": "/azure/architecture/reference-architectures/hybrid-networking/expressroute-vpn-failover",
             "word_count": 1060,
             "read_time": "5 min read",
@@ -2317,7 +2317,7 @@
             "imagepath": "C:\\jvPnpRepos\\architecture-center-pr\\docs\\reference-architectures\\hybrid-networking\\images\\expressroute-vpn-failover.png",
             "publish_date": "10/22/2017",
             "deployable": "https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmspnp%2Freference-architectures%2Fmaster%2Fhybrid-networking%2Fexpressroute-vpn-failover%2Fazuredeploy.json",
-            "visio_diagram": "https://archcenter.blob.core.windows.net/cdn/hybrid-network-architectures.vsdx",
+            "visio_diagram": "https://arch-center.azureedge.net/hybrid-network-architectures.vsdx",
             "code_languages": [
                 "powershell"
             ],
@@ -2350,8 +2350,8 @@
             "imagepath": "C:\\jvPnpRepos\\architecture-center-pr\\docs\\hybrid\\images\\azure-network-adapter.png",
             "publish_date": "7/23/2020",
             "deployable": "https://portal.azure.com/#create/Microsoft.VirtualNetwork-ARM",
-            "Summary": "<p>This reference architecture shows how to connect an on-premises standalone server to Microsoft Azure virtual networks by using the Azure Network Adapter that you deploy through Windows Admin Center (WAC). Azure Network Adapter creates a secured virtual connection over the internet, thereby extending your on-premises network into Azure.</p>\n<p><img alt=\"Use Azure VPN to connect a standalone server to an Azure virtual network by deploying an Azure Network Adapter using Windows Admin Center. You then can manage the Azure virtual machines (VMs) from the standalone server by using the VMs private IP address.\" src=\"https://docs.microsoft.com/azure/architecture/hybrid/images/azure-network-adapter.png\" /></p>\n<p><img alt=\"Deploy an Azure Network Adapter using Windows Admin Center to connect a standalone server via Azure VPN to a corporate network's Azure virtual network, a branch office, or another cloud provider's network. You then can use the standalone server to manage the Azure VMs via their private IP addresses, from any locations.\" src=\"https://docs.microsoft.com/azure/architecture/hybrid/images/azure-network-adapter-large.png\" /></p>\n<p><em>Download a <a href=\"https://archcenter.blob.core.windows.net/cdn/azure-network-adapter.vsdx\">Visio file</a> of these architectures.</em></p>",
-            "visio_diagram": "https://archcenter.blob.core.windows.net/cdn/azure-network-adapter.vsdx",
+            "Summary": "<p>This reference architecture shows how to connect an on-premises standalone server to Microsoft Azure virtual networks by using the Azure Network Adapter that you deploy through Windows Admin Center (WAC). Azure Network Adapter creates a secured virtual connection over the internet, thereby extending your on-premises network into Azure.</p>\n<p><img alt=\"Use Azure VPN to connect a standalone server to an Azure virtual network by deploying an Azure Network Adapter using Windows Admin Center. You then can manage the Azure virtual machines (VMs) from the standalone server by using the VMs private IP address.\" src=\"https://docs.microsoft.com/azure/architecture/hybrid/images/azure-network-adapter.png\" /></p>\n<p><img alt=\"Deploy an Azure Network Adapter using Windows Admin Center to connect a standalone server via Azure VPN to a corporate network's Azure virtual network, a branch office, or another cloud provider's network. You then can use the standalone server to manage the Azure VMs via their private IP addresses, from any locations.\" src=\"https://docs.microsoft.com/azure/architecture/hybrid/images/azure-network-adapter-large.png\" /></p>\n<p><em>Download a <a href=\"https://arch-center.azureedge.net/azure-network-adapter.vsdx\">Visio file</a> of these architectures.</em></p>",
+            "visio_diagram": "https://arch-center.azureedge.net/azure-network-adapter.vsdx",
             "name": "azure-network-adapter",
             "popularity": 0,
             "topic": "Networking",
@@ -2540,7 +2540,7 @@
                 "visio-diagram"
             ],
             "type": "reference-architecture",
-            "file_url": "reference-architectures/identity/adds-forest.md",
+            "file_url": "reference-architectures/identity/adds-forest.yml",
             "http_url": "/azure/architecture/reference-architectures/identity/adds-forest",
             "word_count": 1514,
             "read_time": "6 min read",
@@ -2555,7 +2555,7 @@
             "publish_date": "5/02/2018",
             "sample_code": true,
             "github_url": "https://github.com/mspnp/identity-reference-architectures",
-            "visio_diagram": "https://archcenter.blob.core.windows.net/cdn/identity-architectures.vsdx",
+            "visio_diagram": "https://arch-center.azureedge.net/identity-architectures.vsdx",
             "code_languages": [
                 "bash"
             ],
@@ -3093,7 +3093,7 @@
             "word_count": 566,
             "read_time": "3 min read",
             "Title": "Demand Forecasting",
-            "MetaDescription": "Accurately forecasting spikes in demand for products and services can give a company a competitive advantage. This solution focuses on demand forecasting within the energy sector.",
+            "MetaDescription": "Accurately forecasting spikes in demand for products and services can give a company a competitive advantage. This solution focuses on-demand forecasting within the energy sector.",
             "category": [
                 "analytics",
                 "ai-machine-learning"
@@ -3102,7 +3102,7 @@
             "imagepath": "C:\\jvPnpRepos\\architecture-center-pr\\docs\\solution-ideas\\media\\demand-forecasting.png",
             "publish_date": "12/16/2019",
             "pricing_guidance": "pricing-info",
-            "Summary": "<p>Accurately forecasting spikes in demand for products and services can give a company a competitive advantage. This solution focuses on demand forecasting within the energy sector.</p>",
+            "Summary": "<p>Accurately forecasting spikes in demand for products and services can give a company a competitive advantage. This solution focuses on-demand forecasting within the energy sector.</p>",
             "Flow": {
                 "FlowStep_A": "The sample data is streamed by newly deployed Azure Web Jobs.",
                 "FlowStep_B": "This synthetic data feeds into the Azure Event Hubs and Azure SQL service as data points or events, that will be used in the rest of the solution flow.",
@@ -3243,7 +3243,7 @@
                 "visio-diagram"
             ],
             "type": "reference-architecture",
-            "file_url": "reference-architectures/identity/adds-extend-domain.md",
+            "file_url": "reference-architectures/identity/adds-extend-domain.yml",
             "http_url": "/azure/architecture/reference-architectures/identity/adds-extend-domain",
             "word_count": 2071,
             "read_time": "8 min read",
@@ -3257,7 +3257,7 @@
             "publish_date": "5/02/2018",
             "sample_code": true,
             "github_url": "https://github.com/mspnp/identity-reference-architectures",
-            "visio_diagram": "https://archcenter.blob.core.windows.net/cdn/identity-architectures.vsdx",
+            "visio_diagram": "https://arch-center.azureedge.net/identity-architectures.vsdx",
             "code_languages": [
                 "bash"
             ],
@@ -3286,8 +3286,8 @@
             "image": "/azure/architecture/hybrid/images/deploy-ai-ml-azure-stack-edge.png",
             "imagepath": "C:\\jvPnpRepos\\architecture-center-pr\\docs\\hybrid\\images\\deploy-ai-ml-azure-stack-edge.png",
             "publish_date": "7/16/2020",
-            "Summary": "<p>This reference architecture illustrates how to use Microsoft Azure Stack Edge to extend the ability to perform rapid machine learning inferencing from the cloud to on-premises or edge scenarios.</p>\n<p><img alt=\"The diagram illustrates Azure Stack Edge sending data to Azure Machine Learning to train a model that is deployed to Azure Stack Edge and Azure Container Registry to make inferences against sampled data.\" src=\"https://docs.microsoft.com/azure/architecture/hybrid/images/deploy-ai-ml-azure-stack-edge.png\" /></p>\n<p><em>Download a <a href=\"https://archcenter.blob.core.windows.net/cdn/deploy-ai-ml-azure-stack-edge.vsdx\">Visio file</a> of this architecture.</em></p>\n<p>Typical uses for this architecture include:</p>\n<ul>\n<li>Performing local, rapid machine learning inference against data as it\u2019s ingested by organizations with a significant on-premises hardware footprint .</li>\n<li>Creating long-term research solutions where existing on-premises data is cleaned and used to generate a model. The model is then used both on-premises and in the cloud; it's retrained regularly as new data arrives.</li>\n<li>Building software applications that need to make inferences about users, both at a physical location and online.</li>\n</ul>",
-            "visio_diagram": "https://archcenter.blob.core.windows.net/cdn/deploy-ai-ml-azure-stack-edge.vsdx",
+            "Summary": "<p>This reference architecture illustrates how to use Microsoft Azure Stack Edge to extend the ability to perform rapid machine learning inferencing from the cloud to on-premises or edge scenarios.</p>\n<p><img alt=\"The diagram illustrates Azure Stack Edge sending data to Azure Machine Learning to train a model that is deployed to Azure Stack Edge and Azure Container Registry to make inferences against sampled data.\" src=\"https://docs.microsoft.com/azure/architecture/hybrid/images/deploy-ai-ml-azure-stack-edge.png\" /></p>\n<p><em>Download a <a href=\"https://arch-center.azureedge.net/deploy-ai-ml-azure-stack-edge.vsdx\">Visio file</a> of this architecture.</em></p>\n<p>Typical uses for this architecture include:</p>\n<ul>\n<li>Performing local, rapid machine learning inference against data as it\u2019s ingested by organizations with a significant on-premises hardware footprint .</li>\n<li>Creating long-term research solutions where existing on-premises data is cleaned and used to generate a model. The model is then used both on-premises and in the cloud; it's retrained regularly as new data arrives.</li>\n<li>Building software applications that need to make inferences about users, both at a physical location and online.</li>\n</ul>",
+            "visio_diagram": "https://arch-center.azureedge.net/deploy-ai-ml-azure-stack-edge.vsdx",
             "name": "deploy-ai-ml-azure-stack-edge",
             "popularity": 0,
             "topic": "AI + Machine Learning",
@@ -3303,7 +3303,7 @@
                 "seodec18"
             ],
             "type": "reference-architecture",
-            "file_url": "reference-architectures/dmz/nva-ha.md",
+            "file_url": "reference-architectures/dmz/nva-ha.yml",
             "http_url": "/azure/architecture/reference-architectures/dmz/nva-ha",
             "word_count": 1607,
             "read_time": "7 min read",
@@ -3387,7 +3387,7 @@
                 "seodec18"
             ],
             "type": "example-workload",
-            "file_url": "example-scenario/apps/devops-dotnet-webapp.md",
+            "file_url": "example-scenario/apps/devops-dotnet-webapp.yml",
             "http_url": "/azure/architecture/example-scenario/apps/devops-dotnet-webapp",
             "word_count": 1127,
             "read_time": "5 min read",
@@ -3445,8 +3445,8 @@
             "image": "/azure/architecture/hybrid/images/hybrid-dns-infra.png",
             "imagepath": "C:\\jvPnpRepos\\architecture-center-pr\\docs\\hybrid\\images\\hybrid-dns-infra.png",
             "publish_date": "7/23/2020",
-            "Summary": "<p>This reference architecture illustrates how to design a hybrid Domain Name System (DNS) solution to resolve names for workloads that are hosted on-premises and in Microsoft Azure. This architecture works for users and other systems that are connecting from on-premises and the public internet.</p>\n<p><img alt=\"Hybrid Domain Name System (DNS)\" src=\"https://docs.microsoft.com/azure/architecture/hybrid/images/hybrid-dns-infra.png\" /></p>\n<p><em>Download a <a href=\"https://archcenter.blob.core.windows.net/cdn/hybrid-dns-infra.vsdx\">Visio file</a> of this architecture.</em></p>",
-            "visio_diagram": "https://archcenter.blob.core.windows.net/cdn/hybrid-dns-infra.vsdx",
+            "Summary": "<p>This reference architecture illustrates how to design a hybrid Domain Name System (DNS) solution to resolve names for workloads that are hosted on-premises and in Microsoft Azure. This architecture works for users and other systems that are connecting from on-premises and the public internet.</p>\n<p><img alt=\"Hybrid Domain Name System (DNS)\" src=\"https://docs.microsoft.com/azure/architecture/hybrid/images/hybrid-dns-infra.png\" /></p>\n<p><em>Download a <a href=\"https://arch-center.azureedge.net/hybrid-dns-infra.vsdx\">Visio file</a> of this architecture.</em></p>",
+            "visio_diagram": "https://arch-center.azureedge.net/hybrid-dns-infra.vsdx",
             "name": "hybrid-dns-infra",
             "popularity": 0,
             "topic": "Networking",
@@ -3478,7 +3478,7 @@
             "components": [
                 "<p><a href=\"https://docs.microsoft.com/azure/devops/boards/github/connect-to-github?view=azure-devops\">Azure Boards</a>: Use Azure Board to plan work and track its progress, using Agile tools such as Kanban boards.</p>",
                 "<p>Source code is hosted on <a href=\"https://github.com/enterprise\">GitHub Enterprise</a>, where developers can collaborate within your organization and the open source communities. GitHub Enterprise offers advanced security features to identify vulnerabilities in the code you write and in open source dependencies.</p>",
-                "<p><a href=\"https://docs.microsoft.com/azure/devops/pipelines/?view=azure-devops\">Azure Pipelines</a>  runs Continuous Integration and Continuous Delivery jobs for your application, as well as the creation of your infrastructure with the integration with Terraform.</p>",
+                "<p><a href=\"https://docs.microsoft.com/azure/devops/pipelines/?view=azure-devops&preserve-view=true\">Azure Pipelines</a>  runs Continuous Integration and Continuous Delivery jobs for your application, as well as the creation of your infrastructure with the integration with Terraform.</p>",
                 "<p>You can use <a href=\"https://docs.microsoft.com/azure/key-vault/basic-concepts\">Azure Key Vault</a> to store certificates, connection strings, tokens, and other secrets. These are read by your application at run-time, so they're abstracted away from your developers</p>",
                 "<p><a href=\"https://docs.microsoft.com/azure/terraform/terraform-install-configure\">Terraform</a> is a third-party product developed by HashiCorp that allows infrastructure automation on Azure, on-premises, and other environments</p>",
                 "<p>Using <a href=\"https://docs.microsoft.com/azure/azure-monitor/overview\">Azure Monitor</a> lets you get insights on the availability and performance of your application and infrastructure.</p>",
@@ -3511,7 +3511,7 @@
                 "solution-idea"
             ],
             "type": "solution-idea",
-            "file_url": "solution-ideas/articles/devsecops-in-azure.md",
+            "file_url": "solution-ideas/articles/devsecops-in-azure.yml",
             "http_url": "/azure/architecture/solution-ideas/articles/devsecops-in-azure",
             "word_count": 778,
             "read_time": "4 min read",
@@ -3772,7 +3772,7 @@
                 "sap"
             ],
             "type": "example-workload",
-            "file_url": "example-scenario/apps/sap-dev-test.md",
+            "file_url": "example-scenario/apps/sap-dev-test.yml",
             "http_url": "/azure/architecture/example-scenario/apps/sap-dev-test",
             "word_count": 716,
             "read_time": "4 min read",
@@ -3902,7 +3902,7 @@
                 "pricing-guidance"
             ],
             "type": "example-workload",
-            "file_url": "example-scenario/infrastructure/image-modeling.md",
+            "file_url": "example-scenario/infrastructure/image-modeling.yml",
             "http_url": "/azure/architecture/example-scenario/infrastructure/image-modeling",
             "word_count": 1573,
             "read_time": "7 min read",
@@ -3959,8 +3959,8 @@
             "imagepath": "C:\\jvPnpRepos\\architecture-center-pr\\docs\\hybrid\\images\\azure-stack-vm-dr.png",
             "publish_date": "8/06/2020",
             "alternative_choices": "alternatively,-you-have-the-option-to-use-workload-specific-replication-mechanisms-to-provide-site-level-resiliency.-this-is-a-commonly-used-option-when-implementing-disaster-recovery-for-ad-ds-domain-controllers,-sql-server,-or-exchange,-all-of-which-natively-support-replication.-though-this-requires-provisioning-azure-vms-hosting-these-workloads-in-the-disaster-recovery-environment,-which-increases-the-cost,-it-offers-the-following-benefits:",
-            "Summary": "<p>This document describes the architecture and design considerations of a solution that delivers an optimized approach to disaster recovery of virtual machine (VM)-based user workloads hosted on Azure Stack Hub.</p>\n<p><img alt=\"The diagram illustrates the architecture of an Azure Stack Hub disaster recovery solution based on Azure Site Recovery. The solution consists of a configuration server and process server components runing on an Azure Stack Hub VM. These components are capable of protecting both Windows Server VMs running such workloads as SQL Server or Sharepoint Server, as well as CentOS and Ubuntu Linux VMs. The Azure components of the solution include an geo-redundant Azure Recovery Services vault handling orchestration tasks and an Azure Storage account serving as the destination of the replication traffic originating from the Azure Stack Hub VMs.\" src=\"https://docs.microsoft.com/azure/architecture/hybrid/images/azure-stack-vm-dr.png\" /></p>\n<p><em>Download a <a href=\"https://archcenter.blob.core.windows.net/cdn/azure-stack-vm-dr.vsdx\">Visio file</a> of this architecture.</em></p>\n<p>Azure Stack Hub includes self-healing functionality, providing auto-remediation in a range of scenarios involving localized failures of its components. However, large-scale failures, including outages affecting server racks or site-level disasters, require additional considerations. These considerations should be part of the business continuity and disaster recovery strategy for VM-based user workloads. This strategy must also account for recovery of the Azure Stack infrastructure, which is separate from workload recovery.</p>\n<p>Traditional, on-premises workload recovery solutions are complex to configure, expensive and labor-intensive to maintain, and challenging to automate, especially when using another on-premises location as the failover site. Microsoft recommends an alternative solution that relies on a combination of the cloud and on-premises components to deliver resilient, performance-based, highly automated, and straightforward ways to manage, secure, and achieve a cost-efficient disaster recovery strategy. The core element of this solution is the Microsoft Azure Recovery Services offering, with the failover site residing in Azure.</p>\n<p>Azure Site Recovery with Azure as the failover site eliminates all of these drawbacks. You can use its capabilities to protect both physical and virtual servers, including those running on either Microsoft Hyper-V or VMware ESXi virtualization platforms. You also have the option to leverage the same capabilities to facilitate recovery of workloads running on Azure Stack Hub VMs.</p>",
-            "visio_diagram": "https://archcenter.blob.core.windows.net/cdn/azure-stack-vm-dr.vsdx",
+            "Summary": "<p>This document describes the architecture and design considerations of a solution that delivers an optimized approach to disaster recovery of virtual machine (VM)-based user workloads hosted on Azure Stack Hub.</p>\n<p><img alt=\"The diagram illustrates the architecture of an Azure Stack Hub disaster recovery solution based on Azure Site Recovery. The solution consists of a configuration server and process server components runing on an Azure Stack Hub VM. These components are capable of protecting both Windows Server VMs running such workloads as SQL Server or Sharepoint Server, as well as CentOS and Ubuntu Linux VMs. The Azure components of the solution include an geo-redundant Azure Recovery Services vault handling orchestration tasks and an Azure Storage account serving as the destination of the replication traffic originating from the Azure Stack Hub VMs.\" src=\"https://docs.microsoft.com/azure/architecture/hybrid/images/azure-stack-vm-dr.png\" /></p>\n<p><em>Download a <a href=\"https://arch-center.azureedge.net/azure-stack-vm-dr.vsdx\">Visio file</a> of this architecture.</em></p>\n<p>Azure Stack Hub includes self-healing functionality, providing auto-remediation in a range of scenarios involving localized failures of its components. However, large-scale failures, including outages affecting server racks or site-level disasters, require additional considerations. These considerations should be part of the business continuity and disaster recovery strategy for VM-based user workloads. This strategy must also account for recovery of the Azure Stack infrastructure, which is separate from workload recovery.</p>\n<p>Traditional, on-premises workload recovery solutions are complex to configure, expensive and labor-intensive to maintain, and challenging to automate, especially when using another on-premises location as the failover site. Microsoft recommends an alternative solution that relies on a combination of the cloud and on-premises components to deliver resilient, performance-based, highly automated, and straightforward ways to manage, secure, and achieve a cost-efficient disaster recovery strategy. The core element of this solution is the Microsoft Azure Recovery Services offering, with the failover site residing in Azure.</p>\n<p>Azure Site Recovery with Azure as the failover site eliminates all of these drawbacks. You can use its capabilities to protect both physical and virtual servers, including those running on either Microsoft Hyper-V or VMware ESXi virtualization platforms. You also have the option to leverage the same capabilities to facilitate recovery of workloads running on Azure Stack Hub VMs.</p>",
+            "visio_diagram": "https://arch-center.azureedge.net/azure-stack-vm-dr.vsdx",
             "name": "azure-stack-vm-dr",
             "popularity": 0,
             "topic": "Management and Governance",
@@ -4088,7 +4088,7 @@
                 "web-apps"
             ],
             "type": "example-workload",
-            "file_url": "example-scenario/apps/ecommerce-scenario.md",
+            "file_url": "example-scenario/apps/ecommerce-scenario.yml",
             "http_url": "/azure/architecture/example-scenario/apps/ecommerce-scenario",
             "word_count": 1468,
             "read_time": "6 min read",
@@ -4246,7 +4246,7 @@
             "word_count": 577,
             "read_time": "3 min read",
             "Title": "Energy Supply Optimization",
-            "MetaDescription": "This solution provides an Azure-based smart solution, leveraging external open-source tools, that determines the optimal energy unit commitments from various types of energy resources for an energy grid.",
+            "MetaDescription": "This solution provides an Azure-based smart solution, applying external open-source tools, to determine the optimal energy unit commitments from various energy resources for an energy grid.",
             "category": [
                 "ai-machine-learning",
                 "integration"
@@ -4256,7 +4256,7 @@
             "publish_date": "12/16/2019",
             "Summary": "<p>In an energy grid, energy consumers are engaged with various types of energy supplying, trading, and storage components such as substations, batteries, windfarms and solar panels, micro-turbines, as well as demand response bids, to meet their respective demands and minimize the cost of energy commitment. To do so, the grid operator must determine how much energy each type of the resources should commit over a time frame, given the prices of soliciting different types of resources and the capacities and the physical characteristics of them.</p>\n<p>This solution is built upon Cortana Intelligence Suite and external open-source tools, and it computes the optimal energy unit commitments from various types of energy resources. This solution demonstrates the ability of Cortana Intelligence Suite to accommodating external tools, to solve parallelized numerical optimization problems over an Azure Batch of Azure Virtual Machines.</p>",
             "Flow": {
-                "FlowStep_A": "The sample data is streamed by newly deployed Azure Web Jobs. The web job uses resource related data from Azure SQL to generate the simulated data.",
+                "FlowStep_A": "The sample data is streamed by newly deployed Azure Web Jobs. The web job uses resource-related data from Azure SQL to generate the simulated data.",
                 "FlowStep_B": "The data simulator feeds this simulated data into the Azure Storage and writes message in Storage Queue, that will be used in the rest of the solution flow.",
                 "FlowStep_C": "Another Web Job monitors the storage queue and initiate an Azure Batch job once message in the queue is available.",
                 "FlowStep_D": "The Azure Batch service together with Data Science Virtual Machines is used to optimize the energy supply from a particular resource type given the inputs received.",
@@ -4362,7 +4362,7 @@
             "Summary": "<p>To set up disaster recovery for an enterprise-grade <em>conversational bot (chatbot)</em>, first review the service level agreement (SLA) that cover the <em>Recovery Point Objective (RPO)</em> and <em>Recovery Time Objective (RTO)</em> for the chatbot. Implement the disaster recovery patterns in this article to build highly available and disaster resistant chatbot solutions to meet the SLA.</p>\n<p>For a description of the core components of a typical enterprise-grade chatbot solution in Azure, see <a >Enterprise-grade conversational bot</a>.</p>",
             "sample_code": true,
             "github_url": "https://github.com/pchoudhari/QnAMakerBackupRestore",
-            "visio_diagram": "https://archcenter.blob.core.windows.net/cdn/Bot_DR.vsdx",
+            "visio_diagram": "https://arch-center.azureedge.net/Bot_DR.vsdx",
             "name": "enterprise-chatbot-disaster-recovery",
             "popularity": 0,
             "topic": "AI + Machine Learning"
@@ -4406,7 +4406,7 @@
                 "reference-architecture"
             ],
             "type": "reference-architecture",
-            "file_url": "reference-architectures/enterprise-integration/queues-events.md",
+            "file_url": "reference-architectures/enterprise-integration/queues-events.yml",
             "http_url": "/azure/architecture/reference-architectures/enterprise-integration/queues-events",
             "word_count": 1062,
             "read_time": "5 min read",
@@ -4507,7 +4507,7 @@
                 "visio-diagram"
             ],
             "type": "reference-architecture",
-            "file_url": "reference-architectures/hybrid-networking/expressroute.md",
+            "file_url": "reference-architectures/hybrid-networking/expressroute.yml",
             "http_url": "/azure/architecture/reference-architectures/hybrid-networking/expressroute",
             "word_count": 3046,
             "read_time": "13 min read",
@@ -4523,7 +4523,7 @@
             "deployable": "https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmspnp%2Freference-architectures%2Fmaster%2Fhybrid-networking%2Fexpressroute%2Fazuredeploy.json",
             "sample_code": true,
             "github_url": "https://github.com/mspnp/template-building-blocks/wiki",
-            "visio_diagram": "https://archcenter.blob.core.windows.net/cdn/hybrid-network-architectures.vsdx",
+            "visio_diagram": "https://arch-center.azureedge.net/hybrid-network-architectures.vsdx",
             "code_languages": [
                 "powershell"
             ],
@@ -4542,7 +4542,7 @@
                 "visio-diagram"
             ],
             "type": "reference-architecture",
-            "file_url": "reference-architectures/hybrid-networking/vpn.md",
+            "file_url": "reference-architectures/hybrid-networking/vpn.yml",
             "http_url": "/azure/architecture/reference-architectures/hybrid-networking/vpn",
             "word_count": 2866,
             "read_time": "11 min read",
@@ -4557,7 +4557,7 @@
             "publish_date": "1/24/2020",
             "sample_code": true,
             "github_url": "https://github.com/mspnp/reference-architectures/blob/master/hybrid-networking/vpn/README.md",
-            "visio_diagram": "https://archcenter.blob.core.windows.net/cdn/hybrid-network-architectures.vsdx",
+            "visio_diagram": "https://arch-center.azureedge.net/hybrid-network-architectures.vsdx",
             "name": "vpn",
             "popularity": 227,
             "topic": "Networking",
@@ -4575,7 +4575,7 @@
                 "visio-diagram"
             ],
             "type": "reference-architecture",
-            "file_url": "reference-architectures/identity/adfs.md",
+            "file_url": "reference-architectures/identity/adfs.yml",
             "http_url": "/azure/architecture/reference-architectures/identity/adfs",
             "word_count": 3313,
             "read_time": "13 min read",
@@ -4590,7 +4590,7 @@
             "publish_date": "12/18/2018",
             "sample_code": true,
             "github_url": "https://github.com/mspnp/identity-reference-architectures",
-            "visio_diagram": "https://archcenter.blob.core.windows.net/cdn/identity-architectures.vsdx",
+            "visio_diagram": "https://arch-center.azureedge.net/identity-architectures.vsdx",
             "code_languages": [
                 "powershell"
             ],
@@ -5359,7 +5359,7 @@
                 "visio-diagram"
             ],
             "type": "reference-architecture",
-            "file_url": "reference-architectures/app-service-web-app/multi-region.md",
+            "file_url": "reference-architectures/app-service-web-app/multi-region.yml",
             "http_url": "/azure/architecture/reference-architectures/app-service-web-app/multi-region",
             "word_count": 1885,
             "read_time": "8 min read",
@@ -5372,8 +5372,8 @@
             "image": "/azure/architecture/reference-architectures/app-service-web-app/images/multi-region-web-app-diagram.png",
             "imagepath": "C:\\jvPnpRepos\\architecture-center-pr\\docs\\reference-architectures\\app-service-web-app\\images\\multi-region-web-app-diagram.png",
             "publish_date": "8/14/2019",
-            "Summary": "<p>This reference architecture shows how to run an Azure App Service application in multiple regions to achieve high availability.</p>\n<p><img alt=\"Reference architecture for a web application with high availability\" src=\"https://docs.microsoft.com/azure/architecture/reference-architectures/app-service-web-app/images/multi-region-web-app-diagram.png\" /></p>\n<p><em>Download a <a href=\"https://archcenter.blob.core.windows.net/cdn/app-service-reference-architectures.vsdx\">Visio file</a> of this architecture.</em></p>",
-            "visio_diagram": "https://archcenter.blob.core.windows.net/cdn/app-service-reference-architectures.vsdx",
+            "Summary": "<p>This reference architecture shows how to run an Azure App Service application in multiple regions to achieve high availability.</p>\n<p><img alt=\"Reference architecture for a web application with high availability\" src=\"https://docs.microsoft.com/azure/architecture/reference-architectures/app-service-web-app/images/multi-region-web-app-diagram.png\" /></p>\n<p><em>Download a <a href=\"https://arch-center.azureedge.net/app-service-reference-architectures.vsdx\">Visio file</a> of this architecture.</em></p>",
+            "visio_diagram": "https://arch-center.azureedge.net/app-service-reference-architectures.vsdx",
             "name": "multi-region",
             "popularity": 236,
             "topic": "Web"
@@ -5423,7 +5423,7 @@
                 "visio-diagram"
             ],
             "type": "reference-architecture",
-            "file_url": "reference-architectures/hybrid-networking/hub-spoke.md",
+            "file_url": "reference-architectures/hybrid-networking/hub-spoke.yml",
             "http_url": "/azure/architecture/reference-architectures/hybrid-networking/hub-spoke",
             "word_count": 1727,
             "read_time": "7 min read",
@@ -5440,7 +5440,7 @@
             "Summary": "<p>ADMIN_USER=adminuser\nADMIN_PASSWORD=Password2020!</p>",
             "sample_code": true,
             "github_url": "https://github.com/Azure/azure-quickstart-templates/tree/master/101-hub-and-spoke-sandbox",
-            "visio_diagram": "https://archcenter.blob.core.windows.net/cdn/hybrid-network-hub-spoke.vsdx",
+            "visio_diagram": "https://arch-center.azureedge.net/hybrid-network-hub-spoke.vsdx",
             "code_languages": [
                 "azurecli"
             ],
@@ -5653,8 +5653,8 @@
             "image": "/azure/architecture/hybrid/images/hybrid-security-monitoring.png",
             "imagepath": "C:\\jvPnpRepos\\architecture-center-pr\\docs\\hybrid\\images\\hybrid-security-monitoring.png",
             "publish_date": "8/19/2020",
-            "Summary": "<p>the security configuration and telemetry of on-premises and Azure operating system workloads. This includes Azure Stack.</p>\n<p><img alt=\"Diagram illustrating deployed Microsoft Monitoring Agent on on-premises systems as well as on Azure based virtual machines transferring data to Azure Security Center and Azure Sentinel\" src=\"https://docs.microsoft.com/azure/architecture/hybrid/images/hybrid-security-monitoring.png\" /></p>\n<p><em>Download a <a href=\"https://archcenter.blob.core.windows.net/cdn/hybrid-security-monitoring.vsdx\">Visio file</a> of this architecture.</em></p>\n<p>Typical uses for this architecture include:</p>\n<ul>\n<li>Best practices for integrating on-premises security and telemetry monitoring with Azure-based workloads</li>\n<li>How to integrate Azure Security Center with Azure Stack</li>\n<li>How to integrate Azure Security Center with Azure Sentinel</li>\n</ul>",
-            "visio_diagram": "https://archcenter.blob.core.windows.net/cdn/hybrid-security-monitoring.vsdx",
+            "Summary": "<p>the security configuration and telemetry of on-premises and Azure operating system workloads. This includes Azure Stack.</p>\n<p><img alt=\"Diagram illustrating deployed Microsoft Monitoring Agent on on-premises systems as well as on Azure based virtual machines transferring data to Azure Security Center and Azure Sentinel\" src=\"https://docs.microsoft.com/azure/architecture/hybrid/images/hybrid-security-monitoring.png\" /></p>\n<p><em>Download a <a href=\"https://arch-center.azureedge.net/hybrid-security-monitoring.vsdx\">Visio file</a> of this architecture.</em></p>\n<p>Typical uses for this architecture include:</p>\n<ul>\n<li>Best practices for integrating on-premises security and telemetry monitoring with Azure-based workloads</li>\n<li>How to integrate Azure Security Center with Azure Stack</li>\n<li>How to integrate Azure Security Center with Azure Sentinel</li>\n</ul>",
+            "visio_diagram": "https://arch-center.azureedge.net/hybrid-security-monitoring.vsdx",
             "name": "hybrid-security-monitoring",
             "popularity": 0,
             "topic": "Security",
@@ -5743,8 +5743,8 @@
             "image": "/azure/architecture/hybrid/images/hybrid-perf-monitoring.png",
             "imagepath": "C:\\jvPnpRepos\\architecture-center-pr\\docs\\hybrid\\images\\hybrid-perf-monitoring.png",
             "publish_date": "7/27/2020",
-            "Summary": "<p>This reference architecture illustrates how to design Azure Monitor to monitor performance and availability for operating system (OS) workloads running in virtual machines (VMs) in Microsoft Azure, in on-premises environments, and with third-party cloud providers.</p>\n<p><img alt=\"Diagram illustrating monitoring and availability functions of Azure Monitor for OS workloads in Azure, in on-premises environments, and with third-party cloud providers. Data is being sent into a Log Analytics workspace. The data is used by Application Insights, Analysis, Visualization, Alerts, and Autoscale services as part of Azure Monitor\" src=\"https://docs.microsoft.com/azure/architecture/hybrid/images/hybrid-perf-monitoring.png\" /></p>\n<p><em>Download a <a href=\"https://archcenter.blob.core.windows.net/cdn/hybrid-perf-monitoring.vsdx\">Visio file</a> of this architecture.</em></p>",
-            "visio_diagram": "https://archcenter.blob.core.windows.net/cdn/hybrid-perf-monitoring.vsdx",
+            "Summary": "<p>This reference architecture illustrates how to design Azure Monitor to monitor performance and availability for operating system (OS) workloads running in virtual machines (VMs) in Microsoft Azure, in on-premises environments, and with third-party cloud providers.</p>\n<p><img alt=\"Diagram illustrating monitoring and availability functions of Azure Monitor for OS workloads in Azure, in on-premises environments, and with third-party cloud providers. Data is being sent into a Log Analytics workspace. The data is used by Application Insights, Analysis, Visualization, Alerts, and Autoscale services as part of Azure Monitor\" src=\"https://docs.microsoft.com/azure/architecture/hybrid/images/hybrid-perf-monitoring.png\" /></p>\n<p><em>Download a <a href=\"https://arch-center.azureedge.net/hybrid-perf-monitoring.vsdx\">Visio file</a> of this architecture.</em></p>",
+            "visio_diagram": "https://arch-center.azureedge.net/hybrid-perf-monitoring.vsdx",
             "name": "hybrid-perf-monitoring",
             "popularity": 0,
             "topic": "Management and Governance",
@@ -5771,8 +5771,8 @@
             "image": "/azure/architecture/hybrid/images/hybrid-file-services.png",
             "imagepath": "C:\\jvPnpRepos\\architecture-center-pr\\docs\\hybrid\\images\\hybrid-file-services.png",
             "publish_date": "7/28/2020",
-            "Summary": "<p>This reference architecture illustrates how to use Azure File Sync and Azure Files to extend file services hosting capabilities across cloud and on-premises file share resources.</p>\n<p><img alt=\"An Azure hybrid file services topology diagram.\" src=\"https://docs.microsoft.com/azure/architecture/hybrid/images/hybrid-file-services.png\" /></p>\n<p><em>Download a <a href=\"https://archcenter.blob.core.windows.net/cdn/hybrid-file-services.vsdx\">Visio file</a> of this architecture.</em></p>\n<p>Typical uses for this architecture include:</p>\n<ul>\n<li>Hosting file shares that need to be accessible from cloud and on-premises environments.</li>\n<li>Synchronizing data between multiple on-premises data stores with a single cloud-based source.</li>\n</ul>",
-            "visio_diagram": "https://archcenter.blob.core.windows.net/cdn/hybrid-file-services.vsdx",
+            "Summary": "<p>This reference architecture illustrates how to use Azure File Sync and Azure Files to extend file services hosting capabilities across cloud and on-premises file share resources.</p>\n<p><img alt=\"An Azure hybrid file services topology diagram.\" src=\"https://docs.microsoft.com/azure/architecture/hybrid/images/hybrid-file-services.png\" /></p>\n<p><em>Download a <a href=\"https://arch-center.azureedge.net/hybrid-file-services.vsdx\">Visio file</a> of this architecture.</em></p>\n<p>Typical uses for this architecture include:</p>\n<ul>\n<li>Hosting file shares that need to be accessible from cloud and on-premises environments.</li>\n<li>Synchronizing data between multiple on-premises data stores with a single cloud-based source.</li>\n</ul>",
+            "visio_diagram": "https://arch-center.azureedge.net/hybrid-file-services.vsdx",
             "name": "hybrid-file-services",
             "popularity": 0,
             "topic": "Storage",
@@ -5945,7 +5945,7 @@
             "publish_date": "8/19/2019",
             "sample_code": true,
             "github_url": "https://github.com/Azure/azure-quickstart-templates/tree/master/101-hub-and-spoke-sandbox",
-            "visio_diagram": "https://archcenter.blob.core.windows.net/cdn/hybrid-network-hub-spoke.vsdx",
+            "visio_diagram": "https://arch-center.azureedge.net/hybrid-network-hub-spoke.vsdx",
             "code_languages": [
                 "bash"
             ],
@@ -5966,7 +5966,7 @@
                 "visio-diagram"
             ],
             "type": "reference-architecture",
-            "file_url": "reference-architectures/dmz/secure-vnet-dmz.md",
+            "file_url": "reference-architectures/dmz/secure-vnet-dmz.yml",
             "http_url": "/azure/architecture/reference-architectures/dmz/secure-vnet-dmz",
             "word_count": 2138,
             "read_time": "9 min read",
@@ -5982,7 +5982,7 @@
             "publish_date": "1/07/2020",
             "sample_code": true,
             "github_url": "https://github.com/Azure/NetworkMonitoring/tree/master/AzureCT",
-            "visio_diagram": "https://archcenter.blob.core.windows.net/cdn/dmz-reference-architectures.vsdx",
+            "visio_diagram": "https://arch-center.azureedge.net/dmz-reference-architectures.vsdx",
             "code_languages": [
                 "bash"
             ],
@@ -6119,7 +6119,7 @@
                 "visio-diagram"
             ],
             "type": "reference-architecture",
-            "file_url": "reference-architectures/identity/azure-ad.md",
+            "file_url": "reference-architectures/identity/azure-ad.yml",
             "http_url": "/azure/architecture/reference-architectures/identity/azure-ad",
             "word_count": 3359,
             "read_time": "13 min read",
@@ -6134,7 +6134,7 @@
             "publish_date": "8/28/2019",
             "sample_code": true,
             "github_url": "https://github.com/mspnp/identity-reference-architectures/tree/master/azure-ad",
-            "visio_diagram": "https://archcenter.blob.core.windows.net/cdn/identity-architectures.vsdx",
+            "visio_diagram": "https://arch-center.azureedge.net/identity-architectures.vsdx",
             "name": "azure-ad",
             "popularity": 239,
             "topic": "Identity",
@@ -6148,7 +6148,7 @@
                 "seodec18"
             ],
             "type": "reference-architecture",
-            "file_url": "reference-architectures/identity/index.md",
+            "file_url": "reference-architectures/identity/index.yml",
             "http_url": "/azure/architecture/reference-architectures/identity",
             "word_count": 939,
             "read_time": "4 min read",
@@ -6242,7 +6242,7 @@
                 "web-app"
             ],
             "type": "example-workload",
-            "file_url": "example-scenario/apps/ecommerce-search.md",
+            "file_url": "example-scenario/apps/ecommerce-search.yml",
             "http_url": "/azure/architecture/example-scenario/apps/ecommerce-search",
             "word_count": 1485,
             "read_time": "6 min read",
@@ -6415,7 +6415,7 @@
                 "pricing-guidance"
             ],
             "type": "example-workload",
-            "file_url": "example-scenario/data/big-data-with-iot.md",
+            "file_url": "example-scenario/data/big-data-with-iot.yml",
             "http_url": "/azure/architecture/example-scenario/data/big-data-with-iot",
             "word_count": 1199,
             "read_time": "5 min read",
@@ -6817,7 +6817,7 @@
                 "pricing-guidance"
             ],
             "type": "example-workload",
-            "file_url": "example-scenario/infrastructure/linux-vdi-citrix.md",
+            "file_url": "example-scenario/infrastructure/linux-vdi-citrix.yml",
             "http_url": "/azure/architecture/example-scenario/infrastructure/linux-vdi-citrix",
             "word_count": 1293,
             "read_time": "5 min read",
@@ -7249,8 +7249,8 @@
             "image": "/azure/architecture/hybrid/images/azure-arc-hybrid-config.png",
             "imagepath": "C:\\jvPnpRepos\\architecture-center-pr\\docs\\hybrid\\images\\azure-arc-hybrid-config.png",
             "publish_date": "7/28/2020",
-            "Summary": "<p>This reference architecture illustrates how Azure Arc enables you to manage, govern, and secure servers across on-premises, multiple cloud, and edge scenarios.</p>\n<p><img alt=\"An Azure Arc hybrid server topology diagram with Arc enabled servers connected to Azure.\" src=\"https://docs.microsoft.com/azure/architecture/hybrid/images/azure-arc-hybrid-config.png\" /></p>\n<p><em>Download a <a href=\"https://archcenter.blob.core.windows.net/cdn/azure-arc-hybrid-config.vsdx\">Visio file</a> of this architecture.</em></p>\n<p>Typical uses for this architecture include:</p>\n<ul>\n<li>Organize, govern, and inventory large groups of virtual machines (VMs) and servers across multiple environments.</li>\n<li>Enforce organization standards and assess compliance at scale for all your resources anywhere with Azure Policy.</li>\n<li>Easily deploy extensions to Azure VMs and Arc enabled servers.</li>\n<li>Configure and enforce Azure Policy for VMs and servers hosted across multiple environments.</li>\n</ul>",
-            "visio_diagram": "https://archcenter.blob.core.windows.net/cdn/azure-arc-hybrid-config.vsdx",
+            "Summary": "<p>This reference architecture illustrates how Azure Arc enables you to manage, govern, and secure servers across on-premises, multiple cloud, and edge scenarios.</p>\n<p><img alt=\"An Azure Arc hybrid server topology diagram with Arc enabled servers connected to Azure.\" src=\"https://docs.microsoft.com/azure/architecture/hybrid/images/azure-arc-hybrid-config.png\" /></p>\n<p><em>Download a <a href=\"https://arch-center.azureedge.net/azure-arc-hybrid-config.vsdx\">Visio file</a> of this architecture.</em></p>\n<p>Typical uses for this architecture include:</p>\n<ul>\n<li>Organize, govern, and inventory large groups of virtual machines (VMs) and servers across multiple environments.</li>\n<li>Enforce organization standards and assess compliance at scale for all your resources anywhere with Azure Policy.</li>\n<li>Easily deploy extensions to Azure VMs and Arc enabled servers.</li>\n<li>Configure and enforce Azure Policy for VMs and servers hosted across multiple environments.</li>\n</ul>",
+            "visio_diagram": "https://arch-center.azureedge.net/azure-arc-hybrid-config.vsdx",
             "name": "azure-arc-hybrid-config",
             "popularity": 0,
             "topic": "Management and Governance",
@@ -7277,8 +7277,8 @@
             "image": "/azure/architecture/hybrid/images/hybrid-server-os-mgmt-wac-azure.png",
             "imagepath": "C:\\jvPnpRepos\\architecture-center-pr\\docs\\hybrid\\images\\hybrid-server-os-mgmt-wac-azure.png",
             "publish_date": "7/29/2020",
-            "Summary": "<p>This reference architecture illustrates how to design a hybrid Windows Admin Center solution to manage workloads that are hosted on-premises and in Microsoft Azure. This architecture includes two scenarios:</p>\n<ul>\n<li>Windows Admin Center deployed to a virtual machine (VM) in Azure.</li>\n<li>Windows Admin Center deployed to a server (physical or virtual) on-premises.</li>\n</ul>\n<p>The first diagram illustrates Windows Admin Center deployed to a VM in Azure.</p>\n<p><img alt=\"Deploy Windows Admin Center to a VM in Azure. Use VPN or ExpressRoute to manage on-premises VMs.\" src=\"https://docs.microsoft.com/azure/architecture/hybrid/images/hybrid-server-os-mgmt-wac-azure.png\" /></p>\n<p>The second diagram illustrates Windows Admin Center deployed on-premises.</p>\n<p><img alt=\"Deploy Windows Admin Center to a VM on-premises. Use Azure network adapter to integrate with resources in Azure.\" src=\"https://docs.microsoft.com/azure/architecture/hybrid/images/hybrid-server-os-mgmt-wac-onprem.png\" /></p>\n<p><em>Download a <a href=\"https://archcenter.blob.core.windows.net/cdn/hybrid-server-os-mgmt.vsdx\">Visio file</a> of these architectures.</em></p>\n<p>Typical uses for this architecture include:</p>\n<ul>\n<li>Organizations that want to manage individual Windows Server instances, Hyper-Converged Infrastructure or Hyper-V VMs that run on-premises and in Microsoft Azure.</li>\n<li>Organizations that want to manage Windows Server instances hosted by other cloud providers.</li>\n</ul>",
-            "visio_diagram": "https://archcenter.blob.core.windows.net/cdn/hybrid-server-os-mgmt.vsdx",
+            "Summary": "<p>This reference architecture illustrates how to design a hybrid Windows Admin Center solution to manage workloads that are hosted on-premises and in Microsoft Azure. This architecture includes two scenarios:</p>\n<ul>\n<li>Windows Admin Center deployed to a virtual machine (VM) in Azure.</li>\n<li>Windows Admin Center deployed to a server (physical or virtual) on-premises.</li>\n</ul>\n<p>The first diagram illustrates Windows Admin Center deployed to a VM in Azure.</p>\n<p><img alt=\"Deploy Windows Admin Center to a VM in Azure. Use VPN or ExpressRoute to manage on-premises VMs.\" src=\"https://docs.microsoft.com/azure/architecture/hybrid/images/hybrid-server-os-mgmt-wac-azure.png\" /></p>\n<p>The second diagram illustrates Windows Admin Center deployed on-premises.</p>\n<p><img alt=\"Deploy Windows Admin Center to a VM on-premises. Use Azure network adapter to integrate with resources in Azure.\" src=\"https://docs.microsoft.com/azure/architecture/hybrid/images/hybrid-server-os-mgmt-wac-onprem.png\" /></p>\n<p><em>Download a <a href=\"https://arch-center.azureedge.net/hybrid-server-os-mgmt.vsdx\">Visio file</a> of these architectures.</em></p>\n<p>Typical uses for this architecture include:</p>\n<ul>\n<li>Organizations that want to manage individual Windows Server instances, Hyper-Converged Infrastructure or Hyper-V VMs that run on-premises and in Microsoft Azure.</li>\n<li>Organizations that want to manage Windows Server instances hosted by other cloud providers.</li>\n</ul>",
+            "visio_diagram": "https://arch-center.azureedge.net/hybrid-server-os-mgmt.vsdx",
             "name": "hybrid-server-os-mgmt",
             "popularity": 0,
             "topic": "Management and Governance",
@@ -7420,7 +7420,7 @@
                 "visio-diagram"
             ],
             "type": "reference-architecture",
-            "file_url": "reference-architectures/containers/aks-microservices/aks-microservices.md",
+            "file_url": "reference-architectures/containers/aks-microservices/aks-microservices.yml",
             "http_url": "/azure/architecture/reference-architectures/containers/aks-microservices/aks-microservices",
             "word_count": 4228,
             "read_time": "17 min read",
@@ -7434,7 +7434,7 @@
             "publish_date": "5/07/2020",
             "sample_code": true,
             "github_url": "https://github.com/Azure/aad-pod-identity",
-            "visio_diagram": "https://archcenter.blob.core.windows.net/cdn/aks-reference-architecture.vsdx",
+            "visio_diagram": "https://arch-center.azureedge.net/aks-reference-architecture.vsdx",
             "name": "aks-microservices",
             "popularity": 0,
             "topic": "Containers"
@@ -7449,7 +7449,7 @@
                 "xml"
             ],
             "type": "reference-architecture",
-            "file_url": "reference-architectures/microservices/service-fabric.md",
+            "file_url": "reference-architectures/microservices/service-fabric.yml",
             "http_url": "/azure/architecture/reference-architectures/microservices/service-fabric",
             "word_count": 5601,
             "read_time": "22 min read",
@@ -7559,7 +7559,7 @@
                 "web-apps"
             ],
             "type": "example-workload",
-            "file_url": "example-scenario/apps/apim-api-scenario.md",
+            "file_url": "example-scenario/apps/apim-api-scenario.yml",
             "http_url": "/azure/architecture/example-scenario/apps/apim-api-scenario",
             "word_count": 1081,
             "read_time": "5 min read",
@@ -7755,7 +7755,7 @@
                 "visio-diagram"
             ],
             "type": "reference-architecture",
-            "file_url": "reference-architectures/n-tier/multi-region-sql-server.md",
+            "file_url": "reference-architectures/n-tier/multi-region-sql-server.yml",
             "http_url": "/azure/architecture/reference-architectures/n-tier/multi-region-sql-server",
             "word_count": 2443,
             "read_time": "10 min read",
@@ -7769,7 +7769,7 @@
             "image": "/azure/architecture/reference-architectures/n-tier/images/multi-region-sql-server.png",
             "imagepath": "C:\\jvPnpRepos\\architecture-center-pr\\docs\\reference-architectures\\n-tier\\images\\multi-region-sql-server.png",
             "publish_date": "6/18/2019",
-            "visio_diagram": "https://archcenter.blob.core.windows.net/cdn/vm-reference-architectures.vsdx",
+            "visio_diagram": "https://arch-center.azureedge.net/vm-reference-architectures.vsdx",
             "code_languages": [
                 "azurecli"
             ],
@@ -7791,7 +7791,7 @@
                 "web-apps"
             ],
             "type": "example-workload",
-            "file_url": "example-scenario/infrastructure/multi-tier-app-disaster-recovery.md",
+            "file_url": "example-scenario/infrastructure/multi-tier-app-disaster-recovery.yml",
             "http_url": "/azure/architecture/example-scenario/infrastructure/multi-tier-app-disaster-recovery",
             "word_count": 1197,
             "read_time": "5 min read",
@@ -7906,7 +7906,7 @@
                 "visio-diagram"
             ],
             "type": "reference-architecture",
-            "file_url": "reference-architectures/n-tier/n-tier-cassandra.md",
+            "file_url": "reference-architectures/n-tier/n-tier-cassandra.yml",
             "http_url": "/azure/architecture/reference-architectures/n-tier/n-tier-cassandra",
             "word_count": 2862,
             "read_time": "11 min read",
@@ -7922,7 +7922,7 @@
             "publish_date": "8/21/2019",
             "sample_code": true,
             "github_url": "https://github.com/mspnp/template-building-blocks/wiki/overview",
-            "visio_diagram": "https://archcenter.blob.core.windows.net/cdn/vm-reference-architectures.vsdx",
+            "visio_diagram": "https://arch-center.azureedge.net/vm-reference-architectures.vsdx",
             "code_languages": [
                 "bash"
             ],
@@ -7995,7 +7995,7 @@
             "image": "/azure/architecture/hybrid/images/gateway-logic-apps.png",
             "imagepath": "C:\\jvPnpRepos\\architecture-center-pr\\docs\\hybrid\\images\\gateway-logic-apps.png",
             "publish_date": "7/16/2020",
-            "visio_diagram": "https://archcenter.blob.core.windows.net/cdn/gateway-logic-apps.vsdx",
+            "visio_diagram": "https://arch-center.azureedge.net/gateway-logic-apps.vsdx",
             "name": "gateway-logic-apps",
             "popularity": 0,
             "topic": "Integration",
@@ -8241,7 +8241,7 @@
                 "github"
             ],
             "type": "example-workload",
-            "file_url": "example-scenario/oracle-migrate/oracle-migration-overview.md",
+            "file_url": "example-scenario/oracle-migrate/oracle-migration-overview.yml",
             "http_url": "/azure/architecture/example-scenario/oracle-migrate/oracle-migration-overview",
             "word_count": 591,
             "read_time": "3 min read",
@@ -8816,7 +8816,7 @@
                 "pricing-guidance"
             ],
             "type": "example-workload",
-            "file_url": "example-scenario/data/realtime-analytics-vehicle-iot.md",
+            "file_url": "example-scenario/data/realtime-analytics-vehicle-iot.yml",
             "http_url": "/azure/architecture/example-scenario/data/realtime-analytics-vehicle-iot",
             "word_count": 1598,
             "read_time": "7 min read",
@@ -8900,7 +8900,7 @@
                 "web-apps"
             ],
             "type": "example-workload",
-            "file_url": "example-scenario/apps/publish-internal-apis-externally.md",
+            "file_url": "example-scenario/apps/publish-internal-apis-externally.yml",
             "http_url": "/azure/architecture/example-scenario/apps/publish-internal-apis-externally",
             "word_count": 1857,
             "read_time": "8 min read",
@@ -9046,7 +9046,7 @@
                 "pricing-guidance"
             ],
             "type": "example-workload",
-            "file_url": "example-scenario/data/fraud-detection.md",
+            "file_url": "example-scenario/data/fraud-detection.yml",
             "http_url": "/azure/architecture/example-scenario/data/fraud-detection",
             "word_count": 957,
             "read_time": "4 min read",
@@ -9392,7 +9392,7 @@
                 "reference-architecture"
             ],
             "type": "reference-architecture",
-            "file_url": "reference-architectures/sap/run-sap-bw4hana-with-linux-virtual-machines.md",
+            "file_url": "reference-architectures/sap/run-sap-bw4hana-with-linux-virtual-machines.yml",
             "http_url": "/azure/architecture/reference-architectures/sap/run-sap-bw4hana-with-linux-virtual-machines",
             "word_count": 2716,
             "read_time": "11 min read",
@@ -9421,7 +9421,7 @@
                 "reference-architecture"
             ],
             "type": "reference-architecture",
-            "file_url": "reference-architectures/sap/run-sap-hana-for-linux-virtual-machines.md",
+            "file_url": "reference-architectures/sap/run-sap-hana-for-linux-virtual-machines.yml",
             "http_url": "/azure/architecture/reference-architectures/sap/run-sap-hana-for-linux-virtual-machines",
             "word_count": 2300,
             "read_time": "10 min read",
@@ -9451,7 +9451,7 @@
                 "visio-diagram"
             ],
             "type": "reference-architecture",
-            "file_url": "reference-architectures/sap/hana-large-instances.md",
+            "file_url": "reference-architectures/sap/hana-large-instances.yml",
             "http_url": "/azure/architecture/reference-architectures/sap/hana-large-instances",
             "word_count": 2914,
             "read_time": "11 min read",
@@ -9466,7 +9466,7 @@
             "publish_date": "4/02/2020",
             "sample_code": true,
             "github_url": "https://github.com/Azure/hana-large-instances-self-service-scripts",
-            "visio_diagram": "https://archcenter.blob.core.windows.net/cdn/sap-reference-architectures.vsdx",
+            "visio_diagram": "https://arch-center.azureedge.net/sap-reference-architectures.vsdx",
             "name": "hana-large-instances",
             "popularity": 180,
             "topic": "Databases"
@@ -9484,7 +9484,7 @@
                 "windows"
             ],
             "type": "reference-architecture",
-            "file_url": "reference-architectures/sap/sap-netweaver.md",
+            "file_url": "reference-architectures/sap/sap-netweaver.yml",
             "http_url": "/azure/architecture/reference-architectures/sap/sap-netweaver",
             "word_count": 5422,
             "read_time": "21 min read",
@@ -9499,7 +9499,7 @@
             "publish_date": "2/19/2020",
             "sample_code": true,
             "github_url": "https://github.com/Azure/SAP-on-Azure-Scripts-and-Utilities",
-            "visio_diagram": "https://archcenter.blob.core.windows.net/cdn/sap-netweaver.vsdx",
+            "visio_diagram": "https://arch-center.azureedge.net/sap-netweaver.vsdx",
             "name": "sap-netweaver",
             "popularity": 176,
             "topic": "Databases"
@@ -9515,7 +9515,7 @@
                 "visio-diagram"
             ],
             "type": "example-workload",
-            "file_url": "example-scenario/apps/jenkins.md",
+            "file_url": "example-scenario/apps/jenkins.yml",
             "http_url": "/azure/architecture/example-scenario/apps/jenkins",
             "word_count": 2671,
             "read_time": "10 min read",
@@ -9527,10 +9527,10 @@
             "image": "/azure/architecture/example-scenario/apps/media/architecture-jenkins.png",
             "imagepath": "C:\\jvPnpRepos\\architecture-center-pr\\docs\\example-scenario\\apps\\media\\architecture-jenkins.png",
             "publish_date": "4/30/2018",
-            "Summary": "<p>This scenario shows how to deploy and operate a scalable, enterprise-grade Jenkins server on Azure secured with single sign-on (SSO). The architecture also uses Azure Monitor to monitor the state of the Jenkins server. <a href=\"#deploy-the-solution\"><strong>Deploy this solution</strong></a>.</p>\n<p><img alt=\"Jenkins server running on Azure\" src=\"https://docs.microsoft.com/azure/architecture/example-scenario/apps/media/architecture-jenkins.png\" /></p>\n<p><em>Download a <a href=\"https://archcenter.blob.core.windows.net/cdn/Jenkins-architecture.vsdx\">Visio file</a> that contains this architecture diagram.</em></p>\n<p>This architecture supports disaster recovery with Azure services but does not cover more advanced scale-out scenarios involving multiple primaries or high availability (HA) with no downtime. For general insights about the various Azure components, including a step-by-step tutorial about building out a CI/CD pipeline on Azure, see <a href=\"https://docs.microsoft.com/azure/jenkins\">Jenkins on Azure</a>.</p>\n<p>The focus of this document is on the core Azure operations needed to support Jenkins, including the use of Azure Storage to maintain build artifacts, the security items needed for SSO, other services that can be integrated, and scalability for the pipeline. The architecture is designed to work with an existing source control repository. For example, a common scenario is to start Jenkins jobs based on GitHub commits.</p>",
+            "Summary": "<p>This scenario shows how to deploy and operate a scalable, enterprise-grade Jenkins server on Azure secured with single sign-on (SSO). The architecture also uses Azure Monitor to monitor the state of the Jenkins server. <a href=\"#deploy-the-solution\"><strong>Deploy this solution</strong></a>.</p>\n<p><img alt=\"Jenkins server running on Azure\" src=\"https://docs.microsoft.com/azure/architecture/example-scenario/apps/media/architecture-jenkins.png\" /></p>\n<p><em>Download a <a href=\"https://arch-center.azureedge.net/Jenkins-architecture.vsdx\">Visio file</a> that contains this architecture diagram.</em></p>\n<p>This architecture supports disaster recovery with Azure services but does not cover more advanced scale-out scenarios involving multiple primaries or high availability (HA) with no downtime. For general insights about the various Azure components, including a step-by-step tutorial about building out a CI/CD pipeline on Azure, see <a href=\"https://docs.microsoft.com/azure/jenkins\">Jenkins on Azure</a>.</p>\n<p>The focus of this document is on the core Azure operations needed to support Jenkins, including the use of Azure Storage to maintain build artifacts, the security items needed for SSO, other services that can be integrated, and scalability for the pipeline. The architecture is designed to work with an existing source control repository. For example, a common scenario is to start Jenkins jobs based on GitHub commits.</p>",
             "sample_code": true,
             "github_url": "https://github.com/Azure/jenkins/tree/master/disaster_recovery",
-            "visio_diagram": "https://archcenter.blob.core.windows.net/cdn/Jenkins-architecture.vsdx",
+            "visio_diagram": "https://arch-center.azureedge.net/Jenkins-architecture.vsdx",
             "name": "jenkins",
             "popularity": 175,
             "topic": "DevOps"
@@ -9544,7 +9544,7 @@
                 "seodec18"
             ],
             "type": "reference-architecture",
-            "file_url": "reference-architectures/n-tier/linux-vm.md",
+            "file_url": "reference-architectures/n-tier/linux-vm.yml",
             "http_url": "/azure/architecture/reference-architectures/n-tier/linux-vm",
             "word_count": 2103,
             "read_time": "8 min read",
@@ -9573,7 +9573,7 @@
                 "reference-architecture"
             ],
             "type": "reference-architecture",
-            "file_url": "reference-architectures/n-tier/windows-vm.md",
+            "file_url": "reference-architectures/n-tier/windows-vm.yml",
             "http_url": "/azure/architecture/reference-architectures/n-tier/windows-vm",
             "word_count": 1858,
             "read_time": "7 min read",
@@ -9618,10 +9618,10 @@
             "image": "/azure/architecture/reference-architectures/sharepoint/images/sharepoint-ha.png",
             "imagepath": "C:\\jvPnpRepos\\architecture-center-pr\\docs\\reference-architectures\\sharepoint\\images\\sharepoint-ha.png",
             "publish_date": "7/26/2018",
-            "Summary": "<p>This reference architecture shows proven practices for deploying a highly available SharePoint Server 2016 farm on Azure, using MinRole topology and SQL Server Always On availability groups. The SharePoint farm is deployed in a secured virtual network with no Internet-facing endpoint or presence. <a href=\"#deploy-the-solution\"><strong>Deploy this solution</strong></a>.</p>\n<p><img alt=\"Reference architecture for a highly available SharePoint Server 2016 farm in Azure\" src=\"https://docs.microsoft.com/azure/architecture/reference-architectures/images/sharepoint-ha.png\" /></p>\n<p><em>Download a <a href=\"https://archcenter.blob.core.windows.net/cdn/Sharepoint-2016.vsdx\">Visio file</a> of this architecture.</em></p>",
+            "Summary": "<p>This reference architecture shows proven practices for deploying a highly available SharePoint Server 2016 farm on Azure, using MinRole topology and SQL Server Always On availability groups. The SharePoint farm is deployed in a secured virtual network with no Internet-facing endpoint or presence. <a href=\"#deploy-the-solution\"><strong>Deploy this solution</strong></a>.</p>\n<p><img alt=\"Reference architecture for a highly available SharePoint Server 2016 farm in Azure\" src=\"https://docs.microsoft.com/azure/architecture/reference-architectures/images/sharepoint-ha.png\" /></p>\n<p><em>Download a <a href=\"https://arch-center.azureedge.net/Sharepoint-2016.vsdx\">Visio file</a> of this architecture.</em></p>",
             "sample_code": true,
             "github_url": "https://github.com/mspnp/template-building-blocks/wiki/Install-Azure-Building-Blocks",
-            "visio_diagram": "https://archcenter.blob.core.windows.net/cdn/Sharepoint-2016.vsdx",
+            "visio_diagram": "https://arch-center.azureedge.net/Sharepoint-2016.vsdx",
             "code_languages": [
                 "bash"
             ],
@@ -9650,8 +9650,8 @@
             "image": "/azure/architecture/hybrid/images/hybrid-containers.png",
             "imagepath": "C:\\jvPnpRepos\\architecture-center-pr\\docs\\hybrid\\images\\hybrid-containers.png",
             "publish_date": "6/29/2020",
-            "Summary": "<p>This reference architecture illustrates how developers can create, manage, and monitor deployed containers in the public cloud, across multiple clouds, and on-premises.</p>\n<p><img alt=\"The diagram illustrates a developer team that deploys its container images to a Microsoft Azure Container Registry. Subsequently, the container images are pulled and deployed to either an on-premises or cloud-based Kubernetes cluster. The containers are monitored using Azure Monitor and the container images are scanned and monitored using Azure Container Registry.\" src=\"https://docs.microsoft.com/azure/architecture/hybrid/images/hybrid-containers.png\" /></p>\n<p><em>Download a <a href=\"https://archcenter.blob.core.windows.net/cdn/hybrid-containers.vsdx\">Visio file</a> of this architecture.</em></p>\n<p>Typical uses for this architecture include:</p>\n<ul>\n<li>Web applications with internal and external components that deploy both to the public cloud and on-premises by using shared container images.</li>\n<li>Modern deployment testing cycles with quality analysis, testing, development, or staging that's hosted on-premises and in the public cloud.</li>\n</ul>",
-            "visio_diagram": "https://archcenter.blob.core.windows.net/cdn/hybrid-containers.vsdx",
+            "Summary": "<p>This reference architecture illustrates how developers can create, manage, and monitor deployed containers in the public cloud, across multiple clouds, and on-premises.</p>\n<p><img alt=\"The diagram illustrates a developer team that deploys its container images to a Microsoft Azure Container Registry. Subsequently, the container images are pulled and deployed to either an on-premises or cloud-based Kubernetes cluster. The containers are monitored using Azure Monitor and the container images are scanned and monitored using Azure Container Registry.\" src=\"https://docs.microsoft.com/azure/architecture/hybrid/images/hybrid-containers.png\" /></p>\n<p><em>Download a <a href=\"https://arch-center.azureedge.net/hybrid-containers.vsdx\">Visio file</a> of this architecture.</em></p>\n<p>Typical uses for this architecture include:</p>\n<ul>\n<li>Web applications with internal and external components that deploy both to the public cloud and on-premises by using shared container images.</li>\n<li>Modern deployment testing cycles with quality analysis, testing, development, or staging that's hosted on-premises and in the public cloud.</li>\n</ul>",
+            "visio_diagram": "https://arch-center.azureedge.net/hybrid-containers.vsdx",
             "name": "hybrid-containers",
             "popularity": 0,
             "topic": "DevOps",
@@ -9707,7 +9707,7 @@
                 "pricing-guidance"
             ],
             "type": "example-workload",
-            "file_url": "example-scenario/infrastructure/hpc-cfd.md",
+            "file_url": "example-scenario/infrastructure/hpc-cfd.yml",
             "http_url": "/azure/architecture/example-scenario/infrastructure/hpc-cfd",
             "word_count": 1084,
             "read_time": "5 min read",
@@ -9796,7 +9796,7 @@
                 "sql-server"
             ],
             "type": "solution-idea",
-            "file_url": "solution-ideas/articles/sap-netweaver-on-sql-server.md",
+            "file_url": "solution-ideas/articles/sap-netweaver-on-sql-server.yml",
             "http_url": "/azure/architecture/solution-ideas/articles/sap-netweaver-on-sql-server",
             "word_count": 392,
             "read_time": "2 min read",
@@ -9892,7 +9892,7 @@
                 "visio-diagram"
             ],
             "type": "reference-architecture",
-            "file_url": "reference-architectures/sap/sap-s4hana.md",
+            "file_url": "reference-architectures/sap/sap-s4hana.yml",
             "http_url": "/azure/architecture/reference-architectures/sap/sap-s4hana",
             "word_count": 5618,
             "read_time": "22 min read",
@@ -9907,7 +9907,7 @@
             "publish_date": "2/19/2020",
             "sample_code": true,
             "github_url": "https://github.com/msftphleiten/proximity-placement-groups",
-            "visio_diagram": "https://archcenter.blob.core.windows.net/cdn/sap-s4hana.vsdx",
+            "visio_diagram": "https://arch-center.azureedge.net/sap-s4hana.vsdx",
             "name": "sap-s4hana",
             "popularity": 187,
             "topic": "Databases"
@@ -9929,7 +9929,7 @@
                 "windows"
             ],
             "type": "example-workload",
-            "file_url": "example-scenario/apps/sap-production.md",
+            "file_url": "example-scenario/apps/sap-production.yml",
             "http_url": "/azure/architecture/example-scenario/apps/sap-production",
             "word_count": 1109,
             "read_time": "5 min read",
@@ -9969,7 +9969,7 @@
                 "reference-architecture"
             ],
             "type": "reference-architecture",
-            "file_url": "reference-architectures/sap/sap-overview.md",
+            "file_url": "reference-architectures/sap/sap-overview.yml",
             "http_url": "/azure/architecture/reference-architectures/sap/sap-overview",
             "word_count": 2576,
             "read_time": "11 min read",
@@ -10228,7 +10228,7 @@
                 "web-apps"
             ],
             "type": "example-workload",
-            "file_url": "example-scenario/infrastructure/wordpress.md",
+            "file_url": "example-scenario/infrastructure/wordpress.yml",
             "http_url": "/azure/architecture/example-scenario/infrastructure/wordpress",
             "word_count": 1213,
             "read_time": "5 min read",
@@ -10424,7 +10424,7 @@
                 "visio-diagram"
             ],
             "type": "reference-architecture",
-            "file_url": "reference-architectures/app-service-web-app/scalable-web-app.md",
+            "file_url": "reference-architectures/app-service-web-app/scalable-web-app.yml",
             "http_url": "/azure/architecture/reference-architectures/app-service-web-app/scalable-web-app",
             "word_count": 1659,
             "read_time": "7 min read",
@@ -10436,10 +10436,10 @@
             "image": "/azure/architecture/reference-architectures/app-service-web-app/images/scalable-web-app.png",
             "imagepath": "C:\\jvPnpRepos\\architecture-center-pr\\docs\\reference-architectures\\app-service-web-app\\images\\scalable-web-app.png",
             "publish_date": "10/03/2019",
-            "Summary": "<p>This reference architecture shows proven practices for improving scalability and performance in an Azure App Service web application.</p>\n<p><img alt=\"GitHub logo\" src=\"https://docs.microsoft.com/azure/architecture/_images/github.png\" /> A reference implementation for this architecture is available on <a href=\"https://github.com/mspnp/reference-architectures/tree/master/web-app\">GitHub</a>.</p>\n<p><img alt=\"Web application in Azure with improved scalability\" src=\"https://docs.microsoft.com/azure/architecture/reference-architectures/app-service-web-app/images/scalable-web-app.png\" /></p>\n<p><em>Download a <a href=\"https://archcenter.blob.core.windows.net/cdn/app-service-reference-architectures.vsdx\">Visio file</a> of this architecture.</em></p>",
+            "Summary": "<p>This reference architecture shows proven practices for improving scalability and performance in an Azure App Service web application.</p>\n<p><img alt=\"GitHub logo\" src=\"https://docs.microsoft.com/azure/architecture/_images/github.png\" /> A reference implementation for this architecture is available on <a href=\"https://github.com/mspnp/reference-architectures/tree/master/web-app\">GitHub</a>.</p>\n<p><img alt=\"Web application in Azure with improved scalability\" src=\"https://docs.microsoft.com/azure/architecture/reference-architectures/app-service-web-app/images/scalable-web-app.png\" /></p>\n<p><em>Download a <a href=\"https://arch-center.azureedge.net/app-service-reference-architectures.vsdx\">Visio file</a> of this architecture.</em></p>",
             "sample_code": true,
             "github_url": "https://github.com/mspnp/reference-architectures/tree/master/web-app",
-            "visio_diagram": "https://archcenter.blob.core.windows.net/cdn/app-service-reference-architectures.vsdx",
+            "visio_diagram": "https://arch-center.azureedge.net/app-service-reference-architectures.vsdx",
             "name": "scalable-web-app",
             "popularity": 225,
             "topic": "Web"
@@ -10547,7 +10547,7 @@
                 "reference-architecture"
             ],
             "type": "reference-architecture",
-            "file_url": "reference-architectures/hybrid-networking/network-level-segmentation.md",
+            "file_url": "reference-architectures/hybrid-networking/network-level-segmentation.yml",
             "http_url": "/azure/architecture/reference-architectures/hybrid-networking/network-level-segmentation",
             "word_count": 1444,
             "read_time": "7 min read",
@@ -10617,7 +10617,7 @@
                 "web-apps"
             ],
             "type": "example-workload",
-            "file_url": "example-scenario/apps/fully-managed-secure-apps.md",
+            "file_url": "example-scenario/apps/fully-managed-secure-apps.yml",
             "http_url": "/azure/architecture/example-scenario/apps/fully-managed-secure-apps",
             "word_count": 2023,
             "read_time": "8 min read",
@@ -10813,7 +10813,7 @@
             "Summary": "<p>This article describes how you can use Azure Functions <a href=\"https://docs.microsoft.com/azure/azure-functions/durable/durable-functions-overview\">Durable Functions</a> to schedule, manage, and deploy serverless batch processing jobs in <a href=\"https://docs.microsoft.com/azure/container-instances/container-instances-overview\">Azure Container Instances</a> (ACI) containers.</p>\n<p>Containers are popular for packaging, deploying, and managing microservices-based architectures. <em>Orchestration</em> is the task of automating and managing containers and their interactions. Popular container orchestrator platforms like <a href=\"https://azure.microsoft.com/services/kubernetes-service/\">Azure Kubernetes Service</a> (AKS) and <a href=\"https://azure.microsoft.com/services/service-fabric/\">Azure Service Fabric</a> can manage complex, multi-container tasks and interactions.</p>\n<p>You don't always need full-fledged container orchestrators to provision and manage simple apps and jobs in isolated containers. ACI is the fastest and simplest way to run containers in Azure, and Durable Functions can orchestrate container deployment.</p>",
             "sample_code": true,
             "github_url": "https://github.com/Azure/azure-libraries-for-net",
-            "visio_diagram": "https://archcenter.blob.core.windows.net/cdn/Durable_Func_ACI.vsdx",
+            "visio_diagram": "https://arch-center.azureedge.net/Durable_Func_ACI.vsdx",
             "name": "durable-functions-containers",
             "popularity": 0,
             "topic": "Compute"
@@ -10829,7 +10829,7 @@
                 "serverless"
             ],
             "type": "reference-architecture",
-            "file_url": "reference-architectures/serverless/event-processing.md",
+            "file_url": "reference-architectures/serverless/event-processing.yml",
             "http_url": "/azure/architecture/reference-architectures/serverless/event-processing",
             "word_count": 1721,
             "read_time": "7 min read",
@@ -10865,7 +10865,7 @@
                 "serverless"
             ],
             "type": "reference-architecture",
-            "file_url": "reference-architectures/serverless/web-app.md",
+            "file_url": "reference-architectures/serverless/web-app.yml",
             "http_url": "/azure/architecture/reference-architectures/serverless/web-app",
             "word_count": 4014,
             "read_time": "16 min read",
@@ -11194,7 +11194,7 @@
                 "seodec18"
             ],
             "type": "reference-architecture",
-            "file_url": "reference-architectures/data/stream-processing-databricks.md",
+            "file_url": "reference-architectures/data/stream-processing-databricks.yml",
             "http_url": "/azure/architecture/reference-architectures/data/stream-processing-databricks",
             "word_count": 2696,
             "read_time": "11 min read",
@@ -11549,7 +11549,7 @@
                 "reference-architecture"
             ],
             "type": "reference-architecture",
-            "file_url": "reference-architectures/hybrid-networking/troubleshoot-vpn.md",
+            "file_url": "reference-architectures/hybrid-networking/troubleshoot-vpn.yml",
             "http_url": "/azure/architecture/reference-architectures/hybrid-networking/troubleshoot-vpn",
             "word_count": 1751,
             "read_time": "8 min read",
@@ -11747,8 +11747,8 @@
             "image": "/azure/architecture/hybrid/images/azure-file-share.png",
             "imagepath": "C:\\jvPnpRepos\\architecture-center-pr\\docs\\hybrid\\images\\azure-file-share.png",
             "publish_date": "7/26/2020",
-            "Summary": "<p>This architecture shows how to include Azure file shares in your hybrid environment. Azure file shares are used as serverless file shares. By integrating them with Active Directory Directory Services (AD DS), you can control and limit access to AD DS users and Azure file shares can replace traditional file servers.</p>\n<p><img alt=\"Azure file shares architecture diagram that shows how clients can access Azure file share directly over TCP port 445 (SMB 3.0) or by establishing VPN connection first.\" src=\"https://docs.microsoft.com/azure/architecture/hybrid/images/azure-file-share.png\" /></p>\n<p><em>Download a <a href=\"https://archcenter.blob.core.windows.net/cdn/azure-file-share.vsdx\">Visio file</a> of this architecture.</em></p>\n<p>Typical uses for this architecture include:</p>\n<ul>\n<li>*<em>Replace or supplement on-premises file servers</em>. All companies use file servers. Azure Files can completely replace or supplement traditional on-premises file servers or network-attached storage devices. With Azure file shares and AD DS authentication, you can migrate data to Azure Files and take the advantage of high availability and scalability while minimizing client changes.</li>\n<li><strong>Lift and shift</strong>. Azure Files makes it easy to \"lift and shift\" applications that expect a file share to store application or user data to the cloud.</li>\n<li><strong>Backup and disaster recovery</strong>. You can use Azure file shares as storage for backups or for disaster recovery to improve business continuity. You can use Azure file shares to back up your data from existing file servers while preserving configured Windows discretionary access control lists. Data that's stored on Azure file shares isn't affected by disasters that might affect on-premises locations.</li>\n<li><strong>Azure File Sync</strong>. With Azure File Sync, Azure file shares can replicate to Windows Server, either on-premises or in the cloud, for performance and distributed caching of data where it's being used.</li>\n</ul>",
-            "visio_diagram": "https://archcenter.blob.core.windows.net/cdn/azure-file-share.vsdx",
+            "Summary": "<p>This architecture shows how to include Azure file shares in your hybrid environment. Azure file shares are used as serverless file shares. By integrating them with Active Directory Directory Services (AD DS), you can control and limit access to AD DS users and Azure file shares can replace traditional file servers.</p>\n<p><img alt=\"Azure file shares architecture diagram that shows how clients can access Azure file share directly over TCP port 445 (SMB 3.0) or by establishing VPN connection first.\" src=\"https://docs.microsoft.com/azure/architecture/hybrid/images/azure-file-share.png\" /></p>\n<p><em>Download a <a href=\"https://arch-center.azureedge.net/azure-file-share.vsdx\">Visio file</a> of this architecture.</em></p>\n<p>Typical uses for this architecture include:</p>\n<ul>\n<li>*<em>Replace or supplement on-premises file servers</em>. All companies use file servers. Azure Files can completely replace or supplement traditional on-premises file servers or network-attached storage devices. With Azure file shares and AD DS authentication, you can migrate data to Azure Files and take the advantage of high availability and scalability while minimizing client changes.</li>\n<li><strong>Lift and shift</strong>. Azure Files makes it easy to \"lift and shift\" applications that expect a file share to store application or user data to the cloud.</li>\n<li><strong>Backup and disaster recovery</strong>. You can use Azure file shares as storage for backups or for disaster recovery to improve business continuity. You can use Azure file shares to back up your data from existing file servers while preserving configured Windows discretionary access control lists. Data that's stored on Azure file shares isn't affected by disasters that might affect on-premises locations.</li>\n<li><strong>Azure File Sync</strong>. With Azure File Sync, Azure file shares can replicate to Windows Server, either on-premises or in the cloud, for performance and distributed caching of data where it's being used.</li>\n</ul>",
+            "visio_diagram": "https://arch-center.azureedge.net/azure-file-share.vsdx",
             "name": "azure-file-share",
             "popularity": 0,
             "topic": "Storage",
@@ -11765,7 +11765,7 @@
                 "pricing-guidance"
             ],
             "type": "example-workload",
-            "file_url": "example-scenario/infrastructure/service-fabric-microservices.md",
+            "file_url": "example-scenario/infrastructure/service-fabric-microservices.yml",
             "http_url": "/azure/architecture/example-scenario/infrastructure/service-fabric-microservices",
             "word_count": 1386,
             "read_time": "6 min read",
@@ -11929,7 +11929,7 @@
                 "reference-architecture"
             ],
             "type": "reference-architecture",
-            "file_url": "reference-architectures/app-service-web-app/app-monitoring.md",
+            "file_url": "reference-architectures/app-service-web-app/app-monitoring.yml",
             "http_url": "/azure/architecture/reference-architectures/app-service-web-app/app-monitoring",
             "word_count": 1818,
             "read_time": "7 min read",
@@ -11974,7 +11974,7 @@
                 "visio-diagram"
             ],
             "type": "reference-architecture",
-            "file_url": "reference-architectures/n-tier/n-tier-sql-server.md",
+            "file_url": "reference-architectures/n-tier/n-tier-sql-server.yml",
             "http_url": "/azure/architecture/reference-architectures/n-tier/n-tier-sql-server",
             "word_count": 3386,
             "read_time": "13 min read",
@@ -11990,7 +11990,7 @@
             "publish_date": "9/25/2020",
             "sample_code": true,
             "github_url": "https://github.com/mspnp/reference-architectures/tree/master/virtual-machines/n-tier-windows",
-            "visio_diagram": "https://archcenter.blob.core.windows.net/cdn/vm-reference-architectures.vsdx",
+            "visio_diagram": "https://arch-center.azureedge.net/vm-reference-architectures.vsdx",
             "code_languages": [
                 "bash"
             ],

@@ -3,12 +3,15 @@ title: Use dashboards to visualize Azure Databricks metrics
 description: Learn how to set up a Grafana dashboard to monitor performance of Azure Databricks jobs. Azure Databricks is an Apache Spark-based analytics service.
 author: PeterTaylor9999
 ms.date: 03/26/2019
+ms.topic: conceptual
 ms.service: architecture-center
+ms.subservice: azure-guide
 ms.category:
   - databases
   - management-and-governance
-
-ms.subservice: reference-architecture
+products:
+  - azure-databricks
+  - azure-monitor
 ---
 
 <!-- cSpell:ignore Grafana perftools loganalytics bitnami sparkmonitoring LOGTYPE -->
@@ -35,7 +38,7 @@ To deploy the Azure Log Analytics workspace, follow these steps:
 1. Deploy the **logAnalyticsDeploy.json** Azure Resource Manager template. For more information about deploying Resource Manager templates, see [Deploy resources with Resource Manager templates and Azure CLI][rm-cli]. The template has the following parameters:
 
     - **location**: The region where the Log Analytics workspace and dashboards are deployed.
-    - **serviceTier**: Rhe workspace pricing tier. See [here][sku] for a list of valid values.
+    - **serviceTier**: The workspace pricing tier. See [here][sku] for a list of valid values.
     - **dataRetention** (optional): The number of days the log data is retained in the Log Analytics workspace. The default value is 30 days. If the pricing tier is `Free`, the data retention must be seven days.
     - **workspaceName** (optional): A name for the workspace. If not specified, the template generates a name.
 

@@ -6,7 +6,9 @@ author: willeastbury
 ms.date: 03/17/2020
 ms.topic: conceptual
 ms.service: architecture-center
-ms.subservice: cloud-fundamentals
+ms.subservice: design-pattern
+products:
+  - azure-cosmos-db
 ms.custom:
   - fcp
   - fasttrack-new

@@ -6,9 +6,11 @@ author: dragon119
 ms.date: 06/05/2017
 ms.topic: conceptual
 ms.service: architecture-center
-ms.subservice: cloud-fundamentals
+ms.subservice: anti-pattern
+products:
+  - azure-sql-database
+  - azure-app-service
 ms.custom:
-  - seodec18
   - article
 ---
 

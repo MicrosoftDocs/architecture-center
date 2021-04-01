@@ -1,9 +1,12 @@
 ---
+title: Introduction to microservices
+description: Introduction to microservices.
 author: doodlemania2
-ms.service: architecture-center
-ms.topic: include
-ms.date: 10/30/2019
 ms.author: pnp
+ms.date: 10/30/2019
+ms.topic: include
+ms.service: architecture-center
+ms.subservice: guide
 ---
 
 A microservices architecture consists of a collection of small, autonomous services. Each service is self-contained and should implement a single business capability.
@@ -28,7 +31,7 @@ Besides for the services themselves, some other components appear in a typical m
 
 **Management/orchestration**. This component is responsible for placing services on nodes, identifying failures, rebalancing services across nodes, and so forth. Typically this component is an off-the-shelf technology such as Kubernetes, rather than something custom built.
 
-**API Gateway**. The API gateway is the entry point for clients. Instead of calling services directly, clients call the API gateway, which forwards the call to the appropriate services on the back end. 
+**API Gateway**. The API gateway is the entry point for clients. Instead of calling services directly, clients call the API gateway, which forwards the call to the appropriate services on the back end.
 
 Advantages of using an API gateway include:
 
@@ -64,7 +67,7 @@ The benefits of microservices don't come for free. Here are some of the challeng
 
 - **Lack of governance**. The decentralized approach to building microservices has advantages, but it can also lead to problems. You may end up with so many different languages and frameworks that the application becomes hard to maintain. It may be useful to put some project-wide standards in place, without overly restricting teams' flexibility. This especially applies to cross-cutting functionality such as logging.
 
-- **Network congestion and latency**. The use of many small, granular services can result in more interservice communication. Also, if the chain of service dependencies gets too long (service A calls B, which calls C...), the additional latency can become a problem. You will need to design APIs carefully. Avoid overly chatty APIs, think about serialization formats, and look for places to use asynchronous communication patterns.
+- **Network congestion and latency**. The use of many small, granular services can result in more interservice communication. Also, if the chain of service dependencies gets too long (service A calls B, which calls C...), the additional latency can become a problem. You will need to design APIs carefully. Avoid overly chatty APIs, think about serialization formats, and look for places to use asynchronous communication patterns like [queue-based load leveling](../patterns/queue-based-load-leveling.md).
 
 - **Data integrity**. With each microservice responsible for its own data persistence. As a result, data consistency can be a challenge. Embrace eventual consistency where possible.
 
@@ -72,4 +75,4 @@ The benefits of microservices don't come for free. Here are some of the challeng
 
 - **Versioning**. Updates to a service must not break services that depend on it. Multiple services could be updated at any given time, so without careful design, you might have problems with backward or forward compatibility.
 
-- **Skillset**. Microservices are highly distributed systems. Carefully evaluate whether the team has the skills and experience to be successful.
+- **Skill set**. Microservices are highly distributed systems. Carefully evaluate whether the team has the skills and experience to be successful.

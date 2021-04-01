@@ -31,7 +31,7 @@ Securing an application requires security assurances for three aspects:
 
     -   **Modern applications** are hosted on PaaS environments such as an Azure application service. The underlying operating system is secured by the cloud provider. Application owners are responsible for the security of the application service configurations.
 
-    -   **Containers** are an application packaging mechanism in which applications are abstracted from the environment in which they run. The containerized applications can run on a container service by the cloud provider (modern applications) or on a server managed on premises or in IaaS. See the [container security section](/azure/architecture/framework/security/applications-services#follow-best-practices-for-container-security) below for more details.
+    -   **Containers** are an application packaging mechanism in which applications are abstracted from the environment in which they run. The containerized applications can run on a container service by the cloud provider (modern applications) or on a server managed on premises or in IaaS.
 
 ## Identify and classify applications
 
@@ -63,7 +63,7 @@ Use native security capabilities built into cloud services instead of adding ext
 Azure controls are maintained and supported by Microsoft. You don't have to invest in additional security tooling. 
  
 - [List of Azure Services](https://azure.microsoft.com/services/)
-- [Native security capabilities of each service](https://docs.microsoft.com/azure/security/common-security-attributes)
+- [Native security capabilities of each service](/azure/security/common-security-attributes)
 
 
 

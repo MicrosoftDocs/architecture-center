@@ -2,10 +2,10 @@
 title: Choosing an analytical data store
 description: Evaluate analytical data store options for big data in Azure, including key selection criteria and a capability matrix.
 author: zoinerTejada
-ms.date: 11/20/2019
+ms.date: 3/9/2021
 ms.topic: conceptual
 ms.service: architecture-center
-ms.subservice: cloud-fundamentals
+ms.subservice: azure-guide
 ms.custom:
   - guide
 ---
@@ -23,6 +23,7 @@ There is no single best data management choice for all data storage tasks. Diffe
 There are several options for data serving storage in Azure, depending on your needs:
 
 - [Azure Synapse Analytics](/azure/sql-data-warehouse/sql-data-warehouse-overview-what-is)
+- [Azure Data Explorer](/azure/data-explorer/)
 - [Azure SQL Database](/azure/sql-database/)
 - [SQL Server in Azure VM](/sql/sql-server/sql-server-technical-documentation)
 - [HBase/Phoenix on HDInsight](/azure/hdinsight/hbase/apache-hbase-overview)
@@ -36,6 +37,7 @@ These options provide various database models that are optimized for different t
 - [Document](/previous-versions/msp-n-p/dn313285(v=pandp.10)#sec8) databases are key/value databases in which the values are *documents*. A "document" in this context is a collection of named fields and values. The database typically stores the data in a format such as XML, YAML, JSON, or BSON, but may use plain text. Document databases can query on non-key fields and define secondary indexes to make querying more efficient. This makes a document database more suitable for applications that need to retrieve data based on criteria more complex than the value of the document key. For example, you could query on fields such as product ID, customer ID, or customer name.
 - [Column-family](/previous-versions/msp-n-p/dn313285(v=pandp.10)#sec9) databases are key/value data stores that structure data storage into collections of related columns called column families. For example, a census database might have one group of columns for a person's name (first, middle, last), one group for the person's address, and one group for the person's profile information (data of birth, gender). The database can store each column family in a separate partition, while keeping all of the data for one person related to the same key. An application can read a single column family without reading through all of the data for an entity.
 - [Graph](/previous-versions/msp-n-p/dn313285(v=pandp.10)#sec10) databases store information as a collection of objects and relationships. A graph database can efficiently perform queries that traverse the network of objects and the relationships between them. For example, the objects might be employees in a human resources database, and you might want to facilitate queries such as "find all employees who directly or indirectly work for Scott."
+- Telemetry and time series databases are an append-only collection of objects. Telemetry databases efficiently index data in a variety of column stores and in-memory structures, making them the optimal choice for storing and analyzing vast quantities of telemetry and time series data.
 
 ## Key selection criteria
 
@@ -46,6 +48,8 @@ To narrow the choices, start by answering these questions:
 - Do you need massively parallel processing (MPP) support, where queries are automatically distributed across several processes or nodes? If yes, select an option that supports query scale out.
 
 - Do you prefer to use a relational data store? If so, narrow your options to those with a relational database model. However, note that some non-relational stores support SQL syntax for querying, and tools such as PolyBase can be used to query non-relational data stores.
+ 
+- Do you collect time series data? Do you use append-only data?
 
 ## Capability matrix
 
@@ -53,12 +57,12 @@ The following tables summarize the key differences in capabilities.
 
 ### General capabilities
 
-| Capability | SQL Database | Azure Synapse | HBase/Phoenix on HDInsight | Hive LLAP on HDInsight | Azure Analysis Services | Cosmos DB |
-| --- | --- | --- | --- | --- | --- | --- |
-| Is managed service | Yes | Yes | Yes <sup>1</sup> | Yes <sup>1</sup> | Yes | Yes |
-| Primary database model | Relational (columnar format when using columnstore indexes) | Relational tables with columnar storage | Wide column store | Hive/In-Memory | Tabular/MOLAP semantic models | Document store, graph, key-value store, wide column store |
-| SQL language support | Yes | Yes | Yes (using [Phoenix](https://phoenix.apache.org/) JDBC driver) | Yes | No | Yes |
-| Optimized for speed serving layer | Yes <sup>2</sup> | No | Yes | Yes | No | Yes |
+| Capability | SQL Database | Azure Synapse | Azure Data Explorer | HBase/Phoenix on HDInsight | Hive LLAP on HDInsight | Azure Analysis Services | Cosmos DB |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| Is managed service | Yes | Yes |  Yes | Yes <sup>1</sup> | Yes <sup>1</sup> | Yes | Yes |
+| Primary database model | Relational (columnar format when using columnstore indexes) | Relational tables with columnar storage | Relational (column store), telemetry, and time series store | Wide column store | Hive/In-Memory | Tabular semantic models | Document store, graph, key-value store, wide column store |
+| SQL language support | Yes | Yes | Yes | Yes (using [Phoenix](https://phoenix.apache.org/) JDBC driver) | Yes | No | Yes |
+| Optimized for speed serving layer | Yes <sup>2</sup> | No | Yes | Yes | Yes | No | Yes |
 
 [1] With manual configuration and scaling.
 
@@ -66,22 +70,22 @@ The following tables summarize the key differences in capabilities.
 
 ### Scalability capabilities
 
-| Capability | SQL Database | Azure Synapse | HBase/Phoenix on HDInsight | Hive LLAP on HDInsight | Azure Analysis Services | Cosmos DB |
-|--------------------------------------------------|--------------|--------------------|----------------------------|------------------------|-------------------------|-----------|
-| Redundant regional servers for high availability |     Yes      |        Yes         |            Yes             |           No           |           No            |    Yes    |
-|             Supports query scale out             |      No      |        Yes         |            Yes             |          Yes           |           Yes           |    Yes    |
-|          Dynamic scalability (scale up)          |     Yes      |        Yes         |             No             |           No           |           Yes           |    Yes    |
-|        Supports in-memory caching of data        |     Yes      |        Yes         |             No             |          Yes           |           Yes           |    No     |
+| Capability | SQL Database | Azure Synapse | Azure Data Explorer | HBase/Phoenix on HDInsight | Hive LLAP on HDInsight | Azure Analysis Services | Cosmos DB |
+|--------------------------------------------------|--------------|--------------------|----------------------------|------------------------|-------------------------|-----------|-----------|
+| Redundant regional servers for high availability |     Yes      |        Yes         |       Yes   |            Yes             |           No           |           No            |    Yes    |
+|             Supports query scale out             |      No      |        Yes         |         Yes         |         Yes             |          Yes           |           Yes           |    Yes    |
+|          Dynamic scalability (scale up)          |     Yes      |        Yes       |        Yes           |             No             |           No           |           Yes           |    Yes    |
+|        Supports in-memory caching of data        |     Yes      |        Yes         |            Yes         |        No             |          Yes           |           Yes           |    No     |
 
 ### Security capabilities
 
-| Capability | SQL Database | Azure Synapse | HBase/Phoenix on HDInsight | Hive LLAP on HDInsight | Azure Analysis Services | Cosmos DB |
-| --- | --- | --- | --- | --- | --- | --- |
-| Authentication  | SQL / Azure Active Directory (Azure AD) | SQL / Azure AD | local / Azure AD <sup>1</sup> | local / Azure AD <sup>1</sup> | Azure AD | database users / Azure AD via access control (IAM) |
-| Data encryption at rest | Yes <sup>2</sup> | Yes <sup>2</sup> | Yes <sup>1</sup> | Yes <sup>1</sup> | Yes | Yes |
-| Row-level security | Yes | Yes <sup>3</sup> | Yes <sup>1</sup> | Yes <sup>1</sup> | Yes (through object-level security in model) | No |
-| Supports firewalls | Yes | Yes | Yes <sup>4</sup> | Yes <sup>4</sup> | Yes | Yes |
-| Dynamic data masking | Yes | Yes | Yes <sup>1</sup> | Yes | No | No |
+| Capability | SQL Database | Azure Synapse | Azure Data Explorer | HBase/Phoenix on HDInsight | Hive LLAP on HDInsight | Azure Analysis Services | Cosmos DB |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| Authentication  | SQL / Azure Active Directory (Azure AD) | SQL / Azure AD | Azure AD | local / Azure AD <sup>1</sup> | local / Azure AD <sup>1</sup> | Azure AD | database users / Azure AD via access control (IAM) |
+| Data encryption at rest | Yes <sup>2</sup> | Yes <sup>2</sup> | Yes | Yes <sup>1</sup> | Yes <sup>1</sup> | Yes | Yes |
+| Row-level security | Yes | Yes <sup>3</sup> | Yes | Yes <sup>1</sup> | Yes <sup>1</sup> | Yes | No |
+| Supports firewalls | Yes | Yes | Yes | Yes <sup>4</sup> | Yes <sup>4</sup> | Yes | Yes |
+| Dynamic data masking | Yes | Yes | Yes | Yes <sup>1</sup> | Yes | No | No |
 
 [1] Requires using a [domain-joined HDInsight cluster](/azure/hdinsight/domain-joined/apache-domain-joined-introduction).
 

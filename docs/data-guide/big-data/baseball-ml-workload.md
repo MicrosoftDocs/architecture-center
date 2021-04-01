@@ -5,7 +5,10 @@ author: maggsl
 ms.date: 06/10/2020
 ms.topic: conceptual
 ms.service: architecture-center
-ms.subservice: cloud-fundamentals
+ms.subservice: azure-guide
+products:
+  - azure-machine-learning
+  - mlnet
 ms.custom:
   - fcp
   - guide

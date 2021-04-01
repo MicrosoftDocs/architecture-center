@@ -5,9 +5,9 @@ author: doodlemania2
 ms.date: 07/21/2017
 ms.topic: conceptual
 ms.service: architecture-center
+ms.subservice: azure-guide
 ms.category:
   - identity
-ms.subservice: reference-architecture
 ms.custom:
   - guide
 ---

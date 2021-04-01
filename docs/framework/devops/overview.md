@@ -30,8 +30,8 @@ These are the disciplines we group in the operational excellence pillar:
 
 <!-- devops disciplines -->
 [monitoring]: ./monitoring.md
-[performance]: ./performance.md
-[deployment]: ./deployment.md
-[iac]: ./iac.md
-[testing]: ./testing.md
+[performance]: ./release-engineering-performance.md
+[deployment]: ./release-engineering-cd.md
+[iac]: ./automation-infrastructure.md
+[testing]: ./release-engineering-testing.md
 [app-design]: ./app-design.md

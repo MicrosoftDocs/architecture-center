@@ -6,7 +6,7 @@ author: doodlemania2
 ms.date: 08/30/2018
 ms.topic: conceptual
 ms.service: architecture-center
-ms.subservice: reference-architecture
+ms.subservice: guide
 ms.custom:
   - seojan19
   - guide

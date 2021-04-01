@@ -6,9 +6,10 @@ author: dragon119
 ms.date: 06/05/2017
 ms.topic: conceptual
 ms.service: architecture-center
-ms.subservice: cloud-fundamentals
+ms.subservice: anti-pattern
+products:
+  - azure-event-hubs
 ms.custom:
-  - seodec18
   - article
 ---
 
@@ -311,7 +312,7 @@ Tracing the SQL statement shows that all the data is fetched in a single SELECT 
 [api-design]: ../../best-practices/api-design.md
 [caching-guidance]: ../../best-practices/caching.md
 [code-sample]: https://github.com/mspnp/performance-optimization/tree/master/ChattyIO
-[data-consistency-guidance]: https://aka.ms/data-consistency-primer
+[data-consistency-guidance]: /previous-versions/msp-n-p/dn589800(v=pandp.10)
 [ef]: /ef
 [extraneous-fetching]: ../extraneous-fetching/index.md
 [new-relic]: https://newrelic.com/products/application-monitoring

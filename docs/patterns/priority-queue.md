@@ -2,15 +2,15 @@
 title: Priority Queue pattern
 titleSuffix: Cloud Design Patterns
 description: Prioritize requests sent to services so that requests with a higher priority are received and processed more quickly than those with a lower priority.
-keywords: design pattern
 author: dragon119
 ms.date: 06/23/2017
 ms.topic: conceptual
 ms.service: architecture-center
-ms.subservice: cloud-fundamentals
+ms.subservice: design-pattern
 ms.custom:
-  - seodec18
   - design-pattern
+keywords:
+  - design pattern
 ---
 
 # Priority Queue pattern
