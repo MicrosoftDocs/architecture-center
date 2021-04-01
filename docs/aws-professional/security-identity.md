@@ -33,7 +33,7 @@ A complete walk-through of this integration can be found in the [Tutorial: Azure
 
 Because many customers continue to support a hybrid identity model for Active Directory services, it's increasingly important for security engineering teams to implement strong authentication solutions and block legacy authentication methods associated primarily with on-premises and legacy Microsoft technologies.
 
-A combination of multi-factor authentication (MFA), along with conditional access policies enable enhanced security for common authentication scenarios for end users in your organization. While MFA itself provides an increase level of security to confirm authentications, additional controls can be applied using [conditional access (CA) controls to block legacy authentication](https://docs.microsoft.com/azure/active-directory/conditional-access/howto-conditional-access-policy-block-legacy) to both Azure and AWS cloud environment. Strong authentication using only modern authentication clients is only possible with the combination of MFA and CA policies.
+A combination of multi-factor authentication (MFA) and conditional access (CA) policies enable enhanced security for common authentication scenarios for end users in your organization. While MFA itself provides an increase level of security to confirm authentications, additional controls can be applied using [CA controls to block legacy authentication](/azure/active-directory/conditional-access/howto-conditional-access-policy-block-legacy) to both Azure and AWS cloud environments. Strong authentication using only modern authentication clients is only possible with the combination of MFA and CA policies.
 
 ## Cloud Platform Security (multi-cloud)
 
