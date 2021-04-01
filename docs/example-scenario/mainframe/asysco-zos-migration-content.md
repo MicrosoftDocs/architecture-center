@@ -46,7 +46,7 @@ The preceding diagram shows how the typical components of an IBM z/OS mainframe 
    
 1. Azure Site Recovery mirrors the Azure VMs to a secondary Azure region for quick failover and disaster recovery in case of Azure datacenter failure.
 
-## Components
+### Components
 
 - [Azure ExpressRoute](/azure/expressroute/expressroute-introduction) extends your on-premises networks into the Microsoft cloud over a private connection facilitated by a connectivity provider. You can use ExpressRoute to establish connections to cloud services like Azure and Microsoft 365.
   
@@ -102,7 +102,7 @@ Azure Load Balancer builds resiliency into this solution. If one presentation or
 
 - [Azure Bastion](/azure/bastion/bastion-overview) maximizes admin access security by minimizing open ports.
 
-### Pricing
+## Pricing
 
 Azure helps you avoid unnecessary costs by identifying resource needs, analyzing spending over time, and scaling to meet business needs without overspending. Asysco AMT in Azure runs on Windows VMs, which help you optimize costs by turning off VMs when not in use and scripting schedules for known usage patterns.
 
@@ -116,13 +116,13 @@ Azure helps you avoid unnecessary costs by identifying resource needs, analyzing
 
 To estimate and calculate costs for your implementation of this solution, use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/).
 
-## See also
-
-- Visit the [Azure Marketplace](https://azuremarketplace.microsoft.com/home) for information about [Asysco AMT GO](https://azuremarketplace.microsoft.com/marketplace/apps/asyscosoftwarebv.amtvmcc_basic_2019_002?tab=Overview).
-- See the blog post [MIPS Equivalent Sizing for IBM CICS COBOL Applications Migrated to Microsoft Azure](https://techcommunity.microsoft.com/t5/azure-global/mips-equivalent-sizing-for-ibm-cics-cobol-applications-migrated/ba-p/731665).
-
 ## Next steps
 
 - For more information, please contact [legacy2azure@microsoft.com](mailto:legacy2azure@microsoft.com).
 - [Refactor IBM z/OS mainframe Coupling Facility (CF) to Azure](../../reference-architectures/zos/refactor-zos-coupling-facility.yml).
 - See the [Microsoft Azure Well-Architected Framework](/azure/architecture/framework/) for more information about cost optimization for [VM instances](/azure/architecture/framework/cost/optimize-vm).
+## Related resources
+
+- Visit the [Azure Marketplace](https://azuremarketplace.microsoft.com/home) for information about [Asysco AMT GO](https://azuremarketplace.microsoft.com/marketplace/apps/asyscosoftwarebv.amtvmcc_basic_2019_002?tab=Overview).
+- See the blog post [MIPS Equivalent Sizing for IBM CICS COBOL Applications Migrated to Microsoft Azure](https://techcommunity.microsoft.com/t5/azure-global/mips-equivalent-sizing-for-ibm-cics-cobol-applications-migrated/ba-p/731665).
+
