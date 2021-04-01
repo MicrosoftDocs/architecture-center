@@ -118,7 +118,7 @@ _Note: subnets are not shown in the image above for brevity.
 
 ### Azure Kubernetes Scenario In Event Stream Processing
 
-Image below shows a variation of [second architecture](#second-architecture) that had been seen in customer projects where the solution was running on Azure Kubernates with KEDA scaler as shown below.
+Image below shows a variation of [second architecture](#second-architecture) that had been seen in customer projects where the solution was running on Azure Kubernates with [KEDA][keda] scaler as shown below.
 
 ![Reference architecture for serverless event processing using Azure Functions on AKS](./_images/serverless-event-stream-aks-scenario.png)
 
@@ -588,6 +588,7 @@ To learn more about the reference implementation, read [Code walkthrough: Server
 [aks]: /azure/aks/intro-kubernetes
 [java]: https://github.com/Azure/azure-functions-java-library/issues/138
 [structured-logging]: /azure/azure-functions/functions-dotnet-class-library?tabs=v2%2Ccmd#structured-logging
+[keda]: https://keda.sh/
 
 [github]: https://github.com/mspnp/serverless-reference-implementation/tree/v0.1.0
 [readme]: https://github.com/mspnp/serverless-reference-implementation/blob/v0.1.0/README.md
