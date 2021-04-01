@@ -1,4 +1,4 @@
-When modernizing on-premises mainframe and midrange applications, moving data from on-premises to Azure forms the backbone for application migration. During modernization, several scenarios require replicating files to Azure in a timely manner, or maintaining a sync between on-premises and Azure files. This article discusses several different processes for moving files to Azure, performing conversions and transformations, and storing files on-premises and in Azure. The article highlights a wide range of Azure services to demonstrate the possibilities.
+When modernizing on-premises mainframe and midrange applications, moving data from on-premises to Azure forms the backbone for application migration. During modernization, several scenarios require replicating files to Azure quickly, or maintaining a sync between on-premises and Azure files. This article discusses several different processes for moving files to Azure, doing conversions and transformations, and storing files on-premises and in Azure. The article highlights a wide range of Azure services to demonstrate the possibilities.
 
 ## Potential use cases
 
@@ -6,7 +6,7 @@ On-premises file replication and sync use cases include:
 
 - Downstream or upstream dependency, if applications running on the mainframe and applications running on Azure need to exchange data via files.
 - Parallel testing of rehosted or re-engineered applications on Azure with on-premises applications.
-- Tightly-coupled on-premises applications on systems that can't be immediately remediated or modernized.
+- Tightly coupled on-premises applications on systems that can't be immediately remediated or modernized.
 
 ## Architecture
 
@@ -24,7 +24,7 @@ Replicating and syncing on-premises files to Azure storage consists of the follo
 
    - You can also upload on-premises files to Blob storage by using tools like [AzCopy](/azure/storage/common/storage-use-azcopy-v10).
    
-   - Azure Data Factory also hosts a variety of data source connectors for migrating file data into Azure.
+   - Azure Data Factory also hosts various data source connectors for migrating file data into Azure.
    
    - There are also third-party solutions that can help move files from mainframes to Azure. You can find some of them in the [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/).
    
@@ -42,7 +42,7 @@ Replicating and syncing on-premises files to Azure storage consists of the follo
 
    - If there's no need for analytics, you can store data directly in Azure Data Factory.
    
-   - Azure hosts a variety of databases, which address different needs:
+   - Azure hosts various databases, which address different needs:
      
      - Relational databases include the SQL Server family, and open-source databases like PostgreSQL, MariaDB, and MySQL.
      - Non-relational databases include Azure Cosmos DB, a fast, multi-model, NoSQL database.
@@ -69,7 +69,7 @@ Various file moving, integration, and storage scenarios use different components
 
 - [Azure SQL Managed Instance](https://azure.microsoft.com/services/azure-sql/sql-managed-instance/) combines the broadest SQL Server database engine compatibility with all the benefits of a fully managed and evergreen platform as a service. With SQL Managed Instance, you can modernize your existing apps at scale with familiar tools, skills, and resources.
 
-- [Azure SQL on VM](https://azure.microsoft.com/en-in/services/virtual-machines/sql-server/) lifts and shifts your SQL Server workloads to the cloud to combine the flexibility and hybrid connectivity of Azure with SQL Server performance, security, and analytics. You can access the latest SQL Server updates and releases with 100 percent code compatibility. With [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/), you can use your existing on-premises SQL Server licenses on the cloud with no additional cost.
+- [Azure SQL on VM](https://azure.microsoft.com/en-in/services/virtual-machines/sql-server/) lifts and shifts your SQL Server workloads to the cloud to combine the flexibility and hybrid connectivity of Azure with SQL Server performance, security, and analytics. You can access the latest SQL Server updates and releases with 100 percent code compatibility. With [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/), you can use your existing on-premises SQL Server licenses on the cloud with no extra cost.
 
 - [Azure Database for PostgreSQL](https://azure.microsoft.com/services/postgresql/) is a fully managed relational database service based on the community edition of the open-source PostgreSQL database engine.
 

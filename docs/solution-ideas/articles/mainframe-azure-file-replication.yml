@@ -10,12 +10,12 @@ metadata:
   ms.service: architecture-center
   ms.subservice: solution-idea
 azureCategories:
-  - <choose at least one category from the list at https://review.docs.microsoft.com/en-us/help/contribute/architecture-center/aac-browser-authoring?branch=master#azure-categories>
-  - <there can be more than one category>
+  - migration
+  - storage
 products:
-  - <choose 1-5 products from the list at https://review.docs.microsoft.com/en-us/help/contribute/architecture-center/aac-browser-authoring?branch=master#products>
-  - <don't use "azure" unless there is nothing else>
-  - <1-5 products>
+  - azure-sql-database
+  - azure-storage
+  - azure-virtual-machines
 name: Mainframe file replication and sync on Azure
 summary: Learn about several options for moving, converting, transforming, and storing mainframe and midrange file system data on-premises and in Azure.
 thumbnailUrl: /azure/architecture/browse/thumbs/mainframe-azure-file-replication.png
