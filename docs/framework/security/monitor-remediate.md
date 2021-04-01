@@ -19,18 +19,36 @@ Start by remediating common security risks. These risks are usually from well-es
 
 - Processes for handling incidents and post-incident activities, such as lessons learned and evidence retention.
 - Remediate the common risks identified by Azure Security Center.
-- Track remediation progress with secure score and comparing agaist historical results. 
+- Track remediation progress with secure score and comparing against historical results. 
 - Address alerts and take action with remediation steps.
+
+## Track the secure score
+
+**Does you review and remediate common risks within Azure tenants?**
+***
+
+Monitor the security posture of VMs, networks, storage, data services, and various other contributing factors. [Secure Score](/azure/security-center/secure-score-security-controls) in Azure Security Center shows a composite score that represents the security posture at the subscription level. 
+
+![Azure secure score overview](images/secure-score-tile.png)
+
+There might be some resources that may not get remediated as the Azure Platform evolves. For example, compliance can prevents adoption of new features.
+
+**Do you have a process for formally reviewing secure score on Azure Security Center?**
+***
+
+As you review the results and apply recommendations, track the progress and prioritize ongoing investments. Higher score indicates a better security posture. 
 
 ## Review and remediate recommendations
 
 Azure Security Center monitors the security status of machines, networks, storage and data services, and applications to discover potential security issues. Enable this capability at no additional cost to  detect vulnerable virtual machines connected to internet, missing security updates, missing endpoint protection or encryption, deviations from baseline security configurations, missing Web Application Firewall (WAF), and more.  
 
-Review the results and apply the [Azure security center recommendations](/azure/security-center/security-center-recommendations) to execute technical remediations. 
+View the recommendations to see the potential security issues and apply the [Azure security center recommendations](/azure/security-center/security-center-recommendations) to execute technical remediations. .
+
+![Azure secure score](images/secure-score.png)
 
 The recommendations are grouped by controls. Each recommendation has detailed information such as severity, affected resources, and quick fixes where applicable. Start with high severity items. 
 
-For example, a common risk is the virtual machines don't have vulnerability scanning solutions that check for threats. Azure Security Center reports those machines. You can remediate in Azure Security Center by deploying a scanning solution. Through Azure Defender for servers, you can use the built-in vulnerability scanner for virtual machines. You don't need a license. Alternatively, you can bring your license for supported partner solutions. 
+For example, a common risk is the virtual machines don't have vulnerability scanning solutions that check for threats. Azure Security Center reports those machines. You can remediate in Azure Security Center by deploying a scanning solution. Through Azure Defender for servers, you can use the built-in vulnerability scanner for virtual machines. You don't need a license. Instead, you can bring your license for supported partner solutions. 
 
 When conducting remote scans, do not use a single, perpetual, administrative account. Consider implementing JIT (Just In Time) provisioning methodology for the scan account. Credentials for the scan account should be protected, monitored, and used only for vulnerability scans.
 
@@ -51,20 +69,13 @@ A common approach for maintaining the security posture is through Azure Policy.
 
 Along with organizational policies, a workload owner can use scoped policies for governance purposes, such as check misconfiguration, prohibit certain resource types, and others. The resources are evaluated against rules to identify unhealthy resources that are risky. Post evaluation, certain actions are required as remediation. The actions can be in enforced through Azure Policy effects. 
 
-For example, a workload runs in an Azure Kubernetes Service (AKS) cluster. The business goals require the workload to run in a highly restrictive environment. As a workload owner, you want the resource group to contain AKS clusters that are private. You can enforce that requirement with the **Deny** effect. It'll prevent a cluster from being created if that rule isn't satisfied. 
+For example, a workload runs in an Azure Kubernetes Service (AKS) cluster. The business goals require the workload to run in a highly restrictive environment. As a workload owner, you want the resource group to contain AKS clusters that are private. You can enforce that requirement with the **Deny** effect. It will prevent a cluster from being created if that rule isn't satisfied. 
 
-Another use case is that can be automatically remediated by deploying related resources. For example, the organization wants all storage resources in a subscription to send logs to a common Log Analytics workspace. If a storage account doesn't pass the policy, a deployment is automatically started as remediation. That remediation can be enforced through **DeployIfNotExist**. There are some considerations. 
-- There's a significant wait before the resource is updated and the deployment starts. In the preceding example, this means there won't be logs captured during that wait time. Avoid using this effect for resources that cannot tolerate a delay. 
-- The resource deployed as a result of **DeployIfNotExist** is owned by a separate identity. That identity must have high enough privleges to make changes to the subscription. 
+Another use case is that it can be automatically remediated by deploying related resources. For example, the organization wants all storage resources in a subscription to send logs to a common Log Analytics workspace. If a storage account doesn't pass the policy, a deployment is automatically started as remediation. That remediation can be enforced through **DeployIfNotExist**. There are some considerations. 
+- There's a significant wait before the resource is updated and the deployment starts. In the preceding example, there won't be logs captured during that wait time. Avoid using this effect for resources that cannot tolerate a delay. 
+- The resource deployed because of **DeployIfNotExist** is owned by a separate identity. That identity must have high enough privileges to make changes to the subscription. 
 
-## Track the secure score
 
-Azure Secure Score in Azure Security Center represents the overall security in a composite score. It takes into consideration the security risk of monitored by the Security Center. 
-
-**Do you have a process for formally reviewing secure score on Azure Security Center?**
-***
-
-As you review the results and apply recommendations, track the progress and prioritize ongoing investments. Higher score indicates a better security posture. 
 
 ## Manage alerts
 

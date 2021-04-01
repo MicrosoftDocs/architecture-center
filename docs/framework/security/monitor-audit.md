@@ -16,41 +16,27 @@ ms.custom:
 
 # Security audits 
 
-To make sure that the security posture doesn’t degrade over time, have regular auditing that checks compliance with organizational standards. 
+The security principle of _baseline and benchmark_ ensures you evaluate your workload and configuration against external references including compliance requirements. This step will minimize risk of inadvertent oversight, and the risk of punitive fines from noncompliance.
 
 ## Key points
 > [!div class="checklist"]
-> - Discover and remediate common risks to improve secure score in Azure Security Center.
-> - Establish security benchmarking using Azure Security Benchmark to align with industry standards.
+> - Improve secure score in Azure Security Center.
+> - Use an industry standard benchmark to evaluate your organizations current security posture.
 > - Perform regular internal and external compliance audits, including regulatory compliance attestations.
 > - Review the policy requirements.
 
-
-## Track the secure score
-
-**Does you review and remediate common risks within Azure tenants?**
-***
-
-Monitor the security posture of VMs, networks, storage, data services, and various other contributing factors. [Secure Score](/azure/security-center/secure-score-security-controls) in Azure Security Center shows a composite score that represents the security posture at the subscription level. 
-
-![Azure secure score overview](images/secure-score-tile.png)
-
-View the recommendations to see potential security issues, such as internet connected VMs, or missing security updates, missing endpoint protection or encryption, and more.
-
-![Azure secure score](images/secure-score.png)
-
-There might be some resources that may not get remediated as the Azure Platform evolves. For example, compliance can prevents adoption of new features.
 
 ## Evaluate using standard benchmarks
 
 **Do you evaluate the security posture of this workload using standard benchmarks?**
 ***
 
-Benchmarking enables security program improvement by learning from external organizations. It lets the organization know how its current security state compares to that of other organizations. As an example, the Center for Internet Security (CIS) has created security benchmarks for Azure that map to the CIS Control Framework. Another reference example is the MITRE ATT&CK™ framework that defines the various adversary tactics and techniques based on real-world observations.
+Benchmarking allows you to improve your security program by learning from external organizations. Benchmarking lets you know how your current security state compares to that of other organizations, providing both external validation for successful elements of your current system as well as identifying gaps that serve as opportunities to enrich your team’s overall security strategy. Even if your security program isn’t tied to a specific benchmark or regulatory standard, you will benefit from understanding the documented ideal states by those outside and inside of your industry. 
 
-Establish security benchmarking using [Azure Security Benchmark](/azure/security/benchmarks/) to align with industry standards. 
+For example, the Center for Internet Security (CIS) has created security benchmarks for Azure that map to the CIS Control Framework. Another reference example is the MITRE ATT&CK™ framework that defines the various adversary tactics and techniques based on real-world observations.
 
-You can monitor the state of Azure Security Benchmark in Azure Security Center, after it's been added as a policy to the subscription.  
+Establish security benchmarking using [Azure Security Benchmark](/azure/security/benchmarks/) to align with industry standards. Monitor the state of Azure Security Benchmark in Azure Security Center, after it's been added as a policy to the subscription. 
+
 
 ## Audit regulatory compliance
 
@@ -97,7 +83,7 @@ For more information, see [Tutorial: Create and manage policies to enforce compl
 
 ## Next steps
 > [!div class="nextstepaction"]
-> [Remediate security risks in Azure Security Center](monitor-remediate.md)
+> [Remediate security risks in Azure Security Center](monitor-logs-alert.md)
 
 ## Related links
 

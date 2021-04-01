@@ -28,7 +28,7 @@ During the design phase, consider the way you store secrets and handle exception
 
 **How do is application configuration stored and how does the application access it?**
 ***
-Application configuration information can be stored with the application. We recommend using a dedicated configuration management system such as Azure App Configuration or Azure Key Vault. Thay way, it can be updated independently of the application code.
+Application configuration information can be stored with the application. However, that's not a recommended practice. Consider using a dedicated configuration management system such as Azure App Configuration or Azure Key Vault. That way, it can be updated independently of the application code.
 
 Applications can include secrets like database connection strings, certificate keys, and so on. Do not store secrets in source code or configuration files. Instead keep them in a secure store, such as Azure Key Vault. If you need to store secrets in code, identify them with static code scanning tools. Add the scanning process in your continuous integration (CI) pipeline.
 
@@ -75,7 +75,7 @@ It's important to be aware of the implications of using third-party frameworks a
 <a id="SSL">**Are the expiry dates of SSL/TLS certificates monitored and are processes in place to renew them?**</a>
 ***
 
-Tracking expiry dates of SSL/TLS certificates and renewing them in due time is therefore highly critical. Ideally, the process should be automated, although this often depends on leveraged CA. If not automated, sufficient alerting should be applied to ensure expiry dates do not go unnoticed.
+Tracking expiry dates of SSL/TLS certificates and renewing them in due time is highly critical. Ideally, the process should be automated, although this often depends on the CA used for the certificate. If not automated, sufficient alerting should be applied to ensure expiry dates do not go unnoticed.
 
 ## Referenced Azure services
 

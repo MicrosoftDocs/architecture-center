@@ -30,10 +30,12 @@ Regularly monitor resources to maintain the security posture. These activities c
 ## In this section
 |Assessment|Description|
 |---|---|
-|[**How is security monitored?**](monitor-tools.md)|Use Azure tools and services to monitor your security posture and also remediate incidents.|
-|[**How do you discover common risks to resources used in the workload?**](monitor-remediate.md)|Azure Security Center provides recommendations for resources that remediate common risks.|
+|[**What tools do you use to monitor security?**](monitor-tools.md)|Use Azure tools and services to monitor your security posture and also remediate incidents.|
+|[**How do you discover common risks to resources used in the workload?**](monitor-resources.md)|Azure Security Center provides recommendations for resources that remediate common risks.|
 |[**Is access to the control plane and data plane of the application periodically reviewed?**](monitor-identity-network.md)|Monitor network conditions and identity-related risk events regularly.|
+|[**Have you centralized logs and alerts to SIEM and SOAR?**](monitor-logs-alert.md)|Integrate logs from Azure resources and platform to a central location. This will help in statistical analysis and auditing.|
 |[**How do you monitor and maintain your compliance of this workload?**](monitor-audit.md)|Activities related to enabling, acquiring, and storing audit logs for Azure services.|
+|[**How do you discover and remediate common risks within Azure tenants?**](moniter-remediate.md)|Formally review Azure Security Center's Secure Score on a regular basis and take actions out of it.|
 |[**Are operational processes for incident response defined and tested?**](monitor-security-operations.md)|Guidance for the central SecOps team for monitoring security-related telemetry data and investigating security breaches.|
 |[**How is the security of the workload validated?**](monitor-test.md)|Test the defense of the workload by simulating real-world attacks. Use penetration testing to simulate one-time attack and red teams to simulate long-term persistent attack groups.|
 

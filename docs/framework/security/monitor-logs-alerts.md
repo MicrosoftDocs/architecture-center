@@ -14,7 +14,6 @@ Logs provide insight into the operations of a workload, the infrastructure, netw
 
 ## Key points
 
-- Use approved time synchronization sources.
 - Configure central security log management.
 - Enable audit logging for Azure resources.
 - Collect security logs from operating systems.
@@ -26,7 +25,7 @@ Logs provide insight into the operations of a workload, the infrastructure, netw
 
 ## Use native services
 
-- **Azure Monitor** provides observability across your entire environment. You automatically get platform metrics, activity logs and diagnostics logs from most of your Azure resources with no configuration. The activity logs provide detailed diagnostic and auditing information.
+- **Azure Monitor** provides observability across your entire environment. You automatically get platform metrics, activity logs, and diagnostics logs from most of your Azure resources with no configuration. The activity logs provide detailed diagnostic and auditing information.
 
 - **Azure Security Center** generates notifications as security alerts by collecting, analyzings, and integrating log data from your Azure resources and the network. Alerts are available when you enable the Azure Defender plan. This will add to the overall cost.  
 
@@ -37,12 +36,12 @@ Ideally use a combination of the preceding services to get a full view. For exam
 ## Audit logging
 An important aspect of monitoring is tracking operations. For example, you want to know who created, updated, deleted a resource. Or, get resource-specific information such as when an image was pulled from Azure Container Registry. That information is crucial for a Security Operations (SecOps) team in detecting the presence of adversaries, reacting to an alert of suspicious activity, or proactively hunting for anomalous events. They are also useful for security auditing and compliance and offline analysis.
 
-On Azure, that information is emited as [platform logs](/azure/azure-monitor/essentials/platform-logs-overview) by the resources and the platform on which they run. They are tracked by Azure Resource Manager as and when subscription-level events occur. Each resource emits logs specific to the service.
+On Azure, that information is emitted as [platform logs](/azure/azure-monitor/essentials/platform-logs-overview) by the resources and the platform on which they run. They are tracked by Azure Resource Manager as and when subscription-level events occur. Each resource emits logs specific to the service.
 
 Consider sending your logs to a storage account for statistical analysis.
 
 ## Alerts
-Security alerts are notifications that are generated when anamolous activity is detected on the resources used by the workload or the platform.
+Security alerts are notifications that are generated when anomalous activity is detected on the resources used by the workload or the platform.
 
 With the Azure Defender plan, Azure Security Center  analyzes log data and shows a list of alerts that's based on logs collected from resources within a scope. Alerts include context information such as severity, status, activity time. Security center also provides a correlated view called **incidents**. Use this data to analyze what actions the attacker took, and what resources were affected.
 
@@ -59,7 +58,7 @@ For more information, see [Security alerts and incidents](/azure/security-center
 A central view of log and data is recommended. Some advantages include:
 - The resources in the workload can share a common log workspace reducing duplication.
 - Single point of observability with all log data makes it easier consume data for hunting activities, querying, and statistical evaluation.
-- The integrated data can be fed into modern machine learning analytics platforms supports ingestion of large amounts of information and can analyze large datasets very quickly. In addition, these solutions can be tuned to significantly reduce the false positive alerts.
+- The integrated data can be fed into modern machine learning analytics platforms support ingestion of large amounts of information and can analyze large datasets quickly. In addition, these solutions can be tuned to significantly reduce the false positive alerts.
 
 You can collect logs and alerts from various sources centrally in a Log Analytics Workspace, storage account, and Event Hubs. You can then review and query log data efficiently. In Azure Monitor, use the **diagnostic setting** on resources to route specific logs that are important for the organization. Logs vary by resource type. In Azure Security Center, take advantage of the continuous export feature to route alerts.
 
@@ -134,7 +133,7 @@ For more information, see these articles:
 - [How to collect platform logs and metrics with Azure Monitor](/azure/azure-monitor/platform/diagnostic-settings)
 
 
-You can use Azure Monitor to collect information about the operating system running on Azure compute. If your are running your own compute, use Azure Security Center. For more information, see [Understand Azure Security Center data collection](/azure/security-center/security-center-enable-data-collection).
+You can use Azure Monitor to collect information about the operating system running on Azure compute. If you're running your own compute, use Azure Security Center. For more information, see [Understand Azure Security Center data collection](/azure/security-center/security-center-enable-data-collection).
 
 Within Azure Monitor, create Log Analytics Workspace to store logs. You can also review logs and perform queries on log data. Set the retention period according to your organization's compliance regulations. Use Azure Storage Accounts for long-term/archival storage. 
 
@@ -150,12 +149,7 @@ Use the data to support these activities:
 
 Integrating more data can allow you to enrich alerts with additional context that enable rapid response and remediation (filter false positives, and elevate true positives, and so on.), but collection is not detection. If you don’t have a reasonable expectation that the data will provide value (for example, high volume of firewall denies events), you may deprioritize integration of these events.
 
-## Mask personal information
 
-**Is personal information detected and removed/obfuscated automatically?**
-***
-
-Be cautious when logging sensitive application information. Don't store  personal information such as contact information, payment information, and so on, in any application logs. Apply protective measures, such as obfuscation. Machine learning tools can help with this measure. For more information, see [PII Detection cognitive skill](/azure/search/cognitive-search-skill-pii-detection).
 
 
 ## Next steps

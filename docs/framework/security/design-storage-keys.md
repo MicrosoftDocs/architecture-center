@@ -20,7 +20,7 @@ Encryption is an essential tool for security because it restricts access. Howeve
 ## Key points
 - Use identity-based access control instead of cryptographic keys.
 - Store keys and secrets in managed key vault service. Control permissions with an access model.
-- Rotate keys and other secrets frequently. Replace secrets at the end their lifetime or if they have been compromised.
+- Rotate keys and other secrets frequently. Replace secrets at the end their lifetime or if they've been compromised.
 
 ## Identity-based access control
 
@@ -28,7 +28,7 @@ There are many ways to provide access control over storage resources available, 
 
 **Do you prioritize authentication through identity services for a workload over cryptographic keys?**
 ***
-Protecting cryptographic keys can often get overlooked or implemented poorly. Managing keys securely with application code is especially difficult and can lead to mistakes such as accidentally publishing sensitive access keys to public code repositories.
+Protection of cryptographic keys can often get overlooked or implemented poorly. Managing keys securely with application code is especially difficult and can lead to mistakes such as accidentally publishing sensitive access keys to public code repositories.
 
 Use of identity-based option for storage access control is recommended. This option uses role-based access controls (RBAC) over storage resources. Use RBAC to assign permissions to users, groups, and applications at a certain scope. Identity systems such as Azure Active Directory(Azure AD) offer secure and usable experience for access control with built-in mechanisms for handling key rotation, monitoring for anomalies, and others.
 
@@ -49,7 +49,7 @@ Suppose you need to store sensitive data in Azure Blob Storage. You can use Azur
 
 ## Key storage
 
-API keys, database connection strings, and passwords can get leaked. Also, data encryption keys are considered to be senstive information. 
+API keys, database connection strings, and passwords can get leaked. Also, data encryption keys are considered to be sensitive information. 
 
 Store all application keys and secrets in managed key vault service such as [Azure Key Vault](/azure/key-vault/general/overview) and not within the application code or configuration. Storing encryption keys a managed store further limits access.
 
@@ -76,9 +76,9 @@ There are various approaches. Options include Microsoft-managed Keys, Customer-m
 **Are keys and secrets rotated frequently?**
 ***
 
-To reduce the attack vectors, secrets require rotation and are prone to expiration. The process should be automated and executed without any human interactions.Storing them in a managed simplifies those operational tasks by handling key rotation.
+To reduce the attack vectors, secrets require rotation and are prone to expiration. The process should be automated and executed without any human interactions. Storing them in a managed simplifies those operational tasks by handling key rotation.
 
-Replace secrets after they have reached the end of their active lifetime or if they have been compromised. Renewed certificates should also use a new key. Have a process for situations where keys get compromised (leaked) and need to be regenerated on-demand. For example, secrets rotation in SQL Database.
+Replace secrets after they've reached the end of their active lifetime or if they've been compromised. Renewed certificates should also use a new key. Have a process for situations where keys get compromised (leaked) and need to be regenerated on-demand. For example, secrets rotation in SQL Database.
 
 For more information, see [Key Vault Key Rotation](/azure/key-vault/secrets/tutorial-rotation-dual).
 

@@ -47,6 +47,10 @@ Azure AD uses adaptive machine learning algorithms, heuristics, and known compro
 
 Remediate risks by manually addressing each reported account or by setting up a [user risk policy](/azure/active-directory/identity-protection/howto-user-risk-policy) to require a password change for high risk events. 
 
+**Is personal information detected and removed/obfuscated automatically?**
+***
+
+Be cautious when logging sensitive application information. Don't store  personal information such as contact information, payment information, and so on, in any application logs. Apply protective measures, such as obfuscation. Machine learning tools can help with this measure. For more information, see [PII Detection cognitive skill](/azure/search/cognitive-search-skill-pii-detection).
 
 ## Enable network visibility
 
