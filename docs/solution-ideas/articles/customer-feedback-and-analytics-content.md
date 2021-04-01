@@ -1,7 +1,7 @@
 
 <!-- cSpell:ignore pracjain keyphrase -->
 
-
+[!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
 For many companies, customer support is costly and inefficient. Knowledge mining can help customer support teams quickly find the right answer for a customer inquiry or assess customer sentiment at scale.
 

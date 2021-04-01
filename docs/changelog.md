@@ -2,7 +2,7 @@
 title: What's New in Azure Architecture Center
 description: New and updated articles in Azure Architecture Center
 author: doodlemania2
-ms.date: 03/15/2021
+ms.date: 03/30/2021
 ms.topic: article
 ms.service: architecture-center
 ---
@@ -27,12 +27,28 @@ New and updated articles in Azure Architecture Center
 
 ### New Articles
 
+- [Virtual health on Microsoft Cloud for Healthcare](./example-scenario/mch-health/virtual-health-mch.yml)
 - [IoT Edge data storage and processing](./solution-ideas/articles/data-storage-edge.yml)
 - [Micro Focus Enterprise Server on Azure VMs](./example-scenario/mainframe/micro-focus-server.yml)
 - [Multi-region web app with private connectivity to database](./example-scenario/sql-failover/app-service-private-sql-multi-region.yml)
 
 ### Updated Articles
 
+- [Deploy highly available NVAs](./reference-architectures/dmz/nva-ha.yml)  ([#c74ce415c](https://github.com/MicrosoftDocs/architecture-center/commit/c74ce415c))
+- [FSLogix for the enterprise](./example-scenario/wvd/windows-virtual-desktop-fslogix.yml)  ([#209fb5636](https://github.com/MicrosoftDocs/architecture-center/commit/209fb5636))
+- [Asynchronous Request-Reply Pattern](./patterns/async-request-reply.md)  ([#90c11f879](https://github.com/MicrosoftDocs/architecture-center/commit/90c11f879))
+- [Sequential Convoy](./patterns/sequential-convoy.md)  ([#90c11f879](https://github.com/MicrosoftDocs/architecture-center/commit/90c11f879))
+- [AWS to Azure services comparison](./aws-professional/services.md)  ([#84834a8ab](https://github.com/MicrosoftDocs/architecture-center/commit/84834a8ab))
+- [Personalization using Cosmos DB](./solution-ideas/articles/personalization-using-cosmos-db.yml)  ([#1851c37c2](https://github.com/MicrosoftDocs/architecture-center/commit/1851c37c2))
+- [Bursting from AKS with ACI](./solution-ideas/articles/scale-using-aks-with-aci.yml)  ([#1851c37c2](https://github.com/MicrosoftDocs/architecture-center/commit/1851c37c2))
+- [Azure Arc hybrid management and deployment for Kubernetes clusters](./hybrid/arc-hybrid-kubernetes.yml)  ([#1f75f2af1](https://github.com/MicrosoftDocs/architecture-center/commit/1f75f2af1))
+- [Manage configurations for Azure Arc enabled servers](./hybrid/azure-arc-hybrid-config.yml)  ([#1f75f2af1](https://github.com/MicrosoftDocs/architecture-center/commit/1f75f2af1))
+- [Using Azure file shares in a hybrid environment](./hybrid/azure-file-share.yml)  ([#1f75f2af1](https://github.com/MicrosoftDocs/architecture-center/commit/1f75f2af1))
+- [Azure Functions in a hybrid environment](./hybrid/azure-functions-hybrid.yml)  ([#1f75f2af1](https://github.com/MicrosoftDocs/architecture-center/commit/1f75f2af1))
+- [Run containers in a hybrid environment](./hybrid/hybrid-containers.yml)  ([#1f75f2af1](https://github.com/MicrosoftDocs/architecture-center/commit/1f75f2af1))
+- [Digital Marketing using Azure Database for MySQL](./solution-ideas/articles/digital-marketing-using-azure-database-for-mysql.yml)  ([#1f75f2af1](https://github.com/MicrosoftDocs/architecture-center/commit/1f75f2af1))
+- [Loan Credit Risk with SQL Server](./solution-ideas/articles/loan-credit-risk-with-sql-server.yml)  ([#1f75f2af1](https://github.com/MicrosoftDocs/architecture-center/commit/1f75f2af1))
+- [Extend on-premises AD FS to Azure](./reference-architectures/identity/adfs.yml)  ([#85a8dc1aa](https://github.com/MicrosoftDocs/architecture-center/commit/85a8dc1aa))
 - [Secure application&#x27;s configuration and dependencies](./framework/security/design-app-dependencies.md)  ([#0de988c5f](https://github.com/MicrosoftDocs/architecture-center/commit/0de988c5f))
 - [Messaging](./solution-ideas/articles/messaging.yml)  ([#945406bed](https://github.com/MicrosoftDocs/architecture-center/commit/945406bed))
 - [Image classification on Azure](./example-scenario/ai/intelligent-apps-image-processing.yml)  ([#ad521be0d](https://github.com/MicrosoftDocs/architecture-center/commit/ad521be0d))
@@ -41,7 +57,6 @@ New and updated articles in Azure Architecture Center
 - [Anomaly Detector Process](./solution-ideas/articles/anomaly-detector-process.yml)  ([#ad521be0d](https://github.com/MicrosoftDocs/architecture-center/commit/ad521be0d))
 - [Intelligent apps using Azure Database for PostgreSQL](./solution-ideas/articles/intelligent-apps-using-azure-database-for-postgresql.yml)  ([#ad521be0d](https://github.com/MicrosoftDocs/architecture-center/commit/ad521be0d))
 - [Optimize Marketing with Machine Learning](./solution-ideas/articles/optimize-marketing-with-machine-learning.yml)  ([#ad521be0d](https://github.com/MicrosoftDocs/architecture-center/commit/ad521be0d))
-- [Personalization using Cosmos DB](./solution-ideas/articles/personalization-using-cosmos-db.yml)  ([#ad521be0d](https://github.com/MicrosoftDocs/architecture-center/commit/ad521be0d))
 - [Personalized Offers](./solution-ideas/articles/personalized-offers.yml)  ([#ad521be0d](https://github.com/MicrosoftDocs/architecture-center/commit/ad521be0d))
 - [Quality Assurance](./solution-ideas/articles/quality-assurance.yml)  ([#ad521be0d](https://github.com/MicrosoftDocs/architecture-center/commit/ad521be0d))
 - [Retail Assistant with Visual Capabilities](./solution-ideas/articles/retail-assistant-or-vacation-planner-with-visual-capabilities.yml)  ([#ad521be0d](https://github.com/MicrosoftDocs/architecture-center/commit/ad521be0d))

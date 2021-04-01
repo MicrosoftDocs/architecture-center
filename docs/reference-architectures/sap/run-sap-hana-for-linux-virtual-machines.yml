@@ -14,6 +14,7 @@ metadata:
   ms.custom:
     - fcp
     - reference-architecture
+    - e2e-sap
 name: Run SAP HANA for Linux virtual machines in a scale-up architecture on Azure
 azureCategories:
   - databases
@@ -23,6 +24,6 @@ products:
   - azure
   - azure-virtual-machines
   - azure-linux-vm
-thumbnailUrl: /azure/architecture/browse/thumbs/sap-hana-scale-up.png
+thumbnailUrl: /azure/architecture/reference-architectures/sap/images/sap-hana-scale-up.png
 content: |
    [!include[](run-sap-hana-for-linux-virtual-machines-content.md)]

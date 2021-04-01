@@ -18,6 +18,7 @@ metadata:
     - Oracle
     - Azure
     - example-scenario
+    - e2e-sap
   social_image_url: /azure/architecture/example-scenario/apps/media/architecture-sap-production.png
 name: SAP System on Oracle Database on Azure
 azureCategories:

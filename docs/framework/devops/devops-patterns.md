@@ -9,7 +9,8 @@ ms.service: architecture-center
 ms.subservice: well-architected
 ms.custom:
   - design-pattern
-keywords: design pattern
+keywords:
+  - design pattern
 ---
 
 # Operational Excellence patterns

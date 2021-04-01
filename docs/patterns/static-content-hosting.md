@@ -11,7 +11,8 @@ products:
   - azure-storage
 ms.custom:
   - design-pattern
-keywords: design pattern
+keywords:
+  - design pattern
 social_image_url: /azure/architecture/patterns/media/orderedList1.png
 ---
 

@@ -6,7 +6,6 @@ ms.date: 02/17/2021
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
-ms.custom:
 ---
 
 # Testing best practices for reliability in Azure applications
@@ -61,6 +60,6 @@ Achieve levels of scale and performance needed for your solution by segregating 
 ## Next step
 
 >[!div class="nextstepaction"]
->[Monitoring](/azure/architecture/framework/resiliency/monitor-checklist)
+>[Monitoring](./monitor-checklist.md)
 
 > Go back to the main article: [Testing](test-checklist.md)

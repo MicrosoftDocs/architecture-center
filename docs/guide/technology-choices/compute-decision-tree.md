@@ -2,17 +2,18 @@
 title: Choosing an Azure compute service
 description: Use this chart and other information to decide which compute service, or hosting model for computing resources, best suits your application.
 author: doodlemania2
-ms.date: 01/10/2020
+ms.date: 03/29/2021
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: guide
-ms.category:
+categories:
   - compute
 products:
   - azure-app-service
   - azure-kubernetes-service
 ms.custom:
   - guide
+  - e2e-aks
 ---
 
 # Choose an Azure compute service for your application
@@ -25,7 +26,7 @@ If your application consists of multiple workloads, evaluate each workload separ
 
 Use the following flowchart to select a candidate compute service.
 
-![Decision tree for Azure compute services](../images/compute-decision-tree.svg)
+![Decision tree for Azure compute services](images/compute-choices.png)
 
 Definitions:
 
@@ -107,7 +108,7 @@ Notes
 |----------|-----------------|-------------|----------------|-----------------|-------------------------|----------------|-------------|
 | Autoscaling | Virtual machine scale sets | Built-in service | Virtual machine scale sets | Built-in service | Pod auto-scaling<a href="#note1c"><sup>1</sip></a>, cluster auto-scaling<a href="#note2c"><sup>2</sip></a> | Not supported | N/A |
 | Load balancer | Azure Load Balancer | Integrated | Azure Load Balancer | Integrated | Azure Load Balancer or Application Gateway |  No built-in support | Azure Load Balancer |
-| Scale limit<a href="#note3c"><sup>3</sup></a> | Platform image: 1000 nodes per scale set, Custom image: 600 nodes per scale set | 20 instances, 100 with App Service Environment | 100 nodes per scale set | 200 instances per Function app | 100 nodes per cluster (default limit) |20 container groups per subscription (default limit). | 20 core limit (default limit). |
+| Scale limit<a href="#note3c"><sup>3</sup></a> | Platform image: 1000 nodes per scale set, Custom image: 600 nodes per scale set | 30 instances, 100 with App Service Environment | 100 nodes per scale set | 200 instances per Function app | 100 nodes per cluster (default limit) |20 container groups per subscription (default limit). | 20 core limit (default limit). |
 
 Notes
 

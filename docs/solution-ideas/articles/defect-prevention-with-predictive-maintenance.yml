@@ -18,7 +18,7 @@ metadata:
     - quality control process
     - anomaly-detection
     - manufacturing quality control
-    - 'https://azure.microsoft.com/solutions/architecture/defect-prevention-with-predictive-maintenance/'
+    - "https://azure.microsoft.com/solutions/architecture/defect-prevention-with-predictive-maintenance/"
     - ai-machine-learning
   social_image_url: /azure/architecture/solution-ideas/articles/media/defect-prevention-with-predictive-maintenance.png
 name: Defect prevention with predictive maintenance

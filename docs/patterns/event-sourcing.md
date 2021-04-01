@@ -11,7 +11,8 @@ products:
   - office-bookings
 ms.custom:
   - design-pattern
-keywords: design pattern
+keywords:
+  - design pattern
 ---
 
 # Event Sourcing pattern
@@ -30,7 +31,6 @@ The CRUD approach has some limitations:
 - In a collaborative domain with many concurrent users, data update conflicts are more likely because the update operations take place on a single item of data.
 
 - Unless there's an additional auditing mechanism that records the details of each operation in a separate log, history is lost.
-
 
 ## Solution
 
@@ -157,13 +157,11 @@ The following patterns and guidance might also be relevant when implementing thi
 
 - [Data Partitioning Guidance](/previous-versions/msp-n-p/dn589795(v=pandp.10)). Data is often partitioned when using event sourcing to improve scalability, reduce contention, and optimize performance. Describes how to divide data into discrete partitions, and the issues that can arise.
 
-
 ## Community resources
+
 - [Object-relational impedance mismatch](https://en.wikipedia.org/wiki/Object-relational_impedance_mismatch)
 
 - Martin Fowler's blog:
+
   - [Event Sourcing](https://martinfowler.com/eaaDev/EventSourcing.html)
   - [Snapshot on Martin Fowler’s Enterprise Application Architecture website](https://martinfowler.com/eaaDev/Snapshot.html)
-
-
-

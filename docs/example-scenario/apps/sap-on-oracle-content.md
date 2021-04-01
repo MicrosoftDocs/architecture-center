@@ -1,7 +1,4 @@
-
-
-
-SAP system on Oracle Database is one of the popular deployment patterns in the SAP world. This article describes a typical architecture of SAP on Oracle on Azure, that aligns with the pillars of the [Azure Well Architected Framework](https://docs.microsoft.com/en-us/azure/architecture/framework/).
+SAP system on Oracle Database is one of the popular deployment patterns in the SAP world. This article describes a typical architecture of SAP on Oracle on Azure, that aligns with the pillars of the [Azure Well Architected Framework](../../framework/index.md).
 
 ## Architecture
 
@@ -14,23 +11,22 @@ The reference architecture describes a typical SAP production system running on 
 
 ### SAP Presentation Layer
 
-The presentation layer (SAPGUI, SAP NetWeaver Business Client, Browser etc.) of the reference architecture reside in the user workstation (laptop, desktop etc.), which connects to Azure via on-premises datacenter. 
-Below are the considerations and recommendations around presentation layer of the architecture.
+The presentation layer (SAPGUI, SAP NetWeaver Business Client, Browser etc.) of the reference architecture reside in the user workstation (laptop, desktop etc.), which connects to Azure via on-premises datacenter. Below are the considerations and recommendations around presentation layer of the architecture.
 
 #### Considerations
 
-- The presentation layer of the SAP Solution can reside in user workstation (laptop, desktop etc.), remote desktop in Azure or virtual desktop solutions like Citrix, [Windows Virtual Desktop](https://docs.microsoft.com/en-us/azure/virtual-desktop/overview) etc.
+- The presentation layer of the SAP Solution can reside in user workstation (laptop, desktop etc.), remote desktop in Azure or virtual desktop solutions like Citrix, [Windows Virtual Desktop](/azure/virtual-desktop/overview) etc.
  
 #### Recommendations
 
 - While deploying SAP presentation layer, ensure the latency requirement between SAP Application servers and the presentation layer are met. This [SCN Wiki](https://wiki.scn.sap.com/wiki/display/VIRTUALIZATION/Frequently+Asked+Questions%3A+Microsoft+Azure#FrequentlyAskedQuestions:MicrosoftAzure-HowcanItestthelatencybetweenmyhomelocationandthenextAzuredatacenter?) page contains good guiding principles. When defining your strategy, aim to adhere to these latency guidelines:
 
-Quality of Response time | Measured Response time
----| ---
-Best | <80 ms
-Better | <150 ms
-Good | <220 ms
-Bad | >220 ms
+| Quality of Response time | Measured Response time |
+|--|--|
+| Best | <80 ms |
+| Better | <150 ms |
+| Good | <220 ms |
+| Bad | >220 ms |
 
 ### Networking
 
@@ -49,8 +45,8 @@ Below are the considerations and recommendations around networking component of 
 
 - Refer [SAP Note – 2015553](https://launchpad.support.sap.com/#/notes/2015553) to understand the Network prerequisites for SAP on Azure deployment.
 - Create dedicated subnets for SAP Application components (i.e. PAS, AAS, Central Services) and Database Component (i.e. Oracle Database and Oracle Observer) deployment.
-- Restrict the database access using [Network Security Group (NSG)](https://docs.microsoft.com/en-us/azure/virtual-network/network-security-groups-overview) and [Application Security Group (ASG)](https://docs.microsoft.com/en-us/azure/virtual-network/application-security-groups) policies.
-- Enable [Accelerated Networking](https://docs.microsoft.com/en-us/azure/virtual-network/create-vm-accelerated-networking-cli) for supported Azure VM and Operating System.
+- Restrict the database access using [Network Security Group (NSG)](/azure/virtual-network/network-security-groups-overview) and [Application Security Group (ASG)](/azure/virtual-network/application-security-groups) policies.
+- Enable [Accelerated Networking](/azure/virtual-network/create-vm-accelerated-networking-cli) for supported Azure VM and Operating System.
 
 ### Virtual Machine
 
@@ -69,12 +65,12 @@ Below are the considerations and recommendations around virtual machine componen
 
 #### Recommendations
 
-- Use [constrained core VMs](https://docs.microsoft.com/en-us/azure/virtual-machines/constrained-vcpu?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json) for hosting Oracle databases on Azure VMs for cost efficiency.
+- Use [constrained core VMs](/azure/virtual-machines/constrained-vcpu?bc=%2fazure%2fvirtual-machines%2flinux%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) for hosting Oracle databases on Azure VMs for cost efficiency.
 
 ![Azure VM recommendations for SAP on Oracle Workload](./media/sap-on-oracle-compute-recommendations.png)
 *Figure – Azure compute recommendations for SAP on Oracle Database*
 
-- Use availability zones together with availability set for Azure VMs deployment. Perform [latency check between availability zones](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/sap-ha-availability-zones#network-latency-between-and-within-zones) to ensure that it meets the latency requirement for cross zone communication.
+- Use availability zones together with availability set for Azure VMs deployment. Perform [latency check between availability zones](/azure/virtual-machines/workloads/sap/sap-ha-availability-zones#network-latency-between-and-within-zones) to ensure that it meets the latency requirement for cross zone communication.
 - Regions where Availability Zones are not available, use availability set for Azure VM deployment.
 
 ### Storage
@@ -83,10 +79,10 @@ The architecture uses Azure-managed disks for Azure VM disks and Azure Files for
 
 #### Considerations
 
-- Azure Managed Disks and [Azure NetApp Files](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/oracle/oracle-database-backup-strategies#azure-netapp-files) are the storage solutions for Oracle databases on Azure. Refer [SAP Note – 2039619](https://launchpad.support.sap.com/#/notes/2039619) to understand the possible supported combinations of Operating systems, Oracle products and the storage solutions.
+- Azure Managed Disks and [Azure NetApp Files](/azure/virtual-machines/workloads/oracle/oracle-database-backup-strategies#azure-netapp-files) are the storage solutions for Oracle databases on Azure. Refer [SAP Note – 2039619](https://launchpad.support.sap.com/#/notes/2039619) to understand the possible supported combinations of Operating systems, Oracle products and the storage solutions.
 - Azure Files (In Preview), Azure Shared Disk and Azure NetApp files can be used for shared file systems.
 - Oracle database is supported on both ASM and Non-ASM File systems on Azure.
-- Be aware of some of the [limitations](https://docs.microsoft.com/en-us/azure/virtual-machines/disks-enable-ultra-ssd?tabs=azure-portal) of Azure Ultra SSD, when using Ultra SSD for database storage.
+- Be aware of some of the [limitations](/azure/virtual-machines/disks-enable-ultra-ssd?tabs=azure-portal) of Azure Ultra SSD, when using Ultra SSD for database storage.
 - Azure NetApp files do not currently support Availability Zones.
 
 ##### Recommendations
@@ -96,12 +92,12 @@ The architecture uses Azure-managed disks for Azure VM disks and Azure Files for
 ![Azure Storage recommendations for SAP on Oracle Workload](./media/sap-on-oracle-storage-recommendations.png)
 *Figure – Azure storage recommendations for SAP on Oracle Database*
 
-- For VM running Oracle database – 
-    - Enable read-only caching for all the data disks.
-    - Enable write accelerator (for write caching) for all the log disks when using premium SSD with M series.
-    - For production/performance critical SAP on Oracle deployment with E series VMs, use ultra SSD for log disks and can use premium SSD for data disks.
-    - For non-prod systems/non-performance critical SAP on Oracle deployment you can replace the Premium-managed disk with Standard SSD.
-- Can use [premium SSD performance tiering](https://docs.microsoft.com/en-gb/azure/virtual-machines/disks-performance-tiers-portal) to temporary increase the performance offerings from the premium SSD.
+- For VM running Oracle database:
+  - Enable read-only caching for all the data disks.
+  - Enable write accelerator (for write caching) for all the log disks when using premium SSD with M series.
+  - For production/performance critical SAP on Oracle deployment with E series VMs, use ultra SSD for log disks and can use premium SSD for data disks.
+  - For non-prod systems/non-performance critical SAP on Oracle deployment you can replace the Premium-managed disk with Standard SSD.
+- Can use [premium SSD performance tiering](/azure/virtual-machines/disks-performance-tiers-portal) to temporary increase the performance offerings from the premium SSD.
 
 ### Security
 
@@ -119,24 +115,23 @@ For Oracle database the encryption-at-rest is achieved through Oracle Transparen
 
 The solution uses Azure backup for protecting the VMs and the Oracle database, and all the backed-up data is automatically encrypted when stored in the cloud using Azure Storage encryption.
 
-The overall solution is integrated into [Azure Security Center](https://docs.microsoft.com/en-us/azure/security-center/security-center-introduction) and [Azure Sentinel](https://docs.microsoft.com/en-us/azure/sentinel/overview).
-
+The overall solution is integrated into [Azure Security Center](/azure/security-center/security-center-introduction) and [Azure Sentinel](/azure/sentinel/overview).
 
 #### Considerations
 
-- Azure Disk Encryption can be achieved with both Microsoft-Managed Key and Customer-Managed Key options. Refer - [ADE support for VMs and Operating System based on Windows](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/disk-encryption-overview#supported-vms-and-operating-systems) and [ADE support for VMs and Operating System based on Linux](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/disk-encryption-overview#supported-vms-and-operating-systems) to understand ADE supported scenarios.
+- Azure Disk Encryption can be achieved with both Microsoft-Managed Key and Customer-Managed Key options. Refer - [ADE support for VMs and Operating System based on Windows](/azure/virtual-machines/windows/disk-encryption-overview#supported-vms-and-operating-systems) and [ADE support for VMs and Operating System based on Linux](/azure/virtual-machines/linux/disk-encryption-overview#supported-vms-and-operating-systems) to understand ADE supported scenarios.
 
 #### Recommendations
 
 - SAP whitepaper [Security Recommendations: A Practical Guide for Securing SAP® Solutions](https://www.sap.com/documents/2017/03/14cf06b2-af7c-0010-82c7-eda71af511fa.html) describes a good framework for SAP Solution Security.
 - Enable Single-Sign-On (SSO) for user authentication from SAPGUI and browser-based SAP access.
 - Use security hardened operating system images for provisioning Azure VMs. Refer to the latest [CIS benchmarks](https://www.cisecurity.org/benchmark/azure/) for the latest recommendations. 
-- Implement Encryption-at-rest for - 
-    - Oracle Database - It’s recommended to use Oracle Transparent Data Encryption (TDE) for Oracle Database Encryption.
-    - Managed Disks – use Azure Disk Encryption with Microsoft or Customer-Managed Keys.
-    - Backups – All the backed-up data to Azure is encrypted by default.
-- Implement Encryption-in-transit – 
-    - Use TLS for encrypting HTTP communications and SNC for DIAG/RFC communications.
+- Implement encryption-at-rest for:
+  - Oracle Database - It’s recommended to use Oracle Transparent Data Encryption (TDE) for Oracle Database Encryption.
+  - Managed Disks – use Azure Disk Encryption with Microsoft or Customer-Managed Keys.
+  - Backups – All the backed-up data to Azure is encrypted by default.
+- Implement encryption-in-transit for:
+  - Use TLS for encrypting HTTP communications and SNC for DIAG/RFC communications.
 - Use Azure Bastion (PaaS) for secure and seamless RDP/SSH connectivity to your VMs directly in the Azure portal over SSL.
 - Enable Azure Security Center (ASC) Standard for SAP on Azure subscriptions.
 - Enable resource locking to prevent accidental deletion of the deployed Azure resource.
@@ -145,7 +140,7 @@ The overall solution is integrated into [Azure Security Center](https://docs.mic
 
 The scalability in the reference architecture will be achieved through scale-out of application servers and scale-up of database server. 
 
-The considerations and recommendations around scalability are -
+The considerations and recommendations around scalability are:
 
 #### Considerations
 
@@ -164,7 +159,7 @@ The disaster-recovery of the application layer is achieved through Azure Site Re
 
 For cost-effectiveness, SAP Central Services clustering is not deployed in the DR region. The Azure Site Recovery replication is enabled only from SAP Central Services but not from SAP ERS server.
 
-Below are the considerations and recommendations related to HA/DR setup - 
+Below are the considerations and recommendations related to HA/DR setup.
 
 #### Considerations
 
@@ -176,17 +171,16 @@ Below are the considerations and recommendations related to HA/DR setup -
 - Use database native solution for Oracle database replication.
 - Below is the recommended HA/DR solution for the different components of the reference architecture.
 
-Architecture Component | High Availability | Disaster Recovery
----|---|---
-SAP Central Services | Linux Cluster Solution -or- Windows Server Failover Cluster etc. | Azure Site Recovery*, RSYNC etc.
-SAP Application Server | VMs in availability Set distributed between Availability Zones behind Azure standard load balancer. | Azure Site Recovery*
-Oracle Database Server | Synchronous Oracle Data Guard replication between Oracle databases in availability zones. | Asynchronous Oracle Data Guard replication between Oracle databases in two regions.
-Oracle Observer | VMs distributed between Availability Zones – or – VMs in availability set. | -
+| Architecture Component | High Availability | Disaster Recovery |
+|--|--|--|
+| SAP Central Services | Linux Cluster Solution -or- Windows Server Failover Cluster etc. | Azure Site Recovery*, RSYNC etc. |
+| SAP Application Server | VMs in availability Set distributed between Availability Zones behind Azure standard load balancer. | Azure Site Recovery* |
+| Oracle Database Server | Synchronous Oracle Data Guard replication between Oracle databases in availability zones. | Asynchronous Oracle Data Guard replication between Oracle databases in two regions. |
+| Oracle Observer | VMs distributed between Availability Zones – or – VMs in availability set. | - |
 
-> **_*_**  Refer to supported scenarios with [Azure Site Recovery](https://docs.microsoft.com/en-us/azure/site-recovery/azure-to-azure-support-matrix).
+> **_*_**  Refer to supported scenarios with [Azure Site Recovery](/azure/site-recovery/azure-to-azure-support-matrix).
 
 - Use Azure Automation Runbook to automate the pre and post steps of the region failover.
-
 
 ### Backup
 
@@ -195,7 +189,7 @@ The reference architecture uses Azure Backup for backing up Azure VMs and Oracle
 #### Considerations
 
 - There are multiple ways to perform SAP Oracle database backup on Azure. This includes traditional methods like SAP BRTools, Oracle RMAN, SAP Backint certified third party backup solutions, Azure native PaaS solution Azure Backup etc.
-- Azure Backup offers a simple, enterprise-grade solution for workloads running on virtual machines. For more information, refer to [Oracle database backup using Azure Backup](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/oracle/oracle-database-backup-azure-backup?tabs=azure-portal).
+- Azure Backup offers a simple, enterprise-grade solution for workloads running on virtual machines. For more information, refer to [Oracle database backup using Azure Backup](/azure/virtual-machines/workloads/oracle/oracle-database-backup-azure-backup?tabs=azure-portal).
 
 #### Recommendations
 
@@ -210,14 +204,14 @@ Below are the considerations and recommendations related to monitoring aspects o
 - Ensure that the SAP deployment on Azure must meet the monitoring requirements mentioned in the [SAP Note – 2015553](https://launchpad.support.sap.com/#/notes/2015553).
 - SAP Application and Database Monitoring can be performed using SAP Tools like – SAP Solution Manager, 
 DB*/ SM*/ST* SAP transactions.
-- Azure VMs running SAP application and databases can be monitored using Azure Monitor and Linux Pacemaker cluster can be monitored using [Azure Monitor for SAP (preview)](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/azure-monitor-providers#provider-type-high-availability-cluster).
+- Azure VMs running SAP application and databases can be monitored using Azure Monitor and Linux Pacemaker cluster can be monitored using [Azure Monitor for SAP (preview)](/azure/virtual-machines/workloads/sap/azure-monitor-providers#provider-type-high-availability-cluster).
 - Azure Network Watcher can be used for Network Monitoring.
 - Metrics and Logs from the Azure Monitor can be cascaded to Azure log Analytics workspace and corelated with other KPIs for different use cases.
 - Azure Security Center and Azure Sentinel can be used for security monitoring and audit logging.
 
 #### Recommendations
 
-- Please include [service](https://docs.microsoft.com/en-us/azure/service-health/service-health-overview) and [resource](https://docs.microsoft.com/en-us/azure/service-health/resource-health-overview) health events as part of the platform monitoring solution.
+- Please include [service](/azure/service-health/service-health-overview) and [resource](/azure/service-health/resource-health-overview) health events as part of the platform monitoring solution.
 
 ### Cost Optimization
 
@@ -226,34 +220,31 @@ Here are some of the cost optimization measures that can be adopted to achieve c
 #### Considerations
 
 - Based on SAP sizing requirements, consider using SAP certified Intel or AMD-based VMs (different pricing).
-- Consider [Azure Managed disk reservation](https://docs.microsoft.com/en-gb/azure/cost-management-billing/reservations/understand-disk-reservations) to lower your disk storage cost.
+- Consider [Azure Managed disk reservation](/azure/cost-management-billing/reservations/understand-disk-reservations) to lower your disk storage cost.
+
 - Consider not deploying the central services cluster in the DR region if the database is not following the high-availability pattern.
 
 #### Recommendations
 
 - Based on the VM usage profile, aim for rightsizing the Application and DB VMs, and scale as per the SAP load requirements.
 - Based on the system usage profile of different SAP systems of the landscape i.e., Development, Test, Pre-Production and Production, adopt compute cost optimization strategy by choosing either [Azure VM reservations or VM snoozing](https://azure.microsoft.com/en-us/resources/reduce-business-costs-by-snoozing-or-reserving-azure-virtual-machines/).
-- Consider using [Azure Hybrid Benefit](https://azure.microsoft.com/en-gb/pricing/hybrid-benefit/) to use pre-existing on-premises Windows Server, Red Hat or SUSE licenses.
-- For temporary increase (i.e., for finite duration) in storage performance without increasing the storage capacity, consider using [Performance tiering of Premium SSD](https://docs.microsoft.com/en-gb/azure/virtual-machines/disks-performance-tiers-portal) and Azure NetApp Files.
+- Consider using [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/) to use pre-existing on-premises Windows Server, Red Hat or SUSE licenses.
 
+- For temporary increase (i.e., for finite duration) in storage performance without increasing the storage capacity, consider using [Performance tiering of Premium SSD](/azure/virtual-machines/disks-performance-tiers-portal) and Azure NetApp Files.
 
 ## Related Resources
 
 For other information about running SAP workloads on Oracle on Azure, review the following reference documentations:
 
-- [SAP Notes relevant for SAP on Azure deployments](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/dbms_guide_oracle#sap-notes-relevant-for-oracle-sap-and-azure)
-- [Azure Virtual Machines Oracle DBMS deployment for SAP workload](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/dbms_guide_oracle)
+- [SAP Notes relevant for SAP on Azure deployments](/azure/virtual-machines/workloads/sap/dbms_guide_oracle#sap-notes-relevant-for-oracle-sap-and-azure)
+- [Azure Virtual Machines Oracle DBMS deployment for SAP workload](/azure/virtual-machines/workloads/sap/dbms_guide_oracle)
 - [Frequently Asked Questions: SAP on Microsoft Azure](https://wiki.scn.sap.com/wiki/display/VIRTUALIZATION/Frequently+Asked+Questions%3A+Microsoft+Azure#FrequentlyAskedQuestions:MicrosoftAzure-HowcanItestthelatencybetweenmyhomelocationandthenextAzuredatacenter?)
 - [SAP on Azure: Simplifying Global Deployments](https://blogs.sap.com/2020/05/30/sap-on-azure-simplifying-global-deployments/)
 - [SAP Security Operations in Azure](https://blogs.sap.com/2019/07/21/sap-security-operations-on-azure/)
 - [CIS Benchmarks for Azure](https://www.cisecurity.org/benchmark/azure/)
-- [Oracle Data Guard Implementation on Linux VM on Azure](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/oracle/configure-oracle-dataguard)
-- [Enterprise Scale Network Design Considerations and Recommendations](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/oracle/configure-oracle-dataguard)
+- [Oracle Data Guard Implementation on Linux VM on Azure](/azure/virtual-machines/workloads/oracle/configure-oracle-dataguard)
+- [Enterprise Scale Network Design Considerations and Recommendations](/azure/virtual-machines/workloads/oracle/configure-oracle-dataguard)
 - [Migrating SAP on Oracle Workloads to Azure](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/migrating-sap-on-oracle-workloads-to-azure/ba-p/2109839)
 - [Oracle 19c on Azure NetApp Files for SAP Workloads](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/deploy-sap-anydb-oracle-19c-with-azure-netapp-files/ba-p/2064043)
-- [Oracle Applications and solutions on Azure](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/oracle/oracle-overview)
+- [Oracle Applications and solutions on Azure](/azure/virtual-machines/workloads/oracle/oracle-overview)
 - [Oracle RMAN Backup on Azure Blob](https://cloud.netapp.com/blog/azure-cvo-blg-oracle-rman-backup-on-azure-blob)
-
-
-
-
