@@ -47,7 +47,7 @@ Additionally, CPS provides access and session control policies to prevent and pr
 
 To limit and control access for your highest privileged accounts in Azure AD, [Privileged Identity Management (PIM)](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/) can be enabled to provide just-in-time access to services for Azure cloud services. Once deployed, PIM can be used to control and limit access using the assignment model for roles, eliminate persistent access for these privileged accounts, and provide additional discover and monitoring of users with these account types.
 
-When combined with [Azure Sentinel](https://docs.microsoft.com/azure/sentinel/), workbooks and playbooks can be established to monitor and raise alerts to your security operations center personnel when there is lateral movement of accounts that have been compromised.
+When combined with [Azure Sentinel](/azure/sentinel/), workbooks and playbooks can be established to monitor and raise alerts to your security operations center personnel when there is lateral movement of accounts that have been compromised.
 
 ## Consistent end-to-end identity management
 
