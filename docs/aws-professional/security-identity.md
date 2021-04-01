@@ -39,7 +39,7 @@ A combination of multi-factor authentication (MFA) and conditional access (CA) p
 
 Once a common identity has been established in your multi-cloud environment, the [Cloud Platform Security (CPS)](/cloud-app-security/tutorial-cloud-platform-security) service of [Microsoft Cloud App Security (MCAS)](/cloud-app-security/) can be used to discover, monitor, assess, and protect those services. Using the Cloud Discovery dashboard, security operations personnel can review the apps and resources being used across AWS and Azure cloud platforms. Once services are reviewed and sanctioned for use, the services can then be managed as enterprise applications in Azure Active Directory to enable SAML, password-based, and linked Single Sign-On mode for the convenience of users.
 
-CPS also provides for the ability to assess the cloud platforms connected for misconfigurations and compliance using vendor specific recommended security and configuration controls. This enables organizations to maintain a single consolidated view of all cloud platform services and their compliance status.
+CPS also provides for the ability to assess the cloud platforms connected for misconfigurations and compliance using vendor specific recommended security and configuration controls. This design enables organizations to maintain a single consolidated view of all cloud platform services and their compliance status.
 
 Additionally, CPS provides access and session control policies to prevent and protect your environment from risky endpoints or users when data exfiltration or malicious files are introduced into those platforms.
 
