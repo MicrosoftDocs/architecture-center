@@ -1,7 +1,7 @@
 
 <!-- cSpell:ignore pracjain -->
 
-
+[!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
 This architecture demonstrates how to use Knowledge Mining for business process management.
 
