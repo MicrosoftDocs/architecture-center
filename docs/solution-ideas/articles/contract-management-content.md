@@ -1,7 +1,7 @@
 
 <!-- cSpell:ignore pracjain -->
 
-
+[!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
 Many companies create products for multiple sectors, hence the business opportunities with different vendors and buyers increases exponentially. Knowledge mining can help organizations to scour thousands of pages of sources to create an accurate bid. Minor details in the bidding process can make the difference between a healthy profit or lost opportunity on a project.
 
