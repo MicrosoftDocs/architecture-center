@@ -46,7 +46,7 @@ This section details the new components used in this architecture, as well as ad
 
 - **Azure Synapse Analytics**. This solution uses Azure Synapse to show a potential use of unstructured medical data, such as, medical tests, and using other medical information such as patient history and day-to-day health metrics, by a machine learning algorithm. This algorithm can interpret this medical data to provide machine-generated findings, that may assist medical providers in understanding of the patient's condition.
 
-- **Microsoft Dataverse**. [Dataverse](https://docs.microsoft.com/powerapps/maker/data-platform/data-platform-intro), a relational database that powers Microsoft Dynamics 365, is the repository for the data represented in the Common Data Model. It holds databases for patient information, containing details about their names, family information, medical conditions, medication history, and so on. It also holds the information obtained from any wearable devices used and registered by the patients, as well as, scheduling and management data from the healthcare organization. This data is defined using the Common Data Model.
+- **Azure Data Lake**. [Azure Data Lake](https://docs.microsoft.com/en-us/azure/storage/blobs/data-lake-storage-introduction) stores the data ingested into the system, and allows to be used for analytics by Azure Synapse. TBD: Is this the right version? Gen1/Gen2?
 
 - **Patient Monitoring Queue**. This is a custom Dynamics 365 web resource, and not a part of the Microsoft Cloud for Healthcare. It aggregates patient data from multiple sources, and provides an easy access point into each patient's information. It also provides additional insight into each patient's risk level, in the form of the index score.
 
