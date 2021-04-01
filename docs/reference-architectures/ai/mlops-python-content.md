@@ -80,7 +80,7 @@ This pipeline shows how to operationalize the scoring image and promote it safel
 
 - **Model Artifact trigger.** Release pipelines get triggered every time a new artifact is available. A new model registered to Azure Machine Learning Model Management is treated as a release artifact. In this case, a pipeline is triggered for each new model is registered.
 
-- **Create a scoring image.** The registered model is packaged together with a scoring script and Python dependencies ([Conda YAML file](https://azure.github.io/azureml-web/docs/cheatsheet/environment/)) into an operationalization Docker image. The image automatically gets versioned through Azure Container Registry.
+- **Create a scoring image.** The registered model is packaged together with a scoring script and Python dependencies ([Conda YAML file](https://docs.conda.io/projects/conda-build/en/latest/resources/define-metadata.html)) into an operationalization Docker image. The image automatically gets versioned through Azure Container Registry.
 
 - **Deploy on Container Instances.** This service is used to create a non-production environment. The scoring image is also deployed here, and this is mostly used for testing. Container Instances provides an easy and quick way to test the Docker image.
 
