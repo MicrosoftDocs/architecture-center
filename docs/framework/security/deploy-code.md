@@ -37,7 +37,7 @@ An approval process that is complex and takes a significant amount of time can d
 Involve the security team in the planning and design of the DevOps process. Ideally, design an automated pipeline with a degree of flexibility that supports regular and emergency deployments. 
 
 ## Credential scanning
-Credentials, keys, certificates grant access to the data or service used by the workload. Storing credentials in code will introduce security vulnerabilities.	
+Credentials, keys, certificates grant access to the data or service used by the workload. Storing credentials in code pose a significant security risk.
 
 **Are code scanning tools an integrated part of the continuous integration (CI) process for this workload?**
 ***
