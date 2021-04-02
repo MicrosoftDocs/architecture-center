@@ -1,37 +1,28 @@
 
-This reference architecture is a set of best practices for building, deploying, and running microservices applications in [Azure Kubernetes Service (AKS)](/azure/aks/). Kubernetes is an open-source system that automates deploying, scaling, and managing containerized applications. Microservices architectures that build applications from small, autonomous services are well suited to containerization in Kubernetes clusters. AKS makes it easy to deploy managed Kubernetes clusters in Azure.
+This reference architecture is a set of best practices for building, deploying, and running microservices applications in [Azure Kubernetes Service (AKS)](/azure/aks/). Kubernetes <nepeters - update this sentence> is an open-source system that automates deploying, scaling, and managing containerized applications. Microservices architectures build applications from small, autonomous services and are well suited to be run in a Kubernetes clusters.
 
-This architecture builds on the [AKS Baseline architecture](https://github.com/mspnp/aks-secure-baseline), which is Microsoft's recommended starting point for AKS infrastructure. The AKS baseline foundation provides features like Azure Active Directory (Azure AD) pod identity, ingress and egress restrictions, resource limits, and other AKS infrastructure aspects.
+This architecture builds on the [AKS Baseline architecture](https://github.com/mspnp/aks-secure-baseline), which is Microsoft's recommended starting point for AKS infrastructure. The AKS baseline foundation provides features like Azure Active Directory (Azure AD) pod identity, ingress and egress restrictions, resource limits, and other secure AKS infrastructure configurations.
 
+<nepeters - remove this paragraph?>
 Another article, [Microservices architecture on AKS](./aks-microservices.yml), and its companion [Microservices Reference Implementation](https://github.com/mspnp/microservices-reference-implementation) provide a starting configuration for basic AKS microservices deployments. That article focuses on the infrastructure and DevOps considerations of running a microservices architecture on AKS. That basic implementation doesn't cover some native Kubernetes features like the Horizontal Pod Autoscaler (HPA).
 
-This advanced reference architecture and its companion [AKS Fabrikam Drone Delivery](https://github.com/mspnp/aks-fabrikam-dronedelivery) implementation deliver a secure, scalable AKS microservices solution that incorporates well-known Kubernetes practices and updates several features. These features and capabilities can expand the AKS Baseline infrastructure for pre-production and production use.
+This reference architecture and the companion reference implementaton [AKS Fabrikam Drone Delivery](https://github.com/mspnp/aks-fabrikam-dronedelivery) deliver a secure, scalable microservice based solution that incorporates well-known Kubernetes practices.
 
 ## Architecture
 
-This architectural diagram showcases an AKS microservices workload with distributed tracing, messaging, and storage. An important distinction from the AKS Baseline implementation is that this architecture uses the [Azure Application Gateway Ingress Controller (AGIC)](/azure/application-gateway/ingress-controller-overview) for ingress control.
+This architectural diagram details the microservice based application including distributed tracing, messaging, and storage. <nepeters - wierd sentence> An important distinction from the AKS Baseline implementation is that this architecture uses the [Azure Application Gateway Ingress Controller (AGIC)](/azure/application-gateway/ingress-controller-overview) for ingress control.
 
 ![Network diagram showing the hub-spoke network with two peered virtual networks, and the Azure resources this implementation uses.](images/aks-production-deployment.png)
-
-### Hub-and-spoke network topology
-
-This reference architecture uses a peered hub-spoke virtual network topology. The hub virtual network holds the Azure firewall subnet and the Azure Bastion subnet. The spoke virtual network holds the AKS system nodepool and user nodepool subnet, and the Azure Application Gateway subnet.
-
-[Azure Private Link](https://azure.microsoft.com/services/private-link/) allocates specific private IP addresses to access Container Registry and Key Vault from [Private Endpoints](/azure/private-link/private-endpoint-overview) within the AKS system and user nodepool subnet.
-
-For more information about hub-spoke network topology, see [Azure hub-spoke topology](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke).
 
 ### Components
 
 This architecture uses the following Azure components:
 
-- [Azure Virtual Networks](https://azure.microsoft.com/services/virtual-network/) are isolated and highly secure environments for running virtual machines (VMs) and applications. This architecture deploys Application Gateway and AKS in a spoke virtual network, connected via *hub-and-spoke* network peering to a hub virtual network that runs Azure Bastion and Azure Firewall.
-
-- [Azure Application Gateway](https://azure.microsoft.com/services/application-gateway/) with web application firewall (WAF) exposes HTTP(S) routes to the AKS cluster, and load balances web traffic to the web application. This architecture uses [Azure Application Gateway Ingress Controller](https://github.com/Azure/application-gateway-kubernetes-ingress) (AGIC) as the Kubernetes ingress controller.
-
+<nepetes - re-write this sentence>
 - [Azure Kubernetes Service](https://azure.microsoft.com/services/kubernetes-service/) deploys a managed Kubernetes cluster and manages the Kubernetes API server, while application owners manage the agent nodes. A *kubelet* agent runs on each node to register the node with the API server and process orchestration requests.
-  
-  This AKS infrastructure features:
+
+  This AKS infrastructure features used in this architecture include:
+
   - [System and user node pool separation](/azure/aks/use-system-pools#system-and-user-node-pools)
   - [AKS-managed Azure AD for role-based access control (RBAC)](/azure/aks/managed-aad)
   - [Azure AD pod-managed identities](/azure/aks/use-azure-ad-pod-identity)
@@ -39,9 +30,17 @@ This architecture uses the following Azure components:
   - [Azure Container Networking Interface (CNI)](/azure/aks/configure-azure-cni)
   - [Azure Monitor for containers](/azure/azure-monitor/insights/container-insights-overview)
 
-- [Azure Bastion](https://azure.microsoft.com/services/azure-bastion) provides secure remote desktop protocol (RDP) and secure shell (SSH) access to VMs in the virtual networks by using secure socket layer (SSL), without any exposure through public IP addresses.
+- [Azure Virtual Networks](https://azure.microsoft.com/services/virtual-network/) are isolated and highly secure environments for running virtual machines (VMs) and applications. This reference architecture uses a peered hub-spoke virtual network topology. The hub virtual network holds the Azure firewall and Azure Bastion subnets. The spoke virtual network holds the AKS system and user nodepool subnets, and the Azure Application Gateway subnet. 
 
-- [Azure Firewall](https://azure.microsoft.com/services/azure-firewall/) network security service protects all the Azure Virtual Network resources. The firewall allows only approved services and fully qualified domain names (FQDNs) as egress traffic.
+- [Azure Private Link](https://azure.microsoft.com/services/private-link/) allocates specific private IP addresses to access Container Registry and Key Vault from [Private Endpoints](/azure/private-link/private-endpoint-overview) within the AKS system and user nodepool subnet.
+
+- [Azure Application Gateway](https://azure.microsoft.com/services/application-gateway/) with web application firewall (WAF) exposes HTTP(S) routes to the AKS cluster, and load balances web traffic to the web application. This architecture uses [Azure Application Gateway Ingress Controller](https://github.com/Azure/application-gateway-kubernetes-ingress) (AGIC) as the Kubernetes ingress controller.
+
+- [Azure Bastion](https://azure.microsoft.com/services/azure-bastion) provides secure remote desktop protocol (RDP) and secure shell (SSH) access to VMs in the virtual networks by using secure socket layer (SSL), without the need to expose the VMs through public IP addresses.
+
+- [Azure Firewall](https://azure.microsoft.com/services/azure-firewall/) network security service that protects all the Azure Virtual Network resources. The firewall allows only approved services and fully qualified domain names (FQDNs) as egress traffic.
+
+<nepeters - current position>
 
 External storage and other components:
 
