@@ -55,8 +55,3 @@ We recommend monitoring activities that maintain the security posture. These act
 
 ## Related link
 > Go back to the main article: [Security](overview.md)
-
-
-
-
-
