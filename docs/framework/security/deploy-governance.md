@@ -55,7 +55,7 @@ Consider creating a multi-stage pipeline. Divide the work into discrete units an
 
 **Do you have release gate approvals configured in the DevOps release process?**
 ***
-Pull Requests and code reviews serve as the first line of approvals during development cycle. Before releasing an update to production, have a process that mandates security review and approval.
+Pull Requests and code reviews serve as the first line of approvals during development cycle. Before releasing an update to any environment (including pre-production), have a process that aligns with a documented security review and approval process.
 
 Make sure that you involve the security team in the planning, design, and DevOps process. This collaboration will help them implement security controls, auditing, and response processes. 
 
