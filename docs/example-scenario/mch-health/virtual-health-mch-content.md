@@ -12,7 +12,7 @@ This solution is targeted to provide virtual patient care in the current pandemi
 
 ## Architecture
 
-![Architecture for virtual visit using Microsoft Cloud for Healthcare](./images/virtual-health-solution.png)
+[![Architecture for virtual visit using Microsoft Cloud for Healthcare](./images/virtual-health-solution.png)](./images/virtual-health-solution.png#lightbox)
 
 _Download a [Visio file](https://arch-center.azureedge.net/virtual-health-solution.vsdx) that contains this architecture diagram._
 
