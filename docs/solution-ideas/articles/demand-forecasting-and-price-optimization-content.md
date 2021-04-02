@@ -41,3 +41,10 @@ For post deployment instructions and more details on the technical implementatio
 * [Azure Web App](/services/app-service/web/)
 * [Power BI](https://powerbi.microsoft.com/en-us/)
 * Spark on [Azure HDInsight](/services/hdinsight/)
+
+## Next steps
+
+* [Choosing a data analytics technology in Azure](/azure/architecture/data-guide/technology-choices/analysis-visualizations-reporting)
+* [Demand Forecasting for Shipping and Distribution](/azure/architecture/solution-ideas/articles/demand-forecasting-for-shipping-and-distribution)
+* [Demand Forecasting](/azure/architecture/solution-ideas/articles/demand-forecasting)
+* [Demand Forecasting + Price Optimization](/azure/architecture/solution-ideas/articles/demand-forecasting-price-optimization-marketing)

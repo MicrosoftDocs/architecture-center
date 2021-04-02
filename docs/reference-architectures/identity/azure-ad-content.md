@@ -216,6 +216,12 @@ For information about the editions offered by Azure Active Directory, see [Azure
 
 For cost information about these resources, [Run VMs for an N-tier architecture][implementing-a-multi-tier-architecture-on-Azure].
 
+## Next steps
+
+[Manage identity in multitenant applications](/azure/architecture/multitenant-identity/)
+[Integrate on-premises AD with Azure](/azure/architecture/reference-architectures/identity/)
+[Extend on-premises AD FS to Azure](/azure/architecture/reference-architectures/identity/adfs)
+
 <!-- links -->
 
 [aaf-cost]: ../../framework/cost/overview.md

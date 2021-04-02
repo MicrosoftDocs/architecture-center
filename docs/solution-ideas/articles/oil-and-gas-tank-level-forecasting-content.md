@@ -52,3 +52,12 @@ After deployment, see the post deployment instructions.
 * [Azure Stream Analytics](/services/stream-analytics/)
 * [Azure Synapse Analytics](/services/synapse-analytics/)
 * [Power BI](https://powerbi.microsoft.com/en-us/)
+
+## Next steps
+
+* [Choosing a data analytics technology in Azure](/azure/architecture/data-guide/technology-choices/analysis-visualizations-reporting)
+* [Stream processing with Azure Stream Analytics](/azure/architecture/reference-architectures/data/stream-processing-stream-analytics)
+* [Anomaly Detector Process](/azure/architecture/solution-ideas/articles/anomaly-detector-process)
+* [Demand Forecasting](/azure/architecture/solution-ideas/articles/demand-forecasting)
+* [Predicting Length of Stay in Hospitals](/azure/architecture/solution-ideas/articles/predicting-length-of-stay-in-hospitals)
+* [Predictive Aircraft Engine Monitoring](/azure/architecture/solution-ideas/articles/aircraft-engine-monitoring-for-predictive-maintenance-in-aerospace)

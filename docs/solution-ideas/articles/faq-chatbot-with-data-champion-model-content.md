@@ -28,3 +28,11 @@ The QnA Maker tool makes it easy for the content owners to maintain their knowle
 * [Azure Bot Services](/services/bot-services/)
 * [Language Understanding (LUIS)](/services/cognitive-services/language-understanding-intelligent-service/)
 * [QnA Maker](/services/cognitive-services/qna-maker/)
+
+## Next steps
+
+* [Artificial intelligence (AI) - Architectural overview](../../data-guide/big-data/ai-overview.md)
+* [Chatbot for hotel reservations](/azure/architecture/example-scenario/ai/commerce-chatbot)
+* [Build an enterprise-grade conversational bot](/azure/architecture/reference-architectures/ai/conversational-bot)
+* [Commerce Chatbot](/azure/architecture/solution-ideas/articles/commerce-chatbot)
+* [Enterprise chatbot disaster recovery](/azure/architecture/solution-ideas/articles/enterprise-chatbot-disaster-recovery)

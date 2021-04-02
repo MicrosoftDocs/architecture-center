@@ -31,3 +31,8 @@ Use AKS to simplify the deployment and management of microservices based archite
 * [Azure Kubernetes Service](/services/kubernetes-service/)
 * [Azure SQL Database](/services/sql-database/)
 
+## Next steps
+
+* [Azure Kubernetes Service solution journey](/azure/architecture/reference-architectures/containers/aks-start-here)
+* [Microservices architecture on Azure Kubernetes Service (AKS)](/azure/architecture/reference-architectures/containers/aks-microservices/aks-microservices)
+* [CI/CD pipeline for container-based workloads](/azure/architecture/example-scenario/apps/devops-with-aks)

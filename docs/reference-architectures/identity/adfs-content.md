@@ -374,6 +374,11 @@ A deployment for this architecture is available on [GitHub][github]. Note that t
 * [Identity Management Security](https://docs.microsoft.com/azure/security/fundamentals/identity-management-overview)
 * [Azure Firewall](https://docs.microsoft.com/azure/firewall/overview)
 
+## Next steps
+
+* [Manage identity in multitenant applications](/azure/architecture/multitenant-identity/)
+* [Federate with a customer's AD FS](/azure/architecture/multitenant-identity/adfs)
+* [Create an AD DS resource forest in Azure](/azure/architecture/reference-architectures/identity/adds-forest)
 
 <!-- links -->
 

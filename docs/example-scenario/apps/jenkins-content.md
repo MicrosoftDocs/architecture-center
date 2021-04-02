@@ -112,6 +112,13 @@ For more best practices from the Jenkins community, visit [Jenkins best practice
 
 To create a VM and install Jenkins, follow the instructions in the article, [Quickstart: Configure Jenkins using Azure CLI](/azure/developer/jenkins/configure-on-linux-vm).
 
+## Next steps
+
+[Design a CI/CD pipeline using Azure DevOps](/azure/architecture/example-scenario/apps/devops-dotnet-webapp)
+[Container CI/CD using Jenkins and Kubernetes on Azure Kubernetes Service](/azure/architecture/solution-ideas/articles/container-cicd-using-jenkins-and-kubernetes-on-azure-container-service)
+[Immutable Infrastructure CI/CD using Jenkins and Terraform on Azure Virtual Architecture overview](/azure/architecture/solution-ideas/articles/immutable-infrastructure-cicd-using-jenkins-and-terraform-on-azure-virtual-architecture-overview)
+[Java CI/CD using Jenkins and Azure Web Apps](/azure/architecture/solution-ideas/articles/java-cicd-using-jenkins-and-azure-web-apps)
+
 <!-- links -->
 
 [acs]: https://aka.ms/azjenkinsacs

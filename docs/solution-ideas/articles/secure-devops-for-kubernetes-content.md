@@ -53,3 +53,9 @@ DevOps and Kubernetes are better together. Implementing secure DevOps together w
 * [Azure Monitor](/services/monitor/)
 * [Azure Pipelines](/services/devops/pipelines/)
 * [Azure Policy](/services/azure-policy/)
+
+## Next steps
+
+* [Azure Kubernetes Service solution journey](/azure/architecture/reference-architectures/containers/aks-start-here)
+* [Building a telehealth system on Azure](/azure/architecture/example-scenario/apps/telehealth-system)
+* [Microservices with AKS](/azure/architecture/solution-ideas/articles/microservices-with-aks)
