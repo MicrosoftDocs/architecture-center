@@ -32,7 +32,7 @@ IaC reduces configuration effort and automates full environment deployment. Also
 **How are credentials, certificates, and other secrets used in the operations for the workload managed during deployment?**
 ***
 
-Store keys and secrets outside of deployment pipeline in a managed key store, such as Azure Key Vault. Or, in a secure store for the pipeline. When deploying application infrastructure with Azure Resource Manager or Terraform, the process might generate credential and keys. Store them in a managed key store and make sure the deployed resources reference the store. Do not hard-code credentials.
+Store keys and secrets outside of deployment pipeline in a managed key store, such as Azure Key Vault. Or, in a secure store for the pipeline. When deploying application infrastructure with Azure Resource Manager or Terraform, the process might generate credentials and keys. Store them in a managed key store and make sure the deployed resources reference the store. Do not hard-code credentials.
 
 
 ## Build environments
