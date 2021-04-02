@@ -10,6 +10,8 @@ products:
   - azure-devops
 categories:
   - security
+subject: 
+  - security
 ---
 
 # Code deployments
@@ -18,12 +20,13 @@ The automated build and release pipelines should update a workload to a new vers
 
 ## Key points
 
-- Automated deployment pipelines should allow for quick roll-forward and rollback deployments to address critical bugs and code updates outside of the normal deployment lifecycle.
+- Involve the security team in the planning and design of the DevOps process to integrate preventive and detective controls for security risks.
+- Design automated deployment pipelines that allow for quick roll-forward and rollback deployments to address critical bugs and code updates outside of the normal deployment lifecycle.
 - Integrate code scanning tools within CI/CD pipeline.
 
 ## Rollback and roll-forward
 
-If something goes wrong, the workload should roll back to a previous working version. N-1 and N+1 refer to roll back and roll-forward versions.
+If something goes wrong, the pipeline should roll back to a previous working version. N-1 and N+1 refer to roll back and roll-forward versions.
 
 **Can N-1 or N+1 versions be deployed via automated pipelines where N is current deployment version in production?**
 ***
@@ -32,9 +35,12 @@ Because security updates are a high priority, design a pipeline that supports re
 
 A release is typically associated with approval processes with multiple sign-offs, quality gates, and so on. If the workload deployment is small with minimal approvals, you can usually use the same process and pipeline to release a security fix.   
     
-An approval process that is complex and takes a significant amount of time can delay a fix. Consider having an emergency pipeline that might not include all the gated approvals but can push out the fix quickly. The pipeline should allow for quick roll-forward and rollback deployments that address security fixes, critical bugs, and code updates outside of the regular deployment life cycle.
+An approval process that is complex and takes a significant amount of time can delay a fix. Consider building an emergency process to accelerate high priority fixes. The process might be business and, or communication process between teams. Another way is to build a pipeline that might not include all the gated approvals but should be able to push out the fix quickly. The pipeline should allow for quick roll-forward and rollback deployments that address security fixes, critical bugs, and code updates outside of the regular deployment life cycle.
 
-Involve the security team in the planning and design of the DevOps process. Ideally, design an automated pipeline with a degree of flexibility that supports regular and emergency deployments. 
+> [!IMPORTANT]
+> Deploying a security fix is a priority, but it shouldn't be at the cost of introducing a regression or bug. When designing an emergency pipeline, carefully consider which automated tests can be bypassed. Evaluate the value of each test against the execution time. For example, unit tests usually complete quickly. Integration or end-to-end tests can run for a long time.
+
+Involve the security team in the planning and design of the DevOps process. Your automated pipeline design should have the flexibility to support both regular and emergency deployments. This is important to support the rapid and responsible application of both security fixes and other urgent, important fixes. 
 
 ## Credential scanning
 Credentials, keys, certificates grant access to the data or service used by the workload. Storing credentials in code pose a significant security risk.
@@ -43,8 +49,10 @@ Credentials, keys, certificates grant access to the data or service used by the 
 ***
 To prevent credentials from being stored in the source code or configuration files, integrate code scanning tools within the CI/CD pipeline. 
 - During design time, use code analyzers to prevent credentials from getting pushed to the source code repository. For example, .NET Compiler Platform (Roslyn) Analyzers inspect your C# or Visual Basic code. 
-- During the build process, use pipeline add-ons to catch credentials in the source code. An option is [Credential Scanner (CredScan)](https://secdevtools.azurewebsites.net/helpcredscan.html) that is part of Microsoft Security Code Analysis.
+- During the build process, use pipeline add-ons to catch credentials in the source code. Some options include [GitHub Advanced Security](https://docs.github.com/en/github/getting-started-with-github/about-github-advanced-security) and [OWASP source code analysis tools](https://owasp.org/www-community/Source_Code_Analysis_Tools).
 - Scan all dependencies, such as third-party libraries and framework components, as part of the CI process. Investigate vulnerable components that are flagged by the tool. Combine this task with other code scanning tasks that inspect code churn, test results, and coverage.
+- Use a combination of dynamic application security testing (DAST) and static application security testing (SAST). DAST tests the application while its in use. SAST scans the source code and detects vulnerabilities based on its design or implementation. Some technology options are provided by OWASP. For more information, see [SAST Tools](https://owasp.org/www-community/Source_Code_Analysis_Tools) and [Vulnerability Scanning Tools](https://owasp.org/www-community/Vulnerability_Scanning_Tools).
+- Use scanning tools that are specialized in technologies used by the workload. For example, if the workload is containerized, run container-aware scanning tools to detect risks in the container registry, before use, and during use.
 
 > [!div class="nextstepaction"]
 > [Secure infrastructure deployments](./deploy-infrastructure.md)
