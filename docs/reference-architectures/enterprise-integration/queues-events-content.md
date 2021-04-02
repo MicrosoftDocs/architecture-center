@@ -97,9 +97,9 @@ For more information, see the cost section in [Microsoft Azure Well-Architected 
 
 ## Next steps
 
-[Basic enterprise integration on Azure](/azure/architecture/reference-architectures/enterprise-integration/basic-enterprise-integration)
-[Enterprise business intelligence](/azure/architecture/reference-architectures/data/enterprise-bi-synapse)
-[Custom Business Processes](/azure/architecture/solution-ideas/articles/custom-business-processes)
+* [Basic enterprise integration on Azure](/azure/architecture/reference-architectures/enterprise-integration/basic-enterprise-integration)
+* [Enterprise business intelligence](/azure/architecture/reference-architectures/data/enterprise-bi-synapse)
+* [Custom Business Processes](/azure/architecture/solution-ideas/articles/custom-business-processes)
 
 [aaf-cost]: ../../framework/cost/overview.md
 [apim]: /azure/api-management

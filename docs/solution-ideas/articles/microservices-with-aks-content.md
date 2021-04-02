@@ -23,13 +23,13 @@ Use AKS to simplify the deployment and management of microservices based archite
 
 ## Components
 
-* [Azure Active Directory](/services/active-directory/)
-* [Azure Container Registry](/services/container-registry/)
-* [Azure Cosmos DB](/services/cosmos-db/)
-* [Azure Database for MySQL](/services/mysql/)
-* [Azure DevOps](/services/devops/)
-* [Azure Kubernetes Service](/services/kubernetes-service/)
-* [Azure SQL Database](/services/sql-database/)
+* [Azure Active Directory](https://azure.microsoft.com/services/active-directory/)
+* [Azure Container Registry](https://azure.microsoft.com/services/container-registry/)
+* [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/)
+* [Azure Database for MySQL](https://azure.microsoft.com/services/mysql/)
+* [Azure DevOps](https://azure.microsoft.com/services/devops/)
+* [Azure Kubernetes Service](https://azure.microsoft.com/services/kubernetes-service/)
+* [Azure SQL Database](https://azure.microsoft.com/services/sql-database/)
 
 ## Next steps
 

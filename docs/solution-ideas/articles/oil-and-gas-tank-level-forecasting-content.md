@@ -46,11 +46,11 @@ After deployment, see the post deployment instructions.
 
 ## Components
 
-* [Azure Data Factory](/services/data-factory/)
-* [Azure Event Hubs](/services/event-hubs/)
-* [Azure Machine Learning](/services/machine-learning/)
-* [Azure Stream Analytics](/services/stream-analytics/)
-* [Azure Synapse Analytics](/services/synapse-analytics/)
+* [Azure Data Factory](https://azure.microsoft.com/services/data-factory/)
+* [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/)
+* [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/)
+* [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/)
+* [Azure Synapse Analytics](https://azure.microsoft.com/services/synapse-analytics/)
 * [Power BI](https://powerbi.microsoft.com/en-us/)
 
 ## Next steps

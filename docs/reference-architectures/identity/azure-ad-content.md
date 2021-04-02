@@ -218,9 +218,9 @@ For cost information about these resources, [Run VMs for an N-tier architecture]
 
 ## Next steps
 
-[Manage identity in multitenant applications](/azure/architecture/multitenant-identity/)
-[Integrate on-premises AD with Azure](/azure/architecture/reference-architectures/identity/)
-[Extend on-premises AD FS to Azure](/azure/architecture/reference-architectures/identity/adfs)
+* [Manage identity in multitenant applications](/azure/architecture/multitenant-identity/)
+* [Integrate on-premises AD with Azure](/azure/architecture/reference-architectures/identity/)
+* [Extend on-premises AD FS to Azure](/azure/architecture/reference-architectures/identity/adfs)
 
 <!-- links -->
 

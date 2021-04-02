@@ -22,8 +22,8 @@ This solution is built on the Azure managed services: [Virtual Machine Scale Set
 
 ## Next steps
 
-[High Performance Computing (HPC) on Azure](/azure/architecture/topics/high-performance-computing)
-[3D video rendering](/azure/architecture/example-scenario/infrastructure/video-rendering)
-[Digital image-based modeling on Azure](/azure/architecture/example-scenario/infrastructure/image-modeling)
-[Run reservoir simulation software on Azure](/azure/architecture/example-scenario/infrastructure/reservoir-simulation)
-[HPC cluster deployed in the cloud](/azure/architecture/solution-ideas/articles/hpc-cluster)
+* [High Performance Computing (HPC) on Azure](/azure/architecture/topics/high-performance-computing)
+* [3D video rendering](/azure/architecture/example-scenario/infrastructure/video-rendering)
+* [Digital image-based modeling on Azure](/azure/architecture/example-scenario/infrastructure/image-modeling)
+* [Run reservoir simulation software on Azure](/azure/architecture/example-scenario/infrastructure/reservoir-simulation)
+* [HPC cluster deployed in the cloud](/azure/architecture/solution-ideas/articles/hpc-cluster)

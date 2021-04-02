@@ -48,11 +48,11 @@ DevOps and Kubernetes are better together. Implementing secure DevOps together w
 
 ## Components
 
-* [Azure Container Registry](/services/container-registry/)
-* [Azure Kubernetes Service](/services/kubernetes-service/)
-* [Azure Monitor](/services/monitor/)
-* [Azure Pipelines](/services/devops/pipelines/)
-* [Azure Policy](/services/azure-policy/)
+* [Azure Container Registry](https://azure.microsoft.com/services/container-registry/)
+* [Azure Kubernetes Service](https://azure.microsoft.com/services/kubernetes-service/)
+* [Azure Monitor](https://azure.microsoft.com/services/monitor/)
+* [Azure Pipelines](https://azure.microsoft.com/services/devops/pipelines/)
+* [Azure Policy](https://azure.microsoft.com/services/azure-policy/)
 
 ## Next steps
 

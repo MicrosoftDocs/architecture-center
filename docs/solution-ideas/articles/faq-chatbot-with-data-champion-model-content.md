@@ -22,12 +22,12 @@ The QnA Maker tool makes it easy for the content owners to maintain their knowle
 
 ## Components
 
-* Application Insights, a feature of [Azure Monitor](/services/monitor/)
-* [Azure Active Directory](/services/active-directory/)
-* [Azure App Service](/services/app-service/)
-* [Azure Bot Services](/services/bot-services/)
-* [Language Understanding (LUIS)](/services/cognitive-services/language-understanding-intelligent-service/)
-* [QnA Maker](/services/cognitive-services/qna-maker/)
+* Application Insights, a feature of [Azure Monitor](https://azure.microsoft.com/services/monitor/)
+* [Azure Active Directory](https://azure.microsoft.com/services/active-directory/)
+* [Azure App Service](https://azure.microsoft.com/services/app-service/)
+* [Azure Bot Services](https://azure.microsoft.com/services/bot-services/)
+* [Language Understanding (LUIS)](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/)
+* [QnA Maker](https://azure.microsoft.com/services/cognitive-services/qna-maker/)
 
 ## Next steps
 
