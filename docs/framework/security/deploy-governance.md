@@ -49,7 +49,7 @@ Minimize the number of people who have access to secure information or resources
 
 Where practical, limit the scope of execution in the pipelines. 
 
-Consider creating a multi-stage pipeline. Divide the work into discrete units and that can be isolated in a separate pipeline. Limit the identities only to the scope of the unit so that it has minimal  privileges enough to do the action. For example, you can have two units, one to deploy and another that builds source code. Only allow the deploy unit to have access to the identity, not the build unit. If the build unit is compromised, it could start tampering with the infrastructure. 
+Consider creating a multi-stage pipeline. Divide the work into discrete units and that can be isolated in a separate pipeline. Limit the identities only to the scope of the unit so that it has minimal privileges enough to do the action. For example, you can have two units, one that builds source code and another to deploy. Only allow the deploy unit to have access to the identity, not the build unit. If the build unit is compromised, it could start tampering with the infrastructure. 
 
 ## Gated approval process
 
