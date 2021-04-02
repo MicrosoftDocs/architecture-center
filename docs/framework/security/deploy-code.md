@@ -54,10 +54,11 @@ To prevent credentials from being stored in the source code or configuration fil
 - Use a combination of dynamic application security testing (DAST) and static application security testing (SAST). DAST tests the application while its in use. SAST scans the source code and detects vulnerabilities based on its design or implementation. Some technology options are provided by OWASP. For more information, see [SAST Tools](https://owasp.org/www-community/Source_Code_Analysis_Tools) and [Vulnerability Scanning Tools](https://owasp.org/www-community/Vulnerability_Scanning_Tools).
 - Use scanning tools that are specialized in technologies used by the workload. For example, if the workload is containerized, run container-aware scanning tools to detect risks in the container registry, before use, and during use.
 
-> [!div class="nextstepaction"]
-> [Secure infrastructure deployments](./deploy-infrastructure.md)
 
-## Related links
+## Community links
+- [OWASP source code analysis tools](https://owasp.org/www-community/Source_Code_Analysis_Tools)
+- [GitHub Advanced Security](https://docs.github.com/en/github/getting-started-with-github/about-github-advanced-security)
+- [Vulnerability Scanning Tools](https://owasp.org/www-community/Vulnerability_Scanning_Tools)
 
 
 > Go back to the main article: [Secure deployment and testing in Azure](deploy.md)
