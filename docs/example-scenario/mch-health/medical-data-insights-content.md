@@ -14,7 +14,7 @@ This solution demonstrates the following capabilities, any of which could be use
 
 ## Architecture
 
-![Clinical insights using Microsoft Cloud for Healthcare](./images/clinical-insights-solution.png)
+[![Clinical insights using Microsoft Cloud for Healthcare](./images/clinical-insights-solution.png)](./images/clinical-insights-solution.png#lightbox)
 
 _Download a [Visio file](https://arch-center.azureedge.net/clinical-insights-solution.vsdx) that contains this architecture diagram._
 
