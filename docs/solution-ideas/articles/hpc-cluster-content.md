@@ -3,9 +3,9 @@
 
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-High performance computing (HPC) applications can scale to thousands of compute cores, extend on-premises big compute, or run as a 100% cloud native solution. This HPC solution including the head node, compute nodes, and storage nodes, runs in Azure with no hardware infrastructure to maintain.
+High-performance computing (HPC) applications can scale to thousands of compute cores, extend on-premises big compute, or run as a 100% cloud native solution. This HPC solution including the head node, compute nodes, and storage nodes, runs in Azure with no hardware infrastructure to maintain.
 
-This solution is built on the Azure managed services: [Virtual Machine Scale Sets](https://azure.microsoft.com/services/virtual-machine-scale-sets), [Virtual Network](https://azure.microsoft.com/services/virtual-network) and [Storage Accounts](https://azure.microsoft.com/services/storage). These services run in a high-availability environment, patched and supported, allowing you to focus on your solution instead of the environment they run in.
+This solution is built on the Azure-managed services: [Virtual Machine Scale Sets](https://azure.microsoft.com/services/virtual-machine-scale-sets), [Virtual Network](https://azure.microsoft.com/services/virtual-network) and [Storage Accounts](https://azure.microsoft.com/services/storage). These services run in a high-availability environment, patched and supported, allowing you to focus on your solution instead of the environment they run in.
 
 ## Architecture
 

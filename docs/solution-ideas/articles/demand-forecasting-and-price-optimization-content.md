@@ -18,7 +18,7 @@ The process described above is operationalized and deployed in the Cortana Intel
 
 Save time and let one of these trained SI partners help you with a proof of concept, deployment & integration of this solution.
 
-The Cortana Intelligence Suite provides advanced analytics tools through Microsoft Azure - data ingestion, data storage, data processing and advanced analytics components - all of the essential elements for building a demand forecasting and price optimization solution.
+The Cortana Intelligence Suite provides advanced analytics tools through Microsoft Azure - data ingestion, data storage, data processing, and advanced analytics components - all of the essential elements for building a demand forecasting and price optimization solution.
 
 This solution combines several Azure services to create powerful advantages. Azure Blob Storage stores the weekly raw sales data. Apache Spark for Azure HDInsight ingests the data and executes data preprocessing, forecasting modeling and price optimization algorithms. Finally, Data Factory orchestrates and schedules the entire data flow.
 

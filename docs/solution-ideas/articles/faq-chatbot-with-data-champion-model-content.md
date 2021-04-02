@@ -14,7 +14,7 @@ The QnA Maker tool makes it easy for the content owners to maintain their knowle
 
 1. Employee access FAQ Bot
 1. Azure Active Director validates the employee's identity
-1. Query is send to a LUIS model to get the intent of the query
+1. Query is sent to a LUIS model to get the intent of the query
 1. Based in the intent, the query is redirected to the appropriate Knowledge base
 1. QnA Maker gives the best match to the incoming query
 1. The result is shown to the employee
