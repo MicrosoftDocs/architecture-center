@@ -63,8 +63,6 @@ After the solution deploys, complete the [first walkthrough](https://github.com/
 
 The solution dashboard's most actionable part is the Pricing Suggestion tab. It tells you which of your items are underpriced, overpriced, and suggests an optimal price for each item, as well as the predicted impact of adopting the suggestion. The suggestions are prioritized by the largest opportunity to earn incremental gross margin.
 
-![Suggestion Tab of Dashboard](https://azurecomcdn.azureedge.net/cvt-add179e08f40a2f574f2c13e23c39140f82f2f0c5faf32b8e79061bb1ec3c7ca/images/shared/solutions/architectures/interactive-price-analytics/dashboard.png)
-
 Other tabs provide supplemental information illuminating how the system arrived at the suggestions and are discussed in more detail in the [User Guide](https://github.com/Azure/cortana-intelligence-price-analytics/blob/master/User%20Guide/UserGuide.md). (You must be logged into Github with a MSFT Azure account while solution is in private preview.)
 
 ## Solution Architecture
