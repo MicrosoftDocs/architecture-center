@@ -47,7 +47,7 @@ The following diagram shows some of the options for replicating and syncing on-p
    - Azure hosts various databases, which address different needs:
      
      - Relational databases include the SQL Server family, and open-source databases like PostgreSQL, MariaDB, and MySQL.
-     - Non-relational databases include Azure Cosmos DB, a fast, multi-model, globally-distributed NoSQL database.
+     - Non-relational databases include Azure Cosmos DB, a fast, multi-model, globally distributed NoSQL database.
 
 ### Components
 
