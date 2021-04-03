@@ -10,6 +10,8 @@ products:
   - azure-devops
 categories:
   - security
+subject:
+  - security
 ---
  
 # Secure deployment in Azure
@@ -25,9 +27,10 @@ Those processes allow you to rapidly address the security concerns without waiti
 **Have you adopted a secure DevOps approach to ensure security and feature enhancements can be quickly deployed?**
 ***
 > [!div class="checklist"]
+> - Involve the security team in the planning and design of the DevOps process to integrate preventive and detective controls for security risks.
 > - Clearly define CI/CD roles and permissions and minimize the number of people who have access to secure information or resources.
 > - Configure quality gate approvals in DevOps release process.
-> - Integrate code scanning tools within CI/CD pipeline.
+> - Integrate scanning tools within CI/CD pipeline.
 > - No infrastructure changes, provisioning or configuring, should be done manually outside of IaC.
 
 ## In this section
@@ -45,8 +48,12 @@ The Azure Security Benchmark includes a collection of high-impact security recom
 
 > ![Security Benchmark](../../_images/benchmark-security.svg) The questions in this section are aligned to the [Azure Security Benchmark controls](/azure/security/benchmarks/overview?branch=master).
 
+## Reference architecture
+Here are some reference architectures related to building CI/CD pipelines:
+- [CI/CD for microservices architectures](/azure/architecture/microservices/ci-cd)
+- [CI/CD for microservices on Kubernetes](/azure/architecture/microservices/ci-cd-kubernetes)
 
-## Next steps
+## Next step
 We recommend monitoring activities that maintain the security posture. These activities can highlight, if the current security practices are effective or are there new requirements.
 
 > [!div class="nextstepaction"]

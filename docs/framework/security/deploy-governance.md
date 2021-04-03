@@ -70,7 +70,7 @@ Establish branch policies that provide an extra level of control over the code t
 Having multiple branches is recommended where each branch has a purpose and access level. For example, feature branches are created by developers and are open to push. Integration branch requires PR and code-review. Production branch requires another approval from the team lead before merging.
 
 > [!div class="nextstepaction"]
-> [Secure code deployments](./deploy-code.md)
+> [Secure infrastructure deployments](./deploy-infrastructure.md)
 
 
 ## Related links
