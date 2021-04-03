@@ -13,7 +13,7 @@ azureCategories:
   - migration
   - storage
 products:
-  - azure-data-factory",
+  - azure-data-factory
   - azure-data-lake
   - azure-sql-database
   - azure-storage
