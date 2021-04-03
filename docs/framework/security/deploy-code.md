@@ -20,9 +20,11 @@ The automated build and release pipelines should update a workload to a new vers
 
 ## Key points
 
-- Involve the security team in the planning and design of the DevOps process to integrate preventive and detective controls for security risks.
-- Design automated deployment pipelines that allow for quick roll-forward and rollback deployments to address critical bugs and code updates outside of the normal deployment lifecycle.
-- Integrate code scanning tools within CI/CD pipeline.
+> [!div class="checklist"]
+
+> - Involve the security team in the planning and design of the DevOps process to integrate preventive and detective controls for security risks.
+> - Design automated deployment pipelines that allow for quick roll-forward and rollback deployments to address critical bugs and code updates outside of the normal deployment lifecycle.
+> - Integrate code scanning tools within CI/CD pipeline.
 
 ## Rollback and roll-forward
 

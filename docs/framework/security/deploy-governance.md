@@ -22,11 +22,12 @@ The automated continuous integration, continuous delivery (CI/CD) processes must
 
 ## Key points
 
-- Clearly define CI/CD roles and permissions.
-- Implement just-in-time privileged access management.
-- Limit long-standing write access to production environments.
-- Limit the scope of execution in the pipelines. 
-- Configure quality gate approvals in DevOps release process.
+> [!div class="checklist"]
+> - Clearly define CI/CD roles and permissions.
+> - Implement just-in-time privileged access management.
+> - Limit long-standing write access to production environments.
+> - Limit the scope of execution in the pipelines. 
+> - Configure quality gate approvals in DevOps release process.
 
 
 ## Minimize access
