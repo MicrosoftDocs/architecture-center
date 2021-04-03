@@ -22,7 +22,6 @@ Azure resources can be provisioned in through code or user tools such as the Azu
 ## Key points
 
 > [!div class="checklist"]
-
 > - No infrastructure changes should be done manually outside of IaC.
 > - Store keys and secrets outside of deployment pipeline in Azure Key Vault or in secure store for the pipeline.
 > - Incorporate security fixes and patching to the operating system and all parts of the codebase, including dependencies (preinstalled tools, frameworks, and libraries).
