@@ -31,23 +31,23 @@ Let's  consider containerizing a simple 3- tiered web application, with a contai
 
 ## Potential use cases
 
-Container Orchestration eases the management of deploying, networking and scaling of clusters. This is extremely useful in maintaining  large and dynamic production environments. Let's look at one such sample cluster
+Container orchestration eases the management of deploying, networking and scaling of clusters. This is extremely useful in maintaining large and dynamic production environments. Let's look at one such sample cluster.
 
-![Diagram of a Microservices cluster depicting Container Orchestrator UseCases](../images/container-orchestrator-usecases.png)
+![Diagram of a microservices cluster depicting container orchestrator use cases](../images/container-orchestrator-usecases.png)
 
-- The Orchestrator can manage the container to reflect the configured desired state. If a given microservice (Microservice B) is configured to have 2 replicas, the orchestrator maintains the configured state by spinning another instance in case one service replica is down.
+- The Orchestrator can manage the container to reflect the configured desired state. If a given microservice (Microservice B) is configured to have 2 instances, the orchestrator maintains the configured state by spinning another instance in case one goes down.
 
-- Based on the bursts in traffic or resource utilization, the orchestrator can automatically scale up/down the number of replicas configured for a microservice (as shown with Microservice A).
+- Based on the bursts in traffic or resource utilization, the orchestrator can automatically scale up/down the number of instances configured for a microservice (as shown with Microservice A).
 
-- Abstracts out all the complexities (like IP address, port and # of replicas ) of the microservice containers by wrapping them with a simple service layer (colored “orange”) that load balances traffic between replicas and allows easy orchestration of communication between dependent microservices.
+- Abstracts out all the complexities (like IP address, port and # of instances ) of the microservice containers by wrapping them with a simple service layer (colored “orange”) that load balances traffic between instances of each microservice and allows easy orchestration of communication between dependent microservices.
 
 - Releasing a new version or Rolling back to an old version of any given microservice or a set of microservices in the cluster is done with Zero down time.
 
-- Provides flexibility and additional customization to control traffic flow that enables A/B testing of various microservice versions.
+- Provides flexibility and additional customization to control traffic flow that enables side-by-side testing of various microservice versions.
 
 ## Choosing a container orchestrator technology in Azure
 
-Here are some options for implementing container orchestration for your microservices application in Azure
+Here are some options for implementing container orchestration for your microservices application in Azure.
 
 - **Azure Kubernetes Service (AKS)**. AKS is a fully managed [Kubernetes](https://kubernetes.io/) based container orchestration service in Azure that simplifies deployment and management of containerized applications. It provides elastic provisioning, faster end-end deployment, advance identity and access management.
 
