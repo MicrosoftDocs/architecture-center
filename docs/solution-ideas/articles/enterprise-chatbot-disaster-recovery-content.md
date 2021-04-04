@@ -1,4 +1,4 @@
-
+[!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
 To set up disaster recovery for an enterprise-grade *conversational bot (chatbot)*, first review the service level agreement (SLA) that cover the *Recovery Point Objective (RPO)* and *Recovery Time Objective (RTO)* for the chatbot. Implement the disaster recovery patterns in this article to build highly available and disaster resistant chatbot solutions to meet the SLA.
 
