@@ -18,7 +18,7 @@ Reliable applications should maintain a pre-defined percentage of uptime (*avail
 ***
 
 > [!div class="checklist"]
-> - Define availability and revovery targets to meet business requirements.
+> - Define availability and recovery targets to meet business requirements.
 > - Build resiliency and availability into your apps by gathering requirements.
 > - Ensure that application and data platforms meet your reliability requirements.
 > - Configure connection paths to promote availability.
