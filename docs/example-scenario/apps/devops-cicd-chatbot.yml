@@ -2,7 +2,7 @@
 metadata:
   title: Build a CI/CD pipeline for chatbots with ARM templates
   titleSuffix: Azure Example Scenarios
-  description: Use Azure Pipelines with ARM templates to set up a CI/CD pipeline to Azure App Service and Azure Bot Service for a chatbot app.
+  description: Use a DevOps approach with Azure Pipelines and ARM templates to set up a continuous deployment (CI/CD) pipeline to deploy a chatbot app and its infrastructure as code.
   author: MariaVrabie
   ms.date: 03/25/2020
   ms.topic: conceptual
@@ -16,12 +16,13 @@ metadata:
     - fcp
     - example-scenario
     - ai-machine-learning
+    - aml-project-improvement
   social_image_url: /azure/architecture/example-scenario/apps/media/deployment-flow.png
 name: Build a CI/CD pipeline for chatbots with ARM templates
 azureCategories:
   - devops
   - ai-machine-learning
-summary: Use Azure Pipelines with ARM templates to set up a CI/CD pipeline to Azure App Service and Azure Bot Service for a chatbot app.
+summary: Use a DevOps approach with Azure Pipelines and ARM templates to set up a continuous deployment (CI/CD) pipeline to deploy a chatbot app and its infrastructure as code.
 products:
   - azure-app-service
   - azure-application-insights
