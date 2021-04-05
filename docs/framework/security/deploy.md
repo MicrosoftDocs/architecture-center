@@ -40,7 +40,7 @@ Follow these questions to assess the workload at a deeper level.
 |---|---|
 |[**Do you clearly define CI/CD roles and permissions for this workload?**](deploy-governance.md)|Define CI/CD permissions such that only users responsible for production releases can start the process and that only developers can access the source code.|
 |[**Can you roll back or forward code quickly through automated pipelines?**](deploy-code.md)|Automated deployment pipelines should allow for quick roll-forward and roll-back deployments to address critical bugs and code updates outside of the normal deployment lifecycle.|
-|[**Are any resources provisioned or operationally configured with user tools such as the Azure portal or via Azure CLI?**](monitor-test.md)|Always use Infrastructure as code (IaC) to make even smallest of changes. This approach makes it easy to track code because the provisioned infrastructure is reproducible and reversible.|
+|[**Are any resources provisioned or operationally configured with user tools such as the Azure portal or via Azure CLI?**](monitor-test.md)|Always use Infrastructure as code (IaC) to make even the smallest of changes. This approach makes it easy to track code because the provisioned infrastructure is reproducible and reversible.|
 
 
 ## Azure security benchmark
