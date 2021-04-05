@@ -1,6 +1,6 @@
 ### YamlMime:Architecture
 metadata:
-  title: Build a CI/CD pipeline for chatbots with ARM templates
+  title: CI/CD pipeline for chatbots with ARM templates
   titleSuffix: Azure Example Scenarios
   description: Use a DevOps approach with Azure Pipelines and ARM templates to set up a continuous deployment (CI/CD) pipeline to deploy a chatbot app and its infrastructure as code.
   author: MariaVrabie
