@@ -22,7 +22,7 @@ metadata:
     - ai-machine-learning
     - aml-project-improvement
   social_image_url: /azure/architecture/solution-ideas/articles/media/interactive-voice-response-bot.png
-name: Interactive Voice Response Bot
+name: Interactive voice response application with bot
 azureCategories:
   - ai-machine-learning
 summary: Process customer requests with an intelligent interactive voice response (IVR) application. Build automated systems from scratch or extend existing systems.
