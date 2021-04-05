@@ -39,7 +39,7 @@ Your Azure subscription used for the deployment will incur consumption charges o
 ## Components
 
 * [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/)
-* [Power BI](https://powerbi.microsoft.com/en-us/)
+* [Power BI](https://powerbi.microsoft.com/)
 
 ## Next steps
 
