@@ -20,7 +20,6 @@ As part of overall design, prioritize where to invest the available resources; f
 **What considerations for compliance and governance did you make?**
 ***
 > [!div class="checklist"]
->
 > - Understand the regulatory requirements and the requirements for operational data that may be used for audits. 
 > - Design the workload within the security controls set in the landing zone into which the deployment is deployed.
 
@@ -58,4 +57,5 @@ We recommend that you review the practices and tools have you implemented as par
 > [!div class="nextstepaction"]
 > [Application development](./design-apps-services.md)
 
+## Related links
 > Go back to the main article: [Security](overview.md)

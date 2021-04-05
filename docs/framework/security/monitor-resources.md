@@ -36,11 +36,11 @@ Application containers architectures have an extra layer of abstraction and orch
 
 - Use container registries that are validated for security. Images in public registries may contain malware or unwanted applications that can only get detected when the container is running. Build a process for developers to request and rapidly get security validation of new containers and images. The process should validate against your security standards. This includes applying security updates, scanning for unwanted code such as backdoors and illicit crypto coin miners, scanning for security vulnerabilities, and application of secure development practices.
 
-    A popular process pattern is the quarnatine pattern. This pattern allows you to get your images on a dedicated container registry and subject them to security or compliance scrutiny applicable for your organization. After its validated, they can then be released from quarantine and promoted to being available.
+    A popular process pattern is the quarantine pattern. This pattern allows you to get your images on a dedicated container registry and subject them to security or compliance scrutiny applicable for your organization. After it's validated, they can then be released from quarantine and promoted to being available.
 
     Azure Security Center identifies unmanaged containers hosted on IaaS Linux VMs, or other Linux machines running Docker containers. 
 
-- Make sure you use images from authorized registries. You can enforce this restriction through Azure Policy. For example, for an Azure Kubernetes Service (AKS) cluster, have policies that retrict the cluster to only pulls images from Azure Container Registry (ACR) that is deployed as part of the architecture.
+- Make sure you use images from authorized registries. You can enforce this restriction through Azure Policy. For example, for an Azure Kubernetes Service (AKS) cluster, have policies that restrict the cluster to only pull images from Azure Container Registry (ACR) that is deployed as part of the architecture.
 
     > [!TIP]
     > Here are the resources for the preceding example:
@@ -80,7 +80,7 @@ Packet capture tracks traffic in and out of virtual machines. It gives you the c
 
 For an example, see [Scenario: Get alerts when VM is sending you more TCP segments than usual](/azure/network-watcher/network-watcher-alert-triggered-packet-capture#scenario).
 
-Then, focus on observability of specific services by reviewing the diagnostic logs. For example, for Azure Application Gateway with integrated WAF, see [Web application firewall logs](/azure/application-gateway/application-gateway-diagnostics). Azure Security Center analyzes diagnostic logs on virtual networks, gateways, network security groups and determins if the controls are secure enough. For example:
+Then, focus on observability of specific services by reviewing the diagnostic logs. For example, for Azure Application Gateway with integrated WAF, see [Web application firewall logs](/azure/application-gateway/application-gateway-diagnostics). Azure Security Center analyzes diagnostic logs on virtual networks, gateways, network security groups and determines if the controls are secure enough. For example:
 
 - Is your virtual machine exposed to public internet. If so, do you have tight rules on network security groups to protect the machine?
 - Are the network security groups (NSG) and rules that control access to the virtual machines overly permissive? 
@@ -95,9 +95,33 @@ Integrate all logs into a security information and event management (SIEM) servi
 - Tune the intake to significantly reduce the false positive alerts. 
 
 ## Identity
+Monitor identity-related risk events using adaptive machine learning algorithms, heuristics quickly before the attacker can gain deeper access into the system.
+
+## Review identity risks
+
+Most security incidents take place after an attacker initially gains access using a stolen identity. Even if the identity has low privileges, the attacker can use it to traverse laterally and gain access to more privileged identities. This way the attacker can control access to the target data or systems.
+
+**Does the organization actively monitor identity-related risk events related to potentially compromised identities?**
+***
+
+Monitor identity-related risk events on potentially compromised identities and remediate those risks. 
+Review the reported risk events in these ways:
+
+- Azure AD reporting. For information, see [users at risk security report](/azure/active-directory/reports-monitoring/concept-user-at-risk) and the [risky sign-ins security report](/azure/active-directory/reports-monitoring/concept-risky-sign-ins).
+- Use the reporting capabilities of [Azure Active Directory Identity Protection](/azure/active-directory/active-directory-identityprotection).
+- Use the Identity Protection risk events API to get programmatic access to security detections by using Microsoft Graph. See [riskDetection](/graph/api/resources/riskdetection?view=graph-rest-1.0&preserve-view=true) and [riskyUser](/graph/api/resources/riskyuser?view=graph-rest-1.0&preserve-view=true) APIs.
+
+Azure AD uses adaptive machine learning algorithms, heuristics, and known compromised credentials (username/password pairs) to detect suspicious actions that are related to your user accounts. These username/password pairs come from monitoring public and dark web and by working with security researchers, law enforcement, security teams at Microsoft, and others. 
+
+Remediate risks by manually addressing each reported account or by setting up a [user risk policy](/azure/active-directory/identity-protection/howto-user-risk-policy) to require a password change for high risk events. 
+
+**Is personal information detected and removed/obfuscated automatically?**
+***
+
+Be cautious when logging sensitive application information. Don't store  personal information such as contact information, payment information, and so on, in any application logs. Apply protective measures, such as obfuscation. Machine learning tools can help with this measure. For more information, see [PII Detection cognitive skill](/azure/search/cognitive-search-skill-pii-detection).
 
 
-## Next steps
+## Next
 > [!div class="nextstepaction"]
 > [View logs and alerts](monitor-logs-alerts.md)
 

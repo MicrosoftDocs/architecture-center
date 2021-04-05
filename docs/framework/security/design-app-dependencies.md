@@ -15,19 +15,21 @@ ms.custom:
 Security of an application that is hosted in Azure is a shared responsibility between you as the application owner and Azure. For IaaS, you are responsible for configurations related to VM, operating system, and components installed on it. For PaaS, you are responsible for the security of the application service configurations and making sure that the dependencies used by the application are also secure.
 
 ## Key points
-- Do not store secrets in source code or configuration files. Instead keep them in a secure store, such as Azure Key Vault.
-- Do not expose detailed error information when handling application exceptions.
-- Do not expose platform-specific information.
-- Restrict access to Azure resources that do not meet the security requirements.
-- Validate the security of any open-source code added to your application.
-- Update frameworks and libraries as part of the application lifecycle. 
+> [!div class="checklist"]
+>- Do not store secrets in source code or configuration files. Instead keep them in a secure store, such as Azure Key Vault.
+>- Do not expose detailed error information when handling application exceptions.
+>- Do not expose platform-specific information.
+>- Restrict access to Azure resources that do not meet the security requirements.
+>- Validate the security of any open-source code added to your application.
+>- Update frameworks and libraries as part of the application lifecycle. 
 
 ## Configuration security
 
-During the design phase, consider the way you store secrets and handle exceptions. Here are some considerations.
+During the design phase, consider the way you store secrets and handle exceptions. Here are some points.
 
-**How do is application configuration stored and how does the application access it?**
+<a id="secrets">**How is application configuration stored and how does the application access it?**</a>
 ***
+
 Application configuration information can be stored with the application. However, that's not a recommended practice. Consider using a dedicated configuration management system such as Azure App Configuration or Azure Key Vault. That way, it can be updated independently of the application code.
 
 Applications can include secrets like database connection strings, certificate keys, and so on. Do not store secrets in source code or configuration files. Instead keep them in a secure store, such as Azure Key Vault. If you need to store secrets in code, identify them with static code scanning tools. Add the scanning process in your continuous integration (CI) pipeline.

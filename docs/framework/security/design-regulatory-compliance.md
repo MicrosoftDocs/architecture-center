@@ -17,10 +17,11 @@ ms.custom:
 A workload can have regulatory requirements. These requirements might need strict security measures that affect the overall architecture and the selection and configuration of specific PaaS and SaaS services. The requirements also have implications for how the workload should be operationalized.
 
 ## Key points
-- Make sure that all regulatory requirements are known and well understood. 
-- Periodically perform external and, or internal workload security audits.
-- Have compliance checks as part of the workload operations.
-- Use Microsoft Trust Center. 
+> [!div class="checklist"]
+> - Make sure that all regulatory requirements are known and well understood. 
+> - Periodically perform external and, or internal workload security audits.
+> - Have compliance checks as part of the workload operations.
+> - Use Microsoft Trust Center. 
 
 ## Review the requirements
 Regulatory organizations frequently publish standards and updates to help define good security practices so that organizations can avoid negligence. The purpose and scope of these standards and regulations vary, but the security requirements can influence the design for data protection and retention, network access, and system security.
@@ -56,7 +57,7 @@ Regulatory requirements may influence the workload operations. For example, ther
 
 Consider automation of deployment and maintenance tasks. This will reduce security and compliance risk by limiting opportunity to introduce human errors during manual tasks.
 
-## Next
+## Next 
 > [!div class="nextstepaction"]
 > [Azure landing zone](design-governance-landing-zone.md)
 
@@ -64,5 +65,6 @@ Consider automation of deployment and maintenance tasks. This will reduce securi
 
 Azure maintains a compliance portfolio that covers US government, industry specific, and region/country standards. For more information, see [Azure compliance offerings](/azure/compliance/offerings/).
 
+Monitor the compliance of the workload to check if the security controls are aligned to the regulatory requirements. For more information, see [Security audits](monitor-audit.md). 
 
 > Go back to the main article: [Governance](design-governance.md)
