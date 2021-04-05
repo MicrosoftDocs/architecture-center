@@ -433,6 +433,16 @@ items:
                     href: framework/security/design-regulatory-compliance.md
                   - name: Configuration and dependencies
                     href: framework/security/design-app-dependencies.md
+          - name: Build-deploy
+            items:
+              - name: Checklist
+                href: framework/security/deploy.md
+              - name: Governance considerations
+                href: framework/security/deploy-governance.md
+              - name: Infrastructure provisioning
+                href: framework/security/deploy-infrastructure.md                
+              - name: Code deployments
+                href: framework/security/deploy-code.md
           - name: Monitor
             items:
               - name: Checklist
