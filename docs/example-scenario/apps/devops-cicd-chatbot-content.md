@@ -184,4 +184,4 @@ Here are some ways to further enhance the scenario:
 - [Understand the structure and syntax of Azure Resource Manager templates](/azure/azure-resource-manager/resource-group-authoring-templates)
 - [ARM template reference guide for Microsoft.Storage resource types](/azure/templates/microsoft.storage/allversions)
 - [Repeatable infrastructure](../../framework/devops/automation-infrastructure.md)
-- [Deploy applications with Azure DevOps](/learn/paths/deploy-applications-with-azure-devops/) (Microsoft Learn)
+- [Microsoft Learn module: Deploy applications with Azure DevOps](/learn/paths/deploy-applications-with-azure-devops/)
