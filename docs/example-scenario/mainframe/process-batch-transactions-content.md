@@ -1,5 +1,5 @@
 
-On Azure you can implement batch transaction processing—such as posting payments to accounts—by using an architecture based on Microsoft Azure Kubernetes Service (AKS) and Azure Service Bus. This type of architecture provides the transaction processing speed, scaling, and reliability required for high-volume batch processing.
+On Azure, you can implement batch transaction processing—such as posting payments to accounts—by using an architecture based on Microsoft Azure Kubernetes Service (AKS) and Azure Service Bus. This type of architecture provides the transaction processing speed, scaling, and reliability required for high-volume batch processing.
 
 
 The architecture uses AKS to implement compute clusters of the applications that process the transactions. The applications receive the transactions in messages from Service Bus topics or queues. The topics and queues can be at Azure datacenters in different geographic regions, and multiple AKS clusters can read input from them.
@@ -8,7 +8,7 @@ Typically, a message remains queued until its transaction completes, allowing fo
 
 ## Potential use cases
 
-This architecture is for high-volume processing of batches of transactions, especially independent transactions that can be processed in parallel. It is therefore a likely candidate for use in migrating mainframe batch processing. Possible applications are:
+This architecture is for high-volume processing of batches of transactions, especially independent transactions that can be processed in parallel. It's therefore a likely candidate for use in migrating mainframe batch processing. Possible applications are:
 
 - Processing of financial transactions, such as payroll, orders, and payments.
 - Processing of experimental data gathered by scientific instruments.
@@ -26,7 +26,7 @@ This architecture is for high-volume processing of batches of transactions, espe
 
 The numbered circles in the diagram correspond to the numbered steps in the following list.
 
-1. The architectures uses Service Bus topics and queues to organize the batch processing input and to pass it downstream for processing.
+1. The architecture uses Service Bus topics and queues to organize the batch processing input and to pass it downstream for processing.
 1. Azure Load Balancer, a Layer 4 (TCP, UDP) load balancer, distributes incoming traffic among healthy instances of services defined in a load-balanced set. Load balancing and management of connections optimize processing.
 1. The AKS cluster worker nodes listen to Service Bus queue endpoints for input.
 1. The Java nodes use Java Message Service to connect to Service Bus, and Java interfaces like Java Database Connectivity to connect to other data sources. They use other Java APIs as needed.
@@ -40,16 +40,16 @@ The numbered circles in the diagram correspond to the numbered steps in the foll
 
 The architecture uses these components:
 
-- [Azure Virtual Network](https://azure.microsoft.com/services/virtual-network/) provides a secure private network in the cloud. It can connect virtual machines to one another, to the internet, and to on-premises networks.
+- [Azure Virtual Network](https://azure.microsoft.com/services/virtual-network/) provides a secure private network in the cloud. It can connect virtual machines (VMs) to one another, to the internet, and to on-premises networks.
 - [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute/) provides private connections between Azure datacenters and on-premises infrastructure.
-- [Azure Bastion](https://azure.microsoft.com/services/azure-bastion/) provides private and fully managed RDP and SSH access to virtual machines.
+- [Azure Bastion](https://azure.microsoft.com/services/azure-bastion/) provides private and fully managed RDP and SSH access to VMs.
 - [Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines/) provides the flexibility of virtualization without having to provide and maintain the hardware that hosts it. The operating system choices include Windows and Linux.
-- A virtual machine created with accelerated networking uses single root I/O virtualization (SR-IOV), greatly improving its networking performance. For more information, see [Create a Windows VM with accelerated networking using Azure PowerShell](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-powershell) and [Overview of Single Root I/O Virtualization (SR-IOV)](https://docs.microsoft.com/windows-hardware/drivers/network/overview-of-single-root-i-o-virtualization--sr-iov-).
-- An Azure network interface connects a virtual machine to the internet, and to Azure and on-premises resources. As shown in this architecture, you can give each child virtual machine its own network interface and IP address. For more information on network interfaces, see [Create, change, or delete a network interface](https://docs.microsoft.com/azure/virtual-network/virtual-network-network-interface).
-- [Azure Managed Disks](https://azure.microsoft.com/pricing/details/managed-disks/) are high-performance, highly durable block storage for virtual machines. There are four disk storage options for the cloud: Ultra Disk Storage, Premium SSD, Standard SSD, and Standard HDD.
+- A VM created with accelerated networking uses single root I/O virtualization (SR-IOV), greatly improving its networking performance. For more information, see [Create a Windows VM with accelerated networking using Azure PowerShell](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-powershell) and [Overview of Single Root I/O Virtualization (SR-IOV)](https://docs.microsoft.com/windows-hardware/drivers/network/overview-of-single-root-i-o-virtualization--sr-iov-).
+- An Azure network interface connects a VM to the internet, and to Azure and on-premises resources. As shown in this architecture, you can give each child VM its own network interface and IP address. For more information on network interfaces, see [Create, change, or delete a network interface](https://docs.microsoft.com/azure/virtual-network/virtual-network-network-interface).
+- [Azure Managed Disks](https://azure.microsoft.com/pricing/details/managed-disks/) are high-performance, highly durable block storage for VMs. There are four disk storage options for the cloud: Ultra Disk Storage, Premium SSD, Standard SSD, and Standard HDD.
 - [Azure Kubernetes Service (AKS)](https://azure.microsoft.com/services/kubernetes-service/) is a fully managed Kubernetes service for deploying and managing containerized applications.
 - [Service Bus](https://azure.microsoft.com/services/service-bus/) provides reliable cloud messaging as a service (MaaS) and simple hybrid integration.
-- [Azure load balancing services](https://azure.microsoft.com/products/azure-load-balancing/) provides scaling for high availability and high performance. This architecture uses [Load Balancer](https://azure.microsoft.com/services/load-balancer/). It provides low-latency Layer 4 (TCP, UDP) load balancing capabilities to balance traffic between virtual machines, and across multi-tiered hybrid apps.
+- [Azure load balancing services](https://azure.microsoft.com/products/azure-load-balancing/) provides scaling for high availability and high performance. This architecture uses [Load Balancer](https://azure.microsoft.com/services/load-balancer/). It provides low-latency Layer 4 (TCP, UDP) load balancing capabilities to balance traffic between VMs, and across multi-tiered hybrid apps.
 - [Azure Cache for Redis](https://azure.microsoft.com/services/cache/) is a lightning-fast and fully managed in-memory caching service for sharing  data and state among compute resources.
 - [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) is a fast NoSQL database with open APIs for any scale.
 - [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/) provides real-time analytics on fast-moving streams of data from applications and devices.
@@ -61,7 +61,7 @@ The architecture uses these components:
 - Log Analytics is a tool in the Azure portal used to edit and run log queries on [Azure Monitor](https://azure.microsoft.com/services/monitor/) logs. For more information, see [Overview of Log Analytics in Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/logs/log-analytics-overview).
 - The geo-redundant storage (GRS) option of [Azure Storage](https://azure.microsoft.com/services/storage/) copies your data synchronously three times within a single physical location in the primary region, then copies it asynchronously to a single physical location in the secondary region. For more information, see [Azure Storage redundancy](https://docs.microsoft.com/azure/storage/common/storage-redundancy).
 - [Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs/) is massively scalable and secure REST-based object storage for cloud-native workloads, archives, data lakes, high-performance computing, and machine learning.
-- [Azure Files](https://azure.microsoft.com/services/storage/files/) provides simple, secure, and serverless enterprise-grade file shares in the cloud. You use the industry-standard Server Message Block (SMB) and Network File System (NFS) protocols to access the shares .
+- [Azure Files](https://azure.microsoft.com/services/storage/files/) provides simple, secure, and serverless enterprise-grade file shares in the cloud. You use the industry-standard Server Message Block (SMB) and Network File System (NFS) protocols to access the shares.
 
 ## Considerations
 
@@ -69,13 +69,13 @@ The following considerations, based on the [Azure Well-Architected Framework](ht
 
 ### Availability considerations
 
-- [Azure Site Recovery](https://azure.microsoft.com/services/site-recovery/) disaster recovery service protects against major outages. It is dependable, cost-effective, and easy to deploy.
+- [Azure Site Recovery](https://azure.microsoft.com/services/site-recovery/) disaster recovery service protects against major outages. It's dependable, cost-effective, and easy to deploy.
 - Availability sets for VMs ensure that enough VMs are available to meet mission-critical batch process needs.
 - Service Bus, AKS, and Azure SQL Managed Instance provide high availability and recoverability across geographic regions.
 
 ### Operational considerations
 
-- [Azure Resource Manager templates](https://azure.microsoft.com/services/arm-templates/) provide a configuration language to describe your resources in templates which you can use for scripted deployment. The templates also provide monitoring and alerting capabilities.
+- [Azure Resource Manager templates](https://azure.microsoft.com/services/arm-templates/) provide a configuration language to describe your resources in templates that you can use for scripted deployment. The templates also provide monitoring and alerting capabilities.
 
 ### Performance considerations
 
@@ -94,7 +94,7 @@ The following considerations, based on the [Azure Well-Architected Framework](ht
 
 To estimate costs for your implementation of this solution, use the [Pricing calculator](https://azure.microsoft.com/pricing/calculator/).
 
-The auto-scale features of AKS clusters—and other Azure Platform as a Service (PaaS) features that provide scaling on demand—keep costs at a minimum.
+The autoscale features of AKS clusters—and other Azure Platform as a Service (PaaS) features that provide scaling on demand—keep costs at a minimum.
 
 Here are pricing considerations for specific components:
 
@@ -115,8 +115,8 @@ Here are pricing considerations for specific components:
 
 ## Next steps
 
-- [Azure Kubernetes Service solution journey](https://docs.microsoft.com/azure/architecture/reference-architectures/containers/aks-start-here).
-- [Service Bus queues, topics, and subscriptions]( https://docs.microsoft.com/azure/service-bus-messaging/service-bus-queues-topics-subscriptions).
+- To learn more about AKS, read: [Azure Kubernetes Service solution journey](https://docs.microsoft.com/azure/architecture/reference-architectures/containers/aks-start-here).
+- To learn more about Service Bus, read: [Service Bus queues, topics, and subscriptions]( https://docs.microsoft.com/azure/service-bus-messaging/service-bus-queues-topics-subscriptions).
 
 ## Related resources
 
