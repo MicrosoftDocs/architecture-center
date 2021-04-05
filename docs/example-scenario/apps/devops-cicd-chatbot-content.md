@@ -10,7 +10,7 @@ Infrastructure as code uses Azure Resource Manager templates (ARM templates) or 
 
 ## Architecture
 
-![A diagram showing the deployment of a chatbot with a continuous integration and continuous deployment (CI/CD) pipeline in Azure.](./media/deployment-flow.png)
+![An architectural diagram showing the deployment of a chatbot with continuous integration and continuous deployment (CI/CD) using Azure Pipelines and ARM templates.](./media/deployment-flow.png)
 
 In this example:
 
