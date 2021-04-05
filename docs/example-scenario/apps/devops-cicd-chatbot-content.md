@@ -98,7 +98,7 @@ Azure Application Insights can collect telemetry from the app about what the bot
 
 - A common practice is to use [Azure KeyVault](/azure/key-vault) instead of storing secrets in Azure DevOps. If the Service Principal connection to your Azure Subscription has appropriate access policies to the Azure KeyVault, it can download secrets from the KeyVault to use as variables in your pipeline, which avoids storing them in source control. The name of the secret will be set with the associated value. For example, a secret in the KeyVault called `botMicrosoftAppPassword` could be referenced by `$(botMicrosoftAppPassword)` in the release pipeline definition.
 
-- You can set up [Bot Analytics](/azure/bot-service/bot-service-manage-analytics) to gain additional insight into the performance of your bot. To set up Bot Analytics, you need an API Key from Application Insights, but you can't create this key by using an ARM template. You can create the key manually from your Application Insights resource in the Azure portal.
+- You can set up [Bot Analytics](/azure/bot-service/bot-service-manage-analytics) to gain more insight into the performance of your bot. To set up Bot Analytics, you need an API Key from Application Insights, but you can't create this key by using an ARM template. You can create the key manually from your Application Insights resource in the Azure portal.
 
 ## Deploy this scenario
 
@@ -162,7 +162,7 @@ To create the release pipeline:
    |**resourceGroupName**|Name for the resource group to create to contain the Azure resources
    |**storageAccountName**|Storage account for the linked ARM templates
 
-1. On the pipeline page, select the **Tasks** tab. Select the **+** next to **Agent job**, and under **Add tasks**, select and configure the following tasks. After selecting each task, select **Add** and then fill out the form, using variables where appropriate.
+1. On the pipeline page, select the **Tasks** tab. Select the **+** next to **Agent job**, and under **Add tasks**, select, and configure the following tasks. After selecting each task, select **Add** and then fill out the form, using variables where appropriate.
    - **Download pipeline artifacts** to download the bot logic
    - **Azure resource group deployment** to deploy the bot infrastructure ARM templates
    - **Azure App Service deploy** to deploy the bot to the App Service
@@ -171,9 +171,9 @@ You can also add **Azure resource group deployment** and **Azure file copy** tas
 
 ## Next steps
 
-Here are some additional items to further enhance the scenario:
+Here are some ways to further enhance the scenario:
 
-- Deploy additional services to enhance your bot, including LUIS.
+- Deploy other services to enhance your bot, including LUIS.
 - Deploy a back-end store for your bot to interact with, such as Azure Cosmos DB.
 - Automate the generation of the Application Insights API Key, and consider storing the key in an Azure KeyVault that you can reference during deployment time.
 
@@ -184,3 +184,4 @@ Here are some additional items to further enhance the scenario:
 - [Understand the structure and syntax of Azure Resource Manager templates](/azure/azure-resource-manager/resource-group-authoring-templates)
 - [ARM template reference guide for Microsoft.Storage resource types](/azure/templates/microsoft.storage/allversions)
 - [Repeatable infrastructure](../../framework/devops/automation-infrastructure.md)
+- [Deploy applications with Azure DevOps](/learn/paths/deploy-applications-with-azure-devops/) (Microsoft Learn)
