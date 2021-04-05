@@ -51,5 +51,5 @@ The target use case of this solution is a fictitious company, Contoso LLC, which
 * [Speech-to-text conversion](../../reference-architectures/ai/speech-ai-ingestion.yml)
 * [Speech Services](./speech-services.yml)
 * [Migrate from Bing Speech to the Speech Service](/azure/cognitive-services/speech-service/how-to-migrate-from-bing-speech)
-* [MS Learn - How to build a basic chatbot](/learn/modules/how-build-basic-chatbot/)
-* [MS Learn - Transcribe speech input to text](/learn/modules/transcribe-speech-input-text/)
+* [Microsoft Learn module: How to build a basic chatbot](/learn/modules/how-build-basic-chatbot/)
+* [Microsoft Learn module: Transcribe speech input to text](/learn/modules/transcribe-speech-input-text/)
