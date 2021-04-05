@@ -59,7 +59,7 @@ The Azure Security Benchmark includes a collection of high-impact security recom
 > - [Azure Security Benchmarks Incident response](/azure/security/benchmarks/security-controls-v2-incident-response).
 > - [Posture and Vulnerability Management](/azure/security/benchmarks/security-controls-v2-posture-vulnerability-management)
 
-## Reference architectures
+## Reference architecture
 
 - [Hybrid Security Monitoring using Azure Security Center and Azure Sentinel](/azure/architecture/hybrid/hybrid-security-monitoring)
 
@@ -69,7 +69,7 @@ The Azure Security Benchmark includes a collection of high-impact security recom
 
   This article provides AWS identity architects, administrators, and security analysts with immediate insights and detailed guidance for deploying several Microsoft security solutions.
 
-## Next steps
+## Next step
 We recommend applying as many best practices as early as possible, and then working to retrofit any gaps over time as you mature your security program. 
 
 ## Related link

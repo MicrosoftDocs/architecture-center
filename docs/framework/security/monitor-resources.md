@@ -32,7 +32,7 @@ For a full list of features, see [Feature coverage for machines](/azure/security
 
 ## Containers
 
-Application containers architectures have an extra layer of abstraction and orchestration. That complexityt requires specific security measures that protect against common container attacks such as supply chain attacks. 
+Application containers architectures have an extra layer of abstraction and orchestration. That complexity requires specific security measures that protect against common container attacks such as supply chain attacks. 
 
 - Use container registries that are validated for security. Images in public registries may contain malware or unwanted applications that can only get detected when the container is running. Build a process for developers to request and rapidly get security validation of new containers and images. The process should validate against your security standards. This includes applying security updates, scanning for unwanted code such as backdoors and illicit crypto coin miners, scanning for security vulnerabilities, and application of secure development practices.
 
@@ -50,7 +50,7 @@ Application containers architectures have an extra layer of abstraction and orch
     > The design considerations are described in [Baseline architecture for an AKS cluster](../../reference-architectures/containers/aks/secure-baseline-aks.yml).
 
 
-- Regularly scan containers for known risks in the container registry, before use, or during use. 
+- Regularly scan containers for known risks in the container registry, before use, and during use. 
 
 - Use security monitoring tools that are container aware to monitor for anomalous behavior and enable investigation of incidents. 
 
@@ -66,54 +66,33 @@ For more information, see these articles:
 
 ## Network
 
-Make sure you have monitoring networking components such as virtual networks, gateways, network security groups. Here are some considerations:
-
-- Is your virtual machine exposed to public internet. If so, do you have tight rules on network security groups to protect the machine?
-- Azure Security Center has discovered that IP forwarding is enabled on some of your virtual machines. Enabling IP forwarding on a virtual machine's NIC allows the machine to receive traffic addressed to other destinations. IP forwarding is rarely required (e.g., when using the VM as a network virtual appliance), and therefore, this should be reviewed by the network security team.
-
-Azure Security Center runs Azure policies against the resources and provides recommendations by analyzing the traffic patterns to and from your virtual machines. 
-
-- Security Center uses the Microsoft Dependency agent to collect network traffic data from your Azure virtual machines to enable advanced network protection features such as traffic visualization on the network map, network hardening recommendations and specific network threats.
-
-- Secure transfer is an option that forces your storage account to accept requests only from secure connections (HTTPS). Use of HTTPS ensures authentication between the server and the service and protects data in transit from network layer attacks such as man-in-the-middle, eavesdropping, and session-hijacking.
-
-
-- If you are using network security groups to control access to the virtual machines and the rules are overpermissive, Security Center will flag them. Adaptive network hardening provides recommendations to further harden the NSG rules. 
-
-
-This works to protect and contain East-West traffic within your cloud network infrastructure. 
-•	Determine whether to use host-based firewalls. Host-based firewalls support a comprehensive defense in depth strategy. However, they require a significant management overhead. If host-based firewalls have been effective in helping you protect and discover threats in the past, consider using them for your cloud-based assets. Otherwise, explore native solutions on your cloud service provider’s platform.
-•	Adopt a Zero Trust strategy based on user, device, and application identities. In contrast to network access controls that are based on elements such as source and destination IP address, protocols, and port numbers, Zero Trust enforces and validates access control during “access time”. This strategy avoids the need for complex combinations of open ports, network routes, available or serviced protocols for several types of changes. Only the destination resource needs to provide the necessary access controls. 
-
-
-
-One way to enable network visibility is by integrating network logs and analyzing the data to identify anomalies. Based on those insights, you can choose to set alerts or block traffic crossing segmentation boundaries.
-
 **How do you monitor and diagnose conditions of the network?** 
 ***
 
-Enable logs (including raw traffic) from your network devices. 
-
-Integrate network logs into a security information and event management (SIEM) service, such as Azure Sentinel. Other popular choices include Splunk, QRadar, or ArcSight ESM.
-
-Use machine learning analytics platforms that support ingestion of large amounts of information and can analyze large datasets quickly. Also, these solutions can be tuned to significantly reduce the false positive alerts. 
-
-Here are some ways to integrate network logs:
+As an initial step, enable and review all logs (including raw traffic) from your network devices.
 
 - Security group logs – [flow logs](/azure/network-watcher/network-watcher-nsg-flow-logging-portal) and diagnostic logs
-- [Web application firewall logs](/azure/application-gateway/application-gateway-diagnostics)
-- [Virtual network taps](/azure/virtual-network/virtual-network-tap-overview)
 - [Azure Network Watcher](/azure/network-watcher/network-watcher-monitoring-overview)
 
-## Proactive monitoring
-**How do you gain access to real-time performance information at the packet level?** 
-***
-
-Take advantage of [packet capture](/azure/network-watcher/network-watcher-alert-triggered-packet-capture) to set alerts and gain access to real-time performance information at the packet level. 
+Take advantage of the [packet capture](/azure/network-watcher/network-watcher-alert-triggered-packet-capture) feature to set alerts and gain access to real-time performance information at the packet level. 
 
 Packet capture tracks traffic in and out of virtual machines. It gives you the capability to run proactive captures based on defined network anomalies including information about network intrusions. 
 
 For an example, see [Scenario: Get alerts when VM is sending you more TCP segments than usual](/azure/network-watcher/network-watcher-alert-triggered-packet-capture#scenario).
+
+Then, focus on observability of specific services by reviewing the diagnostic logs. For example, for Azure Application Gateway with integrated WAF, see [Web application firewall logs](/azure/application-gateway/application-gateway-diagnostics). Azure Security Center analyzes diagnostic logs on virtual networks, gateways, network security groups and determins if the controls are secure enough. For example:
+
+- Is your virtual machine exposed to public internet. If so, do you have tight rules on network security groups to protect the machine?
+- Are the network security groups (NSG) and rules that control access to the virtual machines overly permissive? 
+- Do you have overly-permissive inbound rules for management ports in your Network Security Group? 
+- Are the storage accounts receiving traffic over secure connections?
+
+Follow the recommendations provided by Security Center. For more information, see [Networking recommendations](azure/security-center/recommendations-reference#networking-recommendations).
+
+Integrate all logs into a security information and event management (SIEM) service, such as Azure Sentinel. The SIEM solutions support ingestion of large amounts of information and can analyze large datasets quickly. Based on those insights, you can:
+- Set alerts or block traffic crossing segmentation boundaries.
+- Identify anomalies. 
+- Tune the intake to significantly reduce the false positive alerts. 
 
 ## Identity
 
