@@ -49,7 +49,7 @@ Custom build agents add management complexity and can become an attack vector. B
 
 As part of the operational lifecycle, incorporate security fixes and patching to the operating system and all parts of the codebase, including dependencies (preinstalled tools, frameworks, and libraries).
 
-Apply security controls to self-hosted build agents in the same manner as with other Azure IaaS VMs. These should be minimialistic environments as a way to reduce the attack surface.
+Apply security controls to self-hosted build agents in the same manner as with other Azure IaaS VMs. These should be minimalistic environments as a way to reduce the attack surface.
 
 ## Next step
 
