@@ -6330,8 +6330,8 @@
             "category": [
                 "ai-machine-learning"
             ],
-            "image": "/azure/architecture/solution-ideas/media/interactive-voice-response-bot.png",
-            "imagepath": "C:\\jvPnpRepos\\architecture-center-pr\\docs\\solution-ideas\\media\\interactive-voice-response-bot.png",
+            "image": "/azure/architecture/solution-ideas/media/interactive-voice-response-app-bot.png",
+            "imagepath": "C:\\jvPnpRepos\\architecture-center-pr\\docs\\solution-ideas\\media\\interactive-voice-response-app-bot.png",
             "publish_date": "12/16/2019",
             "Summary": "<p>This solution creates an intelligent interactive voice response (IVR) application that processes customer order requests for bicycles and bicycle accessories. Businesses with no existing IVR solution can easily get started automating requests, or, where existing human-operated systems exist, this solution can be extended to incorporate existing functionality and workflows.</p>",
             "sample_code": true,
