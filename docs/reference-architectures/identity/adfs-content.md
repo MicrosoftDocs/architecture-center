@@ -367,13 +367,12 @@ A deployment for this architecture is available on [GitHub][github]. Note that t
 
 1. Verify that the Contoso Corporation sign-in page appears. Sign in as **contoso\testuser**.
 
-### Next Steps
+## Next Steps
 
 * [Azure Activity Directory Documentation](https://docs.microsoft.com/azure/active-directory)
 * [Manage Identity in multitenant applications](/azure/architecture/multitenant-identity)
 * [Identity Management Security](https://docs.microsoft.com/azure/security/fundamentals/identity-management-overview)
 * [Azure Firewall](https://docs.microsoft.com/azure/firewall/overview)
-
 
 <!-- links -->
 
