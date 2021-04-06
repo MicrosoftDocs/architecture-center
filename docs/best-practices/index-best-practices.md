@@ -28,7 +28,7 @@ Each practice offers guidelines and tips for designing and implementing efficien
    :::column span="3":::
       ### Data management
 
-      A key element of cloud applications is [data management][Data Management patterns]. Cloud systems typically host data in different locations and across multiple servers. This approach can improve performance, scalability, and availability but can also present a range of challenges. For example, to maintain consistency, you typically need to synchronize data across different locations.
+      A key element of cloud applications is [data management][Data Management patterns]. Cloud systems typically host data in different locations and across multiple servers. This approach can improve performance, scalability, and availability but can also present a range of challenges. For example, to maintain consistency, you often need to synchronize data across different locations.
    :::column-end:::
 :::row-end:::
 :::row:::
@@ -60,7 +60,7 @@ Each practice offers guidelines and tips for designing and implementing efficien
 
 ## Catalog of practices
 
-The following table describes various best practices. The **Category** column lists this information:
+This table lists various best practices. The **Category** column contains the following links:
 
 - Cloud development challenges that the practice helps to overcome.
 - Pillars of the [Microsoft Azure Well-Architected Framework][Microsoft Azure Well-Architected Framework] that the practice focuses on.
@@ -74,7 +74,7 @@ The following table describes various best practices. The **Category** column li
 | [Caching][Caching] | Improve performance by copying data to fast storage that's close to apps. Cache data that you read often but rarely modify. Manage data expiration and concurrency. See how to populate caches and use the [Azure Cache for Redis][About Azure Cache for Redis] service. | [Data management][Data Management patterns], [Performance efficiency][Overview of the performance efficiency pillar] |
 | [Best practices for using content delivery networks (CDNs)][Best practices for using content delivery networks (CDNs)] | Use content delivery networks (CDNs) to efficiently deliver web content to users and reduce load on web apps. Overcome deployment, versioning, security, and resilience challenges. | [Data management][Data Management patterns], [Performance efficiency][Overview of the performance efficiency pillar] |
 | [Horizontal, vertical, and functional data partitioning][Horizontal, vertical, and functional data partitioning]| Partition data to improve scalability, availability, and performance, and to reduce contention and data storage costs. Design schemes to use horizontal, vertical, and functional partitioning in efficient ways. | [Data management][Data Management patterns], [Performance efficiency][Overview of the performance efficiency pillar], [Cost optimization][Principles of cost optimization] |
-| [Data partitioning strategies][Data partitioning strategies] | Partition data in [Azure SQL Database][What is Azure SQL Database?] and [Azure Storage][Introduction to the core Azure Storage services] services like [Azure Table Storage][What is Azure Table storage?] and [Azure Blob Storage][Introduction to Azure Blob storage]. Shard data to support horizontal scaling, distribute loads, and reduce latency. | [Data management][Data Management patterns], [Performance efficiency][Overview of the performance efficiency pillar], [Cost optimization][Principles of cost optimization] |
+| [Data partitioning strategies][Data partitioning strategies] | Partition data in [Azure SQL Database][What is Azure SQL Database?] and [Azure Storage][Introduction to the core Azure Storage services] services like [Azure Table Storage][What is Azure Table storage?] and [Azure Blob Storage][Introduction to Azure Blob storage]. Shard data to distribute loads, reduce latency, and support horizontal scaling. | [Data management][Data Management patterns], [Performance efficiency][Overview of the performance efficiency pillar], [Cost optimization][Principles of cost optimization] |
 | [Message encoding considerations][Message encoding considerations] | Use asynchronous messages to exchange information between system components. Choose the payload structure, encoding format, and serialization library that work best with your data. | [Messaging][Messaging patterns], [Security][Overview of the security pillar] |
 | [Best practices for monitoring cloud applications][Best practices for monitoring cloud applications] | Track system health, usage, and performance with a monitoring and diagnostics pipeline. Turn monitoring data into alerts, reports, and triggers that help in various situations. Examples include detecting and correcting issues, spotting potential problems, meeting performance guarantees, and fulfilling auditing requirements. | [Operational excellence][Overview of the operational excellence pillar] |
 | [Retry guidance for Azure services][Retry guidance for Azure services] | Use, adapt, and extend the retry mechanisms that Azure services and client SDKs offer. Develop a systematic, robust approach for managing temporary issues with connections, operations, and resources. | [Design and implementation][Design and implementation patterns], [Reliability][Principles of the reliability pillar] |
@@ -87,7 +87,7 @@ The following table describes various best practices. The **Category** column li
 
 ## Related resources
 
-- [Cloud Design Patterns][Cloud Design Patterns]
+- [Cloud design patterns][Cloud Design Patterns]
 - [Microsoft Azure Well-Architected Framework][Microsoft Azure Well-Architected Framework]
 
 [About Azure Cache for Redis]: /azure/azure-cache-for-redis/cache-overview
