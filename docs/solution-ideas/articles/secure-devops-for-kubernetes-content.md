@@ -44,5 +44,18 @@ DevOps and Kubernetes are better together. Implementing secure DevOps together w
 1. App telemetry, container health monitoring, and real-time log analytics are obtained using Azure Monitor.
 1. Insights used to address issues and fed into next sprint plans.
 
-
 [Build and deploy to Azure Kubernetes Service](/azure/devops/pipelines/ecosystems/kubernetes/aks-template?view=azure-devops)
+
+## Components
+
+* [Azure Container Registry](https://azure.microsoft.com/services/container-registry/)
+* [Azure Kubernetes Service](https://azure.microsoft.com/services/kubernetes-service/)
+* [Azure Monitor](https://azure.microsoft.com/services/monitor/)
+* [Azure Pipelines](https://azure.microsoft.com/services/devops/pipelines/)
+* [Azure Policy](https://azure.microsoft.com/services/azure-policy/)
+
+## Next steps
+
+* [Azure Kubernetes Service solution journey](/azure/architecture/reference-architectures/containers/aks-start-here)
+* [Building a telehealth system on Azure](/azure/architecture/example-scenario/apps/telehealth-system)
+* [Microservices with AKS](/azure/architecture/solution-ideas/articles/microservices-with-aks)

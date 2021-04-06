@@ -20,3 +20,19 @@ Use AKS to simplify the deployment and management of microservices based archite
 1. Azure Active Directory is used to secure access to the resources
 1. Microservices use databases to store and retrieve information
 1. Administrator accesses via a separate admin portal
+
+## Components
+
+* [Azure Active Directory](https://azure.microsoft.com/services/active-directory/)
+* [Azure Container Registry](https://azure.microsoft.com/services/container-registry/)
+* [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/)
+* [Azure Database for MySQL](https://azure.microsoft.com/services/mysql/)
+* [Azure DevOps](https://azure.microsoft.com/services/devops/)
+* [Azure Kubernetes Service](https://azure.microsoft.com/services/kubernetes-service/)
+* [Azure SQL Database](https://azure.microsoft.com/services/sql-database/)
+
+## Next steps
+
+* [Azure Kubernetes Service solution journey](/azure/architecture/reference-architectures/containers/aks-start-here)
+* [Microservices architecture on Azure Kubernetes Service (AKS)](/azure/architecture/reference-architectures/containers/aks-microservices/aks-microservices)
+* [CI/CD pipeline for container-based workloads](/azure/architecture/example-scenario/apps/devops-with-aks)
