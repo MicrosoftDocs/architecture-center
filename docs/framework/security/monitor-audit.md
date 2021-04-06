@@ -1,15 +1,19 @@
 ---
 title: Security audits
-description: Security logging and monitoring focuses on activities related to enabling, acquiring, and storing audit logs for Azure services.
+description: use benchmarking to assess your current security state with respect to other organizations.
 author: PageWriter-MSFT
-ms.date: 11/03/2020
+ms.date: 4/06/2021
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
 products:
   - azure-security-center
   - azure-policy
-azure-category: management-and-governance
+categories: 
+  - management-and-governance
+subject:
+  - security
+  - compliance
 ms.custom:
   - article
 ---
@@ -83,7 +87,7 @@ For more information, see [Tutorial: Create and manage policies to enforce compl
 
 ## Next steps
 > [!div class="nextstepaction"]
-> [Remediate security risks in Azure Security Center](monitor-logs-alert.md)
+> [Remediate security risks in Azure Security Center](monitor-logs-alerts.md)
 
 ## Related links
 

@@ -8,6 +8,11 @@ ms.service: architecture-center
 ms.subservice: well-architected
 products:
   - azure-rbac
+categories:
+  - security
+  - identity
+subject:
+  - identity
 ms.custom:
   - article
 ---

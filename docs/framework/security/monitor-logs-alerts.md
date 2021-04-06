@@ -6,6 +6,15 @@ ms.date: 03/18/2021
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
+products:
+  - azure-security-center
+  - azure-sentinel
+  - azure-monitor
+categories: 
+  - security
+subject:
+  - security
+  - monitoring
 ---
 
 # Security logs and alerts 
@@ -61,7 +70,7 @@ A central view of log and data is recommended. Some advantages include:
 
 You can collect logs and alerts from various sources centrally in a Log Analytics Workspace, storage account, and Event Hubs. You can then review and query log data efficiently. In Azure Monitor, use the **diagnostic setting** on resources to route specific logs that are important for the organization. Logs vary by resource type. In Azure Security Center, take advantage of the continuous export feature to route alerts.
 
-> [!NOTE] Storage retention
+> [!NOTE] 
 > Platform logs are not available indefinitely. You'll need to keep them so that you can review them later for auditing purposes or offline analysis. Use Azure Storage Accounts for long-term/archival storage. In Azure Monitor, specify a retention period when you enable diagnostic setting for your resources.
 
 Another way to see all data in a single view is to integrate logs and alerts into Security Information and Event Management (SIEM) solutions, such as Azure Sentinel. Other popular third-party choices are Splunk, QRadar, ArcSight. Azure Security Center and Azure Monitor supports all of those solutions.  

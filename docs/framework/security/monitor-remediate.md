@@ -6,6 +6,13 @@ ms.date: 03/18/2021
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
+products:
+  - azure-security-center
+categories: 
+  - security
+subject:
+  - security
+  - monitoring
 ms.custom:
 ---
 
@@ -31,7 +38,6 @@ Monitor the security posture of VMs, networks, storage, data services, and vario
 
 ![Azure secure score overview](images/secure-score-tile.png)
 
-
 **Do you have a process for formally reviewing Secure Score on Azure Security Center?**
 ***
 
@@ -48,16 +54,17 @@ As you review the results and apply recommendations, track the progress and prio
     |Category|Resources|Responsible team|
     |---|---|---|
     |Compute and applications|App Services|Application Development/Security Team(s) |
-    ||Containers|Application Development and/or |Infrastructure/IT Operations|
+    ||Containers|Application Development and/or Infrastructure/IT Operations|
     ||Virtual machines, scale sets, compute|IT/Infrastructure Operations|
     |Data and Storage|SQL/Redis/Data Lake Analytics/Data Lake Store|Database Team|
     ||Storage Accounts|Storage/Infrastructure Team|
     |Identity and access management|Subscriptions|Identity Team(s)|
     ||Key Vault|Information/Data Security Team|
-    | Networking Resources||<li> Networking Team <li> Network Security Team|
+    |Networking Resources||Networking Team and Network Security Team|
     |IoT Security|IoT Resources | IoT Operations Team|
 
-> [!NOTE] In the DevOps model, some application teams may be responsible for their own application resources.
+> [!NOTE] 
+> In the DevOps model, some application teams may be responsible for their own application resources.
 
 :::image type="icon" source="../../_images/github.png" border="false"::: The [Azure Secure Score sample](https://github.com/mspnp/samples/tree/master/Security/AzureSecureScoreSample) shows how to get your Azure Secure Score for a subscription by calling the Azure Security Center REST API. The API methods provide the flexibility to query the data and build your own reporting mechanism of your secure scores over time.
 
@@ -75,7 +82,7 @@ The recommendations are grouped by controls. Each recommendation has detailed in
 
 Security Center has the capability of exporting results at configured intervals. Compare the results with previous sets to verify that issues have been remediated. 
 
-For more information, see [Continuous export](azure/security-center/continuous-export). 
+For more information, see [Continuous export](/azure/security-center/continuous-export). 
 
 ## Policy remediation
 

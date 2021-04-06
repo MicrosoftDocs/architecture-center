@@ -1,11 +1,19 @@
 ---
 title: Monitor Azure resources in Azure Security Center
-description: Remediate the common risks identified by Azure Security Center.
+description: Use Azure Security Center to monitor the security posture of machines, networks, storage and data services, and applications to discover potential security issues.
 author: PageWriter-MSFT
 ms.date: 03/18/2021
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
+products:
+  - azure-security-center
+  - azure-active-directory
+categories: 
+  - security
+subject:
+  - security
+  - monitoring
 ---
 
 # Monitor Azure resources in Azure Security Center
@@ -49,7 +57,6 @@ Application containers architectures have an extra layer of abstraction and orch
     >
     > The design considerations are described in [Baseline architecture for an AKS cluster](../../reference-architectures/containers/aks/secure-baseline-aks.yml).
 
-
 - Regularly scan containers for known risks in the container registry, before use, and during use. 
 
 - Use security monitoring tools that are container aware to monitor for anomalous behavior and enable investigation of incidents. 
@@ -60,7 +67,7 @@ Application containers architectures have an extra layer of abstraction and orch
 For more information, see these articles:
 
 - [Container security in Security Center](/azure/security-center/container-security)
-- [Compute section](/azure/security-center/recommendations-reference#recs-compute) of the recommendations reference table.
+
 
 ## Storage
 
@@ -97,13 +104,12 @@ Integrate all logs into a security information and event management (SIEM) servi
 ## Identity
 Monitor identity-related risk events using adaptive machine learning algorithms, heuristics quickly before the attacker can gain deeper access into the system.
 
-## Review identity risks
+### Review identity risks
 
 Most security incidents take place after an attacker initially gains access using a stolen identity. Even if the identity has low privileges, the attacker can use it to traverse laterally and gain access to more privileged identities. This way the attacker can control access to the target data or systems.
 
 **Does the organization actively monitor identity-related risk events related to potentially compromised identities?**
 ***
-
 Monitor identity-related risk events on potentially compromised identities and remediate those risks. 
 Review the reported risk events in these ways:
 
@@ -115,7 +121,7 @@ Azure AD uses adaptive machine learning algorithms, heuristics, and known compro
 
 Remediate risks by manually addressing each reported account or by setting up a [user risk policy](/azure/active-directory/identity-protection/howto-user-risk-policy) to require a password change for high risk events. 
 
-## Connected tenants
+### Connected tenants
 Make sure the security team is aware of all enrollments and associated subscriptions connected to your existing environment (through ExpressRoute or Site-Site VPN. Monitor them as part of the overall enterprise.
 
 Assess if organizational policies and applicable regulatory requirements are followed for the connected tenants. This applies to all Azure environments that connect to your production environment network.

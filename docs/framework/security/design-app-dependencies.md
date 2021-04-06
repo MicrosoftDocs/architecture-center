@@ -6,6 +6,13 @@ ms.date: 10/27/2020
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
+products:
+  - azure-key-vault
+categories: 
+  - security
+subject:
+  - security
+  - configuration
 ms.custom:
   - article
 ---
@@ -34,7 +41,7 @@ Application configuration information can be stored with the application. Howeve
 
 Applications can include secrets like database connection strings, certificate keys, and so on. Do not store secrets in source code or configuration files. Instead keep them in a secure store, such as Azure Key Vault. If you need to store secrets in code, identify them with static code scanning tools. Add the scanning process in your continuous integration (CI) pipeline.
 
-For more information about secret management, see [Key and secret management](design-storage-keys).
+For more information about secret management, see [Key and secret management](design-storage-keys.md).
 
 **Are errors and exceptions handled properly without exposing that information to users?**
 ***

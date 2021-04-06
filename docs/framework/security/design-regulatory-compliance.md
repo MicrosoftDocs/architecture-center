@@ -8,7 +8,10 @@ ms.service: architecture-center
 ms.subservice: well-architected
 product:
   - azure-security-center
-azure-category: management-and-governance
+categories: 
+  - management-and-governance
+subject:
+  - security
 ms.custom:
   - article
 ---

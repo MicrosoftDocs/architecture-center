@@ -9,6 +9,10 @@ ms.subservice: well-architected
 products:
   - azure-active-directory
   - azure-key-vault
+categories:
+  - security
+subject:
+  - security
 ms.custom:
   - article
 ---
