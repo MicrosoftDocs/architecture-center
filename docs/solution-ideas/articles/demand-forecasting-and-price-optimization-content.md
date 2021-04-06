@@ -39,7 +39,7 @@ For post deployment instructions and more details on the technical implementatio
 * [Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs/)
 * [Azure Data Factory](https://azure.microsoft.com/services/data-factory/)
 * [Azure Web App](https://azure.microsoft.com/services/app-service/web/)
-* [Power BI](https://powerbi.microsoft.com/en-us/)
+* [Power BI](https://powerbi.microsoft.com/)
 * Spark on [Azure HDInsight](https://azure.microsoft.com/services/hdinsight/)
 
 ## Next steps
