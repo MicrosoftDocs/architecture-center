@@ -94,7 +94,7 @@ Then, focus on observability of specific services by reviewing the diagnostic lo
 - Do you have overly-permissive inbound rules for management ports in your Network Security Group? 
 - Are the storage accounts receiving traffic over secure connections?
 
-Follow the recommendations provided by Security Center. For more information, see [Networking recommendations](azure/security-center/recommendations-reference#networking-recommendations).
+Follow the recommendations provided by Security Center. For more information, see [Networking recommendations](/azure/security-center/recommendations-reference#networking-recommendations).
 
 Integrate all logs into a security information and event management (SIEM) service, such as Azure Sentinel. The SIEM solutions support ingestion of large amounts of information and can analyze large datasets quickly. Based on those insights, you can:
 - Set alerts or block traffic crossing segmentation boundaries.

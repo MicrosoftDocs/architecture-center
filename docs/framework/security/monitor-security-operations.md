@@ -6,6 +6,15 @@ ms.date: 11/03/2020
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
+products:
+  - azure-security-center
+  - azure-sentinel
+  - azure-monitor
+categories: 
+  - security
+subject:
+  - security
+  - monitoring
 ms.custom:
   - article
 ---
@@ -77,5 +86,5 @@ To get a unified view across the enterprise, feed the logs collected through nat
 - [Security health modeling](monitor.md)
 - [Security tools](monitor-tools.md)
 - [Security logs and audits](monitor-audit.md)
-- [Check for identity, network, data risks](monitor-identity-network.md)
+- [Check for identity, network, data risks](monitor-resources.md)
 

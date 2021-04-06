@@ -6,6 +6,15 @@ ms.date: 01/07/2021
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
+products:
+  - azure-cost-management
+  - azure-security-center
+  - azure-monitor
+categories: 
+  - management-and-governance 
+subject:
+  - security
+  - monitoring
 ms.custom:
   - What scalability tradeoffs are you making?
   - article
