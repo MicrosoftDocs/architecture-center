@@ -11,7 +11,7 @@ ms.custom:
   - design-pattern
 keywords:
   - Azure
-azureCategories:
+categories:
   - devops
   - management-and-governance
   - security
@@ -99,29 +99,29 @@ This table lists various best practices. The **Category** column contains the fo
 
 [About Azure Cache for Redis]: /azure/azure-cache-for-redis/cache-overview
 [Autoscaling]: ./auto-scaling.md
-[Background jobs]: ./background-jobs.md
-[Best practices for monitoring cloud applications]: ./monitoring.md
-[Best practices for using content delivery networks (CDNs)]: ./cdn.md
+[Background jobs]: ./background-jobs.md
+[Best practices for monitoring cloud applications]: ./monitoring.md
+[Best practices for using content delivery networks (CDNs)]: ./cdn.md
 [Caching]: ./caching.md
 [Cloud Design Patterns]: /azure/architecture/patterns/index-patterns
 [Data Management patterns]: /azure/architecture/patterns/category/data-management
-[Data partitioning strategies]: ./data-partitioning-strategies.md
-[Design and implementation patterns]: /azure/architecture/patterns/category/design-implementation
-[Horizontal, vertical, and functional data partitioning]: ./data-partitioning.md
+[Data partitioning strategies]: ./data-partitioning-strategies.md
+[Design and implementation patterns]: /azure/architecture/patterns/category/design-implementation
+[Horizontal, vertical, and functional data partitioning]: ./data-partitioning.md
 [Introduction to Azure Blob storage]: /azure/storage/blobs/storage-blobs-introduction
 [Introduction to the core Azure Storage services]: /azure/storage/common/storage-introduction
-[Message encoding considerations]: ./message-encode.md
-[Messaging patterns]: /azure/architecture/patterns/category/messaging
+[Message encoding considerations]: ./message-encode.md
+[Messaging patterns]: /azure/architecture/patterns/category/messaging
 [Microsoft Azure Well-Architected Framework]: /azure/architecture/framework
 [Overview of autoscale in Microsoft Azure]: /azure/azure-monitor/autoscale/autoscale-overview
-[Overview of the operational excellence pillar]: /azure/architecture/framework/devops/overview
-[Overview of the performance efficiency pillar]: /azure/architecture/framework/scalability/overview
-[Overview of the security pillar]: /azure/architecture/framework/security/overview
-[Principles of cost optimization]: /azure/architecture/framework/cost/overview
-[Principles of the reliability pillar]: /azure/architecture/framework/resiliency/overview
-[Retry guidance for Azure services]: ./retry-service-specific.md
-[Transient fault handling]: ./transient-faults.md
-[Web API design]: ./api-design.md
-[Web API implementation]: ./api-implementation.md
+[Overview of the operational excellene pillar]: /azure/architecture/framework/devops/overview
+[Overview of the performance efficiency pillar]: /azure/architecture/framework/scalability/overview
+[Overview of the security pillar]: /azure/architecture/framework/security/overview
+[Principles of cost optimization]: /azure/architecture/framework/cost/overview
+[Principles of the reliability pillar]: /azure/architecture/framework/resiliency/overview
+[Retry guidance for Azure services]: ./retry-service-specific.md
+[Transient fault handling]: ./transient-faults.md
+[Web API design]: ./api-design.md
+[Web API implementation]: ./api-implementation.md
 [What is Azure SQL Database?]: /azure/azure-sql/database/sql-database-paas-overview
 [What is Azure Table storage?]: /azure/storage/tables/table-storage-overview
