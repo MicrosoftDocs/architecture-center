@@ -1,6 +1,6 @@
 ---
 title: Security alerts in Azure
-description: Use security logs to view operations and raise alerts on anamolous activities in Azure Security Center.
+description: Use security logs to view operations and raise alerts on anomalous activities in Azure Security Center.
 author: PageWriter-MSFT
 ms.date: 03/18/2021
 ms.topic: conceptual
