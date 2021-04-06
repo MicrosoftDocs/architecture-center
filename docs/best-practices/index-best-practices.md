@@ -35,7 +35,7 @@ Each practice offers guidelines and tips for designing and implementing efficien
    :::column span="3":::
       ### Data management
 
-      A key element of cloud applications is [data management][Data Management patterns]. Cloud systems typically host data in different locations and across multiple servers. This approach can improve performance, scalability, and availability but can also present a range of challenges. For example, to maintain consistency, you often need to synchronize data across different locations.
+      A key element of cloud applications is [data management][Data Management patterns]. Cloud systems typically host data in different locations and across multiple servers. This approach can improve performance, scalability, and availability. But this approach can also present a range of challenges. For example, to maintain consistency, you often need to synchronize data across different locations.
    :::column-end:::
 :::row-end:::
 :::row:::
@@ -114,7 +114,7 @@ This table lists various best practices. The **Category** column contains the fo
 [Messaging patterns]: /azure/architecture/patterns/category/messaging
 [Microsoft Azure Well-Architected Framework]: /azure/architecture/framework
 [Overview of autoscale in Microsoft Azure]: /azure/azure-monitor/autoscale/autoscale-overview
-[Overview of the operational excellene pillar]: /azure/architecture/framework/devops/overview
+[Overview of the operational excellence pillar]: /azure/architecture/framework/devops/overview
 [Overview of the performance efficiency pillar]: /azure/architecture/framework/scalability/overview
 [Overview of the security pillar]: /azure/architecture/framework/security/overview
 [Principles of cost optimization]: /azure/architecture/framework/cost/overview
