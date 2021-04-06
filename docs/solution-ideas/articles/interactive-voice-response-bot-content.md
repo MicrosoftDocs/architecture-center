@@ -21,14 +21,14 @@ This solution deploys a fully integrated service stack that manages speech reque
 
 The target use case of this solution is a fictitious company, Contoso LLC, which sells bicycles and bicycle equipment to its customers. Contoso currently processes new product orders and queries through human operators. This automated solution allows Contoso to seamlessly scale up to handle large call volumes while maintaining zero wait times and freeing up staff to manage other tasks.
 
-## Azure AI and NLP Services
+## Core Azure services for the IVR app
 
 * Speech service (Bing Speech API or Cognitive Services Speech Service) transcribes raw speech data into text form.
 * Language Understanding (LUIS) identifies caller intent and spoken entities from the transcribed text. Examples of intents include place an order, find an order, and so on. Examples of entities include product categories, dates, times, and so on.
 * Azure Cognitive Search matches and ranks products from the inventory against the caller's description. Common synonyms are identified with advanced text analysis.
 * Microsoft Bot Framework processes conversation results from the caller and manages the call workflow.
 
-## Supporting Azure Services
+## Supporting Azure services for the IVR app
 
 * Azure Web App hosts the core logic of the bot as a Node.js web app.
 * Cosmos DB stores shared session state for every conversation, allowing the web application to scale out in a stateless architecture.
