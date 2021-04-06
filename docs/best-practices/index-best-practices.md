@@ -11,6 +11,13 @@ ms.custom:
   - design-pattern
 keywords:
   - Azure
+azureCategories:
+  - devops
+  - management-and-governance
+  - security
+  - storage
+products:
+  - azure
 ---
 
 # Cloud best practices
@@ -97,7 +104,7 @@ This table lists various best practices. The **Category** column contains the fo
 [Best practices for using content delivery networks (CDNs)]: ./cdn.md
 [Caching]: ./caching.md
 [Cloud Design Patterns]: /azure/architecture/patterns/index-patterns
-[Data Management patterns]: /azure/architecture/patterns/category/data-management
+[Data Management patterns]: /azure/architecture/patterns/category/data-management
 [Data partitioning strategies]: ./data-partitioning-strategies.md
 [Design and implementation patterns]: /azure/architecture/patterns/category/design-implementation
 [Horizontal, vertical, and functional data partitioning]: ./data-partitioning.md
