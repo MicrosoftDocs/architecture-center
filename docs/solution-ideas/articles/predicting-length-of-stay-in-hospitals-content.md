@@ -26,7 +26,7 @@ There are two different business users in hospital management who can expect to 
 
 SQL Server Machine Learning Services is a feature in SQL Server that gives the ability to run R scripts with relational data. You can use open-source packages and frameworks, and the Microsoft R packages, for predictive analytics and machine learning. The scripts are executed in-database without moving data outside SQL Server or over the network.
 
-This solution walks through the steps needed to create and refine data, train the R models, and perform scoring on the SQL Server machine. The final scored database table in SQL Server gives the predicted LOS for each patient. This data is then visualized in PowerBI. (Simulated data is used in this template to illustrate the feature.)
+This solution walks through the steps needed to create and refine data, train the R models, and perform scoring on the SQL Server machine. The final scored database table in SQL Server gives the predicted LOS for each patient. This data is then visualized in Power BI. (Simulated data is used in this template to illustrate the feature.)
 
 Data scientists who are testing and developing solutions can work conveniently from their preferred R IDE on their local computer, while pushing the compute to the SQL Server. The completed solutions are deployed to SQL Server by embedding calls to R in stored procedures. These solutions can then be further automated with SQL Server Integration Services and SQL Server agent.
 
