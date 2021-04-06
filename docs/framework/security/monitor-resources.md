@@ -115,6 +115,13 @@ Azure AD uses adaptive machine learning algorithms, heuristics, and known compro
 
 Remediate risks by manually addressing each reported account or by setting up a [user risk policy](/azure/active-directory/identity-protection/howto-user-risk-policy) to require a password change for high risk events. 
 
+## Connected tenants
+Make sure the security team is aware of all enrollments and associated subscriptions connected to your existing environment (through ExpressRoute or Site-Site VPN. Monitor them as part of the overall enterprise.
+
+Assess if organizational policies and applicable regulatory requirements are followed for the connected tenants. This applies to all Azure environments that connect to your production environment network.
+
+For information about permissions for this access, see [Assign privileges for managing the environment section]/azure/architecture/framework/security/governance?branch=master#assign-privileges-for-managing-the-environment).
+
 **Is personal information detected and removed/obfuscated automatically?**
 ***
 
@@ -124,5 +131,3 @@ Be cautious when logging sensitive application information. Don't store  persona
 ## Next
 > [!div class="nextstepaction"]
 > [View logs and alerts](monitor-logs-alerts.md)
-
- by increasing cost to attackers. Azure Secure Score in 

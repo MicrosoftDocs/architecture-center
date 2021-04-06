@@ -26,7 +26,6 @@ Regularly monitor resources to maintain the security posture and detect vulnerab
 **How are you monitoring security-related events in this workload?**
 ***
 
-
 > [!div class="checklist"]
 > - Use native tools in Azure to monitor the workload resources and the infrastructure in which it runs.
 > - Monitor traffic, access requests, and application communication between segments.

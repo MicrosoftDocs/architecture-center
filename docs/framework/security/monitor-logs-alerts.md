@@ -1,6 +1,6 @@
 ---
 title: Security alerts in Azure
-description: Remediate the common risks identified by Azure Security Center.
+description: Use security logs to view operations and raise alerts on anamolous activities in Azure Security Center.
 author: PageWriter-MSFT
 ms.date: 03/18/2021
 ms.topic: conceptual
@@ -13,15 +13,13 @@ ms.subservice: well-architected
 Logs provide insight into the operations of a workload, the infrastructure, network communications, and so on. When suspicious activity is detected, use alerts as a way of detecting potential threats. As part of your defense-in-depth strategy and continuous monitoring, respond to the alerts to prevent security assurance from decaying over time. 
 
 ## Key points
+> [!div class="checklist"]
+> - Configure central security log management.
+> - Enable audit logging for Azure resources.
+> - Collect security logs from operating systems.
+> - Configure security log storage retention.
+> - Enable alerts for anomalous activities.
 
-- Configure central security log management.
-- Enable audit logging for Azure resources.
-- Collect security logs from operating systems.
-- Configure security log storage retention.
-- Enable alerts for anomalous activities.
-- Centralize anti-malware logging.
-- Enable DNS query logging.
-- Enable command-line audit logging.
 
 ## Use native services
 
@@ -53,12 +51,6 @@ Use the data to support these activities:
 
 For more information, see [Security alerts and incidents](/azure/security-center/security-center-alerts-overview).
 
-Simulating alerts
-You can simulate alerts by downloading one of the following playbooks:
-
-For Windows: Azure Security Center Playbook: Security Alerts
-
-For Linux: Azure Security Center Playbook: Linux Detections.
 
 ## Centralize logs and alerts
 
@@ -70,7 +62,6 @@ A central view of log and data is recommended. Some advantages include:
 You can collect logs and alerts from various sources centrally in a Log Analytics Workspace, storage account, and Event Hubs. You can then review and query log data efficiently. In Azure Monitor, use the **diagnostic setting** on resources to route specific logs that are important for the organization. Logs vary by resource type. In Azure Security Center, take advantage of the continuous export feature to route alerts.
 
 > [!NOTE] Storage retention
->
 > Platform logs are not available indefinitely. You'll need to keep them so that you can review them later for auditing purposes or offline analysis. Use Azure Storage Accounts for long-term/archival storage. In Azure Monitor, specify a retention period when you enable diagnostic setting for your resources.
 
 Another way to see all data in a single view is to integrate logs and alerts into Security Information and Event Management (SIEM) solutions, such as Azure Sentinel. Other popular third-party choices are Splunk, QRadar, ArcSight. Azure Security Center and Azure Monitor supports all of those solutions.  
@@ -82,7 +73,7 @@ If you don’t have a reasonable expectation that the data will provide value, d
 
 That choice will help in rapid response and remediation by filtering out false positives, and elevate true positives, and so on. Also it will lower SIEM cost, false positives, and increase performance.
 
-## Next steps
+## Next
 Responding to alerts is an essential way to prevent security assurance decay, and designing for defense-in depth and least privilege strategies.
 
 > [!div class="nextstepaction"]
@@ -97,68 +88,4 @@ For more information, see these articles:
 - [Export alerts](/azure/security-ce.nter/security-center-alerts-overview#export-alerts)
 - [Understand Azure Security Center data collection](/azure/security-center/security-center-enable-data-collection)
 
-
-
-
-
-
-
-
-
-Detection can take the form of reacting to an alert of suspicious activity or proactively hunting for anomalous events in the enterprise activity logs. 
-vigilantly responding to anomalies and alerts to prevent security assurance decay, and designing for defense in depth and least privilege strategies. 
-•	Design security controls that identify and allow expected traffic, access requests, and application communication between segments. Monitor the communication between segments to identify anomalies. It will help you set alerts or block traffic to mitigate the risk of attackers crossing segmentation boundaries. 
-The modern machine learning analytics platforms supports ingestion of large amounts of information and can analyze large datasets very quickly. In addition, these solutions can be tuned to significantly reduce the false positive alerts. 
-
-•	Reduce time to acknowledge an alert to ensure that detected attackers are not ignored while defenders are spending time investigating false positives. 
-
-•	On Azure, use capabilities such as Azure Security Center for alert generation. 
-
-Enable, acquire, and store audit logs for Azure services.
-## Key points
-> [!div class="checklist"]
-> - Use approved time synchronization sources.
-> - Configure central security log management.
-> - Enable audit logging for Azure resources.
-> - Collect security logs from operating systems.
-> - Configure security log storage retention.
-> - Monitor and review logs.
-> - Enable alerts for anomalous activities.
-> - Centralize anti-malware logging.
-> - Enable DNS query logging.
-> - Enable command-line audit logging.
-
-
-
-## Use native logging through Azure Monitor
-
-Use Azure Monitor to log application activity and feed into a Security Information and Event Management (SIEM). You can also use Azure Monitor to collect activity logs transmitted by Azure resources. Activity logs provide detailed diagnostic and auditing information. 
-
-For more information, see these articles:
-
-- [How to get started with Azure Monitor and third-party SIEM integration](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/)
-- [How to collect platform logs and metrics with Azure Monitor](/azure/azure-monitor/platform/diagnostic-settings)
-
-
-You can use Azure Monitor to collect information about the operating system running on Azure compute. If you're running your own compute, use Azure Security Center. For more information, see [Understand Azure Security Center data collection](/azure/security-center/security-center-enable-data-collection).
-
-Within Azure Monitor, create Log Analytics Workspace to store logs. You can also review logs and perform queries on log data. Set the retention period according to your organization's compliance regulations. Use Azure Storage Accounts for long-term/archival storage. 
-
-## Prioritize alert and log integration
-
-Ensure that you are integrating critical security alerts and logs into SIEMs without introducing a high volume of low value data. Doing so can increase SIEM cost, false positives, and lower performance.
-
-Use the data to support these activities:
-
-- Alerts. Use existing tools or data required for generating custom alerts.
-- Investigation of an incident. For example, required for common queries.
-- Proactive hunting activities.
-
-Integrating more data can allow you to enrich alerts with additional context that enable rapid response and remediation (filter false positives, and elevate true positives, and so on.), but collection is not detection. If you don’t have a reasonable expectation that the data will provide value (for example, high volume of firewall denies events), you may deprioritize integration of these events.
-
-
-
-
-## Next steps
-> [!div class="nextstepaction"]
-> [Compliance monitoring](monitor-audit.md)
+> Go back to the main article: [Monitor](monitor.md)

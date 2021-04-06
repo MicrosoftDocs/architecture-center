@@ -74,7 +74,7 @@ With proper *file protection*, you can analyze data flows to gain insight into y
 [classification](/microsoft-365/compliance/data-classification-overview).
 
 
-## Next steps
+## Next
 > [!div class="nextstepaction"]
 > [Monitor workload resources in Azure Security Center](monitor-resources.md)
 

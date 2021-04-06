@@ -52,6 +52,13 @@ Simulate a persistent threat actor targeting your environment through a red team
 
 A popular choice for ro simulate realistic attack scenarios is [Office 365 Attack Simulator](/office365/securitycompliance/attack-simulator). 
 
+## Simulate alerts
+You can simulate alerts by downloading one of the following playbooks:
+
+- [For Windows: Azure Security Center Playbook: Security Alerts]()
+
+- [For Linux: Azure Security Center Playbook: Linux Detections]()
+
 
 ## Related links
 

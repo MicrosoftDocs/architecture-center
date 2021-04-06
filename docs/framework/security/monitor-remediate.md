@@ -22,27 +22,46 @@ Start by remediating common security risks. These risks are usually from well-es
 - Track remediation progress with secure score and comparing against historical results. 
 - Address alerts and take action with remediation steps.
 
-## Track the secure score
+## Track Secure Score
 
 **Does you review and remediate common risks within Azure tenants?**
 ***
 
-Monitor the security posture of VMs, networks, storage, data services, and various other contributing factors. [Secure Score](/azure/security-center/secure-score-security-controls) in Azure Security Center shows a composite score that represents the security posture at the subscription level. 
+Monitor the security posture of VMs, networks, storage, data services, and various other contributing factors. [Secure Score](/azure/security-center/secure-score-security-controls) in Azure Security Center shows a composite score that represents the security posture at the subscription level.  
 
 ![Azure secure score overview](images/secure-score-tile.png)
 
-There might be some resources that may not get remediated as the Azure Platform evolves. For example, compliance can prevents adoption of new features.
 
-Assign stakeholders to use [Secure Score](/azure/security-center/secure-score-security-controls) in Azure Security Center to monitor risk profile and continuously improve security posture. 
-
-> [!div class="nextstepaction"]
-> [Operationalize Azure Secure Score](./governance.md?branch=master#operationalize-azure-secure-score)
-
-
-**Do you have a process for formally reviewing secure score on Azure Security Center?**
+**Do you have a process for formally reviewing Secure Score on Azure Security Center?**
 ***
 
 As you review the results and apply recommendations, track the progress and prioritize ongoing investments. Higher score indicates a better security posture. 
+
+- Assign stakeholders for monitoring and improving the score. Gamify the activity if possible to increase engagement and focus from the responsible teams.
+    
+    Have dedicated teams that monitor Secure Score and follow up with technical teams. Typically, these teams are responsible. 
+    - Security posture management team
+    - Vulnerability management or governance, risk, and compliance team
+    - Architecture team
+    - Resource-specific technical teams responsible for improving secure score, as shown in this table.
+
+    |Category|Resources|Responsible team|
+    |---|---|---|
+    |Compute and applications|App Services|Application Development/Security Team(s) |
+    ||Containers|Application Development and/or |Infrastructure/IT Operations|
+    ||Virtual machines, scale sets, compute|IT/Infrastructure Operations|
+    |Data and Storage|SQL/Redis/Data Lake Analytics/Data Lake Store|Database Team|
+    ||Storage Accounts|Storage/Infrastructure Team|
+    |Identity and access management|Subscriptions|Identity Team(s)|
+    ||Key Vault|Information/Data Security Team|
+    | Networking Resources||<li> Networking Team <li> Network Security Team|
+    |IoT Security|IoT Resources | IoT Operations Team|
+
+> [!NOTE] In the DevOps model, some application teams may be responsible for their own application resources.
+
+:::image type="icon" source="../../_images/github.png" border="false"::: The [Azure Secure Score sample](https://github.com/mspnp/samples/tree/master/Security/AzureSecureScoreSample) shows how to get your Azure Secure Score for a subscription by calling the Azure Security Center REST API. The API methods provide the flexibility to query the data and build your own reporting mechanism of your secure scores over time.
+
+- Set up a regular cadence (typically monthly) to review the secure score and plan initiatives with specific improvement goals. 
 
 ## Review and remediate recommendations
 
@@ -58,9 +77,6 @@ Security Center has the capability of exporting results at configured intervals.
 
 For more information, see [Continuous export](azure/security-center/continuous-export). 
 
-Software-defined datacenters allow easy and rapid discovery of all resources, enabling technology like [Azure Security Center](/azure/security-center/security-center-intro) to quickly and accurately measure the patch state of all servers. 
-
-
 ## Policy remediation
 
 A common approach for maintaining the security posture is through Azure Policy. 
@@ -74,7 +90,6 @@ Another use case is that it can be automatically remediated by deploying related
 - The resource deployed because of **DeployIfNotExist** is owned by a separate identity. That identity must have high enough privileges to make changes to the subscription. 
 
 
-
 ## Manage alerts
 
 Azure Security Center shows a list of alerts that's based on logs collected from resources within a scope. Alerts include context information such as severity, status, activity time. Most alerts have MITRE ATT&CK® tactics that can help you understand the kill chain intent. Select the alert and investigate the problem with detailed information. 
@@ -83,12 +98,14 @@ Finally take action. That action can be to fix the resources that are out of com
 
 Make sure that you are integrating critical security alerts into Security Information and Event Management (SIEM), Security Orchestration Automated Response (SOAR) without introducing a high volume of low value data. Azure Security Center can stream alerts to Azure Sentinel. You can also use a third-party solution by using Microsoft Graph Security API.
 
-## Next steps
+## Next
 > [!div class="nextstepaction"]
 > [Azure security operations](monitor-security-operations.md)
 
 
 ## Related links
+
+> Go back to the main article: [Monitor](monitor.md)
 
 
 
