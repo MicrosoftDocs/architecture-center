@@ -10,7 +10,7 @@ Infrastructure as code uses Azure Resource Manager templates (ARM templates) or 
 
 ## Architecture
 
-![An architectural diagram showing the deployment of a chatbot with continuous integration and continuous deployment (CI/CD) using Azure Pipelines and ARM templates.](./media/deployment-flow.png)
+![Architectural diagram: deployment of a chatbot with continuous integration and continuous deployment (CI/CD) using Azure Pipelines and ARM templates.](./media/ci-cd-pipeline-deployment-arm-templates.png)
 
 In this example:
 
@@ -54,9 +54,9 @@ The example uses a simple C# chatbot designed to work in the Microsoft Teams cha
 
 To develop a new bot, create a C# Bot Framework project in Visual Studio. You can use the Echo Bot template, or start an empty project. For a comprehensive tutorial on creating a Bot Framework project, see [Create a bot with the Bot Framework SDK for .NET](/azure/bot-service/dotnet/bot-builder-dotnet-sdk-quickstart?view=azure-bot-service-4.0). For information on configuring a bot to run on multiple channels, see [Manage channels in Bot Service](/azure/bot-service/bot-service-manage-channels). Adding a bot in Microsoft Teams requires a few extra steps and considerations. For details, see [Bots in Microsoft Teams](/microsoftteams/platform/concepts/bots/bots-overview).
 
-You can test and debug your chatbot during development with the [Bot Framework emulator](https://github.com/Microsoft/BotFramework-Emulator), a desktop app that lets you test and debug bots built with the BotBuilder SDK.
+You can test and debug your chatbot during development with the [Bot Framework emulator](https://github.com/Microsoft/BotFramework-Emulator). The emulator is a desktop app that lets you test and debug bots built with the BotBuilder SDK.
 
-[Unit testing](https://en.wikipedia.org/wiki/Unit_testing) tests specific parts of source code against a desired outcome. Unit testing chatbots use the same principles and best practices as testing other apps. For more information about unit testing, see [Unit testing in .NET](/dotnet/core/testing/) and [Unit testing best practices](/dotnet/core/testing/unit-testing-best-practices).
+[Unit testing](https://en.wikipedia.org/wiki/Unit_testing) tests specific parts of source code against a target outcome. Unit testing chatbots use the same principles and approaches as testing other apps. For more information about unit testing, see [Unit testing in .NET](/dotnet/core/testing/) and [Unit testing best practices](/dotnet/core/testing/unit-testing-best-practices).
 
 You can add a unit test project to a chatbot solution in Visual Studio, and choose between MSTest or XUnit for the project. For a live view of the unit tests, [configure Live Unit Testing](/visualstudio/test/live-unit-testing).
 
@@ -88,7 +88,7 @@ To deploy to Azure, the bot needs an Application ID and password, and the abilit
 
 ### Application Insights
 
-Azure Application Insights can collect telemetry from the app about what the bot logic is doing and how it is performing. You can also connect Application Insights directly to the Bot Service. The deployed *applicationInsights.json* ARM template creates Application Insights for the chatbot app. The template also outputs the Application Insights Instrumentation Key and Resource ID. You use these to configure the Bot Service endpoint and collect telemetry directly from Azure Bot Service.
+Azure Application Insights can collect telemetry from the app about what the bot logic is doing and how it's performing. You can also connect Application Insights directly to the Bot Service. The deployed *applicationInsights.json* ARM template creates Application Insights for the chatbot app. The template also outputs the Application Insights Instrumentation Key and Resource ID. You use this information to configure the Bot Service endpoint and collect telemetry directly from Azure Bot Service.
 
 ## Issues and considerations
 
@@ -96,7 +96,7 @@ Azure Application Insights can collect telemetry from the app about what the bot
 
 - The linked ARM templates for deploying the infrastructure need to be accessible from a public endpoint, like a Git repository or an Azure Blob Storage account. If you upload the templates to a storage account, they remain secure, as they are held in a private mode but can be accessed using some form of SAS token.
 
-- A common practice is to use [Azure KeyVault](/azure/key-vault) instead of storing secrets in Azure DevOps. If the Service Principal connection to your Azure Subscription has appropriate access policies to the Azure KeyVault, it can download secrets from the KeyVault to use as variables in your pipeline, which avoids storing them in source control. The name of the secret will be set with the associated value. For example, a secret in the KeyVault called `botMicrosoftAppPassword` could be referenced by `$(botMicrosoftAppPassword)` in the release pipeline definition.
+- A common practice is to use [Azure KeyVault](/azure/key-vault) instead of storing secrets in Azure DevOps. If the Service Principal connection to your Azure Subscription has appropriate access policies to the Azure KeyVault, it can download secrets from the KeyVault to use as variables in your pipeline. Doing so avoids storing secrets in source control. The name of the secret will be set with the associated value. For example, a secret in the KeyVault called `botMicrosoftAppPassword` could be referenced by `$(botMicrosoftAppPassword)` in the release pipeline definition.
 
 - You can set up [Bot Analytics](/azure/bot-service/bot-service-manage-analytics) to gain more insight into the performance of your bot. To set up Bot Analytics, you need an API Key from Application Insights, but you can't create this key by using an ARM template. You can create the key manually from your Application Insights resource in the Azure portal.
 
@@ -120,7 +120,7 @@ To deploy to Azure, the bot needs an Application ID and password, and the abilit
 
 ### Bot testing
 
-Test and debug your chatbot during development with the [Bot Framework emulator](https://github.com/Microsoft/BotFramework-Emulator), a desktop app that lets you test and debug bots built with the BotBuilder SDK. Download the emulator from the [GitHub releases page](https://github.com/Microsoft/BotFramework-Emulator/releases/tag/v4.2.1). Once installed, start talking to your bot either by connecting to an endpoint or by opening a bot saved locally. The emulator provides information in JSON format, which is easy to read and comprehend.
+Test and debug your chatbot during development with the [Bot Framework emulator](https://github.com/Microsoft/BotFramework-Emulator), a desktop app that lets you test and debug bots built with the BotBuilder SDK. Download the emulator from the [GitHub releases page](https://github.com/Microsoft/BotFramework-Emulator/releases/tag/v4.2.1). Once installed, start talking to your bot by connecting to an endpoint or by opening a bot saved locally. The emulator provides information in JSON format, which is easy to read and comprehend.
 
 The [example solution](https://github.com/mspnp/solution-architectures/blob/master/cicdbots/application/Devopsbot.sln) also includes a unit test project, and the example build pipeline runs the unit tests.
 
@@ -142,7 +142,7 @@ To create the release pipeline:
 1. In the left navigation of your Azure DevOps project, select **Pipelines** > **Releases**, and then select **New pipeline**.
 1. Under **Select a template**, select **Empty job**. Change the stage name to something meaningful, like **Dev**.
 1. Under **Artifacts** on the left, select **Add**, then under **Add an artifact**, select **Build**.
-1. Select your build pipeline from the dropdown. Make a note of the **Source Alias**, as you will need it when creating the release tasks. Select **Add**.
+1. Select your build pipeline from the dropdown. Note the **Source Alias**, as you will need it when creating the release tasks. Select **Add**.
 1. Select **Artifacts** > **Add** again, then under **Add an artifact**, select **GitHub**. You may have to authorize the GitHub connection.
 1. Under **Source (repository)**, select the example repository that contains the ARM templates, and then select **Add**.
 1. On the pipeline page, select the **Variables** tab. Select **Add**, and set the following name/value pairs:
