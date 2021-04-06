@@ -1481,6 +1481,8 @@ items:
             items:      
               - name: App modernization
                 items:
+                  - name: IBM z/OS migration with Asysco AMT
+                    href: example-scenario/mainframe/asysco-zos-migration.yml
                   - name: Micro Focus Enterprise Server on Azure
                     href: example-scenario/mainframe/micro-focus-server.yml
                   - name: Migrate IBM applications with TmaxSoft OpenFrame
