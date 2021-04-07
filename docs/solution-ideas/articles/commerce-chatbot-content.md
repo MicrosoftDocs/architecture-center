@@ -46,7 +46,6 @@ Key technologies used to implement this architecture:
 * [How to build a basic chatbot](/learn/modules/how-build-basic-chatbot/)
 * [Create Intelligent Bots with the Azure Bot Service](/learn/paths/create-bots-with-the-azure-bot-service/)
 * [Create conversational AI solutions](/learn/paths/create-conversational-ai-solutions/)
-* []()
 
 Fully deployable architectures:
 
