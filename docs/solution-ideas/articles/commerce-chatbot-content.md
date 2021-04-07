@@ -41,7 +41,7 @@ Key technologies used to implement this architecture:
 * [Introduction to Bot Framework Composer](/composer/introduction)
 * [What is Application Insights](/azure/azure-monitor/app/app-insights-overview)
 
-### Microsoft Learn modules
+Microsoft Learn modules:
 
 * [How to build a basic chatbot](/learn/modules/how-build-basic-chatbot/)
 * [Create Intelligent Bots with the Azure Bot Service](/learn/paths/create-bots-with-the-azure-bot-service/)
