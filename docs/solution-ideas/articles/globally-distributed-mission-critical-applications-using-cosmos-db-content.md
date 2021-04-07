@@ -8,7 +8,7 @@ Guarantee access to users around the world with the high-availability and low-la
 ## Architecture
 
 ![Architecture Diagram](../media/globally-distributed-mission-critical-applications-using-cosmos-db.png)
-*Download an [SVG](../media/globally-distributed-mission-critical-applications-using-cosmos-db.svg) version of this architecture.*
+<br /> *Download an [SVG](../media/globally-distributed-mission-critical-applications-using-cosmos-db.svg) version of this architecture.*
 
 ## Data flow
 
@@ -29,7 +29,7 @@ Underneath the covers, Cosmos DB will handle the global distribution and replica
 ### Compute options
 
 * [Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines): Create Linux and Windows virtual machines (VMs) in seconds and reduce costs.
-* [Azure Kubernetes Services](https://azure.microsoft.com/en-us/services/kubernetes-service): Highly available, secure, and fully managed Kubernetes service for all your application and microservice base workloads.
+* [Azure Kubernetes Services](https://azure.microsoft.com/services/kubernetes-service): Highly available, secure, and fully managed Kubernetes service for all your application and microservice base workloads.
 * [App Service](https://azure.microsoft.com/services/app-service): Quickly create powerful cloud apps for web and mobile.
 
 ### Serverless options
@@ -56,7 +56,9 @@ Scaling is based upon many levels in this diagram. Azure Cosmos DB is purpose-bu
 ### Security
 
 From a security perspective, drive towards an identity-based system, where Azure Active Directory can be used to secure access to the environment. In the backend, the application is (by best design) accessed through Managed Identities, although one could also consider the approach of using Azure Active Directory Users and Azure Key Vault for securing access.
-**Note:** as of Ignite March 2021, we now also support [Azure Active Directory RBAC directly on the Cosmos DB SQL API](https://docs.microsoft.com/en-us/azure/cosmos-db/how-to-setup-rbac).
+
+> [!NOTE]
+> As of Ignite March 2021, we now also support [Azure Active Directory RBAC directly on the Cosmos DB SQL API](https://docs.microsoft.com/azure/cosmos-db/how-to-setup-rbac).
 
 ## Next steps
 
