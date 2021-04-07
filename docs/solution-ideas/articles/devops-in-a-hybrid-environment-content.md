@@ -28,3 +28,9 @@ In many scenarios, the adoption of the Azure cloud as a business solution involv
 * [Azure AD](/azure/active-directory/fundamentals/active-directory-whatis) provides identity and access management services for your application, both on-premises and on the cloud. Azure AD can synchronize with an on-premises Active Directory to seamlessly allow your users to authenticate everywhere.
 * [Azure Web Apps](/azure/app-service/overview) is a managed platform for hosting web-based applications in the cloud.
 * [Azure SQL Database](/azure/sql-database/sql-database-technical-overview) is a managed database service for transactional applications.
+
+## Next steps
+
+* [Run containers in a hybrid environment](/azure/architecture/hybrid/hybrid-containers)
+* [CI/CD for Azure Web Apps](/azure/architecture/solution-ideas/articles/azure-devops-continuous-integration-and-continuous-deployment-for-azure-web-apps)
+* [DevTest and DevOps for microservice solutions](/azure/architecture/solution-ideas/articles/dev-test-microservice)

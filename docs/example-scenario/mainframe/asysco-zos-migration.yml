@@ -1,0 +1,26 @@
+### YamlMime:Architecture
+metadata:
+  title: IBM z/OS mainframe migration with Asysco
+  titleSuffix: Azure Example Scenarios
+  description: See how to use the Asysco Automated Migration Technology (AMT) framework to migrate IBM z/OS mainframe workloads to Azure.
+  author: EdPrice-MSFT
+  ms.author: jfrost
+  ms.date: 04/01/2021
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: example-scenario
+  ms.custom:
+    - fcp
+name: IBM z/OS mainframe migration with Asysco AMT
+summary: See how to use the Asysco Automated Migration Technology (AMT) framework to migrate IBM z/OS mainframe workloads to Azure.
+azureCategories:
+  - hybrid
+  - migration
+products:
+  - azure-load-balancer
+  - azure-sql-database
+  - azure-virtual-machines
+  - azure-virtual-network
+thumbnailUrl: /azure/architecture/browse/thumbs/zos-components.png
+content: |
+   [!include[](asysco-zos-migration-content.md)]

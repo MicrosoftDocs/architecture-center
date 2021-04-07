@@ -1,7 +1,7 @@
 
 <!-- cSpell:ignore pracjain -->
 
-
+[!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
 In the ever-changing world of regulations, organizations face the challenge of staying on top of audits and compliance. Mistakes in contracts and record-keeping can have serious financial ramifications. At the enterprise level, teams of lawyers might not be enough to catch everything. Knowledge mining can provide helpful assistance for organizations looking to stay above board.
 
