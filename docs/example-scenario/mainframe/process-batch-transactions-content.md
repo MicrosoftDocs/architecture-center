@@ -75,7 +75,7 @@ The following considerations, based on the [Azure Well-Architected Framework](ht
 
 ### Operational considerations
 
-- [Azure Resource Manager templates](https://azure.microsoft.com/services/arm-templates/) provide a configuration language to describe your resources in templates that you can use for scripted deployment. The templates also provide monitoring and alerting capabilities.
+- [Azure Resource Manager templates (ARM templates)](https://azure.microsoft.com/services/arm-templates/) provide a configuration language to describe your resources in templates that you can use for scripted deployment. The templates also provide monitoring and alerting capabilities.
 
 ### Performance considerations
 
