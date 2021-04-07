@@ -1,10 +1,10 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-The Azure Bot Service with Language Understanding enables developers to create conversational interfaces for banking, travel, and entertainment commerce scenarios. For example, a hotel concierge can use a bot to enhance traditional e-mail and phone call interactions. The bot validates a customer via Azure Active Directory and uses Azure Cognitive Services to contextually process customer service requests using text and voice. Add the Speech recognition service to support voice commands.
+The Azure Bot Service with Language Understanding enables developers to create conversational interfaces for banking, travel, and entertainment commerce scenarios. For example, a hotel concierge can use a bot to enhance traditional e-mail and phone call interactions. The bot validates a customer via Azure Active Directory and uses Azure Cognitive Services to contextually process customer service text and voice requests. Add the Speech recognition service to support voice commands.
 
 ## Architecture
 
-![Architectural diagram: example of e-commerce chatbot for customer service running on Azure.](../media/commerce-chatbot-customer-service.svg)
+![Architectural diagram: example of e-commerce chatbot for customer service requests.](../media/commerce-chatbot-customer-service.svg)
 
 *Download an [SVG](../media/commerce-chatbot-customer-service.svg) of this architecture.*
 
