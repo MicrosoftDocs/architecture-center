@@ -16,7 +16,7 @@ The Azure Bot Service with Language Understanding enables developers to create c
 1. Cognitive Services helps process the natural language request.
 1. The response is reviewed by the customer, who can refine the question using natural conversation.
 1. Once the user is happy with the results, the Application Bot updates the customer's reservation.
-1. Application Insights monitors runtime performance to help development with Bot performance and usage.
+1. Application Insights monitors the live application to diagnose issues and help understand how to improve Bot performance and usability.
 
 ## Components
 
@@ -41,14 +41,14 @@ Key technologies used to implement this architecture:
 * [Introduction to Bot Framework Composer](/composer/introduction)
 * [What is Application Insights](/azure/azure-monitor/app/app-insights-overview)
 
-Microsoft Learn modules:
-
-* [How to build a basic chatbot](/learn/modules/how-build-basic-chatbot/)
-* [Create Intelligent Bots with the Azure Bot Service](/learn/paths/create-bots-with-the-azure-bot-service/)
-* [Create conversational AI solutions](/learn/paths/create-conversational-ai-solutions/)
-
 Fully deployable architectures:
 
 * [Chatbot for hotel reservations](../../example-scenario/ai/commerce-chatbot.yml)
 * [Build an enterprise-grade conversational bot](../../reference-architectures/ai/conversational-bot.yml)
 * [Speech-to-text conversion](../../reference-architectures/ai/speech-ai-ingestion.yml)
+
+Microsoft Learn modules:
+
+* [How to build a basic chatbot](/learn/modules/how-build-basic-chatbot/)
+* [Create Intelligent Bots with the Azure Bot Service](/learn/paths/create-bots-with-the-azure-bot-service/)
+* [Create conversational AI solutions](/learn/paths/create-conversational-ai-solutions/)
