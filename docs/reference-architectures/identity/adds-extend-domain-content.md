@@ -74,7 +74,17 @@ Deploy the VMs running AD DS into an [availability set][availability-set]. Also,
 
 Perform regular AD DS backups. Don't copy the VHD files of domain controllers instead of performing regular backups, because the AD DS database file on the VHD may not be in a consistent state when it's copied, making it impossible to restart the database.
 
-Do not shut down a domain controller VM using Azure portal. Instead, shut down and restart from the guest operating system. Shutting down through the portal causes the VM to be deallocated, which resets both the `VM-GenerationID` and the `invocationID` of the Active Directory repository. This discards the AD DS relative identifier (RID) pool and marks the sysvol folder as nonauthoritative, and may require reconfiguration of the domain controller.
+It is not recommended to shut down a domain controller VM using the Azure portal. Instead, shut down and restart from the guest operating system. Shutting down through the Azure portal causes the VM to be deallocated which results in the following effects when the domain controller VM is restarted:
+
+1. Resets the `VM-GenerationID` and the `invocationID` of the Active Directory repository.
+2. Discards the current Active Directory relative identifier (RID) pool
+3. Marks the sysvol folder as nonauthoritative
+
+The first issue is relatively benign. Repeated resetting of the `invocationID` will cause minor additional bandwidth usage during replication, but this is usually not significant.
+
+The second issue can contribute to RID pool exhaustion in the domain, especially if the RID pool size has been configured to be larger than the default. Consider that if the domain has been around for a very long time, or is used for workflows requiring repetitive creation and deletion of accounts, the domain may already be nearing RID pool exhaustion. It is a good practice to monitor the domain for RID pool exhaustion warning events – see the [Managing RID Issuance](https://docs.microsoft.com/windows-server/identity/ad-ds/manage/managing-rid-issuance) article.
+
+The third issue is relatively benign as long as an authoritative domain controller is available when a domain controller VM in Azure is restarted. If all domain controllers in a domain are running in Azure, and they are all simultaneously shutdown and deallocated, on restart each DC will fail to find an authoritative replica. Fixing this condition requires manual intervention – see the [How to force authoritative and non-authoritative synchronization for DFSR-replicated sysvol replication](https://docs.microsoft.com/troubleshoot/windows-server/group-policy/force-authoritative-non-authoritative-synchronization) article.
 
 ## Security considerations
 

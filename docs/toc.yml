@@ -433,6 +433,16 @@ items:
                     href: framework/security/design-regulatory-compliance.md
                   - name: Configuration and dependencies
                     href: framework/security/design-app-dependencies.md
+          - name: Build-deploy
+            items:
+              - name: Checklist
+                href: framework/security/deploy.md
+              - name: Governance considerations
+                href: framework/security/deploy-governance.md
+              - name: Infrastructure provisioning
+                href: framework/security/deploy-infrastructure.md                
+              - name: Code deployments
+                href: framework/security/deploy-code.md
           - name: Monitor
             items:
               - name: Checklist
@@ -1471,6 +1481,10 @@ items:
             items:      
               - name: App modernization
                 items:
+                  - name: High-volume batch transaction processing
+                    href: example-scenario/mainframe/process-batch-transactions.yml
+                  - name: IBM z/OS migration with Asysco AMT
+                    href: example-scenario/mainframe/asysco-zos-migration.yml
                   - name: Micro Focus Enterprise Server on Azure
                     href: example-scenario/mainframe/micro-focus-server.yml
                   - name: Migrate IBM applications with TmaxSoft OpenFrame
@@ -1485,6 +1499,8 @@ items:
                     href: reference-architectures/migration/unisys-mainframe-migration.yml
               - name: Data modernization
                 items:
+                  - name: Mainframe file replication on Azure
+                    href: solution-ideas/articles/mainframe-azure-file-replication.yml
                   - name: Modernize mainframe and midrange data
                     href: reference-architectures/migration/modernize-mainframe-data-to-azure.yml
                   - name: Replicate and sync mainframe data in Azure
