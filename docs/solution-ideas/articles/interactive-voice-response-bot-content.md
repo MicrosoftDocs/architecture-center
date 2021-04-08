@@ -1,6 +1,6 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-This solution idea shows how to architect an interactive voice response (IVR) application with a bot and custom machine-learning intelligence. This particular IVR app processes customer order requests for bicycles and bicycle accessories. However, IVR can be applied to a wide range of scenarios. Businesses with no existing IVR solution can easily get started automating requests. Or, businesses with human-operated systems can use this solution to extend their existing functionality and workflows.
+This solution idea shows how to architect an interactive voice response (IVR) application with a bot and custom machine-learning intelligence. This particular IVR app processes customer order requests for bicycles and bicycle accessories. However, this IVR architecture can be applied to a wide range of scenarios. Businesses with no existing IVR solution can easily get started automating requests. Or, businesses with human-operated systems can use this solution to extend their existing functionality and workflows.
 
 ## Architecture of the IVR app
 
