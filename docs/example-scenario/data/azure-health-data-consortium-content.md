@@ -42,17 +42,21 @@ Commonly, Healthcare data are on many different platforms:
 
 Data is loaded from these different data sources using several Azure components:
 
-- [Azure Data Share](https://docs.microsoft.com/en-us/azure/data-share/overview) enables organizations to simply and securely share data with multiple Members. Data providers both Members and Consortium are always in control of the data that they have shared. Azure Data Share makes it simple to manage and monitor what data was shared, when and by whom. Azure Data Share helps enhance insights by making it easy to combine data from all Members to enrich analytics and AI scenarios. 
+- [Azure Data Share][What is Azure Data Share?] provides a way for multiple organizations to securely share data. With this tool, data providers stay in control of data that they share. And it's simple to manage and monitor who shared what data at what time. Azure Data Share also makes it easy to enrich analytics and AI scenarios by combining data from different members.
 
-- [Azure Synapse Analytics](https://docs.microsoft.com/en-us/azure/synapse-analytics/) is an analytics service that brings together enterprise data warehousing and Big Data analytics. It gives you the freedom to query data on your terms, using either serverless on-demand or provisioned resources—at scale. As Consortium data store will have data from all Members, Synapse would be a good fit for higher volume of structured data.
+- [Azure Synapse Analytics][What is Azure Synapse Analytics?] is an analytics service for data warehouses and big data systems. With this tool, you can query data with serverless, on-demand resources or with provisioned ones. Azure Synapse Analytics works well with a high volume of structured data.
 
-- [Azure SQL Database](https://docs.microsoft.com/en-us/azure/azure-sql/database/sql-database-paas-overview) is a fully managed platform as a service (PaaS) database engine that handles most of the database management functions such as upgrading, patching, backups, and monitoring without user involvement. Azure SQL DB would be a good fit for Members with structured data.
+- [Azure SQL Database][What is Azure SQL Database?] is a fully managed platform as a service (PaaS) database engine. With AI-powered, automated features, SQL Database handles database management functions like upgrading, patching, backups, and monitoring. This service is a good fit for structured data.
 
-- [Azure Data Lake Gen2](https://docs.microsoft.com/en-us/azure/storage/blobs/data-lake-storage-introduction) is massively scalable and secure data lake for high-performance analytics workloads. Designed to service multiple petabytes of information while sustaining hundreds of gigabits of throughput, Data Lake Storage Gen2 allows you to easily manage massive amounts of data. Azure Data Lake Gen2 would be a good fit to land all Member's structured and unstructured data into one location.
+- [Azure Data Lake Gen2][Introduction to Azure Data Lake Storage Gen2] is a massively scalable and secure data lake for high-performance analytics workloads. This service can manage multiple petabytes of information while sustaining hundreds of gigabits of throughput. Azure Data Lake Gen2 provides a way to store structured and unstructured data from multiple members in one location.
 
-- [Azure Data Explorer](https://docs.microsoft.com/en-us/azure/data-explorer/) is a fast, fully managed data analytics service for real-time analysis on large volumes of data streaming from applications, websites, IoT devices, and more. Azure Data Explorer would be good fit for In-Place Sharing of streaming telemetry and log data.
+- [Azure Data Explorer][What is Azure Data Explorer?] is a fast, fully managed data analytics service. You can use this tool for real-time analysis on large volumes of data. Data Explorer can handle diverse data streams from applications, websites, IoT devices, and other sources. Azure Data Explorer is a good fit for in-place sharing of streaming telemetry and log data.
 
-- [Azure Data Factory](https://docs.microsoft.com/en-us/azure/data-factory/introduction) is a fully managed, serverless data integration service for scale-out serverless data integration and data transformation. It offers a code-free UI for intuitive authoring and single-pane-of-glass monitoring and management. Pipelines will be used to ingest data from disparate Member data shares.
+- [Azure Data Factory][What is Azure Data Factory?] is a hybrid data integration service. You can use this fully managed, serverless solution for data integration and transformation workflows. It offers a code-free UI and an easy-to-use monitoring panel. In this solution, Data Factory pipelines ingest data from disparate member data shares.
+
+
+
+
 
 - [Azure Databricks](https://docs.microsoft.com/en-us/azure/databricks/scenarios/what-is-azure-databricks) is a data analytics platform that  provides the latest versions of Apache Spark and allows seamlessly integration with open source libraries. Databricks notebooks will be used to transform all Member data into common format.
 
@@ -117,7 +121,7 @@ Learn more about
 - [Azure Synapse Analytics](https://azure.microsoft.com/en-us/resources/videos/securing-your-data-warehouse-with-azure-synapse-analytics/)
 - [Azure SQL Database](https://docs.microsoft.com/en-us/azure/azure-sql/database/security-overview)
 - [Azure Data Lake Gen2](https://docs.microsoft.com/en-us/azure/storage/blobs/data-lake-storage-access-control)
-- [Azure Data Explorer](https://docs.microsoft.com/en-us/azure/data-explorer/security) 
+- [Azure Data Explorer](https://docs.microsoft.com/en-us/azure/data-explorer/security)
 
 Modify the reference architecture above to fit your specific requirements by answering these questions:
 - What and where are your Data sources?
@@ -125,7 +129,7 @@ Modify the reference architecture above to fit your specific requirements by ans
 - What Member data will be shared with Consortium?
 - Which data store(s) will Consortium land the shared data?
 - Is the Member data already in common format or needs cleansing and transformation?
-- Will the data be shared as batch or Snapshot, or streaming or In-Place? 
+- Will the data be shared as batch or Snapshot, or streaming or In-Place?
 - What data will Consortium share with Members?
 
 ## Related resources
@@ -135,3 +139,9 @@ Modify the reference architecture above to fit your specific requirements by ans
 - [Microsoft DICOM](https://github.com/microsoft/dicom-server)
 - [Microsoft Genomics](https://azure.microsoft.com/en-us/services/genomics/)
 
+[Introduction to Azure Data Lake Storage Gen2]: /azure/storage/blobs/data-lake-storage-introduction
+[What is Azure Data Factory?]: /azure/data-factory/introduction
+[What is Azure Data Explorer?]: /azure/data-explorer/data-explorer-overview
+[What is Azure Data Share?]: /azure/data-share/overview
+[What is Azure SQL Database?]: /azure/azure-sql/database/sql-database-paas-overview
+[What is Azure Synapse Analytics?]: /azure/synapse-analytics/overview-what-is
