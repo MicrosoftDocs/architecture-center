@@ -159,3 +159,9 @@ The following code shows examples of the structured logging objects:
 ```
 
 Incorporating the preceding changes into a distributed application allows team members to retrieve logs from the complete lifecycle of the request by using the correlation ID. Structured logging makes it easier to search through logs when issues occur, as well as allowing automated alerting.
+
+## Next steps
+
+* [Building microservices on Azure](/azure/architecture/microservices/)
+* [Microservices architecture on Azure Service Fabric](/azure/architecture/reference-architectures/microservices/service-fabric)
+* [Azure Spring Cloud reference architecture](/azure/spring-cloud/reference-architecture)

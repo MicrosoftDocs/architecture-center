@@ -77,6 +77,12 @@ An on-premises data gateway can be used with more than just Logic Apps. It's pos
 - This reference assumes that the [consumption plan][azure-logic-app-consumption-plan] is used to create a global Logic Apps resource.
 - This reference only uses standard connectors, which are metered at a lower price than enterprise connectors.
 
+## Next steps
+
+* [Connect an on-premises network to Azure](/azure/architecture/reference-architectures/hybrid-networking/)
+* [Extend an on-premises network using ExpressRoute](/azure/architecture/reference-architectures/hybrid-networking/expressroute)
+* [Extend an on-premises network using VPN](/azure/architecture/reference-architectures/hybrid-networking/vpn)
+
 [architectural-diagram]: ./images/gateway-logic-apps.png
 [architectural-diagram-visio-source]: https://arch-center.azureedge.net/gateway-logic-apps.vsdx
 [azure-analysis-services]: /azure/analysis-services/
