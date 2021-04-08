@@ -1,13 +1,13 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-Use Azure Bot Service with Language Understanding to build powerful enterprise bots for internal productivity. Enterprise bots streamline common employee tasks by bringing together data from external systems. Examples include data from Microsoft 365 calendar, customer cases stored in Dynamics CRM, and much more.
+Use [Azure Bot Service](/azure/bot-service/) with [Language Understanding](/azure/cognitive-services/luis/) to build powerful enterprise bots for internal productivity. Enterprise bots streamline common employee tasks by bringing together data from external systems. Examples include data from Microsoft 365 calendar, customer cases stored in Dynamics CRM, and much more. This solution idea gives an overview of how you can architect an enterprise bot for employees tasks.
 
-## Architecture
+## Architecture of an enterprise bot
 
 ![Architecture diagram: enterprise bot working with Office 365 and Dynamics CRM to streamline common employee tasks.](../media/enterprise-productivity-chatbot.png)
 *Download an [SVG](../media/enterprise-productivity-chatbot.svg) of this architecture.*
 
-## Data Flow
+## Data flow of an employee request
 
 1. An employee accesses the enterprise bot.
 1. Azure Active Directory validates the employee's identity.
@@ -30,7 +30,7 @@ Key technologies used to implement this architecture:
 * [Microsoft Graph](https://developer.microsoft.com/graph)
 * [Microsoft Dynamics 365](https://dynamics.microsoft.com)
 
-## Next Steps
+## Next steps
 
 * [Artificial intelligence (AI) - Architectural overview](../../data-guide/big-data/ai-overview.md)
 * [Choosing a Azure Cognitive Services technology](../../data-guide/technology-choices/cognitive-services.md)
