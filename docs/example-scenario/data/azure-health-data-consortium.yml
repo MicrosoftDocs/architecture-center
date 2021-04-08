@@ -1,0 +1,26 @@
+### YamlMime:Architecture
+metadata:
+  title: Health data consortium on Azure
+  titleSuffix: Azure Example Scenarios
+  description: Migrate Unisys Dorado mainframe systems with Astadia and Micro Focus products. Move to Azure without rewriting code, switching data models, or updating screens.
+  author: matthansen0
+  ms.author: mahans
+  ms.date: 03/19/2021
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: example-scenario
+  ms.custom:
+    - fcp
+azureCategories:
+  - hybrid
+  - migration
+products:
+  - azure-data-factory
+  - azure-sql-database
+  - azure-storage
+  - azure-virtual-machines
+name: Health data consortium on Azure
+summary: Migrate Unisys Dorado mainframe systems with Astadia and Micro Focus products. Move to Azure without rewriting code, switching data models, or updating screens.
+thumbnailUrl: /azure/architecture/browse/thumbs/migrate-unisys-dorado-mainframe-apps-architecture-diagram-thumbnail.png
+content: |
+  [!include[](migrate-unisys-dorado-mainframe-apps-with-astadia-micro-focus-content.md)]
