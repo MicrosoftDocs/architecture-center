@@ -1,14 +1,14 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-The Azure Bot Service with Language Understanding enables developers to create conversational interfaces for banking, travel, and entertainment commerce scenarios. For example, a hotel concierge can use a bot to enhance traditional e-mail and phone call interactions. The bot validates a customer via Azure Active Directory and uses Azure Cognitive Services to contextually process customer service text and voice requests. Add the Speech recognition service to support voice commands.
+[Azure Bot Service](/azure/bot-service/) with [Language Understanding](/azure/cognitive-services/luis/) enables developers to create conversational interfaces for banking, travel, and entertainment commerce scenarios. For example, a hotel concierge can use a bot to enhance traditional e-mail and phone call interactions. The bot validates a customer via Azure Active Directory and uses Azure Cognitive Services to contextually process customer service text and voice requests. Add the [Speech service](/azure/cognitive-services/speech-service/) to recognize and support voice commands.
 
-## Architecture
+## Architecture of the chatbot
 
 ![Architectural diagram: example of e-commerce chatbot for customer service requests.](../media/commerce-chatbot-customer-service.svg)
 
 *Download an [SVG](../media/commerce-chatbot-customer-service.svg) of this architecture.*
 
-## Data Flow
+## Data flow of customer request
 
 1. The customer uses your mobile app.
 1. Using Azure Active Directory B2C, the user authenticates.
@@ -52,3 +52,4 @@ Microsoft Learn modules:
 * [How to build a basic chatbot](/learn/modules/how-build-basic-chatbot/)
 * [Create Intelligent Bots with the Azure Bot Service](/learn/paths/create-bots-with-the-azure-bot-service/)
 * [Create conversational AI solutions](/learn/paths/create-conversational-ai-solutions/)
+* [Add conversational intelligence to your apps by using Language Understanding Intelligent Service (LUIS)](/learn/modules/create-and-publish-a-luis-model/)
