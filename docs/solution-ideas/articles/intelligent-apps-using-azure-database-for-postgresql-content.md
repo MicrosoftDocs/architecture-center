@@ -14,19 +14,20 @@ In this example of an intelligent app, PostgreSQL is the heart of the architectu
 
 ## Data Flow
 
-1. Customer/user opinions and reviews are captured through the web app's frontend
-1. Data is stored in Azure Database for PostgreSQL
-1. For select text analytics, Azure Cognitive Services' Text Analytics API is called on JSON documents that contain the user data.
-    * The API can detect user language, key phrases used in a review, identify specific named entities and understand how customers really feel about products they purchased.
-    * API responses are then saved back to the PostgreSQL database
-1. Deep learning NLP models can then be applied on the API insights from PostgreSQL - or the initial raw data - through Azure Machine Learning Studio
-    * If you're approaching the machine learning component of this architecture with a no-code perspective, you can implement further text analytics operations on the data, like feature hashing, Word2Vector and n-gram extraction. Instead, you can use your favorite open-source NLP model if you prefer a code-first approach and run you model as an Experiment in Azure Machine Learning.
+1. Data could come from various sources, such as Event Hubs for high volumes of data ingestion, or data that's uploaded to Blob Storage. An Azure Function App is triggered as new data is received.
+2. The Azure Function App calls the Text Analytics API in Azure Cognitive Services to analyze the data (for example, for Sentiment Analysis). The results of the analysis are returned in JSON format.
+    * The Text Analytics API can detect user language, key phrases used in a review, identify specific named entities and understand how customers really feel about products they purchased.
+3. The Azure Function App stores the data and results from Text Analytics in Azure Database for MySQL.
+4. Deep learning Natural Language Processing (NLP) models can then be applied on the API insights from PostgreSQL - or the initial raw data - through Azure Machine Learning Studio
+    * If you're approaching the machine learning component of this architecture with a no-code perspective, you can implement further text analytics operations on the data, like feature hashing, Word2Vector and n-gram extraction. Instead, you can use your favorite open-source NLP model if you prefer a code-first approach and run your model as an Experiment in Azure Machine Learning.
     * Results from this further ML analysis are saved back to PostgreSQL
-1. Finally, human-interpretable insights can be explored in Power BI through the PostgreSQL connector.
+5. Finally, human-interpretable insights can be explored in Power BI through the PostgreSQL connector.
 
 ## Solution Components
 
 * [Azure App Services](https://azure.microsoft.com/services/app-service/): A fully managed platform for quickly building, deploying, and scaling web apps and APIs.
+* [Azure Functions](/azure/azure-functions/functions-overview)
+* [Event Hubs](/azure/event-hubs/)
 * [Azure Cognitive Services](https://azure.microsoft.com/services/cognitive-services/): Build intelligent application with a suite of AI services and APIs.
 * [Azure Database for PostgreSQL](https://azure.microsoft.com/services/postgresql/): With high availability up to 99.99% SLA and agile scalability, Azure Database for PostgreSQL allows you to focus on innovation.
 * [Azure Machine Learning Studio](/azure/machine-learning/overview-what-is-machine-learning-studio): Train, deploy, and automate ML models in this web portal, covering both code-first and no-code perspectives.

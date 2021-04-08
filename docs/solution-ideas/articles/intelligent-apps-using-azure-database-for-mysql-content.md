@@ -26,6 +26,10 @@ The data flows through the solution as follows:
 - [Azure Machine Learning Studio](/azure/machine-learning/)
 - [Power BI](/power-bi/fundamentals/power-bi-overview)
 
+## Considerations
+
+Azure Cognitive Services Text Analytics API has a maximum size of 5120 characters for a single document and a maximum request size of 1 MB. [View the data and rate limits](/azure/cognitive-services/text-analytics/concepts/data-limits).
+
 ## Alternatives
 
 - The use of Azure Functions to process data as it is received is just one approach for how data could be processed. For scenarios where a large amount of data already exists in the data source, then other forms of batch processing should be considered.
@@ -38,12 +42,12 @@ The data flows through the solution as follows:
   
 ## Next steps
 
-* [Understand data store models](../../guide/technology-choices/data-store-overview.md)
+- [Understand data store models](../../guide/technology-choices/data-store-overview.md)
 
 The following solution ideas feature Azure Database for MySQL:
 
-* [Gaming using Azure Database for MySQL](./gaming-using-azure-database-for-mysql.yml)
-* [Retail and e-commerce using Azure Database for MySQL](./retail-and-ecommerce-using-azure-database-for-mysql.yml)
-* [Digital marketing using Azure Database for MySQL](./digital-marketing-using-azure-database-for-mysql.yml)
-* [Finance management apps using Azure Database for MySQL](./finance-management-apps-using-azure-database-for-mysql.yml)
-* [Scalable web and mobile applications using Azure Database for MySQL](./scalable-web-and-mobile-applications-using-azure-database-for-mysql.yml)
+- [Gaming using Azure Database for MySQL](./gaming-using-azure-database-for-mysql.yml)
+- [Retail and e-commerce using Azure Database for MySQL](./retail-and-ecommerce-using-azure-database-for-mysql.yml)
+- [Digital marketing using Azure Database for MySQL](./digital-marketing-using-azure-database-for-mysql.yml)
+- [Finance management apps using Azure Database for MySQL](./finance-management-apps-using-azure-database-for-mysql.yml)
+- [Scalable web and mobile applications using Azure Database for MySQL](./scalable-web-and-mobile-applications-using-azure-database-for-mysql.yml)
