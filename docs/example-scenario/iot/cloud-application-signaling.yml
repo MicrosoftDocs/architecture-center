@@ -20,7 +20,6 @@ summary: Learn how to use Azure SignalR for real time telemetry visualization an
 products:
   - azure-functions
   - azure-iot
-  - azure-signalr
 thumbnailUrl: /azure/architecture/browse/thumbs/cloud-application-signaling.png
 content: |
    [!include[](cloud-application-signaling-content.md)]
