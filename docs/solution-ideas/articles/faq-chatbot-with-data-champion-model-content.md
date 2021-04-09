@@ -3,7 +3,7 @@
 
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-[QnA Maker](/azure/cognitive-services/qnamaker/overview/overview) enables you to create FAQ chatbots as natural conversational layers over existing data. This solution idea shows how to use QnA Maker to answer common employee questions. The bot responds using existing company knowledge bases (KB). QnA Maker can choose from multiple knowledge bases based on the intent of the query. And, with [active learning](/azure/cognitive-services/qnamaker/how-to/use-active-learning), data champions can improve the quality of the knowledge bases based on employee feedback.  
+[QnA Maker](/azure/cognitive-services/qnamaker/overview/overview) enables you to create FAQ chatbots with existing data. This solution idea shows how to use QnA Maker to answer common employee questions. The bot responds using existing company knowledge bases (KB). The bot can choose from multiple knowledge bases based on the intent of the query. And, with [active learning](/azure/cognitive-services/qnamaker/how-to/use-active-learning), data champions in the company can improve the quality of the knowledge bases based on employee feedback.  
 
 ## Architecture for an employee FAQ chatbot
 
@@ -14,7 +14,7 @@
 
 1. Employee accesses FAQ Bot.
 1. Azure Active Directory validates the employee's identity.
-1. Query is sent to a LUIS model to get the intent of the query.
+1. Query is sent to Language Understanding (LUIS) model to get the intent of the query.
 1. Based in the intent, the query is redirected to the appropriate knowledge base.
 1. QnA Maker gives the best match to the incoming query.
 1. The result is shown to the employee.
