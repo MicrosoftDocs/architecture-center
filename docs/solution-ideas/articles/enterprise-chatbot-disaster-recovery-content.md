@@ -60,18 +60,18 @@ Key technologies used to implement this architecture:
 
 ## Next steps
 
-Within the Azure Architecture Center:
+In the Azure Architecture Center:
 
 - Review [Overview of the resiliency pillar](../../framework/resiliency/overview.md)
-- See a related reference architecture [Enterprise-grade conversational bot](../../reference-architectures/ai/conversational-bot.yml)
+- See the related reference architecture [Enterprise-grade conversational bot](../../reference-architectures/ai/conversational-bot.yml)
 
-Within product documentation:
+In product documentation:
 
-- Key Vault - [Azure Key Vault availability and redundancy](/azure/key-vault/key-vault-disaster-recovery-guidance)
 - Cognitive Services - [Authoring and publishing regions and the associated keys](/azure/cognitive-services/luis/luis-reference-regions)
+- Cosmos DB - [High availability with Azure Cosmos DB](/azure/cosmos-db/high-availability)
+- Key Vault - [Azure Key Vault availability and redundancy](/azure/key-vault/key-vault-disaster-recovery-guidance)
 - Storage - [Disaster recovery and account failover](/azure/storage/common/storage-disaster-recovery-guidance)
 
-Articles on availability:
+Article on availability:
 
 - [Business continuity and disaster recovery (BCDR): Azure Paired Regions](/azure/best-practices-availability-paired-regions)
-- [High availability with Azure Cosmos DB](/azure/cosmos-db/high-availability)
