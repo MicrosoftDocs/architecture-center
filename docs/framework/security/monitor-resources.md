@@ -20,6 +20,14 @@ subject:
 
 Identify common security risks significantly reduces overall risk to the organization. Use Azure Security Center to monitor the security posture of machines, networks, storage and data services, and applications to discover potential security issues. Common issues include internet connected VMs, or missing security updates, missing endpoint protection or encryption, deviations from baseline security configurations, missing Web Application Firewall (WAF), and more.
 
+## Key points
+> [!div class="checklist"]
+> - Enable Azure Defender as a defense-in-depth measure. Use resource-specific Defender features such as Azure Defender for Servers, Azure Defender for Endpoint, Azure Defender for Storage.
+> - Observe container hygiene through container aware tools and regular scanning.
+> - Review all network flow logs through network watcher. See diagnostic logs in Azure Security Center.
+> - Integrate all logs in a central SIEM solution to analyze and detect suspicious behavior.
+> - Monitor identity-related risk events in Azure AD reporting amd Azure Active Directory Identity Protection.
+
 ## Virtual machines
 
 If you're running your own Windows and Linux virtual machines, use Azure Security Center. Take advantage of the free services to check for missing OS patches, security misconfiguration, and basic network security. Enabling Azure Defender is highly recommended because you get features that provide adaptive application controls, file integrity monitoring (FIM), and others.
@@ -67,9 +75,6 @@ Application containers architectures have an extra layer of abstraction and orch
 For more information, see these articles:
 
 - [Container security in Security Center](/azure/security-center/container-security)
-
-
-## Storage
 
 ## Network
 

@@ -43,6 +43,7 @@ Monitor the security posture of VMs, networks, storage, data services, and vario
 
 As you review the results and apply recommendations, track the progress and prioritize ongoing investments. Higher score indicates a better security posture. 
 
+- Set up a regular cadence (typically monthly) to review the secure score and plan initiatives with specific improvement goals. 
 - Assign stakeholders for monitoring and improving the score. Gamify the activity if possible to increase engagement and focus from the responsible teams.
     
     Have dedicated teams that monitor Secure Score and follow up with technical teams. Typically, these teams are responsible. 
@@ -68,7 +69,7 @@ As you review the results and apply recommendations, track the progress and prio
 
 :::image type="icon" source="../../_images/github.png" border="false"::: The [Azure Secure Score sample](https://github.com/mspnp/samples/tree/master/Security/AzureSecureScoreSample) shows how to get your Azure Secure Score for a subscription by calling the Azure Security Center REST API. The API methods provide the flexibility to query the data and build your own reporting mechanism of your secure scores over time.
 
-- Set up a regular cadence (typically monthly) to review the secure score and plan initiatives with specific improvement goals. 
+
 
 ## Review and remediate recommendations
 
