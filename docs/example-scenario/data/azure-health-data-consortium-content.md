@@ -1,13 +1,29 @@
-Traditional clinical trials can be complex, time consuming, and costly. To address this, growing number of healthcare organizations are partnering together to build data consortiums for sharing data and orchestration, while ensuring data security, patient privacy and data interoperability. This could not only offer research data but new revenue stream. This effort will ultimately provide access to data quicker leading to more cost-effective regulatory decisions and accelerated innovation that keeps patients safer and healthier. This architecture could be customized to meet your specific requirements.
+Traditional clinical trials can be complex, time consuming, and costly. To address these issues, a growing number of healthcare organizations are partnering together to build data consortiums. Through these efforts, they can share data and centralize data orchestration processes.
+
+Data consortiums offer several benefits:
+
+- Make research data available.
+- Provide new revenue streams.
+- Lead to cost-effective regulatory decisions by providing quick access to data.
+- Keep patients safer and healthier by accelerating innovation.
+
+This architecture uses Azure components. It presents a solution for a data consortium with these capabilities:
+
+- Provide a way for multiple organizations to share data.
+- Centralize data orchestration efforts.
+- Ensure data security.
+- Guarantee patient privacy.
+- Support data interoperability. 
+- Offer customization options to meet specific organizations' requirements.
 
 ## Potential use cases
 
-Many cases can benefit from the Astadia and Micro Focus pattern:
+Many types of healthcare professionals can benefit from this architecture:
 
-   - Real world evidence observational data to access patient outcomes and provide the right treatment.
-   - Personalized or precision medicine to diagnose, prevent and treat individual patients.
-   - Tele-medicine, virtual health applications help access data more easily and improve quality and care to patients.
-   - Increase the value of genomic data.
+- Organizations that use real-world observational data like patient outcomes to determine treatments.
+- Providers who specialize in personalized or precision medicine.
+- Telemedicine providers who need easy access to patient data.
+- Researchers who work with genomic data.
 
 ## Architecture
 
@@ -31,14 +47,14 @@ The data flows through the solution as follows:
 
 This architecture uses the following components:
 
-Commonly, Healthcare data are on many different platforms:
+- Healthcare platforms:
 
-- EHR (Electronic Heath Records) data 
-- [FHIR](https://www.hl7.org/fhir/index.html) (Fast Healthcare Interoperability Resources) data
-- [IoMT](https://azure.microsoft.com/en-us/overview/iot/industry/healthcare/#use-cases) (Internet of Medical Things) data
-- [Genomics](https://www.genome.gov/about-genomics/fact-sheets/A-Brief-Guide-to-Genomics) data
-- [Imaging](https://www.dicomstandard.org/) data
-- Other data from CRM, Billing, 3rd Party systems...
+  - Electronic Health Records (EHRs) are digital versions of real-time information on patients.
+  - [FHIR](https://www.hl7.org/fhir/index.html) (Fast Healthcare Interoperability Resources) data
+  - [IoMT](https://azure.microsoft.com/en-us/overview/iot/industry/healthcare/#use-cases) (Internet of Medical Things) data
+  - [Genomics](https://www.genome.gov/about-genomics/fact-sheets/A-Brief-Guide-to-Genomics) data
+  - [Imaging](https://www.dicomstandard.org/) data
+  - Other data from CRM, Billing, 3rd Party systems...
 
 Data is loaded from these different data sources using several Azure components:
 
@@ -60,13 +76,9 @@ Data is loaded from these different data sources using several Azure components:
 
 - [Azure Key Vault][About Azure Key Vault] securely stores and controls access to secrets like API keys, passwords, certificates, and cryptographic keys. This cloud service also manages security certificates.
 
+- [Azure Pipelines][What is Azure Pipelines?] automatically builds and tests code projects. This [Azure DevOps][What is Azure DevOps?] service combines continuous integration (CI) and continuous delivery (CD). Using these practices, Azure Pipelines constantly and consistently tests and builds code and ships it to any target.
 
-
-
-
-- [Azure DevOps Pipelines](https://docs.microsoft.com/en-us/azure/devops/pipelines/?view=azure-devops) automatically combines continuous integration (CI) and continuous delivery (CD) to constantly and consistently test and build your code and ship it to any target.
-
-- [Azure Security Center](https://docs.microsoft.com/en-us/azure/security-center/) provides unified security management and advanced threat protection across hybrid cloud workloads.
+- [Azure Security Center][What is Azure Security Center?] provides unified security management and advanced threat protection across hybrid cloud workloads.
 
 ### Alternatives
 
@@ -146,5 +158,9 @@ Modify the reference architecture above to fit your specific requirements by ans
 [What is Azure Data Explorer?]: /azure/data-explorer/data-explorer-overview
 [What is Azure Data Share?]: /azure/data-share/overview
 [What is Azure Databricks?]: /azure/databricks/scenarios/what-is-azure-databricks
+[What is Azure DevOps?]: /azure/devops/user-guide/what-is-azure-devops?view=azure-devops
+[What is Azure Pipelines?]: /azure/devops/pipelines/get-started/what-is-azure-pipelines?view=azure-devops
+[What is Azure Security Center?]: /azure/security-center/security-center-introduction
 [What is Azure SQL Database?]: /azure/azure-sql/database/sql-database-paas-overview
 [What is Azure Synapse Analytics?]: /azure/synapse-analytics/overview-what-is
+
