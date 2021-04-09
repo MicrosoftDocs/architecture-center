@@ -54,15 +54,15 @@ Data is loaded from these different data sources using several Azure components:
 
 - [Azure Data Factory][What is Azure Data Factory?] is a hybrid data integration service. You can use this fully managed, serverless solution for data integration and transformation workflows. It offers a code-free UI and an easy-to-use monitoring panel. In this solution, Data Factory pipelines ingest data from disparate member data shares.
 
+- [Azure Databricks][What is Azure Databricks?] is a data analytics platform. Based on the latest Apache Spark distributed processing system, Azure Databricks supports seamless integration with open-source libraries. This solution uses Azure Databricks notebooks to transform all member data into a common format.
+
+- [Azure Active Directory][What is Azure Active Directory?] is a multi-tenant, cloud-based identity and access management service.
+
+- [Azure Key Vault][About Azure Key Vault] securely stores and controls access to secrets like API keys, passwords, certificates, and cryptographic keys. This cloud service also manages security certificates.
 
 
 
 
-- [Azure Databricks](https://docs.microsoft.com/en-us/azure/databricks/scenarios/what-is-azure-databricks) is a data analytics platform that  provides the latest versions of Apache Spark and allows seamlessly integration with open source libraries. Databricks notebooks will be used to transform all Member data into common format.
-
-- [Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/fundamentals/)  is a multi-tenant, cloud-based identity and access management service.
-
-- [Azure Key Vault](https://docs.microsoft.com/en-us/azure/key-vault/general/) is a cloud service for securely storing and accessing secrets such as API keys, passwords, certificates, or cryptographic keys.
 
 - [Azure DevOps Pipelines](https://docs.microsoft.com/en-us/azure/devops/pipelines/?view=azure-devops) automatically combines continuous integration (CI) and continuous delivery (CD) to constantly and consistently test and build your code and ship it to any target.
 
@@ -139,9 +139,12 @@ Modify the reference architecture above to fit your specific requirements by ans
 - [Microsoft DICOM](https://github.com/microsoft/dicom-server)
 - [Microsoft Genomics](https://azure.microsoft.com/en-us/services/genomics/)
 
+[About Azure Key Vault]: /azure/key-vault/general/overview
 [Introduction to Azure Data Lake Storage Gen2]: /azure/storage/blobs/data-lake-storage-introduction
+[What is Azure Active Directory?]: /azure/active-directory/fundamentals/active-directory-whatis
 [What is Azure Data Factory?]: /azure/data-factory/introduction
 [What is Azure Data Explorer?]: /azure/data-explorer/data-explorer-overview
 [What is Azure Data Share?]: /azure/data-share/overview
+[What is Azure Databricks?]: /azure/databricks/scenarios/what-is-azure-databricks
 [What is Azure SQL Database?]: /azure/azure-sql/database/sql-database-paas-overview
 [What is Azure Synapse Analytics?]: /azure/synapse-analytics/overview-what-is
