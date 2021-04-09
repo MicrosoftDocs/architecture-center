@@ -1433,6 +1433,8 @@ items:
                     href: example-scenario/iot/event-routing.yml
                   - name: Solution scaling with application stamps
                     href: example-scenario/iot/application-stamps.yml
+                  - name: Cloud Application Signaling
+                    href: example-scenario/iot/cloud-application-signaling.yml
           - name: Architectures
             items:
               - name: IoT reference architecture
