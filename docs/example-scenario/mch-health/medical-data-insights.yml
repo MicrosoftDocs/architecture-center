@@ -4,7 +4,7 @@ metadata:
   titleSuffix: Azure Example Scenarios
   description: This article describes an architecture to gather insights from the clinical and medical data using Microsoft Cloud for Healthcare.
   author: dsk-2015
-  ms.date: 04/02/2021
+  ms.date: 04/09/2021
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: example-scenario
