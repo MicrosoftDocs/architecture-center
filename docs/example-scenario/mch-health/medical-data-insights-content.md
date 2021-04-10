@@ -59,7 +59,7 @@ Most of the components used in this solution are detailed in the [Components sec
 
   This solution creates following Power BI visualizations using Azure Synapse Analytics:
 
-  - [An emergency department Power BI dashboard integrated with Teams](https://docs.microsoft.com/workplace-analytics/tutorials/power-bi-teams#set-up-the-dashboard), that provides a snapshot of patients waiting, wait times, bed status, projected bed occupancy, and other ED metrics.
+  - A [Power BI dashboard integrated with Teams](https://docs.microsoft.com/workplace-analytics/tutorials/power-bi-teams#set-up-the-dashboard) for the emergency department, that provides a snapshot of patients waiting, wait times, bed status, projected bed occupancy, and other ED metrics.
 
   - Population health dashboard that allows providers to compare effectiveness of treatment plans for patients with similar demographics and conditions.
 
@@ -79,7 +79,7 @@ Most of the components used in this solution are detailed in the [Components sec
 
 - **Patient Monitoring Queue**. This is a custom [Dynamics 365 web resource](https://docs.microsoft.com/dynamics365/customerengagement/on-premises/customize/create-edit-web-resources), and is not a part of the Microsoft Cloud for Healthcare. It provides the care manager with aggregated patient data from multiple sources, and is a customized entry point for Care Management to access individual patient information. It is integrated with [Microsoft Teams](https://www.microsoft.com/microsoft-teams/group-chat-software) to provide a consistent platform. It also displays the urgency of medical attention each patient requires, in the form of the index score. This score can be derived from the patient's device data and known medical conditions.
 
-- **ED Queue**. This is a custom Dynamics 365 web resource, and is not a part of the Microsoft Cloud for Healthcare. The ED admin uses this queue to retrieve medical information and arrival times of incoming patients, as well as urgency required for their treatment. This helps them to triage more efficiently and start automated workflows for assigning resources based on their medical conditions.
+- **ED Queue**. This is a custom Dynamics 365 web resource, and is not a part of the Microsoft Cloud for Healthcare. The ED admin uses this queue to retrieve medical information and arrival times of incoming patients, as well as urgency required for their treatment. This helps them to triage more efficiently and start automated workflows using Power Automate to assign resources based on their medical conditions.
 
 - **Social Determinants**. This is a [Power BI Canvas app](https://docs.microsoft.com/powerapps/maker/canvas-apps/get-started-test-drive), which displays patient's socio-economic factors to medical providers. This information is gathered using a standardized questionnaire, and helps predict how well the patient will adhere to the care plan. This data may be gathered at any point during the patient's current or past visits, and is stored in Dataverse to inform future decisions.
 
