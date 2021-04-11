@@ -1,4 +1,4 @@
-[!INCLUDE [header_file](../../../includes/sol-idea-header.md)]![image](https://user-images.githubusercontent.com/13895622/112453827-4f591580-8d15-11eb-8356-f577ecb6b26b.png)
+[!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
 This example shows how to achieve fast and reliable service quality during seasonal and other high-traffic demand periods. This approach can be used to manage:
 
