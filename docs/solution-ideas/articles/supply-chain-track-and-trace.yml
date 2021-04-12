@@ -21,7 +21,7 @@ metadata:
     - blockchain and IoT
     - interactive-diagram
     - is-deployable
-    - 'https://azure.microsoft.com/solutions/architecture/supply-chain-track-and-trace/'
+    - "https://azure.microsoft.com/solutions/architecture/supply-chain-track-and-trace/"
   social_image_url: /azure/architecture/solution-ideas/articles/media/supply-chain-track-and-trace.png
 name: Supply Chain Track and Trace
 azureCategories:

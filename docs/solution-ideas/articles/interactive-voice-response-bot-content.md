@@ -1,6 +1,3 @@
-
-
-
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
 This solution creates an intelligent interactive voice response (IVR) application that processes customer order requests for bicycles and bicycle accessories. Businesses with no existing IVR solution can easily get started automating requests, or, where existing human-operated systems exist, this solution can be extended to incorporate existing functionality and workflows.
@@ -40,3 +37,20 @@ The "Deploy" button on this page will launch a workflow that deploys an instance
 * Azure Web App hosts the core logic of the bot as a Node.js web app
 * Cosmos DB stores shared session state for every conversation, allowing the web application to scale out in a stateless architecture.
 * Azure SQL stores product inventory and order status
+
+## Components
+
+* [Azure Bot Service](https://azure.microsoft.com/services/bot-services/)
+* [Azure Cognitive Search](/azure/search/)
+* [Azure Cognitive Services](https://azure.microsoft.com/services/cognitive-services/) for Bing Speech
+* [Azure Cognitive Services Language Understanding](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/)
+* [Azure Cosmos DB](/azure/cosmos-db/)
+* [Azure SQL Database](https://azure.microsoft.com/services/sql-database/)
+* [Azure Web App Service](https://azure.microsoft.com/services/app-service/web/)
+
+## Next steps
+
+* [Artificial intelligence (AI) - Architectural overview](../../data-guide/big-data/ai-overview.md)
+* [Build an enterprise-grade conversational bot](../../reference-architectures/ai/conversational-bot.yml)
+* [Speech-to-text conversion](../../reference-architectures/ai/speech-ai-ingestion.yml)
+* [Speech Services](./speech-services.yml)

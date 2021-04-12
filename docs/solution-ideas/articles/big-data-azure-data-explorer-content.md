@@ -1,9 +1,9 @@
+[!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
 
+This solution idea demonstrates big data analytics over large volumes of high velocity data from various sources. This solution illustrates how Azure Data Explorer and Azure Synapse Analytics complement each other for near real-time analytics and modern data warehousing use cases.
 
-This architecture pattern demonstrates big data analytics over large volumes of high velocity data from various sources. This pattern illustrates how Azure Data Explorer and Azure Synapse Analytics complement each other for near real-time analytics and modern data warehousing use cases.
-
-This pattern is already being used by Microsoft customers. For example, the Singapore-based ride-hailing company, Grab, implemented real-time analytics over a huge amount of data collected from their taxi and food delivery services as well as merchant partner apps. The [team from Grab presented their solution at MS Ignite in this video (20:30 onwards)](https://www.youtube.com/watch?v=K9FYqprpzRE&t=1230&ab_channel=MicrosoftIgnite). Using this pattern, Grab processed more than a trillion events per day.
+This solution is already being used by Microsoft customers. For example, the Singapore-based ride-hailing company, Grab, implemented real-time analytics over a huge amount of data collected from their taxi and food delivery services as well as merchant partner apps. The [team from Grab presented their solution at MS Ignite in this video (20:30 onwards)](https://www.youtube.com/watch?v=K9FYqprpzRE&t=1230&ab_channel=MicrosoftIgnite). Using this pattern, Grab processed more than a trillion events per day.
 
 :::image type="content" source="../media/big-data-azure-data-explorer.png" alt-text="Big data analytics with Azure Data Explorer" lightbox="../media/big-data-azure-data-explorer.png":::
 

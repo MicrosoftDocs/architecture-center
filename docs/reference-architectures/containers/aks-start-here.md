@@ -8,8 +8,11 @@ ms.date: 09/10/2020
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: reference-architecture
+products:
+  - azure-kubernetes-service
 ms.custom:
   - overview
+  - e2e-aks
 ---
 
 # Azure Kubernetes Service solution journey

@@ -6,6 +6,8 @@ ms.date: 09/01/2020
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
+products:
+  - azure-machine-learning
 ms.custom:
   - contperf-fy21q1
   - guide

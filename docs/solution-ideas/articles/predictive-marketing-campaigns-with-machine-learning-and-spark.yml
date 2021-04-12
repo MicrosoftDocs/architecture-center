@@ -19,7 +19,8 @@ metadata:
     - analytics
     - predictive analytics software
     - predictive analytics marketing
-    - 'https://azure.microsoft.com/solutions/architecture/predictive-marketing-campaigns-with-machine-learning-and-spark/'
+    - "https://azure.microsoft.com/solutions/architecture/predictive-marketing-campaigns-with-machine-learning-and-spark/"
+    - ai-machine-learning
   social_image_url: /azure/architecture/solution-ideas/articles/media/predictive-marketing-campaigns-with-machine-learning-and-spark.png
 name: Predictive Marketing with Machine Learning
 azureCategories:
@@ -34,4 +35,4 @@ products:
   - sql-server
 thumbnailUrl: /azure/architecture/browse/thumbs/predictive-marketing-campaigns-with-machine-learning-and-spark.png
 content: |
-   [!include[](predictive-marketing-campaigns-with-machine-learning-and-spark-content.md)]
+  [!include[](predictive-marketing-campaigns-with-machine-learning-and-spark-content.md)]

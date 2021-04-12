@@ -5,7 +5,7 @@ metadata:
   description: Visual assistant identifies image content and delivers related information. It can read business cards and barcodes and recognize people, places, and objects.
   author: doodlemania2
   ms.author: pnp
-  ms.date: 12/16/2019
+  ms.date: 02/20/2021
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: solution-idea
@@ -19,7 +19,8 @@ metadata:
     - visual capabilities
     - visual assistant scenarios
     - interactive-diagram
-    - 'https://azure.microsoft.com/solutions/architecture/visual-assistant/'
+    - "https://azure.microsoft.com/solutions/architecture/visual-assistant/"
+    - ai-machine-learning
   social_image_url: /azure/architecture/solution-ideas/articles/media/visual-assistant.png
 name: Visual Assistant
 azureCategories:
@@ -31,4 +32,4 @@ products:
   - azure-language-understanding
 thumbnailUrl: /azure/architecture/browse/thumbs/visual-assistant.png
 content: |
-   [!include[](visual-assistant-content.md)]
+  [!include[](visual-assistant-content.md)]

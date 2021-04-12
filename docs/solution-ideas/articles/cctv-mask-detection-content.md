@@ -21,6 +21,8 @@ This article showcases a COVID-19 Safe Solution which is being implemented in wo
 
 ![Bosch COVID-19 Safe Solution architecture](../media/bosch-cctv-mask-detection.png)
 
+*Download a [Visio file][visio-download] of this architecture.*
+
 1. CCTVs send video data to Internet of Things (IoT) Edge servers. Edge computing handles device registration, provisioning, and data ingestion.
 2. The Bosch Algorithm Engineering and Model Training Environment uses custom vision analytics to continually retrain machine learning (ML) models, and directly updates edge servers.
 3. Edge servers send data to onboard and cloud stream analytics and blob storage. IoT Edge intelligent devices limit costs by preprocessing and sending only necessary data to the cloud.
@@ -53,3 +55,5 @@ For more information:
 - [What is Azure Digital Twins?](/azure/digital-twins/overview)
 - [Azure Stream Analytics on IoT Edge](/azure/stream-analytics/stream-analytics-edge)
 - [Store data at the edge with Azure Blob Storage on IoT Edge](/azure/iot-edge/how-to-store-data-blob)
+
+[visio-download]: https://github.com/MicrosoftDocs/architecture-center-pr/blob/live/docs/solution-ideas/articles/cctv-mask-detection-content-visio.vsdx

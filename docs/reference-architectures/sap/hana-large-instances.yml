@@ -13,9 +13,9 @@ metadata:
     - databases
     - compute
   ms.custom:
-    - seodec18
     - SAP
     - reference-architecture
+    - e2e-sap
 name: Run SAP HANA on Azure (Large Instances)
 azureCategories:
   - databases

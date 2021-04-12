@@ -1,7 +1,7 @@
 
 <!-- cSpell:ignore pracjain -->
 
-
+[!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
 This architecture describes how knowledge mining can be used for content research.
 

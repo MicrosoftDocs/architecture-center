@@ -7,8 +7,9 @@ ms.date: 09/16/2020
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: best-practice
+products:
+  - azure-active-directory
 ms.custom:
-  - seodec18
   - best-practice
 ---
 

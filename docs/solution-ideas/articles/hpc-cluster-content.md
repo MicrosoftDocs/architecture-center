@@ -3,9 +3,9 @@
 
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-High performance computing (HPC) applications can scale to thousands of compute cores, extend on-premises big compute, or run as a 100% cloud native solution. This HPC solution including the head node, compute nodes, and storage nodes, runs in Azure with no hardware infrastructure to maintain.
+High-performance computing (HPC) applications can scale to thousands of compute cores, extend on-premises big compute, or run as a 100% cloud native solution. This HPC solution including the head node, compute nodes, and storage nodes, runs in Azure with no hardware infrastructure to maintain.
 
-This solution is built on the Azure managed services: [Virtual Machine Scale Sets](https://azure.microsoft.com/services/virtual-machine-scale-sets), [Virtual Network](https://azure.microsoft.com/services/virtual-network) and [Storage Accounts](https://azure.microsoft.com/services/storage). These services run in a high-availability environment, patched and supported, allowing you to focus on your solution instead of the environment they run in.
+This solution is built on the Azure-managed services: [Virtual Machine Scale Sets](https://azure.microsoft.com/services/virtual-machine-scale-sets), [Virtual Network](https://azure.microsoft.com/services/virtual-network) and [Storage Accounts](https://azure.microsoft.com/services/storage). These services run in a high-availability environment, patched and supported, allowing you to focus on your solution instead of the environment they run in.
 
 ## Architecture
 
@@ -19,3 +19,11 @@ This solution is built on the Azure managed services: [Virtual Machine Scale Set
 * [Virtual Network](https://azure.microsoft.com/services/virtual-network) provides IP connectivity between the head node, compute nodes, and storage nodes.
 * [Storage Accounts](https://azure.microsoft.com/services/storage): Azure Storage blobs store the disks backing the virtual machines and provides long-term storage of unstructured data and executable files used by the HPC application.
 * [Azure Resource Manager templates](/azure/azure-resource-manager/templates/): Resource Manager templates or script files are used to deploy your application to the HPC environment.
+
+## Next steps
+
+* [High Performance Computing (HPC) on Azure](/azure/architecture/topics/high-performance-computing)
+* [3D video rendering](/azure/architecture/example-scenario/infrastructure/video-rendering)
+* [Digital image-based modeling on Azure](/azure/architecture/example-scenario/infrastructure/image-modeling)
+* [Run reservoir simulation software on Azure](/azure/architecture/example-scenario/infrastructure/reservoir-simulation)
+* [HPC cluster deployed in the cloud](/azure/architecture/solution-ideas/articles/hpc-cluster)

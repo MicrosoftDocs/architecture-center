@@ -3,13 +3,15 @@ title: Azure IoT Edge Vision
 titleSuffix: Azure Architecture Center
 description: These series of articles describe how to create an AI solution using Azure IoT Edge Vision.
 author: MSKeith
+ms.author: keith
 ms.date: 10/22/2020
 ms.topic: conceptual
 ms.service: architecture-center
-ms.author: keith
+ms.subservice: azure-guide
 ms.category:
   - fcp
-ms.subservice: azure-guide
+products:
+  - azure-iot-edge
 ms.custom:
   - guide
 ---

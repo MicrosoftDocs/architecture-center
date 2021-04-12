@@ -5,10 +5,10 @@ author: doodlemania2
 ms.date: 05/23/2019
 ms.topic: conceptual
 ms.service: architecture-center
+ms.subservice: azure-guide
 ms.category:
   - integration
   - developer-tools
-ms.subservice: azure-guide
 ms.custom:
   - microservices
   - guide
@@ -16,7 +16,7 @@ ms.custom:
 
 # Designing interservice communication for microservices
 
-Communication between microservices must be efficient and robust. With lots of small services interacting to complete a single transaction, this can be a challenge. In this article, we look at the tradeoffs between asynchronous messaging versus synchronous APIs. Then we look at some of the challenges in designing resilient interservice communication.
+Communication between microservices must be efficient and robust. With lots of small services interacting to complete a single business activity, this can be a challenge. In this article, we look at the tradeoffs between asynchronous messaging versus synchronous APIs. Then we look at some of the challenges in designing resilient interservice communication.
 
 ## Challenges
 

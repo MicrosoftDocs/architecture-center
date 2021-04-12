@@ -1,15 +1,15 @@
 ---
 title: CQRS pattern
 description: Segregate operations that read data from those that update data.
-keywords: design pattern
 author: dragon119
 ms.date: 02/11/2020
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: design-pattern
 ms.custom:
-  - seodec18
   - design-pattern
+keywords:
+  - design pattern
 ---
 
 # Command and Query Responsibility Segregation (CQRS) pattern
@@ -36,7 +36,7 @@ Read and write workloads are often asymmetrical, with very different performance
 
 CQRS separates reads and writes into different models, using **commands** to update data, and **queries** to read data.
 
-- Commands should be task based, rather than data centric. ("Book hotel room", not "set ReservationStatus to Reserved"). 
+- Commands should be task based, rather than data centric. ("Book hotel room", not "set ReservationStatus to Reserved").
 - Commands may be placed on a queue for asynchronous processing, rather than being processed synchronously.
 - Queries never modify the database. A query returns a DTO that does not encapsulate any domain knowledge.
 
@@ -72,7 +72,7 @@ Some challenges of implementing this pattern include:
 
 - **Complexity**. The basic idea of CQRS is simple. But it can lead to a more complex application design, especially if they include the Event Sourcing pattern.
 
-- **Messaging**. Although CQRS does not require messaging, it's common to use messaging to process commands and publish update events. In that case, the application must handle message failures or duplicate messages.
+- **Messaging**. Although CQRS does not require messaging, it's common to use messaging to process commands and publish update events. In that case, the application must handle message failures or duplicate messages. See the guidance on [Priority Queues](priority-queue.md) for dealing with commands having different priorities.
 
 - **Eventual consistency**. If you separate the read and write databases, the read data may be stale. The read model store must be updated to reflect changes to the write model store, and it can be difficult to detect when a user has issued a request based on stale read data.
 
@@ -237,4 +237,9 @@ The following patterns and guidance are useful when implementing this pattern:
 
 - The patterns & practices guide [CQRS Journey](/previous-versions/msp-n-p/jj554200(v=pandp.10)). In particular, [Introducing the Command Query Responsibility Segregation pattern](/previous-versions/msp-n-p/jj591573(v=pandp.10)) explores the pattern and when it's useful, and [Epilogue: Lessons Learned](/previous-versions/msp-n-p/jj591568(v=pandp.10)) helps you understand some of the issues that come up when using this pattern.
 
-- The post [CQRS by Martin Fowler](https://martinfowler.com/bliki/CQRS.html), which explains the basics of the pattern and links to other useful resources.
+## Community resources
+
+Martin Fowler's blog posts:
+
+- [What do you mean by “Event-Driven”?](https://martinfowler.com/articles/201701-event-driven.html)
+- [CQRS](https://martinfowler.com/bliki/CQRS.html)

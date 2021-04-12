@@ -1,6 +1,3 @@
-
-
-
 This example scenario describes how to set up private connectivity from an Azure Web App to Azure Platform-as-a-Service (PaaS) services, or between Azure PaaS services that aren't natively deployed in isolated Azure Virtual Networks. The example shows a typical combination of hosting a web application in [Azure App Service](/azure/app-service/) and connecting to [Azure SQL Database](/azure/azure-sql/database/).
 
 The web app can securely connect to a backend database over a fully private connection. The public internet can't reach the database, which eliminates a common attack vector.
@@ -105,13 +102,13 @@ For example, deployments or urgent manual connections from SQL Server Management
 
 Azure Private Link supporting Azure SQL Database is available in all public and government regions.
 
-Private Link introduces an additional component and availability consideration into the architecture. The Private Link service has an [availability SLA of 99.99%](https://azure.microsoft.com/support/legal/sla/private-link/), which must be taken into account when calculating the [composite SLA of the entire solution](../../framework/resiliency/business-metrics.md#composite-slas).
+Private Link introduces an additional component and availability consideration into the architecture. The Private Link service has an [availability SLA of 99.99%](https://azure.microsoft.com/support/legal/sla/private-link/), which must be taken into account when calculating the composite SLA of the entire solution.
 
 #### Global peering
 
 Any service in any Azure region that can connect through the Virtual Network can reach the database's private endpoint, for example through [Virtual Network peering](/azure/virtual-network/virtual-network-peering-overview) in hub-and-spoke topologies. However, for App Service regional VNet Integration, the peered Virtual Networks must be located in the same Azure region.
 
-Lack of global peering support means you can't use this solution for cross-region connectivity from App Service to a database or other private endpoint in another Azure region. For example, this solution wouldn't work for a multi-regional deployment to support a partial failover, in which the web app remains active in one region but must connect to a failed-over database in another region, or vice versa.
+Lack of global peering support means you can't use this solution for cross-region connectivity from App Service to a database or other private endpoint in another Azure region. For example, this solution wouldn't work for a multi-regional deployment to support a partial failover, in which the web app remains active in one region but must connect to a failed-over database in another region, or vice versa. But other solutions exist for this situation. See [Multi-region web app with private connectivity to database](../sql-failover/app-service-private-sql-multi-region.yml) for an architecture that supports partial failovers when either the web app or the database fails over to another region.
 
 ### Cost
 
@@ -189,4 +186,5 @@ A slightly more advanced version of this scenario is available as an [Azure Reso
 
 ## Related resources
 
-For more information on inbound and outbound scenarios for App Service, and which features to use in which cases, see the [App Service networking features overview](/azure/app-service/networking-features).
+- For more information on inbound and outbound scenarios for App Service, and which features to use in which cases, see the [App Service networking features overview](/azure/app-service/networking-features).
+- For a highly available solution that achieves private connectivity between a web app and a SQL database, see [Multi-region web app with private connectivity to database](../sql-failover/app-service-private-sql-multi-region.yml).

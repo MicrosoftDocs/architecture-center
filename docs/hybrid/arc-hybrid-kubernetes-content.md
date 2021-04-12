@@ -17,9 +17,9 @@ Typical uses for this architecture include:
 
 The architecture consists of the following components:
 
-- **[Azure Arc][Azure Arc]**. Attach and configure Kubernetes clusters inside or outside of Azure by using Azure Arc enabled Kubernetes. When a Kubernetes cluster is attached to Azure Arc, it is assigned an Azure Resource Manager ID and a managed identity.
+- **[Azure Arc enabled Kubernetes][Azure Arc enabled Kubernetes]**. Attach and configure Kubernetes clusters inside or outside of Azure by using Azure Arc enabled Kubernetes. When a Kubernetes cluster is attached to Azure Arc, it is assigned an Azure Resource Manager ID and a managed identity.
 - **[Azure Kubernetes Service][Azure Kubernetes Service]**. Host Kubernetes clusters in Azure, reducing the complexity and operational overhead of Kubernetes cluster management.
-- **On-premises Kubernetes clusters**. Attach Cloud Native Computing Foundation (CNCF)-certified Kubernetes clusters hosted in on-premises or third-party cloud environments.
+- **[On-premises Kubernetes cluster][kubernetes]**. Attach Cloud Native Computing Foundation (CNCF)-certified Kubernetes clusters hosted in on-premises or third-party cloud environments.
 - **[Azure Policy][Azure Policy]**. Deploy and manage policies for Arc enabled Kubernetes clusters.
 - **[Azure Monitor][Azure Monitor]**. Observe and monitor Arc enabled Kubernetes clusters.
 
@@ -78,7 +78,7 @@ The Git repository can contain any valid Kubernetes resources, including Namespa
 
 You can also manage a larger collection of clusters, which might be deployed across heterogeneous environments. For example, you might have one repository that defines the baseline configuration for your organization, and then apply that to multiple Kubernetes clusters simultaneously. Azure policy can automate creation of a **sourceControlConfiguration** with a specific set of parameters on all Azure Arc enabled Kubernetes resources under a scope (subscription or resource group).
 
-For more information, refer to [Deploy configurations using GitOps on Arc enabled Kubernetes cluster][Deploy configurations using GitOps on Arc enabled Kubernetes cluster].
+For more information, refer to [Deploy configurations using GitOps on an Arc enabled Kubernetes cluster][Deploy configurations using GitOps on an Arc enabled Kubernetes cluster].
 
 ### Topology, network, and routing
 
@@ -116,9 +116,17 @@ Azure Arc agents require the following protocols/ports/outbound URLs to function
 
 - General cost considerations are described in the [Principles of cost optimization][Principles of cost optimization] section in the Microsoft Azure Well-Architected Framework.
 
+## Next steps
+
+* [Learn more about Azure Arc enabled Kubernetes][Azure Arc enabled Kubernetes]
+* [Learn more about Azure Kubernetes Service][Azure Kubernetes Service]
+* [Learn more about Azure Policy][Azure Policy]
+* [Learn more about Azure Monitor][Azure Monitor]
+* [Connect an Azure Arc-enabled Kubernetes cluster][Connect an Azure Arc-enabled Kubernetes cluster]
+
 [Architecture diagram]: ./images/arc-hybrid-kubernetes.png
 [Architecture visio]: https://arch-center.azureedge.net/arc-hybrid-kubernetes.vsdx
-[Azure Arc]: /azure/azure-arc/
+[Azure Arc enabled Kubernetes]: /azure/azure-arc/kubernetes/
 [Azure Container Instances]: /azure/container-instances/container-instances-overview
 [Azure Kubernetes Service]: /azure/aks/
 [Azure Policy]: /azure/governance/policy/
@@ -130,10 +138,11 @@ Azure Arc agents require the following protocols/ports/outbound URLs to function
 [Enable monitoring of Azure Arc enabled Kubernetes cluster]: /azure/azure-monitor/insights/container-insights-enable-arc-enabled-clusters?toc=%252fazure%252fazure-arc%252ftoc.json
 [Azure Policy built-in definitions for Azure Arc enabled Kubernetes]: /azure/azure-arc/kubernetes/policy-samples
 [Use Azure Policy to apply cluster configurations at scale]: /azure/azure-arc/kubernetes/use-azure-policy
-[Deploy configurations using GitOps on Arc enabled Kubernetes cluster]: /azure/azure-arc/kubernetes/use-gitops-connected-cluster
+[Deploy configurations using GitOps on an Arc enabled Kubernetes cluster]: /azure/azure-arc/kubernetes/use-gitops-connected-cluster
 [Supported regions]: /azure/azure-arc/kubernetes/overview#supported-regions
 [Subscription limits]: /azure/azure-resource-manager/management/azure-subscription-service-limits#subscription-limits
 [resource group limits]: /azure/azure-resource-manager/management/azure-subscription-service-limits#resource-group-limits
 [Deploy Helm Charts using GitOps on Arc enabled Kubernetes cluster]: /azure/azure-arc/kubernetes/use-gitops-with-helm
 [Use managed identities in Azure Kubernetes Service]: /azure/aks/use-managed-identity
 [Principles of cost optimization]: ../framework/cost/overview.md
+[kubernetes]: https://kubernetes.io

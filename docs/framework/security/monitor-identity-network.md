@@ -6,6 +6,9 @@ ms.date: 09/14/2020
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
+products:
+  - azure-active-directory
+  - azure-machine-learning
 ms.custom:
   - article
 ---

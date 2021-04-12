@@ -14,6 +14,7 @@ metadata:
   ms.custom:
     - fcp
     - reference-architecture
+    - e2e-sap
 name: Run SAP BW/4HANA with Linux virtual machines on Azure
 azureCategories:
   - databases

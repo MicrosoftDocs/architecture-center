@@ -16,7 +16,7 @@ metadata:
     - serverless
     - event-grid
     - azure
-    - 'https://azure.microsoft.com/solutions/architecture/serverless-application-architectures-using-event-grid/'
+    - "https://azure.microsoft.com/solutions/architecture/serverless-application-architectures-using-event-grid/"
   social_image_url: /azure/architecture/solution-ideas/articles/media/serverless-application-architectures-using-event-grid.png
 name: Serverless application architectures using Event Grid
 azureCategories:

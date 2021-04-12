@@ -1,6 +1,3 @@
-
-
-
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
 A charged off loan is a loan that is declared by a creditor (usually a lending institution) that an amount of debt is unlikely to be collected, usually when the loan repayment is severely delinquent by the debtor. Given that high chargeoff has negative impact on lending institutions' year end financials, lending institutions often monitor loan chargeoff risk very closely to prevent loans from getting charged-off. Using ML Services on Azure HDInsight, a lending institution can use machine learning predictive analytics to predict the likelihood of loans getting charged off and run a report on the analytics result stored in HDFS and hive tables.
@@ -49,6 +46,6 @@ Data scientists who are testing this solution can work with the provided R code 
 * [Power BI](https://powerbi.microsoft.com) provides an interactive dashboard with visualization that uses data stored in SQL Server to drive decisions on the predictions.
 
 ## See also
-* [R developer's guide to Azure](/azure/architecture/data-guide/technology-choices/r-developers-guide): This article provides an overview of the various ways that data scientists can use their existing skills with the R programming language in Azure.
+* [R developer's guide to Azure](../../data-guide/technology-choices/r-developers-guide.md): This article provides an overview of the various ways that data scientists can use their existing skills with the R programming language in Azure.
 * [Analyze Apache Spark data using Power BI in HDInsight](/azure/hdinsight/spark/apache-spark-use-bi-tools): How to use Microsoft Power BI to visualize data in an Apache Spark cluster in Azure HDInsight.
 * [Operationalize ML Services cluster on Azure HDInsight](/azure/hdinsight/r-server/r-server-operationalize): Operationalize the model to make predictions using an ML Services cluster on Azure HDInsight.

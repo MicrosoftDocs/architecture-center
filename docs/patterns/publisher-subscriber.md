@@ -1,7 +1,6 @@
 ---
 title: Publisher-Subscriber pattern
 description: Enable an application to announce events to multiple interested consumers asynchronously.
-keywords: design pattern
 author: alexbuckgit
 ms.date: 12/07/2018
 ms.topic: conceptual
@@ -9,6 +8,8 @@ ms.service: architecture-center
 ms.subservice: design-pattern
 ms.custom:
   - design-pattern
+keywords:
+  - design pattern
 ---
 
 # Publisher-Subscriber pattern

@@ -183,7 +183,7 @@ Absent a purpose-built MDMapplication, some of the technical capabilities needed
 
 - Data quality - When loading to an analytics platform, data quality can be built into integration processes. For example, applying data quality transformations in an [Azure Data Factory](https://azure.microsoft.com/services/data-factory/) pipeline can be accomplished with hardcoded scripts. 
 - Data standardization and enrichment - [Azure Maps](https://azure.microsoft.com/services/azure-maps/) is available to provide data verification and standardization for address data. These can be used in Azure Functions and/or Azure Data Factory.  Standardization of other data may require development of hardcoded scripts.   
-- Duplicate data management - Azure Data Factory can be used to [deduplicate rows](https://docs.microsoft.com/azure/data-factory/how-to-data-flow-dedupe-nulls-snippets) where sufficient identifiers are available for an exact match.  In this case, the logic to merge matched with appropriate survivorship would likely require custom hardcoded scripts.
+- Duplicate data management - Azure Data Factory can be used to [deduplicate rows](/azure/data-factory/how-to-data-flow-dedupe-nulls-snippets) where sufficient identifiers are available for an exact match.  In this case, the logic to merge matched with appropriate survivorship would likely require custom hardcoded scripts.
 - Data stewardship - [Power Apps](https://powerapps.microsoft.com/) can be used to quickly develop simple data stewardship solutions to manage data in Azure, along with appropriate user interfaces for review, workflow, alerts, and validations. 
 
 ## Considerations
@@ -205,10 +205,10 @@ Profisee authenticates users using OpenID Connect, which implements an OAuth 2.0
 To deploy this scenario:
 
 1. Deploy Profisee into Azure using an [ARM template](https://github.com/Profisee/kubernetes/tree/master/Azure-ARM).
-2. Create an [Azure Data Factory](https://docs.microsoft.com/azure/data-factory/quickstart-create-data-factory-portal).
-3. Configure your Azure Data Factory to [connect to a Git repository](https://docs.microsoft.com/azure/data-factory/source-control).
+2. Create an [Azure Data Factory](/azure/data-factory/quickstart-create-data-factory-portal).
+3. Configure your Azure Data Factory to [connect to a Git repository](/azure/data-factory/source-control).
 4. Add [Profisee's Azure Data Factory templates](https://github.com/profisee/azuredatafactory).
-5. Create a new Pipeline [using a template](https://docs.microsoft.com/azure/data-factory/solution-templates-introduction).
+5. Create a new Pipeline [using a template](/azure/data-factory/solution-templates-introduction).
 
 ## Pricing
 
@@ -216,7 +216,7 @@ Running costs consist of a software license and Azure consumption. For more info
 
 ## Next steps
 
-Understand the capabilities of the [REST Copy Connector](https://docs.microsoft.com/azure/data-factory/connector-rest) in Azure Data Factory.
+Understand the capabilities of the [REST Copy Connector](/azure/data-factory/connector-rest) in Azure Data Factory.
 
 Learn more about [Profisee running natively in Azure](https://profisee.com/profisee-microsoft/).
 
