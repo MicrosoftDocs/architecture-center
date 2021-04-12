@@ -43,3 +43,21 @@ After deployment, see the post deployment instructions.
   4. Azure Synapse Analytics is used to store the prediction results received from Azure Machine Learning. These results are then consumed in the Power BI dashboard.
   5. Azure Data Factory handles orchestration, and scheduling of the hourly model retraining.
   6. Finally, Power BI is used for results visualization, so that users can monitor the tank level from a facility in real time and use the forecast level to prevent spillage.
+
+## Components
+
+* [Azure Data Factory](https://azure.microsoft.com/services/data-factory/)
+* [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/)
+* [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/)
+* [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/)
+* [Azure Synapse Analytics](https://azure.microsoft.com/services/synapse-analytics/)
+* [Power BI](https://powerbi.microsoft.com/en-us/)
+
+## Next steps
+
+* [Choosing a data analytics technology in Azure](/azure/architecture/data-guide/technology-choices/analysis-visualizations-reporting)
+* [Stream processing with Azure Stream Analytics](/azure/architecture/reference-architectures/data/stream-processing-stream-analytics)
+* [Anomaly Detector Process](/azure/architecture/solution-ideas/articles/anomaly-detector-process)
+* [Demand Forecasting](/azure/architecture/solution-ideas/articles/demand-forecasting)
+* [Predicting Length of Stay in Hospitals](/azure/architecture/solution-ideas/articles/predicting-length-of-stay-in-hospitals)
+* [Predictive Aircraft Engine Monitoring](/azure/architecture/solution-ideas/articles/aircraft-engine-monitoring-for-predictive-maintenance-in-aerospace)
