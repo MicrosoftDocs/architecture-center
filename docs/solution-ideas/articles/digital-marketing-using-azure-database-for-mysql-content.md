@@ -23,7 +23,7 @@ The architecture would consist of the Azure managed services: Azure CDN, Webapps
 ## Components
 *[CMS on Webapp](/azure/app-service/)
 *[Azure CDN](/azure/cdn/)
-*[Azure Database for MySQL](/services/mysql/)
+*[Azure Database for MySQL](https://azure.microsoft.com/services/mysql)
 *[Redis Cache](/azure/azure-cache-for-redis/cache-overview)
 *[Application Insights](/azure/azure-monitor/app/app-insights-overview)
 

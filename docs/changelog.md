@@ -2,7 +2,7 @@
 title: What's New in Azure Architecture Center
 description: New and updated articles in Azure Architecture Center
 author: doodlemania2
-ms.date: 03/30/2021
+ms.date: 04/05/2021
 ms.topic: article
 ms.service: architecture-center
 ---
@@ -23,6 +23,12 @@ The Azure Architecture Center (AAC) helps you design, build, and operate solutio
 
 New and updated articles in Azure Architecture Center
 
+## April 2021
+
+### Updated Articles
+
+- [Multi-cloud security and identity with Azure and AWS](./aws-professional/security-identity.md)  ([#12a7e1c7c](https://github.com/MicrosoftDocs/architecture-center/commit/12a7e1c7c))
+
 ## March 2021
 
 ### New Articles
@@ -34,6 +40,7 @@ New and updated articles in Azure Architecture Center
 
 ### Updated Articles
 
+- [IoT and data analytics](./example-scenario/data/big-data-with-iot.yml)  ([#c8a945b01](https://github.com/MicrosoftDocs/architecture-center/commit/c8a945b01))
 - [Deploy highly available NVAs](./reference-architectures/dmz/nva-ha.yml)  ([#c74ce415c](https://github.com/MicrosoftDocs/architecture-center/commit/c74ce415c))
 - [FSLogix for the enterprise](./example-scenario/wvd/windows-virtual-desktop-fslogix.yml)  ([#209fb5636](https://github.com/MicrosoftDocs/architecture-center/commit/209fb5636))
 - [Asynchronous Request-Reply Pattern](./patterns/async-request-reply.md)  ([#90c11f879](https://github.com/MicrosoftDocs/architecture-center/commit/90c11f879))
@@ -176,33 +183,4 @@ New and updated articles in Azure Architecture Center
 - [Design for scaling](./framework/scalability/design-scale.md)  ([#65a7ef214](https://github.com/MicrosoftDocs/architecture-center/commit/65a7ef214))
 - [Background jobs guidance](./best-practices/background-jobs.md)  ([#13889c62e](https://github.com/MicrosoftDocs/architecture-center/commit/13889c62e))
 - [Tradeoffs for performance efficiency](./framework/scalability/tradeoffs.md)  ([#2fab3faaf](https://github.com/MicrosoftDocs/architecture-center/commit/2fab3faaf))
-- [Enterprise chatbot disaster recovery](./solution-ideas/articles/enterprise-chatbot-disaster-recovery.yml)  ([#c137260b8](https://github.com/MicrosoftDocs/architecture-center/commit/c137260b8))
-
-## December 2020
-
-### New Articles
-
-- [Advanced Azure Resource Manager template functionality](./guide/azure-resource-manager/advanced-templates/index.md)
-- [Authentication with Azure AD](./framework/security/design-identity-authentication.md)
-- [Authorization with Azure AD](./framework/security/design-identity-authorization.md)
-- [Azure control plane security](./framework/security/design-identity-control-plane.md)
-- [Team roles and responsibilities](./framework/security/design-identity-role-definitions.md)
-- [Design scalable Azure applications](./framework/scalability/design-apps.md)
-- [Plan for capacity](./framework/scalability/design-capacity.md)
-- [Design Azure applications for efficiency](./framework/scalability/design-efficiency.md)
-- [Design for scaling](./framework/scalability/design-scale.md)
-- [Confidential computing on a healthcare platform](./example-scenario/confidential/healthcare-inference.yml)
-- [Azure Active Directory security for AWS](./reference-architectures/aws/aws-azure-ad-security.yml)
-- [MCAS and Azure Sentinel for Amazon Web Services (AWS)](./reference-architectures/aws/aws-azure-security-solutions.yml)
-- [Operational excellence design principles](./framework/devops/principles.md)
-- [Performance testing](./framework/scalability/performance-test.md)
-- [Testing tools](./framework/scalability/test-tools.md)
-- [Refactor IBM z/OS mainframe Coupling Facility (CF) to Azure](./reference-architectures/zos/refactor-zos-coupling-facility.yml)
-
-### Updated Articles
-
-- [Enterprise Productivity Chatbot](./solution-ideas/articles/enterprise-productivity-chatbot.yml)  ([#c81a8e78e](https://github.com/MicrosoftDocs/architecture-center/commit/c81a8e78e))
-- [Commerce Chatbot](./solution-ideas/articles/commerce-chatbot.yml)  ([#e4e4351a8](https://github.com/MicrosoftDocs/architecture-center/commit/e4e4351a8))
-- [Baseline architecture for an Azure Kubernetes Service (AKS) cluster](./reference-architectures/containers/aks/secure-baseline-aks.yml)  ([#6de1b59b3](https://github.com/MicrosoftDocs/architecture-center/commit/6de1b59b3))
-- [Project 15 Open Platform](./solution-ideas/articles/project-15-iot-sustainability.yml)  ([#758bad165](https://github.com/MicrosoftDocs/architecture-center/commit/758bad165))
 
