@@ -48,7 +48,7 @@ The target use case of this solution is a fictitious company, Contoso LLC, which
 
 Azure Architecture Center articles:
 
-* [Artificial intelligence (AI) - Architectural overview](../../data-guide/big-data/ai-overview.yml)
+* [Artificial intelligence (AI) - Architectural overview](../../data-guide/big-data/ai-overview.md)
 * [Speech Services](./speech-services.yml)
 * [Speech-to-text conversion](../../reference-architectures/ai/speech-ai-ingestion.yml)
 * [Build an enterprise-grade conversational bot](../../reference-architectures/ai/conversational-bot.yml)
