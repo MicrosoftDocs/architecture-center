@@ -48,11 +48,11 @@ The target use case of this solution is a fictitious company, Contoso LLC, which
 
 Azure Architecture Center articles:
 
-* [Artificial intelligence (AI) - Architectural overview](../../data-guide/big-data/ai-overview)
-* [Speech Services](./speech-services)
+* [Artificial intelligence (AI) - Architectural overview](../../data-guide/big-data/ai-overview.yml)
+* [Speech Services](./speech-services.yml)
 * [Speech-to-text conversion](../../reference-architectures/ai/speech-ai-ingestion)
 * [Build an enterprise-grade conversational bot](../../reference-architectures/ai/conversational-bot)
-* [Commerce chatbot for customer service](../../architecture/solution-ideas/articles/commerce-chatbot)
+* [Commerce chatbot for customer service](./commerce-chatbot.yml)
 
 Bing Speech and Cognitive Speech services:
 
