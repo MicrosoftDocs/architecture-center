@@ -21,14 +21,14 @@ This solution deploys a fully integrated service stack that manages speech reque
 
 The target use case of this solution is a fictitious company, Contoso LLC, which sells bicycles and bicycle equipment to its customers. Contoso currently processes new product orders and queries through human operators. This automated solution allows Contoso to seamlessly scale up to handle large call volumes while maintaining zero wait times and freeing up staff to manage other tasks.
 
-## Core Azure services used
+## Core Azure services
 
 * Speech service (Bing Speech API or Cognitive Services Speech Service) transcribes raw speech data into text form.
 * Language Understanding (LUIS) identifies caller intent and spoken entities from the transcribed text. Examples of intents include place an order, find an order, and so on. Examples of entities include product categories, dates, times, and so on.
 * Azure Cognitive Search matches and ranks products from the inventory against the caller's description. Common synonyms are identified with advanced text analysis.
 * Microsoft Bot Framework processes conversation results from the caller and manages the call workflow.
 
-## Supporting Azure services used
+## Supporting Azure services
 
 * Azure Web App hosts the core logic of the bot as a Node.js web app.
 * Cosmos DB stores shared session state for every conversation, allowing the web application to scale out in a stateless architecture.
@@ -46,10 +46,17 @@ The target use case of this solution is a fictitious company, Contoso LLC, which
 
 ## Next steps
 
-* [Artificial intelligence (AI) - Architectural overview](../../data-guide/big-data/ai-overview.md)
-* [Build an enterprise-grade conversational bot](../../reference-architectures/ai/conversational-bot.yml)
-* [Speech-to-text conversion](../../reference-architectures/ai/speech-ai-ingestion.yml)
-* [Speech Services](./speech-services.yml)
+Azure Architecture Center articles:
+
+* [Artificial intelligence (AI) - Architectural overview](../../data-guide/big-data/ai-overview)
+* [Speech Services](./speech-services)
+* [Speech-to-text conversion](../../reference-architectures/ai/speech-ai-ingestion)
+* [Build an enterprise-grade conversational bot](../../reference-architectures/ai/conversational-bot)
+* [Commerce chatbot for customer service](../../architecture/solution-ideas/articles/commerce-chatbot)
+
+Bing Speech and Cognitive Speech services:
+
+* [What is the Speech service?](/azure/cognitive-services/speech-service/overview)
 * [Migrate from Bing Speech to the Speech Service](/azure/cognitive-services/speech-service/how-to-migrate-from-bing-speech)
 
 Microsoft Learn modules:
@@ -57,4 +64,3 @@ Microsoft Learn modules:
 * [How to build a basic chatbot](/learn/modules/how-build-basic-chatbot/)
 * [Transcribe speech input to text](/learn/modules/transcribe-speech-input-text/)
 * [Add conversational intelligence to your apps by using Language Understanding Intelligent Service (LUIS)](/learn/modules/create-and-publish-a-luis-model/)
-
