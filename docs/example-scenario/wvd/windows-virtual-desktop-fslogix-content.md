@@ -37,7 +37,7 @@ Be aware of the following limitations of a multiple connection deployment:
 - [Microsoft OneDrive](https://www.microsoft.com/microsoft-365/onedrive/online-cloud-storage) does not support multiple connection environments using any profile-roaming technology.
 - Using OneDrive with multiple profile connections may cause data loss.
 - Microsoft Outlook has limited support for multiple connections.
-- End-users must be educated on what to expect. Using *read-only containers* result in a unique experience that a user, without proper context, may experience as data loss. Read [Concurrent Connections with Profile Container and Office Container](/fslogix/configure-concurrent-multiple-connections-ht#concurrent-connections-with-profile-container-and-office-container) for more information.
+- End users must be educated on what to expect. Using *read-only containers* result in a unique experience that a user, without proper context, may experience as data loss. Read [Concurrent Connections with Profile Container and Office Container](/fslogix/configure-concurrent-multiple-connections-ht#concurrent-connections-with-profile-container-and-office-container) for more information.
 
 ### Performance requirements
 
@@ -64,7 +64,7 @@ The following are general best practices for FSLogix profile containers.
 
 - For optimal performance, the storage solution and the FSLogix profile container should be in the same data-center location.
 - Exclude the VHD(X) files for profile containers from antivirus scanning, to avoid performance bottlenecks.
-- We recommend to use a separate profile container per host pool, while having two active sessions.
+- We recommend using a separate profile container per host pool, while having two active sessions.
 
 ### Azure Files best practices
 
@@ -111,7 +111,7 @@ Users are mapped to specific desktop pods. Each pod has just under 1,000 virtual
 
 ## Storage permissions
 
-The following NTFS permissions are recommended to use. For correct and secure use, user permissions must be created to allow permissions to create and use a profile, while not allowing access to other users profiles. The Profile Container storage permissions can also be found in the article [Configure storage permissions for use with Profile Containers and Office Containers](/fslogix/fslogix-storage-config-ht).
+The following NTFS permissions are recommended to use. For correct and secure use, user permissions must be created to allow permissions to create and use a profile, while not allowing access to other users' profiles. The Profile Container storage permissions can also be found in the article [Configure storage permissions for use with Profile Containers and Office Containers](/fslogix/fslogix-storage-config-ht).
 
 |User Account   |Folder   |Permissions  |
 |------|-----|-------|
@@ -130,7 +130,7 @@ Exclude the following from the Teams caching folder, %appdata%\Microsoft\Teams. 
 - Media-stack folder
 - meeting-addin\Cache (%appdata%\Microsoft\Teams\meeting-addin\Cache)
 
-Check the [FSLogix exclusions](/fslogix/manage-profile-content-cncpt) documentation to learn how to configure the Teams specific exclusions above within FSLogix Profile Container.
+Check the [FSLogix exclusions](/fslogix/manage-profile-content-cncpt) documentation to learn how to configure the Teams-specific exclusions above within FSLogix Profile Container.
 
 ### Antivirus exclusions
 
@@ -158,13 +158,50 @@ Make sure to configure the following antivirus exclusions for FSLogix Profile Co
   - %ProgramFiles%\FSLogix\Apps\frxccds.exe
   - %ProgramFiles%\FSLogix\Apps\frxsvc.exe
 
+#### Add exclusions for Windows Defender by using PowerShell
+
+You can use this PowerShell script to add the exclusions for Windows Defender:
+
+```powershell
+  # Defender Exclusions for FSLogix
+  $Cloudcache = $false             # Set for true if using cloud cache
+  $StorageAcct = "wvdstorageacct"  # Storage Account Name
+
+  $filelist = `
+  "%ProgramFiles%\FSLogix\Apps\frxdrv.sys", `
+  "%ProgramFiles%\FSLogix\Apps\frxdrvvt.sys", `
+  "%ProgramFiles%\FSLogix\Apps\frxccd.sys", `
+  "%TEMP%\*.VHD", `
+  "%TEMP%\*.VHDX", `
+  "%Windir%\TEMP\*.VHD", `
+  "%Windir%\TEMP\*.VHDX", `
+  "\\$Storageacct.file.core.windows.net\share\*.VHD", `
+  "\\$Storageacct.file.core.windows.net\share\*.VHDX"
+
+  $processlist = `
+  "%ProgramFiles%\FSLogix\Apps\frxccd.exe", `
+  "%ProgramFiles%\FSLogix\Apps\frxccds.exe", `
+  "%ProgramFiles%\FSLogix\Apps\frxsvc.exe"
+
+  Foreach($item in $filelist){
+      Add-MpPreference -ExclusionPath $item}
+  Foreach($item in $processlist){
+      Add-MpPreference -ExclusionProcess $item}
+
+  If ($Cloudcache){
+      Add-MpPreference -ExclusionPath "%ProgramData%\FSLogix\Cache\*.VHD"
+      Add-MpPreference -ExclusionPath "%ProgramData%\FSLogix\Cache\*.VHDX"
+      Add-MpPreference -ExclusionPath "%ProgramData%\FSLogix\Proxy\*.VHD"
+      Add-MpPreference -ExclusionPath "%ProgramData%\FSLogix\Proxy\*.VHDX"}
+```
+
 ## Using Cloud Cache
 
 [Cloud Cache](/fslogix/configure-cloud-cache-tutorial) is an add-on to FSLogix. It uses a local cache to service all reads from a redirected Profile or Office Container, after the first read. Cloud Cache also allows the use of multiple remote locations, which are all continuously updated during the user session, creating true real-time profile replication. Using Cloud Cache can insulate users from short-term loss of connectivity to remote profile containers as the local cache is able to service many profile operations. In case of a provider failure, Cloud Cache provides business continuity.
 
 Because the local cache file will service most IO requests, the performance of the local cache file will determine the user experience. It is critical that the storage used for this file be high-performing and highly available. Any storage used for the local cache file should either be a physically attached storage, or have reliability and performance characteristics that meet or exceed a high-performing physically attached storage.
 
-Cloud Cache is only one of many options that may be considered for business continuity when using profile containers. Cloud Cache provides real-time duplication of the user profile, that will actively fail-over if connectivity to a Cloud Cache provider is lost.
+Cloud Cache is only one of many options that may be considered for business continuity when using profile containers. Cloud Cache provides real-time duplication of the user profile that will actively fail-over if connectivity to a Cloud Cache provider is lost.
 
 There are a number of considerations when implementing Cloud Cache. It should:
 
@@ -182,7 +219,7 @@ Because of the resource utilization, it may be more cost effective to consider a
 
 In an Enterprise architecture, it is common to make user profiles resilient. To configure an FSLogix profile solution to make this as efficient as possible the amount of data being moved around should be reduced to the bare minimum.
 
--	The first step to create an efficient FSLogix profile solution is the use of [OneDrive Folder Backup](/onedrive/redirect-known-folders) to put document based profile folders into OneDrive. This means you can take advantage of built-in OneDrive features to protect the users documents.
+-	The first step to create an efficient FSLogix profile solution is the use of [OneDrive Folder Backup](/onedrive/redirect-known-folders) to put document-based profile folders into OneDrive. This means you can take advantage of built-in OneDrive features to protect the users' documents.
 
 -	In order to reduce the amount of data needing to be independently replicated, archived and restored you should also split out the Office cache data into the Office Container as the cache data often comprises by far the majority of the profile data capacity used. As the Office Container only contains cache data, the source for which is safely stored in the cloud you do not need to make this data resilient. Once the documents and cache are separated from the Profile Container, you should then enact your replication archive and restore policies on this much smaller capacity disk.
 

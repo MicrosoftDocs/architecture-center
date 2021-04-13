@@ -75,12 +75,24 @@ The following considerations will drive a substantial portion of the costs for t
 
 ## Related resources
 
-To see an implementation of a similar architecture, read the [Komatsu customer story][customer-story].
-
 Guidance for big data architectures is available in the [Azure Data Architecture Guide](../../data-guide/index.md).
+
+Additional IoT architectures:
+
+- [Azure IoT reference architecture](/azure/architecture/reference-architectures/iot)
+- [IoT using Cosmos DB](/azure/architecture/solution-ideas/articles/iot-using-cosmos-db)
+- [Retail - Buy online, pickup in store (BOPIS)](/azure/architecture/example-scenario/iot/vertical-buy-online-pickup-in-store)
+- [Predictive maintenance with the intelligent IoT Edge](/azure/architecture/example-scenario/predictive-maintenance/iot-predictive-maintenance)
+- [Secure your IoT SaaS app with the Microsoft identity platform](/azure/architecture/example-scenario/iot-aad/iot-aad)
+
+IoT architecture guides:
+
+- [IoT concepts](/azure/architecture/example-scenario/iot/introduction-to-solutions)
+- [Azure IoT Edge Vision](/azure/architecture/guide/iot-edge-vision)
+- [Azure industrial IoT analytics guidance](/azure/architecture/guide/iiot-guidance/iiot-architecture)
+- [IoT patterns](/azure/architecture/example-scenario/iot/measure-control-loop)
 
 <!-- links -->
 
 [product-category]: https://azure.microsoft.com/product-categories/analytics
-[customer-story]: https://customers.microsoft.com/story/komatsu-manufacturing-azure-iot-hub-japan
 [architecture]: ./media/architecture-big-data-with-iot.svg

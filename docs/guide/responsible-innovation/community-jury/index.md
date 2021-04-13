@@ -13,12 +13,12 @@ ms.custom:
   - guide
   - seo-aac-fy21q3
 keywords:
-  - "Community jury"
-  - "stakeholder collaboration"
-  - "citizen jury"
-  - "effective collaboration"
-  - "jury solutions"
-  - "collaborative solutions"
+  - community jury
+  - stakeholder collaboration
+  - citizen jury
+  - effective collaboration
+  - jury solutions
+  - collaborative solutions
 ---
 
 # Community Jury

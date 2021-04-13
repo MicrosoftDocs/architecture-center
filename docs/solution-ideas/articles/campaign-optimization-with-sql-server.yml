@@ -19,7 +19,7 @@ metadata:
     - solution architectures
     - Azure
     - ai gallery
-    - 'https://azure.microsoft.com/solutions/architecture/campaign-optimization-with-sql-server/'
+    - "https://azure.microsoft.com/solutions/architecture/campaign-optimization-with-sql-server/"
     - ai-machine-learning
   social_image_url: /azure/architecture/solution-ideas/articles/media/campaign-optimization-with-sql-server.png
 name: Campaign Optimization with SQL Server

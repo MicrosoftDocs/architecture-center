@@ -12,6 +12,7 @@ products:
   - azure-kubernetes-service
 ms.custom:
   - overview
+  - e2e-aks
 ---
 
 # Azure Kubernetes Service solution journey
