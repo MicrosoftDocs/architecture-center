@@ -12,7 +12,7 @@ To address the points mentioned above, we're leveraging two different Azure serv
 
 Considerations about the architecture:
 
-* AG level, we’re going to set up a mechanism of URL redirection that makes sure the request goes to the proper [backend pool](https://docs.microsoft.com/en-us/azure/application-gateway/application-gateway-components#backend-pools) depending on the “URL format” for the API's call.
+* AG level, we’re going to set up a mechanism of URL redirection that makes sure the request goes to the proper [backend pool](https://docs.microsoft.com/azure/application-gateway/application-gateway-components#backend-pools) depending on the “URL format” for the API's call.
 
 * Basically, URLs formatted like `api.{some-domain}/external/*` will be able to reach out the backend to interact with the requested APIs. Calls formatted as `api.{some-domain}/*` will be redirected to a dead end (meaning, a backend pool with no target set up) by AG.
 
@@ -27,27 +27,27 @@ Finally, at the APIM level, we will have our APIs set up to accept calls under t
 
 > This implementation doesn't take in consideration the underlying services of the proposed architecture, meaning, App Service Environment, SQL Databases, Azure Kubernetes services, and such. They are illustrative assets only that showcases what could be done as a broader solution. Only the grey-grounded area will be discussed.
 
-The creation of products and API's configurations in APIM won't be covered here, however, you can see a comprehensive tutorial on how to get it done by following [this link](https://docs.microsoft.com/en-us/azure/api-management/api-management-howto-add-products).
+The creation of products and API's configurations in APIM won't be covered here, however, you can see a comprehensive tutorial on how to get it done by following [this link](https://docs.microsoft.com/azure/api-management/api-management-howto-add-products).
 
 ### Components
 
-* [Azure Resource Groups](https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/manage-resource-groups-portal) is a logical container for Azure resources. We use resource groups to organize everything related to this project in the Azure console.
+* [Azure Resource Groups](https://docs.microsoft.com/azure/azure-resource-manager/management/manage-resource-groups-portal) is a logical container for Azure resources. We use resource groups to organize everything related to this project in the Azure console.
   
-* [Azure Virtual Networl (VNet)](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-networks-overview) VNet enables many types of Azure resources, such as Azure Virtual Machines (VM), to securely communicate with each other, the internet, and on-premises networks.
+* [Azure Virtual Networl (VNet)](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) VNet enables many types of Azure resources, such as Azure Virtual Machines (VM), to securely communicate with each other, the internet, and on-premises networks.
 
-* [Azure Application Gateway](https://docs.microsoft.com/en-us/azure/application-gateway/overview) Azure Application Gateway is a web traffic load balancer that enables you to manage traffic to your web applications. Traditional load balancers operate at the transport layer (OSI layer 4 - TCP and UDP) and route traffic based on source IP address and port, to a destination IP address and port.
+* [Azure Application Gateway](https://docs.microsoft.com/azure/application-gateway/overview) Azure Application Gateway is a web traffic load balancer that enables you to manage traffic to your web applications. Traditional load balancers operate at the transport layer (OSI layer 4 - TCP and UDP) and route traffic based on source IP address and port, to a destination IP address and port.
 
-* [Azure API Management](https://azure.microsoft.com/en-us/services/api-management/) API Management (APIM) is a way to create consistent and modern API gateways for existing back-end services.
+* [Azure API Management](https://azure.microsoft.com/services/api-management/) API Management (APIM) is a way to create consistent and modern API gateways for existing back-end services.
 
 ### Alternatives
 
 WAF and Firewall-wise, the same level or protection could be delivered by different combination of services in Azure.
 
-[Azure Front Door](https://docs.microsoft.com/en-us/azure/frontdoor/front-door-overview#:~:text=Azure%20Front%20Door%20is%20a,and%20widely%20scalable%20web%20applications.&text=Front%20Door%20provides%20a%20range,needs%20and%20automatic%20failover%20scenarios.), [Azure Firewall](https://docs.microsoft.com/en-us/azure/firewall/overview), third-part solutions like [Barracuda](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/barracudanetworks.waf?tab=overview), and others available in [Azure Marketplace](https://azure.microsoft.com/en-us/marketplace/), are some of the options.
+[Azure Front Door](https://docs.microsoft.com/azure/frontdoor/front-door-overview#:~:text=Azure%20Front%20Door%20is%20a,and%20widely%20scalable%20web%20applications.&text=Front%20Door%20provides%20a%20range,needs%20and%20automatic%20failover%20scenarios.), [Azure Firewall](https://docs.microsoft.com/azure/firewall/overview), third-part solutions like [Barracuda](https://azuremarketplace.microsoft.com/marketplace/apps/barracudanetworks.waf?tab=overview), and others available in [Azure Marketplace](https://azure.microsoft.com/marketplace/), are some of the options.
 
 It would also be possible to manage certificates and passwords by leveraging [Azure Key Vault](https://docs.microsoft.com/en-us/azure/key-vault/general/basic-concepts) service.
 
-While the solution proposed here focus on the implementation of the whole solution, building blocks, and the process of testing APIs access from both inside and outside APIM's VNet, you can also refer to the article "[Integrate API Management in an internal VNet with Application Gateway](https://docs.microsoft.com/en-us/azure/api-management/api-management-howto-integrate-internal-vnet-appgateway)" to stay focused specifically on the details of the APIM/VNet integration process.
+While the solution proposed here focus on the implementation of the whole solution, building blocks, and the process of testing APIs access from both inside and outside APIM's VNet, you can also refer to the article "[Integrate API Management in an internal VNet with Application Gateway](https://docs.microsoft.com/azure/api-management/api-management-howto-integrate-internal-vnet-appgateway)" to stay focused specifically on the details of the APIM/VNet integration process.
 
 ## Implementation considerations
 
@@ -63,21 +63,21 @@ While the solution proposed here focus on the implementation of the whole soluti
 
 In order to make this architecture reliable and highly responsive over time, the following recommendations apply:
 
-* **AG's autoscale feature turned on**. Because Application Gateway will serve as entry point for this architecture and also, because we're turning on the WAF feature (which requires additional processing power for each request analysis), it will be critical to make sure the service can expand its computational capacity as it goes. You can see how to enable this by following [this link](https://docs.microsoft.com/en-us/azure/application-gateway/tutorial-autoscale-ps#specify-autoscale).
+* **AG's autoscale feature turned on**. Because Application Gateway will serve as entry point for this architecture and also, because we're turning on the WAF feature (which requires additional processing power for each request analysis), it will be critical to make sure the service can expand its computational capacity as it goes. You can see how to enable this by following [this link](https://docs.microsoft.com/azure/application-gateway/tutorial-autoscale-ps#specify-autoscale).
 
 * **AG's zone redundance**. An AG or WAF deployment can span multiple Availability Zones, removing the need to provision separate Application Gateway instances in each zone with a Traffic Manager. You can choose a single zone or multiple zones where Application Gateway instances are deployed, which makes it more resilient to zone failure. That's a important recommendation towards to have a resiliant solution for AG.
 
-* **AG's subnet sizing**. A given AG will always request one private address per instance, plus another private IP address if a private front-end IP is configured. Also, it takes five IPs per instance from the subnet where it will be deployed so, to properly deploy AG for the architecture, please, make sure the subnet where it will be sitting onto has enough space for the service to grow. Please, refer to [this article](https://docs.microsoft.com/en-us/azure/application-gateway/configuration-infrastructure) for details.
+* **AG's subnet sizing**. A given AG will always request one private address per instance, plus another private IP address if a private front-end IP is configured. Also, it takes five IPs per instance from the subnet where it will be deployed so, to properly deploy AG for the architecture, please, make sure the subnet where it will be sitting onto has enough space for the service to grow. Please, refer to [this article](https://docs.microsoft.com/azure/application-gateway/configuration-infrastructure) for details.
 
-* **IP Addresses of API Management in VNet**: In this case, APIM will have two types of IP addresses: public and private. Public IP addresses will be used for internal communication on port 3443. In the external VNet configuration, they are also used for runtime API traffic. When a request is sent from API Management to a public-facing (Internet-facing) backend, a public IP address will be visible as the origin of the request. For details, please refer to [this article](https://docs.microsoft.com/en-us/azure/api-management/api-management-howto-ip-addresses#ip-addresses-of-api-management-service-in-vnet). 
+* **IP Addresses of API Management in VNet**: In this case, APIM will have two types of IP addresses: public and private. Public IP addresses will be used for internal communication on port 3443. In the external VNet configuration, they are also used for runtime API traffic. When a request is sent from API Management to a public-facing (Internet-facing) backend, a public IP address will be visible as the origin of the request. For details, please refer to [this article](https://docs.microsoft.com/azure/api-management/api-management-howto-ip-addresses#ip-addresses-of-api-management-service-in-vnet). 
 
-* **APIM autoscaling feature turned on**. To support highly concurrent scenarios, we recommend enabling the autoscale feature in APIM. This will enable the service to expand its capabilities to quickly respond a growing number of income requests on-the-fly. [This article](https://docs.microsoft.com/en-us/azure/api-management/api-management-howto-autoscale) shows how to enable the autoscale feature within the service.
+* **APIM autoscaling feature turned on**. To support highly concurrent scenarios, we recommend enabling the autoscale feature in APIM. This will enable the service to expand its capabilities to quickly respond a growing number of income requests on-the-fly. [This article](https://docs.microsoft.com/azure/api-management/api-management-howto-autoscale) shows how to enable the autoscale feature within the service.
 
-* **Security guidelines for APIM**. APIM-wise, in order to fortify the communication through APIM moving forward, we recommend you take a look at the "[Azure security baseline for API Management](https://docs.microsoft.com/en-us/azure/api-management/security-baseline)" article.
+* **Security guidelines for APIM**. APIM-wise, in order to fortify the communication through APIM moving forward, we recommend you take a look at the "[Azure security baseline for API Management](https://docs.microsoft.com/azure/api-management/security-baseline)" article.
 
 ## Deployment
 
-To get this solution deployed, it will be relying on PowerShell. [Azure Portal](https://docs.microsoft.com/en-us/azure/azure-portal/) and [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/) are also available options to get to the same result.
+To get this solution deployed, it will be relying on PowerShell. [Azure Portal](https://docs.microsoft.com/azure/azure-portal/) and [Azure CLI](https://docs.microsoft.com/cli/azure/) are also available options to get to the same result.
 
 ### Deploying a new Resource Group
 
@@ -432,6 +432,6 @@ $appgw = Set-AzApplicationGateway `
 
 The total cost of this architecture running will depend on the various configuration aspects, like services' tiers, scalability as it goes (meaning, number of instances dynamically allocated by the service to support a given demand), automation scripts (will this run 24x7 or just few hours a month?) so on, so forth.
 
-To have an accurate view of the pricing for this, we recommend go after every of the aspect mentioned in above's paragraph, and once you have a definition in place, go to the [Azure Pricing Calculator](https://azure.microsoft.com/en-us/pricing/calculator/) service, pull up all the definitions you have settled and then, have a view about pricing.
+To have an accurate view of the pricing for this, we recommend go after every of the aspect mentioned in above's paragraph, and once you have a definition in place, go to the [Azure Pricing Calculator](https://azure.microsoft.com/pricing/calculator/) service, pull up all the definitions you have settled and then, have a view about pricing.
 
 [calculator]: https://azure.com/e/
