@@ -45,7 +45,7 @@ WAF and Firewall-wise, the same level or protection could be delivered by differ
 
 [Azure Front Door](https://docs.microsoft.com/azure/frontdoor/front-door-overview#:~:text=Azure%20Front%20Door%20is%20a,and%20widely%20scalable%20web%20applications.&text=Front%20Door%20provides%20a%20range,needs%20and%20automatic%20failover%20scenarios.), [Azure Firewall](https://docs.microsoft.com/azure/firewall/overview), third-part solutions like [Barracuda](https://azuremarketplace.microsoft.com/marketplace/apps/barracudanetworks.waf?tab=overview), and others available in [Azure Marketplace](https://azure.microsoft.com/marketplace/), are some of the options.
 
-It would also be possible to manage certificates and passwords by leveraging [Azure Key Vault](https://docs.microsoft.com/en-us/azure/key-vault/general/basic-concepts) service.
+It would also be possible to manage certificates and passwords by leveraging [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/general/basic-concepts) service.
 
 While the solution proposed here focus on the implementation of the whole solution, building blocks, and the process of testing APIs access from both inside and outside APIM's VNet, you can also refer to the article "[Integrate API Management in an internal VNet with Application Gateway](https://docs.microsoft.com/azure/api-management/api-management-howto-integrate-internal-vnet-appgateway)" to stay focused specifically on the details of the APIM/VNet integration process.
 
@@ -275,7 +275,7 @@ $apimPortalProbe = New-AzApplicationGatewayProbeConfig `
     -UnhealthyThreshold 8
 ```
 
-### Whitelisting APIM's endpoints to backend pools
+### Listing APIM's endpoints to backend pools
 
 ```powershell
 # Step 7 - upload cert for SSL-enabled backend pool resources
