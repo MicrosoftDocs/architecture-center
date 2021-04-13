@@ -2079,6 +2079,11 @@
       "source_path": "docs/framework/scalability/monitoring.md",
       "redirect_url": "/azure/architecture/framework/scalability/monitor",
       "redirect_document_id": false
-     } 
+     },
+         {
+      "source_path": "docs/example-scenario/iot-aad/iot-aad.yml",
+      "redirect_url": "/azure/architecture/reference-architectures/iot",
+      "redirect_document_id": false
+     }
    ]
 }
