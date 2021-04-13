@@ -13,7 +13,6 @@ ms.subservice: solution-idea
 social_image_url: /azure/architecture/solution-ideas/articles/media/forecast-energy-power-demand.png
 ---
 
-# Forecast Energy and Power Demand
 
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
