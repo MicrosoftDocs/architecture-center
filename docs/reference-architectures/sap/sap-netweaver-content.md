@@ -4,6 +4,7 @@
 
 This reference architecture shows a set of proven practices for running SAP NetWeaver in a Windows environment, on Azure, with high availability. The database is AnyDB, the SAP term for any supported database management system (DBMS) besides SAP HANA.
 
+
 The first diagram shows SAP NetWeaver in a Windows environment in an availability set scenario. The architecture uses Azure NetApp Files for the shared files layer and a proximity placement group for improved performance:
 ![Diagram that shows a reference architecture for SAP NetWeaver on Windows. The database is AnyDB on Azure VMs with availability sets.](./images/sap-netweaver-availability-set-proximity-placement-group-netapp.jpg)
 
@@ -219,6 +220,7 @@ Alternatively, you can use SIOS DataKeeper to:
 - Abstract the drives as a CSV for the cluster manager. 
 
 For implementation details, see [Clustering SAP ASCS on Azure](https://techcommunity.microsoft.com/t5/Running-SAP-Applications-on-the/Clustering-SAP-ASCS-Instance-using-Windows-Server-Failover/ba-p/367898).
+
 
 With the introduction of the Azure Standard Load Balancer, you can now simply enable the [high availability port](/azure/load-balancer/load-balancer-ha-ports-overview). Doing so allows you to avoid configuring load balancing rules for many SAP ports. Also, when you set up load balancers in general, whether on-premises or on Azure, enable the Direct Server Return feature (also called *Floating IP* or *DSR*). Doing so allows server responses to bypass the load balancer. This direct connection keeps the load balancer from becoming a bottleneck in the path of data transmission. For the SAP ASCS and database clusters, we recommend that you enable DSR.
 
