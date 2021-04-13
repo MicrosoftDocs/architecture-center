@@ -160,7 +160,7 @@ For the user node pool, here are some considerations:
 
 -   When planning capacity for your cluster, assume that your workload can consume up to 80% of each node; the remaining 20% is reserved for AKS services.
 
--   The maximum pods per node, is set to 30, which is also the default. Increasing this value can impact performance because of an unexpected node failure or expected node maintenance events.
+-   Set the maximum pods per node based on your capacity planning. If you are trying to establish a capacity baseline, start with a value of 30. Adjust that value based on the requirements of the workload, the node size, and your IP constraints. 
 
 ## Integrate Azure Active Directory for the cluster
 

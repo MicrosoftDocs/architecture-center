@@ -834,12 +834,36 @@ items:
                 href: solution-ideas/articles/hybrid-hpc-in-azure-with-hpc-pack.yml
       - name: Containers
         items:
-          - name: AKS architectural overview
+          - name: Get started with AKS architectures
             href: reference-architectures/containers/aks-start-here.md
-          - name: Guides
+          - name: Reference architectures
             items:
               - name: AKS baseline cluster
                 href: reference-architectures/containers/aks/secure-baseline-aks.yml
+              - name: Microservices architecture on AKS
+                href: reference-architectures/containers/aks-microservices/aks-microservices.yml
+              - name: CI/CD pipeline for container-based workloads
+                href: example-scenario/apps/devops-with-aks.yml
+          - name: Example workloads hosted in AKS clusters
+            items:
+              - name: Building a telehealth system
+                href: example-scenario/apps/telehealth-system.yml
+              - name: Magento e-commerce in AKS
+                href: example-scenario/magento/magento-azure.yml
+          - name: Solution ideas
+            items:
+              - name: API-first SaaS business model with AKS
+                href: solution-ideas/articles/aks-api-first.yml
+              - name: Elastic demand handling with AKS
+                href: solution-ideas/articles/aks-demand-spikes.yml
+              - name: Microservices with AKS and Azure DevOps
+                href: solution-ideas/articles/microservices-with-aks.yml
+              - name: Secure DevOps for AKS
+                href: solution-ideas/articles/secure-devops-for-kubernetes.yml
+              - name: Bursting from AKS with ACI
+                href: solution-ideas/articles/scale-using-aks-with-aci.yml                          
+          - name: Guides
+            items:
               - name: AKS cluster best practices
                 href: /Azure/aks/best-practices
                 maintainContext: true
@@ -866,28 +890,6 @@ items:
                   - name: Common issues
                     href: /azure/aks/troubleshooting?bc=%2fazure%2farchitecture%2fbread%2ftoc.json&toc=%2fazure%2farchitecture%2ftoc.json
                     maintainContext: true
-          - name: Architectures
-            items:
-              - name: Microservices architecture on AKS
-                href: reference-architectures/containers/aks-microservices/aks-microservices.yml
-              - name: Building a telehealth system
-                href: example-scenario/apps/telehealth-system.yml
-              - name: CI/CD pipeline for container-based workloads
-                href: example-scenario/apps/devops-with-aks.yml
-              - name: Magento e-commerce in AKS
-                href: example-scenario/magento/magento-azure.yml
-          - name: Solution ideas
-            items:
-              - name: API-first SaaS business model with AKS
-                href: solution-ideas/articles/aks-api-first.yml
-              - name: Elastic demand handling with AKS
-                href: solution-ideas/articles/aks-demand-spikes.yml
-              - name: Microservices with AKS and Azure DevOps
-                href: solution-ideas/articles/microservices-with-aks.yml
-              - name: Secure DevOps for AKS
-                href: solution-ideas/articles/secure-devops-for-kubernetes.yml
-              - name: Bursting from AKS with ACI
-                href: solution-ideas/articles/scale-using-aks-with-aci.yml
       - name: Databases
         items:
           - name: Guides
@@ -1481,6 +1483,8 @@ items:
             items:      
               - name: App modernization
                 items:
+                  - name: High-volume batch transaction processing
+                    href: example-scenario/mainframe/process-batch-transactions.yml
                   - name: IBM z/OS migration with Asysco AMT
                     href: example-scenario/mainframe/asysco-zos-migration.yml
                   - name: Micro Focus Enterprise Server on Azure
@@ -1802,6 +1806,8 @@ items:
                 href: reference-architectures/app-service-web-app/basic-web-app.yml
               - name: Azure Functions in a hybrid environment
                 href: hybrid/azure-functions-hybrid.yml
+              - name: Clinical insights with Microsoft Cloud for Healthcare
+                href: example-scenario/mch-health/medical-data-insights.yml
               - name: Consumer health portal
                 href: example-scenario/digital-health/health-portal.yml
               - name: Deployment in App Service Environments
