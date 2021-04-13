@@ -1,9 +1,10 @@
 ### YamlMime:Architecture
 metadata:
-  title: Protecting APIs with Application Gateway and APIM
-  description: In this article you will be guided through a suggestive process of protecting APIs with API Management (APIM) and Application Gateway (AG).
+  title: Protecting APIs with Application Gateway (AG) and API Management (APIM)
+  description: In this article, you'll be guided through a suggestive process of protecting APIs with API Management (APIM) and Application Gateway (AG).
   author: fabriciosanchez
-  ms.date: 02/02/2021
+  ms.author: fabriciosanchez
+  ms.date: 04/13/2021
   ms.topic: conceptual
   ms.service: architecture-center
   ms.category:
@@ -13,7 +14,7 @@ metadata:
   ms.subservice: reference-architecture
   ms.custom:
     - reference-architecture
-name: Protecting APIs with Application Gateway and APIM
+name: Protecting APIs with Application Gateway (AG) and API Management (APIM)
 azureCategories:
   - web
   - security
