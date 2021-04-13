@@ -1302,8 +1302,8 @@
                 "devops",
                 "ai-machine-learning"
             ],
-            "image": "/azure/architecture/example-scenario/apps/media/deployment-flow.png",
-            "imagepath": "C:\\jvPnpRepos\\architecture-center-pr\\docs\\example-scenario\\apps\\media\\deployment-flow.png",
+            "image": "/azure/architecture/example-scenario/apps/media/ci-cd-pipeline-deployment-arm-templates.png",
+            "imagepath": "C:\\jvPnpRepos\\architecture-center-pr\\docs\\example-scenario\\apps\\media\\ci-cd-pipeline-deployment-arm-templates.png",
             "publish_date": "3/25/2020",
             "sample_code": true,
             "github_url": "https://github.com/mspnp/solution-architectures/tree/master/cicdbots",
