@@ -604,8 +604,6 @@ items:
             items:
               - name: AI enrichment in Cognitive Search
                 href: solution-ideas/articles/cognitive-search-with-skillsets.yml
-              - name: AI for Earth
-                href: solution-ideas/articles/ai-for-earth.yml
               - name: Autonomous systems
                 href: solution-ideas/articles/autonomous-systems.yml
               - name: Baseball decision analysis with ML.NET and Blazor
