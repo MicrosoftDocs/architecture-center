@@ -576,6 +576,32 @@ items:
   - name: Industry solutions with Azure
     expanded: true
     items:
+      - name: Retail
+        items:
+          - name: Overview
+            href: industries/retail.md
+          - name: Build a Real-time Recommendation API on Azure
+            href: reference-architectures/ai/real-time-recommendation.yml
+          - name: Movie recommendations on Azure
+            href: example-scenario/ai/movie-recommendations.yml
+          - name: Scalable personalization on Azure
+            href: example-scenario/ai/scalable-personalization.yml
+          - name: Data warehousing and analytics
+            href: example-scenario/data/data-warehouse.yml
+          - name: Stream processing with Azure Databricks
+            href: reference-architectures/data/stream-processing-databricks.yml
+          - name: Stream processing with Azure Stream Analytics
+            href: reference-architectures/data/stream-processing-stream-analytics.yml
+          - name: E-commerce front end
+            href: example-scenario/apps/ecommerce-scenario.yml
+          - name: Intelligent product search engine for e-commerce
+            href: example-scenario/apps/ecommerce-search.yml
+          - name: Magento e-commerce platform in Azure Kubernetes Service
+            href: example-scenario/magento/magento-azure.yml
+          - name: Scalable order processing
+            href: example-scenario/data/ecommerce-order-processing.yml
+          - name: Retail - Buy online, pickup in store (BOPIS)
+            href: example-scenario/iot/vertical-buy-online-pickup-in-store.yml
       - name: Healthcare
         items:
           - name: Overview
