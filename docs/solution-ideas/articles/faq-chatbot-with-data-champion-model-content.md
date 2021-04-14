@@ -37,10 +37,10 @@ Azure Architecture Center overview articles:
 
 Explore related chatbot solution ideas and architectures in this docset:
 
-* [Chatbot for hotel reservations](../../example-scenario/ai/commerce-chatbot)
-* [Build an enterprise-grade conversational bot](../../reference-architectures/ai/conversational-bot)
-* [Commerce Chatbot](./commerce-chatbot)
-* [Enterprise chatbot disaster recovery](./enterprise-chatbot-disaster-recovery)
+* [Chatbot for hotel reservations](../../example-scenario/ai/commerce-chatbot.yml)
+* [Build an enterprise-grade conversational bot](../../reference-architectures/ai/conversational-bot.yml)
+* [Commerce Chatbot](./commerce-chatbot.yml)
+* [Enterprise chatbot disaster recovery](./enterprise-chatbot-disaster-recovery.yml)
 
 Microsoft Learn modules:
 
