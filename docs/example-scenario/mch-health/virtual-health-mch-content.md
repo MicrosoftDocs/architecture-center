@@ -12,7 +12,7 @@ This solution is targeted to provide virtual patient care in the current pandemi
 
 ## Architecture
 
-![Architecture for virtual visit using Microsoft Cloud for Healthcare](./images/virtual-health-solution.png)
+[![Architecture for virtual visit using Microsoft Cloud for Healthcare](./images/virtual-health-solution.png)](./images/virtual-health-solution.png#lightbox)
 
 _Download a [Visio file](https://arch-center.azureedge.net/virtual-health-solution.vsdx) that contains this architecture diagram._
 
@@ -140,7 +140,9 @@ The solution should be deployed in stages:
 
 ## Next steps
 
-- Learn more about the Microsoft Cloud for Healthcare at [What is Microsoft Cloud for Healthcare?](https://docs.microsoft.com/industry/healthcare/overview)
+- Learn how you can build upon this architecture to get [clinical and medical insights using Microsoft Cloud for Healthcare](./medical-data-insights.yml).
+
+- Learn more about the Microsoft Cloud for Healthcare at [What is Microsoft Cloud for Healthcare?](https://docs.microsoft.com/industry/healthcare/overview).
 
 - Learn more about Azure for healthcare offerings at [Azure for Healthcare—Healthcare Solutions](https://azure.microsoft.com/industries/healthcare/).
 

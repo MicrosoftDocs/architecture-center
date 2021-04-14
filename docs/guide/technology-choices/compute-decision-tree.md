@@ -2,11 +2,11 @@
 title: Choosing an Azure compute service
 description: Use this chart and other information to decide which compute service, or hosting model for computing resources, best suits your application.
 author: doodlemania2
-ms.date: 01/10/2020
+ms.date: 03/29/2021
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: guide
-ms.category:
+categories:
   - compute
 products:
   - azure-app-service
@@ -26,7 +26,7 @@ If your application consists of multiple workloads, evaluate each workload separ
 
 Use the following flowchart to select a candidate compute service.
 
-![Decision tree for Azure compute services](../images/compute-decision-tree.svg)
+![Decision tree for Azure compute services](images/compute-choices.png)
 
 Definitions:
 
