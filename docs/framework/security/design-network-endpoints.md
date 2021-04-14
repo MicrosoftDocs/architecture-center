@@ -26,7 +26,6 @@ This article describes way in which you can protect web applications with Azure 
 - Protect all public endpoints with Azure Front Door, Application Gateway, Azure Firewall, Azure DDoS Protection.
 - Use web application firewall (WAF) to protect web workloads.
 - Protect workload publishing methods and restrict ways that are not in use.
-- Implement an automated and gated CD/CD deployment process.
 - Mitigate DDoS attacks. Use Standard protection for critical workloads where outage would have business impact. Also consider CDN as another layer of protection.
 - Develop processes and procedures to prevent direct internet access of virtual machines (such as proxy or firewall) with logging and monitoring to enforce policies.
 - Implement an automated and gated CI/CD deployment process.
