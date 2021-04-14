@@ -26,7 +26,7 @@ This article provides proven architectures and idea starters to achieve these go
 The following articles provide detailed analysis of architectures recommended for retail industry.
 
 | Architecture | Summary | Primary technology |
-| ------- | ------- |
+| ------- | ------- | ------- |
 | [Build a Real-time Recommendation API on Azure](../reference-architectures/ai/real-time-recommendation.yml) | Build a recommendation engine that can be generalized for products, movies, news, and other consumer services, using Azure Databricks, Azure Machine Learning, Azure Cosmos DB, and Azure Kubernetes Service. | AI/ML |
 | [Movie recommendations on Azure](../example-scenario/ai/movie-recommendations.yml) | Automate movie and product recommendations by using an Azure Data Science Virtual Machine to train an Azure Machine Learning model. | AI/ML |
 | [Scalable personalization on Azure](../example-scenario/ai/scalable-personalization.yml) | Build a *content-based* personalized recommendation system for customers by learning their preferences from past purchases and interactions. | AI/ML |
