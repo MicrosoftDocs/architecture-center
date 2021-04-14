@@ -1,4 +1,4 @@
-Traditional clinical trials can be complex, time consuming, and costly. To address these issues, a growing number of healthcare organizations are partnering together to build data consortiums. Through these efforts, they can share data and centralize data orchestration processes.
+Traditional clinical trials can be complex, time consuming, and costly. To address these issues, a growing number of healthcare organizations are partnering together to build data consortiums.
 
 Data consortiums offer several benefits:
 
@@ -7,13 +7,13 @@ Data consortiums offer several benefits:
 - Lead to cost-effective regulatory decisions by providing quick access to data.
 - Keep patients safer and healthier by accelerating innovation.
 
-This architecture uses Azure components. It presents a solution for a data consortium with these capabilities:
+This architecture for a data consortium uses Azure components. It offers these capabilities:
 
 - Provide a way for multiple organizations to share data.
 - Centralize data orchestration efforts.
 - Ensure data security.
 - Guarantee patient privacy.
-- Support data interoperability. 
+- Support data interoperability.
 - Offer customization options to meet specific organizations' requirements.
 
 ## Potential use cases
@@ -21,7 +21,7 @@ This architecture uses Azure components. It presents a solution for a data conso
 Many types of healthcare professionals can benefit from this architecture:
 
 - Organizations that use real-world observational data like patient outcomes to determine treatments.
-- Providers who specialize in personalized or precision medicine.
+- Physicians who specialize in personalized or precision medicine.
 - Telemedicine providers who need easy access to patient data.
 - Researchers who work with genomic data.
 
@@ -47,38 +47,38 @@ The data flows through the solution as follows:
 
 This architecture uses the following components:
 
-- Healthcare platforms:
+- These healthcare platforms provide data:
 
   - Electronic Health Records (EHRs) are digital versions of real-time information on patients.
-  - [FHIR](https://www.hl7.org/fhir/index.html) (Fast Healthcare Interoperability Resources) data
-  - [IoMT](https://azure.microsoft.com/en-us/overview/iot/industry/healthcare/#use-cases) (Internet of Medical Things) data
-  - [Genomics](https://www.genome.gov/about-genomics/fact-sheets/A-Brief-Guide-to-Genomics) data
-  - [Imaging](https://www.dicomstandard.org/) data
-  - Other data from CRM, Billing, 3rd Party systems...
+  - [Fast Healthcare Interoperability Resources (FHIR)](https://www.hl7.org/fhir/index.html) is a standard for health care data exchange that Health Level Seven International (HL7) publishes.
+  - The [Internet of Medical Things (IoMT)](https://azure.microsoft.com/en-us/overview/iot/industry/healthcare/#use-cases) is the collection of medical devices and apps that connect to IT systems through online computer networks.
+  - [Genomics](https://www.genome.gov/about-genomics/fact-sheets/A-Brief-Guide-to-Genomics) data provides information on how genes interact with each other and the environment.
+  - [Imaging](https://www.dicomstandard.org/) data includes the images that radiology, cardiology imaging, radiotherapy, and other devices produce.
+  - Customer relationship management (CRM), billing, and third-party systems provide data on patients.
 
-Data is loaded from these different data sources using several Azure components:
+- These Azure components load data from various sources:
 
-- [Azure Data Share][What is Azure Data Share?] provides a way for multiple organizations to securely share data. With this tool, data providers stay in control of data that they share. And it's simple to manage and monitor who shared what data at what time. Azure Data Share also makes it easy to enrich analytics and AI scenarios by combining data from different members.
+  - [Azure Data Share][What is Azure Data Share?] provides a way for multiple organizations to securely share data. With this tool, data providers stay in control of data that they share. And it's simple to manage and monitor who shared what data at what time. Azure Data Share also makes it easy to enrich analytics and AI scenarios by combining data from different members.
 
-- [Azure Synapse Analytics][What is Azure Synapse Analytics?] is an analytics service for data warehouses and big data systems. With this tool, you can query data with serverless, on-demand resources or with provisioned ones. Azure Synapse Analytics works well with a high volume of structured data.
+  - [Azure Synapse Analytics][What is Azure Synapse Analytics?] is an analytics service for data warehouses and big data systems. With this tool, you can query data with serverless, on-demand resources or with provisioned ones. Azure Synapse Analytics works well with a high volume of structured data.
 
-- [Azure SQL Database][What is Azure SQL Database?] is a fully managed platform as a service (PaaS) database engine. With AI-powered, automated features, SQL Database handles database management functions like upgrading, patching, backups, and monitoring. This service is a good fit for structured data.
+  - [Azure SQL Database][What is Azure SQL Database?] is a fully managed platform as a service (PaaS) database engine. With AI-powered, automated features, SQL Database handles database management functions like upgrading, patching, backups, and monitoring. This service is a good fit for structured data.
 
-- [Azure Data Lake Gen2][Introduction to Azure Data Lake Storage Gen2] is a massively scalable and secure data lake for high-performance analytics workloads. This service can manage multiple petabytes of information while sustaining hundreds of gigabits of throughput. Azure Data Lake Gen2 provides a way to store structured and unstructured data from multiple members in one location.
+  - [Azure Data Lake Gen2][Introduction to Azure Data Lake Storage Gen2] is a massively scalable and secure data lake for high-performance analytics workloads. This service can manage multiple petabytes of information while sustaining hundreds of gigabits of throughput. Azure Data Lake Gen2 provides a way to store structured and unstructured data from multiple members in one location.
 
-- [Azure Data Explorer][What is Azure Data Explorer?] is a fast, fully managed data analytics service. You can use this tool for real-time analysis on large volumes of data. Data Explorer can handle diverse data streams from applications, websites, IoT devices, and other sources. Azure Data Explorer is a good fit for in-place sharing of streaming telemetry and log data.
+  - [Azure Data Explorer][What is Azure Data Explorer?] is a fast, fully managed data analytics service. You can use this tool for real-time analysis on large volumes of data. Data Explorer can handle diverse data streams from applications, websites, IoT devices, and other sources. Azure Data Explorer is a good fit for in-place sharing of streaming telemetry and log data.
 
-- [Azure Data Factory][What is Azure Data Factory?] is a hybrid data integration service. You can use this fully managed, serverless solution for data integration and transformation workflows. It offers a code-free UI and an easy-to-use monitoring panel. In this solution, Data Factory pipelines ingest data from disparate member data shares.
+  - [Azure Data Factory][What is Azure Data Factory?] is a hybrid data integration service. You can use this fully managed, serverless solution for data integration and transformation workflows. It offers a code-free UI and an easy-to-use monitoring panel. In this solution, Data Factory pipelines ingest data from disparate member data shares.
 
-- [Azure Databricks][What is Azure Databricks?] is a data analytics platform. Based on the latest Apache Spark distributed processing system, Azure Databricks supports seamless integration with open-source libraries. This solution uses Azure Databricks notebooks to transform all member data into a common format.
+  - [Azure Databricks][What is Azure Databricks?] is a data analytics platform. Based on the latest Apache Spark distributed processing system, Azure Databricks supports seamless integration with open-source libraries. This solution uses Azure Databricks notebooks to transform all member data into a common format.
 
-- [Azure Active Directory][What is Azure Active Directory?] is a multi-tenant, cloud-based identity and access management service.
+  - [Azure Active Directory][What is Azure Active Directory?] is a multi-tenant, cloud-based identity and access management service.
 
-- [Azure Key Vault][About Azure Key Vault] securely stores and controls access to secrets like API keys, passwords, certificates, and cryptographic keys. This cloud service also manages security certificates.
+  - [Azure Key Vault][About Azure Key Vault] securely stores and controls access to secrets like API keys, passwords, certificates, and cryptographic keys. This cloud service also manages security certificates.
 
-- [Azure Pipelines][What is Azure Pipelines?] automatically builds and tests code projects. This [Azure DevOps][What is Azure DevOps?] service combines continuous integration (CI) and continuous delivery (CD). Using these practices, Azure Pipelines constantly and consistently tests and builds code and ships it to any target.
+  - [Azure Pipelines][What is Azure Pipelines?] automatically builds and tests code projects. This [Azure DevOps][What is Azure DevOps?] service combines continuous integration (CI) and continuous delivery (CD). Using these practices, Azure Pipelines constantly and consistently tests and builds code and ships it to any target.
 
-- [Azure Security Center][What is Azure Security Center?] provides unified security management and advanced threat protection across hybrid cloud workloads.
+  - [Azure Security Center][What is Azure Security Center?] provides unified security management and advanced threat protection across hybrid cloud workloads.
 
 ### Alternatives
 
