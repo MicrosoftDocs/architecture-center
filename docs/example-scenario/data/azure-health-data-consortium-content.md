@@ -33,7 +33,7 @@ Many types of healthcare professionals can benefit from this architecture:
 
 
 
-The data flows through the solution as follows:
+Data flows through the solution as follows:
 
 1. **Data Source to Member Data Store:** Data from various sources whether on-premises or from 3rd party are loaded into one or more the data storage services, including Synapse Analytics, Azure SQL Database, Azure Data Lake Gen2 or Azure Data Explorer in to Members Data Store.
 2. **Member as Data Share Producer:** Members, the Data Producers receives a Data Share invitation from Data Consumer Consortium for Snapshot and/or In-Place Sharing to share data from these data storage services.
@@ -56,7 +56,7 @@ This architecture uses the following components:
   - [Imaging](https://www.dicomstandard.org/) data includes the images that radiology, cardiology imaging, radiotherapy, and other devices produce.
   - Customer relationship management (CRM), billing, and third-party systems provide data on patients.
 
-- These Azure components load data from various sources:
+- These Azure components secure, load, and store data:
 
   - [Azure Data Share][What is Azure Data Share?] provides a way for multiple organizations to securely share data. With this tool, data providers stay in control of data that they share. And it's simple to manage and monitor who shared what data at what time. Azure Data Share also makes it easy to enrich analytics and AI scenarios by combining data from different members.
 
