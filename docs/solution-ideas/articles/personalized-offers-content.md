@@ -47,7 +47,6 @@ This solution combines several Azure services to provide powerful advantages:
 
 ## Next steps
 
-* [Step-by-step instructions to implement the above model](https://github.com/Azure/azure-ai-personalized-offers/tree/master/Manual%20Deployment%20Guide#startup)
 * [Deep-dive into the classifiers used in this model](https://github.com/Azure/cortana-intelligence-personalization-data-science-playbook/blob/master/Personalized_Offers_from_Classifiers_Use_Case.md#types)
 * [Learn how to implement MLOps](/azure/machine-learning/concept-model-management-and-deployment)
 * [Build a Real-time Recommendation API on Azure](../../reference-architectures/ai/real-time-recommendation.yml)
