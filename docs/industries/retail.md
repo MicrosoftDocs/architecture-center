@@ -21,8 +21,6 @@ Retail is one of the fastest growing industries worldwide, generating some of th
 
 This article provides proven architectures and idea starters to achieve these goals for retailers. For more use cases and customer stories, visit [Azure for retail](https://azure.microsoft.com/industries/retailers/).
 
-> [!VIDEO https://azure.microsoft.com/en-us/resources/videos/azure-for-retail-industry/]
-
 ## Architectures for retail
 
 The following articles provide detailed analysis of architectures recommended for retail industry.

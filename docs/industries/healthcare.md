@@ -18,12 +18,12 @@ The healthcare industry includes various systems that provide curative, preventa
 
 The following articles provide detailed analysis of architectures recommended for healthcare industry.
 
-| Architecture | Summary |
-| ------- | ------- |
-| [Virtual health on Microsoft Cloud for Healthcare](../example-scenario/mch-health/virtual-health-mch.yml) | Use [Microsoft Cloud for Healthcare](https://docs.microsoft.com/industry/healthcare/overview), a software package created for the healthcare industry, to build an architecture for scheduling and following up on virtual visits between patients, providers, and care managers. |
-| [Consumer health portal on Azure](../example-scenario/digital-health/health-portal.yml) | Learn an architecture based on [Azure Well Architected Framework](../framework/index.md) for a consumer health portal that tracks statistics from wearables, engages with medical providers, and tracks health habits, using Azure services. |
-| [Building a telehealth system with Azure](../example-scenario/apps/telehealth-system.yml) | Explore a customer's implementation of a telehealth system using Azure cloud services. |
-| [Confidential computing for healthcare](../example-scenario/confidential/healthcare-inference.yml) | Use [Azure confidential computing](https://docs.microsoft.com/azure/confidential-computing/overview) to encrypt medical and patient data, for secure collaboration between hospitals and third-party diagnostic providers. |
+| Architecture | Summary | Diagram |
+| ------- | ------- | ---- |
+| [Virtual health on Microsoft Cloud for Healthcare](../example-scenario/mch-health/virtual-health-mch.yml) | Use [Microsoft Cloud for Healthcare](https://docs.microsoft.com/industry/healthcare/overview), a software package created for the healthcare industry, to build an architecture for scheduling and following up on virtual visits between patients, providers, and care managers. | :::image type="content" source="../browse/thumbs/virtual-health-solution.png" alt-text="Virtual Health"::: |
+| [Consumer health portal on Azure](../example-scenario/digital-health/health-portal.yml) | Learn an architecture based on [Azure Well Architected Framework](../framework/index.md) for a consumer health portal that tracks statistics from wearables, engages with medical providers, and tracks health habits, using Azure services. | |
+| [Building a telehealth system with Azure](../example-scenario/apps/telehealth-system.yml) | Explore a customer's implementation of a telehealth system using Azure cloud services. | |
+| [Confidential computing for healthcare](../example-scenario/confidential/healthcare-inference.yml) | Use [Azure confidential computing](https://docs.microsoft.com/azure/confidential-computing/overview) to encrypt medical and patient data, for secure collaboration between hospitals and third-party diagnostic providers. | |
 
 ## Solution ideas for healthcare
 
