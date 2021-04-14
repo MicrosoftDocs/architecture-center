@@ -22,9 +22,9 @@ Microsoft provides a comprehensive platform for the healthcare industry, [Micros
 
 ## Architectures for healthcare
 
-The following articles provide detailed analysis of architectures recommended for healthcare industry.
+The following articles provide detailed analysis of architectures developed and recommended for healthcare industry.
 
-| Architecture | Summary | Primary technology  |
+| Architecture | Summary | Technology category |
 | ------- | ------- | ------- |
 | [Virtual health on Microsoft Cloud for Healthcare](../example-scenario/mch-health/virtual-health-mch.yml) | Use [Microsoft Cloud for Healthcare](https://docs.microsoft.com/industry/healthcare/overview), a software package created for the healthcare industry, to build an architecture for scheduling and following up on virtual visits between patients, providers, and care managers. | Web |
 | [Clinical insights with Microsoft Cloud for Healthcare](../example-scenario/mch-health/medical-data-insights.yml) | Use Microsoft Cloud for Healthcare to collect, analyze, and visualize medical and health insights, that can be used to improve healthcare operations. | Web |

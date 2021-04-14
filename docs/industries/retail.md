@@ -19,13 +19,15 @@ Retail is one of the fastest growing industries worldwide, generating some of th
 - create innovative customer experiences using mixed reality, AI, and IoT
 - build a personalized and secure multi-channel retail experience for customers
 
-This article provides proven architectures and idea starters to achieve these goals for retailers. For more use cases and customer stories, visit [Azure for retail](https://azure.microsoft.com/industries/retailers/).
+Using Microsoft Azure services, retailers can easily achieve these goals. For use cases and customer stories, visit [Azure for retail](https://azure.microsoft.com/industries/retailers/). Microsoft is also revolutionizing the retail industry, by providing a comprehensive retail package, [Microsoft Cloud for Retail](https://www.microsoft.com/en-us/industry/retail/microsoft-cloud-for-retail).
+
+> [!VIDEO https://www.youtube.com/embed/Vn5x7VM7UwQ]
 
 ## Architectures for retail
 
-The following articles provide detailed analysis of architectures recommended for retail industry.
+The following articles provide detailed analysis of architectures developed and recommended for retail industry.
 
-| Architecture | Summary | Primary technology |
+| Architecture | Summary | Technology category |
 | ------- | ------- | ------- |
 | [Build a Real-time Recommendation API on Azure](../reference-architectures/ai/real-time-recommendation.yml) | Build a recommendation engine that can be generalized for products, movies, news, and other consumer services, using Azure Databricks, Azure Machine Learning, Azure Cosmos DB, and Azure Kubernetes Service. | AI/ML |
 | [Movie recommendations on Azure](../example-scenario/ai/movie-recommendations.yml) | Automate movie and product recommendations by using an Azure Data Science Virtual Machine to train an Azure Machine Learning model. | AI/ML |
