@@ -34,7 +34,7 @@ These components are required:
 
 - **AnyDB.** The database tier runs AnyDB as the database, such as Microsoft SQL Server, Oracle, or IBM Db2.
 
-- **Jumpbox** (also called a *bastion host*). Administrators use this improved-security virtual machine to connect to the other virtual machines. It's typically a part of shared services, like domain controllers and backup services. If Secure Shell Protocol (SSH) and Remote Desktop Protocol (RDP) are the only services used for server administration, an [Azure Bastion](/azure/bastion/bastion-overview) host is an alternative. But if you use other management tools, like SQL Server Management Studio or SAP Front End, use a traditional, self-deployed jump box.
+- **Jump box** (also called a *bastion host*). Administrators use this improved-security virtual machine to connect to the other virtual machines. It's typically a part of shared services, like domain controllers and backup services. If Secure Shell Protocol (SSH) and Remote Desktop Protocol (RDP) are the only services used for server administration, an [Azure Bastion](/azure/bastion/bastion-overview) host is an alternative. But if you use other management tools, like SQL Server Management Studio or SAP Front End, use a traditional, self-deployed jump box.
 
 - **Windows Server Active Directory domain controllers.** The domain controllers are used for identity management of all virtual machines and users in the domain.
 
@@ -109,7 +109,7 @@ Network interface cards enable all communication among virtual machines on a vir
 
 On Azure, the virtual network is a software-defined network that sends all traffic through the same network fabric. So it's not necessary to use multiple NICs for performance reasons. But if your organization needs to segregate traffic, you can deploy multiple NICs per VM and connect each NIC to a different subnet. You can then use network security groups to enforce different access control policies.
 
-Azure NICs support multiple IPs. This support conforms with the SAP recommended practice of using virtual host names for installations. For a complete outline, see [SAP note 962955](https://launchpad.support.sap.com/#/notes/962955) (To access SAP notes, you need an SAP Service Marketplace account.)
+Azure NICs support multiple IPs. This support conforms with the SAP recommended practice of using virtual host names for installations. For a complete outline, see [SAP note 962955](https://launchpad.support.sap.com/#/notes/962955). (To access SAP notes, you need an SAP Service Marketplace account.)
 
 #### Subnets and network security groups
 
@@ -143,7 +143,7 @@ For traffic from SAP GUI clients that connect to an SAP server via DIAG protocol
 
 ### Azure Storage
 
-Some organizations use standard storage for their application servers. Standard managed disks aren't supported. See [SAP note 1928533](http://service.sap.com/sap/support/notes/1928533) (SAP Service Marketplace account required). We recommend that you use premium [Azure managed disks](/azure/storage/storage-managed-disks-overview) in all cases. Note that a recent update to [SAP note 2015553](https://launchpad.support.sap.com/#/notes/2015553) excludes the use of Standard HDD storage and Standard SSD storage for a few specific use cases.
+Some organizations use standard storage for their application servers. Standard managed disks aren't supported. See [SAP note 1928533](http://service.sap.com/sap/support/notes/1928533). (SAP Service Marketplace account required.) We recommend that you use premium [Azure managed disks](/azure/storage/storage-managed-disks-overview) in all cases. Note that a recent update to [SAP note 2015553](https://launchpad.support.sap.com/#/notes/2015553) excludes the use of Standard HDD storage and Standard SSD storage for a few specific use cases.
 
 Application servers don't host business data. So you can also use the smaller P4 and P6 premium disks to help minimize cost. Doing so also allows you to benefit from the [single-instance VM SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_6) if you have a central SAP stack installation.
 
@@ -230,7 +230,7 @@ High availability for the SAP application servers is achieved by load-balancing 
 
 ### Database tier
 
-For this reference architecture, we've assumed the source database is running on AnyDB. That is, a DBMS like SQL Server, SAP ASE, IBM DB2, or Oracle. The database tier's native replication feature provides either manual or automatic failover between replicated nodes.
+For this reference architecture, we've assumed the source database is running on AnyDB. That is, a DBMS like SQL Server, SAP ASE, IBM Db2, or Oracle. The database tier's native replication feature provides either manual or automatic failover between replicated nodes.
 
 For implementation details about specific database systems, see [Azure Virtual Machines DBMS deployment for SAP NetWeaver](/azure/virtual-machines/workloads/sap/dbms_guide_general).
 
@@ -281,7 +281,7 @@ This component of the SAP application stack doesn't persist business data. For D
 
 You can build a virtual machine in the DR region to replicate the Central Services role and content. The only content from the primary Central Services node to synchronize is the /sapmnt share. If the configuration changes or kernel updates take place on the primary Central Services servers, you need to repeat the changes on the virtual machine in the DR region. For details about this replication method's build, copy, and test failover process, download [SAP NetWeaver: Building a Hyper-V and Microsoft Azure–based Disaster Recovery Solution](https://download.microsoft.com/download/9/5/6/956FEDC3-702D-4EFB-A7D3-2DB7505566B6/SAP%20NetWeaver%20-%20Building%20an%20Azure%20based%20Disaster%20Recovery%20Solution%20V1_5%20.docx). See "4.3. SAP SPOF layer (ASCS)."
 
-When implementing high availability for Central Services by using Scale-Out File Server or SIOS, Site Recovery supports the replication and recovery of both the Central Services and Scale-Out File Server / Storage Space Direct clusters. Alternatively, replicate and recover the Central Services cluster by using SIOS DataKeeper disks.
+When implementing high availability for Central Services by using Scale-Out File Server or SIOS, Site Recovery supports the replication and recovery of both the Central Services cluster and the Scale-Out File Server / Storage Space Direct cluster. Alternatively, replicate and recover the Central Services cluster by using SIOS DataKeeper disks.
 
 <!--markdownlint-disable MD024 -->
 
@@ -328,7 +328,7 @@ Support access within the applications themselves by using the services that SAP
 
 ### Monitoring
 
-[Azure Monitor](/azure/azure-monitor/overview) provides sophisticated tools for collecting and analyzing telemetry. These tools help you maximize the performance and availability of your cloud and on-premises resources and applications. (Azure Monitor now includes Log Analytics and Application Insights.) You can use Azure Monitor to monitor and alert administrators of infrastructure and application anomalies and to automate reactions to predefined conditions.
+[Azure Monitor](/azure/azure-monitor/overview) provides sophisticated tools for collecting and analyzing telemetry. These tools help you maximize the performance and availability of your cloud and on-premises resources and applications. (Azure Monitor now includes Log Analytics and Application Insights.) You can use Azure Monitor to monitor infrastructure and application anomalies, alert administrators, and automate reactions to predefined conditions.
 
 To provide SAP-based monitoring of resources and service performance of the SAP infrastructure, use the [Azure SAP Enhanced Monitoring](/azure/virtual-machines/workloads/sap/deployment-guide) extension. This extension feeds Azure monitoring statistics into the SAP application for operating system monitoring and DBA Cockpit functions. SAP Enhanced Monitoring is required for running SAP on Azure. For details, see [SAP note 2191498](https://launchpad.support.sap.com/#/notes/2191498), "SAP on Linux with Azure: Enhanced Monitoring." (To access SAP notes, you need an SAP Service Marketplace account.)
 
@@ -338,7 +338,7 @@ Azure Monitor for SAP Solutions provides a comprehensive initial set of metrics 
 
 ## Security considerations
 
-SAP has its own user management engine (UME) to control role-based access and authorization within the SAP application and databases. For detailed application security guidance, see to the [SAP NetWeaver Security Guide](https://help.sap.com/doc/saphelp_nw73ehp1/7.31.19/4a/af6fd65e233893e10000000a42189c/frameset.htm).
+SAP has its own user management engine (UME) to control role-based access and authorization within the SAP application and databases. For detailed application security guidance, see the [SAP NetWeaver Security Guide](https://help.sap.com/doc/saphelp_nw73ehp1/7.31.19/4a/af6fd65e233893e10000000a42189c/frameset.htm).
 
 For additional network security, consider using a [perimeter network](../../reference-architectures/dmz/secure-vnet-dmz.yml) that uses a network virtual appliance (NVA) to create a firewall in front of the subnet for Web Dispatcher.
 
