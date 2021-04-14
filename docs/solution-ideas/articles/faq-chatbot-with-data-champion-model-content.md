@@ -31,16 +31,16 @@
 
 ## Next steps
 
-Explore AI concepts:
+Azure Architecture Center overview articles:
 
 * [Artificial intelligence (AI) - Architectural overview](../../data-guide/big-data/ai-overview.md)
 
-Explore related chatbot solution ideas and architectures:
+Explore related chatbot solution ideas and architectures in this docset:
 
-* [Chatbot for hotel reservations](/azure/architecture/example-scenario/ai/commerce-chatbot)
-* [Build an enterprise-grade conversational bot](/azure/architecture/reference-architectures/ai/conversational-bot)
-* [Commerce Chatbot](/azure/architecture/solution-ideas/articles/commerce-chatbot)
-* [Enterprise chatbot disaster recovery](/azure/architecture/solution-ideas/articles/enterprise-chatbot-disaster-recovery)
+* [Chatbot for hotel reservations](../../example-scenario/ai/commerce-chatbot)
+* [Build an enterprise-grade conversational bot](../../reference-architectures/ai/conversational-bot)
+* [Commerce Chatbot](./commerce-chatbot)
+* [Enterprise chatbot disaster recovery](./enterprise-chatbot-disaster-recovery)
 
 Microsoft Learn modules:
 
