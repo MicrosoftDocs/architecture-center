@@ -1,6 +1,6 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-[Azure Bot Service](/azure/bot-service/) with [Language Understanding](/azure/cognitive-services/luis/) enables developers to create conversational interfaces for banking, travel, and entertainment commerce scenarios. For example, a hotel concierge can use a bot to enhance e-mail and phone call customer interactions. The bot validates customers with Azure Active Directory. Azure Cognitive Services is then used to contextually process customer service text and voice requests. Add the [Speech service](/azure/cognitive-services/speech-service/) to recognize and support voice commands.
+[Azure Bot Service](/azure/bot-service/) with [Language Understanding](/azure/cognitive-services/luis/) enables developers to create conversational interfaces for banking, travel, and entertainment commerce scenarios. For example, a hotel concierge can use a bot to enhance customer e-mail and phone call interactions. The bot validates customers with Azure Active Directory. Azure Cognitive Services is then used to contextually process customer service text and voice requests. Add the [Speech service](/azure/cognitive-services/speech-service/) to recognize and support voice commands.
 
 ## Architecture of the commerce chatbot
 
