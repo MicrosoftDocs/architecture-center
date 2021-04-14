@@ -16,7 +16,7 @@ The healthcare industry includes various systems that provide curative, preventa
 
 Modernization and digital transformation of healthcare facilities is all the more important during the current COVID-19 global pandemic.
 
-> [!VIDEO https://www.youtube.com/watch?v=ehv6UL-_MoE]
+> [!VIDEO https://www.youtube.com/embed/ehv6UL-_MoE]
 
 Microsoft provides a comprehensive platform for the healthcare industry, [Microsoft Cloud for Healthcare](https://www.microsoft.com/industry/health/microsoft-cloud-for-healthcare). Your healthcare scenario can also be digitized and enhanced using Azure services alone. Learn more at [Azure for healthcare](https://azure.microsoft.com/industries/healthcare/).
 
