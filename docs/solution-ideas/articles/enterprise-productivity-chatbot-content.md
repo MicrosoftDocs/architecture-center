@@ -11,9 +11,9 @@ Use [Azure Bot Service](/azure/bot-service/) with [Language Understanding](/azur
 
 1. An employee accesses the enterprise bot.
 1. Azure Active Directory validates the employee's identity.
-1. The bot queries the employee's Microsoft 365 calendar via the Microsoft Graph.
+1. The bot queries the employee's Microsoft 365 calendar via Microsoft Graph.
 1. Using data gathered from the calendar, the bot accesses case information in Dynamics CRM.
-1. Information is returned to the employee, who can filter the data without leaving the Bot.
+1. Information is returned to the employee, who can filter the data without leaving the bot.
 1. Application Insights monitors the live application to diagnose issues and help understand how to improve bot performance and usability.
 
 ## Components
@@ -32,8 +32,19 @@ Key technologies used to implement this architecture:
 
 ## Next steps
 
+Azure Architecture Center overview articles:
+
 * [Artificial intelligence (AI) - Architectural overview](../../data-guide/big-data/ai-overview.md)
 * [Choosing a Azure Cognitive Services technology](../../data-guide/technology-choices/cognitive-services.md)
+
+Azure Architecture Center articles describing other chatbot architectures:
+
+* [Chatbot for hotel reservations](../../example-scenario/ai/commerce-chatbot.yml)
+* [Build an enterprise-grade conversational bot](../../reference-architectures/ai/conversational-bot.yml)
+* [Speech-to-text conversion](../../reference-architectures/ai/speech-ai-ingestion.yml)
+
+Product documentation:
+
 * [What are Azure Cognitive Services?](/azure/cognitive-services/what-are-cognitive-services)
 * [What is the Speech service?](/azure/cognitive-services/speech-service/overview)
 * [What is QnA Maker?](/azure/cognitive-services/QnAMaker/Overview/overview)
@@ -41,12 +52,6 @@ Key technologies used to implement this architecture:
 * [Introduction to Bot Framework Composer](/composer/introduction)
 * [What is Application Insights](/azure/azure-monitor/app/app-insights-overview)
 * [Overview of Microsoft Graph](/graph/overview)
-
-Fully deployable architectures:
-
-* [Chatbot for hotel reservations](../../example-scenario/ai/commerce-chatbot.yml)
-* [Build an enterprise-grade conversational bot](../../reference-architectures/ai/conversational-bot.yml)
-* [Speech-to-text conversion](../../reference-architectures/ai/speech-ai-ingestion.yml)
 
 Microsoft Learn modules:
 
