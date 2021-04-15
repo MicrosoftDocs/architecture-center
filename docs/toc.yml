@@ -603,8 +603,9 @@ items:
           - name: Retail - Buy online, pickup in store (BOPIS)
             href: example-scenario/iot/vertical-buy-online-pickup-in-store.yml
       - name: Finance
-        href: industries/finance.md
         items:
+          - name: Overview
+            href: industries/finance.md
           - name:  Decentralized trust between banks
             href: example-scenario/apps/decentralized-trust.yml
           - name: Replicate and sync mainframe data in Azure
