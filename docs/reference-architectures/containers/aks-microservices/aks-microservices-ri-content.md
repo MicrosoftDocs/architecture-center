@@ -48,12 +48,12 @@ Populate several environment variables, these valuse are used throughout the app
 ```azurecli-interactive
 export SSH_PUBLIC_KEY_FILE="~/.ssh/id_rsa.pub"
 export LOCATION="eastus"
-export RESOURCE_GROUP="aks-microservices-001"
+export RESOURCE_GROUP="aks-microservices-200"
 export SUBSCRIPTION_ID=$(az account show --query id --output tsv)
 export SUBSCRIPTION_NAME=$(az account show --query name --output tsv)
 export TENANT_ID=$(az account show --query tenantId --output tsv)
 export DEPLOYMENT_SUFFIX=$(date +%S%N)
-export PROJECT_ROOT=.
+export PROJECT_ROOT=./microservices-reference-implementation
 export K8S=$PROJECT_ROOT/k8s
 export HELM_CHARTS=./charts
 ```
@@ -103,26 +103,26 @@ Deploy the AKS cluster.
 export DEV_DEPLOYMENT_NAME=azuredeploy-${DEPLOYMENT_SUFFIX}-dev
 
 az deployment group create -g $RESOURCE_GROUP --name $DEV_DEPLOYMENT_NAME --template-file ${PROJECT_ROOT}/azuredeploy.json \
---parameters servicePrincipalClientId=${SP_APP_ID} \
-            servicePrincipalClientSecret=${SP_CLIENT_SECRET} \
-            servicePrincipalId=${SP_OBJECT_ID} \
-            kubernetesVersion=${KUBERNETES_VERSION} \
+--parameters servicePrincipalClientId=$SP_APP_ID \
+            servicePrincipalClientSecret=$SP_CLIENT_SECRET \
+            servicePrincipalId=$SP_OBJECT_ID \
+            kubernetesVersion=$KUBERNETES_VERSION \
             sshRSAPublicKey="$(cat ~/.ssh/id_rsa.pub)" \
-            deliveryIdName=${DELIVERY_ID_NAME} \
-            deliveryPrincipalId=${DELIVERY_ID_PRINCIPAL_ID} \
-            droneSchedulerIdName=${DRONESCHEDULER_ID_NAME} \
-            droneSchedulerPrincipalId=${DRONESCHEDULER_ID_PRINCIPAL_ID} \
-            workflowIdName=${WORKFLOW_ID_NAME} \
-            workflowPrincipalId=${WORKFLOW_ID_PRINCIPAL_ID} \
-            acrResourceGroupName=${RESOURCE_GROUP_ACR}
+            deliveryIdName=$DELIVERY_ID_NAME \
+            deliveryPrincipalId=$DELIVERY_ID_PRINCIPAL_ID \
+            droneSchedulerIdName=$DRONESCHEDULER_ID_NAME \
+            droneSchedulerPrincipalId=$DRONESCHEDULER_ID_PRINCIPAL_ID \
+            workflowIdName=$WORKFLOW_ID_NAME \
+            workflowPrincipalId=$WORKFLOW_ID_PRINCIPAL_ID \
+            acrResourceGroupName=$RESOURCE_GROUP_ACR
 ```
 
 Finally, collect a few values that are used throughout the remainder of this reference implementation.
 
 ```azurecli-interactive
-export ACR_NAME=$(az group deployment show -g $RESOURCE_GROUP -n $DEV_DEPLOYMENT_NAME --query properties.outputs.acrName.value -o tsv) && \
+export ACR_NAME=$(az deployment group show -g $RESOURCE_GROUP -n $DEV_DEPLOYMENT_NAME --query properties.outputs.acrName.value -o tsv) && \
 export ACR_SERVER=$(az acr show -n $ACR_NAME --query loginServer -o tsv) && \
-export CLUSTER_NAME=$(az group deployment show -g $RESOURCE_GROUP -n $DEV_DEPLOYMENT_NAME --query properties.outputs.aksClusterName.value -o tsv)
+export CLUSTER_NAME=$(az deployment group show -g $RESOURCE_GROUP -n $DEV_DEPLOYMENT_NAME --query properties.outputs.aksClusterName.value -o tsv)
 ```
 
 ## Prepare Kubernetes environment
@@ -140,12 +140,27 @@ kubectl create namespace backend-dev
 ```
 
 ```azurecli-interactive
-curl https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3 | bash
+# install helm client side
+curl -L https://git.io/get_helm.sh | bash -s -- -v v2.17.0
+
+# setup tiller in your cluster
+kubectl apply -f $K8S/tiller-rbac.yaml
+helm init --service-account tiller
 ```
 
 <nepeters - what is this step>
 
 ```azurecli-interactive
+# Acquire Instrumentation Key
+export AI_NAME=$(az deployment group show -g $RESOURCE_GROUP -n $DEV_DEPLOYMENT_NAME --query properties.outputs.appInsightsName.value -o tsv)
+export AI_IKEY=$(az resource show \
+                    -g $RESOURCE_GROUP \
+                    -n $AI_NAME \
+                    --resource-type "Microsoft.Insights/components" \
+                    --query properties.InstrumentationKey \
+                    -o tsv)
+
+# add RBAC for AppInsights
 kubectl apply -f $K8S/k8s-rbac-ai.yaml
 ```
 
@@ -154,8 +169,10 @@ kubectl apply -f $K8S/k8s-rbac-ai.yaml
 Instal the AAD POD identity Helm Chart.
 
 ```azuercli-interactive
-helm repo add aad-pod-identity https://raw.githubusercontent.com/Azure/aad-pod-identity/master/charts
-helm install aad-pod-identity aad-pod-identity/aad-pod-identity --set=installCRDs=true --set nmi.allowNetworkPluginKubenet=true --namespace kube-system
+# setup AAD pod identity
+helm install aad-pod-identity/aad-pod-identity --set=installCRDs=true --set nmi.allowNetworkPluginKubenet=true --name aad-pod-identity --namespace kube-system --version 3.0.3
+
+kubectl create -f https://raw.githubusercontent.com/Azure/kubernetes-keyvault-flexvol/master/deployment/kv-flexvol-installer.yaml
 ```
 
 Install flexvol.
@@ -167,7 +184,7 @@ kubectl create -f https://raw.githubusercontent.com/Azure/kubernetes-keyvault-fl
 ## Install ingress controller
 
 ```azuercli-interactive
-helm install nginx-ingress-dev stable/nginx-ingress --namespace ingress-controllers --set rbac.create=true --set controller.ingressClass=nginx-dev --version 1.24.7 --create-namespace
+helm install stable/nginx-ingress --name nginx-ingress-dev --namespace ingress-controllers --set rbac.create=true --set controller.ingressClass=nginx-dev --version 1.24.7
 ```
 
 Obtain the load balancer ip address and assign a domain name.
@@ -227,13 +244,13 @@ az acr build -r $ACR_NAME -t $ACR_SERVER/delivery:0.1.0 ./src/shipping/delivery/
 Deploy the Delivery service.
 
 ```azurecli-interactive
-export DELIVERY_PRINCIPAL_RESOURCE_ID=$(az group deployment show -g $RESOURCE_GROUP -n $IDENTITIES_DEPLOYMENT_NAME --query properties.outputs.deliveryPrincipalResourceId.value -o tsv) && \
+# Extract pod identity outputs from deployment
+export DELIVERY_PRINCIPAL_RESOURCE_ID=$(az deployment group show -g $RESOURCE_GROUP -n $IDENTITIES_DEPLOYMENT_NAME --query properties.outputs.deliveryPrincipalResourceId.value -o tsv) && \
 export DELIVERY_PRINCIPAL_CLIENT_ID=$(az identity show -g $RESOURCE_GROUP -n $DELIVERY_ID_NAME --query clientId -o tsv)
 export DELIVERY_INGRESS_TLS_SECRET_NAME=delivery-ingress-tls
-```
 
-```azurecli-interactive
-helm install delivery-v0.1.0-dev $HELM_CHARTS/delivery/ \
+# Deploy the service
+helm install $HELM_CHARTS/delivery/ \
      --set image.tag=0.1.0 \
      --set image.repository=delivery \
      --set dockerregistry=$ACR_SERVER \
@@ -251,7 +268,267 @@ helm install delivery-v0.1.0-dev $HELM_CHARTS/delivery/ \
      --set keyvault.uri=$DELIVERY_KEYVAULT_URI \
      --set reason="Initial deployment" \
      --set tags.dev=true \
-     --namespace backend-dev
+     --namespace backend-dev \
+     --name delivery-v0.1.0-dev \
+     --dep-up
+
+# Verify the pod is created
+helm status delivery-v0.1.0-dev
 ```
 
+Deploy the Delivery service.
 
+Extract resource details from deployment.
+
+```azurecli-interactive
+export COSMOSDB_NAME=$(az deployment group show -g $RESOURCE_GROUP -n $DEV_DEPLOYMENT_NAME --query properties.outputs.packageMongoDbName.value -o tsv)
+```
+
+Build the Package service.
+
+```azurecli-interactive
+export PACKAGE_PATH=$PROJECT_ROOT/src/shipping/package
+
+# Build the docker image
+docker build -f $PACKAGE_PATH/Dockerfile -t $ACR_SERVER/package:0.1.0 $PACKAGE_PATH
+
+# Push the docker image to ACR
+az acr login --name $ACR_NAME
+docker push $ACR_SERVER/package:0.1.0
+```
+
+Deploy the Package service.
+
+```azurecli-interactive
+# Create secret
+# Note: Connection strings cannot be exported as outputs in ARM deployments
+export COSMOSDB_CONNECTION=$(az cosmosdb keys list --type connection-strings --name $COSMOSDB_NAME --resource-group $RESOURCE_GROUP --query "connectionStrings[0].connectionString" -o tsv | sed 's/==/%3D%3D/g') && \
+export COSMOSDB_COL_NAME=packages
+
+# Deploy service
+helm install $HELM_CHARTS/package/ \
+     --set image.tag=0.1.0 \
+     --set image.repository=package \
+     --set ingress.hosts[0].name=$EXTERNAL_INGEST_FQDN \
+     --set ingress.hosts[0].serviceName=package \
+     --set ingress.hosts[0].tls=false \
+     --set secrets.appinsights.ikey=$AI_IKEY \
+     --set secrets.mongo.pwd=$COSMOSDB_CONNECTION \
+     --set cosmosDb.collectionName=$COSMOSDB_COL_NAME \
+     --set dockerregistry=$ACR_SERVER \
+     --set reason="Initial deployment" \
+     --set tags.dev=true \
+     --namespace backend-dev \
+     --name package-v0.1.0-dev \
+     --dep-up
+
+# Verify the pod is created
+helm status package-v0.1.0-dev
+```
+
+Deploy the Workflow service.
+
+Extract resource details from deployment.
+
+```azurecli-interactive
+export WORKFLOW_KEYVAULT_NAME=$(az deployment group show -g $RESOURCE_GROUP -n $DEV_DEPLOYMENT_NAME --query properties.outputs.workflowKeyVaultName.value -o tsv)
+```
+
+Build the workflow service.
+
+```azurecli-interactive
+export WORKFLOW_PATH=$PROJECT_ROOT/src/shipping/workflow
+
+# Build the Docker image
+docker build --pull --compress -t $ACR_SERVER/workflow:0.1.0 $WORKFLOW_PATH/.
+
+# Push the image to ACR
+az acr login --name $ACR_NAME
+docker push $ACR_SERVER/workflow:0.1.0
+```
+
+Create and set up pod identity.
+
+```azurecli-interactive
+# Extract outputs from deployment
+export WORKFLOW_PRINCIPAL_RESOURCE_ID=$(az deployment group show -g $RESOURCE_GROUP -n $IDENTITIES_DEPLOYMENT_NAME --query properties.outputs.workflowPrincipalResourceId.value -o tsv) && \
+export WORKFLOW_PRINCIPAL_CLIENT_ID=$(az identity show -g $RESOURCE_GROUP -n $WORKFLOW_ID_NAME --query clientId -o tsv)
+```
+
+Deploy the Workflow service.
+
+```azurecli-interactive
+# Deploy the service
+helm install $HELM_CHARTS/workflow/ \
+     --set image.tag=0.1.0 \
+     --set image.repository=workflow \
+     --set dockerregistry=$ACR_SERVER \
+     --set identity.clientid=$WORKFLOW_PRINCIPAL_CLIENT_ID \
+     --set identity.resourceid=$WORKFLOW_PRINCIPAL_RESOURCE_ID \
+     --set keyvault.name=$WORKFLOW_KEYVAULT_NAME \
+     --set keyvault.resourcegroup=$RESOURCE_GROUP \
+     --set keyvault.subscriptionid=$SUBSCRIPTION_ID \
+     --set keyvault.tenantid=$TENANT_ID \
+     --set reason="Initial deployment" \
+     --set tags.dev=true \
+     --namespace backend-dev \
+     --name workflow-v0.1.0-dev \
+     --dep-up
+
+# Verify the pod is created
+helm status workflow-v0.1.0-dev
+```
+
+Deploy the Ingestion service
+
+Extract resource details from deployment.
+
+```azurecli-interactive
+export INGESTION_QUEUE_NAMESPACE=$(az deployment group show -g $RESOURCE_GROUP -n $DEV_DEPLOYMENT_NAME --query properties.outputs.ingestionQueueNamespace.value -o tsv) && \
+export INGESTION_QUEUE_NAME=$(az deployment group show -g $RESOURCE_GROUP -n $DEV_DEPLOYMENT_NAME --query properties.outputs.ingestionQueueName.value -o tsv)
+export INGESTION_ACCESS_KEY_NAME=$(az deployment group show -g $RESOURCE_GROUP -n $DEV_DEPLOYMENT_NAME --query properties.outputs.ingestionServiceAccessKeyName.value -o tsv)
+export INGESTION_ACCESS_KEY_VALUE=$(az servicebus namespace authorization-rule keys list --resource-group $RESOURCE_GROUP --namespace-name $INGESTION_QUEUE_NAMESPACE --name $INGESTION_ACCESS_KEY_NAME --query primaryKey -o tsv)
+```
+
+Build the Ingestion service
+
+```azurecli-interactive
+export INGESTION_PATH=$PROJECT_ROOT/src/shipping/ingestion
+
+# Build the docker image
+docker build -f $INGESTION_PATH/Dockerfile -t $ACR_SERVER/ingestion:0.1.0 $INGESTION_PATH
+
+# Push the docker image to ACR
+az acr login --name $ACR_NAME
+docker push $ACR_SERVER/ingestion:0.1.0
+```
+
+Deploy the Ingestion service
+
+```azurecli-interactive
+# Set secreat name
+export INGRESS_TLS_SECRET_NAME=ingestion-ingress-tls
+
+# Deploy service
+helm install $HELM_CHARTS/ingestion/ \
+     --set image.tag=0.1.0 \
+     --set image.repository=ingestion \
+     --set dockerregistry=$ACR_SERVER \
+     --set ingress.hosts[0].name=$EXTERNAL_INGEST_FQDN \
+     --set ingress.hosts[0].serviceName=ingestion \
+     --set ingress.hosts[0].tls=true \
+     --set ingress.hosts[0].tlsSecretName=$INGRESS_TLS_SECRET_NAME \
+     --set ingress.tls.secrets[0].name=$INGRESS_TLS_SECRET_NAME \
+     --set ingress.tls.secrets[0].key="$(cat ingestion-ingress-tls.key)" \
+     --set ingress.tls.secrets[0].certificate="$(cat ingestion-ingress-tls.crt)" \
+     --set secrets.appinsights.ikey=${AI_IKEY} \
+     --set secrets.queue.keyname=IngestionServiceAccessKey \
+     --set secrets.queue.keyvalue=${INGESTION_ACCESS_KEY_VALUE} \
+     --set secrets.queue.name=${INGESTION_QUEUE_NAME} \
+     --set secrets.queue.namespace=${INGESTION_QUEUE_NAMESPACE} \
+     --set reason="Initial deployment" \
+     --set tags.dev=true \
+     --namespace backend-dev \
+     --name ingestion-v0.1.0-dev \
+     --dep-up
+
+# Verify the pod is created
+helm status ingestion-v0.1.0-dev
+```
+
+Deploy DroneScheduler service
+
+Extract resource details from deployment
+
+```azurecli-interactive
+export DRONESCHEDULER_KEYVAULT_URI=$(az deployment group show -g $RESOURCE_GROUP -n $DEV_DEPLOYMENT_NAME --query properties.outputs.droneSchedulerKeyVaultUri.value -o tsv)
+export DRONESCHEDULER_COSMOSDB_NAME=$(az deployment group show -g $RESOURCE_GROUP -n $DEV_DEPLOYMENT_NAME --query properties.outputs.droneSchedulerCosmosDbName.value -o tsv) && \
+export ENDPOINT_URL=$(az cosmosdb show -n $DRONESCHEDULER_COSMOSDB_NAME -g $RESOURCE_GROUP --query documentEndpoint -o tsv) && \
+export AUTH_KEY=$(az cosmosdb keys list -n $DRONESCHEDULER_COSMOSDB_NAME -g $RESOURCE_GROUP --query primaryMasterKey -o tsv) && \
+export DATABASE_NAME="invoicing" && \
+export COLLECTION_NAME="utilization"
+```
+
+Build the dronescheduler services
+
+```azurecli-interactive
+export DRONE_PATH=$PROJECT_ROOT/src/shipping/dronescheduler
+```
+
+Create and set up pod identity
+
+```azurecli-interactive
+# Extract outputs from deployment
+export DRONESCHEDULER_PRINCIPAL_RESOURCE_ID=$(az deployment group show -g $RESOURCE_GROUP -n $IDENTITIES_DEPLOYMENT_NAME --query properties.outputs.droneSchedulerPrincipalResourceId.value -o tsv) && \
+export DRONESCHEDULER_PRINCIPAL_CLIENT_ID=$(az identity show -g $RESOURCE_GROUP -n $DRONESCHEDULER_ID_NAME --query clientId -o tsv)
+```
+
+Build and publish the container image
+
+```azurecli-interactive
+# Build the Docker image
+docker build -f $DRONE_PATH/Dockerfile -t $ACR_SERVER/dronescheduler:0.1.0 $DRONE_PATH/../
+
+# Push the images to ACR
+az acr login --name $ACR_NAME
+docker push $ACR_SERVER/dronescheduler:0.1.0
+```
+
+Deploy the dronescheduler service:
+
+```azurecli-interactive
+# Deploy the service
+helm install $HELM_CHARTS/dronescheduler/ \
+     --set image.tag=0.1.0 \
+     --set image.repository=dronescheduler \
+     --set dockerregistry=$ACR_SERVER \
+     --set ingress.hosts[0].name=$EXTERNAL_INGEST_FQDN \
+     --set ingress.hosts[0].serviceName=dronescheduler \
+     --set ingress.hosts[0].tls=false \
+     --set identity.clientid=$DRONESCHEDULER_PRINCIPAL_CLIENT_ID \
+     --set identity.resourceid=$DRONESCHEDULER_PRINCIPAL_RESOURCE_ID \
+     --set keyvault.uri=$DRONESCHEDULER_KEYVAULT_URI \
+     --set cosmosdb.id=$DATABASE_NAME \
+     --set cosmosdb.collectionid=$COLLECTION_NAME \
+     --set reason="Initial deployment" \
+     --set tags.dev=true \
+     --namespace backend-dev \
+     --name dronescheduler-v0.1.0-dev \
+     --dep-up
+
+# Verify the pod is created
+helm status dronescheduler-v0.1.0-dev
+```
+
+## Validate the application is running
+
+You can send delivery requests and check their statuses using curl.
+
+### Send a request
+
+Since the certificate used for TLS is self-signed, the request disables TLS validation using the '-k' option.
+
+```bash
+curl -X POST "https://$EXTERNAL_INGEST_FQDN/api/deliveryrequests" --header 'Content-Type: application/json' --header 'Accept: application/json' -k -d '{
+   "confirmationRequired": "None",
+   "deadline": "",
+   "dropOffLocation": "drop off",
+   "expedited": true,
+   "ownerId": "myowner",
+   "packageInfo": {
+     "packageId": "mypackage",
+     "size": "Small",
+     "tag": "mytag",
+     "weight": 10
+   },
+   "pickupLocation": "my pickup",
+   "pickupTime": "2019-05-08T20:00:00.000Z"
+ }' > deliveryresponse.json
+```
+
+### Check the request status
+
+```bash
+DELIVERY_ID=$(cat deliveryresponse.json | jq -r .deliveryId)
+curl "https://$EXTERNAL_INGEST_FQDN/api/deliveries/$DELIVERY_ID" --header 'Accept: application/json' -k
+```
