@@ -6,7 +6,7 @@ This example scenario applies generally to businesses that want to integrate a c
 
 Beyond hotel booking, this chatbot could be used in a wide range of commerce settings. For example, the chatbot can enable customers to review the take-out menu of restaurant and place an order. Or, the chatbot can enable customers of a photography studio to search for and order prints. Traditionally, businesses hire and train customer service agents to respond to these types of customer requests. As a result, customers wait until a representative is available to provide assistance.
 
-With Azure Bot Service and Language Understanding or Speech API services, businesses can use scalable bots for common customer tasks.
+With [Azure Bot Service][botservice-docs] and [Language Understanding][language-understanding] or [Speech][speech-api] services, businesses can use scalable bots to handle common customer requests.
 
 ## Architecture
 
@@ -122,6 +122,7 @@ Microsoft Learn modules:
 [autoscaling]: ../../best-practices/auto-scaling.md
 [botservice-docs]: /composer/tutorial/tutorial-introduction
 [cognitive-docs]: /azure/cognitive-services
+[language-understanding]: /azure/cognitive-services/luis/what-is-luis
 [learn1]: /learn/paths/create-bots-with-the-azure-bot-service/
 [learn2]: /learn/modules/build-faq-chatbot-qna-maker-azure-bot-service/
 [security]: /azure/security
