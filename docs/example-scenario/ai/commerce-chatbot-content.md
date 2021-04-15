@@ -4,7 +4,7 @@
 
 This example scenario applies generally to businesses that want to integrate a conversational chatbot into applications. Specifically, this scenario shows a C# chatbot for a hotel to allow customers to check availability and book accommodation through a web or mobile application.
 
-Beyond hotel booking, this chatbot could be used in a wide range of commerce settings. For example, the chatbot can enable customers to review the take-out menu of restaurant and place an order. Or, the chatbot can enable customers of photography studio to search for and order prints. Traditionally, businesses hire and train customer service agents to respond to these types of customer requests. As a result, customers wait until a representative is available to provide assistance.
+Beyond hotel booking, this chatbot could be used in a wide range of commerce settings. For example, the chatbot can enable customers to review the take-out menu of restaurant and place an order. Or, the chatbot can enable customers of a photography studio to search for and order prints. Traditionally, businesses hire and train customer service agents to respond to these types of customer requests. As a result, customers wait until a representative is available to provide assistance.
 
 With Azure Bot Service and Language Understanding or Speech API services, businesses can use scalable bots for common customer tasks.
 
@@ -18,8 +18,8 @@ This scenario covers a conversational bot that functions as a concierge for a ho
 2. Using Azure Active Directory (Azure AD) B2C (business-to-consumer), the customer is authenticated.
 3. Interacting with the Bot Service, the customer requests information about hotel availability.
 4. Cognitive Services processes the natural language request to understand the customer communication.
-5. After the customer is happy with the results, the bot adds or updates the reservation or booking in a SQL Database.
-6. Application Insights gathers runtime telemetry throughout the process to help the DevOps team with bot performance and usage.
+5. After the customer is happy with the results, the bot adds or updates the reservation or booking in a SQL database.
+6. Application Insights gathers runtime telemetry throughout the process to help the DevOps team improve bot performance and usage.
 
 ### Components
 
@@ -76,7 +76,7 @@ This scenario is divided into three components for easier exploration:
 
         [![Deploy this solution to Azure](https://azuredeploy.net/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmspnp%2Fsolution-architectures%2Fmaster%2Fapps%2Fcommerce-chatbot.json)
 
-    2. Wait for the template deployment to open in the Azure portal, and follow the UI to create the deployment. Specify:
+    2. Wait for the template deployment to open in the Azure portal, and follow the UI instructions to create the deployment. Specify:
        - A resource group name such as *myCommerceChatBotInfrastructure*.
        - Select a region.
        - Provide a username and secure password for the SQL Server administrator account.
@@ -85,11 +85,11 @@ This scenario is divided into three components for easier exploration:
 
 - **Web app chatbot**: To use Azure CLI to deploy a bot with the Bot Service, see [Deploy your bot](/azure/bot-service/bot-builder-deploy-az-cli). To add Language Understanding and Intelligent Services (LUIS) to the bot, see [Deploy LUIS resources using the Bot Framework LUIS CLI commands](/azure/bot-service/bot-builder-howto-bf-cli-deploy-luis).
 
-- **Sample C# chatbot application**: Use Visual Studio to review the C# application code for hotel booking and deploy to a bot in Azure. A [sample C# application](https://github.com/Microsoft/AzureBotServices-scenarios/tree/master/CSharp/Commerce/src) is available on GitHub. The sample application includes the Azure Active Directory authentication components and integration with the Language Understanding and Intelligent Services (LUIS) component of Cognitive Services. The application requires Visual Studio to build and deploy the scenario. Additional information on configuring Azure AD B2C and the LUIS app can be found in the GitHub repo documentation.
+- **Sample C# chatbot application**: Use Visual Studio to review the [sample C# application](https://github.com/Microsoft/AzureBotServices-scenarios/tree/master/CSharp/Commerce/src) on GitHub. The sample application includes the Azure Active Directory authentication components and integration with the Language Understanding and Intelligent Services (LUIS) component of Cognitive Services. The application requires Visual Studio to build and deploy the scenario. Additional information on configuring Azure AD B2C and the LUIS app can be found in the GitHub repo documentation.
 
 ## Pricing
 
-To explore the cost of running this scenario and related scenarios, use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/). To see how pricing changes for different use cases, change the service variables to match expected traffic. For example, consider three cost profiles based on the number of messages you expect your chatbot to process:
+To explore the cost of running this scenario, use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/). To see how pricing changes for different use cases, change the service variables to match expected traffic. For example, consider three cost profiles based on the number of messages you expect your chatbot to process:
 
 - Small, processing < 10,000 messages per month.
 - Medium, processing < 500,000 messages per month.
