@@ -70,22 +70,22 @@ You must have an existing Azure account. If you don't have an Azure subscription
 
 This scenario is divided into three components for easier exploration:
 
-- Infrastructure components: Use an Azure Resource Manager template to deploy the core infrastructure components of an App Service, Web App, Application Insights, Storage account, and SQL Server and database. Use the following steps.
+- **Infrastructure components**: Use an Azure Resource Manager template to deploy the core infrastructure components of an App Service, Web App, Application Insights, Storage account, and SQL Server and database. Use the following steps.
 
-1. Use the link below to deploy the solution.
+    1. Use the link below to deploy the solution.
 
-    [![Deploy this solution to Azure](https://azuredeploy.net/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmspnp%2Fsolution-architectures%2Fmaster%2Fapps%2Fcommerce-chatbot.json)
+        [![Deploy this solution to Azure](https://azuredeploy.net/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmspnp%2Fsolution-architectures%2Fmaster%2Fapps%2Fcommerce-chatbot.json)
 
-2. Wait for the template deployment to open in the Azure portal, and follow the UI to create the deployment. Specify:
-   - A resource group name such as *myCommerceChatBotInfrastructure*.
-   - Select a region.
-   - Provide a username and secure password for the SQL Server administrator account.
+    2. Wait for the template deployment to open in the Azure portal, and follow the UI to create the deployment. Specify:
+       - A resource group name such as *myCommerceChatBotInfrastructure*.
+       - Select a region.
+       - Provide a username and secure password for the SQL Server administrator account.
 
-It takes a few minutes for the deployment to complete.
+    It takes a few minutes for the deployment to complete.
 
-- Web app chatbot: To use Azure CLI to deploy a bot with the Bot Service, see [Deploy your bot](/azure/bot-service/bot-builder-deploy-az-cli). To add Language Understanding and Intelligent Services (LUIS) to the bot, see [Deploy LUIS resources using the Bot Framework LUIS CLI commands](/azure/bot-service/bot-builder-howto-bf-cli-deploy-luis).
+- **Web app chatbot**: To use Azure CLI to deploy a bot with the Bot Service, see [Deploy your bot](/azure/bot-service/bot-builder-deploy-az-cli). To add Language Understanding and Intelligent Services (LUIS) to the bot, see [Deploy LUIS resources using the Bot Framework LUIS CLI commands](/azure/bot-service/bot-builder-howto-bf-cli-deploy-luis).
 
-- Sample C# chatbot application: Use Visual Studio to review the C# application code for hotel booking and deploy to a bot in Azure. A [sample C# application](https://github.com/Microsoft/AzureBotServices-scenarios/tree/master/CSharp/Commerce/src) is available on GitHub. The sample application includes the Azure Active Directory authentication components and integration with the Language Understanding and Intelligent Services (LUIS) component of Cognitive Services. The application requires Visual Studio to build and deploy the scenario. Additional information on configuring Azure AD B2C and the LUIS app can be found in the GitHub repo documentation.
+- **Sample C# chatbot application**: Use Visual Studio to review the C# application code for hotel booking and deploy to a bot in Azure. A [sample C# application](https://github.com/Microsoft/AzureBotServices-scenarios/tree/master/CSharp/Commerce/src) is available on GitHub. The sample application includes the Azure Active Directory authentication components and integration with the Language Understanding and Intelligent Services (LUIS) component of Cognitive Services. The application requires Visual Studio to build and deploy the scenario. Additional information on configuring Azure AD B2C and the LUIS app can be found in the GitHub repo documentation.
 
 ## Pricing
 
