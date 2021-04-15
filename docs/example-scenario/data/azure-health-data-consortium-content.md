@@ -31,17 +31,35 @@ Many types of healthcare professionals can benefit from this architecture:
    The diagram contains two areas, one for Azure components, and one for on-premises components. The on-premises area is simple, with icons for a user and a network service. The Azure area is complex. Boxes containing icons fill the Azure area. The boxes represent a virtual network, sets of virtual machines, third-party software, database services, storage solutions, and other components. Arrows connect some boxes. Number and letter labels link parts of the diagram with the description in the document.
 :::image-end:::
 
+1. Raw data originates in on-premises and third-party sources. Members of the consortium load this data into any of these storage services in Azure Data Share:
+
+   - Synapse Analytics
+   - Azure SQL Database
+   - Azure Data Lake Gen2
+   - Azure Data Explorer
+
+1. The consortium asks members to share data. As data producers, members can either share snapshots or use in-place sharing.
+
+1. As a data consumer, the consortium receives the shared member data. This data enters Azure Data Lake Gen2 in the consortium's Data Share for further transformation.
+
+1. Data Factory and Databricks clean the member data and transform it into a common format.
+
+1. The consortium combines the member data and stores it in a service. The data's structure and volume determine the type of storage service that's most suitable. Possibilities include these services:
+
+   - Synapse Analytics
+   - Azure SQL Database
+   - Azure Data Lake Gen2
+   - Azure Data Explorer
+
+1. As a data share producer, the consortium invites members to receive data. Members can either accept snapshot data or in-place sharing data.
+
+1. As data consumers, members receive the shared data. The data enters member data stores for research and analysis.
 
 
-Data flows through the solution as follows:
+Throughout the system:
 
-1. **Data Source to Member Data Store:** Data from various sources whether on-premises or from 3rd party are loaded into one or more the data storage services, including Synapse Analytics, Azure SQL Database, Azure Data Lake Gen2 or Azure Data Explorer in to Members Data Store.
-2. **Member as Data Share Producer:** Members, the Data Producers receives a Data Share invitation from Data Consumer Consortium for Snapshot and/or In-Place Sharing to share data from these data storage services.
-3. **Consortium as Data Share Consumer:** Consortium, the Data Consumer receives the shared data into Azure Data Lake Gen2 in Consortium Data Share for further transformation.
-4. **Consortium Data Transformation:** Data Factory and/or Databricks cleanses and transforms all the Member data into a common format.
-5. **Consortium Data Consolidation:** Combined Member's data is stored in one or more data storage services, including Synapse Analytics, Azure SQL Database, Azure Data Lake Gen2 or Azure Data Explorer depending on the structure and volume.
-6. **Consortium as Data Share Producer:** Consortium, the Data Producer receives a Data Share invitation from Data Consumer Members for Snapshot and/or In-Place Sharing to share data.
-7. **Member as Data Share Consumer:** Members, the Data Consumers receives the shared data into Member Data Store for further research and analysis.
+- Azure AD, Key Vault, and Security Center manage access and provide security.
+- Azure Pipelines, a service of Azure DevOps, builds, tests, and releases code.
 
 ### Components
 
@@ -80,25 +98,53 @@ This architecture uses the following components:
 
   - [Azure Security Center][What is Azure Security Center?] provides unified security management and advanced threat protection across hybrid cloud workloads.
 
+### Customizations
+
+Modify the reference architecture to fit your specific requirements by answering these questions:
+
+- What and where are your data sources?
+- What type of Azure services do member data stores use to receive source data?
+- What data can members share with the consortium?
+- What type of Azure services can the consortium use to receive shared data?
+- Is member data already in a common format, or do you need to clean and transform it?
+- Can members share data in batches as snapshots? Or can they stream data with in-place sharing?
+- What data can the consortium share with members?
+
 ### Alternatives
 
-- Use Azure Synapse Analytics, Azure SQL Database, Azure Data Lake Gen2 and Azure Blob Storage for Snapshot Sharing of batch data. For more information, see [Modern Data Warehouse reference architecture](https://docs.microsoft.com/en-us/azure/architecture/solution-ideas/articles/modern-data-warehouse).
+With Azure Data Share, [many alternatives exist for data storage][Supported data stores in Azure Data Share]. The service you choose depends on your sharing method and your volume and type of data:
 
-- Azure Data Explorer for In-Place Sharing of streaming telemetry and log data. See [Azure Data Explorer reference architecture](https://docs.microsoft.com/en-us/azure/architecture/solution-ideas/articles/interactive-azure-data-explorer) for more information.
+- For snapshot sharing of batch data, use any of these services:
 
-- If the datasets are very large, non-relational or not in a common format, consider using Blob or Data Lake Storage when receiving and sending from Data Share instead of Synapse Analytics or Azure SQL Database. For more information, see [Data Storage reference architecture](https://docs.microsoft.com/en-us/azure/architecture/solution-ideas/articles/medical-data-storage).
+  - Azure Synapse Analytics
+  - Azure SQL Database
+  - Azure Data Lake Gen2
+  - Azure Blob Storage
 
-- If Data Share is not a viable option, a site to site VPN could be used to push data from Member Data Store to Consortium Data Store and vice versa.
+  For more information, see [Modern data warehouse architecture][Modern data warehouse architecture].
+
+- For in-place sharing of streaming telemetry and log data, use Azure Data Explorer. For more information, see [Azure Data Explorer interactive analytics][Azure Data Explorer interactive analytics].
+
+- Some datasets are very large or non-relational. Some don't contain data in standardized formats. For these types of datasets, consider using Blob or Data Lake Storage when receiving data from and sending data to Data Share. These solutions work better than Synapse Analytics or Azure SQL Database in this case. For more information, see [Medical data storage solutions][Medical data storage solutions].
+
+If Data Share isn't a viable option, you can use a site-to-site virtual private network (VPN) to transfer data between member and consortium data stores.
 
 ## Considerations
 
-The following considerations apply to this solution:
+The technologies in this architecture meet most company's requirements for security, scalability and availability. They also help control costs.
 
 ### Security considerations
 
-The technologies in this architecture were chosen because they meet most company's requirements for security, scalability and availability, while helping control costs.
+- [Security features in Azure Data Share][Security overview for Azure Data Share] protect data by:
 
-- [Azure Data Share](https://docs.microsoft.com/en-us/azure/data-share/security) leverages the underlying security that Azure offers to protect data at rest and in transit. Data is encrypted at rest, where supported by the underlying data store. Data is also encrypted in transit using TLS 1.2. Metadata about a data share is also encrypted at rest and in transit. Azure Data Share does not store contents of the customer data being shared.
+  - Encrypting data at rest, where the underlying data store supports at-rest encryption.
+  - Encrypting data in transit by using Transport Layer Security (TLS) 1.2.
+  - Encrypting metadata about a data share at rest and in transit.
+  - Not storing contents of shared customer data.
+
+
+
+
 
 - [Azure Synapse Analytics](https://azure.microsoft.com/en-us/resources/videos/securing-your-data-warehouse-with-azure-synapse-analytics/) provides comprehensive security model gives you the fine grained controls you need to secure your data at every level.
 
@@ -135,15 +181,6 @@ Learn more about
 - [Azure Data Lake Gen2](https://docs.microsoft.com/en-us/azure/storage/blobs/data-lake-storage-access-control)
 - [Azure Data Explorer](https://docs.microsoft.com/en-us/azure/data-explorer/security)
 
-Modify the reference architecture above to fit your specific requirements by answering these questions:
-- What and where are your Data sources?
-- Which Azure data store(s) will this be data landed in Member Data Store?
-- What Member data will be shared with Consortium?
-- Which data store(s) will Consortium land the shared data?
-- Is the Member data already in common format or needs cleansing and transformation?
-- Will the data be shared as batch or Snapshot, or streaming or In-Place?
-- What data will Consortium share with Members?
-
 ## Related resources
 
 - [Azure API for FHIR](https://azure.microsoft.com/en-us/services/azure-api-for-fhir/)
@@ -152,7 +189,12 @@ Modify the reference architecture above to fit your specific requirements by ans
 - [Microsoft Genomics](https://azure.microsoft.com/en-us/services/genomics/)
 
 [About Azure Key Vault]: /azure/key-vault/general/overview
+[Azure Data Explorer interactive analytics]: /azure/architecture/solution-ideas/articles/interactive-azure-data-explorer
 [Introduction to Azure Data Lake Storage Gen2]: /azure/storage/blobs/data-lake-storage-introduction
+[Medical data storage solutions]: /azure/architecture/solution-ideas/articles/medical-data-storage
+[Modern data warehouse architecture]: /azure/architecture/solution-ideas/articles/modern-data-warehouse
+[Security overview for Azure Data Share]: /azure/data-share/security
+[Supported data stores in Azure Data Share]: /azure/data-share/supported-data-stores
 [What is Azure Active Directory?]: /azure/active-directory/fundamentals/active-directory-whatis
 [What is Azure Data Factory?]: /azure/data-factory/introduction
 [What is Azure Data Explorer?]: /azure/data-explorer/data-explorer-overview
@@ -163,4 +205,3 @@ Modify the reference architecture above to fit your specific requirements by ans
 [What is Azure Security Center?]: /azure/security-center/security-center-introduction
 [What is Azure SQL Database?]: /azure/azure-sql/database/sql-database-paas-overview
 [What is Azure Synapse Analytics?]: /azure/synapse-analytics/overview-what-is
-
