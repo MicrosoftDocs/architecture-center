@@ -8,7 +8,7 @@ Beyond hotel booking, this chatbot could be used in a wide range of commerce set
 
 With [Azure Bot Service][botservice-docs] and [Language Understanding][language-understanding] or [Speech][speech-api] services, businesses can use scalable bots to handle common customer requests.
 
-## Architecture
+## Architecture for hotel booking bot
 
 ![Architecture overview: conversational chatbot and the Azure components involved in a conversational chatbot][architecture]
 
