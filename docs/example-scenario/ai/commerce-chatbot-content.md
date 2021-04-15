@@ -124,7 +124,7 @@ The sample application includes the Azure Active Directory authentication compon
 
 ## Pricing
 
-To explore the cost of running this scenario and related scenarios, use the [Azure pricing calculator][pricing-calc]. To see how the pricing changes for your use case, change the service variables to match your expected traffic. For example, consider three cost profiles based on the number of messages you expect your chatbot to process:
+To explore the cost of running this scenario and related scenarios, use the [Azure pricing calculator][https://azure.microsoft.com/en-us/pricing/calculator/]. To see how the pricing changes for your use case, change the service variables to match your expected traffic. For example, consider three cost profiles based on the number of messages you expect your chatbot to process:
 
 - Small, processing < 10,000 messages per month.
 - Medium, processing < 500,000 messages per month.
@@ -153,7 +153,6 @@ Microsoft Learn modules
 [cognitive-docs]: /azure/cognitive-services
 [learn1]: /learn/paths/create-bots-with-the-azure-bot-service/
 [learn2]: /learn/modules/build-faq-chatbot-qna-maker-azure-bot-service/
-[pricing-calc]: /pricing/calculator/
 [security]: /azure/security
 [scalability]: ../../framework/scalability/performance-efficiency.md
 [sqlavailability-docs]: /azure/sql-database/sql-database-technical-overview#availability-capabilities
