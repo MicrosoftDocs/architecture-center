@@ -40,7 +40,7 @@ Explore related chatbot solution ideas and architectures in this docset:
 * [Chatbot for hotel reservations](../../example-scenario/ai/commerce-chatbot.yml)
 * [Build an enterprise-grade conversational bot](../../reference-architectures/ai/conversational-bot.yml)
 * [Commerce chatbot for customer service](./commerce-chatbot.yml)
-* [Enterprise chatbot disaster recovery](./enterprise-chatbot-disaster-recovery.yml)
+* [Disaster recovery for enterprise bots](./enterprise-chatbot-disaster-recovery.yml)
 
 Microsoft Learn modules:
 
