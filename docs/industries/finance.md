@@ -3,7 +3,7 @@ title: Overview of finance industry
 titleSuffix: Azure Architecture Center
 description: Architectures and ideas to use Azure and other Microsoft services for building efficient and reliable finance solutions.
 author: dsk-2015
-ms.date: 04/14/2021
+ms.date: 04/15/2021
 ms.topic: article
 ms.service: architecture-center
 ms.subservice: 
@@ -16,9 +16,11 @@ The finance industry includes broad spectrum of entites such as banks, investmen
 
 With digitial transformation, financial institutions can leverage speed and security of the cloud to offer differentiated customer experiences, manage risks, and fight fraud. To learn more, visit [Azure for financial services](https://azure.microsoft.com/en-us/industries/financial/). Banking and capital market institutions can also drive innovative cloud solutions with Azure by learning about use cases and documentation at [Azure for banking and capital markets](https://azure.microsoft.com/en-us/industries/financial/banking/). Microsoft also provides a complete set of capabilities across various platforms in the form of [Microsoft Cloud for Financial Services](https://www.microsoft.com/en-us/industry/financial-services/microsoft-cloud-for-financial-services).
 
-<br\>
+<br>
+
 > [!VIDEO https://www.youtube.com/embed/MqESP4OIC00]
-<br\>
+
+<br>
 
 ## Architectures for finance
 
