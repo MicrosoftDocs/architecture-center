@@ -9,7 +9,7 @@ ms.service: architecture-center
 ms.subservice: guide
 ---
 
-A microservices architecture consists of a collection of small, autonomous services. Each service is self-contained and should implement a single business capability.
+A microservices architecture consists of a collection of small, autonomous services. Each service is self-contained and should implement a single business capability within a bounded context. A bounded context is a natural division within a business and provides an explicit boundary within which a domain model exists.
 
 ![Logical diagram of microservices architecture style](./images/microservices-logical.png)
 
@@ -25,7 +25,7 @@ A microservices architecture consists of a collection of small, autonomous servi
 
 - Services communicate with each other by using well-defined APIs. Internal implementation details of each service are hidden from other services.
 
-- Services don't need to share the same technology stack, libraries, or frameworks.
+- Supports polyglot programming. For example, services don't need to share the same technology stack, libraries, or frameworks.
 
 Besides for the services themselves, some other components appear in a typical microservices architecture:
 
@@ -40,6 +40,8 @@ Advantages of using an API gateway include:
 - Services can use messaging protocols that are not web friendly, such as AMQP.
 
 - The API Gateway can perform other cross-cutting functions such as authentication, logging, SSL termination, and load balancing.
+
+- Out-of-the-box policies, like for throttling, caching, transformation, or validation.
 
 ## Benefits
 
