@@ -2,7 +2,7 @@
 
 
 
-This example scenario applies to businesses that need to integrate a conversational chatbot into applications. In this scenario, a C# chatbot is used for a hotel chain that allows customers to check availability and book accommodation through a web or mobile application.
+This example scenario applies generally to businesses that want to integrate a conversational chatbot into applications. Specifically, this scenario shows a C# chatbot for a hotel to allow customers to check availability and book accommodation through a web or mobile application.
 
 Beyond hotel booking, this chatbot could be used in a wide range of commerce settings. For example, the chatbot can enable customers to review the take-out menu of restaurant and place an order. Or, the chatbot can enable customers of photography studio to search for and order prints. Traditionally, businesses hire and train customer service agents to respond to these types of customer requests. As a result, customers wait until a representative is available to provide assistance.
 
@@ -23,14 +23,14 @@ This scenario covers a conversational bot that functions as a concierge for a ho
 
 ### Components
 
-- [Azure Active Directory (Azure AD)][aad-docs] is Microsoft's multitenant cloud-based directory and identity management service. Azure AD supports a B2C connector allowing you to identify individuals using external IDs such as Google, Facebook, or a Microsoft account.
+- [Azure Active Directory (Azure AD)][aad-docs] is Microsoft's multitenant cloud-based directory and identity management service. Azure AD supports a B2C connector allowing you to identify users by their external IDs, such as Google, Facebook, or a Microsoft account.
 - [App Service][appservice-docs] enables you to build and host web applications in the programming language of your choice without managing infrastructure.
 - [Bot Service][botservice-docs] provides tools to build, test, deploy, and manage intelligent bots.
 - [Cognitive Services][cognitive-docs] lets you use intelligent algorithms to see, hear, speak, understand, and interpret your user needs through natural methods of communication.
 - [SQL Database][sqldatabase-docs] is a fully managed relational cloud database service that provides SQL Server engine compatibility.
 - [Application Insights][appinsights-docs] is an extensible Application Performance Management (APM) service that lets you monitor the performance of applications, such as your chatbot.
 
-Additional components that could be use to enhance this example scenario include:
+Other components that could be used to enhance this example scenario include:
 
 - [Speech API][speech-api] to change how customers interface with your bot.
 - [QnA Maker][qna-maker] to quickly add knowledge to your bot from semi-structured content like an FAQ.
@@ -58,7 +58,7 @@ For general guidance on designing secure solutions, see the [Azure Security Docu
 
 ### Resiliency
 
-This scenario uses Azure SQL Database for storing customer reservations. SQL Database includes zone redundant databases, failover groups, geo-replication, and automatic backups. These features allow your application to continue running if there is a maintenance event or outage. For more information, see [Azure SQL Database availability capabilities][sqlavailability-docs].
+This scenario uses Azure SQL Database for storing customer reservations. SQL Database includes zone redundant databases, failover groups, geo-replication, and automatic backups. These features allow your application to continue running if there's a maintenance event or outage. For more information, see [Azure SQL Database availability capabilities][sqlavailability-docs].
 
 To monitor the health of your application, this scenario uses Application Insights. With Application Insights, you can generate alerts and respond to performance issues that would affect customer experience and availability of the chatbot. For more information, see [What is Application Insights?][appinsights-docs]
 
@@ -66,7 +66,7 @@ For other resiliency articles, see [Designing reliable Azure applications](../..
 
 ## Deploy the scenario
 
-This scenario is divided into three components for you to explore areas that you are most focused on:
+This scenario is divided into three components for easier exploration:
 
 - [Infrastructure components](#deploy-infrastructure-components). Use an Azure Resource Manager template to deploy the core infrastructure components of an App Service, Web App, Application Insights, Storage account, and SQL Server and database.
 - [Web app chatbot](#deploy-web-app-chatbot). Use the Azure CLI to deploy a bot with the Bot Service and Language Understanding and Intelligent Services (LUIS) app.
@@ -78,7 +78,7 @@ You must have an existing Azure account. If you don't have an Azure subscription
 
 ### Deploy infrastructure components
 
-To deploy the infrastructure components with a Resource Manager template, perform the following steps.
+To deploy the infrastructure components with a Resource Manager template, use the following steps.
 
 1. Use the link below to deploy the solution.
 
@@ -124,7 +124,7 @@ The sample application includes the Azure Active Directory authentication compon
 
 ## Pricing
 
-To explore the cost of running this scenario and related scenarios, use the [Azure pricing calculator][pricing-calc].To see how the pricing changes for your use case, change the service variables to match your expected traffic. For example, consider three cost profiles based on the number of messages you expect your chatbot to process:
+To explore the cost of running this scenario and related scenarios, use the [Azure pricing calculator][pricing-calc]. To see how the pricing changes for your use case, change the service variables to match your expected traffic. For example, consider three cost profiles based on the number of messages you expect your chatbot to process:
 
 - Small, processing < 10,000 messages per month.
 - Medium, processing < 500,000 messages per month.
