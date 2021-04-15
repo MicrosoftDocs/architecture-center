@@ -4677,7 +4677,7 @@
             "word_count": 148,
             "read_time": "1 min read",
             "Title": "FAQ Chatbot with data champion model",
-            "MetaDescription": "The QnA Maker tool makes it super easy for the content owners to maintain their knowledge base of QnAs. Combined with Bot Service and LUIS, it's easy to setup an FAQ chatbot which responds from differnet knowledge bases depending on the intent of the query.",
+            "MetaDescription": "The QnA Maker tool makes it super easy for the content owners to maintain their knowledge base of QnAs. Combined with Bot Service and LUIS, it's easy to setup an FAQ chatbot which responds from different knowledge bases depending on the intent of the query.",
             "category": [
                 "ai-machine-learning"
             ],
