@@ -3,21 +3,23 @@
 
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-With the Azure AI tools and cloud platform, the next generation of AI-enabled hybrid applications can run where your data lives. With Azure Stack Hub, bring a trained AI model to the edge and integrate it with your applications for low-latency intelligence, with no tool or process changes for local applications. With Azure Stack Hub, you can ensure that your cloud solutions work even when disconnected from the internet.
+With the Azure AI tools, edge, and cloud platform, edge intelligence is possible. The next generation of AI-enabled hybrid applications can run where your data lives. With Azure Stack Hub, bring a trained AI model to the edge and integrate it with your applications for low-latency intelligence, with no tool or process changes for local applications. With Azure Stack Hub, you can ensure that your cloud solutions work even when disconnected from the internet.
+
+This solution idea is for a disconnected edge. For a connected-edge scenario, see the [AI at the edge](./ai-at-the-edge.yml).
 
 ## Architecture
 
-![Architecture diagram](../media/ai-at-the-edge-disconnected.png)
+![Architecture diagram: AI-enabled application running at the edge with Azure Stack Hub (disconnected).](../media/ai-at-the-edge-disconnected.png)
 *Download an [SVG](../media/ai-at-the-edge-disconnected.svg) of this architecture.*
 
 ## Data Flow
 
-1. Data scientists train a model using Azure Machine Learning Studio (classic) and an HDInsight cluster. The model is containerized and put in to an Azure Container Registry.
-1. The model is deployed via steps not represented in the diagram to a Kubernetes cluster on Azure Stack Hub.
-1. End users provide data that is scored against the model.
+1. Data scientists train a model using Azure Machine Learning Studio (classic) and an HDInsight cluster. The model is containerized and put into an Azure Container Registry.
+1. The model is deployed to a Kubernetes cluster on Azure Stack Hub.
+1. End users provide data that's scored against the model.
 1. Insights and anomalies from scoring are placed into storage for later upload.
 1. Globally-relevant and compliant insights are available in the global app.
-1. Data from edge scoring is used to improve the model.
+1. Data scientists use scoring from the edge to improve the model.
 
 ## Components
 

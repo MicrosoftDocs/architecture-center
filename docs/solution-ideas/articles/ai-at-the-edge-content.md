@@ -7,7 +7,7 @@ With the Azure AI tools, edge, and cloud platform, edge intelligence is possible
 
 ## Architecture
 
-![Architecture diagram](../media/ai-at-the-edge.png)
+![Architecture diagram: AI-enabled application running at the edge with Azure Stack Hub.](../media/ai-at-the-edge.png)
 *Download an [SVG](../media/ai-at-the-edge.svg) of this architecture.*
 
 ## Data flow
@@ -19,7 +19,7 @@ With the Azure AI tools, edge, and cloud platform, edge intelligence is possible
 1. A function sends compliant data and anomalies to Azure Storage.
 1. Globally relevant and compliant insights are available in the global app.
 1. Data from edge scoring is used to improve the model.
-1. (feedback loop) The model re-training can be triggered by schedule. The data scientists works on the optimization. The improved model is deployed and containerized as an update to the container registry.
+1. (feedback loop) The model retraining can be triggered by a schedule. Data scientists work on the optimization. The improved model is deployed and containerized as an update to the container registry.
 
 ## Components
 
@@ -32,7 +32,7 @@ Key technologies used to implement this architecture:
 * [Storage](https://azure.microsoft.com/services/storage): Durable, highly available, and massively scalable cloud storage
 * [Azure Stack Hub](https://azure.microsoft.com/overview/azure-stack): Build and run innovative hybrid applications across cloud boundaries
 * [Azure Functions](https://azure.microsoft.com/services/functions/): Event-driven serverless compute unit for on-demand tasks running without the needs of maintaining the computing server
-* [App Service](/azure/app-service/overview): Path that captures end user feedback data to enable model optimization
+* [App Service](/azure/app-service/overview): Path that captures end-user feedback data to enable model optimization
 
 ## Next steps
 
@@ -40,11 +40,11 @@ Key technologies used to implement this architecture:
 * Get Microsoft Certified for Azure Stack Hub with the [Azure Stack Hub Operator Associate](/learn/certifications/azure-stack-hub-operator/) certification
 * How to [install the AKS Engine on Linux in Azure Stack Hub](/azure-stack/user/azure-stack-kubernetes-aks-engine-deploy-linux)
 * How to [install the AKS Engine on Windows in Azure Stack Hub](/azure-stack/user/azure-stack-kubernetes-aks-engine-deploy-windows)
-* Deploy your ML models to an Edge device with [Azure Stack Edge Devices](https://azure.microsoft.com/products/azure-stack/edge/#devices)
+* Deploy your ML models to an edge device with [Azure Stack Edge Devices](https://azure.microsoft.com/products/azure-stack/edge/#devices)
 * Innovate further and deploy [Azure Cognitive Services (Speech, Language, Decision, Vision) containers to Azure Stack Hub](/azure-stack/user/azure-stack-solution-template-cognitive-services/)
 
 ## Related resources
-
+    
 * [App Service documentation](/azure/app-service/)
 * [Azure Kubernetes Service (AKS) documentation](/azure/aks)
 * [Azure Machine Learning documentation](/azure/machine-learning/service)
