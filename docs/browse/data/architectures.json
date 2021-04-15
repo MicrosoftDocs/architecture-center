@@ -4356,8 +4356,8 @@
                 "ai-machine-learning",
                 "management-and-governance"
             ],
-            "image": "/azure/architecture/solution-ideas/media/chatbot-dr.png",
-            "imagepath": "C:\\jvPnpRepos\\architecture-center-pr\\docs\\solution-ideas\\media\\chatbot-dr.png",
+            "image": "/azure/architecture/solution-ideas/media/chatbot-with-failover-two-regions.png",
+            "imagepath": "C:\\jvPnpRepos\\architecture-center-pr\\docs\\solution-ideas\\media\\chatbot-with-failover-two-regions.png",
             "publish_date": "6/22/2020",
             "Summary": "<p>To set up disaster recovery for an enterprise-grade <em>conversational bot (chatbot)</em>, first review the service level agreement (SLA) that cover the <em>Recovery Point Objective (RPO)</em> and <em>Recovery Time Objective (RTO)</em> for the chatbot. Implement the disaster recovery patterns in this article to build highly available and disaster resistant chatbot solutions to meet the SLA.</p>\n<p>For a description of the core components of a typical enterprise-grade chatbot solution in Azure, see <a >Enterprise-grade conversational bot</a>.</p>",
             "sample_code": true,
@@ -4677,7 +4677,7 @@
             "word_count": 148,
             "read_time": "1 min read",
             "Title": "FAQ Chatbot with data champion model",
-            "MetaDescription": "The QnA Maker tool makes it super easy for the content owners to maintain their knowledge base of QnAs. Combined with Bot Service and LUIS, it's easy to setup an FAQ chatbot which responds from differnet knowledge bases depending on the intent of the query.",
+            "MetaDescription": "The QnA Maker tool makes it super easy for the content owners to maintain their knowledge base of QnAs. Combined with Bot Service and LUIS, it's easy to setup an FAQ chatbot which responds from different knowledge bases depending on the intent of the query.",
             "category": [
                 "ai-machine-learning"
             ],
