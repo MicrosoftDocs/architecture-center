@@ -12,7 +12,7 @@
 
 ## Data flow for answering employee questions
 
-1. Employee accesses FAQ Bot.
+1. Employee accesses FAQ bot.
 1. Azure Active Directory validates the employee's identity.
 1. Query is sent to Language Understanding (LUIS) model to get the intent of the query.
 1. Based in the intent, the query is redirected to the appropriate knowledge base.
