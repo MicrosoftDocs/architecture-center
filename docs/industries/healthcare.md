@@ -15,6 +15,7 @@ keywords: Azure
 The healthcare industry includes various systems that provide curative, preventative, rehabilitative, and palliative care to patients. Proper management of these systems enables healthcare providers and managers deliver high-quality care and treatment of their patients. With Azure cloud and other Microsoft services, you can now create highly efficient and resilient systems that take care of not only the patient-provider interactions, but also provide clinical and data insights, which can lead to a more patient-centric strategy for the healthcare institute.
 
 Modernization and digital transformation of healthcare facilities is all the more important during the current COVID-19 global pandemic.
+
 \
 
 > [!VIDEO https://www.youtube.com/embed/ehv6UL-_MoE]
