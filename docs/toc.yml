@@ -71,6 +71,8 @@ items:
             href: guide/technology-choices/messaging.md
       - name: Best practices for cloud applications
         items:
+          - name: Overview
+            href: best-practices/index-best-practices.md
           - name: API design
             href: best-practices/api-design.md
           - name: API implementation
