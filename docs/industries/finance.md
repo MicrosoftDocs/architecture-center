@@ -1,41 +1,50 @@
 ---
-title: Overview of healthcare industry
+title: Overview of finance industry
 titleSuffix: Azure Architecture Center
-description: Architectures and ideas to use Azure and other Microsoft services for building efficient and reliable healthcare solutions.
+description: Architectures and ideas to use Azure and other Microsoft services for building efficient and reliable finance solutions.
 author: dsk-2015
-ms.date: 03/26/2021
+ms.date: 04/14/2021
 ms.topic: article
 ms.service: architecture-center
 ms.subservice: 
 keywords: Azure
 ---
 
-# Overview of healthcare industry
+# Overview of finance industry
 
-The healthcare industry includes various systems that provide curative, preventative, rehabilitative, and palliative care to patients. Proper management of these systems enables healthcare providers and managers deliver high-quality care and treatment of their patients. With Azure cloud and other Microsoft services, you can now create highly efficient and resilient systems that take care of not only the patient-provider interactions, but also provide clinical and data insights, which can lead to a more patient-centric strategy for the healthcare institute.
+The finance industry includes broad spectrum of entites such as banks, investment companies, insurance companies, and real estate firms, engaged in funding and money management for individuals, businesses, and governments. Besides data security concerns, financial institutions face some unique issues, such as, heavy reliance on traditional mainframe systems, cyber and technology risks, compliance issues, increasing competition, and customer expectations. By modernizing and digitally transforming financial systems to move to cloud platforms such as Microsoft Azure, these institutes can mitigate these issues and provide more value to their customers.
 
-## Architectures for healthcare
+With digitial transformation, financial institutions can leverage speed and security of the cloud to offer differentiated customer experiences, manage risks, and fight fraud. To learn more, visit [Azure for financial services](https://azure.microsoft.com/en-us/industries/financial/). Banking and capital market institutions can also drive innovative cloud solutions with Azure by learning about use cases and documentation at [Azure for banking and capital markets](https://azure.microsoft.com/en-us/industries/financial/banking/). Microsoft also provides a complete set of capabilities across various platforms in the form of [Microsoft Cloud for Financial Services](https://www.microsoft.com/en-us/industry/financial-services/microsoft-cloud-for-financial-services).
 
-The following articles provide detailed analysis of architectures recommended for healthcare industry.
+<br\>
+> [!VIDEO https://www.youtube.com/embed/MqESP4OIC00]
+<br\>
 
-| Architecture | Summary |
-| ------- | ------- |
-| [Virtual health on Microsoft Cloud for Healthcare](../example-scenario/mch-health/virtual-health-mch.yml) | Use [Microsoft Cloud for Healthcare](https://docs.microsoft.com/industry/healthcare/overview), a software package created for the healthcare industry, to build an architecture for scheduling and following up on virtual visits between patients, providers, and care managers. |
-| [Consumer health portal on Azure](../example-scenario/digital-health/health-portal.yml) | Learn an architecture based on [Azure Well Architected Framework](../framework/index.md) for a consumer health portal that tracks statistics from wearables, engages with medical providers, and tracks health habits, using Azure services. |
-| [Building a telehealth system with Azure](../example-scenario/apps/telehealth-system.yml) | Explore a customer's implementation of a telehealth system using Azure cloud services. |
-| [Confidential computing for healthcare](../example-scenario/confidential/healthcare-inference.yml) | Use [Azure confidential computing](https://docs.microsoft.com/azure/confidential-computing/overview) to encrypt medical and patient data, for secure collaboration between hospitals and third-party diagnostic providers. |
+## Architectures for finance
 
-## Solution ideas for healthcare
+The following articles provide detailed analysis of architectures recommended for finance industry.
 
-The following are some additional ideas that you can use as a starting point for your healthcare solution.
+| Architecture | Summary | Technology category |
+| ------- | ------- | ------- |
+| [Decentralized trust between banks](../example-scenario/apps/decentralized-trust.yml) | Learn how to establish a trusted environment for information sharing without resorting to a centralized database, in banks or other financial institutions. | Blockchain |
+| [Replicate and sync mainframe data in Azure](../reference-architectures/migration/sync-mainframe-data-with-azure.yml) | Replicate and sync mainframe data to Azure for digital transformating of traditional banking systems. | Mainframe |
+| [Modernize mainframe & midrange data](../reference-architectures/migration/modernize-mainframe-data-to-azure.yml) | End to end modernizing plan for mainframe and midrange data sources. | Mainframe |
+| [Refactor IBM z/OS mainframe Coupling Facility (CF) to Azure](../reference-architectures/zos/refactor-zos-coupling-facility.yml) | Learn how to leverage Azure services for scale-out performance and high availability comparable to IBM z/OS mainframe systems with Coupling Facilities (CFs). | Mainframe |
+| [Banking system cloud transformation on Azure](../example-scenario/banking/banking-system-cloud-transformation.yml) | Learn how a major bank modernized its financial transaction system while keeping compatibility with its existing payment system. | Migration |
+| [Patterns and implementations in banking cloud transformation](../example-scenario/banking/patterns-and-implementations.yml) | Learn the design patterns and implementations used for the [Banking system cloud transformation on Azure](../example-scenario/banking/banking-system-cloud-transformation.yml). | Migration |
+| [JMeter implementation reference for load testing pipeline solution](../example-scenario/banking/jmeter-load-testing-pipeline-implementation-reference.yml) | Learn about an implementation for a scalable cloud load testing pipeline used for the [Banking system cloud transformation on Azure](../example-scenario/banking/banking-system-cloud-transformation.yml). | Migration |
+| [Real-time fraud detection](../example-scenario/data/fraud-detection.yml) | Learn how to analyze data in real time to detect fraudulent transactions or other anomalous activity. | Security |
 
-- [Population Health Management for Healthcare](../solution-ideas/articles/population-health-management-for-healthcare.yml)
-- [Medical Data Storage Solutions](../solution-ideas/articles/medical-data-storage.yml)
-- [HIPAA and HITRUST compliant health data AI](../solution-ideas/articles/security-compliance-blueprint-hipaa-hitrust-health-data-ai.yml)
-- [Remote Patient Monitoring Solutions](../solution-ideas/articles/remote-patient-monitoring.yml)
-- [Predict Length of Stay and Patient Flow](../solution-ideas/articles/predict-length-of-stay-and-patient-flow-with-healthcare-analytics.yml)
-- [Predict Length of Stay in Hospitals](../solution-ideas/articles/predicting-length-of-stay-in-hospitals.yml)
-- [Contactless IoT interfaces with Azure intelligent edge](../solution-ideas/articles/contactless-interfaces.yml)
-- [COVID-19 Safe Solutions with IoT Edge](../solution-ideas/articles/cctv-mask-detection.yml)
-- [IoT Connected Platform for COVID-19 detection and prevention](../solution-ideas/articles/iot-connected-platform.yml)
-- [UVEN smart and secure disinfection and lighting](../solution-ideas/articles/uven-disinfection.yml)
+## Solution ideas for finance
+
+The following are some additional ideas that you can use as a starting point for your finance solution.
+
+- [Auditing, risk, and compliance management](../solution-ideas/articles/auditing-and-risk-compliance.yml)
+- [Business Process Management](../solution-ideas/articles/business-process-management.yml)
+- [HPC System and Big Compute Solutions](../solution-ideas/articles/big-compute-with-azure-batch.yml)
+- [HPC Risk Analysis Template](../solution-ideas/articles/hpc-risk-analysis.yml)
+- [Loan ChargeOff Prediction with Azure HDInsight Spark Clusters](../solution-ideas/articles/loan-chargeoff-prediction-with-azure-hdinsight-spark-clusters.yml)
+- [Loan ChargeOff Prediction with SQL Server](../solution-ideas/articles/loan-chargeoff-prediction-with-sql-server.yml)
+- [Loan Credit Risk + Default Modeling](../solution-ideas/articles/loan-credit-risk-analyzer-and-default-modeling.yml)
+- [Loan Credit Risk with SQL Server](../solution-ideas/articles/loan-credit-risk-with-sql-server.yml)
+- [Unlock Legacy Data with Azure Stack](../solution-ideas/articles/unlock-legacy-data.yml)

@@ -602,6 +602,25 @@ items:
             href: example-scenario/data/ecommerce-order-processing.yml
           - name: Retail - Buy online, pickup in store (BOPIS)
             href: example-scenario/iot/vertical-buy-online-pickup-in-store.yml
+      - name: Finance
+        href: industries/finance.md
+        items:
+          - name:  Decentralized trust between banks
+            href: example-scenario/apps/decentralized-trust.yml
+          - name: Replicate and sync mainframe data in Azure
+            href: reference-architectures/migration/sync-mainframe-data-with-azure.yml
+          - name: Modernize mainframe & midrange data
+            href: reference-architectures/migration/modernize-mainframe-data-to-azure.yml
+          - name: Refactor IBM z/OS mainframe Coupling Facility to Azure
+            href: reference-architectures/zos/refactor-zos-coupling-facility.yml
+          - name: Banking system cloud transformation on Azure
+            href: example-scenario/banking/banking-system-cloud-transformation.yml
+          - name: Patterns and implementations in banking cloud transformation
+            href: example-scenario/banking/patterns-and-implementations.yml
+          - name: JMeter implementation reference for load testing pipeline solution
+            href: example-scenario/banking/jmeter-load-testing-pipeline-implementation-reference.yml
+          - name: Real-time fraud detection
+            href: example-scenario/data/fraud-detection.yml
       - name: Healthcare
         items:
           - name: Overview
