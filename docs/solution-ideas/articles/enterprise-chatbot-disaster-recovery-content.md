@@ -28,7 +28,7 @@ Although you provision Azure Key Vault and Language Understanding Intelligent Se
 - To set up high availability for Azure Cosmos DB, see [High availability with Azure Cosmos DB](/azure/cosmos-db/high-availability).
 - [LUIS regions and endpoints](/azure/cognitive-services/luis/luis-reference-regions)
 
-## Regional services without automatic failover
+### Regional services without automatic failover
 
 These services may need your attention to ensure high availability and disaster recovery.
 
