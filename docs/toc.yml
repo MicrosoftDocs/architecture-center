@@ -794,6 +794,8 @@ items:
                 href: solution-ideas/articles/blockchain-workflow-application.yml
               - name: Decentralized trust between banks
                 href: example-scenario/apps/decentralized-trust.yml
+              - name: Multi-cloud blockchain DLT
+                href: example-scenario/blockchain/multi-cloud-blockchain.yml
               - name: Supply chain track and trace
                 href: solution-ideas/articles/supply-chain-track-and-trace.yml
       - name: Compute
