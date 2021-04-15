@@ -97,11 +97,17 @@ To explore the cost of running this scenario and related scenarios, use the [Azu
 
 ## Next steps
 
-Guided tutorials for the Azure Bot Service:
+Azure Architecture Center articles describing chatbot architectures:
 
-- [The Bot Framework Composer tutorials][botservice-docs] of the product documentation
+- [Commerce chatbot for customer service](../../solution-ideas/articles/commerce-chatbot.yml)
+- [Build an enterprise-grade conversational bot](../../reference-architectures/ai/conversational-bot.yml)
+- [Speech-to-text conversion](../../reference-architectures/ai/speech-ai-ingestion.yml)
 
-Microsoft Learn modules
+Azure Bot Service product documentation:
+
+- [The Bot Framework Composer tutorials][botservice-docs]
+
+Microsoft Learn modules:
 
 - [Create Intelligent Bots with the Azure Bot Service][learn1]
 - [Build a bot with QnA Maker and Azure Bot Service][learn2]
