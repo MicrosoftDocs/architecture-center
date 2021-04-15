@@ -84,12 +84,10 @@ To deploy the infrastructure components with a Resource Manager template, use th
 
     [![Deploy this solution to Azure](https://azuredeploy.net/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmspnp%2Fsolution-architectures%2Fmaster%2Fapps%2Fcommerce-chatbot.json)
 
-2. Wait for the template deployment to open in the Azure portal, then complete the following steps:
-   - Choose to **Create new** resource group, then provide a name such as *myCommerceChatBotInfrastructure* in the text box.
+2. Wait for the template deployment to open in the Azure portal, and follow the UI to create the deployment. You will provide the information such as:
+   - A resource group name such as *myCommerceChatBotInfrastructure* in the text box.
    - Select a region from the **Location** drop-down box.
    - Provide a username and secure password for the SQL Server administrator account.
-   - Review the terms and conditions, then check **I agree to the terms and conditions stated above**.
-   - Select the **Purchase** button.
 
 It takes a few minutes for the deployment to complete.
 
@@ -124,7 +122,7 @@ The sample application includes the Azure Active Directory authentication compon
 
 ## Pricing
 
-To explore the cost of running this scenario and related scenarios, use the [Azure pricing calculator][https://azure.microsoft.com/en-us/pricing/calculator/]. To see how the pricing changes for your use case, change the service variables to match your expected traffic. For example, consider three cost profiles based on the number of messages you expect your chatbot to process:
+To explore the cost of running this scenario and related scenarios, use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/). To see how the pricing changes for your use case, change the service variables to match your expected traffic. For example, consider three cost profiles based on the number of messages you expect your chatbot to process:
 
 - Small, processing < 10,000 messages per month.
 - Medium, processing < 500,000 messages per month.
