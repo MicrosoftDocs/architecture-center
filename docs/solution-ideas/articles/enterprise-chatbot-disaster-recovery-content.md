@@ -1,14 +1,14 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-To plan disaster recovery for an enterprise-grade *conversational bot (chatbot)*, start by reviewing the service level agreement (SLA). The SLA should describe the *Recovery Point Objective (RPO)* and *Recovery Time Objective (RTO)* targets for the chatbot. Then, implement the patterns in this article to build highly available and disaster resistant chatbot solutions to meet the SLA.
+To plan disaster recovery for an enterprise-grade conversational bot (chatbot), start by reviewing the service level agreement (SLA). The SLA should describe the *Recovery Point Objective (RPO)* and *Recovery Time Objective (RTO)* targets for the chatbot. Then, implement the patterns in this article to build highly available and disaster-resilient chatbot solutions to meet the SLA.
 
-For information about the core components of a typical enterprise-grade chatbot solution in Azure, see [Enterprise-grade conversational bot](../../reference-architectures/ai/conversational-bot.yml).
+The core components of a typical enterprise-grade chatbot solution in Azure are discussed in [Enterprise-grade conversational bot](../../reference-architectures/ai/conversational-bot.yml).
 
 ## Architecture
 
-The diagram below shows deployment of a chatbot solution in *active-passive* failover mode in two different Azure regions for disaster recovery.
+The diagram below shows deployment of a chatbot solution for disaster recovery. The failover mode is *active-passive* in two different Azure regions.
 
-![Architecture diagram: deployment of a chatbot solution in active-passive failover mode in two different Azure regions for disaster recovery.](../media/chatbot-with-failover-two-regions.png)
+![Architecture diagram: deployment of a chatbot solution for disaster recovery, with active-passive failover mode in two different Azure regions.](../media/chatbot-with-failover-two-regions.png)
 
 *Download a [Visio file](https://arch-center.azureedge.net/Bot_DR.vsdx) of this architecture.*
 
@@ -32,14 +32,14 @@ Although you provision Azure Key Vault and Language Understanding Intelligent Se
 
 These services may need your attention to ensure high availability and disaster recovery.
 
-Keep all deployment and source code artifacts in a source code repository, and use [Azure paired regions](/azure/best-practices-availability-paired-regions) to deploy them in parallel. You can automate all the following deployment tasks and save them as part of your deployment artifacts. When you deploy these services in the two paired regions, configure your bot API's environment variables to match the specific services in each Azure region.
+Keep all deployment and source code artifacts in a source code repository, and use [Azure paired regions](/azure/best-practices-availability-paired-regions) to deploy them in parallel. You can automate all the following deployment tasks and save them as part of your deployment artifacts. When you deploy these services in the two paired regions, configure your bot API environment variables to match the specific services in each Azure region.
 
 - Keep the primary and secondary Azure search indexes in sync. For a sample app to back up and restore Azure search indexes, see [QnAMakerBackupRestore](https://github.com/pchoudhari/QnAMakerBackupRestore) on GitHub.
 - Back up Application Insights by using [continuous export](/azure/azure-monitor/app/export-telemetry). Although you can't currently import the exported telemetry to another Application Insights resource, you can export into a storage account for further analysis.
 - To set up high availability and disaster recovery for Azure Storage accounts, see [Disaster recovery and storage account failover](/azure/storage/common/storage-disaster-recovery-guidance).
 - Deploy the bot API and QnA Maker into an Azure App Service Plan in both regions.
 - Once you set up the primary and secondary stacks, use Azure Traffic Manager or Azure Front Door to configure the endpoints. Set up a routing method for both QnA Maker and the bot API.
-- Create a Secure Sockets Layer (TLS/SSL) certificate for your traffic manager endpoint, and [bind the TSL/SSL certificate](/azure/app-service/configure-ssl-bindings) in your App Services.
+- Create a Secure Sockets Layer (TLS/SSL) certificate for your traffic manager endpoint, and [bind the TLS/SSL certificate](/azure/app-service/configure-ssl-bindings) in your App Services.
 - Finally, use the Traffic Manager or Azure Front Door endpoint of QnA Maker in your bot. Then, use the Traffic Manager endpoint of the bot API as the bot endpoint in Azure Bot Service registration.
 
 ### List of services
@@ -60,12 +60,12 @@ Key technologies used to implement this architecture:
 
 ## Next steps
 
-In the Azure Architecture Center:
+Azure Architecture Center:
 
-- Review [Overview of the resiliency pillar](../../framework/resiliency/overview.md)
-- See the related reference architecture [Enterprise-grade conversational bot](../../reference-architectures/ai/conversational-bot.yml)
+- Review the overview article [Principles of the reliability pillar](../../framework/resiliency/overview.md)
+- See the related reference architecture [Build an enterprise-grade conversational bot](../../reference-architectures/ai/conversational-bot.yml)
 
-In product documentation:
+Product documentation:
 
 - Cognitive Services - [Authoring and publishing regions and the associated keys](/azure/cognitive-services/luis/luis-reference-regions)
 - Cosmos DB - [High availability with Azure Cosmos DB](/azure/cosmos-db/high-availability)
