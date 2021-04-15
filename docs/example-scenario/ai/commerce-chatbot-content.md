@@ -81,7 +81,7 @@ This scenario is divided into three components for easier exploration:
        - Select a region.
        - Provide a username and secure password for the SQL Server administrator account.
 
-    It takes a few minutes for the deployment to complete.
+        It takes a few minutes for the deployment to complete.
 
 - **Web app chatbot**: To use Azure CLI to deploy a bot with the Bot Service, see [Deploy your bot](/azure/bot-service/bot-builder-deploy-az-cli). To add Language Understanding and Intelligent Services (LUIS) to the bot, see [Deploy LUIS resources using the Bot Framework LUIS CLI commands](/azure/bot-service/bot-builder-howto-bf-cli-deploy-luis).
 
@@ -89,7 +89,7 @@ This scenario is divided into three components for easier exploration:
 
 ## Pricing
 
-To explore the cost of running this scenario and related scenarios, use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/). To see how the pricing changes for your use case, change the service variables to match your expected traffic. For example, consider three cost profiles based on the number of messages you expect your chatbot to process:
+To explore the cost of running this scenario and related scenarios, use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/). To see how pricing changes for different use cases, change the service variables to match expected traffic. For example, consider three cost profiles based on the number of messages you expect your chatbot to process:
 
 - Small, processing < 10,000 messages per month.
 - Medium, processing < 500,000 messages per month.
