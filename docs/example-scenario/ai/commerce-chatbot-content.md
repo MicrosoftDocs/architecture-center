@@ -66,19 +66,11 @@ For other resiliency articles, see [Designing reliable Azure applications](../..
 
 ## Deploy the scenario
 
-This scenario is divided into three components for easier exploration:
-
-- [Infrastructure components](#deploy-infrastructure-components). Use an Azure Resource Manager template to deploy the core infrastructure components of an App Service, Web App, Application Insights, Storage account, and SQL Server and database.
-- [Web app chatbot](#deploy-web-app-chatbot). Use the Azure CLI to deploy a bot with the Bot Service and Language Understanding and Intelligent Services (LUIS) app.
-- [Sample C# chatbot application](#deploy-chatbot-c-application-code). Use Visual Studio to review the C# application code for hotel booking and deploy to a bot in Azure.
-
-### Prerequisites
-
 You must have an existing Azure account. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-### Deploy infrastructure components
+This scenario is divided into three components for easier exploration:
 
-To deploy the infrastructure components with a Resource Manager template, use the following steps.
+- Infrastructure components: Use an Azure Resource Manager template to deploy the core infrastructure components of an App Service, Web App, Application Insights, Storage account, and SQL Server and database. Use the following steps.
 
 1. Use the link below to deploy the solution.
 
@@ -91,34 +83,9 @@ To deploy the infrastructure components with a Resource Manager template, use th
 
 It takes a few minutes for the deployment to complete.
 
-### Deploy web app chatbot
+- Web app chatbot: To use Azure CLI to deploy a bot with the Bot Service, see [Deploy your bot](/azure/bot-service/bot-builder-deploy-az-cli). To add Language Understanding and Intelligent Services (LUIS) to the bot, see [Deploy LUIS resources using the Bot Framework LUIS CLI commands](/azure/bot-service/bot-builder-howto-bf-cli-deploy-luis).
 
-To create the chatbot, use the Azure CLI. The following example installs the CLI extension for Bot Service, creates a resource group, then deploys a bot that uses Application Insights. When prompted, authenticate your Microsoft account and allow the bot to register itself with the Bot Service and Language Understanding and Intelligent Services (LUIS) app.
-
-```azurecli-interactive
-# Install the Azure CLI extension for the Bot Service
-az extension add --name botservice --yes
-
-# Create a resource group
-az group create --name myCommerceChatbot --location eastus
-
-# Create a Web App Chatbot that uses Application Insights
-az bot create \
-    --resource-group myCommerceChatbot \
-    --name commerceChatbot \
-    --location eastus \
-    --kind webapp \
-    --sku S1 \
-    --insights eastus
-```
-
-### Deploy chatbot C# application code
-
-A sample C# application is available on GitHub:
-
-- [Commerce Bot C# sample](https://github.com/Microsoft/AzureBotServices-scenarios/tree/master/CSharp/Commerce/src)
-
-The sample application includes the Azure Active Directory authentication components and integration with the Language Understanding and Intelligent Services (LUIS) component of Cognitive Services. The application requires Visual Studio to build and deploy the scenario. Additional information on configuring Azure AD B2C and the LUIS app can be found in the GitHub repo documentation.
+- Sample C# chatbot application: Use Visual Studio to review the C# application code for hotel booking and deploy to a bot in Azure. A [sample C# application](https://github.com/Microsoft/AzureBotServices-scenarios/tree/master/CSharp/Commerce/src) is available on GitHub. The sample application includes the Azure Active Directory authentication components and integration with the Language Understanding and Intelligent Services (LUIS) component of Cognitive Services. The application requires Visual Studio to build and deploy the scenario. Additional information on configuring Azure AD B2C and the LUIS app can be found in the GitHub repo documentation.
 
 ## Pricing
 
@@ -132,7 +99,7 @@ To explore the cost of running this scenario and related scenarios, use the [Azu
 
 Guided tutorials for the Azure Bot Service:
 
-- [tutorial section][botservice-docs] of the product documentation
+- [The Bot Framework Composer tutorials][botservice-docs] of the product documentation
 
 Microsoft Learn modules
 
@@ -147,7 +114,7 @@ Microsoft Learn modules
 [appservice-docs]: /azure/app-service
 [architecture]: ./media/architecture-commerce-chatbot.png
 [autoscaling]: ../../best-practices/auto-scaling.md
-[botservice-docs]: /azure/bot-service
+[botservice-docs]: /composer/tutorial/tutorial-introduction
 [cognitive-docs]: /azure/cognitive-services
 [learn1]: /learn/paths/create-bots-with-the-azure-bot-service/
 [learn2]: /learn/modules/build-faq-chatbot-qna-maker-azure-bot-service/
