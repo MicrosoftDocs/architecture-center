@@ -76,9 +76,9 @@ This scenario is divided into three components for easier exploration:
 
     [![Deploy this solution to Azure](https://azuredeploy.net/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmspnp%2Fsolution-architectures%2Fmaster%2Fapps%2Fcommerce-chatbot.json)
 
-2. Wait for the template deployment to open in the Azure portal, and follow the UI to create the deployment. You will provide the information such as:
-   - A resource group name such as *myCommerceChatBotInfrastructure* in the text box.
-   - Select a region from the **Location** drop-down box.
+2. Wait for the template deployment to open in the Azure portal, and follow the UI to create the deployment. Specify:
+   - A resource group name such as *myCommerceChatBotInfrastructure*.
+   - Select a region.
    - Provide a username and secure password for the SQL Server administrator account.
 
 It takes a few minutes for the deployment to complete.
