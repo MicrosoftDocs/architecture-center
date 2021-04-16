@@ -36,7 +36,6 @@ products:
   - azure-machine-learning
   - azure-stack-hub
   - azure-storage
-  - azure-functions
   - azure-app-service
   - azure-virtual-machines
 thumbnailUrl: /azure/architecture/browse/thumbs/ai-at-the-edge-disconnected.png

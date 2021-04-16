@@ -7,9 +7,9 @@ With the Azure AI tools, edge, and cloud platform, edge intelligence is possible
 
 This solution idea shows the disconnected Stack Hub scenario. Issues of latency, intermittent connectivity, or regulations may not always allow for connectivity to Azure. In the disconnected scenario, data is processed locally and later aggregated in Azure for further analytics. For the connected version of this scenario, see the article [AI at the edge](./ai-at-the-edge.yml).
 
-## Architecture
+## Architecture of AI at the edge with hybrid connectivity
 
-![Architecture diagram: AI-enabled application running at the edge with Azure Stack Hub (disconnected).](../media/ai-at-the-edge-disconnected.png)
+![Architecture diagram: AI-enabled application running at the edge with Azure Stack Hub and hybrid connectivity).](../media/ai-at-the-edge-disconnected.png)
 *Download an [SVG](../media/ai-at-the-edge-disconnected.svg) of this architecture.*
 
 ## Data flow
