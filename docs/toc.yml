@@ -618,7 +618,7 @@ items:
                 href: reference-architectures/ai/batch-scoring-R-models.yml
               - name: Batch scoring with Spark on Databricks
                 href: reference-architectures/ai/batch-scoring-databricks.yml
-              - name: Chatbot for hotel reservations
+              - name: Chatbot for hotel booking
                 href: example-scenario/ai/commerce-chatbot.yml
               - name: Deploy AI and ML at the edge
                 href: hybrid/deploy-ai-ml-azure-stack-edge.yml
