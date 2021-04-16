@@ -2,7 +2,7 @@ Blockchain and Distributed Ledger Technology (DLT) networks are multi-party syst
 
 If several parties join forces to build a blockchain network, parties that use different cloud providers and infrastructures need a common management platform. This platform should offer standard visibility, operations, and compliance across a wide range of resources and locations, regardless of hosting infrastructure.
 
-The open-source [Blockchain Automation Framework (BAF)](https://blockchain-automation-framework.readthedocs.io/) is a consistent way to deploy production-ready distributed networks across public and private clouds. But while BAF can manage deployments, it doesn't provide for central infrastructure management and monitoring. This article explores how [Azure Arc enabled Kubernetes](/azure/azure-arc/kubernetes/overview) and the BAF can build a cross-cloud blockchain solution featuring portability and control.
+The open-source [Blockchain Automation Framework (BAF)](https://blockchain-automation-framework.readthedocs.io/) is a consistent way to deploy production-ready distributed networks across public and private clouds. But while BAF can manage deployments, it doesn't provide central infrastructure management and monitoring. This article explores how [Azure Arc enabled Kubernetes](/azure/azure-arc/kubernetes/overview) and the BAF can build a cross-cloud blockchain solution featuring portability and control.
 
 ## Potential use cases
 
@@ -10,7 +10,7 @@ This approach supports:
 
 - Heterogeneous DLT deployments where separate organizations own and manage each node.
 
-- Centrally monitored and managed network and compliance status.
+- Centralized deployment, monitoring, and compliance management across multi-party networks.
 
 ## Architecture
 
@@ -81,6 +81,7 @@ Although Azure Arc can manage and monitor Kubernetes clusters, each cluster must
 
 1. For this example, create managed Kubernetes clusters in AKS, GKE, and EKS, and onboard the clusters to Azure Arc:
    - [Onboard an existing cluster to Azure Arc](https://azurearcjumpstart.io/azure_arc_jumpstart/azure_arc_k8s/general/onboard_k8s/)
+https://azurearcjumpstart.io/azure_arc_jumpstart/azure_arc_k8s/aks/
    - [Create and onboard Amazon Elastic Kubernetes Service](https://azurearcjumpstart.io/azure_arc_jumpstart/azure_arc_k8s/eks/eks_terraform/)
    - [Create and onboard Google Kubernetes Engine](https://azurearcjumpstart.io/azure_arc_jumpstart/azure_arc_k8s/gke/gke_terraform/)
 1.  Follow steps for installing and configuring [BAF prerequisites](https://blockchain-automation-framework.readthedocs.io/en/latest/prerequisites.html).
