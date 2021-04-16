@@ -74,7 +74,7 @@ Additionally, Azure Stack Edge continues to transfer data to Machine Learning fo
 ## DevOps considerations
 
 - Review the [MLOps][azure-machine-learning-mlops] lifecycle management approach for Machine Learning. For example, use GitHub or Azure Pipelines to create a continuous integration process that automatically trains and retrains a model. Training can be triggered either when new data populates the dataset or a change is made to the training scripts.
-- The **Azure Machine Learning** workspace will automatically register and manage Docker container images for machine learning models and IoT Edge modules.
+- The Azure Machine Learning workspace will automatically register and manage Docker container images for machine learning models and IoT Edge modules.
 
 ## Cost considerations
 
