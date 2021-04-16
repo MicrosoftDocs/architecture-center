@@ -281,6 +281,20 @@ To test and deploy the runbook on a Hybrid Runbook Worker Group, use the followi
 - Azure Log Analytics Workspace might generate additional costs related to the amount of log data stored in the Azure Log Analytics. The pricing model is based on consumption. The costs are associated for data ingestion and data retention. For ingesting data into Azure Log Analytics, use Capacity Reservation or Pay-As-You-Go model that include 5 gigabytes (GB) free per billing account per month. Data retention for the first 31 days are free of charge.
 - Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate costs. Pricing models for Log Analytics are explained [here][30].
 
+## Next steps
+
+More about Azure Automation:
+
+- [Azure Automation in a hybrid environment](/azure/architecture/hybrid/azure-automation-hybrid)
+- [Hybrid Runbook Worker overview](/azure/automation/automation-hybrid-runbook-worker)
+- [Create an Azure Automation account](/azure/automation/automation-quickstart-create-account)
+- [Pre-requisites: Azure Automation network configuration details](/azure/automation/automation-network-configuration)
+- [Azure Automation Update Management](/azure/architecture/hybrid/azure-update-mgmt)
+- [Overview of Log Analytics in Azure Monitor](/azure/azure-monitor/logs/log-analytics-overview)
+- [Overview of VM insights](/azure/azure-monitor/vm/vminsights-overview)
+- [Azure Arc Overview](/azure/azure-arc/overview)
+- [What is Azure Arc enabled servers?](/azure/azure-arc/servers/overview)
+
 [architectural-diagram]: ./images/azure-automation-hybrid.png
 [architectural-diagram-visio-source]: https://arch-center.azureedge.net/azure-automation-hybrid.vsdx
 [1]: /azure/azure-monitor/platform/design-logs-deployment
