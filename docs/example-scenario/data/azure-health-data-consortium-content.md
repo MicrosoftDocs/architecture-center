@@ -7,7 +7,7 @@ Data consortiums offer several benefits:
 - Lead to cost-effective regulatory decisions by providing quick access to data.
 - Keep patients safer and healthier by accelerating innovation.
 
-This architecture for a data consortium uses Azure components. It offers these capabilities:
+This architecture outlines a plan for a data consortium that uses Azure components. It offers these capabilities:
 
 - Provide a way for multiple organizations to share data.
 - Centralize data orchestration efforts.
@@ -44,14 +44,14 @@ Many types of healthcare professionals can benefit from this architecture:
 
 1. Data Factory and Databricks clean the member data and transform it into a common format.
 
-1. The consortium combines the member data and stores it in a service. The data's structure and volume determine the type of storage service that's most suitable. Possibilities include these services:
+1. The consortium combines the member data and stores it in a service. The data's structure and volume determine the type of storage service that's most suitable. Possibilities include:
 
    - Synapse Analytics
    - Azure SQL Database
    - Azure Data Lake Gen2
    - Azure Data Explorer
 
-1. As a data share producer, the consortium invites members to receive data. Members can either accept snapshot data or in-place sharing data.
+1. As a data share producer, the consortium invites members to receive data. Members can accept either snapshot data or in-place sharing data.
 
 1. As data consumers, members receive the shared data. The data enters member data stores for research and analysis.
 
@@ -112,7 +112,7 @@ Modify the reference architecture to fit your specific requirements by answering
 
 ### Alternatives
 
-With Azure Data Share, [many alternatives exist for data storage][Supported data stores in Azure Data Share]. The service you choose depends on your sharing method and your volume and type of data:
+With Azure Data Share, [many alternatives exist for data storage][Supported data stores in Azure Data Share]. Your choice of service depends on your sharing method and your volume and type of data:
 
 - For snapshot sharing of batch data, use any of these services:
 
@@ -135,51 +135,63 @@ The technologies in this architecture meet most company's requirements for secur
 
 ### Security considerations
 
-- [Security features in Azure Data Share][Security overview for Azure Data Share] protect data by:
+- [Security features in Azure Data Share][Security overview for Azure Data Share] protect data in these ways:
 
   - Encrypting data at rest, where the underlying data store supports at-rest encryption.
   - Encrypting data in transit by using Transport Layer Security (TLS) 1.2.
   - Encrypting metadata about a data share at rest and in transit.
   - Not storing contents of shared customer data.
 
+- [Azure Synapse Analytics offers a comprehensive security model][Securing your Data Warehouse with Azure Synapse Analytics]. You can use its fine-grained controls to secure your data at every level, from single cells to entire databases.
 
+- [Azure SQL Database][An overview of Azure SQL Database and SQL Managed Instance security capabilities] uses a layered approach to protect customer data. The strategy covers these areas:
 
+  - network security
+  - access management
+  - threat protection
+  - information protection
 
+- [Azure Data Lake Gen2][Access control lists (ACLs) in Azure Data Lake Storage Gen2] provides access control. The model supports these types of controls:
 
-- [Azure Synapse Analytics](https://azure.microsoft.com/en-us/resources/videos/securing-your-data-warehouse-with-azure-synapse-analytics/) provides comprehensive security model gives you the fine grained controls you need to secure your data at every level.
+  - Azure role-based access control (Azure RBAC)
+  - Portable Operating System Interface (POSIX) access control lists (ACLs)
 
-- [Azure SQL Database](https://docs.microsoft.com/en-us/azure/azure-sql/database/security-overview) provides layered defense-in-depth approach to security including network security, access management, threat protection, information protection and customer data.
+- [Azure Data Explorer protects data][Security in Azure Data Explorer] in these ways:
 
-- [Azure Data Lake Gen2](https://docs.microsoft.com/en-us/azure/storage/blobs/data-lake-storage-access-control) implements an access control model that supports both Azure role-based access control (Azure RBAC) and POSIX-like access control lists (ACLs). 
-
-- [Azure Data Explorer](https://docs.microsoft.com/en-us/azure/data-explorer/security) uses Azure AD managed identities for Azure resources. Azure Disk Encryption helps protect and safeguard your data to meet your organizational security and compliance commitments. Data is encrypted with Microsoft-managed keys or customer-managed keys.
+  - Uses Azure AD-managed identities for Azure resources.
+  - Uses role-based access control (RBAC) to segregate duties and limit access.
+  - Blocks traffic that originates from non-Azure Data Explorer network segments.
+  - Safeguards data and helps you comply with committments by using Azure Disk Encryption. This service:
+    - Provides volume encryption for virtual machine data disks and the OS.
+    - Integrates with Azure Key Vault, which encrypts secrets with Microsoft-managed keys or customer-managed keys.
 
 ### Availability considerations
 
-This solution is currently designed as a single-region deployment. If your scenario requires a multi-region deployment for high-availability, disaster recovery, or even proximity, you may need a Paired Azure Region with the following configurations.
+This solution uses single-region deployment. Some scenarios require a multi-region deployment for high-availability, disaster recovery, or proximity. In those cases, you can use a paired Azure region with the following configurations:
 
-- [Azure Synapse Analytics](https://docs.microsoft.com/en-us/azure/cloud-adoption-framework/migrate/azure-best-practices/analytics/azure-synapse) uses database snapshots to provide high availability of the warehouse.
+- [Azure Synapse Analytics provides high availability of the warehouse][High availability for Azure Synapse Analytics] by using database snapshots.
 
-- [Azure SQL Database](https://docs.microsoft.com/en-us/azure/azure-sql/database/high-availability-sla) high availability architecture is to guarantee that your database is up and running minimum of 99.99% of time.
+- The [high availability architecture of Azure SQL Database][High availability for Azure SQL Database and SQL Managed Instance] provides a 99.99 percent uptime guarantee.
 
-- [Azure Data Explorer](https://docs.microsoft.com/en-us/azure/data-explorer/business-continuity-overview#high-availability-of-azure-data-explorer) high availability includes the persistence layer, compute layer, and a leader-follower configuration.
+- [Azure Data Explorer offers high availability][High availability of Azure Data Explorer] through a persistence layer, a compute layer, and a leader-follower configuration.
 
 ## Pricing
 
-To estimate the cost of implementing this solution, use the [Azure pricing calculator][Pricing calculator].
+Pricing for this architecture depends on several factors:
 
-Pricing for this architecture is going to be based on the services chosen, the capacity, throughput, transformations done on the data, as well as business continuity and disaster recovery. It can start from around $2,500/mo and scale from there
+- The services you choose
+- Your system's capacity and throughput
+- The transformations that you use on data
+- Your business continuity level
+- Your disaster recovery level
 
-[To customize and get pricing estimates](https://azure.microsoft.com/en-us/pricing/calculator/).
+For more information, see [pricing details][Azure pricing calculator].
 
 ## Next steps
 
-Learn more about
-- [Azure Data Share](https://docs.microsoft.com/en-us/azure/data-share/overview)
-- [Azure Synapse Analytics](https://azure.microsoft.com/en-us/resources/videos/securing-your-data-warehouse-with-azure-synapse-analytics/)
-- [Azure SQL Database](https://docs.microsoft.com/en-us/azure/azure-sql/database/security-overview)
-- [Azure Data Lake Gen2](https://docs.microsoft.com/en-us/azure/storage/blobs/data-lake-storage-access-control)
-- [Azure Data Explorer](https://docs.microsoft.com/en-us/azure/data-explorer/security)
+- [Clinical insights with Microsoft Cloud for Healthcare][Clinical insights with Microsoft Cloud for Healthcare]
+- [Confidential computing on a healthcare platform][Confidential computing on a healthcare platform]
+- [What is Microsoft Cloud for Healthcare?][What is Microsoft Cloud for Healthcare?]
 
 ## Related resources
 
@@ -189,10 +201,20 @@ Learn more about
 - [Microsoft Genomics](https://azure.microsoft.com/en-us/services/genomics/)
 
 [About Azure Key Vault]: /azure/key-vault/general/overview
+[Access control lists (ACLs) in Azure Data Lake Storage Gen2]: /azure/storage/blobs/data-lake-storage-access-control
 [Azure Data Explorer interactive analytics]: /azure/architecture/solution-ideas/articles/interactive-azure-data-explorer
+[Azure pricing calculator]: https://azure.microsoft.com/en-us/pricing/calculator/
+[Clinical insights with Microsoft Cloud for Healthcare]: /azure/architecture/example-scenario/mch-health/medical-data-insights
+[Confidential computing on a healthcare platform]: /azure/architecture/example-scenario/confidential/healthcare-inference
+[High availability of Azure Data Explorer]: /azure/data-explorer/business-continuity-overview#high-availability-of-azure-data-explorer
+[High availability for Azure SQL Database and SQL Managed Instance]: /azure/azure-sql/database/high-availability-sla
+[High availability for Azure Synapse Analytics]: /azure/cloud-adoption-framework/migrate/azure-best-practices/analytics/azure-synapse
 [Introduction to Azure Data Lake Storage Gen2]: /azure/storage/blobs/data-lake-storage-introduction
 [Medical data storage solutions]: /azure/architecture/solution-ideas/articles/medical-data-storage
 [Modern data warehouse architecture]: /azure/architecture/solution-ideas/articles/modern-data-warehouse
+[An overview of Azure SQL Database and SQL Managed Instance security capabilities]: /azure/azure-sql/database/security-overview
+[Security in Azure Data Explorer]: /azure/data-explorer/security
+[Securing your Data Warehouse with Azure Synapse Analytics]: /resources/videos/securing-your-data-warehouse-with-azure-synapse-analytics/
 [Security overview for Azure Data Share]: /azure/data-share/security
 [Supported data stores in Azure Data Share]: /azure/data-share/supported-data-stores
 [What is Azure Active Directory?]: /azure/active-directory/fundamentals/active-directory-whatis
@@ -205,3 +227,5 @@ Learn more about
 [What is Azure Security Center?]: /azure/security-center/security-center-introduction
 [What is Azure SQL Database?]: /azure/azure-sql/database/sql-database-paas-overview
 [What is Azure Synapse Analytics?]: /azure/synapse-analytics/overview-what-is
+[What is Microsoft Cloud for Healthcare?]: /industry/healthcare/overview
+
