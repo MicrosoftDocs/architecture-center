@@ -3,7 +3,9 @@
 
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-With the Azure AI tools, edge, and cloud platform, edge intelligence is possible. The next generation of AI-enabled hybrid applications can run where your data lives. With Azure Stack Hub, bring a trained AI model to the edge, integrate it with your applications for low-latency intelligence, and continuously feedback into a refined AI model for improved accuracy, with no tool or process changes for local applications.
+With the Azure AI tools, edge, and cloud platform, edge intelligence is possible. The next generation of AI-enabled hybrid applications can run where your data lives. With [Azure Stack Hub](/azure-stack/operator/azure-stack-overview), bring a trained AI model to the edge, integrate it with your applications for low-latency intelligence, and continuously feedback into a refined AI model for improved accuracy, with no tool or process changes for local applications.
+
+This solution idea shows a connected Stack Hub scenario, where edge applications are connected to Azure. For the disconnected-edge version of this scenario, see the [AI at the edge - disconnected scenario](./ai-at-the-edge.yml).
 
 ## Architecture
 
@@ -12,7 +14,7 @@ With the Azure AI tools, edge, and cloud platform, edge intelligence is possible
 
 ## Data flow
 
-1. Data scientists train a model using Azure Machine Learning workbench and an HDInsight cluster. The model is containerized and put into an Azure Container Registry.
+1. Data scientists train a model using Azure Machine Learning and an HDInsight cluster. The model is containerized and put into an Azure Container Registry.
 1. The model is deployed to a Kubernetes cluster on Azure Stack Hub.
 1. End users provide data that's scored against the model.
 1. Insights and anomalies from scoring are placed into a queue.
@@ -44,7 +46,7 @@ Key technologies used to implement this architecture:
 * Innovate further and deploy [Azure Cognitive Services (Speech, Language, Decision, Vision) containers to Azure Stack Hub](/azure-stack/user/azure-stack-solution-template-cognitive-services/)
 
 ## Related resources
-    
+
 * [App Service documentation](/azure/app-service/)
 * [Azure Kubernetes Service (AKS) documentation](/azure/aks)
 * [Azure Machine Learning documentation](/azure/machine-learning/service)
