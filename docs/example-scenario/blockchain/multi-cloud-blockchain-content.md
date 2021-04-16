@@ -15,33 +15,47 @@ This approach supports:
 
 ## Architecture
 
+This solution provides a cloud-agnostic, multi-party DLT network. The scenario supports heterogenous deployments in a multi-cloud, multi-owner model. Each owner can host their nodes anywhere and still be part of the network.
+
 ![Diagram showing a three-party blockchain network with each party using a different cloud provider, managed and monitored through BAF and Azure Arc.](media/multi-cloud-blockchain-network.png)
 
-This example uses three parties. Party A uses [Azure Kubernetes Service (AKS)](/azure/aks/intro-kubernetes), Party B uses [GCP Google Kubernetes Engine (GKE)](https://cloud.google.com/kubernetes-engine), and Party C uses [Amazon Elastic Kubernetes Service (EKS)](https://aws.amazon.com/eks/). Each party hosts their nodes in a different location.
+1. The example uses three parties. Party A uses [Azure Kubernetes Service (AKS)](/azure/aks/intro-kubernetes), Party B uses [GCP Google Kubernetes Engine (GKE)](https://cloud.google.com/kubernetes-engine), and Party C uses [Amazon Elastic Kubernetes Service (EKS)](https://aws.amazon.com/eks/). Each party hosts their nodes in a different location.
+   
+1. [Kubernetes](https://kubernetes.io/) is the standard infrastructure that hosts both the ledger and the application. This example assumes three managed Kubernetes clusters, one each in AKS, Amazon EKS, and GCP GKE.
+   
+1. [Blockchain Automation Framework (BAF)](https://blockchain-automation-framework.readthedocs.io/) deploys the distributed networks across public and private clouds.
 
-This solution provides a cloud-agnostic, multi-party DLT network. The scenario supports heterogenous deployments in a multi-cloud, multi-owner model. Each owner can host their nodes anywhere and still be part of the network.
+1. While BAF manages deployments, it doesn't provide for central infrastructure management and monitoring. [Azure Arc enabled Kubernetes](/azure/azure-arc/kubernetes/overview) centrally manages and monitors the Kubernetes clusters in all locations.
+   
+   Azure Arc enabled Kubernetes supports the following scenarios:
+   
+   - [GitOps-based cluster configuration deployment and management](/azure/azure-arc/kubernetes/conceptual-configurations).
+   - Cluster viewing and monitoring with [Azure Monitor Container insights](/azure/azure-monitor/containers/container-insights-analyze).
+   - Policy deployment, monitoring, and reporting with [Azure Policy for Kubernetes](/azure/governance/policy/concepts/policy-for-kubernetes).
+   
+1. [Azure DevOps](https://dev.azure.com/) provides application and infrastructure lifecycle management. [Ansible Controller on an Azure Linux virtual machine (VM)](https://azuredevopslabs.com/labs/vstsextend/ansible/) acts as the custom continuous integration and continuous delivery (CI/CD) agent for Azure DevOps.
+   
+1. [Azure Container Registry](https://azure.microsoft.com/services/container-registry/) stores and shares private, application-related container images. [Docker Registry](https://docs.docker.com/registry/) pulls ledger-specific images.
 
 ### Components
 
 - [Kubernetes](https://kubernetes.io/) is the standard infrastructure that hosts both the ledger and the application. This example assumes three managed Kubernetes clusters, one each in AKS, Amazon EKS, and GCP GKE. You can host your cluster almost anywhere.
   
-- [Blockchain Automation Framework (BAF)](https://blockchain-automation-framework.readthedocs.io/) provides a consistent means for developers to deploy production-ready distributed networks across public and private clouds. BAF supports [Quorum](https://consensys.net/quorum/), [Corda](https://www.corda.net/), and [Hyperledger](https://www.hyperledger.org/) DLTs. While BAF is a great framework for managing the deployment, it doesn't provide for central infrastructure management and monitoring.
+- [Blockchain Automation Framework (BAF)](https://blockchain-automation-framework.readthedocs.io/) provides a consistent means for developers to deploy production-ready distributed networks across public and private clouds. BAF supports [Quorum](https://consensys.net/quorum/), [Corda](https://www.corda.net/), and [Hyperledger](https://www.hyperledger.org/) DLTs.
   
 - [Azure Arc enabled Kubernetes](/azure/azure-arc/kubernetes/overview) centrally manages Kubernetes clusters in any location. Azure Arc-enabled Kubernetes works with any Cloud Native Computing Foundation (CNCF)-certified Kubernetes cluster, including AKS engine on Azure, AKS engine on Azure Stack Hub, GKE, EKS, and VMware vSphere clusters.
   
-  Azure Arc enabled Kubernetes supports the following scenarios:
+- [Azure Monitor](https://azure.microsoft.com/services/monitor/) is a comprehensive solution for collecting, analyzing, and acting on telemetry from cloud and on-premises environments. [Azure Monitor Container insights](/azure/azure-monitor/containers/container-insights-overview) monitors the performance of container workloads deployed to Azure Arc enabled Kubernetes.
 
-  - [GitOps-based cluster configuration deployment and management](/azure/azure-arc/kubernetes/conceptual-configurations).
-  - Cluster viewing and monitoring with [Azure Monitor Container insights](/azure/azure-monitor/containers/container-insights-analyze).
-  - Policy deployment, monitoring, and reporting with [Azure Policy for Kubernetes](/azure/governance/policy/concepts/policy-for-kubernetes).
+- [Azure Policy](https://azure.microsoft.com/services/azure-policy/) helps enforce organizational standards and assess compliance at scale. [Azure Policy for Kubernetes](/azure/governance/policy/concepts/policy-for-kubernetes) makes it possible to manage and report on the compliance state of all Azure Arc enabled Kubernetes clusters from one location.
 
-- [Azure DevOps](https://dev.azure.com/) provides application and infrastructure lifecycle management. [Ansible Controller on an Azure Linux virtual machine (VM)](https://azuredevopslabs.com/labs/vstsextend/ansible/) acts as the custom continuous integration and continuous delivery (CI/CD) agent for Azure DevOps.
+- [Azure DevOps](https://dev.azure.com/) is a modern set of developer services that provide comprehensive application and infrastructure lifecycle management. Azure DevOps includes Azure Pipelines, Azure Boards, Azure Repos, Azure Artifacts, and Azure Test Plans.
   
-- [Azure Container Registry](https://azure.microsoft.com/services/container-registry/) stores and shares private, application-related container images. [Docker Registry](https://docs.docker.com/registry/) pulls ledger-specific images.
+- [Azure Container Registry](https://azure.microsoft.com/services/container-registry/) lets you build, store, and manage container images and artifacts in a private registry for all types of container deployments.
 
 ## Considerations
 
-For AKS best practices, see the [Baseline architecture for an Azure Kubernetes Service (AKS) cluster](/azure/architecture/reference-architectures/containers/aks/secure-baseline-aks). You can find similar best practices guidance for other cloud providers.
+For AKS best practices, see the [Baseline architecture for an Azure Kubernetes Service (AKS) cluster](/azure/architecture/reference-architectures/containers/aks/secure-baseline-aks). You can find similar guidance for other cloud providers.
 
 ### Availability and scalability
 
@@ -57,7 +71,7 @@ Although Azure Arc can manage and monitor Kubernetes clusters, each cluster must
 
 - Alternatively, you can use an [External DNS](https://github.com/kubernetes-sigs/external-dns) like [Azure DNS](https://azure.microsoft.com/services/dns).
 
-- You can achieve private connections using Internet Protocol Security (IPSec) with tools like [Submariner](https://github.com/submariner-io/submariner).
+- You can achieve private connections using Internet Protocol Security (IPSec) with tools like [Submariner](https://submariner.io/).
 
 ## Deploy this scenario
 
@@ -76,6 +90,7 @@ To estimate Azure resources costs, use the [Azure pricing calculator](https://az
 ## Next steps
 
 - [Baseline architecture for an Azure Kubernetes Service (AKS) cluster](/azure/architecture/reference-architectures/containers/aks/secure-baseline-aks)
+- [Azure Arc Jumpstart](https://azurearcjumpstart.io/)
 - [Blockchain workflow application](/azure/architecture/solution-ideas/articles/blockchain-workflow-application)
 - [Azure Arc hybrid management and deployment for Kubernetes clusters](/azure/architecture/hybrid/arc-hybrid-kubernetes)
 - [Deploy Hyperledger Fabric consortium on Azure Kubernetes Service](/azure/blockchain/templates/hyperledger-fabric-consortium-azure-kubernetes-service)
