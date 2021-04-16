@@ -33,7 +33,7 @@ The architecture consists of the following components.
 See the following content for a guided implementation of this architecture.
 
 > [!div class="nextstepaction"]
-> [AKS Microservices Reference Implementation](./aks-microservices-ri-content.md)
+> [AKS Microservices Reference Implementation](./aks-microservices-ri.yml)
 
 ## Design considerations
 
