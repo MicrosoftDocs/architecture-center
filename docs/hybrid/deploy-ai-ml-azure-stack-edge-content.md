@@ -54,7 +54,7 @@ After training and readying the model to deploy, you can deploy it to various Az
 > [!NOTE]
 > For this reference architecture, the model deploys to Azure Stack Edge to make the model available for inference on-premises. The model also deploys to Container Registry to ensure that the model is available for inference across the widest variety of Azure services.
 
-### Inference with the newly deployed model
+### Inference with a newly deployed model
 
 Azure Stack Edge can quickly [run machine learning models locally][azure-stack-edge-compute] against data on-premises by using its built-in compute acceleration hardware. This computation occurs entirely at the edge and can be a way to get rapid insights from data by using hardware that's closer to the data source than a public cloud region.
 
