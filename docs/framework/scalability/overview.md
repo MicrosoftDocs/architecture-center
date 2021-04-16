@@ -42,11 +42,11 @@ Follow these principles to guide you through improving performance efficiency:
   
 - **Monitoring** - Lack of monitoring new services​ and the health of current workloads are major inhibitors in workload quality. The overall monitoring strategy should take into consideration not only scalability, but resiliency (infrastructure, application, and dependent services) and application performance as well. For purposes of scalability, looking at the metrics would allow you to provision resources dynamically and scale with demand.
 
-  - **Data-driven processes** -
+  - **Data-driven processes** - Performance testing should always be based on data captured from repeatable processes. In order to understand how an application's performance is affected by code and infrastructure changes, data must be kept and monitored. Additionally, it is important to understand how performance has changed _over time_, not just compared to the last measurement taken. It is often helpful to store such data in a time-series database (TSDB) and then view the data from an operational dashboard. An [Azure Data Explorer cluster](https://azure.microsoft.com/services/data-explorer/) is a powerful TSDB that can store any schema of data, including performance test metrics. [Grafana](https://grafana.com/), an open source platform for observability dashboards, can then be leveraged to query your Azure Data Explorer cluster to view performance trends in your application.
 
-  - **Troubleshooting** -
+  - **Troubleshooting** - Troubleshooting an application's performance requires continuous monitoring and reliable investigation. Issues in performance can arise from database queries, connectivity between services, under-provision resources, or memory leaks in code. Application telemetry and profiling can be useful tools for troubleshooting your application. Additionally, network traffic capturing tools, such as [Azure Network Watcher](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview), can be extremely helpful.
 
-  - **Resolution planning** -
+  - **Resolution planning** - Resolving performance issues requires time and patience&mdash;not just in discovery and investigation, but also in resolution. Code enhancements may be accomplished by deploying a new build, but enhancements to infrastructure may involve many teams. Some services may require updated configurations while others may need to be deprecated in favor of more-appropriate solutions. Regardless, it is critical that you understand the scope of your planned resolution so that all necessary stakeholders are informed.
 
 - **Capacity planning** -
 
