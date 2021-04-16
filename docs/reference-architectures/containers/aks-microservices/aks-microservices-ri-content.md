@@ -25,7 +25,8 @@ The Drone Delivery application is a sample application that consists of several 
 Clone a copy of the drone service application to your development computer or cloud shell environment.
 
 ```azurecli-interactive
-git clone https://github.com/mspnp/microservices-reference-implementation.git
+git clone https://github.com/mspnp/microservices-reference-implementation.git && \
+cd microservices-reference-implementation/
 ```
 
 Generate an SSH RSA key pair. These keys are used when deploying the AKS cluster. The SSH rsa key pair can be generated using ssh-keygen, among other tools, on Linux, Mac, or Windows. If you already have an ~/.ssh/id_rsa.pub file, you could provide the same later on. For more information on creating an SSH RSA key pair, see [How to create and use an SSH key pair](https://docs.microsoft.com/azure/virtual-machines/linux/mac-create-ssh-keys).
@@ -46,16 +47,9 @@ export SP_OBJECT_ID=$(az ad sp show --id $SP_APP_ID -o tsv --query objectId)
 Populate several environment variables, these valuse are used throughout the application deployment.
 
 ```azurecli-interactive
-export SSH_PUBLIC_KEY_FILE="~/.ssh/id_rsa.pub"
-export LOCATION="eastus"
-export RESOURCE_GROUP="aks-microservices-200"
-export SUBSCRIPTION_ID=$(az account show --query id --output tsv)
-export SUBSCRIPTION_NAME=$(az account show --query name --output tsv)
-export TENANT_ID=$(az account show --query tenantId --output tsv)
-export DEPLOYMENT_SUFFIX=$(date +%S%N)
-export PROJECT_ROOT=./microservices-reference-implementation
-export K8S=$PROJECT_ROOT/k8s
-export HELM_CHARTS=./charts
+export SSH_PUBLIC_KEY_FILE="/Users/neilpeterson/.ssh/id_rsa.pub"
+export LOCATION=eastus
+export RESOURCE_GROUP=test-niner-001
 ```
 
 ## Deployment
@@ -64,8 +58,12 @@ This template created a few resource groups and managed identities that are used
 
 ```azurecli-interactive
 export DEV_PREREQ_DEPLOYMENT_NAME=azuredeploy-prereqs-${DEPLOYMENT_SUFFIX}-dev
-
-az deployment sub create --name $DEV_PREREQ_DEPLOYMENT_NAME --location $LOCATION --template-file ${PROJECT_ROOT}/azuredeploy-prereqs.json --parameters resourceGroupName=$RESOURCE_GROUP resourceGroupLocation=$LOCATION
+az deployment sub create \
+   --name $DEV_PREREQ_DEPLOYMENT_NAME \
+   --location $LOCATION \
+   --template-file azuredeploy-prereqs.json \
+   --parameters resourceGroupName=$RESOURCE_GROUP \
+                resourceGroupLocation=$LOCATION
 ```
 
 In the last step, several managed identities were deployed and are used throughout this implementation. Run these commands to store details about these identities for use throughout the remaining steps.
@@ -81,14 +79,6 @@ export WORKFLOW_ID_PRINCIPAL_ID=$(az identity show -g $RESOURCE_GROUP -n $WORKFL
 export RESOURCE_GROUP_ACR=$(az deployment group show -g $RESOURCE_GROUP -n $IDENTITIES_DEPLOYMENT_NAME --query properties.outputs.acrResourceGroupName.value -o tsv)
 ```
 
-<nepeters - can we remove this step>
-
-```azurecli-interactive
-until az ad sp show --id ${DELIVERY_ID_PRINCIPAL_ID} &> /dev/null ; do echo "Waiting for AAD propagation" && sleep 5; done
-until az ad sp show --id ${DRONESCHEDULER_ID_PRINCIPAL_ID} &> /dev/null ; do echo "Waiting for AAD propagation" && sleep 5; done
-until az ad sp show --id ${WORKFLOW_ID_PRINCIPAL_ID} &> /dev/null ; do echo "Waiting for AAD propagation" && sleep 5; done
-```
-
 Get the latest Kubernetes version available in the region into which you are creating the AKS cluster.
 
 ```azurecli-interactive
@@ -97,17 +87,14 @@ export KUBERNETES_VERSION=$(az aks get-versions -l $LOCATION --query "orchestrat
 
 Deploy the AKS cluster.
 
-<nepeters - cat ssh, how is this suposed to work>
-
 ```azurecli-interactive
-export DEV_DEPLOYMENT_NAME=azuredeploy-${DEPLOYMENT_SUFFIX}-dev
-
-az deployment group create -g $RESOURCE_GROUP --name $DEV_DEPLOYMENT_NAME --template-file ${PROJECT_ROOT}/azuredeploy.json \
+export DEV_DEPLOYMENT_NAME=azuredeploy-$DEPLOYMENT_SUFFIX-dev
+az deployment group create -g $RESOURCE_GROUP --name $DEV_DEPLOYMENT_NAME --template-file azuredeploy.json \
 --parameters servicePrincipalClientId=$SP_APP_ID \
             servicePrincipalClientSecret=$SP_CLIENT_SECRET \
             servicePrincipalId=$SP_OBJECT_ID \
             kubernetesVersion=$KUBERNETES_VERSION \
-            sshRSAPublicKey="$(cat ~/.ssh/id_rsa.pub)" \
+            sshRSAPublicKey="$(cat $SSH_PUBLIC_KEY_FILE)" \
             deliveryIdName=$DELIVERY_ID_NAME \
             deliveryPrincipalId=$DELIVERY_ID_PRINCIPAL_ID \
             droneSchedulerIdName=$DRONESCHEDULER_ID_NAME \
@@ -148,8 +135,6 @@ kubectl apply -f $K8S/tiller-rbac.yaml
 helm init --service-account tiller
 ```
 
-<nepeters - what is this step>
-
 ```azurecli-interactive
 # Acquire Instrumentation Key
 export AI_NAME=$(az deployment group show -g $RESOURCE_GROUP -n $DEV_DEPLOYMENT_NAME --query properties.outputs.appInsightsName.value -o tsv)
@@ -161,7 +146,7 @@ export AI_IKEY=$(az resource show \
                     -o tsv)
 
 # add RBAC for AppInsights
-kubectl apply -f $K8S/k8s-rbac-ai.yaml
+kubectl apply -f k8s/k8s-rbac-ai.yaml
 ```
 
 ## Configure AAD pod identity and key vault flexvol infrastructure
@@ -169,10 +154,7 @@ kubectl apply -f $K8S/k8s-rbac-ai.yaml
 Instal the AAD POD identity Helm Chart.
 
 ```azuercli-interactive
-# setup AAD pod identity
 helm install aad-pod-identity/aad-pod-identity --set=installCRDs=true --set nmi.allowNetworkPluginKubenet=true --name aad-pod-identity --namespace kube-system --version 3.0.3
-
-kubectl create -f https://raw.githubusercontent.com/Azure/kubernetes-keyvault-flexvol/master/deployment/kv-flexvol-installer.yaml
 ```
 
 Install flexvol.
@@ -205,7 +187,7 @@ openssl req -x509 -nodes -days 365 -newkey rsa:2048 -out ingestion-ingress-tls.c
 ## Setup cluster resource quota
 
 ```azurecli-interactive
-kubectl apply -f $K8S/k8s-resource-quotas-dev.yaml
+kubectl apply -f k8s/k8s-resource-quotas-dev.yaml
 ```
 
 ## Deploy the Delivery service
@@ -225,17 +207,7 @@ Build the Delivery service.
 export DELIVERY_PATH=$PROJECT_ROOT/src/shipping/delivery
 ```
 
-<nepeters - can we use ACR Build here>
-
 Build and publish the container image.
-
-```azurecli-interactive
-docker build --pull --compress -t $ACR_SERVER/delivery:0.1.0 $DELIVERY_PATH/.
-az acr login --name $ACR_NAME
-docker push $ACR_SERVER/delivery:0.1.0
-```
-
-New commands:
 
 ```azurecli-interactive
 az acr build -r $ACR_NAME -t $ACR_SERVER/delivery:0.1.0 ./src/shipping/delivery/.
@@ -250,7 +222,7 @@ export DELIVERY_PRINCIPAL_CLIENT_ID=$(az identity show -g $RESOURCE_GROUP -n $DE
 export DELIVERY_INGRESS_TLS_SECRET_NAME=delivery-ingress-tls
 
 # Deploy the service
-helm install $HELM_CHARTS/delivery/ \
+helm install charts/delivery/ \
      --set image.tag=0.1.0 \
      --set image.repository=delivery \
      --set dockerregistry=$ACR_SERVER \
@@ -287,14 +259,7 @@ export COSMOSDB_NAME=$(az deployment group show -g $RESOURCE_GROUP -n $DEV_DEPLO
 Build the Package service.
 
 ```azurecli-interactive
-export PACKAGE_PATH=$PROJECT_ROOT/src/shipping/package
-
-# Build the docker image
-docker build -f $PACKAGE_PATH/Dockerfile -t $ACR_SERVER/package:0.1.0 $PACKAGE_PATH
-
-# Push the docker image to ACR
-az acr login --name $ACR_NAME
-docker push $ACR_SERVER/package:0.1.0
+az acr build -r $ACR_NAME -t $ACR_SERVER/package:0.1.0 ./src/shipping/package/.
 ```
 
 Deploy the Package service.
@@ -306,7 +271,7 @@ export COSMOSDB_CONNECTION=$(az cosmosdb keys list --type connection-strings --n
 export COSMOSDB_COL_NAME=packages
 
 # Deploy service
-helm install $HELM_CHARTS/package/ \
+helm install charts/package/ \
      --set image.tag=0.1.0 \
      --set image.repository=package \
      --set ingress.hosts[0].name=$EXTERNAL_INGEST_FQDN \
@@ -337,29 +302,24 @@ export WORKFLOW_KEYVAULT_NAME=$(az deployment group show -g $RESOURCE_GROUP -n $
 Build the workflow service.
 
 ```azurecli-interactive
-export WORKFLOW_PATH=$PROJECT_ROOT/src/shipping/workflow
-
-# Build the Docker image
-docker build --pull --compress -t $ACR_SERVER/workflow:0.1.0 $WORKFLOW_PATH/.
-
-# Push the image to ACR
-az acr login --name $ACR_NAME
-docker push $ACR_SERVER/workflow:0.1.0
+az acr build -r $ACR_NAME -t $ACR_SERVER/workflow:0.1.0 ./src/shipping/workflow/.
 ```
 
 Create and set up pod identity.
 
 ```azurecli-interactive
-# Extract outputs from deployment
+# Extract outputs from deployment and get Azure account details
 export WORKFLOW_PRINCIPAL_RESOURCE_ID=$(az deployment group show -g $RESOURCE_GROUP -n $IDENTITIES_DEPLOYMENT_NAME --query properties.outputs.workflowPrincipalResourceId.value -o tsv) && \
 export WORKFLOW_PRINCIPAL_CLIENT_ID=$(az identity show -g $RESOURCE_GROUP -n $WORKFLOW_ID_NAME --query clientId -o tsv)
+export SUBSCRIPTION_ID=$(az account show --query id --output tsv)
+export TENANT_ID=$(az account show --query tenantId --output tsv)
 ```
 
 Deploy the Workflow service.
 
 ```azurecli-interactive
 # Deploy the service
-helm install $HELM_CHARTS/workflow/ \
+helm install charts/workflow/ \
      --set image.tag=0.1.0 \
      --set image.repository=workflow \
      --set dockerregistry=$ACR_SERVER \
@@ -393,14 +353,7 @@ export INGESTION_ACCESS_KEY_VALUE=$(az servicebus namespace authorization-rule k
 Build the Ingestion service
 
 ```azurecli-interactive
-export INGESTION_PATH=$PROJECT_ROOT/src/shipping/ingestion
-
-# Build the docker image
-docker build -f $INGESTION_PATH/Dockerfile -t $ACR_SERVER/ingestion:0.1.0 $INGESTION_PATH
-
-# Push the docker image to ACR
-az acr login --name $ACR_NAME
-docker push $ACR_SERVER/ingestion:0.1.0
+az acr build -r $ACR_NAME -t $ACR_SERVER/ingestion:0.1.0 ./src/shipping/ingestion/.
 ```
 
 Deploy the Ingestion service
@@ -410,7 +363,7 @@ Deploy the Ingestion service
 export INGRESS_TLS_SECRET_NAME=ingestion-ingress-tls
 
 # Deploy service
-helm install $HELM_CHARTS/ingestion/ \
+helm install charts/ingestion/ \
      --set image.tag=0.1.0 \
      --set image.repository=ingestion \
      --set dockerregistry=$ACR_SERVER \
@@ -455,7 +408,7 @@ Build the dronescheduler services
 export DRONE_PATH=$PROJECT_ROOT/src/shipping/dronescheduler
 ```
 
-Create and set up pod identity
+Create and set up pod identity.
 
 ```azurecli-interactive
 # Extract outputs from deployment
@@ -463,22 +416,17 @@ export DRONESCHEDULER_PRINCIPAL_RESOURCE_ID=$(az deployment group show -g $RESOU
 export DRONESCHEDULER_PRINCIPAL_CLIENT_ID=$(az identity show -g $RESOURCE_GROUP -n $DRONESCHEDULER_ID_NAME --query clientId -o tsv)
 ```
 
-Build and publish the container image
+Build and publish the container image.
 
 ```azurecli-interactive
-# Build the Docker image
-docker build -f $DRONE_PATH/Dockerfile -t $ACR_SERVER/dronescheduler:0.1.0 $DRONE_PATH/../
-
-# Push the images to ACR
-az acr login --name $ACR_NAME
-docker push $ACR_SERVER/dronescheduler:0.1.0
+az acr build -r $ACR_NAME -f ./src/shipping/dronescheduler/Dockerfile -t $ACR_SERVER/dronescheduler:0.1.0 ./src/shipping/.
 ```
 
 Deploy the dronescheduler service:
 
 ```azurecli-interactive
 # Deploy the service
-helm install $HELM_CHARTS/dronescheduler/ \
+helm install charts/dronescheduler/ \
      --set image.tag=0.1.0 \
      --set image.repository=dronescheduler \
      --set dockerregistry=$ACR_SERVER \
