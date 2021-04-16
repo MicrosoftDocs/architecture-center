@@ -13,7 +13,7 @@ Typical uses for extending inference include when you need to:
 
 ## Architecture
 
-[!Architecture diagram: using on-premises data to train a model in Azure Machine Learning; deploy the model back to the edge for inference.][architectural-diagram]
+![Architecture diagram: using on-premises data to train a model in Azure Machine Learning; deploy the model back to the edge for inference.][architectural-diagram]
 
 *Download a [Visio file][architectural-diagram-visio-source] of this architecture.*
 
