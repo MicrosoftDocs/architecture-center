@@ -4,12 +4,6 @@ The Drone Delivery application is a sample application that consists of several 
 
 ![](./images/drone-architecture.png)
 
-- **Ingestion service**: receives client requests and buffers them.
-- **Third-party Transportation service**: manages third-party transportation options. - is this the queue?
-- **Package service**: manages packages.
-- **Scheduler service**: dispatches client requests and manages the delivery workflow.
-- **Delivery service**: manages deliveries that are scheduled or in transit.
-
 ## Reference deployment
 
 This deployment creates an Azure Kubernetes Service (AKS) cluster, an Azure Container Registry instance, and the supporting infrastructure for the drone delivery application.
@@ -58,19 +52,16 @@ New-AzResourceGroupDeployment -ResourceGroupName hub-spoke `
 ```
 --- 
 
-## Prepare Kubernetes environment
+## Configure tools
+
+Once the cluster has been deployed, ensure that you have the kubectl command-line tool installed and configured with the new AKS cluster. Update the following command with the name of the AKS cluster and the resource group in which the cluster resource resides.
 
 ```azurecli-interactive
 az aks install-cli
+az aks get-credentials --resource-group=<replace> --name=<replace>
 ```
 
-```azurecli-interactive
-az aks get-credentials --resource-group=$RESOURCE_GROUP --name=$CLUSTER_NAME
-```
-
-```azurecli-interactive
-kubectl create namespace backend-dev
-```
+Install and configure helm.
 
 ```azurecli-interactive
 # install helm client side
@@ -81,17 +72,12 @@ kubectl apply -f $K8S/tiller-rbac.yaml
 helm init --service-account tiller
 ```
 
+Several components of the Drone application are configured to emit diagnostic logs and metrics to Azure Monitor Application Insights. In order to configure these, get the name and instrumentation key of the association log analytics instance. <TODO> - detail the k8s-rbac-ai configuration.
+
 ```azurecli-interactive
 # Acquire Instrumentation Key
 export AI_NAME=$(az deployment group show -g $RESOURCE_GROUP -n $DEV_DEPLOYMENT_NAME --query properties.outputs.appInsightsName.value -o tsv)
-export AI_IKEY=$(az resource show \
-                    -g $RESOURCE_GROUP \
-                    -n $AI_NAME \
-                    --resource-type "Microsoft.Insights/components" \
-                    --query properties.InstrumentationKey \
-                    -o tsv)
-
-# add RBAC for AppInsights
+export AI_IKEY=$(az resource show -g $RESOURCE_GROUP -n $AI_NAME --resource-type "Microsoft.Insights/components" --query properties.InstrumentationKey -o tsv)
 kubectl apply -f k8s/k8s-rbac-ai.yaml
 ```
 
