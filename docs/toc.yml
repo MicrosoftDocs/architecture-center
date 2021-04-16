@@ -71,6 +71,8 @@ items:
             href: guide/technology-choices/messaging.md
       - name: Best practices for cloud applications
         items:
+          - name: Overview
+            href: best-practices/index-best-practices.md
           - name: API design
             href: best-practices/api-design.md
           - name: API implementation
@@ -616,7 +618,7 @@ items:
                 href: reference-architectures/ai/batch-scoring-R-models.yml
               - name: Batch scoring with Spark on Databricks
                 href: reference-architectures/ai/batch-scoring-databricks.yml
-              - name: Chatbot for hotel reservations
+              - name: Chatbot for hotel booking
                 href: example-scenario/ai/commerce-chatbot.yml
               - name: Deploy AI and ML at the edge
                 href: hybrid/deploy-ai-ml-azure-stack-edge.yml
