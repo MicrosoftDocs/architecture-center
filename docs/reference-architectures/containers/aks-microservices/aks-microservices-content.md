@@ -1,7 +1,5 @@
 This reference architecture shows a microservices application deployed to Azure Kubernetes Service (AKS). It describes a basic AKS configuration that can be the starting point for most deployments. This article assumes basic knowledge of Kubernetes. The article focuses mainly on the infrastructure and DevOps considerations of running a microservices architecture on AKS. For guidance on how to design microservices, see [Building microservices on Azure](../../../microservices/index.md).
 
-![GitHub logo](../../../_images/github.png) A reference implementation of this architecture is available on [GitHub][ri].
-
 ![AKS reference architecture](./images/aks.png)
 
 *Download a [Visio file][visio-download] of this architecture.*
@@ -29,6 +27,13 @@ The architecture consists of the following components.
 **Helm**. Helm is a package manager for Kubernetes, a way to bundle and generalize Kubernetes objects into a single unit that can be published, deployed, versioned, and updated.
 
 **Azure Monitor**. Azure Monitor collects and stores metrics and logs, application telemetry, and platform metrics for the Azure services. Use this data to monitor the application, set up alerts, dashboards, and perform root cause analysis of failures. Azure Monitor integrates with AKS to collect metrics from controllers, nodes, and containers.
+
+## Reference deployment
+
+See the following content for a guided implementation of this architecture.
+
+> [!div class="nextstepaction"]
+> [AKS Microservices Reference Implementation](./aks-microservices-ri-content.md)
 
 ## Design considerations
 

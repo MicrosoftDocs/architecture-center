@@ -8,109 +8,55 @@ The Drone Delivery application is a sample application that consists of several 
 
 ![](./images/drone-architecture.png)
 
-<nepeters note - are all of these services represented in the deployment>
-
 - **Ingestion service**: receives client requests and buffers them.
 - **Third-party Transportation service**: manages third-party transportation options. - is this the queue?
 - **Package service**: manages packages.
 - **Scheduler service**: dispatches client requests and manages the delivery workflow.
 - **Delivery service**: manages deliveries that are scheduled or in transit.
-- Supervisor service: monitors the workflow for failures and applies compensating transactions. - what is this?
-- Account service: manages user accounts. - what is this?
-- Drone service: schedules drones and monitors drones in flight. - what is this?
-- Delivery History service: stores the history of completed deliveries. - what is this?
 
-## Deployment prerequisites
+## Reference deployment
 
-Clone a copy of the drone service application to your development computer or cloud shell environment.
+This deployment creates an Azure Kubernetes Service (AKS) cluster, an Azure Container Registry instance, and the supporting infrastructure for the drone delivery application. This deployment takes up to 25 minutes. It is recommended that the deployment button is used to initiate the deployment from the Azure portal. Once the deployment has  completed, return back to this guide to deploy the drone application.
 
-```azurecli-interactive
-git clone https://github.com/mspnp/microservices-reference-implementation.git && \
-cd microservices-reference-implementation/
+We have also include Azure CLI and PowerShell commands that can be used to deploy the infrastructure. If using cloud shell, be aware that the session may time out before the deployment has completed. If using these commands, we recommend doing so on your own development system to avoid an unexpected shell time out.
+
+#### [Azure portal](#tab/portal)
+
+Use the following button to deploy the reference using the Azure portal.
+
+[![Deploy to Azure](../../_images/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmspnp%2Fsamples%2Fmaster%2Fsolutions%2Fazure-hub-spoke%2Fazuredeploy.json)
+
+
+#### [Azure CLI](#tab/cli)
+
+Use the following command to create a resource group for the deployment. Click the **Try it** button to use an embedded shell.
+
+```azurecli
+az group create --name hub-spoke --location eastus
 ```
 
-Generate an SSH RSA key pair. These keys are used when deploying the AKS cluster. The SSH rsa key pair can be generated using ssh-keygen, among other tools, on Linux, Mac, or Windows. If you already have an ~/.ssh/id_rsa.pub file, you could provide the same later on. For more information on creating an SSH RSA key pair, see [How to create and use an SSH key pair](https://docs.microsoft.com/azure/virtual-machines/linux/mac-create-ssh-keys).
+Run the following command to deploy the hub and spoke network configuration, VNet peerings between the hub and spoke, and a Bastion host
 
-```azurecli-interactive
-ssh-keygen -m PEM -t rsa -b 4096
+```azurecli
+az deployment group create --resource-group hub-spoke \
+    --template-uri https://raw.githubusercontent.com/mspnp/samples/master/solutions/azure-hub-spoke/azuredeploy.json
 ```
 
-Create a service principal.
+#### [PowerShell](#tab/powershell)
 
-```azurecli-interactive
-export SP_DETAILS=$(az ad sp create-for-rbac --role="Contributor" -o json) && \
-export SP_APP_ID=$(echo $SP_DETAILS | jq ".appId" -r) && \
-export SP_CLIENT_SECRET=$(echo $SP_DETAILS | jq ".password" -r) && \
-export SP_OBJECT_ID=$(az ad sp show --id $SP_APP_ID -o tsv --query objectId)
+Use the following command to create a resource group for the deployment. Click the **Try it** button to use an embedded shell.
+
+```azurepowershell
+New-AzResourceGroup -Name hub-spoke -Location eastus
 ```
 
-Populate several environment variables, these valuse are used throughout the application deployment.
+Run the following command to deploy the hub and spoke network configuration, VNet peerings between the hub and spoke, and a Bastion host
 
-```azurecli-interactive
-export SSH_PUBLIC_KEY_FILE="/Users/neilpeterson/.ssh/id_rsa.pub"
-export LOCATION=eastus
-export RESOURCE_GROUP=test-niner-001
+```azurepowershell
+New-AzResourceGroupDeployment -ResourceGroupName hub-spoke `
+    -TemplateUri https://raw.githubusercontent.com/mspnp/samples/master/solutions/azure-hub-spoke/azuredeploy.json
 ```
-
-## Deployment
-
-This template created a few resource groups and managed identities that are used throughout the reference implementation.
-
-```azurecli-interactive
-export DEV_PREREQ_DEPLOYMENT_NAME=azuredeploy-prereqs-${DEPLOYMENT_SUFFIX}-dev
-az deployment sub create \
-   --name $DEV_PREREQ_DEPLOYMENT_NAME \
-   --location $LOCATION \
-   --template-file azuredeploy-prereqs.json \
-   --parameters resourceGroupName=$RESOURCE_GROUP \
-                resourceGroupLocation=$LOCATION
-```
-
-In the last step, several managed identities were deployed and are used throughout this implementation. Run these commands to store details about these identities for use throughout the remaining steps.
-
-```azurecli-interactive
-export IDENTITIES_DEPLOYMENT_NAME=$(az deployment sub show -n $DEV_PREREQ_DEPLOYMENT_NAME --query properties.outputs.identitiesDeploymentName.value -o tsv) && \
-export DELIVERY_ID_NAME=$(az deployment group show -g $RESOURCE_GROUP -n $IDENTITIES_DEPLOYMENT_NAME --query properties.outputs.deliveryIdName.value -o tsv) && \
-export DELIVERY_ID_PRINCIPAL_ID=$(az identity show -g $RESOURCE_GROUP -n $DELIVERY_ID_NAME --query principalId -o tsv) && \
-export DRONESCHEDULER_ID_NAME=$(az deployment group show -g $RESOURCE_GROUP -n $IDENTITIES_DEPLOYMENT_NAME --query properties.outputs.droneSchedulerIdName.value -o tsv) && \
-export DRONESCHEDULER_ID_PRINCIPAL_ID=$(az identity show -g $RESOURCE_GROUP -n $DRONESCHEDULER_ID_NAME --query principalId -o tsv) && \
-export WORKFLOW_ID_NAME=$(az deployment group show -g $RESOURCE_GROUP -n $IDENTITIES_DEPLOYMENT_NAME --query properties.outputs.workflowIdName.value -o tsv) && \
-export WORKFLOW_ID_PRINCIPAL_ID=$(az identity show -g $RESOURCE_GROUP -n $WORKFLOW_ID_NAME --query principalId -o tsv) && \
-export RESOURCE_GROUP_ACR=$(az deployment group show -g $RESOURCE_GROUP -n $IDENTITIES_DEPLOYMENT_NAME --query properties.outputs.acrResourceGroupName.value -o tsv)
-```
-
-Get the latest Kubernetes version available in the region into which you are creating the AKS cluster.
-
-```azurecli-interactive
-export KUBERNETES_VERSION=$(az aks get-versions -l $LOCATION --query "orchestrators[?default!=null].orchestratorVersion" -o tsv)
-```
-
-Deploy the AKS cluster.
-
-```azurecli-interactive
-export DEV_DEPLOYMENT_NAME=azuredeploy-$DEPLOYMENT_SUFFIX-dev
-az deployment group create -g $RESOURCE_GROUP --name $DEV_DEPLOYMENT_NAME --template-file azuredeploy.json \
---parameters servicePrincipalClientId=$SP_APP_ID \
-            servicePrincipalClientSecret=$SP_CLIENT_SECRET \
-            servicePrincipalId=$SP_OBJECT_ID \
-            kubernetesVersion=$KUBERNETES_VERSION \
-            sshRSAPublicKey="$(cat $SSH_PUBLIC_KEY_FILE)" \
-            deliveryIdName=$DELIVERY_ID_NAME \
-            deliveryPrincipalId=$DELIVERY_ID_PRINCIPAL_ID \
-            droneSchedulerIdName=$DRONESCHEDULER_ID_NAME \
-            droneSchedulerPrincipalId=$DRONESCHEDULER_ID_PRINCIPAL_ID \
-            workflowIdName=$WORKFLOW_ID_NAME \
-            workflowPrincipalId=$WORKFLOW_ID_PRINCIPAL_ID \
-            acrResourceGroupName=$RESOURCE_GROUP_ACR
-```
-
-Finally, collect a few values that are used throughout the remainder of this reference implementation.
-
-```azurecli-interactive
-export ACR_NAME=$(az deployment group show -g $RESOURCE_GROUP -n $DEV_DEPLOYMENT_NAME --query properties.outputs.acrName.value -o tsv) && \
-export ACR_SERVER=$(az acr show -n $ACR_NAME --query loginServer -o tsv) && \
-export CLUSTER_NAME=$(az deployment group show -g $RESOURCE_GROUP -n $DEV_DEPLOYMENT_NAME --query properties.outputs.aksClusterName.value -o tsv)
-```
+--- 
 
 ## Prepare Kubernetes environment
 
