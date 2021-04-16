@@ -1,7 +1,3 @@
-This reference implementation shows a set of best practices for building and running a microservices architecture on Microsoft Azure, using Kubernetes.
-
-## Scenario
-
 ​Fabrikam, Inc. (a fictional company) is starting a drone delivery service. The company manages a fleet of drone aircraft. Businesses register with the service, and users can request a drone to pick up goods for delivery. When a customer schedules a pickup, a backend system assigns a drone and notifies the user of an estimated delivery time. While the delivery is in progress, the customer can track the drone's location with a continuously updated ETA.
 
 The Drone Delivery application is a sample application that consists of several microservices. Because it's a sample, the functionality is simulated, but the APIs and microservices interactions are intended to reflect real-world design patterns.
@@ -16,11 +12,11 @@ The Drone Delivery application is a sample application that consists of several 
 
 ## Reference deployment
 
-This deployment creates an Azure Kubernetes Service (AKS) cluster, an Azure Container Registry instance, and the supporting infrastructure for the drone delivery application. This deployment takes up to 25 minutes. It is recommended that the deployment button is used to initiate the deployment from the Azure portal. Once the deployment has  completed, return back to this guide to deploy the drone application.
-
-We have also include Azure CLI and PowerShell commands that can be used to deploy the infrastructure. If using cloud shell, be aware that the session may time out before the deployment has completed. If using these commands, we recommend doing so on your own development system to avoid an unexpected shell time out.
+This deployment creates an Azure Kubernetes Service (AKS) cluster, an Azure Container Registry instance, and the supporting infrastructure for the drone delivery application.
 
 #### [Azure portal](#tab/portal)
+
+This deployment takes up to 25 minutes. It is recommended that the deployment button is used to initiate the deployment from the Azure portal. Once the deployment has  completed, return back to this guide to deploy the drone application.
 
 Use the following button to deploy the reference using the Azure portal.
 
@@ -29,13 +25,15 @@ Use the following button to deploy the reference using the Azure portal.
 
 #### [Azure CLI](#tab/cli)
 
-Use the following command to create a resource group for the deployment. Click the **Try it** button to use an embedded shell.
+If using cloud shell, be aware that the session may time out before the deployment has completed. If using these commands, we recommend doing so on your own development system to avoid an unexpected shell time out.
+
+Use the following command to create a resource group for the deployment.
 
 ```azurecli
 az group create --name hub-spoke --location eastus
 ```
 
-Run the following command to deploy the hub and spoke network configuration, VNet peerings between the hub and spoke, and a Bastion host
+Use the following button to deploy the reference using the Azure CLI commands.
 
 ```azurecli
 az deployment group create --resource-group hub-spoke \
@@ -44,13 +42,15 @@ az deployment group create --resource-group hub-spoke \
 
 #### [PowerShell](#tab/powershell)
 
-Use the following command to create a resource group for the deployment. Click the **Try it** button to use an embedded shell.
+If using cloud shell, be aware that the session may time out before the deployment has completed. If using these commands, we recommend doing so on your own development system to avoid an unexpected shell time out.
+
+Use the following command to create a resource group for the deployment.
 
 ```azurepowershell
 New-AzResourceGroup -Name hub-spoke -Location eastus
 ```
 
-Run the following command to deploy the hub and spoke network configuration, VNet peerings between the hub and spoke, and a Bastion host
+Use the following button to deploy the reference using the PowerShell commands.
 
 ```azurepowershell
 New-AzResourceGroupDeployment -ResourceGroupName hub-spoke `
