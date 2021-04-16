@@ -5,7 +5,7 @@ The *application stamping* strategy in an Internet-of-Things (IoT) solution supp
 
 This article describes application stamping benefits and considerations, and how to move devices and applications between stamps.
 
-![A diagram showing an application stamping strategy for use in Azure IoT](media/application-stamping.png)
+![A diagram showing a deployment stamping strategy for use in Azure IoT](media/scale-iot-deployment-stamps.svg)
 
 The application stamping strategy is to build atomic stamps that consist of an [Azure IoT Hub](/azure/iot-hub/about-iot-hub), routing endpoints like [Azure Event Hubs](/azure/event-hubs/event-hubs-about), and processing components. The stamps optimally support a defined device population, from 1 thousand to 1 million devices. As the incoming device population grows, stamp instances are added to accommodate the growth, rather than independently scaling up different parts of the solution.
 
@@ -52,7 +52,7 @@ There are a couple of strategies for moving devices and application end-users fr
 
 Where stamps encompass an end-to-end application, [Azure Traffic Manager](/azure/traffic-manager/traffic-manager-how-it-works) can move traffic from one stamp to another. This strategy involves creating multiple stamps, each containing the entire application with its own URL, and moving entire populations of devices and application users from one stamp to another.
 
-![A diagram explaining how to move a set of devices from one stamp to another stamp.](media/moving-devices-using-dps.png) 
+![A diagram explaining how to move a set of devices from one stamp to another stamp.](media/moving-devices-using-dps.svg) 
 
 This fully self-contained strategy is:
 - Simple to implement
@@ -65,7 +65,7 @@ Where solutions consist of a single application front-end and multiple stamps, t
 
 To gracefully manage devices moving to different stamps and IoT Hubs, gateways can use a caching mechanism of device-to-hub mapping. If a lookup routine exists as part of a set of shared components, service clients can dynamically detect and migrate device calls to new IoT Hubs.
 
-![A diagram demonstrating how devices can move from one hub to another using an app gateway.](media/moving-devices-behind-gateway.png)
+![A diagram demonstrating how devices can move from one hub to another using an app gateway.](media/move-devices-behind-gateway.svg)
 
 In this model, the gateway uses a cache to map devices to IoT Hubs, defaulting to the cached endpoint unless it receives an [error](/azure/iot-hub/iot-hub-troubleshoot-error-404001-devicenotfound) indicating the device is not registered to the known IoT Hub. When this error occurs, the gateway uses the [DPS Service SDK](/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks) to query individual device enrollment and determine which IoT Hub the device is now registered to. The gateway then updates the cache with the new mapping to avoid re-negotiating the device-to-hub mapping on future calls.
  
