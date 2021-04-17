@@ -16,7 +16,13 @@ ms.custom:
 
 The Azure Well-Architected Framework is a set of guiding tenets that can be used to improve the quality of a workload. The framework consists of five pillars of architecture excellence: Cost Optimization, Operational Excellence, Performance Efficiency, Reliability, and Security.
 
-To assess your workload using the tenets found in the Microsoft Azure Well-Architected Framework, see the [Microsoft Azure Well-Architected Review](/assessments/?id=azure-architecture-review&mode=pre-assessment).
+To assess your workload using the tenets found in the Microsoft Azure Well-Architected Framework, see the [Microsoft Azure Well-Architected Review](/assessments/?id=azure-architecture-review&mode=pre-assessment).  
+
+We also recommend you use Azure Advisor and Advisor Score to identify and prioritize opportunities to improve the posture of your workloads.  Both services are free to all Azure users and align to the five pillars of the Well-Architected Framework:
+
+- __[Azure Advisor](https://docs.microsoft.com/en-us/azure/advisor/)__ is a personalized cloud consultant that helps you follow best practices to optimize your Azure deployments. It analyzes your resource configuration and usage telemetry and then recommends solutions that can help you improve the cost effectiveness, performance, reliability, operational excellence, and security of your Azure resources. Learn more about Azure Advisor [here](https://docs.microsoft.com/en-us/azure/advisor/)
+
+- __[Advisor Score](https://docs.microsoft.com/en-us/azure/advisor/azure-advisor-score)__ is a core feature of Azure Advisor that aggregates Advisor recommendations into a simple, actionable score.  This enable you to tell at a glance if you're taking the necessary steps to build reliable, secure, and cost-efficient solutions, and to prioritize the actions that will yield the biggest improvement to the posture of your workloads. The Advisor score consists of an overall score, which can be further broken down into five category scores corresponding to each of the Well-Architected Framework. Learn more about Advisor Score [here](https://docs.microsoft.com/en-us/azure/advisor/azure-advisor-score).
 
 | Pillar | Description |
 |--------|-------------|
@@ -49,6 +55,8 @@ The monitoring and diagnostics process has several distinct phases:
 - Collection and storage. Consolidating the data into one place.
 - Analysis and diagnosis. To troubleshoot issues and see the overall health.
 - Visualization and alerts. Using telemetry data to spot trends or alert the operations team.
+
+Enforcing resource-level rules via [Azure Policy](https://docs.microsoft.com/en-us/azure/governance/policy/overview) helps ensure adoption of operational excellence best practices at scale across an organization. For example, Azure Policy can help ensure that only specific VM SKUs can be deployed across your organization. Azure Advisor provides [a set of Azure Policy recommendations](https://docs.microsoft.com/en-us/azure/advisor/advisor-operational-excellence-recommendations#use-azure-policy-recommendations) to help you quickly identify opportunities to implement Azure Policy best practices.
 
 Use the [DevOps checklist][devops-checklist] to review your design from a management and DevOps standpoint.
 
