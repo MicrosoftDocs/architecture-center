@@ -1,8 +1,10 @@
-Blockchain and Distributed Ledger Technology (DLT) networks are multi-party systems. Each party can have its own tools, methodology, and cloud provider. Although cloud providers' blockchain services can provide infrastructure management, they might require all parties to be in the same cloud or infrastructure. Blockchain service offerings might have limited region availability, scalability, or network segregation.
+Blockchain and Distributed Ledger Technology (DLT) networks are multi-party systems. Each party can have its own tools, methodology, and cloud provider. Some blockchain services might have limited region availability, scalability, or network segregation. Although some blockchain services provide infrastructure management, they might require all parties to be in the same cloud or infrastructure.
 
-If several parties join forces to build a blockchain network, parties that use different cloud providers and infrastructures need a common management platform. This platform should offer standard visibility, operations, and compliance across a wide range of resources and locations, regardless of hosting infrastructure.
+The open-source [Blockchain Automation Framework (BAF)](https://blockchain-automation-framework.readthedocs.io/) is a consistent way to deploy production-ready distributed networks across different public and private clouds. But while BAF can manage deployments, it doesn't provide central infrastructure management and monitoring.
 
-The open-source [Blockchain Automation Framework (BAF)](https://blockchain-automation-framework.readthedocs.io/) is a consistent way to deploy production-ready distributed networks across public and private clouds. But while BAF can manage deployments, it doesn't provide central infrastructure management and monitoring. This article explores how [Azure Arc enabled Kubernetes](/azure/azure-arc/kubernetes/overview) and the BAF can build a cross-cloud blockchain solution featuring portability and control.
+To join forces and build a blockchain network, parties that use different cloud providers and infrastructures need a common management platform. This platform should offer standard visibility, operations, and compliance across a wide range of resources and locations, regardless of hosting infrastructure.
+
+This article explores how the BAF and [Azure Arc enabled Kubernetes](/azure/azure-arc/kubernetes/overview) can build a cross-cloud blockchain solution that features portability and control.
 
 ## Potential use cases
 
@@ -25,7 +27,7 @@ This solution provides a heterogeneous, multi-party, cloud-agnostic DLT network.
    
    Each party hosts their nodes in a different location.
    
-1. BAF deploys the distributed networks across the three cloud services.
+1. BAF deploys the distributed network across the three cloud services.
    
 1. Azure Arc enabled Kubernetes centrally manages and monitors all the Kubernetes clusters, with:
    
@@ -39,9 +41,7 @@ This solution provides a heterogeneous, multi-party, cloud-agnostic DLT network.
 
 ### Components
 
-- [Kubernetes](https://kubernetes.io/) is the container-based infrastructure that hosts both the ledger and applications. This example assumes three managed Kubernetes clusters, one each in AKS, Amazon EKS, and GCP GKE. You can host your Kubernetes cluster almost anywhere.
-  
-- [Azure Kubernetes Service (AKS)](https://azure.microsoft.com/en-us/services/kubernetes-service/) is a fully managed Kubernetes service that offers serverless Kubernetes, an integrated CI/CD experience, and enterprise-grade security and governance.
+- [Kubernetes](https://kubernetes.io/) is the container-based infrastructure that hosts both the ledger and applications. This example assumes three managed Kubernetes clusters, one each in AKS, Amazon EKS, and GCP GKE. You can host your Kubernetes clusters in almost any public or private locations.
   
 - The open-source [Blockchain Automation Framework (BAF)](https://blockchain-automation-framework.readthedocs.io/) is a way to deliver consistent, production-ready DLT networks on public and private cloud-based infrastructures. BAF supports [Quorum](https://consensys.net/quorum/), [Corda](https://www.corda.net/), and [Hyperledger](https://www.hyperledger.org/) DLTs.
   
@@ -55,7 +55,7 @@ This solution provides a heterogeneous, multi-party, cloud-agnostic DLT network.
   
 - [Azure Container Registry](https://azure.microsoft.com/services/container-registry/) can build, store, and manage container images and artifacts for all types of container deployments.
   
-- [Azure DevOps](https://azure.microsoft.com/services/devops/) is a set of developer services that provide comprehensive application and infrastructure lifecycle management. Azure DevOps includes work tracking, source control, build and CI/CD, package management, and testing services.
+- [Azure DevOps](https://azure.microsoft.com/services/devops/) is a set of developer services that provide comprehensive application and infrastructure lifecycle management. Azure DevOps includes work tracking, source control, build and CI/CD, package management, and testing solutions.
 
 ## Considerations
 
