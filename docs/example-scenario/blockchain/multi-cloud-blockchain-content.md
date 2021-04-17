@@ -1,6 +1,6 @@
-Blockchain and Distributed Ledger Technology (DLT) networks are multi-party systems. Each party can have its own tools, methodology, and cloud provider. Some blockchain services might have limited region availability, scalability, or network segregation. Although some blockchain services provide infrastructure management, they might require all parties to be in the same cloud or infrastructure.
+Blockchain and Distributed Ledger Technology (DLT) networks are multi-party systems. Each party can have its own tools, methodology, and cloud provider. Some blockchain services might have limited region availability, scalability, or network segregation.
 
-The open-source [Blockchain Automation Framework (BAF)](https://blockchain-automation-framework.readthedocs.io/) is a consistent way to deploy production-ready distributed networks across different public and private clouds. But while BAF can manage deployments, it doesn't provide central infrastructure management and monitoring.
+The open-source [Blockchain Automation Framework (BAF)](https://blockchain-automation-framework.readthedocs.io/) is a consistent way to deploy production-ready distributed networks across different public and private clouds. But while BAF can manage deployments, it doesn't provide central infrastructure management and monitoring. Some cloud providers' blockchain services provide infrastructure management, but might require all parties to be in the same cloud or infrastructure.
 
 To join forces and build a blockchain network, parties that use different cloud providers and infrastructures need a common management platform. This platform should offer standard visibility, operations, and compliance across a wide range of resources and locations, regardless of hosting infrastructure.
 
