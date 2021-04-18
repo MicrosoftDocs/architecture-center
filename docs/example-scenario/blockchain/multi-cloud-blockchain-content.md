@@ -1,6 +1,6 @@
-Blockchain and Distributed Ledger Technology (DLT) networks are multi-party systems. Each party can have its own tools, methodology, and cloud provider. Some blockchain services might have limited region availability, scalability, or network segregation.
+Blockchain and Distributed Ledger Technology (DLT) networks are multi-party systems. Each party can have its own tools, methodology, and cloud provider. Some public or private blockchain services might have limited region availability, scalability, or network segregation.
 
-The open-source [Blockchain Automation Framework (BAF)](https://blockchain-automation-framework.readthedocs.io/) is a consistent way to deploy production-ready distributed networks across different public and private clouds. But while BAF can manage deployments, it doesn't provide central infrastructure management and monitoring. Some cloud providers' blockchain services provide infrastructure management, but might require all parties to be in the same cloud or infrastructure.
+The open-source [Blockchain Automation Framework (BAF)](https://blockchain-automation-framework.readthedocs.io/) is a consistent way to deploy production-ready distributed networks across different public and private clouds. But while BAF can manage deployments, it doesn't provide central infrastructure management and monitoring. Although some cloud providers' blockchain services provide infrastructure management, they might require all parties to be in the same cloud or infrastructure.
 
 To join forces and build a blockchain network, parties that use different cloud providers and infrastructures need a common management platform. This platform should offer standard visibility, operations, and compliance across a wide range of resources and locations, regardless of hosting infrastructure.
 
@@ -28,6 +28,14 @@ This solution provides a heterogeneous, multi-party, cloud-agnostic DLT network.
    Each party hosts their nodes in a different location.
    
 1. BAF deploys the distributed network across the three cloud services.
+   
+   - [Ambassador API Gateway](https://www.getambassador.io/products/api-gateway/) manages cross-node communications.
+   
+   - Internet connections, you can deploy a self-hosted, cloud-native API gateway through [Azure API Management](/azure/api-management/how-to-deploy-self-hosted-gateway-azure-kubernetes-service).
+   
+- Alternatively, you can use an [External DNS](https://github.com/kubernetes-sigs/external-dns) like [Azure DNS](https://azure.microsoft.com/services/dns).
+   
+   - You can achieve private connections using Internet Protocol Security (IPSec) with tools like [Submariner](https://submariner.io/).
    
 1. Azure Arc enabled Kubernetes centrally manages and monitors all the Kubernetes clusters, with:
    
@@ -57,6 +65,12 @@ This solution provides a heterogeneous, multi-party, cloud-agnostic DLT network.
   
 - [Azure DevOps](https://azure.microsoft.com/services/devops/) is a set of developer services that provide comprehensive application and infrastructure lifecycle management. Azure DevOps includes work tracking, source control, build and CI/CD, package management, and testing solutions.
 
+### Alternatives
+
+- [Ambassador API Gateway](https://www.getambassador.io/products/api-gateway/) manages cross-node communications, but you can use a cloud native API Gateway like [Azure API Management](/azure/api-management/how-to-deploy-self-hosted-gateway-azure-kubernetes-service) over the internet. You can also use [External-DNS](https://github.com/kubernetes-sigs/external-dns) with [Azure DNS service](https://azure.microsoft.com/services/dns).
+
+- You can get Internet Protocol Security (IPSec) private connections with tools like [Submariner](https://submariner.io/).
+
 ## Considerations
 
 For AKS best practices, see the [Baseline architecture for an Azure Kubernetes Service (AKS) cluster](/azure/architecture/reference-architectures/containers/aks/secure-baseline-aks). You can find similar guidance for other cloud providers.
@@ -67,15 +81,7 @@ Although Azure Arc can manage and monitor Kubernetes clusters, each cluster must
 
 ### Security
 
-- BAF uses [HashiCorp Vault](https://www.hashicorp.com/products/vault) for certificate and key storage. To use BAF, you need at least one Vault server. BAF recommends one Vault per organization for production-ready projects.
-
-- [Ambassador API Gateway](https://www.getambassador.io/products/api-gateway/) manages cross-node communications.
-
-- For internet connections, you can deploy a self-hosted, cloud-native API gateway through [Azure API Management](/azure/api-management/how-to-deploy-self-hosted-gateway-azure-kubernetes-service).
-
-- Alternatively, you can use an [External DNS](https://github.com/kubernetes-sigs/external-dns) like [Azure DNS](https://azure.microsoft.com/services/dns).
-
-- You can achieve private connections using Internet Protocol Security (IPSec) with tools like [Submariner](https://submariner.io/).
+BAF uses [HashiCorp Vault](https://www.hashicorp.com/products/vault) for certificate and key storage. To use BAF, you need at least one Vault server. BAF recommends one Vault per organization for production-ready projects.
 
 ## Deploy this scenario
 
