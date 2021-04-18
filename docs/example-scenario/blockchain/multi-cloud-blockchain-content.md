@@ -29,14 +29,6 @@ This solution provides a heterogeneous, multi-party, cloud-agnostic DLT network.
    
 1. BAF deploys the distributed network across the three cloud services.
    
-   - [Ambassador API Gateway](https://www.getambassador.io/products/api-gateway/) manages cross-node communications.
-   
-   - Internet connections, you can deploy a self-hosted, cloud-native API gateway through [Azure API Management](/azure/api-management/how-to-deploy-self-hosted-gateway-azure-kubernetes-service).
-   
-- Alternatively, you can use an [External DNS](https://github.com/kubernetes-sigs/external-dns) like [Azure DNS](https://azure.microsoft.com/services/dns).
-   
-   - You can achieve private connections using Internet Protocol Security (IPSec) with tools like [Submariner](https://submariner.io/).
-   
 1. Azure Arc enabled Kubernetes centrally manages and monitors all the Kubernetes clusters, with:
    
    - [GitOps-based cluster configuration deployment and management](/azure/azure-arc/kubernetes/conceptual-configurations).
