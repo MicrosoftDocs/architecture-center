@@ -10,7 +10,7 @@ This deployment creates an Azure Kubernetes Service (AKS) cluster, an Azure Cont
 
 #### [Azure portal](#tab/portal)
 
-This deployment takes up to 25 minutes. It is recommended that the deployment button is used to initiate the deployment from the Azure portal. Once the deployment has  completed, return back to this guide to deploy the drone application.
+This deployment takes up to 25 minutes. It is recommended that the deployment button is used to initiate the deployment from the Azure portal. Once the deployment has completed, return back to this guide to deploy the drone application.
 
 Use the following button to deploy the reference using the Azure portal.
 
@@ -79,21 +79,22 @@ export AI_IKEY=$(az resource show -g $RESOURCE_GROUP -n $AI_NAME --resource-type
 kubectl apply -f k8s/k8s-rbac-ai.yaml
 ```
 
-## Configure AAD pod identity and key vault flexvol infrastructure
+## Configure additional cluster infrastructure
 
-Instal the AAD POD identity Helm Chart.
+### Instal the AAD POD identity Helm Chart.
 
 ```azuercli-interactive
 helm install aad-pod-identity/aad-pod-identity --set=installCRDs=true --set nmi.allowNetworkPluginKubenet=true --name aad-pod-identity --namespace kube-system --version 3.0.3
 ```
 
-Install flexvol - <todo, what is flexvol doing in this configuration?>
+### Install flexvol
+<todo, what is flexvol doing in this configuration?>
 
 ```azuercli-interactive
 kubectl create -f https://raw.githubusercontent.com/Azure/kubernetes-keyvault-flexvol/master/deployment/kv-flexvol-installer.yaml
 ```
 
-## Install ingress controller
+### Install ingress controller
 
 ```azuercli-interactive
 helm install stable/nginx-ingress --name nginx-ingress-dev --namespace ingress-controllers --set rbac.create=true --set controller.ingressClass=nginx-dev --version 1.24.7
@@ -114,7 +115,7 @@ Create a self-signed certificate for TLS.
 openssl req -x509 -nodes -days 365 -newkey rsa:2048 -out ingestion-ingress-tls.crt -keyout ingestion-ingress-tls.key -subj "/CN=${EXTERNAL_INGEST_FQDN}/O=fabrikam"
 ```
 
-## Setup cluster resource quota
+### Configure cluster resource quota
 
 ```azurecli-interactive
 kubectl apply -f k8s/k8s-resource-quotas-dev.yaml
@@ -131,12 +132,6 @@ export COSMOSDB_NAME=$(az deployment group show -g $RESOURCE_GROUP -n $DEV_DEPLO
 export DATABASE_NAME="${COSMOSDB_NAME}-db" && \
 export COLLECTION_NAME="${DATABASE_NAME}-col" && \
 export DELIVERY_KEYVAULT_URI=$(az deployment group show -g $RESOURCE_GROUP -n $DEV_DEPLOYMENT_NAME --query properties.outputs.deliveryKeyVaultUri.value -o tsv)
-```
-
-Build the Delivery service.
-
-```azurecli-interactive
-export DELIVERY_PATH=$PROJECT_ROOT/src/shipping/delivery
 ```
 
 Build and publish the container image.
@@ -332,12 +327,6 @@ export ENDPOINT_URL=$(az cosmosdb show -n $DRONESCHEDULER_COSMOSDB_NAME -g $RESO
 export AUTH_KEY=$(az cosmosdb keys list -n $DRONESCHEDULER_COSMOSDB_NAME -g $RESOURCE_GROUP --query primaryMasterKey -o tsv) && \
 export DATABASE_NAME="invoicing" && \
 export COLLECTION_NAME="utilization"
-```
-
-Build the dronescheduler services
-
-```azurecli-interactive
-export DRONE_PATH=$PROJECT_ROOT/src/shipping/dronescheduler
 ```
 
 Create and set up pod identity.
