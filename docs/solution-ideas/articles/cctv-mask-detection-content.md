@@ -20,7 +20,7 @@ This article showcases a COVID-19 Safe Solution that is being implemented in wor
 
 ## Architecture for COVID-19 safety monitoring and compliance
 
-![Bosch COVID-19 Safe Solution architecture](../media/bosch-cctv-mask-detection.png)
+![Architecture diagram: Bosch COVID-19 Safe Solution for monitoring, compliance, and notification.](../media/bosch-cctv-mask-detection.png)
 
 *Download a [Visio file][visio-download] of this architecture.*
 
