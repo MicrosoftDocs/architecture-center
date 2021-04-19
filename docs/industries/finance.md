@@ -1,20 +1,31 @@
 ---
-title: Overview of finance industry
+title: Solutions for finance industry
 titleSuffix: Azure Architecture Center
 description: Architectures and ideas to use Azure and other Microsoft services for building efficient and reliable finance solutions.
 author: dsk-2015
-ms.date: 04/15/2021
+ms.date: 04/19/2021
 ms.topic: article
 ms.service: architecture-center
 ms.subservice: 
+products:
+  - azure
+  - dynamics-365
+  - microsoft-365
+categories:
+  - blockchain
+  - migration
+  - security
+  - storage
+  - databases
+  - compute
 keywords: Azure
 ---
 
-# Overview of finance industry
+# Solutions for finance industry
 
-The finance industry includes broad spectrum of entites such as banks, investment companies, insurance companies, and real estate firms, engaged in funding and money management for individuals, businesses, and governments. Besides data security concerns, financial institutions face some unique issues, such as, heavy reliance on traditional mainframe systems, cyber and technology risks, compliance issues, increasing competition, and customer expectations. By modernizing and digitally transforming financial systems to move to cloud platforms such as Microsoft Azure, these institutes can mitigate these issues and provide more value to their customers.
+The finance industry includes a broad spectrum of entites such as banks, investment companies, insurance companies, and real estate firms, engaged in the funding and money management for individuals, businesses, and governments. Besides data security concerns, financial institutions face unique issues such as, heavy reliance on traditional mainframe systems, cyber and technology risks, compliance issues, increasing competition, and customer expectations. By modernizing and digitally transforming financial systems to move to cloud platforms such as Microsoft Azure, financial institutes can mitigate these issues and provide more value to their customers.
 
-With digitial transformation, financial institutions can leverage speed and security of the cloud to offer differentiated customer experiences, manage risks, and fight fraud. To learn more, visit [Azure for financial services](https://azure.microsoft.com/en-us/industries/financial/). Banking and capital market institutions can also drive innovative cloud solutions with Azure by learning about use cases and documentation at [Azure for banking and capital markets](https://azure.microsoft.com/en-us/industries/financial/banking/). Microsoft also provides a complete set of capabilities across various platforms in the form of [Microsoft Cloud for Financial Services](https://www.microsoft.com/en-us/industry/financial-services/microsoft-cloud-for-financial-services).
+With digital transformation, financial institutions can leverage the speed and security of the cloud and use its capabilities to offer differentiated customer experiences, manage risks, and fight fraud. To learn more, visit [Azure for financial services](https://azure.microsoft.com/en-us/industries/financial/). Banking and capital market institutions can drive innovative cloud solutions with Azure; learn from relevant use cases and documentation at [Azure for banking and capital markets](https://azure.microsoft.com/en-us/industries/financial/banking/). Microsoft also provides a complete set of capabilities across various platforms in the form of [Microsoft Cloud for Financial Services](https://www.microsoft.com/en-us/industry/financial-services/microsoft-cloud-for-financial-services).
 
 <br>
 
@@ -24,14 +35,14 @@ With digitial transformation, financial institutions can leverage speed and secu
 
 ## Architectures for finance
 
-The following articles provide detailed analysis of architectures recommended for finance industry.
+The following articles provide detailed analysis of architectures recommended for the finance industry.
 
-| Architecture | Summary | Technology category |
+| Architecture | Summary | Technology focus |
 | ------- | ------- | ------- |
 | [Decentralized trust between banks](../example-scenario/apps/decentralized-trust.yml) | Learn how to establish a trusted environment for information sharing without resorting to a centralized database, in banks or other financial institutions. | Blockchain |
-| [Replicate and sync mainframe data in Azure](../reference-architectures/migration/sync-mainframe-data-with-azure.yml) | Replicate and sync mainframe data to Azure for digital transformating of traditional banking systems. | Mainframe |
-| [Modernize mainframe & midrange data](../reference-architectures/migration/modernize-mainframe-data-to-azure.yml) | End to end modernizing plan for mainframe and midrange data sources. | Mainframe |
-| [Refactor IBM z/OS mainframe Coupling Facility (CF) to Azure](../reference-architectures/zos/refactor-zos-coupling-facility.yml) | Learn how to leverage Azure services for scale-out performance and high availability comparable to IBM z/OS mainframe systems with Coupling Facilities (CFs). | Mainframe |
+| [Replicate and sync mainframe data in Azure](../reference-architectures/migration/sync-mainframe-data-with-azure.yml) | Replicate and sync mainframe data to Azure for digital transformation of traditional banking systems. | Mainframe |
+| [Modernize mainframe & midrange data](../reference-architectures/migration/modernize-mainframe-data-to-azure.yml) | End to end modernization plan for mainframe and midrange data sources. | Mainframe |
+| [Refactor IBM z/OS mainframe Coupling Facility (CF) to Azure](../reference-architectures/zos/refactor-zos-coupling-facility.yml) | Learn how to leverage Azure services for scale-out performance and high availability, comparable to IBM z/OS mainframe systems with Coupling Facilities (CFs). | Mainframe |
 | [Banking system cloud transformation on Azure](../example-scenario/banking/banking-system-cloud-transformation.yml) | Learn how a major bank modernized its financial transaction system while keeping compatibility with its existing payment system. | Migration |
 | [Patterns and implementations in banking cloud transformation](../example-scenario/banking/patterns-and-implementations.yml) | Learn the design patterns and implementations used for the [Banking system cloud transformation on Azure](../example-scenario/banking/banking-system-cloud-transformation.yml). | Migration |
 | [JMeter implementation reference for load testing pipeline solution](../example-scenario/banking/jmeter-load-testing-pipeline-implementation-reference.yml) | Learn about an implementation for a scalable cloud load testing pipeline used for the [Banking system cloud transformation on Azure](../example-scenario/banking/banking-system-cloud-transformation.yml). | Migration |
