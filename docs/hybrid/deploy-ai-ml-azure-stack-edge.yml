@@ -18,7 +18,7 @@ metadata:
     - internal-intro
     - ai-machine-learning
     - aml-project-improvement
-name: Deploy AI and machine learning at the edge with Azure Stack Edge
+name: Deploy AI and ML computing to the edge and on-premises
 azureCategories:
   - hybrid
   - ai-machine-learning
