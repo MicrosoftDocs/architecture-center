@@ -1,10 +1,10 @@
-Blockchain and Distributed Ledger Technology (DLT) networks are multi-party systems. Each party can have its own tools, methodology, and cloud provider. Some public or private blockchain services might have limited region availability, scalability, or network segregation.
+Blockchain and Distributed Ledger Technology (DLT) networks are multi-party systems. Each party can have its own tools, methodology, and cloud provider. Some public or private blockchain networks might have limited region availability, scalability, or network segregation.
 
-The open-source [Blockchain Automation Framework (BAF)](https://blockchain-automation-framework.readthedocs.io/) is a consistent way to deploy production-ready distributed networks across different public and private clouds. But while BAF can manage deployments, it doesn't provide central infrastructure management and monitoring. Although some cloud providers' blockchain services provide infrastructure management, they might require all parties to be in the same cloud or infrastructure.
+The open-source [Blockchain Automation Framework (BAF)](https://blockchain-automation-framework.readthedocs.io/) is a consistent way to deploy production-ready DLTs across different public and private clouds. But while BAF can manage deployments, it doesn't provide central infrastructure management and monitoring. Although some cloud providers' blockchain services provide infrastructure management, they might require all parties to be in the same cloud or infrastructure.
 
 To join forces and build a blockchain network, parties that use different cloud providers and infrastructures need a common management platform. This platform should offer standard visibility, operations, and compliance across a wide range of resources and locations, regardless of hosting infrastructure.
 
-This article explores how the BAF and [Azure Arc enabled Kubernetes](/azure/azure-arc/kubernetes/overview) can build a cross-cloud blockchain solution that features portability and control.
+This article explores how the BAF and [Azure Arc enabled Kubernetes](/azure/azure-arc/kubernetes/overview) can build a cross-cloud blockchain solution focusing on portability and control.
 
 ## Potential use cases
 
@@ -12,7 +12,7 @@ This approach supports:
 
 - Heterogeneous DLT deployments where separate organizations own and manage each node.
 
-- Centralized deployment, monitoring, and compliance management across multi-party networks.
+- Centralized DevOps, monitoring, and compliance management across multi-party networks.
 
 ## Architecture
 
