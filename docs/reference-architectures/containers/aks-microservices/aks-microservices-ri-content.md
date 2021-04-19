@@ -81,22 +81,22 @@ kubectl apply -f k8s/k8s-rbac-ai.yaml
 
 ## Configure additional cluster infrastructure
 
-### Instal the AAD POD identity Helm Chart.
+### Instal Azure Active Directory AAD POD identity
 
-```azuercli-interactive
+```azurecli-interactive
 helm install aad-pod-identity/aad-pod-identity --set=installCRDs=true --set nmi.allowNetworkPluginKubenet=true --name aad-pod-identity --namespace kube-system --version 3.0.3
 ```
 
 ### Install flexvol
 <todo, what is flexvol doing in this configuration?>
 
-```azuercli-interactive
+```azurecli-interactive
 kubectl create -f https://raw.githubusercontent.com/Azure/kubernetes-keyvault-flexvol/master/deployment/kv-flexvol-installer.yaml
 ```
 
 ### Install ingress controller
 
-```azuercli-interactive
+```azurecli-interactive
 helm install stable/nginx-ingress --name nginx-ingress-dev --namespace ingress-controllers --set rbac.create=true --set controller.ingressClass=nginx-dev --version 1.24.7
 ```
 
