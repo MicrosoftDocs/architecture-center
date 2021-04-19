@@ -27,8 +27,8 @@ Many types of healthcare professionals can benefit from this architecture:
 
 ## Architecture
 
-:::image type="complex" source="./media/azure-health-data-consortium-architecture.png" alt-text="Architecture diagram showing a Unisys Dorado mainframe system working with Azure components and with Astadia and Micro Focus emulation technology." border="false":::
-   The diagram contains two areas, one for Azure components, and one for on-premises components. The on-premises area is simple, with icons for a user and a network service. The Azure area is complex. Boxes containing icons fill the Azure area. The boxes represent a virtual network, sets of virtual machines, third-party software, database services, storage solutions, and other components. Arrows connect some boxes. Number and letter labels link parts of the diagram with the description in the document.
+:::image type="complex" source="./media/azure-health-data-consortium-architecture.png" alt-text="Architecture diagram showing how members of a consortium share data. The data flow starts with data sources and ends with storage and analysis." border="false":::
+   Dotted boxes represent sources, a member data store, a consortium data store, and shared services. The sources box contains several colored icons that represent data sources. The member and consortium data store boxes contains smaller dotted boxes. In the member box, one smaller box contains icons for Azure components that store and analyze data. The other box contains icons for data share members. The consortium data store box contains a smaller box filled with data storage icons. It also contains a box with icons for Azure data loading components. Besides those two boxes, it also contains the same two boxes that the member box contains. Arrows point from left to right between all the boxes. One arrow loops back from the consortium data share box to the member box. Below those boxes, a final dotted box contains icons for shared services.
 :::image-end:::
 
 1. Raw data originates in on-premises and third-party sources. Members of the consortium load this data into any of these storage services in Azure Data Share:
