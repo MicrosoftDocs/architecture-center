@@ -167,7 +167,7 @@ The technologies in this architecture meet most company's requirements for secur
 
 ### Availability considerations
 
-This solution uses single-region deployment. Some scenarios require a multi-region deployment for high-availability, disaster recovery, or proximity. In those cases, you can use a paired Azure region with the following configurations:
+This solution uses a single-region deployment. Some scenarios require a multi-region deployment for high-availability, disaster recovery, or proximity. In those cases, you can use a paired Azure region with the following configurations:
 
 - [Azure Synapse Analytics provides high availability of the warehouse][High availability for Azure Synapse Analytics] by using database snapshots.
 
