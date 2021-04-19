@@ -3,7 +3,7 @@
 
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-With the Azure AI tools, edge, and cloud platform, edge intelligence is possible. The next generation of AI-enabled hybrid applications can run where your data lives. With [Azure Stack Hub](/azure-stack/operator/azure-stack-overview), bring a trained AI model to the edge and integrate it with your applications for low-latency intelligence, with no tool or process changes for local applications. With Azure Stack Hub, you can ensure that your cloud solutions work even when disconnected from the internet.
+With the Azure AI tools, edge, and cloud platform, edge intelligence is possible. AI-enabled hybrid applications can run where your data lives, on-premises. With [Azure Stack Hub](/azure-stack/operator/azure-stack-overview), bring a trained AI model to the edge and integrate it with your applications for low-latency intelligence, with no tool or process changes for local applications. With Azure Stack Hub, you can ensure that your cloud solutions work even when disconnected from the internet.
 
 This solution idea shows a disconnected Stack Hub scenario. Issues of latency, intermittent connectivity, or regulations may not always allow for connectivity to Azure. In the disconnected scenario, data is processed locally and later aggregated in Azure for further analytics. For the connected version of this scenario, see the article [AI at the edge](./ai-at-the-edge.yml).
 
@@ -39,7 +39,7 @@ Key technologies used to implement this architecture:
 * Get Microsoft Certified for Azure Stack Hub with the [Azure Stack Hub Operator Associate](/learn/certifications/azure-stack-hub-operator/) certification
 * How to [install the AKS Engine on Linux in Azure Stack Hub](/azure-stack/user/azure-stack-kubernetes-aks-engine-deploy-linux)
 * How to [install the AKS Engine on Windows in Azure Stack Hub](/azure-stack/user/azure-stack-kubernetes-aks-engine-deploy-windows)
-* Deploy your ML models to an edge device with [Azure Stack Edge Devices](https://azure.microsoft.com/products/azure-stack/edge/#devices)
+* Deploy your ML models to an edge device with [Azure Stack Edge devices](https://azure.microsoft.com/products/azure-stack/edge/#devices)
 * Innovate further and deploy [Azure Cognitive Services (Speech, Language, Decision, Vision) containers to Azure Stack Hub](/azure-stack/user/azure-stack-solution-template-cognitive-services/)
 
 ## Related resources
