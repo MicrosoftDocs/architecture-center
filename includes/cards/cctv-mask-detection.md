@@ -6,11 +6,11 @@
 <article class="card">
     <div class="card-header has-margin-bottom-none" aria-hidden="true">
         <figure class="image diagram has-height-175 has-overflow-hidden level">
-            <a href="/azure/architecture/solution-ideas/articles/cctv-mask-detection"><img src="/azure/architecture/browse/thumbs/cctv-mask-detection.png" class="diagram" alt="Thumbnail of COVID-19 Safe Solutions with IoT Edge Architectural Diagram." data-linktype="relative-path"></a>
+            <a href="/azure/architecture/solution-ideas/articles/cctv-iot-edge-for-covid-19-safe-environment-and-mask-detection"><img src="/azure/architecture/browse/thumbs/covid-19-safe-environment-mask-detection.png" class="diagram" alt="Thumbnail of COVID-19 Safe Solutions with IoT Edge Architectural Diagram." data-linktype="relative-path"></a>
         </figure>
     </div>
     <div class="card-content">
-        <a class="card-content-title has-margin-top-none" href="/azure/architecture/solution-ideas/articles/cctv-mask-detection">
+        <a class="card-content-title has-margin-top-none" href="/azure/architecture/solution-ideas/articles/cctv-iot-edge-for-covid-19-safe-environment-and-mask-detection">
             <p>COVID-19 Safe Solutions with IoT Edge</p>
         </a>
         <ul class="card-content-metadata">
