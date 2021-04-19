@@ -18,7 +18,7 @@ This article showcases a COVID-19 Safe Solution that is being implemented in wor
 - Work areas including offices, factories, and warehouses.
 - Organizations with multiple locations, to enable widespread, systemic data analysis and actions.
 
-## Architecture for COVID-19 safety monitoring and compliance
+## Architecture for COVID-19 monitoring and compliance
 
 ![Architecture diagram: Bosch COVID-19 Safe Solution for monitoring, compliance, and notification.](../media/bosch-cctv-iot-edge-covid-19-safe-environment-mask-detection.png)
 

@@ -17,7 +17,7 @@ metadata:
     - fcp
     - ai-machine-learning
     - aml-project-improvement
-name: COVID-19 safe environments with IoT Edge monitoring and compliance
+name: COVID-19 safe environments with IoT Edge monitoring and alerting
 azureCategories:
   - iot
   - ai-machine-learning
