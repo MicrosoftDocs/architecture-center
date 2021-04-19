@@ -54,15 +54,15 @@ For more information about this solution:
 - Contact [iotcovidsupport@microsoft.com](mailto:iotcovidsupport@microsoft.com )
 - See [https://www.bosch-india-software.com](https://www.bosch-india-software.com/en/)
 
-Microsoft Learn paths:
-
-- [Build the intelligent edge with Azure IoT Edge](/learn/paths/build-intelligent-edge-with-azure-iot-edge/)
-- [Implement a Data Streaming Solution with Azure Streaming Analytics](/learn/paths/implement-data-streaming-with-asa/)
-
-## Related resources
+Product documentation:
 
 - [What is Azure Digital Twins?](/azure/digital-twins/overview)
 - [Azure Stream Analytics on IoT Edge](/azure/stream-analytics/stream-analytics-edge)
 - [Store data at the edge with Azure Blob Storage on IoT Edge](/azure/iot-edge/how-to-store-data-blob)
+
+Microsoft Learn paths:
+
+- [Build the intelligent edge with Azure IoT Edge](/learn/paths/build-intelligent-edge-with-azure-iot-edge/)
+- [Implement a Data Streaming Solution with Azure Streaming Analytics](/learn/paths/implement-data-streaming-with-asa/)
 
 [visio-download]: https://github.com/MicrosoftDocs/architecture-center-pr/blob/live/docs/solution-ideas/articles/cctv-mask-detection-content-visio.vsdx
