@@ -2,7 +2,7 @@
 metadata:
   title: COVID-19 safe solutions with IoT Edge
   titleSuffix: Azure Solution Ideas
-  description: Learn how to use CCTV, IoT Edge analytics and machine learning, and cloud services to monitor social distancing, mask/PPE use, and occupancy requirements.
+  description: Create a COVID-19 safe environment monitoring social distance, mask/PPE use, & occupancy requirements with CCTVs and Azure IoT Edge, Stream Analytics, and ML.
   author: doodlemania2
   ms.author: pnp
   ms.date: 06/06/2020
@@ -17,11 +17,11 @@ metadata:
     - fcp
     - ai-machine-learning
     - aml-project-improvement
-name: COVID-19 Safe Solutions with IoT Edge
+name: COVID-19 safe environments with IoT Edge monitoring and compliance
 azureCategories:
   - iot
   - ai-machine-learning
-summary: Learn how to use CCTV, IoT Edge analytics and machine learning, and cloud services to monitor social distancing, mask/PPE use, and occupancy requirements.
+summary: Create a COVID-19 safe environment monitoring social distance, mask/PPE use, & occupancy requirements with CCTVs and Azure IoT Edge, Stream Analytics, and ML.
 products:
   - azure-digital-twins
   - azure-iot-edge
