@@ -17,7 +17,7 @@
             <li>6/06/2020</li>
             <li>3 min read</li>
         </ul>
-        <p class="card-content-description">Create a COVID-19 safe environment monitoring social distance, mask/PPE use, & occupancy requirements with CCTVs and Azure IoT Edge, Stream Analytics, and ML.</p>
+        <p class="card-content-description">Create a COVID-19 safe environment monitoring social distance, mask/PPE use, & occupancy requirements. Solution uses CCTVs and Azure IoT Edge, Stream Analytics, and ML.</p>
         <div class="bottom-to-top-fade is-hidden-mobile"></div>
     </div>
 </article>
