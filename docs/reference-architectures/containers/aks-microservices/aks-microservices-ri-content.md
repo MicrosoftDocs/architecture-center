@@ -61,13 +61,11 @@ az aks install-cli
 az aks get-credentials --resource-group=<replace> --name=<replace>
 ```
 
-Install and configure helm.
+Install and configure helm. **Note**, if updated to Helm 3, we could reduce this step to only the installation command. As well, Helm 3 is installed in cloud shell; it's ready by default for the RI.
 
 ```azurecli-interactive
 # install helm client side
 curl -L https://git.io/get_helm.sh | bash -s -- -v v2.17.0
-
-# setup tiller in your cluster
 kubectl apply -f $K8S/tiller-rbac.yaml
 helm init --service-account tiller
 ```
@@ -89,7 +87,7 @@ Instal the AAD POD identity Helm Chart.
 helm install aad-pod-identity/aad-pod-identity --set=installCRDs=true --set nmi.allowNetworkPluginKubenet=true --name aad-pod-identity --namespace kube-system --version 3.0.3
 ```
 
-Install flexvol.
+Install flexvol - <todo, what is flexvol doing in this configuration?>
 
 ```azuercli-interactive
 kubectl create -f https://raw.githubusercontent.com/Azure/kubernetes-keyvault-flexvol/master/deployment/kv-flexvol-installer.yaml
