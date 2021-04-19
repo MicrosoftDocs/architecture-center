@@ -120,7 +120,9 @@ openssl req -x509 -nodes -days 365 -newkey rsa:2048 -out ingestion-ingress-tls.c
 kubectl apply -f k8s/k8s-resource-quotas-dev.yaml
 ```
 
-## Deploy the Delivery service
+## Deploy Application
+
+### Delivery Service
 
 Extract resource details from deployment.
 
@@ -178,7 +180,7 @@ helm install charts/delivery/ \
 helm status delivery-v0.1.0-dev
 ```
 
-Deploy the Delivery service.
+### Package service
 
 Extract resource details from deployment.
 
@@ -221,7 +223,7 @@ helm install charts/package/ \
 helm status package-v0.1.0-dev
 ```
 
-Deploy the Workflow service.
+### Workflow service
 
 Extract resource details from deployment.
 
@@ -269,7 +271,7 @@ helm install charts/workflow/ \
 helm status workflow-v0.1.0-dev
 ```
 
-Deploy the Ingestion service
+### Ingestion service
 
 Extract resource details from deployment.
 
@@ -319,7 +321,7 @@ helm install charts/ingestion/ \
 helm status ingestion-v0.1.0-dev
 ```
 
-Deploy DroneScheduler service
+## DroneScheduler service
 
 Extract resource details from deployment
 
