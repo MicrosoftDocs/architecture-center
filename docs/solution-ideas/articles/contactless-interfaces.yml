@@ -16,6 +16,7 @@ metadata:
     - iot
     - fcp
     - ai-machine-learning
+    - aml-project-improvement
 name: Contactless IoT interfaces with Azure intelligent edge
 azureCategories:
   - iot
