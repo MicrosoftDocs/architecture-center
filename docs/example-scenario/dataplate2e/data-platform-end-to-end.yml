@@ -1,6 +1,6 @@
 ### YamlMime:Architecture
 metadata:
-  title: Azure Analytics End-to-End
+  title: Azure analytics end-to-end
   titleSuffix: Azure Example Scenarios
   description: This example scenario demonstrates how to use the extensive family of Azure Data Services to build a modern analytics platform capable of handling the most common data challenges in an organization.
   author: fabragaMS
@@ -16,7 +16,7 @@ metadata:
     - data-analytics
     - example-scenario
   social_image_url: /azure/architecture/example-scenario/dataplate2e/media/azure-analytics-end-to-end.png
-name: Azure Analytics End-to-End
+name: Azure analytics end-to-end
 azureCategories:
   - databases
   - analytics
