@@ -1,4 +1,4 @@
-Blockchain and Distributed Ledger Technology (DLT) networks are multi-party systems. Each party can have its own tools, methodology, and cloud provider. Some public or private blockchain networks might have limited region availability, scalability, or network segregation.
+Blockchain and Distributed Ledger Technology (DLT) networks are multi-party systems. Each party can have its own tools, methodology, and cloud provider. Some providers' public or private blockchain networks might have limited region availability, scalability, or network segregation.
 
 The open-source [Blockchain Automation Framework (BAF)](https://blockchain-automation-framework.readthedocs.io/) is a consistent way to deploy production-ready DLTs across different public and private clouds. But while BAF can manage deployments, it doesn't provide central infrastructure management and monitoring. Although some cloud providers' blockchain services provide infrastructure management, they might require all parties to be in the same cloud or infrastructure.
 
@@ -47,7 +47,8 @@ This solution provides a heterogeneous, multi-party, cloud-agnostic DLT network.
   
 - [Azure Arc](https://azure.microsoft.com/services/azure-arc/) standardizes visibility, operations, and compliance across resources and locations by extending the Azure control plane.
   
-- [Azure Arc enabled Kubernetes](/azure/azure-arc/kubernetes/overview) centrally manages Kubernetes clusters in any location. Azure Arc enabled Kubernetes works with any Cloud Native Computing Foundation (CNCF)-certified Kubernetes cluster. Supported Kubernetes services include:
+- [Azure Arc enabled Kubernetes](/azure/azure-arc/kubernetes/overview) centrally manages Kubernetes clusters in any location. Azure Arc enabled Kubernetes works with any Cloud Native Computing Foundation (CNCF)-certified Kubernetes cluster, including:
+  
   - AKS engine on Azure
   - AKS engine on Azure Stack Hub
   - Amazon EKS
@@ -64,8 +65,10 @@ This solution provides a heterogeneous, multi-party, cloud-agnostic DLT network.
 
 ### Alternatives
 
-- [Ambassador API Gateway](https://www.getambassador.io/products/api-gateway/) manages cross-node communications, but you can use a cloud native API Gateway like Azure API Management over the internet. For more information, see [Deploy to Azure Kubernetes Service](/azure/api-management/how-to-deploy-self-hosted-gateway-azure-kubernetes-service). You can also use [External-DNS](https://github.com/kubernetes-sigs/external-dns) with [Azure DNS service](https://azure.microsoft.com/services/dns).
-
+- [Ambassador API Gateway](https://www.getambassador.io/products/api-gateway/) manages cross-node communications, but you can use a cloud native API Gateway like Azure API Management over the internet. For more information, see [Deploy to Azure Kubernetes Service](/azure/api-management/how-to-deploy-self-hosted-gateway-azure-kubernetes-service).
+  
+-  You can also use [External-DNS](https://github.com/kubernetes-sigs/external-dns) with [Azure DNS service](https://azure.microsoft.com/services/dns).
+  
 - You can get Internet Protocol Security (IPSec) private connections with tools like [Submariner](https://submariner.io/).
 
 ## Considerations
