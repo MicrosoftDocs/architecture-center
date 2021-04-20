@@ -41,8 +41,8 @@ Key technologies used to implement tools for technical content review and resear
 
 ## Next steps
 
-- Using the [knowledge mining solution accelerator](/samples/azure-samples/azure-search-knowledge-mining/azure-search-knowledge-mining/) to build an initial knowledge mining prototype with Azure Cognitive Search.
+- Use the [knowledge mining solution accelerator](/samples/azure-samples/azure-search-knowledge-mining/azure-search-knowledge-mining/) to build an initial knowledge mining prototype with Azure Cognitive Search.
 
-- Build custom skills with Microsoft's [Custom Web API](/azure/search/cognitive-search-custom-skill-interface).
+- Build an Azure Cognitive Search [custom skill](/azure/search/cognitive-search-custom-skill-interface).
 
-- Explore a Microsoft Learning Path with [knowledge mining with Azure Cognitive Search](/learn/paths/implement-knowledge-mining-azure-cognitive-search/).
+- Explore the Microsoft Learning Path [knowledge mining with Azure Cognitive Search](/learn/paths/implement-knowledge-mining-azure-cognitive-search/).
