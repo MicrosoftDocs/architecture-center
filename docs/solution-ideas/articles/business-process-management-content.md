@@ -13,11 +13,11 @@ When organizations task employees with the review and research of technical data
 
 There are three steps in knowledge mining: ingest, enrich, and explore. The ingest step aggregates content from a range of sources, including structured and unstructured data. The enrich step uses AI capabilities to extract information, find patterns, and deepen understanding. The explore step enables the data to be explored via search, bots, existing business applications, and data visualizations.
 
-**Ingest** different types of content like project-related items including SOWs, requests for proposal, and sales team correspondence. Financial-related content that could be ingested include invoice archives, W2 forms, receipts, healthcare claim forms, bank statements, legal agreements, balance sheets, income statements, cash flow statements, company disclosures, SEC documents, and annual reports.
+**Ingest** different types of content like project-related items including SOWs, requests for proposal, and sales team correspondence. Or, financial-related content can be ingested including invoice archives, W2 forms, receipts, healthcare claim forms, bank statements, legal agreements, balance sheets, income statements, cash flow statements, company disclosures, SEC documents, and annual reports.
 
 **Enrich** content using optical character recognition, forms recognition, layout understanding, table extraction, and key-value pair extraction.
 
-**Explore** the content by automatically populating data from invoices into ELP systems or databases or compile enriched documents in the knowledge store and project them into tabular or object stores. Populated data can be used to surface trends in an analytics dashboard, such as frequent issues, popular products, and much more.
+**Explore** the content by automatically populating data from invoices into ELP systems or databases or compile enriched documents in the knowledge store and project them into tabular or object stores. Projected stores can be used to surface trends in an analytics dashboard, such as frequent issues, popular products, and much more.
 
 ## Components
 
