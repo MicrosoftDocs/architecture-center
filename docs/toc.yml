@@ -1521,7 +1521,7 @@ items:
               - name: Contactless IoT interfaces
                 href: solution-ideas/articles/contactless-interfaces.yml
               - name: COVID-19 IoT Safe Solutions
-                href: solution-ideas/articles/cctv-mask-detection.yml
+                href: solution-ideas/articles/cctv-iot-edge-for-covid-19-safe-environment-and-mask-detection.yml
               - name: IoT Connected Platform
                 href: solution-ideas/articles/iot-connected-platform.yml
               - name: IoT Edge data storage and processing

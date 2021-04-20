@@ -57,6 +57,6 @@ The following are some additional ideas that you can use as a starting point for
 - [Predict Length of Stay and Patient Flow](../solution-ideas/articles/predict-length-of-stay-and-patient-flow-with-healthcare-analytics.yml)
 - [Predict Length of Stay in Hospitals](../solution-ideas/articles/predicting-length-of-stay-in-hospitals.yml)
 - [Contactless IoT interfaces with Azure intelligent edge](../solution-ideas/articles/contactless-interfaces.yml)
-- [COVID-19 Safe Solutions with IoT Edge](../solution-ideas/articles/cctv-mask-detection.yml)
+- [COVID-19 Safe Solutions with IoT Edge](../solution-ideas/articles/cctv-iot-edge-for-covid-19-safe-environment-and-mask-detection.yml)
 - [IoT Connected Platform for COVID-19 detection and prevention](../solution-ideas/articles/iot-connected-platform.yml)
 - [UVEN smart and secure disinfection and lighting](../solution-ideas/articles/uven-disinfection.yml)
