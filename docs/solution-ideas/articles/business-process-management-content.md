@@ -3,7 +3,7 @@
 
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-This architecture demonstrates how to use [knowledge mining](https://azure.microsoft.com/en-us/solutions/knowledge-mining/) in business process management.
+This architecture demonstrates how to use [knowledge mining](https://azure.microsoft.com/solutions/knowledge-mining/) in business process management.
 
 When organizations task employees with the review and research of technical data, it can be tedious to read page after page of dense text. Knowledge mining helps employees quickly review these materials. Knowledge mining can help avoid costly mistakes in industries where bidding competition is fierce. Or, in scenarios when the diagnosis of a problem must be quick or in near real time.
 
