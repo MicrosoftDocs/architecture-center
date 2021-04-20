@@ -3,13 +3,13 @@
 
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-This architecture demonstrates how to use knowledge mining for business process management.
+This architecture demonstrates how to use [knowledge mining](https://azure.microsoft.com/en-us/solutions/knowledge-mining/) in business process management.
 
 When organizations task employees with the review and research of technical data, it can be tedious to read page after page of dense text. Knowledge mining helps employees quickly review these materials. Knowledge mining can help avoid costly mistakes in industries where bidding competition is fierce. Or, in scenarios when the diagnosis of a problem must be quick or in near real time.
 
 ![Architecture Diagram: knowledge mining in business process management, with three steps: ingest, enrich, and explore.](../media/knowledge-mining-business-process-management.png)
 
-## Data flow
+## Data flow in knowledge mining
 
 There are three steps in knowledge mining: ingest, enrich, and explore.
 
@@ -43,6 +43,6 @@ Key technologies used to implement tools for technical content review and resear
 
 - Using the [knowledge mining solution accelerator](/samples/azure-samples/azure-search-knowledge-mining/azure-search-knowledge-mining/) to build an initial knowledge mining prototype with Azure Cognitive Search.
 
-- Build custom skills with Microsoft's [Custom Web API](/azure/search/cognitive-search-custom-skill-interface)
+- Build custom skills with Microsoft's [Custom Web API](/azure/search/cognitive-search-custom-skill-interface).
 
-- Explore a Microsoft Learning Path [Implement knowledge mining with Azure Cognitive Search](/learn/paths/implement-knowledge-mining-azure-cognitive-search/)
+- Explore a Microsoft Learning Path with [knowledge mining with Azure Cognitive Search](/learn/paths/implement-knowledge-mining-azure-cognitive-search/).
