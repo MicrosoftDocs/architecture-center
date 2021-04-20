@@ -311,3 +311,12 @@ associated with each VM. For example, two VMs per zone across three active zones
 will have a cost for six VMs. For pricing of VM workloads, refer to the [Azure
 pricing
 calculator](https://azure.microsoft.com/pricing/calculator/?service=virtual-machines).
+
+## High availability reference architectures
+
+- [Highly available multi-region web application](/azure/architecture/reference-architectures/app-service-web-app/multi-region)
+- [IaaS: Web application with relational database](/azure/architecture/high-availability/ref-arch-iaas-web-and-db)
+- [Multi-region load balancing with Traffic Manager and Application Gateway](/azure/architecture/high-availability/reference-architecture-traffic-manager-application-gateway)
+- [Multi-region N-tier application](/azure/architecture/reference-architectures/n-tier/multi-region-sql-server)
+- [Multitenant SaaS on Azure](/azure/architecture/example-scenario/multi-saas/multitenant-saas)
+- [Multi-tier web application built for HA/DR](/azure/architecture/example-scenario/infrastructure/multi-tier-app-disaster-recovery)
