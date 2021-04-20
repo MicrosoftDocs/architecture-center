@@ -28,6 +28,6 @@ products:
   - azure-iot-hub
   - azure-storage
   - azure-machine-learning
-thumbnailUrl: /azure/architecture/browse/thumbs/avanade-contactless.png
+thumbnailUrl: /azure/architecture/browse/thumbs/avanade-contactless-interface-iot-edge.png
 content: |
   [!include[](contactless-interfaces-content.md)]
