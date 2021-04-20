@@ -9,7 +9,7 @@ Many companies create products for multiple sectors, hence the business opportun
 
 ## Data Flow
 
-There are three steps: Ingest, Enrich and Exploration.
+There are three steps: Ingest, Enrich, and Exploration.
 
 First, the unstructured and structured data is ingested then enrichment of this data with AI to extract information and find and finally explore the newly structured data via search, existing business applications or analytics solutions.
 
@@ -29,6 +29,8 @@ Key technologies used to implement tools for technical content review and resear
 
 ## Next steps
 
-Using the [knowledge mining solution accelerator](/samples/azure-samples/azure-search-knowledge-mining/azure-search-knowledge-mining/) to build an initial knowledge mining prototype with Azure Cognitive Search.
+- Use the [knowledge mining solution accelerator](/samples/azure-samples/azure-search-knowledge-mining/azure-search-knowledge-mining/) to build an initial knowledge mining prototype with Azure Cognitive Search.
 
-Building custom skills with Microsoft's [Custom Web API](/azure/search/cognitive-search-custom-skill-interface)
+- Build a Azure Cognitive Search [custom skill](/azure/search/cognitive-search-custom-skill-interface).
+
+- Explore the Microsoft Learning Path [knowledge mining with Azure Cognitive Search](/learn/paths/implement-knowledge-mining-azure-cognitive-search/).
