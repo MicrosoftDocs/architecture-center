@@ -6,18 +6,18 @@
 <article class="card">
     <div class="card-header has-margin-bottom-none" aria-hidden="true">
         <figure class="image diagram has-height-175 has-overflow-hidden level">
-            <a href="/azure/architecture/solution-ideas/articles/cctv-mask-detection"><img src="/azure/architecture/browse/thumbs/cctv-mask-detection.png" class="diagram" alt="Thumbnail of COVID-19 Safe Solutions with IoT Edge Architectural Diagram." data-linktype="relative-path"></a>
+            <a href="/azure/architecture/solution-ideas/articles/cctv-iot-edge-for-covid-19-safe-environment-and-mask-detection"><img src="/azure/architecture/browse/thumbs/bosch-cctv-iot-edge-covid-19-safe-environment-mask-detection.png" class="diagram" alt="Thumbnail of COVID-19 Safe Solutions with IoT Edge Architectural Diagram." data-linktype="relative-path"></a>
         </figure>
     </div>
     <div class="card-content">
-        <a class="card-content-title has-margin-top-none" href="/azure/architecture/solution-ideas/articles/cctv-mask-detection">
+        <a class="card-content-title has-margin-top-none" href="/azure/architecture/solution-ideas/articles/cctv-iot-edge-for-covid-19-safe-environment-and-mask-detection">
             <p>COVID-19 Safe Solutions with IoT Edge</p>
         </a>
         <ul class="card-content-metadata">
             <li>6/06/2020</li>
             <li>3 min read</li>
         </ul>
-        <p class="card-content-description">Learn how to use CCTV, IoT Edge analytics and machine learning, and cloud services to monitor social distancing, mask/PPE use, and occupancy requirements.</p>
+        <p class="card-content-description">Create a COVID-19 safe environment monitoring social distance, mask/PPE use, & occupancy requirements. Solution uses CCTVs and Azure IoT Edge, Stream Analytics, and ML.</p>
         <div class="bottom-to-top-fade is-hidden-mobile"></div>
     </div>
 </article>
