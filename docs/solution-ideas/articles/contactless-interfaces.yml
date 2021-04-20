@@ -2,7 +2,7 @@
 metadata:
   title: Contactless IoT interfaces with Azure intelligent edge
   titleSuffix: Azure Solution Ideas
-  description: Create solutions with touch-free interfaces & other intelligent & perceptive IoT devices backed by the storage, compute, AI, and ML capabilities of Azure cloud.
+  description: Create solutions with touch-free interfaces & other intelligent & perceptive IoT devices backed by the storage, compute, AI, & ML capabilities of Azure cloud.
   author: doodlemania2
   ms.author: pnp
   ms.date: 06/06/2020
@@ -21,7 +21,7 @@ name: Contactless IoT interfaces with Azure intelligent edge
 azureCategories:
   - iot
   - ai-machine-learning
-summary: Create solutions with touch-free interfaces & other intelligent & perceptive IoT devices backed by the storage, compute, AI, and ML capabilities of Azure cloud.
+summary: Create solutions with touch-free interfaces & other intelligent & perceptive IoT devices backed by the storage, compute, AI, & ML capabilities of Azure cloud.
 products:
   - azure-cognitive-services
   - azure-iot-edge
