@@ -630,6 +630,8 @@ items:
             href: industries/healthcare.md
           - name: Virtual visits with Microsoft Cloud for Healthcare
             href: example-scenario/mch-health/virtual-health-mch.yml 
+          - name: Clinical insights with Microsoft Cloud for Healthcare
+            href: example-scenario/mch-health/medical-data-insights.yml
           - name: Consumer health portal on Azure
             href: example-scenario/digital-health/health-portal.yml
           - name: Building a telehealth system with Azure
