@@ -5,7 +5,7 @@ metadata:
   description: See how the open-source Blockchain Automation Framework (BAF) and Azure Arc-enabled Kubernetes work with multi-party DLTs to build a cross-cloud blockchain solution.
   author: saffiali
   ms.author: safali
-  ms.date: 04/15/2021
+  ms.date: 04/21/2021
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: example-scenario

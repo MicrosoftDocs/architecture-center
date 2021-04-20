@@ -16,7 +16,7 @@ This approach supports:
 
 ## Architecture
 
-This solution provides a heterogeneous, multi-party, cloud-agnostic DLT network. Each party can host their nodes anywhere and still be part of the network.
+This solution provides a heterogeneous, multi-party, cloud-agnostic DLT network. Parties can host their nodes anywhere and still be part of the network.
 
 ![Diagram showing a three-party blockchain network with each party using a different cloud provider, managed and monitored through BAF and Azure Arc.](media/multi-cloud-blockchain-network.png)
 
@@ -47,7 +47,12 @@ This solution provides a heterogeneous, multi-party, cloud-agnostic DLT network.
   
 - [Azure Arc](https://azure.microsoft.com/services/azure-arc/) standardizes visibility, operations, and compliance across resources and locations by extending the Azure control plane.
   
-- [Azure Arc enabled Kubernetes](/azure/azure-arc/kubernetes/overview) centrally manages Kubernetes clusters in any location. Azure Arc-enabled Kubernetes works with any Cloud Native Computing Foundation (CNCF)-certified Kubernetes cluster, including AKS engine on Azure, AKS engine on Azure Stack Hub, GKE, EKS, and VMware vSphere clusters.
+- [Azure Arc enabled Kubernetes](/azure/azure-arc/kubernetes/overview) centrally manages Kubernetes clusters in any location. Azure Arc enabled Kubernetes works with any Cloud Native Computing Foundation (CNCF)-certified Kubernetes cluster. Supported Kubernetes services include:
+  - AKS engine on Azure
+  - AKS engine on Azure Stack Hub
+  - Amazon EKS
+  - GCP GKE
+  - VMware vSphere
   
 - [Azure Monitor](https://azure.microsoft.com/services/monitor/) is a comprehensive solution for collecting, analyzing, and acting on telemetry. [Azure Monitor Container insights](/azure/azure-monitor/containers/container-insights-overview) monitors the performance of container workloads deployed to Azure Arc enabled Kubernetes clusters.
 
@@ -55,17 +60,17 @@ This solution provides a heterogeneous, multi-party, cloud-agnostic DLT network.
   
 - [Azure Container Registry](https://azure.microsoft.com/services/container-registry/) can build, store, and manage container images and artifacts for all types of container deployments.
   
-- [Azure DevOps](https://azure.microsoft.com/services/devops/) is a set of developer services that provide comprehensive application and infrastructure lifecycle management. Azure DevOps includes work tracking, source control, build and CI/CD, package management, and testing solutions.
+- [Azure DevOps](https://azure.microsoft.com/services/devops/) is a set of developer services providing comprehensive application and infrastructure lifecycle management. Azure DevOps includes work tracking, source control, build and CI/CD, package management, and testing solutions.
 
 ### Alternatives
 
-- [Ambassador API Gateway](https://www.getambassador.io/products/api-gateway/) manages cross-node communications, but you can use a cloud native API Gateway like [Azure API Management](/azure/api-management/how-to-deploy-self-hosted-gateway-azure-kubernetes-service) over the internet. You can also use [External-DNS](https://github.com/kubernetes-sigs/external-dns) with [Azure DNS service](https://azure.microsoft.com/services/dns).
+- [Ambassador API Gateway](https://www.getambassador.io/products/api-gateway/) manages cross-node communications, but you can use a cloud native API Gateway like Azure API Management over the internet. For more information, see [Deploy to Azure Kubernetes Service](/azure/api-management/how-to-deploy-self-hosted-gateway-azure-kubernetes-service). You can also use [External-DNS](https://github.com/kubernetes-sigs/external-dns) with [Azure DNS service](https://azure.microsoft.com/services/dns).
 
 - You can get Internet Protocol Security (IPSec) private connections with tools like [Submariner](https://submariner.io/).
 
 ## Considerations
 
-For AKS best practices, see the [Baseline architecture for an Azure Kubernetes Service (AKS) cluster](/azure/architecture/reference-architectures/containers/aks/secure-baseline-aks). You can find similar guidance for other cloud providers.
+For AKS best practices, see [Baseline architecture for an Azure Kubernetes Service (AKS) cluster](/azure/architecture/reference-architectures/containers/aks/secure-baseline-aks). You can find similar guidance for other cloud providers.
 
 ### Availability and scalability
 
@@ -77,17 +82,17 @@ BAF uses [HashiCorp Vault](https://www.hashicorp.com/products/vault) for certifi
 
 ## Deploy this scenario
 
-1. For this example, create managed Kubernetes clusters in AKS, GKE, and EKS, and onboard the clusters to Azure Arc:
-   - [Onboard an existing AKS cluster to Azure Arc](https://azurearcjumpstart.io/azure_arc_jumpstart/azure_arc_k8s/general/onboard_k8s/)
-   - [Create and onboard Amazon Elastic Kubernetes Service](https://azurearcjumpstart.io/azure_arc_jumpstart/azure_arc_k8s/eks/eks_terraform/)
-   - [Create and onboard Google Kubernetes Engine](https://azurearcjumpstart.io/azure_arc_jumpstart/azure_arc_k8s/gke/gke_terraform/)
+1. For this example, create managed Kubernetes clusters in AKS, GKE, and EKS, and onboard the clusters to Azure Arc.
+   - [Connect an existing Kubernetes cluster to Azure Arc](https://azurearcjumpstart.io/azure_arc_jumpstart/azure_arc_k8s/general/onboard_k8s/).
+   - [Deploy EKS cluster and connect it to Azure Arc](https://azurearcjumpstart.io/azure_arc_jumpstart/azure_arc_k8s/eks/eks_terraform/).
+   - [Deploy GKE cluster and connect it to Azure Arc](https://azurearcjumpstart.io/azure_arc_jumpstart/azure_arc_k8s/gke/gke_terraform/).
 1.  Follow steps for installing and configuring [BAF prerequisites](https://blockchain-automation-framework.readthedocs.io/en/latest/prerequisites.html).
 1.  (Optional) [Create an Azure DevOps organization and project](/azure/devops/organizations/accounts/create-organization), and clone the BAF repo into the new Azure DevOps project.
 1.  (Optional) Create an [Ansible Controller VM](https://azuredevopslabs.com/labs/vstsextend/ansible/) in Azure as the custom build agent to deploy BAF components.
 
 ## Pricing
 
-To estimate Azure resources costs, use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/).
+To estimate Azure resource costs, use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/).
 
 ## Next steps
 
