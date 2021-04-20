@@ -14,6 +14,7 @@ metadata:
   ms.custom:
     - acom-architecture
     - ai-machine-learning
+    - aml-project-improvement
   social_image_url: /azure/architecture/solution-ideas/articles/media/contract-management.png
 name: Contract Management
 azureCategories:
@@ -21,6 +22,8 @@ azureCategories:
 summary: Knowledge mining can help organizations to scour thousands of pages of sources to create an accurate bid.
 products:
   - azure-cognitive-search
+  - azure-form-recognizer
+  - azure-text-analytics
 thumbnailUrl: /azure/architecture/browse/thumbs/contract-management.png
 content: |
   [!include[](contract-management-content.md)]
