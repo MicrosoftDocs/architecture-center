@@ -13,7 +13,7 @@ metadata:
     - fcp
 azureCategories:
   - hybrid
-  - migration
+  - integration
 products:
   - azure-data-factory
   - azure-data-lake-gen2

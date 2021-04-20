@@ -972,6 +972,8 @@ items:
             items:
               - name: Azure data platform
                 href: example-scenario/dataplate2e/data-platform-end-to-end.yml
+              - name: Azure health data consortium
+                href: example-scenario/data/azure-health-data-consortium.yml
               - name: DataOps for modern data warehouse
                 href: example-scenario/data-warehouse/dataops-mdw.yml
               - name: Hybrid ETL with Azure Data Factory

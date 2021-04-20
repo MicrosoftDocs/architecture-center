@@ -28,37 +28,36 @@ Many types of healthcare professionals can benefit from this architecture:
 ## Architecture
 
 :::image type="complex" source="./media/azure-health-data-consortium-architecture.png" alt-text="Architecture diagram showing how members of a consortium share data. The data flow starts with data sources and ends with storage and analysis." border="false":::
-   Dotted boxes represent sources, a member data store, a consortium data store, and shared services. The sources box contains several colored icons that represent data sources. The member and consortium data store boxes contains smaller dotted boxes. In the member box, one smaller box contains icons for Azure components that store and analyze data. The other box contains icons for data share members. The consortium data store box contains a smaller box filled with data storage icons. It also contains a box with icons for Azure data loading components. Besides those two boxes, it also contains the same two boxes that the member box contains. Arrows point from left to right between all the boxes. One arrow loops back from the consortium data share box to the member box. Below those boxes, a final dotted box contains icons for shared services.
+   Dotted boxes represent data sources, a member data store, a consortium data store, and shared services. The sources box contains several colored icons that represent data sources. The member and consortium data store boxes contain smaller dotted boxes. In the member box, one smaller box contains icons for Azure components that store and analyze data. The other box contains icons for data share members. The consortium data store box contains a smaller box filled with data storage icons. The consortium box also contains a box with icons for Azure data loading components. Besides those two boxes, the consortium box also contains the same two boxes that the member box contains. Arrows point from left to right between all the boxes. One final arrow loops back from the consortium data share box to the member box. Below those boxes, a dotted box contains icons for shared services.
 :::image-end:::
 
 1. Raw data originates in on-premises and third-party sources. Members of the consortium load this data into any of these storage services in Azure Data Share:
 
-   - Synapse Analytics
+   - Azure Synapse Analytics
    - Azure SQL Database
-   - Azure Data Lake Gen2
+   - Azure Data Lake Storage Gen2
    - Azure Data Explorer
 
 1. The consortium asks members to share data. As data producers, members can either share snapshots or use in-place sharing.
 
-1. As a data consumer, the consortium receives the shared member data. This data enters Azure Data Lake Gen2 in the consortium's Data Share for further transformation.
+1. As a data consumer, the consortium receives the shared member data. This data enters Data Lake Storage Gen2 in the consortium's Data Share for further transformation.
 
-1. Data Factory and Databricks clean the member data and transform it into a common format.
+1. Azure Data Factory and Azure Databricks clean the member data and transform it into a common format.
 
 1. The consortium combines the member data and stores it in a service. The data's structure and volume determine the type of storage service that's most suitable. Possibilities include:
 
-   - Synapse Analytics
-   - Azure SQL Database
-   - Azure Data Lake Gen2
+   - Azure Synapse Analytics
+   - SQL Database
+   - Data Lake Storage Gen2
    - Azure Data Explorer
 
 1. As a data share producer, the consortium invites members to receive data. Members can accept either snapshot data or in-place sharing data.
 
 1. As data consumers, members receive the shared data. The data enters member data stores for research and analysis.
 
-
 Throughout the system:
 
-- Azure AD, Key Vault, and Security Center manage access and provide security.
+- Azure Active Directory (Azure AD), Azure Key Vault, and Azure Security Center manage access and provide security.
 - Azure Pipelines, a service of Azure DevOps, builds, tests, and releases code.
 
 ### Components
@@ -68,7 +67,7 @@ This architecture uses the following components:
 - These healthcare platforms provide data:
 
   - Electronic Health Records (EHRs) are digital versions of real-time information on patients.
-  - [Fast Healthcare Interoperability Resources (FHIR)](https://www.hl7.org/fhir/index.html) is a standard for health care data exchange that Health Level Seven International (HL7) publishes.
+  - [Fast Healthcare Interoperability Resources (FHIR)](https://www.hl7.org/fhir/index.html) is a standard for healthcare data exchange that Health Level Seven International (HL7) publishes.
   - The [Internet of Medical Things (IoMT)](https://azure.microsoft.com/en-us/overview/iot/industry/healthcare/#use-cases) is the collection of medical devices and apps that connect to IT systems through online computer networks.
   - [Genomics](https://www.genome.gov/about-genomics/fact-sheets/A-Brief-Guide-to-Genomics) data provides information on how genes interact with each other and the environment.
   - [Imaging](https://www.dicomstandard.org/) data includes the images that radiology, cardiology imaging, radiotherapy, and other devices produce.
@@ -76,27 +75,27 @@ This architecture uses the following components:
 
 - These Azure components secure, load, and store data:
 
-  - [Azure Data Share][What is Azure Data Share?] provides a way for multiple organizations to securely share data. With this tool, data providers stay in control of data that they share. And it's simple to manage and monitor who shared what data at what time. Azure Data Share also makes it easy to enrich analytics and AI scenarios by combining data from different members.
+  - [Data Share][What is Azure Data Share?] provides a way for multiple organizations to securely share data. With this tool, data providers stay in control of data that they share. It's simple to manage and monitor who shared what data at what time. Data Share also makes it easy to enrich analytics and AI scenarios by combining data from different members.
 
   - [Azure Synapse Analytics][What is Azure Synapse Analytics?] is an analytics service for data warehouses and big data systems. With this tool, you can query data with serverless, on-demand resources or with provisioned ones. Azure Synapse Analytics works well with a high volume of structured data.
 
-  - [Azure SQL Database][What is Azure SQL Database?] is a fully managed platform as a service (PaaS) database engine. With AI-powered, automated features, SQL Database handles database management functions like upgrading, patching, backups, and monitoring. This service is a good fit for structured data.
+  - [SQL Database][What is Azure SQL Database?] is a fully managed platform as a service (PaaS) database engine. With AI-powered, automated features, SQL Database handles database management functions like upgrading, patching, backups, and monitoring. This service is a good fit for structured data.
 
-  - [Azure Data Lake Gen2][Introduction to Azure Data Lake Storage Gen2] is a massively scalable and secure data lake for high-performance analytics workloads. This service can manage multiple petabytes of information while sustaining hundreds of gigabits of throughput. Azure Data Lake Gen2 provides a way to store structured and unstructured data from multiple members in one location.
+  - [Data Lake Storage Gen2][Introduction to Azure Data Lake Storage Gen2] is a massively scalable and secure data lake for high-performance analytics workloads. This service can manage multiple petabytes of information while sustaining hundreds of gigabits of throughput. Data Lake Storage Gen2 provides a way to store structured and unstructured data from multiple members in one location.
 
-  - [Azure Data Explorer][What is Azure Data Explorer?] is a fast, fully managed data analytics service. You can use this tool for real-time analysis on large volumes of data. Data Explorer can handle diverse data streams from applications, websites, IoT devices, and other sources. Azure Data Explorer is a good fit for in-place sharing of streaming telemetry and log data.
+  - [Azure Data Explorer][What is Azure Data Explorer?] is a fast, fully managed data analytics service. You can use this tool for real-time analysis on large volumes of data. Azure Data Explorer can handle diverse data streams from applications, websites, IoT devices, and other sources. Azure Data Explorer is a good fit for in-place sharing of streaming telemetry and log data.
 
-  - [Azure Data Factory][What is Azure Data Factory?] is a hybrid data integration service. You can use this fully managed, serverless solution for data integration and transformation workflows. It offers a code-free UI and an easy-to-use monitoring panel. In this solution, Data Factory pipelines ingest data from disparate member data shares.
+  - [Data Factory][What is Azure Data Factory?] is a hybrid data integration service. You can use this fully managed, serverless solution for data integration and transformation workflows. It offers a code-free UI and an easy-to-use monitoring panel. In this solution, Data Factory pipelines ingest data from disparate member data shares.
 
   - [Azure Databricks][What is Azure Databricks?] is a data analytics platform. Based on the latest Apache Spark distributed processing system, Azure Databricks supports seamless integration with open-source libraries. This solution uses Azure Databricks notebooks to transform all member data into a common format.
 
-  - [Azure Active Directory][What is Azure Active Directory?] is a multi-tenant, cloud-based identity and access management service.
+  - [Azure AD][What is Azure Active Directory?] is a multi-tenant, cloud-based identity and access management service.
 
-  - [Azure Key Vault][About Azure Key Vault] securely stores and controls access to secrets like API keys, passwords, certificates, and cryptographic keys. This cloud service also manages security certificates.
+  - [Key Vault][About Azure Key Vault] securely stores and controls access to secrets like API keys, passwords, certificates, and cryptographic keys. This cloud service also manages security certificates.
 
   - [Azure Pipelines][What is Azure Pipelines?] automatically builds and tests code projects. This [Azure DevOps][What is Azure DevOps?] service combines continuous integration (CI) and continuous delivery (CD). Using these practices, Azure Pipelines constantly and consistently tests and builds code and ships it to any target.
 
-  - [Azure Security Center][What is Azure Security Center?] provides unified security management and advanced threat protection across hybrid cloud workloads.
+  - [Security Center][What is Azure Security Center?] provides unified security management and advanced threat protection across hybrid cloud workloads.
 
 ### Customizations
 
@@ -112,30 +111,30 @@ Modify the reference architecture to fit your specific requirements by answering
 
 ### Alternatives
 
-With Azure Data Share, [many alternatives exist for data storage][Supported data stores in Azure Data Share]. Your choice of service depends on your sharing method and your volume and type of data:
+With Data Share, [many alternatives exist for data storage][Supported data stores in Azure Data Share]. Your choice of service depends on your sharing method and your volume and type of data:
 
 - For snapshot sharing of batch data, use any of these services:
 
   - Azure Synapse Analytics
-  - Azure SQL Database
-  - Azure Data Lake Gen2
+  - SQL Database
+  - Data Lake Storage Gen2
   - Azure Blob Storage
 
-  For more information, see [Modern data warehouse architecture][Modern data warehouse architecture].
+  For information on combining different types of data, see [Modern data warehouse architecture][Modern data warehouse architecture].
 
-- For in-place sharing of streaming telemetry and log data, use Azure Data Explorer. For more information, see [Azure Data Explorer interactive analytics][Azure Data Explorer interactive analytics].
+- For in-place sharing of streaming telemetry and log data, use Azure Data Explorer. For more information on analyzing data from various sources, see [Azure Data Explorer interactive analytics][Azure Data Explorer interactive analytics].
 
-- Some datasets are very large or non-relational. Some don't contain data in standardized formats. For these types of datasets, consider using Blob or Data Lake Storage when receiving data from and sending data to Data Share. These solutions work better than Synapse Analytics or Azure SQL Database in this case. For more information, see [Medical data storage solutions][Medical data storage solutions].
+- Some datasets are large or non-relational. Some don't contain data in standardized formats. For these types of datasets, consider using Blob Storage or Azure Data Lake Storage when receiving data from and sending data to Data Share. These solutions work better than Azure Synapse Analytics or SQL Database in this case. For more information on storing medical data efficiently, see [Medical data storage solutions][Medical data storage solutions].
 
-If Data Share isn't a viable option, you can use a site-to-site virtual private network (VPN) to transfer data between member and consortium data stores.
+If Data Share isn't an option, consider a virtual private network (VPN) instead. You can use a site-to-site VPN to transfer data between member and consortium data stores.
 
 ## Considerations
 
-The technologies in this architecture meet most company's requirements for security, scalability and availability. They also help control costs.
+The technologies in this architecture meet most companies' requirements for security, scalability, and availability. They also help control costs.
 
 ### Security considerations
 
-- [Security features in Azure Data Share][Security overview for Azure Data Share] protect data in these ways:
+- [Security features in Data Share][Security overview for Azure Data Share] protect data in these ways:
 
   - Encrypting data at rest, where the underlying data store supports at-rest encryption.
   - Encrypting data in transit by using Transport Layer Security (TLS) 1.2.
@@ -144,36 +143,36 @@ The technologies in this architecture meet most company's requirements for secur
 
 - [Azure Synapse Analytics offers a comprehensive security model][Securing your Data Warehouse with Azure Synapse Analytics]. You can use its fine-grained controls to secure your data at every level, from single cells to entire databases.
 
-- [Azure SQL Database][An overview of Azure SQL Database and SQL Managed Instance security capabilities] uses a layered approach to protect customer data. The strategy covers these areas:
+- [SQL Database uses a layered approach][An overview of Azure SQL Database and SQL Managed Instance security capabilities] to protect customer data. The strategy covers these areas:
 
-  - network security
-  - access management
-  - threat protection
-  - information protection
+  - Network security
+  - Access management
+  - Threat protection
+  - Information protection
 
-- [Azure Data Lake Gen2][Access control lists (ACLs) in Azure Data Lake Storage Gen2] provides access control. The model supports these types of controls:
+- [Data Lake Storage Gen2 provides access control][Access control lists (ACLs) in Azure Data Lake Storage Gen2]. The model supports these types of controls:
 
   - Azure role-based access control (Azure RBAC)
   - Portable Operating System Interface (POSIX) access control lists (ACLs)
 
 - [Azure Data Explorer protects data][Security in Azure Data Explorer] in these ways:
 
-  - Uses Azure AD-managed identities for Azure resources.
-  - Uses role-based access control (RBAC) to segregate duties and limit access.
-  - Blocks traffic that originates from non-Azure Data Explorer network segments.
-  - Safeguards data and helps you comply with committments by using Azure Disk Encryption. This service:
+  - Uses Azure AD–managed identities for Azure resources.
+  - Uses RBAC to segregate duties and limit access.
+  - Blocks traffic that originates from network segments outside Azure Data Explorer.
+  - Safeguards data and helps you meet commitments by using [Azure Disk Encryption][Azure Disk Encryption for virtual machines and virtual machine scale sets]. This service:
     - Provides volume encryption for virtual machine data disks and the OS.
-    - Integrates with Azure Key Vault, which encrypts secrets with Microsoft-managed keys or customer-managed keys.
+    - Integrates with Key Vault, which encrypts secrets with Microsoft-managed keys or customer-managed keys.
 
 ### Availability considerations
 
-This solution uses a single-region deployment. Some scenarios require a multi-region deployment for high-availability, disaster recovery, or proximity. In those cases, you can use a paired Azure region with the following configurations:
+This solution uses a single-region deployment. Some scenarios require a multi-region deployment for high availability, disaster recovery, or proximity. In those cases, you can use a paired Azure region with the following configurations:
 
-- [Azure Synapse Analytics provides high availability of the warehouse][High availability for Azure Synapse Analytics] by using database snapshots.
+- Azure Synapse Analytics: [This service provides high availability of the warehouse][High availability for Azure Synapse Analytics] by using database snapshots.
 
-- The [high availability architecture of Azure SQL Database][High availability for Azure SQL Database and SQL Managed Instance] provides a 99.99 percent uptime guarantee.
+- SQL Database: The [high-availability architecture of this database engine][High availability for Azure SQL Database and SQL Managed Instance] provides a 99.99 percent uptime guarantee.
 
-- [Azure Data Explorer offers high availability][High availability of Azure Data Explorer] through a persistence layer, a compute layer, and a leader-follower configuration.
+- Azure Data Explorer: [This service offers high availability][High availability of Azure Data Explorer] through a persistence layer, a compute layer, and a leader-follower configuration.
 
 ## Pricing
 
@@ -195,14 +194,17 @@ For more information, see [pricing details][Azure pricing calculator].
 
 ## Related resources
 
-- [Azure API for FHIR](https://azure.microsoft.com/en-us/services/azure-api-for-fhir/)
-- [Azure IoT Connector](https://docs.microsoft.com/en-us/azure/healthcare-apis/overview#iot-connector-preview)
-- [Microsoft DICOM](https://github.com/microsoft/dicom-server)
-- [Microsoft Genomics](https://azure.microsoft.com/en-us/services/genomics/)
+- [Azure API for FHIR][Azure API for FHIR]
+- [Azure IoT Connector][Azure IoT Connector]
+- [Microsoft DICOM][Microsoft DICOM]
+- [Microsoft Genomics][Microsoft Genomics]
 
 [About Azure Key Vault]: /azure/key-vault/general/overview
 [Access control lists (ACLs) in Azure Data Lake Storage Gen2]: /azure/storage/blobs/data-lake-storage-access-control
+[Azure API for FHIR]: https://azure.microsoft.com/services/azure-api-for-fhir/
 [Azure Data Explorer interactive analytics]: /azure/architecture/solution-ideas/articles/interactive-azure-data-explorer
+[Azure Disk Encryption for virtual machines and virtual machine scale sets]: /azure/security/fundamentals/azure-disk-encryption-vms-vmss
+[Azure IoT Connector]: /azure/healthcare-apis/fhir/overview#azure-iot-connector-for-fhir-preview
 [Azure pricing calculator]: https://azure.microsoft.com/en-us/pricing/calculator/
 [Clinical insights with Microsoft Cloud for Healthcare]: /azure/architecture/example-scenario/mch-health/medical-data-insights
 [Confidential computing on a healthcare platform]: /azure/architecture/example-scenario/confidential/healthcare-inference
@@ -211,10 +213,12 @@ For more information, see [pricing details][Azure pricing calculator].
 [High availability for Azure Synapse Analytics]: /azure/cloud-adoption-framework/migrate/azure-best-practices/analytics/azure-synapse
 [Introduction to Azure Data Lake Storage Gen2]: /azure/storage/blobs/data-lake-storage-introduction
 [Medical data storage solutions]: /azure/architecture/solution-ideas/articles/medical-data-storage
+[Microsoft DICOM]: https://github.com/microsoft/dicom-server
+[Microsoft Genomics]: https://azure.microsoft.com/en-us/services/genomics/
 [Modern data warehouse architecture]: /azure/architecture/solution-ideas/articles/modern-data-warehouse
 [An overview of Azure SQL Database and SQL Managed Instance security capabilities]: /azure/azure-sql/database/security-overview
 [Security in Azure Data Explorer]: /azure/data-explorer/security
-[Securing your Data Warehouse with Azure Synapse Analytics]: /resources/videos/securing-your-data-warehouse-with-azure-synapse-analytics/
+[Securing your Data Warehouse with Azure Synapse Analytics]: https://azure.microsoft.com/resources/videos/securing-your-data-warehouse-with-azure-synapse-analytics/
 [Security overview for Azure Data Share]: /azure/data-share/security
 [Supported data stores in Azure Data Share]: /azure/data-share/supported-data-stores
 [What is Azure Active Directory?]: /azure/active-directory/fundamentals/active-directory-whatis
@@ -228,4 +232,3 @@ For more information, see [pricing details][Azure pricing calculator].
 [What is Azure SQL Database?]: /azure/azure-sql/database/sql-database-paas-overview
 [What is Azure Synapse Analytics?]: /azure/synapse-analytics/overview-what-is
 [What is Microsoft Cloud for Healthcare?]: /industry/healthcare/overview
-
