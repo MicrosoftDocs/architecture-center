@@ -1,9 +1,9 @@
 
 
 
-As workplaces and other group spaces reopen after the COVID-19 shutdown, people need to follow health and safety guidelines for safe social distancing, mask and PPE use, and occupancy limits. **Bosch COVID-19 Safe Solution** combines existing closed-circuit TV (CCTV) infrastructure with the [Azure intelligent edge](https://azure.microsoft.com/overview/future-of-cloud/) and other Azure and Microsoft services to help organizations monitor, comply with, and improve these health and safety practices.
+As workplaces and other group spaces reopen after the COVID-19 shutdown, people need to follow health and safety guidelines for safe social distancing, mask and PPE use, and occupancy limits. **Bosch COVID-19 Safe Solution** combines existing closed-circuit TV (CCTV) infrastructure with the [Azure intelligent edge](https://azure.microsoft.com/overview/future-of-cloud/) and other Azure and Microsoft services to help organizations monitor, follow, and improve these health and safety practices.
 
-This article showcases a COVID-19 Safe Solution which is being implemented in workplace facilities across Europe, North America and Latin America across industries as diverse as steel manufacturing, building construction and automotive assembly. Goals were to:
+This article showcases a COVID-19 Safe Solution that is being implemented in workplace facilities across Europe, North America, and Latin America. The solution applies across industries as diverse as steel manufacturing, building construction, and automotive assembly. The goals of the solution are to:
 
 - Ensure a safe work environment when resuming manufacturing after the COVID-19 lockdown.
 - Monitor and enforce compliance with face mask policy, social distancing, and occupancy limits on factory premises.
@@ -14,24 +14,25 @@ This article showcases a COVID-19 Safe Solution which is being implemented in wo
 ## Potential use cases
 
 - Spaces with existing CCTV infrastructure.
-- Stores, restaurants, offices, factories and warehouses, public transportation, hospitals, schools, and entertainment and recreation spaces.
+- Public areas including stores, restaurants, public transportation, hospitals, schools, and entertainment and recreation spaces.
+- Work areas including offices, factories, and warehouses.
 - Organizations with multiple locations, to enable widespread, systemic data analysis and actions.
 
-## Architecture
+## Architecture for COVID-19 Safe Solution
 
-![Bosch COVID-19 Safe Solution architecture](../media/bosch-cctv-mask-detection.png)
+![Architecture diagram: Bosch COVID-19 Safe Solution for monitoring and alerting with Azure IoT Edge.](../media/bosch-cctv-iot-edge-covid-19-safe-environment-mask-detection.png)
 
 *Download a [Visio file][visio-download] of this architecture.*
 
-1. CCTVs send video data to Internet of Things (IoT) Edge servers. Edge computing handles device registration, provisioning, and data ingestion.
+1. CCTVs send video data to Internet of Things (IoT) edge servers. Edge computing handles device registration, provisioning, and data ingestion.
 2. The Bosch Algorithm Engineering and Model Training Environment uses custom vision analytics to continually retrain machine learning (ML) models, and directly updates edge servers.
 3. Edge servers send data to onboard and cloud stream analytics and blob storage. IoT Edge intelligent devices limit costs by preprocessing and sending only necessary data to the cloud.
 4. Stream analytics perform data enrichment and validation on both edge and cloud data.
 5. Service bus device-to-cloud and cloud-to-device messaging send data and telemetry to and from the cloud.
 6. An interactive visual dashboard app provides near real-time compliance monitoring and alerts.
 7. The Azure cloud provides application logs, monitoring, security, application gateway, and API management for the app.
-6. Redis, mongoDB, and blob storage store cloud data for Power BI analytics and visualizations via a custom connector.
-8. The app sends notifications and alerts to stakeholders via Microsoft Teams.
+8. Redis, mongoDB, and blob storage store cloud data for Power BI analytics and visualizations via a custom connector.
+9. The app sends notifications and alerts to stakeholders via Microsoft Teams.
 
 ## Components
 
@@ -47,13 +48,21 @@ This article showcases a COVID-19 Safe Solution which is being implemented in wo
 - [Microsoft Power BI](https://powerbi.microsoft.com) visualizations enable well-informed and data-driven reporting and decision making.
 
 ## Next steps
-For more information:
+
+For more information about this solution:
+
 - Contact [iotcovidsupport@microsoft.com](mailto:iotcovidsupport@microsoft.com )
 - See [https://www.bosch-india-software.com](https://www.bosch-india-software.com/en/)
 
-## Related resources
+Product documentation:
+
 - [What is Azure Digital Twins?](/azure/digital-twins/overview)
 - [Azure Stream Analytics on IoT Edge](/azure/stream-analytics/stream-analytics-edge)
 - [Store data at the edge with Azure Blob Storage on IoT Edge](/azure/iot-edge/how-to-store-data-blob)
+
+Microsoft Learn paths:
+
+- [Build the intelligent edge with Azure IoT Edge](/learn/paths/build-intelligent-edge-with-azure-iot-edge/)
+- [Implement a data streaming solution with Azure Streaming Analytics](/learn/paths/implement-data-streaming-with-asa/)
 
 [visio-download]: https://github.com/MicrosoftDocs/architecture-center-pr/blob/live/docs/solution-ideas/articles/cctv-mask-detection-content-visio.vsdx

@@ -1871,8 +1871,8 @@
                 "solution-idea"
             ],
             "type": "solution-idea",
-            "file_url": "solution-ideas/articles/cctv-mask-detection.md",
-            "http_url": "/azure/architecture/solution-ideas/articles/cctv-mask-detection",
+            "file_url": "solution-ideas/articles/cctv-iot-edge-for-covid-19-safe-environment-and-mask-detection.md",
+            "http_url": "/azure/architecture/solution-ideas/articles/cctv-iot-edge-for-covid-19-safe-environment-and-mask-detection",
             "word_count": 706,
             "read_time": "3 min read",
             "Title": "COVID-19 Safe Solutions with IoT Edge",
@@ -1881,8 +1881,8 @@
                 "iot",
                 "ai-machine-learning"
             ],
-            "image": "/azure/architecture/solution-ideas/media/bosch-cctv-mask-detection.png",
-            "imagepath": "C:\\jvPnpRepos\\architecture-center-pr\\docs\\solution-ideas\\media\\bosch-cctv-mask-detection.png",
+            "image": "/azure/architecture/solution-ideas/media/bosch-cctv-iot-edge-covid-19-safe-environment-mask-detection.png",
+            "imagepath": "C:\\jvPnpRepos\\architecture-center-pr\\docs\\solution-ideas\\media\\bosch-cctv-iot-edge-covid-19-safe-environment-mask-detection.png",
             "publish_date": "6/06/2020",
             "components": [
                 "<p><a href=\"https://azure.microsoft.com/services/iot-edge/\">Azure IoT Edge</a> servers with onboard storage, computing, artificial intelligence (AI), and machine learning (ML) capabilities can quickly recognize and respond to sensor input.</p>",
@@ -1896,7 +1896,7 @@
                 "<p>Integration with Microsoft <a href=\"https://support.office.com/article/manage-notifications-in-teams-1cc31834-5fe5-412b-8edb-43fecc78413d\">Teams</a> allows automated notifications of relevant stakeholders like HR and Security.</p>",
                 "<p><a href=\"https://powerbi.microsoft.com\">Microsoft Power BI</a> visualizations enable well-informed and data-driven reporting and decision making.</p>"
             ],
-            "name": "cctv-mask-detection",
+            "name": "cctv-iot-edge-for-covid-19-safe-environment-and-mask-detection",
             "popularity": 0,
             "topic": "Internet of Things"
         },
@@ -2370,13 +2370,13 @@
             "word_count": 554,
             "read_time": "3 min read",
             "Title": "Contactless IoT interfaces with Azure intelligent edge",
-            "MetaDescription": "Combine intelligent and perceptive edge devices with the storage and computing power of the cloud to create touch-free interfaces.",
+            "MetaDescription": "Create solutions with touch-free interfaces & other intelligent & perceptive IoT devices backed by the storage, compute, AI, & ML capabilities of Azure cloud.",
             "category": [
                 "iot",
                 "ai-machine-learning"
             ],
-            "image": "/azure/architecture/solution-ideas/media/avanade-contactless.png",
-            "imagepath": "C:\\jvPnpRepos\\architecture-center-pr\\docs\\solution-ideas\\media\\avanade-contactless.png",
+            "image": "/azure/architecture/solution-ideas/media/avanade-contactless-interface-iot-edge.png",
+            "imagepath": "C:\\jvPnpRepos\\architecture-center-pr\\docs\\solution-ideas\\media\\avanade-contactless-interface-iot-edge.png",
             "publish_date": "6/06/2020",
             "components": [
                 "<p><a href=\"https://azure.microsoft.com/services/iot-edge/\">Azure IoT Edge</a> service deploys cloud workloads to run on IoT Edge devices via standard containers. Modules can run AI, other Azure and third-party services, or your own business logic. IoT Edge intelligent devices can respond quickly and offline, and limit costs by preprocessing and sending only necessary data to the cloud.</p>",
