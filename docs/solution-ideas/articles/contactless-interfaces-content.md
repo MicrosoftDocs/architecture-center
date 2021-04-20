@@ -14,7 +14,7 @@ IoT Edge devices can quickly recognize and respond to speech, image, gesture, or
 
 ## Architecture
 
-![Architecture diagram: Contactless interfaces for IoT Edge devices](../media/avanade-contactless-interface-iot-edge.png)
+![Architecture diagram: Contactless interfaces and other IoT edge devices used as part of an Azure intelligent cloud solution.](../media/avanade-contactless-interface-iot-edge.png)
 
 1. End points like microphones, cameras, and touchscreens collect data.
 2. Onboard voice processing units on the IoT Edge devices apply cognitive skillsets and updated machine learning models to local data.
