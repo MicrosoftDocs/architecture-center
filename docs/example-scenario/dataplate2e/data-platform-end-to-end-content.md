@@ -27,7 +27,7 @@ This approach can also be used to:
 
 ## Analytics Use Cases
 
-The analytics use cases covered by the architecture are illustrated by the different data sources on the left-hand side of the diagram: Azure Data Services, Relational Databases, Semi-Structured, Unstructured, and Streaming. Data flows through the solution as follows (from bottom-up):
+The analytics use cases covered by the architecture are illustrated by the different data sources on the left-hand side of the diagram. Data flows through the solution from the bottom up as follows:
 
 ### Azure Data Services, cloud native HTAP with Cosmos DB
 
@@ -47,7 +47,7 @@ The analytics use cases covered by the architecture are illustrated by the diffe
 
 1. Use [Azure Synapse pipelines](https://docs.microsoft.com/azure/data-factory/concepts-pipelines-activities) to pull data from a wide variety of databases, both on-premises and in the cloud. Pipelines can be triggered based on a pre-defined schedule, in response to an event, or can be explicitly called via REST APIs.
 
-1. As part of the Azure Synapse pipeline, use a [Copy Data activity](https://docs.microsoft.com/azure/data-factory/copy-activity-overview) to stage the data copied from the relational databases into the [Raw zone](https://techcommunity.microsoft.com/t5/data-architecture-blog/how-to-organize-your-data-lake/ba-p/1182562) of your [Azure Data Lake Store Gen 2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-introduction) data lake. You can save the data in delimited text format or compressed as Parquet files.
+1. From the Azure Synapse pipeline, use a [Copy Data activity](https://docs.microsoft.com/azure/data-factory/copy-activity-overview) to stage the data copied from the relational databases into the [Raw zone](https://techcommunity.microsoft.com/t5/data-architecture-blog/how-to-organize-your-data-lake/ba-p/1182562) of your [Azure Data Lake Store Gen 2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-introduction) data lake. You can save the data in delimited text format or compressed as Parquet files.
 
 1. Use either [Data Flows](https://docs.microsoft.com/azure/data-factory/concepts-data-flow-overview), [SQL Serverless queries](https://docs.microsoft.com/learn/modules/use-azure-synapse-serverless-sql-pools-for-transforming-data-lake/), or [Spark notebooks](https://docs.microsoft.com/learn/modules/transform-data-with-dataframes-apache-spark-pools-azure-synapse-analytics/) to validate, transform, and move the datasets into your Curated zone in your data lake.
 
@@ -69,9 +69,9 @@ The analytics use cases covered by the architecture are illustrated by the diffe
     - Connect to No-SQL databases such as Cosmos DB or Mongo DB. 
     - Call REST APIs provided by SaaS applications that will function as your data source for the pipeline.
 
-1. Still part of the Azure Synapse pipeline, use a [Copy Data activity](https://docs.microsoft.com/azure/data-factory/copy-activity-overview) to stage the data copied from the semi-structured data sources into the [Raw zone](https://techcommunity.microsoft.com/t5/data-architecture-blog/how-to-organize-your-data-lake/ba-p/1182562) of your [Azure Data Lake Store Gen 2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-introduction) data lake. You should save data preserving the original format as acquired from the data sources.
+1. From the Azure Synapse pipeline, use a [Copy Data activity](https://docs.microsoft.com/azure/data-factory/copy-activity-overview) to stage the data copied from the semi-structured data sources into the [Raw zone](https://techcommunity.microsoft.com/t5/data-architecture-blog/how-to-organize-your-data-lake/ba-p/1182562) of your [Azure Data Lake Store Gen 2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-introduction) data lake. You should save data preserving the original format as acquired from the data sources.
 
-1. Use either [Data Flows](https://docs.microsoft.com/azure/data-factory/concepts-data-flow-overview), [SQL Serverless queries](https://docs.microsoft.com/learn/modules/use-azure-synapse-serverless-sql-pools-for-transforming-data-lake/)   (for delimited, JSON, and Parquet file formats) or [Spark notebooks](https://docs.microsoft.com/learn/modules/transform-data-with-dataframes-apache-spark-pools-azure-synapse-analytics/) to validate, transform and move the your datasets into your Curated zone in your data lake.
+1. Use either [Data Flows](https://docs.microsoft.com/azure/data-factory/concepts-data-flow-overview), [SQL Serverless queries](https://docs.microsoft.com/learn/modules/use-azure-synapse-serverless-sql-pools-for-transforming-data-lake/) or [Spark notebooks](https://docs.microsoft.com/learn/modules/transform-data-with-dataframes-apache-spark-pools-azure-synapse-analytics/) to validate, transform and move the your datasets into your Curated zone in your data lake. SQL Serverless queries expose underlying [CSV](https://docs.microsoft.com/azure/synapse-analytics/sql/query-single-csv-file), [Parquet](https://docs.microsoft.com/azure/synapse-analytics/sql/query-parquet-files) or [JSON](https://docs.microsoft.com/azure/synapse-analytics/sql/query-json-files) files as external tables so they can be queried using T-SQL.
 
     1. As part of your data transformations, you can invoke machine learning models from your [SQL pools using standard T-SQL](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-predict) or Spark notebooks. These ML models can be used to enrich your datasets and generate further business insights. These machine learning models can be consumed from [Azure Cognitive Services](https://docs.microsoft.com/azure/synapse-analytics/machine-learning/tutorial-cognitive-services-sentiment) or [custom ML models from Azure ML](https://docs.microsoft.com/azure/synapse-analytics/machine-learning/tutorial-sql-pool-model-scoring-wizard).
 
@@ -90,7 +90,7 @@ The analytics use cases covered by the architecture are illustrated by the diffe
     - Ingest video, image, audio, or free text from file-based sources containing the source files. 
     - Call REST APIs provided by SaaS applications that will function as your data source for the pipeline.
 
-1. Still part of the Azure Synapse pipeline, use a [Copy Data activity](https://docs.microsoft.com/azure/data-factory/copy-activity-overview) to stage the data copied from the non-structured data sources into the [Raw zone](https://techcommunity.microsoft.com/t5/data-architecture-blog/how-to-organize-your-data-lake/ba-p/1182562) of your [Azure Data Lake Store Gen 2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-introduction) data lake. You should save data preserving the original format as acquired from the data sources.
+1. From the Azure Synapse pipeline, use a [Copy Data activity](https://docs.microsoft.com/azure/data-factory/copy-activity-overview) to stage the data copied from the non-structured data sources into the [Raw zone](https://techcommunity.microsoft.com/t5/data-architecture-blog/how-to-organize-your-data-lake/ba-p/1182562) of your [Azure Data Lake Store Gen 2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-introduction) data lake. You should save data preserving the original format as acquired from the data sources.
 
 1. Use [Spark notebooks](https://docs.microsoft.com/learn/modules/transform-data-with-dataframes-apache-spark-pools-azure-synapse-analytics/) to validate, transform, enrich and move the your datasets into your Curated zone in your data lake.
 
@@ -108,7 +108,7 @@ The analytics use cases covered by the architecture are illustrated by the diffe
 
 1. Use [Azure Event Hubs or Azure IoT Hubs](https://docs.microsoft.com/azure/iot-hub/iot-hub-compare-event-hubs) to ingest data streams generated by client applications or IoT devices. Event Hub or IoT Hub will then ingest and store streaming data preserving the sequence of events received. Consumers can then connect to Event Hub or IoT Hub endpoints and retrieve messages for processing.
 
-1. Configure [Event Hub Capture](https://docs.microsoft.com/azure/event-hubs/event-hubs-capture-overview) or [IoT Hub Storage Endpoints](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-d2c#azure-blob-storage) to save a copy of the events into the [Raw zone](https://techcommunity.microsoft.com/t5/data-architecture-blog/how-to-organize-your-data-lake/ba-p/1182562) of your [Azure Data Lake Store Gen 2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-introduction) data lake. This feature implements the "Cold Path" of the [Lambda architecture pattern](https://docs.microsoft.com/azure/architecture/data-guide/big-data/#lambda-architecture) and allows you to perform historical and trend analysis on the stream data saved in your data lake using [SQL Serverless queries](https://docs.microsoft.com/azure/synapse-analytics/sql/on-demand-workspace-overview) or [Spark notebooks](https://docs.microsoft.com/azure/synapse-analytics/spark/apache-spark-development-using-notebooks?tabs=classical)following the pattern for semi-structured data sources described above.
+1. Configure [Event Hub Capture](https://docs.microsoft.com/azure/event-hubs/event-hubs-capture-overview) or [IoT Hub Storage Endpoints](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-d2c#azure-blob-storage) to save a copy of the events into the [Raw zone](https://techcommunity.microsoft.com/t5/data-architecture-blog/how-to-organize-your-data-lake/ba-p/1182562) of your [Azure Data Lake Store Gen 2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-introduction) data lake. This feature implements the "Cold Path" of the [Lambda architecture pattern](https://docs.microsoft.com/azure/architecture/data-guide/big-data/#lambda-architecture) and allows you to perform historical and trend analysis on the stream data saved in your data lake using [SQL Serverless queries](https://docs.microsoft.com/azure/synapse-analytics/sql/on-demand-workspace-overview) or [Spark notebooks](https://docs.microsoft.com/azure/synapse-analytics/spark/apache-spark-development-using-notebooks?tabs=classical) following the pattern for semi-structured data sources described above.
 
 1. Use a [Stream Analytics job](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-introduction) to implement the "Hot Path" of the [Lambda architecture pattern](https://docs.microsoft.com/azure/architecture/data-guide/big-data/#lambda-architecture) and derive insights from the stream data in transit. Define at least one input for the data stream coming from your Event Hub or IoT Hub, one query to process the input data stream and one Power BI output to where the query results will be sent to.
 
@@ -134,7 +134,7 @@ Data governance is a common challenge in large enterprise environments. On one h
 
 ## Platform Services
 
-In order to improve the quality of your Azure solutions, you should follow the recommendations and guidelines defined in the [Azure Well-Architected Framework](https://docs.microsoft.com/azure/architecture/framework/) five pillars of architecture excellence: Cost Optimization, Operational Excellence, Performance Efficiency, Reliability, and Security.
+In order to improve the quality of your Azure solutions, follow the recommendations and guidelines defined in the [Azure Well-Architected Framework](https://docs.microsoft.com/azure/architecture/framework/) five pillars of architecture excellence: Cost Optimization, Operational Excellence, Performance Efficiency, Reliability, and Security.
 
 Following these recommendations, the services below should be considered as part of the design:
 
@@ -156,7 +156,9 @@ The following Azure services have been used in the architecture:
 - Azure Cognitive Services
 - Azure Machine Learning
 - Azure Event Hubs
-- Azure IoT Hub	Azure Stream Analytics	Azure Purview
+- Azure IoT Hub
+- Azure Stream Analytics
+- Azure Purview
 - Azure Data Share
 - Microsoft Power BI
 - Azure Active Directory
@@ -199,7 +201,7 @@ Similar architecture can also be implemented for pre-production environments whe
 
 ## Pricing
 
-The ideal individual pricing tier and the total overall cost of each service included in the architecture is dependent on the amount of data to be processed and stored and the acceptable performance level expected. Use the guide below to learn more about how each service is priced:
+In general, use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate costs. The ideal individual pricing tier and the total overall cost of each service included in the architecture is dependent on the amount of data to be processed and stored and the acceptable performance level expected. Use the guide below to learn more about how each service is priced:
 
 - [Azure Synapse Analytics](https://azure.microsoft.com/pricing/details/synapse-analytics/) serverless architecture allows you to scale your compute and storage levels independently. Compute resources are charged based on usage, and you can scale or pause these resources on demand. Storage resources are billed per terabyte, so your costs will increase as you ingest more data.
 
