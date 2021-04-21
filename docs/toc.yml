@@ -71,6 +71,8 @@ items:
             href: guide/technology-choices/messaging.md
       - name: Best practices for cloud applications
         items:
+          - name: Overview
+            href: best-practices/index-best-practices.md
           - name: API design
             href: best-practices/api-design.md
           - name: API implementation
@@ -573,6 +575,69 @@ items:
         href: patterns/throttling.md
       - name: Valet Key
         href: patterns/valet-key.md
+  - name: Industry solutions with Azure
+    expanded: true
+    items:
+      - name: Retail
+        items:
+          - name: Overview
+            href: industries/retail.md
+          - name: Build a Real-time Recommendation API on Azure
+            href: reference-architectures/ai/real-time-recommendation.yml
+          - name: Movie recommendations on Azure
+            href: example-scenario/ai/movie-recommendations.yml
+          - name: Scalable personalization on Azure
+            href: example-scenario/ai/scalable-personalization.yml
+          - name: Data warehousing and analytics
+            href: example-scenario/data/data-warehouse.yml
+          - name: Stream processing with Azure Databricks
+            href: reference-architectures/data/stream-processing-databricks.yml
+          - name: Stream processing with Azure Stream Analytics
+            href: reference-architectures/data/stream-processing-stream-analytics.yml
+          - name: E-commerce front end
+            href: example-scenario/apps/ecommerce-scenario.yml
+          - name: Intelligent product search engine for e-commerce
+            href: example-scenario/apps/ecommerce-search.yml
+          - name: Magento e-commerce platform in Azure Kubernetes Service
+            href: example-scenario/magento/magento-azure.yml
+          - name: Scalable order processing
+            href: example-scenario/data/ecommerce-order-processing.yml
+          - name: Retail - Buy online, pickup in store (BOPIS)
+            href: example-scenario/iot/vertical-buy-online-pickup-in-store.yml
+      - name: Finance
+        items:
+          - name: Overview
+            href: industries/finance.md
+          - name:  Decentralized trust between banks
+            href: example-scenario/apps/decentralized-trust.yml
+          - name: Replicate and sync mainframe data in Azure
+            href: reference-architectures/migration/sync-mainframe-data-with-azure.yml
+          - name: Modernize mainframe & midrange data
+            href: reference-architectures/migration/modernize-mainframe-data-to-azure.yml
+          - name: Refactor IBM z/OS mainframe Coupling Facility to Azure
+            href: reference-architectures/zos/refactor-zos-coupling-facility.yml
+          - name: Banking system cloud transformation on Azure
+            href: example-scenario/banking/banking-system-cloud-transformation.yml
+          - name: Patterns and implementations in banking cloud transformation
+            href: example-scenario/banking/patterns-and-implementations.yml
+          - name: JMeter implementation reference for load testing pipeline solution
+            href: example-scenario/banking/jmeter-load-testing-pipeline-implementation-reference.yml
+          - name: Real-time fraud detection
+            href: example-scenario/data/fraud-detection.yml
+      - name: Healthcare
+        items:
+          - name: Overview
+            href: industries/healthcare.md
+          - name: Virtual visits with Microsoft Cloud for Healthcare
+            href: example-scenario/mch-health/virtual-health-mch.yml 
+          - name: Clinical insights with Microsoft Cloud for Healthcare
+            href: example-scenario/mch-health/medical-data-insights.yml
+          - name: Consumer health portal on Azure
+            href: example-scenario/digital-health/health-portal.yml
+          - name: Building a telehealth system with Azure
+            href: example-scenario/apps/telehealth-system.yml
+          - name: Confidential computing for healthcare
+            href: example-scenario/confidential/healthcare-inference.yml
   - name: Azure categories
     expanded: true
     items:
@@ -604,8 +669,6 @@ items:
             items:
               - name: AI enrichment in Cognitive Search
                 href: solution-ideas/articles/cognitive-search-with-skillsets.yml
-              - name: AI for Earth
-                href: solution-ideas/articles/ai-for-earth.yml
               - name: Autonomous systems
                 href: solution-ideas/articles/autonomous-systems.yml
               - name: Baseball decision analysis with ML.NET and Blazor
@@ -618,7 +681,7 @@ items:
                 href: reference-architectures/ai/batch-scoring-R-models.yml
               - name: Batch scoring with Spark on Databricks
                 href: reference-architectures/ai/batch-scoring-databricks.yml
-              - name: Chatbot for hotel reservations
+              - name: Chatbot for hotel booking
                 href: example-scenario/ai/commerce-chatbot.yml
               - name: Deploy AI and ML at the edge
                 href: hybrid/deploy-ai-ml-azure-stack-edge.yml
@@ -1458,7 +1521,7 @@ items:
               - name: Contactless IoT interfaces
                 href: solution-ideas/articles/contactless-interfaces.yml
               - name: COVID-19 IoT Safe Solutions
-                href: solution-ideas/articles/cctv-mask-detection.yml
+                href: solution-ideas/articles/cctv-iot-edge-for-covid-19-safe-environment-and-mask-detection.yml
               - name: IoT Connected Platform
                 href: solution-ideas/articles/iot-connected-platform.yml
               - name: IoT Edge data storage and processing
