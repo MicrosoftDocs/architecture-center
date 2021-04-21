@@ -1,6 +1,6 @@
 ### YamlMime:Architecture
 metadata:
-  title: Knowledge mining in content research
+  title: Knowledge mining for content research
   titleSuffix: Azure Solution Ideas
   description: Knowledge mining with a search index makes it easy for customers and employees to locate what they are looking for faster.
   author: doodlemania2
@@ -16,7 +16,7 @@ metadata:
     - ai-machine-learning
     - aml-project-improvement
   social_image_url: /azure/architecture/solution-ideas/articles/media/knowledge-mining-content-research.png
-name: Knowledge mining in content research
+name: Knowledge mining for content research
 azureCategories:
   - ai-machine-learning
 summary: Knowledge mining with a search index makes it easy for customers and employees to locate what they are looking for faster.

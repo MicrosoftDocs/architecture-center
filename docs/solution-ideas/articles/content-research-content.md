@@ -9,9 +9,9 @@ When organizations task employees to review and research of technical data, it c
 
 ## Data flow in knowledge mining
 
-![Architecture diagram: knowledge mining in content research, with three steps: ingest, enrich, and explore.](../media/knowledge-mining-content-research.png)
+There are three steps in knowledge mining: ingest, enrich, and explore.
 
-There are three steps: Ingest, Enrich and Exploration. First, the unstructured and structured data is ingested then enrichment of this data with AI to extract information and find and finally explore the newly structured data via search, existing business applications or analytics solutions.
+![Architecture diagram: knowledge mining in content research, with three steps: ingest, enrich, and explore.](../media/knowledge-mining-content-research.png)
 
 - **Ingest**
 
@@ -19,11 +19,11 @@ There are three steps: Ingest, Enrich and Exploration. First, the unstructured a
 
 - **Enrich**
 
-  The enrich step uses AI capabilities to extract information, find patterns, and deepen understanding. This content is enriched by using optical character recognition, key phrase extraction, entity recognition, language translation, customized models to extract industry-specific terms such as product names or engineering standards, customized models to flag potential risks or other essential information, customized models for HIPAA compliance.
+  The enrich step uses AI capabilities to extract information, find patterns, and deepen understanding. Enrich your content using optical character recognition, key phrase extraction, entity recognition, and language translation. Use custom models to extract industry-specific terms such as product names or engineering standards, to flag potential risks or other essential information, or for HIPAA compliance.
 
 - **Explore**
 
-  The explore step enables the data to be explored via search, bots, existing business applications, and data visualizations. For example, you can integrate the search index in to a searchable directory or a existing business application.
+  The explore step enables the data to be explored via search, bots, applications, and data visualizations. For example, you can integrate the search index into a searchable directory or an existing business application.
 
 ## Components
 
