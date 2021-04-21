@@ -56,7 +56,7 @@ The monitoring and diagnostics process has several distinct phases:
 - Analysis and diagnosis. To troubleshoot issues and see the overall health.
 - Visualization and alerts. Using telemetry data to spot trends or alert the operations team.
 
-Enforcing resource-level rules via [Azure Policy](https://docs.microsoft.com/en-us/azure/governance/policy/overview) helps ensure adoption of operational excellence best practices at scale across an organization. For example, Azure Policy can help ensure that only specific VM SKUs can be deployed across your organization. Azure Advisor provides [a set of Azure Policy recommendations](https://docs.microsoft.com/en-us/azure/advisor/advisor-operational-excellence-recommendations#use-azure-policy-recommendations) to help you quickly identify opportunities to implement Azure Policy best practices.
+Enforcing resource-level rules via [Azure Policy](https://docs.microsoft.com/en-us/azure/governance/policy/overview) helps ensure adoption of operational excellence best practices for all the assets which support your workload. For example, Azure Policy can help ensure that all of the VMs supporting your workload adhere to a pre-approved list of VM Skus. Azure Advisor provides [a set of Azure Policy recommendations](https://docs.microsoft.com/en-us/azure/advisor/advisor-operational-excellence-recommendations#use-azure-policy-recommendations) to help you quickly identify opportunities to implement Azure Policy best practices for your workload.
 
 Use the [DevOps checklist][devops-checklist] to review your design from a management and DevOps standpoint.
 
@@ -152,7 +152,7 @@ Use Key Vault to safeguard cryptographic keys and secrets. By using Key Vault, y
 
 ### Security resources
 
-- [Azure Security Center][security-center] provides integrated security monitoring and policy management across your Azure subscriptions.
+- [Azure Security Center][security-center] provides integrated security monitoring and policy management for your workload.
 - [Azure Security Documentation][security-documentation]
 - [Microsoft Trust Center][trust-center]
 
