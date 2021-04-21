@@ -13,7 +13,7 @@ This approach can also be used to:
 
 - Establish an enterprise-wide data hub, consisting of a data warehouse for structured data and a data lake for semi-structured and unstructured data. This data hub becomes the single source of truth for your reporting data.
 - Integrate relational data sources with other unstructured datasets, with the use of big data processing technologies.
-- Use semantic modelling and powerful visualization tools for simpler data analysis.
+- Use semantic modeling and powerful visualization tools for simpler data analysis.
 - Share datasets within the organization or with trusted external partners.
 
 ## Architecture
