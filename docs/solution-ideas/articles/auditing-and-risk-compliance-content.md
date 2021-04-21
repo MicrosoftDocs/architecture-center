@@ -3,9 +3,9 @@
 
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-In the ever-changing world of regulations, organizations face the challenge of staying on top of audits and compliance. Mistakes in contracts and record-keeping can have serious financial ramifications. At the enterprise level, teams of lawyers might not be enough to catch everything. Knowledge mining can provide helpful assistance for organizations looking to stay above board.
+In the ever-changing world of regulations, organizations face the challenge of staying on top of audits and compliance. Mistakes in contracts and record-keeping can have serious financial ramifications. At the enterprise level, teams of lawyers might not be enough to catch everything. Knowledge mining can provide helpful assistance for organizations looking to stay compliant.
 
-For most organizations, the legal department faces the challenge of reviewing thousands of pages of documentation. Developers could use knowledge mining to help attorneys quickly identify entities of importance from discovery documents and flag important ideas across documents
+For most organizations, the legal department faces the challenge of reviewing thousands of pages of documentation. Knowledge mining can help attorneys quickly find information from discovery documents and flag important ideas across documents.
 
 ## Data flow for knowledge mining
 
@@ -17,11 +17,11 @@ There are three steps:
 
 - **Ingest**
 
-  The ingest step aggregates content from a range of sources, including structured and unstructured data. For auditing, risk, and compliance management, you can ingest different types of content like affidavits, meeting minutes, operating agreements, non-disclosure agreements, privacy policies, terms of use, memorandums of understanding, licensing agreements, letters of intent, power of attorney, deeds, discovery documentation, company bylaws, operating agreements, bank statements, legal agreements, balance sheets, income statements, cash flow statements, company disclosures, SEC documents, annual reports, and transcripts from shareholder meetings.
+  The ingest step aggregates content from a range of sources, including structured and unstructured data. For auditing, risk, and compliance management, you can ingest different types of content like the following but not limited to affidavits, meeting minutes, operating agreements, agreements, privacy policies, terms of use, memorandums of understanding, licensing agreements, letters of intent, power of attorney, deeds, discovery documentation, company bylaws, operating agreements, bank statements, legal agreements, balance sheets, income statements, cash flow statements, company disclosures, SEC documents, annual reports, and transcripts from shareholder meetings.
 
 - **Enrich**
 
-  The enrich step uses AI capabilities to extract information, find patterns, and deepen understanding. This content is enriched by using key phrase extraction, language detection, language translation, and entity extraction (organizations and people). Use  custom models to identify certain regulatory obligations and custom models to identify specific legal terms and clauses.
+  The enrich step uses AI capabilities to extract information, find patterns, and deepen understanding. You can enrich content using key phrase extraction, language detection, language translation, and entity extraction (organizations and people). Use custom models to identify certain regulatory obligations and custom models to identify specific legal terms and clauses.
 
 - **Explore**
 
