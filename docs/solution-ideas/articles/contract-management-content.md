@@ -5,15 +5,13 @@
 
 This architecture demonstrates how to use [knowledge mining](https://azure.microsoft.com/solutions/knowledge-mining/) in contract management.
 
-Many companies create products for multiple sectors, hence the business opportunities with different vendors and buyers increases exponentially. Knowledge mining can help organizations to scour thousands of pages of sources to create an accurate bid. Minor details in the bidding process can make the difference between a healthy profit or lost opportunity on a project.
+Many companies create products for multiple sectors, as such the business opportunities with different vendors and buyers increases exponentially. Knowledge mining can help organizations to scour thousands of pages of sources to create a competitive bid. Minor details in the bidding process can make the difference between a healthy profit or lost opportunity on a project.
 
-![Architecture Diagram: knowledge mining in contract management, with three steps: ingest, enrich, and explore.](../media/contract-management.png)
+![Architecture Diagram: knowledge mining in contract management, with three steps: ingest, enrich, and explore.](../media/knowledge-mining-contract-management.png)
 
 ## Data flow in knowledge mining
 
 There are three steps in knowledge mining: ingest, enrich, and explore.
-
-First, the unstructured and structured data is ingested then enrichment of this data with AI to extract information and find and finally explore the newly structured data via search, existing business applications or analytics solutions.
 
 - **Ingest**
 
