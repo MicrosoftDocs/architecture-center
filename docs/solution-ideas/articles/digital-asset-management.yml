@@ -1,6 +1,6 @@
 ### YamlMime:Architecture
 metadata:
-  title: Digital Asset Management
+  title: Knowledge mining in digital asset management
   titleSuffix: Azure Solution Ideas
   description: Use digital asset management to mine knowledge and find information. Ingest unstructured and structured data, enrich it with AI, and explore it via searches.
   author: doodlemania2
@@ -14,8 +14,9 @@ metadata:
   ms.custom:
     - acom-architecture
     - ai-machine-learning
+    - aml-project-improvement
   social_image_url: /azure/architecture/solution-ideas/articles/media/digital-asset-management.png
-name: Digital Asset Management
+name: Knowledge mining in digital asset management
 azureCategories:
   - ai-machine-learning
 summary: Use digital asset management to mine knowledge and find information. Ingest unstructured and structured data, enrich it with AI, and explore it via searches.
