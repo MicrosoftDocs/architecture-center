@@ -7,9 +7,9 @@ This architecture demonstrates how to use [knowledge mining](https://azure.micro
 
 When organizations task employees with the review and research of technical data, it can be tedious to read page after page of dense text. Knowledge mining helps employees quickly review these materials. Knowledge mining can help avoid costly mistakes in industries where bidding competition is fierce. Or, in scenarios when the diagnosis of a problem must be quick or in near real time.
 
-![Architecture Diagram: knowledge mining in business process management, with three steps: ingest, enrich, and explore.](../media/knowledge-mining-business-process-management.png)
-
 ## Data flow in knowledge mining
+
+![Architecture Diagram: knowledge mining in business process management, with three steps: ingest, enrich, and explore.](../media/knowledge-mining-business-process-management.png)
 
 There are three steps in knowledge mining: ingest, enrich, and explore.
 
