@@ -575,8 +575,8 @@
             "category": [
                 "ai-machine-learning"
             ],
-            "image": "/azure/architecture/solution-ideas/media/auditing-and-risk-compliance.png",
-            "imagepath": "C:\\jvPnpRepos\\architecture-center-pr\\docs\\solution-ideas\\media\\auditing-and-risk-compliance.png",
+            "image": "/azure/architecture/solution-ideas/media/knowledge-mining-auditing-and-risk-compliance.png",
+            "imagepath": "C:\\jvPnpRepos\\architecture-center-pr\\docs\\solution-ideas\\media\\knowledge-mining-auditing-and-risk-compliance.png",
             "publish_date": "12/16/2019",
             "Flow": {
                 "FlowStep_A": "This content is enriched by using key phrase extraction, language detection, language translation,entity extraction (organizations and people) and custom models to identify certain regulatory obligations and custom models to identify specific legal terms and clauses",
