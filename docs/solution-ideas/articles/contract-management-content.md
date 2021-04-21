@@ -15,7 +15,7 @@ There are three steps in knowledge mining: ingest, enrich, and explore.
 
 - **Ingest**
 
-  The ingest step aggregates content from a range of sources, including structured and unstructured data. You can ingest different types of content like user guides, forms, product manuals, product pricing proposals, cost sheets, and project reports.
+  The ingest step aggregates content from a range of sources, including structured and unstructured data. For contract management, you can ingest different types of content like user guides, forms, product manuals, product pricing proposals, cost sheets, and project reports.
 
 - **Enrich**
 
