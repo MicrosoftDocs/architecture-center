@@ -17,7 +17,7 @@
             <li>12/16/2019</li>
             <li>2 min read</li>
         </ul>
-        <p class="card-content-description">Developers could use knowledge mining to help attorneys quickly identify entities of importance from discovery documents and flag important ideas across documents</p>
+        <p class="card-content-description">Learn how to use knowledge mining to help attorneys quickly identify find information from discovery documents and flag important ideas across documents.</p>
         <div class="bottom-to-top-fade is-hidden-mobile"></div>
     </div>
 </article>
