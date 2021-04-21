@@ -5,7 +5,7 @@
 
 This architecture demonstrates how to use [knowledge mining](https://azure.microsoft.com/solutions/knowledge-mining/) in digital asset management.
 
-Given the amount of unstructured data created daily, many companies are struggling to make use of or find information within their files. One of the key functions of a digital asset management system is to allow assets to be easily retrieved. Knowledge mining can do help by providing a search index that enables users to quickly locate what they are looking for.
+Given the amount of unstructured data created daily, many companies struggle to make use of or find information within their files. One of the key functions of a digital asset management system is to allow assets to be easily retrieved. Knowledge mining can help do this by providing a search index that enables users to quickly locate what they are looking for.
 
 ## Data flow for knowledge mining
 
