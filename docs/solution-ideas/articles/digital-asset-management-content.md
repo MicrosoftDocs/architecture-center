@@ -5,7 +5,7 @@
 
 This architecture demonstrates how to use [knowledge mining](https://azure.microsoft.com/solutions/knowledge-mining/) in digital asset management.
 
-Given the amount of unstructured data created daily, many companies struggle to make use of or find information within their files. One of the key functions of a digital asset management system is to allow assets to be easily retrieved. Knowledge mining can help do this by providing a search index that enables users to quickly locate what they are looking for.
+Given the amount of unstructured data created daily, many companies struggle to make use of or find information within their files. One of the key functions of a digital asset management system is to allow assets to be easily retrieved. Knowledge mining can help with retrieval by providing a search index that enables users to quickly locate what they are looking for.
 
 ## Data flow for knowledge mining
 
@@ -23,7 +23,7 @@ There are three steps in knowledge mining: ingest, enrich, and explore.
 
 - **Explore**
 
-  The explore step is exploring the data via search, existing business applications or analytics solutions. For example, you can integrate the search index into a web site.
+  The explore step is exploring the data via search, existing business applications, or analytics solutions. For example, you can integrate the search index into a web site.
 
 ## Components
 
