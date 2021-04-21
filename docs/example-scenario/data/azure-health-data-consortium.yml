@@ -12,11 +12,12 @@ metadata:
   ms.custom:
     - fcp
 azureCategories:
+  - databases
   - hybrid
   - integration
 products:
   - azure-data-factory
-  - azure-data-lake-gen2
+  - azure-data-lake-storage
   - azure-data-share
   - azure-databricks
   - azure-sql-database
