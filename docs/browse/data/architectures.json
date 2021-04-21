@@ -2370,13 +2370,13 @@
             "word_count": 554,
             "read_time": "3 min read",
             "Title": "Contactless IoT interfaces with Azure intelligent edge",
-            "MetaDescription": "Combine intelligent and perceptive edge devices with the storage and computing power of the cloud to create touch-free interfaces.",
+            "MetaDescription": "Create solutions with touch-free interfaces & other intelligent & perceptive IoT devices backed by the storage, compute, AI, & ML capabilities of Azure cloud.",
             "category": [
                 "iot",
                 "ai-machine-learning"
             ],
-            "image": "/azure/architecture/solution-ideas/media/avanade-contactless.png",
-            "imagepath": "C:\\jvPnpRepos\\architecture-center-pr\\docs\\solution-ideas\\media\\avanade-contactless.png",
+            "image": "/azure/architecture/solution-ideas/media/avanade-contactless-interface-iot-edge.png",
+            "imagepath": "C:\\jvPnpRepos\\architecture-center-pr\\docs\\solution-ideas\\media\\avanade-contactless-interface-iot-edge.png",
             "publish_date": "6/06/2020",
             "components": [
                 "<p><a href=\"https://azure.microsoft.com/services/iot-edge/\">Azure IoT Edge</a> service deploys cloud workloads to run on IoT Edge devices via standard containers. Modules can run AI, other Azure and third-party services, or your own business logic. IoT Edge intelligent devices can respond quickly and offline, and limit costs by preprocessing and sending only necessary data to the cloud.</p>",
