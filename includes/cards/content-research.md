@@ -17,7 +17,7 @@
             <li>12/16/2019</li>
             <li>2 min read</li>
         </ul>
-        <p class="card-content-description">Knowledge mining with a search index makes it easy for customers and employees to locate what they are looking for faster.</p>
+        <p class="card-content-description">Knowledge mining with a search index makes it easy for customers and employees to locate what they're looking for faster.</p>
         <div class="bottom-to-top-fade is-hidden-mobile"></div>
     </div>
 </article>
