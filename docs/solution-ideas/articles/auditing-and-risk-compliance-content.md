@@ -25,7 +25,7 @@ There are three steps:
 
 - **Explore**
 
-  The explore step enables the data to be explored via search, bots, existing business applications, and data visualizations. For example, you can integrate the search index into an internal application or web application for financial risks.
+  The explore step is exploring the data via search, bots, existing business applications, and data visualizations. For example, you can integrate the search index into an internal application or web application for financial risks.
 
 ## Components
 
