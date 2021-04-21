@@ -3,7 +3,7 @@
 
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-In the ever-changing world of regulations, organizations face the challenge of staying on top of audits and compliance. Mistakes in contracts and record-keeping can have serious financial ramifications. At the enterprise level, teams of lawyers might not be enough to catch everything. Knowledge mining can provide helpful assistance for organizations looking to stay compliant.
+In the ever-changing world of regulations, organizations face the challenge of staying on top of audits and compliance. Mistakes in contracts and record-keeping can have serious financial ramifications. At the enterprise level, teams of lawyers might not be enough to catch everything. [Knowledge mining](https://azure.microsoft.com/solutions/knowledge-mining/) can provide helpful assistance for organizations looking to stay compliant.
 
 For most organizations, the legal department faces the challenge of reviewing thousands of pages of documentation. Knowledge mining can help attorneys quickly find information from discovery documents and flag important ideas across documents.
 
