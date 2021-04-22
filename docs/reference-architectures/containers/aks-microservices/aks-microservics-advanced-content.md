@@ -10,7 +10,7 @@ This reference architecture and the companion reference implementaton [AKS Fabri
 
 ## Architecture
 
-This architectural diagram details the microservice based application including distributed tracing, messaging, and storage. <nepeters - wierd sentence> An important distinction from the AKS Baseline implementation is that this architecture uses the [Azure Application Gateway Ingress Controller (AGIC)](/azure/application-gateway/ingress-controller-overview) for ingress control.
+This architectural diagram details the microservice based application including distributed tracing, messaging, and storage. <nepeters - wierd / dangling sentence> An important distinction from the AKS Baseline implementation is that this architecture uses the [Azure Application Gateway Ingress Controller (AGIC)](/azure/application-gateway/ingress-controller-overview) for ingress control.
 
 ![Network diagram showing the hub-spoke network with two peered virtual networks, and the Azure resources this implementation uses.](images/aks-production-deployment.png)
 
