@@ -39,6 +39,8 @@ When planning for resilience of an IAM solution, consider the following elements
 - Other services that rely on your IAM, and APIs that connect the services.
 - Any other on-premises components in your system.
 
+Developers can help manage IAM resilience in the applications they develop. Work with your developers to ensure they're using [Azure AD Managed Identities](/azure/active-directory/managed-identities-azure-resources/overview) for their applications wherever possible. For more information, see [Increase resilience of authentication and authorization applications you develop](/azure/active-directory/fundamentals/resilience-app-development-overview).
+
 ## Architecture
 
 ![Diagram showing an overview of administering IAM resilience.](media/admin-resilience-overview.png)
@@ -62,8 +64,6 @@ When the token presented to the application expires, the application rejects the
 - Use long-lived revocable tokens.
 - [Build resilience by using Continuous Access Evaluation (CAE)](/azure/active-directory/fundamentals/resilience-with-continuous-access-evaluation).
 
-Developers can help control how often applications request tokens. Work with your developers to ensure they're using [Azure AD Managed Identities](/azure/active-directory/managed-identities-azure-resources/overview) for their applications wherever possible.
-
 For more information on managing token lifetimes, see [Optimize reauthentication prompts and understand session lifetime for Azure AD Multi-Factor Authentication](/azure/active-directory/authentication/concepts-azure-multi-factor-authentication-prompts-session-lifetime).
 
 ### Hybrid and on-premises resilience
@@ -78,5 +78,4 @@ For more information on managing token lifetimes, see [Optimize reauthentication
 - [Hybrid identity](/azure/architecture/solution-ideas/articles/hybrid-identity)
 - [Manage identity in multitenant applications](/azure/architecture/multitenant-identity)
 - [Build resilience in your IAM infrastructure](/azure/active-directory/fundamentals/resilience-in-infrastructure)
-- [Increase resilience of authentication and authorization applications you develop](/azure/active-directory/fundamentals/resilience-app-development-overview)
 - [Build resilience in your customer facing applications (CIAM) systems with Azure Active Directory B2C](/azure/active-directory/fundamentals/resilience-b2c)
