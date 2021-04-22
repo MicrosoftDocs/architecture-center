@@ -1,0 +1,23 @@
+### YamlMime:Architecture
+metadata:
+  title: State Configuration
+  description: State Configuration
+  author: neilpeterson
+  ms.author: pnp
+  ms.date: 4/22/2020
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: example-scenario
+  ms.category:
+    - devops
+  ms.custom:
+    - example-scenario
+name: State Configuration
+azureCategories:
+  - devops
+summary: State Configuration
+products:
+  - azure-automation
+thumbnailUrl: /azure/architecture/browse/thumbs/default.png
+content: |
+   [!include[](state-content.md)]
