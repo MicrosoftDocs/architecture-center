@@ -795,6 +795,8 @@ items:
             items:
               - name: Automated enterprise BI
                 href: reference-architectures/data/enterprise-bi-adf.yml
+              - name: Azure analytics end to end
+                href: example-scenario/dataplate2e/data-platform-end-to-end.yml
               - name: Data warehousing and analytics
                 href: example-scenario/data/data-warehouse.yml
               - name: Demand forecasting for shipping
@@ -1035,8 +1037,6 @@ items:
                 href: best-practices/cassandra.md
           - name: Architectures
             items:
-              - name: Azure data platform
-                href: example-scenario/dataplate2e/data-platform-end-to-end.yml
               - name: DataOps for modern data warehouse
                 href: example-scenario/data-warehouse/dataops-mdw.yml
               - name: Hybrid ETL with Azure Data Factory
