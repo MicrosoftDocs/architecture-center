@@ -21,6 +21,7 @@ products:
   - azure-event-hubs
   - azure-iot-hub
   - azure-traffic-manager
+  - azure-iot-dps
 thumbnailUrl: /azure/architecture/browse/thumbs/scale-iot-deployment-stamps.svg
 content: |
    [!include[](application-stamps-content.md)]
