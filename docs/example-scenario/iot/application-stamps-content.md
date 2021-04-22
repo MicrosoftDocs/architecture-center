@@ -41,7 +41,7 @@ While deployment stamps are intended for atomic deployment, sometimes it's desir
 
 ## Move applications between stamps
 
-If the deployment stamps include web front ends or API applications that speak to IoT Hub, those components will also need to migrate to new IoT Hubs to continue communicating with the devices that moved.
+If the deployment stamps include web front ends or API applications that communicate with IoT Hub, those components will also need to migrate to new IoT Hubs to continue communicating with the devices that moved.
 
 There are a couple of strategies for moving devices and application end-users from one application stamp to another. These strategies may not cover all cases, but elements of them cover most cases.
 
@@ -51,10 +51,11 @@ Where stamps encompass an end-to-end application, [Azure Traffic Manager](/azur
 
 ![A diagram explaining how to move a set of devices from one stamp to another stamp.](media/moving-devices-using-dps.svg) 
 
+The diagram above shows the process of moving a set of devices from Stamp 1 to Stamp 2:
 1. Devices acquire IoT Hub endpoint through DPS if it is either unknown or no longer valid.
 2. When devices are moved to Stamp 2, Traffic Manager is set to point the application URL to the Application 2 instance.
 3. Device Provisioning Service is used to move a whole set of devices from one stamp to another.
-4. The application stamp contains the application front end and refers to the corresponding Hub for that stamp.
+4. Each application stamp contains the application front end and refers to the corresponding Hub for that stamp.
 
 This fully self-contained strategy is:
 - Simple to implement
