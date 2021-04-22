@@ -51,6 +51,11 @@ Where stamps encompass an end-to-end application, [Azure Traffic Manager](/azur
 
 ![A diagram explaining how to move a set of devices from one stamp to another stamp.](media/moving-devices-using-dps.svg) 
 
+1. Devices acquire IoT Hub endpoint through DPS if it is either unknown or no longer valid.
+2. When devices are moved to Stamp 2, Traffic Manager is set to point the application URL to the Application 2 instance.
+3. Device Provisioning Service is used to move a whole set of devices from one stamp to another.
+4. The application stamp contains the application front end and refers to the corresponding Hub for that stamp.
+
 This fully self-contained strategy is:
 - Simple to implement
 - Appropriate when using stamps as part of a high-availability strategy
