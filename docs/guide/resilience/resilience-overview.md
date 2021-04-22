@@ -33,7 +33,7 @@ When planning for resilience of an IAM solution, consider the following elements
 
 ## Architecture
 
-![Diagram showing an overview of administering IAM resilience.](media/resilience-in-infrastructure/admin-resilience-overview.png)
+![Diagram showing an overview of administering IAM resilience.](media/admin-resilience-overview.png)
 
 The previous diagram shows several ways to increase IAM resilience. The linked articles explain the methods in detail.
 
