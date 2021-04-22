@@ -74,6 +74,9 @@ For more information on managing token lifetimes, see [Optimize reauthentication
 
 ## Next steps
 
+- [Integrate on-premises AD domains with Azure AD](/azure/architecture/reference-architectures/identity/azure-ad)
+- [Hybrid identity](/azure/architecture/solution-ideas/articles/hybrid-identity)
+- [Manage identity in multitenant applications](/azure/architecture/multitenant-identity)
 - [Build resilience in your IAM infrastructure](/azure/active-directory/fundamentals/resilience-in-infrastructure)
-- [Build IAM resilience in your applications](/azure/active-directory/fundamentals/resilience-app-development-overview)
-- [Build resilience in your customer facing applications (CIAM) systems](/azure/active-directory/fundamentals/resilience-b2c)
+- [Increase resilience of authentication and authorization applications you develop](/azure/active-directory/fundamentals/resilience-app-development-overview)
+- [Build resilience in your customer facing applications (CIAM) systems with Azure Active Directory B2C](/azure/active-directory/fundamentals/resilience-b2c)
