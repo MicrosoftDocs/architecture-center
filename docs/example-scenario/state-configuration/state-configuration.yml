@@ -20,4 +20,4 @@ products:
   - azure-automation
 thumbnailUrl: /azure/architecture/browse/thumbs/default.png
 content: |
-   [!include[](state-content.md)]
+   [!include[](state-configuration-content.md)]
