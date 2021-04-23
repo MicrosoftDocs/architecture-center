@@ -1039,6 +1039,8 @@ items:
                 href: best-practices/cassandra.md
           - name: Architectures
             items:
+              - name: Azure health data consortium
+                href: example-scenario/data/azure-health-data-consortium.yml
               - name: DataOps for modern data warehouse
                 href: example-scenario/data-warehouse/dataops-mdw.yml
               - name: Hybrid ETL with Azure Data Factory
