@@ -17,7 +17,7 @@
             <li>12/16/2019</li>
             <li>2 min read</li>
         </ul>
-        <p class="card-content-description">Knowledge mining can help organizations to scour thousands of pages of sources to create an accurate bid.</p>
+        <p class="card-content-description">Knowledge mining can help organizations scour thousands of pages of sources to create competitive bids.</p>
         <div class="bottom-to-top-fade is-hidden-mobile"></div>
     </div>
 </article>
