@@ -11,7 +11,7 @@ Typical uses for this architecture include:
 
 - Organize, govern, and inventory large groups of virtual machines (VMs) and servers across multiple environments.
 - Enforce organization standards and assess compliance at scale for all your resources anywhere with Azure Policy.
-- Easily deploy extensions to Azure VMs and Arc enabled servers.
+- Easily deploy supported VM extensions to Arc enabled servers.
 - Configure and enforce Azure Policy for VMs and servers hosted across multiple environments.
 
 ## Architecture
@@ -19,7 +19,6 @@ Typical uses for this architecture include:
 The architecture consists of the following components:
 
 - **[Azure Arc][Azure Arc]**. Azure Arc enables you to connect Azure to your Windows and Linux machines hosted outside of Azure on your corporate network. When a server is connected to Azure, it becomes an Arc enabled server and is treated as a resource in Azure. Each Arc enabled server has a Resource ID, a managed system identity, and is managed as part of a resource group inside a subscription. Arc enabled servers benefit from standard Azure constructs such as inventory, policy, tags, and Azure Lighthouse.
-- **[Azure VMs][Azure virtual machines]**. Azure VMs include Windows or Linux VMs hosted in Azure.
 - **[Azure Policy Guest Configuration][Azure Policy Guest Configuration]**. Azure Policy Guest Configuration can audit operating systems and machine configuration both for machines running in Azure and Arc enabled servers running on-premises or in other clouds.
 - **[Azure Monitor][Azure Monitor]**. Azure Monitor enables you to track performance and events for systems running in Azure, on-premises, or in other clouds.
 
@@ -43,7 +42,7 @@ For more information, refer to [Overview of Azure Arc enabled servers agent][age
 
 You can perform automated agent installation by running a template script that you download from the Azure portal. This script automates the download and installation of both agents.
 
-This method requires that you have administrator permissions on the machine to install and configure the agent. You can use the root account on Linux, or on Windows, you can join the local administrators group.
+This method requires that you have administrator permissions on the machine to install and configure the agent. You can use the root account on Linux, or on Windows, you can use an account that is a member of the local administrators group.
 
 #### Connect machines at scale using a service principal
 
@@ -55,14 +54,13 @@ You can automate agent installation and configuration for a Windows computer by 
 
 ### Manage VM extensions
 
-Azure Arc enabled servers enables you to deploy Azure VM extensions to non-Azure Windows and Linux VMs, providing a consistent extension management experience between Azure and non-Azure VMs. VM extensions allow you to:
+Azure Arc enabled servers enables you to deploy a supported subset of Azure VM extensions to non-Azure Windows and Linux VMs, providing a consistent extension management experience between Azure and non-Azure VMs. VM extensions allow you to:
 
-- Use [Azure Automation State Configuration][Azure Automation State Configuration] to centrally store configurations and maintain the desired state of Arc enabled servers through the DSC VM extension.
 - Collect log data for analysis with Azure Monitor Logs enabled through the Log Analytics agent VM extension.
 - Analyze the performance of your Windows and Linux VMs using Azure Monitor and monitor their processes and dependencies on other resources and external processes.
 - Download and execute scripts on Arc enabled servers using the Custom Script extension.
 
-For more information, refer to [Virtual machine extension management with Azure Arc enabled servers][manage-vm-extensions].
+For more information, refer to [VM extension management with Azure Arc enabled servers][manage-vm-extensions].
 
 ### Implement Azure Policy Guest Configuration
 
@@ -102,18 +100,18 @@ The Connected Machine agent for Linux and Windows communicates outbound securely
 ## Availability considerations
 
 - In most cases, the location you select when you create the installation script should be the Azure region geographically closest to your machine's location. The rest of the data will be stored within the Azure geography containing the region you specify, which might also affect your choice of region if you have data residency requirements. If an outage affects the Azure region to which your machine is connected, the outage will not affect the Arc enabled server, but management operations using Azure might not be able to complete. For resilience in the event of a regional outage, if you have multiple locations which provide a geographically-redundant service, it's best to connect the machines in each location to a different Azure region.
-- Ensure that Azure Arc is supported in your regions by checking [supported regions][supported regions].
-- Ensure that services referenced in the Architecture section are supported in the region to which Azure Arc is deployed.
+- Ensure that Azure Arc enabled servers is supported in your regions by checking [supported regions][supported regions].
+- Ensure that services referenced in the Architecture section are supported in the region to which Azure Arc enabled servers is deployed.
   
 ## Manageability considerations
 
-- Consult the list of supported [operated systems][supported operating systems] on the Azure Arc agent overview page.
+- Consult the list of supported [operated systems][supported operating systems] on the Azure Arc enabled servers agent overview page.
 - Before configuring your machines with Azure Arc enabled servers, you should review the Azure Resource Manager [subscription limits][subscription-limits] and [resource group limits][rg-limits] to plan for the number of machines to be connected.
 
 ## Security considerations
 
 - Appropriate Azure role-based access control (Azure RBAC) access should be managed for Arc enabled servers. To onboard machines, you must be a member of the **Azure Connected Machine Onboarding** role. To read, modify, re-onboard, and delete a machine, you must be a member of the **Azure Connected Machine Resource Administrator** role.  
-- You can use Azure Policy to manage security policies across your Azure VMs and Arc enabled servers including implementing security policies in Azure Security Center. A security policy defines the desired configuration of your workloads and helps ensure you're complying with the security requirements of your company or regulators. Security Center policies are based on policy initiatives created in Azure Policy.
+- You can use Azure Policy to manage security policies across your Arc enabled servers, including implementing security policies in Azure Security Center. A security policy defines the desired configuration of your workloads and helps ensure you're complying with the security requirements of your company or regulators. Security Center policies are based on policy initiatives created in Azure Policy.
 
 ## Cost considerations
 
