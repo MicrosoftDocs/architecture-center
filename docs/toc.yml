@@ -1093,6 +1093,8 @@ items:
                 href: solution-ideas/articles/loan-credit-risk-with-sql-server.yml
               - name: Messaging
                 href: solution-ideas/articles/messaging.yml
+              - name: Mining equipment monitoring
+                href: solution-ideas/articles/monitor-mining-equipment.yml
               - name: Modern data warehouse
                 href: solution-ideas/articles/modern-data-warehouse.yml
               - name: Ops automation using Event Grid
@@ -1532,6 +1534,8 @@ items:
                 href: solution-ideas/articles/iot-power-management.yml
               - name: Lighting and disinfection system
                 href: solution-ideas/articles/uven-disinfection.yml
+              - name: Mining equipment monitoring
+                href: solution-ideas/articles/monitor-mining-equipment.yml
               - name: Predictive maintenance for industrial IoT
                 href: solution-ideas/articles/iot-predictive-maintenance.yml
               - name: Process real-time vehicle data using IoT
