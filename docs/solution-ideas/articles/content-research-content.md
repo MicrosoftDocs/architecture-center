@@ -23,7 +23,7 @@ There are three steps in knowledge mining: ingest, enrich, and explore.
 
 - **Explore**
 
-  The explore step enables the data to be explored via search, bots, applications, and data visualizations. For example, you can integrate the search index Azure Cognitive Search into a searchable directory or an existing business application.
+  The explore step is exploring data via search, bots, applications, and data visualizations. For example, you can integrate the search index Azure Cognitive Search into a searchable directory or an existing business application.
 
 ## Components
 
