@@ -1,6 +1,6 @@
 ### YamlMime:Architecture
 metadata:
-  title: Customer feedback and analytics
+  title: Customer support and feedback analysis
   titleSuffix: Azure Solution Ideas
   description: Knowledge mining can help customer support teams quickly find the right answers for customer questions or assess customer sentiment at scale.
   author: doodlemania2
@@ -16,7 +16,7 @@ metadata:
     - ai-machine-learning
     - aml-project-improvement
   social_image_url: /azure/architecture/solution-ideas/articles/media/knowledge-mining-customer-feedback-and-analytics.png
-name: Knowledge mining for customer feedback and analytics
+name: Knowledge mining for customer support and feedback analysis
 azureCategories:
   - ai-machine-learning
 summary: Knowledge mining can help customer support teams quickly find the right answers for customer questions or assess customer sentiment at scale.

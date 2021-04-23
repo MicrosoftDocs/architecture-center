@@ -15,7 +15,7 @@ There are three steps in knowledge mining: ingest, enrich, and explore.
 
 - **Ingest**
 
-  The ingest step aggregates content from a range of sources, including structured and unstructured data. For customer feedback and analytics, you can ingest different types of content like customer support tickets, chat logs, call transcriptions, customer emails, customer payment history, product reviews, social media feeds, online comments, feedback forms, and surveys.
+  The ingest step aggregates content from a range of sources, including structured and unstructured data. For customer feedback and analytics solutions, you can ingest different types of content like customer support tickets, chat logs, call transcriptions, customer emails, customer payment history, product reviews, social media feeds, online comments, feedback forms, and surveys.
 
 - **Enrich**
 
