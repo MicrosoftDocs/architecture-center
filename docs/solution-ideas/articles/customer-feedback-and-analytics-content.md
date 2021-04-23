@@ -3,9 +3,9 @@
 
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-For many companies, customer support is costly and inefficient. [Knowledge mining](https://azure.microsoft.com/solutions/knowledge-mining/) can help customer support teams quickly find the right answer for a customer inquiry or assess customer sentiment at scale.
+For many companies, customer support is costly and doesn't always operate efficiently. [Knowledge mining](https://azure.microsoft.com/solutions/knowledge-mining/) can help customer support teams quickly find the right answer for a customer inquiry or assess customer sentiment at scale.
 
-Every company is looking to enhance the customer experience. Knowledge mining can aggregate and analyze data to discover trends about what customers are saying and use that information to improve products and services
+Every company is looking to enhance the customer experience. Knowledge mining can aggregate and analyze data to discover trends about what customers are saying and use that information to improve products and services.
 
 ## Data flow for knowledge mining
 
