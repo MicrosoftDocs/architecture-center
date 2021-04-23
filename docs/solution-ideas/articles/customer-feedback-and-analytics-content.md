@@ -11,7 +11,7 @@ Every company is looking to enhance the customer experience. Knowledge mining ca
 
 There are three steps in knowledge mining: ingest, enrich, and explore.
 
-![Architecture Diagram](../media/customer-feedback-and-analytics.png)
+![Architecture diagram: knowledge mining for customer feedback and analytics with 3 steps: ingest, enrich, explore.](../media/knowledge-mining-customer-feedback-and-analytics.png)
 
 - **Ingest**
 
