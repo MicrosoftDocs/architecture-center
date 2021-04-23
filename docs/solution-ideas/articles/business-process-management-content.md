@@ -27,7 +27,7 @@ There are three steps in knowledge mining: ingest, enrich, and explore.
 
 - **Explore**
 
-  The explore step enables the data to be explored via search, bots, existing business applications, and data visualizations.
+  The explore step is exploring the data via search, bots, existing business applications, and data visualizations.
 
   Explore the content by automatically populating data from invoices into ELP systems or databases or compile enriched documents in the knowledge store and project them into tabular or object stores. Projected stores can be used to surface trends in an analytics dashboard, such as frequent issues, popular products, and much more.
 
