@@ -37,7 +37,7 @@ Data is loaded from these different data sources using several Azure components:
 - [Power BI](https://docs.microsoft.com/power-bi/) is a suite of business analytics tools to analyze data and provide insights. Power BI can query a semantic model stored in Analysis Services, or it can query Azure Synapse directly.
 - [Power Apps](https://docs.microsoft.com/powerapps/powerapps-overview) is a suite of apps, services, and connectors for building custom business apps. It includes an underlying data platform ([Microsoft Dataverse](https://docs.microsoft.com/powerapps/maker/data-platform/data-platform-intro)) and a rapid development environment.
 
-## Related resources
+## Next steps
 
 - [Create, monitor, and manage FTP files by using Azure Logic Apps](https://docs.microsoft.com/azure/connectors/connectors-create-api-ftp)
 - [Copy data from FTP server by using Azure Data Factory](https://docs.microsoft.com/azure/data-factory/connector-ftp)
@@ -53,3 +53,13 @@ Information about the Delta Lake open-source project for building a Lakehouse ar
 - [Delta Lake Key Features](https://delta.io/)
 - [What is Delta Lake](https://docs.microsoft.com/azure/synapse-analytics/spark/apache-spark-what-is-delta-lake)
 - [Delta Lake and Delta Engine guide](https://docs.microsoft.com/azure/databricks/delta/)
+
+## Related resources
+
+See the following related architectural guidance:
+
+- [IoT solutions conceptual overview](/azure/architecture/example-scenario/data/big-data-with-iot)
+- [Vision with Azure IoT Edge](/azure/architecture/guide/iot-edge-vision)
+- [Azure Industrial IoT Analytics Guidance](/azure/architecture/guide/iiot-guidance/iiot-architecture)
+- [Azure IoT reference architecture](/azure/architecture/reference-architectures/iot)
+- [IoT and data analytics](/azure/architecture/example-scenario/data/big-data-with-iot)
