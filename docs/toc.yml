@@ -717,7 +717,7 @@ items:
                 href: solution-ideas/articles/ai-at-the-edge.yml
               - name: Auditing and risk management
                 href: solution-ideas/articles/auditing-and-risk-compliance.yml
-              - name: Business Process Management
+              - name: Business process management
                 href: solution-ideas/articles/business-process-management.yml
               - name: Content Research
                 href: solution-ideas/articles/content-research.yml
@@ -795,6 +795,8 @@ items:
             items:
               - name: Automated enterprise BI
                 href: reference-architectures/data/enterprise-bi-adf.yml
+              - name: Azure analytics end to end
+                href: example-scenario/dataplate2e/data-platform-end-to-end.yml
               - name: Data warehousing and analytics
                 href: example-scenario/data/data-warehouse.yml
               - name: Demand forecasting for shipping
@@ -859,6 +861,8 @@ items:
                 href: solution-ideas/articles/blockchain-workflow-application.yml
               - name: Decentralized trust between banks
                 href: example-scenario/apps/decentralized-trust.yml
+              - name: Multi-cloud blockchain DLT
+                href: example-scenario/blockchain/multi-cloud-blockchain.yml
               - name: Supply chain track and trace
                 href: solution-ideas/articles/supply-chain-track-and-trace.yml
       - name: Compute
@@ -1035,8 +1039,8 @@ items:
                 href: best-practices/cassandra.md
           - name: Architectures
             items:
-              - name: Azure data platform
-                href: example-scenario/dataplate2e/data-platform-end-to-end.yml
+              - name: Azure health data consortium
+                href: example-scenario/data/azure-health-data-consortium.yml
               - name: DataOps for modern data warehouse
                 href: example-scenario/data-warehouse/dataops-mdw.yml
               - name: Hybrid ETL with Azure Data Factory
@@ -1093,6 +1097,8 @@ items:
                 href: solution-ideas/articles/loan-credit-risk-with-sql-server.yml
               - name: Messaging
                 href: solution-ideas/articles/messaging.yml
+              - name: Mining equipment monitoring
+                href: solution-ideas/articles/monitor-mining-equipment.yml
               - name: Modern data warehouse
                 href: solution-ideas/articles/modern-data-warehouse.yml
               - name: Ops automation using Event Grid
@@ -1532,6 +1538,8 @@ items:
                 href: solution-ideas/articles/iot-power-management.yml
               - name: Lighting and disinfection system
                 href: solution-ideas/articles/uven-disinfection.yml
+              - name: Mining equipment monitoring
+                href: solution-ideas/articles/monitor-mining-equipment.yml
               - name: Predictive maintenance for industrial IoT
                 href: solution-ideas/articles/iot-predictive-maintenance.yml
               - name: Process real-time vehicle data using IoT
