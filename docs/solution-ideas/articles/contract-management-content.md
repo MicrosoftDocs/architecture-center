@@ -23,7 +23,7 @@ There are three steps in knowledge mining: ingest, enrich, and explore.
 
 - **Explore**
 
-  The explore is exploring data via search, bots, existing business applications, and data visualizations. For example, you can integrate the search index into a portal to expand the knowledge base as users share more information.
+  The explore step is exploring data via search, bots, existing business applications, and data visualizations. For example, you can integrate the search index into a portal to expand the knowledge base as users share more information.
 
 ## Components
 
