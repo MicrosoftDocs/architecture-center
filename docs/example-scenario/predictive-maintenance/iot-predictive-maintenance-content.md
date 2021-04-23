@@ -93,7 +93,7 @@ Building and deploying the solution also uses:
 **Solution learning resources**
 
 - [Docker Compatibility Matrix](https://success.docker.com/article/compatibility-matrix)
-- [Jenkins Azure IoT Edge plugin](https://plugins.jenkins.io/azure-iot-edge/)
+- [Jenkins Azure IoT Edge plugin](https://www.jenkins.io/doc/pipeline/steps/azure-iot-edge/)
 - [Event Sourcing](https://martinfowler.com/eaaDev/EventSourcing.html)
 - [React to Blob storage events](/azure/storage/blobs/storage-blob-event-overview)
 - [Azure Blob storage bindings for Azure Functions](/azure/azure-functions/functions-bindings-storage-blob)

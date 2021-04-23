@@ -1302,8 +1302,8 @@
                 "devops",
                 "ai-machine-learning"
             ],
-            "image": "/azure/architecture/example-scenario/apps/media/deployment-flow.png",
-            "imagepath": "C:\\jvPnpRepos\\architecture-center-pr\\docs\\example-scenario\\apps\\media\\deployment-flow.png",
+            "image": "/azure/architecture/example-scenario/apps/media/ci-cd-pipeline-deployment-arm-templates.png",
+            "imagepath": "C:\\jvPnpRepos\\architecture-center-pr\\docs\\example-scenario\\apps\\media\\ci-cd-pipeline-deployment-arm-templates.png",
             "publish_date": "3/25/2020",
             "sample_code": true,
             "github_url": "https://github.com/mspnp/solution-architectures/tree/master/cicdbots",
@@ -1871,8 +1871,8 @@
                 "solution-idea"
             ],
             "type": "solution-idea",
-            "file_url": "solution-ideas/articles/cctv-mask-detection.md",
-            "http_url": "/azure/architecture/solution-ideas/articles/cctv-mask-detection",
+            "file_url": "solution-ideas/articles/cctv-iot-edge-for-covid-19-safe-environment-and-mask-detection.md",
+            "http_url": "/azure/architecture/solution-ideas/articles/cctv-iot-edge-for-covid-19-safe-environment-and-mask-detection",
             "word_count": 706,
             "read_time": "3 min read",
             "Title": "COVID-19 Safe Solutions with IoT Edge",
@@ -1881,8 +1881,8 @@
                 "iot",
                 "ai-machine-learning"
             ],
-            "image": "/azure/architecture/solution-ideas/media/bosch-cctv-mask-detection.png",
-            "imagepath": "C:\\jvPnpRepos\\architecture-center-pr\\docs\\solution-ideas\\media\\bosch-cctv-mask-detection.png",
+            "image": "/azure/architecture/solution-ideas/media/bosch-cctv-iot-edge-covid-19-safe-environment-mask-detection.png",
+            "imagepath": "C:\\jvPnpRepos\\architecture-center-pr\\docs\\solution-ideas\\media\\bosch-cctv-iot-edge-covid-19-safe-environment-mask-detection.png",
             "publish_date": "6/06/2020",
             "components": [
                 "<p><a href=\"https://azure.microsoft.com/services/iot-edge/\">Azure IoT Edge</a> servers with onboard storage, computing, artificial intelligence (AI), and machine learning (ML) capabilities can quickly recognize and respond to sensor input.</p>",
@@ -1896,7 +1896,7 @@
                 "<p>Integration with Microsoft <a href=\"https://support.office.com/article/manage-notifications-in-teams-1cc31834-5fe5-412b-8edb-43fecc78413d\">Teams</a> allows automated notifications of relevant stakeholders like HR and Security.</p>",
                 "<p><a href=\"https://powerbi.microsoft.com\">Microsoft Power BI</a> visualizations enable well-informed and data-driven reporting and decision making.</p>"
             ],
-            "name": "cctv-mask-detection",
+            "name": "cctv-iot-edge-for-covid-19-safe-environment-and-mask-detection",
             "popularity": 0,
             "topic": "Internet of Things"
         },
@@ -2149,15 +2149,15 @@
             "word_count": 167,
             "read_time": "1 min read",
             "Title": "Commerce Chatbot",
-            "MetaDescription": "Together, the Azure Bot Service and Language Understanding service enable developers to create conversational interfaces for various scenarios like banking, travel, and entertainment. For example, a hotel's concierge can use a bot to enhance traditional e-mail and phone call interactions by validating a customer via Azure Active Directory and using Cognitive Services to better contextually process customer requests using text and voice. The Speech recognition service can be added to support voice commands.",
+            "MetaDescription": "The Azure Bot Service with Language Understanding enables developers to create conversational interfaces for banking, travel, and entertainment commerce scenarios. For example, a hotel concierge can use a bot to enhance traditional e-mail and phone call interactions. The bot validates a customer via Azure Active Directory and uses Azure Cognitive Services to contextually process customer service requests using text and voice. Add the Speech recognition service to support voice commands.",
             "category": [
                 "ai-machine-learning",
                 "web"
             ],
-            "image": "/azure/architecture/solution-ideas/media/commerce-chatbot.svg",
-            "imagepath": "C:\\jvPnpRepos\\architecture-center-pr\\docs\\solution-ideas\\media\\commerce-chatbot.svg",
+            "image": "/azure/architecture/solution-ideas/media/commerce-chatbot-customer-service.svg",
+            "imagepath": "C:\\jvPnpRepos\\architecture-center-pr\\docs\\solution-ideas\\media\\commerce-chatbot-customer-service.svg",
             "publish_date": "12/16/2019",
-            "Summary": "<p>Together, the Azure Bot Service and Language Understanding service enable developers to create conversational interfaces for various scenarios like banking, travel, and entertainment. For example, a hotel's concierge can use a bot to enhance traditional e-mail and phone call interactions by validating a customer via Azure Active Directory and using Cognitive Services to better contextually process customer requests using text and voice. The Speech recognition service can be added to support voice commands.</p>",
+            "Summary": "<p>The Azure Bot Service with Language Understanding enables developers to create conversational interfaces for banking, travel, and entertainment commerce scenarios. For example, a hotel concierge can use a bot to enhance traditional e-mail and phone call interactions. The bot validates a customer via Azure Active Directory and uses Azure Cognitive Services to contextually process customer service requests using text and voice. Add the Speech recognition service to support voice commands.</p>",
             "Flow": {
                 "FlowStep_A": "Customer uses your mobile app",
                 "FlowStep_B": "Using Azure AD B2C, the user authenticates",
@@ -2370,13 +2370,13 @@
             "word_count": 554,
             "read_time": "3 min read",
             "Title": "Contactless IoT interfaces with Azure intelligent edge",
-            "MetaDescription": "Combine intelligent and perceptive edge devices with the storage and computing power of the cloud to create touch-free interfaces.",
+            "MetaDescription": "Create solutions with touch-free interfaces & other intelligent & perceptive IoT devices backed by the storage, compute, AI, & ML capabilities of Azure cloud.",
             "category": [
                 "iot",
                 "ai-machine-learning"
             ],
-            "image": "/azure/architecture/solution-ideas/media/avanade-contactless.png",
-            "imagepath": "C:\\jvPnpRepos\\architecture-center-pr\\docs\\solution-ideas\\media\\avanade-contactless.png",
+            "image": "/azure/architecture/solution-ideas/media/avanade-contactless-interface-iot-edge.png",
+            "imagepath": "C:\\jvPnpRepos\\architecture-center-pr\\docs\\solution-ideas\\media\\avanade-contactless-interface-iot-edge.png",
             "publish_date": "6/06/2020",
             "components": [
                 "<p><a href=\"https://azure.microsoft.com/services/iot-edge/\">Azure IoT Edge</a> service deploys cloud workloads to run on IoT Edge devices via standard containers. Modules can run AI, other Azure and third-party services, or your own business logic. IoT Edge intelligent devices can respond quickly and offline, and limit costs by preprocessing and sending only necessary data to the cloud.</p>",
@@ -4356,8 +4356,8 @@
                 "ai-machine-learning",
                 "management-and-governance"
             ],
-            "image": "/azure/architecture/solution-ideas/media/chatbot-dr.png",
-            "imagepath": "C:\\jvPnpRepos\\architecture-center-pr\\docs\\solution-ideas\\media\\chatbot-dr.png",
+            "image": "/azure/architecture/solution-ideas/media/chatbot-with-failover-two-regions.png",
+            "imagepath": "C:\\jvPnpRepos\\architecture-center-pr\\docs\\solution-ideas\\media\\chatbot-with-failover-two-regions.png",
             "publish_date": "6/22/2020",
             "Summary": "<p>To set up disaster recovery for an enterprise-grade <em>conversational bot (chatbot)</em>, first review the service level agreement (SLA) that cover the <em>Recovery Point Objective (RPO)</em> and <em>Recovery Time Objective (RTO)</em> for the chatbot. Implement the disaster recovery patterns in this article to build highly available and disaster resistant chatbot solutions to meet the SLA.</p>\n<p>For a description of the core components of a typical enterprise-grade chatbot solution in Azure, see <a >Enterprise-grade conversational bot</a>.</p>",
             "sample_code": true,
@@ -4677,7 +4677,7 @@
             "word_count": 148,
             "read_time": "1 min read",
             "Title": "FAQ Chatbot with data champion model",
-            "MetaDescription": "The QnA Maker tool makes it super easy for the content owners to maintain their knowledge base of QnAs. Combined with Bot Service and LUIS, it's easy to setup an FAQ chatbot which responds from differnet knowledge bases depending on the intent of the query.",
+            "MetaDescription": "The QnA Maker tool makes it super easy for the content owners to maintain their knowledge base of QnAs. Combined with Bot Service and LUIS, it's easy to setup an FAQ chatbot which responds from different knowledge bases depending on the intent of the query.",
             "category": [
                 "ai-machine-learning"
             ],
@@ -6325,13 +6325,13 @@
             "http_url": "/azure/architecture/solution-ideas/articles/interactive-voice-response-bot",
             "word_count": 485,
             "read_time": "3 min read",
-            "Title": "Interactive Voice Response Bot",
+            "Title": "Interactive voice response app with bot",
             "MetaDescription": "This solution creates an intelligent interactive voice response (IVR) application that processes customer order requests for bicycles and bicycle accessories. Businesses with no existing IVR solution can easily get started automating requests, or, where existing human-operated systems exist, this solution can be extended to incorporate existing functionality and workflows.",
             "category": [
                 "ai-machine-learning"
             ],
-            "image": "/azure/architecture/solution-ideas/media/interactive-voice-response-bot.png",
-            "imagepath": "C:\\jvPnpRepos\\architecture-center-pr\\docs\\solution-ideas\\media\\interactive-voice-response-bot.png",
+            "image": "/azure/architecture/solution-ideas/media/interactive-voice-response-app-bot.png",
+            "imagepath": "C:\\jvPnpRepos\\architecture-center-pr\\docs\\solution-ideas\\media\\interactive-voice-response-app-bot.png",
             "publish_date": "12/16/2019",
             "Summary": "<p>This solution creates an intelligent interactive voice response (IVR) application that processes customer order requests for bicycles and bicycle accessories. Businesses with no existing IVR solution can easily get started automating requests, or, where existing human-operated systems exist, this solution can be extended to incorporate existing functionality and workflows.</p>",
             "sample_code": true,
