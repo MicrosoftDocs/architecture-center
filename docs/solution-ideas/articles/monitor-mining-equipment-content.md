@@ -56,7 +56,23 @@ Information about the Delta Lake open-source project for building a Lakehouse ar
 
 ## Related resources
 
-See the following related architectural guidance:
+See the following related database architectural guidance:
+
+- [Azure Data Architecture Guide](/azure/architecture/data-guide)
+- [Non-relational data and NoSQL](/azure/architecture/data-guide/big-data/non-relational-data)
+- [Big data architectures](/azure/architecture/data-guide/big-data)
+- [Batch processing](/azure/architecture/data-guide/big-data/batch-processing)
+- [Choosing a batch processing technology in Azure](/azure/architecture/data-guide/technology-choices/batch-processing)
+- [Data lakes](/azure/architecture/data-guide/scenarios/data-lake)
+- [Choosing a big data storage technology in Azure](/azure/architecture/data-guide/technology-choices/data-storage)
+- [Modernize mainframe & midrange data](/azure/architecture/reference-architectures/migration/modernize-mainframe-data-to-azure)
+- [Profisee master data management with Azure Data Factory](/azure/architecture/reference-architectures/data/profisee-master-data-management-data-factory)
+- [Master Data Management powered by CluedIn](/azure/architecture/reference-architectures/data/cluedin)
+- [DataOps for the modern data warehouse](/azure/architecture/example-scenario/data-warehouse/dataops-mdw)
+- [Data warehousing and analytics](/azure/architecture/example-scenario/data/data-warehouse)
+- [Real Time Analytics on Big Data Architecture](/azure/architecture/solution-ideas/articles/real-time-analytics)
+
+See the following related IoT architectural guidance:
 
 - [IoT solutions conceptual overview](/azure/architecture/example-scenario/data/big-data-with-iot)
 - [Vision with Azure IoT Edge](/azure/architecture/guide/iot-edge-vision)
