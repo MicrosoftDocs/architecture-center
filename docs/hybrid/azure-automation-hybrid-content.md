@@ -271,7 +271,7 @@ To test and deploy the runbook on a Hybrid Runbook Worker Group, use the followi
 
 ## DevOps considerations
 
-- Azure Automation allows integration with popular source control systems, Azure DevOps, and Github. With Source Control, you can integrate the existing development environment that contains your scripts and custom code that have been previously tested in an isolated environment.
+- Azure Automation allows integration with popular source control systems, Azure DevOps, and GitHub. With Source Control, you can integrate the existing development environment that contains your scripts and custom code that have been previously tested in an isolated environment.
 - For information on how to integrate Azure Automation with your Source Control environment, refer to: [Use source control integration][27].
 
 ## Cost considerations
