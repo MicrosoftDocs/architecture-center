@@ -26,7 +26,9 @@ To promote IAM resilience:
 - Reduce dependencies, complexity, and single points of failure.
 - Ensure comprehensive error handling.
 
-Whatever the source of disruption, recognizing and planning for contingencies is important. However, adding more identity systems, with their dependencies and complexity, could reduce rather than increase resilience.
+Recognizing and planning for contingencies is important. However, adding more identity systems, with their dependencies and complexity, could reduce rather than increase resilience.
+
+Developers can help manage IAM resilience in their applications by using [Azure AD Managed Identities](/azure/active-directory/managed-identities-azure-resources/overview) wherever possible. For more information, see [Increase resilience of authentication and authorization applications you develop](/azure/active-directory/fundamentals/resilience-app-development-overview).
 
 When planning for resilience of an IAM solution, consider the following elements:
 
@@ -39,8 +41,6 @@ When planning for resilience of an IAM solution, consider the following elements
 - Other services that rely on your IAM, and APIs that connect the services.
 - Any other on-premises components in your system.
 
-Developers can help manage IAM resilience in the applications they develop. Work with your developers to ensure they're using [Azure AD Managed Identities](/azure/active-directory/managed-identities-azure-resources/overview) for their applications wherever possible. For more information, see [Increase resilience of authentication and authorization applications you develop](/azure/active-directory/fundamentals/resilience-app-development-overview).
-
 ## Architecture
 
 ![Diagram showing an overview of administering IAM resilience.](media/admin-resilience-overview.png)
@@ -49,7 +49,7 @@ This diagram shows several ways to increase IAM resilience. The linked articles 
 
 ### Manage dependencies and reduce authentication calls
 
-Every authentication call is subject to disruption if any component of the call fails. When authentication is disrupted because of underlying component failures, users can't access their applications. So, reducing the number of authentication calls and the number of dependencies in those calls is important to resilience.
+Every authentication call is subject to disruption if any component of the call fails. When authentication is disrupted because of underlying component failures, users can't access their applications. So, reducing the number of authentication calls and the number of dependencies in those calls is essential for resilience.
 
 - Manage dependencies. [Build resilience with credential management](/azure/active-directory/fundamentals/resilience-in-credentials).
 - Reduce authentication calls. [Build resilience with device states](/azure/active-directory/fundamentals/resilience-with-device-states).
@@ -57,9 +57,9 @@ Every authentication call is subject to disruption if any component of the call 
 
 ### Use long-lived revocable tokens
 
-In a token-based authentication system like Azure AD, a user's client application must acquire a security token from the identity system before it can access an application or other resource. During the validity period, the client can present the same token multiple times to access the application.
+In a token-based authentication system like Azure AD, a user's client application must acquire a security token from the identity system before it can access an application or other resource. During the token validity period, the client can present the same token multiple times to access the application.
 
-When the token presented to the application expires, the application rejects the token, and the client must acquire a new token from Azure AD. Acquiring a new token potentially requires user interaction like credential prompts or other requirements. Reducing the frequency of authentication calls with longer-lived tokens decreases unnecessary interactions. However, you must balance token life with the risk created by fewer policy evaluations.
+If the validity period expires during the user's session, the application rejects the token, and the client must acquire a new token from Azure AD. Acquiring a new token potentially requires user interaction like credential prompts or other requirements. Reducing the authentication call frequency with longer-lived tokens decreases unnecessary interactions. However, you must balance token life with the risk created by fewer policy evaluations.
 
 - Use long-lived revocable tokens.
 - [Build resilience by using Continuous Access Evaluation (CAE)](/azure/active-directory/fundamentals/resilience-with-continuous-access-evaluation).
