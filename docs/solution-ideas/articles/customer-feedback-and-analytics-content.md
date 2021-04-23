@@ -3,21 +3,27 @@
 
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-For many companies, customer support is costly and inefficient. Knowledge mining can help customer support teams quickly find the right answer for a customer inquiry or assess customer sentiment at scale.
+For many companies, customer support is costly and inefficient. [Knowledge mining](https://azure.microsoft.com/solutions/knowledge-mining/) can help customer support teams quickly find the right answer for a customer inquiry or assess customer sentiment at scale.
 
 Every company is looking to enhance the customer experience. Knowledge mining can aggregate and analyze data to discover trends about what customers are saying and use that information to improve products and services
 
+## Data flow for knowledge mining
+
+There are three steps in knowledge mining: ingest, enrich, and explore.
+
 ![Architecture Diagram](../media/customer-feedback-and-analytics.png)
 
-## Data Flow
+- **Ingest**
 
-There are three steps: Ingest, Enrich and Exploration.
+  The ingest step aggregates content from a range of sources, including structured and unstructured data. For customer feedback and analytics, you can ingest different types of content like customer support tickets, chat logs, call transcriptions, customer emails, customer payment history, product reviews, social media feeds, online comments, feedback forms, and surveys.
 
-First, the unstructured and structured data is ingested then enrichment of this data with AI to extract information and find and finally explore the newly structured data via search, existing business applications or analytics solutions.
+- **Enrich**
 
-1. The user can ingest different types of content like customer support tickets, chat logs, call transcriptions, customer emails, customer payment history, product reviews, social media feeds, online comments, feedback forms, and surveys
-2. This content is enriched by using keyphrase extraction, sentiment analysis, language translation, bot services, custom models to focus on specific products or company policies
-3. And finally, the user compile enriched documents in the knowledge store and project them into tabular or object stores, then surface trends in an analytics dashboard, such as frequent issues, popular products or integrate the search index in to customer service support application
+  The enrich step uses AI capabilities to extract information, find patterns, and deepen understanding. You can enrich content by using key phrase extraction, sentiment analysis, language translation, bot services, custom models to focus on specific products or company policies.
+
+- **Explore**
+
+  The explore step is explorer data via search, existing business applications, or analytics solutions. For example, you can compile enriched documents in the knowledge store and project them into tabular or object stores. The stores can be used to surface trends in an analytics dashboard identifying frequent issues or popular products. Or, you can integrate the search index into customer service support applications.
 
 ## Components
 
@@ -30,6 +36,8 @@ Key technologies used to implement tools for technical content review and resear
 
 ## Next steps
 
-Using the [knowledge mining solution accelerator](/samples/azure-samples/azure-search-knowledge-mining/azure-search-knowledge-mining/) to build an initial knowledge mining prototype with Azure Cognitive Search.
+- Use the [knowledge mining solution accelerator](/samples/azure-samples/azure-search-knowledge-mining/azure-search-knowledge-mining/) to build an initial knowledge mining prototype with Azure Cognitive Search.
 
-Building custom skills with Microsoft's [Custom Web API](/azure/search/cognitive-search-custom-skill-interface)
+- Build an Azure Cognitive Search [custom skill](/azure/search/cognitive-search-custom-skill-interface).
+
+- Explore the Microsoft Learning Path [knowledge mining with Azure Cognitive Search](/learn/paths/implement-knowledge-mining-azure-cognitive-search/).
