@@ -11,6 +11,12 @@ ms.custom:
   - article
 ---
 
+
+First, establish performance baselines for your application. Then, establish a regular cadence for running the tests. Run the test as part of a scheduled event or part of a continuous integration (CI) build pipeline. 
+
+- [**Establish performance baselines**]()&mdash;    Baselines help to determine the current efficiency state of your application and its supporting infrastructure. Baselines can provide good insights for improvements and determine if the application is meeting business goals. Baselines can be created for any application regardless of its maturity. No matter when you establish the baseline, measure performance against that baseline during continued development. When code and, or infrastructure changes, the effect on performance can be actively measured.
+
+
 # Performance testing
 
 Performance testing helps to maintain systems properly and fix defects before problems reach system users. It helps maintain the efficiency, responsiveness, scalability, and speed of applications when compared with business requirements. When done effectively, performance testing should give you the diagnostic information necessary to eliminate bottlenecks, which lead to poor performance. A bottleneck occurs when data flow is either interrupted or stops due to insufficient capacity to handle the workload.
@@ -21,7 +27,12 @@ A best practice is to plan for a load buffer to accommodate random spikes withou
 
 ## Load testing
 
-Load testing measures system performance as the workload increases. It identifies where and when your application breaks, so you can fix the issue before shipping to production. It does this by testing system behavior under typical and heavy loads. The following are key points to consider for load testing:
+Load testing measures system performance as the workload increases. It identifies where and when your application breaks, so you can fix the issue before shipping to production. It does this by testing system behavior under typical and heavy loads. 
+
+Load testing takes places in stages of load. These stages are usually measured by virtual users (VUs) or simulated requests, and the stages happen over given intervals. Load testing provides insights into how and when your application needs to scale in order to continue to meet your SLA to your customers (whether internal or external). Load testing can also be useful for determining latency across distributed applications and microservices.
+
+
+The following are key points to consider for load testing:
 
 - **Know the Azure service limits** - Different Azure services have *soft* and *hard* limits associated with them. The terms soft limit and hard limit describe the current, adjustable service limit (soft limit) and the maximum limit (hard limit). Understand the limits for the services you consume so that you are not blocked if you need to exceed them. For a list of the most common Azure limits, see [Azure subscription and service limits, quotas, and constraints](/azure/azure-resource-manager/management/azure-subscription-service-limits).
 

@@ -10,7 +10,13 @@ ms.custom:
   - How are you ensuring you have sufficient Capacity?
   - article
 ---
+- **Capacity planning** - When performance testing, the business must communicate any fluctuation in expected load. Load can be impacted by world events, such as political, economic, or weather changes; by marketing initiatives, such as sales or promotions; or, by seasonal events, such as holidays. You should test variations of load prior to events, including unexpected ones, to ensure that your application can scale. Additionally, you should ensure that all regions can adequately scale to support total load, should one region fail.
 
+  - **Technology & SKU service limits** - For disaster recovery, it is important that you choose [_paired regions_](https://docs.microsoft.com/azure/best-practices-availability-paired-regions) for deploying your application. This is to ensure that your application operates at maximum uptime. Additionally, it is critical that your chosen regions support the necessary service SKUs and limits to support load if one region should fail. In the event that a single region fails, your services should be able to scale to the appropriate levels for accommodating increased demand from the rerouted requests. Your performance testing should occasionally include testing during a simulated failover to ensure application efficiency under those conditions. If it is determined that a service's limits in a single region cannot support the increased load, additional services should be deployed in your regions, or additional regions should be added to your load balancer.
+
+  - **SLAs** - When determining which services you will use within your application, you should also consider the SLAs of those services as their SLAs can affect your application's performance. When the _functional_ capabilities of two services overlap, then the SLAs of those services could be the determining factor why one is chosen over the other.
+
+  - **Costs** - Costs can be an additional factor in performance efficiency. Surprisingly, however, greater costs don't necessarily always mean increased performance. But, when observing how close your application comes to meeting business KPIs, you must consider how much improvement will be realized in the application if costs are increased. Then, you must evaluate if the cost-benefit is worth the investment. Sometimes, small changes in the application logic, caching, or adding an index to a database can dramatically improve performance while not affecting costs whatsoever (certain improvements can even help reduce costs).
 # Plan for capacity
 
 Azure offers many options to meet capacity requirements as your business grows. These options can also minimize cost.
