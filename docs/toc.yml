@@ -297,7 +297,7 @@ items:
             href: framework/scalability/overview.md
           - name: Design
             items:
-              - name: Design checklist
+              - name: Checklist
                 href: framework/scalability/design-checklist.md
               - name: Application design
                 href: framework/scalability/design-apps.md
@@ -307,16 +307,38 @@ items:
                 href: framework/scalability/design-scale.md
               - name: Capacity planning
                 href: framework/scalability/design-capacity.md
-          - name: Testing
+          - name: Test
             items:
-              - name: Testing checklist
+              - name: Checklist
                 href: framework/scalability/test-checklist.md
               - name: Performance testing
                 href: framework/scalability/performance-test.md
               - name: Testing tools
                 href: framework/scalability/test-tools.md
-          - name: Monitoring
-            href: framework/scalability/monitor.md
+          - name: Monitor
+            items: 
+              - name: Checklist
+                href: framework/scalability/monitor.md
+              - name: Distributed systems
+                href: framework/scalability/monitor-distributed.md
+              - name: Telemetry
+                href: framework/scalability/monitor-metrics.md
+              - name: Application
+                href: framework/scalability/monitor-application.md                
+              - name: Scalability
+                href: framework/scalability/monitor-scalability.md
+              - name: Reliability
+                href: framework/scalability/monitor-scalability.md
+          - name: Optimize
+            items: 
+              - name: Checklist
+                href: framework/scalability/optimize.md
+              - name: Caching
+                href: framework/scalability/optimize-cache.md
+              - name: Partition
+                href: framework/scalability/optimize-partition.md
+              - name: Sustainibility
+                href: framework/scalability/optimize-sustain.md                            
           - name: Performance Efficiency patterns
             href: framework/scalability/performance-efficiency-patterns.md
           - name: Checklist
