@@ -293,8 +293,10 @@ items:
             href: framework/devops/devops-patterns.md  
       - name: Performance Efficiency
         items:
-          - name: Overview
+          - name: About
             href: framework/scalability/overview.md
+          - name: Principles
+            href: framework/scalability/principles.md            
           - name: Design
             items:
               - name: Checklist
@@ -339,7 +341,7 @@ items:
                 href: framework/scalability/optimize-partition.md
               - name: Sustainability
                 href: framework/scalability/optimize-sustain.md                            
-          - name: Performance Efficiency patterns
+          - name: Design patterns
             href: framework/scalability/performance-efficiency-patterns.md
           - name: Checklist
             href: framework/scalability/performance-efficiency.md
