@@ -1,9 +1,54 @@
-- **Distributed architecture** - While the cloud is leveraged for hosting many monolithic applications, it is more common to see cloud deployments consist of components distributed across various services. Troubleshooting monolithic applications often requires only one or two lenses&mdash;the application and the database. However, distributed architectures are much more complex and can require many areas of expertise. To adequately monitor performance, it is critical that as much telemetry is captured throughout the application&mdash;across all services&mdash;as possible. Additionally, your team should be equipped with the necessary expertise to troubleshoot all services in your architecture. On occasion, it may be advantageous to use one service over another simply because your team is better equipped to support it. Then, as your team's expertise grows, you can incorporate other technologies.
+---
+title: Monitoring challenges for distributed architectures
+description: Considerations for using monitoring for performance efficiency
+author: a11smiles
+ms.date: 04/28/2021
+ms.topic: conceptual
+ms.service: architecture-center
+ms.subservice: well-architected
+products:
+  - azure-monitor
+ms.custom:
+  - fasttrack-edit
+  - article
+---
+# Monitoring challenges for distributed architectures
 
-  - **Scale** - For monolithic applications, scale is very two-dimensional as the applications usually consist of a group of application servers, maybe some web front ends (WFEs), and some database servers. Uncovering bottlenecks is much simpler (though resolving them could still require some considerable effort). For distributed applications, required effort for ensuring performance efficiency is increased exponentially. You must consider each application, its supporting service, and the latency between all application layers. 
+Most cloud deployments are based on distributed architectures where components are distributed across various services. Troubleshooting monolithic applications often requires only one or two lenses&mdash;the application and the database. With distributed architectures, troubleshooting is complex and challenging because of various factors. This article describes some of those challenges.
+
+## Key points
+> [!div class="checklist"]
+> - The team may not have the expertise across all the services used in an architecture. 
+> - Uncovering and resolving bottlenecks by monitoring all of your services and their infrastructure is complex.
+> - Antipatterns in design and code causes issues the application is under pressure.
+> - Resilience any service may impact your application's ability to meet current load.
+
+## Team expertise
+Distributed architectures require many areas of expertise. To adequately monitor performance, it's critical that telemetry is captured throughout the application, across all services, and is rich. Also, your team should have the necessary skills to troubleshoot all services used in the architecture. When making technology choices, it's advantageous and simple to choose a service over another because of the team's expertise. As the collective skillset grows, you can incorporate other technologies.
+
+## Scaling issues
+
+For monolithic applications, scale is  two-dimensional. An application usually consist of a group of application servers, some web front ends (WFEs), and database servers. _Uncovering_ bottlenecks is simpler but _resolving_ them can require considerable effort. For distributed applications, complexity increases exponentially in both aspects for performance issues. You must consider each application, its supporting service, and the latency between all the application layers. 
   
-    Performance efficiency is a complex mixture of applications and infrastructure (IaaS and PaaS). First, you must ensure that all services can scale to support load and that one service will not prove to be a bottleneck. Second, while performance testing, you may realize that certain services should scale under different load conditions (versus scaling all services uniformly). Monitoring all of your services and their infrastructure can help fine-tune your application for optimal performance.
+Performance efficiency is a complex mixture of applications and infrastructure (IaaS and PaaS). First, you must ensure that all services can scale to support the expected load and that one service will cause a bottleneck. Second, while performance testing, you may realize that certain services  scale under different load conditions as opposed to scaling all services uniformly. Monitoring all of your services and their infrastructure can help fine-tune your application for optimal performance.
 
-  - **Anti-pattern avoidance** - A performance antipattern is a common practice that is likely to cause scalability problems when an application is under pressure. For example, you can have an application that behaves as expected during performance testing. However, when it is released to production and starts to handle live workloads, performance decreases. Scalability problems such as rejecting user requests, stalling, or throwing exceptions may arise. To learn how to identify and fix these antipatterns, see [Performance antipatterns for cloud applications](../../antipatterns/index.md).
+For more information about monitoring for scalability, see [Monitor performance for scalability](monitor-scalability.md).
 
-  - **Fault-handling** - If a service within your architecture fails, how will it affect your application's overall performance? Is the error transient, thus allowing your application to continue to function; or, will the application experience a critical failure? If the error is transient, does your application experience a decrease in performance? Resiliency plays a huge role in performance efficiency as the failure of any service may impact your application's ability to meet your business's KPIs or, worse, scale to meet current load. Chaos testing&mdash;the introduction of random failures within your infrastructure&mdash;against your application can help determine how well your application continues to perform under varying stages of load. To learn more about chaos testing, see [Advancing resilience through chaos engineering and fault injection](https://azure.microsoft.com/blog/advancing-resilience-through-chaos-engineering-and-fault-injection/).
+## Anti-pattern avoidance
+
+Antipatterns in design and code is a common cause for performance problems when an application is under pressure. For example, an application behaves as expected during performance testing. However, when when it's released to production and starts to handle live workloads, performance decreases. Problems such as rejecting user requests, stalling, or throwing exceptions may arise. To learn how to identify and fix these antipatterns, see [Performance antipatterns for cloud applications](../../antipatterns/index.md).
+
+## Fault-handling
+
+If a service in the architecture fails, how will it affect your application's overall performance? Is the error transient, allowing your application to continue to function; or, will the application experience a critical failure? If the error is transient, does your application experience a decrease in performance? Resiliency plays a significant role in performance efficiency because the failure of any service may impact your application's ability to meet your business goals and scale to meet current load. Chaos testing&mdash;the introduction of random failures within your infrastructure&mdash;against your application can help determine how well your application continues to perform under varying stages of load. 
+
+For more information about reliability impacts on performance, see [Monitoring for reliability](monitor-reliability.md)
+
+## Next
+> [!div class="nextstepaction"] 
+> [Metered metrics monitoring](monitor-metrics.md)
+
+## Community links
+
+
+To learn more about chaos testing, see [Advancing resilience through chaos engineering and fault injection](https://azure.microsoft.com/blog/advancing-resilience-through-chaos-engineering-and-fault-injection/).

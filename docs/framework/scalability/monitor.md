@@ -30,7 +30,9 @@ Continuously monitoring new services​ and the health of current workloads key 
 > - Identify anti-patterns in the code.
 
 ## In this section
+
 Follow these questions to assess the workload at a deeper level.
+
 |Assessment|Description|
 |---|---|
 |**Are application events correlated across all application components?**||
@@ -43,7 +45,7 @@ Follow these questions to assess the workload at a deeper level.
 |**Are long-term trends analyzed to predict performance issues before they occur?**||
 |**Have retention times been defined for logs and metrics, with housekeeping mechanisms configured?**||
 
-## Next
+## Next section
 
 Based on insights gained through monitoring, optimize your code. One option might be to consider other Azure services that may be more appropriate for your objectives.  
 
