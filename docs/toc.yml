@@ -337,7 +337,7 @@ items:
                 href: framework/scalability/optimize-cache.md
               - name: Partition
                 href: framework/scalability/optimize-partition.md
-              - name: Sustainibility
+              - name: Sustainability
                 href: framework/scalability/optimize-sustain.md                            
           - name: Performance Efficiency patterns
             href: framework/scalability/performance-efficiency-patterns.md
