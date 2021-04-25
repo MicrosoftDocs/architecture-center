@@ -40,3 +40,13 @@ It should be possible to correlate application log events across critical system
 Enable [Application Insights](/azure/azure-monitor/app/app-insights-overview) for an application by installing an instrumentation package. 
 
 After it's enabled, metrics and logs related to the performance and operation are collected Application Insights provides extensive telemetry out of the box. You can customize what is captured for greater visibility. View and analyze the captured data in [Azure Monitor](/azure/azure-monitor/overview). 
+
+
+## Next
+> [!div class="nextstepaction"] 
+> [Monitor infrastructure](monitor-infrastructure.md)
+
+
+## Related links
+
+> [Back to the main article](monitor.md)
