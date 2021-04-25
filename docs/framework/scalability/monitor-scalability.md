@@ -33,6 +33,11 @@ Most Azure services offer the ability to export logs and metrics to services suc
 To learn more about Application Insights, see [What is Application Insights monitor?](/azure/azure-monitor/app/app-insights-overview)
 
 
+- Know the minimum number of instances that should run at any given time.
+- Determine what metrics are best for your solution to base your auto scaling rules.
+- Configure the auto scaling rules for those services that include it.
+- Create alert rules for the services that could be scaled manually.
+
 
 
 

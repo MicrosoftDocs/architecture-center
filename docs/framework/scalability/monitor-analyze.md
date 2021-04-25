@@ -27,3 +27,16 @@ Clear retention times should be defined to allow for suitable historic analysis 
 
 
 Azure Monitor Logs is a feature of Azure Monitor that collects and organizes log and performance data from monitored resources. Data from different sources such as platform logs from Azure services, log and performance data from virtual machines agents, and usage and performance data from applications can be consolidated into a single workspace so they can be analyzed together using a sophisticated query language that's capable of quickly analyzing millions of records.
+
+
+Best practices for monitoring
+Know the minimum number of instances that should run at any given time.
+Determine what metrics are best for your solution to base your auto scaling rules.
+Configure the auto scaling rules for those services that include it.
+Create alert rules for the services that could be scaled manually.
+Monitor your environment to make sure that autoscaling is working as expected. For example, watch out for scaling events from the telemetry coming out of the management plane.
+Monitor web applications using Azure Application Insights.
+Monitor network performance.
+Consider reviewing as applicable, network performance monitor, service connectivity monitor, and ExpressRoute monitor.
+For long-term storage, consider archiving of the Monitoring Data.
+Track activities using Azure Security and Audit Logs.
