@@ -1,13 +1,15 @@
 ---
 title: Challenges of monitoring distributed architectures
-description: Considerations for using monitoring for performance efficiency
-author: PageWriter
+description: Team expertise, scaling issues, antipatterns, and resiliency tracking issues when monitoring for performance efficiency
+author: PageWriter-MSFT
 ms.date: 04/28/2021
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
 products:
   - azure-monitor
+categories:
+  - management-and-governance  
 ms.custom:
   - fasttrack-edit
   - article
@@ -35,11 +37,11 @@ Performance efficiency is a complex mixture of applications and infrastructure (
 
 For more information about monitoring for scalability, see [Monitor performance for scalability](monitor-scalability.md).
 
-## Anti-pattern avoidance
+## Antipatterns in design
 
 Antipatterns in design and code is a common cause for performance problems when an application is under pressure. For example, an application behaves as expected during performance testing. However, when when it's released to production and starts to handle live workloads, performance decreases. Problems such as rejecting user requests, stalling, or throwing exceptions may arise. To learn how to identify and fix these antipatterns, see [Performance antipatterns for cloud applications](../../antipatterns/index.md).
 
-## Fault-handling
+## Fault tracking
 
 If a service in the architecture fails, how will it affect your application's overall performance? Is the error transient, allowing your application to continue to function; or, will the application experience a critical failure? If the error is transient, does your application experience a decrease in performance? Resiliency plays a significant role in performance efficiency because the failure of any service may impact your application's ability to meet your business goals and scale to meet current load. Chaos testing&mdash;the introduction of random failures within your infrastructure&mdash;against your application can help determine how well your application continues to perform under varying stages of load. 
 
@@ -47,12 +49,13 @@ For more information about reliability impacts on performance, see [Monitoring f
 
 ## Next
 > [!div class="nextstepaction"] 
-> [Metered metrics monitoring](monitor-metrics.md)
+> [Metered metrics monitoring](monitor-application.md)
 
 ## Community links
 
 To learn more about chaos testing, see [Advancing resilience through chaos engineering and fault injection](https://azure.microsoft.com/blog/advancing-resilience-through-chaos-engineering-and-fault-injection/).
 
 ## Related links
-
+- [Performance antipatterns for cloud applications](../../antipatterns/index.md)
+- [Monitor performance for scalability](monitor-scalability.md)
 > [Back to the main article](monitor.md)

@@ -1,19 +1,21 @@
 ---
-title: Performance monitoring through application profiling
+title: Application profiling considerations for performance monitoring
 description: Collect instrumentation data from the application and correlated events across the entire stack.
-author: PageWriter
+author: PageWriter-MSFT
 ms.date: 04/28/2021
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
 products:
   - azure-monitor
+categories:
+  - management-and-governance
 ms.custom:
   - fasttrack-edit
   - article
 ---
 
-## Application profiling
+# Application profiling considerations for performance monitoring
 
 Continuously monitor the application with Application Performance Monitoring (APM) technology, such as Azure Application Insights. You can use this to manage the performance and availability of the application, aggregating application level logs, and events for subsequent interpretation. 
 
@@ -24,7 +26,7 @@ Continuously monitor the application with Application Performance Monitoring (AP
 > - Include end-to-end transaction times for key technical functions.
 > - Correlate application log events across critical system flows.
 
-# Application instrumentation
+## Application instrumentation
 
 Instrumentation of your code allows precise detection of underperforming pieces when load or stress tests are applied. It is critical to have this data available to improve and identify performance opportunities in the application code.
 
