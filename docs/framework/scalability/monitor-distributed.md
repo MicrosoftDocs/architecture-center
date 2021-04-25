@@ -1,7 +1,7 @@
 ---
-title: Monitoring challenges for distributed architectures
+title: Challenges of monitoring distributed architectures
 description: Considerations for using monitoring for performance efficiency
-author: a11smiles
+author: PageWriter
 ms.date: 04/28/2021
 ms.topic: conceptual
 ms.service: architecture-center
@@ -12,7 +12,8 @@ ms.custom:
   - fasttrack-edit
   - article
 ---
-# Monitoring challenges for distributed architectures
+
+# Challenges of monitoring distributed architectures
 
 Most cloud deployments are based on distributed architectures where components are distributed across various services. Troubleshooting monolithic applications often requires only one or two lenses&mdash;the application and the database. With distributed architectures, troubleshooting is complex and challenging because of various factors. This article describes some of those challenges.
 
@@ -50,5 +51,8 @@ For more information about reliability impacts on performance, see [Monitoring f
 
 ## Community links
 
-
 To learn more about chaos testing, see [Advancing resilience through chaos engineering and fault injection](https://azure.microsoft.com/blog/advancing-resilience-through-chaos-engineering-and-fault-injection/).
+
+## Related links
+
+> [Back to the main article](monitor.md)

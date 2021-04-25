@@ -14,11 +14,14 @@ ms.custom:
 ---
 
 # Monitoring for performance efficiency
-
+Troubleshooting an application's performance requires continuous monitoring and reliable investigation. Issues in performance can arise from database queries, connectivity between services, under-provision resources, or memory leaks in code.
+This article summarizes the tools and metrics to use for uncovering performance issues. 
 Continuously monitoring new services​ and the health of current workloads key in maintaining the overall performance of the workload. When designing an overall monitoring strategy consider these factors:
 - Scalability
 - Resiliency of the infrastructure, application, and dependent services
 - Application performance
+
+- **Data-driven processes** - Performance testing should always be based on data captured from repeatable processes. In order to understand how an application's performance is affected by code and infrastructure changes, data must be kept and monitored. Additionally, it is important to understand how performance has changed _over time_, not just compared to the last measurement taken. It is often helpful to store such data in a time-series database (TSDB) and then view the data from an operational dashboard. An [Azure Data Explorer cluster](https://azure.microsoft.com/services/data-explorer/) is a powerful TSDB that can store any schema of data, including performance test metrics. [Grafana](https://grafana.com/), an open source platform for observability dashboards, can then be leveraged to query your Azure Data Explorer cluster to view performance trends in your application.
 
 ## Checklist
 **How are you monitoring to ensure the workload is scaling appropriately?**

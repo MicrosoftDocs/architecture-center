@@ -1,5 +1,5 @@
 ---
-title: Monitor performance through scalability
+title: Monitor performance for scalability
 description: Considerations for using monitoring for performance efficiency
 author: v-aangie
 ms.date: 01/28/2021
@@ -13,7 +13,7 @@ ms.custom:
   - article
 ---
 
-# Monitor performance through scalability
+# Monitor performance for scalability
 Monitoring for scalability should be part of your overall monitoring strategy that utilizes [Azure Monitor](https://azure.microsoft.com/services/monitor/). The overall monitoring strategy should take into consideration not only scalability, but reliability (infrastructure, application, and dependent services) and application performance as well.
 
 You can analyze data, set up alerts, get end-to-end views of your applications, and use machine learning–driven insights to identify and resolve problems quickly, with Azure Monitor. Azure monitor can also help diagnose networking related issues. For example, you can trigger a packet capture, diagnose routing issues, analyze network security group flow logs, and gain visibility and control over your Azure network.

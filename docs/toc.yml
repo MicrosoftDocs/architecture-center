@@ -323,10 +323,12 @@ items:
                 href: framework/scalability/monitor.md
               - name: Distributed systems
                 href: framework/scalability/monitor-distributed.md
-              - name: Telemetry
+              - name: Application instrumentation
+                href: framework/scalability/monitor-application.md
+              - name: Infrastructure metrics and logs
                 href: framework/scalability/monitor-metrics.md
-              - name: Application
-                href: framework/scalability/monitor-application.md                
+              - name: Data analysis and retention 
+                href: framework/scalability/monitor-analyze.md                                                
               - name: Scalability
                 href: framework/scalability/monitor-scalability.md
               - name: Reliability
