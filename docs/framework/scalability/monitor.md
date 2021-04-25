@@ -8,29 +8,33 @@ ms.service: architecture-center
 ms.subservice: well-architected
 products:
   - azure-monitor
+  - azure-application-insights
 ms.custom:
   - fasttrack-edit
   - article
 ---
 
 # Monitoring for performance efficiency
-Troubleshooting an application's performance requires continuous monitoring and reliable investigation. Issues in performance can arise from database queries, connectivity between services, under-provision resources, or memory leaks in code.
-This article summarizes the tools and metrics to use for uncovering performance issues. 
-Continuously monitoring new services​ and the health of current workloads key in maintaining the overall performance of the workload. When designing an overall monitoring strategy consider these factors:
+Troubleshooting an application's performance requires monitoring and reliable investigation. Issues in performance can arise from database queries, connectivity between services, under-provision resources, or memory leaks in code.
+
+Continuously monitoring services​ and checking the health state of current workloads is key in maintaining the overall performance of the workload. An overall monitoring strategy consider these factors:
 - Scalability
 - Resiliency of the infrastructure, application, and dependent services
-- Application performance
-
-- **Data-driven processes** - Performance testing should always be based on data captured from repeatable processes. In order to understand how an application's performance is affected by code and infrastructure changes, data must be kept and monitored. Additionally, it is important to understand how performance has changed _over time_, not just compared to the last measurement taken. It is often helpful to store such data in a time-series database (TSDB) and then view the data from an operational dashboard. An [Azure Data Explorer cluster](https://azure.microsoft.com/services/data-explorer/) is a powerful TSDB that can store any schema of data, including performance test metrics. [Grafana](https://grafana.com/), an open source platform for observability dashboards, can then be leveraged to query your Azure Data Explorer cluster to view performance trends in your application.
+- Application and infrastructure performance
 
 ## Checklist
 **How are you monitoring to ensure the workload is scaling appropriately?**
 ***
 > [!div class="checklist"]
-> - Enable and capture telemetry throughout your application.
+> - Enable and capture telemetry throughout your application to build and visualize end-to-end transaction flows for the application..
+> - See metrics from Azure services such as CPU and memory utilization,bandwidth information, current storage utilization information, and more.
+> - Use resource and platform logs to get information about what events occur and under which conditions. 
 > - For scalability, look at the metrics to determine how to provision resources dynamically and scale with demand.
-> - Troubleshoot performance issues through data-driven decision and and reliable investigation.
-> - Identify anti-patterns in the code.
+> - In the collected logs and metrics look for signs that might make a system or its components suddenly become unavailable. 
+> - Use log aggregation technology to gather information across all application components.
+> - Store logs and key metrics of critical components for statistical evaluation and predicting trends.
+> - Identify antipatterns in the code.
+
 
 ## In this section
 
@@ -38,15 +42,13 @@ Follow these questions to assess the workload at a deeper level.
 
 |Assessment|Description|
 |---|---|
-|**Are application events correlated across all application components?**||
-|**Is it possible to evaluate critical application performance targets and non-functional requirements (NFRs)?**||
-|**Is the end-to-end performance of critical system flows monitored?**||
-|**Are you collecting Azure Activity Logs within the log aggregation tool?**||
-|**Is resource level monitoring enforced throughout the application?**||
-|**Are logs and metrics available for critical internal dependencies?**||
-|**Are critical external dependencies monitored?**||
-|**Are long-term trends analyzed to predict performance issues before they occur?**||
-|**Have retention times been defined for logs and metrics, with housekeeping mechanisms configured?**||
+|[**Are application logs and events correlated across all application components?**](monitor-application.md)|Correlate logs and and events for subsequent interpretation. This will give you visibility into end-to-end transaction flows.|
+|[**Are you collecting Azure Activity Logs within the log aggregation tool?**](monitor-infrastructure.md)|Collect platform metrics and logs to get visibility into the health and performance of services that are part of the architecture.|
+|[**Are application and resource level logs aggregated in a single data sink, or is it possible to cross-query events at both levels?**]((monitor-analyze.md))|Implement a unified solution to aggregate and query application and resource level logs, such as Azure Log Analytics.|
+
+## Azure services
+
+The monitoring operations should utilize [Azure Monitor](https://azure.microsoft.com/services/monitor/). You can analyze data, set up alerts, get end-to-end views of your applications, and use machine learning–driven insights to identify and resolve problems quickly. Export logs and metrics to services such as Azure Log Analytics and external service like Splunk. Furthermore, application technologies such as [Application Insights](/azure/azure-monitor/app/app-insights-overview) can enhance the telemetry coming out of applications.
 
 ## Next section
 
