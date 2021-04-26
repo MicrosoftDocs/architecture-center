@@ -9,6 +9,8 @@ ms.subservice: well-architected
 products:
   - azure-monitor
   - azure-application-insights
+categories:
+  - management-and-governance    
 ms.custom:
   - fasttrack-edit
   - article
@@ -26,8 +28,8 @@ Continuously monitoring services​ and checking the health state of current wor
 **How are you monitoring to ensure the workload is scaling appropriately?**
 ***
 > [!div class="checklist"]
-> - Enable and capture telemetry throughout your application to build and visualize end-to-end transaction flows for the application..
-> - See metrics from Azure services such as CPU and memory utilization,bandwidth information, current storage utilization information, and more.
+> - Enable and capture telemetry throughout your application to build and visualize end-to-end transaction flows for the application.
+> - See metrics from Azure services such as CPU and memory utilization,bandwidth information, current storage utilization, and more. 
 > - Use resource and platform logs to get information about what events occur and under which conditions. 
 > - For scalability, look at the metrics to determine how to provision resources dynamically and scale with demand.
 > - In the collected logs and metrics look for signs that might make a system or its components suddenly become unavailable. 
@@ -44,7 +46,7 @@ Follow these questions to assess the workload at a deeper level.
 |---|---|
 |[**Are application logs and events correlated across all application components?**](monitor-application.md)|Correlate logs and and events for subsequent interpretation. This will give you visibility into end-to-end transaction flows.|
 |[**Are you collecting Azure Activity Logs within the log aggregation tool?**](monitor-infrastructure.md)|Collect platform metrics and logs to get visibility into the health and performance of services that are part of the architecture.|
-|[**Are application and resource level logs aggregated in a single data sink, or is it possible to cross-query events at both levels?**]((monitor-analyze.md))|Implement a unified solution to aggregate and query application and resource level logs, such as Azure Log Analytics.|
+|[**Are application and resource level logs aggregated in a single data sink, or is it possible to cross-query events at both levels?**](monitor-analyze.md))|Implement a unified solution to aggregate and query application and resource level logs, such as Azure Log Analytics.|
 
 ## Azure services
 

@@ -8,6 +8,8 @@ ms.service: architecture-center
 ms.subservice: well-architected
 products:
   - azure-monitor
+categories:
+  - management-and-governance    
 ms.custom:
   - fasttrack-edit
 ---
@@ -33,7 +35,7 @@ Metrics are numerical values that are collected at regular intervals and describ
 
 If your application is running in Azure Virtual Machines, configure Azure Diagnostics extension to send guest OS performance metrics to Azure Monitor. Guest OS metrics include performance counters that track guest CPU percentage or memory usage, both of which are frequently used for autoscaling or alerting.
 
-For more information, see [Supported metrics with Azure Monitor](https://docs.microsoft.com/en-us/azure/azure-monitor/essentials/metrics-supported).
+For more information, see [Supported metrics with Azure Monitor](/azure/azure-monitor/essentials/metrics-supported).
 
 Also, use technology-specific tools for the services used in the architecture. For example, use network traffic capturing tools, such as [Azure Network Watcher](/azure/network-watcher/network-watcher-monitoring-overview).
 
@@ -84,7 +86,7 @@ You can also use the [Pricing Calculator](https://azure.microsoft.com/pricing/ca
 > [Data analysis considerations](monitor-analyze.md)
 
 ## Related links
-- [Supported metrics with Azure Monitor](https://docs.microsoft.com/en-us/azure/azure-monitor/essentials/metrics-supported)
+- [Supported metrics with Azure Monitor](/azure/azure-monitor/essentials/metrics-supported)
 - [Network performance monitor](/azure/azure-monitor/insights/)
 - [Azure Network Watcher](/azure/network-watcher/network-watcher-monitoring-overview)
 > [Back to the main article](monitor.md)

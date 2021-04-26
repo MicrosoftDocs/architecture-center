@@ -6,6 +6,8 @@ ms.date: 10/23/2020
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
+categories:
+  - management-and-governance   
 ms.custom:
   - overview
 ---

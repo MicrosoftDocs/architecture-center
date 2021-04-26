@@ -17,7 +17,7 @@ ms.custom:
 
 # Application profiling considerations for performance monitoring
 
-Continuously monitor the application with Application Performance Monitoring (APM) technology, such as Azure Application Insights. You can use this to manage the performance and availability of the application, aggregating application level logs, and events for subsequent interpretation. 
+Continuously monitor the application with Application Performance Monitoring (APM) technology, such as Azure Application Insights. This technonology can help you manage the performance and availability of the application, aggregating application level logs, and events for subsequent interpretation. 
 
 ## Key points
 > [!div class="checklist"]
@@ -58,7 +58,7 @@ Events coming from different application components or different component tiers
 **Are application events correlated across all application components?**
 ***
 
-Event correlation between the layers of the application will provide the ability to connect tracing data of the complete application stack. Once this connection is made, you can see a complete picture of where time is spent at each layer. This will typically mean having a tool that can query the repositories of tracing data in correlation to a unique identifier that represents a completed transaction that has flowed through the system.
+Event correlation between the layers of the application provides the ability to connect tracing data of the complete application stack. Once this connection is made, you can see a complete picture of where time is spent at each layer. You can then query the repositories of tracing data in correlation to a unique identifier that represents a completed transaction that has flowed through the system.
 
 For more information, see [Distributed tracing](/azure/architecture/microservices/logging-monitoring#distributed-tracing).
 
@@ -67,7 +67,7 @@ For more information, see [Distributed tracing](/azure/architecture/microservice
 **Is it possible to evaluate critical application performance targets and non-functional requirements (NFRs)?**
 ***
 
-Application level metrics should include end-to-end transaction times of key technical functions, such as database queries, response times for external API calls, failure rates of processing steps, etc.
+Application level metrics should include end-to-end transaction times of key technical functions, such as database queries, response times for external API calls, failure rates of processing steps, and more.
 
 **Is the end-to-end performance of critical system flows monitored?**
 ***

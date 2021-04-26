@@ -35,7 +35,7 @@ For monolithic applications, scale is  two-dimensional. An application usually c
   
 Performance efficiency is a complex mixture of applications and infrastructure (IaaS and PaaS). First, you must ensure that all services can scale to support the expected load and that one service will cause a bottleneck. Second, while performance testing, you may realize that certain services  scale under different load conditions as opposed to scaling all services uniformly. Monitoring all of your services and their infrastructure can help fine-tune your application for optimal performance.
 
-For more information about monitoring for scalability, see [Monitor performance for scalability](monitor-scalability.md).
+For more information about monitoring for scalability, see [Monitor performance for scalability and reliability](monitor-scalability-reliability.md).
 
 ## Antipatterns in design
 
@@ -45,7 +45,7 @@ Antipatterns in design and code is a common cause for performance problems when 
 
 If a service in the architecture fails, how will it affect your application's overall performance? Is the error transient, allowing your application to continue to function; or, will the application experience a critical failure? If the error is transient, does your application experience a decrease in performance? Resiliency plays a significant role in performance efficiency because the failure of any service may impact your application's ability to meet your business goals and scale to meet current load. Chaos testing&mdash;the introduction of random failures within your infrastructure&mdash;against your application can help determine how well your application continues to perform under varying stages of load. 
 
-For more information about reliability impacts on performance, see [Monitoring for reliability](monitor-reliability.md)
+For more information about reliability impacts on performance, see [Monitor performance for scalability and reliability](monitor-scalability-reliability.md).
 
 ## Next
 > [!div class="nextstepaction"] 
@@ -57,5 +57,5 @@ To learn more about chaos testing, see [Advancing resilience through chaos engin
 
 ## Related links
 - [Performance antipatterns for cloud applications](../../antipatterns/index.md)
-- [Monitor performance for scalability](monitor-scalability.md)
+- [Monitor performance for scalability and reliability](monitor-scalability-reliability.md)
 > [Back to the main article](monitor.md)
