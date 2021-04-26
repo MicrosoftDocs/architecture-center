@@ -1,9 +1,10 @@
-During mainframe and midrange data platform modernization, finding a coexistence model can be challenging. The best models offer target data platforms that are compatible with current platforms and require no changes in application code. And the digital transformations that succeed are usually the ones that take a data-first strategy.
+Data-first strategies can help digital transformations to succeed. But finding a coexistence model for a mainframe and midrange data platform modernization can still be challenging. The best models offer target data platforms that are compatible with current platforms and require no changes in application code.
 
-This solution outlines a data integration approach that:
+This solution outlines a data integration approach that meets these criteria:
 
 - Requires no or minimal changes in code.
 - Offers flexible, scalable data transformation and data access capabilities.
+- Uses Azure databases as the target data platform.
 - Uses the [Distributed Relational Database Architecture (DRDA)][DRDA] protocol. IBM Db2 clients and servers communicate by using DRDA. With this protocol, mainframe and midrange applications can interoperate seamlessly with Azure databases.
 
 ## Potential use cases
@@ -43,12 +44,31 @@ Various mainframe and midrange integration scenarios can benefit from this solut
 
 ### Components
 
-Add the traditional list. Theano used this text: "Various file moving, integration, and storage scenarios use different components. See the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate costs for Azure resources." And then she used the list.
+This solution uses the following components. See the [Azure pricing calculator][Azure pricing calculator] to estimate costs for Azure resources.
+
+#### Data stores
+
+- [Azure SQL Database][What is Azure SQL Database?] is part of the Azure SQL family. This relational database service is evergreen and is built for the cloud. SQL Database also provides AI-powered, automated features that optimize performance and durability. Serverless compute and Hyperscale storage options automatically scale resources on demand.
+
+- [SQL Server on Azure VMs][What is SQL Server on Azure Virtual Machines (Windows)] provides a way to migrate SQL Server workloads to the cloud with 100 percent code compatibility. As part of the Azure SQL family, SQL Server on Azure VMs offers the combined performance, security, and analytics of SQL Server with the flexibility and hybrid connectivity of Azure. With SQL Server on Azure VMs, you can migrate existing apps or build new apps. You can also access the latest SQL Server updates and releases, including SQL Server 2019.
+
+#### Tools
+
+- [Host Integration Server (HIS)][What is HIS] software helps IBM host systems connect with Azure systems. HIS runs on an on-premises or Azure VM. HIS provides integration services for networks, data, applications, messaging, and security features.
+
+- [Microsoft Service for DRDA][Microsoft Service for DRDA] is a component of Host Integration Server (HIS). Microsoft Service for DRDA is an Application Server (AS) that DRDA Application Requester (AR) clients use. Examples of DRDA AR clients include IBM Db2 for z/OS and Db2 for i5/OS. These clients use the AS to convert Db2 SQL statements and run them on SQL Server.
 
 ## Next steps
 
-- For more information, contact Azure Data Engineering On-premises Modernization at [datasqlninja@microsoft.com](mailto:datasqlninja@microsoft.com).
-- Read the [Azure Database Migration Guides](https://datamigration.microsoft.com/).
+- For more information, contact Azure Data Engineering - Mainframe & Midrange Modernization at [datasqlninja@microsoft.com][Email address for information on mainframe modernization].
+- Read the [Azure Database Migration Guides][Azure Database Migration Guides].
+- See [Planning and architecting solutions using Microsoft Service for DRDA][Planning and Architecting Solutions Using Microsoft Service for DRDA].
+- Maybe this one, too: https://docs.microsoft.com/en-us/azure/cloud-adoption-framework/infrastructure/mainframe-migration/application-strategies
+
+
+[Email address for information on mainframe modernization]: mailto:datasqlninja@microsoft.com
+[Azure Database Migration Guides]: /data-migration/
+[Planning and Architecting Solutions Using Microsoft Service for DRDA]: /host-integration-server/core/planning-and-architecting-solutions-using-microsoft-service-for-drda
 
 ## Related resources
 
@@ -57,6 +77,15 @@ Add the traditional list. Theano used this text: "Various file moving, integrati
 - [Migrate IBM mainframe applications to Azure with TmaxSoft OpenFrame](/azure/architecture/solution-ideas/articles/migrate-mainframe-apps-with-tmaxsoft-openframe)
 - [Unisys mainframe migration with Asysco](/azure/architecture/reference-architectures/migration/unisys-mainframe-migration)
 
+
+
+
+
+[Azure pricing calculator]: https://azure.microsoft.com/pricing/calculator
 [Configuring SQL Server Connections]: https://docs.microsoft.com/host-integration-server/core/configuring-sql-server-connections
 [DRDA]: https://en.wikipedia.org/wiki/DRDA
 [Install and configure HIS 2020]: https://docs.microsoft.com/host-integration-server/install-and-config-guides/installing-his-2020
+[Microsoft Service for DRDA]: host-integration-server/what-is-his#Data
+[What is Azure SQL Database?]: /azure/azure-sql/database/sql-database-paas-overview
+[What is HIS]: /host-integration-server/what-is-his
+[What is SQL Server on Azure Virtual Machines (Windows)]: /azure/azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview
