@@ -57,7 +57,8 @@ Based on insights gained through monitoring, optimize your code. One option migh
 > [!div class="nextstepaction"] 
 > [Optimize](optimize.md)
 
-
+## Related links
+> [Back to the main article](overview.md)
   
 
 

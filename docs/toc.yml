@@ -321,17 +321,15 @@ items:
             items: 
               - name: Checklist
                 href: framework/scalability/monitor.md
-              - name: Distributed systems
+              - name: Monitoring challenges
                 href: framework/scalability/monitor-distributed.md
-              - name: Application instrumentation
+              - name: Application profiling
                 href: framework/scalability/monitor-application.md
               - name: Infrastructure metrics and logs
                 href: framework/scalability/monitor-infrastructure.md
               - name: Data analysis and retention 
                 href: framework/scalability/monitor-analyze.md                                                
-              - name: Scalability
-                href: framework/scalability/monitor-scalability.md
-              - name: Reliability
+              - name: Scalability and reliability
                 href: framework/scalability/monitor-scalability.md
           - name: Optimize
             items: 
@@ -345,8 +343,6 @@ items:
                 href: framework/scalability/optimize-sustain.md                            
           - name: Design patterns
             href: framework/scalability/performance-efficiency-patterns.md
-          - name: Checklist
-            href: framework/scalability/performance-efficiency.md
           - name: Tradeoffs 
             href: framework/scalability/tradeoffs.md
       - name: Reliability
