@@ -2,12 +2,36 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id/>
     <title>Azure Architecture Center</title>
-    <updated>2021-04-19T17:58:32.334Z</updated>
+    <updated>2021-04-26T13:08:55.278Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <subtitle>Updated articles for Azure Architecture Center</subtitle>
     <rights>https://docs.microsoft.com/legal/termsofuse</rights>
     <category term="new"/>
     <category term="updated"/>
+    <entry>
+        <title type="html"><![CDATA[Health data consortium on Azure]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/example-scenario/data/azure-health-data-consortium</id>
+        <link href="https://docs.microsoft.com/azure/architecture/example-scenario/data/azure-health-data-consortium"/>
+        <updated>2021-04-23T14:33:31.000Z</updated>
+        <summary type="html"><![CDATA[Build a data consortium to share healthcare data among partners. Collect data from multiple sources. Share it with members in a secure and efficient way.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Multi-cloud blockchain distributed ledger technology (DLT)]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/example-scenario/blockchain/multi-cloud-blockchain</id>
+        <link href="https://docs.microsoft.com/azure/architecture/example-scenario/blockchain/multi-cloud-blockchain"/>
+        <updated>2021-04-23T07:19:21.000Z</updated>
+        <summary type="html"><![CDATA[See how the open-source Blockchain Automation Framework (BAF) and Azure Arc-enabled Kubernetes work with multi-party DLTs to build a cross-cloud blockchain solution.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Mining equipment monitoring]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/solution-ideas/articles/monitor-mining-equipment</id>
+        <link href="https://docs.microsoft.com/azure/architecture/solution-ideas/articles/monitor-mining-equipment"/>
+        <updated>2021-04-23T07:01:18.000Z</updated>
+        <summary type="html"><![CDATA[Send data to the Azure cloud to monitor its condition and performance. Process the data with Azure Databricks and alert operators and administrators as needed.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Solutions for finance industry]]></title>
         <id>https://docs.microsoft.com/azure/architecture/industries/finance</id>
@@ -103,6 +127,70 @@
         <updated>2021-04-05T20:27:40.000Z</updated>
         <summary type="html"><![CDATA[DevOps considerations to ensure security and feature enhancements can be quickly deployed.]]></summary>
         <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Knowledge mining in contract management]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/solution-ideas/articles/contract-management</id>
+        <link href="https://docs.microsoft.com/azure/architecture/solution-ideas/articles/contract-management"/>
+        <updated>2021-04-25T10:35:51.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to use knowledge mining in contract management to help your organization scour thousands of pages to create an accurate bid.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Knowledge mining in business process management]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/solution-ideas/articles/business-process-management</id>
+        <link href="https://docs.microsoft.com/azure/architecture/solution-ideas/articles/business-process-management"/>
+        <updated>2021-04-23T15:36:51.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to use knowledge mining in business process management to explore information, gain insight, and find relationships your organization's data.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Azure Automation in a hybrid environment]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/hybrid/azure-automation-hybrid</id>
+        <link href="https://docs.microsoft.com/azure/architecture/hybrid/azure-automation-hybrid"/>
+        <updated>2021-04-23T14:39:47.000Z</updated>
+        <summary type="html"><![CDATA[This reference architecture describes the services that must be deployed in Azure to provide automated management and configuration across on-premises or other cloud providers.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Azure Automation Update Management]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/hybrid/azure-update-mgmt</id>
+        <link href="https://docs.microsoft.com/azure/architecture/hybrid/azure-update-mgmt"/>
+        <updated>2021-04-23T14:39:47.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to design a hybrid update management solution to manage updates on both Microsoft Azure and on-premises Windows and Linux computers.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Manage hybrid Azure workloads using Windows Admin Center]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/hybrid/hybrid-server-os-mgmt</id>
+        <link href="https://docs.microsoft.com/azure/architecture/hybrid/hybrid-server-os-mgmt"/>
+        <updated>2021-04-23T14:39:47.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to design a hybrid Windows Admin Center solution to manage workloads that are hosted on-premises and in Microsoft Azure.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Run SAP NetWeaver in Windows on Azure]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/reference-architectures/sap/sap-netweaver</id>
+        <link href="https://docs.microsoft.com/azure/architecture/reference-architectures/sap/sap-netweaver"/>
+        <updated>2021-04-22T16:51:33.000Z</updated>
+        <summary type="html"><![CDATA[Learn proven practices for running SAP NetWeaver in a Windows environment on Azure with high availability.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Analytics end-to-end with Azure Synapse]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/example-scenario/dataplate2e/data-platform-end-to-end</id>
+        <link href="https://docs.microsoft.com/azure/architecture/example-scenario/dataplate2e/data-platform-end-to-end"/>
+        <updated>2021-04-21T21:32:27.000Z</updated>
+        <summary type="html"><![CDATA[This example scenario demonstrates how to use the extensive family of Azure Data Services to build a modern analytics platform capable of handling the most common data challenges in an organization.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Building solutions for high availability using Availability Zones]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/high-availability/building-solutions-for-high-availability</id>
+        <link href="https://docs.microsoft.com/azure/architecture/high-availability/building-solutions-for-high-availability"/>
+        <updated>2021-04-20T22:21:11.000Z</updated>
+        <summary type="html"><![CDATA[The Azure Availability Zones construct was developed to provide a software and networking solution to protect against datacenter failures and to provide increased high availability (HA) to our customers.]]></summary>
+        <category label="updated" term="updated"/>
     </entry>
     <entry>
         <title type="html"><![CDATA[AI at the edge with Azure Stack Hub - disconnected]]></title>
