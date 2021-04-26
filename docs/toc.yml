@@ -1384,6 +1384,8 @@ items:
         items:
           - name: Guides
             items:
+              - name: Build for resilience
+                href: guide/resilience/resilience-overview.md
               - name: Identity in multitenant applications
                 items:
                   - name: Introduction
