@@ -1,0 +1,30 @@
+### YamlMime:Architecture
+metadata:
+  title: AKS baseline cluster for regulated workloads - Monitoring operations
+  description: Learn how to deploy a microservices architecture on Azure Kubernetes Service (AKS).
+  author: PageWriter-MSFT
+  ms.author: pnp
+  ms.date: 06/06/2021
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: reference-architecture
+  ms.category:
+    - containers
+  ms.custom:
+    - microservices
+    - reference-architecture
+    - e2e-aks
+name: AKS baseline cluster for regulated workloads - Monitoring operations
+azureCategories:
+  - containers
+summary: Learn how to deploy a microservices architecture on Azure Kubernetes Service (AKS).
+products:
+  - azure-active-directory
+  - azure-container-registry
+  - azure-kubernetes-service
+  - azure-load-balancer
+  - azure-monitor
+  - azure-pipelines
+thumbnailUrl: /azure/architecture/browse/thumbs/aks.png
+content: |
+   [!include[](aks-regulated-monitor-content.md)]

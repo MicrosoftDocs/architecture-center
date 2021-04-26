@@ -909,6 +909,26 @@ items:
                 href: reference-architectures/containers/aks/secure-baseline-aks.yml
               - name: Microservices architecture on AKS
                 href: reference-architectures/containers/aks-microservices/aks-microservices.yml
+              - name: AKS baseline cluster for regulated workloads
+                items:
+                  - name: Introduction
+                    href: reference-architectures/containers/aks-regulated/aks-regulated-intro.yml
+                  - name: Network segmentation
+                    href: reference-architectures/containers/aks-regulated/aks-regulated-network.yml                  
+                  - name: Data protection
+                    href: reference-architectures/containers/aks-regulated/aks-regulated-data.yml                         
+                  - name: Vulnerability management
+                    href: reference-architectures/containers/aks-regulated/aks-regulated-malware.yml                         
+                  - name: Access controls
+                    href: reference-architectures/containers/aks-regulated/aks-regulated-identity.yml                         
+                  - name: Monitoring operations
+                    href: reference-architectures/containers/aks-regulated/aks-regulated-monitor.yml                         
+                  - name: Policy management
+                    href: reference-architectures/containers/aks-regulated/aks-regulated-policy.yml                         
+                  - name: Deployment instructions
+                    href: reference-architectures/containers/aks-regulated/aks-regulated-deploy.yml                         
+                  - name: Summary 
+                    href: reference-architectures/containers/aks-regulated/aks-regulated-summary.yml                         
               - name: CI/CD pipeline for container-based workloads
                 href: example-scenario/apps/devops-with-aks.yml
           - name: Example workloads hosted in AKS clusters
