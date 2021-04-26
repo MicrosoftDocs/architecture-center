@@ -575,8 +575,8 @@
             "category": [
                 "ai-machine-learning"
             ],
-            "image": "/azure/architecture/solution-ideas/media/auditing-and-risk-compliance.png",
-            "imagepath": "C:\\jvPnpRepos\\architecture-center-pr\\docs\\solution-ideas\\media\\auditing-and-risk-compliance.png",
+            "image": "/azure/architecture/solution-ideas/media/knowledge-mining-auditing-and-risk-compliance.png",
+            "imagepath": "C:\\jvPnpRepos\\architecture-center-pr\\docs\\solution-ideas\\media\\knowledge-mining-auditing-and-risk-compliance.png",
             "publish_date": "12/16/2019",
             "Flow": {
                 "FlowStep_A": "This content is enriched by using key phrase extraction, language detection, language translation,entity extraction (organizations and people) and custom models to identify certain regulatory obligations and custom models to identify specific legal terms and clauses",
@@ -2457,10 +2457,10 @@
             "category": [
                 "ai-machine-learning"
             ],
-            "image": "/azure/architecture/solution-ideas/media/content-research.png",
-            "imagepath": "C:\\jvPnpRepos\\architecture-center-pr\\docs\\solution-ideas\\media\\content-research.png",
+            "image": "/azure/architecture/solution-ideas/media/knowledge-mining-content-research.png",
+            "imagepath": "C:\\jvPnpRepos\\architecture-center-pr\\docs\\solution-ideas\\media\\knowledge-mining-content-research.png",
             "publish_date": "12/16/2019",
-            "Summary": "<p>This architecture describes how knowledge mining can be used for content research.</p>\n<p>When organizations task employees to review and research of technical data, it can be tedious to read page after page of dense text. Knowledge mining helps employees quickly review these dense materials. In industries where bidding competition is fierce, or when the diagnosis of a problem must be quick or in near real-time, companies can use knowledge mining to avoid costly mistakes.</p>\n<p><img alt=\"Architecture Diagram\" src=\"https://docs.microsoft.com/azure/architecture/solution-ideas/media/content-research.png\" /></p>",
+            "Summary": "<p>This architecture describes how knowledge mining can be used for content research.</p>\n<p>When organizations task employees to review and research of technical data, it can be tedious to read page after page of dense text. Knowledge mining helps employees quickly review these dense materials. In industries where bidding competition is fierce, or when the diagnosis of a problem must be quick or in near real-time, companies can use knowledge mining to avoid costly mistakes.</p>\n<p><img alt=\"Architecture Diagram\" src=\"https://docs.microsoft.com/azure/architecture/solution-ideas/media/knowledge-mining-content-research.png\" /></p>",
             "name": "content-research",
             "popularity": 0,
             "topic": "AI + Machine Learning"
@@ -2481,10 +2481,10 @@
             "category": [
                 "ai-machine-learning"
             ],
-            "image": "/azure/architecture/solution-ideas/media/contract-management.png",
-            "imagepath": "C:\\jvPnpRepos\\architecture-center-pr\\docs\\solution-ideas\\media\\contract-management.png",
+            "image": "/azure/architecture/solution-ideas/media/knowledge-mining-contract-management.png",
+            "imagepath": "C:\\jvPnpRepos\\architecture-center-pr\\docs\\solution-ideas\\media\\knowledge-mining-contract-management.png",
             "publish_date": "12/16/2019",
-            "Summary": "<p>Many companies create products for multiple sectors, hence the business opportunities with different vendors and buyers increases exponentially. Knowledge mining can help organizations to scour thousands of pages of sources to create an accurate bid. Minor details in the bidding process can make the difference between a healthy profit or lost opportunity on a project.</p>\n<p><img alt=\"Architecture Diagram\" src=\"https://docs.microsoft.com/azure/architecture/solution-ideas/media/contract-management.png\" /></p>",
+            "Summary": "<p>Many companies create products for multiple sectors, hence the business opportunities with different vendors and buyers increases exponentially. Knowledge mining can help organizations to scour thousands of pages of sources to create an accurate bid. Minor details in the bidding process can make the difference between a healthy profit or lost opportunity on a project.</p>\n<p><img alt=\"Architecture Diagram\" src=\"https://docs.microsoft.com/azure/architecture/solution-ideas/media/knowledge-mining-contract-management.png\" /></p>",
             "name": "contract-management",
             "popularity": 0,
             "topic": "AI + Machine Learning"
@@ -3820,10 +3820,10 @@
             "category": [
                 "ai-machine-learning"
             ],
-            "image": "/azure/architecture/solution-ideas/media/digital-asset-management.png",
-            "imagepath": "C:\\jvPnpRepos\\architecture-center-pr\\docs\\solution-ideas\\media\\digital-asset-management.png",
+            "image": "/azure/architecture/solution-ideas/media/knowledge-mining-digital-asset-management.png",
+            "imagepath": "C:\\jvPnpRepos\\architecture-center-pr\\docs\\solution-ideas\\media\\knowledge-mining-digital-asset-management.png",
             "publish_date": "12/16/2019",
-            "Summary": "<p>This architecture describes digital asset management for knowledge mining.</p>\n<p>Given the amount of unstructured data created daily, many companies are struggling to make use of or find information within their files. Knowledge mining through a search index makes it easy for end customers and employees to locate what they are looking for faster.</p>\n<p><img alt=\"Architecture Diagram\" src=\"https://docs.microsoft.com/azure/architecture/solution-ideas/media/digital-asset-management.png\" /></p>",
+            "Summary": "<p>This architecture describes digital asset management for knowledge mining.</p>\n<p>Given the amount of unstructured data created daily, many companies are struggling to make use of or find information within their files. Knowledge mining through a search index makes it easy for end customers and employees to locate what they are looking for faster.</p>\n<p><img alt=\"Architecture Diagram\" src=\"https://docs.microsoft.com/azure/architecture/solution-ideas/media/knowledge-mining-digital-asset-management.png\" /></p>",
             "name": "digital-asset-management",
             "popularity": 0,
             "topic": "AI + Machine Learning"

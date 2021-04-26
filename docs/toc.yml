@@ -719,9 +719,9 @@ items:
                 href: solution-ideas/articles/auditing-and-risk-compliance.yml
               - name: Business process management
                 href: solution-ideas/articles/business-process-management.yml
-              - name: Content Research
+              - name: Content research
                 href: solution-ideas/articles/content-research.yml
-              - name: Contract Management
+              - name: Contract management
                 href: solution-ideas/articles/contract-management.yml
               - name: Customer churn prediction
                 href: solution-ideas/articles/customer-churn-prediction.yml
@@ -729,7 +729,7 @@ items:
                 href: solution-ideas/articles/customer-feedback-and-analytics.yml
               - name: Defect prevention
                 href: solution-ideas/articles/defect-prevention-with-predictive-maintenance.yml
-              - name: Digital Asset Management
+              - name: Digital asset management
                 href: solution-ideas/articles/digital-asset-management.yml
               - name: Disconnected AI at the edge
                 href: solution-ideas/articles/ai-at-the-edge-disconnected.yml
