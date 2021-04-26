@@ -909,7 +909,7 @@ items:
                 href: reference-architectures/containers/aks/secure-baseline-aks.yml
               - name: Microservices architecture on AKS
                 href: reference-architectures/containers/aks-microservices/aks-microservices.yml
-              - name: AKS baseline cluster for pci workloads
+              - name: AKS baseline cluster for a PCI-DSS 3.2.1 workload
                 items:
                   - name: Introduction
                     href: reference-architectures/containers/aks-pci/aks-pci-intro.yml
