@@ -49,7 +49,7 @@ For more information about reliability impacts on performance, see [Monitor perf
 
 ## Next
 > [!div class="nextstepaction"] 
-> [Metered metrics monitoring](monitor-application.md)
+> [Design scalable Azure applications](design-apps.md)
 
 ## Community links
 
@@ -58,4 +58,4 @@ To learn more about chaos testing, see [Advancing resilience through chaos engin
 ## Related links
 - [Performance antipatterns for cloud applications](../../antipatterns/index.md)
 - [Monitor performance for scalability and reliability](monitor-scalability-reliability.md)
-> [Back to the main article](monitor.md)
+> [Back to the main article](design-checklist.md)

@@ -14,7 +14,7 @@ ms.custom:
 
 # Overview of the performance efficiency pillar
 
-Performance efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. Before the cloud became popular, when it came to planning how a system would handle increases in load, many organizations intentionally provisioned workloads to be oversized to meet business requirements. This might make sense in on-premises environments because it ensured *capacity* during peak usage. [Capacity](/azure/api-management/api-management-capacity#what-is-capacity) reflects resource availability (CPU and memory). This was a major consideration for processes that would be in place for a number of years.
+Performance efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. Before the cloud became popular, when it came to planning how a system would handle increases in load, many organizations intentionally provisioned workloads to be oversized to meet business requirements. This might make sense in on-premises environments because it ensured *capacity* during peak usage. [Capacity](/azure/api-management/api-management-capacity#what-is-capacity) reflects resource availability (CPU and memory). This was a major consideration for processes that would be in place for many years.
 
 Just as you needed to anticipate increases in load in on-premises environments, you need to anticipate increases in cloud environments to meet business requirements. One difference is that you may no longer need to make long-term predictions for anticipated changes to ensure that you will have enough capacity in the future. Another difference is in the approach used to manage performance.
 
@@ -24,10 +24,11 @@ An important consideration in achieving performance efficiency is to consider ho
 
 In the cloud, the ability to take advantage of scalability depends on your infrastructure and services. Some platforms, such as Kubernetes, were built with scaling in mind. Virtual machines, on the other hand, may not scale as easily although scale operations are possible. With virtual machines, you may want to plan ahead to avoid scaling infrastructure in the future to meet demand. Another option is to select a different platform such as Azure virtual machines scale sets.
 
-When using scalability, you need only predict the current average and peak times for your workload. Payment plan options allow you to manage this. You pay either per minute or per-hour depending on the service for a designated time period.
+When using scalability, you need only predict the current average and peak times for your workload. Payment plan options allow you to manage this prediction. You pay either per minute or per-hour depending on the service for a designated time period.
 
-## Next steps
+## Next section
 
-- Performance efficiency impacts the entire architecture spectrum. Bridge gaps in you knowledge of Azure by reviewing the 5 pillars in the [Microsoft Azure Well-Architected Framework](../index.md).
+Read the performance efficient principles that are intended to guide you in your overall strategy.
 
-- To assess your workload using the tenets found in the Microsoft Azure Well-Architected Framework, see the [Microsoft Azure Well-Architected Review](/assessments/?id=azure-architecture-review&mode=pre-assessment).
+> [!div class="nextstepaction"] 
+> [Principles](principles.md)
