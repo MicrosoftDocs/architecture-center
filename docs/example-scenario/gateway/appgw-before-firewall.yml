@@ -1,0 +1,30 @@
+### YamlMime:Architecture
+metadata:
+  title: Zero-Trust network design for Web Applications with Azure Firewall and Application Gateway
+  titleSuffix: Azure Example Scenarios
+  description: Learn about the zero-trust design for using Azure Firewall and Azure Application Gateway security in virtual networks to protect web application.
+  author: erjosito
+  ms.date: 04/26/2021
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: example-scenario
+  ms.category:
+    - networking
+  ms.custom:
+    - fcp
+    - example-scenario
+    - internal-intro
+name: Firewall and Application Gateway for virtual networks
+azureCategories:
+  - networking
+summary: Learn about options and best practices for using Azure Firewall and Azure Application Gateway security in virtual networks.
+products:
+  - azure-application-gateway
+  - azure-firewall
+  - azure-front-door
+  - azure-kubernetes-service
+  - azure-virtual-network
+  - azure-web-application-firewall
+thumbnailUrl: 
+content: |
+   [!include[](appgw-before-firewall-content.md)]
