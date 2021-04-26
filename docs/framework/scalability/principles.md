@@ -39,12 +39,13 @@ Any development effort must go through continuous performance testing. The tests
 
 Understand the scope of your planned resolution and communicate the changes to all necessary stakeholders. Make code enhancements through a new build. Enhancements to infrastructure may involve many teams. This involved effort may require updated configurations and deprecations in favor of more-appropriate solutions. 
 
-[**Invest in capacity planning**](capacity.md)
+[**Invest in capacity planning**](design-capacity.md)
 
 Plan for  fluctuation in expected load that can occur because of world events. Test variations of load before the events, including unexpected ones, to ensure that your application can scale. Make sure all regions can adequately scale to support total load, if a region fail. Take into consideration:
-    - Technology and the SKU service limits.
-    - SLAs when determining the services to use in the design. Also, the SLAs of those services.
-    - Cost analysis to determine the how much improvement will be realized in the application if costs are increased. Evaluate the cost is worth the investment. 
+
+- Technology and the SKU service limits.
+- SLAs when determining the services to use in the design. Also, the SLAs of those services.
+- Cost analysis to determine the how much improvement will be realized in the application if costs are increased. Evaluate the cost is worth the investment. 
 
 ## Next section
 Use this checklist to review your application architecture from a performance design standpoint.  
