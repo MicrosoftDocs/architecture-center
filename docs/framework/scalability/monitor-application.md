@@ -17,7 +17,7 @@ ms.custom:
 
 # Application profiling considerations for performance monitoring
 
-Continuously monitor the application with Application Performance Monitoring (APM) technology, such as Azure Application Insights. This technonology can help you manage the performance and availability of the application, aggregating application level logs, and events for subsequent interpretation. 
+Continuously monitor the application with Application Performance Monitoring (APM) technology, such as Azure Application Insights. This technology can help you manage the performance and availability of the application, aggregating application level logs, and events for subsequent interpretation. 
 
 ## Key points
 > [!div class="checklist"]

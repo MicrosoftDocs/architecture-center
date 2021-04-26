@@ -6,16 +6,12 @@ ms.date: 12/02/2020
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
+categories:
+  - management-and-governance   
 ms.custom:
   - How are you handling user load?
   - article
 ---
-
-
-First, establish performance baselines for your application. Then, establish a regular cadence for running the tests. Run the test as part of a scheduled event or part of a continuous integration (CI) build pipeline. 
-
-- [**Establish performance baselines**]()&mdash;    Baselines help to determine the current efficiency state of your application and its supporting infrastructure. Baselines can provide good insights for improvements and determine if the application is meeting business goals. Baselines can be created for any application regardless of its maturity. No matter when you establish the baseline, measure performance against that baseline during continued development. When code and, or infrastructure changes, the effect on performance can be actively measured.
-
 
 # Performance testing
 
@@ -24,6 +20,11 @@ Performance testing helps to maintain systems properly and fix defects before pr
 To avoid experiencing poor performance, commit time and resources to testing system performance. Two subsets of performance testing, load testing and stress testing, can determine the upper (close to capacity limit) and maximum (point of failure) limit, respectively, of the application's capacity. By performing these tests, you can determine the necessary infrastructure to support the anticipated workloads.
 
 A best practice is to plan for a load buffer to accommodate random spikes without overloading the infrastructure. For example, if a normal system load is 100,000 requests per second, the infrastructure should support 100,000 requests at 80% of total capacity (i.e., 125,000 requests per second). If you anticipate that the application will continue to sustain 100,000 requests per second, and the current SKU (Stock Keeping Unit) introduces latency at 65,000 requests per second, you'll most likely need to upgrade your product to the next higher SKU. If there is a secondary region, you'll need to ensure that it also supports the higher SKU.
+
+## Establish baselines
+First, establish performance baselines for your application. Then, establish a regular cadence for running the tests. Run the test as part of a scheduled event or part of a continuous integration (CI) build pipeline. 
+
+Baselines help to determine the current efficiency state of your application and its supporting infrastructure. Baselines can provide good insights for improvements and determine if the application is meeting business goals. Baselines can be created for any application regardless of its maturity. No matter when you establish the baseline, measure performance against that baseline during continued development. When code and, or infrastructure changes, the effect on performance can be actively measured.
 
 ## Load testing
 
