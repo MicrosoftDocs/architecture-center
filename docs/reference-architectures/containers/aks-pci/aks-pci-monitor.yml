@@ -1,6 +1,6 @@
 ### YamlMime:Architecture
 metadata:
-  title: AKS baseline cluster for regulated workloads - Access controls
+  title: AKS baseline cluster for a PCI-DSS 3.2.1 workload - Monitoring operations
   description: Learn how to deploy a microservices architecture on Azure Kubernetes Service (AKS).
   author: PageWriter-MSFT
   ms.author: pnp
@@ -14,7 +14,7 @@ metadata:
     - microservices
     - reference-architecture
     - e2e-aks
-name: AKS baseline cluster for regulated workloads - Access controls
+name: AKS baseline cluster for a PCI-DSS 3.2.1 workload - Monitoring operations
 azureCategories:
   - containers
 summary: Learn how to deploy a microservices architecture on Azure Kubernetes Service (AKS).
@@ -27,4 +27,4 @@ products:
   - azure-pipelines
 thumbnailUrl: /azure/architecture/browse/thumbs/aks.png
 content: |
-   [!include[](aks-regulated-identity-content.md)]
+   [!include[](aks-regulated-monitor-content.md)]
