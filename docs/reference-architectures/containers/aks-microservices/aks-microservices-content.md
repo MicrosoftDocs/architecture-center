@@ -4,13 +4,6 @@ This reference architecture shows a microservices application deployed to Azure 
 
 *Download a [Visio file][visio-download] of this architecture.*
 
-## Reference deployment
-
-See the following content for a guided implementation of this architecture.
-
-> [!div class="nextstepaction"]
-> [AKS Microservices Reference Implementation](https://github.com/mspnp/microservices-reference-implementation)
-
 ## Components
 
 The architecture consists of the following components.
@@ -278,8 +271,8 @@ For Azure Monitor Log Analytics, you are charged for data ingestion and retentio
 
 To deploy the reference implementation for this architecture, follow the steps in the [GitHub repo][ri-deploy].
 
-[arm-template]: /azure/azure-resource-manager/resource-group-overview#resource-groups
-[az-devops]: /azure/virtual-machines/windows/infrastructure-automation#azure-devops-services
+> [!div class="nextstepaction"]
+> [AKS Microservices Reference Implementation](https://github.com/mspnp/microservices-reference-implementation)
 
 ## Next steps
 

@@ -1,17 +1,8 @@
 This reference architecture is a set of best practices for building, deploying, and running microservices applications in [Azure Kubernetes Service (AKS)](/azure/aks/). Kubernetes is an open-source system that automates deploying, scaling, and managing containerized applications. Microservices architectures build applications from small, autonomous services and are well suited to be run in a Kubernetes clusters.
 
-This architecture builds on the [AKS Baseline architecture](https://github.com/mspnp/aks-secure-baseline), which is Microsoft's recommended starting point for AKS infrastructure. The AKS baseline foundation provides features like Azure Active Directory (Azure AD) pod identity, ingress and egress restrictions, resource limits, and other secure AKS infrastructure configurations.
-
-This reference architecture and the companion reference implementaton [AKS Fabrikam Drone Delivery](https://github.com/mspnp/aks-fabrikam-dronedelivery) deliver a secure, scalable microservice based solution that incorporates well-known Kubernetes practices. If you would prefer to start with a more basic microservices example on AKS, see [Microservices architecture on AKS](./aks-microservices.yml)
+This architecture builds on the [AKS Baseline architecture](https://github.com/mspnp/aks-secure-baseline), which is Microsoft's recommended starting point for AKS infrastructure. The AKS baseline foundation provides features like Azure Active Directory (Azure AD) pod identity, ingress and egress restrictions, resource limits, and other secure AKS infrastructure configurations. If you would prefer to start with a more basic microservices example on AKS, see [Microservices architecture on AKS](./aks-microservices.yml)
 
 ![Network diagram showing the hub-spoke network with two peered virtual networks, and the Azure resources this implementation uses.](images/aks-production-deployment.png)
-
-## Reference deployment
-
-See the following content for a guided implementation of this architecture.
-
-> [!div class="nextstepaction"]
-> [AKS Advanced Microservices Reference Implementation](https://github.com/mspnp/aks-fabrikam-dronedelivery)
 
 ### Components
 
@@ -283,11 +274,14 @@ The following diagram shows an example of the application dependency map that Ap
 
 - To estimate the cost of the required resources, see the [Container Services calculator](https://azure.microsoft.com/pricing/calculator/?service=kubernetes-service).
 
-## Deploy the solution
+## Reference deployment
 
 The [Fabrikam Drone Delivery Shipping App](https://github.com/mspnp/aks-fabrikam-dronedelivery) implements the architectural components and practices in this article. The AKS Fabrikam Drone Delivery implementation focuses on expanding the AKS Baseline infrastructure for advanced deployments. You can modify or interchange parts of the reference implementation to develop your own applications.
 
-To deploy the example reference implementation, follow the steps in the [AKS Fabrikam Drone Delivery](https://github.com/mspnp/aks-fabrikam-dronedelivery) GitHub repo.
+To deploy the example reference implementation, follow the steps in the AKS Fabrikam Drone Delivery GitHub repo.
+
+> [!div class="nextstepaction"]
+> [AKS Advanced Microservices Reference Implementation](https://github.com/mspnp/aks-fabrikam-dronedelivery)
 
 ## Next steps
 
