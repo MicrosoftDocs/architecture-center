@@ -17,7 +17,7 @@
             <li>12/16/2019</li>
             <li>2 min read</li>
         </ul>
-        <p class="card-content-description">Knowledge mining can help customer support teams quickly find the right answers for customer questions or assess customer sentiment at scale.</p>
+        <p class="card-content-description">Knowledge mining can help customer support teams quickly find answers to customer questions or assess customer sentiment at scale.</p>
         <div class="bottom-to-top-fade is-hidden-mobile"></div>
     </div>
 </article>
