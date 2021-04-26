@@ -4,11 +4,14 @@ This architecture builds on the [AKS Baseline architecture](https://github.com/m
 
 This reference architecture and the companion reference implementaton [AKS Fabrikam Drone Delivery](https://github.com/mspnp/aks-fabrikam-dronedelivery) deliver a secure, scalable microservice based solution that incorporates well-known Kubernetes practices. If you would prefer to start with a more basic microservices example on AKS, see [Microservices architecture on AKS](./aks-microservices.yml)
 
-## Architecture
-
-This architectural diagram details the microservice based application including distributed tracing, messaging, and storage.
-
 ![Network diagram showing the hub-spoke network with two peered virtual networks, and the Azure resources this implementation uses.](images/aks-production-deployment.png)
+
+## Reference deployment
+
+See the following content for a guided implementation of this architecture.
+
+> [!div class="nextstepaction"]
+> [AKS Advanced Microservices Reference Implementation](https://github.com/mspnp/aks-fabrikam-dronedelivery)
 
 ### Components
 
@@ -262,7 +265,7 @@ The following diagram shows an example of the application dependency map that Ap
 
 - An AKS pod authenticates itself by using either a *managed identity* stored in Azure AD, or an Azure AD service principal along with a client secret. Using a pod identity is preferable, because it doesn't require a client secret.
   
-  With managed identities, the executing process can easily get Azure Resource Manager OAuth 2.0 tokens on, there is no need for passwords or connection strings. In AKS, you can assign identities to individual pods by using [Azure Active Directory (Azure AD) pod identity](https://github.com/Azure/aad-pod-identity).
+  With managed identities, the executing process can easily get Azure Resource Manager OAuth 2.0 tokens, there is no need for passwords or connection strings. In AKS, you can assign identities to individual pods by using [Azure Active Directory (Azure AD) pod identity](https://github.com/Azure/aad-pod-identity).
   
   Each service in the microservice application should be assigned a unique pod identity, to facilitate least-privileged RBAC assignments. You should only assign identities to services that require them.
 
