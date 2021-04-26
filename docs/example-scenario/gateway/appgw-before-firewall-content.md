@@ -4,9 +4,9 @@ Different network appliances typically specialize in different aspects of the ne
 
 ![Overall diagram](./images/appgwB4azfw_flow.png)
 
-In this design, traffic is encrypted with SSL at all times. The packets sent from the client encrypted with SSL will arrive first at the Azure Application Gateway with Web Firewall functionality enabled. It will decrypt the packets and inspect them searching for web application threats. Should the session be allowed, it will be encrypted again and sent over the Azure Firewall. The Azure Firewall will decrypt traffic (TLS Inspection) apply its own security checks, and if successful, it will finally forward the packets to their final destination in the Virtual Network (in the diagram represented as a Virtual Machine).
+In this design, traffic is encrypted with SSL at all times. The packets sent from the client encrypted with SSL will arrive first at the Azure Application Gateway with Web Firewall functionality enabled. It will decrypt the packets and inspect them searching for web application threats. Should the session be allowed, it will be encrypted again and sent over the Azure Firewall. The Azure Firewall will decrypt traffic ([TLS Inspection][azfw_tls]), and validate that the packet is legitimate with its [Intrusion Detection and Protection][azfw_idps] features. it will finally forward the packets to their final destination in the Virtual Network (in the diagram represented as a Virtual Machine).
 
-This design allows to have multiple inspection engines making sure that the traffic is legitimate: the Web Application Firewall will prevent attacks at the web layer, such as SQL Code Injection or Cross Site Scripting, and the Azure Firewall will apply its more generic Intrusion Detection and Prevention rules, for example to detect malicious files uploaded to the web application.
+This design allows to have multiple inspection engines making sure that the traffic is legitimate: the Web Application Firewall will prevent attacks at the web layer described by the [OWASP Core Rule Set][appgw_crs], such as SQL Code Injection or Cross Site Scripting, and the Azure Firewall will apply its more generic Intrusion Detection and Prevention rules, for example to detect malicious files uploaded to the web application.
 
 ## Azure Firewall Premium and name resolution
 
@@ -15,7 +15,7 @@ The Azure Firewall Premium will use its Intrusion Detection and Prevention inspe
 HTTP Host headers typically do not contain IP addresses but names, since they need to match with the digital certificate installed in the server. As a consequence, Azure Firewall Premium needs to be able to resolve the name of the Host header to an IP address via DNS (Domain Name Service):
 
 - If using a traditional hub and spoke architecture, the easiest way to do this is configuring a DNS private zone linked to the Virtual Network where the Azure Firewall Premium is deployed, and making sure that an A record exists for the value that the Azure Application Gateway uses both for the health checks and for the real traffic.
-- If using Virtual WAN secured hubs, you cannot associate a DNS private zone to the secure hub where the Azure Firewall is deployed. As a consequence, you need to configure the Azure Firewall to use custom DNS servers that you would deploy in a Shared Services Virtual Network connected to Virtual WAN. You could then associate a DNS private zone to that Shared Services VNet, so that the DNS servers are able to resolve the name that the Application Gateway uses in the HTTP Host header.
+- If using Virtual WAN secured hubs, you cannot associate a DNS private zone to the secure hub where the Azure Firewall is deployed. As a consequence, you need to configure the [Azure Firewall DNS Settings][azfw_dns] to use custom DNS servers that you would deploy in a Shared Services Virtual Network, connected to Virtual WAN. You could then associate a DNS private zone to that Shared Services VNet, so that the DNS servers are able to resolve the name that the Application Gateway uses in the HTTP Host header.
 
 > [!NOTE]
 > Since the Azure Application Gateway does not support including a port number in the HTTP Host header, the Azure Firewall will always assume the default HTTPS TCP Port (443). Hence, non-standard TCP ports other than 443 are not supported in the connection between the Azure Application Gateway and the web server.
@@ -37,7 +37,8 @@ The following diagram shows the different SSL sessions and certificates at play:
 In hub and spoke design, shared network components are typically deployed in the hub VNet, while application-specific components are located in the spokes. While it is pretty common considering the Azure Firewall as a shared resource, it is not so obvious whether Web Application Firewalls are similarly shared network devices, or on the contrary application-specific components. The overall recommendation is treating Azure Application Gateway as an application device, and hence deploy it in a spoke VNet, out of these reasons:
 
 - Troubleshooting Web Application Firewall alerts typically requires in-depth knowledge of the application in order to decide whether the messages triggering those alarms are legitimate or not.
-- Treating the Azure Application Gateway as a shared resource could lead to exhausting some of its maximum limits
+- Treating the Azure Application Gateway as a shared resource could lead to exhausting some of the [Azure Application Gateway Limits][appgw_limits]
+- Having applications managed by different teams leveraging the same Azure Application Gateway might create some Role-Based Access Control challenges, since each of those developer teams would have access to the whole configuration of the Azure Application Gateway
 
 The following diagram describes the connection flow for a connection coming from the public Internet, with the Azure Application Gateway deployed into a spoke Virtual Network:
 
@@ -60,3 +61,6 @@ By having different appliances such as a Web Application Firewall and a Next-Gen
 [azfw_certs]: https://docs.microsoft.com/azure/firewall/premium-certificates
 [appgw_limits]: https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#application-gateway-limits
 [azfw_limits]: https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-firewall-limits
+[azfw_tls]: https://docs.microsoft.com/azure/firewall/premium-features#tls-inspection
+[azfw_idps]: https://docs.microsoft.com/azure/firewall/premium-features#idps
+[appgw_crs]: https://docs.microsoft.com/azure/web-application-firewall/ag/application-gateway-crs-rulegroups-rules
