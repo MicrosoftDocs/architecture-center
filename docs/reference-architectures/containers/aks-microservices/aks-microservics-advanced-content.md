@@ -1,12 +1,10 @@
-
-This reference architecture is a set of best practices for building, deploying, and running microservices applications in [Azure Kubernetes Service (AKS)](/azure/aks/). Kubernetes <nepeters - update this sentence> is an open-source system that automates deploying, scaling, and managing containerized applications. Microservices architectures build applications from small, autonomous services and are well suited to be run in a Kubernetes clusters.
+This reference architecture is a set of best practices for building, deploying, and running microservices applications in [Azure Kubernetes Service (AKS)](/azure/aks/). Kubernetes is an open-source system that automates deploying, scaling, and managing containerized applications. Microservices architectures build applications from small, autonomous services and are well suited to be run in a Kubernetes clusters.
 
 This architecture builds on the [AKS Baseline architecture](https://github.com/mspnp/aks-secure-baseline), which is Microsoft's recommended starting point for AKS infrastructure. The AKS baseline foundation provides features like Azure Active Directory (Azure AD) pod identity, ingress and egress restrictions, resource limits, and other secure AKS infrastructure configurations.
 
-<nepeters - remove this paragraph?>
-Another article, [Microservices architecture on AKS](./aks-microservices.yml), and its companion [Microservices Reference Implementation](https://github.com/mspnp/microservices-reference-implementation) provide a starting configuration for basic AKS microservices deployments. That article focuses on the infrastructure and DevOps considerations of running a microservices architecture on AKS. That basic implementation doesn't cover some native Kubernetes features like the Horizontal Pod Autoscaler (HPA).
-
 This reference architecture and the companion reference implementaton [AKS Fabrikam Drone Delivery](https://github.com/mspnp/aks-fabrikam-dronedelivery) deliver a secure, scalable microservice based solution that incorporates well-known Kubernetes practices.
+
+If you would prefer to start with a more basic microservices example on AKS, see [Microservices architecture on AKS](./aks-microservices.yml)
 
 ## Architecture
 
@@ -142,6 +140,8 @@ For more information about resource quotas, see:
 
 Kubernetes supports *autoscaling* to increase the number of pods allocated to a deployment, or increase the nodes in the cluster to increase the total compute resources available. Autoscaling is a self-correcting autonomous feedback system. Although you can scale pods and nodes manually, autoscaling minimizes the chances of services becoming resource starved at high loads. An autoscaling strategy must take both pods and nodes into account.
 
+#### Cluster autoscaling
+
 The *cluster autoscaler* (CA) scales the number of nodes. If pods can't be scheduled because of resource constraints, the cluster autoscaler provisions more nodes. You define a minimum number of nodes to keep the AKS cluster and your workloads operational, and a maximum number of nodes for heavy traffic. The CA checks every few seconds for pending pods or empty nodes, and scales the AKS cluster appropriately.
 
 The following example shows the CA configuration from the ARM template:
@@ -172,6 +172,10 @@ The following lines in the ARM template set example minimum and maximum nodes fo
 "maxCount": 5,
 ```
 
+You can't change the VM size after you create the cluster, so you should do some initial capacity planning to choose an appropriate VM size for the agent nodes when you create the cluster.
+
+#### Pod autoscaling
+
 The *Horizontal Pod Autoscaler (HPA)* scales pods based on observed CPU, memory, or custom metrics. To configure horizontal pod scaling, you specify target metrics and the minimum and maximum number of replicas in the Kubernetes deployment pod spec. Load test your services to determine these numbers.
 
 CA and HPA work well together, so enable both autoscaler options in your AKS cluster. HPA scales the application, while CA scales the infrastructure when it detects there is no room for the application to keep scaling.
@@ -199,6 +203,11 @@ spec:
 ```
 
 HPA looks at actual resources consumed or other metrics from running pods, but the CA provisions nodes for pods that aren't scheduled yet. Therefore, CA looks at the requested resources, as specified in the pod spec. Use load testing to fine-tune these values.
+
+A side-effect of autoscaling is that pods may be created or evicted more frequently, as scale-out and scale-in events happen. To mitigate the effects of this:
+
+- Use readiness probes to let Kubernetes know when a new pod is ready to accept traffic.
+- Use pod disruption budgets to limit how many pods can be evicted from a service at a time.
 
 ### Health probes
 
@@ -258,9 +267,11 @@ The following diagram shows an example of the application dependency map that Ap
 
 - An AKS pod authenticates itself by using either a *managed identity* stored in Azure AD, or an Azure AD service principal along with a client secret. Using a pod identity is preferable, because it doesn't require a client secret.
   
-  With managed identities, the executing process can easily get Azure Resource Manager OAuth 2.0 tokens on the fly, so there's no need for passwords or connection strings. In AKS, you can assign identities to individual pods by using [Azure Active Directory (Azure AD) pod identity](https://github.com/Azure/aad-pod-identity).
+  With managed identities, the executing process can easily get Azure Resource Manager OAuth 2.0 tokens on, there is no need for passwords or connection strings. In AKS, you can assign identities to individual pods by using [Azure Active Directory (Azure AD) pod identity](https://github.com/Azure/aad-pod-identity).
   
   Each service in the microservice application should be assigned a unique pod identity, to facilitate least-privileged RBAC assignments. You should only assign identities to services that require them.
+
+- In cases where an application component requires Kubernetes API access, ensure that application pods are configured to use a services account with appropriately scoped API access. For more information on configuring and managing Kubernetes services account, see [Managing Kubernetes Service Accounts](https://kubernetes.io/docs/reference/access-authn-authz/service-accounts-admin/).
   
 - Not all Azure services support data plane authentication using Azure AD. To store credentials or application secrets for those services, for third-party services, or for API keys, use Azure Key Vault. Key Vault provides centralized management, access control, encryption at rest, and auditing of all keys and secrets.
   

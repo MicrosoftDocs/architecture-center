@@ -122,32 +122,6 @@ For a microservices architecture, considering organizing the microservices into 
 
 Place utility services into their own separate namespace. For example, you might deploy Elasticsearch or Prometheus for cluster monitoring, or Tiller for Helm.
 
-## Autoscaling
-
-Kubernetes supports scale-out at two levels:
-
-- Scale the number of pods allocated to a deployment.
-- Scale the nodes in the cluster, to increase the total compute resources available to the cluster.
-
-Although you can scale out pods and nodes manually, we recommend using autoscaling, to minimize the chance that services will become resource starved under high load. An autoscaling strategy must take both pods and nodes into account. If you just scale out the pods, eventually you will reach the resource limits of the nodes.
-
-### Pod autoscaling
-
-The Horizontal Pod Autoscaler (HPA) scales pods based on observed CPU, memory, or custom metrics. To configure horizontal pod scaling, you specify a target metric (for example, 70% of CPU), and the minimum and maximum number of replicas. You should load test your services to derive these numbers.
-
-A side-effect of autoscaling is that pods may be created or evicted more frequently, as scale-out and scale-in events happen. To mitigate the effects of this:
-
-- Use readiness probes to let Kubernetes know when a new pod is ready to accept traffic.
-- Use pod disruption budgets to limit how many pods can be evicted from a service at a time.
-
-### Cluster autoscaling
-
-The cluster autoscaler scales the number of nodes. If pods can't be scheduled because of resource constraints, the cluster autoscaler will provision more nodes.
-
-Whereas HPA looks at actual resources consumed or other metrics from running pods, the cluster autoscaler is provisioning nodes for pods that aren't scheduled yet. Therefore, it looks at the requested resources, as specified in the Kubernetes pod spec for a deployment. Use load testing to fine-tune these values.
-
-You can't change the VM size after you create the cluster, so you should do some initial capacity planning to choose an appropriate VM size for the agent nodes when you create the cluster.
-
 ## Health probes
 
 Kubernetes defines two types of health probe that a pod can expose:
@@ -292,8 +266,7 @@ You are charged only for the number of configured load-balancing and outbound ru
 
 See [Azure Load Balancer Pricing][az-lb-pricing] for more information.
 
-
-### Azure DevOps Services
+### Azure Pipelines
 
 This reference architecture only uses Azure Pipelines. Azure offers the Azure Pipeline as an individual Service. You are allowed a free Microsoft-hosted job with 1,800 minutes per month for CI/CD and 1 self-hosted job with unlimited minutes per month, extra jobs have charges. For more information, [see Azure DevOps Services Pricing](https://azure.microsoft.com/pricing/details/devops/azure-devops-services).
 
@@ -310,6 +283,7 @@ To deploy the reference implementation for this architecture, follow the steps i
 
 ## Next steps
 
+- To work through a more advanced microservices example, see [Advanced Azure Kubernetes Service (AKS) microservices architecture](./aks-microservices-advanced.yml)
 - To learn about monitoring this architecture, see [Monitoring a microservices architecture in Azure Kubernetes Service (AKS)](../../../microservices/logging-monitoring.md).
 - To learn how we measured the performance of this application, see [Performance tuning scenario: Distributed business transactions](../../../performance/distributed-transaction.md).
 
