@@ -16,7 +16,7 @@ metadata:
     - internal-intro
     - ai-machine-learning
     - aml-project-improvement
-name: Image and natural language processing with Azure Cognitive Search
+name: AI enrichment using image and natural language processing in Azure Cognitive Search
 azureCategories:
   - ai-machine-learning
 summary: Learn how to use Azure Cognitive Search pre-built skills and custom extensibility to enrich large unstructured data sets into indexable structured data.
