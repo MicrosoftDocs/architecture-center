@@ -1,6 +1,6 @@
 This reference architecture is a set of best practices for building, deploying, and running microservices applications in [Azure Kubernetes Service (AKS)](/azure/aks/). Kubernetes is an open-source system that automates deploying, scaling, and managing containerized applications. Microservices architectures build applications from small, autonomous services and are well suited to be run in a Kubernetes cluster.
 
-This architecture builds on the [AKS Baseline architecture](https://github.com/mspnp/aks-secure-baseline), Microsoft's recommended starting point for AKS infrastructure. The AKS baseline foundation provides features like Azure Active Directory (Azure AD) pod identity, ingress and egress restrictions, resource limits, and other secure AKS infrastructure configurations. 
+This architecture builds on the [AKS Baseline architecture](https://aka.ms/architecture/aks-baseline), Microsoft's recommended starting point for AKS infrastructure. The AKS baseline foundation provides features like Azure Active Directory (Azure AD) pod identity, ingress and egress restrictions, resource limits, and other secure AKS infrastructure configurations. 
 
 If you would prefer to start with a more basic microservices example on AKS, see [Microservices architecture on AKS](./aks-microservices.yml)
 
