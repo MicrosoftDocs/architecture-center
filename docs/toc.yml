@@ -721,7 +721,7 @@ items:
                 href: solution-ideas/articles/business-process-management.yml
               - name: Content Research
                 href: solution-ideas/articles/content-research.yml
-              - name: Contract Management
+              - name: Contract management
                 href: solution-ideas/articles/contract-management.yml
               - name: Customer churn prediction
                 href: solution-ideas/articles/customer-churn-prediction.yml
