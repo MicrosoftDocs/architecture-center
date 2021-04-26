@@ -27,4 +27,4 @@ products:
   - azure-pipelines
 thumbnailUrl: /azure/architecture/browse/thumbs/aks.png
 content: |
-   [!include[](aks-regulated-policy-content.md)]
+   [!include[](aks-pci-policy-content.md)]
