@@ -301,6 +301,8 @@ items:
             items:
               - name: Checklist
                 href: framework/scalability/design-checklist.md
+              - name: Distributed architecture challenges
+                href: framework/scalability/monitor-distributed.md                
               - name: Application design
                 href: framework/scalability/design-apps.md
               - name: Application efficiency
@@ -321,8 +323,6 @@ items:
             items: 
               - name: Checklist
                 href: framework/scalability/monitor.md
-              - name: Monitoring challenges
-                href: framework/scalability/monitor-distributed.md
               - name: Application profiling
                 href: framework/scalability/monitor-application.md
               - name: Infrastructure metrics and logs
