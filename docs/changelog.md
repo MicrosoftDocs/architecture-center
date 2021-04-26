@@ -2,7 +2,7 @@
 title: What's New in Azure Architecture Center
 description: New and updated articles in Azure Architecture Center
 author: doodlemania2
-ms.date: 04/19/2021
+ms.date: 04/26/2021
 ms.topic: article
 ms.service: architecture-center
 ---
@@ -27,6 +27,9 @@ New and updated articles in Azure Architecture Center
 
 ### New Articles
 
+- [Health data consortium on Azure](./example-scenario/data/azure-health-data-consortium.yml)
+- [Multi-cloud blockchain distributed ledger technology (DLT)](./example-scenario/blockchain/multi-cloud-blockchain.yml)
+- [Mining equipment monitoring](./solution-ideas/articles/monitor-mining-equipment.yml)
 - [Solutions for finance industry](./industries/finance.md)
 - [Solutions for healthcare industry](./industries/healthcare.md)
 - [Solutions for retail industry](./industries/retail.md)
@@ -42,6 +45,14 @@ New and updated articles in Azure Architecture Center
 
 ### Updated Articles
 
+- [Knowledge mining in contract management](./solution-ideas/articles/contract-management.yml)  ([#83c1d852b](https://github.com/MicrosoftDocs/architecture-center/commit/83c1d852b))
+- [Knowledge mining in business process management](./solution-ideas/articles/business-process-management.yml)  ([#6cd92030c](https://github.com/MicrosoftDocs/architecture-center/commit/6cd92030c))
+- [Azure Automation in a hybrid environment](./hybrid/azure-automation-hybrid.yml)  ([#4b61262db](https://github.com/MicrosoftDocs/architecture-center/commit/4b61262db))
+- [Azure Automation Update Management](./hybrid/azure-update-mgmt.yml)  ([#4b61262db](https://github.com/MicrosoftDocs/architecture-center/commit/4b61262db))
+- [Manage hybrid Azure workloads using Windows Admin Center](./hybrid/hybrid-server-os-mgmt.yml)  ([#4b61262db](https://github.com/MicrosoftDocs/architecture-center/commit/4b61262db))
+- [Run SAP NetWeaver in Windows on Azure](./reference-architectures/sap/sap-netweaver.yml)  ([#65a4eacc8](https://github.com/MicrosoftDocs/architecture-center/commit/65a4eacc8))
+- [Analytics end-to-end with Azure Synapse](./example-scenario/dataplate2e/data-platform-end-to-end.yml)  ([#f534c9bf5](https://github.com/MicrosoftDocs/architecture-center/commit/f534c9bf5))
+- [Building solutions for high availability using Availability Zones](./high-availability/building-solutions-for-high-availability.md)  ([#2c02def10](https://github.com/MicrosoftDocs/architecture-center/commit/2c02def10))
 - [AI at the edge with Azure Stack Hub - disconnected](./solution-ideas/articles/ai-at-the-edge-disconnected.yml)  ([#e8afd89e7](https://github.com/MicrosoftDocs/architecture-center/commit/e8afd89e7))
 - [Disaster recovery for enterprise bots](./solution-ideas/articles/enterprise-chatbot-disaster-recovery.yml)  ([#3a744cf44](https://github.com/MicrosoftDocs/architecture-center/commit/3a744cf44))
 - [Create a FAQ bot from existing data](./solution-ideas/articles/faq-chatbot-with-data-champion-model.yml)  ([#f94089281](https://github.com/MicrosoftDocs/architecture-center/commit/f94089281))

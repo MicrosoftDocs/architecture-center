@@ -290,6 +290,19 @@ Azure Automation can process up to 1,000 computers per update deployment. If you
 - An Azure Log Analytics workspace might generate more costs related to the amount of log data that's stored in Azure Log Analytics. The pricing is based on consumption, and the costs are associated with data ingestion and data retention. For ingesting data into Azure Log Analytics, use the capacity reservation or pay-as-you-go model that includes 5 gigabytes (GB) free a month for each billing account. Data retention for the first 31 days is free of charge.
 - Use the Azure pricing calculator to estimate costs. For more information about Log Analytics pricing models, refer to [Azure Monitor pricing][40].
 
+## Next steps
+
+More about Azure Automation:
+
+- [Hybrid Runbook Worker overview](/azure/automation/automation-hybrid-runbook-worker)
+- [Create an Azure Automation account](/azure/automation/automation-quickstart-create-account)
+- [Pre-requisites: Azure Automation network configuration details](/azure/automation/automation-network-configuration)
+- [Azure Automation Update Management](/azure/architecture/hybrid/azure-update-mgmt)
+- [Overview of Log Analytics in Azure Monitor](/azure/azure-monitor/logs/log-analytics-overview)
+- [Overview of VM insights](/azure/azure-monitor/vm/vminsights-overview)
+- [Azure Arc Overview](/azure/azure-arc/overview)
+- [What is Azure Arc enabled servers?](/azure/azure-arc/servers/overview)
+
 [architectural-diagram]: ./images/azure-update-mgmt.png
 [architectural-diagram-visio-source]: https://arch-center.azureedge.net/azure-update-mgmt.vsdx
 [1]: /azure/azure-monitor/platform/design-logs-deployment
