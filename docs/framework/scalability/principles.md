@@ -46,16 +46,16 @@ Plan for  fluctuation in expected load that can occur because of world events. T
     - SLAs when determining the services to use in the design. Also, the SLAs of those services.
     - Cost analysis to determine the how much improvement will be realized in the application if costs are increased. Evaluate the cost is worth the investment. 
 
-# Next section
+## Next section
 Use this checklist to review your application architecture from a performance design standpoint.  
 
 > [!div class="nextstepaction"] 
 > [Design checklist](design-checklist.md)
 
 ## Related links
-- Performance efficiency impacts the entire architecture spectrum. Bridge gaps in you knowledge of Azure by reviewing the five pillars of the [Microsoft Azure Well-Architected Framework](index.md).
+- Performance efficiency impacts the entire architecture spectrum. Bridge gaps in you knowledge of Azure by reviewing the five pillars of the [Microsoft Azure Well-Architected Framework](../index.md).
 
-- To assess your workload using pillars, see the [Microsoft Azure Well-Architected Review](https://docs.microsoft.com/en-us/assessments/?mode=pre-assessment&session=5c2bcc40-1c41-47b1-8729-1fba49dbe408).
+- To assess your workload using pillars, see the [Microsoft Azure Well-Architected Review](https://docs.microsoft.com/assessments/?mode=pre-assessment&session=5c2bcc40-1c41-47b1-8729-1fba49dbe408).
 
 
 

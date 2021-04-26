@@ -302,7 +302,7 @@ items:
               - name: Checklist
                 href: framework/scalability/design-checklist.md
               - name: Distributed architecture challenges
-                href: framework/scalability/monitor-distributed.md                
+                href: framework/scalability/design-distributed.md                
               - name: Application design
                 href: framework/scalability/design-apps.md
               - name: Application efficiency
