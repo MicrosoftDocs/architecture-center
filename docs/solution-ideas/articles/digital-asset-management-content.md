@@ -11,7 +11,7 @@ Given the amount of unstructured data created daily, many companies struggle to 
 
 There are three steps in knowledge mining: ingest, enrich, and explore.
 
-![Architecture diagram: knowledge mining used in digital asset management to make assets discoverable.](../media/digital-asset-management.png)
+![Architecture diagram: knowledge mining used in digital asset management to make assets discoverable.](../media/knowledge-mining-digital-asset-management.png)
 
 - **Ingest**
 
@@ -27,16 +27,16 @@ There are three steps in knowledge mining: ingest, enrich, and explore.
 
 ## Components
 
-Key technologies used to implement tools for technical content review and research
+Key technologies used to implement tools for technical content review and research:
 
 - [Azure Cognitive Search](/azure/search/)
-- [Microsoft Computer Vision API](https://azure.microsoft.com/services/cognitive-services/computer-vision/)
-- [Microsoft Face API](https://azure.microsoft.com/services/cognitive-services/face/)
-- [Web API custom skill interface](/azure/search/cognitive-search-custom-skill-interface)
+- [Cognitive Services Computer Vision](https://azure.microsoft.com/services/cognitive-services/computer-vision/)
+- [Cognitive Services Face](https://azure.microsoft.com/services/cognitive-services/face/)
+- [Cognitive Search custom skill interface](/azure/search/cognitive-search-custom-skill-interface)
 
 ## Next steps
 
-- Read an architecture overview on [artificial intelligence (AI)](../../data-guide/big-data/ai-overview.md),
+- Read an architecture overview on [artificial intelligence (AI)](../../data-guide/big-data/ai-overview.md).
 
 - Use the [Knowledge Mining Solution Accelerator](/samples/azure-samples/azure-search-knowledge-mining/azure-search-knowledge-mining/) to build an initial knowledge mining prototype with Azure Cognitive Search.
 
