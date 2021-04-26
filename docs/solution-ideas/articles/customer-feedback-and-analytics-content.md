@@ -5,7 +5,7 @@
 
 For many companies, customer support is costly and doesn't always operate efficiently. [Knowledge mining](https://azure.microsoft.com/solutions/knowledge-mining/) can help customer support teams quickly find the best answers for customer questions or assess customer sentiment at scale.
 
-Companies looking to enhance customer experience can use knowledge mining to reveal insights about their customers' experience. For example, aggregated and analyzed data enables companies to discover trends about what customers are saying and use that information to improve products and services.
+Azure Cognitive Search is a key part of knowledge mining solutions. Cognitive Search creates a search index over aggregated and analyzed content. With queries using the search index, companies can discover trends about what customers are saying and use that information to improve products and services.
 
 ## Data flow for knowledge mining
 
