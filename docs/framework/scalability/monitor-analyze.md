@@ -8,6 +8,8 @@ ms.service: architecture-center
 ms.subservice: well-architected
 products:
   - azure-monitor
+categories:
+  - management-and-governance  
 ms.custom:
   - fasttrack-edit
 ---
@@ -61,7 +63,7 @@ Clear retention times should be defined to allow for suitable historic analysis 
 
 ## Cost considerations
 
-While correlating data is recommended, there are cost implications to storing long-term data. For example, Azure Monitor is capable of collecting, indexing, and storing massive amounts of data in Log Analytics workspace. The cost of a Log Analytics workspace based on amount of storage, retention period, and the plan. For more information about how you can balance cost, see [Manage usage and costs with Azure Monitor Logs](azure/azure-monitor/logs/manage-cost-storage).
+While correlating data is recommended, there are cost implications to storing long-term data. For example, Azure Monitor is capable of collecting, indexing, and storing massive amounts of data in Log Analytics workspace. The cost of a Log Analytics workspace based on amount of storage, retention period, and the plan. For more information about how you can balance cost, see [Manage usage and costs with Azure Monitor Logs](/azure/azure-monitor/logs/manage-cost-storage).
 
 If you are using Application Insights to collect instrumentation data, there are cost considerations. For more information, see [Manage usage and costs for Application Insights](/azure/azure-monitor/app/pricing).
 
@@ -73,7 +75,7 @@ If you are using Application Insights to collect instrumentation data, there are
 -  [Application Map](/azure/azure-monitor/app/app-map?tabs=net)
 - [Azure Policy](/azure/governance/policy/overview)
 - [Azure Data Explorer cluster](https://azure.microsoft.com/services/data-explorer/) 
-- [Manage usage and costs with Azure Monitor Logs](azure/azure-monitor//logs/manage-cost-storage)
+- [Manage usage and costs with Azure Monitor Logs](/azure/azure-monitor//logs/manage-cost-storage)
 - [Manage usage and costs for Application Insights](/azure/azure-monitor//app/pricing)
 > [Back to the main article](monitor.md)
 

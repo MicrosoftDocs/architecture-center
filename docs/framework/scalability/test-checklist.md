@@ -7,6 +7,8 @@ ms.date: 01/08/2021
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
+categories:
+  - management-and-governance
 ms.custom:
   - testing checklist
 ---
