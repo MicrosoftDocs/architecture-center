@@ -1,9 +1,9 @@
 
 
 
-Large, unstructured datasets like the [JFK Files](https://www.archives.gov/research/jfk/2017-release), which contain over 34,000 pages of documents about the CIA investigation of the 1963 JFK assassination, include typewritten and handwritten notes, photos and diagrams, and other unstructured data that standard search solutions can't parse.
+Large, unstructured datasets like the [JFK Files](https://www.archives.gov/research/jfk/2017-release), which contains over 34,000 pages of documents about the CIA investigation of the 1963 JFK assassination, include typewritten and handwritten notes, photos and diagrams, and other unstructured data that standard search solutions can't parse.
 
-*AI enrichment* in Azure Cognitive Search can extract and enhance searchable, indexable text from images, blobs, and other unstructured data sources like the JFK Files by using pre-trained machine learning skillsets from the Cognitive Services [Computer Vision](/azure/cognitive-services/computer-vision/home) and [Text Analytics](/azure/cognitive-services/text-analytics/overview) APIs. You can also create and attach [custom skills](/azure/search/cognitive-search-custom-skill-interface) to add special processing for domain-specific data like CIA Cryptonyms. Azure Cognitive Search can then index and search the context.
+*AI enrichment* in Azure Cognitive Search can extract and enhance searchable, indexable text from images, blobs, and other unstructured data sources like the JFK Files by using pre-trained machine learning skill sets from the Cognitive Services [Computer Vision](/azure/cognitive-services/computer-vision/home) and [Text Analytics](/azure/cognitive-services/text-analytics/overview) APIs. You can also create and attach [custom skills](/azure/search/cognitive-search-custom-skill-interface) to add special processing for domain-specific data like CIA Cryptonyms. Azure Cognitive Search can then index and search the context.
 
 - *Image processing skills* like [Optical Character Recognition (OCR)](/azure/search/cognitive-search-skill-ocr), [Read](/azure/cognitive-services/computer-vision/concept-recognizing-text#read-api), and [image analysis](/azure/search/cognitive-search-skill-image-analysis) include object and face detection, tag and caption generation, and celebrity and landmark identification. These skills create text representations of image content, which are searchable using the query capabilities of Azure Cognitive Search.
 
@@ -19,16 +19,16 @@ This example solution uses Azure Cognitive Search AI enrichment to extract meani
 - Produce better outcomes than standard PDF text extraction for PDFs with combined image and text.
 - Create new information from inherently meaningful raw content or context that's hidden in larger unstructured or semi-structured documents.
 
-## Architecture
+## Architecture for creating structured data from unstructured data
 
-![Cognitive Search architecture to convert unstructured into structured data](../media/cognitive-search.png)
+![Cognitive Search architecture to convert unstructured into structured data](../media/cognitive-search-for-ai-enrichment.png)
 
 This diagram illustrates the process of passing unstructured data through the Cognitive Search skills pipeline to produce structured, indexable data.
 
 1. Blob storage provides unstructured document and image data to Cognitive Search.
-1. Cognitive Search applies pre-built cognitive skillsets to the data, including OCR, text and handwriting recognition, image analysis, entity recognition, and full-text search.
+1. Cognitive Search applies pre-built cognitive skill sets to the data, including OCR, text and handwriting recognition, image analysis, entity recognition, and full-text search.
 1. The Cognitive Search extensibility mechanism uses an Azure Function to apply the CIA Cryptonyms custom skill to the data.
-1. The pre-built and custom skillsets deliver structured knowledge that Azure Cognitive Search can index.
+1. The pre-built and custom skill sets deliver structured knowledge that Azure Cognitive Search can index.
 
 ## Components
 
