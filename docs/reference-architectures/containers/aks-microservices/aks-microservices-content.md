@@ -232,7 +232,7 @@ Additionally, you can integrate logs from [Container Monitoring solution in Azur
 
 This reference architecture provides an [Azure Resource Manager template][arm-template] for provisioning the cloud resources, and its dependencies. With the use of [Azure Resource Manager templates][arm-template] you can use [Azure DevOps Services][az-devops] to provision different environments in minutes, for example to replicate production scenarios. This allows you save cost and provision load testing environment only when needed.
 
-Consider following the workload isolation criteria to structure your ARM template, a workload is typically defined as an arbitrary unit of functionality; you could, for exmaple, have a separate template for the cluster and then other for the dependant services. Workload isolation enables DevOps to perform continuous integration and continuous delivery (CI/CD), since every workload is associated and managed by its corresponding DevOps team.
+Consider following the workload isolation criteria to structure your ARM template, a workload is typically defined as an arbitrary unit of functionality; you could, for example, have a separate template for the cluster and then other for the dependant services. Workload isolation enables DevOps to perform continuous integration and continuous delivery (CI/CD), since every workload is associated and managed by its corresponding DevOps team.
 
 ## Deployment (CI/CD) considerations
 
@@ -288,7 +288,7 @@ To deploy the reference implementation for this architecture, follow the steps i
 - To learn how we measured the performance of this application, see [Performance tuning scenario: Distributed business transactions](../../../performance/distributed-transaction.md).
 
 [ri]: https://github.com/mspnp/microservices-reference-implementation
-[ri-deploy]: https://github.com/mspnp/microservices-reference-implementation/blob/master/deployment.md
+[ri-deploy]: https://github.com/mspnp/microservices-reference-implementation/blob/main/deployment.md
 [visio-download]: https://arch-center.azureedge.net/aks-reference-architecture.vsdx
 [aaf-cost]: ../../../framework/cost/overview.md
 [azure-pricing-calculator]: https://azure.microsoft.com/pricing/calculator
