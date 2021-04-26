@@ -2,7 +2,7 @@
 metadata:
   title: Customer support and feedback analysis
   titleSuffix: Azure Solution Ideas
-  description: Knowledge mining can help customer support teams quickly find the right answers for customer questions or assess customer sentiment at scale.
+  description: Knowledge mining can help customer support teams quickly find answers to customer questions or assess customer sentiment at scale.
   author: doodlemania2
   ms.author: pracjain
   ms.date: 12/16/2019
@@ -19,7 +19,7 @@ metadata:
 name: Knowledge mining for customer support and feedback analysis
 azureCategories:
   - ai-machine-learning
-summary: Knowledge mining can help customer support teams quickly find the right answers for customer questions or assess customer sentiment at scale.
+summary: Knowledge mining can help customer support teams quickly find answers to customer questions or assess customer sentiment at scale.
 products:
   - azure-cognitive-search
   - azure-text-analytics
