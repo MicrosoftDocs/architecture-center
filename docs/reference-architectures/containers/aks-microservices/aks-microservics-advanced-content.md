@@ -2,13 +2,11 @@ This reference architecture is a set of best practices for building, deploying, 
 
 This architecture builds on the [AKS Baseline architecture](https://github.com/mspnp/aks-secure-baseline), which is Microsoft's recommended starting point for AKS infrastructure. The AKS baseline foundation provides features like Azure Active Directory (Azure AD) pod identity, ingress and egress restrictions, resource limits, and other secure AKS infrastructure configurations.
 
-This reference architecture and the companion reference implementaton [AKS Fabrikam Drone Delivery](https://github.com/mspnp/aks-fabrikam-dronedelivery) deliver a secure, scalable microservice based solution that incorporates well-known Kubernetes practices.
-
-If you would prefer to start with a more basic microservices example on AKS, see [Microservices architecture on AKS](./aks-microservices.yml)
+This reference architecture and the companion reference implementaton [AKS Fabrikam Drone Delivery](https://github.com/mspnp/aks-fabrikam-dronedelivery) deliver a secure, scalable microservice based solution that incorporates well-known Kubernetes practices. If you would prefer to start with a more basic microservices example on AKS, see [Microservices architecture on AKS](./aks-microservices.yml)
 
 ## Architecture
 
-This architectural diagram details the microservice based application including distributed tracing, messaging, and storage. <nepeters - wierd / dangling sentence> An important distinction from the AKS Baseline implementation is that this architecture uses the [Azure Application Gateway Ingress Controller (AGIC)](/azure/application-gateway/ingress-controller-overview) for ingress control.
+This architectural diagram details the microservice based application including distributed tracing, messaging, and storage.
 
 ![Network diagram showing the hub-spoke network with two peered virtual networks, and the Azure resources this implementation uses.](images/aks-production-deployment.png)
 
@@ -16,10 +14,9 @@ This architectural diagram details the microservice based application including 
 
 This architecture uses the following Azure components:
 
-<nepetes - re-write this sentence>
-- [Azure Kubernetes Service](https://azure.microsoft.com/services/kubernetes-service/) deploys a managed Kubernetes cluster and manages the Kubernetes API server, while application owners manage the agent nodes. A *kubelet* agent runs on each node to register the node with the API server and process orchestration requests.
+**[Azure Kubernetes Service](https://azure.microsoft.com/services/kubernetes-service/)** is an Azure offering that provides a managed Kubernetes cluster. When using AKS, the Kubernetes API server is fully managed by Azure. The Kubernetes nodes or node pools are accessible and can be managed by the cluster operator.
 
-  This AKS infrastructure features used in this architecture include:
+The AKS infrastructure features used in this architecture include:
 
   - [System and user node pool separation](/azure/aks/use-system-pools#system-and-user-node-pools)
   - [AKS-managed Azure AD for role-based access control (RBAC)](/azure/aks/managed-aad)
@@ -28,39 +25,37 @@ This architecture uses the following Azure components:
   - [Azure Container Networking Interface (CNI)](/azure/aks/configure-azure-cni)
   - [Azure Monitor for containers](/azure/azure-monitor/insights/container-insights-overview)
 
-- [Azure Virtual Networks](https://azure.microsoft.com/services/virtual-network/) are isolated and highly secure environments for running virtual machines (VMs) and applications. This reference architecture uses a peered hub-spoke virtual network topology. The hub virtual network holds the Azure firewall and Azure Bastion subnets. The spoke virtual network holds the AKS system and user nodepool subnets, and the Azure Application Gateway subnet. 
+**[Azure Virtual Networks](https://azure.microsoft.com/services/virtual-network/)** are isolated and highly secure environments for running virtual machines (VMs) and applications. This reference architecture uses a peered hub-spoke virtual network topology. The hub virtual network holds the Azure firewall and Azure Bastion subnets. The spoke virtual network holds the AKS system and user nodepool subnets, and the Azure Application Gateway subnet. 
 
-- [Azure Private Link](https://azure.microsoft.com/services/private-link/) allocates specific private IP addresses to access Container Registry and Key Vault from [Private Endpoints](/azure/private-link/private-endpoint-overview) within the AKS system and user nodepool subnet.
+**[Azure Private Link](https://azure.microsoft.com/services/private-link/)** allocates specific private IP addresses to access Container Registry and Key Vault from [Private Endpoints](/azure/private-link/private-endpoint-overview) within the AKS system and user nodepool subnet.
 
-- [Azure Application Gateway](https://azure.microsoft.com/services/application-gateway/) with web application firewall (WAF) exposes HTTP(S) routes to the AKS cluster, and load balances web traffic to the web application. This architecture uses [Azure Application Gateway Ingress Controller](https://github.com/Azure/application-gateway-kubernetes-ingress) (AGIC) as the Kubernetes ingress controller.
+**[Azure Application Gateway](https://azure.microsoft.com/services/application-gateway/)** with web application firewall (WAF) exposes HTTP(S) routes to the AKS cluster, and load balances web traffic to the web application. This architecture uses [Azure Application Gateway Ingress Controller](https://github.com/Azure/application-gateway-kubernetes-ingress) (AGIC) as the Kubernetes ingress controller.
 
-- [Azure Bastion](https://azure.microsoft.com/services/azure-bastion) provides secure remote desktop protocol (RDP) and secure shell (SSH) access to VMs in the virtual networks by using secure socket layer (SSL), without the need to expose the VMs through public IP addresses.
+**[Azure Bastion](https://azure.microsoft.com/services/azure-bastion)** provides secure remote desktop protocol (RDP) and secure shell (SSH) access to VMs in the virtual networks by using secure socket layer (SSL), without the need to expose the VMs through public IP addresses.
 
-- [Azure Firewall](https://azure.microsoft.com/services/azure-firewall/) network security service that protects all the Azure Virtual Network resources. The firewall allows only approved services and fully qualified domain names (FQDNs) as egress traffic.
-
-<nepeters - current position>
+**[Azure Firewall](https://azure.microsoft.com/services/azure-firewall/)** network security service that protects all the Azure Virtual Network resources. The firewall allows only approved services and fully qualified domain names (FQDNs) as egress traffic.
 
 External storage and other components:
 
-- [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) stores and manages security keys for AKS services.
+**[Azure Key Vault](https://azure.microsoft.com/services/key-vault/)** stores and manages security keys for AKS services.
 
-- [Azure Container Registry](https://azure.microsoft.com/services/container-registry/) stores private container images to deploy to the AKS cluster. AKS authenticates with Container Registry using its Azure AD managed identity. You can also use other container registries like Docker Hub.
+**[Azure Container Registry](https://azure.microsoft.com/services/container-registry/)** stores private container images to deploy to the AKS cluster. AKS authenticates with Container Registry using its Azure AD managed identity. You can also use other container registries like Docker Hub.
 
-- [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) stores data using the open-source [Azure Cosmos DB API for MongoDB](/azure/cosmos-db/mongodb-introduction). Microservices are typically stateless and write their state to external data stores. Azure Cosmos DB is a NoSQL database with open-source APIs for MongoDB and Cassandra.
+**[Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/)** stores data using the open-source [Azure Cosmos DB API for MongoDB](/azure/cosmos-db/mongodb-introduction). Microservices are typically stateless and write their state to external data stores. Azure Cosmos DB is a NoSQL database with open-source APIs for MongoDB and Cassandra.
 
-- [Azure Service Bus](https://azure.microsoft.com/services/service-bus/) offers reliable cloud messaging as a service, and simple hybrid integration. Service Bus supports asynchronous messaging patterns that are common with microservices applications.
+**[Azure Service Bus](https://azure.microsoft.com/services/service-bus/)** offers reliable cloud messaging as a service, and simple hybrid integration. Service Bus supports asynchronous messaging patterns that are common with microservices applications.
 
-- [Azure Cache for Redis](https://azure.microsoft.com/services/cache/) adds a caching layer to the application architecture to improve speed and performance for heavy traffic loads.
+**[Azure Cache for Redis](https://azure.microsoft.com/services/cache/)** adds a caching layer to the application architecture to improve speed and performance for heavy traffic loads.
 
-- [Azure Monitor](https://azure.microsoft.com/services/monitor/) collects and stores metrics and logs, including application telemetry and Azure platform and service metrics. You can use this data to monitor the application, set up alerts and dashboards, and perform root cause analysis of failures.
+**[Azure Monitor](https://azure.microsoft.com/services/monitor/)** collects and stores metrics and logs, including application telemetry and Azure platform and service metrics. You can use this data to monitor the application, set up alerts and dashboards, and perform root cause analysis of failures.
 
 Other operations support system (OSS) components:
 
-- [Helm](https://helm.sh/), a package manager for Kubernetes that bundles Kubernetes objects into a single unit that you can publish, deploy, version, and update.
+**[Helm](https://helm.sh/)**, a package manager for Kubernetes that bundles Kubernetes objects into a single unit that you can publish, deploy, version, and update.
 
-- [Flux](https://fluxcd.io), an open and extensible continuous delivery solution for Kubernetes, powered by the GitOps Toolkit.
+**[Azure Key Vault Secret Store CSI provider](https://github.com/Azure/secrets-store-csi-driver-provider-azure)**, which gets secrets stored in Azure Key Vault and uses the [Secret Store CSI driver](https://github.com/kubernetes-sigs/secrets-store-csi-driver) interface to mount them into Kubernetes pods.
 
-- [Azure Key Vault Secret Store CSI provider](https://github.com/Azure/secrets-store-csi-driver-provider-azure), which gets secrets stored in Azure Key Vault and uses the [Secret Store CSI driver](https://github.com/kubernetes-sigs/secrets-store-csi-driver) interface to mount them into Kubernetes pods.
+**[Flux](https://fluxcd.io)**, an open and extensible continuous delivery solution for Kubernetes, powered by the GitOps Toolkit.
 
 ### Request flow
 
