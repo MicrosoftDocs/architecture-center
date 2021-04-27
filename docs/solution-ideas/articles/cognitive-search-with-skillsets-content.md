@@ -5,7 +5,7 @@ Large, unstructured datasets like the [JFK Files](https://www.archives.gov/resea
 
 *AI enrichment* in Azure Cognitive Search can extract and enhance searchable, indexable text from images, blobs, and other unstructured data sources like the JFK Files by using pre-trained machine learning skillsets from the Cognitive Services [Computer Vision](/azure/cognitive-services/computer-vision/home) and [Text Analytics](/azure/cognitive-services/text-analytics/overview) APIs. You can also create and attach [custom skills](/azure/search/cognitive-search-custom-skill-interface) to add special processing for domain-specific data like CIA Cryptonyms. Azure Cognitive Search can then index and search the context.
 
-In summary, the Azure Cognitive Search skills in this solution fall into the following categories:
+The Azure Cognitive Search skills in this example solution fall into the following categories:
 
 - *Image-processing* built-in skills like [optical character recognition (OCR)](/azure/search/cognitive-search-skill-ocr), [print extraction](/azure/cognitive-services/computer-vision/concept-recognizing-text#read-api), and [image analysis](/azure/search/cognitive-search-skill-image-analysis) include object and face detection, tag and caption generation, and celebrity and landmark identification. These skills create text representations of image content, which are searchable using the query capabilities of Azure Cognitive Search. Document *cracking* is the process of extracting or creating text content from non-text sources.
 
