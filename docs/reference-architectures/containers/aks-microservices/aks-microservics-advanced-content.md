@@ -2,11 +2,11 @@ This reference architecture is a set of best practices for building, deploying, 
 
 This architecture builds on the [AKS Baseline architecture](https://aka.ms/architecture/aks-baseline), Microsoft's recommended starting point for AKS infrastructure. The AKS baseline foundation provides features like Azure Active Directory (Azure AD) pod identity, ingress and egress restrictions, resource limits, and other secure AKS infrastructure configurations. 
 
-If you would prefer to start with a more basic microservices example on AKS, see [Microservices architecture on AKS](./aks-microservices.yml)
-
 ![Network diagram showing the hub-spoke network with two peered virtual networks and the Azure resources this implementation uses.](images/aks-production-deployment.png)
 
-### Components
+If you would prefer to start with a more basic microservices example on AKS, see [Microservices architecture on AKS](./aks-microservices.yml)
+
+## Components
 
 This architecture uses the following Azure components:
 
@@ -31,7 +31,7 @@ The AKS infrastructure features used in this architecture include:
 
 **[Azure Firewall](https://azure.microsoft.com/services/azure-firewall/)** is a network security service that protects all the Azure Virtual Network resources. The firewall allows only approved services and fully qualified domain names (FQDNs) as egress traffic.
 
-#### External storage and other components:
+### External storage and other components:
 
 **[Azure Key Vault](https://azure.microsoft.com/services/key-vault/)** stores and manages security keys for AKS services.
 
@@ -45,7 +45,7 @@ The AKS infrastructure features used in this architecture include:
 
 **[Azure Monitor](https://azure.microsoft.com/services/monitor/)** collects and stores metrics and logs, including application telemetry and Azure platform and service metrics. You can use this data to monitor the application, set up alerts and dashboards, and perform root cause analysis of failures.
 
-#### Other operations support system (OSS) components:
+### Other operations support system (OSS) components:
 
 **[Helm](https://helm.sh/)**, a package manager for Kubernetes that bundles Kubernetes objects into a single unit that you can publish, deploy, version, and update.
 
@@ -53,7 +53,7 @@ The AKS infrastructure features used in this architecture include:
 
 **[Flux](https://fluxcd.io)**, an open and extensible continuous delivery solution for Kubernetes, powered by the GitOps Toolkit.
 
-### Request flow
+## Request flow
 
 The example [Fabrikam Drone Delivery Shipping App](https://github.com/mspnp/aks-fabrikam-dronedelivery) shown in the preceding diagram implements the architectural components and practices discussed in this article. In this example, Fabrikam, Inc., a fictitious company, manages a fleet of drone aircraft. Businesses register with the service, and users can request a drone to pick up goods for delivery. When a customer schedules a pickup, the backend system assigns a drone and notifies the user with an estimated delivery time. While the delivery is in progress, the customer can track the drone's location with a continuously updated ETA.
 
