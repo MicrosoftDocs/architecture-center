@@ -1,22 +1,23 @@
-This reference architecture describes the considerations for an Azure Kubernetes Service (AKS) cluster designed to run a workload that handles credit card payment. The guidance is tied to the regulatory requirements of the Payment Card Industry Data Security Standard (PCI-DSS). 
+This reference architecture describes the considerations for an Azure Kubernetes Service (AKS) cluster designed to run a sensitive workload. The guidance is tied to the regulatory requirements of the Payment Card Industry Data Security Standard (PCI-DSS). 
 
 ## Shared responsibility model
 
 **Microsoft Trust Center** provides specific principles for compliance-related cloud deployments. The security assurances&mdash;provided by Azure as the cloud platform and AKS as the host container&mdash;are regularly audited and attested by third-party auditors for PCI DSS compliance.
 
-The Microsoft Compliance team works hard to ensure that all documentation of Microsoft Azure regulatory compliance is publicly available to our customers. Microsoft Azure’s 2020 PCI DSS 3.2.1 Attestation of Compliance can be downloaded under the PCI section at [audit reports](https://servicetrust.microsoft.com). The responsibility matrix outlines who, between Azure and the customer, is responsible for each of the PCI requirements.  
+- **Shared responsibility with Azure**
 
-For more information, see [Managing compliance in the cloud](https://www.microsoft.com/trust-center/compliance/compliance-overview).
+	The Microsoft Compliance team ensures that all documentation of Microsoft Azure regulatory compliance is publicly available to our customers. Microsoft Azure’s PCI DSS Attestation of Compliance can be downloaded under the PCI DSS section at [audit reports](https://servicetrust.microsoft.com). The responsibility matrix outlines who, between Azure and the customer, is responsible for each of the PCI requirements. For more information, see [Managing compliance in the cloud](https://www.microsoft.com/trust-center/compliance/compliance-overview).
 
+- **Shared responsibility with AKS**
 
-As a workload owner, you're ultimately responsible for your own PCI DSS compliance. Have a clear understanding of your responsibilities by reading the PCI requirements to understand their intent, studying the matrix for Azure so that the implementation is ready for a successful assessment.
+	Kubernetes is an open-source system for automating deployment, scaling, and management of containerized applications. AKS makes it simple to deploy a managed Kubernetes cluster in Microsoft Azure. The AKS fundamental infrastructure supports large-scale applications in cloud and is a natural choice for running run enterprise-scale applications in cloud, including PCI workloads. Applications deployed to AKS typically have complexities and nuances when deploying PCI classified workloads.
 
+As a workload owner, you're ultimately responsible for your own PCI DSS compliance. Have a clear understanding of your responsibilities by, reading the PCI requirements to understand the intent; studying the matrix for Azure; completing this series to understand the AKS nuances. This will make your implementation ready for a successful assessment.
 
 ## Recommended learning approach
+The [PCI audit report](https://servicetrust.microsoft.com) is great place to start in understanding the shared responsibility between Azure and you. This series aims to fill the gaps between the current PCI DSS responsibility matrix and what a PCI deployment would require on AKS. 
 
-Kubernetes is an open-source system for automating deployment, scaling, and management of containerized applications. Azure Kubernetes Service (AKS) makes it simple to deploy a managed Kubernetes cluster in Microsoft Azure. The AKS fundamental infrastructure supports large scale applications in cloud and is a natural choice to run enterprise-scale  applications in cloud, including PCI workloads. Make sure that PCI DSS compliance is followed appropriately.
-
-The [PCI audit report](https://servicetrust.microsoft.com) is great place to start in understanding the shared responsibity between Azure and you. Applications deployed to AKS typically have complexities and nuances when deploying PCI classified workloads. This series aims to fill the gaps between the current PCI DSS 3.2.1 responsibility matrix and what a PCI deployment would require on AKS. Each article outlines the high level PCI requirement and provides guidance about how to address AKS-specific requirement.
+Each article outlines the high-level PCI requirement and provides guidance about how to address AKS-specific requirement.
 
 |Area of responsibility|Description|
 |---|---|
@@ -37,7 +38,7 @@ This series assumes:
 ## Code assets
 This series is focused on the infrastructure and _not_ the workload. The recommendations and examples are extracted from an accompanying reference implementation:
 
-![GitHub logo](../../../_images/github.png) [GitHub: Azure Kubernetes Service (AKS) Baseline Cluster for Regulated Workloads](https://github.com/mspnp/aks-baseline-regulated) demonstrates the regulated infrastructure. This implementation provides a microservices application. It's included to help you experience the infrastructure and illustrate the network and security controls. The application does not represent or implement an actual PCI DSS workload.
+![GitHub logo](../../../_images/github.png) [GitHub: Azure Kubernetes Service (AKS) Baseline Cluster for Regulated Workloads](https://github.com/mspnp/aks-baseline-regulated) demonstrates the regulated infrastructure. This implementation provides a microservices application. It's included to help you experience the infrastructure and illustrate the network and security controls. The application does _not_ represent or implement an actual PCI DSS workload.
 
 ### Workload isolation
 A main theme of the PCI standard is to isolate the PCI workload from other workloads in terms of operations and connectivity. In this series we differenciate between those concepts as:
