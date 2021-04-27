@@ -7,7 +7,7 @@ This example scenario describes a pipeline for mass ingestion and near real-time
 
 This scenario contains examples for [English][english], [Russian][russian], and [German][german] news feeds, but you can easily extend it to other RSS feeds and other languages. For ease of deployment, the data collection, processing, and analysis are based entirely on Azure services.
 
-## Relevant use cases
+## Potential use cases
 
 While this scenario is based on processing of RSS feeds, it's relevant to any document, website, or article where you would need to:
 
@@ -16,7 +16,7 @@ While this scenario is based on processing of RSS feeds, it's relevant to any do
 - Detect objects, text, and landmarks in images associated with a digital article.
 - Detect people by gender and age in images associated with digital content.
 
-## Architecture
+## Architecture for near real-time analytics
 
 ![Architecture diagram: ingest and analysis of RSS feed using image and text processing to send notifications.][architecture]
 
