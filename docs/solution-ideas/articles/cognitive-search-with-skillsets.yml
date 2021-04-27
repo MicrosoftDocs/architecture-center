@@ -2,7 +2,7 @@
 metadata:
   title: AI enrichment with Azure Cognitive Search
   titleSuffix: Azure Example Scenarios
-  description: Learn how to use Azure Cognitive Search pre-built skills and custom extensibility to enrich large unstructured data sets into indexable structured data.
+  description: Transform latent information in your image and text data into full text searchable content with Azure Cognitive Search pre-built and custom skills.
   author: jocontr
   ms.author: pnp
   ms.date: 06/01/2020
@@ -19,7 +19,7 @@ metadata:
 name: AI enrichment using image and natural language processing in Azure Cognitive Search
 azureCategories:
   - ai-machine-learning
-summary: Learn how to use Azure Cognitive Search pre-built skills and custom extensibility to enrich large unstructured data sets into indexable structured data.
+summary: Transform latent information in your image and text data into full text searchable content with Azure Cognitive Search pre-built and custom skills.
 products:
   - azure-app-service
   - azure-blob-storage
