@@ -1,51 +1,40 @@
-This reference architecture describes the considerations for an AKS cluster designed to run a workload that handles credit card payment. The guidance is tied to the regulatory requirements of the Payment Card Industry (PCI) 
-Data Security Standard (PCI-DSS 3.2.1). 
+This article describes the considerations for an Azure Kubernetes Service (AKS) cluster that runs a workload in compliance with the Payment Card Industry Data Security Standard (PCI-DSS 3.2.1). 
 
-> [!IMPORTANT]
-> These artifacts have not been certified by an official authority. By completing this series and deploying the code assets, you do not clear audit for PCI. Acquire compliance attestations third-party vendors of your choice.
+> This article is part of a series. Read the [prerequisites](aks-pci-prerequisites.yml) here.
 
-## Recommended learning approach
-This series assumes:
-- You're familiar with Kubernetes concepts and workings of an [AKS cluster](/azure/aks).
-- You've read the [AKS baseline reference architecture](/azure/architecture/reference-architectures/containers/aks/secure-baseline-aks).
-- You've deployed the [AKS baseline reference implementation](https://github.com/mspnp/aks-secure-baseline).
-- You're well-versed with the official [PCI DSS specification](https://www.pcisecuritystandards.org/documents/PCI_DSS_v3-2-1.pdf). 
+![GitHub logo](../../../_images/github.png) [GitHub: Azure Kubernetes Service (AKS) Baseline Cluster for Regulated Workloads](https://github.com/mspnp/aks-baseline-regulated) demonstrates the regulated infrastructure. This implementation provides a microservices application. It's included to help you experience the infrastructure and illustrate the network and security controls. The application does not represent or implement an actual PCI DSS workload.
 
-This series is focused on the infrastructure and _not_ the workload. The starting point for the infrastructure is the AKS baseline secure architecture. That infrastructure is modified 
-to move away from public cloud access to a private enviroment with sufficient controls to meet the requirements of the standard. 
+## AKS cluster configuration
 
-![GitHub logo](../../../_images/github.png) [GitHub: Azure Kubernetes Service (AKS) Baseline Cluster for Regulated Workloads](https://github.com/mspnp/aks-baseline-regulated) demonstrates the regulated infrastructure. This implementation includes a microservices application. It's included to help you experience the infrastructure and illustrate the network and security controls. The application does not represent any the best practices for regulated workloads.
-
-## Shared responsibility model
-Microsoft Trust Center provides specific principles for compliance-related cloud deployments. The security assurances, provided by Azure as platform, abides by these principles in protection of data and governance. AKS as the container of the workload also provides a secure environment for your workloads. AKS features are aligned to Azure Security Benchmark version 1.0. The Azure services used in this architecture in the services. 
-
-## Content structure
-This series is broken into serveral articles that is categorized by requirements in the PCI standard.
-Each article is clearly specifies the PCI requirement. The guidance outlines the shared responsibility model starting with the affordances provided by, Azure as the cloud platform; AKS as the container; and you as the cluster and workload owner. 
-
-|Area of responsibility|Description|
-|---|---|
-|[Network segmentation](aks-pci-network.yml)|TBD |
-|[Data protection](aks-pci-data.yml)|TBD|
-|[Vulnerability management](aks-pci-malware.yml)|TBD|
-|[Access controls](aks-pci-identity.yml)|TBD|
-|[Monitoring operations](aks-pci-monitor.yml)|TBD|
-|[Policy management](aks-pci-policy.yml)|TBD|
+The starting point for the infrastructure is the [AKS baseline reference architecture](/azure/architecture/reference-architectures/containers/aks/secure-baseline-aks). That infrastructure is modified 
+to move away from public cloud access to a private environment with sufficient controls to meet the requirements of the standard. 
 
 
-<trust center>
+Kubernetes is an open-source system for automating deployment, scaling, and management of containerized applications. Azure Kubernetes Service (AKS) makes it simple to deploy a managed Kubernetes cluster in Microsoft Azure. Many enterprise customers are leveraging or plan to leverage AKS as the fundemental infrastructure to support large scale applications in cloud. For any payment related, PII related workloads, PCI DSS compliance approval process natually kicks in for enterprise customers to ensure that PCI DSS compliance is followed appropriately.
 
-
-
-<zero trust model>
-<Azure assurances>
-<AKS assurances>
-<RA material>
-<diagram>
-<connection to baseline and worklaod>
-<structure of this content>
-<table of linked articles>
-
-## Shared responsibility
-
-These artifacts have not been certified in any official capacity; regulatory compliance is a shared responsibility between you and your hosting provider. This implementation is designed to aide you on your journey to achieving your compliance, but by itself does not ensure any level of compliance. To understand Azure compliance and shared responsibility models, visit the Microsoft Trust Center.
+Responsibility
+Customers of Microsoft Azure are ultimately responsible for their own PCI DSS compliance. The following tabs describe the various responsibilities of Microsoft Azure, its customers, and those shared by both to achieve PCI DSS compliance. In all assessments, proper scoping is key to success. For cloud deployments, reading the PCI requirements to understand their intent, and correlating this Responsibility Summary will aid customers in planning ahead for a successful assessment.
+"																
+																
+						The guidance is focused on the infrastructure and _not_ the workload. The starting point for the infrastructure is the AKS baseline secure architecture. That infrastructure is modified to move away from public cloud access to a private enviroment with sufficient controls to meet the requirements of the standard. 										
+																
+																
+																
+																
+																
+																
+																
+																
+																
+																
+																
+																
+																
+																
+																
+																
+																
+																
+																
+																
+																							
