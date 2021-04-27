@@ -65,4 +65,4 @@ Microsoft Learn paths:
 - [Build the intelligent edge with Azure IoT Edge](/learn/paths/build-intelligent-edge-with-azure-iot-edge/)
 - [Implement a data streaming solution with Azure Streaming Analytics](/learn/paths/implement-data-streaming-with-asa/)
 
-[visio-download]: https://github.com/MicrosoftDocs/architecture-center-pr/blob/master/docs/solution-ideas/media/bosch-cctv-iot-edge-covid-19-safe-environment-mask-detection.png
+[visio-download]: ../media/bosch-cctv-iot-edge-covid-19-safe-environment-mask-detection.png
