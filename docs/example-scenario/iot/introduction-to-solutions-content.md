@@ -9,7 +9,7 @@ Azure *IoT solutions* involve *events* that generate *insights* to inform *acti
 
 Events, insights, and actions are functional concepts that exist across the [devices, platform, and applications](devices-platform-application.yml) of an IoT solution. To illustrate, consider an application that monitors cooling system temperatures for food storage, and calls emergency maintenance services if a temperature becomes dangerously low or high:
 
-![A diagram illustrating the relationship between events, insights, and actions in an IoT solution used to monitor a food storage system.](media/events-insights-actions.svg)
+![A diagram illustrating the relationship between events, insights, and actions in an IoT solution used to monitor a cooling system.](media/events-insights-actions.svg)
 
 The cooling system sends operating temperatures as telemetry to a connected application through [Azure IoT Hub](/azure/iot-hub/about-iot-hub). Backup systems exist in case a primary cooling system malfunctions or goes offline. Devices can receive commands to adjust temperature or start and stop operation.
 
