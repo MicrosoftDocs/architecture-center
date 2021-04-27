@@ -32,7 +32,12 @@ The following diagram shows the different SSL sessions and certificates at play:
 
 ![SSL sessions](./images/appgwB4azfw_certs.png)
 
-## Sample design with Hub and Spoke network
+The main reason why Azure Application Gateway and Azure Firewall behave differently regarding certificates is because they have slightly different functionality:
+
+- Azure Application Gateway is a **reverse web proxy**. That means that it proxies HTTP(S) connections for any client talking to certain servers, normally to protect those servers from web attacks, or to offload certain web operations such as SSL. These servers (the IP address or Fully-Qualified Domain Name of the systems where the web server is running) are declared in the backend pool of the Application Gateway. Since any client should be able to access the application, the Application Gateway should be configured with a digital certificate signed by a public certificate authority, that any SSL client will accept.
+- Azure Firewall is a **forward web proxy**, or just a web proxy. Its purpose is intercepting SSL calls between certain clients and any server, usually to protect those specific clients from web threats. Since a forward proxy needs to impersonate any possible target server, it does so generating digital certificates on the fly, and presenting those to the client. The downside of that approach is that the client needs to trust the certificate authority that the Azure Firewall will use to sign those dynamically generated certificates.
+
+## Example design with Hub and Spoke network
 
 In hub and spoke design, shared network components are typically deployed in the hub VNet, while application-specific components are located in the spokes. While it is pretty common considering the Azure Firewall as a shared resource, it is not so obvious whether Web Application Firewalls are similarly shared network devices, or on the contrary application-specific components. The overall recommendation is treating Azure Application Gateway as an application device, and hence deploy it in a spoke VNet, out of these reasons:
 
@@ -48,9 +53,28 @@ If traffic is not coming from the public Internet but from an on-premises networ
 
 ![Hub And Spoke internal traffic](./images/appgwB4azfw_hns_internal.png)
 
-## Sample design with Virtual WAN
+## Example design with Virtual WAN
 
-The main difference is that DNS private zones cannot be linked to the virtual hub, since the virtual hub is a Microsoft-managed Virtual Network. Instead, DNS resolution for the Azure Firewall can be implemented with DNS forwarders deployed in a Shared Services VNet:
+[Virtual WAN][vwan_overview] can be a very interesting component in the architecture, since amongst other benefits, it will eliminate the need for user-maintained user-defined routes in the spoke Virtual Networks. Instead, the administrator can define static routes in the virtual hub route tables, and these routes will be programmed in every VNet connected to the virtual hub. There are two main differences when leveraging Virtual WAN as networking platform:
+
+- Firstly, DNS private zones cannot be linked to the virtual hub, since the virtual hub is a Microsoft-managed Virtual Network and the subscription owner does not have privilege to link private DNS zones. Instead, DNS resolution for the Azure Firewall can be implemented with DNS forwarders deployed in a Shared Services VNet (see [Azure Firewall DNS Settings][azfw_dns]).
+- Secondly, Virtual WAN is not able to program routes in the spoke for prefix with same or longer length than the VNet prefix. That means that if the Application Gateway and the destination web server are in the same Virtual Network, Virtual WAN will not be able to inject a route that overrides the system route for the VNet, and hence traffic between the Application Gateway and the web server will bypass the Azure Firewall.
+
+The following diagram reflects the packet flow for accessing the Azure Application Gateway from an on-premises network connected to Virtual WAN via Site-to-Site VPN or ExpressRoute, access from the Internet would be similar:
+
+![Virtual WAN internal traffic](./images/appgwB4azfw_vwan_internal.png)
+
+## Example design with Azure Route Server
+
+Finally, the [Azure Route Server][ars_overview] offers another possibility to inject routes automatically in the spoke, to avoid the administrative overhead of maintaining route tables. Its design is a combination of the hub and spoke and Virtual WAN variants:
+
+- The hub Virtual Network is customer-managed, so the subscription admin can do operations such as linking the hub VNet to DNS private zones.
+- Azure Route Server has the same limitation as Virtual WAN around injecting prefixes with the same or longer length than the Virtual Network prefix in the spokes. Hence, the Application Gateway and the destination web server needs to be in different Virtual Networks.
+- Whether DNS is required or not will depend on the functionality of the Network Virtual Appliance (NVA) in the hub. In the following diagram the DNS step is depicted, but note that this might vary depending on the NVA.
+
+One remark to this design is that the Azure Route Server requires today that the device injecting the routes sends them over Border Gateway Protocol (BGP). Since the Azure Firewall does not support BGP, this design would require a third-party Network Virtual Appliance (NVA):
+
+![Route Server internal traffic](./images/appgwB4azfw_ars_internal.png)
 
 ## Conclusion
 
@@ -64,3 +88,5 @@ By having different appliances such as a Web Application Firewall and a Next-Gen
 [azfw_tls]: https://docs.microsoft.com/azure/firewall/premium-features#tls-inspection
 [azfw_idps]: https://docs.microsoft.com/azure/firewall/premium-features#idps
 [appgw_crs]: https://docs.microsoft.com/azure/web-application-firewall/ag/application-gateway-crs-rulegroups-rules
+[vwan_overview]: https://docs.microsoft.com/azure/virtual-wan/virtual-wan-about
+[ars_overview]: https://docs.microsoft.com/azure/route-server/overview
