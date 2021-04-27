@@ -912,8 +912,6 @@ items:
               - name: AKS baseline cluster for a PCI-DSS 3.2.1 workload
                 items:
                   - name: Before you begin...
-                    href: reference-architectures/containers/aks-pci/aks-pci-prerequisites.yml
-                  - name: Introduction to the cluster
                     href: reference-architectures/containers/aks-pci/aks-pci-intro.yml
                   - name: Network segmentation
                     href: reference-architectures/containers/aks-pci/aks-pci-network.yml                  
