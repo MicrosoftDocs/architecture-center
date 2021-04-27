@@ -1,8 +1,24 @@
 This reference architecture describes the considerations for an AKS cluster designed to run a workload that handles credit card payment. The guidance is tied to the regulatory requirements of the Payment Card Industry (PCI) 
 Data Security Standard (PCI-DSS 3.2.1). 
 
+## Shared responsibility model
+
+**Microsoft Trust Center** provides specific principles for compliance-related cloud deployments. The security assurances, provided by Azure as the cloud platform and AKS as the host container are regularly audited and attested by third-party auditors for PCI DSS compliance.
+
+As a workload owner, you have a shared responsibility with Azure in some scenarios, such as application of  controls and upkeep of the container. For other controls such as data management, you are fully responsible. 
+
+![Microsoft Trust Center - shared responsibility model](images/shared-responsibility.png)
+
+Have a clear understanding of your responsibilities by studying the PCI DSS Shared Responsibility Matrix for Azure. This information is available in PCI DSS section of the [audit reports](https://servicetrust.microsoft.com/ViewPage/MSComplianceGuideV3). 
+
+For more information, see these articles:
+
+- [Managing compliance in the cloud](https://www.microsoft.com/trust-center/compliance/compliance-overview)
+- [Azure security baseline for Azure Kubernetes Service](/security/benchmark/azure/baselines/aks-security-baseline)
+
 > [!IMPORTANT]
-> These artifacts have not been certified by an official authority. By completing this series and deploying the code assets, you do not clear audit for PCI. Acquire compliance attestations third-party vendors of your choice.
+>
+> The reference architecture and implementation have not been certified by an official authority. By completing this series and deploying the code assets, you do not clear audit for PCI DSS. Acquire compliance attestations third-party auditors.
 
 ## Recommended learning approach
 This series assumes:
@@ -16,12 +32,9 @@ to move away from public cloud access to a private enviroment with sufficient co
 
 ![GitHub logo](../../../_images/github.png) [GitHub: Azure Kubernetes Service (AKS) Baseline Cluster for Regulated Workloads](https://github.com/mspnp/aks-baseline-regulated) demonstrates the regulated infrastructure. This implementation includes a microservices application. It's included to help you experience the infrastructure and illustrate the network and security controls. The application does not represent any the best practices for regulated workloads.
 
-## Shared responsibility model
-Microsoft Trust Center provides specific principles for compliance-related cloud deployments. The security assurances, provided by Azure as platform, abides by these principles in protection of data and governance. AKS as the container of the workload also provides a secure environment for your workloads. AKS features are aligned to Azure Security Benchmark version 1.0. The Azure services used in this architecture in the services. 
-
 ## Content structure
 This series is broken into serveral articles that is categorized by requirements in the PCI standard.
-Each article is clearly specifies the PCI requirement. The guidance outlines the shared responsibility model starting with the affordances provided by, Azure as the cloud platform; AKS as the container; and you as the cluster and workload owner. 
+Each article is clearly specifies the PCI requirement and provides guidance from a shared responsibility perspective. 
 
 |Area of responsibility|Description|
 |---|---|
@@ -32,20 +45,9 @@ Each article is clearly specifies the PCI requirement. The guidance outlines the
 |[Monitoring operations](aks-pci-monitor.yml)|TBD|
 |[Policy management](aks-pci-policy.yml)|TBD|
 
+## Next
 
-<trust center>
+Understand how the cluster compute configuration differs from baseline architecture to create a regulated envrioment.
 
-
-
-<zero trust model>
-<Azure assurances>
-<AKS assurances>
-<RA material>
-<diagram>
-<connection to baseline and worklaod>
-<structure of this content>
-<table of linked articles>
-
-## Shared responsibility
-
-These artifacts have not been certified in any official capacity; regulatory compliance is a shared responsibility between you and your hosting provider. This implementation is designed to aide you on your journey to achieving your compliance, but by itself does not ensure any level of compliance. To understand Azure compliance and shared responsibility models, visit the Microsoft Trust Center.
+> [!div class="nextstepaction"]
+> [Introduction to the regulated cluster](aks-pci-intro.yml)
