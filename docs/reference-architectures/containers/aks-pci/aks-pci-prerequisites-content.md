@@ -1,9 +1,9 @@
-This reference architecture describes the considerations for an AKS cluster designed to run a workload that handles credit card payment. The guidance is tied to the regulatory requirements of the Payment Card Industry (PCI) 
+This reference architecture describes the considerations for an Azure Kubernetes Service (AKS) cluster designed to run a workload that handles credit card payment. The guidance is tied to the regulatory requirements of the Payment Card Industry 
 Data Security Standard (PCI-DSS 3.2.1). 
 
 ## Shared responsibility model
 
-**Microsoft Trust Center** provides specific principles for compliance-related cloud deployments. The security assurances, provided by Azure as the cloud platform and AKS as the host container are regularly audited and attested by third-party auditors for PCI DSS compliance.
+**Microsoft Trust Center** provides specific principles for compliance-related cloud deployments. The security assurances&mdash;provided by Azure as the cloud platform and AKS as the host container&mdash;are regularly audited and attested by third-party auditors for PCI DSS compliance.
 
 As a workload owner, you have a shared responsibility with Azure in some scenarios, such as application of  controls and upkeep of the container. For other controls such as data management, you are fully responsible. 
 
@@ -25,16 +25,16 @@ This series assumes:
 - You're familiar with Kubernetes concepts and workings of an [AKS cluster](/azure/aks).
 - You've read the [AKS baseline reference architecture](/azure/architecture/reference-architectures/containers/aks/secure-baseline-aks).
 - You've deployed the [AKS baseline reference implementation](https://github.com/mspnp/aks-secure-baseline).
-- You're well-versed with the official [PCI DSS specification](https://www.pcisecuritystandards.org/documents/PCI_DSS_v3-2-1.pdf). 
+- You're well versed with the official [PCI DSS specification](https://www.pcisecuritystandards.org/documents/PCI_DSS_v3-2-1.pdf). 
 
 This series is focused on the infrastructure and _not_ the workload. The starting point for the infrastructure is the AKS baseline secure architecture. That infrastructure is modified 
-to move away from public cloud access to a private enviroment with sufficient controls to meet the requirements of the standard. 
+to move away from public cloud access to a private environment with sufficient controls to meet the requirements of the standard. 
 
-![GitHub logo](../../../_images/github.png) [GitHub: Azure Kubernetes Service (AKS) Baseline Cluster for Regulated Workloads](https://github.com/mspnp/aks-baseline-regulated) demonstrates the regulated infrastructure. This implementation includes a microservices application. It's included to help you experience the infrastructure and illustrate the network and security controls. The application does not represent any the best practices for regulated workloads.
+![GitHub logo](../../../_images/github.png) [GitHub: Azure Kubernetes Service (AKS) Baseline Cluster for Regulated Workloads](https://github.com/mspnp/aks-baseline-regulated) demonstrates the regulated infrastructure. This implementation provides a microservices application. It's included to help you experience the infrastructure and illustrate the network and security controls. The application does not represent or implement an actual PCI DSS workload.
 
 ## Content structure
-This series is broken into serveral articles that is categorized by requirements in the PCI standard.
-Each article is clearly specifies the PCI requirement and provides guidance from a shared responsibility perspective. 
+This series is broken into articles categorized by requirements in the PCI standard.
+Each article specifies the PCI requirement and provides guidance from a shared responsibility perspective. 
 
 |Area of responsibility|Description|
 |---|---|
@@ -47,7 +47,7 @@ Each article is clearly specifies the PCI requirement and provides guidance from
 
 ## Next
 
-Understand how the cluster compute configuration differs from baseline architecture to create a regulated envrioment.
+Understand how the cluster compute configuration differs from baseline architecture to create a regulated environment.
 
 > [!div class="nextstepaction"]
 > [Introduction to the regulated cluster](aks-pci-intro.yml)
