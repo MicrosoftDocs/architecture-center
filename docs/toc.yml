@@ -667,7 +667,7 @@ items:
                     href: example-scenario/mlops/aml-decision-tree.yml
           - name: Architectures
             items:
-              - name: AI enrichment in Cognitive Search
+              - name: AI enrichment with Cognitive Search
                 href: solution-ideas/articles/cognitive-search-with-skillsets.yml
               - name: Autonomous systems
                 href: solution-ideas/articles/autonomous-systems.yml
