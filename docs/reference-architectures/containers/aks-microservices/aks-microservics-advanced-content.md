@@ -76,7 +76,7 @@ This request flow implements the [Publisher-Subscriber](/azure/architecture/patt
 
 ## Recommendations
 
-Implement these recommendations when deploying advanced AKS microservices architectures:
+Implement these recommendations when deploying advanced AKS microservices architectures.
 
 ### Application Gateway Ingress Controller (AGIC)
 
