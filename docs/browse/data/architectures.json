@@ -2812,14 +2812,14 @@
             "word_count": 281,
             "read_time": "2 min read",
             "Title": "Customer Feedback and Analytics",
-            "MetaDescription": "Knowledge mining can help customer support teams quickly find the right answer for a customer inquiry or assess customer sentiment at scale.",
+            "MetaDescription": "Knowledge mining can help customer support teams quickly find the right answers for customer questions or assess customer sentiment at scale.",
             "category": [
                 "ai-machine-learning"
             ],
-            "image": "/azure/architecture/solution-ideas/media/customer-feedback-and-analytics.png",
-            "imagepath": "C:\\jvPnpRepos\\architecture-center-pr\\docs\\solution-ideas\\media\\customer-feedback-and-analytics.png",
+            "image": "/azure/architecture/solution-ideas/media/knowledge-mining-customer-feedback-and-analytics.png",
+            "imagepath": "C:\\jvPnpRepos\\architecture-center-pr\\docs\\solution-ideas\\media\\knowledge-mining-customer-feedback-and-analytics.png",
             "publish_date": "12/16/2019",
-            "Summary": "<p>For many companies, customer support is costly and inefficient. Knowledge mining can help customer support teams quickly find the right answer for a customer inquiry or assess customer sentiment at scale.</p>\n<p>Every company is looking to enhance the customer experience. Knowledge mining can aggregate and analyze data to discover trends about what customers are saying and use that information to improve products and services</p>\n<p><img alt=\"Architecture Diagram\" src=\"https://docs.microsoft.com/azure/architecture/solution-ideas/media/customer-feedback-and-analytics.png\" /></p>",
+            "Summary": "<p>For many companies, customer support is costly and inefficient. Knowledge mining can help customer support teams quickly find the right answers for customer questions or assess customer sentiment at scale.</p>\n<p>Every company is looking to enhance the customer experience. Knowledge mining can aggregate and analyze data to discover trends about what customers are saying and use that information to improve products and services</p>\n<p><img alt=\"Architecture Diagram\" src=\"https://docs.microsoft.com/azure/architecture/solution-ideas/media/knowledge-mining-customer-feedback-and-analytics.png\" /></p>",
             "name": "customer-feedback-and-analytics",
             "popularity": 0,
             "topic": "AI + Machine Learning"
@@ -3820,10 +3820,10 @@
             "category": [
                 "ai-machine-learning"
             ],
-            "image": "/azure/architecture/solution-ideas/media/digital-asset-management.png",
-            "imagepath": "C:\\jvPnpRepos\\architecture-center-pr\\docs\\solution-ideas\\media\\digital-asset-management.png",
+            "image": "/azure/architecture/solution-ideas/media/knowledge-mining-digital-asset-management.png",
+            "imagepath": "C:\\jvPnpRepos\\architecture-center-pr\\docs\\solution-ideas\\media\\knowledge-mining-digital-asset-management.png",
             "publish_date": "12/16/2019",
-            "Summary": "<p>This architecture describes digital asset management for knowledge mining.</p>\n<p>Given the amount of unstructured data created daily, many companies are struggling to make use of or find information within their files. Knowledge mining through a search index makes it easy for end customers and employees to locate what they are looking for faster.</p>\n<p><img alt=\"Architecture Diagram\" src=\"https://docs.microsoft.com/azure/architecture/solution-ideas/media/digital-asset-management.png\" /></p>",
+            "Summary": "<p>This architecture describes digital asset management for knowledge mining.</p>\n<p>Given the amount of unstructured data created daily, many companies are struggling to make use of or find information within their files. Knowledge mining through a search index makes it easy for end customers and employees to locate what they are looking for faster.</p>\n<p><img alt=\"Architecture Diagram\" src=\"https://docs.microsoft.com/azure/architecture/solution-ideas/media/knowledge-mining-digital-asset-management.png\" /></p>",
             "name": "digital-asset-management",
             "popularity": 0,
             "topic": "AI + Machine Learning"
