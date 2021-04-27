@@ -31,7 +31,7 @@ The AKS infrastructure features used in this architecture include:
 
 **[Azure Firewall](https://azure.microsoft.com/services/azure-firewall/)** is a network security service that protects all the Azure Virtual Network resources. The firewall allows only approved services and fully qualified domain names (FQDNs) as egress traffic.
 
-### External storage and other components:
+**External storage and other components:**
 
 **[Azure Key Vault](https://azure.microsoft.com/services/key-vault/)** stores and manages security keys for AKS services.
 
@@ -45,7 +45,7 @@ The AKS infrastructure features used in this architecture include:
 
 **[Azure Monitor](https://azure.microsoft.com/services/monitor/)** collects and stores metrics and logs, including application telemetry and Azure platform and service metrics. You can use this data to monitor the application, set up alerts and dashboards, and perform root cause analysis of failures.
 
-### Other operations support system (OSS) components:
+**Other operations support system (OSS) components:**
 
 **[Helm](https://helm.sh/)**, a package manager for Kubernetes that bundles Kubernetes objects into a single unit that you can publish, deploy, version, and update.
 
