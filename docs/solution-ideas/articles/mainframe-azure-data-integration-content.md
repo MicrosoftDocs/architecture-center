@@ -1,4 +1,4 @@
-Data-first strategies can help digital transformations to succeed. But finding a coexistence model for a mainframe and midrange data platform modernization can still be challenging. The best models offer target data platforms that are compatible with current platforms and require no changes in application code.
+Data-first strategies can help digital transformations to succeed. But finding a coexistence model for a mainframe and midrange data platform modernization can be challenging. The best models offer target data platforms that are compatible with current platforms and require no changes in application code.
 
 This solution outlines a data integration approach that meets these criteria:
 
@@ -61,9 +61,14 @@ This solution uses the following components. See the [Azure pricing calculator][
 ## Next steps
 
 - For more information, contact Azure Data Engineering - Mainframe & Midrange Modernization at [datasqlninja@microsoft.com][Email address for information on mainframe modernization].
-- Read the [Azure Database Migration Guides][Azure Database Migration Guides].
+- See the [Azure Database Migration Guides][Azure Database Migration Guides].
 - See [Planning and architecting solutions using Microsoft Service for DRDA][Planning and Architecting Solutions Using Microsoft Service for DRDA].
 - Maybe this one, too: https://docs.microsoft.com/en-us/azure/cloud-adoption-framework/infrastructure/mainframe-migration/application-strategies
+
+Or maybe this section is better: https://docs.microsoft.com/en-us/azure/cloud-adoption-framework/infrastructure/mainframe-migration/application-strategies#migrate-databases-and-data
+
+
+
 
 
 [Email address for information on mainframe modernization]: mailto:datasqlninja@microsoft.com
