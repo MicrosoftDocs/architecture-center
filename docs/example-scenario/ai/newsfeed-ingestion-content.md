@@ -3,7 +3,7 @@
 
 
 
-This example scenario describes a pipeline for mass ingestion and near real-time analysis of documents using public RSS news feeds.  It uses Azure Cognitive Services to offer useful insights based on text translation, facial recognition, and sentiment detection.
+This example scenario describes a pipeline for mass ingestion and near real-time analysis of documents coming from public RSS news feeds.  It uses [Azure Cognitive Services](/azure/cognitive-services/what-are-cognitive-services) to provide useful insights based on text translation, facial recognition, and sentiment detection. Image and natural language processing steps are connected together in a messaging pipeline based on [Azure Service Bus](/azure/service-bus-messaging/service-bus-messaging-overview). The output of the pipeline is a notification containing the insight or analysis.
 
 This scenario contains examples for [English][english], [Russian][russian], and [German][german] news feeds, but you can easily extend it to other RSS feeds and other languages. For ease of deployment, the data collection, processing, and analysis are based entirely on Azure services.
 
