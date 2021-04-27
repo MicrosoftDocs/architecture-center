@@ -3,11 +3,11 @@
 
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-A modern data warehouse lets you bring together all your data at any scale easily, and to get insights through analytical dashboards, operational reports, or advanced analytics for all your users.
+An enterprise data warehouse lets you bring together all your data at any scale easily, and to get insights through analytical dashboards, operational reports, or advanced analytics for all your users.
 
 ## Architecture
 
-![Architecture diagram](../media/modern-data-warehouse.png)
+![Architecture diagram](../media/enterprise-data-warehouse.png)
 *Download an [SVG](../media/modern-data-warehouse.svg) of this architecture.*
 
 ## Data Flow
