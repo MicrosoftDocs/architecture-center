@@ -1,6 +1,6 @@
 ### YamlMime:Architecture
 metadata:
-  title: AI enrichment with Azure Cognitive Search
+  title: AI enrichment with image and text processing
   titleSuffix: Azure Example Scenarios
   description: Transform latent information in your image and text data into full text searchable content with Azure Cognitive Search pre-built and custom skills.
   author: jocontr
@@ -16,7 +16,7 @@ metadata:
     - internal-intro
     - ai-machine-learning
     - aml-project-improvement
-name: AI enrichment using image and natural language processing in Azure Cognitive Search
+name: AI enrichment with image and natural language processing in Azure Cognitive Search
 azureCategories:
   - ai-machine-learning
 summary: Transform latent information in your image and text data into full text searchable content with Azure Cognitive Search pre-built and custom skills.
