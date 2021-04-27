@@ -29,30 +29,30 @@ Data is loaded from these different data sources using several Azure components:
 
 - [Azure Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage/) makes Azure Storage the foundation for building enterprise data lakes on Azure. It can quickly process massive amounts of data (petabytes).
 - [Azure Data Factory](https://azure.microsoft.com/services/data-factory/) is a managed service that orchestrates and automates data movement and data transformation. In this architecture, it copies the data from the source to Azure Storage.
-- [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps/) are automated workflows for common enterprise orchestration tasks. Logic Apps includes [connectors](https://docs.microsoft.com/connectors/) for many popular cloud services, on-premises products, and other applications.
+- [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps/) are automated workflows for common enterprise orchestration tasks. Logic Apps includes [connectors](/connectors/) for many popular cloud services, on-premises products, and other applications.
 - [Azure Databricks](https://azure.microsoft.com/services/databricks/) is an Apache Spark-based analytics platform optimized for the Microsoft Azure cloud services platform. Designed in collaboration with the founders of Apache Spark, Databricks is integrated with Azure to provide one-click setup, streamlined workflows, and an interactive workspace.
-- [Azure Databricks – Auto Loader](https://docs.microsoft.com/azure/databricks/spark/latest/structured-streaming/auto-loader) provides a structured streaming source called cloudFiles. The cloudFiles source automatically processes new files as they arrive at a directory, and can also process other files in the directory.
+- [Azure Databricks – Auto Loader](/azure/databricks/spark/latest/structured-streaming/auto-loader) provides a structured streaming source called cloudFiles. The cloudFiles source automatically processes new files as they arrive at a directory, and can also process other files in the directory.
 - [Azure Synapse Analytics](https://azure.microsoft.com/services/synapse-analytics/) is a distributed system for storing and analyzing large datasets. Its use of massive parallel processing (MPP) makes it suitable for running high-performance analytics.
 - [Azure Functions](https://azure.microsoft.com/services/functions/) allows you to run small pieces of code (called "functions") without worrying about application infrastructure. Azure Functions is a great solution for processing bulk data, integrating systems, working with the internet-of-things (IoT), and building simple APIs and micro-services.
-- [Power BI](https://docs.microsoft.com/power-bi/) is a suite of business analytics tools to analyze data and provide insights. Power BI can query a semantic model stored in Analysis Services, or it can query Azure Synapse directly.
-- [Power Apps](https://docs.microsoft.com/powerapps/powerapps-overview) is a suite of apps, services, and connectors for building custom business apps. It includes an underlying data platform ([Microsoft Dataverse](https://docs.microsoft.com/powerapps/maker/data-platform/data-platform-intro)) and a rapid development environment.
+- [Power BI](/power-bi/) is a suite of business analytics tools to analyze data and provide insights. Power BI can query a semantic model stored in Analysis Services, or it can query Azure Synapse directly.
+- [Power Apps](/powerapps/powerapps-overview) is a suite of apps, services, and connectors for building custom business apps. It includes an underlying data platform ([Microsoft Dataverse](/powerapps/maker/data-platform/data-platform-intro)) and a rapid development environment.
 
 ## Next steps
 
-- [Create, monitor, and manage FTP files by using Azure Logic Apps](https://docs.microsoft.com/azure/connectors/connectors-create-api-ftp)
-- [Copy data from FTP server by using Azure Data Factory](https://docs.microsoft.com/azure/data-factory/connector-ftp)
-- [Load files from Azure Blob storage and Azure Data Lake Storage Gen1 and Gen2 using Auto Loader](https://docs.microsoft.com/azure/databricks/spark/latest/structured-streaming/auto-loader)
-- [Azure Synapse Analytics](https://docs.microsoft.com/azure/databricks/data/data-sources/azure/synapse-analytics)
+- [Create, monitor, and manage FTP files by using Azure Logic Apps](/azure/connectors/connectors-create-api-ftp)
+- [Copy data from FTP server by using Azure Data Factory](/azure/data-factory/connector-ftp)
+- [Load files from Azure Blob storage and Azure Data Lake Storage Gen1 and Gen2 using Auto Loader](/azure/databricks/spark/latest/structured-streaming/auto-loader)
+- [Azure Synapse Analytics](/azure/databricks/data/data-sources/azure/synapse-analytics)
 - [On GitHub: azure-notificationhubs-dotnet/Samples/AzFunctions/
 ](https://github.com/Azure/azure-notificationhubs-dotnet/tree/main/Samples/AzFunctions)
-- [Azure SQL Data Warehouse with DirectQuery](https://docs.microsoft.com/power-bi/connect-data/service-azure-sql-data-warehouse-with-direct-connect)
-- [Power Apps visual for Power BI](https://docs.microsoft.com/powerapps/maker/canvas-apps/powerapps-custom-visual)
+- [Azure SQL Data Warehouse with DirectQuery](/power-bi/connect-data/service-azure-sql-data-warehouse-with-direct-connect)
+- [Power Apps visual for Power BI](/powerapps/maker/canvas-apps/powerapps-custom-visual)
 
 Information about the Delta Lake open-source project for building a Lakehouse architecture:
 
 - [Delta Lake Key Features](https://delta.io/)
-- [What is Delta Lake](https://docs.microsoft.com/azure/synapse-analytics/spark/apache-spark-what-is-delta-lake)
-- [Delta Lake and Delta Engine guide](https://docs.microsoft.com/azure/databricks/delta/)
+- [What is Delta Lake](/azure/synapse-analytics/spark/apache-spark-what-is-delta-lake)
+- [Delta Lake and Delta Engine guide](/azure/databricks/delta/)
 
 ## Related resources
 
