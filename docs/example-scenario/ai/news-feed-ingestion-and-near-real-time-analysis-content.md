@@ -72,7 +72,7 @@ For simplicity, this example scenario uses only a few of the available APIs and 
 
 ### Scalability
 
-Azure Functions scaling depends on the [hosting plan][plan] you use. This solution assumes a [Consumption plan][plan-c], in which compute power is automatically allocated to the functions when required. You pay only when your functions are running. Another option is to use an [Dedicated plan][plan-ded], which allows you to scale between tiers to allocate a different amount of resources.
+Azure Functions scaling depends on the [hosting plan][plan] you use. This solution assumes a [Consumption plan][plan-c], in which compute power is automatically allocated to the functions when required. You pay only when your functions are running. Another option is to use a [Dedicated plan][plan-ded], which allows you to scale between tiers to allocate a different amount of resources.
 
 With Azure Cosmos DB, the key is to distribute your workload roughly evenly among a sufficiently large number of [partition keys][keys]. There's no limit to the total amount of data that a container can store or to the total amount of
 [throughput][throughput] that a container can support.
