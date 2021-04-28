@@ -205,7 +205,7 @@ Access to the Azure Databricks workspace is controlled using the [administrator 
 
 ### Managing secrets
 
-Azure Databricks includes a [secret store](https://docs.azuredatabricks.net/security/secrets/index.html#secrets) that is used to store secrets, including connection strings, access keys, user names, and passwords. Secrets within the Azure Databricks secret store are partitioned by **scopes**:
+Azure Databricks includes a [secret store](/azure/databricks/security/secrets/) that is used to store secrets, including connection strings, access keys, user names, and passwords. Secrets within the Azure Databricks secret store are partitioned by **scopes**:
 
 ```bash
 databricks secrets create-scope --scope "azure-databricks-job"
@@ -218,7 +218,7 @@ databricks secrets put --scope "azure-databricks-job" --key "taxi-ride"
 ```
 
 > [!NOTE]
-> An Azure Key Vault-backed scope can be used instead of the native Azure Databricks scope. To learn more, see [Azure Key Vault-backed scopes](https://docs.azuredatabricks.net/security/secrets/secret-scopes.html#azure-key-vault-backed-scopes).
+> An Azure Key Vault-backed scope can be used instead of the native Azure Databricks scope. To learn more, see [Azure Key Vault-backed scopes](/azure/databricks/security/secrets/secret-scopes).
 
 In code, secrets are accessed via the Azure Databricks [secrets utilities](https://docs.databricks.com/user-guide/dev-tools/dbutils.html#secrets-utilities).
 
@@ -389,6 +389,12 @@ For more information, see the cost section in [Microsoft Azure Well-Architected 
 ## Deploy the solution
 
 To the deploy and run the reference implementation, follow the steps in the [GitHub readme][github].
+
+## Next steps
+
+* [Stream processing with Azure Stream Analytics](/azure/architecture/reference-architectures/data/stream-processing-stream-analytics)
+* [Demand Forecasting](/azure/architecture/solution-ideas/articles/demand-forecasting)
+* [Real Time Analytics on Big Data Architecture](/azure/architecture/solution-ideas/articles/real-time-analytics)
 
 <!-- links -->
 

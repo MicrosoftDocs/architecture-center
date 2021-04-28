@@ -62,24 +62,24 @@ AKS clusters on Azure Stack HCI can be connected to Azure Arc for centralized ma
 
 ## Resources and architectures related to Operational Excellence
 
-The introduction of cloud computing had a significant impact on how software is developed, delivered, and run. With _Azure Arc enabled infrastructure_ and Azure Arc components like [Azure Arc enabled Kubernetes](https://docs.microsoft.com/azure/azure-arc/kubernetes/overview) and [Azure Arc enabled data services](https://docs.microsoft.com/azure/azure-arc/data/overview) it becomes possible to design cloud native applications with a consistent set of principles and tooling across public cloud, private cloud, and the edge.
+The introduction of cloud computing had a significant impact on how software is developed, delivered, and run. With _Azure Arc enabled infrastructure_ and Azure Arc components like [Azure Arc enabled Kubernetes](/azure/azure-arc/kubernetes/overview) and [Azure Arc enabled data services](/azure/azure-arc/data/overview) it becomes possible to design cloud native applications with a consistent set of principles and tooling across public cloud, private cloud, and the edge.
 
 Click the following links for architecture details and diagrams that enable application design and DevOps practices consistent with [Operational excellence principles](../devops/principles.md).
 
 ### Application design
 
 - [Azure Arc hybrid management and deployment for Kubernetes clusters](../../hybrid/arc-hybrid-kubernetes.yml)
-- [Run containers in a hybrid environment](https://docs.microsoft.com/azure/architecture/hybrid/hybrid-containers)
+- [Run containers in a hybrid environment](../../hybrid/hybrid-containers.yml)
 - [Managing K8 clusters outside of Azure with Azure Arc](https://azure.microsoft.com/resources/videos/kubernetes-app-management-with-azure-arc)
 - [Optimize administration of SQL Server instances in on-premises and multi-cloud environments by leveraging Azure Arc](../../hybrid/azure-arc-sql-server.yml)
-- [Azure Data Studio dashboards](https://docs.microsoft.com/azure/azure-arc/data/azure-data-studio-dashboards)
+- [Azure Data Studio dashboards](/azure/azure-arc/data/azure-data-studio-dashboards)
 - [microsoft/azure_arc: Azure Arc environments bootstrapping for everyone](https://github.com/microsoft/azure_arc) (in github.com)
 - [All Azure Architecture Center Hybrid and Multicloud Architectures](../../browse/index.yml?azure_categories=hybrid)
 
 ### Monitoring
 
-- [Enable monitoring of Azure Arc enabled Kubernetes cluster](https://docs.microsoft.com/azure/azure-monitor/insights/container-insights-enable-arc-enabled-clusters)
-- [Azure Monitor for containers overview](https://docs.microsoft.com/azure/azure-monitor/insights/container-insights-overview)
+- [Enable monitoring of Azure Arc enabled Kubernetes cluster](/azure/azure-monitor/insights/container-insights-enable-arc-enabled-clusters)
+- [Azure Monitor for containers overview](/azure/azure-monitor/insights/container-insights-overview)
 
 ### Application performance management
 
@@ -92,4 +92,4 @@ Click the following links for architecture details and diagrams that enable appl
 ## Next steps
 
 >[!div class="nextstepaction"]
->[Performance Efficiency](/azure/architecture/framework/hybrid/hybrid-performance-efficiency)
+>[Performance Efficiency](./hybrid-performance-efficiency.md)

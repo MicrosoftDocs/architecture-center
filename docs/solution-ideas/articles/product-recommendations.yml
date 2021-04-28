@@ -18,7 +18,7 @@ metadata:
     - Azure
     - ai gallery
     - interactive-diagram
-    - 'https://azure.microsoft.com/solutions/architecture/customer-360/'
+    - "https://azure.microsoft.com/solutions/architecture/customer-360/"
   social_image_url: /azure/architecture/solution-ideas/articles/media/product-recommendations.png
 name: Product recommendations for retail using Azure
 azureCategories:

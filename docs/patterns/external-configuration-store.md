@@ -11,7 +11,8 @@ products:
   - azure-blob-storage
 ms.custom:
   - design-pattern
-keywords: design pattern
+keywords:
+  - design pattern
 ---
 
 # External Configuration Store pattern

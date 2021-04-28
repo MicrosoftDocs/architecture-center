@@ -13,10 +13,10 @@ metadata:
     - fcp
     - seo-aac-fy21q3
   keywords:
-    - "Media services"
-    - "gridwich"
-    - "key vault"
-    - "media processing"
+    - Media services
+    - gridwich
+    - key vault
+    - media processing
 name: Gridwich Media Services setup and scaling
 summary: Learn how Gridwich uses Azure Media Services V2 and V3 SDKs to set up authentication and authorization, and how to scale Media Services resources for media processing.
 products:

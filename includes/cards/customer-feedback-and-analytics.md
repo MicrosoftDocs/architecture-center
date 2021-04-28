@@ -6,7 +6,7 @@
 <article class="card">
     <div class="card-header has-margin-bottom-none" aria-hidden="true">
         <figure class="image diagram has-height-175 has-overflow-hidden level">
-            <a href="/azure/architecture/solution-ideas/articles/customer-feedback-and-analytics"><img src="/azure/architecture/browse/thumbs/customer-feedback-and-analytics.png" class="diagram" alt="Thumbnail of Customer Feedback and Analytics Architectural Diagram." data-linktype="relative-path"></a>
+            <a href="/azure/architecture/solution-ideas/articles/customer-feedback-and-analytics"><img src="/azure/architecture/browse/thumbs/knowledge-mining-customer-feedback-and-analytics.png" class="diagram" alt="Thumbnail of Customer Feedback and Analytics Architectural Diagram." data-linktype="relative-path"></a>
         </figure>
     </div>
     <div class="card-content">
@@ -17,7 +17,7 @@
             <li>12/16/2019</li>
             <li>2 min read</li>
         </ul>
-        <p class="card-content-description">Knowledge mining can help customer support teams quickly find the right answer for a customer inquiry or assess customer sentiment at scale.</p>
+        <p class="card-content-description">Knowledge mining can help customer support teams quickly find answers to customer questions or assess customer sentiment at scale.</p>
         <div class="bottom-to-top-fade is-hidden-mobile"></div>
     </div>
 </article>

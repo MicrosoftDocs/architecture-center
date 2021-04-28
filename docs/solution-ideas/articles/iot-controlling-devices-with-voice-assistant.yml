@@ -16,7 +16,7 @@ metadata:
     - bot service
     - luis
     - iot
-    - 'https://azure.microsoft.com/solutions/architecture/iot-devices/'
+    - "https://azure.microsoft.com/solutions/architecture/iot-devices/"
 name: Controlling IoT devices using a Voice Assistant
 azureCategories:
   - iot
@@ -26,6 +26,6 @@ products:
   - azure-speech
   - azure-iot-hub
   - azure-language-understanding
-thumbnailUrl: /azure/architecture/browse/thumbs/controlling-iot-devices-using-voice.png
+thumbnailUrl: /azure/architecture/browse/thumbs/controlling-iot-devices-using-voice.svg
 content: |
    [!include[](iot-controlling-devices-with-voice-assistant-content.md)]

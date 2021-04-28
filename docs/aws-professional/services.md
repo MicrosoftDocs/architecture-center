@@ -10,7 +10,14 @@ ms.service: architecture-center
 ms.subservice: cloud-fundamentals
 ms.custom:
   - fcp
-keywords: cloud services comparison, cloud services compared, multicloud, compare Azure AWS, compare Azure and AWS, compare AWS and Azure, IT capabilities
+keywords:
+  - cloud services comparison
+  - cloud services compared
+  - multicloud
+  - compare Azure AWS
+  - compare Azure and AWS
+  - compare AWS and Azure
+  - IT capabilities
 ---
 
 <!-- cSpell:ignore Alexa Rekognition Cognito ElastiCache Greengrass Firehose -->
@@ -44,7 +51,7 @@ For an overview of Azure for AWS users, see [Introduction to Azure for AWS profe
 | [Lex](https://aws.amazon.com/lex/) | [Speech Services](https://azure.microsoft.com/services/cognitive-services/speech/) | API capable of converting speech to text, understanding intent, and converting text back to speech for natural responsiveness. |
 | [Lex](https://aws.amazon.com/lex/) | [Language Understanding (LUIS)](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/) | Allows your applications to understand user commands contextually. |
 | [Polly](https://aws.amazon.com/polly/), [Transcribe](https://aws.amazon.com/transcribe/) | [Speech Services](https://azure.microsoft.com/services/cognitive-services/speech/) | Enables both Speech to Text, and Text into Speech capabilities. |
-| [Rekognition](https://aws.amazon.com/rekognition/) | [Cognitive Services](https://azure.microsoft.com/services/cognitive-services/) | [Computer Vision](https://azure.microsoft.com/services/cognitive-services/computer-vision/): Extract information from images to categorize and process visual data.<br/><br/> [Face](https://azure.microsoft.com/services/cognitive-services/face/): Detect, identify, and analyze faces in photos. <br/><br/> [Emotions](https://azure.microsoft.com/services/cognitive-services/emotion/): Recognize emotions in images. |
+| [Rekognition](https://aws.amazon.com/rekognition/) | [Cognitive Services](https://azure.microsoft.com/services/cognitive-services/) | [Computer Vision](https://azure.microsoft.com/services/cognitive-services/computer-vision/): Extract information from images to categorize and process visual data.<br/><br/> [Face](https://azure.microsoft.com/services/cognitive-services/face/): Detect, identify, and analyze faces and facial expressions in photos. |
 | [Skills Kit](https://developer.amazon.com/alexa/alexa-skills-kit) | [Virtual Assistant](/azure/bot-service/bot-builder-virtual-assistant-introduction?view=azure-bot-service-4.0&preserve-view=true) | The Virtual Assistant Template brings together a number of best practices we've identified through the building of conversational experiences and automates integration of components that we've found to be highly beneficial to Bot Framework developers.
 
 ### AI and machine learning architectures
@@ -206,7 +213,7 @@ For an overview of Azure for AWS users, see [Introduction to Azure for AWS profe
 | ----------- | ------------- | ----------- |
 | [Mobile Hub](https://aws.amazon.com/blogs/aws/aws-mobile-hub-build-test-and-monitor-mobile-applications/) | [App Center](https://azure.microsoft.com/services/app-center/) <br/><br/>[Xamarin Apps](https://azure.microsoft.com/features/xamarin/) | Provides backend mobile services for rapid development of mobile solutions, identity management, data synchronization, and storage and notifications across devices. |
 | [Mobile SDK](https://docs.aws.amazon.com/mobile-sdk/) | [App Center](https://azure.microsoft.com/services/app-center/) | Provides the technology to rapidly build cross-platform and native apps for mobile devices. |
-| [Cognito](https://aws.amazon.com/cognito/) | [App Center](https://azure.microsoft.com/services/app-center/) | Provides authentication capabilities for mobile applications. |
+| [Cognito](https://aws.amazon.com/cognito/) | [Azure Active Directory](https://azure.microsoft.com/services/active-directory/) | Provides authentication capabilities for mobile applications. |
 | [Device Farm](https://aws.amazon.com/device-farm/) | [App Center](https://azure.microsoft.com/services/app-center/) | Provides services to support testing mobile applications. |
 | [Mobile Analytics](https://aws.amazon.com/mobileanalytics/) | [App Center](https://azure.microsoft.com/services/app-center/) | Supports monitoring, and feedback collection for the debugging and analysis of a mobile application service quality. |
 
