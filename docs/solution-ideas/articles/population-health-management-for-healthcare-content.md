@@ -25,7 +25,7 @@ Examples
 
 3. Data sources such as Electronic Medical Record systems, patient administration systems, or lab systems may generate other message formats such as HL7 messages that are [converted](https://github.com/microsoft/health-architectures/tree/master/HL7Conversion) via an HL7 ingest and conversion workflow.  The HL7 ingest platform consumes HL7 Messages via MLLP and securely transfers them to Azure via HL7overHTTPS. The data lands in blob storage, which produces an event on Azure Service Bus for processing. The HL7 convert is an Azure Logic App based workflow that performs orderly conversion from HL7 to FHIR via the FHIR Converter, persists the message into an Azure API for FHIR Server Instance
 
-4. Data is exported from the Azure FHIR Service to Azure Data Lake Gen2 using the [Bulk Export](https://docs.microsoft.com/en-us/azure/healthcare-apis/export-data) feature.  Sensitive data can be [anonymised](https://github.com/microsoft/FHIR-Tools-for-Anonymization) as part of the export function.
+4. Data is exported from the Azure FHIR Service to Azure Data Lake Gen2 using the [Bulk Export](https://docs.microsoft.com/en-us/azure/healthcare-apis/export-data) feature.  Sensitive data can be [anonymized](https://github.com/microsoft/FHIR-Tools-for-Anonymization) as part of the export function.
 
 5. Azure Data Factory jobs are scheduled to copy other data sources from On Premises or alternate sources to Azure Data Lake Gen 2.
 
