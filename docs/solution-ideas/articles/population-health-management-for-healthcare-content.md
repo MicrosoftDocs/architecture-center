@@ -27,7 +27,7 @@ Examples
 
 4. Data is exported from the Azure FHIR Service to Azure Data Lake Gen2 using the [Bulk Export](https://docs.microsoft.com/en-us/azure/healthcare-apis/export-data) feature.  Sensitive data can be [anonymized](https://github.com/microsoft/FHIR-Tools-for-Anonymization) as part of the export function.
 
-5. Azure Data Factory jobs are scheduled to copy other data sources from On Premises or alternate sources to Azure Data Lake Gen 2.
+5. Azure Data Factory jobs are scheduled to copy other data sources from on-premises or alternate sources to Azure Data Lake Gen 2.
 
 6. Use Azure Databricks to clean and transform the structureless datasets and combine them with structured data from operational databases or data warehouses.  Use scalable machine learning/deep learning techniques, to derive deeper insights from this data using Python, R, or Scala, with inbuilt notebook experiences in Azure Databricks.  In this solution, we use Databricks to bring together related, but disparate datasets for use in the patient length of stay model.
 
