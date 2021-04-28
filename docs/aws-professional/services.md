@@ -10,6 +10,9 @@ ms.service: architecture-center
 ms.subservice: cloud-fundamentals
 ms.custom:
   - fcp
+ms.category:
+  - analytics
+  - ai-machine-learning
 keywords:
   - cloud services comparison
   - cloud services compared
