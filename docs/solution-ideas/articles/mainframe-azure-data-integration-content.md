@@ -1,4 +1,6 @@
-Data-first strategies can help digital transformations to succeed. But finding a coexistence model for a mainframe and midrange data platform modernization can be challenging. The best models offer target data platforms that are compatible with current platforms and require no changes in application code.
+[!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
+
+Data-first strategies can help digital transformations succeed. But finding a coexistence model for a mainframe and midrange data platform modernization can be challenging. The best models offer target data platforms that are compatible with current platforms and require no changes in application code.
 
 This solution outlines a data integration approach that meets these criteria:
 
@@ -17,9 +19,11 @@ Various mainframe and midrange integration scenarios can benefit from this solut
 
 ## Architecture
 
-![Diagram showing the three steps of migrating on-premises files to Azure: moving, conversion and transformation, and storing in persistent storage.](../media/mainframe-azure-data-integration-architecture.png)
+:::image type="complex" source="../media/mainframe-azure-data-integration-architecture.png" alt-text="Architecture diagram showing how mainframe applications can access Azure databases." border="false":::
+   The diagram contains two parts, one for mainframe components and one for Azure components. The mainframe part contains a cylinder that represents a database. That part also contains a rectangle filled with the names of mainframe languages and environments. The Azure part contains two rectangles. The first rectangle represents software and contains a computer icon. The second rectangle contains two icons. The first icon has the label PaaS and shows a database in a cloud. The second icon has the label IaaS and shows a computer. Arrows point back and forth between the icons and components that represent applications, databases, and software.
+:::image-end:::
 
-1. Host Integration Server (HIS) software runs on an on-premises or Azure VM. HIS helps IBM host systems connect with Azure systems by providing integration services for networks, data, applications, messaging, and security features.
+1. Host Integration Server (HIS) software runs on an on-premises or Azure virtual machine (VM). HIS helps IBM host systems connect with Azure systems by providing integration services for networks, data, applications, messaging, and security features.
 
    The solution requires these steps:
 
@@ -30,15 +34,15 @@ Various mainframe and midrange integration scenarios can benefit from this solut
 
 1. A mainframe or midrange application sends a SQL request to the local Db2 subsystem. The solution uses these Db2 configurations, which reroute the request to the HIS server:
 
-   - The SYSIBM.IPNAMES table contains the IP address of the HIS server. See [Update SYSIBM.IPNAMES table](https://docs.microsoft.com/host-integration-server/core/configuring-db2-for-z-os#updating-sysibmipnames-table) for more information.
-   - The SYSIBM.LOCATIONS table contains the name, address, and other properties of the target database. See [Update SYSIBM.LOCATIONS table](https://docs.microsoft.com/host-integration-server/core/configuring-db2-for-z-os#updating-sysibmlocations-table) for more information.
+   - The SYSIBM.IPNAMES table contains the IP address of the HIS server. See [Update SYSIBM.IPNAMES table][Update SYSIBM.IPNAMES table] for more information.
+   - The SYSIBM.LOCATIONS table contains the name, address, and other properties of the target database. See [Update SYSIBM.LOCATIONS table][Update SYSIBM.LOCATIONS table] for more information.
 
 1. The HIS server receives the request and forwards it to the target database. Microsoft Service for DRDA is a component of HIS that functions as a DRDA Application Server (AS). In this role, Microsoft Service for DRDA converts the Db2 SQL statements and runs them on the Azure database.
 
 1. The target database handles the request. This solution configures the following target databases:
 
    - Azure SQL Database, which offers all the benefits of a fully managed and evergreen platform as a service (PaaS).
-   - SQL Server on Azure VM. As an Infrastructure-as-a-Service (IaaS) offering, this service provides a customizable database engine.
+   - SQL Server on Azure Virtual Machines. As an infrastructure as a service (IaaS) offering, this service provides a customizable database engine.
    
    These database services can also form the core of business intelligence solutions that offer analytics and insights.
 
@@ -48,49 +52,47 @@ This solution uses the following components. See the [Azure pricing calculator][
 
 #### Data stores
 
-- [Azure SQL Database][What is Azure SQL Database?] is part of the Azure SQL family. This relational database service is evergreen and is built for the cloud. SQL Database also provides AI-powered, automated features that optimize performance and durability. Serverless compute and Hyperscale storage options automatically scale resources on demand.
+- [SQL Database][What is Azure SQL Database?] is part of the [Azure SQL][What is Azure SQL?] family. This relational database service is evergreen and is built for the cloud. SQL Database also provides AI-powered, automated features that optimize performance and durability. Serverless compute and Hyperscale storage options automatically scale resources on demand.
 
-- [SQL Server on Azure VMs][What is SQL Server on Azure Virtual Machines (Windows)] provides a way to migrate SQL Server workloads to the cloud with 100 percent code compatibility. As part of the Azure SQL family, SQL Server on Azure VMs offers the combined performance, security, and analytics of SQL Server with the flexibility and hybrid connectivity of Azure. With SQL Server on Azure VMs, you can migrate existing apps or build new apps. You can also access the latest SQL Server updates and releases, including SQL Server 2019.
+- [SQL Server on Azure Virtual Machines][What is SQL Server on Azure Virtual Machines (Windows)] provides a way to migrate SQL Server workloads to the cloud with 100 percent code compatibility. As part of the Azure SQL family, SQL Server on Azure Virtual Machines offers the combined performance, security, and analytics of [SQL Server][SQL Server technical documentation] with the flexibility and hybrid connectivity of Azure. With SQL Server on Azure Virtual Machines, you can migrate existing apps or build new apps. You can also access the latest SQL Server updates and releases, including SQL Server 2019.
 
 #### Tools
 
-- [Host Integration Server (HIS)][What is HIS] software helps IBM host systems connect with Azure systems. HIS runs on an on-premises or Azure VM. HIS provides integration services for networks, data, applications, messaging, and security features.
+- [HIS][What is HIS] software helps IBM host systems connect with Azure systems. HIS runs on an on-premises or Azure VM. HIS provides integration services for networks, data, applications, messaging, and security features.
 
-- [Microsoft Service for DRDA][Microsoft Service for DRDA] is a component of Host Integration Server (HIS). Microsoft Service for DRDA is an Application Server (AS) that DRDA Application Requester (AR) clients use. Examples of DRDA AR clients include IBM Db2 for z/OS and Db2 for i5/OS. These clients use the AS to convert Db2 SQL statements and run them on SQL Server.
+- [Microsoft Service for DRDA][Microsoft Service for DRDA] is a component of HIS. Microsoft Service for DRDA is an Application Server (AS) that DRDA Application Requester (AR) clients use. Examples of DRDA AR clients include IBM Db2 for z/OS and Db2 for i5/OS. These clients use the AS to convert Db2 SQL statements and run them on SQL Server.
 
 ## Next steps
 
 - For more information, contact Azure Data Engineering - Mainframe & Midrange Modernization at [datasqlninja@microsoft.com][Email address for information on mainframe modernization].
-- See the [Azure Database Migration Guides][Azure Database Migration Guides].
+- See [Azure Database Migration Guides][Azure Database Migration Guides].
 - See [Planning and architecting solutions using Microsoft Service for DRDA][Planning and Architecting Solutions Using Microsoft Service for DRDA].
-- Maybe this one, too: https://docs.microsoft.com/en-us/azure/cloud-adoption-framework/infrastructure/mainframe-migration/application-strategies
-
-Or maybe this section is better: https://docs.microsoft.com/en-us/azure/cloud-adoption-framework/infrastructure/mainframe-migration/application-strategies#migrate-databases-and-data
-
-
-
-
-
-[Email address for information on mainframe modernization]: mailto:datasqlninja@microsoft.com
-[Azure Database Migration Guides]: /data-migration/
-[Planning and Architecting Solutions Using Microsoft Service for DRDA]: /host-integration-server/core/planning-and-architecting-solutions-using-microsoft-service-for-drda
+- See [Migrate databases and data][Migrate databases and data].
 
 ## Related resources
 
-- [Replicate and sync mainframe data in Azure](/azure/architecture/reference-architectures/migration/sync-mainframe-data-with-azure)
-- [Modernize mainframe and midrange data](/azure/architecture/reference-architectures/migration/modernize-mainframe-data-to-azure)
-- [Migrate IBM mainframe applications to Azure with TmaxSoft OpenFrame](/azure/architecture/solution-ideas/articles/migrate-mainframe-apps-with-tmaxsoft-openframe)
-- [Unisys mainframe migration with Asysco](/azure/architecture/reference-architectures/migration/unisys-mainframe-migration)
+- [Mainframe file replication and sync on Azure][Mainframe file replication and sync on Azure]
+- [Replicate and sync mainframe data in Azure][Replicate and sync mainframe data in Azure]
+- [Modernize mainframe and midrange data][Modernize mainframe and midrange data]
+- [Migrate IBM mainframe applications to Azure with TmaxSoft OpenFrame][Migrate IBM mainframe applications to Azure with TmaxSoft OpenFrame]
 
-
-
-
-
+[Azure Database Migration Guides]: /data-migration/
 [Azure pricing calculator]: https://azure.microsoft.com/pricing/calculator
-[Configuring SQL Server Connections]: https://docs.microsoft.com/host-integration-server/core/configuring-sql-server-connections
+[Configuring SQL Server Connections]: /host-integration-server/core/configuring-sql-server-connections
 [DRDA]: https://en.wikipedia.org/wiki/DRDA
-[Install and configure HIS 2020]: https://docs.microsoft.com/host-integration-server/install-and-config-guides/installing-his-2020
+[Email address for information on mainframe modernization]: mailto:datasqlninja@microsoft.com
+[Install and configure HIS 2020]: /host-integration-server/install-and-config-guides/installing-his-2020
+[Mainframe file replication and sync on Azure]: /azure/architecture/solution-ideas/articles/mainframe-azure-file-replication
 [Microsoft Service for DRDA]: host-integration-server/what-is-his#Data
+[Migrate databases and data]: /azure/cloud-adoption-framework/infrastructure/mainframe-migration/application-strategies#migrate-databases-and-data
+[Migrate IBM mainframe applications to Azure with TmaxSoft OpenFrame]: /azure/architecture/solution-ideas/articles/migrate-mainframe-apps-with-tmaxsoft-openframe
+[Modernize mainframe and midrange data]: /azure/architecture/reference-architectures/migration/modernize-mainframe-data-to-azure
+[Planning and Architecting Solutions Using Microsoft Service for DRDA]: /host-integration-server/core/planning-and-architecting-solutions-using-microsoft-service-for-drda
+[Replicate and sync mainframe data in Azure]: /azure/architecture/reference-architectures/migration/sync-mainframe-data-with-azure
+[SQL Server technical documentation]: /sql/sql-server/
+[Update SYSIBM.IPNAMES table]: /host-integration-server/core/configuring-db2-for-z-os#updating-sysibmipnames-table
+[Update SYSIBM.LOCATIONS table]: /host-integration-server/core/configuring-db2-for-z-os#updating-sysibmlocations-table
 [What is Azure SQL Database?]: /azure/azure-sql/database/sql-database-paas-overview
+[What is Azure SQL?]: /azure/azure-sql/azure-sql-iaas-vs-paas-what-is-overview
 [What is HIS]: /host-integration-server/what-is-his
 [What is SQL Server on Azure Virtual Machines (Windows)]: /azure/azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview

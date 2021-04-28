@@ -2,24 +2,24 @@
 metadata:
   title: Mainframe data integration on Azure
   titleSuffix: Azure Solution Ideas
-  description: Learn about several options for moving, converting, transforming, and storing mainframe and midrange file system data on-premises and in Azure.
+  description: Integrate mainframe data into Azure without changing code. Use Microsoft Service for DRDA to convert Db2 SQL statements and run them on an Azure database.
   author: ashish-khandelwal-ms
   ms.author: askhande
-  ms.date: 05/01/2021
+  ms.date: 04/30/2021
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: solution-idea
+  ms.custom: fcp
 azureCategories:
+  - databases
+  - integration
   - migration
-  - storage
 products:
-  - azure-data-factory
-  - azure-data-lake
   - azure-sql-database
-  - azure-storage
   - azure-virtual-machines
-name: Mainframe file replication and sync on Azure
-summary: Learn about several options for moving, converting, transforming, and storing mainframe and midrange file system data on-premises and in Azure.
-thumbnailUrl: /azure/architecture/browse/thumbs/mainframe-azure-file-replication.png
+  - sql-server
+name: Mainframe data integration on Azure
+summary: Integrate mainframe data into Azure without changing code. Use Microsoft Service for DRDA to convert Db2 SQL statements and run them on an Azure database.
+thumbnailUrl: /azure/architecture/browse/thumbs/mainframe-azure-data-integration-architecture-thumbnail.png
 content: |
   [!include[](mainframe-azure-data-integration-content.md)]
