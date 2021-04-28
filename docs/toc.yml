@@ -71,6 +71,8 @@ items:
             href: guide/technology-choices/messaging.md
       - name: Best practices for cloud applications
         items:
+          - name: Overview
+            href: best-practices/index-best-practices.md
           - name: API design
             href: best-practices/api-design.md
           - name: API implementation
@@ -573,6 +575,69 @@ items:
         href: patterns/throttling.md
       - name: Valet Key
         href: patterns/valet-key.md
+  - name: Industry solutions with Azure
+    expanded: true
+    items:
+      - name: Retail
+        items:
+          - name: Overview
+            href: industries/retail.md
+          - name: Build a Real-time Recommendation API on Azure
+            href: reference-architectures/ai/real-time-recommendation.yml
+          - name: Movie recommendations on Azure
+            href: example-scenario/ai/movie-recommendations.yml
+          - name: Scalable personalization on Azure
+            href: example-scenario/ai/scalable-personalization.yml
+          - name: Data warehousing and analytics
+            href: example-scenario/data/data-warehouse.yml
+          - name: Stream processing with Azure Databricks
+            href: reference-architectures/data/stream-processing-databricks.yml
+          - name: Stream processing with Azure Stream Analytics
+            href: reference-architectures/data/stream-processing-stream-analytics.yml
+          - name: E-commerce front end
+            href: example-scenario/apps/ecommerce-scenario.yml
+          - name: Intelligent product search engine for e-commerce
+            href: example-scenario/apps/ecommerce-search.yml
+          - name: Magento e-commerce platform in Azure Kubernetes Service
+            href: example-scenario/magento/magento-azure.yml
+          - name: Scalable order processing
+            href: example-scenario/data/ecommerce-order-processing.yml
+          - name: Retail - Buy online, pickup in store (BOPIS)
+            href: example-scenario/iot/vertical-buy-online-pickup-in-store.yml
+      - name: Finance
+        items:
+          - name: Overview
+            href: industries/finance.md
+          - name:  Decentralized trust between banks
+            href: example-scenario/apps/decentralized-trust.yml
+          - name: Replicate and sync mainframe data in Azure
+            href: reference-architectures/migration/sync-mainframe-data-with-azure.yml
+          - name: Modernize mainframe & midrange data
+            href: reference-architectures/migration/modernize-mainframe-data-to-azure.yml
+          - name: Refactor IBM z/OS mainframe Coupling Facility to Azure
+            href: reference-architectures/zos/refactor-zos-coupling-facility.yml
+          - name: Banking system cloud transformation on Azure
+            href: example-scenario/banking/banking-system-cloud-transformation.yml
+          - name: Patterns and implementations in banking cloud transformation
+            href: example-scenario/banking/patterns-and-implementations.yml
+          - name: JMeter implementation reference for load testing pipeline solution
+            href: example-scenario/banking/jmeter-load-testing-pipeline-implementation-reference.yml
+          - name: Real-time fraud detection
+            href: example-scenario/data/fraud-detection.yml
+      - name: Healthcare
+        items:
+          - name: Overview
+            href: industries/healthcare.md
+          - name: Virtual visits with Microsoft Cloud for Healthcare
+            href: example-scenario/mch-health/virtual-health-mch.yml 
+          - name: Clinical insights with Microsoft Cloud for Healthcare
+            href: example-scenario/mch-health/medical-data-insights.yml
+          - name: Consumer health portal on Azure
+            href: example-scenario/digital-health/health-portal.yml
+          - name: Building a telehealth system with Azure
+            href: example-scenario/apps/telehealth-system.yml
+          - name: Confidential computing for healthcare
+            href: example-scenario/confidential/healthcare-inference.yml
   - name: Azure categories
     expanded: true
     items:
@@ -602,10 +667,8 @@ items:
                     href: example-scenario/mlops/aml-decision-tree.yml
           - name: Architectures
             items:
-              - name: AI enrichment in Cognitive Search
+              - name: AI enrichment with Cognitive Search
                 href: solution-ideas/articles/cognitive-search-with-skillsets.yml
-              - name: AI for Earth
-                href: solution-ideas/articles/ai-for-earth.yml
               - name: Autonomous systems
                 href: solution-ideas/articles/autonomous-systems.yml
               - name: Baseball decision analysis with ML.NET and Blazor
@@ -618,7 +681,7 @@ items:
                 href: reference-architectures/ai/batch-scoring-R-models.yml
               - name: Batch scoring with Spark on Databricks
                 href: reference-architectures/ai/batch-scoring-databricks.yml
-              - name: Chatbot for hotel reservations
+              - name: Chatbot for hotel booking
                 href: example-scenario/ai/commerce-chatbot.yml
               - name: Deploy AI and ML at the edge
                 href: hybrid/deploy-ai-ml-azure-stack-edge.yml
@@ -654,11 +717,11 @@ items:
                 href: solution-ideas/articles/ai-at-the-edge.yml
               - name: Auditing and risk management
                 href: solution-ideas/articles/auditing-and-risk-compliance.yml
-              - name: Business Process Management
+              - name: Business process management
                 href: solution-ideas/articles/business-process-management.yml
-              - name: Content Research
+              - name: Content research
                 href: solution-ideas/articles/content-research.yml
-              - name: Contract Management
+              - name: Contract management
                 href: solution-ideas/articles/contract-management.yml
               - name: Customer churn prediction
                 href: solution-ideas/articles/customer-churn-prediction.yml
@@ -666,7 +729,7 @@ items:
                 href: solution-ideas/articles/customer-feedback-and-analytics.yml
               - name: Defect prevention
                 href: solution-ideas/articles/defect-prevention-with-predictive-maintenance.yml
-              - name: Digital Asset Management
+              - name: Digital asset management
                 href: solution-ideas/articles/digital-asset-management.yml
               - name: Disconnected AI at the edge
                 href: solution-ideas/articles/ai-at-the-edge-disconnected.yml
@@ -732,6 +795,8 @@ items:
             items:
               - name: Automated enterprise BI
                 href: reference-architectures/data/enterprise-bi-adf.yml
+              - name: Azure analytics end to end
+                href: example-scenario/dataplate2e/data-platform-end-to-end.yml
               - name: Data warehousing and analytics
                 href: example-scenario/data/data-warehouse.yml
               - name: Demand forecasting for shipping
@@ -796,6 +861,8 @@ items:
                 href: solution-ideas/articles/blockchain-workflow-application.yml
               - name: Decentralized trust between banks
                 href: example-scenario/apps/decentralized-trust.yml
+              - name: Multi-cloud blockchain DLT
+                href: example-scenario/blockchain/multi-cloud-blockchain.yml
               - name: Supply chain track and trace
                 href: solution-ideas/articles/supply-chain-track-and-trace.yml
       - name: Compute
@@ -834,12 +901,36 @@ items:
                 href: solution-ideas/articles/hybrid-hpc-in-azure-with-hpc-pack.yml
       - name: Containers
         items:
-          - name: AKS architectural overview
+          - name: Get started with AKS architectures
             href: reference-architectures/containers/aks-start-here.md
-          - name: Guides
+          - name: Reference architectures
             items:
               - name: AKS baseline cluster
                 href: reference-architectures/containers/aks/secure-baseline-aks.yml
+              - name: Microservices architecture on AKS
+                href: reference-architectures/containers/aks-microservices/aks-microservices.yml
+              - name: CI/CD pipeline for container-based workloads
+                href: example-scenario/apps/devops-with-aks.yml
+          - name: Example workloads hosted in AKS clusters
+            items:
+              - name: Building a telehealth system
+                href: example-scenario/apps/telehealth-system.yml
+              - name: Magento e-commerce in AKS
+                href: example-scenario/magento/magento-azure.yml
+          - name: Solution ideas
+            items:
+              - name: API-first SaaS business model with AKS
+                href: solution-ideas/articles/aks-api-first.yml
+              - name: Elastic demand handling with AKS
+                href: solution-ideas/articles/aks-demand-spikes.yml
+              - name: Microservices with AKS and Azure DevOps
+                href: solution-ideas/articles/microservices-with-aks.yml
+              - name: Secure DevOps for AKS
+                href: solution-ideas/articles/secure-devops-for-kubernetes.yml
+              - name: Bursting from AKS with ACI
+                href: solution-ideas/articles/scale-using-aks-with-aci.yml                          
+          - name: Guides
+            items:
               - name: AKS cluster best practices
                 href: /Azure/aks/best-practices
                 maintainContext: true
@@ -866,28 +957,6 @@ items:
                   - name: Common issues
                     href: /azure/aks/troubleshooting?bc=%2fazure%2farchitecture%2fbread%2ftoc.json&toc=%2fazure%2farchitecture%2ftoc.json
                     maintainContext: true
-          - name: Architectures
-            items:
-              - name: Microservices architecture on AKS
-                href: reference-architectures/containers/aks-microservices/aks-microservices.yml
-              - name: Building a telehealth system
-                href: example-scenario/apps/telehealth-system.yml
-              - name: CI/CD pipeline for container-based workloads
-                href: example-scenario/apps/devops-with-aks.yml
-              - name: Magento e-commerce in AKS
-                href: example-scenario/magento/magento-azure.yml
-          - name: Solution ideas
-            items:
-              - name: API-first SaaS business model with AKS
-                href: solution-ideas/articles/aks-api-first.yml
-              - name: Elastic demand handling with AKS
-                href: solution-ideas/articles/aks-demand-spikes.yml
-              - name: Microservices with AKS and Azure DevOps
-                href: solution-ideas/articles/microservices-with-aks.yml
-              - name: Secure DevOps for AKS
-                href: solution-ideas/articles/secure-devops-for-kubernetes.yml
-              - name: Bursting from AKS with ACI
-                href: solution-ideas/articles/scale-using-aks-with-aci.yml
       - name: Databases
         items:
           - name: Guides
@@ -970,8 +1039,8 @@ items:
                 href: best-practices/cassandra.md
           - name: Architectures
             items:
-              - name: Azure data platform
-                href: example-scenario/dataplate2e/data-platform-end-to-end.yml
+              - name: Azure health data consortium
+                href: example-scenario/data/azure-health-data-consortium.yml
               - name: DataOps for modern data warehouse
                 href: example-scenario/data-warehouse/dataops-mdw.yml
               - name: Hybrid ETL with Azure Data Factory
@@ -1002,6 +1071,8 @@ items:
                 href: solution-ideas/articles/digital-marketing-using-azure-database-for-postgresql.yml
               - name: Digital marketing using Azure MySQL
                 href: solution-ideas/articles/digital-marketing-using-azure-database-for-mysql.yml
+              - name: Enterprise data warehouse
+                href: solution-ideas/articles/enterprise-data-warehouse.yml
               - name: Finance management using Azure MySQL
                 href: solution-ideas/articles/finance-management-apps-using-azure-database-for-mysql.yml
               - name: Finance management using Azure PostgreSQL
@@ -1028,8 +1099,10 @@ items:
                 href: solution-ideas/articles/loan-credit-risk-with-sql-server.yml
               - name: Messaging
                 href: solution-ideas/articles/messaging.yml
-              - name: Enterprise data warehouse
-                href: solution-ideas/articles/enterprise-data-warehouse.yml
+              - name: Mining equipment monitoring
+                href: solution-ideas/articles/monitor-mining-equipment.yml
+              - name: Modern data warehouse
+                href: solution-ideas/articles/modern-data-warehouse.yml
               - name: Ops automation using Event Grid
                 href: solution-ideas/articles/ops-automation-using-event-grid.yml
               - name: Oracle migration to Azure
@@ -1313,6 +1386,8 @@ items:
         items:
           - name: Guides
             items:
+              - name: Build for resilience
+                href: guide/resilience/resilience-overview.md
               - name: Identity in multitenant applications
                 items:
                   - name: Introduction
@@ -1456,7 +1531,7 @@ items:
               - name: Contactless IoT interfaces
                 href: solution-ideas/articles/contactless-interfaces.yml
               - name: COVID-19 IoT Safe Solutions
-                href: solution-ideas/articles/cctv-mask-detection.yml
+                href: solution-ideas/articles/cctv-iot-edge-for-covid-19-safe-environment-and-mask-detection.yml
               - name: IoT Connected Platform
                 href: solution-ideas/articles/iot-connected-platform.yml
               - name: IoT Edge data storage and processing
@@ -1467,6 +1542,8 @@ items:
                 href: solution-ideas/articles/iot-power-management.yml
               - name: Lighting and disinfection system
                 href: solution-ideas/articles/uven-disinfection.yml
+              - name: Mining equipment monitoring
+                href: solution-ideas/articles/monitor-mining-equipment.yml
               - name: Predictive maintenance for industrial IoT
                 href: solution-ideas/articles/iot-predictive-maintenance.yml
               - name: Process real-time vehicle data using IoT
@@ -1804,6 +1881,8 @@ items:
                 href: reference-architectures/app-service-web-app/basic-web-app.yml
               - name: Azure Functions in a hybrid environment
                 href: hybrid/azure-functions-hybrid.yml
+              - name: Clinical insights with Microsoft Cloud for Healthcare
+                href: example-scenario/mch-health/medical-data-insights.yml
               - name: Consumer health portal
                 href: example-scenario/digital-health/health-portal.yml
               - name: Deployment in App Service Environments
