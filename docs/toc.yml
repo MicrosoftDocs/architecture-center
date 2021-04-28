@@ -1071,6 +1071,8 @@ items:
                 href: solution-ideas/articles/digital-marketing-using-azure-database-for-postgresql.yml
               - name: Digital marketing using Azure MySQL
                 href: solution-ideas/articles/digital-marketing-using-azure-database-for-mysql.yml
+              - name: Enterprise data warehouse
+                href: solution-ideas/articles/enterprise-data-warehouse.yml
               - name: Finance management using Azure MySQL
                 href: solution-ideas/articles/finance-management-apps-using-azure-database-for-mysql.yml
               - name: Finance management using Azure PostgreSQL
@@ -1099,8 +1101,6 @@ items:
                 href: solution-ideas/articles/messaging.yml
               - name: Mining equipment monitoring
                 href: solution-ideas/articles/monitor-mining-equipment.yml
-              - name: Modern data warehouse
-                href: solution-ideas/articles/modern-data-warehouse.yml
               - name: Ops automation using Event Grid
                 href: solution-ideas/articles/ops-automation-using-event-grid.yml
               - name: Oracle migration to Azure
