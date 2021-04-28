@@ -16,7 +16,7 @@ While this scenario is based on processing of RSS feeds, it's relevant to any do
 - Detect objects, text, and landmarks in images associated with a digital article.
 - Detect people by gender and age in images associated with digital content.
 
-## Architecture for near real-time analytics
+## Architecture
 
 ![Architecture diagram: ingest and analyze RSS feeds using image and text processing and send notifications.][architecture]
 
@@ -105,6 +105,27 @@ Pricing for Azure Functions varies depending on the [plan][function-plan] it run
 > You must have an existing Azure account. If you don't have an Azure subscription, create a [free account][free] before you begin.
 
 All the code for this scenario is available in the [GitHub][github] repository. This repository contains the source code used to build the generator application that feeds the pipeline for this demo.
+
+## Next steps
+
+* [Choosing an analytical data store in Azure](/azure/architecture/data-guide/technology-choices/analytical-data-stores)
+* [Choosing a data analytics technology in Azure](/azure/architecture/data-guide/technology-choices/analysis-visualizations-reporting)
+* [Choosing a big data storage technology in Azure](/azure/architecture/data-guide/technology-choices/data-storage)
+* [Introduction to Azure Blob storage](/azure/storage/blobs/storage-blobs-introduction)
+* [Welcome to Azure Cosmos DB](/azure/cosmos-db/introduction)
+* [Introduction to Azure Functions](/azure/azure-functions/functions-overview)
+
+## Related resources
+
+Additional analytics architectures:
+
+* [Automated enterprise BI](/azure/architecture/reference-architectures/data/enterprise-bi-adf)
+* [Analytics end-to-end with Azure Synapse](/azure/architecture/example-scenario/dataplate2e/data-platform-end-to-end)
+* [Data warehousing and analytics](/azure/architecture/example-scenario/data/data-warehouse)
+* [Mass ingestion and analysis of news feeds on Azure](/azure/architecture/example-scenario/ai/newsfeed-ingestion)
+* [Stream processing with Azure Databricks](/azure/architecture/reference-architectures/data/stream-processing-databricks)
+* [Stream processing with Azure Stream Analytics](/azure/architecture/reference-architectures/data/stream-processing-stream-analytics)
+
 
 [architecture]: ./media/mass-ingestion-newsfeeds-architecture.png
 [aai]: /azure/azure-monitor/app/app-insights-overview
