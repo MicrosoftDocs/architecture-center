@@ -21,7 +21,7 @@ Examples
 
 1. Real-time data generating devices (IoMT) transfer data to a streaming data ingestion sink with device authentication such as IoT Hub.  This sink could be a standalone Azure IoT Hub or it could be included in a fully managed application platform like [Azure IOT Central](https://docs.microsoft.com/en-us/azure/iot-fundamentals/iot-services-and-technologies#azure-iot-central) with solution accelerators such as a [continuous patient monitoring template](https://docs.microsoft.com/en-us/azure/iot-central/healthcare/overview-iot-central-healthcare#what-is-continuous-patient-monitoring-template).
 
-2. The device data is then received into IoMT FHIR Connector for Azure, where it's normalised, grouped, transformed, and persisted into the Azure API for FHIR.
+2. The device data is then received into IoMT FHIR Connector for Azure, where it's normalized, grouped, transformed, and persisted into the Azure API for FHIR.
 
 3. Data sources such as Electronic Medical Record systems, patient administration systems, or lab systems may generate other message formats such as HL7 messages that are [converted](https://github.com/microsoft/health-architectures/tree/master/HL7Conversion) via an HL7 ingest and conversion workflow.  The HL7 ingest platform consumes HL7 Messages via MLLP and securely transfers them to Azure via HL7overHTTPS. The data lands in blob storage, which produces an event on Azure Service Bus for processing. The HL7 convert is an Azure Logic App based workflow that performs orderly conversion from HL7 to FHIR via the FHIR Converter, persists the message into an Azure API for FHIR Server Instance
 
@@ -68,4 +68,3 @@ Two sample projects are detailed here that can be imported into Azure Databricks
 [Medical Imaging Server for DICOM](https://github.com/microsoft/dicom-server) is a .NET Core implementation of DICOMweb™ that can be run in Azure.
 
 [OpenHack for FHIR](https://github.com/microsoft/OpenHack-FHIR) is a collection of OpenHack based tutorials that can be used to learn about the FHIR-related services in Azure.
-
