@@ -7297,8 +7297,8 @@
                 "pricing-guidance"
             ],
             "type": "example-workload",
-            "file_url": "example-scenario/ai/newsfeed-ingestion.md",
-            "http_url": "/azure/architecture/example-scenario/ai/newsfeed-ingestion",
+            "file_url": "example-scenario/ai/news-feed-ingestion-and-near-real-time-analysis.md",
+            "http_url": "/azure/architecture/example-scenario/ai/news-feed-ingestion-and-near-real-time-analysis",
             "word_count": 1334,
             "read_time": "5 min read",
             "Title": "Mass ingestion and analysis of news feeds on Azure",
@@ -7324,7 +7324,7 @@
             },
             "sample_code": true,
             "github_url": "https://github.com/Azure/cognitive-services",
-            "name": "newsfeed-ingestion",
+            "name": "news-feed-ingestion-and-near-real-time-analysis",
             "popularity": 69,
             "topic": "Analytics"
         },

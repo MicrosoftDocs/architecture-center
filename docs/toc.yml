@@ -801,8 +801,8 @@ items:
                 href: example-scenario/data/data-warehouse.yml
               - name: Demand forecasting for shipping
                 href: solution-ideas/articles/demand-forecasting-for-shipping-and-distribution.yml
-              - name: Mass ingestion of news feeds on Azure
-                href: example-scenario/ai/newsfeed-ingestion.yml
+              - name: Ingestion and analysis of news feeds
+                href: example-scenario/ai/news-feed-ingestion-and-near-real-time-analysis.yml
               - name: Partitioning in Event Hubs and Kafka
                 href: reference-architectures/event-hubs/partitioning-in-event-hubs-and-kafka.yml
               - name: Stream processing with Azure Databricks
