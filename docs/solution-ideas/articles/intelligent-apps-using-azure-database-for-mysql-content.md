@@ -11,7 +11,7 @@ Develop sophisticated, transformational apps using state of the art machine lear
 The data flows through the solution as follows:
 
 1. Data could come from various sources, such as Event Hubs for high volumes of data ingestion, or data that's uploaded to Blob Storage. An Azure Function App is triggered as new data is received.
-2. The Azure Function App calls the Text Analytics API in Azure Cognitive Services to analyse the data (for example, for Sentiment Analysis). The results of the analysis are returned in JSON format.
+2. The Azure Function App calls the Text Analytics API in Azure Cognitive Services to analyze the data (for example, for Sentiment Analysis). The results of the analysis are returned in JSON format.
 3. The Azure Function App stores the data and results from Text Analytics in Azure Database for MySQL.
 4. Azure Machine Learning Studio can be used to further analyze the data, using custom Machine Learning algorithms to gain further insights.
 5. The MySQL Power BI Connector provides options for data visualization and analysis in Power BI.
