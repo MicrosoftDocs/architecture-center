@@ -1504,7 +1504,7 @@ items:
                     href: example-scenario/iot/analyze-optimize-loop.yml
                   - name: Event routing
                     href: example-scenario/iot/event-routing.yml
-                  - name: Solution scaling with application stamps
+                  - name: Scale solutions with deployment stamps
                     href: example-scenario/iot/application-stamps.yml
           - name: Architectures
             items:
