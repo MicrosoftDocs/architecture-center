@@ -10,6 +10,9 @@ ms.service: architecture-center
 ms.subservice: cloud-fundamentals
 ms.custom:
   - fcp
+ms.category:
+  - analytics
+  - ai-machine-learning
 keywords:
   - cloud services comparison
   - cloud services compared
@@ -18,6 +21,21 @@ keywords:
   - compare Azure and AWS
   - compare AWS and Azure
   - IT capabilities
+categories:
+  - compute
+  - storage
+  - databases
+  - networking
+  - security
+  - ai-machine-learning
+products:
+  - azure-cosmos-db
+  - azure-functions
+  - azure-storage
+  - azure-search
+  - azure-cognitive-search
+  - azure-computer-vision
+  - azure-translator-text
 ---
 
 <!-- cSpell:ignore Alexa Rekognition Cognito ElastiCache Greengrass Firehose -->
@@ -129,7 +147,7 @@ For an overview of Azure for AWS users, see [Introduction to Azure for AWS profe
 
 [!INCLUDE [Advanced Analytics Architecture](../../includes/cards/advanced-analytics-on-big-data.md)]
 [!INCLUDE [Automated enterprise BI](../../includes/cards/enterprise-bi-adf.md)]
-[!INCLUDE [Mass ingestion and analysis of news feeds on Azure](../../includes/cards/newsfeed-ingestion.md)]
+[!INCLUDE [Mass ingestion and analysis of news feeds on Azure](../../includes/cards/news-feed-ingestion-and-near-real-time-analysis.md)]
 
 </ul>
 

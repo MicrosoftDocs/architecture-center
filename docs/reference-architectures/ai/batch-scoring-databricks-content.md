@@ -1,6 +1,3 @@
-
-
-
 This reference architecture shows how to build a scalable solution for batch scoring an Apache Spark classification model on a schedule using Azure Databricks, an Apache Spark-based analytics platform optimized for Azure. The solution can be used as a template that can be generalized to other scenarios.
 
 A reference implementation for this architecture is available on [GitHub][github].
@@ -98,7 +95,7 @@ We have also built a reference architecture that uses Spark for building [real-t
 [ai-guide]: /azure/machine-learning/team-data-science-process/cortana-analytics-playbook-predictive-maintenance
 [blob]: https://docs.databricks.com/spark/latest/data-sources/azure/azure-storage.html
 [cli]: https://docs.databricks.com/user-guide/dev-tools/databricks-cli.html
-[cluster]: https://docs.microsoft.com/azure/databricks/clusters/configure
+[cluster]: /azure/databricks/clusters/configure
 [databricks]: /azure/azure-databricks
 [databricks-connect]: /azure/azure-databricks/databricks-connect-to-data-sources
 [data-sources]: https://docs.databricks.com/spark/latest/data-sources/index.html

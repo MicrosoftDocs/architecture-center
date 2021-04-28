@@ -20,6 +20,6 @@ summary: Learn about the capabilities of IoT Edge field gateways and protocol cl
 products:
   - azure-iot
   - azure-iot-edge
-thumbnailUrl: /azure/architecture/browse/thumbs/field-edge-gateways.png
+thumbnailUrl: /azure/architecture/browse/thumbs/field-edge-gateways.svg
 content: |
    [!include[](field-cloud-edge-gateways-content.md)]
