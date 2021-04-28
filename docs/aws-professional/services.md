@@ -21,7 +21,7 @@ keywords:
   - compare Azure and AWS
   - compare AWS and Azure
   - IT capabilities
-azureCategories:
+categories:
   - compute
   - storage
   - databases
