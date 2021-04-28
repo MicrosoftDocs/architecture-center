@@ -1,6 +1,6 @@
 ### YamlMime:Architecture
 metadata:
-  title: Mass ingestion and analysis of news feeds on Azure
+  title: Analyze news feeds with near real-time analytics
   description: Create a pipeline for ingesting and analyzing RSS news feed data using Azure Cosmos DB, Azure Cognitive Services, and other Azure services.
   author: njray
   ms.date: 2/1/2019
@@ -16,8 +16,9 @@ metadata:
     - example-scenario
     - internal-intro
     - ai-machine-learning
+    - aml-project-improvement
   social_image_url: /azure/architecture/example-scenario/ai/media/mass-ingestion-newsfeeds-architecture.png
-name: Mass ingestion and analysis of news feeds on Azure
+name: Analyze news feeds with near real-time analytics using image and natural language processing
 azureCategories:
   - analytics
   - ai-machine-learning
@@ -25,8 +26,14 @@ summary: Create a pipeline for ingesting and analyzing RSS news feed data using 
 products:
   - azure-cosmos-db
   - azure-functions
-  - azure-search
   - azure-storage
+  - azure-search
+  - azure-cognitive-search
+  - azure-service-bus
+  - azure-computer-vision
+  - azure-translator-text
+  - azure-face
+  - azure-application-insights
 thumbnailUrl: /azure/architecture/browse/thumbs/mass-ingestion-newsfeeds-architecture.png
 content: |
-  [!include[](newsfeed-ingestion-content.md)]
+  [!include[](news-feed-ingestion-and-near-real-time-analysis-content.md)]

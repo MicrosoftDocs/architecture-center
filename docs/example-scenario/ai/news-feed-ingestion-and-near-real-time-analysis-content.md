@@ -3,22 +3,22 @@
 
 
 
-This example scenario describes a pipeline for mass ingestion and near real-time analysis of documents using public RSS news feeds.  It uses Azure Cognitive Services to offer useful insights including text translation, facial recognition, and sentiment detection.
+This example scenario describes a pipeline for mass ingestion and near real-time analysis of documents coming from public RSS news feeds.  It uses [Azure Cognitive Services](/azure/cognitive-services/what-are-cognitive-services) to provide useful insights based on text translation, facial recognition, and sentiment detection. Specifically, image and natural language processing steps are connected together in a messaging pipeline based on [Azure Service Bus](/azure/service-bus-messaging/service-bus-messaging-overview). The output of the pipeline is a notification containing the insight or analysis.
 
-This scenario contains examples for [English][english], [Russian][russian], and [German][german] news feeds, but you can easily extend it to other RSS feeds. For ease of deployment, the data collection, processing, and analysis are based entirely on Azure services.
+This scenario contains examples for [English][english], [Russian][russian], and [German][german] news feeds, but you can easily extend it to other RSS feeds and other languages. For ease of deployment, the data collection, processing, and analysis are based entirely on Azure services.
 
-## Relevant use cases
+## Potential use cases
 
 While this scenario is based on processing of RSS feeds, it's relevant to any document, website, or article where you would need to:
 
-- Translate any text to the language of choice.
+- Translate text to a language of choice.
 - Find key phrases, entities, and user sentiment in digital content.
 - Detect objects, text, and landmarks in images associated with a digital article.
-- Detect people by their gender and age in any image associated with digital content.
+- Detect people by gender and age in images associated with digital content.
 
 ## Architecture
 
-![Diagram of the architecture][architecture]
+![Architecture diagram: ingest and analyze RSS feeds using image and text processing and send notifications.][architecture]
 
 The data flows through the solution as follows:
 
@@ -32,7 +32,7 @@ The data flows through the solution as follows:
 
 5. A detect function is triggered from the queued article. It uses the [Computer Vision][vision] service to detect objects, landmarks, and written words in the associated image, then passes the article to the next queue.
 
-6. A face function is triggered is triggered from the queued article. It uses the [Azure Face API][face] service to detect faces for gender and age in the associated image, then passes the article to the next queue.
+6. A face function is triggered from the queued article. It uses the [Azure Face API][face] service to detect faces for gender and age in the associated image, then passes the article to the next queue.
 
 7. When all functions are complete, the notify function is triggered. It loads the processed records for the article and scans them for any results you want. If found, the content is flagged and a notification is sent to the system of your choice.
 
@@ -56,23 +56,23 @@ The following list of Azure components is used in this example.
 
 ### Alternatives
 
-- Instead of using a pattern based on queue notification and Azure Functions, use another pattern for this data flow. For example, [Azure Service Bus Topics][topics] can be used to processes the various parts of the article in parallel as opposed to the serial processing done in this example. For more information, compare [queues and topics][queues-topics].
+- Instead of using a pattern based on *queue notification* and Azure Functions, you could use a *topic and subscription* pattern for this data flow. [Azure Service Bus Topics][topics] can be used to process the various parts of the article in parallel as opposed to the serial processing done in this example. For more information, compare [queues and topics][queues-topics].
 
-- Use [Azure Logic Apps][logic-app] to implement the function code and implement record-level locking such as [Redlock][redlock] (needed for parallel processing until Azure Cosmos DB supports [partial document updates][partial]). For more information, [compare Functions and Logic Apps][compare].
+- Use [Azure Logic Apps][logic-app] to implement the function code and implement record-level locking such as that provided by the [Redlock algorithm][redlock] (which is needed for parallel processing until Azure Cosmos DB supports [partial document updates][partial]). For more information, [compare Functions and Logic Apps][compare].
 
 - Implement this architecture using customized AI components rather than existing Azure services. For example, extend the pipeline using a customized model that detects certain people in an image as opposed to the generic people count, gender, and age data collected in this example. To use customized machine learning or AI models with this architecture, build the models as RESTful endpoints so they can be called from Azure Functions.
 
 - Use a different input mechanism instead of RSS feeds. Use multiple generators or ingestion processes to feed Azure Cosmos DB and Azure Storage.
 
-- [Azure Cognitive Search](/azure/search) is an AI feature in Azure Search that can also used to extract text from images, blobs, and other unstructured data sources.
+- [Azure Cognitive Search](/azure/search) is an AI feature in Azure Search that can also be used to extract text from images, blobs, and other unstructured data sources.
 
 ## Considerations
 
-For simplicity, this example scenario uses only a few of the available APIs and services from Azure Cognitive Services. For example, text in images can be analyzed using the [Text Analytics API][text-analytics]. The target language in this scenario is assumed to be English, but you can change the input to any [supported language][language] of your choice.
+For simplicity, this example scenario uses only a few of the available APIs and services from Azure Cognitive Services. For example, text in images can be analyzed using the [Text Analytics API][text-analytics]. The target language in this scenario is assumed to be English, but you can change the input to any [supported language][language].
 
 ### Scalability
 
-Azure Functions scaling depends on the [hosting plan][plan] you use. This solution assumes a [Consumption plan][plan-c], in which compute power is automatically allocated to the functions when required. You pay only when your functions are running. Another option is to use an [Azure App Service][plan-aas] plan, which allows you to scale between tiers to allocate a different amount of resources.
+Azure Functions scaling depends on the [hosting plan][plan] you use. This solution assumes a [Consumption plan][plan-c], in which compute power is automatically allocated to the functions when required. You pay only when your functions are running. Another option is to use a [Dedicated plan][plan-ded], which allows you to scale between tiers to allocate a different amount of resources.
 
 With Azure Cosmos DB, the key is to distribute your workload roughly evenly among a sufficiently large number of [partition keys][keys]. There's no limit to the total amount of data that a container can store or to the total amount of
 [throughput][throughput] that a container can support.
@@ -85,7 +85,7 @@ To view the logs generated by the solution:
 
 1. Go to [Azure portal][portal] and navigate to the resource group created for the deployment.
 
-2. Click the **Application Insights** instance.
+2. Select the **Application Insights** instance.
 
 3. From the **Application Insights** section, navigate to **Investigate\\Search** and search the data.
 
@@ -94,8 +94,6 @@ To view the logs generated by the solution:
 Azure Cosmos DB uses a secured connection and shared access signature through the C\# SDK provided by Microsoft. There are no other externally facing surface areas. Learn more about security [best practices][db-practices] for Azure Cosmos DB.
 
 ## Pricing
-
-The estimated daily cost to keep this deployment available is approximately \$20 U.S. with no data moving through the system.
 
 Azure Cosmos DB is powerful but incurs the greatest [cost][db-cost] in this deployment. You can use another storage solution by refactoring the Azure Functions code provided.
 
@@ -107,6 +105,27 @@ Pricing for Azure Functions varies depending on the [plan][function-plan] it run
 > You must have an existing Azure account. If you don't have an Azure subscription, create a [free account][free] before you begin.
 
 All the code for this scenario is available in the [GitHub][github] repository. This repository contains the source code used to build the generator application that feeds the pipeline for this demo.
+
+## Next steps
+
+* [Choosing an analytical data store in Azure](/azure/architecture/data-guide/technology-choices/analytical-data-stores)
+* [Choosing a data analytics technology in Azure](/azure/architecture/data-guide/technology-choices/analysis-visualizations-reporting)
+* [Choosing a big data storage technology in Azure](/azure/architecture/data-guide/technology-choices/data-storage)
+* [Introduction to Azure Blob storage](/azure/storage/blobs/storage-blobs-introduction)
+* [Welcome to Azure Cosmos DB](/azure/cosmos-db/introduction)
+* [Introduction to Azure Functions](/azure/azure-functions/functions-overview)
+
+## Related resources
+
+Additional analytics architectures:
+
+* [Automated enterprise BI](/azure/architecture/reference-architectures/data/enterprise-bi-adf)
+* [Analytics end-to-end with Azure Synapse](/azure/architecture/example-scenario/dataplate2e/data-platform-end-to-end)
+* [Data warehousing and analytics](/azure/architecture/example-scenario/data/data-warehouse)
+* [Mass ingestion and analysis of news feeds on Azure](/azure/architecture/example-scenario/ai/newsfeed-ingestion)
+* [Stream processing with Azure Databricks](/azure/architecture/reference-architectures/data/stream-processing-databricks)
+* [Stream processing with Azure Stream Analytics](/azure/architecture/reference-architectures/data/stream-processing-stream-analytics)
+
 
 [architecture]: ./media/mass-ingestion-newsfeeds-architecture.png
 [aai]: /azure/azure-monitor/app/app-insights-overview
@@ -130,8 +149,8 @@ All the code for this scenario is available in the [GitHub][github] repository. 
 [queues-topics]: /azure/service-bus-messaging/service-bus-queues-topics-subscriptions
 [partial]: https://feedback.azure.com/forums/263030-azure-cosmos-db/suggestions/6693091-be-able-to-do-partial-updates-on-document
 [plan]: /azure/azure-functions/functions-scale
-[plan-aas]: /azure/azure-functions/functions-scale#app-service-plan
-[plan-c]: /azure/azure-functions/functions-scale#consumption-plan
+[plan-c]: /azure/azure-functions/consumption-plan
+[plan-ded]: /azure/azure-functions/dedicated-plan
 [portal]: https://portal.azure.com
 [redlock]: https://redis.io/topics/distlock
 [russian]: http://government.ru/all/rss
