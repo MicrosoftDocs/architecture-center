@@ -10,7 +10,7 @@ Artificial intelligence (AI) and machine learning (ML) offer unique opportunitie
 
 Machine learning focuses on developing novel learning algorithms or improving existing algorithms. Machine teaching focuses on the efficacy of the teachers themselves. Abstracting away AI complexity to focus on subject matter expertise and real-world conditions creates powerful AI and ML models that turn automated control systems into *autonomous systems*.
 
-This articles discusses background concepts that led to the machine teaching paradigm. A related article discusses [autonomous systems](./autonomous-systems.yml) in detail.
+This article discusses background concepts that led to the machine teaching paradigm. A related article discusses [autonomous systems](./autonomous-systems.yml) in detail.
 
 ## History of automation
 
