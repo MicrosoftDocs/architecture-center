@@ -8,8 +8,6 @@ ms.date: 11/11/2020
 ms.topic: reference
 ms.service: architecture-center
 ms.subservice: cloud-fundamentals
-ms.category:
-  - ai-machine-learning
 ms.custom:
   - fcp
 keywords:
@@ -20,6 +18,13 @@ keywords:
   - compare Azure and AWS
   - compare AWS and Azure
   - IT capabilities
+azureCategories:
+  - compute
+  - storage
+  - databases
+  - networking
+  - security
+  - ai-machine-learning
 products:
   - azure-cosmos-db
   - azure-functions
