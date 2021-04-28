@@ -6,11 +6,11 @@
 <article class="card">
     <div class="card-header has-margin-bottom-none" aria-hidden="true">
         <figure class="image diagram has-height-175 has-overflow-hidden level">
-            <a href="/azure/architecture/example-scenario/ai/newsfeed-ingestion"><img src="/azure/architecture/browse/thumbs/newsfeed-ingestion.png" class="diagram" alt="Thumbnail of Mass ingestion and analysis of news feeds on Azure Architectural Diagram." data-linktype="relative-path"></a>
+            <a href="/azure/architecture/example-scenario/ai/news-feed-ingestion-and-near-real-time-analysis"><img src="/azure/architecture/browse/thumbs/news-feed-ingestion-and-near-real-time-analysis.png" class="diagram" alt="Thumbnail of mass ingestion and analysis of news feeds on Azure Architectural Diagram." data-linktype="relative-path"></a>
         </figure>
     </div>
     <div class="card-content">
-        <a class="card-content-title has-margin-top-none" href="/azure/architecture/example-scenario/ai/newsfeed-ingestion">
+        <a class="card-content-title has-margin-top-none" href="/azure/architecture/example-scenario/ai/news-feed-ingestion-and-near-real-time-analysis">
             <p>Mass ingestion and analysis of news feeds on Azure</p>
         </a>
         <ul class="card-content-metadata">

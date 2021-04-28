@@ -36,4 +36,4 @@ products:
   - azure-application-insights
 thumbnailUrl: /azure/architecture/browse/thumbs/mass-ingestion-newsfeeds-architecture.png
 content: |
-  [!include[](newsfeed-ingestion-content.md)]
+  [!include[](news-feed-ingestion-and-near-real-time-analysis-content.md)]

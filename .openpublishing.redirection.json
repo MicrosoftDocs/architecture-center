@@ -2101,6 +2101,11 @@
       "source_path": "docs/solution-ideas/articles/cctv-mask-detection.yml",
       "redirect_url": "/azure/architecture/solution-ideas/articles/cctv-iot-edge-for-covid-19-safe-environment-and-mask-detection",
       "redirect_document_id": true
+     },
+     {
+       "source_path": "docs/example-scenario/ai/newsfeed-ingestion.yml",
+       "redirect_url": "/azure/architecture/example-scenario/ai/news-feed-ingestion-and-near-real-time-analysis",
+       "redirect_document_id": true
      } 
    ]
 }
