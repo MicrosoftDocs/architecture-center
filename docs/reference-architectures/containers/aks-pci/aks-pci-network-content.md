@@ -11,3 +11,9 @@ This article describes the considerations for an Azure Kubernetes Service (AKS) 
 
 
 
+## Next
+
+Protect stored cardholder data. Encrypt transmission of cardholder data across open, public networks
+
+> [!div class="nextstepaction"]
+> [Protect Cardholder Data](aks-pci-data.yml)

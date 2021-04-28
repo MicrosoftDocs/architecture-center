@@ -57,10 +57,10 @@ In the reference implementation, the second approach is demonstrated with a micr
 
 ## Next
 
-Understand how network paths are segemented.
+Install and maintain a firewall configuration to protect cardholder data. Do not use vendor-supplied defaults for system passwords and other security parameters.
 
 > [!div class="nextstepaction"]
-> [Network segmentation](aks-pci-network.yml)
+> [Build and Maintain a Secure Network and Systems](aks-pci-network.yml)
 	
 																
 																
