@@ -1,0 +1,32 @@
+### YamlMime:Architecture
+metadata:
+  title: Profisee MDM and Azure Purview
+  titleSuffix: Azure Architectures
+  description: Integrate Profisee master data management with Azure Purview to build a foundation for data governance and management that can produce and deliver high-quality, trusted data.
+  author: doodlemania2
+  ms.author: pnp
+  ms.date: 04/28/2021
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: reference-architecture
+  ms.custom:
+    - fcp
+azureCategories:
+  - databases
+  - management-and-governance
+  - purview
+products:
+  - purview 
+  - profisee 
+  - data-factory 
+  - kubernetes-service 
+  - sql-database 
+  - sql-managed-instance 
+  - synapse-analytics 
+  - power-bi 
+  - azure-active-directory 
+name: Profisee MDM and Azure Purview
+summary: Integrate Profisee master data management with Azure Purview to build a foundation for data governance and management that can produce and deliver high-quality, trusted data.
+thumbnailUrl: /azure/architecture/browse/thumbs/profisee-mdm-and-azure-purview-content.png
+content: |
+  [!include[](profisee-mdm-and-azure-purview-content.md)]
