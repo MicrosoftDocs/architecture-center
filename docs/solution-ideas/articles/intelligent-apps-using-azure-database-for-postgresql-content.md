@@ -12,7 +12,7 @@ In this example of an intelligent app, PostgreSQL is the heart of the architectu
 ![Architecture Diagram](../media/intelligent-apps-using-azure-database-for-postgresql.png)
 *Download an [SVG](../media/intelligent-apps-using-azure-database-for-postgresql.svg) of this architecture.*
 
-## Data Flow
+## Data flow
 
 1. Data could come from various sources, such as Event Hubs for high volumes of data ingestion, or data that's uploaded to Blob Storage. An Azure Function App is triggered as new data is received.
 2. The Azure Function App calls the Text Analytics API in Azure Cognitive Services to analyze the data (for example, for Sentiment Analysis). The results of the analysis are returned in JSON format.
@@ -23,7 +23,7 @@ In this example of an intelligent app, PostgreSQL is the heart of the architectu
     * Results from this further ML analysis are saved back to PostgreSQL
 5. Finally, human-interpretable insights can be explored in Power BI through the PostgreSQL connector.
 
-## Solution Components
+## Components
 
 * [Azure App Services](https://azure.microsoft.com/services/app-service/): A fully managed platform for quickly building, deploying, and scaling web apps and APIs.
 * [Azure Functions](/azure/azure-functions/functions-overview)
@@ -49,11 +49,11 @@ You can configure GitHub Actions to connect to your Azure PostgreSQL database by
 
 Additionally, you can automate your Azure Machine Learning lifecycle by using [Azure Pipelines](/azure/devops/pipelines/targets/azure-machine-learning). The [MLOps with Azure ML GitHub repo](https://github.com/Microsoft/MLOpsPython) demonstrates how to operationalize an MLOps workflow and build out a CI/CD pipeline for your project.
 
-### Pricing
+## Pricing
 
 Azure Cognitive Services Text Analytics API pricing is determined by the instance selected and the number of transactions per month. For further details, explore the [pricing calculator for Text Analytics here](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/).
 
-## Next Steps
+## Next steps
 
 * Call the [Text Analytics REST API using Postman](/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-call-api) synchronously and asynchronously
 * [Explore and test the Text Analytics API v3.0](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0/operations/Languages)
@@ -61,7 +61,7 @@ Azure Cognitive Services Text Analytics API pricing is determined by the instanc
 * How to create an [Azure Database for PostgreSQL Hyperscale](/azure/postgresql/tutorial-hyperscale-server-group)
 * How to link your [Azure Machine Learning Models in Power BI](/power-bi/connect-data/service-aml-integrate)
 
-## Recommended Resources
+## Related resources
 
 * Follow along with this Learn Module and apply the [Text Analytics API](/learn/modules/classify-user-feedback-with-the-text-analytics-api/)
 * Expand your Azure Cognitive Services knowledge and [become a Microsoft Certified Azure AI Engineer](/learn/certifications/azure-ai-engineer/)
