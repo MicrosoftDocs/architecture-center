@@ -19,7 +19,7 @@ metadata:
     - solution architectures
     - Azure
     - ai gallery
-    - 'https://azure.microsoft.com/solutions/architecture/interactive-price-analytics/'
+    - "https://azure.microsoft.com/solutions/architecture/interactive-price-analytics/"
     - ai-machine-learning
   social_image_url: /azure/architecture/solution-ideas/articles/media/interactive-price-analytics.png
 name: Interactive Price Analytics

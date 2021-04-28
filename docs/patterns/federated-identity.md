@@ -11,7 +11,8 @@ products:
   - azure-active-directory
 ms.custom:
   - design-pattern
-keywords: design pattern
+keywords:
+  - design pattern
 ---
 
 # Federated Identity pattern

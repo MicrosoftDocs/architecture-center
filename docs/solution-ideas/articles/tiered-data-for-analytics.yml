@@ -22,7 +22,7 @@ metadata:
     - tier application architecture
     - hybrid application
     - interactive-diagram
-    - 'https://azure.microsoft.com/solutions/architecture/tiered-data-for-analytics/'
+    - "https://azure.microsoft.com/solutions/architecture/tiered-data-for-analytics/"
   social_image_url: /azure/architecture/solution-ideas/articles/media/tiered-data-for-analytics.png
 name: Tier Applications & Data for Analytics
 azureCategories:

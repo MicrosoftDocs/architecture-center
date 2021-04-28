@@ -208,16 +208,16 @@ The Azure AD Connect synchronization feature is available in all editions of Azu
 
 ### VMs for N-Tier application
 
-For cost information about these resources, [Run VMs for an N-tier architecture][implementing-a-multi-tier-architecture-on-Azure].
+For cost information about these resources, see [Run VMs for an N-tier architecture][implementing-a-multi-tier-architecture-on-Azure].
 
-### Pricing
+## Pricing
 
 Use the [Azure pricing calculator][azure-pricing-calculator] to estimate costs. 
 
 - Other considerations are described in the Cost section in [Microsoft Azure Well-Architected Framework][aaf-cost].
 - For pricing information about the editions of Azure Active Directory, see [Azure AD pricing][Azure-AD-pricing].
 
-### Next Steps
+## Next steps
 
 - Review the [Azure Active Directory Hybrid Identity Design Considerations][hybrid-identity-design], which includes further information on making decisions regarding hybrid identity.
 - Review [Topologies for Azure AD Connect][aad-topologies] to ensure the hybrid topology for Azure AD Connect is deployed in a supported configuration.
@@ -226,6 +226,13 @@ Use the [Azure pricing calculator][azure-pricing-calculator] to estimate costs.
 - Review [Azure AD Application Proxy][aad-application-proxy] if you intend on providing Azure AD integrations with on-premises or cloud IaaS applications.
 - Because identity is the new control plane for security, review [Identity Management Best Practices][identity-best-practices]. 
 - Furthmore, as deplying this solution requires highly privileged accounts, review [Securing privileged access][security-compass-paw], to understand security controls for privileged accounts.
+
+## Related resources
+
+* [Manage identity in multitenant applications](/azure/architecture/multitenant-identity/)
+* [Integrate on-premises AD with Azure](/azure/architecture/reference-architectures/identity/)
+* [Extend on-premises AD FS to Azure](/azure/architecture/reference-architectures/identity/adfs)
+
 
 <!-- links -->
 

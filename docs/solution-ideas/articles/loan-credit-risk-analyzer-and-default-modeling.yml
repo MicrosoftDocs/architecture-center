@@ -20,7 +20,7 @@ metadata:
     - credit risk analyzer
     - credit risk modeling
     - probability of default
-    - 'https://azure.microsoft.com/solutions/architecture/loan-credit-risk-analyzer-and-default-modeling/'
+    - "https://azure.microsoft.com/solutions/architecture/loan-credit-risk-analyzer-and-default-modeling/"
   social_image_url: /azure/architecture/solution-ideas/articles/media/loan-credit-risk-analyzer-and-default-modeling.png
 name: Loan Credit Risk + Default Modeling
 azureCategories:

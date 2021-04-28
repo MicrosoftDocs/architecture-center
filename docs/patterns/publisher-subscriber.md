@@ -8,7 +8,8 @@ ms.service: architecture-center
 ms.subservice: design-pattern
 ms.custom:
   - design-pattern
-keywords: design pattern
+keywords:
+  - design pattern
 ---
 
 # Publisher-Subscriber pattern

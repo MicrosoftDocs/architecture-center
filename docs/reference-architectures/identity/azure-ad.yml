@@ -16,6 +16,7 @@ metadata:
     - identity
     - reference-architecture
     - e2e-hybrid
+    - 2021-refresh
 name: Integrate on-premises AD domains with Azure AD
 azureCategories:
   - identity

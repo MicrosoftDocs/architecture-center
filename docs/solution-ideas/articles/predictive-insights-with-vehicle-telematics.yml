@@ -18,7 +18,7 @@ metadata:
     - automotive telematics
     - anomaly-detection
     - ai-ml
-    - 'https://azure.microsoft.com/solutions/architecture/predictive-insights-with-vehicle-telematics/'
+    - "https://azure.microsoft.com/solutions/architecture/predictive-insights-with-vehicle-telematics/"
     - ai-machine-learning
   social_image_url: /azure/architecture/solution-ideas/articles/media/predictive-insights-with-vehicle-telematics.png
 name: Predictive Insights with Vehicle Telematics

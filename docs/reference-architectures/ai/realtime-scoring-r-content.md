@@ -1,6 +1,3 @@
-
-
-
 This reference architecture shows how to implement a real-time web service in R using Azure Machine Learning running in Azure Kubernetes Service (AKS). This architecture is intended to be generic and suited for any predictive model built in R that you want to deploy as a real-time service.
 
 ## Architecture
@@ -64,11 +61,11 @@ The main cost consideration in this architecture is the Kubernetes cluster's com
 - [Baseline architecture for an Azure Kubernetes Service (AKS) cluster][aks-baseline]
 
 <!-- links -->
-[aml]: https://docs.microsoft.com/en-us/azure/machine-learning/overview-what-is-azure-ml
-[aml-docs]: https://docs.microsoft.com/en-us/azure/machine-learning/
+[aml]: /azure/machine-learning/overview-what-is-azure-ml
+[aml-docs]: /azure/machine-learning/
 [acr]: /azure/container-registry/container-registry-intro
 [aks]: /azure/aks/intro-kubernetes
-[aks-baseline]: https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/containers/aks/secure-baseline-aks
+[aks-baseline]: ../containers/aks/secure-baseline-aks.yml
 [docker]: https://docs.docker.com/registry/spec/api
 [r-sdk]: https://azure.github.io/azureml-sdk-for-r/index.html
 [0]: ./_images/realtime-scoring-r.png
