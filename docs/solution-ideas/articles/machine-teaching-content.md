@@ -3,11 +3,14 @@
 Artificial intelligence (AI) and machine learning (ML) offer unique opportunities and challenges for operations that span the virtual and physical worlds. AI and ML can recognize correlations between real-world input data and outcomes and make decisions that automate complex physical industrial systems. But AI machine learning systems can't perform higher-level cognitive functions like exploration, improvisation, creative thinking, or determination of causation.
 
 *Machine teaching* is a new paradigm for machine learning systems that:
+
 - Infuses *subject matter expertise* into automated AI systems models.
 - Uses [deep reinforcement learning](#reinforcement-learning) to identify patterns in the learning process and adopt positive behaviors in its own methods.
 - Leverages [simulated environments](#simulations) to generate large amounts of synthetic data for domain-specific use cases and scenarios.
 
 Machine learning focuses on developing novel learning algorithms or improving existing algorithms. Machine teaching focuses on the efficacy of the teachers themselves. Abstracting away AI complexity to focus on subject matter expertise and real-world conditions creates powerful AI and ML models that turn automated control systems into *autonomous systems*.
+
+This articles discusses background concepts that led to the machine teaching paradigm. A related article discusses [autonomous systems](./autonomous-systems.yml) in detail.
 
 ## History of automation
 
