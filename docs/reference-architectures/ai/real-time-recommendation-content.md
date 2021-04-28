@@ -1,4 +1,3 @@
-
 <!--cSpell:ignore njray precompute --> 
 
 
@@ -123,15 +122,15 @@ We have also built a reference architecture that uses Spark and Azure Databricks
 
 <!-- links -->
 
-[adbauthentication]: https://docs.microsoft.com/azure/databricks/dev-tools/api/latest/authentication
+[adbauthentication]: /azure/databricks/dev-tools/api/latest/authentication
 [aks]: /azure/aks/intro-kubernetes
 [als]: https://spark.apache.org/docs/latest/ml-collaborative-filtering.html
 [als-example]: https://github.com/Microsoft/Recommenders/blob/master/examples/05_operationalize/als_movie_o16n.ipynb
-[autoscaling]: https://docs.microsoft.com/azure/databricks/clusters/configure#autoscaling
+[autoscaling]: /azure/databricks/clusters/configure#autoscaling
 [batch-scoring]: ../../reference-architectures/ai/batch-scoring-databricks.yml
 [blog]: /azure/machine-learning/how-to-deploy-azure-kubernetes-service?tabs=python#autoscaling
 [cosmosdb]: /azure/cosmos-db/introduction
-[data-source]: https://docs.microsoft.com/azure/databricks/data/data-sources/
+[data-source]: /azure/databricks/data/data-sources/
 [databricks]: /azure/azure-databricks/what-is-azure-databricks
 [dsvm]: /azure/machine-learning/data-science-virtual-machine/overview
 [eval-guide]: https://github.com/Microsoft/Recommenders/blob/master/examples/03_evaluate/evaluation.ipynb

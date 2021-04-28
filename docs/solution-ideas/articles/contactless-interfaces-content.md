@@ -1,6 +1,3 @@
-
-
-
 Contactless business is the new normal. The world has become more aware of, and endangered by, surfaces that many people touch every day. Contactless interfaces reduce or eliminate physical touchpoints like traffic light buttons, touch screens, door handles, and elevator controls by creating touch-free experiences that are both safe and pleasing for users.
 
 [Avanade](https://www.avanade.com) and the Microsoft COVID-19 task force partnered to develop contactless interfaces using the [Azure intelligent edge](https://azure.microsoft.com/overview/future-of-cloud/) platform. This solution combines intelligent and perceptive Internet of Things (IoT) edge devices with the storage, computing, artificial intelligence (AI), and machine learning (ML) capabilities of the Azure cloud.
@@ -36,4 +33,4 @@ IoT Edge devices can quickly recognize and respond to speech, image, gesture, or
 - For more information, please contact [iotcovidsupport@microsoft.com](mailto:iotcovidsupport@microsoft.com).
 - Voice control is the basic function in this solution. The platform can potentially extend to multiple sense recognition, like faces and gestures. For more information, see [Choosing a Azure Cognitive Services technology](../../data-guide/technology-choices/cognitive-services.md).
 - The solution can support global deployment by using Cognitive Services [Speech Translation](https://azure.microsoft.com/services/cognitive-services/speech-translation/) APIs.
-- Browse Microsoft Learn for [IoT learning paths and modules](https://aka.ms/mslearniot).
+- Browse Microsoft Learn for [IoT learning paths and modules](/learn/browse/?products=azure&term=iot).
