@@ -16,7 +16,7 @@ Use the following command to create a resource group for the deployment. Click t
 az group create --name hub-spoke --location eastus
 ```
 
-Run the following command to deploy the hub and spoke network configuration, VNet peerings between the hub and spoke, and a Bastion host
+Run the following command to deploy the hub and spoke network configuration, VNet peerings between the hub and spoke, and a Bastion host. When prompted, enter a user name and password. These values can be used to access the virtual machine located in the spoke network.
 
 ```azurecli-interactive
 az deployment group create --resource-group hub-spoke \
@@ -31,11 +31,31 @@ Use the following command to create a resource group for the deployment. Click t
 New-AzResourceGroup -Name hub-spoke -Location eastus
 ```
 
-Run the following command to deploy the hub and spoke network configuration, VNet peerings between the hub and spoke, and a Bastion host
+Run the following command to deploy the hub and spoke network configuration, VNet peerings between the hub and spoke, and a Bastion host. When prompted, enter a user name and password. These values can be used to access the virtual machine located in the spoke network.
 
 ```azurepowershell-interactive
 New-AzResourceGroupDeployment -ResourceGroupName hub-spoke `
     -TemplateUri https://raw.githubusercontent.com/mspnp/samples/master/solutions/azure-hub-spoke/azuredeploy.json
+```
+
+#### [Bicep](#tab/bicep)
+
+Use the following command to create a resource group for the deployment. Click the **Try it** button to use an embedded shell.
+
+```azurecli-interactive
+az group create --name hub-spoke --location eastus
+```
+
+Use the following command to download the Bicep template.
+
+```azurecli-interactive
+curl https://raw.githubusercontent.com/mspnp/samples/master/solutions/azure-hub-spoke/bicep/main.bicep > main.bicep
+```
+
+Run the following command to deploy the hub and spoke network configuration, VNet peerings between the hub and spoke, and a Bastion host. When prompted, enter a user name and password. These values can be used to access the virtual machine located in the spoke network.
+
+```azurecli-interactive
+az deployment group create --resource-group hub-spoke --template-file main.bicep
 ```
 
 #### [Azure portal](#tab/portal)
@@ -49,7 +69,7 @@ Use the following button to deploy the reference using the Azure portal.
 For detailed information and additional deployment options, see the ARM Templates used to deploy this solution.
 
 > [!div class="nextstepaction"]
-> [Hub and Spoke ARM Template](/samples/mspnp/samples/hub-and-spoke-deployment/)
+> [Hub and Spoke ARM and Bicep templates](/samples/mspnp/samples/hub-and-spoke-deployment/)
 
 ## Use cases
 
