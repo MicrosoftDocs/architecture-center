@@ -18,7 +18,7 @@ metadata:
 name: Machine teaching and autonomous systems in Project Bonsai low-code AI platform
 azureCategories:
   - ai-machine-learning
-summary: LearLearn how to use machine teaching, deep reinforcement learning, and simulation to build and deploy autonomous systems with Microsoft Project Bonsai.
+summary: Learn how to use machine teaching, deep reinforcement learning, and simulation to build and deploy autonomous systems with Microsoft Project Bonsai.
 products:
   - azure-container-instances
   - azure-container-registry

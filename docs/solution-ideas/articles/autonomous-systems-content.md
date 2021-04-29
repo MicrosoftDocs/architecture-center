@@ -75,7 +75,7 @@ The training engine in Bonsai compiles machine teaching programs to automaticall
 
 Broadly similar to how a software compiler hides the bare metal machine code from the high-level programmer, the training engine hides much of the complexity and details of the ML models and DRL algorithms. As the state of the art in AI evolves and new algorithms and network topologies are invented, the training engine can recompile the same machine teaching programs to exploit these technological advances.
 
-### Cartpole machine teaching sample
+### Cartpole Project Bonsai sample
 
 Bonsai includes the machine teaching samples Cartpole and [Moab](https://microsoft.github.io/moab/).
 
