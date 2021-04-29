@@ -127,10 +127,10 @@ To deploy the solution, perform the following steps.
 
 ## Next Steps
 
-* [ExpressRoute - Technical Overview] (/azure/expressroute/expressroute-introduction)
-* [Azure Security baseline for ExpressRoute] (https://docs.microsoft.com/security/benchmark/azure/baselines/expressroute-security-baseline?toc=/azure/expressroute/TOC.json)
-* [How to create an ExpressRoute circuit] (https://azure.microsoft.com/resources/videos/azure-expressroute-how-to-create-an-expressroute-circuit/)
-* [Azure Networking Blog] (https://azure.microsoft.com/en-us/blog/topics/networking/)
+* [ExpressRoute Technical Overview](/azure/expressroute/expressroute-introduction)
+* [Azure Security baseline for ExpressRoute](https://docs.microsoft.com/security/benchmark/azure/baselines/expressroute-security-baseline?toc=/azure/expressroute/TOC.json)
+* [How to create an ExpressRoute circuit](https://azure.microsoft.com/resources/videos/azure-expressroute-how-to-create-an-expressroute-circuit/)
+* [Azure Networking Blog](https://azure.microsoft.com/en-us/blog/topics/networking/)
 
 <!-- links -->
 
