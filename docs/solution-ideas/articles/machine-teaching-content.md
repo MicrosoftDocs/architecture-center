@@ -65,7 +65,7 @@ RL uses reward functions and policies to assess agent actions and provide feedba
 
 RL teaches the agent to complete an objective by rewarding desired behavior and not rewarding undesired behavior. The following diagram illustrates the conceptual flow of RL and how the key components interact:
 
-![A diagram of the reinforcement learning (RL() process.](../media/machine-teaching-3-2.png)
+![A diagram of the reinforcement learning (RL) process showing key components.](../media/machine-teaching-3-2.png)
 
 1. An *agent*, in this case a robot, takes an *action* in an *environment*, in this case a smart manufacturing line.
 1. The action causes the environment to change *state*, and return its changed state to the agent.
@@ -313,11 +313,11 @@ Use the [Bonsai](/bonsai/) machine teaching service in the Microsoft Autonomous 
 
 [Inkling](/bonsai/inkling/) is a purpose-specific language to formally describe machine teaching plans. In Bonsai, you can use Inkling to deconstruct the problem into schema:
 
-![Define machine state and control action in Inkling.](../media/machine-teaching-4-4-4.png)
+![Define machine state and control action in Inkling code.](../media/machine-teaching-4-4-4.png)
 
 Then, define key *concepts* and create a *curriculum* to teach the AI system, specifying the reward function for the simulation state:
 
-![Define curriculum in Inkling.](../media/machine-teaching-4-4-5.png)
+![Define curriculum in Inkling code.](../media/machine-teaching-4-4-5.png)
 
 The AI system learns by practicing the optimization task in simulation, following the concepts of machine teaching. You can upload the simulation into Bonsai, where it provides visualizations of training progress as it runs.
 
@@ -339,7 +339,7 @@ The example uses [Inkling](/bonsai/inkling/) language to write the machine teach
 
 The following Bonsai screenshot shows a Cartpole training, with **Goal satisfaction** on the y-axis and **Training iterations** on the x-axis. The Bonsai dashboard also shows the percentage of goal satisfaction and the total training time.
 
-![Bonsai dashboard showing the Cartpole training example](../media/bonsai.png)
+![Bonsai dashboard showing the Cartpole training example.](../media/bonsai.png)
 
 For more information about the Cartpole example or to try it yourself, see:
 
@@ -352,7 +352,7 @@ The Horizontal Oil Drilling application is a motion controller to automate oil r
 
 The available sensor information includes the direction of drill bit force, weight of the drill bit, side force, and drilling angle. The supported agent actions are to move the drill bit up, down, left, or right. The program provides a positive reward when the drill is within the tolerance distance of the chamber walls. The model learns to adapt to different well plans, drill starting positions, and sensor inaccuracies.
 
-![Horizontal oil drilling example](../media/oil-drill.png)
+![Horizontal oil drilling example application.](../media/oil-drill.png)
 
 For more information and a demo of this solution, see [Motion control: Horizontal oil drilling](https://aidemos.microsoft.com/machineteaching/motion-control).
 
