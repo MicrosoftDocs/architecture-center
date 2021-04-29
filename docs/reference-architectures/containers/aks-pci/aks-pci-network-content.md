@@ -12,7 +12,146 @@ This article describes the considerations for an Azure Kubernetes Service (AKS) 
 
 ***
 
+## Network topology
+![Network topology](./images/network-topology.svg)
 
+## Firewall configuration
+
+For a PCI DSS infrastructure, using firewalls to block unauthorized access into and out of the network is mandatory. This requirement applies to:
+- Communication to and from a pod from other pods.
+- Communication to and from a pod from/to other components in the architecture.
+- Communication to an from a pod from/to trusted networks.
+- Commuication to and from a pod from public internet.
+
+Firewalls are used to block unwanted access and manage authorized access into and out of the network. Firewalls must be configured properly for a strong security posture.
+
+The specific firewall configuration settings are determined by the organization. 
+
+Teams need to be aware of and following security policies and operational procedures to ensure firewalls and routers are continuously managed to prevent unauthorized access to the network.
+
+### Your responsibility
+"Customers are responsible for deploying AKS workloads behind a firewall. The recommended process of securing AKS with Azure Firewall to how to satisfy this requirement is available at: https://docs.microsoft.com/en-us/azure/firewall/protect-azure-kubernetes-service
+- create an appropriate DNAT rule in Firewall to correctly allow inbound traffic.
+
+### Implementation considerations
+"People/Process
+Documentation
+Opt for IaC vs Azure Portal-based management
+"
+"Documentation.
+Azure Network diagrams can be pulled to jump start the documentation process."
+"Documentation.
+NSG Flow Logs can be used to help gather ""actuals"" vs ""expected"""
+"Azure firewall is used for egress traffic for all vnet-homed resources (cluster, Internal Load balancers, jump boxes, build agents). NSGs are applied to all subnets containing the same resources listed above. Workload is fronted by a WAF to manage ingress traffic. Azure Firewall may be addeded there as well.
+
+https://docs.microsoft.com/azure/firewall/protect-azure-kubernetes-service"
+"People/Process.
+Documentation.
+Azure RBAC + Dedicated Deployment Pipelines
+"
+"Documention.
+Gather required ports from Microsoft's documentation as vendor requirements.
+Ensure all firewall rules are scoped exclusively to their releated resources (apply rules to individual IP addresses or subnets (if all like kind) vs vnets)"
+People/Process
+
+
+### Azure responsibility
+There Azure services can be used to fullfill this requirement.
+:::row:::
+   :::column span="2":::
+      Azure service
+      
+      A fundamental block for a private network in which you deploy resources. By default, the inbound traffic to those resources is denied; the resources can communicate with the internet.  
+
+   :::column-end:::
+   :::column span="":::
+      Capabilities
+
+        - Subnetting
+        - Private Link
+        - Peering
+      ![Doc.U.Ment](media/markdown-reference/document.png)
+   :::column-end:::
+:::row-end:::
+|Service|Features|
+|---|---|
+|Azure virtual network||
+is reponsible for network configurations on PaaS VMs and system settings that customers are not able to alter. 
+- VNet + NSG
+- VPN gateway/expressroute -- placeholder
+- WAF
+- Firewall
+
+
+The services work as configured
+
+The Customer then configures these to their specifications and requirements. Microsoft Azure filters communication when coming into the platform.
+
+### AKS responsibility
+AKS cluster need to access certain ports and fully qualified domain names (FQDNs). These actions could be to communicate with the API server, or to download and then install core Kubernetes cluster components and node security updates. Azure Firewall can help you lock down your environment and filter outbound traffic.
+- FQDN tags AzureKubernetesService FQDN tag
+
+
+### Reference implementation details
+
+
+## System security measures for
+### Azure responsibility
+For Microsoft Azure, the Security Services team develops security configuration standards for systems in the Microsoft Azure environment that are consistent with industry-accepted hardening standards. These configurations are documented in system baselines and relevant configuration changes are communicated to impacted teams (e.g., IPAK team). Procedures are implemented to monitor for compliance against the security configuration standards. The security configuration standards for systems in the Microsoft Azure environment are consistent with industry-accepted hardening standards and are reviewed at least annually.
+
+
+
+Not applicable
+
+Microsoft Azure software and hardware configurations are reviewed at least quarterly to identify and eliminate any unnecessary functions, ports, protocols and services.
+
+Not applicable
+
+Azure ensures only authorized personal are able to configure Azure platform security controls, using multi-factor access controls and a documented buiness need.
+
+
+Azure ensures that systems in the Azure platform follow hardening standards and policies for infrastructure and services within Azure's control. 
+
+
+Microsoft Azure ensures the use of strong cryptography are enforced when accessing the hypervisor infrastructure.  Microsoft Azure also ensures that customers using the Microsoft Azure Management Portal are able to access their service/IaaS consoles with strong cryptography.
+
+
+
+
+Not applicable
+
+Not applicable
+
+### AKS responsibility
+Container technology addresses this requirement by default, as one instance of a container is responsible for one function in the system. 
+
+### Your responsibility
+
+
+### Implementation considerations
+"Disable Admin access on ACR.
+Ensure Jump Boxes and Build Agents follow user management procedures - removing needed system users.
+Do not generate/provide SSH key access to nodes to administrator user. If emergency access is necessary, use Azure recovery process to get JIT access."
+
+Ensure your subscriptions are adhearing to Azure CIS Benchmark 2.0 standards plus any additional industry standards you feel are relevant. Use Azure Security Center's Security Baseline features and Azure Policy to help track against the standards. Consider building additional automated checks where desired in Azure Policy and Azure Tenant Security Solution (AzTS).
+Container technology addresses this requirement by default, as one instance of a container is responsible for one function in the system. Ensure you separate in-scope and out-of-scope processes ideally into separate clusters and related infrastructure, but at a minimum seperate node pools within a cluster. Ensure workloads are using Pod Managed Identity and are not inherting any cluster-level/node-level identity. Use external storage vs on-node (in-cluster) storage where possible. Keep cluster pods reserved exclusively for work that must be performed as part of the operation of card holder data processing -- for example, don't use the cluster also as your build agents, or for unrelated workloads, no matter how small/insignificant.
+"Do not enable features on services that are not necessary. (e.g. enabling managed identity on ACR if ACR isn't going to use that feature).
+Ensure all firewall (and NSG) rules restrict by protocol in addition to source/destination.
+Where you have complete control (Jump boxes, build agents), remove all necessary system services from the images.
+Where you have observer control only (such as AKS nodes), document what Azure installs on the nodes. Consider using DaemonSets to provide any additional auditing necessary for these cloud-controlled components.
+"
+"App Gatway should only support TLS 1.2 and approved ciphers.
+App Gateway should not respond to port 80 (unless performing a redirect in the gateway. Do not perform redirects at the application level).
+If additional node-level OS hardening deemed required, that work must be performed via sufficently prividledge DaemonSets. Because of the risk involved (security and stability), implementing these will have to be performed by the customer."
+"All Azure Services should ahear to the Azure CIS Benchmark controls, and exceptions documented.
+People should be trained on the security features of each component and be able to demonstrate related settings across the platform services.
+"
+Do not install anything on a JumpBox, Build Agent, or cluster (DaemonSet, Pods, etc) that does not belong to fullfill the needs of the operation of the workload or a tool that provides observability for compliance requirements (security agents). Ensure there is a process to detect the installation of the same.
+"All administrative access to the cluster should be conole-based. Do not expose the cluster's control plane via any management dashboard product, outside of the built-in experience in the Azure Portal.
+"
+Ensure all Azure Resources are tagged with being in or out of scope, to allow a querying for resources on demand. Audit/maintain that tag. Also maintain a snapshot of that documentation periodically.
+People/Process/Training/Documentation
+https://docs.microsoft.com/compliance/regulatory/offering-PCI-DSS
 ## Next
 
 Protect stored cardholder data. Encrypt transmission of cardholder data across open, public networks
