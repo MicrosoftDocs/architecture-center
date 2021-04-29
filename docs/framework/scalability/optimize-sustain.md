@@ -6,6 +6,8 @@ ms.date: 01/11/2021
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
+categories:
+  - management-and-governance   
 ---
 
 # Sustain performance efficiency over time
