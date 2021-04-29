@@ -57,12 +57,12 @@
 		.st42 {fill:url(#grad0-330);stroke:none;stroke-linecap:butt;stroke-width:0.75}
 		.st43 {fill:url(#grad0-336);stroke:none;stroke-linecap:butt;stroke-width:0.75}
 		.st44 {fill:#f2f2f2;fill-opacity:0.7;stroke:none;stroke-linecap:butt;stroke-width:0.75}
-		.st45 {marker-end:url(#mrkr1-358);stroke:#7f7f7f;stroke-linecap:round;stroke-linejoin:round;stroke-width:0.75}
+		.st45 {marker-end:url(#mrkr2-358);stroke:#7f7f7f;stroke-linecap:round;stroke-linejoin:round;stroke-width:0.75}
 		.st46 {fill:url(#grad0-483);stroke:none;stroke-linecap:butt;stroke-width:0.75}
 		.st47 {fill:#76bc2d;stroke:none;stroke-linecap:butt;stroke-width:0.75}
 		.st48 {fill:#86d633;stroke:none;stroke-linecap:butt;stroke-width:0.75}
 		.st49 {fill:url(#grad0-540);stroke:none;stroke-linecap:butt;stroke-width:0.75}
-		.st50 {fill:#92d050;stroke:#000000;stroke-linecap:round;stroke-linejoin:round;stroke-width:0.24}
+		.st50 {fill:#92d050;stroke:none;stroke-linecap:round;stroke-linejoin:round;stroke-width:0.5}
 		.st51 {fill:#000000;font-family:Calibri;font-size:0.666664em}
 		.st52 {fill:none;fill-rule:evenodd;font-size:12px;overflow:visible;stroke-linecap:square;stroke-miterlimit:3}
 	]]>
@@ -173,12 +173,12 @@
 				markerUnits="strokeWidth" overflow="visible">
 			<use xlink:href="#lend13" transform="scale(-4.36,-4.36) "/>
 		</marker>
-		<g id="lend1">
-			<path d="M 1 -1 L 0 0 L 1 1 " style="stroke-linecap:round;stroke-linejoin:round;fill:none"/>
+		<g id="lend2">
+			<path d="M 1 1 L 0 0 L 1 -1 L 1 1 " style="stroke:none"/>
 		</g>
-		<marker id="mrkr1-358" class="st6" v:arrowType="1" v:arrowSize="2" orient="auto" markerUnits="strokeWidth"
-				overflow="visible">
-			<use xlink:href="#lend1" transform="scale(-4.36,-4.36) "/>
+		<marker id="mrkr2-358" class="st6" v:arrowType="2" v:arrowSize="2" v:setback="4.36" refX="-4.36" orient="auto"
+				markerUnits="strokeWidth" overflow="visible">
+			<use xlink:href="#lend2" transform="scale(-4.36,-4.36) "/>
 		</marker>
 	</defs>
 	<g v:mID="0" v:index="1" v:groupContext="foregroundPage">
@@ -594,7 +594,7 @@
 					<v:ud v:nameU="HRight" v:prompt="" v:val="VT0(3.4305783475669):1"/>
 				</v:userDefs>
 				<title>Sheet.399</title>
-				<desc>(4) Export (anonymise)</desc>
+				<desc>(4) Export (anonymize)</desc>
 				<g id="shape400-40" v:mID="400" v:groupContext="shape" v:layerMember="2">
 					<title>Sheet.400</title>
 					<v:userDefs>
@@ -618,7 +618,7 @@
 				<g id="shape399-43" v:mID="399" v:groupContext="groupContent" v:layerMember="2">
 					<v:textBlock v:margins="rect(4,6,4,6)" v:tabSpace="42.5197"/>
 					<v:textRect cx="123.501" cy="432.353" width="247.01" height="25.5118"/>
-					<text x="118.82" y="435.95" class="st3" v:langID="3081"><v:paragraph v:horizAlign="2"/><v:tabList/>(4) Export (anonymise)</text>				</g>
+					<text x="118.77" y="435.95" class="st3" v:langID="3081"><v:paragraph v:horizAlign="2"/><v:tabList/>(4) Export (anonymize)</text>				</g>
 			</g>
 		</g>
 		<g id="shape9-47" v:mID="9" v:groupContext="shape" transform="translate(211.301,-18.375)">
@@ -642,21 +642,21 @@
 				<!-- Unsupported Record: EmfPlusRecordTypeSetPixelOffsetMode  -->
 				<svg viewBox="-0.70871 -0.70869 1320.1 3403.1" height="408.359" preserveAspectRatio="none" width="158.4" x="0"
 						y="36.75">
-					<clipPath id="mfid1">
-						<rect x="-0.70871" y="-0.70869" width="1320.1" height="3403.1" id="mfid2"/>
+					<clipPath id="mfid277">
+						<rect x="-0.70871" y="-0.70869" width="1320.1" height="3403.1" id="mfid278"/>
 					</clipPath>
-					<g clip-path="url(#mfid1)">
-						<mask id="mfid3">
+					<g clip-path="url(#mfid277)">
+						<mask id="mfid279">
 							<rect width="1320" height="3403" fill="white" stroke="none"/>
 						</mask>
-						<mask id="mfid4" fill="white" stroke="none">
+						<mask id="mfid280" fill="white" stroke="none">
 							<g>
-								<g mask="url(#mfid3)">
-									<use xlink:href="#mfid2"/>
+								<g mask="url(#mfid279)">
+									<use xlink:href="#mfid278"/>
 								</g>
 							</g>
 						</mask>
-						<g mask="url(#mfid4)">
+						<g mask="url(#mfid280)">
 							<g transform="matrix(0.00065617, 0, 0, 0.00065617, 0, 0)">
 								<g fill="#f2f2f2">
 									<rect width="2.0117e+06" height="5.1862e+06" stroke="none"/>
@@ -664,10 +664,10 @@
 							</g>
 						</g>
 						<!-- GetDC -->
-						<mask id="mfid5" fill-rule="evenodd" fill="white" stroke="none">
+						<mask id="mfid281" fill-rule="evenodd" fill="white" stroke="none">
 							<rect x="0" y="0" width="1320" height="3403"/>
 						</mask>
-						<g mask="url(#mfid5)">
+						<g mask="url(#mfid281)">
 							<g transform="matrix(1, 0, 0, 1, 519.82, 210.14)">
 								<g stroke="#000000" stroke-miterlimit="10" fill="none">
 									<g font-family="&#39;Segoe UI Semibold&#39;,swiss,sans-serif" font-style="normal"
@@ -684,9 +684,9 @@
 			</switch>
 			<rect v:rectContext="foreign" x="0" y="36.75" width="158.4" height="408.359" class="st4"/>
 		</g>
-		<g id="shape98-50" v:mID="98" v:groupContext="shape" v:layerMember="1" transform="translate(291.918,-241.61)">
+		<g id="shape98-50" v:mID="98" v:groupContext="shape" v:layerMember="1" transform="translate(291.969,-235.276)">
 			<title>Dynamic connector.98</title>
-			<path d="M7.09 445.11 L7.09 541.53" class="st5"/>
+			<path d="M6.8 445.11 L7.37 445.11 L7.37 525.44" class="st5"/>
 		</g>
 		<g id="group306-56" transform="translate(381.235,-18.3637)" v:mID="306" v:groupContext="group">
 			<title>Sheet.306</title>
@@ -1686,21 +1686,21 @@
 				<!-- Unsupported Record: EmfPlusRecordTypeSetPixelOffsetMode  -->
 				<svg viewBox="-0.70871 -0.70869 1320.1 3403.1" height="408.359" preserveAspectRatio="none" width="135.723" x="0"
 						y="36.75">
-					<clipPath id="mfid6">
-						<rect x="-0.70871" y="-0.70869" width="1320.1" height="3403.1" id="mfid7"/>
+					<clipPath id="mfid282">
+						<rect x="-0.70871" y="-0.70869" width="1320.1" height="3403.1" id="mfid283"/>
 					</clipPath>
-					<g clip-path="url(#mfid6)">
-						<mask id="mfid8">
+					<g clip-path="url(#mfid282)">
+						<mask id="mfid284">
 							<rect width="1320" height="3403" fill="white" stroke="none"/>
 						</mask>
-						<mask id="mfid9" fill="white" stroke="none">
+						<mask id="mfid285" fill="white" stroke="none">
 							<g>
-								<g mask="url(#mfid8)">
-									<use xlink:href="#mfid7"/>
+								<g mask="url(#mfid284)">
+									<use xlink:href="#mfid283"/>
 								</g>
 							</g>
 						</mask>
-						<g mask="url(#mfid9)">
+						<g mask="url(#mfid285)">
 							<g transform="matrix(0.00065617, 0, 0, 0.00065617, 0, 0)">
 								<g fill="#f2f2f2">
 									<rect width="2.0117e+06" height="5.1862e+06" stroke="none"/>
@@ -1708,10 +1708,10 @@
 							</g>
 						</g>
 						<!-- GetDC -->
-						<mask id="mfid10" fill-rule="evenodd" fill="white" stroke="none">
+						<mask id="mfid286" fill-rule="evenodd" fill="white" stroke="none">
 							<rect x="0" y="0" width="1320" height="3403"/>
 						</mask>
-						<g mask="url(#mfid10)">
+						<g mask="url(#mfid286)">
 							<g transform="matrix(1, 0, 0, 1, 496.39, 210.14)">
 								<g stroke="#000000" stroke-miterlimit="10" fill="none">
 									<g font-family="&#39;Segoe UI Semibold&#39;,swiss,sans-serif" font-style="normal"
@@ -1728,7 +1728,7 @@
 			</switch>
 			<rect v:rectContext="foreign" x="0" y="36.75" width="135.723" height="408.359" class="st4"/>
 		</g>
-		<g id="group29-75" transform="translate(453.241,-93.0798)" v:mID="29" v:groupContext="group">
+		<g id="group29-75" transform="translate(446.154,-93.0798)" v:mID="29" v:groupContext="group">
 			<title>Sheet.29</title>
 			<g id="shape30-76" v:mID="30" v:groupContext="shape">
 				<title>Sheet.30</title>
@@ -1759,51 +1759,51 @@
 				<!-- Unsupported Record: EmfPlusRecordTypeSetPixelOffsetMode  -->
 				<svg viewBox="-0.70871 -0.70869 311.13 334.97" height="44.3253" preserveAspectRatio="none" width="41.1682" x="0"
 						y="400.784">
-					<clipPath id="mfid11">
-						<rect x="-0.70871" y="-0.70869" width="311.13" height="334.97" id="mfid12"/>
+					<clipPath id="mfid287">
+						<rect x="-0.70871" y="-0.70869" width="311.13" height="334.97" id="mfid288"/>
 					</clipPath>
-					<g clip-path="url(#mfid11)">
-						<mask id="mfid13">
+					<g clip-path="url(#mfid287)">
+						<mask id="mfid289">
 							<rect width="311" height="335" fill="white" stroke="none"/>
 						</mask>
-						<mask id="mfid14" fill="white" stroke="none">
+						<mask id="mfid290" fill="white" stroke="none">
 							<g>
-								<g mask="url(#mfid13)">
-									<use xlink:href="#mfid12"/>
+								<g mask="url(#mfid289)">
+									<use xlink:href="#mfid288"/>
 								</g>
 							</g>
 						</mask>
 						<defs>
-							<path id="mfid15" d="M10323,133830 L423280,133830 L307650,10401 L106680,10401 Z"/>
+							<path id="mfid291" d="M10323,133830 L423280,133830 L307650,10401 L106680,10401 Z"/>
 						</defs>
-						<g mask="url(#mfid14)">
+						<g mask="url(#mfid290)">
 							<g transform="matrix(0.00065617, 0, 0, 0.00065617, 15, 246)">
 								<g fill="#153c63">
-									<use xlink:href="#mfid15" fill-rule="evenodd" stroke="none"/>
+									<use xlink:href="#mfid291" fill-rule="evenodd" stroke="none"/>
 									<defs>
-										<path id="mfid16" d="M42036,324800 L10336,200470 L185370,10477 L308030,10477 Z"/>
+										<path id="mfid292" d="M42036,324800 L10336,200470 L185370,10477 L308030,10477 Z"/>
 									</defs>
 								</g>
 							</g>
 							<g transform="matrix(0.00065617, 0, 0, 0.00065617, -6, 121)">
 								<g fill="#1c93d6">
-									<use xlink:href="#mfid16" fill-rule="evenodd" stroke="none"/>
+									<use xlink:href="#mfid292" fill-rule="evenodd" stroke="none"/>
 									<defs>
-										<path id="mfid17" d="M10401,10439 L135220,10439 L135220,203920 L11788,203920 Z"/>
+										<path id="mfid293" d="M10401,10439 L135220,10439 L135220,203920 L11788,203920 Z"/>
 									</defs>
 								</g>
 							</g>
 							<g transform="matrix(0.00065617, 0, 0, 0.00065617, 108, -6)">
 								<g fill="#0478b6">
-									<use xlink:href="#mfid17" fill-rule="evenodd" stroke="none"/>
+									<use xlink:href="#mfid293" fill-rule="evenodd" stroke="none"/>
 									<defs>
-										<path id="mfid18" d="M10287,102410 L88468,10450 L229740,170690 L202310,291910 Z"/>
+										<path id="mfid294" d="M10287,102410 L88468,10450 L229740,170690 L202310,291910 Z"/>
 									</defs>
 								</g>
 							</g>
 							<g transform="matrix(0.00065617, 0, 0, 0.00065617, 160, 142)">
 								<g fill="#0273b1">
-									<use xlink:href="#mfid18" fill-rule="evenodd" stroke="none"/>
+									<use xlink:href="#mfid294" fill-rule="evenodd" stroke="none"/>
 								</g>
 							</g>
 						</g>
@@ -1928,17 +1928,17 @@
 				</g>
 			</g>
 		</g>
-		<g id="shape94-124" v:mID="94" v:groupContext="shape" v:layerMember="1" transform="translate(160.954,-113.792)">
+		<g id="shape94-124" v:mID="94" v:groupContext="shape" v:layerMember="1" transform="translate(167.244,-112.677)">
 			<title>Dynamic connector</title>
-			<path d="M0 438.02 L108.4 438.02" class="st5"/>
+			<path d="M0 438.73 L0 437.31 L95.64 437.31" class="st5"/>
 		</g>
-		<g id="shape95-129" v:mID="95" v:groupContext="shape" v:layerMember="1" transform="translate(320.331,-113.792)">
+		<g id="shape95-129" v:mID="95" v:groupContext="shape" v:layerMember="1" transform="translate(327.402,-113.811)">
 			<title>Dynamic connector.95</title>
-			<path d="M0 438.02 L129.9 438.02" class="st5"/>
+			<path d="M0 438.45 L0 437.6 L104.43 437.6" class="st5"/>
 		</g>
-		<g id="shape96-134" v:mID="96" v:groupContext="shape" v:layerMember="1" transform="translate(463.997,-136.137)">
+		<g id="shape96-134" v:mID="96" v:groupContext="shape" v:layerMember="1" transform="translate(460.346,-143.15)">
 			<title>Dynamic connector.96</title>
-			<path d="M7.09 445.11 L7.09 303.63" class="st5"/>
+			<path d="M6.8 445.11 L7.37 445.11 L7.37 316.02" class="st5"/>
 		</g>
 		<g id="group190-139" transform="translate(83.9934,-285.005)" v:mID="190" v:groupContext="group">
 			<title>Sheet.190</title>
@@ -2004,9 +2004,9 @@
 				<rect x="0" y="427.63" width="95.7178" height="17.4789" class="st4"/>
 				<text x="22.04" y="439.07" class="st9" v:langID="3081"><v:paragraph v:horizAlign="1"/><v:tabList/>Azure IoT Hub</text>			</g>
 		</g>
-		<g id="shape192-165" v:mID="192" v:groupContext="shape" v:layerMember="1" transform="translate(48.4945,-150.728)">
+		<g id="shape192-165" v:mID="192" v:groupContext="shape" v:layerMember="1" transform="translate(64.6299,-166.677)">
 			<title>Dynamic connector.192</title>
-			<path d="M0 445.11 L97.14 445.11 L97.14 462.93" class="st5"/>
+			<path d="M0 445.11 L82.77 445.11 L82.77 469.31" class="st5"/>
 		</g>
 		<g id="group246-170" transform="translate(612.765,-226.037)" v:mID="246" v:groupContext="group">
 			<title>Function Apps</title>
@@ -2104,116 +2104,116 @@
 				<!-- Unsupported Record: EmfPlusRecordTypeSetPixelOffsetMode  -->
 				<svg viewBox="-0.55652 -0.50674 56.023 66.004" height="29.537" preserveAspectRatio="none" width="25.6819" x="0"
 						y="415.572">
-					<clipPath id="mfid19">
-						<rect x="-0.55652" y="-0.50674" width="56.023" height="66.004" id="mfid20"/>
+					<clipPath id="mfid295">
+						<rect x="-0.55652" y="-0.50674" width="56.023" height="66.004" id="mfid296"/>
 					</clipPath>
-					<g clip-path="url(#mfid19)">
-						<mask id="mfid21">
+					<g clip-path="url(#mfid295)">
+						<mask id="mfid297">
 							<rect width="56" height="66" fill="white" stroke="none"/>
 						</mask>
-						<mask id="mfid22" fill="white" stroke="none">
+						<mask id="mfid298" fill="white" stroke="none">
 							<g>
-								<g mask="url(#mfid21)">
-									<use xlink:href="#mfid20"/>
+								<g mask="url(#mfid297)">
+									<use xlink:href="#mfid296"/>
 								</g>
 							</g>
 						</mask>
 						<defs>
-							<path id="mfid23" d="M0,0 L355600,0 L355600,419100 L0,419100 Z"/>
+							<path id="mfid299" d="M0,0 L355600,0 L355600,419100 L0,419100 Z"/>
 						</defs>
-						<mask id="mfid24">
-							<use xlink:href="#mfid23" fill-rule="evenodd" fill="white" stroke="none"
+						<mask id="mfid300">
+							<use xlink:href="#mfid299" fill-rule="evenodd" fill="white" stroke="none"
 									transform="matrix(0.00015748, 0, 0, 0.00015748, 0, 0)"/>
 						</mask>
-						<mask id="mfid25" fill="white" stroke="none">
-							<g mask="url(#mfid22)">
-								<g mask="url(#mfid24)">
-									<use xlink:href="#mfid20"/>
+						<mask id="mfid301" fill="white" stroke="none">
+							<g mask="url(#mfid298)">
+								<g mask="url(#mfid300)">
+									<use xlink:href="#mfid296"/>
 								</g>
 							</g>
 						</mask>
 						<defs>
 							<!-- Unsupported Record: EmfPlusRecordTypeSetPixelOffsetMode  -->
 							<!-- Unsupported Record: EmfPlusRecordTypeSetPixelOffsetMode  -->
-							<svg viewBox="7.9768 -62.013 49.036 58.022" height="58" id="mfid26" width="49">
-								<clipPath id="mfid27">
-									<rect x="7.9768" y="-62.013" width="49.036" height="58.022" id="mfid28"/>
+							<svg viewBox="7.9768 -62.013 49.036 58.022" height="58" id="mfid302" width="49">
+								<clipPath id="mfid303">
+									<rect x="7.9768" y="-62.013" width="49.036" height="58.022" id="mfid304"/>
 								</clipPath>
-								<g clip-path="url(#mfid27)">
+								<g clip-path="url(#mfid303)">
 									<defs>
-										<path id="mfid29" d="M50,-68 L101,-68 L101,-74 L50,-74 Z"/>
+										<path id="mfid305" d="M50,-68 L101,-68 L101,-74 L50,-74 Z"/>
 									</defs>
 									<g>
 										<g transform="matrix(0.33333, 0, 0, 0.33333, 0, 0)">
 											<g fill="#0072c5">
-												<use xlink:href="#mfid29" fill-rule="nonzero" stroke="none"/>
+												<use xlink:href="#mfid305" fill-rule="nonzero" stroke="none"/>
 											</g>
 											<g fill="#0072c5" stroke-width="3" stroke="#ffffff" stroke-opacity="0"
 													stroke-linecap="round" stroke-linejoin="round">
-												<use xlink:href="#mfid29" fill="none"/>
+												<use xlink:href="#mfid305" fill="none"/>
 												<defs>
-													<path id="mfid30" d="M50,-107 L101,-107 L101,-113 L50,-113 Z"/>
+													<path id="mfid306" d="M50,-107 L101,-107 L101,-113 L50,-113 Z"/>
 												</defs>
-												<use xlink:href="#mfid30" fill-rule="nonzero" stroke="none"/>
-												<use xlink:href="#mfid30" fill="none"/>
+												<use xlink:href="#mfid306" fill-rule="nonzero" stroke="none"/>
+												<use xlink:href="#mfid306" fill="none"/>
 												<defs>
-													<path id="mfid31" d="M147,-121 L151,-127 L154,-127 L154,-134 L147,-124 Z"/>
+													<path id="mfid307" d="M147,-121 L151,-127 L154,-127 L154,-134 L147,-124 Z"/>
 												</defs>
-												<use xlink:href="#mfid31" fill-rule="nonzero" stroke="none"/>
-												<use xlink:href="#mfid31" fill="none"/>
+												<use xlink:href="#mfid307" fill-rule="nonzero" stroke="none"/>
+												<use xlink:href="#mfid307" fill="none"/>
 												<defs>
-													<path id="mfid32" d="M50,-126 L94,-126 L94,-132 L50,-132 Z"/>
+													<path id="mfid308" d="M50,-126 L94,-126 L94,-132 L50,-132 Z"/>
 												</defs>
-												<use xlink:href="#mfid32" fill-rule="nonzero" stroke="none"/>
-												<use xlink:href="#mfid32" fill="none"/>
+												<use xlink:href="#mfid308" fill-rule="nonzero" stroke="none"/>
+												<use xlink:href="#mfid308" fill="none"/>
 												<defs>
-													<path id="mfid33" d="M50,-49 L94,-49 L94,-54 L50,-54 Z"/>
+													<path id="mfid309" d="M50,-49 L94,-49 L94,-54 L50,-54 Z"/>
 												</defs>
-												<use xlink:href="#mfid33" fill-rule="nonzero" stroke="none"/>
-												<use xlink:href="#mfid33" fill="none"/>
+												<use xlink:href="#mfid309" fill-rule="nonzero" stroke="none"/>
+												<use xlink:href="#mfid309" fill="none"/>
 												<defs>
-													<path id="mfid34"
+													<path id="mfid310"
 															d="M147,-18 C31,-18 31,-18 31,-18 C31,-165 31,-165 31,-165 C45,-165 45,-165 45,-165 C46,-168 48,-171 50,-173 C24,-173 24,-173 24,-173 C24,-11 24,-11 24,-11 C154,-11 154,-11 154,-11 C154,-95 154,-95 154,-95 C147,-85 147,-85 147,-85 C147,-18 147,-18 147,-18 Z"/>
 												</defs>
-												<use xlink:href="#mfid34" fill-rule="nonzero" stroke="none"/>
+												<use xlink:href="#mfid310" fill-rule="nonzero" stroke="none"/>
 												<defs>
-													<path id="mfid35" d="M50,-87 L94,-87 L94,-93 L50,-93 Z"/>
+													<path id="mfid311" d="M50,-87 L94,-87 L94,-93 L50,-93 Z"/>
 												</defs>
-												<use xlink:href="#mfid35" fill-rule="nonzero" stroke="none"/>
-												<use xlink:href="#mfid35" fill="none"/>
+												<use xlink:href="#mfid311" fill-rule="nonzero" stroke="none"/>
+												<use xlink:href="#mfid311" fill="none"/>
 												<defs>
-													<path id="mfid36"
+													<path id="mfid312"
 															d="M90,-174 C83,-174 83,-174 83,-174 C83,-177 86,-180 90,-180 C92,-180 95,-177 96,-174 Z M130,-165 C129,-169 125,-171 121,-173 C117,-173 113,-174 109,-174 C104,-174 104,-174 104,-174 C102,-174 102,-174 102,-174 C102,-181 97,-186 90,-186 C83,-186 78,-181 78,-174 C76,-174 76,-174 76,-174 C71,-174 71,-174 71,-174 C67,-174 63,-174 59,-173 C55,-171 51,-169 50,-165 C50,-164 50,-162 50,-161 C132,-161 132,-161 132,-161 C130,-162 130,-164 130,-165 Z"/>
 												</defs>
-												<use xlink:href="#mfid36" fill-rule="nonzero" stroke="none"/>
+												<use xlink:href="#mfid312" fill-rule="nonzero" stroke="none"/>
 												<defs>
-													<path id="mfid37"
+													<path id="mfid313"
 															d="M137,-29 L42,-29 L42,-152 L137,-152 L137,-145 L143,-153 L143,-158 L36,-158 L36,-24 L143,-24 L143,-78 L137,-70 Z"/>
 												</defs>
-												<use xlink:href="#mfid37" fill-rule="nonzero" stroke="none"/>
-												<use xlink:href="#mfid37" fill="none"/>
+												<use xlink:href="#mfid313" fill-rule="nonzero" stroke="none"/>
+												<use xlink:href="#mfid313" fill="none"/>
 												<defs>
-													<path id="mfid38" d="M143,-117 L137,-109 L137,-106 L143,-114 Z"/>
+													<path id="mfid314" d="M143,-117 L137,-109 L137,-106 L143,-114 Z"/>
 												</defs>
-												<use xlink:href="#mfid38" fill-rule="nonzero" stroke="none"/>
-												<use xlink:href="#mfid38" fill="none"/>
+												<use xlink:href="#mfid314" fill-rule="nonzero" stroke="none"/>
+												<use xlink:href="#mfid314" fill="none"/>
 												<defs>
-													<path id="mfid39"
+													<path id="mfid315"
 															d="M151,-166 C154,-166 154,-166 154,-166 C154,-173 154,-173 154,-173 C128,-173 128,-173 128,-173 C130,-171 132,-169 133,-165 C147,-165 147,-165 147,-165 C147,-161 147,-161 147,-161 Z"/>
 												</defs>
-												<use xlink:href="#mfid39" fill-rule="nonzero" stroke="none"/>
+												<use xlink:href="#mfid315" fill-rule="nonzero" stroke="none"/>
 												<defs>
-													<path id="mfid40"
+													<path id="mfid316"
 															d="M170,-162 L132,-108 L116,-108 L101,-132 L117,-132 L125,-120 L154,-162 Z"/>
 												</defs>
-												<use xlink:href="#mfid40" fill-rule="nonzero" stroke="none"/>
-												<use xlink:href="#mfid40" fill="none"/>
+												<use xlink:href="#mfid316" fill-rule="nonzero" stroke="none"/>
+												<use xlink:href="#mfid316" fill="none"/>
 												<defs>
-													<path id="mfid41"
+													<path id="mfid317"
 															d="M170,-124 L132,-69 L116,-69 L101,-93 L117,-93 L125,-81 L154,-124 Z"/>
 												</defs>
-												<use xlink:href="#mfid41" fill-rule="nonzero" stroke="none"/>
-												<use xlink:href="#mfid41" fill="none"/>
+												<use xlink:href="#mfid317" fill-rule="nonzero" stroke="none"/>
+												<use xlink:href="#mfid317" fill="none"/>
 											</g>
 										</g>
 									</g>
@@ -2221,16 +2221,16 @@
 							</svg>
 						</defs>
 						<!-- Unsupported Record: EmfPlusRecordTypeSetObject Obj_ImageAttributes -->
-						<g mask="url(#mfid25)">
+						<g mask="url(#mfid301)">
 							<g transform="matrix(1.1192, 0, 0, 1.1182, -8.9276, 69.344)">
-								<clipPath id="mfid42">
+								<clipPath id="mfid318">
 									<rect x="7.9768" y="-62.013" width="50.036" height="59.022"/>
 								</clipPath>
-								<use xlink:href="#mfid26" clip-path="url(#mfid42)"
+								<use xlink:href="#mfid302" clip-path="url(#mfid318)"
 										transform="matrix(1, 0, 0, 1, 0, -0.000000000000071054)"/>
 							</g>
 						</g>
-						<mask id="mfid43">
+						<mask id="mfid319">
 							<rect width="56" height="66" fill="white" stroke="none"/>
 						</mask>
 					</g>
@@ -2802,42 +2802,42 @@
 					<text x="2.31" y="453.21" class="st9" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>App <tspan
 								x="-5.2" dy="1.2em" class="st25">Services</tspan></text>				</g>
 			</g>
-			<g id="shape387-353" v:mID="387" v:groupContext="shape" v:layerMember="1" transform="translate(19.2764,-2.1305)">
+			<g id="shape387-353" v:mID="387" v:groupContext="shape" v:layerMember="1" transform="translate(19.9494,-2.15686)">
 				<title>Dynamic connector.287</title>
-				<path d="M0 438.02 L15.31 438.02" class="st45"/>
+				<path d="M0.85 438.16 L0.85 437.88 L10.05 437.88" class="st45"/>
 			</g>
-			<g id="shape388-359" v:mID="388" v:groupContext="shape" v:layerMember="1" transform="translate(53.8605,-2.1305)">
+			<g id="shape388-359" v:mID="388" v:groupContext="shape" v:layerMember="1" transform="translate(54.3903,-2.01513)">
 				<title>Dynamic connector.288</title>
-				<path d="M0 438.02 L15.31 438.02" class="st45"/>
+				<path d="M0.57 438.02 L10.34 438.02" class="st45"/>
 			</g>
-			<g id="shape389-364" v:mID="389" v:groupContext="shape" v:layerMember="1" transform="translate(88.4446,-2.1305)">
+			<g id="shape389-364" v:mID="389" v:groupContext="shape" v:layerMember="1" transform="translate(89.2565,-2.07281)">
 				<title>Dynamic connector.289</title>
-				<path d="M0 438.02 L15.31 438.02" class="st45"/>
+				<path d="M0 438.08 L0 437.96 L11.23 437.96" class="st45"/>
 			</g>
-			<g id="shape390-369" v:mID="390" v:groupContext="shape" v:layerMember="1" transform="translate(123.029,-2.1305)">
+			<g id="shape390-369" v:mID="390" v:groupContext="shape" v:layerMember="1" transform="translate(123.414,-2.10016)">
 				<title>Dynamic connector.290</title>
-				<path d="M0 438.02 L15.31 438.02" class="st45"/>
+				<path d="M0.43 438.11 L0.43 437.94 L10.48 437.94" class="st45"/>
 			</g>
-			<g id="shape391-374" v:mID="391" v:groupContext="shape" v:layerMember="1" transform="translate(159.219,-2.1305)">
+			<g id="shape391-374" v:mID="391" v:groupContext="shape" v:layerMember="1" transform="translate(159.556,-2.01513)">
 				<title>Dynamic connector.291</title>
-				<path d="M0 438.02 L15.31 438.02" class="st45"/>
+				<path d="M0.71 438.02 L10.19 438.02" class="st45"/>
 			</g>
-			<g id="shape392-379" v:mID="392" v:groupContext="shape" v:layerMember="1" transform="translate(193.803,-2.1305)">
+			<g id="shape392-379" v:mID="392" v:groupContext="shape" v:layerMember="1" transform="translate(194.847,-2.07281)">
 				<title>Dynamic connector.292</title>
-				<path d="M0 438.02 L15.31 438.02" class="st45"/>
+				<path d="M0 438.08 L0 437.96 L10.99 437.96" class="st45"/>
 			</g>
 		</g>
-		<g id="shape393-384" v:mID="393" v:groupContext="shape" v:layerMember="1" transform="translate(59.622,-311.829)">
+		<g id="shape393-384" v:mID="393" v:groupContext="shape" v:layerMember="1" transform="translate(67.4646,-311.811)">
 			<title>Dynamic connector.393</title>
-			<path d="M0 438.02 L51.75 438.02" class="st5"/>
+			<path d="M0 438.02 L43.91 438.02" class="st5"/>
 		</g>
 		<g id="shape394-389" v:mID="394" v:groupContext="shape" v:layerMember="1" transform="translate(138.341,-318.915)">
 			<title>Dynamic connector.394</title>
-			<path d="M0 445.11 L159.92 445.11 L159.92 481.34" class="st5"/>
+			<path d="M0 445.11 L159.86 445.11 L159.86 471.32" class="st5"/>
 		</g>
-		<g id="shape395-394" v:mID="395" v:groupContext="shape" v:layerMember="1" transform="translate(59.622,-253.241)">
+		<g id="shape395-394" v:mID="395" v:groupContext="shape" v:layerMember="1" transform="translate(66.6142,-252.709)">
 			<title>Dynamic connector.395</title>
-			<path d="M0 438.02 L209.81 438.02" class="st5"/>
+			<path d="M0 438.45 L0 437.6 L195.7 437.6" class="st5"/>
 		</g>
 		<g id="group433-399" transform="translate(623.524,-55.2753)" v:mID="433" v:groupContext="group">
 			<title>Storage Accounts</title>
@@ -3155,17 +3155,17 @@
 				<text x="-0.92" y="453.21" class="st9" v:langID="3081"><v:paragraph v:horizAlign="1"/><v:tabList/>Azure <tspan
 							x="-0.74" dy="1.2em" class="st25">Batch</tspan></text>			</g>
 		</g>
-		<g id="shape514-487" v:mID="514" v:groupContext="shape" v:layerMember="1" transform="translate(591.777,-57.4058)">
+		<g id="shape514-487" v:mID="514" v:groupContext="shape" v:layerMember="1" transform="translate(594.142,-56.7638)">
 			<title>Dynamic connector.287</title>
-			<path d="M0 438.02 L31.75 438.02" class="st45"/>
+			<path d="M0 438.09 L23.38 437.97" class="st45"/>
 		</g>
-		<g id="shape515-492" v:mID="515" v:groupContext="shape" v:layerMember="1" transform="translate(642.8,-57.4058)">
+		<g id="shape515-492" v:mID="515" v:groupContext="shape" v:layerMember="1" transform="translate(646.299,-56.9055)">
 			<title>Dynamic connector.515</title>
-			<path d="M0 438.02 L31.75 438.02" class="st45"/>
+			<path d="M0 438.24 L23.38 437.86" class="st45"/>
 		</g>
-		<g id="shape516-497" v:mID="516" v:groupContext="shape" v:layerMember="1" transform="translate(693.824,-57.4058)">
+		<g id="shape516-497" v:mID="516" v:groupContext="shape" v:layerMember="1" transform="translate(697.89,-71.6598)">
 			<title>Dynamic connector.516</title>
-			<path d="M0 438.02 L31.75 438.02" class="st45"/>
+			<path d="M0 452.14 L0 452.25 L23.09 452.25" class="st45"/>
 		</g>
 		<g id="group517-502" transform="translate(563.709,-225.616)" v:mID="517" v:groupContext="group">
 			<title>Event Hubs</title>
@@ -3587,51 +3587,52 @@
 				<text x="-6.34" y="453.21" class="st9" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Function <tspan
 							x="0.55" dy="1.2em" class="st25">Apps</tspan></text>			</g>
 		</g>
-		<g id="shape564-599" v:mID="564" v:groupContext="shape" v:layerMember="1" transform="translate(582.985,-228.167)">
+		<g id="shape564-599" v:mID="564" v:groupContext="shape" v:layerMember="1" transform="translate(586.772,-228.189)">
 			<title>Dynamic connector.564</title>
-			<path d="M0 438.02 L29.78 438.02" class="st45"/>
+			<path d="M0 438.02 L17.71 438.02" class="st45"/>
 		</g>
-		<g id="shape565-604" v:mID="565" v:groupContext="shape" v:layerMember="1" transform="translate(632.041,-228.167)">
+		<g id="shape565-604" v:mID="565" v:groupContext="shape" v:layerMember="1" transform="translate(634.252,-242.291)">
 			<title>Dynamic connector.565</title>
-			<path d="M0 438.02 L29.78 438.02" class="st45"/>
+			<path d="M0 452.12 L0 452.27 L23.23 452.27" class="st45"/>
 		</g>
-		<g id="shape566-609" v:mID="566" v:groupContext="shape" v:layerMember="1" transform="translate(681.097,-228.167)">
+		<g id="shape566-609" v:mID="566" v:groupContext="shape" v:layerMember="1" transform="translate(683.15,-228.189)">
 			<title>Dynamic connector.566</title>
-			<path d="M0 438.02 L29.78 438.02" class="st45"/>
+			<path d="M0 438.02 L23.52 438.02" class="st45"/>
 		</g>
-		<g id="shape567-614" v:mID="567" v:groupContext="shape" v:layerMember="1" transform="translate(730.152,-242.318)">
+		<g id="shape567-614" v:mID="567" v:groupContext="shape" v:layerMember="1" transform="translate(731.905,-242.15)">
 			<title>Dynamic connector.567</title>
-			<path d="M0 452.17 L11.77 452.17 L11.77 452.22 L29.78 452.22" class="st45"/>
+			<path d="M0 452.12 L0 452.27 L23.38 452.27" class="st45"/>
 		</g>
-		<g id="shape571-619" v:mID="571" v:groupContext="shape" transform="translate(249.449,-85.0394)">
+		<g id="shape571-619" v:mID="571" v:groupContext="shape" transform="translate(252.614,-85.0394)">
 			<title>Sheet.571</title>
 			<desc>Azure Data Lake</desc>
 			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
 			<v:textRect cx="47.8589" cy="436.37" width="95.72" height="17.4789"/>
 			<rect x="0" y="427.63" width="95.7178" height="17.4789" class="st4"/>
 			<text x="18.35" y="439.07" class="st9" v:langID="3081"><v:paragraph v:horizAlign="1"/><v:tabList/>Azure Data Lake</text>		</g>
-		<g id="shape573-622" v:mID="573" v:groupContext="shape" transform="translate(88.2041,-81.9692)">
+		<g id="shape573-622" v:mID="573" v:groupContext="shape" transform="translate(91.3688,-81.9692)">
 			<title>Sheet.573</title>
 			<desc>Azure Data Factory</desc>
 			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
 			<v:textRect cx="47.8589" cy="436.37" width="95.72" height="17.4789"/>
 			<rect x="0" y="427.63" width="95.7178" height="17.4789" class="st4"/>
 			<text x="13.07" y="439.07" class="st9" v:langID="3081"><v:paragraph v:horizAlign="1"/><v:tabList/>Azure Data Factory</text>		</g>
-		<g id="shape574-625" v:mID="574" v:groupContext="shape" transform="translate(428.362,-73.7008)">
+		<g id="shape574-625" v:mID="574" v:groupContext="shape" transform="translate(421.275,-73.7008)">
 			<title>Sheet.574</title>
 			<desc>Azure Databricks</desc>
 			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
 			<v:textRect cx="47.8589" cy="436.37" width="95.72" height="17.4789"/>
 			<rect x="0" y="427.63" width="95.7178" height="17.4789" class="st4"/>
 			<text x="17.03" y="439.07" class="st9" v:langID="3081"><v:paragraph v:horizAlign="1"/><v:tabList/>Azure Databricks</text>		</g>
-		<g id="shape575-628" v:mID="575" v:groupContext="shape" transform="translate(289.134,-223.701)">
+		<g id="shape575-628" v:mID="575" v:groupContext="shape" transform="translate(294.803,-255.413)">
 			<title>Sheet.575</title>
 			<desc>Azure API for FHIR</desc>
 			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
 			<v:textRect cx="47.8589" cy="436.37" width="95.72" height="17.4789"/>
 			<rect x="0" y="427.63" width="95.7178" height="17.4789" class="st4"/>
-			<text x="14.43" y="439.07" class="st9" v:langID="3081"><v:paragraph v:horizAlign="1"/><v:tabList/>Azure API for FHIR</text>		</g>
-		<g id="shape576-631" v:mID="576" v:groupContext="shape" transform="translate(454.203,-261.988)">
+			<text x="30.23" y="433.67" class="st9" v:langID="3081"><v:paragraph v:horizAlign="1"/><v:tabList/>Azure API <v:newlineChar/><tspan
+						x="33.08" dy="1.2em" class="st25">for FHIR</tspan></text>		</g>
+		<g id="shape576-632" v:mID="576" v:groupContext="shape" transform="translate(371.669,-306.142)">
 			<title>Sheet.576</title>
 			<desc>Azure Machine Learning</desc>
 			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
@@ -3639,7 +3640,313 @@
 			<rect x="0" y="427.63" width="95.7178" height="17.4789" class="st4"/>
 			<text x="20.38" y="433.67" class="st9" v:langID="3081"><v:paragraph v:horizAlign="1"/><v:tabList/>Azure Machine<v:newlineChar/><tspan
 						x="32.12" dy="1.2em" class="st25">Learning</tspan></text>		</g>
-		<g id="shape252-635" v:mID="252" v:groupContext="shape" transform="translate(583.937,-340.229)">
+		<g id="shape596-636" v:mID="596" v:groupContext="shape" v:layerMember="1" transform="translate(494.646,-296.22)">
+			<title>Dynamic connector.596</title>
+			<path d="M0 445.11 L106.3 445.11 L106.3 434.23" class="st5"/>
+		</g>
+		<g id="shape253-641" v:mID="253" v:groupContext="shape" transform="translate(22.2641,-133.228)">
+			<title>Sheet.253</title>
+			<desc>EMR</desc>
+			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197" v:verticalAlign="0"/>
+			<v:textRect cx="13.1188" cy="445.109" width="26.24" height="0"/>
+			<rect v:rectContext="foreign" x="0" y="418.876" width="26.2376" height="26.2331" class="st4"/>
+			<switch>
+				<foreignObject x="0" y="418.876" width="26.2376" height="26.2331"
+						requiredExtensions="http://schemas.microsoft.com/visio/2003/SVGExtensions/">
+					<v:foreignData v:orgSize="2620" v:data="data:metafile;base64,eNrlVjGIE1EQfX9/JLkQdYNR7lDPS7jT01iEmMID5X6Cl2x
+								xBxYiip1YWAiGw0oQ1u4Ki5SxEbE6rCytRIUDyyssFBsr4bBSLFYt1pnd/zf/4nqmiII44WWGyfz5s3/en6wAcIMQajlFtiJ
+								8JZtxxwEqEphZWmkDAmfyAMeQe5ts5oD3u4DDAng29Jt3OYPaBweUACcJMwRKVxVK4BDZLudzn7+jpehpcGyBHSKOrSknist
+								EGf3FisqgoPOfoIJnSU/q3wY7D+y6gjB7DWS5RTGtUdbPKVj7A0eUTPafVhOJXVbZ1LpWynMLJldsbzbZziv4JmZjFaGwqvO
+								zBz1/wfHKZNPx4iqfSXwkUd7ZOOqstSKxuT/HdN4k5+pG/CxWHmNTfv8i6RphSvOB+7yfQG1FXwRhX3hiXjLYDkKzNktrjc1
+								FWLU1rdqadm3c33NUwGnd31F6MErM0aE+jb9vLLVWTkHeIuu65m7eplUh6HDvEj0s5H974UC7+/ljp/6o6Bn9rf9iif1Gsx9
+								CiLvRl5Ql4op5FubKKBywe73vF32/Qvq87nlV91/p9Xndf0YQBnJNMJ46QcgIZBFbsisYr5wiGFvS5kXanv8HR540d+II32t
+								VfuAZPUwR9uN1qe2/+dR5ePu+ZzT7bLB/J46Y2TGdnEksZs6Pm0PQM6NOqKZyaN2Zl4xLNEEY646LnuNKRle4YPSccXGoouO
+								Z2/82n+icf8Mn83+RNnPYzzPl5ssv0awxeu/E92jWGM3+vz1zWKY0b37miyfWBIOmTfTxRBEN0RWM3SiC0RDjnDn32Is/y5G
+								cEplJXRv3kn30muU26J3IcGKZcM3qId+pxZQ7fByPkbbndjtdhu+HeUfiZ3dUcnbYQyhp29X2DzZXJqU="/>
+				</foreignObject>
+				<!-- Unsupported Record: EmfPlusRecordTypeSetPixelOffsetMode  -->
+				<svg viewBox="-0.55411 -0.55411 50.978 64.039" height="26.2331" preserveAspectRatio="none" width="26.2376" x="0"
+						y="418.876">
+					<clipPath id="mfid320">
+						<rect x="-0.55411" y="-0.55411" width="50.978" height="64.039" id="mfid321"/>
+					</clipPath>
+					<g clip-path="url(#mfid320)">
+						<mask id="mfid322">
+							<rect width="51" height="64" fill="white" stroke="none"/>
+						</mask>
+						<mask id="mfid323" fill="white" stroke="none">
+							<g>
+								<g mask="url(#mfid322)">
+									<use xlink:href="#mfid321"/>
+								</g>
+							</g>
+						</mask>
+						<g mask="url(#mfid323)">
+							<g transform="matrix(0.00015748, 0, 0, 0.00015748, 26, 0)">
+								<g fill="#0072c5">
+									<rect width="1.5875e+05" height="1.3335e+05" stroke="none"/>
+									<defs>
+										<path id="mfid324"
+												d="M0,127000 L158750,127000 L158750,0 L0,0 L0,127000 Z M9621.2,120800 L149130,120800 L149130,6195.1 L9621.2,6195.1 L9621.2,120800 Z"/>
+									</defs>
+								</g>
+							</g>
+							<g transform="matrix(0.00015748, 0, 0, 0.00015748, 0, 44)">
+								<g fill="#0072c5">
+									<use xlink:href="#mfid324" fill-rule="evenodd" stroke="none"/>
+									<defs>
+										<path id="mfid325"
+												d="M0,133350 L323850,133350 L323850,0 L0,0 L0,133350 Z M9525,123820 L314320,123820 L314320,9525 L9525,9525 L9525,123820 Z"/>
+									</defs>
+								</g>
+							</g>
+							<g transform="matrix(0.00015748, 0, 0, 0.00015748, 0, 22)">
+								<g fill="#0072c5">
+									<use xlink:href="#mfid325" fill-rule="evenodd" stroke="none"/>
+									<defs>
+										<path id="mfid326"
+												d="M0,133350 L158750,133350 L158750,0 L0,0 L0,133350 Z M9621.2,125320 L149130,125320 L149130,8033.1 L9621.2,8033.1 L9621.2,125320 Z"/>
+									</defs>
+								</g>
+							</g>
+							<g transform="matrix(0.00015748, 0, 0, 0.00015748, 0, 0)">
+								<g fill="#0072c5">
+									<use xlink:href="#mfid326" fill-rule="evenodd" stroke="none"/>
+								</g>
+							</g>
+						</g>
+					</g>
+				</svg>
+			</switch>
+			<rect v:rectContext="foreign" x="0" y="418.876" width="26.2376" height="26.2331" class="st4"/>
+			<text x="4.63" y="457.21" class="st9" v:langID="3081"><v:paragraph v:horizAlign="1"/><v:tabList/>EMR</text>		</g>
+		<g id="shape597-645" v:mID="597" v:groupContext="shape" transform="translate(78.3298,-322.441)">
+			<title>Circle</title>
+			<desc>1</desc>
+			<v:userDefs>
+				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
+			</v:userDefs>
+			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+			<v:textRect cx="10.4414" cy="434.668" width="20.89" height="20.8828"/>
+			<path d="M0 434.67 A10.4414 10.4414 0 1 1 20.88 434.67 A10.4414 10.4414 0 0 1 -0 434.67 Z" class="st50"/>
+			<text x="8.41" y="437.07" class="st51" v:langID="3081"><v:paragraph v:horizAlign="1"/><v:tabList/>1</text>		</g>
+		<g id="shape599-648" v:mID="599" v:groupContext="shape" transform="translate(230.504,-325.984)">
+			<title>Circle.599</title>
+			<desc>2</desc>
+			<v:userDefs>
+				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
+			</v:userDefs>
+			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+			<v:textRect cx="10.4414" cy="434.668" width="20.89" height="20.8828"/>
+			<path d="M0 434.67 A10.4414 10.4414 0 1 1 20.88 434.67 A10.4414 10.4414 0 0 1 -0 434.67 Z" class="st50"/>
+			<text x="8.41" y="437.07" class="st51" v:langID="3081"><v:paragraph v:horizAlign="1"/><v:tabList/>2</text>		</g>
+		<g id="shape600-651" v:mID="600" v:groupContext="shape" transform="translate(158.828,-234.235)">
+			<title>Circle.600</title>
+			<desc>3</desc>
+			<v:userDefs>
+				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
+			</v:userDefs>
+			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+			<v:textRect cx="10.4414" cy="434.668" width="20.89" height="20.8828"/>
+			<path d="M0 434.67 A10.4414 10.4414 0 1 1 20.88 434.67 A10.4414 10.4414 0 0 1 -0 434.67 Z" class="st50"/>
+			<text x="8.41" y="437.07" class="st51" v:langID="3081"><v:paragraph v:horizAlign="1"/><v:tabList/>3</text>		</g>
+		<g id="shape601-654" v:mID="601" v:groupContext="shape" transform="translate(273.023,-184.252)">
+			<title>Circle.601</title>
+			<desc>4</desc>
+			<v:userDefs>
+				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
+			</v:userDefs>
+			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+			<v:textRect cx="10.4414" cy="434.668" width="20.89" height="20.8828"/>
+			<path d="M0 434.67 A10.4414 10.4414 0 1 1 20.88 434.67 A10.4414 10.4414 0 0 1 -0 434.67 Z" class="st50"/>
+			<text x="8.41" y="437.07" class="st51" v:langID="3081"><v:paragraph v:horizAlign="1"/><v:tabList/>4</text>		</g>
+		<g id="shape602-657" v:mID="602" v:groupContext="shape" transform="translate(155.906,-143.374)">
+			<title>Circle.602</title>
+			<desc>5</desc>
+			<v:userDefs>
+				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
+			</v:userDefs>
+			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+			<v:textRect cx="10.4414" cy="434.668" width="20.89" height="20.8828"/>
+			<path d="M0 434.67 A10.4414 10.4414 0 1 1 20.88 434.67 A10.4414 10.4414 0 0 1 -0 434.67 Z" class="st50"/>
+			<text x="8.41" y="437.07" class="st51" v:langID="3081"><v:paragraph v:horizAlign="1"/><v:tabList/>5</text>		</g>
+		<g id="shape603-660" v:mID="603" v:groupContext="shape" transform="translate(382.677,-127.559)">
+			<title>Circle.603</title>
+			<desc>6</desc>
+			<v:userDefs>
+				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
+			</v:userDefs>
+			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+			<v:textRect cx="10.4414" cy="434.668" width="20.89" height="20.8828"/>
+			<path d="M0 434.67 A10.4414 10.4414 0 1 1 20.88 434.67 A10.4414 10.4414 0 0 1 -0 434.67 Z" class="st50"/>
+			<text x="8.41" y="437.07" class="st51" v:langID="3081"><v:paragraph v:horizAlign="1"/><v:tabList/>6</text>		</g>
+		<g id="shape604-663" v:mID="604" v:groupContext="shape" transform="translate(443.102,-212.095)">
+			<title>Circle.604</title>
+			<desc>7</desc>
+			<v:userDefs>
+				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
+			</v:userDefs>
+			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+			<v:textRect cx="10.4414" cy="434.668" width="20.89" height="20.8828"/>
+			<path d="M0 434.67 A10.4414 10.4414 0 1 1 20.88 434.67 A10.4414 10.4414 0 0 1 -0 434.67 Z" class="st50"/>
+			<text x="8.41" y="437.07" class="st51" v:langID="3081"><v:paragraph v:horizAlign="1"/><v:tabList/>7</text>		</g>
+		<g id="shape605-666" v:mID="605" v:groupContext="shape" transform="translate(502.264,-308.563)">
+			<title>Circle.605</title>
+			<desc>8</desc>
+			<v:userDefs>
+				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
+			</v:userDefs>
+			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+			<v:textRect cx="10.4414" cy="434.668" width="20.89" height="20.8828"/>
+			<path d="M0 434.67 A10.4414 10.4414 0 1 1 20.88 434.67 A10.4414 10.4414 0 0 1 -0 434.67 Z" class="st50"/>
+			<text x="8.41" y="437.07" class="st51" v:langID="3081"><v:paragraph v:horizAlign="1"/><v:tabList/>8</text>		</g>
+		<g id="shape254-669" v:mID="254" v:groupContext="shape" transform="translate(708.661,-343.744)">
+			<title>Sheet.254</title>
+			<rect v:rectContext="foreign" x="0" y="415.062" width="28.3465" height="30.0472" class="st4"/>
+			<switch>
+				<foreignObject x="0" y="415.062" width="28.3465" height="30.0472"
+						requiredExtensions="http://schemas.microsoft.com/visio/2003/SVGExtensions/">
+					<v:foreignData v:orgSize="6260" v:data="data:metafile;base64,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"/>
+				</foreignObject>
+				<!-- Unsupported Record: EmfPlusRecordTypeSetPixelOffsetMode  -->
+				<svg viewBox="-0.55411 -0.55411 72.034 72.034" height="30.0472" preserveAspectRatio="none" width="28.3465" x="0"
+						y="415.062">
+					<clipPath id="mfid327">
+						<rect x="-0.55411" y="-0.55411" width="72.034" height="72.034" id="mfid328"/>
+					</clipPath>
+					<g clip-path="url(#mfid327)">
+						<mask id="mfid329">
+							<rect width="72" height="72" fill="white" stroke="none"/>
+						</mask>
+						<mask id="mfid330" fill="white" stroke="none">
+							<g>
+								<g mask="url(#mfid329)">
+									<use xlink:href="#mfid328"/>
+								</g>
+							</g>
+						</mask>
+						<!-- GetDC -->
+						<mask id="mfid331" fill-rule="evenodd" fill="white" stroke="none">
+							<rect x="0" y="0" width="72" height="72"/>
+						</mask>
+						<!-- Released DC -->
+						<defs>
+							<path id="mfid332" d="M0,0 L457200,0 L457200,457200 L0,457200 Z"/>
+						</defs>
+						<mask id="mfid333">
+							<use xlink:href="#mfid332" fill-rule="evenodd" fill="white" stroke="none"
+									transform="matrix(0.00015748, 0, 0, 0.00015748, 0, 0)"/>
+						</mask>
+						<mask id="mfid334" fill="white" stroke="none">
+							<g mask="url(#mfid330)">
+								<g mask="url(#mfid333)">
+									<use xlink:href="#mfid328"/>
+								</g>
+							</g>
+						</mask>
+						<defs>
+							<!-- Unsupported Record: EmfPlusRecordTypeSetPixelOffsetMode  -->
+							<svg viewBox="-0.55411 -0.55411 48.999 48.999" height="48" id="mfid335" width="48">
+								<clipPath id="mfid336">
+									<rect x="-0.55411" y="-0.55411" width="48.999" height="48.999" id="mfid337"/>
+								</clipPath>
+								<g clip-path="url(#mfid336)">
+									<mask id="mfid338">
+										<rect width="49" height="49" fill="white" stroke="none"/>
+									</mask>
+									<mask id="mfid339" fill="white" stroke="none">
+										<g>
+											<g mask="url(#mfid338)">
+												<use xlink:href="#mfid337"/>
+											</g>
+										</g>
+									</mask>
+									<defs>
+										<path id="mfid340"
+												d="M43.018,36.855 L42.061,36.855 L42.061,34.972 L43.018,34.972 C45.042,34.972 46.692,33.345 46.692,31.348 L46.692,12.105 C46.692,10.108 45.042,8.4809 43.018,8.4809 L6.8291,8.4809 C4.8028,8.4809 3.1529,10.108 3.1529,12.105 L3.1529,31.345 C3.1529,33.342 4.8028,34.97 6.8291,34.97 L7.7844,34.97 L7.7844,36.854 L6.8291,36.854 C3.7476,36.855 1.2422,34.385 1.2422,31.348 L1.2422,12.105 C1.2422,9.0693 3.7476,6.5977 6.8291,6.5977 L43.018,6.5977 C46.097,6.5977 48.603,9.0693 48.603,12.105 L48.603,31.345 C48.603,34.385 46.097,36.855 43.018,36.855 Z"/>
+									</defs>
+									<g mask="url(#mfid339)">
+										<g transform="matrix(1, 0, 0, 1, 0, 0)">
+											<g fill="#ecbc11">
+												<use xlink:href="#mfid340" fill-rule="evenodd" stroke="none"/>
+												<defs>
+													<path id="mfid341"
+															d="M12.697,41.555 C14.127,41.555 15.29,40.411 15.29,38.997 L15.288,33.104 C15.288,31.693 14.127,30.547 12.695,30.547 C11.264,30.549 10.102,31.693 10.102,33.106 L10.104,38.997 C10.106,40.413 11.266,41.555 12.697,41.555 Z"/>
+												</defs>
+												<use xlink:href="#mfid341" fill-rule="evenodd" stroke="none"/>
+												<defs>
+													<path id="mfid342"
+															d="M20.849,41.555 C22.279,41.555 23.443,40.411 23.443,38.998 L23.441,23.869 C23.441,22.454 22.279,21.312 20.849,21.312 C19.415,21.312 18.254,22.456 18.254,23.869 L18.256,38.998 C18.256,40.411 19.419,41.555 20.849,41.555 Z"/>
+												</defs>
+												<use xlink:href="#mfid342" fill-rule="evenodd" stroke="none"/>
+												<defs>
+													<path id="mfid343"
+															d="M37.15,41.481 C38.581,41.481 39.743,40.337 39.743,38.923 L39.741,17.498 C39.741,16.087 38.581,14.94 37.148,14.94 C35.717,14.941 34.555,16.087 34.555,17.498 L34.557,38.925 C34.559,40.337 35.72,41.481 37.15,41.481 Z"/>
+												</defs>
+												<use xlink:href="#mfid343" fill-rule="evenodd" stroke="none"/>
+												<defs>
+													<path id="mfid344"
+															d="M29.001,41.555 C30.431,41.555 31.594,40.411 31.594,38.997 L31.592,27.76 C31.592,26.35 30.431,25.203 28.999,25.203 C27.568,25.203 26.406,26.348 26.406,27.76 L26.407,38.997 C26.407,40.411 27.568,41.555 29.001,41.555 Z"/>
+												</defs>
+												<use xlink:href="#mfid344" fill-rule="evenodd" stroke="none"/>
+											</g>
+										</g>
+									</g>
+								</g>
+							</svg>
+						</defs>
+						<!-- Unsupported Record: EmfPlusRecordTypeSetObject Obj_ImageAttributes -->
+						<g mask="url(#mfid334)">
+							<g transform="matrix(1.44, 0, 0, 1.44, 0.79793, 0.79793)">
+								<clipPath id="mfid345">
+									<rect x="-0.55411" y="-0.55411" width="49.999" height="49.999"/>
+								</clipPath>
+								<use xlink:href="#mfid335" clip-path="url(#mfid345)"
+										transform="matrix(1, 0, 0, 1, -0.00000042276, -0.00000042276)"/>
+							</g>
+						</g>
+						<mask id="mfid346">
+							<rect width="72" height="72" fill="white" stroke="none"/>
+						</mask>
+					</g>
+				</svg>
+			</switch>
+			<rect v:rectContext="foreign" x="0" y="415.062" width="28.3465" height="30.0472" class="st4"/>
+		</g>
+		<g id="shape606-672" v:mID="606" v:groupContext="shape" transform="translate(674.646,-325.749)">
+			<title>Sheet.606</title>
+			<desc>Power BI</desc>
+			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+			<v:textRect cx="47.8589" cy="436.37" width="95.72" height="17.4789"/>
+			<rect x="0" y="427.63" width="95.7178" height="17.4789" class="st4"/>
+			<text x="31.54" y="439.07" class="st9" v:langID="3081"><v:paragraph v:horizAlign="1"/><v:tabList/>Power BI</text>		</g>
+		<g id="shape252-675" v:mID="252" v:groupContext="shape" transform="translate(583.937,-347.315)">
 			<title>Sheet.252</title>
 			<rect v:rectContext="foreign" x="0" y="411.547" width="34.3843" height="33.5622" class="st4"/>
 			<switch>
@@ -3676,119 +3983,119 @@
 				<!-- Unsupported Record: EmfPlusRecordTypeSetPixelOffsetMode  -->
 				<svg viewBox="-0.55652 -0.50674 75.007 74.998" height="33.5622" preserveAspectRatio="none" width="34.3843" x="0"
 						y="411.547">
-					<clipPath id="mfid44">
-						<rect x="-0.55652" y="-0.50674" width="75.007" height="74.998" id="mfid45"/>
+					<clipPath id="mfid347">
+						<rect x="-0.55652" y="-0.50674" width="75.007" height="74.998" id="mfid348"/>
 					</clipPath>
-					<g clip-path="url(#mfid44)">
-						<mask id="mfid46">
+					<g clip-path="url(#mfid347)">
+						<mask id="mfid349">
 							<rect width="75" height="75" fill="white" stroke="none"/>
 						</mask>
-						<mask id="mfid47" fill="white" stroke="none">
+						<mask id="mfid350" fill="white" stroke="none">
 							<g>
-								<g mask="url(#mfid46)">
-									<use xlink:href="#mfid45"/>
+								<g mask="url(#mfid349)">
+									<use xlink:href="#mfid348"/>
 								</g>
 							</g>
 						</mask>
 						<defs>
-							<path id="mfid48" d="M0,0 L476250,0 L476250,476250 L0,476250 Z"/>
+							<path id="mfid351" d="M0,0 L476250,0 L476250,476250 L0,476250 Z"/>
 						</defs>
-						<mask id="mfid49">
-							<use xlink:href="#mfid48" fill-rule="evenodd" fill="white" stroke="none"
+						<mask id="mfid352">
+							<use xlink:href="#mfid351" fill-rule="evenodd" fill="white" stroke="none"
 									transform="matrix(0.00015748, 0, 0, 0.00015748, 0, 0)"/>
 						</mask>
-						<mask id="mfid50" fill="white" stroke="none">
-							<g mask="url(#mfid47)">
-								<g mask="url(#mfid49)">
-									<use xlink:href="#mfid45"/>
+						<mask id="mfid353" fill="white" stroke="none">
+							<g mask="url(#mfid350)">
+								<g mask="url(#mfid352)">
+									<use xlink:href="#mfid348"/>
 								</g>
 							</g>
 						</mask>
 						<defs>
 							<!-- Unsupported Record: EmfPlusRecordTypeSetPixelOffsetMode  -->
 							<!-- Unsupported Record: EmfPlusRecordTypeSetPixelOffsetMode  -->
-							<svg viewBox="5.0087 -59.986 57.013 57.009" height="57" id="mfid51" width="57">
-								<clipPath id="mfid52">
-									<rect x="5.0087" y="-59.986" width="57.013" height="57.009" id="mfid53"/>
+							<svg viewBox="5.0087 -59.986 57.013 57.009" height="57" id="mfid354" width="57">
+								<clipPath id="mfid355">
+									<rect x="5.0087" y="-59.986" width="57.013" height="57.009" id="mfid356"/>
 								</clipPath>
-								<g clip-path="url(#mfid52)">
+								<g clip-path="url(#mfid355)">
 									<defs>
-										<path id="mfid54"
+										<path id="mfid357"
 												d="M160,-141 C158,-164 139,-181 116,-180 C110,-180 104,-178 99,-175 C93,-172 89,-168 85,-163 C71,-174 50,-171 39,-157 C36,-153 34,-149 33,-144 C32,-139 32,-134 33,-129 C18,-122 11,-104 18,-88 C20,-83 24,-78 29,-75 C34,-72 40,-70 46,-70 C151,-70 151,-70 151,-70 C171,-70 187,-86 187,-106 C187,-114 184,-122 179,-128 C174,-135 167,-139 160,-141 C160,-141 160,-141 160,-141"/>
 									</defs>
 									<g>
 										<g transform="matrix(0.33333, 0, 0, 0.33333, 0, 0)">
 											<g fill="#ffffff">
-												<use xlink:href="#mfid54" fill-rule="nonzero" stroke="none"/>
+												<use xlink:href="#mfid357" fill-rule="nonzero" stroke="none"/>
 												<defs>
-													<path id="mfid55"
+													<path id="mfid358"
 															d="M118,-180 C118,-180 117,-180 116,-180 C110,-180 104,-178 99,-175 C93,-172 89,-168 85,-163 C79,-167 72,-170 65,-170 C55,-170 46,-165 39,-157 C36,-153 34,-149 33,-144 C33,-142 32,-139 32,-137 C32,-134 33,-132 33,-129 C33,-129 33,-129 33,-129 C33,-129 33,-129 33,-129 C22,-124 15,-113 15,-101 C15,-97 16,-92 18,-88 C20,-83 24,-78 29,-75 C34,-72 40,-70 46,-70 C56,-70 56,-70 56,-70 C56,-101 56,-101 56,-101 C56,-101 56,-101 56,-101 C56,-102 57,-103 57,-104 C58,-104 59,-105 60,-105 C132,-105 132,-105 132,-105 C143,-105 143,-105 143,-105 C144,-105 144,-104 145,-104 C146,-103 146,-102 146,-101 C146,-70 146,-70 146,-70 C151,-70 151,-70 151,-70 C171,-70 187,-86 187,-106 C187,-106 187,-106 187,-106 C187,-114 184,-122 179,-128 C174,-135 167,-139 160,-141 C160,-141 160,-141 160,-141 C160,-141 160,-141 160,-141 C160,-141 160,-141 160,-141 C158,-163 140,-180 118,-180"/>
 												</defs>
 											</g>
 											<g fill="#7ccbec">
-												<use xlink:href="#mfid55" fill-rule="nonzero" stroke="none"/>
+												<use xlink:href="#mfid358" fill-rule="nonzero" stroke="none"/>
 												<defs>
-													<path id="mfid56"
+													<path id="mfid359"
 															d="M60,-105 C59,-105 58,-104 57,-104 C57,-103 56,-102 56,-101 C56,-11 56,-11 56,-11 C56,-11 57,-10 57,-9 C58,-8 59,-8 60,-8 C143,-8 143,-8 143,-8 C144,-8 144,-8 145,-9 C146,-10 146,-11 146,-11 C146,-101 146,-101 146,-101 C146,-102 146,-103 145,-104 C144,-104 144,-105 143,-105 C60,-105 60,-105 60,-105"/>
 												</defs>
 											</g>
 											<g fill="#672a7b">
-												<use xlink:href="#mfid56" fill-rule="nonzero" stroke="none"/>
+												<use xlink:href="#mfid359" fill-rule="nonzero" stroke="none"/>
 												<defs>
-													<path id="mfid57"
+													<path id="mfid360"
 															d="M87,-87 C74,-87 74,-87 74,-87 C74,-25 74,-25 74,-25 C81,-25 81,-25 81,-25 C87,-35 87,-35 87,-35 C87,-87 87,-87 87,-87 M108,-87 C94,-87 94,-87 94,-87 C94,-46 94,-46 94,-46 C108,-67 108,-67 108,-67 C108,-87 108,-87 108,-87 M121,-87 C115,-87 115,-87 115,-87 C115,-78 115,-78 115,-78 C121,-87 121,-87 121,-87 M132,-105 C60,-105 60,-105 60,-105 C59,-105 58,-104 57,-104 C57,-103 56,-102 56,-101 C56,-11 56,-11 56,-11 C56,-11 57,-10 57,-9 C58,-8 59,-8 60,-8 C70,-8 70,-8 70,-8 C77,-18 77,-18 77,-18 C67,-18 67,-18 67,-18 C67,-94 67,-94 67,-94 C126,-94 126,-94 126,-94 C132,-105 132,-105 132,-105"/>
 												</defs>
 											</g>
 											<g fill="#7e4a8f">
-												<use xlink:href="#mfid57" fill-rule="nonzero" stroke="none"/>
+												<use xlink:href="#mfid360" fill-rule="nonzero" stroke="none"/>
 												<defs>
-													<path id="mfid58"
+													<path id="mfid361"
 															d="M94,-105 L94,-129 L84,-129 L101,-153 L118,-129 L108,-129 L108,-105 Z"/>
 												</defs>
 											</g>
 											<g fill="#ffffff">
-												<use xlink:href="#mfid58" fill-rule="nonzero" stroke="none"/>
+												<use xlink:href="#mfid361" fill-rule="nonzero" stroke="none"/>
 											</g>
 											<g fill="#ffffff" stroke-width="3" stroke="#ffffff" stroke-opacity="0"
 													stroke-linecap="round" stroke-linejoin="round">
-												<use xlink:href="#mfid58" fill="none"/>
+												<use xlink:href="#mfid361" fill="none"/>
 												<defs>
-													<path id="mfid59"
+													<path id="mfid362"
 															d="M136,-94 L129,-94 L126,-94 L121,-87 L129,-87 L129,-25 L115,-25 L115,-78 L108,-67 L108,-25 L94,-25 L94,-46 L87,-35 L87,-25 L81,-25 L77,-18 L136,-18 Z"/>
 												</defs>
 											</g>
 											<g fill="#802761" stroke-width="3" stroke="#ffffff" stroke-opacity="0"
 													stroke-linecap="round" stroke-linejoin="round">
-												<use xlink:href="#mfid59" fill-rule="nonzero" stroke="none"/>
-												<use xlink:href="#mfid59" fill="none"/>
+												<use xlink:href="#mfid362" fill-rule="nonzero" stroke="none"/>
+												<use xlink:href="#mfid362" fill="none"/>
 												<defs>
-													<path id="mfid60"
+													<path id="mfid363"
 															d="M136,-94 L129,-94 L126,-94 L121,-87 L129,-87 L129,-25 L115,-25 L115,-78 L108,-67 L108,-25 L94,-25 L94,-46 L87,-35 L87,-25 L81,-25 L77,-18 L136,-18 L136,-94"/>
 												</defs>
-												<use xlink:href="#mfid60" fill="none"/>
+												<use xlink:href="#mfid363" fill="none"/>
 												<defs>
-													<path id="mfid61"
+													<path id="mfid364"
 															d="M126,-94 L67,-94 L67,-18 L77,-18 L81,-25 L74,-25 L74,-87 L87,-87 L87,-35 L94,-46 L94,-87 L108,-87 L108,-67 L115,-78 L115,-87 L121,-87 Z"/>
 												</defs>
 											</g>
 											<g fill="#903d6f" stroke-width="3" stroke="#ffffff" stroke-opacity="0"
 													stroke-linecap="round" stroke-linejoin="round">
-												<use xlink:href="#mfid61" fill-rule="nonzero" stroke="none"/>
-												<use xlink:href="#mfid61" fill="none"/>
+												<use xlink:href="#mfid364" fill-rule="nonzero" stroke="none"/>
+												<use xlink:href="#mfid364" fill="none"/>
 												<defs>
-													<path id="mfid62"
+													<path id="mfid365"
 															d="M126,-94 L67,-94 L67,-18 L77,-18 L81,-25 L74,-25 L74,-87 L87,-87 L87,-35 L94,-46 L94,-87 L108,-87 L108,-67 L115,-78 L115,-87 L121,-87 L126,-94"/>
 												</defs>
-												<use xlink:href="#mfid62" fill="none"/>
+												<use xlink:href="#mfid365" fill="none"/>
 												<defs>
-													<path id="mfid63"
+													<path id="mfid366"
 															d="M129,-94 L67,-94 L67,-18 L136,-18 L136,-94 Z M87,-25 L74,-25 L74,-87 L87,-87 Z M108,-25 L94,-25 L94,-87 L108,-87 Z M129,-25 L115,-25 L115,-87 L129,-87 Z"/>
 												</defs>
 											</g>
 											<g fill="#ffffff" stroke-width="3" stroke="#ffffff" stroke-opacity="0"
 													stroke-linecap="round" stroke-linejoin="round">
-												<use xlink:href="#mfid63" fill-rule="nonzero" stroke="none"/>
-												<use xlink:href="#mfid63" fill="none"/>
+												<use xlink:href="#mfid366" fill-rule="nonzero" stroke="none"/>
+												<use xlink:href="#mfid366" fill="none"/>
 											</g>
 										</g>
 									</g>
@@ -3796,15 +4103,15 @@
 							</svg>
 						</defs>
 						<!-- Unsupported Record: EmfPlusRecordTypeSetObject Obj_ImageAttributes -->
-						<g mask="url(#mfid50)">
+						<g mask="url(#mfid353)">
 							<g transform="matrix(1.2928, 0, 0, 1.2929, -6.4754, 77.556)">
-								<clipPath id="mfid64">
+								<clipPath id="mfid367">
 									<rect x="5.0087" y="-59.986" width="58.013" height="58.009"/>
 								</clipPath>
-								<use xlink:href="#mfid51" clip-path="url(#mfid64)" transform="matrix(1, 0, 0, 1, 0, 0)"/>
+								<use xlink:href="#mfid354" clip-path="url(#mfid367)" transform="matrix(1, 0, 0, 1, 0, 0)"/>
 							</g>
 						</g>
-						<mask id="mfid65">
+						<mask id="mfid368">
 							<rect width="75" height="75" fill="white" stroke="none"/>
 						</mask>
 					</g>
@@ -3812,7 +4119,7 @@
 			</switch>
 			<rect v:rectContext="foreign" x="0" y="411.547" width="34.3843" height="33.5622" class="st4"/>
 		</g>
-		<g id="shape595-638" v:mID="595" v:groupContext="shape" transform="translate(556.251,-322.679)">
+		<g id="shape595-678" v:mID="595" v:groupContext="shape" transform="translate(556.299,-323.15)">
 			<title>Sheet.595</title>
 			<desc>Azure Container Instance</desc>
 			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
@@ -3820,307 +4127,5 @@
 			<rect x="0" y="427.63" width="95.7178" height="17.4789" class="st4"/>
 			<text x="18.28" y="433.67" class="st9" v:langID="3081"><v:paragraph v:horizAlign="1"/><v:tabList/>Azure Container <tspan
 						x="32.43" dy="1.2em" class="st25">Instance</tspan></text>		</g>
-		<g id="shape596-642" v:mID="596" v:groupContext="shape" v:layerMember="1" transform="translate(478.787,-309.469)">
-			<title>Dynamic connector.596</title>
-			<path d="M0 445.11 L122.34 445.11 L122.34 424.15" class="st5"/>
-		</g>
-		<g id="shape253-647" v:mID="253" v:groupContext="shape" transform="translate(22.2641,-133.228)">
-			<title>Sheet.253</title>
-			<desc>EMR</desc>
-			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197" v:verticalAlign="0"/>
-			<v:textRect cx="13.1188" cy="445.109" width="26.24" height="0"/>
-			<rect v:rectContext="foreign" x="0" y="418.876" width="26.2376" height="26.2331" class="st4"/>
-			<switch>
-				<foreignObject x="0" y="418.876" width="26.2376" height="26.2331"
-						requiredExtensions="http://schemas.microsoft.com/visio/2003/SVGExtensions/">
-					<v:foreignData v:orgSize="2620" v:data="data:metafile;base64,eNrlVjGIE1EQfX9/JLkQdYNR7lDPS7jT01iEmMID5X6Cl2x
-								xBxYiip1YWAiGw0oQ1u4Ki5SxEbE6rCytRIUDyyssFBsr4bBSLFYt1pnd/zf/4nqmiII44WWGyfz5s3/en6wAcIMQajlFtiJ
-								8JZtxxwEqEphZWmkDAmfyAMeQe5ts5oD3u4DDAng29Jt3OYPaBweUACcJMwRKVxVK4BDZLudzn7+jpehpcGyBHSKOrSknist
-								EGf3FisqgoPOfoIJnSU/q3wY7D+y6gjB7DWS5RTGtUdbPKVj7A0eUTPafVhOJXVbZ1LpWynMLJldsbzbZziv4JmZjFaGwqvO
-								zBz1/wfHKZNPx4iqfSXwkUd7ZOOqstSKxuT/HdN4k5+pG/CxWHmNTfv8i6RphSvOB+7yfQG1FXwRhX3hiXjLYDkKzNktrjc1
-								FWLU1rdqadm3c33NUwGnd31F6MErM0aE+jb9vLLVWTkHeIuu65m7eplUh6HDvEj0s5H974UC7+/ljp/6o6Bn9rf9iif1Gsx9
-								CiLvRl5Ql4op5FubKKBywe73vF32/Qvq87nlV91/p9Xndf0YQBnJNMJ46QcgIZBFbsisYr5wiGFvS5kXanv8HR540d+II32t
-								VfuAZPUwR9uN1qe2/+dR5ePu+ZzT7bLB/J46Y2TGdnEksZs6Pm0PQM6NOqKZyaN2Zl4xLNEEY646LnuNKRle4YPSccXGoouO
-								Z2/82n+icf8Mn83+RNnPYzzPl5ssv0awxeu/E92jWGM3+vz1zWKY0b37miyfWBIOmTfTxRBEN0RWM3SiC0RDjnDn32Is/y5G
-								cEplJXRv3kn30muU26J3IcGKZcM3qId+pxZQ7fByPkbbndjtdhu+HeUfiZ3dUcnbYQyhp29X2DzZXJqU="/>
-				</foreignObject>
-				<!-- Unsupported Record: EmfPlusRecordTypeSetPixelOffsetMode  -->
-				<svg viewBox="-0.55411 -0.55411 50.978 64.039" height="26.2331" preserveAspectRatio="none" width="26.2376" x="0"
-						y="418.876">
-					<clipPath id="mfid66">
-						<rect x="-0.55411" y="-0.55411" width="50.978" height="64.039" id="mfid67"/>
-					</clipPath>
-					<g clip-path="url(#mfid66)">
-						<mask id="mfid68">
-							<rect width="51" height="64" fill="white" stroke="none"/>
-						</mask>
-						<mask id="mfid69" fill="white" stroke="none">
-							<g>
-								<g mask="url(#mfid68)">
-									<use xlink:href="#mfid67"/>
-								</g>
-							</g>
-						</mask>
-						<g mask="url(#mfid69)">
-							<g transform="matrix(0.00015748, 0, 0, 0.00015748, 26, 0)">
-								<g fill="#0072c5">
-									<rect width="1.5875e+05" height="1.3335e+05" stroke="none"/>
-									<defs>
-										<path id="mfid70"
-												d="M0,127000 L158750,127000 L158750,0 L0,0 L0,127000 Z M9621.2,120800 L149130,120800 L149130,6195.1 L9621.2,6195.1 L9621.2,120800 Z"/>
-									</defs>
-								</g>
-							</g>
-							<g transform="matrix(0.00015748, 0, 0, 0.00015748, 0, 44)">
-								<g fill="#0072c5">
-									<use xlink:href="#mfid70" fill-rule="evenodd" stroke="none"/>
-									<defs>
-										<path id="mfid71"
-												d="M0,133350 L323850,133350 L323850,0 L0,0 L0,133350 Z M9525,123820 L314320,123820 L314320,9525 L9525,9525 L9525,123820 Z"/>
-									</defs>
-								</g>
-							</g>
-							<g transform="matrix(0.00015748, 0, 0, 0.00015748, 0, 22)">
-								<g fill="#0072c5">
-									<use xlink:href="#mfid71" fill-rule="evenodd" stroke="none"/>
-									<defs>
-										<path id="mfid72"
-												d="M0,133350 L158750,133350 L158750,0 L0,0 L0,133350 Z M9621.2,125320 L149130,125320 L149130,8033.1 L9621.2,8033.1 L9621.2,125320 Z"/>
-									</defs>
-								</g>
-							</g>
-							<g transform="matrix(0.00015748, 0, 0, 0.00015748, 0, 0)">
-								<g fill="#0072c5">
-									<use xlink:href="#mfid72" fill-rule="evenodd" stroke="none"/>
-								</g>
-							</g>
-						</g>
-					</g>
-				</svg>
-			</switch>
-			<rect v:rectContext="foreign" x="0" y="418.876" width="26.2376" height="26.2331" class="st4"/>
-			<text x="4.63" y="457.21" class="st9" v:langID="3081"><v:paragraph v:horizAlign="1"/><v:tabList/>EMR</text>		</g>
-		<g id="shape597-651" v:mID="597" v:groupContext="shape" transform="translate(78.3298,-322.441)">
-			<title>Circle</title>
-			<desc>1</desc>
-			<v:userDefs>
-				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
-			</v:userDefs>
-			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
-			<v:textRect cx="10.4414" cy="434.668" width="20.89" height="20.8828"/>
-			<path d="M0 434.67 A10.4414 10.4414 0 1 1 20.88 434.67 A10.4414 10.4414 0 0 1 -0 434.67 Z" class="st50"/>
-			<text x="8.41" y="437.07" class="st51" v:langID="3081"><v:paragraph v:horizAlign="1"/><v:tabList/>1</text>		</g>
-		<g id="shape599-654" v:mID="599" v:groupContext="shape" transform="translate(230.504,-325.984)">
-			<title>Circle.599</title>
-			<desc>2</desc>
-			<v:userDefs>
-				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
-			</v:userDefs>
-			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
-			<v:textRect cx="10.4414" cy="434.668" width="20.89" height="20.8828"/>
-			<path d="M0 434.67 A10.4414 10.4414 0 1 1 20.88 434.67 A10.4414 10.4414 0 0 1 -0 434.67 Z" class="st50"/>
-			<text x="8.41" y="437.07" class="st51" v:langID="3081"><v:paragraph v:horizAlign="1"/><v:tabList/>2</text>		</g>
-		<g id="shape600-657" v:mID="600" v:groupContext="shape" transform="translate(158.828,-234.235)">
-			<title>Circle.600</title>
-			<desc>3</desc>
-			<v:userDefs>
-				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
-			</v:userDefs>
-			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
-			<v:textRect cx="10.4414" cy="434.668" width="20.89" height="20.8828"/>
-			<path d="M0 434.67 A10.4414 10.4414 0 1 1 20.88 434.67 A10.4414 10.4414 0 0 1 -0 434.67 Z" class="st50"/>
-			<text x="8.41" y="437.07" class="st51" v:langID="3081"><v:paragraph v:horizAlign="1"/><v:tabList/>3</text>		</g>
-		<g id="shape601-660" v:mID="601" v:groupContext="shape" transform="translate(273.023,-184.252)">
-			<title>Circle.601</title>
-			<desc>4</desc>
-			<v:userDefs>
-				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
-			</v:userDefs>
-			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
-			<v:textRect cx="10.4414" cy="434.668" width="20.89" height="20.8828"/>
-			<path d="M0 434.67 A10.4414 10.4414 0 1 1 20.88 434.67 A10.4414 10.4414 0 0 1 -0 434.67 Z" class="st50"/>
-			<text x="8.41" y="437.07" class="st51" v:langID="3081"><v:paragraph v:horizAlign="1"/><v:tabList/>4</text>		</g>
-		<g id="shape602-663" v:mID="602" v:groupContext="shape" transform="translate(155.906,-143.374)">
-			<title>Circle.602</title>
-			<desc>5</desc>
-			<v:userDefs>
-				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
-			</v:userDefs>
-			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
-			<v:textRect cx="10.4414" cy="434.668" width="20.89" height="20.8828"/>
-			<path d="M0 434.67 A10.4414 10.4414 0 1 1 20.88 434.67 A10.4414 10.4414 0 0 1 -0 434.67 Z" class="st50"/>
-			<text x="8.41" y="437.07" class="st51" v:langID="3081"><v:paragraph v:horizAlign="1"/><v:tabList/>5</text>		</g>
-		<g id="shape603-666" v:mID="603" v:groupContext="shape" transform="translate(382.677,-127.559)">
-			<title>Circle.603</title>
-			<desc>6</desc>
-			<v:userDefs>
-				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
-			</v:userDefs>
-			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
-			<v:textRect cx="10.4414" cy="434.668" width="20.89" height="20.8828"/>
-			<path d="M0 434.67 A10.4414 10.4414 0 1 1 20.88 434.67 A10.4414 10.4414 0 0 1 -0 434.67 Z" class="st50"/>
-			<text x="8.41" y="437.07" class="st51" v:langID="3081"><v:paragraph v:horizAlign="1"/><v:tabList/>6</text>		</g>
-		<g id="shape604-669" v:mID="604" v:groupContext="shape" transform="translate(443.102,-212.095)">
-			<title>Circle.604</title>
-			<desc>7</desc>
-			<v:userDefs>
-				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
-			</v:userDefs>
-			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
-			<v:textRect cx="10.4414" cy="434.668" width="20.89" height="20.8828"/>
-			<path d="M0 434.67 A10.4414 10.4414 0 1 1 20.88 434.67 A10.4414 10.4414 0 0 1 -0 434.67 Z" class="st50"/>
-			<text x="8.41" y="437.07" class="st51" v:langID="3081"><v:paragraph v:horizAlign="1"/><v:tabList/>7</text>		</g>
-		<g id="shape605-672" v:mID="605" v:groupContext="shape" transform="translate(510.236,-319.275)">
-			<title>Circle.605</title>
-			<desc>8</desc>
-			<v:userDefs>
-				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
-			</v:userDefs>
-			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
-			<v:textRect cx="10.4414" cy="434.668" width="20.89" height="20.8828"/>
-			<path d="M0 434.67 A10.4414 10.4414 0 1 1 20.88 434.67 A10.4414 10.4414 0 0 1 -0 434.67 Z" class="st50"/>
-			<text x="8.41" y="437.07" class="st51" v:langID="3081"><v:paragraph v:horizAlign="1"/><v:tabList/>8</text>		</g>
-		<g id="shape254-675" v:mID="254" v:groupContext="shape" transform="translate(708.661,-343.744)">
-			<title>Sheet.254</title>
-			<desc>Power BI</desc>
-			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197" v:verticalAlign="0"/>
-			<v:textRect cx="20.5841" cy="445.109" width="41.17" height="0"/>
-			<rect v:rectContext="foreign" x="0" y="415.062" width="41.1682" height="30.0472" class="st4"/>
-			<switch>
-				<foreignObject x="0" y="415.062" width="41.1682" height="30.0472"
-						requiredExtensions="http://schemas.microsoft.com/visio/2003/SVGExtensions/">
-					<v:foreignData v:orgSize="6260" v:data="data:metafile;base64,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"/>
-				</foreignObject>
-				<!-- Unsupported Record: EmfPlusRecordTypeSetPixelOffsetMode  -->
-				<svg viewBox="-0.55411 -0.55411 72.034 72.034" height="30.0472" preserveAspectRatio="none" width="41.1682" x="0"
-						y="415.062">
-					<clipPath id="mfid73">
-						<rect x="-0.55411" y="-0.55411" width="72.034" height="72.034" id="mfid74"/>
-					</clipPath>
-					<g clip-path="url(#mfid73)">
-						<mask id="mfid75">
-							<rect width="72" height="72" fill="white" stroke="none"/>
-						</mask>
-						<mask id="mfid76" fill="white" stroke="none">
-							<g>
-								<g mask="url(#mfid75)">
-									<use xlink:href="#mfid74"/>
-								</g>
-							</g>
-						</mask>
-						<!-- GetDC -->
-						<mask id="mfid77" fill-rule="evenodd" fill="white" stroke="none">
-							<rect x="0" y="0" width="72" height="72"/>
-						</mask>
-						<!-- Released DC -->
-						<defs>
-							<path id="mfid78" d="M0,0 L457200,0 L457200,457200 L0,457200 Z"/>
-						</defs>
-						<mask id="mfid79">
-							<use xlink:href="#mfid78" fill-rule="evenodd" fill="white" stroke="none"
-									transform="matrix(0.00015748, 0, 0, 0.00015748, 0, 0)"/>
-						</mask>
-						<mask id="mfid80" fill="white" stroke="none">
-							<g mask="url(#mfid76)">
-								<g mask="url(#mfid79)">
-									<use xlink:href="#mfid74"/>
-								</g>
-							</g>
-						</mask>
-						<defs>
-							<!-- Unsupported Record: EmfPlusRecordTypeSetPixelOffsetMode  -->
-							<svg viewBox="-0.55411 -0.55411 48.999 48.999" height="48" id="mfid81" width="48">
-								<clipPath id="mfid82">
-									<rect x="-0.55411" y="-0.55411" width="48.999" height="48.999" id="mfid83"/>
-								</clipPath>
-								<g clip-path="url(#mfid82)">
-									<mask id="mfid84">
-										<rect width="49" height="49" fill="white" stroke="none"/>
-									</mask>
-									<mask id="mfid85" fill="white" stroke="none">
-										<g>
-											<g mask="url(#mfid84)">
-												<use xlink:href="#mfid83"/>
-											</g>
-										</g>
-									</mask>
-									<defs>
-										<path id="mfid86"
-												d="M43.018,36.855 L42.061,36.855 L42.061,34.972 L43.018,34.972 C45.042,34.972 46.692,33.345 46.692,31.348 L46.692,12.105 C46.692,10.108 45.042,8.4809 43.018,8.4809 L6.8291,8.4809 C4.8028,8.4809 3.1529,10.108 3.1529,12.105 L3.1529,31.345 C3.1529,33.342 4.8028,34.97 6.8291,34.97 L7.7844,34.97 L7.7844,36.854 L6.8291,36.854 C3.7476,36.855 1.2422,34.385 1.2422,31.348 L1.2422,12.105 C1.2422,9.0693 3.7476,6.5977 6.8291,6.5977 L43.018,6.5977 C46.097,6.5977 48.603,9.0693 48.603,12.105 L48.603,31.345 C48.603,34.385 46.097,36.855 43.018,36.855 Z"/>
-									</defs>
-									<g mask="url(#mfid85)">
-										<g transform="matrix(1, 0, 0, 1, 0, 0)">
-											<g fill="#ecbc11">
-												<use xlink:href="#mfid86" fill-rule="evenodd" stroke="none"/>
-												<defs>
-													<path id="mfid87"
-															d="M12.697,41.555 C14.127,41.555 15.29,40.411 15.29,38.997 L15.288,33.104 C15.288,31.693 14.127,30.547 12.695,30.547 C11.264,30.549 10.102,31.693 10.102,33.106 L10.104,38.997 C10.106,40.413 11.266,41.555 12.697,41.555 Z"/>
-												</defs>
-												<use xlink:href="#mfid87" fill-rule="evenodd" stroke="none"/>
-												<defs>
-													<path id="mfid88"
-															d="M20.849,41.555 C22.279,41.555 23.443,40.411 23.443,38.998 L23.441,23.869 C23.441,22.454 22.279,21.312 20.849,21.312 C19.415,21.312 18.254,22.456 18.254,23.869 L18.256,38.998 C18.256,40.411 19.419,41.555 20.849,41.555 Z"/>
-												</defs>
-												<use xlink:href="#mfid88" fill-rule="evenodd" stroke="none"/>
-												<defs>
-													<path id="mfid89"
-															d="M37.15,41.481 C38.581,41.481 39.743,40.337 39.743,38.923 L39.741,17.498 C39.741,16.087 38.581,14.94 37.148,14.94 C35.717,14.941 34.555,16.087 34.555,17.498 L34.557,38.925 C34.559,40.337 35.72,41.481 37.15,41.481 Z"/>
-												</defs>
-												<use xlink:href="#mfid89" fill-rule="evenodd" stroke="none"/>
-												<defs>
-													<path id="mfid90"
-															d="M29.001,41.555 C30.431,41.555 31.594,40.411 31.594,38.997 L31.592,27.76 C31.592,26.35 30.431,25.203 28.999,25.203 C27.568,25.203 26.406,26.348 26.406,27.76 L26.407,38.997 C26.407,40.411 27.568,41.555 29.001,41.555 Z"/>
-												</defs>
-												<use xlink:href="#mfid90" fill-rule="evenodd" stroke="none"/>
-											</g>
-										</g>
-									</g>
-								</g>
-							</svg>
-						</defs>
-						<!-- Unsupported Record: EmfPlusRecordTypeSetObject Obj_ImageAttributes -->
-						<g mask="url(#mfid80)">
-							<g transform="matrix(1.44, 0, 0, 1.44, 0.79793, 0.79793)">
-								<clipPath id="mfid91">
-									<rect x="-0.55411" y="-0.55411" width="49.999" height="49.999"/>
-								</clipPath>
-								<use xlink:href="#mfid81" clip-path="url(#mfid91)"
-										transform="matrix(1, 0, 0, 1, -0.00000042276, -0.00000042276)"/>
-							</g>
-						</g>
-						<mask id="mfid92">
-							<rect width="72" height="72" fill="white" stroke="none"/>
-						</mask>
-					</g>
-				</svg>
-			</switch>
-			<rect v:rectContext="foreign" x="0" y="415.062" width="41.1682" height="30.0472" class="st4"/>
-			<text x="4.26" y="457.21" class="st9" v:langID="3081"><v:paragraph v:horizAlign="1"/><v:tabList/>Power BI</text>		</g>
 	</g>
 </svg>
