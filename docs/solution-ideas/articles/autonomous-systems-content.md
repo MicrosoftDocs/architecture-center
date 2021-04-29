@@ -75,7 +75,7 @@ The training engine in Bonsai compiles machine teaching programs to automaticall
 
 Broadly similar to how a software compiler hides the bare metal machine code from the high-level programmer, the training engine hides much of the complexity and details of the ML models and DRL algorithms. As the state of the art in AI evolves and new algorithms and network topologies are invented, the training engine can recompile the same machine teaching programs to exploit these technological advances.
 
-### Cartpole Project Bonsai sample
+### Cartpole sample in Project Bonsai
 
 Bonsai includes the machine teaching samples Cartpole and [Moab](https://microsoft.github.io/moab/).
 
@@ -131,9 +131,10 @@ You can use an [Azure Resource Manager (ARM) template](https://github.com/micros
 ## Next steps
 
 - [Machine teaching](machine-teaching.yml)
+- [Bonsai documentation](/bonsai/)
 - [Autonomous systems with Microsoft AI](https://www.microsoft.com/ai/autonomous-systems)
+- [Examine the Microsoft approach to artificial intelligence](/learn/modules/microsoft-approach-to-ai/) on Microsoft Learn (see approach to autonomous systems)
 - [Autonomy for industrial control systems](https://www.microsoft.com/ai/autonomous-systems-solutions)
 - [Innovation space: Autonomous systems (Video)](https://www.youtube.com/watch?v=3hSAFtWcui8&feature=youtu.be)
 - [Microsoft The AI Blog](https://blogs.microsoft.com/ai/)
-- [Bonsai documentation](/bonsai/)
 - [Aerial Informatics and Robotics Platform (AirSim)](https://www.microsoft.com/research/project/aerial-informatics-robotics-platform/)
