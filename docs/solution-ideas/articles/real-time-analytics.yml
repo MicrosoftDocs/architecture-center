@@ -29,9 +29,7 @@ azureCategories:
 summary: Get deep-learning analytics and insights from live streaming data. Run advanced analytics on IoT device data and website clickstream logs in near real time.
 products:
   - azure-analysis-services
-  - azure-data-factory
-  - azure-databricks
-  - azure-hdinsight
+  - azure-event-hubs
   - azure-synapse-analytics
 thumbnailUrl: /azure/architecture/browse/thumbs/real-time-analytics.png
 content: |
