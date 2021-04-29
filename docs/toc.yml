@@ -1564,6 +1564,8 @@ items:
                     href: reference-architectures/migration/unisys-mainframe-migration.yml
               - name: Data modernization
                 items:
+                  - name: Mainframe data integration on Azure
+                    href: solution-ideas/articles/mainframe-azure-data-integration.yml
                   - name: Mainframe file replication on Azure
                     href: solution-ideas/articles/mainframe-azure-file-replication.yml
                   - name: Modernize mainframe and midrange data

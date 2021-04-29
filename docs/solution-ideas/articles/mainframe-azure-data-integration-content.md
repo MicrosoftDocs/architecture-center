@@ -1,19 +1,19 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-Data-first strategies can help digital transformations succeed. But finding a coexistence model for a mainframe and midrange data platform modernization can be challenging. The best models offer target data platforms that are compatible with current platforms and require no changes in application code.
+Data-first strategies can help digital transformations succeed. But finding a coexistence model for a mainframe and midrange data platform modernization can be challenging. The best models offer target data platforms that require no changes in application code and are compatible with current platforms. To offer compatibility, platforms can support the Distributed Relational Database Architecture (DRDA) protocol. IBM Db2 clients and servers communicate by using DRDA.
 
 This solution outlines a data integration approach that meets these criteria:
 
-- Requires no or minimal changes in code.
+- Requires zero or minimal changes in code.
 - Offers flexible, scalable data transformation and data access capabilities.
 - Uses Azure databases as the target data platform.
-- Uses the [Distributed Relational Database Architecture (DRDA)][DRDA] protocol. IBM Db2 clients and servers communicate by using DRDA. With this protocol, mainframe and midrange applications can interoperate seamlessly with Azure databases.
+- Supports DRDA through Microsoft Service for DRDA.
 
 ## Potential use cases
 
 Various mainframe and midrange integration scenarios can benefit from this solution:
 
-- Coexistent or hybrid environments that run applications on the mainframe or midrange system but have modernized data to Azure.
+- Coexistent or hybrid environments that run applications on mainframe or midrange systems but have modernized data to Azure.
 - Systems that modernize the data tier first as part of a data-first strategy.
 - Systems with mainframe applications in COBOL, PL/I, or assembly language that need access to an Azure or SQL Server database.
 
@@ -23,7 +23,7 @@ Various mainframe and midrange integration scenarios can benefit from this solut
    The diagram contains two parts, one for mainframe components and one for Azure components. The mainframe part contains a cylinder that represents a database. That part also contains a rectangle filled with the names of mainframe languages and environments. The Azure part contains two rectangles. The first rectangle represents software and contains a computer icon. The second rectangle contains two icons. The first icon has the label PaaS and shows a database in a cloud. The second icon has the label IaaS and shows a computer. Arrows point back and forth between the icons and components that represent applications, databases, and software.
 :::image-end:::
 
-1. Host Integration Server (HIS) software runs on an on-premises or Azure virtual machine (VM). HIS helps IBM host systems connect with Azure systems by providing integration services for networks, data, applications, messaging, and security features.
+1. Host Integration Server (HIS) software runs on an on-premises or Azure virtual machine (VM). HIS helps IBM host systems connect with Azure systems.
 
    The solution requires these steps:
 
@@ -34,12 +34,12 @@ Various mainframe and midrange integration scenarios can benefit from this solut
 
 1. A mainframe or midrange application sends a SQL request to the local Db2 subsystem. The solution uses these Db2 configurations, which reroute the request to the HIS server:
 
-   - The SYSIBM.IPNAMES table contains the IP address of the HIS server. See [Update SYSIBM.IPNAMES table][Update SYSIBM.IPNAMES table] for more information.
-   - The SYSIBM.LOCATIONS table contains the name, address, and other properties of the target database. See [Update SYSIBM.LOCATIONS table][Update SYSIBM.LOCATIONS table] for more information.
+   - The SYSIBM.IPNAMES table contains the IP address of the HIS server. For more information, see [Update SYSIBM.IPNAMES table][Update SYSIBM.IPNAMES table].
+   - The SYSIBM.LOCATIONS table contains the name, address, and other properties of the target database. For more information, see [Update SYSIBM.LOCATIONS table][Update SYSIBM.LOCATIONS table].
 
 1. The HIS server receives the request and forwards it to the target database. Microsoft Service for DRDA is a component of HIS that functions as a DRDA Application Server (AS). In this role, Microsoft Service for DRDA converts the Db2 SQL statements and runs them on the Azure database.
 
-1. The target database handles the request. This solution configures the following target databases:
+1. The target database handles the request. This solution can configure the following target databases:
 
    - Azure SQL Database, which offers all the benefits of a fully managed and evergreen platform as a service (PaaS).
    - SQL Server on Azure Virtual Machines. As an infrastructure as a service (IaaS) offering, this service provides a customizable database engine.
