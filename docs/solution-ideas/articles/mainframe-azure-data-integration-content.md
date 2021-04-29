@@ -54,7 +54,7 @@ This solution uses the following components. See the [Azure pricing calculator][
 
 - [SQL Database][What is Azure SQL Database?] is part of the [Azure SQL][What is Azure SQL?] family. This relational database service is evergreen and is built for the cloud. SQL Database also provides AI-powered, automated features that optimize performance and durability. Serverless compute and Hyperscale storage options automatically scale resources on demand.
 
-- [SQL Server on Azure Virtual Machines][What is SQL Server on Azure Virtual Machines (Windows)] provides a way to migrate SQL Server workloads to the cloud with 100 percent code compatibility. As part of the Azure SQL family, SQL Server on Azure Virtual Machines offers the combined performance, security, and analytics of [SQL Server][SQL Server technical documentation] with the flexibility and hybrid connectivity of Azure. With SQL Server on Azure Virtual Machines, you can migrate existing apps or build new apps. You can also access the latest SQL Server updates and releases, including SQL Server 2019.
+- [SQL Server on Azure Virtual Machines][What is SQL Server on Azure Virtual Machines (Windows)] provides a way to migrate SQL Server workloads to the cloud with 100 percent code compatibility. As part of the Azure SQL family, SQL Server on Azure Virtual Machines offers the flexibility and hybrid connectivity of Azure. But this database solution also provides the performance, security, and analytics of [SQL Server][SQL Server technical documentation]. With SQL Server on Azure Virtual Machines, you can migrate existing apps or build new apps. You can also access the latest SQL Server updates and releases, including SQL Server 2019.
 
 #### Tools
 
@@ -83,7 +83,7 @@ This solution uses the following components. See the [Azure pricing calculator][
 [Email address for information on mainframe modernization]: mailto:datasqlninja@microsoft.com
 [Install and configure HIS 2020]: /host-integration-server/install-and-config-guides/installing-his-2020
 [Mainframe file replication and sync on Azure]: /azure/architecture/solution-ideas/articles/mainframe-azure-file-replication
-[Microsoft Service for DRDA]: host-integration-server/what-is-his#Data
+[Microsoft Service for DRDA]: /host-integration-server/what-is-his#Data
 [Migrate databases and data]: /azure/cloud-adoption-framework/infrastructure/mainframe-migration/application-strategies#migrate-databases-and-data
 [Migrate IBM mainframe applications to Azure with TmaxSoft OpenFrame]: /azure/architecture/solution-ideas/articles/migrate-mainframe-apps-with-tmaxsoft-openframe
 [Modernize mainframe and midrange data]: /azure/architecture/reference-architectures/migration/modernize-mainframe-data-to-azure
