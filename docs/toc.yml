@@ -293,12 +293,16 @@ items:
             href: framework/devops/devops-patterns.md  
       - name: Performance Efficiency
         items:
-          - name: Overview
+          - name: About
             href: framework/scalability/overview.md
+          - name: Principles
+            href: framework/scalability/principles.md            
           - name: Design
             items:
-              - name: Design checklist
+              - name: Checklist
                 href: framework/scalability/design-checklist.md
+              - name: Distributed architecture challenges
+                href: framework/scalability/design-distributed.md                
               - name: Application design
                 href: framework/scalability/design-apps.md
               - name: Application efficiency
@@ -307,20 +311,38 @@ items:
                 href: framework/scalability/design-scale.md
               - name: Capacity planning
                 href: framework/scalability/design-capacity.md
-          - name: Testing
+          - name: Test
             items:
-              - name: Testing checklist
+              - name: Checklist
                 href: framework/scalability/test-checklist.md
               - name: Performance testing
                 href: framework/scalability/performance-test.md
               - name: Testing tools
                 href: framework/scalability/test-tools.md
-          - name: Monitoring
-            href: framework/scalability/monitor.md
-          - name: Performance Efficiency patterns
+          - name: Monitor
+            items: 
+              - name: Checklist
+                href: framework/scalability/monitor.md
+              - name: Application profiling
+                href: framework/scalability/monitor-application.md
+              - name: Infrastructure metrics and logs
+                href: framework/scalability/monitor-infrastructure.md
+              - name: Data analysis and retention 
+                href: framework/scalability/monitor-analyze.md                                                
+              - name: Scalability and reliability
+                href: framework/scalability/monitor-scalability-reliability.md
+          - name: Optimize
+            items: 
+              - name: Checklist
+                href: framework/scalability/optimize.md
+              - name: Caching
+                href: framework/scalability/optimize-cache.md
+              - name: Partition
+                href: framework/scalability/optimize-partition.md
+              - name: Sustainability
+                href: framework/scalability/optimize-sustain.md                            
+          - name: Design patterns
             href: framework/scalability/performance-efficiency-patterns.md
-          - name: Checklist
-            href: framework/scalability/performance-efficiency.md
           - name: Tradeoffs 
             href: framework/scalability/tradeoffs.md
       - name: Reliability
