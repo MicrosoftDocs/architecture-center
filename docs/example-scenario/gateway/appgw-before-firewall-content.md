@@ -64,6 +64,11 @@ The following diagram reflects the packet flow for accessing the Azure Applicati
 
 ![Virtual WAN internal traffic](./images/appgwB4azfw_vwan_internal.png)
 
+One aspect to consider in this design is that the routing advertised by the hub to the spoke Virtual Networks might have to be modified for certain services. More concretely, the Azure Application Gateway v2 does not support a 0.0.0.0/0 route pointing to anything other than the Internet, since that breaks the connectivity required by Microsoft to manage the Application Gateway. In case you are advertising a 0.0.0.0/0 route from the virtual hub, there are two ways to prevent that route from being inserted in the Application Gateway subnet:
+
+- You can create a route table with a route for 0.0.0.0/0 and next hop Internet, and associate it to the subnet where the Application Gateway is deployed
+- If the Application Gateway is deployed in a dedicated spoke, you can disable the propagation of the default route in the settings for the VNet connection
+
 ## Example design with Azure Route Server
 
 Finally, the [Azure Route Server][ars_overview] offers another possibility to inject routes automatically in the spoke, to avoid the administrative overhead of maintaining route tables. Its design is a combination of the hub and spoke and Virtual WAN variants:
@@ -75,6 +80,8 @@ Finally, the [Azure Route Server][ars_overview] offers another possibility to in
 One remark to this design is that the Azure Route Server requires today that the device injecting the routes sends them over Border Gateway Protocol (BGP). Since the Azure Firewall does not support BGP, this design would require a third-party Network Virtual Appliance (NVA):
 
 ![Route Server internal traffic](./images/appgwB4azfw_ars_internal.png)
+
+Note that the design with the Route Server might advertise the 0.0.0.0/0 route to the Application Gateway subnet too, which is not supported. In this case, the only solution is configuring a route table for the Application Gateway subnet with a route for 0.0.0.0/0 and next hop Internet.
 
 ## Conclusion
 
