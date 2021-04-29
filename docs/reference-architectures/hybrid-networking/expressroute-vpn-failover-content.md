@@ -132,7 +132,6 @@ To deploy the solution, perform the following steps.
 * [How to create an ExpressRoute circuit] (https://azure.microsoft.com/resources/videos/azure-expressroute-how-to-create-an-expressroute-circuit/)
 * [Azure Networking Blog] (https://azure.microsoft.com/en-us/blog/topics/networking/)
 
-
 <!-- links -->
 
 [windows-vm-ra]: ../n-tier/n-tier-sql-server.yml
