@@ -15,7 +15,7 @@ metadata:
     - pcp
     - ai-machine-learning
     - aml-project-improvement
-name: Machine teaching and autonomous systems in Project Bonsai low-code AI platform
+name: Machine teaching and autonomous systems with the Project Bonsai low-code AI platform
 azureCategories:
   - ai-machine-learning
 summary: Learn how to use machine teaching, deep reinforcement learning, and simulation to build and deploy autonomous systems with Microsoft Project Bonsai.
