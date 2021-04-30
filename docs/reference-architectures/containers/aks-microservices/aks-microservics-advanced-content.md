@@ -96,7 +96,46 @@ For the [AGIC](https://azure.github.io/application-gateway-kubernetes-ingress/) 
 
 ### Zero-trust network policies
 
-Network policies specify how AKS pods are allowed to communicate with each other and with other network endpoints. This architecture follows the *zero trust principle* when establishing network connections between containers. Access to any service, device, application, or data repository requires detailed verification. Zero-trust security replaces *implicit trust*, or trust based on a device's network location or a user's authentication onto a trusted network.
+Network policies specify how AKS pods are allowed to communicate with each other and with other network endpoints. By default, all ingress and egress traffic is allowed to and from pods. When designing how your microservices communicate with each other and with other endpoints, consider following a *zero trust principle* where access to any service, device, application, or data repository requires explicit configuration. 
+
+One strategy in implementing a zero-trust policy is to create a network policy that denies all ingress and egress traffic to all pods within the target namespace. The following example shows a 'deny all policy' that would apply to all pods located in the backend-dev namespace.
+
+```yaml
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: default-deny-all
+  namespace: backend-dev
+spec:
+  podSelector: {}
+  policyTypes:
+  - Ingress
+  - Egress
+```
+
+Once a restrictive policy is in place, begin to define specific network rules to allow traffic into and out of each pod in the microservice. In the following example, the network policy is applied to any pod in the backend-dev namespace with a label that matches `app.kubernetes.io/component: backend`. The policy denies any traffic unless sourced from a pod with a label that matches `app.kubernetes.io/component: backend`.
+
+```yaml
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: package-v010-dev-np-allow-ingress-traffic
+  namespace: backend-dev
+podSelector:
+  matchLabels:
+    app.kubernetes.io/component: backend
+spec:
+  ingress:
+  - from:
+    - podSelector:
+        matchLabels:
+          app.kubernetes.io/component: backend
+    ports:
+    - port: 80
+      protocol: TCP
+```
+
+For more information on Kubernetes network policies and additional examples of potential default policies, see [Network Policies in the Kubernetes documentation](https://kubernetes.io/docs/concepts/services-networking/network-policies).
 
 ### Resource quotas
 
@@ -115,12 +154,12 @@ When you define resource quotas, all pods created in the namespace must provide 
 The following example shows a pod spec that sets resource quota requests and limits:
 
 ```yml
-  requests:
-    cpu: 100m
-    memory: 350Mi
-  limits:
-    cpu: 200m
-    memory: 500Mi
+requests:
+  cpu: 100m
+  memory: 350Mi
+limits:
+  cpu: 200m
+  memory: 500Mi
 ```
 
 For more information about resource quotas, see:
@@ -224,6 +263,8 @@ To contextualize services telemetry with the Kubernetes world, integrate Azure M
 The following diagram shows an example of the application dependency map that Application Insights generates for an AKS microservices telemetry trace:
 
 ![Example of an Application Insights dependency map for an AKS microservices application.](images/application-map.png)
+
+For more information on options for instrumenting common languages for application insights integration, see [Application monitoring for Kubernetes](https://docs.microsoft.com/azure/azure-monitor/app/kubernetes-codeless).
 
 ## Scalability considerations
 
