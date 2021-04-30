@@ -4,23 +4,67 @@ This article describes the considerations for an Azure Kubernetes Service (AKS) 
 
 ![GitHub logo](../../../_images/github.png) [GitHub: Azure Kubernetes Service (AKS) Baseline Cluster for Regulated Workloads](https://github.com/mspnp/aks-baseline-regulated) demonstrates the regulated infrastructure. This implementation provides a microservices application. It's included to help you experience the infrastructure and illustrate the network and security controls. The application does not represent or implement an actual PCI DSS workload.
 
+> [!IMPORTANT]
+>
+> The guidance in this article and above-mentioned reference implementation builds on the AKS baseline architecture. That architecture based on a hub and spoke topology. The hub virtual network contains the firewall to control egress traffic, gateway traffic from on-premises networks, and a third network for maintainence. The spoke virtual network contains the AKS cluster that provides the card holder environment (CDE) and hosts the PCI DSS workload. 
+
+This article describes the responsibilities of a workload owner for this requirement.
+
 ## Build and Maintain a Secure Network and Systems
+The hub and spoke topology in the baseline is a natural choice for a PCI DSS infrastructure. Network controls are placed in both hub and spoke networks and by default follow the Microsoft zero-trust model. The controls can be tuned with least-privilege to secure traffic flowing in and out of the cluster. In addition, several defense-in-depth approaches can be applied by adding controls at each network hop. 
 
 **Requirement 1**&mdash;Install and maintain a firewall configuration to protect cardholder data.
 
-### 1.1 Establish and implement firewall and router configuration standards that include the following:
+|Requirement|Responsibility|
+|---|---|
+|[1.1.1](#1-1-1)|A formal process for approving and testing all network connections and changes to the firewall and router configurations.|
+|[1.1.2](#1-1-2)|Current network diagram that identifies all connections between the cardholder data environment and other networks, including any wireless networks|
 
-:::row:::
-   :::column span="":::
-      **Requirement**
-   :::column-end:::
-   :::column span="3":::
-      **Your responsibility**
-   :::column-end:::
-:::row-end:::
-:::row:::
-   :::column span="":::
-      1.1.1 
+**Requirement 2**&mdash;Do not use vendor-supplied defaults for system passwords and other security parameters.
+
+<insert table or section>
+
+## Build and Maintain a Secure Network and Systems
+
+
+
+- App gateway ()
+- CDE is not exposed to the internet. Not a publically routable vnet. no direct access. by default vnet does that. The hole to punched is for WAF. Fulfilled 
+- Outbound connections by default are open to internet. Secure that with hub's firewall. 
+- Private cluster (mode). CDE is aks cluster. the manegement can require intenret so we want to make that private as well. Anything mnagement thing needs to happen through endpoint. For aks cluster there's an endpoit and DNS record. so it's not exposed to intenret; k8 control plane is not longer accisble. You have to provide access through a trusted network (internal). Bastiion. the host runs in a subnet that hosts a jumpbox. thats where you run kubectl for emergency access. regular operations through pipeline which needs access to that subnet. 
+
+
+## 1.1 Establish and implement firewall and router configuration standards that include the following:
+
+### 1.1.1
+
+**Requirement&mdash;**A formal process for approving and testing all network connections and changes to the firewall and router configurations.
+
+Here are your responsibilities:
+      
+A formal process for approving and testing all network connections and changes to the firewall and router configurations. Have people and processes to approve changes to configuration. Choose Infrastructure as Code (IaC).
+
+**Requirement 1.1.2**
+Current network diagram that identifies all connections between the cardholder data environment and other networks, including any wireless networks
+
+Here are your responsibilities:
+
+As part of your documentation, maintain a network flow diagram that shows the inbound and outbound traffic with specific controls.
+
+This image shows the network diagram from the reference implementation.
+
+![Network topology](./images/network-topology.svg)
+[Figure 1.1.2] - Network flow
+
+#### Components
+
+##### Hub Vnet
+
+**Requirement 1.1.3**
+
+**Requirement 1.1.3**
+
+Here are your responsibilities:
       
       A formal process for approving and testing all network connections and changes to the firewall and router configurations  
    :::column-end:::
@@ -84,12 +128,6 @@ Teams need to be aware of and following security policies and operational proced
 
 ### Implementation considerations
 
-The hub and spoke topology in the baseline is a natural choice for a PCI DSS infrastructure. Two virtual networkins are connected through peering. Each network can be made secure in many ways:
-
-- App gateway ()
-- CDE is not exposed to the internet. Not a publically routable vnet. no direct access. by default vnet does that. The hole to punched is for WAF. Fulfilled 
-- Outbound connections by default are open to internet. Secure that with hub's firewall. 
-- Private cluster (mode). CDE is aks cluster. the manegement can require intenret so we want to make that private as well. Anything mnagement thing needs to happen through endpoint. For aks cluster there's an endpoit and DNS record. so it's not exposed to intenret; k8 control plane is not longer accisble. You have to provide access through a trusted network (internal). Bastiion. the host runs in a subnet that hosts a jumpbox. thats where you run kubectl for emergency access. regular operations through pipeline which needs access to that subnet. 
 
 
 "People/Process
