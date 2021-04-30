@@ -1,25 +1,22 @@
-
-
-
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-Use AKS to simplify the deployment and management of microservices based architecture. AKS streamlines horizontal scaling, self-healing, load balancing, secret management.
+Use AKS to simplify the deployment and management of microservices-based architecture. AKS streamlines horizontal scaling, self-healing, load balancing, and secret management.
 
 ## Architecture
 
 ![Architecture Diagram](../media/microservices-with-aks.png)
 *Download an [SVG](../media/microservices-with-aks.svg) of this architecture.*
 
-## Data Flow
+## Data flow
 
-1. Developer uses IDE such as Visual Studio to commit changes to GitHub
-1. GitHub triggers a new build on Azure DevOps
-1. Azure DevOps packages microservices as containers and pushes them to the Azure Container Registry
-1. Containers are deployed to AKS cluster
-1. Users access services via apps and website
-1. Azure Active Directory is used to secure access to the resources
-1. Microservices use databases to store and retrieve information
-1. Administrator accesses via a separate admin portal
+1. Developer uses IDE such as Visual Studio to commit changes to GitHub.
+1. GitHub triggers a new build on Azure DevOps.
+1. Azure DevOps packages microservices as containers and pushes them to the Azure Container Registry.
+1. Containers are deployed to the AKS cluster.
+1. Users access services via apps and a website.
+1. Azure Active Directory is used to secure access to the resources.
+1. Microservices use databases to store and retrieve information.
+1. Administrator accesses via a separate admin portal.
 
 ## Components
 
@@ -32,7 +29,7 @@ Use AKS to simplify the deployment and management of microservices based archite
 - [Azure SQL Database](https://docs.microsoft.com/en-us/azure/azure-sql/database/sql-database-paas-overview) is a fully managed and intelligent relational database service built for the cloud. With SQL Database, you can create a highly available and high-performance data storage layer for modern cloud applications.
 - [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) is a fully managed NoSQL database service for building and modernizing scalable, high performance applications.
 
-## Next Steps
+## Next steps
 
 - To learn about hosting Microservices on AKS, see [Microservices architecture on Azure Kubernetes Service (AKS)](https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/containers/aks-microservices/aks-microservices).
 - The see the AKS product roadmap, see [Azure Kubernetes Service Roadmap on GitHub](https://github.com/Azure/AKS/projects/1).
