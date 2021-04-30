@@ -1094,7 +1094,7 @@ items:
               - name: Digital marketing using Azure MySQL
                 href: solution-ideas/articles/digital-marketing-using-azure-database-for-mysql.yml
               - name: Enterprise data warehouse
-                href: solution-ideas/articles/enterprise-data-warehouse.yml
+                href: solution-ideas/articles/enterprise-data-warehouse.md
               - name: Finance management using Azure MySQL
                 href: solution-ideas/articles/finance-management-apps-using-azure-database-for-mysql.yml
               - name: Finance management using Azure PostgreSQL
@@ -1596,8 +1596,8 @@ items:
                     href: reference-architectures/migration/unisys-mainframe-migration.yml
               - name: Data modernization
                 items:
-                  - name: Mainframe data integration on Azure
-                    href: solution-ideas/articles/mainframe-azure-data-integration.yml
+                  - name: Mainframe access to Azure databases
+                    href: solution-ideas/articles/mainframe-access-azure-databases.yml
                   - name: Mainframe file replication on Azure
                     href: solution-ideas/articles/mainframe-azure-file-replication.yml
                   - name: Modernize mainframe and midrange data
