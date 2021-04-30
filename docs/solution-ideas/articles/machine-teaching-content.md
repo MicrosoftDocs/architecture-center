@@ -305,7 +305,7 @@ An example of an autonomous systems AI project is the use case of a manufacturin
 
 The machine state inputs to the AI system are the rolling force, roller error, and roller noise. The control actions from the AI system are actuator commands to control the operation and motion of the rollers, and optimize the thickness tolerance of the steel beam.
 
-First, find, or develop a simulator that can simulate agents, sensors, and the environment. The following Matlab simulation model provides an accurate training environment for this AI system:
+First, find or develop a simulator that can simulate agents, sensors, and the environment. The following Matlab simulation model provides an accurate training environment for this AI system:
 
 ![Simulink model for steel beam manufacturing process.](../media/machine-teaching-4-4-3.png)
 
