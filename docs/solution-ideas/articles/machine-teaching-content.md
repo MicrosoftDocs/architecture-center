@@ -113,7 +113,7 @@ In contrast, a *shaped reward function* gives the agent a sign of how close the 
 
 Shaping might discount the value of a future reward versus a more immediate reward, or encourage exploration by shrinking the size of rewards around the goal.
 
-Sometimes, a reward function might specify temporal as well as spatial considerations, to encourage ordered sequences of actions. However, if a shaped reward function is becoming very large and complex, consider breaking up the problem into smaller stages and using *concept networks*.
+Sometimes, a reward function might specify temporal and spatial considerations, to encourage ordered sequences of actions. However, if a shaped reward function is becoming large and complex, consider breaking up the problem into smaller stages and using *concept networks*.
 
 ### Concept networks
 
