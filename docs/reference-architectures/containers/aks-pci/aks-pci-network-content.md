@@ -6,7 +6,41 @@ This article describes the considerations for an Azure Kubernetes Service (AKS) 
 
 ## Build and Maintain a Secure Network and Systems
 
-**Requirement 1**&mdash;Install and maintain a firewall configuration to protect cardholder data
+**Requirement 1**&mdash;Install and maintain a firewall configuration to protect cardholder data.
+
+### 1.1 Establish and implement firewall and router configuration standards that include the following:
+
+:::row:::
+   :::column span="2":::
+      **Requirement**
+      1.1.1 
+      
+      A formal process for approving and testing all network connections and changes to the firewall and router configurations  
+
+   :::column-end:::
+   :::column span="":::
+      **Your responsibility**
+
+        - Subnetting
+        - Private Link
+        - Peering
+   :::column-end:::
+:::row-end:::
+
+1.1.2 Current network diagram that identifies all connections between the cardholder data environment and other networks, including any wireless networks
+
+1.1.3 Current diagram that shows all cardholder data flows across systems and networks
+1.1.4 Requirements for a firewall at each Internet connection and between any demilitarized zone (DMZ) and the internal network zone
+
+
+1.1.5 Description of groups, roles, and responsibilities for management of network components
+
+1.1.6 Documentation of business justification and approval for use of all services, protocols, and ports allowed, including documentation of security features implemented for those protocols considered to be insecure.
+
+
+1.1.7 Requirement to review firewall and router rule sets at least every six months
+
+
 
 **Requirement 2**&mdash;Do not use vendor-supplied defaults for system passwords and other security parameters
 
@@ -34,6 +68,15 @@ Teams need to be aware of and following security policies and operational proced
 - create an appropriate DNAT rule in Firewall to correctly allow inbound traffic.
 
 ### Implementation considerations
+
+The hub and spoke topology in the baseline is a natural choice for a PCI DSS infrastructure. Two virtual networkins are connected through peering. Each network can be made secure in many ways:
+
+- App gateway ()
+- CDE is not exposed to the internet. Not a publically routable vnet. no direct access. by default vnet does that. The hole to punched is for WAF. Fulfilled 
+- Outbound connections by default are open to internet. Secure that with hub's firewall. 
+- Private cluster (mode). CDE is aks cluster. the manegement can require intenret so we want to make that private as well. Anything mnagement thing needs to happen through endpoint. For aks cluster there's an endpoit and DNS record. so it's not exposed to intenret; k8 control plane is not longer accisble. You have to provide access through a trusted network (internal). Bastiion. the host runs in a subnet that hosts a jumpbox. thats where you run kubectl for emergency access. regular operations through pipeline which needs access to that subnet. 
+
+
 "People/Process
 Documentation
 Opt for IaC vs Azure Portal-based management
@@ -55,11 +98,11 @@ Ensure all firewall rules are scoped exclusively to their releated resources (ap
 People/Process
 
 
-### Azure responsibility
-There Azure services can be used to fullfill this requirement.
+### Azure services and capabilities
+There Azure services are relevant in fulfilling this requirement.
 :::row:::
    :::column span="2":::
-      Azure service
+      Azure virtual network
       
       A fundamental block for a private network in which you deploy resources. By default, the inbound traffic to those resources is denied; the resources can communicate with the internet.  
 
@@ -70,7 +113,6 @@ There Azure services can be used to fullfill this requirement.
         - Subnetting
         - Private Link
         - Peering
-      ![Doc.U.Ment](media/markdown-reference/document.png)
    :::column-end:::
 :::row-end:::
 |Service|Features|
