@@ -11,13 +11,15 @@ Autonomous systems:
 - Integrate simulations for model optimization and scalability during training.
 - Deploy and scale for real-world use.
 
-[Microsoft Autonomous Systems](https://docs.microsoft.com/autonomous-systems/) is a family of tools for designing and training autonomous control systems that sense and adapt to changing environments. One such tool discussed in this article is [Microsoft Project Bonsai](https://www.microsoft.com/ai/autonomous-systems-project-bonsai), a low-code AI development platform for building autonomous solutions. Project Bonsai provides a framework for building, training, and deploying models by using machine teaching and simulations. Use the Project Bonsai platform to help automate systems when:
+The [Microsoft Autonomous Systems](https://docs.microsoft.com/autonomous-systems/) platform is an innovative framework for building, training, and deploying models by using machine teaching and simulations. Use the Autonomous Systems platform to help automate systems when:
 
 - Existing control systems are fragile when deployed.
 - ML logic doesn't adequately cover all scenarios.
 - Describing the desired system behavior requires subject matter experts who understand the problem domain.
 - Generating sufficient real-world data to cover all scenarios is difficult or impossible.
 - Traditional control systems are difficult to deploy and scale to the real world.
+
+One Microsoft Autonomous Systems tool discussed in this article is [Microsoft Project Bonsai](https://www.microsoft.com/ai/autonomous-systems-project-bonsai). Project Bonsai a low-code AI development platform for building autonomous solutions. Project Bonsai provides a framework for building, training, and deploying models by using machine teaching and simulations.
 
 Machine teaching bridges AI science and software with traditional engineering and domain expertise. Example applications include motion control, machine calibration, smart buildings, industrial robotics, and process control.
 
