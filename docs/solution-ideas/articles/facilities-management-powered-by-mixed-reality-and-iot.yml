@@ -24,7 +24,7 @@ metadata:
     - Web Service
     - Microsoft HoloLens
     - interactive-diagram
-    - 'https://azure.microsoft.com/solutions/architecture/facilities-management-powered-by-mixed-reality-and-iot/'
+    - "https://azure.microsoft.com/solutions/architecture/facilities-management-powered-by-mixed-reality-and-iot/"
   social_image_url: /azure/architecture/solution-ideas/articles/media/facilities-management-powered-by-mixed-reality-and-iot.png
 name: Facilities management powered by mixed reality and IoT
 azureCategories:

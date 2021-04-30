@@ -15,6 +15,7 @@ metadata:
     - azcat-ai
     - AI
     - example-scenario
+    - ai-machine-learning
   social_image_url: /azure/architecture/example-scenario/ai/media/architecture-scalable-personalization.png
 name: Scalable personalization on Azure
 azureCategories:
@@ -29,4 +30,4 @@ products:
   - azure-machine-learning
 thumbnailUrl: /azure/architecture/browse/thumbs/architecture-scalable-personalization.png
 content: |
-   [!include[](scalable-personalization-content.md)]
+  [!include[](scalable-personalization-content.md)]

@@ -18,7 +18,7 @@ The process described above is operationalized and deployed in the Cortana Intel
 
 Save time and let one of these trained SI partners help you with a proof of concept, deployment & integration of this solution.
 
-The Cortana Intelligence Suite provides advanced analytics tools through Microsoft Azure - data ingestion, data storage, data processing and advanced analytics components - all of the essential elements for building a demand forecasting and price optimization solution.
+The Cortana Intelligence Suite provides advanced analytics tools through Microsoft Azure - data ingestion, data storage, data processing, and advanced analytics components - all of the essential elements for building a demand forecasting and price optimization solution.
 
 This solution combines several Azure services to create powerful advantages. Azure Blob Storage stores the weekly raw sales data. Apache Spark for Azure HDInsight ingests the data and executes data preprocessing, forecasting modeling and price optimization algorithms. Finally, Data Factory orchestrates and schedules the entire data flow.
 
@@ -33,3 +33,18 @@ For post deployment instructions and more details on the technical implementatio
   3. Spark on HDInsight is used to ingest and preprocess the raw data, build and retrain the demand forecasting models, and execute price optimization algorithms.
   4. Azure Data Factory orchestrates and schedules the entire data flow.
   5. Finally, Power BI is used for results visualization, so that users can monitor the results of the sales, predicted future demand as well as recommended optimal prices for a variety of products sold in different stores.
+
+## Components
+
+* [Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs/)
+* [Azure Data Factory](https://azure.microsoft.com/services/data-factory/)
+* [Azure Web App](https://azure.microsoft.com/services/app-service/web/)
+* [Power BI](https://powerbi.microsoft.com/)
+* Spark on [Azure HDInsight](https://azure.microsoft.com/services/hdinsight/)
+
+## Next steps
+
+* [Choosing a data analytics technology in Azure](/azure/architecture/data-guide/technology-choices/analysis-visualizations-reporting)
+* [Demand Forecasting for Shipping and Distribution](/azure/architecture/solution-ideas/articles/demand-forecasting-for-shipping-and-distribution)
+* [Demand Forecasting](/azure/architecture/solution-ideas/articles/demand-forecasting)
+* [Demand Forecasting + Price Optimization](/azure/architecture/solution-ideas/articles/demand-forecasting-price-optimization-marketing)

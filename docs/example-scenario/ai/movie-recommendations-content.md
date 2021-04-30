@@ -1,6 +1,3 @@
-
-
-
 This example scenario shows how a business can use machine learning to automate product recommendations for their customers. An Azure Data Science Virtual Machine (DSVM) is used to train a model on Azure that recommends movies to users based on ratings that have been given to movies.
 
 Recommendations can be useful in various industries from retail to news to media. Potential applications include providing product recommendations in a virtual store, providing news or post recommendations, or providing music recommendations. Traditionally, businesses had to hire and train assistants to make personalized recommendations to customers. Today, we can provide customized recommendations at scale by using Azure to train models to understand customer preferences.
@@ -98,7 +95,7 @@ For an in-depth guide to building and scaling a recommender service, see [Build 
 [als]: https://spark.apache.org/docs/latest/ml-collaborative-filtering.html
 [autoscale]: https://docs.azuredatabricks.net/user-guide/clusters/sizing.html#autoscaling
 [blob]: /azure/storage/blobs/storage-blobs-introduction
-[clusters]: https://docs.azuredatabricks.net/user-guide/clusters/configure.html
+[clusters]: /azure/databricks/clusters/configure
 [cosmos-db]: /azure/cosmos-db/introduction
 [databricks]: /azure/azure-databricks/what-is-azure-databricks
 [dsvm]: /azure/machine-learning/data-science-virtual-machine/overview

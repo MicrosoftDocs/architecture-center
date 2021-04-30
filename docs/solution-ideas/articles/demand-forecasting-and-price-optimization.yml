@@ -19,7 +19,8 @@ metadata:
     - solution architectures
     - Azure
     - ai gallery
-    - 'https://azure.microsoft.com/solutions/architecture/demand-forecasting-and-price-optimization/'
+    - "https://azure.microsoft.com/solutions/architecture/demand-forecasting-and-price-optimization/"
+    - ai-machine-learning
   social_image_url: /azure/architecture/solution-ideas/articles/media/demand-forecasting-and-price-optimization.png
 name: Demand Forecasting and Price Optimization
 azureCategories:
@@ -33,4 +34,4 @@ products:
   - azure-web-apps
 thumbnailUrl: /azure/architecture/browse/thumbs/demand-forecasting-and-price-optimization.png
 content: |
-   [!include[](demand-forecasting-and-price-optimization-content.md)]
+  [!include[](demand-forecasting-and-price-optimization-content.md)]

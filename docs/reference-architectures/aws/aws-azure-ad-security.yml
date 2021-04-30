@@ -1,8 +1,8 @@
 ### YamlMime:Architecture
 metadata:
-  title: Azure AD security for Amazon Web Services (AWS)
+  title: Azure Active Directory security for AWS
   titleSuffix: Azure Reference Architectures
-  description: Learn how Azure Active Directory (Azure AD) can help secure and protect Amazon Web Services (AWS) account identities and access.
+  description: Learn how Azure Active Directory can help secure and protect Amazon Web Services (AWS) identity management and account access. Discover Microsoft security solutions.
   author: doodlemania2
   ms.author: pnp
   ms.date: 12/10/2020
@@ -11,10 +11,16 @@ metadata:
   ms.subservice: reference-architecture
   ms.custom:
     - fcp
-name: Azure AD identity and access management for AWS
+    - seo-aac-fy21q3
+  keywords:
+    - Azure active directory
+    - aws identity management
+    - identity protection
+    - Microsoft security solutions
+name: Azure Active Directory identity management and access management for AWS
 azureCategories:
   - identity
-summary: Learn how Azure Active Directory (Azure AD) can help secure and protect Amazon Web Services (AWS) account identities and access.
+summary: Learn how Azure Active Directory can help secure and protect Amazon Web Services (AWS) identity management and account access. Discover Microsoft security solutions.
 products:
   - azure
   - azure-active-directory

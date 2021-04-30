@@ -13,6 +13,7 @@ metadata:
   ms.custom:
     - fcp
     - example-scenario
+    - internal-intro
 name: Threat indicators for cyber threat intelligence in Azure Sentinel
 azureCategories:
   - security
