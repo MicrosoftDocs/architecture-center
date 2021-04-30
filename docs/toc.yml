@@ -1653,12 +1653,6 @@ items:
                     href: hybrid/hybrid-dns-infra.yml
                   - name: Hybrid availability and performance monitoring
                     href: hybrid/hybrid-perf-monitoring.yml
-      - name: PowerPlatform
-        items:
-          - name: Architectures
-            items:
-              - name: Eventual Consistency in Power Platform
-                href: reference-architectures/power-platform/eventually-consistent-instances.md
       - name: SAP
         items:
           - name: Overview
