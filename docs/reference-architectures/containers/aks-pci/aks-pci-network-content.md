@@ -11,21 +11,36 @@ This article describes the considerations for an Azure Kubernetes Service (AKS) 
 ### 1.1 Establish and implement firewall and router configuration standards that include the following:
 
 :::row:::
-   :::column span="2":::
+   :::column span="":::
       **Requirement**
+   :::column-end:::
+   :::column span="3":::
+      **Your responsibility**
+   :::column-end:::
+:::row-end:::
+:::row:::
+   :::column span="":::
       1.1.1 
       
       A formal process for approving and testing all network connections and changes to the firewall and router configurations  
-
    :::column-end:::
-   :::column span="":::
+   :::column span="3":::
       **Your responsibility**
-
-        - Subnetting
-        - Private Link
-        - Peering
+         Have people and processes to approve changes to configuration. Choose Infrastructure as Code (IaC) 
    :::column-end:::
 :::row-end:::
+:::row:::
+   :::column span="":::
+      1.1.2 
+      
+        Current network diagram that identifies all connections between the cardholder data environment and other networks, including any wireless networks  
+   :::column-end:::
+   :::column span="3":::
+      **Your responsibility**
+         Have people and processes to approve changes to configuration. Choose Infrastructure as Code (IaC) 
+   :::column-end:::
+:::row-end:::
+
 
 1.1.2 Current network diagram that identifies all connections between the cardholder data environment and other networks, including any wireless networks
 
