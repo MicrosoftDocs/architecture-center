@@ -9,7 +9,7 @@ Use AKS to simplify the deployment and management of microservices-based archite
 
 ## Data flow
 
-1. Developer uses IDE such as Visual Studio to commit changes to GitHub.
+1. Developer uses an IDE, such as Visual Studio, to commit changes to GitHub.
 1. GitHub triggers a new build on Azure DevOps.
 1. Azure DevOps packages microservices as containers and pushes them to the Azure Container Registry.
 1. Containers are deployed to the AKS cluster.
