@@ -16,7 +16,7 @@ metadata:
 name: Eventual Consitency Between Multiple PowerApps instances
 azureCategories:
   - web
-summary: Learn about proven practices for data sync across multiple instances.
+summary: Learn about proven approaches for data sync when multiple instances are present.
 products:
   - power-platform
   - dataverse

@@ -1,16 +1,3 @@
----
-title: Eventual Consistency in Power Platform
-titleSuffix: Cloud Design Patterns
-description: Upsert reference data records when remote system is down or synchronisation of data takes a long time.
-author: markcunninghamuk
-ms.date: 03/15/2020
-ms.topic: conceptual
-ms.service: architecture-center
-ms.subservice: design-pattern
-ms.custom:
-  - architectural-pattern
-keywords: design pattern, power-platform, eventual consistency
----
 
 # Eventual Consistency in Power Platform
 
