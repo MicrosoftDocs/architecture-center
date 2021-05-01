@@ -6,12 +6,12 @@ This article describes the considerations for an Azure Kubernetes Service (AKS) 
 
 > [!IMPORTANT]
 >
-> The guidance in this article and above-mentioned reference implementation builds on the AKS baseline architecture. That architecture based on a hub and spoke topology. The hub virtual network contains the firewall to control egress traffic, gateway traffic from on-premises networks, and a third network for maintainence. The spoke virtual network contains the AKS cluster that provides the card holder environment (CDE) and hosts the PCI DSS workload. 
+> The guidance in this article and the above-mentioned reference implementation builds on the AKS baseline architecture. That architecture based on a hub and spoke topology. The hub virtual network contains the firewall to control egress traffic, gateway traffic from on-premises networks, and a third network for maintainence. The spoke virtual network contains the AKS cluster that provides the card holder environment (CDE) and hosts the PCI DSS workload. 
 
 This article describes the responsibilities of a workload owner for this requirement.
 
 ## Build and Maintain a Secure Network and Systems
-The hub and spoke topology in the baseline is a natural choice for a PCI DSS infrastructure. Network controls are placed in both hub and spoke networks and by default follow the Microsoft zero-trust model. The controls can be tuned with least-privilege to secure traffic flowing in and out of the cluster. In addition, several defense-in-depth approaches can be applied by adding controls at each network hop. 
+The hub and spoke topology in the baseline is a natural choice for a PCI DSS infrastructure. Network controls are placed in both hub and spoke networks and follow the Microsoft zero-trust model. The controls can be tuned with least-privilege to secure traffic flowing in and out of the cluster. In addition, several defense-in-depth approaches can be applied by adding controls at each network hop. 
 
 **Requirement 1**&mdash;Install and maintain a firewall configuration to protect cardholder data.
 
@@ -36,55 +36,55 @@ The hub and spoke topology in the baseline is a natural choice for a PCI DSS inf
 
 ## 1.1 Establish and implement firewall and router configuration standards that include the following:
 
-### 1.1.1
+### Requirement 1.1.1
 
 **Requirement&mdash;**A formal process for approving and testing all network connections and changes to the firewall and router configurations.
 
-Here are your responsibilities:
+#### Your responsibilities
       
-A formal process for approving and testing all network connections and changes to the firewall and router configurations. Have people and processes to approve changes to configuration. Choose Infrastructure as Code (IaC).
+Have people and processes to approve changes to configuration. Choose Infrastructure as Code (IaC).
 
-**Requirement 1.1.2**
+### Requirement 1.1.2
 Current network diagram that identifies all connections between the cardholder data environment and other networks, including any wireless networks
 
-Here are your responsibilities:
+#### Your responsibilities
 
 As part of your documentation, maintain a network flow diagram that shows the inbound and outbound traffic with specific controls.
 
 This image shows the network diagram from the reference implementation.
 
 ![Network topology](./images/network-topology.svg)
-[Figure 1.1.2] - Network flow
+**Figure 1.1.2 - Network flow**
 
 #### Components
 
 ##### Hub Vnet
 
-**Requirement 1.1.3**
+### Requirement 1.1.3
+Current diagram that shows all cardholder data flows across systems and networks.
+#### Your responsibilities
+Include a data flow diagram that shows how data is protected at rest and in transit
 
-**Requirement 1.1.3**
+### Requirement 1.1.4
+Requirements for a firewall at each Internet connection and between any demilitarized zone (DMZ) and the internal network zone.
 
-Here are your responsibilities:
+#### Your responsibilities
       
-      A formal process for approving and testing all network connections and changes to the firewall and router configurations  
-   :::column-end:::
-   :::column span="3":::
-      **Your responsibility**
-         Have people and processes to approve changes to configuration. Choose Infrastructure as Code (IaC) 
-   :::column-end:::
-:::row-end:::
-:::row:::
-   :::column span="":::
-      1.1.2 
-      
-        Current network diagram that identifies all connections between the cardholder data environment and other networks, including any wireless networks  
-   :::column-end:::
-   :::column span="3":::
-      **Your responsibility**
-         Have people and processes to approve changes to configuration. Choose Infrastructure as Code (IaC) 
-   :::column-end:::
-:::row-end:::
+For a PCI DSS infrastructure, using firewalls to block unauthorized access into and out of the network is mandatory. This requirement applies to:
+- Communication to and from a pod from other pods.
+- Communication to and from a pod from/to other components in the architecture.
+- Communication to an from a pod from/to trusted networks.
+- Commuication to and from a pod from public internet.
 
+Firewalls are used to block unwanted access and manage authorized access into and out of the network. Firewalls must be configured properly for a strong security posture.
+
+The specific firewall configuration settings are determined by the organization. 
+
+Teams need to be aware of and following security policies and operational procedures to ensure firewalls and routers are continuously managed to prevent unauthorized access to the network.
+
+### Your responsibility
+"Customers are responsible for deploying AKS workloads behind a firewall. The recommended process of securing AKS with Azure Firewall to how to satisfy this requirement is available at: https://docs.microsoft.com/en-us/azure/firewall/protect-azure-kubernetes-service
+- create an appropriate DNAT rule in Firewall to correctly allow inbound traffic.
 
 1.1.2 Current network diagram that identifies all connections between the cardholder data environment and other networks, including any wireless networks
 
@@ -110,21 +110,7 @@ Here are your responsibilities:
 
 ## Firewall configuration
 
-For a PCI DSS infrastructure, using firewalls to block unauthorized access into and out of the network is mandatory. This requirement applies to:
-- Communication to and from a pod from other pods.
-- Communication to and from a pod from/to other components in the architecture.
-- Communication to an from a pod from/to trusted networks.
-- Commuication to and from a pod from public internet.
 
-Firewalls are used to block unwanted access and manage authorized access into and out of the network. Firewalls must be configured properly for a strong security posture.
-
-The specific firewall configuration settings are determined by the organization. 
-
-Teams need to be aware of and following security policies and operational procedures to ensure firewalls and routers are continuously managed to prevent unauthorized access to the network.
-
-### Your responsibility
-"Customers are responsible for deploying AKS workloads behind a firewall. The recommended process of securing AKS with Azure Firewall to how to satisfy this requirement is available at: https://docs.microsoft.com/en-us/azure/firewall/protect-azure-kubernetes-service
-- create an appropriate DNAT rule in Firewall to correctly allow inbound traffic.
 
 ### Implementation considerations
 
