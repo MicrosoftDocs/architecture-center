@@ -15,6 +15,6 @@ products:
   - azure
 name: Clinical insights with Microsoft Cloud for Healthcare 
 summary: This article describes an architecture to gather insights from the clinical and medical data using Microsoft Cloud for Healthcare.
-thumbnailUrl: /azure/architecture/browse/thumbs/virtual-health-solutions.png
+thumbnailUrl: /azure/architecture/browse/thumbs/clinical-insights-solution.png
 content: |
   [!include[](medical-data-insights-content.md)]
