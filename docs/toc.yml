@@ -1767,6 +1767,8 @@ items:
                 href: reference-architectures/app-service-web-app/app-monitoring.yml
               - name: Microservices with Azure Spring Cloud
                 href: https://docs.microsoft.com/azure/spring-cloud/spring-cloud-reference-architecture
+              - name: Eventual Consistency in Power Platform
+                href: reference-architectures/power-platform/eventual-consistency.yml
           - name: Solution ideas
             items:
               - name: E-commerce website running in ASE
