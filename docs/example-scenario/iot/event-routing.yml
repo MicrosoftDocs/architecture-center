@@ -15,6 +15,6 @@ summary: Learn about using rules to allow for fine-grained routing of events in 
 products:
   - azure-iot
   - azure-iot-hub
-thumbnailUrl: /azure/architecture/browse/thumbs/event-routing.png
+thumbnailUrl: /azure/architecture/browse/thumbs/event-routing.svg
 content: |
    [!include[](event-routing-content.md)]

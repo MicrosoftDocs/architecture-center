@@ -174,6 +174,15 @@ For a complete list of server management capabilities, refer to [Manage Servers 
 - For on-premises deployments, Windows Admin Center costs nothing beyond the cost of the Windows operating system, which requires valid Windows Server or Windows 10 licenses.
 - For Azure deployments, plan for costs associated with deploying Windows Admin Center to an Azure VM. Some of these costs might include the VM, storage, static or public IP addresses (if enabled), and any networking components required for integration with on-premises environments. In addition, you might need to plan for the cost of purchasing non-Microsoft CA certificates.
 
+## Next steps
+
+More about Azure Automation:
+
+- [Install Windows Admin Center](/windows-server/manage/windows-admin-center/deploy/install)
+- [Preview: Use Windows Admin Center in the Azure portal to manage a Windows Server VM](/windows-server/manage/windows-admin-center/azure/manage-vm)
+- [Manually deploy Windows Admin Center in Azure for managing multiple servers](/windows-server/manage/windows-admin-center/azure/deploy-wac-in-azure)
+- [Connect hybrid machines to Azure from Windows Admin Center](/azure/azure-arc/servers/onboard-windows-admin-center)
+
 [architectural-diagram-azure]: ./images/hybrid-server-os-mgmt-wac-azure.png
 [architectural-diagram-onprem]: ./images/hybrid-server-os-mgmt-wac-onprem.png
 [architectural-diagram-visio-source]: https://arch-center.azureedge.net/hybrid-server-os-mgmt.vsdx

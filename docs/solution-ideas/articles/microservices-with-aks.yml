@@ -19,7 +19,8 @@ metadata:
     - devops
     - kubernetes
     - interactive-diagram
-    - 'https://azure.microsoft.com/solutions/architecture/microservices-with-aks/'
+    - "https://azure.microsoft.com/solutions/architecture/microservices-with-aks/"
+    - e2e-aks
   social_image_url: /azure/architecture/solution-ideas/articles/media/microservices-with-aks.png
 name: Microservices with AKS
 azureCategories:

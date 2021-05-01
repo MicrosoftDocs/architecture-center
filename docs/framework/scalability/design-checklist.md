@@ -108,4 +108,4 @@ Application design is critical to handling scale as load increases. Design is pa
 
 ## Next steps
 > [!div class="nextstepaction"]
-> [Application design](./design-apps.md)
+> [Challenges of monitoring distributed architectures](./design-distributed.md)

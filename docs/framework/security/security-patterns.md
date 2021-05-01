@@ -9,7 +9,8 @@ ms.service: architecture-center
 ms.subservice: well-architected
 ms.custom:
   - design-pattern
-keywords: design pattern
+keywords:
+  - design pattern
 ---
 
 # Security patterns
@@ -42,4 +43,4 @@ Achieving security resilience requires a combination of preventive measures to b
 - **Azure security configurations** should align to the best practices and controls in the [Azure Security Benchmark (ASB)](/azure/security/benchmarks/). Security configurations for Azure services should align to the [Security baselines for Azure](/azure/security/benchmarks/security-baselines-overview) in the ASB.
 - **Azure architectures** should integrate native security capabilities to protect and monitor workloads including [Azure Defender](/azure/security-center/azure-defender), [Azure DDoS protection](/azure/ddos-protection/ddos-protection-overview), [Azure Firewall](/azure/firewall/), and [Azure Web Application Firewall (WAF)](/azure/web-application-firewall/).
 
-For a more detailed discussion, see the [Cybersecurity Resilience](//security/ciso-workshop/ciso-workshop-module-1#part-2-cybersecurity-resilience-1350) module in the CISO workshop.
+For a more detailed discussion, see the [Cybersecurity Resilience](https://microsoft.sharepoint.com/sites/globalsecurity) module in the CISO workshop.

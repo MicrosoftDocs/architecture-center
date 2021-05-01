@@ -9,12 +9,12 @@ ms.subservice: anti-pattern
 ms.custom:
   - article
   - seo-aac-fy21q3
-keywords: 
-  - "antipatterns"
-  - "antipattern"
-  - "scalability solutions"
-  - "anti-pattern"
-  - "performance testing"
+keywords:
+  - antipatterns
+  - antipattern
+  - scalability solutions
+  - anti-pattern
+  - performance testing
 ---
 
 # Performance testing and antipatterns for cloud applications

@@ -1,6 +1,3 @@
-
-
-
 Contactless business is the new normal. The world has become more aware of, and endangered by, surfaces that many people touch every day. Contactless interfaces reduce or eliminate physical touchpoints like traffic light buttons, touch screens, door handles, and elevator controls by creating touch-free experiences that are both safe and pleasing for users.
 
 [Avanade](https://www.avanade.com) and the Microsoft COVID-19 task force partnered to develop contactless interfaces using the [Azure intelligent edge](https://azure.microsoft.com/overview/future-of-cloud/) platform. This solution combines intelligent and perceptive Internet of Things (IoT) edge devices with the storage, computing, artificial intelligence (AI), and machine learning (ML) capabilities of the Azure cloud.
@@ -14,7 +11,7 @@ IoT Edge devices can quickly recognize and respond to speech, image, gesture, or
 
 ## Architecture
 
-![Contactless interfaces for IoT Edge devices](../media/avanade-contactless.png)
+![Architecture diagram: Contactless interfaces and other IoT edge devices used as part of an Azure intelligent cloud solution.](../media/avanade-contactless-interface-iot-edge.png)
 
 1. End points like microphones, cameras, and touchscreens collect data.
 2. Onboard voice processing units on the IoT Edge devices apply cognitive skillsets and updated machine learning models to local data.
@@ -34,5 +31,6 @@ IoT Edge devices can quickly recognize and respond to speech, image, gesture, or
 ## Next steps
 
 - For more information, please contact [iotcovidsupport@microsoft.com](mailto:iotcovidsupport@microsoft.com).
-- Voice control is the basic function in this solution. The platform can potentially extend to multiple sense recognition, like faces and gestures.
+- Voice control is the basic function in this solution. The platform can potentially extend to multiple sense recognition, like faces and gestures. For more information, see [Choosing a Azure Cognitive Services technology](../../data-guide/technology-choices/cognitive-services.md).
 - The solution can support global deployment by using Cognitive Services [Speech Translation](https://azure.microsoft.com/services/cognitive-services/speech-translation/) APIs.
+- Browse Microsoft Learn for [IoT learning paths and modules](/learn/browse/?products=azure&term=iot).

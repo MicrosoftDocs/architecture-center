@@ -78,7 +78,7 @@ This solution uses the following Azure components:
 
 ## Considerations
 
-The following considerations, based on the [Microsoft Azure Well-Architected Framework](/azure/architecture/framework/), apply to this solution:
+The following considerations, based on the [Microsoft Azure Well-Architected Framework](../../framework/index.md), apply to this solution:
 
 ### Availability considerations
 
@@ -112,13 +112,13 @@ To estimate and calculate costs for your implementation of this solution, use th
 
 ## Next steps
 
-- [Refactor IBM z/OS mainframe Coupling Facility (CF) to Azure](/azure/architecture/reference-architectures/zos/refactor-zos-coupling-facility).
-- [Replicate and sync mainframe data in Azure](/azure/architecture/reference-architectures/migration/sync-mainframe-data-with-azure).
-- See the [Microsoft Azure Well-Architected Framework](/azure/architecture/framework/) for more information about cost optimization for [VM instances](/azure/architecture/framework/cost/optimize-vm).
+- [Refactor IBM z/OS mainframe Coupling Facility (CF) to Azure](../../reference-architectures/zos/refactor-zos-coupling-facility.yml).
+- [Replicate and sync mainframe data in Azure](../../reference-architectures/migration/sync-mainframe-data-with-azure.yml).
+- See the [Microsoft Azure Well-Architected Framework](../../framework/index.md) for more information about cost optimization for [VM instances](../../framework/cost/optimize-vm.md).
 - For more information, please contact <legacy2azure@microsoft.com>.
 
 ## Related resources
 
-- [Windows n-tier application with SQL Server on Azure](/azure/architecture/reference-architectures/n-tier/n-tier-sql-server)
-- [Multi-region n-tier application](/azure/architecture/reference-architectures/n-tier/multi-region-sql-server)
-- [Multi-tier web application built for HA/DR](/azure/architecture/example-scenario/infrastructure/multi-tier-app-disaster-recovery)
+- [Windows n-tier application with SQL Server on Azure](../../reference-architectures/n-tier/n-tier-sql-server.yml)
+- [Multi-region n-tier application](../../reference-architectures/n-tier/multi-region-sql-server.yml)
+- [Multi-tier web application built for HA/DR](../infrastructure/multi-tier-app-disaster-recovery.yml)
