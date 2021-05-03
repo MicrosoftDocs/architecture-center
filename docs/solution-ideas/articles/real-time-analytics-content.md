@@ -15,7 +15,7 @@ Get insights from live streaming data with ease. Capture data continuously from 
 1. Easily ingest live streaming data for an application using Azure Event Hubs.
 1. Bring together all your structured data using Synapse Pipelines to Azure Blob Storage.
 1. Take advantage of Apache Spark pools to clean, transform, and analyze the streaming data, and combine it with structured data from operational databases or data warehouses.
-1. Use scalable machine learning/deep learning techniques, to derive deeper insights from this data using Python, R or Scala, with notebook experiences in Apache Spark pools.
+1. Use scalable machine learning/deep learning techniques, to derive deeper insights from this data using Python or Scala, with notebook experiences in Apache Spark pools.
 1. Leverage Apache Spark pool and Synapse Pipelines in Azure Synapse Analytics to access and move data at scale.
 1. Build analytics dashboards and embedded reports in dedicated SQL pool to share insights within your organization and use Azure Analysis Services to serve this data to thousands of users.
 1. Power users take advantage of the capabilities of Apache Spark pools and Azure Event Hubs to perform root cause determination and raw data analysis.
