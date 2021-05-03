@@ -25,6 +25,6 @@ products:
   - azure-kubernetes-service
   - azure-virtual-network
   - azure-web-application-firewall
-thumbnailUrl: 
+thumbnailUrl: /azure/architecture/browse/thumbs/appgwB4azfw_flow.png
 content: |
    [!include[](appgw-before-firewall-content.md)]
