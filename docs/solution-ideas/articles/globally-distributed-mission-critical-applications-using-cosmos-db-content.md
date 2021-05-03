@@ -1,6 +1,3 @@
-
-
-
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
 Guarantee access to users around the world with the high-availability and low-latency capabilities built into Microsoft's global datacenters.
@@ -58,7 +55,7 @@ Scaling is based upon many levels in this diagram. Azure Cosmos DB is purpose-bu
 From a security perspective, drive towards an identity-based system, where Azure Active Directory can be used to secure access to the environment. In the backend, the application is (by best design) accessed through Managed Identities, although one could also consider the approach of using Azure Active Directory Users and Azure Key Vault for securing access.
 
 > [!NOTE]
-> As of Ignite March 2021, we now also support [Azure Active Directory RBAC directly on the Cosmos DB SQL API](https://docs.microsoft.com/azure/cosmos-db/how-to-setup-rbac).
+> As of Ignite March 2021, we now also support [Azure Active Directory RBAC directly on the Cosmos DB SQL API](/azure/cosmos-db/how-to-setup-rbac).
 
 ## Next steps
 

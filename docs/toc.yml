@@ -293,12 +293,16 @@ items:
             href: framework/devops/devops-patterns.md  
       - name: Performance Efficiency
         items:
-          - name: Overview
+          - name: About
             href: framework/scalability/overview.md
+          - name: Principles
+            href: framework/scalability/principles.md            
           - name: Design
             items:
-              - name: Design checklist
+              - name: Checklist
                 href: framework/scalability/design-checklist.md
+              - name: Distributed architecture challenges
+                href: framework/scalability/design-distributed.md                
               - name: Application design
                 href: framework/scalability/design-apps.md
               - name: Application efficiency
@@ -307,20 +311,38 @@ items:
                 href: framework/scalability/design-scale.md
               - name: Capacity planning
                 href: framework/scalability/design-capacity.md
-          - name: Testing
+          - name: Test
             items:
-              - name: Testing checklist
+              - name: Checklist
                 href: framework/scalability/test-checklist.md
               - name: Performance testing
                 href: framework/scalability/performance-test.md
               - name: Testing tools
                 href: framework/scalability/test-tools.md
-          - name: Monitoring
-            href: framework/scalability/monitor.md
-          - name: Performance Efficiency patterns
+          - name: Monitor
+            items: 
+              - name: Checklist
+                href: framework/scalability/monitor.md
+              - name: Application profiling
+                href: framework/scalability/monitor-application.md
+              - name: Infrastructure metrics and logs
+                href: framework/scalability/monitor-infrastructure.md
+              - name: Data analysis and retention 
+                href: framework/scalability/monitor-analyze.md                                                
+              - name: Scalability and reliability
+                href: framework/scalability/monitor-scalability-reliability.md
+          - name: Optimize
+            items: 
+              - name: Checklist
+                href: framework/scalability/optimize.md
+              - name: Caching
+                href: framework/scalability/optimize-cache.md
+              - name: Partition
+                href: framework/scalability/optimize-partition.md
+              - name: Sustainability
+                href: framework/scalability/optimize-sustain.md                            
+          - name: Design patterns
             href: framework/scalability/performance-efficiency-patterns.md
-          - name: Checklist
-            href: framework/scalability/performance-efficiency.md
           - name: Tradeoffs 
             href: framework/scalability/tradeoffs.md
       - name: Reliability
@@ -575,6 +597,69 @@ items:
         href: patterns/throttling.md
       - name: Valet Key
         href: patterns/valet-key.md
+  - name: Industry solutions with Azure
+    expanded: true
+    items:
+      - name: Retail
+        items:
+          - name: Overview
+            href: industries/retail.md
+          - name: Build a Real-time Recommendation API on Azure
+            href: reference-architectures/ai/real-time-recommendation.yml
+          - name: Movie recommendations on Azure
+            href: example-scenario/ai/movie-recommendations.yml
+          - name: Scalable personalization on Azure
+            href: example-scenario/ai/scalable-personalization.yml
+          - name: Data warehousing and analytics
+            href: example-scenario/data/data-warehouse.yml
+          - name: Stream processing with Azure Databricks
+            href: reference-architectures/data/stream-processing-databricks.yml
+          - name: Stream processing with Azure Stream Analytics
+            href: reference-architectures/data/stream-processing-stream-analytics.yml
+          - name: E-commerce front end
+            href: example-scenario/apps/ecommerce-scenario.yml
+          - name: Intelligent product search engine for e-commerce
+            href: example-scenario/apps/ecommerce-search.yml
+          - name: Magento e-commerce platform in Azure Kubernetes Service
+            href: example-scenario/magento/magento-azure.yml
+          - name: Scalable order processing
+            href: example-scenario/data/ecommerce-order-processing.yml
+          - name: Retail - Buy online, pickup in store (BOPIS)
+            href: example-scenario/iot/vertical-buy-online-pickup-in-store.yml
+      - name: Finance
+        items:
+          - name: Overview
+            href: industries/finance.md
+          - name:  Decentralized trust between banks
+            href: example-scenario/apps/decentralized-trust.yml
+          - name: Replicate and sync mainframe data in Azure
+            href: reference-architectures/migration/sync-mainframe-data-with-azure.yml
+          - name: Modernize mainframe & midrange data
+            href: reference-architectures/migration/modernize-mainframe-data-to-azure.yml
+          - name: Refactor IBM z/OS mainframe Coupling Facility to Azure
+            href: reference-architectures/zos/refactor-zos-coupling-facility.yml
+          - name: Banking system cloud transformation on Azure
+            href: example-scenario/banking/banking-system-cloud-transformation.yml
+          - name: Patterns and implementations in banking cloud transformation
+            href: example-scenario/banking/patterns-and-implementations.yml
+          - name: JMeter implementation reference for load testing pipeline solution
+            href: example-scenario/banking/jmeter-load-testing-pipeline-implementation-reference.yml
+          - name: Real-time fraud detection
+            href: example-scenario/data/fraud-detection.yml
+      - name: Healthcare
+        items:
+          - name: Overview
+            href: industries/healthcare.md
+          - name: Virtual visits with Microsoft Cloud for Healthcare
+            href: example-scenario/mch-health/virtual-health-mch.yml 
+          - name: Clinical insights with Microsoft Cloud for Healthcare
+            href: example-scenario/mch-health/medical-data-insights.yml
+          - name: Consumer health portal on Azure
+            href: example-scenario/digital-health/health-portal.yml
+          - name: Building a telehealth system with Azure
+            href: example-scenario/apps/telehealth-system.yml
+          - name: Confidential computing for healthcare
+            href: example-scenario/confidential/healthcare-inference.yml
   - name: Azure categories
     expanded: true
     items:
@@ -604,7 +689,7 @@ items:
                     href: example-scenario/mlops/aml-decision-tree.yml
           - name: Architectures
             items:
-              - name: AI enrichment in Cognitive Search
+              - name: AI enrichment with Cognitive Search
                 href: solution-ideas/articles/cognitive-search-with-skillsets.yml
               - name: Autonomous systems
                 href: solution-ideas/articles/autonomous-systems.yml
@@ -618,7 +703,7 @@ items:
                 href: reference-architectures/ai/batch-scoring-R-models.yml
               - name: Batch scoring with Spark on Databricks
                 href: reference-architectures/ai/batch-scoring-databricks.yml
-              - name: Chatbot for hotel reservations
+              - name: Chatbot for hotel booking
                 href: example-scenario/ai/commerce-chatbot.yml
               - name: Deploy AI and ML at the edge
                 href: hybrid/deploy-ai-ml-azure-stack-edge.yml
@@ -654,11 +739,11 @@ items:
                 href: solution-ideas/articles/ai-at-the-edge.yml
               - name: Auditing and risk management
                 href: solution-ideas/articles/auditing-and-risk-compliance.yml
-              - name: Business Process Management
+              - name: Business process management
                 href: solution-ideas/articles/business-process-management.yml
-              - name: Content Research
+              - name: Content research
                 href: solution-ideas/articles/content-research.yml
-              - name: Contract Management
+              - name: Contract management
                 href: solution-ideas/articles/contract-management.yml
               - name: Customer churn prediction
                 href: solution-ideas/articles/customer-churn-prediction.yml
@@ -666,7 +751,7 @@ items:
                 href: solution-ideas/articles/customer-feedback-and-analytics.yml
               - name: Defect prevention
                 href: solution-ideas/articles/defect-prevention-with-predictive-maintenance.yml
-              - name: Digital Asset Management
+              - name: Digital asset management
                 href: solution-ideas/articles/digital-asset-management.yml
               - name: Disconnected AI at the edge
                 href: solution-ideas/articles/ai-at-the-edge-disconnected.yml
@@ -732,12 +817,14 @@ items:
             items:
               - name: Automated enterprise BI
                 href: reference-architectures/data/enterprise-bi-adf.yml
+              - name: Azure analytics end to end
+                href: example-scenario/dataplate2e/data-platform-end-to-end.yml
               - name: Data warehousing and analytics
                 href: example-scenario/data/data-warehouse.yml
               - name: Demand forecasting for shipping
                 href: solution-ideas/articles/demand-forecasting-for-shipping-and-distribution.yml
-              - name: Mass ingestion of news feeds on Azure
-                href: example-scenario/ai/newsfeed-ingestion.yml
+              - name: Ingestion and analysis of news feeds
+                href: example-scenario/ai/news-feed-ingestion-and-near-real-time-analysis.yml
               - name: Partitioning in Event Hubs and Kafka
                 href: reference-architectures/event-hubs/partitioning-in-event-hubs-and-kafka.yml
               - name: Stream processing with Azure Databricks
@@ -796,6 +883,8 @@ items:
                 href: solution-ideas/articles/blockchain-workflow-application.yml
               - name: Decentralized trust between banks
                 href: example-scenario/apps/decentralized-trust.yml
+              - name: Multi-cloud blockchain DLT
+                href: example-scenario/blockchain/multi-cloud-blockchain.yml
               - name: Supply chain track and trace
                 href: solution-ideas/articles/supply-chain-track-and-trace.yml
       - name: Compute
@@ -974,8 +1063,8 @@ items:
                 href: best-practices/cassandra.md
           - name: Architectures
             items:
-              - name: Azure data platform
-                href: example-scenario/dataplate2e/data-platform-end-to-end.yml
+              - name: Azure health data consortium
+                href: example-scenario/data/azure-health-data-consortium.yml
               - name: DataOps for modern data warehouse
                 href: example-scenario/data-warehouse/dataops-mdw.yml
               - name: Hybrid ETL with Azure Data Factory
@@ -1006,6 +1095,8 @@ items:
                 href: solution-ideas/articles/digital-marketing-using-azure-database-for-postgresql.yml
               - name: Digital marketing using Azure MySQL
                 href: solution-ideas/articles/digital-marketing-using-azure-database-for-mysql.yml
+              - name: Enterprise data warehouse
+                href: solution-ideas/articles/enterprise-data-warehouse.yml
               - name: Finance management using Azure MySQL
                 href: solution-ideas/articles/finance-management-apps-using-azure-database-for-mysql.yml
               - name: Finance management using Azure PostgreSQL
@@ -1032,8 +1123,8 @@ items:
                 href: solution-ideas/articles/loan-credit-risk-with-sql-server.yml
               - name: Messaging
                 href: solution-ideas/articles/messaging.yml
-              - name: Modern data warehouse
-                href: solution-ideas/articles/modern-data-warehouse.yml
+              - name: Mining equipment monitoring
+                href: solution-ideas/articles/monitor-mining-equipment.yml
               - name: Ops automation using Event Grid
                 href: solution-ideas/articles/ops-automation-using-event-grid.yml
               - name: Oracle migration to Azure
@@ -1317,6 +1408,8 @@ items:
         items:
           - name: Guides
             items:
+              - name: Build for resilience
+                href: guide/resilience/resilience-overview.md
               - name: Identity in multitenant applications
                 items:
                   - name: Introduction
@@ -1435,7 +1528,7 @@ items:
                     href: example-scenario/iot/analyze-optimize-loop.yml
                   - name: Event routing
                     href: example-scenario/iot/event-routing.yml
-                  - name: Solution scaling with application stamps
+                  - name: Scale solutions with deployment stamps
                     href: example-scenario/iot/application-stamps.yml
           - name: Architectures
             items:
@@ -1460,7 +1553,7 @@ items:
               - name: Contactless IoT interfaces
                 href: solution-ideas/articles/contactless-interfaces.yml
               - name: COVID-19 IoT Safe Solutions
-                href: solution-ideas/articles/cctv-mask-detection.yml
+                href: solution-ideas/articles/cctv-iot-edge-for-covid-19-safe-environment-and-mask-detection.yml
               - name: IoT Connected Platform
                 href: solution-ideas/articles/iot-connected-platform.yml
               - name: IoT Edge data storage and processing
@@ -1471,6 +1564,8 @@ items:
                 href: solution-ideas/articles/iot-power-management.yml
               - name: Lighting and disinfection system
                 href: solution-ideas/articles/uven-disinfection.yml
+              - name: Mining equipment monitoring
+                href: solution-ideas/articles/monitor-mining-equipment.yml
               - name: Predictive maintenance for industrial IoT
                 href: solution-ideas/articles/iot-predictive-maintenance.yml
               - name: Process real-time vehicle data using IoT
