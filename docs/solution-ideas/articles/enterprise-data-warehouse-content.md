@@ -14,9 +14,9 @@ An enterprise data warehouse lets you bring together all your data at any scale 
 
 1. Combine all your structured, unstructured and semi-structured data (logs, files, and media) using Azure Synapse Analytics Pipelines to Azure Blob Storage.
 1. Leverage data in Azure Blob Storage to perform scalable analytics with Azure Synapse Analytics Spark pool and achieve cleansed and transformed data.
-1. Cleansed and transformed data can be moved to Azure Synapse Analytics to combine with existing structured data, creating one hub for all your data. Leverage native connectors between Azure Databricks and Azure Synapse Analytics to access and move data at scale.
-1. Build operational reports and analytical dashboards on top of Azure Data Warehouse to derive insights from the data, and use Azure Analysis Services to serve thousands of end users.
-1. Run ad hoc queries directly on data within Azure Databricks.
+1. Cleansed and transformed data can be combined with existing structured data, creating one hub for all your data with Azure Synapse Analytics.
+1. Build operational reports and analytical dashboards on top of dedicated SQL pool to derive insights from the data, and use Azure Analysis Services to serve thousands of end users.
+
 
 ## Components
 
