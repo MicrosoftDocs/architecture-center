@@ -1,14 +1,12 @@
 This article describes the considerations for an Azure Kubernetes Service (AKS) cluster that runs a workload in compliance with the Payment Card Industry Data Security Standard (PCI-DSS). 
 
-> This article is part of a series. Read the [introduction](aks-pci-intro.yml) here.
+> This article describes the responsibilities of a workload owner in how the workload interacts with the infrastructure. This article is part of a series. Read the [introduction](aks-pci-intro.yml) here.
 
 ![GitHub logo](../../../_images/github.png) [GitHub: Azure Kubernetes Service (AKS) Baseline Cluster for Regulated Workloads](https://github.com/mspnp/aks-baseline-regulated) demonstrates the regulated infrastructure. This implementation provides a microservices application. It's included to help you experience the infrastructure and illustrate the network and security controls. The application does not represent or implement an actual PCI DSS workload.
 
 > [!IMPORTANT]
 >
-> The guidance in this article and the above-mentioned reference implementation builds on the AKS baseline architecture. That architecture based on a hub and spoke topology. The hub virtual network contains the firewall to control egress traffic, gateway traffic from on-premises networks, and a third network for maintainence. The spoke virtual network contains the AKS cluster that provides the card holder environment (CDE) and hosts the PCI DSS workload. 
-
-This article describes the responsibilities of a workload owner for this requirement.
+> The guidance in this article and the above-mentioned reference implementation builds on the [AKS baseline architecture](/azure/architecture/reference-architectures/containers/aks/secure-baseline-aks). That architecture based on a hub and spoke topology. The hub virtual network contains the firewall to control egress traffic, gateway traffic from on-premises networks, and a third network for maintainence. The spoke virtual network contains the AKS cluster that provides the card holder environment (CDE) and hosts the PCI DSS workload. 
 
 ## Build and Maintain a Secure Network and Systems
 The hub and spoke topology in the baseline is a natural choice for a PCI DSS infrastructure. Network controls are placed in both hub and spoke networks and follow the Microsoft zero-trust model. The controls can be tuned with least-privilege to secure traffic flowing in and out of the cluster. In addition, several defense-in-depth approaches can be applied by adding controls at each network hop. 
@@ -17,12 +15,32 @@ The hub and spoke topology in the baseline is a natural choice for a PCI DSS inf
 
 |Requirement|Responsibility|
 |---|---|
-|[1.1.1](#1-1-1)|A formal process for approving and testing all network connections and changes to the firewall and router configurations.|
-|[1.1.2](#1-1-2)|Current network diagram that identifies all connections between the cardholder data environment and other networks, including any wireless networks|
+|[Requirement 1.1](#requirement-1-1)|Establish and implement firewall and router configuration standards.|
+|[Requirement 1.2](#requirement-1-2)|Build firewall and router configurations that restrict connections between untrusted networks and any system components in the cardholder data environment.|
+|[Requirement 1.3](#requirement-1-3)|Prohibit direct public access between the Internet and any system component in the cardholder data environment.|
+|[Requirement 1.4](#requirement-1-4)|Install personal firewall software or equivalent functionality on any portable computing devices (including company and/or employee-owned) that connect to the Internet when outside the network (for example, laptops used by employees), and which are also used to access the CDE. |
+|[Requirement 1.5](#requirement-1-5)|Ensure that security policies and operational procedures for managing firewalls are documented, in use, and known to all affected parties.|
 
 **Requirement 2**&mdash;Do not use vendor-supplied defaults for system passwords and other security parameters.
+|Requirement|Responsibility|
+|---|---|
+|[Requirement 2.1](#requirement-2-1)|Always change vendor-supplied defaults and remove or disable unnecessary default accounts before installing a system on the network.|
+|[Requirement 2.2](#requirement-2-2)|Develop configuration standards for all system components. Assure that these standards address all known security vulnerabilities and are consistent with industry-accepted system hardening standards.|
+|[Requirement 2.3](#requirement-2-3)|Encrypt all non-console administrative access using strong cryptography.|
+|[Requirement 2.4](#requirement-2-4)|Maintain an inventory of system components that are in scope for PCI DSS.|
+|[Requirement 2.5](#requirement-2-5)|Ensure that security policies and operational procedures for managing vendor defaults and other security parameters are documented, in use, and known to all affected parties.|
+|[Requirement 2.6](#requirement-2-6)|Shared hosting providers must protect each entity’s hosted environment and cardholder data.|
 
-<insert table or section>
+### Requirement 1.1 Establish and implement firewall and router configuration standards that include the following:
+
+#### Requirement 1.1.1
+
+**Requirement&mdash;**A formal process for approving and testing all network connections and changes to the firewall and router configurations.
+
+##### Your responsibilities
+      
+Have people and processes to approve changes to configuration. Choose Infrastructure as Code (IaC).
+
 
 ## Build and Maintain a Secure Network and Systems
 
@@ -34,15 +52,7 @@ The hub and spoke topology in the baseline is a natural choice for a PCI DSS inf
 - Private cluster (mode). CDE is aks cluster. the manegement can require intenret so we want to make that private as well. Anything mnagement thing needs to happen through endpoint. For aks cluster there's an endpoit and DNS record. so it's not exposed to intenret; k8 control plane is not longer accisble. You have to provide access through a trusted network (internal). Bastiion. the host runs in a subnet that hosts a jumpbox. thats where you run kubectl for emergency access. regular operations through pipeline which needs access to that subnet. 
 
 
-## 1.1 Establish and implement firewall and router configuration standards that include the following:
 
-### Requirement 1.1.1
-
-**Requirement&mdash;**A formal process for approving and testing all network connections and changes to the firewall and router configurations.
-
-#### Your responsibilities
-      
-Have people and processes to approve changes to configuration. Choose Infrastructure as Code (IaC).
 
 ### Requirement 1.1.2
 Current network diagram that identifies all connections between the cardholder data environment and other networks, including any wireless networks
