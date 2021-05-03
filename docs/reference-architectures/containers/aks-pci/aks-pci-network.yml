@@ -19,9 +19,8 @@ azureCategories:
   - containers
 summary: Learn how to deploy a microservices architecture on Azure Kubernetes Service (AKS).
 products:
-  - azure-active-directory
-  - azure-container-registry
   - azure-kubernetes-service
+  - azure-firewall
   - azure-load-balancer
   - azure-monitor
   - azure-pipelines

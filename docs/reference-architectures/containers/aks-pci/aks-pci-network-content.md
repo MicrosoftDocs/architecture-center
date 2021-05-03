@@ -39,7 +39,44 @@ The hub and spoke topology in the baseline is a natural choice for a PCI DSS inf
 
 ##### Your responsibilities
       
-Have people and processes to approve changes to configuration. Choose Infrastructure as Code (IaC).
+Don't implement configurations manually. Instead, use Infrastructure as code (IaC). With IaC, infrastructure is managed through a descriptive model that uses a versioning system. IaC model generates the same environment every time it's applied. Common examples of IaC are Azure Resource Manager or Terraform.
+
+Have a gated approval process that involves people and processes to approve changes to any network configuration. Have detailed documentation that describes the process. 
+
+<chad: to give input around can the approval process be automated, who should be responsible and how is that incorporated in the pipeline.>
+
+### Requirement 1.1.2
+Current network diagram that identifies all connections between the cardholder data environment and other networks, including any wireless networks
+
+#### Your responsibilities
+
+As part of your documentation, maintain a network flow diagram that shows the incoming and outgoing traffic with specific controls.
+
+This image shows the network diagram of the reference implementation.
+
+![Network topology](./images/network-topology.svg)
+
+:::image type="content" source="./images/network-topology-small.png" alt-text="Network topology" lightbox="network-topology.svg":::
+
+**Figure 1.1.2 - Network flow**
+
+
+- Incoming traffic from the internet to the workload running in the cluster. All traffic is intercepted by Azure Application Gateway provisioned in a subnet that is secured by a network security group (NSG). Application Gateway has an integrated web application firewall (WAF) that has  rules to inspect and route traffic to the configured backend. For example, Application Gateway only allows: 
+    - TLS-encrypted traffic. 
+    - Traffic for within a port range for control plane communication from the Azure infrastructure. 
+    - Health probes to check the health of the internal load balancer. 
+
+The traffic flow is same as the baseline architecture. For more information, see [Ingress traffic flow](/azure/architecture/reference-architectures/containers/aks/secure-baseline-aks#ingress-traffic-flow).
+
+<chad: You must allow incoming Internet traffic on TCP ports 65503-65534 for the Application Gateway v1 SKU, and TCP ports 65200-65535 for the v2 SKU with the destination subnet as Any and source as GatewayManager service tag.  This is set to any>
+
+
+- Outgoing traffic from any network provisioned as part of the architecture must go through Azure Firewall in the hub network. This choice protects The route is specified by  using user-defined routes (UDRs) on each subnet in the spoke vnet.  
+
+- Management and operational traffic**&mdash;
+- Communication between the cluster to other services**&mdash;
+- Communication between the pods in the cluster**&mdash;
+
 
 
 ## Build and Maintain a Secure Network and Systems
@@ -54,17 +91,7 @@ Have people and processes to approve changes to configuration. Choose Infrastruc
 
 
 
-### Requirement 1.1.2
-Current network diagram that identifies all connections between the cardholder data environment and other networks, including any wireless networks
 
-#### Your responsibilities
-
-As part of your documentation, maintain a network flow diagram that shows the inbound and outbound traffic with specific controls.
-
-This image shows the network diagram from the reference implementation.
-
-![Network topology](./images/network-topology.svg)
-**Figure 1.1.2 - Network flow**
 
 #### Components
 
