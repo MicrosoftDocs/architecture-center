@@ -33,3 +33,4 @@ products:
 thumbnailUrl: /azure/architecture/browse/thumbs/enterprise-data-warehouse.png
 content: |
    [!include[](enterprise-data-warehouse-content.md)]
+   
