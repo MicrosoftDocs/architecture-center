@@ -15,13 +15,14 @@ The hub and spoke topology in the baseline is a natural choice for a PCI DSS inf
 
 |Requirement|Responsibility|
 |---|---|
-|[Requirement 1.1](#requirement-1-1)|Establish and implement firewall and router configuration standards.|
+|[Requirement 1.1](#requirement-11-establish-and-implement-firewall-and-router-configuration-standards-that-include-the-following)|Establish and implement firewall and router configuration standards.|
 |[Requirement 1.2](#requirement-1-2)|Build firewall and router configurations that restrict connections between untrusted networks and any system components in the cardholder data environment.|
 |[Requirement 1.3](#requirement-1-3)|Prohibit direct public access between the Internet and any system component in the cardholder data environment.|
 |[Requirement 1.4](#requirement-1-4)|Install personal firewall software or equivalent functionality on any portable computing devices (including company and/or employee-owned) that connect to the Internet when outside the network (for example, laptops used by employees), and which are also used to access the CDE. |
 |[Requirement 1.5](#requirement-1-5)|Ensure that security policies and operational procedures for managing firewalls are documented, in use, and known to all affected parties.|
 
 **Requirement 2**&mdash;Do not use vendor-supplied defaults for system passwords and other security parameters.
+
 |Requirement|Responsibility|
 |---|---|
 |[Requirement 2.1](#requirement-2-1)|Always change vendor-supplied defaults and remove or disable unnecessary default accounts before installing a system on the network.|
@@ -45,10 +46,10 @@ Have a gated approval process that involves people and processes to approve chan
 
 <chad: to give input around can the approval process be automated, who should be responsible and how is that incorporated in the pipeline.>
 
-### Requirement 1.1.2
+#### Requirement 1.1.2
 Current network diagram that identifies all connections between the cardholder data environment and other networks, including any wireless networks
 
-#### Your responsibilities
+##### Your responsibilities
 
 As part of your documentation, maintain a network flow diagram that shows the incoming and outgoing traffic with specific controls.
 
