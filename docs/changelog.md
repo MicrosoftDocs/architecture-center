@@ -25,7 +25,7 @@ New and updated articles in Azure Architecture Center
 
 ## May 2021
 
-### New Articles
+### New articles
 
 - [Mainframe access to Azure databases](./solution-ideas/articles/mainframe-access-azure-databases.yml)
 
