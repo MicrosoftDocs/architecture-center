@@ -1,22 +1,22 @@
 ### YamlMime:Architecture
 metadata:
-  title: 'Transportation - Environment monitoring and supply chain'
-  titleSuffix: Azure Example Scenarios
-  description: Learn how to use Azure IoT for environment monitoring and supply chain optimization
+  title: Environment monitoring and supply chain optimization with IoT
+  titleSuffix: Azure Solution Ideas
+  description: Learn how to use Azure IoT for environment monitoring and supply chain optimization.
   author: onaim-msft
-  ms.date: 04/09/2021
+  ms.date: 05/03/2021
   ms.topic: conceptual
   ms.service: architecture-center
-  ms.subservice: example-scenario
+  ms.subservice: solution-idea
   ms.category:
     - iot
   ms.custom:
     - fcp
-    - example-scenario
-name: 'Transportation - Environment monitoring and supply chain'
+    - solution-idea
+name: Environment monitoring and supply chain optimization with IoT
 azureCategories:
   - iot
-summary: Learn how to use Azure IoT for environment monitoring and supply chain optimization
+summary: Learn how to use Azure IoT for environment monitoring and supply chain optimization.
 products:
   - azure-functions
   - azure-iot
