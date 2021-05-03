@@ -2,12 +2,84 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id/>
     <title>Azure Architecture Center</title>
-    <updated>2021-04-26T13:08:55.278Z</updated>
+    <updated>2021-05-03T22:18:35.881Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <subtitle>Updated articles for Azure Architecture Center</subtitle>
     <rights>https://docs.microsoft.com/legal/termsofuse</rights>
     <category term="new"/>
     <category term="updated"/>
+    <entry>
+        <title type="html"><![CDATA[Mainframe access to Azure databases]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/solution-ideas/articles/mainframe-access-azure-databases</id>
+        <link href="https://docs.microsoft.com/azure/architecture/solution-ideas/articles/mainframe-access-azure-databases"/>
+        <updated>2021-05-03T18:01:53.000Z</updated>
+        <summary type="html"><![CDATA[Give mainframe applications access to Azure data without changing code. Use Microsoft Service for DRDA to run Db2 SQL statements on a SQL Server database.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Challenges of monitoring distributed architectures]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/framework/scalability/design-distributed</id>
+        <link href="https://docs.microsoft.com/azure/architecture/framework/scalability/design-distributed"/>
+        <updated>2021-04-29T00:09:32.000Z</updated>
+        <summary type="html"><![CDATA[Team expertise, scaling issues, antipatterns, and resiliency tracking issues when monitoring for performance efficiency]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Performance data integration]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/framework/scalability/monitor-analyze</id>
+        <link href="https://docs.microsoft.com/azure/architecture/framework/scalability/monitor-analyze"/>
+        <updated>2021-04-29T00:09:32.000Z</updated>
+        <summary type="html"><![CDATA[Analyze performance data holistically to detect fault types, bottlenecks regressions, and health states.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Application profiling considerations for performance monitoring]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/framework/scalability/monitor-application</id>
+        <link href="https://docs.microsoft.com/azure/architecture/framework/scalability/monitor-application"/>
+        <updated>2021-04-29T00:09:32.000Z</updated>
+        <summary type="html"><![CDATA[Collect instrumentation data from the application and correlated events across the entire stack.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Infrastructure metrics and logs]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/framework/scalability/monitor-infrastructure</id>
+        <link href="https://docs.microsoft.com/azure/architecture/framework/scalability/monitor-infrastructure"/>
+        <updated>2021-04-29T00:09:32.000Z</updated>
+        <summary type="html"><![CDATA[View platform metrics and logs to get visibility into the health and performance of services that are part of the architecture.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Monitor performance for scalability and reliability]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/framework/scalability/monitor-scalability-reliability</id>
+        <link href="https://docs.microsoft.com/azure/architecture/framework/scalability/monitor-scalability-reliability"/>
+        <updated>2021-04-29T00:09:32.000Z</updated>
+        <summary type="html"><![CDATA[Monitoring strategy should take into consideration scalability and reliability of the infrastructure, application, and dependent services.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Optimize scalability and reliability of cloud applications]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/framework/scalability/optimize</id>
+        <link href="https://docs.microsoft.com/azure/architecture/framework/scalability/optimize"/>
+        <updated>2021-04-29T00:09:32.000Z</updated>
+        <summary type="html"><![CDATA[Determine options for improvement based on the monitored data.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Principles of the performance efficiency]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/framework/scalability/principles</id>
+        <link href="https://docs.microsoft.com/azure/architecture/framework/scalability/principles"/>
+        <updated>2021-04-29T00:09:32.000Z</updated>
+        <summary type="html"><![CDATA[Describes the performance efficiency guiding principles]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Resilient identity and access management with Azure Active Directory (Azure AD)]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/guide/resilience/resilience-overview</id>
+        <link href="https://docs.microsoft.com/azure/architecture/guide/resilience/resilience-overview"/>
+        <updated>2021-04-26T21:27:56.000Z</updated>
+        <summary type="html"><![CDATA[Read this guide to learn how architects, IT administrators, and developers can build resilience to disruption of their identity systems.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Health data consortium on Azure]]></title>
         <id>https://docs.microsoft.com/azure/architecture/example-scenario/data/azure-health-data-consortium</id>
@@ -127,6 +199,86 @@
         <updated>2021-04-05T20:27:40.000Z</updated>
         <summary type="html"><![CDATA[DevOps considerations to ensure security and feature enhancements can be quickly deployed.]]></summary>
         <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Performance testing]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/framework/scalability/performance-test</id>
+        <link href="https://docs.microsoft.com/azure/architecture/framework/scalability/performance-test"/>
+        <updated>2021-04-29T00:09:32.000Z</updated>
+        <summary type="html"><![CDATA[Describes testing considerations for performance efficiency]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Connect an on-premises network to Azure using ExpressRoute]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/expressroute-vpn-failover</id>
+        <link href="https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/expressroute-vpn-failover"/>
+        <updated>2021-04-29T17:54:51.000Z</updated>
+        <summary type="html"><![CDATA[Implement a highly available and secure site-to-site network architecture that spans an Azure virtual network and an on-premises network connected using ExpressRoute with VPN gateway failover.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[AWS to Azure services comparison]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/aws-professional/services</id>
+        <link href="https://docs.microsoft.com/azure/architecture/aws-professional/services"/>
+        <updated>2021-04-28T17:22:52.000Z</updated>
+        <summary type="html"><![CDATA[Compare Azure cloud services to Amazon Web Services (AWS) for multicloud solutions or migration to Azure.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Integrate on-premises AD domains with Azure AD]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/reference-architectures/identity/azure-ad</id>
+        <link href="https://docs.microsoft.com/azure/architecture/reference-architectures/identity/azure-ad"/>
+        <updated>2021-04-28T14:07:31.000Z</updated>
+        <summary type="html"><![CDATA[Implement a secure hybrid network architecture using Azure Active Directory (Azure AD).]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Hub-spoke network topology in Azure]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke</id>
+        <link href="https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke"/>
+        <updated>2021-04-28T04:59:37.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to implement a hub-spoke topology in Azure, where the hub is a virtual network and the spokes are virtual networks that peer with the hub.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[AI enrichment with image and text processing]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/solution-ideas/articles/cognitive-search-with-skillsets</id>
+        <link href="https://docs.microsoft.com/azure/architecture/solution-ideas/articles/cognitive-search-with-skillsets"/>
+        <updated>2021-04-27T19:35:37.000Z</updated>
+        <summary type="html"><![CDATA[Transform latent information in your image and text data into full text searchable content with Azure Cognitive Search pre-built and custom skills.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Customer support and feedback analysis]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/solution-ideas/articles/customer-feedback-and-analytics</id>
+        <link href="https://docs.microsoft.com/azure/architecture/solution-ideas/articles/customer-feedback-and-analytics"/>
+        <updated>2021-04-26T19:37:46.000Z</updated>
+        <summary type="html"><![CDATA[Knowledge mining can help customer support teams quickly find answers to customer questions or assess customer sentiment at scale.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Knowledge mining in digital asset management]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/solution-ideas/articles/digital-asset-management</id>
+        <link href="https://docs.microsoft.com/azure/architecture/solution-ideas/articles/digital-asset-management"/>
+        <updated>2021-04-26T16:28:23.000Z</updated>
+        <summary type="html"><![CDATA[Use digital asset management to mine knowledge and find information. Ingest unstructured and structured data, enrich it with AI, and explore it via search.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Auditing, risk, and compliance management]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/solution-ideas/articles/auditing-and-risk-compliance</id>
+        <link href="https://docs.microsoft.com/azure/architecture/solution-ideas/articles/auditing-and-risk-compliance"/>
+        <updated>2021-04-26T15:39:31.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to use knowledge mining to help attorneys quickly find information from discovery documents and flag important ideas across documents.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Knowledge mining for content research]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/solution-ideas/articles/content-research</id>
+        <link href="https://docs.microsoft.com/azure/architecture/solution-ideas/articles/content-research"/>
+        <updated>2021-04-26T14:28:23.000Z</updated>
+        <summary type="html"><![CDATA[Knowledge mining with a search index makes it easy for customers and employees to locate what they are looking for faster.]]></summary>
+        <category label="updated" term="updated"/>
     </entry>
     <entry>
         <title type="html"><![CDATA[Knowledge mining in contract management]]></title>
@@ -294,14 +446,6 @@
         <link href="https://docs.microsoft.com/azure/architecture/reference-architectures/data/stream-processing-databricks"/>
         <updated>2021-04-06T15:19:22.000Z</updated>
         <summary type="html"><![CDATA[Create an end-to-end stream processing pipeline in Azure using Azure Databricks.]]></summary>
-        <category label="updated" term="updated"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Integrate on-premises AD domains with Azure AD]]></title>
-        <id>https://docs.microsoft.com/azure/architecture/reference-architectures/identity/azure-ad</id>
-        <link href="https://docs.microsoft.com/azure/architecture/reference-architectures/identity/azure-ad"/>
-        <updated>2021-04-06T15:19:22.000Z</updated>
-        <summary type="html"><![CDATA[Implement a secure hybrid network architecture using Azure Active Directory (Azure AD).]]></summary>
         <category label="updated" term="updated"/>
     </entry>
     <entry>
@@ -1190,222 +1334,6 @@
         <link href="https://docs.microsoft.com/azure/architecture/reference-architectures/serverless/event-processing"/>
         <updated>2021-02-04T18:53:34.000Z</updated>
         <summary type="html"><![CDATA[This article presents a reference architecture for serverless event ingestion and processing using Azure Functions.]]></summary>
-        <category label="updated" term="updated"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Operational Excellence patterns]]></title>
-        <id>https://docs.microsoft.com/azure/architecture/framework/devops/devops-patterns</id>
-        <link href="https://docs.microsoft.com/azure/architecture/framework/devops/devops-patterns"/>
-        <updated>2021-01-27T01:09:47.000Z</updated>
-        <summary type="html"><![CDATA[Use these management and monitoring patterns to support cloud applications, which offer special challenges because the applications run in a remote datacenter.]]></summary>
-        <category label="new" term="new"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Reliability patterns]]></title>
-        <id>https://docs.microsoft.com/azure/architecture/framework/resiliency/reliability-patterns</id>
-        <link href="https://docs.microsoft.com/azure/architecture/framework/resiliency/reliability-patterns"/>
-        <updated>2021-01-27T01:09:47.000Z</updated>
-        <summary type="html"><![CDATA[Learn about availability, high availability, and resiliency as they relate to reliability.]]></summary>
-        <category label="new" term="new"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Performance Efficiency patterns]]></title>
-        <id>https://docs.microsoft.com/azure/architecture/framework/scalability/performance-efficiency-patterns</id>
-        <link href="https://docs.microsoft.com/azure/architecture/framework/scalability/performance-efficiency-patterns"/>
-        <updated>2021-01-27T01:09:47.000Z</updated>
-        <summary type="html"><![CDATA[Use these performance efficiency patterns to address variable workloads and peaks in activity for cloud applications.]]></summary>
-        <category label="new" term="new"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Security patterns]]></title>
-        <id>https://docs.microsoft.com/azure/architecture/framework/security/security-patterns</id>
-        <link href="https://docs.microsoft.com/azure/architecture/framework/security/security-patterns"/>
-        <updated>2021-01-27T01:09:47.000Z</updated>
-        <summary type="html"><![CDATA[Use these security patterns to help design and deploy applications in a way that protects them from attacks, restricts access, and protects sensitive data.]]></summary>
-        <category label="new" term="new"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Cloud design patterns]]></title>
-        <id>https://docs.microsoft.com/azure/architecture/patterns/index-patterns</id>
-        <link href="https://docs.microsoft.com/azure/architecture/patterns/index-patterns"/>
-        <updated>2021-01-27T01:09:47.000Z</updated>
-        <summary type="html"><![CDATA[Design patterns for building reliable, scalable, secure applications in the cloud.]]></summary>
-        <category label="new" term="new"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Monitoring for performance efficiency]]></title>
-        <id>https://docs.microsoft.com/azure/architecture/framework/scalability/monitor</id>
-        <link href="https://docs.microsoft.com/azure/architecture/framework/scalability/monitor"/>
-        <updated>2021-01-12T03:34:34.000Z</updated>
-        <summary type="html"><![CDATA[Considerations for using monitoring for performance efficiency]]></summary>
-        <category label="new" term="new"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Restrict interservice communications]]></title>
-        <id>https://docs.microsoft.com/azure/architecture/example-scenario/service-to-service/restrict-communications</id>
-        <link href="https://docs.microsoft.com/azure/architecture/example-scenario/service-to-service/restrict-communications"/>
-        <updated>2021-01-30T00:13:48.000Z</updated>
-        <summary type="html"><![CDATA[Restrict communications between two Azure App Service backend services on both the application and network layers.]]></summary>
-        <category label="new" term="new"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Replicate and sync mainframe data in Azure]]></title>
-        <id>https://docs.microsoft.com/azure/architecture/reference-architectures/migration/sync-mainframe-data-with-azure</id>
-        <link href="https://docs.microsoft.com/azure/architecture/reference-architectures/migration/sync-mainframe-data-with-azure"/>
-        <updated>2021-01-22T22:18:38.000Z</updated>
-        <summary type="html"><![CDATA[Replicate data while modernizing mainframe and midrange systems. Sync on-premises data with Azure data during modernization.]]></summary>
-        <category label="new" term="new"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Alerting for DevOps]]></title>
-        <id>https://docs.microsoft.com/azure/architecture/framework/devops/alerts</id>
-        <link href="https://docs.microsoft.com/azure/architecture/framework/devops/alerts"/>
-        <updated>2021-01-21T17:32:11.000Z</updated>
-        <summary type="html"><![CDATA[Describes how to use alerts in a well-architected application.]]></summary>
-        <category label="new" term="new"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Data encryption in Azure]]></title>
-        <id>https://docs.microsoft.com/azure/architecture/framework/security/design-storage-encryption</id>
-        <link href="https://docs.microsoft.com/azure/architecture/framework/security/design-storage-encryption"/>
-        <updated>2021-01-13T18:10:59.000Z</updated>
-        <summary type="html"><![CDATA[Protect data in transit and at rest through encryption in Azure.]]></summary>
-        <category label="new" term="new"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Key and secret management in Azure]]></title>
-        <id>https://docs.microsoft.com/azure/architecture/framework/security/design-storage-keys</id>
-        <link href="https://docs.microsoft.com/azure/architecture/framework/security/design-storage-keys"/>
-        <updated>2021-01-13T18:10:59.000Z</updated>
-        <summary type="html"><![CDATA[Protect keys by storing in them in managed key store.]]></summary>
-        <category label="new" term="new"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Caching data for performance optimization]]></title>
-        <id>https://docs.microsoft.com/azure/architecture/framework/scalability/optimize-cache</id>
-        <link href="https://docs.microsoft.com/azure/architecture/framework/scalability/optimize-cache"/>
-        <updated>2021-01-12T03:25:06.000Z</updated>
-        <summary type="html"><![CDATA[Caching considerations for performance optimization]]></summary>
-        <category label="new" term="new"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Partitioning data for performance optimization]]></title>
-        <id>https://docs.microsoft.com/azure/architecture/framework/scalability/optimize-partition</id>
-        <link href="https://docs.microsoft.com/azure/architecture/framework/scalability/optimize-partition"/>
-        <updated>2021-01-12T03:25:06.000Z</updated>
-        <summary type="html"><![CDATA[Partitioning considerations for performance optimization]]></summary>
-        <category label="new" term="new"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Sustain performance efficiency over time]]></title>
-        <id>https://docs.microsoft.com/azure/architecture/framework/scalability/optimize-sustain</id>
-        <link href="https://docs.microsoft.com/azure/architecture/framework/scalability/optimize-sustain"/>
-        <updated>2021-01-12T03:25:06.000Z</updated>
-        <summary type="html"><![CDATA[Considerations for sustaining performance optimization over time]]></summary>
-        <category label="new" term="new"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[AKS Day-2 Operations Guide - Patch and upgrade guidance]]></title>
-        <id>https://docs.microsoft.com/azure/architecture/operator-guides/aks/aks-upgrade-practices</id>
-        <link href="https://docs.microsoft.com/azure/architecture/operator-guides/aks/aks-upgrade-practices"/>
-        <updated>2021-01-12T00:58:03.000Z</updated>
-        <summary type="html"><![CDATA[Learn about day-2 patching and upgrading practices for Azure Kubernetes Service (AKS) worker nodes and Kubernetes (K8S) versions.]]></summary>
-        <category label="new" term="new"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Azure Kubernetes Service (AKS) day-2 operations guide]]></title>
-        <id>https://docs.microsoft.com/azure/architecture/operator-guides/aks/day-2-operations-guide</id>
-        <link href="https://docs.microsoft.com/azure/architecture/operator-guides/aks/day-2-operations-guide"/>
-        <updated>2021-01-12T00:58:03.000Z</updated>
-        <summary type="html"><![CDATA[Learn about AKS day-2 operations like triage, patching, upgrading, and troubleshooting.]]></summary>
-        <category label="new" term="new"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Checklist - Design for performance efficiency]]></title>
-        <id>https://docs.microsoft.com/azure/architecture/framework/scalability/design-checklist</id>
-        <link href="https://docs.microsoft.com/azure/architecture/framework/scalability/design-checklist"/>
-        <updated>2021-01-11T22:48:58.000Z</updated>
-        <summary type="html"><![CDATA[Checklist guidance for design concerns for Azure performance efficiency.]]></summary>
-        <category label="new" term="new"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Checklist - Testing for performance efficiency]]></title>
-        <id>https://docs.microsoft.com/azure/architecture/framework/scalability/test-checklist</id>
-        <link href="https://docs.microsoft.com/azure/architecture/framework/scalability/test-checklist"/>
-        <updated>2021-01-11T22:48:58.000Z</updated>
-        <summary type="html"><![CDATA[Checklist guidance for testing concerns for Azure performance efficiency.]]></summary>
-        <category label="new" term="new"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Master Data Management with Azure and CluedIn]]></title>
-        <id>https://docs.microsoft.com/azure/architecture/reference-architectures/data/cluedin</id>
-        <link href="https://docs.microsoft.com/azure/architecture/reference-architectures/data/cluedin"/>
-        <updated>2021-01-07T04:12:02.000Z</updated>
-        <summary type="html"><![CDATA[Use CluedIn eventual connectivity data integration to blend data from many siloed data sources and prepare it for analytics and business operations.]]></summary>
-        <category label="new" term="new"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Data protection in Azure]]></title>
-        <id>https://docs.microsoft.com/azure/architecture/framework/security/design-storage</id>
-        <link href="https://docs.microsoft.com/azure/architecture/framework/security/design-storage"/>
-        <updated>2021-01-13T18:10:59.000Z</updated>
-        <summary type="html"><![CDATA[Design considerations about securing and encrypting data storage in Azure.]]></summary>
-        <category label="updated" term="updated"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Backup and disaster recovery for Azure applications]]></title>
-        <id>https://docs.microsoft.com/azure/architecture/framework/resiliency/backup-and-recovery</id>
-        <link href="https://docs.microsoft.com/azure/architecture/framework/resiliency/backup-and-recovery"/>
-        <updated>2021-01-28T19:05:24.000Z</updated>
-        <summary type="html"><![CDATA[Overview of disaster recovery approaches in Azure]]></summary>
-        <category label="updated" term="updated"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Field and cloud edge gateways]]></title>
-        <id>https://docs.microsoft.com/azure/architecture/example-scenario/iot/field-cloud-edge-gateways</id>
-        <link href="https://docs.microsoft.com/azure/architecture/example-scenario/iot/field-cloud-edge-gateways"/>
-        <updated>2021-01-25T20:42:50.000Z</updated>
-        <summary type="html"><![CDATA[Learn about the capabilities of IoT Edge field gateways and protocol cloud gateways.]]></summary>
-        <category label="updated" term="updated"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Monitoring for DevOps]]></title>
-        <id>https://docs.microsoft.com/azure/architecture/framework/devops/monitoring</id>
-        <link href="https://docs.microsoft.com/azure/architecture/framework/devops/monitoring"/>
-        <updated>2021-01-14T00:17:24.000Z</updated>
-        <summary type="html"><![CDATA[Describes how to monitor your workload to ensure your DevOps infrastructure is working as intended.]]></summary>
-        <category label="updated" term="updated"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Business Metrics]]></title>
-        <id>https://docs.microsoft.com/azure/architecture/framework/resiliency/business-metrics</id>
-        <link href="https://docs.microsoft.com/azure/architecture/framework/resiliency/business-metrics"/>
-        <updated>2021-01-12T20:57:02.000Z</updated>
-        <summary type="html"><![CDATA[Use business metrics to design resilient Azure applications]]></summary>
-        <category label="updated" term="updated"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Design for scaling]]></title>
-        <id>https://docs.microsoft.com/azure/architecture/framework/scalability/design-scale</id>
-        <link href="https://docs.microsoft.com/azure/architecture/framework/scalability/design-scale"/>
-        <updated>2021-01-12T20:16:17.000Z</updated>
-        <summary type="html"><![CDATA[Describes the scaling options for performance efficiency]]></summary>
-        <category label="updated" term="updated"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Background jobs guidance]]></title>
-        <id>https://docs.microsoft.com/azure/architecture/best-practices/background-jobs</id>
-        <link href="https://docs.microsoft.com/azure/architecture/best-practices/background-jobs"/>
-        <updated>2021-01-07T01:20:42.000Z</updated>
-        <summary type="html"><![CDATA[Learn about background tasks that run independently of the user interface, such as batch jobs, intensive processing tasks, and long-running processes.]]></summary>
-        <category label="updated" term="updated"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Tradeoffs for performance efficiency]]></title>
-        <id>https://docs.microsoft.com/azure/architecture/framework/scalability/tradeoffs</id>
-        <link href="https://docs.microsoft.com/azure/architecture/framework/scalability/tradeoffs"/>
-        <updated>2021-01-06T22:20:47.000Z</updated>
-        <summary type="html"><![CDATA[Discover the pros and cons of performance optimization. Learn about tradeoffs between performance efficiency, operational excellence, reliability, scalability, and more.]]></summary>
         <category label="updated" term="updated"/>
     </entry>
 </feed>
