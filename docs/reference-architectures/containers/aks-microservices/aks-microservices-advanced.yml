@@ -21,6 +21,6 @@ products:
   - azure-container-registry
   - azure-kubernetes-service
   - azure-virtual-network
-thumbnailUrl: /azure/architecture/browse/thumbs/aks-advanced-deployment.png
+thumbnailUrl: /azure/architecture/browse/thumbs/default.png
 content: |
    [!include[](aks-microservics-advanced-content.md)]
