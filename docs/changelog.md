@@ -32,7 +32,7 @@ New and updated articles in Azure Architecture Center
 
 ## April 2021
 
-### New Articles
+### New articles
 
 - [Challenges of monitoring distributed architectures](./framework/scalability/design-distributed.md)
 - [Performance data integration](./framework/scalability/monitor-analyze.md)
@@ -58,7 +58,7 @@ New and updated articles in Azure Architecture Center
 - [Security of infrastructure deployment in Azure](./framework/security/deploy-infrastructure.md)
 - [Secure deployment in Azure](./framework/security/deploy.md)
 
-### Updated Articles
+### Updated articles
 
 - [Performance testing](./framework/scalability/performance-test.md)  ([#e0da81093](https://github.com/MicrosoftDocs/architecture-center/commit/e0da81093))
 - [Connect an on-premises network to Azure using ExpressRoute](./reference-architectures/hybrid-networking/expressroute-vpn-failover.yml)  ([#c7658b1e4](https://github.com/MicrosoftDocs/architecture-center/commit/c7658b1e4))
@@ -218,4 +218,3 @@ New and updated articles in Azure Architecture Center
 - [Attestation, authentication, and provisioning](./example-scenario/iot/attestation-provisioning.yml)  ([#c68ae5ffd](https://github.com/MicrosoftDocs/architecture-center/commit/c68ae5ffd))
 - [Controlling IoT devices using a Voice Assistant](./solution-ideas/articles/iot-controlling-devices-with-voice-assistant.yml)  ([#c68ae5ffd](https://github.com/MicrosoftDocs/architecture-center/commit/c68ae5ffd))
 - [Serverless event processing](./reference-architectures/serverless/event-processing.yml)  ([#d7256cda4](https://github.com/MicrosoftDocs/architecture-center/commit/d7256cda4))
-
