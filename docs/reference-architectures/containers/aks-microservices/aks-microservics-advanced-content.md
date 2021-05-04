@@ -16,7 +16,7 @@ This architecture uses the following Azure components:
 
 The AKS infrastructure features used in this architecture include:
 
-  - [System and user node pool separation](/azure/aks/use-system-pools#system-and-user-node-pools)
+  - [System and user nodepool separation](/azure/aks/use-system-pools#system-and-user-node-pools)
   - [AKS-managed Azure AD for role-based access control (RBAC)](/azure/aks/managed-aad)
   - [Azure AD pod-managed identities](/azure/aks/use-azure-ad-pod-identity)
   - [Azure Policy Add-on for AKS](/azure/aks/use-pod-security-on-azure-policy)
@@ -212,7 +212,7 @@ CA and HPA work well together, so enable both autoscaler options in your AKS clu
 
 The following example sets resource metrics for HPA:
 
-```yml
+```yaml
 
 apiVersion: autoscaling/v2beta2
 kind: HorizontalPodAutoscaler
@@ -281,7 +281,7 @@ Consider the following points when planning for scalability.
 
 - You can't change the VM size after creating a cluster, so do initial capacity planning to choose an appropriate VM size for the agent nodes when you create the cluster.
 
-- Multi-tenant or other advanced workloads might have node pool isolation requirements that demand more and likely smaller subnets. For more information about creating node pools with unique subnets, currently in public preview, see [Add a node pool with a unique subnet (preview)](/azure/aks/use-multiple-node-pools#add-a-node-pool-with-a-unique-subnet-preview). Organizations have different standards for their hub-spoke implementations. Be sure to follow your organizational guidelines.
+- Multi-tenant or other advanced workloads might have nodepool isolation requirements that demand more and likely smaller subnets. For more information about creating node pools with unique subnets, currently in public preview, see [Add a nodepool with a unique subnet (preview)](/azure/aks/use-multiple-node-pools#add-a-node-pool-with-a-unique-subnet-preview). Organizations have different standards for their hub-spoke implementations. Be sure to follow your organizational guidelines.
 
 ## Manageability considerations
 
