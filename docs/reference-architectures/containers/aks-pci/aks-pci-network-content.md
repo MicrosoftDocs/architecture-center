@@ -21,6 +21,8 @@ The hub and spoke topology in the baseline is a natural choice for a PCI DSS inf
 |[Requirement 1.4](#requirement-1-4)|Install personal firewall software or equivalent functionality on any portable computing devices (including company and/or employee-owned) that connect to the Internet when outside the network (for example, laptops used by employees), and which are also used to access the CDE. |
 |[Requirement 1.5](#requirement-1-5)|Ensure that security policies and operational procedures for managing firewalls are documented, in use, and known to all affected parties.|
 
+***
+
 **Requirement 2**&mdash;Do not use vendor-supplied defaults for system passwords and other security parameters.
 
 |Requirement|Responsibility|
@@ -32,11 +34,11 @@ The hub and spoke topology in the baseline is a natural choice for a PCI DSS inf
 |[Requirement 2.5](#requirement-2-5)|Ensure that security policies and operational procedures for managing vendor defaults and other security parameters are documented, in use, and known to all affected parties.|
 |[Requirement 2.6](#requirement-2-6)|Shared hosting providers must protect each entity’s hosted environment and cardholder data.|
 
-### Requirement 1.1 Establish and implement firewall and router configuration standards that include the following:
+### Requirement 1.1&mdash;Establish and implement firewall and router configuration standards that include the following:
 
 #### Requirement 1.1.1
 
-**Requirement&mdash;**A formal process for approving and testing all network connections and changes to the firewall and router configurations.
+A formal process for approving and testing all network connections and changes to the firewall and router configurations.
 
 ##### Your responsibilities
       
@@ -44,7 +46,7 @@ Don't implement configurations manually. Instead, use Infrastructure as code (Ia
 
 Have a gated approval process that involves people and processes to approve changes to any network configuration. Have detailed documentation that describes the process. 
 
-<chad: to give input around can the approval process be automated, who should be responsible and how is that incorporated in the pipeline.>
+<Ask Chad: to give input around can the approval process be automated, who should be responsible and how is that incorporated in the pipeline.>
 
 #### Requirement 1.1.2
 Current network diagram that identifies all connections between the cardholder data environment and other networks, including any wireless networks
@@ -61,154 +63,174 @@ This image shows the network diagram of the reference implementation.
 
 **Figure 1.1.2 - Network flow**
 
+The description of this flow is in the following sections. 
 
-- Incoming traffic from the internet to the workload running in the cluster. All traffic is intercepted by Azure Application Gateway provisioned in a subnet that is secured by a network security group (NSG). Application Gateway has an integrated web application firewall (WAF) that has  rules to inspect and route traffic to the configured backend. For example, Application Gateway only allows: 
+#### Requirement 1.1.3
+Current diagram that shows all cardholder data flows across systems and networks.
+##### Your responsibilities
+As part of your documentation, include a data flow diagram that shows how data is protected at rest and in transit.
+
+<Ask Chad: need a data diagram for this requirement>
+
+#### Requirement 1.1.4
+Requirements for a firewall at each Internet connection and between any demilitarized zone (DMZ) and the internal network zone.
+
+##### Your responsibilities
+      
+For a PCI DSS infrastructure, you're responsible for securing the AKS cluster using firewalls to block unauthorized access into and out of the cluster. Firewalls must be configured properly for a strong security posture. Firewall settings must be applied to:
+- Communication between the colocated components within the cluster.
+- Communication between the workload and other components in trusted networks.
+- Communication between the workload and public internet.
+
+By design, Azure Virtual Network cannot be directly reached by the public internet. All _incoming (or ingress) traffic_ must go through an intermediate traffic router. However, all components in the network can reach public endpoints. That _outgoing (or egress) traffic_ must be secured.
+
+This architecture uses different firewall technologies to inspect traffic in two directions: 
+
+-  Azure Application Gateway integrated web application firewall (WAF) is used as the traffic router and for securing ingress traffic to the cluster. 
+
+   This traffic can originate from trusted networks or internet. Application Gateway is provisioned in a subnet of the spoke network and secured by a network security group (NSG). WAF has rules to inspect and route traffic to the configured backend. For example, Application Gateway only allows: 
     - TLS-encrypted traffic. 
-    - Traffic for within a port range for control plane communication from the Azure infrastructure. 
-    - Health probes to check the health of the internal load balancer. 
+    - Traffic within a port range for control plane communication from the Azure infrastructure. 
+    - Health probes from the internal load balancer. 
 
-The traffic flow is same as the baseline architecture. For more information, see [Ingress traffic flow](/azure/architecture/reference-architectures/containers/aks/secure-baseline-aks#ingress-traffic-flow).
+- Azure Firewall to secure all egress traffic from any network and its subnets. 
 
-<chad: You must allow incoming Internet traffic on TCP ports 65503-65534 for the Application Gateway v1 SKU, and TCP ports 65200-65535 for the v2 SKU with the destination subnet as Any and source as GatewayManager service tag.  This is set to any>
+   As part of processing a transaction or management operations, the cluster will need to communicate with external entities. For example, communication with the AKS control plane, getting windows and package updates, workload's interaction with external APIs, and others. Some of those interactions might be over HTTP and are attack vectors. Those vectors are targets for a man-in-the-middle attack that can result in data exfilteration. Adding firewall to egress traffic mitigates that threat. 
+   
+   Firewall is provisioned in a subnet of the hub network. To enforce Firewall as the single egress point, user-defined routes (UDRs) are used on the cluster network subnets capable of generating egress traffic. After the traffic reaches Firewall, several scoped rules are applied that allows traffic from specific sources to go to specific targets.
 
-
-- Outgoing traffic from any network provisioned as part of the architecture must go through Azure Firewall in the hub network. This choice protects The route is specified by  using user-defined routes (UDRs) on each subnet in the spoke vnet.  
-
-- Management and operational traffic**&mdash;
-- Communication between the cluster to other services**&mdash;
-- Communication between the pods in the cluster**&mdash;
+   For more information, see  [Use Azure Firewall to protect Azure Kubernetes Service (AKS) Deployments](/azure/firewall/protect-azure-kubernetes-service).
 
 
+#### Requirement 1.1.5
+Description of groups, roles, and responsibilities for management of network components.
 
-## Build and Maintain a Secure Network and Systems
+##### Your responsibilities
+
+Have clear lines of responsibility around the network controls and the teams are responsible for them.
+
+- Network security&mdash;Configuration and maintenance of Azure Firewall, Network Virtual Appliances (and associated routing), Web Application Firewall (WAF), Network Security Groups, Application Security Groups (ASG), and other cross-network traffic.
+- Network operations&mdash;Enterprise-wide virtual network and subnet allocation.
+IT operations	Server endpoint security includes monitoring and remediating server security. This includes tasks such as patching, configuration, endpoint security,and so on.
+- Security operations&mdash;Incident monitoring and response to investigate and remediate security incidents in Security Information and Event Management (SIEM) or source console such as Azure Security Center Azure AD Identity Protection.
+
+Have detailed documentation that describes the process. 
+
+<Ask Chad: can we include examples>
+
+#### Requirement 1.1.6
+Documentation of business justification and approval for use of all services, protocols, and ports allowed, including documentation of security features implemented for those protocols considered to be insecure.
+
+##### Your responsibilities
+
+Have detailed documentation that describes the services, protocols, and ports used in the network controls. 
+
+All firewall rules must be scoped exclusively to their releated resources. That is, only traffic from specific sources is allowed to go to specific FQDN targets. Sources and targets are configurable at layer 4 and 7.  Here are some cases where you will need to allow traffic and specify filters:
+   
+   - NTP ? UDP
+   - Global?
+   
+      AzureKubernetesService FQDN tag keeps track of a set of AKS related endpoints. Using this tag is appropriate for traffic going to AKS control plane. 
+   - To automate workflows for cluster configuration, the agent such as Flux needs to talk to Kubernetes API. 
+   - Image updates
+   - Secured management through jump boxes. 
+
+For information about the required ports, see Microsoft's official documentation.
+
+<Ask Chad: can we include examples>
+
+#### Requirement 1.1.7
+Requirement to review firewall and router rule sets at least every six months.
+
+##### Your responsibilities
+
+Have processes that regularly review the network configurations and the scoped rules. This will make sure the security assurances are current and valid.
+
+<Ask Chad: can we include examples>
+
+#### Requirement 1.2&mdash;Build firewall and router configurations that restrict connections between untrusted networks and any system components in the cardholder data environment. 
+
+##### Your responsibilities
+
+Unstrusted networks are <TBD>
+
+Trusted networks are <TBD>
 
 
+Customers are responsible for deploying AKS workloads within a trusted network. Users should deploy AKS inside a private Azure vNet as a private cluster. More details about how to provision such cluster is available at: https://docs.microsoft.com/en-us/azure/aks/private-clusters
 
-- App gateway ()
-- CDE is not exposed to the internet. Not a publically routable vnet. no direct access. by default vnet does that. The hole to punched is for WAF. Fulfilled 
-- Outbound connections by default are open to internet. Secure that with hub's firewall. 
+With this private cfluster, users can leverage Azure Virtual Network, Nework Security Group and other built-in features to secure the entire environment.
+
+Refer to master matrix for general guidelines.
+
+
 - Private cluster (mode). CDE is aks cluster. the manegement can require intenret so we want to make that private as well. Anything mnagement thing needs to happen through endpoint. For aks cluster there's an endpoit and DNS record. so it's not exposed to intenret; k8 control plane is not longer accisble. You have to provide access through a trusted network (internal). Bastiion. the host runs in a subnet that hosts a jumpbox. thats where you run kubectl for emergency access. regular operations through pipeline which needs access to that subnet. 
 
 
+<Ask Chad: NSG flows to secure traffic between networks; Private endpoint to secure traffic to and from untrusted; firewalls >
+
+#### Requirement 1.2.1
+Restrict inbound and outbound traffic to that which is necessary for the cardholder data environment, and specifically deny all other traffic.
+
+##### Your responsibilities
+
+Implemented via Private Link (removing internet access) and requiring access to the Private Link IP be performed from authorized subnet(s) onlys. Implemented via NSG rules. Likewise, nodepool subnets should be wrapped with an NSG that allows only the same.
+
+
+#### Requirement 1.2.2
+Secure and synchronize router configuration files.
+
+##### Your responsibilities
+
+Use ARM templates (or similar) to have a record of the resources deployed.
+
+<Ask Chad: What about GitOps and Flux capacitor>
+
+#### Requirement 1.2.3
+
+Install perimeter firewalls between all wireless networks and the cardholder data environment, and configure these firewalls to deny or, if traffic is necessary for business purposes, permit only authorized traffic between the wireless environment and the cardholder data environment.
+
+##### Your responsibilities
+
+Ensure all Cluster API and Cluster Node access is restricted to authorized subnets, and secure access to those subnets (Azure Bastion, VPN Gateway, etc)
+
+<Ask Chad: Firewall scoped rules?>
+
+#### Requirement 1.3&mdash;Prohibit direct public access between the Internet and any system component in the cardholder data environment. 
+
+##### Your responsibilities
+All nodepool nodes must never have public IPs. All nodepool nodes must not directly be exposed via a public load balancer. All nodepool nodes should only be exposed via internal load balancers. Those internal load balancers then should be exposed via a WAF such as Application Gateway. You cluster API should NOT be exposed to the internet, you must run in a Private Cluster configuration.
+
+https//docs.microsoft.com/en-us/azure/aks/private-clusters
+
+#### Requirement 1.3.1
+
+Implement a DMZ to limit inbound traffic to only system components that provide authorized publicly accessible services, protocols, and ports.
+
+##### Your responsibilities
+
+Users can implement a DMZ to protect AKS clusters, as other services. Azure documentation for Cloud DMZ Design and Implementation steps can be found here: https://docs.microsoft.com/en-us/azure/cloud-adoption-framework/decision-guides/software-defined-network/cloud-dmz
+
+Refer to master matrix for general guidelines.
+
+#### Requirement 1.3.2
+
+Limit inbound Internet traffic to IP addresses within the DMZ.
+
+##### Your responsibilities
+
+NSG around internal load balancer should only accept traffic from WAF subnet. Nodepool node subnets should only accept workload traffic from load balancer subnet.
 
 
 
 
-#### Components
-
-##### Hub Vnet
-
-### Requirement 1.1.3
-Current diagram that shows all cardholder data flows across systems and networks.
-#### Your responsibilities
-Include a data flow diagram that shows how data is protected at rest and in transit
-
-### Requirement 1.1.4
-Requirements for a firewall at each Internet connection and between any demilitarized zone (DMZ) and the internal network zone.
-
-#### Your responsibilities
-      
-For a PCI DSS infrastructure, using firewalls to block unauthorized access into and out of the network is mandatory. This requirement applies to:
-- Communication to and from a pod from other pods.
-- Communication to and from a pod from/to other components in the architecture.
-- Communication to an from a pod from/to trusted networks.
-- Commuication to and from a pod from public internet.
-
-Firewalls are used to block unwanted access and manage authorized access into and out of the network. Firewalls must be configured properly for a strong security posture.
-
-The specific firewall configuration settings are determined by the organization. 
-
-Teams need to be aware of and following security policies and operational procedures to ensure firewalls and routers are continuously managed to prevent unauthorized access to the network.
-
-### Your responsibility
-"Customers are responsible for deploying AKS workloads behind a firewall. The recommended process of securing AKS with Azure Firewall to how to satisfy this requirement is available at: https://docs.microsoft.com/en-us/azure/firewall/protect-azure-kubernetes-service
-- create an appropriate DNAT rule in Firewall to correctly allow inbound traffic.
-
-1.1.2 Current network diagram that identifies all connections between the cardholder data environment and other networks, including any wireless networks
-
-1.1.3 Current diagram that shows all cardholder data flows across systems and networks
-1.1.4 Requirements for a firewall at each Internet connection and between any demilitarized zone (DMZ) and the internal network zone
-
-
-1.1.5 Description of groups, roles, and responsibilities for management of network components
-
-1.1.6 Documentation of business justification and approval for use of all services, protocols, and ports allowed, including documentation of security features implemented for those protocols considered to be insecure.
-
-
-1.1.7 Requirement to review firewall and router rule sets at least every six months
-
-
-
-**Requirement 2**&mdash;Do not use vendor-supplied defaults for system passwords and other security parameters
-
-***
-
-## Network topology
-![Network topology](./images/network-topology.svg)
-
-## Firewall configuration
-
-
-
-### Implementation considerations
-
-
-
-"People/Process
-Documentation
-Opt for IaC vs Azure Portal-based management
-"
-"Documentation.
-Azure Network diagrams can be pulled to jump start the documentation process."
-"Documentation.
-NSG Flow Logs can be used to help gather ""actuals"" vs ""expected"""
-"Azure firewall is used for egress traffic for all vnet-homed resources (cluster, Internal Load balancers, jump boxes, build agents). NSGs are applied to all subnets containing the same resources listed above. Workload is fronted by a WAF to manage ingress traffic. Azure Firewall may be addeded there as well.
-
-https://docs.microsoft.com/azure/firewall/protect-azure-kubernetes-service"
-"People/Process.
-Documentation.
-Azure RBAC + Dedicated Deployment Pipelines
-"
-"Documention.
-Gather required ports from Microsoft's documentation as vendor requirements.
-Ensure all firewall rules are scoped exclusively to their releated resources (apply rules to individual IP addresses or subnets (if all like kind) vs vnets)"
-People/Process
-
-
-### Azure services and capabilities
-There Azure services are relevant in fulfilling this requirement.
-:::row:::
-   :::column span="2":::
-      Azure virtual network
-      
-      A fundamental block for a private network in which you deploy resources. By default, the inbound traffic to those resources is denied; the resources can communicate with the internet.  
-
-   :::column-end:::
-   :::column span="":::
-      Capabilities
-
-        - Subnetting
-        - Private Link
-        - Peering
-   :::column-end:::
-:::row-end:::
-|Service|Features|
-|---|---|
-|Azure virtual network||
-is reponsible for network configurations on PaaS VMs and system settings that customers are not able to alter. 
-- VNet + NSG
-- VPN gateway/expressroute -- placeholder
-- WAF
-- Firewall
+### Requirement 2&mdash;Do not use vendor-supplied defaults for system passwords and other security parameters
 
 
 The services work as configured
 
 The Customer then configures these to their specifications and requirements. Microsoft Azure filters communication when coming into the platform.
 
-### AKS responsibility
-AKS cluster need to access certain ports and fully qualified domain names (FQDNs). These actions could be to communicate with the API server, or to download and then install core Kubernetes cluster components and node security updates. Azure Firewall can help you lock down your environment and filter outbound traffic.
-- FQDN tags AzureKubernetesService FQDN tag
 
 
 ### Reference implementation details

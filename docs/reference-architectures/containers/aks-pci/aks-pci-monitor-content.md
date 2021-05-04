@@ -8,8 +8,18 @@ This article describes the considerations for an Azure Kubernetes Service (AKS) 
 
 **Requirement 10**&mdash;Track and monitor all access to network resources and cardholder data
 
+Here are some ways to integrate network logs:
+
+Security group logs – flow logs and diagnostic logs
+Web application firewall logs
+Virtual network taps
+Azure Network Watcher
+
 **Requirement 11**&mdash;Regularly test security systems and processes
 ***
+
+
+
 
 ## Next
 
