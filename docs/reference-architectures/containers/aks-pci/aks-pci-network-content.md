@@ -77,27 +77,27 @@ Requirements for a firewall at each Internet connection and between any demilita
 
 ##### Your responsibilities
       
-For a PCI DSS infrastructure, you're responsible for securing the AKS cluster using firewalls to block unauthorized access into and out of the cluster. Firewalls must be configured properly for a strong security posture. Firewall settings must be applied to:
+For a PCI DSS infrastructure, you're responsible for securing the AKS cluster by using firewalls to block unauthorized access into and out of the cluster. Firewalls must be configured properly for a strong security posture. Firewall settings must be applied to:
 - Communication between the colocated components within the cluster.
 - Communication between the workload and other components in trusted networks.
 - Communication between the workload and public internet.
 
-By design, Azure Virtual Network cannot be directly reached by the public internet. All _incoming (or ingress) traffic_ must go through an intermediate traffic router. However, all components in the network can reach public endpoints. That _outgoing (or egress) traffic_ must be secured.
+By design, Azure Virtual Network cannot be directly reached by the public internet. All _incoming (or ingress) traffic_ must go through an intermediate traffic router. However, all components in the network can reach public endpoints. That _outgoing (or egress) traffic_ must be explicitly secured.
 
 This architecture uses different firewall technologies to inspect traffic in two directions: 
 
 -  Azure Application Gateway integrated web application firewall (WAF) is used as the traffic router and for securing ingress traffic to the cluster. 
 
-   This traffic can originate from trusted networks or internet. Application Gateway is provisioned in a subnet of the spoke network and secured by a network security group (NSG). WAF has rules to inspect and route traffic to the configured backend. For example, Application Gateway only allows: 
+   This traffic can originate from trusted networks or the internet. Application Gateway is provisioned in a subnet of the spoke network and secured by a network security group (NSG). As traffic flows in, WAF rules allow or deny, and route traffic to the configured backend. For example, Application Gateway only allows: 
     - TLS-encrypted traffic. 
     - Traffic within a port range for control plane communication from the Azure infrastructure. 
     - Health probes from the internal load balancer. 
 
-- Azure Firewall to secure all egress traffic from any network and its subnets. 
+- Azure Firewall is used to secure all egress traffic from any network and its subnets. 
 
-   As part of processing a transaction or management operations, the cluster will need to communicate with external entities. For example, communication with the AKS control plane, getting windows and package updates, workload's interaction with external APIs, and others. Some of those interactions might be over HTTP and are attack vectors. Those vectors are targets for a man-in-the-middle attack that can result in data exfilteration. Adding firewall to egress traffic mitigates that threat. 
+   As part of processing a transaction or management operations, the cluster will need to communicate with external entities. For example, communication with the AKS control plane, getting windows and package updates, workload's interaction with external APIs, and others. Some of those interactions might be over HTTP and should be considered as attack vectors. Those vectors are targets for a man-in-the-middle attack that can result in data exfilteration. Adding firewall to egress traffic mitigates that threat. 
    
-   Firewall is provisioned in a subnet of the hub network. To enforce Firewall as the single egress point, user-defined routes (UDRs) are used on the cluster network subnets capable of generating egress traffic. After the traffic reaches Firewall, several scoped rules are applied that allows traffic from specific sources to go to specific targets.
+   Firewall is provisioned in a subnet of the hub network. To enforce Firewall as the single egress point, user-defined routes (UDRs) are used on those subnets that are capable of generating egress traffic. After the traffic reaches Firewall, several scoped rules are applied that allow traffic from specific sources to go to specific targets.
 
    For more information, see  [Use Azure Firewall to protect Azure Kubernetes Service (AKS) Deployments](/azure/firewall/protect-azure-kubernetes-service).
 
@@ -109,12 +109,12 @@ Description of groups, roles, and responsibilities for management of network com
 
 Have clear lines of responsibility around the network controls and the teams are responsible for them.
 
-- Network security&mdash;Configuration and maintenance of Azure Firewall, Network Virtual Appliances (and associated routing), Web Application Firewall (WAF), Network Security Groups, Application Security Groups (ASG), and other cross-network traffic.
-- Network operations&mdash;Enterprise-wide virtual network and subnet allocation.
-IT operations	Server endpoint security includes monitoring and remediating server security. This includes tasks such as patching, configuration, endpoint security,and so on.
-- Security operations&mdash;Incident monitoring and response to investigate and remediate security incidents in Security Information and Event Management (SIEM) or source console such as Azure Security Center Azure AD Identity Protection.
+- Network security team&mdash;Configuration and maintenance of Azure Firewall, Network Virtual Appliances (and associated routing), Web Application Firewall (WAF), Network Security Groups, Application Security Groups (ASG), and other cross-network traffic.
+- Network operations team&mdash;Enterprise-wide virtual network and subnet allocation.
+- IT operations team&mdash;Server endpoint security includes monitoring and remediating server security. This includes tasks such as patching, configuration, endpoint security,and so on.
+- Security operations (SecOps) team&mdash;Incident monitoring and response to investigate and remediate security incidents in Security Information and Event Management (SIEM) or source console such as Azure Security Center Azure AD Identity Protection.
 
-Have detailed documentation that describes the process. 
+Have detailed documentation that describes the functions associated with each team. 
 
 <Ask Chad: can we include examples>
 
