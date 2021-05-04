@@ -9,30 +9,32 @@ This article describes the considerations for an Azure Kubernetes Service (AKS) 
 > The guidance in this article and the above-mentioned reference implementation builds on the [AKS baseline architecture](/azure/architecture/reference-architectures/containers/aks/secure-baseline-aks). That architecture based on a hub and spoke topology. The hub virtual network contains the firewall to control egress traffic, gateway traffic from on-premises networks, and a third network for maintainence. The spoke virtual network contains the AKS cluster that provides the card holder environment (CDE) and hosts the PCI DSS workload. 
 
 ## Build and Maintain a Secure Network and Systems
-The hub and spoke topology in the baseline is a natural choice for a PCI DSS infrastructure. Network controls are placed in both hub and spoke networks and follow the Microsoft zero-trust model. The controls can be tuned with least-privilege to secure traffic flowing in and out of the cluster. In addition, several defense-in-depth approaches can be applied by adding controls at each network hop. 
+The hub and spoke topology in the baseline is a natural choice for a PCI DSS infrastructure. Network controls are placed in both hub and spoke networks and follow the Microsoft zero-trust model. The controls can be tuned with least-privilege to secure traffic giving access on a need-to-know basis. In addition, several defense-in-depth approaches can be applied by adding controls at each network hop. 
 
-**Requirement 1**&mdash;Install and maintain a firewall configuration to protect cardholder data.
+[**Requirement 1**](#requirement-11establish-and-implement-firewall-and-router-configuration-standards-that-include-the-following)&mdash;Install and maintain a firewall configuration to protect cardholder data.
 
 |Requirement|Responsibility|
 |---|---|
 |[Requirement 1.1](#requirement-11establish-and-implement-firewall-and-router-configuration-standards-that-include-the-following)|Establish and implement firewall and router configuration standards.|
 |[Requirement 1.2](#requirement-12build-firewall-and-router-configurations-that-restrict-connections-between-untrusted-networks-and-any-system-components-in-the-cardholder-data-environment)|Build firewall and router configurations that restrict connections between untrusted networks and any system components in the cardholder data environment.|
 |[Requirement 1.3](#requirement-13prohibit-direct-public-access-between-the-internet-and-any-system-component-in-the-cardholder-data-environment)|Prohibit direct public access between the Internet and any system component in the cardholder data environment.|
-|[Requirement 1.4](#requirement-1-4)|Install personal firewall software or equivalent functionality on any portable computing devices (including company and/or employee-owned) that connect to the Internet when outside the network (for example, laptops used by employees), and which are also used to access the CDE. |
-|[Requirement 1.5](#requirement-1-5)|Ensure that security policies and operational procedures for managing firewalls are documented, in use, and known to all affected parties.|
+|[Requirement 1.4](#requirement-14install-personal-firewall-software-or-equivalent-functionality-on-any-portable-computing-devices-that-connect-to-the-internet-when-outside-the-network--and-which-are-also-used-to-access-the-cde)|Install personal firewall software or equivalent functionality on any portable computing devices (including company and/or employee-owned) that connect to the Internet when outside the network (for example, laptops used by employees), and which are also used to access the CDE. |
+|[Requirement 1.5](#requirement-15ensure-that-security-policies-and-operational-procedures-for-managing-firewalls-are-documented-in-use-and-known-to-all-affected-parties)|Ensure that security policies and operational procedures for managing firewalls are documented, in use, and known to all affected parties.|
 
 ***
 
-**Requirement 2**&mdash;Do not use vendor-supplied defaults for system passwords and other security parameters.
+[**Requirement 2**](#requirement-2do-not-use-vendor-supplied-defaults-for-system-passwords-and-other-security-parameters)&mdash;Do not use vendor-supplied defaults for system passwords and other security parameters.
 
 |Requirement|Responsibility|
 |---|---|
-|[Requirement 2.1](#requirement-2-1)|Always change vendor-supplied defaults and remove or disable unnecessary default accounts before installing a system on the network.|
-|[Requirement 2.2](#requirement-2-2)|Develop configuration standards for all system components. Assure that these standards address all known security vulnerabilities and are consistent with industry-accepted system hardening standards.|
-|[Requirement 2.3](#requirement-2-3)|Encrypt all non-console administrative access using strong cryptography.|
-|[Requirement 2.4](#requirement-2-4)|Maintain an inventory of system components that are in scope for PCI DSS.|
-|[Requirement 2.5](#requirement-2-5)|Ensure that security policies and operational procedures for managing vendor defaults and other security parameters are documented, in use, and known to all affected parties.|
-|[Requirement 2.6](#requirement-2-6)|Shared hosting providers must protect each entity’s hosted environment and cardholder data.|
+|[Requirement 2.1](#requirement-21always-change-vendor-supplied-defaults-and-remove-or-disable-unnecessary-default-accounts-before-installing-a-system-on-the-network)|Always change vendor-supplied defaults and remove or disable unnecessary default accounts before installing a system on the network.|
+|[Requirement 2.2](#requirement-22develop-configuration-standards-for-all-system-components)|Develop configuration standards for all system components. Assure that these standards address all known security vulnerabilities and are consistent with industry-accepted system hardening standards.|
+|[Requirement 2.3](#requirement-23encrypt-all-non-console-administrative-access-using-strong-cryptography)|Encrypt all non-console administrative access using strong cryptography.|
+|[Requirement 2.4](#requirement-24maintain-an-inventory-of-system-components-that-are-in-scope-for-pci-dss)|Maintain an inventory of system components that are in scope for PCI DSS.|
+|[Requirement 2.5](#requirement-25ensure-that-security-policies-and-operational-procedures-for-managing-vendor-defaults-and-other-security-parameters-are-documented-in-use-and-known-to-all-affected-parties)|Ensure that security policies and operational procedures for managing vendor defaults and other security parameters are documented, in use, and known to all affected parties.|
+|[Requirement 2.6](#requirement-26shared-hosting-providers-must-protect-each-entitys-hosted-environment-and-cardholder-data)|Shared hosting providers must protect each entity’s hosted environment and cardholder data.|
+
+***
 
 ### Requirement 1.1&mdash;Establish and implement firewall and router configuration standards that include the following:
 
@@ -273,6 +275,8 @@ Use air-gapped jump boxes when performing administrative tasks. Connect via Azur
 ##### Your responsibilities
 
 Documentation and Training
+
+***
 
 ## Requirement 2&mdash;Do not use vendor-supplied defaults for system passwords and other security parameters
 
