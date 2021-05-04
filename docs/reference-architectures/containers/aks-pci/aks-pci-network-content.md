@@ -261,92 +261,123 @@ Do not disclose private IP addresses and routing information to unauthorized par
 
 AKS Private Cluster keeps DNS records off public internet. Use an internal DNS zone for routing between WAF and Load Balancer. Ensure all HTTP responses do not include any private IP information in headers or body. Ensure logs that may contain IP and DNS records are not exposed outside of Ops needs.
 
-### Requirement 1.4
-
-Install personal firewall software or equivalent functionality on any portable computing devices (including company and/or employee-owned) that connect to the Internet when outside the network (for example, laptops used by employees), and which are also used to access the CDE. 
+### Requirement 1.4&mdash;Install personal firewall software or equivalent functionality on any portable computing devices that connect to the Internet when outside the network , and which are also used to access the CDE. 
 
 ##### Your responsibilities
 
 Use air-gapped jump boxes when performing administrative tasks. Connect via Azure Bastion to add seperation between client machine and jump box. If VPN is used for access, ensure client machine is managed by corporate policy and all conditional access policies are in place on those machines.
 
 
-### Requirement 1.5
-
-Ensure that security policies and operational procedures for managing firewalls are documented, in use, and known to all affected parties.
+### Requirement 1.5&mdash;Ensure that security policies and operational procedures for managing firewalls are documented, in use, and known to all affected parties.
 
 ##### Your responsibilities
 
 Documentation and Training
 
-### Requirement 2&mdash;Do not use vendor-supplied defaults for system passwords and other security parameters
+## Requirement 2&mdash;Do not use vendor-supplied defaults for system passwords and other security parameters
 
+### Requirement 2.1&mdash;Always change vendor-supplied defaults and remove or disable unnecessary default accounts before installing a system on the network. 
 
-The services work as configured
+#### Your responsibilities
 
-The Customer then configures these to their specifications and requirements. Microsoft Azure filters communication when coming into the platform.
-
-
-
-### Reference implementation details
-
-
-## System security measures for
-### Azure responsibility
-For Microsoft Azure, the Security Services team develops security configuration standards for systems in the Microsoft Azure environment that are consistent with industry-accepted hardening standards. These configurations are documented in system baselines and relevant configuration changes are communicated to impacted teams (e.g., IPAK team). Procedures are implemented to monitor for compliance against the security configuration standards. The security configuration standards for systems in the Microsoft Azure environment are consistent with industry-accepted hardening standards and are reviewed at least annually.
-
-
-
-Not applicable
-
-Microsoft Azure software and hardware configurations are reviewed at least quarterly to identify and eliminate any unnecessary functions, ports, protocols and services.
-
-Not applicable
-
-Azure ensures only authorized personal are able to configure Azure platform security controls, using multi-factor access controls and a documented buiness need.
-
-
-Azure ensures that systems in the Azure platform follow hardening standards and policies for infrastructure and services within Azure's control. 
-
-
-Microsoft Azure ensures the use of strong cryptography are enforced when accessing the hypervisor infrastructure.  Microsoft Azure also ensures that customers using the Microsoft Azure Management Portal are able to access their service/IaaS consoles with strong cryptography.
-
-
-
-
-Not applicable
-
-Not applicable
-
-### AKS responsibility
-Container technology addresses this requirement by default, as one instance of a container is responsible for one function in the system. 
-
-### Your responsibility
-
-
-### Implementation considerations
-"Disable Admin access on ACR.
+Disable Admin access on ACR.
 Ensure Jump Boxes and Build Agents follow user management procedures - removing needed system users.
-Do not generate/provide SSH key access to nodes to administrator user. If emergency access is necessary, use Azure recovery process to get JIT access."
+Do not generate/provide SSH key access to nodes to administrator user. If emergency access is necessary, use Azure recovery process to get JIT access.
+
+#### Requirement 2.1.1
+
+For wireless environments connected to the cardholder data environment or transmitting cardholder data, change ALL wireless vendor defaults at installation, including but not limited to default wireless encryption keys, passwords, and SNMP community strings.
+
+##### Your responsibilities
+
+TBD
+
+#### Requirement 2.1.2
+
+For wireless environments connected to the cardholder data environment or transmitting cardholder data, change ALL wireless vendor defaults at installation, including but not limited to default wireless encryption keys, passwords, and SNMP community strings.
+
+##### Your responsibilities
+
+TBD
+
+### Requirement 2.2&mdash;Develop configuration standards for all system components. 
+
+#### Your responsibilities
 
 Ensure your subscriptions are adhearing to Azure CIS Benchmark 2.0 standards plus any additional industry standards you feel are relevant. Use Azure Security Center's Security Baseline features and Azure Policy to help track against the standards. Consider building additional automated checks where desired in Azure Policy and Azure Tenant Security Solution (AzTS).
+
+#### Requirement 2.2.1
+
+Implement only one primary function per server to prevent functions that require different security levels from co-existing on the same server. (For example, web servers, database servers, and DNS should be implemented on separate servers.) 
+
+##### Your responsibilities
+
 Container technology addresses this requirement by default, as one instance of a container is responsible for one function in the system. Ensure you separate in-scope and out-of-scope processes ideally into separate clusters and related infrastructure, but at a minimum seperate node pools within a cluster. Ensure workloads are using Pod Managed Identity and are not inherting any cluster-level/node-level identity. Use external storage vs on-node (in-cluster) storage where possible. Keep cluster pods reserved exclusively for work that must be performed as part of the operation of card holder data processing -- for example, don't use the cluster also as your build agents, or for unrelated workloads, no matter how small/insignificant.
-"Do not enable features on services that are not necessary. (e.g. enabling managed identity on ACR if ACR isn't going to use that feature).
+
+#### Requirement 2.2.2
+
+Enable only necessary services, protocols, daemons, etc., as required for the function of the system.
+
+##### Your responsibilities
+
+Do not enable features on services that are not necessary. (e.g. enabling managed identity on ACR if ACR isn't going to use that feature).
 Ensure all firewall (and NSG) rules restrict by protocol in addition to source/destination.
 Where you have complete control (Jump boxes, build agents), remove all necessary system services from the images.
 Where you have observer control only (such as AKS nodes), document what Azure installs on the nodes. Consider using DaemonSets to provide any additional auditing necessary for these cloud-controlled components.
-"
-"App Gatway should only support TLS 1.2 and approved ciphers.
+
+#### Requirement 2.2.3
+
+Implement additional security features for any required services, protocols, or daemons that are considered to be insecure.
+
+##### Your responsibilities
+
+App Gatway should only support TLS 1.2 and approved ciphers.
 App Gateway should not respond to port 80 (unless performing a redirect in the gateway. Do not perform redirects at the application level).
-If additional node-level OS hardening deemed required, that work must be performed via sufficently prividledge DaemonSets. Because of the risk involved (security and stability), implementing these will have to be performed by the customer."
-"All Azure Services should ahear to the Azure CIS Benchmark controls, and exceptions documented.
+If additional node-level OS hardening deemed required, that work must be performed via sufficently prividledge DaemonSets. Because of the risk involved (security and stability), implementing these will have to be performed by the customer.
+
+#### Requirement 2.2.4
+
+ Configure system security parameters to prevent misuse.
+
+##### Your responsibilities
+
+All Azure Services should ahear to the Azure CIS Benchmark controls, and exceptions documented.
 People should be trained on the security features of each component and be able to demonstrate related settings across the platform services.
-"
+
+#### Requirement 2.2.5
+
+ Configure system security parameters to prevent misuse.
+
+##### Your responsibilities
+
 Do not install anything on a JumpBox, Build Agent, or cluster (DaemonSet, Pods, etc) that does not belong to fullfill the needs of the operation of the workload or a tool that provides observability for compliance requirements (security agents). Ensure there is a process to detect the installation of the same.
-"All administrative access to the cluster should be conole-based. Do not expose the cluster's control plane via any management dashboard product, outside of the built-in experience in the Azure Portal.
-"
+
+### Requirement 2.3&mdash;Encrypt all non-console administrative access using strong cryptography.
+
+#### Your responsibilities
+
+All administrative access to the cluster should be conole-based. Do not expose the cluster's control plane via any management dashboard product, outside of the built-in experience in the Azure Portal.
+
+### Requirement 2.4&mdash;Maintain an inventory of system components that are in scope for PCI DSS.
+
+#### Your responsibilities
+
 Ensure all Azure Resources are tagged with being in or out of scope, to allow a querying for resources on demand. Audit/maintain that tag. Also maintain a snapshot of that documentation periodically.
+
+### Requirement 2.5&mdash;Ensure that security policies and operational procedures for managing vendor defaults and other security parameters are documented, in use, and known to all affected parties.
+
+#### Your responsibilities
+
 People/Process/Training/Documentation
+
+
+### Requirement 2.6&mdash;Shared hosting providers must protect each entity’s hosted environment and cardholder data.
+
+#### Your responsibilities
+
 https://docs.microsoft.com/compliance/regulatory/offering-PCI-DSS
+
+
 ## Next
 
 Protect stored cardholder data. Encrypt transmission of cardholder data across open, public networks
