@@ -16,16 +16,16 @@ This architecture uses the following Azure components:
 
 The AKS infrastructure features used in this architecture include:
 
-  - [System and user nodepool separation](/azure/aks/use-system-pools#system-and-user-node-pools)
+  - [System and user node pool separation](/azure/aks/use-system-pools#system-and-user-node-pools)
   - [AKS-managed Azure AD for role-based access control (RBAC)](/azure/aks/managed-aad)
   - [Azure AD pod-managed identities](/azure/aks/use-azure-ad-pod-identity)
   - [Azure Policy Add-on for AKS](/azure/aks/use-pod-security-on-azure-policy)
   - [Azure Container Networking Interface (CNI)](/azure/aks/configure-azure-cni)
   - [Azure Monitor for containers](/azure/azure-monitor/insights/container-insights-overview)
 
-**[Azure Virtual Networks](https://azure.microsoft.com/services/virtual-network/)** are isolated and highly secure environments for running virtual machines (VMs) and applications. This reference architecture uses a peered hub-spoke virtual network topology. The hub virtual network holds the Azure firewall and Azure Bastion subnets. The spoke virtual network holds the AKS system and user nodepool subnets and the Azure Application Gateway subnet. 
+**[Azure Virtual Networks](https://azure.microsoft.com/services/virtual-network/)** are isolated and highly secure environments for running virtual machines (VMs) and applications. This reference architecture uses a peered hub-spoke virtual network topology. The hub virtual network holds the Azure firewall and Azure Bastion subnets. The spoke virtual network holds the AKS system and user node pool subnets and the Azure Application Gateway subnet. 
 
-**[Azure Private Link](https://azure.microsoft.com/services/private-link/)** allocates specific private IP addresses to access Azure Container Registry and Key Vault from [Private Endpoints](/azure/private-link/private-endpoint-overview) within the AKS system and user nodepool subnet.
+**[Azure Private Link](https://azure.microsoft.com/services/private-link/)** allocates specific private IP addresses to access Azure Container Registry and Key Vault from [Private Endpoints](/azure/private-link/private-endpoint-overview) within the AKS system and user node pool subnet.
 
 **[Azure Application Gateway](https://azure.microsoft.com/services/application-gateway/)** with web application firewall (WAF) exposes HTTP(S) routes to the AKS cluster and load balances web traffic to the web application. This architecture uses [Azure Application Gateway Ingress Controller](https://github.com/Azure/application-gateway-kubernetes-ingress) (AGIC) as the Kubernetes ingress controller.
 
@@ -281,7 +281,7 @@ Consider the following points when planning for scalability.
 
 - You can't change the VM size after creating a cluster, so do initial capacity planning to choose an appropriate VM size for the agent nodes when you create the cluster.
 
-- Multi-tenant or other advanced workloads might have nodepool isolation requirements that demand more and likely smaller subnets. For more information about creating node pools with unique subnets, currently in public preview, see [Add a nodepool with a unique subnet (preview)](/azure/aks/use-multiple-node-pools#add-a-node-pool-with-a-unique-subnet-preview). Organizations have different standards for their hub-spoke implementations. Be sure to follow your organizational guidelines.
+- Multi-tenant or other advanced workloads might have node pool isolation requirements that demand more and likely smaller subnets. For more information about creating node pools with unique subnets, currently in public preview, see [Add a node pool with a unique subnet (preview)](/azure/aks/use-multiple-node-pools#add-a-node-pool-with-a-unique-subnet-preview). Organizations have different standards for their hub-spoke implementations. Be sure to follow your organizational guidelines.
 
 ## Manageability considerations
 
