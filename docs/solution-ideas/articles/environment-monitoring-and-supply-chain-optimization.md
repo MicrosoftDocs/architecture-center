@@ -4,7 +4,7 @@ Environmental monitoring has become an important activity in the global supply c
 
 This article describes a warehouse management scenario that monitors environmental conditions through the integration of sensor data and public datasets, and then using machine learning (ML) for predictions. The insights are then used to ensure the safety of people and to optimize the supply chain operations.
 
-## Potential use cases
+## Potential use cases 
 
 - **Fleet management.** This solution can be used for fleet management where routes need to be optimized for safety based on the evolving conditions of surrounding areas.
 - **Agriculture.** Predicting wildfires that will impact the safety of workers and livestock is critical. By providing ample lead time for danger notifications, people in the affected area can evacuate to safe grounds. Farms can also equip livestock areas with automated gates that can unlock and open in dire situations, allowing animals to escape.  
