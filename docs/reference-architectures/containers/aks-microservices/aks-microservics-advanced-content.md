@@ -2,7 +2,7 @@ This reference architecture details several configurations to consider when runn
 
 This architecture builds on the [AKS Baseline architecture](https://aka.ms/architecture/aks-baseline), Microsoft's recommended starting point for AKS infrastructure. The AKS baseline details infrastructural features like Azure Active Directory (Azure AD) pod identity, ingress and egress restrictions, resource limits, and other secure AKS infrastructure configurations. These infrastructural details are not covered in this document. It is recommended that you become familiar with the AKS baseline before proceeding with the microservices content.
 
-![GitHub logo](../../../_images/github.png) A reference implementation of this architecture is available on [GitHub](#reference-deployment).
+![GitHub logo](../../../_images/github.png) A reference implementation of this architecture is available on [GitHub](https://github.com/mspnp/aks-fabrikam-dronedelivery).
 
 ![Network diagram showing the hub-spoke network with two peered virtual networks and the Azure resources this implementation uses.](images/aks-production-deployment.png)
 
@@ -316,15 +316,6 @@ Consider the following points when planning for security.
 - AKS has no costs associated with deployment, management, and operations of the Kubernetes cluster. You only pay for the VM instances, storage, and networking resources the cluster consumes. Cluster autoscaling can significantly reduce the cost of the cluster by removing empty or unused nodes.
 
 - To estimate the cost of the required resources, see the [Container Services calculator](https://azure.microsoft.com/pricing/calculator/?service=kubernetes-service).
-
-## Reference deployment
-
-The [Fabrikam Drone Delivery Shipping App](https://github.com/mspnp/aks-fabrikam-dronedelivery) implements the architectural components and practices in this article. The AKS Fabrikam Drone Delivery implementation focuses on expanding the AKS Baseline infrastructure for advanced deployments. You can modify or interchange parts of the reference implementation to develop your own applications.
-
-To deploy the example reference implementation, follow the steps in the AKS Fabrikam Drone Delivery GitHub repo.
-
-> [!div class="nextstepaction"]
-> [AKS Advanced Microservices Reference Implementation](https://github.com/mspnp/aks-fabrikam-dronedelivery)
 
 ## Next steps
 
