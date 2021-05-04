@@ -52,10 +52,16 @@ Use the following command to download the Bicep template.
 curl https://raw.githubusercontent.com/mspnp/samples/master/solutions/azure-hub-spoke/bicep/main.bicep > main.bicep
 ```
 
+Run the following command to transpile the Bicep file to a standard ARM Template JSON file.
+
+```azurecli-interactive
+bicep build main.json
+```
+
 Run the following command to deploy the hub and spoke network configuration, VNet peerings between the hub and spoke, and a Bastion host. When prompted, enter a user name and password. These values can be used to access the virtual machine located in the spoke network.
 
 ```azurecli-interactive
-az deployment group create --resource-group hub-spoke --template-file main.bicep
+az deployment group create --resource-group hub-spoke --template-file main.json
 ```
 
 #### [Azure portal](#tab/portal)
