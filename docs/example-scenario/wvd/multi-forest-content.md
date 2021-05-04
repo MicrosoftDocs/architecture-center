@@ -103,4 +103,4 @@ For more information, see these articles:
 - [Windows Virtual Desktop Documentation](/azure/virtual-desktop/).
 
 <!-- links -->
-[visio-download]: ../images/wvd-multi-forest-adds.png
+[visio-download]: ./images/wvd-multi-forest-adds.png
