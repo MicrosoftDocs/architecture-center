@@ -57,7 +57,7 @@ As part of your documentation, maintain a network flow diagram that shows the in
 
 This image shows the network diagram of the reference implementation.
 
-:::image type="content" source="./images/network-topology.png" alt-text="Network topology" lightbox="./images/network-topology-small.png":::
+:::image type="content" source="./images/network-topology-small.png" alt-text="Network topology" lightbox="./images/network-topology.png":::
 
 **Figure 1.1.2 - Network flow**
 
