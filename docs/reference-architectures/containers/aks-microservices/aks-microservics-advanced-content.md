@@ -2,6 +2,8 @@ This reference architecture details several configurations to consider when runn
 
 This architecture builds on the [AKS Baseline architecture](https://aka.ms/architecture/aks-baseline), Microsoft's recommended starting point for AKS infrastructure. The AKS baseline details infrastructural features like Azure Active Directory (Azure AD) pod identity, ingress and egress restrictions, resource limits, and other secure AKS infrastructure configurations. These infrastructural details are not covered in this document. It is recommended that you become familiar with the AKS baseline before proceeding with the microservices content.
 
+![GitHub logo](../../../_images/github.png) A reference implementation of this architecture is available on [GitHub][#reference-deployment].
+
 ![Network diagram showing the hub-spoke network with two peered virtual networks and the Azure resources this implementation uses.](images/aks-production-deployment.png)
 
 If you would prefer to start with a more basic microservices example on AKS, see [Microservices architecture on AKS](./aks-microservices.yml)
