@@ -15,9 +15,9 @@ The hub and spoke topology in the baseline is a natural choice for a PCI DSS inf
 
 |Requirement|Responsibility|
 |---|---|
-|[Requirement 1.1](#requirement-11-establish-and-implement-firewall-and-router-configuration-standards-that-include-the-following)|Establish and implement firewall and router configuration standards.|
-|[Requirement 1.2](#requirement-1-2)|Build firewall and router configurations that restrict connections between untrusted networks and any system components in the cardholder data environment.|
-|[Requirement 1.3](#requirement-1-3)|Prohibit direct public access between the Internet and any system component in the cardholder data environment.|
+|[Requirement 1.1](#requirement-11establish-and-implement-firewall-and-router-configuration-standards-that-include-the-following)|Establish and implement firewall and router configuration standards.|
+|[Requirement 1.2](#requirement-12build-firewall-and-router-configurations-that-restrict-connections-between-untrusted-networks-and-any-system-components-in-the-cardholder-data-environment)|Build firewall and router configurations that restrict connections between untrusted networks and any system components in the cardholder data environment.|
+|[Requirement 1.3](#requirement-13prohibit-direct-public-access-between-the-internet-and-any-system-component-in-the-cardholder-data-environment)|Prohibit direct public access between the Internet and any system component in the cardholder data environment.|
 |[Requirement 1.4](#requirement-1-4)|Install personal firewall software or equivalent functionality on any portable computing devices (including company and/or employee-owned) that connect to the Internet when outside the network (for example, laptops used by employees), and which are also used to access the CDE. |
 |[Requirement 1.5](#requirement-1-5)|Ensure that security policies and operational procedures for managing firewalls are documented, in use, and known to all affected parties.|
 
@@ -57,9 +57,7 @@ As part of your documentation, maintain a network flow diagram that shows the in
 
 This image shows the network diagram of the reference implementation.
 
-![Network topology](./images/network-topology.svg)
-
-:::image type="content" source="./images/network-topology-small.png" alt-text="Network topology" lightbox="network-topology.svg":::
+:::image type="content" source="./images/network-topology-small.png" alt-text="Network topology" lightbox="./images/network-topology.svg":::
 
 **Figure 1.1.2 - Network flow**
 
@@ -221,8 +219,64 @@ Limit inbound Internet traffic to IP addresses within the DMZ.
 
 NSG around internal load balancer should only accept traffic from WAF subnet. Nodepool node subnets should only accept workload traffic from load balancer subnet.
 
+#### Requirement 1.3.3
+
+Implement anti-spoofing measures to detect and block forged source IP addresses from entering the network. 
+
+##### Your responsibilities
+
+TBD
+
+#### Requirement 1.3.4
+
+Do not allow unauthorized outbound traffic from the cardholder data environment to the Internet.
+
+##### Your responsibilities
+
+Limit outbound traffic to the internet and other subnets using Azure Firewall, and Subnet level NSG's. AKS does require some public internet access to access the managed control plane. More details is available at: https://docs.microsoft.com/en-us/azure/aks/limit-egress-traffic
+
+Refer to master matrix for general guidelines.
+
+#### Requirement 1.3.5
+
+Permit only “established” connections into the network.
+
+##### Your responsibilities
+
+TBD
+
+#### Requirement 1.3.6
+
+Place system components that store cardholder data (such as a database) in an internal network zone, segregated from the DMZ and other untrusted networks.
+
+##### Your responsibilities
+
+Require all storage systems to be exposed via Private Link exclusively and restricted to just access from the nodepool subnet(s) that require it. Keep state out of the cluster and in its own dedicated security zone. 
+
+#### Requirement 1.3.7
+
+Do not disclose private IP addresses and routing information to unauthorized parties.
+
+##### Your responsibilities
+
+AKS Private Cluster keeps DNS records off public internet. Use an internal DNS zone for routing between WAF and Load Balancer. Ensure all HTTP responses do not include any private IP information in headers or body. Ensure logs that may contain IP and DNS records are not exposed outside of Ops needs.
+
+### Requirement 1.4
+
+Install personal firewall software or equivalent functionality on any portable computing devices (including company and/or employee-owned) that connect to the Internet when outside the network (for example, laptops used by employees), and which are also used to access the CDE. 
+
+##### Your responsibilities
+
+Use air-gapped jump boxes when performing administrative tasks. Connect via Azure Bastion to add seperation between client machine and jump box. If VPN is used for access, ensure client machine is managed by corporate policy and all conditional access policies are in place on those machines.
 
 
+### Requirement 1.5
+
+Ensure that security policies and operational procedures for managing firewalls are documented, in use, and known to all affected parties.
+
+##### Your responsibilities
+
+Documentation and Training
 
 ### Requirement 2&mdash;Do not use vendor-supplied defaults for system passwords and other security parameters
 
