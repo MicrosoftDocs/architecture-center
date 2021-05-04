@@ -17,7 +17,8 @@ metadata:
     - ai-ml
     - marketing personalization
     - targeted marketing
-    - 'https://azure.microsoft.com/solutions/architecture/personalized-marketing/'
+    - "https://azure.microsoft.com/solutions/architecture/personalized-marketing/"
+    - ai-machine-learning
   social_image_url: /azure/architecture/solution-ideas/articles/media/personalized-marketing.png
 name: Personalized marketing solutions
 azureCategories:
@@ -34,4 +35,4 @@ products:
   - power-bi
 thumbnailUrl: /azure/architecture/browse/thumbs/personalized-marketing.png
 content: |
-   [!include[](personalized-marketing-content.md)]
+  [!include[](personalized-marketing-content.md)]

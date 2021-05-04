@@ -3,7 +3,7 @@
 
 This reference architecture shows a set of proven practices for running SAP HANA in a high-availability, scale-up environment that supports disaster recovery on Azure. This implementation focuses on the database layer and is designed to support various SAP applications, such as S/4HANA and SAP BW/4HANA.
 
-![Reference architecture for SAP BW/4HANA](./images/sap-hana-scaleup.png)
+![Reference architecture for SAP HANA ScaleUp](./images/sap-hana-scale-up.png)
 
 > [!NOTE]
 > Deploying this reference architecture requires appropriate licensing of SAP products and other non-Microsoft technologies.
@@ -21,8 +21,8 @@ service securely connects Azure resources to each other. In this architecture, a
 **SAP HANA.** For high availability, SAP HANA runs on two or more Linux virtual machines. SAP HANA System Replication (HSR) is used to replicate data between
 the primary and secondary (replica) SAP HANA systems. HSR is also used for cross-region or cross-zone disaster recovery.
 
-**Availability sets.** Virtual machines providing the same service are grouped into a highly available [availability set](/azure/virtual-machines/windows/tutorial-availability-sets) for a higher [service-level agreement](https://azure.microsoft.com/support/legal/sla/virtual-machines)
-(SLA). For even higher availability, consider [Availability Zones](/azure/virtual-machines/workloads/sap/sap-ha-availability-zones).
+**Availability zones.** Virtual machines providing the same service are deployed in to two different [Availability Zones](/azure/virtual-machines/workloads/sap/sap-ha-availability-zones) within an Azure region for a higher [service-level agreement](https://azure.microsoft.com/support/legal/sla/virtual-machines)
+(SLA). Two or more virtual machines providing the same service can also be grouped into a highly available [availability set](/azure/virtual-machines/windows/tutorial-availability-sets).
 
 **Load balancers.** To direct traffic to virtual machines in the database tier, [Azure Standard Load Balancer](/azure/load-balancer/load-balancer-overview) is used. This option supports [Availability Zones](/azure/load-balancer/load-balancer-standard-availability-zones) for scenarios that need higher application availability. It's important to highlight that the Standard Load Balancer is secure by default, and no virtual machines behind the Standard Load Balancer will have outbound internet connectivity. To enable outbound internet in the virtual machines, you must consider your [Standard Load Balancer](/azure/virtual-machines/workloads/sap/high-availability-guide-standard-load-balancer-outbound-connections) configuration.
 
@@ -146,6 +146,9 @@ To monitor your workloads on Azure, [Azure Monitor](/azure/azure-monitor/overvie
 
 To provide SAP-based monitoring of supported Azure infrastructure and databases, Azure Monitor for SAP Solutions (preview) is being used. [Azure Monitor for SAP Solutions](/azure/virtual-machines/workloads/sap/azure-monitor-overview) provides a simple setup experience. The customer can collect telemetry data from Azure resources, and then correlate data to various monitoring KPIs, and use data to help with troubleshooting.
 
+To provide SAP-based monitoring of resources and service performance of the SAP infrastructure, the [Azure SAP Enhanced Monitoring](/azure/virtual-machines/workloads/sap/deployment-guide#d98edcd3-f2a1-49f7-b26a-07448ceb60ca) Extension is used. This extension feeds Azure monitoring statistics into the SAP application for operating system monitoring and DBA Cockpit functions. SAP enhanced monitoring is a mandatory prerequisite for running SAP on Azure. For details, see [SAP Note 2191498](https://launchpad.support.sap.com/#/notes/2191498), “SAP on Linux with Azure: Enhanced Monitoring.”
+To monitor SAP application and associated infrastructures, Azure Monitor for SAP Solutions (preview) can be used. [Azure Monitor for SAP Solutions](/azure/virtual-machines/workloads/sap/azure-monitor-overview) provides a simple setup experience. The customer can collect telemetry data from Azure resources, and then correlate data to various monitoring KPIs, and use data to help with troubleshooting
+
 ## Security considerations
 
 Many security measures are used to protect the confidentiality, integrity, and availability of an SAP landscape. For example, to secure user access, SAP has its own User Management Engine (UME) to control role-based access and authorization within the SAP application and databases. For details, see [SAP HANA Security—An Overview](https://archive.sap.com/documents/docs/DOC-62943).
@@ -168,7 +171,7 @@ For network security, use network security groups (NSGs) and Azure Firewall or a
 
 - Use [NSGs](/azure/virtual-network/network-security-groups-overview) to protect and control traffic between subnets and application/database layers.
 
-- Use [Azure Firewall](/azure/firewall/overview) or Azure network virtual applicance to inspect and control the routing of traffic from the hub virtual network to the spoke virtual network where your SAP applications reside, and also to control your outbound internet connectivity.
+- Use [Azure Firewall](/azure/firewall/overview) or Azure network virtual appliance to inspect and control the routing of traffic from the hub virtual network to the spoke virtual network where your SAP applications reside, and also to control your outbound internet connectivity.
 
 For User and Authorization, implement role-based access control (RBAC) and resource locks as follows:
 

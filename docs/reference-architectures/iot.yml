@@ -1,15 +1,18 @@
 ### YamlMime:Architecture
 metadata:
   title: Azure IoT reference architecture
-  description: Recommended architecture for IoT applications on Azure using PaaS (platform-as-a-service) components.
   titleSuffix: Azure Reference Architectures
+  description: Recommended architecture for IoT applications on Azure using PaaS (platform-as-a-service) components.
   author: doodlemania2
   ms.date: 09/10/2020
+  ms.topic: conceptual
   ms.service: architecture-center
+  ms.subservice: reference-architecture
   ms.category:
     - iot
     - featured
-  ms.subservice: reference-architecture
+  ms.custom:
+    - internal-intro
 name: Azure IoT reference architecture
 azureCategories:
   - iot

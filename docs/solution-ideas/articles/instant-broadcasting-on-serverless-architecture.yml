@@ -18,7 +18,7 @@ metadata:
     - signalr service
     - media
     - interactive-diagram
-    - 'https://azure.microsoft.com/solutions/architecture/instant-broadcasting-on-serverless-architecture/'
+    - "https://azure.microsoft.com/solutions/architecture/instant-broadcasting-on-serverless-architecture/"
   social_image_url: /azure/architecture/solution-ideas/articles/media/instant-broadcasting-on-serverless-architecture.png
 name: Instant Broadcasting on Serverless Architecture
 azureCategories:

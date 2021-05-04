@@ -1,13 +1,16 @@
 ---
-title: 'IaaS: Web application with relational database'
+title: "IaaS: Web application with relational database"
 description: This reference architecture shows best practices for applying Availability Zones to a web application and Microsoft SQL Server database hosted on virtual machines (VMs) known as a zonal deployment.
 author: maggsl
 ms.date: 06/16/2020
 ms.topic: conceptual
 ms.service: architecture-center
+ms.subservice: reference-architecture
 ms.category:
   - solutions
-ms.subservice: reference-architecture
+products:
+  - azure-load-balancer
+  - azure-application-gateway
 ms.custom:
   - high-availability
   - fcp

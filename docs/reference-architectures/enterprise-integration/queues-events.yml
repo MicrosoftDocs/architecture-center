@@ -3,17 +3,22 @@ metadata:
   title: Enterprise integration using queues and events
   description: This reference architecture integrates enterprise backend systems, using message queues and events to decouple services for greater scalability and reliability.
   author: mattfarm
-  ms.reviewer: 'jonfan, estfan, LADocs'
+  ms.author: pnp
+  ms.reviewer:
+    - jonfan
+    - estfan
+    - LADocs
   ms.date: 12/03/2018
   ms.topic: conceptual
   ms.service: architecture-center
+  ms.subservice: reference-architecture
   ms.category:
     - integration
     - developer-tools
-  ms.subservice: reference-architecture
   ms.custom:
     - integration-services
     - reference-architecture
+    - internal-intro
 name: Enterprise integration using queues and events
 azureCategories:
   - integration

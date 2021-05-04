@@ -2,7 +2,7 @@
 metadata:
   title: Auditing, risk, and compliance management
   titleSuffix: Azure Solution Ideas
-  description: Learn how to use knowledge mining to help attorneys quickly identify entities of importance from discovery documents and flag important ideas across documents.
+  description: Learn how to use knowledge mining to help attorneys quickly find information from discovery documents and flag important ideas across documents.
   author: doodlemania2
   ms.author: pracjain
   ms.date: 12/16/2019
@@ -13,13 +13,17 @@ metadata:
     - ai-machine-learning
   ms.custom:
     - acom-architecture
-  social_image_url: /azure/architecture/solution-ideas/articles/media/auditing-and-risk-compliance.png
-name: 'Auditing, risk, and compliance management'
+    - ai-machine-learning
+    - aml-project-improvement
+  social_image_url: /azure/architecture/solution-ideas/articles/media/knowledge-mining-auditing-and-risk-compliance.png
+name: Knowledge mining in auditing, risk, and compliance management
 azureCategories:
   - ai-machine-learning
-summary: Learn how to use knowledge mining to help attorneys quickly identify entities of importance from discovery documents and flag important ideas across documents.
+summary: Learn how to use knowledge mining to help attorneys quickly find information from discovery documents and flag important ideas across documents.
 products:
   - azure-cognitive-search
-thumbnailUrl: /azure/architecture/browse/thumbs/auditing-and-risk-compliance.png
+  - azure-text-analytics
+  - azure-translator
+thumbnailUrl: /azure/architecture/browse/thumbs/knowledge-mining-auditing-and-risk-compliance.png
 content: |
-   [!include[](auditing-and-risk-compliance-content.md)]
+  [!include[](auditing-and-risk-compliance-content.md)]

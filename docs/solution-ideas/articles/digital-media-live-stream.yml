@@ -14,7 +14,7 @@ metadata:
   ms.custom:
     - acom-architecture
     - media
-    - 'https://azure.microsoft.com/solutions/architecture/digital-media-live-stream/'
+    - "https://azure.microsoft.com/solutions/architecture/digital-media-live-stream/"
   social_image_url: /azure/architecture/solution-ideas/articles/media-live-stream.png
 name: Live streaming digital media
 azureCategories:

@@ -1924,6 +1924,13 @@
       "redirect_url": "/azure/architecture/solution-ideas/articles/devops-in-a-hybrid-environment",
       "redirect_document_id": false
     },
+
+
+    {
+      "source_path": "docs/solution-ideas/articles/modern-data-warehouse.md",
+      "redirect_url": "/azure/architecture/solution-ideas/articles/enterprise-data-warehouse",
+      "redirect_document_id": false
+    },
     {
       "source_path": "docs/framework/cost/optimizing.md",
       "redirect_url": "/azure/architecture/framework/cost/optimize-checklist"
@@ -2076,9 +2083,29 @@
       "redirect_url": "/azure/architecture/browse/?azure_categories=hybrid"
      },
      {
-       "source_path": "docs/framework/scalability/monitoring.md",
-       "redirect_url": "/azure/architecture/framework/scalability/monitor",
-       "redirect_document_id": false
+      "source_path": "docs/framework/scalability/monitoring.md",
+      "redirect_url": "/azure/architecture/framework/scalability/monitor",
+      "redirect_document_id": false
+     },
+     {
+      "source_path": "docs/example-scenario/iot-aad/iot-aad.yml",
+      "redirect_url": "/azure/architecture/reference-architectures/iot",
+      "redirect_document_id": false
+     }, 
+     {
+      "source_path": "docs/solution-ideas/articles/ai-for-earth.yml",
+      "redirect_url": "https://aka.ms/AIArchitecture",
+      "redirect_document_id": false
+     },
+     {
+      "source_path": "docs/solution-ideas/articles/cctv-mask-detection.yml",
+      "redirect_url": "/azure/architecture/solution-ideas/articles/cctv-iot-edge-for-covid-19-safe-environment-and-mask-detection",
+      "redirect_document_id": true
+     },
+     {
+       "source_path": "docs/example-scenario/ai/newsfeed-ingestion.yml",
+       "redirect_url": "/azure/architecture/example-scenario/ai/news-feed-ingestion-and-near-real-time-analysis",
+       "redirect_document_id": true
      } 
    ]
 }

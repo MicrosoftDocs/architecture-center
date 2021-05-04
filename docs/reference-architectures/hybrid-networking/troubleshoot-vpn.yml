@@ -15,6 +15,7 @@ metadata:
   ms.custom:
     - networking
     - article
+    - e2e-hybrid
 name: Troubleshoot a hybrid VPN connection
 azureCategories:
   - hybrid

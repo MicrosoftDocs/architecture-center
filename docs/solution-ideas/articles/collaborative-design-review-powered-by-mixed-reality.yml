@@ -20,7 +20,7 @@ metadata:
     - Web Service
     - Microsoft Hololens
     - interactive-diagram
-    - 'https://azure.microsoft.com/solutions/architecture/collaborative-design-review-powered-by-mixed-reality/'
+    - "https://azure.microsoft.com/solutions/architecture/collaborative-design-review-powered-by-mixed-reality/"
   social_image_url: /azure/architecture/solution-ideas/articles/media/collaborative-design-review-powered-by-mixed-reality.png
 name: Design Review Powered by Mixed Reality
 azureCategories:
