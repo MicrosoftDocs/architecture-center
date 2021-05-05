@@ -113,9 +113,9 @@ The following deployment steps use PowerShell. You could also use the [Azure por
    # Assign subnet to variables
    $appgatewaysubnetdata = $vnet.Subnets[subnet-index]
    $API Managementsubnetdata = $vnet.Subnets[subnet-index]
-```
+   ```
    
-1. Deploy a new API Management.
+1. Deploy a new API Management instance.
    
    ```powershell
    # Create an API Management VNET connected object
@@ -135,7 +135,7 @@ The following deployment steps use PowerShell. You could also use the [Azure por
        -VirtualNetwork $API ManagementVirtualNetwork `
        -VpnType "Internal" `
        -Sku "{API Management-tier}"
-```
+   ```
    
 1. Configure hostnames and certificates.
    
@@ -172,7 +172,7 @@ The following deployment steps use PowerShell. You could also use the [Azure por
    
    # Updates the existing API Management with the updated configuration
    Set-AzAPI Managementanagement -InputObject $API ManagementService
-```
+   ```
    
 1. Provision a public IP (PIP) for Application Gateway.
    
@@ -183,7 +183,7 @@ The following deployment steps use PowerShell. You could also use the [Azure por
        -name "{pip-name}" `
        -location $location `
        -AllocationMethod Dynamic
-```
+   ```
    
 1. Create Application Gateway's configuration.
    
@@ -193,7 +193,7 @@ The following deployment steps use PowerShell. You could also use the [Azure por
    $gipconfig = New-AzApplicationGatewayIPConfiguration `
        -Name "gatewayIP" `
        -Subnet $appgatewaysubnetdata
-```
+   ```
    
 1. Configure the front-end IP port object.
    
@@ -202,7 +202,7 @@ The following deployment steps use PowerShell. You could also use the [Azure por
    $fp01 = New-AzApplicationGatewayFrontendPort `
        -Name "frontend-port443" `
        -Port 443
-```
+   ```
    
 1. Tie the front-end IP port to the public IP.
    
@@ -211,7 +211,7 @@ The following deployment steps use PowerShell. You could also use the [Azure por
    $fipconfig01 = New-AzApplicationGatewayFrontendIPConfig `
        -Name "frontend1" `
        -PublicIPAddress $publicip
-```
+   ```
    
 1. Set up certificates for Application Gateway.
    
@@ -226,7 +226,7 @@ The following deployment steps use PowerShell. You could also use the [Azure por
        -Name "API Management-portal-cert" `
        -CertificateFile $portalCertPfxPath `
        -Password $certPortalPwd
-```
+   ```
    
 1. Create Application Gateway's listeners.
    
@@ -249,7 +249,7 @@ The following deployment steps use PowerShell. You could also use the [Azure por
        -SslCertificate $certPortal `
        -HostName $portalHostname `
        -RequireServerNameIndication true
-```
+   ```
    
 1. Create Application Gateway's probes to map API Management's endpoints.
    
@@ -272,7 +272,7 @@ The following deployment steps use PowerShell. You could also use the [Azure por
        -Interval 60 `
        -Timeout 300 `
        -UnhealthyThreshold 8
-```
+   ```
    
 1. List API Management's endpoints to backend pools.
    
@@ -281,7 +281,7 @@ The following deployment steps use PowerShell. You could also use the [Azure por
    $authcert = New-AzApplicationGatewayAuthenticationCertificate `
        -Name "whitelistcert" `
        -CertificateFile $gatewayCertCerPath
-```
+   ```
    
 1. Configure Application Gateway's HTTP settings.
    
@@ -304,7 +304,7 @@ The following deployment steps use PowerShell. You could also use the [Azure por
        -Probe $API ManagementPortalProbe `
        -AuthenticationCertificates $authcert `
        -RequestTimeout 180
-```
+   ```
    
 1. Map backend pool IP with API Management's internal IP.
    
@@ -320,7 +320,7 @@ The following deployment steps use PowerShell. You could also use the [Azure por
    $API ManagementProxyBackendPool = New-AzApplicationGatewayBackendAddressPool `
        -Name "API Managementbackend" `
        -BackendIPAddresses $API ManagementService.PrivateIPAddresses[0]
-```
+   ```
    
 1. Allow external access to API Management's developer portal.
    
@@ -332,7 +332,7 @@ The following deployment steps use PowerShell. You could also use the [Azure por
        -HttpListener $portalListener `
        -BackendAddressPool $API ManagementProxyBackendPool `
        -BackendHttpSettings $API ManagementPoolPortalSetting
-```
+   ```
    
 1. Configure and deploy Application Gateway.
    
@@ -364,7 +364,7 @@ The following deployment steps use PowerShell. You could also use the [Azure por
        -SslCertificates $cert, $certPortal `
        -AuthenticationCertificates $authcert `
        -Probes $API Managementprobe, $API ManagementPortalProbe
-```
+   ```
    
 1. Configure redirection rules.
    
@@ -418,14 +418,14 @@ The following deployment steps use PowerShell. You could also use the [Azure por
        -BackendAddressPool $Pool `
        -BackendHttpSettings $poolSettings `
        -UrlPathMap $pathMap
-```
+   ```
    
 1. Update Application Gateway with the new configuration.
    
    ```powershell
    $appgw = Set-AzApplicationGateway `
        -ApplicationGateway $appgw
-```
+   ```
 
 ## Pricing
 
