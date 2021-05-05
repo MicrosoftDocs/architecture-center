@@ -1,0 +1,32 @@
+### YamlMime:Architecture
+metadata:
+  title: Deploy Azure Kubernetes Service with  Application Gateway Ingress Controller add-on
+  titleSuffix: Azure Solution Ideas
+  description: Learn how to deploy an Azure Kubernetes Service (AKS) cluster with the Application Gateway Ingress Controller add-on using an ARM template.
+  author: paolosalvatori
+  ms.author: paolosalvatori
+  ms.date: 05/05/2021
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: solution-idea
+  ms.category:
+    - containers
+  ms.custom:
+    - acom-architecture
+  social_image_url: /azure/architecture/solution-ideas/media/aks-api-first.png
+name: Deploy Azure Kubernetes Service with  Application Gateway Ingress Controller add-on
+azureCategories:
+  - containers
+summary: Learn how to deploy an Azure Kubernetes Service (AKS) cluster with the Application Gateway Ingress Controller add-on using an ARM template.
+products:
+  - azure-application-gateway
+  - azure-key-vault
+  - azure-container-registry
+  - azure-kubernetes-service
+  - azure-bastion
+  - azure-private-link
+  - azure-storage-accounts
+  - azure-virtual-machines
+thumbnailUrl: /azure/architecture/browse/thumbs/aks-agic.png
+content: |
+   [!include[](aks-agic-content.md)]
