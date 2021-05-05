@@ -40,11 +40,11 @@ The following articles provide detailed analysis of architectures developed and 
 
 | Architecture | Summary | Technology focus |
 | ------- | ------- | ------- |
-| [Virtual health on Microsoft Cloud for Healthcare](../example-scenario/mch-health/virtual-health-mch.yml) | Use [Microsoft Cloud for Healthcare](https://docs.microsoft.com/industry/healthcare/overview), a software package created for the healthcare industry, to build an architecture for scheduling and following up on virtual visits between patients, providers, and care managers. | Web |
+| [Virtual health on Microsoft Cloud for Healthcare](../example-scenario/mch-health/virtual-health-mch.yml) | Use [Microsoft Cloud for Healthcare](/industry/healthcare/overview), a software package created for the healthcare industry, to build an architecture for scheduling and following up on virtual visits between patients, providers, and care managers. | Web |
 | [Clinical insights with Microsoft Cloud for Healthcare](../example-scenario/mch-health/medical-data-insights.yml) | Use Microsoft Cloud for Healthcare to collect, analyze, and visualize medical and health insights, that can be used to improve healthcare operations. | Web |
 | [Consumer health portal on Azure](../example-scenario/digital-health/health-portal.yml) | Learn how to develop a consumer health portal using Azure services, to track statistics from wearables, engage with medical providers, and monitor health habits, built on a foundation of the [Azure Well Architected Framework](../framework/index.md). | Web |
 | [Build a telehealth system with Azure](../example-scenario/apps/telehealth-system.yml) | Explore a customer's implementation of a telehealth system using Azure cloud services. | Containers |
-| [Confidential computing for healthcare](../example-scenario/confidential/healthcare-inference.yml) | Use [Azure confidential computing](https://docs.microsoft.com/azure/confidential-computing/overview) to encrypt medical and patient data, for secure collaboration between hospitals and third-party diagnostic providers. | Security |
+| [Confidential computing for healthcare](../example-scenario/confidential/healthcare-inference.yml) | Use [Azure confidential computing](/azure/confidential-computing/overview) to encrypt medical and patient data, for secure collaboration between hospitals and third-party diagnostic providers. | Security |
 
 ## Solution ideas for healthcare
 

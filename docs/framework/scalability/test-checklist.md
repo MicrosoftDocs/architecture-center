@@ -7,6 +7,8 @@ ms.date: 01/08/2021
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
+categories:
+  - management-and-governance
 ms.custom:
   - testing checklist
 ---
@@ -18,6 +20,8 @@ Performance testing helps to maintain systems properly and fix defects before pr
 ## Performance testing
 
 - **Ensure solid performance testing with shared *team* responsibility**. Successfully implementing meaningful performance tests requires a number of resources. It is not just a single developer or QA Analyst running some tests on their local machine. Instead, performance tests need a test environment (also known as a test bed) that tests can be executed against without interfering with production environments and data. Performance testing requires input and commitment from developers, architects, database administrators, and network administrators.
+
+- **Capacity planning** - When performance testing, the business must communicate any fluctuation in expected load. Load can be impacted by world events, such as political, economic, or weather changes; by marketing initiatives, such as sales or promotions; or, by seasonal events, such as holidays. You should test variations of load prior to events, including unexpected ones, to ensure that your application can scale. Additionally, you should ensure that all regions can adequately scale to support total load, should one region fail.
 
 - **Identify a path forward to leveraging existing tests or the creation of new tests**. There are different types of performance testing: load testing, stress testing, API testing, client-side/browser testing, etc. It is important that you understand and articulate the different types of tests, along with their advantages and disadvantages, to the customer.
 

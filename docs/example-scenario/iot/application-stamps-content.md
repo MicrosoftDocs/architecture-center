@@ -1,19 +1,16 @@
+The *deployment stamping* strategy in an Internet-of-Things (IoT) solution supports scaling up the numbers of connected IoT devices by replicating *stamps*. Stamps are discrete units of core solution components that optimally support a defined number of devices.  This pattern is a variation of the [Deployment Stamps](../../patterns/deployment-stamp.md) design pattern specifically for IoT solutions.
 
-
-
-The *application stamping* strategy in an Internet-of-Things (IoT) solution supports scaling up the numbers of connected IoT devices by replicating *stamps*. Stamps are discrete units of core solution components that optimally support a defined number of devices.
-
-This article describes application stamping benefits and considerations, and how to move devices and applications between stamps.
+This article describes deployment stamping benefits and considerations, and how to move devices and applications between stamps.
 
 ![A diagram showing a deployment stamping strategy for use in Azure IoT](media/scale-iot-deployment-stamps.svg)
 
-The application stamping strategy is to build atomic stamps that consist of an [Azure IoT Hub](/azure/iot-hub/about-iot-hub), routing endpoints like [Azure Event Hubs](/azure/event-hubs/event-hubs-about), and processing components. The stamps optimally support a defined device population, from 1 thousand to 1 million devices. As the incoming device population grows, stamp instances are added to accommodate the growth, rather than independently scaling up different parts of the solution.
+The deployment stamping strategy is to build atomic stamps that consist of an [Azure IoT Hub](/azure/iot-hub/about-iot-hub), routing endpoints like [Azure Event Hubs](/azure/event-hubs/event-hubs-about), and processing components. The stamps optimally support a defined device population, from 1 thousand to 1 million devices. As the incoming device population grows, stamp instances are added to accommodate the growth, rather than independently scaling up different parts of the solution.
 
 Stamps should always be designed to support explicit capacities. To determine the right-sized population, consider how much communication traffic to expect from targeted device populations.
 
-## Application stamping benefits
+## Deployment stamping benefits
 
-Application stamping provides several key benefits:
+Deployment stamping provides several key benefits:
 
 Flexibility:
 - Place and distribute devices by geo-dependency, lifecycle, test to production migration, or other criteria.
@@ -32,7 +29,7 @@ Cost management:
 
 ## Move devices between stamps
 
-While application stamps are intended for atomic deployment, sometimes it's desirable to move device populations between stamps. Some examples include: 
+While deployment stamps are intended for atomic deployment, sometimes it's desirable to move device populations between stamps. Some examples include: 
 - Moving populations of devices from test stamps to production stamps as part of a release cycle.
 - In a high-availability strategy, moving devices and consumers to another stamp as part of outage remediation.
 - Load balancing to distribute device population more evenly across stamps.
@@ -44,22 +41,28 @@ While application stamps are intended for atomic deployment, sometimes it's desi
 
 ## Move applications between stamps
 
-If the application stamps include web front ends or API applications that speak to IoT Hub, those components will also need to migrate to new IoT Hubs to continue communicating with the devices that moved.
+If the deployment stamps include web front ends or API applications that communicate with IoT Hub, those components will also need to migrate to new IoT Hubs to continue communicating with the devices that moved.
 
 There are a couple of strategies for moving devices and application end-users from one application stamp to another. These strategies may not cover all cases, but elements of them cover most cases.
 
-### Move between fully self-contained application stamps
+### Move between fully self-contained deployment stamps
 
 Where stamps encompass an end-to-end application, [Azure Traffic Manager](/azure/traffic-manager/traffic-manager-how-it-works) can move traffic from one stamp to another. This strategy involves creating multiple stamps, each containing the entire application with its own URL, and moving entire populations of devices and application users from one stamp to another.
 
 ![A diagram explaining how to move a set of devices from one stamp to another stamp.](media/moving-devices-using-dps.svg) 
+
+The diagram above shows the process of moving a set of devices from Stamp 1 to Stamp 2:
+1. Devices acquire IoT Hub endpoint through DPS if it is either unknown or no longer valid.
+2. When devices are moved to Stamp 2, Traffic Manager is set to point the application URL to the Application 2 instance.
+3. Device Provisioning Service is used to move a whole set of devices from one stamp to another.
+4. Each application stamp contains the application front end and refers to the corresponding Hub for that stamp.
 
 This fully self-contained strategy is:
 - Simple to implement
 - Appropriate when using stamps as part of a high-availability strategy
 - Useful for migrating devices and users through test and production environments
 
-### Move between application stamps behind a single gateway
+### Move between deployment stamps behind a single gateway
 
 Where solutions consist of a single application front-end and multiple stamps, the application front-end will need to be aware of multiple IoT Hubs, and be able to dynamically update its device-to-hub mapping to maintain cloud-to-device communication.
 
@@ -78,3 +81,4 @@ In this model, the gateway uses a cache to map devices to IoT Hubs, defaulting t
 ## See also
 - [IoT devices, platform, and applications](devices-platform-application.yml)
 - [IoT application-to-device commands](cloud-to-device.yml)
+- [Deployment Stamps design pattern](../../patterns/deployment-stamp.md)

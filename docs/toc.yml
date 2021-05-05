@@ -293,12 +293,16 @@ items:
             href: framework/devops/devops-patterns.md  
       - name: Performance Efficiency
         items:
-          - name: Overview
+          - name: About
             href: framework/scalability/overview.md
+          - name: Principles
+            href: framework/scalability/principles.md            
           - name: Design
             items:
-              - name: Design checklist
+              - name: Checklist
                 href: framework/scalability/design-checklist.md
+              - name: Distributed architecture challenges
+                href: framework/scalability/design-distributed.md                
               - name: Application design
                 href: framework/scalability/design-apps.md
               - name: Application efficiency
@@ -307,20 +311,38 @@ items:
                 href: framework/scalability/design-scale.md
               - name: Capacity planning
                 href: framework/scalability/design-capacity.md
-          - name: Testing
+          - name: Test
             items:
-              - name: Testing checklist
+              - name: Checklist
                 href: framework/scalability/test-checklist.md
               - name: Performance testing
                 href: framework/scalability/performance-test.md
               - name: Testing tools
                 href: framework/scalability/test-tools.md
-          - name: Monitoring
-            href: framework/scalability/monitor.md
-          - name: Performance Efficiency patterns
+          - name: Monitor
+            items: 
+              - name: Checklist
+                href: framework/scalability/monitor.md
+              - name: Application profiling
+                href: framework/scalability/monitor-application.md
+              - name: Infrastructure metrics and logs
+                href: framework/scalability/monitor-infrastructure.md
+              - name: Data analysis and retention 
+                href: framework/scalability/monitor-analyze.md                                                
+              - name: Scalability and reliability
+                href: framework/scalability/monitor-scalability-reliability.md
+          - name: Optimize
+            items: 
+              - name: Checklist
+                href: framework/scalability/optimize.md
+              - name: Caching
+                href: framework/scalability/optimize-cache.md
+              - name: Partition
+                href: framework/scalability/optimize-partition.md
+              - name: Sustainability
+                href: framework/scalability/optimize-sustain.md                            
+          - name: Design patterns
             href: framework/scalability/performance-efficiency-patterns.md
-          - name: Checklist
-            href: framework/scalability/performance-efficiency.md
           - name: Tradeoffs 
             href: framework/scalability/tradeoffs.md
       - name: Reliability
@@ -667,7 +689,7 @@ items:
                     href: example-scenario/mlops/aml-decision-tree.yml
           - name: Architectures
             items:
-              - name: AI enrichment in Cognitive Search
+              - name: AI enrichment with Cognitive Search
                 href: solution-ideas/articles/cognitive-search-with-skillsets.yml
               - name: Autonomous systems
                 href: solution-ideas/articles/autonomous-systems.yml
@@ -729,7 +751,7 @@ items:
                 href: solution-ideas/articles/customer-feedback-and-analytics.yml
               - name: Defect prevention
                 href: solution-ideas/articles/defect-prevention-with-predictive-maintenance.yml
-              - name: Digital Asset Management
+              - name: Digital asset management
                 href: solution-ideas/articles/digital-asset-management.yml
               - name: Disconnected AI at the edge
                 href: solution-ideas/articles/ai-at-the-edge-disconnected.yml
@@ -801,8 +823,8 @@ items:
                 href: example-scenario/data/data-warehouse.yml
               - name: Demand forecasting for shipping
                 href: solution-ideas/articles/demand-forecasting-for-shipping-and-distribution.yml
-              - name: Mass ingestion of news feeds on Azure
-                href: example-scenario/ai/newsfeed-ingestion.yml
+              - name: Ingestion and analysis of news feeds
+                href: example-scenario/ai/news-feed-ingestion-and-near-real-time-analysis.yml
               - name: Partitioning in Event Hubs and Kafka
                 href: reference-architectures/event-hubs/partitioning-in-event-hubs-and-kafka.yml
               - name: Stream processing with Azure Databricks
@@ -929,6 +951,8 @@ items:
                     href: reference-architectures/containers/aks-pci/aks-pci-deploy.yml                         
                   - name: Summary 
                     href: reference-architectures/containers/aks-pci/aks-pci-summary.yml                         
+              - name: Advanced microservices architecture on AKS
+                href: reference-architectures/containers/aks-microservices/aks-microservices-advanced.yml
               - name: CI/CD pipeline for container-based workloads
                 href: example-scenario/apps/devops-with-aks.yml
           - name: Example workloads hosted in AKS clusters
@@ -1091,6 +1115,8 @@ items:
                 href: solution-ideas/articles/digital-marketing-using-azure-database-for-postgresql.yml
               - name: Digital marketing using Azure MySQL
                 href: solution-ideas/articles/digital-marketing-using-azure-database-for-mysql.yml
+              - name: Enterprise data warehouse
+                href: solution-ideas/articles/enterprise-data-warehouse.yml
               - name: Finance management using Azure MySQL
                 href: solution-ideas/articles/finance-management-apps-using-azure-database-for-mysql.yml
               - name: Finance management using Azure PostgreSQL
@@ -1119,8 +1145,6 @@ items:
                 href: solution-ideas/articles/messaging.yml
               - name: Mining equipment monitoring
                 href: solution-ideas/articles/monitor-mining-equipment.yml
-              - name: Modern data warehouse
-                href: solution-ideas/articles/modern-data-warehouse.yml
               - name: Ops automation using Event Grid
                 href: solution-ideas/articles/ops-automation-using-event-grid.yml
               - name: Oracle migration to Azure
@@ -1404,6 +1428,8 @@ items:
         items:
           - name: Guides
             items:
+              - name: Build for resilience
+                href: guide/resilience/resilience-overview.md
               - name: Identity in multitenant applications
                 items:
                   - name: Introduction
@@ -1522,7 +1548,7 @@ items:
                     href: example-scenario/iot/analyze-optimize-loop.yml
                   - name: Event routing
                     href: example-scenario/iot/event-routing.yml
-                  - name: Solution scaling with application stamps
+                  - name: Scale solutions with deployment stamps
                     href: example-scenario/iot/application-stamps.yml
           - name: Architectures
             items:
@@ -1592,6 +1618,8 @@ items:
                     href: reference-architectures/migration/unisys-mainframe-migration.yml
               - name: Data modernization
                 items:
+                  - name: Mainframe access to Azure databases
+                    href: solution-ideas/articles/mainframe-access-azure-databases.yml
                   - name: Mainframe file replication on Azure
                     href: solution-ideas/articles/mainframe-azure-file-replication.yml
                   - name: Modernize mainframe and midrange data
