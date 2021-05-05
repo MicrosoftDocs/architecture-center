@@ -47,6 +47,12 @@ Sample use cases include:
 
 1. Power BI provides customized reports and business intelligence (BI). The Azure Maps visual for Power BI highlights the role of location data in business results.
 
+Throughout the process:
+
+- Azure Monitor collects information on events and performance.
+- The Azure portal tool Log Analytics runs queries on Monitor logs and analyzes the results.
+- Key Vault keeps secrets, passwords, and connection strings secure.
+
 ## Components
 
 - [Azure Data Factory for data movement and orchestration](https://docs.microsoft.com/en-us/azure/data-factory/introduction).
@@ -56,7 +62,11 @@ Sample use cases include:
 - [PostgreSQL with PostGIS extension](https://docs.microsoft.com/en-us/azure/postgresql/concepts-extensions) as main data store to host and serve Geospatial data for downstream applications; also integrates with actual GIS servers.
 - [PostGIS][PostGIS] is an extension for the PostgreSQL database. By using the PostGIS extension, you can run location queries in SQL that involve geographic objects.
 
+[About Azure Key Vault]: /azure/key-vault/general/overview
 [Azure Data Explorer extends geospatial functionality]: https://azure.microsoft.com/updates/adx-geo-updates/
+[Azure Monitor Logs overview]: /azure/azure-monitor/logs/data-platform-logs
+[Azure Monitor Metrics overview]: /azure/azure-monitor/essentials/data-platform-metrics
+[Azure Monitor overview]: /azure/azure-monitor/overview
 [GeoJSON format]: https://tools.ietf.org/html/rfc7946
 [Getting started with the Azure Maps Power BI visual]: /azure/azure-maps/power-bi-visual-getting-started
 [PostGIS]: https://www.postgis.net/
@@ -70,6 +80,14 @@ Sample use cases include:
 - Power BI and [Azure Maps Power BI visual](https://docs.microsoft.com/en-us/azure/azure-maps/power-bi-visual-getting-started) for BI with geospatial data.
 
 - The [Azure Maps visual for Power BI][Getting started with the Azure Maps Power BI visual] provides a rich set of data visualizations for spatial data on top of a map. The visual offers insights into how location data relates to and influences business data.
+
+- [Azure Key Vault][About Azure Key Vault] stores and controls access to secrets such as tokens, passwords, and API keys. Key Vault also creates and controls encryption keys and manages security certificates.
+
+- [Azure Monitor][Azure Monitor overview] collects data on environments and Azure resources. This information is helpful for maintaining availability and performance. Other Azure services, such as Azure Storage and Azure Event Hubs, can also use this diagnostics data. Two data platforms make up Monitor:
+
+  - [Azure Monitor Logs][Azure Monitor Logs overview] records and stores log and performance data. For Logic Apps, this data includes information on trigger events, run events, and action events.
+  - [Azure Monitor Metrics][Azure Monitor Metrics overview] collects numerical values at regular intervals. For Logic Apps, this data includes the run latency, rate, and success percentage.
+
 
 ## Alternatives
 
@@ -88,7 +106,41 @@ There is a variety of Spark libraries available to process geospatial data on Az
 
 Azure Data Explorer (ADX) was originally designed for time series and log analytics. The product has been established as a powerful, general-purpose analytics and compute engine. The recent addition of Geospatial Functions ([Azure Data Explorer extends geospatial functionality | Azure updates | Microsoft Azure](https://azure.microsoft.com/en-us/updates/adx-geo-updates/)). The generic functionality of ADX is described here: [Azure Data Explorer Kusto EngineV3 (preview) | Microsoft Docs](https://docs.microsoft.com/en-us/azure/data-explorer/engine-v3)
 
-## Availability, Scalability and Security
+## Availability considerations
+
+- [Event Hubs spreads failure risk across clusters][Azure Event Hubs - Geo-disaster recovery]. Using a namespace with availability zones turned on spreads that risk across three physically separated facilities. The Geo-Disaster recovery feature of Event Hubs replicates the entire configuration of a namespace from a primary to a secondary namespace.
+
+- [Azure Database for PostgreSQL provides business continuity features][Overview of business continuity with Azure Database for PostgreSQL - Single Server] that cover a range of recovery objectives.
+
+- [App Services diagnostics][Azure App Service diagnostics overview] alerts you to problems in apps, such as downtime. This service helps you troubleshoot and resolve issues like outages.
+
+- [App Service can back up application files][Basic web app availability considerations]. But the backed-up files include app settings in plain text, which may include secrets like connection strings.
+
+## Scalability considerations
+
+The [autoscale feature of Monitor][Overview of autoscale in Microsoft Azure] adds resources to handle increases in load. This feature also removes resources to save money.
+
+Most Azure components also offer built-in scalability:
+
+- Event Hubs automatically scales up to meet usage needs. But take steps to [manage throughput units][Throughput units] and [optimize partitions][Scaling with Event Hubs partitions].
+
+- Data Factory handles large amounts of data. Its [serverless architecture supports parallelism at different levels][Copy performance and scalability achievable using ADF].
+
+- [Data Lake Storage is scalable by design][Introduction to Azure Data Lake Storage Gen2 scalability].
+
+- Azure Database for PostgreSQL offers [high-performance horizontal scaling][Quickstart: create a Hyperscale (Citus) server group in the Azure portal].
+
+- [Azure Databricks clusters resize as needed][Introducing Databricks Optimized Autoscaling on Apache Spark].
+
+- [Azure Data Explorer can elastically scale to terabytes of data in minutes][Azure Data Explorer].
+
+- [App Services web apps scale up and out][Basic web application scalability considerations]
+
+
+
+- Original content:
+
+(Maybe say Perform capacity planning)
 
 The advantage of this architecture is that all components (data preparation, data serving) can be scaled independently by assessing the following questions:
 
@@ -107,9 +159,23 @@ Performant operations have been tested with:
 - A memory-optimized PostgreSQL database
 - Azure App Service with 2 Standard S2 instances
 
+## Security considerations
+
+- Something about using Key Vault with:
+
+  - App Services (see notes)
+  - Data Factory (to access database and lake) (see notes)
+  - Event Hubs (see notes)
+
+- See Basic web app for one or two links on App Service security.
+
+- A special attention is necessary for protecting data that are exposed as vector tiles. The vector tiles embed coordinates and attributes for multiple entities in one file. If vector tiles are pre-generated and if there are per-user restrictions on data, then there must be a dedicated set of vector tiles for each permission in the access control concept.
+
+## Performance considerations
+
 Vector tiles are a very performant way to visualize GIS data on maps: [Mapbox Vector Tile specification](https://github.com/mapbox/vector-tile-spec). This solution dynamically queries vector tiles using the built-in support for vector tiles generation of PostGIS. This works very well for simpler queries and result sets of less than 1M records. For more computationally expensive queries, if data does not change frequently or for really large datasets that must be visualized, vector tiles can be pre-generated using Tippecanoe: [GitHub - mapbox/tippecanoe](https://github.com/mapbox/tippecanoe) Tippecanoe can be run as an Azure Function or a Container as part of your data processing flow and the resulting tiles can be exposed as APIs.
 
-A special attention is necessary for protecting data that are exposed as vector tiles. The vector tiles embed coordinates and attributes for multiple entities in one file. If vector tiles are pre-generated and if there are per-user restrictions on data, then there must be a dedicated set of vector tiles for each permission in the access control concept.
+
 
 # Pricing
 
@@ -128,3 +194,18 @@ The pricing for a deployment with a sizing mentioned in the considerations secti
 - Connect a Web Map Service to Azure Maps: [Connect to a Web Feature Service (WFS) service | Microsoft Docs](https://docs.microsoft.com/en-us/azure/azure-maps/spatial-io-connect-wfs-service)
 - Process open street maps data with Spark: [Frameworks - OpenStreetMap Wiki](https://wiki.openstreetmap.org/wiki/Frameworks)
 - Inspirations for visualizing data with Azure maps: [Azure Maps Web SDK Samples (azuremapscodesamples.azurewebsites.net)](https://azuremapscodesamples.azurewebsites.net/)
+
+
+[Azure App Service diagnostics overview]: /azure/app-service/overview-diagnostics
+[Azure Data Explorer]: https://azure.microsoft.com/services/data-explorer/
+[Azure Event Hubs - Geo-disaster recovery]: /azure/event-hubs/event-hubs-geo-dr
+[Basic web app availability considerations]: /azure/architecture/reference-architectures/app-service-web-app/basic-web-app#availability-considerations
+[Basic web app scalability considerations]: /azure/architecture/reference-architectures/app-service-web-app/basic-web-app?tabs=cli#scalability-considerations
+[Copy performance and scalability achievable using ADF]: /azure/data-factory/copy-activity-performance#copy-performance-and-scalability-achievable-using-adf
+[Introducing Databricks Optimized Autoscaling on Apache Spark]: https://databricks.com/blog/2018/05/02/introducing-databricks-optimized-auto-scaling.html
+[Introduction to Azure Data Lake Storage Gen2 scalability]: /azure/storage/blobs/data-lake-storage-introduction#scalability
+[Overview of autoscale in Microsoft Azure]: /azure/azure-monitor/autoscale/autoscale-overview
+[Overview of business continuity with Azure Database for PostgreSQL - Single Server]: /azure/postgresql/concepts-business-continuity
+[Quickstart: create a Hyperscale (Citus) server group in the Azure portal]: /azure/postgresql/quickstart-create-hyperscale-portal
+[Scaling with Event Hubs partitions]: /azure/event-hubs/event-hubs-scalability#partitions
+[Throughput units]: /azure/event-hubs/event-hubs-scalability#throughput-units
