@@ -4,7 +4,7 @@ With more companies' internal applications adhering to the API-first approach, a
 
 ## Architecture
 
-![Proposed architecture](images/protect-apis.png)
+![Proposed architecture.](images/protect-apis.png)
 
 This solution doesn't address the architecture's underlying services, like App Service Environment, Azure SQL Database, and Azure Kubernetes Services. These services only showcase what you can do as a broader solution. This solution specifically discusses the gray-background areas, API Management and Application Gateway.
 
@@ -12,11 +12,11 @@ Application Gateway sets up a URL redirection mechanism that sends the request t
 
 - URLs formatted like `api.<some-domain>/external/*` can reach the back end to interact with the requested APIs.
   
-- Application Gateway redirects calls formatted as `api.<some-domain>/*` to a dead end, meaning a backend pool with no target set up.
+- Application Gateway redirects calls formatted as `api.<some-domain>/*` to a dead end, meaning a backend pool with no target.
   
-API Management accepts and properly maps internal calls, which come from from resources in the same Azure virtual network, under `api.<some-domain>/internal/*`.
+API Management accepts and properly maps internal calls, which come from resources in the same Azure virtual network, under `api.<some-domain>/internal/*`.
 
-So that developers can manage APIs and their configurations from both internal and external environments, this scenario adds a rule at the Application Gateway level to properly redirect users under `portal.<some-domain>/*` to the developers' portal.
+So that developers can manage APIs and their configurations from both internal and external environments, this scenario adds a rule at the Application Gateway level to properly redirect users under `portal.<some-domain>/*` to the developer portal.
 
 Finally, at the API Management level, APIs are set up to accept calls under the following patterns:
 
@@ -25,9 +25,9 @@ Finally, at the API Management level, APIs are set up to accept calls under the 
 
 ## Recommendations
 
-- This solution focuses on implementing the whole solution, building blocks, and testing API access from inside and outside API Management's virtual network. For details on the API Management virtual network integration process, see [Integrate API Management in an internal VNet with Application Gateway](/azure/api-management/api-management-howto-integrate-internal-vnet-appgateway).
+- This solution focuses on implementing the whole solution, building blocks, and testing API access from inside and outside the API Management virtual network. For details on the API Management virtual network integration process, see [Integrate API Management in an internal VNET with Application Gateway](/azure/api-management/api-management-howto-integrate-internal-vnet-appgateway).
 
-- Product creation and API configuration in API Management isn't covered here. For a comprehensive tutorial, see [this link](/azure/api-management/api-management-howto-add-products).
+- Product creation and API configuration in API Management isn't covered here. For a comprehensive tutorial, see [Tutorial: Create and publish a product](/azure/api-management/api-management-howto-add-products).
 
 - To communicate with private resources in the back end, Application Gateway and API Management must be in the same virtual network. This solution assumes you already have a virtual network set up with your own resources. The solution also creates two subnets for Application Gateway and API Management.
 
@@ -58,11 +58,11 @@ Finally, at the API Management level, APIs are set up to accept calls under the 
 
 ## Scalability considerations
 
-- Turn on Application Gateway's autoscale feature. Application Gateway serves as entry point for this architecture, and the WAF feature requires additional processing power for each request analysis. It's critical that the service can expand its computational capacity on the spot. To enable autoscale, see [this link](/azure/application-gateway/tutorial-autoscale-ps#specify-autoscale).
+- Turn on Application Gateway's autoscale feature. Application Gateway serves as entry point for this architecture, and the WAF feature requires additional processing power for each request analysis. It's critical that the service can expand its computational capacity on the spot. To enable autoscale, see [Specify autoscale](/azure/application-gateway/tutorial-autoscale-ps#specify-autoscale).
 
-- Consider Application Gateway subnet sizing. Application Gateway requests one private address per instance, plus another private IP address if a private front-end IP is configured. Application Gateway alsol takes five IPs per instance from the subnet it's deployed to. To properly deploy Application Gateway for this architecture, make sure its subnet has enough space to grow. For more information, see [this article](/azure/application-gateway/configuration-infrastructure).
+- Consider Application Gateway subnet sizing. Application Gateway requests one private address per instance, plus another private IP address if a private front-end IP is configured. Application Gateway also takes five IPs per instance from the subnet it's deployed to. To properly deploy Application Gateway for this architecture, make sure its subnet has enough space to grow. For more information, see [Application Gateway infrastructure configuration](/azure/application-gateway/configuration-infrastructure).
 
-- Turn on the API Management autoscaling feature to support highly concurrent scenarios. Autoscaling lets the service expand its capabilities to quickly respond to a growing number of incoming requests. To enable the autoscale feature, see [this article](/azure/api-management/api-management-howto-autoscale).
+- Turn on the API Management autoscaling feature to support highly concurrent scenarios. Autoscaling lets the service expand its capabilities to quickly respond to a growing number of incoming requests. To enable the autoscale feature, see [Automatically scale an Azure API Management instance](/azure/api-management/api-management-howto-autoscale).
 
 ## Availability considerations
 
@@ -70,9 +70,9 @@ Finally, at the API Management level, APIs are set up to accept calls under the 
 
 ## Security considerations
 
-- In this scenario, API Management has two types of IP addresses, public and private. Public IP addresses are used for internal communication on port 3443. In the external virtual network configuration, public IPs are also used for runtime API traffic. When a request is sent from API Management to a public, internet-facing back end, a public IP address is visible as the origin of the request. For details, see [this article](/azure/api-management/api-management-howto-ip-addresses#ip-addresses-of-api-management-service-in-vnet).
+- In this scenario, API Management has two types of IP addresses, public and private. Public IP addresses are used for internal communication on port 3443. In the external virtual network configuration, public IPs are also used for runtime API traffic. When a request is sent from API Management to a public, internet-facing back end, a public IP address is visible as the origin of the request. For more information, see [IP addresses of API Management service in VNet](/azure/api-management/api-management-howto-ip-addresses#ip-addresses-of-api-management-service-in-vnet).
 
-- To fortify the communication through API Management, see [Azure security baseline for API Management](/azure/api-management/security-baseline).
+- To fortify the communication through API Management, see [Azure security baseline for API Management](/security/benchmark/azure/baselines/api-management-security-baseline).
 
 ## Deploy the solution
 
@@ -80,7 +80,7 @@ The following deployment steps use PowerShell. You could also use the [Azure por
 
 1. Deploy a new Resource Group.
    
-```powershell
+   ```powershell
    $resGroupName = "{resource-group-name}"
    $location = "{azure-region}"
    New-AzResourceGroup -Name $resGroupName -Location $location
@@ -88,7 +88,7 @@ The following deployment steps use PowerShell. You could also use the [Azure por
    
 1. Add subnets for API Management and Application Gateway.
    
-```powershell
+   ```powershell
    # Retrieve VNet information
    $vnet = Get-AzVirtualNetwork -Name {vnet-name}  -ResourceGroupName {resource-group-name}
    
@@ -117,7 +117,7 @@ The following deployment steps use PowerShell. You could also use the [Azure por
    
 1. Deploy a new API Management.
    
-```powershell
+   ```powershell
    # Create an API Management VNET connected object
    $API ManagementVirtualNetwork = New-AzAPI ManagementanagementVirtualNetwork -SubnetResourceId $API Managementsubnetdata.Id
    
@@ -139,7 +139,7 @@ The following deployment steps use PowerShell. You could also use the [Azure por
    
 1. Configure hostnames and certificates.
    
-```powershell
+   ```powershell
    # Specify cert configuration
    $gatewayHostname = "api.{some-domain}"
    $portalHostname = "portal.{some-domain}"
@@ -176,7 +176,7 @@ The following deployment steps use PowerShell. You could also use the [Azure por
    
 1. Provision a public IP (PIP) for Application Gateway.
    
-```powershell
+   ```powershell
    # Create a public IP address for the Application Gateway front-end
    $publicip = New-AzPublicIpAddress `
        -ResourceGroupName $resGroupName `
@@ -187,7 +187,7 @@ The following deployment steps use PowerShell. You could also use the [Azure por
    
 1. Create Application Gateway's configuration.
    
-```powershell
+   ```powershell
    # Create Application Gateway configuration
    # Step 1 - create App GW IP config
    $gipconfig = New-AzApplicationGatewayIPConfiguration `
@@ -195,18 +195,18 @@ The following deployment steps use PowerShell. You could also use the [Azure por
        -Subnet $appgatewaysubnetdata
 ```
    
-1. Configure the front end IP port object.
+1. Configure the front-end IP port object.
    
-```powershell
+   ```powershell
    # Step 2 - configure the front-end IP port for the public IP endpoint
    $fp01 = New-AzApplicationGatewayFrontendPort `
        -Name "frontend-port443" `
        -Port 443
 ```
    
-1. Tie the front end IP port to the public IP.
+1. Tie the front-end IP port to the public IP.
    
-```powershell
+   ```powershell
    # Step 3 - configure the front-end IP with the public IP endpoint
    $fipconfig01 = New-AzApplicationGatewayFrontendIPConfig `
        -Name "frontend1" `
@@ -215,7 +215,7 @@ The following deployment steps use PowerShell. You could also use the [Azure por
    
 1. Set up certificates for Application Gateway.
    
-```powershell
+   ```powershell
    # Step 4 - configure certs for the App Gateway
    $cert = New-AzApplicationGatewaySslCertificate `
        -Name "API Management-gw-cert" `
@@ -230,7 +230,7 @@ The following deployment steps use PowerShell. You could also use the [Azure por
    
 1. Create Application Gateway's listeners.
    
-```powershell
+   ```powershell
    # Step 5 - configure HTTP listeners for the App Gateway
    $listener = New-AzApplicationGatewayHttpListener `
        -Name "API Management-api-listener" `
@@ -253,7 +253,7 @@ The following deployment steps use PowerShell. You could also use the [Azure por
    
 1. Create Application Gateway's probes to map API Management's endpoints.
    
-```powershell
+   ```powershell
    # Step 6 - create custom probes for API Management endpoints
    $API Managementprobe = New-AzApplicationGatewayProbeConfig `
        -Name "API Management-api-probe" `
@@ -276,7 +276,7 @@ The following deployment steps use PowerShell. You could also use the [Azure por
    
 1. List API Management's endpoints to backend pools.
    
-```powershell
+   ```powershell
    # Step 7 - upload cert for SSL-enabled backend pool resources
    $authcert = New-AzApplicationGatewayAuthenticationCertificate `
        -Name "whitelistcert" `
@@ -285,7 +285,7 @@ The following deployment steps use PowerShell. You could also use the [Azure por
    
 1. Configure Application Gateway's HTTP settings.
    
-```powershell
+   ```powershell
    # Step 8 - configure HTTPs backend settings for the App Gateway
    $API ManagementPoolSetting = New-AzApplicationGatewayBackendHttpSettings `
        -Name "API Management-api-poolsetting" `
@@ -308,7 +308,7 @@ The following deployment steps use PowerShell. You could also use the [Azure por
    
 1. Map backend pool IP with API Management's internal IP.
    
-```powershell
+   ```powershell
    # 1. Map backend pool IP with API Management's internal IP
    $API ManagementProxyBackendPool = New-AzApplicationGatewayBackendAddressPool `
        -Name "API Managementbackend" `
@@ -324,7 +324,7 @@ The following deployment steps use PowerShell. You could also use the [Azure por
    
 1. Allow external access to API Management's developer portal.
    
-```powershell
+   ```powershell
    # Create a routing rule to allow external Internet access to the developer portal
    $rule01 = New-AzApplicationGatewayRequestRoutingRule `
        -Name "API Management-portal-rule" `
@@ -336,7 +336,7 @@ The following deployment steps use PowerShell. You could also use the [Azure por
    
 1. Configure and deploy Application Gateway.
    
-```powershell
+   ```powershell
    # Step 11 - change App Gateway SKU and instances (# instances can be configured as required)
    $sku = New-AzApplicationGatewaySku -Name "{waf-sku-name}" -Tier "WAF" -Capacity {instances-number}
    
@@ -368,7 +368,7 @@ The following deployment steps use PowerShell. You could also use the [Azure por
    
 1. Configure redirection rules.
    
-```powershell
+   ```powershell
    # Get existing Application Gateway config
    $appgw = Get-AzApplicationGateway `
        -ResourceGroupName $resGroupName `
@@ -422,15 +422,17 @@ The following deployment steps use PowerShell. You could also use the [Azure por
    
 1. Update Application Gateway with the new configuration.
    
-```powershell
+   ```powershell
    $appgw = Set-AzApplicationGateway `
        -ApplicationGateway $appgw
 ```
 
 ## Pricing
 
-The total cost of this architecture running will depend on the various configuration aspects, like services' tiers, scalability as it goes (meaning, number of instances dynamically allocated by the service to support a given demand), automation scripts (will this run 24x7 or just few hours a month?) so on, so forth.
+The cost of this architecture depends on configuration aspects like:
+- Service tiers
+- Scalability, meaning number of instances dynamically allocated by services to support a given demand
+- Automation scripts
+- Whether this architecture will run continuously or just a few hours a month
 
-To have an accurate view of the pricing for this, we recommend go after every of the aspect mentioned in above's paragraph, and once you have a definition in place, go to the [Azure Pricing Calculator](https://azure.microsoft.com/pricing/calculator/) service, pull up all the definitions you have settled and then, have a view about pricing.
-
-[calculator]: https://azure.com/e/
+After you assess these aspects, go to the [Azure Pricing Calculator](https://azure.microsoft.com/pricing/calculator/) to estimate pricing.
