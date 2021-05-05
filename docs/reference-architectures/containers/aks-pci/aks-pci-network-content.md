@@ -77,12 +77,12 @@ Requirements for a firewall at each Internet connection and between any demilita
 
 ##### Your responsibilities
       
-For a PCI DSS infrastructure, you're responsible for securing the AKS cluster by using firewalls to block unauthorized access into and out of the cluster. Firewalls must be configured properly for a strong security posture. Firewall settings must be applied to:
+For a PCI DSS infrastructure, you're responsible for securing the card holder environment (CDE) by using firewalls to block unauthorized access into and out of the network with the CDE. Firewalls must be configured properly for a strong security posture. Firewall settings must be applied to:
 - Communication between the colocated components within the cluster.
 - Communication between the workload and other components in trusted networks.
 - Communication between the workload and public internet.
 
-This architecture uses different firewall technologies to inspect traffic in two directions: 
+This architecture uses different firewall technologies to inspect traffic flowing in both direction to and from the cluster that hosts the CDE: 
 
 -  Azure Application Gateway integrated web application firewall (WAF) is used as the traffic router and for securing inbound (ingress) traffic to the cluster. 
 
@@ -90,18 +90,16 @@ This architecture uses different firewall technologies to inspect traffic in two
 
    As part of processing a transaction or management operations, the cluster will need to communicate with external entities. For example, communication with the AKS control plane, getting windows and package updates, workload's interaction with external APIs, and others. Some of those interactions might be over HTTP and should be considered as attack vectors. Those vectors are targets for a man-in-the-middle attack that can result in data exfilteration. Adding firewall to egress traffic mitigates that threat. 
 
-
-
 #### Requirement 1.1.5
 Description of groups, roles, and responsibilities for management of network components.
 
 ##### Your responsibilities
 
-As per the requirements of the PCI DSS standard, you'll need to provide controls on the network flows and the components involved. The resulting infrastructure will have several network segments, each with many controls, and each control with a purpose. Make sure your documentation not only has the breadth of coverage from network planning to all configurations but also has the details on ownership. Have clear lines of responsibility and the roles are responsible for them. 
+You'll need to provide controls on the network flows and the components involved. The resulting infrastructure will have several network segments, each with many controls, and each control with a purpose. Make sure your documentation not only has the breadth of coverage from network planning to all configurations but also has the details on ownership. Have clear lines of responsibility and the roles are responsible for them. 
 
 For example, who is responsible for the goverance of securing network between Azure and the internet. In an enterprise, the IT team is responsible for configuration and maintenance of Azure Firewall rules, Web Application Firewall (WAF), Network Security Groups (NSG), and other cross-network traffic. They might also be responsible for enterprise-wide virtual network and subnet allocation and IP address planning.
 
-At the workload level, a cluster operator is responsible for maintaining zero-trust through network policies. Also, responsibilities might include communication with the Azure control plane, Kubernetes APIs, monitoring options, and others.
+At the workload level, a cluster operator is responsible for maintaining zero-trust through network policies. Also, responsibilities might include communication with the Azure control plane, Kubernetes APIs, monitoring technologies, and others.
 
 Make sure only access rights are given only to the parties responsible in each case. 
 
@@ -140,7 +138,7 @@ Unstrusted networks are networks outside that perimeter. This category includes 
 
 For information about private clusters, see [Create a private Azure Kubernetes Service cluster](https://docs.microsoft.com/en-us/azure/aks/private-clusters).
 
-<Ask Chad:  >
+<Ask Chad: What about the case where I don't want to use a private cluster. What are the added responsibilities w.r.t API service (and others). Need a case to say with private cluster things are just easier. >
 
 #### Requirement 1.2.1
 Restrict inbound and outbound traffic to that which is necessary for the cardholder data environment, and specifically deny all other traffic.
@@ -150,10 +148,10 @@ By design, Azure Virtual Network cannot be directly reached by the public intern
 
 -  Azure Application Gateway integrated web application firewall (WAF) intercepts all ingress traffic and routes inspected traffic to the cluster. 
 
-   This traffic can originate from trusted or untrusted networks. Application Gateway is provisioned in a subnet of the spoke network and secured by a network security group (NSG). As traffic flows in, WAF rules allow or deny, and route traffic to the configured backend. For example, Application Gateway only allows: 
-    - TLS-encrypted traffic. 
-    - Traffic within a port range for control plane communication from the Azure infrastructure. 
-    - Health probes from the internal load balancer. 
+   This traffic can originate from trusted or untrusted networks. Application Gateway is provisioned in a subnet of the spoke network and secured by a network security group (NSG). As traffic flows in, WAF rules allow or deny, and route traffic to the configured backend. For example, Application Gateway protects the CDE by denying this type of traffic: 
+    - All traffic that is not TLS-encrypted. 
+    - Traffic outside the port range for control plane communication from the Azure infrastructure. 
+    - Health probes requests that are sent by entities other than the internal load balancer in the cluster. 
 
 - Azure Firewall is used to secure all outbound (egress) traffic from trusted and untrusted networks. 
 
@@ -162,7 +160,6 @@ By design, Azure Virtual Network cannot be directly reached by the public intern
    For more information, see  [Use Azure Firewall to protect Azure Kubernetes Service (AKS) Deployments](/azure/firewall/protect-azure-kubernetes-service).
 
 The cluster will need to access other Azure services over the public internet. For example, get certificates from the managed key store, pull images from a container registry, communicate with the API server. Those interactions must be secured. Because this architecture uses a private cluster, the network path to the API server is over Private Link. You can use Private Links for other services such as Azure Key Vault and Azure Container Registry to do the preceding tasks.
-
 
 In addition to firewall rules and private networks, Nework Security Group (NSG) flows are also secured through rules. Here some examples from this architecture where the CDE is protected by denying traffic:
 - The NSGs, on subnets that have node pools, deny any SSH access to its nodes.
@@ -176,7 +173,7 @@ Secure and synchronize router configuration files.
 
 Use ARM templates (or similar) to have a record of the resources deployed.
 
-<Ask Chad: What about GitOps and Flux capacitor>
+<Ask Chad: What about GitOps and Flux capacitor, start up security>
 
 #### Requirement 1.2.3
 
@@ -184,16 +181,28 @@ Install perimeter firewalls between all wireless networks and the cardholder dat
 
 ##### Your responsibilities
 
-Ensure all Cluster API and Cluster Node access is restricted to authorized subnets, and secure access to those subnets (Azure Bastion, VPN Gateway, etc)
+The AKS nodes and the node pools must not be reachable from wireless networks. Also, requests to the Kubernetes API server must be denied. Access to those components is restricted to authorized and secured subnets.
 
-<Ask Chad: Firewall scoped rules?>
+In general, limit access to on-premises traffic to the spoke network.  
 
 #### Requirement 1.3&mdash;Prohibit direct public access between the Internet and any system component in the cardholder data environment. 
 
 ##### Your responsibilities
-All nodepool nodes must never have public IPs. All nodepool nodes must not directly be exposed via a public load balancer. All nodepool nodes should only be exposed via internal load balancers. Those internal load balancers then should be exposed via a WAF such as Application Gateway. You cluster API should NOT be exposed to the internet, you must run in a Private Cluster configuration.
+The AKS cluster has system node pools that host critical system pods. Even on the user node pools, there are pods that run other services that participate in cluster operations. For example, Flux to synchronize cluster configuration to a Github repository, the ingress controller to route traffic to the workload pods, and others. Regardless of the type of node pool, all nodes must be protected. 
 
-https//docs.microsoft.com/en-us/azure/aks/private-clusters
+Another critical system component is the API server that is used to do native Kubernetes tasks, such as maintain the state of the cluster and configuration.
+
+Here are some best practices:
+- Do not configure public IP addresses on the node pool nodes. 
+- Do not have a public load balancer in front of the nodes. Traffic within the cluster must be routed through internal load balancers. 
+- Only expose internal load balancers to Azure Application Gateway integrated Web Application Firewall(WAF). 
+- Do not expose the API server to the internet. When you run the cluster in private mode, the endpoint is not exposed and communication between the node pools and the API server is over a private network.
+
+For information about private clusters, see [Create a private Azure Kubernetes Service cluster](https://docs.microsoft.com/en-us/azure/aks/private-clusters).
+
+<div id="consent-checkbox">
+I agree to the above terms
+</div>
 
 #### Requirement 1.3.1
 
