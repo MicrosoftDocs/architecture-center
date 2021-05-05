@@ -30,7 +30,7 @@ This solution is built on the Azure managed services: [Azure Stream Analytics](h
 * [Azure Data Factory](https://azure.microsoft.com/services/data-factory): Handle data manipulation and preparation.
 * [Azure Automated Machine Learning](https://azure.microsoft.com/services/machine-learning/automatedml): Use Azure ML to forecast the energy demand of a particular region.
 * [MLOps](https://azure.microsoft.com/services/machine-learning/mlops): Design, deploy, and manage production model workflows.
-* [Power BI](https://docs.microsoft.com/power-bi/connect-data/service-aml-integrate): Consume model prediction results in Power BI.
+* [Power BI](/power-bi/connect-data/service-aml-integrate): Consume model prediction results in Power BI.
 
 ## Next steps
 

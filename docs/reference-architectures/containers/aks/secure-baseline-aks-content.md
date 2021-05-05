@@ -316,7 +316,7 @@ For zero-trust control and the ability to inspect traffic, all egress traffic fr
 
 An exception to the zero-trust control is when the cluster needs to communicate with other Azure resources. For instance, the cluster needs to pull an updated image from the container registry. The recommended approach is by using  [Azure Private Link](/azure/private-link/private-link-overview). The advantage is that specific subnets reach the service directly. Also, traffic between the cluster and the service isn't exposed to public internet. A downside is that Private Link needs additional configuration instead of using the target service over its public endpoint. Also, not all Azure services or SKUs support Private Link. For those cases, consider enabling a Service Endpoint on the subnet to access the service.
 
-If Private Link or Service Endpoints aren't an option, you can reach other services through their public endpoints, and control access through Azure Firewall rules and the firewall built into the target service. Because this traffic will go through the static IP address of the firewall, that address can be added the service’s IP allow list. One downside is that Azure Firewall will need to have additional rules to make sure only traffic from specific subnet is allowed.
+If Private Link or Service Endpoints aren't an option, you can reach other services through their public endpoints, and control access through Azure Firewall rules and the firewall built into the target service. Because this traffic will go through the static IP address of the firewall, that address can be added the service’s IP allowlist. One downside is that Azure Firewall will need to have additional rules to make sure only traffic from specific subnet is allowed.
 
 ### Pod-to-pod traffic
 
@@ -661,7 +661,7 @@ For other cost-related information, see [AKS pricing](https://azure.microsoft.co
 
 ## Next Steps
 
-- To learn about hosting Microservices on AKS, see [Microservices architecture on Azure Kubernetes Service (AKS)](../aks-microservices/aks-microservices.yml).
+- To learn about hosting Microservices on the AKS baseline, see [Advanced Azure Kubernetes Service (AKS) microservices architecture](../aks-microservices/aks-microservices-advanced.yml).
 - The see the AKS product roadmap, see [Azure Kubernetes Service Roadmap on GitHub](https://github.com/Azure/AKS/projects/1).
 
 ## Related articles
