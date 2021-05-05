@@ -11,31 +11,31 @@ products:
   - azure-kubernetes-service
 ---
 
-# Choose a Kubernetes at the edge compute option 
+# Choose a Kubernetes at the edge compute option
 
 This document discusses the trade-offs for various options available for
 extending compute on the edge. The following considerations for each Kubernetes
 option are covered:
 
--   **Operational cost**—The anticipated labor required to maintain and operate
+- **Operational cost**—The anticipated labor required to maintain and operate
     the Kubernetes clusters.
 
--   **Ease of configuration**—The level of difficulty to configure and deploy a
+- **Ease of configuration**—The level of difficulty to configure and deploy a
     Kubernetes cluster.
 
--   **Flexibility**—A measure of how adaptable the Kubernetes option is to
+- **Flexibility**—A measure of how adaptable the Kubernetes option is to
     integrate a customized configuration with existing infrastructure at the
     edge.
 
--   **Mixed node**—Ability to run a Kubernetes cluster with both Linux and
+- **Mixed node**—Ability to run a Kubernetes cluster with both Linux and
     Windows nodes.
 
 **Assumptions**
 
--   You are a cluster operator looking to understand different options for
+- You are a cluster operator looking to understand different options for
     running Kubernetes at the edge and managing clusters in Azure.
 
--   You have a good understanding of existing infrastructure and any additional
+- You have a good understanding of existing infrastructure and any additional
     infrastructure requirements, including storage and networking requirements.
 
 After reading this document, you'll be in a better position to identify which
@@ -74,17 +74,17 @@ this document. Meaning this option is typically best for those unable to
 leverage managed services due to unsupported existing infrastructure, or those
 who seek to have maximum control of their clusters.
 
-1.  This option can be especially difficult for those who are new to Kubernetes.
+1. This option can be especially difficult for those who are new to Kubernetes.
     This is not uncommon for organizations looking to run edge clusters. Options
     like [MicroK8s](https://microk8s.io/docs) or k3s aim to flatten that
     learning curve.
 
-2.  It's important to understand any underlying infrastructure and any
+2. It's important to understand any underlying infrastructure and any
     integration that is expected to take place up front. This will help to
     narrow down viable options and to identify any gaps with the opensource
     tooling and/or plugins.
 
-3.  Enabling clusters with [Azure
+3. Enabling clusters with [Azure
     Arc](/azure/azure-arc/) presents a simple
     way to manage your cluster from Azure alongside other resources. This also
     brings additional Azure capabilities to your cluster, including [Azure
@@ -93,7 +93,7 @@ who seek to have maximum control of their clusters.
     Defender](/azure/security-center/azure-defender),
     and other services.
 
-4.  Because cluster configuration is not trivial, it’s especially important to
+4. Because cluster configuration is not trivial, it’s especially important to
     be mindful of CI/CD. Tracking and acting on upstream changes of various
     plugins, and making sure those changes don’t affect the health of your
     cluster, becomes a direct responsibility. It’s important for you to have a
@@ -103,25 +103,25 @@ who seek to have maximum control of their clusters.
 
 Cluster bootstrap:
 
--   [kubeadm](https://kubernetes.io/docs/reference/setup-tools/kubeadm):
+- [kubeadm](https://kubernetes.io/docs/reference/setup-tools/kubeadm):
     Kubernetes tool for creating ground-up Kubernetes clusters. Good for
     standard compute resources (Linux/Windows).
 
--   [MicroK8s](https://microk8s.io/docs): Simplified administration and
+- [MicroK8s](https://microk8s.io/docs): Simplified administration and
     configuration (“*LowOps*”), conformant Kubernetes by Canonical.
 
--   k3s: Certified Kubernetes distribution built for Internet of Things (IoT)
+- k3s: Certified Kubernetes distribution built for Internet of Things (IoT)
     and edge computing.
 
 Storage:
 
--   Explore available [CSI
+- Explore available [CSI
     drivers](https://kubernetes-csi.github.io/docs/drivers.html): Many options
     are available to fit your requirements from cloud to local file shares.
 
 Networking:
 
--   A full list of available add-ons can be found here: [Networking
+- A full list of available add-ons can be found here: [Networking
     add-ons](https://kubernetes.io/docs/concepts/cluster-administration/networking/#how-to-implement-the-kubernetes-networking-model).
     Some popular options
     include [Flannel](https://github.com/coreos/flannel#flannel), a simple
@@ -132,14 +132,14 @@ Networking:
 
 Operational cost:
 
--   Without the support that comes with managed services, it’s up to the
+- Without the support that comes with managed services, it’s up to the
     organization to maintain and operate the cluster as a whole (storage,
     networking, upgrades, observability, application management). The
     operational cost is considered high.
 
 Ease of configuration:
 
--   Evaluating the many opensource options at every stage of configuration
+- Evaluating the many opensource options at every stage of configuration
     whether its networking, storage, or monitoring options is inevitable and can
     become quite complex. Requires additional consideration for configuring a
     CI/CD for cluster configuration. Because of these concerns, the ease of
@@ -147,10 +147,10 @@ Ease of configuration:
 
 Flexibility:
 
--   With the ability to leverage any opensource tool or plugin without any
+- With the ability to leverage any opensource tool or plugin without any
     provider restrictions, bare-metal Kubernetes is highly flexible.
 
-##Kubernetes on Azure Stack Edge
+## Kubernetes on Azure Stack Edge
 
 Kubernetes cluster (a master VM and a worker VM) configured and deployed for you
 on your Azure Stack Edge Pro device.
@@ -169,27 +169,27 @@ Ideal for those with existing (Linux) IoT workloads or upgrading their compute
 for ML at the edge. This is a good option when it is not necessary to have more
 granular control over the clusters.
 
-1.  Admin permissions are not granted by default. Although you can work with the
+1. Admin permissions are not granted by default. Although you can work with the
     product group to make certain exceptions, this makes it difficult to have
     finer control of your cluster.
 
-2.  There is an
-    additional [cost](https://azure.microsoft.com/en-us/pricing/details/azure-stack/edge/)
+2. There is an
+    additional [cost](https://azure.microsoft.com/pricing/details/azure-stack/edge/)
     if there isn't already an Azure Stack Edge device. Explore [Azure Stack Edge
     devices](https://azure.microsoft.com/en-us/products/azure-stack/edge/#devices) and
     see if any fit your compute requirements.
 
-3.  [Calico](https://docs.projectcalico.org/), [MetalLB](https://metallb.org/),
+3. [Calico](https://docs.projectcalico.org/), [MetalLB](https://metallb.org/),
     and [CoreDNS](https://coredns.io/) are installed for Kubernetes networking
     on the device.
 
-4.  Only **Linux** workloads are supported at this time.
+4. Only **Linux** workloads are supported at this time.
 
-5.  In addition to Kubernetes, Azure Stack Edge also comes with the IoT runtime,
+5. In addition to Kubernetes, Azure Stack Edge also comes with the IoT runtime,
     which means that workloads may also be deployed to your Azure Stack Edge
     clusters via IoT Edge.
 
-6.  Support for two node clusters is planned, but not currently available. This
+6. Support for two node clusters is planned, but not currently available. This
     effectively means that this option is *not* a highly available (HA)
     solution.
 
@@ -197,22 +197,22 @@ granular control over the clusters.
 
 Operational cost:
 
--   With the support that comes with the device, operational cost is minimal and
+- With the support that comes with the device, operational cost is minimal and
     is scoped to workload management.
 
 Ease of configuration:
 
--   Pre-configured and well-documented Kubernetes cluster deployment simplifies
+- Pre-configured and well-documented Kubernetes cluster deployment simplifies
     the configuration required compared to bare-metal Kubernetes.
 
 Flexibility:
 
--   Configuration is already set, and Admin permissions are not granted by
+- Configuration is already set, and Admin permissions are not granted by
     default. Product group involvement may be required beyond basic
     configuration, and the underlying infrastructure must be an Azure Stack Edge
     Pro device, making this a less flexible option.
 
-##AKS on HCI
+## AKS on HCI
 
 Note: This option is currently in **preview**.
 
@@ -238,16 +238,16 @@ discouraged that this time.
 
 Operational cost:
 
--   Microsoft-supported cluster minimizes operational costs.
+- Microsoft-supported cluster minimizes operational costs.
 
 Ease of configuration:
 
--   Pre-configured and well-documented Kubernetes cluster deployment simplifies
+- Pre-configured and well-documented Kubernetes cluster deployment simplifies
     the configuration required compared to bare-metal Kubernetes.
 
 Flexibility:
 
--   Cluster configuration itself is set, but Admin permissions are granted. The
+- Cluster configuration itself is set, but Admin permissions are granted. The
     underlying infrastructure must either be Azure Stack HCI or Windows Server
     2019. This option is more flexible than Kubernetes on Azure Stack Edge and
     less flexible than bare-metal Kubernetes.
@@ -256,25 +256,25 @@ Flexibility:
 
 For more information, see the following articles:
 
--   [What is Azure IoT
+- [What is Azure IoT
     Edge](/azure/iot-edge/about-iot-edge)
 
--   [Kubernetes on your Azure Stack Edge Pro GPU
+- [Kubernetes on your Azure Stack Edge Pro GPU
     device](/azure/databox-online/azure-stack-edge-gpu-kubernetes-overview)
 
--   [Use IoT Edge module to run a Kubernetes stateless application on your Azure
+- [Use IoT Edge module to run a Kubernetes stateless application on your Azure
     Stack Edge Pro GPU
     device](/azure/databox-online/azure-stack-edge-gpu-deploy-stateless-application-iot-edge-module)
 
--   [Deploy a Kubernetes stateless application via kubectl on your Azure Stack
+- Deploy a Kubernetes stateless application via kubectl on your Azure Stack
     Edge Pro GPU
     device](/azure/databox-online/azure-stack-edge-gpu-deploy-stateless-application-kubernetes)
 
--   [AI at the edge with Azure Stack
+- [AI at the edge with Azure Stack
     Hub](/azure/architecture/solution-ideas/articles/ai-at-the-edge)
 
--   [Building a CI/CD pipeline for microservices on
+- [Building a CI/CD pipeline for microservices on
     Kubernetes](/azure/architecture/microservices/ci-cd-kubernetes)
 
--   [Use Kubernetes dashboard to monitor your Azure Stack Edge Pro GPU
+- [Use Kubernetes dashboard to monitor your Azure Stack Edge Pro GPU
     device](/azure/databox-online/azure-stack-edge-gpu-monitor-kubernetes-dashboard)
