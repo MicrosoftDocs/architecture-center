@@ -1,27 +1,25 @@
-# Protect APIs with Application Gateway and API Management
-
 With more companies' internal applications adhering to the API-first approach, and the growing number and severity of threats to web application over the internet, it's critical to have a security strategy to protect APIs. The first step toward security is restricting who can access which aspects of an API from what locations. This article describes how to protect API access by using Azure Application Gateway and Azure API Management.
 
 ## Architecture
 
-![Proposed architecture.](images/protect-apis.png)
-
 This solution doesn't address the architecture's underlying services, like App Service Environment, Azure SQL Database, and Azure Kubernetes Services. These services only showcase what you can do as a broader solution. This solution specifically discusses the gray-background areas, API Management and Application Gateway.
 
-Application Gateway sets up a URL redirection mechanism that sends the request to the proper [backend pool](/azure/application-gateway/application-gateway-components#backend-pools) depending on the URL format of the API call.
+![Proposed architecture.](images/protect-apis.png)
 
-- URLs formatted like `api.<some-domain>/external/*` can reach the back end to interact with the requested APIs.
+- Application Gateway sets up a URL redirection mechanism that sends the request to the proper [backend pool](/azure/application-gateway/application-gateway-components#backend-pools) depending on the URL format of the API call.
   
-- Application Gateway redirects calls formatted as `api.<some-domain>/*` to a dead end, meaning a backend pool with no target.
+  - URLs formatted like `api.<some-domain>/external/*` can reach the back end to interact with the requested APIs.
   
-API Management accepts and properly maps internal calls, which come from resources in the same Azure virtual network, under `api.<some-domain>/internal/*`.
-
-So that developers can manage APIs and their configurations from both internal and external environments, this scenario adds a rule at the Application Gateway level to properly redirect users under `portal.<some-domain>/*` to the developer portal.
-
-Finally, at the API Management level, APIs are set up to accept calls under the following patterns:
-
-- `api.<some-domain>/external/*`
-- `api.<some-domain>/internal/*`
+  - Application Gateway redirects calls formatted as `api.<some-domain>/*` to a dead end, meaning a backend pool with no target.
+  
+- API Management accepts and properly maps internal calls, which come from resources in the same Azure virtual network, under `api.<some-domain>/internal/*`.
+  
+- So that developers can manage APIs and their configurations from both internal and external environments, a rule at the Application Gateway level properly redirects users under `portal.<some-domain>/*` to the developer portal.
+  
+- Finally, at the API Management level, APIs are set up to accept calls under the following patterns:
+  
+  - `api.<some-domain>/external/*`
+  - `api.<some-domain>/internal/*`
 
 ## Recommendations
 
