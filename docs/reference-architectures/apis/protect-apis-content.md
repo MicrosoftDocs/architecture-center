@@ -4,7 +4,7 @@ With more companies' internal applications adhering to the API-first approach, a
 
 This solution doesn't address the architecture's underlying services, like App Service Environment, Azure SQL Database, and Azure Kubernetes Services. These services only showcase what you can do as a broader solution. This solution specifically discusses the gray-background areas, API Management and Application Gateway.
 
-![Proposed architecture.](images/protect-apis.png)
+![Diagram showing how Application Gateway and API Management protect APIs.](images/protect-apis.png)
 
 - Application Gateway sets up a URL redirection mechanism that sends the request to the proper [backend pool](/azure/application-gateway/application-gateway-components#backend-pools) depending on the URL format of the API call.
   
@@ -20,6 +20,16 @@ This solution doesn't address the architecture's underlying services, like App S
   
   - `api.<some-domain>/external/*`
   - `api.<some-domain>/internal/*`
+
+### Components
+
+- [Azure Resource Groups](/azure/azure-resource-manager/management/manage-resource-groups-portal) provides a logical container for Azure components.
+
+- [Azure Virtual Network](/azure/virtual-network/virtual-networks-overview) enables many types of Azure resources, such as Azure Virtual Machines (VMs), to securely communicate with each other, the internet, and on-premises networks.
+
+- [Azure Application Gateway](/azure/application-gateway/overview) is a web traffic load balancer that manages traffic to web applications. Load balancers operate at the transport layer (OSI layer 4 - TCP and UDP), and route traffic based on source IP address and port to a destination IP address and port.
+
+- [Azure API Management](https://azure.microsoft.com/services/api-management/) creates consistent, modern API gateways for existing backend services.
 
 ## Recommendations
 
@@ -43,16 +53,6 @@ This solution doesn't address the architecture's underlying services, like App S
   - [Azure Firewall](/azure/firewall/overview)
   - Third-party solutions like [Barracuda](https://azuremarketplace.microsoft.com/marketplace/apps/barracudanetworks.waf?tab=overview)
   - Other solutions available in [Azure Marketplace](https://azure.microsoft.com/marketplace/)
-
-### Components
-
-- [Azure Resource Groups](/azure/azure-resource-manager/management/manage-resource-groups-portal) provides a logical container for Azure components.
-
-- [Azure Virtual Network](/azure/virtual-network/virtual-networks-overview) enables many types of Azure resources, such as Azure Virtual Machines (VMs), to securely communicate with each other, the internet, and on-premises networks.
-
-- [Azure Application Gateway](/azure/application-gateway/overview) is a web traffic load balancer that manages traffic to web applications. Load balancers operate at the transport layer (OSI layer 4 - TCP and UDP), and route traffic based on source IP address and port to a destination IP address and port.
-
-- [Azure API Management](https://azure.microsoft.com/services/api-management/) creates consistent, modern API gateways for existing backend services.
 
 ## Scalability considerations
 
