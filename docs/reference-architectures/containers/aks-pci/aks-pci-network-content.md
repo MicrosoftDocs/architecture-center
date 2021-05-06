@@ -294,9 +294,18 @@ It's critical that you maintain thorough documentation about the process and pol
 
 #### Your responsibilities
 
+Default settings provided by vendors must be changed. Default settings are common attack vectors and make the system prone to attacks. 
+
+
+
 Disable Admin access on ACR.
 Ensure Jump Boxes and Build Agents follow user management procedures - removing needed system users.
 Do not generate/provide SSH key access to nodes to administrator user. If emergency access is necessary, use Azure recovery process to get JIT access.
+
+#### Azure responsibilities
+
+Azure Active Directory has password policies that are enforced on the new passwords supplied by users. If you change a password, validation of older password is required. Administrator reset passwords are required to be changed upon subsequent login.
+
 
 #### Requirement 2.1.1
 
