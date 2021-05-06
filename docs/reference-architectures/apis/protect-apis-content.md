@@ -1,4 +1,4 @@
-With more companies' internal applications adhering to the API-first approach, and the growing number and severity of threats to web application over the internet, it's critical to have a security strategy to protect APIs. The first step is restricting who, from what locations, can access which aspects of an API. This article describes how to protect API access by using Azure Application Gateway and Azure API Management.
+With more companies' internal applications adhering to the [API-first approach](https://swagger.io/resources/articles/adopting-an-api-first-approach/), and the growing number and severity of threats to web application over the internet, it's critical to have a security strategy to protect APIs. The first step toward API security is restricting who, and from what locations, can access which aspects of an API. This article describes how to protect API access by using Azure Application Gateway and Azure API Management.
 
 ## Architecture
 
@@ -9,7 +9,8 @@ This solution doesn't address the application's underlying services, like App Se
 - Application Gateway sets up a URL redirection mechanism that sends the request to the proper [backend pool](/azure/application-gateway/application-gateway-components#backend-pools), depending on the URL format of the API call:
   
   - URLs formatted like `api.<some-domain>/external/*` can reach the back end to interact with the requested APIs.
-  - Application Gateway redirects calls formatted as `api.<some-domain>/*` to a dead end, meaning a backend pool with no target.
+  
+  - Calls formatted as `api.<some-domain>/*` go to a dead end or sinkpool, which is a backend pool with no target.
   
 - API Management accepts and properly maps internal calls, which come from resources in the same Azure virtual network, under `api.<some-domain>/internal/*`.
   
@@ -19,10 +20,12 @@ This solution doesn't address the application's underlying services, like App Se
   
   - `api.<some-domain>/external/*`
   - `api.<some-domain>/internal/*`
+  
+  In this scenario, API Management uses two types of IP addresses, public and private. Public IP addresses are for internal communication on port 3443, and for runtime API traffic in the external virtual network configuration. When API Management sends a request to a public, internet-facing back end, it shows a public IP address as the origin of the request. For more information, see [IP addresses of API Management service in VNet](/azure/api-management/api-management-howto-ip-addresses#ip-addresses-of-api-management-service-in-vnet).
 
 ### Components
 
-- [Azure Virtual Network](https://azure.microsoft.com/services/virtual-network/) enables many types of Azure resources, such as Azure Virtual Machines (VMs), to securely communicate with each other, the internet, and on-premises networks.
+- [Azure Virtual Network](https://azure.microsoft.com/services/virtual-network/) allows many types of Azure resources, such as Azure Virtual Machines (VMs), to securely communicate with each other, the internet, and on-premises networks.
 
 - [Azure Application Gateway](https://azure.microsoft.com/services/application-gateway/) is a web traffic load balancer that manages traffic to web applications. Load balancers operate at the transport layer, OSI layer 4 TCP and UDP, and route traffic based on source IP address and port to a destination IP address and port.
 
@@ -30,21 +33,21 @@ This solution doesn't address the application's underlying services, like App Se
 
 ## Recommendations
 
-- This solution focuses on implementing the whole solution, building blocks, and testing API access from inside and outside the API Management virtual network. For details on the API Management virtual network integration process, see [Integrate API Management in an internal VNET with Application Gateway](/azure/api-management/api-management-howto-integrate-internal-vnet-appgateway).
+- This solution focuses on implementing the whole solution, and testing API access from inside and outside the API Management virtual network. For more information about the API Management virtual network integration process, see [Integrate API Management in an internal VNET with Application Gateway](/azure/api-management/api-management-howto-integrate-internal-vnet-appgateway).
 
-- Product creation and API configuration in API Management isn't covered here. For a comprehensive tutorial, see [Tutorial: Create and publish a product](/azure/api-management/api-management-howto-add-products).
+- This solution doesn't cover product creation and API configuration in API Management. For a comprehensive tutorial covering those tasks, see [Tutorial: Create and publish a product](/azure/api-management/api-management-howto-add-products).
 
-- To communicate with private resources in the back end, Application Gateway and API Management must be in the same virtual network. This solution assumes you already have a virtual network set up with your own resources. The solution creates two subnets for Application Gateway and API Management.
+- To communicate with private resources in the back end, Application Gateway and API Management must be in the same virtual network as the resources. Before implementing the solution, set up a virtual network for your resources. The solution creates two subnets, for Application Gateway and API Management.
 
-- The private, internal deployment model allows API Management to connect to an existing virtual network, making it reachable from the inside of that network context. This feature requires either **Development** or **Production** API Management tiers.
+- The private, internal deployment model allows API Management to connect to an existing virtual network, making it reachable from the inside of that network context. To enable this feature, deploy either the **Development** or **Production** API Management tiers.
   
-- Application Gateway requires PFX certificates for SSL termination. These certificates should be in place before you implement the solution.
+- Application Gateway requires PFX certificates for SSL termination. Make sure these certificates are in place before you implement the solution.
 
-- You can manage certificates and passwords in [Azure Key Vault](/azure/key-vault/general/basic-concepts).
+- Manage certificates and passwords in [Azure Key Vault](/azure/key-vault/general/basic-concepts).
 
-- You can use [CNAME entries](/azure/dns/dns-web-sites-custom-domain) to personalize interactions with the services.
+- To personalize interactions with the services, you can use [CNAME entries](/azure/dns/dns-web-sites-custom-domain).
 
-- Other services can deliver the same level of firewall and Web Application Firewall (WAF) protection:
+- You can use other services to deliver the same level of firewall and Web Application Firewall (WAF) protection:
   
   - [Azure Front Door](/azure/frontdoor/front-door-overview)
   - [Azure Firewall](/azure/firewall/overview)
@@ -53,31 +56,31 @@ This solution doesn't address the application's underlying services, like App Se
 
 ## Scalability considerations
 
-- Consider using Application Gateway's autoscale feature. Application Gateway serves as entry point for this architecture, and the WAF feature requires additional processing power for each request analysis. It's critical that the service can expand its computational capacity on the spot. To enable autoscale, see [Specify autoscale](/azure/application-gateway/tutorial-autoscale-ps#specify-autoscale).
+- Application Gateway is the entry point for this architecture, and the WAF feature requires additional processing power for each request analysis. It's important to enable autoscale, so Application Gateway can expand its computational capacity on the spot. For more information, see [Specify autoscale](/azure/application-gateway/tutorial-autoscale-ps#specify-autoscale).
 
-- Evaluate Application Gateway subnet sizing. Application Gateway requests one private address per instance, plus another private IP address if a private front-end IP is configured. Application Gateway also takes five IPs per instance from the subnet it's deployed to. To properly deploy Application Gateway for this architecture, make sure its subnet has enough space to grow. For more information, see [Application Gateway infrastructure configuration](/azure/application-gateway/configuration-infrastructure).
+- Consider Application Gateway subnet sizing. Application Gateway requests one private address per instance, and another private IP address if a private front-end IP is configured. Application Gateway also takes five IPs per instance from its subnet. To properly deploy Application Gateway for this architecture, make sure its subnet has enough space to grow. For more information, see [Application Gateway infrastructure configuration](/azure/application-gateway/configuration-infrastructure).
 
-- COnsider turning on the API Management autoscaling feature to support highly concurrent scenarios. Autoscaling lets the service expand its capabilities to quickly respond to a growing number of incoming requests. To enable the autoscale feature, see [Automatically scale an Azure API Management instance](/azure/api-management/api-management-howto-autoscale).
+- To support highly concurrent scenarios, turn on the API Management autoscaling feature. Autoscaling expands API Management capabilities to quickly respond to a growing number of incoming requests. For more information, see [Automatically scale an Azure API Management instance](/azure/api-management/api-management-howto-autoscale).
 
 ## Availability considerations
 
-- Consider enabling Application Gateway's zone redundancy. An Application Gateway or WAF deployment can span multiple Availability Zones, so you don't have to provision separate Application Gateway instances in each zone with a traffic manager. You can choose to deploy Application Gateway instances in a single zone or multiple zones, making it more resilient to zone failure.
+- An Application Gateway or WAF deployment can span multiple Availability Zones, so you don't have to provision separate Application Gateway instances in each zone with a traffic manager. Deploying Application Gateway in multiple zones makes it more resilient to zone failure. For more information, see 
 
 ## Security considerations
 
-- In this scenario, API Management has two types of IP addresses, public and private. Public IP addresses are used for internal communication on port 3443. In the external virtual network configuration, public IPs are also used for runtime API traffic. When a request is sent from API Management to a public, internet-facing back end, a public IP address is visible as the origin of the request. For more information, see [IP addresses of API Management service in VNet](/azure/api-management/api-management-howto-ip-addresses#ip-addresses-of-api-management-service-in-vnet).
+- For more information about Application Gateway security, see [Azure security baseline for Application Gateway](/security/benchmark/azure/baselines/application-gateway-security-baseline).
 
-- To fortify the communication through API Management, see [Azure security baseline for API Management](/security/benchmark/azure/baselines/api-management-security-baseline).
+- For more information about API Management security, see [Azure security baseline for API Management](/security/benchmark/azure/baselines/api-management-security-baseline).
 
 ## Deploy the solution
 
-The following deployment steps use PowerShell. You could also use the [Azure portal](/azure/azure-portal/) or [Azure CLI](/cli/azure/) to get the same results.
+The following deployment steps use PowerShell. You could also use the [Azure portal](/azure/application-gateway/create-url-route-portal) or [Azure CLI](/azure/application-gateway/tutorial-url-redirect-cli) to get the same results.
 
-1. Deploy a new Resource Group.
+1. Deploy a new resource group.
    
    ```powershell
-   $resGroupName = "{resource-group-name}"
-   $location = "{azure-region}"
+   $resGroupName = "<resource-group-name>"
+   $location = "<azure-region>"
    New-AzResourceGroup -Name $resGroupName -Location $location
    ```
    
@@ -85,24 +88,24 @@ The following deployment steps use PowerShell. You could also use the [Azure por
    
    ```powershell
    # Retrieve virtual network information
-   $vnet = Get-AzVirtualNetwork -Name {vnet-name}  -ResourceGroupName {resource-group-name}
+   $vnet = Get-AzVirtualNetwork -Name <vnet-name>  -ResourceGroupName <resource-group-name>
    
    # Add the appgtw-subnet to the existing virtual network 
    $subnetApplication GatewayConfig = Add-AzVirtualNetworkSubnetConfig `
    -Name appgtw-subnet `
-   -AddressPrefix {subnet-prefix-address} `
+   -AddressPrefix <subnet-prefix-address> `
    -VirtualNetwork $vnet
    
    # Add the apim-subnet to the existing virtual network 
    $subnetAPIMConfig = Add-AzVirtualNetworkSubnetConfig `
      -Name apim-subnet `
-     -AddressPrefix {subnet-prefix-address} `
+     -AddressPrefix <subnet-prefix-address> `
      -VirtualNetwork $vnet
    
    # Attach subnets to the virtual network 
    $vnet | Set-AzVirtualNetwork
    
-   # Make sure subnets were successfully added
+   # Check that subnets were successfully added
    $vnet.Subnets
    
    # Assign subnet to variables
@@ -117,9 +120,9 @@ The following deployment steps use PowerShell. You could also use the [Azure por
    $apimVirtualNetwork = New-AzApiManagementVirtualNetwork -SubnetResourceId $apimsubnetdata.Id
    
    # Create an API Management service inside the virtual network
-   $apimServiceName = "{apim-name}"
-   $apimOrganization = "{organization-name}"
-   $apimAdminEmail = "{alias}@{somedomain}"
+   $apimServiceName = "<apim-name>"
+   $apimOrganization = "<organization-name>"
+   $apimAdminEmail = "<alias>@<somedomain>"
    
    $apimService = New-AzApiManagement `
        -ResourceGroupName $resGroupName `
@@ -129,20 +132,20 @@ The following deployment steps use PowerShell. You could also use the [Azure por
        -AdminEmail $apimAdminEmail `
        -VirtualNetwork $apimVirtualNetwork `
        -VpnType "Internal" `
-       -Sku "{apim-tier}"
+       -Sku "<apim-tier>"
    ```
    
 1. Configure hostnames and certificates.
    
    ```powershell
    # Specify certificate configuration
-   $gatewayHostname = "api.{some-domain}"
-   $portalHostname = "portal.{some-domain}"
-   $gatewayCertCerPath = "{local-path-to-cer-certificate}"
-   $gatewayCertPfxPath = "{local-path-to-pfx-certificate}"
-   $portalCertPfxPath = "{local-path-to-pfx-certificate}"
-   $gatewayCertPfxPassword = "{cert-api-password}"
-   $portalCertPfxPassword = "{cert-portal-password}"
+   $gatewayHostname = "api.<some-domain>"
+   $portalHostname = "portal.<some-domain>"
+   $gatewayCertCerPath = "<local-path-to-cer-certificate>"
+   $gatewayCertPfxPath = "<local-path-to-pfx-certificate>"
+   $portalCertPfxPath = "<local-path-to-pfx-certificate>"
+   $gatewayCertPfxPassword = "<cert-api-password>"
+   $portalCertPfxPassword = "<cert-portal-password>"
    
    # Convert to secure string before sending over HTTP
    $certPwd = ConvertTo-SecureString -String $gatewayCertPfxPassword -AsPlainText -Force
@@ -175,7 +178,7 @@ The following deployment steps use PowerShell. You could also use the [Azure por
    # Create a public IP address for the Application Gateway front end
    $publicip = New-AzPublicIpAddress `
        -ResourceGroupName $resGroupName `
-       -name "{pip-name}" `
+       -name "<pip-name>" `
        -location $location `
        -AllocationMethod Dynamic
    ```
@@ -333,7 +336,7 @@ The following deployment steps use PowerShell. You could also use the [Azure por
       
       ```powershell
       # Step 11 - change Application Gateway SKU and instances (# instances can be configured as required)
-      $sku = New-AzApplicationGatewaySku -Name "{waf-sku-name}" -Tier "WAF" -Capacity {instances-number}
+      $sku = New-AzApplicationGatewaySku -Name "<waf-sku-name>" -Tier "WAF" -Capacity <instances-number>
       
       # Step 12 - configure WAF to be in prevention mode
       $config = New-AzApplicationGatewayWebApplicationFirewallConfiguration `
@@ -345,7 +348,7 @@ The following deployment steps use PowerShell. You could also use the [Azure por
    
    ```powershell
    # Deploy the Application Gateway
-   $appgwName = "{ag-name}"
+   $appgwName = "<ag-name>"
    
    $appgw = New-AzApplicationGateway `
        -Name $appgwName `
@@ -438,3 +441,9 @@ After you assess these aspects, go to the [Azure Pricing Calculator](https://azu
 
 ## Next steps
 
+- [Web API design](/azure/architecture/best-practices/api-design)
+- [Web API implementation](/azure/architecture/best-practices/api-implementation)
+- [Gateway Routing pattern](/azure/architecture/patterns/gateway-routing)
+- [URL path-based routing overview](/azure/application-gateway/url-route-overview)
+- [Tutorial: Create an application gateway with path-based routing rules using the Azure portal](/azure/application-gateway/create-url-route-portal)
+- [Tutorial: Create an application gateway with URL path-based redirection using the Azure CLI](/azure/application-gateway/tutorial-url-redirect-cli)

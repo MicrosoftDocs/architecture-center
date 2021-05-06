@@ -1921,6 +1921,8 @@ items:
                 href: example-scenario/apps/ecommerce-search.yml
               - name: Migrate a web app using Azure APIM
                 href: example-scenario/apps/apim-api-scenario.yml
+              - name: Protect APIs with Application Gateway and API Management
+                href: reference-architectures/apis/protect-apis.yml
               - name: Scalable and secure WordPress on Azure
                 href: example-scenario/infrastructure/wordpress.yml
               - name: Scalable order processing
