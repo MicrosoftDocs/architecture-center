@@ -190,19 +190,9 @@ In general, limit access to on-premises traffic to the spoke network.
 ##### Your responsibilities
 The AKS cluster has system node pools that host critical system pods. Even on the user node pools, there are pods that run other services that participate in cluster operations. For example, Flux to synchronize cluster configuration to a Github repository, the ingress controller to route traffic to the workload pods, and others. Regardless of the type of node pool, all nodes must be protected. 
 
-Another critical system component is the API server that is used to do native Kubernetes tasks, such as maintain the state of the cluster and configuration.
-
-Here are some best practices:
-- Do not configure public IP addresses on the node pool nodes. 
-- Do not have a public load balancer in front of the nodes. Traffic within the cluster must be routed through internal load balancers. 
-- Only expose internal load balancers to Azure Application Gateway integrated Web Application Firewall(WAF). 
-- Do not expose the API server to the internet. When you run the cluster in private mode, the endpoint is not exposed and communication between the node pools and the API server is over a private network.
+Another critical system component is the API server that is used to do native Kubernetes tasks, such as maintain the state of the cluster and configuration. This endpoint must not be exposed. An advantage of using a private cluster is that endpoint isn't exposed by default.
 
 For information about private clusters, see [Create a private Azure Kubernetes Service cluster](https://docs.microsoft.com/en-us/azure/aks/private-clusters).
-
-<div id="consent-checkbox">
-I agree to the above terms
-</div>
 
 #### Requirement 1.3.1
 
@@ -210,9 +200,13 @@ Implement a DMZ to limit inbound traffic to only system components that provide 
 
 ##### Your responsibilities
 
-Users can implement a DMZ to protect AKS clusters, as other services. Azure documentation for Cloud DMZ Design and Implementation steps can be found here: https://docs.microsoft.com/en-us/azure/cloud-adoption-framework/decision-guides/software-defined-network/cloud-dmz
+Here are some best practices:
+- Do not configure public IP addresses on the node pool nodes. 
+- Do not have a public load balancer in front of the nodes. Traffic within the cluster must be routed through internal load balancers. 
+- Only expose internal load balancers to Azure Application Gateway integrated with Web Application Firewall(WAF). 
+- Do not expose the API server to the internet. When you run the cluster in private mode, the endpoint is not exposed and communication between the node pools and the API server is over a private network.
 
-Refer to master matrix for general guidelines.
+Users can implement a DMZ to protect AKS clusters, as other services. For information about Cloud DMZ Design and Implementation steps, see [Cloud DMZ](/azure/cloud-adoption-framework/decision-guides/software-defined-network/cloud-dmz).
 
 #### Requirement 1.3.2
 
@@ -220,7 +214,8 @@ Limit inbound Internet traffic to IP addresses within the DMZ.
 
 ##### Your responsibilities
 
-NSG around internal load balancer should only accept traffic from WAF subnet. Nodepool node subnets should only accept workload traffic from load balancer subnet.
+In the AKS cluster, have an network security group (NSG) on the subnet with the internal load balancer. Configure rules to only accept traffic from subnet that has Azure Application Gateway integrated with Web Application Firewall(WAF).
+
 
 #### Requirement 1.3.3
 
@@ -236,9 +231,14 @@ Do not allow unauthorized outbound traffic from the cardholder data environment 
 
 ##### Your responsibilities
 
-Limit outbound traffic to the internet and other subnets using Azure Firewall, and Subnet level NSG's. AKS does require some public internet access to access the managed control plane. More details is available at: https://docs.microsoft.com/en-us/azure/aks/limit-egress-traffic
+Here are ways in which you can block unauthorized outbound traffic:
 
-Refer to master matrix for general guidelines.
+- Enforce all outbound (egress) traffic from the AKS cluster to go through Azure Firewall. Have user-defined routes (UDRs) on cluster subnets. This includes subnets with system and user node pools. 
+- Limit outbound traffic by adding network security groups (NSG)s on subnets with node pools.
+
+AKS requires some public internet access to access the Azure-managed control plane. For example, the cluster wants to send metrics and logs to Azure Monitor. You can set scoped rules by specifying the source and destination FQDN targets or FQDN tags. While using tags makes it easier to set the rules, some tags might include more targets than you need making the rule overly permissive. Review the tags to make sure it has just the right targets you need.
+
+For details More details is available at: [Control egress traffic for cluster nodes in Azure Kubernetes Service (AKS)](/azure/aks/limit-egress-traffic).
 
 #### Requirement 1.3.5
 
@@ -254,7 +254,7 @@ Place system components that store cardholder data (such as a database) in an in
 
 ##### Your responsibilities
 
-Require all storage systems to be exposed via Private Link exclusively and restricted to just access from the nodepool subnet(s) that require it. Keep state out of the cluster and in its own dedicated security zone. 
+Expose your storage systems only over a private network, for instance using Private Link. Also, restrict access from the nodepool subnet(s) that require it. Keep state out of the cluster and in its own dedicated security zone. 
 
 #### Requirement 1.3.7
 
@@ -262,7 +262,7 @@ Do not disclose private IP addresses and routing information to unauthorized par
 
 ##### Your responsibilities
 
-AKS Private Cluster keeps DNS records off public internet. Use an internal DNS zone for routing between WAF and Load Balancer. Ensure all HTTP responses do not include any private IP information in headers or body. Ensure logs that may contain IP and DNS records are not exposed outside of Ops needs.
+A private AKS cluster keeps DNS records off the public internet. Use an internal DNS zone for routing between the subnet that has Azure Application Gateway integrated with Web Application Firewall(WAF) and the subnet that has the internal load balancer. Ensure all HTTP responses do not include any private IP information in headers or body. Ensure logs that may contain IP and DNS records are not exposed outside of operational needs.
 
 ### Requirement 1.4&mdash;Install personal firewall software or equivalent functionality on any portable computing devices that connect to the Internet when outside the network , and which are also used to access the CDE. 
 
