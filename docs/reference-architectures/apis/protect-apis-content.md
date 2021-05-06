@@ -1,4 +1,4 @@
-With more companies' internal applications adhering to the [API-first approach](https://swagger.io/resources/articles/adopting-an-api-first-approach/), and the growing number and severity of threats to web application over the internet, it's critical to have a security strategy to protect APIs. The first step toward API security is restricting who, and from what locations, can access which aspects of an API. This article describes how to protect API access by using Azure Application Gateway and Azure API Management.
+With more companies' internal applications adhering to the [API-first approach](https://swagger.io/resources/articles/adopting-an-api-first-approach/), and the growing number and severity of threats to web application over the internet, it's critical to have a security strategy to protect APIs. The first step toward API security is restricting who, from what locations, can access which aspects of an API. This article describes how to protect API access by using Azure Application Gateway and Azure API Management.
 
 ## Architecture
 
@@ -14,14 +14,14 @@ This solution doesn't address the application's underlying services, like App Se
   
 - API Management accepts and properly maps internal calls, which come from resources in the same Azure virtual network, under `api.<some-domain>/internal/*`.
   
-- So that developers can manage APIs and their configurations from both internal and external environments, a rule at the Application Gateway level properly redirects users under `portal.<some-domain>/*` to the developer portal.
-  
 - Finally, at the API Management level, APIs are set up to accept calls under the following patterns:
   
   - `api.<some-domain>/external/*`
   - `api.<some-domain>/internal/*`
   
   In this scenario, API Management uses two types of IP addresses, public and private. Public IP addresses are for internal communication on port 3443, and for runtime API traffic in the external virtual network configuration. When API Management sends a request to a public, internet-facing back end, it shows a public IP address as the origin of the request. For more information, see [IP addresses of API Management service in VNet](/azure/api-management/api-management-howto-ip-addresses#ip-addresses-of-api-management-service-in-vnet).
+  
+- So that developers can manage APIs and their configurations from both internal and external environments, a rule at the Application Gateway level properly redirects users under `portal.<some-domain>/*` to the developer portal.
 
 ### Components
 
