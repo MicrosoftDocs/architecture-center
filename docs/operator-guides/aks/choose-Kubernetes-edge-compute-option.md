@@ -7,6 +7,7 @@ ms.date: 05/05/2021
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: guide
+ms.category: containers
 products:
   - azure-kubernetes-service
 ---
@@ -266,8 +267,8 @@ For more information, see the following articles:
     Stack Edge Pro GPU
     device](/azure/databox-online/azure-stack-edge-gpu-deploy-stateless-application-iot-edge-module)
 
-- Deploy a Kubernetes stateless application via kubectl on your Azure Stack
-    Edge Pro GPU
+- [Deploy a Kubernetes stateless application via kubectl on your Azure Stack
+    Edge Pro GPU]
     device](/azure/databox-online/azure-stack-edge-gpu-deploy-stateless-application-kubernetes)
 
 - [AI at the edge with Azure Stack
