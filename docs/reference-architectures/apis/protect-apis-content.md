@@ -56,15 +56,19 @@ This solution doesn't address the application's underlying services, like App Se
 
 ## Scalability considerations
 
-- Application Gateway is the entry point for this architecture, and the WAF feature requires additional processing power for each request analysis. It's important to enable autoscale, so Application Gateway can expand its computational capacity on the spot. For more information, see [Specify autoscale](/azure/application-gateway/tutorial-autoscale-ps#specify-autoscale).
+- Application Gateway is the entry point for this architecture, and the WAF feature requires additional processing power for each request analysis. To allow Application Gateway to expand its computational capacity on the spot, it's important to enable autoscaling. For more information, see [Specify autoscale](/azure/application-gateway/tutorial-autoscale-ps#specify-autoscale).
 
 - Consider Application Gateway subnet sizing. Application Gateway requests one private address per instance, and another private IP address if a private front-end IP is configured. Application Gateway also takes five IPs per instance from its subnet. To properly deploy Application Gateway for this architecture, make sure its subnet has enough space to grow. For more information, see [Application Gateway infrastructure configuration](/azure/application-gateway/configuration-infrastructure).
 
-- To support highly concurrent scenarios, turn on the API Management autoscaling feature. Autoscaling expands API Management capabilities to quickly respond to a growing number of incoming requests. For more information, see [Automatically scale an Azure API Management instance](/azure/api-management/api-management-howto-autoscale).
+- To support highly concurrent scenarios, turn on API Management autoscaling. Autoscaling expands API Management capabilities to quickly respond to a growing number of incoming requests. For more information, see [Automatically scale an Azure API Management instance](/azure/api-management/api-management-howto-autoscale).
 
 ## Availability considerations
 
-- An Application Gateway or WAF deployment can span multiple Availability Zones, so you don't have to provision separate Application Gateway instances in each zone with a traffic manager. Deploying Application Gateway in multiple zones makes it more resilient to zone failure. For more information, see 
+- Azure Application Gateway is always deployed in a highly available fashion. If a certain instance stops functioning, Application Gateway transparently creates a new instance. To avoid downtime when creating new instances, you can configure the Application Gateway or WAF deployment to span multiple Availability Zones, making it more resilient to zone failure. For more information, see [Autoscaling and High Availability](/azure/application-gateway/application-gateway-autoscaling-zone-redundant#autoscaling-and-high-availability).
+
+- Enable zone redundancy for your API Management instance to provide resiliency and high availability. Zone redundancy replicates the API Management gateway and control plane across datacenters in physically separated zones, making them resilient to zone failure. Zone redundancy requires the API Management **Premium** tier.
+  
+  API Management also supports multi-region deployments, which help reduce request latency, and improve availability if one region goes offline. For more information, see [Availability zone support for Azure API Management](/azure/api-management/zone-redundancy).
 
 ## Security considerations
 
