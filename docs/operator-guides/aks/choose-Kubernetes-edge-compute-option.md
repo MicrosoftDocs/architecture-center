@@ -268,8 +268,7 @@ For more information, see the following articles:
     device](/azure/databox-online/azure-stack-edge-gpu-deploy-stateless-application-iot-edge-module)
 
 - [Deploy a Kubernetes stateless application via kubectl on your Azure Stack
-    Edge Pro GPU]
-    device](/azure/databox-online/azure-stack-edge-gpu-deploy-stateless-application-kubernetes)
+    Edge Pro GPU device](/azure/databox-online/azure-stack-edge-gpu-deploy-stateless-application-kubernetes)
 
 - [AI at the edge with Azure Stack
     Hub](/azure/architecture/solution-ideas/articles/ai-at-the-edge)
