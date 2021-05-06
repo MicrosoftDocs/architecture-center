@@ -2,14 +2,12 @@ With more companies' internal applications adhering to the API-first approach, a
 
 ## Architecture
 
-This solution doesn't address the architecture's underlying services, like App Service Environment, Azure SQL Database, and Azure Kubernetes Services. These services only showcase what you can do as a broader solution. This solution specifically discusses the gray-background areas, API Management and Application Gateway.
+This solution doesn't address the architecture's underlying services, like App Service Environment, Azure SQL Database, and Azure Kubernetes Services. These parts of the diagram only showcase what you can do as a broader solution. This article specifically discusses the gray-backgrounded areas, API Management and Application Gateway.
 
 ![Diagram showing how Application Gateway and API Management protect APIs.](images/protect-apis.png)
 
-- Application Gateway sets up a URL redirection mechanism that sends the request to the proper [backend pool](/azure/application-gateway/application-gateway-components#backend-pools) depending on the URL format of the API call.
-  
-  - URLs formatted like `api.<some-domain>/external/*` can reach the back end to interact with the requested APIs.
-  
+- Application Gateway sets up a URL redirection mechanism that sends the request to the proper [backend pool](/azure/application-gateway/application-gateway-components#backend-pools), depending on the URL format of the API call.
+  For more information about reducing false positives, see [Handle false positives in Azure Sentinel](false-positives.md).
   - Application Gateway redirects calls formatted as `api.<some-domain>/*` to a dead end, meaning a backend pool with no target.
   
 - API Management accepts and properly maps internal calls, which come from resources in the same Azure virtual network, under `api.<some-domain>/internal/*`.
@@ -87,22 +85,22 @@ The following deployment steps use PowerShell. You could also use the [Azure por
 1. Add subnets for API Management and Application Gateway.
    
    ```powershell
-   # Retrieve VNet information
+   # Retrieve virtual network information
    $vnet = Get-AzVirtualNetwork -Name {vnet-name}  -ResourceGroupName {resource-group-name}
    
-   # Add appgtw-subnet to the existing VNet
+   # Add the appgtw-subnet to the existing virtual network 
    $subnetApplication GatewayConfig = Add-AzVirtualNetworkSubnetConfig `
    -Name appgtw-subnet `
    -AddressPrefix {subnet-prefix-address} `
    -VirtualNetwork $vnet
    
-   # Add API Management-subnet to the existing VNet
-   $subnetAPI ManagementConfig = Add-AzVirtualNetworkSubnetConfig `
-     -Name API Management-subnet `
+   # Add the apim-subnet to the existing virtual network 
+   $subnetAPIMConfig = Add-AzVirtualNetworkSubnetConfig `
+     -Name apim-subnet `
      -AddressPrefix {subnet-prefix-address} `
      -VirtualNetwork $vnet
    
-   # Attach subnets to the VNet
+   # Attach subnets to the virtual network 
    $vnet | Set-AzVirtualNetwork
    
    # Make sure subnets were successfully added
@@ -110,35 +108,35 @@ The following deployment steps use PowerShell. You could also use the [Azure por
    
    # Assign subnet to variables
    $appgatewaysubnetdata = $vnet.Subnets[subnet-index]
-   $API Managementsubnetdata = $vnet.Subnets[subnet-index]
+   $apimsubnetdata = $vnet.Subnets[subnet-index]
    ```
    
 1. Deploy a new API Management instance.
    
    ```powershell
-   # Create an API Management VNET connected object
-   $API ManagementVirtualNetwork = New-AzAPI ManagementanagementVirtualNetwork -SubnetResourceId $API Managementsubnetdata.Id
+   # Create an API Management virtual network-connected object
+   $apimVirtualNetwork = New-AzApiManagementVirtualNetwork -SubnetResourceId $apimsubnetdata.Id
    
-   # Create an API Management service inside the VNET
-   $API ManagementServiceName = "{API Management-name}"
-   $API ManagementOrganization = "{organization-name}"
-   $API ManagementAdminEmail = "{alias}@{somedomain}"
+   # Create an API Management service inside the virtual network
+   $apimServiceName = "{apim-name}"
+   $apimOrganization = "{organization-name}"
+   $apimAdminEmail = "{alias}@{somedomain}"
    
-   $API ManagementService = New-AzAPI Managementanagement `
+   $apimService = New-AzApiManagement `
        -ResourceGroupName $resGroupName `
        -Location $location `
-       -Name $API ManagementServiceName `
-       -Organization $API ManagementOrganization `
-       -AdminEmail $API ManagementAdminEmail `
-       -VirtualNetwork $API ManagementVirtualNetwork `
+       -Name $apimServiceName `
+       -Organization $apimOrganization `
+       -AdminEmail $apimAdminEmail `
+       -VirtualNetwork $apimVirtualNetwork `
        -VpnType "Internal" `
-       -Sku "{API Management-tier}"
+       -Sku "{apim-tier}"
    ```
    
 1. Configure hostnames and certificates.
    
    ```powershell
-   # Specify cert configuration
+   # Specify certificate configuration
    $gatewayHostname = "api.{some-domain}"
    $portalHostname = "portal.{some-domain}"
    $gatewayCertCerPath = "{local-path-to-cer-certificate}"
@@ -147,35 +145,35 @@ The following deployment steps use PowerShell. You could also use the [Azure por
    $gatewayCertPfxPassword = "{cert-api-password}"
    $portalCertPfxPassword = "{cert-portal-password}"
    
-   # Convert to secure string before send it over HTTP
+   # Convert to secure string before sending over HTTP
    $certPwd = ConvertTo-SecureString -String $gatewayCertPfxPassword -AsPlainText -Force
    $certPortalPwd = ConvertTo-SecureString -String $portalCertPfxPassword -AsPlainText -Force
    
    # Create and set the hostname configuration objects for the proxy and portal
-   $proxyHostnameConfig = New-AzAPI ManagementanagementCustomHostnameConfiguration `
+   $proxyHostnameConfig = New-AzApiManagementCustomHostnameConfiguration `
      -Hostname $gatewayHostname `
      -HostnameType Proxy `
      -PfxPath $gatewayCertPfxPath `
      -PfxPassword $certPwd
      
-   $portalHostnameConfig = New-AzAPI ManagementanagementCustomHostnameConfiguration `
+   $portalHostnameConfig = New-AzApiManagementCustomHostnameConfiguration `
      -Hostname $portalHostname `
      -HostnameType Portal `
      -PfxPath $portalCertPfxPath `
      -PfxPassword $certPortalPwd
    
-   # Ties certificates confs into API Management service
-   $API ManagementService.ProxyCustomHostnameConfiguration = $proxyHostnameConfig
-   $API ManagementService.PortalCustomHostnameConfiguration = $portalHostnameConfig
+   # Tie certificates configurations into API Management service
+   $apimService.ProxyCustomHostnameConfiguration = $proxyHostnameConfig
+   $apimService.PortalCustomHostnameConfiguration = $portalHostnameConfig
    
-   # Updates the existing API Management with the updated configuration
-   Set-AzAPI Managementanagement -InputObject $API ManagementService
+   # Update API Management with the updated configuration
+   Set-AzApiManagement -InputObject $apimService
    ```
    
 1. Provision a public IP (PIP) for Application Gateway.
    
    ```powershell
-   # Create a public IP address for the Application Gateway front-end
+   # Create a public IP address for the Application Gateway front end
    $publicip = New-AzPublicIpAddress `
        -ResourceGroupName $resGroupName `
        -name "{pip-name}" `
@@ -183,175 +181,179 @@ The following deployment steps use PowerShell. You could also use the [Azure por
        -AllocationMethod Dynamic
    ```
    
-1. Create Application Gateway's configuration.
+1. Configure Application Gateway.
+   
+   1. Create the Application Gateway IP configuration.
+      ```powershell
+      # Step 1 - create new Application Gateway IP configuration
+      $gipconfig = New-AzApplicationGatewayIPConfiguration `
+          -Name "gatewayIP" `
+          -Subnet $appgatewaysubnetdata
+      ```
+      
+   1. Configure the front-end IP port object.
+      
+      ```powershell
+      # Step 2 - configure the front-end IP port for the public IP endpoint
+      $fp01 = New-AzApplicationGatewayFrontendPort `
+          -Name "frontend-port443" `
+          -Port 443
+      ```
+   
+   1. Tie the front-end IP port to the public IP.
+      
+      ```powershell
+      # Step 3 - configure the front-end IP with the public IP endpoint
+      $fipconfig01 = New-AzApplicationGatewayFrontendIPConfig `
+          -Name "frontend1" `
+          -PublicIPAddress $publicip
+      ```
+      
+   1. Set up certificates for Application Gateway.
+      
+      ```powershell
+      # Step 4 - configure certificates for the Application Gateway
+      $cert = New-AzApplicationGatewaySslCertificate `
+          -Name "apim-gw-cert" `
+          -CertificateFile $gatewayCertPfxPath `
+          -Password $certPwd
+      
+      $certPortal = New-AzApplicationGatewaySslCertificate `
+          -Name "apim-portal-cert" `
+          -CertificateFile $portalCertPfxPath `
+          -Password $certPortalPwd
+      ```
+      
+   1. Create Application Gateway listeners.
+      
+      ```powershell
+      # Step 5 - configure HTTP listeners for the Application Gateway
+      $listener = New-AzApplicationGatewayHttpListener `
+          -Name "apim-api-listener" `
+          -Protocol "Https" `
+          -FrontendIPConfiguration $fipconfig01 `
+          -FrontendPort $fp01 `
+          -SslCertificate $cert `
+          -HostName $gatewayHostname `
+          -RequireServerNameIndication true
+      
+      $portalListener = New-AzApplicationGatewayHttpListener `
+          -Name "apim-portal-listener" `
+          -Protocol "Https" `
+          -FrontendIPConfiguration $fipconfig01 `
+          -FrontendPort $fp01 `
+          -SslCertificate $certPortal `
+          -HostName $portalHostname `
+          -RequireServerNameIndication true
+      ```
+      
+   1. Create Application Gateway probes to map API Management endpoints.
+      
+      ```powershell
+      # Step 6 - create custom probes for API Management endpoints
+      $apimprobe = New-AzApplicationGatewayProbeConfig `
+          -Name "apim-api-probe" `
+          -Protocol "Https" `
+          -HostName $gatewayHostname `
+          -Path "/status-0123456789abcdef" `
+          -Interval 30 `
+          -Timeout 120 `
+          -UnhealthyThreshold 8
+      
+      $apimPortalProbe = New-AzApplicationGatewayProbeConfig `
+          -Name "apim-portal-probe" `
+          -Protocol "Https" `
+          -HostName $portalHostname `
+          -Path "/signin" `
+          -Interval 60 `
+          -Timeout 300 `
+          -UnhealthyThreshold 8
+      ```
+      
+   1. List API Management endpoints to backend pools.
+      
+      ```powershell
+      # Step 7 - upload certificate for SSL-enabled backend pool resources
+      $authcert = New-AzApplicationGatewayAuthenticationCertificate `
+          -Name "whitelistcert" `
+          -CertificateFile $gatewayCertCerPath
+      ```
+      
+   1. Configure Application Gateway HTTPs settings.
+      
+      ```powershell
+      # Step 8 - configure HTTPs backend settings for the Application Gateway
+      $apimPoolSetting = New-AzApplicationGatewayBackendHttpSettings `
+          -Name "apim-api-poolsetting" `
+          -Port 443 `
+          -Protocol "Https" `
+          -CookieBasedAffinity "Disabled" `
+          -Probe $apimprobe `
+          -AuthenticationCertificates $authcert `
+          -RequestTimeout 180
+      
+      $apimPoolPortalSetting = New-AzApplicationGatewayBackendHttpSettings `
+          -Name "apim-portal-poolsetting" `
+          -Port 443 `
+          -Protocol "Https" `
+          -CookieBasedAffinity "Disabled" `
+          -Probe $apimPortalProbe `
+          -AuthenticationCertificates $authcert `
+          -RequestTimeout 180
+      ```
+      
+   1. Map backend pool IP to API Management internal IP.
+      
+      ```powershell
+      # Step 9a - map backend pool IP with API Management internal IP
+      $apimProxyBackendPool = New-AzApplicationGatewayBackendAddressPool `
+          -Name "apimbackend" `
+          -BackendIPAddresses $apimService.PrivateIPAddresses[0]
+      
+      # Step 9b - create sinkpool for API Management requests to discard 
+      $sinkpool = New-AzApplicationGatewayBackendAddressPool -Name "sinkpool"
+      
+      $apimProxyBackendPool = New-AzApplicationGatewayBackendAddressPool `
+          -Name "apimbackend" `
+          -BackendIPAddresses $apimService.PrivateIPAddresses[0]
+      ```
+      
+   1. Allow external access to the API Management developer portal.
+      
+      ```powershell
+      # Step 10 - create a routing rule to allow external internet access to the developer portal
+      $rule01 = New-AzApplicationGatewayRequestRoutingRule `
+          -Name "apim-portal-rule" `
+          -RuleType Basic `
+          -HttpListener $portalListener `
+          -BackendAddressPool $apimProxyBackendPool `
+          -BackendHttpSettings $apimPoolPortalSetting
+      ```
+      
+   1. Configure Application Gateway deployment.
+      
+      ```powershell
+      # Step 11 - change Application Gateway SKU and instances (# instances can be configured as required)
+      $sku = New-AzApplicationGatewaySku -Name "{waf-sku-name}" -Tier "WAF" -Capacity {instances-number}
+      
+      # Step 12 - configure WAF to be in prevention mode
+      $config = New-AzApplicationGatewayWebApplicationFirewallConfiguration `
+          -Enabled $true `
+          -FirewallMode "Detection"
+      ```
+      
+1. Deploy Application Gateway.
    
    ```powershell
-   # Create Application Gateway configuration
-   # Step 1 - create App GW IP config
-   $gipconfig = New-AzApplicationGatewayIPConfiguration `
-       -Name "gatewayIP" `
-       -Subnet $appgatewaysubnetdata
-   ```
-   
-1. Configure the front-end IP port object.
-   
-   ```powershell
-   # Step 2 - configure the front-end IP port for the public IP endpoint
-   $fp01 = New-AzApplicationGatewayFrontendPort `
-       -Name "frontend-port443" `
-       -Port 443
-   ```
-   
-1. Tie the front-end IP port to the public IP.
-   
-   ```powershell
-   # Step 3 - configure the front-end IP with the public IP endpoint
-   $fipconfig01 = New-AzApplicationGatewayFrontendIPConfig `
-       -Name "frontend1" `
-       -PublicIPAddress $publicip
-   ```
-   
-1. Set up certificates for Application Gateway.
-   
-   ```powershell
-   # Step 4 - configure certs for the App Gateway
-   $cert = New-AzApplicationGatewaySslCertificate `
-       -Name "API Management-gw-cert" `
-       -CertificateFile $gatewayCertPfxPath `
-       -Password $certPwd
-   
-   $certPortal = New-AzApplicationGatewaySslCertificate `
-       -Name "API Management-portal-cert" `
-       -CertificateFile $portalCertPfxPath `
-       -Password $certPortalPwd
-   ```
-   
-1. Create Application Gateway's listeners.
-   
-   ```powershell
-   # Step 5 - configure HTTP listeners for the App Gateway
-   $listener = New-AzApplicationGatewayHttpListener `
-       -Name "API Management-api-listener" `
-       -Protocol "Https" `
-       -FrontendIPConfiguration $fipconfig01 `
-       -FrontendPort $fp01 `
-       -SslCertificate $cert `
-       -HostName $gatewayHostname `
-       -RequireServerNameIndication true
-   
-   $portalListener = New-AzApplicationGatewayHttpListener `
-       -Name "API Management-portal-listener" `
-       -Protocol "Https" `
-       -FrontendIPConfiguration $fipconfig01 `
-       -FrontendPort $fp01 `
-       -SslCertificate $certPortal `
-       -HostName $portalHostname `
-       -RequireServerNameIndication true
-   ```
-   
-1. Create Application Gateway's probes to map API Management's endpoints.
-   
-   ```powershell
-   # Step 6 - create custom probes for API Management endpoints
-   $API Managementprobe = New-AzApplicationGatewayProbeConfig `
-       -Name "API Management-api-probe" `
-       -Protocol "Https" `
-       -HostName $gatewayHostname `
-       -Path "/status-0123456789abcdef" `
-       -Interval 30 `
-       -Timeout 120 `
-       -UnhealthyThreshold 8
-   
-   $API ManagementPortalProbe = New-AzApplicationGatewayProbeConfig `
-       -Name "API Management-portal-probe" `
-       -Protocol "Https" `
-       -HostName $portalHostname `
-       -Path "/signin" `
-       -Interval 60 `
-       -Timeout 300 `
-       -UnhealthyThreshold 8
-   ```
-   
-1. List API Management's endpoints to backend pools.
-   
-   ```powershell
-   # Step 7 - upload cert for SSL-enabled backend pool resources
-   $authcert = New-AzApplicationGatewayAuthenticationCertificate `
-       -Name "whitelistcert" `
-       -CertificateFile $gatewayCertCerPath
-   ```
-   
-1. Configure Application Gateway's HTTP settings.
-   
-   ```powershell
-   # Step 8 - configure HTTPs backend settings for the App Gateway
-   $API ManagementPoolSetting = New-AzApplicationGatewayBackendHttpSettings `
-       -Name "API Management-api-poolsetting" `
-       -Port 443 `
-       -Protocol "Https" `
-       -CookieBasedAffinity "Disabled" `
-       -Probe $API Managementprobe `
-       -AuthenticationCertificates $authcert `
-       -RequestTimeout 180
-   
-   $API ManagementPoolPortalSetting = New-AzApplicationGatewayBackendHttpSettings `
-       -Name "API Management-portal-poolsetting" `
-       -Port 443 `
-       -Protocol "Https" `
-       -CookieBasedAffinity "Disabled" `
-       -Probe $API ManagementPortalProbe `
-       -AuthenticationCertificates $authcert `
-       -RequestTimeout 180
-   ```
-   
-1. Map backend pool IP with API Management's internal IP.
-   
-   ```powershell
-   # 1. Map backend pool IP with API Management's internal IP
-   $API ManagementProxyBackendPool = New-AzApplicationGatewayBackendAddressPool `
-       -Name "API Managementbackend" `
-       -BackendIPAddresses $API ManagementService.PrivateIPAddresses[0]
-   
-   # 2. Create sinkpool for API Management requests to discard 
-   $sinkpool = New-AzApplicationGatewayBackendAddressPool -Name "sinkpool"
-   
-   $API ManagementProxyBackendPool = New-AzApplicationGatewayBackendAddressPool `
-       -Name "API Managementbackend" `
-       -BackendIPAddresses $API ManagementService.PrivateIPAddresses[0]
-   ```
-   
-1. Allow external access to API Management's developer portal.
-   
-   ```powershell
-   # Create a routing rule to allow external Internet access to the developer portal
-   $rule01 = New-AzApplicationGatewayRequestRoutingRule `
-       -Name "API Management-portal-rule" `
-       -RuleType Basic `
-       -HttpListener $portalListener `
-       -BackendAddressPool $API ManagementProxyBackendPool `
-       -BackendHttpSettings $API ManagementPoolPortalSetting
-   ```
-   
-1. Configure and deploy Application Gateway.
-   
-   ```powershell
-   # Step 11 - change App Gateway SKU and instances (# instances can be configured as required)
-   $sku = New-AzApplicationGatewaySku -Name "{waf-sku-name}" -Tier "WAF" -Capacity {instances-number}
-   
-   # Step 12 - configure WAF to be in prevention mode
-   $config = New-AzApplicationGatewayWebApplicationFirewallConfiguration `
-       -Enabled $true `
-       -FirewallMode "Detection"
-   
-   # Deploy the App Gateway
+      # Deploy the Application Gateway
    $appgwName = "{ag-name}"
    
    $appgw = New-AzApplicationGateway `
        -Name $appgwName `
        -ResourceGroupName $resGroupName `
        -Location $location `
-       -BackendAddressPools $API ManagementProxyBackendPool, $sinkpool `
-       -BackendHttpSettingsCollection $API ManagementPoolSetting, $API ManagementPoolPortalSetting `
+       -BackendAddressPools $apimProxyBackendPool, $sinkpool `
+       -BackendHttpSettingsCollection $apimPoolSetting, $apimPoolPortalSetting `
        -FrontendIpConfigurations $fipconfig01 `
        -GatewayIpConfigurations $gipconfig `
        -FrontendPorts $fp01 `
@@ -361,7 +363,7 @@ The following deployment steps use PowerShell. You could also use the [Azure por
        -WebApplicationFirewallConfig $config `
        -SslCertificates $cert, $certPortal `
        -AuthenticationCertificates $authcert `
-       -Probes $API Managementprobe, $API ManagementPortalProbe
+       -Probes $apimprobe, $apimPortalProbe
    ```
    
 1. Configure redirection rules.
@@ -373,7 +375,7 @@ The following deployment steps use PowerShell. You could also use the [Azure por
        -Name $appgwName
    
    $listener = Get-AzApplicationGatewayHttpListener `
-       -Name "API Management-api-listener" `
+       -Name "apim-api-listener" `
        -ApplicationGateway $appgw
    
    $sinkpool = Get-AzApplicationGatewayBackendAddressPool `
@@ -382,11 +384,11 @@ The following deployment steps use PowerShell. You could also use the [Azure por
    
    $pool = Get-AzApplicationGatewayBackendAddressPool `
        -ApplicationGateway $appgw `
-       -Name "API Managementbackend"
+       -Name "apimbackend"
    
    $poolSettings = Get-AzApplicationGatewayBackendHttpSettings `
        -ApplicationGateway $appgw `
-       -Name "API Management-api-poolsetting"
+       -Name "apim-api-poolsetting"
    
    $pathRule = New-AzApplicationGatewayPathRuleConfig `
        -Name "external" `
@@ -410,7 +412,7 @@ The following deployment steps use PowerShell. You could also use the [Azure por
    
    $appgw = Add-AzApplicationGatewayRequestRoutingRule `
        -ApplicationGateway $appgw `
-       -Name "API Management-api-external-rule" `
+       -Name "apim-api-external-rule" `
        -RuleType PathBasedRouting `
        -HttpListener $listener `
        -BackendAddressPool $Pool `
@@ -434,3 +436,5 @@ The cost of this architecture depends on configuration aspects like:
 - Whether this architecture will run continuously or just a few hours a month
 
 After you assess these aspects, go to the [Azure Pricing Calculator](https://azure.microsoft.com/pricing/calculator/) to estimate pricing.
+
+# Next steps
