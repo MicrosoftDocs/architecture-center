@@ -221,9 +221,9 @@ In the AKS cluster, have an network security group (NSG) on the subnet with the 
 
 Implement anti-spoofing measures to detect and block forged source IP addresses from entering the network. 
 
-##### Your responsibilities
+##### Azure responsibilities
 
-TBD
+Azure implements network filtering to prevent spoofed traffic and restrict incoming and outgoing traffic to trusted platform components.
 
 #### Requirement 1.3.4
 
@@ -244,9 +244,10 @@ For details More details is available at: [Control egress traffic for cluster no
 
 Permit only “established” connections into the network.
 
-##### Your responsibilities
+##### Azure responsibilities
 
-TBD
+Azure implements network filtering to prevent spoofed traffic and restrict incoming and outgoing traffic to trusted platform components.  Azure network is segregated to separate customer traffic from management traffic.
+
 
 #### Requirement 1.3.6
 
@@ -256,6 +257,9 @@ Place system components that store cardholder data (such as a database) in an in
 
 Expose your storage systems only over a private network, for instance using Private Link. Also, restrict access from the nodepool subnet(s) that require it. Keep state out of the cluster and in its own dedicated security zone. 
 
+Microsoft Azure uses network segregation and NAT to separate customer traffic from management traffic.
+
+
 #### Requirement 1.3.7
 
 Do not disclose private IP addresses and routing information to unauthorized parties.
@@ -264,18 +268,23 @@ Do not disclose private IP addresses and routing information to unauthorized par
 
 A private AKS cluster keeps DNS records off the public internet. Use an internal DNS zone for routing between the subnet that has Azure Application Gateway integrated with Web Application Firewall(WAF) and the subnet that has the internal load balancer. Ensure all HTTP responses do not include any private IP information in headers or body. Ensure logs that may contain IP and DNS records are not exposed outside of operational needs.
 
+<Ask Chad: Two questions: 1. I couldn't find an internal DNS zone between waf and ilb. 2. yesterday we discussed that private DNS zone is in the hub. In the spoke resource group i see exactly those private DNS zones. None in the hub. What am I missing>
+
 ### Requirement 1.4&mdash;Install personal firewall software or equivalent functionality on any portable computing devices that connect to the Internet when outside the network , and which are also used to access the CDE. 
 
 ##### Your responsibilities
 
-Use air-gapped jump boxes when performing administrative tasks. Connect via Azure Bastion to add seperation between client machine and jump box. If VPN is used for access, ensure client machine is managed by corporate policy and all conditional access policies are in place on those machines.
+The private cluster is managed by the AKS control plane. You don't have access to nodes directly. For doing administrative tasks you'll need to use management tools such as kubectl from a separate compute resource. An option is to use an air-gapped jump box where you can run the commands. Also inbound and outbound traffic from the jump box must be restricted and secure. If VPN is used for access, make sure the client machine is managed by corporate policy and all conditional access policies are in place.
 
+In this architecture, that jump box is in a separate subnet in the spoke network. Inbound access to the jump box is restricted by using a network security group (NSG) that only allows access through Azure Bastion over SSH. 
+
+To run certain commands on the jump box, you'll will need to reach public endpoints. For example, endpoints managed by Azure managment plane. That outbound traffic must be secure. Similar to other components in the spoke network, outbound traffic from the jump box is restricted by using a user-defined route (UDR) that forces HTTPs  traffic to go through Azure Firewall.
 
 ### Requirement 1.5&mdash;Ensure that security policies and operational procedures for managing firewalls are documented, in use, and known to all affected parties.
 
 ##### Your responsibilities
 
-Documentation and Training
+It's critical that you maintain thorough documentation about the process and policies. Especially when managing Azure Firewall rules that segments the AKS cluster. People operating regulated enviroments must be educated, informed, and incentivized to support the security assurances. This is particularly important for people with accounts granted broad administrative privileges.
 
 ***
 
