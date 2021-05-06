@@ -7,7 +7,8 @@ This solution doesn't address the architecture's underlying services, like App S
 ![Diagram showing how Application Gateway and API Management protect APIs.](images/protect-apis.png)
 
 - Application Gateway sets up a URL redirection mechanism that sends the request to the proper [backend pool](/azure/application-gateway/application-gateway-components#backend-pools), depending on the URL format of the API call.
-  For more information about reducing false positives, see [Handle false positives in Azure Sentinel](false-positives.md).
+  
+  - URLs formatted like `api.<some-domain>/external/*` can reach the back end to interact with the requested APIs.
   - Application Gateway redirects calls formatted as `api.<some-domain>/*` to a dead end, meaning a backend pool with no target.
   
 - API Management accepts and properly maps internal calls, which come from resources in the same Azure virtual network, under `api.<some-domain>/internal/*`.
