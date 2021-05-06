@@ -1,12 +1,12 @@
-With more companies' internal applications adhering to the API-first approach, and the growing number and severity of threats to web application over the internet, it's critical to have a security strategy to protect APIs. The first step toward security is restricting who can access which aspects of an API from what locations. This article describes how to protect API access by using Azure Application Gateway and Azure API Management.
+With more companies' internal applications adhering to the API-first approach, and the growing number and severity of threats to web application over the internet, it's critical to have a security strategy to protect APIs. The first step is restricting who, from what locations, can access which aspects of an API. This article describes how to protect API access by using Azure Application Gateway and Azure API Management.
 
 ## Architecture
 
-This solution doesn't address the architecture's underlying services, like App Service Environment, Azure SQL Database, and Azure Kubernetes Services. These parts of the diagram only showcase what you can do as a broader solution. This article specifically discusses the gray-backgrounded areas, API Management and Application Gateway.
+This solution doesn't address the application's underlying services, like App Service Environment, Azure SQL Database, and Azure Kubernetes Services. Those parts of the diagram only showcase what you can do as a broader solution. This article specifically discusses the gray-backgrounded areas, API Management and Application Gateway.
 
 ![Diagram showing how Application Gateway and API Management protect APIs.](images/protect-apis.png)
 
-- Application Gateway sets up a URL redirection mechanism that sends the request to the proper [backend pool](/azure/application-gateway/application-gateway-components#backend-pools), depending on the URL format of the API call.
+- Application Gateway sets up a URL redirection mechanism that sends the request to the proper [backend pool](/azure/application-gateway/application-gateway-components#backend-pools), depending on the URL format of the API call:
   
   - URLs formatted like `api.<some-domain>/external/*` can reach the back end to interact with the requested APIs.
   - Application Gateway redirects calls formatted as `api.<some-domain>/*` to a dead end, meaning a backend pool with no target.
@@ -22,13 +22,11 @@ This solution doesn't address the architecture's underlying services, like App S
 
 ### Components
 
-- [Azure Resource Groups](/azure/azure-resource-manager/management/manage-resource-groups-portal) provides a logical container for Azure components.
+- [Azure Virtual Network](https://azure.microsoft.com/services/virtual-network/) enables many types of Azure resources, such as Azure Virtual Machines (VMs), to securely communicate with each other, the internet, and on-premises networks.
 
-- [Azure Virtual Network](/azure/virtual-network/virtual-networks-overview) enables many types of Azure resources, such as Azure Virtual Machines (VMs), to securely communicate with each other, the internet, and on-premises networks.
+- [Azure Application Gateway](https://azure.microsoft.com/services/application-gateway/) is a web traffic load balancer that manages traffic to web applications. Load balancers operate at the transport layer, OSI layer 4 TCP and UDP, and route traffic based on source IP address and port to a destination IP address and port.
 
-- [Azure Application Gateway](/azure/application-gateway/overview) is a web traffic load balancer that manages traffic to web applications. Load balancers operate at the transport layer (OSI layer 4 - TCP and UDP), and route traffic based on source IP address and port to a destination IP address and port.
-
-- [Azure API Management](https://azure.microsoft.com/services/api-management/) creates consistent, modern API gateways for existing backend services.
+- [Azure API Management](https://azure.microsoft.com/services/api-management/) is a hybrid, multi-cloud management platform for APIs across all environments. API Management creates consistent, modern API gateways for existing backend services.
 
 ## Recommendations
 
@@ -36,7 +34,7 @@ This solution doesn't address the architecture's underlying services, like App S
 
 - Product creation and API configuration in API Management isn't covered here. For a comprehensive tutorial, see [Tutorial: Create and publish a product](/azure/api-management/api-management-howto-add-products).
 
-- To communicate with private resources in the back end, Application Gateway and API Management must be in the same virtual network. This solution assumes you already have a virtual network set up with your own resources. The solution also creates two subnets for Application Gateway and API Management.
+- To communicate with private resources in the back end, Application Gateway and API Management must be in the same virtual network. This solution assumes you already have a virtual network set up with your own resources. The solution creates two subnets for Application Gateway and API Management.
 
 - The private, internal deployment model allows API Management to connect to an existing virtual network, making it reachable from the inside of that network context. This feature requires either **Development** or **Production** API Management tiers.
   
@@ -44,9 +42,9 @@ This solution doesn't address the architecture's underlying services, like App S
 
 - You can manage certificates and passwords in [Azure Key Vault](/azure/key-vault/general/basic-concepts).
 
-- You can use CNAME entries to personalize interactions with the services.
+- You can use [CNAME entries](/azure/dns/dns-web-sites-custom-domain) to personalize interactions with the services.
 
-- For firewall and Web Application Firewall (WAF), other services can deliver the same level of protection:
+- Other services can deliver the same level of firewall and Web Application Firewall (WAF) protection:
   
   - [Azure Front Door](/azure/frontdoor/front-door-overview)
   - [Azure Firewall](/azure/firewall/overview)
@@ -55,15 +53,15 @@ This solution doesn't address the architecture's underlying services, like App S
 
 ## Scalability considerations
 
-- Turn on Application Gateway's autoscale feature. Application Gateway serves as entry point for this architecture, and the WAF feature requires additional processing power for each request analysis. It's critical that the service can expand its computational capacity on the spot. To enable autoscale, see [Specify autoscale](/azure/application-gateway/tutorial-autoscale-ps#specify-autoscale).
+- Consider using Application Gateway's autoscale feature. Application Gateway serves as entry point for this architecture, and the WAF feature requires additional processing power for each request analysis. It's critical that the service can expand its computational capacity on the spot. To enable autoscale, see [Specify autoscale](/azure/application-gateway/tutorial-autoscale-ps#specify-autoscale).
 
-- Consider Application Gateway subnet sizing. Application Gateway requests one private address per instance, plus another private IP address if a private front-end IP is configured. Application Gateway also takes five IPs per instance from the subnet it's deployed to. To properly deploy Application Gateway for this architecture, make sure its subnet has enough space to grow. For more information, see [Application Gateway infrastructure configuration](/azure/application-gateway/configuration-infrastructure).
+- Evaluate Application Gateway subnet sizing. Application Gateway requests one private address per instance, plus another private IP address if a private front-end IP is configured. Application Gateway also takes five IPs per instance from the subnet it's deployed to. To properly deploy Application Gateway for this architecture, make sure its subnet has enough space to grow. For more information, see [Application Gateway infrastructure configuration](/azure/application-gateway/configuration-infrastructure).
 
-- Turn on the API Management autoscaling feature to support highly concurrent scenarios. Autoscaling lets the service expand its capabilities to quickly respond to a growing number of incoming requests. To enable the autoscale feature, see [Automatically scale an Azure API Management instance](/azure/api-management/api-management-howto-autoscale).
+- COnsider turning on the API Management autoscaling feature to support highly concurrent scenarios. Autoscaling lets the service expand its capabilities to quickly respond to a growing number of incoming requests. To enable the autoscale feature, see [Automatically scale an Azure API Management instance](/azure/api-management/api-management-howto-autoscale).
 
 ## Availability considerations
 
-- Enable Application Gateway's zone redundance. An Application Gateway or WAF deployment can span multiple Availability Zones, so you don't have to provision separate Application Gateway instances in each zone with a traffic manager. You can choose to deploy Application Gateway instances in a single zone or multiple zones, making it more resilient to zone failure.
+- Consider enabling Application Gateway's zone redundancy. An Application Gateway or WAF deployment can span multiple Availability Zones, so you don't have to provision separate Application Gateway instances in each zone with a traffic manager. You can choose to deploy Application Gateway instances in a single zone or multiple zones, making it more resilient to zone failure.
 
 ## Security considerations
 
@@ -346,7 +344,7 @@ The following deployment steps use PowerShell. You could also use the [Azure por
 1. Deploy Application Gateway.
    
    ```powershell
-      # Deploy the Application Gateway
+   # Deploy the Application Gateway
    $appgwName = "{ag-name}"
    
    $appgw = New-AzApplicationGateway `
@@ -438,4 +436,5 @@ The cost of this architecture depends on configuration aspects like:
 
 After you assess these aspects, go to the [Azure Pricing Calculator](https://azure.microsoft.com/pricing/calculator/) to estimate pricing.
 
-# Next steps
+## Next steps
+
