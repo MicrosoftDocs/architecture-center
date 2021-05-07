@@ -50,7 +50,7 @@ option best fits your scenario and the environment required.
 | **K8s on Azure Stack Edge Pro** | Low                  | Easy                      | Low             | Linux only     | Kubernetes deployed on Azure Stack Edge appliance deployed at location.                                                                   |
 | **AKS on HCI**                  | Low                  | Easy                      | Medium          | Yes            | AKS deployed on Azure Stack HCI or Windows Server 2019.                                                                                   |
 
-\*Other managed edge platforms (OpenShift, Tanzu, and so on) are not in scope
+\*Other managed edge platforms (OpenShift, Tanzu, and so on) aren't in scope
 for this document.
 
 \*\*These values are based on using *kubeadm*, for the sake of simplicity.
@@ -70,19 +70,19 @@ But this offers the most flexible option for customizing your cluster.
 ### Scenario
 
 Often, *edge* locations have specific requirements for running
-Kubernetes clusters that are not met with the other Azure solutions described in
+Kubernetes clusters that aren't met with the other Azure solutions described in
 this document. Meaning this option is typically best for those unable to
 use managed services due to unsupported existing infrastructure, or those
 who seek to have maximum control of their clusters.
 
 - This option can be especially difficult for those who are new to Kubernetes.
-    This is not uncommon for organizations looking to run edge clusters. Options
+    This isn't uncommon for organizations looking to run edge clusters. Options
     like [MicroK8s](https://microk8s.io/docs) or [k3s](https://k3s.io/) aim to flatten that
     learning curve.
 
 - It's important to understand any underlying infrastructure and any
     integration that is expected to take place up front. This will help to
-    narrow down viable options and to identify any gaps with the open source
+    narrow down viable options and to identify any gaps with the open-source
     tooling and/or plugins.
 
 - Enabling clusters with [Azure
@@ -94,7 +94,7 @@ who seek to have maximum control of their clusters.
     Defender](/azure/security-center/azure-defender),
     and other services.
 
-- Because cluster configuration is not trivial, it’s especially important to
+- Because cluster configuration isn't trivial, it’s especially important to
     be mindful of CI/CD. Tracking and acting on upstream changes of various
     plugins, and making sure those changes don’t affect the health of your
     cluster, becomes a direct responsibility. It’s important for you to have a
@@ -140,7 +140,7 @@ Operational cost:
 
 Ease of configuration:
 
-- Evaluating the many open source options at every stage of configuration
+- Evaluating the many open-source options at every stage of configuration
     whether its networking, storage, or monitoring options is inevitable and can
     become complex. Requires more consideration for configuring a
     CI/CD for cluster configuration. Because of these concerns, the ease of
@@ -148,7 +148,7 @@ Ease of configuration:
 
 Flexibility:
 
-- With the ability to use any open source tool or plugin without any
+- With the ability to use any open-source tool or plugin without any
     provider restrictions, bare-metal Kubernetes is highly flexible.
 
 ## Kubernetes on Azure Stack Edge
@@ -167,10 +167,10 @@ updates available for the device.
 ### Scenario
 
 Ideal for those with existing (Linux) IoT workloads or upgrading their compute
-for ML at the edge. This is a good option when it is not necessary to have more
+for ML at the edge. This is a good option when it isn't necessary to have more
 granular control over the clusters.
 
-- Admin permissions are not granted by default. Although you can work with the
+- Admin permissions aren't granted by default. Although you can work with the
     product group to make certain exceptions, this makes it difficult to have
     finer control of your cluster.
 
@@ -190,7 +190,7 @@ granular control over the clusters.
     which means that workloads may also be deployed to your Azure Stack Edge
     clusters via IoT Edge.
 
-- Support for two node clusters is not currently available. This
+- Support for two node clusters isn't currently available. This
     effectively means that this option is *not* a highly available (HA)
     solution.
 
@@ -208,7 +208,7 @@ Ease of configuration:
 
 Flexibility:
 
-- Configuration is already set, and Admin permissions are not granted by
+- Configuration is already set, and Admin permissions aren't granted by
     default. Product group involvement may be required beyond basic
     configuration, and the underlying infrastructure must be an Azure Stack Edge
     Pro device, making this a less flexible option.
