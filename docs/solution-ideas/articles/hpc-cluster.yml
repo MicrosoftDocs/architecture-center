@@ -5,7 +5,7 @@ metadata:
   description: Run high performance computing (HPC) applications in Azure with a low-maintenance solution that includes the head node, compute nodes, and storage nodes.
   author: doodlemania2
   ms.author: pnp
-  ms.date: 12/16/2021
+  ms.date: 05/06/2021
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: solution-idea
