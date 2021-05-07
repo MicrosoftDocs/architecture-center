@@ -17,7 +17,7 @@ Examples
 ![Architecture diagram](../media/population-health-management-for-healthcare.png)
 *Download an [SVG](../media/population-health-management-for-healthcare.svg) of this architecture.*
 
-### Data Flow
+### Data flow
 
 1. Real-time data generating devices (IoMT) transfer data to a streaming data ingestion sink with device authentication such as IoT Hub.  This sink could be a standalone Azure IoT Hub or it could be included in a fully managed application platform like [Azure IOT Central](/azure/iot-fundamentals/iot-services-and-technologies#azure-iot-central) with solution accelerators such as a [continuous patient monitoring template](/azure/iot-central/healthcare/overview-iot-central-healthcare#what-is-continuous-patient-monitoring-template).
 
