@@ -42,7 +42,7 @@ Log aggregation technologies should be used to collate logs and metrics across a
 
 Resources may include Azure IaaS and PaaS services and third-party appliances such as firewalls or Anti-Malware solutions used in the application. For example, if Azure Event Hub is used, the Diagnostic Settings should be configured to push logs and metrics to the data sink.
 
-[Azure Monitor](/azure-monitor/data-platform) has the capability of collecting and organizing log and performance data from monitored resources. Data is consolidated into an Azure Log Analytics workspace so they can be analyzed together using a sophisticated query language that can quickly analyzing millions of records. Splunk is another popular choice. 
+[Azure Monitor](/azure/azure-monitor/data-platform) has the capability of collecting and organizing log and performance data from monitored resources. Data is consolidated into an Azure Log Analytics workspace so they can be analyzed together using a sophisticated query language that can quickly analyzing millions of records. Splunk is another popular choice. 
 
 **How is aggregated monitoring enforced?**
 ***
