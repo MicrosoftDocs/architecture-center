@@ -1,6 +1,3 @@
-
-
-
 Many organizations desire to leverage Windows Virtual Desktop (WVD) and create environments with multiple on-premises Active Directory forests. This article expands on the architecture described in the [WVD at enterprise scale article](./windows-virtual-desktop.yml) and helps understand how multiple domains and WVD can be integrated using [Azure AD Connect](/azure/active-directory/hybrid/whatis-hybrid-identity) to sync users from on-premises [Active Directory Domain Services (AD DS)](/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview) to [Azure Active Directory (Azure AD)](/azure/active-directory/fundamentals/active-directory-whatis).
 
 The following are some relevant use cases for this architecture:
@@ -15,7 +12,6 @@ The following are some relevant use cases for this architecture:
 
 ## Architecture
 :::image type="content" source="images/wvd-multi-forest-adds.png" alt-text="Windows Virtual Desktop with AD Domain Services" lightbox="images/wvd-multi-forest-adds.png":::
-*Download a [Visio file][visio-download] of this architecture*
 
 ## Scenario
 
@@ -101,6 +97,3 @@ For more information, see these articles:
 - [Compare different Identity options: Self-managed Active Directory Domain Services (AD DS), Azure Active Directory (Azure AD), and Azure Active Directory Domain Services (Azure AD DS)](/azure/active-directory-domain-services/compare-identity-solutions).
 - [Solution idea Multi forest with Azure AD DS](./multi-forest-azure-managed.yml).
 - [Windows Virtual Desktop Documentation](/azure/virtual-desktop/).
-
-<!-- links -->
-[visio-download]: ./images/wvd-multi-forest-adds.png
