@@ -3,7 +3,7 @@ metadata:
   title: HPC cluster deployed in the cloud
   titleSuffix: Azure Solution Ideas
   description: Run high performance computing (HPC) applications in Azure with a low-maintenance solution that includes the head node, compute nodes, and storage nodes.
-  author: doodlemania2
+  author: fmigacz
   ms.author: pnp
   ms.date: 05/06/2021
   ms.topic: conceptual
