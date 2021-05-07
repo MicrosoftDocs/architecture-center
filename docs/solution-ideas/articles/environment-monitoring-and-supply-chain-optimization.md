@@ -44,7 +44,7 @@ This article describes a warehouse management scenario that monitors environment
 
 - [Azure storage](https://azure.microsoft.com/services/storage/) is used for storing device information in the cloud in a secure and scalable way that is also cost-effective. The data stored is used for training the ML models.
 
-- [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) is used to store application key performance indicators (KPIs) and model outputs. Cosmos DB is a fully managed NoSQL database service for modern application development. It provides high speed transactions and can easily enable the service for global distribution.
+- [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) is used to store application key performance indicators (KPIs) and model outputs. Cosmos DB is a fully managed NoSQL database service for modern application development. It provides high-speed transactions and can easily enable the service for global distribution.
 
 - [Azure Databricks](https://azure.microsoft.com/services/databricks/) is a data analytics platform optimized for the Microsoft Azure cloud services platform. It is used for transforming, manipulating, and normalizing data so that it can be properly consumed by the machine learning pipeline.
 
@@ -104,7 +104,7 @@ In a remote setting, it's critical that devices are easy to deploy without requi
 ## Related resources
 
 - [Azure Digital Twins - Supply Chain demo](https://github.com/Azure-Samples/IoTDemos/tree/master/ADT-SupplyChainDemo) uses Digital Twins to model a supply chain scenario.
-- [myDevices](https://mydevices.com/) provides LoRa connectivity and devices that enable solutions to be stood up quickly in locations where connectivity is a challenge and broad network coverage is needed.
+- [myDevices](https://mydevices.com/) provides LoRa connectivity and devices that enable solutions to be deployed quickly in locations where connectivity is a challenge and broad network coverage is needed.
 - [C.H. Robinson Navisphere](https://news.microsoft.com/2020/07/14/c-h-robinson-announces-alliance-with-microsoft-to-digitally-transform-the-supply-chain-of-the-future/) works with Microsoft Azure and Azure IoT to provide real-time visibility into the supply chain and for more predictability and proactive decision making.
 - [EPA AirNow API](https://docs.airnowapi.org/) provides access to real-time air quality and wildfire data from [AirNow](https://www.airnow.gov/), a service maintained by the US Environmental Protection Agency (EPA) and other federal, tribal, state, and local agencies.
 - [Condition monitoring for industrial IoT](./condition-monitoring.yml) is an example scenario demonstrating how end manufacturers can connect their assets to the cloud using OPC UA (Open Platform Communication Unified Architecture) and the Industrial Components.
