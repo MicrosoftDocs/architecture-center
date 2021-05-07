@@ -59,12 +59,16 @@ Two sample projects are detailed here that can be imported into Azure Databricks
 
 2. [Patient-specific Readmission Prediction and Intervention for Health Care](https://github.com/Azure/cortana-intelligence-population-health-management/blob/master/Spark/Manual%20Deployment%20Guide/HDInsight%20Spark/1_Data_Preparation.ipynb) uses a [diabetes dataset](https://archive.ics.uci.edu/ml/datasets/Diabetes) originally produced for the 1994 AAI Spring Symposium on Artificial Intelligence in Medicine, now generously shared by Dr. Michael Kahn on the [UCI Machine Learning Repository](https://archive.ics.uci.edu/ml/).
 
-## References
+## Next steps
 
-[Azure Health Architectures](https://github.com/microsoft/health-architectures) from the Microsoft Health Cloud & Data Architectural Engineering team, includes many reference architectures obtained by working closely customers, partners, and coworkers in the Health domain.
+* [Azure Health Architectures](https://github.com/microsoft/health-architectures) from the Microsoft Health Cloud & Data Architectural Engineering team, includes many reference architectures obtained by working closely customers, partners, and coworkers in the Health domain.
+* [Continuous patient monitoring](/azure/iot-central/healthcare/concept-continuous-patient-monitoring-architecture) provides an app template that can build a continuous patient monitoring solution.
+* [Medical Imaging Server for DICOM](https://github.com/microsoft/dicom-server) is a .NET Core implementation of DICOMweb™ that can be run in Azure.
+* [OpenHack for FHIR](https://github.com/microsoft/OpenHack-FHIR) is a collection of OpenHack based tutorials that can be used to learn about the FHIR-related services in Azure.
 
-[Continuous patient monitoring](/azure/iot-central/healthcare/concept-continuous-patient-monitoring-architecture) provides an app template that can build a continuous patient monitoring solution.
+## Related resources
 
-[Medical Imaging Server for DICOM](https://github.com/microsoft/dicom-server) is a .NET Core implementation of DICOMweb™ that can be run in Azure.
-
-[OpenHack for FHIR](https://github.com/microsoft/OpenHack-FHIR) is a collection of OpenHack based tutorials that can be used to learn about the FHIR-related services in Azure.
+* [Artificial intelligence (AI) - Architectural overview](../../data-guide/big-data/ai-overview.md)
+* [Business Process Management](./business-process-management.yml)
+* [Predict Length of Stay and Patient Flow](./predict-length-of-stay-and-patient-flow-with-healthcare-analytics.yml)
+* [Remote Patient Monitoring Solutions](./remote-patient-monitoring.yml)
