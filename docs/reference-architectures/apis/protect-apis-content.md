@@ -1,8 +1,8 @@
-With more companies' internal applications adhering to the [API-first approach](https://swagger.io/resources/articles/adopting-an-api-first-approach/), and the growing number and severity of threats to web application over the internet, it's critical to have a security strategy to protect APIs. The first step toward API security is restricting who, from what locations, can access which aspects of an API. This article describes how to protect API access by using Azure Application Gateway and Azure API Management.
+With more companies adhering to the [API-first approach](https://swagger.io/resources/articles/adopting-an-api-first-approach/) for their internal applications, and the growing number and severity of threats to web applications over the internet, it's critical to have a security strategy to protect APIs. The first step toward API security is restricting who can access what aspects of an API, and from which locations. This article describes how to use Azure Application Gateway and Azure API Management to protect API access.
 
 ## Architecture
 
-This solution doesn't address the application's underlying services, like App Service Environment, Azure SQL Database, and Azure Kubernetes Services. Those parts of the diagram only showcase what you can do as a broader solution. This article specifically discusses the gray-backgrounded areas, API Management and Application Gateway.
+This article doesn't address the application's underlying services, like App Service Environment, Azure SQL Managed Instance, and Azure Kubernetes Services. Those parts of the diagram only showcase what you can do as a broader solution. This article specifically discusses the shaded areas, API Management and Application Gateway.
 
 ![Diagram showing how Application Gateway and API Management protect APIs.](images/protect-apis.png)
 
@@ -10,7 +10,7 @@ This solution doesn't address the application's underlying services, like App Se
   
   - URLs formatted like `api.<some-domain>/external/*` can reach the back end to interact with the requested APIs.
   
-  - Calls formatted as `api.<some-domain>/*` go to a dead end or sinkpool, which is a backend pool with no target.
+  - Calls formatted as `api.<some-domain>/*` go to a dead end, which is a back-end pool with no target.
   
 - API Management accepts and properly maps internal calls, which come from resources in the same Azure virtual network, under `api.<some-domain>/internal/*`.
   
@@ -19,13 +19,13 @@ This solution doesn't address the application's underlying services, like App Se
   - `api.<some-domain>/external/*`
   - `api.<some-domain>/internal/*`
   
-  In this scenario, API Management uses two types of IP addresses, public and private. Public IP addresses are for internal communication on port 3443, and for runtime API traffic in the external virtual network configuration. When API Management sends a request to a public, internet-facing back end, it shows a public IP address as the origin of the request. For more information, see [IP addresses of API Management service in VNet](/azure/api-management/api-management-howto-ip-addresses#ip-addresses-of-api-management-service-in-vnet).
+  In this scenario, API Management uses two types of IP addresses, public and private. Public IP addresses are for internal communication on port 3443, and for runtime API traffic in the external virtual network configuration. When API Management sends a request to a public internet-facing back end, it shows a public IP address as the origin of the request. For more information, see [IP addresses of API Management service in VNet](/azure/api-management/api-management-howto-ip-addresses#ip-addresses-of-api-management-service-in-vnet).
   
-- So that developers can manage APIs and their configurations from both internal and external environments, a rule at the Application Gateway level properly redirects users under `portal.<some-domain>/*` to the developer portal.
+- A rule at the Application Gateway level properly redirects users under `portal.<some-domain>/*` to the developer portal, so that developers can manage APIs and their configurations from both internal and external environments.
 
 ### Components
 
-- [Azure Virtual Network](https://azure.microsoft.com/services/virtual-network/) allows many types of Azure resources, such as Azure Virtual Machines (VMs), to securely communicate with each other, the internet, and on-premises networks.
+- [Azure Virtual Network](https://azure.microsoft.com/services/virtual-network/) enables many types of Azure resources, such as Azure Virtual Machines (VMs), to securely communicate with each other, the internet, and on-premises networks.
 
 - [Azure Application Gateway](https://azure.microsoft.com/services/application-gateway/) is a web traffic load balancer that manages traffic to web applications. Load balancers operate at the transport layer, OSI layer 4 TCP and UDP, and route traffic based on source IP address and port to a destination IP address and port.
 
@@ -37,7 +37,7 @@ This solution doesn't address the application's underlying services, like App Se
 
 - This solution doesn't cover product creation and API configuration in API Management. For a comprehensive tutorial covering those tasks, see [Tutorial: Create and publish a product](/azure/api-management/api-management-howto-add-products).
 
-- To communicate with private resources in the back end, Application Gateway and API Management must be in the same virtual network as the resources. Before implementing the solution, set up a virtual network for your resources. The solution creates two subnets, for Application Gateway and API Management.
+- To communicate with private resources in the back end, Application Gateway and API Management must be in the same virtual network as the resources. Before implementing the solution, set up a virtual network for your resources. The solution creates subnets for Application Gateway and API Management.
 
 - The private, internal deployment model allows API Management to connect to an existing virtual network, making it reachable from the inside of that network context. To enable this feature, deploy either the **Development** or **Production** API Management tiers.
   
@@ -51,7 +51,7 @@ This solution doesn't address the application's underlying services, like App Se
   
   - [Azure Front Door](/azure/frontdoor/front-door-overview)
   - [Azure Firewall](/azure/firewall/overview)
-  - Third-party solutions like [Barracuda](https://azuremarketplace.microsoft.com/marketplace/apps/barracudanetworks.waf?tab=overview)
+  - Partner solutions like [Barracuda](https://azuremarketplace.microsoft.com/marketplace/apps/barracudanetworks.waf?tab=overview)
   - Other solutions available in [Azure Marketplace](https://azure.microsoft.com/marketplace/)
 
 ## Scalability considerations
@@ -60,7 +60,7 @@ This solution doesn't address the application's underlying services, like App Se
 
 - Consider Application Gateway subnet sizing. Application Gateway requests one private address per instance, and another private IP address if a private front-end IP is configured. Application Gateway also takes five IPs per instance from its subnet. To properly deploy Application Gateway for this architecture, make sure its subnet has enough space to grow. For more information, see [Application Gateway infrastructure configuration](/azure/application-gateway/configuration-infrastructure).
 
-- To support highly concurrent scenarios, turn on API Management autoscaling. Autoscaling expands API Management capabilities to quickly respond to a growing number of incoming requests. For more information, see [Automatically scale an Azure API Management instance](/azure/api-management/api-management-howto-autoscale).
+- To support highly concurrent scenarios, turn on API Management autoscaling. Autoscaling quickly expands API Management capabilities in response to growing numbers of incoming requests. For more information, see [Automatically scale an Azure API Management instance](/azure/api-management/api-management-howto-autoscale).
 
 ## Availability considerations
 
@@ -437,7 +437,7 @@ The following deployment steps use PowerShell. You could also use the [Azure por
 
 The cost of this architecture depends on configuration aspects like:
 - Service tiers
-- Scalability, meaning number of instances dynamically allocated by services to support a given demand
+- Scalability, meaning the number of instances dynamically allocated by services to support a given demand
 - Automation scripts
 - Whether this architecture will run continuously or just a few hours a month
 
