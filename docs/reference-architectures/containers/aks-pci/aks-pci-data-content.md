@@ -13,9 +13,9 @@ This article describes the considerations for an Azure Kubernetes Service (AKS) 
 
 |Requirement|Responsibility|
 |---|---|
-|[Requirement 4.1](#requirement-21always-change-vendor-supplied-defaults-and-remove-or-disable-unnecessary-default-accounts-before-installing-a-system-on-the-network)|Use strong cryptography and security protocols (for example, TLS, IPSEC, SSH, etc.) to safeguard sensitive cardholder data during transmission over open, public networks, including the following:|
-|[Requirement 4.2](#requirement-22develop-configuration-standards-for-all-system-components)|Never send unprotected PANs by end-user messaging technologies (for example, e-mail, instant messaging, SMS, chat, etc.).|
-|[Requirement 4.3](#requirement-23encrypt-all-non-console-administrative-access-using-strong-cryptography)|4.3 Ensure that security policies and operational procedures for encrypting transmissions of cardholder data are documented, in use, and known to all affected parties.|
+|[Requirement 4.1](#requirement-41)|Use strong cryptography and security protocols (for example, TLS, IPSEC, SSH, etc.) to safeguard sensitive cardholder data during transmission over open, public networks, including the following:|
+|[Requirement 4.2](#requirement-42)|Never send unprotected PANs by end-user messaging technologies (for example, e-mail, instant messaging, SMS, chat, etc.).|
+|[Requirement 4.3](#requirement-43)|4.3 Ensure that security policies and operational procedures for encrypting transmissions of cardholder data are documented, in use, and known to all affected parties.|
 
 
 ### Requirement 4.1
