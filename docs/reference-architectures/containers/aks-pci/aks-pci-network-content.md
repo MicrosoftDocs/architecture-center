@@ -344,16 +344,14 @@ Enable only necessary services, protocols, daemons, etc., as required for the fu
 
 ##### Your responsibilities
 
-Don't enable features that are not necessary. For example, enabling managed identity on ACR if ACR isn't going to use that feature.
+Default settings might include features you don't need. To function, those features might need visibility into the workload. In general, review the features and the implications before enabling them.  For example, don't enable managed identity on Azure Container Registry if that's not going to be used. 
 
-Make sure all rules, configured in Azure Firewall and Network Security Groups (NSG), restrict by protocol and port in addition to source and destination.
+Make sure all rules, configured in Azure Firewall and Network Security Groups (NSG), restrict traffic by protocol and port in addition to source and destination.
 
-For components Where you have complete control, for instance jump boxes, build agents, and others, remove all necessary system services from the images.
+For components where you have complete control, remove all necessary system services from the images. For instance jump boxes, build agents, and others,
 <Ask Chad: necessary? need to understand>
 
-For components, where you only have visibility such as  AKS nodes, document what Azure installs on the nodes. 
-
-Consider using DaemonSets to provide any additional auditing necessary for these cloud-controlled components.
+For components, where you only have visibility such as AKS nodes, document what Azure installs on the nodes. Consider using DaemonSets to provide any additional auditing necessary for these cloud-controlled components.
 
 #### Requirement 2.2.3
 
@@ -361,9 +359,11 @@ Implement additional security features for any required services, protocols, or 
 
 ##### Your responsibilities
 
-App Gatway should only support TLS 1.2 and approved ciphers.
-App Gateway should not respond to port 80 (unless performing a redirect in the gateway. Do not perform redirects at the application level).
-If additional node-level OS hardening deemed required, that work must be performed via sufficently prividledge DaemonSets. Because of the risk involved (security and stability), implementing these will have to be performed by the customer.
+Application Gateway has an integrated web application firewall (WAF) and negotiates the TLS handshake for the request sent to its public endpoint, allowing only secure ciphers. The reference implementation only supports TLS 1.2 and approved ciphers.
+
+Also, Application Gateway musn't respond to requests on port 80. An exception can be made if the action is a redirect within the gateway. Do not perform redirects at the application level.
+
+If there's a need for extra protection to the nodes, add the protection through DaemonSets that have just enough privilege to complete the task. 
 
 #### Requirement 2.2.4
 
@@ -371,42 +371,55 @@ If additional node-level OS hardening deemed required, that work must be perform
 
 ##### Your responsibilities
 
-All Azure Services should ahear to the Azure CIS Benchmark controls, and exceptions documented.
-People should be trained on the security features of each component and be able to demonstrate related settings across the platform services.
+All Azure services used in the architecture must follow the recommendations provided by [Azure security benchmark](/security/benchmark/azure/introduction). These recommendations give you a starting point for selecting specific security configuration settings. Also, compare your configuration against the baseline implementation for that service.
+
+For more information about the security baselines, see [Security baselines for Azure](/security/benchmark/azure/security-baselines-overview).
+
+Make sure all exceptions are documented. 
+
+##### Azure responsibilities
+
+Azure ensures that only authorized personal are able to configure Azure platform security controls, using multi-factor access controls and a documented buiness need.
+
 
 #### Requirement 2.2.5
 
- Configure system security parameters to prevent misuse.
+Remove all unnecessary functionality, such as scripts, drivers, features, subsystems, file systems, and unnecessary web servers.
 
 ##### Your responsibilities
 
-Do not install anything on a JumpBox, Build Agent, or cluster (DaemonSet, Pods, etc) that does not belong to fullfill the needs of the operation of the workload or a tool that provides observability for compliance requirements (security agents). Ensure there is a process to detect the installation of the same.
+Don't install software on jump boxes, build agents, that doesn't participate in the processing of a transaction or provides observability for compliance requirements, such as security agents. This recommendation also applies to the cluster entities such as DaemonSet, pods, and so on. Make sure all installations are detected and logged. 
 
 ### Requirement 2.3&mdash;Encrypt all non-console administrative access using strong cryptography.
 
 #### Your responsibilities
 
-All administrative access to the cluster should be conole-based. Do not expose the cluster's control plane via any management dashboard product, outside of the built-in experience in the Azure Portal.
+All administrative access to the cluster should be done using the console. Do not expose the cluster's control plane in any dashboard product, outside of the built-in experience in the Azure Portal.
+
+##### Azure responsibilities
+
+Azure ensures the use of strong cryptography are enforced when accessing the hypervisor infrastructure.  It ensures that customers using the Microsoft Azure Management Portal are able to access their service/IaaS consoles with strong cryptography.
 
 ### Requirement 2.4&mdash;Maintain an inventory of system components that are in scope for PCI DSS.
 
 #### Your responsibilities
 
-Ensure all Azure Resources are tagged with being in or out of scope, to allow a querying for resources on demand. Audit/maintain that tag. Also maintain a snapshot of that documentation periodically.
+All Azure resources used in the architecture must be tagged properly. The tags should indicate whether the service is in-scope or out-of-scopt. Meticulous tagging will allow you to query for resources, keep an inventory, help in tracking cost, set alerts, and so on. Also maintain a snapshot of that documentation periodically.
+
+For information about tagging considerations, see [Resource naming and tagging decision guide](/azure/cloud-adoption-framework/decision-guides/resource-tagging/).
 
 ### Requirement 2.5&mdash;Ensure that security policies and operational procedures for managing vendor defaults and other security parameters are documented, in use, and known to all affected parties.
 
 #### Your responsibilities
 
-People/Process/Training/Documentation
-
+It's critical that you maintain thorough documentation about the process and policies. Personnel should be trained in security feature of each Azure resource and their configuration settings. People operating regulated enviroments must be educated, informed, and incentivized to support the security assurances. This is particularly important for people with accounts granted broad administrative privileges.
 
 ### Requirement 2.6&mdash;Shared hosting providers must protect each entity’s hosted environment and cardholder data.
 
 #### Your responsibilities
 
 https://docs.microsoft.com/compliance/regulatory/offering-PCI-DSS
-
+<Ask Chad: what does that link have to do with shared hosting. Is this about multitenant?>
 
 ## Next
 
