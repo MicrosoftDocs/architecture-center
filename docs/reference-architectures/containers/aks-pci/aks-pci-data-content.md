@@ -8,8 +8,57 @@ This article describes the considerations for an Azure Kubernetes Service (AKS) 
 
 **Requirement 3**&mdash;Protect stored cardholder data
 
-**Requirement 4**&mdash;Encrypt transmission of cardholder data across open, public networks
 ***
+[**Requirement 4**](#requirement-2do-not-use-vendor-supplied-defaults-for-system-passwords-and-other-security-parameters)&mdash;Encrypt transmission of cardholder data across open, public networks.
+
+|Requirement|Responsibility|
+|---|---|
+|[Requirement 4.1](#requirement-21always-change-vendor-supplied-defaults-and-remove-or-disable-unnecessary-default-accounts-before-installing-a-system-on-the-network)|Use strong cryptography and security protocols (for example, TLS, IPSEC, SSH, etc.) to safeguard sensitive cardholder data during transmission over open, public networks, including the following:|
+|[Requirement 4.2](#requirement-22develop-configuration-standards-for-all-system-components)|Never send unprotected PANs by end-user messaging technologies (for example, e-mail, instant messaging, SMS, chat, etc.).|
+|[Requirement 4.3](#requirement-23encrypt-all-non-console-administrative-access-using-strong-cryptography)|4.3 Ensure that security policies and operational procedures for encrypting transmissions of cardholder data are documented, in use, and known to all affected parties.|
+
+
+### Requirement 4.1&mdash;Use strong cryptography and security protocols (for example, TLS, IPSEC, SSH, etc.) to safeguard sensitive cardholder data during transmission over open, public networks, including the following:
+
+
+##### Your responsibilities
+      
+"Customers are responsible for encryption of data traffic while in transit over public internet.
+
+Ensure traffic from client applications are encrypted with TLS 1.2 (or better), with reduced CIPHER support for ALL transmissions. Do NOT support non-TLS to TLS (e.g. 80 to 443)  convenance redirects on any data transmission services.
+
+Carry TLS into your cluster. This means that TLS should be maintained between network hops that may include Firewall, WAF, and your cluster. Each point may be terminating to allow packet inspection and routing, but do not do final termination until your cluster's ingress resource. Consider taking it further and provide TLS connections between in-cluster resources as well.
+
+Deny the creation of any non https ingress resource via azure policy. Also deny the creation of any public IP or any public load balacners in your cluster, to ensure web traffic is being tunneled through your gateway.
+
+See also: https://docs.microsoft.com/azure/security/fundamentals/encryption-overview
+
+Refer to master matrix for general guidelines."
+
+<Ask Chad: to give input around can the approval process be automated, who should be responsible and how is that incorporated in the pipeline.>
+
+#### Requirement 4.1.1
+
+Ensure wireless networks transmitting cardholder data or connected to the cardholder data environment, use industry best practices (for example, IEEE 802.11i) to implement strong encryption for authentication and transmission.
+
+##### Your responsibilities
+      
+<Ask Chad>
+
+#### Requirement 4.2&mdash;Never send unprotected PANs by end-user messaging technologies (for example, e-mail, instant messaging, SMS, chat, etc.).
+
+##### Your responsibilities
+      
+<Ask Chad>
+
+
+#### Requirement 4.3&mdash;4.3 Ensure that security policies and operational procedures for encrypting transmissions of cardholder data are documented, in use, and known to all affected parties.
+
+##### Your responsibilities
+      
+<Ask Chad>
+
+
 
 ## Next
 
