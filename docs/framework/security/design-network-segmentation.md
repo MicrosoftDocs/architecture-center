@@ -104,7 +104,7 @@ With Azure Firewall Manager preview, you can centrally manage policies across mu
 > [!TIP]
 > Here are some resources that illustrate provisioning of  resources in a hub and spoke topology:
 >
-> ![GitHub logo](../../_images/github.svg) [GitHub: Hub and Spoke Topology Sandbox](https://github.com/Azure/azure-quickstart-templates/tree/master/101-hub-and-spoke-sandbox).
+> ![GitHub logo](../../_images/github.svg) [GitHub: Hub and Spoke Topology Sandbox](https://azure.microsoft.com/resources/templates/101-hub-and-spoke-sandbox/).
 >
 > The design considerations are described in [Hub-spoke network topology in Azure](../../reference-architectures/hybrid-networking/hub-spoke.yml).
 

@@ -32,7 +32,7 @@ Any development effort must go through continuous performance testing. The tests
 [**Continuously monitor the application and the supporting infrastructure**](monitor.md)
 
 - **Have a data-driven approach**&mdash;Base your decisions on the data captured from repeatable processes. Archive data to monitor performance changes  _over time_, not just compared to the last measurement taken. 
-- **Monitor the health of current workloads**&mdash;In monitoring strategy, consider scalability _and_ but resiliency of the infrastructure, application, and dependent services. For scalability, look at the metrics would allow you to provision resources dynamically and scale with demand. For reliability, look for early warning signs that might require proactive intervention. 
+- **Monitor the health of current workloads**&mdash;In monitoring strategy, consider scalability _and_ resiliency of the infrastructure, application, and dependent services. For scalability, look at the metrics would allow you to provision resources dynamically and scale with demand. For reliability, look for early warning signs that might require proactive intervention. 
 - **Troubleshoot performance issues**&mdash;Issues in performance can arise from database queries, connectivity between services, under-provision resources, or memory leaks in code. Application telemetry and profiling can be useful tools for troubleshooting your application.
 
 [**Identify improvement opportunities with resolution planning**](optimize.md)

@@ -18,7 +18,7 @@ The architecture consists of the following components.
 
 **Ingress**. An ingress server exposes HTTP(S) routes to services inside the cluster. For more information, see the section [API Gateway](#api-gateway) below.
 
-**Azure Load Balancer**. An Azure Load Balancer is created when the NGINX ingress controller is deployed. The load balancer routes internet traffic to the ingress.
+**Azure Load Balancer**. After creating an AKS cluster, the cluster is ready to use the load balancer. Then, once the NGINX service is deployed, the load balancer will be configured with a new public IP that will front your ingress controller. This way, the load balancer routes internet traffic to the ingress.
 
 **External data stores**. Microservices are typically stateless and write state to external data stores, such as Azure SQL Database or Cosmos DB.
 
