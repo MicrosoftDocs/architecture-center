@@ -1,5 +1,4 @@
-
-
+[!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
 The Demand Forecasting for Shipping and Distribution Solution uses historical demand data to forecast demand in future periods across various customers, products, and destinations. For instance, a shipping or delivery company wants to predict the quantities of the different products its customers want delivered at different locations at future times. A company can use these forecasts as input to an allocation tool that optimizes operations, such as delivery vehicles routing, or to plan capacity in the longer term.
 
@@ -54,7 +53,7 @@ The Solution automates the running of periodic forecasts, at a pace configured i
 
 See the [Technical Solution Guide](https://github.com/Azure/cortana-intelligence-shipping-and-distribution-forecasting/blob/master/Technical%20Deployment%20Guide/Technical-Solution-Guide.md) for a full set of instructions on how to use this Solution as an example of what is possible with the Cortana Intelligence Suite. For technical problems or questions about deploying this Solution, please post in the issues tab of the repository.
 
-## Pricing Info
+## Pricing
 
 Your Azure subscription used for the deployment will incur consumption charges on the services used in this solution, approximately $4.66/day. For more information, please visit the [Pricing Calculator](https://azure.microsoft.com/pricing/calculator).
 
