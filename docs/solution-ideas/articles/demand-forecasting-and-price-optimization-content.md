@@ -7,7 +7,7 @@ Pricing is recognized as a pivotal determinant of success in many industries and
 
 This solution addresses the challenges raised above by utilizing historical transaction data to train a demand forecasting model. Pricing of products in a competing group is also incorporated to predict cross-product impacts such as cannibalization. A price optimization algorithm then employs the model to forecast demand at various candidate price points and takes into account business constraints to maximize profit. The solution can be customized to analyze various pricing scenarios as long as the general data science approach remains similar.
 
-The process described above is operationalized and deployed in the Cortana Intelligence Suite. This solution will enable companies to ingest historical transaction data, predict future demand, and obtain optimal pricing recommendations on a regular basis. As a result, the solution drives opportunities for improved profitability and reductions in time and effort allocated to pricing tasks.
+The process described above is operationalized and deployed in the Cortana Intelligence Suite. This solution will enable companies to ingest historical transaction data, predict future demand, and obtain optimal pricing recommendations regularly. As a result, the solution drives opportunities for improved profitability and reductions in time and effort allocated to pricing tasks.
 
 ## Architecture
 
@@ -16,15 +16,13 @@ The process described above is operationalized and deployed in the Cortana Intel
 
 ## Description
 
-Save time and let one of these trained SI partners help you with a proof of concept, deployment & integration of this solution.
+The Azure AI platform provides advanced analytics tools such as data ingestion, data storage, data processing, and advanced analytics components - all of the essential elements for building a demand forecasting and price optimization solution.
 
-The Cortana Intelligence Suite provides advanced analytics tools through Microsoft Azure - data ingestion, data storage, data processing, and advanced analytics components - all of the essential elements for building a demand forecasting and price optimization solution.
+This solution combines several Azure services to create a demand forecasting solution. Azure Blob Storage stores the weekly raw sales data. Apache Spark for Azure HDInsight ingests the data and executes data preprocessing, forecasting modeling, and price optimization algorithms. Finally, Data Factory orchestrates and schedules the entire data flow.
 
-This solution combines several Azure services to create powerful advantages. Azure Blob Storage stores the weekly raw sales data. Apache Spark for Azure HDInsight ingests the data and executes data preprocessing, forecasting modeling and price optimization algorithms. Finally, Data Factory orchestrates and schedules the entire data flow.
+The solution includes uses a web job that simulates data so that immediately after deployment you can see data flowing through the end-to-end pipeline.
 
-The 'Deploy' button will launch a workflow that will deploy an instance of the solution within a Resource Group in the Azure subscription you specify. The solution includes multiple Azure services (described below) along with a web job that simulates data so that immediately after deployment you can see data flowing through the end-to-end pipeline.
-
-For post deployment instructions and more details on the technical implementation, please see the [instructions here](https://github.com/Azure/cortana-intelligence-price-optimization/blob/master/Automated%20Deployment%20Guide/Post%20Deployment%20Instructions.md).
+For post deployment instructions and more details on the technical implementation, see the [instructions here](https://github.com/Azure/cortana-intelligence-price-optimization/blob/master/Automated%20Deployment%20Guide/Post%20Deployment%20Instructions.md).
 
 ## Technical details and workflow
 
@@ -32,15 +30,15 @@ For post deployment instructions and more details on the technical implementatio
   2. This synthetic data is stored at Azure Blob Storage, that will be used in the rest of the solution flow.
   3. Spark on HDInsight is used to ingest and preprocess the raw data, build and retrain the demand forecasting models, and execute price optimization algorithms.
   4. Azure Data Factory orchestrates and schedules the entire data flow.
-  5. Finally, Power BI is used for results visualization, so that users can monitor the results of the sales, predicted future demand as well as recommended optimal prices for a variety of products sold in different stores.
+  5. Finally, Power BI is used for results visualization, so that users can monitor the results of the sales, predicted future demand and recommended optimal prices for various products sold in different stores.
 
 ## Components
 
-* [Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs/)
-* [Azure Data Factory](https://azure.microsoft.com/services/data-factory/)
-* [Azure Web App](https://azure.microsoft.com/services/app-service/web/)
-* [Power BI](https://powerbi.microsoft.com/)
-* Spark on [Azure HDInsight](https://azure.microsoft.com/services/hdinsight/)
+* [Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs/) stores the weekly raw sales data, which is read by Spark on HDInsight.
+* Spark on [Azure HDInsight](https://azure.microsoft.com/services/hdinsight) ingests the data and executes data preprocessing, forecasting modeling, and price-optimization algorithms.
+* [Azure Data Factory](https://azure.microsoft.com/services/data-factory) handles orchestration and scheduling of the model retraining.
+* [Power BI](https://powerbi.microsoft.com) visualizes sales results, the predicted future demand, and the recommended optimal prices for a variety of products sold in different stores.
+* [Azure Web App](https://azure.microsoft.com/services/app-service/web/) is used to run a [web job](/azure/app-service/webjobs-create) to generate simulation data.
 
 ## Next steps
 
