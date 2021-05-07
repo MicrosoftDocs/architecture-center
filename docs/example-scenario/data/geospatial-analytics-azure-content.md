@@ -90,7 +90,7 @@ Throughout the process:
 
 ## Alternatives
 
-- Instead of developing your own APIs, consider using [Martin][Urbica Martin]. This open-source tile server makes vector tiles available to web apps. Written in RUST, Martin connects to PostgreSQL tables. You can deploy it as a container.
+- Instead of developing your own APIs, consider using [Martin][Urbica Martin]. This open-source tile server makes vector tiles available to web apps. Written in [Rust][Rust], Martin connects to PostgreSQL tables. You can deploy it as a container.
 
 - If your goal is to provide a standardized interface for GIS data, consider using [GeoServer][GeoServer]. This open framework implements industry-standard [Open Geospatial Consortium (OGC)][Open Geospatial Consortium] protocols such as [Web Feature Service (WFS)][Web Feature Service]. It also integrates with common spatial data sources. You can deploy GeoServer as a container on a virtual machine. When custom web applications and exploratory queries are secondary, GeoServer provides a straightforward way to publish geospatial data.
 
@@ -139,7 +139,7 @@ The design environment used this configuration:
 - A memory-optimized instance of Azure Database for PostgreSQL.
 - An App Service plan with two Standard S2 instances.
 
-Consider these points to determine which adjustments to make for your implementation:
+Consider these factors to determine which adjustments to make for your implementation:
 
 - Your data ingestion rate.
 - Your volume of data.
@@ -166,16 +166,13 @@ The [autoscale feature of Monitor][Overview of autoscale in Microsoft Azure] als
 
 ### Security considerations
 
-- Protect data that vector tiles contain. Vector tiles embed coordinates and attributes for multiple entities in one file. When the following conditions apply, use a dedicated set of vector tiles for each permission level in your access control system:
-
-  - You generate vector tiles.
-  - You secure each user's data.
+- Protect vector tile data. Vector tiles embed coordinates and attributes for multiple entities in one file. If you generate vector tiles, use a dedicated set of tiles for each permission level in your access control system. Then only users within each permission level have access to that level's data file.
 
 - To improve security, use Key Vault with as many components as possible:
 
-  - [Store secrets and application settings that your App Service web app uses in Key Vault][Use Key Vault references for App Service and Azure Functions].
-  - [Store credentials that Data Factory uses during pipeline execution in Key Vault][Use Azure Key Vault secrets in pipeline activities].
   - [Use Key Vault to manage keys that Event Hubs uses to encrypt data][Configure customer-managed keys for encrypting Azure Event Hubs data at rest by using the Azure portal].
+  - [Store credentials that Data Factory uses during pipeline execution in Key Vault][Use Azure Key Vault secrets in pipeline activities].
+  - [Store secrets and application settings that your App Service web app uses in Key Vault][Use Key Vault references for App Service and Azure Functions].
 
 - See [Security in Azure App Service][Security in Azure App Service] for information on how App Service helps secure web apps. Consider these points, too:
 
@@ -247,6 +244,7 @@ The pricing for a deployment with a sizing mentioned in the considerations secti
 [PostgreSQL]: https://www.postgresql.org/
 [Quickstart: create a Hyperscale (Citus) server group in the Azure portal]: /azure/postgresql/quickstart-create-hyperscale-portal
 [Redis]: https://redis.io/
+[Rust]: https://www.rust-lang.org/
 [Scaling with Event Hubs partitions]: /azure/event-hubs/event-hubs-scalability#partitions
 [Security in Azure App Service]: /azure/app-service/overview-security
 [Throughput units]: /azure/event-hubs/event-hubs-scalability#throughput-units
