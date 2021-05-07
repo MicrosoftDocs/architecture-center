@@ -18,17 +18,17 @@ This document discusses the trade-offs for various options available for
 extending compute on the edge. The following considerations for each Kubernetes
 option are covered:
 
-- **Operational cost**—The anticipated labor required to maintain and operate
+- **Operational cost.** The anticipated labor required to maintain and operate
     the Kubernetes clusters.
 
-- **Ease of configuration**—The level of difficulty to configure and deploy a
+- **Ease of configuration.** The level of difficulty to configure and deploy a
     Kubernetes cluster.
 
-- **Flexibility**—A measure of how adaptable the Kubernetes option is to
+- **Flexibility.** A measure of how adaptable the Kubernetes option is to
     integrate a customized configuration with existing infrastructure at the
     edge.
 
-- **Mixed node**—Ability to run a Kubernetes cluster with both Linux and
+- **Mixed node.** Ability to run a Kubernetes cluster with both Linux and
     Windows nodes.
 
 **Assumptions**
@@ -59,7 +59,7 @@ rating in these categories.
 
 ## Bare-metal Kubernetes
 
-Ground-up configuration of Kubernetes using tools like kubeadm on any underlying
+Ground-up configuration of Kubernetes using tools like [kubeadm](https://kubernetes.io/docs/reference/setup-tools/kubeadm/) on any underlying
 infrastructure.
 
 The biggest constraints for bare-metal Kubernetes are around the specific needs
@@ -67,7 +67,7 @@ and requirements of the organization. The opportunity to use any distribution,
 networking interface, and plugin means higher complexity and operational cost.
 But this offers the most flexible option for customizing your cluster.
 
-**Scenario**
+### Scenario
 
 Oftentimes, *edge* locations have very specific requirements for running
 Kubernetes clusters that are not met with the other Azure solutions described in
@@ -75,17 +75,17 @@ this document. Meaning this option is typically best for those unable to
 leverage managed services due to unsupported existing infrastructure, or those
 who seek to have maximum control of their clusters.
 
-1. This option can be especially difficult for those who are new to Kubernetes.
+- This option can be especially difficult for those who are new to Kubernetes.
     This is not uncommon for organizations looking to run edge clusters. Options
-    like [MicroK8s](https://microk8s.io/docs) or k3s aim to flatten that
+    like [MicroK8s](https://microk8s.io/docs) or [k3s](https://k3s.io/) aim to flatten that
     learning curve.
 
-2. It's important to understand any underlying infrastructure and any
+- It's important to understand any underlying infrastructure and any
     integration that is expected to take place up front. This will help to
     narrow down viable options and to identify any gaps with the opensource
     tooling and/or plugins.
 
-3. Enabling clusters with [Azure
+- Enabling clusters with [Azure
     Arc](/azure/azure-arc/) presents a simple
     way to manage your cluster from Azure alongside other resources. This also
     brings additional Azure capabilities to your cluster, including [Azure
@@ -94,13 +94,13 @@ who seek to have maximum control of their clusters.
     Defender](/azure/security-center/azure-defender),
     and other services.
 
-4. Because cluster configuration is not trivial, it’s especially important to
+- Because cluster configuration is not trivial, it’s especially important to
     be mindful of CI/CD. Tracking and acting on upstream changes of various
     plugins, and making sure those changes don’t affect the health of your
     cluster, becomes a direct responsibility. It’s important for you to have a
     strong CI/CD solution, strong testing, and monitoring in place.
 
-**Tooling options**
+### Tooling options
 
 Cluster bootstrap:
 
@@ -111,7 +111,7 @@ Cluster bootstrap:
 - [MicroK8s](https://microk8s.io/docs): Simplified administration and
     configuration (“*LowOps*”), conformant Kubernetes by Canonical.
 
-- k3s: Certified Kubernetes distribution built for Internet of Things (IoT)
+- [k3s](https://k3s.io/): Certified Kubernetes distribution built for Internet of Things (IoT)
     and edge computing.
 
 Storage:
@@ -129,7 +129,7 @@ Networking:
     overlay network, and [Calico](https://docs.projectcalico.org/), which
     provides a full networking stack.
 
-**Considerations**
+### Considerations
 
 Operational cost:
 
@@ -164,37 +164,37 @@ once the compute role is enabled on any of the Pro-GPU, Pro-R, and Mini-R
 devices. Managing upgrades of the Kubernetes cluster can be done using standard
 updates available for the device.
 
-**Scenario**
+### Scenario
 
 Ideal for those with existing (Linux) IoT workloads or upgrading their compute
 for ML at the edge. This is a good option when it is not necessary to have more
 granular control over the clusters.
 
-1. Admin permissions are not granted by default. Although you can work with the
+- Admin permissions are not granted by default. Although you can work with the
     product group to make certain exceptions, this makes it difficult to have
     finer control of your cluster.
 
-2. There is an
+- There is an
     additional [cost](https://azure.microsoft.com/pricing/details/azure-stack/edge/)
     if there isn't already an Azure Stack Edge device. Explore [Azure Stack Edge
-    devices](https://azure.microsoft.com/en-us/products/azure-stack/edge/#devices) and
+    devices](https://azure.microsoft.com/products/azure-stack/edge/#devices) and
     see if any fit your compute requirements.
 
-3. [Calico](https://docs.projectcalico.org/), [MetalLB](https://metallb.org/),
+- [Calico](https://docs.projectcalico.org/), [MetalLB](https://metallb.org/),
     and [CoreDNS](https://coredns.io/) are installed for Kubernetes networking
     on the device.
 
-4. Only **Linux** workloads are supported at this time.
+- Only **Linux** workloads are supported at this time.
 
-5. In addition to Kubernetes, Azure Stack Edge also comes with the IoT runtime,
+- In addition to Kubernetes, Azure Stack Edge also comes with the IoT runtime,
     which means that workloads may also be deployed to your Azure Stack Edge
     clusters via IoT Edge.
 
-6. Support for two node clusters is planned, but not currently available. This
+- Support for two node clusters is not currently available. This
     effectively means that this option is *not* a highly available (HA)
     solution.
 
-**Considerations**
+### Considerations
 
 Operational cost:
 
@@ -222,7 +222,7 @@ deploy one or more Kubernetes clusters (with Windows Admin Center or PowerShell
 modules) on a multi-node cluster running either Windows Server 2019 Datacenter
 or Azure Stack HCI 20H2.
 
-**Scenario**
+### Scenario
 
 Ideal for those who want a simplified and streamlined way to get a
 Microsoft-supported cluster on compatible devices (Azure Stack HCI or Windows
@@ -230,7 +230,7 @@ Server 2019 Datacenter). Operations and configuration complexity are
 significantly reduced at the expense of the flexibility when compared to the
 bare-metal Kubernetes option.
 
-**Considerations**
+### Considerations
 
 At the time of this writing, the preview comes with many limitations
 (permissions, networking limitations, large compute requirements, and
