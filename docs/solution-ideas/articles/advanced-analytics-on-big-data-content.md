@@ -14,9 +14,8 @@ Transform your data into actionable insights using the best-in-class machine lea
 
 1. Bring together all your structured, unstructured and semi-structured data (logs, files, and media) using Synapse Pipelines to Azure Data Lake Storage.
 1. Use Apache Spark pools to clean and transform the structureless datasets and combine them with structured data from operational databases or data warehouses.
-1. Use scalable machine learning/deep learning techniques, to derive deeper insights from this data using Python, R or Scala, with notebook experiences in Apache Spark pool.
+1. Use scalable machine learning/deep learning techniques, to derive deeper insights from this data using Python or Scala, with notebook experiences in Apache Spark pool.
 1. Leverage  Apache Spark pool and Synapse Pipelines in Azure Synapse Analytics to access and move data at scale.
-1. Power users take advantage of the capabilities of Apache Spark pools to perform root cause determination and raw data analysis.
 1. Query and report on data in [Power BI](/azure/analysis-services/analysis-services-connect-pbi).
 1. Take the insights from Apache Spark pools to Cosmos DB to make them accessible through web and mobile apps.
 

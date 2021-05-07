@@ -18,7 +18,6 @@ Get insights from live streaming data with ease. Capture data continuously from 
 1. Use scalable machine learning/deep learning techniques, to derive deeper insights from this data, using Python or Scala, with notebook experiences in Apache Spark pools.
 1. Leverage Apache Spark pool and Synapse Pipelines in Azure Synapse Analytics to access and move data at scale.
 1. Build analytics dashboards and embedded reports in dedicated SQL pool to share insights within your organization and use Azure Analysis Services to serve this data to thousands of users.
-1. Power users take advantage of the capabilities of Apache Spark pools and Azure Event Hubs to perform root cause determination and raw data analysis.
 1. Take the insights from Apache Spark pools to Cosmos DB to make them accessible through real time apps.
 
 ## Components
