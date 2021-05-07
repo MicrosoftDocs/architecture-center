@@ -8,7 +8,7 @@ An enterprise data warehouse lets you bring together all your data at any scale 
 ## Architecture
 
 ![Architecture diagram](../media/enterprise-data-warehouse.png)
-*Download an [SVG](../media/modern-data-warehouse.svg) of this architecture.*
+*Download an [SVG](../media/enterprise-data-warehouse.svg) of this architecture.*
 
 ## Data Flow
 

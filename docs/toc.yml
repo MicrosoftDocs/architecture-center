@@ -933,6 +933,8 @@ items:
                 href: reference-architectures/containers/aks/secure-baseline-aks.yml
               - name: Microservices architecture on AKS
                 href: reference-architectures/containers/aks-microservices/aks-microservices.yml
+              - name: Advanced microservices architecture on AKS
+                href: reference-architectures/containers/aks-microservices/aks-microservices-advanced.yml
               - name: CI/CD pipeline for container-based workloads
                 href: example-scenario/apps/devops-with-aks.yml
           - name: Example workloads hosted in AKS clusters
@@ -1096,7 +1098,7 @@ items:
               - name: Digital marketing using Azure MySQL
                 href: solution-ideas/articles/digital-marketing-using-azure-database-for-mysql.yml
               - name: Enterprise data warehouse
-                href: solution-ideas/articles/enterprise-data-warehouse.md
+                href: solution-ideas/articles/enterprise-data-warehouse.yml
               - name: Finance management using Azure MySQL
                 href: solution-ideas/articles/finance-management-apps-using-azure-database-for-mysql.yml
               - name: Finance management using Azure PostgreSQL
