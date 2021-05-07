@@ -33,31 +33,6 @@ The hub and spoke topology in the baseline is a natural choice for a PCI DSS inf
 |[Requirement 2.5](#requirement-25ensure-that-security-policies-and-operational-procedures-for-managing-vendor-defaults-and-other-security-parameters-are-documented-in-use-and-known-to-all-affected-parties)|Ensure that security policies and operational procedures for managing vendor defaults and other security parameters are documented, in use, and known to all affected parties.|
 |[Requirement 2.6](#requirement-26shared-hosting-providers-must-protect-each-entitys-hosted-environment-and-cardholder-data)|Shared hosting providers must protect each entity’s hosted environment and cardholder data.|
 
-# [Requirement 1](#tab/tab-id-1)
-
-
-
-|Requirement|Responsibility|
-|---|---|
-|[Requirement 1.1](#requirement-11establish-and-implement-firewall-and-router-configuration-standards-that-include-the-following)|Establish and implement firewall and router configuration standards.|
-|[Requirement 1.2](#requirement-12build-firewall-and-router-configurations-that-restrict-connections-between-untrusted-networks-and-any-system-components-in-the-cardholder-data-environment)|Build firewall and router configurations that restrict connections between untrusted networks and any system components in the cardholder data environment.|
-|[Requirement 1.3](#requirement-13prohibit-direct-public-access-between-the-internet-and-any-system-component-in-the-cardholder-data-environment)|Prohibit direct public access between the Internet and any system component in the cardholder data environment.|
-|[Requirement 1.4](#requirement-14install-personal-firewall-software-or-equivalent-functionality-on-any-portable-computing-devices-that-connect-to-the-internet-when-outside-the-network--and-which-are-also-used-to-access-the-cde)|Install personal firewall software or equivalent functionality on any portable computing devices (including company and/or employee-owned) that connect to the Internet when outside the network (for example, laptops used by employees), and which are also used to access the CDE. |
-|[Requirement 1.5](#requirement-15ensure-that-security-policies-and-operational-procedures-for-managing-firewalls-are-documented-in-use-and-known-to-all-affected-parties)|Ensure that security policies and operational procedures for managing firewalls are documented, in use, and known to all affected parties.|
-# [Requirement 2](#tab/tab-id-2)
-
-Do not use vendor-supplied defaults for system passwords and other security parameters.
-
-|Requirement|Responsibility|
-|---|---|
-|[Requirement 2.1](#requirement-21always-change-vendor-supplied-defaults-and-remove-or-disable-unnecessary-default-accounts-before-installing-a-system-on-the-network)|Always change vendor-supplied defaults and remove or disable unnecessary default accounts before installing a system on the network.|
-|[Requirement 2.2](#requirement-22develop-configuration-standards-for-all-system-components)|Develop configuration standards for all system components. Assure that these standards address all known security vulnerabilities and are consistent with industry-accepted system hardening standards.|
-|[Requirement 2.3](#requirement-23encrypt-all-non-console-administrative-access-using-strong-cryptography)|Encrypt all non-console administrative access using strong cryptography.|
-|[Requirement 2.4](#requirement-24maintain-an-inventory-of-system-components-that-are-in-scope-for-pci-dss)|Maintain an inventory of system components that are in scope for PCI DSS.|
-|[Requirement 2.5](#requirement-25ensure-that-security-policies-and-operational-procedures-for-managing-vendor-defaults-and-other-security-parameters-are-documented-in-use-and-known-to-all-affected-parties)|Ensure that security policies and operational procedures for managing vendor defaults and other security parameters are documented, in use, and known to all affected parties.|
-|[Requirement 2.6](#requirement-26shared-hosting-providers-must-protect-each-entitys-hosted-environment-and-cardholder-data)|Shared hosting providers must protect each entity’s hosted environment and cardholder data.|
-
-***
 
 ### Requirement 1.1&mdash;Establish and implement firewall and router configuration standards that include the following:
 
