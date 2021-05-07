@@ -18,7 +18,7 @@ This document discusses the trade-offs for various options available for
 extending compute on the edge. The following considerations for each Kubernetes
 option are covered:
 
-- **Operational cost.** The anticipated labor required to maintain and operate
+- **Operational cost.** The expected labor required to maintain and operate
     the Kubernetes clusters.
 
 - **Ease of configuration.** The level of difficulty to configure and deploy a
@@ -36,7 +36,7 @@ option are covered:
 - You are a cluster operator looking to understand different options for
     running Kubernetes at the edge and managing clusters in Azure.
 
-- You have a good understanding of existing infrastructure and any additional
+- You have a good understanding of existing infrastructure and any other
     infrastructure requirements, including storage and networking requirements.
 
 After reading this document, you'll be in a better position to identify which
@@ -46,14 +46,14 @@ option best fits your scenario and the environment required.
 
 |                                 | **Operational cost** | **Ease of configuration** | **Flexibility** | **Mixed node** | **Summary**                                                                                                                               |
 |---------------------------------|----------------------|---------------------------|-----------------|----------------|-------------------------------------------------------------------------------------------------------------------------------------------|
-| **Bare-metal Kubernetes**       | High\*\*             | Difficult\*\*             | High\*\*        | Yes            | A ground-up configuration on any available infrastructure at location with the option to leverage Azure Arc for added Azure capabilities. |
+| **Bare-metal Kubernetes**       | High\*\*             | Difficult\*\*             | High\*\*        | Yes            | A ground-up configuration on any available infrastructure at location with the option to use Azure Arc for added Azure capabilities. |
 | **K8s on Azure Stack Edge Pro** | Low                  | Easy                      | Low             | Linux only     | Kubernetes deployed on Azure Stack Edge appliance deployed at location.                                                                   |
 | **AKS on HCI**                  | Low                  | Easy                      | Medium          | Yes            | AKS deployed on Azure Stack HCI or Windows Server 2019.                                                                                   |
 
 \*Other managed edge platforms (OpenShift, Tanzu, and so on) are not in scope
 for this document.
 
-\*\*These values are based on leveraging *kubeadm*, for the sake of simplicity.
+\*\*These values are based on using *kubeadm*, for the sake of simplicity.
 Different options for running bare-metal Kubernetes at the edge would alter the
 rating in these categories.
 
@@ -69,10 +69,10 @@ But this offers the most flexible option for customizing your cluster.
 
 ### Scenario
 
-Oftentimes, *edge* locations have very specific requirements for running
+Often, *edge* locations have specific requirements for running
 Kubernetes clusters that are not met with the other Azure solutions described in
 this document. Meaning this option is typically best for those unable to
-leverage managed services due to unsupported existing infrastructure, or those
+use managed services due to unsupported existing infrastructure, or those
 who seek to have maximum control of their clusters.
 
 - This option can be especially difficult for those who are new to Kubernetes.
@@ -82,13 +82,13 @@ who seek to have maximum control of their clusters.
 
 - It's important to understand any underlying infrastructure and any
     integration that is expected to take place up front. This will help to
-    narrow down viable options and to identify any gaps with the opensource
+    narrow down viable options and to identify any gaps with the open source
     tooling and/or plugins.
 
 - Enabling clusters with [Azure
     Arc](/azure/azure-arc/) presents a simple
     way to manage your cluster from Azure alongside other resources. This also
-    brings additional Azure capabilities to your cluster, including [Azure
+    brings other Azure capabilities to your cluster, including [Azure
     Policy](/azure/governance/policy/), [Azure
     Monitor](/azure/azure-monitor/), [Azure
     Defender](/azure/security-center/azure-defender),
@@ -140,15 +140,15 @@ Operational cost:
 
 Ease of configuration:
 
-- Evaluating the many opensource options at every stage of configuration
+- Evaluating the many open source options at every stage of configuration
     whether its networking, storage, or monitoring options is inevitable and can
-    become quite complex. Requires additional consideration for configuring a
+    become complex. Requires more consideration for configuring a
     CI/CD for cluster configuration. Because of these concerns, the ease of
     configuration is considered difficult.
 
 Flexibility:
 
-- With the ability to leverage any opensource tool or plugin without any
+- With the ability to use any open source tool or plugin without any
     provider restrictions, bare-metal Kubernetes is highly flexible.
 
 ## Kubernetes on Azure Stack Edge
@@ -175,7 +175,7 @@ granular control over the clusters.
     finer control of your cluster.
 
 - There is an
-    additional [cost](https://azure.microsoft.com/pricing/details/azure-stack/edge/)
+    extra [cost](https://azure.microsoft.com/pricing/details/azure-stack/edge/)
     if there isn't already an Azure Stack Edge device. Explore [Azure Stack Edge
     devices](https://azure.microsoft.com/products/azure-stack/edge/#devices) and
     see if any fit your compute requirements.
@@ -227,15 +227,14 @@ or Azure Stack HCI 20H2.
 Ideal for those who want a simplified and streamlined way to get a
 Microsoft-supported cluster on compatible devices (Azure Stack HCI or Windows
 Server 2019 Datacenter). Operations and configuration complexity are
-significantly reduced at the expense of the flexibility when compared to the
+reduced at the expense of the flexibility when compared to the
 bare-metal Kubernetes option.
 
 ### Considerations
 
 At the time of this writing, the preview comes with many limitations
 (permissions, networking limitations, large compute requirements, and
-documentation gaps). Purposes other than evaluation and development are strongly
-discouraged that this time.
+documentation gaps). Purposes other than evaluation and development are discouraged that this time.
 
 Operational cost:
 
