@@ -24,7 +24,7 @@ The solution involves the following steps:
 * [Azure Pipelines](https://azure.microsoft.com/services/devops/pipelines/) builds and tests code projects, and initiates the HPC jobs on the Azure Batch service. 
 * [Azure Storage](https://azure.microsoft.com/services/storage/) houses HPC data and executable files used in a job.
 * [Azure Batch](https://azure.microsoft.com/services/batch) schedules the jobs and tasks across a massive number of nodes, and manages all of the compute resources.
-* [Azure Virtual Machines](https://azure.microsoft.com/en-us/services/virtual-machines/) run as workers, performing the compute tasks.
+* [Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines/) run as workers, performing the compute tasks.
 * [Virtual Network](https://azure.microsoft.com/services/virtual-network) provides IP connectivity between the compute resources and the other cloud services, above and beyond any native Infiniband or RDMA communication.
 * [Azure Monitor](https://azure.microsoft.com/services/monitor) collects performance metrics and logs from the cloud resources for reports, alerting, and automated response.
 
