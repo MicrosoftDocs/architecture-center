@@ -12,6 +12,12 @@ This article describes the considerations for an Azure Kubernetes Service (AKS) 
 The hub and spoke topology in the baseline is a natural choice for a PCI DSS infrastructure. Network controls are placed in both hub and spoke networks and follow the Microsoft zero-trust model. The controls can be tuned with least-privilege to secure traffic giving access on a need-to-know basis. In addition, several defense-in-depth approaches can be applied by adding controls at each network hop. 
 
 # [Requirement 1](#tab/tab-id-1)
+Some text
+
+# [Requirement 2](#tab/tab-id-2)
+some text 2
+
+# [Requirement 1](#tab/tab-id-1)
 
 [**Requirement 1**](#requirement-11establish-and-implement-firewall-and-router-configuration-standards-that-include-the-following)&mdash;Install and maintain a firewall configuration to protect cardholder data.
 
