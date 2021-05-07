@@ -13,12 +13,14 @@ The hub and spoke topology in the baseline is a natural choice for a PCI DSS inf
 
 # [Requirement 1](#tab/tab-id-1)
 [**Requirement 1**](#requirement-11establish-and-implement-firewall-and-router-configuration-standards-that-include-the-following)&mdash;Install and maintain a firewall configuration to protect cardholder data.
+
 |Requirement|Responsibility|
 |---|---|
 |[Requirement 1.1](#requirement-11establish-and-implement-firewall-and-router-configuration-standards-that-include-the-following)|Establish and implement firewall and router configuration standards.|
 
 # [Requirement 2](#tab/tab-id-2)
 [**Requirement 2**](#requirement-2do-not-use-vendor-supplied-defaults-for-system-passwords-and-other-security-parameters)&mdash;Do not use vendor-supplied defaults for system passwords and other security parameters.
+
 |Requirement|Responsibility|
 |---|---|
 |[Requirement 2.1](#requirement-21always-change-vendor-supplied-defaults-and-remove-or-disable-unnecessary-default-accounts-before-installing-a-system-on-the-network)|Always change vendor-supplied defaults and remove or disable unnecessary default accounts before installing a system on the network.|
