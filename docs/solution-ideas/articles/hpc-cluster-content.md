@@ -43,3 +43,10 @@ Azure Batch is a free service, and customers pay only for the underlying virtual
 
 * Learn more about [Azure Batch](https://docs.microsoft.com/azure/batch/batch-technical-overview)
 * [Complete a tutorial](https://docs.microsoft.com/azure/batch/tutorial-rendering-batchexplorer-blender) to render multiple frames of a Blender demo scene using Azure Batch.
+
+## Related resources
+
+* [High Performance Computing (HPC) on Azure](/azure/architecture/topics/high-performance-computing)
+* [3D video rendering](/azure/architecture/example-scenario/infrastructure/video-rendering)
+* [Digital image-based modeling on Azure](/azure/architecture/example-scenario/infrastructure/image-modeling)
+* [Run reservoir simulation software on Azure](/azure/architecture/example-scenario/infrastructure/reservoir-simulation)
