@@ -294,13 +294,10 @@ It's critical that you maintain thorough documentation about the process and pol
 
 #### Your responsibilities
 
-Default settings provided by vendors must be changed. Default settings are common attack vectors and make the system prone to attacks. 
-
-
-
-Disable Admin access on ACR.
-Ensure Jump Boxes and Build Agents follow user management procedures - removing needed system users.
-Do not generate/provide SSH key access to nodes to administrator user. If emergency access is necessary, use Azure recovery process to get JIT access.
+Default settings provided by vendors must be changed. Default settings are common attack vectors and make the system prone to attacks. Here are some considerations:
+- Disable administrator access on the container registry.
+- Ensure jump boxes and build agents follow user management procedures - removing needed system users.
+- Do not generate or provide SSH key access to nodes to administrator user. If emergency access is necessary, use Azure recovery process to get JIT access.
 
 #### Azure responsibilities
 
@@ -315,19 +312,17 @@ For wireless environments connected to the cardholder data environment or transm
 
 TBD
 
-#### Requirement 2.1.2
-
-For wireless environments connected to the cardholder data environment or transmitting cardholder data, change ALL wireless vendor defaults at installation, including but not limited to default wireless encryption keys, passwords, and SNMP community strings.
-
-##### Your responsibilities
-
-TBD
-
 ### Requirement 2.2&mdash;Develop configuration standards for all system components. 
 
 #### Your responsibilities
 
-Ensure your subscriptions are adhearing to Azure CIS Benchmark 2.0 standards plus any additional industry standards you feel are relevant. Use Azure Security Center's Security Baseline features and Azure Policy to help track against the standards. Consider building additional automated checks where desired in Azure Policy and Azure Tenant Security Solution (AzTS).
+Implement the recommendations in Azure Security Benchmark. It provides a single consolidated view of Azure security recommendations covering industry framework such as CIS, NIST, PCI-DSS, and others. Use Azure Security Center features and Azure Policy to help track against the standards. Azure Security Benchmark is the default intiative for Azure Security Center. Consider building additional automated checks in Azure Policy and Azure Tenant Security Solution (AzTS).
+
+For more information, see [Azure security benchmark](/security/benchmark/azure/introduction).
+
+#### Azure responsibility
+Azure provides security configuration standards that are consistent with industry-accepted hardening standards.  The standards and are reviewed at least annually.
+
 
 #### Requirement 2.2.1
 
@@ -335,7 +330,16 @@ Implement only one primary function per server to prevent functions that require
 
 ##### Your responsibilities
 
-Container technology addresses this requirement by default, as one instance of a container is responsible for one function in the system. Ensure you separate in-scope and out-of-scope processes ideally into separate clusters and related infrastructure, but at a minimum seperate node pools within a cluster. Ensure workloads are using Pod Managed Identity and are not inherting any cluster-level/node-level identity. Use external storage vs on-node (in-cluster) storage where possible. Keep cluster pods reserved exclusively for work that must be performed as part of the operation of card holder data processing -- for example, don't use the cluster also as your build agents, or for unrelated workloads, no matter how small/insignificant.
+The key strategy is to provide the required level of segmentation. One way is to deploy in-scope and out-of-scope components in separate clusters. The down side is increased costs for the added infrastructure and the maintenance overhead. Another approach is to colocate all components in a shared cluster. Use segmentation strategies to maintain the separation. For example, have separate node pools within a cluster. 
+
+In the reference implementation, the second approach is demonstrated with a microservices application deployed to a single cluster. The application has  two sets of services; one set has in-scope pods and the other is out-of-scope. Both sets are spread across two user node pools. With the use of Kubernetes taints, in-scope and out-of-scope pods are deployed to separate node pools and they never share a node VM.
+
+For container technologies, that segmentation is provided by default because only one instance of a container is responsible for one function in the system.
+
+The workload should use Pod Managed Identity. It must not inhert any cluster-level or node-level identity. 
+
+Use external storage instead of on-node (in-cluster) storage where possible. Keep cluster pods reserved exclusively for work that must be performed as part of the operation of card holder data processing. For example, don't use the cluster also as your build agents, or for unrelated workloads.
+
 
 #### Requirement 2.2.2
 
@@ -343,10 +347,16 @@ Enable only necessary services, protocols, daemons, etc., as required for the fu
 
 ##### Your responsibilities
 
-Do not enable features on services that are not necessary. (e.g. enabling managed identity on ACR if ACR isn't going to use that feature).
-Ensure all firewall (and NSG) rules restrict by protocol in addition to source/destination.
-Where you have complete control (Jump boxes, build agents), remove all necessary system services from the images.
-Where you have observer control only (such as AKS nodes), document what Azure installs on the nodes. Consider using DaemonSets to provide any additional auditing necessary for these cloud-controlled components.
+Don't enable features that are not necessary. For example, enabling managed identity on ACR if ACR isn't going to use that feature.
+
+Make sure all rules, configured in Azure Firewall and Network Security Groups (NSG), restrict by protocol and port in addition to source and destination.
+
+For components Where you have complete control, for instance jump boxes, build agents, and others, remove all necessary system services from the images.
+<Ask Chad: necessary? need to understand>
+
+For components, where you only have visibility such as  AKS nodes, document what Azure installs on the nodes. 
+
+Consider using DaemonSets to provide any additional auditing necessary for these cloud-controlled components.
 
 #### Requirement 2.2.3
 
