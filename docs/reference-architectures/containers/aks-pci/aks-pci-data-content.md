@@ -9,7 +9,7 @@ This article describes the considerations for an Azure Kubernetes Service (AKS) 
 **Requirement 3**&mdash;Protect stored cardholder data
 
 ***
-[**Requirement 4**](#requirement-2do-not-use-vendor-supplied-defaults-for-system-passwords-and-other-security-parameters)&mdash;Encrypt transmission of cardholder data across open, public networks.
+**Requirement 4**&mdash;Encrypt transmission of cardholder data across open, public networks.
 
 |Requirement|Responsibility|
 |---|---|
@@ -18,7 +18,9 @@ This article describes the considerations for an Azure Kubernetes Service (AKS) 
 |[Requirement 4.3](#requirement-23encrypt-all-non-console-administrative-access-using-strong-cryptography)|4.3 Ensure that security policies and operational procedures for encrypting transmissions of cardholder data are documented, in use, and known to all affected parties.|
 
 
-### Requirement 4.1&mdash;Use strong cryptography and security protocols (for example, TLS, IPSEC, SSH, etc.) to safeguard sensitive cardholder data during transmission over open, public networks, including the following:
+### Requirement 4.1
+
+Use strong cryptography and security protocols (for example, TLS, IPSEC, SSH, etc.) to safeguard sensitive cardholder data during transmission over open, public networks, including the following:
 
 
 ##### Your responsibilities
@@ -45,14 +47,17 @@ Ensure wireless networks transmitting cardholder data or connected to the cardho
       
 <Ask Chad>
 
-#### Requirement 4.2&mdash;Never send unprotected PANs by end-user messaging technologies (for example, e-mail, instant messaging, SMS, chat, etc.).
+#### Requirement 4.2
+Never send unprotected PANs by end-user messaging technologies (for example, e-mail, instant messaging, SMS, chat, etc.).
 
 ##### Your responsibilities
       
 <Ask Chad>
 
 
-#### Requirement 4.3&mdash;4.3 Ensure that security policies and operational procedures for encrypting transmissions of cardholder data are documented, in use, and known to all affected parties.
+#### Requirement 4.3
+
+Ensure that security policies and operational procedures for encrypting transmissions of cardholder data are documented, in use, and known to all affected parties.
 
 ##### Your responsibilities
       

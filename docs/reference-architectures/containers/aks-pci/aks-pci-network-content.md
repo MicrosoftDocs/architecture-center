@@ -11,7 +11,7 @@ This article describes the considerations for an Azure Kubernetes Service (AKS) 
 ## Build and Maintain a Secure Network and Systems
 The hub and spoke topology in the baseline is a natural choice for a PCI DSS infrastructure. Network controls are placed in both hub and spoke networks and follow the Microsoft zero-trust model. The controls can be tuned with least-privilege to secure traffic giving access on a need-to-know basis. In addition, several defense-in-depth approaches can be applied by adding controls at each network hop. 
 
-[**Requirement 1**](#requirement-11establish-and-implement-firewall-and-router-configuration-standards-that-include-the-following)&mdash;Install and maintain a firewall configuration to protect cardholder data.
+**Requirement 1**&mdash;Install and maintain a firewall configuration to protect cardholder data.
 
 |Requirement|Responsibility|
 |---|---|
@@ -21,7 +21,7 @@ The hub and spoke topology in the baseline is a natural choice for a PCI DSS inf
 |[Requirement 1.4](#requirement-14install-personal-firewall-software-or-equivalent-functionality-on-any-portable-computing-devices-that-connect-to-the-internet-when-outside-the-network--and-which-are-also-used-to-access-the-cde)|Install personal firewall software or equivalent functionality on any portable computing devices (including company and/or employee-owned) that connect to the Internet when outside the network (for example, laptops used by employees), and which are also used to access the CDE. |
 |[Requirement 1.5](#requirement-15ensure-that-security-policies-and-operational-procedures-for-managing-firewalls-are-documented-in-use-and-known-to-all-affected-parties)|Ensure that security policies and operational procedures for managing firewalls are documented, in use, and known to all affected parties.|
 
-[**Requirement 2**](#requirement-2do-not-use-vendor-supplied-defaults-for-system-passwords-and-other-security-parameters)&mdash;Do not use vendor-supplied defaults for system passwords and other security parameters.
+**Requirement 2**&mdash;Do not use vendor-supplied defaults for system passwords and other security parameters.
 
 |Requirement|Responsibility|
 |---|---|
