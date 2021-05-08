@@ -67,4 +67,4 @@ Ensure that security policies and operational procedures for encrypting transmis
 Protect all systems against malware and regularly update anti-virus software or programs. Develop and maintain secure systems and application
 
 > [!div class="nextstepaction"]
-> [Maintain a Vulnerability Management Program](aks-pci-network.yml)
+> [Maintain a Vulnerability Management Program](aks-pci-malware.yml)
