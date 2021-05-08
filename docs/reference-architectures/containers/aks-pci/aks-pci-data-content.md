@@ -25,17 +25,14 @@ Use strong cryptography and security protocols (for example, TLS, IPSEC, SSH, et
 
 ##### Your responsibilities
       
-"Customers are responsible for encryption of data traffic while in transit over public internet.
+Data that transits over the public internet must be encyrpted. Data must be encrypted with TLS 1.2 (or later), with reduced cipher support for all transmissions. Do not support non-TLS to TLS redirects on any data transmission services. Have many TLS terminiation points in your design starting at the first point of interception and all the way to your cluster. This means that TLS should be maintained between network hops that may include firewalls and the cluster. At each hop, inspect the packet, block, or route it to the next destination. Have the final TLS termination point at the cluster's ingress resource. Consider taking it further and provide TLS connections between the pods within the cluster resources.
 
-Ensure traffic from client applications are encrypted with TLS 1.2 (or better), with reduced CIPHER support for ALL transmissions. Do NOT support non-TLS to TLS (e.g. 80 to 443)  convenance redirects on any data transmission services.
-
-Carry TLS into your cluster. This means that TLS should be maintained between network hops that may include Firewall, WAF, and your cluster. Each point may be terminating to allow packet inspection and routing, but do not do final termination until your cluster's ingress resource. Consider taking it further and provide TLS connections between in-cluster resources as well.
+:::image type="content" source="./images/flow.png" alt-text="Data encryption" lightbox="./images/flow.svg":::
 
 Deny the creation of any non https ingress resource via azure policy. Also deny the creation of any public IP or any public load balacners in your cluster, to ensure web traffic is being tunneled through your gateway.
 
-See also: https://docs.microsoft.com/azure/security/fundamentals/encryption-overview
+For more information, see [Azure encryption overview](https://docs.microsoft.com/azure/security/fundamentals/encryption-overview).
 
-Refer to master matrix for general guidelines."
 
 <Ask Chad: to give input around can the approval process be automated, who should be responsible and how is that incorporated in the pipeline.>
 
