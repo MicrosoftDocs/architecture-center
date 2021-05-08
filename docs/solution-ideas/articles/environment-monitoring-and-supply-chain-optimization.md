@@ -6,7 +6,7 @@ This article describes a warehouse management scenario that monitors environment
 
 ## Potential use cases
 
-- **Fleet management:** This solution can be used for fleet management where routes need to be optimized for safety based on the evolving conditions of surrounding areas.
+- **Fleet management:** This solution can be used where routes need to be optimized for safety based on the evolving conditions of surrounding areas.
 - **Agriculture:** Predicting wildfires that will impact the safety of workers and livestock is critical. By providing ample lead time for danger notifications, people in the affected area can evacuate to safety. Farms can also equip livestock areas with automated gates that can unlock and open in dire situations, allowing animals to escape.  
 
 ## Architecture
@@ -14,11 +14,11 @@ This article describes a warehouse management scenario that monitors environment
 ![Architecture diagram showing the data flow for the Environmental Monitoring and the Supply Chain solution](../media/environment-monitor-supply-chain.png)
 *Download an [SVG of this architecture](../media/environment-monitor-supply-chain.svg).*
 
-1. Sensors in the warehouse facility are connected and send telemetry to a LoRa (**Lo**ng **Ra**nge) gateway.
+1. Sensors in the warehouse facility are connected and send data to a LoRa (**Lo**ng **Ra**nge) gateway.
 
 1. [LoRa](https://en.wikipedia.org/wiki/LoRa) gateway pushes data to the cloud using cellular connectivity.
 
-1. myDevices software as a service (SaaS)-based plug and play solution uses devices and gateways that are automatically provisioned and associated with the corresponding customer so that data can flow accordingly.
+1. myDevices is a software as a service (SaaS)-based plug and play solution. It uses devices and gateways that are automatically provisioned and associated with the corresponding customer.
 
 1. Device data is sent to Azure IoT Central. Customers use the solution for controlling and monitoring the devices.
 
@@ -48,7 +48,7 @@ This article describes a warehouse management scenario that monitors environment
 
 - [Azure Databricks](https://azure.microsoft.com/services/databricks/) is a data analytics platform optimized for the Microsoft Azure cloud services platform. It is used for transforming, manipulating, and normalizing data so that it can be properly consumed by the machine learning pipeline.
 
-- [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) is used to create wildfire prediction models. The models provide the intelligence required to assess the risk of a wildfire. Input from multiple data sources is required to train the model for accuracy. This can include satellite imagery, historical data, local soil conditions, and weather data. Based on the predicated wildfire area from the model, the supply chain and logistics solution can reroute trucks.
+- [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) is used to create wildfire prediction models. The models provide the intelligence required to assess the risk of a wildfire. Input from multiple data sources is required to train the model for accuracy. This can include satellite imagery, historical data, local soil conditions, and weather data. Based on the predicated wildfire area from the model, the Supply Chain and Logistics Solution can reroute trucks.
 
 For more detailed discussions, see the [Azure IoT reference architecture](../../reference-architectures/iot.yml) to understand and explore the various implementation choices available.
 
@@ -80,7 +80,7 @@ The table below provides a summary of common use cases and corresponding IoT sol
 |---|---|---|
 | Enable supply chain logistics rerouting and production planning by predicting likelihood of interruption due to wildfires near the impacted location. | Ideally, you want to be able to monitor all the key elements of the supply chain so that you can provide a more comprehensive response. [myDevices](https://mydevices.com/) has a catalog of certified plug and play devices that connect to a [LoRa](https://en.wikipedia.org/wiki/LoRa) network gateway. The gateway sends data to the cloud application using cellular connectivity. LoRa technology is ideal because the signal needs to penetrate deep into the buildings. Sensors for CO2, temperature, humidity, wind direction, and air quality can be installed in relevant building locations including roofs and storage facilities. Sensors can also be installed in trucks for location tracking to facilitate rerouting. | [Analyze and optimize](../../example-scenario/iot/analyze-optimize-loop.yml) |
 | Identify wildfire conditions and understand the degree of danger for a given location. | Wildfire prediction models trained with historical data, micro-weather conditions, and local sensor data can help assess the risk of a wildfire. | [Analyze and optimize](../../example-scenario/iot/analyze-optimize-loop.yml) |
-| Automated alerts for evacuation and facility rerouting | Once unsafe conditions are detected, the digital twin of the facility can then be updated to show that it is no longer online. Once updated, other distribution centers within the network can begin to reroute traffic accordingly, allowing on-site facility managers and warehouse operators to focus on employee safety. This scenario uses ML to predict where the wildfire will spread, using public real-time and historical data sets along with micro weather data for more accurate predictions. Sensors track current wildfire conditions, and facility alarms trigger employee evacuation. | [Analyze and optimize](../../example-scenario/iot/analyze-optimize-loop.yml) |
+| Automated alerts for evacuation and facility rerouting | Once unsafe conditions are detected, the digital twin of the facility can then be updated to show that it's no longer online. Once updated, other distribution centers within the network can begin to reroute traffic accordingly, allowing on-site facility managers and warehouse operators to focus on employee safety. This scenario uses ML to predict where the wildfire will spread, using public real-time and historical data sets along with micro weather data for more accurate predictions. Sensors track current wildfire conditions, and facility alarms trigger employee evacuation. | [Analyze and optimize](../../example-scenario/iot/analyze-optimize-loop.yml) |
 
 ## Considerations
 
