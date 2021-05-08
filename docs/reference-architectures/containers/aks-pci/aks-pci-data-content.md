@@ -27,7 +27,7 @@ Use strong cryptography and security protocols (for example, TLS, IPSEC, SSH, et
       
 Data that transits over the public internet must be encyrpted. Data must be encrypted with TLS 1.2 (or later), with reduced cipher support for all transmissions. Do not support non-TLS to TLS redirects on any data transmission services. Have many TLS terminiation points in your design starting at the first point of interception and all the way to your cluster. This means that TLS should be maintained between network hops that may include firewalls and the cluster. At each hop, inspect the packet, block, or route it to the next destination. Have the final TLS termination point at the cluster's ingress resource. Consider taking it further and provide TLS connections between the pods within the cluster resources.
 
-:::image type="content" source="./images/flow.png" alt-text="Data encryption" lightbox="./images/flow.svg":::
+:::image type="content" source="./images/flow.svg" alt-text="Data encryption" lightbox="./images/flow.png":::
 
 Deny the creation of any non https ingress resource via azure policy. Also deny the creation of any public IP or any public load balacners in your cluster, to ensure web traffic is being tunneled through your gateway.
 
