@@ -33,7 +33,7 @@ The hub and spoke topology in the baseline is a natural choice for a PCI DSS inf
 |[Requirement 2.6](#requirement-26)|Shared hosting providers must protect each entity’s hosted environment and cardholder data.|
 
 
-### Requirement 1.1&
+### Requirement 1.1
 
 Establish and implement firewall and router configuration standards that include the following:
 
@@ -297,7 +297,9 @@ It's critical that you maintain thorough documentation about the process and pol
 ## Requirement 2
 Do not use vendor-supplied defaults for system passwords and other security parameters
 
-### Requirement 2.1&mdash;Always change vendor-supplied defaults and remove or disable unnecessary default accounts before installing a system on the network. 
+### Requirement 2.1
+
+Always change vendor-supplied defaults and remove or disable unnecessary default accounts before installing a system on the network. 
 
 #### Your responsibilities
 
@@ -319,7 +321,9 @@ For wireless environments connected to the cardholder data environment or transm
 
 TBD
 
-### Requirement 2.2&mdash;Develop configuration standards for all system components. 
+### Requirement 2.2
+
+Develop configuration standards for all system components. 
 
 #### Your responsibilities
 
