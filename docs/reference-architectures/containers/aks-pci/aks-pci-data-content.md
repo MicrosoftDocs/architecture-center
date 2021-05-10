@@ -55,16 +55,12 @@ Azure makes sure that customer data designated for deletion are securely decommi
 
 ### Requirement 3.2
 
-(Applies to: Requirement 3.2.1, Requirement 3.2.2, Requirement 3.2.3)
+(APPLIES TO: Requirement 3.2.1, Requirement 3.2.2, Requirement 3.2.3)
 
 Do not store sensitive authentication data after authorization (even if encrypted). If sensitive authentication data is received, render all data unrecoverable upon completion of the authorization process. 
 
-It is permissible for issuers and companies that support issuing services to store sensitive authentication data if: 
-- There is a business justification and 
-- The data is stored securely.
-
 #### Your responsibilities
-As per the standard sensitive authentication data consists of full track data, card validation code or value, and PIN data. As part of CHD processing, make sure that authentication data is not stored or included in sources such as,
+As per the standard sensitive authentication data consists of full track data, card validation code or value, and PIN data. As part of CHD processing, make sure that authentication data is not exposed in sources such as,
 - Logs that are emitted from the pods should not include the data.
 - Exception handling routines.
 - Filenames. 
@@ -78,6 +74,14 @@ If you do need to store this information, document the business justification.
 Mask PAN when displayed (the first six and last four digits are the maximum number of digits to be displayed), such that only personnel with a legitimate business need can see the full PAN. 
 
 #### Your responsibilities
+Primary account number (PAN) is senstive data and exposure to this data must be prevented through  masking. 
+
+Do not implement data masking in the workload. Instead, use database-level constructs. Azure SQL line of services including Azure Synapse Analytics support dynamic data masking, which reduces exposure at the application layer. It's a policy-based security feature that defines who can view the unmasked data and how much data is exposed through masking.  The built-in **Credit card** masking method exposes the last four digits of the designated fields and adds a constant string as a prefix in the form of a credit card.
+
+For more information, see [Dynamic data masking](/azure/azure-sql/database/dynamic-data-masking-overview).
+
+If you do need to bring in unmasked data into your cluster, mask as soon as possible.
+
 
 ### Requirement 3.4
 
