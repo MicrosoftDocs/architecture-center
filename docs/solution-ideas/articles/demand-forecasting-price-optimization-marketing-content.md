@@ -40,4 +40,4 @@ See related Azure Architecture Center articles:
 External links:
 
 * [Demand forecasting and price optimization](https://gallery.azure.ai/Solution/Demand-Forecasting-and-Price-Optimization) in the Azure AI Gallery
-* [Forecasting best practices (on GitHub)](https://github.com/microsoft/forecasting)
+* [Forecasting best practices](https://github.com/microsoft/forecasting) on GitHub
