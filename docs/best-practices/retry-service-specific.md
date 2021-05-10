@@ -173,7 +173,8 @@ The StackExchange.Redis client uses a connection manager class that is configure
 
 - **ConnectRetry**. The number of times a failed connection to the cache will be retried.
 - **ReconnectRetryPolicy**. The retry strategy to use.
-- **ConnectTimeout**. The maximum waiting time in milliseconds.
+- **ConnectTimeout**. The maximum waiting time in 
+.
 
 ### Policy configuration
 
@@ -184,8 +185,8 @@ The built-in classes support linear (constant) delay and exponential backoff wit
 The following example configures a retry strategy using exponential backoff.
 
 ```csharp
-var deltaBackOffInMilliseconds = TimeSpan.FromSeconds(5).Milliseconds;
-var maxDeltaBackOffInMilliseconds = TimeSpan.FromSeconds(20).Milliseconds;
+var deltaBackOffInMilliseconds = TimeSpan.FromSeconds(5).TotalMilliseconds;
+var maxDeltaBackOffInMilliseconds = TimeSpan.FromSeconds(20).TotalMilliseconds;
 var options = new ConfigurationOptions
 {
     EndPoints = {"localhost"},
@@ -279,7 +280,7 @@ namespace RetryCodeSamples
             {
                 try
                 {
-                    var retryTimeInMilliseconds = TimeSpan.FromSeconds(4).Milliseconds; // delay between retries
+                    var retryTimeInMilliseconds = TimeSpan.FromSeconds(4).TotalMilliseconds; // delay between retries
 
                     // Using object-based configuration.
                     var options = new ConfigurationOptions
