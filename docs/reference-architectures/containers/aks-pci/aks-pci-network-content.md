@@ -15,25 +15,27 @@ The hub and spoke topology in the baseline is a natural choice for a PCI DSS inf
 
 |Requirement|Responsibility|
 |---|---|
-|[Requirement 1.1](#requirement-11establish-and-implement-firewall-and-router-configuration-standards-that-include-the-following)|Establish and implement firewall and router configuration standards.|
-|[Requirement 1.2](#requirement-12build-firewall-and-router-configurations-that-restrict-connections-between-untrusted-networks-and-any-system-components-in-the-cardholder-data-environment)|Build firewall and router configurations that restrict connections between untrusted networks and any system components in the cardholder data environment.|
-|[Requirement 1.3](#requirement-13prohibit-direct-public-access-between-the-internet-and-any-system-component-in-the-cardholder-data-environment)|Prohibit direct public access between the Internet and any system component in the cardholder data environment.|
-|[Requirement 1.4](#requirement-14install-personal-firewall-software-or-equivalent-functionality-on-any-portable-computing-devices-that-connect-to-the-internet-when-outside-the-network--and-which-are-also-used-to-access-the-cde)|Install personal firewall software or equivalent functionality on any portable computing devices (including company and/or employee-owned) that connect to the Internet when outside the network (for example, laptops used by employees), and which are also used to access the CDE. |
-|[Requirement 1.5](#requirement-15ensure-that-security-policies-and-operational-procedures-for-managing-firewalls-are-documented-in-use-and-known-to-all-affected-parties)|Ensure that security policies and operational procedures for managing firewalls are documented, in use, and known to all affected parties.|
+|[Requirement 1.1](#requirement-11)|Establish and implement firewall and router configuration standards.|
+|[Requirement 1.2](#requirement-12)|Build firewall and router configurations that restrict connections between untrusted networks and any system components in the cardholder data environment.|
+|[Requirement 1.3](#requirement-13)|Prohibit direct public access between the Internet and any system component in the cardholder data environment.|
+|[Requirement 1.4](#requirement-14)|Install personal firewall software or equivalent functionality on any portable computing devices (including company and/or employee-owned) that connect to the Internet when outside the network (for example, laptops used by employees), and which are also used to access the CDE. |
+|[Requirement 1.5](#requirement-15)|Ensure that security policies and operational procedures for managing firewalls are documented, in use, and known to all affected parties.|
 
 **Requirement 2**&mdash;Do not use vendor-supplied defaults for system passwords and other security parameters.
 
 |Requirement|Responsibility|
 |---|---|
-|[Requirement 2.1](#requirement-21always-change-vendor-supplied-defaults-and-remove-or-disable-unnecessary-default-accounts-before-installing-a-system-on-the-network)|Always change vendor-supplied defaults and remove or disable unnecessary default accounts before installing a system on the network.|
-|[Requirement 2.2](#requirement-22develop-configuration-standards-for-all-system-components)|Develop configuration standards for all system components. Assure that these standards address all known security vulnerabilities and are consistent with industry-accepted system hardening standards.|
-|[Requirement 2.3](#requirement-23encrypt-all-non-console-administrative-access-using-strong-cryptography)|Encrypt all non-console administrative access using strong cryptography.|
-|[Requirement 2.4](#requirement-24maintain-an-inventory-of-system-components-that-are-in-scope-for-pci-dss)|Maintain an inventory of system components that are in scope for PCI DSS.|
-|[Requirement 2.5](#requirement-25ensure-that-security-policies-and-operational-procedures-for-managing-vendor-defaults-and-other-security-parameters-are-documented-in-use-and-known-to-all-affected-parties)|Ensure that security policies and operational procedures for managing vendor defaults and other security parameters are documented, in use, and known to all affected parties.|
-|[Requirement 2.6](#requirement-26shared-hosting-providers-must-protect-each-entitys-hosted-environment-and-cardholder-data)|Shared hosting providers must protect each entity’s hosted environment and cardholder data.|
+|[Requirement 2.1](#requirement-21)|Always change vendor-supplied defaults and remove or disable unnecessary default accounts before installing a system on the network.|
+|[Requirement 2.2](#requirement-22)|Develop configuration standards for all system components. Assure that these standards address all known security vulnerabilities and are consistent with industry-accepted system hardening standards.|
+|[Requirement 2.3](#requirement-23)|Encrypt all non-console administrative access using strong cryptography.|
+|[Requirement 2.4](#requirement-24)|Maintain an inventory of system components that are in scope for PCI DSS.|
+|[Requirement 2.5](#requirement-25)|Ensure that security policies and operational procedures for managing vendor defaults and other security parameters are documented, in use, and known to all affected parties.|
+|[Requirement 2.6](#requirement-26)|Shared hosting providers must protect each entity’s hosted environment and cardholder data.|
 
 
-### Requirement 1.1&mdash;Establish and implement firewall and router configuration standards that include the following:
+### Requirement 1.1&
+
+Establish and implement firewall and router configuration standards that include the following:
 
 #### Requirement 1.1.1
 
@@ -124,7 +126,9 @@ Have processes that regularly review the network configurations and the scoped r
 
 <Ask Chad: What are the things to look for and review>
 
-#### Requirement 1.2&mdash;Build firewall and router configurations that restrict connections between untrusted networks and any system components in the cardholder data environment. 
+#### Requirement 1.2
+
+Build firewall and router configurations that restrict connections between untrusted networks and any system components in the cardholder data environment. 
 
 ##### Your responsibilities
 In this architecture, the AKS cluster _is_ the cardholder data environment (CDE). That cluster is deployed as a private cluster for maximum security. In a private cluster, network traffic between the AKS-managed Kubernetes API server and your node pools is private. The API server virtual network has a Azure Private Link service. Your cluster subnet exposes a private endpoint, which interacts with that Private link service.
@@ -182,7 +186,9 @@ The AKS nodes and the node pools must not be reachable from wireless networks. A
 
 In general, limit access to on-premises traffic to the spoke network.  
 
-#### Requirement 1.3&mdash;Prohibit direct public access between the Internet and any system component in the cardholder data environment. 
+#### Requirement 1.3
+
+Prohibit direct public access between the Internet and any system component in the cardholder data environment. 
 
 ##### Your responsibilities
 The AKS cluster has system node pools that host critical system pods. Even on the user node pools, there are pods that run other services that participate in cluster operations. For example, Flux to synchronize cluster configuration to a Github repository, the ingress controller to route traffic to the workload pods, and others. Regardless of the type of node pool, all nodes must be protected. 
@@ -267,7 +273,9 @@ A private AKS cluster keeps DNS records off the public internet. Use an internal
 
 <Ask Chad: Two questions: 1. I couldn't find an internal DNS zone between waf and ilb. 2. yesterday we discussed that private DNS zone is in the hub. In the spoke resource group i see exactly those private DNS zones. None in the hub. What am I missing>
 
-### Requirement 1.4&mdash;Install personal firewall software or equivalent functionality on any portable computing devices that connect to the Internet when outside the network , and which are also used to access the CDE. 
+### Requirement 1.4
+
+Install personal firewall software or equivalent functionality on any portable computing devices that connect to the Internet when outside the network , and which are also used to access the CDE. 
 
 ##### Your responsibilities
 
@@ -277,7 +285,8 @@ In this architecture, that jump box is in a separate subnet in the spoke network
 
 To run certain commands on the jump box, you'll will need to reach public endpoints. For example, endpoints managed by Azure managment plane. That outbound traffic must be secure. Similar to other components in the spoke network, outbound traffic from the jump box is restricted by using a user-defined route (UDR) that forces HTTPs  traffic to go through Azure Firewall.
 
-### Requirement 1.5&mdash;Ensure that security policies and operational procedures for managing firewalls are documented, in use, and known to all affected parties.
+### Requirement 1.5
+Ensure that security policies and operational procedures for managing firewalls are documented, in use, and known to all affected parties.
 
 ##### Your responsibilities
 
@@ -285,7 +294,8 @@ It's critical that you maintain thorough documentation about the process and pol
 
 ***
 
-## Requirement 2&mdash;Do not use vendor-supplied defaults for system passwords and other security parameters
+## Requirement 2
+Do not use vendor-supplied defaults for system passwords and other security parameters
 
 ### Requirement 2.1&mdash;Always change vendor-supplied defaults and remove or disable unnecessary default accounts before installing a system on the network. 
 
@@ -390,7 +400,8 @@ Remove all unnecessary functionality, such as scripts, drivers, features, subsys
 
 Don't install software on jump boxes, build agents, that doesn't participate in the processing of a transaction or provides observability for compliance requirements, such as security agents. This recommendation also applies to the cluster entities such as DaemonSet, pods, and so on. Make sure all installations are detected and logged. 
 
-### Requirement 2.3&mdash;Encrypt all non-console administrative access using strong cryptography.
+### Requirement 2.3
+Encrypt all non-console administrative access using strong cryptography.
 
 #### Your responsibilities
 
@@ -400,7 +411,8 @@ All administrative access to the cluster should be done using the console. Do no
 
 Azure ensures the use of strong cryptography are enforced when accessing the hypervisor infrastructure.  It ensures that customers using the Microsoft Azure Management Portal are able to access their service/IaaS consoles with strong cryptography.
 
-### Requirement 2.4&mdash;Maintain an inventory of system components that are in scope for PCI DSS.
+### Requirement 2.4
+Maintain an inventory of system components that are in scope for PCI DSS.
 
 #### Your responsibilities
 
@@ -408,17 +420,21 @@ All Azure resources used in the architecture must be tagged properly. The tags s
 
 For information about tagging considerations, see [Resource naming and tagging decision guide](/azure/cloud-adoption-framework/decision-guides/resource-tagging/).
 
-### Requirement 2.5&mdash;Ensure that security policies and operational procedures for managing vendor defaults and other security parameters are documented, in use, and known to all affected parties.
+### Requirement 2.5
+Ensure that security policies and operational procedures for managing vendor defaults and other security parameters are documented, in use, and known to all affected parties.
 
 #### Your responsibilities
 
 It's critical that you maintain thorough documentation about the process and policies. Personnel should be trained in security feature of each Azure resource and their configuration settings. People operating regulated enviroments must be educated, informed, and incentivized to support the security assurances. This is particularly important for people with accounts granted broad administrative privileges.
 
-### Requirement 2.6&mdash;Shared hosting providers must protect each entity’s hosted environment and cardholder data.
+### Requirement 2.6
+
+Shared hosting providers must protect each entity’s hosted environment and cardholder data.
 
 #### Your responsibilities
 
 https://docs.microsoft.com/compliance/regulatory/offering-PCI-DSS
+
 <Ask Chad: what does that link have to do with shared hosting. Is this about multitenant?>
 
 ## Next
