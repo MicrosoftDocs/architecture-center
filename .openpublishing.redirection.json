@@ -1759,7 +1759,7 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "docs/patterns/index-patters.md",
+      "source_path": "docs/patterns/index-patterns.md",
       "redirect_url": "/azure/architecture/patterns",
       "redirect_document_id": false
     },
