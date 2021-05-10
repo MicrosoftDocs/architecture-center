@@ -77,8 +77,7 @@ The following are some additional ideas that you can use as a starting point for
 
 - [Big data analytics with Azure Data Explorer](../solution-ideas/articles/big-data-azure-data-explorer.yml)
 - [Demand Forecasting with Azure Machine Learning](../solution-ideas/articles/demand-forecasting.yml)
-- [Demand Forecasting/Price Optimization using Azure Data Lake Store](../solution-ideas/articles/demand-forecasting-price-optimization-marketing.yml)
-- [Demand Forecasting/Price Optimization using Azure Blob Storage](../solution-ideas/articles/demand-forecasting-and-price-optimization.yml)
+- [Demand Forecasting and Price Optimization](../solution-ideas/articles/demand-forecasting-price-optimization-marketing.yml)
 - [Demand Forecasting for Shipping and Distribution](../solution-ideas/articles/demand-forecasting-for-shipping-and-distribution.yml)
 - [Interactive Price Analytics](../solution-ideas/articles/interactive-price-analytics.yml)
 
