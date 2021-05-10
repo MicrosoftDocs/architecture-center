@@ -7,6 +7,7 @@ This article describes the considerations for an Azure Kubernetes Service (AKS) 
 ## Protect Cardholder Data 
 
 **Requirement 3**&mdash;Protect stored cardholder data
+
 |Requirement|Responsibility|
 |---|---|
 |[Requirement 3.1](#requirement-31)|Keep cardholder data storage to a minimum by implementing data retention and disposal policies, procedures and processes that include at least the following for all cardholder data (CHD) storage:|
