@@ -1,5 +1,4 @@
-
-
+[!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
 Large, unstructured datasets like the [JFK Files](https://www.archives.gov/research/jfk/2017-release), which contains over 34,000 pages of documents about the CIA investigation of the 1963 JFK assassination, include typewritten and handwritten notes, photos and diagrams, and other unstructured data that standard search solutions can't parse.
 
@@ -60,7 +59,7 @@ Azure Cognitive Search works with other Azure components to provide this solutio
 
 This example solution also builds a standalone web app in [Azure App Service](/azure/app-service/) for testing, demonstrating, searching the index, and exploring connections in the enriched and indexed documents.
 
-## Issues and considerations
+## Considerations
 
 - The code project and demo showcase a particular Cognitive Search use case. This example solution isn't intended to be a framework or scalable architecture for all scenarios, but to provide a general guideline and example.
 - [OCR](/azure/cognitive-services/computer-vision/concept-recognizing-text#ocr-optical-character-recognition-api) results vary greatly depending on scan and image quality. The [Computer Vision Read API](/azure/cognitive-services/computer-vision/concept-recognizing-text#read-api) uses the latest recognition models, but has less [language support](/azure/cognitive-services/computer-vision/language-support#text-recognition) than OCR.

@@ -3,9 +3,9 @@ metadata:
   title: Enterprise Data Warehouse Architecture
   titleSuffix: Azure Solution Ideas
   description: Bring all of your data together, via Azure Data Lake (ADLS) Gen-2,  with an Azure Synapse data warehouse that scales easily. Orchestrate and ingest data via Azure Data Factory (ADF) pipelines, optionally enhanced with Azure Databricks, for advanced scalable curation. Build operational reports and analytical dashboards to derive insights from the data.
-  author: nemillin
+  author: doodlemania2
   ms.author: pnp
-  ms.date: 01/03/2021
+  ms.date: 05/03/2021
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: solution-idea
@@ -29,9 +29,8 @@ summary: Bring all of your data together, via Azure Data Lake (ADLS) Gen-2,  wit
 products:
   - azure-blob-storage
   - azure-data-lake
-  - azure-data-factory
-  - azure-databricks
   - azure-synapse-analytics
 thumbnailUrl: /azure/architecture/browse/thumbs/enterprise-data-warehouse.png
 content: |
-   [!include[](modern-data-warehouse-content.md)]
+   [!include[](enterprise-data-warehouse-content.md)]
+   

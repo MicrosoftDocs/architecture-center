@@ -508,7 +508,7 @@ items:
   - name: Design Patterns
     items:
       - name: Overview
-        href: patterns/index-patterns.md
+        href: patterns/index.md
       - name: Categories
         items:
           - name: Data management
@@ -931,6 +931,8 @@ items:
                 href: reference-architectures/containers/aks/secure-baseline-aks.yml
               - name: Microservices architecture on AKS
                 href: reference-architectures/containers/aks-microservices/aks-microservices.yml
+              - name: Advanced microservices architecture on AKS
+                href: reference-architectures/containers/aks-microservices/aks-microservices-advanced.yml
               - name: CI/CD pipeline for container-based workloads
                 href: example-scenario/apps/devops-with-aks.yml
           - name: Example workloads hosted in AKS clusters
@@ -1596,6 +1598,8 @@ items:
                     href: reference-architectures/migration/unisys-mainframe-migration.yml
               - name: Data modernization
                 items:
+                  - name: Mainframe access to Azure databases
+                    href: solution-ideas/articles/mainframe-access-azure-databases.yml
                   - name: Mainframe file replication on Azure
                     href: solution-ideas/articles/mainframe-azure-file-replication.yml
                   - name: Modernize mainframe and midrange data

@@ -1,4 +1,4 @@
-
+[!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
 Artificial intelligence (AI) and machine learning (ML) offer unique opportunities and challenges for automating complex industrial systems. *Machine teaching* is a new paradigm for building ML systems that moves the focus away from algorithms and onto successful model generation and deployment.
 

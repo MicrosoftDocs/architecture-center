@@ -1,5 +1,4 @@
-
-
+[!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
 The demand forecasting for shipping and distribution solution uses historical demand data to forecast demand in future periods across various customers, products, and destinations. For instance, a shipping or delivery company wants to predict the quantities of the different products its customers want delivered at different locations at future times. A company can use these forecasts as input to an allocation tool that optimizes operations, such as delivery vehicles routing, or to plan capacity in the longer term.
 
@@ -47,7 +46,7 @@ This demand forecasting solution ideas uses the following resources hosted and m
 
 The solution automates the running of periodic forecasts, at a pace configured in Azure Data Lake (for example, monthly), where it learns a model with the current historical data, and predicts quantities for future periods for all products in the product hierarchy. Each forecast cycle consists of a round trip from the database, through the model, then back to the database. Each cycle measures forecast accuracy by conventional data holdout techniques. You can configure the number of periods, the product categories and the hierarchy among products. You need to load your current data in the Azure SQL database, and extract forecasts after each run from the same database. The Solution exposes the R code model to allow further customizations, and to allow you to simulate historical data, to test the Solution.
 
-## Pricing info
+## Pricing
 
 Your Azure subscription used for the deployment will incur consumption charges on the services used in this solution. For more information, see the [Pricing Calculator](https://azure.microsoft.com/pricing/calculator). When you are no longer using a deployed solution, delete it to stop incurring charges.
 
