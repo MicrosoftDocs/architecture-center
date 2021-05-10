@@ -105,6 +105,13 @@ Make sure PAN is not exposed as part of your workflow processes. Here are some c
 
 - Your customers may provide PAN in free-form text fields unprompted. Ensure content validation and detection processes are in place for any free-form text fields, scrubbing all content that resembles PAN data.
 
+#### 3.4.1 
+
+ If disk encryption is used (rather than file- or column-level database encryption), logical access must be managed separately and independently of native operating system authentication and access control mechanisms (for example, by not using local user account databases or general network login credentials). Decryption keys must not be associated with user accounts.
+
+
+#### Your responsibilities
+As a general rule, do not store state in the AKS cluster. Use an external data storage that supports storage-engine level encyrption.
 
 ### Requirement 3.5
 
