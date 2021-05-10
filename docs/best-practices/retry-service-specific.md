@@ -173,8 +173,7 @@ The StackExchange.Redis client uses a connection manager class that is configure
 
 - **ConnectRetry**. The number of times a failed connection to the cache will be retried.
 - **ReconnectRetryPolicy**. The retry strategy to use.
-- **ConnectTimeout**. The maximum waiting time in 
-.
+- **ConnectTimeout**. The maximum waiting time in milliseconds.
 
 ### Policy configuration
 
