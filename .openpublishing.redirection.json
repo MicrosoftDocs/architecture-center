@@ -1759,6 +1759,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "docs/patterns/index-patterns.md",
+      "redirect_url": "/azure/architecture/patterns",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "docs/reference-architectures/ai/index.md",
       "redirect_url": "/azure/architecture/reference-architectures/ai/batch-scoring-deep-learning",
       "redirect_document_id": false

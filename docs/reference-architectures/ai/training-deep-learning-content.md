@@ -170,7 +170,7 @@ You may also find the following resources useful:
 [premium-storage]: /azure/storage/blobs/storage-blob-performance-tiers
 [premium-storage-comparison]: https://azure.microsoft.com/blog/premium-block-blob-storage-a-new-level-of-performance/
 [costs]: /azure/machine-learning/concept-plan-manage-cost
-[aml-arm]: https://github.com/Azure/azure-quickstart-templates/blob/master/201-machine-learning-advanced/azuredeploy.json
+[aml-arm]: https://azure.microsoft.com/resources/templates/201-machine-learning-advanced/
 [data-encryption]: /azure/machine-learning/concept-data-encryption
 [distr-training]: https://azure.github.io/azureml-examples/docs/cheatsheet/distributed-training/
 [distr-training-examples]: https://github.com/Azure/azureml-examples
