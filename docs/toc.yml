@@ -981,6 +981,8 @@ items:
                   - name: Common issues
                     href: /azure/aks/troubleshooting?bc=%2fazure%2farchitecture%2fbread%2ftoc.json&toc=%2fazure%2farchitecture%2ftoc.json
                     maintainContext: true
+              - name: Choose a Kubernetes at the edge compute option
+                href: operator-guides/aks/choose-kubernetes-edge-compute-option.md
       - name: Databases
         items:
           - name: Guides
