@@ -4,6 +4,7 @@
 The demand forecasting for shipping and distribution solution uses historical demand data to forecast demand in future periods across various customers, products, and destinations. For instance, a shipping or delivery company wants to predict the quantities of the different products its customers want delivered at different locations at future times. A company can use these forecasts as input to an allocation tool that optimizes operations, such as delivery vehicles routing, or to plan capacity in the longer term.
 
 The demand forecasting process described above can be operationalized and deployed in [Microsoft AI platform](https://www.microsoft.com/en-us/ai/ai-platform). With this solution, organizations can reduce the uncertainty in forecasted shipments for when they need to plan based on future quantities.
+
 ## Architecture
 
 ![Architecture diagram: demand forecasting for shipping and distribution](../media/demand-forecasting-for-shipping-and-distribution.png)
@@ -31,35 +32,31 @@ Under these conditions, we can take advantage of the hierarchy formed among the 
 
 This solution computes forecasts at all aggregation levels in the hierarchy for each time period specified. For simplicity, we will refer to both hierarchical and grouped time series as "hierarchical time series."
 
-## Shipping and distribution forecasting in use
+> [!NOTE]
+> Read the [Kotahi customer story](https://customers.microsoft.com/story/kotahi) on how Kotahi engaged with Microsoft and a Microsoft Dynamics 2016 Inner Circle partner, DXC Eclipse, to put this solution into production. The solution helped to increase forecast accuracy and so improve their ability to choose the right-size container ships, at the right times, and dispatch them to the right ports.
 
-We thank Kotahi for working with us to develop this solution. Kotahi is a supply chain company that plans, sources, and delivers shipping containers for New Zealand exports. Read their Customer Story on how they engaged with us at Microsoft and a Microsoft Dynamics 2016 Inner Circle partner, DXC Eclipse, to put this into production. The solution helped to increase forecast accuracy and so improve their ability to choose the right-size container ships, at the right times, and dispatch them to the right ports.
+## Components
 
-## What's under the hood
+This demand forecasting solution ideas uses the following resources hosted and managed in Azure:
 
-The Solution uses five types of resources hosted and managed in Azure:
+* [Azure SQL Database](https://azure.microsoft.com/products/azure-sql/database/) instance for persistent storage.
+* [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) web service to host the R forecasting code.
+* [Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs/) for intermediate storage of generated forecasts.
+* [Azure Data Factory](https://azure.microsoft.com/services/data-factory) to orchestrate regular runs of the Azure Machine Learning model.
+* [Power BI](https://powerbi.microsoft.com) dashboard to display and drill down on the forecasts.
 
-* Azure SQL Server instance (Azure SQL) for persistent storage
-* Azure Machine Learning (AML) webservice to host the R forecasting code
-* Azure Blob Storage for intermediate storage of generated forecasts
-* Azure Data Factory (ADF) that orchestrates regular runs of the AML model
-* Power BI dashboard to display and drill down on the forecasts
-
-The Solution automates the running of periodic forecasts, at a pace configured in ADF (e.g. monthly), where it learns a model with the current historical data, and predicts quantities for future periods for all products in the product hierarchy. Each forecast cycle consists of a round trip from the database, through the model, then back to the database. Each cycle measures forecast accuracy by conventional data holdout techniques. You can configure the number of periods, the product categories and the hierarchy among products. You need to load your current data in the Azure SQL database, and extract forecasts after each run from the same database. The Solution exposes the R code model to allow further customizations, and to allow you to simulate historical data, to test the Solution.
-
-## Using the forecasting solution: Getting started
-
-See the [Technical Solution Guide](https://github.com/Azure/cortana-intelligence-shipping-and-distribution-forecasting/blob/master/Technical%20Deployment%20Guide/Technical-Solution-Guide.md) for a full set of instructions on how to use this solution as an example of what is possible with the Cortana Intelligence Suite. For technical problems or questions about deploying this solution, please post in the issues tab of the repository.
+The solution automates the running of periodic forecasts, at a pace configured in Azure Data Lake (for example, monthly), where it learns a model with the current historical data, and predicts quantities for future periods for all products in the product hierarchy. Each forecast cycle consists of a round trip from the database, through the model, then back to the database. Each cycle measures forecast accuracy by conventional data holdout techniques. You can configure the number of periods, the product categories and the hierarchy among products. You need to load your current data in the Azure SQL database, and extract forecasts after each run from the same database. The Solution exposes the R code model to allow further customizations, and to allow you to simulate historical data, to test the Solution.
 
 ## Pricing info
 
-Your Azure subscription used for the deployment will incur consumption charges on the services used in this solution, approximately $4.66/day. For more information, please visit the [Pricing Calculator](https://azure.microsoft.com/pricing/calculator).
-
-Note: If you are no longer using the deployed solution, remember to delete it to stop incurring consumption charges.
+Your Azure subscription used for the deployment will incur consumption charges on the services used in this solution. For more information, see the [Pricing Calculator](https://azure.microsoft.com/pricing/calculator). When you are no longer using a deployed solution, delete it to stop incurring charges.
 
 ## Next steps
 
 See product documentation:
+
+* [Learn more about Data Factory](/azure/data-factory/data-factory-introduction)
+* [Learn more about Power BI](/power-bi/fundamentals/power-bi-overview)
 
 See related Azure Architecture Center articles:
 
