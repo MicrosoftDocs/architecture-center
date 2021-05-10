@@ -508,7 +508,7 @@ items:
   - name: Design Patterns
     items:
       - name: Overview
-        href: patterns/index-patterns.md
+        href: patterns/index.md
       - name: Categories
         items:
           - name: Data management
