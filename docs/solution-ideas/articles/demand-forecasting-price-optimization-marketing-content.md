@@ -35,7 +35,7 @@ See product documentation:
 See related Azure Architecture Center articles:
 
 * [Demand forecasting for shipping and distribution](./demand-forecasting-for-shipping-and-distribution.yml)
-* [Demand forecasting](./demand-forecasting.yml)
+* [Demand forecasting with Azure Stream Analytics and Machine Line](./demand-forecasting.yml)
 
 Additional external links:
 
