@@ -49,10 +49,6 @@ When choosing a storage technology, explore the retention features. For example,
 For more information, see [Managing the data life cycle using Azure Data Factory](https://www.microsoft.com/itshowcase/managing-the-data-life-cycle-using-azure-data-factory).
 
 
-#### Azure responsibilities
-Azure makes sure that customer data designated for deletion are securely decommissioned using NIST 800-88 compliant protocols specified in its Secure Disposal policies.
-
-
 ### Requirement 3.2
 
 (APPLIES TO: Requirement 3.2.1, Requirement 3.2.2, Requirement 3.2.3)
@@ -74,7 +70,7 @@ If you do need to store this information, document the business justification.
 Mask PAN when displayed (the first six and last four digits are the maximum number of digits to be displayed), such that only personnel with a legitimate business need can see the full PAN. 
 
 #### Your responsibilities
-Primary account number (PAN) is senstive data and exposure to this data must be prevented through  masking. 
+Primary account number (PAN) is considered to be senstive data and exposure to this data must be prevented. One way is to reduce the displayed digits through masking. 
 
 Do not implement data masking in the workload. Instead, use database-level constructs. Azure SQL line of services including Azure Synapse Analytics support dynamic data masking, which reduces exposure at the application layer. It's a policy-based security feature that defines who can view the unmasked data and how much data is exposed through masking.  The built-in **Credit card** masking method exposes the last four digits of the designated fields and adds a constant string as a prefix in the form of a credit card.
 
@@ -114,8 +110,49 @@ Make sure PAN is not exposed as part of your workflow processes. Here are some c
 As a general rule, do not store state in the AKS cluster. Use an external data storage that supports storage-engine level encyrption.
 
 ### Requirement 3.5
+Document and implement procedures to protect keys used to secure stored cardholder data against disclosure and misuse: 
 
 #### Your responsibilities
+
+These points are described in the subsections: 
+- Maintain the practice of least-privilege access for the cryptographic keys. 
+- Azure Key Vault and Azure Active Directory are designed to support the authorization and audit logging requirements. For details, see [Request authentication for Azure Key Vault](/azure/key-vault/general/authentication-requests-and-responses#authentication).
+- Protect all data encryption keys with a key encryption key that's stored in a cryptographic device. 
+- If you use self-managed keys (instead of Microsoft-managed keys), have a process and documentation for maintaining tasks related key management. may be used to protect another key.
+
+
+### Requirement 3.5.1
+Additional requirement for service providers only: Maintain a documented description of the cryptographic architecture that includes:
+- Details of all algorithms, protocols, and keys used for the protection of cardholder data, including key strength and expiry date
+- Description of the key usage for each key
+- Inventory of any HSMs and other SCDs used for key management
+
+#### Your responsibilities
+
+By default, Azure uses Microsoft-managed keys for all encrypted data, per customer. However, some services also support self-managed keys for encryption. If your design uses self-managed keys for encrytpion at rest, ensure you account for a process and strategy that handles the tasks related to managed those keys, for example key rotation.
+
+As part of your documentation, include information related to key management such as expiry, location, and maintenance plan details.
+
+
+### Requirement 3.5.2
+Restrict access to cryptographic keys to the fewest number of custodians necessary.
+
+#### Your responsibilities
+
+Minimize the number of people who have access to the keys. If using any group-based role assignments, set up a recurring audit process to review roles that have access. When project team members change, accounts that are no longer relavent must removed from permissions. Only the right people should have access. Consider removing standing permissions in favor of just-in-time (JIT) role assignments, time-based, and approval-based role activation. 
+
+### Requirement 3.5.3
+Store secret and private keys used to encrypt/decrypt cardholder data in one (or more) of the following forms at all times:
+- Encrypted with a key-encrypting key that is at least as strong as the data-encrypting key, and that is stored  separately from the data-encrypting key
+- Within a secure cryptographic device (such as a hardware (host) security module (HSM) or PTS-approved point-of-interaction device)
+- As at least two full-length key components or key shares, in accordance with an industry- accepted method
+
+#### Your responsibilities
+
+A PCI-DSS workload will need to use more than one encryption key as part of the the data-at-rest protection strategy. While data encryption key (DEK) is used to encrypt and decrypt CHD, you're responsible for an additional key encryption key (KEK) to protect that DEK. You're also responsible for ensuring that KEK is stored in a cryptographic device. 
+
+Azure Key Vault can be used to store the DEK, while Azure Dedicated HSM may be used to store the KEK. For information about HSM key management, see [What is Azure Dedicated HSM?](/azure/dedicated-hsm/overview).
+
 
 ### Requirement 3.6
 
