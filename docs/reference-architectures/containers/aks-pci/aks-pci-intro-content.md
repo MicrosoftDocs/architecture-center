@@ -39,32 +39,7 @@ This series assumes:
 - You're well versed with the official [PCI DSS specification](https://www.pcisecuritystandards.org/documents/PCI_DSS_v3-2-1.pdf). 
 - You've read the [Azure security baseline for Azure Kubernetes Service](/security/benchmark/azure/baselines/aks-security-baseline).
 
-## Code assets
-This series is focused on the infrastructure and _not_ the workload. The recommendations and examples are extracted from this accompanying reference implementation:
 
-![GitHub logo](../../../_images/github.png) [GitHub: Azure Kubernetes Service (AKS) Baseline Cluster for Regulated Workloads](https://github.com/mspnp/aks-baseline-regulated) demonstrates the regulated infrastructure. This implementation provides a microservices application. It's included to help you experience the infrastructure and illustrate the network and security controls. The application does _not_ represent or implement an actual PCI DSS workload.
-
-### Workload isolation
-The main theme of the PCI standard is to isolate the PCI workload from other workloads in terms of operations and connectivity. In this series we differentiate between those concepts as:
-
-- In-scope&mdash;The PCI workload, the environment in which it resides, and operations.
-
-- Out-of-scope&mdash;Other workloads that may share services but are isolated from the in-scope components.
-
-The key strategy is to provide the required level of  segmentation. One way is to deploy in-scope and out-of-scope components in separate clusters. The down side is increased costs for the added infrastructure and the maintenance overhead. Another approach is to colocate all components in a shared cluster. Use segmentation strategies to maintain the separation. 
-
-In the reference implementation, the second approach is demonstrated with a microservices application deployed to a single cluster. The application has  two sets of services; one set has in-scope pods and the other is out-of-scope. Both sets are spread across two user node pools. With the use of Kubernetes taints, in-scope and out-of-scope pods are deployed to separate nodes and they never share a node VM.
-
-> [!IMPORTANT]
->
-> The reference architecture and implementation have not been certified by an official authority. By completing this series and deploying the code assets, you do not clear audit for PCI DSS. Acquire compliance attestations from third-party auditors.
-
-## Next
-
-Install and maintain a firewall configuration to protect cardholder data. Do not use vendor-supplied defaults for system passwords and other security parameters.
-
-> [!div class="nextstepaction"]
-> [Build and Maintain a Secure Network and Systems](aks-pci-network.yml)
 	
 																
 																

@@ -935,6 +935,8 @@ items:
                 items:
                   - name: Before you begin...
                     href: reference-architectures/containers/aks-pci/aks-pci-intro.yml
+                  - name: Architecture code assets
+                    href: reference-architectures/containers/aks-pci/aks-pci-ra-code-assets.yml                    
                   - name: Network segmentation
                     href: reference-architectures/containers/aks-pci/aks-pci-network.yml                  
                   - name: Data protection
