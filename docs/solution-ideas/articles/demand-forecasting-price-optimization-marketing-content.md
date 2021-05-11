@@ -7,7 +7,7 @@ Pricing is pivotal for many industries, but it can be one of the most challengin
 
 This solution addresses those challenges by using historical transaction data to train a demand-forecasting model in a retail context. It also incorporates the pricing of products in a competing group to predict cannibalization and other cross-product impacts. A price-optimization algorithm then uses that model to forecast demand at various price points and factors in business constraints to maximize potential profit.
 
-The process described above can be operationalized and deployed in [Microsoft AI platform](https://www.microsoft.com/ai/ai-platform). Using this solution to ingest historical transaction data, predict future demand, and regularly optimize pricing, you'll save time and effort allocated to pricing tasks.
+The process described above can be operationalized and deployed in [Microsoft AI platform](https://www.microsoft.com/ai/ai-platform). With this solution you can ingest historical transaction data, predict future demand, and regularly optimize pricing, saving time and effort spent on pricing tasks.
 
 ## Architecture
 
