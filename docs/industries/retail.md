@@ -48,8 +48,8 @@ The following articles provide detailed analysis of architectures developed and 
 | [Movie recommendations on Azure](../example-scenario/ai/movie-recommendations.yml) | Automate movie and product recommendations by using an Azure Data Science Virtual Machine to train an Azure Machine Learning model. | AI/ML |
 | [Scalable personalization on Azure](../example-scenario/ai/scalable-personalization.yml) | Build a *content-based* personalized recommendation system for customers by learning their preferences from past purchases and interactions. | AI/ML |
 | [Data warehousing and analytics](../example-scenario/data/data-warehouse.yml) | Build an insightful sales and marketing solution with a data pipeline that integrates large amounts of data from multiple sources into a unified analytics platform in Azure. | Analytics |
-| [Stream processing with Azure Databricks](../reference-architectures/data/stream-processing-databricks.yml) | Use Azure Databricks to build an end-to-end stream processing pipeline for a taxi company, to collect and analyze trip and fare data from multiple devices. | Analytics |
-| [Stream processing with Azure Stream Analytics](../reference-architectures/data/stream-processing-stream-analytics.yml) | Use Azure Stream Analytics to build an end-to-end stream processing pipeline for a taxi company, to collect and analyze trip and fare data from multiple devices. | Analytics |
+| [Stream processing with Azure Databricks](../reference-architectures/data/stream-processing-databricks.yml) | Use Azure Databricks to build an end-to-end stream processing pipeline for a taxi company, to collect, and analyze trip and fare data from multiple devices. | Analytics |
+| [Stream processing with Azure Stream Analytics](../reference-architectures/data/stream-processing-stream-analytics.yml) | Use Azure Stream Analytics to build an end-to-end stream processing pipeline for a taxi company, to collect, and analyze trip and fare data from multiple devices. | Analytics |
 | [E-commerce front end](../example-scenario/apps/ecommerce-scenario.yml) | Implement a scalable and cost-effective e-commerce front end using Azure platform as a service (PaaS) tools. | Web |
 | [Intelligent product search engine for e-commerce](../example-scenario/apps/ecommerce-search.yml) | Use Azure Cognitive Search, a dedicated search service, to dramatically increase the relevance of search results for your e-commerce customers. | Web |
 | [Magento e-commerce platform in Azure Kubernetes Service](../example-scenario/magento/magento-azure.yml) | Learn how to deploy and host Magento, an open-source e-commerce platform, on Azure. | Web |
@@ -58,7 +58,7 @@ The following articles provide detailed analysis of architectures developed and 
 
 ## Solution ideas for retail
 
-The following are some additional ideas that you can use as a starting point for your retail solution.
+The following are other ideas that you can use as a starting point for your retail solution.
 
 **AI**.
 
