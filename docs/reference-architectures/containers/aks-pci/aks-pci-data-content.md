@@ -44,7 +44,7 @@ Adhere strictly to the standard guidance about what kind of CHD can be stored. D
 - What actions are permitted during the retention period?
 - How are you deleting the stored data after the retention period has expired? 
 
-When choosing a storage technology, explore the retention features. For example, Azure Blob storage provides [Time-based retention policies](/azure/storage/blobs/storage-blob-immutable-storage#time-based-retention-policies). Another choice is to implement a custom solution that deletes data according to retention policies. An example is Data Lifecycle Management (DLM) that manages data life cycle activities. The solution has been designed with services such as like Azure Data Factory, Azure Active Directory (Azure AD), and Azure Key Vault. 
+When choosing a storage technology, explore the retention features. For example, Azure Blob storage provides [Time-based retention policies](/azure/storage/blobs/storage-blob-immutable-storage#time-based-retention-policies). Another choice is to implement a custom solution that deletes data according to retention policies. An example is Data Lifecycle Management (DLM) that manages data life-cycle activities. The solution has been designed with services such as like Azure Data Factory, Azure Active Directory (Azure AD), and Azure Key Vault. 
 
 For more information, see [Managing the data life cycle using Azure Data Factory](https://www.microsoft.com/itshowcase/managing-the-data-life-cycle-using-azure-data-factory).
 
@@ -70,7 +70,7 @@ If you do need to store this information, document the business justification.
 Mask PAN when displayed (the first six and last four digits are the maximum number of digits to be displayed), such that only personnel with a legitimate business need can see the full PAN. 
 
 #### Your responsibilities
-Primary account number (PAN) is considered to be senstive data and exposure to this data must be prevented. One way is to reduce the displayed digits through masking. 
+Primary account number (PAN) is considered to be sensitive data and exposure to this data must be prevented. One way is to reduce the displayed digits through masking. 
 
 Do not implement data masking in the workload. Instead, use database-level constructs. Azure SQL line of services including Azure Synapse Analytics support dynamic data masking, which reduces exposure at the application layer. It's a policy-based security feature that defines who can view the unmasked data and how much data is exposed through masking.  The built-in **Credit card** masking method exposes the last four digits of the designated fields and adds a constant string as a prefix in the form of a credit card.
 
@@ -107,7 +107,7 @@ Make sure PAN is not exposed as part of your workflow processes. Here are some c
 
 
 ##### Your responsibilities
-As a general rule, do not store state in the AKS cluster. Use an external data storage that supports storage-engine level encyrption.
+As a general rule, do not store state in the AKS cluster. Use an external data storage that supports storage-engine level encryption.
 
 ### Requirement 3.5
 Document and implement procedures to protect keys used to secure stored cardholder data against disclosure and misuse: 
@@ -129,7 +129,7 @@ Additional requirement for service providers only: Maintain a documented descrip
 
 ##### Your responsibilities
 
-By default, Azure uses Microsoft-managed keys for all encrypted data, per customer. However, some services also support self-managed keys for encryption. If your design uses self-managed keys for encrytpion at rest, ensure you account for a process and strategy that handles the tasks related to managed those keys, for example key rotation.
+By default, Azure uses Microsoft-managed keys for all encrypted data, per customer. However, some services also support self-managed keys for encryption. If your design uses self-managed keys for encryption at rest, ensure you account for a process and strategy that handles the tasks related to management of those keys, for example key rotation.
 
 As part of your documentation, include information related to key management such as expiry, location, and maintenance plan details.
 
@@ -139,7 +139,7 @@ Restrict access to cryptographic keys to the fewest number of custodians necessa
 
 ##### Your responsibilities
 
-Minimize the number of people who have access to the keys. If using any group-based role assignments, set up a recurring audit process to review roles that have access. When project team members change, accounts that are no longer relavent must removed from permissions. Only the right people should have access. Consider removing standing permissions in favor of just-in-time (JIT) role assignments, time-based, and approval-based role activation. 
+Minimize the number of people who have access to the keys. If using any group-based role assignments, set up a recurring audit process to review roles that have access. When project team members change, accounts that are no longer relavant must be removed from permissions. Only the right people should have access. Consider removing standing permissions in favor of just-in-time (JIT) role assignments, time-based, and approval-based role activation. 
 
 #### Requirement 3.5.3
 Store secret and private keys used to encrypt/decrypt cardholder data in one (or more) of the following forms at all times:
@@ -149,7 +149,7 @@ Store secret and private keys used to encrypt/decrypt cardholder data in one (or
 
 ##### Your responsibilities
 
-A PCI-DSS workload will need to use more than one encryption key as part of the the data-at-rest protection strategy. While data encryption key (DEK) is used to encrypt and decrypt CHD, you're responsible for an additional key encryption key (KEK) to protect that DEK. You're also responsible for ensuring that KEK is stored in a cryptographic device. 
+A PCI-DSS workload will need to use more than one encryption key as part of the data-at-rest protection strategy. While data encryption key (DEK) is used to encrypt and decrypt CHD, you're responsible for an additional key encryption key (KEK) to protect that DEK. You're also responsible for ensuring that KEK is stored in a cryptographic device. 
 
 Azure Key Vault can be used to store the DEK, while Azure Dedicated HSM may be used to store the KEK. For information about HSM key management, see [What is Azure Dedicated HSM?](/azure/dedicated-hsm/overview).
 
@@ -188,9 +188,9 @@ Maintain legal documentation that describes the accountabilities of the parties 
 Ensure that security policies and operational procedures for protecting stored cardholder data are documented, in use, and known to all affected parties.
 
 #### Your responsibilities
-Documentation -- this should be created as a general statement plus a series of up to date role guide for all personas.  New hire training and ongoing training should be performed.
+Documentation -- this should be created as a general statement plus a series of up-to-date role guide for all personas.  New hire training and ongoing training should be performed.
 
-It's critical that you maintain thorough documentation about the process and policies. Several teams participate in making sure data is protected at rest and in transit. In your documentation, provide role guidance for all personas. The roles should include SRE, customer support, sales, network operations, security operations, software engineers, database administrators, and others. Personnel should be trained in NIST guidance and data-at-rest strategies to keep the skill set up to date. 
+It's critical that you maintain thorough documentation about the process and policies. Several teams participate in making sure data is protected at rest and in transit. In your documentation, provide role guidance for all personas. The roles should include SRE, customer support, sales, network operations, security operations, software engineers, database administrators, and others. Personnel should be trained in NIST guidance and data-at-rest strategies to keep the skillset up to date. 
 
 ### Requirement 4.1
 
