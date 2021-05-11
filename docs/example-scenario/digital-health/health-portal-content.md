@@ -107,7 +107,7 @@ Make sure to also use [role-based access control](/azure/storage/common/storage-
 
 ### Azure Key Vault
 
-Requests made to the Azure Key Vault should [be authenticated using Azure AD or MSI](/azure/key-vault/general/authentication-fundamentals) in addition to [privileged access controls](/azure/key-vault/general/security-overview#privileged-access). Integrate [Key Vault with Azure Defender](/azure/security-center/defender-for-key-vault-introduction) in addition to [logging Key Vault actions](/azure/key-vault/general/logging?tabs=Vault) in Azure Monitor. You can read more at [Security practices for Azure Key Vault](/azure/key-vault/general/security-overview).
+Requests made to the Azure Key Vault should [be authenticated using Azure AD or MSI](/azure/key-vault/general/authentication) in addition to [privileged access controls](/azure/key-vault/general/security-overview#privileged-access). Integrate [Key Vault with Azure Defender](/azure/security-center/defender-for-key-vault-introduction) in addition to [logging Key Vault actions](/azure/key-vault/general/logging?tabs=Vault) in Azure Monitor. You can read more at [Security practices for Azure Key Vault](/azure/key-vault/general/security-overview).
 
 ### Azure AD B2C
 
