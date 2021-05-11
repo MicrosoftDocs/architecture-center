@@ -2,12 +2,28 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id/>
     <title>Azure Architecture Center</title>
-    <updated>2021-05-03T22:18:35.881Z</updated>
+    <updated>2021-05-11T14:52:05.189Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <subtitle>Updated articles for Azure Architecture Center</subtitle>
     <rights>https://docs.microsoft.com/legal/termsofuse</rights>
     <category term="new"/>
     <category term="updated"/>
+    <entry>
+        <title type="html"><![CDATA[Choose a Kubernetes at the edge compute option]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/operator-guides/aks/choose-kubernetes-edge-compute-option</id>
+        <link href="https://docs.microsoft.com/azure/architecture/operator-guides/aks/choose-kubernetes-edge-compute-option"/>
+        <updated>2021-05-10T19:57:36.000Z</updated>
+        <summary type="html"><![CDATA[Learn about trade-offs for various options available for extending compute on the edge.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Protect APIs with Azure Application Gateway and Azure API Management]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/reference-architectures/apis/protect-apis</id>
+        <link href="https://docs.microsoft.com/azure/architecture/reference-architectures/apis/protect-apis"/>
+        <updated>2021-05-10T18:46:25.000Z</updated>
+        <summary type="html"><![CDATA[See how to protect APIs with API Management and Application Gateway.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Mainframe access to Azure databases]]></title>
         <id>https://docs.microsoft.com/azure/architecture/solution-ideas/articles/mainframe-access-azure-databases</id>
@@ -15,6 +31,38 @@
         <updated>2021-05-03T18:01:53.000Z</updated>
         <summary type="html"><![CDATA[Give mainframe applications access to Azure data without changing code. Use Microsoft Service for DRDA to run Db2 SQL statements on a SQL Server database.]]></summary>
         <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Population Health Management for Healthcare]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/solution-ideas/articles/population-health-management-for-healthcare</id>
+        <link href="https://docs.microsoft.com/azure/architecture/solution-ideas/articles/population-health-management-for-healthcare"/>
+        <updated>2021-05-07T14:29:24.000Z</updated>
+        <summary type="html"><![CDATA[Use Population Health Management to improve clinical and health outcomes and reduce costs. Track, monitor, and benchmark data with this tool.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[HPC cluster deployed in the cloud]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/solution-ideas/articles/hpc-cluster</id>
+        <link href="https://docs.microsoft.com/azure/architecture/solution-ideas/articles/hpc-cluster"/>
+        <updated>2021-05-07T03:55:54.000Z</updated>
+        <summary type="html"><![CDATA[Run high performance computing (HPC) applications in Azure with a low-maintenance solution that includes the head node, compute nodes, and storage nodes.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Microsoft Azure Well-Architected Framework]]></title>
+        <id>https://docs.microsoft.com/azure/architecture//framework</id>
+        <link href="https://docs.microsoft.com/azure/architecture//framework"/>
+        <updated>2021-05-05T14:25:14.000Z</updated>
+        <summary type="html"><![CDATA[Describes five pillars of software quality, scalability, devops, resiliency, cost, and security.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Hub-spoke network topology in Azure]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke</id>
+        <link href="https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke"/>
+        <updated>2021-05-04T05:04:54.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to implement a hub-spoke topology in Azure, where the hub is a virtual network and the spokes are virtual networks that peer with the hub.]]></summary>
+        <category label="updated" term="updated"/>
     </entry>
     <entry>
         <title type="html"><![CDATA[Challenges of monitoring distributed architectures]]></title>
