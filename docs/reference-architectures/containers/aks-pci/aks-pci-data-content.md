@@ -139,7 +139,7 @@ Restrict access to cryptographic keys to the fewest number of custodians necessa
 
 ##### Your responsibilities
 
-Minimize the number of people who have access to the keys. If using any group-based role assignments, set up a recurring audit process to review roles that have access. When project team members change, accounts that are no longer relavant must be removed from permissions. Only the right people should have access. Consider removing standing permissions in favor of just-in-time (JIT) role assignments, time-based, and approval-based role activation. 
+Minimize the number of people who have access to the keys. If using any group-based role assignments, set up a recurring audit process to review roles that have access. When project team members change, accounts that are no longer relevant must be removed from permissions. Only the right people should have access. Consider removing standing permissions in favor of just-in-time (JIT) role assignments, time-based, and approval-based role activation. 
 
 #### Requirement 3.5.3
 Store secret and private keys used to encrypt/decrypt cardholder data in one (or more) of the following forms at all times:
