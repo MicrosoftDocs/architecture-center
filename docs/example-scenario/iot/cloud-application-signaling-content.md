@@ -19,7 +19,7 @@ In an IoT solution, telemetry and alerts can be consumed in near real-time by pu
 
 Here are some considerations when using this pattern.
 -   Low latency requirements: Understand the maximum latency requirement from the data ingestion to the application. The cloud application signal pattern may apply to near real-time scenarios of up to 10 seconds. Any extra data transformation and/or layers may impact latency.
--   Performance: Understand the inbound and outbound messages in the scenario and select the right tiers to scale the solution based on requirements. For more information, see [Performance considerations](https://docs.microsoft.com/en-us/azure/azure-signalr/signalr-concept-performance). 
+-   Performance: Understand the inbound and outbound messages in the scenario and select the right tiers to scale the solution based on requirements. For more information, see [Performance considerations](/azure/azure-signalr/signalr-concept-performance). 
 
 When to use this pattern:
 -   Any scenario that requires pushing data from server to client in real-time. Sending data for real-time functionality like visualization and/or applications. 
@@ -27,7 +27,7 @@ When to use this pattern:
 
 When not to use this pattern:
 -   This pattern is used for real-time functionality of a **cloud-based** application. If the scenario calls for low latency and reliability, an on-premises based solution design may be considered. 
--   When required to visualize on Power BI, the [streaming data](https://docs.microsoft.com/en-us/power-bi/connect-data/service-real-time-streaming) could be an option.
+-   When required to visualize on Power BI, the [streaming data](/power-bi/connect-data/service-real-time-streaming) could be an option.
 
 
 ## Use cases
@@ -41,6 +41,5 @@ When not to use this pattern:
 -   [Azure SignalR](https://azure.microsoft.com/services/signalr-service/)
 -   [Real time IoT data with SignalR](https://anthonychu.ca/post/end-to-end-realtime-python-iot-azure-functions-signalr-iothub/)
 -   [Broadcast Real-time Updates from Cosmos DB with SignalR Service and Azure Functions](https://anthonychu.ca/post/cosmosdb-real-time-azure-functions-signalr-service/)
--   [Visualizing real time IoT data using Power BI](https://docs.microsoft.com/azure/iot-hub/iot-hub-live-data-visualization-in-power-bi)
--   [Azure Stream Analytics patterns](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-solution-patterns)
-
+-   [Visualizing real time IoT data using Power BI](/azure/iot-hub/iot-hub-live-data-visualization-in-power-bi)
+-   [Azure Stream Analytics patterns](/azure/stream-analytics/stream-analytics-solution-patterns)
