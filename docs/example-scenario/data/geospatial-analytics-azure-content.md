@@ -1,15 +1,28 @@
 # GIS Data Processing and Serving
+Many possibilities exist for working with *geospatial data*, or information that includes a geographic component. For instance, geographic information system (GIS) software and standards are widely available. These technologies can store, process, and provide access to geospatial data. But it's often hard to configure and maintain such systems. And you need expert knowledge to integrate those systems with other systems.
 
-The more advanced our capabilities to create digital twins of our world become, the more important it is to localize data assests, combine it with real-world reference data and to be able to perform spatial analytics.
+This solution outlines a manageable way to make geospatial data available for analytics. It meets these goals:
 
-There are many GIS software vendors and standards to store, process and serve geospatial data. However, configuration and maintenance of those systems is complex and integration with other systems requires a lot of expert knowledge.
+- Collect large volumes of data on data assets with known locations.
+- Combine the asset data with real-world reference data.
+- Make the processed data available for spatial analytics in web apps.
+- Something about being fully managed and therefore better than existing solutions.
 
-This architecture to process and serve massive amounts of geospatial data is a derivative from the [Advanced Analytics Reference Architecture](https://docs.microsoft.com/en-us/azure/architecture/solution-ideas/articles/advanced-analytics-on-big-data) and builds on native Azure services: Databricks with GIS Spark libraries is used to preprocess data, Azure PostgreSQL is used to serve data through APIs and Azure Data Explorer is our recommended solution for blazing fast exploratory queries. This architecture uses Azure Maps for visualization of geospatial data in web applications and PowerBI (with [Azure Maps Power BI visual](https://docs.microsoft.com/en-us/azure/azure-maps/power-bi-visual-getting-started)) for custom reports.
+The solution, which is based on [Advanced Analytics Reference Architecture][Advanced analytics architecture], uses these Azure services:
 
-Sample use cases include:
+- Databricks with GIS Spark libraries preprocesses data.
+- Azure PostgreSQL queries data through APIs.
+- Azure Data Explorer handles very fast exploratory queries.
+- Azure Maps visualizes geospatial data in web applications.
+- The [Azure Maps Power BI visual][Getting started with the Azure Maps Power BI visual] feature of PowerBI provides custom reports.
 
-- Process, store and serve large amounts of raster data, such as maps or climate data.
-- Localize your entities from ERP systems and combine it with GIS reference data.
+## Potential use cases
+
+This solution has applications in many areas:
+
+- Processing, storing, and providing access to large amounts of raster data, such as maps or climate data.
+- *Localizing* enterprise resource planning (ERP) system entities, or identifying their geographic position.
+- Combining entity location data with GIS reference data.
 - Store IoT telemetry from moving devices and perform analytical geospatial queries.
 - Embed your curated and contextualized geospatial data in web applications.
 
@@ -77,7 +90,7 @@ Throughout the process:
 
 - [GIS data APIs in Azure Maps][Create a data source for Azure Maps] store and retrieve map data in formats like GeoJSON and vector tiles.
 
-- [Azure Data Explorer][What is Azure Data Explorer?] is a fast, fully managed data analytics service that can work with large volumes of data. This service handles diverse data streams from applications, websites, IoT devices, and other sources. [Geospatial functionality][Azure Data Explorer extends geospatial functionality] provides options for rendering map data.
+- [Azure Data Explorer][What is Azure Data Explorer?] is a fast, fully managed data analytics service that can work with [large volumes of data][Azure Data Explorer performance update (EngineV3)]. Although this service originally focused on time series and log analytics, it now handles diverse data streams from applications, websites, IoT devices, and other sources. [Geospatial functionality][Azure Data Explorer extends geospatial functionality] in Azure Data Explorer provides options for rendering map data.
 
 - [Azure Monitor][Azure Monitor overview] collects data on environments and Azure resources. This diagnostic information is helpful for maintaining availability and performance. Two data platforms make up Monitor:
 
@@ -94,7 +107,12 @@ Throughout the process:
 
 - If your goal is to provide a standardized interface for GIS data, consider using [GeoServer][GeoServer]. This open framework implements industry-standard [Open Geospatial Consortium (OGC)][Open Geospatial Consortium] protocols such as [Web Feature Service (WFS)][Web Feature Service]. It also integrates with common spatial data sources. You can deploy GeoServer as a container on a virtual machine. When custom web applications and exploratory queries are secondary, GeoServer provides a straightforward way to publish geospatial data.
 
-[Open Geospatial Consortium]: https://www.osgeo.org/partners/ogc/
+- A variety of Spark libraries are available for processing geospatial data on Azure Databricks. This solution uses these libraries:
+
+  - [Apache Sedona (GeoSpark)][Apache Sedona (incubating)]
+  - [GeoPandas][GeoPandas 0.8.0 — GeoPandas 0.8.0 documentation]
+
+  But [other solutions also exist for scaling geospatial workloads with Databricks][Processing Geospatial Data at Scale With Databricks].
 
 - Like Event Hubs, [Azure IoT Hub][What is Azure IoT Hub?] can ingest large amounts of data. But IoT Hub also offers bi-directional communication capabilities with devices. If you receive data directly from devices but also send commands and policies back to devices, consider IoT Hub instead of Event Hubs.
 
@@ -105,12 +123,7 @@ Throughout the process:
 
 ## Considerations
 
-There is a variety of Spark libraries available to process geospatial data on Azure Databricks: [Processing Geospatial Data at Scale With Databricks](https://databricks.com/blog/2019/12/05/processing-geospatial-data-at-scale-with-databricks.html). In our reference implementation, we used Apache Sedona (GeoSpark) and GeoPandas:
-
-  - [GeoPandas 0.8.0 — GeoPandas 0.8.0 documentation](https://geopandas.org/)
-  - [Apache Sedona (incubating)](http://sedona.apache.org/)
-
-Azure Data Explorer (ADX) was originally designed for time series and log analytics. The product has been established as a powerful, general-purpose analytics and compute engine. The recent addition of Geospatial Functions ([Azure Data Explorer extends geospatial functionality | Azure updates | Microsoft Azure](https://azure.microsoft.com/en-us/updates/adx-geo-updates/)). The generic functionality of ADX is described here: [Azure Data Explorer Kusto EngineV3 (preview) | Microsoft Docs](https://docs.microsoft.com/en-us/azure/data-explorer/engine-v3)
+The following considerations, based on the [Microsoft Azure Well-Architected Framework][Microsoft Azure Well-Architected Framework], apply to this solution:
 
 ### Availability considerations
 
@@ -210,12 +223,15 @@ The pricing for a deployment with a sizing mentioned in the considerations secti
 
 [About Azure Key Vault]: /azure/key-vault/general/overview
 [Add a TLS/SSL certificate in Azure App Service]: /azure/app-service/configure-ssl-certificate
+[Advanced analytics architecture]: /azure/architecture/solution-ideas/articles/advanced-analytics-on-big-data
+[Apache Sedona (incubating)]: http://sedona.apache.org/
 [App Service documentation]: /azure/app-service/
 [App Service overview]: /azure/app-service/overview
 [Azure App Service diagnostics overview]: /azure/app-service/overview-diagnostics
 [Azure App Service SSL certificates available for purchase]: https://azure.microsoft.com/updates/azure-app-service-ssl-certificates-available-for-purchase/
 [Azure Data Explorer]: https://azure.microsoft.com/services/data-explorer/
 [Azure Data Explorer extends geospatial functionality]: https://azure.microsoft.com/updates/adx-geo-updates/
+[Azure Data Explorer performance update (EngineV3)]: https://docs.microsoft.com/azure/data-explorer/engine-v3
 [Azure Databricks Workspace concepts]: /azure/databricks/getting-started/concepts
 [Azure Event Hubs — A big data streaming platform and event ingestion service]: /azure/event-hubs/event-hubs-about
 [Azure Event Hubs - Geo-disaster recovery]: /azure/event-hubs/event-hubs-geo-dr
@@ -229,6 +245,7 @@ The pricing for a deployment with a sizing mentioned in the considerations secti
 [Copy performance and scalability achievable using ADF]: /azure/data-factory/copy-activity-performance#copy-performance-and-scalability-achievable-using-adf
 [Create a data source for Azure Maps]: /azure/azure-maps/create-data-source-web-sdk#geojson-data-source
 [GeoJSON format]: https://tools.ietf.org/html/rfc7946
+[GeoPandas 0.8.0 — GeoPandas 0.8.0 documentation]: https://geopandas.org/
 [GeoServer]: https://en.wikipedia.org/wiki/GeoServer
 [Getting started with the Azure Maps Power BI visual]: /azure/azure-maps/power-bi-visual-getting-started
 [GitHub - mapbox/tippecanoe]: https://github.com/mapbox/tippecanoe
@@ -237,11 +254,14 @@ The pricing for a deployment with a sizing mentioned in the considerations secti
 [Introduction to Azure Data Lake Storage Gen2 scalability]: /azure/storage/blobs/data-lake-storage-introduction#scalability
 [Introduction to Azure Functions]: /azure/azure-functions/functions-overview
 [Mapbox Vector Tile specification]: https://github.com/mapbox/vector-tile-spec
+[Microsoft Azure Well-Architected Framework]: /azure/architecture/framework/
+[Open Geospatial Consortium]: https://www.osgeo.org/partners/ogc/
 [Overview of autoscale in Microsoft Azure]: /azure/azure-monitor/autoscale/autoscale-overview
 [Overview of business continuity with Azure Database for PostgreSQL - Single Server]: /azure/postgresql/concepts-business-continuity
 [Overview of Log Analytics in Azure Monitor]: /azure/azure-monitor/logs/log-analytics-overview
 [PostGIS]: https://www.postgis.net/
 [PostgreSQL]: https://www.postgresql.org/
+[Processing Geospatial Data at Scale With Databricks]: https://databricks.com/blog/2019/12/05/processing-geospatial-data-at-scale-with-databricks.html
 [Quickstart: create a Hyperscale (Citus) server group in the Azure portal]: /azure/postgresql/quickstart-create-hyperscale-portal
 [Redis]: https://redis.io/
 [Rust]: https://www.rust-lang.org/
@@ -259,8 +279,3 @@ The pricing for a deployment with a sizing mentioned in the considerations secti
 [What is Azure Database for PostgreSQL?]: /azure/postgresql/overview
 [What is Azure IoT Hub?]: /azure/iot-hub/about-iot-hub
 [What is Power BI?]: /power-bi/fundamentals/power-bi-overview
-
-
-
-
-
