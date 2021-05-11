@@ -51,11 +51,11 @@ For more information, see [Managing the data life cycle using Azure Data Factory
 
 ### Requirement 3.2
 
-(APPLIES TO: Requirement 3.2.1, Requirement 3.2.2, Requirement 3.2.3)
-
 Do not store sensitive authentication data after authorization (even if encrypted). If sensitive authentication data is received, render all data unrecoverable upon completion of the authorization process. 
 
 #### Your responsibilities
+(APPLIES TO: Requirement 3.2.1, Requirement 3.2.2, Requirement 3.2.3)
+
 As per the standard sensitive authentication data consists of full track data, card validation code or value, and PIN data. As part of CHD processing, make sure that authentication data is not exposed in sources such as,
 - Logs that are emitted from the pods should not include the data.
 - Exception handling routines.
@@ -106,7 +106,7 @@ Make sure PAN is not exposed as part of your workflow processes. Here are some c
  If disk encryption is used (rather than file- or column-level database encryption), logical access must be managed separately and independently of native operating system authentication and access control mechanisms (for example, by not using local user account databases or general network login credentials). Decryption keys must not be associated with user accounts.
 
 
-#### Your responsibilities
+##### Your responsibilities
 As a general rule, do not store state in the AKS cluster. Use an external data storage that supports storage-engine level encyrption.
 
 ### Requirement 3.5
@@ -121,33 +121,33 @@ These points are described in the subsections:
 - If you use self-managed keys (instead of Microsoft-managed keys), have a process and documentation for maintaining tasks related key management. may be used to protect another key.
 
 
-### Requirement 3.5.1
+#### Requirement 3.5.1
 Additional requirement for service providers only: Maintain a documented description of the cryptographic architecture that includes:
 - Details of all algorithms, protocols, and keys used for the protection of cardholder data, including key strength and expiry date
 - Description of the key usage for each key
 - Inventory of any HSMs and other SCDs used for key management
 
-#### Your responsibilities
+##### Your responsibilities
 
 By default, Azure uses Microsoft-managed keys for all encrypted data, per customer. However, some services also support self-managed keys for encryption. If your design uses self-managed keys for encrytpion at rest, ensure you account for a process and strategy that handles the tasks related to managed those keys, for example key rotation.
 
 As part of your documentation, include information related to key management such as expiry, location, and maintenance plan details.
 
 
-### Requirement 3.5.2
+#### Requirement 3.5.2
 Restrict access to cryptographic keys to the fewest number of custodians necessary.
 
-#### Your responsibilities
+##### Your responsibilities
 
 Minimize the number of people who have access to the keys. If using any group-based role assignments, set up a recurring audit process to review roles that have access. When project team members change, accounts that are no longer relavent must removed from permissions. Only the right people should have access. Consider removing standing permissions in favor of just-in-time (JIT) role assignments, time-based, and approval-based role activation. 
 
-### Requirement 3.5.3
+#### Requirement 3.5.3
 Store secret and private keys used to encrypt/decrypt cardholder data in one (or more) of the following forms at all times:
 - Encrypted with a key-encrypting key that is at least as strong as the data-encrypting key, and that is stored  separately from the data-encrypting key
 - Within a secure cryptographic device (such as a hardware (host) security module (HSM) or PTS-approved point-of-interaction device)
 - As at least two full-length key components or key shares, in accordance with an industry- accepted method
 
-#### Your responsibilities
+##### Your responsibilities
 
 A PCI-DSS workload will need to use more than one encryption key as part of the the data-at-rest protection strategy. While data encryption key (DEK) is used to encrypt and decrypt CHD, you're responsible for an additional key encryption key (KEK) to protect that DEK. You're also responsible for ensuring that KEK is stored in a cryptographic device. 
 
@@ -155,13 +155,42 @@ Azure Key Vault can be used to store the DEK, while Azure Dedicated HSM may be u
 
 
 ### Requirement 3.6
+Fully document and implement all key-management processes and procedures for cryptographic keys used for encryption of cardholder data, including the following: 
 
 #### Your responsibilities
+
+(APPLIES TO: Requirement 3.6.1, Requirement 3.6.2, Requirement 3.6.3, Requirement 3.2.4)
+
+Follow [NIST](https://csrc.nist.gov/) guidance about key management. For details, see:
+- [Cryptographic Key Management](https://csrc.nist.gov/projects/key-management/faqs).
+- [SP 800-133 Rev. 2, Recommendation for Cryptographic Key Generation](https://csrc.nist.gov/publications/detail/sp/800-133/rev-2/final)
+- [SP 800-57 Part 1 Rev. 5, Recommendation for Key Management](https://csrc.nist.gov/publications/detail/sp/800-57-part-1/rev-5/final)
+
+#### Requirement 3.6.7
+Prevention of unauthorized substitution of cryptographic keys.
+
+##### Your responsibilities
+
+- **Enable diagnostics** on all key stores. Use Azure Monitor for Key Vault. It collects logs and metrics and sends them to Azure Monitor. For more information, see [Monitoring your key vault service with Azure Monitor for Key Vault](/azure/azure-monitor/insights/key-vault-insights-overview).
+- **Give read-only permissions** to all consumers. 
+- **Do not have standing permissions** for all management service principals. Instead, use just-in-time (JIT) role assignments, time-based, and approval-based role activation. 
+- **Create a centralized view** by integrating logs and alerts into Security Information and Event Management (SIEM) solutions, such as Azure Sentinel.  
+- **Take action on alerts** and notifications, especially on unexpected changes.
+
+#### Requirement 3.6.8
+Requirement for cryptographic key custodians to formally acknowledge that they understand and accept their key-custodian responsibilities.
+
+##### Your responsibilities
+
+Maintain legal documentation that describes the accountabilities of the parties  responsible in the operations of key management. 
 
 ### Requirement 3.7
+Ensure that security policies and operational procedures for protecting stored cardholder data are documented, in use, and known to all affected parties.
 
 #### Your responsibilities
+Documentation -- this should be created as a general statement plus a series of up to date role guide for all personas.  New hire training and ongoing training should be performed.
 
+It's critical that you maintain thorough documentation about the process and policies. Several teams participate in making sure data is protected at rest and in transit. In your documentation, provide role guidance for all personas. The roles should include SRE, customer support, sales, network operations, security operations, software engineers, database administrators, and others. Personnel should be trained in NIST guidance and data-at-rest strategies to keep the skill set up to date. 
 
 ### Requirement 4.1
 

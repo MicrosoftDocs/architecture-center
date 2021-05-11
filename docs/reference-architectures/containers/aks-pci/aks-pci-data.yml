@@ -1,7 +1,7 @@
 ### YamlMime:Architecture
 metadata:
-  title: AKS baseline cluster for a PCI-DSS workload - Data considerations
-  description: Learn how to deploy a microservices architecture on Azure Kubernetes Service (AKS).
+  title: AKS baseline cluster for a PCI-DSS workload - Data Protection
+  description: Best practices for implementing Requirements 3 and Requirement 4 for a PCI-DSS infrastructure. 
   author: PageWriter-MSFT
   ms.author: pnp
   ms.date: 06/06/2021
@@ -14,10 +14,10 @@ metadata:
     - microservices
     - reference-architecture
     - e2e-aks
-name: AKS baseline cluster for a PCI-DSS workload - Data considerations
+name: AKS baseline cluster for a PCI-DSS workload - Data Protection
 azureCategories:
   - containers
-summary: Learn how to deploy a microservices architecture on Azure Kubernetes Service (AKS).
+summary: Best practices for implementing Requirements 3 and Requirement 4 for a PCI-DSS infrastructure. 
 products:
   - azure-active-directory
   - azure-container-registry
