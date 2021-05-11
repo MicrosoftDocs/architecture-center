@@ -765,6 +765,8 @@ items:
                 href: solution-ideas/articles/enterprise-chatbot-disaster-recovery.yml
               - name: Enterprise productivity chatbot
                 href: solution-ideas/articles/enterprise-productivity-chatbot.yml
+              - name: Environment monitoring 
+                href: solution-ideas/articles/environment-monitoring-and-supply-chain-optimization.yml
               - name: FAQ chatbot
                 href: solution-ideas/articles/faq-chatbot-with-data-champion-model.yml
               - name: Hospital patient predictions
