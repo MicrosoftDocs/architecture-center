@@ -27,4 +27,4 @@ products:
   - azure-pipelines
 thumbnailUrl: /azure/architecture/browse/thumbs/aks.png
 content: |
-   [!include[](aks-pci-ra-code-assets.md)]
+   [!include[](aks-pci-ra-code-assets-content.md)]
