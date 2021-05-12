@@ -202,8 +202,8 @@
             "category": [
                 "ai-machine-learning"
             ],
-            "image": "/azure/architecture/solution-ideas/media/cognitive-search.png",
-            "imagepath": "C:\\jvPnpRepos\\architecture-center-pr\\docs\\solution-ideas\\media\\cognitive-search.png",
+            "image": "/azure/architecture/solution-ideas/media/cognitive-search-for-ai-enrichment.png",
+            "imagepath": "C:\\jvPnpRepos\\architecture-center-pr\\docs\\solution-ideas\\media\\cognitive-search-for-ai-enrichment.png",
             "publish_date": "6/01/2020",
             "Summary": "<p>Large, unstructured datasets like the <a href=\"https://www.archives.gov/research/jfk/2017-release\">JFK Files</a>, which contain over 34,000 pages of documents about the CIA investigation of the 1963 JFK assassination, include typewritten and handwritten notes, photos and diagrams, and other unstructured data that standard search solutions can't parse.</p>\n<p><em>AI enrichment</em> in Azure Cognitive Search can extract and enhance searchable, indexable text from images, blobs, and other unstructured data sources like the JFK Files by using pre-trained machine learning skillsets from the Cognitive Services <a href=\"https://docs.microsoft.com/azure/cognitive-services/computer-vision/home\">Computer Vision</a> and <a href=\"https://docs.microsoft.com/azure/cognitive-services/text-analytics/overview\">Text Analytics</a> APIs. You can also create and attach <a href=\"https://docs.microsoft.com/azure/search/cognitive-search-custom-skill-interface\">custom skills</a> to add special processing for domain-specific data like CIA Cryptonyms. Azure Cognitive Search can then index and search the context.</p>\n<ul>\n<li>\n<p><em>Image processing skills</em> like <a href=\"https://docs.microsoft.com/azure/search/cognitive-search-skill-ocr\">Optical Character Recognition (OCR)</a>, <a href=\"https://docs.microsoft.com/azure/cognitive-services/computer-vision/concept-recognizing-text#read-api\">Read</a>, and <a href=\"https://docs.microsoft.com/azure/search/cognitive-search-skill-image-analysis\">image analysis</a> include object and face detection, tag and caption generation, and celebrity and landmark identification. These skills create text representations of image content, which are searchable using the query capabilities of Azure Cognitive Search.</p>\n</li>\n<li>\n<p><em>Natural language processing</em> skills like <a href=\"https://docs.microsoft.com/azure/search/cognitive-search-skill-entity-recognition\">entity recognition</a>, <a href=\"https://docs.microsoft.com/azure/search/cognitive-search-skill-language-detection\">language detection</a>, <a href=\"https://docs.microsoft.com/azure/search/cognitive-search-skill-keyphrases\">key phrase extraction</a>, and <a href=\"https://docs.microsoft.com/azure/cognitive-services/computer-vision/concept-recognizing-text\">text recognition</a> map unstructured text to searchable and filterable fields in an index.</p>\n</li>\n</ul>\n<p>This example solution uses Azure Cognitive Search AI enrichment to extract meaning from the original complex, unstructured JFK Files dataset. You can <a href=\"https://github.com/microsoft/AzureSearch_JFK_Files\">work through the project</a>, watch the process in action in an <a href=\"https://channel9.msdn.com/Shows/AI-Show/Using-Cognitive-Search-to-Understand-the-JFK-Documents\">online video</a>, or explore the JFK Files with an <a href=\"https://aka.ms/jfkfiles-demo\">online demo</a>.</p>",
             "sample_code": true,
@@ -575,8 +575,8 @@
             "category": [
                 "ai-machine-learning"
             ],
-            "image": "/azure/architecture/solution-ideas/media/auditing-and-risk-compliance.png",
-            "imagepath": "C:\\jvPnpRepos\\architecture-center-pr\\docs\\solution-ideas\\media\\auditing-and-risk-compliance.png",
+            "image": "/azure/architecture/solution-ideas/media/knowledge-mining-auditing-and-risk-compliance.png",
+            "imagepath": "C:\\jvPnpRepos\\architecture-center-pr\\docs\\solution-ideas\\media\\knowledge-mining-auditing-and-risk-compliance.png",
             "publish_date": "12/16/2019",
             "Flow": {
                 "FlowStep_A": "This content is enriched by using key phrase extraction, language detection, language translation,entity extraction (organizations and people) and custom models to identify certain regulatory obligations and custom models to identify specific legal terms and clauses",
@@ -1631,10 +1631,10 @@
             "category": [
                 "ai-machine-learning"
             ],
-            "image": "/azure/architecture/solution-ideas/media/business-process-management.png",
-            "imagepath": "C:\\jvPnpRepos\\architecture-center-pr\\docs\\solution-ideas\\media\\business-process-management.png",
+            "image": "/azure/architecture/solution-ideas/media/knowledge-mining-business-process-management.png",
+            "imagepath": "C:\\jvPnpRepos\\architecture-center-pr\\docs\\solution-ideas\\media\\knowledge-mining-business-process-management.png",
             "publish_date": "12/16/2019",
-            "Summary": "<p>This architecture demonstrates how to use Knowledge Mining for business process management.</p>\n<p>When organizations task employees with the review and research of technical data, it can be tedious to read page after page of dense text. Knowledge mining helps employees quickly review these materials. In industries where bidding competition is fierce, or when the diagnosis of a problem must be quick or in near real-time, companies can use knowledge mining to avoid costly mistakes.</p>\n<p><img alt=\"Architecture Diagram\" src=\"https://docs.microsoft.com/azure/architecture/solution-ideas/media/business-process-management.png\" /></p>",
+            "Summary": "<p>This architecture demonstrates how to use Knowledge Mining for business process management.</p>\n<p>When organizations task employees with the review and research of technical data, it can be tedious to read page after page of dense text. Knowledge mining helps employees quickly review these materials. In industries where bidding competition is fierce, or when the diagnosis of a problem must be quick or in near real-time, companies can use knowledge mining to avoid costly mistakes.</p>\n<p><img alt=\"Architecture Diagram\" src=\"https://docs.microsoft.com/azure/architecture/solution-ideas/media/knowledge-mining-business-process-management.png\" /></p>",
             "Flow": {
                 "FlowStep_A": "This content is enriched by using optical character recognition, forms recognition, layout understanding, table extraction, key-value pair extraction",
                 "FlowStep_B": "And finally, the user can automatically populate data from invoices into ELP systems or databases or compile enriched documents in the knowledge store and project them into tabular or object stores, then surface trends in an analytics dashboard, such as frequent issues, popular products, and much more"
@@ -2457,10 +2457,10 @@
             "category": [
                 "ai-machine-learning"
             ],
-            "image": "/azure/architecture/solution-ideas/media/content-research.png",
-            "imagepath": "C:\\jvPnpRepos\\architecture-center-pr\\docs\\solution-ideas\\media\\content-research.png",
+            "image": "/azure/architecture/solution-ideas/media/knowledge-mining-content-research.png",
+            "imagepath": "C:\\jvPnpRepos\\architecture-center-pr\\docs\\solution-ideas\\media\\knowledge-mining-content-research.png",
             "publish_date": "12/16/2019",
-            "Summary": "<p>This architecture describes how knowledge mining can be used for content research.</p>\n<p>When organizations task employees to review and research of technical data, it can be tedious to read page after page of dense text. Knowledge mining helps employees quickly review these dense materials. In industries where bidding competition is fierce, or when the diagnosis of a problem must be quick or in near real-time, companies can use knowledge mining to avoid costly mistakes.</p>\n<p><img alt=\"Architecture Diagram\" src=\"https://docs.microsoft.com/azure/architecture/solution-ideas/media/content-research.png\" /></p>",
+            "Summary": "<p>This architecture describes how knowledge mining can be used for content research.</p>\n<p>When organizations task employees to review and research of technical data, it can be tedious to read page after page of dense text. Knowledge mining helps employees quickly review these dense materials. In industries where bidding competition is fierce, or when the diagnosis of a problem must be quick or in near real-time, companies can use knowledge mining to avoid costly mistakes.</p>\n<p><img alt=\"Architecture Diagram\" src=\"https://docs.microsoft.com/azure/architecture/solution-ideas/media/knowledge-mining-content-research.png\" /></p>",
             "name": "content-research",
             "popularity": 0,
             "topic": "AI + Machine Learning"
@@ -2481,10 +2481,10 @@
             "category": [
                 "ai-machine-learning"
             ],
-            "image": "/azure/architecture/solution-ideas/media/contract-management.png",
-            "imagepath": "C:\\jvPnpRepos\\architecture-center-pr\\docs\\solution-ideas\\media\\contract-management.png",
+            "image": "/azure/architecture/solution-ideas/media/knowledge-mining-contract-management.png",
+            "imagepath": "C:\\jvPnpRepos\\architecture-center-pr\\docs\\solution-ideas\\media\\knowledge-mining-contract-management.png",
             "publish_date": "12/16/2019",
-            "Summary": "<p>Many companies create products for multiple sectors, hence the business opportunities with different vendors and buyers increases exponentially. Knowledge mining can help organizations to scour thousands of pages of sources to create an accurate bid. Minor details in the bidding process can make the difference between a healthy profit or lost opportunity on a project.</p>\n<p><img alt=\"Architecture Diagram\" src=\"https://docs.microsoft.com/azure/architecture/solution-ideas/media/contract-management.png\" /></p>",
+            "Summary": "<p>Many companies create products for multiple sectors, hence the business opportunities with different vendors and buyers increases exponentially. Knowledge mining can help organizations to scour thousands of pages of sources to create an accurate bid. Minor details in the bidding process can make the difference between a healthy profit or lost opportunity on a project.</p>\n<p><img alt=\"Architecture Diagram\" src=\"https://docs.microsoft.com/azure/architecture/solution-ideas/media/knowledge-mining-contract-management.png\" /></p>",
             "name": "contract-management",
             "popularity": 0,
             "topic": "AI + Machine Learning"
@@ -2812,14 +2812,14 @@
             "word_count": 281,
             "read_time": "2 min read",
             "Title": "Customer Feedback and Analytics",
-            "MetaDescription": "Knowledge mining can help customer support teams quickly find the right answer for a customer inquiry or assess customer sentiment at scale.",
+            "MetaDescription": "Knowledge mining can help customer support teams quickly find the right answers for customer questions or assess customer sentiment at scale.",
             "category": [
                 "ai-machine-learning"
             ],
-            "image": "/azure/architecture/solution-ideas/media/customer-feedback-and-analytics.png",
-            "imagepath": "C:\\jvPnpRepos\\architecture-center-pr\\docs\\solution-ideas\\media\\customer-feedback-and-analytics.png",
+            "image": "/azure/architecture/solution-ideas/media/knowledge-mining-customer-feedback-and-analytics.png",
+            "imagepath": "C:\\jvPnpRepos\\architecture-center-pr\\docs\\solution-ideas\\media\\knowledge-mining-customer-feedback-and-analytics.png",
             "publish_date": "12/16/2019",
-            "Summary": "<p>For many companies, customer support is costly and inefficient. Knowledge mining can help customer support teams quickly find the right answer for a customer inquiry or assess customer sentiment at scale.</p>\n<p>Every company is looking to enhance the customer experience. Knowledge mining can aggregate and analyze data to discover trends about what customers are saying and use that information to improve products and services</p>\n<p><img alt=\"Architecture Diagram\" src=\"https://docs.microsoft.com/azure/architecture/solution-ideas/media/customer-feedback-and-analytics.png\" /></p>",
+            "Summary": "<p>For many companies, customer support is costly and inefficient. Knowledge mining can help customer support teams quickly find the right answers for customer questions or assess customer sentiment at scale.</p>\n<p>Every company is looking to enhance the customer experience. Knowledge mining can aggregate and analyze data to discover trends about what customers are saying and use that information to improve products and services</p>\n<p><img alt=\"Architecture Diagram\" src=\"https://docs.microsoft.com/azure/architecture/solution-ideas/media/knowledge-mining-customer-feedback-and-analytics.png\" /></p>",
             "name": "customer-feedback-and-analytics",
             "popularity": 0,
             "topic": "AI + Machine Learning"
@@ -3149,50 +3149,6 @@
             ],
             "name": "demand-forecasting-price-optimization-marketing",
             "popularity": 61,
-            "topic": "Analytics"
-        },
-        {
-            "tags": [
-                "'https:--azure.microsoft.com-solutions-architecture-demand-forecasting-and-price-optimization-'",
-                "acom-architecture",
-                "ai-gallery",
-                "all-items",
-                "anomaly-detection",
-                "artificial-intelligence",
-                "azure",
-                "data-flow",
-                "example-code",
-                "github",
-                "pricing-guidance",
-                "solution-architectures",
-                "solution-idea"
-            ],
-            "type": "solution-idea",
-            "file_url": "solution-ideas/articles/demand-forecasting-and-price-optimization.md",
-            "http_url": "/azure/architecture/solution-ideas/articles/demand-forecasting-and-price-optimization",
-            "word_count": 519,
-            "read_time": "3 min read",
-            "Title": "Demand Forecasting and Price Optimization",
-            "MetaDescription": "Pricing is recognized as a pivotal determinant of success in many industries and can be one of the most challenging tasks. Companies often struggle with several aspects of the pricing process, including accurately forecasting the financial impact of potential tactics, taking reasonable consideration of core business constraints, and fairly validating the executed pricing decisions. Expanding product offerings add further computational requirements to make real-time pricing decisions, compounding the difficulty of this already overwhelming task.",
-            "category": [
-                "analytics",
-                "ai-machine-learning"
-            ],
-            "image": "/azure/architecture/solution-ideas/media/demand-forecasting-and-price-optimization.png",
-            "imagepath": "C:\\jvPnpRepos\\architecture-center-pr\\docs\\solution-ideas\\media\\demand-forecasting-and-price-optimization.png",
-            "publish_date": "12/16/2019",
-            "pricing_guidance": "pricing-is-recognized-as-a-pivotal-determinant-of-success-in-many-industries-and-can-be-one-of-the-most-challenging-tasks.-companies-often-struggle-with-several-aspects-of-the-pricing-process,-including-accurately-forecasting-the-financial-impact-of-potential-tactics,-taking-reasonable-consideration-of-core-business-constraints,-and-fairly-validating-the-executed-pricing-decisions.-expanding-product-offerings-add-further-computational-requirements-to-make-real-time-pricing-decisions,-compounding-the-difficulty-of-this-already-overwhelming-task.",
-            "Summary": "<p>Pricing is recognized as a pivotal determinant of success in many industries and can be one of the most challenging tasks. Companies often struggle with several aspects of the pricing process, including accurately forecasting the financial impact of potential tactics, taking reasonable consideration of core business constraints, and fairly validating the executed pricing decisions. Expanding product offerings add further computational requirements to make real-time pricing decisions, compounding the difficulty of this already overwhelming task.</p>\n<p>This solution addresses the challenges raised above by utilizing historical transaction data to train a demand forecasting model. Pricing of products in a competing group is also incorporated to predict cross-product impacts such as cannibalization. A price optimization algorithm then employs the model to forecast demand at various candidate price points and takes into account business constraints to maximize profit. The solution can be customized to analyze various pricing scenarios as long as the general data science approach remains similar.</p>\n<p>The process described above is operationalized and deployed in the Cortana Intelligence Suite. This solution will enable companies to ingest historical transaction data, predict future demand, and obtain optimal pricing recommendations on a regular basis. As a result, the solution drives opportunities for improved profitability and reductions in time and effort allocated to pricing tasks.</p>",
-            "Flow": {
-                "FlowStep_A": "The simulation data is generated hourly by newly deployed Azure Web Jobs.",
-                "FlowStep_B": "This synthetic data is stored at Azure Blob Storage, that will be used in the rest of the solution flow.",
-                "FlowStep_C": "Spark on HDInsight is used to ingest and preprocess the raw data, build and retrain the demand forecasting models, and execute price optimization algorithms.",
-                "FlowStep_D": "Azure Data Factory orchestrates and schedules the entire data flow."
-            },
-            "sample_code": true,
-            "github_url": "https://github.com/Azure/cortana-intelligence-price-optimization/blob/master/Automated%20Deployment%20Guide/Post%20Deployment%20Instructions.md",
-            "name": "demand-forecasting-and-price-optimization",
-            "popularity": 57,
             "topic": "Analytics"
         },
         {
@@ -3820,10 +3776,10 @@
             "category": [
                 "ai-machine-learning"
             ],
-            "image": "/azure/architecture/solution-ideas/media/digital-asset-management.png",
-            "imagepath": "C:\\jvPnpRepos\\architecture-center-pr\\docs\\solution-ideas\\media\\digital-asset-management.png",
+            "image": "/azure/architecture/solution-ideas/media/knowledge-mining-digital-asset-management.png",
+            "imagepath": "C:\\jvPnpRepos\\architecture-center-pr\\docs\\solution-ideas\\media\\knowledge-mining-digital-asset-management.png",
             "publish_date": "12/16/2019",
-            "Summary": "<p>This architecture describes digital asset management for knowledge mining.</p>\n<p>Given the amount of unstructured data created daily, many companies are struggling to make use of or find information within their files. Knowledge mining through a search index makes it easy for end customers and employees to locate what they are looking for faster.</p>\n<p><img alt=\"Architecture Diagram\" src=\"https://docs.microsoft.com/azure/architecture/solution-ideas/media/digital-asset-management.png\" /></p>",
+            "Summary": "<p>This architecture describes digital asset management for knowledge mining.</p>\n<p>Given the amount of unstructured data created daily, many companies are struggling to make use of or find information within their files. Knowledge mining through a search index makes it easy for end customers and employees to locate what they are looking for faster.</p>\n<p><img alt=\"Architecture Diagram\" src=\"https://docs.microsoft.com/azure/architecture/solution-ideas/media/knowledge-mining-digital-asset-management.png\" /></p>",
             "name": "digital-asset-management",
             "popularity": 0,
             "topic": "AI + Machine Learning"
@@ -7297,8 +7253,8 @@
                 "pricing-guidance"
             ],
             "type": "example-workload",
-            "file_url": "example-scenario/ai/newsfeed-ingestion.md",
-            "http_url": "/azure/architecture/example-scenario/ai/newsfeed-ingestion",
+            "file_url": "example-scenario/ai/news-feed-ingestion-and-near-real-time-analysis.md",
+            "http_url": "/azure/architecture/example-scenario/ai/news-feed-ingestion-and-near-real-time-analysis",
             "word_count": 1334,
             "read_time": "5 min read",
             "Title": "Mass ingestion and analysis of news feeds on Azure",
@@ -7324,7 +7280,7 @@
             },
             "sample_code": true,
             "github_url": "https://github.com/Azure/cognitive-services",
-            "name": "newsfeed-ingestion",
+            "name": "news-feed-ingestion-and-near-real-time-analysis",
             "popularity": 69,
             "topic": "Analytics"
         },

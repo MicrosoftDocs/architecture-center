@@ -8,6 +8,8 @@ ms.service: architecture-center
 ms.subservice: well-architected
 products:
   - azure-cache-redis
+categories:
+  - management-and-governance   
 ---
 
 # Caching data for performance optimization
@@ -23,7 +25,7 @@ Caching is most effective when a client instance repeatedly reads the same data,
 
 Caching can dramatically improve performance, scalability, and availability. The more data that you have and the larger the number of users that need to access this data, the greater the benefits of caching become. That's because caching reduces the latency and contention that's associated with handling large volumes of concurrent requests in the original data store.
 
- Incorporating appropriate caching can also help reduce latency by eliminating repetitive calls to microservices, APIs, and data repositories. The key to using a cache effectively lies in determining the most appropriate data to cache, and caching it at the appropriate time. Data can be added to the cache on demand the first time it is retrieved by an application. This means that the application needs to fetch the data only once from the data store, and that subsequent access can be satisfied by using the cache. To learn more, see [Determine how to cache data effectively](../../best-practices/caching.md#determine-how-to-cache-data-effectively).
+Incorporating appropriate caching can also help reduce latency by eliminating repetitive calls to microservices, APIs, and data repositories. The key to using a cache effectively lies in determining the most appropriate data to cache, and caching it at the appropriate time. Data can be added to the cache on demand the first time it is retrieved by an application. This means that the application needs to fetch the data only once from the data store, and that subsequent access can be satisfied by using the cache. To learn more, see [Determine how to cache data effectively](../../best-practices/caching.md#determine-how-to-cache-data-effectively).
 
 For details, see [Caching](../../best-practices/caching.md).
 
@@ -46,6 +48,6 @@ Azure CDN offers the following key features:
 - [**File compression**](/azure/cdn/cdn-improve-performance) - Improve file transfer speed and increase page-load performance by reducing a file's size before it is sent from the server.
 - [**Geo-filtering**](/azure/cdn/cdn-restrict-access-by-country) - Restrict access to your content by country/region by creating rules on specific paths on your CDN endpoint.
 
-## Next steps
+## Next 
 > [!div class="nextstepaction"]
 > [Partition](./optimize-partition.md)

@@ -2,7 +2,7 @@
 title: What's New in Azure Architecture Center
 description: New and updated articles in Azure Architecture Center
 author: doodlemania2
-ms.date: 04/19/2021
+ms.date: 05/11/2021
 ms.topic: article
 ms.service: architecture-center
 ---
@@ -23,10 +23,36 @@ The Azure Architecture Center (AAC) helps you design, build, and operate solutio
 
 New and updated articles in Azure Architecture Center
 
+## May 2021
+
+### New Articles
+
+- [Choose a Kubernetes at the edge compute option](./operator-guides/aks/choose-kubernetes-edge-compute-option.md)
+- [Protect APIs with Azure Application Gateway and Azure API Management](./reference-architectures/apis/protect-apis.yml)
+- [Mainframe access to Azure databases](./solution-ideas/articles/mainframe-access-azure-databases.yml)
+
+### Updated Articles
+
+- [Population Health Management for Healthcare](./solution-ideas/articles/population-health-management-for-healthcare.yml)  ([#a6b3ca8ee](https://github.com/MicrosoftDocs/architecture-center/commit/a6b3ca8ee))
+- [HPC cluster deployed in the cloud](./solution-ideas/articles/hpc-cluster.yml)  ([#830bceb7a](https://github.com/MicrosoftDocs/architecture-center/commit/830bceb7a))
+- [Microsoft Azure Well-Architected Framework](./framework/index.md)  ([#d84d4d6f2](https://github.com/MicrosoftDocs/architecture-center/commit/d84d4d6f2))
+- [Hub-spoke network topology in Azure](./reference-architectures/hybrid-networking/hub-spoke.yml)  ([#8f87a6f08](https://github.com/MicrosoftDocs/architecture-center/commit/8f87a6f08))
+
 ## April 2021
 
 ### New Articles
 
+- [Challenges of monitoring distributed architectures](./framework/scalability/design-distributed.md)
+- [Performance data integration](./framework/scalability/monitor-analyze.md)
+- [Application profiling considerations for performance monitoring](./framework/scalability/monitor-application.md)
+- [Infrastructure metrics and logs](./framework/scalability/monitor-infrastructure.md)
+- [Monitor performance for scalability and reliability](./framework/scalability/monitor-scalability-reliability.md)
+- [Optimize scalability and reliability of cloud applications](./framework/scalability/optimize.md)
+- [Principles of the performance efficiency](./framework/scalability/principles.md)
+- [Resilient identity and access management with Azure Active Directory (Azure AD)](./guide/resilience/resilience-overview.md)
+- [Health data consortium on Azure](./example-scenario/data/azure-health-data-consortium.yml)
+- [Multi-cloud blockchain distributed ledger technology (DLT)](./example-scenario/blockchain/multi-cloud-blockchain.yml)
+- [Mining equipment monitoring](./solution-ideas/articles/monitor-mining-equipment.yml)
 - [Solutions for finance industry](./industries/finance.md)
 - [Solutions for healthcare industry](./industries/healthcare.md)
 - [Solutions for retail industry](./industries/retail.md)
@@ -42,6 +68,24 @@ New and updated articles in Azure Architecture Center
 
 ### Updated Articles
 
+- [Performance testing](./framework/scalability/performance-test.md)  ([#e0da81093](https://github.com/MicrosoftDocs/architecture-center/commit/e0da81093))
+- [Connect an on-premises network to Azure using ExpressRoute](./reference-architectures/hybrid-networking/expressroute-vpn-failover.yml)  ([#c7658b1e4](https://github.com/MicrosoftDocs/architecture-center/commit/c7658b1e4))
+- [AWS to Azure services comparison](./aws-professional/services.md)  ([#6977828f3](https://github.com/MicrosoftDocs/architecture-center/commit/6977828f3))
+- [Integrate on-premises AD domains with Azure AD](./reference-architectures/identity/azure-ad.yml)  ([#60f2a286f](https://github.com/MicrosoftDocs/architecture-center/commit/60f2a286f))
+- [Hub-spoke network topology in Azure](./reference-architectures/hybrid-networking/hub-spoke.yml)  ([#3d7e81c62](https://github.com/MicrosoftDocs/architecture-center/commit/3d7e81c62))
+- [AI enrichment with image and text processing](./solution-ideas/articles/cognitive-search-with-skillsets.yml)  ([#bc9b4d291](https://github.com/MicrosoftDocs/architecture-center/commit/bc9b4d291))
+- [Customer support and feedback analysis](./solution-ideas/articles/customer-feedback-and-analytics.yml)  ([#b11756f8a](https://github.com/MicrosoftDocs/architecture-center/commit/b11756f8a))
+- [Knowledge mining in digital asset management](./solution-ideas/articles/digital-asset-management.yml)  ([#0be6a124c](https://github.com/MicrosoftDocs/architecture-center/commit/0be6a124c))
+- [Auditing, risk, and compliance management](./solution-ideas/articles/auditing-and-risk-compliance.yml)  ([#a8c74be11](https://github.com/MicrosoftDocs/architecture-center/commit/a8c74be11))
+- [Knowledge mining for content research](./solution-ideas/articles/content-research.yml)  ([#63aa7dcaf](https://github.com/MicrosoftDocs/architecture-center/commit/63aa7dcaf))
+- [Knowledge mining in contract management](./solution-ideas/articles/contract-management.yml)  ([#83c1d852b](https://github.com/MicrosoftDocs/architecture-center/commit/83c1d852b))
+- [Knowledge mining in business process management](./solution-ideas/articles/business-process-management.yml)  ([#6cd92030c](https://github.com/MicrosoftDocs/architecture-center/commit/6cd92030c))
+- [Azure Automation in a hybrid environment](./hybrid/azure-automation-hybrid.yml)  ([#4b61262db](https://github.com/MicrosoftDocs/architecture-center/commit/4b61262db))
+- [Azure Automation Update Management](./hybrid/azure-update-mgmt.yml)  ([#4b61262db](https://github.com/MicrosoftDocs/architecture-center/commit/4b61262db))
+- [Manage hybrid Azure workloads using Windows Admin Center](./hybrid/hybrid-server-os-mgmt.yml)  ([#4b61262db](https://github.com/MicrosoftDocs/architecture-center/commit/4b61262db))
+- [Run SAP NetWeaver in Windows on Azure](./reference-architectures/sap/sap-netweaver.yml)  ([#65a4eacc8](https://github.com/MicrosoftDocs/architecture-center/commit/65a4eacc8))
+- [Analytics end-to-end with Azure Synapse](./example-scenario/dataplate2e/data-platform-end-to-end.yml)  ([#f534c9bf5](https://github.com/MicrosoftDocs/architecture-center/commit/f534c9bf5))
+- [Building solutions for high availability using Availability Zones](./high-availability/building-solutions-for-high-availability.md)  ([#2c02def10](https://github.com/MicrosoftDocs/architecture-center/commit/2c02def10))
 - [AI at the edge with Azure Stack Hub - disconnected](./solution-ideas/articles/ai-at-the-edge-disconnected.yml)  ([#e8afd89e7](https://github.com/MicrosoftDocs/architecture-center/commit/e8afd89e7))
 - [Disaster recovery for enterprise bots](./solution-ideas/articles/enterprise-chatbot-disaster-recovery.yml)  ([#3a744cf44](https://github.com/MicrosoftDocs/architecture-center/commit/3a744cf44))
 - [Create a FAQ bot from existing data](./solution-ideas/articles/faq-chatbot-with-data-champion-model.yml)  ([#f94089281](https://github.com/MicrosoftDocs/architecture-center/commit/f94089281))
@@ -55,7 +99,6 @@ New and updated articles in Azure Architecture Center
 - [Unified logging for microservices applications](./example-scenario/logging/unified-logging.yml)  ([#6c34b75fc](https://github.com/MicrosoftDocs/architecture-center/commit/6c34b75fc))
 - [On-premises data gateway for Azure Logic Apps](./hybrid/gateway-logic-apps.yml)  ([#6c34b75fc](https://github.com/MicrosoftDocs/architecture-center/commit/6c34b75fc))
 - [Stream processing with Azure Databricks](./reference-architectures/data/stream-processing-databricks.yml)  ([#6c34b75fc](https://github.com/MicrosoftDocs/architecture-center/commit/6c34b75fc))
-- [Integrate on-premises AD domains with Azure AD](./reference-architectures/identity/azure-ad.yml)  ([#6c34b75fc](https://github.com/MicrosoftDocs/architecture-center/commit/6c34b75fc))
 - [Demand Forecasting and Price Optimization](./solution-ideas/articles/demand-forecasting-and-price-optimization.yml)  ([#6c34b75fc](https://github.com/MicrosoftDocs/architecture-center/commit/6c34b75fc))
 - [DevOps in a hybrid environment](./solution-ideas/articles/devops-in-a-hybrid-environment.yml)  ([#6c34b75fc](https://github.com/MicrosoftDocs/architecture-center/commit/6c34b75fc))
 - [HPC cluster deployed in the cloud](./solution-ideas/articles/hpc-cluster.yml)  ([#6c34b75fc](https://github.com/MicrosoftDocs/architecture-center/commit/6c34b75fc))
@@ -183,39 +226,4 @@ New and updated articles in Azure Architecture Center
 - [Attestation, authentication, and provisioning](./example-scenario/iot/attestation-provisioning.yml)  ([#c68ae5ffd](https://github.com/MicrosoftDocs/architecture-center/commit/c68ae5ffd))
 - [Controlling IoT devices using a Voice Assistant](./solution-ideas/articles/iot-controlling-devices-with-voice-assistant.yml)  ([#c68ae5ffd](https://github.com/MicrosoftDocs/architecture-center/commit/c68ae5ffd))
 - [Serverless event processing](./reference-architectures/serverless/event-processing.yml)  ([#d7256cda4](https://github.com/MicrosoftDocs/architecture-center/commit/d7256cda4))
-
-## January 2021
-
-### New Articles
-
-- [Operational Excellence patterns](./framework/devops/devops-patterns.md)
-- [Reliability patterns](./framework/resiliency/reliability-patterns.md)
-- [Performance Efficiency patterns](./framework/scalability/performance-efficiency-patterns.md)
-- [Security patterns](./framework/security/security-patterns.md)
-- [Cloud design patterns](./patterns/index-patterns.md)
-- [Monitoring for performance efficiency](./framework/scalability/monitor.md)
-- [Restrict interservice communications](./example-scenario/service-to-service/restrict-communications.yml)
-- [Replicate and sync mainframe data in Azure](./reference-architectures/migration/sync-mainframe-data-with-azure.yml)
-- [Alerting for DevOps](./framework/devops/alerts.md)
-- [Data encryption in Azure](./framework/security/design-storage-encryption.md)
-- [Key and secret management in Azure](./framework/security/design-storage-keys.md)
-- [Caching data for performance optimization](./framework/scalability/optimize-cache.md)
-- [Partitioning data for performance optimization](./framework/scalability/optimize-partition.md)
-- [Sustain performance efficiency over time](./framework/scalability/optimize-sustain.md)
-- [AKS Day-2 Operations Guide - Patch and upgrade guidance](./operator-guides/aks/aks-upgrade-practices.md)
-- [Azure Kubernetes Service (AKS) day-2 operations guide](./operator-guides/aks/day-2-operations-guide.md)
-- [Checklist - Design for performance efficiency](./framework/scalability/design-checklist.md)
-- [Checklist - Testing for performance efficiency](./framework/scalability/test-checklist.md)
-- [Master Data Management with Azure and CluedIn](./reference-architectures/data/cluedin.yml)
-
-### Updated Articles
-
-- [Data protection in Azure](./framework/security/design-storage.md)  ([#bd8084fcf](https://github.com/MicrosoftDocs/architecture-center/commit/bd8084fcf))
-- [Backup and disaster recovery for Azure applications](./framework/resiliency/backup-and-recovery.md)  ([#3ca257b3d](https://github.com/MicrosoftDocs/architecture-center/commit/3ca257b3d))
-- [Field and cloud edge gateways](./example-scenario/iot/field-cloud-edge-gateways.yml)  ([#49a77e199](https://github.com/MicrosoftDocs/architecture-center/commit/49a77e199))
-- [Monitoring for DevOps](./framework/devops/monitoring.md)  ([#ad603400e](https://github.com/MicrosoftDocs/architecture-center/commit/ad603400e))
-- [Business Metrics](./framework/resiliency/business-metrics.md)  ([#fb285c5fb](https://github.com/MicrosoftDocs/architecture-center/commit/fb285c5fb))
-- [Design for scaling](./framework/scalability/design-scale.md)  ([#65a7ef214](https://github.com/MicrosoftDocs/architecture-center/commit/65a7ef214))
-- [Background jobs guidance](./best-practices/background-jobs.md)  ([#13889c62e](https://github.com/MicrosoftDocs/architecture-center/commit/13889c62e))
-- [Tradeoffs for performance efficiency](./framework/scalability/tradeoffs.md)  ([#2fab3faaf](https://github.com/MicrosoftDocs/architecture-center/commit/2fab3faaf))
 
