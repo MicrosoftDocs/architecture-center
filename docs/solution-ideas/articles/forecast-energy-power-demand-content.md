@@ -42,8 +42,9 @@ See product documentation:
 * [Learn more about Data Factory](/azure/data-factory/data-factory-introduction)
 * [What is Azure Machine Learning?](/azure/machine-learning/overview-what-is-azure-ml)
 * [Machine Learning and time series forecasting](/azure/machine-learning/concept-automated-ml#time-series-forecasting)
+* [Power BI](https://powerbi.microsoft.com/documentation/powerbi-landing-page)
 
-Other links:
+Learn more with:
 
-* [Learn more about Power BI](https://powerbi.microsoft.com/documentation/powerbi-landing-page)
-* [Machine Learning notebook: Forecasting using the Energy Demand Dataset](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-energy-demand/auto-ml-forecasting-energy-demand.ipynb)
+* The Machine Learning notebook [forecasting using the Energy Demand Dataset](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-energy-demand/auto-ml-forecasting-energy-demand.ipynb)
+* The Microsoft Learn module [Use automated machine learning in Azure Machine Learning](/learn/modules/use-automated-machine-learning/)
