@@ -44,7 +44,7 @@ See product documentation:
 * [Machine Learning and time series forecasting](/azure/machine-learning/concept-automated-ml#time-series-forecasting)
 * [Power BI](https://powerbi.microsoft.com/documentation/powerbi-landing-page)
 
-Learn more with:
+Learn more:
 
 * The Machine Learning notebook [forecasting using the Energy Demand Dataset](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-energy-demand/auto-ml-forecasting-energy-demand.ipynb)
 * The Microsoft Learn module [Use automated machine learning in Azure Machine Learning](/learn/modules/use-automated-machine-learning/)
