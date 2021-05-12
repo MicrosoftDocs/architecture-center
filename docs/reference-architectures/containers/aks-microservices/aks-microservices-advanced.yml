@@ -23,4 +23,4 @@ products:
   - azure-virtual-network
 thumbnailUrl: /azure/architecture/browse/thumbs/default.png
 content: |
-   [!include[](aks-microservics-advanced-content.md)]
+   [!include[](aks-microservices-advanced-content.md)]

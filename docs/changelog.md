@@ -2,7 +2,7 @@
 title: What's New in Azure Architecture Center
 description: New and updated articles in Azure Architecture Center
 author: doodlemania2
-ms.date: 05/03/2021
+ms.date: 05/11/2021
 ms.topic: article
 ms.service: architecture-center
 ---
@@ -25,14 +25,22 @@ New and updated articles in Azure Architecture Center
 
 ## May 2021
 
-### New articles
+### New Articles
 
+- [Choose a Kubernetes at the edge compute option](./operator-guides/aks/choose-kubernetes-edge-compute-option.md)
+- [Protect APIs with Azure Application Gateway and Azure API Management](./reference-architectures/apis/protect-apis.yml)
 - [Mainframe access to Azure databases](./solution-ideas/articles/mainframe-access-azure-databases.yml)
 
+### Updated Articles
+
+- [Population Health Management for Healthcare](./solution-ideas/articles/population-health-management-for-healthcare.yml)  ([#a6b3ca8ee](https://github.com/MicrosoftDocs/architecture-center/commit/a6b3ca8ee))
+- [HPC cluster deployed in the cloud](./solution-ideas/articles/hpc-cluster.yml)  ([#830bceb7a](https://github.com/MicrosoftDocs/architecture-center/commit/830bceb7a))
+- [Microsoft Azure Well-Architected Framework](./framework/index.md)  ([#d84d4d6f2](https://github.com/MicrosoftDocs/architecture-center/commit/d84d4d6f2))
+- [Hub-spoke network topology in Azure](./reference-architectures/hybrid-networking/hub-spoke.yml)  ([#8f87a6f08](https://github.com/MicrosoftDocs/architecture-center/commit/8f87a6f08))
 
 ## April 2021
 
-### New articles
+### New Articles
 
 - [Challenges of monitoring distributed architectures](./framework/scalability/design-distributed.md)
 - [Performance data integration](./framework/scalability/monitor-analyze.md)
@@ -58,7 +66,7 @@ New and updated articles in Azure Architecture Center
 - [Security of infrastructure deployment in Azure](./framework/security/deploy-infrastructure.md)
 - [Secure deployment in Azure](./framework/security/deploy.md)
 
-### Updated articles
+### Updated Articles
 
 - [Performance testing](./framework/scalability/performance-test.md)  ([#e0da81093](https://github.com/MicrosoftDocs/architecture-center/commit/e0da81093))
 - [Connect an on-premises network to Azure using ExpressRoute](./reference-architectures/hybrid-networking/expressroute-vpn-failover.yml)  ([#c7658b1e4](https://github.com/MicrosoftDocs/architecture-center/commit/c7658b1e4))
@@ -218,3 +226,4 @@ New and updated articles in Azure Architecture Center
 - [Attestation, authentication, and provisioning](./example-scenario/iot/attestation-provisioning.yml)  ([#c68ae5ffd](https://github.com/MicrosoftDocs/architecture-center/commit/c68ae5ffd))
 - [Controlling IoT devices using a Voice Assistant](./solution-ideas/articles/iot-controlling-devices-with-voice-assistant.yml)  ([#c68ae5ffd](https://github.com/MicrosoftDocs/architecture-center/commit/c68ae5ffd))
 - [Serverless event processing](./reference-architectures/serverless/event-processing.yml)  ([#d7256cda4](https://github.com/MicrosoftDocs/architecture-center/commit/d7256cda4))
+
