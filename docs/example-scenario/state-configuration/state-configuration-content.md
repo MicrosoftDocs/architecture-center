@@ -23,14 +23,6 @@ az deployment group create --resource-group state-configuration \
     --template-uri https://raw.githubusercontent.com/mspnp/samples/master/OperationalExcellence/azure-automation-state-configuration/azuredeploy.json
 ```
 
-#### [PowerShell](#tab/powershell)
-
-Use the following command to create a resource group for the deployment. Click the **Try it** button to use an embedded shell.
-
-```azurepowershell-interactive
-New-AzResourceGroup -Name state-configuration -Location eastus
-```
-
 Once deployed, in the Azure portal click on the **Automation Account** resource and then **State configuration (DSC)** and notice that all virtual machines have been added to the system and are compliant. These machines have all had the PowerShell DSC configuration applied, which has installed a web server on each.
 
 ![Image of DSC compliance results as seen in the Azure portal.](./media/dsc-results.png)
@@ -38,6 +30,14 @@ Once deployed, in the Azure portal click on the **Automation Account** resource 
 Browse to the public IP address of any virtual machine to verify that a web server is running.
 
 ![Image of an Nginx web server default page.](./media/webserver.png)
+
+#### [PowerShell](#tab/powershell)
+
+Use the following command to create a resource group for the deployment. Click the **Try it** button to use an embedded shell.
+
+```azurepowershell-interactive
+New-AzResourceGroup -Name state-configuration -Location eastus
+```
 
 Run the following command to deploy the ARM template. When prompted, enter a username and password. These values can be used to log into the created virtual machines.
 
