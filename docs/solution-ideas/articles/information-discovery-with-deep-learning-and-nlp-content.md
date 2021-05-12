@@ -3,23 +3,23 @@
 
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-Social sites, forums, and other text-heavy Q&A services rely heavily on tagging, which enables indexing and user search. Without appropriate tagging, these sites are far less effective. Often, however, tagging is left to the users' discretion. And since users don't have lists of commonly searched terms or a deep understanding of the categorization or information architecture of a site, posts are frequently mislabeled. This makes it difficult or impossible to find that content when it's needed later.
+Social sites, forums, and other text-heavy Q&A services rely heavily on tagging, which enables indexing and user search. Without appropriate tagging, these sites are far less effective. Often, however, tagging is left to the users' discretion. And since users don't have lists of commonly searched terms or a deep understanding of the categorization or information architecture of a site, posts are frequently mislabeled. This mislabeling makes it difficult or impossible to find that content when it's needed later.
 
-By combining deep learning and natural language processing (NLP) with data on site-specific search terms, this solution helps greatly improve tagging accuracy on your site. As your user types their post, it offers highly used terms as suggested tags, making it easier for others to find the information they're providing.
+By combining deep learning and natural language processing (NLP) with data on site-specific search terms, this solution helps greatly improve tagging accuracy on your site. As your users type content, it offers highly used terms as suggested tags, making it easier for others to find the information they're providing.
 
 ## Architecture
 
-![Architecture Diagram](../media/information-discovery-with-deep-learning-and-nlp.png)
+![Architecture diagram: ](../media/information-discovery-with-deep-learning-and-nlp.png)
 *Download an [SVG](../media/information-discovery-with-deep-learning-and-nlp.svg) of this architecture.*
 
 ## Components
 
 * [Microsoft SQL Server](/sql/): Data is stored, structured, and indexed using Microsoft SQL Server.
-* [GPU based Azure Data Science Virtual Machine](/azure/machine-learning/data-science-virtual-machine/): The core development environment is the Microsoft Windows Server 2016 GPU DSVM NC24.
+* [GPU based Azure Data Science Virtual Machine](/azure/machine-learning/data-science-virtual-machine/): The core development environment for this solution is a customized VM image on the Azure cloud platform built specifically for doing data science.
 * [Azure Machine Learning Workbench](/azure/machine-learning/): The Workbench is used for data cleaning and transformation, and it serves as the primary interface to the Experimentation and Model Management services.
 * [Azure Machine Learning Experimentation Service](/azure/machine-learning/): The Experimentation Service is used for model training, including hyperparameter tuning.
 * [Azure Machine Learning Model Management Service](/azure/machine-learning/): The Model Management service is used for deployment of the final model, including scaling out to a Kubernetes-managed Azure cluster.
-* [Jupyter Notebooks on Azure Data Science VM](/azure/machine-learning/data-science-virtual-machine/reference-ubuntu-vm): Jupyter Notebooks is used as the base IDE for the model, which was developed in Python.
+* [Jupyter Notebooks on Azure Data Science VM](/azure/machine-learning/data-science-virtual-machine/reference-ubuntu-vm): Jupyter Notebooks can be used as the base integrated development environment (IDE) for the model.
 * [Azure Container Registry](/azure/container-registry/): The Model Management Service creates and packages real-time web services as Docker containers. These containers are uploaded and registered via Azure Container Registry.
 * [Azure Kubernetes Service (AKS)](https://azure.microsoft.com/services/kubernetes-service): Deployment for this solution uses Azure Kubernetes Service running a Kubernetes-managed cluster. The containers are deployed from images stored in Azure Container Registry.
 
