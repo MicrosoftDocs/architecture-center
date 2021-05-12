@@ -845,9 +845,7 @@ items:
                 href: solution-ideas/articles/content-delivery-network-azure-data-explorer.yml
               - name: Demand forecasting for shipping
                 href: solution-ideas/articles/demand-forecasting-for-shipping-and-distribution.yml
-              - name: Demand forecasting from Blob Storage
-                href: solution-ideas/articles/demand-forecasting-and-price-optimization.yml
-              - name: Demand forecasting from Data Lake Store
+              - name: Demand forecasting and price optimization
                 href: solution-ideas/articles/demand-forecasting-price-optimization-marketing.yml
               - name: Demand forecasting with Stream Analytics
                 href: solution-ideas/articles/demand-forecasting.yml
