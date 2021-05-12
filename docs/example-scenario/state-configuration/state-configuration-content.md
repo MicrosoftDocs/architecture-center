@@ -16,7 +16,7 @@ Use the following command to create a resource group for the deployment. Click t
 az group create --name state-configuration --location eastus
 ```
 
-Run the following command to deploy the ARM template.
+Run the following command to deploy the ARM template. When prompted, enter a username and password. These values can be used to log into the created virtual machines.
 
 ```azurecli-interactive
 az deployment group create --resource-group state-configuration \
@@ -31,7 +31,7 @@ Use the following command to create a resource group for the deployment. Click t
 New-AzResourceGroup -Name state-configuration -Location eastus
 ```
 
-Run the following command to deploy the ARM template.
+Run the following command to deploy the ARM template. When prompted, enter a username and password. These values can be used to log into the created virtual machines.
 
 ```azurepowershell-interactive
 New-AzResourceGroupDeployment -ResourceGroupName state-configuration `
@@ -47,6 +47,14 @@ Use the following button to deploy the reference using the Azure portal.
 --- 
 
 ## Components
+
+**Azure Automation:** Azure Automation delivers a cloud-based automation and configuration service that supports consistent management across your Azure and non-Azure environments.
+
+**Azure Automation State Configuration:** is a configuration management solution built on top of PowerShell Desired State Configuration (DSC). State configuration works with Azure virtual machines, on-premises machines, and machines in a cloud other than Azure. Using state configuration, you can import PowerShell DSC resources and assign them to many virtual machines from a central location. Once each endpoint has evaluated and / or applied the desired state, state compliance is reported to Azure and can be seen on a built-in dashboard.
+
+**Azure Monitor:** Azure Monitor collects and stores metrics and logs, application telemetry, and platform metrics for the Azure services. Use this data to monitor the application, set up alerts, dashboards, and perform root cause analysis of failures.
+
+**Azure Virtual Machines:** Azure IaaS solution for running virtual machines.
 
 ## Potential use cases
 
