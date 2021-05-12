@@ -14,14 +14,14 @@ The demand forecasting process described in this solution can be operationalized
 For an example of a demand forecasting solution for shipping and distribution similar to the solution described in this article, see the [Azure AI Gallery](https://gallery.azure.ai/Solution/Demand-Forecasting-for-Shipping-and-Distribution-2). General characteristics of demand forecasting solutions like the one proposed here are:
 
 * There are numerous kinds of items with differing volumes, that roll up under one or more category levels.
-* There is a history available for the quantity of the item at each time in the past.
-* The volumes of the items differ widely, with possibly a substantial number that have zero volume at times.
+* There's a history available for the quantity of the item at each time in the past.
+* The volumes of the items differ widely, with possibly a large number that have zero volume at times.
 * The history of items shows both trend and seasonality, possibly at multiple time scales.
 * The quantities committed or returned aren't strongly price sensitive. In other words, the delivery company can't strongly influence quantities by short-term changes in prices, although there may be other determinants that affect volume, such as weather.
 
-Under these conditions, you can take advantage of the hierarchy formed among the time series of the different items. By enforcing consistency so that the quantities lower in the hierarchy (for example, individual product quantities) sum to the quantities above (customer product totals), you can improve the accuracy of the overall forecast. The same applies if individual items are grouped into categories, even possibly categories that overlap. For example, you might be interested in forecasting demand of all products in total, by location, by product category, by customer, and so on.
+Under these conditions, you can take advantage of the hierarchy formed among the time series of the different items. By enforcing consistency so that the quantities lower in the hierarchy (for example, individual product quantities) sum to the quantities above (customer product totals), you can improve the accuracy of the overall forecast. The same idea applies if individual items are grouped into categories, even for categories that overlap. For example, you might be interested in forecasting demand of all products in total, by location, by product category, or by customer.
 
-The [AI Gallery solution](https://gallery.azure.ai/Solution/Demand-Forecasting-for-Shipping-and-Distribution-2) computes forecasts at all aggregation levels in the hierarchy for each time period specified. Remember that deployments of your demand forecasting solutions will incur consumption charges for the services used. Use the [Pricing Calculator](https://azure.microsoft.com/pricing/calculator) to predict costs. When you are no longer using a deployed solution, delete it to stop incurring charges.
+The [AI Gallery solution](https://gallery.azure.ai/Solution/Demand-Forecasting-for-Shipping-and-Distribution-2) computes forecasts at all aggregation levels in the hierarchy for each time period specified. Remember that deployments of your demand forecasting solutions will incur consumption charges for the services used. Use the [Pricing Calculator](https://azure.microsoft.com/pricing/calculator) to predict costs. When you're no longer using a deployed solution, delete it to stop incurring charges.
 
 ## Components
 
