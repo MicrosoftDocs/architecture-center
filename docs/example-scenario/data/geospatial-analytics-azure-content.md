@@ -6,15 +6,15 @@ This solution outlines a manageable way to make geospatial data available for an
 - Collect large volumes of data on data assets with known locations.
 - Combine the asset data with real-world reference data.
 - Make the processed data available for spatial analytics in web apps.
-- Something about being fully managed and therefore better than existing solutions.
+- Use fully managed services with built-in features for maintenance, security, and scaling.
 
 The solution, which is based on [Advanced Analytics Reference Architecture][Advanced analytics architecture], uses these Azure services:
 
-- Databricks with GIS Spark libraries preprocesses data.
+- Databricks with GIS Spark libraries processes data.
 - Azure PostgreSQL queries data through APIs.
 - Azure Data Explorer handles very fast exploratory queries.
 - Azure Maps visualizes geospatial data in web applications.
-- The [Azure Maps Power BI visual][Getting started with the Azure Maps Power BI visual] feature of PowerBI provides custom reports.
+- The [Azure Maps Power BI visual][Getting started with the Azure Maps Power BI visual] feature of PowerBI provides customized reports.
 
 ## Potential use cases
 
@@ -23,17 +23,19 @@ This solution has applications in many areas:
 - Processing, storing, and providing access to large amounts of raster data, such as maps or climate data.
 - *Localizing* enterprise resource planning (ERP) system entities, or identifying their geographic position.
 - Combining entity location data with GIS reference data.
-- Store IoT telemetry from moving devices and perform analytical geospatial queries.
-- Embed your curated and contextualized geospatial data in web applications.
+- Storing Internet of Things (IoT) telemetry from moving devices.
+- Running analytical geospatial queries.
+- Embedding curated and contextualized geospatial data in web apps.
 
 ## Architecture
 
 ![](./media/geospatial-analytics-azure-architecture.png)
 
-1. Geographic information system (GIS) data enters the system:
 
-   - Azure Data Factory ingests raster GIS data and vector GIS data of any format.
-   - Azure Data Factory stores the data in Azure Data Lake Storage.
+
+
+
+
 
 1. IoT data enters the system:
    - Event Hubs ingests streams of IoT data. The data contains coordinates or other information that identifies locations of devices.
@@ -41,6 +43,11 @@ This solution has applications in many areas:
    - Event Hubs stores the data in Azure Data Lake Storage.
 
 1. Databricks uses geospatial libraries to transform and standardize the data.
+
+1. Geographic information system (GIS) data enters the system:
+
+   - Azure Data Factory ingests raster GIS data and vector GIS data of any format.
+   - Azure Data Factory stores the data in Azure Data Lake Storage.
 
 1. Data Factory loads the prepared vector and raster data into Azure Database for PostgreSQL. The solution uses the PostGIS extension with this database.
 
@@ -107,12 +114,12 @@ Throughout the process:
 
 - If your goal is to provide a standardized interface for GIS data, consider using [GeoServer][GeoServer]. This open framework implements industry-standard [Open Geospatial Consortium (OGC)][Open Geospatial Consortium] protocols such as [Web Feature Service (WFS)][Web Feature Service]. It also integrates with common spatial data sources. You can deploy GeoServer as a container on a virtual machine. When custom web applications and exploratory queries are secondary, GeoServer provides a straightforward way to publish geospatial data.
 
-- A variety of Spark libraries are available for processing geospatial data on Azure Databricks. This solution uses these libraries:
+- A variety of Spark libraries are available for working with geospatial data on Azure Databricks. This solution uses these libraries:
 
   - [Apache Sedona (GeoSpark)][Apache Sedona (incubating)]
   - [GeoPandas][GeoPandas 0.8.0 — GeoPandas 0.8.0 documentation]
 
-  But [other solutions also exist for scaling geospatial workloads with Databricks][Processing Geospatial Data at Scale With Databricks].
+  But [other solutions also exist for processing and scaling geospatial workloads with Databricks][Processing Geospatial Data at Scale With Databricks].
 
 - Like Event Hubs, [Azure IoT Hub][What is Azure IoT Hub?] can ingest large amounts of data. But IoT Hub also offers bi-directional communication capabilities with devices. If you receive data directly from devices but also send commands and policies back to devices, consider IoT Hub instead of Event Hubs.
 
@@ -136,7 +143,7 @@ The following considerations, based on the [Microsoft Azure Well-Architected Fra
 
 - [App Service diagnostics][Azure App Service diagnostics overview] alerts you to problems in apps, such as downtime. Use this service to identify, troubleshoot, and resolve issues like outages.
 
-- Consider using [App Service to back up application files][Basic web app availability considerations]. But the backed-up files include app settings in plain text, which may include secrets like connection strings.
+- Consider using [App Service to back up application files][Basic web app availability considerations]. But be careful with backed-up files, which include app settings in plain text. Those settings may include secrets like connection strings.
 
 ### Scalability considerations
 
@@ -205,15 +212,34 @@ In these situations, consider using [Tippecanoe][GitHub - mapbox/tippecanoe] to 
 
 ## Pricing
 
-The pricing for a deployment with a sizing mentioned in the considerations section can be found here: [Pricing: Azure Architecture for GIS data processing and serving](https://azure.com/e/dcb9fc8b3dba4785aa93eb1e9871528f). Note that Azure Pricing Calculator does currently not support Azure Data Explorer and those costs come on top of the price listed in the calculator. The price indication is for 1 deployment or environment only.
+- To estimate the cost of implementing this solution, see a [cost profile][Pricing: Azure Architecture for GIS data processing and serving] for a single implementation of the environment described in [Scalability considerations][Scalability considerations]. Note that this profile doesn't include the cost of Azure Data Explorer. 
+- To adjust the parameters and explore the cost of running this solution in your environment, use the [Azure pricing calculator][Pricing calculator].
 
 ## Next steps
 
-- Query PostGIS for vector tiles (built-in): [ST\_AsMVT (postgis.net)](https://postgis.net/docs/ST_AsMVT.html)
-- Load PostGIS with raster (built-in): [Chapter 4. PostGIS Usage](https://postgis.net/docs/postgis_usage.html#RT_Loading_Rasters)
-- Leverage Azure Data Explorer geospatial functions: [geo\_distance\_2points() - Azure Data Explorer | Microsoft Docs](https://docs.microsoft.com/en-us/azure/data-explorer/kusto/query/geo-distance-2points-function)
-- Add vector tiles to Azure Maps: [Create a data source for a map in Microsoft Azure Maps | Microsoft Docs](https://docs.microsoft.com/en-us/azure/azure-maps/create-data-source-web-sdk#vector-tile-source)
-- Learn options to process geospatial data on Databricks: [Processing Geospatial Data at Scale With Databricks](https://databricks.com/blog/2019/12/05/processing-geospatial-data-at-scale-with-databricks.html)
+To start implementing this solution, see this information:
+
+### Related architectures
+
+- [Big data analytics with Azure Data Explorer][Big data analytics with Azure Data Explorer]
+- [Health data consortium on Azure][Health data consortium on Azure]
+- [DataOps for the modern data warehouse][DataOps for the modern data warehouse]
+- [Azure Data Explorer interactive analytics][Azure Data Explorer interactive analytics]
+
+### Related guides
+
+- [Compare the machine learning products and technologies from Microsoft - Azure Databricks][Compare the machine learning products and technologies from Microsoft - Azure Databricks]
+- [Machine learning operations (MLOps) framework to upscale machine learning Lifecycle with Azure Machine Learning][Machine learning operations (MLOps) framework to upscale machine learning Lifecycle with Azure Machine Learning]
+- [Azure Machine Learning decision guide for optimal tool selection][Azure Machine Learning decision guide for optimal tool selection]
+- [Monitoring Azure Databricks][Monitoring Azure Databricks]
+
+### Information on processing geospatial data
+
+- [Functions for querying PostGIS for vector tiles][ST_AsMVT (postgis.net)].
+- [Functions for loading PostGIS rasters][Chapter 4. PostGIS Usage].
+- [Azure Data Explorer geospatial functions][Azure Data Explorer geo_distance_2points() function].
+- [Data sources for vector tiles in Azure Maps][Create a data source for a map in Microsoft Azure Maps].
+- [Approaches for processing geospatial data in Databricks][Processing Geospatial Data at Scale With Databricks].
 
 ## Related resources
 
@@ -231,42 +257,57 @@ The pricing for a deployment with a sizing mentioned in the considerations secti
 [Azure App Service SSL certificates available for purchase]: https://azure.microsoft.com/updates/azure-app-service-ssl-certificates-available-for-purchase/
 [Azure Data Explorer]: https://azure.microsoft.com/services/data-explorer/
 [Azure Data Explorer extends geospatial functionality]: https://azure.microsoft.com/updates/adx-geo-updates/
+[Azure Data Explorer geo_distance_2points() function]: /azure/data-explorer/kusto/query/geo-distance-2points-function
+[Azure Data Explorer interactive analytics]: /azure/architecture/solution-ideas/articles/interactive-azure-data-explorer
 [Azure Data Explorer performance update (EngineV3)]: https://docs.microsoft.com/azure/data-explorer/engine-v3
 [Azure Databricks Workspace concepts]: /azure/databricks/getting-started/concepts
 [Azure Event Hubs — A big data streaming platform and event ingestion service]: /azure/event-hubs/event-hubs-about
 [Azure Event Hubs - Geo-disaster recovery]: /azure/event-hubs/event-hubs-geo-dr
+[Azure Machine Learning decision guide for optimal tool selection]: /azure/architecture/example-scenario/mlops/aml-decision-tree
 [Azure Monitor Logs overview]: /azure/azure-monitor/logs/data-platform-logs
 [Azure Monitor Metrics overview]: /azure/azure-monitor/essentials/data-platform-metrics
 [Azure Monitor overview]: /azure/azure-monitor/overview
 [Basic web app availability considerations]: /azure/architecture/reference-architectures/app-service-web-app/basic-web-app#availability-considerations
 [Basic web application scalability considerations]: /azure/architecture/reference-architectures/app-service-web-app/basic-web-app?tabs=cli#scalability-considerations
 [Basic web application authentication]: /azure/architecture/reference-architectures/app-service-web-app/basic-web-app?tabs=cli#authentication
+[Big data analytics with Azure Data Explorer]: /azure/architecture/solution-ideas/articles/big-data-azure-data-explorer
+[Chapter 4. PostGIS Usage]: https://postgis.net/docs/postgis_usage.html#RT_Loading_Rasters
+[Compare the machine learning products and technologies from Microsoft - Azure Databricks]: /azure/architecture/data-guide/technology-choices/data-science-and-machine-learning#azure-databricks
 [Configure customer-managed keys for encrypting Azure Event Hubs data at rest by using the Azure portal]: https://docs.microsoft.com/azure/event-hubs/configure-customer-managed-key
 [Copy performance and scalability achievable using ADF]: /azure/data-factory/copy-activity-performance#copy-performance-and-scalability-achievable-using-adf
 [Create a data source for Azure Maps]: /azure/azure-maps/create-data-source-web-sdk#geojson-data-source
+[Create a data source for a map in Microsoft Azure Maps]: /azure/azure-maps/create-data-source-web-sdk#vector-tile-source
+[DataOps for the modern data warehouse]: /azure/architecture/example-scenario/data-warehouse/dataops-mdw
 [GeoJSON format]: https://tools.ietf.org/html/rfc7946
 [GeoPandas 0.8.0 — GeoPandas 0.8.0 documentation]: https://geopandas.org/
 [GeoServer]: https://en.wikipedia.org/wiki/GeoServer
 [Getting started with the Azure Maps Power BI visual]: /azure/azure-maps/power-bi-visual-getting-started
 [GitHub - mapbox/tippecanoe]: https://github.com/mapbox/tippecanoe
+[Health data consortium on Azure]: /azure/architecture/example-scenario/data/azure-health-data-consortium
 [Introducing Databricks Optimized Autoscaling on Apache Spark]: https://databricks.com/blog/2018/05/02/introducing-databricks-optimized-auto-scaling.html
 [Introduction to Azure Data Lake Storage Gen2]: /azure/storage/blobs/data-lake-storage-introduction
 [Introduction to Azure Data Lake Storage Gen2 scalability]: /azure/storage/blobs/data-lake-storage-introduction#scalability
 [Introduction to Azure Functions]: /azure/azure-functions/functions-overview
+[Machine learning operations (MLOps) framework to upscale machine learning Lifecycle with Azure Machine Learning]: /azure/architecture/example-scenario/mlops/mlops-technical-paper
 [Mapbox Vector Tile specification]: https://github.com/mapbox/vector-tile-spec
 [Microsoft Azure Well-Architected Framework]: /azure/architecture/framework/
+[Monitoring Azure Databricks]: /azure/architecture/databricks-monitoring/
 [Open Geospatial Consortium]: https://www.osgeo.org/partners/ogc/
 [Overview of autoscale in Microsoft Azure]: /azure/azure-monitor/autoscale/autoscale-overview
 [Overview of business continuity with Azure Database for PostgreSQL - Single Server]: /azure/postgresql/concepts-business-continuity
 [Overview of Log Analytics in Azure Monitor]: /azure/azure-monitor/logs/log-analytics-overview
 [PostGIS]: https://www.postgis.net/
 [PostgreSQL]: https://www.postgresql.org/
+[Pricing: Azure Architecture for GIS data processing and serving]: https://azure.com/e/dcb9fc8b3dba4785aa93eb1e9871528f
+[Pricing calculator]: https://azure.microsoft.com/pricing/calculator/
 [Processing Geospatial Data at Scale With Databricks]: https://databricks.com/blog/2019/12/05/processing-geospatial-data-at-scale-with-databricks.html
 [Quickstart: create a Hyperscale (Citus) server group in the Azure portal]: /azure/postgresql/quickstart-create-hyperscale-portal
 [Redis]: https://redis.io/
 [Rust]: https://www.rust-lang.org/
+[Scalability considerations]: #scalability-considerations
 [Scaling with Event Hubs partitions]: /azure/event-hubs/event-hubs-scalability#partitions
 [Security in Azure App Service]: /azure/app-service/overview-security
+[ST_AsMVT (postgis.net)]: https://postgis.net/docs/ST_AsMVT.html
 [Throughput units]: /azure/event-hubs/event-hubs-scalability#throughput-units
 [Urbica Martin]: https://github.com/urbica/node-martin
 [Use Azure Key Vault secrets in pipeline activities]: /azure/data-factory/how-to-use-azure-key-vault-secrets-pipeline-activities
