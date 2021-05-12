@@ -15,7 +15,7 @@ Create personalized and timely customer experiences, increase campaign performan
 
 ## Data flow
 
-1. Use Azure App Service to build and host a content management system (CMS) of your choice without managing infrastructure. It offers auto-scaling and high availability.
+1. Use Azure App Service to build and host a content management system (CMS) of your choice without managing infrastructure. It offers autoscaling and high availability.
 2. Azure Content Delivery Network (CDN) efficiently delivers web content to users by caching their content at strategically placed nodes across the world, thus reducing latency for users.
 3. Manage customer data in Azure Database for PostgreSql with a fully managed and intelligent Azure database for PostgreSQL that provides high availability and scalability. 
 4. Store session state and output cache in Azure Cache for Redis to improve performance and reduce load times of your web front end.
