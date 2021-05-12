@@ -31,6 +31,14 @@ Use the following command to create a resource group for the deployment. Click t
 New-AzResourceGroup -Name state-configuration -Location eastus
 ```
 
+Once deployed, in the Azure portal click on the **Automation Account** resource and then **State configuration (DSC)** and notice that all virtual machines have been added to the system and are compliant. These machines have all had the PowerShell DSC configuration applied, which has installed a web server on each.
+
+![Image of DSC compliance results as seen in the Azure portal.](./media/dsc-results.png)
+
+Browse to the public IP address of any virtual machine to verify that a web server is running.
+
+![Image of an Nginx web server default page.](./media/webserver.png)
+
 Run the following command to deploy the ARM template. When prompted, enter a username and password. These values can be used to log into the created virtual machines.
 
 ```azurepowershell-interactive
@@ -38,11 +46,27 @@ New-AzResourceGroupDeployment -ResourceGroupName state-configuration `
     -TemplateUri https://raw.githubusercontent.com/mspnp/samples/master/OperationalExcellence/azure-automation-state-configuration/azuredeploy.json
 ```
 
+Once deployed, in the Azure portal click on the **Automation Account** resource and then **State configuration (DSC)** and notice that all virtual machines have been added to the system and are compliant. These machines have all had the PowerShell DSC configuration applied, which has installed a web server on each.
+
+![Image of DSC compliance results as seen in the Azure portal.](./media/dsc-results.png)
+
+Browse to the public IP address of any virtual machine to verify that a web server is running.
+
+![Image of an Nginx web server default page.](./media/webserver.png)
+
 #### [Azure portal](#tab/portal)
 
 Use the following button to deploy the reference using the Azure portal.
 
 [![Deploy to Azure](../../_images/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmspnp%2Fsamples%2Fmaster%2FOperationalExcellence%2Fazure-automation-state-configuration%2Fazuredeploy.json)
+
+Once deployed, in the Azure portal click on the **Automation Account** resource and then **State configuration (DSC)** and notice that all virtual machines have been added to the system and are compliant. These machines have all had the PowerShell DSC configuration applied, which has installed a web server on each.
+
+![Image of DSC compliance results as seen in the Azure portal.](./media/dsc-results.png)
+
+Browse to the public IP address of any virtual machine to verify that a web server is running.
+
+![Image of an Nginx web server default page.](./media/webserver.png)
 
 --- 
 
@@ -61,13 +85,3 @@ Use the following button to deploy the reference using the Azure portal.
 ## Alternatives
 
 ## Considerations
-
-## Demo the solution
-
-Click on the **Automation Account** resource and then **State configuration (DSC)** and notice that all virtual machines have been added to the system and are compliant. These machines have all had the PowerShell DSC configuration applied, which has installed a web server on each.
-
-![Image of DSC compliance results as seen in the Azure portal.](./media/dsc-results.png)
-
-Browse to the public IP address of any virtual machine to verify that a web server is running.
-
-![Image of an Nginx web server default page.](./media/webserver.png)
