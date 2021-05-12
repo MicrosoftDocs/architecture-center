@@ -1,5 +1,5 @@
 ---
-title: Forecast Energy and Power Demand
+title: Forecast Energy and Power demand
 titleSuffix: Azure Solution Ideas
 author: cartacios
 ms.date: 3/2/2021
@@ -22,7 +22,7 @@ This solution is built on the Azure managed services: [Azure Stream Analytics](h
 
 ## Architecture
 
-![Architecture Diagram](../media/forecast-energy-power-demand.png)
+![Architecture diagram: using Azure services like Machine Learning in a solution that forecasts energy and power demand.](../media/forecast-energy-power-demand.png)
 *Download an [SVG](../media/forecast-energy-power-demand.svg) of this architecture.*
 
 ## Components

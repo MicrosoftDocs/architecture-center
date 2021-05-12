@@ -1,6 +1,6 @@
 ### YamlMime:Architecture
 metadata:
-  title: Forecast Energy and Power Demand
+  title: Forecast energy and power demand
   titleSuffix: Azure Solution Ideas
   description: Give your company a competitive advantage by using Microsoft Azure to help accurately forecast spikes in demand for energy products and services.
   author: cartacios
@@ -20,8 +20,9 @@ metadata:
     - ai-ml
     - "https://azure.microsoft.com/solutions/architecture/forecast-energy-power-demand/"
     - ai-machine-learning
+    - aml-project-improvement
   social_image_url: /azure/architecture/solution-ideas/articles/media/forecast-energy-power-demand.png
-name: Forecast Energy and Power Demand
+name: Forecast energy and power demand
 azureCategories:
   - ai-machine-learning
   - integration
