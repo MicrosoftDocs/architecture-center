@@ -1,5 +1,5 @@
 ---
-title: Forecast Energy and Power demand
+title: Forecast Energy and Power Demand
 titleSuffix: Azure Solution Ideas
 author: cartacios
 ms.date: 3/2/2021
