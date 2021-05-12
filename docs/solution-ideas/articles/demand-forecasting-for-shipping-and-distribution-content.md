@@ -21,7 +21,7 @@ For an example of a demand forecasting solution for shipping and distribution si
 
 Under these conditions, you can take advantage of the hierarchy formed among the time series of the different items. By enforcing consistency so that the quantities lower in the hierarchy (for example, individual product quantities) sum to the quantities above (customer product totals), you can improve the accuracy of the overall forecast. The same applies if individual items are grouped into categories, even possibly categories that overlap. For example, you might be interested in forecasting demand of all products in total, by location, by product category, by customer, and so on.
 
-The [AI Gallery solution](https://gallery.azure.ai/Solution/Demand-Forecasting-for-Shipping-and-Distribution-2) computes forecasts at all aggregation levels in the hierarchy for each time period specified. Remember that deployments of your demand forecasting solutions will incur consumption charges on the services used. Use the [Pricing Calculator](https://azure.microsoft.com/pricing/calculator) to predict costs. When you are no longer using a deployed solution, delete it to stop incurring charges.
+The [AI Gallery solution](https://gallery.azure.ai/Solution/Demand-Forecasting-for-Shipping-and-Distribution-2) computes forecasts at all aggregation levels in the hierarchy for each time period specified. Remember that deployments of your demand forecasting solutions will incur consumption charges for the services used. Use the [Pricing Calculator](https://azure.microsoft.com/pricing/calculator) to predict costs. When you are no longer using a deployed solution, delete it to stop incurring charges.
 
 ## Components
 
@@ -47,5 +47,5 @@ See related Azure Architecture Center articles:
 
 External links about forecasting:
 
-* [Demand forecasting for shipping and distribution](https://gallery.azure.ai/Solution/Demand-Forecasting-for-Shipping-and-Distribution-2) in the Azure AI Gallery
+* [Demand forecasting for shipping and distribution solution](https://gallery.azure.ai/Solution/Demand-Forecasting-for-Shipping-and-Distribution-2) in the Azure AI Gallery
 * [Forecasting best practices](https://github.com/microsoft/forecasting) on GitHub
