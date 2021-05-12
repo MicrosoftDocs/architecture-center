@@ -3153,50 +3153,6 @@
         },
         {
             "tags": [
-                "'https:--azure.microsoft.com-solutions-architecture-demand-forecasting-and-price-optimization-'",
-                "acom-architecture",
-                "ai-gallery",
-                "all-items",
-                "anomaly-detection",
-                "artificial-intelligence",
-                "azure",
-                "data-flow",
-                "example-code",
-                "github",
-                "pricing-guidance",
-                "solution-architectures",
-                "solution-idea"
-            ],
-            "type": "solution-idea",
-            "file_url": "solution-ideas/articles/demand-forecasting-and-price-optimization.md",
-            "http_url": "/azure/architecture/solution-ideas/articles/demand-forecasting-and-price-optimization",
-            "word_count": 519,
-            "read_time": "3 min read",
-            "Title": "Demand Forecasting and Price Optimization",
-            "MetaDescription": "Pricing is recognized as a pivotal determinant of success in many industries and can be one of the most challenging tasks. Companies often struggle with several aspects of the pricing process, including accurately forecasting the financial impact of potential tactics, taking reasonable consideration of core business constraints, and fairly validating the executed pricing decisions. Expanding product offerings add further computational requirements to make real-time pricing decisions, compounding the difficulty of this already overwhelming task.",
-            "category": [
-                "analytics",
-                "ai-machine-learning"
-            ],
-            "image": "/azure/architecture/solution-ideas/media/demand-forecasting-and-price-optimization.png",
-            "imagepath": "C:\\jvPnpRepos\\architecture-center-pr\\docs\\solution-ideas\\media\\demand-forecasting-and-price-optimization.png",
-            "publish_date": "12/16/2019",
-            "pricing_guidance": "pricing-is-recognized-as-a-pivotal-determinant-of-success-in-many-industries-and-can-be-one-of-the-most-challenging-tasks.-companies-often-struggle-with-several-aspects-of-the-pricing-process,-including-accurately-forecasting-the-financial-impact-of-potential-tactics,-taking-reasonable-consideration-of-core-business-constraints,-and-fairly-validating-the-executed-pricing-decisions.-expanding-product-offerings-add-further-computational-requirements-to-make-real-time-pricing-decisions,-compounding-the-difficulty-of-this-already-overwhelming-task.",
-            "Summary": "<p>Pricing is recognized as a pivotal determinant of success in many industries and can be one of the most challenging tasks. Companies often struggle with several aspects of the pricing process, including accurately forecasting the financial impact of potential tactics, taking reasonable consideration of core business constraints, and fairly validating the executed pricing decisions. Expanding product offerings add further computational requirements to make real-time pricing decisions, compounding the difficulty of this already overwhelming task.</p>\n<p>This solution addresses the challenges raised above by utilizing historical transaction data to train a demand forecasting model. Pricing of products in a competing group is also incorporated to predict cross-product impacts such as cannibalization. A price optimization algorithm then employs the model to forecast demand at various candidate price points and takes into account business constraints to maximize profit. The solution can be customized to analyze various pricing scenarios as long as the general data science approach remains similar.</p>\n<p>The process described above is operationalized and deployed in the Cortana Intelligence Suite. This solution will enable companies to ingest historical transaction data, predict future demand, and obtain optimal pricing recommendations on a regular basis. As a result, the solution drives opportunities for improved profitability and reductions in time and effort allocated to pricing tasks.</p>",
-            "Flow": {
-                "FlowStep_A": "The simulation data is generated hourly by newly deployed Azure Web Jobs.",
-                "FlowStep_B": "This synthetic data is stored at Azure Blob Storage, that will be used in the rest of the solution flow.",
-                "FlowStep_C": "Spark on HDInsight is used to ingest and preprocess the raw data, build and retrain the demand forecasting models, and execute price optimization algorithms.",
-                "FlowStep_D": "Azure Data Factory orchestrates and schedules the entire data flow."
-            },
-            "sample_code": true,
-            "github_url": "https://github.com/Azure/cortana-intelligence-price-optimization/blob/master/Automated%20Deployment%20Guide/Post%20Deployment%20Instructions.md",
-            "name": "demand-forecasting-and-price-optimization",
-            "popularity": 57,
-            "topic": "Analytics"
-        },
-        {
-            "tags": [
                 "'https:--azure.microsoft.com-solutions-architecture-demand-forecasting-for-shipping-and-distribution-'",
                 "acom-architecture",
                 "ai-gallery",
