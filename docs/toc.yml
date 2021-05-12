@@ -765,6 +765,8 @@ items:
                 href: solution-ideas/articles/enterprise-chatbot-disaster-recovery.yml
               - name: Enterprise productivity chatbot
                 href: solution-ideas/articles/enterprise-productivity-chatbot.yml
+              - name: Environment monitoring 
+                href: solution-ideas/articles/environment-monitoring-and-supply-chain-optimization.yml
               - name: FAQ chatbot
                 href: solution-ideas/articles/faq-chatbot-with-data-champion-model.yml
               - name: Hospital patient predictions
@@ -843,9 +845,7 @@ items:
                 href: solution-ideas/articles/content-delivery-network-azure-data-explorer.yml
               - name: Demand forecasting for shipping
                 href: solution-ideas/articles/demand-forecasting-for-shipping-and-distribution.yml
-              - name: Demand forecasting from Blob Storage
-                href: solution-ideas/articles/demand-forecasting-and-price-optimization.yml
-              - name: Demand forecasting from Data Lake Store
+              - name: Demand forecasting and price optimization
                 href: solution-ideas/articles/demand-forecasting-price-optimization-marketing.yml
               - name: Demand forecasting with Stream Analytics
                 href: solution-ideas/articles/demand-forecasting.yml
