@@ -38,7 +38,7 @@ The flow illustrated below represents the general order of activity that  occurs
 
 ### Components 
 
-- Azure [Purview](https://azure.microsoft.com/en-us/services/purview/) is a data governance solution that provides broad visibility of organizations’ on-premise and cloud data estates. If offers a combination of data discovery and  classification, lineage, metadata search and discovery, and usage  insights that helps to manage and understand data across your enterprise data landscape. 
+- Azure [Purview](https://azure.microsoft.com/en-us/services/purview/) is a data governance solution that provides broad visibility of organizations’ on-premise and cloud data estates. It offers a combination of data discovery and  classification, lineage, metadata search and discovery, and usage  insights that helps to manage and understand data across your enterprise data landscape. 
 
 - [Profisee](https://profisee.com/platform/) is the fast, affordable, and scalable MDM platform that integrates seamlessly with Microsoft technologies and the Azure data management ecosystem. 
 - Azure [Data Factory](https://azure.microsoft.com/services/data-factory/) is a hybrid data integration service that allows you to create, schedule, and orchestrate your ETL/ELT workflows. 
@@ -129,7 +129,7 @@ The ability to understand the sources and meaning behind these data are as criti
 
 Once your data has been loaded and enriched, it is important that it be checked for quality and adherence to standards established through your governance processes. Purview can, again, be a rich source of standards information that can be used to drive your data quality rules enforced by your master data management solution. Additionally, data quality rules can be published by Profisee as assets to your governance catalog and subject to review and approval helping to provide top-down oversight to quality standards associated with your master data. Because your rules are tied to master data entities and attributes and because those attributes are traced back to source system, you can leverage this information to establish the root cause of poor data quality originating from your LOB systems. 
 
-As data stewards address issues surfaced through your master data solution, they can leverage Purview’s data governance catalog to assist in understanding and resolving quality issues as they arise. Backed by the support of data owners and experts, they armed to address data quality issues quickly and accurately. 
+As data stewards address issues surfaced through your master data solution, they can leverage Purview’s data governance catalog to assist in understanding and resolving quality issues as they arise. Backed by the support of data owners and experts, they are armed to address data quality issues quickly and accurately. 
 
 ### Matching & Survivorship
 
@@ -152,7 +152,7 @@ Consolidating customer data for analytics is the most common MDM use case.  Orga
 - Hard to answer basic business questions like “Who are our top customers” and “How many new customers did we have”, requiring significant manual  effort. 
 
 - Missing and inaccurate customer information, making it difficult to roll up or drill down into data. 
-- Inability to analyzing customer data across systems or business units due to an  inability to uniquely identify a customer across organizational and  system boundaries. 
+- Inability to analyze customer data across systems or business units due to an  inability to uniquely identify a customer across organizational and  system boundaries. 
 - Poor-quality insights from AI and machine learning due to poor-quality input data. 
 
 ### Product 360 
