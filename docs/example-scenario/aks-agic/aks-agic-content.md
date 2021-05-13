@@ -285,7 +285,9 @@ Consider these ways to optimize availability for your AKS cluster and workloads:
 
 ## Deploy this scenario
 
-All of the source code for this scenario is available in the [Create an Azure Kubernetes Service cluster with the Application Gateway Ingress Controller](https://github.com/paolosalvatori/aks-agic) GitHub repository. This solution is open source and provided with an [MIT License](https://github.com/paolosalvatori/aks-agic/blob/master/LICENSE). You can find a demo application in the [Use Application Gateway Ingress Controller in a multi-tenant AKS cluster](https://github.com/paolosalvatori/aks-multi-tenant-agic) GitHub repository.
+All of the source code for this scenario is available in the [Create an Azure Kubernetes Service cluster with the Application Gateway Ingress Controller](https://github.com/paolosalvatori/aks-agic) GitHub repository. This solution is open source and provided with an [MIT License](https://github.com/paolosalvatori/aks-agic/blob/master/LICENSE). In addition, you can find a demo application, shown in the picture below, in the [Use Application Gateway Ingress Controller in a multi-tenant AKS cluster](https://github.com/paolosalvatori/aks-multi-tenant-agic) GitHub repository.
+
+![Architecture Diagram](./media/aks-agic-sample.png)
 
 ### Prerequisites
 
