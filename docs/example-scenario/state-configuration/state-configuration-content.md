@@ -2,7 +2,7 @@ Azure Automation State Configuration is an Azure configuration management servic
 
 ## Architecture
 
-This example scenario demonstrates using Azure Automation State Configuration to install a web server on both Windows and Linux-based Azure Virtual Machines. Use the included deployment to experience Azure Automation State Configuration in your Azure environment.
+This example scenario demonstrates using Azure Automation State Configuration to install a web server on both Windows and Linux-based Azure Virtual Machines. Additionally, Azure Monitor is configured to raise an alert when any machine is found in a non-compliant state.
 
 ![](./media/azure-state-config-three.png)
 
@@ -86,9 +86,9 @@ Use Azure Automation state configuration to host and manage PowerShell Desired S
 - Enforcing compliance and security controls.
 - Configure and enforce other operating system controls.
 
-## Alternatives
-
 ## Considerations
+
+Consider the following items when managing systems configuration with Azure Automation State Configuration.
 
 ### Configurations
 
@@ -130,7 +130,7 @@ configuration windowsfeatures {
 
 ### Monitoring
 
-```
+```kusto
 AzureDiagnostics
 | where Category == "DscNodeStatus"
 | where ResultType != "Compliant"
