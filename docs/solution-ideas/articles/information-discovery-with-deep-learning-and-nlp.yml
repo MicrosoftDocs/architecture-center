@@ -2,7 +2,7 @@
 metadata:
   title: Information discovery with deep learning and NLP
   titleSuffix: Azure Solution Ideas
-  description: Use Microsoft AI to improve website tagging accuracy by combining deep learning and natural language processing (NLP) with data on site-specific search terms.
+  description: Use Microsoft AI to improve website content tagging accuracy by combining deep learning and natural language processing (NLP) with data on site-specific search terms.
   author: doodlemania2
   ms.author: pnp
   ms.date: 12/16/2019
@@ -25,10 +25,10 @@ metadata:
     - ai-machine-learning
     - aml-project-improvement
   social_image_url: /azure/architecture/solution-ideas/articles/media/information-discovery-with-deep-learning-and-nlp.png
-name: Information discovery with deep learning and NLP
+name: Information discovery with deep learning and NLP to suggest content tags
 azureCategories:
   - ai-machine-learning
-summary: Use Microsoft AI to improve website tagging accuracy by combining deep learning and natural language processing (NLP) with data on site-specific search terms.
+summary: Use Microsoft AI to improve website content tagging accuracy by combining deep learning and natural language processing (NLP) with data on site-specific search terms.
 products:
   - azure-container-registry
   - azure-data-science-vm
