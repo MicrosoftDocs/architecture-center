@@ -46,5 +46,5 @@ See product documentation:
 
 Learn more:
 
-* The Machine Learning notebook [forecasting using the Energy Demand Dataset](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-energy-demand/auto-ml-forecasting-energy-demand.ipynb)
-* The Microsoft Learn module [Use automated machine learning in Azure Machine Learning](/learn/modules/use-automated-machine-learning/)
+* Try the Machine Learning notebook for [forecasting using the Energy Demand Dataset](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-energy-demand/auto-ml-forecasting-energy-demand.ipynb)
+* Try the Microsoft Learn module [Use automated machine learning in Azure Machine Learning](/learn/modules/use-automated-machine-learning/)
