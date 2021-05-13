@@ -26,7 +26,6 @@ When to use this pattern:
 -   Need flexibility for client applications. As compared to only visualization using Power BI Streaming Datasets, this pattern enables a multitude of clients and enables other scenarios like updating maps and customized UI. 
 
 When not to use this pattern:
--   This pattern is used for real-time functionality of a **cloud-based** application. If the scenario calls for low latency and reliability, an on-premises based solution design may be considered. 
 -   When required to visualize on Power BI, the [streaming data](/power-bi/connect-data/service-real-time-streaming) could be an option.
 
 
