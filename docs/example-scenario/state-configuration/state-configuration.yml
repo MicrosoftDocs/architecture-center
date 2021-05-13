@@ -1,7 +1,7 @@
 ### YamlMime:Architecture
 metadata:
-  title: State Configuration
-  description: State Configuration
+  title: Azure Automation State Configuration
+  description: Azure Automation State Configuration
   author: neilpeterson
   ms.author: pnp
   ms.date: 4/22/2020

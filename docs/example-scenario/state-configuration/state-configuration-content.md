@@ -150,3 +150,11 @@ AzureDiagnostics
 | where Category == "DscNodeStatus"
 | where ResultType != "Compliant"
 ```
+
+## Pricing
+
+Configuration management includes the configuration pull service and change tracking capabilities. Billing is based on the number of nodes that are registered with the service and the log data stored in the Azure Log Analytics service.
+
+Charges for configuration management start when a node is registered with the service and stop when the node is unregistered from the service. A node is any machine whose configuration is managed by configuration management. This could be an Azure virtual machine (VM), on-premises VM, physical host, or a VM in another public cloud. Billing for nodes is pro-rated hourly.
+
+For more information, see [Automation pricing](https://azure.microsoft.com/pricing/details/automation/).
