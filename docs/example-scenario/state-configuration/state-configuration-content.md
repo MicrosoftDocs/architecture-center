@@ -2,7 +2,7 @@ Azure Automation State Configuration is an Azure configuration management servic
 
 ## Architecture
 
-This example scenario demonstrates using Azure Automation State Configuration to install a web server on both Windows and Linux-based Azure Virtual Machines.
+This example scenario demonstrates using Azure Automation State Configuration to install a web server on both Windows and Linux-based Azure Virtual Machines. Azure Monitor is used to raise an alert for any noncompliant systems.
 
 ![](./media/azure-state-config-three.png)
 
@@ -64,7 +64,12 @@ Once deployed, in the Azure portal click on the **Automation Account** resource 
 
 You can also browse to the public IP address of any virtual machine to verify that a web server is running.
 
---- 
+---
+
+For detailed information and additional deployment options, see the ARM Templates used to deploy this solution.
+
+> [!div class="nextstepaction"]
+> [Azure Automation State Configuration ARM Templates](/samples/mspnp/samples/hub-and-spoke-deployment/)
 
 ## Components
 
@@ -91,6 +96,10 @@ Use Azure Automation state configuration to host and manage PowerShell Desired S
 Consider the following items when managing systems configuration with Azure Automation State Configuration.
 
 ### Configurations
+
+Windows and Linux systems are configured using a DSC configuration. These configurations are uploaded into the Azure Automation State Configuration service, compiled into a node configuration, and can be assigned to any system managed by the state configuration services.
+
+Configuration can be composed in any text editor or in the Azure portal. The following examples are used in the included deployment to install a web server on both Windows and Linux systems.
 
 # [Linux](#tab/linux)
 
@@ -128,7 +137,13 @@ configuration windowsfeatures {
 
 ---
 
+For more information on compsong configurations, see [Composing DSC configurations](/azure/automation/compose-configurationwithcompositeresources).
+
 ### Monitoring
+
+Azure Automation State Configuration retains node status data for 30 days. You can send node status data to your Log Analytics workspace if you prefer to retain this data for a longer period. Azure Monitor logs provide greater operational visibility to your Automation State Configuration data and help address incidents more quickly. For example, with Azure monitor integration, an email alert can be raised when a system is found to be non-compliant.
+
+Azure Monitor integration is configured with the included deployment. The following Azure Monitor query is used to detect and alert when non-compliant systems are detected.
 
 ```kusto
 AzureDiagnostics
