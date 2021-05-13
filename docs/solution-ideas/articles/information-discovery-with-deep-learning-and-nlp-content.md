@@ -23,8 +23,17 @@ By combining deep learning and natural language processing (NLP) with data on si
 
 ## Next steps
 
-* [Learn more about Microsoft SQL Server](https://www.microsoft.com/sql-server/sql-server-2017)
-* [Learn more about Azure Machine Learning](/azure/machine-learning)
+See product documentation:
+
+* [Azure Machine Learning](/azure/machine-learning)
+* [Azure Kubernetes Service](/azure/aks/intro-kubernetes)
+* [Learn more about Azure Container Registry](/azure/container-registry/container-registry-intro)
+* [Microsoft SQL Server](https://www.microsoft.com/sql-server/sql-server-2017)
 * [Learn more about Jupyter Notebooks](https://jupyter.org)
-* [Learn more about Azure Container Registry](https://azure.microsoft.com/services/container-registry)
-* [Learn more about Azure Kubernetes Service](https://azure.microsoft.com/services/hdinsight)
+
+Try these Microsoft Learn modules:
+
+* [Introduction to Natural Language Processing with PyTorch](/learn/modules/intro-natural-language-processing-pytorch/)
+* [Train and evaluate deep learning models](/learn/modules/train-evaluate-deep-learn-models/)
+* [Create and connect to a Data Science Virtual Machine](/learn/modules/intro-to-azure-data-science-virtual-machine/)
+* [Implement knowledge mining with Azure Cognitive Search](/learn/paths/implement-knowledge-mining-azure-cognitive-search/)
