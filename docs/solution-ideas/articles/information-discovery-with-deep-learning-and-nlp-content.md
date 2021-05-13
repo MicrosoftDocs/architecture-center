@@ -10,6 +10,7 @@ By combining deep learning and natural language processing (NLP) with data on si
 ## Architecture
 
 ![Architecture diagram: overview of using Azure Machine Learning to help suggest content tags for websites.](../media/information-discovery-with-deep-learning-and-nlp.png)
+
 *Download an [SVG](../media/information-discovery-with-deep-learning-and-nlp.svg) of this architecture.*
 
 ## Components
