@@ -186,7 +186,7 @@ Once deployed with the ability to observe multiple namespaces, AGIC will:
 
 - It is strongly recommended that you leverage benefits from Kubernetes’ autoscaling mechanisms to automatically scale cluster services with a surge in resource consumption.With [Horizontal Pod Autoscaler](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/) and Cluster Autoscaler, node and pod volumes get adjusted dynamically in real-time, thereby maintaining load to the optimum level and avoiding capacity downtimes. For more information, see [Automatically scale a cluster to meet application demands on Azure Kubernetes Service (AKS)](https://docs.microsoft.com/en-us/azure/aks/cluster-autoscaler).
 
-## Availability considerations
+## Availability and reliability considerations
 
 Consider these ways to optimize availability for your AKS cluster and workloads:
 
@@ -201,9 +201,18 @@ Consider these ways to optimize availability for your AKS cluster and workloads:
 - Resource contention can affect service availability. Define container resource constraints so that no single container can overwhelm the cluster memory and CPU resources. You can use AKS diagnostics to identify any issues in the cluster.
 - Use resource limit to restrict the total resources allowed for a container, so one particular container can't starve others.
 
+### Container registry
+
+- We suggest storing container images in Azure Container Registry and geo-replicate the registry to each AKS region using  [Azure Container Registry geo-replication](https://docs.microsoft.com/en-us/azure/container-registry/container-registry-geo-replication). Geo-replication is a feature of Premium SKU ACR registries.
+- Scan your container images for vulnerabilities, and only deploy images that have passed validation. Regularly update the base images and application runtime, then redeploy workloads in the AKS cluster.
+- Limit the image registries that pods, and deployments can use. Only allow trusted registries where you validate and control the images that are available.
+- As you use base images for application images, use automation to build new images when the base image is updated. As those base images typically include security fixes, update any downstream application container images.
+- Leverage [ACR Tasks](https://docs.microsoft.com/en-us/azure/container-registry/container-registry-tasks-overview) in Azure Container Registry to automate OS and framework patching for your Docker containers. ACR Tasks supports automated build execution when a container's base image is updated, such as when you patch the OS or application framework in one of your base images.
+
 ### Intra-region resiliency
 
 - Consider to deploy the node pools of your AKS cluster across all the [Availability Zones](https://docs.microsoft.com/en-us/azure/aks/availability-zones) within a region and use an [Azure Standard Load Balancer](https://docs.microsoft.com/en-us/azure/load-balancer/load-balancer-overview) or [Azure Application Gateway](/azure/application-gateway/overview) in front of your node pools. This topology provides better resiliency in case of outage of a single datacenter as cluster nodes would be distributed across multiple datacenters in 3 separate availability zones within a region.
+- In addition to [geo-replication](https://docs.microsoft.com/en-us/azure/container-registry/container-registry-geo-replication), make sure to enable [zone redundancy in Azure Container Registry for resiliency and high availability](https://docs.microsoft.com/en-us/azure/container-registry/zone-redundancy) for intra-region resiliency.
 - Use [Pod Topology Spread Constraints](https://kubernetes.io/docs/concepts/workloads/pods/pod-topology-spread-constraints/) to control how Pods are spread across your AKS cluster among failure-domains such as regions, availability zones, and nodes.
 - Consider using Uptime SLA for AKS clusters hosting mission-critical workloads. [Uptime SLA](https://docs.microsoft.com/en-us/azure/aks/uptime-sla) is an optional feature to enable a financially backed, higher SLA for a cluster. Uptime SLA guarantees 99.95% availability of the Kubernetes API server endpoint for clusters that use Availability Zones and 99.9% of availability for clusters that don't use Availability Zones. AKS uses master node replicas across update and fault domains to ensure SLA requirements are met.
 
@@ -213,7 +222,7 @@ Consider these ways to optimize availability for your AKS cluster and workloads:
 - Make sure to script, document, and periodically test any regional failover process in a QA environment to avoid unpredictable issues in case of an outage of a core service in the primary region.
 - These tests are also meant to validate if the DR approach meets the RPO/RTO targets in conjunction to eventual manual processes and interventions needed for a failover.
 - Make sure to test fail-back procedures to understand if they work as expected.
-- Store your container images in [Azure Container Registry](https://docs.microsoft.com/en-us/azure/container-registry/container-registry-intro) and geo-replicate the registry to each AKS region.
+- Store your container images in [Azure Container Registry](https://docs.microsoft.com/en-us/azure/container-registry/container-registry-intro) and geo-replicate the registry to each AKS region. For more information, see [Geo-replication in Azure Container Registry](https://docs.microsoft.com/en-us/azure/container-registry/container-registry-geo-replication).
 - Where possible, don't store service state inside the container. Instead, use an Azure platform as a service (PaaS) that supports multi-region replication.
 - If you use Azure Storage, prepare and test how to migrate your storage from the primary region to the backup region.
 
@@ -254,13 +263,11 @@ Consider these ways to optimize availability for your AKS cluster and workloads:
 
 ## Cost considerations
 
-- Do capacity planning based on performance testing.
+- Do a capacity planning based on the results of a performance test.
 - Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate costs.
 - See other cost considerations in [Principles of cost optimization](../../framework/cost/overview.md) in the Microsoft Azure Well-Architected Framework.
 
 ## DevOps considerations
-
-Here are some operational considerations for this scenario:
 
 - Deploy your workloads to AKS using a [Helm](https://helm.sh/) chart in a CI/CD pipeline using a DevOps system such as [GitHub Actions](https://docs.github.com/en/actions) or [Azure DevOps](https://azure.microsoft.com/en-us/services/devops/). For more information, see [Build and deploy to Azure Kubernetes Service](https://docs.microsoft.com/en-us/azure/devops/pipelines/ecosystems/kubernetes/aks-template?view=azure-devops).
 - Introduce A/B testing and canary deployments in your application lifecycle management to properly test an application before making it available for all users. There are several techniques that you can leverage to split the traffic across different versions of the same service. For more information, see:</p>
@@ -275,12 +282,6 @@ Here are some operational considerations for this scenario:
 
 - Use [Container insights](https://docs.microsoft.com/en-us/azure/azure-monitor/containers/container-insights-overview) to monitor the health status of the AKS cluster and workloads.
 - Configure all the PaaS services such as Azure Container Registry and Key Vault to collect diagnostics logs and metrics to [Azure Monitor Log Analytics](https://docs.microsoft.com/en-us/azure/azure-monitor/logs/log-analytics-overview).
-
-## Cost considerations
-
-- Do capacity planning based on performance testing.
-- Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate costs.
-- See other cost considerations in [Principles of cost optimization](../../framework/cost/overview.md) in the Microsoft Azure Well-Architected Framework.
 
 ## Deploy this scenario
 
