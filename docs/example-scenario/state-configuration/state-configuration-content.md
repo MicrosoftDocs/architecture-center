@@ -4,6 +4,8 @@ This example scenario demonstrates using Azure Automation State Configuration to
 
 ## Architecture
 
+![](./media/azure-state-config.png)
+
 ## Reference deployment
 
 This deployment includes an Azure Automation account, the Azure Automation State Configuration feature, and one to many Windows and Linux Virtual machines that are onboarded onto State Configuration. Once deployed, and configuration is applied to each virtual machine that installs a web server.
