@@ -1,7 +1,7 @@
 # Cloud Application Signaling Pattern
 
 ## Motivations
-Some Internet of Things (IoT) applications need to visualize and action on real-time telemetry/alerts from IoT devices. Rather than traditional polling methods, real-time functionality can be achieved when a server code pushes content to connected clients instantly as it becomes available.
+Some Internet of Things (IoT) applications need to visualize and action on real-time telemetry/alerts from IoT devices. Rather than traditional polling methods, which involves clients asking for state changes, real-time functionality can be achieved when a content is pushed to connected clients instantly as it becomes available.
 
 ## Architecture
 
