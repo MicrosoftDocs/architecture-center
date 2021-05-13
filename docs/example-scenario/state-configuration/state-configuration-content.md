@@ -1,10 +1,10 @@
 Azure Automation State Configuration is an Azure configuration management service that allows you to configure and enforce state on virtual and physical machines in any cloud or on-premises datacenter. The service is fully managed and is accessed through the Azure portal or Azure command-line tools and software development kits. In addition to enforcing configuration, you can also use Azure Automation State Configuration in a report-only mode where compliance data is generated based on a virtual or physical machine's compliance with a configuration.
 
-This example scenario demonstrates using Azure Automation State Configuration to install a web server on both Windows and Linux-based Azure Virtual Machines. Use the included deployment to experience Azure Automation State Configuration in your Azure environment.
-
 ## Architecture
 
-![](./media/azure-state-config-two.png)
+This example scenario demonstrates using Azure Automation State Configuration to install a web server on both Windows and Linux-based Azure Virtual Machines. Use the included deployment to experience Azure Automation State Configuration in your Azure environment.
+
+![](./media/azure-state-config-three.png)
 
 ## Reference deployment
 
@@ -68,15 +68,23 @@ You can also browse to the public IP address of any virtual machine to verify th
 
 ## Components
 
-**Azure Automation:** Azure Automation delivers a cloud-based automation and configuration service that supports consistent management across your Azure and non-Azure environments.
+The following services and components are used in this solution.
 
-**Azure Automation State Configuration:** is a configuration management solution built on top of PowerShell Desired State Configuration (DSC). State configuration works with Azure virtual machines, on-premises machines, and machines in a cloud other than Azure. Using state configuration, you can import PowerShell DSC resources and assign them to many virtual machines from a central location. Once each endpoint has evaluated and / or applied the desired state, state compliance is reported to Azure and can be seen on a built-in dashboard.
+- **Azure Automation:** Azure Automation delivers a cloud-based automation and configuration service that supports consistent management across your Azure and non-Azure environments.
 
-**Azure Monitor:** Azure Monitor collects and stores metrics and logs, application telemetry, and platform metrics for the Azure services. Use this data to monitor the application, set up alerts, dashboards, and perform root cause analysis of failures.
+- **Azure Automation State Configuration:** is a configuration management solution built on top of PowerShell Desired State Configuration (DSC). State configuration works with Azure virtual machines, on-premises machines, and machines in a cloud other than Azure. Using state configuration, you can import PowerShell DSC resources and assign them to many virtual machines from a central location. Once each endpoint has evaluated and / or applied the desired state, state compliance is reported to Azure and can be seen on a built-in dashboard.
 
-**Azure Virtual Machines:** Azure IaaS solution for running virtual machines.
+- **Azure Monitor:** Azure Monitor collects and stores metrics and logs, application telemetry, and platform metrics for the Azure services. Use this data to monitor the application, set up alerts, dashboards, and perform root cause analysis of failures.
+
+- **Azure Virtual Machines:** Azure IaaS solution for running virtual machines.
 
 ## Potential use cases
+
+Use Azure Automation state configuration to host and manage PowerShell Desired State configurations centrally. These configurations can be applied to Windows and Linux systems to enforce state configuration. Example configurations could include:
+
+- Configuring applications and web services.
+- Enforcing compliance and security controls.
+- Configure and enforce other operating system controls.
 
 ## Alternatives
 
