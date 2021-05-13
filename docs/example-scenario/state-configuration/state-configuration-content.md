@@ -27,9 +27,7 @@ Once deployed, in the Azure portal click on the **Automation Account** resource 
 
 ![Image of DSC compliance results as seen in the Azure portal.](./media/dsc-results.png)
 
-Browse to the public IP address of any virtual machine to verify that a web server is running.
-
-![Image of an Nginx web server default page.](./media/webserver.png)
+You can also browse to the public IP address of any virtual machine to verify that a web server is running.
 
 #### [PowerShell](#tab/powershell)
 
@@ -50,9 +48,7 @@ Once deployed, in the Azure portal click on the **Automation Account** resource 
 
 ![Image of DSC compliance results as seen in the Azure portal.](./media/dsc-results.png)
 
-Browse to the public IP address of any virtual machine to verify that a web server is running.
-
-![Image of an Nginx web server default page.](./media/webserver.png)
+You can also browse to the public IP address of any virtual machine to verify that a web server is running.
 
 #### [Azure portal](#tab/portal)
 
@@ -64,9 +60,7 @@ Once deployed, in the Azure portal click on the **Automation Account** resource 
 
 ![Image of DSC compliance results as seen in the Azure portal.](./media/dsc-results.png)
 
-Browse to the public IP address of any virtual machine to verify that a web server is running.
-
-![Image of an Nginx web server default page.](./media/webserver.png)
+You can also browse to the public IP address of any virtual machine to verify that a web server is running.
 
 --- 
 
