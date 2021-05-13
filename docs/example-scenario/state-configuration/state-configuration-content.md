@@ -81,3 +81,47 @@ You can also browse to the public IP address of any virtual machine to verify th
 ## Alternatives
 
 ## Considerations
+
+### Configurations
+
+[Windows](#tab/windows)
+
+```powershell
+configuration windowsfeatures {
+
+    Import-DscResource -ModuleName PsDesiredStateConfiguration
+
+    node localhost {
+
+        WindowsFeature WebServer {
+            Ensure = "Present"
+            Name = "Web-Server"
+        }
+    }
+}
+```
+
+[Linux](#tab/linux)
+
+```powershell
+configuration linuxpackage {
+
+    Import-DSCResource -Module nx
+
+    Node "localhost" {
+
+        nxPackage nginx {
+            Name = "nginx"
+            Ensure = "Present"
+        }
+    }
+}
+```
+
+### Monitoring
+
+```
+AzureDiagnostics
+| where Category == "DscNodeStatus"
+| where ResultType != "Compliant"
+```
