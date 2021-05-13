@@ -132,7 +132,7 @@ environment](#assign-privileges-for-managing-the-environment) section.
 
 ## Clear lines of responsibility
 
-Designate the parties responsible for specific functions in Azure
+Designate the parties responsible for specific functions in Azure.
 
 Clearly documenting and sharing the contacts responsible for each of these
 functions will create consistency and facilitate communication. Based on our
@@ -187,7 +187,7 @@ on-premises network generation segmentation strategies.
 
 Here are Microsoft's recommendations for prioritizing initiatives on containment and
 segmentation (based on Zero Trust principles). These recommendations are listed in priority
-order by highest importance.
+order by highest importance:
 
 - Ensure alignment of technical teams to a single enterprise segmentation
     strategy.
@@ -220,7 +220,7 @@ A good enterprise segmentation strategy meets these criteria:
 ## Security team visibility
 
 Provide security teams read-only access to the security aspects of all technical
-resources in their purview
+resources in their purview.
 
 Security organizations require visibility into the technical environment to
 perform their duties of assessing and reporting on organizational risk. Without
@@ -234,7 +234,7 @@ compliance on Azure resources.
 
 For example in Azure, assign security teams to the **Security Readers**
 permission that provides access to measure security risk (without providing
-access to the data itself)
+access to the data itself).
 
 For enterprise security groups with broad responsibility for security of Azure,
 you can assign this permission using:
