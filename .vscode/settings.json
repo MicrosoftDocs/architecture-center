@@ -368,5 +368,6 @@
     ],
     "docLog.userName": "adamboeglin",
     "docLog.monthsAgo": 4,
-    "docLog.repoTitle": "the Azure Architecture Center"
+    "docLog.repoTitle": "the Azure Architecture Center",
+    "svg.preview.background": "white"
 }
