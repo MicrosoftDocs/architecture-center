@@ -210,8 +210,6 @@ Use Azure Policy to govern creation of resources:
 For more information, see [Azure encryption overview](https://docs.microsoft.com/azure/security/fundamentals/encryption-overview).
 
 
-<Ask Chad: to give input around can the approval process be automated, who should be responsible and how is that incorporated in the pipeline.>
-
 #### Requirement 4.1.1
 
 Ensure wireless networks transmitting cardholder data or connected to the cardholder data environment, use industry best practices (for example, IEEE 802.11i) to implement strong encryption for authentication and transmission.
@@ -219,6 +217,7 @@ Ensure wireless networks transmitting cardholder data or connected to the cardho
 ##### Your responsibilities
       
 <Ask Chad>
+the ra/ri does not do onprem/corporate to cloud transations over wireless. For information about how to adhere to this requirement, refer to Guidance in the official standard. 
 
 #### Requirement 4.2
 Never send unprotected PANs by end-user messaging technologies (for example, e-mail, instant messaging, SMS, chat, etc.).
@@ -226,7 +225,7 @@ Never send unprotected PANs by end-user messaging technologies (for example, e-m
 ##### Your responsibilities
       
 <Ask Chad>
-
+the ra/ri does not do PCi workload impl. This validation should be done at the workload level and the change control process. The approavl gates should understand the requirement. For information about how to adhere to this requirement, refer to Guidance in the official standard. 
 
 #### Requirement 4.3
 
@@ -235,8 +234,11 @@ Ensure that security policies and operational procedures for encrypting transmis
 ##### Your responsibilities
       
 <Ask Chad>
-
-
+<Ask Chad: to give input around can the approval process be automated, who should be responsible and how is that incorporated in the pipeline.>
+Make sure you have current procedures
+They should be documented
+involved parties should be part of the approval process from policy perspective. 
+Data transit: poicu extents app gway support of tls ciphers. service mesh and its tls configuraiton. azure paas services also support tls. app service (level of tls)
 
 ## Next
 

@@ -47,7 +47,12 @@ Don't implement configurations manually. Instead, use Infrastructure as code (Ia
 
 Have a gated approval process that involves people and processes to approve changes to any network configuration. Have detailed documentation that describes the process. 
 
-<Ask Chad: to give input around can the approval process be automated, who should be responsible and how is that incorporated in the pipeline.>
+<Todo>
+- Minimize access through tools (portal) use iac
+- Identify teams. Organization's network team will validate as per the IT teams change control processes.
+
+##### AKS responsibilities
+<Ask Jorge>
 
 #### Requirement 1.1.2
 Current network diagram that identifies all connections between the cardholder data environment and other networks, including any wireless networks
@@ -69,7 +74,10 @@ Current diagram that shows all cardholder data flows across systems and networks
 ##### Your responsibilities
 As part of your documentation, include a data flow diagram that shows how data is protected at rest and in transit.
 
-<Ask Chad: need a data diagram for this requirement>
+<Todo>
+Make sure as part of change control process, a step is added to check the diagram. 
+This is infreastruct specific ra. the diagram is workload specific. Be detailed as practicable.
+
 
 #### Requirement 1.1.4
 Requirements for a firewall at each Internet connection and between any demilitarized zone (DMZ) and the internal network zone.
@@ -124,7 +132,13 @@ Requirement to review firewall and router rule sets at least every six months.
 
 Have processes that regularly review the network configurations and the scoped rules. This will make sure the security assurances are current and valid.
 
-<Ask Chad: What are the things to look for and review>
+<Todo>
+fw rulesets
+nsg rulesets
+waf + ag
+k8 network policiies pod to pod
+individual az resource firewall. acr only allowing from private endpoint.
+Any other network controls you have added to the architecture.
 
 #### Requirement 1.2
 
@@ -139,7 +153,9 @@ Unstrusted networks are networks outside that perimeter. This category includes 
 
 For information about private clusters, see [Create a private Azure Kubernetes Service cluster](https://docs.microsoft.com/en-us/azure/aks/private-clusters).
 
-<Ask Chad: What about the case where I don't want to use a private cluster. What are the added responsibilities w.r.t API service (and others). Need a case to say with private cluster things are just easier. >
+<Todo>
+
+For public cluster, k8 api server would be exposed to the internet. You can control that with idenity (k8 rbac) + ip restrictions of aks (firewall). you won't be able to keep the dns record will always be publicaly discoverable. This adds overhead in maintence. Do due dilligence to keep the cluster out of public space for better access control. every request will consume compute to even respond. Ip restrictions from public IP space are not sufficient for a high security workload. 
 
 #### Requirement 1.2.1
 Restrict inbound and outbound traffic to that which is necessary for the cardholder data environment, and specifically deny all other traffic.
@@ -171,10 +187,14 @@ In addition to firewall rules and private networks, Nework Security Group (NSG) 
 Secure and synchronize router configuration files.
 
 ##### Your responsibilities
+<to do>
+Have a way to detect drift between desired state and deployed state.
+Use ARM templates (or similar) to have a record of the desired state.
 
-Use ARM templates (or similar) to have a record of the resources deployed.
 
-<Ask Chad: What about GitOps and Flux capacitor, start up security>
+Use ARM templates that are source controled. that provides record of change history. combine with az activity log, pipeline logs, and az deployment logs, will help you trail of deployment.
+
+In the cluster, network controls (net policis) shoud follow a similar source control flow. for exmp, in this ri, flux keeps that informion as the git ops oeprator. as part of sync operations, it keeps source control and cluster config history. 
 
 #### Requirement 1.2.3
 
@@ -271,7 +291,13 @@ Do not disclose private IP addresses and routing information to unauthorized par
 
 A private AKS cluster keeps DNS records off the public internet. Use an internal DNS zone for routing between the subnet that has Azure Application Gateway integrated with Web Application Firewall(WAF) and the subnet that has the internal load balancer. Ensure all HTTP responses do not include any private IP information in headers or body. Ensure logs that may contain IP and DNS records are not exposed outside of operational needs.
 
-<Ask Chad: Two questions: 1. I couldn't find an internal DNS zone between waf and ilb. 2. yesterday we discussed that private DNS zone is in the hub. In the spoke resource group i see exactly those private DNS zones. None in the hub. What am I missing>
+<to do>
+
+having a public cluster violates that. 
+
+the vnet that is linked to the dns private zone resolves the record. all zones are linked to the hub network in this impl. 
+
+azure services that are connected through private link doesn't have public dns record. your infrastructure should max the use of PLs.
 
 ### Requirement 1.4
 
@@ -362,8 +388,8 @@ Default settings might include features you don't need. To function, those featu
 
 Make sure all rules, configured in Azure Firewall and Network Security Groups (NSG), restrict traffic by protocol and port in addition to source and destination.
 
-For components where you have complete control, remove all necessary system services from the images. For instance jump boxes, build agents, and others,
-<Ask Chad: necessary? need to understand>
+For components where you have complete control, remove all unnecessary system services from the images. For instance jump boxes, build agents, and others,
+
 
 For components, where you only have visibility such as AKS nodes, document what Azure installs on the nodes. Consider using DaemonSets to provide any additional auditing necessary for these cloud-controlled components.
 
@@ -437,9 +463,14 @@ Shared hosting providers must protect each entity’s hosted environment and car
 
 #### Your responsibilities
 
+Azure provides security assurances for the hosted env. Services do have regulated hosting enviroments in shared concept app service in ASE. But use dedicated hosts. From AKS perspective, the cluster the compute nodes are single tenant.
+
+<Ask Jorge: is the api control plane signle tenant>
+
+
 https://docs.microsoft.com/compliance/regulatory/offering-PCI-DSS
 
-<Ask Chad: what does that link have to do with shared hosting. Is this about multitenant?>
+<To do>
 
 ## Next
 
