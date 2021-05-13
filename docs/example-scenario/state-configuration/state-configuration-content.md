@@ -84,7 +84,24 @@ You can also browse to the public IP address of any virtual machine to verify th
 
 ### Configurations
 
-[Windows](#tab/windows)
+# [Linux](#tab/linux)
+
+```powershell
+configuration linuxpackage {
+
+    Import-DSCResource -Module nx
+
+    Node "localhost" {
+
+        nxPackage nginx {
+            Name = "nginx"
+            Ensure = "Present"
+        }
+    }
+}
+```
+
+# [Windows](#tab/windows)
 
 ```powershell
 configuration windowsfeatures {
@@ -101,22 +118,6 @@ configuration windowsfeatures {
 }
 ```
 
-[Linux](#tab/linux)
-
-```powershell
-configuration linuxpackage {
-
-    Import-DSCResource -Module nx
-
-    Node "localhost" {
-
-        nxPackage nginx {
-            Name = "nginx"
-            Ensure = "Present"
-        }
-    }
-}
-```
 ---
 
 ### Monitoring
