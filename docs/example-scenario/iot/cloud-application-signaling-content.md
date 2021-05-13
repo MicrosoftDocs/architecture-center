@@ -27,7 +27,7 @@ When to use this pattern:
 
 When not to use this pattern:
 -   When required to visualize on Power BI, the [streaming data](/power-bi/connect-data/service-real-time-streaming) could be an option.
-
+-   Any use case that requires guaranteed message delivery. 
 
 ## Use cases
 -   Fleet monitoring: Real-time location tracking of vehicles on maps.
