@@ -22,7 +22,7 @@ This solution is built on the Azure managed services: [Azure Stream Analytics](h
 
 ## Architecture
 
-![Architecture Diagram](../media/forecast-energy-power-demand.png)
+![Architecture diagram: using Azure services like Machine Learning in a solution that forecasts energy and power demand.](../media/forecast-energy-power-demand.png)
 *Download an [SVG](../media/forecast-energy-power-demand.svg) of this architecture.*
 
 ## Components
@@ -34,9 +34,17 @@ This solution is built on the Azure managed services: [Azure Stream Analytics](h
 
 ## Next steps
 
-* [Learn more about Stream Analytics](/azure/stream-analytics/stream-analytics-introduction)
-* [Learn more about Event Hubs](/azure/event-hubs/event-hubs-what-is-event-hubs)
-* [Learn more about Azure Machine Learning](/azure/machine-learning/overview-what-is-azure-ml)
-* [Learn more about SQL Database](/azure/sql-database)
+See product documentation:
+
+* [Welcome to Stream Analytics](/azure/stream-analytics/stream-analytics-introduction)
+* [What is Event Hubs?](/azure/event-hubs/event-hubs-what-is-event-hubs)
+* [Azure SQL documentation](/azure/sql-database)
 * [Learn more about Data Factory](/azure/data-factory/data-factory-introduction)
-* [Learn more about Power BI](https://powerbi.microsoft.com/documentation/powerbi-landing-page)
+* [What is Azure Machine Learning?](/azure/machine-learning/overview-what-is-azure-ml)
+* [Machine Learning and time series forecasting](/azure/machine-learning/concept-automated-ml#time-series-forecasting)
+* [Power BI](https://powerbi.microsoft.com/documentation/powerbi-landing-page)
+
+Learn more:
+
+* Try the Machine Learning notebook for [forecasting using the Energy Demand Dataset](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-energy-demand/auto-ml-forecasting-energy-demand.ipynb)
+* Try the Microsoft Learn module [Use automated machine learning in Azure Machine Learning](/learn/modules/use-automated-machine-learning/)
