@@ -29,12 +29,9 @@ This solution has applications in many areas:
 
 ## Architecture
 
-![](./media/geospatial-analytics-azure-architecture.png)
-
-
-
-
-
+:::image type="complex" source="./media/geospatial-analytics-azure-architecture.png" alt-text="Architecture diagram showing how geospatial data flows through an Azure system. Various components receive, process, store, analyze, and publish the data." border="false":::
+   The diagram contains several gray boxes, each with a different label. From left to right, the labels are Ingest, Prepare, Load, Serve, Visualize and explore. A final box underneath the others has the label Monitor and secure.
+:::image-end:::
 
 
 1. IoT data enters the system:
