@@ -4,7 +4,7 @@ This example scenario demonstrates using Azure Automation State Configuration to
 
 ## Architecture
 
-![](./media/azure-state-config.png)
+![](./media/azure-state-config-two.png)
 
 ## Reference deployment
 
