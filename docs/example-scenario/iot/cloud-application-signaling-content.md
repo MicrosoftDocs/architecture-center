@@ -31,8 +31,8 @@ When not to use this pattern:
 
 ## Use cases
 -   Fleet monitoring: Real-time location tracking of vehicles on maps.
--   Real-time remote monitoring of critical process: Monitoring critical telemetry data like operational status, temperature, and pressure in process manufacturing. 
--   Real-time monitoring of drilling conditions: Viewing critical telemetry data like revolutions, power, and angle to optimize process. 
+-   Real-time remote monitoring of process: Monitoring telemetry data like operational status, temperature, and pressure in process manufacturing. 
+-   Real-time monitoring of drilling conditions: Viewing telemetry data like revolutions, power, and angle to optimize process. 
 -   Real-time notifications: Pushing real-time alerts based on the events received. 
 
 ## See also
