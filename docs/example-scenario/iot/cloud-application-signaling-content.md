@@ -23,7 +23,7 @@ Here are some considerations when using this pattern.
 
 When to use this pattern:
 -   Any scenario that requires pushing data from server to client in real-time. Sending data for real-time functionality like visualization and/or applications. 
--   Need flexibility for client applications. As compared to only visualization using Power BI Streaming Datasets, this pattern enables a multitude of clients and enables other scenarios like updating maps and customized UI. 
+-   Rich and highly-interactive client applications. As compared to only visualization using Power BI Streaming Datasets, this pattern enables a multitude of clients and enables other scenarios like updating maps and customized UI. 
 
 When not to use this pattern:
 -   When required to visualize on Power BI, the [streaming data](/power-bi/connect-data/service-real-time-streaming) could be an option.
