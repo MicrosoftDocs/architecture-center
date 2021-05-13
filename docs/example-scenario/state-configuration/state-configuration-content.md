@@ -117,6 +117,7 @@ configuration linuxpackage {
     }
 }
 ```
+---
 
 ### Monitoring
 
