@@ -4,7 +4,7 @@ metadata:
   titleSuffix: Azure Solution Ideas
   description: Learn how to use the Application Gateway Ingress Controller (AGIC) with your Azure Kubernetes Service (AKS) cluster to expose microservice-based applications to the internet.
   author: paolosalvatori
-  ms.author: paolosalvatori
+  ms.author: paolos
   ms.date: 05/13/2021
   ms.topic: conceptual
   ms.service: architecture-center
