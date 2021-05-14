@@ -823,6 +823,8 @@ items:
                 href: example-scenario/data/data-warehouse.yml
               - name: Demand forecasting for shipping
                 href: solution-ideas/articles/demand-forecasting-for-shipping-and-distribution.yml
+              - name: Geospatial data processing and analytics
+                href: example-scenario/data/geospatial-data-processing-analytics-azure.yml
               - name: Ingestion and analysis of news feeds
                 href: example-scenario/ai/news-feed-ingestion-and-near-real-time-analysis.yml
               - name: Partitioning in Event Hubs and Kafka
