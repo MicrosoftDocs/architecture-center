@@ -1,4 +1,6 @@
- Mining companies can have Azure continually monitor the performance data from their equipment or from other assets. Analysis of the data identifies anomalies and results in recommendations for maintenance and repair. Such monitoring can prevent failures and reduce operating costs.
+[!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
+
+Mining companies can have Azure continually monitor the performance data from their equipment or from other assets. Analysis of the data identifies anomalies and results in recommendations for maintenance and repair. Such monitoring can prevent failures and reduce operating costs.
 
 ## Potential use cases
 
@@ -6,8 +8,7 @@
 
 ## Architecture
 
-![Diagram of an example IoT implementation that includes an edge network.](../media/monitor-mining-equipment.png
-)
+:::image type="content" source="../media/monitor-mining-equipment.png" alt-text="Architecture for monitoring mining equipment" lightbox="../media/monitor-mining-equipment.png":::
 
 The data flows through the solution as follows:
 

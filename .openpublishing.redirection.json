@@ -1759,6 +1759,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "docs/patterns/index-patterns.md",
+      "redirect_url": "/azure/architecture/patterns",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "docs/reference-architectures/ai/index.md",
       "redirect_url": "/azure/architecture/reference-architectures/ai/batch-scoring-deep-learning",
       "redirect_document_id": false
@@ -2106,6 +2111,11 @@
        "source_path": "docs/example-scenario/ai/newsfeed-ingestion.yml",
        "redirect_url": "/azure/architecture/example-scenario/ai/news-feed-ingestion-and-near-real-time-analysis",
        "redirect_document_id": true
-     } 
-   ]
+     }, 
+     {
+      "source_path": "docs/solution-ideas/articles/demand-forecasting-and-price-optimization.yml",
+      "redirect_url": "/azure/architecture/solution-ideas/articles/demand-forecasting-price-optimization-marketing",
+      "redirect_document_id": false
+    } 
+  ]
 }
