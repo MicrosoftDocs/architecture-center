@@ -37,12 +37,12 @@ This solution has applications in many areas:
    - Event Hubs uses Azure Databricks for initial stream processing.
    - Event Hubs stores the data in Azure Data Lake Storage.
 
-1. Azure Databricks uses geospatial libraries to transform and standardize the data.
-
 1. GIS data enters the system:
 
    - Azure Data Factory ingests raster GIS data and vector GIS data of any format.
    - Data Factory stores the data in Data Lake Storage.
+
+1. Azure Databricks uses geospatial libraries to transform and standardize the data.
 
 1. Data Factory loads the prepared vector and raster data into Azure Database for PostgreSQL. The solution uses the PostGIS extension with this database.
 
@@ -70,7 +70,7 @@ Throughout the process:
 
 ## Components
 
-- [Event Hubs][Azure Event Hubs — A big data streaming platform and event ingestion service] is a big data streaming platform. As a platform as a service (PaaS), this event ingestion service is fully managed. Through its partitioned consumer model, multiple applications can process the stream at the same time.
+- [Event Hubs][Azure Event Hubs — A big data streaming platform and event ingestion service] is a big data streaming platform. As a platform as a service (PaaS), this event ingestion service is fully managed. Through its partitioned consumer model, multiple applications can process the data stream at the same time.
 
 - [Data Factory][What is Azure Data Factory?] is a hybrid data integration service. You can use this fully managed, serverless solution to create, schedule, and orchestrate data transformation workflows.
 
@@ -237,8 +237,8 @@ To start implementing this solution, see this information:
 ## Related resources
 
 - [Connect a WFS to Azure Maps][Connect to a WFS service].
-- [Process OpenStreetMap data with Spark][Frameworks - OpenStreetMap Wiki].
-- [Explore ways to visualize data with Azure Maps][Azure Maps Web SDK Samples].
+- [Process OpenStreetMap data][Frameworks - OpenStreetMap Wiki] with Spark.
+- Explore ways to [visualize data with Azure Maps][Azure Maps Web SDK Samples].
 
 [About Azure Key Vault]: /azure/key-vault/general/overview
 [Add a TLS/SSL certificate in Azure App Service]: /azure/app-service/configure-ssl-certificate
