@@ -744,7 +744,7 @@ items:
               - name: Content research
                 href: solution-ideas/articles/content-research.yml
               - name: Content tagging with NLP
-                href: solution-ideas/articles/information-discovery-with-deep-learning-and-nlp.yml
+                href: solution-ideas/articles/website-content-tag-suggestion-with-deep-learning-and-nlp.yml
               - name: Contract management
                 href: solution-ideas/articles/contract-management.yml
               - name: Customer churn prediction
