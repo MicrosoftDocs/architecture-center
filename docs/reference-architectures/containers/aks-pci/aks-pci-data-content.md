@@ -103,7 +103,7 @@ Make sure PAN is not exposed as part of your workflow processes. Here are some c
 
 #### 3.4.1 
 
- If disk encryption is used (rather than file- or column-level database encryption), logical access must be managed separately and independently of native operating system authentication and access control mechanisms (for example, by not using local user account databases or general network login credentials). Decryption keys must not be associated with user accounts.
+If disk encryption is used (rather than file- or column-level database encryption), logical access must be managed separately and independently of native operating system authentication and access control mechanisms (for example, by not using local user account databases or general network login credentials). Decryption keys must not be associated with user accounts.
 
 
 ##### Your responsibilities
@@ -216,16 +216,16 @@ Ensure wireless networks transmitting cardholder data or connected to the cardho
 
 ##### Your responsibilities
       
-<Ask Chad>
-the ra/ri does not do onprem/corporate to cloud transations over wireless. For information about how to adhere to this requirement, refer to Guidance in the official standard. 
+This architecture and the implementation isn't designed to do on-premises or corporate network to cloud transations over wireless connections. For considerations, refer to the guidance in the official PCI-DSS standard. 
 
 #### Requirement 4.2
 Never send unprotected PANs by end-user messaging technologies (for example, e-mail, instant messaging, SMS, chat, etc.).
 
 ##### Your responsibilities
       
-<Ask Chad>
-the ra/ri does not do PCi workload impl. This validation should be done at the workload level and the change control process. The approavl gates should understand the requirement. For information about how to adhere to this requirement, refer to Guidance in the official standard. 
+This architecture and the implementation is focused on infrastructure and not the workload. Validation should be done at the workload level and the change control process. The approval gates should understand the requirement. 
+
+For considerations, refer to the guidance in the official PCI-DSS standard. 
 
 #### Requirement 4.3
 
