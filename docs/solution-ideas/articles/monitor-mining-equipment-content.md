@@ -8,8 +8,7 @@ Mining companies can have Azure continually monitor the performance data from th
 
 ## Architecture
 
-![Diagram of an example IoT implementation that includes an edge network.](../media/monitor-mining-equipment.png
-)
+:::image type="content" source="../media/monitor-mining-equipment.png" alt-text="Architecture for monitoring mining equipment" lightbox="../media/monitor-mining-equipment.png":::
 
 The data flows through the solution as follows:
 
