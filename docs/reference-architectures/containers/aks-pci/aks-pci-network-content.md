@@ -2,7 +2,7 @@ This article describes the considerations for an Azure Kubernetes Service (AKS) 
 
 > This article is part of a series. Read the [introduction](aks-pci-intro.yml) here.
 
-The main theme of the PCI-DSS standard is security. The hub and spoke topology a natural choice for setting up a regulated environment with focus on secure communications. Network controls are placed in both hub and spoke networks and follow the Microsoft zero-trust model. The controls can be tuned with least-privilege to secure traffic giving access on a need-to-know basis. In addition, several defense-in-depth approaches can be applied by adding controls at each network hop. 
+The main theme of the PCI-DSS standard is security. The hub and spoke topology a natural choice for setting up a regulated environment that allows secure communications. Network controls are placed in both hub and spoke networks and follow the Microsoft zero-trust model. The controls can be tuned with least-privilege to secure traffic giving access on a need-to-know basis. In addition, several defense-in-depth approaches can be applied by adding controls at each network hop. 
 
 > [!IMPORTANT]
 >
@@ -439,7 +439,7 @@ Ensure that security policies and operational procedures for managing vendor def
 
 #### Your responsibilities
 
-It's critical that you maintain thorough documentation about the process and policies. Personnel should be trained in security feature of each Azure resource and their configuration settings. People operating regulated enviroments must be educated, informed, and incentivized to support the security assurances. This is particularly important for people with accounts granted broad administrative privileges.
+It's critical that you maintain thorough documentation about the processes and policies. Personnel should be trained in security feature of each Azure resource and their configuration settings. People operating regulated enviroments must be educated, informed, and incentivized to support the security assurances. This is particularly important for people with accounts granted broad administrative privileges.
 
 ### Requirement 2.6
 
@@ -447,7 +447,9 @@ Shared hosting providers must protect each entity’s hosted environment and car
 
 #### Your responsibilities
 
-Azure provides security assurances for the hosted env. Services do have regulated hosting enviroments in shared concept app service in ASE. But use dedicated hosts. From AKS perspective, the cluster the compute nodes are single tenant.
+Azure provides security assurances for the hosted environment that are shared. For example, Azure App Service Environment (ASE) provides a regulated environment for hosting a web application. 
+
+It's highly recommended that you use dedicated hosts for ASK. That is, the cluster compute are in a single tenant model.
 
 <Ask Jorge: is the api control plane signle tenant>
 

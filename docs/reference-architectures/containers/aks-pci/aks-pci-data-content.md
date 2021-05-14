@@ -190,7 +190,7 @@ Ensure that security policies and operational procedures for protecting stored c
 #### Your responsibilities
 Documentation -- this should be created as a general statement plus a series of up-to-date role guide for all personas.  New hire training and ongoing training should be performed.
 
-It's critical that you maintain thorough documentation about the process and policies. Several teams participate in making sure data is protected at rest and in transit. In your documentation, provide role guidance for all personas. The roles should include SRE, customer support, sales, network operations, security operations, software engineers, database administrators, and others. Personnel should be trained in NIST guidance and data-at-rest strategies to keep the skillset up to date. 
+It's critical that you maintain thorough documentation about the processes and policies. Several teams participate in making sure data is protected at rest and in transit. In your documentation, provide role guidance for all personas. The roles should include SRE, customer support, sales, network operations, security operations, software engineers, database administrators, and others. Personnel should be trained in NIST guidance and data-at-rest strategies to keep the skillset up to date. 
 
 ### Requirement 4.1
 
@@ -232,14 +232,9 @@ For considerations, refer to the guidance in the official PCI-DSS standard.
 Ensure that security policies and operational procedures for encrypting transmissions of cardholder data are documented, in use, and known to all affected parties.
 
 ##### Your responsibilities
-      
-<Ask Chad>
-<Ask Chad: to give input around can the approval process be automated, who should be responsible and how is that incorporated in the pipeline.>
-Make sure you have current procedures
-They should be documented
-involved parties should be part of the approval process from policy perspective. 
-Data transit: poicu extents app gway support of tls ciphers. service mesh and its tls configuraiton. azure paas services also support tls. app service (level of tls)
 
+It's critical that you maintain thorough documentation about the processes and policies. Especially when managing policies about Transport Layer Security (TLS). For example, Azure Application Gateway support for TLS ciphers, configuration of a service mesh, and other Azure PaaS services that use TLS. People operating regulated enviroments must be educated, informed, and incentivized to support the security assurances. This is particularly important for people who are part of the approval process from a policy perspective.
+      
 ## Next
 
 Protect all systems against malware and regularly update anti-virus software or programs. Develop and maintain secure systems and application
