@@ -133,8 +133,6 @@ Have processes that regularly review the network configurations and the scoped r
 - Container Registry that only allows traffic from a private endpoint.
 - Any other network controls you have added to the architecture.
 
-Azure Firewall rules, Web Application Firewall (WAF), Network Security Groups (NSG)
-
 #### Requirement 1.2
 
 Build firewall and router configurations that restrict connections between untrusted networks and any system components in the cardholder data environment. 
@@ -183,9 +181,9 @@ Secure and synchronize router configuration files.
 ##### Your responsibilities
 Have a mechanism to detect delta between the actual deployed state and desired state. Infrastructure as code (IaC)is a great choice for that purpose. For example, Azure Resource Manager templates have a record of the desired state. 
 
-The deployment assets such as, ARM templates, must be source controlled. Have a record of all changes. Collect information from Azure activity logs, deployment pipeline logs, and Azure deployment logs. All those sources will help you keep a trail of deployment.
+The deployment assets such as, ARM templates, must be source controlled so that you have the history of all changes. Collect information from Azure activity logs, deployment pipeline logs, and Azure deployment logs. Those sources will help you keep a trail of deployed assets.
 
-In the cluster, network controls (net policis) shoud follow a similar source control flow. for exmp, in this ri, flux keeps that informion as the git ops oeprator. as part of sync operations, it keeps source control and cluster config history. 
+In the cluster, network controls, such as Kubernetes network policies should also follow a source controlled flow. In this implementation, flux is used as the it GitOps operator. When synchronizing cluster configuration and GitHub repository, flux maintains the configuration history and the changes in the repository.
 
 #### Requirement 1.2.3
 
@@ -280,7 +278,7 @@ Do not disclose private IP addresses and routing information to unauthorized par
 
 ##### Your responsibilities
 
-To strictly adhere to this requirement, a public AKS cluster is not an option. A private cluster keeps DNS records off the public internet by using a private DNS zones. The virtual network that's linked to the private zone resolves the record. In this architecture, all zones are linked to the hub network. 
+To meet this requirement, choosing a public AKS cluster is not an option. A private cluster keeps DNS records off the public internet by using a private DNS zones. The virtual network that's linked to the private zone resolves the record. In this architecture, all zones are linked to the hub network. 
 
 Also, use a private DNS zone for routing between the subnet that has Azure Application Gateway integrated with Web Application Firewall (WAF) and the subnet that has the internal load balancer. Ensure all HTTP responses do not include any private IP information in headers or body. Ensure logs that may contain IP and DNS records are not exposed outside of operational needs.
 
@@ -376,7 +374,6 @@ Default settings might include features you don't need. To function, those featu
 Make sure all rules, configured in Azure Firewall and Network Security Groups (NSG), restrict traffic by protocol and port in addition to source and destination.
 
 For components where you have complete control, remove all unnecessary system services from the images. For instance jump boxes, build agents, and others,
-
 
 For components, where you only have visibility such as AKS nodes, document what Azure installs on the nodes. Consider using DaemonSets to provide any additional auditing necessary for these cloud-controlled components.
 
