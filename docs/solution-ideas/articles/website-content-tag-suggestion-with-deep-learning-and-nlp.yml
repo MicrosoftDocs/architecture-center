@@ -21,10 +21,10 @@ metadata:
     - gradient boosting decision tree
     - failure detection
     - automated manufacturing solutions
-    - "https://azure.microsoft.com/solutions/architecture/website-content-tagging-with-deep-learning-and-nlp/"
+    - "https://azure.microsoft.com/solutions/architecture/website-content-tag-suggestion-with-deep-learning-and-nlp/"
     - ai-machine-learning
     - aml-project-improvement
-  social_image_url: /azure/architecture/solution-ideas/articles/media/website-content-tagging-with-deep-learning-and-nlp.png
+  social_image_url: /azure/architecture/solution-ideas/articles/media/website-content-tag=suggestion-with-deep-learning-and-nlp.png
 name: Suggest content tags with deep learning and NLP
 azureCategories:
   - ai-machine-learning
@@ -35,6 +35,6 @@ products:
   - azure-kubernetes-service
   - azure-machine-learning
   - sql-server
-thumbnailUrl: /azure/architecture/browse/thumbs/website-content-tagging-with-deep-learning-and-nlp.png
+thumbnailUrl: /azure/architecture/browse/thumbs/website-content-tag-suggestion-with-deep-learning-and-nlp.png
 content: |
-  [!include[](website-content-tagging-with-deep-learning-and-nlp-content.md)]
+  [!include[](website-content-tag-suggestion-with-deep-learning-and-nlp-content.md)]
