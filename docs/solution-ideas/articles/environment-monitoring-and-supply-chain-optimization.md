@@ -11,7 +11,7 @@ This article describes a warehouse management scenario that monitors environment
 
 ## Architecture
 
-![Architecture diagram showing the data flow for the Environmental Monitoring and the Supply Chain solution](../media/environment-monitor-supply-chain.png)
+[ ![Architecture diagram showing the data flow for the Environmental Monitoring and the Supply Chain solution](../media/environment-monitor-supply-chain.png)](../media/environment-monitor-supply-chain.png#lightbox)
 *Download an [SVG of this architecture](../media/environment-monitor-supply-chain.svg).*
 
 1. Sensors in the warehouse facility are connected and send data to a LoRa (**Lo**ng **Ra**nge) gateway.
