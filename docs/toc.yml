@@ -669,7 +669,7 @@ items:
             href: data-guide/big-data/ai-overview.md
           - name: Guides
             items:
-              - name: Cognitive services
+              - name: Cognitive Services
                 href: data-guide/technology-choices/cognitive-services.md
               - name: Machine learning
                 href: data-guide/technology-choices/data-science-and-machine-learning.md
