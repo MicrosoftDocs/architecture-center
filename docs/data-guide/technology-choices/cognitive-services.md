@@ -1,6 +1,6 @@
 ---
-title: Choosing a cognitive services technology
-description: Learn about Microsoft cognitive services that you can use in artificial intelligence applications and data flows.
+title: Choosing a Cognitive Services technology
+description: Learn about Microsoft Cognitive Services that you can use in artificial intelligence applications and data flows.
 author: zoinerTejada
 ms.date: 02/12/2018
 ms.topic: conceptual
@@ -13,11 +13,11 @@ ms.custom:
   - guide
 ---
 
-# Choosing a Microsoft cognitive services technology
+# Choosing a Microsoft Cognitive Services technology
 
-Microsoft cognitive services are cloud-based APIs that you can use in artificial intelligence (AI) applications and data flows. They provide you with pretrained models that are ready to use in your application, requiring no data and no model training on your part. The cognitive services are developed by Microsoft's AI and Research team and leverage the latest deep learning algorithms. They are consumed over HTTP REST interfaces. In addition, SDKs are available for many common application development frameworks.
+Microsoft Cognitive Services are cloud-based APIs that you can use in artificial intelligence (AI) applications and data flows. They provide you with pretrained models that are ready to use in your application, requiring no data and no model training on your part. The Cognitive Services are developed by Microsoft's AI and Research team and leverage the latest deep learning algorithms. They are consumed over HTTP REST interfaces. In addition, SDKs are available for many common application development frameworks.
 
-The cognitive services include:
+The Cognitive Services include:
 
 - Text analysis
 - Computer vision
@@ -30,7 +30,7 @@ Key benefits:
 
 - Minimal development effort for state-of-the-art AI services.
 - Easy integration into apps via HTTP REST interfaces.
-- Built-in support for consuming cognitive services in Azure Data Lake Analytics.
+- Built-in support for consuming Cognitive Services in Azure Data Lake Analytics.
 
 Considerations:
 
@@ -40,7 +40,7 @@ Considerations:
 
 <!-- markdownlint-disable MD026 -->
 
-## What are your options when choosing amongst the cognitive services?
+## What are your options when choosing amongst the Cognitive Services?
 
 <!-- markdownlint-disable MD026 -->
 
