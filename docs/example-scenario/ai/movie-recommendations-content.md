@@ -1,4 +1,4 @@
-This example scenario shows businesses can use machine learning to automate product recommendations for their customers. An Azure Data Science Virtual Machine (DSVM) is used to train a model on Azure that recommends movies to users based on movie ratings.
+This example scenario shows businesses can use machine learning to automate product recommendations for their customers. An [Azure Data Science Virtual Machine (DSVM)][dsvm] is used to train a model on Azure that recommends movies to users based on movie ratings.
 
 Personalized recommendations can be useful in various industries from retail to news to media. Potential applications include providing product recommendations in a virtual store, providing news or post recommendations, or providing music recommendations. Instead of hiring staff to make personalized recommendations to customers, businesses can provide customized recommendations at scale by using Azure to train models to understand customer preferences.
 
@@ -10,7 +10,7 @@ Consider this scenario for the following use cases:
 - Consumer product recommendations in a mobile app.
 - News recommendations on streaming media.
 
-## Architecture of a movie recommendation system
+## Architecture of a movie recommender
 
 ![Architecture of a machine learning model for training movie recommendations][architecture]
 
@@ -20,7 +20,7 @@ This scenario covers the training and evaluating of the machine learning model u
 
 2. The collected historical data is stored in a blob storage.
 
-3. A Data Science Virtual Machine (DSVM) is often used to experiment with or develop a product based a Spark ALS recommender model. The ALS model is trained using a training dataset, which is produced from the overall dataset by applying a data splitting strategy. For example, the dataset can be split into sets randomly, chronologically, or stratified, depending on the business requirement. Similar to other machine learning tasks, a recommender is validated by using evaluation metrics (for example, precision\@*k*, recall\@*k*, [MAP][map], [nDCG\@k][ndcg]).
+3. A Data Science Virtual Machine (DSVM) is often used to experiment with or develop a product based on a Spark ALS recommender model. The ALS model is trained using a training dataset, which is produced from the overall dataset by applying a data splitting strategy. For example, the dataset can be split into sets randomly, chronologically, or stratified, depending on the business requirement. Similar to other machine learning tasks, a recommender is validated by using evaluation metrics (for example, precision\@*k*, recall\@*k*, [MAP][map], [nDCG\@k][ndcg]).
 
 4. Azure Machine Learning is used for coordinating the experimentation, such as hyperparameter sweeping and model management.
 
@@ -87,9 +87,16 @@ Follow these steps to run the [ALS quickstart notebook](https://github.com/micro
 
 ## Next steps
 
-- For an in-depth guide to building and scaling a recommender service, see [Build a real-time recommendation API on Azure][ref-arch].
-- For tutorials and examples of recommendation systems, see [Microsoft Recommenders repository][github].
+See other Azure Architecture Center articles:
 
+- [Build a real-time recommendation API on Azure][ref-arch] - An in-depth guide to building and scaling a recommender service.
+- [Product recommendations for retail using Azure][ref-sol-idea] - An example of developing predictive insights on customer behavior.
+
+Try some code:
+
+- [Microsoft Recommenders repository][github] - Contains tutorials and examples of recommendation systems.
+- [Create and connect to a Data Science Virtual Machine][ms-learn]
+  
 [architecture]: ./media/architecture-movie-recommender.png
 [aci]: /azure/container-instances/container-instances-overview
 [aks]: /azure/aks/intro-kubernetes
@@ -107,9 +114,11 @@ Follow these steps to run the [ALS quickstart notebook](https://github.com/micro
 [ha]: /azure/aks/container-service-quotas
 [map]: https://en.wikipedia.org/wiki/Evaluation_measures_(information_retrieval)
 [mls]: /azure/machine-learning/service
+[ms-learn]: /learn/modules/intro-to-azure-data-science-virtual-machine/
 [ndcg]: https://en.wikipedia.org/wiki/Discounted_cumulative_gain
 [notebook]: https://github.com/microsoft/recommenders/blob/master/notebooks/00_quick_start/als_movielens.ipynb
 [ref-arch]: ../../reference-architectures/ai/real-time-recommendation.yml
+[ref-sol-idea]: ../../solution-ideas/articles/product-recommendations
 [regions]: https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines&regions=all
 [setup]: https://github.com/microsoft/recommenders/blob/master/SETUP.md
 [sla]: https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_8
