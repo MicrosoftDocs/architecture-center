@@ -6,6 +6,59 @@ This series is focused on the infrastructure and _not_ the workload. The recomme
 
 This RI is built directly on top of the AKS Baseline, illustrating the promise that you can start with the AKS Baseline and evolve it into what you need it to be.
 
+:::row:::
+   :::column span="":::
+      **Design area**
+   :::column-end:::
+   :::column span="":::
+      **AKS baseline architecture**
+   :::column-end:::
+   :::column span="":::
+      **AKS regulated architecture**
+   :::column-end:::   
+:::row-end:::
+:::row:::
+   :::column span="":::
+      **Architecture**
+   :::column-end:::
+   :::column span="":::
+      ![Placeholder](images/flow.png)
+   :::column-end:::
+   :::column span="":::
+      ![Placeholder](images/network-flow.png)
+   :::column-end:::   
+:::row-end:::
+:::row:::
+   :::column span="":::
+      **Compute**
+   :::column-end:::
+   :::column span="":::
+      User node pool
+      System node pool
+   :::column-end:::
+   :::column span="":::
+      User node pool
+      System node pool
+   :::column-end:::   
+:::row-end:::
+:::row:::
+   :::column span="":::
+      **Network**
+   :::column-end:::
+   :::column span="":::
+      Firewall rules
+      NSG
+      WAF
+      Network policies
+   :::column-end:::
+   :::column span="":::
+      Firewall rules
+      NSG
+      WAF
+      Network policies
+   :::column-end:::   
+:::row-end:::
+
 Key differentiators over Baseline:
 - Private AKS API Server, with Azure Bastion-fronted ops access.
 - Enhanced focus on Azure Defender for topic
