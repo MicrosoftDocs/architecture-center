@@ -2,11 +2,17 @@
 
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-A modern data architecture enables you to unify all of your data, analytics, and AI workloads at any scale, and to get insights through analytics dashboards, operational reports, or advanced analytics for all your users. Modern analytics with Azure Databricks is simple, open and collaborative, and seamlessly integrated with Azure services such as Azure Data Lake Storage, Azure Data Factory, Synapse and Power BI.
+Modern data architectures offer many benefits:
 
-- **Simple**: Simplify your data architecture by unifying analytics, data science and machine learning together. 
-- **Open**: Support for open source, open standards, and open frameworks help future proof your architecture. Integration with your favorite integrated development environments (IDEs), libraries, and programming languages. Integrate with a broad ecosystem of other services through native connectors and APIs.
-- **Collaborative**: Data teams can work together, using their favorite tools to collaborate on the same underlying data. Data engineers, data scientists, and analysts can leverage a common data lake using collaborative notebooks, IDEs, and dashboards.
+- Unify data, analytics, and AI workloads.
+- Perform efficiently and reliably at any scale.
+- Provide insights through analytics dashboards, operational reports, or advanced analytics.
+
+This solution uses Azure Databricks to provide modern analytics. In this system, Azure Databricks works seamlessly with other Azure services such as Azure Data Lake Storage, Azure Data Factory, Azure Synapse, and Power BI. Together, these services provide a solution with these qualities:
+
+- Simple: Unified analytics, data science, and machine learning simplify the data architecture.
+- Open: The solution supports open source, open standards, and open frameworks. It also integrates with popular integrated development environments (IDEs), libraries, and programming languages. Through native connectors and APIs, the architecture works with a broad range of other services, too.
+- Collaborative: Data engineers, data scientists, and analysts work together with this solution. They can use collaborative notebooks, IDEs, dashboards, and other tools to access and analyze common underlying data.
 
 ## Architecture
 
@@ -27,8 +33,6 @@ This reference architecture is inspired by the system Swiss Re built for its Pro
      - A bronze layer holds raw data.
      - A silver layer contains cleaned, filtered data.
      - A gold layer stores aggregated data that's useful for business analysis.
-
-
 
 1. Data scientists perform these tasks:
 
@@ -59,29 +63,57 @@ This reference architecture is inspired by the system Swiss Re built for its Pro
    - A [built-in Azure Databricks connector][Power BI connector for Azure Databricks] that gives users access to visualizations and the underlying data.
    - Optimized Java Database Connectivity (JDBC) and Open Database Connectivity (ODBC) drivers.
 
+1. Azure Synapse uses an optimized Synapse connector to import gold data sets from the data lake. This step is optional. It only occurs when users need business-ready data warehouse data like aggregates.
 
-7. Data lake exploration, reports and dashboards in Power BI using a [native connector](https://docs.microsoft.com/en-us/azure/databricks/integrations/bi/power-bi) and optimized JDBC/ODBC drivers.
-8. Optionally, if a data warehouse is needed for business-ready data and aggregates, gold data sets can be exported out of the data lake into Azure Synapse via the optimized Synapse connector.
-9. Leverage Azure platform services for collaboration, performance, reliability, governance and security:
-    - **Azure Purview**: data discovery and governance insights, data classification and sensitivity insights across all of your entire data estate.
-    - **Azure DevOps**: continuous integration and continuous deployment (CI/CD). Configure Azure DevOps as your Git provider and take advantage of the integrated version control features.
-    - **Azure Key Vault**: securely manage your secrets such as keys and passwords.
-    - **Azure Active Directory**: single sign-on (SSO) to Azure Databricks. Azure Databricks also supports automated user provisioning with Azure AD to create new users, give them the proper level of access, and remove users to deprovision access.
-    - **Azure Monitor**: collect, analyze, and act on telemetry information of your Azure resources to proactively identify problems and maximize performance and reliability.
-    - **Azure Cost Management**: financial governance over your Azure workloads.
+1. The solution uses Azure services for collaboration, performance, reliability, governance, and security:
+
+   - Azure Purview provides data discovery services, sensitive data classification, and governance insights across the data estate.
+   - Azure DevOps offers continuous integration and continuous deployment (CI/CD)and  other integrated version control features.
+   - Azure Key Vault securely manages secrets, keys, and certificates.
+   - Azure Active Directory provides single sign-on (SSO) for Azure Databricks users. Azure Databricks supports automated user provisioning with Azure AD for these tasks:
+
+     - Creating new users.
+     - Assigning each user an access level.
+     - Removing users denying them access.
+
+   - Azure Monitor collects and analyzes Azure resource telemetry. By proactively identifying problems, this service maximizes performance and reliability.
+   - Azure Cost Management provides financial governance services for Azure workloads.
+
+
+
 
 Each service connects to the same underlying data to ensure consistency. The architecture leverages a shared data lake leveraging the open Delta Lake format. The analytical platform ingests the data from the disparate batch and streaming sources to form a unified data platform which can be used to serve analytical reports, historical reports for end users and train ML models for a recommendation engine.
 
 ### Components
 
-- [Azure Data Factory](https://azure.microsoft.com/services/data-factory/) and [Azure Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage) bring together structured, unstructured, and semi-structured data (logs, files, and media). 
-- [Azure Databricks](https://docs.microsoft.com/en-us/azure/azure-databricks/) cleans and transforms the structureless data sets and combines them with structured data from operational databases or data warehouses.
-- [Azure Databricks](https://docs.microsoft.com/en-us/azure/azure-databricks/) adds scalable machine learning and deep learning techniques. 
-- [Native connectors](https://docs.microsoft.com/en-us/azure/databricks/data/data-sources/azure/synapse-analytics) integrate Azure Databricks and Azure Synapse Analytics to access and move data at scale.
-- [Azure Kubernetes Service](https://docs.microsoft.com/en-us/azure/aks/) is a highly available, secure, and fully managed Kubernetes service that makes it easy to deploy and manage containerized applications.
-- [Azure Machine Learning](https://docs.microsoft.com/en-us/azure/machine-learning) helps you easily build, deploy, and manage predictive analytics solutions.
+- [Data Factory][Azure Data Factory] is a hybrid data integration service. You can use this fully managed, serverless solution to create, schedule, and orchestrate data transformation workflows.
+
+- [Data Lake Storage][Azure Data Lake Storage] is a scalable and secure data lake for high-performance analytics workloads. This service can manage multiple petabytes of information while sustaining hundreds of gigabits of throughput. The data may be structured, semi-structured, or unstructured. It typically comes from multiple, heterogeneous sources like logs, files, and media.
+
+- [Azure Databricks][Azure Databricks] is a data analytics platform. Its fully managed Spark clusters process large streams of data from multiple sources. Azure Databricks cleans and transforms structureless data sets. It combines the processed data with structured data from operational databases or data warehouses. Azure Databricks also trains and deploys scalable machine learning and deep learning models.
+
+- The [Azure Synapse connector][Native connectors] provides a way to access Azure Synapse from Azure Databricks. This connector efficiently transfers large volumes of data between Azure Databricks clusters and Azure Synapse instances.
+
+- [Azure Kubernetes Service][Azure Kubernetes Service] is a highly available, secure, and fully managed Kubernetes service that makes it easy to deploy and manage containerized applications.
+
+- [Azure Synapse Analytics][Azure Synapse Analytics] is an analytics service for data warehouses and big data systems. This service uses Spark technologies and integrates with Power BI, Azure Machine Learning, and other Azure services.
+
+- [Machine Learning][Azure Machine Learning] is a cloud-based environment that helps you build, deploy, and manage predictive analytics solutions. With these models, you can forecast behavior, outcomes, and trends.
+
+
+
+
 - [Synapse SQL Pools](https://docs.microsoft.com/en-us/azure/synapse-analytics/spark/apache-spark-overview) provide a data warehousing and compute environment.
+
 - [Power BI](https://docs.microsoft.com/en-us/power-bi/fundamentals/power-bi-overview) leverages Azure Databricks capabilities to enable users to perform root cause determination and raw data analysis. Users create and share Power BI reports.
+
+[Azure Data Factory]: https://azure.microsoft.com/services/data-factory/
+[Azure Data Lake Storage]: https://azure.microsoft.com/services/storage/data-lake-storage
+[Azure Databricks]: /azure/databricks/scenarios/what-is-azure-databricks
+[Azure Kubernetes Service]: /azure/aks/
+[Azure Machine Learning]: /azure/machine-learning
+[Azure Synapse Analytics]: https://azure.microsoft.com/services/synapse-analytics/
+[Native connectors]: /azure/databricks/data/data-sources/azure/synapse-analytics
 
 ## Next steps
 
