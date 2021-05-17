@@ -24,6 +24,7 @@ Read product documentation:
 
 - [What is SQL Server 2016 R Services?](/sql/machine-learning/r/sql-server-r-services)
 - [What is Power BI](https://powerbi.microsoft.com/what-is-power-bi/)
+- [What is MicrosoftML?](/machine-learning-server/r/concept-what-is-the-microsoftml-package) - used inside SQL Server Machine Learning Services.
 
 Try out some code:
 
