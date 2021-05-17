@@ -3,7 +3,7 @@
 
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-This solution idea describes building and deploying a machine learning model that recommend actions to maximize the purchase rate of leads targeted by a campaign. The ideas discussed can be used in many industries, including Retail, Services, and Finance.
+This solution idea describes building and deploying a machine learning model that recommends actions to maximize the purchase rate of leads targeted by a campaign. The ideas discussed can be used in many industries, including Retail, Services, and Finance.
 
 When businesses launch a marketing campaign to attract customers to new or existing products, they often use a set of business rules to select leads for their campaign to target. Machine learning can be used to help increase the response rate from these leads. For example, a machine learning model can be used to predict actions that are expected to maximize the purchase rate of leads targeted by the campaign. The predictions then serve as the basis for recommendations to be used by a renewed campaign. Recommendations are about *how* to contact the targeted leads, for example, with e-mail, SMS, or a cold call. And recommendations are about *when* to contact targeted leads, for example, day of week and time of day.
 
