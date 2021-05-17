@@ -10,15 +10,17 @@ A modern data architecture enables you to unify all of your data, analytics, and
 
 ## Architecture
 
-_Architecture diagram goes here_
+:::image type="complex" source="../media/azure-databricks-modern-analytics-architecture-diagram.png" alt-text="Architecture diagram showing how to sync on-premises and Azure databases during mainframe modernization." border="false":::
+   The diagram contains two parts, one for on-premises components, and one for Azure components. The on-premises part contains rectangles, one that pictures databases and one that contains integration tools. A server icon that represents the self-hosted integration runtime is also located in the on-premises part. The Azure part also contains rectangles. One is for pipelines. Others are for services that the solution uses for staging and preparing data. Another contains Azure databases. Arrows point from on-premises components to Azure components. These arrows represent the flow of data in the replication and sync processes. One of the arrows goes through the on-premises data gateway.
+:::image-end:::
 
-## Data Flow
-This reference architecture is inspired by the system Swiss Re built for its Property & Casualty Reinsurance division. 
+This reference architecture is inspired by the system Swiss Re built for its Property & Casualty Reinsurance division.
+
 1. Azure Databricks ingests raw streaming data from Azure Event Hubs.
 1. Azure Data Factory loads raw batch data into Azure Data Lake Storage.
 1. Intro sentence about how the solution stores and curates data:
 
-   - Azure Data Lake Storage stores all types of data, such as structured, unstructured, and semi-structured data. It also stores both batch and streaming data.
+   - Azure Data Lake Storage stores data of all types, such as structured, unstructured, and semi-structured. It also stores both batch and streaming data.
    - Delta Lake forms the curated layer of the data lake. It stores the refined data in an open-source format.
    - Azure Databricks uses a [medallion architecture][Medallion model] to organize the data:
 
@@ -39,7 +41,7 @@ This reference architecture is inspired by the system Swiss Re built for its Pro
 
    - Code can be in SQL, Python, R, Scala, and other languages.
    - Code can use popular open source libraries and frameworks such as Koalas, Pandas, and scikit-learn, which are pre-installed and optimized.
-   - Practitioners can optimize for performance and cost with single and multi-node compute options.
+   - Practitioners can optimize for performance and cost with single-node and multi-node compute options.
 
 1. Data about machine learning models is available in several formats:
 
@@ -51,6 +53,11 @@ This reference architecture is inspired by the system Swiss Re built for its Pro
    - Provides a query editor and catalog, the query history, basic dashboarding, and alerting.
    - Uses integrated security that includes row-level and column-level permissions.
    - Uses a [Photon-powered Delta Engine to accelerate performance][Photon improves performance].
+
+1. Power BI generates reports and dashboards from the data lake data. When working with Azure Databricks data, this service uses these features:
+
+   - A [built-in Azure Databricks connector][Power BI connector for Azure Databricks] that gives users access to visualizations and the underlying data.
+   - Optimized Java Database Connectivity (JDBC) and Open Database Connectivity (ODBC) drivers.
 
 
 7. Data lake exploration, reports and dashboards in Power BI using a [native connector](https://docs.microsoft.com/en-us/azure/databricks/integrations/bi/power-bi) and optimized JDBC/ODBC drivers.
@@ -86,3 +93,4 @@ Each service connects to the same underlying data to ensure consistency. The arc
 [Medallion model]: https://techcommunity.microsoft.com/t5/analytics-on-azure/how-to-reduce-infrastructure-costs-by-up-to-80-with-azure/ba-p/1820280
 [MLflow Model Registry]: https://www.mlflow.org/docs/latest/registry.html
 [Photon improves performance]: https://techcommunity.microsoft.com/t5/analytics-on-azure/turbocharge-azure-databricks-with-photon-powered-delta-engine/ba-p/1694929
+[Power BI connector for Azure Databricks]: /azure/databricks/integrations/bi/power-bi
