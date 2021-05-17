@@ -1,6 +1,6 @@
-This example scenario shows how a business can use machine learning to automate product recommendations for their customers. An Azure Data Science Virtual Machine (DSVM) is used to train a model on Azure that recommends movies to users based on ratings that have been given to movies.
+This example scenario shows businesses can use machine learning to automate product recommendations for their customers. An Azure Data Science Virtual Machine (DSVM) is used to train a model on Azure that recommends movies to users based on movie ratings.
 
-Recommendations can be useful in various industries from retail to news to media. Potential applications include providing product recommendations in a virtual store, providing news or post recommendations, or providing music recommendations. Traditionally, businesses had to hire and train assistants to make personalized recommendations to customers. Today, we can provide customized recommendations at scale by using Azure to train models to understand customer preferences.
+Personalized recommendations can be useful in various industries from retail to news to media. Potential applications include providing product recommendations in a virtual store, providing news or post recommendations, or providing music recommendations. Instead of hiring staff to make personalized recommendations to customers, businesses can provide customized recommendations at scale by using Azure to train models to understand customer preferences.
 
 ## Relevant use cases
 
@@ -10,7 +10,7 @@ Consider this scenario for the following use cases:
 - Consumer product recommendations in a mobile app.
 - News recommendations on streaming media.
 
-## Architecture
+## Architecture of a movie recommendation system
 
 ![Architecture of a machine learning model for training movie recommendations][architecture]
 
@@ -20,11 +20,11 @@ This scenario covers the training and evaluating of the machine learning model u
 
 2. The collected historical data is stored in a blob storage.
 
-3. A DSVM is often used to experiment with or productize a Spark ALS recommender model. The ALS model is trained using a training dataset, which is produced from the overall dataset by applying the appropriate data splitting strategy. For example, the dataset can be split into sets randomly, chronologically, or stratified, depending on the business requirement. Similar to other machine learning tasks, a recommender is validated by using evaluation metrics (for example, precision\@*k*, recall\@*k*, [MAP][map], [nDCG\@k][ndcg]).
+3. A Data Science Virtual Machine (DSVM) is often used to experiment with or develop a product based a Spark ALS recommender model. The ALS model is trained using a training dataset, which is produced from the overall dataset by applying a data splitting strategy. For example, the dataset can be split into sets randomly, chronologically, or stratified, depending on the business requirement. Similar to other machine learning tasks, a recommender is validated by using evaluation metrics (for example, precision\@*k*, recall\@*k*, [MAP][map], [nDCG\@k][ndcg]).
 
 4. Azure Machine Learning is used for coordinating the experimentation, such as hyperparameter sweeping and model management.
 
-5. A trained model is preserved on Azure Cosmos DB, which can then be applied for recommending the top *k* movies for a given user.
+5. A trained model is saved to Azure Cosmos DB, which can then be applied for recommending the top *k* movies for a given user.
 
 6. The model is then deployed onto a web or app service by using Azure Container Instances or Azure Kubernetes Service.
 
@@ -85,9 +85,10 @@ Follow these steps to run the [ALS quickstart notebook](https://github.com/micro
 
 5. Execute the notebook.
 
-## Related resources
+## Next steps
 
-For an in-depth guide to building and scaling a recommender service, see [Build a real-time recommendation API on Azure][ref-arch]. For tutorials and examples of recommendation systems, see [Microsoft Recommenders repository][github].
+- For an in-depth guide to building and scaling a recommender service, see [Build a real-time recommendation API on Azure][ref-arch].
+- For tutorials and examples of recommendation systems, see [Microsoft Recommenders repository][github].
 
 [architecture]: ./media/architecture-movie-recommender.png
 [aci]: /azure/container-instances/container-instances-overview
