@@ -25,7 +25,7 @@ This RI is built directly on top of the AKS Baseline, illustrating the promise t
       ![Placeholder](images/flow.png)
    :::column-end:::
    :::column span="":::
-      ![Placeholder](images/network-flow.png)
+      ![Placeholder](images/network-topology-small.png)
    :::column-end:::   
 :::row-end:::
 :::row:::
@@ -33,8 +33,11 @@ This RI is built directly on top of the AKS Baseline, illustrating the promise t
       **Compute**
    :::column-end:::
    :::column span="":::
+   
       User node pool
+
       System node pool
+
    :::column-end:::
    :::column span="":::
       User node pool
