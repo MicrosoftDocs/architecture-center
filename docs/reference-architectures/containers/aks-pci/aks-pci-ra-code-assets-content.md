@@ -22,25 +22,38 @@ This RI is built directly on top of the AKS Baseline, illustrating the promise t
       **Architecture**
    :::column-end:::
    :::column span="":::
-      ![Placeholder](images/flow.png)
+      ![Placeholder](images/network-topology-small.png)
 
       **Hub network**
       - Azure Firewall&mdash;Controls egress traffic.
-      - Placeholder subnet for Azure Bastion.
-      - Placeholder subnet for gateway traffic.
+      - Placeholder for Azure Bastion.
+      - Placeholder for gateway traffic.
+
+      **Spoke network**
+      - AKS cluster hosts the workload.
+      - Azure Application Gateway with integrated web application firewall (WAF) controls ingress traffic.
+
+      - Connection with other Azure Container Registry and Azure Key Vault over Private Link.
+
    :::column-end:::
    :::column span="":::
       ![Placeholder](images/network-topology-small.png)
 
-      **Hub network**
-      - Azure Firewall&mdash;Controls egress traffic with more stringent rules.
-      - Azure Bastion&mdash;provides operational access to a jumpbox in the spoke.
-      - Placeholder subnet for gateway traffic.
+    **Hub network**
+    - Azure Firewall&mdash;Controls egress traffic. There are additional and stricter rules. See **Network**.
+    - Azure Bastion&mdash;provides operational access to a jumpbox in the spoke.
+    - Placeholder subnet for gateway traffic.
 
-        **Spoke network**
+    **Spoke network**
+      - AKS cluster hosts the workload. The configuration has been modified. See  **Cluster configuration**.
+      - Azure Application Gateway with integrated web application firewall (WAF) controls ingress traffic. There are additional and stricter rules. See **Network**. 
       - Jumpbox&mdash;runs management tools, such as kubectl.
+
+    **Image builder network**
+    - Azure Image Builder&mdash; builds secure node images with Ubuntu 18.04-LTS platform (MSFT-provided) image with management tools such as Azure CLI, kubectl and kubelogin, flux CLI.   
    :::column-end:::   
 :::row-end:::
+***
 :::row:::
    :::column span="":::
       **Cluster configuration**
@@ -48,10 +61,12 @@ This RI is built directly on top of the AKS Baseline, illustrating the promise t
    :::column span="":::
       - Mode&mdash;Public cluster. All communication to the API server is over the internet.
       - Node pools&mdash;1 user node pool; 1 system node pool. The workload runs all all pods. 
+      - Ingress controller&mdash;Traeffik.
    :::column-end:::
    :::column span="":::
       - Mode&mdash;Private cluster. Communication between the cluster and the API server is over a private network. The cluster subnet exposes a private endpoint, which interacts with The Private Link service of the API server virtual network.
       - Node pools&mdash; 2 user node pools; 1 system node pool. The in-scope and out-of-scope workloads are segmented in two separate node pools.
+      - Ingress controller&mdash;NGINX.
    :::column-end:::   
 :::row-end:::
 :::row:::
@@ -87,7 +102,7 @@ This RI is built directly on top of the AKS Baseline, illustrating the promise t
       **Workload**
    :::column-end:::
    :::column span="":::
-      - A simple hello world .NET application.
+      A simple hello world .NET application.
    :::column-end:::
    :::column span="":::
       A microservices application with two sets of services. One set has in-scope pods for running a PCI-DSS workload. The other is out-of-scope. Both sets are spread across two user node pools. Segmentation is provided with the use of Kubernetes taints. Both sets are deployed to separate nodes and they never share a node VM. For details, see [Workload isolation](#workload-isolation).
