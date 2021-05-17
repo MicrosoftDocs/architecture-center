@@ -2116,6 +2116,11 @@
       "source_path": "docs/solution-ideas/articles/demand-forecasting-and-price-optimization.yml",
       "redirect_url": "/azure/architecture/solution-ideas/articles/demand-forecasting-price-optimization-marketing",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/information-discovery-with-deep-learning-and-nlp.yml",
+      "redirect_url": "/azure/architecture/solution-ideas/articles/website-content-tag-suggestion-with-deep-learning-and-nlp",
+      "redirect_document_id": true
     } 
   ]
 }
