@@ -1,10 +1,10 @@
-
+[!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
 Cloud-based applications often run on multiple virtual machines or containers in multiple regions, and use multiple external services. Creating a robust and scalable application in a distributed environment presents a significant challenge. [Azure App Configuration](/azure/azure-app-configuration/overview) lets you manage and store all your app's configuration settings and feature flags, and secure access settings, in one place.
 
 App Configuration works seamlessly with [Azure Key Vault](https://azure.microsoft.com/services/key-vault/), which stores passwords, keys, and secrets for secure access. This article presents best practices for using App Configuration and Key Vault in development and Azure environments.
 
-## Use cases
+## Potential use cases
 
 While any application can use Azure App Configuration, the following types of applications benefit most from it:
 
