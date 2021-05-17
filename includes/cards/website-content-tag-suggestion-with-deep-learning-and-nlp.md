@@ -6,12 +6,12 @@
 <article class="card">
     <div class="card-header has-margin-bottom-none" aria-hidden="true">
         <figure class="image diagram has-height-175 has-overflow-hidden level">
-            <a href="/azure/architecture/solution-ideas/articles/information-discovery-with-deep-learning-and-nlp"><img src="/azure/architecture/browse/thumbs/information-discovery-with-deep-learning-and-nlp.png" class="diagram" alt="Thumbnail of Information discovery with deep learning and NLP Architectural Diagram." data-linktype="relative-path"></a>
+            <a href="/azure/architecture/solution-ideas/articles/website-content-tag-suggestion-with-deep-learning-and-nlp"><img src="/azure/architecture/browse/thumbs/website-content-tag-suggestion-with-deep-learning-and-nlp.png" class="diagram" alt="Thumbnail of Content tag suggestion with deep learning and NLP Architectural Diagram." data-linktype="relative-path"></a>
         </figure>
     </div>
     <div class="card-content">
-        <a class="card-content-title has-margin-top-none" href="/azure/architecture/solution-ideas/articles/information-discovery-with-deep-learning-and-nlp">
-            <p>Information discovery with deep learning and NLP</p>
+        <a class="card-content-title has-margin-top-none" href="/azure/architecture/solution-ideas/articles/website-content-tag-suggestion-with-deep-learning-and-nlp">
+            <p>Content tag suggestion with deep learning and NLP</p>
         </a>
         <ul class="card-content-metadata">
             <li>12/16/2019</li>
