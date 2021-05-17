@@ -33,15 +33,18 @@ This RI is built directly on top of the AKS Baseline, illustrating the promise t
       **Compute**
    :::column-end:::
    :::column span="":::
-   
-      User node pool
 
-      System node pool
+      - User node pool: 1
+        The workload runs all all pods. 
+
+      - System node pool: 1
 
    :::column-end:::
    :::column span="":::
-      User node pool
-      System node pool
+      - User node pool: 2
+        There are two workloads (in-scope and out-of-scope). The workloads are segmented in two separate node pools. For details, see [Workload isolation](#workload-isolation).
+
+      - System node pool: 1
    :::column-end:::   
 :::row-end:::
 :::row:::
