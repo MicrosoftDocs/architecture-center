@@ -9,18 +9,16 @@ When a business launches a marketing campaign to attract customers to new or exi
 
 The [AI Gallery solution](https://gallery.azure.ai/Solution/Campaign-Optimization-with-SQL-Server) implements this idea with SQL Server 2016 with R Services and Power BI as an interactive visualization tool. The implementation uses simulated data, which can easily be configured to use your own organization’s data, to model the acquisition campaign response. The model uses predictors such as demographics, historical campaign performance, and product details. The solution predicts the probability of a lead conversion from each channel, at various times of the day and days of the week, for every lead in the database. The final recommendation for targeting each lead is decided based upon the combination of channel, day of week and time of day with the highest probability of conversion. The solution has been modeled after a standardized data science process, where the data preparation, model training and evaluation can be easily done by a data scientist and the insights visualized and correlated to KPIs by marketing via Power BI visualization.
 
-## Architecture
+## Architecture for campaign optimization
 
 ![Architecture diagram: develop and deploy models on a Data Ccience VM with R.](../media/campaign-optimization-with-sql-server.png)
 *Download an [SVG](../media/campaign-optimization-with-sql-server.svg) of this architecture.*
 
-## Campaign optimization roles
-
 SQL Server R Services brings the compute to the data by allowing R to run on the same computer as the database. It includes a database service that runs outside the SQL Server process and communicates securely with the R runtime.
 
-- **Business manager role** Power BI can be used to present visual summaries of the effectiveness of the campaign recommendations. Power BI dashboards can be used by business managers or other making decisions based on the predicted recommendations.
+- **Business manager role**. Power BI can be used to present visual summaries of the effectiveness of the campaign recommendations. Power BI dashboards can be used by business managers or other making decisions based on the predicted recommendations.
 
-- **Data scientist role** Data scientists who are testing and developing solutions can work from the convenience of their R IDE on their client machine, while [pushing the compute to the SQL Server machine](/sql/advanced-analytics/r/getting-started-with-sql-server-r-services). The completed solutions are deployed to SQL Server 2016 by embedding calls to R in stored procedures. These solutions can then be further automated with SQL Server Integration Services and SQL Server agent.
+- **Data scientist role**. Data scientists who are testing and developing solutions can work from the convenience of their R IDE on their client machine, while [pushing the compute to the SQL Server machine](/sql/advanced-analytics/r/getting-started-with-sql-server-r-services). The completed solutions are deployed to SQL Server 2016 by embedding calls to R in stored procedures. These solutions can then be further automated with SQL Server Integration Services and SQL Server agent.
 
 ## Next steps
 
