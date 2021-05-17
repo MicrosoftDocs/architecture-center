@@ -2,7 +2,7 @@
 title: What's New in Azure Architecture Center
 description: New and updated articles in Azure Architecture Center
 author: doodlemania2
-ms.date: 05/11/2021
+ms.date: 05/17/2021
 ms.topic: article
 ms.service: architecture-center
 ---
@@ -27,12 +27,16 @@ New and updated articles in Azure Architecture Center
 
 ### New Articles
 
+- [Suggest content tags with deep learning and NLP](./solution-ideas/articles/website-content-tag-suggestion-with-deep-learning-and-nlp.yml)
+- [Environment monitoring and supply chain optimization with IoT](./solution-ideas/articles/environment-monitoring-and-supply-chain-optimization.yml)
 - [Choose a Kubernetes at the edge compute option](./operator-guides/aks/choose-kubernetes-edge-compute-option.md)
 - [Protect APIs with Azure Application Gateway and Azure API Management](./reference-architectures/apis/protect-apis.yml)
 - [Mainframe access to Azure databases](./solution-ideas/articles/mainframe-access-azure-databases.yml)
 
 ### Updated Articles
 
+- [Demand forecasting and price optimization](./solution-ideas/articles/demand-forecasting-price-optimization-marketing.yml)  ([#5a1229602](https://github.com/MicrosoftDocs/architecture-center/commit/5a1229602))
+- [Forecast energy and power demand](./solution-ideas/articles/forecast-energy-power-demand.yml)  ([#71cc3da42](https://github.com/MicrosoftDocs/architecture-center/commit/71cc3da42))
 - [Population Health Management for Healthcare](./solution-ideas/articles/population-health-management-for-healthcare.yml)  ([#a6b3ca8ee](https://github.com/MicrosoftDocs/architecture-center/commit/a6b3ca8ee))
 - [HPC cluster deployed in the cloud](./solution-ideas/articles/hpc-cluster.yml)  ([#830bceb7a](https://github.com/MicrosoftDocs/architecture-center/commit/830bceb7a))
 - [Microsoft Azure Well-Architected Framework](./framework/index.md)  ([#d84d4d6f2](https://github.com/MicrosoftDocs/architecture-center/commit/d84d4d6f2))
@@ -91,7 +95,7 @@ New and updated articles in Azure Architecture Center
 - [Create a FAQ bot from existing data](./solution-ideas/articles/faq-chatbot-with-data-champion-model.yml)  ([#f94089281](https://github.com/MicrosoftDocs/architecture-center/commit/f94089281))
 - [Enterprise bot for employee productivity](./solution-ideas/articles/enterprise-productivity-chatbot.yml)  ([#0b756a1d6](https://github.com/MicrosoftDocs/architecture-center/commit/0b756a1d6))
 - [Commerce chatbot for customer service](./solution-ideas/articles/commerce-chatbot.yml)  ([#7db95b95e](https://github.com/MicrosoftDocs/architecture-center/commit/7db95b95e))
-- [Forecast Energy and Power Demand](./solution-ideas/articles/forecast-energy-power-demand.yml)  ([#11ed71746](https://github.com/MicrosoftDocs/architecture-center/commit/11ed71746))
+- [Forecast energy and power demand](./solution-ideas/articles/forecast-energy-power-demand.yml)  ([#11ed71746](https://github.com/MicrosoftDocs/architecture-center/commit/11ed71746))
 - [Interactive voice response app with bot](./solution-ideas/articles/interactive-voice-response-bot.yml)  ([#bf6a366e8](https://github.com/MicrosoftDocs/architecture-center/commit/bf6a366e8))
 - [Deploy AD DS in an Azure virtual network](./reference-architectures/identity/adds-extend-domain.yml)  ([#9528be3c9](https://github.com/MicrosoftDocs/architecture-center/commit/9528be3c9))
 - [Globally distributed applications using Cosmos DB](./solution-ideas/articles/globally-distributed-mission-critical-applications-using-cosmos-db.yml)  ([#38c7a8478](https://github.com/MicrosoftDocs/architecture-center/commit/38c7a8478))
@@ -99,7 +103,6 @@ New and updated articles in Azure Architecture Center
 - [Unified logging for microservices applications](./example-scenario/logging/unified-logging.yml)  ([#6c34b75fc](https://github.com/MicrosoftDocs/architecture-center/commit/6c34b75fc))
 - [On-premises data gateway for Azure Logic Apps](./hybrid/gateway-logic-apps.yml)  ([#6c34b75fc](https://github.com/MicrosoftDocs/architecture-center/commit/6c34b75fc))
 - [Stream processing with Azure Databricks](./reference-architectures/data/stream-processing-databricks.yml)  ([#6c34b75fc](https://github.com/MicrosoftDocs/architecture-center/commit/6c34b75fc))
-- [Demand Forecasting and Price Optimization](./solution-ideas/articles/demand-forecasting-and-price-optimization.yml)  ([#6c34b75fc](https://github.com/MicrosoftDocs/architecture-center/commit/6c34b75fc))
 - [DevOps in a hybrid environment](./solution-ideas/articles/devops-in-a-hybrid-environment.yml)  ([#6c34b75fc](https://github.com/MicrosoftDocs/architecture-center/commit/6c34b75fc))
 - [HPC cluster deployed in the cloud](./solution-ideas/articles/hpc-cluster.yml)  ([#6c34b75fc](https://github.com/MicrosoftDocs/architecture-center/commit/6c34b75fc))
 - [Microservices with AKS](./solution-ideas/articles/microservices-with-aks.yml)  ([#6c34b75fc](https://github.com/MicrosoftDocs/architecture-center/commit/6c34b75fc))
