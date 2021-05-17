@@ -2,7 +2,7 @@ This series is focused on the infrastructure and _not_ the workload. The recomme
 
 ![GitHub logo](../../../_images/github.png) [GitHub: Azure Kubernetes Service (AKS) Baseline Cluster for Regulated Workloads](https://github.com/mspnp/aks-baseline-regulated) demonstrates the regulated infrastructure. This implementation provides a microservices application. It's included to help you experience the infrastructure and illustrate the network and security controls. The application does _not_ represent or implement an actual PCI DSS workload.
 
-## Dfferences from the AKS baseline architecture
+## Configuration differences between baseline and regulated architectures
 
 This RI is built directly on top of the AKS Baseline, illustrating the promise that you can start with the AKS Baseline and evolve it into what you need it to be.
 
@@ -30,21 +30,30 @@ This RI is built directly on top of the AKS Baseline, illustrating the promise t
 :::row-end:::
 :::row:::
    :::column span="":::
+      **Cluster configuration**
+   :::column-end:::
+   :::column span="":::
+      - Mode&mdash;Public cluster. All communication to the API server is over the internet.
+      - Node pools&mdash;1 user node pool; 1 system node pool. The workload runs all all pods. 
+   :::column-end:::
+   :::column span="":::
+      - Mode&mdash;Private cluster. Communication between the cluster and the API server is over a private network. The cluster subnet exposes a private endpoint, which interacts with The Private Link service of the API server virtual network.
+      - Node pools&mdash; 2 user node pools; 1 system node pool. The in-scope and out-of-scope workloads are segmented in two separate node pools.
+   :::column-end:::   
+:::row-end:::
+:::row:::
+   :::column span="":::
       **Compute**
    :::column-end:::
    :::column span="":::
 
-      - User node pool: 1
-        The workload runs all all pods. 
-
-      - System node pool: 1
+      - Workload&mdash; A simple hello world .NET application.
 
    :::column-end:::
    :::column span="":::
-      - User node pool: 2
-        There are two workloads (in-scope and out-of-scope). The workloads are segmented in two separate node pools. For details, see [Workload isolation](#workload-isolation).
-
-      - System node pool: 1
+       For details, see [Workload isolation](#workload-isolation).
+      - Workload&mdash; 
+      - Additional compute for a jump box. This VM is used to run management tools.
    :::column-end:::   
 :::row-end:::
 :::row:::
@@ -64,6 +73,102 @@ This RI is built directly on top of the AKS Baseline, illustrating the promise t
       Network policies
    :::column-end:::   
 :::row-end:::
+:::row:::
+   :::column span="":::
+      **Workload**
+   :::column-end:::
+   :::column span="":::
+      - A simple hello world .NET application.
+   :::column-end:::
+   :::column span="":::
+      A microservices application with two sets of services. One set has in-scope pods for running a PCI-DSS workload. The other is out-of-scope. Both sets are spread across two user node pools. Segmentation is provided with the use of Kubernetes taints. Both sets are deployed to separate nodes and they never share a node VM. For details, see [Workload isolation](#workload-isolation).
+   :::column-end:::   
+:::row-end:::
+
+
+## Security control differences between baseline and regulated architectures
+
+This RI is built directly on top of the AKS Baseline, illustrating the promise that you can start with the AKS Baseline and evolve it into what you need it to be.
+
+:::row:::
+   :::column span="":::
+      **Design area**
+   :::column-end:::
+   :::column span="":::
+      **AKS baseline architecture**
+   :::column-end:::
+   :::column span="":::
+      **AKS regulated architecture**
+   :::column-end:::   
+:::row-end:::
+:::row:::
+   :::column span="":::
+      **Cluster mode**
+   :::column-end:::
+   :::column span="":::
+      ![Placeholder](images/flow.png)
+   :::column-end:::
+   :::column span="":::
+      ![Placeholder](images/network-topology-small.png)
+   :::column-end:::   
+:::row-end:::
+:::row:::
+   :::column span="":::
+      **Network**
+   :::column-end:::
+   :::column span="":::
+
+      - User node pool: 1
+        The workload runs all all pods. 
+
+      - System node pool: 1
+
+
+   :::column-end:::
+   :::column span="":::
+      - User node pool: 2
+        There are two workloads (in-scope and out-of-scope). The workloads are segmented in two separate node pools. For details, see [Workload isolation](#workload-isolation).
+
+      - System node pool: 1
+
+      - Additional compute for a jump box. This VM is used to run management tools.
+   :::column-end:::   
+:::row-end:::
+:::row:::
+   :::column span="":::
+      **TLS**
+   :::column-end:::
+   :::column span="":::
+      Firewall rules
+      NSG
+      WAF
+      Network policies
+   :::column-end:::
+   :::column span="":::
+      Firewall rules
+      NSG
+      WAF
+      Network policies
+   :::column-end:::   
+:::row-end:::
+:::row:::
+   :::column span="":::
+      **Malware detection operations**
+   :::column-end:::
+   :::column span="":::
+      Firewall rules
+      NSG
+      WAF
+      Network policies
+   :::column-end:::
+   :::column span="":::
+      Firewall rules
+      NSG
+      WAF
+      Network policies
+   :::column-end:::   
+:::row-end:::
+
 
 Key differentiators over Baseline:
 - Private AKS API Server, with Azure Bastion-fronted ops access.
