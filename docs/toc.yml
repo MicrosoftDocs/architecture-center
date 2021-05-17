@@ -743,6 +743,8 @@ items:
                 href: solution-ideas/articles/business-process-management.yml
               - name: Content research
                 href: solution-ideas/articles/content-research.yml
+              - name: Content tagging with NLP
+                href: solution-ideas/articles/website-content-tag-suggestion-with-deep-learning-and-nlp.yml
               - name: Contract management
                 href: solution-ideas/articles/contract-management.yml
               - name: Customer churn prediction
@@ -773,8 +775,6 @@ items:
                 href: solution-ideas/articles/predict-length-of-stay-and-patient-flow-with-healthcare-analytics.yml
               - name: Image classification with CNN's
                 href: solution-ideas/articles/image-classification-with-convolutional-neural-networks.yml
-              - name: Information discovery with NLP
-                href: solution-ideas/articles/information-discovery-with-deep-learning-and-nlp.yml
               - name: Interactive voice response bot
                 href: solution-ideas/articles/interactive-voice-response-bot.yml
               - name: Keyword digital text processing
