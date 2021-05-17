@@ -18,4 +18,4 @@ ms.custom:
 
 ## Analytics
 
-## Industry Specific Extensions
+## Industry-Specific Extensions

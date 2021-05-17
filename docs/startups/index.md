@@ -12,25 +12,25 @@ ms.custom:
 
 # Architecture for Startups
 
-A startup is a unique business – its purpose is to take an as yet unproven product and test it in market, actively iterating on it until reaching a point of product market fit and beginning to actively scaling the product and the business.
+A startup is a unique business – its purpose is to take an as yet unproven product and test it in market. This is done by actively iterating on it until you reach a point of product/market fit, then scaling the product and the business to take full advantage of the market opportunity.
 
-This approach means that depending on the stage of the startup, as a developer, architect, or CTO (maybe even all three at once) you are responsible for distinct phases of development, which require fundamentally different approaches, and as such – different technology choices.
+This approach means that as a developer, architect, or CTO (maybe even all three at once) you are responsible for distinct phases of development, which require fundamentally different approaches, and as such – different technology choices. Part of your role is to establish which stage of product development your startup is in, and to choose the technologies and architectures which match that stage.
 
 ## Stages of Innovation
 
-Kent Beck describes a three-stage process of innovation in the software product world. Those stages are Explore, Expand, and Extract.
+Kent Beck describes a [three-stage process of innovation](https://medium.com/@kentbeck_7670/fast-slow-in-3x-explore-expand-extract-6d4c94a7539) in the software product world. Those stages are Explore, Expand, and Extract.
 
 ### Explore
 
-When a startup is in the explore stage, the imperative to invest small amounts of time and effort on numerous different options, knowing that most won’t do much better than break-even (and most will be worse). By making many small bets, the aim is to find one that pays of a thousand times over, and will lead to massive growth.
+When a startup is in the explore stage, the imperative to invest small amounts of time and effort on numerous different product ideas. This exploration is driven by the knowledge that most ideas won’t result in much than break-even (and most will be worse). By making many small bets, the aim is to find one that pays of a thousand times over, and will lead to massive growth.
 
 ### Expand
 
-Once a startup finds growth through exploration, you must shift gears to expand. This means effort is focused on doing whatever you can to unblock the continued growth of our product and company. From a technical perspective that means a focus on overcoming scaling challenges, but also increasing development velocity so that you can fully exploit the opportunity that scaling brings.
+Once a startup finds growth through exploration, you must shift gears to expand. This means effort is focused on doing whatever you can to unblock the continued growth of our product and company. From a technical perspective that means a focus on overcoming whatever is preventing you from fully taking advantage of the opportunity you have discovered. This is often manifest in solving infrastructure scaling challenges, and in increasing development velocity so that you can meet the needs of your new customers and progress your product roadmap.
 
 ### Extract
 
-Finally, as the pace of growth slows and you reach the limits of the market opportunity, comes extract. At this point, there is a lot to lose, so a more cautious approach is taken. This phase is characterized by margin expansion, reducing cost, and improving efficiencies while ensuring that the captured market is not lost.
+Finally, as the pace of growth slows and you reach the limits of the market opportunity, comes extract. At this point, there is a lot to lose, so a more cautious approach is taken. This phase is characterized by margin expansion, reducing cost, and improving efficiencies. All these must be executed with care to ensure that the captured market is not lost.
 
 ## Building Your First Stack
 
