@@ -1,6 +1,6 @@
 ---
 title: Architecture for Startups
-description: Understand how to approach architecture when you are working in a startup.
+description: Understand how to approach architecture when you're working in a startup.
 author: mootpointer
 ms.date: 05/15/2021
 ms.topic: reference
@@ -12,9 +12,9 @@ ms.custom:
 
 # Architecture for Startups
 
-A startup is a unique business – its purpose is to take an as yet unproven product and test it in market. This is done by actively iterating on it until you reach a point of product/market fit, then scaling the product and the business to take full advantage of the market opportunity.
+A startup is a unique business – its purpose is to take an unproven product and test it in market. To test it, you take your product idea and active iterate on it until you reach a point of product/market fit. Once you achieve that fit, you then scale that product and the business to take full advantage of the market opportunity.
 
-This approach means that as a developer, architect, or CTO (maybe even all three at once) you are responsible for distinct phases of development, which require fundamentally different approaches, and as such – different technology choices. Part of your role is to establish which stage of product development your startup is in, and to choose the technologies and architectures which match that stage.
+This staged approach means that as a developer, architect, or CTO (maybe even all three at once) you're responsible for distinct phases of development. These stages require fundamentally different approaches, and as such – different technology choices. Part of your role is to establish which phase your startup is in, and to choose the technologies and architectures that match.
 
 ## Stages of Innovation
 
@@ -22,11 +22,13 @@ Kent Beck describes a [three-stage process of innovation](https://medium.com/@ke
 
 ### Explore
 
-When a startup is in the explore stage, the imperative to invest small amounts of time and effort on numerous different product ideas. This exploration is driven by the knowledge that most ideas won’t result in much than break-even (and most will be worse). By making many small bets, the aim is to find one that pays of a thousand times over, and will lead to massive growth.
+When a startup is in the explore stage, your imperative is to invest small amounts of time and effort on many different product ideas. Exploration is driven by the fact that most ideas won’t be right. It's only by iterating and learning that you're likely to find product/market fit. By making many small bets, the aim is to find a product idea that pays off a thousand times over.
+
+This stage requires discipline. It's easy to over-invest in an idea that you could test in a way that requires a lot less time and energy. As a technologist, you'll find this to be especially true. Making the right architectural choices to make exploration easier requires you to remember that you're exploring. You don't yet know if the current product idea is the one that will scale.
 
 ### Expand
 
-Once a startup finds growth through exploration, you must shift gears to expand. This means effort is focused on doing whatever you can to unblock the continued growth of our product and company. From a technical perspective that means a focus on overcoming whatever is preventing you from fully taking advantage of the opportunity you have discovered. This is often manifest in solving infrastructure scaling challenges, and in increasing development velocity so that you can meet the needs of your new customers and progress your product roadmap.
+Once your startup finds growth through exploration, you must shift gears to expand. Your effort must be focused on removing any blockages to the continued growth of your product and company. From a technical perspective, your focus is often on solving infrastructure scale challenges, and increasing development velocity. This focus is all so that you can meet the needs of your new customers and progress your product roadmap.
 
 ### Extract
 
