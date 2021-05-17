@@ -1,13 +1,12 @@
+[!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-
-
-This example scenario demonstrates how end manufacturers can connect assets to the cloud using OPC UA (Open Platform Communication Unified Architecture) and the Industrial Components. This will enable the use of Predictive Maintenance to improve the efficiency of your machines, while reducing the costs by optimizing the production. Mitigate disruptions by applying advanced analytics and machine learning to your production to anticipate outages. Ensure production uptime with rich insights and automatic alerts triggered by manufacturing data. OPC UA is a platform-independent and service-oriented interoperability standard for a secure and reliable data exchange. OPC UA is used by various industrial systems and devices such as industry PCs, PLCs, and sensors. It's a standard that is driven by the OPC Foundation.
+This article demonstrates how end manufacturers can connect assets to the cloud using OPC UA (Open Platform Communication Unified Architecture) and the Industrial Components. This will enable the use of Predictive Maintenance to improve the efficiency of your machines, while reducing the costs by optimizing the production. Mitigate disruptions by applying advanced analytics and machine learning to your production to anticipate outages. Ensure production uptime with rich insights and automatic alerts triggered by manufacturing data. OPC UA is a platform-independent and service-oriented interoperability standard for a secure and reliable data exchange. OPC UA is used by various industrial systems and devices such as industry PCs, PLCs, and sensors. It's a standard that is driven by the OPC Foundation.
 
 ## Architecture
 
 ![Architecture Diagram](../media/iot-predictive-maintenance.png)
 
-## Data Flow
+## Data flow
 
 The data flows through the solution as follows:
 
@@ -36,7 +35,7 @@ Data is loaded from these different data sources using several Azure components:
 - [Power BI](/power-bi) is a suite of business analytics tools to analyze data and share insights. Power BI can query a semantic model stored in Analysis Services, or it can query Azure Synapse directly.
 - [Data Factory](/azure/data-factory/) orchestrates the transformation of staged data into a common structure in Azure Synapse. Using Azure Data Factory, you can create and schedule data-driven workflows (called pipelines) that can ingest data from disparate data stores. You can build complex ETL processes that transform data visually with data flows or by using compute services such as Azure HDInsight Hadoop, Azure Databricks, and Azure SQL Database.
 
-## Next Steps
+## Next steps
 
 - For a detailed view of the Industrial Modules and Services, see the Azure Industrial IoT Platform [architecture](https://github.com/Azure/Industrial-IoT/blob/master/docs/architecture.md) and a detailed view of all the individual Microservices and Agent processes is shown [here](https://github.com/Azure/Industrial-IoT/blob/master/docs/architecture-details.md).
 - You can find more information on how to get started with the Azure Industrial IoT Platform in the [Industrial IoT GitHub repository](https://github.com/Azure/Industrial-IoT/blob/master/docs/architecture-details.md).
