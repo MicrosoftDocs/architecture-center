@@ -23,9 +23,22 @@ This RI is built directly on top of the AKS Baseline, illustrating the promise t
    :::column-end:::
    :::column span="":::
       ![Placeholder](images/flow.png)
+
+      **Hub network**
+      - Azure Firewall&mdash;Controls egress traffic.
+      - Placeholder subnet for Azure Bastion.
+      - Placeholder subnet for gateway traffic.
    :::column-end:::
    :::column span="":::
       ![Placeholder](images/network-topology-small.png)
+
+      **Hub network**
+      - Azure Firewall&mdash;Controls egress traffic with more stringent rules.
+      - Azure Bastion&mdash;provides operational access to a jumpbox in the spoke.
+      - Placeholder subnet for gateway traffic.
+
+        **Spoke network**
+      - Jumpbox&mdash;runs management tools, such as kubectl.
    :::column-end:::   
 :::row-end:::
 :::row:::
@@ -47,13 +60,9 @@ This RI is built directly on top of the AKS Baseline, illustrating the promise t
    :::column-end:::
    :::column span="":::
 
-      - Workload&mdash; A simple hello world .NET application.
-
    :::column-end:::
    :::column span="":::
-       For details, see [Workload isolation](#workload-isolation).
-      - Workload&mdash; 
-      - Additional compute for a jump box. This VM is used to run management tools.
+      - Jumpbox&mdash;This VM is used to run management tools.
    :::column-end:::   
 :::row-end:::
 :::row:::
