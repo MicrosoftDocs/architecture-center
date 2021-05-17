@@ -143,6 +143,15 @@ items:
                 href: guide/responsible-innovation/harms-modeling/type-of-harm.md
           - name: Community Jury
             href: guide/responsible-innovation/community-jury/index.md
+      - name: Architecture for Startups
+        items:
+          - name: Overview
+            href: startups/index.md
+          - name: Basic Startup Stack
+            href: startups/basic-startup-stack.md
+          - name: Extending the Startup Stack
+            href: startups/extending-startup-stack.md
+
       - name: Azure for AWS Professionals
         items:
           - name: Overview
