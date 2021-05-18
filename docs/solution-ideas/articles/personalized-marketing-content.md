@@ -27,7 +27,7 @@ By personalizing your offers, you'll deliver an individualized experience for cu
 
 ## Next steps
 
-Read other Azure Architecture Center articles
+Read other Azure Architecture Center articles:
 
 * [Big data architecture style](../../guide/architecture-styles/big-data.md)
 * [Machine learning at scale](../../data-guide/big-data/machine-learning-at-scale.md)
@@ -44,7 +44,7 @@ See product documentation:
 * [Learn how to use Azure Cache for Redis](/azure/redis-cache/cache-dotnet-how-to-use-azure-redis-cache)
 * [Learn about Power BI](https://powerbi.microsoft.com/documentation/powerbi-landing-page)
 
-Try Microsoft Learn modules:
+Try a Microsoft Learn path:
 
 * [Implement a Data Streaming Solution with Azure Streaming Analytics](/learn/paths/implement-data-streaming-with-asa/)
 * [Build a Machine Learning model](/learn/modules/machine-learning-model-nasa/)
