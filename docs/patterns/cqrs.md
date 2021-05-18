@@ -1,5 +1,5 @@
 ---
-title: CQRS pattern
+title: What is the CQRS pattern?
 description: Segregate operations that read data from those that update data.
 author: dragon119
 ms.date: 02/11/2020
@@ -12,9 +12,9 @@ keywords:
   - design pattern
 ---
 
-# Command and Query Responsibility Segregation (CQRS) pattern
+# What is the Command and Query Responsibility Segregation (CQRS) pattern?
 
-The Command and Query Responsibility Segregation (CQRS) pattern separates read and update operations for a data store. Implementing CQRS in your application can maximize its performance, scalability, and security. The flexibility created by migrating to CQRS allows a system to better evolve over time and prevents update commands from causing merge conflicts at the domain level.
+CQRS means Command and Query Responsibility Segregation, a pattern that separates read and update operations for a data store. Implementing CQRS in your application can maximize its performance, scalability, and security. The flexibility created by migrating to CQRS allows a system to better evolve over time and prevents update commands from causing merge conflicts at the domain level.
 
 ## The problem
 
@@ -36,7 +36,7 @@ Read and write workloads are often asymmetrical, with very different performance
 
 CQRS separates reads and writes into different models, using **commands** to update data, and **queries** to read data.
 
-- Commands should be task based, rather than data centric. ("Book hotel room", not "set ReservationStatus to Reserved").
+- Commands should be task-based, rather than data centric. ("Book hotel room", not "set ReservationStatus to Reserved").
 - Commands may be placed on a queue for asynchronous processing, rather than being processed synchronously.
 - Queries never modify the database. A query returns a DTO that does not encapsulate any domain knowledge.
 
@@ -84,7 +84,7 @@ Consider CQRS for the following scenarios:
 
 - Task-based user interfaces where users are guided through a complex process as a series of steps or with complex domain models. The write model has a full command-processing stack with business logic, input validation, and business validation. The write model may treat a set of associated objects as a single unit for data changes (an aggregate, in DDD terminology) and ensure that these objects are always in a consistent state. The read model has no business logic or validation stack, and just returns a DTO for use in a view model. The read model is eventually consistent with the write model.
 
-- Scenarios where performance of data reads must be fine tuned separately from performance of data writes, especially when the number of reads is much greater than the number of writes. In this scenario, you can scale out the read model, but run the write model on just a few instances. A small number of write model instances also helps to minimize the occurrence of merge conflicts.
+- Scenarios where performance of data reads must be fine-tuned separately from performance of data writes, especially when the number of reads is much greater than the number of writes. In this scenario, you can scale out the read model, but run the write model on just a few instances. A small number of write model instances also helps to minimize the occurrence of merge conflicts.
 
 - Scenarios where one team of developers can focus on the complex domain model that is part of the write model, and another team can focus on the read model and the user interfaces.
 
@@ -114,7 +114,7 @@ When using CQRS combined with the Event Sourcing pattern, consider the following
 
 - The pattern adds complexity because code must be created to initiate and handle events, and assemble or update the appropriate views or objects required by queries or a read model. The complexity of the CQRS pattern when used with the Event Sourcing pattern can make a successful implementation more difficult, and requires a different approach to designing systems. However, event sourcing can make it easier to model the domain, and makes it easier to rebuild views or create new ones because the intent of the changes in the data is preserved.
 
-- Generating materialized views for use in the read model or projections of the data by replaying and handling the events for specific entities or collections of entities can require significant processing time and resource usage. This is especially true if it requires summation or analysis of values over long periods, because all the associated events might need to be examined. Resolve this by implementing snapshots of the data at scheduled intervals, such as a total count of the number of a specific action that have occurred, or the current state of an entity.
+- Generating materialized views for use in the read model or projections of the data by replaying and handling the events for specific entities or collections of entities can require significant processing time and resource usage. This is especially true if it requires summation or analysis of values over long periods, because all the associated events might need to be examined. Resolve this by implementing snapshots of the data at scheduled intervals, such as a total count of the number of a specific action that has occurred, or the current state of an entity.
 
 ## Example
 
