@@ -38,9 +38,9 @@ Finally, as the pace of growth slows and you reach the limits of the market oppo
 
 ## Building Your First Stack
 
-As your startup’s first version of your product, the first technology stack should be firmly rooted in exploration. That means promoting the stack must make rapid iteration of the product easier without wasting any unnecessary effort investing in infrastructure or architecture that isn't required for answering the current question.
+As your startup’s first version of your product, the first technology stack should be firmly rooted in exploration. That means the technology stack must make rapid iteration of the product easier without wasting any unnecessary effort. You don't want to spend time or effort on infrastructure or architecture that isn't required for answering the current question.
 
-Exploration means that you need to optimize for three things: speed, cost, and optionality. Speed is about how fast you can build and move forwards with an idea or move onto the next idea. Cost is how much you're spending to run our infrastructure. Optionality centers around being able to quickly changes directions rapidly using given architecture, allowing you to capitalize if you land on an idea that is successful and will lead to growth.
+Exploration means that you need to optimize for three things: speed, cost, and optionality. Speed is about how fast you can build and move forwards with an idea or move onto the next idea. Cost is how much you're spending to run our infrastructure. Optionality is being able to quickly changes directions rapidly using given architecture.
 
 Cost, speed, and optionality must be balanced – too much focus on cost will cost you speed and optionality. Too much focus on speed will often lead to increased costs, and reduced optionality. Designing for too many options builds complexity, increasing costs and reducing speed.
 
