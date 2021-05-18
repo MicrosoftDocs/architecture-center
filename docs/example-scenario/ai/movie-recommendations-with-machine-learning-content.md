@@ -10,7 +10,7 @@ Consider this scenario for the following use cases:
 - Consumer product recommendations in a mobile app.
 - News recommendations on streaming media.
 
-## Architecture of a movie recommender
+## Architecture of a movie recommendation system
 
 ![Architecture of a machine learning model for training movie recommendations][architecture]
 
