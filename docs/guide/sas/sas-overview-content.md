@@ -1,3 +1,23 @@
+---
+title: SAS on Azure Architecture Guide
+titleSuffix: Azure Architecture Center
+description: This guide details how to architect and run SAS Viya or SAS Grid solutions on Azure.
+products:
+  - compute
+  - storage
+categories:
+  - fcp
+  - compute
+  - storage
+  - analytics
+author: ranieuwe
+ms.date: 5/18/2021
+ms.topic: conceptual
+ms.service: architecture-center
+ms.subservice: reference-architecture
+ms.custom:
+  - guide
+---
 
 # Architectures for SAS on Azure
 
@@ -104,7 +124,8 @@ Often times, SAS Workloads can be chatty resulting in significant amounts of dat
 
 SAS is very specific about the FQDN for a virtual machine. Ensure that DNS services are provided and the FQDN for machines are set correctly. Either do this through /etc/hosts or using FQDN with Azure DNS.
 
-> [!NOTE] Accelerated networking should be enabled on all nodes in the SAS deployment at all times. Not enabling >accelerated networking has serious performance impacts.
+> [!NOTE]
+> Accelerated networking should be enabled on all nodes in the SAS deployment at all times. Not enabling >accelerated networking has serious performance impacts.
 >  
 > Execute `az network nic update -n <name_of_NIC> -g <resource_group_name> --accelerated-networking true` to enable accelerated networking on machines that have it turned off. The virtual machine must be powered off and deallocated before the command is ran.
 
