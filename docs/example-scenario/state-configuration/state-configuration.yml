@@ -18,6 +18,8 @@ azureCategories:
 summary: State Configuration
 products:
   - azure-automation
-thumbnailUrl: /azure/architecture/browse/thumbs/default.png
+  - azure-monitor
+  - azure-virtual-machines
+thumbnailUrl: /azure/architecture/browse/thumbs/state-config.png
 content: |
    [!include[](state-configuration-content.md)]
