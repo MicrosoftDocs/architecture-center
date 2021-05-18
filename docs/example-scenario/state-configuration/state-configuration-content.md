@@ -162,3 +162,9 @@ Configuration management includes the configuration pull service and change trac
 Charges for configuration management start when a node is registered with the service and stops when the node is unregistered. A node is any machine whose configuration is managed by configuration management. This could be an Azure virtual machine (VM), on-premises VM, physical host, or a VM in another public cloud. Billing for nodes is pro-rated hourly.
 
 For more information, see [Automation pricing](https://azure.microsoft.com/pricing/details/automation/).
+
+## Next steps
+
+- [Browse additional solutions](/azure/architecture/browse/)
+- [Azure Automation update management](/azure/architecture/hybrid/azure-update-mgmt)
+- [Azure Automation State Configuration documentaton](/azure/automation/automation-dsc-overview)
