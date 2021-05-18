@@ -3,7 +3,7 @@
 Modern data architectures meet these criteria:
 
 - Unify data, analytics, and AI workloads.
-- Perform efficiently and reliably at any scale.
+- Run efficiently and reliably at any scale.
 - Provide insights through analytics dashboards, operational reports, or advanced analytics.
 
 This solution outlines a modern data architecture that achieves these goals. Azure Databricks forms the core of the solution. This platform works seamlessly with other Azure services such as Azure Data Lake Storage, Azure Data Factory, Azure Synapse Analytics, and Power BI. Together, these services provide a solution with these qualities:
@@ -31,7 +31,7 @@ The system that Swiss Re Group built for its Property & Casualty Reinsurance div
 1. Data Factory loads raw batch data into Data Lake Storage.
 1. For data storage:
 
-   - Data Lake Storage houses data of all types, such as structured, unstructured, and semi-structured. It also stores both batch and streaming data.
+   - Data Lake Storage houses data of all types, such as structured, unstructured, and semi-structured. It also stores batch and streaming data.
    - Databricks Delta Lake forms the curated layer of the data lake. It stores the refined data in an open-source format.
    - Azure Databricks works with Spark libraries to process data. It organizes the data by using a [medallion architecture][Medallion model]:
 
@@ -57,7 +57,7 @@ The system that Swiss Re Group built for its Property & Casualty Reinsurance div
    - Azure Databricks stores information about models in the [MLFlow Model Registry][MLFlow Model Registry]. The registry makes this data available through batch, streaming, and REST APIs.
    - The solution can also deploy models to Azure Machine Learning web services or Azure Kubernetes Service (AKS).
 
-1. Services that work with the data connect to a single underlying data source to ensure consistency. For instance, users perform ad hoc SQL queries on the data lake with Azure Databricks SQL Analytics. This service:
+1. Services that work with the data connect to a single underlying data source to ensure consistency. For instance, users can run SQL queries on the data lake with Azure Databricks SQL Analytics. This service:
 
    - Provides a query editor and catalog, the query history, basic dashboarding, and alerting.
    - Uses integrated security that includes row-level and column-level permissions.
@@ -96,13 +96,13 @@ The system that Swiss Re Group built for its Property & Casualty Reinsurance div
 
 - [Delta Lake][Databricks Delta Lake] is a storage layer that uses an open file format. This layer runs on top of cloud storage such as Data Lake Storage. Delta Lake supports data versioning, rollback, and transactions for updating, deleting, and merging data.
 
-- [MLFlow][MLFlow] is a open-source platform for the machine learning lifecycle. Its components monitor machine learning models during training and running. MLFlow also stores models and loads them in production.
+- [MLFlow][MLFlow] is an open-source platform for the machine learning lifecycle. Its components monitor machine learning models during training and running. MLFlow also stores models and loads them in production.
 
 - [Azure Databricks SQL Analytics][Azure Databricks SQL Analytics guide] runs queries on data lakes. This service also visualizes data in dashboards.
 
 - [Machine Learning][Azure Machine Learning] is a cloud-based environment that helps you build, deploy, and manage predictive analytics solutions. With these models, you can forecast behavior, outcomes, and trends.
 
-- [AKS][Azure Kubernetes Service] is a highly available, secure, and fully managed Kubernetes service that makes it easy to deploy and manage containerized applications.
+- [AKS][Azure Kubernetes Service] is a highly available, secure, and fully managed Kubernetes service. AKS makes it easy to deploy and manage containerized applications.
 
 - [Power BI][What is Power BI?] is a collection of software services and apps. These services create and share reports that connect and visualize unrelated sources of data. Together with Azure Databricks, Power BI can provide root cause determination and raw data analysis.
 
