@@ -4,7 +4,7 @@ Azure Automation State Configuration is an Azure configuration management servic
 
 This example scenario demonstrates using Azure Automation State Configuration to install a web server on both Windows and Linux-based Azure Virtual Machines. Azure Monitor is used to raise an alert for any noncompliant systems.
 
-![](./media/azure-state-config-three.png)
+![](./media/azure-state-config-four.png)
 
 ## Reference deployment
 
@@ -148,7 +148,7 @@ Azure Monitor integration is configured with the included deployment. The follow
 ```kusto
 AzureDiagnostics
 | where Category == "DscNodeStatus"
-| where ResultType != "Compliant"
+| where ResultType != "Failed"
 ```
 
 ## Pricing
