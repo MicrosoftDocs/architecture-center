@@ -33,7 +33,7 @@ Create personalized and timely customer experiences, increase campaign performan
 
 Review these articles to learn more:
 
-* [Deploy an ASP.NET web app](azure/app-service/quickstart-dotnetcore)
+* [Deploy an ASP.NET web app](/azure/app-service/quickstart-dotnetcore)
 * [PostgreSQL Database tutorial: Create an Azure Database for PostgreSQL server by using the Azure portal](/azure/postgresql/quickstart-create-server-database-portal)
 * [Start monitoring your website with Azure Monitor Application Insights](/azure/azure-monitor/app/website-monitoring)
 * [Add Azure CDN to an Azure App Service web app](/azure/cdn/cdn-add-to-web-app)
