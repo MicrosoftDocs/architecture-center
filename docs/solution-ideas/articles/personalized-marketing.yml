@@ -1,6 +1,6 @@
 ### YamlMime:Architecture
 metadata:
-  title: Personalized marketing solutions
+  title: Create personalized marketing solutions
   titleSuffix: Azure Solution Ideas
   description: Create personalized marketing offers and improve customer response using big-data insights based on Azure Machine Learning and Stream Analytics.
   author: doodlemania2
@@ -21,7 +21,7 @@ metadata:
     - ai-machine-learning
     - aml-project-improvement
   social_image_url: /azure/architecture/solution-ideas/articles/media/personalized-marketing.png
-name: Personalized marketing solutions
+name: Create personalized marketing solutions in near real time
 azureCategories:
   - ai-machine-learning
 summary: Create personalized marketing offers and improve customer response using big-data insights based on Azure Machine Learning and Stream Analytics.
