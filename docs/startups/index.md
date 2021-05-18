@@ -46,7 +46,11 @@ Cost, speed, and optionality must be balanced – too much focus on cost will co
 
 ## Extending Your Architecture
 
-TODO
+As you iterate on your product, you will inevitably find areas where your architecture needs to be extended. You may complete long-running tasks in the background, or handle high-frequency updates coming from IoT devices. You might need to add full-text search, or add machine intelligence to your product.
+
+You might look at your roadmap and anticipate the need for architectural changes to accommodate items on it. The temptation is to make those architectural changes too far ahead, adding complexity to your architecture and infrastructure spend to your balance sheet.
+
+In the early stages of a startup, any extension of your architecture should be just-in-time, taking only as much time and energy as is required to test the next hypothesis. You will also need to be ready to remove extensions to your architecture to remove complexity. Look for product features that are not frequently as opportunities to simplify your architecture and reduce your infrastructure spend.
 
 ## Handling Growth and Maturing Your Stack
 
