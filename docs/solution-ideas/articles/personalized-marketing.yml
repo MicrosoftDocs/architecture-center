@@ -19,6 +19,7 @@ metadata:
     - targeted marketing
     - "https://azure.microsoft.com/solutions/architecture/personalized-marketing/"
     - ai-machine-learning
+    - aml-project-improvement
   social_image_url: /azure/architecture/solution-ideas/articles/media/personalized-marketing.png
 name: Personalized marketing solutions
 azureCategories:

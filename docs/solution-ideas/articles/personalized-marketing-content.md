@@ -16,14 +16,14 @@ By personalizing your offers, you'll deliver an individualized experience for ev
 
 ## Components
 
-* [Event Hubs](https://azure.microsoft.com/services/event-hubs) ingests raw click-stream data from Functions and passes it on to Stream Analytics.
-* [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics): Stream Analytics aggregates clicks in near real-time by product, offer, and user to write to Azure Cosmos DB and also archives raw click-stream data to Azure Storage.
-* [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db) stores aggregated data of clicks by user, product, and offer as well as user-profile information.
-* [Storage Accounts](https://azure.microsoft.com/services/storage): Azure Storage stores archived raw click-stream data from Stream Analytics.
+* [Event Hubs](https://azure.microsoft.com/services/event-hubs) ingests raw click-stream data from Azure Functions and passes it on to Stream Analytics.
+* [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics) aggregates clicks in near real time by product, offer, and user. Writes to Azure Cosmos DB and also archives raw click-stream data to Azure Storage.
+* [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db) stores aggregated data of clicks by user, product, and offers user-profile information.
+* [Storage Accounts](https://azure.microsoft.com/services/storage) stores archived raw click-stream data from Stream Analytics.
 * [Azure Functions](https://azure.microsoft.com/services/functions) takes in user clickstream data from website and reads existing user history from Azure Cosmos DB. These data are then run through the Machine Learning web service or used along with the cold-start data in Azure Cache for Redis to obtain product-affinity scores. Product-affinity scores are used with the personalized-offer logic to determine the most relevant offer to present to the user.
-* [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning): Machine Learning helps you design, test, operationalize, and manage predictive analytics solutions in the cloud.
+* [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning) helps you design, test, operationalize, and manage predictive analytics solutions in the cloud.
 * [Azure Cache for Redis](https://azure.microsoft.com/services/cache) stores pre-computed cold-start product affinity scores for users without history.
-* [Power BI](https://powerbi.microsoft.com) Visualizes user activity data as well as offers presented by reading in data from Cosmos DB.
+* [Power BI](https://powerbi.microsoft.com) enables visualization of user activity data and offers presented by reading in data from Cosmos DB.
 
 ## Next steps
 
