@@ -1,0 +1,28 @@
+### YamlMime:Architecture
+metadata:
+  title: SAS on Azure Architecture Guide
+  description: 'This guide details how to architect and run SAS Viya or SAS Grid solutions on Azure.'
+  author: ranieuwe
+  ms.date: 04/01/2021
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.custom:
+    - fcp
+    - reference-architecture
+  ms.category:
+    - compute
+    - storage
+    - analytics
+  ms.subservice: reference-architecture
+name: SAS on Azure Architecture Guide
+azureCategories:
+  - compute
+  - storage
+  - analytics
+summary: 'This guide details how to architect and run SAS Viya and SAS Grid solutions on Azure.'
+products:
+  - azure
+  - azure-linux-vm
+thumbnailUrl: /azure/architecture/browse/thumbs/sas-overview-architecture-diagram.png
+content: |
+   [!include[](sas-overview-content.md)]
