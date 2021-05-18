@@ -58,4 +58,4 @@ TODO
 
 ## Next Steps
 
-TODO
+Put the principles of architecture for startups into practice with the [Basic Startup Stack](basic-startup-stack.md).
