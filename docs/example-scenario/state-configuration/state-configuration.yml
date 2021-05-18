@@ -1,7 +1,7 @@
 ### YamlMime:Architecture
 metadata:
   title: Azure Automation State Configuration
-  description: Azure Automation State Configuration
+  description: Use Azure Automation State Configuration to configure Windows and Linux systems.
   author: neilpeterson
   ms.author: pnp
   ms.date: 4/22/2020
@@ -12,10 +12,10 @@ metadata:
     - devops
   ms.custom:
     - example-scenario
-name: State Configuration
+name: Azure Automation State Configuration
 azureCategories:
   - devops
-summary: State Configuration
+summary: Use Azure Automation State Configuration to configure Windows and Linux systems.
 products:
   - azure-automation
   - azure-monitor
