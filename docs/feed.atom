@@ -2,12 +2,28 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id/>
     <title>Azure Architecture Center</title>
-    <updated>2021-05-11T14:52:05.189Z</updated>
+    <updated>2021-05-17T17:41:31.498Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <subtitle>Updated articles for Azure Architecture Center</subtitle>
     <rights>https://docs.microsoft.com/legal/termsofuse</rights>
     <category term="new"/>
     <category term="updated"/>
+    <entry>
+        <title type="html"><![CDATA[Suggest content tags with deep learning and NLP]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/solution-ideas/articles/website-content-tag-suggestion-with-deep-learning-and-nlp</id>
+        <link href="https://docs.microsoft.com/azure/architecture/solution-ideas/articles/website-content-tag-suggestion-with-deep-learning-and-nlp"/>
+        <updated>2021-05-17T14:20:53.000Z</updated>
+        <summary type="html"><![CDATA[Use Microsoft AI to improve website content tagging accuracy by combining deep learning and natural language processing (NLP) with data on site-specific search terms.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Environment monitoring and supply chain optimization with IoT]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/solution-ideas/articles/environment-monitoring-and-supply-chain-optimization</id>
+        <link href="https://docs.microsoft.com/azure/architecture/solution-ideas/articles/environment-monitoring-and-supply-chain-optimization"/>
+        <updated>2021-05-11T20:30:02.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to use Azure IoT for environment monitoring and supply chain optimization.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Choose a Kubernetes at the edge compute option]]></title>
         <id>https://docs.microsoft.com/azure/architecture/operator-guides/aks/choose-kubernetes-edge-compute-option</id>
@@ -31,6 +47,22 @@
         <updated>2021-05-03T18:01:53.000Z</updated>
         <summary type="html"><![CDATA[Give mainframe applications access to Azure data without changing code. Use Microsoft Service for DRDA to run Db2 SQL statements on a SQL Server database.]]></summary>
         <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Demand forecasting and price optimization]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/solution-ideas/articles/demand-forecasting-price-optimization-marketing</id>
+        <link href="https://docs.microsoft.com/azure/architecture/solution-ideas/articles/demand-forecasting-price-optimization-marketing"/>
+        <updated>2021-05-12T14:59:31.000Z</updated>
+        <summary type="html"><![CDATA[Predict future customer demand and optimize pricing to maximize profitability using big-data and advanced-analytics services from Microsoft Azure.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Forecast energy and power demand]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/solution-ideas/articles/forecast-energy-power-demand</id>
+        <link href="https://docs.microsoft.com/azure/architecture/solution-ideas/articles/forecast-energy-power-demand"/>
+        <updated>2021-05-13T18:08:27.000Z</updated>
+        <summary type="html"><![CDATA[Forecast spikes in demand for energy products and services with Microsoft Azure Machine Learning and give your company a competitive advantage.]]></summary>
+        <category label="updated" term="updated"/>
     </entry>
     <entry>
         <title type="html"><![CDATA[Population Health Management for Healthcare]]></title>
@@ -149,7 +181,7 @@
         <id>https://docs.microsoft.com/azure/architecture/solution-ideas/articles/monitor-mining-equipment</id>
         <link href="https://docs.microsoft.com/azure/architecture/solution-ideas/articles/monitor-mining-equipment"/>
         <updated>2021-04-23T07:01:18.000Z</updated>
-        <summary type="html"><![CDATA[Send data to the Azure cloud to monitor its condition and performance. Process the data with Azure Databricks and alert operators and administrators as needed.]]></summary>
+        <summary type="html"><![CDATA[Send equipment data to the Azure cloud to monitor its condition and performance. Process the data with Azure Databricks and alert operators and administrators as needed.]]></summary>
         <category label="new" term="new"/>
     </entry>
     <entry>
@@ -433,11 +465,11 @@
         <category label="updated" term="updated"/>
     </entry>
     <entry>
-        <title type="html"><![CDATA[Forecast Energy and Power Demand]]></title>
+        <title type="html"><![CDATA[Forecast energy and power demand]]></title>
         <id>https://docs.microsoft.com/azure/architecture/solution-ideas/articles/forecast-energy-power-demand</id>
         <link href="https://docs.microsoft.com/azure/architecture/solution-ideas/articles/forecast-energy-power-demand"/>
         <updated>2021-04-13T21:19:09.000Z</updated>
-        <summary type="html"><![CDATA[Give your company a competitive advantage by using Microsoft Azure to help accurately forecast spikes in demand for energy products and services.]]></summary>
+        <summary type="html"><![CDATA[Forecast spikes in demand for energy products and services with Microsoft Azure Machine Learning and give your company a competitive advantage.]]></summary>
         <category label="updated" term="updated"/>
     </entry>
     <entry>
@@ -494,14 +526,6 @@
         <link href="https://docs.microsoft.com/azure/architecture/reference-architectures/data/stream-processing-databricks"/>
         <updated>2021-04-06T15:19:22.000Z</updated>
         <summary type="html"><![CDATA[Create an end-to-end stream processing pipeline in Azure using Azure Databricks.]]></summary>
-        <category label="updated" term="updated"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Demand Forecasting and Price Optimization]]></title>
-        <id>https://docs.microsoft.com/azure/architecture/solution-ideas/articles/demand-forecasting-and-price-optimization</id>
-        <link href="https://docs.microsoft.com/azure/architecture/solution-ideas/articles/demand-forecasting-and-price-optimization"/>
-        <updated>2021-04-06T15:19:22.000Z</updated>
-        <summary type="html"><![CDATA[This solution addresses the challenges raised above by utilizing historical transaction data to train a demand forecasting model.]]></summary>
         <category label="updated" term="updated"/>
     </entry>
     <entry>
