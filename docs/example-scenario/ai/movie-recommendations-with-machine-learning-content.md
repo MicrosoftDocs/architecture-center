@@ -32,7 +32,7 @@ For an in-depth guide to building and scaling a recommender service, see the art
 
 ### Components
 
-- [Data Science Virtual Machine][dsvm] (DSVM) is an Azure virtual machine with deep learning frameworks and tools for machine learning and data science. The DSVM has a standalone Spark environment that can be used to run ALS. Use a DSVM when you have a smaller workload and you don't need distribution.
+- [Data Science Virtual Machine][dsvm] (DSVM) is an Azure virtual machine with deep learning frameworks and tools for machine learning and data science. The DSVM has a standalone Spark environment that can be used to run ALS. Use a DSVM when you have a smaller workload and you don't need a distributed solution.
 
 - [Azure Blob storage][blob] stores the dataset for movie recommendations.
 
