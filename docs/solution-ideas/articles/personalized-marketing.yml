@@ -2,7 +2,7 @@
 metadata:
   title: Personalized marketing solutions
   titleSuffix: Azure Solution Ideas
-  description: Find essential technology to market products with personalized offers. Individualize marketing for greater customer response by using big-data insights.
+  description: Create personalized marketing offers and improve customer response using big-data insights based on Azure Machine Learning and Stream Analytics.
   author: doodlemania2
   ms.author: pnp
   ms.date: 12/16/2019
@@ -24,7 +24,7 @@ metadata:
 name: Personalized marketing solutions
 azureCategories:
   - ai-machine-learning
-summary: Find essential technology to market products with personalized offers. Individualize marketing for greater customer response by using big-data insights.
+summary: Create personalized marketing offers and improve customer response using big-data insights based on Azure Machine Learning and Stream Analytics.
 products:
   - azure-cache-redis
   - azure-cosmos-db
