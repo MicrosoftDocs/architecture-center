@@ -10,7 +10,7 @@ categories:
   - compute
   - storage
   - analytics
-author: ranieuwe, grtn316
+author: ranieuwe
 ms.date: 5/18/2021
 ms.topic: conceptual
 ms.service: architecture-center
