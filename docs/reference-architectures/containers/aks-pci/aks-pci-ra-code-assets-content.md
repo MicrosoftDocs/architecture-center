@@ -71,30 +71,54 @@ This RI is built directly on top of the AKS Baseline, illustrating the promise t
 :::row-end:::
 :::row:::
    :::column span="":::
-      **Compute**
+      **Network**
+      Firewall rules
+      NSG
+      WAF
+      Network policies
    :::column-end:::
    :::column span="":::
-
+      Firewall rules
+      NSG
+      WAF
+      Network policies
+   :::column-end:::
+:::row-end:::
+:::row:::
+   :::column span="":::
+      **Data encryption**
    :::column-end:::
    :::column span="":::
-      - Jumpbox&mdash;This VM is used to run management tools.
+   - TLS-encrypted traffic until the workload pod. 
+   :::column-end:::
+   :::column span="":::
+    - TLS-encrypted traffic extends into the cluster for pod-to-pod communication.
+    - TLS trust chain certification at all levels. The CA chain is also validated.
    :::column-end:::   
 :::row-end:::
 :::row:::
    :::column span="":::
-      **Network**
+      **Operations**
    :::column-end:::
    :::column span="":::
-      Firewall rules
-      NSG
-      WAF
-      Network policies
+   - ACR
+   - AKV 
    :::column-end:::
    :::column span="":::
-      Firewall rules
-      NSG
-      WAF
-      Network policies
+    - ACR: 
+    - TLS trust chain certification at all levels. The CA chain is also validated.
+   :::column-end:::   
+:::row-end:::
+:::row:::
+   :::column span="":::
+      **Monitoring**
+   :::column-end:::
+   :::column span="":::
+   - TLS-encrypted traffic until the workload pod. 
+   :::column-end:::
+   :::column span="":::
+    - Enhanced focus on Azure Defender.
+    - Integrated logs and metrics in Azure Sentinel as the SIEM solution.
    :::column-end:::   
 :::row-end:::
 :::row:::
