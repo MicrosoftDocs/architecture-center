@@ -7,7 +7,7 @@ Personalized marketing is essential for building customer loyalty and remaining 
 
 Marketers using intelligent systems and analyzing massive amounts of data can deliver highly relevant and personalized offers to each user, cutting through the clutter and driving engagement. For example, retailers can provide offers and content based on each customer's unique interests, preferences and product affinity, putting products in front of the people most likely to buy them.
 
-By personalizing your offers, you'll deliver an individualized experience for current and prospective customers, boosting engagement and improving customer conversion, lifetime value, and retention. This solution shows how you can create a solution personalizing offers with Azure Functions, [Azure Machine Learning](/azure/machine-learning/overview-what-is-azure-ml), and [Azure Stream Analytics](/azure/stream-analytics/stream-analytics-introduction).
+By personalizing your offers, you'll deliver an individualized experience for current and prospective customers, boosting engagement and improving customer conversion, lifetime value, and retention. This solution shows how you can create a solution personalizing offers with [Azure Functions](/azure/azure-functions/functions-overview), [Azure Machine Learning](/azure/machine-learning/overview-what-is-azure-ml), and [Azure Stream Analytics](/azure/stream-analytics/stream-analytics-introduction).
 
 ## Architecture
 
@@ -26,6 +26,12 @@ By personalizing your offers, you'll deliver an individualized experience for cu
 * [Power BI](https://powerbi.microsoft.com) enables visualization of user activity data and offers presented by reading in data from Cosmos DB.
 
 ## Next steps
+
+Read other Azure Architecture Center articles
+
+* [Big data architecture style](../../guide/architecture-styles/big-data.md)
+* [Machine learning at scale](../../data-guide/big-data/machine-learning-at-scale.md)
+* [Scalable personalization on Azure](../../example-scenario/ai/scalable-personalization.yml)
 
 See product documentation:
 
