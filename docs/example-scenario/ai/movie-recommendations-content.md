@@ -81,7 +81,7 @@ Follow these steps to run the [ALS quickstart notebook](https://github.com/micro
 
 3. Install the conda dependencies following the steps described in the [SETUP.md][setup] file.
 
-4. In a browser, go to your jupyterlab VM and navigate to `notebooks/00_quick_start/als_pyspark_movielens.ipynb`.
+4. In a browser, go to your JupyterLab VM and navigate to `notebooks/00_quick_start/als_pyspark_movielens.ipynb`.
 
 5. Execute the notebook.
 
