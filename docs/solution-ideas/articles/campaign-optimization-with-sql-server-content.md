@@ -18,7 +18,7 @@ Two roles in this solution idea are:
 
 - **Business manager role**. Power BI can be used to present visual summaries of the effectiveness of the campaign recommendations. Power BI dashboards can be used by business managers or other making decisions based on the predicted recommendations.
 
-- **Data scientist role**. Data scientists can test and develop solutions from the convenience of their R IDE on their client machine while [pushing the compute to the SQL Server machine](/sql/advanced-analytics/r/getting-started-with-sql-server-r-services). The completed solutions are deployed to SQL Server 2016 by embedding calls to R in stored procedures. These solutions can then be further automated with SQL Server Integration Services and SQL Server agent.
+- **Data scientist role**. Data scientists can test and develop solutions from the convenience of their R IDE on their client machines while [pushing the compute to the SQL Server machine](/sql/advanced-analytics/r/getting-started-with-sql-server-r-services). The completed solutions are deployed to SQL Server 2016 by embedding calls to R in stored procedures. These solutions can then be further automated with SQL Server Integration Services and SQL Server agent.
 
 ## Next steps
 
