@@ -58,51 +58,36 @@ Define a list of access for each role. Think about the roles and functions in yo
 - Who can administer a cluster?
 - Who can create or update resources within a namespace?
 
-Based on that assessment, assign user or administrator roles. Kubernetes has built-in, user-facing roles like admin, edit, and view, generally to be applied at namespace levels, which can also be mapped to various Azure AD Groups.
+Based on that assessment, assign user or administrator roles. Kubernetes has built-in, user-facing RBAC roles, such `cluster-admin` that are applied at the namespace levels. If you are integrating Azure AD roles and Kubernetes roles, create a mapping between the two roles.
 
-These roles should then be mapped to Azure RBAC and Kubernetes RBAC roles. 
+An example use case of that role is if you need a group that needs complete access to the cluster.  This role has the highest privilege. Members of this group will have complete access throughout the cluster. You can mapping the role to an existing AD RBAC role that has administrative access to the Azure control plane. In that case, make sure you have strategy in place to create separation of duties. An alternate way is to create a separate group dedicated for cluster administrative access. Of the two approaches, the second one is recommended and demonstrated in the reference implementation.
 
-For example, you need a group that needs complete access to the cluster. The appropriate role is the `cluster-admin` Kubernetes role. This role has the highest privilege. Members of this group will have complete access throughout the cluster. Consider using a separate group instead of reusing an administrative group that accesses the Azure controle plane. This will maintain separation of duties. 
+Here are some best practices to harden access. 
+- Don't have standing access. Consider using[ Just-In-Time AD group membership](/azure/aks/managed-aad#configure-just-in-time-cluster-access-with-azure-ad-and-aks). This feature requires Azure AD Privileged Identity Management. 
 
-For the cluster admin group, avoid standing access. Consider using[ Just-In-Time AD group membership](/azure/aks/managed-aad#configure-just-in-time-cluster-access-with-azure-ad-and-aks). This feature requires Azure AD PIM found in Premium P2 SKU. 
+- Set up [Conditional Access Policies in Azure AD for your cluster](/azure/aks/managed-aad#use-conditional-access-with-azure-ad-and-aks). This further puts restrictions on access to the Kubernetes control plane. With conditional access policies, you can require multi-factor authentication, restrict authentication to devices that are managed by your Azure AD tenant, or block non-typical sign-in attempts. Apply these policies to Azure AD groups that are mapped with to Kubernetes roles with high privilege. 
 
-If you 
+    > [!NOTE] Both JIT and conditional access technology choices require Azure AD Premium.
 
-Maintain meticulous documentation about each role and permissions. 
+- Maintain meticulous documentation about each role and the assigned permissions. Keep clear distinction about which permissions are JIT and  standing.
 
- Likewise, if you know you'll have additional custom Kubernetes roles created as part of your separation of duties authentication schema, you can create those security groups now as well. For this walk through, you do NOT need to map any of these additional roles.
-
-In the cluster-rbac.yaml file and the various namespaced rbac.yaml files, you can uncomment what you wish and replace the <replace-with-an-aad-group-object-id…> placeholders with corresponding new or existing AD groups that map to their purpose for this cluster or namespace. You do not need to perform this action for this walk through; they are only here for your reference. By default, in this implementation, no additional cluster roles will be bound other than cluster-admin. For your final implementation, create custom kubernetes roles to align specifically with those job functions of your team, and create role assignments as needed. Handle JIT access at the group membership level in Azure AD via Privileged Identity Management, and leverage conditional access policies where possible. Always strive to minimize standing permissions, especially on identities that have access to in-scope components.
-
-
-
-Each individual with access should clearly be documented as to which role(s) they have. That way it's easy to map from individual to their expected permissions. Ensure you're documenting which permissions are JIT vs standing.
-
-These roles should then be mapped to Azure RBAC and Kubernetes RBAC roles, and documented as such. Consider monitoring the defination of those roles for changes (defintion and assignment), and alert on changes to those custom roles -- even if they are expected changes.  That'll ensure visibility and intentionality on those roles.
-
-Following the steps below will result in an Azure AD configuration that will be used for Kubernetes control plane (Cluster API) authorization.
-
-| Object                         | Purpose                                                 |
-|--------------------------------|---------------------------------------------------------|
-| A Cluster Admin Security Group | Will be mapped to `cluster-admin` Kubernetes role.      |
-| A Cluster Admin User           | Represents at least one break-glass cluster admin user. |
-| Cluster Admin Group Membership | Association between the Cluster Admin User(s) and the Cluster Admin Security Group. Ideally there would be NO standing group membership associations made, but for the purposes of this material, you should have assigned the admin user(s) created above. |
-| _Additional Security Groups_   | _Optional._ A security group (and its memberships) for the other built-in and custom Kubernetes roles you plan on using. |
+- Monitor the roles for changes such as, in assigment changes or role definitions. Create alerts on changes even if they are expected to gain visibility into intentions behind the changes.
 
 
 #### Requirement 7.1.2
 Restrict access to privileged user IDs to least privileges necessary to perform job responsibilities.
 
 ##### Your responsibilities
-Minimize standing permissions, opting for JIT access where practiable. Create custom Azure RBAC roles and Kuberentes roles to define specific set of permissions that should be allowed.
 
-Audit what users (and groups) have access in your subscriptions, even read. Inviting external identities should be disallowed or done with extreme care.
+Minimize standing permissions, especially on critical-impact identities that have access to in-scope components. Use [ Just-In-Time AD group membership](/azure/aks/managed-aad#configure-just-in-time-cluster-access-with-azure-ad-and-aks) in Azure Active Directory (AD) through Privileged Identity Management. Add extra restrictions through [Conditional Access Policies in Azure AD for your cluster](/azure/aks/managed-aad#use-conditional-access-with-azure-ad-and-aks) where possible.
+
+Regular review and audit users and groups that have access in your subscriptions, even for read-access. Avoid inviting external identities.
 
 #### Requirement 7.1.3
 Assign access based on individual personnel’s job classification and function.
 
 ##### Your responsibilities
-Permissions should be based on the clearly assigned jod duties of the individual wrt this paticular system, not based on tenure, company importance, or job title.
+Permissions should be based on the clearly assigned job duties of the individual wrt this paticular system, not based on tenure, company importance, or job title.
 
 Responsibility changes should be documented, even if they are temporary (filling in for someone that called in sick).
 
