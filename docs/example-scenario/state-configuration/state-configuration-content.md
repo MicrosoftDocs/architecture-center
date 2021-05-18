@@ -2,9 +2,9 @@ Azure Automation State Configuration is an Azure configuration management servic
 
 ## Architecture
 
-This example scenario demonstrates using Azure Automation State Configuration to install a web server on both Windows and Linux-based Azure Virtual Machines. Azure Monitor is used to raise an alert for any noncompliant systems.
+This example scenario demonstrates using Azure Automation State Configuration to install a web server on both Windows and Linux-based Azure Virtual Machines. Azure Monitor is used to raise an alert for any non-compliant systems.
 
-![](./media/azure-state-config-five.png)
+![](./media/azure-state-config.png)
 
 ## Reference deployment
 
@@ -25,7 +25,7 @@ az deployment group create --resource-group state-configuration \
     --template-uri https://raw.githubusercontent.com/mspnp/samples/master/solutions/azure-automation-state-configuration/azuredeploy.json
 ```
 
-Once deployed, in the Azure portal click on the **Automation Account** resource and then **State configuration (DSC)** and notice that all virtual machines have been added to the system and are compliant. These machines have all had the PowerShell DSC configuration applied, which has installed a web server on each.
+Once deployed, in the Azure portal, click on the **Automation Account** resource and then **State configuration (DSC)** and notice that all virtual machines have been added to the system and are compliant. These machines have all had the PowerShell DSC configuration applied, which has installed a web server on each.
 
 ![Image of DSC compliance results as seen in the Azure portal.](./media/dsc-results.png)
 
@@ -46,7 +46,7 @@ New-AzResourceGroupDeployment -ResourceGroupName state-configuration `
     -TemplateUri https://raw.githubusercontent.com/mspnp/samples/master/solutions/azure-automation-state-configuration/azuredeploy.json
 ```
 
-Once deployed, in the Azure portal click on the **Automation Account** resource and then **State configuration (DSC)** and notice that all virtual machines have been added to the system and are compliant. These machines have all had the PowerShell DSC configuration applied, which has installed a web server on each.
+Once deployed, in the Azure portal, click on the **Automation Account** resource and then **State configuration (DSC)** and notice that all virtual machines have been added to the system and are compliant. These machines have all had the PowerShell DSC configuration applied, which has installed a web server on each.
 
 ![Image of DSC compliance results as seen in the Azure portal.](./media/dsc-results.png)
 
@@ -58,7 +58,7 @@ Use the following button to deploy the reference using the Azure portal.
 
 [![Deploy to Azure](../../_images/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmspnp%2Fsamples%2Fmaster%2Fsolutions%2Fazure-automation-state-configuration%2Fazuredeploy.json)
 
-Once deployed, in the Azure portal click on the **Automation Account** resource and then **State configuration (DSC)** and notice that all virtual machines have been added to the system and are compliant. These machines have all had the PowerShell DSC configuration applied, which has installed a web server on each.
+Once deployed, in the Azure portal, click on the **Automation Account** resource and then **State configuration (DSC)** and notice that all virtual machines have been added to the system and are compliant. These machines have all had the PowerShell DSC configuration applied, which has installed a web server on each.
 
 ![Image of DSC compliance results as seen in the Azure portal.](./media/dsc-results.png)
 
@@ -69,7 +69,7 @@ You can also browse to the public IP address of any virtual machine to verify th
 For detailed information and additional deployment options, see the ARM Templates used to deploy this solution.
 
 > [!div class="nextstepaction"]
-> [Azure Automation State Configuration ARM Templates](/samples/mspnp/samples/hub-and-spoke-deployment/)
+> [Azure Automation State Configuration ARM Templates](https://github.com/mspnp/samples/tree/master/solutions/azure-automation-state-configuration)
 
 ## Components
 
@@ -118,6 +118,8 @@ configuration linuxpackage {
 }
 ```
 
+For more information on creating configurations, see [Compose DSC configurations](/azure/automation/compose-configurationwithcompositeresources).
+
 # [Windows](#tab/windows)
 
 ```powershell
@@ -151,10 +153,12 @@ AzureDiagnostics
 | where ResultType != "Failed"
 ```
 
+For more information on monitoring Azure Automation State Configuration, see [Integrate with Azure Monitor logs](/azure/automation/automation-dsc-diagnostics).
+
 ## Pricing
 
 Configuration management includes the configuration pull service and change tracking capabilities. Billing is based on the number of nodes that are registered with the service and the log data stored in the Azure Log Analytics service.
 
-Charges for configuration management start when a node is registered with the service and stop when the node is unregistered from the service. A node is any machine whose configuration is managed by configuration management. This could be an Azure virtual machine (VM), on-premises VM, physical host, or a VM in another public cloud. Billing for nodes is pro-rated hourly.
+Charges for configuration management start when a node is registered with the service and stops when the node is unregistered. A node is any machine whose configuration is managed by configuration management. This could be an Azure virtual machine (VM), on-premises VM, physical host, or a VM in another public cloud. Billing for nodes is pro-rated hourly.
 
 For more information, see [Automation pricing](https://azure.microsoft.com/pricing/details/automation/).
