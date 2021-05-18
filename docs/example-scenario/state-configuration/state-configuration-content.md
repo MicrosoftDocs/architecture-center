@@ -139,7 +139,7 @@ configuration windowsfeatures {
 
 ---
 
-For more information on compsong configurations, see [Composing DSC configurations](/azure/automation/compose-configurationwithcompositeresources).
+For more information on composing configurations, see [Composing DSC configurations](/azure/automation/compose-configurationwithcompositeresources).
 
 ### Monitoring
 
