@@ -1,25 +1,26 @@
 ### YamlMime:Architecture
 metadata:
-  title: <Create a Modern Analytics Architecture with Azure Databricks>
+  title: Modern analytics architecture with Azure Databricks
   titleSuffix: Azure Solution Ideas
-  description: <Create a Modern Analytics Architecture with Azure Databricks to unify all of your data, analytics, and AI workloads at any scale.>
-  author: <kpistor>
-  ms.author: <b-macorn@microsoft.com>
-  ms.date: <publish date>
+  description: Create a modern analytics architecture with Azure Databricks, Data Lake Storage, and other Azure services. Unify data, analytics, and AI workloads at any scale.
+  author: kacummis
+  ms.author: kacummis
+  ms.date: 05/20/2021
   ms.topic: conceptual
+  ms.custom: fcp
   ms.service: architecture-center
   ms.subservice: solution-idea
 azureCategories:
-  - <"analytics">
-  - <"ai-machine-learning">
+  - ai-machine-learning
+  - analytics
 products:
-  - <"azure-databricks">
-  - <"azure-data-lake-storage">
-  - <"azure-data-lake-gen2">
-  - <"azure-data-factory">
-  - <"power-bi">
-name: <Create a Modern Analytics Architecture with Azure Databricks>
-summary: <Create a Modern Analytics Architecture with Azure Databricks to unify all of your data, analytics, and AI workloads at any scale.>
-thumbnailUrl: /azure/architecture/browse/thumbs/modern-data-arch-with-adb.png
+  - azure-data-factory
+  - azure-data-lake-storage
+  - azure-databricks
+  - azure-synapse-analytics
+  - power-bi
+name: Modern analytics architecture with Azure Databricks
+summary: Create a modern analytics architecture with Azure Databricks, Data Lake Storage, and other Azure services. Unify data, analytics, and AI workloads at any scale.
+thumbnailUrl: /azure/architecture/browse/thumbs/azure-databricks-modern-analytics-architecture-diagram-thumbnail.png
 content: |
-  [!include[](<solution-idea>-content.md)]
+  [!include[](azure-databricks-modern-analytics-architecture-content.md)]
